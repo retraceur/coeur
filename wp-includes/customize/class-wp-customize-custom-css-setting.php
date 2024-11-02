@@ -4,7 +4,7 @@
  *
  * This handles validation, sanitization and saving of the value.
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Customize
  * @since 4.7.0
  */

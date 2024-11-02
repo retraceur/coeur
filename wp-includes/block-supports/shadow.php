@@ -2,7 +2,7 @@
 /**
  * Shadow block support flag.
  *
- * @package WordPress
+ * @package motsVertueux
  * @since 6.3.0
  */
 

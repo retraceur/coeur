@@ -2,7 +2,7 @@
 /**
  * WordPress FTP Filesystem.
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Filesystem
  */
 

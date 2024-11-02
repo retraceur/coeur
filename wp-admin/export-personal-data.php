@@ -2,7 +2,7 @@
 /**
  * Privacy tools, Export Personal Data screen.
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Administration
  */
 

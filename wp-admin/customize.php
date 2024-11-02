@@ -2,7 +2,7 @@
 /**
  * Theme Customize Screen.
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Customize
  * @since 3.4.0
  */

@@ -2,7 +2,7 @@
 /**
  * REST API: WP_REST_Post_Search_Handler class
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage REST_API
  * @since 5.0.0
  */

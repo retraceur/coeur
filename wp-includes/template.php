@@ -2,7 +2,7 @@
 /**
  * Template loading functions.
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Template
  */
 

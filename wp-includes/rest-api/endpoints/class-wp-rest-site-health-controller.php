@@ -2,7 +2,7 @@
 /**
  * REST API: WP_REST_Site_Health_Controller class
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage REST_API
  * @since 5.6.0
  */

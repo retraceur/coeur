@@ -2,7 +2,7 @@
 /**
  * WordPress Post Administration API.
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Administration
  */
 

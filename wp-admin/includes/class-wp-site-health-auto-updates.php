@@ -2,7 +2,7 @@
 /**
  * Class for testing automatic updates in the WordPress code.
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Site_Health
  * @since 5.2.0
  */

@@ -16,7 +16,7 @@
  *
  * This file should have no external dependencies.
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Plugin
  * @since 1.5.0
  */

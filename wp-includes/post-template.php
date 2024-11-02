@@ -4,7 +4,7 @@
  *
  * Gets content for the current post in the loop.
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Template
  */
 

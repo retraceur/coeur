@@ -4,7 +4,7 @@
  *
  * @since 0.71
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Trackbacks
  */
 

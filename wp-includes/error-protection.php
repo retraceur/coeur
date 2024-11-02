@@ -2,7 +2,7 @@
 /**
  * Error Protection API: Functions
  *
- * @package WordPress
+ * @package motsVertueux
  * @since 5.2.0
  */
 

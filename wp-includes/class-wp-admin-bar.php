@@ -2,7 +2,7 @@
 /**
  * Toolbar API: WP_Admin_Bar class
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Toolbar
  * @since 3.1.0
  */

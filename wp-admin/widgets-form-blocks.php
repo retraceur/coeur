@@ -2,7 +2,7 @@
 /**
  * The block-based widgets editor, for use in widgets.php.
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Administration
  */
 

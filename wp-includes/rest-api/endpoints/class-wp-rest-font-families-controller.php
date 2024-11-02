@@ -2,7 +2,7 @@
 /**
  * REST API: WP_REST_Font_Families_Controller class
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage REST_API
  * @since 6.5.0
  */

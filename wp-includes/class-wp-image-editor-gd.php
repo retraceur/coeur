@@ -2,7 +2,7 @@
 /**
  * WordPress GD Image Editor
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Image_Editor
  */
 

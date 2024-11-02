@@ -2,7 +2,7 @@
 /**
  * Block Pattern Directory REST API: WP_REST_Pattern_Directory_Controller class
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage REST_API
  * @since 5.8.0
  */

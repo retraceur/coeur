@@ -2,7 +2,7 @@
 /**
  * User Dashboard Administration Screen
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Administration
  * @since 3.1.0
  */

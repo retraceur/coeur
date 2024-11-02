@@ -2,7 +2,7 @@
 /**
  * Edit plugin file editor administration panel.
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Administration
  */
 

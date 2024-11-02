@@ -2,7 +2,7 @@
 /**
  * Error Protection API: WP_Fatal_Error_Handler class
  *
- * @package WordPress
+ * @package motsVertueux
  * @since 5.2.0
  */
 

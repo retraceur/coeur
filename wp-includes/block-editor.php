@@ -2,7 +2,7 @@
 /**
  * Block Editor API.
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Editor
  * @since 5.8.0
  */

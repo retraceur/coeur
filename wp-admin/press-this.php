@@ -2,7 +2,7 @@
 /**
  * Press This Display and Handler.
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Press_This
  */
 

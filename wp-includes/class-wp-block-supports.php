@@ -2,7 +2,7 @@
 /**
  * Block support flags.
  *
- * @package WordPress
+ * @package motsVertueux
  *
  * @since 5.6.0
  */

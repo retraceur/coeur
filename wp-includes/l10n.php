@@ -2,7 +2,7 @@
 /**
  * Core Translation API
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage i18n
  * @since 1.2.0
  */

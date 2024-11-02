@@ -2,7 +2,7 @@
 /**
  * Upgrader API: Theme_Installer_Skin class
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Upgrader
  * @since 4.6.0
  */

@@ -2,7 +2,7 @@
 /**
  * Screen API: WP_Screen class
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Administration
  * @since 4.4.0
  */

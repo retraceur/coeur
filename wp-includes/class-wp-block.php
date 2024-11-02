@@ -2,7 +2,7 @@
 /**
  * Blocks API: WP_Block class
  *
- * @package WordPress
+ * @package motsVertueux
  * @since 5.5.0
  */
 

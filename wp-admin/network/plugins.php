@@ -2,7 +2,7 @@
 /**
  * Network Plugins administration panel.
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Multisite
  * @since 3.1.0
  */

@@ -2,7 +2,7 @@
 /**
  * WordPress Administration Template Header
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Administration
  */
 

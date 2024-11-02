@@ -2,7 +2,7 @@
 /**
  * Locale API: WP_Locale class
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage i18n
  * @since 4.6.0
  */

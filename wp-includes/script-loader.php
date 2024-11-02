@@ -13,7 +13,7 @@
  * to temporarily override the above settings. Also a compression test is run once and the result is saved
  * as option 'can_compress_scripts' (0/1). The test will run again if that option is deleted.
  *
- * @package WordPress
+ * @package motsVertueux
  */
 
 /** WordPress Dependency Class */

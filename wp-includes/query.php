@@ -7,7 +7,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/the-loop/ More information on The Loop.
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Query
  */
 

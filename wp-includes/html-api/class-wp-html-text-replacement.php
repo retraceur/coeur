@@ -2,7 +2,7 @@
 /**
  * HTML API: WP_HTML_Text_Replacement class
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage HTML-API
  * @since 6.2.0
  */

@@ -2,7 +2,7 @@
 /**
  * Site Editor administration screen.
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Administration
  */
 

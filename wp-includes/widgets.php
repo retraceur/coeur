@@ -13,7 +13,7 @@
  * @link https://wordpress.org/documentation/article/manage-wordpress-widgets/
  * @link https://developer.wordpress.org/themes/functionality/widgets/
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Widgets
  * @since 2.2.0
  */

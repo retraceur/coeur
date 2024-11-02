@@ -2,7 +2,7 @@
 /**
  * Core Navigation Menu API
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Nav_Menus
  * @since 3.0.0
  */

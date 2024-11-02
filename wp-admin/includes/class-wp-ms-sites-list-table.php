@@ -2,7 +2,7 @@
 /**
  * List Table API: WP_MS_Sites_List_Table class
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Administration
  * @since 3.1.0
  */

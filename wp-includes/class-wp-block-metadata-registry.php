@@ -2,7 +2,7 @@
 /**
  * Block Metadata Registry
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Blocks
  * @since 6.7.0
  */

@@ -2,7 +2,7 @@
 /**
  * User API: WP_User class
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Users
  * @since 4.4.0
  */

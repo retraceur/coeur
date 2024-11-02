@@ -2,7 +2,7 @@
 /**
  * Style Engine: WP_Style_Engine class
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage StyleEngine
  * @since 6.1.0
  */

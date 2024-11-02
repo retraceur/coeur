@@ -2,7 +2,7 @@
 /**
  * Query: Large title.
  *
- * @package WordPress
+ * @package motsVertueux
  */
 
 return array(

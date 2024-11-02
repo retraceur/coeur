@@ -2,7 +2,7 @@
 /**
  * Used to set up all core blocks used with the block editor.
  *
- * @package WordPress
+ * @package motsVertueux
  */
 
 // Don't load directly.

@@ -2,7 +2,7 @@
 /**
  * Upgrader API: Automatic_Upgrader_Skin class
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Upgrader
  * @since 4.6.0
  */

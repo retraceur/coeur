@@ -30,7 +30,7 @@
  *
  * @since 2.7.0
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Filesystem
  */
 class WP_Filesystem_SSH2 extends WP_Filesystem_Base {

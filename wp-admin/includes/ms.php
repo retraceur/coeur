@@ -2,7 +2,7 @@
 /**
  * Multisite administration functions.
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Multisite
  * @since 3.0.0
  */

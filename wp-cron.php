@@ -13,7 +13,7 @@
  * The HTTP request to this file will not slow down the visitor who happens to
  * visit when a scheduled cron event runs.
  *
- * @package WordPress
+ * @package motsVertueux
  */
 
 ignore_user_abort( true );

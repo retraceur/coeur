@@ -2,7 +2,7 @@
 /**
  * Adds the wp-block-list class to the rendered list block.
  *
- * @package WordPress
+ * @package motsVertueux
  */
 
 /**

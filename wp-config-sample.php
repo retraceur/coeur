@@ -15,7 +15,7 @@
  *
  * @link https://developer.wordpress.org/advanced-administration/wordpress/wp-config/
  *
- * @package WordPress
+ * @package motsVertueux
  */
 
 // ** Database settings - You can get this info from your web host ** //

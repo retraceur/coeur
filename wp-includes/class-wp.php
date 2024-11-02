@@ -2,7 +2,7 @@
 /**
  * WordPress environment setup class.
  *
- * @package WordPress
+ * @package motsVertueux
  * @since 2.0.0
  */
 #[AllowDynamicProperties]

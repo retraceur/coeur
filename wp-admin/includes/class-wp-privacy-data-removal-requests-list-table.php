@@ -2,7 +2,7 @@
 /**
  * List Table API: WP_Privacy_Data_Removal_Requests_List_Table class
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Administration
  * @since 4.9.6
  */

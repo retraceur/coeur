@@ -2,7 +2,7 @@
 /**
  * WordPress Ajax Process Execution
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Administration
  *
  * @link https://developer.wordpress.org/plugins/javascript/ajax

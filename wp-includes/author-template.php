@@ -6,7 +6,7 @@
  *
  * @link https://codex.wordpress.org/Author_Templates
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Template
  */
 

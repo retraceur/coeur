@@ -2,7 +2,7 @@
 /**
  * New User Administration Screen.
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Administration
  */
 

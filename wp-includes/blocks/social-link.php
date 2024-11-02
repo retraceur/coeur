@@ -2,7 +2,7 @@
 /**
  * Server-side rendering of the `core/social-link` blocks.
  *
- * @package WordPress
+ * @package motsVertueux
  */
 
 /**

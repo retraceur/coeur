@@ -2,7 +2,7 @@
 /**
  * Widget API: WP_Widget_Categories class
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Widgets
  * @since 4.4.0
  */

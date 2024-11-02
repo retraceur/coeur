@@ -2,7 +2,7 @@
 /**
  * WordPress Administration Meta Boxes API.
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Administration
  */
 

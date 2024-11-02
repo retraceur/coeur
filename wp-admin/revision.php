@@ -4,7 +4,7 @@
  *
  * Requires wp-admin/includes/revision.php.
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Administration
  * @since 2.6.0
  */

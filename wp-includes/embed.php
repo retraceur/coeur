@@ -2,7 +2,7 @@
 /**
  * oEmbed API: Top-level oEmbed functionality
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage oEmbed
  * @since 4.4.0
  */

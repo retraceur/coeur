@@ -7,7 +7,7 @@
  * @link https://developer.wordpress.org/advanced-administration/wordpress/oembed/
  * @link http://oembed.com/
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage oEmbed
  */
 

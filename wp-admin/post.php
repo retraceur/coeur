@@ -4,7 +4,7 @@
  *
  * Manage Post actions: post, edit, delete, etc.
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Administration
  */
 

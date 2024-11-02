@@ -2,7 +2,7 @@
 /**
  * Register the block patterns and block patterns categories
  *
- * @package WordPress
+ * @package motsVertueux
  * @since 5.5.0
  */
 

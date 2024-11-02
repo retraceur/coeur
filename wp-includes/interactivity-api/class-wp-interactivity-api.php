@@ -2,7 +2,7 @@
 /**
  * Interactivity API: WP_Interactivity_API class.
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Interactivity API
  * @since 6.5.0
  */

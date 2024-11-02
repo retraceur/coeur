@@ -2,7 +2,7 @@
 /**
  * Network Contribute administration panel.
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Multisite
  * @since 6.3.0
  */

@@ -2,7 +2,7 @@
 /**
  * Customize API: WP_Customize_Selective_Refresh class
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Customize
  * @since 4.5.0
  */

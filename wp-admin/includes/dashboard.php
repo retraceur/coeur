@@ -2,7 +2,7 @@
 /**
  * WordPress Dashboard Widget Administration Screen API
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Administration
  */
 

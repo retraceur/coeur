@@ -2,7 +2,7 @@
 /**
  * A simple set of functions to check the WordPress.org Version Update service.
  *
- * @package WordPress
+ * @package motsVertueux
  * @since 2.3.0
  */
 

@@ -5,7 +5,7 @@
  * Standardizes the HTTP requests for WordPress. Handles cookies, gzip encoding and decoding, chunk
  * decoding, if HTTP 1.1 and various other difficult HTTP protocol implementations.
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage HTTP
  */
 

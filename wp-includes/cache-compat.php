@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/reference/classes/wp_object_cache/
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Cache
  */
 

@@ -32,7 +32,7 @@
  *         ++$error_count;
  *     }
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Plugin
  */
 

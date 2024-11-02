@@ -2,7 +2,7 @@
 /**
  * Post revision functions.
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Post_Revisions
  */
 

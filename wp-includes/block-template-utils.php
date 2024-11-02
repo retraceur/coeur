@@ -2,7 +2,7 @@
 /**
  * Utilities used to fetch and create templates and template parts.
  *
- * @package WordPress
+ * @package motsVertueux
  * @since 5.8.0
  */
 

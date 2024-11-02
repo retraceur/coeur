@@ -2,7 +2,7 @@
 /**
  * HTTP API: Requests hook bridge class
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage HTTP
  * @since 4.7.0
  */

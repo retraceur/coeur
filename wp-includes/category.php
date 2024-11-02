@@ -2,7 +2,7 @@
 /**
  * Taxonomy API: Core category-specific functionality
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Taxonomy
  */
 

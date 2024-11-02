@@ -2,7 +2,7 @@
 /**
  * Core Post API
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Post
  */
 

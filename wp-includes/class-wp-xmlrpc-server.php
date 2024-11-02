@@ -2,7 +2,7 @@
 /**
  * XML-RPC protocol support for WordPress.
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Publishing
  */
 

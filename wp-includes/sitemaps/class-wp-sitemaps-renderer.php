@@ -4,7 +4,7 @@
  *
  * Responsible for rendering Sitemaps data to XML in accordance with sitemap protocol.
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Sitemaps
  * @since 5.5.0
  */

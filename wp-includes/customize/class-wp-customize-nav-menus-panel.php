@@ -2,7 +2,7 @@
 /**
  * Customize API: WP_Customize_Nav_Menus_Panel class
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Customize
  * @since 4.4.0
  */

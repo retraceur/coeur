@@ -4,7 +4,7 @@
  *
  * Most of the functions are pluggable and can be overwritten.
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Administration
  */
 

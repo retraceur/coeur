@@ -2,7 +2,7 @@
 /**
  * WP_Theme_JSON class
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Theme
  * @since 5.8.0
  */

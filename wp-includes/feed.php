@@ -5,7 +5,7 @@
  * Many of the functions used in here belong in The Loop, or The Loop for the
  * Feeds.
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Feed
  * @since 2.1.0
  */

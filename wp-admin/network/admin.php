@@ -2,7 +2,7 @@
 /**
  * WordPress Network Administration Bootstrap
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Multisite
  * @since 3.1.0
  */

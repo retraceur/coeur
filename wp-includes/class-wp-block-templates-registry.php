@@ -2,7 +2,7 @@
 /**
  * Templates registry functions.
  *
- * @package WordPress
+ * @package motsVertueux
  * @since 6.7.0
  */
 

@@ -2,7 +2,7 @@
 /**
  * APIs to interact with global settings & styles.
  *
- * @package WordPress
+ * @package motsVertueux
  */
 
 /**

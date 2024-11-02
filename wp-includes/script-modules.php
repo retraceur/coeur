@@ -4,7 +4,7 @@
  *
  * @since 6.5.0
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Script Modules
  */
 

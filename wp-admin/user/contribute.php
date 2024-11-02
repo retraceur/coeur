@@ -2,7 +2,7 @@
 /**
  * User Dashboard Contribute administration panel.
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Administration
  * @since 6.6.0
  */

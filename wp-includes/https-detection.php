@@ -2,7 +2,7 @@
 /**
  * HTTPS detection functions.
  *
- * @package WordPress
+ * @package motsVertueux
  * @since 5.7.0
  */
 

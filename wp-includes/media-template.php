@@ -2,7 +2,7 @@
 /**
  * WordPress media templates.
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Media
  * @since 3.5.0
  */

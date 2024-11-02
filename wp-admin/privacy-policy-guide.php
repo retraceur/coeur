@@ -2,7 +2,7 @@
 /**
  * Privacy Policy Guide Screen.
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Administration
  */
 

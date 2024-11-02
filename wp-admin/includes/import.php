@@ -2,7 +2,7 @@
 /**
  * WordPress Administration Importer API.
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Administration
  */
 

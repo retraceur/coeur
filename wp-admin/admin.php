@@ -2,7 +2,7 @@
 /**
  * WordPress Administration Bootstrap
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Administration
  */
 

@@ -2,7 +2,7 @@
 /**
  * Post API: WP_Post_Type class
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Post
  * @since 4.6.0
  */

@@ -2,7 +2,7 @@
 /**
  * Administration: Community Events class.
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Administration
  * @since 4.8.0
  */

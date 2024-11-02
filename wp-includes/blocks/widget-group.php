@@ -2,7 +2,7 @@
 /**
  * Server-side rendering of the `core/widget-group` block.
  *
- * @package WordPress
+ * @package motsVertueux
  */
 
 /**

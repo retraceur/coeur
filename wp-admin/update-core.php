@@ -2,7 +2,7 @@
 /**
  * Update Core administration panel.
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Administration
  */
 

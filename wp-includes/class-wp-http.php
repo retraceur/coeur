@@ -2,7 +2,7 @@
 /**
  * HTTP API: WP_Http class
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage HTTP
  * @since 2.7.0
  */

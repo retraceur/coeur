@@ -2,7 +2,7 @@
 /**
  * WordPress Cron API
  *
- * @package WordPress
+ * @package motsVertueux
  */
 
 /**

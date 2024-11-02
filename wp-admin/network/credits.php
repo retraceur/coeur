@@ -2,7 +2,7 @@
 /**
  * Network Credits administration panel.
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Multisite
  * @since 3.4.0
  */

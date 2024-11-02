@@ -2,7 +2,7 @@
 /**
  * Deprecated. Use rss.php instead.
  *
- * @package WordPress
+ * @package motsVertueux
  * @deprecated 2.1.0
  */
 

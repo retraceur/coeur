@@ -4,7 +4,7 @@
  *
  * Intended for form submission handling in themes and plugins.
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Administration
  */
 

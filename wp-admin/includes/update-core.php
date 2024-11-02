@@ -6,7 +6,7 @@
  * All functions must be present in the previous version being upgraded from
  * as this file is used there too.
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Administration
  * @since 2.7.0
  */

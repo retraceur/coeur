@@ -2,7 +2,7 @@
 /**
  * WP_Exception class
  *
- * @package WordPress
+ * @package motsVertueux
  * @since 6.7.0
  */
 

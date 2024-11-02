@@ -2,7 +2,7 @@
 /**
  * General template tags that can go anywhere in a template.
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Template
  */
 

@@ -2,7 +2,7 @@
 /**
  * Elements styles block support.
  *
- * @package WordPress
+ * @package motsVertueux
  * @since 5.8.0
  */
 

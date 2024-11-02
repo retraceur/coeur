@@ -2,7 +2,7 @@
 /**
  * Server-side rendering of the `core/image` block.
  *
- * @package WordPress
+ * @package motsVertueux
  */
 
 /**

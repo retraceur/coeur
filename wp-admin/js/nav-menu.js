@@ -4,7 +4,7 @@
  *
  * @version 2.0.0
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Administration
  * @output wp-admin/js/nav-menu.js
  */

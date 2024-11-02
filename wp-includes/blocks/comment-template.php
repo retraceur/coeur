@@ -2,7 +2,7 @@
 /**
  * Server-side rendering of the `core/comment-template` block.
  *
- * @package WordPress
+ * @package motsVertueux
  */
 
 /**

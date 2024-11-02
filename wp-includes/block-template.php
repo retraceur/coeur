@@ -2,7 +2,7 @@
 /**
  * Block template loader functions.
  *
- * @package WordPress
+ * @package motsVertueux
  */
 
 /**

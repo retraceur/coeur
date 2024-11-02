@@ -11,7 +11,7 @@
  * that use the Settings API. In this case it saves the new option values
  * and returns the user to their page of origin.
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Administration
  */
 

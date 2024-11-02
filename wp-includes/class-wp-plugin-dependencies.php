@@ -2,7 +2,7 @@
 /**
  * WordPress Plugin Administration API: WP_Plugin_Dependencies class
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Administration
  * @since 6.5.0
  */

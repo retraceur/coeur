@@ -4,7 +4,7 @@
  *
  * Generates the sitemap index.
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Sitemaps
  * @since 5.5.0
  */

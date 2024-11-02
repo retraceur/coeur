@@ -2,7 +2,7 @@
 /**
  * Update/Install Plugin/Theme administration panel.
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Administration
  */
 

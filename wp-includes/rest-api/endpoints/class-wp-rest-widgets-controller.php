@@ -2,7 +2,7 @@
 /**
  * REST API: WP_REST_Widgets_Controller class
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage REST_API
  * @since 5.8.0
  */

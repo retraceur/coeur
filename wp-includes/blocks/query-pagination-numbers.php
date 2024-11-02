@@ -2,7 +2,7 @@
 /**
  * Server-side rendering of the `core/query-pagination-numbers` block.
  *
- * @package WordPress
+ * @package motsVertueux
  */
 
 /**

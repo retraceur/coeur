@@ -2,7 +2,7 @@
 /**
  * The custom background script.
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Administration
  */
 

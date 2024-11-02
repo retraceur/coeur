@@ -2,7 +2,7 @@
 /**
  * Server-side rendering of the `core/query-no-results` block.
  *
- * @package WordPress
+ * @package motsVertueux
  */
 
 /**

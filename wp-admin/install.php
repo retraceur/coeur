@@ -2,7 +2,7 @@
 /**
  * WordPress Installer
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Administration
  */
 

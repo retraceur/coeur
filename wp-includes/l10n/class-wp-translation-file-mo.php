@@ -2,7 +2,7 @@
 /**
  * I18N: WP_Translation_File_MO class.
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage I18N
  * @since 6.5.0
  */

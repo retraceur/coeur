@@ -2,7 +2,7 @@
 /**
  * WP_Privacy_Policy_Content class.
  *
- * @package WordPress
+ * @package motsVertueux
  * @subpackage Administration
  * @since 4.9.6
  */
