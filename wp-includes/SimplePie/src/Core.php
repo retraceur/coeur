@@ -46,7 +46,7 @@
  *
  * Class for backward compatibility.
  *
- * @deprecated Use {@see SimplePie} directly
+ * @deprecated WP Use {@see SimplePie} directly
  * @package SimplePie
  * @subpackage API
  */

@@ -4,7 +4,8 @@
  *
  * @package motsVertueux
  * @subpackage Upgrader
- * @since 4.6.0
+ * @since WP 4.6.0
+ * @since 1.0.0
  */
 
 /**
@@ -17,8 +18,8 @@
  * All functions must be present in the previous version being upgraded from
  * as this file is used there too.
  *
- * @since 2.8.0
- * @since 4.6.0 Moved to its own file from wp-admin/includes/class-wp-upgrader.php.
+ * @since WP 2.8.0
+ * @since WP 4.6.0 Moved to its own file from wp-admin/includes/class-wp-upgrader.php.
  *
  * @see WP_Upgrader
  */
@@ -27,7 +28,7 @@ class Core_Upgrader extends WP_Upgrader {
 	/**
 	 * Initializes the upgrade strings.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 */
 	public function upgrade_strings() {
 		$this->strings['up_to_date'] = __( 'WordPress is at the latest version.' );
@@ -45,7 +46,7 @@ class Core_Upgrader extends WP_Upgrader {
 	/**
 	 * Upgrades WordPress core.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @global WP_Filesystem_Base $wp_filesystem                WordPress filesystem subclass.
 	 * @global callable           $_wp_filesystem_direct_method
@@ -135,14 +136,6 @@ class Core_Upgrader extends WP_Upgrader {
 			// Output the failure error as a normal feedback, and not as an error:
 			/** This filter is documented in wp-admin/includes/update-core.php */
 			apply_filters( 'update_feedback', $download->get_error_message() );
-
-			// Report this failure back to WordPress.org for debugging purposes.
-			wp_version_check(
-				array(
-					'signature_failure_code' => $download->get_error_code(),
-					'signature_failure_data' => $download->get_error_data(),
-				)
-			);
 
 			// Pretend this error didn't happen.
 			$download = $download->get_error_data( 'softfail-filename' );
@@ -271,7 +264,7 @@ class Core_Upgrader extends WP_Upgrader {
 	/**
 	 * Determines if this WordPress Core version should update to an offered version or not.
 	 *
-	 * @since 3.7.0
+	 * @since WP 3.7.0
 	 *
 	 * @param string $offered_ver The offered version, of the format x.y.z.
 	 * @return bool True if we should update to the offered version, otherwise false.
@@ -349,7 +342,7 @@ class Core_Upgrader extends WP_Upgrader {
 			/**
 			 * Filters whether to enable automatic core updates for development versions.
 			 *
-			 * @since 3.7.0
+			 * @since WP 3.7.0
 			 *
 			 * @param bool $upgrade_dev Whether to enable automatic updates for
 			 *                          development versions.
@@ -366,7 +359,7 @@ class Core_Upgrader extends WP_Upgrader {
 			/**
 			 * Filters whether to enable minor automatic core updates.
 			 *
-			 * @since 3.7.0
+			 * @since WP 3.7.0
 			 *
 			 * @param bool $upgrade_minor Whether to enable minor automatic core updates.
 			 */
@@ -379,7 +372,7 @@ class Core_Upgrader extends WP_Upgrader {
 			/**
 			 * Filters whether to enable major automatic core updates.
 			 *
-			 * @since 3.7.0
+			 * @since WP 3.7.0
 			 *
 			 * @param bool $upgrade_major Whether to enable major automatic core updates.
 			 */
@@ -393,7 +386,7 @@ class Core_Upgrader extends WP_Upgrader {
 	/**
 	 * Compares the disk file checksums against the expected checksums.
 	 *
-	 * @since 3.7.0
+	 * @since WP 3.7.0
 	 *
 	 * @global string $wp_version       The WordPress version string.
 	 * @global string $wp_local_package Locale code of the package.

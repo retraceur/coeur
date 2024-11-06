@@ -4,13 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage Widgets
- * @since 4.4.0
+ * @since WP 4.4.0
  */
 
 /**
  * Core class used to implement a RSS widget.
  *
- * @since 2.8.0
+ * @since WP 2.8.0
  *
  * @see WP_Widget
  */
@@ -19,7 +19,7 @@ class WP_Widget_RSS extends WP_Widget {
 	/**
 	 * Sets up a new RSS widget instance.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 */
 	public function __construct() {
 		$widget_ops = array(
@@ -38,7 +38,7 @@ class WP_Widget_RSS extends WP_Widget {
 	/**
 	 * Outputs the content for the current RSS widget instance.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @param array $args     Display arguments including 'before_title', 'after_title',
 	 *                        'before_widget', and 'after_widget'.
@@ -103,7 +103,7 @@ class WP_Widget_RSS extends WP_Widget {
 			 *
 			 * Themes can remove the icon link by using `add_filter( 'rss_widget_feed_link', '__return_empty_string' );`.
 			 *
-			 * @since 5.9.0
+			 * @since WP 5.9.0
 			 *
 			 * @param string|false $feed_link HTML for link to RSS feed.
 			 * @param array        $instance  Array of settings for the current widget.
@@ -147,7 +147,7 @@ class WP_Widget_RSS extends WP_Widget {
 	/**
 	 * Handles updating settings for the current RSS widget instance.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @param array $new_instance New settings for this instance as input by the user via
 	 *                            WP_Widget::form().
@@ -162,7 +162,7 @@ class WP_Widget_RSS extends WP_Widget {
 	/**
 	 * Outputs the settings form for the RSS widget.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @param array $instance Current settings.
 	 */

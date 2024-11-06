@@ -5,6 +5,8 @@
  * Inspired by Requests for Python.
  *
  * Based on concepts from SimplePie_File, RequestCore and WP_Http.
+ * 
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package Requests
  */
@@ -105,7 +107,7 @@ class Requests {
 	 * @see \WpOrg\Requests\Requests::get_default_options()
 	 * @see \WpOrg\Requests\Requests::request() for values returned by this method
 	 *
-	 * @since 2.0.0
+	 * @since WP 2.0.0
 	 *
 	 * @var array
 	 */
@@ -134,7 +136,7 @@ class Requests {
 	/**
 	 * Default supported Transport classes.
 	 *
-	 * @since 2.0.0
+	 * @since WP 2.0.0
 	 *
 	 * @var array
 	 */
@@ -183,7 +185,7 @@ class Requests {
 	 *
 	 * @link https://stackoverflow.com/a/43170354/482864 Marker source.
 	 *
-	 * @since 2.0.0
+	 * @since WP 2.0.0
 	 *
 	 * @var array
 	 */
@@ -972,11 +974,9 @@ class Requests {
 	 *
 	 * Warning: Magic numbers within. Due to the potential different formats that the compressed
 	 * data may be returned in, some "magic offsets" are needed to ensure proper decompression
-	 * takes place. For a simple progmatic way to determine the magic offset in use, see:
-	 * https://core.trac.wordpress.org/ticket/18273
+	 * takes place. For a simple progmatic way to determine the magic offset in use.
 	 *
-	 * @since 1.6.0
-	 * @link https://core.trac.wordpress.org/ticket/18273
+	 * @since WP 1.6.0
 	 * @link https://www.php.net/gzinflate#70875
 	 * @link https://www.php.net/gzinflate#77336
 	 *

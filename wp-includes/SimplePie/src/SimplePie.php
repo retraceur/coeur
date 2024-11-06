@@ -685,7 +685,7 @@ class SimplePie
      * options directly into the constructor. This has been removed as of 1.3 as
      * it caused a lot of confusion.
      *
-     * @since 1.0 Preview Release
+     * @since WP 1.0 Preview Release
      */
     public function __construct()
     {
@@ -754,7 +754,7 @@ class SimplePie
      * This tells SimplePie to ignore the content-type provided by the server.
      * Be careful when using this option, as it will also disable autodiscovery.
      *
-     * @since 1.1
+     * @since WP 1.1
      * @param bool $enable Force the given data/URL to be treated as a feed
      */
     public function force_feed($enable = false)
@@ -773,7 +773,7 @@ class SimplePie
      * of a string for the $url. Remember that with each additional feed comes
      * additional processing and resources.
      *
-     * @since 1.0 Preview Release
+     * @since WP 1.0 Preview Release
      * @see set_raw_data()
      * @param string|array $url This is the URL (or array of URLs) that you want to parse.
      */
@@ -816,7 +816,7 @@ class SimplePie
      * to parse that data string instead of a remote feed. Any set feed URL
      * takes precedence.
      *
-     * @since 1.0 Beta 3
+     * @since WP 1.0 Beta 3
      * @param string $data RSS or Atom data as a string.
      * @see set_feed_url()
      */
@@ -831,7 +831,7 @@ class SimplePie
      * This allows you to change the maximum time the feed's server to respond
      * and send the feed back.
      *
-     * @since 1.0 Beta 3
+     * @since WP 1.0 Beta 3
      * @param int $timeout The maximum number of seconds to spend waiting to retrieve a feed.
      */
     public function set_timeout($timeout = 10)
@@ -844,7 +844,7 @@ class SimplePie
      *
      * This allows you to change default curl options
      *
-     * @since 1.0 Beta 3
+     * @since WP 1.0 Beta 3
      * @param array $curl_options Curl options to add to default settings
      */
     public function set_curl_options(array $curl_options = [])
@@ -855,7 +855,7 @@ class SimplePie
     /**
      * Force SimplePie to use fsockopen() instead of cURL
      *
-     * @since 1.0 Beta 3
+     * @since WP 1.0 Beta 3
      * @param bool $enable Force fsockopen() to be used
      */
     public function force_fsockopen($enable = false)
@@ -869,7 +869,7 @@ class SimplePie
      * This option allows you to disable caching all-together in SimplePie.
      * However, disabling the cache can lead to longer load times.
      *
-     * @since 1.0 Preview Release
+     * @since WP 1.0 Preview Release
      * @param bool $enable Enable caching
      */
     public function enable_cache($enable = true)
@@ -897,7 +897,7 @@ class SimplePie
      * instead. This only works if caching is enabled and cached content
      * still exists.
      *
-     * @deprecated since SimplePie 1.8.0, expired cache will not be used anymore.
+     * @deprecated WP since SimplePie 1.8.0, expired cache will not be used anymore.
      *
      * @param bool $enable Force use of cache on fail.
      */
@@ -932,7 +932,7 @@ class SimplePie
     /**
      * Set the file system location where the cached files should be stored
      *
-     * @deprecated since SimplePie 1.8.0, use \SimplePie\SimplePie::set_cache() instead.
+     * @deprecated WP since SimplePie 1.8.0, use \SimplePie\SimplePie::set_cache() instead.
      *
      * @param string $location The file system location.
      */
@@ -1032,7 +1032,7 @@ class SimplePie
     /**
      * Set which class SimplePie uses for caching
      *
-     * @deprecated since SimplePie 1.3, use {@see set_cache()} instead
+     * @deprecated WP since SimplePie 1.3, use {@see set_cache()} instead
      *
      * @param string $class Name of custom class
      *
@@ -1048,7 +1048,7 @@ class SimplePie
     /**
      * Set which class SimplePie uses for auto-discovery
      *
-     * @deprecated since SimplePie 1.3, use {@see get_registry()} instead
+     * @deprecated WP since SimplePie 1.3, use {@see get_registry()} instead
      *
      * @param string $class Name of custom class
      *
@@ -1064,7 +1064,7 @@ class SimplePie
     /**
      * Set which class SimplePie uses for XML parsing
      *
-     * @deprecated since SimplePie 1.3, use {@see get_registry()} instead
+     * @deprecated WP since SimplePie 1.3, use {@see get_registry()} instead
      *
      * @param string $class Name of custom class
      *
@@ -1080,7 +1080,7 @@ class SimplePie
     /**
      * Set which class SimplePie uses for remote file fetching
      *
-     * @deprecated since SimplePie 1.3, use {@see get_registry()} instead
+     * @deprecated WP since SimplePie 1.3, use {@see get_registry()} instead
      *
      * @param string $class Name of custom class
      *
@@ -1096,7 +1096,7 @@ class SimplePie
     /**
      * Set which class SimplePie uses for data sanitization
      *
-     * @deprecated since SimplePie 1.3, use {@see get_registry()} instead
+     * @deprecated WP since SimplePie 1.3, use {@see get_registry()} instead
      *
      * @param string $class Name of custom class
      *
@@ -1112,7 +1112,7 @@ class SimplePie
     /**
      * Set which class SimplePie uses for handling feed items
      *
-     * @deprecated since SimplePie 1.3, use {@see get_registry()} instead
+     * @deprecated WP since SimplePie 1.3, use {@see get_registry()} instead
      *
      * @param string $class Name of custom class
      *
@@ -1128,7 +1128,7 @@ class SimplePie
     /**
      * Set which class SimplePie uses for handling author data
      *
-     * @deprecated since SimplePie 1.3, use {@see get_registry()} instead
+     * @deprecated WP since SimplePie 1.3, use {@see get_registry()} instead
      *
      * @param string $class Name of custom class
      *
@@ -1144,7 +1144,7 @@ class SimplePie
     /**
      * Set which class SimplePie uses for handling category data
      *
-     * @deprecated since SimplePie 1.3, use {@see get_registry()} instead
+     * @deprecated WP since SimplePie 1.3, use {@see get_registry()} instead
      *
      * @param string $class Name of custom class
      *
@@ -1160,7 +1160,7 @@ class SimplePie
     /**
      * Set which class SimplePie uses for feed enclosures
      *
-     * @deprecated since SimplePie 1.3, use {@see get_registry()} instead
+     * @deprecated WP since SimplePie 1.3, use {@see get_registry()} instead
      *
      * @param string $class Name of custom class
      *
@@ -1176,7 +1176,7 @@ class SimplePie
     /**
      * Set which class SimplePie uses for `<media:text>` captions
      *
-     * @deprecated since SimplePie 1.3, use {@see get_registry()} instead
+     * @deprecated WP since SimplePie 1.3, use {@see get_registry()} instead
      *
      * @param string $class Name of custom class
      *
@@ -1192,7 +1192,7 @@ class SimplePie
     /**
      * Set which class SimplePie uses for `<media:copyright>`
      *
-     * @deprecated since SimplePie 1.3, use {@see get_registry()} instead
+     * @deprecated WP since SimplePie 1.3, use {@see get_registry()} instead
      *
      * @param string $class Name of custom class
      *
@@ -1208,7 +1208,7 @@ class SimplePie
     /**
      * Set which class SimplePie uses for `<media:credit>`
      *
-     * @deprecated since SimplePie 1.3, use {@see get_registry()} instead
+     * @deprecated WP since SimplePie 1.3, use {@see get_registry()} instead
      *
      * @param string $class Name of custom class
      *
@@ -1224,7 +1224,7 @@ class SimplePie
     /**
      * Set which class SimplePie uses for `<media:rating>`
      *
-     * @deprecated since SimplePie 1.3, use {@see get_registry()} instead
+     * @deprecated WP since SimplePie 1.3, use {@see get_registry()} instead
      *
      * @param string $class Name of custom class
      *
@@ -1240,7 +1240,7 @@ class SimplePie
     /**
      * Set which class SimplePie uses for `<media:restriction>`
      *
-     * @deprecated since SimplePie 1.3, use {@see get_registry()} instead
+     * @deprecated WP since SimplePie 1.3, use {@see get_registry()} instead
      *
      * @param string $class Name of custom class
      *
@@ -1256,7 +1256,7 @@ class SimplePie
     /**
      * Set which class SimplePie uses for content-type sniffing
      *
-     * @deprecated since SimplePie 1.3, use {@see get_registry()} instead
+     * @deprecated WP since SimplePie 1.3, use {@see get_registry()} instead
      *
      * @param string $class Name of custom class
      *
@@ -1272,7 +1272,7 @@ class SimplePie
     /**
      * Set which class SimplePie uses item sources
      *
-     * @deprecated since SimplePie 1.3, use {@see get_registry()} instead
+     * @deprecated WP since SimplePie 1.3, use {@see get_registry()} instead
      *
      * @param string $class Name of custom class
      *
@@ -1314,7 +1314,7 @@ class SimplePie
     /**
      * Set callback function to create cache filename with
      *
-     * @deprecated since SimplePie 1.8.0, use {@see set_cache_namefilter()} instead
+     * @deprecated WP since SimplePie 1.8.0, use {@see set_cache_namefilter()} instead
      *
      * @param mixed $function Callback function
      */
@@ -1446,7 +1446,7 @@ class SimplePie
      * |form|@action, |img|@longdesc, |img|@src, |input|@src, |ins|@cite,
      * |q|@cite
      *
-     * @since 1.0
+     * @since WP 1.0
      * @param array|null $element_attribute Element/attribute key/value pairs, null for default
      */
     public function set_url_replacements($element_attribute = null)
@@ -1944,7 +1944,7 @@ class SimplePie
     /**
      * Get the character encoding used for output
      *
-     * @since Preview Release
+     * @since WP Preview Release
      * @return string
      */
     public function get_encoding()
@@ -1990,7 +1990,7 @@ class SimplePie
      * This returns a \SimplePie\SimplePie::TYPE_* constant, which can be tested against
      * using {@link http://php.net/language.operators.bitwise bitwise operators}
      *
-     * @since 0.8 (usage changed to using constants in 1.0)
+     * @since WP 0.8 (usage changed to using constants in 1.0)
      * @see \SimplePie\SimplePie::TYPE_NONE Unknown.
      * @see \SimplePie\SimplePie::TYPE_RSS_090 RSS 0.90.
      * @see \SimplePie\SimplePie::TYPE_RSS_091_NETSCAPE RSS 0.91 (Netscape).
@@ -2086,7 +2086,7 @@ class SimplePie
      * depending on whether auto-discovery was used, and whether there were
      * any redirects along the way.
      *
-     * @since Preview Release (previously called `get_feed_url()` since SimplePie 0.8.)
+     * @since WP Preview Release (previously called `get_feed_url()` since SimplePie 0.8.)
      * @todo Support <itunes:new-feed-url>
      * @todo Also, |atom:link|@rel=self
      * @param bool $permanent Permanent mode to return only the original URL or the first redirection
@@ -2147,7 +2147,7 @@ class SimplePie
      * echo $file;
      * </pre>
      *
-     * @since 1.0
+     * @since WP 1.0
      * @see http://simplepie.org/wiki/faq/supported_xml_namespaces
      * @param string $namespace The URL of the XML namespace of the elements you're trying to access
      * @param string $tag Tag name
@@ -2187,7 +2187,7 @@ class SimplePie
      *
      * See {@see SimplePie::get_feed_tags()} for a description of the return value
      *
-     * @since 1.0
+     * @since WP 1.0
      * @see http://simplepie.org/wiki/faq/supported_xml_namespaces
      * @param string $namespace The URL of the XML namespace of the elements you're trying to access
      * @param string $tag Tag name
@@ -2233,7 +2233,7 @@ class SimplePie
      *
      * See {@see SimplePie::get_feed_tags()} for a description of the return value
      *
-     * @since 1.0
+     * @since WP 1.0
      * @see http://simplepie.org/wiki/faq/supported_xml_namespaces
      * @param string $namespace The URL of the XML namespace of the elements you're trying to access
      * @param string $tag Tag name
@@ -2319,7 +2319,7 @@ class SimplePie
      *
      * Uses `<atom:title>`, `<title>` or `<dc:title>`
      *
-     * @since 1.0 (previously called `get_feed_title` since 0.8)
+     * @since WP 1.0 (previously called `get_feed_title` since 0.8)
      * @return string|null
      */
     public function get_title()
@@ -2346,7 +2346,7 @@ class SimplePie
     /**
      * Get a category for the feed
      *
-     * @since Unknown
+     * @since WP Unknown
      * @param int $key The category that you want to return. Remember that arrays begin with 0, not 1
      * @return \SimplePie\Category|null
      */
@@ -2365,7 +2365,7 @@ class SimplePie
      *
      * Uses `<atom:category>`, `<category>` or `<dc:subject>`
      *
-     * @since Unknown
+     * @since WP Unknown
      * @return array|null List of {@see \SimplePie\Category} objects
      */
     public function get_categories()
@@ -2415,7 +2415,7 @@ class SimplePie
     /**
      * Get an author for the feed
      *
-     * @since 1.1
+     * @since WP 1.1
      * @param int $key The author that you want to return. Remember that arrays begin with 0, not 1
      * @return \SimplePie\Author|null
      */
@@ -2434,7 +2434,7 @@ class SimplePie
      *
      * Uses `<atom:author>`, `<author>`, `<dc:creator>` or `<itunes:author>`
      *
-     * @since 1.1
+     * @since WP 1.1
      * @return array|null List of {@see \SimplePie\Author} objects
      */
     public function get_authors()
@@ -2494,7 +2494,7 @@ class SimplePie
     /**
      * Get a contributor for the feed
      *
-     * @since 1.1
+     * @since WP 1.1
      * @param int $key The contrbutor that you want to return. Remember that arrays begin with 0, not 1
      * @return \SimplePie\Author|null
      */
@@ -2513,7 +2513,7 @@ class SimplePie
      *
      * Uses `<atom:contributor>`
      *
-     * @since 1.1
+     * @since WP 1.1
      * @return array|null List of {@see \SimplePie\Author} objects
      */
     public function get_contributors()
@@ -2564,7 +2564,7 @@ class SimplePie
     /**
      * Get a single link for the feed
      *
-     * @since 1.0 (previously called `get_feed_link` since Preview Release, `get_feed_permalink()` since 0.8)
+     * @since WP 1.0 (previously called `get_feed_link` since Preview Release, `get_feed_permalink()` since 0.8)
      * @param int $key The link that you want to return. Remember that arrays begin with 0, not 1
      * @param string $rel The relationship of the link to return
      * @return string|null Link URL
@@ -2586,7 +2586,7 @@ class SimplePie
      * Identical to {@see get_link()} with key 0
      *
      * @see get_link
-     * @since 1.0 (previously called `get_feed_link` since Preview Release, `get_feed_permalink()` since 0.8)
+     * @since WP 1.0 (previously called `get_feed_link` since Preview Release, `get_feed_permalink()` since 0.8)
      * @internal Added for parity between the parent-level and the item/entry-level.
      * @return string|null Link URL
      */
@@ -2600,7 +2600,7 @@ class SimplePie
      *
      * Uses `<atom:link>` or `<link>`
      *
-     * @since Beta 2
+     * @since WP Beta 2
      * @param string $rel The relationship of links to return
      * @return array|null Links found for the feed (strings)
      */
@@ -2680,7 +2680,7 @@ class SimplePie
      * Uses `<atom:subtitle>`, `<atom:tagline>`, `<description>`,
      * `<dc:description>`, `<itunes:summary>` or `<itunes:subtitle>`
      *
-     * @since 1.0 (previously called `get_feed_description()` since 0.8)
+     * @since WP 1.0 (previously called `get_feed_description()` since 0.8)
      * @return string|null
      */
     public function get_description()
@@ -2713,7 +2713,7 @@ class SimplePie
      *
      * Uses `<atom:rights>`, `<atom:copyright>` or `<dc:rights>`
      *
-     * @since 1.0 (previously called `get_feed_copyright()` since 0.8)
+     * @since WP 1.0 (previously called `get_feed_copyright()` since 0.8)
      * @return string|null
      */
     public function get_copyright()
@@ -2738,7 +2738,7 @@ class SimplePie
      *
      * Uses `<language>`, `<dc:language>`, or @xml_lang
      *
-     * @since 1.0 (previously called `get_feed_language()` since 0.8)
+     * @since WP 1.0 (previously called `get_feed_language()` since 0.8)
      * @return string|null
      */
     public function get_language()
@@ -2769,7 +2769,7 @@ class SimplePie
      *
      * Uses `<geo:lat>` or `<georss:point>`
      *
-     * @since 1.0
+     * @since WP 1.0
      * @link http://www.w3.org/2003/01/geo/ W3C WGS84 Basic Geo
      * @link http://www.georss.org/ GeoRSS
      * @return string|null
@@ -2792,7 +2792,7 @@ class SimplePie
      *
      * Uses `<geo:long>`, `<geo:lon>` or `<georss:point>`
      *
-     * @since 1.0
+     * @since WP 1.0
      * @link http://www.w3.org/2003/01/geo/ W3C WGS84 Basic Geo
      * @link http://www.georss.org/ GeoRSS
      * @return string|null
@@ -2961,7 +2961,7 @@ class SimplePie
      * {@link http://php.net/foreach foreach()} loops.
      *
      * @see get_item_quantity()
-     * @since Beta 2
+     * @since WP Beta 2
      * @param int $key The item that you want to return. Remember that arrays begin with 0, not 1
      * @return \SimplePie\Item|null
      */
@@ -2983,7 +2983,7 @@ class SimplePie
      * {@link http://php.net/foreach foreach()} loops.
      *
      * @see get_item_quantity
-     * @since Beta 2
+     * @since WP Beta 2
      * @param int $start Index to start at
      * @param int $end Number of items to return. 0 for all items after `$start`
      * @return \SimplePie\Item[]|null List of {@see \SimplePie\Item} objects
@@ -3055,7 +3055,7 @@ class SimplePie
     /**
      * Set the favicon handler
      *
-     * @deprecated Use your own favicon handling instead
+     * @deprecated WP Use your own favicon handling instead
      */
     public function set_favicon_handler($page = false, $qs = 'i')
     {
@@ -3066,7 +3066,7 @@ class SimplePie
     /**
      * Get the favicon for the current feed
      *
-     * @deprecated Use your own favicon handling instead
+     * @deprecated WP Use your own favicon handling instead
      */
     public function get_favicon()
     {

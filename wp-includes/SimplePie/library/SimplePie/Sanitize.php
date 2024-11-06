@@ -49,7 +49,7 @@ class_exists('SimplePie\Sanitize');
 // @trigger_error(sprintf('Using the "SimplePie_Sanitize" class is deprecated since SimplePie 1.7.0, use "SimplePie\Sanitize" instead.'), \E_USER_DEPRECATED);
 
 if (\false) {
-    /** @deprecated since SimplePie 1.7.0, use "SimplePie\Sanitize" instead */
+    /** @deprecated WP since SimplePie 1.7.0, use "SimplePie\Sanitize" instead */
     class SimplePie_Sanitize extends Sanitize
     {
     }

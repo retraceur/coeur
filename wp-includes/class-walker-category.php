@@ -4,13 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage Template
- * @since 4.4.0
+ * @since WP 4.4.0
  */
 
 /**
  * Core class used to create an HTML list of categories.
  *
- * @since 2.1.0
+ * @since WP 2.1.0
  *
  * @see Walker
  */
@@ -19,7 +19,7 @@ class Walker_Category extends Walker {
 	/**
 	 * What the class handles.
 	 *
-	 * @since 2.1.0
+	 * @since WP 2.1.0
 	 * @var string
 	 *
 	 * @see Walker::$tree_type
@@ -29,7 +29,7 @@ class Walker_Category extends Walker {
 	/**
 	 * Database fields to use.
 	 *
-	 * @since 2.1.0
+	 * @since WP 2.1.0
 	 * @var string[]
 	 *
 	 * @see Walker::$db_fields
@@ -43,7 +43,7 @@ class Walker_Category extends Walker {
 	/**
 	 * Starts the list before the elements are added.
 	 *
-	 * @since 2.1.0
+	 * @since WP 2.1.0
 	 *
 	 * @see Walker::start_lvl()
 	 *
@@ -64,7 +64,7 @@ class Walker_Category extends Walker {
 	/**
 	 * Ends the list of after the elements are added.
 	 *
-	 * @since 2.1.0
+	 * @since WP 2.1.0
 	 *
 	 * @see Walker::end_lvl()
 	 *
@@ -85,8 +85,8 @@ class Walker_Category extends Walker {
 	/**
 	 * Starts the element output.
 	 *
-	 * @since 2.1.0
-	 * @since 5.9.0 Renamed `$category` to `$data_object` and `$id` to `$current_object_id`
+	 * @since WP 2.1.0
+	 * @since WP 5.9.0 Renamed `$category` to `$data_object` and `$id` to `$current_object_id`
 	 *              to match parent class for PHP 8 named parameter support.
 	 *
 	 * @see Walker::start_el()
@@ -117,7 +117,7 @@ class Walker_Category extends Walker {
 			/**
 			 * Filters the category description for display.
 			 *
-			 * @since 1.2.0
+			 * @since WP 1.2.0
 			 *
 			 * @param string  $description Category description.
 			 * @param WP_Term $category    Category object.
@@ -128,7 +128,7 @@ class Walker_Category extends Walker {
 		/**
 		 * Filters the HTML attributes applied to a category list item's anchor element.
 		 *
-		 * @since 5.2.0
+		 * @since WP 5.2.0
 		 *
 		 * @param array   $atts {
 		 *     The HTML attributes applied to the list item's `<a>` element, empty strings are ignored.
@@ -233,7 +233,7 @@ class Walker_Category extends Walker {
 			/**
 			 * Filters the list of CSS classes to include with each category in the list.
 			 *
-			 * @since 4.2.0
+			 * @since WP 4.2.0
 			 *
 			 * @see wp_list_categories()
 			 *
@@ -257,8 +257,8 @@ class Walker_Category extends Walker {
 	/**
 	 * Ends the element output, if needed.
 	 *
-	 * @since 2.1.0
-	 * @since 5.9.0 Renamed `$page` to `$data_object` to match parent class for PHP 8 named parameter support.
+	 * @since WP 2.1.0
+	 * @since WP 5.9.0 Renamed `$page` to `$data_object` to match parent class for PHP 8 named parameter support.
 	 *
 	 * @see Walker::end_el()
 	 *

@@ -3,16 +3,18 @@
  * Sitemaps: WP_Sitemaps_Stylesheet class
  *
  * This class provides the XSL stylesheets to style all sitemaps.
+ * 
+ * @since WP 5.5.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Sitemaps
- * @since 5.5.0
  */
 
 /**
  * Stylesheet provider class.
  *
- * @since 5.5.0
+ * @since WP 5.5.0
  */
 #[AllowDynamicProperties]
 class WP_Sitemaps_Stylesheet {
@@ -40,7 +42,7 @@ class WP_Sitemaps_Stylesheet {
 	/**
 	 * Returns the escaped XSL for all sitemaps, except index.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 */
 	public function get_sitemap_stylesheet() {
 		$css         = $this->get_stylesheet_css();
@@ -144,7 +146,7 @@ XSL;
 		/**
 		 * Filters the content of the sitemap stylesheet.
 		 *
-		 * @since 5.5.0
+		 * @since WP 5.5.0
 		 *
 		 * @param string $xsl_content Full content for the XML stylesheet.
 		 */
@@ -154,7 +156,7 @@ XSL;
 	/**
 	 * Returns the escaped XSL for the index sitemaps.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 */
 	public function get_sitemap_index_stylesheet() {
 		$css         = $this->get_stylesheet_css();
@@ -242,7 +244,7 @@ XSL;
 		/**
 		 * Filters the content of the sitemap index stylesheet.
 		 *
-		 * @since 5.5.0
+		 * @since WP 5.5.0
 		 *
 		 * @param string $xsl_content Full content for the XML stylesheet.
 		 */
@@ -252,7 +254,7 @@ XSL;
 	/**
 	 * Gets the CSS to be included in sitemap XSL stylesheets.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @return string The CSS.
 	 */
@@ -280,8 +282,6 @@ XSL;
 			 		#sitemap__table tr td.loc {
 						/*
 						 * URLs should always be LTR.
-						 * See https://core.trac.wordpress.org/ticket/16834
-						 * and https://core.trac.wordpress.org/ticket/49949
 						 */
 						direction: ltr;
 					}
@@ -308,7 +308,7 @@ EOF;
 		/**
 		 * Filters the CSS only for the sitemap stylesheet.
 		 *
-		 * @since 5.5.0
+		 * @since WP 5.5.0
 		 *
 		 * @param string $css CSS to be applied to default XSL file.
 		 */

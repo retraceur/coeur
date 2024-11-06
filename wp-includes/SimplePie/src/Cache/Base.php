@@ -52,7 +52,7 @@ namespace SimplePie\Cache;
  *
  * @package SimplePie
  * @subpackage Caching
- * @deprecated since SimplePie 1.8.0, use "Psr\SimpleCache\CacheInterface" instead
+ * @deprecated WP since SimplePie 1.8.0, use "Psr\SimpleCache\CacheInterface" instead
  */
 interface Base
 {

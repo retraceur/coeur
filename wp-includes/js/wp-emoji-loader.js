@@ -40,7 +40,7 @@
 	/**
 	 * Checks whether the browser supports offloading to a Worker.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @private
 	 *
@@ -66,7 +66,7 @@
 	/**
 	 * Get support tests from session.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @private
 	 *
@@ -93,7 +93,7 @@
 	/**
 	 * Persist the supports in session storage.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @private
 	 *
@@ -120,7 +120,7 @@
 	 * This function may be serialized to run in a Worker. Therefore, it cannot refer to variables from the containing
 	 * scope. Everything must be passed by parameters.
 	 *
-	 * @since 4.9.0
+	 * @since WP 4.9.0
 	 *
 	 * @private
 	 *
@@ -166,7 +166,7 @@
 	 * This function may be serialized to run in a Worker. Therefore, it cannot refer to variables from the containing
 	 * scope. Everything must be passed by parameters.
 	 *
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 *
 	 * @private
 	 *
@@ -264,7 +264,7 @@
 	 * This function may be serialized to run in a Worker. Therefore, it cannot refer to variables from the containing
 	 * scope. Everything must be passed by parameters.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @private
 	 *
@@ -307,7 +307,7 @@
 	 *
 	 * @ignore
 	 *
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 *
 	 * @param {string} src The url where the script is located.
 	 *

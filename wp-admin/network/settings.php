@@ -4,7 +4,8 @@
  *
  * @package motsVertueux
  * @subpackage Multisite
- * @since 3.0.0
+ * @since WP 3.0.0
+ * @since 1.0.0 motsVertueux fork.
  */
 
 /** Load WordPress Administration Bootstrap */
@@ -57,12 +58,6 @@ get_current_screen()->add_help_tab(
 			'<p>' . __( 'Menu setting enables/disables the plugin menus from appearing for non super admins, so that only super admins, not site admins, have access to activate plugins.' ) . '</p>' .
 			'<p>' . __( 'Super admins can no longer be added on the Options screen. You must now go to the list of existing users on Network Admin > Users and click on Username or the Edit action link below that name. This goes to an Edit User page where you can check a box to grant super admin privileges.' ) . '</p>',
 	)
-);
-
-get_current_screen()->set_help_sidebar(
-	'<p><strong>' . __( 'For more information:' ) . '</strong></p>' .
-	'<p>' . __( '<a href="https://developer.wordpress.org/advanced-administration/multisite/admin/settings/">Documentation on Network Settings</a>' ) . '</p>' .
-	'<p>' . __( '<a href="https://wordpress.org/support/forums/">Support forums</a>' ) . '</p>'
 );
 
 if ( $_POST ) {
@@ -127,7 +122,7 @@ if ( $_POST ) {
 	/**
 	 * Fires after the network options are updated.
 	 *
-	 * @since MU (3.0.0)
+	 * @since WP MU (3.0.0)
 	 */
 	do_action( 'update_wpmu_options' );
 
@@ -500,7 +495,7 @@ if ( isset( $_GET['updated'] ) ) {
 		 * default option, 'plugins' is enabled, site administrators are granted access to the Plugins
 		 * screen in their individual sites' dashboards.
 		 *
-		 * @since MU (3.0.0)
+		 * @since WP MU (3.0.0)
 		 *
 		 * @param string[] $admin_menus Associative array of the menu items available.
 		 */
@@ -536,7 +531,7 @@ if ( isset( $_GET['updated'] ) ) {
 		/**
 		 * Fires at the end of the Network Settings form, before the submit button.
 		 *
-		 * @since MU (3.0.0)
+		 * @since WP MU (3.0.0)
 		 */
 		do_action( 'wpmu_options' );
 		?>

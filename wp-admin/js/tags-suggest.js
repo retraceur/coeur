@@ -27,7 +27,7 @@
 	 * The taxonomy can be passed in a `data-wp-taxonomy` attribute on the element or
 	 * can be in `options.taxonomy`.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @param {Object} options Options that are passed to UI Autocomplete. Can be used to override the default settings.
 	 * @return {Object} jQuery instance.

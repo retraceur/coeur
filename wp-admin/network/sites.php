@@ -4,7 +4,8 @@
  *
  * @package motsVertueux
  * @subpackage Multisite
- * @since 3.0.0
+ * @since WP 3.0.0
+ * @since 1.0.0 motsVertueux fork.
  */
 
 /** Load WordPress Administration Bootstrap */
@@ -37,12 +38,6 @@ get_current_screen()->add_help_tab(
 			'<li>' . __( 'Delete which is a permanent action after the confirmation screen.' ) . '</li>' .
 			'<li>' . __( 'Visit to go to the front-end of the live site.' ) . '</li></ul>',
 	)
-);
-
-get_current_screen()->set_help_sidebar(
-	'<p><strong>' . __( 'For more information:' ) . '</strong></p>' .
-	'<p>' . __( '<a href="https://developer.wordpress.org/advanced-administration/multisite/admin/#network-admin-sites-screen">Documentation on Site Management</a>' ) . '</p>' .
-	'<p>' . __( '<a href="https://wordpress.org/support/forum/multisite/">Support forums</a>' ) . '</p>'
 );
 
 get_current_screen()->set_screen_reader_content(
@@ -273,7 +268,7 @@ if ( isset( $_GET['action'] ) ) {
 			/**
 			 * Fires after a network site is activated.
 			 *
-			 * @since MU (3.0.0)
+			 * @since WP MU (3.0.0)
 			 *
 			 * @param int $id The ID of the activated site.
 			 */
@@ -284,7 +279,7 @@ if ( isset( $_GET['action'] ) ) {
 			/**
 			 * Fires before a network site is deactivated.
 			 *
-			 * @since MU (3.0.0)
+			 * @since WP MU (3.0.0)
 			 *
 			 * @param int $id The ID of the site being deactivated.
 			 */
@@ -359,7 +354,7 @@ if ( isset( $_GET['updated'] ) ) {
 			 * The dynamic portion of the hook name, `$action`, refers to the non-default
 			 * site update action.
 			 *
-			 * @since 3.1.0
+			 * @since WP 3.1.0
 			 *
 			 * @param string $msg The update message. Default 'Settings saved'.
 			 */

@@ -1,17 +1,18 @@
 <?php
 /**
- * WordPress Version
+ * motsVertueux Version
  *
- * Contains version information for the current WordPress release.
+ * Contains version information for the current motsVertueux release.
  *
  * @package motsVertueux
- * @since 1.2.0
+ * @since WP 1.2.0
+ * @since 1.0.0 motsVertueux fork.
  */
 
 /**
- * The WordPress version string.
+ * The WP version string.
  *
- * Holds the current version number for WordPress core. Used to bust caches
+ * Holds the current version number for WP core. Used to bust caches
  * and to enable development mode for scripts when running from the /src directory.
  *
  * @global string $wp_version
@@ -19,7 +20,16 @@
 $wp_version = '6.8-alpha-59335';
 
 /**
- * Holds the WordPress DB revision, increments when changes are made to the WordPress DB schema.
+ * The motsVertueux version string.
+ *
+ * Holds the current version number for motsVertueux.
+ *
+ * @global string $mv_version
+ */
+$mv_version = '1.0.0-alpha';
+
+/**
+ * Holds the WP DB revision, increments when changes are made to the WP DB schema.
  *
  * @global int $wp_db_version
  */
@@ -38,6 +48,13 @@ $tinymce_version = '49110-20201110';
  * @global string $required_php_version
  */
 $required_php_version = '7.2.24';
+
+/**
+ * Holds the recommanded PHP version.
+ *
+ * @global string $recommended_php_version
+ */
+$recommended_php_version = '7.4';
 
 /**
  * Holds the required MySQL version.

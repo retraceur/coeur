@@ -10,7 +10,7 @@ window.wp = window.wp || {};
 	/**
 	 * Utility functions for the editor.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 */
 	function SwitchEditors() {
 		var tinymce, $$,
@@ -24,7 +24,7 @@ window.wp = window.wp || {};
 				/**
 				 * Handles onclick events for the Visual/Text tabs.
 				 *
-				 * @since 4.3.0
+				 * @since WP 4.3.0
 				 *
 				 * @return {void}
 				 */
@@ -44,7 +44,7 @@ window.wp = window.wp || {};
 		/**
 		 * Returns the height of the editor toolbar(s) in px.
 		 *
-		 * @since 3.9.0
+		 * @since WP 3.9.0
 		 *
 		 * @param {Object} editor The TinyMCE editor.
 		 * @return {number} If the height is between 10 and 200 return the height,
@@ -64,7 +64,7 @@ window.wp = window.wp || {};
 		/**
 		 * Switches the editor between Visual and Text mode.
 		 *
-		 * @since 2.5.0
+		 * @since WP 2.5.0
 		 *
 		 * @memberof switchEditors
 		 *
@@ -852,7 +852,7 @@ window.wp = window.wp || {};
 		 * Unifies whitespace.
 		 * Indents <li>, <dt> and <dd> for better readability.
 		 *
-		 * @since 2.5.0
+		 * @since WP 2.5.0
 		 *
 		 * @memberof switchEditors
 		 *
@@ -989,7 +989,7 @@ window.wp = window.wp || {};
 		 *
 		 * Similar to `wpautop()` in formatting.php.
 		 *
-		 * @since 2.5.0
+		 * @since WP 2.5.0
 		 *
 		 * @memberof switchEditors
 		 *
@@ -1116,7 +1116,7 @@ window.wp = window.wp || {};
 		/**
 		 * Fires custom jQuery events `beforePreWpautop` and `afterPreWpautop` when jQuery is available.
 		 *
-		 * @since 2.9.0
+		 * @since WP 2.9.0
 		 *
 		 * @memberof switchEditors
 		 *
@@ -1142,7 +1142,7 @@ window.wp = window.wp || {};
 		/**
 		 * Fires custom jQuery events `beforeWpautop` and `afterWpautop` when jQuery is available.
 		 *
-		 * @since 2.9.0
+		 * @since WP 2.9.0
 		 *
 		 * @memberof switchEditors
 		 *
@@ -1209,7 +1209,7 @@ window.wp = window.wp || {};
 	 * Settings for both TinyMCE and Quicktags can be passed on initialization, and are "filtered"
 	 * with custom jQuery events on the document element, wp-before-tinymce-init and wp-before-quicktags-init.
 	 *
-	 * @since 4.8.0
+	 * @since WP 4.8.0
 	 *
 	 * @param {string} id The HTML id of the textarea that is used for the editor.
 	 *                    Has to be jQuery compliant. No brackets, special chars, etc.
@@ -1339,7 +1339,7 @@ window.wp = window.wp || {};
 	 *
 	 * Intended for use with editors that were initialized with wp.editor.initialize().
 	 *
-	 * @since 4.8.0
+	 * @since WP 4.8.0
 	 *
 	 * @param {string} id The HTML id of the editor textarea.
 	 */
@@ -1378,7 +1378,7 @@ window.wp = window.wp || {};
 	 *
 	 * Intended for use with editors that were initialized with wp.editor.initialize().
 	 *
-	 * @since 4.8.0
+	 * @since WP 4.8.0
 	 *
 	 * @param {string} id The HTML id of the editor textarea.
 	 * @return The editor content.

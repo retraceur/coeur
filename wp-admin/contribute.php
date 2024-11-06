@@ -42,16 +42,6 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 		<div class="column">
 			<img src="<?php echo esc_url( admin_url( 'images/contribute-main.svg?ver=6.5' ) ); ?>" alt="" width="290" height="290" />
 		</div>
-		<div class="column is-vertically-aligned-center">
-			<p><?php _e( 'Do you use WordPress for work, for personal projects, or even just for fun? You can help shape the long-term success of the open source project that powers millions of websites around the world.' ); ?></p>
-			<p><?php _e( 'Join the diverse WordPress contributor community and connect with other people who are passionate about maintaining a free and open web.' ); ?></p>
-
-			<ul>
-				<li><?php _e( 'Be part of a global open source community.' ); ?></li>
-				<li><?php _e( 'Apply your skills or learn new ones.' ); ?></li>
-				<li><?php _e( 'Grow your network and make friends.' ); ?></li>
-			</ul>
-		</div>
 	</div>
 
 	<div class="about__section has-2-columns is-wider-left">
@@ -93,14 +83,6 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 				<li><?php _e( 'WordPress Core and Block Editor: HTML, CSS, PHP, SQL, JavaScript, and React.' ); ?></li>
 				<li><?php _e( 'WordPress app: Kotlin, Java, Swift, Objective-C, Vue, Python, and TypeScript.' ); ?></li>
 			</ul>
-		</div>
-	</div>
-
-	<div class="about__section is-feature has-subtle-background-color">
-		<div class="column">
-			<h2><?php _e( 'Shape the future of the web with WordPress' ); ?></h2>
-			<p><?php _e( 'Finding the area that aligns with your skills and interests is the first step toward meaningful contribution. With more than 20 Make WordPress teams working on different parts of the open source WordPress project, there&#8217;s a place for everyone, no matter what your skill set is.' ); ?></p>
-			<p><a href="<?php echo esc_url( __( 'https://make.wordpress.org/contribute/' ) ); ?>"><?php _e( 'Find your team &rarr;' ); ?></a></p>
 		</div>
 	</div>
 

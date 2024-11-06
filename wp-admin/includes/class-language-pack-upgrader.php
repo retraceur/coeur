@@ -4,15 +4,15 @@
  *
  * @package motsVertueux
  * @subpackage Upgrader
- * @since 4.6.0
+ * @since WP 4.6.0
  */
 
 /**
  * Core class used for updating/installing language packs (translations)
  * for plugins, themes, and core.
  *
- * @since 3.7.0
- * @since 4.6.0 Moved to its own file from wp-admin/includes/class-wp-upgrader.php.
+ * @since WP 3.7.0
+ * @since WP 4.6.0 Moved to its own file from wp-admin/includes/class-wp-upgrader.php.
  *
  * @see WP_Upgrader
  */
@@ -21,7 +21,7 @@ class Language_Pack_Upgrader extends WP_Upgrader {
 	/**
 	 * Result of the language pack upgrade.
 	 *
-	 * @since 3.7.0
+	 * @since WP 3.7.0
 	 * @var array|WP_Error $result
 	 * @see WP_Upgrader::$result
 	 */
@@ -30,7 +30,7 @@ class Language_Pack_Upgrader extends WP_Upgrader {
 	/**
 	 * Whether a bulk upgrade/installation is being performed.
 	 *
-	 * @since 3.7.0
+	 * @since WP 3.7.0
 	 * @var bool $bulk
 	 */
 	public $bulk = true;
@@ -40,7 +40,7 @@ class Language_Pack_Upgrader extends WP_Upgrader {
 	 *
 	 * Hooked to the {@see 'upgrader_process_complete'} action by default.
 	 *
-	 * @since 3.7.0
+	 * @since WP 3.7.0
 	 *
 	 * @param false|WP_Upgrader $upgrader Optional. WP_Upgrader instance or false. If `$upgrader` is
 	 *                                    a Language_Pack_Upgrader instance, the method will bail to
@@ -73,7 +73,7 @@ class Language_Pack_Upgrader extends WP_Upgrader {
 			/**
 			 * Filters whether to asynchronously update translation for core, a plugin, or a theme.
 			 *
-			 * @since 4.0.0
+			 * @since WP 4.0.0
 			 *
 			 * @param bool   $update          Whether to update.
 			 * @param object $language_update The update offer.
@@ -107,7 +107,7 @@ class Language_Pack_Upgrader extends WP_Upgrader {
 	/**
 	 * Initializes the upgrade strings.
 	 *
-	 * @since 3.7.0
+	 * @since WP 3.7.0
 	 */
 	public function upgrade_strings() {
 		$this->strings['starting_upgrade'] = __( 'Some of your translations need updating. Sit tight for a few more seconds while they are updated as well.' );
@@ -125,7 +125,7 @@ class Language_Pack_Upgrader extends WP_Upgrader {
 	/**
 	 * Upgrades a language pack.
 	 *
-	 * @since 3.7.0
+	 * @since WP 3.7.0
 	 *
 	 * @param string|false $update Optional. Whether an update offer is available. Default false.
 	 * @param array        $args   Optional. Other optional arguments, see
@@ -149,7 +149,7 @@ class Language_Pack_Upgrader extends WP_Upgrader {
 	/**
 	 * Upgrades several language packs at once.
 	 *
-	 * @since 3.7.0
+	 * @since WP 3.7.0
 	 *
 	 * @global WP_Filesystem_Base $wp_filesystem WordPress filesystem subclass.
 	 *
@@ -314,7 +314,7 @@ class Language_Pack_Upgrader extends WP_Upgrader {
 	 * Hooked to the {@see 'upgrader_source_selection'} filter by
 	 * Language_Pack_Upgrader::bulk_upgrade().
 	 *
-	 * @since 3.7.0
+	 * @since WP 3.7.0
 	 *
 	 * @global WP_Filesystem_Base $wp_filesystem WordPress filesystem subclass.
 	 *
@@ -370,7 +370,7 @@ class Language_Pack_Upgrader extends WP_Upgrader {
 	/**
 	 * Gets the name of an item being updated.
 	 *
-	 * @since 3.7.0
+	 * @since WP 3.7.0
 	 *
 	 * @param object $update The data for an update.
 	 * @return string The name of the item being updated.
@@ -400,7 +400,7 @@ class Language_Pack_Upgrader extends WP_Upgrader {
 	/**
 	 * Clears existing translations where this item is going to be installed into.
 	 *
-	 * @since 5.1.0
+	 * @since WP 5.1.0
 	 *
 	 * @global WP_Filesystem_Base $wp_filesystem WordPress filesystem subclass.
 	 *

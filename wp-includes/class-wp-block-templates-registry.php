@@ -3,19 +3,19 @@
  * Templates registry functions.
  *
  * @package motsVertueux
- * @since 6.7.0
+ * @since WP 6.7.0
  */
 
 /**
  * Core class used for interacting with templates.
  *
- * @since 6.7.0
+ * @since WP 6.7.0
  */
 final class WP_Block_Templates_Registry {
 	/**
 	 * Registered templates, as `$name => $instance` pairs.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 * @var WP_Block_Template[] $registered_block_templates Registered templates.
 	 */
 	private $registered_templates = array();
@@ -23,7 +23,7 @@ final class WP_Block_Templates_Registry {
 	/**
 	 * Container for the main instance of the class.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 * @var WP_Block_Templates_Registry|null
 	 */
 	private static $instance = null;
@@ -31,7 +31,7 @@ final class WP_Block_Templates_Registry {
 	/**
 	 * Registers a template.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @param string $template_name Template name including namespace.
 	 * @param array  $args          Optional. Array of template arguments.
@@ -98,7 +98,7 @@ final class WP_Block_Templates_Registry {
 	/**
 	 * Retrieves all registered templates.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @return WP_Block_Template[] Associative array of `$template_name => $template` pairs.
 	 */
@@ -109,7 +109,7 @@ final class WP_Block_Templates_Registry {
 	/**
 	 * Retrieves a registered template by its name.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @param string $template_name Template name including namespace.
 	 * @return WP_Block_Template|null The registered template, or null if it is not registered.
@@ -125,7 +125,7 @@ final class WP_Block_Templates_Registry {
 	/**
 	 * Retrieves a registered template by its slug.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @param string $template_slug Slug of the template.
 	 * @return WP_Block_Template|null The registered template, or null if it is not registered.
@@ -149,7 +149,7 @@ final class WP_Block_Templates_Registry {
 	/**
 	 * Retrieves registered templates matching a query.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @param array  $query {
 	 *     Arguments to retrieve templates. Optional, empty by default.
@@ -202,7 +202,7 @@ final class WP_Block_Templates_Registry {
 	/**
 	 * Checks if a template is registered.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @param string $template_name Template name.
 	 * @return bool True if the template is registered, false otherwise.
@@ -214,7 +214,7 @@ final class WP_Block_Templates_Registry {
 	/**
 	 * Unregisters a template.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @param string $template_name Template name including namespace.
 	 * @return WP_Block_Template|WP_Error The unregistered template on success, or WP_Error on failure.
@@ -242,7 +242,7 @@ final class WP_Block_Templates_Registry {
 	 *
 	 * The instance will be created if it does not exist yet.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @return WP_Block_Templates_Registry The main instance.
 	 */

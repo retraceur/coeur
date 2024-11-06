@@ -451,7 +451,7 @@ class PHPMailer
      *
      * @var bool
      *
-     * @deprecated 6.0.0 PHPMailer isn't a mailing list manager!
+     * @deprecated WP 6.0.0 PHPMailer isn't a mailing list manager!
      */
     public $SingleTo = false;
 

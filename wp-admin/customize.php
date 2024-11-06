@@ -4,7 +4,7 @@
  *
  * @package motsVertueux
  * @subpackage Customize
- * @since 3.4.0
+ * @since WP 3.4.0
  */
 
 define( 'IFRAME_REQUEST', true );
@@ -111,7 +111,7 @@ add_action( 'customize_controls_print_styles', 'print_admin_styles', 20 );
 /**
  * Fires when Customizer controls are initialized, before scripts are enqueued.
  *
- * @since 3.4.0
+ * @since WP 3.4.0
  */
 do_action( 'customize_controls_init' );
 
@@ -122,7 +122,7 @@ wp_enqueue_style( 'customize-controls' );
 /**
  * Fires when enqueuing Customizer control scripts.
  *
- * @since 3.4.0
+ * @since WP 3.4.0
  */
 do_action( 'customize_controls_enqueue_scripts' );
 
@@ -166,21 +166,21 @@ var ajaxurl = <?php echo wp_json_encode( admin_url( 'admin-ajax.php', 'relative'
 /**
  * Fires when Customizer control styles are printed.
  *
- * @since 3.4.0
+ * @since WP 3.4.0
  */
 do_action( 'customize_controls_print_styles' );
 
 /**
  * Fires when Customizer control scripts are printed.
  *
- * @since 3.4.0
+ * @since WP 3.4.0
  */
 do_action( 'customize_controls_print_scripts' );
 
 /**
  * Fires in head section of Customizer controls.
  *
- * @since 5.5.0
+ * @since WP 5.5.0
  */
 do_action( 'customize_controls_head' );
 ?>
@@ -252,11 +252,6 @@ do_action( 'customize_controls_head' );
 							_e( 'The Customizer allows you to preview changes to your site before publishing them. You can navigate to different pages on your site within the preview. Edit shortcuts are shown for some editable elements. The Customizer is intended for use with non-block themes.' );
 							?>
 						</p>
-						<p>
-							<?php
-							_e( '<a href="https://wordpress.org/documentation/article/customizer/">Documentation on Customizer</a>' );
-							?>
-						</p>
 					</div>
 				</div>
 
@@ -301,7 +296,7 @@ do_action( 'customize_controls_head' );
 	/**
 	 * Prints templates, control scripts, and settings in the footer.
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 */
 	do_action( 'customize_controls_print_footer_scripts' );
 	?>

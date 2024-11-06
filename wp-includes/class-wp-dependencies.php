@@ -2,7 +2,7 @@
 /**
  * Dependencies API: WP_Dependencies base class
  *
- * @since 2.6.0
+ * @since WP 2.6.0
  *
  * @package motsVertueux
  * @subpackage Dependencies
@@ -11,7 +11,7 @@
 /**
  * Core base class extended to register items.
  *
- * @since 2.6.0
+ * @since WP 2.6.0
  *
  * @see _WP_Dependency
  */
@@ -20,7 +20,7 @@ class WP_Dependencies {
 	/**
 	 * An array of all registered dependencies keyed by handle.
 	 *
-	 * @since 2.6.8
+	 * @since WP 2.6.8
 	 *
 	 * @var _WP_Dependency[]
 	 */
@@ -29,7 +29,7 @@ class WP_Dependencies {
 	/**
 	 * An array of handles of queued dependencies.
 	 *
-	 * @since 2.6.8
+	 * @since WP 2.6.8
 	 *
 	 * @var string[]
 	 */
@@ -38,7 +38,7 @@ class WP_Dependencies {
 	/**
 	 * An array of handles of dependencies to queue.
 	 *
-	 * @since 2.6.0
+	 * @since WP 2.6.0
 	 *
 	 * @var string[]
 	 */
@@ -47,7 +47,7 @@ class WP_Dependencies {
 	/**
 	 * An array of handles of dependencies already queued.
 	 *
-	 * @since 2.6.0
+	 * @since WP 2.6.0
 	 *
 	 * @var string[]
 	 */
@@ -58,7 +58,7 @@ class WP_Dependencies {
 	 *
 	 * Arguments are appended to the item query string.
 	 *
-	 * @since 2.6.0
+	 * @since WP 2.6.0
 	 *
 	 * @var array
 	 */
@@ -70,7 +70,7 @@ class WP_Dependencies {
 	 * Each entry is keyed by handle and represents the integer group level or boolean
 	 * false if the handle has no group.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @var (int|false)[]
 	 */
@@ -79,9 +79,9 @@ class WP_Dependencies {
 	/**
 	 * A handle group to enqueue.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
-	 * @deprecated 4.5.0
+	 * @deprecated WP 4.5.0
 	 * @var int
 	 */
 	public $group = 0;
@@ -89,7 +89,7 @@ class WP_Dependencies {
 	/**
 	 * Cached lookup array of flattened queued items and dependencies.
 	 *
-	 * @since 5.4.0
+	 * @since WP 5.4.0
 	 *
 	 * @var array
 	 */
@@ -98,7 +98,7 @@ class WP_Dependencies {
 	/**
 	 * List of assets enqueued before details were registered.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @var array
 	 */
@@ -109,8 +109,8 @@ class WP_Dependencies {
 	 *
 	 * Processes the items passed to it or the queue, and their dependencies.
 	 *
-	 * @since 2.6.0
-	 * @since 2.8.0 Added the `$group` parameter.
+	 * @since WP 2.6.0
+	 * @since WP 2.8.0 Added the `$group` parameter.
 	 *
 	 * @param string|string[]|false $handles Optional. Items to be processed: queue (false),
 	 *                                       single item (string), or multiple items (array of strings).
@@ -148,8 +148,8 @@ class WP_Dependencies {
 	/**
 	 * Processes a dependency.
 	 *
-	 * @since 2.6.0
-	 * @since 5.5.0 Added the `$group` parameter.
+	 * @since WP 2.6.0
+	 * @since WP 5.5.0 Added the `$group` parameter.
 	 *
 	 * @param string    $handle Name of the item. Should be unique.
 	 * @param int|false $group  Optional. Group level: level (int), no group (false).
@@ -166,9 +166,9 @@ class WP_Dependencies {
 	 * Recursively builds an array of items to process taking
 	 * dependencies into account. Does NOT catch infinite loops.
 	 *
-	 * @since 2.1.0
-	 * @since 2.6.0 Moved from `WP_Scripts`.
-	 * @since 2.8.0 Added the `$group` parameter.
+	 * @since WP 2.1.0
+	 * @since WP 2.6.0 Moved from `WP_Scripts`.
+	 * @since WP 2.8.0 Added the `$group` parameter.
 	 *
 	 * @param string|string[] $handles   Item handle (string) or item handles (array of strings).
 	 * @param bool            $recursion Optional. Internal flag that function is calling itself.
@@ -235,8 +235,8 @@ class WP_Dependencies {
 	 *
 	 * Registers the item if no item of that name already exists.
 	 *
-	 * @since 2.1.0
-	 * @since 2.6.0 Moved from `WP_Scripts`.
+	 * @since WP 2.1.0
+	 * @since WP 2.6.0 Moved from `WP_Scripts`.
 	 *
 	 * @param string           $handle Name of the item. Should be unique.
 	 * @param string|false     $src    Full URL of the item, or path of the item relative
@@ -278,7 +278,7 @@ class WP_Dependencies {
 	 *
 	 * Adds data to a registered item.
 	 *
-	 * @since 2.6.0
+	 * @since WP 2.6.0
 	 *
 	 * @param string $handle Name of the item. Should be unique.
 	 * @param string $key    The data key.
@@ -298,7 +298,7 @@ class WP_Dependencies {
 	 *
 	 * Gets data associated with a registered item.
 	 *
-	 * @since 3.3.0
+	 * @since WP 3.3.0
 	 *
 	 * @param string $handle Name of the item. Should be unique.
 	 * @param string $key    The data key.
@@ -319,8 +319,8 @@ class WP_Dependencies {
 	/**
 	 * Un-register an item or items.
 	 *
-	 * @since 2.1.0
-	 * @since 2.6.0 Moved from `WP_Scripts`.
+	 * @since WP 2.1.0
+	 * @since WP 2.6.0 Moved from `WP_Scripts`.
 	 *
 	 * @param string|string[] $handles Item handle (string) or item handles (array of strings).
 	 */
@@ -338,8 +338,8 @@ class WP_Dependencies {
 	 * classes, $args is appended to the item url as a query string.
 	 * Note $args is NOT the $args property of items in the $registered array.
 	 *
-	 * @since 2.1.0
-	 * @since 2.6.0 Moved from `WP_Scripts`.
+	 * @since WP 2.1.0
+	 * @since WP 2.6.0 Moved from `WP_Scripts`.
 	 *
 	 * @param string|string[] $handles Item handle (string) or item handles (array of strings).
 	 */
@@ -372,8 +372,8 @@ class WP_Dependencies {
 	 * Decodes handles and arguments, then dequeues handles
 	 * and removes arguments from the class property $args.
 	 *
-	 * @since 2.1.0
-	 * @since 2.6.0 Moved from `WP_Scripts`.
+	 * @since WP 2.1.0
+	 * @since WP 2.6.0 Moved from `WP_Scripts`.
 	 *
 	 * @param string|string[] $handles Item handle (string) or item handles (array of strings).
 	 */
@@ -397,7 +397,7 @@ class WP_Dependencies {
 	/**
 	 * Recursively search the passed dependency tree for a handle.
 	 *
-	 * @since 4.0.0
+	 * @since WP 4.0.0
 	 *
 	 * @param string[] $queue  An array of queued _WP_Dependency handles.
 	 * @param string   $handle Name of the item. Should be unique.
@@ -434,8 +434,8 @@ class WP_Dependencies {
 	/**
 	 * Query the list for an item.
 	 *
-	 * @since 2.1.0
-	 * @since 2.6.0 Moved from `WP_Scripts`.
+	 * @since WP 2.1.0
+	 * @since WP 2.6.0 Moved from `WP_Scripts`.
 	 *
 	 * @param string $handle Name of the item. Should be unique.
 	 * @param string $status Optional. Status of the item to query. Default 'registered'.
@@ -472,7 +472,7 @@ class WP_Dependencies {
 	/**
 	 * Set item group, unless already in a lower group.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @param string    $handle    Name of the item. Should be unique.
 	 * @param bool      $recursion Internal flag that calling function was called recursively.
@@ -494,7 +494,7 @@ class WP_Dependencies {
 	/**
 	 * Get etag header for cache validation.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @global string $wp_version The WordPress version string.
 	 *

@@ -4,7 +4,8 @@
  *
  * @package motsVertueux
  * @subpackage Multisite
- * @since 3.0.0
+ * @since WP 3.0.0
+ * @since 1.0.0 motsVertueux fork.
  */
 
 /** Load WordPress Administration Bootstrap */
@@ -25,12 +26,6 @@ get_current_screen()->add_help_tab(
 			'<p>' . __( 'If a version update to core has not happened, clicking this button will not affect anything.' ) . '</p>' .
 			'<p>' . __( 'If this process fails for any reason, users logging in to their sites will force the same update.' ) . '</p>',
 	)
-);
-
-get_current_screen()->set_help_sidebar(
-	'<p><strong>' . __( 'For more information:' ) . '</strong></p>' .
-	'<p>' . __( '<a href="https://developer.wordpress.org/advanced-administration/multisite/admin/#network-admin-updates-screen">Documentation on Upgrade Network</a>' ) . '</p>' .
-	'<p>' . __( '<a href="https://wordpress.org/support/forums/">Support forums</a>' ) . '</p>'
 );
 
 require_once ABSPATH . 'wp-admin/admin-header.php';
@@ -106,7 +101,7 @@ switch ( $action ) {
 			/**
 			 * Fires after the Multisite DB upgrade for each site is complete.
 			 *
-			 * @since MU (3.0.0)
+			 * @since WP MU (3.0.0)
 			 *
 			 * @param array $response The upgrade response array.
 			 */
@@ -115,7 +110,7 @@ switch ( $action ) {
 			/**
 			 * Fires after each site has been upgraded.
 			 *
-			 * @since MU (3.0.0)
+			 * @since WP MU (3.0.0)
 			 *
 			 * @param int $site_id The Site ID.
 			 */
@@ -147,7 +142,7 @@ switch ( $action ) {
 		/**
 		 * Fires before the footer on the network upgrade screen.
 		 *
-		 * @since MU (3.0.0)
+		 * @since WP MU (3.0.0)
 		 */
 		do_action( 'wpmu_upgrade_page' );
 		break;

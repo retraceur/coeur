@@ -4,12 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage Administration
+ * @since 1.0.0 motsVertueux fork.
  */
 
 /**
  * Returns whether the server is running Apache with the mod_rewrite module loaded.
  *
- * @since 2.0.0
+ * @since WP 2.0.0
  *
  * @return bool Whether the server is running Apache with the mod_rewrite module loaded.
  */
@@ -22,7 +23,7 @@ function got_mod_rewrite() {
 	 * This filter was previously used to force URL rewriting for other servers,
 	 * like nginx. Use the {@see 'got_url_rewrite'} filter in got_url_rewrite() instead.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @see got_url_rewrite()
 	 *
@@ -36,7 +37,7 @@ function got_mod_rewrite() {
  *
  * Detects Apache's mod_rewrite, IIS 7.0+ permalink support, and nginx.
  *
- * @since 3.7.0
+ * @since WP 3.7.0
  *
  * @global bool $is_nginx
  * @global bool $is_caddy
@@ -49,7 +50,7 @@ function got_url_rewrite() {
 	/**
 	 * Filters whether URL rewriting is available.
 	 *
-	 * @since 3.7.0
+	 * @since WP 3.7.0
 	 *
 	 * @param bool $got_url_rewrite Whether URL rewriting is available.
 	 */
@@ -59,7 +60,7 @@ function got_url_rewrite() {
 /**
  * Extracts strings from between the BEGIN and END markers in the .htaccess file.
  *
- * @since 1.5.0
+ * @since WP 1.5.0
  *
  * @param string $filename Filename to extract the strings from.
  * @param string $marker   The marker to extract the strings from.
@@ -104,7 +105,7 @@ function extract_from_markers( $filename, $marker ) {
  * Replaces existing marked info. Retains surrounding
  * data. Creates file if none exists.
  *
- * @since 1.5.0
+ * @since WP 1.5.0
  *
  * @param string       $filename  Filename to alter.
  * @param string       $marker    The marker to alter.
@@ -156,7 +157,7 @@ Any changes to the directives between these markers will be overwritten.'
 	/**
 	 * Filters the inline instructions inserted before the dynamically generated content.
 	 *
-	 * @since 5.3.0
+	 * @since WP 5.3.0
 	 *
 	 * @param string[] $instructions Array of lines with inline instructions.
 	 * @param string   $marker       The marker being inserted.
@@ -253,7 +254,7 @@ Any changes to the directives between these markers will be overwritten.'
  * Always writes to the file if it exists and is writable to ensure that we
  * blank out old rules.
  *
- * @since 1.5.0
+ * @since WP 1.5.0
  *
  * @global WP_Rewrite $wp_rewrite WordPress rewrite component.
  *
@@ -293,7 +294,7 @@ function save_mod_rewrite_rules() {
  * Updates the IIS web.config file with the current rules if it is writable.
  * If the permalinks do not require rewrite rules then the rules are deleted from the web.config file.
  *
- * @since 2.8.0
+ * @since WP 2.8.0
  *
  * @global WP_Rewrite $wp_rewrite WordPress rewrite component.
  *
@@ -332,7 +333,7 @@ function iis7_save_url_rewrite_rules() {
 /**
  * Updates the "recently-edited" file for the plugin or theme file editor.
  *
- * @since 1.5.0
+ * @since WP 1.5.0
  *
  * @param string $file
  */
@@ -358,7 +359,7 @@ function update_recently_edited( $file ) {
 /**
  * Makes a tree structure for the theme file editor's file list.
  *
- * @since 4.9.0
+ * @since WP 4.9.0
  * @access private
  *
  * @param array $allowed_files List of theme file paths.
@@ -384,7 +385,7 @@ function wp_make_theme_file_tree( $allowed_files ) {
 /**
  * Outputs the formatted file list for the theme file editor.
  *
- * @since 4.9.0
+ * @since WP 4.9.0
  * @access private
  *
  * @global string $relative_file Name of the file being edited relative to the
@@ -463,7 +464,7 @@ function wp_print_theme_file_tree( $tree, $level = 2, $size = 1, $index = 1 ) {
 /**
  * Makes a tree structure for the plugin file editor's file list.
  *
- * @since 4.9.0
+ * @since WP 4.9.0
  * @access private
  *
  * @param array $plugin_editable_files List of plugin file paths.
@@ -489,7 +490,7 @@ function wp_make_plugin_file_tree( $plugin_editable_files ) {
 /**
  * Outputs the formatted file list for the plugin file editor.
  *
- * @since 4.9.0
+ * @since WP 4.9.0
  * @access private
  *
  * @param array|string $tree  List of file/folder paths, or filename.
@@ -558,7 +559,7 @@ function wp_print_plugin_file_tree( $tree, $label = '', $level = 2, $size = 1, $
 /**
  * Flushes rewrite rules if `siteurl`, `home` or `page_on_front` changed.
  *
- * @since 2.1.0
+ * @since WP 2.1.0
  *
  * @param string $old_value
  * @param string $value
@@ -582,7 +583,7 @@ function update_home_siteurl( $old_value, $value ) {
  * in the `$vars` array to the value of `$_POST[$var]` or `$_GET[$var]` or an
  * empty string if neither is defined.
  *
- * @since 2.0.0
+ * @since WP 2.0.0
  *
  * @param array $vars An array of globals to reset.
  */
@@ -603,7 +604,7 @@ function wp_reset_vars( $vars ) {
 /**
  * Displays the given administration message.
  *
- * @since 2.1.0
+ * @since WP 2.1.0
  *
  * @param string|WP_Error $message
  */
@@ -622,7 +623,7 @@ function show_message( $message ) {
 }
 
 /**
- * @since 2.8.0
+ * @since WP 2.8.0
  *
  * @param string $content
  * @return array
@@ -665,7 +666,7 @@ function wp_doc_link_parse( $content ) {
 	/**
 	 * Filters the list of functions and classes to be ignored from the documentation lookup.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @param string[] $ignore_functions Array of names of functions and classes to be ignored.
 	 */
@@ -689,7 +690,7 @@ function wp_doc_link_parse( $content ) {
 /**
  * Saves option for number of rows when listing posts, pages, comments, etc.
  *
- * @since 2.8.0
+ * @since WP 2.8.0
  */
 function set_screen_options() {
 	if ( ! isset( $_POST['wp_screen_options'] ) || ! is_array( $_POST['wp_screen_options'] ) ) {
@@ -759,8 +760,8 @@ function set_screen_options() {
 				 *
 				 * Returning false from the filter will skip saving the current option.
 				 *
-				 * @since 2.8.0
-				 * @since 5.4.2 Only applied to options ending with '_page',
+				 * @since WP 2.8.0
+				 * @since WP 5.4.2 Only applied to options ending with '_page',
 				 *              or the 'layout_columns' option.
 				 *
 				 * @see set_screen_options()
@@ -780,7 +781,7 @@ function set_screen_options() {
 			 *
 			 * Returning false from the filter will skip saving the current option.
 			 *
-			 * @since 5.4.2
+			 * @since WP 5.4.2
 			 *
 			 * @see set_screen_options()
 			 *
@@ -813,7 +814,7 @@ function set_screen_options() {
 /**
  * Checks if rewrite rule for WordPress already exists in the IIS 7+ configuration file.
  *
- * @since 2.8.0
+ * @since WP 2.8.0
  *
  * @param string $filename The file path to the configuration file.
  * @return bool
@@ -846,7 +847,7 @@ function iis7_rewrite_rule_exists( $filename ) {
 /**
  * Deletes WordPress rewrite rule from web.config file if it exists there.
  *
- * @since 2.8.0
+ * @since WP 2.8.0
  *
  * @param string $filename Name of the configuration file.
  * @return bool
@@ -885,7 +886,7 @@ function iis7_delete_rewrite_rule( $filename ) {
 /**
  * Adds WordPress rewrite rule to the IIS 7+ configuration file.
  *
- * @since 2.8.0
+ * @since WP 2.8.0
  *
  * @param string $filename     The file path to the configuration file.
  * @param string $rewrite_rule The XML fragment with URL Rewrite rule.
@@ -973,7 +974,7 @@ function iis7_add_rewrite_rule( $filename, $rewrite_rule ) {
 /**
  * Saves the XML document into a file.
  *
- * @since 2.8.0
+ * @since WP 2.8.0
  *
  * @param DOMDocument $doc
  * @param string      $filename
@@ -990,7 +991,7 @@ function saveDomDocument( $doc, $filename ) { // phpcs:ignore WordPress.NamingCo
 /**
  * Displays the default admin color scheme picker (Used in user-edit.php).
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @global array $_wp_admin_css_colors
  *
@@ -1089,13 +1090,13 @@ function wp_color_scheme_settings() {
 /**
  * Displays the viewport meta in the admin.
  *
- * @since 5.5.0
+ * @since WP 5.5.0
  */
 function wp_admin_viewport_meta() {
 	/**
 	 * Filters the viewport meta in the admin.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @param string $viewport_meta The viewport meta.
 	 */
@@ -1113,7 +1114,7 @@ function wp_admin_viewport_meta() {
  *
  * Hooked to the {@see 'admin_viewport_meta'} filter.
  *
- * @since 5.5.0
+ * @since WP 5.5.0
  *
  * @param string $viewport_meta The viewport meta.
  * @return string Filtered viewport meta.
@@ -1125,7 +1126,7 @@ function _customizer_mobile_viewport_meta( $viewport_meta ) {
 /**
  * Checks lock status for posts displayed on the Posts screen.
  *
- * @since 3.6.0
+ * @since WP 3.6.0
  *
  * @param array  $response  The Heartbeat response.
  * @param array  $data      The $_POST data sent.
@@ -1176,7 +1177,7 @@ function wp_check_locked_posts( $response, $data, $screen_id ) {
 /**
  * Checks lock status on the New/Edit Post screen and refresh the lock.
  *
- * @since 3.6.0
+ * @since WP 3.6.0
  *
  * @param array  $response  The Heartbeat response.
  * @param array  $data      The $_POST data sent.
@@ -1231,7 +1232,7 @@ function wp_refresh_post_lock( $response, $data, $screen_id ) {
 /**
  * Checks nonce expiration on the New/Edit Post screen and refresh if needed.
  *
- * @since 3.6.0
+ * @since WP 3.6.0
  *
  * @param array  $response  The Heartbeat response.
  * @param array  $data      The $_POST data sent.
@@ -1271,7 +1272,7 @@ function wp_refresh_post_nonces( $response, $data, $screen_id ) {
 /**
  * Refresh nonces used with meta boxes in the block editor.
  *
- * @since 6.1.0
+ * @since WP 6.1.0
  *
  * @param array  $response  The Heartbeat response.
  * @param array  $data      The $_POST data sent.
@@ -1306,7 +1307,7 @@ function wp_refresh_metabox_loader_nonces( $response, $data ) {
 /**
  * Adds the latest Heartbeat and REST API nonce to the Heartbeat response.
  *
- * @since 5.0.0
+ * @since WP 5.0.0
  *
  * @param array $response The Heartbeat response.
  * @return array The Heartbeat response.
@@ -1324,7 +1325,7 @@ function wp_refresh_heartbeat_nonces( $response ) {
 /**
  * Disables suspension of Heartbeat on the Add/Edit Post screens.
  *
- * @since 3.8.0
+ * @since WP 3.8.0
  *
  * @global string $pagenow The filename of the current screen.
  *
@@ -1344,7 +1345,7 @@ function wp_heartbeat_set_suspension( $settings ) {
 /**
  * Performs autosave with heartbeat.
  *
- * @since 3.9.0
+ * @since WP 3.9.0
  *
  * @param array $response The Heartbeat response.
  * @param array $data     The $_POST data sent.
@@ -1384,7 +1385,7 @@ function heartbeat_autosave( $response, $data ) {
  * Removes specific query string parameters from a URL, create the canonical link,
  * put it in the admin header, and change the current URL to match.
  *
- * @since 4.2.0
+ * @since WP 4.2.0
  */
 function wp_admin_canonical_url() {
 	$removable_query_args = wp_removable_query_args();
@@ -1400,7 +1401,7 @@ function wp_admin_canonical_url() {
 	/**
 	 * Filters the admin canonical URL value.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $filtered_url The admin canonical URL value.
 	 */
@@ -1418,7 +1419,7 @@ function wp_admin_canonical_url() {
 /**
  * Sends a referrer policy header so referrers are not sent externally from administration screens.
  *
- * @since 4.9.0
+ * @since WP 4.9.0
  */
 function wp_admin_headers() {
 	$policy = 'strict-origin-when-cross-origin';
@@ -1426,8 +1427,8 @@ function wp_admin_headers() {
 	/**
 	 * Filters the admin referrer policy header value.
 	 *
-	 * @since 4.9.0
-	 * @since 4.9.5 The default value was changed to 'strict-origin-when-cross-origin'.
+	 * @since WP 4.9.0
+	 * @since WP 4.9.5 The default value was changed to 'strict-origin-when-cross-origin'.
 	 *
 	 * @link https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy
 	 *
@@ -1444,7 +1445,7 @@ function wp_admin_headers() {
  * Used on the Edit Post and Add New Post screens. Needed to ensure the page is not loaded from browser cache,
  * so the post title and editor content are the last saved versions. Ideally this script should run first in the head.
  *
- * @since 4.6.0
+ * @since WP 4.6.0
  */
 function wp_page_reload_on_back_button_js() {
 	?>
@@ -1461,8 +1462,8 @@ function wp_page_reload_on_back_button_js() {
  *
  * The new site admin address will not become active until confirmed.
  *
- * @since 3.0.0
- * @since 4.9.0 This function was moved from wp-admin/includes/ms.php so it's no longer Multisite specific.
+ * @since WP 3.0.0
+ * @since WP 4.9.0 This function was moved from wp-admin/includes/ms.php so it's no longer Multisite specific.
  *
  * @param string $old_value The old site admin email address.
  * @param string $value     The proposed new site admin email address.
@@ -1512,8 +1513,8 @@ All at ###SITENAME###
 	 *  - ###SITENAME###  The name of the site.
 	 *  - ###SITEURL###   The URL to the site.
 	 *
-	 * @since MU (3.0.0)
-	 * @since 4.9.0 This filter is no longer Multisite specific.
+	 * @since WP MU (3.0.0)
+	 * @since WP 4.9.0 This filter is no longer Multisite specific.
 	 *
 	 * @param string $email_text      Text in the email.
 	 * @param array  $new_admin_email {
@@ -1547,7 +1548,7 @@ All at ###SITENAME###
 	/**
 	 * Filters the subject of the email sent when a change of site admin email address is attempted.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $subject Subject of the email.
 	 */
@@ -1564,7 +1565,7 @@ All at ###SITENAME###
  * Appends '(Draft)' to draft page titles in the privacy page dropdown
  * so that unpublished content is obvious.
  *
- * @since 4.9.8
+ * @since WP 4.9.8
  * @access private
  *
  * @param string  $title Page title.
@@ -1583,8 +1584,12 @@ function _wp_privacy_settings_filter_draft_page_titles( $title, $page ) {
 /**
  * Checks if the user needs to update PHP.
  *
- * @since 5.1.0
- * @since 5.1.1 Added the {@see 'wp_is_php_version_acceptable'} filter.
+ * @since WP 5.1.0
+ * @since WP 5.1.1 Added the {@see 'wp_is_php_version_acceptable'} filter.
+ * @since 1.0.0    Stop using the distant WP API.
+ * 
+ * @global string $required_php_version    The required PHP version string.
+ * @global string $recommended_php_version The recommended PHP version string.
  *
  * @return array|false {
  *     Array of PHP version data. False on failure.
@@ -1598,45 +1603,29 @@ function _wp_privacy_settings_filter_draft_page_titles( $title, $page ) {
  * }
  */
 function wp_check_php_version() {
+	global $required_php_version, $recommended_php_version;
 	$version = PHP_VERSION;
-	$key     = md5( $version );
+	
+	$responce = array(
+		'recommended_version' => $recommended_php_version,
+		'minimum_version'     => $required_php_version,
+		'is_supported'        => false,
+		'is_secure'           => false,
+		'is_acceptable'       => false,
+	);
 
-	$response = get_site_transient( 'php_check_' . $key );
-
-	if ( false === $response ) {
-		$url = 'http://api.wordpress.org/core/serve-happy/1.0/';
-
-		if ( wp_http_supports( array( 'ssl' ) ) ) {
-			$url = set_url_scheme( $url, 'https' );
-		}
-
-		$url = add_query_arg( 'php_version', $version, $url );
-
-		$response = wp_remote_get( $url );
-
-		if ( is_wp_error( $response ) || 200 !== wp_remote_retrieve_response_code( $response ) ) {
-			return false;
-		}
-
-		$response = json_decode( wp_remote_retrieve_body( $response ), true );
-
-		if ( ! is_array( $response ) ) {
-			return false;
-		}
-
-		set_site_transient( 'php_check_' . $key, $response, WEEK_IN_SECONDS );
-	}
-
-	if ( isset( $response['is_acceptable'] ) && $response['is_acceptable'] ) {
+	if ( version_compare( $version, '7.4', '>=' ) ) {
+		$responce['is_supported']  = true;
+		$responce['is_secure']     = true;
+		
 		/**
 		 * Filters whether the active PHP version is considered acceptable by WordPress.
 		 *
 		 * Returning false will trigger a PHP version warning to show up in the admin dashboard to administrators.
 		 *
-		 * This filter is only run if the wordpress.org Serve Happy API considers the PHP version acceptable, ensuring
-		 * that this filter can only make this check stricter, but not loosen it.
+		 * This filter is only run if the PHP version acceptable, ensuring that this filter can only make this check stricter, but not loosen it.
 		 *
-		 * @since 5.1.1
+		 * @since WP 5.1.1
 		 *
 		 * @param bool   $is_acceptable Whether the PHP version is considered acceptable. Default true.
 		 * @param string $version       PHP version checked.

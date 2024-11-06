@@ -22,7 +22,7 @@
 /**
  * Throws an error for a deprecated property.
  *
- * @since 5.5.1
+ * @since WP 5.5.1
  *
  * @param {string} propName    The property that was used.
  * @param {string} version     The version of WordPress that deprecated the property.
@@ -54,8 +54,8 @@ function deprecatedProperty( propName, version, replacement ) {
 /**
  * Deprecate all properties on an object.
  *
- * @since 5.5.1
- * @since 5.6.0 Added the `version` parameter.
+ * @since WP 5.5.1
+ * @since WP 5.6.0 Added the `version` parameter.
  *
  * @param {string} name       The name of the object, i.e. commonL10n.
  * @param {object} l10nObject The object to deprecate the properties on.
@@ -91,8 +91,8 @@ window.wp.deprecateL10nObject = deprecateL10nObject;
 /**
  * Removed in 5.5.0, needed for back-compatibility.
  *
- * @since 2.6.0
- * @deprecated 5.5.0
+ * @since WP 2.6.0
+ * @deprecated WP 5.5.0
  */
 window.commonL10n = window.commonL10n || {
 	warnDelete: '',
@@ -106,8 +106,8 @@ window.commonL10n = deprecateL10nObject( 'commonL10n', window.commonL10n, '5.5.0
 /**
  * Removed in 5.5.0, needed for back-compatibility.
  *
- * @since 3.3.0
- * @deprecated 5.5.0
+ * @since WP 3.3.0
+ * @deprecated WP 5.5.0
  */
 window.wpPointerL10n = window.wpPointerL10n || {
 	dismiss: ''
@@ -118,8 +118,8 @@ window.wpPointerL10n = deprecateL10nObject( 'wpPointerL10n', window.wpPointerL10
 /**
  * Removed in 5.5.0, needed for back-compatibility.
  *
- * @since 4.3.0
- * @deprecated 5.5.0
+ * @since WP 4.3.0
+ * @deprecated WP 5.5.0
  */
 window.userProfileL10n = window.userProfileL10n || {
 	warn: '',
@@ -136,8 +136,8 @@ window.userProfileL10n = deprecateL10nObject( 'userProfileL10n', window.userProf
 /**
  * Removed in 5.5.0, needed for back-compatibility.
  *
- * @since 4.9.6
- * @deprecated 5.5.0
+ * @since WP 4.9.6
+ * @deprecated WP 5.5.0
  */
 window.privacyToolsL10n = window.privacyToolsL10n || {
 	noDataFound: '',
@@ -155,8 +155,8 @@ window.privacyToolsL10n = deprecateL10nObject( 'privacyToolsL10n', window.privac
 /**
  * Removed in 5.5.0, needed for back-compatibility.
  *
- * @since 3.6.0
- * @deprecated 5.5.0
+ * @since WP 3.6.0
+ * @deprecated WP 5.5.0
  */
 window.authcheckL10n = {
 	beforeunload: ''
@@ -167,8 +167,8 @@ window.authcheckL10n = window.authcheckL10n || deprecateL10nObject( 'authcheckL1
 /**
  * Removed in 5.5.0, needed for back-compatibility.
  *
- * @since 2.8.0
- * @deprecated 5.5.0
+ * @since WP 2.8.0
+ * @deprecated WP 5.5.0
  */
 window.tagsl10n = {
 	noPerm: '',
@@ -180,8 +180,8 @@ window.tagsl10n = window.tagsl10n || deprecateL10nObject( 'tagsl10n', window.tag
 /**
  * Removed in 5.5.0, needed for back-compatibility.
  *
- * @since 2.5.0
- * @deprecated 5.5.0
+ * @since WP 2.5.0
+ * @deprecated WP 5.5.0
  */
 window.adminCommentsL10n = window.adminCommentsL10n || {
 	hotkeys_highlight_first: {
@@ -205,8 +205,8 @@ window.adminCommentsL10n = deprecateL10nObject( 'adminCommentsL10n', window.admi
 /**
  * Removed in 5.5.0, needed for back-compatibility.
  *
- * @since 2.5.0
- * @deprecated 5.5.0
+ * @since WP 2.5.0
+ * @deprecated WP 5.5.0
  */
 window.tagsSuggestL10n = window.tagsSuggestL10n || {
 	tagDelimiter: '',
@@ -221,8 +221,8 @@ window.tagsSuggestL10n = deprecateL10nObject( 'tagsSuggestL10n', window.tagsSugg
 /**
  * Removed in 5.5.0, needed for back-compatibility.
  *
- * @since 3.5.0
- * @deprecated 5.5.0
+ * @since WP 3.5.0
+ * @deprecated WP 5.5.0
  */
 window.wpColorPickerL10n = window.wpColorPickerL10n || {
 	clear: '',
@@ -238,8 +238,8 @@ window.wpColorPickerL10n = deprecateL10nObject( 'wpColorPickerL10n', window.wpCo
 /**
  * Removed in 5.5.0, needed for back-compatibility.
  *
- * @since 2.7.0
- * @deprecated 5.5.0
+ * @since WP 2.7.0
+ * @deprecated WP 5.5.0
  */
 window.attachMediaBoxL10n = window.attachMediaBoxL10n || {
 	error: ''
@@ -250,8 +250,8 @@ window.attachMediaBoxL10n = deprecateL10nObject( 'attachMediaBoxL10n', window.at
 /**
  * Removed in 5.5.0, needed for back-compatibility.
  *
- * @since 2.5.0
- * @deprecated 5.5.0
+ * @since WP 2.5.0
+ * @deprecated WP 5.5.0
  */
 window.postL10n = window.postL10n || {
 	ok: '',
@@ -283,8 +283,8 @@ window.postL10n = deprecateL10nObject( 'postL10n', window.postL10n, '5.5.0' );
 /**
  * Removed in 5.5.0, needed for back-compatibility.
  *
- * @since 2.7.0
- * @deprecated 5.5.0
+ * @since WP 2.7.0
+ * @deprecated WP 5.5.0
  */
 window.inlineEditL10n = window.inlineEditL10n || {
 	error: '',
@@ -299,8 +299,8 @@ window.inlineEditL10n = deprecateL10nObject( 'inlineEditL10n', window.inlineEdit
 /**
  * Removed in 5.5.0, needed for back-compatibility.
  *
- * @since 2.7.0
- * @deprecated 5.5.0
+ * @since WP 2.7.0
+ * @deprecated WP 5.5.0
  */
 window.plugininstallL10n = window.plugininstallL10n || {
 	plugin_information: '',
@@ -313,8 +313,8 @@ window.plugininstallL10n = deprecateL10nObject( 'plugininstallL10n', window.plug
 /**
  * Removed in 5.5.0, needed for back-compatibility.
  *
- * @since 3.0.0
- * @deprecated 5.5.0
+ * @since WP 3.0.0
+ * @deprecated WP 5.5.0
  */
 window.navMenuL10n = window.navMenuL10n || {
 	noResultsFound: '',
@@ -328,8 +328,8 @@ window.navMenuL10n = deprecateL10nObject( 'navMenuL10n', window.navMenuL10n, '5.
 /**
  * Removed in 5.5.0, needed for back-compatibility.
  *
- * @since 2.5.0
- * @deprecated 5.5.0
+ * @since WP 2.5.0
+ * @deprecated WP 5.5.0
  */
 window.commentL10n = window.commentL10n || {
 	submittedOn: '',
@@ -341,8 +341,8 @@ window.commentL10n = deprecateL10nObject( 'commentL10n', window.commentL10n, '5.
 /**
  * Removed in 5.5.0, needed for back-compatibility.
  *
- * @since 2.9.0
- * @deprecated 5.5.0
+ * @since WP 2.9.0
+ * @deprecated WP 5.5.0
  */
 window.setPostThumbnailL10n = window.setPostThumbnailL10n || {
 	setThumbnail: '',
@@ -356,8 +356,8 @@ window.setPostThumbnailL10n = deprecateL10nObject( 'setPostThumbnailL10n', windo
 /**
  * Removed in 6.5.0, needed for back-compatibility.
  *
- * @since 4.5.0
- * @deprecated 6.5.0
+ * @since WP 4.5.0
+ * @deprecated WP 6.5.0
  */
 window.uiAutocompleteL10n = window.uiAutocompleteL10n || {
 	noResults: '',
@@ -371,8 +371,8 @@ window.uiAutocompleteL10n = deprecateL10nObject( 'uiAutocompleteL10n', window.ui
 /**
  * Removed in 3.3.0, needed for back-compatibility.
  *
- * @since 2.7.0
- * @deprecated 3.3.0
+ * @since WP 2.7.0
+ * @deprecated WP 3.3.0
  */
 window.adminMenu = {
 	init : function() {},
@@ -391,7 +391,7 @@ window.columns = {
 	 * Binds an onClick event to the checkboxes to show or hide the table columns
 	 * based on their toggled state. And persists the toggled state.
 	 *
-	 * @since 2.7.0
+	 * @since WP 2.7.0
 	 *
 	 * @return {void}
 	 */
@@ -413,7 +413,7 @@ window.columns = {
 	 *
 	 * Saves whether the columns should be shown or hidden on a page.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 *
 	 * @return {void}
 	 */
@@ -430,7 +430,7 @@ window.columns = {
 	/**
 	 * Makes a column visible and adjusts the column span for the table.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 * @param {string} column The column name.
 	 *
 	 * @return {void}
@@ -443,7 +443,7 @@ window.columns = {
 	/**
 	 * Hides a column and adjusts the column span for the table.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 * @param {string} column The column name.
 	 *
 	 * @return {void}
@@ -456,7 +456,7 @@ window.columns = {
 	/**
 	 * Gets all hidden columns.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 *
 	 * @return {string} The hidden column names separated by a comma.
 	 */
@@ -469,7 +469,7 @@ window.columns = {
 	/**
 	 * Gets the checked column toggles from the screen options.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 *
 	 * @return {string} String containing the checked column names.
 	 */
@@ -485,7 +485,7 @@ window.columns = {
 	/**
 	 * Adjusts the column span for the table.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @param {number} diff The modifier for the column span.
 	 */
@@ -503,7 +503,7 @@ $( function() { columns.init(); } );
 /**
  * Validates that the required form fields are not empty.
  *
- * @since 2.9.0
+ * @since WP 2.9.0
  *
  * @param {jQuery} form The form to validate.
  *
@@ -523,7 +523,7 @@ window.validateForm = function( form ) {
 /**
  * Shows message pop-up notice or confirmation message.
  *
- * @since 2.7.0
+ * @since WP 2.7.0
  *
  * @type {{warn: showNotice.warn, note: showNotice.note}}
  *
@@ -534,7 +534,7 @@ window.showNotice = {
 	/**
 	 * Shows a delete confirmation pop-up message.
 	 *
-	 * @since 2.7.0
+	 * @since WP 2.7.0
 	 *
 	 * @return {boolean} Returns true if the message is confirmed.
 	 */
@@ -549,7 +549,7 @@ window.showNotice = {
 	/**
 	 * Shows an alert message.
 	 *
-	 * @since 2.7.0
+	 * @since WP 2.7.0
 	 *
 	 * @param text The text to display in the message.
 	 */
@@ -561,7 +561,7 @@ window.showNotice = {
 /**
  * Represents the functions for the meta screen options panel.
  *
- * @since 3.2.0
+ * @since WP 3.2.0
  *
  * @type {{element: null, toggles: null, page: null, init: screenMeta.init,
  *         toggleEvent: screenMeta.toggleEvent, open: screenMeta.open,
@@ -577,7 +577,7 @@ window.screenMeta = {
 	/**
 	 * Initializes the screen meta options panel.
 	 *
-	 * @since 3.2.0
+	 * @since WP 3.2.0
 	 *
 	 * @return {void}
 	 */
@@ -592,7 +592,7 @@ window.screenMeta = {
 	/**
 	 * Toggles the screen meta options panel.
 	 *
-	 * @since 3.2.0
+	 * @since WP 3.2.0
 	 *
 	 * @return {void}
 	 */
@@ -611,7 +611,7 @@ window.screenMeta = {
 	/**
 	 * Opens the screen meta options panel.
 	 *
-	 * @since 3.2.0
+	 * @since WP 3.2.0
 	 *
 	 * @param {jQuery} panel  The screen meta options panel div.
 	 * @param {jQuery} button The toggle button.
@@ -627,7 +627,7 @@ window.screenMeta = {
 		/**
 		 * Sets the focus to the meta options panel and adds the necessary CSS classes.
 		 *
-		 * @since 3.2.0
+		 * @since WP 3.2.0
 		 *
 		 * @return {void}
 		 */
@@ -642,7 +642,7 @@ window.screenMeta = {
 	/**
 	 * Closes the screen meta options panel.
 	 *
-	 * @since 3.2.0
+	 * @since WP 3.2.0
 	 *
 	 * @param {jQuery} panel  The screen meta options panel div.
 	 * @param {jQuery} button The toggle button.
@@ -653,7 +653,7 @@ window.screenMeta = {
 		/**
 		 * Hides the screen meta options panel.
 		 *
-		 * @since 3.2.0
+		 * @since WP 3.2.0
 		 *
 		 * @return {void}
 		 */
@@ -905,7 +905,7 @@ $( function() {
 	/**
 	 * Ensures an admin submenu is within the visual viewport.
 	 *
-	 * @since 4.1.0
+	 * @since WP 4.1.0
 	 *
 	 * @param {jQuery} $menuItem The parent menu item containing the submenu.
 	 *
@@ -1086,7 +1086,7 @@ $( function() {
 	/**
 	 * Makes notices dismissible.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 *
 	 * @return {void}
 	 */
@@ -1233,7 +1233,7 @@ $( function() {
 		/**
 		 * Updates the primary selector when the secondary selector is changed.
 		 *
-		 * @since 5.7.0
+		 * @since WP 5.7.0
 		 *
 		 * @return {void}
 		 */
@@ -1245,7 +1245,7 @@ $( function() {
 		/**
 		 * Updates the secondary selector when the primary selector is changed.
 		 *
-		 * @since 5.7.0
+		 * @since WP 5.7.0
 		 *
 		 * @return {void}
 		 */
@@ -1257,7 +1257,7 @@ $( function() {
 		/**
 		 * Triggers the primary submit when then secondary submit is clicked.
 		 *
-		 * @since 5.7.0
+		 * @since WP 5.7.0
 		 *
 		 * @return {void}
 		 */
@@ -1497,7 +1497,7 @@ $( function() {
 		/**
 		 * Determines if any data is entered in any file upload input.
 		 *
-		 * @since 3.5.0
+		 * @since WP 3.5.0
 		 *
 		 * @return {void}
 		 */
@@ -1519,7 +1519,7 @@ $( function() {
 	 *
 	 * @param {Event} event Event data.
 	 *
-	 * @since 4.1.0
+	 * @since WP 4.1.0
 	 *
 	 * @return {void}
 	 */
@@ -1662,7 +1662,7 @@ $( function() {
 	/**
 	 * Determines the height of certain elements.
 	 *
-	 * @since 4.1.0
+	 * @since WP 4.1.0
 	 *
 	 * @return {void}
 	 */
@@ -1678,7 +1678,7 @@ $( function() {
 	/**
 	 * Unpins the menu.
 	 *
-	 * @since 4.1.0
+	 * @since WP 4.1.0
 	 *
 	 * @return {void}
 	 */
@@ -1698,7 +1698,7 @@ $( function() {
 	/**
 	 * Pins and unpins the menu when applicable.
 	 *
-	 * @since 4.1.0
+	 * @since WP 4.1.0
 	 *
 	 * @return {void}
 	 */
@@ -1727,7 +1727,7 @@ $( function() {
 	/**
 	 * Changes the sortables and responsiveness of metaboxes.
 	 *
-	 * @since 3.8.0
+	 * @since WP 3.8.0
 	 *
 	 * @return {void}
 	 */
@@ -1736,7 +1736,7 @@ $( function() {
 		/**
 		 * Initializes the wpResponsive object.
 		 *
-		 * @since 3.8.0
+		 * @since WP 3.8.0
 		 *
 		 * @return {void}
 		 */
@@ -1838,7 +1838,7 @@ $( function() {
 		/**
 		 * Disable sortables if there is only one metabox, or the screen is in one column mode. Otherwise, enable sortables.
 		 *
-		 * @since 5.3.0
+		 * @since WP 5.3.0
 		 *
 		 * @return {void}
 		 */
@@ -1861,7 +1861,7 @@ $( function() {
 		 * Pins and unpins the menu and adds the auto-fold class to the body.
 		 * Makes the admin menu responsive and disables the metabox sortables.
 		 *
-		 * @since 3.8.0
+		 * @since WP 3.8.0
 		 *
 		 * @return {void}
 		 */
@@ -1882,7 +1882,7 @@ $( function() {
 		 * Pin and unpin the menu.
 		 * Removes the responsiveness of the admin menu and enables the metabox sortables.
 		 *
-		 * @since 3.8.0
+		 * @since WP 3.8.0
 		 *
 		 * @return {void}
 		 */
@@ -1897,9 +1897,8 @@ $( function() {
 		 * Toggles the aria-haspopup attribute for the responsive admin menu.
 		 *
 		 * The aria-haspopup attribute is only necessary for the responsive menu.
-		 * See ticket https://core.trac.wordpress.org/ticket/43095
 		 *
-		 * @since 6.6.0
+		 * @since WP 6.6.0
 		 *
 		 * @param {string} action Whether to add or remove the aria-haspopup attribute.
 		 *
@@ -1924,7 +1923,7 @@ $( function() {
 		/**
 		 * Sets the responsiveness and enables the overlay based on the viewport width.
 		 *
-		 * @since 3.8.0
+		 * @since WP 3.8.0
 		 *
 		 * @return {void}
 		 */
@@ -1960,7 +1959,7 @@ $( function() {
 		/**
 		 * Inserts a responsive overlay and toggles the window.
 		 *
-		 * @since 3.8.0
+		 * @since WP 3.8.0
 		 *
 		 * @return {void}
 		 */
@@ -1983,7 +1982,7 @@ $( function() {
 		/**
 		 * Disables the responsive overlay and removes the overlay.
 		 *
-		 * @since 3.8.0
+		 * @since WP 3.8.0
 		 *
 		 * @return {void}
 		 */
@@ -1995,7 +1994,7 @@ $( function() {
 		/**
 		 * Disables sortables.
 		 *
-		 * @since 3.8.0
+		 * @since WP 3.8.0
 		 *
 		 * @return {void}
 		 */
@@ -2011,7 +2010,7 @@ $( function() {
 		/**
 		 * Enables sortables.
 		 *
-		 * @since 3.8.0
+		 * @since WP 3.8.0
 		 *
 		 * @return {void}
 		 */
@@ -2028,7 +2027,7 @@ $( function() {
 	/**
 	 * Add an ARIA role `button` to elements that behave like UI controls when JavaScript is on.
 	 *
-	 * @since 4.5.0
+	 * @since WP 4.5.0
 	 *
 	 * @return {void}
 	 */
@@ -2043,7 +2042,7 @@ $( function() {
 	/**
 	 * Get the viewport width.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @return {number|boolean} The current viewport width or false if the
 	 *                          browser doesn't support innerWidth (IE < 9).
@@ -2065,7 +2064,7 @@ $( function() {
 	 * Sets the global variable `menuState` and triggers a custom event passing
 	 * the current menu state.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @return {void}
 	 */
@@ -2093,7 +2092,7 @@ $( function() {
 	 * `aria-label` attributes of the button to give feedback to assistive
 	 * technologies. In the responsive view, the button is always hidden.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @return {void}
 	 */
@@ -2152,7 +2151,7 @@ $( function() {
  * On the "Update plugin/theme from uploaded zip" screen, once the upload has expired,
  * hides the "Replace current with uploaded" button and displays a warning.
  *
- * @since 5.5.0
+ * @since WP 5.5.0
  */
 $( function( $ ) {
 	var $overwrite, $warning;
@@ -2188,7 +2187,7 @@ $( function( $ ) {
 	/**
 	 * Triggers the WP window-resize event.
 	 *
-	 * @since 3.8.0
+	 * @since WP 3.8.0
 	 *
 	 * @return {void}
 	 */
@@ -2199,7 +2198,7 @@ $( function( $ ) {
 	/**
 	 * Fires the trigger event again after 200 ms.
 	 *
-	 * @since 3.8.0
+	 * @since WP 3.8.0
 	 *
 	 * @return {void}
 	 */
@@ -2231,7 +2230,7 @@ $( function( $ ) {
  * stops animations for all GIFs on the page with the class 'plugin-icon' or
  * plugin icon images in the update plugins table.
  *
- * @since 6.4.0
+ * @since WP 6.4.0
  */
 (function() {
 	// Private variables and methods.

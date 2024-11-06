@@ -364,7 +364,7 @@ function wpFileExtensionError( up, file, message ) {
 /**
  * Copies the attachment URL to the clipboard.
  *
- * @since 5.8.0
+ * @since WP 5.8.0
  *
  * @param {MouseEvent} event A click event.
  *

@@ -4,13 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage Administration
- * @since 3.1.0
+ * @since WP 3.1.0
  */
 
 /**
  * Core class used to implement displaying comments in a list table.
  *
- * @since 3.1.0
+ * @since WP 3.1.0
  *
  * @see WP_List_Table
  */
@@ -27,7 +27,7 @@ class WP_Comments_List_Table extends WP_List_Table {
 	/**
 	 * Constructor.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @see WP_List_Table::__construct() for more information on default arguments.
 	 *
@@ -57,7 +57,7 @@ class WP_Comments_List_Table extends WP_List_Table {
 	/**
 	 * Adds avatars to comment author names.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @param string $name       Comment author name.
 	 * @param int    $comment_id Comment ID.
@@ -156,7 +156,7 @@ class WP_Comments_List_Table extends WP_List_Table {
 		/**
 		 * Filters the arguments for the comment query in the comments list table.
 		 *
-		 * @since 5.1.0
+		 * @since WP 5.1.0
 		 *
 		 * @param array $args An array of get_comments() arguments.
 		 */
@@ -203,7 +203,7 @@ class WP_Comments_List_Table extends WP_List_Table {
 		/**
 		 * Filters the number of comments listed per page in the comments list table.
 		 *
-		 * @since 2.6.0
+		 * @since WP 2.6.0
 		 *
 		 * @param int    $comments_per_page The number of comments to list per page.
 		 * @param string $comment_status    The comment status name. Default 'All'.
@@ -340,8 +340,8 @@ class WP_Comments_List_Table extends WP_List_Table {
 		/**
 		 * Filters the comment status links.
 		 *
-		 * @since 2.5.0
-		 * @since 5.1.0 The 'Mine' link was added.
+		 * @since WP 2.5.0
+		 * @since WP 5.1.0 The 'Mine' link was added.
 		 *
 		 * @param string[] $status_links An associative array of fully-formed comment status links. Includes 'All', 'Mine',
 		 *                              'Pending', 'Approved', 'Spam', and 'Trash'.
@@ -410,7 +410,7 @@ class WP_Comments_List_Table extends WP_List_Table {
 			/**
 			 * Fires just before the Filter submit button for comment types.
 			 *
-			 * @since 3.5.0
+			 * @since WP 3.5.0
 			 */
 			do_action( 'restrict_manage_comments' );
 
@@ -433,8 +433,8 @@ class WP_Comments_List_Table extends WP_List_Table {
 		/**
 		 * Fires after the Filter submit button for comment types.
 		 *
-		 * @since 2.5.0
-		 * @since 5.6.0 The `$which` parameter was added.
+		 * @since WP 2.5.0
+		 * @since WP 5.6.0 The `$which` parameter was added.
 		 *
 		 * @param string $comment_status The comment status name. Default 'All'.
 		 * @param string $which          The location of the extra table nav markup: Either 'top' or 'bottom'.
@@ -485,8 +485,8 @@ class WP_Comments_List_Table extends WP_List_Table {
 	/**
 	 * Displays a comment type drop-down for filtering on the Comments list table.
 	 *
-	 * @since 5.5.0
-	 * @since 5.6.0 Renamed from `comment_status_dropdown()` to `comment_type_dropdown()`.
+	 * @since WP 5.5.0
+	 * @since WP 5.6.0 Renamed from `comment_status_dropdown()` to `comment_type_dropdown()`.
 	 *
 	 * @param string $comment_type The current comment type slug.
 	 */
@@ -494,7 +494,7 @@ class WP_Comments_List_Table extends WP_List_Table {
 		/**
 		 * Filters the comment types shown in the drop-down menu on the Comments list table.
 		 *
-		 * @since 2.7.0
+		 * @since WP 2.7.0
 		 *
 		 * @param string[] $comment_types Array of comment type labels keyed by their name.
 		 */
@@ -552,7 +552,7 @@ class WP_Comments_List_Table extends WP_List_Table {
 	/**
 	 * Gets the name of the default primary column.
 	 *
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 *
 	 * @return string Name of the default primary column, in this case, 'comment'.
 	 */
@@ -565,7 +565,7 @@ class WP_Comments_List_Table extends WP_List_Table {
 	 *
 	 * Overrides the parent display() method to render extra comments.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 */
 	public function display() {
 		wp_nonce_field( 'fetch-list-' . get_class( $this ), '_ajax_fetch_list_nonce' );
@@ -675,8 +675,8 @@ class WP_Comments_List_Table extends WP_List_Table {
 	/**
 	 * Generates and displays row actions links.
 	 *
-	 * @since 4.3.0
-	 * @since 5.9.0 Renamed `$comment` to `$item` to match parent class for PHP 8 named parameter support.
+	 * @since WP 4.3.0
+	 * @since WP 5.9.0 Renamed `$comment` to `$item` to match parent class for PHP 8 named parameter support.
 	 *
 	 * @global string $comment_status Status for the current listed comments.
 	 *
@@ -850,7 +850,7 @@ class WP_Comments_List_Table extends WP_List_Table {
 		/**
 		 * Filters the action links displayed for each comment in the Comments list table.
 		 *
-		 * @since 2.6.0
+		 * @since WP 2.6.0
 		 *
 		 * @param string[]   $actions An array of comment actions. Default actions include:
 		 *                            'Approve', 'Unapprove', 'Edit', 'Reply', 'Spam',
@@ -909,7 +909,7 @@ class WP_Comments_List_Table extends WP_List_Table {
 	}
 
 	/**
-	 * @since 5.9.0 Renamed `$comment` to `$item` to match parent class for PHP 8 named parameter support.
+	 * @since WP 5.9.0 Renamed `$comment` to `$item` to match parent class for PHP 8 named parameter support.
 	 *
 	 * @param WP_Comment $item The comment object.
 	 */
@@ -1105,7 +1105,7 @@ class WP_Comments_List_Table extends WP_List_Table {
 	}
 
 	/**
-	 * @since 5.9.0 Renamed `$comment` to `$item` to match parent class for PHP 8 named parameter support.
+	 * @since WP 5.9.0 Renamed `$comment` to `$item` to match parent class for PHP 8 named parameter support.
 	 *
 	 * @param WP_Comment $item        The comment object.
 	 * @param string     $column_name The custom column's name.
@@ -1117,7 +1117,7 @@ class WP_Comments_List_Table extends WP_List_Table {
 		/**
 		 * Fires when the default column output is displayed for a single row.
 		 *
-		 * @since 2.8.0
+		 * @since WP 2.8.0
 		 *
 		 * @param string $column_name The custom column's name.
 		 * @param string $comment_id  The comment ID as a numeric string.

@@ -4,13 +4,14 @@
  *
  * @package motsVertueux
  * @subpackage Administration
- * @since 4.4.0
+ * @since WP 4.4.0
+ * @since 1.0.0 motsVertueux fork.
  */
 
 /**
  * Output JavaScript to toggle display of additional settings if avatars are disabled.
  *
- * @since 4.2.0
+ * @since WP 4.2.0
  */
 function options_discussion_add_js() {
 	?>
@@ -29,7 +30,7 @@ function options_discussion_add_js() {
 /**
  * Display JavaScript on the page.
  *
- * @since 3.5.0
+ * @since WP 3.5.0
  */
 function options_general_add_js() {
 	?>
@@ -108,7 +109,7 @@ function options_general_add_js() {
 /**
  * Display JavaScript on the page.
  *
- * @since 3.5.0
+ * @since WP 3.5.0
  */
 function options_reading_add_js() {
 	?>
@@ -130,9 +131,9 @@ function options_reading_add_js() {
 /**
  * Render the site charset setting.
  *
- * @since 3.5.0
+ * @since WP 3.5.0
  */
 function options_reading_blog_charset() {
 	echo '<input name="blog_charset" type="text" id="blog_charset" value="' . esc_attr( get_option( 'blog_charset' ) ) . '" class="regular-text" />';
-	echo '<p class="description">' . __( 'The <a href="https://wordpress.org/documentation/article/wordpress-glossary/#character-set">character encoding</a> of your site (UTF-8 is recommended)' ) . '</p>';
+	echo '<p class="description">' . __( 'The character encoding of your site (UTF-8 is recommended)' ) . '</p>';
 }

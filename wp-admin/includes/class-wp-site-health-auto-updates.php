@@ -4,7 +4,7 @@
  *
  * @package motsVertueux
  * @subpackage Site_Health
- * @since 5.2.0
+ * @since WP 5.2.0
  */
 
 #[AllowDynamicProperties]
@@ -12,7 +12,7 @@ class WP_Site_Health_Auto_Updates {
 	/**
 	 * WP_Site_Health_Auto_Updates constructor.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 */
 	public function __construct() {
 		require_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
@@ -22,7 +22,7 @@ class WP_Site_Health_Auto_Updates {
 	/**
 	 * Runs tests to determine if auto-updates can run.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 *
 	 * @return array The test results.
 	 */
@@ -60,8 +60,8 @@ class WP_Site_Health_Auto_Updates {
 	/**
 	 * Tests if auto-updates related constants are set correctly.
 	 *
-	 * @since 5.2.0
-	 * @since 5.5.1 The `$value` parameter can accept an array.
+	 * @since WP 5.2.0
+	 * @since WP 5.5.1 The `$value` parameter can accept an array.
 	 *
 	 * @param string $constant         The name of the constant to check.
 	 * @param bool|string|array $value The value that the constant should be, if set,
@@ -87,7 +87,7 @@ class WP_Site_Health_Auto_Updates {
 	/**
 	 * Checks if updates are intercepted by a filter.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 *
 	 * @return array The test results.
 	 */
@@ -109,7 +109,7 @@ class WP_Site_Health_Auto_Updates {
 	/**
 	 * Checks if automatic updates are disabled by a filter.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 *
 	 * @return array The test results.
 	 */
@@ -130,7 +130,7 @@ class WP_Site_Health_Auto_Updates {
 	/**
 	 * Checks if automatic updates are disabled.
 	 *
-	 * @since 5.3.0
+	 * @since WP 5.3.0
 	 *
 	 * @return array|false The test results. False if auto-updates are enabled.
 	 */
@@ -154,7 +154,7 @@ class WP_Site_Health_Auto_Updates {
 	/**
 	 * Checks if automatic updates have tried to run, but failed, previously.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 *
 	 * @return array|false The test results. False if the auto-updates failed.
 	 */
@@ -200,7 +200,7 @@ class WP_Site_Health_Auto_Updates {
 	/**
 	 * Checks if WordPress is controlled by a VCS (Git, Subversion etc).
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 *
 	 * @return array The test results.
 	 */
@@ -276,7 +276,7 @@ class WP_Site_Health_Auto_Updates {
 	/**
 	 * Checks if we can access files without providing credentials.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 *
 	 * @return array The test results.
 	 */
@@ -308,7 +308,7 @@ class WP_Site_Health_Auto_Updates {
 	/**
 	 * Checks if core files are writable by the web user/group.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 *
 	 * @global WP_Filesystem_Base $wp_filesystem WordPress filesystem subclass.
 	 *
@@ -351,11 +351,10 @@ class WP_Site_Health_Auto_Updates {
 
 		if ( ! $checksums ) {
 			$description = sprintf(
-				/* translators: %s: WordPress version. */
-				__( "Couldn't retrieve a list of the checksums for WordPress %s." ),
+				/* translators: %s: motsVertueux version. */
+				__( "Couldn't retrieve a list of the checksums for motsVertueux %s." ),
 				$wp_version
 			);
-			$description .= ' ' . __( 'This could mean that connections are failing to WordPress.org.' );
 			return array(
 				'description' => $description,
 				'severity'    => 'warning',
@@ -395,7 +394,7 @@ class WP_Site_Health_Auto_Updates {
 	/**
 	 * Checks if the install is using a development branch and can use nightly packages.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 *
 	 * @return array|false The test results. False if it isn't a development version.
 	 */
@@ -433,7 +432,7 @@ class WP_Site_Health_Auto_Updates {
 	/**
 	 * Checks if the site supports automatic minor updates.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 *
 	 * @return array The test results.
 	 */

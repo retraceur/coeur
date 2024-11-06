@@ -4,10 +4,12 @@
  *
  * This file contains a variety of public functions developers can use to interact with
  * the Style Engine API.
+ * 
+ * @since WP 6.1.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage StyleEngine
- * @since 6.1.0
  */
 
 /**
@@ -30,10 +32,7 @@
  *         'classnames'   => 'has-color',
  *     )
  *
- * @since 6.1.0
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/theme-json-reference/theme-json-living/#styles
- * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-supports/
+ * @since WP 6.1.0
  *
  * @param array $block_styles The style object.
  * @param array $options {
@@ -112,8 +111,8 @@ function wp_style_engine_get_styles( $block_styles, $options = array() ) {
  *
  *     .elephant-are-cool{color:gray;width:3em}
  *
- * @since 6.1.0
- * @since 6.6.0 Added support for `$rules_group` in the `$css_rules` array.
+ * @since WP 6.1.0
+ * @since WP 6.6.0 Added support for `$rules_group` in the `$css_rules` array.
  *
  * @param array $css_rules {
  *     Required. A collection of CSS rules.
@@ -175,7 +174,7 @@ function wp_style_engine_get_stylesheet_from_css_rules( $css_rules, $options = a
 /**
  * Returns compiled CSS from a store, if found.
  *
- * @since 6.1.0
+ * @since WP 6.1.0
  *
  * @param string $context A valid context name, corresponding to an existing store key.
  * @param array  $options {

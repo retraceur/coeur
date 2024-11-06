@@ -51,12 +51,6 @@ get_current_screen()->add_help_tab(
 	)
 );
 
-get_current_screen()->set_help_sidebar(
-	'<p><strong>' . __( 'For more information:' ) . '</strong></p>' .
-	'<p>' . __( '<a href="https://wordpress.org/documentation/article/tools-screen/">Documentation on Tools</a>' ) . '</p>' .
-	'<p>' . __( '<a href="https://wordpress.org/support/forums/">Support forums</a>' ) . '</p>'
-);
-
 require_once ABSPATH . 'wp-admin/admin-header.php';
 
 ?>
@@ -88,7 +82,7 @@ endif;
 /**
  * Fires at the end of the Tools Administration screen.
  *
- * @since 2.8.0
+ * @since WP 2.8.0
  */
 do_action( 'tool_box' );
 

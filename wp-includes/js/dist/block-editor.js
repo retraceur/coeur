@@ -15998,7 +15998,7 @@ function __unstableSetTemporarilyEditingAsBlocks(temporarilyEditingAsBlocks, foc
  * 	 	} ) );
  * 	 },
  * 	 getReportUrl: ( { sourceId } ) =>
- * 	 	`https://wordpress.org/openverse/image/${ sourceId }/report/`,
+ * 	 	``,
  * 	 isExternalResource: true,
  * } );
  * ```
@@ -16205,7 +16205,7 @@ function use_settings_useSettings(...paths) {
  * It looks up the setting first in the block instance hierarchy.
  * If none is found, it'll look it up in the block editor settings.
  *
- * @deprecated 6.5.0 Use useSettings instead.
+ * @deprecated WP 6.5.0 Use useSettings instead.
  *
  * @param {string} path The path to the setting.
  * @return {any} Returns the value defined for the setting.
@@ -25120,7 +25120,7 @@ function BlockEditAnchorControlPure({
       help: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_ReactJSXRuntime_namespaceObject.Fragment, {
         children: [(0,external_wp_i18n_namespaceObject.__)('Enter a word or two — without spaces — to make a unique web address just for this block, called an “anchor”. Then, you’ll be able to link directly to this section of your page.'), isWeb && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_ReactJSXRuntime_namespaceObject.Fragment, {
           children: [' ', /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ExternalLink, {
-            href: (0,external_wp_i18n_namespaceObject.__)('https://wordpress.org/documentation/article/page-jumps/'),
+            href: (0,external_wp_i18n_namespaceObject.__)(''),
             children: (0,external_wp_i18n_namespaceObject.__)('Learn more about anchors')
           })]
         })]
@@ -47564,9 +47564,9 @@ function PatternsFilter({
           })
         }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("div", {
           className: "block-editor-tool-selector__help",
-          children: (0,external_wp_element_namespaceObject.createInterpolateElement)((0,external_wp_i18n_namespaceObject.__)('Patterns are available from the <Link>WordPress.org Pattern Directory</Link>, bundled in the active theme, or created by users on this site. Only patterns created on this site can be synced.'), {
+          children: (0,external_wp_element_namespaceObject.createInterpolateElement)((0,external_wp_i18n_namespaceObject.__)('Patterns are bundled in the active theme, or created by users on this site. Only patterns created on this site can be synced.'), {
             Link: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ExternalLink, {
-              href: (0,external_wp_i18n_namespaceObject.__)('https://wordpress.org/patterns/')
+              href: (0,external_wp_i18n_namespaceObject.__)('#')
             })
           })
         })]
@@ -57395,7 +57395,7 @@ function useIsAccessibleToolbar(toolbarRef) {
       external_wp_deprecated_default()('Using custom components as toolbar controls', {
         since: '5.6',
         alternative: 'ToolbarItem, ToolbarButton or ToolbarDropdownMenu components',
-        link: 'https://developer.wordpress.org/block-editor/components/toolbar-button/#inside-blockcontrols'
+        link: '#'
       });
     }
     setIsAccessibleToolbar(onlyToolbarItem);
@@ -63517,7 +63517,7 @@ function NonDefaultControls({
       hideLabelFromVision: true,
       help: (0,external_wp_element_namespaceObject.createInterpolateElement)((0,external_wp_i18n_namespaceObject.__)('Enter a date or time <Link>format string</Link>.'), {
         Link: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ExternalLink, {
-          href: (0,external_wp_i18n_namespaceObject.__)('https://wordpress.org/documentation/article/customize-date-and-time-format/')
+          href: (0,external_wp_i18n_namespaceObject.__)('#')
         })
       }),
       value: format,
@@ -64372,14 +64372,14 @@ function __read(o, n) {
   return ar;
 }
 
-/** @deprecated */
+/** @deprecated WP */
 function __spread() {
   for (var ar = [], i = 0; i < arguments.length; i++)
       ar = ar.concat(__read(arguments[i]));
   return ar;
 }
 
-/** @deprecated */
+/** @deprecated WP */
 function __spreadArrays() {
   for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
   for (var r = Array(s), k = 0, i = 0; i < il; i++)
@@ -67626,7 +67626,7 @@ function valueToHTMLString(value, multiline) {
       since: '6.1',
       version: '6.3',
       alternative: 'value prop as string',
-      link: 'https://developer.wordpress.org/block-editor/how-to-guides/block-tutorial/introducing-attributes-and-editable-fields/'
+      link: '#'
     });
     return external_wp_blocks_namespaceObject.children.toHTML(value);
   }
@@ -67688,7 +67688,7 @@ function RichTextMultiline({
     since: '6.1',
     version: '6.3',
     alternative: 'nested blocks (InnerBlocks)',
-    link: 'https://developer.wordpress.org/block-editor/how-to-guides/block-tutorial/nested-blocks-inner-blocks/'
+    link: '#'
   });
   const {
     clientId
@@ -67802,7 +67802,7 @@ function withDeprecations(Component) {
         since: '6.1',
         version: '6.3',
         alternative: 'value prop as string',
-        link: 'https://developer.wordpress.org/block-editor/how-to-guides/block-tutorial/introducing-attributes-and-editable-fields/'
+        link: '#'
       });
       value = external_wp_blocks_namespaceObject.children.toHTML(props.value);
       onChange = newValue => props.onChange(external_wp_blocks_namespaceObject.children.fromDOM((0,external_wp_richText_namespaceObject.__unstableCreateElement)(document, newValue).childNodes));

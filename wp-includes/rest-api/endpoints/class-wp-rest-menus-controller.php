@@ -4,13 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage REST_API
- * @since 5.9.0
+ * @since WP 5.9.0
  */
 
 /**
  * Core class used to managed menu terms associated via the REST API.
  *
- * @since 5.9.0
+ * @since WP 5.9.0
  *
  * @see WP_REST_Controller
  */
@@ -19,7 +19,7 @@ class WP_REST_Menus_Controller extends WP_REST_Terms_Controller {
 	/**
 	 * Checks if a request has access to read menus.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return bool|WP_Error True if the request has read access, otherwise false or WP_Error object.
@@ -37,7 +37,7 @@ class WP_REST_Menus_Controller extends WP_REST_Terms_Controller {
 	/**
 	 * Checks if a request has access to read or edit the specified menu.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has read access for the item, otherwise WP_Error object.
@@ -55,7 +55,7 @@ class WP_REST_Menus_Controller extends WP_REST_Terms_Controller {
 	/**
 	 * Gets the term, if the ID is valid.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param int $id Supplied ID.
 	 * @return WP_Term|WP_Error Term object if ID is valid, WP_Error otherwise.
@@ -78,7 +78,7 @@ class WP_REST_Menus_Controller extends WP_REST_Terms_Controller {
 	 *
 	 * This allows for any user that can `edit_theme_options` or edit any REST API available post type.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the current user has permission, WP_Error object otherwise.
@@ -108,7 +108,7 @@ class WP_REST_Menus_Controller extends WP_REST_Terms_Controller {
 	/**
 	 * Prepares a single term output for response.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param WP_Term         $term    Term object.
 	 * @param WP_REST_Request $request Request object.
@@ -146,7 +146,7 @@ class WP_REST_Menus_Controller extends WP_REST_Terms_Controller {
 	/**
 	 * Prepares links for the request.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param WP_Term $term Term object.
 	 * @return array Links for the given term.
@@ -170,7 +170,7 @@ class WP_REST_Menus_Controller extends WP_REST_Terms_Controller {
 	/**
 	 * Prepares a single term for create or update.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param WP_REST_Request $request Request object.
 	 * @return object Prepared term data.
@@ -190,7 +190,7 @@ class WP_REST_Menus_Controller extends WP_REST_Terms_Controller {
 	/**
 	 * Creates a single term in a taxonomy.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
@@ -279,7 +279,7 @@ class WP_REST_Menus_Controller extends WP_REST_Terms_Controller {
 	/**
 	 * Updates a single term from a taxonomy.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
@@ -359,7 +359,7 @@ class WP_REST_Menus_Controller extends WP_REST_Terms_Controller {
 	/**
 	 * Deletes a single term from a taxonomy.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
@@ -403,7 +403,7 @@ class WP_REST_Menus_Controller extends WP_REST_Terms_Controller {
 	/**
 	 * Returns the value of a menu's auto_add setting.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param int $menu_id The menu id to query.
 	 * @return bool The value of auto_add.
@@ -417,7 +417,7 @@ class WP_REST_Menus_Controller extends WP_REST_Terms_Controller {
 	/**
 	 * Updates the menu's auto add from a REST request.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param int             $menu_id The menu id to update.
 	 * @param WP_REST_Request $request Full details about the request.
@@ -455,7 +455,7 @@ class WP_REST_Menus_Controller extends WP_REST_Terms_Controller {
 	/**
 	 * Returns the names of the locations assigned to the menu.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param int $menu_id The menu id.
 	 * @return string[] The locations assigned to the menu.
@@ -476,7 +476,7 @@ class WP_REST_Menus_Controller extends WP_REST_Terms_Controller {
 	/**
 	 * Updates the menu's locations from a REST request.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param int             $menu_id The menu id to update.
 	 * @param WP_REST_Request $request Full details about the request.
@@ -518,7 +518,7 @@ class WP_REST_Menus_Controller extends WP_REST_Terms_Controller {
 	/**
 	 * Retrieves the term's schema, conforming to JSON Schema.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @return array Item schema data.
 	 */

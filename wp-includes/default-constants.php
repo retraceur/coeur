@@ -10,7 +10,7 @@
  *
  * @see wp_debug_mode()
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @global int    $blog_id    The current site ID.
  * @global string $wp_version The WordPress version string.
@@ -21,8 +21,8 @@ function wp_initial_constants() {
 	/**#@+
 	 * Constants for expressing human-readable data sizes in their respective number of bytes.
 	 *
-	 * @since 4.4.0
-	 * @since 6.0.0 `PB_IN_BYTES`, `EB_IN_BYTES`, `ZB_IN_BYTES`, and `YB_IN_BYTES` were added.
+	 * @since WP 4.4.0
+	 * @since WP 6.0.0 `PB_IN_BYTES`, `EB_IN_BYTES`, `ZB_IN_BYTES`, and `YB_IN_BYTES` were added.
 	 */
 	define( 'KB_IN_BYTES', 1024 );
 	define( 'MB_IN_BYTES', 1024 * KB_IN_BYTES );
@@ -152,8 +152,8 @@ function wp_initial_constants() {
 	 *
 	 * If you need more accuracy please consider using the DateTime class (https://www.php.net/manual/en/class.datetime.php).
 	 *
-	 * @since 3.5.0
-	 * @since 4.4.0 Introduced `MONTH_IN_SECONDS`.
+	 * @since WP 3.5.0
+	 * @since WP 4.4.0 Introduced `MONTH_IN_SECONDS`.
 	 */
 	define( 'MINUTE_IN_SECONDS', 60 );
 	define( 'HOUR_IN_SECONDS', 60 * MINUTE_IN_SECONDS );
@@ -169,7 +169,7 @@ function wp_initial_constants() {
  *
  * Defines must-use plugin directory constants, which may be overridden in the sunrise.php drop-in.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  */
 function wp_plugin_directory_constants() {
 	if ( ! defined( 'WP_CONTENT_URL' ) ) {
@@ -179,7 +179,7 @@ function wp_plugin_directory_constants() {
 	/**
 	 * Allows for the plugins directory to be moved from the default location.
 	 *
-	 * @since 2.6.0
+	 * @since WP 2.6.0
 	 */
 	if ( ! defined( 'WP_PLUGIN_DIR' ) ) {
 		define( 'WP_PLUGIN_DIR', WP_CONTENT_DIR . '/plugins' ); // Full path, no trailing slash.
@@ -188,7 +188,7 @@ function wp_plugin_directory_constants() {
 	/**
 	 * Allows for the plugins directory to be moved from the default location.
 	 *
-	 * @since 2.6.0
+	 * @since WP 2.6.0
 	 */
 	if ( ! defined( 'WP_PLUGIN_URL' ) ) {
 		define( 'WP_PLUGIN_URL', WP_CONTENT_URL . '/plugins' ); // Full URL, no trailing slash.
@@ -197,7 +197,7 @@ function wp_plugin_directory_constants() {
 	/**
 	 * Allows for the plugins directory to be moved from the default location.
 	 *
-	 * @since 2.1.0
+	 * @since WP 2.1.0
 	 * @deprecated
 	 */
 	if ( ! defined( 'PLUGINDIR' ) ) {
@@ -207,7 +207,7 @@ function wp_plugin_directory_constants() {
 	/**
 	 * Allows for the mu-plugins directory to be moved from the default location.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 */
 	if ( ! defined( 'WPMU_PLUGIN_DIR' ) ) {
 		define( 'WPMU_PLUGIN_DIR', WP_CONTENT_DIR . '/mu-plugins' ); // Full path, no trailing slash.
@@ -216,7 +216,7 @@ function wp_plugin_directory_constants() {
 	/**
 	 * Allows for the mu-plugins directory to be moved from the default location.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 */
 	if ( ! defined( 'WPMU_PLUGIN_URL' ) ) {
 		define( 'WPMU_PLUGIN_URL', WP_CONTENT_URL . '/mu-plugins' ); // Full URL, no trailing slash.
@@ -225,7 +225,7 @@ function wp_plugin_directory_constants() {
 	/**
 	 * Allows for the mu-plugins directory to be moved from the default location.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 * @deprecated
 	 */
 	if ( ! defined( 'MUPLUGINDIR' ) ) {
@@ -238,13 +238,13 @@ function wp_plugin_directory_constants() {
  *
  * Defines constants after multisite is loaded.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  */
 function wp_cookie_constants() {
 	/**
 	 * Used to guarantee unique hash cookies.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 */
 	if ( ! defined( 'COOKIEHASH' ) ) {
 		$siteurl = get_site_option( 'siteurl' );
@@ -256,78 +256,78 @@ function wp_cookie_constants() {
 	}
 
 	/**
-	 * @since 2.0.0
+	 * @since WP 2.0.0
 	 */
 	if ( ! defined( 'USER_COOKIE' ) ) {
 		define( 'USER_COOKIE', 'wordpressuser_' . COOKIEHASH );
 	}
 
 	/**
-	 * @since 2.0.0
+	 * @since WP 2.0.0
 	 */
 	if ( ! defined( 'PASS_COOKIE' ) ) {
 		define( 'PASS_COOKIE', 'wordpresspass_' . COOKIEHASH );
 	}
 
 	/**
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 */
 	if ( ! defined( 'AUTH_COOKIE' ) ) {
 		define( 'AUTH_COOKIE', 'wordpress_' . COOKIEHASH );
 	}
 
 	/**
-	 * @since 2.6.0
+	 * @since WP 2.6.0
 	 */
 	if ( ! defined( 'SECURE_AUTH_COOKIE' ) ) {
 		define( 'SECURE_AUTH_COOKIE', 'wordpress_sec_' . COOKIEHASH );
 	}
 
 	/**
-	 * @since 2.6.0
+	 * @since WP 2.6.0
 	 */
 	if ( ! defined( 'LOGGED_IN_COOKIE' ) ) {
 		define( 'LOGGED_IN_COOKIE', 'wordpress_logged_in_' . COOKIEHASH );
 	}
 
 	/**
-	 * @since 2.3.0
+	 * @since WP 2.3.0
 	 */
 	if ( ! defined( 'TEST_COOKIE' ) ) {
 		define( 'TEST_COOKIE', 'wordpress_test_cookie' );
 	}
 
 	/**
-	 * @since 1.2.0
+	 * @since WP 1.2.0
 	 */
 	if ( ! defined( 'COOKIEPATH' ) ) {
 		define( 'COOKIEPATH', preg_replace( '|https?://[^/]+|i', '', get_option( 'home' ) . '/' ) );
 	}
 
 	/**
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 */
 	if ( ! defined( 'SITECOOKIEPATH' ) ) {
 		define( 'SITECOOKIEPATH', preg_replace( '|https?://[^/]+|i', '', get_option( 'siteurl' ) . '/' ) );
 	}
 
 	/**
-	 * @since 2.6.0
+	 * @since WP 2.6.0
 	 */
 	if ( ! defined( 'ADMIN_COOKIE_PATH' ) ) {
 		define( 'ADMIN_COOKIE_PATH', SITECOOKIEPATH . 'wp-admin' );
 	}
 
 	/**
-	 * @since 2.6.0
+	 * @since WP 2.6.0
 	 */
 	if ( ! defined( 'PLUGINS_COOKIE_PATH' ) ) {
 		define( 'PLUGINS_COOKIE_PATH', preg_replace( '|https?://[^/]+|i', '', WP_PLUGIN_URL ) );
 	}
 
 	/**
-	 * @since 2.0.0
-	 * @since 6.6.0 The value has changed from false to an empty string.
+	 * @since WP 2.0.0
+	 * @since WP 6.6.0 The value has changed from false to an empty string.
 	 */
 	if ( ! defined( 'COOKIE_DOMAIN' ) ) {
 		define( 'COOKIE_DOMAIN', '' );
@@ -335,7 +335,7 @@ function wp_cookie_constants() {
 
 	if ( ! defined( 'RECOVERY_MODE_COOKIE' ) ) {
 		/**
-		 * @since 5.2.0
+		 * @since WP 5.2.0
 		 */
 		define( 'RECOVERY_MODE_COOKIE', 'wordpress_rec_' . COOKIEHASH );
 	}
@@ -344,11 +344,11 @@ function wp_cookie_constants() {
 /**
  * Defines SSL-related WordPress constants.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  */
 function wp_ssl_constants() {
 	/**
-	 * @since 2.6.0
+	 * @since WP 2.6.0
 	 */
 	if ( ! defined( 'FORCE_SSL_ADMIN' ) ) {
 		if ( 'https' === parse_url( get_option( 'siteurl' ), PHP_URL_SCHEME ) ) {
@@ -360,8 +360,8 @@ function wp_ssl_constants() {
 	force_ssl_admin( FORCE_SSL_ADMIN );
 
 	/**
-	 * @since 2.6.0
-	 * @deprecated 4.0.0
+	 * @since WP 2.6.0
+	 * @deprecated WP 4.0.0
 	 */
 	if ( defined( 'FORCE_SSL_LOGIN' ) && FORCE_SSL_LOGIN ) {
 		force_ssl_admin( true );
@@ -371,18 +371,18 @@ function wp_ssl_constants() {
 /**
  * Defines functionality-related WordPress constants.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  */
 function wp_functionality_constants() {
 	/**
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 */
 	if ( ! defined( 'AUTOSAVE_INTERVAL' ) ) {
 		define( 'AUTOSAVE_INTERVAL', MINUTE_IN_SECONDS );
 	}
 
 	/**
-	 * @since 2.9.0
+	 * @since WP 2.9.0
 	 */
 	if ( ! defined( 'EMPTY_TRASH_DAYS' ) ) {
 		define( 'EMPTY_TRASH_DAYS', 30 );
@@ -393,7 +393,7 @@ function wp_functionality_constants() {
 	}
 
 	/**
-	 * @since 3.3.0
+	 * @since WP 3.3.0
 	 */
 	if ( ! defined( 'WP_CRON_LOCK_TIMEOUT' ) ) {
 		define( 'WP_CRON_LOCK_TIMEOUT', MINUTE_IN_SECONDS );
@@ -403,14 +403,14 @@ function wp_functionality_constants() {
 /**
  * Defines templating-related WordPress constants.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  */
 function wp_templating_constants() {
 	/**
 	 * Filesystem path to the current active template directory.
 	 *
-	 * @since 1.5.0
-	 * @deprecated 6.4.0 Use get_template_directory() instead.
+	 * @since WP 1.5.0
+	 * @deprecated WP 6.4.0 Use get_template_directory() instead.
 	 * @see get_template_directory()
 	 */
 	define( 'TEMPLATEPATH', get_template_directory() );
@@ -418,8 +418,8 @@ function wp_templating_constants() {
 	/**
 	 * Filesystem path to the current active template stylesheet directory.
 	 *
-	 * @since 2.1.0
-	 * @deprecated 6.4.0 Use get_stylesheet_directory() instead.
+	 * @since WP 2.1.0
+	 * @deprecated WP 6.4.0 Use get_stylesheet_directory() instead.
 	 * @see get_stylesheet_directory()
 	 */
 	define( 'STYLESHEETPATH', get_stylesheet_directory() );
@@ -429,7 +429,7 @@ function wp_templating_constants() {
 	 * Used as the default theme when installing new sites.
 	 * It will be used as the fallback if the active theme doesn't exist.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 *
 	 * @see WP_Theme::get_core_default_theme()
 	 */

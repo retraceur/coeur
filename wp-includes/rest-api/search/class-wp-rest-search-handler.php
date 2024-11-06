@@ -4,13 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage REST_API
- * @since 5.0.0
+ * @since WP 5.0.0
  */
 
 /**
  * Core base class representing a search handler for an object type in the REST API.
  *
- * @since 5.0.0
+ * @since WP 5.0.0
  */
 #[AllowDynamicProperties]
 abstract class WP_REST_Search_Handler {
@@ -28,7 +28,7 @@ abstract class WP_REST_Search_Handler {
 	/**
 	 * Object type managed by this search handler.
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 * @var string
 	 */
 	protected $type = '';
@@ -36,7 +36,7 @@ abstract class WP_REST_Search_Handler {
 	/**
 	 * Object subtypes managed by this search handler.
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 * @var string[]
 	 */
 	protected $subtypes = array();
@@ -44,7 +44,7 @@ abstract class WP_REST_Search_Handler {
 	/**
 	 * Gets the object type managed by this search handler.
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 *
 	 * @return string Object type identifier.
 	 */
@@ -55,7 +55,7 @@ abstract class WP_REST_Search_Handler {
 	/**
 	 * Gets the object subtypes managed by this search handler.
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 *
 	 * @return string[] Array of object subtype identifiers.
 	 */
@@ -66,7 +66,7 @@ abstract class WP_REST_Search_Handler {
 	/**
 	 * Searches the object type content for a given search request.
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 *
 	 * @param WP_REST_Request $request Full REST request.
 	 * @return array Associative array containing an `WP_REST_Search_Handler::RESULT_IDS` containing
@@ -78,8 +78,8 @@ abstract class WP_REST_Search_Handler {
 	/**
 	 * Prepares the search result for a given ID.
 	 *
-	 * @since 5.0.0
-	 * @since 5.6.0 The `$id` parameter can accept a string.
+	 * @since WP 5.0.0
+	 * @since WP 5.6.0 The `$id` parameter can accept a string.
 	 *
 	 * @param int|string $id     Item ID.
 	 * @param array      $fields Fields to include for the item.
@@ -90,8 +90,8 @@ abstract class WP_REST_Search_Handler {
 	/**
 	 * Prepares links for the search result of a given ID.
 	 *
-	 * @since 5.0.0
-	 * @since 5.6.0 The `$id` parameter can accept a string.
+	 * @since WP 5.0.0
+	 * @since WP 5.6.0 The `$id` parameter can accept a string.
 	 *
 	 * @param int|string $id Item ID.
 	 * @return array Links for the given item.

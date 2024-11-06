@@ -4,6 +4,7 @@
  *
  * @package motsVertueux
  * @subpackage Database
+ * @since 1.0.0 motsVertueux fork.
  */
 define( 'WP_REPAIRING', true );
 
@@ -17,11 +18,11 @@ header( 'Content-Type: text/html; charset=utf-8' );
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="robots" content="noindex,nofollow" />
-	<title><?php _e( 'WordPress &rsaquo; Database Repair' ); ?></title>
+	<title><?php _e( 'motsVertueux &rsaquo; Database Repair' ); ?></title>
 	<?php wp_admin_css( 'install', true ); ?>
 </head>
 <body class="wp-core-ui">
-<p id="logo"><a href="<?php echo esc_url( __( 'https://wordpress.org/' ) ); ?>"><?php _e( 'WordPress' ); ?></a></p>
+<p id="logo"><?php _e( 'motsVertueux' ); ?></p>
 
 <?php
 
@@ -43,11 +44,7 @@ if ( ! defined( 'WP_ALLOW_REPAIR' ) || ! WP_ALLOW_REPAIR ) {
 	$default_keys    = array_unique(
 		array(
 			'put your unique phrase here',
-			/*
-			 * translators: This string should only be translated if wp-config-sample.php is localized.
-			 * You can check the localized release package or
-			 * https://i18n.svn.wordpress.org/<locale code>/branches/<wp version>/dist/wp-config-sample.php
-			 */
+			// translators: This string should only be translated if wp-config-sample.php is localized.
 			__( 'put your unique phrase here' ),
 		)
 	);
@@ -81,8 +78,8 @@ if ( ! defined( 'WP_ALLOW_REPAIR' ) || ! WP_ALLOW_REPAIR ) {
 			__( 'Check secret keys' ) .
 		'</h2>';
 
-		/* translators: 1: wp-config.php, 2: Secret key service URL. */
-		echo '<p>' . sprintf( __( 'While you are editing your %1$s file, take a moment to make sure you have all 8 keys and that they are unique. You can generate these using the <a href="%2$s">WordPress.org secret key service</a>.' ), '<code>wp-config.php</code>', 'https://api.wordpress.org/secret-key/1.1/salt/' ) . '</p>';
+		/* translators: %s: wp-config.php. */
+		echo '<p>' . sprintf( __( 'While you are editing your %s file, take a moment to make sure you have all 8 keys and that they are unique.' ), '<code>wp-config.php</code>' ) . '</p>';
 	}
 } elseif ( isset( $_GET['repair'] ) ) {
 
@@ -100,7 +97,7 @@ if ( ! defined( 'WP_ALLOW_REPAIR' ) || ! WP_ALLOW_REPAIR ) {
 	/**
 	 * Filters additional database tables to repair.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 *
 	 * @param string[] $tables Array of prefixed table names to be repaired.
 	 */
@@ -156,11 +153,7 @@ if ( ! defined( 'WP_ALLOW_REPAIR' ) || ! WP_ALLOW_REPAIR ) {
 	}
 
 	if ( $problems ) {
-		printf(
-			/* translators: %s: URL to "Fixing WordPress" forum. */
-			'<p>' . __( 'Some database problems could not be repaired. Please copy-and-paste the following list of errors to the <a href="%s">WordPress support forums</a> to get additional assistance.' ) . '</p>',
-			__( 'https://wordpress.org/support/forum/how-to-and-troubleshooting' )
-		);
+		echo '<p>' . __( 'Some database problems could not be repaired.' ) . '</p>';
 		$problem_output = '';
 		foreach ( $problems as $table => $problem ) {
 			$problem_output .= "$table: $problem\n";

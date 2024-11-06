@@ -8,7 +8,7 @@
 /**
  * Renders the `core/site-logo` block on the server.
  *
- * @since 5.8.0
+ * @since WP 5.8.0
  *
  * @param array $attributes The block attributes.
  *
@@ -63,7 +63,7 @@ function render_block_core_site_logo( $attributes ) {
 /**
  * Register a core site setting for a site logo
  *
- * @since 5.8.0
+ * @since WP 5.8.0
  */
 function register_block_core_site_logo_setting() {
 	register_setting(
@@ -85,7 +85,7 @@ add_action( 'rest_api_init', 'register_block_core_site_logo_setting', 10 );
 /**
  * Register a core site setting for a site icon
  *
- * @since 5.9.0
+ * @since WP 5.9.0
  */
 function register_block_core_site_icon_setting() {
 	register_setting(
@@ -105,7 +105,7 @@ add_action( 'rest_api_init', 'register_block_core_site_icon_setting', 10 );
 /**
  * Registers the `core/site-logo` block on the server.
  *
- * @since 5.8.0
+ * @since WP 5.8.0
  */
 function register_block_core_site_logo() {
 	register_block_type_from_metadata(
@@ -121,7 +121,7 @@ add_action( 'init', 'register_block_core_site_logo' );
 /**
  * Overrides the custom logo with a site logo, if the option is set.
  *
- * @since 5.8.0
+ * @since WP 5.8.0
  *
  * @param string $custom_logo The custom logo set by a theme.
  *
@@ -137,7 +137,7 @@ add_filter( 'theme_mod_custom_logo', '_override_custom_logo_theme_mod' );
 /**
  * Updates the site_logo option when the custom_logo theme-mod gets updated.
  *
- * @since 5.8.0
+ * @since WP 5.8.0
  *
  * @param  mixed $value Attachment ID of the custom logo or an empty value.
  * @return mixed
@@ -157,7 +157,7 @@ add_filter( 'pre_set_theme_mod_custom_logo', '_sync_custom_logo_to_site_logo' );
 /**
  * Deletes the site_logo when the custom_logo theme mod is removed.
  *
- * @since 5.8.0
+ * @since WP 5.8.0
  *
  * @global array $_ignore_site_logo_changes
  *
@@ -180,7 +180,7 @@ function _delete_site_logo_on_remove_custom_logo( $old_value, $value ) {
 /**
  * Deletes the site logo when all theme mods are being removed.
  *
- * @since 5.8.0
+ * @since WP 5.8.0
  *
  * @global array $_ignore_site_logo_changes
  */
@@ -202,7 +202,7 @@ function _delete_site_logo_on_remove_theme_mods() {
  *
  * Runs on `setup_theme` to account for dynamically-switched themes in the Customizer.
  *
- * @since 5.8.0
+ * @since WP 5.8.0
  */
 function _delete_site_logo_on_remove_custom_logo_on_setup_theme() {
 	$theme = get_option( 'stylesheet' );
@@ -214,7 +214,7 @@ add_action( 'setup_theme', '_delete_site_logo_on_remove_custom_logo_on_setup_the
 /**
  * Removes the custom_logo theme-mod when the site_logo option gets deleted.
  *
- * @since 5.9.0
+ * @since WP 5.9.0
  *
  * @global array $_ignore_site_logo_changes
  */

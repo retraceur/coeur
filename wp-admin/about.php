@@ -13,19 +13,7 @@ require_once __DIR__ . '/admin.php';
 /* translators: Page title of the About WordPress page in the admin. */
 $title = _x( 'About', 'page title' );
 
-list( $display_version ) = explode( '-', get_bloginfo( 'version' ) );
-
-$release_notes_url = sprintf(
-	/* translators: %s: WordPress version number. */
-	__( 'https://wordpress.org/documentation/wordpress-version/version-%s/' ),
-	'6-7'
-);
-
-$field_guide_url = sprintf(
-	/* translators: %s: WordPress version number. */
-	__( 'https://make.wordpress.org/core/wordpress-%s-field-guide/' ),
-	'6-7'
-);
+list( $display_version ) = explode( '-', mv_get_mv_version() );
 
 require_once ABSPATH . 'wp-admin/admin-header.php';
 ?>
@@ -37,7 +25,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 					<?php
 					printf(
 						/* translators: %s: Version number. */
-						__( 'WordPress %s' ),
+						__( 'motsVertueux %s' ),
 						$display_version
 					);
 					?>
@@ -59,7 +47,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 					<?php
 					printf(
 						/* translators: %s: Version number. */
-						__( 'Welcome to WordPress %s' ),
+						__( 'Welcome to motsVertueux %s' ),
 						$display_version
 					);
 					?>
@@ -78,19 +66,9 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 					<?php _e( 'Twenty Twenty-Five offers a flexible, design-focused theme that lets you build stunning sites with ease. Tailor your aesthetic with an array of style options, block patterns, and color palettes. Pared down to the essentials, this is a theme that can truly grow with you.' ); ?>
 				</p>
 			</div>
-			<div class="column is-vertically-aligned-center">
-				<div class="about__image">
-					<img src="https://s.w.org/images/core/6.7/feature-tt5.webp" alt="" height="436" width="436" />
-				</div>
-			</div>
 		</div>
 
 		<div class="about__section has-2-columns">
-			<div class="column is-vertically-aligned-center">
-				<div class="about__image">
-					<img src="https://s.w.org/images/core/6.7/feature-zoom.webp" alt="" height="436" width="436" />
-				</div>
-			</div>
 			<div class="column is-vertically-aligned-center">
 				<h3><?php _e( 'Get the big picture with Zoom Out' ); ?></h3>
 				<p>
@@ -108,19 +86,9 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 					<?php _e( 'This feature introduces a new UI for connecting blocks to custom fields, putting control of dynamic content directly in the editor. Link blocks with fields in just a few clicks, enhancing flexibility and efficiency when building. Your clients will love you—as if they didn&#8217;t already.' ); ?>
 				</p>
 			</div>
-			<div class="column is-vertically-aligned-center">
-				<div class="about__image">
-					<img src="https://s.w.org/images/core/6.7/feature-block-bindings.png" alt="" height="436" width="436" />
-				</div>
-			</div>
 		</div>
 
 		<div class="about__section has-2-columns">
-			<div class="column is-vertically-aligned-center">
-				<div class="about__image">
-					<img src="https://s.w.org/images/core/6.7/feature-font-presets.png" alt="" height="436" width="436" />
-				</div>
-			</div>
 			<div class="column is-vertically-aligned-center">
 				<h3><?php _e( 'Embrace your inner font nerd' ); ?></h3>
 				<p>
@@ -151,115 +119,6 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 				</div>
 				<h3><?php _e( 'Accessibility improvements' ); ?></h3>
 				<p><?php _e( '65+ accessibility fixes and enhancements focus on foundational aspects of the WordPress experience, from improving user interface components and keyboard navigation in the Editor, to an accessible heading on WordPress login screens and clearer labeling throughout.' ); ?></p>
-			</div>
-		</div>
-
-		<hr class="is-invisible is-large" style="margin-bottom:calc(2 * var(--gap));" />
-
-		<div class="about__section has-2-columns is-wider-left is-feature" style="background-color:var(--background);border-radius:var(--border-radius);">
-			<h3 class="is-section-header"><?php _e( 'And much more' ); ?></h3>
-			<div class="column">
-				<p>
-					<?php
-					printf(
-						/* translators: %s: Version number. */
-						__( 'For a comprehensive overview of all the new features and enhancements in WordPress %s, please visit the feature-showcase website.' ),
-						$display_version
-					);
-					?>
-				</p>
-			</div>
-			<div class="column aligncenter">
-				<div class="about__image">
-					<a href="<?php echo esc_url( __( 'https://wordpress.org/download/releases/6-7/' ) ); ?>" class="button button-primary button-hero"><?php _e( 'See everything new' ); ?></a>
-				</div>
-			</div>
-		</div>
-
-		<hr class="is-large" style="margin-top:calc(2 * var(--gap));" />
-
-		<div class="about__section has-3-columns">
-			<div class="column about__image is-vertically-aligned-top">
-				<img src="<?php echo esc_url( admin_url( 'images/about-release-badge.svg?ver=6.7' ) ); ?>" alt="" height="280" width="280" />
-			</div>
-			<div class="column is-vertically-aligned-center" style="grid-column-end:span 2">
-				<h3>
-					<?php
-					printf(
-						/* translators: %s: Version number. */
-						__( 'Learn more about WordPress %s' ),
-						$display_version
-					);
-					?>
-				</h3>
-				<p>
-					<?php
-					printf(
-						/* translators: 1: Learn WordPress link, 2: Workshops link. */
-						__( '<a href="%1$s">Learn WordPress</a> is a free resource for new and experienced WordPress users. Learn is stocked with how-to videos on using various features in WordPress, <a href="%2$s">interactive workshops</a> for exploring topics in-depth, and lesson plans for diving deep into specific areas of WordPress.' ),
-						'https://learn.wordpress.org/',
-						'https://learn.wordpress.org/online-workshops/'
-					);
-					?>
-				</p>
-			</div>
-		</div>
-
-		<div class="about__section has-2-columns">
-			<div class="column">
-				<div class="about__image">
-					<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-						<path fill="#1e1e1e" d="M32 15.5H16v3h16v-3ZM16 22h16v3H16v-3ZM28 28.5H16v3h12v-3Z"/>
-						<path fill="#1e1e1e" fill-rule="evenodd" d="M34 8H14a4 4 0 0 0-4 4v24a4 4 0 0 0 4 4h20a4 4 0 0 0 4-4V12a4 4 0 0 0-4-4Zm-20 3h20a1 1 0 0 1 1 1v24a1 1 0 0 1-1 1H14a1 1 0 0 1-1-1V12a1 1 0 0 1 1-1Z" clip-rule="evenodd"/>
-					</svg>
-				</div>
-				<h4 style="margin-top: calc(var(--gap) / 2); margin-bottom: calc(var(--gap) / 2);">
-					<a href="<?php echo esc_url( $release_notes_url ); ?>">
-						<?php
-						printf(
-							/* translators: %s: WordPress version number. */
-							__( 'WordPress %s Release Notes' ),
-							'6.7'
-						);
-						?>
-					</a>
-				</h4>
-				<p>
-					<?php
-					printf(
-						/* translators: %s: WordPress version number. */
-						__( 'Read the WordPress %s Release Notes for information on installation, enhancements, fixed issues, release contributors, learning resources, and the list of file changes.' ),
-						'6.7'
-					);
-					?>
-				</p>
-			</div>
-			<div class="column">
-				<div class="about__image">
-					<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-						<path fill="#1e1e1e" stroke="#fff" stroke-width=".5" d="M26.5 24.25h13.75v11.5h-14v8h-3.5v-8H12.604L8.09 31.237a1.75 1.75 0 0 1 0-2.474l4.513-4.513H22.75v-4.5h-14V8.25h14v-4h3.5v4h10.146l4.513 4.513a1.75 1.75 0 0 1 0 2.474l-4.513 4.513H26.25v4.5h.25ZM12.25 16v.25h22.704l.073-.073 1.293-1.293a1.25 1.25 0 0 0 0-1.768l-1.293-1.293-.073-.073H12.25V16Zm1.723 16.177.073.073H36.75v-4.5H14.046l-.073.073-1.293 1.293a1.25 1.25 0 0 0 0 1.768l1.293 1.293Z"/>
-					</svg>
-				</div>
-				<h4 style="margin-top: calc(var(--gap) / 2); margin-bottom: calc(var(--gap) / 2);">
-					<a href="<?php echo esc_url( $field_guide_url ); ?>">
-						<?php
-						printf(
-							/* translators: %s: WordPress version number. */
-							__( 'WordPress %s Field Guide' ),
-							'6.7'
-						);
-						?>
-					</a>
-				</h4>
-				<p>
-					<?php
-					printf(
-						/* translators: %s: WordPress version number. */
-						__( 'Explore the WordPress %s Field Guide. Learn about the changes in this release with detailed developer notes to help you build with WordPress.' ),
-						'6.7'
-					);
-					?>
-				</p>
 			</div>
 		</div>
 
@@ -334,6 +193,3 @@ __( 'Important! Your version of WordPress (%1$s) will stop receiving security up
 
 /* translators: %s: The major version of WordPress for this branch. */
 __( 'This is the final release of WordPress %s' );
-
-/* translators: The localized WordPress download URL. */
-__( 'https://wordpress.org/download/' );

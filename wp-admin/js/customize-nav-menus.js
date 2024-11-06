@@ -92,7 +92,7 @@
 	/**
 	 * Insert a new `auto-draft` post.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 * @alias wp.customize.Menus.insertAutoDraftPost
 	 *
 	 * @param {Object} params - Parameters for the draft post to create.
@@ -383,8 +383,8 @@
 		/**
 		 * Load available nav menu items.
 		 *
-		 * @since 4.3.0
-		 * @since 4.7.0 Changed function signature to take list of item types instead of single type/object.
+		 * @since WP 4.3.0
+		 * @since WP 4.7.0 Changed function signature to take list of item types instead of single type/object.
 		 * @access private
 		 *
 		 * @param {Array.<Object>} itemTypes List of objects containing type and key.
@@ -593,7 +593,7 @@
 		/**
 		 * Submit handler for keypress (enter) on field and click on button.
 		 *
-		 * @since 4.7.0
+		 * @since WP 4.7.0
 		 * @private
 		 *
 		 * @param {jQuery.Event} event Event.
@@ -619,7 +619,7 @@
 		/**
 		 * Creates a new object and adds an associated menu item to the menu.
 		 *
-		 * @since 4.7.0
+		 * @since WP 4.7.0
 		 * @private
 		 *
 		 * @param {jQuery} container
@@ -842,7 +842,7 @@
 		/**
 		 * Save hidden column states.
 		 *
-		 * @since 4.3.0
+		 * @since WP 4.3.0
 		 * @private
 		 *
 		 * @return {void}
@@ -864,19 +864,19 @@
 		}, 2000 ),
 
 		/**
-		 * @deprecated Since 4.7.0 now that the nav_menu sections are responsible for toggling the classes on their own containers.
+		 * @deprecated WP Since 4.7.0 now that the nav_menu sections are responsible for toggling the classes on their own containers.
 		 */
 		checked: function() {},
 
 		/**
-		 * @deprecated Since 4.7.0 now that the nav_menu sections are responsible for toggling the classes on their own containers.
+		 * @deprecated WP Since 4.7.0 now that the nav_menu sections are responsible for toggling the classes on their own containers.
 		 */
 		unchecked: function() {},
 
 		/**
 		 * Get hidden fields.
 		 *
-		 * @since 4.3.0
+		 * @since WP 4.3.0
 		 * @private
 		 *
 		 * @return {Array} Fields (columns) that are hidden.
@@ -903,7 +903,7 @@
 		/**
 		 * Initialize.
 		 *
-		 * @since 4.3.0
+		 * @since WP 4.3.0
 		 *
 		 * @param {string} id
 		 * @param {Object} options
@@ -1169,7 +1169,7 @@
 		 * highlighted but those expanding this section know more about why and
 		 * when the affordance should be highlighted.
 		 *
-		 * @since 4.9.0
+		 * @since WP 4.9.0
 		 *
 		 * @return {void}
 		 */
@@ -1181,7 +1181,7 @@
 	/**
 	 * Create a nav menu setting and section.
 	 *
-	 * @since 4.9.0
+	 * @since WP 4.9.0
 	 *
 	 * @param {string} [name=''] Nav menu name.
 	 * @return {wp.customize.Menus.MenuSection} Added nav menu.
@@ -1233,7 +1233,7 @@
 		/**
 		 * Add behaviors for the accordion section.
 		 *
-		 * @since 4.3.0
+		 * @since WP 4.3.0
 		 */
 		attachEvents: function() {
 			var section = this,
@@ -1267,7 +1267,7 @@
 			/**
 			 * Get number of non-deleted nav menus.
 			 *
-			 * @since 4.9.0
+			 * @since WP 4.9.0
 			 * @return {number} Count.
 			 */
 			function getNavMenuCount() {
@@ -1283,7 +1283,7 @@
 			/**
 			 * Update visibility of notice to prompt users to create menus.
 			 *
-			 * @since 4.9.0
+			 * @since WP 4.9.0
 			 * @return {void}
 			 */
 			function updateNoticeVisibility() {
@@ -1293,7 +1293,7 @@
 			/**
 			 * Handle setting addition.
 			 *
-			 * @since 4.9.0
+			 * @since WP 4.9.0
 			 * @param {wp.customize.Setting} setting - Added setting.
 			 * @return {void}
 			 */
@@ -1307,7 +1307,7 @@
 			/**
 			 * Handle setting removal.
 			 *
-			 * @since 4.9.0
+			 * @since WP 4.9.0
 			 * @param {wp.customize.Setting} setting - Removed setting.
 			 * @return {void}
 			 */
@@ -1329,7 +1329,7 @@
 		/**
 		 * Set up the control.
 		 *
-		 * @since 4.9.0
+		 * @since WP 4.9.0
 		 */
 		ready: function() {
 			this.populateControls();
@@ -1338,7 +1338,7 @@
 		/**
 		 * Create the controls for this section.
 		 *
-		 * @since 4.9.0
+		 * @since WP 4.9.0
 		 */
 		populateControls: function() {
 			var section = this,
@@ -1391,7 +1391,7 @@
 		/**
 		 * Create the new menu with name and location supplied by the user.
 		 *
-		 * @since 4.9.0
+		 * @since WP 4.9.0
 		 */
 		submit: function() {
 			var section = this,
@@ -1441,7 +1441,7 @@
 		 * This method selects a single location by default so we can support
 		 * creating a menu for a specific menu location.
 		 *
-		 * @since 4.9.0
+		 * @since WP 4.9.0
 		 *
 		 * @param {string|null} locationId - The ID of the location to select. `null` clears all selections.
 		 * @return {void}
@@ -1579,7 +1579,7 @@
 		/**
 		 * Set up the initial state of the screen reader accessibility information for menu items.
 		 *
-		 * @since 6.6.0
+		 * @since WP 6.6.0
 		 */
 		initAccessibility: function() {
 			var control = this,
@@ -1604,7 +1604,7 @@
 		 *
 		 * @param {Object} itemToRefresh The menu item that might need its advanced accessibility buttons refreshed
 		 * 
-		 * @since 6.6.0
+		 * @since WP 6.6.0
 		 */
 		refreshAdvancedAccessibilityOfItem: function( itemToRefresh ) {
 			// Only refresh accessibility when necessary.
@@ -1655,7 +1655,7 @@
 		 * so that the control isn't embedded on load,
 		 * unless the containing section is already expanded.
 		 *
-		 * @since 4.3.0
+		 * @since WP 4.3.0
 		 */
 		embed: function() {
 			var control = this,
@@ -1674,7 +1674,7 @@
 		 * This function is called in Section.onChangeExpanded() so the control
 		 * will only get embedded when the Section is first expanded.
 		 *
-		 * @since 4.3.0
+		 * @since WP 4.3.0
 		 */
 		actuallyEmbed: function() {
 			var control = this;
@@ -2085,7 +2085,7 @@
 		},
 
 		/**
-		 * @since 4.6.0
+		 * @since WP 4.6.0
 		 *
 		 * @param {Boolean} expanded
 		 * @param {Object} [params]
@@ -2094,7 +2094,7 @@
 		_toggleExpanded: api.Section.prototype._toggleExpanded,
 
 		/**
-		 * @since 4.6.0
+		 * @since WP 4.6.0
 		 *
 		 * @param {Object} [params]
 		 * @return {Boolean} False if already expanded.
@@ -2104,7 +2104,7 @@
 		/**
 		 * Expand the menu item form control.
 		 *
-		 * @since 4.5.0 Added params.completeCallback.
+		 * @since WP 4.5.0 Added params.completeCallback.
 		 *
 		 * @param {Object}   [params] - Optional params.
 		 * @param {Function} [params.completeCallback] - Function to call when the form toggle has finished animating.
@@ -2114,7 +2114,7 @@
 		},
 
 		/**
-		 * @since 4.6.0
+		 * @since WP 4.6.0
 		 *
 		 * @param {Object} [params]
 		 * @return {Boolean} False if already collapsed.
@@ -2124,7 +2124,7 @@
 		/**
 		 * Collapse the menu item form control.
 		 *
-		 * @since 4.5.0 Added params.completeCallback.
+		 * @since WP 4.5.0 Added params.completeCallback.
 		 *
 		 * @param {Object}   [params] - Optional params.
 		 * @param {Function} [params.completeCallback] - Function to call when the form toggle has finished animating.
@@ -2136,8 +2136,8 @@
 		/**
 		 * Expand or collapse the menu item control.
 		 *
-		 * @deprecated this is poor naming, and it is better to directly set control.expanded( showOrHide )
-		 * @since 4.5.0 Added params.completeCallback.
+		 * @deprecated WP this is poor naming, and it is better to directly set control.expanded( showOrHide )
+		 * @since WP 4.5.0 Added params.completeCallback.
 		 *
 		 * @param {boolean}  [showOrHide] - If not supplied, will be inverse of current visibility
 		 * @param {Object}   [params] - Optional params.
@@ -2157,7 +2157,7 @@
 		/**
 		 * Expand or collapse the menu item control.
 		 *
-		 * @since 4.6.0
+		 * @since WP 4.6.0
 		 * @param {boolean}  [showOrHide] - If not supplied, will be inverse of current visibility
 		 * @param {Object}   [params] - Optional params.
 		 * @param {Function} [params.completeCallback] - Function to call when the form toggle has finished animating.
@@ -2225,7 +2225,7 @@
 		 * Expand the containing menu section, expand the form, and focus on
 		 * the first input in the control.
 		 *
-		 * @since 4.5.0 Added params.completeCallback.
+		 * @since WP 4.5.0 Added params.completeCallback.
 		 *
 		 * @param {Object}   [params] - Params object.
 		 * @param {Function} [params.completeCallback] - Optional callback function when focus has completed.
@@ -2496,7 +2496,7 @@
 	 *
 	 * Customizer control for a nav menu's locations.
 	 *
-	 * @since 4.9.0
+	 * @since WP 4.9.0
 	 * @class    wp.customize.Menus.MenuLocationsControl
 	 * @augments wp.customize.Control
 	 */
@@ -2505,7 +2505,7 @@
 		/**
 		 * Set up the control.
 		 *
-		 * @since 4.9.0
+		 * @since WP 4.9.0
 		 */
 		ready: function () {
 			var control = this;
@@ -2552,7 +2552,7 @@
 		 * This method sets the selected locations and allows us to do things like
 		 * set the default location for a new menu.
 		 *
-		 * @since 4.9.0
+		 * @since WP 4.9.0
 		 *
 		 * @param {Object.<string,boolean>} selections - A map of location selections.
 		 * @return {void}
@@ -3148,7 +3148,7 @@
 		/**
 		 * Show an invitation to add new menu items when there are no menu items.
 		 *
-		 * @since 4.9.0
+		 * @since WP 4.9.0
 		 *
 		 * @param {wp.customize.controlConstructor.nav_menu_item[]} optionalMenuItemControls
 		 */

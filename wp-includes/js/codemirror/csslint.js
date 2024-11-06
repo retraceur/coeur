@@ -7974,7 +7974,7 @@ Reporter.prototype = {
      * @param {int} col The column number.
      * @param {Object} rule The rule this message relates to.
      * @method warn
-     * @deprecated Use report instead.
+     * @deprecated WP Use report instead.
      */
     warn: function(message, line, col, rule) {
         "use strict";

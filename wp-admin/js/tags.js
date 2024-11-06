@@ -18,7 +18,7 @@ jQuery( function($) {
 	 *
 	 * Cancels default event handling and event bubbling.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @return {boolean} Always returns false to cancel the default event handling.
 	 */
@@ -73,7 +73,7 @@ jQuery( function($) {
 	/**
 	 * Adds a deletion confirmation when removing a tag.
 	 *
-	 * @since 4.8.0
+	 * @since WP 4.8.0
 	 *
 	 * @return {void}
 	 */
@@ -94,7 +94,7 @@ jQuery( function($) {
 	 *
 	 * Cancels default event handling and event bubbling.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @return {boolean} Always returns false to cancel the default event handling.
 	 */

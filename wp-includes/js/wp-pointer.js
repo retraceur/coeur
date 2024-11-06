@@ -39,7 +39,7 @@
 		/**
 		 * A class that represents a WordPress pointer.
 		 *
-		 * @since 3.3.0
+		 * @since WP 3.3.0
 		 * @private
 		 *
 		 * @constructs $.widget.wp.pointer
@@ -77,7 +77,7 @@
 		 * - `position`     will reposition the pointer.
 		 * - `content`      will update the content of the pointer.
 		 *
-		 * @since 3.3.0
+		 * @since WP 3.3.0
 		 * @private
 		 *
 		 * @param {string} key   The key of the option to set.
@@ -114,7 +114,7 @@
 		 *
 		 * Makes sure that the widget and all associated bindings are destroyed.
 		 *
-		 * @since 3.3.0
+		 * @since WP 3.3.0
 		 */
 		destroy: function() {
 			this.pointer.remove();
@@ -124,7 +124,7 @@
 		/**
 		 * Returns the pointer element.
 		 *
-		 * @since 3.3.0
+		 * @since WP 3.3.0
 		 *
 		 * @return {Object} Pointer The pointer object.
 		 */
@@ -142,7 +142,7 @@
 		 * The content in the options can either be a string or a callback. If it is a
 		 * callback the result of this callback is used as the content.
 		 *
-		 * @since 3.3.0
+		 * @since WP 3.3.0
 		 *
 		 * @param {Object} event The event that caused the update.
 		 *
@@ -182,7 +182,7 @@
 		 *
 		 * Will make sure that the pointer is correctly positioned.
 		 *
-		 * @since 3.3.0
+		 * @since WP 3.3.0
 		 * @private
 		 *
 		 * @param {Object} event   The event that caused the update.
@@ -213,7 +213,7 @@
 		 * Makes sure the pointer is the correct size for its content and makes sure it
 		 * is positioned to point to the right element.
 		 *
-		 * @since 3.3.0
+		 * @since WP 3.3.0
 		 */
 		reposition: function() {
 			var position;
@@ -239,7 +239,7 @@
 		/**
 		 * Sets the arrow of the pointer to the correct side of the pointer element.
 		 *
-		 * @since 3.3.0
+		 * @since WP 3.3.0
 		 */
 		repoint: function() {
 			var o = this.options,
@@ -260,7 +260,7 @@
 		/**
 		 * Calculates the correct position based on a position in the settings.
 		 *
-		 * @since 3.3.0
+		 * @since WP 3.3.0
 		 * @private
 		 *
 		 * @param {string|Object} position Either a side of a pointer or an object
@@ -311,7 +311,7 @@
 		 * calls 'update' before doing so. Calling update makes sure that the pointer
 		 * is correctly sized and positioned.
 		 *
-		 * @since 3.3.0
+		 * @since WP 3.3.0
 		 *
 		 * @param {Object} event The event that triggered the opening of this pointer.
 		 */
@@ -330,7 +330,7 @@
 		/**
 		 * Opens and shows the pointer element.
 		 *
-		 * @since 3.3.0
+		 * @since WP 3.3.0
 		 * @private
 		 *
 		 * @param {Object} event An event object.
@@ -356,7 +356,7 @@
 		/**
 		 * Closes and hides the pointer element.
 		 *
-		 * @since 3.3.0
+		 * @since WP 3.3.0
 		 *
 		 * @param {Object} event An event object.
 		 */
@@ -378,7 +378,7 @@
 		/**
 		 * Puts the pointer on top by increasing the z-index.
 		 *
-		 * @since 3.3.0
+		 * @since WP 3.3.0
 		 */
 		sendToTop: function() {
 			if ( this.active )
@@ -388,7 +388,7 @@
 		/**
 		 * Toggles the element between shown and hidden.
 		 *
-		 * @since 3.3.0
+		 * @since WP 3.3.0
 		 *
 		 * @param {Object} event An event object.
 		 */
@@ -403,7 +403,7 @@
 		 * Extends the pointer and the widget element with the supplied parameter, which
 		 * is either an element or a function.
 		 *
-		 * @since 3.3.0
+		 * @since WP 3.3.0
 		 * @private
 		 *
 		 * @param {Object} extend The object to be merged into the original object.

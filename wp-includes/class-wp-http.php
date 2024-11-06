@@ -4,7 +4,8 @@
  *
  * @package motsVertueux
  * @subpackage HTTP
- * @since 2.7.0
+ * @since WP 2.7.0
+ * @since 1.0.0 motsVertueux fork.
  */
 
 if ( ! class_exists( 'WpOrg\Requests\Autoload' ) ) {
@@ -23,7 +24,7 @@ if ( ! class_exists( 'WpOrg\Requests\Autoload' ) ) {
  *
  * Debugging includes several actions, which pass different variables for debugging the HTTP API.
  *
- * @since 2.7.0
+ * @since WP 2.7.0
  */
 #[AllowDynamicProperties]
 class WP_Http {
@@ -101,7 +102,7 @@ class WP_Http {
 	 * Please note: The only URI that are supported in the HTTP Transport implementation
 	 * are the HTTP and HTTPS protocols.
 	 *
-	 * @since 2.7.0
+	 * @since WP 2.7.0
 	 *
 	 * @param string       $url  The request URL.
 	 * @param string|array $args {
@@ -167,8 +168,8 @@ class WP_Http {
 			/**
 			 * Filters the timeout value for an HTTP request.
 			 *
-			 * @since 2.7.0
-			 * @since 5.1.0 The `$url` parameter was added.
+			 * @since WP 2.7.0
+			 * @since WP 5.1.0 The `$url` parameter was added.
 			 *
 			 * @param float  $timeout_value Time in seconds until a request times out. Default 5.
 			 * @param string $url           The request URL.
@@ -177,8 +178,8 @@ class WP_Http {
 			/**
 			 * Filters the number of redirects allowed during an HTTP request.
 			 *
-			 * @since 2.7.0
-			 * @since 5.1.0 The `$url` parameter was added.
+			 * @since WP 2.7.0
+			 * @since WP 5.1.0 The `$url` parameter was added.
 			 *
 			 * @param int    $redirect_count Number of redirects allowed. Default 5.
 			 * @param string $url            The request URL.
@@ -187,8 +188,8 @@ class WP_Http {
 			/**
 			 * Filters the version of the HTTP protocol used in a request.
 			 *
-			 * @since 2.7.0
-			 * @since 5.1.0 The `$url` parameter was added.
+			 * @since WP 2.7.0
+			 * @since WP 5.1.0 The `$url` parameter was added.
 			 *
 			 * @param string $version Version of HTTP used. Accepts '1.0' and '1.1'. Default '1.0'.
 			 * @param string $url     The request URL.
@@ -197,8 +198,8 @@ class WP_Http {
 			/**
 			 * Filters the user agent value sent with an HTTP request.
 			 *
-			 * @since 2.7.0
-			 * @since 5.1.0 The `$url` parameter was added.
+			 * @since WP 2.7.0
+			 * @since WP 5.1.0 The `$url` parameter was added.
 			 *
 			 * @param string $user_agent WordPress user agent string.
 			 * @param string $url        The request URL.
@@ -207,8 +208,8 @@ class WP_Http {
 			/**
 			 * Filters whether to pass URLs through wp_http_validate_url() in an HTTP request.
 			 *
-			 * @since 3.6.0
-			 * @since 5.1.0 The `$url` parameter was added.
+			 * @since WP 3.6.0
+			 * @since WP 5.1.0 The `$url` parameter was added.
 			 *
 			 * @param bool   $pass_url Whether to pass URLs through wp_http_validate_url(). Default false.
 			 * @param string $url      The request URL.
@@ -239,7 +240,7 @@ class WP_Http {
 		/**
 		 * Filters the arguments used in an HTTP request.
 		 *
-		 * @since 2.7.0
+		 * @since WP 2.7.0
 		 *
 		 * @param array  $parsed_args An array of HTTP request arguments.
 		 * @param string $url         The request URL.
@@ -263,7 +264,7 @@ class WP_Http {
 		 *
 		 * Returning any other value may result in unexpected behavior.
 		 *
-		 * @since 2.9.0
+		 * @since WP 2.9.0
 		 *
 		 * @param false|array|WP_Error $response    A preemptive return value of an HTTP request. Default false.
 		 * @param array                $parsed_args HTTP request arguments.
@@ -382,8 +383,8 @@ class WP_Http {
 		/**
 		 * Filters whether SSL should be verified for non-local requests.
 		 *
-		 * @since 2.8.0
-		 * @since 5.1.0 The `$url` parameter was added.
+		 * @since WP 2.8.0
+		 * @since WP 5.1.0 The `$url` parameter was added.
 		 *
 		 * @param bool|string $ssl_verify Boolean to control whether to verify the SSL connection
 		 *                                or path to an SSL certificate.
@@ -424,7 +425,7 @@ class WP_Http {
 		/**
 		 * Fires after an HTTP API response is received and before the response is returned.
 		 *
-		 * @since 2.8.0
+		 * @since WP 2.8.0
 		 *
 		 * @param array|WP_Error $response    HTTP response or WP_Error object.
 		 * @param string         $context     Context under which the hook is fired.
@@ -453,7 +454,7 @@ class WP_Http {
 		/**
 		 * Filters a successful HTTP API response immediately before the response is returned.
 		 *
-		 * @since 2.9.0
+		 * @since WP 2.9.0
 		 *
 		 * @param array  $response    HTTP response.
 		 * @param array  $parsed_args HTTP request arguments.
@@ -465,7 +466,7 @@ class WP_Http {
 	/**
 	 * Normalizes cookies for using in Requests.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 *
 	 * @param array $cookies Array of cookies to send with the request.
 	 * @return WpOrg\Requests\Cookie\Jar Cookie holder object.
@@ -497,7 +498,7 @@ class WP_Http {
 	 * RFC 7231, user agents can deviate from the strict reading of the
 	 * specification for compatibility purposes.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 *
 	 * @param string                  $location URL to redirect to.
 	 * @param array                   $headers  Headers for the redirect.
@@ -515,7 +516,7 @@ class WP_Http {
 	/**
 	 * Validate redirected URLs.
 	 *
-	 * @since 4.7.5
+	 * @since WP 4.7.5
 	 *
 	 * @throws WpOrg\Requests\Exception On unsuccessful URL validation.
 	 * @param string $location URL to redirect to.
@@ -529,8 +530,8 @@ class WP_Http {
 	/**
 	 * Tests which transports are capable of supporting the request.
 	 *
-	 * @since 3.2.0
-	 * @deprecated 6.4.0 Use WpOrg\Requests\Requests::get_transport_class()
+	 * @since WP 3.2.0
+	 * @deprecated WP 6.4.0 Use WpOrg\Requests\Requests::get_transport_class()
 	 * @see WpOrg\Requests\Requests::get_transport_class()
 	 *
 	 * @param array  $args Request arguments.
@@ -544,8 +545,8 @@ class WP_Http {
 		/**
 		 * Filters which HTTP transports are available and in what order.
 		 *
-		 * @since 3.7.0
-		 * @deprecated 6.4.0 Use WpOrg\Requests\Requests::get_transport_class()
+		 * @since WP 3.7.0
+		 * @deprecated WP 6.4.0 Use WpOrg\Requests\Requests::get_transport_class()
 		 *
 		 * @param string[] $transports Array of HTTP transports to check. Default array contains
 		 *                             'curl' and 'streams', in that order.
@@ -580,8 +581,8 @@ class WP_Http {
 	 *
 	 * The order for requests is cURL, and then PHP Streams.
 	 *
-	 * @since 3.2.0
-	 * @deprecated 5.1.0 Use WP_Http::request()
+	 * @since WP 3.2.0
+	 * @deprecated WP 5.1.0 Use WP_Http::request()
 	 * @see WP_Http::request()
 	 *
 	 * @param string $url  URL to request.
@@ -620,7 +621,7 @@ class WP_Http {
 	 *
 	 * Used for sending data that is expected to be in the body.
 	 *
-	 * @since 2.7.0
+	 * @since WP 2.7.0
 	 *
 	 * @param string       $url  The request URL.
 	 * @param string|array $args Optional. Override the defaults.
@@ -638,7 +639,7 @@ class WP_Http {
 	 *
 	 * Used for sending data that is expected to be in the body.
 	 *
-	 * @since 2.7.0
+	 * @since WP 2.7.0
 	 *
 	 * @param string       $url  The request URL.
 	 * @param string|array $args Optional. Override the defaults.
@@ -656,7 +657,7 @@ class WP_Http {
 	 *
 	 * Used for sending data that is expected to be in the body.
 	 *
-	 * @since 2.7.0
+	 * @since WP 2.7.0
 	 *
 	 * @param string       $url  The request URL.
 	 * @param string|array $args Optional. Override the defaults.
@@ -672,7 +673,7 @@ class WP_Http {
 	/**
 	 * Parses the responses and splits the parts into headers and body.
 	 *
-	 * @since 2.7.0
+	 * @since WP 2.7.0
 	 *
 	 * @param string $response The full response string.
 	 * @return array {
@@ -694,7 +695,7 @@ class WP_Http {
 	/**
 	 * Transforms header string into an array.
 	 *
-	 * @since 2.7.0
+	 * @since WP 2.7.0
 	 *
 	 * @param string|array $headers The original headers. If a string is passed, it will be converted
 	 *                              to an array. If an array is passed, then it is assumed to be
@@ -793,7 +794,7 @@ class WP_Http {
 	 * which are each parsed into strings and added to the Cookie: header (within the arguments array).
 	 * Edits the array by reference.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @param array $r Full array of args passed into ::request()
 	 */
@@ -828,7 +829,7 @@ class WP_Http {
 	 *
 	 * @link https://tools.ietf.org/html/rfc2616#section-19.4.6 Process for chunked decoding.
 	 *
-	 * @since 2.7.0
+	 * @since WP 2.7.0
 	 *
 	 * @param string $body Body content.
 	 * @return string Chunked decoded body on success or raw body on failure.
@@ -869,19 +870,15 @@ class WP_Http {
 	/**
 	 * Determines whether an HTTP API request to the given URL should be blocked.
 	 *
-	 * Those who are behind a proxy and want to prevent access to certain hosts may do so. This will
-	 * prevent plugins from working and core functionality, if you don't include `api.wordpress.org`.
+	 * Those who are behind a proxy and want to prevent access to certain hosts may do so.
 	 *
 	 * You block external URL requests by defining `WP_HTTP_BLOCK_EXTERNAL` as true in your `wp-config.php`
 	 * file and this will only allow localhost and your site to make requests. The constant
 	 * `WP_ACCESSIBLE_HOSTS` will allow additional hosts to go through for requests. The format of the
 	 * `WP_ACCESSIBLE_HOSTS` constant is a comma separated list of hostnames to allow, wildcard domains
-	 * are supported, eg `*.wordpress.org` will allow for all subdomains of `wordpress.org` to be contacted.
+	 * are supported.
 	 *
-	 * @since 2.8.0
-	 *
-	 * @link https://core.trac.wordpress.org/ticket/8927 Allow preventing external requests.
-	 * @link https://core.trac.wordpress.org/ticket/14636 Allow wildcard domains in WP_ACCESSIBLE_HOSTS
+	 * @since WP 2.8.0
 	 *
 	 * @param string $uri URI of url.
 	 * @return bool True to block, false to allow.
@@ -906,7 +903,7 @@ class WP_Http {
 			 *
 			 * A local request is one to `localhost` or to the same host as the site itself.
 			 *
-			 * @since 2.8.0
+			 * @since WP 2.8.0
 			 *
 			 * @param bool $block Whether to block local requests. Default false.
 			 */
@@ -941,7 +938,7 @@ class WP_Http {
 	/**
 	 * Used as a wrapper for PHP's parse_url() function that handles edgecases in < PHP 5.4.7.
 	 *
-	 * @deprecated 4.4.0 Use wp_parse_url()
+	 * @deprecated WP 4.4.0 Use wp_parse_url()
 	 * @see wp_parse_url()
 	 *
 	 * @param string $url The URL to parse.
@@ -958,7 +955,7 @@ class WP_Http {
 	 *
 	 * If an Absolute URL is provided, no processing of that URL is done.
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 *
 	 * @param string $maybe_relative_path The URL which might be relative.
 	 * @param string $url                 The URL which $maybe_relative_path is relative to.
@@ -1040,7 +1037,7 @@ class WP_Http {
 	/**
 	 * Handles an HTTP redirect and follows it if appropriate.
 	 *
-	 * @since 3.7.0
+	 * @since WP 3.7.0
 	 *
 	 * @param string $url      The URL which was requested.
 	 * @param array  $args     The arguments which were used to make the request.
@@ -1102,7 +1099,7 @@ class WP_Http {
 	 *
 	 * @link http://home.deds.nl/~aeron/regex/ for IPv6 regex.
 	 *
-	 * @since 3.7.0
+	 * @since WP 3.7.0
 	 *
 	 * @param string $maybe_ip A suspected IP address.
 	 * @return int|false Upon success, '4' or '6' to represent an IPv4 or IPv6 address, false upon failure.

@@ -4,14 +4,15 @@
  *
  * @package motsVertueux
  * @subpackage Upgrader
- * @since 4.6.0
+ * @since WP 4.6.0
+ * @since 1.0.0
  */
 
 /**
  * Plugin Installer Skin for WordPress Plugin Installer.
  *
- * @since 2.8.0
- * @since 4.6.0 Moved to its own file from wp-admin/includes/class-wp-upgrader-skins.php.
+ * @since WP 2.8.0
+ * @since WP 4.6.0 Moved to its own file from wp-admin/includes/class-wp-upgrader-skins.php.
  *
  * @see WP_Upgrader_Skin
  */
@@ -28,7 +29,7 @@ class Plugin_Installer_Skin extends WP_Upgrader_Skin {
 	 *
 	 * Sets up the plugin installer skin.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @param array $args
 	 */
@@ -54,7 +55,7 @@ class Plugin_Installer_Skin extends WP_Upgrader_Skin {
 	/**
 	 * Performs an action before installing a plugin.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 */
 	public function before() {
 		if ( ! empty( $this->api ) ) {
@@ -69,7 +70,7 @@ class Plugin_Installer_Skin extends WP_Upgrader_Skin {
 	/**
 	 * Hides the `process_failed` error when updating a plugin by uploading a zip file.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @param WP_Error $wp_error WP_Error object.
 	 * @return bool True if the error should be hidden, false otherwise.
@@ -89,7 +90,7 @@ class Plugin_Installer_Skin extends WP_Upgrader_Skin {
 	/**
 	 * Performs an action following a plugin install.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 */
 	public function after() {
 		// Check if the plugin can be overwritten and output the HTML.
@@ -167,10 +168,10 @@ class Plugin_Installer_Skin extends WP_Upgrader_Skin {
 		/**
 		 * Filters the list of action links available following a single plugin installation.
 		 *
-		 * @since 2.7.0
+		 * @since WP 2.7.0
 		 *
 		 * @param string[] $install_actions Array of plugin action links.
-		 * @param object   $api             Object containing WordPress.org API plugin data. Empty
+		 * @param object   $api             Object containing plugin data. Empty
 		 *                                  for non-API installs, such as when a plugin is installed
 		 *                                  via upload.
 		 * @param string   $plugin_file     Path to the plugin file relative to the plugins directory.
@@ -185,7 +186,7 @@ class Plugin_Installer_Skin extends WP_Upgrader_Skin {
 	/**
 	 * Checks if the plugin can be overwritten and outputs the HTML for overwriting a plugin on upload.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @return bool Whether the plugin can be overwritten and HTML was outputted.
 	 */
@@ -251,7 +252,7 @@ class Plugin_Installer_Skin extends WP_Upgrader_Skin {
 		/**
 		 * Filters the compare table output for overwriting a plugin package on upload.
 		 *
-		 * @since 5.5.0
+		 * @since WP 5.5.0
 		 *
 		 * @param string $table               The output table with Name, Version, Author, RequiresWP, and RequiresPHP info.
 		 * @param array  $current_plugin_data Array with current plugin data.
@@ -296,17 +297,9 @@ class Plugin_Installer_Skin extends WP_Upgrader_Skin {
 
 		if ( $can_update ) {
 			if ( $this->is_downgrading ) {
-				$warning = sprintf(
-					/* translators: %s: Documentation URL. */
-					__( 'You are uploading an older version of a current plugin. You can continue to install the older version, but be sure to <a href="%s">back up your database and files</a> first.' ),
-					__( 'https://developer.wordpress.org/advanced-administration/security/backup/' )
-				);
+				$warning = __( 'You are uploading an older version of a current plugin. You can continue to install the older version, but be sure to back up your database and files first.' );
 			} else {
-				$warning = sprintf(
-					/* translators: %s: Documentation URL. */
-					__( 'You are updating a plugin. Be sure to <a href="%s">back up your database and files</a> first.' ),
-					__( 'https://developer.wordpress.org/advanced-administration/security/backup/' )
-				);
+				$warning = __( 'You are updating a plugin. Be sure to back up your database and files first.' );
 			}
 
 			echo '<p class="update-from-upload-notice">' . $warning . '</p>';
@@ -334,10 +327,10 @@ class Plugin_Installer_Skin extends WP_Upgrader_Skin {
 		 * Filters the list of action links available following a single plugin installation failure
 		 * when overwriting is allowed.
 		 *
-		 * @since 5.5.0
+		 * @since WP 5.5.0
 		 *
 		 * @param string[] $install_actions Array of plugin action links.
-		 * @param object   $api             Object containing WordPress.org API plugin data.
+		 * @param object   $api             Object containing plugin data.
 		 * @param array    $new_plugin_data Array with uploaded plugin data.
 		 */
 		$install_actions = apply_filters( 'install_plugin_overwrite_actions', $install_actions, $this->api, $new_plugin_data );

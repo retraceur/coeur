@@ -39,7 +39,7 @@ if ( empty( $option_page ) ) {
 	 * By default, the options groups for all registered settings require the manage_options capability.
 	 * This filter is required to change the capability required for a certain options page.
 	 *
-	 * @since 3.2.0
+	 * @since WP 3.2.0
 	 *
 	 * @param string $capability The capability used for the page, which is manage_options by default.
 	 */
@@ -161,7 +161,7 @@ $allowed_options['privacy'] = array();
 /**
  * Filters whether the post-by-email functionality is enabled.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @param bool $enabled Whether post-by-email configuration is enabled. Default true.
  */
@@ -214,8 +214,8 @@ if ( ! is_multisite() ) {
 /**
  * Filters the allowed options list.
  *
- * @since 2.7.0
- * @deprecated 5.5.0 Use {@see 'allowed_options'} instead.
+ * @since WP 2.7.0
+ * @deprecated WP 5.5.0 Use {@see 'allowed_options'} instead.
  *
  * @param array $allowed_options The allowed options list.
  */
@@ -230,7 +230,7 @@ $allowed_options = apply_filters_deprecated(
 /**
  * Filters the allowed options list.
  *
- * @since 5.5.0
+ * @since WP 5.5.0
  *
  * @param array $allowed_options The allowed options list.
  */
@@ -324,10 +324,9 @@ if ( 'update' === $action ) { // We are saving settings sent from a settings pag
 					'options.php',
 					'2.7.0',
 					sprintf(
-						/* translators: 1: The option/setting, 2: Documentation URL. */
-						__( 'The %1$s setting is unregistered. Unregistered settings are deprecated. See <a href="%2$s">documentation on the Settings API</a>.' ),
-						'<code>' . esc_html( $option ) . '</code>',
-						__( 'https://developer.wordpress.org/plugins/settings/settings-api/' )
+						/* translators: 1: The option/setting. */
+						__( 'The %s setting is unregistered. Unregistered settings are deprecated.' ),
+						'<code>' . esc_html( $option ) . '</code>'
 					)
 				);
 			}

@@ -43,7 +43,7 @@
 		/**
 		 * Filters the request data used to Authorize an Application Password request.
 		 *
-		 * @since 5.6.0
+		 * @since WP 5.6.0
 		 *
 		 * @param {Object} request            The request data.
 		 * @param {Object} context            Context about the Application Password request.
@@ -65,7 +65,7 @@
 			 * In most cases, this should be used in combination with the {@see 'wp_authorize_application_password_form_approved_no_js'}
 			 * action to ensure that both the JS and no-JS variants are handled.
 			 *
-			 * @since 5.6.0
+			 * @since WP 5.6.0
 			 *
 			 * @param {Object} response          The response from the REST API.
 			 * @param {string} response.password The newly created password.
@@ -128,8 +128,8 @@
 			/**
 			 * Fires when an Authorize Application Password request encountered an error when trying to approve the request.
 			 *
-			 * @since 5.6.0
-			 * @since 5.6.1 Corrected action name and signature.
+			 * @since WP 5.6.0
+			 * @since WP 5.6.1 Corrected action name and signature.
 			 *
 			 * @param {Object|null} error       The error from the REST API. May be null if the server did not send proper JSON.
 			 * @param {string}      textStatus  The status of the request.
@@ -146,7 +146,7 @@
 		/**
 		 * Fires when an Authorize Application Password request has been rejected by the user.
 		 *
-		 * @since 5.6.0
+		 * @since WP 5.6.0
 		 *
 		 * @param {Object} context            Context about the Application Password request.
 		 * @param {string} context.userLogin  The user's login username.

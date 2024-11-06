@@ -4,13 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage Administration
- * @since 4.4.0
+ * @since WP 4.4.0
  */
 
 /**
  * Core walker class to output an unordered list of category checkbox input elements.
  *
- * @since 2.5.1
+ * @since WP 2.5.1
  *
  * @see Walker
  * @see wp_category_checklist()
@@ -28,7 +28,7 @@ class Walker_Category_Checklist extends Walker {
 	 *
 	 * @see Walker:start_lvl()
 	 *
-	 * @since 2.5.1
+	 * @since WP 2.5.1
 	 *
 	 * @param string $output Used to append additional content (passed by reference).
 	 * @param int    $depth  Depth of category. Used for tab indentation.
@@ -44,7 +44,7 @@ class Walker_Category_Checklist extends Walker {
 	 *
 	 * @see Walker::end_lvl()
 	 *
-	 * @since 2.5.1
+	 * @since WP 2.5.1
 	 *
 	 * @param string $output Used to append additional content (passed by reference).
 	 * @param int    $depth  Depth of category. Used for tab indentation.
@@ -60,8 +60,8 @@ class Walker_Category_Checklist extends Walker {
 	 *
 	 * @see Walker::start_el()
 	 *
-	 * @since 2.5.1
-	 * @since 5.9.0 Renamed `$category` to `$data_object` and `$id` to `$current_object_id`
+	 * @since WP 2.5.1
+	 * @since WP 5.9.0 Renamed `$category` to `$data_object` and `$id` to `$current_object_id`
 	 *              to match parent class for PHP 8 named parameter support.
 	 *
 	 * @param string  $output            Used to append additional content (passed by reference).
@@ -126,8 +126,8 @@ class Walker_Category_Checklist extends Walker {
 	 *
 	 * @see Walker::end_el()
 	 *
-	 * @since 2.5.1
-	 * @since 5.9.0 Renamed `$category` to `$data_object` to match parent class for PHP 8 named parameter support.
+	 * @since WP 2.5.1
+	 * @since WP 5.9.0 Renamed `$category` to `$data_object` to match parent class for PHP 8 named parameter support.
 	 *
 	 * @param string  $output      Used to append additional content (passed by reference).
 	 * @param WP_Term $data_object The current term object.

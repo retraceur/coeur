@@ -2,10 +2,9 @@
 /**
  * Object Cache API
  *
- * @link https://developer.wordpress.org/reference/classes/wp_object_cache/
- *
  * @package motsVertueux
  * @subpackage Cache
+ * @since 1.0.0 motsVertueux fork.
  */
 
 /** WP_Object_Cache class */
@@ -14,7 +13,7 @@ require_once ABSPATH . WPINC . '/class-wp-object-cache.php';
 /**
  * Sets up Object Cache Global and assigns it.
  *
- * @since 2.0.0
+ * @since WP 2.0.0
  *
  * @global WP_Object_Cache $wp_object_cache
  */
@@ -25,7 +24,7 @@ function wp_cache_init() {
 /**
  * Adds data to the cache, if the cache key doesn't already exist.
  *
- * @since 2.0.0
+ * @since WP 2.0.0
  *
  * @see WP_Object_Cache::add()
  * @global WP_Object_Cache $wp_object_cache Object cache global instance.
@@ -47,7 +46,7 @@ function wp_cache_add( $key, $data, $group = '', $expire = 0 ) {
 /**
  * Adds multiple values to the cache in one call.
  *
- * @since 6.0.0
+ * @since WP 6.0.0
  *
  * @see WP_Object_Cache::add_multiple()
  * @global WP_Object_Cache $wp_object_cache Object cache global instance.
@@ -68,7 +67,7 @@ function wp_cache_add_multiple( array $data, $group = '', $expire = 0 ) {
 /**
  * Replaces the contents of the cache with new data.
  *
- * @since 2.0.0
+ * @since WP 2.0.0
  *
  * @see WP_Object_Cache::replace()
  * @global WP_Object_Cache $wp_object_cache Object cache global instance.
@@ -92,7 +91,7 @@ function wp_cache_replace( $key, $data, $group = '', $expire = 0 ) {
  *
  * Differs from wp_cache_add() and wp_cache_replace() in that it will always write data.
  *
- * @since 2.0.0
+ * @since WP 2.0.0
  *
  * @see WP_Object_Cache::set()
  * @global WP_Object_Cache $wp_object_cache Object cache global instance.
@@ -114,7 +113,7 @@ function wp_cache_set( $key, $data, $group = '', $expire = 0 ) {
 /**
  * Sets multiple values to the cache in one call.
  *
- * @since 6.0.0
+ * @since WP 6.0.0
  *
  * @see WP_Object_Cache::set_multiple()
  * @global WP_Object_Cache $wp_object_cache Object cache global instance.
@@ -135,7 +134,7 @@ function wp_cache_set_multiple( array $data, $group = '', $expire = 0 ) {
 /**
  * Retrieves the cache contents from the cache by key and group.
  *
- * @since 2.0.0
+ * @since WP 2.0.0
  *
  * @see WP_Object_Cache::get()
  * @global WP_Object_Cache $wp_object_cache Object cache global instance.
@@ -157,7 +156,7 @@ function wp_cache_get( $key, $group = '', $force = false, &$found = null ) {
 /**
  * Retrieves multiple values from the cache in one call.
  *
- * @since 5.5.0
+ * @since WP 5.5.0
  *
  * @see WP_Object_Cache::get_multiple()
  * @global WP_Object_Cache $wp_object_cache Object cache global instance.
@@ -178,7 +177,7 @@ function wp_cache_get_multiple( $keys, $group = '', $force = false ) {
 /**
  * Removes the cache contents matching key and group.
  *
- * @since 2.0.0
+ * @since WP 2.0.0
  *
  * @see WP_Object_Cache::delete()
  * @global WP_Object_Cache $wp_object_cache Object cache global instance.
@@ -196,7 +195,7 @@ function wp_cache_delete( $key, $group = '' ) {
 /**
  * Deletes multiple values from the cache in one call.
  *
- * @since 6.0.0
+ * @since WP 6.0.0
  *
  * @see WP_Object_Cache::delete_multiple()
  * @global WP_Object_Cache $wp_object_cache Object cache global instance.
@@ -215,7 +214,7 @@ function wp_cache_delete_multiple( array $keys, $group = '' ) {
 /**
  * Increments numeric cache item's value.
  *
- * @since 3.3.0
+ * @since WP 3.3.0
  *
  * @see WP_Object_Cache::incr()
  * @global WP_Object_Cache $wp_object_cache Object cache global instance.
@@ -235,7 +234,7 @@ function wp_cache_incr( $key, $offset = 1, $group = '' ) {
 /**
  * Decrements numeric cache item's value.
  *
- * @since 3.3.0
+ * @since WP 3.3.0
  *
  * @see WP_Object_Cache::decr()
  * @global WP_Object_Cache $wp_object_cache Object cache global instance.
@@ -255,7 +254,7 @@ function wp_cache_decr( $key, $offset = 1, $group = '' ) {
 /**
  * Removes all cache items.
  *
- * @since 2.0.0
+ * @since WP 2.0.0
  *
  * @see WP_Object_Cache::flush()
  * @global WP_Object_Cache $wp_object_cache Object cache global instance.
@@ -271,7 +270,7 @@ function wp_cache_flush() {
 /**
  * Removes all cache items from the in-memory runtime cache.
  *
- * @since 6.0.0
+ * @since WP 6.0.0
  *
  * @see WP_Object_Cache::flush()
  *
@@ -287,7 +286,7 @@ function wp_cache_flush_runtime() {
  * Before calling this function, always check for group flushing support using the
  * `wp_cache_supports( 'flush_group' )` function.
  *
- * @since 6.1.0
+ * @since WP 6.1.0
  *
  * @see WP_Object_Cache::flush_group()
  * @global WP_Object_Cache $wp_object_cache Object cache global instance.
@@ -304,7 +303,7 @@ function wp_cache_flush_group( $group ) {
 /**
  * Determines whether the object cache implementation supports a particular feature.
  *
- * @since 6.1.0
+ * @since WP 6.1.0
  *
  * @param string $feature Name of the feature to check for. Possible values include:
  *                        'add_multiple', 'set_multiple', 'get_multiple', 'delete_multiple',
@@ -335,7 +334,7 @@ function wp_cache_supports( $feature ) {
  * This does not mean that plugins can't implement this function when they need
  * to make sure that the cache is cleaned up after WordPress no longer needs it.
  *
- * @since 2.0.0
+ * @since WP 2.0.0
  *
  * @return true Always returns true.
  */
@@ -346,7 +345,7 @@ function wp_cache_close() {
 /**
  * Adds a group or set of groups to the list of global groups.
  *
- * @since 2.6.0
+ * @since WP 2.6.0
  *
  * @see WP_Object_Cache::add_global_groups()
  * @global WP_Object_Cache $wp_object_cache Object cache global instance.
@@ -362,7 +361,7 @@ function wp_cache_add_global_groups( $groups ) {
 /**
  * Adds a group or set of groups to the list of non-persistent groups.
  *
- * @since 2.6.0
+ * @since WP 2.6.0
  *
  * @param string|string[] $groups A group or an array of groups to add.
  */
@@ -375,7 +374,7 @@ function wp_cache_add_non_persistent_groups( $groups ) {
  *
  * This changes the blog id used to create keys in blog specific groups.
  *
- * @since 3.5.0
+ * @since WP 3.5.0
  *
  * @see WP_Object_Cache::switch_to_blog()
  * @global WP_Object_Cache $wp_object_cache Object cache global instance.
@@ -400,8 +399,8 @@ function wp_cache_switch_to_blog( $blog_id ) {
  * during unit tests, consider using wp_cache_init(). wp_cache_init() is not
  * recommended outside of unit tests as the performance penalty for using it is high.
  *
- * @since 3.0.0
- * @deprecated 3.5.0 Use wp_cache_switch_to_blog()
+ * @since WP 3.0.0
+ * @deprecated WP 3.5.0 Use wp_cache_switch_to_blog()
  * @see WP_Object_Cache::reset()
  *
  * @global WP_Object_Cache $wp_object_cache Object cache global instance.

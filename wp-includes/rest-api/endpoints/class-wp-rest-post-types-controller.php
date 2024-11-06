@@ -4,13 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage REST_API
- * @since 4.7.0
+ * @since WP 4.7.0
  */
 
 /**
  * Core class to access post types via the REST API.
  *
- * @since 4.7.0
+ * @since WP 4.7.0
  *
  * @see WP_REST_Controller
  */
@@ -19,7 +19,7 @@ class WP_REST_Post_Types_Controller extends WP_REST_Controller {
 	/**
 	 * Constructor.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 */
 	public function __construct() {
 		$this->namespace = 'wp/v2';
@@ -29,7 +29,7 @@ class WP_REST_Post_Types_Controller extends WP_REST_Controller {
 	/**
 	 * Registers the routes for post types.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @see register_rest_route()
 	 */
@@ -75,7 +75,7 @@ class WP_REST_Post_Types_Controller extends WP_REST_Controller {
 	/**
 	 * Checks whether a given request has permission to read types.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has read access, WP_Error object otherwise.
@@ -103,7 +103,7 @@ class WP_REST_Post_Types_Controller extends WP_REST_Controller {
 	/**
 	 * Retrieves all public post types.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
@@ -127,7 +127,7 @@ class WP_REST_Post_Types_Controller extends WP_REST_Controller {
 	/**
 	 * Retrieves a specific post type.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
@@ -167,8 +167,8 @@ class WP_REST_Post_Types_Controller extends WP_REST_Controller {
 	/**
 	 * Prepares a post type object for serialization.
 	 *
-	 * @since 4.7.0
-	 * @since 5.9.0 Renamed `$post_type` to `$item` to match parent class for PHP 8 named parameter support.
+	 * @since WP 4.7.0
+	 * @since WP 5.9.0 Renamed `$post_type` to `$item` to match parent class for PHP 8 named parameter support.
 	 *
 	 * @param WP_Post_Type    $item    Post type object.
 	 * @param WP_REST_Request $request Full details about the request.
@@ -270,7 +270,7 @@ class WP_REST_Post_Types_Controller extends WP_REST_Controller {
 		 *
 		 * Allows modification of the post type data right before it is returned.
 		 *
-		 * @since 4.7.0
+		 * @since WP 4.7.0
 		 *
 		 * @param WP_REST_Response $response  The response object.
 		 * @param WP_Post_Type     $post_type The original post type object.
@@ -282,7 +282,7 @@ class WP_REST_Post_Types_Controller extends WP_REST_Controller {
 	/**
 	 * Prepares links for the request.
 	 *
-	 * @since 6.1.0
+	 * @since WP 6.1.0
 	 *
 	 * @param WP_Post_Type $post_type The post type.
 	 * @return array Links for the given post type.
@@ -301,10 +301,10 @@ class WP_REST_Post_Types_Controller extends WP_REST_Controller {
 	/**
 	 * Retrieves the post type's schema, conforming to JSON Schema.
 	 *
-	 * @since 4.7.0
-	 * @since 4.8.0 The `supports` property was added.
-	 * @since 5.9.0 The `visibility` and `rest_namespace` properties were added.
-	 * @since 6.1.0 The `icon` property was added.
+	 * @since WP 4.7.0
+	 * @since WP 4.8.0 The `supports` property was added.
+	 * @since WP 5.9.0 The `visibility` and `rest_namespace` properties were added.
+	 * @since WP 6.1.0 The `icon` property was added.
 	 *
 	 * @return array Item schema data.
 	 */
@@ -439,7 +439,7 @@ class WP_REST_Post_Types_Controller extends WP_REST_Controller {
 	/**
 	 * Retrieves the query params for collections.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @return array Collection parameters.
 	 */

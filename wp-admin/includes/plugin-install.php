@@ -4,10 +4,11 @@
  *
  * @package motsVertueux
  * @subpackage Administration
+ * @since 1.0.0 motsVertueux fork.
  */
 
 /**
- * Retrieves plugin installer pages from the WordPress.org Plugins API.
+ * Retrieves plugin installer pages.
  *
  * It is possible for a plugin to override the Plugin API result with three
  * filters. Assume this is for plugins, which can extend on the Plugin Info to
@@ -18,7 +19,7 @@
  * as the second parameter. The hook for {@see 'plugins_api_args'} must ensure that
  * an object is returned.
  *
- * The second filter, {@see 'plugins_api'}, allows a plugin to override the WordPress.org
+ * The second filter, {@see 'plugins_api'}, allows a plugin to override the built-in
  * Plugin Installation API entirely. If `$action` is 'query_plugins' or 'plugin_information',
  * an object MUST be passed. If `$action` is 'hot_tags', an array MUST be passed.
  *
@@ -43,7 +44,8 @@
  * | `$is_ssl`            | Yes           |  Yes               | No       |
  * | `$fields`            | Yes           |  Yes               | No       |
  *
- * @since 2.7.0
+ * @since WP 2.7.0
+ * @since 1.0.0    Disable the WP Plugins API distant requests.
  *
  * @param string       $action API action to perform: 'query_plugins', 'plugin_information',
  *                             or 'hot_tags'.
@@ -79,8 +81,7 @@
  *         @type bool $downloaded        Whether to return the download count. Default true.
  *         @type bool $downloadlink      Whether to return the download link for the package. Default true.
  *         @type bool $last_updated      Whether to return the date of the last update. Default true.
- *         @type bool $added             Whether to return the date when the plugin was added to the wordpress.org
- *                                       repository. Default true.
+ *         @type bool $added             Whether to return the date when the plugin was added. Default true.
  *         @type bool $tags              Whether to return the assigned tags. Default true.
  *         @type bool $compatibility     Whether to return the WordPress compatibility list. Default true.
  *         @type bool $homepage          Whether to return the plugin homepage link. Default true.
@@ -93,9 +94,7 @@
  *         @type bool $contributors      Whether to return the list of contributors. Default false.
  *     }
  * }
- * @return object|array|WP_Error Response object or array on success, WP_Error on failure. See the
- *         {@link https://developer.wordpress.org/reference/functions/plugins_api/ function reference article}
- *         for more information on the make-up of possible return values depending on the value of `$action`.
+ * @return object|array|WP_Error Response object or array on success, WP_Error on failure.
  */
 function plugins_api( $action, $args = array() ) {
 	if ( is_array( $args ) ) {
@@ -117,11 +116,11 @@ function plugins_api( $action, $args = array() ) {
 	}
 
 	/**
-	 * Filters the WordPress.org Plugin Installation API arguments.
+	 * Filters the Plugin Installation API arguments.
 	 *
 	 * Important: An object MUST be returned to this filter.
 	 *
-	 * @since 2.7.0
+	 * @since WP 2.7.0
 	 *
 	 * @param object $args   Plugin API arguments.
 	 * @param string $action The type of information being requested from the Plugin Installation API.
@@ -129,14 +128,14 @@ function plugins_api( $action, $args = array() ) {
 	$args = apply_filters( 'plugins_api_args', $args, $action );
 
 	/**
-	 * Filters the response for the current WordPress.org Plugin Installation API request.
+	 * Filters the response for the current Plugin Installation API request.
 	 *
-	 * Returning a non-false value will effectively short-circuit the WordPress.org API request.
+	 * Returning a non-false value will effectively short-circuit the API request.
 	 *
 	 * If `$action` is 'query_plugins' or 'plugin_information', an object MUST be passed.
 	 * If `$action` is 'hot_tags', an array should be passed.
 	 *
-	 * @since 2.7.0
+	 * @since WP 2.7.0
 	 *
 	 * @param false|object|array $result The result object or array. Default false.
 	 * @param string             $action The type of information being requested from the Plugin Installation API.
@@ -145,8 +144,10 @@ function plugins_api( $action, $args = array() ) {
 	$res = apply_filters( 'plugins_api', false, $action, $args );
 
 	if ( false === $res ) {
+		return new WP_Error( 'plugins_api_disabled', __( 'motsVertueux does not provide a Plugin Installation API.' ) );
 
-		$url = 'http://api.wordpress.org/plugins/info/1.2/';
+		// @todo use GitHub instead
+		$url = '';
 		$url = add_query_arg(
 			array(
 				'action'  => $action,
@@ -163,7 +164,7 @@ function plugins_api( $action, $args = array() ) {
 
 		$http_args = array(
 			'timeout'    => 15,
-			'user-agent' => 'WordPress/' . wp_get_wp_version() . '; ' . home_url( '/' ),
+			'user-agent' => 'motsVertueux/' . wp_get_wp_version() . '; ' . home_url( '/' ),
 		);
 		$request   = wp_remote_get( $url, $http_args );
 
@@ -171,11 +172,7 @@ function plugins_api( $action, $args = array() ) {
 			if ( ! wp_is_json_request() ) {
 				wp_trigger_error(
 					__FUNCTION__,
-					sprintf(
-						/* translators: %s: Support forums URL. */
-						__( 'An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="%s">support forums</a>.' ),
-						__( 'https://wordpress.org/support/forums/' )
-					) . ' ' . __( '(WordPress could not establish a secure connection to WordPress.org. Please contact your server administrator.)' ),
+					__( 'An unexpected error occurred. Something may be wrong this server&#8217;s configuration.' ) . ' ' . __( '(motsVertueux could not establish a secure connection to Plugin Installation API. Please contact your server administrator.)' ),
 					headers_sent() || WP_DEBUG ? E_USER_WARNING : E_USER_NOTICE
 				);
 			}
@@ -186,11 +183,7 @@ function plugins_api( $action, $args = array() ) {
 		if ( is_wp_error( $request ) ) {
 			$res = new WP_Error(
 				'plugins_api_failed',
-				sprintf(
-					/* translators: %s: Support forums URL. */
-					__( 'An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="%s">support forums</a>.' ),
-					__( 'https://wordpress.org/support/forums/' )
-				),
+				__( 'An unexpected error occurred. Something may be wrong this server&#8217;s configuration.' ),
 				$request->get_error_message()
 			);
 		} else {
@@ -201,11 +194,7 @@ function plugins_api( $action, $args = array() ) {
 			} elseif ( null === $res ) {
 				$res = new WP_Error(
 					'plugins_api_failed',
-					sprintf(
-						/* translators: %s: Support forums URL. */
-						__( 'An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="%s">support forums</a>.' ),
-						__( 'https://wordpress.org/support/forums/' )
-					),
+					__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ),
 					wp_remote_retrieve_body( $request )
 				);
 			}
@@ -221,7 +210,7 @@ function plugins_api( $action, $args = array() ) {
 	/**
 	 * Filters the Plugin Installation API response results.
 	 *
-	 * @since 2.7.0
+	 * @since WP 2.7.0
 	 *
 	 * @param object|WP_Error $res    Response object or WP_Error.
 	 * @param string          $action The type of information being requested from the Plugin Installation API.
@@ -233,7 +222,7 @@ function plugins_api( $action, $args = array() ) {
 /**
  * Retrieves popular WordPress plugin tags.
  *
- * @since 2.7.0
+ * @since WP 2.7.0
  *
  * @param array $args
  * @return array|WP_Error
@@ -259,7 +248,7 @@ function install_popular_tags( $args = array() ) {
 /**
  * Displays the Featured tab of Add Plugins screen.
  *
- * @since 2.7.0
+ * @since WP 2.7.0
  */
 function install_dashboard() {
 	display_plugins_table();
@@ -305,8 +294,8 @@ function install_dashboard() {
 /**
  * Displays a search form for searching plugins.
  *
- * @since 2.7.0
- * @since 4.6.0 The `$type_selector` parameter was deprecated.
+ * @since WP 2.7.0
+ * @since WP 4.6.0 The `$type_selector` parameter was deprecated.
  *
  * @param bool $deprecated Not used.
  */
@@ -337,7 +326,7 @@ function install_search_form( $deprecated = true ) {
 /**
  * Displays a form to upload plugins from zip files.
  *
- * @since 2.8.0
+ * @since WP 2.8.0
  */
 function install_plugins_upload() {
 	?>
@@ -359,31 +348,10 @@ function install_plugins_upload() {
 }
 
 /**
- * Shows a username form for the favorites page.
- *
- * @since 3.5.0
- */
-function install_plugins_favorites_form() {
-	$user   = get_user_option( 'wporg_favorites' );
-	$action = 'save_wporg_username_' . get_current_user_id();
-	?>
-	<p><?php _e( 'If you have marked plugins as favorites on WordPress.org, you can browse them here.' ); ?></p>
-	<form method="get">
-		<input type="hidden" name="tab" value="favorites" />
-		<p>
-			<label for="user"><?php _e( 'Your WordPress.org username:' ); ?></label>
-			<input type="search" id="user" name="user" value="<?php echo esc_attr( $user ); ?>" />
-			<input type="submit" class="button" value="<?php esc_attr_e( 'Get Favorites' ); ?>" />
-			<input type="hidden" id="wporg-username-nonce" name="_wpnonce" value="<?php echo esc_attr( wp_create_nonce( $action ) ); ?>" />
-		</p>
-	</form>
-	<?php
-}
-
-/**
  * Displays plugin content based on plugin list.
  *
- * @since 2.7.0
+ * @since WP 2.7.0
+ * @since 1.0.0    Remove WP distant site links.
  *
  * @global WP_List_Table $wp_list_table
  */
@@ -392,26 +360,13 @@ function display_plugins_table() {
 
 	switch ( current_filter() ) {
 		case 'install_plugins_beta':
-			printf(
-				/* translators: %s: URL to "Features as Plugins" page. */
-				'<p>' . __( 'You are using a development version of WordPress. These feature plugins are also under development. <a href="%s">Learn more</a>.' ) . '</p>',
-				'https://make.wordpress.org/core/handbook/about/release-cycle/features-as-plugins/'
-			);
+			echo '<p>' . __( 'You are using a development version of WordPress. These feature plugins are also under development.' ) . '</p>';
 			break;
 		case 'install_plugins_featured':
-			printf(
-				/* translators: %s: https://wordpress.org/plugins/ */
-				'<p>' . __( 'Plugins extend and expand the functionality of WordPress. You may install plugins in the <a href="%s">WordPress Plugin Directory</a> right from here, or upload a plugin in .zip format by clicking the button at the top of this page.' ) . '</p>',
-				__( 'https://wordpress.org/plugins/' )
-			);
+			echo '<p>' . __( 'Plugins extend and expand the functionality of WordPress. You may upload a plugin in .zip format by clicking the button at the top of this page.' ) . '</p>';
 			break;
 		case 'install_plugins_recommended':
 			echo '<p>' . __( 'These suggestions are based on the plugins you and other users have installed.' ) . '</p>';
-			break;
-		case 'install_plugins_favorites':
-			if ( empty( $_GET['user'] ) && ! get_user_option( 'wporg_favorites' ) ) {
-				return;
-			}
 			break;
 	}
 	?>
@@ -424,7 +379,7 @@ function display_plugins_table() {
 /**
  * Determines the status we can perform on a plugin.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @param array|object $api  Data about the plugin retrieved from the API.
  * @param bool         $loop Optional. Disable further loops. Default false.
@@ -516,7 +471,8 @@ function install_plugin_install_status( $api, $loop = false ) {
 /**
  * Displays plugin information in dialog box form.
  *
- * @since 2.7.0
+ * @since WP 2.7.0
+ * @since 1.0.0    Remove WP distant site links.
  *
  * @global string $tab
  */
@@ -702,8 +658,6 @@ function install_plugin_information() {
 				}
 				?>
 				</li>
-			<?php } if ( ! empty( $api->slug ) && empty( $api->external ) ) { ?>
-				<li><a target="_blank" href="<?php echo esc_url( __( 'https://wordpress.org/plugins/' ) . $api->slug ); ?>/"><?php _e( 'WordPress.org Plugin Page &#187;' ); ?></a></li>
 			<?php } if ( ! empty( $api->homepage ) ) { ?>
 				<li><a target="_blank" href="<?php echo esc_url( $api->homepage ); ?>"><?php _e( 'Plugin Homepage &#187;' ); ?></a></li>
 			<?php } if ( ! empty( $api->donate_link ) && empty( $api->contributors ) ) { ?>
@@ -733,47 +687,6 @@ function install_plugin_information() {
 			<?php
 		}
 
-		if ( ! empty( $api->ratings ) && array_sum( (array) $api->ratings ) > 0 ) {
-			?>
-			<h3><?php _e( 'Reviews' ); ?></h3>
-			<p class="fyi-description"><?php _e( 'Read all reviews on WordPress.org or write your own!' ); ?></p>
-			<?php
-			foreach ( $api->ratings as $key => $ratecount ) {
-				// Avoid div-by-zero.
-				$_rating    = $api->num_ratings ? ( $ratecount / $api->num_ratings ) : 0;
-				$aria_label = esc_attr(
-					sprintf(
-						/* translators: 1: Number of stars (used to determine singular/plural), 2: Number of reviews. */
-						_n(
-							'Reviews with %1$d star: %2$s. Opens in a new tab.',
-							'Reviews with %1$d stars: %2$s. Opens in a new tab.',
-							$key
-						),
-						$key,
-						number_format_i18n( $ratecount )
-					)
-				);
-				?>
-				<div class="counter-container">
-						<span class="counter-label">
-							<?php
-							printf(
-								'<a href="%s" target="_blank" aria-label="%s">%s</a>',
-								"https://wordpress.org/support/plugin/{$api->slug}/reviews/?filter={$key}",
-								$aria_label,
-								/* translators: %s: Number of stars. */
-								sprintf( _n( '%d star', '%d stars', $key ), $key )
-							);
-							?>
-						</span>
-						<span class="counter-back">
-							<span class="counter-bar" style="width: <?php echo 92 * $_rating; ?>px;"></span>
-						</span>
-					<span class="counter-count" aria-hidden="true"><?php echo number_format_i18n( $ratecount ); ?></span>
-				</div>
-				<?php
-			}
-		}
 		if ( ! empty( $api->contributors ) ) {
 			?>
 			<h3><?php _e( 'Contributors' ); ?></h3>
@@ -810,16 +723,7 @@ function install_plugin_information() {
 	if ( ! $compatible_php ) {
 		$compatible_php_notice_message  = '<p>';
 		$compatible_php_notice_message .= __( '<strong>Error:</strong> This plugin <strong>requires a newer version of PHP</strong>.' );
-
-		if ( current_user_can( 'update_php' ) ) {
-			$compatible_php_notice_message .= sprintf(
-				/* translators: %s: URL to Update PHP page. */
-				' ' . __( '<a href="%s" target="_blank">Click here to learn more about updating PHP</a>.' ),
-				esc_url( wp_get_update_php_url() )
-			) . wp_update_php_annotation( '</p><p><em>', '</em>', false );
-		} else {
-			$compatible_php_notice_message .= '</p>';
-		}
+		$compatible_php_notice_message .= '</p>';
 
 		wp_admin_notice(
 			$compatible_php_notice_message,
@@ -859,9 +763,6 @@ function install_plugin_information() {
 	}
 
 	foreach ( (array) $api->sections as $section_name => $content ) {
-		$content = links_add_base_url( $content, 'https://wordpress.org/plugins/' . $api->slug . '/' );
-		$content = links_add_target( $content, '_blank' );
-
 		$san_section = esc_attr( $section_name );
 
 		$display = ( $section_name === $section ) ? 'block' : 'none';
@@ -896,7 +797,7 @@ function install_plugin_information() {
 /**
  * Gets the markup for the plugin install action button.
  *
- * @since 6.5.0
+ * @since WP 6.5.0
  *
  * @param string       $name           Plugin name.
  * @param array|object $data           {

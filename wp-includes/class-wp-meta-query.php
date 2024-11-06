@@ -4,7 +4,7 @@
  *
  * @package motsVertueux
  * @subpackage Meta
- * @since 4.4.0
+ * @since WP 4.4.0
  */
 
 /**
@@ -17,7 +17,7 @@
  * to filter their results by object metadata, by generating `JOIN` and `WHERE` subclauses to be attached
  * to the primary SQL query string.
  *
- * @since 3.2.0
+ * @since WP 3.2.0
  */
 #[AllowDynamicProperties]
 class WP_Meta_Query {
@@ -26,7 +26,7 @@ class WP_Meta_Query {
 	 *
 	 * See WP_Meta_Query::__construct() for information on meta query arguments.
 	 *
-	 * @since 3.2.0
+	 * @since WP 3.2.0
 	 * @var array
 	 */
 	public $queries = array();
@@ -34,7 +34,7 @@ class WP_Meta_Query {
 	/**
 	 * The relation between the queries. Can be one of 'AND' or 'OR'.
 	 *
-	 * @since 3.2.0
+	 * @since WP 3.2.0
 	 * @var string
 	 */
 	public $relation;
@@ -42,7 +42,7 @@ class WP_Meta_Query {
 	/**
 	 * Database table to query for the metadata.
 	 *
-	 * @since 4.1.0
+	 * @since WP 4.1.0
 	 * @var string
 	 */
 	public $meta_table;
@@ -50,7 +50,7 @@ class WP_Meta_Query {
 	/**
 	 * Column in meta_table that represents the ID of the object the metadata belongs to.
 	 *
-	 * @since 4.1.0
+	 * @since WP 4.1.0
 	 * @var string
 	 */
 	public $meta_id_column;
@@ -58,7 +58,7 @@ class WP_Meta_Query {
 	/**
 	 * Database table that where the metadata's objects are stored (eg $wpdb->users).
 	 *
-	 * @since 4.1.0
+	 * @since WP 4.1.0
 	 * @var string
 	 */
 	public $primary_table;
@@ -66,7 +66,7 @@ class WP_Meta_Query {
 	/**
 	 * Column in primary_table that represents the ID of the object.
 	 *
-	 * @since 4.1.0
+	 * @since WP 4.1.0
 	 * @var string
 	 */
 	public $primary_id_column;
@@ -74,7 +74,7 @@ class WP_Meta_Query {
 	/**
 	 * A flat list of table aliases used in JOIN clauses.
 	 *
-	 * @since 4.1.0
+	 * @since WP 4.1.0
 	 * @var array
 	 */
 	protected $table_aliases = array();
@@ -82,7 +82,7 @@ class WP_Meta_Query {
 	/**
 	 * A flat list of clauses, keyed by clause 'name'.
 	 *
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 * @var array
 	 */
 	protected $clauses = array();
@@ -90,7 +90,7 @@ class WP_Meta_Query {
 	/**
 	 * Whether the query contains any OR relations.
 	 *
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 * @var bool
 	 */
 	protected $has_or_relation = false;
@@ -98,10 +98,10 @@ class WP_Meta_Query {
 	/**
 	 * Constructor.
 	 *
-	 * @since 3.2.0
-	 * @since 4.2.0 Introduced support for naming query clauses by associative array keys.
-	 * @since 5.1.0 Introduced `$compare_key` clause parameter, which enables LIKE key matches.
-	 * @since 5.3.0 Increased the number of operators available to `$compare_key`. Introduced `$type_key`,
+	 * @since WP 3.2.0
+	 * @since WP 4.2.0 Introduced support for naming query clauses by associative array keys.
+	 * @since WP 5.1.0 Introduced `$compare_key` clause parameter, which enables LIKE key matches.
+	 * @since WP 5.3.0 Increased the number of operators available to `$compare_key`. Introduced `$type_key`,
 	 *              which enables the `$key` to be cast to a new data type for comparisons.
 	 *
 	 * @param array $meta_query {
@@ -184,7 +184,7 @@ class WP_Meta_Query {
 	 *
 	 * Eliminates empty items and ensures that a 'relation' is set.
 	 *
-	 * @since 4.1.0
+	 * @since WP 4.1.0
 	 *
 	 * @param array $queries Array of query clauses.
 	 * @return array Sanitized array of query clauses.
@@ -252,7 +252,7 @@ class WP_Meta_Query {
 	 * A first-order meta query clause is one that has either a 'key' or
 	 * a 'value' array key.
 	 *
-	 * @since 4.1.0
+	 * @since WP 4.1.0
 	 *
 	 * @param array $query Meta query arguments.
 	 * @return bool Whether the query clause is a first-order clause.
@@ -264,7 +264,7 @@ class WP_Meta_Query {
 	/**
 	 * Constructs a meta query based on 'meta_*' query vars
 	 *
-	 * @since 3.2.0
+	 * @since WP 3.2.0
 	 *
 	 * @param array $qv The query variables.
 	 */
@@ -311,7 +311,7 @@ class WP_Meta_Query {
 	/**
 	 * Returns the appropriate alias for the given meta type if applicable.
 	 *
-	 * @since 3.7.0
+	 * @since WP 3.7.0
 	 *
 	 * @param string $type MySQL type to cast meta_value.
 	 * @return string MySQL type.
@@ -337,7 +337,7 @@ class WP_Meta_Query {
 	/**
 	 * Generates SQL clauses to be appended to a main query.
 	 *
-	 * @since 3.2.0
+	 * @since WP 3.2.0
 	 *
 	 * @param string $type              Type of meta. Possible values include but are not limited
 	 *                                  to 'post', 'comment', 'blog', 'term', and 'user'.
@@ -381,7 +381,7 @@ class WP_Meta_Query {
 		/**
 		 * Filters the meta query's generated SQL.
 		 *
-		 * @since 3.1.0
+		 * @since WP 3.1.0
 		 *
 		 * @param string[] $sql               Array containing the query's JOIN and WHERE clauses.
 		 * @param array    $queries           Array of meta queries.
@@ -401,7 +401,7 @@ class WP_Meta_Query {
 	 * Called by the public WP_Meta_Query::get_sql(), this method is abstracted
 	 * out to maintain parity with the other Query classes.
 	 *
-	 * @since 4.1.0
+	 * @since WP 4.1.0
 	 *
 	 * @return string[] {
 	 *     Array containing JOIN and WHERE SQL clauses to append to the main query.
@@ -431,7 +431,7 @@ class WP_Meta_Query {
 	 * If nested subqueries are found, this method recurses the tree to
 	 * produce the properly nested SQL.
 	 *
-	 * @since 4.1.0
+	 * @since WP 4.1.0
 	 *
 	 * @param array $query Query to parse (passed by reference).
 	 * @param int   $depth Optional. Number of tree levels deep we currently are.
@@ -514,7 +514,7 @@ class WP_Meta_Query {
 	 *
 	 * "First-order" means that it's an array with a 'key' or 'value'.
 	 *
-	 * @since 4.1.0
+	 * @since WP 4.1.0
 	 *
 	 * @global wpdb $wpdb WordPress database abstraction object.
 	 *
@@ -799,7 +799,7 @@ class WP_Meta_Query {
 	 * This array should be used for clause lookup, as when the table alias and CAST type must be determined for
 	 * a value of 'orderby' corresponding to a meta clause.
 	 *
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 *
 	 * @return array Meta clauses.
 	 */
@@ -821,7 +821,7 @@ class WP_Meta_Query {
 	 * In the case of WP_Meta_Query, this only applies to 'IN' clauses that are
 	 * connected by the relation 'OR'.
 	 *
-	 * @since 4.1.0
+	 * @since WP 4.1.0
 	 *
 	 * @param array $clause       Query clause.
 	 * @param array $parent_query Parent query of $clause.
@@ -863,7 +863,7 @@ class WP_Meta_Query {
 		/**
 		 * Filters the table alias identified as compatible with the current clause.
 		 *
-		 * @since 4.1.0
+		 * @since WP 4.1.0
 		 *
 		 * @param string|false  $alias        Table alias, or false if none was found.
 		 * @param array         $clause       First-order query clause.
@@ -880,7 +880,7 @@ class WP_Meta_Query {
 	 * the use of a `DISTINCT` or `GROUP BY` keyword in the `SELECT` clause. The current
 	 * method can be used in these cases to determine whether such a clause is necessary.
 	 *
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 *
 	 * @return bool True if the query contains any `OR` relations, otherwise false.
 	 */

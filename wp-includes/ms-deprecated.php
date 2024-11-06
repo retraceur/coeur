@@ -6,7 +6,7 @@
  *
  * @package motsVertueux
  * @subpackage Deprecated
- * @since 3.0.0
+ * @since WP 3.0.0
  */
 
 /*
@@ -17,8 +17,8 @@
  * Get the "dashboard blog", the blog where users without a blog edit their profile data.
  * Dashboard blog functionality was removed in WordPress 3.1, replaced by the user admin.
  *
- * @since MU (3.0.0)
- * @deprecated 3.1.0 Use get_site()
+ * @since WP MU (3.0.0)
+ * @deprecated WP 3.1.0 Use get_site()
  * @see get_site()
  *
  * @return WP_Site Current site object.
@@ -35,8 +35,8 @@ function get_dashboard_blog() {
 /**
  * Generates a random password.
  *
- * @since MU (3.0.0)
- * @deprecated 3.0.0 Use wp_generate_password()
+ * @since WP MU (3.0.0)
+ * @deprecated WP 3.0.0 Use wp_generate_password()
  * @see wp_generate_password()
  *
  * @param int $len Optional. The length of password to generate. Default 8.
@@ -55,8 +55,8 @@ function generate_random_password( $len = 8 ) {
  * This function must reside in a file included only if is_multisite() due to
  * legacy function_exists() checks to determine if multisite is enabled.
  *
- * @since MU (3.0.0)
- * @deprecated 3.0.0 Use is_super_admin()
+ * @since WP MU (3.0.0)
+ * @deprecated WP 3.0.0 Use is_super_admin()
  * @see is_super_admin()
  *
  * @param string $user_login Optional. Username for the user to check. Default empty.
@@ -82,8 +82,8 @@ if ( !function_exists( 'graceful_fail' ) ) :
 /**
  * Deprecated functionality to gracefully fail.
  *
- * @since MU (3.0.0)
- * @deprecated 3.0.0 Use wp_die()
+ * @since WP MU (3.0.0)
+ * @deprecated WP 3.0.0 Use wp_die()
  * @see wp_die()
  */
 function graceful_fail( $message ) {
@@ -120,8 +120,8 @@ endif;
 /**
  * Deprecated functionality to retrieve user information.
  *
- * @since MU (3.0.0)
- * @deprecated 3.0.0 Use get_user_by()
+ * @since WP MU (3.0.0)
+ * @deprecated WP 3.0.0 Use get_user_by()
  * @see get_user_by()
  *
  * @param string $username Username.
@@ -134,8 +134,8 @@ function get_user_details( $username ) {
 /**
  * Deprecated functionality to clear the global post cache.
  *
- * @since MU (3.0.0)
- * @deprecated 3.0.0 Use clean_post_cache()
+ * @since WP MU (3.0.0)
+ * @deprecated WP 3.0.0 Use clean_post_cache()
  * @see clean_post_cache()
  *
  * @param int $post_id Post ID.
@@ -147,8 +147,8 @@ function clear_global_post_cache( $post_id ) {
 /**
  * Deprecated functionality to determine if the current site is the main site.
  *
- * @since MU (3.0.0)
- * @deprecated 3.0.0 Use is_main_site()
+ * @since WP MU (3.0.0)
+ * @deprecated WP 3.0.0 Use is_main_site()
  * @see is_main_site()
  */
 function is_main_blog() {
@@ -159,8 +159,8 @@ function is_main_blog() {
 /**
  * Deprecated functionality to validate an email address.
  *
- * @since MU (3.0.0)
- * @deprecated 3.0.0 Use is_email()
+ * @since WP MU (3.0.0)
+ * @deprecated WP 3.0.0 Use is_email()
  * @see is_email()
  *
  * @param string $email        Email address to verify.
@@ -175,8 +175,8 @@ function validate_email( $email, $check_domain = true) {
 /**
  * Deprecated functionality to retrieve a list of all sites.
  *
- * @since MU (3.0.0)
- * @deprecated 3.0.0 Use wp_get_sites()
+ * @since WP MU (3.0.0)
+ * @deprecated WP 3.0.0 Use wp_get_sites()
  * @see wp_get_sites()
  *
  * @global wpdb $wpdb WordPress database abstraction object.
@@ -211,8 +211,8 @@ function get_blog_list( $start = 0, $num = 10, $deprecated = '' ) {
 /**
  * Deprecated functionality to retrieve a list of the most active sites.
  *
- * @since MU (3.0.0)
- * @deprecated 3.0.0
+ * @since WP MU (3.0.0)
+ * @deprecated WP 3.0.0
  *
  * @param int  $num     Optional. Number of activate blogs to retrieve. Default 10.
  * @param bool $display Optional. Whether or not to display the most active blogs list. Default true.
@@ -263,8 +263,8 @@ function get_most_active_blogs( $num = 10, $display = true ) {
  * 5) $_POST['redirect']
  * 6) $url
  *
- * @since MU (3.0.0)
- * @deprecated 3.3.0 Use wp_redirect()
+ * @since WP MU (3.0.0)
+ * @deprecated WP 3.3.0 Use wp_redirect()
  * @see wp_redirect()
  *
  * @param string $url Optional. Redirect URL. Default empty.
@@ -307,8 +307,8 @@ function wpmu_admin_do_redirect( $url = '' ) {
 /**
  * Adds an 'updated=true' argument to a URL.
  *
- * @since MU (3.0.0)
- * @deprecated 3.3.0 Use add_query_arg()
+ * @since WP MU (3.0.0)
+ * @deprecated WP 3.3.0 Use add_query_arg()
  * @see add_query_arg()
  *
  * @param string $url Optional. Redirect URL. Default empty.
@@ -332,8 +332,8 @@ function wpmu_admin_redirect_add_updated_param( $url = '' ) {
  * A numeric string is considered to be an existing user ID
  * and is simply returned as such.
  *
- * @since MU (3.0.0)
- * @deprecated 3.6.0 Use get_user_by()
+ * @since WP MU (3.0.0)
+ * @deprecated WP 3.6.0 Use get_user_by()
  * @see get_user_by()
  *
  * @param string $email_or_login Either an email address or a login.
@@ -357,8 +357,8 @@ function get_user_id_from_string( $email_or_login ) {
 /**
  * Get a full site URL, given a domain and a path.
  *
- * @since MU (3.0.0)
- * @deprecated 3.7.0
+ * @since WP MU (3.0.0)
+ * @deprecated WP 3.7.0
  *
  * @param string $domain
  * @param string $path
@@ -386,8 +386,8 @@ function get_blogaddress_by_domain( $domain, $path ) {
 /**
  * Create an empty blog.
  *
- * @since MU (3.0.0)
- * @deprecated 4.4.0
+ * @since WP MU (3.0.0)
+ * @deprecated WP 4.4.0
  *
  * @param string $domain       The new blog's domain.
  * @param string $path         The new blog's path.
@@ -424,8 +424,8 @@ function create_empty_blog( $domain, $path, $weblog_title, $site_id = 1 ) {
 /**
  * Get the admin for a domain/path combination.
  *
- * @since MU (3.0.0)
- * @deprecated 4.4.0
+ * @since WP MU (3.0.0)
+ * @deprecated WP 4.4.0
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  *
@@ -459,8 +459,8 @@ function get_admin_users_for_domain( $domain = '', $path = '' ) {
 /**
  * Return an array of sites for a network or networks.
  *
- * @since 3.7.0
- * @deprecated 4.6.0 Use get_sites()
+ * @since WP 3.7.0
+ * @deprecated WP 4.6.0 Use get_sites()
  * @see get_sites()
  *
  * @param array $args {
@@ -530,8 +530,8 @@ function wp_get_sites( $args = array() ) {
 /**
  * Check whether a usermeta key has to do with the current blog.
  *
- * @since MU (3.0.0)
- * @deprecated 4.9.0
+ * @since WP MU (3.0.0)
+ * @deprecated WP 4.9.0
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  *
@@ -560,8 +560,8 @@ function is_user_option_local( $key, $user_id = 0, $blog_id = 0 ) {
  * This function creates a row in the wp_blogs table and returns
  * the new blog's ID. It is the first step in creating a new blog.
  *
- * @since MU (3.0.0)
- * @deprecated 5.1.0 Use wp_insert_site()
+ * @since WP MU (3.0.0)
+ * @deprecated WP 5.1.0 Use wp_insert_site()
  * @see wp_insert_site()
  *
  * @param string $domain  The domain of the new site.
@@ -595,8 +595,8 @@ function insert_blog($domain, $path, $site_id) {
  * directly, be sure to use switch_to_blog() first, so that $wpdb
  * points to the new blog.
  *
- * @since MU (3.0.0)
- * @deprecated 5.1.0
+ * @since WP MU (3.0.0)
+ * @deprecated WP 5.1.0
  *
  * @global wpdb     $wpdb     WordPress database abstraction object.
  * @global WP_Roles $wp_roles WordPress role management object.
@@ -665,9 +665,9 @@ function install_blog( $blog_id, $blog_title = '' ) {
  *
  * This function creates a row in the wp_blogs table.
  *
- * @since MU (3.0.0)
- * @deprecated MU
- * @deprecated Use wp_install_defaults()
+ * @since WP MU (3.0.0)
+ * @deprecated WP MU
+ * @deprecated WP Use wp_install_defaults()
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  *
@@ -693,8 +693,8 @@ function install_blog_defaults( $blog_id, $user_id ) {
  *
  * Previously used in core to mark a user as spam or "ham" (not spam) in Multisite.
  *
- * @since 3.0.0
- * @deprecated 5.3.0 Use wp_update_user()
+ * @since WP 3.0.0
+ * @deprecated WP 5.3.0 Use wp_update_user()
  * @see wp_update_user()
  *
  * @global wpdb $wpdb WordPress database abstraction object.
@@ -736,9 +736,9 @@ function update_user_status( $id, $pref, $value, $deprecated = null ) {
 /**
  * Maintains a canonical list of terms by syncing terms created for each blog with the global terms table.
  *
- * @since 3.0.0
- * @since 6.1.0 This function no longer does anything.
- * @deprecated 6.1.0
+ * @since WP 3.0.0
+ * @since WP 6.1.0 This function no longer does anything.
+ * @deprecated WP 6.1.0
  *
  * @param int    $term_id    An ID for a term on the current blog.
  * @param string $deprecated Not used.

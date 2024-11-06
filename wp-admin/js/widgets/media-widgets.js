@@ -98,7 +98,7 @@ wp.mediaWidgets = ( function( $ ) {
 		/**
 		 * Initialize.
 		 *
-		 * @since 4.9.0
+		 * @since WP 4.9.0
 		 *
 		 * @param {Object} options - Options.
 		 * @return {void}
@@ -173,7 +173,7 @@ wp.mediaWidgets = ( function( $ ) {
 					/**
 					 * Update oEmbed.
 					 *
-					 * @since 4.9.0
+					 * @since WP 4.9.0
 					 *
 					 * @return {void}
 					 */
@@ -542,7 +542,7 @@ wp.mediaWidgets = ( function( $ ) {
 			/*
 			 * Sync the widget instance model attributes onto the hidden inputs that widgets currently use to store the state.
 			 * In the future, when widgets are JS-driven, the underlying widget instance data should be exposed as a model
-			 * from the start, without having to sync with hidden fields. See <https://core.trac.wordpress.org/ticket/33507>.
+			 * from the start, without having to sync with hidden fields.
 			 */
 			control.listenTo( control.model, 'change', control.syncModelToInputs );
 			control.listenTo( control.model, 'change', control.syncModelToPreviewProps );
@@ -779,7 +779,7 @@ wp.mediaWidgets = ( function( $ ) {
 				control.model.set( control.getModelPropsFromMediaFrame( mediaFrame ) );
 			});
 
-			// Disable syncing of attachment changes back to server (except for deletions). See <https://core.trac.wordpress.org/ticket/40403>.
+			// Disable syncing of attachment changes back to server (except for deletions).
 			defaultSync = wp.media.model.Attachment.prototype.sync;
 			wp.media.model.Attachment.prototype.sync = function( method ) {
 				if ( 'delete' === method ) {
@@ -1158,7 +1158,7 @@ wp.mediaWidgets = ( function( $ ) {
 		/*
 		 * Sync the widget instance model attributes onto the hidden inputs that widgets currently use to store the state.
 		 * In the future, when widgets are JS-driven, the underlying widget instance data should be exposed as a model
-		 * from the start, without having to sync with hidden fields. See <https://core.trac.wordpress.org/ticket/33507>.
+		 * from the start, without having to sync with hidden fields.
 		 */
 		modelAttributes = {};
 		syncContainer.find( '.media-widget-instance-property' ).each( function() {

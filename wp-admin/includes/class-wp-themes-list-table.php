@@ -4,13 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage Administration
- * @since 3.1.0
+ * @since WP 3.1.0
  */
 
 /**
  * Core class used to implement displaying installed themes in a list table.
  *
- * @since 3.1.0
+ * @since WP 3.1.0
  *
  * @see WP_List_Table
  */
@@ -22,7 +22,7 @@ class WP_Themes_List_Table extends WP_List_Table {
 	/**
 	 * Constructor.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @see WP_List_Table::__construct() for more information on default arguments.
 	 *
@@ -154,7 +154,7 @@ class WP_Themes_List_Table extends WP_List_Table {
 	 *
 	 * Overrides the parent display() method to provide a different container.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 */
 	public function display() {
 		wp_nonce_field( 'fetch-list-' . get_class( $this ), '_ajax_fetch_list_nonce' );
@@ -191,7 +191,7 @@ class WP_Themes_List_Table extends WP_List_Table {
 	/**
 	 * Generates the list table rows.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 */
 	public function display_rows() {
 		$themes = $this->items;
@@ -283,9 +283,8 @@ class WP_Themes_List_Table extends WP_List_Table {
 				<?php
 				if ( $theme->parent() ) {
 					printf(
-						/* translators: 1: Link to documentation on child themes, 2: Name of parent theme. */
-						' <p class="howto">' . __( 'This <a href="%1$s">child theme</a> requires its parent theme, %2$s.' ) . '</p>',
-						__( 'https://developer.wordpress.org/themes/advanced-topics/child-themes/' ),
+						/* translators: %s: Name of parent theme. */
+						' <p class="howto">' . __( 'This child theme requires its parent theme, %s.' ) . '</p>',
 						$theme->parent()->display( 'Name' )
 					);
 				}
@@ -339,7 +338,7 @@ class WP_Themes_List_Table extends WP_List_Table {
 	/**
 	 * Send required variables to JavaScript land
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 *
 	 * @param array $extra_args
 	 */

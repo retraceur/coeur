@@ -6,33 +6,34 @@
  *
  * @package motsVertueux
  * @subpackage Database
- * @since 0.71
+ * @since WP 0.71
+ * @since 1.0.0 motsVertueux fork.
  */
 
 /**
- * @since 0.71
+ * @since WP 0.71
  */
 define( 'EZSQL_VERSION', 'WP1.25' );
 
 /**
- * @since 0.71
+ * @since WP 0.71
  */
 define( 'OBJECT', 'OBJECT' );
 // phpcs:ignore Generic.NamingConventions.UpperCaseConstantName.ConstantNotUpperCase
 define( 'object', 'OBJECT' ); // Back compat.
 
 /**
- * @since 2.5.0
+ * @since WP 2.5.0
  */
 define( 'OBJECT_K', 'OBJECT_K' );
 
 /**
- * @since 0.71
+ * @since WP 0.71
  */
 define( 'ARRAY_A', 'ARRAY_A' );
 
 /**
- * @since 0.71
+ * @since WP 0.71
  */
 define( 'ARRAY_N', 'ARRAY_N' );
 
@@ -47,9 +48,7 @@ define( 'ARRAY_N', 'ARRAY_N' );
  * in wp-content/db.php file to your class. The wpdb class will still be included, so you can
  * extend it or simply use your own.
  *
- * @link https://developer.wordpress.org/reference/classes/wpdb/
- *
- * @since 0.71
+ * @since WP 0.71
  */
 #[AllowDynamicProperties]
 class wpdb {
@@ -59,7 +58,7 @@ class wpdb {
 	 *
 	 * Default is to show errors if both WP_DEBUG and WP_DEBUG_DISPLAY evaluate to true.
 	 *
-	 * @since 0.71
+	 * @since WP 0.71
 	 *
 	 * @var bool
 	 */
@@ -68,7 +67,7 @@ class wpdb {
 	/**
 	 * Whether to suppress errors during the DB bootstrapping. Default false.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @var bool
 	 */
@@ -77,7 +76,7 @@ class wpdb {
 	/**
 	 * The error encountered during the last query.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @var string
 	 */
@@ -86,7 +85,7 @@ class wpdb {
 	/**
 	 * The number of queries made.
 	 *
-	 * @since 1.2.0
+	 * @since WP 1.2.0
 	 *
 	 * @var int
 	 */
@@ -95,7 +94,7 @@ class wpdb {
 	/**
 	 * Count of rows returned by the last query.
 	 *
-	 * @since 0.71
+	 * @since WP 0.71
 	 *
 	 * @var int
 	 */
@@ -104,7 +103,7 @@ class wpdb {
 	/**
 	 * Count of rows affected by the last query.
 	 *
-	 * @since 0.71
+	 * @since WP 0.71
 	 *
 	 * @var int
 	 */
@@ -113,7 +112,7 @@ class wpdb {
 	/**
 	 * The ID generated for an AUTO_INCREMENT column by the last query (usually INSERT).
 	 *
-	 * @since 0.71
+	 * @since WP 0.71
 	 *
 	 * @var int
 	 */
@@ -122,7 +121,7 @@ class wpdb {
 	/**
 	 * The last query made.
 	 *
-	 * @since 0.71
+	 * @since WP 0.71
 	 *
 	 * @var string
 	 */
@@ -131,7 +130,7 @@ class wpdb {
 	/**
 	 * Results of the last query.
 	 *
-	 * @since 0.71
+	 * @since WP 0.71
 	 *
 	 * @var stdClass[]|null
 	 */
@@ -147,7 +146,7 @@ class wpdb {
 	 * - `null` if a query is yet to be made or if the result has since been flushed
 	 * - `false` if the query returned an error
 	 *
-	 * @since 0.71
+	 * @since WP 0.71
 	 *
 	 * @var mysqli_result|bool|null
 	 */
@@ -156,7 +155,7 @@ class wpdb {
 	/**
 	 * Cached column info, for confidence checking data before inserting.
 	 *
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 *
 	 * @var array
 	 */
@@ -165,7 +164,7 @@ class wpdb {
 	/**
 	 * Calculated character sets keyed by table name.
 	 *
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 *
 	 * @var string[]
 	 */
@@ -174,7 +173,7 @@ class wpdb {
 	/**
 	 * Whether text fields in the current query need to be confidence checked.
 	 *
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 *
 	 * @var bool
 	 */
@@ -183,7 +182,7 @@ class wpdb {
 	/**
 	 * Flag to ensure we don't run into recursion problems when checking the collation.
 	 *
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 *
 	 * @see wpdb::check_safe_collation()
 	 * @var bool
@@ -193,7 +192,7 @@ class wpdb {
 	/**
 	 * Saved info on the table column.
 	 *
-	 * @since 0.71
+	 * @since WP 0.71
 	 *
 	 * @var array
 	 */
@@ -202,10 +201,10 @@ class wpdb {
 	/**
 	 * Log of queries that were executed, for debugging purposes.
 	 *
-	 * @since 1.5.0
-	 * @since 2.5.0 The third element in each query log was added to record the calling functions.
-	 * @since 5.1.0 The fourth element in each query log was added to record the start time.
-	 * @since 5.3.0 The fifth element in each query log was added to record custom data.
+	 * @since WP 1.5.0
+	 * @since WP 2.5.0 The third element in each query log was added to record the calling functions.
+	 * @since WP 5.1.0 The fourth element in each query log was added to record the start time.
+	 * @since WP 5.3.0 The fifth element in each query log was added to record custom data.
 	 *
 	 * @var array[] {
 	 *     Array of arrays containing information about queries that were executed.
@@ -226,7 +225,7 @@ class wpdb {
 	/**
 	 * The number of times to retry reconnecting before dying. Default 5.
 	 *
-	 * @since 3.9.0
+	 * @since WP 3.9.0
 	 *
 	 * @see wpdb::check_connection()
 	 * @var int
@@ -239,7 +238,7 @@ class wpdb {
 	 * You can set this to have multiple WordPress installations in a single database.
 	 * The second reason is for possible security precautions.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @var string
 	 */
@@ -248,7 +247,7 @@ class wpdb {
 	/**
 	 * WordPress base table prefix.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 *
 	 * @var string
 	 */
@@ -257,7 +256,7 @@ class wpdb {
 	/**
 	 * Whether the database queries are ready to start executing.
 	 *
-	 * @since 2.3.2
+	 * @since WP 2.3.2
 	 *
 	 * @var bool
 	 */
@@ -266,7 +265,7 @@ class wpdb {
 	/**
 	 * Blog ID.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 *
 	 * @var int
 	 */
@@ -275,7 +274,7 @@ class wpdb {
 	/**
 	 * Site ID.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 *
 	 * @var int
 	 */
@@ -284,7 +283,7 @@ class wpdb {
 	/**
 	 * List of WordPress per-site tables.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @see wpdb::tables()
 	 * @var string[]
@@ -307,7 +306,7 @@ class wpdb {
 	 *
 	 * 'categories', 'post2cat', and 'link2cat' were deprecated in 2.3.0, db version 5539.
 	 *
-	 * @since 2.9.0
+	 * @since WP 2.9.0
 	 *
 	 * @see wpdb::tables()
 	 * @var string[]
@@ -317,7 +316,7 @@ class wpdb {
 	/**
 	 * List of WordPress global tables.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 *
 	 * @see wpdb::tables()
 	 * @var string[]
@@ -327,7 +326,7 @@ class wpdb {
 	/**
 	 * List of Multisite global tables.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 *
 	 * @see wpdb::tables()
 	 * @var string[]
@@ -344,7 +343,7 @@ class wpdb {
 	/**
 	 * List of deprecated WordPress Multisite global tables.
 	 *
-	 * @since 6.1.0
+	 * @since WP 6.1.0
 	 *
 	 * @see wpdb::tables()
 	 * @var string[]
@@ -354,7 +353,7 @@ class wpdb {
 	/**
 	 * WordPress Comments table.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 *
 	 * @var string
 	 */
@@ -363,7 +362,7 @@ class wpdb {
 	/**
 	 * WordPress Comment Metadata table.
 	 *
-	 * @since 2.9.0
+	 * @since WP 2.9.0
 	 *
 	 * @var string
 	 */
@@ -372,7 +371,7 @@ class wpdb {
 	/**
 	 * WordPress Links table.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 *
 	 * @var string
 	 */
@@ -381,7 +380,7 @@ class wpdb {
 	/**
 	 * WordPress Options table.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 *
 	 * @var string
 	 */
@@ -390,7 +389,7 @@ class wpdb {
 	/**
 	 * WordPress Post Metadata table.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 *
 	 * @var string
 	 */
@@ -399,7 +398,7 @@ class wpdb {
 	/**
 	 * WordPress Posts table.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 *
 	 * @var string
 	 */
@@ -408,7 +407,7 @@ class wpdb {
 	/**
 	 * WordPress Terms table.
 	 *
-	 * @since 2.3.0
+	 * @since WP 2.3.0
 	 *
 	 * @var string
 	 */
@@ -417,7 +416,7 @@ class wpdb {
 	/**
 	 * WordPress Term Relationships table.
 	 *
-	 * @since 2.3.0
+	 * @since WP 2.3.0
 	 *
 	 * @var string
 	 */
@@ -426,7 +425,7 @@ class wpdb {
 	/**
 	 * WordPress Term Taxonomy table.
 	 *
-	 * @since 2.3.0
+	 * @since WP 2.3.0
 	 *
 	 * @var string
 	 */
@@ -435,7 +434,7 @@ class wpdb {
 	/**
 	 * WordPress Term Meta table.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 *
 	 * @var string
 	 */
@@ -448,7 +447,7 @@ class wpdb {
 	/**
 	 * WordPress User Metadata table.
 	 *
-	 * @since 2.3.0
+	 * @since WP 2.3.0
 	 *
 	 * @var string
 	 */
@@ -457,7 +456,7 @@ class wpdb {
 	/**
 	 * WordPress Users table.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 *
 	 * @var string
 	 */
@@ -466,7 +465,7 @@ class wpdb {
 	/**
 	 * Multisite Blogs table.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 *
 	 * @var string
 	 */
@@ -475,7 +474,7 @@ class wpdb {
 	/**
 	 * Multisite Blog Metadata table.
 	 *
-	 * @since 5.1.0
+	 * @since WP 5.1.0
 	 *
 	 * @var string
 	 */
@@ -484,7 +483,7 @@ class wpdb {
 	/**
 	 * Multisite Registration Log table.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 *
 	 * @var string
 	 */
@@ -493,7 +492,7 @@ class wpdb {
 	/**
 	 * Multisite Signups table.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 *
 	 * @var string
 	 */
@@ -502,7 +501,7 @@ class wpdb {
 	/**
 	 * Multisite Sites table.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 *
 	 * @var string
 	 */
@@ -511,7 +510,7 @@ class wpdb {
 	/**
 	 * Multisite Sitewide Terms table.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 *
 	 * @var string
 	 */
@@ -520,7 +519,7 @@ class wpdb {
 	/**
 	 * Multisite Site Metadata table.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 *
 	 * @var string
 	 */
@@ -532,7 +531,7 @@ class wpdb {
 	 * Columns not listed here default to %s. Initialized during WP load.
 	 * Keys are column names, values are format types: 'ID' => '%d'.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @see wpdb::prepare()
 	 * @see wpdb::insert()
@@ -546,7 +545,7 @@ class wpdb {
 	/**
 	 * Database table columns charset.
 	 *
-	 * @since 2.2.0
+	 * @since WP 2.2.0
 	 *
 	 * @var string
 	 */
@@ -555,7 +554,7 @@ class wpdb {
 	/**
 	 * Database table columns collate.
 	 *
-	 * @since 2.2.0
+	 * @since WP 2.2.0
 	 *
 	 * @var string
 	 */
@@ -564,7 +563,7 @@ class wpdb {
 	/**
 	 * Database Username.
 	 *
-	 * @since 2.9.0
+	 * @since WP 2.9.0
 	 *
 	 * @var string
 	 */
@@ -573,7 +572,7 @@ class wpdb {
 	/**
 	 * Database Password.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @var string
 	 */
@@ -582,7 +581,7 @@ class wpdb {
 	/**
 	 * Database Name.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @var string
 	 */
@@ -591,7 +590,7 @@ class wpdb {
 	/**
 	 * Database Host.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @var string
 	 */
@@ -606,7 +605,7 @@ class wpdb {
 	 * - `null` if the connection is yet to be made or has been closed
 	 * - `false` if the connection has failed
 	 *
-	 * @since 0.71
+	 * @since WP 0.71
 	 *
 	 * @var mysqli|false|null
 	 */
@@ -615,7 +614,7 @@ class wpdb {
 	/**
 	 * A textual description of the last query/get_row/get_var call.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 *
 	 * @var string
 	 */
@@ -629,7 +628,7 @@ class wpdb {
 	 * database drop-in (db.php) will skip these checks, but setting this to true
 	 * will force the checks to occur.
 	 *
-	 * @since 3.3.0
+	 * @since WP 3.3.0
 	 *
 	 * @var bool
 	 */
@@ -638,7 +637,7 @@ class wpdb {
 	/**
 	 * A list of incompatible SQL modes.
 	 *
-	 * @since 3.9.0
+	 * @since WP 3.9.0
 	 *
 	 * @var string[]
 	 */
@@ -685,7 +684,7 @@ class wpdb {
 	 * So there may need to be a `_doing_it_wrong()` phase, after we know everyone can use
 	 * identifier placeholders (%i), but before this feature is disabled or removed.
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 * @var bool
 	 */
 	private $allow_unsafe_unquoted_parameters = true;
@@ -696,9 +695,9 @@ class wpdb {
 	 *
 	 * Default true.
 	 *
-	 * @since 3.9.0
-	 * @since 6.4.0 This property was removed.
-	 * @since 6.4.1 This property was reinstated and its default value was changed to true.
+	 * @since WP 3.9.0
+	 * @since WP 6.4.0 This property was removed.
+	 * @since WP 6.4.1 This property was reinstated and its default value was changed to true.
 	 *              The property is no longer used in core but may be accessed externally.
 	 *
 	 * @var bool
@@ -708,7 +707,7 @@ class wpdb {
 	/**
 	 * Whether we've managed to successfully connect at some point.
 	 *
-	 * @since 3.9.0
+	 * @since WP 3.9.0
 	 *
 	 * @var bool
 	 */
@@ -719,7 +718,7 @@ class wpdb {
 	 *
 	 * Only set when `SAVEQUERIES` is defined and truthy.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 *
 	 * @var float
 	 */
@@ -728,7 +727,7 @@ class wpdb {
 	/**
 	 * The last SQL error that was encountered.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @var WP_Error|string
 	 */
@@ -740,9 +739,7 @@ class wpdb {
 	 * Does the actual setting up
 	 * of the class properties and connection to the database.
 	 *
-	 * @since 2.0.8
-	 *
-	 * @link https://core.trac.wordpress.org/ticket/3354
+	 * @since WP 2.0.8
 	 *
 	 * @param string $dbuser     Database user.
 	 * @param string $dbpassword Database password.
@@ -770,7 +767,7 @@ class wpdb {
 	/**
 	 * Makes private properties readable for backward compatibility.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @param string $name The private member to get, and optionally process.
 	 * @return mixed The private member.
@@ -786,7 +783,7 @@ class wpdb {
 	/**
 	 * Makes private properties settable for backward compatibility.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @param string $name  The private member to set.
 	 * @param mixed  $value The value to set.
@@ -807,7 +804,7 @@ class wpdb {
 	/**
 	 * Makes private properties check-able for backward compatibility.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @param string $name The private member to check.
 	 * @return bool If the member is set or not.
@@ -819,7 +816,7 @@ class wpdb {
 	/**
 	 * Makes private properties un-settable for backward compatibility.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @param string $name  The private member to unset
 	 */
@@ -830,7 +827,7 @@ class wpdb {
 	/**
 	 * Sets $this->charset and $this->collate.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 */
 	public function init_charset() {
 		$charset = '';
@@ -862,7 +859,7 @@ class wpdb {
 	 *
 	 * For example, when able, utf8mb4 should be used instead of utf8.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 *
 	 * @param string $charset The character set to check.
 	 * @param string $collate The collation to check.
@@ -902,7 +899,7 @@ class wpdb {
 	/**
 	 * Sets the connection's character set.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @param mysqli $dbh     The connection returned by `mysqli_connect()`.
 	 * @param string $charset Optional. The character set. Default null.
@@ -937,7 +934,7 @@ class wpdb {
 	 *
 	 * If no modes are passed, it will ensure the current MySQL server modes are compatible.
 	 *
-	 * @since 3.9.0
+	 * @since WP 3.9.0
 	 *
 	 * @param array $modes Optional. A list of SQL modes to set. Default empty array.
 	 */
@@ -969,7 +966,7 @@ class wpdb {
 		/**
 		 * Filters the list of incompatible SQL modes to exclude.
 		 *
-		 * @since 3.9.0
+		 * @since WP 3.9.0
 		 *
 		 * @param array $incompatible_modes An array of incompatible modes.
 		 */
@@ -989,7 +986,7 @@ class wpdb {
 	/**
 	 * Sets the table prefix for the WordPress tables.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @param string $prefix          Alphanumeric name for the new prefix.
 	 * @param bool   $set_table_names Optional. Whether the table names, e.g. wpdb::$posts,
@@ -1035,7 +1032,7 @@ class wpdb {
 	/**
 	 * Sets blog ID.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 *
 	 * @param int $blog_id
 	 * @param int $network_id Optional. Network ID. Default 0.
@@ -1065,7 +1062,7 @@ class wpdb {
 	/**
 	 * Gets blog prefix.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 *
 	 * @param int $blog_id Optional. Blog ID to retrieve the table prefix for.
 	 *                     Defaults to the current blog ID.
@@ -1103,8 +1100,8 @@ class wpdb {
 	 * - 'ms_global' - returns the multisite global tables, regardless if current installation is multisite.
 	 * - 'old' - returns tables which are deprecated.
 	 *
-	 * @since 3.0.0
-	 * @since 6.1.0 `old` now includes deprecated multisite global tables only on multisite.
+	 * @since WP 3.0.0
+	 * @since WP 6.1.0 `old` now includes deprecated multisite global tables only on multisite.
 	 *
 	 * @uses wpdb::$tables
 	 * @uses wpdb::$old_tables
@@ -1184,7 +1181,7 @@ class wpdb {
 	 * The database name will be changed based on the current database connection.
 	 * On failure, the execution will bail and display a DB error.
 	 *
-	 * @since 0.71
+	 * @since WP 0.71
 	 *
 	 * @param string $db  Database name.
 	 * @param mysqli $dbh Optional. Database connection.
@@ -1228,11 +1225,7 @@ class wpdb {
 
 				$message .= "</ul>\n";
 
-				$message .= '<p>' . sprintf(
-					/* translators: %s: Support forums URL. */
-					__( 'If you do not know how to set up a database you should <strong>contact your host</strong>. If all else fails you may find help at the <a href="%s">WordPress support forums</a>.' ),
-					__( 'https://wordpress.org/support/forums/' )
-				) . "</p>\n";
+				$message .= '<p>' . __( 'If you do not know how to set up a database you should <strong>contact your host</strong>.' ) . "</p>\n";
 
 				$this->bail( $message, 'db_select_fail' );
 			}
@@ -1244,8 +1237,8 @@ class wpdb {
 	 *
 	 * Use esc_sql() or wpdb::prepare() instead.
 	 *
-	 * @since 2.8.0
-	 * @deprecated 3.6.0 Use wpdb::prepare()
+	 * @since WP 2.8.0
+	 * @deprecated WP 3.6.0 Use wpdb::prepare()
 	 * @see wpdb::prepare()
 	 * @see esc_sql()
 	 *
@@ -1262,7 +1255,7 @@ class wpdb {
 	/**
 	 * Real escape using mysqli_real_escape_string().
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @see mysqli_real_escape_string()
 	 *
@@ -1292,7 +1285,7 @@ class wpdb {
 	/**
 	 * Escapes data. Works on arrays.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @uses wpdb::_real_escape()
 	 *
@@ -1320,8 +1313,8 @@ class wpdb {
 	 *
 	 * Use esc_sql() or wpdb::prepare() instead.
 	 *
-	 * @since 0.71
-	 * @deprecated 3.6.0 Use wpdb::prepare()
+	 * @since WP 0.71
+	 * @deprecated WP 3.6.0 Use wpdb::prepare()
 	 * @see wpdb::prepare()
 	 * @see esc_sql()
 	 *
@@ -1352,7 +1345,7 @@ class wpdb {
 	 *
 	 * @uses wpdb::_real_escape()
 	 *
-	 * @since 2.3.0
+	 * @since WP 2.3.0
 	 *
 	 * @param string $data String to escape.
 	 */
@@ -1365,7 +1358,7 @@ class wpdb {
 	/**
 	 * Quotes an identifier for a MySQL database, e.g. table/field names.
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 *
 	 * @param string $identifier Identifier to escape.
 	 * @return string Escaped identifier.
@@ -1381,7 +1374,7 @@ class wpdb {
 	 *   Basic Multilingual Plane (BMP), except U+0000.
 	 * - To quote the identifier itself, you need to double the character, e.g. `a``b`.
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 *
 	 * @link https://dev.mysql.com/doc/refman/8.0/en/identifiers.html
 	 *
@@ -1429,11 +1422,11 @@ class wpdb {
 	 *         'foo'
 	 *     );
 	 *
-	 * @since 2.3.0
-	 * @since 5.3.0 Formalized the existing and already documented `...$args` parameter
+	 * @since WP 2.3.0
+	 * @since WP 5.3.0 Formalized the existing and already documented `...$args` parameter
 	 *              by updating the function signature. The second parameter was changed
 	 *              from `$args` to `...$args`.
-	 * @since 6.2.0 Added `%i` for identifiers, e.g. table or field names.
+	 * @since WP 6.2.0 Added `%i` for identifiers, e.g. table or field names.
 	 *              Check support via `wpdb::has_cap( 'identifier_placeholders' )`.
 	 *              This preserves compatibility with `sprintf()`, as the C version uses
 	 *              `%d` and `$i` as a signed integer, whereas PHP only supports `%d`.
@@ -1769,7 +1762,7 @@ class wpdb {
 	 *
 	 *     $sql  = esc_sql( $wpdb->esc_like( $input ) );
 	 *
-	 * @since 4.0.0
+	 * @since WP 4.0.0
 	 *
 	 * @param string $text The raw text to be escaped. The input typed by the user
 	 *                     should have no extra or deleted slashes.
@@ -1783,7 +1776,7 @@ class wpdb {
 	/**
 	 * Prints SQL/DB error.
 	 *
-	 * @since 0.71
+	 * @since WP 0.71
 	 *
 	 * @global array $EZSQL_ERROR Stores error information of query and error string.
 	 *
@@ -1857,7 +1850,7 @@ class wpdb {
 	 * This function should be used only to enable showing of errors.
 	 * wpdb::hide_errors() should be used instead for hiding errors.
 	 *
-	 * @since 0.71
+	 * @since WP 0.71
 	 *
 	 * @see wpdb::hide_errors()
 	 *
@@ -1875,7 +1868,7 @@ class wpdb {
 	 *
 	 * By default database errors are not shown.
 	 *
-	 * @since 0.71
+	 * @since WP 0.71
 	 *
 	 * @see wpdb::show_errors()
 	 *
@@ -1892,7 +1885,7 @@ class wpdb {
 	 *
 	 * By default database errors are suppressed.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @see wpdb::hide_errors()
 	 *
@@ -1908,7 +1901,7 @@ class wpdb {
 	/**
 	 * Kills cached query results.
 	 *
-	 * @since 0.71
+	 * @since WP 0.71
 	 */
 	public function flush() {
 		$this->last_result   = array();
@@ -1939,8 +1932,8 @@ class wpdb {
 	 *
 	 * If `$allow_bail` is false, the lack of database connection will need to be handled manually.
 	 *
-	 * @since 3.0.0
-	 * @since 3.9.0 $allow_bail parameter added.
+	 * @since WP 3.0.0
+	 * @since WP 3.9.0 $allow_bail parameter added.
 	 *
 	 * @param bool $allow_bail Optional. Allows the function to bail. Default true.
 	 * @return bool True with a successful connection, false on failure.
@@ -2013,11 +2006,7 @@ class wpdb {
 			$message .= '<li>' . __( 'Are you sure the database server is running?' ) . "</li>\n";
 			$message .= "</ul>\n";
 
-			$message .= '<p>' . sprintf(
-				/* translators: %s: Support forums URL. */
-				__( 'If you are unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href="%s">WordPress support forums</a>.' ),
-				__( 'https://wordpress.org/support/forums/' )
-			) . "</p>\n";
+			$message .= '<p>' . __( 'If you are unsure what these terms mean you should probably contact your host.' ) . "</p>\n";
 
 			$this->bail( $message, 'db_connect_fail' );
 
@@ -2048,7 +2037,7 @@ class wpdb {
 	 * like mysql_connect() does. This duplicates how mysql_connect() detects a port
 	 * and/or socket file.
 	 *
-	 * @since 4.9.0
+	 * @since WP 4.9.0
 	 *
 	 * @param string $host The DB_HOST setting to parse.
 	 * @return array|false {
@@ -2108,7 +2097,7 @@ class wpdb {
 	 *
 	 * If `$allow_bail` is false, the lack of database connection will need to be handled manually.
 	 *
-	 * @since 3.9.0
+	 * @since WP 3.9.0
 	 *
 	 * @param bool $allow_bail Optional. Allows the function to bail. Default true.
 	 * @return bool|void True if the connection is up.
@@ -2174,11 +2163,7 @@ class wpdb {
 		$message .= '<li>' . __( 'Are you sure the database server is not under particularly heavy load?' ) . "</li>\n";
 		$message .= "</ul>\n";
 
-		$message .= '<p>' . sprintf(
-			/* translators: %s: Support forums URL. */
-			__( 'If you are unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href="%s">WordPress support forums</a>.' ),
-			__( 'https://wordpress.org/support/forums/' )
-		) . "</p>\n";
+		$message .= '<p>' . __( 'If you are unsure what these terms mean you should probably contact your host.' ) . "</p>\n";
 
 		// We weren't able to reconnect, so we better bail.
 		$this->bail( $message, 'db_connect_fail' );
@@ -2195,9 +2180,7 @@ class wpdb {
 	 *
 	 * More information can be found on the documentation page.
 	 *
-	 * @since 0.71
-	 *
-	 * @link https://developer.wordpress.org/reference/classes/wpdb/
+	 * @since WP 0.71
 	 *
 	 * @param string $query Database query.
 	 * @return int|bool Boolean true for CREATE, ALTER, TRUNCATE and DROP queries. Number of rows
@@ -2215,7 +2198,7 @@ class wpdb {
 		 * Some queries are made before the plugins have been loaded,
 		 * and thus cannot be filtered with this method.
 		 *
-		 * @since 2.1.0
+		 * @since WP 2.1.0
 		 *
 		 * @param string $query Database query.
 		 */
@@ -2330,7 +2313,7 @@ class wpdb {
 	/**
 	 * Internal function to perform the mysqli_query() call.
 	 *
-	 * @since 3.9.0
+	 * @since WP 3.9.0
 	 *
 	 * @see wpdb::query()
 	 *
@@ -2361,7 +2344,7 @@ class wpdb {
 	/**
 	 * Logs query data.
 	 *
-	 * @since 5.3.0
+	 * @since WP 5.3.0
 	 *
 	 * @param string $query           The query's SQL.
 	 * @param float  $query_time      Total time spent on the query, in seconds.
@@ -2376,7 +2359,7 @@ class wpdb {
 		 * Caution should be used when modifying any of this data, it is recommended that any additional
 		 * information you need to store about a query be added as a new associative array element.
 		 *
-		 * @since 5.3.0
+		 * @since WP 5.3.0
 		 *
 		 * @param array  $query_data      Custom query data.
 		 * @param string $query           The query's SQL.
@@ -2398,7 +2381,7 @@ class wpdb {
 	/**
 	 * Generates and returns a placeholder escape string for use in queries returned by ::prepare().
 	 *
-	 * @since 4.8.3
+	 * @since WP 4.8.3
 	 *
 	 * @return string String to escape placeholders.
 	 */
@@ -2428,7 +2411,7 @@ class wpdb {
 	/**
 	 * Adds a placeholder escape string, to escape anything that resembles a printf() placeholder.
 	 *
-	 * @since 4.8.3
+	 * @since WP 4.8.3
 	 *
 	 * @param string $query The query to escape.
 	 * @return string The query with the placeholder escape string inserted where necessary.
@@ -2444,7 +2427,7 @@ class wpdb {
 	/**
 	 * Removes the placeholder escape strings from a query.
 	 *
-	 * @since 4.8.3
+	 * @since WP 4.8.3
 	 *
 	 * @param string $query The query from which the placeholder will be removed.
 	 * @return string The query with the placeholder removed.
@@ -2477,7 +2460,7 @@ class wpdb {
 	 *         )
 	 *     );
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @see wpdb::prepare()
 	 * @see wpdb::$field_types
@@ -2529,7 +2512,7 @@ class wpdb {
 	 *         )
 	 *     );
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 *
 	 * @see wpdb::prepare()
 	 * @see wpdb::$field_types
@@ -2557,7 +2540,7 @@ class wpdb {
 	 *
 	 * Runs an insert or replace query based on `$type` argument.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 *
 	 * @see wpdb::prepare()
 	 * @see wpdb::$field_types
@@ -2643,7 +2626,7 @@ class wpdb {
 	 *         )
 	 *     );
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @see wpdb::prepare()
 	 * @see wpdb::$field_types
@@ -2737,7 +2720,7 @@ class wpdb {
 	 *         )
 	 *     );
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 *
 	 * @see wpdb::prepare()
 	 * @see wpdb::$field_types
@@ -2795,7 +2778,7 @@ class wpdb {
 	 * to determine if any invalid text would be stripped. If text is stripped,
 	 * then field processing is rejected and the query fails.
 	 *
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 *
 	 * @param string          $table  Table name.
 	 * @param array           $data   Array of values keyed by their field names.
@@ -2855,7 +2838,7 @@ class wpdb {
 	/**
 	 * Prepares arrays of value/format pairs as passed to wpdb CRUD methods.
 	 *
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 *
 	 * @param array           $data   Array of values keyed by their field names.
 	 * @param string[]|string $format Formats or format to be mapped to the values in the data.
@@ -2894,7 +2877,7 @@ class wpdb {
 	/**
 	 * Adds field charsets to field/value/format arrays generated by wpdb::process_field_formats().
 	 *
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 *
 	 * @param array $data {
 	 *     Array of values and formats keyed by their field names,
@@ -2945,7 +2928,7 @@ class wpdb {
 	/**
 	 * For string fields, records the maximum string length that field can safely save.
 	 *
-	 * @since 4.2.1
+	 * @since WP 4.2.1
 	 *
 	 * @param array $data {
 	 *     Array of values, formats, and charsets keyed by their field names,
@@ -3009,7 +2992,7 @@ class wpdb {
 	 * the value in the column and row specified is returned. If $query is null,
 	 * the value in the specified column and row from the previous SQL result is returned.
 	 *
-	 * @since 0.71
+	 * @since WP 0.71
 	 *
 	 * @param string|null $query Optional. SQL query. Defaults to null, use the result from the previous query.
 	 * @param int         $x     Optional. Column of value to return. Indexed from 0. Default 0.
@@ -3041,7 +3024,7 @@ class wpdb {
 	 *
 	 * Executes a SQL query and returns the row from the SQL result.
 	 *
-	 * @since 0.71
+	 * @since WP 0.71
 	 *
 	 * @param string|null $query  SQL query.
 	 * @param string      $output Optional. The required return type. One of OBJECT, ARRAY_A, or ARRAY_N, which
@@ -3088,7 +3071,7 @@ class wpdb {
 	 * If the SQL result contains more than one column, the column specified is returned.
 	 * If $query is null, the specified column from the previous SQL result is returned.
 	 *
-	 * @since 0.71
+	 * @since WP 0.71
 	 *
 	 * @param string|null $query Optional. SQL query. Defaults to previous query.
 	 * @param int         $x     Optional. Column to return. Indexed from 0. Default 0.
@@ -3118,7 +3101,7 @@ class wpdb {
 	 *
 	 * Executes a SQL query and returns the entire SQL result.
 	 *
-	 * @since 0.71
+	 * @since WP 0.71
 	 *
 	 * @param string $query  SQL query.
 	 * @param string $output Optional. Any of ARRAY_A | ARRAY_N | OBJECT | OBJECT_K constants.
@@ -3189,7 +3172,7 @@ class wpdb {
 	/**
 	 * Retrieves the character set for the given table.
 	 *
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 *
 	 * @param string $table Table name.
 	 * @return string|WP_Error Table character set, WP_Error object if it couldn't be found.
@@ -3203,7 +3186,7 @@ class wpdb {
 		 * Returning a non-null value from the filter will effectively short-circuit
 		 * checking the DB for the charset, returning that value instead.
 		 *
-		 * @since 4.2.0
+		 * @since WP 4.2.0
 		 *
 		 * @param string|WP_Error|null $charset The character set to use, WP_Error object
 		 *                                      if it couldn't be found. Default null.
@@ -3286,7 +3269,7 @@ class wpdb {
 	/**
 	 * Retrieves the character set for the given column.
 	 *
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 *
 	 * @param string $table  Table name.
 	 * @param string $column Column name.
@@ -3303,7 +3286,7 @@ class wpdb {
 		 * Passing a non-null value to the filter will short-circuit
 		 * checking the DB for the charset, returning that value instead.
 		 *
-		 * @since 4.2.0
+		 * @since WP 4.2.0
 		 *
 		 * @param string|null|false|WP_Error $charset The character set to use. Default null.
 		 * @param string                     $table   The name of the table being checked.
@@ -3351,7 +3334,7 @@ class wpdb {
 	 *
 	 * The length may either be specified as a byte length or a character length.
 	 *
-	 * @since 4.2.1
+	 * @since WP 4.2.1
 	 *
 	 * @param string $table  Table name.
 	 * @param string $column Column name.
@@ -3447,7 +3430,7 @@ class wpdb {
 	 * The negative regex is faster for non-ASCII strings, as it allows
 	 * the search to finish as soon as it encounters a non-ASCII character.
 	 *
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 *
 	 * @param string $input_string String to check.
 	 * @return bool True if ASCII, false if not.
@@ -3467,7 +3450,7 @@ class wpdb {
 	/**
 	 * Checks if the query is accessing a collation considered safe on the current version of MySQL.
 	 *
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 *
 	 * @param string $query The query to check.
 	 * @return bool True if the collation is safe, false if it isn't.
@@ -3533,7 +3516,7 @@ class wpdb {
 	/**
 	 * Strips any invalid characters based on value/charset pairs.
 	 *
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 *
 	 * @param array $data Array of value arrays. Each value array has the keys 'value', 'charset', and 'length'.
 	 *                    An optional 'ascii' key can be set to false to avoid redundant ASCII checks.
@@ -3689,7 +3672,7 @@ class wpdb {
 	/**
 	 * Strips any invalid characters from the query.
 	 *
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 *
 	 * @param string $query Query to convert.
 	 * @return string|WP_Error The converted query, or a WP_Error object if the conversion fails.
@@ -3734,7 +3717,7 @@ class wpdb {
 	/**
 	 * Strips any invalid characters from the string for a given table and column.
 	 *
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 *
 	 * @param string $table  Table name.
 	 * @param string $column Column name.
@@ -3774,7 +3757,7 @@ class wpdb {
 	/**
 	 * Finds the first table name referenced in a query.
 	 *
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 *
 	 * @param string $query The query to search.
 	 * @return string|false The table name found, or false if a table couldn't be found.
@@ -3849,7 +3832,7 @@ class wpdb {
 	/**
 	 * Loads the column metadata from the last query.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 */
 	protected function load_col_info() {
 		if ( $this->col_info ) {
@@ -3866,7 +3849,7 @@ class wpdb {
 	/**
 	 * Retrieves column metadata from the last query.
 	 *
-	 * @since 0.71
+	 * @since WP 0.71
 	 *
 	 * @param string $info_type  Optional. Possible values include 'name', 'table', 'def', 'max_length',
 	 *                           'not_null', 'primary_key', 'multiple_key', 'unique_key', 'numeric',
@@ -3896,7 +3879,7 @@ class wpdb {
 	/**
 	 * Starts the timer, for debugging purposes.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 *
 	 * @return true
 	 */
@@ -3908,7 +3891,7 @@ class wpdb {
 	/**
 	 * Stops the debugging timer.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 *
 	 * @return float Total time spent on the query, in seconds.
 	 */
@@ -3921,7 +3904,7 @@ class wpdb {
 	 *
 	 * Will not die if wpdb::$show_errors is false.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 *
 	 * @param string $message    The error message.
 	 * @param string $error_code Optional. A computer-readable string to identify the error.
@@ -3957,7 +3940,7 @@ class wpdb {
 	/**
 	 * Closes the current database connection.
 	 *
-	 * @since 4.5.0
+	 * @since WP 4.5.0
 	 *
 	 * @return bool True if the connection was successfully closed,
 	 *              false if it wasn't, or if the connection doesn't exist.
@@ -3981,7 +3964,7 @@ class wpdb {
 	/**
 	 * Determines whether MySQL database is at least the required minimum version.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @global string $required_mysql_version The required MySQL version string.
 	 * @return void|WP_Error
@@ -4004,8 +3987,8 @@ class wpdb {
 	 *
 	 * Use `wpdb::has_cap( 'collation' )`.
 	 *
-	 * @since 2.5.0
-	 * @deprecated 3.5.0 Use wpdb::has_cap()
+	 * @since WP 2.5.0
+	 * @deprecated WP 3.5.0 Use wpdb::has_cap()
 	 *
 	 * @return bool True if collation is supported, false if not.
 	 */
@@ -4017,7 +4000,7 @@ class wpdb {
 	/**
 	 * Retrieves the database character collate.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @return string The database character collate.
 	 */
@@ -4045,11 +4028,11 @@ class wpdb {
 	 * developers to determine feature support. This is to account for drop-ins which may
 	 * introduce feature support at a different time to WordPress.
 	 *
-	 * @since 2.7.0
-	 * @since 4.1.0 Added support for the 'utf8mb4' feature.
-	 * @since 4.6.0 Added support for the 'utf8mb4_520' feature.
-	 * @since 6.2.0 Added support for the 'identifier_placeholders' feature.
-	 * @since 6.6.0 The `utf8mb4` feature now always returns true.
+	 * @since WP 2.7.0
+	 * @since WP 4.1.0 Added support for the 'utf8mb4' feature.
+	 * @since WP 4.6.0 Added support for the 'utf8mb4_520' feature.
+	 * @since WP 6.2.0 Added support for the 'identifier_placeholders' feature.
+	 * @since WP 6.6.0 The `utf8mb4` feature now always returns true.
 	 *
 	 * @see wpdb::db_version()
 	 *
@@ -4078,17 +4061,17 @@ class wpdb {
 		}
 
 		switch ( strtolower( $db_cap ) ) {
-			case 'collation':    // @since 2.5.0
-			case 'group_concat': // @since 2.7.0
-			case 'subqueries':   // @since 2.7.0
+			case 'collation':    // @since WP 2.5.0
+			case 'group_concat': // @since WP 2.7.0
+			case 'subqueries':   // @since WP 2.7.0
 				return version_compare( $db_version, '4.1', '>=' );
 			case 'set_charset':
 				return version_compare( $db_version, '5.0.7', '>=' );
-			case 'utf8mb4':      // @since 4.1.0
+			case 'utf8mb4':      // @since WP 4.1.0
 				return true;
-			case 'utf8mb4_520': // @since 4.6.0
+			case 'utf8mb4_520': // @since WP 4.6.0
 				return version_compare( $db_version, '5.6', '>=' );
-			case 'identifier_placeholders': // @since 6.2.0
+			case 'identifier_placeholders': // @since WP 6.2.0
 				/*
 				 * As of WordPress 6.2, wpdb::prepare() supports identifiers via '%i',
 				 * e.g. table/field names.
@@ -4102,7 +4085,7 @@ class wpdb {
 	/**
 	 * Retrieves a comma-separated list of the names of the functions that called wpdb.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @return string Comma-separated list of the calling functions.
 	 */
@@ -4113,7 +4096,7 @@ class wpdb {
 	/**
 	 * Retrieves the database server version.
 	 *
-	 * @since 2.7.0
+	 * @since WP 2.7.0
 	 *
 	 * @return string|null Version number on success, null on failure.
 	 */
@@ -4124,7 +4107,7 @@ class wpdb {
 	/**
 	 * Returns the version of the MySQL server.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @return string Server version as a string.
 	 */

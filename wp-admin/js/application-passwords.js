@@ -39,7 +39,7 @@
 		/**
 		 * Filters the request data used to create a new Application Password.
 		 *
-		 * @since 5.6.0
+		 * @since WP 5.6.0
 		 *
 		 * @param {Object} request The request data.
 		 * @param {number} userId  The id of the user the password is added for.
@@ -70,7 +70,7 @@
 			/**
 			 * Fires after an application password has been successfully created.
 			 *
-			 * @since 5.6.0
+			 * @since WP 5.6.0
 			 *
 			 * @param {Object} response The response data from the REST API.
 			 * @param {Object} request  The request data used to create the password.
@@ -165,7 +165,7 @@
 	/**
 	 * Handles an error response from the REST API.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param {jqXHR} xhr The XHR object from the ajax call.
 	 * @param {string} textStatus The string categorizing the ajax request's status.
@@ -184,7 +184,7 @@
 	/**
 	 * Displays a message in the Application Passwords section.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param {string} message The message to display.
 	 * @param {string} type    The notice type. Either 'success' or 'error'.
@@ -211,7 +211,7 @@
 	/**
 	 * Clears notice messages from the Application Passwords section.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 */
 	function clearNotices() {
 		$( '.notice', $appPassSection ).remove();

@@ -16,8 +16,8 @@ if ( 'category' === $taxonomy ) {
 	/**
 	 * Fires before the Edit Category form.
 	 *
-	 * @since 2.1.0
-	 * @deprecated 3.0.0 Use {@see '{$taxonomy}_pre_edit_form'} instead.
+	 * @since WP 2.1.0
+	 * @deprecated WP 3.0.0 Use {@see '{$taxonomy}_pre_edit_form'} instead.
 	 *
 	 * @param WP_Term $tag Current category term object.
 	 */
@@ -26,8 +26,8 @@ if ( 'category' === $taxonomy ) {
 	/**
 	 * Fires before the Edit Link Category form.
 	 *
-	 * @since 2.3.0
-	 * @deprecated 3.0.0 Use {@see '{$taxonomy}_pre_edit_form'} instead.
+	 * @since WP 2.3.0
+	 * @deprecated WP 3.0.0 Use {@see '{$taxonomy}_pre_edit_form'} instead.
 	 *
 	 * @param WP_Term $tag Current link category term object.
 	 */
@@ -36,8 +36,8 @@ if ( 'category' === $taxonomy ) {
 	/**
 	 * Fires before the Edit Tag form.
 	 *
-	 * @since 2.5.0
-	 * @deprecated 3.0.0 Use {@see '{$taxonomy}_pre_edit_form'} instead.
+	 * @since WP 2.5.0
+	 * @deprecated WP 3.0.0 Use {@see '{$taxonomy}_pre_edit_form'} instead.
 	 *
 	 * @param WP_Term $tag Current tag term object.
 	 */
@@ -61,7 +61,7 @@ require_once ABSPATH . 'wp-admin/includes/edit-tag-messages.php';
  *  - `category_pre_edit_form`
  *  - `post_tag_pre_edit_form`
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @param WP_Term $tag      Current taxonomy term object.
  * @param string  $taxonomy Current $taxonomy slug.
@@ -109,7 +109,7 @@ if ( $message ) {
  *  - `category_term_edit_form_tag`
  *  - `post_tag_term_edit_form_tag`
  *
- * @since 3.7.0
+ * @since WP 3.7.0
  */
 do_action( "{$taxonomy}_term_edit_form_tag" );
 ?>
@@ -133,7 +133,7 @@ wp_nonce_field( 'update-tag_' . $tag_ID );
  *  - `category_term_edit_form_top`
  *  - `post_tag_term_edit_form_top`
  *
- * @since 4.5.0
+ * @since WP 4.5.0
  *
  * @param WP_Term $tag      Current taxonomy term object.
  * @param string  $taxonomy Current $taxonomy slug.
@@ -160,8 +160,8 @@ if ( isset( $tag->name ) ) {
 			 * Note: This is a multi-use hook in that it is leveraged both for editable
 			 * post URIs and term slugs.
 			 *
-			 * @since 2.6.0
-			 * @since 4.4.0 The `$tag` parameter was added.
+			 * @since WP 2.6.0
+			 * @since WP 4.4.0 The `$tag` parameter was added.
 			 *
 			 * @param string          $slug The editable slug. Will be either a term slug or post URI depending
 			 *                              upon the context in which it is evaluated.
@@ -213,8 +213,8 @@ if ( isset( $tag->name ) ) {
 			/**
 			 * Fires after the Edit Category form fields are displayed.
 			 *
-			 * @since 2.9.0
-			 * @deprecated 3.0.0 Use {@see '{$taxonomy}_edit_form_fields'} instead.
+			 * @since WP 2.9.0
+			 * @deprecated WP 3.0.0 Use {@see '{$taxonomy}_edit_form_fields'} instead.
 			 *
 			 * @param WP_Term $tag Current category term object.
 			 */
@@ -223,8 +223,8 @@ if ( isset( $tag->name ) ) {
 			/**
 			 * Fires after the Edit Link Category form fields are displayed.
 			 *
-			 * @since 2.9.0
-			 * @deprecated 3.0.0 Use {@see '{$taxonomy}_edit_form_fields'} instead.
+			 * @since WP 2.9.0
+			 * @deprecated WP 3.0.0 Use {@see '{$taxonomy}_edit_form_fields'} instead.
 			 *
 			 * @param WP_Term $tag Current link category term object.
 			 */
@@ -233,8 +233,8 @@ if ( isset( $tag->name ) ) {
 			/**
 			 * Fires after the Edit Tag form fields are displayed.
 			 *
-			 * @since 2.9.0
-			 * @deprecated 3.0.0 Use {@see '{$taxonomy}_edit_form_fields'} instead.
+			 * @since WP 2.9.0
+			 * @deprecated WP 3.0.0 Use {@see '{$taxonomy}_edit_form_fields'} instead.
 			 *
 			 * @param WP_Term $tag Current tag term object.
 			 */
@@ -251,7 +251,7 @@ if ( isset( $tag->name ) ) {
 		 *  - `category_edit_form_fields`
 		 *  - `post_tag_edit_form_fields`
 		 *
-		 * @since 3.0.0
+		 * @since WP 3.0.0
 		 *
 		 * @param WP_Term $tag      Current taxonomy term object.
 		 * @param string  $taxonomy Current taxonomy slug.
@@ -271,8 +271,8 @@ if ( 'category' === $taxonomy ) {
 	/**
 	 * Fires at the end of the Edit Term form.
 	 *
-	 * @since 2.5.0
-	 * @deprecated 3.0.0 Use {@see '{$taxonomy}_edit_form'} instead.
+	 * @since WP 2.5.0
+	 * @deprecated WP 3.0.0 Use {@see '{$taxonomy}_edit_form'} instead.
 	 *
 	 * @param WP_Term $tag Current taxonomy term object.
 	 */
@@ -288,7 +288,7 @@ if ( 'category' === $taxonomy ) {
  *  - `category_edit_form`
  *  - `post_tag_edit_form`
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @param WP_Term $tag      Current taxonomy term object.
  * @param string  $taxonomy Current taxonomy slug.

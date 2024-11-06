@@ -55,8 +55,6 @@ __webpack_require__.d(__webpack_exports__, {
  * Note that if a resolution for Trac#45387 comes to fruition, it is no longer
  * necessary for `__unstableEscapeGreaterThan` to exist.
  *
- * See: https://core.trac.wordpress.org/ticket/45387
- *
  * @param value Original string.
  *
  * @return Escaped string.
@@ -135,8 +133,6 @@ function escapeLessThan(value) {
  *
  * Note that if a resolution for Trac#45387 comes to fruition, it is no longer
  * necessary for `__unstableEscapeGreaterThan` to be used.
- *
- * See: https://core.trac.wordpress.org/ticket/45387
  *
  * @param value Attribute value.
  *

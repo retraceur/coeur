@@ -4,7 +4,7 @@
  *
  * @package motsVertueux
  * @subpackage Administration
- * @since 4.4.0
+ * @since WP 4.4.0
  */
 
 $messages = array();
@@ -42,7 +42,7 @@ $messages['post_tag'] = array(
 /**
  * Filters the messages displayed when a tag is updated.
  *
- * @since 3.7.0
+ * @since WP 3.7.0
  *
  * @param array[] $messages Array of arrays of messages to be displayed, keyed by taxonomy name.
  */

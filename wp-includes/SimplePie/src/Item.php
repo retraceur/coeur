@@ -100,7 +100,7 @@ class Item implements RegistryAware
      *
      * This is usually used by {@see \SimplePie\Registry::create}
      *
-     * @since 1.3
+     * @since WP 1.3
      * @param \SimplePie\Registry $registry
      */
     public function set_registry(\SimplePie\Registry $registry)/* : void */
@@ -136,7 +136,7 @@ class Item implements RegistryAware
      *
      * See {@see \SimplePie\SimplePie::get_feed_tags()} for a description of the return value
      *
-     * @since 1.0
+     * @since WP 1.0
      * @see http://simplepie.org/wiki/faq/supported_xml_namespaces
      * @param string $namespace The URL of the XML namespace of the elements you're trying to access
      * @param string $tag Tag name
@@ -191,7 +191,7 @@ class Item implements RegistryAware
      * Note: this may not work as you think for multifeeds!
      *
      * @link http://simplepie.org/faq/typical_multifeed_gotchas#missing_data_from_feed
-     * @since 1.0
+     * @since WP 1.0
      * @return \SimplePie\SimplePie
      */
     public function get_feed()
@@ -208,7 +208,7 @@ class Item implements RegistryAware
      * for RDF. If none of these are supplied (or `$hash` is true), creates an
      * MD5 hash based on the permalink, title and content.
      *
-     * @since Beta 2
+     * @since WP Beta 2
      * @param boolean $hash Should we force using a hash instead of the supplied ID?
      * @param string|false $fn User-supplied function to generate an hash
      * @return string|null
@@ -247,7 +247,7 @@ class Item implements RegistryAware
      *
      * Uses `<atom:title>`, `<title>` or `<dc:title>`
      *
-     * @since Beta 2 (previously called `get_item_title` since 0.8)
+     * @since WP Beta 2 (previously called `get_item_title` since 0.8)
      * @return string|null
      */
     public function get_title()
@@ -285,7 +285,7 @@ class Item implements RegistryAware
      * Uses `<atom:summary>`, `<description>`, `<dc:description>` or
      * `<itunes:subtitle>`
      *
-     * @since 0.8
+     * @since WP 0.8
      * @param boolean $description_only Should we avoid falling back to the content?
      * @return string|null
      */
@@ -335,7 +335,7 @@ class Item implements RegistryAware
      *
      * Uses `<atom:content>` or `<content:encoded>` (RSS 1.0 Content Module)
      *
-     * @since 1.0
+     * @since WP 1.0
      * @param boolean $content_only Should we avoid falling back to the description?
      * @return string|null
      */
@@ -386,7 +386,7 @@ class Item implements RegistryAware
     /**
      * Get a category for the item
      *
-     * @since Beta 3 (previously called `get_categories()` since Beta 2)
+     * @since WP Beta 3 (previously called `get_categories()` since Beta 2)
      * @param int $key The category that you want to return.  Remember that arrays begin with 0, not 1
      * @return \SimplePie\Category|null
      */
@@ -405,7 +405,7 @@ class Item implements RegistryAware
      *
      * Uses `<atom:category>`, `<category>` or `<dc:subject>`
      *
-     * @since Beta 3
+     * @since WP Beta 3
      * @return \SimplePie\Category[]|null List of {@see \SimplePie\Category} objects
      */
     public function get_categories()
@@ -458,7 +458,7 @@ class Item implements RegistryAware
     /**
      * Get an author for the item
      *
-     * @since Beta 2
+     * @since WP Beta 2
      * @param int $key The author that you want to return.  Remember that arrays begin with 0, not 1
      * @return \SimplePie\Author|null
      */
@@ -475,7 +475,7 @@ class Item implements RegistryAware
     /**
      * Get a contributor for the item
      *
-     * @since 1.1
+     * @since WP 1.1
      * @param int $key The contrbutor that you want to return.  Remember that arrays begin with 0, not 1
      * @return \SimplePie\Author|null
      */
@@ -494,7 +494,7 @@ class Item implements RegistryAware
      *
      * Uses `<atom:contributor>`
      *
-     * @since 1.1
+     * @since WP 1.1
      * @return \SimplePie\Author[]|null List of {@see \SimplePie\Author} objects
      */
     public function get_contributors()
@@ -547,7 +547,7 @@ class Item implements RegistryAware
      *
      * Uses `<atom:author>`, `<author>`, `<dc:creator>` or `<itunes:author>`
      *
-     * @since Beta 2
+     * @since WP Beta 2
      * @return \SimplePie\Author[]|null List of {@see \SimplePie\Author} objects
      */
     public function get_authors()
@@ -616,7 +616,7 @@ class Item implements RegistryAware
      *
      * Uses `<atom:rights>` or `<dc:rights>`
      *
-     * @since 1.1
+     * @since WP 1.1
      * @return string
      */
     public function get_copyright()
@@ -641,7 +641,7 @@ class Item implements RegistryAware
      * Note: obeys PHP's timezone setting. To get a UTC date/time, use
      * {@see get_gmdate}
      *
-     * @since Beta 2 (previously called `get_item_date` since 0.8)
+     * @since WP Beta 2 (previously called `get_item_date` since 0.8)
      *
      * @param string $date_format Supports any PHP date format from {@see http://php.net/date} (empty for the raw data)
      * @return int|string|null
@@ -741,7 +741,7 @@ class Item implements RegistryAware
      * with {@link http://php.net/setlocale setlocale()}. The available
      * localizations depend on which ones are installed on your web server.
      *
-     * @since 1.0
+     * @since WP 1.0
      *
      * @param string $date_format Supports any PHP date format from {@see http://php.net/strftime} (empty for the raw data)
      * @return int|string|null
@@ -798,7 +798,7 @@ class Item implements RegistryAware
      * Identical to {@see get_link()} with key 0
      *
      * @see get_link
-     * @since 0.8
+     * @since WP 0.8
      * @return string|null Permalink URL
      */
     public function get_permalink()
@@ -817,7 +817,7 @@ class Item implements RegistryAware
     /**
      * Get a single link for the item
      *
-     * @since Beta 3
+     * @since WP Beta 3
      * @param int $key The link that you want to return.  Remember that arrays begin with 0, not 1
      * @param string $rel The relationship of the link to return
      * @return string|null Link URL
@@ -837,7 +837,7 @@ class Item implements RegistryAware
      *
      * Uses `<atom:link>`, `<link>` or `<guid>`
      *
-     * @since Beta 2
+     * @since WP Beta 2
      * @param string $rel The relationship of links to return
      * @return array|null Links found for the item (strings)
      */
@@ -899,7 +899,7 @@ class Item implements RegistryAware
      *
      * Supports the <enclosure> RSS tag, as well as Media RSS and iTunes RSS.
      *
-     * @since Beta 2
+     * @since WP Beta 2
      * @todo Add ability to prefer one type of content over another (in a media group).
      * @param int $key The enclosure that you want to return.  Remember that arrays begin with 0, not 1
      * @return \SimplePie\Enclosure|null
@@ -923,7 +923,7 @@ class Item implements RegistryAware
      * are the same content.  Anything else is too complicated to
      * properly support.
      *
-     * @since Beta 2
+     * @since WP Beta 2
      * @todo Add support for end-user defined sorting of enclosures by type/handler (so we can prefer the faster-loading FLV over MP4).
      * @todo If an element exists at a level, but its value is empty, we should fall back to the value from the parent (if it exists).
      * @return \SimplePie\Enclosure[]|null List of \SimplePie\Enclosure items
@@ -2299,7 +2299,7 @@ class Item implements RegistryAware
      *
      * Uses `<geo:lat>` or `<georss:point>`
      *
-     * @since 1.0
+     * @since WP 1.0
      * @link http://www.w3.org/2003/01/geo/ W3C WGS84 Basic Geo
      * @link http://www.georss.org/ GeoRSS
      * @return string|null
@@ -2322,7 +2322,7 @@ class Item implements RegistryAware
      *
      * Uses `<geo:long>`, `<geo:lon>` or `<georss:point>`
      *
-     * @since 1.0
+     * @since WP 1.0
      * @link http://www.w3.org/2003/01/geo/ W3C WGS84 Basic Geo
      * @link http://www.georss.org/ GeoRSS
      * @return string|null
@@ -2343,7 +2343,7 @@ class Item implements RegistryAware
     /**
      * Get the `<atom:source>` for the item
      *
-     * @since 1.1
+     * @since WP 1.1
      * @return \SimplePie\Source|null
      */
     public function get_source()

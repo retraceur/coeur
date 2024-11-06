@@ -5,13 +5,14 @@
  *
  * @package motsVertueux
  * @subpackage Taxonomy
- * @since 4.6.0
+ * @since WP 4.6.0
+ * @since 1.0.0 motsVertueux fork.
  */
 
 /**
  * Class used for querying terms.
  *
- * @since 4.6.0
+ * @since WP 4.6.0
  *
  * @see WP_Term_Query::__construct() for accepted arguments.
  */
@@ -21,7 +22,7 @@ class WP_Term_Query {
 	/**
 	 * SQL string used to perform database query.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 * @var string
 	 */
 	public $request;
@@ -29,7 +30,7 @@ class WP_Term_Query {
 	/**
 	 * Metadata query container.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 * @var WP_Meta_Query A meta query instance.
 	 */
 	public $meta_query = false;
@@ -37,7 +38,7 @@ class WP_Term_Query {
 	/**
 	 * Metadata query clauses.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 * @var array
 	 */
 	protected $meta_query_clauses;
@@ -45,7 +46,7 @@ class WP_Term_Query {
 	/**
 	 * SQL query clauses.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 * @var array
 	 */
 	protected $sql_clauses = array(
@@ -59,7 +60,7 @@ class WP_Term_Query {
 	/**
 	 * Query vars set by the user.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 * @var array
 	 */
 	public $query_vars;
@@ -67,7 +68,7 @@ class WP_Term_Query {
 	/**
 	 * Default values for query vars.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 * @var array
 	 */
 	public $query_var_defaults;
@@ -75,7 +76,7 @@ class WP_Term_Query {
 	/**
 	 * List of terms located by the query.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 * @var array
 	 */
 	public $terms;
@@ -85,13 +86,13 @@ class WP_Term_Query {
 	 *
 	 * Sets up the term query, based on the query vars passed.
 	 *
-	 * @since 4.6.0
-	 * @since 4.6.0 Introduced 'term_taxonomy_id' parameter.
-	 * @since 4.7.0 Introduced 'object_ids' parameter.
-	 * @since 4.9.0 Added 'slug__in' support for 'orderby'.
-	 * @since 5.1.0 Introduced the 'meta_compare_key' parameter.
-	 * @since 5.3.0 Introduced the 'meta_type_key' parameter.
-	 * @since 6.4.0 Introduced the 'cache_results' parameter.
+	 * @since WP 4.6.0
+	 * @since WP 4.6.0 Introduced 'term_taxonomy_id' parameter.
+	 * @since WP 4.7.0 Introduced 'object_ids' parameter.
+	 * @since WP 4.9.0 Added 'slug__in' support for 'orderby'.
+	 * @since WP 5.1.0 Introduced the 'meta_compare_key' parameter.
+	 * @since WP 5.3.0 Introduced the 'meta_type_key' parameter.
+	 * @since WP 6.4.0 Introduced the 'cache_results' parameter.
 	 *
 	 * @param string|array $query {
 	 *     Optional. Array or query string of term query parameters. Default empty.
@@ -236,7 +237,7 @@ class WP_Term_Query {
 	/**
 	 * Parse arguments passed to the term query with default query parameters.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 *
 	 * @param string|array $query WP_Term_Query arguments. See WP_Term_Query::__construct() for accepted arguments.
 	 */
@@ -252,7 +253,7 @@ class WP_Term_Query {
 		 *
 		 * Use {@see 'get_terms_args'} to filter the passed arguments.
 		 *
-		 * @since 4.4.0
+		 * @since WP 4.4.0
 		 *
 		 * @param array    $defaults   An array of default get_terms() arguments.
 		 * @param string[] $taxonomies An array of taxonomy names.
@@ -284,7 +285,7 @@ class WP_Term_Query {
 		/**
 		 * Fires after term query vars have been parsed.
 		 *
-		 * @since 4.6.0
+		 * @since WP 4.6.0
 		 *
 		 * @param WP_Term_Query $query Current instance of WP_Term_Query.
 		 */
@@ -297,7 +298,7 @@ class WP_Term_Query {
 	 * The return type varies depending on the value passed to `$args['fields']`. See
 	 * WP_Term_Query::get_terms() for details.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 *
 	 * @param string|array $query Array or URL query string of parameters.
 	 * @return WP_Term[]|int[]|string[]|string Array of terms, or number of terms as numeric string
@@ -338,7 +339,7 @@ class WP_Term_Query {
 	 *   - 'ids'
 	 *   - 'tt_ids'
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 *
 	 * @global wpdb $wpdb WordPress database abstraction object.
 	 *
@@ -358,7 +359,7 @@ class WP_Term_Query {
 		/**
 		 * Fires before terms are retrieved.
 		 *
-		 * @since 4.6.0
+		 * @since WP 4.6.0
 		 *
 		 * @param WP_Term_Query $query Current instance of WP_Term_Query (passed by reference).
 		 */
@@ -400,7 +401,7 @@ class WP_Term_Query {
 		/**
 		 * Filters the terms query arguments.
 		 *
-		 * @since 3.1.0
+		 * @since WP 3.1.0
 		 *
 		 * @param array    $args       An array of get_terms() arguments.
 		 * @param string[] $taxonomies An array of taxonomy names.
@@ -525,7 +526,7 @@ class WP_Term_Query {
 		/**
 		 * Filters the terms to exclude from the terms query.
 		 *
-		 * @since 2.3.0
+		 * @since WP 2.3.0
 		 *
 		 * @param string   $exclusions `NOT IN` clause of the terms query.
 		 * @param array    $args       An array of terms query arguments.
@@ -690,7 +691,7 @@ class WP_Term_Query {
 		 *
 		 * Use of this filter can result in unpredictable behavior, and is not recommended.
 		 *
-		 * @since 2.8.0
+		 * @since WP 2.8.0
 		 *
 		 * @param string[] $selects    An array of fields to select for the terms query.
 		 * @param array    $args       An array of term query arguments.
@@ -712,7 +713,7 @@ class WP_Term_Query {
 		/**
 		 * Filters the terms query SQL clauses.
 		 *
-		 * @since 3.1.0
+		 * @since WP 3.1.0
 		 *
 		 * @param string[] $clauses {
 		 *     Associative array of the clauses for the query.
@@ -749,7 +750,7 @@ class WP_Term_Query {
 		$this->sql_clauses['orderby'] = $orderby ? "$orderby $order" : '';
 		$this->sql_clauses['limits']  = $limits;
 
-		// Beginning of the string is on a new line to prevent leading whitespace. See https://core.trac.wordpress.org/ticket/56841.
+		// Beginning of the string is on a new line to prevent leading whitespace.
 		$this->request =
 			"{$this->sql_clauses['select']}
 			 {$this->sql_clauses['from']}
@@ -764,7 +765,7 @@ class WP_Term_Query {
 		 *
 		 * Return a non-null value to bypass WordPress' default term queries.
 		 *
-		 * @since 5.3.0
+		 * @since WP 5.3.0
 		 *
 		 * @param array|null    $terms Return an array of term data to short-circuit WP's term query,
 		 *                             or null to allow WP queries to run normally.
@@ -910,7 +911,7 @@ class WP_Term_Query {
 	/**
 	 * Parse and sanitize 'orderby' keys passed to the term query.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 *
 	 * @param string $orderby_raw Alias for the field to order by.
 	 * @return string|false Value to used in the ORDER clause. False otherwise.
@@ -945,7 +946,7 @@ class WP_Term_Query {
 		/**
 		 * Filters the ORDERBY clause of the terms query.
 		 *
-		 * @since 2.8.0
+		 * @since WP 2.8.0
 		 *
 		 * @param string   $orderby    `ORDERBY` clause of the terms query.
 		 * @param array    $args       An array of term query arguments.
@@ -967,7 +968,7 @@ class WP_Term_Query {
 	/**
 	 * Format response depending on field requested.
 	 *
-	 * @since 6.0.0
+	 * @since WP 6.0.0
 	 *
 	 * @param WP_Term[] $term_objects Array of term objects.
 	 * @param string    $_fields      Field to format.
@@ -1014,7 +1015,7 @@ class WP_Term_Query {
 	/**
 	 * Generate the ORDER BY clause for an 'orderby' param that is potentially related to a meta query.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 *
 	 * @param string $orderby_raw Raw 'orderby' value passed to WP_Term_Query.
 	 * @return string ORDER BY clause.
@@ -1073,7 +1074,7 @@ class WP_Term_Query {
 	/**
 	 * Parse an 'order' query variable and cast it to ASC or DESC as necessary.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 *
 	 * @param string $order The 'order' query variable.
 	 * @return string The sanitized 'order' query variable.
@@ -1093,7 +1094,7 @@ class WP_Term_Query {
 	/**
 	 * Used internally to generate a SQL string related to the 'search' parameter.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 *
 	 * @global wpdb $wpdb WordPress database abstraction object.
 	 *
@@ -1113,7 +1114,7 @@ class WP_Term_Query {
 	 *
 	 * Also discards invalid term objects.
 	 *
-	 * @since 4.9.8
+	 * @since WP 4.9.8
 	 *
 	 * @param Object[]|int[] $terms List of objects or term ids.
 	 * @return WP_Term[] Array of `WP_Term` objects.
@@ -1148,7 +1149,7 @@ class WP_Term_Query {
 	/**
 	 * Generate cache key.
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 *
 	 * @global wpdb $wpdb WordPress database abstraction object.
 	 *

@@ -4,7 +4,8 @@
  *
  * @package motsVertueux
  * @subpackage Multisite
- * @since 3.1.0
+ * @since WP 3.1.0
+ * @since 1.0.0 motsVertueux fork.
  */
 
 /** Load WordPress Administration Bootstrap */
@@ -15,7 +16,6 @@ if ( ! current_user_can( 'manage_sites' ) ) {
 }
 
 get_current_screen()->add_help_tab( get_site_screen_help_tab_args() );
-get_current_screen()->set_help_sidebar( get_site_screen_help_sidebar_content() );
 
 $id = isset( $_REQUEST['id'] ) ? (int) $_REQUEST['id'] : 0;
 
@@ -227,7 +227,7 @@ if ( ! empty( $messages ) ) {
 	/**
 	 * Fires at the end of the site info form in network admin.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param int $id The site ID.
 	 */

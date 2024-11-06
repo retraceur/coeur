@@ -8,7 +8,7 @@
 /**
  * Renders the `core/query-pagination-previous` block on the server.
  *
- * @since 5.8.0
+ * @since WP 5.8.0
  *
  * @param array    $attributes Block attributes.
  * @param string   $content    Block default content.
@@ -75,7 +75,7 @@ function render_block_core_query_pagination_previous( $attributes, $content, $bl
 /**
  * Registers the `core/query-pagination-previous` block on the server.
  *
- * @since 5.8.0
+ * @since WP 5.8.0
  */
 function register_block_core_query_pagination_previous() {
 	register_block_type_from_metadata(

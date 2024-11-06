@@ -4,13 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage Multisite
- * @since 5.1.0
+ * @since WP 5.1.0
  */
 
 /**
  * Inserts a new site into the database.
  *
- * @since 5.1.0
+ * @since WP 5.1.0
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  *
@@ -82,7 +82,7 @@ function wp_insert_site( array $data ) {
 	/**
 	 * Fires once a site has been inserted into the database.
 	 *
-	 * @since 5.1.0
+	 * @since WP 5.1.0
 	 *
 	 * @param WP_Site $new_site New site object.
 	 */
@@ -97,7 +97,7 @@ function wp_insert_site( array $data ) {
 	/**
 	 * Fires when a site's initialization routine should be executed.
 	 *
-	 * @since 5.1.0
+	 * @since WP 5.1.0
 	 *
 	 * @param WP_Site $new_site New site object.
 	 * @param array   $args     Arguments for the initialization.
@@ -124,8 +124,8 @@ function wp_insert_site( array $data ) {
 		/**
 		 * Fires immediately after a new site is created.
 		 *
-		 * @since MU (3.0.0)
-		 * @deprecated 5.1.0 Use {@see 'wp_initialize_site'} instead.
+		 * @since WP MU (3.0.0)
+		 * @deprecated WP 5.1.0 Use {@see 'wp_initialize_site'} instead.
 		 *
 		 * @param int    $site_id    Site ID.
 		 * @param int    $user_id    User ID.
@@ -148,7 +148,7 @@ function wp_insert_site( array $data ) {
 /**
  * Updates a site in the database.
  *
- * @since 5.1.0
+ * @since WP 5.1.0
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  *
@@ -189,7 +189,7 @@ function wp_update_site( $site_id, array $data ) {
 	/**
 	 * Fires once a site has been updated in the database.
 	 *
-	 * @since 5.1.0
+	 * @since WP 5.1.0
 	 *
 	 * @param WP_Site $new_site New site object.
 	 * @param WP_Site $old_site Old site object.
@@ -202,7 +202,7 @@ function wp_update_site( $site_id, array $data ) {
 /**
  * Deletes a site from the database.
  *
- * @since 5.1.0
+ * @since WP 5.1.0
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  *
@@ -229,7 +229,7 @@ function wp_delete_site( $site_id ) {
 	 * Plugins should amend the `$errors` object via its `WP_Error::add()` method. If any errors
 	 * are present, the site will not be deleted.
 	 *
-	 * @since 5.1.0
+	 * @since WP 5.1.0
 	 *
 	 * @param WP_Error $errors   Error object to add validation errors to.
 	 * @param WP_Site  $old_site The site object to be deleted.
@@ -243,8 +243,8 @@ function wp_delete_site( $site_id ) {
 	/**
 	 * Fires before a site is deleted.
 	 *
-	 * @since MU (3.0.0)
-	 * @deprecated 5.1.0
+	 * @since WP MU (3.0.0)
+	 * @deprecated WP 5.1.0
 	 *
 	 * @param int  $site_id The site ID.
 	 * @param bool $drop    True if site's table should be dropped. Default false.
@@ -254,7 +254,7 @@ function wp_delete_site( $site_id ) {
 	/**
 	 * Fires when a site's uninitialization routine should be executed.
 	 *
-	 * @since 5.1.0
+	 * @since WP 5.1.0
 	 *
 	 * @param WP_Site $old_site Deleted site object.
 	 */
@@ -276,7 +276,7 @@ function wp_delete_site( $site_id ) {
 	/**
 	 * Fires once a site has been deleted from the database.
 	 *
-	 * @since 5.1.0
+	 * @since WP 5.1.0
 	 *
 	 * @param WP_Site $old_site Deleted site object.
 	 */
@@ -285,8 +285,8 @@ function wp_delete_site( $site_id ) {
 	/**
 	 * Fires after the site is deleted from the network.
 	 *
-	 * @since 4.8.0
-	 * @deprecated 5.1.0
+	 * @since WP 4.8.0
+	 * @deprecated WP 5.1.0
 	 *
 	 * @param int  $site_id The site ID.
 	 * @param bool $drop    True if site's tables should be dropped. Default false.
@@ -302,7 +302,7 @@ function wp_delete_site( $site_id ) {
  * Site data will be cached and returned after being passed through a filter.
  * If the provided site is empty, the current site global will be used.
  *
- * @since 4.6.0
+ * @since WP 4.6.0
  *
  * @param WP_Site|int|null $site Optional. Site to retrieve. Default is the current site.
  * @return WP_Site|null The site object or null if not found.
@@ -327,7 +327,7 @@ function get_site( $site = null ) {
 	/**
 	 * Fires after a site is retrieved.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 *
 	 * @param WP_Site $_site Site data.
 	 */
@@ -339,10 +339,10 @@ function get_site( $site = null ) {
 /**
  * Adds any sites from the given IDs to the cache that do not already exist in cache.
  *
- * @since 4.6.0
- * @since 5.1.0 Introduced the `$update_meta_cache` parameter.
- * @since 6.1.0 This function is no longer marked as "private".
- * @since 6.3.0 Use wp_lazyload_site_meta() for lazy-loading of site meta.
+ * @since WP 4.6.0
+ * @since WP 5.1.0 Introduced the `$update_meta_cache` parameter.
+ * @since WP 6.1.0 This function is no longer marked as "private".
+ * @since WP 6.3.0 Use wp_lazyload_site_meta() for lazy-loading of site meta.
  *
  * @see update_site_cache()
  * @global wpdb $wpdb WordPress database abstraction object.
@@ -368,7 +368,7 @@ function _prime_site_caches( $ids, $update_meta_cache = true ) {
 /**
  * Queue site meta for lazy-loading.
  *
- * @since 6.3.0
+ * @since WP 6.3.0
  *
  * @param array $site_ids List of site IDs.
  */
@@ -383,8 +383,8 @@ function wp_lazyload_site_meta( array $site_ids ) {
 /**
  * Updates sites in cache.
  *
- * @since 4.6.0
- * @since 5.1.0 Introduced the `$update_meta_cache` parameter.
+ * @since WP 4.6.0
+ * @since WP 5.1.0 Introduced the `$update_meta_cache` parameter.
  *
  * @param array $sites             Array of site objects.
  * @param bool  $update_meta_cache Whether to update site meta cache. Default true.
@@ -416,7 +416,7 @@ function update_site_cache( $sites, $update_meta_cache = true ) {
  * Performs SQL query to retrieve all metadata for the sites matching `$site_ids` and stores them in the cache.
  * Subsequent calls to `get_site_meta()` will not need to query the database.
  *
- * @since 5.1.0
+ * @since WP 5.1.0
  *
  * @param array $site_ids List of site IDs.
  * @return array|false An array of metadata on success, false if there is nothing to update.
@@ -432,8 +432,8 @@ function update_sitemeta_cache( $site_ids ) {
 /**
  * Retrieves a list of sites matching requested arguments.
  *
- * @since 4.6.0
- * @since 4.8.0 Introduced the 'lang_id', 'lang__in', and 'lang__not_in' parameters.
+ * @since WP 4.6.0
+ * @since WP 4.8.0 Introduced the 'lang_id', 'lang__in', and 'lang__not_in' parameters.
  *
  * @see WP_Site_Query::parse_query()
  *
@@ -451,7 +451,7 @@ function get_sites( $args = array() ) {
 /**
  * Prepares site data for insertion or update in the database.
  *
- * @since 5.1.0
+ * @since WP 5.1.0
  *
  * @param array        $data     Associative array of site data passed to the respective function.
  *                               See {@see wp_insert_site()} for the possibly included data.
@@ -474,7 +474,7 @@ function wp_prepare_site_data( $data, $defaults, $old_site = null ) {
 	/**
 	 * Filters passed site data in order to normalize it.
 	 *
-	 * @since 5.1.0
+	 * @since WP 5.1.0
 	 *
 	 * @param array $data Associative array of site data passed to the respective function.
 	 *                    See {@see wp_insert_site()} for the possibly included data.
@@ -491,7 +491,7 @@ function wp_prepare_site_data( $data, $defaults, $old_site = null ) {
 	 *
 	 * Plugins should amend the `$errors` object via its `WP_Error::add()` method.
 	 *
-	 * @since 5.1.0
+	 * @since WP 5.1.0
 	 *
 	 * @param WP_Error     $errors   Error object to add validation errors to.
 	 * @param array        $data     Associative array of complete site data. See {@see wp_insert_site()}
@@ -515,7 +515,7 @@ function wp_prepare_site_data( $data, $defaults, $old_site = null ) {
 /**
  * Normalizes data for a site prior to inserting or updating in the database.
  *
- * @since 5.1.0
+ * @since WP 5.1.0
  *
  * @param array $data Associative array of site data passed to the respective function.
  *                    See {@see wp_insert_site()} for the possibly included data.
@@ -563,7 +563,7 @@ function wp_normalize_site_data( $data ) {
 /**
  * Validates data for a site prior to inserting or updating in the database.
  *
- * @since 5.1.0
+ * @since WP 5.1.0
  *
  * @param WP_Error     $errors   Error object, passed by reference. Will contain validation errors if
  *                               any occurred.
@@ -631,7 +631,7 @@ function wp_validate_site_data( $errors, $data, $old_site = null ) {
  * This process includes creating the site's database tables and
  * populating them with defaults.
  *
- * @since 5.1.0
+ * @since WP 5.1.0
  *
  * @global wpdb     $wpdb     WordPress database abstraction object.
  * @global WP_Roles $wp_roles WordPress role management object.
@@ -685,7 +685,7 @@ function wp_initialize_site( $site_id, array $args = array() ) {
 	/**
 	 * Filters the arguments for initializing a site.
 	 *
-	 * @since 5.1.0
+	 * @since WP 5.1.0
 	 *
 	 * @param array      $args    Arguments to modify the initialization behavior.
 	 * @param WP_Site    $site    Site that is being initialized.
@@ -774,7 +774,7 @@ function wp_initialize_site( $site_id, array $args = array() ) {
  *
  * This process includes dropping the site's database tables and deleting its uploads directory.
  *
- * @since 5.1.0
+ * @since WP 5.1.0
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  *
@@ -824,7 +824,7 @@ function wp_uninitialize_site( $site_id ) {
 	/**
 	 * Filters the tables to drop when the site is deleted.
 	 *
-	 * @since MU (3.0.0)
+	 * @since WP MU (3.0.0)
 	 *
 	 * @param string[] $tables  Array of names of the site tables to be dropped.
 	 * @param int      $site_id The ID of the site to drop tables for.
@@ -838,7 +838,7 @@ function wp_uninitialize_site( $site_id ) {
 	/**
 	 * Filters the upload base directory to delete when the site is deleted.
 	 *
-	 * @since MU (3.0.0)
+	 * @since WP MU (3.0.0)
 	 *
 	 * @param string $basedir Uploads path without subdirectory. See {@see wp_upload_dir()}.
 	 * @param int    $site_id The site ID.
@@ -896,7 +896,7 @@ function wp_uninitialize_site( $site_id ) {
  *
  * A site is considered initialized when its database tables are present.
  *
- * @since 5.1.0
+ * @since WP 5.1.0
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  *
@@ -917,7 +917,7 @@ function wp_is_site_initialized( $site_id ) {
 	 * Returning a non-null value will effectively short-circuit the function, returning
 	 * that value instead.
 	 *
-	 * @since 5.1.0
+	 * @since WP 5.1.0
 	 *
 	 * @param bool|null $pre     The value to return instead. Default null
 	 *                           to continue with the check.
@@ -950,7 +950,7 @@ function wp_is_site_initialized( $site_id ) {
 /**
  * Clean the blog cache
  *
- * @since 3.5.0
+ * @since WP 3.5.0
  *
  * @global bool $_wp_suspend_cache_invalidation
  *
@@ -998,7 +998,7 @@ function clean_blog_cache( $blog ) {
 	/**
 	 * Fires immediately after a site has been removed from the object cache.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 *
 	 * @param string  $id              Site ID as a numeric string.
 	 * @param WP_Site $blog            Site object.
@@ -1011,8 +1011,8 @@ function clean_blog_cache( $blog ) {
 	/**
 	 * Fires after the blog details cache is cleared.
 	 *
-	 * @since 3.4.0
-	 * @deprecated 4.9.0 Use {@see 'clean_site_cache'} instead.
+	 * @since WP 3.4.0
+	 * @deprecated WP 4.9.0 Use {@see 'clean_site_cache'} instead.
 	 *
 	 * @param int $blog_id Blog ID.
 	 */
@@ -1022,7 +1022,7 @@ function clean_blog_cache( $blog ) {
 /**
  * Adds metadata to a site.
  *
- * @since 5.1.0
+ * @since WP 5.1.0
  *
  * @param int    $site_id    Site ID.
  * @param string $meta_key   Metadata name.
@@ -1042,7 +1042,7 @@ function add_site_meta( $site_id, $meta_key, $meta_value, $unique = false ) {
  * value, will keep from removing duplicate metadata with the same key. It also
  * allows removing all metadata matching key, if needed.
  *
- * @since 5.1.0
+ * @since WP 5.1.0
  *
  * @param int    $site_id    Site ID.
  * @param string $meta_key   Metadata name.
@@ -1058,7 +1058,7 @@ function delete_site_meta( $site_id, $meta_key, $meta_value = '' ) {
 /**
  * Retrieves metadata for a site.
  *
- * @since 5.1.0
+ * @since WP 5.1.0
  *
  * @param int    $site_id Site ID.
  * @param string $key     Optional. The meta key to retrieve. By default,
@@ -1084,7 +1084,7 @@ function get_site_meta( $site_id, $key = '', $single = false ) {
  *
  * If the meta field for the site does not exist, it will be added.
  *
- * @since 5.1.0
+ * @since WP 5.1.0
  *
  * @param int    $site_id    Site ID.
  * @param string $meta_key   Metadata key.
@@ -1103,7 +1103,7 @@ function update_site_meta( $site_id, $meta_key, $meta_value, $prev_value = '' ) 
 /**
  * Deletes everything from site meta matching meta key.
  *
- * @since 5.1.0
+ * @since WP 5.1.0
  *
  * @param string $meta_key Metadata key to search for when deleting.
  * @return bool Whether the site meta key was deleted from the database.
@@ -1115,7 +1115,7 @@ function delete_site_meta_by_key( $meta_key ) {
 /**
  * Updates the count of sites for a network based on a changed site.
  *
- * @since 5.1.0
+ * @since WP 5.1.0
  *
  * @param WP_Site      $new_site The site object that has been inserted, updated or deleted.
  * @param WP_Site|null $old_site Optional. If $new_site has been updated, this must be the previous
@@ -1136,7 +1136,7 @@ function wp_maybe_update_network_site_counts_on_update( $new_site, $old_site = n
 /**
  * Triggers actions on site status updates.
  *
- * @since 5.1.0
+ * @since WP 5.1.0
  *
  * @param WP_Site      $new_site The site object after the update.
  * @param WP_Site|null $old_site Optional. If $new_site has been updated, this must be the previous
@@ -1156,7 +1156,7 @@ function wp_maybe_transition_site_statuses_on_update( $new_site, $old_site = nul
 			/**
 			 * Fires when the 'spam' status is added to a site.
 			 *
-			 * @since MU (3.0.0)
+			 * @since WP MU (3.0.0)
 			 *
 			 * @param int $site_id Site ID.
 			 */
@@ -1166,7 +1166,7 @@ function wp_maybe_transition_site_statuses_on_update( $new_site, $old_site = nul
 			/**
 			 * Fires when the 'spam' status is removed from a site.
 			 *
-			 * @since MU (3.0.0)
+			 * @since WP MU (3.0.0)
 			 *
 			 * @param int $site_id Site ID.
 			 */
@@ -1180,7 +1180,7 @@ function wp_maybe_transition_site_statuses_on_update( $new_site, $old_site = nul
 			/**
 			 * Fires when the 'mature' status is added to a site.
 			 *
-			 * @since 3.1.0
+			 * @since WP 3.1.0
 			 *
 			 * @param int $site_id Site ID.
 			 */
@@ -1190,7 +1190,7 @@ function wp_maybe_transition_site_statuses_on_update( $new_site, $old_site = nul
 			/**
 			 * Fires when the 'mature' status is removed from a site.
 			 *
-			 * @since 3.1.0
+			 * @since WP 3.1.0
 			 *
 			 * @param int $site_id Site ID.
 			 */
@@ -1204,7 +1204,7 @@ function wp_maybe_transition_site_statuses_on_update( $new_site, $old_site = nul
 			/**
 			 * Fires when the 'archived' status is added to a site.
 			 *
-			 * @since MU (3.0.0)
+			 * @since WP MU (3.0.0)
 			 *
 			 * @param int $site_id Site ID.
 			 */
@@ -1214,7 +1214,7 @@ function wp_maybe_transition_site_statuses_on_update( $new_site, $old_site = nul
 			/**
 			 * Fires when the 'archived' status is removed from a site.
 			 *
-			 * @since MU (3.0.0)
+			 * @since WP MU (3.0.0)
 			 *
 			 * @param int $site_id Site ID.
 			 */
@@ -1228,7 +1228,7 @@ function wp_maybe_transition_site_statuses_on_update( $new_site, $old_site = nul
 			/**
 			 * Fires when the 'deleted' status is added to a site.
 			 *
-			 * @since 3.5.0
+			 * @since WP 3.5.0
 			 *
 			 * @param int $site_id Site ID.
 			 */
@@ -1238,7 +1238,7 @@ function wp_maybe_transition_site_statuses_on_update( $new_site, $old_site = nul
 			/**
 			 * Fires when the 'deleted' status is removed from a site.
 			 *
-			 * @since 3.5.0
+			 * @since WP 3.5.0
 			 *
 			 * @param int $site_id Site ID.
 			 */
@@ -1251,7 +1251,7 @@ function wp_maybe_transition_site_statuses_on_update( $new_site, $old_site = nul
 		/**
 		 * Fires after the current blog's 'public' setting is updated.
 		 *
-		 * @since MU (3.0.0)
+		 * @since WP MU (3.0.0)
 		 *
 		 * @param int    $site_id   Site ID.
 		 * @param string $is_public Whether the site is public. A numeric string,
@@ -1264,7 +1264,7 @@ function wp_maybe_transition_site_statuses_on_update( $new_site, $old_site = nul
 /**
  * Cleans the necessary caches after specific site data has been updated.
  *
- * @since 5.1.0
+ * @since WP 5.1.0
  *
  * @param WP_Site $new_site The site object after the update.
  * @param WP_Site $old_site The site object prior to the update.
@@ -1278,7 +1278,7 @@ function wp_maybe_clean_new_site_cache_on_update( $new_site, $old_site ) {
 /**
  * Updates the `blog_public` option for a given site ID.
  *
- * @since 5.1.0
+ * @since WP 5.1.0
  *
  * @param int    $site_id   Site ID.
  * @param string $is_public Whether the site is public. A numeric string,
@@ -1297,7 +1297,7 @@ function wp_update_blog_public_option_on_site_update( $site_id, $is_public ) {
 /**
  * Sets the last changed time for the 'sites' cache group.
  *
- * @since 5.1.0
+ * @since WP 5.1.0
  */
 function wp_cache_set_sites_last_changed() {
 	wp_cache_set_last_changed( 'sites' );
@@ -1306,7 +1306,7 @@ function wp_cache_set_sites_last_changed() {
 /**
  * Aborts calls to site meta if it is not supported.
  *
- * @since 5.1.0
+ * @since WP 5.1.0
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  *

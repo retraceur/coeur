@@ -3,13 +3,13 @@
  * Blocks API: WP_Block_Template class
  *
  * @package motsVertueux
- * @since 5.8.0
+ * @since WP 5.8.0
  */
 
 /**
  * Class representing a block template.
  *
- * @since 5.8.0
+ * @since WP 5.8.0
  */
 #[AllowDynamicProperties]
 class WP_Block_Template {
@@ -17,7 +17,7 @@ class WP_Block_Template {
 	/**
 	 * Type: wp_template.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 * @var string
 	 */
 	public $type;
@@ -25,7 +25,7 @@ class WP_Block_Template {
 	/**
 	 * Theme.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 * @var string
 	 */
 	public $theme;
@@ -33,7 +33,7 @@ class WP_Block_Template {
 	/**
 	 * Template slug.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 * @var string
 	 */
 	public $slug;
@@ -41,7 +41,7 @@ class WP_Block_Template {
 	/**
 	 * ID.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 * @var string
 	 */
 	public $id;
@@ -49,7 +49,7 @@ class WP_Block_Template {
 	/**
 	 * Title.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 * @var string
 	 */
 	public $title = '';
@@ -57,7 +57,7 @@ class WP_Block_Template {
 	/**
 	 * Content.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 * @var string
 	 */
 	public $content = '';
@@ -65,7 +65,7 @@ class WP_Block_Template {
 	/**
 	 * Description.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 * @var string
 	 */
 	public $description = '';
@@ -73,7 +73,7 @@ class WP_Block_Template {
 	/**
 	 * Source of the content. `theme` and `custom` is used for now.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 * @var string
 	 */
 	public $source = 'theme';
@@ -83,7 +83,7 @@ class WP_Block_Template {
 	 * When customized, origin takes on the value of source and source becomes
 	 * 'custom'.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 * @var string|null
 	 */
 	public $origin;
@@ -91,7 +91,7 @@ class WP_Block_Template {
 	/**
 	 * Post ID.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 * @var int|null
 	 */
 	public $wp_id;
@@ -99,7 +99,7 @@ class WP_Block_Template {
 	/**
 	 * Template Status.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 * @var string
 	 */
 	public $status;
@@ -107,7 +107,7 @@ class WP_Block_Template {
 	/**
 	 * Whether a template is, or is based upon, an existing template file.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 * @var bool
 	 */
 	public $has_theme_file;
@@ -115,7 +115,7 @@ class WP_Block_Template {
 	/**
 	 * Whether a template is a custom template.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @var bool
 	 */
@@ -126,7 +126,7 @@ class WP_Block_Template {
 	 *
 	 * A value of 0 means no author.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 * @var int|null
 	 */
 	public $author;
@@ -134,7 +134,7 @@ class WP_Block_Template {
 	/**
 	 * Plugin.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 * @var string|null
 	 */
 	public $plugin;
@@ -142,7 +142,7 @@ class WP_Block_Template {
 	/**
 	 * Post types.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 * @var string[]|null
 	 */
 	public $post_types;
@@ -150,7 +150,7 @@ class WP_Block_Template {
 	/**
 	 * Area.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 * @var string|null
 	 */
 	public $area;
@@ -158,7 +158,7 @@ class WP_Block_Template {
 	/**
 	 * Modified.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 * @var string|null
 	 */
 	public $modified;

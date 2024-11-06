@@ -146,13 +146,6 @@ get_current_screen()->add_help_tab(
 	)
 );
 
-get_current_screen()->set_help_sidebar(
-	'<p><strong>' . __( 'For more information:' ) . '</strong></p>' .
-	'<p>' . __( '<a href="https://developer.wordpress.org/advanced-administration/plugins/editor-screen/">Documentation on Editing Plugins</a>' ) . '</p>' .
-	'<p>' . __( '<a href="https://developer.wordpress.org/plugins/">Documentation on Writing Plugins</a>' ) . '</p>' .
-	'<p>' . __( '<a href="https://wordpress.org/support/forums/">Support forums</a>' ) . '</p>'
-);
-
 $settings = array(
 	'codeEditor' => wp_enqueue_code_editor( array( 'file' => $real_file ) ),
 );
@@ -168,21 +161,6 @@ if ( ! empty( $posted_content ) ) {
 	$content = $posted_content;
 } else {
 	$content = file_get_contents( $real_file );
-}
-
-if ( str_ends_with( $real_file, '.php' ) ) {
-	$functions = wp_doc_link_parse( $content );
-
-	if ( ! empty( $functions ) ) {
-		$docs_select  = '<select name="docs-list" id="docs-list">';
-		$docs_select .= '<option value="">' . esc_html__( 'Function Name&hellip;' ) . '</option>';
-
-		foreach ( $functions as $function ) {
-			$docs_select .= '<option value="' . esc_attr( $function ) . '">' . esc_html( $function ) . '()</option>';
-		}
-
-		$docs_select .= '</select>';
-	}
 }
 
 $content = esc_textarea( $content );
@@ -291,14 +269,6 @@ endif;
 		<input type="hidden" name="plugin" value="<?php echo esc_attr( $plugin ); ?>" />
 	</div>
 
-	<?php if ( ! empty( $docs_select ) ) : ?>
-		<div id="documentation" class="hide-if-no-js">
-			<label for="docs-list"><?php _e( 'Documentation:' ); ?></label>
-			<?php echo $docs_select; ?>
-			<input disabled id="docs-lookup" type="button" class="button" value="<?php esc_attr_e( 'Look Up' ); ?>" onclick="if ( '' !== jQuery('#docs-list').val() ) { window.open( 'https://api.wordpress.org/core/handbook/1.0/?function=' + escape( jQuery( '#docs-list' ).val() ) + '&amp;locale=<?php echo urlencode( get_user_locale() ); ?>&amp;version=<?php echo urlencode( get_bloginfo( 'version' ) ); ?>&amp;redirect=true'); }" />
-		</div>
-	<?php endif; ?>
-
 	<?php if ( is_writable( $real_file ) ) : ?>
 		<div class="editor-notices">
 		<?php
@@ -318,15 +288,7 @@ endif;
 			<span class="spinner"></span>
 		</p>
 	<?php else : ?>
-		<p>
-			<?php
-			printf(
-				/* translators: %s: Documentation URL. */
-				__( 'You need to make this file writable before you can save your changes. See <a href="%s">Changing File Permissions</a> for more information.' ),
-				__( 'https://developer.wordpress.org/advanced-administration/server/file-permissions/' )
-			);
-			?>
-		</p>
+		<p><?php esc_html_e( 'You need to make this file writable before you can save your changes.' ) ;?></p>
 	<?php endif; ?>
 
 	<?php wp_print_file_editor_templates(); ?>

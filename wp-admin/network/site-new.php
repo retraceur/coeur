@@ -4,7 +4,8 @@
  *
  * @package motsVertueux
  * @subpackage Multisite
- * @since 3.1.0
+ * @since WP 3.1.0
+ * @since 1.0.0 motsVertueux fork.
  */
 
 /** Load WordPress Administration Bootstrap */
@@ -25,12 +26,6 @@ get_current_screen()->add_help_tab(
 			'<p>' . __( 'This screen is for Super Admins to add new sites to the network. This is not affected by the registration settings.' ) . '</p>' .
 			'<p>' . __( 'If the admin email for the new site does not exist in the database, a new user will also be created.' ) . '</p>',
 	)
-);
-
-get_current_screen()->set_help_sidebar(
-	'<p><strong>' . __( 'For more information:' ) . '</strong></p>' .
-	'<p>' . __( '<a href="https://developer.wordpress.org/advanced-administration/multisite/admin/#network-admin-sites-screen">Documentation on Site Management</a>' ) . '</p>' .
-	'<p>' . __( '<a href="https://wordpress.org/support/forum/multisite/">Support forums</a>' ) . '</p>'
 );
 
 if ( isset( $_REQUEST['action'] ) && 'add-site' === $_REQUEST['action'] ) {
@@ -114,7 +109,7 @@ if ( isset( $_REQUEST['action'] ) && 'add-site' === $_REQUEST['action'] ) {
 		/**
 		 * Fires immediately before a new user is created via the network site-new.php page.
 		 *
-		 * @since 4.5.0
+		 * @since WP 4.5.0
 		 *
 		 * @param string $email Email of the non-existent user.
 		 */
@@ -133,7 +128,7 @@ if ( isset( $_REQUEST['action'] ) && 'add-site' === $_REQUEST['action'] ) {
 		/**
 		 * Fires after a new user has been created via the network site-new.php page.
 		 *
-		 * @since 4.4.0
+		 * @since WP 4.4.0
 		 *
 		 * @param int $user_id ID of the newly created user.
 		 */
@@ -292,7 +287,7 @@ if ( ! empty( $messages ) ) {
 	/**
 	 * Fires at the end of the new site form in network admin.
 	 *
-	 * @since 4.5.0
+	 * @since WP 4.5.0
 	 */
 	do_action( 'network_site_new_form' );
 

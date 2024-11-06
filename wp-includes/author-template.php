@@ -4,17 +4,17 @@
  *
  * These functions must be used within the WordPress Loop.
  *
- * @link https://codex.wordpress.org/Author_Templates
- *
  * @package motsVertueux
  * @subpackage Template
+ * @since 1.0.0 motsVertueux fork.
+ * 
  */
 
 /**
  * Retrieves the author of the current post.
  *
- * @since 1.5.0
- * @since 6.3.0 Returns an empty string if the author's display name is unknown.
+ * @since WP 1.5.0
+ * @since WP 6.3.0 Returns an empty string if the author's display name is unknown.
  *
  * @global WP_User $authordata The current author's data.
  *
@@ -31,7 +31,7 @@ function get_the_author( $deprecated = '' ) {
 	/**
 	 * Filters the display name of the current post's author.
 	 *
-	 * @since 2.9.0
+	 * @since WP 2.9.0
 	 *
 	 * @param string $display_name The author's display name.
 	 */
@@ -49,10 +49,9 @@ function get_the_author( $deprecated = '' ) {
  * The normal, expected behavior of this function is to echo the author and not
  * return it. However, backward compatibility has to be maintained.
  *
- * @since 0.71
+ * @since WP 0.71
  *
  * @see get_the_author()
- * @link https://developer.wordpress.org/reference/functions/the_author/
  *
  * @param string $deprecated      Deprecated.
  * @param bool   $deprecated_echo Deprecated. Use get_the_author(). Echo the string or return it.
@@ -85,7 +84,7 @@ function the_author( $deprecated = '', $deprecated_echo = true ) {
 /**
  * Retrieves the author who last edited the current post.
  *
- * @since 2.8.0
+ * @since WP 2.8.0
  *
  * @return string|void The author's display name, empty string if unknown.
  */
@@ -98,7 +97,7 @@ function get_the_modified_author() {
 		/**
 		 * Filters the display name of the author who last edited the current post.
 		 *
-		 * @since 2.8.0
+		 * @since WP 2.8.0
 		 *
 		 * @param string $display_name The author's display name, empty string if unknown.
 		 */
@@ -110,7 +109,7 @@ function get_the_modified_author() {
  * Displays the name of the author who last edited the current post,
  * if the author's ID is available.
  *
- * @since 2.8.0
+ * @since WP 2.8.0
  *
  * @see get_the_author()
  */
@@ -151,7 +150,7 @@ function the_modified_author() {
  * - user_url
  * - yim
  *
- * @since 2.8.0
+ * @since WP 2.8.0
  *
  * @global WP_User $authordata The current author's data.
  *
@@ -180,8 +179,8 @@ function get_the_author_meta( $field = '', $user_id = false ) {
 	 *
 	 * The filter name is dynamic and depends on the $field parameter of the function.
 	 *
-	 * @since 2.8.0
-	 * @since 4.3.0 The `$original_user_id` parameter was added.
+	 * @since WP 2.8.0
+	 * @since WP 4.3.0 The `$original_user_id` parameter was added.
 	 *
 	 * @param string    $value            The value of the metadata.
 	 * @param int       $user_id          The user ID for the value.
@@ -193,7 +192,7 @@ function get_the_author_meta( $field = '', $user_id = false ) {
 /**
  * Outputs the field from the user's DB object. Defaults to current post's author.
  *
- * @since 2.8.0
+ * @since WP 2.8.0
  *
  * @param string    $field   Selects the field of the users record. See get_the_author_meta()
  *                           for the list of possible fields.
@@ -209,7 +208,7 @@ function the_author_meta( $field = '', $user_id = false ) {
 	 *
 	 * The filter name is dynamic and depends on the $field parameter of the function.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @param string    $author_meta The value of the metadata.
 	 * @param int|false $user_id     The user ID.
@@ -223,7 +222,7 @@ function the_author_meta( $field = '', $user_id = false ) {
  * If the author has a home page set, return an HTML link, otherwise just return
  * the author's name.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @global WP_User $authordata The current author's data.
  *
@@ -248,7 +247,7 @@ function get_the_author_link() {
 		/**
 		 * Filters the author URL link HTML.
 		 *
-		 * @since 6.0.0
+		 * @since WP 6.0.0
 		 *
 		 * @param string  $link       The default rendered author HTML link.
 		 * @param string  $author_url Author's URL.
@@ -266,9 +265,7 @@ function get_the_author_link() {
  * If the author has a home page set, echo an HTML link, otherwise just echo the
  * author's name.
  *
- * @link https://developer.wordpress.org/reference/functions/the_author_link/
- *
- * @since 2.1.0
+ * @since WP 2.1.0
  */
 function the_author_link() {
 	echo get_the_author_link();
@@ -277,7 +274,7 @@ function the_author_link() {
 /**
  * Retrieves the number of posts by the author of the current post.
  *
- * @since 1.5.0
+ * @since WP 1.5.0
  *
  * @return int The number of posts by the author.
  */
@@ -291,9 +288,8 @@ function get_the_author_posts() {
 
 /**
  * Displays the number of posts by the author of the current post.
- *
- * @link https://developer.wordpress.org/reference/functions/the_author_posts/
- * @since 0.71
+ * 
+ * @since WP 0.71
  */
 function the_author_posts() {
 	echo get_the_author_posts();
@@ -304,7 +300,7 @@ function the_author_posts() {
  *
  * Returns an HTML-formatted link using get_author_posts_url().
  *
- * @since 4.4.0
+ * @since WP 4.4.0
  *
  * @global WP_User $authordata The current author's data.
  *
@@ -328,7 +324,7 @@ function get_the_author_posts_link() {
 	/**
 	 * Filters the link to the author page of the author of the current post.
 	 *
-	 * @since 2.9.0
+	 * @since WP 2.9.0
 	 *
 	 * @param string $link HTML link.
 	 */
@@ -338,8 +334,8 @@ function get_the_author_posts_link() {
 /**
  * Displays an HTML link to the author page of the current post's author.
  *
- * @since 1.2.0
- * @since 4.4.0 Converted into a wrapper for get_the_author_posts_link()
+ * @since WP 1.2.0
+ * @since WP 4.4.0 Converted into a wrapper for get_the_author_posts_link()
  *
  * @param string $deprecated Unused.
  */
@@ -353,7 +349,7 @@ function the_author_posts_link( $deprecated = '' ) {
 /**
  * Retrieves the URL to the author page for the user with the ID provided.
  *
- * @since 2.1.0
+ * @since WP 2.1.0
  *
  * @global WP_Rewrite $wp_rewrite WordPress rewrite component.
  *
@@ -384,7 +380,7 @@ function get_author_posts_url( $author_id, $author_nicename = '' ) {
 	/**
 	 * Filters the URL to the author's page.
 	 *
-	 * @since 2.1.0
+	 * @since WP 2.1.0
 	 *
 	 * @param string $link            The URL to the author's page.
 	 * @param int    $author_id       The author's ID.
@@ -398,9 +394,7 @@ function get_author_posts_url( $author_id, $author_nicename = '' ) {
 /**
  * Lists all the authors of the site, with several options available.
  *
- * @link https://developer.wordpress.org/reference/functions/wp_list_authors/
- *
- * @since 1.2.0
+ * @since WP 1.2.0
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  *
@@ -462,7 +456,7 @@ function wp_list_authors( $args = '' ) {
 	/**
 	 * Filters the query arguments for the list of all authors of the site.
 	 *
-	 * @since 6.1.0
+	 * @since WP 6.1.0
 	 *
 	 * @param array $query_args  The query arguments for get_users().
 	 * @param array $parsed_args The arguments passed to wp_list_authors() combined with the defaults.
@@ -475,7 +469,7 @@ function wp_list_authors( $args = '' ) {
 	/**
 	 * Filters whether to short-circuit performing the query for author post counts.
 	 *
-	 * @since 6.1.0
+	 * @since WP 6.1.0
 	 *
 	 * @param int[]|false $post_counts Array of post counts, keyed by author ID.
 	 * @param array       $parsed_args The arguments passed to wp_list_authors() combined with the defaults.
@@ -589,11 +583,7 @@ function wp_list_authors( $args = '' ) {
  *
  * Checks to see if more than one author has published posts.
  *
- * For more information on this and similar theme functions, check out
- * the {@link https://developer.wordpress.org/themes/basics/conditional-tags/
- * Conditional Tags} article in the Theme Developer Handbook.
- *
- * @since 3.2.0
+ * @since WP 3.2.0
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  *
@@ -612,7 +602,7 @@ function is_multi_author() {
 	/**
 	 * Filters whether the site has more than one author with published posts.
 	 *
-	 * @since 3.2.0
+	 * @since WP 3.2.0
 	 *
 	 * @param bool $is_multi_author Whether $is_multi_author should evaluate as true.
 	 */
@@ -622,7 +612,7 @@ function is_multi_author() {
 /**
  * Helper function to clear the cache for number of authors.
  *
- * @since 3.2.0
+ * @since WP 3.2.0
  * @access private
  */
 function __clear_multi_author_cache() { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionDoubleUnderscore,PHPCompatibility.FunctionNameRestrictions.ReservedFunctionNames.FunctionDoubleUnderscore

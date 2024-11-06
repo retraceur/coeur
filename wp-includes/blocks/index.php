@@ -24,7 +24,7 @@ require BLOCKS_PATH . 'require-dynamic-blocks.php';
  * implemented is inefficient for core block styles. Registering those style handles here
  * avoids unnecessary logic and filesystem lookups in the other function.
  *
- * @since 6.3.0
+ * @since WP 6.3.0
  */
 function register_core_block_style_handles() {
 	$wp_version = wp_get_wp_version();
@@ -147,7 +147,7 @@ add_action( 'init', 'register_core_block_style_handles', 9 );
  * Registers core block types using metadata files.
  * Dynamic core blocks are registered separately.
  *
- * @since 5.5.0
+ * @since WP 5.5.0
  */
 function register_core_block_types_from_metadata() {
 	$block_folders = require BLOCKS_PATH . 'require-static-blocks.php';
@@ -166,7 +166,7 @@ add_action( 'init', 'register_core_block_types_from_metadata' );
  * ensuring that the core block metadata is registered before the regular
  * block initialization that happens at priority 10.
  *
- * @since 6.7.0
+ * @since WP 6.7.0
  */
 function wp_register_core_block_metadata_collection() {
 	wp_register_block_metadata_collection(

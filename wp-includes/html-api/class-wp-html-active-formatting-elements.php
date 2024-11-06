@@ -4,7 +4,7 @@
  *
  * @package motsVertueux
  * @subpackage HTML-API
- * @since 6.4.0
+ * @since WP 6.4.0
  */
 
 /**
@@ -26,7 +26,7 @@
  * > is associated with the token for which it was created, so that
  * > further elements can be created for that token if necessary.
  *
- * @since 6.4.0
+ * @since WP 6.4.0
  *
  * @access private
  *
@@ -37,7 +37,7 @@ class WP_HTML_Active_Formatting_Elements {
 	/**
 	 * Holds the stack of active formatting element references.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @var WP_HTML_Token[]
 	 */
@@ -46,7 +46,7 @@ class WP_HTML_Active_Formatting_Elements {
 	/**
 	 * Reports if a specific node is in the stack of active formatting elements.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @param WP_HTML_Token $token Look for this node in the stack.
 	 * @return bool Whether the referenced node is in the stack of active formatting elements.
@@ -64,7 +64,7 @@ class WP_HTML_Active_Formatting_Elements {
 	/**
 	 * Returns how many nodes are currently in the stack of active formatting elements.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @return int How many node are in the stack of active formatting elements.
 	 */
@@ -76,7 +76,7 @@ class WP_HTML_Active_Formatting_Elements {
 	 * Returns the node at the end of the stack of active formatting elements,
 	 * if one exists. If the stack is empty, returns null.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @return WP_HTML_Token|null Last node in the stack of active formatting elements, if one exists, otherwise null.
 	 */
@@ -96,7 +96,7 @@ class WP_HTML_Active_Formatting_Elements {
 	 *
 	 * @see https://html.spec.whatwg.org/#concept-parser-marker
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 */
 	public function insert_marker(): void {
 		$this->push( new WP_HTML_Token( null, 'marker', false ) );
@@ -105,7 +105,7 @@ class WP_HTML_Active_Formatting_Elements {
 	/**
 	 * Pushes a node onto the stack of active formatting elements.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @see https://html.spec.whatwg.org/#push-onto-the-list-of-active-formatting-elements
 	 *
@@ -130,7 +130,7 @@ class WP_HTML_Active_Formatting_Elements {
 	/**
 	 * Removes a node from the stack of active formatting elements.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @param WP_HTML_Token $token Remove this node from the stack, if it's there already.
 	 * @return bool Whether the node was found and removed from the stack of active formatting elements.
@@ -166,7 +166,7 @@ class WP_HTML_Active_Formatting_Elements {
 	 * To start with the most-recently added element and walk towards the top,
 	 * see WP_HTML_Active_Formatting_Elements::walk_up().
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 */
 	public function walk_down() {
 		$count = count( $this->stack );
@@ -193,7 +193,7 @@ class WP_HTML_Active_Formatting_Elements {
 	 * To start with the first added element and walk towards the bottom,
 	 * see WP_HTML_Active_Formatting_Elements::walk_down().
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 */
 	public function walk_up() {
 		for ( $i = count( $this->stack ) - 1; $i >= 0; $i-- ) {
@@ -216,7 +216,7 @@ class WP_HTML_Active_Formatting_Elements {
 	 *
 	 * @see https://html.spec.whatwg.org/multipage/parsing.html#clear-the-list-of-active-formatting-elements-up-to-the-last-marker
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 */
 	public function clear_up_to_last_marker(): void {
 		foreach ( $this->walk_up() as $item ) {

@@ -22,7 +22,7 @@ $title = __( 'Export' );
 /**
  * Display JavaScript on the page.
  *
- * @since 3.5.0
+ * @since WP 3.5.0
  */
 function export_add_js() {
 	?>
@@ -52,12 +52,6 @@ get_current_screen()->add_help_tab(
 		'content' => '<p>' . __( 'You can export a file of your site&#8217;s content in order to import it into another installation or platform. The export file will be an XML file format called WXR. Posts, pages, comments, custom fields, categories, and tags can be included. You can choose for the WXR file to include only certain posts or pages by setting the dropdown filters to limit the export by category, author, date range by month, or publishing status.' ) . '</p>' .
 			'<p>' . __( 'Once generated, your WXR file can be imported by another WordPress site or by another blogging platform able to access this format.' ) . '</p>',
 	)
-);
-
-get_current_screen()->set_help_sidebar(
-	'<p><strong>' . __( 'For more information:' ) . '</strong></p>' .
-	'<p>' . __( '<a href="https://wordpress.org/documentation/article/tools-export-screen/">Documentation on Export</a>' ) . '</p>' .
-	'<p>' . __( '<a href="https://wordpress.org/support/forums/">Support forums</a>' ) . '</p>'
 );
 
 // If the 'download' URL parameter is set, a WXR export file is baked and returned.
@@ -114,7 +108,7 @@ if ( isset( $_GET['download'] ) ) {
 	/**
 	 * Filters the export args.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @param array $args The arguments to send to the exporter.
 	 */
@@ -129,7 +123,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 /**
  * Creates the date options fields for exporting a given post type.
  *
- * @since 3.1.0
+ * @since WP 3.1.0
  *
  * @global wpdb      $wpdb      WordPress database abstraction object.
  * @global WP_Locale $wp_locale WordPress date and time locale object.
@@ -337,7 +331,7 @@ foreach ( get_post_types(
 /**
  * Fires at the end of the export filters form.
  *
- * @since 3.5.0
+ * @since WP 3.5.0
  */
 do_action( 'export_filters' );
 ?>

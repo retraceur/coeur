@@ -4,12 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage Image_Editor
+ * @since 1.0.0 motsVertueux fork.
  */
 
 /**
  * WordPress Image Editor Class for Image Manipulation through Imagick PHP Module
  *
- * @since 3.5.0
+ * @since WP 3.5.0
  *
  * @see WP_Image_Editor
  */
@@ -35,7 +36,7 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 	 * We require Imagick 2.2.0 or greater, based on whether the queryFormats()
 	 * method can be called statically.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @param array $args
 	 * @return bool
@@ -90,7 +91,7 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 	/**
 	 * Checks to see if editor supports the mime-type specified.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @param string $mime_type
 	 * @return bool
@@ -121,7 +122,7 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 	/**
 	 * Loads image from $this->file into new Imagick Object.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @return true|WP_Error True if loaded; WP_Error on failure.
 	 */
@@ -189,7 +190,7 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 	/**
 	 * Sets Image Compression quality on a 1-100% scale.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @param int $quality Compression Quality. Range: [1,100]
 	 * @return true|WP_Error True if set successfully; WP_Error on failure.
@@ -243,7 +244,7 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 	/**
 	 * Sets or updates current image size.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @param int $width
 	 * @param int $height
@@ -293,17 +294,14 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 	 * This function, which is expected to be run before heavy image routines, resolves
 	 * point 1 above by aligning Imagick's timeout with PHP's timeout, assuming it is set.
 	 *
-	 * However seems it introduces more problems than it fixes,
-	 * see https://core.trac.wordpress.org/ticket/58202.
-	 *
 	 * Note:
 	 *  - Imagick resource exhaustion does not issue catchable exceptions (yet).
 	 *    See https://github.com/Imagick/imagick/issues/333.
 	 *  - The resource limit is not saved/restored. It applies to subsequent
 	 *    image operations within the time of the HTTP request.
 	 *
-	 * @since 6.2.0
-	 * @since 6.3.0 This method was deprecated.
+	 * @since WP 6.2.0
+	 * @since WP 6.3.0 This method was deprecated.
 	 *
 	 * @return int|null The new limit on success, null on failure.
 	 */
@@ -337,7 +335,7 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 	 * If one of the two is set to null, the resize will
 	 * maintain aspect ratio according to the provided dimension.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @param int|null   $max_w Image width.
 	 * @param int|null   $max_h Image height.
@@ -382,7 +380,7 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 	 * This is a WordPress specific implementation of Imagick::thumbnailImage(),
 	 * which resizes an image to given dimensions and removes any associated profiles.
 	 *
-	 * @since 4.5.0
+	 * @since WP 4.5.0
 	 *
 	 * @param int    $dst_w       The destination width.
 	 * @param int    $dst_h       The destination height.
@@ -425,7 +423,7 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 		 * This filter only applies when resizing using the Imagick editor since GD
 		 * always strips profiles by default.
 		 *
-		 * @since 4.5.0
+		 * @since WP 4.5.0
 		 *
 		 * @param bool $strip_meta Whether to strip image metadata during resizing. Default true.
 		 */
@@ -515,7 +513,7 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 	 * the new images one at a time and allows for the meta data to be saved after
 	 * each new image is created.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @param array $sizes {
 	 *     An array of image size data arrays.
@@ -551,7 +549,7 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 	/**
 	 * Create an image sub-size and return the image meta data value for it.
 	 *
-	 * @since 5.3.0
+	 * @since WP 5.3.0
 	 *
 	 * @param array $size_data {
 	 *     Array of size data.
@@ -612,7 +610,7 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 	/**
 	 * Crops Image.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @param int  $src_x   The start x position to crop from.
 	 * @param int  $src_y   The start y position to crop from.
@@ -662,7 +660,7 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 	/**
 	 * Rotates current image counter-clockwise by $angle.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @param float $angle
 	 * @return true|WP_Error
@@ -697,7 +695,7 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 	/**
 	 * Flips current image.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @param bool $horz Flip along Horizontal Axis
 	 * @param bool $vert Flip along Vertical Axis
@@ -730,7 +728,7 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 	 * As ImageMagick copies the EXIF data to the flipped/rotated image, proceed only
 	 * if EXIF Orientation can be reset afterwards.
 	 *
-	 * @since 5.3.0
+	 * @since WP 5.3.0
 	 *
 	 * @return bool|WP_Error True if the image was rotated. False if no EXIF data or if the image doesn't need rotation.
 	 *                       WP_Error if error while rotating.
@@ -746,8 +744,8 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 	/**
 	 * Saves current image to file.
 	 *
-	 * @since 3.5.0
-	 * @since 6.0.0 The `$filesize` value was added to the returned array.
+	 * @since WP 3.5.0
+	 * @since WP 6.0.0 The `$filesize` value was added to the returned array.
 	 *
 	 * @param string $destfilename Optional. Destination filename. Default null.
 	 * @param string $mime_type    Optional. The mime-type. Default null.
@@ -782,7 +780,7 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 	/**
 	 * Removes PDF alpha after it's been read.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 */
 	protected function remove_pdf_alpha_channel() {
 		$version = Imagick::getVersion();
@@ -798,8 +796,8 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 	}
 
 	/**
-	 * @since 3.5.0
-	 * @since 6.0.0 The `$filesize` value was added to the returned array.
+	 * @since WP 3.5.0
+	 * @since WP 6.0.0 The `$filesize` value was added to the returned array.
 	 *
 	 * @param Imagick $image
 	 * @param string  $filename
@@ -880,7 +878,7 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 	/**
 	 * Writes an image to a file or stream.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param Imagick $image
 	 * @param string  $filename The destination filename or stream URL.
@@ -930,7 +928,7 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 	/**
 	 * Streams current image to browser.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @param string $mime_type The mime type of the image.
 	 * @return true|WP_Error True on success, WP_Error object on failure.
@@ -958,7 +956,7 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 	/**
 	 * Strips all image meta except color profiles from an image.
 	 *
-	 * @since 4.5.0
+	 * @since WP 4.5.0
 	 *
 	 * @return true|WP_Error True if stripping metadata was successful. WP_Error object on error.
 	 */
@@ -1021,7 +1019,7 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 	 * Sets up Imagick for PDF processing.
 	 * Increases rendering DPI and only loads first page.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @return string|WP_Error File to load or WP_Error on failure.
 	 */
@@ -1046,7 +1044,7 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 	 * Includes a workaround for a bug in Ghostscript 8.70 that prevents processing of some PDF files
 	 * when `use-cropbox` is set.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @return true|WP_Error
 	 */

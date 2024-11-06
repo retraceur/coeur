@@ -4,13 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage HTTP
- * @since 4.4.0
+ * @since WP 4.4.0
  */
 
 /**
  * Core class used to prepare HTTP responses.
  *
- * @since 4.4.0
+ * @since WP 4.4.0
  */
 #[AllowDynamicProperties]
 class WP_HTTP_Response {
@@ -18,7 +18,7 @@ class WP_HTTP_Response {
 	/**
 	 * Response data.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 * @var mixed
 	 */
 	public $data;
@@ -26,7 +26,7 @@ class WP_HTTP_Response {
 	/**
 	 * Response headers.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 * @var array
 	 */
 	public $headers;
@@ -34,7 +34,7 @@ class WP_HTTP_Response {
 	/**
 	 * Response status.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 * @var int
 	 */
 	public $status;
@@ -42,7 +42,7 @@ class WP_HTTP_Response {
 	/**
 	 * Constructor.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 *
 	 * @param mixed $data    Response data. Default null.
 	 * @param int   $status  Optional. HTTP status code. Default 200.
@@ -57,7 +57,7 @@ class WP_HTTP_Response {
 	/**
 	 * Retrieves headers associated with the response.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 *
 	 * @return array Map of header name to header value.
 	 */
@@ -68,7 +68,7 @@ class WP_HTTP_Response {
 	/**
 	 * Sets all header values.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 *
 	 * @param array $headers Map of header name to header value.
 	 */
@@ -79,7 +79,7 @@ class WP_HTTP_Response {
 	/**
 	 * Sets a single HTTP header.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 *
 	 * @param string $key     Header name.
 	 * @param string $value   Header value.
@@ -97,7 +97,7 @@ class WP_HTTP_Response {
 	/**
 	 * Retrieves the HTTP return code for the response.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 *
 	 * @return int The 3-digit HTTP status code.
 	 */
@@ -108,7 +108,7 @@ class WP_HTTP_Response {
 	/**
 	 * Sets the 3-digit HTTP status code.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 *
 	 * @param int $code HTTP status.
 	 */
@@ -119,7 +119,7 @@ class WP_HTTP_Response {
 	/**
 	 * Retrieves the response data.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 *
 	 * @return mixed Response data.
 	 */
@@ -130,7 +130,7 @@ class WP_HTTP_Response {
 	/**
 	 * Sets the response data.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 *
 	 * @param mixed $data Response data.
 	 */
@@ -144,7 +144,7 @@ class WP_HTTP_Response {
 	 * It is expected that in most implementations, this will return the same as get_data(),
 	 * however this may be different if you want to do custom JSON data handling.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 *
 	 * @return mixed Any JSON-serializable value.
 	 */

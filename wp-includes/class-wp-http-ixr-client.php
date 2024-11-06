@@ -3,7 +3,7 @@
  * WP_HTTP_IXR_Client
  *
  * @package motsVertueux
- * @since 3.1.0
+ * @since WP 3.1.0
  */
 #[AllowDynamicProperties]
 class WP_HTTP_IXR_Client extends IXR_Client {
@@ -47,8 +47,8 @@ class WP_HTTP_IXR_Client extends IXR_Client {
 	}
 
 	/**
-	 * @since 3.1.0
-	 * @since 5.5.0 Formalized the existing `...$args` parameter by adding it
+	 * @since WP 3.1.0
+	 * @since WP 5.5.0 Formalized the existing `...$args` parameter by adding it
 	 *              to the function signature.
 	 *
 	 * @return bool
@@ -74,7 +74,7 @@ class WP_HTTP_IXR_Client extends IXR_Client {
 		/**
 		 * Filters the headers collection to be sent to the XML-RPC server.
 		 *
-		 * @since 4.4.0
+		 * @since WP 4.4.0
 		 *
 		 * @param string[] $headers Associative array of headers to be sent.
 		 */

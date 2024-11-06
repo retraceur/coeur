@@ -4,7 +4,7 @@
  *
  * @package motsVertueux
  * @subpackage Administration
- * @since 1.0.0
+ * @since WP 1.0.0
  */
 
 /** WordPress Administration Bootstrap */
@@ -76,13 +76,6 @@ get_current_screen()->add_help_tab(
 	)
 );
 unset( $help );
-
-get_current_screen()->set_help_sidebar(
-	'<p><strong>' . __( 'For more information:' ) . '</strong></p>' .
-	'<p>' . __( '<a href="https://wordpress.org/documentation/article/users-screen/">Documentation on Managing Users</a>' ) . '</p>' .
-	'<p>' . __( '<a href="https://wordpress.org/documentation/article/roles-and-capabilities/">Descriptions of Roles and Capabilities</a>' ) . '</p>' .
-	'<p>' . __( '<a href="https://wordpress.org/support/forums/">Support forums</a>' ) . '</p>'
-);
 
 get_current_screen()->set_screen_reader_content(
 	array(
@@ -303,7 +296,7 @@ switch ( $wp_list_table->current_action() ) {
 		 * Filters whether the users being deleted have additional content
 		 * associated with them outside of the `post_author` and `link_owner` relationships.
 		 *
-		 * @since 5.2.0
+		 * @since WP 5.2.0
 		 *
 		 * @param bool  $users_have_additional_content Whether the users have additional content. Default false.
 		 * @param int[] $user_ids                      Array of IDs for users being deleted.
@@ -432,8 +425,8 @@ switch ( $wp_list_table->current_action() ) {
 			/**
 			 * Fires at the end of the delete users form prior to the confirm button.
 			 *
-			 * @since 4.0.0
-			 * @since 4.5.0 The `$user_ids` parameter was added.
+			 * @since WP 4.0.0
+			 * @since WP 4.5.0 The `$user_ids` parameter was added.
 			 *
 			 * @param WP_User $current_user WP_User object for the current user.
 			 * @param int[]   $user_ids     Array of IDs for users being deleted.

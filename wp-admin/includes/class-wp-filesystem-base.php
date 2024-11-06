@@ -9,7 +9,7 @@
 /**
  * Base WordPress Filesystem class which Filesystem implementations extend.
  *
- * @since 2.5.0
+ * @since WP 2.5.0
  */
 #[AllowDynamicProperties]
 class WP_Filesystem_Base {
@@ -17,7 +17,7 @@ class WP_Filesystem_Base {
 	/**
 	 * Whether to display debug data for the connection.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 * @var bool
 	 */
 	public $verbose = false;
@@ -25,7 +25,7 @@ class WP_Filesystem_Base {
 	/**
 	 * Cached list of local filepaths to mapped remote filepaths.
 	 *
-	 * @since 2.7.0
+	 * @since WP 2.7.0
 	 * @var array
 	 */
 	public $cache = array();
@@ -33,7 +33,7 @@ class WP_Filesystem_Base {
 	/**
 	 * The Access method of the current connection, Set automatically.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 * @var string
 	 */
 	public $method = '';
@@ -50,7 +50,7 @@ class WP_Filesystem_Base {
 	/**
 	 * Returns the path on the remote filesystem of ABSPATH.
 	 *
-	 * @since 2.7.0
+	 * @since WP 2.7.0
 	 *
 	 * @return string The location of the remote path.
 	 */
@@ -71,7 +71,7 @@ class WP_Filesystem_Base {
 	/**
 	 * Returns the path on the remote filesystem of WP_CONTENT_DIR.
 	 *
-	 * @since 2.7.0
+	 * @since WP 2.7.0
 	 *
 	 * @return string The location of the remote path.
 	 */
@@ -82,7 +82,7 @@ class WP_Filesystem_Base {
 	/**
 	 * Returns the path on the remote filesystem of WP_PLUGIN_DIR.
 	 *
-	 * @since 2.7.0
+	 * @since WP 2.7.0
 	 *
 	 * @return string The location of the remote path.
 	 */
@@ -93,7 +93,7 @@ class WP_Filesystem_Base {
 	/**
 	 * Returns the path on the remote filesystem of the Themes Directory.
 	 *
-	 * @since 2.7.0
+	 * @since WP 2.7.0
 	 *
 	 * @param string|false $theme Optional. The theme stylesheet or template for the directory.
 	 *                            Default false.
@@ -113,7 +113,7 @@ class WP_Filesystem_Base {
 	/**
 	 * Returns the path on the remote filesystem of WP_LANG_DIR.
 	 *
-	 * @since 3.2.0
+	 * @since WP 3.2.0
 	 *
 	 * @return string The location of the remote path.
 	 */
@@ -124,8 +124,8 @@ class WP_Filesystem_Base {
 	/**
 	 * Locates a folder on the remote filesystem.
 	 *
-	 * @since 2.5.0
-	 * @deprecated 2.7.0 use WP_Filesystem_Base::abspath() or WP_Filesystem_Base::wp_*_dir() instead.
+	 * @since WP 2.5.0
+	 * @deprecated WP 2.7.0 use WP_Filesystem_Base::abspath() or WP_Filesystem_Base::wp_*_dir() instead.
 	 * @see WP_Filesystem_Base::abspath()
 	 * @see WP_Filesystem_Base::wp_content_dir()
 	 * @see WP_Filesystem_Base::wp_plugins_dir()
@@ -145,8 +145,8 @@ class WP_Filesystem_Base {
 	/**
 	 * Locates a folder on the remote filesystem.
 	 *
-	 * @since 2.5.0
-	 * @deprecated 2.7.0 use WP_Filesystem_Base::abspath() or WP_Filesystem_Base::wp_*_dir() methods instead.
+	 * @since WP 2.5.0
+	 * @deprecated WP 2.7.0 use WP_Filesystem_Base::abspath() or WP_Filesystem_Base::wp_*_dir() methods instead.
 	 * @see WP_Filesystem_Base::abspath()
 	 * @see WP_Filesystem_Base::wp_content_dir()
 	 * @see WP_Filesystem_Base::wp_plugins_dir()
@@ -169,7 +169,7 @@ class WP_Filesystem_Base {
 	 * Assumes that on Windows systems, Stripping off the Drive
 	 * letter is OK Sanitizes \\ to / in Windows filepaths.
 	 *
-	 * @since 2.7.0
+	 * @since WP 2.7.0
 	 *
 	 * @param string $folder the folder to locate.
 	 * @return string|false The location of the remote path, false on failure.
@@ -249,7 +249,7 @@ class WP_Filesystem_Base {
 	 *
 	 * Expects Windows sanitized path.
 	 *
-	 * @since 2.7.0
+	 * @since WP 2.7.0
 	 *
 	 * @param string $folder The folder to locate.
 	 * @param string $base   The folder to start searching from.
@@ -342,7 +342,7 @@ class WP_Filesystem_Base {
 	 *
 	 * @link https://www.php.net/manual/en/function.fileperms.php
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @param string $file String filename.
 	 * @return string The *nix-style representation of permissions.
@@ -395,7 +395,7 @@ class WP_Filesystem_Base {
 	/**
 	 * Gets the permissions of the specified file or filepath in their octal format.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @param string $file Path to the file.
 	 * @return string Mode of the file (the last 3 digits).
@@ -412,7 +412,7 @@ class WP_Filesystem_Base {
 	 *
 	 * @link https://www.php.net/manual/en/function.chmod.php#49614
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @param string $mode string The *nix-style file permissions.
 	 * @return string Octal representation of permissions.
@@ -450,7 +450,7 @@ class WP_Filesystem_Base {
 	/**
 	 * Determines if the string provided contains binary characters.
 	 *
-	 * @since 2.7.0
+	 * @since WP 2.7.0
 	 *
 	 * @param string $text String to test against.
 	 * @return bool True if string is binary, false otherwise.
@@ -464,7 +464,7 @@ class WP_Filesystem_Base {
 	 *
 	 * Default behavior is to do nothing, override this in your subclass, if desired.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @param string     $file      Path to the file or directory.
 	 * @param string|int $owner     A user name or number.
@@ -479,7 +479,7 @@ class WP_Filesystem_Base {
 	/**
 	 * Connects filesystem.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 * @abstract
 	 *
 	 * @return bool True on success, false on failure (always true for WP_Filesystem_Direct).
@@ -491,7 +491,7 @@ class WP_Filesystem_Base {
 	/**
 	 * Reads entire file into a string.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 * @abstract
 	 *
 	 * @param string $file Name of the file to read.
@@ -504,7 +504,7 @@ class WP_Filesystem_Base {
 	/**
 	 * Reads entire file into an array.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 * @abstract
 	 *
 	 * @param string $file Path to the file.
@@ -517,7 +517,7 @@ class WP_Filesystem_Base {
 	/**
 	 * Writes a string to a file.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 * @abstract
 	 *
 	 * @param string    $file     Remote path to the file where to write the data.
@@ -533,7 +533,7 @@ class WP_Filesystem_Base {
 	/**
 	 * Gets the current working directory.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 * @abstract
 	 *
 	 * @return string|false The current working directory on success, false on failure.
@@ -545,7 +545,7 @@ class WP_Filesystem_Base {
 	/**
 	 * Changes current directory.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 * @abstract
 	 *
 	 * @param string $dir The new current directory.
@@ -558,7 +558,7 @@ class WP_Filesystem_Base {
 	/**
 	 * Changes the file group.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 * @abstract
 	 *
 	 * @param string     $file      Path to the file.
@@ -574,7 +574,7 @@ class WP_Filesystem_Base {
 	/**
 	 * Changes filesystem permissions.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 * @abstract
 	 *
 	 * @param string    $file      Path to the file.
@@ -591,7 +591,7 @@ class WP_Filesystem_Base {
 	/**
 	 * Gets the file owner.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 * @abstract
 	 *
 	 * @param string $file Path to the file.
@@ -604,7 +604,7 @@ class WP_Filesystem_Base {
 	/**
 	 * Gets the file's group.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 * @abstract
 	 *
 	 * @param string $file Path to the file.
@@ -617,7 +617,7 @@ class WP_Filesystem_Base {
 	/**
 	 * Copies a file.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 * @abstract
 	 *
 	 * @param string    $source      Path to the source file.
@@ -635,7 +635,7 @@ class WP_Filesystem_Base {
 	/**
 	 * Moves a file.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 * @abstract
 	 *
 	 * @param string $source      Path to the source file.
@@ -651,7 +651,7 @@ class WP_Filesystem_Base {
 	/**
 	 * Deletes a file or directory.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 * @abstract
 	 *
 	 * @param string       $file      Path to the file or directory.
@@ -668,7 +668,7 @@ class WP_Filesystem_Base {
 	/**
 	 * Checks if a file or directory exists.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 * @abstract
 	 *
 	 * @param string $path Path to file or directory.
@@ -681,7 +681,7 @@ class WP_Filesystem_Base {
 	/**
 	 * Checks if resource is a file.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 * @abstract
 	 *
 	 * @param string $file File path.
@@ -694,7 +694,7 @@ class WP_Filesystem_Base {
 	/**
 	 * Checks if resource is a directory.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 * @abstract
 	 *
 	 * @param string $path Directory path.
@@ -707,7 +707,7 @@ class WP_Filesystem_Base {
 	/**
 	 * Checks if a file is readable.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 * @abstract
 	 *
 	 * @param string $file Path to file.
@@ -720,7 +720,7 @@ class WP_Filesystem_Base {
 	/**
 	 * Checks if a file or directory is writable.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 * @abstract
 	 *
 	 * @param string $path Path to file or directory.
@@ -733,7 +733,7 @@ class WP_Filesystem_Base {
 	/**
 	 * Gets the file's last access time.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 * @abstract
 	 *
 	 * @param string $file Path to file.
@@ -746,7 +746,7 @@ class WP_Filesystem_Base {
 	/**
 	 * Gets the file modification time.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 * @abstract
 	 *
 	 * @param string $file Path to file.
@@ -759,7 +759,7 @@ class WP_Filesystem_Base {
 	/**
 	 * Gets the file size (in bytes).
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 * @abstract
 	 *
 	 * @param string $file Path to file.
@@ -774,7 +774,7 @@ class WP_Filesystem_Base {
 	 *
 	 * Note: If $file doesn't exist, it will be created.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 * @abstract
 	 *
 	 * @param string $file  Path to file.
@@ -791,7 +791,7 @@ class WP_Filesystem_Base {
 	/**
 	 * Creates a directory.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 * @abstract
 	 *
 	 * @param string           $path  Path for new directory.
@@ -810,7 +810,7 @@ class WP_Filesystem_Base {
 	/**
 	 * Deletes a directory.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 * @abstract
 	 *
 	 * @param string $path      Path to directory.
@@ -825,7 +825,7 @@ class WP_Filesystem_Base {
 	/**
 	 * Gets details for files in a directory or a specific file.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 * @abstract
 	 *
 	 * @param string $path           Path to directory or file.

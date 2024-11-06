@@ -10,7 +10,9 @@
  * servers with known pretty permalink capability.
  *
  * Note: Though Nginx is detected, WordPress does not currently
- * generate rewrite rules for it. See https://developer.wordpress.org/advanced-administration/server/web-server/nginx/
+ * generate rewrite rules for it.
+ * 
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  */
@@ -77,7 +79,7 @@ if ( isset( $_SERVER['HTTP_USER_AGENT'] ) ) {
 			/**
 			 * Filters whether Google Chrome Frame should be used, if available.
 			 *
-			 * @since 3.2.0
+			 * @since WP 3.2.0
 			 *
 			 * @param bool $is_admin Whether to use the Google Chrome Frame. Default is the value of is_admin().
 			 */
@@ -150,8 +152,8 @@ $is_iis7 = $is_IIS && (int) substr( $_SERVER['SERVER_SOFTWARE'], strpos( $_SERVE
 /**
  * Test if the current browser runs on a mobile device (smart phone, tablet, etc.).
  *
- * @since 3.4.0
- * @since 6.4.0 Added checking for the Sec-CH-UA-Mobile request header.
+ * @since WP 3.4.0
+ * @since WP 6.4.0 Added checking for the Sec-CH-UA-Mobile request header.
  *
  * @return bool
  */
@@ -177,7 +179,7 @@ function wp_is_mobile() {
 	/**
 	 * Filters whether the request should be treated as coming from a mobile device or not.
 	 *
-	 * @since 4.9.0
+	 * @since WP 4.9.0
 	 *
 	 * @param bool $is_mobile Whether the request is from a mobile device or not.
 	 */

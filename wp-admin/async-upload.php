@@ -155,7 +155,7 @@ if ( $_REQUEST['short'] ) {
 	 *  - `async_upload_image`
 	 *  - `async_upload_video`
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @param int $id Uploaded attachment ID.
 	 */

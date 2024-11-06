@@ -1,10 +1,12 @@
 <?php
 /**
  * Nav Menu API: Template functions
+ * 
+ * @since WP 3.0.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Nav_Menus
- * @since 3.0.0
  */
 
 /** Walker_Nav_Menu class */
@@ -13,9 +15,9 @@ require_once ABSPATH . WPINC . '/class-walker-nav-menu.php';
 /**
  * Displays a navigation menu.
  *
- * @since 3.0.0
- * @since 4.7.0 Added the `item_spacing` argument.
- * @since 5.5.0 Added the `container_aria_label` argument.
+ * @since WP 3.0.0
+ * @since WP 4.7.0 Added the `item_spacing` argument.
+ * @since WP 5.5.0 Added the `container_aria_label` argument.
  *
  * @param array $args {
  *     Optional. Array of nav menu arguments.
@@ -88,7 +90,7 @@ function wp_nav_menu( $args = array() ) {
 	/**
 	 * Filters the arguments used to display a navigation menu.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 *
 	 * @see wp_nav_menu()
 	 *
@@ -103,7 +105,7 @@ function wp_nav_menu( $args = array() ) {
 	 * Returning a non-null value from the filter will short-circuit wp_nav_menu(),
 	 * echoing that value if $args->echo is true, returning that value otherwise.
 	 *
-	 * @since 3.9.0
+	 * @since WP 3.9.0
 	 *
 	 * @see wp_nav_menu()
 	 *
@@ -176,7 +178,7 @@ function wp_nav_menu( $args = array() ) {
 		/**
 		 * Filters the list of HTML tags that are valid for use as menu containers.
 		 *
-		 * @since 3.0.0
+		 * @since WP 3.0.0
 		 *
 		 * @param string[] $tags The acceptable HTML tags for use as menu containers.
 		 *                       Default is array containing 'div' and 'nav'.
@@ -199,7 +201,7 @@ function wp_nav_menu( $args = array() ) {
 	$menu_items_with_children = array();
 	foreach ( (array) $menu_items as $menu_item ) {
 		/*
-		 * Fix invalid `menu_item_parent`. See: https://core.trac.wordpress.org/ticket/56926.
+		 * Fix invalid `menu_item_parent`.
 		 * Compare as strings. Plugins may change the ID to a string.
 		 */
 		if ( (string) $menu_item->ID === (string) $menu_item->menu_item_parent ) {
@@ -226,7 +228,7 @@ function wp_nav_menu( $args = array() ) {
 	/**
 	 * Filters the sorted list of menu item objects before generating the menu's HTML.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @param array    $sorted_menu_items The menu items, sorted by each menu item's menu order.
 	 * @param stdClass $args              An object containing wp_nav_menu() arguments.
@@ -257,7 +259,7 @@ function wp_nav_menu( $args = array() ) {
 	/**
 	 * Filters the HTML list content for navigation menus.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 *
 	 * @see wp_nav_menu()
 	 *
@@ -268,7 +270,7 @@ function wp_nav_menu( $args = array() ) {
 	/**
 	 * Filters the HTML list content for a specific navigation menu.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 *
 	 * @see wp_nav_menu()
 	 *
@@ -292,7 +294,7 @@ function wp_nav_menu( $args = array() ) {
 	/**
 	 * Filters the HTML content for navigation menus.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 *
 	 * @see wp_nav_menu()
 	 *
@@ -312,7 +314,7 @@ function wp_nav_menu( $args = array() ) {
  * Adds the class property classes for the current context, if applicable.
  *
  * @access private
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @global WP_Query   $wp_query   WordPress Query object.
  * @global WP_Rewrite $wp_rewrite WordPress rewrite component.
@@ -603,7 +605,7 @@ function _wp_menu_item_classes_by_context( &$menu_items ) {
  * Retrieves the HTML list content for nav menu items.
  *
  * @uses Walker_Nav_Menu to create HTML list content.
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @param array    $items The menu items, sorted by each menu item's menu order.
  * @param int      $depth Depth of the item in reference to parents.
@@ -619,7 +621,7 @@ function walk_nav_menu_tree( $items, $depth, $args ) {
 /**
  * Prevents a menu item ID from being used more than once.
  *
- * @since 3.0.1
+ * @since WP 3.0.1
  * @access private
  *
  * @param string $id
@@ -646,9 +648,7 @@ function _nav_menu_item_id_use_once( $id, $item ) {
  * WordPress 3.0.0 so this needs to allow for cases in which the filter is
  * called without them.
  *
- * @see https://core.trac.wordpress.org/ticket/56926
- *
- * @since 6.2.0
+ * @since WP 6.2.0
  *
  * @param string[]       $classes   Array of the CSS classes that are applied to the menu item's `<li>` element.
  * @param WP_Post        $menu_item The current menu item object.

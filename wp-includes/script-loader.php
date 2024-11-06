@@ -12,6 +12,8 @@
  * The globals $concatenate_scripts, $compress_scripts and $compress_css can be set by plugins
  * to temporarily override the above settings. Also a compression test is run once and the result is saved
  * as option 'can_compress_scripts' (0/1). The test will run again if that option is deleted.
+ * 
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  */
@@ -37,7 +39,7 @@ require ABSPATH . WPINC . '/functions.wp-styles.php';
 /**
  * Registers TinyMCE scripts.
  *
- * @since 5.0.0
+ * @since WP 5.0.0
  *
  * @global string $tinymce_version
  * @global bool   $concatenate_scripts
@@ -76,7 +78,7 @@ function wp_register_tinymce_scripts( $scripts, $force_uncompressed = false ) {
  *
  * For the order of `$scripts->add` see `wp_default_scripts`.
  *
- * @since 5.0.0
+ * @since WP 5.0.0
  *
  * @global WP_Locale $wp_locale WordPress date and time locale object.
  *
@@ -171,7 +173,7 @@ function wp_default_packages_vendor( $scripts ) {
  * browsers which fail the provided tests. The provided array is a mapping from
  * a condition to verify feature support to its polyfill script handle.
  *
- * @since 5.0.0
+ * @since WP 5.0.0
  *
  * @param WP_Scripts $scripts WP_Scripts object.
  * @param string[]   $tests   Features to detect.
@@ -224,7 +226,7 @@ function wp_get_script_polyfill( $scripts, $tests ) {
  *
  * @see https://github.com/WordPress/gutenberg/tree/trunk/packages/scripts#start
  *
- * @since 6.0.0
+ * @since WP 6.0.0
  *
  * @param WP_Scripts $scripts WP_Scripts object.
  */
@@ -265,7 +267,7 @@ function wp_register_development_scripts( $scripts ) {
  *
  * For the order of `$scripts->add` see `wp_default_scripts`.
  *
- * @since 5.0.0
+ * @since WP 5.0.0
  *
  * @param WP_Scripts $scripts WP_Scripts object.
  */
@@ -329,8 +331,8 @@ function wp_default_packages_scripts( $scripts ) {
 /**
  * Adds inline scripts required for the WordPress JavaScript packages.
  *
- * @since 5.0.0
- * @since 6.4.0 Added relative time strings for the `wp-date` inline script output.
+ * @since WP 5.0.0
+ * @since WP 6.4.0 Added relative time strings for the `wp-date` inline script output.
  *
  * @global WP_Locale $wp_locale WordPress date and time locale object.
  * @global wpdb      $wpdb      WordPress database abstraction object.
@@ -509,7 +511,7 @@ function wp_default_packages_inline_scripts( $scripts ) {
  * These TinyMCE init settings are used to extend and override the default settings
  * from `_WP_Editors::default_settings()` for the Classic block.
  *
- * @since 5.0.0
+ * @since WP 5.0.0
  *
  * @global WP_Scripts $wp_scripts
  */
@@ -652,7 +654,7 @@ function wp_tinymce_inline_scripts() {
 /**
  * Registers all the WordPress packages scripts.
  *
- * @since 5.0.0
+ * @since WP 5.0.0
  *
  * @param WP_Scripts $scripts WP_Scripts object.
  */
@@ -672,7 +674,7 @@ function wp_default_packages( $scripts ) {
  *
  * There are two suffix types, the normal one and the dev suffix.
  *
- * @since 5.0.0
+ * @since WP 5.0.0
  *
  * @param string $type The type of suffix to retrieve.
  * @return string The script suffix.
@@ -723,7 +725,7 @@ function wp_scripts_get_suffix( $type = '' ) {
  * args order: `$scripts->add( 'handle', 'url', 'dependencies', 'query-string', 1 );`
  * when last arg === 1 queues the script for the footer
  *
- * @since 2.6.0
+ * @since WP 2.6.0
  *
  * @param WP_Scripts $scripts WP_Scripts object.
  */
@@ -838,7 +840,7 @@ function wp_default_scripts( $scripts ) {
 		/**
 		 * Filters the Heartbeat settings.
 		 *
-		 * @since 3.6.0
+		 * @since WP 3.6.0
 		 *
 		 * @param array $settings Heartbeat settings array.
 		 */
@@ -1164,7 +1166,7 @@ function wp_default_scripts( $scripts ) {
 		/**
 		 * Filters the MediaElement configuration settings.
 		 *
-		 * @since 4.4.0
+		 * @since WP 4.4.0
 		 *
 		 * @param array $mejs_settings MediaElement settings array.
 		 */
@@ -1338,9 +1340,8 @@ function wp_default_scripts( $scripts ) {
 			'invalidDate'             => __( 'Invalid date.' ),
 			'invalidValue'            => __( 'Invalid value.' ),
 			'blockThemeNotification'  => sprintf(
-				/* translators: 1: Link to Site Editor documentation on HelpHub, 2: HTML button. */
-				__( 'Hurray! Your theme supports site editing with blocks. <a href="%1$s">Tell me more</a>. %2$s' ),
-				__( 'https://wordpress.org/documentation/article/site-editor/' ),
+				/* translators: %s: HTML button. */
+				__( 'Hurray! Your theme supports site editing with blocks. %s' ),
 				sprintf(
 					'<button type="button" data-action="%1$s" class="button switch-to-editor">%2$s</button>',
 					esc_url( admin_url( 'site-editor.php' ) ),
@@ -1490,10 +1491,7 @@ function wp_default_scripts( $scripts ) {
 		$scripts->add( 'set-post-thumbnail', "/wp-admin/js/set-post-thumbnail$suffix.js", array( 'jquery' ), false, 1 );
 		$scripts->set_translations( 'set-post-thumbnail' );
 
-		/*
-		 * Navigation Menus: Adding underscore as a dependency to utilize _.debounce
-		 * see https://core.trac.wordpress.org/ticket/42321
-		 */
+		// Navigation Menus: Adding underscore as a dependency to utilize _.debounce.
 		$scripts->add( 'nav-menu', "/wp-admin/js/nav-menu$suffix.js", array( 'jquery-ui-sortable', 'jquery-ui-draggable', 'jquery-ui-droppable', 'wp-lists', 'postbox', 'json2', 'underscore' ) );
 		$scripts->set_translations( 'nav-menu' );
 
@@ -1516,7 +1514,7 @@ function wp_default_scripts( $scripts ) {
  * Adding default styles is not the only task, it also assigns the base_url
  * property, the default version, and text direction for the object.
  *
- * @since 2.6.0
+ * @since WP 2.6.0
  *
  * @global array $editor_styles
  *
@@ -1854,7 +1852,7 @@ function wp_default_styles( $styles ) {
 /**
  * Reorders JavaScript scripts array to place prototype before jQuery.
  *
- * @since 2.3.1
+ * @since WP 2.3.1
  *
  * @param string[] $js_array JavaScript scripts array
  * @return string[] Reordered array, if needed.
@@ -1888,7 +1886,7 @@ function wp_prototype_before_jquery( $js_array ) {
  *
  * These localizations require information that may not be loaded even by init.
  *
- * @since 2.5.0
+ * @since WP 2.5.0
  *
  * @global array $shortcode_tags
  */
@@ -1924,7 +1922,7 @@ function wp_just_in_time_script_localization() {
 /**
  * Localizes the jQuery UI datepicker.
  *
- * @since 4.6.0
+ * @since WP 4.6.0
  *
  * @link https://api.jqueryui.com/datepicker/#options
  *
@@ -1987,48 +1985,6 @@ function wp_localize_jquery_ui_datepicker() {
 }
 
 /**
- * Localizes community events data that needs to be passed to dashboard.js.
- *
- * @since 4.8.0
- */
-function wp_localize_community_events() {
-	if ( ! wp_script_is( 'dashboard' ) ) {
-		return;
-	}
-
-	require_once ABSPATH . 'wp-admin/includes/class-wp-community-events.php';
-
-	$user_id            = get_current_user_id();
-	$saved_location     = get_user_option( 'community-events-location', $user_id );
-	$saved_ip_address   = isset( $saved_location['ip'] ) ? $saved_location['ip'] : false;
-	$current_ip_address = WP_Community_Events::get_unsafe_client_ip();
-
-	/*
-	 * If the user's location is based on their IP address, then update their
-	 * location when their IP address changes. This allows them to see events
-	 * in their current city when travelling. Otherwise, they would always be
-	 * shown events in the city where they were when they first loaded the
-	 * Dashboard, which could have been months or years ago.
-	 */
-	if ( $saved_ip_address && $current_ip_address && $current_ip_address !== $saved_ip_address ) {
-		$saved_location['ip'] = $current_ip_address;
-		update_user_meta( $user_id, 'community-events-location', $saved_location );
-	}
-
-	$events_client = new WP_Community_Events( $user_id, $saved_location );
-
-	wp_localize_script(
-		'dashboard',
-		'communityEventsData',
-		array(
-			'nonce'       => wp_create_nonce( 'community_events' ),
-			'cache'       => $events_client->get_cached_events(),
-			'time_format' => get_option( 'time_format' ),
-		)
-	);
-}
-
-/**
  * Administration Screen CSS for changing the styles.
  *
  * If installing the 'wp-admin/' directory will be replaced with './'.
@@ -2041,7 +1997,7 @@ function wp_localize_community_events() {
  * The query from $src parameter will be appended to the URL that is given from
  * the $_wp_admin_css_colors array value URL.
  *
- * @since 2.6.0
+ * @since WP 2.6.0
  *
  * @global array $_wp_admin_css_colors
  *
@@ -2088,7 +2044,7 @@ function wp_style_loader_src( $src, $handle ) {
  * Postpones the scripts that were queued for the footer.
  * print_footer_scripts() is called in the footer to print these scripts.
  *
- * @since 2.8.0
+ * @since WP 2.8.0
  *
  * @see wp_print_scripts()
  *
@@ -2113,7 +2069,7 @@ function print_head_scripts() {
 	/**
 	 * Filters whether to print the head scripts.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @param bool $print Whether to print the head scripts. Default true.
 	 */
@@ -2128,7 +2084,7 @@ function print_head_scripts() {
 /**
  * Prints the scripts that were queued for the footer or too late for the HTML head.
  *
- * @since 2.8.0
+ * @since WP 2.8.0
  *
  * @global WP_Scripts $wp_scripts
  * @global bool       $concatenate_scripts
@@ -2148,7 +2104,7 @@ function print_footer_scripts() {
 	/**
 	 * Filters whether to print the footer scripts.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @param bool $print Whether to print the footer scripts. Default true.
 	 */
@@ -2210,7 +2166,7 @@ function _print_scripts() {
  * Postpones the scripts that were queued for the footer.
  * wp_print_footer_scripts() is called in the footer to print these scripts.
  *
- * @since 2.8.0
+ * @since WP 2.8.0
  *
  * @global WP_Scripts $wp_scripts
  *
@@ -2234,7 +2190,7 @@ function wp_print_head_scripts() {
 /**
  * Private, for use in *_footer_scripts hooks
  *
- * @since 3.3.0
+ * @since WP 3.3.0
  */
 function _wp_footer_scripts() {
 	print_late_styles();
@@ -2244,13 +2200,13 @@ function _wp_footer_scripts() {
 /**
  * Hooks to print the scripts and styles in the footer.
  *
- * @since 2.8.0
+ * @since WP 2.8.0
  */
 function wp_print_footer_scripts() {
 	/**
 	 * Fires when footer scripts are printed.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 */
 	do_action( 'wp_print_footer_scripts' );
 }
@@ -2261,13 +2217,13 @@ function wp_print_footer_scripts() {
  * Allows plugins to queue scripts for the front end using wp_enqueue_script().
  * Runs first in wp_head() where all is_home(), is_page(), etc. functions are available.
  *
- * @since 2.8.0
+ * @since WP 2.8.0
  */
 function wp_enqueue_scripts() {
 	/**
 	 * Fires when scripts and styles are enqueued.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 */
 	do_action( 'wp_enqueue_scripts' );
 }
@@ -2275,7 +2231,7 @@ function wp_enqueue_scripts() {
 /**
  * Prints the styles queue in the HTML head on admin pages.
  *
- * @since 2.8.0
+ * @since WP 2.8.0
  *
  * @global bool $concatenate_scripts
  *
@@ -2293,7 +2249,7 @@ function print_admin_styles() {
 	/**
 	 * Filters whether to print the admin styles.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @param bool $print Whether to print the admin styles. Default true.
 	 */
@@ -2308,7 +2264,7 @@ function print_admin_styles() {
 /**
  * Prints the styles that were queued too late for the HTML head.
  *
- * @since 3.3.0
+ * @since WP 3.3.0
  *
  * @global WP_Styles $wp_styles
  * @global bool      $concatenate_scripts
@@ -2329,7 +2285,7 @@ function print_late_styles() {
 	/**
 	 * Filters whether to print the styles queued too late for the HTML head.
 	 *
-	 * @since 3.3.0
+	 * @since WP 3.3.0
 	 *
 	 * @param bool $print Whether to print the 'late' styles. Default true.
 	 */
@@ -2345,7 +2301,7 @@ function print_late_styles() {
  * Prints styles (internal use only).
  *
  * @ignore
- * @since 3.3.0
+ * @since WP 3.3.0
  *
  * @global bool $compress_css
  */
@@ -2391,7 +2347,7 @@ function _print_styles() {
 /**
  * Determines the concatenation and compression settings for scripts and styles.
  *
- * @since 2.8.0
+ * @since WP 2.8.0
  *
  * @global bool $concatenate_scripts
  * @global bool $compress_scripts
@@ -2430,7 +2386,7 @@ function script_concat_settings() {
  * Handles the enqueueing of block scripts and styles that are common to both
  * the editor and the front-end.
  *
- * @since 5.0.0
+ * @since WP 5.0.0
  */
 function wp_common_block_scripts_and_styles() {
 	if ( is_admin() && ! wp_should_load_block_editor_scripts_and_styles() ) {
@@ -2451,7 +2407,7 @@ function wp_common_block_scripts_and_styles() {
 	 * In the function call you supply, simply use `wp_enqueue_script` and
 	 * `wp_enqueue_style` to add your functionality to the Gutenberg editor.
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 */
 	do_action( 'enqueue_block_assets' );
 }
@@ -2465,7 +2421,7 @@ function wp_common_block_scripts_and_styles() {
  * This filter allows us to modify the output of WP_Theme_JSON depending on whether or not we are
  * loading separate assets, without making the class aware of that detail.
  *
- * @since 6.1.0
+ * @since WP 6.1.0
  *
  * @param array $nodes The nodes to filter.
  * @return array A filtered array of style nodes.
@@ -2483,7 +2439,7 @@ function wp_filter_out_block_nodes( $nodes ) {
 /**
  * Enqueues the global styles defined via theme.json.
  *
- * @since 5.8.0
+ * @since WP 5.8.0
  */
 function wp_enqueue_global_styles() {
 	$separate_assets  = wp_should_load_separate_core_block_assets();
@@ -2493,8 +2449,6 @@ function wp_enqueue_global_styles() {
 	/*
 	 * Global styles should be printed in the head when loading all styles combined.
 	 * The footer should only be used to print global styles for classic themes with separate core assets enabled.
-	 *
-	 * See https://core.trac.wordpress.org/ticket/53494.
 	 */
 	if (
 		( $is_block_theme && doing_action( 'wp_footer' ) ) ||
@@ -2543,7 +2497,7 @@ function wp_enqueue_global_styles() {
  * Checks if the editor scripts and styles for all registered block types
  * should be enqueued on the current screen.
  *
- * @since 5.6.0
+ * @since WP 5.6.0
  *
  * @global WP_Screen $current_screen WordPress current screen object.
  *
@@ -2558,7 +2512,7 @@ function wp_should_load_block_editor_scripts_and_styles() {
 	 * Filters the flag that decides whether or not block editor scripts and styles
 	 * are going to be enqueued on the current screen.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param bool $is_block_editor_screen Current value of the flag.
 	 */
@@ -2582,7 +2536,7 @@ function wp_should_load_block_editor_scripts_and_styles() {
  * @see wp_enqueue_registered_block_scripts_and_styles()
  * @see register_block_style_handle()
  *
- * @since 5.8.0
+ * @since WP 5.8.0
  *
  * @return bool Whether separate assets will be loaded.
  */
@@ -2597,7 +2551,7 @@ function wp_should_load_separate_core_block_assets() {
 	 * Returning false loads all core block assets, regardless of whether they are rendered
 	 * in a page or not. Returning true loads core block assets only when they are rendered.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @param bool $load_separate_assets Whether separate assets will be loaded.
 	 *                                   Default false (all block assets are loaded, even when not used).
@@ -2609,7 +2563,7 @@ function wp_should_load_separate_core_block_assets() {
  * Enqueues registered block scripts and styles, depending on current rendered
  * context (only enqueuing editor scripts while in context of the editor).
  *
- * @since 5.0.0
+ * @since WP 5.0.0
  *
  * @global WP_Screen $current_screen WordPress current screen object.
  */
@@ -2651,7 +2605,7 @@ function wp_enqueue_registered_block_scripts_and_styles() {
 /**
  * Function responsible for enqueuing the styles required for block styles functionality on the editor and on the frontend.
  *
- * @since 5.3.0
+ * @since WP 5.3.0
  *
  * @global WP_Styles $wp_styles
  */
@@ -2705,7 +2659,7 @@ function enqueue_block_styles_assets() {
 /**
  * Function responsible for enqueuing the assets required for block styles functionality on the editor.
  *
- * @since 5.3.0
+ * @since WP 5.3.0
  */
 function enqueue_editor_block_styles_assets() {
 	$block_styles = WP_Block_Styles_Registry::get_instance()->get_all_registered();
@@ -2738,7 +2692,7 @@ function enqueue_editor_block_styles_assets() {
 /**
  * Enqueues the assets required for the block directory within the block editor.
  *
- * @since 5.5.0
+ * @since WP 5.5.0
  */
 function wp_enqueue_editor_block_directory_assets() {
 	wp_enqueue_script( 'wp-block-directory' );
@@ -2748,7 +2702,7 @@ function wp_enqueue_editor_block_directory_assets() {
 /**
  * Enqueues the assets required for the format library within the block editor.
  *
- * @since 5.8.0
+ * @since WP 5.8.0
  */
 function wp_enqueue_editor_format_library_assets() {
 	wp_enqueue_script( 'wp-format-library' );
@@ -2761,7 +2715,7 @@ function wp_enqueue_editor_format_library_assets() {
  * Automatically injects type attribute if needed.
  * Used by {@see wp_get_script_tag()} and {@see wp_get_inline_script_tag()}.
  *
- * @since 5.7.0
+ * @since WP 5.7.0
  *
  * @param array $attributes Key-value pairs representing `<script>` tag attributes.
  * @return string String made of sanitized `<script>` tag attributes.
@@ -2793,7 +2747,7 @@ function wp_sanitize_script_attributes( $attributes ) {
  * It is possible to inject attributes in the `<script>` tag via the {@see 'wp_script_attributes'} filter.
  * Automatically injects type attribute if needed.
  *
- * @since 5.7.0
+ * @since WP 5.7.0
  *
  * @param array $attributes Key-value pairs representing `<script>` tag attributes.
  * @return string String containing `<script>` opening and closing tags.
@@ -2809,7 +2763,7 @@ function wp_get_script_tag( $attributes ) {
 	/**
 	 * Filters attributes to be added to a script tag.
 	 *
-	 * @since 5.7.0
+	 * @since WP 5.7.0
 	 *
 	 * @param array $attributes Key-value pairs representing `<script>` tag attributes.
 	 *                          Only the attribute name is added to the `<script>` tag for
@@ -2826,7 +2780,7 @@ function wp_get_script_tag( $attributes ) {
  * It is possible to inject attributes in the `<script>` tag via the  {@see 'wp_script_attributes'}  filter.
  * Automatically injects type attribute if needed.
  *
- * @since 5.7.0
+ * @since WP 5.7.0
  *
  * @param array $attributes Key-value pairs representing `<script>` tag attributes.
  */
@@ -2840,7 +2794,7 @@ function wp_print_script_tag( $attributes ) {
  * It is possible to inject attributes in the `<script>` tag via the  {@see 'wp_script_attributes'}  filter.
  * Automatically injects type attribute if needed.
  *
- * @since 5.7.0
+ * @since WP 5.7.0
  *
  * @param string $data       Data for script tag: JavaScript, importmap, speculationrules, etc.
  * @param array  $attributes Optional. Key-value pairs representing `<script>` tag attributes.
@@ -2911,7 +2865,7 @@ function wp_get_inline_script_tag( $data, $attributes = array() ) {
 	/**
 	 * Filters attributes to be added to a script tag.
 	 *
-	 * @since 5.7.0
+	 * @since WP 5.7.0
 	 *
 	 * @param array  $attributes Key-value pairs representing `<script>` tag attributes.
 	 *                           Only the attribute name is added to the `<script>` tag for
@@ -2929,7 +2883,7 @@ function wp_get_inline_script_tag( $data, $attributes = array() ) {
  * It is possible to inject attributes in the `<script>` tag via the  {@see 'wp_script_attributes'}  filter.
  * Automatically injects type attribute if needed.
  *
- * @since 5.7.0
+ * @since WP 5.7.0
  *
  * @param string $data       Data for script tag: JavaScript, importmap, speculationrules, etc.
  * @param array  $attributes Optional. Key-value pairs representing `<script>` tag attributes.
@@ -2946,7 +2900,7 @@ function wp_print_inline_script_tag( $data, $attributes = array() ) {
  *
  *     wp_style_add_data( $style_handle, 'path', $file_path );
  *
- * @since 5.8.0
+ * @since WP 5.8.0
  *
  * @global WP_Styles $wp_styles
  */
@@ -2957,7 +2911,7 @@ function wp_maybe_inline_styles() {
 	/**
 	 * The maximum size of inlined styles in bytes.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @param int $total_inline_limit The file-size threshold, in bytes. Default 20000.
 	 */
@@ -3036,7 +2990,7 @@ function wp_maybe_inline_styles() {
 /**
  * Makes URLs relative to the WordPress installation.
  *
- * @since 5.9.0
+ * @since WP 5.9.0
  * @access private
  *
  * @param string $css            The CSS to make URLs relative to the WordPress installation.
@@ -3077,7 +3031,7 @@ function _wp_normalize_relative_css_links( $css, $stylesheet_url ) {
 /**
  * Function that enqueues the CSS Custom Properties coming from theme.json.
  *
- * @since 5.9.0
+ * @since WP 5.9.0
  */
 function wp_enqueue_global_styles_css_custom_properties() {
 	wp_register_style( 'global-styles-css-custom-properties', false );
@@ -3088,13 +3042,11 @@ function wp_enqueue_global_styles_css_custom_properties() {
 /**
  * Hooks inline styles in the proper place, depending on the active theme.
  *
- * @since 5.9.1
- * @since 6.1.0 Added the `$priority` parameter.
+ * @since WP 5.9.1
+ * @since WP 6.1.0 Added the `$priority` parameter.
  *
  * For block themes, styles are loaded in the head.
  * For classic ones, styles are loaded in the body because the wp_head action happens before render_block.
- *
- * @link https://core.trac.wordpress.org/ticket/53494.
  *
  * @param string $style    String containing the CSS styles to be added.
  * @param int    $priority To set the priority for the add_action.
@@ -3117,9 +3069,7 @@ function wp_enqueue_block_support_styles( $style, $priority = 10 ) {
  * Fetches, processes and compiles stored core styles, then combines and renders them to the page.
  * Styles are stored via the style engine API.
  *
- * @link https://developer.wordpress.org/block-editor/reference-guides/packages/packages-style-engine/
- *
- * @since 6.1.0
+ * @since WP 6.1.0
  *
  * @param array $options {
  *     Optional. An array of options to pass to wp_style_engine_get_stylesheet_from_context().
@@ -3190,7 +3140,7 @@ function wp_enqueue_stored_styles( $options = array() ) {
  * then the stylesheet will be enqueued on-render,
  * otherwise when the block inits.
  *
- * @since 5.9.0
+ * @since WP 5.9.0
  *
  * @param string $block_name The block-name, including namespace.
  * @param array  $args       {
@@ -3302,7 +3252,7 @@ function wp_enqueue_block_style( $block_name, $args ) {
  *
  * This is needed for backwards compatibility for button blocks specifically.
  *
- * @since 6.1.0
+ * @since WP 6.1.0
  */
 function wp_enqueue_classic_theme_styles() {
 	if ( ! wp_theme_has_theme_json() ) {
@@ -3318,7 +3268,7 @@ function wp_enqueue_classic_theme_styles() {
  *
  * This is needed for backwards compatibility for button blocks specifically.
  *
- * @since 6.1.0
+ * @since WP 6.1.0
  *
  * @param array $editor_settings The array of editor settings.
  * @return array A filtered array of editor settings.
@@ -3368,7 +3318,7 @@ function wp_add_editor_classic_theme_styles( $editor_settings ) {
  *     $js = '<script type="text/javascript">console.log( "hi" );</script>';
  *     'console.error( ... )' === wp_remove_surrounding_empty_script_tags( $js );
  *
- * @since 6.4.0
+ * @since WP 6.4.0
  * @access private
  *
  * @see wp_print_inline_script_tag()

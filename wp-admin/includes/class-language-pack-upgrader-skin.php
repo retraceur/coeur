@@ -4,14 +4,14 @@
  *
  * @package motsVertueux
  * @subpackage Upgrader
- * @since 4.6.0
+ * @since WP 4.6.0
  */
 
 /**
  * Translation Upgrader Skin for WordPress Translation Upgrades.
  *
- * @since 3.7.0
- * @since 4.6.0 Moved to its own file from wp-admin/includes/class-wp-upgrader-skins.php.
+ * @since WP 3.7.0
+ * @since WP 4.6.0 Moved to its own file from wp-admin/includes/class-wp-upgrader-skins.php.
  *
  * @see WP_Upgrader_Skin
  */
@@ -26,7 +26,7 @@ class Language_Pack_Upgrader_Skin extends WP_Upgrader_Skin {
 	 *
 	 * Sets up the language pack upgrader skin.
 	 *
-	 * @since 3.7.0
+	 * @since WP 3.7.0
 	 *
 	 * @param array $args
 	 */
@@ -49,7 +49,7 @@ class Language_Pack_Upgrader_Skin extends WP_Upgrader_Skin {
 	/**
 	 * Performs an action before a language pack update.
 	 *
-	 * @since 3.7.0
+	 * @since WP 3.7.0
 	 */
 	public function before() {
 		$name = $this->upgrader->get_name_for_update( $this->language_update );
@@ -63,8 +63,8 @@ class Language_Pack_Upgrader_Skin extends WP_Upgrader_Skin {
 	/**
 	 * Displays an error message about the update.
 	 *
-	 * @since 3.7.0
-	 * @since 5.9.0 Renamed `$error` to `$errors` for PHP 8 named parameter support.
+	 * @since WP 3.7.0
+	 * @since WP 5.9.0 Renamed `$error` to `$errors` for PHP 8 named parameter support.
 	 *
 	 * @param string|WP_Error $errors Errors.
 	 */
@@ -77,7 +77,7 @@ class Language_Pack_Upgrader_Skin extends WP_Upgrader_Skin {
 	/**
 	 * Performs an action following a language pack update.
 	 *
-	 * @since 3.7.0
+	 * @since WP 3.7.0
 	 */
 	public function after() {
 		echo '</div>';
@@ -86,7 +86,7 @@ class Language_Pack_Upgrader_Skin extends WP_Upgrader_Skin {
 	/**
 	 * Displays the footer following the bulk update process.
 	 *
-	 * @since 3.7.0
+	 * @since WP 3.7.0
 	 */
 	public function bulk_footer() {
 		$this->decrement_update_count( 'translation' );
@@ -102,7 +102,7 @@ class Language_Pack_Upgrader_Skin extends WP_Upgrader_Skin {
 		/**
 		 * Filters the list of action links available following a translations update.
 		 *
-		 * @since 3.7.0
+		 * @since WP 3.7.0
 		 *
 		 * @param string[] $update_actions Array of translations update links.
 		 */

@@ -4,19 +4,19 @@
  *
  * @package motsVertueux
  * @subpackage I18N
- * @since 6.5.0
+ * @since WP 6.5.0
  */
 
 /**
  * Class WP_Translation_Controller.
  *
- * @since 6.5.0
+ * @since WP 6.5.0
  */
 final class WP_Translation_Controller {
 	/**
 	 * Current locale.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 * @var string
 	 */
 	protected $current_locale = 'en_US';
@@ -26,7 +26,7 @@ final class WP_Translation_Controller {
 	 *
 	 * [ Locale => [ Textdomain => [ ..., ... ] ] ]
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 * @var array<string, array<string, WP_Translation_File[]>>
 	 */
 	protected $loaded_translations = array();
@@ -36,7 +36,7 @@ final class WP_Translation_Controller {
 	 *
 	 * [ Filename => [ Locale => [ Textdomain => WP_Translation_File ] ] ]
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 * @var array<string, array<string, array<string, WP_Translation_File|false>>>
 	 */
 	protected $loaded_files = array();
@@ -44,7 +44,7 @@ final class WP_Translation_Controller {
 	/**
 	 * Container for the main instance of the class.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 * @var WP_Translation_Controller|null
 	 */
 	private static $instance = null;
@@ -54,7 +54,7 @@ final class WP_Translation_Controller {
 	 *
 	 * The instance will be created if it does not exist yet.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @return WP_Translation_Controller
 	 */
@@ -69,7 +69,7 @@ final class WP_Translation_Controller {
 	/**
 	 * Returns the current locale.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @return string Locale.
 	 */
@@ -80,7 +80,7 @@ final class WP_Translation_Controller {
 	/**
 	 * Sets the current locale.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $locale Locale.
 	 */
@@ -91,7 +91,7 @@ final class WP_Translation_Controller {
 	/**
 	 * Loads a translation file for a given text domain.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $translation_file Translation file.
 	 * @param string $textdomain       Optional. Text domain. Default 'default'.
@@ -146,7 +146,7 @@ final class WP_Translation_Controller {
 	/**
 	 * Unloads a translation file for a given text domain.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param WP_Translation_File|string $file       Translation file instance or file name.
 	 * @param string                     $textdomain Optional. Text domain. Default 'default'.
@@ -192,7 +192,7 @@ final class WP_Translation_Controller {
 	/**
 	 * Unloads all translation files for a given text domain.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $textdomain Optional. Text domain. Default 'default'.
 	 * @param string $locale     Optional. Locale. Defaults to all locales.
@@ -234,7 +234,7 @@ final class WP_Translation_Controller {
 	/**
 	 * Determines whether translations are loaded for a given text domain.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $textdomain Optional. Text domain. Default 'default'.
 	 * @param string $locale     Optional. Locale. Default current locale.
@@ -252,7 +252,7 @@ final class WP_Translation_Controller {
 	/**
 	 * Translates a singular string.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $text       Text to translate.
 	 * @param string $context    Optional. Context for the string. Default empty string.
@@ -280,7 +280,7 @@ final class WP_Translation_Controller {
 	 * Checks both singular+plural combinations as well as just singulars,
 	 * in case the translation file does not store the plural.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param array       $plurals {
 	 *     Pair of singular and plural translations.
@@ -322,7 +322,7 @@ final class WP_Translation_Controller {
 	/**
 	 * Returns all existing headers for a given text domain.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $textdomain Optional. Text domain. Default 'default'.
 	 * @return array<string, string> Headers.
@@ -346,7 +346,7 @@ final class WP_Translation_Controller {
 	/**
 	 * Normalizes header names to be capitalized.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $header Header name.
 	 * @return string Normalized header name.
@@ -360,7 +360,7 @@ final class WP_Translation_Controller {
 	/**
 	 * Returns all entries for a given text domain.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $textdomain Optional. Text domain. Default 'default'.
 	 * @return array<string, string> Entries.
@@ -382,7 +382,7 @@ final class WP_Translation_Controller {
 	/**
 	 * Locates translation for a given string and text domain.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $singular   Singular translation.
 	 * @param string $textdomain Optional. Text domain. Default 'default'.
@@ -421,7 +421,7 @@ final class WP_Translation_Controller {
 	/**
 	 * Returns all translation files for a given text domain.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $textdomain Optional. Text domain. Default 'default'.
 	 * @param string $locale     Optional. Locale. Default current locale.
@@ -438,7 +438,7 @@ final class WP_Translation_Controller {
 	/**
 	 * Returns a boolean to indicate whether a translation exists for a given string with optional text domain and locale.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @param string  $singular   Singular translation to check.
 	 * @param string  $textdomain Optional. Text domain. Default 'default'.

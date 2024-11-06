@@ -6,13 +6,13 @@
  *
  * @package    WordPress
  * @subpackage Fonts
- * @since      6.5.0
+ * @since WP      6.5.0
  */
 
 /**
  * Font Collection class.
  *
- * @since 6.5.0
+ * @since WP 6.5.0
  *
  * @see wp_register_font_collection()
  */
@@ -20,7 +20,7 @@ final class WP_Font_Collection {
 	/**
 	 * The unique slug for the font collection.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 * @var string
 	 */
 	public $slug;
@@ -28,7 +28,7 @@ final class WP_Font_Collection {
 	/**
 	 * Font collection data.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 * @var array|WP_Error|null
 	 */
 	private $data;
@@ -36,7 +36,7 @@ final class WP_Font_Collection {
 	/**
 	 * Font collection JSON file path or URL.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 * @var string|null
 	 */
 	private $src;
@@ -44,7 +44,7 @@ final class WP_Font_Collection {
 	/**
 	 * WP_Font_Collection constructor.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $slug Font collection slug. May only contain alphanumeric characters, dashes,
 	 *                     and underscores. See sanitize_title().
@@ -77,7 +77,7 @@ final class WP_Font_Collection {
 	/**
 	 * Retrieves the font collection data.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @return array|WP_Error An array containing the font collection data, or a WP_Error on failure.
 	 */
@@ -107,7 +107,7 @@ final class WP_Font_Collection {
 	/**
 	 * Loads font collection data from a JSON file or URL.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $file_or_url File path or URL to a JSON file containing the font collection data.
 	 * @return array|WP_Error An array containing the font collection data on success,
@@ -149,7 +149,7 @@ final class WP_Font_Collection {
 	/**
 	 * Loads the font collection data from a JSON file path.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $file File path to a JSON file containing the font collection data.
 	 * @return array|WP_Error An array containing the font collection data on success,
@@ -167,7 +167,7 @@ final class WP_Font_Collection {
 	/**
 	 * Loads the font collection data from a JSON file URL.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $url URL to a JSON file containing the font collection data.
 	 * @return array|WP_Error An array containing the font collection data on success,
@@ -211,7 +211,7 @@ final class WP_Font_Collection {
 	/**
 	 * Sanitizes and validates the font collection data.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param array $data                Font collection data to sanitize and validate.
 	 * @param array $required_properties Required properties that must exist in the passed data.
@@ -240,7 +240,7 @@ final class WP_Font_Collection {
 	/**
 	 * Retrieves the font collection sanitization schema.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @return array Font collection sanitization schema.
 	 */

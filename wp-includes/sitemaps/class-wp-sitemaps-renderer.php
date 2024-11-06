@@ -6,20 +6,20 @@
  *
  * @package motsVertueux
  * @subpackage Sitemaps
- * @since 5.5.0
+ * @since WP 5.5.0
  */
 
 /**
  * Class WP_Sitemaps_Renderer
  *
- * @since 5.5.0
+ * @since WP 5.5.0
  */
 #[AllowDynamicProperties]
 class WP_Sitemaps_Renderer {
 	/**
 	 * XSL stylesheet for styling a sitemap for web browsers.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @var string
 	 */
@@ -28,7 +28,7 @@ class WP_Sitemaps_Renderer {
 	/**
 	 * XSL stylesheet for styling a sitemap for web browsers.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @var string
 	 */
@@ -37,7 +37,7 @@ class WP_Sitemaps_Renderer {
 	/**
 	 * WP_Sitemaps_Renderer constructor.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 */
 	public function __construct() {
 		$stylesheet_url = $this->get_sitemap_stylesheet_url();
@@ -56,7 +56,7 @@ class WP_Sitemaps_Renderer {
 	/**
 	 * Gets the URL for the sitemap stylesheet.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @global WP_Rewrite $wp_rewrite WordPress rewrite component.
 	 *
@@ -77,7 +77,7 @@ class WP_Sitemaps_Renderer {
 		 * If a falsey value is returned, no stylesheet will be used and
 		 * the "raw" XML of the sitemap will be displayed.
 		 *
-		 * @since 5.5.0
+		 * @since WP 5.5.0
 		 *
 		 * @param string $sitemap_url Full URL for the sitemaps XSL file.
 		 */
@@ -87,7 +87,7 @@ class WP_Sitemaps_Renderer {
 	/**
 	 * Gets the URL for the sitemap index stylesheet.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @global WP_Rewrite $wp_rewrite WordPress rewrite component.
 	 *
@@ -108,7 +108,7 @@ class WP_Sitemaps_Renderer {
 		 * If a falsey value is returned, no stylesheet will be used and
 		 * the "raw" XML of the sitemap index will be displayed.
 		 *
-		 * @since 5.5.0
+		 * @since WP 5.5.0
 		 *
 		 * @param string $sitemap_url Full URL for the sitemaps index XSL file.
 		 */
@@ -118,7 +118,7 @@ class WP_Sitemaps_Renderer {
 	/**
 	 * Renders a sitemap index.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @param array $sitemaps Array of sitemap URLs.
 	 */
@@ -138,7 +138,7 @@ class WP_Sitemaps_Renderer {
 	/**
 	 * Gets XML for a sitemap index.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @param array $sitemaps Array of sitemap URLs.
 	 * @return string|false A well-formed XML string for a sitemap index. False on error.
@@ -182,7 +182,7 @@ class WP_Sitemaps_Renderer {
 	/**
 	 * Renders a sitemap.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @param array $url_list Array of URLs for a sitemap.
 	 */
@@ -202,7 +202,7 @@ class WP_Sitemaps_Renderer {
 	/**
 	 * Gets XML for a sitemap.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @param array $url_list Array of URLs for a sitemap.
 	 * @return string|false A well-formed XML string for a sitemap index. False on error.
@@ -246,7 +246,7 @@ class WP_Sitemaps_Renderer {
 	/**
 	 * Checks for the availability of the SimpleXML extension and errors if missing.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 */
 	private function check_for_simple_xml_availability() {
 		if ( ! class_exists( 'SimpleXMLElement' ) ) {

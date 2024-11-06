@@ -55,7 +55,7 @@ wp_raise_memory_limit( 'cron' );
  * Returns the uncached `doing_cron` transient.
  *
  * @ignore
- * @since 3.3.0
+ * @since WP 3.3.0
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  *
@@ -143,7 +143,7 @@ foreach ( $crons as $timestamp => $cronhooks ) {
 					/**
 					 * Fires if an error happens when rescheduling a cron event.
 					 *
-					 * @since 6.1.0
+					 * @since WP 6.1.0
 					 *
 					 * @param WP_Error $result The WP_Error object.
 					 * @param string   $hook   Action hook to execute when the event is run.
@@ -170,7 +170,7 @@ foreach ( $crons as $timestamp => $cronhooks ) {
 				/**
 				 * Fires if an error happens when unscheduling a cron event.
 				 *
-				 * @since 6.1.0
+				 * @since WP 6.1.0
 				 *
 				 * @param WP_Error $result The WP_Error object.
 				 * @param string   $hook   Action hook to execute when the event is run.
@@ -183,7 +183,7 @@ foreach ( $crons as $timestamp => $cronhooks ) {
 			 * Fires scheduled events.
 			 *
 			 * @ignore
-			 * @since 2.1.0
+			 * @since WP 2.1.0
 			 *
 			 * @param string $hook Name of the hook that was scheduled to be fired.
 			 * @param array  $args The arguments to be passed to the hook.

@@ -14,7 +14,7 @@
 		 *
 		 * @memberOf wp.mediaelement
 		 *
-		 * @since 4.4.0
+		 * @since WP 4.4.0
 		 *
 		 * @return {void}
 		 */
@@ -52,7 +52,7 @@
 			 * Sets up a custom error handler in case a video render fails, and provides a download
 			 * link as the fallback.
 			 *
-			 * @since 4.9.3
+			 * @since WP 4.9.3
 			 *
 			 * @param {object} media The wrapper that mimics all the native events/properties/methods for all renderers.
 			 * @param {object} node  The original HTML video, audio, or iframe tag where the media was loaded.

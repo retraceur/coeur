@@ -1,16 +1,18 @@
 <?php
 /**
  * REST API: WP_REST_Controller class
+ * 
+ * @since WP 4.7.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage REST_API
- * @since 4.7.0
  */
 
 /**
  * Core base controller for managing and interacting with REST API items.
  *
- * @since 4.7.0
+ * @since WP 4.7.0
  */
 #[AllowDynamicProperties]
 abstract class WP_REST_Controller {
@@ -18,7 +20,7 @@ abstract class WP_REST_Controller {
 	/**
 	 * The namespace of this controller's route.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 * @var string
 	 */
 	protected $namespace;
@@ -26,7 +28,7 @@ abstract class WP_REST_Controller {
 	/**
 	 * The base of this controller's route.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 * @var string
 	 */
 	protected $rest_base;
@@ -34,7 +36,7 @@ abstract class WP_REST_Controller {
 	/**
 	 * Cached results of get_item_schema.
 	 *
-	 * @since 5.3.0
+	 * @since WP 5.3.0
 	 * @var array
 	 */
 	protected $schema;
@@ -42,7 +44,7 @@ abstract class WP_REST_Controller {
 	/**
 	 * Registers the routes for the objects of the controller.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @see register_rest_route()
 	 */
@@ -58,7 +60,7 @@ abstract class WP_REST_Controller {
 	/**
 	 * Checks if a given request has access to get items.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has read access, WP_Error object otherwise.
@@ -75,7 +77,7 @@ abstract class WP_REST_Controller {
 	/**
 	 * Retrieves a collection of items.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
@@ -92,7 +94,7 @@ abstract class WP_REST_Controller {
 	/**
 	 * Checks if a given request has access to get a specific item.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has read access for the item, WP_Error object otherwise.
@@ -109,7 +111,7 @@ abstract class WP_REST_Controller {
 	/**
 	 * Retrieves one item from the collection.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
@@ -126,7 +128,7 @@ abstract class WP_REST_Controller {
 	/**
 	 * Checks if a given request has access to create items.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has access to create items, WP_Error object otherwise.
@@ -143,7 +145,7 @@ abstract class WP_REST_Controller {
 	/**
 	 * Creates one item from the collection.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
@@ -160,7 +162,7 @@ abstract class WP_REST_Controller {
 	/**
 	 * Checks if a given request has access to update a specific item.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has access to update the item, WP_Error object otherwise.
@@ -177,7 +179,7 @@ abstract class WP_REST_Controller {
 	/**
 	 * Updates one item from the collection.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
@@ -194,7 +196,7 @@ abstract class WP_REST_Controller {
 	/**
 	 * Checks if a given request has access to delete a specific item.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has access to delete the item, WP_Error object otherwise.
@@ -211,7 +213,7 @@ abstract class WP_REST_Controller {
 	/**
 	 * Deletes one item from the collection.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
@@ -228,7 +230,7 @@ abstract class WP_REST_Controller {
 	/**
 	 * Prepares one item for create or update operation.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @param WP_REST_Request $request Request object.
 	 * @return object|WP_Error The prepared item, or WP_Error object on failure.
@@ -245,7 +247,7 @@ abstract class WP_REST_Controller {
 	/**
 	 * Prepares the item for the REST response.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @param mixed           $item    WordPress representation of the item.
 	 * @param WP_REST_Request $request Request object.
@@ -263,7 +265,7 @@ abstract class WP_REST_Controller {
 	/**
 	 * Prepares a response for insertion into a collection.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @param WP_REST_Response $response Response object.
 	 * @return array|mixed Response data, ready for insertion into collection data.
@@ -287,7 +289,7 @@ abstract class WP_REST_Controller {
 	/**
 	 * Filters a response based on the context defined in the schema.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @param array  $response_data Response data to filter.
 	 * @param string $context       Context defined in the schema.
@@ -303,7 +305,7 @@ abstract class WP_REST_Controller {
 	/**
 	 * Retrieves the item's schema, conforming to JSON Schema.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @return array Item schema data.
 	 */
@@ -314,7 +316,7 @@ abstract class WP_REST_Controller {
 	/**
 	 * Retrieves the item's schema for display / public consumption purposes.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @return array Public item schema data.
 	 */
@@ -334,7 +336,7 @@ abstract class WP_REST_Controller {
 	/**
 	 * Retrieves the query params for the collections.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @return array Query parameters for the collection.
 	 */
@@ -372,7 +374,7 @@ abstract class WP_REST_Controller {
 	 *
 	 * Ensures consistent descriptions between endpoints, and populates enum from schema.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @param array $args Optional. Additional arguments for context parameter. Default empty array.
 	 * @return array Context parameter details.
@@ -410,7 +412,7 @@ abstract class WP_REST_Controller {
 	/**
 	 * Adds the values from additional fields to a data object.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @param array           $response_data Prepared response array.
 	 * @param WP_REST_Request $request       Full details about the request.
@@ -446,7 +448,7 @@ abstract class WP_REST_Controller {
 	/**
 	 * Updates the values of additional fields added to a data object.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @param object          $data_object Data model like WP_Term or WP_Post.
 	 * @param WP_REST_Request $request     Full details about the request.
@@ -487,7 +489,7 @@ abstract class WP_REST_Controller {
 	 *
 	 * The type of object is inferred from the passed schema.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @param array $schema Schema array.
 	 * @return array Modified Schema array.
@@ -516,7 +518,7 @@ abstract class WP_REST_Controller {
 	/**
 	 * Retrieves all of the registered additional fields for a given object-type.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @global array $wp_rest_additional_fields Holds registered fields, organized by object type.
 	 *
@@ -545,7 +547,7 @@ abstract class WP_REST_Controller {
 	/**
 	 * Retrieves the object type this controller is responsible for managing.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @return string Object type for the controller.
 	 */
@@ -564,7 +566,7 @@ abstract class WP_REST_Controller {
 	 *
 	 * Included fields are based on item schema and `_fields=` request argument.
 	 *
-	 * @since 4.9.6
+	 * @since WP 4.9.6
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return string[] Fields to be included in the response.
@@ -648,7 +650,7 @@ abstract class WP_REST_Controller {
 	/**
 	 * Retrieves an array of endpoint arguments from the item schema for the controller.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @param string $method Optional. HTTP method of the request. The arguments for `CREATABLE` requests are
 	 *                       checked for required values and may fall-back to a given default, this is not done
@@ -662,15 +664,13 @@ abstract class WP_REST_Controller {
 	/**
 	 * Sanitizes the slug value.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @internal We can't use sanitize_title() directly, as the second
 	 * parameter is the fallback title, which would end up being set to the
 	 * request object.
 	 *
 	 * @see https://github.com/WP-API/WP-API/issues/1585
-	 *
-	 * @todo Remove this in favour of https://core.trac.wordpress.org/ticket/34659
 	 *
 	 * @param string $slug Slug value passed in request.
 	 * @return string Sanitized value for the slug.

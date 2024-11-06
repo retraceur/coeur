@@ -3,7 +3,7 @@
  * WP_Application_Passwords class
  *
  * @package motsVertueux
- * @since   5.6.0
+ * @since WP   5.6.0
  */
 
 /**
@@ -17,7 +17,7 @@ class WP_Application_Passwords {
 	/**
 	 * The application passwords user meta key.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @var string
 	 */
@@ -26,7 +26,7 @@ class WP_Application_Passwords {
 	/**
 	 * The option name used to store whether application passwords are in use.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @var string
 	 */
@@ -35,7 +35,7 @@ class WP_Application_Passwords {
 	/**
 	 * The generated application password length.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @var int
 	 */
@@ -46,7 +46,7 @@ class WP_Application_Passwords {
 	 *
 	 * This returns true if at least one application password has ever been created.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @return bool
 	 */
@@ -58,8 +58,8 @@ class WP_Application_Passwords {
 	/**
 	 * Creates a new application password.
 	 *
-	 * @since 5.6.0
-	 * @since 5.7.0 Returns WP_Error if application name already exists.
+	 * @since WP 5.6.0
+	 * @since WP 5.7.0 Returns WP_Error if application name already exists.
 	 *
 	 * @param int   $user_id  User ID.
 	 * @param array $args     {
@@ -123,7 +123,7 @@ class WP_Application_Passwords {
 		/**
 		 * Fires when an application password is created.
 		 *
-		 * @since 5.6.0
+		 * @since WP 5.6.0
 		 *
 		 * @param int    $user_id      The user ID.
 		 * @param array  $new_item     {
@@ -153,7 +153,7 @@ class WP_Application_Passwords {
 	/**
 	 * Gets a user's application passwords.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param int $user_id User ID.
 	 * @return array {
@@ -196,7 +196,7 @@ class WP_Application_Passwords {
 	/**
 	 * Gets a user's application password with the given UUID.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param int    $user_id User ID.
 	 * @param string $uuid    The password's UUID.
@@ -227,7 +227,7 @@ class WP_Application_Passwords {
 	/**
 	 * Checks if an application password with the given name exists for this user.
 	 *
-	 * @since 5.7.0
+	 * @since WP 5.7.0
 	 *
 	 * @param int    $user_id User ID.
 	 * @param string $name    Application name.
@@ -248,7 +248,7 @@ class WP_Application_Passwords {
 	/**
 	 * Updates an application password.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param int    $user_id User ID.
 	 * @param string $uuid    The password's UUID.
@@ -295,7 +295,7 @@ class WP_Application_Passwords {
 			/**
 			 * Fires when an application password is updated.
 			 *
-			 * @since 5.6.0
+			 * @since WP 5.6.0
 			 *
 			 * @param int   $user_id The user ID.
 			 * @param array $item    {
@@ -322,7 +322,7 @@ class WP_Application_Passwords {
 	/**
 	 * Records that an application password has been used.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param int    $user_id User ID.
 	 * @param string $uuid    The password's UUID.
@@ -360,7 +360,7 @@ class WP_Application_Passwords {
 	/**
 	 * Deletes an application password.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param int    $user_id User ID.
 	 * @param string $uuid    The password's UUID.
@@ -381,7 +381,7 @@ class WP_Application_Passwords {
 				/**
 				 * Fires when an application password is deleted.
 				 *
-				 * @since 5.6.0
+				 * @since WP 5.6.0
 				 *
 				 * @param int   $user_id The user ID.
 				 * @param array $item    The data about the application password.
@@ -398,7 +398,7 @@ class WP_Application_Passwords {
 	/**
 	 * Deletes all application passwords for the given user.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param int $user_id User ID.
 	 * @return int|WP_Error The number of passwords that were deleted or a WP_Error on failure.
@@ -427,7 +427,7 @@ class WP_Application_Passwords {
 	/**
 	 * Sets a user's application passwords.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param int   $user_id   User ID.
 	 * @param array $passwords {
@@ -454,7 +454,7 @@ class WP_Application_Passwords {
 	/**
 	 * Sanitizes and then splits a password into smaller chunks.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param string $raw_password The raw application password.
 	 * @return string The chunked password.

@@ -2,7 +2,7 @@
  * Contains the postboxes logic, opening and closing postboxes, reordering and saving
  * the state and ordering to the database.
  *
- * @since 2.5.0
+ * @since WP 2.5.0
  * @requires jQuery
  * @output wp-admin/js/postbox.js
  */
@@ -17,7 +17,7 @@
 	 * This object contains all function to handle the behavior of the post boxes. The post boxes are the boxes you see
 	 * around the content on the edit page.
 	 *
-	 * @since 2.7.0
+	 * @since WP 2.7.0
 	 *
 	 * @namespace postboxes
 	 *
@@ -32,7 +32,7 @@
 		 * Calls postboxes.pbshow if the postbox has been opened, calls postboxes.pbhide
 		 * if the postbox has been closed.
 		 *
-		 * @since 4.4.0
+		 * @since WP 4.4.0
 		 *
 		 * @memberof postboxes
 		 *
@@ -79,7 +79,7 @@
 			 *
 			 * Contains a jQuery object with the relevant postbox element.
 			 *
-			 * @since 4.0.0
+			 * @since WP 4.0.0
 			 * @ignore
 			 *
 			 * @event postboxes#postbox-toggled
@@ -91,7 +91,7 @@
 		/**
 		 * Handles clicks on the move up/down buttons.
 		 *
-		 * @since 5.5.0
+		 * @since WP 5.5.0
 		 *
 		 * @return {void}
 		 */
@@ -151,7 +151,7 @@
 		/**
 		 * Moves postboxes between the sortables areas.
 		 *
-		 * @since 5.5.0
+		 * @since WP 5.5.0
 		 *
 		 * @param {string} position The "previous" or "next" sortables area.
 		 * @param {Object} button   The jQuery object representing the button that was clicked.
@@ -198,7 +198,7 @@
 		/**
 		 * Update the move buttons properties depending on the postbox position.
 		 *
-		 * @since 5.5.0
+		 * @since WP 5.5.0
 		 *
 		 * @return {void}
 		 */
@@ -242,7 +242,7 @@
 		/**
 		 * Adds event handlers to all postboxes and screen option on the current page.
 		 *
-		 * @since 2.7.0
+		 * @since WP 2.7.0
 		 *
 		 * @memberof postboxes
 		 *
@@ -265,7 +265,7 @@
 			$orderButtons.on( 'click.postboxes', this.handleOrder );
 
 			/**
-			 * @since 2.7.0
+			 * @since WP 2.7.0
 			 */
 			$('.postbox .hndle a').on( 'click', function(e) {
 				e.stopPropagation();
@@ -279,7 +279,7 @@
 			 *
 			 * As of WordPress 5.5, this is only used for the browser update nag.
 			 *
-			 * @since 3.2.0
+			 * @since WP 3.2.0
 			 *
 			 * @return {void}
 			 */
@@ -295,7 +295,7 @@
 			 * Event handler for the screen options checkboxes. When a checkbox is
 			 * clicked this function will hide or show the relevant postboxes.
 			 *
-			 * @since 2.7.0
+			 * @since WP 2.7.0
 			 * @ignore
 			 *
 			 * @fires postboxes#postbox-toggled
@@ -323,7 +323,7 @@
 				postboxes._mark_area();
 
 				/**
-				 * @since 4.0.0
+				 * @since WP 4.0.0
 				 * @see postboxes.handle_click
 				 */
 				$document.trigger( 'postbox-toggled', $postbox );
@@ -332,7 +332,7 @@
 			/**
 			 * Changes the amount of columns based on the layout preferences.
 			 *
-			 * @since 2.8.0
+			 * @since WP 2.8.0
 			 *
 			 * @return {void}
 			 */
@@ -349,7 +349,7 @@
 		/**
 		 * Initializes all the postboxes, mainly their sortable behavior.
 		 *
-		 * @since 2.7.0
+		 * @since WP 2.7.0
 		 *
 		 * @memberof postboxes
 		 *
@@ -443,7 +443,7 @@
 		 * It sends two lists, one with all the closed postboxes, one with all the
 		 * hidden postboxes.
 		 *
-		 * @since 2.7.0
+		 * @since WP 2.7.0
 		 *
 		 * @memberof postboxes
 		 *
@@ -475,7 +475,7 @@
 		 *
 		 * Sends a list of all postboxes inside a sortable area to the server.
 		 *
-		 * @since 2.8.0
+		 * @since WP 2.8.0
 		 *
 		 * @memberof postboxes
 		 *
@@ -514,7 +514,7 @@
 		 * border around the side area on the post edit screen if there are no postboxes
 		 * present.
 		 *
-		 * @since 3.3.0
+		 * @since WP 3.3.0
 		 * @access private
 		 *
 		 * @memberof postboxes
@@ -544,7 +544,7 @@
 		/**
 		 * Updates the text for the empty sortable areas on the Dashboard.
 		 *
-		 * @since 5.5.0
+		 * @since WP 5.5.0
 		 *
 		 * @param {Object}  visibleSortables            The jQuery object representing the visible sortable areas.
 		 * @param {boolean} areAllVisibleSortablesEmpty Whether all the visible sortable areas are "empty".
@@ -569,7 +569,7 @@
 		/**
 		 * Changes the amount of columns on the post edit page.
 		 *
-		 * @since 3.3.0
+		 * @since WP 3.3.0
 		 * @access private
 		 *
 		 * @memberof postboxes
@@ -589,7 +589,7 @@
 			/**
 			 * Fires when the amount of columns on the post edit page has been changed.
 			 *
-			 * @since 4.0.0
+			 * @since WP 4.0.0
 			 * @ignore
 			 *
 			 * @event postboxes#postboxes-columnchange
@@ -601,7 +601,7 @@
 		 * Changes the amount of columns the postboxes are in based on the current
 		 * orientation of the browser.
 		 *
-		 * @since 3.3.0
+		 * @since WP 3.3.0
 		 * @access private
 		 *
 		 * @memberof postboxes
@@ -632,7 +632,7 @@
 		/* Callbacks */
 
 		/**
-		 * @since 2.7.0
+		 * @since WP 2.7.0
 		 * @access public
 		 *
 		 * @property {Function|boolean} pbshow A callback that is called when a postbox
@@ -642,7 +642,7 @@
 		pbshow : false,
 
 		/**
-		 * @since 2.7.0
+		 * @since WP 2.7.0
 		 * @access public
 		 * @property {Function|boolean} pbhide A callback that is called when a postbox
 		 *                                     is closed.

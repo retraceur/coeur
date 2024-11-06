@@ -3,13 +3,13 @@
  * Elements styles block support.
  *
  * @package motsVertueux
- * @since 5.8.0
+ * @since WP 5.8.0
  */
 
 /**
  * Gets the elements class names.
  *
- * @since 6.0.0
+ * @since WP 6.0.0
  * @access private
  *
  * @param array $block Block object.
@@ -22,7 +22,7 @@ function wp_get_elements_class_name( $block ) {
 /**
  * Determines whether an elements class name should be added to the block.
  *
- * @since 6.6.0
+ * @since WP 6.6.0
  * @access private
  *
  * @param  array $block   Block object.
@@ -102,9 +102,9 @@ function wp_should_add_elements_class_name( $block, $options ) {
  * This solves the issue of an element (e.g.: link color) being styled in both the parent and a descendant:
  * we want the descendant style to take priority, and this is done by loading it after, in DOM order.
  *
- * @since 6.0.0
- * @since 6.1.0 Implemented the style engine to generate CSS and classnames.
- * @since 6.6.0 Element block support class and styles are generated via the `render_block_data` filter instead of `pre_render_block`.
+ * @since WP 6.0.0
+ * @since WP 6.1.0 Implemented the style engine to generate CSS and classnames.
+ * @since WP 6.6.0 Element block support class and styles are generated via the `render_block_data` filter instead of `pre_render_block`.
  * @access private
  *
  * @param array $parsed_block The parsed block.
@@ -237,7 +237,7 @@ function wp_render_elements_support_styles( $parsed_block ) {
  * block's markup.
  *
  * @see wp_render_elements_support_styles
- * @since 6.6.0
+ * @since WP 6.6.0
  *
  * @param  string $block_content Rendered block content.
  * @param  array  $block         Block object.

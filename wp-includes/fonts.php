@@ -4,13 +4,13 @@
  *
  * @package    WordPress
  * @subpackage Fonts
- * @since      6.4.0
+ * @since WP      6.4.0
  */
 
 /**
  * Generates and prints font-face styles for given fonts or theme.json fonts.
  *
- * @since 6.4.0
+ * @since WP 6.4.0
  *
  * @param array[][] $fonts {
  *     Optional. The font-families and their font faces. Default empty array.
@@ -57,7 +57,7 @@ function wp_print_font_faces( $fonts = array() ) {
 /**
  * Generates and prints font-face styles defined the the theme style variations.
  *
- * @since 6.7.0
+ * @since WP 6.7.0
  *
  */
 function wp_print_font_faces_from_style_variations() {
@@ -76,7 +76,7 @@ function wp_print_font_faces_from_style_variations() {
  * See {@link https://schemas.wp.org/trunk/font-collection.json} for the schema
  * the font collection data must adhere to.
  *
- * @since 6.5.0
+ * @since WP 6.5.0
  *
  * @param string $slug Font collection slug. May only contain alphanumeric characters, dashes,
  *                     and underscores. See sanitize_title().
@@ -100,7 +100,7 @@ function wp_register_font_collection( string $slug, array $args ) {
 /**
  * Unregisters a font collection from the Font Library.
  *
- * @since 6.5.0
+ * @since WP 6.5.0
  *
  * @param string $slug Font collection slug.
  * @return bool True if the font collection was unregistered successfully, else false.
@@ -116,7 +116,7 @@ function wp_unregister_font_collection( string $slug ) {
  * Intended for use in themes, when only 'basedir' and 'baseurl' are needed, generally in all cases
  * when not uploading files.
  *
- * @since 6.5.0
+ * @since WP 6.5.0
  *
  * @see wp_font_dir()
  *
@@ -129,7 +129,7 @@ function wp_get_font_dir() {
 /**
  * Returns an array containing the current fonts upload directory's path and URL.
  *
- * @since 6.5.0
+ * @since WP 6.5.0
  *
  * @param bool $create_dir Optional. Whether to check and create the font uploads directory. Default true.
  * @return array {
@@ -163,7 +163,7 @@ function wp_font_dir( $create_dir = true ) {
  * This function is intended for internal use only and should not be used by plugins and themes.
  * Use wp_get_font_dir() instead.
  *
- * @since 6.5.0
+ * @since WP 6.5.0
  * @access private
  *
  * @param string $font_dir The font directory.
@@ -189,7 +189,7 @@ function _wp_filter_font_directory( $font_dir ) {
 	 *
 	 * This filter allows developers to modify the fonts directory data.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param array $font_dir {
 	 *     Array of information about the font upload directory.
@@ -209,7 +209,7 @@ function _wp_filter_font_directory( $font_dir ) {
  * Deletes child font faces when a font family is deleted.
  *
  * @access private
- * @since 6.5.0
+ * @since WP 6.5.0
  *
  * @param int     $post_id Post ID.
  * @param WP_Post $post    Post object.
@@ -235,7 +235,7 @@ function _wp_after_delete_font_family( $post_id, $post ) {
  * Deletes associated font files when a font face is deleted.
  *
  * @access private
- * @since 6.5.0
+ * @since WP 6.5.0
  *
  * @param int     $post_id Post ID.
  * @param WP_Post $post    Post object.
@@ -257,7 +257,7 @@ function _wp_before_delete_font_face( $post_id, $post ) {
  * Register the default font collections.
  *
  * @access private
- * @since 6.5.0
+ * @since WP 6.5.0
  */
 function _wp_register_default_font_collections() {
 	wp_register_font_collection(

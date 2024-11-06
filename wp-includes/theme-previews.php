@@ -8,7 +8,7 @@
 /**
  * Filters the blog option to return the path for the previewed theme.
  *
- * @since 6.3.0
+ * @since WP 6.3.0
  *
  * @param string $current_stylesheet The current theme's stylesheet or template path.
  * @return string The previewed theme's stylesheet or template path.
@@ -37,7 +37,7 @@ function wp_get_theme_preview_path( $current_stylesheet = null ) {
  * Adds a middleware to `apiFetch` to set the theme for the preview.
  * This adds a `wp_theme_preview` URL parameter to API requests from the Site Editor, so they also respond as if the theme is set to the value of the parameter.
  *
- * @since 6.3.0
+ * @since WP 6.3.0
  */
 function wp_attach_theme_preview_middleware() {
 	// Don't allow non-admins to preview themes.
@@ -63,7 +63,7 @@ function wp_attach_theme_preview_middleware() {
  *
  * @see https://github.com/WordPress/gutenberg/pull/41836
  *
- * @since 6.3.0
+ * @since WP 6.3.0
  * @access private
  */
 function wp_block_theme_activate_nonce() {
@@ -81,7 +81,7 @@ function wp_block_theme_activate_nonce() {
  * The filters and actions should be added after `pluggable.php` is included as they may
  * trigger code that uses `current_user_can()` which requires functionality from `pluggable.php`.
  *
- * @since 6.3.2
+ * @since WP 6.3.2
  */
 function wp_initialize_theme_preview_hooks() {
 	if ( ! empty( $_GET['wp_theme_preview'] ) ) {

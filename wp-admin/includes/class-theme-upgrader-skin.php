@@ -4,14 +4,14 @@
  *
  * @package motsVertueux
  * @subpackage Upgrader
- * @since 4.6.0
+ * @since WP 4.6.0
  */
 
 /**
  * Theme Upgrader Skin for WordPress Theme Upgrades.
  *
- * @since 2.8.0
- * @since 4.6.0 Moved to its own file from wp-admin/includes/class-wp-upgrader-skins.php.
+ * @since WP 2.8.0
+ * @since WP 4.6.0 Moved to its own file from wp-admin/includes/class-wp-upgrader-skins.php.
  *
  * @see WP_Upgrader_Skin
  */
@@ -20,7 +20,7 @@ class Theme_Upgrader_Skin extends WP_Upgrader_Skin {
 	/**
 	 * Holds the theme slug in the Theme Directory.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @var string
 	 */
@@ -31,7 +31,7 @@ class Theme_Upgrader_Skin extends WP_Upgrader_Skin {
 	 *
 	 * Sets up the theme upgrader skin.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @param array $args Optional. The theme upgrader skin arguments to
 	 *                    override default options. Default empty array.
@@ -53,7 +53,7 @@ class Theme_Upgrader_Skin extends WP_Upgrader_Skin {
 	/**
 	 * Performs an action following a single theme update.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 */
 	public function after() {
 		$this->decrement_update_count( 'theme' );
@@ -130,7 +130,7 @@ class Theme_Upgrader_Skin extends WP_Upgrader_Skin {
 		/**
 		 * Filters the list of action links available following a single theme update.
 		 *
-		 * @since 2.8.0
+		 * @since WP 2.8.0
 		 *
 		 * @param string[] $update_actions Array of theme action links.
 		 * @param string   $theme          Theme directory name.

@@ -9,7 +9,7 @@
 /**
  * We are upgrading WordPress.
  *
- * @since 1.5.1
+ * @since WP 1.5.1
  * @var bool
  */
 define( 'WP_INSTALLING', true );
@@ -62,63 +62,42 @@ header( 'Content-Type: ' . get_option( 'html_type' ) . '; charset=' . get_option
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="Content-Type" content="<?php bloginfo( 'html_type' ); ?>; charset=<?php echo get_option( 'blog_charset' ); ?>" />
 	<meta name="robots" content="noindex,nofollow" />
-	<title><?php _e( 'WordPress &rsaquo; Update' ); ?></title>
+	<title><?php _e( 'motsVertueux &rsaquo; Update' ); ?></title>
 	<?php wp_admin_css( 'install', true ); ?>
 </head>
 <body class="wp-core-ui">
-<p id="logo"><a href="<?php echo esc_url( __( 'https://wordpress.org/' ) ); ?>"><?php _e( 'WordPress' ); ?></a></p>
+<p id="logo"><?php esc_html_e( 'motsVertueux' ); ?></a></p>
 
 <?php if ( (int) get_option( 'db_version' ) === $wp_db_version || ! is_blog_installed() ) : ?>
 
 <h1><?php _e( 'No Update Required' ); ?></h1>
-<p><?php _e( 'Your WordPress database is already up to date!' ); ?></p>
+<p><?php _e( 'Your motsVertueux database is already up to date!' ); ?></p>
 <p class="step"><a class="button button-large" href="<?php echo esc_url( get_option( 'home' ) ); ?>/"><?php _e( 'Continue' ); ?></a></p>
 
 	<?php
 elseif ( ! $php_compat || ! $mysql_compat ) :
-	$version_url = sprintf(
-		/* translators: %s: WordPress version. */
-		esc_url( __( 'https://wordpress.org/documentation/wordpress-version/version-%s/' ) ),
-		sanitize_title( $wp_version )
-	);
-
-	$php_update_message = '</p><p>' . sprintf(
-		/* translators: %s: URL to Update PHP page. */
-		__( '<a href="%s">Learn more about updating PHP</a>.' ),
-		esc_url( wp_get_update_php_url() )
-	);
-
-	$annotation = wp_get_update_php_annotation();
-
-	if ( $annotation ) {
-		$php_update_message .= '</p><p><em>' . $annotation . '</em>';
-	}
-
 	if ( ! $mysql_compat && ! $php_compat ) {
 		$message = sprintf(
-			/* translators: 1: URL to WordPress release notes, 2: WordPress version number, 3: Minimum required PHP version number, 4: Minimum required MySQL version number, 5: Current PHP version number, 6: Current MySQL version number. */
-			__( 'You cannot update because <a href="%1$s">WordPress %2$s</a> requires PHP version %3$s or higher and MySQL version %4$s or higher. You are running PHP version %5$s and MySQL version %6$s.' ),
-			$version_url,
+			/* translators: 1: motsVertueux version number, 2: Minimum required PHP version number, 3: Minimum required MySQL version number, 4: Current PHP version number, 5: Current MySQL version number. */
+			__( 'You cannot update because motsVertueux %1$s requires PHP version %2$s or higher and MySQL version %3$s or higher. You are running PHP version %4$s and MySQL version %5$s.' ),
 			$wp_version,
 			$required_php_version,
 			$required_mysql_version,
 			$php_version,
 			$mysql_version
-		) . $php_update_message;
+		);
 	} elseif ( ! $php_compat ) {
 		$message = sprintf(
-			/* translators: 1: URL to WordPress release notes, 2: WordPress version number, 3: Minimum required PHP version number, 4: Current PHP version number. */
-			__( 'You cannot update because <a href="%1$s">WordPress %2$s</a> requires PHP version %3$s or higher. You are running version %4$s.' ),
-			$version_url,
+			/* translators: 1: motsVertueux version number, 2: Minimum required PHP version number, 3: Current PHP version number. */
+			__( 'You cannot update because motsVertueux %1$s requires PHP version %2$s or higher. You are running version %3$s.' ),
 			$wp_version,
 			$required_php_version,
 			$php_version
-		) . $php_update_message;
+		);
 	} elseif ( ! $mysql_compat ) {
 		$message = sprintf(
-			/* translators: 1: URL to WordPress release notes, 2: WordPress version number, 3: Minimum required MySQL version number, 4: Current MySQL version number. */
-			__( 'You cannot update because <a href="%1$s">WordPress %2$s</a> requires MySQL version %3$s or higher. You are running version %4$s.' ),
-			$version_url,
+			/* translators: 1: motsVertueux version number, 2: Minimum required MySQL version number, 3: Current MySQL version number. */
+			__( 'You cannot update because motsVertueux %1$s requires MySQL version %2$s or higher. You are running version %3$s.' ),
 			$wp_version,
 			$required_mysql_version,
 			$mysql_version

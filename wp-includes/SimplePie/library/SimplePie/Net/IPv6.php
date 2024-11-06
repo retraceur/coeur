@@ -49,7 +49,7 @@ class_exists('SimplePie\Net\IPv6');
 // @trigger_error(sprintf('Using the "SimplePie_Net_IPv6" class is deprecated since SimplePie 1.7.0, use "SimplePie\Net\IPv6" instead.'), \E_USER_DEPRECATED);
 
 if (\false) {
-    /** @deprecated since SimplePie 1.7.0, use "SimplePie\Net\IPv6" instead */
+    /** @deprecated WP since SimplePie 1.7.0, use "SimplePie\Net\IPv6" instead */
     class SimplePie_Net_IPv6 extends IPv6
     {
     }

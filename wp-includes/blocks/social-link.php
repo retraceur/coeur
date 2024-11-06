@@ -8,7 +8,7 @@
 /**
  * Renders the `core/social-link` block on server.
  *
- * @since 5.4.0
+ * @since WP 5.4.0
  *
  * @param Array    $attributes The block attributes.
  * @param String   $content    InnerBlocks content of the Block.
@@ -76,7 +76,7 @@ function render_block_core_social_link( $attributes, $content, $block ) {
 /**
  * Registers the `core/social-link` blocks.
  *
- * @since 5.4.0
+ * @since WP 5.4.0
  */
 function register_block_core_social_link() {
 	register_block_type_from_metadata(
@@ -92,7 +92,7 @@ add_action( 'init', 'register_block_core_social_link' );
 /**
  * Returns the SVG for social link.
  *
- * @since 5.4.0
+ * @since WP 5.4.0
  *
  * @param string $service The service icon.
  *
@@ -110,7 +110,7 @@ function block_core_social_link_get_icon( $service ) {
 /**
  * Returns the brand name for social link.
  *
- * @since 5.4.0
+ * @since WP 5.4.0
  *
  * @param string $service The service icon.
  *
@@ -128,7 +128,7 @@ function block_core_social_link_get_name( $service ) {
 /**
  * Returns the SVG for social link.
  *
- * @since 5.4.0
+ * @since WP 5.4.0
  *
  * @param string $service The service slug to extract data from.
  * @param string $field The field ('name', 'icon', etc) to extract for a service.
@@ -347,7 +347,7 @@ function block_core_social_link_services( $service = '', $field = '' ) {
 /**
  * Returns CSS styles for icon and icon background colors.
  *
- * @since 5.7.0
+ * @since WP 5.7.0
  *
  * @param array $context Block context passed to Social Link.
  *
@@ -370,7 +370,7 @@ function block_core_social_link_get_color_styles( $context ) {
 /**
  * Returns CSS classes for icon and icon background colors.
  *
- * @since 6.3.0
+ * @since WP 6.3.0
  *
  * @param array $context Block context passed to Social Sharing Link.
  *

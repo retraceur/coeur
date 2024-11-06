@@ -1,16 +1,18 @@
 <?php
 /**
  * REST API: WP_REST_Plugins_Controller class
+ * 
+ * @since WP 5.5.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage REST_API
- * @since 5.5.0
  */
 
 /**
  * Core class to access plugins via the REST API.
  *
- * @since 5.5.0
+ * @since WP 5.5.0
  *
  * @see WP_REST_Controller
  */
@@ -21,7 +23,7 @@ class WP_REST_Plugins_Controller extends WP_REST_Controller {
 	/**
 	 * Plugins controller constructor.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 */
 	public function __construct() {
 		$this->namespace = 'wp/v2';
@@ -31,7 +33,7 @@ class WP_REST_Plugins_Controller extends WP_REST_Controller {
 	/**
 	 * Registers the routes for the plugins controller.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 */
 	public function register_routes() {
 		register_rest_route(
@@ -52,7 +54,7 @@ class WP_REST_Plugins_Controller extends WP_REST_Controller {
 						'slug'   => array(
 							'type'        => 'string',
 							'required'    => true,
-							'description' => __( 'WordPress.org plugin directory slug.' ),
+							'description' => __( 'Plugin directory slug.' ),
 							'pattern'     => '[\w\-]+',
 						),
 						'status' => array(
@@ -104,7 +106,7 @@ class WP_REST_Plugins_Controller extends WP_REST_Controller {
 	/**
 	 * Checks if a given request has access to get plugins.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has read access, WP_Error object otherwise.
@@ -124,7 +126,7 @@ class WP_REST_Plugins_Controller extends WP_REST_Controller {
 	/**
 	 * Retrieves a collection of plugins.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
@@ -154,7 +156,7 @@ class WP_REST_Plugins_Controller extends WP_REST_Controller {
 	/**
 	 * Checks if a given request has access to get a specific plugin.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has read access for the item, WP_Error object otherwise.
@@ -180,7 +182,7 @@ class WP_REST_Plugins_Controller extends WP_REST_Controller {
 	/**
 	 * Retrieves one plugin from the site.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
@@ -203,7 +205,7 @@ class WP_REST_Plugins_Controller extends WP_REST_Controller {
 	 * On multisite, this hides non-active network only plugins if the user does not have permission
 	 * to manage network plugins.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @param string $plugin The plugin file to check.
 	 * @return true|WP_Error True if can read, a WP_Error instance otherwise.
@@ -233,7 +235,7 @@ class WP_REST_Plugins_Controller extends WP_REST_Controller {
 	/**
 	 * Checks if a given request has access to upload plugins.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has access to create items, WP_Error object otherwise.
@@ -263,7 +265,7 @@ class WP_REST_Plugins_Controller extends WP_REST_Controller {
 	/**
 	 * Uploads a plugin and optionally activates it.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @global WP_Filesystem_Base $wp_filesystem WordPress filesystem subclass.
 	 *
@@ -415,7 +417,7 @@ class WP_REST_Plugins_Controller extends WP_REST_Controller {
 	/**
 	 * Checks if a given request has access to update a specific plugin.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has access to update the item, WP_Error object otherwise.
@@ -453,7 +455,7 @@ class WP_REST_Plugins_Controller extends WP_REST_Controller {
 	/**
 	 * Updates one plugin.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
@@ -487,7 +489,7 @@ class WP_REST_Plugins_Controller extends WP_REST_Controller {
 	/**
 	 * Checks if a given request has access to delete a specific plugin.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has access to delete the item, WP_Error object otherwise.
@@ -521,7 +523,7 @@ class WP_REST_Plugins_Controller extends WP_REST_Controller {
 	/**
 	 * Deletes one plugin from the site.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
@@ -569,7 +571,7 @@ class WP_REST_Plugins_Controller extends WP_REST_Controller {
 	/**
 	 * Prepares the plugin for the REST response.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @param array           $item    Unmarked up and untranslated plugin data from {@see get_plugin_data()}.
 	 * @param WP_REST_Request $request Request object.
@@ -610,7 +612,7 @@ class WP_REST_Plugins_Controller extends WP_REST_Controller {
 		/**
 		 * Filters plugin data for a REST API response.
 		 *
-		 * @since 5.5.0
+		 * @since WP 5.5.0
 		 *
 		 * @param WP_REST_Response $response The response object.
 		 * @param array            $item     The plugin item from {@see get_plugin_data()}.
@@ -622,7 +624,7 @@ class WP_REST_Plugins_Controller extends WP_REST_Controller {
 	/**
 	 * Prepares links for the request.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @param array $item The plugin item.
 	 * @return array[]
@@ -645,7 +647,7 @@ class WP_REST_Plugins_Controller extends WP_REST_Controller {
 	/**
 	 * Gets the plugin header data for a plugin.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @param string $plugin The plugin file to get data for.
 	 * @return array|WP_Error The plugin data, or a WP_Error if the plugin is not installed.
@@ -666,7 +668,7 @@ class WP_REST_Plugins_Controller extends WP_REST_Controller {
 	/**
 	 * Get's the activation status for a plugin.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @param string $plugin The plugin file to check.
 	 * @return string Either 'network-active', 'active' or 'inactive'.
@@ -686,7 +688,7 @@ class WP_REST_Plugins_Controller extends WP_REST_Controller {
 	/**
 	 * Handle updating a plugin's status.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @param string $plugin         The plugin file to update.
 	 * @param string $new_status     The plugin's new status.
@@ -724,7 +726,7 @@ class WP_REST_Plugins_Controller extends WP_REST_Controller {
 	/**
 	 * Handle updating a plugin's status.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @param string $plugin         The plugin file to update.
 	 * @param string $new_status     The plugin's new status.
@@ -766,7 +768,7 @@ class WP_REST_Plugins_Controller extends WP_REST_Controller {
 	/**
 	 * Checks that the "plugin" parameter is a valid path.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @param string $file The plugin file parameter.
 	 * @return bool
@@ -784,7 +786,7 @@ class WP_REST_Plugins_Controller extends WP_REST_Controller {
 	/**
 	 * Sanitizes the "plugin" parameter to be a proper plugin file with ".php" appended.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @param string $file The plugin file parameter.
 	 * @return string
@@ -796,7 +798,7 @@ class WP_REST_Plugins_Controller extends WP_REST_Controller {
 	/**
 	 * Checks if the plugin matches the requested parameters.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @param WP_REST_Request $request The request to require the plugin matches against.
 	 * @param array           $item    The plugin item.
@@ -832,7 +834,7 @@ class WP_REST_Plugins_Controller extends WP_REST_Controller {
 	/**
 	 * Checks if the plugin is installed.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @param string $plugin The plugin file.
 	 * @return bool
@@ -846,7 +848,7 @@ class WP_REST_Plugins_Controller extends WP_REST_Controller {
 	 *
 	 * Only the 'Direct' filesystem transport, and SSH/FTP when credentials are stored are supported at present.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @return true|WP_Error True if filesystem is available, WP_Error otherwise.
 	 */
@@ -871,7 +873,7 @@ class WP_REST_Plugins_Controller extends WP_REST_Controller {
 	/**
 	 * Retrieves the plugin's schema, conforming to JSON Schema.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @return array Item schema data.
 	 */
@@ -979,7 +981,7 @@ class WP_REST_Plugins_Controller extends WP_REST_Controller {
 	/**
 	 * Retrieves the query params for the collections.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @return array Query parameters for the collection.
 	 */

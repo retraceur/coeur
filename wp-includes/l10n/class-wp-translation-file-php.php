@@ -4,19 +4,19 @@
  *
  * @package motsVertueux
  * @subpackage I18N
- * @since 6.5.0
+ * @since WP 6.5.0
  */
 
 /**
  * Class WP_Translation_File_PHP.
  *
- * @since 6.5.0
+ * @since WP 6.5.0
  */
 class WP_Translation_File_PHP extends WP_Translation_File {
 	/**
 	 * Parses the file.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 */
 	protected function parse_file() {
 		$this->parsed = true;
@@ -40,7 +40,7 @@ class WP_Translation_File_PHP extends WP_Translation_File {
 	/**
 	 * Exports translation contents as a string.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @return string Translation file contents.
 	 */
@@ -56,7 +56,7 @@ class WP_Translation_File_PHP extends WP_Translation_File {
 	 * Like {@see var_export()} but "minified", using short array syntax
 	 * and no newlines.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param mixed $value The variable you want to export.
 	 * @return string The variable representation.

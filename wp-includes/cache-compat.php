@@ -2,10 +2,9 @@
 /**
  * Object Cache API functions missing from 3rd party object caches.
  *
- * @link https://developer.wordpress.org/reference/classes/wp_object_cache/
- *
  * @package motsVertueux
  * @subpackage Cache
+ * @since 1.0.0 motsVertueux fork.
  */
 
 if ( ! function_exists( 'wp_cache_add_multiple' ) ) :
@@ -15,7 +14,7 @@ if ( ! function_exists( 'wp_cache_add_multiple' ) ) :
 	 * Compat function to mimic wp_cache_add_multiple().
 	 *
 	 * @ignore
-	 * @since 6.0.0
+	 * @since WP 6.0.0
 	 *
 	 * @see wp_cache_add_multiple()
 	 *
@@ -46,7 +45,7 @@ if ( ! function_exists( 'wp_cache_set_multiple' ) ) :
 	 * Compat function to mimic wp_cache_set_multiple().
 	 *
 	 * @ignore
-	 * @since 6.0.0
+	 * @since WP 6.0.0
 	 *
 	 * @see wp_cache_set_multiple()
 	 *
@@ -75,7 +74,7 @@ if ( ! function_exists( 'wp_cache_get_multiple' ) ) :
 	 * Compat function to mimic wp_cache_get_multiple().
 	 *
 	 * @ignore
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @see wp_cache_get_multiple()
 	 *
@@ -104,7 +103,7 @@ if ( ! function_exists( 'wp_cache_delete_multiple' ) ) :
 	 * Compat function to mimic wp_cache_delete_multiple().
 	 *
 	 * @ignore
-	 * @since 6.0.0
+	 * @since WP 6.0.0
 	 *
 	 * @see wp_cache_delete_multiple()
 	 *
@@ -131,7 +130,7 @@ if ( ! function_exists( 'wp_cache_flush_runtime' ) ) :
 	 * Compat function to mimic wp_cache_flush_runtime().
 	 *
 	 * @ignore
-	 * @since 6.0.0
+	 * @since WP 6.0.0
 	 *
 	 * @see wp_cache_flush_runtime()
 	 *
@@ -159,7 +158,7 @@ if ( ! function_exists( 'wp_cache_flush_group' ) ) :
 	 * Before calling this function, always check for group flushing support using the
 	 * `wp_cache_supports( 'flush_group' )` function.
 	 *
-	 * @since 6.1.0
+	 * @since WP 6.1.0
 	 *
 	 * @see WP_Object_Cache::flush_group()
 	 * @global WP_Object_Cache $wp_object_cache Object cache global instance.
@@ -188,7 +187,7 @@ if ( ! function_exists( 'wp_cache_supports' ) ) :
 	/**
 	 * Determines whether the object cache implementation supports a particular feature.
 	 *
-	 * @since 6.1.0
+	 * @since WP 6.1.0
 	 *
 	 * @param string $feature Name of the feature to check for. Possible values include:
 	 *                        'add_multiple', 'set_multiple', 'get_multiple', 'delete_multiple',

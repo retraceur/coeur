@@ -4,7 +4,7 @@
  *
  * @package motsVertueux
  * @subpackage Multisite
- * @since 3.0.0
+ * @since WP 3.0.0
  */
 
 require_once __DIR__ . '/admin.php';

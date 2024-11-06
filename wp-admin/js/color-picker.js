@@ -18,7 +18,7 @@
 	 *
 	 * @class $.widget.wp.wpColorPicker
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 */
 	ColorPicker = /** @lends $.widget.wp.wpColorPicker.prototype */{
 		options: {
@@ -35,7 +35,7 @@
 		/**
 		 * Creates a color picker that only allows you to adjust the hue.
 		 *
-		 * @since 3.5.0
+		 * @since WP 3.5.0
 		 * @access private
 		 *
 		 * @return {void}
@@ -78,7 +78,7 @@
 		/**
 		 * Creates the color picker, sets default values, css classes and wraps it all in HTML.
 		 *
-		 * @since 3.5.0
+		 * @since WP 3.5.0
 		 * @access private
 		 *
 		 * @return {void}
@@ -177,7 +177,7 @@
 				 * Handles the onChange event if one has been defined in the options and additionally
 				 * sets the background color for the toggler element.
 				 *
-				 * @since 3.5.0
+				 * @since WP 3.5.0
 				 *
 				 * @ignore
 				 *
@@ -206,7 +206,7 @@
 		/**
 		 * Binds event listeners to the color picker.
 		 *
-		 * @since 3.5.0
+		 * @since WP 3.5.0
 		 * @access private
 		 *
 		 * @return {void}
@@ -217,7 +217,7 @@
 			/**
 			 * Prevent any clicks inside this widget from leaking to the top and closing it.
 			 *
-			 * @since 3.5.0
+			 * @since WP 3.5.0
 			 *
 			 * @param {Event} event The event that's being called.
 			 *
@@ -230,7 +230,7 @@
 			/**
 			 * Open or close the color picker depending on the class.
 			 *
-			 * @since 3.5.0
+			 * @since WP 3.5.0
 			 */
 			self.toggler.on( 'click', function(){
 				if ( self.toggler.hasClass( 'wp-picker-open' ) ) {
@@ -244,7 +244,7 @@
 			 * Checks if value is empty when changing the color in the color picker.
 			 * If so, the background color is cleared.
 			 *
-			 * @since 3.5.0
+			 * @since WP 3.5.0
 			 *
 			 * @param {Event} event The event that's being called.
 			 *
@@ -266,7 +266,7 @@
 			/**
 			 * Enables the user to either clear the color in the color picker or revert back to the default color.
 			 *
-			 * @since 3.5.0
+			 * @since WP 3.5.0
 			 *
 			 * @param {Event} event The event that's being called.
 			 *
@@ -288,7 +288,7 @@
 		/**
 		 * Opens the color picker dialog.
 		 *
-		 * @since 3.5.0
+		 * @since WP 3.5.0
 		 *
 		 * @return {void}
 		 */
@@ -304,7 +304,7 @@
 		/**
 		 * Closes the color picker dialog.
 		 *
-		 * @since 3.5.0
+		 * @since WP 3.5.0
 		 *
 		 * @return {void}
 		 */
@@ -322,7 +322,7 @@
 		 *
 		 * @param newColor {string|*} The new color to use. Can be undefined.
 		 *
-		 * @since 3.5.0
+		 * @since WP 3.5.0
 		 *
 		 * @return {string} The element's color.
 		 */
@@ -338,7 +338,7 @@
 		 *
 		 * @param newDefaultColor {string|*} The new default color to use. Can be undefined.
 		 *
-		 * @since 3.5.0
+		 * @since WP 3.5.0
 		 *
 		 * @return {boolean|string} The element's color.
 		 */

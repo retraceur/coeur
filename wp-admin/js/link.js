@@ -49,7 +49,7 @@ jQuery( function($) {
 	 * This function makes sure that the checkboxes are synced between the all
 	 * categories tab and the most used categories tab.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @return {void}
 	 */
@@ -68,7 +68,7 @@ jQuery( function($) {
 	 * This is run on the addAfter event to make sure the correct event listeners
 	 * are bound to the DOM elements.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @param {string} r Raw XML response returned from the server after adding a
 	 *                   category.

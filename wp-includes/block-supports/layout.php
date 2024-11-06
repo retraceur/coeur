@@ -3,7 +3,7 @@
  * Layout block support flag.
  *
  * @package motsVertueux
- * @since 5.8.0
+ * @since WP 5.8.0
  */
 
 /**
@@ -13,8 +13,8 @@
  * When making changes or additions to layout definitions, the corresponding JavaScript definitions should
  * also be updated.
  *
- * @since 6.3.0
- * @since 6.6.0 Updated specificity for compatibility with 0-1-0 global styles specificity.
+ * @since WP 6.3.0
+ * @since WP 6.6.0 Updated specificity for compatibility with 0-1-0 global styles specificity.
  * @access private
  *
  * @return array[] Layout definitions.
@@ -196,8 +196,8 @@ function wp_get_layout_definitions() {
 /**
  * Registers the layout block attribute for block types that support it.
  *
- * @since 5.8.0
- * @since 6.3.0 Check for layout support via the `layout` key with fallback to `__experimentalLayout`.
+ * @since WP 5.8.0
+ * @since WP 6.3.0 Check for layout support via the `layout` key with fallback to `__experimentalLayout`.
  * @access private
  *
  * @param WP_Block_Type $block_type Block Type.
@@ -220,10 +220,10 @@ function wp_register_layout_support( $block_type ) {
 /**
  * Generates the CSS corresponding to the provided layout.
  *
- * @since 5.9.0
- * @since 6.1.0 Added `$block_spacing` param, use style engine to enqueue styles.
- * @since 6.3.0 Added grid layout type.
- * @since 6.6.0 Removed duplicated selector from layout styles.
+ * @since WP 5.9.0
+ * @since WP 6.1.0 Added `$block_spacing` param, use style engine to enqueue styles.
+ * @since WP 6.3.0 Added grid layout type.
+ * @since WP 6.6.0 Removed duplicated selector from layout styles.
  *              Enabled negative margins for alignfull children of blocks with custom padding.
  * @access private
  *
@@ -557,10 +557,10 @@ function wp_get_layout_style( $selector, $layout, $has_block_gap_support = false
 /**
  * Renders the layout config to the block wrapper.
  *
- * @since 5.8.0
- * @since 6.3.0 Adds compound class to layout wrapper for global spacing styles.
- * @since 6.3.0 Check for layout support via the `layout` key with fallback to `__experimentalLayout`.
- * @since 6.6.0 Removed duplicate container class from layout styles.
+ * @since WP 5.8.0
+ * @since WP 6.3.0 Adds compound class to layout wrapper for global spacing styles.
+ * @since WP 6.3.0 Check for layout support via the `layout` key with fallback to `__experimentalLayout`.
+ * @since WP 6.6.0 Removed duplicate container class from layout styles.
  * @access private
  *
  * @param string $block_content Rendered block content.
@@ -927,7 +927,7 @@ function wp_render_layout_support_flag( $block_content, $block ) {
  * Check if the parent block exists and if it has a layout attribute.
  * If it does, add the parent layout to the parsed block
  *
- * @since 6.6.0
+ * @since WP 6.6.0
  * @access private
  *
  * @param array    $parsed_block The parsed block.
@@ -958,8 +958,8 @@ add_filter( 'render_block', 'wp_render_layout_support_flag', 10, 2 );
  * to restore the inner div for the group block
  * to avoid breaking styles relying on that div.
  *
- * @since 5.8.0
- * @since 6.6.1 Removed inner container from Grid variations.
+ * @since WP 5.8.0
+ * @since WP 6.6.1 Removed inner container from Grid variations.
  * @access private
  *
  * @param string $block_content Rendered block content.
@@ -1030,7 +1030,7 @@ add_filter( 'render_block_core/group', 'wp_restore_group_inner_container', 10, 2
  * to restore the outer div for the aligned image block
  * to avoid breaking styles relying on that div.
  *
- * @since 6.0.0
+ * @since WP 6.0.0
  * @access private
  *
  * @param string $block_content Rendered block content.

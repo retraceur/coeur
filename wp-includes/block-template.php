@@ -9,7 +9,7 @@
  * Adds necessary hooks to resolve '_wp-find-template' requests.
  *
  * @access private
- * @since 5.9.0
+ * @since WP 5.9.0
  */
 function _add_template_loader_filters() {
 	if ( isset( $_GET['_wp-find-template'] ) && current_theme_supports( 'block-templates' ) ) {
@@ -22,8 +22,8 @@ function _add_template_loader_filters() {
  *
  * Internally, this communicates the block content that needs to be used by the template canvas through a global variable.
  *
- * @since 5.8.0
- * @since 6.3.0 Added `$_wp_current_template_id` global for editing of current template directly from the admin bar.
+ * @since WP 5.8.0
+ * @since WP 6.3.0 Added `$_wp_current_template_id` global for editing of current template directly from the admin bar.
  *
  * @global string $_wp_current_template_content
  * @global string $_wp_current_template_id
@@ -111,8 +111,8 @@ function locate_block_template( $template, $type, array $templates ) {
  * Returns the correct 'wp_template' to render for the request template type.
  *
  * @access private
- * @since 5.8.0
- * @since 5.9.0 Added the `$fallback_template` parameter.
+ * @since WP 5.8.0
+ * @since WP 5.9.0 Added the `$fallback_template` parameter.
  *
  * @param string   $template_type      The current template type.
  * @param string[] $template_hierarchy The current template hierarchy, ordered by priority.
@@ -194,7 +194,7 @@ function resolve_block_template( $template_type, $template_hierarchy, $fallback_
  * Displays title tag with content, regardless of whether theme has title-tag support.
  *
  * @access private
- * @since 5.8.0
+ * @since WP 5.8.0
  *
  * @see _wp_render_title_tag()
  */
@@ -206,7 +206,7 @@ function _block_template_render_title_tag() {
  * Returns the markup for the current template.
  *
  * @access private
- * @since 5.8.0
+ * @since WP 5.8.0
  *
  * @global string   $_wp_current_template_id
  * @global string   $_wp_current_template_content
@@ -279,7 +279,7 @@ function get_the_block_template_html() {
  * This is hooked into {@see 'wp_head'} to decouple its output from the default template canvas.
  *
  * @access private
- * @since 5.8.0
+ * @since WP 5.8.0
  */
 function _block_template_viewport_meta_tag() {
 	echo '<meta name="viewport" content="width=device-width, initial-scale=1" />' . "\n";
@@ -289,7 +289,7 @@ function _block_template_viewport_meta_tag() {
  * Strips .php or .html suffix from template file names.
  *
  * @access private
- * @since 5.8.0
+ * @since WP 5.8.0
  *
  * @param string $template_file Template file name.
  * @return string Template file name without extension.
@@ -302,7 +302,7 @@ function _strip_template_file_suffix( $template_file ) {
  * Removes post details from block context when rendering a block template.
  *
  * @access private
- * @since 5.8.0
+ * @since WP 5.8.0
  *
  * @param array $context Default context.
  *
@@ -330,7 +330,7 @@ function _block_template_render_without_post_block_context( $context ) {
  * return an auto-draft post for template resolution when editing a new post.
  *
  * @access private
- * @since 5.9.0
+ * @since WP 5.9.0
  *
  * @param WP_Query $wp_query Current WP_Query instance, passed by reference.
  */
@@ -362,7 +362,7 @@ function _resolve_template_for_new_post( $wp_query ) {
 /**
  * Register a block template.
  *
- * @since 6.7.0
+ * @since WP 6.7.0
  *
  * @param string       $template_name  Template name in the form of `plugin_uri//template_name`.
  * @param array|string $args           {
@@ -384,7 +384,7 @@ function register_block_template( $template_name, $args = array() ) {
 /**
  * Unregister a block template.
  *
- * @since 6.7.0
+ * @since WP 6.7.0
  *
  * @param string $template_name Template name in the form of `plugin_uri//template_name`.
  * @return WP_Block_Template|WP_Error The unregistered template object on success, WP_Error object on failure or if the

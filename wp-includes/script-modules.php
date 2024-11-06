@@ -2,7 +2,7 @@
 /**
  * Script Modules API: Script Module functions
  *
- * @since 6.5.0
+ * @since WP 6.5.0
  *
  * @package motsVertueux
  * @subpackage Script Modules
@@ -14,7 +14,7 @@
  * This function provides access to the WP_Script_Modules instance, creating one
  * if it doesn't exist yet.
  *
- * @since 6.5.0
+ * @since WP 6.5.0
  *
  * @global WP_Script_Modules $wp_script_modules
  *
@@ -34,7 +34,7 @@ function wp_script_modules(): WP_Script_Modules {
  * Registers the script module if no script module with that script module
  * identifier has already been registered.
  *
- * @since 6.5.0
+ * @since WP 6.5.0
  *
  * @param string            $id      The identifier of the script module. Should be unique. It will be used in the
  *                                   final import map.
@@ -71,7 +71,7 @@ function wp_register_script_module( string $id, string $src, array $deps = array
  * If a src is provided and the script module has not been registered yet, it
  * will be registered.
  *
- * @since 6.5.0
+ * @since WP 6.5.0
  *
  * @param string            $id      The identifier of the script module. Should be unique. It will be used in the
  *                                   final import map.
@@ -105,7 +105,7 @@ function wp_enqueue_script_module( string $id, string $src = '', array $deps = a
 /**
  * Unmarks the script module so it is no longer enqueued in the page.
  *
- * @since 6.5.0
+ * @since WP 6.5.0
  *
  * @param string $id The identifier of the script module.
  */
@@ -116,7 +116,7 @@ function wp_dequeue_script_module( string $id ) {
 /**
  * Deregisters the script module.
  *
- * @since 6.5.0
+ * @since WP 6.5.0
  *
  * @param string $id The identifier of the script module.
  */
@@ -127,7 +127,7 @@ function wp_deregister_script_module( string $id ) {
 /**
  * Registers all the default WordPress Script Modules.
  *
- * @since 6.7.0
+ * @since WP 6.7.0
  */
 function wp_default_script_modules() {
 	$suffix = defined( 'WP_RUN_CORE_TESTS' ) ? '.min' : wp_scripts_get_suffix();

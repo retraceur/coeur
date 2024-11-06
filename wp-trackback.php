@@ -2,7 +2,7 @@
 /**
  * Handle Trackbacks and Pingbacks Sent to WordPress
  *
- * @since 0.71
+ * @since WP 0.71
  *
  * @package motsVertueux
  * @subpackage Trackbacks
@@ -21,7 +21,7 @@ wp_set_current_user( 0 );
  *
  * Responds with an error or success XML message.
  *
- * @since 0.71
+ * @since WP 0.71
  *
  * @param int|bool $error         Whether there was an error.
  *                                Default '0'. Accepts '0' or '1', true or false.
@@ -106,7 +106,7 @@ if ( ! empty( $trackback_url ) && ! empty( $title ) ) {
 	/**
 	 * Fires before the trackback is added to a post.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @param int    $post_id       Post ID related to the trackback.
 	 * @param string $trackback_url Trackback URL.
@@ -168,7 +168,7 @@ if ( ! empty( $trackback_url ) && ! empty( $title ) ) {
 	/**
 	 * Fires after a trackback is added to a post.
 	 *
-	 * @since 1.2.0
+	 * @since WP 1.2.0
 	 *
 	 * @param int $trackback_id Trackback ID.
 	 */

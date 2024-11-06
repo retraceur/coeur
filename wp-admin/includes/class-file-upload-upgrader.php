@@ -4,7 +4,7 @@
  *
  * @package motsVertueux
  * @subpackage Upgrader
- * @since 4.6.0
+ * @since WP 4.6.0
  */
 
 /**
@@ -13,8 +13,8 @@
  * This class handles the upload process and passes it as if it's a local file
  * to the Upgrade/Installer functions.
  *
- * @since 2.8.0
- * @since 4.6.0 Moved to its own file from wp-admin/includes/class-wp-upgrader.php.
+ * @since WP 2.8.0
+ * @since WP 4.6.0 Moved to its own file from wp-admin/includes/class-wp-upgrader.php.
  */
 #[AllowDynamicProperties]
 class File_Upload_Upgrader {
@@ -22,7 +22,7 @@ class File_Upload_Upgrader {
 	/**
 	 * The full path to the file package.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 * @var string $package
 	 */
 	public $package;
@@ -30,7 +30,7 @@ class File_Upload_Upgrader {
 	/**
 	 * The name of the file.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 * @var string $filename
 	 */
 	public $filename;
@@ -38,7 +38,7 @@ class File_Upload_Upgrader {
 	/**
 	 * The ID of the attachment post for this file.
 	 *
-	 * @since 3.3.0
+	 * @since WP 3.3.0
 	 * @var int $id
 	 */
 	public $id = 0;
@@ -46,7 +46,7 @@ class File_Upload_Upgrader {
 	/**
 	 * Construct the upgrader for a form.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @param string $form      The name of the form the file was uploaded from.
 	 * @param string $urlholder The name of the `GET` parameter that holds the filename.
@@ -141,7 +141,7 @@ class File_Upload_Upgrader {
 	/**
 	 * Deletes the attachment/uploaded file.
 	 *
-	 * @since 3.2.2
+	 * @since WP 3.2.2
 	 *
 	 * @return bool Whether the cleanup was successful.
 	 */

@@ -92,7 +92,7 @@ class Misc
     /**
      * Get a HTML/XML element from a HTML string
      *
-     * @deprecated since SimplePie 1.3, use DOMDocument instead (parsing HTML with regex is bad!)
+     * @deprecated WP since SimplePie 1.3, use DOMDocument instead (parsing HTML with regex is bad!)
      * @param string $realname Element name (including namespace prefix if applicable)
      * @param string $string HTML document
      * @return array
@@ -203,7 +203,7 @@ class Misc
     }
 
     /**
-     * @deprecated since SimplePie 1.8.0, use PHP native array_replace_recursive() instead.
+     * @deprecated WP since SimplePie 1.8.0, use PHP native array_replace_recursive() instead.
      */
     public static function array_merge_recursive($array1, $array2)
     {
@@ -1730,7 +1730,7 @@ class Misc
     /**
      * Decode HTML entities
      *
-     * @deprecated since SimplePie 1.3, use DOMDocument instead
+     * @deprecated WP since SimplePie 1.3, use DOMDocument instead
      * @param string $data Input data
      * @return string Output data
      */

@@ -1578,14 +1578,14 @@ function __read(o, n) {
   return ar;
 }
 
-/** @deprecated */
+/** @deprecated WP */
 function __spread() {
   for (var ar = [], i = 0; i < arguments.length; i++)
       ar = ar.concat(__read(arguments[i]));
   return ar;
 }
 
-/** @deprecated */
+/** @deprecated WP */
 function __spreadArrays() {
   for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
   for (var r = Array(s), k = 0, i = 0; i < il; i++)

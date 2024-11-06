@@ -4,13 +4,14 @@
  *
  * @package motsVertueux
  * @subpackage Blocks
- * @since 5.0.0
+ * @since WP 5.0.0
+ * @since 1.0.0 motsVertueux fork.
  */
 
 /**
  * Removes the block asset's path prefix if provided.
  *
- * @since 5.5.0
+ * @since WP 5.5.0
  *
  * @param string $asset_handle_or_path Asset handle or prefixed path.
  * @return string Path without the prefix or the original value.
@@ -34,9 +35,9 @@ function remove_block_asset_path_prefix( $asset_handle_or_path ) {
  * Generates the name for an asset based on the name of the block
  * and the field name provided.
  *
- * @since 5.5.0
- * @since 6.1.0 Added `$index` parameter.
- * @since 6.5.0 Added support for `viewScriptModule` field.
+ * @since WP 5.5.0
+ * @since WP 6.1.0 Added `$index` parameter.
+ * @since WP 6.5.0 Added support for `viewScriptModule` field.
  *
  * @param string $block_name Name of the block.
  * @param string $field_name Name of the metadata field.
@@ -82,7 +83,7 @@ function generate_block_asset_handle( $block_name, $field_name, $index = 0 ) {
 /**
  * Gets the URL to a block asset.
  *
- * @since 6.4.0
+ * @since WP 6.4.0
  *
  * @param string $path A normalized path to a block asset.
  * @return string|false The URL to the block asset or false on failure.
@@ -134,7 +135,7 @@ function get_block_asset_url( $path ) {
  * automatically generated module ID. It returns unprocessed script module
  * ID otherwise.
  *
- * @since 6.5.0
+ * @since WP 6.5.0
  *
  * @param array  $metadata   Block metadata.
  * @param string $field_name Field name to pick from metadata.
@@ -191,9 +192,9 @@ function register_block_script_module_id( $metadata, $field_name, $index = 0 ) {
  * file with details necessary to register the script under automatically
  * generated handle name. It returns unprocessed script handle otherwise.
  *
- * @since 5.5.0
- * @since 6.1.0 Added `$index` parameter.
- * @since 6.5.0 The asset file is optional. Added script handle support in the asset file.
+ * @since WP 5.5.0
+ * @since WP 6.1.0 Added `$index` parameter.
+ * @since WP 6.5.0 The asset file is optional. Added script handle support in the asset file.
  *
  * @param array  $metadata   Block metadata.
  * @param string $field_name Field name to pick from metadata.
@@ -226,7 +227,7 @@ function register_block_script_handle( $metadata, $field_name, $index = 0 ) {
 		realpath( $script_asset_raw_path )
 	);
 
-	// Asset file for blocks is optional. See https://core.trac.wordpress.org/ticket/60460.
+	// Asset file for blocks is optional.
 	$script_asset  = ! empty( $script_asset_path ) ? require $script_asset_path : array();
 	$script_handle = isset( $script_asset['handle'] ) ?
 		$script_asset['handle'] :
@@ -268,8 +269,8 @@ function register_block_script_handle( $metadata, $field_name, $index = 0 ) {
  * to file was provided and registers the style under automatically
  * generated handle name. It returns unprocessed style handle otherwise.
  *
- * @since 5.5.0
- * @since 6.1.0 Added `$index` parameter.
+ * @since WP 5.5.0
+ * @since WP 6.1.0 Added `$index` parameter.
  *
  * @param array  $metadata   Block metadata.
  * @param string $field_name Field name to pick from metadata.
@@ -361,7 +362,7 @@ function register_block_style_handle( $metadata, $field_name, $index = 0 ) {
 /**
  * Gets i18n schema for block's metadata read from `block.json` file.
  *
- * @since 5.9.0
+ * @since WP 5.9.0
  *
  * @return object The schema for block's metadata.
  */
@@ -382,7 +383,7 @@ function get_block_metadata_i18n_schema() {
  * collections in a centralized location. Registering collections can improve performance
  * by avoiding multiple reads from the filesystem and parsing JSON.
  *
- * @since 6.7.0
+ * @since WP 6.7.0
  *
  * @param string $path     The base path in which block files for the collection reside.
  * @param string $manifest The path to the manifest file for the collection.
@@ -394,14 +395,14 @@ function wp_register_block_metadata_collection( $path, $manifest ) {
 /**
  * Registers a block type from the metadata stored in the `block.json` file.
  *
- * @since 5.5.0
- * @since 5.7.0 Added support for `textdomain` field and i18n handling for all translatable fields.
- * @since 5.9.0 Added support for `variations` and `viewScript` fields.
- * @since 6.1.0 Added support for `render` field.
- * @since 6.3.0 Added `selectors` field.
- * @since 6.4.0 Added support for `blockHooks` field.
- * @since 6.5.0 Added support for `allowedBlocks`, `viewScriptModule`, and `viewStyle` fields.
- * @since 6.7.0 Allow PHP filename as `variations` argument.
+ * @since WP 5.5.0
+ * @since WP 5.7.0 Added support for `textdomain` field and i18n handling for all translatable fields.
+ * @since WP 5.9.0 Added support for `variations` and `viewScript` fields.
+ * @since WP 6.1.0 Added support for `render` field.
+ * @since WP 6.3.0 Added `selectors` field.
+ * @since WP 6.4.0 Added support for `blockHooks` field.
+ * @since WP 6.5.0 Added support for `allowedBlocks`, `viewScriptModule`, and `viewStyle` fields.
+ * @since WP 6.7.0 Allow PHP filename as `variations` argument.
  *
  * @param string $file_or_folder Path to the JSON file with metadata definition for
  *                               the block or path to the folder where the `block.json` file is located.
@@ -444,7 +445,7 @@ function register_block_type_from_metadata( $file_or_folder, $args = array() ) {
 	/**
 	 * Filters the metadata provided for registering a block type.
 	 *
-	 * @since 5.7.0
+	 * @since WP 5.7.0
 	 *
 	 * @param array $metadata Metadata for registering a block type.
 	 */
@@ -510,7 +511,7 @@ function register_block_type_from_metadata( $file_or_folder, $args = array() ) {
 			/**
 			 * Renders the block on the server.
 			 *
-			 * @since 6.1.0
+			 * @since WP 6.1.0
 			 *
 			 * @param array    $attributes Block attributes.
 			 * @param string   $content    Block default content.
@@ -539,7 +540,7 @@ function register_block_type_from_metadata( $file_or_folder, $args = array() ) {
 			/**
 			 * Generates the list of block variations.
 			 *
-			 * @since 6.7.0
+			 * @since WP 6.7.0
 			 *
 			 * @return string Returns the list of block variations.
 			 */
@@ -698,7 +699,7 @@ function register_block_type_from_metadata( $file_or_folder, $args = array() ) {
 	/**
 	 * Filters the settings determined from the block type metadata.
 	 *
-	 * @since 5.7.0
+	 * @since WP 5.7.0
 	 *
 	 * @param array $settings Array of determined settings for registering a block type.
 	 * @param array $metadata Metadata provided for registering a block type.
@@ -717,8 +718,8 @@ function register_block_type_from_metadata( $file_or_folder, $args = array() ) {
  * Registers a block type. The recommended way is to register a block type using
  * the metadata stored in the `block.json` file.
  *
- * @since 5.0.0
- * @since 5.8.0 First parameter now accepts a path to the `block.json` file.
+ * @since WP 5.0.0
+ * @since WP 5.8.0 First parameter now accepts a path to the `block.json` file.
  *
  * @param string|WP_Block_Type $block_type Block type name including namespace, or alternatively
  *                                         a path to the JSON file with metadata definition for the block,
@@ -742,7 +743,7 @@ function register_block_type( $block_type, $args = array() ) {
 /**
  * Unregisters a block type.
  *
- * @since 5.0.0
+ * @since WP 5.0.0
  *
  * @param string|WP_Block_Type $name Block type name including namespace, or alternatively
  *                                   a complete WP_Block_Type instance.
@@ -759,7 +760,7 @@ function unregister_block_type( $name ) {
  * the pattern of a block but not validating its structure. For strict accuracy,
  * you should use the block parser on post content.
  *
- * @since 5.0.0
+ * @since WP 5.0.0
  *
  * @see parse_blocks()
  *
@@ -789,7 +790,7 @@ function has_blocks( $post = null ) {
  * synced patterns (formerly called reusable blocks). For strict accuracy,
  * you should use the block parser on post content.
  *
- * @since 5.0.0
+ * @since WP 5.0.0
  *
  * @see parse_blocks()
  *
@@ -839,7 +840,7 @@ function has_block( $block_name, $post = null ) {
 /**
  * Returns an array of the names of all registered dynamic block types.
  *
- * @since 5.0.0
+ * @since WP 5.0.0
  *
  * @return string[] Array of dynamic block names.
  */
@@ -859,7 +860,7 @@ function get_dynamic_block_names() {
 /**
  * Retrieves block types hooked into the given block, grouped by anchor block type and the relative position.
  *
- * @since 6.4.0
+ * @since WP 6.4.0
  *
  * @return array[] Array of block types grouped by anchor block type and the relative position.
  */
@@ -887,7 +888,7 @@ function get_hooked_blocks() {
 /**
  * Returns the markup for blocks hooked to the given anchor block in a specific relative position.
  *
- * @since 6.5.0
+ * @since WP 6.5.0
  * @access private
  *
  * @param array                           $parsed_anchor_block The anchor block, in parsed block array format.
@@ -906,7 +907,7 @@ function insert_hooked_blocks( &$parsed_anchor_block, $relative_position, $hooke
 	/**
 	 * Filters the list of hooked block types for a given anchor block type and relative position.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @param string[]                        $hooked_block_types The list of hooked block types.
 	 * @param string                          $relative_position  The relative position of the hooked blocks.
@@ -929,7 +930,7 @@ function insert_hooked_blocks( &$parsed_anchor_block, $relative_position, $hooke
 		/**
 		 * Filters the parsed block array for a given hooked block.
 		 *
-		 * @since 6.5.0
+		 * @since WP 6.5.0
 		 *
 		 * @param array|null                      $parsed_hooked_block The parsed block array for the given hooked block type, or null to suppress the block.
 		 * @param string                          $hooked_block_type   The hooked block type name.
@@ -945,7 +946,7 @@ function insert_hooked_blocks( &$parsed_anchor_block, $relative_position, $hooke
 		 *
 		 * The dynamic portion of the hook name, `$hooked_block_type`, refers to the block type name of the specific hooked block.
 		 *
-		 * @since 6.5.0
+		 * @since WP 6.5.0
 		 *
 		 * @param array|null                      $parsed_hooked_block The parsed block array for the given hooked block type, or null to suppress the block.
 		 * @param string                          $hooked_block_type   The hooked block type name.
@@ -978,7 +979,7 @@ function insert_hooked_blocks( &$parsed_anchor_block, $relative_position, $hooke
  *
  * This function is meant for internal use only.
  *
- * @since 6.5.0
+ * @since WP 6.5.0
  * @access private
  *
  * @param array                           $parsed_anchor_block The anchor block, in parsed block array format.
@@ -1037,8 +1038,8 @@ function set_ignored_hooked_blocks_metadata( &$parsed_anchor_block, $relative_po
 /**
  * Runs the hooked blocks algorithm on the given content.
  *
- * @since 6.6.0
- * @since 6.7.0 Injects the `theme` attribute into Template Part blocks, even if no hooked blocks are registered.
+ * @since WP 6.6.0
+ * @since WP 6.7.0 Injects the `theme` attribute into Template Part blocks, even if no hooked blocks are registered.
  * @access private
  *
  * @param string                          $content  Serialized content.
@@ -1135,7 +1136,7 @@ function apply_block_hooks_to_content( $content, $context, $callback = 'insert_h
 /**
  * Accepts the serialized markup of a block and its inner blocks, and returns serialized markup of the inner blocks.
  *
- * @since 6.6.0
+ * @since WP 6.6.0
  * @access private
  *
  * @param string $serialized_block The serialized markup of a block and its inner blocks.
@@ -1150,7 +1151,7 @@ function remove_serialized_parent_block( $serialized_block ) {
 /**
  * Accepts the serialized markup of a block and its inner blocks, and returns serialized markup of the wrapper block.
  *
- * @since 6.7.0
+ * @since WP 6.7.0
  * @access private
  *
  * @see remove_serialized_parent_block()
@@ -1168,7 +1169,7 @@ function extract_serialized_parent_block( $serialized_block ) {
  * Updates the wp_postmeta with the list of ignored hooked blocks where the inner blocks are stored as post content.
  * Currently only supports `wp_navigation` post types.
  *
- * @since 6.6.0
+ * @since WP 6.6.0
  * @access private
  *
  * @param stdClass $post Post object.
@@ -1247,7 +1248,7 @@ function update_ignored_hooked_blocks_postmeta( $post ) {
  *
  * This function is meant for internal use only.
  *
- * @since 6.6.0
+ * @since WP 6.6.0
  * @access private
  *
  * @param array                           $parsed_anchor_block The anchor block, in parsed block array format.
@@ -1267,7 +1268,7 @@ function insert_hooked_blocks_and_set_ignored_hooked_blocks_metadata( &$parsed_a
 /**
  * Hooks into the REST API response for the core/navigation block and adds the first and last inner blocks.
  *
- * @since 6.6.0
+ * @since WP 6.6.0
  *
  * @param WP_REST_Response $response The response object.
  * @param WP_Post          $post     Post object.
@@ -1314,8 +1315,8 @@ function insert_hooked_blocks_into_rest_response( $response, $post ) {
  *
  * This function is meant for internal use only.
  *
- * @since 6.4.0
- * @since 6.5.0 Added $callback argument.
+ * @since WP 6.4.0
+ * @since WP 6.5.0 Added $callback argument.
  * @access private
  *
  * @param array                           $hooked_blocks An array of blocks hooked to another given block.
@@ -1371,8 +1372,8 @@ function make_before_block_visitor( $hooked_blocks, $context, $callback = 'inser
  *
  * This function is meant for internal use only.
  *
- * @since 6.4.0
- * @since 6.5.0 Added $callback argument.
+ * @since WP 6.4.0
+ * @since WP 6.5.0 Added $callback argument.
  * @access private
  *
  * @param array                           $hooked_blocks An array of blocks hooked to another block.
@@ -1426,7 +1427,7 @@ function make_after_block_visitor( $hooked_blocks, $context, $callback = 'insert
  * the serializeAttributes JavaScript function in the block editor in order
  * to ensure consistent operation between PHP and JavaScript.
  *
- * @since 5.3.1
+ * @since WP 5.3.1
  *
  * @param array $block_attributes Attributes object.
  * @return string Serialized attributes.
@@ -1447,7 +1448,7 @@ function serialize_block_attributes( $block_attributes ) {
  * Returns the block name to use for serialization. This will remove the default
  * "core/" namespace from a block name.
  *
- * @since 5.3.1
+ * @since WP 5.3.1
  *
  * @param string|null $block_name Optional. Original block name. Null if the block name is unknown,
  *                                e.g. Classic blocks have their name set to null. Default null.
@@ -1464,7 +1465,7 @@ function strip_core_block_namespace( $block_name = null ) {
 /**
  * Returns the content of a block, including comment delimiters.
  *
- * @since 5.3.1
+ * @since WP 5.3.1
  *
  * @param string|null $block_name       Block name. Null if the block name is unknown,
  *                                      e.g. Classic blocks have their name set to null.
@@ -1502,7 +1503,7 @@ function get_comment_delimited_block_content( $block_name, $block_attributes, $b
  * `render_block`, this does not evaluate a block's `render_callback`, and will
  * instead preserve the markup as parsed.
  *
- * @since 5.3.1
+ * @since WP 5.3.1
  *
  * @param array $block {
  *     An associative array of a single parsed block object. See WP_Block_Parser_Block.
@@ -1540,7 +1541,7 @@ function serialize_block( $block ) {
  * Returns a joined string of the aggregate serialization of the given
  * parsed blocks.
  *
- * @since 5.3.1
+ * @since WP 5.3.1
  *
  * @param array[] $blocks {
  *     Array of block structures.
@@ -1583,7 +1584,7 @@ function serialize_blocks( $blocks ) {
  *
  * This function is meant for internal use only.
  *
- * @since 6.4.0
+ * @since WP 6.4.0
  * @access private
  *
  * @see serialize_block()
@@ -1650,7 +1651,7 @@ function traverse_and_serialize_block( $block, $pre_callback = null, $post_callb
 /**
  * Replaces patterns in a block tree with their content.
  *
- * @since 6.6.0
+ * @since WP 6.6.0
  *
  * @param array $blocks An array blocks.
  *
@@ -1745,7 +1746,7 @@ function resolve_pattern_blocks( $blocks ) {
  *
  * This function is meant for internal use only.
  *
- * @since 6.4.0
+ * @since WP 6.4.0
  * @access private
  *
  * @see serialize_blocks()
@@ -1800,7 +1801,7 @@ function traverse_and_serialize_blocks( $blocks, $pre_callback = null, $post_cal
  * Filters and sanitizes block content to remove non-allowable HTML
  * from parsed block attribute values.
  *
- * @since 5.3.1
+ * @since WP 5.3.1
  *
  * @param string         $text              Text that may contain block content.
  * @param array[]|string $allowed_html      Optional. An array of allowed HTML elements and attributes,
@@ -1829,7 +1830,7 @@ function filter_block_content( $text, $allowed_html = 'post', $allowed_protocols
 /**
  * Callback used for regular expression replacement in filter_block_content().
  *
- * @since 6.2.1
+ * @since WP 6.2.1
  * @access private
  *
  * @param array $matches Array of preg_replace_callback matches.
@@ -1843,7 +1844,7 @@ function _filter_block_content_callback( $matches ) {
  * Filters and sanitizes a parsed block to remove non-allowable HTML
  * from block attribute values.
  *
- * @since 5.3.1
+ * @since WP 5.3.1
  *
  * @param WP_Block_Parser_Block $block             The parsed block object.
  * @param array[]|string        $allowed_html      An array of allowed HTML elements and attributes,
@@ -1869,8 +1870,8 @@ function filter_block_kses( $block, $allowed_html, $allowed_protocols = array() 
  * Filters and sanitizes a parsed block attribute value to remove
  * non-allowable HTML.
  *
- * @since 5.3.1
- * @since 6.5.5 Added the `$block_context` parameter.
+ * @since WP 5.3.1
+ * @since WP 6.5.5 Added the `$block_context` parameter.
  *
  * @param string[]|string $value             The attribute value to filter.
  * @param array[]|string  $allowed_html      An array of allowed HTML elements and attributes,
@@ -1906,7 +1907,7 @@ function filter_block_kses_value( $value, $allowed_html, $allowed_protocols = ar
 /**
  * Sanitizes the value of the Template Part block's `tagName` attribute.
  *
- * @since 6.5.5
+ * @since WP 6.5.5
  *
  * @param string         $attribute_value The attribute value to filter.
  * @param string         $attribute_name  The attribute name.
@@ -1931,7 +1932,7 @@ function filter_block_core_template_part_attributes( $attribute_value, $attribut
  * As the excerpt should be a small string of text relevant to the full post content,
  * this function renders the blocks that are most likely to contain such text.
  *
- * @since 5.0.0
+ * @since WP 5.0.0
  *
  * @param string $content The content to parse.
  * @return string The parsed and filtered content.
@@ -1967,7 +1968,7 @@ function excerpt_remove_blocks( $content ) {
 	 * Filters the list of blocks that can be used as wrapper blocks, allowing
 	 * excerpts to be generated from the `innerBlocks` of these wrappers.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @param string[] $allowed_wrapper_blocks The list of names of allowed wrapper blocks.
 	 */
@@ -1981,7 +1982,7 @@ function excerpt_remove_blocks( $content ) {
 	 * If a dynamic block is added to this list, it must not generate another
 	 * excerpt, as this will cause an infinite loop to occur.
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 *
 	 * @param string[] $allowed_blocks The list of names of allowed blocks.
 	 */
@@ -2019,7 +2020,7 @@ function excerpt_remove_blocks( $content ) {
  * Parses footnotes markup out of a content string,
  * and renders those appropriate for the excerpt.
  *
- * @since 6.3.0
+ * @since WP 6.3.0
  *
  * @param string $content The content to parse.
  * @return string The parsed and filtered content.
@@ -2040,7 +2041,7 @@ function excerpt_remove_footnotes( $content ) {
  * Renders inner blocks from the allowed wrapper blocks
  * for generating an excerpt.
  *
- * @since 5.8.0
+ * @since WP 5.8.0
  * @access private
  *
  * @param array $parsed_block   The parsed block.
@@ -2068,7 +2069,7 @@ function _excerpt_render_inner_blocks( $parsed_block, $allowed_blocks ) {
 /**
  * Renders a single block into a HTML string.
  *
- * @since 5.0.0
+ * @since WP 5.0.0
  *
  * @global WP_Post $post The post to edit.
  *
@@ -2092,8 +2093,8 @@ function render_block( $parsed_block ) {
 	/**
 	 * Allows render_block() to be short-circuited, by returning a non-null value.
 	 *
-	 * @since 5.1.0
-	 * @since 5.9.0 The `$parent_block` parameter was added.
+	 * @since WP 5.1.0
+	 * @since WP 5.9.0 The `$parent_block` parameter was added.
 	 *
 	 * @param string|null   $pre_render   The pre-rendered content. Default null.
 	 * @param array         $parsed_block {
@@ -2119,8 +2120,8 @@ function render_block( $parsed_block ) {
 	/**
 	 * Filters the block being rendered in render_block(), before it's processed.
 	 *
-	 * @since 5.1.0
-	 * @since 5.9.0 The `$parent_block` parameter was added.
+	 * @since WP 5.1.0
+	 * @since WP 5.9.0 The `$parent_block` parameter was added.
 	 *
 	 * @param array         $parsed_block {
 	 *     An associative array of the block being rendered. See WP_Block_Parser_Block.
@@ -2166,8 +2167,8 @@ function render_block( $parsed_block ) {
 	/**
 	 * Filters the default context provided to a rendered block.
 	 *
-	 * @since 5.5.0
-	 * @since 5.9.0 The `$parent_block` parameter was added.
+	 * @since WP 5.5.0
+	 * @since WP 5.9.0 The `$parent_block` parameter was added.
 	 *
 	 * @param array         $context      Default context.
 	 * @param array         $parsed_block {
@@ -2193,7 +2194,7 @@ function render_block( $parsed_block ) {
 /**
  * Parses blocks out of a content string.
  *
- * @since 5.0.0
+ * @since WP 5.0.0
  *
  * @param string $content Post content.
  * @return array[] {
@@ -2216,7 +2217,7 @@ function parse_blocks( $content ) {
 	/**
 	 * Filter to allow plugins to replace the server-side block parser.
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 *
 	 * @param string $parser_class Name of block parser class.
 	 */
@@ -2229,7 +2230,7 @@ function parse_blocks( $content ) {
 /**
  * Parses dynamic blocks out of `post_content` and re-renders them.
  *
- * @since 5.0.0
+ * @since WP 5.0.0
  *
  * @param string $content Post content.
  * @return string Updated post content.
@@ -2256,7 +2257,7 @@ function do_blocks( $content ) {
  * If do_blocks() needs to remove wpautop() from the `the_content` filter, this re-adds it afterwards,
  * for subsequent `the_content` usage.
  *
- * @since 5.0.0
+ * @since WP 5.0.0
  * @access private
  *
  * @param string $content The post content running through this filter.
@@ -2276,7 +2277,7 @@ function _restore_wpautop_hook( $content ) {
  *
  * If the string doesn't contain blocks, it returns 0.
  *
- * @since 5.0.0
+ * @since WP 5.0.0
  *
  * @param string $content Content to test.
  * @return int The block format version is 1 if the content contains one or more blocks, 0 otherwise.
@@ -2288,10 +2289,8 @@ function block_version( $content ) {
 /**
  * Registers a new block style.
  *
- * @since 5.3.0
- * @since 6.6.0 Added support for registering styles for multiple block types.
- *
- * @link https://developer.wordpress.org/block-editor/reference-guides/block-api/block-styles/
+ * @since WP 5.3.0
+ * @since WP 6.6.0 Added support for registering styles for multiple block types.
  *
  * @param string|string[] $block_name       Block type name including namespace or array of namespaced block type names.
  * @param array           $style_properties Array containing the properties of the style name, label,
@@ -2308,7 +2307,7 @@ function register_block_style( $block_name, $style_properties ) {
 /**
  * Unregisters a block style.
  *
- * @since 5.3.0
+ * @since WP 5.3.0
  *
  * @param string $block_name       Block type name including namespace.
  * @param string $block_style_name Block style name.
@@ -2321,8 +2320,8 @@ function unregister_block_style( $block_name, $block_style_name ) {
 /**
  * Checks whether the current block type supports the feature requested.
  *
- * @since 5.8.0
- * @since 6.4.0 The `$feature` parameter now supports a string.
+ * @since WP 5.8.0
+ * @since WP 6.4.0 The `$feature` parameter now supports a string.
  *
  * @param WP_Block_Type $block_type    Block type to check for support.
  * @param string|array  $feature       Feature slug, or path to a specific feature to check support for.
@@ -2351,7 +2350,7 @@ function block_has_support( $block_type, $feature, $default_value = false ) {
  *
  * Displays a `_doing_it_wrong()` notice when a block using the older format is detected.
  *
- * @since 5.8.0
+ * @since WP 5.8.0
  *
  * @param array $metadata Metadata for registering a block type.
  * @return array Filtered metadata for registering a block type.
@@ -2404,9 +2403,9 @@ function wp_migrate_old_typography_shape( $metadata ) {
  *
  * It's used in Query Loop, Query Pagination Numbers and Query Pagination Next blocks.
  *
- * @since 5.8.0
- * @since 6.1.0 Added `query_loop_block_query_vars` filter and `parents` support in query.
- * @since 6.7.0 Added support for the `format` property in query.
+ * @since WP 5.8.0
+ * @since WP 6.1.0 Added `query_loop_block_query_vars` filter and `parents` support in query.
+ * @since WP 6.7.0 Added support for the `format` property in query.
  *
  * @param WP_Block $block Block instance.
  * @param int      $page  Current query's page.
@@ -2436,8 +2435,6 @@ function build_query_vars_from_query_block( $block, $page ) {
 				 * Passing an empty array to post__in will return have_posts() as true (and all posts will be returned).
 				 * Logic should be used before hand to determine if WP_Query should be used in the event that the array
 				 * being passed to post__in is empty.
-				 *
-				 * @see https://core.trac.wordpress.org/ticket/28099
 				 */
 				$query['post__in']            = ! empty( $sticky ) ? $sticky : array( 0 );
 				$query['ignore_sticky_posts'] = 1;
@@ -2608,7 +2605,7 @@ function build_query_vars_from_query_block( $block, $page ) {
 	 * attributes which are also compatible with the REST API, in order to be able to
 	 * implement identical queries on both sides.
 	 *
-	 * @since 6.1.0
+	 * @since WP 6.1.0
 	 *
 	 * @param array    $query Array containing parameters for `WP_Query` as parsed by the block context.
 	 * @param WP_Block $block Block instance.
@@ -2624,7 +2621,7 @@ function build_query_vars_from_query_block( $block, $page ) {
  *
  * It's used in QueryPaginationNext and QueryPaginationPrevious blocks.
  *
- * @since 5.9.0
+ * @since WP 5.9.0
  *
  * @param WP_Block $block   Block instance.
  * @param bool     $is_next Flag for handling `next/previous` blocks.
@@ -2658,7 +2655,7 @@ function get_query_pagination_arrow( $block, $is_next ) {
  *
  * It's used with the Comment Query Loop inner blocks.
  *
- * @since 6.0.0
+ * @since WP 6.0.0
  *
  * @param WP_Block $block Block instance.
  * @return array Returns the comment query parameters to use with the
@@ -2723,7 +2720,7 @@ function build_comment_query_vars_from_block( $block ) {
  *
  * It's used in CommentsPaginationNext and CommentsPaginationPrevious blocks.
  *
- * @since 6.0.0
+ * @since WP 6.0.0
  *
  * @param WP_Block $block           Block instance.
  * @param string   $pagination_type Optional. Type of the arrow we will be rendering.
@@ -2757,7 +2754,7 @@ function get_comments_pagination_arrow( $block, $pagination_type = 'next' ) {
  * This function expects slashed data on the footnotes content.
  *
  * @access private
- * @since 6.3.2
+ * @since WP 6.3.2
  *
  * @param string $footnotes JSON-encoded string of an array containing the content and ID of each footnote.
  * @return string Filtered content without any HTML on the footnote content and with the sanitized ID.
@@ -2783,7 +2780,7 @@ function _wp_filter_post_meta_footnotes( $footnotes ) {
  * Adds the filters for footnotes meta field.
  *
  * @access private
- * @since 6.3.2
+ * @since WP 6.3.2
  */
 function _wp_footnotes_kses_init_filters() {
 	add_filter( 'sanitize_post_meta_footnotes', '_wp_filter_post_meta_footnotes' );
@@ -2793,7 +2790,7 @@ function _wp_footnotes_kses_init_filters() {
  * Removes the filters for footnotes meta field.
  *
  * @access private
- * @since 6.3.2
+ * @since WP 6.3.2
  */
 function _wp_footnotes_remove_filters() {
 	remove_filter( 'sanitize_post_meta_footnotes', '_wp_filter_post_meta_footnotes' );
@@ -2803,7 +2800,7 @@ function _wp_footnotes_remove_filters() {
  * Registers the filter of footnotes meta field if the user does not have `unfiltered_html` capability.
  *
  * @access private
- * @since 6.3.2
+ * @since WP 6.3.2
  */
 function _wp_footnotes_kses_init() {
 	_wp_footnotes_remove_filters();
@@ -2821,7 +2818,7 @@ function _wp_footnotes_kses_init() {
  * _wp_footnotes_kses_init_filters().
  *
  * @access private
- * @since 6.3.2
+ * @since WP 6.3.2
  *
  * @param string $arg Input argument of the filter.
  * @return string Input argument of the filter.

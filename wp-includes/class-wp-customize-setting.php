@@ -4,7 +4,8 @@
  *
  * @package motsVertueux
  * @subpackage Customize
- * @since 3.4.0
+ * @since WP 3.4.0
+ * @since 1.0.0 motsVertueux fork.
  */
 
 /**
@@ -12,17 +13,16 @@
  *
  * Handles saving and sanitizing of settings.
  *
- * @since 3.4.0
+ * @since WP 3.4.0
  *
  * @see WP_Customize_Manager
- * @link https://developer.wordpress.org/themes/customize-api
  */
 #[AllowDynamicProperties]
 class WP_Customize_Setting {
 	/**
 	 * Customizer bootstrap instance.
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 * @var WP_Customize_Manager
 	 */
 	public $manager;
@@ -30,7 +30,7 @@ class WP_Customize_Setting {
 	/**
 	 * Unique string identifier for the setting.
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 * @var string
 	 */
 	public $id;
@@ -38,7 +38,7 @@ class WP_Customize_Setting {
 	/**
 	 * Type of customize settings.
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 * @var string
 	 */
 	public $type = 'theme_mod';
@@ -46,7 +46,7 @@ class WP_Customize_Setting {
 	/**
 	 * Capability required to edit this setting.
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 * @var string|array
 	 */
 	public $capability = 'edit_theme_options';
@@ -54,7 +54,7 @@ class WP_Customize_Setting {
 	/**
 	 * Theme features required to support the setting.
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 * @var string|string[]
 	 */
 	public $theme_supports = '';
@@ -62,7 +62,7 @@ class WP_Customize_Setting {
 	/**
 	 * The default value for the setting.
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 * @var string
 	 */
 	public $default = '';
@@ -73,7 +73,7 @@ class WP_Customize_Setting {
 	 * Set this value to 'postMessage' to enable a custom JavaScript handler to render changes to this setting
 	 * as opposed to reloading the whole page.
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 * @var string
 	 */
 	public $transport = 'refresh';
@@ -81,7 +81,7 @@ class WP_Customize_Setting {
 	/**
 	 * Server-side validation callback for the setting's value.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 * @var callable
 	 */
 	public $validate_callback = '';
@@ -89,7 +89,7 @@ class WP_Customize_Setting {
 	/**
 	 * Callback to filter a Customize setting value in un-slashed form.
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 * @var callable
 	 */
 	public $sanitize_callback = '';
@@ -97,7 +97,7 @@ class WP_Customize_Setting {
 	/**
 	 * Callback to convert a Customize PHP setting value to a value that is JSON serializable.
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 * @var callable
 	 */
 	public $sanitize_js_callback = '';
@@ -110,7 +110,7 @@ class WP_Customize_Setting {
 	 * the preview if it has been changed. This allows the setting to be sent
 	 * from the start.
 	 *
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 * @var bool
 	 */
 	public $dirty = false;
@@ -118,7 +118,7 @@ class WP_Customize_Setting {
 	/**
 	 * ID Data.
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 * @var array
 	 */
 	protected $id_data = array();
@@ -126,7 +126,7 @@ class WP_Customize_Setting {
 	/**
 	 * Whether or not preview() was called.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 * @var bool
 	 */
 	protected $is_previewed = false;
@@ -134,7 +134,7 @@ class WP_Customize_Setting {
 	/**
 	 * Cache of multidimensional values to improve performance.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 * @var array
 	 */
 	protected static $aggregated_multidimensionals = array();
@@ -142,7 +142,7 @@ class WP_Customize_Setting {
 	/**
 	 * Whether the multidimensional setting is aggregated.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 * @var bool
 	 */
 	protected $is_multidimensional_aggregated = false;
@@ -152,7 +152,7 @@ class WP_Customize_Setting {
 	 *
 	 * Any supplied $args override class property defaults.
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 *
 	 * @param WP_Customize_Manager $manager Customizer bootstrap instance.
 	 * @param string               $id      A specific ID of the setting.
@@ -220,7 +220,7 @@ class WP_Customize_Setting {
 	/**
 	 * Get parsed ID data for multidimensional setting.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 *
 	 * @return array {
 	 *     ID data for multidimensional setting.
@@ -239,7 +239,7 @@ class WP_Customize_Setting {
 	 * When a multidimensional setting gets aggregated, all of its preview and update
 	 * calls get combined into one call, greatly improving performance.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 */
 	protected function aggregate_multidimensional() {
 		$id_base = $this->id_data['base'];
@@ -266,7 +266,7 @@ class WP_Customize_Setting {
 	 *
 	 * This is intended only for use by unit tests.
 	 *
-	 * @since 4.5.0
+	 * @since WP 4.5.0
 	 * @ignore
 	 */
 	public static function reset_aggregated_multidimensionals() {
@@ -276,7 +276,7 @@ class WP_Customize_Setting {
 	/**
 	 * The ID for the current site when the preview() method was called.
 	 *
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 * @var int
 	 */
 	protected $_previewed_blog_id;
@@ -284,7 +284,7 @@ class WP_Customize_Setting {
 	/**
 	 * Return true if the current site is not the same as the previewed site.
 	 *
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 *
 	 * @return bool If preview() has been called.
 	 */
@@ -299,7 +299,7 @@ class WP_Customize_Setting {
 	 * Original non-previewed value stored by the preview method.
 	 *
 	 * @see WP_Customize_Setting::preview()
-	 * @since 4.1.1
+	 * @since WP 4.1.1
 	 * @var mixed
 	 */
 	protected $_original_value;
@@ -311,8 +311,8 @@ class WP_Customize_Setting {
 	 * post value for the setting, then this method will short-circuit since
 	 * there is no change to preview.
 	 *
-	 * @since 3.4.0
-	 * @since 4.4.0 Added boolean return value.
+	 * @since WP 3.4.0
+	 * @since WP 4.4.0 Added boolean return value.
 	 *
 	 * @return bool False when preview short-circuits due no change needing to be previewed.
 	 */
@@ -393,7 +393,7 @@ class WP_Customize_Setting {
 				 *
 				 * The dynamic portion of the hook name, `$this->id`, refers to the setting ID.
 				 *
-				 * @since 3.4.0
+				 * @since WP 3.4.0
 				 *
 				 * @param WP_Customize_Setting $setting WP_Customize_Setting instance.
 				 */
@@ -405,7 +405,7 @@ class WP_Customize_Setting {
 				 *
 				 * The dynamic portion of the hook name, `$this->type`, refers to the setting type.
 				 *
-				 * @since 4.1.0
+				 * @since WP 4.1.0
 				 *
 				 * @param WP_Customize_Setting $setting WP_Customize_Setting instance.
 				 */
@@ -424,7 +424,7 @@ class WP_Customize_Setting {
 	 * that `WP_Customize_Setting::_multidimensional_preview_filter()`
 	 * is called for this setting.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 *
 	 * @see WP_Customize_Manager::set_post_value()
 	 * @see WP_Customize_Setting::_multidimensional_preview_filter()
@@ -440,7 +440,7 @@ class WP_Customize_Setting {
 	 * site is now not the same site, then this method does a no-op and returns
 	 * the original value.
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 *
 	 * @param mixed $original Old value.
 	 * @return mixed New or old value.
@@ -471,7 +471,7 @@ class WP_Customize_Setting {
 	 * For all multidimensional settings of a given type, the preview filter for
 	 * the first setting previewed will be used to apply the values for the others.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 *
 	 * @see WP_Customize_Setting::$aggregated_multidimensionals
 	 * @param mixed $original Original root value.
@@ -512,7 +512,7 @@ class WP_Customize_Setting {
 	 * Checks user capabilities and theme supports, and then saves
 	 * the value of the setting.
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 *
 	 * @return void|false Void on success, false if cap check fails
 	 *                    or value isn't set or is invalid.
@@ -532,7 +532,7 @@ class WP_Customize_Setting {
 		 * The dynamic portion of the hook name, `$id_base` refers to
 		 * the base slug of the setting name.
 		 *
-		 * @since 3.4.0
+		 * @since WP 3.4.0
 		 *
 		 * @param WP_Customize_Setting $setting WP_Customize_Setting instance.
 		 */
@@ -546,7 +546,7 @@ class WP_Customize_Setting {
 	 *
 	 * During a save request prior to save, post_value() provides the new value while value() does not.
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 *
 	 * @param mixed $default_value A default value which is used as a fallback. Default null.
 	 * @return mixed The default value on failure, otherwise the sanitized and validated value.
@@ -558,7 +558,7 @@ class WP_Customize_Setting {
 	/**
 	 * Sanitize an input.
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 *
 	 * @param string|array $value The value to sanitize.
 	 * @return string|array|null|WP_Error Sanitized value, or `null`/`WP_Error` if invalid.
@@ -568,7 +568,7 @@ class WP_Customize_Setting {
 		/**
 		 * Filters a Customize setting value in un-slashed form.
 		 *
-		 * @since 3.4.0
+		 * @since WP 3.4.0
 		 *
 		 * @param mixed                $value   Value of the setting.
 		 * @param WP_Customize_Setting $setting WP_Customize_Setting instance.
@@ -579,7 +579,7 @@ class WP_Customize_Setting {
 	/**
 	 * Validates an input.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 *
 	 * @see WP_REST_Request::has_valid_params()
 	 *
@@ -603,7 +603,7 @@ class WP_Customize_Setting {
 		 *
 		 * The dynamic portion of the hook name, `$this->ID`, refers to the setting ID.
 		 *
-		 * @since 4.6.0
+		 * @since WP 4.6.0
 		 *
 		 * @param WP_Error             $validity Filtered from `true` to `WP_Error` when invalid.
 		 * @param mixed                $value    Value of the setting.
@@ -620,7 +620,7 @@ class WP_Customize_Setting {
 	/**
 	 * Get the root value for a setting, especially for multidimensional ones.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 *
 	 * @param mixed $default_value Value to return if root does not exist.
 	 * @return mixed
@@ -644,7 +644,7 @@ class WP_Customize_Setting {
 	/**
 	 * Set the root value for a setting, especially for multidimensional ones.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 *
 	 * @param mixed $value Value to set as root of multidimensional setting.
 	 * @return bool Whether the multidimensional root was updated successfully.
@@ -673,7 +673,7 @@ class WP_Customize_Setting {
 	/**
 	 * Save the value of the setting, using the related API.
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 *
 	 * @param mixed $value The value to update.
 	 * @return bool The result of saving the value.
@@ -696,7 +696,7 @@ class WP_Customize_Setting {
 			 *
 			 * The dynamic portion of the hook name, `$this->type`, refers to the type of setting.
 			 *
-			 * @since 3.4.0
+			 * @since WP 3.4.0
 			 *
 			 * @param mixed                $value   Value of the setting.
 			 * @param WP_Customize_Setting $setting WP_Customize_Setting instance.
@@ -710,8 +710,8 @@ class WP_Customize_Setting {
 	/**
 	 * Deprecated method.
 	 *
-	 * @since 3.4.0
-	 * @deprecated 4.4.0 Deprecated in favor of update() method.
+	 * @since WP 3.4.0
+	 * @deprecated WP 4.4.0 Deprecated in favor of update() method.
 	 */
 	protected function _update_theme_mod() {
 		_deprecated_function( __METHOD__, '4.4.0', __CLASS__ . '::update()' );
@@ -720,8 +720,8 @@ class WP_Customize_Setting {
 	/**
 	 * Deprecated method.
 	 *
-	 * @since 3.4.0
-	 * @deprecated 4.4.0 Deprecated in favor of update() method.
+	 * @since WP 3.4.0
+	 * @deprecated WP 4.4.0 Deprecated in favor of update() method.
 	 */
 	protected function _update_option() {
 		_deprecated_function( __METHOD__, '4.4.0', __CLASS__ . '::update()' );
@@ -730,7 +730,7 @@ class WP_Customize_Setting {
 	/**
 	 * Fetch the value of the setting.
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 *
 	 * @return mixed The value.
 	 */
@@ -759,8 +759,8 @@ class WP_Customize_Setting {
 			 * For settings handled as theme_mods or options, see those corresponding
 			 * functions for available hooks.
 			 *
-			 * @since 3.4.0
-			 * @since 4.6.0 Added the `$this` setting instance as the second parameter.
+			 * @since WP 3.4.0
+			 * @since WP 4.6.0 Added the `$this` setting instance as the second parameter.
 			 *
 			 * @param mixed                $default_value The setting default value. Default empty.
 			 * @param WP_Customize_Setting $setting       The setting instance.
@@ -783,7 +783,7 @@ class WP_Customize_Setting {
 	/**
 	 * Sanitize the setting's value for use in JavaScript.
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 *
 	 * @return mixed The requested escaped value.
 	 */
@@ -794,7 +794,7 @@ class WP_Customize_Setting {
 		 *
 		 * The dynamic portion of the hook name, `$this->id`, refers to the setting ID.
 		 *
-		 * @since 3.4.0
+		 * @since WP 3.4.0
 		 *
 		 * @param mixed                $value   The setting value.
 		 * @param WP_Customize_Setting $setting WP_Customize_Setting instance.
@@ -811,7 +811,7 @@ class WP_Customize_Setting {
 	/**
 	 * Retrieves the data to export to the client via JSON.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 *
 	 * @return array Array of parameters passed to JavaScript.
 	 */
@@ -827,7 +827,7 @@ class WP_Customize_Setting {
 	/**
 	 * Validate user capabilities whether the theme supports the setting.
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 *
 	 * @return bool False if theme doesn't support the setting or user can't change setting, otherwise true.
 	 */
@@ -846,7 +846,7 @@ class WP_Customize_Setting {
 	/**
 	 * Multidimensional helper function.
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 *
 	 * @param array $root
 	 * @param array $keys
@@ -901,7 +901,7 @@ class WP_Customize_Setting {
 	/**
 	 * Will attempt to replace a specific value in a multidimensional array.
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 *
 	 * @param array $root
 	 * @param array $keys
@@ -927,7 +927,7 @@ class WP_Customize_Setting {
 	/**
 	 * Will attempt to fetch a specific value from a multidimensional array.
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 *
 	 * @param array $root
 	 * @param array $keys
@@ -946,7 +946,7 @@ class WP_Customize_Setting {
 	/**
 	 * Will attempt to check if a specific value in a multidimensional array is set.
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 *
 	 * @param array $root
 	 * @param array $keys

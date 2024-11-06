@@ -4,13 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage Administration
- * @since 5.6.0
+ * @since WP 5.6.0
  */
 
 /**
  * Class for displaying the list of application password items.
  *
- * @since 5.6.0
+ * @since WP 5.6.0
  *
  * @see WP_List_Table
  */
@@ -19,7 +19,7 @@ class WP_Application_Passwords_List_Table extends WP_List_Table {
 	/**
 	 * Gets the list of columns.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @return string[] Array of column titles keyed by their column name.
 	 */
@@ -36,7 +36,7 @@ class WP_Application_Passwords_List_Table extends WP_List_Table {
 	/**
 	 * Prepares the list of items for displaying.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @global int $user_id User ID.
 	 */
@@ -48,7 +48,7 @@ class WP_Application_Passwords_List_Table extends WP_List_Table {
 	/**
 	 * Handles the name column output.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param array $item The current application password item.
 	 */
@@ -59,7 +59,7 @@ class WP_Application_Passwords_List_Table extends WP_List_Table {
 	/**
 	 * Handles the created column output.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param array $item The current application password item.
 	 */
@@ -74,7 +74,7 @@ class WP_Application_Passwords_List_Table extends WP_List_Table {
 	/**
 	 * Handles the last used column output.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param array $item The current application password item.
 	 */
@@ -89,7 +89,7 @@ class WP_Application_Passwords_List_Table extends WP_List_Table {
 	/**
 	 * Handles the last ip column output.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param array $item The current application password item.
 	 */
@@ -104,7 +104,7 @@ class WP_Application_Passwords_List_Table extends WP_List_Table {
 	/**
 	 * Handles the revoke column output.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param array $item The current application password item.
 	 */
@@ -122,7 +122,7 @@ class WP_Application_Passwords_List_Table extends WP_List_Table {
 	/**
 	 * Generates content for a single row of the table
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param array  $item        The current item.
 	 * @param string $column_name The current column name.
@@ -133,7 +133,7 @@ class WP_Application_Passwords_List_Table extends WP_List_Table {
 		 *
 		 * Custom columns are registered using the {@see 'manage_application-passwords-user_columns'} filter.
 		 *
-		 * @since 5.6.0
+		 * @since WP 5.6.0
 		 *
 		 * @param string $column_name Name of the custom column.
 		 * @param array  $item        The application password item.
@@ -144,7 +144,7 @@ class WP_Application_Passwords_List_Table extends WP_List_Table {
 	/**
 	 * Generates custom table navigation to prevent conflicting nonces.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param string $which The location of the bulk actions: Either 'top' or 'bottom'.
 	 */
@@ -171,7 +171,7 @@ class WP_Application_Passwords_List_Table extends WP_List_Table {
 	/**
 	 * Generates content for a single row of the table.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param array $item The current item.
 	 */
@@ -184,7 +184,7 @@ class WP_Application_Passwords_List_Table extends WP_List_Table {
 	/**
 	 * Gets the name of the default primary column.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @return string Name of the default primary column, in this case, 'name'.
 	 */
@@ -195,7 +195,7 @@ class WP_Application_Passwords_List_Table extends WP_List_Table {
 	/**
 	 * Prints the JavaScript template for the new row item.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 */
 	public function print_js_template_row() {
 		list( $columns, $hidden, , $primary ) = $this->get_column_info();
@@ -244,7 +244,7 @@ class WP_Application_Passwords_List_Table extends WP_List_Table {
 					 *
 					 * Custom columns are registered using the {@see 'manage_application-passwords-user_columns'} filter.
 					 *
-					 * @since 5.6.0
+					 * @since WP 5.6.0
 					 *
 					 * @param string $column_name Name of the custom column.
 					 */

@@ -4,7 +4,7 @@
  *
  * @package motsVertueux
  * @subpackage Administration
- * @since 4.3.0
+ * @since WP 4.3.0
  */
 
 // Media hooks.

@@ -9,7 +9,7 @@
 /**
  * Retrieves the list of importers.
  *
- * @since 2.0.0
+ * @since WP 2.0.0
  *
  * @global array $wp_importers
  * @return array
@@ -27,7 +27,7 @@ function get_importers() {
  *
  * Used by uasort() as a callback, should not be used directly.
  *
- * @since 2.9.0
+ * @since WP 2.9.0
  * @access private
  *
  * @param array $a
@@ -41,7 +41,7 @@ function _usort_by_first_member( $a, $b ) {
 /**
  * Registers importer for WordPress.
  *
- * @since 2.0.0
+ * @since WP 2.0.0
  *
  * @global array $wp_importers
  *
@@ -64,7 +64,7 @@ function register_importer( $id, $name, $description, $callback ) {
  *
  * Removes attachment based on ID.
  *
- * @since 2.0.0
+ * @since WP 2.0.0
  *
  * @param string $id Importer ID.
  */
@@ -75,7 +75,7 @@ function wp_import_cleanup( $id ) {
 /**
  * Handles importer uploading and adds attachment.
  *
- * @since 2.0.0
+ * @since WP 2.0.0
  *
  * @return array Uploaded file's details on success, error message on failure.
  */
@@ -129,58 +129,13 @@ function wp_import_handle_upload() {
 }
 
 /**
- * Returns a list from WordPress.org of popular importer plugins.
+ * Returns a list of popular importer plugins.
  *
- * @since 3.5.0
+ * @since WP 3.5.0
  *
  * @return array Importers with metadata for each.
  */
 function wp_get_popular_importers() {
-	$locale            = get_user_locale();
-	$cache_key         = 'popular_importers_' . md5( $locale . wp_get_wp_version() );
-	$popular_importers = get_site_transient( $cache_key );
-
-	if ( ! $popular_importers ) {
-		$url     = add_query_arg(
-			array(
-				'locale'  => $locale,
-				'version' => wp_get_wp_version(),
-			),
-			'http://api.wordpress.org/core/importers/1.1/'
-		);
-		$options = array( 'user-agent' => 'WordPress/' . wp_get_wp_version() . '; ' . home_url( '/' ) );
-
-		if ( wp_http_supports( array( 'ssl' ) ) ) {
-			$url = set_url_scheme( $url, 'https' );
-		}
-
-		$response          = wp_remote_get( $url, $options );
-		$popular_importers = json_decode( wp_remote_retrieve_body( $response ), true );
-
-		if ( is_array( $popular_importers ) ) {
-			set_site_transient( $cache_key, $popular_importers, 2 * DAY_IN_SECONDS );
-		} else {
-			$popular_importers = false;
-		}
-	}
-
-	if ( is_array( $popular_importers ) ) {
-		// If the data was received as translated, return it as-is.
-		if ( $popular_importers['translated'] ) {
-			return $popular_importers['importers'];
-		}
-
-		foreach ( $popular_importers['importers'] as &$importer ) {
-			// phpcs:ignore WordPress.WP.I18n.LowLevelTranslationFunction,WordPress.WP.I18n.NonSingularStringLiteralText
-			$importer['description'] = translate( $importer['description'] );
-			if ( 'WordPress' !== $importer['name'] ) {
-				// phpcs:ignore WordPress.WP.I18n.LowLevelTranslationFunction,WordPress.WP.I18n.NonSingularStringLiteralText
-				$importer['name'] = translate( $importer['name'] );
-			}
-		}
-		return $popular_importers['importers'];
-	}
-
 	return array(
 		// slug => name, description, plugin slug, and register_importer() slug.
 		'blogger'     => array(

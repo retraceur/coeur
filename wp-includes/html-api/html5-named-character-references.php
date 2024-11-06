@@ -13,7 +13,7 @@
  *     php tests/phpunit/data/html5-entities/generate-html5-named-character-references.php
  *
  * @package motsVertueux
- * @since 6.6.0
+ * @since WP 6.6.0
  */
 
 // phpcs:disable

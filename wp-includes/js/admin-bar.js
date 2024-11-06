@@ -4,7 +4,7 @@
 /**
  * Admin bar with Vanilla JS, no external dependencies.
  *
- * @since 5.3.1
+ * @since WP 5.3.1
  *
  * @param {Object} document  The document object.
  * @param {Object} window    The window object.
@@ -113,7 +113,7 @@
 	/**
 	 * Remove hover class for top level menu item when escape is pressed.
 	 *
-	 * @since 5.3.1
+	 * @since WP 5.3.1
 	 *
 	 * @param {Event} event The keydown event.
 	 */
@@ -137,7 +137,7 @@
 	/**
 	 * Toggle hover class for top level menu item when enter is pressed.
 	 *
-	 * @since 5.3.1
+	 * @since WP 5.3.1
 	 *
 	 * @param {Event} event The keydown event.
 	 */
@@ -171,7 +171,7 @@
 	/**
 	 * Toggle hover class for mobile devices.
 	 *
-	 * @since 5.3.1
+	 * @since WP 5.3.1
 	 *
 	 * @param {NodeList} topMenuItems All menu items.
 	 * @param {Event} event The click event.
@@ -202,8 +202,8 @@
 	/**
 	 * Handles the click on the Shortlink link in the adminbar.
 	 *
-	 * @since 3.1.0
-	 * @since 5.3.1 Use querySelector to clean up the function.
+	 * @since WP 3.1.0
+	 * @since WP 5.3.1 Use querySelector to clean up the function.
 	 *
 	 * @param {Event} event The click event.
 	 * @return {boolean} Returns false to prevent default click behavior.
@@ -241,7 +241,7 @@
 	/**
 	 * Clear sessionStorage on logging out.
 	 *
-	 * @since 5.3.1
+	 * @since WP 5.3.1
 	 */
 	function emptySessionStorage() {
 		if ( 'sessionStorage' in window ) {
@@ -258,7 +258,7 @@
 	/**
 	 * Check if element has class.
 	 *
-	 * @since 5.3.1
+	 * @since WP 5.3.1
 	 *
 	 * @param {HTMLElement} element The HTML element.
 	 * @param {string}      className The class name.
@@ -284,7 +284,7 @@
 	/**
 	 * Add class to an element.
 	 *
-	 * @since 5.3.1
+	 * @since WP 5.3.1
 	 *
 	 * @param {HTMLElement} element The HTML element.
 	 * @param {string}      className The class name.
@@ -313,7 +313,7 @@
 	/**
 	 * Remove class from an element.
 	 *
-	 * @since 5.3.1
+	 * @since WP 5.3.1
 	 *
 	 * @param {HTMLElement} element The HTML element.
 	 * @param {string}      className The class name.
@@ -348,7 +348,7 @@
 	/**
 	 * Remove hover class for all menu items.
 	 *
-	 * @since 5.3.1
+	 * @since WP 5.3.1
 	 *
 	 * @param {NodeList} topMenuItems All menu items.
 	 */
@@ -363,7 +363,7 @@
 	/**
 	 * Scrolls to the top of the page.
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 *
 	 * @param {Event} event The Click event.
 	 *
@@ -393,7 +393,7 @@
 	/**
 	 * Get closest Element.
 	 *
-	 * @since 5.3.1
+	 * @since WP 5.3.1
 	 *
 	 * @param {HTMLElement} el Element to get parent.
 	 * @param {string} selector CSS selector to match.

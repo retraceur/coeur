@@ -4,13 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage Toolbar
- * @since 3.1.0
+ * @since WP 3.1.0
  */
 
 /**
  * Core class used to implement the Toolbar API.
  *
- * @since 3.1.0
+ * @since WP 3.1.0
  */
 #[AllowDynamicProperties]
 class WP_Admin_Bar {
@@ -21,8 +21,8 @@ class WP_Admin_Bar {
 	/**
 	 * Deprecated menu property.
 	 *
-	 * @since 3.1.0
-	 * @deprecated 3.3.0 Modify admin bar nodes with WP_Admin_Bar::get_node(),
+	 * @since WP 3.1.0
+	 * @deprecated WP 3.3.0 Modify admin bar nodes with WP_Admin_Bar::get_node(),
 	 *                   WP_Admin_Bar::add_node(), and WP_Admin_Bar::remove_node().
 	 * @var array
 	 */
@@ -31,7 +31,7 @@ class WP_Admin_Bar {
 	/**
 	 * Initializes the admin bar.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 */
 	public function initialize() {
 		$this->user = new stdClass();
@@ -75,7 +75,7 @@ class WP_Admin_Bar {
 		/**
 		 * Fires after WP_Admin_Bar is initialized.
 		 *
-		 * @since 3.1.0
+		 * @since WP 3.1.0
 		 */
 		do_action( 'admin_bar_init' );
 	}
@@ -83,7 +83,7 @@ class WP_Admin_Bar {
 	/**
 	 * Adds a node (menu item) to the admin bar menu.
 	 *
-	 * @since 3.3.0
+	 * @since WP 3.3.0
 	 *
 	 * @param array $node The attributes that define the node.
 	 */
@@ -94,7 +94,7 @@ class WP_Admin_Bar {
 	/**
 	 * Removes a node from the admin bar.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @param string $id The menu slug to remove.
 	 */
@@ -105,9 +105,9 @@ class WP_Admin_Bar {
 	/**
 	 * Adds a node to the menu.
 	 *
-	 * @since 3.1.0
-	 * @since 4.5.0 Added the ability to pass 'lang' and 'dir' meta data.
-	 * @since 6.5.0 Added the ability to pass 'menu_title' for an ARIA menu name.
+	 * @since WP 3.1.0
+	 * @since WP 4.5.0 Added the ability to pass 'lang' and 'dir' meta data.
+	 * @since WP 6.5.0 Added the ability to pass 'menu_title' for an ARIA menu name.
 	 *
 	 * @param array $args {
 	 *     Arguments for adding a node.
@@ -179,7 +179,7 @@ class WP_Admin_Bar {
 	}
 
 	/**
-	 * @since 3.3.0
+	 * @since WP 3.3.0
 	 *
 	 * @param array $args
 	 */
@@ -190,7 +190,7 @@ class WP_Admin_Bar {
 	/**
 	 * Gets a node.
 	 *
-	 * @since 3.3.0
+	 * @since WP 3.3.0
 	 *
 	 * @param string $id
 	 * @return object|void Node.
@@ -203,7 +203,7 @@ class WP_Admin_Bar {
 	}
 
 	/**
-	 * @since 3.3.0
+	 * @since WP 3.3.0
 	 *
 	 * @param string $id
 	 * @return object|void
@@ -223,7 +223,7 @@ class WP_Admin_Bar {
 	}
 
 	/**
-	 * @since 3.3.0
+	 * @since WP 3.3.0
 	 *
 	 * @return array|void
 	 */
@@ -240,7 +240,7 @@ class WP_Admin_Bar {
 	}
 
 	/**
-	 * @since 3.3.0
+	 * @since WP 3.3.0
 	 *
 	 * @return array|void
 	 */
@@ -257,7 +257,7 @@ class WP_Admin_Bar {
 	 *
 	 * Groups can be used to organize toolbar items into distinct sections of a toolbar menu.
 	 *
-	 * @since 3.3.0
+	 * @since WP 3.3.0
 	 *
 	 * @param array $args {
 	 *     Array of arguments for adding a group.
@@ -277,7 +277,7 @@ class WP_Admin_Bar {
 	/**
 	 * Remove a node.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @param string $id The ID of the item.
 	 */
@@ -286,7 +286,7 @@ class WP_Admin_Bar {
 	}
 
 	/**
-	 * @since 3.3.0
+	 * @since WP 3.3.0
 	 *
 	 * @param string $id
 	 */
@@ -295,7 +295,7 @@ class WP_Admin_Bar {
 	}
 
 	/**
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 */
 	public function render() {
 		$root = $this->_bind();
@@ -305,7 +305,7 @@ class WP_Admin_Bar {
 	}
 
 	/**
-	 * @since 3.3.0
+	 * @since WP 3.3.0
 	 *
 	 * @return object|void
 	 */
@@ -453,7 +453,7 @@ class WP_Admin_Bar {
 	}
 
 	/**
-	 * @since 3.3.0
+	 * @since WP 3.3.0
 	 *
 	 * @param object $root
 	 */
@@ -485,7 +485,7 @@ class WP_Admin_Bar {
 	}
 
 	/**
-	 * @since 3.3.0
+	 * @since WP 3.3.0
 	 *
 	 * @param object $node
 	 */
@@ -502,8 +502,8 @@ class WP_Admin_Bar {
 	}
 
 	/**
-	 * @since 3.3.0
-	 * @since 6.5.0 Added `$menu_title` parameter to allow an ARIA menu name.
+	 * @since WP 3.3.0
+	 * @since WP 6.5.0 Added `$menu_title` parameter to allow an ARIA menu name.
 	 *
 	 * @param object $node
 	 * @param string|bool $menu_title The accessible name of this ARIA menu or false if not provided.
@@ -535,7 +535,7 @@ class WP_Admin_Bar {
 	}
 
 	/**
-	 * @since 3.3.0
+	 * @since WP 3.3.0
 	 *
 	 * @param object $node
 	 */
@@ -627,8 +627,8 @@ class WP_Admin_Bar {
 	/**
 	 * Renders toolbar items recursively.
 	 *
-	 * @since 3.1.0
-	 * @deprecated 3.3.0 Use WP_Admin_Bar::_render_item() or WP_Admin_bar::render() instead.
+	 * @since WP 3.1.0
+	 * @deprecated WP 3.3.0 Use WP_Admin_Bar::_render_item() or WP_Admin_bar::render() instead.
 	 * @see WP_Admin_Bar::_render_item()
 	 * @see WP_Admin_Bar::render()
 	 *
@@ -643,7 +643,7 @@ class WP_Admin_Bar {
 	/**
 	 * Adds menus to the admin bar.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 */
 	public function add_menus() {
 		// User-related, aligned right.
@@ -673,7 +673,7 @@ class WP_Admin_Bar {
 		/**
 		 * Fires after menus are added to the menu bar.
 		 *
-		 * @since 3.1.0
+		 * @since WP 3.1.0
 		 */
 		do_action( 'add_admin_bar_menus' );
 	}

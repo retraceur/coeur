@@ -4,13 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage Customize
- * @since 4.4.0
+ * @since WP 4.4.0
  */
 
 /**
  * Customize Header Image Control class.
  *
- * @since 3.4.0
+ * @since WP 3.4.0
  *
  * @see WP_Customize_Image_Control
  */
@@ -19,7 +19,7 @@ class WP_Customize_Header_Image_Control extends WP_Customize_Image_Control {
 	/**
 	 * Customize control type.
 	 *
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 * @var string
 	 */
 	public $type = 'header';
@@ -27,7 +27,7 @@ class WP_Customize_Header_Image_Control extends WP_Customize_Image_Control {
 	/**
 	 * Uploaded header images.
 	 *
-	 * @since 3.9.0
+	 * @since WP 3.9.0
 	 * @var string
 	 */
 	public $uploaded_headers;
@@ -35,7 +35,7 @@ class WP_Customize_Header_Image_Control extends WP_Customize_Image_Control {
 	/**
 	 * Default header images.
 	 *
-	 * @since 3.9.0
+	 * @since WP 3.9.0
 	 * @var string
 	 */
 	public $default_headers;
@@ -43,7 +43,7 @@ class WP_Customize_Header_Image_Control extends WP_Customize_Image_Control {
 	/**
 	 * Constructor.
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 *
 	 * @param WP_Customize_Manager $manager Customizer bootstrap instance.
 	 */

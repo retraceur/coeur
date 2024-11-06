@@ -102,7 +102,7 @@ wp.textWidgets = ( function( $ ) {
 		/**
 		 * Dismiss pointers for Custom HTML widget.
 		 *
-		 * @since 4.8.1
+		 * @since WP 4.8.1
 		 *
 		 * @param {Array} pointers Pointer IDs to dismiss.
 		 * @return {void}
@@ -119,7 +119,7 @@ wp.textWidgets = ( function( $ ) {
 		/**
 		 * Open available widgets panel.
 		 *
-		 * @since 4.8.1
+		 * @since WP 4.8.1
 		 * @return {void}
 		 */
 		openAvailableWidgetsPanel: function openAvailableWidgetsPanel() {
@@ -195,7 +195,7 @@ wp.textWidgets = ( function( $ ) {
 					 * to be removed with the removal of the update-widget request entirely once
 					 * widgets are able to mutate their own instance props directly in JS without
 					 * having to make server round-trips to call the respective WP_Widget::update()
-					 * callbacks. See <https://core.trac.wordpress.org/ticket/33507>.
+					 * callbacks.
 					 */
 					if ( wp.customize && wp.customize.state ) {
 						wp.customize.state( 'processing' ).set( wp.customize.state( 'processing' ).get() + 1 );

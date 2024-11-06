@@ -9,7 +9,7 @@
 /**
  * Loads the WP image-editing interface.
  *
- * @since 2.9.0
+ * @since WP 2.9.0
  *
  * @param int          $post_id Attachment post ID.
  * @param false|object $msg     Optional. Message to display for image editor updates or errors.
@@ -48,7 +48,7 @@ function wp_image_editor( $post_id, $msg = false ) {
 	/**
 	 * Shows the settings in the Image Editor that allow selecting to edit only the thumbnail of an image.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param bool $show Whether to show the settings in the Image Editor. Default false.
 	 */
@@ -334,7 +334,7 @@ function wp_image_editor( $post_id, $msg = false ) {
 /**
  * Streams image in WP_Image_Editor to browser.
  *
- * @since 2.9.0
+ * @since WP 2.9.0
  *
  * @param WP_Image_Editor $image         The image editor instance.
  * @param string          $mime_type     The mime type of the image.
@@ -347,7 +347,7 @@ function wp_stream_image( $image, $mime_type, $attachment_id ) {
 		/**
 		 * Filters the WP_Image_Editor instance for the image to be streamed to the browser.
 		 *
-		 * @since 3.5.0
+		 * @since WP 3.5.0
 		 *
 		 * @param WP_Image_Editor $image         The image editor instance.
 		 * @param int             $attachment_id The attachment post ID.
@@ -366,8 +366,8 @@ function wp_stream_image( $image, $mime_type, $attachment_id ) {
 		/**
 		 * Filters the GD image resource to be streamed to the browser.
 		 *
-		 * @since 2.9.0
-		 * @deprecated 3.5.0 Use {@see 'image_editor_save_pre'} instead.
+		 * @since WP 2.9.0
+		 * @deprecated WP 3.5.0 Use {@see 'image_editor_save_pre'} instead.
 		 *
 		 * @param resource|GdImage $image         Image resource to be streamed.
 		 * @param int              $attachment_id The attachment post ID.
@@ -405,9 +405,9 @@ function wp_stream_image( $image, $mime_type, $attachment_id ) {
 /**
  * Saves image to file.
  *
- * @since 2.9.0
- * @since 3.5.0 The `$image` parameter expects a `WP_Image_Editor` instance.
- * @since 6.0.0 The `$filesize` value was added to the returned array.
+ * @since WP 2.9.0
+ * @since WP 3.5.0 The `$image` parameter expects a `WP_Image_Editor` instance.
+ * @since WP 6.0.0 The `$filesize` value was added to the returned array.
  *
  * @param string          $filename  Name of the file to be saved.
  * @param WP_Image_Editor $image     The image editor instance.
@@ -439,7 +439,7 @@ function wp_save_image_file( $filename, $image, $mime_type, $post_id ) {
 		 * Returning a non-null value will short-circuit the save method,
 		 * returning that value instead.
 		 *
-		 * @since 3.5.0
+		 * @since WP 3.5.0
 		 *
 		 * @param bool|null       $override  Value to return instead of saving. Default null.
 		 * @param string          $filename  Name of the file to be saved.
@@ -467,8 +467,8 @@ function wp_save_image_file( $filename, $image, $mime_type, $post_id ) {
 		 * Returning a non-null value will short-circuit the save method,
 		 * returning that value instead.
 		 *
-		 * @since 2.9.0
-		 * @deprecated 3.5.0 Use {@see 'wp_save_image_editor_file'} instead.
+		 * @since WP 2.9.0
+		 * @deprecated WP 3.5.0 Use {@see 'wp_save_image_editor_file'} instead.
 		 *
 		 * @param bool|null        $override  Value to return instead of saving. Default null.
 		 * @param string           $filename  Name of the file to be saved.
@@ -514,7 +514,7 @@ function wp_save_image_file( $filename, $image, $mime_type, $post_id ) {
 /**
  * Image preview ratio. Internal use only.
  *
- * @since 2.9.0
+ * @since WP 2.9.0
  *
  * @ignore
  * @param int $w Image width in pixels.
@@ -529,8 +529,8 @@ function _image_get_preview_ratio( $w, $h ) {
 /**
  * Returns an image resource. Internal use only.
  *
- * @since 2.9.0
- * @deprecated 3.5.0 Use WP_Image_Editor::rotate()
+ * @since WP 2.9.0
+ * @deprecated WP 3.5.0 Use WP_Image_Editor::rotate()
  * @see WP_Image_Editor::rotate()
  *
  * @ignore
@@ -556,8 +556,8 @@ function _rotate_image_resource( $img, $angle ) {
 /**
  * Flips an image resource. Internal use only.
  *
- * @since 2.9.0
- * @deprecated 3.5.0 Use WP_Image_Editor::flip()
+ * @since WP 2.9.0
+ * @deprecated WP 3.5.0 Use WP_Image_Editor::flip()
  * @see WP_Image_Editor::flip()
  *
  * @ignore
@@ -591,7 +591,7 @@ function _flip_image_resource( $img, $horz, $vert ) {
 /**
  * Crops an image resource. Internal use only.
  *
- * @since 2.9.0
+ * @since WP 2.9.0
  *
  * @ignore
  * @param resource|GdImage $img Image resource or GdImage instance.
@@ -617,7 +617,7 @@ function _crop_image_resource( $img, $x, $y, $w, $h ) {
 /**
  * Performs group of changes on Editor specified.
  *
- * @since 2.9.0
+ * @since WP 2.9.0
  *
  * @param WP_Image_Editor $image   WP_Image_Editor instance.
  * @param array           $changes Array of change operations.
@@ -687,7 +687,7 @@ function image_edit_apply_changes( $image, $changes ) {
 		/**
 		 * Filters the WP_Image_Editor instance before applying changes to the image.
 		 *
-		 * @since 3.5.0
+		 * @since WP 3.5.0
 		 *
 		 * @param WP_Image_Editor $image   WP_Image_Editor instance.
 		 * @param array           $changes Array of change operations.
@@ -698,8 +698,8 @@ function image_edit_apply_changes( $image, $changes ) {
 		/**
 		 * Filters the GD image resource before applying changes to the image.
 		 *
-		 * @since 2.9.0
-		 * @deprecated 3.5.0 Use {@see 'wp_image_editor_before_change'} instead.
+		 * @since WP 2.9.0
+		 * @deprecated WP 3.5.0 Use {@see 'wp_image_editor_before_change'} instead.
 		 *
 		 * @param resource|GdImage $image   GD image resource or GdImage instance.
 		 * @param array            $changes Array of change operations.
@@ -753,7 +753,7 @@ function image_edit_apply_changes( $image, $changes ) {
  * Streams image in post to browser, along with enqueued changes
  * in `$_REQUEST['history']`.
  *
- * @since 2.9.0
+ * @since WP 2.9.0
  *
  * @param int $post_id Attachment post ID.
  * @return bool True on success, false on failure.
@@ -793,7 +793,7 @@ function stream_preview_image( $post_id ) {
 /**
  * Restores the metadata for a given attachment.
  *
- * @since 2.9.0
+ * @since WP 2.9.0
  *
  * @param int $post_id Attachment post ID.
  * @return stdClass Image restoration message object.
@@ -841,11 +841,7 @@ function wp_restore_image( $post_id ) {
 		$meta['width']  = $data['width'];
 		$meta['height'] = $data['height'];
 		if ( isset( $data['filesize'] ) ) {
-			/*
-			 * Restore the original filesize if it was backed up.
-			 *
-			 * See https://core.trac.wordpress.org/ticket/59684.
-			 */
+			// Restore the original filesize if it was backed up.
 			$meta['filesize'] = $data['filesize'];
 		}
 	}
@@ -896,7 +892,7 @@ function wp_restore_image( $post_id ) {
  * Saves image to post, along with enqueued changes
  * in `$_REQUEST['history']`.
  *
- * @since 2.9.0
+ * @since WP 2.9.0
  *
  * @param int $post_id Attachment post ID.
  * @return stdClass
@@ -1065,7 +1061,6 @@ function wp_save_image( $post_id ) {
 	 * We need to remove any existing resized image files because
 	 * a new crop or rotate could generate different sizes (and hence, filenames),
 	 * keeping the new resized images from overwriting the existing image files.
-	 * https://core.trac.wordpress.org/ticket/32171
 	 */
 	if ( defined( 'IMAGE_EDIT_OVERWRITE' ) && IMAGE_EDIT_OVERWRITE && ! empty( $meta['sizes'] ) ) {
 		foreach ( $meta['sizes'] as $size ) {

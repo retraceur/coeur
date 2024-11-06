@@ -1,6 +1,8 @@
 <?php
 /**
  * APIs to interact with global settings & styles.
+ * 
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  */
@@ -8,7 +10,7 @@
 /**
  * Gets the settings resulting of merging core, theme, and user data.
  *
- * @since 5.9.0
+ * @since WP 5.9.0
  *
  * @param array $path    Path to the specific setting to retrieve. Optional.
  *                       If empty, will return all settings.
@@ -54,8 +56,6 @@ function wp_get_global_settings( $path = array(), $context = array() ) {
 	 * is always fresh from the potential modifications done via hooks
 	 * that can use dynamic data (modify the stylesheet depending on some option,
 	 * settings depending on user permissions, etc.).
-	 * See some of the existing hooks to modify theme.json behavior:
-	 * https://make.wordpress.org/core/2022/10/10/filters-for-theme-json-data/
 	 *
 	 * A different alternative considered was to invalidate the cache upon certain
 	 * events such as options add/update/delete, user meta, etc.
@@ -89,10 +89,10 @@ function wp_get_global_settings( $path = array(), $context = array() ) {
 /**
  * Gets the styles resulting of merging core, theme, and user data.
  *
- * @since 5.9.0
- * @since 6.3.0 the internal link format "var:preset|color|secondary" is resolved
+ * @since WP 5.9.0
+ * @since WP 6.3.0 the internal link format "var:preset|color|secondary" is resolved
  *              to "var(--wp--preset--font-size--small)" so consumers don't have to.
- * @since 6.3.0 `transforms` is now usable in the `context` parameter. In case [`transforms`]['resolve_variables']
+ * @since WP 6.3.0 `transforms` is now usable in the `context` parameter. In case [`transforms`]['resolve_variables']
  *              is defined, variables are resolved to their value in the styles.
  *
  * @param array $path    Path to the specific style to retrieve. Optional.
@@ -137,9 +137,9 @@ function wp_get_global_styles( $path = array(), $context = array() ) {
 /**
  * Returns the stylesheet resulting of merging core, theme, and user data.
  *
- * @since 5.9.0
- * @since 6.1.0 Added 'base-layout-styles' support.
- * @since 6.6.0 Resolves relative paths in theme.json styles to theme absolute paths.
+ * @since WP 5.9.0
+ * @since WP 6.1.0 Added 'base-layout-styles' support.
+ * @since WP 6.6.0 Resolves relative paths in theme.json styles to theme absolute paths.
  *
  * @param array $types Optional. Types of styles to load.
  *                     It accepts as values 'variables', 'presets', 'styles', 'base-layout-styles'.
@@ -163,8 +163,6 @@ function wp_get_global_stylesheet( $types = array() ) {
 	 * is always fresh from the potential modifications done via hooks
 	 * that can use dynamic data (modify the stylesheet depending on some option,
 	 * settings depending on user permissions, etc.).
-	 * See some of the existing hooks to modify theme.json behavior:
-	 * @see https://make.wordpress.org/core/2022/10/10/filters-for-theme-json-data/
 	 *
 	 * A different alternative considered was to invalidate the cache upon certain
 	 * events such as options add/update/delete, user meta, etc.
@@ -193,7 +191,6 @@ function wp_get_global_stylesheet( $types = array() ) {
 	 * If variables are part of the stylesheet, then add them.
 	 * This is so themes without a theme.json still work as before 5.9:
 	 * they can override the default presets.
-	 * See https://core.trac.wordpress.org/ticket/54782
 	 */
 	$styles_variables = '';
 	if ( in_array( 'variables', $types, true ) ) {
@@ -246,8 +243,8 @@ function wp_get_global_stylesheet( $types = array() ) {
 /**
  * Adds global style rules to the inline style for each block.
  *
- * @since 6.1.0
- * @since 6.7.0 Resolve relative paths in block styles.
+ * @since WP 6.1.0
+ * @since WP 6.7.0 Resolve relative paths in block styles.
  *
  * @global WP_Styles $wp_styles
  */
@@ -351,7 +348,7 @@ function wp_add_global_styles_for_blocks() {
 /**
  * Gets the block name from a given theme.json path.
  *
- * @since 6.3.0
+ * @since WP 6.3.0
  * @access private
  *
  * @param array $path An array of keys describing the path to a property in theme.json.
@@ -392,7 +389,7 @@ function wp_get_block_name_from_theme_json_path( $path ) {
 /**
  * Checks whether a theme or its parent has a theme.json file.
  *
- * @since 6.2.0
+ * @since WP 6.2.0
  *
  * @return bool Returns true if theme or its parent has a theme.json file, false otherwise.
  */
@@ -433,7 +430,7 @@ function wp_theme_has_theme_json() {
 /**
  * Cleans the caches under the theme_json group.
  *
- * @since 6.2.0
+ * @since WP 6.2.0
  */
 function wp_clean_theme_json_cache() {
 	wp_cache_delete( 'wp_get_global_stylesheet', 'theme_json' );
@@ -449,7 +446,7 @@ function wp_clean_theme_json_cache() {
  * Returns the current theme's wanted patterns (slugs) to be
  * registered from Pattern Directory.
  *
- * @since 6.3.0
+ * @since WP 6.3.0
  *
  * @return string[]
  */
@@ -460,7 +457,7 @@ function wp_get_theme_directory_pattern_slugs() {
 /**
  * Returns the metadata for the custom templates defined by the theme via theme.json.
  *
- * @since 6.4.0
+ * @since WP 6.4.0
  *
  * @return array Associative array of `$template_name => $template_data` pairs,
  *               with `$template_data` having "title" and "postTypes" fields.
@@ -472,7 +469,7 @@ function wp_get_theme_data_custom_templates() {
 /**
  * Returns the metadata for the template parts defined by the theme.
  *
- * @since 6.4.0
+ * @since WP 6.4.0
  *
  * @return array Associative array of `$part_name => $part_data` pairs,
  *               with `$part_data` having "title" and "area" fields.
@@ -504,7 +501,7 @@ function wp_get_theme_data_template_parts() {
  * Determines the CSS selector for the block type and property provided,
  * returning it if available.
  *
- * @since 6.3.0
+ * @since WP 6.3.0
  *
  * @param WP_Block_Type $block_type The block's type.
  * @param string|array  $target     The desired selector's target, `root` or array path.

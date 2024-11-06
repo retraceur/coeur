@@ -4,14 +4,14 @@
  *
  * @package motsVertueux
  * @subpackage Block Supports
- * @since 6.0.0
+ * @since WP 6.0.0
  */
 
 /**
  * Checks whether serialization of the current block's supported properties
  * should occur.
  *
- * @since 6.0.0
+ * @since WP 6.0.0
  * @access private
  *
  * @param WP_Block_Type $block_type  Block type.

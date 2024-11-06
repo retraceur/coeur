@@ -4,7 +4,7 @@
  *
  * @package motsVertueux
  * @subpackage HTML-API
- * @since 6.4.0
+ * @since WP 6.4.0
  */
 
 /**
@@ -20,7 +20,7 @@
  * > is manipulated in a random access fashion as part of the handling
  * > for misnested tags).
  *
- * @since 6.4.0
+ * @since WP 6.4.0
  *
  * @access private
  *
@@ -31,7 +31,7 @@ class WP_HTML_Open_Elements {
 	/**
 	 * Holds the stack of open element references.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @var WP_HTML_Token[]
 	 */
@@ -45,7 +45,7 @@ class WP_HTML_Open_Elements {
 	 * stack of open elements which might change its value.
 	 * This avoids frequent iteration over the stack.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @var bool
 	 */
@@ -56,7 +56,7 @@ class WP_HTML_Open_Elements {
 	 *
 	 * The function will be called with the popped item as its argument.
 	 *
-	 * @since 6.6.0
+	 * @since WP 6.6.0
 	 *
 	 * @var Closure|null
 	 */
@@ -67,7 +67,7 @@ class WP_HTML_Open_Elements {
 	 *
 	 * The function will be called with the pushed item as its argument.
 	 *
-	 * @since 6.6.0
+	 * @since WP 6.6.0
 	 *
 	 * @var Closure|null
 	 */
@@ -79,7 +79,7 @@ class WP_HTML_Open_Elements {
 	 *
 	 * The function will be called with the pushed item as its argument.
 	 *
-	 * @since 6.6.0
+	 * @since WP 6.6.0
 	 *
 	 * @param Closure $handler The handler function.
 	 */
@@ -93,7 +93,7 @@ class WP_HTML_Open_Elements {
 	 *
 	 * The function will be called with the pushed item as its argument.
 	 *
-	 * @since 6.6.0
+	 * @since WP 6.6.0
 	 *
 	 * @param Closure $handler The handler function.
 	 */
@@ -109,7 +109,7 @@ class WP_HTML_Open_Elements {
 	 * "nth item" on the stack, counting from the top, where the
 	 * top-most element is the 1st, the second is the 2nd, etc...
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @param int $nth Retrieve the nth item on the stack, with 1 being
 	 *                 the top element, 2 being the second, etc...
@@ -129,7 +129,7 @@ class WP_HTML_Open_Elements {
 	/**
 	 * Reports if a node of a given name is in the stack of open elements.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @param string $node_name Name of node for which to check.
 	 * @return bool Whether a node of the given name is in the stack of open elements.
@@ -147,7 +147,7 @@ class WP_HTML_Open_Elements {
 	/**
 	 * Reports if a specific node is in the stack of open elements.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @param WP_HTML_Token $token Look for this node in the stack.
 	 * @return bool Whether the referenced node is in the stack of open elements.
@@ -165,7 +165,7 @@ class WP_HTML_Open_Elements {
 	/**
 	 * Returns how many nodes are currently in the stack of open elements.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @return int How many node are in the stack of open elements.
 	 */
@@ -177,7 +177,7 @@ class WP_HTML_Open_Elements {
 	 * Returns the node at the end of the stack of open elements,
 	 * if one exists. If the stack is empty, returns null.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @return WP_HTML_Token|null Last node in the stack of open elements, if one exists, otherwise null.
 	 */
@@ -207,7 +207,7 @@ class WP_HTML_Open_Elements {
 	 * @see WP_HTML_Tag_Processor::get_token_type
 	 * @see WP_HTML_Tag_Processor::get_token_name
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @access private
 	 *
@@ -232,7 +232,7 @@ class WP_HTML_Open_Elements {
 	/**
 	 * Returns whether an element is in a specific scope.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @see https://html.spec.whatwg.org/#has-an-element-in-the-specific-scope
 	 *
@@ -291,8 +291,8 @@ class WP_HTML_Open_Elements {
 	 * >   - SVG desc
 	 * >   - SVG title
 	 *
-	 * @since 6.4.0
-	 * @since 6.7.0 Full support.
+	 * @since WP 6.4.0
+	 * @since WP 6.7.0 Full support.
 	 *
 	 * @see https://html.spec.whatwg.org/#has-an-element-in-scope
 	 *
@@ -338,9 +338,9 @@ class WP_HTML_Open_Elements {
 	 * >   - ol in the HTML namespace
 	 * >   - ul in the HTML namespace
 	 *
-	 * @since 6.4.0
-	 * @since 6.5.0 Implemented: no longer throws on every invocation.
-	 * @since 6.7.0 Supports all required HTML elements.
+	 * @since WP 6.4.0
+	 * @since WP 6.5.0 Implemented: no longer throws on every invocation.
+	 * @since WP 6.7.0 Supports all required HTML elements.
 	 *
 	 * @see https://html.spec.whatwg.org/#has-an-element-in-list-item-scope
 	 *
@@ -388,8 +388,8 @@ class WP_HTML_Open_Elements {
 	 * >   - All the element types listed above for the has an element in scope algorithm.
 	 * >   - button in the HTML namespace
 	 *
-	 * @since 6.4.0
-	 * @since 6.7.0 Supports all required HTML elements.
+	 * @since WP 6.4.0
+	 * @since WP 6.7.0 Supports all required HTML elements.
 	 *
 	 * @see https://html.spec.whatwg.org/#has-an-element-in-button-scope
 	 *
@@ -436,8 +436,8 @@ class WP_HTML_Open_Elements {
 	 * >   - table in the HTML namespace
 	 * >   - template in the HTML namespace
 	 *
-	 * @since 6.4.0
-	 * @since 6.7.0 Full implementation.
+	 * @since WP 6.4.0
+	 * @since WP 6.7.0 Full implementation.
 	 *
 	 * @see https://html.spec.whatwg.org/#has-an-element-in-table-scope
 	 *
@@ -467,8 +467,8 @@ class WP_HTML_Open_Elements {
 	 * >   - optgroup in the HTML namespace
 	 * >   - option in the HTML namespace
 	 *
-	 * @since 6.4.0 Stub implementation (throws).
-	 * @since 6.7.0 Full implementation.
+	 * @since WP 6.4.0 Stub implementation (throws).
+	 * @since WP 6.7.0 Full implementation.
 	 *
 	 * @see https://html.spec.whatwg.org/#has-an-element-in-select-scope
 	 *
@@ -495,7 +495,7 @@ class WP_HTML_Open_Elements {
 	/**
 	 * Returns whether a P is in BUTTON scope.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @see https://html.spec.whatwg.org/#has-an-element-in-button-scope
 	 *
@@ -508,7 +508,7 @@ class WP_HTML_Open_Elements {
 	/**
 	 * Pops a node off of the stack of open elements.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @see https://html.spec.whatwg.org/#stack-of-open-elements
 	 *
@@ -532,7 +532,7 @@ class WP_HTML_Open_Elements {
 	/**
 	 * Pops nodes off of the stack of open elements until an HTML tag with the given name has been popped.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @see WP_HTML_Open_Elements::pop
 	 *
@@ -565,7 +565,7 @@ class WP_HTML_Open_Elements {
 	/**
 	 * Pushes a node onto the stack of open elements.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @see https://html.spec.whatwg.org/#stack-of-open-elements
 	 *
@@ -579,7 +579,7 @@ class WP_HTML_Open_Elements {
 	/**
 	 * Removes a specific node from the stack of open elements.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @param WP_HTML_Token $token The node to remove from the stack of open elements.
 	 * @return bool Whether the node was found and removed from the stack of open elements.
@@ -621,7 +621,7 @@ class WP_HTML_Open_Elements {
 	 * To start with the most-recently added element and walk towards the top,
 	 * see WP_HTML_Open_Elements::walk_up().
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 */
 	public function walk_down() {
 		$count = count( $this->stack );
@@ -648,8 +648,8 @@ class WP_HTML_Open_Elements {
 	 * To start with the first added element and walk towards the bottom,
 	 * see WP_HTML_Open_Elements::walk_down().
 	 *
-	 * @since 6.4.0
-	 * @since 6.5.0 Accepts $above_this_node to start traversal above a given node, if it exists.
+	 * @since WP 6.4.0
+	 * @since WP 6.5.0 Accepts $above_this_node to start traversal above a given node, if it exists.
 	 *
 	 * @param WP_HTML_Token|null $above_this_node Optional. Start traversing above this node,
 	 *                                            if provided and if the node exists.
@@ -682,7 +682,7 @@ class WP_HTML_Open_Elements {
 	 * over the open stack elements upon each new tag it encounters. These flags,
 	 * however, need to be maintained as items are added and removed from the stack.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @param WP_HTML_Token $item Element that was added to the stack of open elements.
 	 */
@@ -737,7 +737,7 @@ class WP_HTML_Open_Elements {
 	 * over the open stack elements upon each new tag it encounters. These flags,
 	 * however, need to be maintained as items are added and removed from the stack.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @param WP_HTML_Token $item Element that was removed from the stack of open elements.
 	 */
@@ -785,7 +785,7 @@ class WP_HTML_Open_Elements {
 	 *
 	 * @see https://html.spec.whatwg.org/multipage/parsing.html#clear-the-stack-back-to-a-table-context
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 */
 	public function clear_to_table_context(): void {
 		foreach ( $this->walk_up() as $item ) {
@@ -809,7 +809,7 @@ class WP_HTML_Open_Elements {
 	 *
 	 * @see https://html.spec.whatwg.org/multipage/parsing.html#clear-the-stack-back-to-a-table-body-context
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 */
 	public function clear_to_table_body_context(): void {
 		foreach ( $this->walk_up() as $item ) {
@@ -835,7 +835,7 @@ class WP_HTML_Open_Elements {
 	 *
 	 * @see https://html.spec.whatwg.org/multipage/parsing.html#clear-the-stack-back-to-a-table-row-context
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 */
 	public function clear_to_table_row_context(): void {
 		foreach ( $this->walk_up() as $item ) {
@@ -853,7 +853,7 @@ class WP_HTML_Open_Elements {
 	/**
 	 * Wakeup magic method.
 	 *
-	 * @since 6.6.0
+	 * @since WP 6.6.0
 	 */
 	public function __wakeup() {
 		throw new \LogicException( __CLASS__ . ' should never be unserialized' );

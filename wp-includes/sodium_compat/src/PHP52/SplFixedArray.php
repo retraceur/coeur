@@ -128,7 +128,7 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable
      * Rewind iterator back to the start
      * @link https://php.net/manual/en/splfixedarray.rewind.php
      * @return void
-     * @since 5.3.0
+     * @since WP 5.3.0
      */
     public function rewind()
     {
@@ -139,7 +139,7 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable
      * Return current array entry
      * @link https://php.net/manual/en/splfixedarray.current.php
      * @return mixed The current element value.
-     * @since 5.3.0
+     * @since WP 5.3.0
      */
     public function current()
     {

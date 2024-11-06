@@ -3,7 +3,8 @@
  * Register the block patterns and block patterns categories
  *
  * @package motsVertueux
- * @since 5.5.0
+ * @since WP 5.5.0
+ * @since 1.0.0 motsVertueux fork.
  */
 
 add_theme_support( 'core-block-patterns' );
@@ -11,8 +12,8 @@ add_theme_support( 'core-block-patterns' );
 /**
  * Registers the core block patterns and categories.
  *
- * @since 5.5.0
- * @since 6.3.0 Added source to core block patterns.
+ * @since WP 5.5.0
+ * @since WP 6.3.0 Added source to core block patterns.
  * @access private
  */
 function _register_core_block_patterns_and_categories() {
@@ -176,7 +177,7 @@ function _register_core_block_patterns_and_categories() {
  *
  * The API's format is snake_case, `register_block_pattern()` expects camelCase.
  *
- * @since 6.2.0
+ * @since WP 6.2.0
  * @access private
  *
  * @param array $pattern Pattern as returned from the Pattern Directory API.
@@ -197,13 +198,13 @@ function wp_normalize_remote_block_pattern( $pattern ) {
 }
 
 /**
- * Register Core's official patterns from wordpress.org/patterns.
+ * Register Core's official patterns.
  *
- * @since 5.8.0
- * @since 5.9.0 The $current_screen argument was removed.
- * @since 6.2.0 Normalize the pattern from the API (snake_case) to the
+ * @since WP 5.8.0
+ * @since WP 5.9.0 The $current_screen argument was removed.
+ * @since WP 6.2.0 Normalize the pattern from the API (snake_case) to the
  *              format expected by `register_block_pattern` (camelCase).
- * @since 6.3.0 Add 'pattern-directory/core' to the pattern's 'source'.
+ * @since WP 6.3.0 Add 'pattern-directory/core' to the pattern's 'source'.
  *
  * @param WP_Screen $deprecated Unused. Formerly the screen that the current request was triggered from.
  */
@@ -221,7 +222,7 @@ function _load_remote_block_patterns( $deprecated = null ) {
 	/**
 	 * Filter to disable remote block patterns.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @param bool $should_load_remote
 	 */
@@ -247,12 +248,12 @@ function _load_remote_block_patterns( $deprecated = null ) {
 }
 
 /**
- * Register `Featured` (category) patterns from wordpress.org/patterns.
+ * Register `Featured` (category) patterns.
  *
- * @since 5.9.0
- * @since 6.2.0 Normalized the pattern from the API (snake_case) to the
+ * @since WP 5.9.0
+ * @since WP 6.2.0 Normalized the pattern from the API (snake_case) to the
  *              format expected by `register_block_pattern()` (camelCase).
- * @since 6.3.0 Add 'pattern-directory/featured' to the pattern's 'source'.
+ * @since WP 6.3.0 Add 'pattern-directory/featured' to the pattern's 'source'.
  */
 function _load_remote_featured_patterns() {
 	$supports_core_patterns = get_theme_support( 'core-block-patterns' );
@@ -289,10 +290,10 @@ function _load_remote_featured_patterns() {
  * Registers patterns from Pattern Directory provided by a theme's
  * `theme.json` file.
  *
- * @since 6.0.0
- * @since 6.2.0 Normalized the pattern from the API (snake_case) to the
+ * @since WP 6.0.0
+ * @since WP 6.2.0 Normalized the pattern from the API (snake_case) to the
  *              format expected by `register_block_pattern()` (camelCase).
- * @since 6.3.0 Add 'pattern-directory/theme' to the pattern's 'source'.
+ * @since WP 6.3.0 Add 'pattern-directory/theme' to the pattern's 'source'.
  * @access private
  */
 function _register_remote_theme_patterns() {
@@ -334,10 +335,10 @@ function _register_remote_theme_patterns() {
  * Register any patterns that the active theme may provide under its
  * `./patterns/` directory.
  *
- * @since 6.0.0
- * @since 6.1.0 The `postTypes` property was added.
- * @since 6.2.0 The `templateTypes` property was added.
- * @since 6.4.0 Uses the `WP_Theme::get_block_patterns` method.
+ * @since WP 6.0.0
+ * @since WP 6.1.0 The `postTypes` property was added.
+ * @since WP 6.2.0 The `templateTypes` property was added.
+ * @since WP 6.4.0 Uses the `WP_Theme::get_block_patterns` method.
  * @access private
  */
 function _register_theme_block_patterns() {

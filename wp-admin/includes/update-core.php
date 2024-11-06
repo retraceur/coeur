@@ -8,7 +8,7 @@
  *
  * @package motsVertueux
  * @subpackage Administration
- * @since 2.7.0
+ * @since WP 2.7.0
  */
 
 /**
@@ -16,7 +16,7 @@
  *
  * Bundled theme files should not be included in this list.
  *
- * @since 2.7.0
+ * @since WP 2.7.0
  *
  * @global array $_old_files
  * @var array
@@ -788,7 +788,7 @@ $_old_files = array(
  *
  * All other files/directories should not have a key.
  *
- * @since 6.2.0
+ * @since WP 6.2.0
  *
  * @global array $_old_requests_files
  * @var array
@@ -882,8 +882,8 @@ $_old_requests_files = array(
  * Filename (relative to wp-content) => Introduced version
  * Directories should be noted by suffixing it with a trailing slash (/)
  *
- * @since 3.2.0
- * @since 4.7.0 New themes were not automatically installed for 4.4-4.6 on
+ * @since WP 3.2.0
+ * @since WP 4.7.0 New themes were not automatically installed for 4.4-4.6 on
  *              upgrade. New themes are now installed again. To disable new
  *              themes from being installed on upgrade, explicitly define
  *              CORE_UPGRADE_SKIP_NEW_BUNDLED as true.
@@ -952,7 +952,7 @@ $_new_bundled_files = array(
  * themes, then if you edit the default theme, you should rename it, so that
  * your changes remain.
  *
- * @since 2.7.0
+ * @since WP 2.7.0
  *
  * @global WP_Filesystem_Base $wp_filesystem          WordPress filesystem subclass.
  * @global array              $_old_files
@@ -999,7 +999,7 @@ function update_core( $from, $to ) {
 	 * 4. Before Maintenance Mode is disabled.
 	 * 5. Before the database is upgraded.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @param string $feedback The core update feedback messages.
 	 */
@@ -1076,24 +1076,6 @@ function update_core( $from, $to ) {
 		$wp_filesystem->delete( $from, true );
 	}
 
-	$php_update_message = '';
-
-	if ( function_exists( 'wp_get_update_php_url' ) ) {
-		$php_update_message = '</p><p>' . sprintf(
-			/* translators: %s: URL to Update PHP page. */
-			__( '<a href="%s">Learn more about updating PHP</a>.' ),
-			esc_url( wp_get_update_php_url() )
-		);
-
-		if ( function_exists( 'wp_get_update_php_annotation' ) ) {
-			$annotation = wp_get_update_php_annotation();
-
-			if ( $annotation ) {
-				$php_update_message .= '</p><p><em>' . $annotation . '</em>';
-			}
-		}
-	}
-
 	if ( ! $mysql_compat && ! $php_compat ) {
 		return new WP_Error(
 			'php_mysql_not_compatible',
@@ -1105,7 +1087,7 @@ function update_core( $from, $to ) {
 				$required_mysql_version,
 				$php_version,
 				$mysql_version
-			) . $php_update_message
+			)
 		);
 	} elseif ( ! $php_compat ) {
 		return new WP_Error(
@@ -1116,7 +1098,7 @@ function update_core( $from, $to ) {
 				$wp_version,
 				$required_php_version,
 				$php_version
-			) . $php_update_message
+			)
 		);
 	} elseif ( ! $mysql_compat ) {
 		return new WP_Error(
@@ -1516,7 +1498,7 @@ function update_core( $from, $to ) {
 	/**
 	 * Fires after WordPress core has been successfully updated.
 	 *
-	 * @since 3.3.0
+	 * @since WP 3.3.0
 	 *
 	 * @param string $wp_version The current WordPress version.
 	 */
@@ -1542,7 +1524,7 @@ function update_core( $from, $to ) {
  * a fatal error. Preloading ensures the code is in memory before the
  * code is updated.
  *
- * @since 6.2.0
+ * @since WP 6.2.0
  *
  * @global array              $_old_requests_files Requests files to be preloaded.
  * @global WP_Filesystem_Base $wp_filesystem       WordPress filesystem subclass.
@@ -1592,7 +1574,7 @@ function _preload_old_requests_classes_and_interfaces( $to ) {
  *
  * This function is only needed when the existing installation is older than 3.4.0.
  *
- * @since 3.3.0
+ * @since WP 3.3.0
  *
  * @global string $wp_version The WordPress version string.
  * @global string $pagenow    The filename of the current screen.
@@ -1654,7 +1636,7 @@ window.location = 'about.php?updated';
 /**
  * Cleans up Genericons example files.
  *
- * @since 4.2.2
+ * @since WP 4.2.2
  *
  * @global array              $wp_theme_directories
  * @global WP_Filesystem_Base $wp_filesystem
@@ -1699,7 +1681,7 @@ function _upgrade_422_remove_genericons() {
  * Recursively find Genericons example files in a given folder.
  *
  * @ignore
- * @since 4.2.2
+ * @since WP 4.2.2
  *
  * @param string $directory Directory path. Expects trailingslashed.
  * @return array
@@ -1745,7 +1727,7 @@ function _upgrade_422_find_genericons_files_in_folder( $directory ) {
 
 /**
  * @ignore
- * @since 4.4.0
+ * @since WP 4.4.0
  */
 function _upgrade_440_force_deactivate_incompatible_plugins() {
 	if ( defined( 'REST_API_VERSION' ) && version_compare( REST_API_VERSION, '2.0-beta4', '<=' ) ) {
@@ -1756,11 +1738,11 @@ function _upgrade_440_force_deactivate_incompatible_plugins() {
 /**
  * @access private
  * @ignore
- * @since 5.8.0
- * @since 5.9.0 The minimum compatible version of Gutenberg is 11.9.
- * @since 6.1.1 The minimum compatible version of Gutenberg is 14.1.
- * @since 6.4.0 The minimum compatible version of Gutenberg is 16.5.
- * @since 6.5.0 The minimum compatible version of Gutenberg is 17.6.
+ * @since WP 5.8.0
+ * @since WP 5.9.0 The minimum compatible version of Gutenberg is 11.9.
+ * @since WP 6.1.1 The minimum compatible version of Gutenberg is 14.1.
+ * @since WP 6.4.0 The minimum compatible version of Gutenberg is 16.5.
+ * @since WP 6.5.0 The minimum compatible version of Gutenberg is 17.6.
  */
 function _upgrade_core_deactivate_incompatible_plugins() {
 	if ( defined( 'GUTENBERG_VERSION' ) && version_compare( GUTENBERG_VERSION, '17.6', '<' ) ) {

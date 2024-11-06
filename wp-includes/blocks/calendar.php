@@ -1,6 +1,8 @@
 <?php
 /**
  * Server-side rendering of the `core/calendar` block.
+ * 
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  */
@@ -8,7 +10,7 @@
 /**
  * Renders the `core/calendar` block on server.
  *
- * @since 5.2.0
+ * @since WP 5.2.0
  *
  * @global int $monthnum.
  * @global int $year.
@@ -82,7 +84,7 @@ function render_block_core_calendar( $attributes ) {
 /**
  * Registers the `core/calendar` block on server.
  *
- * @since 5.2.0
+ * @since WP 5.2.0
  */
 function register_block_core_calendar() {
 	register_block_type_from_metadata(
@@ -99,9 +101,8 @@ add_action( 'init', 'register_block_core_calendar' );
  * Returns whether or not there are any published posts.
  *
  * Used to hide the calendar block when there are no published posts.
- * This compensates for a known Core bug: https://core.trac.wordpress.org/ticket/12016
  *
- * @since 5.9.0
+ * @since WP 5.9.0
  *
  * @return bool Has any published posts or not.
  */
@@ -126,7 +127,7 @@ function block_core_calendar_has_published_posts() {
  * Queries the database for any published post and saves
  * a flag whether any published post exists or not.
  *
- * @since 5.9.0
+ * @since WP 5.9.0
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  *
@@ -145,7 +146,7 @@ if ( ! is_multisite() ) {
 	/**
 	 * Handler for updating the has published posts flag when a post is deleted.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param int $post_id Deleted post ID.
 	 */
@@ -162,7 +163,7 @@ if ( ! is_multisite() ) {
 	/**
 	 * Handler for updating the has published posts flag when a post status changes.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param string  $new_status The status the post is changing to.
 	 * @param string  $old_status The status the post is changing from.

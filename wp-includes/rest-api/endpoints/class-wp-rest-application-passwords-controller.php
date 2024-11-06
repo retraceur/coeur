@@ -4,13 +4,13 @@
  *
  * @package    WordPress
  * @subpackage REST_API
- * @since      5.6.0
+ * @since WP      5.6.0
  */
 
 /**
  * Core class to access a user's application passwords via the REST API.
  *
- * @since 5.6.0
+ * @since WP 5.6.0
  *
  * @see   WP_REST_Controller
  */
@@ -19,7 +19,7 @@ class WP_REST_Application_Passwords_Controller extends WP_REST_Controller {
 	/**
 	 * Application Passwords controller constructor.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 */
 	public function __construct() {
 		$this->namespace = 'wp/v2';
@@ -29,7 +29,7 @@ class WP_REST_Application_Passwords_Controller extends WP_REST_Controller {
 	/**
 	 * Registers the REST API routes for the application passwords controller.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 */
 	public function register_routes() {
 		register_rest_route(
@@ -104,7 +104,7 @@ class WP_REST_Application_Passwords_Controller extends WP_REST_Controller {
 	/**
 	 * Checks if a given request has access to get application passwords.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has read access, WP_Error object otherwise.
@@ -130,7 +130,7 @@ class WP_REST_Application_Passwords_Controller extends WP_REST_Controller {
 	/**
 	 * Retrieves a collection of application passwords.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
@@ -157,7 +157,7 @@ class WP_REST_Application_Passwords_Controller extends WP_REST_Controller {
 	/**
 	 * Checks if a given request has access to get a specific application password.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has read access for the item, WP_Error object otherwise.
@@ -183,7 +183,7 @@ class WP_REST_Application_Passwords_Controller extends WP_REST_Controller {
 	/**
 	 * Retrieves one application password from the collection.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
@@ -201,7 +201,7 @@ class WP_REST_Application_Passwords_Controller extends WP_REST_Controller {
 	/**
 	 * Checks if a given request has access to create application passwords.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has access to create items, WP_Error object otherwise.
@@ -227,7 +227,7 @@ class WP_REST_Application_Passwords_Controller extends WP_REST_Controller {
 	/**
 	 * Creates an application password.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
@@ -264,7 +264,7 @@ class WP_REST_Application_Passwords_Controller extends WP_REST_Controller {
 		/**
 		 * Fires after a single application password is completely created or updated via the REST API.
 		 *
-		 * @since 5.6.0
+		 * @since WP 5.6.0
 		 *
 		 * @param array           $item     Inserted or updated password item.
 		 * @param WP_REST_Request $request  Request object.
@@ -284,7 +284,7 @@ class WP_REST_Application_Passwords_Controller extends WP_REST_Controller {
 	/**
 	 * Checks if a given request has access to update application passwords.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has access to create items, WP_Error object otherwise.
@@ -310,7 +310,7 @@ class WP_REST_Application_Passwords_Controller extends WP_REST_Controller {
 	/**
 	 * Updates an application password.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
@@ -358,7 +358,7 @@ class WP_REST_Application_Passwords_Controller extends WP_REST_Controller {
 	/**
 	 * Checks if a given request has access to delete all application passwords for a user.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has access to delete the item, WP_Error object otherwise.
@@ -384,7 +384,7 @@ class WP_REST_Application_Passwords_Controller extends WP_REST_Controller {
 	/**
 	 * Deletes all application passwords for a user.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
@@ -413,7 +413,7 @@ class WP_REST_Application_Passwords_Controller extends WP_REST_Controller {
 	/**
 	 * Checks if a given request has access to delete a specific application password for a user.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has access to delete the item, WP_Error object otherwise.
@@ -439,7 +439,7 @@ class WP_REST_Application_Passwords_Controller extends WP_REST_Controller {
 	/**
 	 * Deletes an application password for a user.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
@@ -476,7 +476,7 @@ class WP_REST_Application_Passwords_Controller extends WP_REST_Controller {
 	/**
 	 * Checks if a given request has access to get the currently used application password for a user.
 	 *
-	 * @since 5.7.0
+	 * @since WP 5.7.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has read access for the item, WP_Error object otherwise.
@@ -502,7 +502,7 @@ class WP_REST_Application_Passwords_Controller extends WP_REST_Controller {
 	/**
 	 * Retrieves the application password being currently used for authentication of a user.
 	 *
-	 * @since 5.7.0
+	 * @since WP 5.7.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
@@ -540,8 +540,8 @@ class WP_REST_Application_Passwords_Controller extends WP_REST_Controller {
 	/**
 	 * Performs a permissions check for the request.
 	 *
-	 * @since 5.6.0
-	 * @deprecated 5.7.0 Use `edit_user` directly or one of the specific meta capabilities introduced in 5.7.0.
+	 * @since WP 5.6.0
+	 * @deprecated WP 5.7.0 Use `edit_user` directly or one of the specific meta capabilities introduced in 5.7.0.
 	 *
 	 * @param WP_REST_Request $request
 	 * @return true|WP_Error
@@ -569,7 +569,7 @@ class WP_REST_Application_Passwords_Controller extends WP_REST_Controller {
 	/**
 	 * Prepares an application password for a create or update operation.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param WP_REST_Request $request Request object.
 	 * @return object|WP_Error The prepared item, or WP_Error object on failure.
@@ -586,7 +586,7 @@ class WP_REST_Application_Passwords_Controller extends WP_REST_Controller {
 		/**
 		 * Filters an application password before it is inserted via the REST API.
 		 *
-		 * @since 5.6.0
+		 * @since WP 5.6.0
 		 *
 		 * @param stdClass        $prepared An object representing a single application password prepared for inserting or updating the database.
 		 * @param WP_REST_Request $request  Request object.
@@ -597,7 +597,7 @@ class WP_REST_Application_Passwords_Controller extends WP_REST_Controller {
 	/**
 	 * Prepares the application password for the REST response.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param array           $item    WordPress representation of the item.
 	 * @param WP_REST_Request $request Request object.
@@ -637,7 +637,7 @@ class WP_REST_Application_Passwords_Controller extends WP_REST_Controller {
 		/**
 		 * Filters the REST API response for an application password.
 		 *
-		 * @since 5.6.0
+		 * @since WP 5.6.0
 		 *
 		 * @param WP_REST_Response $response The response object.
 		 * @param array            $item     The application password array.
@@ -649,7 +649,7 @@ class WP_REST_Application_Passwords_Controller extends WP_REST_Controller {
 	/**
 	 * Prepares links for the request.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param WP_User $user The requested user.
 	 * @param array   $item The application password.
@@ -673,7 +673,7 @@ class WP_REST_Application_Passwords_Controller extends WP_REST_Controller {
 	/**
 	 * Gets the requested user.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param WP_REST_Request $request The request object.
 	 * @return WP_User|WP_Error The WordPress user associated with the request, or a WP_Error if none found.
@@ -737,7 +737,7 @@ class WP_REST_Application_Passwords_Controller extends WP_REST_Controller {
 	/**
 	 * Gets the requested application password for a user.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param WP_REST_Request $request The request object.
 	 * @return array|WP_Error The application password details if found, a WP_Error otherwise.
@@ -765,7 +765,7 @@ class WP_REST_Application_Passwords_Controller extends WP_REST_Controller {
 	/**
 	 * Retrieves the query params for the collections.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @return array Query parameters for the collection.
 	 */
@@ -778,7 +778,7 @@ class WP_REST_Application_Passwords_Controller extends WP_REST_Controller {
 	/**
 	 * Retrieves the application password's schema, conforming to JSON Schema.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @return array Item schema data.
 	 */

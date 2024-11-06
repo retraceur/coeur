@@ -4,7 +4,7 @@
  *
  * @package motsVertueux
  * @subpackage Multisite
- * @since 6.3.0
+ * @since WP 6.3.0
  */
 
 /** Load WordPress Administration Bootstrap */

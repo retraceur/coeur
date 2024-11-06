@@ -4,6 +4,7 @@
  *
  * @package motsVertueux
  * @subpackage Administration
+ * @since 1.0.0 motsVertueux fork.
  */
 
 /**
@@ -11,7 +12,7 @@
  *
  * Bump this when something changes that might affect compatibility.
  *
- * @since 2.5.0
+ * @since WP 2.5.0
  */
 define( 'WXR_VERSION', '1.2' );
 
@@ -22,8 +23,8 @@ define( 'WXR_VERSION', '1.2' );
  * be exported for post types with the `can_export` argument enabled. Any posts with the
  * 'auto-draft' status will be skipped.
  *
- * @since 2.1.0
- * @since 5.7.0 Added the `post_modified` and `post_modified_gmt` fields to the export file.
+ * @since WP 2.1.0
+ * @since WP 5.7.0 Added the `post_modified` and `post_modified_gmt` fields to the export file.
  *
  * @global wpdb    $wpdb WordPress database abstraction object.
  * @global WP_Post $post Global post object.
@@ -70,7 +71,7 @@ function export_wp( $args = array() ) {
 	/**
 	 * Fires at the beginning of an export, before any headers are sent.
 	 *
-	 * @since 2.3.0
+	 * @since WP 2.3.0
 	 *
 	 * @param array $args An array of export arguments.
 	 */
@@ -85,7 +86,7 @@ function export_wp( $args = array() ) {
 	/**
 	 * Filters the export filename.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 *
 	 * @param string $wp_filename The name of the file for download.
 	 * @param string $sitename    The site name.
@@ -237,7 +238,7 @@ function export_wp( $args = array() ) {
 	/**
 	 * Wraps given string in XML CDATA tag.
 	 *
-	 * @since 2.1.0
+	 * @since WP 2.1.0
 	 *
 	 * @param string $str String to wrap in XML CDATA tag.
 	 * @return string
@@ -255,7 +256,7 @@ function export_wp( $args = array() ) {
 	/**
 	 * Returns the URL of the site.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @return string Site URL.
 	 */
@@ -272,7 +273,7 @@ function export_wp( $args = array() ) {
 	/**
 	 * Outputs a cat_name XML tag from a given category object.
 	 *
-	 * @since 2.1.0
+	 * @since WP 2.1.0
 	 *
 	 * @param WP_Term $category Category Object.
 	 */
@@ -287,7 +288,7 @@ function export_wp( $args = array() ) {
 	/**
 	 * Outputs a category_description XML tag from a given category object.
 	 *
-	 * @since 2.1.0
+	 * @since WP 2.1.0
 	 *
 	 * @param WP_Term $category Category Object.
 	 */
@@ -302,7 +303,7 @@ function export_wp( $args = array() ) {
 	/**
 	 * Outputs a tag_name XML tag from a given tag object.
 	 *
-	 * @since 2.3.0
+	 * @since WP 2.3.0
 	 *
 	 * @param WP_Term $tag Tag Object.
 	 */
@@ -317,7 +318,7 @@ function export_wp( $args = array() ) {
 	/**
 	 * Outputs a tag_description XML tag from a given tag object.
 	 *
-	 * @since 2.3.0
+	 * @since WP 2.3.0
 	 *
 	 * @param WP_Term $tag Tag Object.
 	 */
@@ -332,7 +333,7 @@ function export_wp( $args = array() ) {
 	/**
 	 * Outputs a term_name XML tag from a given term object.
 	 *
-	 * @since 2.9.0
+	 * @since WP 2.9.0
 	 *
 	 * @param WP_Term $term Term Object.
 	 */
@@ -347,7 +348,7 @@ function export_wp( $args = array() ) {
 	/**
 	 * Outputs a term_description XML tag from a given term object.
 	 *
-	 * @since 2.9.0
+	 * @since WP 2.9.0
 	 *
 	 * @param WP_Term $term Term Object.
 	 */
@@ -362,7 +363,7 @@ function export_wp( $args = array() ) {
 	/**
 	 * Outputs term meta XML tags for a given term object.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 *
 	 * @global wpdb $wpdb WordPress database abstraction object.
 	 *
@@ -380,7 +381,7 @@ function export_wp( $args = array() ) {
 			 * Returning a truthy value from the filter will skip the current meta
 			 * object from being exported.
 			 *
-			 * @since 4.6.0
+			 * @since WP 4.6.0
 			 *
 			 * @param bool   $skip     Whether to skip the current piece of term meta. Default false.
 			 * @param string $meta_key Current meta key.
@@ -395,7 +396,7 @@ function export_wp( $args = array() ) {
 	/**
 	 * Outputs list of authors with posts.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @global wpdb $wpdb WordPress database abstraction object.
 	 *
@@ -434,7 +435,7 @@ function export_wp( $args = array() ) {
 	/**
 	 * Outputs all navigation menu terms.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 */
 	function wxr_nav_menu_terms() {
 		$nav_menus = wp_get_nav_menus();
@@ -455,7 +456,7 @@ function export_wp( $args = array() ) {
 	/**
 	 * Outputs list of taxonomy terms, in XML tag format, associated with a post.
 	 *
-	 * @since 2.3.0
+	 * @since WP 2.3.0
 	 */
 	function wxr_post_taxonomy() {
 		$post = get_post();
@@ -474,7 +475,7 @@ function export_wp( $args = array() ) {
 	/**
 	 * Determines whether to selectively skip post meta used for WXR exports.
 	 *
-	 * @since 3.3.0
+	 * @since WP 3.3.0
 	 *
 	 * @param bool   $return_me Whether to skip the current post meta. Default false.
 	 * @param string $meta_key  Meta key.
@@ -510,11 +511,9 @@ function export_wp( $args = array() ) {
 
 	<?php the_generator( 'export' ); ?>
 <rss version="2.0"
-	xmlns:excerpt="http://wordpress.org/export/<?php echo WXR_VERSION; ?>/excerpt/"
 	xmlns:content="http://purl.org/rss/1.0/modules/content/"
 	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
 	xmlns:dc="http://purl.org/dc/elements/1.1/"
-	xmlns:wp="http://wordpress.org/export/<?php echo WXR_VERSION; ?>/"
 >
 
 <channel>
@@ -598,7 +597,7 @@ function export_wp( $args = array() ) {
 				/**
 				 * Filters the post title used for WXR exports.
 				 *
-				 * @since 5.7.0
+				 * @since WP 5.7.0
 				 *
 				 * @param string $post_title Title of the current post.
 				 */
@@ -607,7 +606,7 @@ function export_wp( $args = array() ) {
 				/**
 				 * Filters the post content used for WXR exports.
 				 *
-				 * @since 2.5.0
+				 * @since WP 2.5.0
 				 *
 				 * @param string $post_content Content of the current post.
 				 */
@@ -616,7 +615,7 @@ function export_wp( $args = array() ) {
 				/**
 				 * Filters the post excerpt used for WXR exports.
 				 *
-				 * @since 2.6.0
+				 * @since WP 2.6.0
 				 *
 				 * @param string $post_excerpt Excerpt for the current post.
 				 */
@@ -660,7 +659,7 @@ function export_wp( $args = array() ) {
 					 * Returning a truthy value from the filter will skip the current meta
 					 * object from being exported.
 					 *
-					 * @since 3.3.0
+					 * @since WP 3.3.0
 					 *
 					 * @param bool   $skip     Whether to skip the current post meta. Default false.
 					 * @param string $meta_key Current meta key.
@@ -703,7 +702,7 @@ function export_wp( $args = array() ) {
 						 * Returning a truthy value from the filter will skip the current meta
 						 * object from being exported.
 						 *
-						 * @since 4.0.0
+						 * @since WP 4.0.0
 						 *
 						 * @param bool   $skip     Whether to skip the current comment meta. Default false.
 						 * @param string $meta_key Current meta key.

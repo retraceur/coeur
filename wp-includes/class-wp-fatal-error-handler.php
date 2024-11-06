@@ -3,7 +3,8 @@
  * Error Protection API: WP_Fatal_Error_Handler class
  *
  * @package motsVertueux
- * @since 5.2.0
+ * @since WP 5.2.0
+ * @since 1.0.0 motsVertueux fork.
  */
 
 /**
@@ -14,7 +15,7 @@
  * can override its methods individually as necessary. The file must return the instance of the class that should be
  * registered.
  *
- * @since 5.2.0
+ * @since WP 5.2.0
  */
 #[AllowDynamicProperties]
 class WP_Fatal_Error_Handler {
@@ -24,7 +25,7 @@ class WP_Fatal_Error_Handler {
 	 *
 	 * This method is registered via `register_shutdown_function()`.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 *
 	 * @global WP_Locale $wp_locale WordPress date and time locale object.
 	 */
@@ -67,7 +68,7 @@ class WP_Fatal_Error_Handler {
 	/**
 	 * Detects the error causing the crash if it should be handled.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 *
 	 * @return array|null Error information returned by `error_get_last()`, or null
 	 *                    if none was recorded or the error should not be handled.
@@ -92,7 +93,7 @@ class WP_Fatal_Error_Handler {
 	 * Determines whether we are dealing with an error that WordPress should handle
 	 * in order to protect the admin backend against WSODs.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 *
 	 * @param array $error Error information retrieved from `error_get_last()`.
 	 * @return bool Whether WordPress should handle this error.
@@ -117,7 +118,7 @@ class WP_Fatal_Error_Handler {
 		 * it exclusively allows adding further rules for which errors should be handled, but not removing existing
 		 * ones.
 		 *
-		 * @since 5.2.0
+		 * @since WP 5.2.0
 		 *
 		 * @param bool  $should_handle_error Whether the error should be handled by the fatal error handler.
 		 * @param array $error               Error information retrieved from `error_get_last()`.
@@ -135,8 +136,8 @@ class WP_Fatal_Error_Handler {
 	 *
 	 * If no such drop-in is available, this will call {@see WP_Fatal_Error_Handler::display_default_error_template()}.
 	 *
-	 * @since 5.2.0
-	 * @since 5.3.0 The `$handled` parameter was added.
+	 * @since WP 5.2.0
+	 * @since WP 5.3.0 The `$handled` parameter was added.
 	 *
 	 * @param array         $error   Error information retrieved from `error_get_last()`.
 	 * @param true|WP_Error $handled Whether Recovery Mode handled the fatal error.
@@ -165,8 +166,8 @@ class WP_Fatal_Error_Handler {
 	 * login link to the admin backend. The {@see 'wp_php_error_message'} and {@see 'wp_php_error_args'} filters can
 	 * be used to modify these parameters.
 	 *
-	 * @since 5.2.0
-	 * @since 5.3.0 The `$handled` parameter was added.
+	 * @since WP 5.2.0
+	 * @since WP 5.3.0 The `$handled` parameter was added.
 	 *
 	 * @param array         $error   Error information retrieved from `error_get_last()`.
 	 * @param true|WP_Error $handled Whether Recovery Mode handled the fatal error.
@@ -190,23 +191,13 @@ class WP_Fatal_Error_Handler {
 			if ( is_multisite() ) {
 				$message = __( 'There has been a critical error on this website. Please reach out to your site administrator, and inform them of this error for further assistance.' );
 			} else {
-				$message = sprintf(
-					/* translators: %s: Support forums URL. */
-					__( 'There has been a critical error on this website. Please check your site admin email inbox for instructions. If you continue to have problems, please try the <a href="%s">support forums</a>.' ),
-					__( 'https://wordpress.org/support/forums/' )
-				);
+				$message = __( 'There has been a critical error on this website. Please check your site admin email inbox for instructions.' );
 			}
 		} else {
 			$message = __( 'There has been a critical error on this website.' );
 		}
 
-		$message = sprintf(
-			'<p>%s</p><p><a href="%s">%s</a></p>',
-			$message,
-			/* translators: Documentation about troubleshooting. */
-			__( 'https://wordpress.org/documentation/article/faq-troubleshooting/' ),
-			__( 'Learn more about troubleshooting WordPress.' )
-		);
+		$message = sprintf( '<p>%s</p>', $message );
 
 		$args = array(
 			'response' => 500,
@@ -216,7 +207,7 @@ class WP_Fatal_Error_Handler {
 		/**
 		 * Filters the message that the default PHP error template displays.
 		 *
-		 * @since 5.2.0
+		 * @since WP 5.2.0
 		 *
 		 * @param string $message HTML error message to display.
 		 * @param array  $error   Error information retrieved from `error_get_last()`.
@@ -226,7 +217,7 @@ class WP_Fatal_Error_Handler {
 		/**
 		 * Filters the arguments passed to {@see wp_die()} for the default PHP error template.
 		 *
-		 * @since 5.2.0
+		 * @since WP 5.2.0
 		 *
 		 * @param array $args Associative array of arguments passed to `wp_die()`. By default these contain a
 		 *                    'response' key, and optionally 'link_url' and 'link_text' keys.

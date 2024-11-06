@@ -4,13 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage Nav_Menus
- * @since 4.6.0
+ * @since WP 4.6.0
  */
 
 /**
  * Core class used to implement an HTML list of nav menu items.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @see Walker
  */
@@ -18,7 +18,7 @@ class Walker_Nav_Menu extends Walker {
 	/**
 	 * What the class handles.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 * @var string
 	 *
 	 * @see Walker::$tree_type
@@ -28,7 +28,7 @@ class Walker_Nav_Menu extends Walker {
 	/**
 	 * Database fields to use.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 * @todo Decouple this.
 	 * @var string[]
 	 *
@@ -42,7 +42,7 @@ class Walker_Nav_Menu extends Walker {
 	/**
 	 * Starts the list before the elements are added.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 *
 	 * @see Walker::start_lvl()
 	 *
@@ -66,7 +66,7 @@ class Walker_Nav_Menu extends Walker {
 		/**
 		 * Filters the CSS class(es) applied to a menu list element.
 		 *
-		 * @since 4.8.0
+		 * @since WP 4.8.0
 		 *
 		 * @param string[] $classes Array of the CSS classes that are applied to the menu `<ul>` element.
 		 * @param stdClass $args    An object of `wp_nav_menu()` arguments.
@@ -80,7 +80,7 @@ class Walker_Nav_Menu extends Walker {
 		/**
 		 * Filters the HTML attributes applied to a menu list element.
 		 *
-		 * @since 6.3.0
+		 * @since WP 6.3.0
 		 *
 		 * @param array $atts {
 		 *     The HTML attributes applied to the `<ul>` element, empty strings are ignored.
@@ -99,7 +99,7 @@ class Walker_Nav_Menu extends Walker {
 	/**
 	 * Ends the list of after the elements are added.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 *
 	 * @see Walker::end_lvl()
 	 *
@@ -122,11 +122,11 @@ class Walker_Nav_Menu extends Walker {
 	/**
 	 * Starts the element output.
 	 *
-	 * @since 3.0.0
-	 * @since 4.4.0 The {@see 'nav_menu_item_args'} filter was added.
-	 * @since 5.9.0 Renamed `$item` to `$data_object` and `$id` to `$current_object_id`
+	 * @since WP 3.0.0
+	 * @since WP 4.4.0 The {@see 'nav_menu_item_args'} filter was added.
+	 * @since WP 5.9.0 Renamed `$item` to `$data_object` and `$id` to `$current_object_id`
 	 *              to match parent class for PHP 8 named parameter support.
-	 * @since 6.7.0 Removed redundant title attributes.
+	 * @since WP 6.7.0 Removed redundant title attributes.
 	 *
 	 * @see Walker::start_el()
 	 *
@@ -155,7 +155,7 @@ class Walker_Nav_Menu extends Walker {
 		/**
 		 * Filters the arguments for a single nav menu item.
 		 *
-		 * @since 4.4.0
+		 * @since WP 4.4.0
 		 *
 		 * @param stdClass $args      An object of wp_nav_menu() arguments.
 		 * @param WP_Post  $menu_item Menu item data object.
@@ -166,8 +166,8 @@ class Walker_Nav_Menu extends Walker {
 		/**
 		 * Filters the CSS classes applied to a menu item's list item element.
 		 *
-		 * @since 3.0.0
-		 * @since 4.1.0 The `$depth` parameter was added.
+		 * @since WP 3.0.0
+		 * @since WP 4.1.0 The `$depth` parameter was added.
 		 *
 		 * @param string[] $classes   Array of the CSS classes that are applied to the menu item's `<li>` element.
 		 * @param WP_Post  $menu_item The current menu item object.
@@ -179,8 +179,8 @@ class Walker_Nav_Menu extends Walker {
 		/**
 		 * Filters the ID attribute applied to a menu item's list item element.
 		 *
-		 * @since 3.0.1
-		 * @since 4.1.0 The `$depth` parameter was added.
+		 * @since WP 3.0.1
+		 * @since WP 4.1.0 The `$depth` parameter was added.
 		 *
 		 * @param string   $menu_item_id The ID attribute applied to the menu item's `<li>` element.
 		 * @param WP_Post  $menu_item    The current menu item.
@@ -196,7 +196,7 @@ class Walker_Nav_Menu extends Walker {
 		/**
 		 * Filters the HTML attributes applied to a menu's list item element.
 		 *
-		 * @since 6.3.0
+		 * @since WP 6.3.0
 		 *
 		 * @param array $li_atts {
 		 *     The HTML attributes applied to the menu item's `<li>` element, empty strings are ignored.
@@ -222,7 +222,7 @@ class Walker_Nav_Menu extends Walker {
 		/**
 		 * Filters a menu item's title.
 		 *
-		 * @since 4.4.0
+		 * @since WP 4.4.0
 		 *
 		 * @param string   $title     The menu item's title.
 		 * @param WP_Post  $menu_item The current menu item object.
@@ -261,8 +261,8 @@ class Walker_Nav_Menu extends Walker {
 		/**
 		 * Filters the HTML attributes applied to a menu item's anchor element.
 		 *
-		 * @since 3.6.0
-		 * @since 4.1.0 The `$depth` parameter was added.
+		 * @since WP 3.6.0
+		 * @since WP 4.1.0 The `$depth` parameter was added.
 		 *
 		 * @param array $atts {
 		 *     The HTML attributes applied to the menu item's `<a>` element, empty strings are ignored.
@@ -293,7 +293,7 @@ class Walker_Nav_Menu extends Walker {
 		 * the menu item's title, the closing `</a>`, and `$args->after`. Currently, there is
 		 * no filter for modifying the opening and closing `<li>` for a menu item.
 		 *
-		 * @since 3.0.0
+		 * @since WP 3.0.0
 		 *
 		 * @param string   $item_output The menu item's starting HTML output.
 		 * @param WP_Post  $menu_item   Menu item data object.
@@ -306,8 +306,8 @@ class Walker_Nav_Menu extends Walker {
 	/**
 	 * Ends the element output, if needed.
 	 *
-	 * @since 3.0.0
-	 * @since 5.9.0 Renamed `$item` to `$data_object` to match parent class for PHP 8 named parameter support.
+	 * @since WP 3.0.0
+	 * @since WP 5.9.0 Renamed `$item` to `$data_object` to match parent class for PHP 8 named parameter support.
 	 *
 	 * @see Walker::end_el()
 	 *
@@ -331,7 +331,7 @@ class Walker_Nav_Menu extends Walker {
 	 * Builds a string of HTML attributes from an array of key/value pairs.
 	 * Empty values are ignored.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param  array $atts Optional. An array of HTML attribute key/value pairs. Default empty array.
 	 * @return string A string of HTML attributes.

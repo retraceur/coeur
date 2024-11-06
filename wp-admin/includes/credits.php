@@ -4,68 +4,32 @@
  *
  * @package motsVertueux
  * @subpackage Administration
- * @since 4.4.0
+ * @since WP 4.4.0
  */
 
 /**
  * Retrieves the contributor credits.
  *
- * @since 3.2.0
- * @since 5.6.0 Added the `$version` and `$locale` parameters.
+ * @since WP 3.2.0
+ * @since WP 5.6.0 Added the `$version` and `$locale` parameters.
  *
  * @param string $version WordPress version. Defaults to the current version.
  * @param string $locale  WordPress locale. Defaults to the current user's locale.
  * @return array|false A list of all of the contributors, or false on error.
  */
 function wp_credits( $version = '', $locale = '' ) {
-	if ( ! $version ) {
-		$version = wp_get_wp_version();
-	}
-
-	if ( ! $locale ) {
-		$locale = get_user_locale();
-	}
-
-	$results = get_site_transient( 'wordpress_credits_' . $locale );
-
-	if ( ! is_array( $results )
-		|| str_contains( $version, '-' )
-		|| ( isset( $results['data']['version'] ) && ! str_starts_with( $version, $results['data']['version'] ) )
-	) {
-		$url     = "http://api.wordpress.org/core/credits/1.1/?version={$version}&locale={$locale}";
-		$options = array( 'user-agent' => 'WordPress/' . $version . '; ' . home_url( '/' ) );
-
-		if ( wp_http_supports( array( 'ssl' ) ) ) {
-			$url = set_url_scheme( $url, 'https' );
-		}
-
-		$response = wp_remote_get( $url, $options );
-
-		if ( is_wp_error( $response ) || 200 !== wp_remote_retrieve_response_code( $response ) ) {
-			return false;
-		}
-
-		$results = json_decode( wp_remote_retrieve_body( $response ), true );
-
-		if ( ! is_array( $results ) ) {
-			return false;
-		}
-
-		set_site_transient( 'wordpress_credits_' . $locale, $results, DAY_IN_SECONDS );
-	}
-
-	return $results;
+	return false;
 }
 
 /**
- * Retrieves the link to a contributor's WordPress.org profile page.
+ * Retrieves the link to a contributor's profile page.
  *
  * @access private
- * @since 3.2.0
+ * @since WP 3.2.0
  *
  * @param string $display_name  The contributor's display name (passed by reference).
  * @param string $username      The contributor's username.
- * @param string $profiles      URL to the contributor's WordPress.org profile page.
+ * @param string $profiles      URL to the contributor's profile page.
  */
 function _wp_credits_add_profile_link( &$display_name, $username, $profiles ) {
 	$display_name = '<a href="' . esc_url( sprintf( $profiles, $username ) ) . '">' . esc_html( $display_name ) . '</a>';
@@ -75,7 +39,7 @@ function _wp_credits_add_profile_link( &$display_name, $username, $profiles ) {
  * Retrieves the link to an external library used in WordPress.
  *
  * @access private
- * @since 3.2.0
+ * @since WP 3.2.0
  *
  * @param string $data External library data (passed by reference).
  */
@@ -86,7 +50,7 @@ function _wp_credits_build_object_link( &$data ) {
 /**
  * Displays the title for a given group of contributors.
  *
- * @since 5.3.0
+ * @since WP 5.3.0
  *
  * @param array $group_data The current contributor group.
  */
@@ -114,7 +78,7 @@ function wp_credits_section_title( $group_data = array() ) {
 /**
  * Displays a list of contributors for a given group.
  *
- * @since 5.3.0
+ * @since WP 5.3.0
  *
  * @param array  $credits The credits groups returned from the API.
  * @param string $slug    The current group to display.

@@ -9,7 +9,7 @@
 /**
  * Base image editor class from which implementations extend
  *
- * @since 3.5.0
+ * @since WP 3.5.0
  */
 #[AllowDynamicProperties]
 abstract class WP_Image_Editor {
@@ -36,7 +36,7 @@ abstract class WP_Image_Editor {
 	 * Checks to see if current environment supports the editor chosen.
 	 * Must be overridden in a subclass.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @abstract
 	 *
@@ -51,7 +51,7 @@ abstract class WP_Image_Editor {
 	 * Checks to see if editor supports the mime-type specified.
 	 * Must be overridden in a subclass.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @abstract
 	 *
@@ -65,7 +65,7 @@ abstract class WP_Image_Editor {
 	/**
 	 * Loads image from $this->file into editor.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 * @abstract
 	 *
 	 * @return true|WP_Error True if loaded; WP_Error on failure.
@@ -75,8 +75,8 @@ abstract class WP_Image_Editor {
 	/**
 	 * Saves current image to file.
 	 *
-	 * @since 3.5.0
-	 * @since 6.0.0 The `$filesize` value was added to the returned array.
+	 * @since WP 3.5.0
+	 * @since WP 6.0.0 The `$filesize` value was added to the returned array.
 	 * @abstract
 	 *
 	 * @param string $destfilename Optional. Destination filename. Default null.
@@ -101,7 +101,7 @@ abstract class WP_Image_Editor {
 	 * If one of the two is set to null, the resize will
 	 * maintain aspect ratio according to the provided dimension.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 * @abstract
 	 *
 	 * @param int|null   $max_w Image width.
@@ -121,7 +121,7 @@ abstract class WP_Image_Editor {
 	/**
 	 * Resize multiple images from a single source.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 * @abstract
 	 *
 	 * @param array $sizes {
@@ -140,7 +140,7 @@ abstract class WP_Image_Editor {
 	/**
 	 * Crops Image.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 * @abstract
 	 *
 	 * @param int  $src_x   The start x position to crop from.
@@ -157,7 +157,7 @@ abstract class WP_Image_Editor {
 	/**
 	 * Rotates current image counter-clockwise by $angle.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 * @abstract
 	 *
 	 * @param float $angle
@@ -168,7 +168,7 @@ abstract class WP_Image_Editor {
 	/**
 	 * Flips current image.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 * @abstract
 	 *
 	 * @param bool $horz Flip along Horizontal Axis
@@ -180,7 +180,7 @@ abstract class WP_Image_Editor {
 	/**
 	 * Streams current image to browser.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 * @abstract
 	 *
 	 * @param string $mime_type The mime type of the image.
@@ -191,7 +191,7 @@ abstract class WP_Image_Editor {
 	/**
 	 * Gets dimensions of image.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @return int[] {
 	 *     Dimensions of the image.
@@ -207,7 +207,7 @@ abstract class WP_Image_Editor {
 	/**
 	 * Sets current image size.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @param int $width
 	 * @param int $height
@@ -224,7 +224,7 @@ abstract class WP_Image_Editor {
 	/**
 	 * Gets the Image Compression quality on a 1-100% scale.
 	 *
-	 * @since 4.0.0
+	 * @since WP 4.0.0
 	 *
 	 * @return int Compression Quality. Range: [1,100]
 	 */
@@ -239,7 +239,7 @@ abstract class WP_Image_Editor {
 	/**
 	 * Sets Image Compression quality on a 1-100% scale.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @param int $quality Compression Quality. Range: [1,100]
 	 * @return true|WP_Error True if set successfully; WP_Error on failure.
@@ -259,7 +259,7 @@ abstract class WP_Image_Editor {
 			 *
 			 * The WP_Image_Editor::set_quality() method has priority over the filter.
 			 *
-			 * @since 3.5.0
+			 * @since WP 3.5.0
 			 *
 			 * @param int    $quality   Quality level between 1 (low) and 100 (high).
 			 * @param string $mime_type Image mime type.
@@ -278,7 +278,7 @@ abstract class WP_Image_Editor {
 				 * The filter is evaluated under two contexts: 'image_resize', and 'edit_image',
 				 * (when a JPEG image is saved to file).
 				 *
-				 * @since 2.5.0
+				 * @since WP 2.5.0
 				 *
 				 * @param int    $quality Quality level between 0 (low) and 100 (high) of the JPEG.
 				 * @param string $context Context of the filter.
@@ -307,7 +307,7 @@ abstract class WP_Image_Editor {
 	/**
 	 * Returns the default compression quality setting for the mime type.
 	 *
-	 * @since 5.8.1
+	 * @since WP 5.8.1
 	 *
 	 * @param string $mime_type
 	 * @return int The default quality setting for the mime type.
@@ -333,7 +333,7 @@ abstract class WP_Image_Editor {
 	 *
 	 * Provides corrected filename only if filename is provided.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @param string $filename
 	 * @param string $mime_type
@@ -384,7 +384,7 @@ abstract class WP_Image_Editor {
 			 *
 			 * @see wp_get_mime_types()
 			 *
-			 * @since 3.5.0
+			 * @since WP 3.5.0
 			 *
 			 * @param string $mime_type Mime type string.
 			 */
@@ -422,7 +422,7 @@ abstract class WP_Image_Editor {
 	/**
 	 * Builds an output filename based on current file, and adding proper suffix
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @param string $suffix
 	 * @param string $dest_path
@@ -458,7 +458,7 @@ abstract class WP_Image_Editor {
 	/**
 	 * Builds and returns proper suffix for file based on height and width.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @return string|false suffix
 	 */
@@ -473,7 +473,7 @@ abstract class WP_Image_Editor {
 	/**
 	 * Check if a JPEG image has EXIF Orientation tag and rotate it if needed.
 	 *
-	 * @since 5.3.0
+	 * @since WP 5.3.0
 	 *
 	 * @return bool|WP_Error True if the image was rotated. False if not rotated (no EXIF data or the image doesn't need to be rotated).
 	 *                       WP_Error if error while rotating.
@@ -492,7 +492,7 @@ abstract class WP_Image_Editor {
 		/**
 		 * Filters the `$orientation` value to correct it before rotating or to prevent rotating the image.
 		 *
-		 * @since 5.3.0
+		 * @since WP 5.3.0
 		 *
 		 * @param int    $orientation EXIF Orientation value as retrieved from the image file.
 		 * @param string $file        Path to the image file.
@@ -553,7 +553,7 @@ abstract class WP_Image_Editor {
 	/**
 	 * Either calls editor's save function or handles file as a stream.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @param string   $filename
 	 * @param callable $callback
@@ -596,7 +596,7 @@ abstract class WP_Image_Editor {
 	 * Returns first matched mime-type from extension,
 	 * as mapped from wp_get_mime_types()
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @param string $extension
 	 * @return string|false
@@ -622,7 +622,7 @@ abstract class WP_Image_Editor {
 	 * Returns first matched extension from Mime-type,
 	 * as mapped from wp_get_mime_types()
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @param string $mime_type
 	 * @return string|false

@@ -23,17 +23,17 @@
  *
  *     $out = do_shortcode( $content );
  *
- * @link https://developer.wordpress.org/plugins/shortcodes/
- *
+ * @since WP 2.5.0
+ * @since 1.0.0 motsVertueux fork.
+ * 
  * @package motsVertueux
  * @subpackage Shortcodes
- * @since 2.5.0
  */
 
 /**
  * Container for storing shortcode tags and their hook to call for the shortcode.
  *
- * @since 2.5.0
+ * @since WP 2.5.0
  *
  * @name $shortcode_tags
  * @var array
@@ -49,7 +49,7 @@ $shortcode_tags = array();
  * already-added shortcode tags. In the event of a duplicated tag, the tag
  * loaded last will take precedence.
  *
- * @since 2.5.0
+ * @since WP 2.5.0
  *
  * @global array $shortcode_tags
  *
@@ -92,7 +92,7 @@ function add_shortcode( $tag, $callback ) {
 /**
  * Removes hook for shortcode.
  *
- * @since 2.5.0
+ * @since WP 2.5.0
  *
  * @global array $shortcode_tags
  *
@@ -110,7 +110,7 @@ function remove_shortcode( $tag ) {
  * This function clears all of the shortcode tags by replacing the shortcodes global with
  * an empty array. This is actually an efficient method for removing all shortcodes.
  *
- * @since 2.5.0
+ * @since WP 2.5.0
  *
  * @global array $shortcode_tags
  */
@@ -123,7 +123,7 @@ function remove_all_shortcodes() {
 /**
  * Determines whether a registered shortcode exists named $tag.
  *
- * @since 3.6.0
+ * @since WP 3.6.0
  *
  * @global array $shortcode_tags List of shortcode tags and their callback hooks.
  *
@@ -138,7 +138,7 @@ function shortcode_exists( $tag ) {
 /**
  * Determines whether the passed content contains the specified shortcode.
  *
- * @since 3.6.0
+ * @since WP 3.6.0
  *
  * @global array $shortcode_tags
  *
@@ -176,7 +176,7 @@ function has_shortcode( $content, $tag ) {
  *     get_shortcode_tags_in_content( '[audio src="file.mp3"][/audio] [foo] [gallery ids="1,2,3"]' );
  *     // array( 'audio', 'gallery' )
  *
- * @since 6.3.2
+ * @since WP 6.3.2
  *
  * @param string $content The content to check.
  * @return string[] An array of registered shortcode names found in the content.
@@ -211,7 +211,7 @@ function get_shortcode_tags_in_content( $content ) {
  *
  * This function is an alias for do_shortcode().
  *
- * @since 5.4.0
+ * @since WP 5.4.0
  *
  * @see do_shortcode()
  *
@@ -231,7 +231,7 @@ function apply_shortcodes( $content, $ignore_html = false ) {
  * without any filtering. This might cause issues when plugins are disabled but
  * the shortcode will still show up in the post or content.
  *
- * @since 2.5.0
+ * @since WP 2.5.0
  *
  * @global array $shortcode_tags List of shortcode tags and their callback hooks.
  *
@@ -289,7 +289,7 @@ function do_shortcode( $content, $ignore_html = false ) {
  * When wp_get_attachment_image() is called during shortcode rendering, we need to make clear
  * that the context is a shortcode and not part of the theme's template rendering logic.
  *
- * @since 6.3.0
+ * @since WP 6.3.0
  * @access private
  *
  * @return string The filtered context value for wp_get_attachment_images when doing shortcodes.
@@ -313,8 +313,8 @@ function _filter_do_shortcode_context() {
  * 5 - The content of a shortcode when it wraps some content.
  * 6 - An extra ] to allow for escaping shortcodes with double [[]]
  *
- * @since 2.5.0
- * @since 4.4.0 Added the `$tagnames` parameter.
+ * @since WP 2.5.0
+ * @since WP 4.4.0 Added the `$tagnames` parameter.
  *
  * @global array $shortcode_tags
  *
@@ -371,7 +371,7 @@ function get_shortcode_regex( $tagnames = null ) {
  *
  * @see get_shortcode_regex() for details of the match array contents.
  *
- * @since 2.5.0
+ * @since WP 2.5.0
  * @access private
  *
  * @global array $shortcode_tags
@@ -416,8 +416,8 @@ function do_shortcode_tag( $m ) {
 	 * Returning a non-false value from filter will short-circuit the
 	 * shortcode generation process, returning that value instead.
 	 *
-	 * @since 4.7.0
-	 * @since 6.5.0 The `$attr` parameter is always an array.
+	 * @since WP 4.7.0
+	 * @since WP 6.5.0 The `$attr` parameter is always an array.
 	 *
 	 * @param false|string $output Short-circuit return value. Either false or the value to replace the shortcode with.
 	 * @param string       $tag    Shortcode name.
@@ -436,8 +436,8 @@ function do_shortcode_tag( $m ) {
 	/**
 	 * Filters the output created by a shortcode callback.
 	 *
-	 * @since 4.7.0
-	 * @since 6.5.0 The `$attr` parameter is always an array.
+	 * @since WP 4.7.0
+	 * @since WP 6.5.0 The `$attr` parameter is always an array.
 	 *
 	 * @param string $output Shortcode output.
 	 * @param string $tag    Shortcode name.
@@ -455,7 +455,7 @@ function do_shortcode_tag( $m ) {
  * Assumes $content processed by KSES already.  Users with unfiltered_html
  * capability may get unexpected output if angle braces are nested in tags.
  *
- * @since 4.2.3
+ * @since WP 4.2.3
  *
  * @param string $content     Content to search for shortcodes.
  * @param bool   $ignore_html When true, all square braces inside elements will be encoded.
@@ -566,7 +566,7 @@ function do_shortcodes_in_html_tags( $content, $ignore_html, $tagnames ) {
 /**
  * Removes placeholders added by do_shortcodes_in_html_tags().
  *
- * @since 4.2.3
+ * @since WP 4.2.3
  *
  * @param string $content Content to search for placeholders.
  * @return string Content with placeholders removed.
@@ -586,7 +586,7 @@ function unescape_invalid_shortcodes( $content ) {
 /**
  * Retrieves the shortcode attributes regex.
  *
- * @since 4.4.0
+ * @since WP 4.4.0
  *
  * @return string The shortcode attribute regular expression.
  */
@@ -601,8 +601,8 @@ function get_shortcode_atts_regex() {
  * attribute as the value in the key/value pair. This allows for easier
  * retrieval of the attributes, since all attributes have to be known.
  *
- * @since 2.5.0
- * @since 6.5.0 The function now always returns an array,
+ * @since WP 2.5.0
+ * @since WP 6.5.0 The function now always returns an array,
  *              even if the original arguments string cannot be parsed or is empty.
  *
  * @param string $text Shortcode arguments list.
@@ -654,7 +654,7 @@ function shortcode_parse_atts( $text ) {
  * If the $atts list has unsupported attributes, then they will be ignored and
  * removed from the final returned list.
  *
- * @since 2.5.0
+ * @since WP 2.5.0
  *
  * @param array  $pairs     Entire list of supported attributes and their defaults.
  * @param array  $atts      User defined attributes in shortcode tag.
@@ -679,8 +679,8 @@ function shortcode_atts( $pairs, $atts, $shortcode = '' ) {
 		 * If the third parameter of the shortcode_atts() function is present then this filter is available.
 		 * The third parameter, $shortcode, is the name of the shortcode.
 		 *
-		 * @since 3.6.0
-		 * @since 4.4.0 Added the `$shortcode` parameter.
+		 * @since WP 3.6.0
+		 * @since WP 4.4.0 Added the `$shortcode` parameter.
 		 *
 		 * @param array  $out       The output array of shortcode attributes.
 		 * @param array  $pairs     The supported attributes and their defaults.
@@ -696,7 +696,7 @@ function shortcode_atts( $pairs, $atts, $shortcode = '' ) {
 /**
  * Removes all shortcode tags from the given content.
  *
- * @since 2.5.0
+ * @since WP 2.5.0
  *
  * @global array $shortcode_tags
  *
@@ -722,7 +722,7 @@ function strip_shortcodes( $content ) {
 	/**
 	 * Filters the list of shortcode tags to remove from the content.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @param array  $tags_to_remove Array of shortcode tags to remove.
 	 * @param string $content        Content shortcodes are being removed from.
@@ -749,7 +749,7 @@ function strip_shortcodes( $content ) {
 /**
  * Strips a shortcode tag based on RegEx matches against post content.
  *
- * @since 3.3.0
+ * @since WP 3.3.0
  *
  * @param array $m RegEx matches against post content.
  * @return string|false The content stripped of the tag, otherwise false.

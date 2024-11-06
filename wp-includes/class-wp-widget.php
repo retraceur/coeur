@@ -4,7 +4,7 @@
  *
  * @package motsVertueux
  * @subpackage Widgets
- * @since 4.4.0
+ * @since WP 4.4.0
  */
 
 /**
@@ -14,8 +14,8 @@
  *
  * If adding widget options, WP_Widget::update() and WP_Widget::form() should also be overridden.
  *
- * @since 2.8.0
- * @since 4.4.0 Moved to its own file from wp-includes/widgets.php
+ * @since WP 2.8.0
+ * @since WP 4.4.0 Moved to its own file from wp-includes/widgets.php
  */
 #[AllowDynamicProperties]
 class WP_Widget {
@@ -23,7 +23,7 @@ class WP_Widget {
 	/**
 	 * Root ID for all widgets of this type.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 * @var mixed|string
 	 */
 	public $id_base;
@@ -31,7 +31,7 @@ class WP_Widget {
 	/**
 	 * Name for this widget type.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 * @var string
 	 */
 	public $name;
@@ -39,7 +39,7 @@ class WP_Widget {
 	/**
 	 * Option name for this widget type.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 * @var string
 	 */
 	public $option_name;
@@ -47,7 +47,7 @@ class WP_Widget {
 	/**
 	 * Alt option name for this widget type.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 * @var string
 	 */
 	public $alt_option_name;
@@ -55,7 +55,7 @@ class WP_Widget {
 	/**
 	 * Option array passed to wp_register_sidebar_widget().
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 * @var array
 	 */
 	public $widget_options;
@@ -63,7 +63,7 @@ class WP_Widget {
 	/**
 	 * Option array passed to wp_register_widget_control().
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 * @var array
 	 */
 	public $control_options;
@@ -71,7 +71,7 @@ class WP_Widget {
 	/**
 	 * Unique ID number of the current instance.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 * @var bool|int
 	 */
 	public $number = false;
@@ -79,7 +79,7 @@ class WP_Widget {
 	/**
 	 * Unique ID string of the current instance (id_base-number).
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 * @var bool|string
 	 */
 	public $id = false;
@@ -90,7 +90,7 @@ class WP_Widget {
 	 * Set to true when the data is updated after a POST submit - ensures it does
 	 * not happen twice.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 * @var bool
 	 */
 	public $updated = false;
@@ -104,7 +104,7 @@ class WP_Widget {
 	 *
 	 * Subclasses should override this function to generate their widget code.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @param array $args     Display arguments including 'before_title', 'after_title',
 	 *                        'before_widget', and 'after_widget'.
@@ -121,7 +121,7 @@ class WP_Widget {
 	 * value of `$instance` should be returned. If false is returned, the instance won't be
 	 * saved/updated.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @param array $new_instance New settings for this instance as input by the user via
 	 *                            WP_Widget::form().
@@ -135,7 +135,7 @@ class WP_Widget {
 	/**
 	 * Outputs the settings update form.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @param array $instance The settings for the particular instance of the widget.
 	 * @return string Default return is 'noform'.
@@ -150,7 +150,7 @@ class WP_Widget {
 	/**
 	 * PHP5 constructor.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @param string $id_base         Base ID for the widget, lowercase and unique. If left empty,
 	 *                                a portion of the widget's PHP class name will be used. Has to be unique.
@@ -183,8 +183,8 @@ class WP_Widget {
 	/**
 	 * PHP4 constructor.
 	 *
-	 * @since 2.8.0
-	 * @deprecated 4.3.0 Use __construct() instead.
+	 * @since WP 2.8.0
+	 * @deprecated WP 4.3.0 Use __construct() instead.
 	 *
 	 * @see WP_Widget::__construct()
 	 *
@@ -207,8 +207,8 @@ class WP_Widget {
 	 * This function should be used in form() methods to create name attributes for fields
 	 * to be saved by update()
 	 *
-	 * @since 2.8.0
-	 * @since 4.4.0 Array format field names are now accepted.
+	 * @since WP 2.8.0
+	 * @since WP 4.4.0 Array format field names are now accepted.
 	 *
 	 * @param string $field_name Field name.
 	 * @return string Name attribute for `$field_name`.
@@ -232,8 +232,8 @@ class WP_Widget {
 	 * This function should be used in form() methods to create id attributes
 	 * for fields to be saved by WP_Widget::update().
 	 *
-	 * @since 2.8.0
-	 * @since 4.4.0 Array format field IDs are now accepted.
+	 * @since WP 2.8.0
+	 * @since WP 4.4.0 Array format field IDs are now accepted.
 	 *
 	 * @param string $field_name Field name.
 	 * @return string ID attribute for `$field_name`.
@@ -248,7 +248,7 @@ class WP_Widget {
 	/**
 	 * Register all widget instances of this widget class.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 */
 	public function _register() {
 		$settings = $this->get_settings();
@@ -279,7 +279,7 @@ class WP_Widget {
 	/**
 	 * Sets the internal order number for the widget instance.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @param int $number The unique order number of this widget instance compared to other
 	 *                    instances of the same class.
@@ -292,7 +292,7 @@ class WP_Widget {
 	/**
 	 * Retrieves the widget display callback.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @return callable Display callback.
 	 */
@@ -303,7 +303,7 @@ class WP_Widget {
 	/**
 	 * Retrieves the widget update callback.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @return callable Update callback.
 	 */
@@ -314,7 +314,7 @@ class WP_Widget {
 	/**
 	 * Retrieves the form callback.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @return callable Form callback.
 	 */
@@ -330,7 +330,7 @@ class WP_Widget {
 	 * whether they should store anything persistently to the object cache,
 	 * to transients, or anywhere else.
 	 *
-	 * @since 3.9.0
+	 * @since WP 3.9.0
 	 *
 	 * @global WP_Customize_Manager $wp_customize
 	 *
@@ -346,7 +346,7 @@ class WP_Widget {
 	 *
 	 * Finds the instance and calls WP_Widget::widget().
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @param array     $args        Display arguments. See WP_Widget::widget() for information
 	 *                               on accepted arguments.
@@ -374,7 +374,7 @@ class WP_Widget {
 			 *
 			 * Returning false will effectively short-circuit display of the widget.
 			 *
-			 * @since 2.8.0
+			 * @since WP 2.8.0
 			 *
 			 * @param array     $instance The current widget instance's settings.
 			 * @param WP_Widget $widget   The current widget instance.
@@ -402,7 +402,7 @@ class WP_Widget {
 	/**
 	 * Handles changed settings (Do NOT override).
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @global array $wp_registered_widgets
 	 *
@@ -466,7 +466,7 @@ class WP_Widget {
 				 * Returning false will effectively short-circuit the widget's ability
 				 * to update settings.
 				 *
-				 * @since 2.8.0
+				 * @since WP 2.8.0
 				 *
 				 * @param array     $instance     The current widget instance's settings.
 				 * @param array     $new_instance Array of new widget settings.
@@ -490,7 +490,7 @@ class WP_Widget {
 	/**
 	 * Generates the widget control form (Do NOT override).
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @param int|array $widget_args {
 	 *     Optional. Internal order number of the widget instance, or array of multi-widget arguments.
@@ -522,7 +522,7 @@ class WP_Widget {
 		 *
 		 * Returning false effectively short-circuits display of the control form.
 		 *
-		 * @since 2.8.0
+		 * @since WP 2.8.0
 		 *
 		 * @param array     $instance The current widget instance's settings.
 		 * @param WP_Widget $widget   The current widget instance.
@@ -544,7 +544,7 @@ class WP_Widget {
 			 * Note: If the widget has no form, the text echoed from the default
 			 * form method can be hidden using CSS.
 			 *
-			 * @since 2.8.0
+			 * @since WP 2.8.0
 			 *
 			 * @param WP_Widget $widget   The widget instance (passed by reference).
 			 * @param null      $return   Return null if new fields are added.
@@ -559,7 +559,7 @@ class WP_Widget {
 	/**
 	 * Registers an instance of the widget class.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @param int $number Optional. The unique order number of this widget instance
 	 *                    compared to other instances of the same class. Default -1.
@@ -592,7 +592,7 @@ class WP_Widget {
 	/**
 	 * Saves the settings for all instances of the widget class.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @param array $settings Multi-dimensional array of widget instance settings.
 	 */
@@ -604,7 +604,7 @@ class WP_Widget {
 	/**
 	 * Retrieves the settings for all instances of the widget class.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @return array Multi-dimensional array of widget instance settings.
 	 */

@@ -10,7 +10,7 @@
  * For now it only supports Archive title,
  * using queried object information
  *
- * @since 5.8.0
+ * @since WP 5.8.0
  *
  * @param array $attributes Block attributes.
  *
@@ -63,7 +63,7 @@ function render_block_core_query_title( $attributes ) {
 /**
  * Registers the `core/query-title` block on the server.
  *
- * @since 5.8.0
+ * @since WP 5.8.0
  */
 function register_block_core_query_title() {
 	register_block_type_from_metadata(

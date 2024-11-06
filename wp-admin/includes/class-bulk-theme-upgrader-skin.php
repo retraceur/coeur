@@ -4,14 +4,14 @@
  *
  * @package motsVertueux
  * @subpackage Upgrader
- * @since 4.6.0
+ * @since WP 4.6.0
  */
 
 /**
  * Bulk Theme Upgrader Skin for WordPress Theme Upgrades.
  *
- * @since 3.0.0
- * @since 4.6.0 Moved to its own file from wp-admin/includes/class-wp-upgrader-skins.php.
+ * @since WP 3.0.0
+ * @since WP 4.6.0 Moved to its own file from wp-admin/includes/class-wp-upgrader-skins.php.
  *
  * @see Bulk_Upgrader_Skin
  */
@@ -24,7 +24,7 @@ class Bulk_Theme_Upgrader_Skin extends Bulk_Upgrader_Skin {
 	 * with info retrieved from the Theme_Upgrader::theme_info() method,
 	 * which in turn calls the wp_get_theme() function.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 * @var WP_Theme|false The theme's info object, or false.
 	 */
 	public $theme_info = false;
@@ -32,7 +32,7 @@ class Bulk_Theme_Upgrader_Skin extends Bulk_Upgrader_Skin {
 	/**
 	 * Sets up the strings used in the update process.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 */
 	public function add_strings() {
 		parent::add_strings();
@@ -43,7 +43,7 @@ class Bulk_Theme_Upgrader_Skin extends Bulk_Upgrader_Skin {
 	/**
 	 * Performs an action before a bulk theme update.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 *
 	 * @param string $title
 	 */
@@ -54,7 +54,7 @@ class Bulk_Theme_Upgrader_Skin extends Bulk_Upgrader_Skin {
 	/**
 	 * Performs an action following a bulk theme update.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 *
 	 * @param string $title
 	 */
@@ -66,7 +66,7 @@ class Bulk_Theme_Upgrader_Skin extends Bulk_Upgrader_Skin {
 	/**
 	 * Displays the footer following the bulk update process.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 */
 	public function bulk_footer() {
 		parent::bulk_footer();
@@ -91,7 +91,7 @@ class Bulk_Theme_Upgrader_Skin extends Bulk_Upgrader_Skin {
 		/**
 		 * Filters the list of action links available following bulk theme updates.
 		 *
-		 * @since 3.0.0
+		 * @since WP 3.0.0
 		 *
 		 * @param string[] $update_actions Array of theme action links.
 		 * @param WP_Theme $theme_info     Theme object for the last-updated theme.

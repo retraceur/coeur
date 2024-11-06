@@ -4,7 +4,7 @@
  *
  * This file is deprecated, use 'wp-admin/includes/class-custom-image-header.php' instead.
  *
- * @deprecated 5.3.0
+ * @deprecated WP 5.3.0
  * @package motsVertueux
  * @subpackage Administration
  */

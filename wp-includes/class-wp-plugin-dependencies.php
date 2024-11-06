@@ -4,7 +4,8 @@
  *
  * @package motsVertueux
  * @subpackage Administration
- * @since 6.5.0
+ * @since WP 6.5.0
+ * @since 1.0.0 motsVertueux fork.
  */
 
 /**
@@ -18,7 +19,7 @@ class WP_Plugin_Dependencies {
 	/**
 	 * Holds 'get_plugins()'.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @var array
 	 */
@@ -27,7 +28,7 @@ class WP_Plugin_Dependencies {
 	/**
 	 * Holds plugin directory names to compare with cache.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @var array
 	 */
@@ -39,7 +40,7 @@ class WP_Plugin_Dependencies {
 	 * Keyed on the dependent plugin's filepath,
 	 * relative to the plugins directory.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @var array
 	 */
@@ -48,7 +49,7 @@ class WP_Plugin_Dependencies {
 	/**
 	 * Holds an array of sanitized plugin dependency slugs.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @var array
 	 */
@@ -60,7 +61,7 @@ class WP_Plugin_Dependencies {
 	 * Keyed on the dependent plugin's filepath,
 	 * relative to the plugins directory.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @var array
 	 */
@@ -69,7 +70,7 @@ class WP_Plugin_Dependencies {
 	/**
 	 * Holds 'plugins_api()' data for plugin dependencies.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @var array
 	 */
@@ -80,7 +81,7 @@ class WP_Plugin_Dependencies {
 	 *
 	 * Keyed on the dependency's slug.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @var string[]
 	 */
@@ -89,7 +90,7 @@ class WP_Plugin_Dependencies {
 	/**
 	 * An array of circular dependency pairings.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @var array[]
 	 */
@@ -98,7 +99,7 @@ class WP_Plugin_Dependencies {
 	/**
 	 * An array of circular dependency slugs.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @var string[]
 	 */
@@ -107,7 +108,7 @@ class WP_Plugin_Dependencies {
 	/**
 	 * Whether Plugin Dependencies have been initialized.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @var bool
 	 */
@@ -116,7 +117,7 @@ class WP_Plugin_Dependencies {
 	/**
 	 * Initializes by fetching plugin header and plugin API data.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 */
 	public static function initialize() {
 		if ( false === self::$initialized ) {
@@ -129,7 +130,7 @@ class WP_Plugin_Dependencies {
 	/**
 	 * Determines whether the plugin has plugins that depend on it.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $plugin_file The plugin's filepath, relative to the plugins directory.
 	 * @return bool Whether the plugin has plugins that depend on it.
@@ -141,7 +142,7 @@ class WP_Plugin_Dependencies {
 	/**
 	 * Determines whether the plugin has plugin dependencies.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $plugin_file The plugin's filepath, relative to the plugins directory.
 	 * @return bool Whether a plugin has plugin dependencies.
@@ -153,7 +154,7 @@ class WP_Plugin_Dependencies {
 	/**
 	 * Determines whether the plugin has active dependents.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $plugin_file The plugin's filepath, relative to the plugins directory.
 	 * @return bool Whether the plugin has active dependents.
@@ -174,7 +175,7 @@ class WP_Plugin_Dependencies {
 	/**
 	 * Gets filepaths of plugins that require the dependency.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $slug The dependency's slug.
 	 * @return array An array of dependent plugin filepaths, relative to the plugins directory.
@@ -194,7 +195,7 @@ class WP_Plugin_Dependencies {
 	/**
 	 * Gets the slugs of plugins that the dependent requires.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $plugin_file The dependent plugin's filepath, relative to the plugins directory.
 	 * @return array An array of dependency plugin slugs.
@@ -210,7 +211,7 @@ class WP_Plugin_Dependencies {
 	/**
 	 * Gets a dependent plugin's filepath.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $slug  The dependent plugin's slug.
 	 * @return string|false The dependent plugin's filepath, relative to the plugins directory,
@@ -225,7 +226,7 @@ class WP_Plugin_Dependencies {
 	/**
 	 * Determines whether the plugin has unmet dependencies.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $plugin_file The plugin's filepath, relative to the plugins directory.
 	 * @return bool Whether the plugin has unmet dependencies.
@@ -251,7 +252,7 @@ class WP_Plugin_Dependencies {
 	/**
 	 * Determines whether the plugin has a circular dependency.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $plugin_file The plugin's filepath, relative to the plugins directory.
 	 * @return bool Whether the plugin has a circular dependency.
@@ -275,7 +276,7 @@ class WP_Plugin_Dependencies {
 	/**
 	 * Gets the names of plugins that require the plugin.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $plugin_file The plugin's filepath, relative to the plugins directory.
 	 * @return array An array of dependent names.
@@ -296,7 +297,7 @@ class WP_Plugin_Dependencies {
 	/**
 	 * Gets the names of plugins required by the plugin.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $plugin_file The dependent plugin's filepath, relative to the plugins directory.
 	 * @return array An array of dependency names.
@@ -329,7 +330,7 @@ class WP_Plugin_Dependencies {
 	/**
 	 * Gets the filepath for a dependency, relative to the plugin's directory.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $slug The dependency's slug.
 	 * @return string|false If installed, the dependency's filepath relative to the plugins directory, otherwise false.
@@ -347,7 +348,7 @@ class WP_Plugin_Dependencies {
 	/**
 	 * Returns API data for the dependency.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $slug The dependency's slug.
 	 * @return array|false The dependency's API data on success, otherwise false.
@@ -365,7 +366,7 @@ class WP_Plugin_Dependencies {
 	/**
 	 * Displays an admin notice if dependencies are not installed.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 */
 	public static function display_admin_notice_for_unmet_dependencies() {
 		if ( in_array( false, self::get_dependency_filepaths(), true ) ) {
@@ -401,7 +402,7 @@ class WP_Plugin_Dependencies {
 	/**
 	 * Displays an admin notice if circular dependencies are installed.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 */
 	public static function display_admin_notice_for_circular_dependencies() {
 		$circular_dependencies = self::get_circular_dependencies();
@@ -441,7 +442,7 @@ class WP_Plugin_Dependencies {
 	/**
 	 * Checks plugin dependencies after a plugin is installed via AJAX.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 */
 	public static function check_plugin_dependencies_during_ajax() {
 		check_ajax_referer( 'updates' );
@@ -535,7 +536,7 @@ class WP_Plugin_Dependencies {
 	/**
 	 * Gets data for installed plugins.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @return array An array of plugin data.
 	 */
@@ -553,7 +554,7 @@ class WP_Plugin_Dependencies {
 	/**
 	 * Reads and stores dependency slugs from a plugin's 'Requires Plugins' header.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 */
 	protected static function read_dependencies_from_plugin_headers() {
 		self::$dependencies     = array();
@@ -578,7 +579,7 @@ class WP_Plugin_Dependencies {
 	/**
 	 * Sanitizes slugs.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $slugs A comma-separated string of plugin dependency slugs.
 	 * @return array An array of sanitized plugin dependency slugs.
@@ -592,17 +593,17 @@ class WP_Plugin_Dependencies {
 
 			/**
 			 * Filters a plugin dependency's slug before matching to
-			 * the WordPress.org slug format.
+			 * the slug format.
 			 *
 			 * Can be used to switch between free and premium plugin slugs, for example.
 			 *
-			 * @since 6.5.0
+			 * @since WP 6.5.0
 			 *
 			 * @param string $slug The slug.
 			 */
 			$slug = apply_filters( 'wp_plugin_dependencies_slug', $slug );
 
-			// Match to WordPress.org slug format.
+			// Match to slug format.
 			if ( preg_match( '/^[a-z0-9]+(-[a-z0-9]+)*$/mu', $slug ) ) {
 				$sanitized_slugs[] = $slug;
 			}
@@ -617,7 +618,7 @@ class WP_Plugin_Dependencies {
 	 * Gets the filepath of installed dependencies.
 	 * If a dependency is not installed, the filepath defaults to false.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @return array An array of install dependencies filepaths, relative to the plugins directory.
 	 */
@@ -646,9 +647,9 @@ class WP_Plugin_Dependencies {
 	}
 
 	/**
-	 * Retrieves and stores dependency plugin data from the WordPress.org Plugin API.
+	 * Retrieves and stores dependency plugin data from the Plugin API.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @global string $pagenow The filename of the current screen.
 	 *
@@ -734,7 +735,7 @@ class WP_Plugin_Dependencies {
 	/**
 	 * Gets plugin directory names.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @return array An array of plugin directory names.
 	 */
@@ -757,7 +758,7 @@ class WP_Plugin_Dependencies {
 	/**
 	 * Gets circular dependency data.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @return array[] An array of circular dependency pairings.
 	 */
@@ -793,7 +794,7 @@ class WP_Plugin_Dependencies {
 	/**
 	 * Checks for circular dependencies.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param array $dependents   Array of dependent plugins.
 	 * @param array $dependencies Array of plugins dependencies.
@@ -864,7 +865,7 @@ class WP_Plugin_Dependencies {
 	/**
 	 * Converts a plugin filepath to a slug.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $plugin_file The plugin's filepath, relative to the plugins directory.
 	 * @return string The plugin's slug.

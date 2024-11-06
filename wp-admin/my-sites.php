@@ -4,7 +4,7 @@
  *
  * @package motsVertueux
  * @subpackage Multisite
- * @since 3.0.0
+ * @since WP 3.0.0
  */
 
 require_once __DIR__ . '/admin.php';
@@ -45,12 +45,6 @@ get_current_screen()->add_help_tab(
 		'content' =>
 			'<p>' . __( 'This screen shows an individual user all of their sites in this network, and also allows that user to set a primary site. They can use the links under each site to visit either the front end or the dashboard for that site.' ) . '</p>',
 	)
-);
-
-get_current_screen()->set_help_sidebar(
-	'<p><strong>' . __( 'For more information:' ) . '</strong></p>' .
-	'<p>' . __( '<a href="https://codex.wordpress.org/Dashboard_My_Sites_Screen">Documentation on My Sites</a>' ) . '</p>' .
-	'<p>' . __( '<a href="https://wordpress.org/support/forums/">Support forums</a>' ) . '</p>'
 );
 
 require_once ABSPATH . 'wp-admin/admin-header.php';
@@ -102,7 +96,7 @@ else :
 	/**
 	 * Fires before the sites list on the My Sites screen.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 */
 	do_action( 'myblogs_allblogs_options' );
 	?>
@@ -116,7 +110,7 @@ else :
 	 * string to this filter will enable the section, and allow new settings
 	 * to be added, either globally or for specific sites.
 	 *
-	 * @since MU (3.0.0)
+	 * @since WP MU (3.0.0)
 	 *
 	 * @param string $settings_html The settings HTML markup. Default empty.
 	 * @param string $context       Context of the setting (global or site-specific). Default 'global'.
@@ -145,7 +139,7 @@ else :
 		/**
 		 * Filters the row links displayed for each site on the My Sites screen.
 		 *
-		 * @since MU (3.0.0)
+		 * @since WP MU (3.0.0)
 		 *
 		 * @param string $actions   The HTML site link markup.
 		 * @param object $user_blog An object containing the site data.

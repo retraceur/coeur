@@ -4,7 +4,7 @@
  *
  * @package motsVertueux
  * @subpackage Administration
- * @since 4.9.6
+ * @since WP 4.9.6
  */
 
 if ( ! class_exists( 'WP_Privacy_Requests_Table' ) ) {
@@ -14,13 +14,13 @@ if ( ! class_exists( 'WP_Privacy_Requests_Table' ) ) {
 /**
  * WP_Privacy_Data_Export_Requests_Table class.
  *
- * @since 4.9.6
+ * @since WP 4.9.6
  */
 class WP_Privacy_Data_Export_Requests_List_Table extends WP_Privacy_Requests_Table {
 	/**
 	 * Action name for the requests this table will work with.
 	 *
-	 * @since 4.9.6
+	 * @since WP 4.9.6
 	 *
 	 * @var string $request_type Name of action.
 	 */
@@ -29,7 +29,7 @@ class WP_Privacy_Data_Export_Requests_List_Table extends WP_Privacy_Requests_Tab
 	/**
 	 * Post type for the requests.
 	 *
-	 * @since 4.9.6
+	 * @since WP 4.9.6
 	 *
 	 * @var string $post_type The post type.
 	 */
@@ -38,7 +38,7 @@ class WP_Privacy_Data_Export_Requests_List_Table extends WP_Privacy_Requests_Tab
 	/**
 	 * Actions column.
 	 *
-	 * @since 4.9.6
+	 * @since WP 4.9.6
 	 *
 	 * @param WP_User_Request $item Item being shown.
 	 * @return string Email column markup.
@@ -104,7 +104,7 @@ class WP_Privacy_Data_Export_Requests_List_Table extends WP_Privacy_Requests_Tab
 	/**
 	 * Displays the next steps column.
 	 *
-	 * @since 4.9.6
+	 * @since WP 4.9.6
 	 *
 	 * @param WP_User_Request $item Item being shown.
 	 */

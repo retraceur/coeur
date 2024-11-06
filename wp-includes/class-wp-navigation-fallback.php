@@ -6,14 +6,14 @@
  *
  * @package motsVertueux
  * @subpackage Navigation
- * @since 6.3.0
+ * @since WP 6.3.0
  */
 
 /**
  * Manages fallback behavior for Navigation menus.
  *
  * @access public
- * @since 6.3.0
+ * @since WP 6.3.0
  */
 class WP_Navigation_Fallback {
 
@@ -28,7 +28,7 @@ class WP_Navigation_Fallback {
 	 *
 	 * Used with the `rest_wp_navigation_item_schema` hook.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @param array $schema The schema for the `wp_navigation` post.
 	 * @return array The modified schema.
@@ -64,7 +64,7 @@ class WP_Navigation_Fallback {
 	/**
 	 * Gets (and/or creates) an appropriate fallback Navigation Menu.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @return WP_Post|null the fallback Navigation Post or null.
 	 */
@@ -72,7 +72,7 @@ class WP_Navigation_Fallback {
 		/**
 		 * Filters whether or not a fallback should be created.
 		 *
-		 * @since 6.3.0
+		 * @since WP 6.3.0
 		 *
 		 * @param bool $create Whether to create a fallback navigation menu. Default true.
 		 */
@@ -104,7 +104,7 @@ class WP_Navigation_Fallback {
 	/**
 	 * Finds the most recently published `wp_navigation` post type.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @return WP_Post|null the first non-empty Navigation or null.
 	 */
@@ -133,7 +133,7 @@ class WP_Navigation_Fallback {
 	/**
 	 * Creates a Navigation Menu post from a Classic Menu.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @return int|WP_Error The post ID of the default fallback menu or a WP_Error object.
 	 */
@@ -174,7 +174,7 @@ class WP_Navigation_Fallback {
 	/**
 	 * Determines the most appropriate classic navigation menu to use as a fallback.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @return WP_Term|null The most appropriate classic navigation menu to use as a fallback.
 	 */
@@ -204,7 +204,7 @@ class WP_Navigation_Fallback {
 	/**
 	 * Sorts the classic menus and returns the most recently created one.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param WP_Term[] $classic_nav_menus Array of classic nav menu term objects.
 	 * @return WP_Term The most recently created classic nav menu.
@@ -223,7 +223,7 @@ class WP_Navigation_Fallback {
 	/**
 	 * Returns the classic menu with the slug `primary` if it exists.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param WP_Term[] $classic_nav_menus Array of classic nav menu term objects.
 	 * @return WP_Term|null The classic nav menu with the slug `primary` or null.
@@ -243,7 +243,7 @@ class WP_Navigation_Fallback {
 	 * Gets the classic menu assigned to the `primary` navigation menu location
 	 * if it exists.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @return WP_Term|null The classic nav menu assigned to the `primary` location or null.
 	 */
@@ -264,7 +264,7 @@ class WP_Navigation_Fallback {
 	/**
 	 * Creates a default Navigation Block Menu fallback.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @return int|WP_Error The post ID of the default fallback menu or a WP_Error object.
 	 */
@@ -290,7 +290,7 @@ class WP_Navigation_Fallback {
 	/**
 	 * Gets the rendered markup for the default fallback blocks.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @return string default blocks markup to use a the fallback.
 	 */

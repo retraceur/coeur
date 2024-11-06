@@ -4,7 +4,7 @@
  *
  * This file is deprecated, use 'wp-includes/class-wp-dependencies.php' instead.
  *
- * @deprecated 6.1.0
+ * @deprecated WP 6.1.0
  * @package motsVertueux
  */
 

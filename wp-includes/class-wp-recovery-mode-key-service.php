@@ -3,13 +3,13 @@
  * Error Protection API: WP_Recovery_Mode_Key_Service class
  *
  * @package motsVertueux
- * @since 5.2.0
+ * @since WP 5.2.0
  */
 
 /**
  * Core class used to generate and validate keys used to enter Recovery Mode.
  *
- * @since 5.2.0
+ * @since WP 5.2.0
  */
 #[AllowDynamicProperties]
 final class WP_Recovery_Mode_Key_Service {
@@ -17,7 +17,7 @@ final class WP_Recovery_Mode_Key_Service {
 	/**
 	 * The option name used to store the keys.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 * @var string
 	 */
 	private $option_name = 'recovery_keys';
@@ -25,7 +25,7 @@ final class WP_Recovery_Mode_Key_Service {
 	/**
 	 * Creates a recovery mode token.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 *
 	 * @return string A random string to identify its associated key in storage.
 	 */
@@ -36,7 +36,7 @@ final class WP_Recovery_Mode_Key_Service {
 	/**
 	 * Creates a recovery mode key.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 *
 	 * @global PasswordHash $wp_hasher Portable PHP password hashing framework instance.
 	 *
@@ -68,7 +68,7 @@ final class WP_Recovery_Mode_Key_Service {
 		/**
 		 * Fires when a recovery mode key is generated.
 		 *
-		 * @since 5.2.0
+		 * @since WP 5.2.0
 		 *
 		 * @param string $token The recovery data token.
 		 * @param string $key   The recovery mode key.
@@ -83,7 +83,7 @@ final class WP_Recovery_Mode_Key_Service {
 	 *
 	 * Recovery mode keys can only be used once; the key will be consumed in the process.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 *
 	 * @global PasswordHash $wp_hasher Portable PHP password hashing framework instance.
 	 *
@@ -128,7 +128,7 @@ final class WP_Recovery_Mode_Key_Service {
 	/**
 	 * Removes expired recovery mode keys.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 *
 	 * @param int $ttl Time in seconds for the keys to be valid for.
 	 */
@@ -148,7 +148,7 @@ final class WP_Recovery_Mode_Key_Service {
 	/**
 	 * Removes a used recovery key.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 *
 	 * @param string $token The token used when generating a recovery mode key.
 	 */
@@ -168,7 +168,7 @@ final class WP_Recovery_Mode_Key_Service {
 	/**
 	 * Gets the recovery key records.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 *
 	 * @return array Associative array of $token => $data pairs, where $data has keys 'hashed_key'
 	 *               and 'created_at'.
@@ -180,7 +180,7 @@ final class WP_Recovery_Mode_Key_Service {
 	/**
 	 * Updates the recovery key records.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 *
 	 * @param array $keys Associative array of $token => $data pairs, where $data has keys 'hashed_key'
 	 *                    and 'created_at'.

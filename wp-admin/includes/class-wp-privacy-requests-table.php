@@ -4,7 +4,7 @@
  *
  * @package motsVertueux
  * @subpackage Administration
- * @since 4.9.6
+ * @since WP 4.9.6
  */
 
 abstract class WP_Privacy_Requests_Table extends WP_List_Table {
@@ -15,7 +15,7 @@ abstract class WP_Privacy_Requests_Table extends WP_List_Table {
 	 *
 	 * Example: 'export_personal_data'.
 	 *
-	 * @since 4.9.6
+	 * @since WP 4.9.6
 	 *
 	 * @var string $request_type Name of action.
 	 */
@@ -24,7 +24,7 @@ abstract class WP_Privacy_Requests_Table extends WP_List_Table {
 	/**
 	 * Post type to be used.
 	 *
-	 * @since 4.9.6
+	 * @since WP 4.9.6
 	 *
 	 * @var string $post_type The post type.
 	 */
@@ -33,7 +33,7 @@ abstract class WP_Privacy_Requests_Table extends WP_List_Table {
 	/**
 	 * Gets columns to show in the list table.
 	 *
-	 * @since 4.9.6
+	 * @since WP 4.9.6
 	 *
 	 * @return string[] Array of column titles keyed by their column name.
 	 */
@@ -51,7 +51,7 @@ abstract class WP_Privacy_Requests_Table extends WP_List_Table {
 	/**
 	 * Normalizes the admin URL to the current page (by request_type).
 	 *
-	 * @since 5.3.0
+	 * @since WP 5.3.0
 	 *
 	 * @return string URL to the current admin page.
 	 */
@@ -68,7 +68,7 @@ abstract class WP_Privacy_Requests_Table extends WP_List_Table {
 	/**
 	 * Gets a list of sortable columns.
 	 *
-	 * @since 4.9.6
+	 * @since WP 4.9.6
 	 *
 	 * @return array Default sortable columns.
 	 */
@@ -89,7 +89,7 @@ abstract class WP_Privacy_Requests_Table extends WP_List_Table {
 	/**
 	 * Returns the default primary column.
 	 *
-	 * @since 4.9.6
+	 * @since WP 4.9.6
 	 *
 	 * @return string Default primary column name.
 	 */
@@ -100,7 +100,7 @@ abstract class WP_Privacy_Requests_Table extends WP_List_Table {
 	/**
 	 * Counts the number of requests for each status.
 	 *
-	 * @since 4.9.6
+	 * @since WP 4.9.6
 	 *
 	 * @global wpdb $wpdb WordPress database abstraction object.
 	 *
@@ -139,7 +139,7 @@ abstract class WP_Privacy_Requests_Table extends WP_List_Table {
 	/**
 	 * Gets an associative array ( id => link ) with the list of views available on this table.
 	 *
-	 * @since 4.9.6
+	 * @since WP 4.9.6
 	 *
 	 * @return string[] An array of HTML links keyed by their view.
 	 */
@@ -202,7 +202,7 @@ abstract class WP_Privacy_Requests_Table extends WP_List_Table {
 	/**
 	 * Gets bulk actions.
 	 *
-	 * @since 4.9.6
+	 * @since WP 4.9.6
 	 *
 	 * @return array Array of bulk action labels keyed by their action.
 	 */
@@ -217,8 +217,8 @@ abstract class WP_Privacy_Requests_Table extends WP_List_Table {
 	/**
 	 * Process bulk actions.
 	 *
-	 * @since 4.9.6
-	 * @since 5.6.0 Added support for the `complete` action.
+	 * @since WP 4.9.6
+	 * @since WP 5.6.0 Added support for the `complete` action.
 	 */
 	public function process_bulk_action() {
 		$action      = $this->current_action();
@@ -356,8 +356,8 @@ abstract class WP_Privacy_Requests_Table extends WP_List_Table {
 	/**
 	 * Prepares items to output.
 	 *
-	 * @since 4.9.6
-	 * @since 5.1.0 Added support for column sorting.
+	 * @since WP 4.9.6
+	 * @since WP 5.1.0 Added support for column sorting.
 	 */
 	public function prepare_items() {
 		$this->items    = array();
@@ -409,7 +409,7 @@ abstract class WP_Privacy_Requests_Table extends WP_List_Table {
 	/**
 	 * Returns the markup for the Checkbox column.
 	 *
-	 * @since 4.9.6
+	 * @since WP 4.9.6
 	 *
 	 * @param WP_User_Request $item Item being shown.
 	 * @return string Checkbox column markup.
@@ -427,7 +427,7 @@ abstract class WP_Privacy_Requests_Table extends WP_List_Table {
 	/**
 	 * Status column.
 	 *
-	 * @since 4.9.6
+	 * @since WP 4.9.6
 	 *
 	 * @param WP_User_Request $item Item being shown.
 	 * @return string Status column markup.
@@ -464,7 +464,7 @@ abstract class WP_Privacy_Requests_Table extends WP_List_Table {
 	/**
 	 * Converts a timestamp for display.
 	 *
-	 * @since 4.9.6
+	 * @since WP 4.9.6
 	 *
 	 * @param int $timestamp Event timestamp.
 	 * @return string Human readable date.
@@ -487,8 +487,8 @@ abstract class WP_Privacy_Requests_Table extends WP_List_Table {
 	/**
 	 * Handles the default column.
 	 *
-	 * @since 4.9.6
-	 * @since 5.7.0 Added `manage_{$this->screen->id}_custom_column` action.
+	 * @since WP 4.9.6
+	 * @since WP 5.7.0 Added `manage_{$this->screen->id}_custom_column` action.
 	 *
 	 * @param WP_User_Request $item        Item being shown.
 	 * @param string          $column_name Name of column being shown.
@@ -500,7 +500,7 @@ abstract class WP_Privacy_Requests_Table extends WP_List_Table {
 		 * Custom columns are registered using the {@see 'manage_export-personal-data_columns'}
 		 * and the {@see 'manage_erase-personal-data_columns'} filters.
 		 *
-		 * @since 5.7.0
+		 * @since WP 5.7.0
 		 *
 		 * @param string          $column_name The name of the column to display.
 		 * @param WP_User_Request $item        The item being shown.
@@ -511,7 +511,7 @@ abstract class WP_Privacy_Requests_Table extends WP_List_Table {
 	/**
 	 * Returns the markup for the Created timestamp column. Overridden by children.
 	 *
-	 * @since 5.7.0
+	 * @since WP 5.7.0
 	 *
 	 * @param WP_User_Request $item Item being shown.
 	 * @return string Human readable date.
@@ -523,7 +523,7 @@ abstract class WP_Privacy_Requests_Table extends WP_List_Table {
 	/**
 	 * Actions column. Overridden by children.
 	 *
-	 * @since 4.9.6
+	 * @since WP 4.9.6
 	 *
 	 * @param WP_User_Request $item Item being shown.
 	 * @return string Email column markup.
@@ -535,7 +535,7 @@ abstract class WP_Privacy_Requests_Table extends WP_List_Table {
 	/**
 	 * Returns the markup for the next steps column. Overridden by children.
 	 *
-	 * @since 4.9.6
+	 * @since WP 4.9.6
 	 *
 	 * @param WP_User_Request $item Item being shown.
 	 */
@@ -544,7 +544,7 @@ abstract class WP_Privacy_Requests_Table extends WP_List_Table {
 	/**
 	 * Generates content for a single row of the table,
 	 *
-	 * @since 4.9.6
+	 * @since WP 4.9.6
 	 *
 	 * @param WP_User_Request $item The current item.
 	 */
@@ -559,7 +559,7 @@ abstract class WP_Privacy_Requests_Table extends WP_List_Table {
 	/**
 	 * Embeds scripts used to perform actions. Overridden by children.
 	 *
-	 * @since 4.9.6
+	 * @since WP 4.9.6
 	 */
 	public function embed_scripts() {}
 }

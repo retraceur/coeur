@@ -4,7 +4,8 @@
  *
  * @package motsVertueux
  * @subpackage Multisite
- * @since 3.1.0
+ * @since WP 3.1.0
+ * @since 1.0.0 motsVertueux fork.
  */
 
 /** Load WordPress Administration Bootstrap */
@@ -15,7 +16,6 @@ if ( ! current_user_can( 'manage_sites' ) ) {
 }
 
 get_current_screen()->add_help_tab( get_site_screen_help_tab_args() );
-get_current_screen()->set_help_sidebar( get_site_screen_help_sidebar_content() );
 
 get_current_screen()->set_screen_reader_content(
 	array(
@@ -129,7 +129,7 @@ if ( $action ) {
 				 *
 				 * The dynamic portion of the hook name, `$screen`, refers to the current screen ID.
 				 *
-				 * @since 4.7.0
+				 * @since WP 4.7.0
 				 *
 				 * @param string $redirect_url The redirect URL.
 				 * @param string $action       The action being taken.

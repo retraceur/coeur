@@ -4,13 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage Customize
- * @since 4.4.0
+ * @since WP 4.4.0
  */
 
 /**
  * Customize Media Control class.
  *
- * @since 4.2.0
+ * @since WP 4.2.0
  *
  * @see WP_Customize_Control
  */
@@ -18,7 +18,7 @@ class WP_Customize_Media_Control extends WP_Customize_Control {
 	/**
 	 * Control type.
 	 *
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 * @var string
 	 */
 	public $type = 'media';
@@ -26,7 +26,7 @@ class WP_Customize_Media_Control extends WP_Customize_Control {
 	/**
 	 * Media control mime type.
 	 *
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 * @var string
 	 */
 	public $mime_type = '';
@@ -34,7 +34,7 @@ class WP_Customize_Media_Control extends WP_Customize_Control {
 	/**
 	 * Button labels.
 	 *
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 * @var array
 	 */
 	public $button_labels = array();
@@ -42,8 +42,8 @@ class WP_Customize_Media_Control extends WP_Customize_Control {
 	/**
 	 * Constructor.
 	 *
-	 * @since 4.1.0
-	 * @since 4.2.0 Moved from WP_Customize_Upload_Control.
+	 * @since WP 4.1.0
+	 * @since WP 4.2.0 Moved from WP_Customize_Upload_Control.
 	 *
 	 * @see WP_Customize_Control::__construct()
 	 *
@@ -62,8 +62,8 @@ class WP_Customize_Media_Control extends WP_Customize_Control {
 	/**
 	 * Enqueue control related scripts/styles.
 	 *
-	 * @since 3.4.0
-	 * @since 4.2.0 Moved from WP_Customize_Upload_Control.
+	 * @since WP 3.4.0
+	 * @since WP 4.2.0 Moved from WP_Customize_Upload_Control.
 	 */
 	public function enqueue() {
 		wp_enqueue_media();
@@ -72,8 +72,8 @@ class WP_Customize_Media_Control extends WP_Customize_Control {
 	/**
 	 * Refresh the parameters passed to the JavaScript via JSON.
 	 *
-	 * @since 3.4.0
-	 * @since 4.2.0 Moved from WP_Customize_Upload_Control.
+	 * @since WP 3.4.0
+	 * @since WP 4.2.0 Moved from WP_Customize_Upload_Control.
 	 *
 	 * @see WP_Customize_Control::to_json()
 	 */
@@ -124,8 +124,8 @@ class WP_Customize_Media_Control extends WP_Customize_Control {
 	/**
 	 * Don't render any content for this control from PHP.
 	 *
-	 * @since 3.4.0
-	 * @since 4.2.0 Moved from WP_Customize_Upload_Control.
+	 * @since WP 3.4.0
+	 * @since WP 4.2.0 Moved from WP_Customize_Upload_Control.
 	 *
 	 * @see WP_Customize_Media_Control::content_template()
 	 */
@@ -134,8 +134,8 @@ class WP_Customize_Media_Control extends WP_Customize_Control {
 	/**
 	 * Render a JS template for the content of the media control.
 	 *
-	 * @since 4.1.0
-	 * @since 4.2.0 Moved from WP_Customize_Upload_Control.
+	 * @since WP 4.1.0
+	 * @since WP 4.2.0 Moved from WP_Customize_Upload_Control.
 	 */
 	public function content_template() {
 		?>
@@ -213,7 +213,7 @@ class WP_Customize_Media_Control extends WP_Customize_Control {
 	 *
 	 * Provides an array of the default button labels based on the mime type of the current control.
 	 *
-	 * @since 4.9.0
+	 * @since WP 4.9.0
 	 *
 	 * @return string[] An associative array of default button labels keyed by the button name.
 	 */

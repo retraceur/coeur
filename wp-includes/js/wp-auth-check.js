@@ -12,7 +12,7 @@
 	/**
 	 * Shows the authentication form popup.
 	 *
-	 * @since 3.6.0
+	 * @since WP 3.6.0
 	 * @private
 	 */
 	function show() {
@@ -90,7 +90,7 @@
 	/**
 	 * Hides the authentication form popup.
 	 *
-	 * @since 3.6.0
+	 * @since WP 3.6.0
 	 * @private
 	 */
 	function hide() {
@@ -116,7 +116,7 @@
 	 * Set or reset the tempHidden variable used to pause showing of the modal
 	 * after a user closes it without logging in.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 * @private
 	 */
 	function setShowTimeout() {
@@ -139,7 +139,7 @@
 	 *
 	 * @ignore
 	 *
-	 * @since 3.6.0
+	 * @since WP 3.6.0
 	 *
 	 * @param {Object} e The heartbeat-tick event that has been triggered.
 	 * @param {Object} data Response data.
@@ -151,7 +151,7 @@
 		 *
 		 * @ignore
 		 *
-		 * @since 3.6.0
+		 * @since WP 3.6.0
 		 */
 		wrap = $( '#wp-auth-check-wrap' );
 		wrap.find( '.wp-auth-check-close' ).on( 'click', function() {

@@ -4,7 +4,8 @@
  *
  * @package motsVertueux
  * @subpackage Theme
- * @since 6.1.0
+ * @since WP 6.1.0
+ * @since 1.0.0 motsVertueux fork.
  */
 
 /**
@@ -16,7 +17,7 @@ class WP_Theme_JSON_Data {
 	/**
 	 * Container of the data to update.
 	 *
-	 * @since 6.1.0
+	 * @since WP 6.1.0
 	 * @var WP_Theme_JSON
 	 */
 	private $theme_json = null;
@@ -24,7 +25,7 @@ class WP_Theme_JSON_Data {
 	/**
 	 * The origin of the data: default, theme, user, etc.
 	 *
-	 * @since 6.1.0
+	 * @since WP 6.1.0
 	 * @var string
 	 */
 	private $origin = '';
@@ -32,9 +33,7 @@ class WP_Theme_JSON_Data {
 	/**
 	 * Constructor.
 	 *
-	 * @since 6.1.0
-	 *
-	 * @link https://developer.wordpress.org/block-editor/reference-guides/theme-json-reference/
+	 * @since WP 6.1.0
 	 *
 	 * @param array  $data   Array following the theme.json specification.
 	 * @param string $origin The origin of the data: default, theme, user.
@@ -47,7 +46,7 @@ class WP_Theme_JSON_Data {
 	/**
 	 * Updates the theme.json with the the given data.
 	 *
-	 * @since 6.1.0
+	 * @since WP 6.1.0
 	 *
 	 * @param array $new_data Array following the theme.json specification.
 	 *
@@ -62,7 +61,7 @@ class WP_Theme_JSON_Data {
 	 * Returns an array containing the underlying data
 	 * following the theme.json specification.
 	 *
-	 * @since 6.1.0
+	 * @since WP 6.1.0
 	 *
 	 * @return array
 	 */
@@ -73,7 +72,7 @@ class WP_Theme_JSON_Data {
 	/**
 	 * Returns theme JSON object.
 	 *
-	 * @since 6.6.0
+	 * @since WP 6.6.0
 	 *
 	 * @return WP_Theme_JSON The theme JSON structure stored in this data object.
 	 */

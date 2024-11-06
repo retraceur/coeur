@@ -1,6 +1,8 @@
 <?php
 /**
  * Server-side rendering of the `core/post-navigation-link` block.
+ * 
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  */
@@ -8,7 +10,7 @@
 /**
  * Renders the `core/post-navigation-link` block on the server.
  *
- * @since 5.9.0
+ * @since WP 5.9.0
  *
  * @param array  $attributes Block attributes.
  * @param string $content    Block default content.
@@ -104,9 +106,6 @@ function render_block_core_post_navigation_link( $attributes, $content ) {
 	/*
 	 * The dynamic portion of the function name, `$navigation_type`,
 	 * Refers to the type of adjacency, 'next' or 'previous'.
-	 *
-	 * @see https://developer.wordpress.org/reference/functions/get_previous_post_link/
-	 * @see https://developer.wordpress.org/reference/functions/get_next_post_link/
 	 */
 	$get_link_function = "get_{$navigation_type}_post_link";
 
@@ -126,7 +125,7 @@ function render_block_core_post_navigation_link( $attributes, $content ) {
 /**
  * Registers the `core/post-navigation-link` block on the server.
  *
- * @since 5.9.0
+ * @since WP 5.9.0
  */
 function register_block_core_post_navigation_link() {
 	register_block_type_from_metadata(

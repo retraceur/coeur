@@ -1,19 +1,18 @@
 <?php
 /**
  * Block Pattern Directory REST API: WP_REST_Pattern_Directory_Controller class
+ * 
+ * @since WP 5.8.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage REST_API
- * @since 5.8.0
  */
 
 /**
  * Controller which provides REST endpoint for block patterns.
  *
- * This simply proxies the endpoint at http://api.wordpress.org/patterns/1.0/. That isn't necessary for
- * functionality, but is desired for privacy. It prevents api.wordpress.org from knowing the user's IP address.
- *
- * @since 5.8.0
+ * @since WP 5.8.0
  *
  * @see WP_REST_Controller
  */
@@ -22,7 +21,7 @@ class WP_REST_Pattern_Directory_Controller extends WP_REST_Controller {
 	/**
 	 * Constructs the controller.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 */
 	public function __construct() {
 		$this->namespace = 'wp/v2';
@@ -32,7 +31,7 @@ class WP_REST_Pattern_Directory_Controller extends WP_REST_Controller {
 	/**
 	 * Registers the necessary REST API routes.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 */
 	public function register_routes() {
 		register_rest_route(
@@ -53,7 +52,7 @@ class WP_REST_Pattern_Directory_Controller extends WP_REST_Controller {
 	/**
 	 * Checks whether a given request has permission to view the local block pattern directory.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has permission, WP_Error object otherwise.
@@ -79,9 +78,9 @@ class WP_REST_Pattern_Directory_Controller extends WP_REST_Controller {
 	/**
 	 * Search and retrieve block patterns metadata
 	 *
-	 * @since 5.8.0
-	 * @since 6.0.0 Added 'slug' to request.
-	 * @since 6.2.0 Added 'per_page', 'page', 'offset', 'order', and 'orderby' to request.
+	 * @since WP 5.8.0
+	 * @since WP 6.0.0 Added 'slug' to request.
+	 * @since WP 6.2.0 Added 'per_page', 'page', 'offset', 'order', and 'orderby' to request.
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
@@ -112,56 +111,7 @@ class WP_REST_Pattern_Directory_Controller extends WP_REST_Controller {
 		 * configuration that affects the response, and it's included in the transient key.
 		 */
 		$raw_patterns = get_site_transient( $transient_key );
-
-		if ( ! $raw_patterns ) {
-			$api_url = 'http://api.wordpress.org/patterns/1.0/?' . build_query( $query_args );
-			if ( wp_http_supports( array( 'ssl' ) ) ) {
-				$api_url = set_url_scheme( $api_url, 'https' );
-			}
-
-			/*
-			 * Default to a short TTL, to mitigate cache stampedes on high-traffic sites.
-			 * This assumes that most errors will be short-lived, e.g., packet loss that causes the
-			 * first request to fail, but a follow-up one will succeed. The value should be high
-			 * enough to avoid stampedes, but low enough to not interfere with users manually
-			 * re-trying a failed request.
-			 */
-			$cache_ttl      = 5;
-			$wporg_response = wp_remote_get( $api_url );
-			$raw_patterns   = json_decode( wp_remote_retrieve_body( $wporg_response ) );
-
-			if ( is_wp_error( $wporg_response ) ) {
-				$raw_patterns = $wporg_response;
-
-			} elseif ( ! is_array( $raw_patterns ) ) {
-				// HTTP request succeeded, but response data is invalid.
-				$raw_patterns = new WP_Error(
-					'pattern_api_failed',
-					sprintf(
-						/* translators: %s: Support forums URL. */
-						__( 'An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="%s">support forums</a>.' ),
-						__( 'https://wordpress.org/support/forums/' )
-					),
-					array(
-						'response' => wp_remote_retrieve_body( $wporg_response ),
-					)
-				);
-
-			} else {
-				// Response has valid data.
-				$cache_ttl = HOUR_IN_SECONDS;
-			}
-
-			set_site_transient( $transient_key, $raw_patterns, $cache_ttl );
-		}
-
-		if ( is_wp_error( $raw_patterns ) ) {
-			$raw_patterns->add_data( array( 'status' => 500 ) );
-
-			return $raw_patterns;
-		}
-
-		$response = array();
+		$response     = array();
 
 		if ( $raw_patterns ) {
 			foreach ( $raw_patterns as $pattern ) {
@@ -177,10 +127,10 @@ class WP_REST_Pattern_Directory_Controller extends WP_REST_Controller {
 	/**
 	 * Prepare a raw block pattern before it gets output in a REST API response.
 	 *
-	 * @since 5.8.0
-	 * @since 5.9.0 Renamed `$raw_pattern` to `$item` to match parent class for PHP 8 named parameter support.
+	 * @since WP 5.8.0
+	 * @since WP 5.9.0 Renamed `$raw_pattern` to `$item` to match parent class for PHP 8 named parameter support.
 	 *
-	 * @param object          $item    Raw pattern from api.wordpress.org, before any changes.
+	 * @param object          $item    Raw pattern before any changes.
 	 * @param WP_REST_Request $request Request object.
 	 * @return WP_REST_Response
 	 */
@@ -206,7 +156,7 @@ class WP_REST_Pattern_Directory_Controller extends WP_REST_Controller {
 		/**
 		 * Filters the REST API response for a block pattern.
 		 *
-		 * @since 5.8.0
+		 * @since WP 5.8.0
 		 *
 		 * @param WP_REST_Response $response    The response object.
 		 * @param object           $raw_pattern The unprepared block pattern.
@@ -218,8 +168,8 @@ class WP_REST_Pattern_Directory_Controller extends WP_REST_Controller {
 	/**
 	 * Retrieves the block pattern's schema, conforming to JSON Schema.
 	 *
-	 * @since 5.8.0
-	 * @since 6.2.0 Added `'block_types'` to schema.
+	 * @since WP 5.8.0
+	 * @since WP 6.2.0 Added `'block_types'` to schema.
 	 *
 	 * @return array Item schema data.
 	 */
@@ -299,8 +249,8 @@ class WP_REST_Pattern_Directory_Controller extends WP_REST_Controller {
 	/**
 	 * Retrieves the search parameters for the block pattern's collection.
 	 *
-	 * @since 5.8.0
-	 * @since 6.2.0 Added 'per_page', 'page', 'offset', 'order', and 'orderby' to request.
+	 * @since WP 5.8.0
+	 * @since WP 6.2.0 Added 'per_page', 'page', 'offset', 'order', and 'orderby' to request.
 	 *
 	 * @return array Collection parameters.
 	 */
@@ -362,7 +312,7 @@ class WP_REST_Pattern_Directory_Controller extends WP_REST_Controller {
 		/**
 		 * Filter collection parameters for the block pattern directory controller.
 		 *
-		 * @since 5.8.0
+		 * @since WP 5.8.0
 		 *
 		 * @param array $query_params JSON Schema-formatted collection parameters.
 		 */
@@ -378,7 +328,7 @@ class WP_REST_Pattern_Directory_Controller extends WP_REST_Controller {
 	 *
 	 * @link https://stackoverflow.com/questions/3665247/fastest-hash-for-non-cryptographic-uses
 	 *
-	 * @since 6.0.0
+	 * @since WP 6.0.0
 	 *
 	 * @param array $query_args Query arguments to generate a transient key from.
 	 * @return string Transient key.

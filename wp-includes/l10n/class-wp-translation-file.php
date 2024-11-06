@@ -4,19 +4,19 @@
  *
  * @package motsVertueux
  * @subpackage I18N
- * @since 6.5.0
+ * @since WP 6.5.0
  */
 
 /**
  * Class WP_Translation_File.
  *
- * @since 6.5.0
+ * @since WP 6.5.0
  */
 abstract class WP_Translation_File {
 	/**
 	 * List of headers.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 * @var array<string, string>
 	 */
 	protected $headers = array();
@@ -24,7 +24,7 @@ abstract class WP_Translation_File {
 	/**
 	 * Whether file has been parsed.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 * @var bool
 	 */
 	protected $parsed = false;
@@ -32,7 +32,7 @@ abstract class WP_Translation_File {
 	/**
 	 * Error information.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 * @var string|null Error message or null if no error.
 	 */
 	protected $error;
@@ -40,7 +40,7 @@ abstract class WP_Translation_File {
 	/**
 	 * File name.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 * @var string
 	 */
 	protected $file = '';
@@ -48,7 +48,7 @@ abstract class WP_Translation_File {
 	/**
 	 * Translation entries.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 * @var array<string, string>
 	 */
 	protected $entries = array();
@@ -56,7 +56,7 @@ abstract class WP_Translation_File {
 	/**
 	 * Plural forms function.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 * @var callable|null Plural forms.
 	 */
 	protected $plural_forms = null;
@@ -64,7 +64,7 @@ abstract class WP_Translation_File {
 	/**
 	 * Constructor.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $file File to load.
 	 */
@@ -75,7 +75,7 @@ abstract class WP_Translation_File {
 	/**
 	 * Creates a new WP_Translation_File instance for a given file.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string      $file     File name.
 	 * @param string|null $filetype Optional. File type. Default inferred from file name.
@@ -106,7 +106,7 @@ abstract class WP_Translation_File {
 	/**
 	 * Creates a new WP_Translation_File instance for a given file.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $file     Source file name.
 	 * @param string $filetype Desired target file type.
@@ -142,7 +142,7 @@ abstract class WP_Translation_File {
 	/**
 	 * Returns all headers.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @return array<string, string> Headers.
 	 */
@@ -156,7 +156,7 @@ abstract class WP_Translation_File {
 	/**
 	 * Returns all entries.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @return array<string, string[]> Entries.
 	 */
@@ -171,7 +171,7 @@ abstract class WP_Translation_File {
 	/**
 	 * Returns the current error information.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @return string|null Error message or null if no error.
 	 */
@@ -182,7 +182,7 @@ abstract class WP_Translation_File {
 	/**
 	 * Returns the file name.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @return string File name.
 	 */
@@ -193,7 +193,7 @@ abstract class WP_Translation_File {
 	/**
 	 * Translates a given string.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $text String to translate.
 	 * @return false|string Translation(s) on success, false otherwise.
@@ -209,7 +209,7 @@ abstract class WP_Translation_File {
 	/**
 	 * Returns the plural form for a given number.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param int $number Count.
 	 * @return int Plural form.
@@ -242,7 +242,7 @@ abstract class WP_Translation_File {
 	/**
 	 * Returns the plural forms expression as a tuple.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $header Plural-Forms header string.
 	 * @return string Plural forms expression.
@@ -259,7 +259,7 @@ abstract class WP_Translation_File {
 	 * Makes a function, which will return the right translation index, according to the
 	 * plural forms header.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $expression Plural form expression.
 	 * @return callable(int $num): int Plural forms function.
@@ -277,7 +277,7 @@ abstract class WP_Translation_File {
 	/**
 	 * Imports translations from another file.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param WP_Translation_File $source Source file.
 	 * @return bool True on success, false otherwise.
@@ -297,14 +297,14 @@ abstract class WP_Translation_File {
 	/**
 	 * Parses the file.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 */
 	abstract protected function parse_file();
 
 	/**
 	 * Exports translation contents as a string.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @return string Translation file contents.
 	 */

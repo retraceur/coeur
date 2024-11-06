@@ -9,7 +9,7 @@
 	/**
 	 * Replaces emoji with images when browsers don't support emoji.
 	 *
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 * @access private
 	 *
 	 * @class
@@ -34,7 +34,7 @@
 		/**
 		 * Detect if the browser supports SVG.
 		 *
-		 * @since 4.6.0
+		 * @since WP 4.6.0
 		 * @private
 		 *
 		 * @see Modernizr
@@ -59,7 +59,7 @@
 		 * Listens to all the DOM mutations and checks for added nodes that contain
 		 * emoji characters and replaces those with twitter emoji images.
 		 *
-		 * @since 4.2.0
+		 * @since WP 4.2.0
 		 * @private
 		 */
 		function load() {
@@ -162,7 +162,7 @@
 		/**
 		 * Tests if a text string contains emoji characters.
 		 *
-		 * @since 4.3.0
+		 * @since WP 4.3.0
 		 *
 		 * @memberOf wp.emoji
 		 *
@@ -190,7 +190,7 @@
 		 * - When passed a string the emoji characters are replaced and the result is
 		 *   returned.
 		 *
-		 * @since 4.2.0
+		 * @since WP 4.2.0
 		 *
 		 * @memberOf wp.emoji
 		 *

@@ -4,7 +4,7 @@
  *
  * @package motsVertueux
  * @subpackage Nav_Menus
- * @since 3.0.0
+ * @since WP 3.0.0
  */
 
 /** Walker_Nav_Menu_Edit class */
@@ -16,7 +16,7 @@ require_once ABSPATH . 'wp-admin/includes/class-walker-nav-menu-checklist.php';
 /**
  * Prints the appropriate response to a menu quick search.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @param array $request The unsanitized request values.
  */
@@ -164,7 +164,7 @@ function _wp_ajax_menu_quick_search( $request = array() ) {
 /**
  * Register nav menu meta boxes and advanced menu items.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  */
 function wp_nav_menu_setup() {
 	// Register meta boxes.
@@ -202,7 +202,7 @@ function wp_nav_menu_setup() {
 /**
  * Limit the amount of meta boxes to pages, posts, links, and categories for first time users.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @global array $wp_meta_boxes Global meta box state.
  */
@@ -235,7 +235,7 @@ function wp_initial_nav_menu_meta_boxes() {
 /**
  * Creates meta boxes for any post type menu item..
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  */
 function wp_nav_menu_post_type_meta_boxes() {
 	$post_types = get_post_types( array( 'show_in_nav_menus' => true ), 'object' );
@@ -252,7 +252,7 @@ function wp_nav_menu_post_type_meta_boxes() {
 		 * If a falsey value is returned instead of an object, the menu items
 		 * meta box for the current meta box object will not be added.
 		 *
-		 * @since 3.0.0
+		 * @since WP 3.0.0
 		 *
 		 * @param WP_Post_Type|false $post_type The current object to add a menu items
 		 *                                      meta box for.
@@ -279,7 +279,7 @@ function wp_nav_menu_post_type_meta_boxes() {
 /**
  * Creates meta boxes for any taxonomy menu item.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  */
 function wp_nav_menu_taxonomy_meta_boxes() {
 	$taxonomies = get_taxonomies( array( 'show_in_nav_menus' => true ), 'object' );
@@ -310,8 +310,8 @@ function wp_nav_menu_taxonomy_meta_boxes() {
 /**
  * Check whether to disable the Menu Locations meta box submit button and inputs.
  *
- * @since 3.6.0
- * @since 5.3.1 The `$display` parameter was added.
+ * @since WP 3.6.0
+ * @since WP 5.3.1 The `$display` parameter was added.
  *
  * @global bool $one_theme_location_no_menus to determine if no menus exist
  *
@@ -332,7 +332,7 @@ function wp_nav_menu_disabled_check( $nav_menu_selected_id, $display = true ) {
 /**
  * Displays a meta box for the custom links menu item.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @global int        $_nav_menu_placeholder
  * @global int|string $nav_menu_selected_id
@@ -378,7 +378,7 @@ function wp_nav_menu_item_link_meta_box() {
 /**
  * Displays a meta box for a post type menu item.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @global int        $_nav_menu_placeholder
  * @global int|string $nav_menu_selected_id
@@ -632,8 +632,8 @@ function wp_nav_menu_item_post_type_meta_box( $data_object, $box ) {
 				 *  - `nav_menu_items_post_recent`
 				 *  - `nav_menu_items_page_recent`
 				 *
-				 * @since 4.3.0
-				 * @since 4.9.0 Added the `$recent_args` parameter.
+				 * @since WP 4.3.0
+				 * @since WP 4.9.0 Added the `$recent_args` parameter.
 				 *
 				 * @param WP_Post[] $most_recent An array of post objects being listed.
 				 * @param array     $args        An array of `WP_Query` arguments for the meta box.
@@ -769,8 +769,8 @@ function wp_nav_menu_item_post_type_meta_box( $data_object, $box ) {
 				 *  - `nav_menu_items_post`
 				 *  - `nav_menu_items_page`
 				 *
-				 * @since 3.2.0
-				 * @since 4.6.0 Converted the `$post_type` parameter to accept a WP_Post_Type object.
+				 * @since WP 3.2.0
+				 * @since WP 4.6.0 Converted the `$post_type` parameter to accept a WP_Post_Type object.
 				 *
 				 * @see WP_Query::query()
 				 *
@@ -827,7 +827,7 @@ function wp_nav_menu_item_post_type_meta_box( $data_object, $box ) {
 /**
  * Displays a meta box for a taxonomy menu item.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @global int|string $nav_menu_selected_id
  *
@@ -1122,7 +1122,7 @@ function wp_nav_menu_item_taxonomy_meta_box( $data_object, $box ) {
 /**
  * Save posted nav menu item data.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @param int     $menu_id   The menu ID for which to save this item. Value of 0 makes a draft, orphaned menu item. Default 0.
  * @param array[] $menu_data The unsanitized POSTed menu item data.
@@ -1192,7 +1192,7 @@ function wp_save_nav_menu_items( $menu_id = 0, $menu_data = array() ) {
 /**
  * Adds custom arguments to some of the meta box object types.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @access private
  *
@@ -1235,7 +1235,7 @@ function _wp_nav_menu_meta_box_object( $data_object = null ) {
 /**
  * Returns the menu formatted to edit.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @param int $menu_id Optional. The ID of the menu to format. Default 0.
  * @return string|WP_Error The menu formatted to edit or error object on failure.
@@ -1258,7 +1258,7 @@ function wp_get_nav_menu_to_edit( $menu_id = 0 ) {
 		/**
 		 * Filters the Walker class used when adding nav menu items.
 		 *
-		 * @since 3.0.0
+		 * @since WP 3.0.0
 		 *
 		 * @param string $class   The walker class to use. Default 'Walker_Nav_Menu_Edit'.
 		 * @param int    $menu_id ID of the menu being rendered.
@@ -1325,7 +1325,7 @@ function wp_get_nav_menu_to_edit( $menu_id = 0 ) {
 /**
  * Returns the columns for the nav menus page.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @return string[] Array of column titles keyed by their column name.
  */
@@ -1345,7 +1345,7 @@ function wp_nav_menu_manage_columns() {
  * Deletes orphaned draft menu items
  *
  * @access private
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  */
@@ -1373,7 +1373,7 @@ function _wp_delete_orphaned_draft_menu_items() {
 /**
  * Saves nav menu items.
  *
- * @since 3.6.0
+ * @since WP 3.6.0
  *
  * @param int|string $nav_menu_selected_id    ID, slug, or name of the currently-selected menu.
  * @param string     $nav_menu_selected_title Title of the currently-selected menu.
@@ -1511,7 +1511,7 @@ function wp_nav_menu_update_menu_items( $nav_menu_selected_id, $nav_menu_selecte
  * it into `$_POST` to avoid PHP `max_input_vars` limitations. See #14134.
  *
  * @ignore
- * @since 4.5.3
+ * @since WP 4.5.3
  * @access private
  */
 function _wp_expand_nav_menu_post_data() {

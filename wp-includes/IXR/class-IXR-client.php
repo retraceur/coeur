@@ -4,7 +4,7 @@
  * IXR_Client
  *
  * @package IXR
- * @since 1.5.0
+ * @since WP 1.5.0
  *
  */
 class IXR_Client
@@ -59,8 +59,8 @@ class IXR_Client
 	}
 
 	/**
-	 * @since 1.5.0
-	 * @since 5.5.0 Formalized the existing `...$args` parameter by adding it
+	 * @since WP 1.5.0
+	 * @since WP 5.5.0 Formalized the existing `...$args` parameter by adding it
 	 *              to the function signature.
 	 *
 	 * @return bool

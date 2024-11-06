@@ -8,7 +8,7 @@
  *
  * @package motsVertueux
  * @subpackage Filesystem
- * @since 2.3.0
+ * @since WP 2.3.0
  */
 
 /** The descriptions for theme files. */
@@ -68,7 +68,7 @@ $wp_file_descriptions = array(
 /**
  * Gets the description for standard WordPress theme files.
  *
- * @since 1.5.0
+ * @since WP 1.5.0
  *
  * @global array $wp_file_descriptions Theme file descriptions.
  * @global array $allowed_files        List of allowed files.
@@ -100,7 +100,7 @@ function get_file_description( $file ) {
 /**
  * Gets the absolute filesystem path to the root of the WordPress installation.
  *
- * @since 1.5.0
+ * @since WP 1.5.0
  *
  * @return string Full filesystem path to the root of the WordPress installation.
  */
@@ -125,9 +125,9 @@ function get_home_path() {
  *
  * The depth of the recursiveness can be controlled by the $levels param.
  *
- * @since 2.6.0
- * @since 4.9.0 Added the `$exclusions` parameter.
- * @since 6.3.0 Added the `$include_hidden` parameter.
+ * @since WP 2.6.0
+ * @since WP 4.9.0 Added the `$exclusions` parameter.
+ * @since WP 6.3.0 Added the `$include_hidden` parameter.
  *
  * @param string   $folder         Optional. Full path to folder. Default empty.
  * @param int      $levels         Optional. Levels of folders to follow, Default 100 (PHP Loop limit).
@@ -184,7 +184,7 @@ function list_files( $folder = '', $levels = 100, $exclusions = array(), $includ
 /**
  * Gets the list of file extensions that are editable in plugins.
  *
- * @since 4.9.0
+ * @since WP 4.9.0
  *
  * @param string $plugin Path to the plugin file relative to the plugins directory.
  * @return string[] Array of editable file extensions.
@@ -229,8 +229,8 @@ function wp_get_plugin_file_editable_extensions( $plugin ) {
 	/**
 	 * Filters the list of file types allowed for editing in the plugin file editor.
 	 *
-	 * @since 2.8.0
-	 * @since 4.9.0 Added the `$plugin` parameter.
+	 * @since WP 2.8.0
+	 * @since WP 4.9.0 Added the `$plugin` parameter.
 	 *
 	 * @param string[] $default_types An array of editable plugin file extensions.
 	 * @param string   $plugin        Path to the plugin file relative to the plugins directory.
@@ -243,7 +243,7 @@ function wp_get_plugin_file_editable_extensions( $plugin ) {
 /**
  * Gets the list of file extensions that are editable for a given theme.
  *
- * @since 4.9.0
+ * @since WP 4.9.0
  *
  * @param WP_Theme $theme Theme object.
  * @return string[] Array of editable file extensions.
@@ -288,7 +288,7 @@ function wp_get_theme_file_editable_extensions( $theme ) {
 	/**
 	 * Filters the list of file types allowed for editing in the theme file editor.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 *
 	 * @param string[] $default_types An array of editable theme file extensions.
 	 * @param WP_Theme $theme         The active theme object.
@@ -302,7 +302,7 @@ function wp_get_theme_file_editable_extensions( $theme ) {
 /**
  * Prints file editor templates (for plugins and themes).
  *
- * @since 4.9.0
+ * @since WP 4.9.0
  */
 function wp_print_file_editor_templates() {
 	?>
@@ -322,13 +322,7 @@ function wp_print_file_editor_templates() {
 				<pre>{{ data.message }}</pre>
 			<# } else if ( 'file_not_writable' === data.code ) { #>
 				<p>
-					<?php
-					printf(
-						/* translators: %s: Documentation URL. */
-						__( 'You need to make this file writable before you can save your changes. See <a href="%s">Changing File Permissions</a> for more information.' ),
-						__( 'https://developer.wordpress.org/advanced-administration/server/file-permissions/' )
-					);
-					?>
+					<?php esc_html_e( 'You need to make this file writable before you can save your changes.' ); ?>
 				</p>
 			<# } else { #>
 				<p>{{ data.message || data.code }}</p>
@@ -361,7 +355,7 @@ function wp_print_file_editor_templates() {
  * to attempt to see if there is a fatal error introduced. If so, the PHP change will be
  * reverted.
  *
- * @since 4.9.0
+ * @since WP 4.9.0
  *
  * @param string[] $args {
  *     Args. Note that all of the arg values are already unslashed. They are, however,
@@ -662,7 +656,7 @@ function wp_edit_theme_plugin_file( $args ) {
  * while the directory can either be passed as well, or by leaving it blank, default to a writable
  * temporary directory.
  *
- * @since 2.6.0
+ * @since WP 2.6.0
  *
  * @param string $filename Optional. Filename to base the Unique file off. Default empty.
  * @param string $dir      Optional. Directory to store the file in. Default empty.
@@ -727,7 +721,7 @@ function wp_tempnam( $filename = '', $dir = '' ) {
  *
  * Function will die if you are not allowed to edit the file.
  *
- * @since 1.5.0
+ * @since WP 1.5.0
  *
  * @param string   $file          File the user is attempting to edit.
  * @param string[] $allowed_files Optional. Array of allowed files to edit.
@@ -760,7 +754,7 @@ function validate_file_to_edit( $file, $allowed_files = array() ) {
  * to the appropriate directory within the uploads directory.
  *
  * @access private
- * @since 4.0.0
+ * @since WP 4.0.0
  *
  * @see wp_handle_upload_error
  *
@@ -817,8 +811,8 @@ function _wp_handle_upload( &$file, $overrides, $time, $action ) {
 	 *  - `wp_handle_sideload_prefilter`
 	 *  - `wp_handle_upload_prefilter`
 	 *
-	 * @since 2.9.0 as 'wp_handle_upload_prefilter'.
-	 * @since 4.0.0 Converted to a dynamic hook with `$action`.
+	 * @since WP 2.9.0 as 'wp_handle_upload_prefilter'.
+	 * @since WP 4.0.0 Converted to a dynamic hook with `$action`.
 	 *
 	 * @param array $file {
 	 *     Reference to a single element from `$_FILES`.
@@ -842,7 +836,7 @@ function _wp_handle_upload( &$file, $overrides, $time, $action ) {
 	 *  - `wp_handle_sideload_overrides`
 	 *  - `wp_handle_upload_overrides`
 	 *
-	 * @since 5.7.0
+	 * @since WP 5.7.0
 	 *
 	 * @param array|false $overrides An array of override parameters for this file. Boolean false if none are
 	 *                               provided. See {@see _wp_handle_upload()}.
@@ -992,7 +986,7 @@ function _wp_handle_upload( &$file, $overrides, $time, $action ) {
 	 * If a non-null value is returned from the filter, moving the file and any related
 	 * error reporting will be completely skipped.
 	 *
-	 * @since 4.9.0
+	 * @since WP 4.9.0
 	 *
 	 * @param mixed    $move_new_file If null (default) move the file after the upload.
 	 * @param array    $file          {
@@ -1052,7 +1046,7 @@ function _wp_handle_upload( &$file, $overrides, $time, $action ) {
 	/**
 	 * Filters the data array for the uploaded file.
 	 *
-	 * @since 2.1.0
+	 * @since WP 2.1.0
 	 *
 	 * @param array  $upload {
 	 *     Array of upload data.
@@ -1079,7 +1073,7 @@ function _wp_handle_upload( &$file, $overrides, $time, $action ) {
  *
  * Passes the {@see 'wp_handle_upload'} action.
  *
- * @since 2.0.0
+ * @since WP 2.0.0
  *
  * @see _wp_handle_upload()
  *
@@ -1110,7 +1104,7 @@ function wp_handle_upload( &$file, $overrides = false, $time = null ) {
  *
  * Passes the {@see 'wp_handle_sideload'} action.
  *
- * @since 2.6.0
+ * @since WP 2.6.0
  *
  * @see _wp_handle_upload()
  *
@@ -1141,18 +1135,16 @@ function wp_handle_sideload( &$file, $overrides = false, $time = null ) {
  *
  * Please note that the calling function must delete or move the file.
  *
- * @since 2.5.0
- * @since 5.2.0 Signature Verification with SoftFail was added.
- * @since 5.9.0 Support for Content-Disposition filename was added.
+ * @since WP 2.5.0
+ * @since WP 5.2.0 Signature Verification with SoftFail was added.
+ * @since WP 5.9.0 Support for Content-Disposition filename was added.
  *
- * @param string $url                    The URL of the file to download.
- * @param int    $timeout                The timeout for the request to download the file.
- *                                       Default 300 seconds.
- * @param bool   $signature_verification Whether to perform Signature Verification.
- *                                       Default false.
+ * @param string $url     The URL of the file to download.
+ * @param int    $timeout The timeout for the request to download the file.
+ *                        Default 300 seconds.
  * @return string|WP_Error Filename on success, WP_Error on failure.
  */
-function download_url( $url, $timeout = 300, $signature_verification = false ) {
+function download_url( $url, $timeout = 300 ) {
 	// WARNING: The file is not automatically deleted, the script must delete or move the file.
 	if ( ! $url ) {
 		return new WP_Error( 'http_no_url', __( 'No URL Provided.' ) );
@@ -1197,7 +1189,7 @@ function download_url( $url, $timeout = 300, $signature_verification = false ) {
 			/**
 			 * Filters the maximum error response body size in `download_url()`.
 			 *
-			 * @since 5.1.0
+			 * @since WP 5.1.0
 			 *
 			 * @see download_url()
 			 *
@@ -1252,94 +1244,13 @@ function download_url( $url, $timeout = 300, $signature_verification = false ) {
 		}
 	}
 
-	// If the caller expects signature verification to occur, check to see if this URL supports it.
-	if ( $signature_verification ) {
-		/**
-		 * Filters the list of hosts which should have Signature Verification attempted on.
-		 *
-		 * @since 5.2.0
-		 *
-		 * @param string[] $hostnames List of hostnames.
-		 */
-		$signed_hostnames = apply_filters( 'wp_signature_hosts', array( 'wordpress.org', 'downloads.wordpress.org', 's.w.org' ) );
-
-		$signature_verification = in_array( parse_url( $url, PHP_URL_HOST ), $signed_hostnames, true );
-	}
-
-	// Perform signature validation if supported.
-	if ( $signature_verification ) {
-		$signature = wp_remote_retrieve_header( $response, 'X-Content-Signature' );
-
-		if ( ! $signature ) {
-			/*
-			 * Retrieve signatures from a file if the header wasn't included.
-			 * WordPress.org stores signatures at $package_url.sig.
-			 */
-
-			$signature_url = false;
-
-			if ( is_string( $url_path ) && ( str_ends_with( $url_path, '.zip' ) || str_ends_with( $url_path, '.tar.gz' ) ) ) {
-				$signature_url = str_replace( $url_path, $url_path . '.sig', $url );
-			}
-
-			/**
-			 * Filters the URL where the signature for a file is located.
-			 *
-			 * @since 5.2.0
-			 *
-			 * @param false|string $signature_url The URL where signatures can be found for a file, or false if none are known.
-			 * @param string $url                 The URL being verified.
-			 */
-			$signature_url = apply_filters( 'wp_signature_url', $signature_url, $url );
-
-			if ( $signature_url ) {
-				$signature_request = wp_safe_remote_get(
-					$signature_url,
-					array(
-						'limit_response_size' => 10 * KB_IN_BYTES, // 10KB should be large enough for quite a few signatures.
-					)
-				);
-
-				if ( ! is_wp_error( $signature_request ) && 200 === wp_remote_retrieve_response_code( $signature_request ) ) {
-					$signature = explode( "\n", wp_remote_retrieve_body( $signature_request ) );
-				}
-			}
-		}
-
-		// Perform the checks.
-		$signature_verification = verify_file_signature( $tmpfname, $signature, $url_filename );
-	}
-
-	if ( is_wp_error( $signature_verification ) ) {
-		if (
-			/**
-			 * Filters whether Signature Verification failures should be allowed to soft fail.
-			 *
-			 * WARNING: This may be removed from a future release.
-			 *
-			 * @since 5.2.0
-			 *
-			 * @param bool   $signature_softfail If a softfail is allowed.
-			 * @param string $url                The url being accessed.
-			 */
-			apply_filters( 'wp_signature_softfail', true, $url )
-		) {
-			$signature_verification->add_data( $tmpfname, 'softfail-filename' );
-		} else {
-			// Hard-fail.
-			unlink( $tmpfname );
-		}
-
-		return $signature_verification;
-	}
-
 	return $tmpfname;
 }
 
 /**
  * Calculates and compares the MD5 of a file to its expected value.
  *
- * @since 3.7.0
+ * @since WP 3.7.0
  *
  * @param string $filename     The filename to check the MD5 of.
  * @param string $expected_md5 The expected MD5 of the file, either a base64-encoded raw md5,
@@ -1374,178 +1285,12 @@ function verify_file_md5( $filename, $expected_md5 ) {
 }
 
 /**
- * Verifies the contents of a file against its ED25519 signature.
- *
- * @since 5.2.0
- *
- * @param string       $filename            The file to validate.
- * @param string|array $signatures          A Signature provided for the file.
- * @param string|false $filename_for_errors Optional. A friendly filename for errors.
- * @return bool|WP_Error True on success, false if verification not attempted,
- *                       or WP_Error describing an error condition.
- */
-function verify_file_signature( $filename, $signatures, $filename_for_errors = false ) {
-	if ( ! $filename_for_errors ) {
-		$filename_for_errors = wp_basename( $filename );
-	}
-
-	// Check we can process signatures.
-	if ( ! function_exists( 'sodium_crypto_sign_verify_detached' ) || ! in_array( 'sha384', array_map( 'strtolower', hash_algos() ), true ) ) {
-		return new WP_Error(
-			'signature_verification_unsupported',
-			sprintf(
-				/* translators: %s: The filename of the package. */
-				__( 'The authenticity of %s could not be verified as signature verification is unavailable on this system.' ),
-				'<span class="code">' . esc_html( $filename_for_errors ) . '</span>'
-			),
-			( ! function_exists( 'sodium_crypto_sign_verify_detached' ) ? 'sodium_crypto_sign_verify_detached' : 'sha384' )
-		);
-	}
-
-	// Verify runtime speed of Sodium_Compat is acceptable.
-	if ( ! extension_loaded( 'sodium' ) && ! ParagonIE_Sodium_Compat::polyfill_is_fast() ) {
-		$sodium_compat_is_fast = false;
-
-		// Allow for an old version of Sodium_Compat being loaded before the bundled WordPress one.
-		if ( method_exists( 'ParagonIE_Sodium_Compat', 'runtime_speed_test' ) ) {
-			/*
-			 * Run `ParagonIE_Sodium_Compat::runtime_speed_test()` in optimized integer mode,
-			 * as that's what WordPress utilizes during signing verifications.
-			 */
-			// phpcs:disable WordPress.NamingConventions.ValidVariableName
-			$old_fastMult                      = ParagonIE_Sodium_Compat::$fastMult;
-			ParagonIE_Sodium_Compat::$fastMult = true;
-			$sodium_compat_is_fast             = ParagonIE_Sodium_Compat::runtime_speed_test( 100, 10 );
-			ParagonIE_Sodium_Compat::$fastMult = $old_fastMult;
-			// phpcs:enable
-		}
-
-		/*
-		 * This cannot be performed in a reasonable amount of time.
-		 * https://github.com/paragonie/sodium_compat#help-sodium_compat-is-slow-how-can-i-make-it-fast
-		 */
-		if ( ! $sodium_compat_is_fast ) {
-			return new WP_Error(
-				'signature_verification_unsupported',
-				sprintf(
-					/* translators: %s: The filename of the package. */
-					__( 'The authenticity of %s could not be verified as signature verification is unavailable on this system.' ),
-					'<span class="code">' . esc_html( $filename_for_errors ) . '</span>'
-				),
-				array(
-					'php'                => PHP_VERSION,
-					'sodium'             => defined( 'SODIUM_LIBRARY_VERSION' ) ? SODIUM_LIBRARY_VERSION : ( defined( 'ParagonIE_Sodium_Compat::VERSION_STRING' ) ? ParagonIE_Sodium_Compat::VERSION_STRING : false ),
-					'polyfill_is_fast'   => false,
-					'max_execution_time' => ini_get( 'max_execution_time' ),
-				)
-			);
-		}
-	}
-
-	if ( ! $signatures ) {
-		return new WP_Error(
-			'signature_verification_no_signature',
-			sprintf(
-				/* translators: %s: The filename of the package. */
-				__( 'The authenticity of %s could not be verified as no signature was found.' ),
-				'<span class="code">' . esc_html( $filename_for_errors ) . '</span>'
-			),
-			array(
-				'filename' => $filename_for_errors,
-			)
-		);
-	}
-
-	$trusted_keys = wp_trusted_keys();
-	$file_hash    = hash_file( 'sha384', $filename, true );
-
-	mbstring_binary_safe_encoding();
-
-	$skipped_key       = 0;
-	$skipped_signature = 0;
-
-	foreach ( (array) $signatures as $signature ) {
-		$signature_raw = base64_decode( $signature );
-
-		// Ensure only valid-length signatures are considered.
-		if ( SODIUM_CRYPTO_SIGN_BYTES !== strlen( $signature_raw ) ) {
-			++$skipped_signature;
-			continue;
-		}
-
-		foreach ( (array) $trusted_keys as $key ) {
-			$key_raw = base64_decode( $key );
-
-			// Only pass valid public keys through.
-			if ( SODIUM_CRYPTO_SIGN_PUBLICKEYBYTES !== strlen( $key_raw ) ) {
-				++$skipped_key;
-				continue;
-			}
-
-			if ( sodium_crypto_sign_verify_detached( $signature_raw, $file_hash, $key_raw ) ) {
-				reset_mbstring_encoding();
-				return true;
-			}
-		}
-	}
-
-	reset_mbstring_encoding();
-
-	return new WP_Error(
-		'signature_verification_failed',
-		sprintf(
-			/* translators: %s: The filename of the package. */
-			__( 'The authenticity of %s could not be verified.' ),
-			'<span class="code">' . esc_html( $filename_for_errors ) . '</span>'
-		),
-		// Error data helpful for debugging:
-		array(
-			'filename'    => $filename_for_errors,
-			'keys'        => $trusted_keys,
-			'signatures'  => $signatures,
-			'hash'        => bin2hex( $file_hash ),
-			'skipped_key' => $skipped_key,
-			'skipped_sig' => $skipped_signature,
-			'php'         => PHP_VERSION,
-			'sodium'      => defined( 'SODIUM_LIBRARY_VERSION' ) ? SODIUM_LIBRARY_VERSION : ( defined( 'ParagonIE_Sodium_Compat::VERSION_STRING' ) ? ParagonIE_Sodium_Compat::VERSION_STRING : false ),
-		)
-	);
-}
-
-/**
- * Retrieves the list of signing keys trusted by WordPress.
- *
- * @since 5.2.0
- *
- * @return string[] Array of base64-encoded signing keys.
- */
-function wp_trusted_keys() {
-	$trusted_keys = array();
-
-	if ( time() < 1617235200 ) {
-		// WordPress.org Key #1 - This key is only valid before April 1st, 2021.
-		$trusted_keys[] = 'fRPyrxb/MvVLbdsYi+OOEv4xc+Eqpsj+kkAS6gNOkI0=';
-	}
-
-	// TODO: Add key #2 with longer expiration.
-
-	/**
-	 * Filters the valid signing keys used to verify the contents of files.
-	 *
-	 * @since 5.2.0
-	 *
-	 * @param string[] $trusted_keys The trusted keys that may sign packages.
-	 */
-	return apply_filters( 'wp_trusted_keys', $trusted_keys );
-}
-
-/**
  * Determines whether the given file is a valid ZIP file.
  *
  * This function does not test to ensure that a file exists. Non-existent files
  * are not valid ZIPs, so those will also return false.
  *
- * @since 6.4.4
+ * @since WP 6.4.4
  *
  * @param string $file Full path to the ZIP file.
  * @return bool Whether the file is a valid ZIP file.
@@ -1580,7 +1325,7 @@ function wp_zip_file_is_valid( $file ) {
  * Attempts to increase the PHP memory limit to 256M before uncompressing. However,
  * the most memory required shouldn't be much larger than the archive itself.
  *
- * @since 2.5.0
+ * @since WP 2.5.0
  *
  * @global WP_Filesystem_Base $wp_filesystem WordPress filesystem subclass.
  *
@@ -1625,7 +1370,7 @@ function unzip_file( $file, $to ) {
 	/**
 	 * Filters whether to use ZipArchive to unzip archives.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 *
 	 * @param bool $ziparchive Whether to use ZipArchive. Default true.
 	 */
@@ -1650,7 +1395,7 @@ function unzip_file( $file, $to ) {
  *
  * Assumes that WP_Filesystem() has already been called and set up.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  * @access private
  *
  * @see unzip_file()
@@ -1763,7 +1508,7 @@ function _unzip_file_ziparchive( $file, $to, $needed_dirs = array() ) {
 	/**
 	 * Filters archive unzipping to override with a custom process.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @param null|true|WP_Error $result         The result of the override. True on success, otherwise WP Error. Default null.
 	 * @param string             $file           Full path and filename of ZIP archive.
@@ -1819,7 +1564,7 @@ function _unzip_file_ziparchive( $file, $to, $needed_dirs = array() ) {
 	/**
 	 * Filters the result of unzipping an archive.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @param true|WP_Error $result         The result of unzipping the archive. True on success, otherwise WP_Error. Default true.
 	 * @param string        $file           Full path and filename of ZIP archive.
@@ -1841,7 +1586,7 @@ function _unzip_file_ziparchive( $file, $to, $needed_dirs = array() ) {
  *
  * Assumes that WP_Filesystem() has already been called and set up.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  * @access private
  *
  * @see unzip_file()
@@ -1982,7 +1727,7 @@ function _unzip_file_pclzip( $file, $to, $needed_dirs = array() ) {
  *
  * Assumes that WP_Filesystem() has already been called and setup.
  *
- * @since 2.5.0
+ * @since WP 2.5.0
  *
  * @global WP_Filesystem_Base $wp_filesystem WordPress filesystem subclass.
  *
@@ -2065,7 +1810,7 @@ function copy_dir( $from, $to, $skip_list = array() ) {
  *
  * This function is not designed to merge directories, copy_dir() should be used instead.
  *
- * @since 6.2.0
+ * @since WP 6.2.0
  *
  * @global WP_Filesystem_Base $wp_filesystem WordPress filesystem subclass.
  *
@@ -2135,7 +1880,7 @@ function move_dir( $from, $to, $overwrite = false ) {
  * Plugins may add extra transports, And force WordPress to use them by returning
  * the filename via the {@see 'filesystem_method_file'} filter.
  *
- * @since 2.5.0
+ * @since WP 2.5.0
  *
  * @global WP_Filesystem_Base $wp_filesystem WordPress filesystem subclass.
  *
@@ -2165,7 +1910,7 @@ function WP_Filesystem( $args = false, $context = false, $allow_relaxed_file_own
 		/**
 		 * Filters the path for a specific filesystem method class file.
 		 *
-		 * @since 2.6.0
+		 * @since WP 2.6.0
 		 *
 		 * @see get_filesystem_method()
 		 *
@@ -2225,11 +1970,9 @@ function WP_Filesystem( $args = false, $context = false, $allow_relaxed_file_own
  * The return value can be overridden by defining the `FS_METHOD` constant in `wp-config.php`,
  * or filtering via {@see 'filesystem_method'}.
  *
- * @link https://developer.wordpress.org/advanced-administration/wordpress/wp-config/#wordpress-upgrade-constants
- *
  * Plugins may define a custom transport handler, See WP_Filesystem().
  *
- * @since 2.5.0
+ * @since WP 2.5.0
  *
  * @global callable $_wp_filesystem_direct_method
  *
@@ -2304,7 +2047,7 @@ function get_filesystem_method( $args = array(), $context = '', $allow_relaxed_f
 	/**
 	 * Filters the filesystem method to use.
 	 *
-	 * @since 2.6.0
+	 * @since WP 2.6.0
 	 *
 	 * @param string $method                       Filesystem method to return.
 	 * @param array  $args                         An array of connection details for the method.
@@ -2320,13 +2063,13 @@ function get_filesystem_method( $args = array(), $context = '', $allow_relaxed_f
  *
  * All chosen/entered details are saved, excluding the password.
  *
- * Hostnames may be in the form of hostname:portnumber (eg: wordpress.org:2467)
+ * Hostnames may be in the form of hostname:portnumber
  * to specify an alternate FTP/SSH port.
  *
  * Plugins may override this form by returning true|false via the {@see 'request_filesystem_credentials'} filter.
  *
- * @since 2.5.0
- * @since 4.6.0 The `$context` parameter default changed from `false` to an empty string.
+ * @since WP 2.5.0
+ * @since WP 4.6.0 The `$context` parameter default changed from `false` to an empty string.
  *
  * @global string $pagenow The filename of the current screen.
  *
@@ -2356,8 +2099,8 @@ function request_filesystem_credentials( $form_post, $type = '', $error = false,
 	 * A filter should return true if no filesystem credentials are required, false if they are required but have not been
 	 * provided, or an array of credentials if they are required and have been provided.
 	 *
-	 * @since 2.5.0
-	 * @since 4.6.0 The `$context` parameter default changed from `false` to an empty string.
+	 * @since WP 2.5.0
+	 * @since WP 4.6.0 The `$context` parameter default changed from `false` to an empty string.
 	 *
 	 * @param mixed         $credentials                  Credentials to return instead. Default empty string.
 	 * @param string        $form_post                    The URL to post the form to.
@@ -2513,8 +2256,8 @@ function request_filesystem_credentials( $form_post, $type = '', $error = false,
 	/**
 	 * Filters the connection types to output to the filesystem credentials form.
 	 *
-	 * @since 2.9.0
-	 * @since 4.6.0 The `$context` parameter default changed from `false` to an empty string.
+	 * @since WP 2.9.0
+	 * @since WP 4.6.0 The `$context` parameter default changed from `false` to an empty string.
 	 *
 	 * @param string[]      $types       Types of connections.
 	 * @param array         $credentials Credentials to connect with.
@@ -2568,7 +2311,7 @@ function request_filesystem_credentials( $form_post, $type = '', $error = false,
 </p>
 <label for="hostname">
 	<span class="field-title"><?php _e( 'Hostname' ); ?></span>
-	<input name="hostname" type="text" id="hostname" aria-describedby="request-filesystem-credentials-desc" class="code" placeholder="<?php esc_attr_e( 'example: www.wordpress.org' ); ?>" value="<?php echo $hostname_value; ?>"<?php disabled( defined( 'FTP_HOST' ) ); ?> />
+	<input name="hostname" type="text" id="hostname" aria-describedby="request-filesystem-credentials-desc" class="code" placeholder="<?php esc_attr_e( 'example: site.url' ); ?>" value="<?php echo $hostname_value; ?>"<?php disabled( defined( 'FTP_HOST' ) ); ?> />
 </label>
 <div class="ftp-username">
 	<label for="username">
@@ -2651,7 +2394,7 @@ function request_filesystem_credentials( $form_post, $type = '', $error = false,
 /**
  * Prints the filesystem credentials modal when needed.
  *
- * @since 4.2.0
+ * @since WP 4.2.0
  */
 function wp_print_request_filesystem_credentials_modal() {
 	$filesystem_method = get_filesystem_method();
@@ -2684,7 +2427,7 @@ function wp_print_request_filesystem_credentials_modal() {
  *
  * Whether or not invalidation is possible is cached to improve performance.
  *
- * @since 5.5.0
+ * @since WP 5.5.0
  *
  * @link https://www.php.net/manual/en/function.opcache-invalidate.php
  *
@@ -2714,7 +2457,6 @@ function wp_opcache_invalidate( $filepath, $force = false ) {
 	 * For more details, see:
 	 * - https://www.php.net/manual/en/opcache.configuration.php
 	 * - https://www.php.net/manual/en/reserved.variables.server.php
-	 * - https://core.trac.wordpress.org/ticket/36455
 	 */
 	if ( null === $can_invalidate
 		&& function_exists( 'opcache_invalidate' )
@@ -2737,7 +2479,7 @@ function wp_opcache_invalidate( $filepath, $force = false ) {
 	/**
 	 * Filters whether to invalidate a file from the opcode cache.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @param bool   $will_invalidate Whether WordPress will invalidate `$filepath`. Default true.
 	 * @param string $filepath        The path to the PHP file to invalidate.
@@ -2752,7 +2494,7 @@ function wp_opcache_invalidate( $filepath, $force = false ) {
 /**
  * Attempts to clear the opcode cache for a directory of files.
  *
- * @since 6.2.0
+ * @since WP 6.2.0
  *
  * @see wp_opcache_invalidate()
  * @link https://www.php.net/manual/en/function.opcache-invalidate.php

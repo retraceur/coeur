@@ -4,7 +4,7 @@
  *
  * @package motsVertueux
  * @subpackage Meta
- * @since 4.5.0
+ * @since WP 4.5.0
  */
 
 /**
@@ -26,14 +26,14 @@
  *
  * Do not access this class directly. Use the wp_metadata_lazyloader() function.
  *
- * @since 4.5.0
+ * @since WP 4.5.0
  */
 #[AllowDynamicProperties]
 class WP_Metadata_Lazyloader {
 	/**
 	 * Pending objects queue.
 	 *
-	 * @since 4.5.0
+	 * @since WP 4.5.0
 	 * @var array
 	 */
 	protected $pending_objects;
@@ -41,7 +41,7 @@ class WP_Metadata_Lazyloader {
 	/**
 	 * Settings for supported object types.
 	 *
-	 * @since 4.5.0
+	 * @since WP 4.5.0
 	 * @var array
 	 */
 	protected $settings = array();
@@ -49,7 +49,7 @@ class WP_Metadata_Lazyloader {
 	/**
 	 * Constructor.
 	 *
-	 * @since 4.5.0
+	 * @since WP 4.5.0
 	 */
 	public function __construct() {
 		$this->settings = array(
@@ -71,7 +71,7 @@ class WP_Metadata_Lazyloader {
 	/**
 	 * Adds objects to the metadata lazy-load queue.
 	 *
-	 * @since 4.5.0
+	 * @since WP 4.5.0
 	 *
 	 * @param string $object_type Type of object whose meta is to be lazy-loaded. Accepts 'term' or 'comment'.
 	 * @param array  $object_ids  Array of object IDs.
@@ -100,7 +100,7 @@ class WP_Metadata_Lazyloader {
 		/**
 		 * Fires after objects are added to the metadata lazy-load queue.
 		 *
-		 * @since 4.5.0
+		 * @since WP 4.5.0
 		 *
 		 * @param array                  $object_ids  Array of object IDs.
 		 * @param string                 $object_type Type of object being queued.
@@ -112,7 +112,7 @@ class WP_Metadata_Lazyloader {
 	/**
 	 * Resets lazy-load queue for a given object type.
 	 *
-	 * @since 4.5.0
+	 * @since WP 4.5.0
 	 *
 	 * @param string $object_type Object type. Accepts 'comment' or 'term'.
 	 * @return void|WP_Error WP_Error on failure.
@@ -134,8 +134,8 @@ class WP_Metadata_Lazyloader {
 	 * This method is public so that it can be used as a filter callback. As a rule, there
 	 * is no need to invoke it directly.
 	 *
-	 * @since 4.5.0
-	 * @deprecated 6.3.0 Use WP_Metadata_Lazyloader::lazyload_meta_callback() instead.
+	 * @since WP 4.5.0
+	 * @deprecated WP 6.3.0 Use WP_Metadata_Lazyloader::lazyload_meta_callback() instead.
 	 *
 	 * @param mixed $check The `$check` param passed from the 'get_term_metadata' hook.
 	 * @return mixed In order not to short-circuit `get_metadata()`. Generally, this is `null`, but it could be
@@ -152,8 +152,8 @@ class WP_Metadata_Lazyloader {
 	 * This method is public so that it can be used as a filter callback. As a rule, there is no need to invoke it
 	 * directly, from either inside or outside the `WP_Query` object.
 	 *
-	 * @since 4.5.0
-	 * @deprecated 6.3.0 Use WP_Metadata_Lazyloader::lazyload_meta_callback() instead.
+	 * @since WP 4.5.0
+	 * @deprecated WP 6.3.0 Use WP_Metadata_Lazyloader::lazyload_meta_callback() instead.
 	 *
 	 * @param mixed $check The `$check` param passed from the {@see 'get_comment_metadata'} hook.
 	 * @return mixed The original value of `$check`, so as not to short-circuit `get_comment_metadata()`.
@@ -169,7 +169,7 @@ class WP_Metadata_Lazyloader {
 	 * This method is public so that it can be used as a filter callback. As a rule, there
 	 * is no need to invoke it directly.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param mixed  $check     The `$check` param passed from the 'get_*_metadata' hook.
 	 * @param int    $object_id ID of the object metadata is for.

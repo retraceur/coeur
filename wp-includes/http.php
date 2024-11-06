@@ -12,7 +12,7 @@
 /**
  * Returns the initialized WP_Http Object
  *
- * @since 2.7.0
+ * @since WP 2.7.0
  * @access private
  *
  * @return WP_Http HTTP Transport object.
@@ -33,7 +33,7 @@ function _wp_http_get_object() {
  * URL. The URL, and every URL it redirects to, are validated with wp_http_validate_url()
  * to avoid Server Side Request Forgery attacks (SSRF).
  *
- * @since 3.6.0
+ * @since WP 3.6.0
  *
  * @see wp_remote_request() For more information on the response array format.
  * @see WP_Http::request() For default arguments information.
@@ -60,7 +60,7 @@ function wp_safe_remote_request( $url, $args = array() ) {
  * URL. The URL, and every URL it redirects to, are validated with wp_http_validate_url()
  * to avoid Server Side Request Forgery attacks (SSRF).
  *
- * @since 3.6.0
+ * @since WP 3.6.0
  *
  * @see wp_remote_request() For more information on the response array format.
  * @see WP_Http::request() For default arguments information.
@@ -87,7 +87,7 @@ function wp_safe_remote_get( $url, $args = array() ) {
  * URL. The URL, and every URL it redirects to, are validated with wp_http_validate_url()
  * to avoid Server Side Request Forgery attacks (SSRF).
  *
- * @since 3.6.0
+ * @since WP 3.6.0
  *
  * @see wp_remote_request() For more information on the response array format.
  * @see WP_Http::request() For default arguments information.
@@ -114,7 +114,7 @@ function wp_safe_remote_post( $url, $args = array() ) {
  * URL. The URL, and every URL it redirects to, are validated with wp_http_validate_url()
  * to avoid Server Side Request Forgery attacks (SSRF).
  *
- * @since 3.6.0
+ * @since WP 3.6.0
  *
  * @see wp_remote_request() For more information on the response array format.
  * @see WP_Http::request() For default arguments information.
@@ -143,7 +143,7 @@ function wp_safe_remote_head( $url, $args = array() ) {
  *  - Default 'POST' for wp_remote_post()
  *  - Default 'HEAD' for wp_remote_head()
  *
- * @since 2.7.0
+ * @since WP 2.7.0
  *
  * @see WP_Http::request() For information on default arguments.
  *
@@ -161,7 +161,7 @@ function wp_remote_request( $url, $args = array() ) {
 /**
  * Performs an HTTP request using the GET method and returns its response.
  *
- * @since 2.7.0
+ * @since WP 2.7.0
  *
  * @see wp_remote_request() For more information on the response array format.
  * @see WP_Http::request() For default arguments information.
@@ -180,7 +180,7 @@ function wp_remote_get( $url, $args = array() ) {
 /**
  * Performs an HTTP request using the POST method and returns its response.
  *
- * @since 2.7.0
+ * @since WP 2.7.0
  *
  * @see wp_remote_request() For more information on the response array format.
  * @see WP_Http::request() For default arguments information.
@@ -199,7 +199,7 @@ function wp_remote_post( $url, $args = array() ) {
 /**
  * Performs an HTTP request using the HEAD method and returns its response.
  *
- * @since 2.7.0
+ * @since WP 2.7.0
  *
  * @see wp_remote_request() For more information on the response array format.
  * @see WP_Http::request() For default arguments information.
@@ -218,8 +218,8 @@ function wp_remote_head( $url, $args = array() ) {
 /**
  * Retrieves only the headers from the raw response.
  *
- * @since 2.7.0
- * @since 4.6.0 Return value changed from an array to an WpOrg\Requests\Utility\CaseInsensitiveDictionary instance.
+ * @since WP 2.7.0
+ * @since WP 4.6.0 Return value changed from an array to an WpOrg\Requests\Utility\CaseInsensitiveDictionary instance.
  *
  * @see \WpOrg\Requests\Utility\CaseInsensitiveDictionary
  *
@@ -238,7 +238,7 @@ function wp_remote_retrieve_headers( $response ) {
 /**
  * Retrieves a single header by name from the raw response.
  *
- * @since 2.7.0
+ * @since WP 2.7.0
  *
  * @param array|WP_Error $response HTTP response.
  * @param string         $header   Header name to retrieve value from.
@@ -262,7 +262,7 @@ function wp_remote_retrieve_header( $response, $header ) {
  *
  * Will return an empty string if incorrect parameter value is given.
  *
- * @since 2.7.0
+ * @since WP 2.7.0
  *
  * @param array|WP_Error $response HTTP response.
  * @return int|string The response code as an integer. Empty string if incorrect parameter given.
@@ -280,7 +280,7 @@ function wp_remote_retrieve_response_code( $response ) {
  *
  * Will return an empty string if incorrect parameter value is given.
  *
- * @since 2.7.0
+ * @since WP 2.7.0
  *
  * @param array|WP_Error $response HTTP response.
  * @return string The response message. Empty string if incorrect parameter given.
@@ -296,7 +296,7 @@ function wp_remote_retrieve_response_message( $response ) {
 /**
  * Retrieves only the body from the raw response.
  *
- * @since 2.7.0
+ * @since WP 2.7.0
  *
  * @param array|WP_Error $response HTTP response.
  * @return string The body of the response. Empty string if no body or incorrect parameter given.
@@ -312,7 +312,7 @@ function wp_remote_retrieve_body( $response ) {
 /**
  * Retrieves only the cookies from the raw response.
  *
- * @since 4.4.0
+ * @since WP 4.4.0
  *
  * @param array|WP_Error $response HTTP response.
  * @return WP_Http_Cookie[] An array of `WP_Http_Cookie` objects from the response.
@@ -329,7 +329,7 @@ function wp_remote_retrieve_cookies( $response ) {
 /**
  * Retrieves a single cookie by name from the raw response.
  *
- * @since 4.4.0
+ * @since WP 4.4.0
  *
  * @param array|WP_Error $response HTTP response.
  * @param string         $name     The name of the cookie to retrieve.
@@ -355,7 +355,7 @@ function wp_remote_retrieve_cookie( $response, $name ) {
 /**
  * Retrieves a single cookie's value by name from the raw response.
  *
- * @since 4.4.0
+ * @since WP 4.4.0
  *
  * @param array|WP_Error $response HTTP response.
  * @param string         $name     The name of the cookie to retrieve.
@@ -375,7 +375,7 @@ function wp_remote_retrieve_cookie_value( $response, $name ) {
 /**
  * Determines if there is an HTTP Transport that can process this request.
  *
- * @since 3.2.0
+ * @since WP 3.2.0
  *
  * @param array  $capabilities Array of capabilities to test or a wp_remote_request() $args array.
  * @param string $url          Optional. If given, will check if the URL requires SSL and adds
@@ -406,7 +406,7 @@ function wp_http_supports( $capabilities = array(), $url = null ) {
 /**
  * Gets the HTTP Origin of the current request.
  *
- * @since 3.4.0
+ * @since WP 3.4.0
  *
  * @return string URL of the origin. Empty string if no origin.
  */
@@ -419,7 +419,7 @@ function get_http_origin() {
 	/**
 	 * Changes the origin of an HTTP request.
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 *
 	 * @param string $origin The original origin for the request.
 	 */
@@ -429,7 +429,7 @@ function get_http_origin() {
 /**
  * Retrieves list of allowed HTTP origins.
  *
- * @since 3.4.0
+ * @since WP 3.4.0
  *
  * @return string[] Array of origin URLs.
  */
@@ -450,7 +450,7 @@ function get_allowed_http_origins() {
 	/**
 	 * Changes the origin types allowed for HTTP requests.
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 *
 	 * @param string[] $allowed_origins {
 	 *     Array of default allowed HTTP origins.
@@ -467,7 +467,7 @@ function get_allowed_http_origins() {
 /**
  * Determines if the HTTP origin is an authorized one.
  *
- * @since 3.4.0
+ * @since WP 3.4.0
  *
  * @param string|null $origin Origin URL. If not provided, the value of get_http_origin() is used.
  * @return string Origin URL if allowed, empty string if not.
@@ -486,7 +486,7 @@ function is_allowed_http_origin( $origin = null ) {
 	/**
 	 * Changes the allowed HTTP origin result.
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 *
 	 * @param string $origin     Origin URL if allowed, empty string if not.
 	 * @param string $origin_arg Original origin string passed into is_allowed_http_origin function.
@@ -502,7 +502,7 @@ function is_allowed_http_origin( $origin = null ) {
  * control headers sent, or a 403 response if the origin is not allowed. For
  * other request methods, you will receive a return value.
  *
- * @since 3.4.0
+ * @since WP 3.4.0
  *
  * @return string|false Returns the origin URL if headers are sent. Returns false
  *                      if headers are not sent.
@@ -544,7 +544,7 @@ function send_origin_headers() {
  * - http://198.143.164.252:81/caniload.php - By default, only 80, 443, and 8080 ports are allowed.
  *   This can be changed with the {@see 'http_allowed_safe_ports'} filter.
  *
- * @since 3.5.2
+ * @since WP 3.5.2
  *
  * @param string $url Request URL.
  * @return string|false URL or false on failure.
@@ -598,7 +598,7 @@ function wp_http_validate_url( $url ) {
 				 *
 				 * Allows to change and allow external requests for the HTTP request.
 				 *
-				 * @since 3.6.0
+				 * @since WP 3.6.0
 				 *
 				 * @param bool   $external Whether HTTP request is external or not.
 				 * @param string $host     Host name of the requested URL.
@@ -622,7 +622,7 @@ function wp_http_validate_url( $url ) {
 	 *
 	 * Allows to change and allow external requests for the HTTP request.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param int[]  $allowed_ports Array of integers for valid ports.
 	 * @param string $host          Host name of the requested URL.
@@ -645,7 +645,7 @@ function wp_http_validate_url( $url ) {
  *
  * Attached to the {@see 'http_request_host_is_external'} filter.
  *
- * @since 3.6.0
+ * @since WP 3.6.0
  *
  * @param bool   $is_external
  * @param string $host
@@ -664,7 +664,7 @@ function allowed_http_request_hosts( $is_external, $host ) {
  *
  * Attached to the {@see 'http_request_host_is_external'} filter.
  *
- * @since 3.6.0
+ * @since WP 3.6.0
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  *
@@ -695,8 +695,8 @@ function ms_allowed_http_request_hosts( $is_external, $host ) {
  * Across various PHP versions, schemeless URLs containing a ":" in the query
  * are being handled inconsistently. This function works around those differences.
  *
- * @since 4.4.0
- * @since 4.7.0 The `$component` parameter was added for parity with PHP's `parse_url()`.
+ * @since WP 4.4.0
+ * @since WP 4.7.0 The `$component` parameter was added for parity with PHP's `parse_url()`.
  *
  * @link https://www.php.net/manual/en/function.parse-url.php
  *
@@ -742,7 +742,7 @@ function wp_parse_url( $url, $component = -1 ) {
  *
  * @internal
  *
- * @since 4.7.0
+ * @since WP 4.7.0
  * @access private
  *
  * @link https://www.php.net/manual/en/function.parse-url.php
@@ -774,7 +774,7 @@ function _get_component_from_parsed_url_array( $url_parts, $component = -1 ) {
  *
  * @internal
  *
- * @since 4.7.0
+ * @since WP 4.7.0
  * @access private
  *
  * @link https://www.php.net/manual/en/url.constants.php

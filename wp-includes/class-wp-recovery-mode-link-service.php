@@ -3,13 +3,13 @@
  * Error Protection API: WP_Recovery_Mode_Link_Handler class
  *
  * @package motsVertueux
- * @since 5.2.0
+ * @since WP 5.2.0
  */
 
 /**
  * Core class used to generate and handle recovery mode links.
  *
- * @since 5.2.0
+ * @since WP 5.2.0
  */
 #[AllowDynamicProperties]
 class WP_Recovery_Mode_Link_Service {
@@ -19,7 +19,7 @@ class WP_Recovery_Mode_Link_Service {
 	/**
 	 * Service to generate and validate recovery mode keys.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 * @var WP_Recovery_Mode_Key_Service
 	 */
 	private $key_service;
@@ -27,7 +27,7 @@ class WP_Recovery_Mode_Link_Service {
 	/**
 	 * Service to handle cookies.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 * @var WP_Recovery_Mode_Cookie_Service
 	 */
 	private $cookie_service;
@@ -35,7 +35,7 @@ class WP_Recovery_Mode_Link_Service {
 	/**
 	 * WP_Recovery_Mode_Link_Service constructor.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 *
 	 * @param WP_Recovery_Mode_Cookie_Service $cookie_service Service to handle setting the recovery mode cookie.
 	 * @param WP_Recovery_Mode_Key_Service    $key_service    Service to handle generating recovery mode keys.
@@ -50,7 +50,7 @@ class WP_Recovery_Mode_Link_Service {
 	 *
 	 * Only one recovery mode URL can may be valid at the same time.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 *
 	 * @return string Generated URL.
 	 */
@@ -64,7 +64,7 @@ class WP_Recovery_Mode_Link_Service {
 	/**
 	 * Enters recovery mode when the user hits wp-login.php with a valid recovery mode link.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 *
 	 * @global string $pagenow The filename of the current screen.
 	 *
@@ -99,7 +99,7 @@ class WP_Recovery_Mode_Link_Service {
 	/**
 	 * Gets a URL to begin recovery mode.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 *
 	 * @param string $token Recovery Mode token created by {@see generate_recovery_mode_token()}.
 	 * @param string $key   Recovery Mode key created by {@see generate_and_store_recovery_mode_key()}.
@@ -119,7 +119,7 @@ class WP_Recovery_Mode_Link_Service {
 		/**
 		 * Filters the URL to begin recovery mode.
 		 *
-		 * @since 5.2.0
+		 * @since WP 5.2.0
 		 *
 		 * @param string $url   The generated recovery mode begin URL.
 		 * @param string $token The token used to identify the key.

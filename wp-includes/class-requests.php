@@ -8,7 +8,7 @@
  *
  * @package Requests
  *
- * @deprecated 6.2.0
+ * @deprecated WP 6.2.0
  */
 
 /*
@@ -41,7 +41,7 @@ require_once __DIR__ . '/Requests/src/Requests.php';
  *
  * @package Requests
  *
- * @deprecated 6.2.0 Use `WpOrg\Requests\Requests` instead for the actual functionality and
+ * @deprecated WP 6.2.0 Use `WpOrg\Requests\Requests` instead for the actual functionality and
  *                   use `WpOrg\Requests\Autoload` for the autoloading.
  */
 class Requests extends WpOrg\Requests\Requests {
@@ -49,7 +49,7 @@ class Requests extends WpOrg\Requests\Requests {
 	/**
 	 * Deprecated autoloader for Requests.
 	 *
-	 * @deprecated 6.2.0 Use the `WpOrg\Requests\Autoload::load()` method instead.
+	 * @deprecated WP 6.2.0 Use the `WpOrg\Requests\Autoload::load()` method instead.
 	 *
 	 * @codeCoverageIgnore
 	 *
@@ -66,7 +66,7 @@ class Requests extends WpOrg\Requests\Requests {
 	/**
 	 * Register the built-in autoloader
 	 *
-	 * @deprecated 6.2.0 Include the `WpOrg\Requests\Autoload` class and
+	 * @deprecated WP 6.2.0 Include the `WpOrg\Requests\Autoload` class and
 	 *                   call `WpOrg\Requests\Autoload::register()` instead.
 	 *
 	 * @codeCoverageIgnore

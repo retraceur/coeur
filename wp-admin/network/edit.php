@@ -4,7 +4,7 @@
  *
  * @package motsVertueux
  * @subpackage Multisite
- * @since 3.0.0
+ * @since WP 3.0.0
  */
 
 /** Load WordPress Administration Bootstrap */
@@ -23,7 +23,7 @@ if ( empty( $action ) ) {
  * This hook fires on multiple screens in the Multisite Network Admin,
  * including Users, Network Settings, and Site Settings.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  */
 do_action( 'wpmuadminedit' );
 
@@ -33,7 +33,7 @@ do_action( 'wpmuadminedit' );
  * The dynamic portion of the hook name, `$action`, refers to the name
  * of the requested action derived from the `GET` request.
  *
- * @since 3.1.0
+ * @since WP 3.1.0
  */
 do_action( "network_admin_edit_{$action}" );
 

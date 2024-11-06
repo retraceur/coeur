@@ -1,7 +1,7 @@
 /**
  * This file contains the functions needed for the inline editing of posts.
  *
- * @since 2.7.0
+ * @since WP 2.7.0
  * @output wp-admin/js/inline-edit-post.js
  */
 
@@ -14,7 +14,7 @@ window.wp = window.wp || {};
  *
  * @namespace inlineEditPost
  *
- * @since 2.7.0
+ * @since WP 2.7.0
  *
  * @type {Object}
  *
@@ -33,7 +33,7 @@ window.wp = window.wp || {};
 	 * and to the save and close buttons. Changes DOM to be ready for inline
 	 * editing. Adds event handler to bulk edit.
 	 *
-	 * @since 2.7.0
+	 * @since WP 2.7.0
 	 *
 	 * @memberof inlineEditPost
 	 *
@@ -171,7 +171,7 @@ window.wp = window.wp || {};
 	 * Toggles the quick edit window, hiding it when it's active and showing it when
 	 * inactive.
 	 *
-	 * @since 2.7.0
+	 * @since WP 2.7.0
 	 *
 	 * @memberof inlineEditPost
 	 *
@@ -185,7 +185,7 @@ window.wp = window.wp || {};
 	/**
 	 * Creates the bulk editor row to edit multiple posts at once.
 	 *
-	 * @since 2.7.0
+	 * @since WP 2.7.0
 	 *
 	 * @memberof inlineEditPost
 	 */
@@ -323,7 +323,7 @@ window.wp = window.wp || {};
 	/**
 	 * Creates a quick edit window for the post that has been clicked.
 	 *
-	 * @since 2.7.0
+	 * @since WP 2.7.0
 	 *
 	 * @memberof inlineEditPost
 	 *
@@ -479,7 +479,7 @@ window.wp = window.wp || {};
 	 * Saves the changes made in the quick edit window to the post.
 	 * Ajax saving is only for Quick Edit and not for bulk edit.
 	 *
-	 * @since 2.7.0
+	 * @since WP 2.7.0
 	 *
 	 * @param {number} id The ID for the post that has been changed.
 	 * @return {boolean} False, so the form does not submit when pressing
@@ -545,7 +545,7 @@ window.wp = window.wp || {};
 	/**
 	 * Hides and empties the Quick Edit and/or Bulk Edit windows.
 	 *
-	 * @since 2.7.0
+	 * @since WP 2.7.0
 	 *
 	 * @memberof inlineEditPost
 	 *
@@ -589,7 +589,7 @@ window.wp = window.wp || {};
 	 * Gets the ID for a the post that you want to quick edit from the row in the quick
 	 * edit table.
 	 *
-	 * @since 2.7.0
+	 * @since WP 2.7.0
 	 *
 	 * @memberof inlineEditPost
 	 *

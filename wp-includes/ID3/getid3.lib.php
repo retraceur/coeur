@@ -745,8 +745,6 @@ class getid3_lib
 	 */
 	public static function XML2array($XMLstring) {
 		if (function_exists('simplexml_load_string') && function_exists('libxml_disable_entity_loader')) {
-			// http://websec.io/2012/08/27/Preventing-XEE-in-PHP.html
-			// https://core.trac.wordpress.org/changeset/29378
 			// This function has been deprecated in PHP 8.0 because in libxml 2.9.0, external entity loading is
 			// disabled by default, but is still needed when LIBXML_NOENT is used.
 			$loader = @libxml_disable_entity_loader(true);
@@ -818,7 +816,7 @@ class getid3_lib
 	 * @return bool
 	 * @throws Exception
 	 *
-	 * @deprecated Unused, may be removed in future versions of getID3
+	 * @deprecated WP Unused, may be removed in future versions of getID3
 	 */
 	public static function CopyFileParts($filename_source, $filename_dest, $offset, $length) {
 		if (!self::intValueSupported($offset + $length)) {

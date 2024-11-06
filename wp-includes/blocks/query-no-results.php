@@ -8,7 +8,7 @@
 /**
  * Renders the `core/query-no-results` block on the server.
  *
- * @since 6.0.0
+ * @since WP 6.0.0
  *
  * @global WP_Query $wp_query WordPress Query object.
  *
@@ -52,7 +52,7 @@ function render_block_core_query_no_results( $attributes, $content, $block ) {
 /**
  * Registers the `core/query-no-results` block on the server.
  *
- * @since 6.0.0
+ * @since WP 6.0.0
  */
 function register_block_core_query_no_results() {
 	register_block_type_from_metadata(

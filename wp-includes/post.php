@@ -1,6 +1,8 @@
 <?php
 /**
  * Core Post API
+ * 
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Post
@@ -15,7 +17,7 @@
  *
  * See {@see 'init'}.
  *
- * @since 2.9.0
+ * @since WP 2.9.0
  */
 function create_initial_post_types() {
 	WP_Post_Type::reset_default_labels();
@@ -815,7 +817,7 @@ function create_initial_post_types() {
  * This is a convenience function to prevent looking up the meta name and provide
  * a mechanism for sending the attached filename through a filter.
  *
- * @since 2.0.0
+ * @since WP 2.0.0
  *
  * @param int  $attachment_id Attachment ID.
  * @param bool $unfiltered    Optional. Whether to skip the {@see 'get_attached_file'} filter.
@@ -840,7 +842,7 @@ function get_attached_file( $attachment_id, $unfiltered = false ) {
 	/**
 	 * Filters the attached file based on the given ID.
 	 *
-	 * @since 2.1.0
+	 * @since WP 2.1.0
 	 *
 	 * @param string|false $file          The file path to where the attached file should be, false otherwise.
 	 * @param int          $attachment_id Attachment ID.
@@ -854,7 +856,7 @@ function get_attached_file( $attachment_id, $unfiltered = false ) {
  * Used to update the file path of the attachment, which uses post meta name
  * '_wp_attached_file' to store the path of the attachment.
  *
- * @since 2.1.0
+ * @since WP 2.1.0
  *
  * @param int    $attachment_id Attachment ID.
  * @param string $file          File path for the attachment.
@@ -868,7 +870,7 @@ function update_attached_file( $attachment_id, $file ) {
 	/**
 	 * Filters the path to the attached file to update.
 	 *
-	 * @since 2.1.0
+	 * @since WP 2.1.0
 	 *
 	 * @param string $file          Path to the attached file to update.
 	 * @param int    $attachment_id Attachment ID.
@@ -888,7 +890,7 @@ function update_attached_file( $attachment_id, $file ) {
  *
  * The path is relative to the current upload dir.
  *
- * @since 2.9.0
+ * @since WP 2.9.0
  * @access private
  *
  * @param string $path Full path to the file.
@@ -906,7 +908,7 @@ function _wp_relative_upload_path( $path ) {
 	/**
 	 * Filters the relative path to an uploaded file.
 	 *
-	 * @since 2.9.0
+	 * @since WP 2.9.0
 	 *
 	 * @param string $new_path Relative path to the file.
 	 * @param string $path     Full path to the file.
@@ -952,7 +954,7 @@ function _wp_relative_upload_path( $path ) {
  * post types are 'post', 'pages', and 'attachments'. The 'post_status'
  * argument will accept any post status within the write administration panels.
  *
- * @since 2.0.0
+ * @since WP 2.0.0
  *
  * @see get_posts()
  * @todo Check validity of description.
@@ -1034,7 +1036,7 @@ function get_children( $args = '', $output = OBJECT ) {
  * the `<!--more-->`. The 'extended' key has the content after the
  * `<!--more-->` comment. The 'more_text' key has the custom "Read More" text.
  *
- * @since 1.0.0
+ * @since WP 1.0.0
  *
  * @param string $post Post content.
  * @return string[] {
@@ -1074,7 +1076,7 @@ function get_extended( $post ) {
  * See sanitize_post() for optional $filter values. Also, the parameter
  * `$post`, must be given as a variable, since it is passed by reference.
  *
- * @since 1.5.1
+ * @since WP 1.5.1
  *
  * @global WP_Post $post Global post object.
  *
@@ -1127,7 +1129,7 @@ function get_post( $post = null, $output = OBJECT, $filter = 'raw' ) {
 /**
  * Retrieves the IDs of the ancestors of a post.
  *
- * @since 2.5.0
+ * @since WP 2.5.0
  *
  * @param int|WP_Post $post Post ID or post object.
  * @return int[] Array of ancestor IDs or empty array if there are none.
@@ -1166,8 +1168,8 @@ function get_post_ancestors( $post ) {
  * The context values are based off of the taxonomy filter functions and
  * supported values are found within those functions.
  *
- * @since 2.3.0
- * @since 4.5.0 The `$post` parameter was made optional.
+ * @since WP 2.3.0
+ * @since WP 4.5.0 The `$post` parameter was made optional.
  *
  * @see sanitize_post_field()
  *
@@ -1197,7 +1199,7 @@ function get_post_field( $field, $post = null, $context = 'display' ) {
  * This function can be used with any post type, but it makes more sense with
  * attachments.
  *
- * @since 2.0.0
+ * @since WP 2.0.0
  *
  * @param int|WP_Post $post Optional. Post ID or post object. Defaults to global $post.
  * @return string|false The mime type on success, false on failure.
@@ -1218,7 +1220,7 @@ function get_post_mime_type( $post = null ) {
  * If the post ID is of an attachment, then the parent post status will be given
  * instead.
  *
- * @since 2.0.0
+ * @since WP 2.0.0
  *
  * @param int|WP_Post $post Optional. Post ID or post object. Defaults to global $post.
  * @return string|false Post status on success, false on failure.
@@ -1274,8 +1276,8 @@ function get_post_status( $post = null ) {
 	/**
 	 * Filters the post status.
 	 *
-	 * @since 4.4.0
-	 * @since 5.7.0 The attachment post type is now passed through this filter.
+	 * @since WP 4.4.0
+	 * @since WP 5.7.0 The attachment post type is now passed through this filter.
 	 *
 	 * @param string  $post_status The post status.
 	 * @param WP_Post $post        The post object.
@@ -1289,7 +1291,7 @@ function get_post_status( $post = null ) {
  * Posts have a limited set of valid status values, this provides the
  * post_status values and descriptions.
  *
- * @since 2.5.0
+ * @since WP 2.5.0
  *
  * @return string[] Array of post status labels keyed by their status.
  */
@@ -1310,7 +1312,7 @@ function get_post_statuses() {
  * Pages have a limited set of valid status values, this provides the
  * post_status values and descriptions.
  *
- * @since 2.5.0
+ * @since WP 2.5.0
  *
  * @return string[] Array of page status labels keyed by their status.
  */
@@ -1327,7 +1329,7 @@ function get_page_statuses() {
 /**
  * Returns statuses for privacy requests.
  *
- * @since 4.9.6
+ * @since WP 4.9.6
  * @access private
  *
  * @return string[] Array of privacy request status labels keyed by their status.
@@ -1350,7 +1352,7 @@ function _wp_privacy_statuses() {
  *
  * Arguments prefixed with an _underscore shouldn't be used by plugins and themes.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @global stdClass[] $wp_post_statuses Inserts new post status object into the list
  *
@@ -1476,7 +1478,7 @@ function register_post_status( $post_status, $args = array() ) {
 /**
  * Retrieves a post status object by name.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @global stdClass[] $wp_post_statuses List of post statuses.
  *
@@ -1498,7 +1500,7 @@ function get_post_status_object( $post_status ) {
 /**
  * Gets a list of post statuses.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @global stdClass[] $wp_post_statuses List of post statuses.
  *
@@ -1525,7 +1527,7 @@ function get_post_stati( $args = array(), $output = 'names', $operator = 'and' )
  *
  * A false return value might also mean that the post type does not exist.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @see get_post_type_object()
  *
@@ -1544,11 +1546,7 @@ function is_post_type_hierarchical( $post_type ) {
 /**
  * Determines whether a post type is registered.
  *
- * For more information on this and similar theme functions, check out
- * the {@link https://developer.wordpress.org/themes/basics/conditional-tags/
- * Conditional Tags} article in the Theme Developer Handbook.
- *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @see get_post_type_object()
  *
@@ -1562,7 +1560,7 @@ function post_type_exists( $post_type ) {
 /**
  * Retrieves the post type of the current post or of a given post.
  *
- * @since 2.1.0
+ * @since WP 2.1.0
  *
  * @param int|WP_Post|null $post Optional. Post ID or post object. Default is global $post.
  * @return string|false          Post type on success, false on failure.
@@ -1579,8 +1577,8 @@ function get_post_type( $post = null ) {
 /**
  * Retrieves a post type object by name.
  *
- * @since 3.0.0
- * @since 4.6.0 Object returned is now an instance of `WP_Post_Type`.
+ * @since WP 3.0.0
+ * @since WP 4.6.0 Object returned is now an instance of `WP_Post_Type`.
  *
  * @global array $wp_post_types List of post types.
  *
@@ -1602,7 +1600,7 @@ function get_post_type_object( $post_type ) {
 /**
  * Gets a list of all registered post type objects.
  *
- * @since 2.9.0
+ * @since WP 2.9.0
  *
  * @global array $wp_post_types List of post types.
  *
@@ -1639,16 +1637,16 @@ function get_post_types( $args = array(), $output = 'names', $operator = 'and' )
  * comments, and more. See the `$supports` argument for a complete
  * list of supported features.
  *
- * @since 2.9.0
- * @since 3.0.0 The `show_ui` argument is now enforced on the new post screen.
- * @since 4.4.0 The `show_ui` argument is now enforced on the post type listing
+ * @since WP 2.9.0
+ * @since WP 3.0.0 The `show_ui` argument is now enforced on the new post screen.
+ * @since WP 4.4.0 The `show_ui` argument is now enforced on the post type listing
  *              screen and post editing screen.
- * @since 4.6.0 Post type object returned is now an instance of `WP_Post_Type`.
- * @since 4.7.0 Introduced `show_in_rest`, `rest_base` and `rest_controller_class`
+ * @since WP 4.6.0 Post type object returned is now an instance of `WP_Post_Type`.
+ * @since WP 4.7.0 Introduced `show_in_rest`, `rest_base` and `rest_controller_class`
  *              arguments to register the post type in REST API.
- * @since 5.0.0 The `template` and `template_lock` arguments were added.
- * @since 5.3.0 The `supports` argument will now accept an array of arguments for a feature.
- * @since 5.9.0 The `rest_namespace` argument was added.
+ * @since WP 5.0.0 The `template` and `template_lock` arguments were added.
+ * @since WP 5.3.0 The `supports` argument will now accept an array of arguments for a feature.
+ * @since WP 5.9.0 The `rest_namespace` argument was added.
  *
  * @global array $wp_post_types List of post types.
  *
@@ -1815,8 +1813,8 @@ function register_post_type( $post_type, $args = array() ) {
 	/**
 	 * Fires after a post type is registered.
 	 *
-	 * @since 3.3.0
-	 * @since 4.6.0 Converted the `$post_type` parameter to accept a `WP_Post_Type` object.
+	 * @since WP 3.3.0
+	 * @since WP 4.6.0 Converted the `$post_type` parameter to accept a `WP_Post_Type` object.
 	 *
 	 * @param string       $post_type        Post type.
 	 * @param WP_Post_Type $post_type_object Arguments used to register the post type.
@@ -1833,7 +1831,7 @@ function register_post_type( $post_type, $args = array() ) {
 	 *  - `registered_post_type_post`
 	 *  - `registered_post_type_page`
 	 *
-	 * @since 6.0.0
+	 * @since WP 6.0.0
 	 *
 	 * @param string       $post_type        Post type.
 	 * @param WP_Post_Type $post_type_object Arguments used to register the post type.
@@ -1848,7 +1846,7 @@ function register_post_type( $post_type, $args = array() ) {
  *
  * Cannot be used to unregister built-in post types.
  *
- * @since 4.5.0
+ * @since WP 4.5.0
  *
  * @global array $wp_post_types List of post types.
  *
@@ -1880,7 +1878,7 @@ function unregister_post_type( $post_type ) {
 	/**
 	 * Fires after a post type was unregistered.
 	 *
-	 * @since 4.5.0
+	 * @since WP 4.5.0
 	 *
 	 * @param string $post_type Post type key.
 	 */
@@ -1936,8 +1934,8 @@ function unregister_post_type( $post_type ) {
  * only assigned by default if the post type is registered with the 'map_meta_cap'
  * argument set to true (default is false).
  *
- * @since 3.0.0
- * @since 5.4.0 'delete_posts' is included in default capabilities.
+ * @since WP 3.0.0
+ * @since WP 5.4.0 'delete_posts' is included in default capabilities.
  *
  * @see register_post_type()
  * @see map_meta_cap()
@@ -1997,7 +1995,7 @@ function get_post_type_capabilities( $args ) {
 /**
  * Stores or returns a list of post type meta caps for map_meta_cap().
  *
- * @since 3.1.0
+ * @since WP 3.1.0
  * @access private
  *
  * @global array $post_type_meta_caps Used to store meta capabilities.
@@ -2069,22 +2067,22 @@ function _post_type_meta_capabilities( $capabilities = null ) {
  *
  * Note: To set labels used in post type admin notices, see the {@see 'post_updated_messages'} filter.
  *
- * @since 3.0.0
- * @since 4.3.0 Added the `featured_image`, `set_featured_image`, `remove_featured_image`,
+ * @since WP 3.0.0
+ * @since WP 4.3.0 Added the `featured_image`, `set_featured_image`, `remove_featured_image`,
  *              and `use_featured_image` labels.
- * @since 4.4.0 Added the `archives`, `insert_into_item`, `uploaded_to_this_item`, `filter_items_list`,
+ * @since WP 4.4.0 Added the `archives`, `insert_into_item`, `uploaded_to_this_item`, `filter_items_list`,
  *              `items_list_navigation`, and `items_list` labels.
- * @since 4.6.0 Converted the `$post_type` parameter to accept a `WP_Post_Type` object.
- * @since 4.7.0 Added the `view_items` and `attributes` labels.
- * @since 5.0.0 Added the `item_published`, `item_published_privately`, `item_reverted_to_draft`,
+ * @since WP 4.6.0 Converted the `$post_type` parameter to accept a `WP_Post_Type` object.
+ * @since WP 4.7.0 Added the `view_items` and `attributes` labels.
+ * @since WP 5.0.0 Added the `item_published`, `item_published_privately`, `item_reverted_to_draft`,
  *              `item_scheduled`, and `item_updated` labels.
- * @since 5.7.0 Added the `filter_by_date` label.
- * @since 5.8.0 Added the `item_link` and `item_link_description` labels.
- * @since 6.3.0 Added the `item_trashed` label.
- * @since 6.4.0 Changed default values for the `add_new` label to include the type of content.
+ * @since WP 5.7.0 Added the `filter_by_date` label.
+ * @since WP 5.8.0 Added the `item_link` and `item_link_description` labels.
+ * @since WP 6.3.0 Added the `item_trashed` label.
+ * @since WP 6.4.0 Changed default values for the `add_new` label to include the type of content.
  *              This matches `add_new_item` and provides more context for better accessibility.
- * @since 6.6.0 Added the `template_name` label.
- * @since 6.7.0 Restored pre-6.4.0 defaults for the `add_new` label and updated documentation.
+ * @since WP 6.6.0 Added the `template_name` label.
+ * @since WP 6.7.0 Restored pre-6.4.0 defaults for the `add_new` label and updated documentation.
  *              Updated core usage to reference `add_new_item`.
  *
  * @access private
@@ -2120,7 +2118,7 @@ function get_post_type_labels( $post_type_object ) {
 	 *  - `post_type_labels_page`
 	 *  - `post_type_labels_attachment`
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @see get_post_type_labels() for the full list of labels.
 	 *
@@ -2138,7 +2136,7 @@ function get_post_type_labels( $post_type_object ) {
  * Builds an object with custom-something object (post type, taxonomy) labels
  * out of a custom-something object
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  * @access private
  *
  * @param object $data_object             A custom-something object.
@@ -2190,7 +2188,7 @@ function _get_custom_object_labels( $data_object, $nohier_vs_hier_defaults ) {
  * Adds submenus for post types.
  *
  * @access private
- * @since 3.1.0
+ * @since WP 3.1.0
  */
 function _add_post_type_submenus() {
 	foreach ( get_post_types( array( 'show_ui' => true ) ) as $ptype ) {
@@ -2229,8 +2227,8 @@ function _add_post_type_submenus() {
  *         'field' => 'value',
  *     ) );
  *
- * @since 3.0.0
- * @since 5.3.0 Formalized the existing and already documented `...$args` parameter
+ * @since WP 3.0.0
+ * @since WP 5.3.0 Formalized the existing and already documented `...$args` parameter
  *              by adding it to the function signature.
  *
  * @global array $_wp_post_type_features
@@ -2256,7 +2254,7 @@ function add_post_type_support( $post_type, $feature, ...$args ) {
 /**
  * Removes support for a feature from a post type.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @global array $_wp_post_type_features
  *
@@ -2272,7 +2270,7 @@ function remove_post_type_support( $post_type, $feature ) {
 /**
  * Gets all the post type features
  *
- * @since 3.4.0
+ * @since WP 3.4.0
  *
  * @global array $_wp_post_type_features
  *
@@ -2292,7 +2290,7 @@ function get_all_post_type_supports( $post_type ) {
 /**
  * Checks a post type's support for a given feature.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @global array $_wp_post_type_features
  *
@@ -2309,7 +2307,7 @@ function post_type_supports( $post_type, $feature ) {
 /**
  * Retrieves a list of post type names that support a specific feature.
  *
- * @since 4.5.0
+ * @since WP 4.5.0
  *
  * @global array $_wp_post_type_features Post type features
  *
@@ -2333,7 +2331,7 @@ function get_post_types_by_support( $feature, $operator = 'and' ) {
  *
  * The page or post cache will be cleaned for the post ID.
  *
- * @since 2.5.0
+ * @since WP 2.5.0
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  *
@@ -2359,10 +2357,10 @@ function set_post_type( $post_id = 0, $post_type = 'post' ) {
  * For built-in post types such as posts and pages, the 'public' value will be evaluated.
  * For all others, the 'publicly_queryable' value will be used.
  *
- * @since 4.4.0
- * @since 4.5.0 Added the ability to pass a post type name in addition to object.
- * @since 4.6.0 Converted the `$post_type` parameter to accept a `WP_Post_Type` object.
- * @since 5.9.0 Added `is_post_type_viewable` hook to filter the result.
+ * @since WP 4.4.0
+ * @since WP 4.5.0 Added the ability to pass a post type name in addition to object.
+ * @since WP 4.6.0 Converted the `$post_type` parameter to accept a `WP_Post_Type` object.
+ * @since WP 5.9.0 Added `is_post_type_viewable` hook to filter the result.
  *
  * @param string|WP_Post_Type $post_type Post type name or object.
  * @return bool Whether the post type should be considered viewable.
@@ -2391,7 +2389,7 @@ function is_post_type_viewable( $post_type ) {
 	 * potential type errors in PHP 8.1+. Non-boolean values (even falsey
 	 * and truthy values) will result in the function returning false.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param bool         $is_viewable Whether the post type is "viewable" (strict type).
 	 * @param WP_Post_Type $post_type   Post type object.
@@ -2405,8 +2403,8 @@ function is_post_type_viewable( $post_type ) {
  * For built-in post statuses such as publish and private, the 'public' value will be evaluated.
  * For all others, the 'publicly_queryable' value will be used.
  *
- * @since 5.7.0
- * @since 5.9.0 Added `is_post_status_viewable` hook to filter the result.
+ * @since WP 5.7.0
+ * @since WP 5.9.0 Added `is_post_status_viewable` hook to filter the result.
  *
  * @param string|stdClass $post_status Post status name or object.
  * @return bool Whether the post status should be considered viewable.
@@ -2439,7 +2437,7 @@ function is_post_status_viewable( $post_status ) {
 	 * potential type errors in PHP 8.1+. Non-boolean values (even falsey
 	 * and truthy values) will result in the function returning false.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param bool     $is_viewable Whether the post status is "viewable" (strict type).
 	 * @param stdClass $post_status Post status object.
@@ -2453,7 +2451,7 @@ function is_post_status_viewable( $post_status ) {
  * Posts are considered publicly viewable if both the post status and post type
  * are viewable.
  *
- * @since 5.7.0
+ * @since WP 5.7.0
  *
  * @param int|WP_Post|null $post Optional. Post ID or post object. Defaults to global $post.
  * @return bool Whether the post is publicly viewable.
@@ -2474,16 +2472,12 @@ function is_post_publicly_viewable( $post = null ) {
 /**
  * Retrieves an array of the latest posts, or posts matching the given criteria.
  *
- * For more information on the accepted arguments, see the
- * {@link https://developer.wordpress.org/reference/classes/wp_query/
- * WP_Query} documentation in the Developer Handbook.
- *
  * The `$ignore_sticky_posts` and `$no_found_rows` arguments are ignored by
  * this function and both are set to `true`.
  *
  * The defaults are as follows:
  *
- * @since 1.2.0
+ * @since WP 1.2.0
  *
  * @see WP_Query
  * @see WP_Query::parse_query()
@@ -2550,7 +2544,7 @@ function get_posts( $args = null ) {
  *
  * Post meta data is called "Custom Fields" on the Administration Screen.
  *
- * @since 1.5.0
+ * @since WP 1.5.0
  *
  * @param int    $post_id    Post ID.
  * @param string $meta_key   Metadata name.
@@ -2576,7 +2570,7 @@ function add_post_meta( $post_id, $meta_key, $meta_value, $unique = false ) {
  * value, will keep from removing duplicate metadata with the same key. It also
  * allows removing all metadata matching the key, if needed.
  *
- * @since 1.5.0
+ * @since WP 1.5.0
  *
  * @param int    $post_id    Post ID.
  * @param string $meta_key   Metadata name.
@@ -2598,7 +2592,7 @@ function delete_post_meta( $post_id, $meta_key, $meta_value = '' ) {
 /**
  * Retrieves a post meta field for the given post ID.
  *
- * @since 1.5.0
+ * @since WP 1.5.0
  *
  * @param int    $post_id Post ID.
  * @param string $key     Optional. The meta key to retrieve. By default,
@@ -2626,7 +2620,7 @@ function get_post_meta( $post_id, $key = '', $single = false ) {
  *
  * Can be used in place of add_post_meta().
  *
- * @since 1.5.0
+ * @since WP 1.5.0
  *
  * @param int    $post_id    Post ID.
  * @param string $meta_key   Metadata key.
@@ -2651,7 +2645,7 @@ function update_post_meta( $post_id, $meta_key, $meta_value, $prev_value = '' ) 
 /**
  * Deletes everything from post meta matching the given meta key.
  *
- * @since 2.3.0
+ * @since WP 2.3.0
  *
  * @param string $post_meta_key Key to search for when deleting.
  * @return bool Whether the post meta key was deleted from the database.
@@ -2663,7 +2657,7 @@ function delete_post_meta_by_key( $post_meta_key ) {
 /**
  * Registers a meta key for posts.
  *
- * @since 4.9.8
+ * @since WP 4.9.8
  *
  * @param string $post_type Post type to register a meta key for. Pass an empty string
  *                          to register the meta key across all existing post types.
@@ -2681,7 +2675,7 @@ function register_post_meta( $post_type, $meta_key, array $args ) {
 /**
  * Unregisters a meta key for posts.
  *
- * @since 4.9.8
+ * @since WP 4.9.8
  *
  * @param string $post_type Post type the meta key is currently registered for. Pass
  *                          an empty string if the meta key is registered across all
@@ -2699,7 +2693,7 @@ function unregister_post_meta( $post_type, $meta_key ) {
  * The post meta fields are retrieved from the cache where possible,
  * so the function is optimized to be called more than once.
  *
- * @since 1.2.0
+ * @since WP 1.2.0
  *
  * @param int $post_id Optional. Post ID. Default is the ID of the global `$post`.
  * @return mixed An array of values.
@@ -2721,7 +2715,7 @@ function get_post_custom( $post_id = 0 ) {
  *
  * If there are no meta fields, then nothing (null) will be returned.
  *
- * @since 1.2.0
+ * @since WP 1.2.0
  *
  * @param int $post_id Optional. Post ID. Default is the ID of the global `$post`.
  * @return array|void Array of the keys, if retrieved.
@@ -2745,7 +2739,7 @@ function get_post_custom_keys( $post_id = 0 ) {
  * The parameters must not be considered optional. All of the post meta fields
  * will be retrieved and only the meta field key values returned.
  *
- * @since 1.2.0
+ * @since WP 1.2.0
  *
  * @param string $key     Optional. Meta field key. Default empty.
  * @param int    $post_id Optional. Post ID. Default is the ID of the global `$post`.
@@ -2767,11 +2761,7 @@ function get_post_custom_values( $key = '', $post_id = 0 ) {
  * Sticky posts should remain at the top of The Loop. If the post ID is not
  * given, then The Loop ID for the current post will be used.
  *
- * For more information on this and similar theme functions, check out
- * the {@link https://developer.wordpress.org/themes/basics/conditional-tags/
- * Conditional Tags} article in the Theme Developer Handbook.
- *
- * @since 2.7.0
+ * @since WP 2.7.0
  *
  * @param int $post_id Optional. Post ID. Default is the ID of the global `$post`.
  * @return bool Whether post is sticky.
@@ -2795,7 +2785,7 @@ function is_sticky( $post_id = 0 ) {
 	/**
 	 * Filters whether a post is sticky.
 	 *
-	 * @since 5.3.0
+	 * @since WP 5.3.0
 	 *
 	 * @param bool $is_sticky Whether a post is sticky.
 	 * @param int  $post_id   Post ID.
@@ -2809,7 +2799,7 @@ function is_sticky( $post_id = 0 ) {
  * If the context is 'raw', then the post object or array will get minimal
  * sanitization of the integer fields.
  *
- * @since 2.3.0
+ * @since WP 2.3.0
  *
  * @see sanitize_post_field()
  *
@@ -2856,8 +2846,8 @@ function sanitize_post( $post, $context = 'display' ) {
  * 'js'. The 'display' context is used by default. 'attribute' and 'js' contexts
  * are treated like 'display' when calling filters.
  *
- * @since 2.3.0
- * @since 4.4.0 Like `sanitize_post()`, `$context` defaults to 'display'.
+ * @since WP 2.3.0
+ * @since WP 4.4.0 Like `sanitize_post()`, `$context` defaults to 'display'.
  *
  * @param string $field   The Post Object field name.
  * @param mixed  $value   The Post Object value.
@@ -2916,7 +2906,7 @@ function sanitize_post_field( $field, $value, $post_id, $context = 'display' ) {
 			 *  - `edit_post_type`
 			 *  - `edit_post_mime_type`
 			 *
-			 * @since 2.3.0
+			 * @since WP 2.3.0
 			 *
 			 * @param mixed $value   Value of the post field.
 			 * @param int   $post_id Post ID.
@@ -2947,7 +2937,7 @@ function sanitize_post_field( $field, $value, $post_id, $context = 'display' ) {
 			 *  - `type_edit_pre`
 			 *  - `mime_type_edit_pre`
 			 *
-			 * @since 2.3.0
+			 * @since WP 2.3.0
 			 *
 			 * @param mixed $value   Value of the post field.
 			 * @param int   $post_id Post ID.
@@ -2971,7 +2961,7 @@ function sanitize_post_field( $field, $value, $post_id, $context = 'display' ) {
 			 *  - `edit_post_guid`
 			 *  - `edit_post_menu_order`
 			 *
-			 * @since 2.3.0
+			 * @since WP 2.3.0
 			 *
 			 * @param mixed $value   Value of the post field.
 			 * @param int   $post_id Post ID.
@@ -3015,7 +3005,7 @@ function sanitize_post_field( $field, $value, $post_id, $context = 'display' ) {
 			 *  - `pre_post_type`
 			 *  - `pre_post_mime_type`
 			 *
-			 * @since 2.3.0
+			 * @since WP 2.3.0
 			 *
 			 * @param mixed $value Value of the post field.
 			 */
@@ -3045,7 +3035,7 @@ function sanitize_post_field( $field, $value, $post_id, $context = 'display' ) {
 			 *  - `type_save_pre`
 			 *  - `mime_type_save_pre`
 			 *
-			 * @since 2.3.0
+			 * @since WP 2.3.0
 			 *
 			 * @param mixed $value Value of the post field.
 			 */
@@ -3068,7 +3058,7 @@ function sanitize_post_field( $field, $value, $post_id, $context = 'display' ) {
 			 *  - `pre_post_menu_order`
 			 *  - `pre_post_comment_count`
 			 *
-			 * @since 2.3.0
+			 * @since WP 2.3.0
 			 *
 			 * @param mixed $value Value of the post field.
 			 */
@@ -3091,7 +3081,7 @@ function sanitize_post_field( $field, $value, $post_id, $context = 'display' ) {
 			 *  - `menu_order_pre`
 			 *  - `comment_count_pre`
 			 *
-			 * @since 2.3.0
+			 * @since WP 2.3.0
 			 *
 			 * @param mixed $value Value of the post field.
 			 */
@@ -3126,7 +3116,7 @@ function sanitize_post_field( $field, $value, $post_id, $context = 'display' ) {
 			 *  - `post_type`
 			 *  - `post_mime_type`
 			 *
-			 * @since 2.3.0
+			 * @since WP 2.3.0
 			 *
 			 * @param mixed  $value   Value of the prefixed post field.
 			 * @param int    $post_id Post ID.
@@ -3153,7 +3143,7 @@ function sanitize_post_field( $field, $value, $post_id, $context = 'display' ) {
 			 *  - `post_menu_order`
 			 *  - `post_comment_count`
 			 *
-			 * @since 2.3.0
+			 * @since WP 2.3.0
 			 *
 			 * @param mixed  $value   Value of the unprefixed post field.
 			 * @param int    $post_id Post ID
@@ -3183,7 +3173,7 @@ function sanitize_post_field( $field, $value, $post_id, $context = 'display' ) {
  *
  * Sticky posts should be displayed at the top of the front page.
  *
- * @since 2.7.0
+ * @since WP 2.7.0
  *
  * @param int $post_id Post ID.
  */
@@ -3207,7 +3197,7 @@ function stick_post( $post_id ) {
 		/**
 		 * Fires once a post has been added to the sticky list.
 		 *
-		 * @since 4.6.0
+		 * @since WP 4.6.0
 		 *
 		 * @param int $post_id ID of the post that was stuck.
 		 */
@@ -3220,7 +3210,7 @@ function stick_post( $post_id ) {
  *
  * Sticky posts should be displayed at the top of the front page.
  *
- * @since 2.7.0
+ * @since WP 2.7.0
  *
  * @param int $post_id Post ID.
  */
@@ -3251,7 +3241,7 @@ function unstick_post( $post_id ) {
 		/**
 		 * Fires once a post has been removed from the sticky list.
 		 *
-		 * @since 4.6.0
+		 * @since WP 4.6.0
 		 *
 		 * @param int $post_id ID of the post that was unstuck.
 		 */
@@ -3262,7 +3252,7 @@ function unstick_post( $post_id ) {
 /**
  * Returns the cache key for wp_count_posts() based on the passed arguments.
  *
- * @since 3.9.0
+ * @since WP 3.9.0
  * @access private
  *
  * @param string $type Optional. Post type to retrieve count Default 'post'.
@@ -3294,7 +3284,7 @@ function _count_posts_cache_key( $type = 'post', $perm = '' ) {
  * The $perm parameter checks for 'readable' value and if the user can read
  * private posts, it will display that for the user that is signed in.
  *
- * @since 2.5.0
+ * @since WP 2.5.0
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  *
@@ -3352,7 +3342,7 @@ function wp_count_posts( $type = 'post', $perm = '' ) {
 	/**
 	 * Filters the post counts by status for the current post type.
 	 *
-	 * @since 3.7.0
+	 * @since WP 3.7.0
 	 *
 	 * @param stdClass $counts An object containing the current post_type's post
 	 *                         counts by status.
@@ -3371,7 +3361,7 @@ function wp_count_posts( $type = 'post', $perm = '' ) {
  * you the number of attachments that are children of a post. You can get that
  * by counting the number of children that post has.
  *
- * @since 2.5.0
+ * @since WP 2.5.0
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  *
@@ -3404,7 +3394,7 @@ function wp_count_attachments( $mime_type = '' ) {
 	/**
 	 * Filters the attachment counts by mime type.
 	 *
-	 * @since 3.7.0
+	 * @since WP 3.7.0
 	 *
 	 * @param stdClass        $counts    An object containing the attachment counts by
 	 *                                   mime type.
@@ -3416,8 +3406,8 @@ function wp_count_attachments( $mime_type = '' ) {
 /**
  * Gets default post mime types.
  *
- * @since 2.9.0
- * @since 5.3.0 Added the 'Documents', 'Spreadsheets', and 'Archives' mime type groups.
+ * @since WP 2.9.0
+ * @since WP 5.3.0 Added the 'Documents', 'Spreadsheets', and 'Archives' mime type groups.
  *
  * @return array List of post mime types.
  */
@@ -3510,7 +3500,7 @@ function get_post_mime_types() {
 	/**
 	 * Filters the default list of post mime types.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @param array $post_mime_types Default list of post mime types.
 	 */
@@ -3524,7 +3514,7 @@ function get_post_mime_types() {
  * list. If the `$real_mime_types` is a string, it is also comma separated to
  * create the list.
  *
- * @since 2.5.0
+ * @since WP 2.5.0
  *
  * @param string|string[] $wildcard_mime_types Mime types, e.g. `audio/mpeg`, `image` (same as `image/*`),
  *                                             or `flash` (same as `*flash*`).
@@ -3576,7 +3566,7 @@ function wp_match_mime_types( $wildcard_mime_types, $real_mime_types ) {
 /**
  * Converts MIME types into SQL.
  *
- * @since 2.5.0
+ * @since WP 2.5.0
  *
  * @param string|string[] $post_mime_types List of mime types or comma separated string
  *                                         of mime types.
@@ -3642,7 +3632,7 @@ function wp_post_mime_type_where( $post_mime_types, $table_alias = '' ) {
  * The post or page is moved to Trash instead of permanently deleted unless
  * Trash is disabled, item is already in the Trash, or $force_delete is true.
  *
- * @since 1.0.0
+ * @since WP 1.0.0
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  * @see wp_delete_attachment()
@@ -3678,7 +3668,7 @@ function wp_delete_post( $post_id = 0, $force_delete = false ) {
 	/**
 	 * Filters whether a post deletion should take place.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 *
 	 * @param WP_Post|false|null $delete       Whether to go forward with deletion.
 	 * @param WP_Post            $post         Post object.
@@ -3692,8 +3682,8 @@ function wp_delete_post( $post_id = 0, $force_delete = false ) {
 	/**
 	 * Fires before a post is deleted, at the start of wp_delete_post().
 	 *
-	 * @since 3.2.0
-	 * @since 5.5.0 Added the `$post` parameter.
+	 * @since WP 3.2.0
+	 * @since WP 5.5.0 Added the `$post` parameter.
 	 *
 	 * @see wp_delete_post()
 	 *
@@ -3764,7 +3754,7 @@ function wp_delete_post( $post_id = 0, $force_delete = false ) {
 	 * The dynamic portion of the hook name, `$post->post_type`, refers to
 	 * the post type slug.
 	 *
-	 * @since 6.6.0
+	 * @since WP 6.6.0
 	 *
 	 * @param int     $post_id Post ID.
 	 * @param WP_Post $post    Post object.
@@ -3774,8 +3764,8 @@ function wp_delete_post( $post_id = 0, $force_delete = false ) {
 	/**
 	 * Fires immediately before a post is deleted from the database.
 	 *
-	 * @since 1.2.0
-	 * @since 5.5.0 Added the `$post` parameter.
+	 * @since WP 1.2.0
+	 * @since WP 5.5.0 Added the `$post` parameter.
 	 *
 	 * @param int     $post_id Post ID.
 	 * @param WP_Post $post    Post object.
@@ -3793,7 +3783,7 @@ function wp_delete_post( $post_id = 0, $force_delete = false ) {
 	 * The dynamic portion of the hook name, `$post->post_type`, refers to
 	 * the post type slug.
 	 *
-	 * @since 6.6.0
+	 * @since WP 6.6.0
 	 *
 	 * @param int     $post_id Post ID.
 	 * @param WP_Post $post    Post object.
@@ -3803,8 +3793,8 @@ function wp_delete_post( $post_id = 0, $force_delete = false ) {
 	/**
 	 * Fires immediately after a post is deleted from the database.
 	 *
-	 * @since 2.2.0
-	 * @since 5.5.0 Added the `$post` parameter.
+	 * @since WP 2.2.0
+	 * @since WP 5.5.0 Added the `$post` parameter.
 	 *
 	 * @param int     $post_id Post ID.
 	 * @param WP_Post $post    Post object.
@@ -3824,8 +3814,8 @@ function wp_delete_post( $post_id = 0, $force_delete = false ) {
 	/**
 	 * Fires after a post is deleted, at the conclusion of wp_delete_post().
 	 *
-	 * @since 3.2.0
-	 * @since 5.5.0 Added the `$post` parameter.
+	 * @since WP 3.2.0
+	 * @since WP 5.5.0 Added the `$post` parameter.
 	 *
 	 * @see wp_delete_post()
 	 *
@@ -3843,7 +3833,7 @@ function wp_delete_post( $post_id = 0, $force_delete = false ) {
  *
  * Also ensures the post is no longer sticky.
  *
- * @since 3.7.0
+ * @since WP 3.7.0
  * @access private
  *
  * @param int $post_id Post ID.
@@ -3873,7 +3863,7 @@ function _reset_front_page_settings_for_post( $post_id ) {
  *
  * If Trash is disabled, the post or page is permanently deleted.
  *
- * @since 2.9.0
+ * @since WP 2.9.0
  *
  * @see wp_delete_post()
  *
@@ -3901,8 +3891,8 @@ function wp_trash_post( $post_id = 0 ) {
 	/**
 	 * Filters whether a post trashing should take place.
 	 *
-	 * @since 4.9.0
-	 * @since 6.3.0 Added the `$previous_status` parameter.
+	 * @since WP 4.9.0
+	 * @since WP 6.3.0 Added the `$previous_status` parameter.
 	 *
 	 * @param bool|null $trash           Whether to go forward with trashing.
 	 * @param WP_Post   $post            Post object.
@@ -3917,8 +3907,8 @@ function wp_trash_post( $post_id = 0 ) {
 	/**
 	 * Fires before a post is sent to the Trash.
 	 *
-	 * @since 3.3.0
-	 * @since 6.3.0 Added the `$previous_status` parameter.
+	 * @since WP 3.3.0
+	 * @since WP 6.3.0 Added the `$previous_status` parameter.
 	 *
 	 * @param int    $post_id         Post ID.
 	 * @param string $previous_status The status of the post about to be trashed.
@@ -3944,8 +3934,8 @@ function wp_trash_post( $post_id = 0 ) {
 	/**
 	 * Fires after a post is sent to the Trash.
 	 *
-	 * @since 2.9.0
-	 * @since 6.3.0 Added the `$previous_status` parameter.
+	 * @since WP 2.9.0
+	 * @since WP 6.3.0 Added the `$previous_status` parameter.
 	 *
 	 * @param int    $post_id         Post ID.
 	 * @param string $previous_status The status of the post at the point where it was trashed.
@@ -3958,8 +3948,8 @@ function wp_trash_post( $post_id = 0 ) {
 /**
  * Restores a post from the Trash.
  *
- * @since 2.9.0
- * @since 5.6.0 An untrashed post is now returned to 'draft' status by default, except for
+ * @since WP 2.9.0
+ * @since WP 5.6.0 An untrashed post is now returned to 'draft' status by default, except for
  *              attachments which are returned to their original 'inherit' status.
  *
  * @param int $post_id Optional. Post ID. Default is the ID of the global `$post`.
@@ -3983,8 +3973,8 @@ function wp_untrash_post( $post_id = 0 ) {
 	/**
 	 * Filters whether a post untrashing should take place.
 	 *
-	 * @since 4.9.0
-	 * @since 5.6.0 Added the `$previous_status` parameter.
+	 * @since WP 4.9.0
+	 * @since WP 5.6.0 Added the `$previous_status` parameter.
 	 *
 	 * @param bool|null $untrash         Whether to go forward with untrashing.
 	 * @param WP_Post   $post            Post object.
@@ -3998,8 +3988,8 @@ function wp_untrash_post( $post_id = 0 ) {
 	/**
 	 * Fires before a post is restored from the Trash.
 	 *
-	 * @since 2.9.0
-	 * @since 5.6.0 Added the `$previous_status` parameter.
+	 * @since WP 2.9.0
+	 * @since WP 5.6.0 Added the `$previous_status` parameter.
 	 *
 	 * @param int    $post_id         Post ID.
 	 * @param string $previous_status The status of the post at the point where it was trashed.
@@ -4017,7 +4007,7 @@ function wp_untrash_post( $post_id = 0 ) {
 	 *
 	 * Prior to WordPress 5.6.0, restored posts were always assigned their original status.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param string $new_status      The new status of the post being restored.
 	 * @param int    $post_id         The ID of the post being restored.
@@ -4044,8 +4034,8 @@ function wp_untrash_post( $post_id = 0 ) {
 	/**
 	 * Fires after a post is restored from the Trash.
 	 *
-	 * @since 2.9.0
-	 * @since 5.6.0 Added the `$previous_status` parameter.
+	 * @since WP 2.9.0
+	 * @since WP 5.6.0 Added the `$previous_status` parameter.
 	 *
 	 * @param int    $post_id         Post ID.
 	 * @param string $previous_status The status of the post at the point where it was trashed.
@@ -4058,7 +4048,7 @@ function wp_untrash_post( $post_id = 0 ) {
 /**
  * Moves comments for a post to the Trash.
  *
- * @since 2.9.0
+ * @since WP 2.9.0
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  *
@@ -4079,7 +4069,7 @@ function wp_trash_post_comments( $post = null ) {
 	/**
 	 * Fires before comments are sent to the Trash.
 	 *
-	 * @since 2.9.0
+	 * @since WP 2.9.0
 	 *
 	 * @param int $post_id Post ID.
 	 */
@@ -4106,7 +4096,7 @@ function wp_trash_post_comments( $post = null ) {
 	/**
 	 * Fires after comments are sent to the Trash.
 	 *
-	 * @since 2.9.0
+	 * @since WP 2.9.0
 	 *
 	 * @param int   $post_id  Post ID.
 	 * @param array $statuses Array of comment statuses.
@@ -4119,7 +4109,7 @@ function wp_trash_post_comments( $post = null ) {
 /**
  * Restores comments for a post from the Trash.
  *
- * @since 2.9.0
+ * @since WP 2.9.0
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  *
@@ -4146,7 +4136,7 @@ function wp_untrash_post_comments( $post = null ) {
 	/**
 	 * Fires before comments are restored for a post from the Trash.
 	 *
-	 * @since 2.9.0
+	 * @since WP 2.9.0
 	 *
 	 * @param int $post_id Post ID.
 	 */
@@ -4174,7 +4164,7 @@ function wp_untrash_post_comments( $post = null ) {
 	/**
 	 * Fires after comments are restored for a post from the Trash.
 	 *
-	 * @since 2.9.0
+	 * @since WP 2.9.0
 	 *
 	 * @param int $post_id Post ID.
 	 */
@@ -4187,7 +4177,7 @@ function wp_untrash_post_comments( $post = null ) {
  * Compatibility layer for themes and plugins. Also an easy layer of abstraction
  * away from the complexity of the taxonomy layer.
  *
- * @since 2.1.0
+ * @since WP 2.1.0
  *
  * @see wp_get_object_terms()
  *
@@ -4217,7 +4207,7 @@ function wp_get_post_categories( $post_id = 0, $args = array() ) {
  * is set to 'all'. There are other defaults that can be overridden in
  * wp_get_object_terms().
  *
- * @since 2.3.0
+ * @since WP 2.3.0
  *
  * @param int   $post_id Optional. The Post ID. Does not default to the ID of the
  *                       global $post. Default 0.
@@ -4233,7 +4223,7 @@ function wp_get_post_tags( $post_id = 0, $args = array() ) {
 /**
  * Retrieves the terms for a post.
  *
- * @since 2.8.0
+ * @since WP 2.8.0
  *
  * @param int             $post_id  Optional. The Post ID. Does not default to the ID of the
  *                                  global $post. Default 0.
@@ -4261,7 +4251,7 @@ function wp_get_post_terms( $post_id = 0, $taxonomy = 'post_tag', $args = array(
 /**
  * Retrieves a number of recent posts.
  *
- * @since 1.0.0
+ * @since WP 1.0.0
  *
  * @see get_posts()
  *
@@ -4319,11 +4309,11 @@ function wp_get_recent_posts( $args = array(), $output = ARRAY_A ) {
  * and 'post_date_gmt' keys. You can close the comments or open the comments by
  * setting the value for 'comment_status' key.
  *
- * @since 1.0.0
- * @since 2.6.0 Added the `$wp_error` parameter to allow a WP_Error to be returned on failure.
- * @since 4.2.0 Support was added for encoding emoji in the post title, content, and excerpt.
- * @since 4.4.0 A 'meta_input' array can now be passed to `$postarr` to add post meta data.
- * @since 5.6.0 Added the `$fire_after_hooks` parameter.
+ * @since WP 1.0.0
+ * @since WP 2.6.0 Added the `$wp_error` parameter to allow a WP_Error to be returned on failure.
+ * @since WP 4.2.0 Support was added for encoding emoji in the post title, content, and excerpt.
+ * @since WP 4.4.0 A 'meta_input' array can now be passed to `$postarr` to add post meta data.
+ * @since WP 5.6.0 Added the `$fire_after_hooks` parameter.
  *
  * @see sanitize_post()
  * @global wpdb $wpdb WordPress database abstraction object.
@@ -4471,7 +4461,7 @@ function wp_insert_post( $postarr, $wp_error = false, $fire_after_hooks = true )
 	 * the new post being inserted and return 0. If $wp_error is true, a WP_Error
 	 * will be returned instead.
 	 *
-	 * @since 3.3.0
+	 * @since WP 3.3.0
 	 *
 	 * @param bool  $maybe_empty Whether the post should be considered "empty".
 	 * @param array $postarr     Array of post data.
@@ -4642,7 +4632,7 @@ function wp_insert_post( $postarr, $wp_error = false, $fire_after_hooks = true )
 	/**
 	 * Filters the post parent -- used to check for and prevent hierarchy loops.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @param int   $post_parent Post parent ID.
 	 * @param int   $post_id     Post ID.
@@ -4669,7 +4659,7 @@ function wp_insert_post( $postarr, $wp_error = false, $fire_after_hooks = true )
 		/**
 		 * Filters whether or not to add a `__trashed` suffix to trashed posts that match the name of the updated post.
 		 *
-		 * @since 5.4.0
+		 * @since WP 5.4.0
 		 *
 		 * @param bool   $add_trashed_suffix Whether to attempt to add the suffix.
 		 * @param string $post_name          The name of the post being updated.
@@ -4733,9 +4723,9 @@ function wp_insert_post( $postarr, $wp_error = false, $fire_after_hooks = true )
 		/**
 		 * Filters attachment post data before it is updated in or added to the database.
 		 *
-		 * @since 3.9.0
-		 * @since 5.4.1 The `$unsanitized_postarr` parameter was added.
-		 * @since 6.0.0 The `$update` parameter was added.
+		 * @since WP 3.9.0
+		 * @since WP 5.4.1 The `$unsanitized_postarr` parameter was added.
+		 * @since WP 6.0.0 The `$update` parameter was added.
 		 *
 		 * @param array $data                An array of slashed, sanitized, and processed attachment post data.
 		 * @param array $postarr             An array of slashed and sanitized attachment post data, but not processed.
@@ -4748,9 +4738,9 @@ function wp_insert_post( $postarr, $wp_error = false, $fire_after_hooks = true )
 		/**
 		 * Filters slashed post data just before it is inserted into the database.
 		 *
-		 * @since 2.7.0
-		 * @since 5.4.1 The `$unsanitized_postarr` parameter was added.
-		 * @since 6.0.0 The `$update` parameter was added.
+		 * @since WP 2.7.0
+		 * @since WP 5.4.1 The `$unsanitized_postarr` parameter was added.
+		 * @since WP 6.0.0 The `$update` parameter was added.
 		 *
 		 * @param array $data                An array of slashed, sanitized, and processed post data.
 		 * @param array $postarr             An array of sanitized (and slashed) but otherwise unmodified post data.
@@ -4768,7 +4758,7 @@ function wp_insert_post( $postarr, $wp_error = false, $fire_after_hooks = true )
 		/**
 		 * Fires immediately before an existing post is updated in the database.
 		 *
-		 * @since 2.5.0
+		 * @since WP 2.5.0
 		 *
 		 * @param int   $post_id Post ID.
 		 * @param array $data    Array of unslashed post data.
@@ -4953,7 +4943,7 @@ function wp_insert_post( $postarr, $wp_error = false, $fire_after_hooks = true )
 			/**
 			 * Fires once an existing attachment has been updated.
 			 *
-			 * @since 2.0.0
+			 * @since WP 2.0.0
 			 *
 			 * @param int $post_id Attachment ID.
 			 */
@@ -4964,7 +4954,7 @@ function wp_insert_post( $postarr, $wp_error = false, $fire_after_hooks = true )
 			/**
 			 * Fires once an existing attachment has been updated.
 			 *
-			 * @since 4.4.0
+			 * @since WP 4.4.0
 			 *
 			 * @param int     $post_id      Post ID.
 			 * @param WP_Post $post_after   Post object following the update.
@@ -4976,7 +4966,7 @@ function wp_insert_post( $postarr, $wp_error = false, $fire_after_hooks = true )
 			/**
 			 * Fires once an attachment has been added.
 			 *
-			 * @since 2.0.0
+			 * @since WP 2.0.0
 			 *
 			 * @param int $post_id Attachment ID.
 			 */
@@ -4998,7 +4988,7 @@ function wp_insert_post( $postarr, $wp_error = false, $fire_after_hooks = true )
 		 *  - `edit_post_post`
 		 *  - `edit_post_page`
 		 *
-		 * @since 5.1.0
+		 * @since WP 5.1.0
 		 *
 		 * @param int     $post_id Post ID.
 		 * @param WP_Post $post    Post object.
@@ -5008,7 +4998,7 @@ function wp_insert_post( $postarr, $wp_error = false, $fire_after_hooks = true )
 		/**
 		 * Fires once an existing post has been updated.
 		 *
-		 * @since 1.2.0
+		 * @since WP 1.2.0
 		 *
 		 * @param int     $post_id Post ID.
 		 * @param WP_Post $post    Post object.
@@ -5020,7 +5010,7 @@ function wp_insert_post( $postarr, $wp_error = false, $fire_after_hooks = true )
 		/**
 		 * Fires once an existing post has been updated.
 		 *
-		 * @since 3.0.0
+		 * @since WP 3.0.0
 		 *
 		 * @param int     $post_id      Post ID.
 		 * @param WP_Post $post_after   Post object following the update.
@@ -5040,7 +5030,7 @@ function wp_insert_post( $postarr, $wp_error = false, $fire_after_hooks = true )
 	 *  - `save_post_post`
 	 *  - `save_post_page`
 	 *
-	 * @since 3.7.0
+	 * @since WP 3.7.0
 	 *
 	 * @param int     $post_id Post ID.
 	 * @param WP_Post $post    Post object.
@@ -5051,7 +5041,7 @@ function wp_insert_post( $postarr, $wp_error = false, $fire_after_hooks = true )
 	/**
 	 * Fires once a post has been saved.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 *
 	 * @param int     $post_id Post ID.
 	 * @param WP_Post $post    Post object.
@@ -5062,7 +5052,7 @@ function wp_insert_post( $postarr, $wp_error = false, $fire_after_hooks = true )
 	/**
 	 * Fires once a post has been saved.
 	 *
-	 * @since 2.0.0
+	 * @since WP 2.0.0
 	 *
 	 * @param int     $post_id Post ID.
 	 * @param WP_Post $post    Post object.
@@ -5083,9 +5073,9 @@ function wp_insert_post( $postarr, $wp_error = false, $fire_after_hooks = true )
  * The date does not have to be set for drafts. You can set the date and it will
  * not be overridden.
  *
- * @since 1.0.0
- * @since 3.5.0 Added the `$wp_error` parameter to allow a WP_Error to be returned on failure.
- * @since 5.6.0 Added the `$fire_after_hooks` parameter.
+ * @since WP 1.0.0
+ * @since WP 3.5.0 Added the `$wp_error` parameter to allow a WP_Error to be returned on failure.
+ * @since WP 5.6.0 Added the `$fire_after_hooks` parameter.
  *
  * @param array|object $postarr          Optional. Post data. Arrays are expected to be escaped,
  *                                       objects are not. See wp_insert_post() for accepted arguments.
@@ -5165,7 +5155,7 @@ function wp_update_post( $postarr = array(), $wp_error = false, $fire_after_hook
 /**
  * Publishes a post by transitioning the post status.
  *
- * @since 2.1.0
+ * @since WP 2.1.0
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  *
@@ -5245,7 +5235,7 @@ function wp_publish_post( $post ) {
  * Invoked by cron 'publish_future_post' event. This safeguard prevents cron
  * from publishing drafts, etc.
  *
- * @since 2.5.0
+ * @since WP 2.5.0
  *
  * @param int|WP_Post $post Post ID or post object.
  */
@@ -5281,7 +5271,7 @@ function check_and_publish_future_post( $post ) {
  * For back-compat purposes in wp_insert_post, an empty post_date and an invalid
  * post_date_gmt will continue to return '1970-01-01 00:00:00' rather than false.
  *
- * @since 5.7.0
+ * @since WP 5.7.0
  *
  * @param string $post_date     The date in mysql format (`Y-m-d H:i:s`).
  * @param string $post_date_gmt The GMT date in mysql format (`Y-m-d H:i:s`).
@@ -5313,7 +5303,7 @@ function wp_resolve_post_date( $post_date = '', $post_date_gmt = '' ) {
 /**
  * Computes a unique slug for the post, when given the desired slug and some post details.
  *
- * @since 2.8.0
+ * @since WP 2.8.0
  *
  * @global wpdb       $wpdb       WordPress database abstraction object.
  * @global WP_Rewrite $wp_rewrite WordPress rewrite component.
@@ -5338,7 +5328,7 @@ function wp_unique_post_slug( $slug, $post_id, $post_status, $post_type, $post_p
 	 * Returning a non-null value will short-circuit the
 	 * unique slug generation, returning the passed value instead.
 	 *
-	 * @since 5.1.0
+	 * @since WP 5.1.0
 	 *
 	 * @param string|null $override_slug Short-circuit return value.
 	 * @param string      $slug          The desired slug (post_name).
@@ -5369,7 +5359,7 @@ function wp_unique_post_slug( $slug, $post_id, $post_status, $post_type, $post_p
 		/**
 		 * Filters whether the post slug would make a bad attachment slug.
 		 *
-		 * @since 3.1.0
+		 * @since WP 3.1.0
 		 *
 		 * @param bool   $bad_slug Whether the slug would be bad as an attachment slug.
 		 * @param string $slug     The post slug.
@@ -5403,7 +5393,7 @@ function wp_unique_post_slug( $slug, $post_id, $post_status, $post_type, $post_p
 		/**
 		 * Filters whether the post slug would make a bad hierarchical post slug.
 		 *
-		 * @since 3.1.0
+		 * @since WP 3.1.0
 		 *
 		 * @param bool   $bad_slug    Whether the post slug would be bad in a hierarchical post context.
 		 * @param string $slug        The post slug.
@@ -5460,7 +5450,7 @@ function wp_unique_post_slug( $slug, $post_id, $post_status, $post_type, $post_p
 		/**
 		 * Filters whether the post slug would be bad as a flat slug.
 		 *
-		 * @since 3.1.0
+		 * @since WP 3.1.0
 		 *
 		 * @param bool   $bad_slug  Whether the post slug would be bad as a flat slug.
 		 * @param string $slug      The post slug.
@@ -5486,7 +5476,7 @@ function wp_unique_post_slug( $slug, $post_id, $post_status, $post_type, $post_p
 	/**
 	 * Filters the unique post slug.
 	 *
-	 * @since 3.3.0
+	 * @since WP 3.3.0
 	 *
 	 * @param string $slug          The post slug.
 	 * @param int    $post_id       Post ID.
@@ -5501,7 +5491,7 @@ function wp_unique_post_slug( $slug, $post_id, $post_status, $post_type, $post_p
 /**
  * Truncates a post slug.
  *
- * @since 3.6.0
+ * @since WP 3.6.0
  * @access private
  *
  * @see utf8_uri_encode()
@@ -5528,7 +5518,7 @@ function _truncate_post_slug( $slug, $length = 200 ) {
  *
  * @see wp_set_post_tags()
  *
- * @since 2.3.0
+ * @since WP 2.3.0
  *
  * @param int          $post_id Optional. The Post ID. Does not default to the ID of the global $post.
  * @param string|array $tags    Optional. An array of tags to set for the post, or a string of tags
@@ -5542,7 +5532,7 @@ function wp_add_post_tags( $post_id = 0, $tags = '' ) {
 /**
  * Sets the tags for a post.
  *
- * @since 2.3.0
+ * @since WP 2.3.0
  *
  * @see wp_set_object_terms()
  *
@@ -5560,7 +5550,7 @@ function wp_set_post_tags( $post_id = 0, $tags = '', $append = false ) {
 /**
  * Sets the terms for a post.
  *
- * @since 2.8.0
+ * @since WP 2.8.0
  *
  * @see wp_set_object_terms()
  *
@@ -5609,7 +5599,7 @@ function wp_set_post_terms( $post_id = 0, $terms = '', $taxonomy = 'post_tag', $
  *
  * If no categories are provided, the default category is used.
  *
- * @since 2.1.0
+ * @since WP 2.1.0
  *
  * @param int       $post_id         Optional. The Post ID. Does not default to the ID
  *                                   of the global $post. Default 0.
@@ -5631,7 +5621,7 @@ function wp_set_post_categories( $post_id = 0, $post_categories = array(), $appe
 		/**
 		 * Filters post types (in addition to 'post') that require a default category.
 		 *
-		 * @since 5.5.0
+		 * @since WP 5.5.0
 		 *
 		 * @param string[] $post_types An array of post type names. Default empty array.
 		 */
@@ -5671,7 +5661,7 @@ function wp_set_post_categories( $post_id = 0, $post_categories = array(), $appe
  * published and is simply being updated, the "old" and "new" statuses may both be 'publish'
  * before and after the transition.
  *
- * @since 2.3.0
+ * @since WP 2.3.0
  *
  * @param string  $new_status Transition to this post status.
  * @param string  $old_status Previous post status.
@@ -5681,7 +5671,7 @@ function wp_transition_post_status( $new_status, $old_status, $post ) {
 	/**
 	 * Fires when a post is transitioned from one status to another.
 	 *
-	 * @since 2.3.0
+	 * @since WP 2.3.0
 	 *
 	 * @param string  $new_status New post status.
 	 * @param string  $old_status Old post status.
@@ -5701,7 +5691,7 @@ function wp_transition_post_status( $new_status, $old_status, $post ) {
 	 *  - `publish_to_trash`
 	 *  - `pending_to_draft`
 	 *
-	 * @since 2.3.0
+	 * @since WP 2.3.0
 	 *
 	 * @param WP_Post $post Post object.
 	 */
@@ -5738,8 +5728,8 @@ function wp_transition_post_status( $new_status, $old_status, $post ) {
 	 * Therefore, if you are looking to only fire a callback when a post is first
 	 * transitioned to a status, use the {@see 'transition_post_status'} hook instead.
 	 *
-	 * @since 2.3.0
-	 * @since 5.9.0 Added `$old_status` parameter.
+	 * @since WP 2.3.0
+	 * @since WP 5.9.0 Added `$old_status` parameter.
 	 *
 	 * @param int     $post_id    Post ID.
 	 * @param WP_Post $post       Post object.
@@ -5751,7 +5741,7 @@ function wp_transition_post_status( $new_status, $old_status, $post ) {
 /**
  * Fires actions after a post, its terms and meta data has been saved.
  *
- * @since 5.6.0
+ * @since WP 5.6.0
  *
  * @param int|WP_Post  $post        The post ID or object that has been saved.
  * @param bool         $update      Whether this is an existing post being updated.
@@ -5770,7 +5760,7 @@ function wp_after_insert_post( $post, $update, $post_before ) {
 	/**
 	 * Fires once a post, its terms and meta data has been saved.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param int          $post_id     Post ID.
 	 * @param WP_Post      $post        Post object.
@@ -5788,9 +5778,9 @@ function wp_after_insert_post( $post, $update, $post_before ) {
 /**
  * Adds a URL to those already pinged.
  *
- * @since 1.5.0
- * @since 4.7.0 `$post` can be a WP_Post object.
- * @since 4.7.0 `$uri` can be an array of URIs.
+ * @since WP 1.5.0
+ * @since WP 4.7.0 `$post` can be a WP_Post object.
+ * @since WP 4.7.0 `$uri` can be an array of URIs.
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  *
@@ -5820,7 +5810,7 @@ function add_ping( $post, $uri ) {
 	/**
 	 * Filters the new ping URL to add for the given post.
 	 *
-	 * @since 2.0.0
+	 * @since WP 2.0.0
 	 *
 	 * @param string $new New ping URL to add.
 	 */
@@ -5834,7 +5824,7 @@ function add_ping( $post, $uri ) {
 /**
  * Retrieves enclosures already enclosed for a post.
  *
- * @since 1.5.0
+ * @since WP 1.5.0
  *
  * @param int $post_id Post ID.
  * @return string[] Array of enclosures for the given post.
@@ -5859,7 +5849,7 @@ function get_enclosed( $post_id ) {
 	/**
 	 * Filters the list of enclosures already enclosed for the given post.
 	 *
-	 * @since 2.0.0
+	 * @since WP 2.0.0
 	 *
 	 * @param string[] $pung    Array of enclosures for the given post.
 	 * @param int      $post_id Post ID.
@@ -5870,9 +5860,9 @@ function get_enclosed( $post_id ) {
 /**
  * Retrieves URLs already pinged for a post.
  *
- * @since 1.5.0
+ * @since WP 1.5.0
  *
- * @since 4.7.0 `$post` can be a WP_Post object.
+ * @since WP 4.7.0 `$post` can be a WP_Post object.
  *
  * @param int|WP_Post $post Post ID or object.
  * @return string[]|false Array of URLs already pinged for the given post, false if the post is not found.
@@ -5890,7 +5880,7 @@ function get_pung( $post ) {
 	/**
 	 * Filters the list of already-pinged URLs for the given post.
 	 *
-	 * @since 2.0.0
+	 * @since WP 2.0.0
 	 *
 	 * @param string[] $pung Array of URLs already pinged for the given post.
 	 */
@@ -5900,8 +5890,8 @@ function get_pung( $post ) {
 /**
  * Retrieves URLs that need to be pinged.
  *
- * @since 1.5.0
- * @since 4.7.0 `$post` can be a WP_Post object.
+ * @since WP 1.5.0
+ * @since WP 4.7.0 `$post` can be a WP_Post object.
  *
  * @param int|WP_Post $post Post ID or post object.
  * @return string[]|false List of URLs yet to ping.
@@ -5919,7 +5909,7 @@ function get_to_ping( $post ) {
 	/**
 	 * Filters the list of URLs yet to ping for the given post.
 	 *
-	 * @since 2.0.0
+	 * @since WP 2.0.0
 	 *
 	 * @param string[] $to_ping List of URLs yet to ping.
 	 */
@@ -5929,7 +5919,7 @@ function get_to_ping( $post ) {
 /**
  * Does trackbacks for a list of URLs.
  *
- * @since 1.0.0
+ * @since WP 1.0.0
  *
  * @param string $tb_list Comma separated list of URLs.
  * @param int    $post_id Post ID.
@@ -5961,7 +5951,7 @@ function trackback_url_list( $tb_list, $post_id ) {
 /**
  * Gets a list of page IDs.
  *
- * @since 2.0.0
+ * @since WP 2.0.0
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  *
@@ -5984,8 +5974,8 @@ function get_all_page_ids() {
  *
  * Use get_post() instead of get_page().
  *
- * @since 1.5.1
- * @deprecated 3.5.0 Use get_post()
+ * @since WP 1.5.1
+ * @deprecated WP 3.5.0 Use get_post()
  *
  * @param int|WP_Post $page   Page object or page ID. Passed by reference.
  * @param string      $output Optional. The required return type. One of OBJECT, ARRAY_A, or ARRAY_N, which
@@ -6002,7 +5992,7 @@ function get_page( $page, $output = OBJECT, $filter = 'raw' ) {
 /**
  * Retrieves a page given its path.
  *
- * @since 2.1.0
+ * @since WP 2.1.0
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  *
@@ -6101,7 +6091,7 @@ function get_page_by_path( $page_path, $output = OBJECT, $post_type = 'page' ) {
  *
  * Descendants are identified from the `$pages` array passed to the function. No database queries are performed.
  *
- * @since 1.5.1
+ * @since WP 1.5.1
  *
  * @param int       $page_id Page ID.
  * @param WP_Post[] $pages   List of page objects from which descendants should be identified.
@@ -6142,7 +6132,7 @@ function get_page_children( $page_id, $pages ) {
  * It uses auxiliary structure to hold parent-children relationships and
  * runs in O(N) complexity
  *
- * @since 2.0.0
+ * @since WP 2.0.0
  *
  * @param WP_Post[] $pages   Posts array (passed by reference).
  * @param int       $page_id Optional. Parent page ID. Default 0.
@@ -6170,7 +6160,7 @@ function get_page_hierarchy( &$pages, $page_id = 0 ) {
  *
  * $children contains parent-children relations
  *
- * @since 2.9.0
+ * @since WP 2.9.0
  * @access private
  *
  * @see _page_traverse_name()
@@ -6193,8 +6183,8 @@ function _page_traverse_name( $page_id, &$children, &$result ) {
  *
  * Sub pages will be in the "directory" under the parent page post name.
  *
- * @since 1.5.0
- * @since 4.6.0 The `$page` parameter was made optional.
+ * @since WP 1.5.0
+ * @since WP 4.6.0 The `$page` parameter was made optional.
  *
  * @param WP_Post|object|int $page Optional. Page ID or WP_Post object. Default is global $post.
  * @return string|false Page URI, false on error.
@@ -6220,7 +6210,7 @@ function get_page_uri( $page = 0 ) {
 	/**
 	 * Filters the URI for a page.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 *
 	 * @param string  $uri  Page URI.
 	 * @param WP_Post $page Page object.
@@ -6231,8 +6221,8 @@ function get_page_uri( $page = 0 ) {
 /**
  * Retrieves an array of pages (or hierarchical post type items).
  *
- * @since 1.5.0
- * @since 6.3.0 Use WP_Query internally.
+ * @since WP 1.5.0
+ * @since WP 6.3.0 Use WP_Query internally.
  *
  * @param array|string $args {
  *     Optional. Array or string of arguments to retrieve pages.
@@ -6407,7 +6397,7 @@ function get_pages( $args = array() ) {
 	/**
 	 * Filters query arguments passed to WP_Query in get_pages.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param array $query_args  Array of arguments passed to WP_Query.
 	 * @param array $parsed_args Array of get_pages() arguments.
@@ -6441,7 +6431,7 @@ function get_pages( $args = array() ) {
 	/**
 	 * Filters the retrieved list of pages.
 	 *
-	 * @since 2.1.0
+	 * @since WP 2.1.0
 	 *
 	 * @param WP_Post[] $pages       Array of page objects.
 	 * @param array     $parsed_args Array of get_pages() arguments.
@@ -6456,11 +6446,7 @@ function get_pages( $args = array() ) {
 /**
  * Determines whether an attachment URI is local and really an attachment.
  *
- * For more information on this and similar theme functions, check out
- * the {@link https://developer.wordpress.org/themes/basics/conditional-tags/
- * Conditional Tags} article in the Theme Developer Handbook.
- *
- * @since 2.0.0
+ * @since WP 2.0.0
  *
  * @param string $url URL to check
  * @return bool True on success, false on failure.
@@ -6497,9 +6483,9 @@ function is_local_attachment( $url ) {
  * comments are allowed. You can close them manually or keep them open by
  * setting the value for the 'comment_status' key.
  *
- * @since 2.0.0
- * @since 4.7.0 Added the `$wp_error` parameter to allow a WP_Error to be returned on failure.
- * @since 5.6.0 Added the `$fire_after_hooks` parameter.
+ * @since WP 2.0.0
+ * @since WP 4.7.0 Added the `$wp_error` parameter to allow a WP_Error to be returned on failure.
+ * @since WP 5.6.0 Added the `$fire_after_hooks` parameter.
  *
  * @see wp_insert_post()
  *
@@ -6537,7 +6523,7 @@ function wp_insert_attachment( $args, $file = false, $parent_post_id = 0, $wp_er
  * The attachment is moved to the Trash instead of permanently deleted unless Trash
  * for media is disabled, item is already in the Trash, or $force_delete is true.
  *
- * @since 2.0.0
+ * @since WP 2.0.0
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  *
@@ -6568,7 +6554,7 @@ function wp_delete_attachment( $post_id, $force_delete = false ) {
 	/**
 	 * Filters whether an attachment deletion should take place.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @param WP_Post|false|null $delete       Whether to go forward with deletion.
 	 * @param WP_Post            $post         Post object.
@@ -6593,8 +6579,8 @@ function wp_delete_attachment( $post_id, $force_delete = false ) {
 	/**
 	 * Fires before an attachment is deleted, at the start of wp_delete_attachment().
 	 *
-	 * @since 2.0.0
-	 * @since 5.5.0 Added the `$post` parameter.
+	 * @since WP 2.0.0
+	 * @since WP 5.5.0 Added the `$post` parameter.
 	 *
 	 * @param int     $post_id Attachment ID.
 	 * @param WP_Post $post    Post object.
@@ -6640,7 +6626,7 @@ function wp_delete_attachment( $post_id, $force_delete = false ) {
 /**
  * Deletes all files that belong to the given attachment.
  *
- * @since 4.9.7
+ * @since WP 4.9.7
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  *
@@ -6731,8 +6717,8 @@ function wp_delete_attachment_files( $post_id, $meta, $backup_sizes, $file ) {
 /**
  * Retrieves attachment metadata for attachment ID.
  *
- * @since 2.1.0
- * @since 6.0.0 The `$filesize` value was added to the returned array.
+ * @since WP 2.1.0
+ * @since WP 6.0.0 The `$filesize` value was added to the returned array.
  *
  * @param int  $attachment_id Attachment post ID. Defaults to global $post.
  * @param bool $unfiltered    Optional. If true, filters are not run. Default false.
@@ -6774,7 +6760,7 @@ function wp_get_attachment_metadata( $attachment_id = 0, $unfiltered = false ) {
 	/**
 	 * Filters the attachment meta data.
 	 *
-	 * @since 2.1.0
+	 * @since WP 2.1.0
 	 *
 	 * @param array $data          Array of meta data for the given attachment.
 	 * @param int   $attachment_id Attachment post ID.
@@ -6785,7 +6771,7 @@ function wp_get_attachment_metadata( $attachment_id = 0, $unfiltered = false ) {
 /**
  * Updates metadata for an attachment.
  *
- * @since 2.1.0
+ * @since WP 2.1.0
  *
  * @param int   $attachment_id Attachment post ID.
  * @param array $data          Attachment meta data.
@@ -6803,7 +6789,7 @@ function wp_update_attachment_metadata( $attachment_id, $data ) {
 	/**
 	 * Filters the updated attachment meta data.
 	 *
-	 * @since 2.1.0
+	 * @since WP 2.1.0
 	 *
 	 * @param array $data          Array of updated attachment meta data.
 	 * @param int   $attachment_id Attachment post ID.
@@ -6819,7 +6805,7 @@ function wp_update_attachment_metadata( $attachment_id, $data ) {
 /**
  * Retrieves the URL for an attachment.
  *
- * @since 2.1.0
+ * @since WP 2.1.0
  *
  * @global string $pagenow The filename of the current screen.
  *
@@ -6878,7 +6864,7 @@ function wp_get_attachment_url( $attachment_id = 0 ) {
 	/**
 	 * Filters the attachment URL.
 	 *
-	 * @since 2.1.0
+	 * @since WP 2.1.0
 	 *
 	 * @param string $url           URL for the given attachment.
 	 * @param int    $attachment_id Attachment post ID.
@@ -6895,7 +6881,7 @@ function wp_get_attachment_url( $attachment_id = 0 ) {
 /**
  * Retrieves the caption for an attachment.
  *
- * @since 4.6.0
+ * @since WP 4.6.0
  *
  * @param int $post_id Optional. Attachment ID. Default is the ID of the global `$post`.
  * @return string|false Attachment caption on success, false on failure.
@@ -6917,7 +6903,7 @@ function wp_get_attachment_caption( $post_id = 0 ) {
 	/**
 	 * Filters the attachment caption.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 *
 	 * @param string $caption Caption for the given attachment.
 	 * @param int    $post_id Attachment ID.
@@ -6928,8 +6914,8 @@ function wp_get_attachment_caption( $post_id = 0 ) {
 /**
  * Retrieves URL for an attachment thumbnail.
  *
- * @since 2.1.0
- * @since 6.1.0 Changed to use wp_get_attachment_image_url().
+ * @since WP 2.1.0
+ * @since WP 6.1.0 Changed to use wp_get_attachment_image_url().
  *
  * @param int $post_id Optional. Attachment ID. Default is the ID of the global `$post`.
  * @return string|false Thumbnail URL on success, false on failure.
@@ -6950,7 +6936,7 @@ function wp_get_attachment_thumb_url( $post_id = 0 ) {
 	/**
 	 * Filters the attachment thumbnail URL.
 	 *
-	 * @since 2.1.0
+	 * @since WP 2.1.0
 	 *
 	 * @param string $thumbnail_url URL for the attachment thumbnail.
 	 * @param int    $post_id       Attachment ID.
@@ -6961,7 +6947,7 @@ function wp_get_attachment_thumb_url( $post_id = 0 ) {
 /**
  * Verifies an attachment is of a given type.
  *
- * @since 4.2.0
+ * @since WP 4.2.0
  *
  * @param string      $type Attachment type. Accepts `image`, `audio`, `video`, or a file extension.
  * @param int|WP_Post $post Optional. Attachment ID or object. Default is global $post.
@@ -7015,12 +7001,8 @@ function wp_attachment_is( $type, $post = null ) {
 /**
  * Determines whether an attachment is an image.
  *
- * For more information on this and similar theme functions, check out
- * the {@link https://developer.wordpress.org/themes/basics/conditional-tags/
- * Conditional Tags} article in the Theme Developer Handbook.
- *
- * @since 2.1.0
- * @since 4.2.0 Modified into wrapper for wp_attachment_is() and
+ * @since WP 2.1.0
+ * @since WP 4.2.0 Modified into wrapper for wp_attachment_is() and
  *              allowed WP_Post object to be passed.
  *
  * @param int|WP_Post $post Optional. Attachment ID or object. Default is global $post.
@@ -7033,8 +7015,8 @@ function wp_attachment_is_image( $post = null ) {
 /**
  * Retrieves the icon for a MIME type or attachment.
  *
- * @since 2.1.0
- * @since 6.5.0 Added the `$preferred_ext` parameter.
+ * @since WP 2.1.0
+ * @since WP 6.5.0 Added the `$preferred_ext` parameter.
  *
  * @param string|int $mime          MIME type or attachment ID.
  * @param string     $preferred_ext File format to prefer in return. Default '.png'.
@@ -7081,7 +7063,7 @@ function wp_mime_type_icon( $mime = 0, $preferred_ext = '.png' ) {
 			/**
 			 * Filters the icon directory path.
 			 *
-			 * @since 2.0.0
+			 * @since WP 2.0.0
 			 *
 			 * @param string $path Icon directory absolute path.
 			 */
@@ -7090,7 +7072,7 @@ function wp_mime_type_icon( $mime = 0, $preferred_ext = '.png' ) {
 			/**
 			 * Filters the icon directory URI.
 			 *
-			 * @since 2.0.0
+			 * @since WP 2.0.0
 			 *
 			 * @param string $uri Icon directory URI.
 			 */
@@ -7099,7 +7081,7 @@ function wp_mime_type_icon( $mime = 0, $preferred_ext = '.png' ) {
 			/**
 			 * Filters the array of icon directory URIs.
 			 *
-			 * @since 2.5.0
+			 * @since WP 2.5.0
 			 *
 			 * @param string[] $uris Array of icon directory URIs keyed by directory absolute path.
 			 */
@@ -7173,7 +7155,7 @@ function wp_mime_type_icon( $mime = 0, $preferred_ext = '.png' ) {
 	/**
 	 * Filters the mime type icon.
 	 *
-	 * @since 2.1.0
+	 * @since WP 2.1.0
 	 *
 	 * @param string $icon    Path to the mime type icon.
 	 * @param string $mime    Mime type.
@@ -7196,7 +7178,7 @@ function wp_mime_type_icon( $mime = 0, $preferred_ext = '.png' ) {
  * The most logically usage of this function is redirecting changed post objects, so
  * that those that linked to an changed post will be redirected to the new post.
  *
- * @since 2.1.0
+ * @since WP 2.1.0
  *
  * @param int     $post_id     Post ID.
  * @param WP_Post $post        The post object.
@@ -7239,7 +7221,7 @@ function wp_check_for_changed_slugs( $post_id, $post, $post_before ) {
  * The most logically usage of this function is redirecting changed post objects, so
  * that those that linked to an changed post will be redirected to the new post.
  *
- * @since 4.9.3
+ * @since WP 4.9.3
  *
  * @param int     $post_id     Post ID.
  * @param WP_Post $post        The post object.
@@ -7280,8 +7262,8 @@ function wp_check_for_changed_dates( $post_id, $post, $post_before ) {
  * that can be added to a WHERE clause; this SQL is constructed to allow all
  * published posts, and all private posts to which the user has access.
  *
- * @since 2.2.0
- * @since 4.3.0 Added the ability to pass an array to `$post_type`.
+ * @since WP 2.2.0
+ * @since WP 4.3.0 Added the ability to pass an array to `$post_type`.
  *
  * @param string|array $post_type Single post type or an array of post types. Currently only supports 'post' or 'page'.
  * @return string SQL code that can be added to a where clause.
@@ -7293,8 +7275,8 @@ function get_private_posts_cap_sql( $post_type ) {
 /**
  * Retrieves the post SQL based on capability, author, and type.
  *
- * @since 3.0.0
- * @since 4.3.0 Introduced the ability to pass an array of post types to `$post_type`.
+ * @since WP 3.0.0
+ * @since WP 4.3.0 Introduced the ability to pass an array of post types to `$post_type`.
  *
  * @see get_private_posts_cap_sql()
  * @global wpdb $wpdb WordPress database abstraction object.
@@ -7328,8 +7310,8 @@ function get_posts_by_author_sql( $post_type, $full = true, $post_author = null,
 		 * Filters the capability to read private posts for a custom post type
 		 * when generating SQL for getting posts by author.
 		 *
-		 * @since 2.2.0
-		 * @deprecated 3.2.0 The hook transitioned from "somewhat useless" to "totally useless".
+		 * @since WP 2.2.0
+		 * @deprecated WP 3.2.0 The hook transitioned from "somewhat useless" to "totally useless".
 		 *
 		 * @param string $cap Capability.
 		 */
@@ -7384,8 +7366,8 @@ function get_posts_by_author_sql( $post_type, $full = true, $post_author = null,
  * server time. The 'blog' value is the date when the last post was posted.
  * The 'gmt' is when the last post was posted in GMT formatted date.
  *
- * @since 0.71
- * @since 4.4.0 The `$post_type` argument was added.
+ * @since WP 0.71
+ * @since WP 4.4.0 The `$post_type` argument was added.
  *
  * @param string $timezone  Optional. The timezone for the timestamp. Accepts 'server', 'blog', or 'gmt'.
  *                          'server' uses the server's internal timezone.
@@ -7401,8 +7383,8 @@ function get_lastpostdate( $timezone = 'server', $post_type = 'any' ) {
 	/**
 	 * Filters the most recent time that a post on the site was published.
 	 *
-	 * @since 2.3.0
-	 * @since 5.5.0 Added the `$post_type` parameter.
+	 * @since WP 2.3.0
+	 * @since WP 5.5.0 Added the `$post_type` parameter.
 	 *
 	 * @param string|false $lastpostdate The most recent time that a post was published,
 	 *                                   in 'Y-m-d H:i:s' format. False on failure.
@@ -7420,8 +7402,8 @@ function get_lastpostdate( $timezone = 'server', $post_type = 'any' ) {
  * server time. The 'blog' value is just when the last post was modified.
  * The 'gmt' is when the last post was modified in GMT time.
  *
- * @since 1.2.0
- * @since 4.4.0 The `$post_type` argument was added.
+ * @since WP 1.2.0
+ * @since WP 4.4.0 The `$post_type` argument was added.
  *
  * @param string $timezone  Optional. The timezone for the timestamp. See get_lastpostdate()
  *                          for information on accepted values.
@@ -7433,7 +7415,7 @@ function get_lastpostmodified( $timezone = 'server', $post_type = 'any' ) {
 	/**
 	 * Pre-filter the return value of get_lastpostmodified() before the query is run.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 *
 	 * @param string|false $lastpostmodified The most recent time that a post was modified,
 	 *                                       in 'Y-m-d H:i:s' format, or false. Returning anything
@@ -7458,8 +7440,8 @@ function get_lastpostmodified( $timezone = 'server', $post_type = 'any' ) {
 	/**
 	 * Filters the most recent time that a post on the site was modified.
 	 *
-	 * @since 2.3.0
-	 * @since 5.5.0 Added the `$post_type` parameter.
+	 * @since WP 2.3.0
+	 * @since WP 5.5.0 Added the `$post_type` parameter.
 	 *
 	 * @param string|false $lastpostmodified The most recent time that a post was modified,
 	 *                                       in 'Y-m-d H:i:s' format. False on failure.
@@ -7473,8 +7455,8 @@ function get_lastpostmodified( $timezone = 'server', $post_type = 'any' ) {
 /**
  * Gets the timestamp of the last time any post was modified or published.
  *
- * @since 3.1.0
- * @since 4.4.0 The `$post_type` argument was added.
+ * @since WP 3.1.0
+ * @since WP 4.4.0 The `$post_type` argument was added.
  * @access private
  *
  * @global wpdb $wpdb WordPress database abstraction object.
@@ -7537,7 +7519,7 @@ function _get_last_post_time( $timezone, $field, $post_type = 'any' ) {
 /**
  * Updates posts in cache.
  *
- * @since 1.5.1
+ * @since WP 1.5.1
  *
  * @param WP_Post[] $posts Array of post objects (passed by reference).
  */
@@ -7565,7 +7547,7 @@ function update_post_cache( &$posts ) {
  * This function not run if $_wp_suspend_cache_invalidation is not empty. See
  * wp_suspend_cache_invalidation().
  *
- * @since 2.0.0
+ * @since WP 2.0.0
  *
  * @global bool $_wp_suspend_cache_invalidation
  *
@@ -7595,7 +7577,7 @@ function clean_post_cache( $post ) {
 	/**
 	 * Fires immediately after the given post's cache is cleaned.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @param int     $post_id Post ID.
 	 * @param WP_Post $post    Post object.
@@ -7608,7 +7590,7 @@ function clean_post_cache( $post ) {
 		/**
 		 * Fires immediately after the given page's cache is cleaned.
 		 *
-		 * @since 2.5.0
+		 * @since WP 2.5.0
 		 *
 		 * @param int $post_id Post ID.
 		 */
@@ -7621,7 +7603,7 @@ function clean_post_cache( $post ) {
 /**
  * Updates post, term, and metadata caches for a list of post objects.
  *
- * @since 1.5.0
+ * @since WP 1.5.0
  *
  * @param WP_Post[] $posts             Array of post objects (passed by reference).
  * @param string    $post_type         Optional. Post type. Default 'post'.
@@ -7672,7 +7654,7 @@ function update_post_caches( &$posts, $post_type = 'post', $update_term_cache = 
 /**
  * Updates post author user caches for a list of post objects.
  *
- * @since 6.1.0
+ * @since WP 6.1.0
  *
  * @param WP_Post[] $posts Array of post objects.
  */
@@ -7696,7 +7678,7 @@ function update_post_author_caches( $posts ) {
 /**
  * Updates parent post caches for a list of post objects.
  *
- * @since 6.1.0
+ * @since WP 6.1.0
  *
  * @param WP_Post[] $posts Array of post objects.
  */
@@ -7717,7 +7699,7 @@ function update_post_parent_caches( $posts ) {
  * metadata cache for the posts. Therefore, the functions, which call this
  * function, do not need to perform SQL queries on their own.
  *
- * @since 2.1.0
+ * @since WP 2.1.0
  *
  * @param int[] $post_ids Array of post IDs.
  * @return array|false An array of metadata on success, false if there is nothing to update.
@@ -7734,7 +7716,7 @@ function update_postmeta_cache( $post_ids ) {
  *
  * This function will not run if $_wp_suspend_cache_invalidation is not empty.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @global bool $_wp_suspend_cache_invalidation
  *
@@ -7760,7 +7742,7 @@ function clean_attachment_cache( $id, $clean_terms = false ) {
 	/**
 	 * Fires after the given attachment's cache is cleaned.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 *
 	 * @param int $id Attachment ID.
 	 */
@@ -7774,7 +7756,7 @@ function clean_attachment_cache( $id, $clean_terms = false ) {
 /**
  * Hook for managing future post transitions to published.
  *
- * @since 2.3.0
+ * @since WP 2.3.0
  * @access private
  *
  * @see wp_clear_scheduled_hook()
@@ -7796,8 +7778,8 @@ function _transition_post_status( $new_status, $old_status, $post ) {
 		/**
 		 * Fires when a post's status is transitioned from private to published.
 		 *
-		 * @since 1.5.0
-		 * @deprecated 2.3.0 Use {@see 'private_to_publish'} instead.
+		 * @since WP 1.5.0
+		 * @deprecated WP 2.3.0 Use {@see 'private_to_publish'} instead.
 		 *
 		 * @param int $post_id Post ID.
 		 */
@@ -7827,7 +7809,7 @@ function _transition_post_status( $new_status, $old_status, $post ) {
  *
  * The $post properties used and must exist are 'ID' and 'post_date_gmt'.
  *
- * @since 2.3.0
+ * @since WP 2.3.0
  * @access private
  *
  * @param int     $deprecated Not used. Can be set to null. Never implemented. Not marked
@@ -7845,7 +7827,7 @@ function _future_post_hook( $deprecated, $post ) {
  *
  * Uses XMLRPC_REQUEST and WP_IMPORTING constants.
  *
- * @since 2.3.0
+ * @since WP 2.3.0
  * @access private
  *
  * @param int $post_id The ID of the post being published.
@@ -7855,7 +7837,7 @@ function _publish_post_hook( $post_id ) {
 		/**
 		 * Fires when _publish_post_hook() is called during an XML-RPC request.
 		 *
-		 * @since 2.1.0
+		 * @since WP 2.1.0
 		 *
 		 * @param int $post_id Post ID.
 		 */
@@ -7884,8 +7866,8 @@ function _publish_post_hook( $post_id ) {
 /**
  * Returns the ID of the post's parent.
  *
- * @since 3.1.0
- * @since 5.9.0 The `$post` parameter was made optional.
+ * @since WP 3.1.0
+ * @since WP 5.9.0 The `$post` parameter was made optional.
  *
  * @param int|WP_Post|null $post Optional. Post ID or post object. Defaults to global $post.
  * @return int|false Post parent ID (which can be 0 if there is no parent),
@@ -7907,7 +7889,7 @@ function wp_get_post_parent_id( $post = null ) {
  * Prevents loops from forming and breaks those that it finds. Attached
  * to the {@see 'wp_insert_post_parent'} filter.
  *
- * @since 3.1.0
+ * @since WP 3.1.0
  *
  * @see wp_find_hierarchy_loop()
  *
@@ -7958,7 +7940,7 @@ function wp_check_post_hierarchy_for_loops( $post_parent, $post_id ) {
 /**
  * Sets the post thumbnail (featured image) for the given post.
  *
- * @since 3.1.0
+ * @since WP 3.1.0
  *
  * @param int|WP_Post $post         Post ID or post object where thumbnail should be attached.
  * @param int         $thumbnail_id Thumbnail to attach.
@@ -7983,7 +7965,7 @@ function set_post_thumbnail( $post, $thumbnail_id ) {
 /**
  * Removes the thumbnail (featured image) from the given post.
  *
- * @since 3.3.0
+ * @since WP 3.3.0
  *
  * @param int|WP_Post $post Post ID or post object from which the thumbnail should be removed.
  * @return bool True on success, false on failure.
@@ -7999,7 +7981,7 @@ function delete_post_thumbnail( $post ) {
 /**
  * Deletes auto-drafts for new posts that are > 7 days old.
  *
- * @since 3.4.0
+ * @since WP 3.4.0
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  */
@@ -8017,7 +7999,7 @@ function wp_delete_auto_drafts() {
 /**
  * Queues posts for lazy-loading of term meta.
  *
- * @since 4.5.0
+ * @since WP 4.5.0
  *
  * @param WP_Post[] $posts Array of WP_Post objects.
  */
@@ -8068,7 +8050,7 @@ function wp_queue_posts_for_term_meta_lazyload( $posts ) {
  * For example, default posts term counts (for custom taxonomies) don't include
  * private / draft posts.
  *
- * @since 3.3.0
+ * @since WP 3.3.0
  * @access private
  *
  * @param string  $new_status New post status.
@@ -8086,8 +8068,8 @@ function _update_term_count_on_transition_post_status( $new_status, $old_status,
 /**
  * Adds any posts from the given IDs to the cache that do not already exist in cache.
  *
- * @since 3.4.0
- * @since 6.1.0 This function is no longer marked as "private".
+ * @since WP 3.4.0
+ * @since WP 6.1.0 This function is no longer marked as "private".
  *
  * @see update_post_cache()
  * @see update_postmeta_cache()
@@ -8126,7 +8108,7 @@ function _prime_post_caches( $ids, $update_term_cache = true, $update_meta_cache
 /**
  * Prime the cache containing the parent ID of various post objects.
  *
- * @since 6.4.0
+ * @since WP 6.4.0
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  *
@@ -8178,7 +8160,7 @@ function _prime_post_parent_id_caches( array $ids ) {
  *
  * For internal use.
  *
- * @since 4.5.0
+ * @since WP 4.5.0
  * @access private
  *
  * @param string $post_name Post slug.
@@ -8210,7 +8192,7 @@ function wp_add_trashed_suffix_to_post_name_for_trashed_posts( $post_name, $post
  *
  * For internal use.
  *
- * @since 4.5.0
+ * @since WP 4.5.0
  * @access private
  *
  * @global wpdb $wpdb WordPress database abstraction object.
@@ -8236,7 +8218,7 @@ function wp_add_trashed_suffix_to_post_name_for_post( $post ) {
 /**
  * Sets the last changed time for the 'posts' cache group.
  *
- * @since 5.0.0
+ * @since WP 5.0.0
  */
 function wp_cache_set_posts_last_changed() {
 	wp_cache_set_last_changed( 'posts' );
@@ -8245,7 +8227,7 @@ function wp_cache_set_posts_last_changed() {
 /**
  * Gets all available post MIME types for a given post type.
  *
- * @since 2.5.0
+ * @since WP 2.5.0
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  *
@@ -8258,7 +8240,7 @@ function get_available_post_mime_types( $type = 'attachment' ) {
 	/**
 	 * Filters the list of available post MIME types for the given post type.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @param string[]|null $mime_types An array of MIME types. Default null.
 	 * @param string        $type       The post type name. Usually 'attachment' but can be any post type.
@@ -8281,8 +8263,8 @@ function get_available_post_mime_types( $type = 'attachment' ) {
  * with a scaled down version of the original image. This function always returns the path
  * to the originally uploaded image file.
  *
- * @since 5.3.0
- * @since 5.4.0 Added the `$unfiltered` parameter.
+ * @since WP 5.3.0
+ * @since WP 5.4.0 Added the `$unfiltered` parameter.
  *
  * @param int  $attachment_id Attachment ID.
  * @param bool $unfiltered Optional. Passed through to `get_attached_file()`. Default false.
@@ -8305,7 +8287,7 @@ function wp_get_original_image_path( $attachment_id, $unfiltered = false ) {
 	/**
 	 * Filters the path to the original image.
 	 *
-	 * @since 5.3.0
+	 * @since WP 5.3.0
 	 *
 	 * @param string $original_image Path to original image file.
 	 * @param int    $attachment_id  Attachment ID.
@@ -8320,7 +8302,7 @@ function wp_get_original_image_path( $attachment_id, $unfiltered = false ) {
  * processed after uploading. In this case this function returns the URL
  * to the originally uploaded image file.
  *
- * @since 5.3.0
+ * @since WP 5.3.0
  *
  * @param int $attachment_id Attachment post ID.
  * @return string|false Attachment image URL, false on error or if the attachment is not an image.
@@ -8347,7 +8329,7 @@ function wp_get_original_image_url( $attachment_id ) {
 	/**
 	 * Filters the URL to the original attachment image.
 	 *
-	 * @since 5.3.0
+	 * @since WP 5.3.0
 	 *
 	 * @param string $original_image_url URL to original image.
 	 * @param int    $attachment_id      Attachment ID.
@@ -8360,7 +8342,7 @@ function wp_get_original_image_url( $attachment_id ) {
  *
  * This can be used as a callback on the `wp_untrash_post_status` filter.
  *
- * @since 5.6.0
+ * @since WP 5.6.0
  *
  * @param string $new_status      The new status of the post being restored.
  * @param int    $post_id         The ID of the post being restored.
@@ -8374,8 +8356,8 @@ function wp_untrash_post_set_previous_status( $new_status, $post_id, $previous_s
 /**
  * Returns whether the post can be edited in the block editor.
  *
- * @since 5.0.0
- * @since 6.1.0 Moved to wp-includes from wp-admin.
+ * @since WP 5.0.0
+ * @since WP 6.1.0 Moved to wp-includes from wp-admin.
  *
  * @param int|WP_Post $post Post ID or WP_Post object.
  * @return bool Whether the post can be edited in the block editor.
@@ -8398,7 +8380,7 @@ function use_block_editor_for_post( $post ) {
 	/**
 	 * Filters whether a post is able to be edited in the block editor.
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 *
 	 * @param bool    $use_block_editor Whether the post can be edited or not.
 	 * @param WP_Post $post             The post being checked.
@@ -8412,8 +8394,8 @@ function use_block_editor_for_post( $post ) {
  * The block editor depends on the REST API, and if the post type is not shown in the
  * REST API, then it won't work with the block editor.
  *
- * @since 5.0.0
- * @since 6.1.0 Moved to wp-includes from wp-admin.
+ * @since WP 5.0.0
+ * @since WP 6.1.0 Moved to wp-includes from wp-admin.
  *
  * @param string $post_type The post type.
  * @return bool Whether the post type can be edited with the block editor.
@@ -8435,7 +8417,7 @@ function use_block_editor_for_post_type( $post_type ) {
 	/**
 	 * Filters whether a post is able to be edited in the block editor.
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 *
 	 * @param bool   $use_block_editor  Whether the post type can be edited or not. Default true.
 	 * @param string $post_type         The post type being checked.
@@ -8446,7 +8428,7 @@ function use_block_editor_for_post_type( $post_type ) {
 /**
  * Registers any additional post meta fields.
  *
- * @since 6.3.0 Adds `wp_pattern_sync_status` meta field to the wp_block post type so an unsynced option can be added.
+ * @since WP 6.3.0 Adds `wp_pattern_sync_status` meta field to the wp_block post type so an unsynced option can be added.
  *
  * @link https://github.com/WordPress/gutenberg/pull/51144
  */

@@ -524,7 +524,7 @@ final class Curl implements Transport {
 	/**
 	 * Collect data as it's received
 	 *
-	 * @since 1.6.1
+	 * @since WP 1.6.1
 	 *
 	 * @param resource|\CurlHandle $handle cURL handle
 	 * @param string $data Body data

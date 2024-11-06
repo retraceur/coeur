@@ -4,7 +4,7 @@
  *
  * @package motsVertueux
  * @subpackage Upgrader
- * @since 4.6.0
+ * @since WP 4.6.0
  */
 
 /**
@@ -13,8 +13,8 @@
  * This skin is designed to be used when no output is intended, all output
  * is captured and stored for the caller to process and log/email/discard.
  *
- * @since 3.7.0
- * @since 4.6.0 Moved to its own file from wp-admin/includes/class-wp-upgrader-skins.php.
+ * @since WP 3.7.0
+ * @since WP 4.6.0 Moved to its own file from wp-admin/includes/class-wp-upgrader-skins.php.
  *
  * @see Bulk_Upgrader_Skin
  */
@@ -25,8 +25,8 @@ class Automatic_Upgrader_Skin extends WP_Upgrader_Skin {
 	 * Determines whether the upgrader needs FTP/SSH details in order to connect
 	 * to the filesystem.
 	 *
-	 * @since 3.7.0
-	 * @since 4.6.0 The `$context` parameter default changed from `false` to an empty string.
+	 * @since WP 3.7.0
+	 * @since WP 4.6.0 The `$context` parameter default changed from `false` to an empty string.
 	 *
 	 * @see request_filesystem_credentials()
 	 *
@@ -54,7 +54,7 @@ class Automatic_Upgrader_Skin extends WP_Upgrader_Skin {
 	/**
 	 * Retrieves the upgrade messages.
 	 *
-	 * @since 3.7.0
+	 * @since WP 3.7.0
 	 *
 	 * @return string[] Messages during an upgrade.
 	 */
@@ -65,8 +65,8 @@ class Automatic_Upgrader_Skin extends WP_Upgrader_Skin {
 	/**
 	 * Stores a message about the upgrade.
 	 *
-	 * @since 3.7.0
-	 * @since 5.9.0 Renamed `$data` to `$feedback` for PHP 8 named parameter support.
+	 * @since WP 3.7.0
+	 * @since WP 5.9.0 Renamed `$data` to `$feedback` for PHP 8 named parameter support.
 	 *
 	 * @param string|array|WP_Error $feedback Message data.
 	 * @param mixed                 ...$args  Optional text replacements.
@@ -115,7 +115,7 @@ class Automatic_Upgrader_Skin extends WP_Upgrader_Skin {
 	/**
 	 * Creates a new output buffer.
 	 *
-	 * @since 3.7.0
+	 * @since WP 3.7.0
 	 */
 	public function header() {
 		ob_start();
@@ -124,7 +124,7 @@ class Automatic_Upgrader_Skin extends WP_Upgrader_Skin {
 	/**
 	 * Retrieves the buffered content, deletes the buffer, and processes the output.
 	 *
-	 * @since 3.7.0
+	 * @since WP 3.7.0
 	 */
 	public function footer() {
 		$output = ob_get_clean();

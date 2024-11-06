@@ -331,7 +331,6 @@ function utils_useSignalEffect(callback) {
  * available inside hook callbacks.
  *
  * Asyncronous functions should use generators that yield promises instead of awaiting them.
- * See the documentation for details: https://developer.wordpress.org/block-editor/reference-guides/packages/packages-interactivity/packages-interactivity-api-reference/#the-store
  *
  * @param func The passed function.
  * @return The wrapped function.

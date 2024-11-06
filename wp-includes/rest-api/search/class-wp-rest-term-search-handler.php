@@ -4,13 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage REST_API
- * @since 5.6.0
+ * @since WP 5.6.0
  */
 
 /**
  * Core class representing a search handler for terms in the REST API.
  *
- * @since 5.6.0
+ * @since WP 5.6.0
  *
  * @see WP_REST_Search_Handler
  */
@@ -19,7 +19,7 @@ class WP_REST_Term_Search_Handler extends WP_REST_Search_Handler {
 	/**
 	 * Constructor.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 */
 	public function __construct() {
 		$this->type = 'term';
@@ -38,7 +38,7 @@ class WP_REST_Term_Search_Handler extends WP_REST_Search_Handler {
 	/**
 	 * Searches terms for a given search request.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param WP_REST_Request $request Full REST request.
 	 * @return array {
@@ -83,7 +83,7 @@ class WP_REST_Term_Search_Handler extends WP_REST_Search_Handler {
 		 *
 		 * Enables adding extra arguments or setting defaults for a term search request.
 		 *
-		 * @since 5.6.0
+		 * @since WP 5.6.0
 		 *
 		 * @param array           $query_args Key value array of query var to query value.
 		 * @param WP_REST_Request $request    The request used.
@@ -112,7 +112,7 @@ class WP_REST_Term_Search_Handler extends WP_REST_Search_Handler {
 	/**
 	 * Prepares the search result for a given term ID.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param int   $id     Term ID.
 	 * @param array $fields Fields to include for the term.
@@ -149,7 +149,7 @@ class WP_REST_Term_Search_Handler extends WP_REST_Search_Handler {
 	/**
 	 * Prepares links for the search result of a given ID.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param int $id Item ID.
 	 * @return array[] Array of link arrays for the given item.

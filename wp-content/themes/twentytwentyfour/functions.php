@@ -2,10 +2,9 @@
 /**
  * Twenty Twenty-Four functions and definitions
  *
- * @link https://developer.wordpress.org/themes/basics/theme-functions/
- *
  * @package Twenty Twenty-Four
- * @since Twenty Twenty-Four 1.0
+ * @since WP Twenty Twenty-Four 1.0
+ * @since 1.0.0 motsVertueux fork.
  */
 
 /**
@@ -16,7 +15,7 @@ if ( ! function_exists( 'twentytwentyfour_block_styles' ) ) :
 	/**
 	 * Register custom block styles
 	 *
-	 * @since Twenty Twenty-Four 1.0
+	 * @since WP Twenty Twenty-Four 1.0
 	 * @return void
 	 */
 	function twentytwentyfour_block_styles() {
@@ -154,7 +153,7 @@ if ( ! function_exists( 'twentytwentyfour_block_stylesheets' ) ) :
 	/**
 	 * Enqueue custom block stylesheets
 	 *
-	 * @since Twenty Twenty-Four 1.0
+	 * @since WP Twenty Twenty-Four 1.0
 	 * @return void
 	 */
 	function twentytwentyfour_block_stylesheets() {
@@ -163,8 +162,6 @@ if ( ! function_exists( 'twentytwentyfour_block_stylesheets' ) ) :
 		 * for a specific block. These will only get loaded when the block is rendered
 		 * (both in the editor and on the front end), improving performance
 		 * and reducing the amount of data requested by visitors.
-		 *
-		 * See https://make.wordpress.org/core/2021/12/15/using-multiple-stylesheets-per-block/ for more info.
 		 */
 		wp_enqueue_block_style(
 			'core/button',
@@ -188,7 +185,7 @@ if ( ! function_exists( 'twentytwentyfour_pattern_categories' ) ) :
 	/**
 	 * Register pattern categories
 	 *
-	 * @since Twenty Twenty-Four 1.0
+	 * @since WP Twenty Twenty-Four 1.0
 	 * @return void
 	 */
 	function twentytwentyfour_pattern_categories() {

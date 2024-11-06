@@ -4,7 +4,7 @@
  *
  * @package motsVertueux
  * @subpackage Robots
- * @since 5.7.0
+ * @since WP 5.7.0
  */
 
 /**
@@ -14,8 +14,8 @@
  * {@see 'wp_robots'} filter. The directives are then sanitized, and the
  * robots meta tag is output if there is at least one relevant directive.
  *
- * @since 5.7.0
- * @since 5.7.1 No longer prevents specific directives to occur together.
+ * @since WP 5.7.0
+ * @since WP 5.7.1 No longer prevents specific directives to occur together.
  */
 function wp_robots() {
 	/**
@@ -23,7 +23,7 @@ function wp_robots() {
 	 *
 	 * The meta tag will only be included as necessary.
 	 *
-	 * @since 5.7.0
+	 * @since WP 5.7.0
 	 *
 	 * @param array $robots Associative array of directives. Every key must be the name of the directive, and the
 	 *                      corresponding value must either be a string to provide as value for the directive or a
@@ -60,7 +60,7 @@ function wp_robots() {
  *
  *     add_filter( 'wp_robots', 'wp_robots_noindex' );
  *
- * @since 5.7.0
+ * @since WP 5.7.0
  *
  * @see wp_robots_no_robots()
  *
@@ -82,7 +82,7 @@ function wp_robots_noindex( array $robots ) {
  *
  *     add_filter( 'wp_robots', 'wp_robots_noindex_embeds' );
  *
- * @since 5.7.0
+ * @since WP 5.7.0
  *
  * @see wp_robots_no_robots()
  *
@@ -108,7 +108,7 @@ function wp_robots_noindex_embeds( array $robots ) {
  *
  *     add_filter( 'wp_robots', 'wp_robots_noindex_search' );
  *
- * @since 5.7.0
+ * @since WP 5.7.0
  *
  * @see wp_robots_no_robots()
  *
@@ -132,7 +132,7 @@ function wp_robots_noindex_search( array $robots ) {
  *
  *     add_filter( 'wp_robots', 'wp_robots_no_robots' );
  *
- * @since 5.7.0
+ * @since WP 5.7.0
  *
  * @param array $robots Associative array of robots directives.
  * @return array Filtered robots directives.
@@ -159,7 +159,7 @@ function wp_robots_no_robots( array $robots ) {
  *
  *     add_filter( 'wp_robots', 'wp_robots_sensitive_page' );
  *
- * @since 5.7.0
+ * @since WP 5.7.0
  *
  * @param array $robots Associative array of robots directives.
  * @return array Filtered robots directives.
@@ -180,7 +180,7 @@ function wp_robots_sensitive_page( array $robots ) {
  *
  *     add_filter( 'wp_robots', 'wp_robots_max_image_preview_large' );
  *
- * @since 5.7.0
+ * @since WP 5.7.0
  *
  * @param array $robots Associative array of robots directives.
  * @return array Filtered robots directives.

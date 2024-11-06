@@ -4,20 +4,20 @@
  *
  * @package motsVertueux
  * @subpackage Administration
- * @since 4.4.0
+ * @since WP 4.4.0
  */
 
 /**
  * Core class used to implement an internal admin pointers API.
  *
- * @since 3.3.0
+ * @since WP 3.3.0
  */
 #[AllowDynamicProperties]
 final class WP_Internal_Pointers {
 	/**
 	 * Initializes the new feature pointers.
 	 *
-	 * @since 3.3.0
+	 * @since WP 3.3.0
 	 *
 	 * All pointers can be disabled using the following:
 	 *     remove_action( 'admin_enqueue_scripts', array( 'WP_Internal_Pointers', 'enqueue_scripts' ) );
@@ -106,7 +106,7 @@ final class WP_Internal_Pointers {
 	/**
 	 * Prints the pointer JavaScript data.
 	 *
-	 * @since 3.3.0
+	 * @since WP 3.3.0
 	 *
 	 * @param string $pointer_id The pointer ID.
 	 * @param string $selector The HTML elements, on which the pointer should be attached.
@@ -165,7 +165,7 @@ final class WP_Internal_Pointers {
 	/**
 	 * Prevents new users from seeing existing 'new feature' pointers.
 	 *
-	 * @since 3.3.0
+	 * @since WP 3.3.0
 	 *
 	 * @param int $user_id User ID.
 	 */

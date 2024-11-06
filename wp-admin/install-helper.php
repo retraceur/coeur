@@ -43,7 +43,7 @@ if ( ! function_exists( 'maybe_create_table' ) ) :
 	/**
 	 * Creates a table in the database if it doesn't already exist.
 	 *
-	 * @since 1.0.0
+	 * @since WP 1.0.0
 	 *
 	 * @global wpdb $wpdb WordPress database abstraction object.
 	 *
@@ -79,7 +79,7 @@ if ( ! function_exists( 'maybe_add_column' ) ) :
 	/**
 	 * Adds column to database table, if it doesn't already exist.
 	 *
-	 * @since 1.0.0
+	 * @since WP 1.0.0
 	 *
 	 * @global wpdb $wpdb WordPress database abstraction object.
 	 *
@@ -117,7 +117,7 @@ endif;
 /**
  * Drops column from database table, if it exists.
  *
- * @since 1.0.0
+ * @since WP 1.0.0
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  *
@@ -167,7 +167,7 @@ function maybe_drop_column( $table_name, $column_name, $drop_ddl ) {
  *  - Default
  *  - Extra
  *
- * @since 1.0.0
+ * @since WP 1.0.0
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  *

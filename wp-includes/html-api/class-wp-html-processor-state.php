@@ -4,7 +4,7 @@
  *
  * @package motsVertueux
  * @subpackage HTML-API
- * @since 6.4.0
+ * @since WP 6.4.0
  */
 
 /**
@@ -13,7 +13,7 @@
  *
  * This class is designed for internal use by the HTML processor.
  *
- * @since 6.4.0
+ * @since WP 6.4.0
  *
  * @access private
  *
@@ -38,7 +38,7 @@ class WP_HTML_Processor_State {
 	/**
 	 * Initial insertion mode for full HTML parser.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @see https://html.spec.whatwg.org/#the-initial-insertion-mode
 	 * @see WP_HTML_Processor_State::$insertion_mode
@@ -50,7 +50,7 @@ class WP_HTML_Processor_State {
 	/**
 	 * Before HTML insertion mode for full HTML parser.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @see https://html.spec.whatwg.org/#the-before-html-insertion-mode
 	 * @see WP_HTML_Processor_State::$insertion_mode
@@ -62,7 +62,7 @@ class WP_HTML_Processor_State {
 	/**
 	 * Before head insertion mode for full HTML parser.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @see https://html.spec.whatwg.org/#parsing-main-beforehead
 	 * @see WP_HTML_Processor_State::$insertion_mode
@@ -74,7 +74,7 @@ class WP_HTML_Processor_State {
 	/**
 	 * In head insertion mode for full HTML parser.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @see https://html.spec.whatwg.org/#parsing-main-inhead
 	 * @see WP_HTML_Processor_State::$insertion_mode
@@ -86,7 +86,7 @@ class WP_HTML_Processor_State {
 	/**
 	 * In head noscript insertion mode for full HTML parser.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @see https://html.spec.whatwg.org/#parsing-main-inheadnoscript
 	 * @see WP_HTML_Processor_State::$insertion_mode
@@ -98,7 +98,7 @@ class WP_HTML_Processor_State {
 	/**
 	 * After head insertion mode for full HTML parser.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @see https://html.spec.whatwg.org/#parsing-main-afterhead
 	 * @see WP_HTML_Processor_State::$insertion_mode
@@ -110,7 +110,7 @@ class WP_HTML_Processor_State {
 	/**
 	 * In body insertion mode for full HTML parser.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @see https://html.spec.whatwg.org/#parsing-main-inbody
 	 * @see WP_HTML_Processor_State::$insertion_mode
@@ -122,7 +122,7 @@ class WP_HTML_Processor_State {
 	/**
 	 * In table insertion mode for full HTML parser.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @see https://html.spec.whatwg.org/#parsing-main-intable
 	 * @see WP_HTML_Processor_State::$insertion_mode
@@ -134,7 +134,7 @@ class WP_HTML_Processor_State {
 	/**
 	 * In table text insertion mode for full HTML parser.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @see https://html.spec.whatwg.org/#parsing-main-intabletext
 	 * @see WP_HTML_Processor_State::$insertion_mode
@@ -146,7 +146,7 @@ class WP_HTML_Processor_State {
 	/**
 	 * In caption insertion mode for full HTML parser.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @see https://html.spec.whatwg.org/#parsing-main-incaption
 	 * @see WP_HTML_Processor_State::$insertion_mode
@@ -158,7 +158,7 @@ class WP_HTML_Processor_State {
 	/**
 	 * In column group insertion mode for full HTML parser.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @see https://html.spec.whatwg.org/#parsing-main-incolumngroup
 	 * @see WP_HTML_Processor_State::$insertion_mode
@@ -170,7 +170,7 @@ class WP_HTML_Processor_State {
 	/**
 	 * In table body insertion mode for full HTML parser.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @see https://html.spec.whatwg.org/#parsing-main-intablebody
 	 * @see WP_HTML_Processor_State::$insertion_mode
@@ -182,7 +182,7 @@ class WP_HTML_Processor_State {
 	/**
 	 * In row insertion mode for full HTML parser.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @see https://html.spec.whatwg.org/#parsing-main-inrow
 	 * @see WP_HTML_Processor_State::$insertion_mode
@@ -194,7 +194,7 @@ class WP_HTML_Processor_State {
 	/**
 	 * In cell insertion mode for full HTML parser.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @see https://html.spec.whatwg.org/#parsing-main-incell
 	 * @see WP_HTML_Processor_State::$insertion_mode
@@ -206,7 +206,7 @@ class WP_HTML_Processor_State {
 	/**
 	 * In select insertion mode for full HTML parser.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @see https://html.spec.whatwg.org/#parsing-main-inselect
 	 * @see WP_HTML_Processor_State::$insertion_mode
@@ -218,7 +218,7 @@ class WP_HTML_Processor_State {
 	/**
 	 * In select in table insertion mode for full HTML parser.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @see https://html.spec.whatwg.org/#parsing-main-inselectintable
 	 * @see WP_HTML_Processor_State::$insertion_mode
@@ -230,7 +230,7 @@ class WP_HTML_Processor_State {
 	/**
 	 * In template insertion mode for full HTML parser.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @see https://html.spec.whatwg.org/#parsing-main-intemplate
 	 * @see WP_HTML_Processor_State::$insertion_mode
@@ -242,7 +242,7 @@ class WP_HTML_Processor_State {
 	/**
 	 * After body insertion mode for full HTML parser.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @see https://html.spec.whatwg.org/#parsing-main-afterbody
 	 * @see WP_HTML_Processor_State::$insertion_mode
@@ -254,7 +254,7 @@ class WP_HTML_Processor_State {
 	/**
 	 * In frameset insertion mode for full HTML parser.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @see https://html.spec.whatwg.org/#parsing-main-inframeset
 	 * @see WP_HTML_Processor_State::$insertion_mode
@@ -266,7 +266,7 @@ class WP_HTML_Processor_State {
 	/**
 	 * After frameset insertion mode for full HTML parser.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @see https://html.spec.whatwg.org/#parsing-main-afterframeset
 	 * @see WP_HTML_Processor_State::$insertion_mode
@@ -278,7 +278,7 @@ class WP_HTML_Processor_State {
 	/**
 	 * After after body insertion mode for full HTML parser.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @see https://html.spec.whatwg.org/#the-after-after-body-insertion-mode
 	 * @see WP_HTML_Processor_State::$insertion_mode
@@ -290,7 +290,7 @@ class WP_HTML_Processor_State {
 	/**
 	 * After after frameset insertion mode for full HTML parser.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @see https://html.spec.whatwg.org/#the-after-after-frameset-insertion-mode
 	 * @see WP_HTML_Processor_State::$insertion_mode
@@ -302,7 +302,7 @@ class WP_HTML_Processor_State {
 	/**
 	 * The stack of template insertion modes.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @see https://html.spec.whatwg.org/#the-insertion-mode:stack-of-template-insertion-modes
 	 *
@@ -315,7 +315,7 @@ class WP_HTML_Processor_State {
 	 *
 	 * This property is initialized in the constructor and never null.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @see https://html.spec.whatwg.org/#stack-of-open-elements
 	 *
@@ -328,7 +328,7 @@ class WP_HTML_Processor_State {
 	 *
 	 * This property is initialized in the constructor and never null.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @see https://html.spec.whatwg.org/#list-of-active-formatting-elements
 	 *
@@ -339,7 +339,7 @@ class WP_HTML_Processor_State {
 	/**
 	 * Refers to the currently-matched tag, if any.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @var WP_HTML_Token|null
 	 */
@@ -348,7 +348,7 @@ class WP_HTML_Processor_State {
 	/**
 	 * Tree construction insertion mode.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @see https://html.spec.whatwg.org/#insertion-mode
 	 *
@@ -359,7 +359,7 @@ class WP_HTML_Processor_State {
 	/**
 	 * Context node initializing fragment parser, if created as a fragment parser.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @see https://html.spec.whatwg.org/#concept-frag-parse-context
 	 *
@@ -376,7 +376,7 @@ class WP_HTML_Processor_State {
 	 * > The bytes encode the actual characters according to a particular character
 	 * > encoding, which the user agent uses to decode the bytes into characters.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @var string|null
 	 */
@@ -393,7 +393,7 @@ class WP_HTML_Processor_State {
 	 * > operating on a Unicode stream and doesn't have to use a character encoding
 	 * > at all, then the confidence is irrelevant.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @var string
 	 */
@@ -402,7 +402,7 @@ class WP_HTML_Processor_State {
 	/**
 	 * HEAD element pointer.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @see https://html.spec.whatwg.org/multipage/parsing.html#head-element-pointer
 	 *
@@ -422,7 +422,7 @@ class WP_HTML_Processor_State {
 	 *
 	 * @see https://html.spec.whatwg.org/#form-element-pointer
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @var WP_HTML_Token|null
 	 */
@@ -433,7 +433,7 @@ class WP_HTML_Processor_State {
 	 *
 	 * > The frameset-ok flag is set to "ok" when the parser is created. It is set to "not ok" after certain tokens are seen.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @see https://html.spec.whatwg.org/#frameset-ok-flag
 	 *
@@ -444,7 +444,7 @@ class WP_HTML_Processor_State {
 	/**
 	 * Constructor - creates a new and empty state value.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @see WP_HTML_Processor
 	 */

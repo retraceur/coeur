@@ -9,7 +9,7 @@
 /**
  * WordPress Image Editor Class for Image Manipulation through GD
  *
- * @since 3.5.0
+ * @since WP 3.5.0
  *
  * @see WP_Image_Editor
  */
@@ -31,7 +31,7 @@ class WP_Image_Editor_GD extends WP_Image_Editor {
 	/**
 	 * Checks to see if current environment supports GD.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @param array $args
 	 * @return bool
@@ -55,7 +55,7 @@ class WP_Image_Editor_GD extends WP_Image_Editor {
 	/**
 	 * Checks to see if editor supports the mime-type specified.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @param string $mime_type
 	 * @return bool
@@ -81,7 +81,7 @@ class WP_Image_Editor_GD extends WP_Image_Editor {
 	/**
 	 * Loads image from $this->file into new GD Resource.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @return true|WP_Error True if loaded successfully; WP_Error on failure.
 	 */
@@ -147,7 +147,7 @@ class WP_Image_Editor_GD extends WP_Image_Editor {
 	/**
 	 * Sets or updates current image size.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @param int $width
 	 * @param int $height
@@ -173,7 +173,7 @@ class WP_Image_Editor_GD extends WP_Image_Editor {
 	 * At minimum, either a height or width must be provided. If one of the two is set
 	 * to null, the resize will maintain aspect ratio according to the provided dimension.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @param int|null   $max_w Image width.
 	 * @param int|null   $max_h Image height.
@@ -250,7 +250,7 @@ class WP_Image_Editor_GD extends WP_Image_Editor {
 	 * the new images one at a time and allows for the meta data to be saved after
 	 * each new image is created.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @param array $sizes {
 	 *     An array of image size data arrays.
@@ -286,7 +286,7 @@ class WP_Image_Editor_GD extends WP_Image_Editor {
 	/**
 	 * Create an image sub-size and return the image meta data value for it.
 	 *
-	 * @since 5.3.0
+	 * @since WP 5.3.0
 	 *
 	 * @param array $size_data {
 	 *     Array of size data.
@@ -338,7 +338,7 @@ class WP_Image_Editor_GD extends WP_Image_Editor {
 	/**
 	 * Crops Image.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @param int  $src_x   The start x position to crop from.
 	 * @param int  $src_y   The start y position to crop from.
@@ -394,7 +394,7 @@ class WP_Image_Editor_GD extends WP_Image_Editor {
 	 * Rotates current image counter-clockwise by $angle.
 	 * Ported from image-edit.php
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @param float $angle
 	 * @return true|WP_Error
@@ -420,7 +420,7 @@ class WP_Image_Editor_GD extends WP_Image_Editor {
 	/**
 	 * Flips current image.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @param bool $horz Flip along Horizontal Axis.
 	 * @param bool $vert Flip along Vertical Axis.
@@ -450,10 +450,10 @@ class WP_Image_Editor_GD extends WP_Image_Editor {
 	/**
 	 * Saves current in-memory image to file.
 	 *
-	 * @since 3.5.0
-	 * @since 5.9.0 Renamed `$filename` to `$destfilename` to match parent class
+	 * @since WP 3.5.0
+	 * @since WP 5.9.0 Renamed `$filename` to `$destfilename` to match parent class
 	 *              for PHP 8 named parameter support.
-	 * @since 6.0.0 The `$filesize` value was added to the returned array.
+	 * @since WP 6.0.0 The `$filesize` value was added to the returned array.
 	 *
 	 * @param string|null $destfilename Optional. Destination filename. Default null.
 	 * @param string|null $mime_type    Optional. The mime-type. Default null.
@@ -480,8 +480,8 @@ class WP_Image_Editor_GD extends WP_Image_Editor {
 	}
 
 	/**
-	 * @since 3.5.0
-	 * @since 6.0.0 The `$filesize` value was added to the returned array.
+	 * @since WP 3.5.0
+	 * @since WP 6.0.0 The `$filesize` value was added to the returned array.
 	 *
 	 * @param resource|GdImage $image
 	 * @param string|null      $filename
@@ -508,7 +508,7 @@ class WP_Image_Editor_GD extends WP_Image_Editor {
 			/**
 			 * Filters whether to output progressive images (if available).
 			 *
-			 * @since 6.5.0
+			 * @since WP 6.5.0
 			 *
 			 * @param bool   $interlace Whether to use progressive images for output if available. Default false.
 			 * @param string $mime_type The mime type being saved.
@@ -559,7 +559,7 @@ class WP_Image_Editor_GD extends WP_Image_Editor {
 			/**
 			 * Filters the name of the saved image file.
 			 *
-			 * @since 2.6.0
+			 * @since WP 2.6.0
 			 *
 			 * @param string $filename Name of the file.
 			 */
@@ -574,7 +574,7 @@ class WP_Image_Editor_GD extends WP_Image_Editor {
 	/**
 	 * Sets Image Compression quality on a 1-100% scale. Handles WebP lossless images.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @param int $quality Compression Quality. Range: [1,100]
 	 * @return true|WP_Error True if set successfully; WP_Error on failure.
@@ -606,7 +606,7 @@ class WP_Image_Editor_GD extends WP_Image_Editor {
 	/**
 	 * Returns stream of current image.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @param string $mime_type The mime type of the image.
 	 * @return bool True on success, false on failure.
@@ -645,7 +645,7 @@ class WP_Image_Editor_GD extends WP_Image_Editor {
 	/**
 	 * Either calls editor's save function or handles file as a stream.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @param string   $filename
 	 * @param callable $callback

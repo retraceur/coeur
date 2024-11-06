@@ -4,14 +4,14 @@
  *
  * @package motsVertueux
  * @subpackage Upgrader
- * @since 4.6.0
+ * @since WP 4.6.0
  */
 
 /**
  * Plugin Upgrader Skin for WordPress Plugin Upgrades.
  *
- * @since 2.8.0
- * @since 4.6.0 Moved to its own file from wp-admin/includes/class-wp-upgrader-skins.php.
+ * @since WP 2.8.0
+ * @since WP 4.6.0 Moved to its own file from wp-admin/includes/class-wp-upgrader-skins.php.
  *
  * @see WP_Upgrader_Skin
  */
@@ -20,7 +20,7 @@ class Plugin_Upgrader_Skin extends WP_Upgrader_Skin {
 	/**
 	 * Holds the plugin slug in the Plugin Directory.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @var string
 	 */
@@ -29,7 +29,7 @@ class Plugin_Upgrader_Skin extends WP_Upgrader_Skin {
 	/**
 	 * Whether the plugin is active.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @var bool
 	 */
@@ -38,7 +38,7 @@ class Plugin_Upgrader_Skin extends WP_Upgrader_Skin {
 	/**
 	 * Whether the plugin is active for the entire network.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @var bool
 	 */
@@ -49,7 +49,7 @@ class Plugin_Upgrader_Skin extends WP_Upgrader_Skin {
 	 *
 	 * Sets up the plugin upgrader skin.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @param array $args Optional. The plugin upgrader skin arguments to
 	 *                    override default options. Default empty array.
@@ -74,7 +74,7 @@ class Plugin_Upgrader_Skin extends WP_Upgrader_Skin {
 	/**
 	 * Performs an action following a single plugin update.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 */
 	public function after() {
 		$this->plugin = $this->upgrader->plugin_info();
@@ -109,7 +109,7 @@ class Plugin_Upgrader_Skin extends WP_Upgrader_Skin {
 		/**
 		 * Filters the list of action links available following a single plugin update.
 		 *
-		 * @since 2.7.0
+		 * @since WP 2.7.0
 		 *
 		 * @param string[] $update_actions Array of plugin action links.
 		 * @param string   $plugin         Path to the plugin file relative to the plugins directory.

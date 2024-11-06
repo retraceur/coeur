@@ -4138,7 +4138,7 @@ function MoreMenu() {
           }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_wp_components_namespaceObject.MenuItem, {
             role: "menuitem",
             icon: library_external,
-            href: (0,external_wp_i18n_namespaceObject.__)('https://wordpress.org/documentation/article/block-based-widgets-editor/'),
+            href: (0,external_wp_i18n_namespaceObject.__)('#'),
             target: "_blank",
             rel: "noopener noreferrer",
             children: [(0,external_wp_i18n_namespaceObject.__)('Help'), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.VisuallyHidden, {
@@ -4789,7 +4789,7 @@ function WelcomeGuide() {
             children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("strong", {
               children: (0,external_wp_i18n_namespaceObject.__)('Want to stick with the old widgets?')
             }), ' ', /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ExternalLink, {
-              href: (0,external_wp_i18n_namespaceObject.__)('https://wordpress.org/plugins/classic-widgets/'),
+              href: (0,external_wp_i18n_namespaceObject.__)('#'),
               children: (0,external_wp_i18n_namespaceObject.__)('Get the Classic Widgets plugin.')
             })]
           })]
@@ -4842,7 +4842,7 @@ function WelcomeGuide() {
           className: "edit-widgets-welcome-guide__text",
           children: (0,external_wp_element_namespaceObject.createInterpolateElement)((0,external_wp_i18n_namespaceObject.__)("New to the block editor? Want to learn more about using it? <a>Here's a detailed guide.</a>"), {
             a: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ExternalLink, {
-              href: (0,external_wp_i18n_namespaceObject.__)('https://wordpress.org/documentation/article/wordpress-block-editor/')
+              href: (0,external_wp_i18n_namespaceObject.__)('#')
             })
           })
         })]

@@ -58,7 +58,7 @@ use Memcache as NativeMemcache;
  * @package SimplePie
  * @subpackage Caching
  * @uses Memcache
- * @deprecated since SimplePie 1.8.0, use implementation of "Psr\SimpleCache\CacheInterface" instead
+ * @deprecated WP since SimplePie 1.8.0, use implementation of "Psr\SimpleCache\CacheInterface" instead
  */
 class Memcache implements Base
 {

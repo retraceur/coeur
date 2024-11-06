@@ -4,7 +4,7 @@
  *
  * @package motsVertueux
  * @subpackage Administration
- * @since 4.3.0
+ * @since WP 4.3.0
  */
 
 // Bookmark hooks.
@@ -64,7 +64,6 @@ add_action( 'admin_enqueue_scripts', 'wp_enqueue_emoji_styles' );
 add_action( 'admin_print_styles', 'print_emoji_styles' ); // Retained for backwards-compatibility. Unhooked by wp_enqueue_emoji_styles().
 add_action( 'admin_print_styles', 'print_admin_styles', 20 );
 
-add_action( 'admin_print_scripts-index.php', 'wp_localize_community_events' );
 add_action( 'admin_print_scripts-post.php', 'wp_page_reload_on_back_button_js' );
 add_action( 'admin_print_scripts-post-new.php', 'wp_page_reload_on_back_button_js' );
 
@@ -104,7 +103,6 @@ add_action( 'install_plugins_popular', 'display_plugins_table' );
 add_action( 'install_plugins_recommended', 'display_plugins_table' );
 add_action( 'install_plugins_new', 'display_plugins_table' );
 add_action( 'install_plugins_beta', 'display_plugins_table' );
-add_action( 'install_plugins_favorites', 'display_plugins_table' );
 add_action( 'install_plugins_pre_plugin-information', 'install_plugin_information' );
 
 // Template hooks.

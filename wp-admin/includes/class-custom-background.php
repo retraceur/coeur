@@ -4,12 +4,14 @@
  *
  * @package motsVertueux
  * @subpackage Administration
+ * 
+ * @since 1.0.0
  */
 
 /**
  * The custom background class.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  */
 #[AllowDynamicProperties]
 class Custom_Background {
@@ -17,7 +19,7 @@ class Custom_Background {
 	/**
 	 * Callback for administration header.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 * @var callable
 	 */
 	public $admin_header_callback;
@@ -25,7 +27,7 @@ class Custom_Background {
 	/**
 	 * Callback for header div.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 * @var callable
 	 */
 	public $admin_image_div_callback;
@@ -33,7 +35,7 @@ class Custom_Background {
 	/**
 	 * Used to trigger a success message when settings updated and set to true.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 * @var bool
 	 */
 	private $updated;
@@ -41,7 +43,7 @@ class Custom_Background {
 	/**
 	 * Constructor - Registers administration header callback.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 *
 	 * @param callable $admin_header_callback    Optional. Administration header callback.
 	 *                                           Default empty string.
@@ -63,7 +65,7 @@ class Custom_Background {
 	/**
 	 * Sets up the hooks for the Custom Background admin page.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 */
 	public function init() {
 		$page = add_theme_page(
@@ -90,7 +92,7 @@ class Custom_Background {
 	/**
 	 * Sets up the enqueue for the CSS & JavaScript files.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 */
 	public function admin_load() {
 		get_current_screen()->add_help_tab(
@@ -105,12 +107,6 @@ class Custom_Background {
 			)
 		);
 
-		get_current_screen()->set_help_sidebar(
-			'<p><strong>' . __( 'For more information:' ) . '</strong></p>' .
-			'<p>' . __( '<a href="https://codex.wordpress.org/Appearance_Background_Screen">Documentation on Custom Background</a>' ) . '</p>' .
-			'<p>' . __( '<a href="https://wordpress.org/support/forums/">Support forums</a>' ) . '</p>'
-		);
-
 		wp_enqueue_media();
 		wp_enqueue_script( 'custom-background' );
 		wp_enqueue_style( 'wp-color-picker' );
@@ -119,7 +115,7 @@ class Custom_Background {
 	/**
 	 * Executes custom background modification.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 */
 	public function take_action() {
 		if ( empty( $_POST ) ) {
@@ -235,7 +231,7 @@ class Custom_Background {
 	/**
 	 * Displays the custom background page.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 */
 	public function admin_page() {
 		?>
@@ -525,7 +521,7 @@ class Custom_Background {
 	/**
 	 * Handles an Image upload for the background image.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 */
 	public function handle_upload() {
 		if ( empty( $_FILES ) ) {
@@ -586,7 +582,7 @@ class Custom_Background {
 	 * Triggers when the user adds a new background image from the
 	 * Media Manager.
 	 *
-	 * @since 4.1.0
+	 * @since WP 4.1.0
 	 */
 	public function ajax_background_add() {
 		check_ajax_referer( 'background-add', 'nonce' );
@@ -606,8 +602,8 @@ class Custom_Background {
 	}
 
 	/**
-	 * @since 3.4.0
-	 * @deprecated 3.5.0
+	 * @since WP 3.4.0
+	 * @deprecated WP 3.5.0
 	 *
 	 * @param array $form_fields
 	 * @return array $form_fields
@@ -617,8 +613,8 @@ class Custom_Background {
 	}
 
 	/**
-	 * @since 3.4.0
-	 * @deprecated 3.5.0
+	 * @since WP 3.4.0
+	 * @deprecated WP 3.5.0
 	 *
 	 * @param array $tabs
 	 * @return array $tabs
@@ -628,8 +624,8 @@ class Custom_Background {
 	}
 
 	/**
-	 * @since 3.4.0
-	 * @deprecated 3.5.0
+	 * @since WP 3.4.0
+	 * @deprecated WP 3.5.0
 	 */
 	public function wp_set_background_image() {
 		check_ajax_referer( 'custom-background' );

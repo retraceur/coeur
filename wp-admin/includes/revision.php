@@ -4,13 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage Administration
- * @since 3.6.0
+ * @since WP 3.6.0
  */
 
 /**
  * Get the revision UI diff.
  *
- * @since 3.6.0
+ * @since WP 3.6.0
  *
  * @param WP_Post|int $post         The post object or post ID.
  * @param int         $compare_from The revision ID to compare from.
@@ -79,7 +79,7 @@ function wp_get_revision_ui_diff( $post, $compare_from, $compare_to ) {
 		 *  - `_wp_post_revision_field_post_content`
 		 *  - `_wp_post_revision_field_post_excerpt`
 		 *
-		 * @since 3.6.0
+		 * @since WP 3.6.0
 		 *
 		 * @param string  $revision_field The current revision field to compare to or from.
 		 * @param string  $field          The current revision field.
@@ -103,7 +103,7 @@ function wp_get_revision_ui_diff( $post, $compare_from, $compare_to ) {
 		 *
 		 * Filters the options passed to wp_text_diff() when viewing a post revision.
 		 *
-		 * @since 4.1.0
+		 * @since WP 4.1.0
 		 *
 		 * @param array   $args {
 		 *     Associative array of options to pass to wp_text_diff().
@@ -154,7 +154,7 @@ function wp_get_revision_ui_diff( $post, $compare_from, $compare_to ) {
 	/**
 	 * Filters the fields displayed in the post revision diff UI.
 	 *
-	 * @since 4.1.0
+	 * @since WP 4.1.0
 	 *
 	 * @param array[] $return       Array of revision UI fields. Each item is an array of id, name, and diff.
 	 * @param WP_Post $compare_from The revision post to compare from.
@@ -166,7 +166,7 @@ function wp_get_revision_ui_diff( $post, $compare_from, $compare_to ) {
 /**
  * Prepare revisions for JavaScript.
  *
- * @since 3.6.0
+ * @since WP 3.6.0
  *
  * @param WP_Post|int $post                 The post object or post ID.
  * @param int         $selected_revision_id The selected revision ID.
@@ -260,7 +260,7 @@ function wp_prepare_revisions_for_js( $post, $selected_revision_id, $from = null
 		/**
 		 * Filters the array of revisions used on the revisions screen.
 		 *
-		 * @since 4.4.0
+		 * @since WP 4.4.0
 		 *
 		 * @param array   $revisions_data {
 		 *     The bootstrapped data for the revisions screen.
@@ -357,7 +357,7 @@ function wp_prepare_revisions_for_js( $post, $selected_revision_id, $from = null
 /**
  * Print JavaScript templates required for the revisions experience.
  *
- * @since 4.1.0
+ * @since WP 4.1.0
  *
  * @global WP_Post $post Global post object.
  */

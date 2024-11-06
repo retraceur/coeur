@@ -1272,7 +1272,7 @@ jQuery( function($) {
 	/**
 	 * Copies the attachment URL in the Edit Media page to the clipboard.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @param {MouseEvent} event A click event.
 	 *

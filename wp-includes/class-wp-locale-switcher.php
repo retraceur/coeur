@@ -4,20 +4,20 @@
  *
  * @package motsVertueux
  * @subpackage i18n
- * @since 4.7.0
+ * @since WP 4.7.0
  */
 
 /**
  * Core class used for switching locales.
  *
- * @since 4.7.0
+ * @since WP 4.7.0
  */
 #[AllowDynamicProperties]
 class WP_Locale_Switcher {
 	/**
 	 * Locale switching stack.
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 * @var array
 	 */
 	private $stack = array();
@@ -25,7 +25,7 @@ class WP_Locale_Switcher {
 	/**
 	 * Original locale.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 * @var string
 	 */
 	private $original_locale;
@@ -33,7 +33,7 @@ class WP_Locale_Switcher {
 	/**
 	 * Holds all available languages.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 * @var string[] An array of language codes (file names without the .mo extension).
 	 */
 	private $available_languages;
@@ -43,7 +43,7 @@ class WP_Locale_Switcher {
 	 *
 	 * Stores the original locale as well as a list of all available languages.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 */
 	public function __construct() {
 		$this->original_locale     = determine_locale();
@@ -56,7 +56,7 @@ class WP_Locale_Switcher {
 	 * Hooks into the {@see 'locale'} and {@see 'determine_locale'} filters
 	 * to change the locale on the fly.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 */
 	public function init() {
 		add_filter( 'locale', array( $this, 'filter_locale' ) );
@@ -66,7 +66,7 @@ class WP_Locale_Switcher {
 	/**
 	 * Switches the translations according to the given locale.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @param string    $locale  The locale to switch to.
 	 * @param int|false $user_id Optional. User ID as context. Default false.
@@ -89,8 +89,8 @@ class WP_Locale_Switcher {
 		/**
 		 * Fires when the locale is switched.
 		 *
-		 * @since 4.7.0
-		 * @since 6.2.0 The `$user_id` parameter was added.
+		 * @since WP 4.7.0
+		 * @since WP 6.2.0 The `$user_id` parameter was added.
 		 *
 		 * @param string    $locale  The new locale.
 		 * @param false|int $user_id User ID for context if available.
@@ -103,7 +103,7 @@ class WP_Locale_Switcher {
 	/**
 	 * Switches the translations according to the given user's locale.
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 *
 	 * @param int $user_id User ID.
 	 * @return bool True on success, false on failure.
@@ -116,7 +116,7 @@ class WP_Locale_Switcher {
 	/**
 	 * Restores the translations according to the previous locale.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @return string|false Locale on success, false on failure.
 	 */
@@ -141,7 +141,7 @@ class WP_Locale_Switcher {
 		/**
 		 * Fires when the locale is restored to the previous one.
 		 *
-		 * @since 4.7.0
+		 * @since WP 4.7.0
 		 *
 		 * @param string $locale          The new locale.
 		 * @param string $previous_locale The previous locale.
@@ -154,7 +154,7 @@ class WP_Locale_Switcher {
 	/**
 	 * Restores the translations according to the original locale.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @return string|false Locale on success, false on failure.
 	 */
@@ -171,7 +171,7 @@ class WP_Locale_Switcher {
 	/**
 	 * Whether switch_to_locale() is in effect.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @return bool True if the locale has been switched, false otherwise.
 	 */
@@ -182,7 +182,7 @@ class WP_Locale_Switcher {
 	/**
 	 * Returns the locale currently switched to.
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 *
 	 * @return string|false Locale if the locale has been switched, false otherwise.
 	 */
@@ -199,7 +199,7 @@ class WP_Locale_Switcher {
 	/**
 	 * Returns the user ID related to the currently switched locale.
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 *
 	 * @return int|false User ID if set and if the locale has been switched, false otherwise.
 	 */
@@ -216,7 +216,7 @@ class WP_Locale_Switcher {
 	/**
 	 * Filters the locale of the WordPress installation.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @param string $locale The locale of the WordPress installation.
 	 * @return string The locale currently being switched to.
@@ -236,7 +236,7 @@ class WP_Locale_Switcher {
 	 *
 	 * When switching to a locale, translations for this locale must be loaded from scratch.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @global Mo[] $l10n An array of all currently loaded text domains.
 	 *
@@ -270,7 +270,7 @@ class WP_Locale_Switcher {
 	 * Loads the translations, changes the global `$wp_locale` object and updates
 	 * all post type labels.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @global WP_Locale $wp_locale WordPress date and time locale object.
 	 *
@@ -288,7 +288,7 @@ class WP_Locale_Switcher {
 		/**
 		 * Fires when the locale is switched to or restored.
 		 *
-		 * @since 4.7.0
+		 * @since WP 4.7.0
 		 *
 		 * @param string $locale The new locale.
 		 */

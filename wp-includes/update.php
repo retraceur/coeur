@@ -1,50 +1,51 @@
 <?php
 /**
- * A simple set of functions to check the WordPress.org Version Update service.
+ * A simple set of functions to check the Version Update service.
+ * 
+ * @since WP 2.3.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
- * @since 2.3.0
  */
 
 /**
- * Checks WordPress version against the newest version.
+ * Checks motsVertueux version against the newest version.
  *
- * The WordPress version, PHP version, and locale is sent.
+ * The motsVertueux version and locale is sent.
  *
- * Checks against the WordPress server at api.wordpress.org. Will only check
- * if WordPress isn't installing.
+ * @since WP 2.3.0
+ * @since 1.0.0 motsVertueux fork.
  *
- * @since 2.3.0
- *
- * @global string $wp_version       Used to check against the newest WordPress version.
+ * @global string $mv_version       Used to check against the newest motsVertueux version.
  * @global wpdb   $wpdb             WordPress database abstraction object.
  * @global string $wp_local_package Locale code of the package.
  *
- * @param array $extra_stats Extra statistics to report to the WordPress.org API.
+ * @param array $extra_stats Extra statistics.
  * @param bool  $force_check Whether to bypass the transient cache and force a fresh update check.
  *                           Defaults to false, true if $extra_stats is set.
  */
 function wp_version_check( $extra_stats = array(), $force_check = false ) {
 	global $wpdb, $wp_local_package;
 
+	// Disable version checks for now.
+	return;
+
 	if ( wp_installing() ) {
 		return;
 	}
-
-	$php_version = PHP_VERSION;
 
 	$current      = get_site_transient( 'update_core' );
 	$translations = wp_get_installed_translations( 'core' );
 
 	// Invalidate the transient when $wp_version changes.
-	if ( is_object( $current ) && wp_get_wp_version() !== $current->version_checked ) {
+	if ( is_object( $current ) && mv_get_mv_version() !== $current->version_checked ) {
 		$current = false;
 	}
 
 	if ( ! is_object( $current ) ) {
 		$current                  = new stdClass();
 		$current->updates         = array();
-		$current->version_checked = wp_get_wp_version();
+		$current->version_checked = mv_get_mv_version();
 	}
 
 	if ( ! empty( $extra_stats ) ) {
@@ -62,7 +63,7 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
 	/**
 	 * Filters the locale requested for WordPress core translations.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @param string $locale Current locale.
 	 */
@@ -71,76 +72,11 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
 	// Update last_checked for current to prevent multiple blocking requests if request hangs.
 	$current->last_checked = time();
 	set_site_transient( 'update_core', $current );
-
-	if ( method_exists( $wpdb, 'db_server_info' ) ) {
-		$mysql_version = $wpdb->db_server_info();
-	} elseif ( method_exists( $wpdb, 'db_version' ) ) {
-		$mysql_version = preg_replace( '/[^0-9.].*/', '', $wpdb->db_version() );
-	} else {
-		$mysql_version = 'N/A';
-	}
-
-	if ( is_multisite() ) {
-		$num_blogs         = get_blog_count();
-		$wp_install        = network_site_url();
-		$multisite_enabled = 1;
-	} else {
-		$multisite_enabled = 0;
-		$num_blogs         = 1;
-		$wp_install        = home_url( '/' );
-	}
-
-	$extensions = get_loaded_extensions();
-	sort( $extensions, SORT_STRING | SORT_FLAG_CASE );
+	
 	$query = array(
-		'version'            => wp_get_wp_version(),
-		'php'                => $php_version,
-		'locale'             => $locale,
-		'mysql'              => $mysql_version,
-		'local_package'      => isset( $wp_local_package ) ? $wp_local_package : '',
-		'blogs'              => $num_blogs,
-		'users'              => get_user_count(),
-		'multisite_enabled'  => $multisite_enabled,
-		'initial_db_version' => get_site_option( 'initial_db_version' ),
-		'extensions'         => array_combine( $extensions, array_map( 'phpversion', $extensions ) ),
-		'platform_flags'     => array(
-			'os'   => PHP_OS,
-			'bits' => PHP_INT_SIZE === 4 ? 32 : 64,
-		),
-		'image_support'      => array(),
+		'version' => mv_get_mv_version(),
+		'locale'  => $locale,
 	);
-
-	if ( function_exists( 'gd_info' ) ) {
-		$gd_info = gd_info();
-		// Filter to supported values.
-		$gd_info = array_filter( $gd_info );
-
-		// Add data for GD WebP, AVIF, HEIC and JPEG XL support.
-		$query['image_support']['gd'] = array_keys(
-			array_filter(
-				array(
-					'webp' => isset( $gd_info['WebP Support'] ),
-					'avif' => isset( $gd_info['AVIF Support'] ),
-					'heic' => isset( $gd_info['HEIC Support'] ),
-					'jxl'  => isset( $gd_info['JXL Support'] ),
-				)
-			)
-		);
-	}
-
-	if ( class_exists( 'Imagick' ) ) {
-		// Add data for Imagick WebP, AVIF, HEIC and JPEG XL support.
-		$query['image_support']['imagick'] = array_keys(
-			array_filter(
-				array(
-					'webp' => ! empty( Imagick::queryFormats( 'WEBP' ) ),
-					'avif' => ! empty( Imagick::queryFormats( 'AVIF' ) ),
-					'heic' => ! empty( Imagick::queryFormats( 'HEIC' ) ),
-					'jxl'  => ! empty( Imagick::queryFormats( 'JXL' ) ),
-				)
-			)
-		);
-	}
 
 	/**
 	 * Filters the query arguments sent as part of the core version check.
@@ -148,20 +84,14 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
 	 * WARNING: Changing this data may result in your site not receiving security updates.
 	 * Please exercise extreme caution.
 	 *
-	 * @since 4.9.0
+	 * @since WP 4.9.0
+	 * @since 1.0.0 remove extra statistics.
 	 *
 	 * @param array $query {
 	 *     Version check query arguments.
 	 *
-	 *     @type string $version            WordPress version number.
-	 *     @type string $php                PHP version number.
-	 *     @type string $locale             The locale to retrieve updates for.
-	 *     @type string $mysql              MySQL version number.
-	 *     @type string $local_package      The value of the $wp_local_package global, when set.
-	 *     @type int    $blogs              Number of sites on this WordPress installation.
-	 *     @type int    $users              Number of users on this WordPress installation.
-	 *     @type int    $multisite_enabled  Whether this WordPress installation uses Multisite.
-	 *     @type int    $initial_db_version Database version of WordPress at time of installation.
+	 *     @type string $version motsVertueux version number.
+	 *     @type string $locale  The locale to retrieve updates for.
 	 * }
 	 */
 	$query = apply_filters( 'core_version_check_query_args', $query );
@@ -170,18 +100,8 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
 		'translations' => wp_json_encode( $translations ),
 	);
 
-	if ( is_array( $extra_stats ) ) {
-		$post_body = array_merge( $post_body, $extra_stats );
-	}
-
-	// Allow for WP_AUTO_UPDATE_CORE to specify beta/RC/development releases.
-	if ( defined( 'WP_AUTO_UPDATE_CORE' )
-		&& in_array( WP_AUTO_UPDATE_CORE, array( 'beta', 'rc', 'development', 'branch-development' ), true )
-	) {
-		$query['channel'] = WP_AUTO_UPDATE_CORE;
-	}
-
-	$url      = 'http://api.wordpress.org/core/version-check/1.7/?' . http_build_query( $query, '', '&' );
+	// @todo See what's doable using GitHub.
+	$url      = '';
 	$http_url = $url;
 	$ssl      = wp_http_supports( array( 'ssl' ) );
 
@@ -193,7 +113,7 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
 
 	$options = array(
 		'timeout'    => $doing_cron ? 30 : 3,
-		'user-agent' => 'WordPress/' . wp_get_wp_version() . '; ' . home_url( '/' ),
+		'user-agent' => 'motsVertueux/' . mv_get_mv_version() . '; ' . home_url( '/' ),
 		'headers'    => array(
 			'wp_install' => $wp_install,
 			'wp_blog'    => home_url( '/' ),
@@ -206,11 +126,7 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
 	if ( $ssl && is_wp_error( $response ) ) {
 		wp_trigger_error(
 			__FUNCTION__,
-			sprintf(
-				/* translators: %s: Support forums URL. */
-				__( 'An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="%s">support forums</a>.' ),
-				__( 'https://wordpress.org/support/forums/' )
-			) . ' ' . __( '(WordPress could not establish a secure connection to WordPress.org. Please contact your server administrator.)' ),
+			__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ) . ' ' . __( '(WordPress could not establish a secure connection to Core Updater. Please contact your server administrator.)' ),
 			headers_sent() || WP_DEBUG ? E_USER_WARNING : E_USER_NOTICE
 		);
 		$response = wp_remote_post( $http_url, $options );
@@ -268,7 +184,7 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
 	$updates                  = new stdClass();
 	$updates->updates         = $offers;
 	$updates->last_checked    = time();
-	$updates->version_checked = wp_get_wp_version();
+	$updates->version_checked = mv_get_mv_version();
 
 	if ( isset( $body['translations'] ) ) {
 		$updates->translations = $body['translations'];
@@ -290,29 +206,30 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
 		/**
 		 * Fires during wp_cron, starting the auto-update process.
 		 *
-		 * @since 3.9.0
+		 * @since WP 3.9.0
 		 */
 		do_action( 'wp_maybe_auto_update' );
 	}
 }
 
 /**
- * Checks for available updates to plugins based on the latest versions hosted on WordPress.org.
+ * Checks for available updates to plugins.
  *
  * Despite its name this function does not actually perform any updates, it only checks for available updates.
  *
  * A list of all plugins installed is sent to WP, along with the site locale.
  *
- * Checks against the WordPress server at api.wordpress.org. Will only check
- * if WordPress isn't installing.
+ * @since WP 2.3.0
+ * @since 1.0.0 motsVertueux fork.
  *
- * @since 2.3.0
+ * @global string $mv_version The motsVertueux version string.
  *
- * @global string $wp_version The WordPress version string.
- *
- * @param array $extra_stats Extra statistics to report to the WordPress.org API.
+ * @param array $extra_stats Extra statistics.
  */
 function wp_update_plugins( $extra_stats = array() ) {
+	// Disable plugin updates for now.
+	return;
+
 	if ( wp_installing() ) {
 		return;
 	}
@@ -399,8 +316,8 @@ function wp_update_plugins( $extra_stats = array() ) {
 	/**
 	 * Filters the locales requested for plugin translations.
 	 *
-	 * @since 3.7.0
-	 * @since 4.5.0 The default value of the `$locales` parameter changed to include all locales.
+	 * @since WP 3.7.0
+	 * @since WP 4.5.0 The default value of the `$locales` parameter changed to include all locales.
 	 *
 	 * @param string[] $locales Plugin locales. Default is all available locales of the site.
 	 */
@@ -425,11 +342,8 @@ function wp_update_plugins( $extra_stats = array() ) {
 		'user-agent' => 'WordPress/' . wp_get_wp_version() . '; ' . home_url( '/' ),
 	);
 
-	if ( $extra_stats ) {
-		$options['body']['update_stats'] = wp_json_encode( $extra_stats );
-	}
-
-	$url      = 'http://api.wordpress.org/plugins/update-check/1.1/';
+	// @todo See what's doable using GitHub.
+	$url      = '';
 	$http_url = $url;
 	$ssl      = wp_http_supports( array( 'ssl' ) );
 
@@ -442,11 +356,7 @@ function wp_update_plugins( $extra_stats = array() ) {
 	if ( $ssl && is_wp_error( $raw_response ) ) {
 		wp_trigger_error(
 			__FUNCTION__,
-			sprintf(
-				/* translators: %s: Support forums URL. */
-				__( 'An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="%s">support forums</a>.' ),
-				__( 'https://wordpress.org/support/forums/' )
-			) . ' ' . __( '(WordPress could not establish a secure connection to WordPress.org. Please contact your server administrator.)' ),
+			__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ) . ' ' . __( '(motsVertueux could not establish a secure connection to Plugins updater. Please contact your server administrator.)' ),
 			headers_sent() || WP_DEBUG ? E_USER_WARNING : E_USER_NOTICE
 		);
 		$raw_response = wp_remote_post( $http_url, $options );
@@ -478,7 +388,7 @@ function wp_update_plugins( $extra_stats = array() ) {
 		 * The dynamic portion of the hook name, `$hostname`, refers to the hostname
 		 * of the URI specified in the `Update URI` header field.
 		 *
-		 * @since 5.8.0
+		 * @since WP 5.8.0
 		 *
 		 * @param array|false $update {
 		 *     The plugin update data with the latest details. Default false.
@@ -569,22 +479,23 @@ function wp_update_plugins( $extra_stats = array() ) {
 }
 
 /**
- * Checks for available updates to themes based on the latest versions hosted on WordPress.org.
+ * Checks for available updates to themes.
  *
  * Despite its name this function does not actually perform any updates, it only checks for available updates.
  *
  * A list of all themes installed is sent to WP, along with the site locale.
  *
- * Checks against the WordPress server at api.wordpress.org. Will only check
- * if WordPress isn't installing.
- *
- * @since 2.7.0
+ * @since WP 2.7.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @global string $wp_version The WordPress version string.
  *
- * @param array $extra_stats Extra statistics to report to the WordPress.org API.
+ * @param array $extra_stats Extra statistics.
  */
 function wp_update_themes( $extra_stats = array() ) {
+	// Disable theme updates for now.
+	return;
+
 	if ( wp_installing() ) {
 		return;
 	}
@@ -679,8 +590,8 @@ function wp_update_themes( $extra_stats = array() ) {
 	/**
 	 * Filters the locales requested for theme translations.
 	 *
-	 * @since 3.7.0
-	 * @since 4.5.0 The default value of the `$locales` parameter changed to include all locales.
+	 * @since WP 3.7.0
+	 * @since WP 4.5.0 The default value of the `$locales` parameter changed to include all locales.
 	 *
 	 * @param string[] $locales Theme locales. Default is all available locales of the site.
 	 */
@@ -704,11 +615,8 @@ function wp_update_themes( $extra_stats = array() ) {
 		'user-agent' => 'WordPress/' . wp_get_wp_version() . '; ' . home_url( '/' ),
 	);
 
-	if ( $extra_stats ) {
-		$options['body']['update_stats'] = wp_json_encode( $extra_stats );
-	}
-
-	$url      = 'http://api.wordpress.org/themes/update-check/1.1/';
+	// @todo See what's doable using GitHub.
+	$url      = '';
 	$http_url = $url;
 	$ssl      = wp_http_supports( array( 'ssl' ) );
 
@@ -721,11 +629,7 @@ function wp_update_themes( $extra_stats = array() ) {
 	if ( $ssl && is_wp_error( $raw_response ) ) {
 		wp_trigger_error(
 			__FUNCTION__,
-			sprintf(
-				/* translators: %s: Support forums URL. */
-				__( 'An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="%s">support forums</a>.' ),
-				__( 'https://wordpress.org/support/forums/' )
-			) . ' ' . __( '(WordPress could not establish a secure connection to WordPress.org. Please contact your server administrator.)' ),
+			__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ) . ' ' . __( '(motsVertueux could not establish a secure connection to Theme updater. Please contact your server administrator.)' ),
 			headers_sent() || WP_DEBUG ? E_USER_WARNING : E_USER_NOTICE
 		);
 		$raw_response = wp_remote_post( $http_url, $options );
@@ -761,7 +665,7 @@ function wp_update_themes( $extra_stats = array() ) {
 		 * The dynamic portion of the hook name, `$hostname`, refers to the hostname
 		 * of the URI specified in the `Update URI` header field.
 		 *
-		 * @since 6.1.0
+		 * @since WP 6.1.0
 		 *
 		 * @param array|false $update {
 		 *     The theme update data with the latest details. Default false.
@@ -841,9 +745,13 @@ function wp_update_themes( $extra_stats = array() ) {
  *
  * Updates WordPress core plus any plugins and themes that have automatic updates enabled.
  *
- * @since 3.7.0
+ * @since WP 3.7.0
+ * @since 1.0.0 motsVertueux fork.
  */
 function wp_maybe_auto_update() {
+	// Disable auto updates for now.
+	return;
+
 	require_once ABSPATH . 'wp-admin/includes/admin.php';
 	require_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
 
@@ -854,11 +762,15 @@ function wp_maybe_auto_update() {
 /**
  * Retrieves a list of all language updates available.
  *
- * @since 3.7.0
+ * @since WP 3.7.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @return object[] Array of translation objects that have available updates.
  */
 function wp_get_translation_updates() {
+	// Disable translation updates for now.
+	return array();
+
 	$updates    = array();
 	$transients = array(
 		'update_core'    => 'core',
@@ -884,7 +796,7 @@ function wp_get_translation_updates() {
 /**
  * Collects counts and UI strings for available updates.
  *
- * @since 3.3.0
+ * @since WP 3.3.0
  *
  * @return array
  */
@@ -964,7 +876,7 @@ function wp_get_update_data() {
 	/**
 	 * Filters the returned array of update data for plugins, themes, and WordPress core.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @param array $update_data {
 	 *     Fetched update data.
@@ -980,7 +892,7 @@ function wp_get_update_data() {
 /**
  * Determines whether core should be updated.
  *
- * @since 2.8.0
+ * @since WP 2.8.0
  *
  * @global string $wp_version The WordPress version string.
  */
@@ -1003,7 +915,7 @@ function _maybe_update_core() {
  * This is used for the wp-admin to check only so often instead of every page
  * load.
  *
- * @since 2.7.0
+ * @since WP 2.7.0
  * @access private
  */
 function _maybe_update_plugins() {
@@ -1024,7 +936,7 @@ function _maybe_update_plugins() {
  * This is for performance reasons to make sure that on the theme version
  * checker is not run on every page load.
  *
- * @since 2.7.0
+ * @since WP 2.7.0
  * @access private
  */
 function _maybe_update_themes() {
@@ -1042,7 +954,7 @@ function _maybe_update_themes() {
 /**
  * Schedules core, theme, and plugin update checks.
  *
- * @since 3.1.0
+ * @since WP 3.1.0
  */
 function wp_schedule_update_checks() {
 	if ( ! wp_next_scheduled( 'wp_version_check' ) && ! wp_installing() ) {
@@ -1061,7 +973,7 @@ function wp_schedule_update_checks() {
 /**
  * Clears existing update caches for plugins, themes, and core.
  *
- * @since 4.1.0
+ * @since WP 4.1.0
  */
 function wp_clean_update_cache() {
 	if ( function_exists( 'wp_clean_plugins_cache' ) ) {
@@ -1078,7 +990,7 @@ function wp_clean_update_cache() {
 /**
  * Schedules the removal of all contents in the temporary backup directory.
  *
- * @since 6.3.0
+ * @since WP 6.3.0
  */
 function wp_delete_all_temp_backups() {
 	/*
@@ -1098,7 +1010,7 @@ function wp_delete_all_temp_backups() {
 /**
  * Deletes all contents in the temporary backup directory.
  *
- * @since 6.3.0
+ * @since WP 6.3.0
  *
  * @access private
  *
@@ -1146,7 +1058,12 @@ if ( ( ! is_main_site() && ! is_network_admin() ) || wp_doing_ajax() ) {
 	return;
 }
 
-add_action( 'admin_init', '_maybe_update_core' );
+/**
+ * Disable updates for now.
+ * 
+ * @since 1.0.0 motsVertueux fork.
+ */
+/*add_action( 'admin_init', '_maybe_update_core' );
 add_action( 'wp_version_check', 'wp_version_check' );
 
 add_action( 'load-plugins.php', 'wp_update_plugins' );
@@ -1167,4 +1084,4 @@ add_action( 'wp_maybe_auto_update', 'wp_maybe_auto_update' );
 
 add_action( 'init', 'wp_schedule_update_checks' );
 
-add_action( 'wp_delete_temp_updater_backups', 'wp_delete_all_temp_backups' );
+add_action( 'wp_delete_temp_updater_backups', 'wp_delete_all_temp_backups' );*/

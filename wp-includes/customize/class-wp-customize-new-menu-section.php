@@ -4,8 +4,8 @@
  *
  * @package motsVertueux
  * @subpackage Customize
- * @since 4.4.0
- * @deprecated 4.9.0 This file is no longer used as of the menu creation UX introduced in #40104.
+ * @since WP 4.4.0
+ * @deprecated WP 4.9.0 This file is no longer used as of the menu creation UX introduced in #40104.
  */
 
 _deprecated_file( basename( __FILE__ ), '4.9.0' );
@@ -13,8 +13,8 @@ _deprecated_file( basename( __FILE__ ), '4.9.0' );
 /**
  * Customize Menu Section Class
  *
- * @since 4.3.0
- * @deprecated 4.9.0 This class is no longer used as of the menu creation UX introduced in #40104.
+ * @since WP 4.3.0
+ * @deprecated WP 4.9.0 This class is no longer used as of the menu creation UX introduced in #40104.
  *
  * @see WP_Customize_Section
  */
@@ -23,7 +23,7 @@ class WP_Customize_New_Menu_Section extends WP_Customize_Section {
 	/**
 	 * Control type.
 	 *
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 * @var string
 	 */
 	public $type = 'new_menu';
@@ -33,8 +33,8 @@ class WP_Customize_New_Menu_Section extends WP_Customize_Section {
 	 *
 	 * Any supplied $args override class property defaults.
 	 *
-	 * @since 4.9.0
-	 * @deprecated 4.9.0
+	 * @since WP 4.9.0
+	 * @deprecated WP 4.9.0
 	 *
 	 * @param WP_Customize_Manager $manager Customizer bootstrap instance.
 	 * @param string               $id      A specific ID of the section.
@@ -48,8 +48,8 @@ class WP_Customize_New_Menu_Section extends WP_Customize_Section {
 	/**
 	 * Render the section, and the controls that have been added to it.
 	 *
-	 * @since 4.3.0
-	 * @deprecated 4.9.0
+	 * @since WP 4.3.0
+	 * @deprecated WP 4.9.0
 	 */
 	protected function render() {
 		_deprecated_function( __METHOD__, '4.9.0' );

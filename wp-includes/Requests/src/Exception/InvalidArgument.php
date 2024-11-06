@@ -8,7 +8,7 @@ use InvalidArgumentException;
  * Exception for an invalid argument passed.
  *
  * @package Requests\Exceptions
- * @since   2.0.0
+ * @since WP   2.0.0
  */
 final class InvalidArgument extends InvalidArgumentException {
 

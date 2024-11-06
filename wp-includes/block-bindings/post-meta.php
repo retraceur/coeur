@@ -2,7 +2,7 @@
 /**
  * Post Meta source for the block bindings.
  *
- * @since 6.5.0
+ * @since WP 6.5.0
  * @package motsVertueux
  * @subpackage Block Bindings
  */
@@ -10,7 +10,7 @@
 /**
  * Gets value for Post Meta source.
  *
- * @since 6.5.0
+ * @since WP 6.5.0
  * @access private
  *
  * @param array    $source_args    Array containing source arguments used to look up the override value.
@@ -53,7 +53,7 @@ function _block_bindings_post_meta_get_value( array $source_args, $block_instanc
 /**
  * Registers Post Meta source in the block bindings registry.
  *
- * @since 6.5.0
+ * @since WP 6.5.0
  * @access private
  */
 function _register_block_bindings_post_meta_source() {

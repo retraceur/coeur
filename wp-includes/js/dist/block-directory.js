@@ -903,14 +903,14 @@ function __read(o, n) {
   return ar;
 }
 
-/** @deprecated */
+/** @deprecated WP */
 function __spread() {
   for (var ar = [], i = 0; i < arguments.length; i++)
       ar = ar.concat(__read(arguments[i]));
   return ar;
 }
 
-/** @deprecated */
+/** @deprecated WP */
 function __spreadArrays() {
   for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
   for (var r = Array(s), k = 0, i = 0; i < il; i++)
@@ -1806,7 +1806,7 @@ function DownloadableBlocksNoResults() {
       className: "block-editor-inserter__tips",
       children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_wp_components_namespaceObject.Tip, {
         children: [(0,external_wp_i18n_namespaceObject.__)('Interested in creating your own block?'), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("br", {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_wp_components_namespaceObject.ExternalLink, {
-          href: "https://developer.wordpress.org/block-editor/",
+          href: "#",
           children: [(0,external_wp_i18n_namespaceObject.__)('Get started here'), "."]
         })]
       })

@@ -1,10 +1,12 @@
 <?php
 /**
  * Widget API: WP_Widget_Meta class
+ * 
+ * @since WP 4.4.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Widgets
- * @since 4.4.0
  */
 
 /**
@@ -12,7 +14,7 @@
  *
  * Displays log in/out, RSS feed links, etc.
  *
- * @since 2.8.0
+ * @since WP 2.8.0
  *
  * @see WP_Widget
  */
@@ -21,12 +23,12 @@ class WP_Widget_Meta extends WP_Widget {
 	/**
 	 * Sets up a new Meta widget instance.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 */
 	public function __construct() {
 		$widget_ops = array(
 			'classname'                   => 'widget_meta',
-			'description'                 => __( 'Login, RSS, &amp; WordPress.org links.' ),
+			'description'                 => __( 'Login, RSS, &amp; links.' ),
 			'customize_selective_refresh' => true,
 			'show_instance_in_rest'       => true,
 		);
@@ -36,7 +38,7 @@ class WP_Widget_Meta extends WP_Widget {
 	/**
 	 * Outputs the content for the current Meta widget instance.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @param array $args     Display arguments including 'before_title', 'after_title',
 	 *                        'before_widget', and 'after_widget'.
@@ -76,20 +78,19 @@ class WP_Widget_Meta extends WP_Widget {
 
 			<?php
 			/**
-			 * Filters the "WordPress.org" list item HTML in the Meta widget.
+			 * Filters the list item HTML in the Meta widget.
 			 *
-			 * @since 3.6.0
-			 * @since 4.9.0 Added the `$instance` parameter.
+			 * @since WP 3.6.0
+			 * @since WP 4.9.0 Added the `$instance` parameter.
 			 *
-			 * @param string $html     Default HTML for the WordPress.org list item.
+			 * @param string $html     Default HTML for the list item.
 			 * @param array  $instance Array of settings for the current widget.
 			 */
 			echo apply_filters(
 				'widget_meta_poweredby',
 				sprintf(
-					'<li><a href="%1$s">%2$s</a></li>',
-					esc_url( __( 'https://wordpress.org/' ) ),
-					__( 'WordPress.org' )
+					'<li>%s</li>',
+					__( 'motsVertueux' )
 				),
 				$instance
 			);
@@ -110,7 +111,7 @@ class WP_Widget_Meta extends WP_Widget {
 	/**
 	 * Handles updating settings for the current Meta widget instance.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @param array $new_instance New settings for this instance as input by the user via
 	 *                            WP_Widget::form().
@@ -127,7 +128,7 @@ class WP_Widget_Meta extends WP_Widget {
 	/**
 	 * Outputs the settings form for the Meta widget.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @param array $instance Current settings.
 	 */

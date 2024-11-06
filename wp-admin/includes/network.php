@@ -4,13 +4,14 @@
  *
  * @package motsVertueux
  * @subpackage Administration
- * @since 4.4.0
+ * @since WP 4.4.0
+ * @since 1.0.0 motsVertueux fork.
  */
 
 /**
  * Check for an existing network.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  *
@@ -29,7 +30,7 @@ function network_domain_check() {
 /**
  * Allow subdomain installation
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  * @return bool Whether subdomain installation is allowed
  */
 function allow_subdomain_install() {
@@ -45,7 +46,7 @@ function allow_subdomain_install() {
 /**
  * Allow subdirectory installation.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  *
@@ -57,7 +58,7 @@ function allow_subdirectory_install() {
 	/**
 	 * Filters whether to enable the subdirectory installation feature in Multisite.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 *
 	 * @param bool $allow Whether to enable the subdirectory installation feature in Multisite.
 	 *                    Default false.
@@ -81,7 +82,7 @@ function allow_subdirectory_install() {
 /**
  * Get base domain of network.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  * @return string Base domain.
  */
 function get_clean_basedomain() {
@@ -104,7 +105,7 @@ function get_clean_basedomain() {
  *       Navigating to Tools > Network should not be a sudden "Welcome to a new install process!
  *       Fill this out and click here." See also contextual help todo.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @global bool $is_apache
  *
@@ -399,7 +400,7 @@ function network_step1( $errors = false ) {
 /**
  * Prints step 2 for Network installation process.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @global wpdb $wpdb     WordPress database abstraction object.
  * @global bool $is_nginx Whether the server software is Nginx or something else.
@@ -509,11 +510,7 @@ function network_step2( $errors = false ) {
 			__( 'Add the following to your %1$s file in %2$s <strong>above</strong> the line reading %3$s:' ),
 			'<code>wp-config.php</code>',
 			'<code>' . $location_of_wp_config . '</code>',
-			/*
-			 * translators: This string should only be translated if wp-config-sample.php is localized.
-			 * You can check the localized release package or
-			 * https://i18n.svn.wordpress.org/<locale code>/branches/<wp version>/dist/wp-config-sample.php
-			 */
+			// translators: This string should only be translated if wp-config-sample.php is localized.
 			'<code>/* ' . __( 'That&#8217;s all, stop editing! Happy publishing.' ) . ' */</code>'
 		);
 		?>
@@ -554,17 +551,11 @@ define( 'BLOG_ID_CURRENT_SITE', 1 );
 
 		if ( ! empty( $keys_salts ) ) {
 			$keys_salts_str = '';
-			$from_api       = wp_remote_get( 'https://api.wordpress.org/secret-key/1.1/salt/' );
-			if ( is_wp_error( $from_api ) ) {
-				foreach ( $keys_salts as $c => $v ) {
-					$keys_salts_str .= "\ndefine( '$c', '" . wp_generate_password( 64, true, true ) . "' );";
-				}
-			} else {
-				$from_api = explode( "\n", wp_remote_retrieve_body( $from_api ) );
-				foreach ( $keys_salts as $c => $v ) {
-					$keys_salts_str .= "\ndefine( '$c', '" . substr( array_shift( $from_api ), 28, 64 ) . "' );";
-				}
+
+			foreach ( $keys_salts as $c => $v ) {
+				$keys_salts_str .= "\ndefine( '$c', '" . wp_generate_password( 64, true, true ) . "' );";
 			}
+
 			$num_keys_salts = count( $keys_salts );
 			?>
 		<p id="network-wpconfig-authentication-description">
@@ -674,11 +665,7 @@ define( 'BLOG_ID_CURRENT_SITE', 1 );
 	elseif ( $is_nginx ) : // End iis7_supports_permalinks(). Link to Nginx documentation instead:
 
 		echo '<li><p>';
-		printf(
-			/* translators: %s: Documentation URL. */
-			__( 'It seems your network is running with Nginx web server. <a href="%s">Learn more about further configuration</a>.' ),
-			__( 'https://developer.wordpress.org/advanced-administration/server/web-server/nginx/' )
-		);
+		esc_html_e( 'It seems your network is running with Nginx web server.' );
 		echo '</p></li>';
 
 	else : // End $is_nginx. Construct an .htaccess file instead:

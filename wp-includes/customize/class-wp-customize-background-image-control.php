@@ -4,13 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage Customize
- * @since 4.4.0
+ * @since WP 4.4.0
  */
 
 /**
  * Customize Background Image Control class.
  *
- * @since 3.4.0
+ * @since WP 3.4.0
  *
  * @see WP_Customize_Image_Control
  */
@@ -19,7 +19,7 @@ class WP_Customize_Background_Image_Control extends WP_Customize_Image_Control {
 	/**
 	 * Customize control type.
 	 *
-	 * @since 4.1.0
+	 * @since WP 4.1.0
 	 * @var string
 	 */
 	public $type = 'background';
@@ -27,7 +27,7 @@ class WP_Customize_Background_Image_Control extends WP_Customize_Image_Control {
 	/**
 	 * Constructor.
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 * @uses WP_Customize_Image_Control::__construct()
 	 *
 	 * @param WP_Customize_Manager $manager Customizer bootstrap instance.
@@ -46,7 +46,7 @@ class WP_Customize_Background_Image_Control extends WP_Customize_Image_Control {
 	/**
 	 * Enqueue control related scripts/styles.
 	 *
-	 * @since 4.1.0
+	 * @since WP 4.1.0
 	 */
 	public function enqueue() {
 		parent::enqueue();

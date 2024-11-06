@@ -4,7 +4,8 @@
  *
  * @package motsVertueux
  * @subpackage Toolbar
- * @since 3.1.0
+ * @since WP 3.1.0
+ * @since 1.0.0 motsVertueux fork.
  */
 
 /**
@@ -13,7 +14,7 @@
  * UNHOOKING THIS FUNCTION WILL NOT PROPERLY REMOVE THE ADMIN BAR.
  * For that, use show_admin_bar(false) or the {@see 'show_admin_bar'} filter.
  *
- * @since 3.1.0
+ * @since WP 3.1.0
  * @access private
  *
  * @global WP_Admin_Bar $wp_admin_bar
@@ -35,7 +36,7 @@ function _wp_admin_bar_init() {
 	/**
 	 * Filters the admin bar class to instantiate.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @param string $wp_admin_bar_class Admin bar class to use. Default 'WP_Admin_Bar'.
 	 */
@@ -65,8 +66,8 @@ function _wp_admin_bar_init() {
  * add new menus to the admin bar. This also gives you access to the `$post` global,
  * among others.
  *
- * @since 3.1.0
- * @since 5.4.0 Called on 'wp_body_open' action first, with 'wp_footer' as a fallback.
+ * @since WP 3.1.0
+ * @since WP 5.4.0 Called on 'wp_body_open' action first, with 'wp_footer' as a fallback.
  *
  * @global WP_Admin_Bar $wp_admin_bar
  */
@@ -90,7 +91,7 @@ function wp_admin_bar_render() {
 	 * would require a high priority. To remove or manipulate existing nodes
 	 * without a specific priority, use `wp_before_admin_bar_render`.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @param WP_Admin_Bar $wp_admin_bar The WP_Admin_Bar instance, passed by reference.
 	 */
@@ -99,7 +100,7 @@ function wp_admin_bar_render() {
 	/**
 	 * Fires before the admin bar is rendered.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 */
 	do_action( 'wp_before_admin_bar_render' );
 
@@ -108,7 +109,7 @@ function wp_admin_bar_render() {
 	/**
 	 * Fires after the admin bar is rendered.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 */
 	do_action( 'wp_after_admin_bar_render' );
 
@@ -118,7 +119,7 @@ function wp_admin_bar_render() {
 /**
  * Adds the WordPress logo menu.
  *
- * @since 3.3.0
+ * @since WP 3.3.0
  *
  * @param WP_Admin_Bar $wp_admin_bar The WP_Admin_Bar instance.
  */
@@ -138,11 +139,11 @@ function wp_admin_bar_wp_menu( $wp_admin_bar ) {
 		'id'    => 'wp-logo',
 		'title' => '<span class="ab-icon" aria-hidden="true"></span><span class="screen-reader-text">' .
 				/* translators: Hidden accessibility text. */
-				__( 'About WordPress' ) .
+				__( 'About motsVertueux' ) .
 			'</span>',
 		'href'  => $about_url,
 		'meta'  => array(
-			'menu_title' => __( 'About WordPress' ),
+			'menu_title' => __( 'About motsVertueux' ),
 		),
 	);
 
@@ -156,12 +157,12 @@ function wp_admin_bar_wp_menu( $wp_admin_bar ) {
 	$wp_admin_bar->add_node( $wp_logo_menu_args );
 
 	if ( $about_url ) {
-		// Add "About WordPress" link.
+		// Add "About motsVertueuxs" link.
 		$wp_admin_bar->add_node(
 			array(
 				'parent' => 'wp-logo',
 				'id'     => 'about',
-				'title'  => __( 'About WordPress' ),
+				'title'  => __( 'About motsVertueux' ),
 				'href'   => $about_url,
 			)
 		);
@@ -178,62 +179,12 @@ function wp_admin_bar_wp_menu( $wp_admin_bar ) {
 			)
 		);
 	}
-
-	// Add WordPress.org link.
-	$wp_admin_bar->add_node(
-		array(
-			'parent' => 'wp-logo-external',
-			'id'     => 'wporg',
-			'title'  => __( 'WordPress.org' ),
-			'href'   => __( 'https://wordpress.org/' ),
-		)
-	);
-
-	// Add documentation link.
-	$wp_admin_bar->add_node(
-		array(
-			'parent' => 'wp-logo-external',
-			'id'     => 'documentation',
-			'title'  => __( 'Documentation' ),
-			'href'   => __( 'https://wordpress.org/documentation/' ),
-		)
-	);
-
-	// Add learn link.
-	$wp_admin_bar->add_node(
-		array(
-			'parent' => 'wp-logo-external',
-			'id'     => 'learn',
-			'title'  => __( 'Learn WordPress' ),
-			'href'   => 'https://learn.wordpress.org/',
-		)
-	);
-
-	// Add forums link.
-	$wp_admin_bar->add_node(
-		array(
-			'parent' => 'wp-logo-external',
-			'id'     => 'support-forums',
-			'title'  => __( 'Support' ),
-			'href'   => __( 'https://wordpress.org/support/forums/' ),
-		)
-	);
-
-	// Add feedback link.
-	$wp_admin_bar->add_node(
-		array(
-			'parent' => 'wp-logo-external',
-			'id'     => 'feedback',
-			'title'  => __( 'Feedback' ),
-			'href'   => __( 'https://wordpress.org/support/forum/requests-and-feedback' ),
-		)
-	);
 }
 
 /**
  * Adds the sidebar toggle button.
  *
- * @since 3.8.0
+ * @since WP 3.8.0
  *
  * @param WP_Admin_Bar $wp_admin_bar The WP_Admin_Bar instance.
  */
@@ -255,7 +206,7 @@ function wp_admin_bar_sidebar_toggle( $wp_admin_bar ) {
 /**
  * Adds the "My Account" item.
  *
- * @since 3.3.0
+ * @since WP 3.3.0
  *
  * @param WP_Admin_Bar $wp_admin_bar The WP_Admin_Bar instance.
  */
@@ -299,7 +250,7 @@ function wp_admin_bar_my_account_item( $wp_admin_bar ) {
 /**
  * Adds the "My Account" submenu items.
  *
- * @since 3.1.0
+ * @since WP 3.1.0
  *
  * @param WP_Admin_Bar $wp_admin_bar The WP_Admin_Bar instance.
  */
@@ -359,7 +310,7 @@ function wp_admin_bar_my_account_menu( $wp_admin_bar ) {
 /**
  * Adds the "Site Name" menu.
  *
- * @since 3.3.0
+ * @since WP 3.3.0
  *
  * @param WP_Admin_Bar $wp_admin_bar The WP_Admin_Bar instance.
  */
@@ -455,9 +406,9 @@ function wp_admin_bar_site_menu( $wp_admin_bar ) {
 /**
  * Adds the "Edit site" link to the Toolbar.
  *
- * @since 5.9.0
- * @since 6.3.0 Added `$_wp_current_template_id` global for editing of current template directly from the admin bar.
- * @since 6.6.0 Added the `canvas` query arg to the Site Editor link.
+ * @since WP 5.9.0
+ * @since WP 6.3.0 Added `$_wp_current_template_id` global for editing of current template directly from the admin bar.
+ * @since WP 6.6.0 Added the `canvas` query arg to the Site Editor link.
  *
  * @global string $_wp_current_template_id
  *
@@ -495,7 +446,7 @@ function wp_admin_bar_edit_site_menu( $wp_admin_bar ) {
 /**
  * Adds the "Customize" link to the Toolbar.
  *
- * @since 4.3.0
+ * @since WP 4.3.0
  *
  * @global WP_Customize_Manager $wp_customize
  *
@@ -547,7 +498,7 @@ function wp_admin_bar_customize_menu( $wp_admin_bar ) {
 /**
  * Adds the "My Sites/[Site Name]" menu and all submenus.
  *
- * @since 3.1.0
+ * @since WP 3.1.0
  *
  * @param WP_Admin_Bar $wp_admin_bar The WP_Admin_Bar instance.
  */
@@ -675,7 +626,7 @@ function wp_admin_bar_my_sites_menu( $wp_admin_bar ) {
 	 * Returning false to this hook is the recommended way to hide site icons in the toolbar.
 	 * A truthy return may have negative performance impact on large multisites.
 	 *
-	 * @since 6.0.0
+	 * @since WP 6.0.0
 	 *
 	 * @param bool $show_site_icons Whether site icons should be shown in the toolbar. Default true.
 	 */
@@ -770,7 +721,7 @@ function wp_admin_bar_my_sites_menu( $wp_admin_bar ) {
 /**
  * Provides a shortlink.
  *
- * @since 3.1.0
+ * @since WP 3.1.0
  *
  * @param WP_Admin_Bar $wp_admin_bar The WP_Admin_Bar instance.
  */
@@ -797,8 +748,8 @@ function wp_admin_bar_shortlink_menu( $wp_admin_bar ) {
 /**
  * Provides an edit link for posts and terms.
  *
- * @since 3.1.0
- * @since 5.5.0 Added a "View Post" link on Comments screen for a single post.
+ * @since WP 3.1.0
+ * @since WP 5.5.0 Added a "View Post" link on Comments screen for a single post.
  *
  * @global WP_Term  $tag
  * @global WP_Query $wp_the_query WordPress Query object.
@@ -941,8 +892,8 @@ function wp_admin_bar_edit_menu( $wp_admin_bar ) {
 /**
  * Adds "Add New" menu.
  *
- * @since 3.1.0
- * @since 6.5.0 Added a New Site link for network installations.
+ * @since WP 3.1.0
+ * @since WP 6.5.0 Added a New Site link for network installations.
  *
  * @param WP_Admin_Bar $wp_admin_bar The WP_Admin_Bar instance.
  */
@@ -1032,7 +983,7 @@ function wp_admin_bar_new_content_menu( $wp_admin_bar ) {
 /**
  * Adds edit comments link with awaiting moderation count bubble.
  *
- * @since 3.1.0
+ * @since WP 3.1.0
  *
  * @param WP_Admin_Bar $wp_admin_bar The WP_Admin_Bar instance.
  */
@@ -1065,7 +1016,7 @@ function wp_admin_bar_comments_menu( $wp_admin_bar ) {
 /**
  * Adds appearance submenu items to the "Site Name" menu.
  *
- * @since 3.1.0
+ * @since WP 3.1.0
  *
  * @param WP_Admin_Bar $wp_admin_bar The WP_Admin_Bar instance.
  */
@@ -1146,7 +1097,7 @@ function wp_admin_bar_appearance_menu( $wp_admin_bar ) {
 /**
  * Provides an update link if theme/plugin/core updates are available.
  *
- * @since 3.1.0
+ * @since WP 3.1.0
  *
  * @param WP_Admin_Bar $wp_admin_bar The WP_Admin_Bar instance.
  */
@@ -1180,7 +1131,7 @@ function wp_admin_bar_updates_menu( $wp_admin_bar ) {
 /**
  * Adds search form.
  *
- * @since 3.3.0
+ * @since WP 3.3.0
  *
  * @param WP_Admin_Bar $wp_admin_bar The WP_Admin_Bar instance.
  */
@@ -1214,7 +1165,7 @@ function wp_admin_bar_search_menu( $wp_admin_bar ) {
 /**
  * Adds a link to exit recovery mode when Recovery Mode is active.
  *
- * @since 5.2.0
+ * @since WP 5.2.0
  *
  * @param WP_Admin_Bar $wp_admin_bar The WP_Admin_Bar instance.
  */
@@ -1240,7 +1191,7 @@ function wp_admin_bar_recovery_mode_menu( $wp_admin_bar ) {
 /**
  * Adds secondary menus.
  *
- * @since 3.3.0
+ * @since WP 3.3.0
  *
  * @param WP_Admin_Bar $wp_admin_bar The WP_Admin_Bar instance.
  */
@@ -1268,7 +1219,7 @@ function wp_admin_bar_add_secondary_groups( $wp_admin_bar ) {
 /**
  * Enqueues inline style to hide the admin bar when printing.
  *
- * @since 6.4.0
+ * @since WP 6.4.0
  */
 function wp_enqueue_admin_bar_header_styles() {
 	// Back-compat for plugins that disable functionality by unhooking this action.
@@ -1284,7 +1235,7 @@ function wp_enqueue_admin_bar_header_styles() {
 /**
  * Enqueues inline bump styles to make room for the admin bar.
  *
- * @since 6.4.0
+ * @since WP 6.4.0
  */
 function wp_enqueue_admin_bar_bump_styles() {
 	if ( current_theme_supports( 'admin-bar' ) ) {
@@ -1319,7 +1270,7 @@ function wp_enqueue_admin_bar_bump_styles() {
  * This can be called immediately upon plugin load. It does not need to be called
  * from a function hooked to the {@see 'init'} action.
  *
- * @since 3.1.0
+ * @since WP 3.1.0
  *
  * @global bool $show_admin_bar
  *
@@ -1333,11 +1284,7 @@ function show_admin_bar( $show ) {
 /**
  * Determines whether the admin bar should be showing.
  *
- * For more information on this and similar theme functions, check out
- * the {@link https://developer.wordpress.org/themes/basics/conditional-tags/
- * Conditional Tags} article in the Theme Developer Handbook.
- *
- * @since 3.1.0
+ * @since WP 3.1.0
  *
  * @global bool   $show_admin_bar
  * @global string $pagenow        The filename of the current screen.
@@ -1375,7 +1322,7 @@ function is_admin_bar_showing() {
 	 * Returning false to this hook is the recommended way to hide the admin bar.
 	 * The user's display preference is used for logged in users.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @param bool $show_admin_bar Whether the admin bar should be shown. Default false.
 	 */
@@ -1387,7 +1334,7 @@ function is_admin_bar_showing() {
 /**
  * Retrieves the admin bar display preference of a user.
  *
- * @since 3.1.0
+ * @since WP 3.1.0
  * @access private
  *
  * @param string $context Context of this preference check. Defaults to 'front'. The 'admin'

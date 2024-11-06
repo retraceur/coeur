@@ -487,7 +487,7 @@
 		 * Customizer control for widgets.
 		 * Note that 'widget_form' must match the WP_Widget_Form_Customize_Control::$type
 		 *
-		 * @since 4.1.0
+		 * @since WP 4.1.0
 		 *
 		 * @constructs wp.customize.Widgets.WidgetControl
 		 * @augments   wp.customize.Control
@@ -512,7 +512,7 @@
 		/**
 		 * Set up the control.
 		 *
-		 * @since 3.9.0
+		 * @since WP 3.9.0
 		 */
 		ready: function() {
 			var control = this;
@@ -544,7 +544,7 @@
 		/**
 		 * Embed the .widget element inside the li container.
 		 *
-		 * @since 4.4.0
+		 * @since WP 4.4.0
 		 */
 		embedWidgetControl: function() {
 			var control = this, widgetControl;
@@ -571,7 +571,7 @@
 		/**
 		 * Embed the actual widget form inside of .widget-content and finally trigger the widget-added event.
 		 *
-		 * @since 4.4.0
+		 * @since WP 4.4.0
 		 */
 		embedWidgetContent: function() {
 			var control = this, widgetContent;
@@ -966,7 +966,7 @@
 		 *
 		 * Overrides api.Control.toggle()
 		 *
-		 * @since 4.1.0
+		 * @since WP 4.1.0
 		 *
 		 * @param {boolean}   active
 		 * @param {Object}    args
@@ -1339,7 +1339,7 @@
 		},
 
 		/**
-		 * @since 4.1.0
+		 * @since WP 4.1.0
 		 *
 		 * @param {Boolean} expanded
 		 * @param {Object} [params]
@@ -1348,7 +1348,7 @@
 		_toggleExpanded: api.Section.prototype._toggleExpanded,
 
 		/**
-		 * @since 4.1.0
+		 * @since WP 4.1.0
 		 *
 		 * @param {Object} [params]
 		 * @return {Boolean} False if already expanded.
@@ -1358,14 +1358,14 @@
 		/**
 		 * Expand the widget form control
 		 *
-		 * @deprecated 4.1.0 Use this.expand() instead.
+		 * @deprecated WP 4.1.0 Use this.expand() instead.
 		 */
 		expandForm: function() {
 			this.expand();
 		},
 
 		/**
-		 * @since 4.1.0
+		 * @since WP 4.1.0
 		 *
 		 * @param {Object} [params]
 		 * @return {Boolean} False if already collapsed.
@@ -1375,7 +1375,7 @@
 		/**
 		 * Collapse the widget form control
 		 *
-		 * @deprecated 4.1.0 Use this.collapse() instead.
+		 * @deprecated WP 4.1.0 Use this.collapse() instead.
 		 */
 		collapseForm: function() {
 			this.collapse();
@@ -1384,7 +1384,7 @@
 		/**
 		 * Expand or collapse the widget control
 		 *
-		 * @deprecated this is poor naming, and it is better to directly set control.expanded( showOrHide )
+		 * @deprecated WP this is poor naming, and it is better to directly set control.expanded( showOrHide )
 		 *
 		 * @param {boolean|undefined} [showOrHide] If not supplied, will be inverse of current visibility
 		 */
@@ -1600,7 +1600,7 @@
 	 *
 	 * Customizer panel containing the widget area sections.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 *
 	 * @class    wp.customize.Widgets.WidgetsPanel
 	 * @augments wp.customize.Panel
@@ -1610,7 +1610,7 @@
 		/**
 		 * Add and manage the display of the no-rendered-areas notice.
 		 *
-		 * @since 4.4.0
+		 * @since WP 4.4.0
 		 */
 		ready: function () {
 			var panel = this;
@@ -1621,7 +1621,7 @@
 				var panelMetaContainer, noticeContainer, updateNotice, getActiveSectionCount, shouldShowNotice;
 				panelMetaContainer = panel.container.find( '.panel-meta' );
 
-				// @todo This should use the Notifications API introduced to panels. See <https://core.trac.wordpress.org/ticket/38794>.
+				// @todo This should use the Notifications API introduced to panels.
 				noticeContainer = $( '<div></div>', {
 					'class': 'no-widget-areas-rendered-notice',
 					'role': 'alert'
@@ -1710,7 +1710,7 @@
 		 * This ensures that the widgets panel appears even when there are no
 		 * sidebars displayed on the URL currently being previewed.
 		 *
-		 * @since 4.4.0
+		 * @since WP 4.4.0
 		 *
 		 * @return {boolean}
 		 */
@@ -1725,7 +1725,7 @@
 	 *
 	 * Customizer section representing a widget area widget
 	 *
-	 * @since 4.1.0
+	 * @since WP 4.1.0
 	 *
 	 * @class    wp.customize.Widgets.SidebarSection
 	 * @augments wp.customize.Section
@@ -1735,7 +1735,7 @@
 		/**
 		 * Sync the section's active state back to the Backbone model's is_rendered attribute
 		 *
-		 * @since 4.1.0
+		 * @since WP 4.1.0
 		 */
 		ready: function () {
 			var section = this, registeredSidebar;
@@ -1754,7 +1754,7 @@
 	 * Customizer control for widgets.
 	 * Note that 'sidebar_widgets' must match the WP_Widget_Area_Customize_Control::$type
 	 *
-	 * @since 3.9.0
+	 * @since WP 3.9.0
 	 *
 	 * @class    wp.customize.Widgets.SidebarControl
 	 * @augments wp.customize.Control
@@ -2047,7 +2047,7 @@
 		/**
 		 * Get the widget_form Customize controls associated with the current sidebar.
 		 *
-		 * @since 3.9.0
+		 * @since WP 3.9.0
 		 * @return {wp.customize.controlConstructor.widget_form[]}
 		 */
 		getWidgetFormControls: function() {

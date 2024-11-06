@@ -4,13 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage REST_API
- * @since 5.0.0
+ * @since WP 5.0.0
  */
 
 /**
  * Core class representing a search handler for posts in the REST API.
  *
- * @since 5.0.0
+ * @since WP 5.0.0
  *
  * @see WP_REST_Search_Handler
  */
@@ -19,7 +19,7 @@ class WP_REST_Post_Search_Handler extends WP_REST_Search_Handler {
 	/**
 	 * Constructor.
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 */
 	public function __construct() {
 		$this->type = 'post';
@@ -42,7 +42,7 @@ class WP_REST_Post_Search_Handler extends WP_REST_Search_Handler {
 	/**
 	 * Searches posts for a given search request.
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 *
 	 * @param WP_REST_Request $request Full REST request.
 	 * @return array {
@@ -85,7 +85,7 @@ class WP_REST_Post_Search_Handler extends WP_REST_Search_Handler {
 		 *
 		 * Enables adding extra arguments or setting defaults for a post search request.
 		 *
-		 * @since 5.1.0
+		 * @since WP 5.1.0
 		 *
 		 * @param array           $query_args Key value array of query var to query value.
 		 * @param WP_REST_Request $request    The request used.
@@ -107,7 +107,7 @@ class WP_REST_Post_Search_Handler extends WP_REST_Search_Handler {
 	/**
 	 * Prepares the search result for a given post ID.
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 *
 	 * @param int   $id     Post ID.
 	 * @param array $fields Fields to include for the post.
@@ -159,7 +159,7 @@ class WP_REST_Post_Search_Handler extends WP_REST_Search_Handler {
 	/**
 	 * Prepares links for the search result of a given ID.
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 *
 	 * @param int $id Item ID.
 	 * @return array Links for the given item.
@@ -191,7 +191,7 @@ class WP_REST_Post_Search_Handler extends WP_REST_Search_Handler {
 	 * "Protected: %s" or "Private: %s", as the REST API communicates the status of a post
 	 * in a machine-readable format, we remove the prefix.
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 *
 	 * @return string Title format.
 	 */
@@ -202,8 +202,8 @@ class WP_REST_Post_Search_Handler extends WP_REST_Search_Handler {
 	/**
 	 * Attempts to detect the route to access a single item.
 	 *
-	 * @since 5.0.0
-	 * @deprecated 5.5.0 Use rest_get_route_for_post()
+	 * @since WP 5.0.0
+	 * @deprecated WP 5.5.0 Use rest_get_route_for_post()
 	 * @see rest_get_route_for_post()
 	 *
 	 * @param WP_Post $post Post object.

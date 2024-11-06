@@ -92,12 +92,6 @@ if ( is_blog_admin() && current_user_can( 'edit_posts' ) ) {
 	$help .= '<p>' . __( "<strong>Quick Draft</strong> &mdash; Allows you to create a new post and save it as a draft. Also displays links to the 3 most recent draft posts you've started." ) . '</p>';
 }
 
-$help .= '<p>' . sprintf(
-	/* translators: %s: WordPress Planet URL. */
-	__( '<strong>WordPress Events and News</strong> &mdash; Upcoming events near you as well as the latest news from the official WordPress project and the <a href="%s">WordPress Planet</a>.' ),
-	__( 'https://planet.wordpress.org/' )
-) . '</p>';
-
 $screen->add_help_tab(
 	array(
 		'id'      => 'help-content',
@@ -111,28 +105,6 @@ unset( $help );
 $wp_version = get_bloginfo( 'version', 'display' );
 /* translators: %s: WordPress version. */
 $wp_version_text = sprintf( __( 'Version %s' ), $wp_version );
-$is_dev_version  = preg_match( '/alpha|beta|RC/', $wp_version );
-
-if ( ! $is_dev_version ) {
-	$version_url = sprintf(
-		/* translators: %s: WordPress version. */
-		esc_url( __( 'https://wordpress.org/documentation/wordpress-version/version-%s/' ) ),
-		sanitize_title( $wp_version )
-	);
-
-	$wp_version_text = sprintf(
-		'<a href="%1$s">%2$s</a>',
-		$version_url,
-		$wp_version_text
-	);
-}
-
-$screen->set_help_sidebar(
-	'<p><strong>' . __( 'For more information:' ) . '</strong></p>' .
-	'<p>' . __( '<a href="https://wordpress.org/documentation/article/dashboard-screen/">Documentation on Dashboard</a>' ) . '</p>' .
-	'<p>' . __( '<a href="https://wordpress.org/support/forums/">Support forums</a>' ) . '</p>' .
-	'<p>' . $wp_version_text . '</p>'
-);
 
 require_once ABSPATH . 'wp-admin/admin-header.php';
 ?>
@@ -193,7 +165,7 @@ if ( has_action( 'welcome_panel' ) && current_user_can( 'edit_theme_options' ) )
 		 *
 		 *     remove_action( 'welcome_panel', 'wp_welcome_panel' );
 		 *
-		 * @since 3.5.0
+		 * @since WP 3.5.0
 		 */
 		do_action( 'welcome_panel' );
 		?>
@@ -207,6 +179,4 @@ if ( has_action( 'welcome_panel' ) && current_user_can( 'edit_theme_options' ) )
 </div><!-- wrap -->
 
 <?php
-wp_print_community_events_templates();
-
 require_once ABSPATH . 'wp-admin/admin-footer.php';

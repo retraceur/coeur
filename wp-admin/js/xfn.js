@@ -1,7 +1,7 @@
 /**
  * Generates the XHTML Friends Network 'rel' string from the inputs.
  *
- * @deprecated 3.5.0
+ * @deprecated WP 3.5.0
  * @output wp-admin/js/xfn.js
  */
 jQuery( function( $ ) {

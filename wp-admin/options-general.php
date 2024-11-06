@@ -29,14 +29,10 @@ $options_help = '<p>' . __( 'The fields on this screen determine some of the bas
 
 if ( ! is_multisite() ) {
 	$options_help .= '<p>' . __( 'Two terms you will want to know are the WordPress URL and the site URL. The WordPress URL is where the core WordPress installation files are, and the site URL is the address a visitor uses in the browser to go to your site.' ) . '</p>' .
-		'<p>' . sprintf(
-			/* translators: %s: Documentation URL. */
-			__( 'Though the terms refer to two different concepts, in practice, they can be the same address or different. For example, you can have the core WordPress installation files in the root directory (<code>https://example.com</code>), in which case the two URLs would be the same. Or the <a href="%s">WordPress files can be in a subdirectory</a> (<code>https://example.com/wordpress</code>). In that case, the WordPress URL and the site URL would be different.' ),
-			__( 'https://developer.wordpress.org/advanced-administration/server/wordpress-in-directory/' )
-		) . '</p>' .
+		'<p>' . esc_html_e( 'Though the terms refer to two different concepts, in practice, they can be the same address or different. For example, you can have the core WordPress installation files in the root directory (`https://example.com`), in which case the two URLs would be the same. Or the WordPress files can be in a subdirectory (`https://example.com/subsite`). In that case, the WordPress URL and the site URL would be different.' ) . '</p>' .
 		'<p>' . sprintf(
 			/* translators: 1: http://, 2: https:// */
-			__( 'Both WordPress URL and site URL can start with either %1$s or %2$s. A URL starting with %2$s requires an SSL certificate, so be sure that you have one before changing to %2$s. With %2$s, a padlock will appear next to the address in the browser address bar. Both %2$s and the padlock signal that your site meets some basic security requirements, which can build trust with your visitors and with search engines.' ),
+			esc_html__( 'Both WordPress URL and site URL can start with either %1$s or %2$s. A URL starting with %2$s requires an SSL certificate, so be sure that you have one before changing to %2$s. With %2$s, a padlock will appear next to the address in the browser address bar. Both %2$s and the padlock signal that your site meets some basic security requirements, which can build trust with your visitors and with search engines.' ),
 			'<code>http://</code>',
 			'<code>https://</code>'
 		) . '</p>' .
@@ -53,12 +49,6 @@ get_current_screen()->add_help_tab(
 		'title'   => __( 'Overview' ),
 		'content' => $options_help,
 	)
-);
-
-get_current_screen()->set_help_sidebar(
-	'<p><strong>' . __( 'For more information:' ) . '</strong></p>' .
-	'<p>' . __( '<a href="https://wordpress.org/documentation/article/settings-general-screen/">Documentation on General Settings</a>' ) . '</p>' .
-	'<p>' . __( '<a href="https://wordpress.org/support/forums/">Support forums</a>' ) . '</p>'
 );
 
 require_once ABSPATH . 'wp-admin/admin-header.php';
@@ -248,13 +238,7 @@ if ( ! is_multisite() ) {
 <td><input name="home" type="url" id="home" aria-describedby="home-description" value="<?php form_option( 'home' ); ?>"<?php disabled( defined( 'WP_HOME' ) ); ?> class="regular-text code<?php echo $wp_home_class; ?>" />
 	<?php if ( ! defined( 'WP_HOME' ) ) : ?>
 <p class="description" id="home-description">
-		<?php
-		printf(
-			/* translators: %s: Documentation URL. */
-			__( 'Enter the same address here unless you <a href="%s">want your site home page to be different from your WordPress installation directory</a>.' ),
-			__( 'https://developer.wordpress.org/advanced-administration/server/wordpress-in-directory/' )
-		);
-		?>
+	<?php esc_html_( 'Enter the same address here unless you want your site home page to be different from your WordPress installation directory.' ); ?>
 </p>
 <?php endif; ?>
 </td>
@@ -475,8 +459,8 @@ if ( empty( $tzstring ) ) { // Create a UTC+- zone if no timezone string exists.
 	/**
 	 * Filters the default date formats.
 	 *
-	 * @since 2.7.0
-	 * @since 4.0.0 Added ISO date standard YYYY-MM-DD format.
+	 * @since WP 2.7.0
+	 * @since WP 4.0.0 Added ISO date standard YYYY-MM-DD format.
 	 *
 	 * @param string[] $default_date_formats Array of default date formats.
 	 */
@@ -524,7 +508,7 @@ foreach ( $date_formats as $format ) {
 	/**
 	 * Filters the default time formats.
 	 *
-	 * @since 2.7.0
+	 * @since WP 2.7.0
 	 *
 	 * @param string[] $default_time_formats Array of default time formats.
 	 */
@@ -555,8 +539,6 @@ foreach ( $time_formats as $format ) {
 		'<br />' .
 		'<p><strong>' . __( 'Preview:' ) . '</strong> <span class="example">' . date_i18n( get_option( 'time_format' ) ) . '</span>' .
 		"<span class='spinner'></span>\n" . '</p>';
-
-	echo "\t<p class='date-time-doc'>" . __( '<a href="https://wordpress.org/documentation/article/customize-date-and-time-format/">Documentation on date and time formatting</a>.' ) . "</p>\n";
 ?>
 	</fieldset>
 </td>

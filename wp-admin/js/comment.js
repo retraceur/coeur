@@ -7,7 +7,7 @@
 /**
  * Binds to the document ready event.
  *
- * @since 2.5.0
+ * @since WP 2.5.0
  *
  * @param {jQuery} $ The jQuery object.
  */

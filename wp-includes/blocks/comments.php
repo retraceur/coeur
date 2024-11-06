@@ -16,7 +16,7 @@
  * the block is in legacy mode. If not, the HTML generated in the editor is
  * returned instead.
  *
- * @since 6.1.0
+ * @since WP 6.1.0
  *
  * @global WP_Post $post Global post object.
  *
@@ -88,7 +88,7 @@ function render_block_core_comments( $attributes, $content, $block ) {
 /**
  * Registers the `core/comments` block on the server.
  *
- * @since 6.1.0
+ * @since WP 6.1.0
  */
 function register_block_core_comments() {
 	register_block_type_from_metadata(
@@ -104,7 +104,7 @@ add_action( 'init', 'register_block_core_comments' );
 /**
  * Use the button block classes for the form-submit button.
  *
- * @since 6.1.0
+ * @since WP 6.1.0
  *
  * @param array $fields The default comment form arguments.
  *
@@ -124,7 +124,7 @@ add_filter( 'comment_form_defaults', 'comments_block_form_defaults' );
  * Enqueues styles from the legacy `core/post-comments` block. These styles are
  * required only by the block's fallback.
  *
- * @since 6.1.0
+ * @since WP 6.1.0
  *
  * @param string $block_name Name of the new block type.
  */
@@ -151,7 +151,7 @@ function enqueue_legacy_post_comments_block_styles( $block_name ) {
  * The same approach was followed when core/query-loop was renamed to
  * core/post-template.
  *
- * @since 6.1.0
+ * @since WP 6.1.0
  *
  * @see https://github.com/WordPress/gutenberg/pull/41807
  * @see https://github.com/WordPress/gutenberg/pull/32514

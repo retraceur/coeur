@@ -16,7 +16,7 @@
  * As of WordPress 3.5.0, XML-RPC is enabled by default. It can be disabled
  * via the {@see 'xmlrpc_enabled'} filter found in wp_xmlrpc_server::set_is_enabled().
  *
- * @since 1.5.0
+ * @since WP 1.5.0
  *
  * @see IXR_Server
  */
@@ -64,7 +64,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	 * {@see 'xmlrpc_methods'} filter to allow plugins to extend or replace
 	 * XML-RPC methods.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 */
 	public function __construct() {
 		$this->methods = array(
@@ -169,7 +169,7 @@ class wp_xmlrpc_server extends IXR_Server {
 		 *
 		 * This filter can be used to add new methods, and remove built-in methods.
 		 *
-		 * @since 1.5.0
+		 * @since WP 1.5.0
 		 *
 		 * @param string[] $methods An array of XML-RPC methods, keyed by their methodName.
 		 */
@@ -184,7 +184,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	 * Determines whether the xmlrpc server is enabled on this WordPress install
 	 * and set the is_enabled property accordingly.
 	 *
-	 * @since 5.7.3
+	 * @since WP 5.7.3
 	 */
 	private function set_is_enabled() {
 		/*
@@ -214,7 +214,7 @@ class wp_xmlrpc_server extends IXR_Server {
 		 * For more granular control over all XML-RPC methods and requests, see the {@see 'xmlrpc_methods'}
 		 * and {@see 'xmlrpc_element_limit'} hooks.
 		 *
-		 * @since 3.5.0
+		 * @since WP 3.5.0
 		 *
 		 * @param bool $is_enabled Whether XML-RPC is enabled. Default true.
 		 */
@@ -224,7 +224,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Makes private/protected methods readable for backward compatibility.
 	 *
-	 * @since 4.0.0
+	 * @since WP 4.0.0
 	 *
 	 * @param string $name      Method to call.
 	 * @param array  $arguments Arguments to pass when calling.
@@ -240,7 +240,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Serves the XML-RPC request.
 	 *
-	 * @since 2.9.0
+	 * @since WP 2.9.0
 	 */
 	public function serve_request() {
 		$this->IXR_Server( $this->methods );
@@ -249,7 +249,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Tests XMLRPC API by saying, "Hello!" to client.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 *
 	 * @return string Hello string response.
 	 */
@@ -260,7 +260,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Tests XMLRPC API by adding two numbers for client.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 *
 	 * @param array $args {
 	 *     Method arguments. Note: arguments must be ordered as documented.
@@ -279,7 +279,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Logs user in.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @param string $username User's username.
 	 * @param string $password User's password.
@@ -306,7 +306,7 @@ class wp_xmlrpc_server extends IXR_Server {
 			/**
 			 * Filters the XML-RPC user login error message.
 			 *
-			 * @since 3.5.0
+			 * @since WP 3.5.0
 			 *
 			 * @param IXR_Error $error The XML-RPC error message.
 			 * @param WP_Error  $user  WP_Error object.
@@ -322,8 +322,8 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Checks user's credentials. Deprecated.
 	 *
-	 * @since 1.5.0
-	 * @deprecated 2.8.0 Use wp_xmlrpc_server::login()
+	 * @since WP 1.5.0
+	 * @deprecated WP 2.8.0 Use wp_xmlrpc_server::login()
 	 * @see wp_xmlrpc_server::login()
 	 *
 	 * @param string $username User's username.
@@ -337,7 +337,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Escapes string or array of strings for database.
 	 *
-	 * @since 1.5.2
+	 * @since WP 1.5.2
 	 *
 	 * @param string|array $data Escape single string or array of strings.
 	 * @return string|void Returns with string is passed, alters by-reference
@@ -363,7 +363,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	 * Sends an XML error response to the client. If the endpoint is enabled
 	 * an HTTP 200 response is always sent per the XML-RPC specification.
 	 *
-	 * @since 5.7.3
+	 * @since WP 5.7.3
 	 *
 	 * @param IXR_Error|string $error   Error code or an error object.
 	 * @param false            $message Error message. Optional.
@@ -384,7 +384,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Retrieves custom fields for post.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @param int $post_id Post ID.
 	 * @return array Custom fields, if exist.
@@ -413,7 +413,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Sets custom fields for post.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @param int   $post_id Post ID.
 	 * @param array $fields  Custom fields.
@@ -451,7 +451,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Retrieves custom fields for a term.
 	 *
-	 * @since 4.9.0
+	 * @since WP 4.9.0
 	 *
 	 * @param int $term_id Term ID.
 	 * @return array Array of custom fields, if they exist.
@@ -480,7 +480,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Sets custom fields for a term.
 	 *
-	 * @since 4.9.0
+	 * @since WP 4.9.0
 	 *
 	 * @param int   $term_id Term ID.
 	 * @param array $fields  Custom fields.
@@ -515,7 +515,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	 *
 	 * Passes property through {@see 'xmlrpc_blog_options'} filter.
 	 *
-	 * @since 2.6.0
+	 * @since WP 2.6.0
 	 */
 	public function initialise_blog_option_info() {
 		$this->blog_options = array(
@@ -672,7 +672,7 @@ class wp_xmlrpc_server extends IXR_Server {
 		/**
 		 * Filters the XML-RPC blog options property.
 		 *
-		 * @since 2.6.0
+		 * @since WP 2.6.0
 		 *
 		 * @param array $blog_options An array of XML-RPC blog options.
 		 */
@@ -682,7 +682,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Retrieves the blogs of the user.
 	 *
-	 * @since 2.6.0
+	 * @since WP 2.6.0
 	 *
 	 * @param array $args {
 	 *     Method arguments. Note: arguments must be ordered as documented.
@@ -726,8 +726,8 @@ class wp_xmlrpc_server extends IXR_Server {
 		 * All built-in XML-RPC methods use the action xmlrpc_call, with a parameter
 		 * equal to the method's name, e.g., wp.getUsersBlogs, wp.newPost, etc.
 		 *
-		 * @since 2.5.0
-		 * @since 5.7.0 Added the `$args` and `$server` parameters.
+		 * @since WP 2.5.0
+		 * @since WP 5.7.0 Added the `$args` and `$server` parameters.
 		 *
 		 * @param string           $name   The method name.
 		 * @param array|string     $args   The escaped arguments passed to the method.
@@ -774,7 +774,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Checks if the method received at least the minimum number of arguments.
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 *
 	 * @param array $args  An array of arguments to check.
 	 * @param int   $count Minimum number of arguments.
@@ -825,7 +825,7 @@ class wp_xmlrpc_server extends IXR_Server {
 		/**
 		 * Filters XML-RPC-prepared data for the given taxonomy.
 		 *
-		 * @since 3.4.0
+		 * @since WP 3.4.0
 		 *
 		 * @param array       $_taxonomy An array of taxonomy data.
 		 * @param WP_Taxonomy $taxonomy  Taxonomy object.
@@ -861,7 +861,7 @@ class wp_xmlrpc_server extends IXR_Server {
 		/**
 		 * Filters XML-RPC-prepared data for the given term.
 		 *
-		 * @since 3.4.0
+		 * @since WP 3.4.0
 		 *
 		 * @param array        $_term An array of term data.
 		 * @param array|object $term  Term object or array.
@@ -987,7 +987,7 @@ class wp_xmlrpc_server extends IXR_Server {
 		/**
 		 * Filters XML-RPC-prepared date for the given post.
 		 *
-		 * @since 3.4.0
+		 * @since WP 3.4.0
 		 *
 		 * @param array $_post  An array of modified post data.
 		 * @param array $post   An array of post data.
@@ -999,8 +999,8 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Prepares post data for return in an XML-RPC object.
 	 *
-	 * @since 3.4.0
-	 * @since 4.6.0 Converted the `$post_type` parameter to accept a WP_Post_Type object.
+	 * @since WP 3.4.0
+	 * @since WP 4.6.0 Converted the `$post_type` parameter to accept a WP_Post_Type object.
 	 *
 	 * @param WP_Post_Type $post_type Post type object.
 	 * @param array        $fields    The subset of post fields to return.
@@ -1040,8 +1040,8 @@ class wp_xmlrpc_server extends IXR_Server {
 		/**
 		 * Filters XML-RPC-prepared date for the given post type.
 		 *
-		 * @since 3.4.0
-		 * @since 4.6.0 Converted the `$post_type` parameter to accept a WP_Post_Type object.
+		 * @since WP 3.4.0
+		 * @since WP 4.6.0 Converted the `$post_type` parameter to accept a WP_Post_Type object.
 		 *
 		 * @param array        $_post_type An array of post type data.
 		 * @param WP_Post_Type $post_type  Post type object.
@@ -1080,7 +1080,7 @@ class wp_xmlrpc_server extends IXR_Server {
 		/**
 		 * Filters XML-RPC-prepared data for the given media item.
 		 *
-		 * @since 3.4.0
+		 * @since WP 3.4.0
 		 *
 		 * @param array   $_media_item    An array of media item data.
 		 * @param WP_Post $media_item     Media item object.
@@ -1161,7 +1161,7 @@ class wp_xmlrpc_server extends IXR_Server {
 		/**
 		 * Filters XML-RPC-prepared data for the given page.
 		 *
-		 * @since 3.4.0
+		 * @since WP 3.4.0
 		 *
 		 * @param array   $_page An array of page data.
 		 * @param WP_Post $page  Page object.
@@ -1208,7 +1208,7 @@ class wp_xmlrpc_server extends IXR_Server {
 		/**
 		 * Filters XML-RPC-prepared data for the given comment.
 		 *
-		 * @since 3.4.0
+		 * @since WP 3.4.0
 		 *
 		 * @param array      $_comment An array of prepared comment data.
 		 * @param WP_Comment $comment  Comment object.
@@ -1254,7 +1254,7 @@ class wp_xmlrpc_server extends IXR_Server {
 		/**
 		 * Filters XML-RPC-prepared data for the given user.
 		 *
-		 * @since 3.5.0
+		 * @since WP 3.5.0
 		 *
 		 * @param array   $_user  An array of user data.
 		 * @param WP_User $user   User object.
@@ -1266,7 +1266,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Creates a new post for any registered post type.
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 *
 	 * @link https://en.wikipedia.org/wiki/RSS_enclosure for information on RSS enclosures.
 	 *
@@ -1354,7 +1354,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Helper method for filtering out elements from an array.
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 *
 	 * @param int $count Number to compare to one.
 	 * @return bool True if the number is greater than one, false otherwise.
@@ -1367,7 +1367,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	 * Encapsulates the logic for sticking a post and determining if
 	 * the user has permission to do so.
 	 *
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 *
 	 * @param array $post_data
 	 * @param bool  $update
@@ -1403,7 +1403,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Helper method for wp_newPost() and wp_editPost(), containing shared logic.
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 *
 	 * @see wp_insert_post()
 	 *
@@ -1677,7 +1677,7 @@ class wp_xmlrpc_server extends IXR_Server {
 		/**
 		 * Filters post data array to be inserted via XML-RPC.
 		 *
-		 * @since 3.4.0
+		 * @since WP 3.4.0
 		 *
 		 * @param array $post_data      Parsed array of post data.
 		 * @param array $content_struct Post data array.
@@ -1714,7 +1714,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	 * The $content_struct parameter only needs to contain fields that
 	 * should be changed. All other fields will retain their existing values.
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 *
 	 * @param array $args {
 	 *     Method arguments. Note: arguments must be ordered as documented.
@@ -1797,7 +1797,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Deletes a post for any registered post type.
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 *
 	 * @see wp_delete_post()
 	 *
@@ -1851,7 +1851,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Retrieves a post.
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 *
 	 * The optional $fields parameter specifies what fields will be included
 	 * in the response array. This should be a list of field names. 'post_id' will
@@ -1914,7 +1914,7 @@ class wp_xmlrpc_server extends IXR_Server {
 			/**
 			 * Filters the default post query fields used by the given XML-RPC method.
 			 *
-			 * @since 3.4.0
+			 * @since WP 3.4.0
 			 *
 			 * @param array  $fields An array of post fields to retrieve. By default,
 			 *                       contains 'post', 'terms', and 'custom_fields'.
@@ -1947,7 +1947,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Retrieves posts.
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 *
 	 * @see wp_get_recent_posts()
 	 * @see wp_getPost() for more on `$fields`
@@ -2056,7 +2056,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Creates a new term.
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 *
 	 * @see wp_insert_term()
 	 *
@@ -2159,7 +2159,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Edits a term.
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 *
 	 * @see wp_update_term()
 	 *
@@ -2277,7 +2277,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Deletes a term.
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 *
 	 * @see wp_delete_term()
 	 *
@@ -2347,7 +2347,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Retrieves a term.
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 *
 	 * @see get_term()
 	 *
@@ -2417,7 +2417,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Retrieves all terms for a taxonomy.
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 *
 	 * The optional $filter parameter modifies the query used to retrieve terms.
 	 * Accepted keys are 'number', 'offset', 'orderby', 'order', 'hide_empty', and 'search'.
@@ -2512,7 +2512,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Retrieves a taxonomy.
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 *
 	 * @see get_taxonomy()
 	 *
@@ -2546,7 +2546,7 @@ class wp_xmlrpc_server extends IXR_Server {
 			/**
 			 * Filters the default taxonomy query fields used by the given XML-RPC method.
 			 *
-			 * @since 3.4.0
+			 * @since WP 3.4.0
 			 *
 			 * @param array  $fields An array of taxonomy fields to retrieve. By default,
 			 *                       contains 'labels', 'cap', and 'object_type'.
@@ -2579,7 +2579,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Retrieves all taxonomies.
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 *
 	 * @see get_taxonomies()
 	 *
@@ -2691,7 +2691,7 @@ class wp_xmlrpc_server extends IXR_Server {
 			/**
 			 * Filters the default user query fields used by the given XML-RPC method.
 			 *
-			 * @since 3.5.0
+			 * @since WP 3.5.0
 			 *
 			 * @param array  $fields An array of user fields to retrieve. By default, contains 'all'.
 			 * @param string $method The method name.
@@ -2953,7 +2953,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Retrieves a page.
 	 *
-	 * @since 2.2.0
+	 * @since WP 2.2.0
 	 *
 	 * @param array $args {
 	 *     Method arguments. Note: arguments must be ordered as documented.
@@ -3001,7 +3001,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Retrieves Pages.
 	 *
-	 * @since 2.2.0
+	 * @since WP 2.2.0
 	 *
 	 * @param array $args {
 	 *     Method arguments. Note: arguments must be ordered as documented.
@@ -3060,7 +3060,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Creates a new page.
 	 *
-	 * @since 2.2.0
+	 * @since WP 2.2.0
 	 *
 	 * @see wp_xmlrpc_server::mw_newPost()
 	 *
@@ -3097,7 +3097,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Deletes a page.
 	 *
-	 * @since 2.2.0
+	 * @since WP 2.2.0
 	 *
 	 * @param array $args {
 	 *     Method arguments. Note: arguments must be ordered as documented.
@@ -3147,7 +3147,7 @@ class wp_xmlrpc_server extends IXR_Server {
 		/**
 		 * Fires after a page has been successfully deleted via XML-RPC.
 		 *
-		 * @since 3.4.0
+		 * @since WP 3.4.0
 		 *
 		 * @param int   $page_id ID of the deleted page.
 		 * @param array $args    An array of arguments to delete the page.
@@ -3160,7 +3160,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Edits a page.
 	 *
-	 * @since 2.2.0
+	 * @since WP 2.2.0
 	 *
 	 * @param array $args {
 	 *     Method arguments. Note: arguments must be ordered as documented.
@@ -3223,7 +3223,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Retrieves page list.
 	 *
-	 * @since 2.2.0
+	 * @since WP 2.2.0
 	 *
 	 * @global wpdb $wpdb WordPress database abstraction object.
 	 *
@@ -3288,7 +3288,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Retrieves authors list.
 	 *
-	 * @since 2.2.0
+	 * @since WP 2.2.0
 	 *
 	 * @param array $args {
 	 *     Method arguments. Note: arguments must be ordered as documented.
@@ -3332,7 +3332,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Gets the list of all tags.
 	 *
-	 * @since 2.7.0
+	 * @since WP 2.7.0
 	 *
 	 * @param array $args {
 	 *     Method arguments. Note: arguments must be ordered as documented.
@@ -3384,7 +3384,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Creates a new category.
 	 *
-	 * @since 2.2.0
+	 * @since WP 2.2.0
 	 *
 	 * @param array $args {
 	 *     Method arguments. Note: arguments must be ordered as documented.
@@ -3458,7 +3458,7 @@ class wp_xmlrpc_server extends IXR_Server {
 		/**
 		 * Fires after a new category has been successfully created via XML-RPC.
 		 *
-		 * @since 3.4.0
+		 * @since WP 3.4.0
 		 *
 		 * @param int   $cat_id ID of the new category.
 		 * @param array $args   An array of new category arguments.
@@ -3471,7 +3471,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Deletes a category.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @param array $args {
 	 *     Method arguments. Note: arguments must be ordered as documented.
@@ -3508,7 +3508,7 @@ class wp_xmlrpc_server extends IXR_Server {
 			/**
 			 * Fires after a category has been successfully deleted via XML-RPC.
 			 *
-			 * @since 3.4.0
+			 * @since WP 3.4.0
 			 *
 			 * @param int   $category_id ID of the deleted category.
 			 * @param array $args        An array of arguments to delete the category.
@@ -3522,7 +3522,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Retrieves category list.
 	 *
-	 * @since 2.2.0
+	 * @since WP 2.2.0
 	 *
 	 * @param array $args {
 	 *     Method arguments. Note: arguments must be ordered as documented.
@@ -3574,7 +3574,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Retrieves a comment.
 	 *
-	 * @since 2.7.0
+	 * @since WP 2.7.0
 	 *
 	 * @param array $args {
 	 *     Method arguments. Note: arguments must be ordered as documented.
@@ -3628,7 +3628,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	 * - 'number'  - Default is 10. Total number of media items to retrieve.
 	 * - 'offset'  - Default is 0. See WP_Query::query() for more.
 	 *
-	 * @since 2.7.0
+	 * @since WP 2.7.0
 	 *
 	 * @param array $args {
 	 *     Method arguments. Note: arguments must be ordered as documented.
@@ -3717,7 +3717,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	 * By default, the comment will be moved to the Trash instead of deleted.
 	 * See wp_delete_comment() for more information on this behavior.
 	 *
-	 * @since 2.7.0
+	 * @since WP 2.7.0
 	 *
 	 * @param array $args {
 	 *     Method arguments. Note: arguments must be ordered as documented.
@@ -3758,7 +3758,7 @@ class wp_xmlrpc_server extends IXR_Server {
 			/**
 			 * Fires after a comment has been successfully deleted via XML-RPC.
 			 *
-			 * @since 3.4.0
+			 * @since WP 3.4.0
 			 *
 			 * @param int   $comment_id ID of the deleted comment.
 			 * @param array $args       An array of arguments to delete the comment.
@@ -3783,7 +3783,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	 *  - 'date_created_gmt'
 	 *  - 'status'. Common statuses are 'approve', 'hold', 'spam'. See get_comment_statuses() for more details.
 	 *
-	 * @since 2.7.0
+	 * @since WP 2.7.0
 	 *
 	 * @param array $args {
 	 *     Method arguments. Note: arguments must be ordered as documented.
@@ -3870,7 +3870,7 @@ class wp_xmlrpc_server extends IXR_Server {
 		/**
 		 * Fires after a comment has been successfully updated via XML-RPC.
 		 *
-		 * @since 3.4.0
+		 * @since WP 3.4.0
 		 *
 		 * @param int   $comment_id ID of the updated comment.
 		 * @param array $args       An array of arguments to update the comment.
@@ -3883,7 +3883,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Creates a new comment.
 	 *
-	 * @since 2.7.0
+	 * @since WP 2.7.0
 	 *
 	 * @param array $args {
 	 *     Method arguments. Note: arguments must be ordered as documented.
@@ -3907,7 +3907,7 @@ class wp_xmlrpc_server extends IXR_Server {
 		/**
 		 * Filters whether to allow anonymous comments over XML-RPC.
 		 *
-		 * @since 2.7.0
+		 * @since WP 2.7.0
 		 *
 		 * @param bool $allow Whether to allow anonymous commenting via XML-RPC.
 		 *                    Default false.
@@ -4025,7 +4025,7 @@ class wp_xmlrpc_server extends IXR_Server {
 		/**
 		 * Fires after a new comment has been successfully created via XML-RPC.
 		 *
-		 * @since 3.4.0
+		 * @since WP 3.4.0
 		 *
 		 * @param int   $comment_id ID of the new comment.
 		 * @param array $args       An array of new comment arguments.
@@ -4038,7 +4038,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Retrieves all of the comment status.
 	 *
-	 * @since 2.7.0
+	 * @since WP 2.7.0
 	 *
 	 * @param array $args {
 	 *     Method arguments. Note: arguments must be ordered as documented.
@@ -4073,7 +4073,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Retrieves comment counts.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @param array $args {
 	 *     Method arguments. Note: arguments must be ordered as documented.
@@ -4122,7 +4122,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Retrieves post statuses.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @param array $args {
 	 *     Method arguments. Note: arguments must be ordered as documented.
@@ -4157,7 +4157,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Retrieves page statuses.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @param array $args {
 	 *     Method arguments. Note: arguments must be ordered as documented.
@@ -4192,7 +4192,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Retrieves page templates.
 	 *
-	 * @since 2.6.0
+	 * @since WP 2.6.0
 	 *
 	 * @param array $args {
 	 *     Method arguments. Note: arguments must be ordered as documented.
@@ -4227,7 +4227,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Retrieves blog options.
 	 *
-	 * @since 2.6.0
+	 * @since WP 2.6.0
 	 *
 	 * @param array $args {
 	 *     Method arguments. Note: arguments must be ordered as documented.
@@ -4262,7 +4262,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Retrieves blog options value from list.
 	 *
-	 * @since 2.6.0
+	 * @since WP 2.6.0
 	 *
 	 * @param array $options Options to retrieve.
 	 * @return array
@@ -4291,7 +4291,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Updates blog options.
 	 *
-	 * @since 2.6.0
+	 * @since WP 2.6.0
 	 *
 	 * @param array $args {
 	 *     Method arguments. Note: arguments must be ordered as documented.
@@ -4340,7 +4340,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Retrieves a media item by ID.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @param array $args {
 	 *     Method arguments. Note: arguments must be ordered as documented.
@@ -4402,7 +4402,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	 *                 Empty string shows all media items. 0 shows unattached media items.
 	 * - 'mime_type' - Default is ''. Filter by mime type (e.g., 'image/jpeg', 'application/pdf')
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @param array $args {
 	 *     Method arguments. Note: arguments must be ordered as documented.
@@ -4462,7 +4462,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Retrieves a list of post formats used by the site.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @param array $args {
 	 *     Method arguments. Note: arguments must be ordered as documented.
@@ -4514,7 +4514,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Retrieves a post type.
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 *
 	 * @see get_post_type_object()
 	 *
@@ -4555,7 +4555,7 @@ class wp_xmlrpc_server extends IXR_Server {
 			/**
 			 * Filters the default post type query fields used by the given XML-RPC method.
 			 *
-			 * @since 3.4.0
+			 * @since WP 3.4.0
 			 *
 			 * @param array  $fields An array of post type fields to retrieve. By default,
 			 *                       contains 'labels', 'cap', and 'taxonomies'.
@@ -4588,7 +4588,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Retrieves post types.
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 *
 	 * @see get_post_types()
 	 *
@@ -4647,7 +4647,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Retrieves revisions for a specific post.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * The optional $fields parameter specifies what fields will be included
 	 * in the response array.
@@ -4683,7 +4683,7 @@ class wp_xmlrpc_server extends IXR_Server {
 			/**
 			 * Filters the default revision query fields used by the given XML-RPC method.
 			 *
-			 * @since 3.5.0
+			 * @since WP 3.5.0
 			 *
 			 * @param array  $field  An array of revision fields to retrieve. By default,
 			 *                       contains 'post_date' and 'post_date_gmt'.
@@ -4741,7 +4741,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Restores a post revision.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @uses wp_restore_post_revision()
 	 *
@@ -4812,7 +4812,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	 *
 	 * Will make more sense once we support multiple blogs.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 *
 	 * @param array $args {
 	 *     Method arguments. Note: arguments must be ordered as documented.
@@ -4861,7 +4861,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Private function for retrieving a users blogs for multisite setups.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 *
 	 * @param array $args {
 	 *     Method arguments. Note: arguments must be ordered as documented.
@@ -4900,7 +4900,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	 *
 	 * Gives your client some info about you, so you don't have to.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 *
 	 * @param array $args {
 	 *     Method arguments. Note: arguments must be ordered as documented.
@@ -4943,7 +4943,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Retrieves a post.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 *
 	 * @param array $args {
 	 *     Method arguments. Note: arguments must be ordered as documented.
@@ -4998,7 +4998,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Retrieves the list of recent posts.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 *
 	 * @param array $args {
 	 *     Method arguments. Note: arguments must be ordered as documented.
@@ -5070,8 +5070,8 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Deprecated.
 	 *
-	 * @since 1.5.0
-	 * @deprecated 3.5.0
+	 * @since WP 1.5.0
+	 * @deprecated WP 3.5.0
 	 *
 	 * @param array $args Unused.
 	 * @return IXR_Error Error object.
@@ -5083,8 +5083,8 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Deprecated.
 	 *
-	 * @since 1.5.0
-	 * @deprecated 3.5.0
+	 * @since WP 1.5.0
+	 * @deprecated WP 3.5.0
 	 *
 	 * @param array $args Unused.
 	 * @return IXR_Error Error object.
@@ -5096,7 +5096,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Creates a new post.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 *
 	 * @param array $args {
 	 *     Method arguments. Note: arguments must be ordered as documented.
@@ -5158,7 +5158,7 @@ class wp_xmlrpc_server extends IXR_Server {
 		/**
 		 * Fires after a new post has been successfully created via the XML-RPC Blogger API.
 		 *
-		 * @since 3.4.0
+		 * @since WP 3.4.0
 		 *
 		 * @param int   $post_id ID of the new post.
 		 * @param array $args    An array of new post arguments.
@@ -5171,7 +5171,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Edits a post.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 *
 	 * @param array $args {
 	 *     Method arguments. Note: arguments must be ordered as documented.
@@ -5237,7 +5237,7 @@ class wp_xmlrpc_server extends IXR_Server {
 		/**
 		 * Fires after a post has been successfully updated via the XML-RPC Blogger API.
 		 *
-		 * @since 3.4.0
+		 * @since WP 3.4.0
 		 *
 		 * @param int   $post_id ID of the updated post.
 		 * @param array $args    An array of arguments for the post to edit.
@@ -5250,7 +5250,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Deletes a post.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 *
 	 * @param array $args {
 	 *     Method arguments. Note: arguments must be ordered as documented.
@@ -5296,7 +5296,7 @@ class wp_xmlrpc_server extends IXR_Server {
 		/**
 		 * Fires after a post has been successfully deleted via the XML-RPC Blogger API.
 		 *
-		 * @since 3.4.0
+		 * @since WP 3.4.0
 		 *
 		 * @param int   $post_id ID of the deleted post.
 		 * @param array $args    An array of arguments to delete the post.
@@ -5336,7 +5336,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	 *  - dateCreated
 	 *  - wp_post_thumbnail
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 *
 	 * @param array $args {
 	 *     Method arguments. Note: arguments must be ordered as documented.
@@ -5647,7 +5647,7 @@ class wp_xmlrpc_server extends IXR_Server {
 		/**
 		 * Fires after a new post has been successfully created via the XML-RPC MovableType API.
 		 *
-		 * @since 3.4.0
+		 * @since WP 3.4.0
 		 *
 		 * @param int   $post_id ID of the new post.
 		 * @param array $args    An array of arguments to create the new post.
@@ -5660,7 +5660,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Adds an enclosure to a post if it's new.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @param int   $post_id   Post ID.
 	 * @param array $enclosure Enclosure data.
@@ -5688,7 +5688,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Attaches an upload to a post.
 	 *
-	 * @since 2.1.0
+	 * @since WP 2.1.0
 	 *
 	 * @global wpdb $wpdb WordPress database abstraction object.
 	 *
@@ -5712,7 +5712,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Edits a post.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 *
 	 * @param array $args {
 	 *     Method arguments. Note: arguments must be ordered as documented.
@@ -6031,7 +6031,7 @@ class wp_xmlrpc_server extends IXR_Server {
 		/**
 		 * Fires after a post has been successfully updated via the XML-RPC MovableType API.
 		 *
-		 * @since 3.4.0
+		 * @since WP 3.4.0
 		 *
 		 * @param int   $post_id ID of the updated post.
 		 * @param array $args    An array of arguments to update the post.
@@ -6044,7 +6044,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Retrieves a post.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 *
 	 * @param array $args {
 	 *     Method arguments. Note: arguments must be ordered as documented.
@@ -6185,7 +6185,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Retrieves list of recent posts.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 *
 	 * @param array $args {
 	 *     Method arguments. Note: arguments must be ordered as documented.
@@ -6312,7 +6312,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Retrieves the list of categories on a given blog.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 *
 	 * @param array $args {
 	 *     Method arguments. Note: arguments must be ordered as documented.
@@ -6369,7 +6369,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	 *
 	 * @link http://mycvs.org/archives/2004/06/30/file-upload-to-wordpress-in-ecto/
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 *
 	 * @param array $args {
 	 *     Method arguments. Note: arguments must be ordered as documented.
@@ -6421,7 +6421,7 @@ class wp_xmlrpc_server extends IXR_Server {
 		 * Returning a truthy value will effectively short-circuit the media upload,
 		 * returning that value as a 500 error instead.
 		 *
-		 * @since 2.1.0
+		 * @since WP 2.1.0
 		 *
 		 * @param bool $error Whether to pre-empt the media upload. Default false.
 		 */
@@ -6461,7 +6461,7 @@ class wp_xmlrpc_server extends IXR_Server {
 		/**
 		 * Fires after a new attachment has been added via the XML-RPC MovableType API.
 		 *
-		 * @since 3.4.0
+		 * @since WP 3.4.0
 		 *
 		 * @param int   $id   ID of the new attachment.
 		 * @param array $args An array of arguments to add the attachment.
@@ -6486,7 +6486,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Retrieves the post titles of recent posts.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 *
 	 * @param array $args {
 	 *     Method arguments. Note: arguments must be ordered as documented.
@@ -6550,7 +6550,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Retrieves the list of all categories on a blog.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 *
 	 * @param array $args {
 	 *     Method arguments. Note: arguments must be ordered as documented.
@@ -6603,7 +6603,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Retrieves post categories.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 *
 	 * @param array $args {
 	 *     Method arguments. Note: arguments must be ordered as documented.
@@ -6656,7 +6656,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Sets categories for a post.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 *
 	 * @param array $args {
 	 *     Method arguments. Note: arguments must be ordered as documented.
@@ -6705,7 +6705,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Retrieves an array of methods supported by this server.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 *
 	 * @return array
 	 */
@@ -6719,7 +6719,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Retrieves an empty array because we don't support per-post text filters.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 */
 	public function mt_supportedTextFilters() {
 		/** This action is documented in wp-includes/class-wp-xmlrpc-server.php */
@@ -6728,7 +6728,7 @@ class wp_xmlrpc_server extends IXR_Server {
 		/**
 		 * Filters the MoveableType text filters list for XML-RPC.
 		 *
-		 * @since 2.2.0
+		 * @since WP 2.2.0
 		 *
 		 * @param array $filters An array of text filters.
 		 */
@@ -6738,7 +6738,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Retrieves trackbacks sent to a given post.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 *
 	 * @global wpdb $wpdb WordPress database abstraction object.
 	 *
@@ -6782,7 +6782,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Sets a post's publish status to 'publish'.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 *
 	 * @param array $args {
 	 *     Method arguments. Note: arguments must be ordered as documented.
@@ -6834,7 +6834,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Retrieves a pingback and registers it.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 *
 	 * @global wpdb $wpdb WordPress database abstraction object.
 	 *
@@ -6861,7 +6861,7 @@ class wp_xmlrpc_server extends IXR_Server {
 		/**
 		 * Filters the pingback source URI.
 		 *
-		 * @since 3.6.0
+		 * @since WP 3.6.0
 		 *
 		 * @param string $pagelinkedfrom URI of the page linked from.
 		 * @param string $pagelinkedto   URI of the page linked to.
@@ -6981,7 +6981,7 @@ class wp_xmlrpc_server extends IXR_Server {
 		/**
 		 * Filters the pingback remote source.
 		 *
-		 * @since 2.5.0
+		 * @since WP 2.5.0
 		 *
 		 * @param string $remote_source Response source for the page linked from.
 		 * @param string $pagelinkedto  URL of the page linked to.
@@ -7080,7 +7080,7 @@ class wp_xmlrpc_server extends IXR_Server {
 		/**
 		 * Fires after a post pingback has been sent.
 		 *
-		 * @since 0.71
+		 * @since WP 0.71
 		 *
 		 * @param int $comment_id Comment ID.
 		 */
@@ -7095,7 +7095,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	 *
 	 * Specs on http://www.aquarionics.com/misc/archives/blogite/0198.html
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 *
 	 * @global wpdb $wpdb WordPress database abstraction object.
 	 *
@@ -7142,7 +7142,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	/**
 	 * Sends a pingback error based on the given error code and message.
 	 *
-	 * @since 3.6.0
+	 * @since WP 3.6.0
 	 *
 	 * @param int    $code    Error code.
 	 * @param string $message Error message.
@@ -7152,7 +7152,7 @@ class wp_xmlrpc_server extends IXR_Server {
 		/**
 		 * Filters the XML-RPC pingback error return.
 		 *
-		 * @since 3.5.1
+		 * @since WP 3.5.1
 		 *
 		 * @param IXR_Error $error An IXR_Error object containing the error code and message.
 		 */

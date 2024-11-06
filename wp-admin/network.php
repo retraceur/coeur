@@ -4,7 +4,7 @@
  *
  * A multi-step process allowing the user to enable a network of WordPress sites.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @package motsVertueux
  * @subpackage Administration
@@ -63,10 +63,7 @@ $network_help = '<p>' . __( 'This screen allows you to configure a network as ha
 	'<p>' . __( 'The next screen for Network Setup will give you individually-generated lines of code to add to your wp-config.php and .htaccess files. Make sure the settings of your FTP client make files starting with a dot visible, so that you can find .htaccess; you may have to create this file if it really is not there. Make backup copies of those two files.' ) . '</p>' .
 	'<p>' . __( 'Add the designated lines of code to wp-config.php (just before <code>/*...stop editing...*/</code>) and <code>.htaccess</code> (replacing the existing WordPress rules).' ) . '</p>' .
 	'<p>' . __( 'Once you add this code and refresh your browser, multisite should be enabled. This screen, now in the Network Admin navigation menu, will keep an archive of the added code. You can toggle between Network Admin and Site Admin by clicking on the Network Admin or an individual site name under the My Sites dropdown in the Toolbar.' ) . '</p>' .
-	'<p>' . __( 'The choice of subdirectory sites is disabled if this setup is more than a month old because of permalink problems with &#8220;/blog/&#8221; from the main site. This disabling will be addressed in a future version.' ) . '</p>' .
-	'<p><strong>' . __( 'For more information:' ) . '</strong></p>' .
-	'<p>' . __( '<a href="https://developer.wordpress.org/advanced-administration/multisite/create-network/">Documentation on Creating a Network</a>' ) . '</p>' .
-	'<p>' . __( '<a href="https://wordpress.org/documentation/article/tools-network-screen/">Documentation on the Network Screen</a>' ) . '</p>';
+	'<p>' . __( 'The choice of subdirectory sites is disabled if this setup is more than a month old because of permalink problems with &#8220;/blog/&#8221; from the main site. This disabling will be addressed in a future version.' ) . '</p>';
 
 get_current_screen()->add_help_tab(
 	array(
@@ -74,13 +71,6 @@ get_current_screen()->add_help_tab(
 		'title'   => __( 'Network' ),
 		'content' => $network_help,
 	)
-);
-
-get_current_screen()->set_help_sidebar(
-	'<p><strong>' . __( 'For more information:' ) . '</strong></p>' .
-	'<p>' . __( '<a href="https://developer.wordpress.org/advanced-administration/multisite/create-network/">Documentation on Creating a Network</a>' ) . '</p>' .
-	'<p>' . __( '<a href="https://wordpress.org/documentation/article/tools-network-screen/">Documentation on the Network Screen</a>' ) . '</p>' .
-	'<p>' . __( '<a href="https://wordpress.org/support/forums/">Support forums</a>' ) . '</p>'
 );
 
 require_once ABSPATH . 'wp-admin/admin-header.php';

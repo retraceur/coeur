@@ -16,8 +16,7 @@
  */
 
 /**
- * Modified for WordPress, Silverlight and Flash runtimes support was removed.
- * See https://core.trac.wordpress.org/ticket/41755.
+ * Modified, Silverlight and Flash runtimes support was removed.
  */
 
 /*jshint smarttabs:true, undef:true, latedef:true, curly:true, bitwise:true, camelcase:true */
@@ -1153,7 +1152,7 @@ define("moxie/core/utils/Env", [
 	};
 
 	// for backward compatibility
-	// @deprecated Use `Env.os` instead
+	// @deprecated WP Use `Env.os` instead
 	Env.OS = Env.os;
 
 	if (MXI_DEBUG) {

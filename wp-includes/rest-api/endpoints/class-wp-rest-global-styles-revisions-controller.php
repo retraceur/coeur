@@ -4,13 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage REST_API
- * @since 6.3.0
+ * @since WP 6.3.0
  */
 
 /**
  * Core class used to access global styles revisions via the REST API.
  *
- * @since 6.3.0
+ * @since WP 6.3.0
  *
  * @see WP_REST_Controller
  */
@@ -18,7 +18,7 @@ class WP_REST_Global_Styles_Revisions_Controller extends WP_REST_Revisions_Contr
 	/**
 	 * Parent controller.
 	 *
-	 * @since 6.6.0
+	 * @since WP 6.6.0
 	 * @var WP_REST_Controller
 	 */
 	private $parent_controller;
@@ -26,7 +26,7 @@ class WP_REST_Global_Styles_Revisions_Controller extends WP_REST_Revisions_Contr
 	/**
 	 * The base of the parent controller's route.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 * @var string
 	 */
 	protected $parent_base;
@@ -34,7 +34,7 @@ class WP_REST_Global_Styles_Revisions_Controller extends WP_REST_Revisions_Contr
 	/**
 	 * Parent post type.
 	 *
-	 * @since 6.6.0
+	 * @since WP 6.6.0
 	 * @var string
 	 */
 	protected $parent_post_type;
@@ -42,8 +42,8 @@ class WP_REST_Global_Styles_Revisions_Controller extends WP_REST_Revisions_Contr
 	/**
 	 * Constructor.
 	 *
-	 * @since 6.3.0
-	 * @since 6.6.0 Extends class from WP_REST_Revisions_Controller.
+	 * @since WP 6.3.0
+	 * @since WP 6.6.0 Extends class from WP_REST_Revisions_Controller.
 	 *
 	 * @param string $parent_post_type Post type of the parent.
 	 */
@@ -65,8 +65,8 @@ class WP_REST_Global_Styles_Revisions_Controller extends WP_REST_Revisions_Contr
 	/**
 	 * Registers the controller's routes.
 	 *
-	 * @since 6.3.0
-	 * @since 6.6.0 Added route to fetch individual global styles revisions.
+	 * @since WP 6.3.0
+	 * @since WP 6.6.0 Added route to fetch individual global styles revisions.
 	 */
 	public function register_routes() {
 		register_rest_route(
@@ -120,7 +120,7 @@ class WP_REST_Global_Styles_Revisions_Controller extends WP_REST_Revisions_Contr
 	 * Returns decoded JSON from post content string,
 	 * or a 404 if not found.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param string $raw_json Encoded JSON from global styles custom post content.
 	 * @return Array|WP_Error
@@ -145,7 +145,7 @@ class WP_REST_Global_Styles_Revisions_Controller extends WP_REST_Revisions_Contr
 	 * The bulk of the body is taken from WP_REST_Revisions_Controller->get_items,
 	 * but global styles does not require as many parameters.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param WP_REST_Request $request The request instance.
 	 * @return WP_REST_Response|WP_Error
@@ -267,8 +267,8 @@ class WP_REST_Global_Styles_Revisions_Controller extends WP_REST_Revisions_Contr
 	/**
 	 * Prepares the revision for the REST response.
 	 *
-	 * @since 6.3.0
-	 * @since 6.6.0 Added resolved URI links to the response.
+	 * @since WP 6.3.0
+	 * @since WP 6.6.0 Added resolved URI links to the response.
 	 *
 	 * @param WP_Post         $post    Post revision object.
 	 * @param WP_REST_Request $request Request object.
@@ -345,8 +345,8 @@ class WP_REST_Global_Styles_Revisions_Controller extends WP_REST_Revisions_Contr
 	/**
 	 * Retrieves the revision's schema, conforming to JSON Schema.
 	 *
-	 * @since 6.3.0
-	 * @since 6.6.0 Merged parent and parent controller schema data.
+	 * @since WP 6.3.0
+	 * @since WP 6.6.0 Merged parent and parent controller schema data.
 	 *
 	 * @return array Item schema data.
 	 */
@@ -376,7 +376,7 @@ class WP_REST_Global_Styles_Revisions_Controller extends WP_REST_Revisions_Contr
 	 * Retrieves the query params for collections.
 	 * Removes params that are not supported by global styles revisions.
 	 *
-	 * @since 6.6.0
+	 * @since WP 6.6.0
 	 *
 	 * @return array Collection parameters.
 	 */

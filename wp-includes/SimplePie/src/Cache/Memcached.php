@@ -59,7 +59,7 @@ use Memcached as NativeMemcached;
  * @subpackage Caching
  * @author     Paul L. McNeely
  * @uses       Memcached
- * @deprecated since SimplePie 1.8.0, use implementation of "Psr\SimpleCache\CacheInterface" instead
+ * @deprecated WP since SimplePie 1.8.0, use implementation of "Psr\SimpleCache\CacheInterface" instead
  */
 class Memcached implements Base
 {

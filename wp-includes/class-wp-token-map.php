@@ -4,7 +4,7 @@
  * Class for efficiently looking up and mapping string keys to string values, with limits.
  *
  * @package    WordPress
- * @since      6.6.0
+ * @since WP      6.6.0
  */
 
 /**
@@ -141,7 +141,7 @@
  * Since it has not been shown during the development of this class that longer strings are required, this
  * update is deferred until such a need is clear.
  *
- * @since 6.6.0
+ * @since WP 6.6.0
  */
 class WP_Token_Map {
 	/**
@@ -157,7 +157,7 @@ class WP_Token_Map {
 	/**
 	 * Maximum length for each key and each transformed value in the table (in bytes).
 	 *
-	 * @since 6.6.0
+	 * @since WP 6.6.0
 	 */
 	const MAX_LENGTH = 256;
 
@@ -165,7 +165,7 @@ class WP_Token_Map {
 	 * How many bytes of each key are used to form a group key for lookup.
 	 * This also determines whether a word is considered short or long.
 	 *
-	 * @since 6.6.0
+	 * @since WP 6.6.0
 	 *
 	 * @var int
 	 */
@@ -206,7 +206,7 @@ class WP_Token_Map {
 	 * This lookup data structure is designed to optimize cache locality and
 	 * minimize indirect memory reads when matching strings in the set.
 	 *
-	 * @since 6.6.0
+	 * @since WP 6.6.0
 	 *
 	 * @var array
 	 */
@@ -219,7 +219,7 @@ class WP_Token_Map {
 	 * into the group array where the rest of the group string appears. This is an optimization
 	 * to improve cache locality while searching and minimize indirect memory accesses.
 	 *
-	 * @since 6.6.0
+	 * @since WP 6.6.0
 	 *
 	 * @var string
 	 */
@@ -237,7 +237,7 @@ class WP_Token_Map {
 	 *     // Stores array( 'GT', 'LT', 'gt', 'lt' ).
 	 *     "GT\x00LT\x00gt\x00lt\x00"
 	 *
-	 * @since 6.6.0
+	 * @since WP 6.6.0
 	 *
 	 * @var string
 	 */
@@ -254,7 +254,7 @@ class WP_Token_Map {
 	 *
 	 *     array( '>', '<', '>', '<' )
 	 *
-	 * @since 6.6.0
+	 * @since WP 6.6.0
 	 *
 	 * @var string[]
 	 */
@@ -272,7 +272,7 @@ class WP_Token_Map {
 	 *          ':?' => '😕',
 	 *       ) );
 	 *
-	 * @since 6.6.0
+	 * @since WP 6.6.0
 	 *
 	 * @param array $mappings   The keys transform into the values, both are strings.
 	 * @param int   $key_length Determines the group key length. Leave at the default value
@@ -370,7 +370,7 @@ class WP_Token_Map {
 	 * This function should only be used to load data created with
 	 * WP_Token_Map::precomputed_php_source_tag().
 	 *
-	 * @since 6.6.0
+	 * @since WP 6.6.0
 	 *
 	 * @param array $state {
 	 *     Stores pre-computed state for directly loading into a Token Map.
@@ -433,7 +433,7 @@ class WP_Token_Map {
 	 *     true  === $smilies->contains( ':)' );
 	 *     false === $smilies->contains( 'simile' );
 	 *
-	 * @since 6.6.0
+	 * @since WP 6.6.0
 	 *
 	 * @param string $word             Determine if this word is a lookup key in the map.
 	 * @param string $case_sensitivity Optional. Pass 'ascii-case-insensitive' to ignore ASCII case when matching. Default 'case-sensitive'.
@@ -518,7 +518,7 @@ class WP_Token_Map {
 	 *         $output .= "{$prefix}{$smily}";
 	 *     }
 	 *
-	 * @since 6.6.0
+	 * @since WP 6.6.0
 	 *
 	 * @param string   $text                       String in which to search for a lookup key.
 	 * @param int      $offset                     Optional. How many bytes into the string where the lookup key ought to start. Default 0.
@@ -571,7 +571,7 @@ class WP_Token_Map {
 	/**
 	 * Finds a match for a short word at the index.
 	 *
-	 * @since 6.6.0
+	 * @since WP 6.6.0
 	 *
 	 * @param string   $text                       String in which to search for a lookup key.
 	 * @param int      $offset                     Optional. How many bytes into the string where the lookup key ought to start. Default 0.
@@ -692,7 +692,7 @@ class WP_Token_Map {
 	 *         )
 	 *     );
 	 *
-	 * @since 6.6.0
+	 * @since WP 6.6.0
 	 *
 	 * @param string $indent Optional. Use this string for indentation, or rely on the default horizontal tab character. Default "\t".
 	 * @return string Value which can be pasted into a PHP source file for quick loading of table.
@@ -796,7 +796,7 @@ class WP_Token_Map {
 	 * match. For example, it should not detect `Cap` when matching
 	 * against the string `CapitalDifferentialD`.
 	 *
-	 * @since 6.6.0
+	 * @since WP 6.6.0
 	 *
 	 * @param string $a First string to compare.
 	 * @param string $b Second string to compare.

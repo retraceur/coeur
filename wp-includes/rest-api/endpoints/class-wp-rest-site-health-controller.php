@@ -4,13 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage REST_API
- * @since 5.6.0
+ * @since WP 5.6.0
  */
 
 /**
  * Core class for interacting with Site Health tests.
  *
- * @since 5.6.0
+ * @since WP 5.6.0
  *
  * @see WP_REST_Controller
  */
@@ -19,7 +19,7 @@ class WP_REST_Site_Health_Controller extends WP_REST_Controller {
 	/**
 	 * An instance of the site health class.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @var WP_Site_Health
 	 */
@@ -28,7 +28,7 @@ class WP_REST_Site_Health_Controller extends WP_REST_Controller {
 	/**
 	 * Site Health controller constructor.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param WP_Site_Health $site_health An instance of the site health class.
 	 */
@@ -42,31 +42,12 @@ class WP_REST_Site_Health_Controller extends WP_REST_Controller {
 	/**
 	 * Registers API routes.
 	 *
-	 * @since 5.6.0
-	 * @since 6.1.0 Adds page-cache async test.
+	 * @since WP 5.6.0
+	 * @since WP 6.1.0 Adds page-cache async test.
 	 *
 	 * @see register_rest_route()
 	 */
 	public function register_routes() {
-		register_rest_route(
-			$this->namespace,
-			sprintf(
-				'/%s/%s',
-				$this->rest_base,
-				'background-updates'
-			),
-			array(
-				array(
-					'methods'             => 'GET',
-					'callback'            => array( $this, 'test_background_updates' ),
-					'permission_callback' => function () {
-						return $this->validate_request_permission( 'background_updates' );
-					},
-				),
-				'schema' => array( $this, 'get_public_item_schema' ),
-			)
-		);
-
 		register_rest_route(
 			$this->namespace,
 			sprintf(
@@ -99,25 +80,6 @@ class WP_REST_Site_Health_Controller extends WP_REST_Controller {
 					'callback'            => array( $this, 'test_https_status' ),
 					'permission_callback' => function () {
 						return $this->validate_request_permission( 'https_status' );
-					},
-				),
-				'schema' => array( $this, 'get_public_item_schema' ),
-			)
-		);
-
-		register_rest_route(
-			$this->namespace,
-			sprintf(
-				'/%s/%s',
-				$this->rest_base,
-				'dotorg-communication'
-			),
-			array(
-				array(
-					'methods'             => 'GET',
-					'callback'            => array( $this, 'test_dotorg_communication' ),
-					'permission_callback' => function () {
-						return $this->validate_request_permission( 'dotorg_communication' );
 					},
 				),
 				'schema' => array( $this, 'get_public_item_schema' ),
@@ -180,7 +142,7 @@ class WP_REST_Site_Health_Controller extends WP_REST_Controller {
 	/**
 	 * Validates if the current user can request this REST endpoint.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param string $check The endpoint check being ran.
 	 * @return bool
@@ -191,7 +153,7 @@ class WP_REST_Site_Health_Controller extends WP_REST_Controller {
 		/**
 		 * Filters the capability needed to run a given Site Health check.
 		 *
-		 * @since 5.6.0
+		 * @since WP 5.6.0
 		 *
 		 * @param string $default_capability The default capability required for this check.
 		 * @param string $check              The Site Health check being performed.
@@ -202,33 +164,9 @@ class WP_REST_Site_Health_Controller extends WP_REST_Controller {
 	}
 
 	/**
-	 * Checks if background updates work as expected.
-	 *
-	 * @since 5.6.0
-	 *
-	 * @return array
-	 */
-	public function test_background_updates() {
-		$this->load_admin_textdomain();
-		return $this->site_health->get_test_background_updates();
-	}
-
-	/**
-	 * Checks that the site can reach the WordPress.org API.
-	 *
-	 * @since 5.6.0
-	 *
-	 * @return array
-	 */
-	public function test_dotorg_communication() {
-		$this->load_admin_textdomain();
-		return $this->site_health->get_test_dotorg_communication();
-	}
-
-	/**
 	 * Checks that loopbacks can be performed.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @return array
 	 */
@@ -240,7 +178,7 @@ class WP_REST_Site_Health_Controller extends WP_REST_Controller {
 	/**
 	 * Checks that the site's frontend can be accessed over HTTPS.
 	 *
-	 * @since 5.7.0
+	 * @since WP 5.7.0
 	 *
 	 * @return array
 	 */
@@ -252,7 +190,7 @@ class WP_REST_Site_Health_Controller extends WP_REST_Controller {
 	/**
 	 * Checks that the authorization header is valid.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @return array
 	 */
@@ -264,7 +202,7 @@ class WP_REST_Site_Health_Controller extends WP_REST_Controller {
 	/**
 	 * Checks that full page cache is active.
 	 *
-	 * @since 6.1.0
+	 * @since WP 6.1.0
 	 *
 	 * @return array The test result.
 	 */
@@ -276,7 +214,7 @@ class WP_REST_Site_Health_Controller extends WP_REST_Controller {
 	/**
 	 * Gets the current directory sizes for this install.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @return array|WP_Error
 	 */
@@ -330,7 +268,7 @@ class WP_REST_Site_Health_Controller extends WP_REST_Controller {
 	 * The {@see WP_Site_Health} class is defined in WP-Admin, while the REST API operates in a front-end context.
 	 * This means that the translations for Site Health won't be loaded by default in {@see load_default_textdomain()}.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 */
 	protected function load_admin_textdomain() {
 		// Accounts for inner REST API requests in the admin.
@@ -343,7 +281,7 @@ class WP_REST_Site_Health_Controller extends WP_REST_Controller {
 	/**
 	 * Gets the schema for each site health test.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @return array The test schema.
 	 */

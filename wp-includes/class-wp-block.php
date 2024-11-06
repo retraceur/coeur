@@ -3,13 +3,13 @@
  * Blocks API: WP_Block class
  *
  * @package motsVertueux
- * @since 5.5.0
+ * @since WP 5.5.0
  */
 
 /**
  * Class representing a parsed instance of a block.
  *
- * @since 5.5.0
+ * @since WP 5.5.0
  * @property array $attributes
  */
 #[AllowDynamicProperties]
@@ -18,7 +18,7 @@ class WP_Block {
 	/**
 	 * Original parsed array representation of block.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 * @var array
 	 */
 	public $parsed_block;
@@ -28,7 +28,7 @@ class WP_Block {
 	 *
 	 * @example "core/paragraph"
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 * @var string
 	 */
 	public $name;
@@ -36,7 +36,7 @@ class WP_Block {
 	/**
 	 * Block type associated with the instance.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 * @var WP_Block_Type
 	 */
 	public $block_type;
@@ -44,7 +44,7 @@ class WP_Block {
 	/**
 	 * Block context values.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 * @var array
 	 */
 	public $context = array();
@@ -52,7 +52,7 @@ class WP_Block {
 	/**
 	 * All available context of the current hierarchy.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 * @var array
 	 * @access protected
 	 */
@@ -61,7 +61,7 @@ class WP_Block {
 	/**
 	 * Block type registry.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 * @var WP_Block_Type_Registry
 	 * @access protected
 	 */
@@ -70,7 +70,7 @@ class WP_Block {
 	/**
 	 * List of inner blocks (of this same class)
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 * @var WP_Block_List
 	 */
 	public $inner_blocks = array();
@@ -81,7 +81,7 @@ class WP_Block {
 	 *
 	 * @example "...Just <!-- wp:test /--> testing..." -> "Just testing..."
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 * @var string
 	 */
 	public $inner_html = '';
@@ -95,7 +95,7 @@ class WP_Block {
 	 *   'inner_content' => array( 'Before', null, 'Inner', null, 'After' ),
 	 * )
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 * @var array
 	 */
 	public $inner_content = array();
@@ -111,7 +111,7 @@ class WP_Block {
 	 * property. Only values which are configured to consumed by the block via
 	 * its registered type will be assigned to the block's `context` property.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @param array                  $block             {
 	 *     An associative array of a single parsed block object. See WP_Block_Parser_Block.
@@ -179,7 +179,7 @@ class WP_Block {
 	 * the property is accessed. For all other inaccessible properties, a `null`
 	 * value is returned.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @param string $name Property name.
 	 * @return array|null Prepared attributes, or null.
@@ -235,9 +235,9 @@ class WP_Block {
 	 * The above example will replace the `title` and `url` attributes of the Image
 	 * block with the values of the `text_custom_field` and `url_custom_field` post meta.
 	 *
-	 * @since 6.5.0
-	 * @since 6.6.0 Handle the `__default` attribute for pattern overrides.
-	 * @since 6.7.0 Return any updated bindings metadata in the computed attributes.
+	 * @since WP 6.5.0
+	 * @since WP 6.6.0 Handle the `__default` attribute for pattern overrides.
+	 * @since WP 6.7.0 Return any updated bindings metadata in the computed attributes.
 	 *
 	 * @return array The computed block attributes for the provided block bindings.
 	 */
@@ -334,7 +334,7 @@ class WP_Block {
 	/**
 	 * Depending on the block attribute name, replace its value in the HTML based on the value provided.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $block_content  Block content.
 	 * @param string $attribute_name The attribute name to replace.
@@ -436,8 +436,8 @@ class WP_Block {
 	/**
 	 * Generates the render output for the block.
 	 *
-	 * @since 5.5.0
-	 * @since 6.5.0 Added block bindings processing.
+	 * @since WP 5.5.0
+	 * @since WP 6.5.0 Added block bindings processing.
 	 *
 	 * @global WP_Post $post Global post object.
 	 *
@@ -459,7 +459,7 @@ class WP_Block {
 		/**
 		 * Filters whether Interactivity API should process directives.
 		 *
-		 * @since 6.6.0
+		 * @since WP 6.6.0
 		 *
 		 * @param bool $enabled Whether the directives processing is enabled.
 		 */
@@ -574,8 +574,8 @@ class WP_Block {
 		/**
 		 * Filters the content of a single block.
 		 *
-		 * @since 5.0.0
-		 * @since 5.9.0 The `$instance` parameter was added.
+		 * @since WP 5.0.0
+		 * @since WP 5.9.0 The `$instance` parameter was added.
 		 *
 		 * @param string   $block_content The block content.
 		 * @param array    $block         The full block, including name and attributes.
@@ -589,8 +589,8 @@ class WP_Block {
 		 * The dynamic portion of the hook name, `$name`, refers to
 		 * the block name, e.g. "core/paragraph".
 		 *
-		 * @since 5.7.0
-		 * @since 5.9.0 The `$instance` parameter was added.
+		 * @since WP 5.7.0
+		 * @since WP 5.9.0 The `$instance` parameter was added.
 		 *
 		 * @param string   $block_content The block content.
 		 * @param array    $block         The full block, including name and attributes.

@@ -20,7 +20,7 @@ global $opml;
  *
  * Callback function for xml_set_element_handler().
  *
- * @since 0.71
+ * @since WP 0.71
  * @access private
  *
  * @global array $names
@@ -66,7 +66,7 @@ function startElement( $parser, $tag_name, $attrs ) { // phpcs:ignore WordPress.
  *
  * Callback function for xml_set_element_handler().
  *
- * @since 0.71
+ * @since WP 0.71
  * @access private
  *
  * @param resource $parser   XML Parser resource.

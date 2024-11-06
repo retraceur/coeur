@@ -33,7 +33,7 @@ if ( 'on' === $widgets_access ) {
  * Fires early before the Widgets administration screen loads,
  * after scripts are enqueued.
  *
- * @since 2.2.0
+ * @since WP 2.2.0
  */
 do_action( 'sidebar_admin_setup' );
 
@@ -64,12 +64,6 @@ get_current_screen()->add_help_tab(
 				'<p>' . __( 'Many themes show some sidebar widgets by default until you edit your sidebars, but they are not automatically displayed in your sidebar management tool. After you make your first widget change, you can re-add the default widgets by adding them from the Available Widgets area.' ) . '</p>' .
 					'<p>' . __( 'When changing themes, there is often some variation in the number and setup of widget areas/sidebars and sometimes these conflicts make the transition a bit less smooth. If you changed themes and seem to be missing widgets, scroll down on this screen to the Inactive Widgets area, where all of your widgets and their settings will have been saved.' ) . '</p>',
 	)
-);
-
-get_current_screen()->set_help_sidebar(
-	'<p><strong>' . __( 'For more information:' ) . '</strong></p>' .
-	'<p>' . __( '<a href="https://wordpress.org/documentation/article/appearance-widgets-screen-classic-editor/">Documentation on Widgets</a>' ) . '</p>' .
-	'<p>' . __( '<a href="https://wordpress.org/support/forums/">Support forums</a>' ) . '</p>'
 );
 
 // These are the widgets grouped by sidebar.
@@ -160,7 +154,7 @@ if ( isset( $_POST['savewidget'] ) || isset( $_POST['removewidget'] ) ) {
 		/**
 		 * Fires immediately after a widget has been marked for deletion.
 		 *
-		 * @since 4.4.0
+		 * @since WP 4.4.0
 		 *
 		 * @param string $widget_id  ID of the widget marked for deletion.
 		 * @param string $sidebar_id ID of the sidebar the widget was deleted from.
@@ -428,7 +422,7 @@ if ( isset( $_GET['error'] ) && isset( $errors[ $_GET['error'] ] ) ) {
 /**
  * Fires before the Widgets administration page content loads.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  */
 do_action( 'widgets_admin_page' );
 ?>
@@ -580,7 +574,7 @@ foreach ( $theme_sidebars as $sidebar => $registered_sidebar ) {
 /**
  * Fires after the available widgets and sidebars have loaded, before the admin footer.
  *
- * @since 2.2.0
+ * @since WP 2.2.0
  */
 do_action( 'sidebar_admin_page' );
 require_once ABSPATH . 'wp-admin/admin-footer.php';

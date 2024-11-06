@@ -226,8 +226,8 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 			 * In most cases, this should be used in combination with the {@see 'wp_application_passwords_approve_app_request_success'}
 			 * action to ensure that both the JS and no-JS variants are handled.
 			 *
-			 * @since 5.6.0
-			 * @since 5.6.1 Corrected action name and signature.
+			 * @since WP 5.6.0
+			 * @since WP 5.6.1 Corrected action name and signature.
 			 *
 			 * @param string  $new_password The newly generated application password.
 			 * @param array   $request      The array of request data. All arguments are optional and may be empty.
@@ -252,7 +252,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 				/**
 				 * Fires in the Authorize Application Password form before the submit buttons.
 				 *
-				 * @since 5.6.0
+				 * @since WP 5.6.0
 				 *
 				 * @param array   $request {
 				 *     The array of request data. All arguments are optional and may be empty.

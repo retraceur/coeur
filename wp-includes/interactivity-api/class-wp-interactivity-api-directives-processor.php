@@ -4,14 +4,14 @@
  *
  * @package motsVertueux
  * @subpackage Interactivity API
- * @since 6.5.0
+ * @since WP 6.5.0
  */
 
 /**
  * Class used to iterate over the tags of an HTML string and help process the
  * directive attributes.
  *
- * @since 6.5.0
+ * @since WP 6.5.0
  *
  * @access private
  */
@@ -19,7 +19,7 @@ final class WP_Interactivity_API_Directives_Processor extends WP_HTML_Tag_Proces
 	/**
 	 * List of tags whose closer tag is not visited by the WP_HTML_Tag_Processor.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 * @var string[]
 	 */
 	const TAGS_THAT_DONT_VISIT_CLOSER_TAG = array(
@@ -39,7 +39,7 @@ final class WP_Interactivity_API_Directives_Processor extends WP_HTML_Tag_Proces
 	 * It positions the cursor in the closer tag of the balanced template tag,
 	 * if it exists.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @access private
 	 *
@@ -63,7 +63,7 @@ final class WP_Interactivity_API_Directives_Processor extends WP_HTML_Tag_Proces
 	/**
 	 * Sets the content between two balanced tags.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @access private
 	 *
@@ -123,7 +123,7 @@ final class WP_Interactivity_API_Directives_Processor extends WP_HTML_Tag_Proces
 	 * By default, it positions the cursor in the closer tag of the balanced tag.
 	 * If $rewind is true, it seeks back to the opener tag.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @access private
 	 *
@@ -160,7 +160,7 @@ final class WP_Interactivity_API_Directives_Processor extends WP_HTML_Tag_Proces
 	 * It positions the cursor in the closer tag of the balanced tag, if it
 	 * exists.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @return array|null A pair of bookmarks, or null if there's no matching closing tag.
 	 */
@@ -189,7 +189,7 @@ final class WP_Interactivity_API_Directives_Processor extends WP_HTML_Tag_Proces
 	 * This function is intended to skip processing SVG and MathML inner content
 	 * instead of bailing out the whole processing.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @access private
 	 *
@@ -225,7 +225,7 @@ final class WP_Interactivity_API_Directives_Processor extends WP_HTML_Tag_Proces
 	 * closer tag, a tag that doesn't have a closer tag (void), a tag that
 	 * doesn't visit the closer tag, or if no matching closing tag was found.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @access private
 	 *
@@ -263,7 +263,7 @@ final class WP_Interactivity_API_Directives_Processor extends WP_HTML_Tag_Proces
 	/**
 	 * Checks whether the current tag has and will visit its matching closer tag.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @access private
 	 *

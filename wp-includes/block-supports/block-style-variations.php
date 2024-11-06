@@ -4,13 +4,13 @@
  * block style variations.
  *
  * @package motsVertueux
- * @since 6.6.0
+ * @since WP 6.6.0
  */
 
 /**
  * Determines the block style variation names within a CSS class string.
  *
- * @since 6.6.0
+ * @since WP 6.6.0
  *
  * @param string $class_string CSS class string to look for a variation in.
  *
@@ -28,7 +28,7 @@ function wp_get_block_style_variation_name_from_class( $class_string ) {
 /**
  * Recursively resolves any `ref` values within a block style variation's data.
  *
- * @since 6.6.0
+ * @since WP 6.6.0
  * @access private
  *
  * @param array $variation_data Reference to the variation data being processed.
@@ -71,7 +71,7 @@ function wp_resolve_block_style_variation_ref_values( &$variation_data, $theme_j
  * in the DOM order. This is why the variation stylesheet generation is in a
  * different filter.
  *
- * @since 6.6.0
+ * @since WP 6.6.0
  * @access private
  *
  * @param array $parsed_block The parsed block.
@@ -200,7 +200,7 @@ function wp_render_block_style_variation_support_styles( $parsed_block ) {
  *
  * @see wp_render_block_style_variation_support_styles
  *
- * @since 6.6.0
+ * @since WP 6.6.0
  * @access private
  *
  * @param  string $block_content Rendered block content.
@@ -240,7 +240,7 @@ function wp_render_block_style_variation_class_name( $block_content, $block ) {
 /**
  * Enqueues styles for block style variations.
  *
- * @since 6.6.0
+ * @since WP 6.6.0
  * @access private
  */
 function wp_enqueue_block_style_variation_styles() {
@@ -257,7 +257,7 @@ add_action( 'wp_enqueue_scripts', 'wp_enqueue_block_style_variation_styles', 1 )
 /**
  * Registers block style variations read in from theme.json partials.
  *
- * @since 6.6.0
+ * @since WP 6.6.0
  * @access private
  *
  * @param array $variations Shared block style variations.

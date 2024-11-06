@@ -6,7 +6,7 @@
  *
  * @package    WordPress
  * @subpackage Fonts
- * @since      6.5.0
+ * @since WP      6.5.0
  */
 
 /**
@@ -14,7 +14,7 @@
  *
  * These utilities may change or be removed in the future and are intended for internal use only.
  *
- * @since 6.5.0
+ * @since WP 6.5.0
  * @access private
  */
 class WP_Font_Utils {
@@ -24,7 +24,7 @@ class WP_Font_Utils {
 	 * It follows the recommendations from the CSS Fonts Module Level 4.
 	 * @link https://www.w3.org/TR/css-fonts-4/#font-family-prop
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $item A font family name.
 	 * @return string The font family name with surrounding quotes, if necessary.
@@ -49,7 +49,7 @@ class WP_Font_Utils {
 	 * It follows the recommendations from the CSS Fonts Module Level 4.
 	 * @link https://www.w3.org/TR/css-fonts-4/#font-family-prop
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 * @access private
 	 *
 	 * @see sanitize_text_field()
@@ -85,7 +85,7 @@ class WP_Font_Utils {
 	 * matching for fontFamily and unicodeRange, so does not handle overlapping font-family lists or
 	 * unicode ranges.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 * @access private
 	 *
 	 * @link https://drafts.csswg.org/css-fonts/#font-style-matching
@@ -164,7 +164,7 @@ class WP_Font_Utils {
 	 * value in the data tree. Keys that are in the data tree, but not present in the
 	 * schema, will be removed in the sanitized data. Nested arrays are traversed recursively.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @access private
 	 *
@@ -219,7 +219,7 @@ class WP_Font_Utils {
 	/**
 	 * Applies a sanitizer function to a value.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param mixed    $value     The value to sanitize.
 	 * @param callable $sanitizer The sanitizer function to apply.
@@ -240,7 +240,7 @@ class WP_Font_Utils {
 	 * is necessary until a list of valid mime-types for each file extension can be provided to
 	 * the 'upload_mimes' filter.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @access private
 	 *

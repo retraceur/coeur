@@ -10,7 +10,7 @@
  *
  * Holds the block structure in memory
  *
- * @since 5.0.0
+ * @since WP 5.0.0
  */
 class WP_Block_Parser_Block {
 	/**
@@ -18,7 +18,7 @@ class WP_Block_Parser_Block {
 	 *
 	 * @example "core/paragraph"
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 * @var string
 	 */
 	public $blockName; // phpcs:ignore WordPress.NamingConventions.ValidVariableName
@@ -29,7 +29,7 @@ class WP_Block_Parser_Block {
 	 * @example null
 	 * @example array( 'columns' => 3 )
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 * @var array|null
 	 */
 	public $attrs;
@@ -37,7 +37,7 @@ class WP_Block_Parser_Block {
 	/**
 	 * List of inner blocks (of this same class)
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 * @var WP_Block_Parser_Block[]
 	 */
 	public $innerBlocks; // phpcs:ignore WordPress.NamingConventions.ValidVariableName
@@ -48,7 +48,7 @@ class WP_Block_Parser_Block {
 	 *
 	 * @example "...Just <!-- wp:test /--> testing..." -> "Just testing..."
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 * @var string
 	 */
 	public $innerHTML; // phpcs:ignore WordPress.NamingConventions.ValidVariableName
@@ -62,7 +62,7 @@ class WP_Block_Parser_Block {
 	 *   'innerContent' => array( 'Before', null, 'Inner', null, 'After' ),
 	 * )
 	 *
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 * @var array
 	 */
 	public $innerContent; // phpcs:ignore WordPress.NamingConventions.ValidVariableName
@@ -72,7 +72,7 @@ class WP_Block_Parser_Block {
 	 *
 	 * Will populate object properties from the provided arguments.
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 *
 	 * @param string $name          Name of block.
 	 * @param array  $attrs         Optional set of attributes from block comment delimiters.

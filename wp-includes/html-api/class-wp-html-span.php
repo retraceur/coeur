@@ -4,7 +4,7 @@
  *
  * @package motsVertueux
  * @subpackage HTML-API
- * @since 6.2.0
+ * @since WP 6.2.0
  */
 
 /**
@@ -17,8 +17,8 @@
  * This class is for internal usage of the WP_HTML_Tag_Processor class.
  *
  * @access private
- * @since 6.2.0
- * @since 6.5.0 Replaced `end` with `length` to more closely align with `substr()`.
+ * @since WP 6.2.0
+ * @since WP 6.5.0 Replaced `end` with `length` to more closely align with `substr()`.
  *
  * @see WP_HTML_Tag_Processor
  */
@@ -26,7 +26,7 @@ class WP_HTML_Span {
 	/**
 	 * Byte offset into document where span begins.
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 *
 	 * @var int
 	 */
@@ -35,7 +35,7 @@ class WP_HTML_Span {
 	/**
 	 * Byte length of this span.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @var int
 	 */
@@ -44,7 +44,7 @@ class WP_HTML_Span {
 	/**
 	 * Constructor.
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 *
 	 * @param int $start  Byte offset into document where replacement span begins.
 	 * @param int $length Byte length of span.

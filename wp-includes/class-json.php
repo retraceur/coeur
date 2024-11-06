@@ -136,7 +136,7 @@ class Services_JSON
    /**
     * constructs a new JSON instance
     *
-    * @deprecated 5.3.0 Use the PHP native JSON extension instead.
+    * @deprecated WP 5.3.0 Use the PHP native JSON extension instead.
     *
     * @param    int     $use    object behavior flags; combine with boolean-OR
     *
@@ -169,7 +169,7 @@ class Services_JSON
     /**
      * PHP4 constructor.
      *
-     * @deprecated 5.3.0 Use __construct() instead.
+     * @deprecated WP 5.3.0 Use __construct() instead.
      *
      * @see Services_JSON::__construct()
      */
@@ -185,7 +185,7 @@ class Services_JSON
     * provides a slower PHP-only method for installations
     * that lack the multibye string extension.
     *
-    * @deprecated 5.3.0 Use the PHP native JSON extension instead.
+    * @deprecated WP 5.3.0 Use the PHP native JSON extension instead.
     *
     * @param    string  $utf16  UTF-16 character
     * @return   string  UTF-8 character
@@ -233,7 +233,7 @@ class Services_JSON
     * provides a slower PHP-only method for installations
     * that lack the multibyte string extension.
     *
-    * @deprecated 5.3.0 Use the PHP native JSON extension instead.
+    * @deprecated WP 5.3.0 Use the PHP native JSON extension instead.
     *
     * @param    string  $utf8   UTF-8 character
     * @return   string  UTF-16 character
@@ -277,7 +277,7 @@ class Services_JSON
    /**
     * encodes an arbitrary variable into JSON format (and sends JSON Header)
     *
-    * @deprecated 5.3.0 Use the PHP native JSON extension instead.
+    * @deprecated WP 5.3.0 Use the PHP native JSON extension instead.
     *
     * @param    mixed   $var    any number, boolean, string, array, or object to be encoded.
     *                           see argument 1 to Services_JSON() above for array-parsing behavior.
@@ -297,7 +297,7 @@ class Services_JSON
     /**
     * encodes an arbitrary variable into JSON format without JSON Header - warning - may allow XSS!!!!)
     *
-    * @deprecated 5.3.0 Use the PHP native JSON extension instead.
+    * @deprecated WP 5.3.0 Use the PHP native JSON extension instead.
     *
     * @param    mixed   $var    any number, boolean, string, array, or object to be encoded.
     *                           see argument 1 to Services_JSON() above for array-parsing behavior.
@@ -322,7 +322,7 @@ class Services_JSON
     /**
     * PRIVATE CODE that does the work of encodes an arbitrary variable into JSON format 
     *
-    * @deprecated 5.3.0 Use the PHP native JSON extension instead.
+    * @deprecated WP 5.3.0 Use the PHP native JSON extension instead.
     *
     * @param    mixed   $var    any number, boolean, string, array, or object to be encoded.
     *                           see argument 1 to Services_JSON() above for array-parsing behavior.
@@ -569,7 +569,7 @@ class Services_JSON
    /**
     * array-walking function for use in generating JSON-formatted name-value pairs
     *
-    * @deprecated 5.3.0 Use the PHP native JSON extension instead.
+    * @deprecated WP 5.3.0 Use the PHP native JSON extension instead.
     *
     * @param    string  $name   name of key to use
     * @param    mixed   $value  reference to an array element to be encoded
@@ -593,7 +593,7 @@ class Services_JSON
    /**
     * reduce a string by removing leading and trailing comments and whitespace
     *
-    * @deprecated 5.3.0 Use the PHP native JSON extension instead.
+    * @deprecated WP 5.3.0 Use the PHP native JSON extension instead.
     *
     * @param    $str    string      string value to strip of comments and whitespace
     *
@@ -624,7 +624,7 @@ class Services_JSON
    /**
     * decodes a JSON string into appropriate variable
     *
-    * @deprecated 5.3.0 Use the PHP native JSON extension instead.
+    * @deprecated WP 5.3.0 Use the PHP native JSON extension instead.
     *
     * @param    string  $str    JSON-formatted string
     *
@@ -916,7 +916,7 @@ class Services_JSON
     }
 
     /**
-     * @deprecated 5.3.0 Use the PHP native JSON extension instead.
+     * @deprecated WP 5.3.0 Use the PHP native JSON extension instead.
      *
      * @todo Ultimately, this should just call PEAR::isError()
      */
@@ -937,7 +937,7 @@ class Services_JSON
     /**
      * Calculates length of string in bytes
      *
-     * @deprecated 5.3.0 Use the PHP native JSON extension instead.
+     * @deprecated WP 5.3.0 Use the PHP native JSON extension instead.
      *
      * @param string
      * @return integer length
@@ -955,7 +955,7 @@ class Services_JSON
     /**
      * Returns part of a string, interpreting $start and $length as number of bytes.
      *
-     * @deprecated 5.3.0 Use the PHP native JSON extension instead.
+     * @deprecated WP 5.3.0 Use the PHP native JSON extension instead.
      *
      * @param string
      * @param integer start
@@ -984,7 +984,7 @@ if (class_exists('PEAR_Error')) {
         /**
          * PHP5 constructor.
          *
-         * @deprecated 5.3.0 Use the PHP native JSON extension instead.
+         * @deprecated WP 5.3.0 Use the PHP native JSON extension instead.
          */
         function __construct($message = 'unknown error', $code = null,
                                      $mode = null, $options = null, $userinfo = null)
@@ -997,7 +997,7 @@ if (class_exists('PEAR_Error')) {
         /**
          * PHP4 constructor.
          *
-         * @deprecated 5.3.0 Use __construct() instead.
+         * @deprecated WP 5.3.0 Use __construct() instead.
          *
          * @see Services_JSON_Error::__construct()
          */
@@ -1018,7 +1018,7 @@ if (class_exists('PEAR_Error')) {
         /**
          * PHP5 constructor.
          *
-         * @deprecated 5.3.0 Use the PHP native JSON extension instead.
+         * @deprecated WP 5.3.0 Use the PHP native JSON extension instead.
          */
         function __construct( $message = 'unknown error', $code = null,
                                      $mode = null, $options = null, $userinfo = null )
@@ -1029,7 +1029,7 @@ if (class_exists('PEAR_Error')) {
         /**
          * PHP4 constructor.
          *
-         * @deprecated 5.3.0 Use __construct() instead.
+         * @deprecated WP 5.3.0 Use __construct() instead.
          *
          * @see Services_JSON_Error::__construct()
          */

@@ -4789,7 +4789,7 @@ const subscribe = default_registry.subscribe;
 /**
  * Registers a generic store instance.
  *
- * @deprecated Use `register( storeDescriptor )` instead.
+ * @deprecated WP Use `register( storeDescriptor )` instead.
  *
  * @param {string} name  Store registry name.
  * @param {Object} store Store instance (`{ getSelectors, getActions, subscribe }`).
@@ -4799,7 +4799,7 @@ const registerGenericStore = default_registry.registerGenericStore;
 /**
  * Registers a standard `@wordpress/data` store.
  *
- * @deprecated Use `register` instead.
+ * @deprecated WP Use `register` instead.
  *
  * @param {string} storeName Unique namespace identifier for the store.
  * @param {Object} options   Store description (reducer, actions, selectors, resolvers).

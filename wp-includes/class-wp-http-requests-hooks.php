@@ -4,13 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage HTTP
- * @since 4.7.0
+ * @since WP 4.7.0
  */
 
 /**
  * Bridge to connect Requests internal hooks to WordPress actions.
  *
- * @since 4.7.0
+ * @since WP 4.7.0
  *
  * @see WpOrg\Requests\Hooks
  */
@@ -66,7 +66,7 @@ class WP_HTTP_Requests_Hooks extends WpOrg\Requests\Hooks {
 		 *
 		 * @see https://github.com/WordPress/Requests/blob/master/docs/hooks.md
 		 *
-		 * @since 4.7.0
+		 * @since WP 4.7.0
 		 *
 		 * @param array $parameters Parameters from Requests internal hook.
 		 * @param array $request Request data in WP_Http format.

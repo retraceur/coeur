@@ -4,13 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage Administration
- * @since 3.1.0
+ * @since WP 3.1.0
  */
 
 /**
  * Core class used to implement displaying media items in a list table.
  *
- * @since 3.1.0
+ * @since WP 3.1.0
  *
  * @see WP_List_Table
  */
@@ -18,7 +18,7 @@ class WP_Media_List_Table extends WP_List_Table {
 	/**
 	 * Holds the number of pending comments for each post.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 * @var array
 	 */
 	protected $comment_pending_count = array();
@@ -30,7 +30,7 @@ class WP_Media_List_Table extends WP_List_Table {
 	/**
 	 * Constructor.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @see WP_List_Table::__construct() for more information on default arguments.
 	 *
@@ -343,7 +343,7 @@ class WP_Media_List_Table extends WP_List_Table {
 		/**
 		 * Filters the taxonomy columns for attachments in the Media list table.
 		 *
-		 * @since 3.5.0
+		 * @since WP 3.5.0
 		 *
 		 * @param string[] $taxonomies An array of registered taxonomy names to show for attachments.
 		 * @param string   $post_type  The post type. Default 'attachment'.
@@ -383,7 +383,7 @@ class WP_Media_List_Table extends WP_List_Table {
 		/**
 		 * Filters the Media list table columns.
 		 *
-		 * @since 2.5.0
+		 * @since WP 2.5.0
 		 *
 		 * @param string[] $posts_columns An array of columns displayed in the Media list table.
 		 * @param bool     $detached      Whether the list table contains media not attached
@@ -408,8 +408,8 @@ class WP_Media_List_Table extends WP_List_Table {
 	/**
 	 * Handles the checkbox column output.
 	 *
-	 * @since 4.3.0
-	 * @since 5.9.0 Renamed `$post` to `$item` to match parent class for PHP 8 named parameter support.
+	 * @since WP 4.3.0
+	 * @since WP 5.9.0 Renamed `$post` to `$item` to match parent class for PHP 8 named parameter support.
 	 *
 	 * @param WP_Post $item The current WP_Post object.
 	 */
@@ -435,7 +435,7 @@ class WP_Media_List_Table extends WP_List_Table {
 	/**
 	 * Handles the title column output.
 	 *
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 *
 	 * @param WP_Post $post The current WP_Post object.
 	 */
@@ -502,7 +502,7 @@ class WP_Media_List_Table extends WP_List_Table {
 	/**
 	 * Handles the author column output.
 	 *
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 *
 	 * @param WP_Post $post The current WP_Post object.
 	 */
@@ -517,8 +517,8 @@ class WP_Media_List_Table extends WP_List_Table {
 	/**
 	 * Handles the description column output.
 	 *
-	 * @since 4.3.0
-	 * @deprecated 6.2.0
+	 * @since WP 4.3.0
+	 * @deprecated WP 6.2.0
 	 *
 	 * @param WP_Post $post The current WP_Post object.
 	 */
@@ -531,7 +531,7 @@ class WP_Media_List_Table extends WP_List_Table {
 	/**
 	 * Handles the date column output.
 	 *
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 *
 	 * @param WP_Post $post The current WP_Post object.
 	 */
@@ -553,7 +553,7 @@ class WP_Media_List_Table extends WP_List_Table {
 		/**
 		 * Filters the published time of an attachment displayed in the Media list table.
 		 *
-		 * @since 6.0.0
+		 * @since WP 6.0.0
 		 *
 		 * @param string  $h_time      The published time.
 		 * @param WP_Post $post        Attachment object.
@@ -565,7 +565,7 @@ class WP_Media_List_Table extends WP_List_Table {
 	/**
 	 * Handles the parent column output.
 	 *
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 *
 	 * @param WP_Post $post The current WP_Post object.
 	 */
@@ -627,7 +627,7 @@ class WP_Media_List_Table extends WP_List_Table {
 	/**
 	 * Handles the comments column output.
 	 *
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 *
 	 * @param WP_Post $post The current WP_Post object.
 	 */
@@ -648,8 +648,8 @@ class WP_Media_List_Table extends WP_List_Table {
 	/**
 	 * Handles output for the default column.
 	 *
-	 * @since 4.3.0
-	 * @since 5.9.0 Renamed `$post` to `$item` to match parent class for PHP 8 named parameter support.
+	 * @since WP 4.3.0
+	 * @since WP 5.9.0 Renamed `$post` to `$item` to match parent class for PHP 8 named parameter support.
 	 *
 	 * @param WP_Post $item        The current WP_Post object.
 	 * @param string  $column_name Current column name.
@@ -699,7 +699,7 @@ class WP_Media_List_Table extends WP_List_Table {
 		 *
 		 * Custom columns are registered using the {@see 'manage_media_columns'} filter.
 		 *
-		 * @since 2.5.0
+		 * @since WP 2.5.0
 		 *
 		 * @param string $column_name Name of the custom column.
 		 * @param int    $post_id     Attachment ID.
@@ -710,7 +710,7 @@ class WP_Media_List_Table extends WP_List_Table {
 	/**
 	 * Generates the list table rows.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @global WP_Post  $post     Global post object.
 	 * @global WP_Query $wp_query WordPress Query object.
@@ -746,7 +746,7 @@ class WP_Media_List_Table extends WP_List_Table {
 	/**
 	 * Gets the name of the default primary column.
 	 *
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 *
 	 * @return string Name of the default primary column, in this case, 'title'.
 	 */
@@ -855,7 +855,7 @@ class WP_Media_List_Table extends WP_List_Table {
 		/**
 		 * Filters the action links for each attachment in the Media list table.
 		 *
-		 * @since 2.8.0
+		 * @since WP 2.8.0
 		 *
 		 * @param string[] $actions  An array of action links for each attachment.
 		 *                           Includes 'Edit', 'Delete Permanently', 'View',
@@ -870,8 +870,8 @@ class WP_Media_List_Table extends WP_List_Table {
 	/**
 	 * Generates and displays row action links.
 	 *
-	 * @since 4.3.0
-	 * @since 5.9.0 Renamed `$post` to `$item` to match parent class for PHP 8 named parameter support.
+	 * @since WP 4.3.0
+	 * @since WP 5.9.0 Renamed `$post` to `$item` to match parent class for PHP 8 named parameter support.
 	 *
 	 * @param WP_Post $item        Attachment being acted upon.
 	 * @param string  $column_name Current column name.

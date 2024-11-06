@@ -4,13 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage List_Table
- * @since 3.1.0
+ * @since WP 3.1.0
  */
 
 /**
  * Fetches an instance of a WP_List_Table class.
  *
- * @since 3.1.0
+ * @since WP 3.1.0
  *
  * @global string $hook_suffix
  *
@@ -60,7 +60,7 @@ function _get_list_table( $class_name, $args = array() ) {
 		/**
 		 * Filters the list table class to instantiate.
 		 *
-		 * @since 6.1.0
+		 * @since WP 6.1.0
 		 *
 		 * @param string $class_name The list table class to use.
 		 * @param array  $args       An array containing _get_list_table() arguments.
@@ -82,7 +82,7 @@ function _get_list_table( $class_name, $args = array() ) {
  *
  * @see get_column_headers(), print_column_headers(), get_hidden_columns()
  *
- * @since 2.7.0
+ * @since WP 2.7.0
  *
  * @param string    $screen The handle for the screen to register column headers for. This is
  *                          usually the hook name returned by the `add_*_page()` functions.
@@ -96,7 +96,7 @@ function register_column_headers( $screen, $columns ) {
 /**
  * Prints column headers for a particular screen.
  *
- * @since 2.7.0
+ * @since WP 2.7.0
  *
  * @param string|WP_Screen $screen  The screen hook name or screen object.
  * @param bool             $with_id Whether to set the ID attribute or not.

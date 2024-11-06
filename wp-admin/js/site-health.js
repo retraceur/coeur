@@ -65,7 +65,7 @@ jQuery( function( $ ) {
 	/**
 	 * Validates the Site Health test result format.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param {Object} issue
 	 *
@@ -116,7 +116,7 @@ jQuery( function( $ ) {
 	/**
 	 * Appends a new issue to the issue list.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 *
 	 * @param {Object} issue The issue data.
 	 */
@@ -183,7 +183,7 @@ jQuery( function( $ ) {
 	/**
 	 * Updates site health status indicator as asynchronous tests are run and returned.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 */
 	function recalculateProgression() {
 		var r, c, pct;
@@ -251,7 +251,7 @@ jQuery( function( $ ) {
 	/**
 	 * Queues the next asynchronous test when we're ready to run it.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 */
 	function maybeRunNextAsyncTest() {
 		var doCalculation = true;
@@ -328,7 +328,7 @@ jQuery( function( $ ) {
 	/**
 	 * Add the details of a failed asynchronous test to the list of test results.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 */
 	function addFailedSiteHealthCheckNotice( url, description ) {
 		var issue;
@@ -453,7 +453,7 @@ jQuery( function( $ ) {
 	/**
 	 * Announces to assistive technologies the tests progression status.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @param {string} type The type of message to be announced.
 	 *

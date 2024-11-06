@@ -4,7 +4,7 @@
  *
  * @package motsVertueux
  * @subpackage HTML-API
- * @since 6.4.0
+ * @since WP 6.4.0
  */
 
 /**
@@ -20,8 +20,8 @@
  * it cannot proceed, this class is used to abort from any
  * operation and signify that the given HTML cannot be processed.
  *
- * @since 6.4.0
- * @since 6.7.0 Gained contextual information for use in debugging parse failures.
+ * @since WP 6.4.0
+ * @since WP 6.7.0 Gained contextual information for use in debugging parse failures.
  *
  * @access private
  *
@@ -36,7 +36,7 @@ class WP_HTML_Unsupported_Exception extends Exception {
 	 * may have been the case that the token triggered part of the HTML
 	 * parsing that isn't supported, such as the adoption agency algorithm.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @var string
 	 */
@@ -48,7 +48,7 @@ class WP_HTML_Unsupported_Exception extends Exception {
 	 *
 	 * Use this to reconstruct context for the failure.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @var int
 	 */
@@ -62,7 +62,7 @@ class WP_HTML_Unsupported_Exception extends Exception {
 	 * raw text of the token, including original casing, duplicated attributes,
 	 * and other syntactic variations that are normally abstracted in the HTML API.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @var string
 	 */
@@ -73,7 +73,7 @@ class WP_HTML_Unsupported_Exception extends Exception {
 	 *
 	 * Use this to trace the parsing circumstances which led to the exception.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @var string[]
 	 */
@@ -84,7 +84,7 @@ class WP_HTML_Unsupported_Exception extends Exception {
 	 *
 	 * Use this to trace the parsing circumstances which led to the exception.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @var string[]
 	 */
@@ -93,7 +93,7 @@ class WP_HTML_Unsupported_Exception extends Exception {
 	/**
 	 * Constructor function.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @param string   $message                    Brief message explaining what is unsupported, the reason this exception was raised.
 	 * @param string   $token_name                 Normalized name of matched token when this exception was raised.

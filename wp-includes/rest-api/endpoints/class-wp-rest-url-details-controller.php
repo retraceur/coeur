@@ -4,14 +4,14 @@
  *
  * @package motsVertueux
  * @subpackage REST_API
- * @since 5.9.0
+ * @since WP 5.9.0
  */
 
 /**
  * Controller which provides REST endpoint for retrieving information
  * from a remote site's HTML response.
  *
- * @since 5.9.0
+ * @since WP 5.9.0
  *
  * @see WP_REST_Controller
  */
@@ -20,7 +20,7 @@ class WP_REST_URL_Details_Controller extends WP_REST_Controller {
 	/**
 	 * Constructs the controller.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 */
 	public function __construct() {
 		$this->namespace = 'wp-block-editor/v1';
@@ -30,7 +30,7 @@ class WP_REST_URL_Details_Controller extends WP_REST_Controller {
 	/**
 	 * Registers the necessary REST API routes.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 */
 	public function register_routes() {
 		register_rest_route(
@@ -60,7 +60,7 @@ class WP_REST_URL_Details_Controller extends WP_REST_Controller {
 	/**
 	 * Retrieves the item's schema, conforming to JSON Schema.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @return array Item schema data.
 	 */
@@ -126,7 +126,7 @@ class WP_REST_URL_Details_Controller extends WP_REST_Controller {
 	/**
 	 * Retrieves the contents of the title tag from the HTML response.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error The parsed details as a response object. WP_Error if there are errors.
@@ -177,7 +177,7 @@ class WP_REST_URL_Details_Controller extends WP_REST_Controller {
 		/**
 		 * Filters the URL data for the response.
 		 *
-		 * @since 5.9.0
+		 * @since WP 5.9.0
 		 *
 		 * @param WP_REST_Response $response            The response object.
 		 * @param string           $url                 The requested URL.
@@ -190,7 +190,7 @@ class WP_REST_URL_Details_Controller extends WP_REST_Controller {
 	/**
 	 * Checks whether a given request has permission to read remote URLs.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @return true|WP_Error True if the request has permission, else WP_Error.
 	 */
@@ -215,7 +215,7 @@ class WP_REST_URL_Details_Controller extends WP_REST_Controller {
 	/**
 	 * Retrieves the document title from a remote URL.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param string $url The website URL whose HTML to access.
 	 * @return string|WP_Error The HTTP response from the remote URL on success.
@@ -244,7 +244,7 @@ class WP_REST_URL_Details_Controller extends WP_REST_Controller {
 		 *
 		 * Can be used to adjust response size limit and other WP_Http::request() args.
 		 *
-		 * @since 5.9.0
+		 * @since WP 5.9.0
 		 *
 		 * @param array  $args Arguments used for the HTTP request.
 		 * @param string $url  The attempted URL.
@@ -278,7 +278,7 @@ class WP_REST_URL_Details_Controller extends WP_REST_Controller {
 	/**
 	 * Parses the title tag contents from the provided HTML.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param string $html The HTML from the remote website at URL.
 	 * @return string The title tag contents on success. Empty string if not found.
@@ -299,7 +299,7 @@ class WP_REST_URL_Details_Controller extends WP_REST_Controller {
 	/**
 	 * Parses the site icon from the provided HTML.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param string $html The HTML from the remote website at URL.
 	 * @param string $url  The target website URL.
@@ -344,7 +344,7 @@ class WP_REST_URL_Details_Controller extends WP_REST_Controller {
 	/**
 	 * Parses the meta description from the provided HTML.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param array $meta_elements {
 	 *     A multidimensional indexed array on success, else empty array.
@@ -380,7 +380,7 @@ class WP_REST_URL_Details_Controller extends WP_REST_Controller {
 	 *
 	 * See: https://ogp.me/.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param array  $meta_elements {
 	 *     A multidimensional indexed array on success, else empty array.
@@ -419,7 +419,7 @@ class WP_REST_URL_Details_Controller extends WP_REST_Controller {
 	 *    - stripping all HTML tags and tag entities.
 	 *    - converting non-tag entities into characters.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param string $metadata The metadata content to prepare.
 	 * @return string The prepared metadata.
@@ -433,7 +433,7 @@ class WP_REST_URL_Details_Controller extends WP_REST_Controller {
 	/**
 	 * Utility function to build cache key for a given URL.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param string $url The URL for which to build a cache key.
 	 * @return string The cache key.
@@ -445,7 +445,7 @@ class WP_REST_URL_Details_Controller extends WP_REST_Controller {
 	/**
 	 * Utility function to retrieve a value from the cache at a given key.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param string $key The cache key.
 	 * @return mixed The value from the cache.
@@ -457,7 +457,7 @@ class WP_REST_URL_Details_Controller extends WP_REST_Controller {
 	/**
 	 * Utility function to cache a given data set at a given cache key.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param string $key  The cache key under which to store the value.
 	 * @param string $data The data to be stored at the given cache key.
@@ -472,7 +472,7 @@ class WP_REST_URL_Details_Controller extends WP_REST_Controller {
 		 * Can be used to adjust the time until expiration in seconds for the cache
 		 * of the data retrieved for the given URL.
 		 *
-		 * @since 5.9.0
+		 * @since WP 5.9.0
 		 *
 		 * @param int $ttl The time until cache expiration in seconds.
 		 */
@@ -484,7 +484,7 @@ class WP_REST_URL_Details_Controller extends WP_REST_Controller {
 	/**
 	 * Retrieves the head element section.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param string $html The string of HTML to parse.
 	 * @return string The `<head>..</head>` section on success. Given `$html` if not found.
@@ -521,7 +521,7 @@ class WP_REST_URL_Details_Controller extends WP_REST_Controller {
 	/**
 	 * Gets all the meta tag elements that have a 'content' attribute.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param string $html The string of HTML to be parsed.
 	 * @return array {
@@ -602,7 +602,7 @@ class WP_REST_URL_Details_Controller extends WP_REST_Controller {
 	/**
 	 * Gets the metadata from a target meta element.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param array  $meta_elements {
 	 *     A multi-dimensional indexed array on success, else empty array.

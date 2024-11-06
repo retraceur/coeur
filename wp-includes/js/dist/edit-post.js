@@ -628,7 +628,7 @@ const closeGeneralSidebar = () => ({
 /**
  * Returns an action object used in signalling that the user opened a modal.
  *
- * @deprecated since WP 6.3 use `core/interface` store's action with the same name instead.
+ * @deprecated WP since WP 6.3 use `core/interface` store's action with the same name instead.
  *
  *
  * @param {string} name A string that uniquely identifies the modal.
@@ -648,7 +648,7 @@ const openModal = name => ({
 /**
  * Returns an action object signalling that the user closed a modal.
  *
- * @deprecated since WP 6.3 use `core/interface` store's action with the same name instead.
+ * @deprecated WP since WP 6.3 use `core/interface` store's action with the same name instead.
  *
  * @return {Object} Action object.
  */
@@ -1384,7 +1384,7 @@ const isEditorPanelOpened = (0,external_wp_data_namespaceObject.createRegistrySe
 /**
  * Returns true if a modal is active, or false otherwise.
  *
- * @deprecated since WP 6.3 use `core/interface` store's selector with the same name instead.
+ * @deprecated WP since WP 6.3 use `core/interface` store's selector with the same name instead.
  *
  * @param {Object} state     Global application state.
  * @param {string} modalName A string that uniquely identifies the modal.
@@ -2443,7 +2443,7 @@ function WelcomeGuideDefault() {
           className: "edit-post-welcome-guide__text",
           children: (0,external_wp_element_namespaceObject.createInterpolateElement)((0,external_wp_i18n_namespaceObject.__)("New to the block editor? Want to learn more about using it? <a>Here's a detailed guide.</a>"), {
             a: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ExternalLink, {
-              href: (0,external_wp_i18n_namespaceObject.__)('https://wordpress.org/documentation/article/wordpress-block-editor/')
+              href: (0,external_wp_i18n_namespaceObject.__)('#')
             })
           })
         })]
@@ -3432,7 +3432,7 @@ function __experimentalPluginPostExcerpt() {
   external_wp_deprecated_default()('wp.editPost.__experimentalPluginPostExcerpt', {
     since: '6.6',
     hint: 'Core and custom panels can be access programmatically using their panel name.',
-    link: 'https://developer.wordpress.org/block-editor/reference-guides/slotfills/plugin-document-setting-panel/#accessing-a-panel-programmatically'
+    link: '#'
   });
   return PluginPostExcerpt;
 }

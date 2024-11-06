@@ -20,7 +20,7 @@
  *    admin for a block's output. It's a very small/simple function as well,
  *    so duplicating it isn't too terrible.
  *
- * @since 3.3.0
+ * @since WP 3.3.0
  *
  * @param int|WP_Post $post Optional. Post ID or WP_Post object. Default is global $post.
  * @return string The post title if set; "(no title)" if no title is set.
@@ -36,7 +36,7 @@ function wp_latest_comments_draft_or_post_title( $post = 0 ) {
 /**
  * Renders the `core/latest-comments` block on server.
  *
- * @since 5.1.0
+ * @since WP 5.1.0
  *
  * @param array $attributes The block attributes.
  *
@@ -148,7 +148,7 @@ function render_block_core_latest_comments( $attributes = array() ) {
 /**
  * Registers the `core/latest-comments` block.
  *
- * @since 5.3.0
+ * @since WP 5.3.0
  */
 function register_block_core_latest_comments() {
 	register_block_type_from_metadata(

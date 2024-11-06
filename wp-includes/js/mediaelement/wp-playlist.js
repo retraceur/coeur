@@ -178,7 +178,7 @@
 	 *
 	 * Only initializes new playlists not previously-initialized.
 	 *
-	 * @since 4.9.3
+	 * @since WP 4.9.3
 	 * @return {void}
 	 */
 	function initialize() {
@@ -191,7 +191,7 @@
 	 * Expose the API publicly on window.wp.playlist.
 	 *
 	 * @namespace wp.playlist
-	 * @since 4.9.3
+	 * @since WP 4.9.3
 	 * @type {object}
 	 */
 	window.wp.playlist = {

@@ -748,8 +748,8 @@ $( function(){ wpWidgets.init(); } );
 /**
  * Removed in 5.5.0, needed for back-compatibility.
  *
- * @since 4.9.0
- * @deprecated 5.5.0
+ * @since WP 4.9.0
+ * @deprecated WP 5.5.0
  *
  * @type {object}
 */

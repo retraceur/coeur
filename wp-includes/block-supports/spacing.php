@@ -6,13 +6,13 @@
  * block support despite both belonging under a single panel in the editor.
  *
  * @package motsVertueux
- * @since 5.8.0
+ * @since WP 5.8.0
  */
 
 /**
  * Registers the style block attribute for block types that support it.
  *
- * @since 5.8.0
+ * @since WP 5.8.0
  * @access private
  *
  * @param WP_Block_Type $block_type Block Type.
@@ -36,8 +36,8 @@ function wp_register_spacing_support( $block_type ) {
  * Adds CSS classes for block spacing to the incoming attributes array.
  * This will be applied to the block markup in the front-end.
  *
- * @since 5.8.0
- * @since 6.1.0 Implemented the style engine to generate CSS and classnames.
+ * @since WP 5.8.0
+ * @since WP 6.1.0 Implemented the style engine to generate CSS and classnames.
  * @access private
  *
  * @param WP_Block_Type $block_type       Block Type.

@@ -4,14 +4,14 @@
  *
  * Represents user request data loaded from a WP_Post object.
  *
- * @since 4.9.6
+ * @since WP 4.9.6
  */
 #[AllowDynamicProperties]
 final class WP_User_Request {
 	/**
 	 * Request ID.
 	 *
-	 * @since 4.9.6
+	 * @since WP 4.9.6
 	 * @var int
 	 */
 	public $ID = 0;
@@ -19,7 +19,7 @@ final class WP_User_Request {
 	/**
 	 * User ID.
 	 *
-	 * @since 4.9.6
+	 * @since WP 4.9.6
 	 * @var int
 	 */
 	public $user_id = 0;
@@ -27,7 +27,7 @@ final class WP_User_Request {
 	/**
 	 * User email.
 	 *
-	 * @since 4.9.6
+	 * @since WP 4.9.6
 	 * @var string
 	 */
 	public $email = '';
@@ -35,7 +35,7 @@ final class WP_User_Request {
 	/**
 	 * Action name.
 	 *
-	 * @since 4.9.6
+	 * @since WP 4.9.6
 	 * @var string
 	 */
 	public $action_name = '';
@@ -43,7 +43,7 @@ final class WP_User_Request {
 	/**
 	 * Current status.
 	 *
-	 * @since 4.9.6
+	 * @since WP 4.9.6
 	 * @var string
 	 */
 	public $status = '';
@@ -51,7 +51,7 @@ final class WP_User_Request {
 	/**
 	 * Timestamp this request was created.
 	 *
-	 * @since 4.9.6
+	 * @since WP 4.9.6
 	 * @var int|null
 	 */
 	public $created_timestamp = null;
@@ -59,7 +59,7 @@ final class WP_User_Request {
 	/**
 	 * Timestamp this request was last modified.
 	 *
-	 * @since 4.9.6
+	 * @since WP 4.9.6
 	 * @var int|null
 	 */
 	public $modified_timestamp = null;
@@ -67,7 +67,7 @@ final class WP_User_Request {
 	/**
 	 * Timestamp this request was confirmed.
 	 *
-	 * @since 4.9.6
+	 * @since WP 4.9.6
 	 * @var int|null
 	 */
 	public $confirmed_timestamp = null;
@@ -75,7 +75,7 @@ final class WP_User_Request {
 	/**
 	 * Timestamp this request was completed.
 	 *
-	 * @since 4.9.6
+	 * @since WP 4.9.6
 	 * @var int|null
 	 */
 	public $completed_timestamp = null;
@@ -83,7 +83,7 @@ final class WP_User_Request {
 	/**
 	 * Misc data assigned to this request.
 	 *
-	 * @since 4.9.6
+	 * @since WP 4.9.6
 	 * @var array
 	 */
 	public $request_data = array();
@@ -91,7 +91,7 @@ final class WP_User_Request {
 	/**
 	 * Key used to confirm this request.
 	 *
-	 * @since 4.9.6
+	 * @since WP 4.9.6
 	 * @var string
 	 */
 	public $confirm_key = '';
@@ -99,7 +99,7 @@ final class WP_User_Request {
 	/**
 	 * Constructor.
 	 *
-	 * @since 4.9.6
+	 * @since WP 4.9.6
 	 *
 	 * @param WP_Post|object $post Post object.
 	 */

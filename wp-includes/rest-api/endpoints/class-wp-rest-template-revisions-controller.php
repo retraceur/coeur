@@ -4,13 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage REST_API
- * @since 6.4.0
+ * @since WP 6.4.0
  */
 
 /**
  * Core class used to access template revisions via the REST API.
  *
- * @since 6.4.0
+ * @since WP 6.4.0
  *
  * @see WP_REST_Controller
  */
@@ -18,7 +18,7 @@ class WP_REST_Template_Revisions_Controller extends WP_REST_Revisions_Controller
 	/**
 	 * Parent post type.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 * @var string
 	 */
 	private $parent_post_type;
@@ -26,7 +26,7 @@ class WP_REST_Template_Revisions_Controller extends WP_REST_Revisions_Controller
 	/**
 	 * Parent controller.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 * @var WP_REST_Controller
 	 */
 	private $parent_controller;
@@ -34,7 +34,7 @@ class WP_REST_Template_Revisions_Controller extends WP_REST_Revisions_Controller
 	/**
 	 * The base of the parent controller's route.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 * @var string
 	 */
 	private $parent_base;
@@ -42,7 +42,7 @@ class WP_REST_Template_Revisions_Controller extends WP_REST_Revisions_Controller
 	/**
 	 * Constructor.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @param string $parent_post_type Post type of the parent.
 	 */
@@ -65,7 +65,7 @@ class WP_REST_Template_Revisions_Controller extends WP_REST_Revisions_Controller
 	/**
 	 * Registers the routes for revisions based on post types supporting revisions.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @see register_rest_route()
 	 */
@@ -158,7 +158,7 @@ class WP_REST_Template_Revisions_Controller extends WP_REST_Revisions_Controller
 	/**
 	 * Gets the parent post, if the template ID is valid.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @param string $parent_template_id Supplied ID.
 	 * @return WP_Post|WP_Error Post object if ID is valid, WP_Error otherwise.
@@ -180,7 +180,7 @@ class WP_REST_Template_Revisions_Controller extends WP_REST_Revisions_Controller
 	/**
 	 * Prepares the item for the REST response.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @param WP_Post         $item    Post revision object.
 	 * @param WP_REST_Request $request Request object.
@@ -214,7 +214,7 @@ class WP_REST_Template_Revisions_Controller extends WP_REST_Revisions_Controller
 	/**
 	 * Checks if a given request has access to delete a revision.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has access to delete the item, WP_Error object otherwise.
@@ -252,7 +252,7 @@ class WP_REST_Template_Revisions_Controller extends WP_REST_Revisions_Controller
 	/**
 	 * Prepares links for the request.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @param WP_Block_Template $template Template.
 	 * @return array Links for the given post.
@@ -273,7 +273,7 @@ class WP_REST_Template_Revisions_Controller extends WP_REST_Revisions_Controller
 	/**
 	 * Retrieves the item's schema, conforming to JSON Schema.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @return array Item schema data.
 	 */

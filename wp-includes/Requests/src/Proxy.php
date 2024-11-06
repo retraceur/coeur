@@ -3,7 +3,7 @@
  * Proxy connection interface
  *
  * @package Requests\Proxy
- * @since   1.6
+ * @since WP   1.6
  */
 
 namespace WpOrg\Requests;
@@ -21,7 +21,7 @@ use WpOrg\Requests\Hooks;
  * @see \WpOrg\Requests\Hooks
  *
  * @package Requests\Proxy
- * @since   1.6
+ * @since WP   1.6
  */
 interface Proxy {
 	/**

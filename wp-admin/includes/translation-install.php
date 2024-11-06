@@ -4,13 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage Administration
+ * @since 1.0.0 motsVertueux fork.
  */
-
 
 /**
  * Retrieve translations from WordPress Translation API.
  *
- * @since 4.0.0
+ * @since WP 4.0.0
  *
  * @param string       $type Type of translations. Accepts 'plugins', 'themes', 'core'.
  * @param array|object $args Translation API arguments. Optional.
@@ -39,9 +39,9 @@ function translations_api( $type, $args = null ) {
 	}
 
 	/**
-	 * Allows a plugin to override the WordPress.org Translation Installation API entirely.
+	 * Allows a plugin to override the Translation Installation API entirely.
 	 *
-	 * @since 4.0.0
+	 * @since WP 4.0.0
 	 *
 	 * @param false|array $result The result array. Default false.
 	 * @param string      $type   The type of translations being requested.
@@ -50,7 +50,10 @@ function translations_api( $type, $args = null ) {
 	$res = apply_filters( 'translations_api', false, $type, $args );
 
 	if ( false === $res ) {
-		$url      = 'http://api.wordpress.org/translations/' . $type . '/1.0/';
+		return new WP_Error( 'translations_api_disabled', __( 'motsVertueux does not provide a Translations API.' ) );
+
+		// @todo use GitHub instead
+		$url      = '';
 		$http_url = $url;
 		$ssl      = wp_http_supports( array( 'ssl' ) );
 		if ( $ssl ) {
@@ -75,11 +78,7 @@ function translations_api( $type, $args = null ) {
 		if ( $ssl && is_wp_error( $request ) ) {
 			wp_trigger_error(
 				__FUNCTION__,
-				sprintf(
-					/* translators: %s: Support forums URL. */
-					__( 'An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="%s">support forums</a>.' ),
-					__( 'https://wordpress.org/support/forums/' )
-				) . ' ' . __( '(WordPress could not establish a secure connection to WordPress.org. Please contact your server administrator.)' ),
+				__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ) . ' ' . __( '(motsVertueux could not establish a secure connection to Translations API. Please contact your server administrator.)' ),
 				headers_sent() || WP_DEBUG ? E_USER_WARNING : E_USER_NOTICE
 			);
 
@@ -89,11 +88,7 @@ function translations_api( $type, $args = null ) {
 		if ( is_wp_error( $request ) ) {
 			$res = new WP_Error(
 				'translations_api_failed',
-				sprintf(
-					/* translators: %s: Support forums URL. */
-					__( 'An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="%s">support forums</a>.' ),
-					__( 'https://wordpress.org/support/forums/' )
-				),
+				__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ),
 				$request->get_error_message()
 			);
 		} else {
@@ -101,11 +96,7 @@ function translations_api( $type, $args = null ) {
 			if ( ! is_object( $res ) && ! is_array( $res ) ) {
 				$res = new WP_Error(
 					'translations_api_failed',
-					sprintf(
-						/* translators: %s: Support forums URL. */
-						__( 'An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="%s">support forums</a>.' ),
-						__( 'https://wordpress.org/support/forums/' )
-					),
+					__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ),
 					wp_remote_retrieve_body( $request )
 				);
 			}
@@ -115,7 +106,7 @@ function translations_api( $type, $args = null ) {
 	/**
 	 * Filters the Translation Installation API response results.
 	 *
-	 * @since 4.0.0
+	 * @since WP 4.0.0
 	 *
 	 * @param array|WP_Error $res  {
 	 *     On success an associative array of translations, WP_Error on failure.
@@ -142,9 +133,9 @@ function translations_api( $type, $args = null ) {
 }
 
 /**
- * Get available translations from the WordPress.org API.
+ * Get available translations from the Translations API.
  *
- * @since 4.0.0
+ * @since WP 4.0.0
  *
  * @see translations_api()
  *
@@ -194,7 +185,7 @@ function wp_get_available_translations() {
 /**
  * Output the select form for the language selection on the installation screen.
  *
- * @since 4.0.0
+ * @since WP 4.0.0
  *
  * @global string $wp_local_package Locale code of the package.
  *
@@ -243,7 +234,7 @@ function wp_install_language_form( $languages ) {
 /**
  * Download a language pack.
  *
- * @since 4.0.0
+ * @since WP 4.0.0
  *
  * @see wp_get_available_translations()
  *
@@ -295,7 +286,7 @@ function wp_download_language_pack( $download ) {
  * Check if WordPress has access to the filesystem without asking for
  * credentials.
  *
- * @since 4.0.0
+ * @since WP 4.0.0
  *
  * @return bool Returns true on success, false on failure.
  */

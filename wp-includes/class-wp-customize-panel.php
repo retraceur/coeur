@@ -4,7 +4,7 @@
  *
  * @package motsVertueux
  * @subpackage Customize
- * @since 4.0.0
+ * @since WP 4.0.0
  */
 
 /**
@@ -12,7 +12,7 @@
  *
  * A UI container for sections, managed by the WP_Customize_Manager.
  *
- * @since 4.0.0
+ * @since WP 4.0.0
  *
  * @see WP_Customize_Manager
  */
@@ -24,7 +24,7 @@ class WP_Customize_Panel {
 	 *
 	 * Used when sorting two instances whose priorities are equal.
 	 *
-	 * @since 4.1.0
+	 * @since WP 4.1.0
 	 * @var int
 	 */
 	protected static $instance_count = 0;
@@ -32,7 +32,7 @@ class WP_Customize_Panel {
 	/**
 	 * Order in which this instance was created in relation to other instances.
 	 *
-	 * @since 4.1.0
+	 * @since WP 4.1.0
 	 * @var int
 	 */
 	public $instance_number;
@@ -40,7 +40,7 @@ class WP_Customize_Panel {
 	/**
 	 * WP_Customize_Manager instance.
 	 *
-	 * @since 4.0.0
+	 * @since WP 4.0.0
 	 * @var WP_Customize_Manager
 	 */
 	public $manager;
@@ -48,7 +48,7 @@ class WP_Customize_Panel {
 	/**
 	 * Unique identifier.
 	 *
-	 * @since 4.0.0
+	 * @since WP 4.0.0
 	 * @var string
 	 */
 	public $id;
@@ -56,7 +56,7 @@ class WP_Customize_Panel {
 	/**
 	 * Priority of the panel, defining the display order of panels and sections.
 	 *
-	 * @since 4.0.0
+	 * @since WP 4.0.0
 	 * @var int
 	 */
 	public $priority = 160;
@@ -64,7 +64,7 @@ class WP_Customize_Panel {
 	/**
 	 * Capability required for the panel.
 	 *
-	 * @since 4.0.0
+	 * @since WP 4.0.0
 	 * @var string
 	 */
 	public $capability = 'edit_theme_options';
@@ -72,7 +72,7 @@ class WP_Customize_Panel {
 	/**
 	 * Theme features required to support the panel.
 	 *
-	 * @since 4.0.0
+	 * @since WP 4.0.0
 	 * @var mixed[]
 	 */
 	public $theme_supports = '';
@@ -80,7 +80,7 @@ class WP_Customize_Panel {
 	/**
 	 * Title of the panel to show in UI.
 	 *
-	 * @since 4.0.0
+	 * @since WP 4.0.0
 	 * @var string
 	 */
 	public $title = '';
@@ -88,7 +88,7 @@ class WP_Customize_Panel {
 	/**
 	 * Description to show in the UI.
 	 *
-	 * @since 4.0.0
+	 * @since WP 4.0.0
 	 * @var string
 	 */
 	public $description = '';
@@ -96,7 +96,7 @@ class WP_Customize_Panel {
 	/**
 	 * Auto-expand a section in a panel when the panel is expanded when the panel only has the one section.
 	 *
-	 * @since 4.7.4
+	 * @since WP 4.7.4
 	 * @var bool
 	 */
 	public $auto_expand_sole_section = false;
@@ -104,7 +104,7 @@ class WP_Customize_Panel {
 	/**
 	 * Customizer sections for this panel.
 	 *
-	 * @since 4.0.0
+	 * @since WP 4.0.0
 	 * @var array
 	 */
 	public $sections;
@@ -112,7 +112,7 @@ class WP_Customize_Panel {
 	/**
 	 * Type of this panel.
 	 *
-	 * @since 4.1.0
+	 * @since WP 4.1.0
 	 * @var string
 	 */
 	public $type = 'default';
@@ -120,7 +120,7 @@ class WP_Customize_Panel {
 	/**
 	 * Active callback.
 	 *
-	 * @since 4.1.0
+	 * @since WP 4.1.0
 	 *
 	 * @see WP_Customize_Section::active()
 	 *
@@ -136,7 +136,7 @@ class WP_Customize_Panel {
 	 *
 	 * Any supplied $args override class property defaults.
 	 *
-	 * @since 4.0.0
+	 * @since WP 4.0.0
 	 *
 	 * @param WP_Customize_Manager $manager Customizer bootstrap instance.
 	 * @param string               $id      A specific ID for the panel.
@@ -176,7 +176,7 @@ class WP_Customize_Panel {
 	/**
 	 * Check whether panel is active to current Customizer preview.
 	 *
-	 * @since 4.1.0
+	 * @since WP 4.1.0
 	 *
 	 * @return bool Whether the panel is active to the current preview.
 	 */
@@ -187,7 +187,7 @@ class WP_Customize_Panel {
 		/**
 		 * Filters response of WP_Customize_Panel::active().
 		 *
-		 * @since 4.1.0
+		 * @since WP 4.1.0
 		 *
 		 * @param bool               $active Whether the Customizer panel is active.
 		 * @param WP_Customize_Panel $panel  WP_Customize_Panel instance.
@@ -203,7 +203,7 @@ class WP_Customize_Panel {
 	 * Subclasses can override this with their specific logic, or they may
 	 * provide an 'active_callback' argument to the constructor.
 	 *
-	 * @since 4.1.0
+	 * @since WP 4.1.0
 	 *
 	 * @return bool Always true.
 	 */
@@ -214,7 +214,7 @@ class WP_Customize_Panel {
 	/**
 	 * Gather the parameters passed to client JavaScript via JSON.
 	 *
-	 * @since 4.1.0
+	 * @since WP 4.1.0
 	 *
 	 * @return array The array to be exported to the client as JSON.
 	 */
@@ -232,8 +232,8 @@ class WP_Customize_Panel {
 	 * Checks required user capabilities and whether the theme has the
 	 * feature support required by the panel.
 	 *
-	 * @since 4.0.0
-	 * @since 5.9.0 Method was marked non-final.
+	 * @since WP 4.0.0
+	 * @since WP 5.9.0 Method was marked non-final.
 	 *
 	 * @return bool False if theme doesn't support the panel or the user doesn't have the capability.
 	 */
@@ -252,7 +252,7 @@ class WP_Customize_Panel {
 	/**
 	 * Get the panel's content template for insertion into the Customizer pane.
 	 *
-	 * @since 4.1.0
+	 * @since WP 4.1.0
 	 *
 	 * @return string Content for the panel.
 	 */
@@ -265,7 +265,7 @@ class WP_Customize_Panel {
 	/**
 	 * Check capabilities and render the panel.
 	 *
-	 * @since 4.0.0
+	 * @since WP 4.0.0
 	 */
 	final public function maybe_render() {
 		if ( ! $this->check_capabilities() ) {
@@ -275,7 +275,7 @@ class WP_Customize_Panel {
 		/**
 		 * Fires before rendering a Customizer panel.
 		 *
-		 * @since 4.0.0
+		 * @since WP 4.0.0
 		 *
 		 * @param WP_Customize_Panel $panel WP_Customize_Panel instance.
 		 */
@@ -287,7 +287,7 @@ class WP_Customize_Panel {
 		 * The dynamic portion of the hook name, `$this->id`, refers to
 		 * the ID of the specific Customizer panel to be rendered.
 		 *
-		 * @since 4.0.0
+		 * @since WP 4.0.0
 		 */
 		do_action( "customize_render_panel_{$this->id}" );
 
@@ -299,7 +299,7 @@ class WP_Customize_Panel {
 	 *
 	 * Panel containers are now rendered in JS by default, see WP_Customize_Panel::print_template().
 	 *
-	 * @since 4.0.0
+	 * @since WP 4.0.0
 	 */
 	protected function render() {}
 
@@ -308,7 +308,7 @@ class WP_Customize_Panel {
 	 *
 	 * Panel contents are now rendered in JS by default, see WP_Customize_Panel::print_template().
 	 *
-	 * @since 4.1.0
+	 * @since WP 4.1.0
 	 */
 	protected function render_content() {}
 
@@ -318,7 +318,7 @@ class WP_Customize_Panel {
 	 * This function is only run for panel types that have been registered with
 	 * WP_Customize_Manager::register_panel_type().
 	 *
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 *
 	 * @see WP_Customize_Manager::register_panel_type()
 	 */
@@ -341,7 +341,7 @@ class WP_Customize_Panel {
 	 *
 	 * @see WP_Customize_Panel::print_template()
 	 *
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 */
 	protected function render_template() {
 		?>
@@ -364,7 +364,7 @@ class WP_Customize_Panel {
 	 *
 	 * @see WP_Customize_Panel::print_template()
 	 *
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 */
 	protected function content_template() {
 		?>

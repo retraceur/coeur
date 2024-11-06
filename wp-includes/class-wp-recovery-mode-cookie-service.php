@@ -3,13 +3,14 @@
  * Error Protection API: WP_Recovery_Mode_Cookie_Service class
  *
  * @package motsVertueux
- * @since 5.2.0
+ * @since WP 5.2.0
+ * @since 1.0.0 motsVertueux fork.
  */
 
 /**
  * Core class used to set, validate, and clear cookies that identify a Recovery Mode session.
  *
- * @since 5.2.0
+ * @since WP 5.2.0
  */
 #[AllowDynamicProperties]
 final class WP_Recovery_Mode_Cookie_Service {
@@ -17,7 +18,7 @@ final class WP_Recovery_Mode_Cookie_Service {
 	/**
 	 * Checks whether the recovery mode cookie is set.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 *
 	 * @return bool True if the cookie is set, false otherwise.
 	 */
@@ -30,7 +31,7 @@ final class WP_Recovery_Mode_Cookie_Service {
 	 *
 	 * This must be immediately followed by exiting the request.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 */
 	public function set_cookie() {
 
@@ -39,7 +40,7 @@ final class WP_Recovery_Mode_Cookie_Service {
 		/**
 		 * Filters the length of time a Recovery Mode cookie is valid for.
 		 *
-		 * @since 5.2.0
+		 * @since WP 5.2.0
 		 *
 		 * @param int $length Length in seconds.
 		 */
@@ -57,7 +58,7 @@ final class WP_Recovery_Mode_Cookie_Service {
 	/**
 	 * Clears the recovery mode cookie.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 */
 	public function clear_cookie() {
 		setcookie( RECOVERY_MODE_COOKIE, ' ', time() - YEAR_IN_SECONDS, COOKIEPATH, COOKIE_DOMAIN );
@@ -67,7 +68,7 @@ final class WP_Recovery_Mode_Cookie_Service {
 	/**
 	 * Validates the recovery mode cookie.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 *
 	 * @param string $cookie Optionally specify the cookie string.
 	 *                       If omitted, it will be retrieved from the super global.
@@ -117,7 +118,7 @@ final class WP_Recovery_Mode_Cookie_Service {
 	 *
 	 * The cookie should be validated before calling this API.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 *
 	 * @param string $cookie Optionally specify the cookie string.
 	 *                       If omitted, it will be retrieved from the super global.
@@ -145,7 +146,7 @@ final class WP_Recovery_Mode_Cookie_Service {
 	/**
 	 * Parses the cookie into its four parts.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 *
 	 * @param string $cookie Cookie content.
 	 * @return array|WP_Error Cookie parts array, or error object on failure.
@@ -173,7 +174,7 @@ final class WP_Recovery_Mode_Cookie_Service {
 	 * rand is a randomly generated password that is also used as a session identifier
 	 * and signature is an hmac of the preceding 3 parts.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 *
 	 * @return string Generated cookie content.
 	 */
@@ -192,7 +193,7 @@ final class WP_Recovery_Mode_Cookie_Service {
 	 *
 	 * This tries to use the `AUTH` salts first, but if they aren't valid specific salts will be generated and stored.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 *
 	 * @param string $data Data to hash.
 	 * @return string|false The hashed $data, or false on failure.
@@ -201,11 +202,6 @@ final class WP_Recovery_Mode_Cookie_Service {
 		$default_keys = array_unique(
 			array(
 				'put your unique phrase here',
-				/*
-				 * translators: This string should only be translated if wp-config-sample.php is localized.
-				 * You can check the localized release package or
-				 * https://i18n.svn.wordpress.org/<locale code>/branches/<wp version>/dist/wp-config-sample.php
-				 */
 				__( 'put your unique phrase here' ),
 			)
 		);

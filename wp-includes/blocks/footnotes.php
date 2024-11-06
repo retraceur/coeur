@@ -8,7 +8,7 @@
 /**
  * Renders the `core/footnotes` block on the server.
  *
- * @since 6.3.0
+ * @since WP 6.3.0
  *
  * @param array    $attributes Block attributes.
  * @param string   $content    Block default content.
@@ -65,7 +65,7 @@ function render_block_core_footnotes( $attributes, $content, $block ) {
 /**
  * Registers the `core/footnotes` block on the server.
  *
- * @since 6.3.0
+ * @since WP 6.3.0
  */
 function register_block_core_footnotes() {
 	register_block_type_from_metadata(
@@ -81,7 +81,7 @@ add_action( 'init', 'register_block_core_footnotes' );
 /**
  * Registers the footnotes meta field required for footnotes to work.
  *
- * @since 6.5.0
+ * @since WP 6.5.0
  */
 function register_block_core_footnotes_post_meta() {
 	$post_types = get_post_types( array( 'show_in_rest' => true ) );
@@ -114,7 +114,7 @@ add_action( 'init', 'register_block_core_footnotes_post_meta', 20 );
 /**
  * Adds the footnotes field to the revisions display.
  *
- * @since 6.3.0
+ * @since WP 6.3.0
  *
  * @param array $fields The revision fields.
  * @return array The revision fields.
@@ -128,7 +128,7 @@ add_filter( '_wp_post_revision_fields', 'wp_add_footnotes_to_revision' );
 /**
  * Gets the footnotes field from the revision for the revisions screen.
  *
- * @since 6.3.0
+ * @since WP 6.3.0
  *
  * @param string $revision_field The field value, but $revision->$field
  *                               (footnotes) does not exist.

@@ -4,19 +4,19 @@
  *
  * @package motsVertueux
  * @subpackage Interactivity API
- * @since 6.5.0
+ * @since WP 6.5.0
  */
 
 /**
  * Class used to process the Interactivity API on the server.
  *
- * @since 6.5.0
+ * @since WP 6.5.0
  */
 final class WP_Interactivity_API {
 	/**
 	 * Holds the mapping of directive attribute names to their processor methods.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 * @var array
 	 */
 	private static $directive_processors = array(
@@ -42,7 +42,7 @@ final class WP_Interactivity_API {
 	 * serialized and sent to the client as part of the interactivity data to be
 	 * recovered during the hydration of the client interactivity stores.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 * @var array
 	 */
 	private $state_data = array();
@@ -53,7 +53,7 @@ final class WP_Interactivity_API {
 	 * This configuration is serialized and sent to the client as part of the
 	 * interactivity data and can be accessed by the client interactivity stores.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 * @var array
 	 */
 	private $config_data = array();
@@ -68,7 +68,7 @@ final class WP_Interactivity_API {
 	 * independently of whether they have processed any
 	 * `data-wp-router-region` directive or not.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 * @var bool
 	 */
 	private $has_processed_router_region = false;
@@ -79,7 +79,7 @@ final class WP_Interactivity_API {
 	 *
 	 * This is only available during directive processing, otherwise it is `null`.
 	 *
-	 * @since 6.6.0
+	 * @since WP 6.6.0
 	 * @var array<string>|null
 	 */
 	private $namespace_stack = null;
@@ -90,7 +90,7 @@ final class WP_Interactivity_API {
 	 *
 	 * This is only available during directive processing, otherwise it is `null`.
 	 *
-	 * @since 6.6.0
+	 * @since WP 6.6.0
 	 * @var array<array<mixed>>|null
 	 */
 	private $context_stack = null;
@@ -100,7 +100,7 @@ final class WP_Interactivity_API {
 	 *
 	 * This is only available during directive processing, otherwise it is `null`.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 * @var array{attributes: array<string, string|bool>}|null
 	 */
 	private $current_element = null;
@@ -115,8 +115,8 @@ final class WP_Interactivity_API {
 	 * When no namespace is specified, it returns the state defined for the
 	 * current value in the internal namespace stack during a `process_directives` call.
 	 *
-	 * @since 6.5.0
-	 * @since 6.6.0 The `$store_namespace` param is optional.
+	 * @since WP 6.5.0
+	 * @since WP 6.6.0 The `$store_namespace` param is optional.
 	 *
 	 * @param string $store_namespace Optional. The unique store namespace identifier.
 	 * @param array  $state           Optional. The array that will be merged with the existing state for the specified
@@ -172,7 +172,7 @@ final class WP_Interactivity_API {
 	 * If configuration for that store namespace exists, it merges the new
 	 * provided configuration with the existing one.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $store_namespace The unique store namespace identifier.
 	 * @param array  $config          Optional. The array that will be merged with the existing configuration for the
@@ -201,9 +201,9 @@ final class WP_Interactivity_API {
 	 * be parsed and used to hydrate the client-side interactivity stores and the
 	 * configuration will be available using a `getConfig` utility.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
-	 * @deprecated 6.7.0 Client data passing is handled by the {@see "script_module_data_{$module_id}"} filter.
+	 * @deprecated WP 6.7.0 Client data passing is handled by the {@see "script_module_data_{$module_id}"} filter.
 	 */
 	public function print_client_interactivity_data() {
 		_deprecated_function( __METHOD__, '6.7.0' );
@@ -215,7 +215,7 @@ final class WP_Interactivity_API {
 	 * Once in the browser, the state will be parsed and used to hydrate the client-side
 	 * interactivity stores and the configuration will be available using a `getConfig` utility.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @param array $data Data to filter.
 	 * @return array Data for the Interactivity Router script module.
@@ -235,7 +235,7 @@ final class WP_Interactivity_API {
 	 * Once in the browser, the state will be parsed and used to hydrate the client-side
 	 * interactivity stores and the configuration will be available using a `getConfig` utility.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @param array $data Data to filter.
 	 * @return array Data for the Interactivity API script module.
@@ -274,7 +274,7 @@ final class WP_Interactivity_API {
 	 * When the namespace is omitted, it uses the current namespace on the
 	 * namespace stack during a `process_directives` call.
 	 *
-	 * @since 6.6.0
+	 * @since WP 6.6.0
 	 *
 	 * @param string $store_namespace Optional. The unique store namespace identifier.
 	 */
@@ -313,7 +313,7 @@ final class WP_Interactivity_API {
 	 *
 	 * The returned array contains a copy of the element attributes.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @return array{attributes: array<string, string|bool>}|null Current element.
 	 */
@@ -332,9 +332,9 @@ final class WP_Interactivity_API {
 	/**
 	 * Registers the `@wordpress/interactivity` script modules.
 	 *
-	 * @deprecated 6.7.0 Script Modules registration is handled by {@see wp_default_script_modules()}.
+	 * @deprecated WP 6.7.0 Script Modules registration is handled by {@see wp_default_script_modules()}.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 */
 	public function register_script_modules() {
 		_deprecated_function( __METHOD__, '6.7.0', 'wp_default_script_modules' );
@@ -343,7 +343,7 @@ final class WP_Interactivity_API {
 	/**
 	 * Adds the necessary hooks for the Interactivity API.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 */
 	public function add_hooks() {
 		add_filter( 'script_module_data_@wordpress/interactivity', array( $this, 'filter_script_module_interactivity_data' ) );
@@ -354,7 +354,7 @@ final class WP_Interactivity_API {
 	 * Processes the interactivity directives contained within the HTML content
 	 * and updates the markup accordingly.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $html The HTML content to process.
 	 * @return string The processed HTML content. It returns the original content when the HTML contains unbalanced tags.
@@ -384,7 +384,7 @@ final class WP_Interactivity_API {
 	 *
 	 * This method returns null if the HTML contains unbalanced tags.
 	 *
-	 * @since 6.6.0
+	 * @since WP 6.6.0
 	 *
 	 * @param string $html The HTML content to process.
 	 * @return string|null The processed HTML content. It returns null when the HTML contains unbalanced tags.
@@ -546,10 +546,10 @@ final class WP_Interactivity_API {
 	 * Evaluates the reference path passed to a directive based on the current
 	 * store namespace, state and context.
 	 *
-	 * @since 6.5.0
-	 * @since 6.6.0 The function now adds a warning when the namespace is null, falsy, or the directive value is empty.
-	 * @since 6.6.0 Removed `default_namespace` and `context` arguments.
-	 * @since 6.6.0 Add support for derived state.
+	 * @since WP 6.5.0
+	 * @since WP 6.6.0 The function now adds a warning when the namespace is null, falsy, or the directive value is empty.
+	 * @since WP 6.6.0 Removed `default_namespace` and `context` arguments.
+	 * @since WP 6.6.0 Add support for derived state.
 	 *
 	 * @param string|true $directive_value The directive attribute value string or `true` when it's a boolean attribute.
 	 * @return mixed|null The result of the evaluation. Null if the reference path doesn't exist or the namespace is falsy.
@@ -632,7 +632,7 @@ final class WP_Interactivity_API {
 	 *     extract_prefix_and_suffix( 'data-wp-bind--src' )     => array( 'data-wp-bind', 'src' )
 	 *     extract_prefix_and_suffix( 'data-wp-foo--and--bar' ) => array( 'data-wp-foo', 'and--bar' )
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $directive_name The directive attribute name.
 	 * @return array An array containing the directive prefix and optional suffix.
@@ -659,7 +659,7 @@ final class WP_Interactivity_API {
 	 *     extract_directive_value( '{ "isOpen": false }', 'myPlugin' )              => array( 'myPlugin', array( 'isOpen' => false ) )
 	 *     extract_directive_value( 'otherPlugin::{ "isOpen": false }', 'myPlugin' ) => array( 'otherPlugin', array( 'isOpen' => false ) )
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string|true $directive_value   The directive attribute value. It can be `true` when it's a boolean
 	 *                                       attribute.
@@ -714,7 +714,7 @@ final class WP_Interactivity_API {
 	 * It adds the default store namespace defined in the directive value to the
 	 * stack so that it's available for the nested interactivity elements.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param WP_Interactivity_API_Directives_Processor $p    The directives processor instance.
 	 * @param string                                    $mode Whether the processing is entering or exiting the tag.
@@ -757,7 +757,7 @@ final class WP_Interactivity_API {
 	 * It adds the context defined in the directive value to the stack so that
 	 * it's available for the nested interactivity elements.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param WP_Interactivity_API_Directives_Processor $p               The directives processor instance.
 	 * @param string                                    $mode            Whether the processing is entering or exiting the tag.
@@ -802,7 +802,7 @@ final class WP_Interactivity_API {
 	 * It updates or removes the bound attributes based on the evaluation of its
 	 * associated reference.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param WP_Interactivity_API_Directives_Processor $p               The directives processor instance.
 	 * @param string                                    $mode            Whether the processing is entering or exiting the tag.
@@ -854,7 +854,7 @@ final class WP_Interactivity_API {
 	 * It adds or removes CSS classes in the current HTML element based on the
 	 * evaluation of its associated references.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param WP_Interactivity_API_Directives_Processor $p               The directives processor instance.
 	 * @param string                                    $mode            Whether the processing is entering or exiting the tag.
@@ -887,7 +887,7 @@ final class WP_Interactivity_API {
 	 * It updates the style attribute value of the current HTML element based on
 	 * the evaluation of its associated references.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param WP_Interactivity_API_Directives_Processor $p               The directives processor instance.
 	 * @param string                                    $mode            Whether the processing is entering or exiting the tag.
@@ -935,7 +935,7 @@ final class WP_Interactivity_API {
 	 * If a property is modified, the old one is removed and the new one is added
 	 * at the end of the list.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * Example:
 	 *
@@ -978,7 +978,7 @@ final class WP_Interactivity_API {
 	 * It updates the inner content of the current HTML element based on the
 	 * evaluation of its associated reference.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param WP_Interactivity_API_Directives_Processor $p               The directives processor instance.
 	 * @param string                                    $mode            Whether the processing is entering or exiting the tag.
@@ -1004,7 +1004,7 @@ final class WP_Interactivity_API {
 	/**
 	 * Returns the CSS styles for animating the top loading bar in the router.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @return string The CSS styles for the router's top loading bar animation.
 	 */
@@ -1043,8 +1043,8 @@ CSS;
 	/**
 	 * Deprecated.
 	 *
-	 * @since 6.5.0
-	 * @deprecated 6.7.0 Use {@see WP_Interactivity_API::print_router_markup} instead.
+	 * @since WP 6.5.0
+	 * @deprecated WP 6.7.0 Use {@see WP_Interactivity_API::print_router_markup} instead.
 	 */
 	public function print_router_loading_and_screen_reader_markup() {
 		_deprecated_function( __METHOD__, '6.7.0', 'WP_Interactivity_API::print_router_markup' );
@@ -1059,7 +1059,7 @@ CSS;
 	 * This method prints a div element representing a loading bar visible during
 	 * navigation.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 */
 	public function print_router_markup() {
 		echo <<<HTML
@@ -1080,7 +1080,7 @@ HTML;
 	 * top loading bar to visually inform that a navigation is in progress
 	 * and 2) an `aria-live` region for accessible navigation announcements.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param WP_Interactivity_API_Directives_Processor $p               The directives processor instance.
 	 * @param string                                    $mode            Whether the processing is entering or exiting the tag.
@@ -1119,7 +1119,7 @@ HTML;
 	 * generating new content for each item based on the inner markup of the
 	 * `template` tag.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param WP_Interactivity_API_Directives_Processor $p               The directives processor instance.
 	 * @param string                                    $mode            Whether the processing is entering or exiting the tag.

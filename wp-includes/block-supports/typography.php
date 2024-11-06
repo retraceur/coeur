@@ -3,14 +3,14 @@
  * Typography block support flag.
  *
  * @package motsVertueux
- * @since 5.6.0
+ * @since WP 5.6.0
  */
 
 /**
  * Registers the style and typography block attributes for block types that support it.
  *
- * @since 5.6.0
- * @since 6.3.0 Added support for text-columns.
+ * @since WP 5.6.0
+ * @since WP 6.3.0 Added support for text-columns.
  * @access private
  *
  * @param WP_Block_Type $block_type Block Type.
@@ -77,9 +77,9 @@ function wp_register_typography_support( $block_type ) {
  * to the incoming attributes array. This will be applied to the block markup in
  * the front-end.
  *
- * @since 5.6.0
- * @since 6.1.0 Used the style engine to generate CSS and classnames.
- * @since 6.3.0 Added support for text-columns.
+ * @since WP 5.6.0
+ * @since WP 6.1.0 Used the style engine to generate CSS and classnames.
+ * @since WP 6.3.0 Added support for text-columns.
  * @access private
  *
  * @param WP_Block_Type $block_type       Block type.
@@ -270,7 +270,7 @@ function wp_apply_typography_support( $block_type, $block_attributes ) {
  *   but skips compiling a CSS declaration as the style engine takes over this role.
  * @link https://github.com/wordpress/gutenberg/pull/27555
  *
- * @since 6.1.0
+ * @since WP 6.1.0
  *
  * @param string $style_value  A raw style value for a single typography feature from a block's style attribute.
  * @param string $css_property Slug for the CSS property the inline style sets.
@@ -299,7 +299,7 @@ function wp_typography_get_preset_inline_style_value( $style_value, $css_propert
 /**
  * Renders typography styles/content to the block wrapper.
  *
- * @since 6.1.0
+ * @since WP 6.1.0
  *
  * @param string $block_content Rendered block content.
  * @param array  $block         Block object.
@@ -329,7 +329,7 @@ function wp_render_typography_support( $block_content, $block ) {
  * Checks a string for a unit and value and returns an array
  * consisting of `'value'` and `'unit'`, e.g. array( '42', 'rem' ).
  *
- * @since 6.1.0
+ * @since WP 6.1.0
  *
  * @param string|int|float $raw_value Raw size value from theme.json.
  * @param array            $options   {
@@ -415,9 +415,9 @@ function wp_get_typography_value_and_unit( $raw_value, $options = array() ) {
  * Internal implementation of CSS clamp() based on available min/max viewport
  * width and min/max font sizes.
  *
- * @since 6.1.0
- * @since 6.3.0 Checks for unsupported min/max viewport values that cause invalid clamp values.
- * @since 6.5.0 Returns early when min and max viewport subtraction is zero to avoid division by zero.
+ * @since WP 6.1.0
+ * @since WP 6.3.0 Checks for unsupported min/max viewport values that cause invalid clamp values.
+ * @since WP 6.5.0 Returns early when min and max viewport subtraction is zero to avoid division by zero.
  * @access private
  *
  * @param array $args {
@@ -512,13 +512,13 @@ function wp_get_computed_fluid_typography_value( $args = array() ) {
  * Takes into account fluid typography parameters and attempts to return a CSS
  * formula depending on available, valid values.
  *
- * @since 6.1.0
- * @since 6.1.1 Adjusted rules for min and max font sizes.
- * @since 6.2.0 Added 'settings.typography.fluid.minFontSize' support.
- * @since 6.3.0 Using layout.wideSize as max viewport width, and logarithmic scale factor to calculate minimum font scale.
- * @since 6.4.0 Added configurable min and max viewport width values to the typography.fluid theme.json schema.
- * @since 6.6.0 Deprecated bool argument $should_use_fluid_typography.
- * @since 6.7.0 Font size presets can enable fluid typography individually, even if it’s disabled globally.
+ * @since WP 6.1.0
+ * @since WP 6.1.1 Adjusted rules for min and max font sizes.
+ * @since WP 6.2.0 Added 'settings.typography.fluid.minFontSize' support.
+ * @since WP 6.3.0 Using layout.wideSize as max viewport width, and logarithmic scale factor to calculate minimum font scale.
+ * @since WP 6.4.0 Added configurable min and max viewport width values to the typography.fluid theme.json schema.
+ * @since WP 6.6.0 Deprecated bool argument $should_use_fluid_typography.
+ * @since WP 6.7.0 Font size presets can enable fluid typography individually, even if it’s disabled globally.
  *
  * @param array      $preset   {
  *     Required. fontSizes preset value as seen in theme.json.

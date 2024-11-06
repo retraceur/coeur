@@ -87,7 +87,7 @@ $step = isset( $_GET['step'] ) ? (int) $_GET['step'] : -1;
  * Display setup wp-config.php file header.
  *
  * @ignore
- * @since 2.3.0
+ * @since WP 2.3.0
  *
  * @param string|string[] $body_classes Class attribute values for the body tag.
  */
@@ -193,14 +193,6 @@ switch ( $step ) {
 		);
 		?>
 	</strong>
-		<?php
-		printf(
-			/* translators: 1: Documentation URL, 2: wp-config.php */
-			__( 'Need more help? <a href="%1$s">Read the support article on %2$s</a>.' ),
-			__( 'https://developer.wordpress.org/advanced-administration/wordpress/wp-config/' ),
-			'<code>wp-config.php</code>'
-		);
-		?>
 </p>
 <p><?php _e( 'In all likelihood, these items were supplied to you by your web host. If you do not have this information, then you will need to contact them before you can continue. If you are ready&hellip;' ); ?></p>
 
@@ -355,22 +347,9 @@ switch ( $step ) {
 				$secret_keys[] = $key;
 			}
 		} catch ( Exception $ex ) {
-			$no_api = isset( $_POST['noapi'] );
-
-			if ( ! $no_api ) {
-				$secret_keys = wp_remote_get( 'https://api.wordpress.org/secret-key/1.1/salt/' );
-			}
-
-			if ( $no_api || is_wp_error( $secret_keys ) ) {
-				$secret_keys = array();
-				for ( $i = 0; $i < 8; $i++ ) {
-					$secret_keys[] = wp_generate_password( 64, true, true );
-				}
-			} else {
-				$secret_keys = explode( "\n", wp_remote_retrieve_body( $secret_keys ) );
-				foreach ( $secret_keys as $k => $v ) {
-					$secret_keys[ $k ] = substr( $v, 28, 64 );
-				}
+			$secret_keys = array();
+			for ( $i = 0; $i < 8; $i++ ) {
+				$secret_keys[] = wp_generate_password( 64, true, true );
 			}
 		}
 
@@ -481,10 +460,9 @@ if ( ! /iPad|iPod|iPhone/.test( navigator.userAgent ) ) {
 				$wp_config_perms = fileperms( $path_to_wp_config );
 				if ( ! empty( $wp_config_perms ) && ! is_writable( $path_to_wp_config ) ) {
 					$error_message = sprintf(
-						/* translators: 1: wp-config.php, 2: Documentation URL. */
-						__( 'You need to make the file %1$s writable before you can save your changes. See <a href="%2$s">Changing File Permissions</a> for more information.' ),
-						'<code>wp-config.php</code>',
-						__( 'https://developer.wordpress.org/advanced-administration/server/file-permissions/' )
+						/* translators: %s: wp-config.php. */
+						__( 'You need to make the file %s writable before you can save your changes.' ),
+						'<code>wp-config.php</code>'
 					);
 				} else {
 					$error_message = sprintf(

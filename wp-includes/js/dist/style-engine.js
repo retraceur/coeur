@@ -242,14 +242,14 @@ function __read(o, n) {
   return ar;
 }
 
-/** @deprecated */
+/** @deprecated WP */
 function __spread() {
   for (var ar = [], i = 0; i < arguments.length; i++)
       ar = ar.concat(__read(arguments[i]));
   return ar;
 }
 
-/** @deprecated */
+/** @deprecated WP */
 function __spreadArrays() {
   for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
   for (var r = Array(s), k = 0, i = 0; i < il; i++)
@@ -1071,7 +1071,7 @@ const styleDefinitions = [...border, ...styles_color, ...dimensions, ...outline,
 /**
  * Generates a stylesheet for a given style object and selector.
  *
- * @since 6.1.0 Introduced in WordPress core.
+ * @since WP 6.1.0 Introduced in WordPress core.
  *
  * @param style   Style object, for example, the value of a block's attributes.style object or the top level styles in theme.json
  * @param options Options object with settings to adjust how the styles are generated.
@@ -1112,7 +1112,7 @@ function compileCSS(style, options = {}) {
 /**
  * Returns a JSON representation of the generated CSS rules.
  *
- * @since 6.1.0 Introduced in WordPress core.
+ * @since WP 6.1.0 Introduced in WordPress core.
  *
  * @param style   Style object, for example, the value of a block's attributes.style object or the top level styles in theme.json
  * @param options Options object with settings to adjust how the styles are generated.

@@ -4,14 +4,14 @@
  *
  * @package motsVertueux
  * @subpackage Upgrader
- * @since 4.6.0
+ * @since WP 4.6.0
  */
 
 /**
  * Generic Skin for the WordPress Upgrader classes. This skin is designed to be extended for specific purposes.
  *
- * @since 2.8.0
- * @since 4.6.0 Moved to its own file from wp-admin/includes/class-wp-upgrader-skins.php.
+ * @since WP 2.8.0
+ * @since WP 4.6.0 Moved to its own file from wp-admin/includes/class-wp-upgrader-skins.php.
  */
 #[AllowDynamicProperties]
 class WP_Upgrader_Skin {
@@ -19,7 +19,7 @@ class WP_Upgrader_Skin {
 	/**
 	 * Holds the upgrader data.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 * @var WP_Upgrader
 	 */
 	public $upgrader;
@@ -27,7 +27,7 @@ class WP_Upgrader_Skin {
 	/**
 	 * Whether header is done.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 * @var bool
 	 */
 	public $done_header = false;
@@ -35,7 +35,7 @@ class WP_Upgrader_Skin {
 	/**
 	 * Whether footer is done.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 * @var bool
 	 */
 	public $done_footer = false;
@@ -43,7 +43,7 @@ class WP_Upgrader_Skin {
 	/**
 	 * Holds the result of an upgrade.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 * @var string|bool|WP_Error
 	 */
 	public $result = false;
@@ -51,7 +51,7 @@ class WP_Upgrader_Skin {
 	/**
 	 * Holds the options of an upgrade.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 * @var array
 	 */
 	public $options = array();
@@ -61,7 +61,7 @@ class WP_Upgrader_Skin {
 	 *
 	 * Sets up the generic skin for the WordPress Upgrader classes.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @param array $args Optional. The WordPress upgrader skin arguments to
 	 *                    override default options. Default empty array.
@@ -79,7 +79,7 @@ class WP_Upgrader_Skin {
 	/**
 	 * Sets the relationship between the skin being used and the upgrader.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @param WP_Upgrader $upgrader
 	 */
@@ -93,7 +93,7 @@ class WP_Upgrader_Skin {
 	/**
 	 * Sets up the strings used in the update process.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 */
 	public function add_strings() {
 	}
@@ -101,7 +101,7 @@ class WP_Upgrader_Skin {
 	/**
 	 * Sets the result of an upgrade.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @param string|bool|WP_Error $result The result of an upgrade.
 	 */
@@ -113,8 +113,8 @@ class WP_Upgrader_Skin {
 	 * Displays a form to the user to request for their FTP/SSH details in order
 	 * to connect to the filesystem.
 	 *
-	 * @since 2.8.0
-	 * @since 4.6.0 The `$context` parameter default changed from `false` to an empty string.
+	 * @since WP 2.8.0
+	 * @since WP 4.6.0 The `$context` parameter default changed from `false` to an empty string.
 	 *
 	 * @see request_filesystem_credentials()
 	 *
@@ -142,7 +142,7 @@ class WP_Upgrader_Skin {
 	/**
 	 * Displays the header before the update process.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 */
 	public function header() {
 		if ( $this->done_header ) {
@@ -156,7 +156,7 @@ class WP_Upgrader_Skin {
 	/**
 	 * Displays the footer following the update process.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 */
 	public function footer() {
 		if ( $this->done_footer ) {
@@ -169,7 +169,7 @@ class WP_Upgrader_Skin {
 	/**
 	 * Displays an error message about the update.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @param string|WP_Error $errors Errors.
 	 */
@@ -193,8 +193,8 @@ class WP_Upgrader_Skin {
 	/**
 	 * Displays a message about the update.
 	 *
-	 * @since 2.8.0
-	 * @since 5.9.0 Renamed `$string` (a PHP reserved keyword) to `$feedback` for PHP 8 named parameter support.
+	 * @since WP 2.8.0
+	 * @since WP 5.9.0 Renamed `$string` (a PHP reserved keyword) to `$feedback` for PHP 8 named parameter support.
 	 *
 	 * @param string $feedback Message data.
 	 * @param mixed  ...$args  Optional text replacements.
@@ -220,21 +220,21 @@ class WP_Upgrader_Skin {
 	/**
 	 * Performs an action before an update.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 */
 	public function before() {}
 
 	/**
 	 * Performs an action following an update.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 */
 	public function after() {}
 
 	/**
 	 * Outputs JavaScript that calls function to decrement the update counts.
 	 *
-	 * @since 3.9.0
+	 * @since WP 3.9.0
 	 *
 	 * @param string $type Type of update count to decrement. Likely values include 'plugin',
 	 *                     'theme', 'translation', etc.
@@ -271,21 +271,21 @@ class WP_Upgrader_Skin {
 	/**
 	 * Displays the header before the bulk update process.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 */
 	public function bulk_header() {}
 
 	/**
 	 * Displays the footer following the bulk update process.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 */
 	public function bulk_footer() {}
 
 	/**
 	 * Hides the `process_failed` error message when updating by uploading a zip file.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @param WP_Error $wp_error WP_Error object.
 	 * @return bool True if the error should be hidden, false otherwise.

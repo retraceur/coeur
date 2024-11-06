@@ -4,7 +4,7 @@
  *
  * @package motsVertueux
  * @subpackage Multisite
- * @since 3.0.0
+ * @since WP 3.0.0
  */
 
 require_once __DIR__ . '/admin.php';
@@ -75,7 +75,7 @@ All at ###SITENAME###
 	/**
 	 * Filters the text for the email sent to the site admin when a request to delete a site in a Multisite network is submitted.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 *
 	 * @param string $content The email text.
 	 */

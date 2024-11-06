@@ -3,7 +3,7 @@
  * HTTP Proxy connection interface
  *
  * @package Requests\Proxy
- * @since   1.6
+ * @since WP   1.6
  */
 
 namespace WpOrg\Requests\Proxy;
@@ -19,7 +19,7 @@ use WpOrg\Requests\Proxy;
  * Provides a handler for connection via an HTTP proxy
  *
  * @package Requests\Proxy
- * @since   1.6
+ * @since WP   1.6
  */
 final class Http implements Proxy {
 	/**
@@ -55,7 +55,7 @@ final class Http implements Proxy {
 	/**
 	 * Constructor
 	 *
-	 * @since 1.6
+	 * @since WP 1.6
 	 *
 	 * @param array|string|null $args Proxy as a string or an array of proxy, user and password.
 	 *                                When passed as an array, must have exactly one (proxy)
@@ -88,7 +88,7 @@ final class Http implements Proxy {
 	/**
 	 * Register the necessary callbacks
 	 *
-	 * @since 1.6
+	 * @since WP 1.6
 	 * @see \WpOrg\Requests\Proxy\Http::curl_before_send()
 	 * @see \WpOrg\Requests\Proxy\Http::fsockopen_remote_socket()
 	 * @see \WpOrg\Requests\Proxy\Http::fsockopen_remote_host_path()
@@ -108,7 +108,7 @@ final class Http implements Proxy {
 	/**
 	 * Set cURL parameters before the data is sent
 	 *
-	 * @since 1.6
+	 * @since WP 1.6
 	 * @param resource|\CurlHandle $handle cURL handle
 	 */
 	public function curl_before_send(&$handle) {
@@ -124,7 +124,7 @@ final class Http implements Proxy {
 	/**
 	 * Alter remote socket information before opening socket connection
 	 *
-	 * @since 1.6
+	 * @since WP 1.6
 	 * @param string $remote_socket Socket connection string
 	 */
 	public function fsockopen_remote_socket(&$remote_socket) {
@@ -134,7 +134,7 @@ final class Http implements Proxy {
 	/**
 	 * Alter remote path before getting stream data
 	 *
-	 * @since 1.6
+	 * @since WP 1.6
 	 * @param string $path Path to send in HTTP request string ("GET ...")
 	 * @param string $url Full URL we're requesting
 	 */
@@ -145,7 +145,7 @@ final class Http implements Proxy {
 	/**
 	 * Add extra headers to the request before sending
 	 *
-	 * @since 1.6
+	 * @since WP 1.6
 	 * @param string $out HTTP header string
 	 */
 	public function fsockopen_header(&$out) {
@@ -155,7 +155,7 @@ final class Http implements Proxy {
 	/**
 	 * Get the authentication string (user:pass)
 	 *
-	 * @since 1.6
+	 * @since WP 1.6
 	 * @return string
 	 */
 	public function get_auth_string() {

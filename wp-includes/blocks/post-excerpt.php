@@ -8,7 +8,7 @@
 /**
  * Renders the `core/post-excerpt` block on the server.
  *
- * @since 5.8.0
+ * @since WP 5.8.0
  *
  * @param array    $attributes Block attributes.
  * @param string   $content    Block default content.
@@ -69,7 +69,7 @@ function render_block_core_post_excerpt( $attributes, $content, $block ) {
 /**
  * Registers the `core/post-excerpt` block on the server.
  *
- * @since 5.8.0
+ * @since WP 5.8.0
  */
 function register_block_core_post_excerpt() {
 	register_block_type_from_metadata(

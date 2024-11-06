@@ -4,7 +4,7 @@
  *
  * @package motsVertueux
  * @subpackage REST_API
- * @since 6.5.0
+ * @since WP 6.5.0
  */
 
 /**
@@ -15,7 +15,7 @@ class WP_REST_Font_Faces_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * The latest version of theme.json schema supported by the controller.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 * @var int
 	 */
 	const LATEST_THEME_JSON_VERSION_SUPPORTED = 3;
@@ -23,7 +23,7 @@ class WP_REST_Font_Faces_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Whether the controller supports batching.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 * @var false
 	 */
 	protected $allow_batch = false;
@@ -31,7 +31,7 @@ class WP_REST_Font_Faces_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Registers the routes for posts.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @see register_rest_route()
 	 */
@@ -107,7 +107,7 @@ class WP_REST_Font_Faces_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Checks if a given request has access to font faces.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has read access, WP_Error object otherwise.
@@ -129,7 +129,7 @@ class WP_REST_Font_Faces_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Checks if a given request has access to a font face.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has read access, WP_Error object otherwise.
@@ -154,7 +154,7 @@ class WP_REST_Font_Faces_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Validates settings when creating a font face.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string          $value   Encoded JSON string of font face settings.
 	 * @param WP_REST_Request $request Request object.
@@ -238,7 +238,7 @@ class WP_REST_Font_Faces_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Sanitizes the font face settings when creating a font face.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $value Encoded JSON string of font face settings.
 	 * @return array Decoded and sanitized array of font face settings.
@@ -260,7 +260,7 @@ class WP_REST_Font_Faces_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Retrieves a collection of font faces within the parent font family.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
@@ -277,7 +277,7 @@ class WP_REST_Font_Faces_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Retrieves a single font face within the parent font family.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
@@ -309,7 +309,7 @@ class WP_REST_Font_Faces_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Creates a font face for the parent font family.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
@@ -392,7 +392,7 @@ class WP_REST_Font_Faces_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Deletes a single font face.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
@@ -435,7 +435,7 @@ class WP_REST_Font_Faces_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Prepares a single font face output for response.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param WP_Post         $item    Post object.
 	 * @param WP_REST_Request $request Request object.
@@ -474,7 +474,7 @@ class WP_REST_Font_Faces_Controller extends WP_REST_Posts_Controller {
 		/**
 		 * Filters the font face data for a REST API response.
 		 *
-		 * @since 6.5.0
+		 * @since WP 6.5.0
 		 *
 		 * @param WP_REST_Response $response The response object.
 		 * @param WP_Post          $post     Font face post object.
@@ -486,7 +486,7 @@ class WP_REST_Font_Faces_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Retrieves the post's schema, conforming to JSON Schema.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @return array Item schema data.
 	 */
@@ -677,7 +677,7 @@ class WP_REST_Font_Faces_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Retrieves the item's schema for display / public consumption purposes.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @return array Public item schema data.
 	 */
@@ -697,7 +697,7 @@ class WP_REST_Font_Faces_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Retrieves the query params for the font face collection.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @return array Collection parameters.
 	 */
@@ -722,7 +722,7 @@ class WP_REST_Font_Faces_Controller extends WP_REST_Posts_Controller {
 		/**
 		 * Filters collection parameters for the font face controller.
 		 *
-		 * @since 6.5.0
+		 * @since WP 6.5.0
 		 *
 		 * @param array $query_params JSON Schema-formatted collection parameters.
 		 */
@@ -732,7 +732,7 @@ class WP_REST_Font_Faces_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Get the params used when creating a new font face.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @return array Font face create arguments.
 	 */
@@ -755,7 +755,7 @@ class WP_REST_Font_Faces_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Get the parent font family, if the ID is valid.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param int $font_family_id Supplied ID.
 	 * @return WP_Post|WP_Error Post object if ID is valid, WP_Error otherwise.
@@ -785,7 +785,7 @@ class WP_REST_Font_Faces_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Prepares links for the request.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param WP_Post $post Post object.
 	 * @return array Links for the given post.
@@ -808,7 +808,7 @@ class WP_REST_Font_Faces_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Prepares a single font face post for creation.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param WP_REST_Request $request Request object.
 	 * @return stdClass Post object.
@@ -836,7 +836,7 @@ class WP_REST_Font_Faces_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Sanitizes a single src value for a font face.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $value Font face src that is a URL or the key for a $_FILES array item.
 	 * @return string Sanitized value.
@@ -849,7 +849,7 @@ class WP_REST_Font_Faces_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Handles the upload of a font file using wp_handle_upload().
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param array $file Single file item from $_FILES.
 	 * @return array|WP_Error Array containing uploaded file attributes on success, or WP_Error object on failure.
@@ -883,7 +883,7 @@ class WP_REST_Font_Faces_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Handles file upload error.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param array  $file    File upload data.
 	 * @param string $message Error message from wp_handle_upload().
@@ -906,7 +906,7 @@ class WP_REST_Font_Faces_Controller extends WP_REST_Posts_Controller {
 	 *
 	 * The path is relative to the current fonts directory.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 * @access private
 	 *
 	 * @param string $path Full path to the file.
@@ -927,7 +927,7 @@ class WP_REST_Font_Faces_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Gets the font face's settings from the post.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param WP_Post $post Font face post object.
 	 * @return array Font face settings array.

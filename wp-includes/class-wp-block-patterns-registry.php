@@ -4,20 +4,20 @@
  *
  * @package motsVertueux
  * @subpackage Blocks
- * @since 5.5.0
+ * @since WP 5.5.0
  */
 
 /**
  * Class used for interacting with block patterns.
  *
- * @since 5.5.0
+ * @since WP 5.5.0
  */
 #[AllowDynamicProperties]
 final class WP_Block_Patterns_Registry {
 	/**
 	 * Registered block patterns array.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 * @var array[]
 	 */
 	private $registered_patterns = array();
@@ -25,7 +25,7 @@ final class WP_Block_Patterns_Registry {
 	/**
 	 * Patterns registered outside the `init` action.
 	 *
-	 * @since 6.0.0
+	 * @since WP 6.0.0
 	 * @var array[]
 	 */
 	private $registered_patterns_outside_init = array();
@@ -33,7 +33,7 @@ final class WP_Block_Patterns_Registry {
 	/**
 	 * Container for the main instance of the class.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 * @var WP_Block_Patterns_Registry|null
 	 */
 	private static $instance = null;
@@ -41,11 +41,11 @@ final class WP_Block_Patterns_Registry {
 	/**
 	 * Registers a block pattern.
 	 *
-	 * @since 5.5.0
-	 * @since 5.8.0 Added support for the `blockTypes` property.
-	 * @since 6.1.0 Added support for the `postTypes` property.
-	 * @since 6.2.0 Added support for the `templateTypes` property.
-	 * @since 6.5.0 Added support for the `filePath` property.
+	 * @since WP 5.5.0
+	 * @since WP 5.8.0 Added support for the `blockTypes` property.
+	 * @since WP 6.1.0 Added support for the `postTypes` property.
+	 * @since WP 6.2.0 Added support for the `templateTypes` property.
+	 * @since WP 6.5.0 Added support for the `filePath` property.
 	 *
 	 * @param string $pattern_name       Block pattern name including namespace.
 	 * @param array  $pattern_properties {
@@ -136,7 +136,7 @@ final class WP_Block_Patterns_Registry {
 	/**
 	 * Unregisters a block pattern.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @param string $pattern_name Block pattern name including namespace.
 	 * @return bool True if the pattern was unregistered with success and false otherwise.
@@ -161,7 +161,7 @@ final class WP_Block_Patterns_Registry {
 	/**
 	 * Retrieves the content of a registered block pattern.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $pattern_name      Block pattern name including namespace.
 	 * @param bool   $outside_init_only Optional. Return only patterns registered outside the `init` action. Default false.
@@ -185,7 +185,7 @@ final class WP_Block_Patterns_Registry {
 	/**
 	 * Retrieves an array containing the properties of a registered block pattern.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @param string $pattern_name Block pattern name including namespace.
 	 * @return array Registered pattern properties.
@@ -209,7 +209,7 @@ final class WP_Block_Patterns_Registry {
 	/**
 	 * Retrieves all registered block patterns.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @param bool $outside_init_only Return only patterns registered outside the `init` action.
 	 * @return array[] Array of arrays containing the registered block patterns properties,
@@ -236,7 +236,7 @@ final class WP_Block_Patterns_Registry {
 	/**
 	 * Checks if a block pattern is registered.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @param string $pattern_name Block pattern name including namespace.
 	 * @return bool True if the pattern is registered, false otherwise.
@@ -265,7 +265,7 @@ final class WP_Block_Patterns_Registry {
 	 *
 	 * The instance will be created if it does not exist yet.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @return WP_Block_Patterns_Registry The main instance.
 	 */
@@ -281,7 +281,7 @@ final class WP_Block_Patterns_Registry {
 /**
  * Registers a new block pattern.
  *
- * @since 5.5.0
+ * @since WP 5.5.0
  *
  * @param string $pattern_name       Block pattern name including namespace.
  * @param array  $pattern_properties List of properties for the block pattern.
@@ -295,7 +295,7 @@ function register_block_pattern( $pattern_name, $pattern_properties ) {
 /**
  * Unregisters a block pattern.
  *
- * @since 5.5.0
+ * @since WP 5.5.0
  *
  * @param string $pattern_name Block pattern name including namespace.
  * @return bool True if the pattern was unregistered with success and false otherwise.

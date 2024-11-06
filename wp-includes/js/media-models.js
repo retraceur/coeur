@@ -425,7 +425,7 @@ var Attachments = Backbone.Collection.extend(/** @lends wp.media.model.Attachmen
 	 *
 	 * @access private
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 */
 	_removeFromTotalAttachments: function() {
 		if ( this.mirroring ) {
@@ -437,7 +437,7 @@ var Attachments = Backbone.Collection.extend(/** @lends wp.media.model.Attachmen
 	 *
 	 * @access private
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 */
 	_addToTotalAttachments: function() {
 		if ( this.mirroring ) {
@@ -558,14 +558,14 @@ var Attachments = Backbone.Collection.extend(/** @lends wp.media.model.Attachmen
 	/**
 	 * Holds the total number of attachments.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 */
 	totalAttachments: 0,
 
 	/**
 	 * Gets the total number of attachments.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @return {number} The total number of attachments.
 	 */

@@ -632,7 +632,7 @@ EditAttachments = MediaFrame.extend(/** @lends wp.media.view.MediaFrame.EditAtta
 	/**
 	 * Set focus to the navigation buttons depending on the browsing direction.
 	 *
-	 * @since 5.3.0
+	 * @since WP 5.3.0
 	 *
 	 * @param {string} which A CSS selector to target the button to focus.
 	 */

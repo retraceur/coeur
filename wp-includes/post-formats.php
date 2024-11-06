@@ -9,7 +9,7 @@
 /**
  * Retrieve the format slug for a post
  *
- * @since 3.1.0
+ * @since WP 3.1.0
  *
  * @param int|WP_Post|null $post Optional. Post ID or post object. Defaults to the current post in the loop.
  * @return string|false The format if successful. False otherwise.
@@ -39,7 +39,7 @@ function get_post_format( $post = null ) {
 /**
  * Check if a post has any of the given formats, or any format.
  *
- * @since 3.1.0
+ * @since WP 3.1.0
  *
  * @param string|string[]  $format Optional. The format or formats to check. Default empty array.
  * @param WP_Post|int|null $post   Optional. The post to check. Defaults to the current post in the loop.
@@ -61,7 +61,7 @@ function has_post_format( $format = array(), $post = null ) {
 /**
  * Assign a format to a post
  *
- * @since 3.1.0
+ * @since WP 3.1.0
  *
  * @param int|WP_Post $post   The post for which to assign a format.
  * @param string      $format A format to assign. Use an empty string or array to remove all formats from the post.
@@ -89,7 +89,7 @@ function set_post_format( $post, $format ) {
 /**
  * Returns an array of post format slugs to their translated and pretty display versions
  *
- * @since 3.1.0
+ * @since WP 3.1.0
  *
  * @return string[] Array of post format labels keyed by format slug.
  */
@@ -112,7 +112,7 @@ function get_post_format_strings() {
 /**
  * Retrieves the array of post format slugs.
  *
- * @since 3.1.0
+ * @since WP 3.1.0
  *
  * @return string[] The array of post format slugs as both keys and values.
  */
@@ -124,7 +124,7 @@ function get_post_format_slugs() {
 /**
  * Returns a pretty, translated version of a post format slug
  *
- * @since 3.1.0
+ * @since WP 3.1.0
  *
  * @param string $slug A post format slug.
  * @return string The translated post format name.
@@ -141,7 +141,7 @@ function get_post_format_string( $slug ) {
 /**
  * Returns a link to a post format index.
  *
- * @since 3.1.0
+ * @since WP 3.1.0
  *
  * @param string $format The post format slug.
  * @return string|WP_Error|false The post format term link.
@@ -158,7 +158,7 @@ function get_post_format_link( $format ) {
  * Filters the request to allow for the format prefix.
  *
  * @access private
- * @since 3.1.0
+ * @since WP 3.1.0
  *
  * @param array $qvs
  * @return array
@@ -182,7 +182,7 @@ function _post_format_request( $qvs ) {
  * Filters the post format term link to remove the format prefix.
  *
  * @access private
- * @since 3.1.0
+ * @since WP 3.1.0
  *
  * @global WP_Rewrite $wp_rewrite WordPress rewrite component.
  *
@@ -208,7 +208,7 @@ function _post_format_link( $link, $term, $taxonomy ) {
  * Remove the post format prefix from the name property of the term object created by get_term().
  *
  * @access private
- * @since 3.1.0
+ * @since WP 3.1.0
  *
  * @param object $term
  * @return object
@@ -224,7 +224,7 @@ function _post_format_get_term( $term ) {
  * Remove the post format prefix from the name property of the term objects created by get_terms().
  *
  * @access private
- * @since 3.1.0
+ * @since WP 3.1.0
  *
  * @param array        $terms
  * @param string|array $taxonomies
@@ -252,7 +252,7 @@ function _post_format_get_terms( $terms, $taxonomies, $args ) {
  * Remove the post format prefix from the name property of the term objects created by wp_get_object_terms().
  *
  * @access private
- * @since 3.1.0
+ * @since WP 3.1.0
  *
  * @param array $terms
  * @return array

@@ -6,13 +6,13 @@
  *
  * @package motsVertueux
  * @subpackage Sitemaps
- * @since 5.5.0
+ * @since WP 5.5.0
  */
 
 /**
  * Class WP_Sitemaps_Provider.
  *
- * @since 5.5.0
+ * @since WP 5.5.0
  */
 #[AllowDynamicProperties]
 abstract class WP_Sitemaps_Provider {
@@ -21,7 +21,7 @@ abstract class WP_Sitemaps_Provider {
 	 *
 	 * This will also be used as the public-facing name in URLs.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @var string
 	 */
@@ -30,7 +30,7 @@ abstract class WP_Sitemaps_Provider {
 	/**
 	 * Object type name (e.g. 'post', 'term', 'user').
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @var string
 	 */
@@ -39,7 +39,7 @@ abstract class WP_Sitemaps_Provider {
 	/**
 	 * Gets a URL list for a sitemap.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @param int    $page_num       Page of results.
 	 * @param string $object_subtype Optional. Object subtype name. Default empty.
@@ -50,7 +50,7 @@ abstract class WP_Sitemaps_Provider {
 	/**
 	 * Gets the max number of pages available for the object type.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @param string $object_subtype Optional. Object subtype. Default empty.
 	 * @return int Total number of pages.
@@ -60,7 +60,7 @@ abstract class WP_Sitemaps_Provider {
 	/**
 	 * Gets data about each sitemap type.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @return array[] Array of sitemap types including object subtype name and number of pages.
 	 */
@@ -99,7 +99,7 @@ abstract class WP_Sitemaps_Provider {
 	 *
 	 * The returned data is used to populate the sitemap entries of the index.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @return array[] Array of sitemap entries.
 	 */
@@ -117,7 +117,7 @@ abstract class WP_Sitemaps_Provider {
 				/**
 				 * Filters the sitemap entry for the sitemap index.
 				 *
-				 * @since 5.5.0
+				 * @since WP 5.5.0
 				 *
 				 * @param array  $sitemap_entry  Sitemap entry for the post.
 				 * @param string $object_type    Object empty name.
@@ -137,7 +137,7 @@ abstract class WP_Sitemaps_Provider {
 	/**
 	 * Gets the URL of a sitemap entry.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @global WP_Rewrite $wp_rewrite WordPress rewrite component.
 	 *
@@ -172,7 +172,7 @@ abstract class WP_Sitemaps_Provider {
 	/**
 	 * Returns the list of supported object subtypes exposed by the provider.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @return array List of object subtypes objects keyed by their name.
 	 */

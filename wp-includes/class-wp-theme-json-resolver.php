@@ -4,7 +4,8 @@
  *
  * @package motsVertueux
  * @subpackage Theme
- * @since 5.8.0
+ * @since WP 5.8.0
+ * @since 1.0.0 motsVertueux fork.
  */
 
 /**
@@ -23,7 +24,7 @@ class WP_Theme_JSON_Resolver {
 	/**
 	 * Container for keep track of registered blocks.
 	 *
-	 * @since 6.1.0
+	 * @since WP 6.1.0
 	 * @var array
 	 */
 	protected static $blocks_cache = array(
@@ -36,7 +37,7 @@ class WP_Theme_JSON_Resolver {
 	/**
 	 * Container for data coming from core.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 * @var WP_Theme_JSON
 	 */
 	protected static $core = null;
@@ -44,7 +45,7 @@ class WP_Theme_JSON_Resolver {
 	/**
 	 * Container for data coming from the blocks.
 	 *
-	 * @since 6.1.0
+	 * @since WP 6.1.0
 	 * @var WP_Theme_JSON
 	 */
 	protected static $blocks = null;
@@ -52,7 +53,7 @@ class WP_Theme_JSON_Resolver {
 	/**
 	 * Container for data coming from the theme.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 * @var WP_Theme_JSON
 	 */
 	protected static $theme = null;
@@ -60,7 +61,7 @@ class WP_Theme_JSON_Resolver {
 	/**
 	 * Container for data coming from the user.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 * @var WP_Theme_JSON
 	 */
 	protected static $user = null;
@@ -69,7 +70,7 @@ class WP_Theme_JSON_Resolver {
 	 * Stores the ID of the custom post type
 	 * that holds the user data.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 * @var int
 	 */
 	protected static $user_custom_post_type_id = null;
@@ -77,8 +78,8 @@ class WP_Theme_JSON_Resolver {
 	/**
 	 * Container to keep loaded i18n schema for `theme.json`.
 	 *
-	 * @since 5.8.0 As `$theme_json_i18n`.
-	 * @since 5.9.0 Renamed from `$theme_json_i18n` to `$i18n_schema`.
+	 * @since WP 5.8.0 As `$theme_json_i18n`.
+	 * @since WP 5.9.0 Renamed from `$theme_json_i18n` to `$i18n_schema`.
 	 * @var array
 	 */
 	protected static $i18n_schema = null;
@@ -86,7 +87,7 @@ class WP_Theme_JSON_Resolver {
 	/**
 	 * `theme.json` file cache.
 	 *
-	 * @since 6.1.0
+	 * @since WP 6.1.0
 	 * @var array
 	 */
 	protected static $theme_json_file_cache = array();
@@ -95,8 +96,8 @@ class WP_Theme_JSON_Resolver {
 	 * Processes a file that adheres to the theme.json schema
 	 * and returns an array with its contents, or a void array if none found.
 	 *
-	 * @since 5.8.0
-	 * @since 6.1.0 Added caching.
+	 * @since WP 5.8.0
+	 * @since WP 6.1.0 Added caching.
 	 *
 	 * @param string $file_path Path to file. Empty if no file.
 	 * @return array Contents that adhere to the theme.json schema.
@@ -120,8 +121,8 @@ class WP_Theme_JSON_Resolver {
 	/**
 	 * Returns a data structure used in theme.json translation.
 	 *
-	 * @since 5.8.0
-	 * @deprecated 5.9.0
+	 * @since WP 5.8.0
+	 * @deprecated WP 5.9.0
 	 *
 	 * @return array An array of theme.json fields that are translatable and the keys that are translatable.
 	 */
@@ -134,7 +135,7 @@ class WP_Theme_JSON_Resolver {
 	 * Given a theme.json structure modifies it in place to update certain values
 	 * by its translated strings according to the language set by the user.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @param array  $theme_json The theme.json to translate.
 	 * @param string $domain     Optional. Text domain. Unique identifier for retrieving translated strings.
@@ -153,7 +154,7 @@ class WP_Theme_JSON_Resolver {
 	/**
 	 * Returns core's origin config.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @return WP_Theme_JSON Entity that holds core data.
 	 */
@@ -168,7 +169,7 @@ class WP_Theme_JSON_Resolver {
 		/**
 		 * Filters the default data provided by WordPress for global styles & settings.
 		 *
-		 * @since 6.1.0
+		 * @since WP 6.1.0
 		 *
 		 * @param WP_Theme_JSON_Data $theme_json Class to access and update the underlying data.
 		 */
@@ -191,7 +192,7 @@ class WP_Theme_JSON_Resolver {
 	/**
 	 * Checks whether the registered blocks were already processed for this origin.
 	 *
-	 * @since 6.1.0
+	 * @since WP 6.1.0
 	 *
 	 * @param string $origin Data source for which to cache the blocks.
 	 *                       Valid values are 'core', 'blocks', 'theme', and 'user'.
@@ -227,10 +228,10 @@ class WP_Theme_JSON_Resolver {
 	 * is present in theme.json and in theme supports,
 	 * the theme.json takes precedence.
 	 *
-	 * @since 5.8.0
-	 * @since 5.9.0 Theme supports have been inlined and the `$theme_support_data` argument removed.
-	 * @since 6.0.0 Added an `$options` parameter to allow the theme data to be returned without theme supports.
-	 * @since 6.6.0 Add support for 'default-font-sizes' and 'default-spacing-sizes' theme supports.
+	 * @since WP 5.8.0
+	 * @since WP 5.9.0 Theme supports have been inlined and the `$theme_support_data` argument removed.
+	 * @since WP 6.0.0 Added an `$options` parameter to allow the theme data to be returned without theme supports.
+	 * @since WP 6.6.0 Add support for 'default-font-sizes' and 'default-spacing-sizes' theme supports.
 	 *              Added registration and merging of block style variations from partial theme.json files and the block styles registry.
 	 *
 	 * @param array $deprecated Deprecated. Not used.
@@ -285,7 +286,7 @@ class WP_Theme_JSON_Resolver {
 			/**
 			 * Filters the data provided by the theme for global styles and settings.
 			 *
-			 * @since 6.1.0
+			 * @since WP 6.1.0
 			 *
 			 * @param WP_Theme_JSON_Data $theme_json Class to access and update the underlying data.
 			 */
@@ -385,7 +386,7 @@ class WP_Theme_JSON_Resolver {
 	/**
 	 * Gets the styles for blocks from the block.json file.
 	 *
-	 * @since 6.1.0
+	 * @since WP 6.1.0
 	 *
 	 * @return WP_Theme_JSON
 	 */
@@ -418,7 +419,7 @@ class WP_Theme_JSON_Resolver {
 		/**
 		 * Filters the data provided by the blocks for global styles & settings.
 		 *
-		 * @since 6.1.0
+		 * @since WP 6.1.0
 		 *
 		 * @param WP_Theme_JSON_Data $theme_json Class to access and update the underlying data.
 		 */
@@ -441,7 +442,7 @@ class WP_Theme_JSON_Resolver {
 	/**
 	 * When given an array, this will remove any keys with the name `//`.
 	 *
-	 * @since 6.1.0
+	 * @since WP 6.1.0
 	 *
 	 * @param array $input_array The array to filter.
 	 * @return array The filtered array.
@@ -463,7 +464,7 @@ class WP_Theme_JSON_Resolver {
 	 *
 	 * This can also create and return a new draft custom post type.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param WP_Theme $theme              The theme object. If empty, it
 	 *                                     defaults to the active theme.
@@ -522,7 +523,7 @@ class WP_Theme_JSON_Resolver {
 				array(
 					'post_content' => '{"version": ' . WP_Theme_JSON::LATEST_SCHEMA . ', "isGlobalStylesUserThemeJSON": true }',
 					'post_status'  => 'publish',
-					'post_title'   => 'Custom Styles', // Do not make string translatable, see https://core.trac.wordpress.org/ticket/54518.
+					'post_title'   => 'Custom Styles', // Do not make string translatable.
 					'post_type'    => $post_type_filter,
 					'post_name'    => sprintf( 'wp-global-styles-%s', urlencode( $stylesheet ) ),
 					'tax_input'    => array(
@@ -542,8 +543,8 @@ class WP_Theme_JSON_Resolver {
 	/**
 	 * Returns the user's origin config.
 	 *
-	 * @since 5.9.0
-	 * @since 6.6.0 The 'isGlobalStylesUserThemeJSON' flag is left on the user data.
+	 * @since WP 5.9.0
+	 * @since WP 6.6.0 The 'isGlobalStylesUserThemeJSON' flag is left on the user data.
 	 *              Register the block style variations coming from the user data.
 	 *
 	 * @return WP_Theme_JSON Entity that holds styles for user data.
@@ -565,7 +566,7 @@ class WP_Theme_JSON_Resolver {
 				/**
 				 * Filters the data provided by the user for global styles & settings.
 				 *
-				 * @since 6.1.0
+				 * @since WP 6.1.0
 				 *
 				 * @param WP_Theme_JSON_Data $theme_json Class to access and update the underlying data.
 				 */
@@ -627,10 +628,7 @@ class WP_Theme_JSON_Resolver {
 	 * The custom's has higher priority than the theme's, the theme's higher than blocks',
 	 * and block's higher than default's.
 	 *
-	 * Unlike the getters
-	 * {@link https://developer.wordpress.org/reference/classes/wp_theme_json_resolver/get_core_data/ get_core_data},
-	 * {@link https://developer.wordpress.org/reference/classes/wp_theme_json_resolver/get_theme_data/ get_theme_data},
-	 * and {@link https://developer.wordpress.org/reference/classes/wp_theme_json_resolver/get_user_data/ get_user_data},
+	 * Unlike the getters get_core_data, get_theme_data and get_user_data,
 	 * this method returns data after it has been merged with the previous origins.
 	 * This means that if the same piece of data is declared in different origins
 	 * (default, blocks, theme, custom), the last origin overrides the previous.
@@ -639,11 +637,11 @@ class WP_Theme_JSON_Resolver {
 	 * for the paragraph block, and the theme has done it as well,
 	 * the user preference wins.
 	 *
-	 * @since 5.8.0
-	 * @since 5.9.0 Added user data, removed the `$settings` parameter,
+	 * @since WP 5.8.0
+	 * @since WP 5.9.0 Added user data, removed the `$settings` parameter,
 	 *              added the `$origin` parameter.
-	 * @since 6.1.0 Added block data and generation of spacingSizes array.
-	 * @since 6.2.0 Changed ' $origin' parameter values to 'default', 'blocks', 'theme' or 'custom'.
+	 * @since WP 6.1.0 Added block data and generation of spacingSizes array.
+	 * @since WP 6.2.0 Changed ' $origin' parameter values to 'default', 'blocks', 'theme' or 'custom'.
 	 *
 	 * @param string $origin Optional. To what level should we merge data: 'default', 'blocks', 'theme' or 'custom'.
 	 *                       'custom' is used as default value as well as fallback value if the origin is unknown.
@@ -679,7 +677,7 @@ class WP_Theme_JSON_Resolver {
 	 * Returns the ID of the custom post type
 	 * that stores user data.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @return integer|null
 	 */
@@ -700,9 +698,9 @@ class WP_Theme_JSON_Resolver {
 	/**
 	 * Determines whether the active theme has a theme.json file.
 	 *
-	 * @since 5.8.0
-	 * @since 5.9.0 Added a check in the parent theme.
-	 * @deprecated 6.2.0 Use wp_theme_has_theme_json() instead.
+	 * @since WP 5.8.0
+	 * @since WP 5.9.0 Added a check in the parent theme.
+	 * @deprecated WP 6.2.0 Use wp_theme_has_theme_json() instead.
 	 *
 	 * @return bool
 	 */
@@ -717,8 +715,8 @@ class WP_Theme_JSON_Resolver {
 	 *
 	 * If it isn't, returns an empty string, otherwise returns the whole file path.
 	 *
-	 * @since 5.8.0
-	 * @since 5.9.0 Adapted to work with child themes, added the `$template` argument.
+	 * @since WP 5.8.0
+	 * @since WP 5.9.0 Adapted to work with child themes, added the `$template` argument.
 	 *
 	 * @param string $file_name Name of the file.
 	 * @param bool   $template  Optional. Use template theme directory. Default false.
@@ -734,10 +732,10 @@ class WP_Theme_JSON_Resolver {
 	/**
 	 * Cleans the cached data so it can be recalculated.
 	 *
-	 * @since 5.8.0
-	 * @since 5.9.0 Added the `$user`, `$user_custom_post_type_id`,
+	 * @since WP 5.8.0
+	 * @since WP 5.9.0 Added the `$user`, `$user_custom_post_type_id`,
 	 *              and `$i18n_schema` variables to reset.
-	 * @since 6.1.0 Added the `$blocks` and `$blocks_cache` variables
+	 * @since WP 6.1.0 Added the `$blocks` and `$blocks_cache` variables
 	 *              to reset.
 	 */
 	public static function clean_cached_data() {
@@ -758,7 +756,7 @@ class WP_Theme_JSON_Resolver {
 	/**
 	 * Returns an array of all nested JSON files within a given directory.
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 *
 	 * @param string $dir The directory to recursively iterate and list files of.
 	 * @return array The merged array.
@@ -776,7 +774,7 @@ class WP_Theme_JSON_Resolver {
 	 * related property, e.g. `blockTypes`, it is assumed to be a theme style
 	 * variation.
 	 *
-	 * @since 6.6.0
+	 * @since WP 6.6.0
 	 *
 	 * @param array  $variation Theme.json shaped style variation object.
 	 * @param string $scope     Scope to check e.g. theme, block etc.
@@ -797,9 +795,9 @@ class WP_Theme_JSON_Resolver {
 	/**
 	 * Returns the style variations defined by the theme.
 	 *
-	 * @since 6.0.0
-	 * @since 6.2.0 Returns parent theme variations if theme is a child.
-	 * @since 6.6.0 Added configurable scope parameter to allow filtering
+	 * @since WP 6.0.0
+	 * @since WP 6.2.0 Returns parent theme variations if theme is a child.
+	 * @since WP 6.6.0 Added configurable scope parameter to allow filtering
 	 *              theme.json partial files by the scope to which they
 	 *              can be applied e.g. theme vs block etc.
 	 *              Added basic caching for read theme.json partial files.
@@ -847,8 +845,8 @@ class WP_Theme_JSON_Resolver {
 	 * and returns them in an array that can be embedded
 	 * as the value of `_link` object in REST API responses.
 	 *
-	 * @since 6.6.0
-	 * @since 6.7.0 Resolve relative paths in block styles.
+	 * @since WP 6.6.0
+	 * @since WP 6.7.0 Resolve relative paths in block styles.
 	 *
 	 * @param WP_Theme_JSON $theme_json A theme json instance.
 	 * @return array An array of resolved paths.
@@ -922,7 +920,7 @@ class WP_Theme_JSON_Resolver {
 	 * Resolves relative paths in theme.json styles to theme absolute paths
 	 * and merges them with incoming theme JSON.
 	 *
-	 * @since 6.6.0
+	 * @since WP 6.6.0
 	 *
 	 * @param WP_Theme_JSON $theme_json A theme json instance.
 	 * @return WP_Theme_JSON Theme merged with resolved paths, if any found.
@@ -950,7 +948,7 @@ class WP_Theme_JSON_Resolver {
 	/**
 	 * Adds variations sourced from block style variations files to the supplied theme.json data.
 	 *
-	 * @since 6.6.0
+	 * @since WP 6.6.0
 	 *
 	 * @param array $data       Array following the theme.json specification.
 	 * @param array $variations Shared block style variations.
@@ -992,7 +990,7 @@ class WP_Theme_JSON_Resolver {
 	/**
 	 * Adds variations sourced from the block styles registry to the supplied theme.json data.
 	 *
-	 * @since 6.6.0
+	 * @since WP 6.6.0
 	 *
 	 * @param array $data Array following the theme.json specification.
 	 * @return array Theme json data including shared block style variation definitions.

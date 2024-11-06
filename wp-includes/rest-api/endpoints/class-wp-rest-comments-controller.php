@@ -1,16 +1,18 @@
 <?php
 /**
  * REST API: WP_REST_Comments_Controller class
+ * 
+ * @since WP 4.7.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage REST_API
- * @since 4.7.0
  */
 
 /**
  * Core controller used to access comments via the REST API.
  *
- * @since 4.7.0
+ * @since WP 4.7.0
  *
  * @see WP_REST_Controller
  */
@@ -19,7 +21,7 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 	/**
 	 * Instance of a comment meta fields object.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 * @var WP_REST_Comment_Meta_Fields
 	 */
 	protected $meta;
@@ -27,7 +29,7 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 	/**
 	 * Constructor.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 */
 	public function __construct() {
 		$this->namespace = 'wp/v2';
@@ -39,7 +41,7 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 	/**
 	 * Registers the routes for comments.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @see register_rest_route()
 	 */
@@ -117,7 +119,7 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 	/**
 	 * Checks if a given request has access to read comments.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has read access, error object otherwise.
@@ -186,7 +188,7 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 	/**
 	 * Retrieves a list of comment items.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or error object on failure.
@@ -265,9 +267,7 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 		/**
 		 * Filters WP_Comment_Query arguments when querying comments via the REST API.
 		 *
-		 * @since 4.7.0
-		 *
-		 * @link https://developer.wordpress.org/reference/classes/wp_comment_query/
+		 * @since WP 4.7.0
 		 *
 		 * @param array           $prepared_args Array of arguments for WP_Comment_Query.
 		 * @param WP_REST_Request $request       The REST API request.
@@ -333,7 +333,7 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 	/**
 	 * Get the comment, if the ID is valid.
 	 *
-	 * @since 4.7.2
+	 * @since WP 4.7.2
 	 *
 	 * @param int $id Supplied ID.
 	 * @return WP_Comment|WP_Error Comment object if ID is valid, WP_Error otherwise.
@@ -373,7 +373,7 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 	/**
 	 * Checks if a given request has access to read the comment.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has read access for the item, error object otherwise.
@@ -416,7 +416,7 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 	/**
 	 * Retrieves a comment.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or error object on failure.
@@ -436,7 +436,7 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 	/**
 	 * Checks if a given request has access to create a comment.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has access to create items, error object otherwise.
@@ -456,7 +456,7 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 			 *
 			 * Enables creating comments for anonymous users.
 			 *
-			 * @since 4.7.0
+			 * @since WP 4.7.0
 			 *
 			 * @param bool $allow_anonymous Whether to allow anonymous comments to
 			 *                              be created. Default `false`.
@@ -560,7 +560,7 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 	/**
 	 * Creates a comment.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or error object on failure.
@@ -688,8 +688,8 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 		 * Returning a WP_Error value from the filter will short-circuit insertion and allow
 		 * skipping further processing.
 		 *
-		 * @since 4.7.0
-		 * @since 4.8.0 `$prepared_comment` can now be a WP_Error to short-circuit insertion.
+		 * @since WP 4.7.0
+		 * @since WP 4.8.0 `$prepared_comment` can now be a WP_Error to short-circuit insertion.
 		 *
 		 * @param array|WP_Error  $prepared_comment The prepared comment data for wp_insert_comment().
 		 * @param WP_REST_Request $request          Request used to insert the comment.
@@ -718,7 +718,7 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 		/**
 		 * Fires after a comment is created or updated via the REST API.
 		 *
-		 * @since 4.7.0
+		 * @since WP 4.7.0
 		 *
 		 * @param WP_Comment      $comment  Inserted or updated comment object.
 		 * @param WP_REST_Request $request  Request object.
@@ -749,7 +749,7 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 		/**
 		 * Fires completely after a comment is created or updated via the REST API.
 		 *
-		 * @since 5.0.0
+		 * @since WP 5.0.0
 		 *
 		 * @param WP_Comment      $comment  Inserted or updated comment object.
 		 * @param WP_REST_Request $request  Request object.
@@ -770,7 +770,7 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 	/**
 	 * Checks if a given REST request has access to update a comment.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has access to update the item, error object otherwise.
@@ -795,7 +795,7 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 	/**
 	 * Updates a comment.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or error object on failure.
@@ -920,7 +920,7 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 	/**
 	 * Checks if a given request has access to delete a comment.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has access to delete the item, error object otherwise.
@@ -944,7 +944,7 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 	/**
 	 * Deletes a comment.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or error object on failure.
@@ -962,7 +962,7 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 		 *
 		 * Return false to disable trash support for the comment.
 		 *
-		 * @since 4.7.0
+		 * @since WP 4.7.0
 		 *
 		 * @param bool       $supports_trash Whether the comment supports trashing.
 		 * @param WP_Comment $comment        The comment object being considered for trashing support.
@@ -1016,7 +1016,7 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 		/**
 		 * Fires after a comment is deleted via the REST API.
 		 *
-		 * @since 4.7.0
+		 * @since WP 4.7.0
 		 *
 		 * @param WP_Comment       $comment  The deleted comment data.
 		 * @param WP_REST_Response $response The response returned from the API.
@@ -1030,8 +1030,8 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 	/**
 	 * Prepares a single comment output for response.
 	 *
-	 * @since 4.7.0
-	 * @since 5.9.0 Renamed `$comment` to `$item` to match parent class for PHP 8 named parameter support.
+	 * @since WP 4.7.0
+	 * @since WP 5.9.0 Renamed `$comment` to `$item` to match parent class for PHP 8 named parameter support.
 	 *
 	 * @param WP_Comment      $item    Comment object.
 	 * @param WP_REST_Request $request Request object.
@@ -1132,7 +1132,7 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 		 *
 		 * Allows modification of the comment right before it is returned.
 		 *
-		 * @since 4.7.0
+		 * @since WP 4.7.0
 		 *
 		 * @param WP_REST_Response  $response The response object.
 		 * @param WP_Comment        $comment  The original comment object.
@@ -1144,7 +1144,7 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 	/**
 	 * Prepares links for the request.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @param WP_Comment $comment Comment object.
 	 * @return array Links for the given comment.
@@ -1213,7 +1213,7 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 	/**
 	 * Prepends internal property prefix to query parameters to match our response fields.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @param string $query_param Query parameter.
 	 * @return string The normalized query parameter.
@@ -1245,7 +1245,7 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 	/**
 	 * Checks comment_approved to set comment status for single comment output.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @param string|int $comment_approved comment status.
 	 * @return string Comment status.
@@ -1276,7 +1276,7 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 	/**
 	 * Prepares a single comment to be inserted into the database.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @param WP_REST_Request $request Request object.
 	 * @return array|WP_Error Prepared comment, otherwise WP_Error object.
@@ -1364,7 +1364,7 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 		 *
 		 * Allows modification of the comment right after it is prepared for the database.
 		 *
-		 * @since 4.7.0
+		 * @since WP 4.7.0
 		 *
 		 * @param array           $prepared_comment The prepared comment data for `wp_insert_comment`.
 		 * @param WP_REST_Request $request          The current request.
@@ -1375,7 +1375,7 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 	/**
 	 * Retrieves the comment's schema, conforming to JSON Schema.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @return array
 	 */
@@ -1542,7 +1542,7 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 	/**
 	 * Retrieves the query params for collections.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @return array Comments collection parameters.
 	 */
@@ -1689,7 +1689,7 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 		 * collection parameter to an internal WP_Comment_Query parameter. Use the
 		 * `rest_comment_query` filter to set WP_Comment_Query parameters.
 		 *
-		 * @since 4.7.0
+		 * @since WP 4.7.0
 		 *
 		 * @param array $query_params JSON Schema-formatted collection parameters.
 		 */
@@ -1699,7 +1699,7 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 	/**
 	 * Sets the comment_status of a given comment object when creating or updating a comment.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @param string|int $new_status New comment status.
 	 * @param int        $comment_id Comment ID.
@@ -1747,7 +1747,7 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 	 *
 	 * Correctly handles posts with the inherit status.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @param WP_Post         $post    Post object.
 	 * @param WP_REST_Request $request Request data to check.
@@ -1798,7 +1798,7 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 	/**
 	 * Checks if the comment can be read.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @param WP_Comment      $comment Comment object.
 	 * @param WP_REST_Request $request Request data to check.
@@ -1832,7 +1832,7 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 	/**
 	 * Checks if a comment can be edited or deleted.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @param WP_Comment $comment Comment object.
 	 * @return bool Whether the comment can be edited or deleted.
@@ -1856,7 +1856,7 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 	 * author email address. Setting the comment author email to an empty
 	 * string is allowed when a comment is being updated.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 *
 	 * @param string          $value   Author email value submitted.
 	 * @param WP_REST_Request $request Full details about the request.
@@ -1881,7 +1881,7 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 	/**
 	 * If empty comments are not allowed, checks if the provided comment content is not empty.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param array $prepared_comment The prepared comment data.
 	 * @return bool True if the content is allowed, false otherwise.

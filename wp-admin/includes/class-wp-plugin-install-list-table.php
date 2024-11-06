@@ -4,13 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage Administration
- * @since 3.1.0
+ * @since WP 3.1.0
  */
 
 /**
  * Core class used to implement displaying plugins to install in a list table.
  *
- * @since 3.1.0
+ * @since WP 3.1.0
  *
  * @see WP_List_Table
  */
@@ -35,7 +35,7 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 	 * Uses the transient data from the updates API to determine the known
 	 * installed plugins.
 	 *
-	 * @since 4.9.0
+	 * @since WP 4.9.0
 	 * @access protected
 	 *
 	 * @return array
@@ -72,7 +72,7 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 	 * known installed plugins. This might be better elsewhere, perhaps even
 	 * within get_plugins().
 	 *
-	 * @since 4.0.0
+	 * @since WP 4.0.0
 	 *
 	 * @return array
 	 */
@@ -127,7 +127,7 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 		/**
 		 * Filters the tabs shown on the Add Plugins screen.
 		 *
-		 * @since 2.7.0
+		 * @since WP 2.7.0
 		 *
 		 * @param string[] $tabs The tabs shown on the Add Plugins screen. Defaults include
 		 *                       'featured', 'popular', 'recommended', 'favorites', and 'upload'.
@@ -137,7 +137,7 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 		/**
 		 * Filters tabs not associated with a menu item on the Add Plugins screen.
 		 *
-		 * @since 2.7.0
+		 * @since WP 2.7.0
 		 *
 		 * @param string[] $nonmenu_tabs The tabs that don't have a menu item on the Add Plugins screen.
 		 */
@@ -205,8 +205,6 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 				} else {
 					$args = false;
 				}
-
-				add_action( 'install_plugins_favorites', 'install_plugins_favorites_form', 9, 0 );
 				break;
 
 			default:
@@ -229,7 +227,7 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 		 *  - `install_plugins_table_api_args_search`
 		 *  - `install_plugins_table_api_args_beta`
 		 *
-		 * @since 3.7.0
+		 * @since WP 3.7.0
 		 *
 		 * @param array|false $args Plugin install API arguments.
 		 */
@@ -363,7 +361,7 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 	 *
 	 * Overrides the parent display() method to provide a different container.
 	 *
-	 * @since 4.0.0
+	 * @since WP 4.0.0
 	 */
 	public function display() {
 		$singular = $this->_args['singular'];
@@ -408,7 +406,7 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 					/**
 					 * Fires before the Plugin Install table header pagination is displayed.
 					 *
-					 * @since 2.7.0
+					 * @since WP 2.7.0
 					 */
 					do_action( 'install_plugins_table_header' );
 					?>
@@ -467,7 +465,7 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 	/**
 	 * Generates the list table rows.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 */
 	public function display_rows() {
 		$plugins_allowedtags = array(
@@ -533,7 +531,7 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 			/**
 			 * Filters the plugin card description on the Add Plugins screen.
 			 *
-			 * @since 6.0.0
+			 * @since WP 6.0.0
 			 *
 			 * @param string $description Plugin card description.
 			 * @param array  $plugin      An array of plugin data. See {@see plugins_api()}
@@ -589,7 +587,7 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 			/**
 			 * Filters the install action links for a plugin.
 			 *
-			 * @since 2.7.0
+			 * @since WP 2.7.0
 			 *
 			 * @param string[] $action_links An array of plugin action links.
 			 *                               Defaults are links to Details and Install Now.
@@ -608,25 +606,16 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 					$incompatible_notice_message .= __( 'This plugin does not work with your versions of WordPress and PHP.' );
 					if ( current_user_can( 'update_core' ) && current_user_can( 'update_php' ) ) {
 						$incompatible_notice_message .= sprintf(
-							/* translators: 1: URL to WordPress Updates screen, 2: URL to Update PHP page. */
-							' ' . __( '<a href="%1$s">Please update WordPress</a>, and then <a href="%2$s">learn more about updating PHP</a>.' ),
-							self_admin_url( 'update-core.php' ),
-							esc_url( wp_get_update_php_url() )
+							/* translators: %s: URL to WordPress Updates screen. */
+							' ' . __( '<a href="%s">Please update WordPress</a>.' ),
+							self_admin_url( 'update-core.php' )
 						);
-						$incompatible_notice_message .= wp_update_php_annotation( '</p><p><em>', '</em>', false );
 					} elseif ( current_user_can( 'update_core' ) ) {
 						$incompatible_notice_message .= sprintf(
 							/* translators: %s: URL to WordPress Updates screen. */
 							' ' . __( '<a href="%s">Please update WordPress</a>.' ),
 							self_admin_url( 'update-core.php' )
 						);
-					} elseif ( current_user_can( 'update_php' ) ) {
-						$incompatible_notice_message .= sprintf(
-							/* translators: %s: URL to Update PHP page. */
-							' ' . __( '<a href="%s">Learn more about updating PHP</a>.' ),
-							esc_url( wp_get_update_php_url() )
-						);
-						$incompatible_notice_message .= wp_update_php_annotation( '</p><p><em>', '</em>', false );
 					}
 				} elseif ( ! $compatible_wp ) {
 					$incompatible_notice_message .= __( 'This plugin does not work with your version of WordPress.' );
@@ -639,14 +628,6 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 					}
 				} elseif ( ! $compatible_php ) {
 					$incompatible_notice_message .= __( 'This plugin does not work with your version of PHP.' );
-					if ( current_user_can( 'update_php' ) ) {
-						$incompatible_notice_message .= sprintf(
-							/* translators: %s: URL to Update PHP page. */
-							' ' . __( '<a href="%s">Learn more about updating PHP</a>.' ),
-							esc_url( wp_get_update_php_url() )
-						);
-						$incompatible_notice_message .= wp_update_php_annotation( '</p><p><em>', '</em>', false );
-					}
 				}
 
 				wp_admin_notice(
@@ -748,7 +729,7 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 	/**
 	 * Returns a notice containing a list of dependencies required by the plugin.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param array  $plugin_data An array of plugin data. See {@see plugins_api()}
 	 *                            for the list of possible values.
@@ -801,7 +782,7 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 	/**
 	 * Creates a 'More details' link for the plugin.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $name The plugin's name.
 	 * @param string $slug The plugin's slug.

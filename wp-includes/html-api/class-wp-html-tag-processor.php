@@ -18,7 +18,7 @@
  *
  * @package motsVertueux
  * @subpackage HTML-API
- * @since 6.2.0
+ * @since WP 6.2.0
  */
 
 /**
@@ -401,10 +401,10 @@
  * UTF-8. Notably, however, it does not include UTF-16. If providing input
  * that's incompatible, then convert the encoding beforehand.
  *
- * @since 6.2.0
- * @since 6.2.1 Fix: Support for various invalid comments; attribute updates are case-insensitive.
- * @since 6.3.2 Fix: Skip HTML-like content inside rawtext elements such as STYLE.
- * @since 6.5.0 Pauses processor when input ends in an incomplete syntax token.
+ * @since WP 6.2.0
+ * @since WP 6.2.1 Fix: Support for various invalid comments; attribute updates are case-insensitive.
+ * @since WP 6.3.2 Fix: Skip HTML-like content inside rawtext elements such as STYLE.
+ * @since WP 6.5.0 Pauses processor when input ends in an incomplete syntax token.
  *              Introduces "special" elements which act like void elements, e.g. TITLE, STYLE.
  *              Allows scanning through all tokens and processing modifiable text, where applicable.
  */
@@ -413,7 +413,7 @@ class WP_HTML_Tag_Processor {
 	 * The maximum number of bookmarks allowed to exist at
 	 * any given time.
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 * @var int
 	 *
 	 * @see WP_HTML_Tag_Processor::set_bookmark()
@@ -424,7 +424,7 @@ class WP_HTML_Tag_Processor {
 	 * Maximum number of times seek() can be called.
 	 * Prevents accidental infinite loops.
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 * @var int
 	 *
 	 * @see WP_HTML_Tag_Processor::seek()
@@ -434,7 +434,7 @@ class WP_HTML_Tag_Processor {
 	/**
 	 * The HTML document to parse.
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 * @var string
 	 */
 	protected $html;
@@ -442,7 +442,7 @@ class WP_HTML_Tag_Processor {
 	/**
 	 * The last query passed to next_tag().
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 * @var array|null
 	 */
 	private $last_query;
@@ -450,7 +450,7 @@ class WP_HTML_Tag_Processor {
 	/**
 	 * The tag name this processor currently scans for.
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 * @var string|null
 	 */
 	private $sought_tag_name;
@@ -458,7 +458,7 @@ class WP_HTML_Tag_Processor {
 	/**
 	 * The CSS class name this processor currently scans for.
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 * @var string|null
 	 */
 	private $sought_class_name;
@@ -466,7 +466,7 @@ class WP_HTML_Tag_Processor {
 	/**
 	 * The match offset this processor currently scans for.
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 * @var int|null
 	 */
 	private $sought_match_offset;
@@ -474,7 +474,7 @@ class WP_HTML_Tag_Processor {
 	/**
 	 * Whether to visit tag closers, e.g. </div>, when walking an input document.
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 * @var bool
 	 */
 	private $stop_on_tag_closers;
@@ -494,7 +494,7 @@ class WP_HTML_Tag_Processor {
 	 * | *Presumptuous*  | Found an empty tag closer: `</>`.                                    |
 	 * | *Funky comment* | Found a tag closer with an invalid tag name; this is modifiable.     |
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @see WP_HTML_Tag_Processor::STATE_READY
 	 * @see WP_HTML_Tag_Processor::STATE_COMPLETE
@@ -531,7 +531,7 @@ class WP_HTML_Tag_Processor {
 	 * @see self::QUIRKS_MODE
 	 * @see self::NO_QUIRKS_MODE
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @var string
 	 */
@@ -548,7 +548,7 @@ class WP_HTML_Tag_Processor {
 	 * are allowed and whether a self-closing flag indicates that
 	 * an element has no content.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @var string
 	 */
@@ -561,7 +561,7 @@ class WP_HTML_Tag_Processor {
 	 * this indicates which of those caused it. This allows the Tag Processor to
 	 * represent more from the original input document than would appear in the DOM.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @var string|null
 	 */
@@ -575,7 +575,7 @@ class WP_HTML_Tag_Processor {
 	 * @see self::TEXT_IS_GENERIC
 	 * @see self::subdivide_text_appropriately
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @var string
 	 */
@@ -588,7 +588,7 @@ class WP_HTML_Tag_Processor {
 	 * has been already parsed. It is the internal cursor for the Tag Processor
 	 * and updates while scanning through the HTML tokens.
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 * @var int
 	 */
 	private $bytes_already_parsed = 0;
@@ -602,7 +602,7 @@ class WP_HTML_Tag_Processor {
 	 *     01234
 	 *     - token starts at 0
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @var int|null
 	 */
@@ -621,7 +621,7 @@ class WP_HTML_Tag_Processor {
 	 *     0123456789 123456789 123456789
 	 *     - token length is 17 - 2 = 15
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @var int|null
 	 */
@@ -636,7 +636,7 @@ class WP_HTML_Tag_Processor {
 	 *     01234
 	 *      - tag name starts at 1
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 *
 	 * @var int|null
 	 */
@@ -651,7 +651,7 @@ class WP_HTML_Tag_Processor {
 	 *     01234
 	 *      --- tag name length is 3
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 *
 	 * @var int|null
 	 */
@@ -660,7 +660,7 @@ class WP_HTML_Tag_Processor {
 	/**
 	 * Byte offset into input document where current modifiable text starts.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @var int
 	 */
@@ -669,7 +669,7 @@ class WP_HTML_Tag_Processor {
 	/**
 	 * Byte length of modifiable text.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @var int
 	 */
@@ -705,7 +705,7 @@ class WP_HTML_Tag_Processor {
 	 *     // Note that only the `class` attribute value is stored in the index.
 	 *     // That's because it is the only value used by this class at the moment.
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 * @var WP_HTML_Attribute_Token[]
 	 */
 	private $attributes = array();
@@ -714,7 +714,7 @@ class WP_HTML_Tag_Processor {
 	 * Tracks spans of duplicate attributes on a given tag, used for removing
 	 * all copies of an attribute when calling `remove_attribute()`.
 	 *
-	 * @since 6.3.2
+	 * @since WP 6.3.2
 	 *
 	 * @var (WP_HTML_Span[])[]|null
 	 */
@@ -740,7 +740,7 @@ class WP_HTML_Tag_Processor {
 	 *         'wp-group'       => WP_HTML_Tag_Processor::REMOVE_CLASS
 	 *     );
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 * @var bool[]
 	 */
 	private $classname_updates = array();
@@ -749,7 +749,7 @@ class WP_HTML_Tag_Processor {
 	 * Tracks a semantic location in the original HTML which
 	 * shifts with updates as they are applied to the document.
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 * @var WP_HTML_Span[]
 	 */
 	protected $bookmarks = array();
@@ -797,7 +797,7 @@ class WP_HTML_Tag_Processor {
 	 *         WP_HTML_Text_Replacement( 14, 28, 'https://my-site.my-domain/wp-content/uploads/2014/08/kittens.jpg' )
 	 *     );
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 * @var WP_HTML_Text_Replacement[]
 	 */
 	protected $lexical_updates = array();
@@ -805,7 +805,7 @@ class WP_HTML_Tag_Processor {
 	/**
 	 * Tracks and limits `seek()` calls to prevent accidental infinite loops.
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 * @var int
 	 *
 	 * @see WP_HTML_Tag_Processor::seek()
@@ -820,7 +820,7 @@ class WP_HTML_Tag_Processor {
 	 * > ignore that token and move on to the next one. (Newlines at the start
 	 * > of [these] elements are ignored as an authoring convenience.)
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @var int|null
 	 */
@@ -829,7 +829,7 @@ class WP_HTML_Tag_Processor {
 	/**
 	 * Constructor.
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 *
 	 * @param string $html HTML to process.
 	 */
@@ -841,7 +841,7 @@ class WP_HTML_Tag_Processor {
 	 * Switches parsing mode into a new namespace, such as when
 	 * encountering an SVG tag and entering foreign content.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @param string $new_namespace One of 'html', 'svg', or 'math' indicating into what
 	 *                              namespace the next tokens will be processed.
@@ -859,8 +859,8 @@ class WP_HTML_Tag_Processor {
 	/**
 	 * Finds the next tag matching the $query.
 	 *
-	 * @since 6.2.0
-	 * @since 6.5.0 No longer processes incomplete tokens at end of document; pauses the processor at start of token.
+	 * @since WP 6.2.0
+	 * @since WP 6.5.0 No longer processes incomplete tokens at end of document; pauses the processor at start of token.
 	 *
 	 * @param array|string|null $query {
 	 *     Optional. Which tag name to find, having which class, etc. Default is to find any tag.
@@ -918,8 +918,8 @@ class WP_HTML_Tag_Processor {
 	 *
 	 * The Tag Processor currently only supports the tag token.
 	 *
-	 * @since 6.5.0
-	 * @since 6.7.0 Recognizes CDATA sections within foreign content.
+	 * @since WP 6.5.0
+	 * @since WP 6.7.0 Recognizes CDATA sections within foreign content.
 	 *
 	 * @return bool Whether a token was parsed.
 	 */
@@ -936,7 +936,7 @@ class WP_HTML_Tag_Processor {
 	 * without triggering subclass methods for things like `next_token()`, e.g. when
 	 * applying patches before searching for the next token.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @access private
 	 *
@@ -1143,7 +1143,7 @@ class WP_HTML_Tag_Processor {
 	 *     false      === $processor->get_next_tag();
 	 *     true       === $processor->paused_at_incomplete_token();
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @return bool Whether the parse paused at the start of an incomplete token.
 	 */
@@ -1165,7 +1165,7 @@ class WP_HTML_Tag_Processor {
 	 *     }
 	 *     // Outputs: "free <egg> lang-en "
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 */
 	public function class_list() {
 		if ( self::STATE_MATCHED_TAG !== $this->parser_state ) {
@@ -1221,7 +1221,7 @@ class WP_HTML_Tag_Processor {
 	/**
 	 * Returns if a matched tag contains the given ASCII case-insensitive class name.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @param string $wanted_class Look for this CSS class name, ASCII case-insensitive.
 	 * @return bool|null Whether the matched tag contains the given class name, or null if not matched.
@@ -1322,7 +1322,7 @@ class WP_HTML_Tag_Processor {
 	 * reaching for it, as inappropriate use could lead to broken
 	 * HTML structure or unwanted processing overhead.
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 *
 	 * @param string $name Identifies this particular bookmark.
 	 * @return bool Whether the bookmark was successfully created.
@@ -1373,7 +1373,7 @@ class WP_HTML_Tag_Processor {
 	/**
 	 * Skips contents of generic rawtext elements.
 	 *
-	 * @since 6.3.2
+	 * @since WP 6.3.2
 	 *
 	 * @see https://html.spec.whatwg.org/#generic-raw-text-element-parsing-algorithm
 	 *
@@ -1392,7 +1392,7 @@ class WP_HTML_Tag_Processor {
 	/**
 	 * Skips contents of RCDATA elements, namely title and textarea tags.
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 *
 	 * @see https://html.spec.whatwg.org/multipage/parsing.html#rcdata-state
 	 *
@@ -1483,7 +1483,7 @@ class WP_HTML_Tag_Processor {
 	/**
 	 * Skips contents of script tags.
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 *
 	 * @return bool Whether the script tag was closed before the end of the document.
 	 */
@@ -1636,8 +1636,8 @@ class WP_HTML_Tag_Processor {
 	 * name. It does not parse the attributes or scan to the
 	 * closing `>`; these are left for other methods.
 	 *
-	 * @since 6.2.0
-	 * @since 6.2.1 Support abruptly-closed comments, invalid-tag-closer-comments, and empty elements.
+	 * @since WP 6.2.0
+	 * @since WP 6.2.1 Support abruptly-closed comments, invalid-tag-closer-comments, and empty elements.
 	 *
 	 * @return bool Whether a tag was found before the end of the document.
 	 */
@@ -2058,7 +2058,7 @@ class WP_HTML_Tag_Processor {
 	/**
 	 * Parses the next attribute.
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 *
 	 * @return bool Whether an attribute was found before the end of the document.
 	 */
@@ -2195,7 +2195,7 @@ class WP_HTML_Tag_Processor {
 	/**
 	 * Move the internal cursor past any immediate successive whitespace.
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 */
 	private function skip_whitespace(): void {
 		$this->bytes_already_parsed += strspn( $this->html, " \t\f\r\n", $this->bytes_already_parsed );
@@ -2204,7 +2204,7 @@ class WP_HTML_Tag_Processor {
 	/**
 	 * Applies attribute updates and cleans up once a tag is fully parsed.
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 */
 	private function after_tag(): void {
 		/*
@@ -2263,7 +2263,7 @@ class WP_HTML_Tag_Processor {
 	 * Converts class name updates into tag attributes updates
 	 * (they are accumulated in different data formats for performance).
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 *
 	 * @see WP_HTML_Tag_Processor::$lexical_updates
 	 * @see WP_HTML_Tag_Processor::$classname_updates
@@ -2422,9 +2422,9 @@ class WP_HTML_Tag_Processor {
 	/**
 	 * Applies attribute updates to HTML document.
 	 *
-	 * @since 6.2.0
-	 * @since 6.2.1 Accumulates shift for internal cursor and passed pointer.
-	 * @since 6.3.0 Invalidate any bookmarks whose targets are overwritten.
+	 * @since WP 6.2.0
+	 * @since WP 6.2.1 Accumulates shift for internal cursor and passed pointer.
+	 * @since WP 6.3.0 Invalidate any bookmarks whose targets are overwritten.
 	 *
 	 * @param int $shift_this_point Accumulate and return shift for this position.
 	 * @return int How many bytes the given pointer moved in response to the updates.
@@ -2521,7 +2521,7 @@ class WP_HTML_Tag_Processor {
 	/**
 	 * Checks whether a bookmark with the given name exists.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param string $bookmark_name Name to identify a bookmark that potentially exists.
 	 * @return bool Whether that bookmark exists.
@@ -2536,7 +2536,7 @@ class WP_HTML_Tag_Processor {
 	 * In order to prevent accidental infinite loops, there's a
 	 * maximum limit on the number of times seek() can be called.
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 *
 	 * @param string $bookmark_name Jump to the place in the document identified by this bookmark name.
 	 * @return bool Whether the internal cursor was successfully moved to the bookmark's location.
@@ -2572,7 +2572,7 @@ class WP_HTML_Tag_Processor {
 	/**
 	 * Compare two WP_HTML_Text_Replacement objects.
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 *
 	 * @param WP_HTML_Text_Replacement $a First attribute update.
 	 * @param WP_HTML_Text_Replacement $b Second attribute update.
@@ -2605,7 +2605,7 @@ class WP_HTML_Tag_Processor {
 	 *  - If an attribute is enqueued to be removed, the return will be `null` to indicate that.
 	 *  - If no updates are enqueued, the return will be `false` to differentiate from "removed."
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 *
 	 * @param string $comparable_name The attribute name in its comparable form.
 	 * @return string|boolean|null Value of enqueued update if present, otherwise false.
@@ -2676,7 +2676,7 @@ class WP_HTML_Tag_Processor {
 	 *     $p->next_tag() === false;
 	 *     $p->get_attribute( 'class' ) === null;
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 *
 	 * @param string $name Name of attribute whose value is requested.
 	 * @return string|true|null Value of attribute or `null` if not available. Boolean attributes return `true`.
@@ -2754,7 +2754,7 @@ class WP_HTML_Tag_Processor {
 	 *     $p->next_tag() === false;
 	 *     $p->get_attribute_names_with_prefix( 'data-' ) === null;
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 *
 	 * @see https://html.spec.whatwg.org/multipage/syntax.html#attributes-2:ascii-case-insensitive
 	 *
@@ -2783,7 +2783,7 @@ class WP_HTML_Tag_Processor {
 	/**
 	 * Returns the namespace of the matched token.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @return string One of 'html', 'math', or 'svg'.
 	 */
@@ -2803,7 +2803,7 @@ class WP_HTML_Tag_Processor {
 	 *     $p->next_tag() === false;
 	 *     $p->get_tag() === null;
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 *
 	 * @return string|null Name of currently matched tag in input HTML, or `null` if none found.
 	 */
@@ -2832,7 +2832,7 @@ class WP_HTML_Tag_Processor {
 	 * Returns the adjusted tag name for a given token, taking into
 	 * account the current parsing context, whether HTML, SVG, or MathML.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @return string|null Name of current tag name.
 	 */
@@ -2977,7 +2977,7 @@ class WP_HTML_Tag_Processor {
 	 * Returns the adjusted attribute name for a given attribute, taking into
 	 * account the current parsing context, whether HTML, SVG, or MathML.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @param string $attribute_name Which attribute to adjust.
 	 *
@@ -3226,7 +3226,7 @@ class WP_HTML_Tag_Processor {
 	 * This function does not determine if a tag is self-closing,
 	 * but only if the self-closing flag is present in the syntax.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @return bool Whether the currently matched tag contains the self-closing flag.
 	 */
@@ -3258,8 +3258,8 @@ class WP_HTML_Tag_Processor {
 	 *     $p->next_tag( array( 'tag_name' => 'div', 'tag_closers' => 'visit' ) );
 	 *     $p->is_tag_closer() === true;
 	 *
-	 * @since 6.2.0
-	 * @since 6.7.0 Reports all BR tags as opening tags.
+	 * @since WP 6.2.0
+	 * @since WP 6.7.0 Reports all BR tags as opening tags.
 	 *
 	 * @return bool Whether the current tag is a tag closer.
 	 */
@@ -3297,7 +3297,7 @@ class WP_HTML_Tag_Processor {
 	 *  - `#presumptuous-tag` when matched on an empty tag closer.
 	 *  - `#funky-comment` when matched on a funky comment.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @return string|null What kind of token is matched, or null.
 	 */
@@ -3330,7 +3330,7 @@ class WP_HTML_Tag_Processor {
 	 * hasn't yet found a token or because it reached the end
 	 * of the document without matching a token.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @return string|null Name of the matched token.
 	 */
@@ -3376,7 +3376,7 @@ class WP_HTML_Tag_Processor {
 	 * @see self::COMMENT_AS_HTML_COMMENT
 	 * @see self::COMMENT_AS_PI_NODE_LOOKALIKE
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @return string|null
 	 */
@@ -3401,7 +3401,7 @@ class WP_HTML_Tag_Processor {
 	 * that character were modified, it would be possible to change the node
 	 * type.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @return string|null The comment text as it would appear in the browser or null
 	 *                     if not on a comment type node.
@@ -3467,7 +3467,7 @@ class WP_HTML_Tag_Processor {
 	 *     true  === $processor->next_token();                   // Text is "More".
 	 *     false === $processor->subdivide_text_appropriately();
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @return bool Whether the text node was subdivided.
 	 */
@@ -3549,8 +3549,8 @@ class WP_HTML_Tag_Processor {
 	 *    newline is treated properly, seek to the LISTING or PRE opening
 	 *    tag instead of to the first text node inside the element.
 	 *
-	 * @since 6.5.0
-	 * @since 6.7.0 Replaces NULL bytes (U+0000) and newlines appropriately.
+	 * @since WP 6.5.0
+	 * @since WP 6.7.0 Replaces NULL bytes (U+0000) and newlines appropriately.
 	 *
 	 * @return string
 	 */
@@ -3674,7 +3674,7 @@ class WP_HTML_Tag_Processor {
 	 *         $processor->set_modifiable_text( str_replace( ':)', '🙂', $chunk ) );
 	 *     }
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @param string $plaintext_content New text content to represent in the matched token.
 	 *
@@ -3794,8 +3794,8 @@ class WP_HTML_Tag_Processor {
 	 *
 	 * For string attributes, the value is escaped using the `esc_attr` function.
 	 *
-	 * @since 6.2.0
-	 * @since 6.2.1 Fix: Only create a single update for multiple calls with case-variant attribute names.
+	 * @since WP 6.2.0
+	 * @since WP 6.2.1 Fix: Only create a single update for multiple calls with case-variant attribute names.
 	 *
 	 * @param string      $name  The attribute name to target.
 	 * @param string|bool $value The new attribute value.
@@ -3945,7 +3945,7 @@ class WP_HTML_Tag_Processor {
 	/**
 	 * Remove an attribute from the currently-matched tag.
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 *
 	 * @param string $name The attribute name to remove.
 	 * @return bool Whether an attribute was removed.
@@ -4023,7 +4023,7 @@ class WP_HTML_Tag_Processor {
 	/**
 	 * Adds a new class name to the currently matched tag.
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 *
 	 * @param string $class_name The class name to add.
 	 * @return bool Whether the class was set to be added.
@@ -4065,7 +4065,7 @@ class WP_HTML_Tag_Processor {
 	/**
 	 * Removes a class name from the currently matched tag.
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 *
 	 * @param string $class_name The class name to remove.
 	 * @return bool Whether the class was set to be removed.
@@ -4107,7 +4107,7 @@ class WP_HTML_Tag_Processor {
 	/**
 	 * Returns the string representation of the HTML Tag Processor.
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 *
 	 * @see WP_HTML_Tag_Processor::get_updated_html()
 	 *
@@ -4120,9 +4120,9 @@ class WP_HTML_Tag_Processor {
 	/**
 	 * Returns the string representation of the HTML Tag Processor.
 	 *
-	 * @since 6.2.0
-	 * @since 6.2.1 Shifts the internal cursor corresponding to the applied updates.
-	 * @since 6.4.0 No longer calls subclass method `next_tag()` after updating HTML.
+	 * @since WP 6.2.0
+	 * @since WP 6.2.1 Shifts the internal cursor corresponding to the applied updates.
+	 * @since WP 6.4.0 No longer calls subclass method `next_tag()` after updating HTML.
 	 *
 	 * @return string The processed HTML.
 	 */
@@ -4178,7 +4178,7 @@ class WP_HTML_Tag_Processor {
 	/**
 	 * Parses tag query input into internal search criteria.
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 *
 	 * @param array|string|null $query {
 	 *     Optional. Which tag name to find, having which class, etc. Default is to find any tag.
@@ -4244,7 +4244,7 @@ class WP_HTML_Tag_Processor {
 	/**
 	 * Checks whether a given tag and its attributes match the search criteria.
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 *
 	 * @return bool Whether the given tag and its attribute match the search criteria.
 	 */
@@ -4299,7 +4299,7 @@ class WP_HTML_Tag_Processor {
 	 * It may not have started yet, or it may have just finished parsing a token and
 	 * is ready to find the next one.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @access private
 	 */
@@ -4311,7 +4311,7 @@ class WP_HTML_Tag_Processor {
 	 * Indicates that the parser has reached the end of the document and there is
 	 * nothing left to scan. It finished parsing the last token completely.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @access private
 	 */
@@ -4327,7 +4327,7 @@ class WP_HTML_Tag_Processor {
 	 * The parser is reset at the start of the incomplete token and has paused. There
 	 * is nothing more than can be scanned unless provided a more complete document.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @access private
 	 */
@@ -4339,7 +4339,7 @@ class WP_HTML_Tag_Processor {
 	 * Indicates that the parser has found an HTML tag and it's possible to get
 	 * the tag name and read or modify its attributes (if it's not a closing tag).
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @access private
 	 */
@@ -4351,7 +4351,7 @@ class WP_HTML_Tag_Processor {
 	 * Indicates that the parser has found a text node and it's possible
 	 * to read and modify that text.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @access private
 	 */
@@ -4365,7 +4365,7 @@ class WP_HTML_Tag_Processor {
 	 * no CDATA nodes outside of foreign content (SVG and MathML). Outside
 	 * of foreign content, they are treated as HTML comments.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @access private
 	 */
@@ -4375,7 +4375,7 @@ class WP_HTML_Tag_Processor {
 	 * Indicates that the parser has found an HTML comment and it's
 	 * possible to read and modify its modifiable text.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @access private
 	 */
@@ -4385,7 +4385,7 @@ class WP_HTML_Tag_Processor {
 	 * Indicates that the parser has found a DOCTYPE node and it's
 	 * possible to read its DOCTYPE information via `get_doctype_info()`.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @access private
 	 */
@@ -4402,7 +4402,7 @@ class WP_HTML_Tag_Processor {
 	 * closer," which would close the nearest open tag, but were
 	 * dismissed in favor of explicitly-closing tags.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @access private
 	 */
@@ -4423,7 +4423,7 @@ class WP_HTML_Tag_Processor {
 	 * the Tag Processor recognizes them in a stream of HTML and
 	 * exposes them for inspection and modification.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @access private
 	 */
@@ -4437,7 +4437,7 @@ class WP_HTML_Tag_Processor {
 	 *     <!-->
 	 *     <!--->
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 */
 	const COMMENT_AS_ABRUPTLY_CLOSED_COMMENT = 'COMMENT_AS_ABRUPTLY_CLOSED_COMMENT';
 
@@ -4451,7 +4451,7 @@ class WP_HTML_Tag_Processor {
 	 *
 	 * This is an HTML comment, but it looks like a CDATA node.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 */
 	const COMMENT_AS_CDATA_LOOKALIKE = 'COMMENT_AS_CDATA_LOOKALIKE';
 
@@ -4463,7 +4463,7 @@ class WP_HTML_Tag_Processor {
 	 *
 	 *     <!-- this is a comment -->
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 */
 	const COMMENT_AS_HTML_COMMENT = 'COMMENT_AS_HTML_COMMENT';
 
@@ -4477,7 +4477,7 @@ class WP_HTML_Tag_Processor {
 	 *
 	 * This is an HTML comment, but it looks like a CDATA node.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 */
 	const COMMENT_AS_PI_NODE_LOOKALIKE = 'COMMENT_AS_PI_NODE_LOOKALIKE';
 
@@ -4490,7 +4490,7 @@ class WP_HTML_Tag_Processor {
 	 *     <?nothing special>
 	 *     <!{nothing special}>
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 */
 	const COMMENT_AS_INVALID_HTML = 'COMMENT_AS_INVALID_HTML';
 
@@ -4503,7 +4503,7 @@ class WP_HTML_Tag_Processor {
 	 * @see self::$compat_mode
 	 * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Quirks_Mode_and_Standards_Mode
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @var string
 	 */
@@ -4519,7 +4519,7 @@ class WP_HTML_Tag_Processor {
 	 * @see self::$compat_mode
 	 * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Quirks_Mode_and_Standards_Mode
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @var string
 	 */
@@ -4532,7 +4532,7 @@ class WP_HTML_Tag_Processor {
 	 * @see self::$text_node_classification
 	 * @see self::subdivide_text_appropriately
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 */
 	const TEXT_IS_GENERIC = 'TEXT_IS_GENERIC';
 
@@ -4542,7 +4542,7 @@ class WP_HTML_Tag_Processor {
 	 * @see self::$text_node_classification
 	 * @see self::subdivide_text_appropriately
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 */
 	const TEXT_IS_NULL_SEQUENCE = 'TEXT_IS_NULL_SEQUENCE';
 
@@ -4552,7 +4552,7 @@ class WP_HTML_Tag_Processor {
 	 * @see self::$text_node_classification
 	 * @see self::subdivide_text_appropriately
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 */
 	const TEXT_IS_WHITESPACE = 'TEXT_IS_WHITESPACE';
 }

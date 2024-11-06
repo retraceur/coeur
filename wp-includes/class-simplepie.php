@@ -10,8 +10,8 @@ require ABSPATH . WPINC . '/SimplePie/autoloader.php';
 /**
  * WordPress autoloader for SimplePie.
  *
- * @since 3.5.0
- * @deprecated 6.7.0 Use `SimplePie_Autoloader` instead.
+ * @since WP 3.5.0
+ * @deprecated WP 6.7.0 Use `SimplePie_Autoloader` instead.
  *
  * @param string $class Class name.
  */

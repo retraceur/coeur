@@ -146,27 +146,6 @@ if ( current_user_can( 'switch_themes' ) ) {
 	);
 } // End if 'switch_themes'.
 
-// Help tab: Adding Themes.
-if ( current_user_can( 'install_themes' ) ) {
-	if ( is_multisite() ) {
-		$help_install = '<p>' . __( 'Installing themes on Multisite can only be done from the Network Admin section.' ) . '</p>';
-	} else {
-		$help_install = '<p>' . sprintf(
-			/* translators: %s: https://wordpress.org/themes/ */
-			__( 'If you would like to see more themes to choose from, click on the &#8220;Add New Theme&#8221; button and you will be able to browse or search for additional themes from the <a href="%s">WordPress Theme Directory</a>. Themes in the WordPress Theme Directory are designed and developed by third parties, and are compatible with the license WordPress uses. Oh, and they are free!' ),
-			__( 'https://wordpress.org/themes/' )
-		) . '</p>';
-	}
-
-	get_current_screen()->add_help_tab(
-		array(
-			'id'      => 'adding-themes',
-			'title'   => __( 'Adding Themes' ),
-			'content' => $help_install,
-		)
-	);
-} // End if 'install_themes'.
-
 // Help tab: Previewing and Customizing.
 if ( current_user_can( 'edit_theme_options' ) && current_user_can( 'customize' ) ) {
 	$help_customize =
@@ -182,33 +161,6 @@ if ( current_user_can( 'edit_theme_options' ) && current_user_can( 'customize' )
 		)
 	);
 } // End if 'edit_theme_options' && 'customize'.
-
-$help_sidebar_autoupdates = '';
-
-// Help tab: Auto-updates.
-if ( current_user_can( 'update_themes' ) && wp_is_auto_update_enabled_for_type( 'theme' ) ) {
-	$help_tab_autoupdates =
-		'<p>' . __( 'Auto-updates can be enabled or disabled for each individual theme. Themes with auto-updates enabled will display the estimated date of the next auto-update. Auto-updates depends on the WP-Cron task scheduling system.' ) . '</p>' .
-		'<p>' . __( 'Please note: Third-party themes and plugins, or custom code, may override WordPress scheduling.' ) . '</p>';
-
-	get_current_screen()->add_help_tab(
-		array(
-			'id'      => 'plugins-themes-auto-updates',
-			'title'   => __( 'Auto-updates' ),
-			'content' => $help_tab_autoupdates,
-		)
-	);
-
-	$help_sidebar_autoupdates = '<p>' . __( '<a href="https://wordpress.org/documentation/article/plugins-themes-auto-updates/">Documentation on Auto-updates</a>' ) . '</p>';
-} // End if 'update_themes' && 'wp_is_auto_update_enabled_for_type'.
-
-get_current_screen()->set_help_sidebar(
-	'<p><strong>' . __( 'For more information:' ) . '</strong></p>' .
-	'<p>' . __( '<a href="https://wordpress.org/documentation/article/work-with-themes/">Documentation on Using Themes</a>' ) . '</p>' .
-	'<p>' . __( '<a href="https://wordpress.org/documentation/article/appearance-themes-screen/">Documentation on Managing Themes</a>' ) . '</p>' .
-	$help_sidebar_autoupdates .
-	'<p>' . __( '<a href="https://wordpress.org/support/forums/">Support forums</a>' ) . '</p>'
-);
 
 if ( current_user_can( 'switch_themes' ) ) {
 	$themes = wp_prepare_themes_for_js();
@@ -466,25 +418,16 @@ foreach ( $themes as $theme ) :
 				);
 				if ( current_user_can( 'update_core' ) && current_user_can( 'update_php' ) ) {
 					$theme_update_error .= sprintf(
-						/* translators: 1: URL to WordPress Updates screen, 2: URL to Update PHP page. */
-						' ' . __( '<a href="%1$s">Please update WordPress</a>, and then <a href="%2$s">learn more about updating PHP</a>.' ),
-						self_admin_url( 'update-core.php' ),
-						esc_url( wp_get_update_php_url() )
+						/* translators: %s: URL to WordPress Updates screen. */
+						' ' . __( '<a href="%s">Please update WordPress</a>.' ),
+						self_admin_url( 'update-core.php' )
 					);
-					wp_update_php_annotation( '</p><p><em>', '</em>', false );
 				} elseif ( current_user_can( 'update_core' ) ) {
 					$theme_update_error .= sprintf(
 						/* translators: %s: URL to WordPress Updates screen. */
 						' ' . __( '<a href="%s">Please update WordPress</a>.' ),
 						self_admin_url( 'update-core.php' )
 					);
-				} elseif ( current_user_can( 'update_php' ) ) {
-					$theme_update_error .= sprintf(
-						/* translators: %s: URL to Update PHP page. */
-						' ' . __( '<a href="%s">Learn more about updating PHP</a>.' ),
-						esc_url( wp_get_update_php_url() )
-					);
-					wp_update_php_annotation( '</p><p><em>', '</em>', false );
 				}
 			} elseif ( ! $theme['updateResponse']['compatibleWP'] ) {
 				$theme_update_error .= sprintf(
@@ -505,14 +448,6 @@ foreach ( $themes as $theme ) :
 					__( 'There is a new version of %s available, but it does not work with your version of PHP.' ),
 					$theme['name']
 				);
-				if ( current_user_can( 'update_php' ) ) {
-					$theme_update_error .= sprintf(
-						/* translators: %s: URL to Update PHP page. */
-						' ' . __( '<a href="%s">Learn more about updating PHP</a>.' ),
-						esc_url( wp_get_update_php_url() )
-					);
-					wp_update_php_annotation( '</p><p><em>', '</em>', false );
-				}
 			}
 			wp_admin_notice(
 				$theme_update_error,
@@ -530,25 +465,16 @@ foreach ( $themes as $theme ) :
 			$message = __( 'This theme does not work with your versions of WordPress and PHP.' );
 			if ( current_user_can( 'update_core' ) && current_user_can( 'update_php' ) ) {
 				$message .= sprintf(
-					/* translators: 1: URL to WordPress Updates screen, 2: URL to Update PHP page. */
-					' ' . __( '<a href="%1$s">Please update WordPress</a>, and then <a href="%2$s">learn more about updating PHP</a>.' ),
-					self_admin_url( 'update-core.php' ),
-					esc_url( wp_get_update_php_url() )
+					/* translators: %s: URL to WordPress Updates screen. */
+					' ' . __( '<a href="%1$s">Please update WordPress</a>.' ),
+					self_admin_url( 'update-core.php' )
 				);
-				$message .= wp_update_php_annotation( '</p><p><em>', '</em>', false );
 			} elseif ( current_user_can( 'update_core' ) ) {
 				$message .= sprintf(
 					/* translators: %s: URL to WordPress Updates screen. */
 					' ' . __( '<a href="%s">Please update WordPress</a>.' ),
 					self_admin_url( 'update-core.php' )
 				);
-			} elseif ( current_user_can( 'update_php' ) ) {
-				$message .= sprintf(
-					/* translators: %s: URL to Update PHP page. */
-					' ' . __( '<a href="%s">Learn more about updating PHP</a>.' ),
-					esc_url( wp_get_update_php_url() )
-				);
-				$message .= wp_update_php_annotation( '</p><p><em>', '</em>', false );
 			}
 		} elseif ( ! $theme['compatibleWP'] ) {
 			$message .= __( 'This theme does not work with your version of WordPress.' );
@@ -561,14 +487,6 @@ foreach ( $themes as $theme ) :
 			}
 		} elseif ( ! $theme['compatiblePHP'] ) {
 			$message .= __( 'This theme does not work with your version of PHP.' );
-			if ( current_user_can( 'update_php' ) ) {
-				$message .= sprintf(
-					/* translators: %s: URL to Update PHP page. */
-					' ' . __( '<a href="%s">Learn more about updating PHP</a>.' ),
-					esc_url( wp_get_update_php_url() )
-				);
-				$message .= wp_update_php_annotation( '</p><p><em>', '</em>', false );
-			}
 		}
 
 		wp_admin_notice(
@@ -752,7 +670,7 @@ if ( ! is_multisite() && $broken_themes ) {
 /**
  * Returns the JavaScript template used to display the auto-update setting for a theme.
  *
- * @since 5.5.0
+ * @since WP 5.5.0
  *
  * @return string The template for displaying the auto-update setting link.
  */
@@ -798,7 +716,7 @@ function wp_theme_auto_update_setting_template() {
 	 *
 	 * See {@see wp_prepare_themes_for_js()} for the properties of the `data` object.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @param string $template The template for displaying the auto-update setting link.
 	 */
@@ -838,25 +756,16 @@ function wp_theme_auto_update_setting_template() {
 					);
 					if ( current_user_can( 'update_core' ) && current_user_can( 'update_php' ) ) {
 						printf(
-							/* translators: 1: URL to WordPress Updates screen, 2: URL to Update PHP page. */
-							' ' . __( '<a href="%1$s">Please update WordPress</a>, and then <a href="%2$s">learn more about updating PHP</a>.' ),
-							self_admin_url( 'update-core.php' ),
-							esc_url( wp_get_update_php_url() )
+							/* translators: %s: URL to WordPress Updates screen. */
+							' ' . __( '<a href="%s">Please update WordPress</a>.' ),
+							self_admin_url( 'update-core.php' )
 						);
-						wp_update_php_annotation( '</p><p><em>', '</em>' );
 					} elseif ( current_user_can( 'update_core' ) ) {
 						printf(
 							/* translators: %s: URL to WordPress Updates screen. */
 							' ' . __( '<a href="%s">Please update WordPress</a>.' ),
 							self_admin_url( 'update-core.php' )
 						);
-					} elseif ( current_user_can( 'update_php' ) ) {
-						printf(
-							/* translators: %s: URL to Update PHP page. */
-							' ' . __( '<a href="%s">Learn more about updating PHP</a>.' ),
-							esc_url( wp_get_update_php_url() )
-						);
-						wp_update_php_annotation( '</p><p><em>', '</em>' );
 					}
 					?>
 				<# } else if ( ! data.updateResponse.compatibleWP ) { #>
@@ -881,14 +790,6 @@ function wp_theme_auto_update_setting_template() {
 						__( 'There is a new version of %s available, but it does not work with your version of PHP.' ),
 						'{{{ data.name }}}'
 					);
-					if ( current_user_can( 'update_php' ) ) {
-						printf(
-							/* translators: %s: URL to Update PHP page. */
-							' ' . __( '<a href="%s">Learn more about updating PHP</a>.' ),
-							esc_url( wp_get_update_php_url() )
-						);
-						wp_update_php_annotation( '</p><p><em>', '</em>' );
-					}
 					?>
 				<# } #>
 			</p></div>
@@ -902,25 +803,16 @@ function wp_theme_auto_update_setting_template() {
 				_e( 'This theme does not work with your versions of WordPress and PHP.' );
 				if ( current_user_can( 'update_core' ) && current_user_can( 'update_php' ) ) {
 					printf(
-						/* translators: 1: URL to WordPress Updates screen, 2: URL to Update PHP page. */
-						' ' . __( '<a href="%1$s">Please update WordPress</a>, and then <a href="%2$s">learn more about updating PHP</a>.' ),
-						self_admin_url( 'update-core.php' ),
-						esc_url( wp_get_update_php_url() )
+						/* translators: %s: URL to WordPress Updates screen. */
+						' ' . __( '<a href="%s">Please update WordPress</a>.' ),
+						self_admin_url( 'update-core.php' )
 					);
-					wp_update_php_annotation( '</p><p><em>', '</em>' );
 				} elseif ( current_user_can( 'update_core' ) ) {
 					printf(
 						/* translators: %s: URL to WordPress Updates screen. */
 						' ' . __( '<a href="%s">Please update WordPress</a>.' ),
 						self_admin_url( 'update-core.php' )
 					);
-				} elseif ( current_user_can( 'update_php' ) ) {
-					printf(
-						/* translators: %s: URL to Update PHP page. */
-						' ' . __( '<a href="%s">Learn more about updating PHP</a>.' ),
-						esc_url( wp_get_update_php_url() )
-					);
-					wp_update_php_annotation( '</p><p><em>', '</em>' );
 				}
 				?>
 			<# } else if ( ! data.compatibleWP ) { #>
@@ -937,14 +829,6 @@ function wp_theme_auto_update_setting_template() {
 			<# } else if ( ! data.compatiblePHP ) { #>
 				<?php
 				_e( 'This theme does not work with your version of PHP.' );
-				if ( current_user_can( 'update_php' ) ) {
-					printf(
-						/* translators: %s: URL to Update PHP page. */
-						' ' . __( '<a href="%s">Learn more about updating PHP</a>.' ),
-						esc_url( wp_get_update_php_url() )
-					);
-					wp_update_php_annotation( '</p><p><em>', '</em>' );
-				}
 				?>
 			<# } #>
 		</p></div>
@@ -1063,25 +947,16 @@ function wp_theme_auto_update_setting_template() {
 							_e( 'This theme does not work with your versions of WordPress and PHP.' );
 							if ( current_user_can( 'update_core' ) && current_user_can( 'update_php' ) ) {
 								printf(
-									/* translators: 1: URL to WordPress Updates screen, 2: URL to Update PHP page. */
-									' ' . __( '<a href="%1$s">Please update WordPress</a>, and then <a href="%2$s">learn more about updating PHP</a>.' ),
-									self_admin_url( 'update-core.php' ),
-									esc_url( wp_get_update_php_url() )
+									/* translators: %s: URL to WordPress Updates screen. */
+									' ' . __( '<a href="%s">Please update WordPress</a>.' ),
+									self_admin_url( 'update-core.php' )
 								);
-								wp_update_php_annotation( '</p><p><em>', '</em>' );
 							} elseif ( current_user_can( 'update_core' ) ) {
 								printf(
 									/* translators: %s: URL to WordPress Updates screen. */
 									' ' . __( '<a href="%s">Please update WordPress</a>.' ),
 									self_admin_url( 'update-core.php' )
 								);
-							} elseif ( current_user_can( 'update_php' ) ) {
-								printf(
-									/* translators: %s: URL to Update PHP page. */
-									' ' . __( '<a href="%s">Learn more about updating PHP</a>.' ),
-									esc_url( wp_get_update_php_url() )
-								);
-								wp_update_php_annotation( '</p><p><em>', '</em>' );
 							}
 							?>
 						<# } else if ( ! data.compatibleWP ) { #>
@@ -1098,14 +973,6 @@ function wp_theme_auto_update_setting_template() {
 						<# } else if ( ! data.compatiblePHP ) { #>
 							<?php
 							_e( 'This theme does not work with your version of PHP.' );
-							if ( current_user_can( 'update_php' ) ) {
-								printf(
-									/* translators: %s: URL to Update PHP page. */
-									' ' . __( '<a href="%s">Learn more about updating PHP</a>.' ),
-									esc_url( wp_get_update_php_url() )
-								);
-								wp_update_php_annotation( '</p><p><em>', '</em>' );
-							}
 							?>
 						<# } #>
 					</p></div>
@@ -1130,25 +997,16 @@ function wp_theme_auto_update_setting_template() {
 									);
 									if ( current_user_can( 'update_core' ) && current_user_can( 'update_php' ) ) {
 										printf(
-											/* translators: 1: URL to WordPress Updates screen, 2: URL to Update PHP page. */
-											' ' . __( '<a href="%1$s">Please update WordPress</a>, and then <a href="%2$s">learn more about updating PHP</a>.' ),
-											self_admin_url( 'update-core.php' ),
-											esc_url( wp_get_update_php_url() )
+											/* translators: %s: URL to WordPress Updates screen. */
+											' ' . __( '<a href="%s">Please update WordPress</a>.' ),
+											self_admin_url( 'update-core.php' )
 										);
-										wp_update_php_annotation( '</p><p><em>', '</em>' );
 									} elseif ( current_user_can( 'update_core' ) ) {
 										printf(
 											/* translators: %s: URL to WordPress Updates screen. */
 											' ' . __( '<a href="%s">Please update WordPress</a>.' ),
 											self_admin_url( 'update-core.php' )
 										);
-									} elseif ( current_user_can( 'update_php' ) ) {
-										printf(
-											/* translators: %s: URL to Update PHP page. */
-											' ' . __( '<a href="%s">Learn more about updating PHP</a>.' ),
-											esc_url( wp_get_update_php_url() )
-										);
-										wp_update_php_annotation( '</p><p><em>', '</em>' );
 									}
 									?>
 								<# } else if ( ! data.updateResponse.compatibleWP ) { #>
@@ -1173,14 +1031,6 @@ function wp_theme_auto_update_setting_template() {
 										__( 'There is a new version of %s available, but it does not work with your version of PHP.' ),
 										'{{{ data.name }}}'
 									);
-									if ( current_user_can( 'update_php' ) ) {
-										printf(
-											/* translators: %s: URL to Update PHP page. */
-											' ' . __( '<a href="%s">Learn more about updating PHP</a>.' ),
-											esc_url( wp_get_update_php_url() )
-										);
-										wp_update_php_annotation( '</p><p><em>', '</em>' );
-									}
 									?>
 								<# } #>
 							</p>

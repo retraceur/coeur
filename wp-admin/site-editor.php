@@ -188,7 +188,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 		 * Filters the message displayed in the site editor interface when JavaScript is
 		 * not enabled in the browser.
 		 *
-		 * @since 6.3.0
+		 * @since WP 6.3.0
 		 *
 		 * @param string  $message The message being displayed.
 		 * @param WP_Post $post    The post being edited.

@@ -6,7 +6,7 @@
  * This is only needed for auto-drafts created by the regular WP editor.
  * If this page is to be removed, this will not be necessary.
  *
- * @since 5.9.0
+ * @since WP 5.9.0
  *
  * @param int $post_id Post ID.
  */
@@ -35,7 +35,7 @@ function wp_set_unique_slug_on_create_template_part( $post_id ) {
  * Generates a unique slug for templates.
  *
  * @access private
- * @since 5.8.0
+ * @since WP 5.8.0
  *
  * @param string $override_slug The filtered value of the slug (starts as `null` from apply_filter).
  * @param string $slug          The original/un-filtered slug (post_name).
@@ -102,7 +102,7 @@ function wp_filter_wp_template_unique_post_slug( $override_slug, $slug, $post_id
  * Enqueues the skip-link script & styles.
  *
  * @access private
- * @since 6.4.0
+ * @since WP 6.4.0
  *
  * @global string $_wp_current_template_content
  */
@@ -222,7 +222,7 @@ function wp_enqueue_block_template_skip_link() {
  * Enables the block templates (editor mode) for themes with theme.json by default.
  *
  * @access private
- * @since 5.8.0
+ * @since WP 5.8.0
  */
 function wp_enable_block_templates() {
 	if ( wp_is_block_theme() || wp_theme_has_theme_json() ) {

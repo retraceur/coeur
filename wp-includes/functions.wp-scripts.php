@@ -2,7 +2,8 @@
 /**
  * Dependencies API: Scripts functions
  *
- * @since 2.6.0
+ * @since WP 2.6.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Dependencies
@@ -11,7 +12,7 @@
 /**
  * Initializes $wp_scripts if it has not been set.
  *
- * @since 4.2.0
+ * @since WP 4.2.0
  *
  * @global WP_Scripts $wp_scripts
  *
@@ -31,8 +32,8 @@ function wp_scripts() {
  * Helper function to output a _doing_it_wrong message when applicable.
  *
  * @ignore
- * @since 4.2.0
- * @since 5.5.0 Added the `$handle` parameter.
+ * @since WP 4.2.0
+ * @since WP 5.5.0 Added the `$handle` parameter.
  *
  * @param string $function_name Function name.
  * @param string $handle        Optional. Name of the script or stylesheet that was
@@ -77,7 +78,7 @@ function _wp_scripts_maybe_doing_it_wrong( $function_name, $handle = '' ) {
  * hook to register/enqueue new scripts.
  *
  * @see WP_Scripts::do_item()
- * @since 2.1.0
+ * @since WP 2.1.0
  *
  * @global WP_Scripts $wp_scripts The WP_Scripts object for printing scripts.
  *
@@ -90,7 +91,7 @@ function wp_print_scripts( $handles = false ) {
 	/**
 	 * Fires before scripts in the $handles queue are printed.
 	 *
-	 * @since 2.1.0
+	 * @since WP 2.1.0
 	 */
 	do_action( 'wp_print_scripts' );
 
@@ -117,7 +118,7 @@ function wp_print_scripts( $handles = false ) {
  * are added to the same script `$handle`, they will be printed in the order
  * they were added, i.e. the latter added code can redeclare the previous.
  *
- * @since 4.5.0
+ * @since WP 4.5.0
  *
  * @see WP_Scripts::add_inline_script()
  *
@@ -155,9 +156,9 @@ function wp_add_inline_script( $handle, $data, $position = 'after' ) {
  * @see WP_Dependencies::add()
  * @see WP_Dependencies::add_data()
  *
- * @since 2.1.0
- * @since 4.3.0 A return value was added.
- * @since 6.3.0 The $in_footer parameter of type boolean was overloaded to be an $args parameter of type array.
+ * @since WP 2.1.0
+ * @since WP 4.3.0 A return value was added.
+ * @since WP 6.3.0 The $in_footer parameter of type boolean was overloaded to be an $args parameter of type array.
  *
  * @param string           $handle    Name of the script. Should be unique.
  * @param string|false     $src       Full URL of the script, or path of the script relative to the WordPress root directory.
@@ -210,9 +211,8 @@ function wp_register_script( $handle, $src, $deps = array(), $ver = false, $args
  *     }
  *
  * @see WP_Scripts::localize()
- * @link https://core.trac.wordpress.org/ticket/11520
  *
- * @since 2.2.0
+ * @since WP 2.2.0
  *
  * @todo Documentation cleanup
  *
@@ -234,8 +234,8 @@ function wp_localize_script( $handle, $object_name, $l10n ) {
  * Works only if the script has already been registered.
  *
  * @see WP_Scripts::set_translations()
- * @since 5.0.0
- * @since 5.1.0 The `$domain` parameter was made optional.
+ * @since WP 5.0.0
+ * @since WP 5.1.0 The `$domain` parameter was made optional.
  *
  * @global WP_Scripts $wp_scripts The WP_Scripts object for printing scripts.
  *
@@ -263,7 +263,7 @@ function wp_set_script_translations( $handle, $domain = 'default', $path = '' ) 
  *
  * @see WP_Dependencies::remove()
  *
- * @since 2.1.0
+ * @since WP 2.1.0
  *
  * @global string $pagenow The filename of the current screen.
  *
@@ -337,8 +337,8 @@ function wp_deregister_script( $handle ) {
  * @see WP_Dependencies::add_data()
  * @see WP_Dependencies::enqueue()
  *
- * @since 2.1.0
- * @since 6.3.0 The $in_footer parameter of type boolean was overloaded to be an $args parameter of type array.
+ * @since WP 2.1.0
+ * @since WP 6.3.0 The $in_footer parameter of type boolean was overloaded to be an $args parameter of type array.
  *
  * @param string           $handle    Name of the script. Should be unique.
  * @param string           $src       Full URL of the script, or path of the script relative to the WordPress root directory.
@@ -388,7 +388,7 @@ function wp_enqueue_script( $handle, $src = '', $deps = array(), $ver = false, $
  *
  * @see WP_Dependencies::dequeue()
  *
- * @since 3.1.0
+ * @since WP 3.1.0
  *
  * @param string $handle Name of the script to be removed.
  */
@@ -401,12 +401,8 @@ function wp_dequeue_script( $handle ) {
 /**
  * Determines whether a script has been added to the queue.
  *
- * For more information on this and similar theme functions, check out
- * the {@link https://developer.wordpress.org/themes/basics/conditional-tags/
- * Conditional Tags} article in the Theme Developer Handbook.
- *
- * @since 2.8.0
- * @since 3.5.0 'enqueued' added as an alias of the 'queue' list.
+ * @since WP 2.8.0
+ * @since WP 3.5.0 'enqueued' added as an alias of the 'queue' list.
  *
  * @param string $handle Name of the script.
  * @param string $status Optional. Status of the script to check. Default 'enqueued'.
@@ -427,7 +423,7 @@ function wp_script_is( $handle, $status = 'enqueued' ) {
  * Possible values for $key and $value:
  * 'conditional' string Comments for IE 6, lte IE 7, etc.
  *
- * @since 4.2.0
+ * @since WP 4.2.0
  *
  * @see WP_Dependencies::add_data()
  *

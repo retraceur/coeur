@@ -4,7 +4,7 @@
  *
  * @package motsVertueux
  * @subpackage HTML-API
- * @since 6.7.0
+ * @since WP 6.7.0
  */
 
 /**
@@ -48,7 +48,7 @@
  *
  * @see https://www.iso.org/standard/16387.html
  *
- * @since 6.7.0
+ * @since WP 6.7.0
  *
  * @see WP_HTML_Processor
  */
@@ -65,7 +65,7 @@ class WP_HTML_Doctype_Info {
 	 *
 	 * @see https://html.spec.whatwg.org/#tokenization
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @var string|null
 	 */
@@ -89,7 +89,7 @@ class WP_HTML_Doctype_Info {
 	 *
 	 * @see https://html.spec.whatwg.org/#tokenization
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @var string|null
 	 */
@@ -119,7 +119,7 @@ class WP_HTML_Doctype_Info {
 	 *
 	 * @see https://html.spec.whatwg.org/#tokenization
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @var string|null
 	 */
@@ -144,7 +144,7 @@ class WP_HTML_Doctype_Info {
 	 *
 	 * @see https://html.spec.whatwg.org/#the-initial-insertion-mode
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @var string One of "no-quirks", "limited-quirks", or "quirks".
 	 */
@@ -166,7 +166,7 @@ class WP_HTML_Doctype_Info {
 	 *
 	 * @see https://html.spec.whatwg.org/multipage/parsing.html#tokenization
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @param string|null $name              Name of the DOCTYPE.
 	 * @param string|null $public_identifier Public identifier of the DOCTYPE.
@@ -402,7 +402,7 @@ class WP_HTML_Doctype_Info {
 	 *     null === WP_HTML_Doctype_Info::from_doctype_token( 'html' );
 	 *     null === WP_HTML_Doctype_Info::from_doctype_token( '<?xml version="1.0" encoding="UTF-8" ?>' );
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @param string $doctype_html The complete raw DOCTYPE HTML string, e.g. `<!DOCTYPE html>`.
 	 *

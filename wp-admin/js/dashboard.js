@@ -10,7 +10,7 @@ window.communityEventsData = window.communityEventsData || {};
 /**
  * Initializes the dashboard widget functionality.
  *
- * @since 2.7.0
+ * @since WP 2.7.0
  */
 jQuery( function($) {
 	var welcomePanel = $( '#welcome-panel' ),
@@ -20,7 +20,7 @@ jQuery( function($) {
 	/**
 	 * Saves the visibility of the welcome panel.
 	 *
-	 * @since 3.3.0
+	 * @since WP 3.3.0
 	 *
 	 * @param {boolean} visible Should it be visible or not.
 	 *
@@ -56,7 +56,7 @@ jQuery( function($) {
 	/**
 	 * These widgets can be populated via ajax.
 	 *
-	 * @since 2.7.0
+	 * @since WP 2.7.0
 	 *
 	 * @type {string[]}
 	 *
@@ -67,7 +67,7 @@ jQuery( function($) {
 	/**
 	 * Triggers widget updates via Ajax.
 	 *
-	 * @since 2.7.0
+	 * @since WP 2.7.0
 	 *
 	 * @global
 	 *
@@ -124,7 +124,7 @@ jQuery( function($) {
 	/**
 	 * Control the Quick Press (Quick Draft) widget.
 	 *
-	 * @since 2.7.0
+	 * @since WP 2.7.0
 	 *
 	 * @global
 	 *
@@ -188,7 +188,7 @@ jQuery( function($) {
 	/**
 	 * Adjust the height of the textarea based on the content.
 	 *
-	 * @since 3.6.0
+	 * @since WP 3.6.0
 	 *
 	 * @return {void}
 	 */
@@ -277,7 +277,7 @@ jQuery( function( $ ) {
 	/**
 	 * Global Community Events namespace.
 	 *
-	 * @since 4.8.0
+	 * @since WP 4.8.0
 	 *
 	 * @memberOf wp
 	 * @namespace wp.communityEvents
@@ -289,7 +289,7 @@ jQuery( function( $ ) {
 		/**
 		 * Initializes the wp.communityEvents object.
 		 *
-		 * @since 4.8.0
+		 * @since WP 4.8.0
 		 *
 		 * @return {void}
 		 */
@@ -357,7 +357,7 @@ jQuery( function( $ ) {
 		/**
 		 * Toggles the visibility of the Edit Location form.
 		 *
-		 * @since 4.8.0
+		 * @since WP 4.8.0
 		 *
 		 * @param {event|string} action 'show' or 'hide' to specify a state;
 		 *                              or an event object to flip between states.
@@ -403,7 +403,7 @@ jQuery( function( $ ) {
 		/**
 		 * Sends REST API requests to fetch events for the widget.
 		 *
-		 * @since 4.8.0
+		 * @since WP 4.8.0
 		 *
 		 * @param {Object} requestParams REST API Request parameters object.
 		 *
@@ -456,7 +456,7 @@ jQuery( function( $ ) {
 		/**
 		 * Renders the template for the Events section of the Events & News widget.
 		 *
-		 * @since 4.8.0
+		 * @since WP 4.8.0
 		 *
 		 * @param {Object} templateParams The various parameters that will get passed to wp.template.
 		 * @param {string} initiatedBy    'user' to indicate that this was triggered manually by the user;
@@ -623,7 +623,7 @@ jQuery( function( $ ) {
 		 * These can't be stored in the database, because they're dependent on
 		 * the user's current time zone, locale, etc.
 		 *
-		 * @since 5.5.2
+		 * @since WP 5.5.2
 		 *
 		 * @param {Array}  rawEvents  The events that should have dynamic fields added to them.
 		 * @param {string} timeFormat A time format acceptable by `wp.date.dateI18n()`.
@@ -658,7 +658,7 @@ jQuery( function( $ ) {
 		/**
 		 * Returns the user's local/browser time zone, in a form suitable for `wp.date.i18n()`.
 		 *
-		 * @since 5.5.2
+		 * @since WP 5.5.2
 		 *
 		 * @param startTimestamp
 		 *
@@ -693,7 +693,7 @@ jQuery( function( $ ) {
 		 *
 		 * See https://stackoverflow.com/questions/21102435/why-does-javascript-date-gettimezoneoffset-consider-0500-as-a-positive-off.
 		 *
-		 * @since 5.5.2
+		 * @since WP 5.5.2
 		 *
 		 * @param {number} startTimestamp
 		 *
@@ -706,7 +706,7 @@ jQuery( function( $ ) {
 		/**
 		 * Get a short time zone name, like `PST`.
 		 *
-		 * @since 5.5.2
+		 * @since WP 5.5.2
 		 *
 		 * @param {number} startTimestamp
 		 *
@@ -748,7 +748,7 @@ jQuery( function( $ ) {
 		/**
 		 * Format a start/end date in the user's local time zone and locale.
 		 *
-		 * @since 5.5.2
+		 * @since WP 5.5.2
 		 *
 		 * @param {int}    startDate   The Unix timestamp in milliseconds when the the event starts.
 		 * @param {int}    endDate     The Unix timestamp in milliseconds when the the event ends.
@@ -823,8 +823,8 @@ jQuery( function( $ ) {
 /**
  * Removed in 5.6.0, needed for back-compatibility.
  *
- * @since 4.8.0
- * @deprecated 5.6.0
+ * @since WP 4.8.0
+ * @deprecated WP 5.6.0
  *
  * @type {object}
 */

@@ -1,16 +1,18 @@
 <?php
 /**
  * I18N: WP_Translation_File_MO class.
+ * 
+ * @since WP 6.5.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage I18N
- * @since 6.5.0
  */
 
 /**
  * Class WP_Translation_File_MO.
  *
- * @since 6.5.0
+ * @since WP 6.5.0
  */
 class WP_Translation_File_MO extends WP_Translation_File {
 	/**
@@ -20,7 +22,7 @@ class WP_Translation_File_MO extends WP_Translation_File {
 	 *
 	 * Used for unpack().
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 * @var false|'V'|'N'
 	 */
 	protected $uint32 = false;
@@ -28,7 +30,7 @@ class WP_Translation_File_MO extends WP_Translation_File {
 	/**
 	 * The magic number of the GNU message catalog format.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 * @var int
 	 */
 	const MAGIC_MARKER = 0x950412de;
@@ -36,7 +38,7 @@ class WP_Translation_File_MO extends WP_Translation_File {
 	/**
 	 * Detects endian and validates file.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $header File contents.
 	 * @return false|'V'|'N' V for little endian, N for big endian, or false on failure.
@@ -66,12 +68,12 @@ class WP_Translation_File_MO extends WP_Translation_File {
 			return false;
 		}
 
-		// Force cast to an integer as it can be a float on x86 systems. See https://core.trac.wordpress.org/ticket/60678.
+		// Force cast to an integer as it can be a float on x86 systems.
 		if ( (int) self::MAGIC_MARKER === $big ) {
 			return 'N';
 		}
 
-		// Force cast to an integer as it can be a float on x86 systems. See https://core.trac.wordpress.org/ticket/60678.
+		// Force cast to an integer as it can be a float on x86 systems.
 		if ( (int) self::MAGIC_MARKER === $little ) {
 			return 'V';
 		}
@@ -83,7 +85,7 @@ class WP_Translation_File_MO extends WP_Translation_File {
 	/**
 	 * Parses the file.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @return bool True on success, false otherwise.
 	 */
@@ -181,7 +183,7 @@ class WP_Translation_File_MO extends WP_Translation_File {
 	/**
 	 * Exports translation contents as a string.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @return string Translation file contents.
 	 */
@@ -207,7 +209,7 @@ class WP_Translation_File_MO extends WP_Translation_File {
 
 		$file_header = pack(
 			$this->uint32 . '*',
-			// Force cast to an integer as it can be a float on x86 systems. See https://core.trac.wordpress.org/ticket/60678.
+			// Force cast to an integer as it can be a float on x86 systems.
 			(int) self::MAGIC_MARKER,
 			0, /* rev */
 			$entry_count,

@@ -4,7 +4,7 @@
  *
  * @package motsVertueux
  * @subpackage Administration
- * @since 6.6.0
+ * @since WP 6.6.0
  */
 
 /** Load WordPress Administration Bootstrap */

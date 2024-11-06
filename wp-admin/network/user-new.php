@@ -4,7 +4,8 @@
  *
  * @package motsVertueux
  * @subpackage Multisite
- * @since 3.1.0
+ * @since WP 3.1.0
+ * @since 1.0.0 motsVertueux fork.
  */
 
 /** Load WordPress Administration Bootstrap */
@@ -22,12 +23,6 @@ get_current_screen()->add_help_tab(
 			'<p>' . __( 'Add User will set up a new user account on the network and send that person an email with username and password.' ) . '</p>' .
 			'<p>' . __( 'Users who are signed up to the network without a site are added as subscribers to the main or primary dashboard site, giving them profile pages to manage their accounts. These users will only see Dashboard and My Sites in the main navigation until a site is created for them.' ) . '</p>',
 	)
-);
-
-get_current_screen()->set_help_sidebar(
-	'<p><strong>' . __( 'For more information:' ) . '</strong></p>' .
-	'<p>' . __( '<a href="https://codex.wordpress.org/Network_Admin_Users_Screen">Documentation on Network Users</a>' ) . '</p>' .
-	'<p>' . __( '<a href="https://wordpress.org/support/forum/multisite/">Support forums</a>' ) . '</p>'
 );
 
 if ( isset( $_REQUEST['action'] ) && 'add-user' === $_REQUEST['action'] ) {
@@ -57,7 +52,7 @@ if ( isset( $_REQUEST['action'] ) && 'add-user' === $_REQUEST['action'] ) {
 			/**
 			 * Fires after a new user has been created via the network user-new.php page.
 			 *
-			 * @since 4.4.0
+			 * @since WP 4.4.0
 			 *
 			 * @param int $user_id ID of the newly created user.
 			 */
@@ -153,7 +148,7 @@ if ( isset( $add_user_errors ) && is_wp_error( $add_user_errors ) ) {
 	/**
 	 * Fires at the end of the new user form in network admin.
 	 *
-	 * @since 4.5.0
+	 * @since WP 4.5.0
 	 */
 	do_action( 'network_user_new_form' );
 

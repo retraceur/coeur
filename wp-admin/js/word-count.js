@@ -4,7 +4,7 @@
  *
  * @namespace wp.utils
  *
- * @since 2.6.0
+ * @since WP 2.6.0
  * @output wp-admin/js/word-count.js
  */
 
@@ -144,7 +144,7 @@
 	/**
 	 * Counts the number of words (or other specified type) in the specified text.
 	 *
-	 * @since 2.6.0
+	 * @since WP 2.6.0
 	 *
 	 * @memberof wp.utils.wordcounter
 	 *

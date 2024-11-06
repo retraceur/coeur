@@ -4,13 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage Administration
- * @since 3.1.0
+ * @since WP 3.1.0
  */
 
 /**
  * Core class used to implement displaying installed plugins in a list table.
  *
- * @since 3.1.0
+ * @since WP 3.1.0
  *
  * @see WP_List_Table
  */
@@ -18,7 +18,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 	/**
 	 * Whether to show the auto-updates UI.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @var bool True if auto-updates UI is to be shown, false otherwise.
 	 */
@@ -27,7 +27,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 	/**
 	 * Constructor.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @see WP_List_Table::__construct() for more information on default arguments.
 	 *
@@ -96,7 +96,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 		/**
 		 * Filters the full array of plugins to list in the Plugins list table.
 		 *
-		 * @since 3.0.0
+		 * @since WP 3.0.0
 		 *
 		 * @see get_plugins()
 		 *
@@ -135,7 +135,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 			 * The $type parameter allows you to differentiate between the type of advanced
 			 * plugins to filter the display of. Contexts include 'mustuse' and 'dropins'.
 			 *
-			 * @since 3.0.0
+			 * @since WP 3.0.0
 			 *
 			 * @param bool   $show Whether to show the advanced plugins for the specified
 			 *                     plugin type. Default true.
@@ -171,7 +171,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 			 *
 			 * Plugins cannot be network-activated or network-deactivated from this screen.
 			 *
-			 * @since 4.4.0
+			 * @since WP 4.4.0
 			 *
 			 * @param bool $show Whether to show network-active plugins. Default is whether the current
 			 *                   user can manage network plugins (ie. a Super Admin).
@@ -302,7 +302,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 		/**
 		 * Filters the array of plugins for the list table.
 		 *
-		 * @since 6.3.0
+		 * @since WP 6.3.0
 		 *
 		 * @param array[] $plugins An array of arrays of plugin data, keyed by context.
 		 */
@@ -433,7 +433,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 	/**
 	 * Displays the search box.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 *
 	 * @param string $text     The 'submit' button label.
 	 * @param string $input_id ID attribute value for the search input field.
@@ -696,7 +696,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 	/**
 	 * Generates the list table rows.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @global string $status
 	 */
@@ -1001,7 +1001,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 			/**
 			 * Filters the action links displayed for each plugin in the Network Admin Plugins list table.
 			 *
-			 * @since 3.1.0
+			 * @since WP 3.1.0
 			 *
 			 * @param string[] $actions     An array of plugin action links. By default this can include
 			 *                              'activate', 'deactivate', and 'delete'.
@@ -1021,7 +1021,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 			 * The dynamic portion of the hook name, `$plugin_file`, refers to the path
 			 * to the plugin file, relative to the plugins directory.
 			 *
-			 * @since 3.1.0
+			 * @since WP 3.1.0
 			 *
 			 * @param string[] $actions     An array of plugin action links. By default this can include
 			 *                              'activate', 'deactivate', and 'delete'.
@@ -1040,9 +1040,9 @@ class WP_Plugins_List_Table extends WP_List_Table {
 			/**
 			 * Filters the action links displayed for each plugin in the Plugins list table.
 			 *
-			 * @since 2.5.0
-			 * @since 2.6.0 The `$context` parameter was added.
-			 * @since 4.9.0 The 'Edit' link was removed from the list of action links.
+			 * @since WP 2.5.0
+			 * @since WP 2.6.0 The `$context` parameter was added.
+			 * @since WP 4.9.0 The 'Edit' link was removed from the list of action links.
 			 *
 			 * @param string[] $actions     An array of plugin action links. By default this can include
 			 *                              'activate', 'deactivate', and 'delete'. With Multisite active
@@ -1063,8 +1063,8 @@ class WP_Plugins_List_Table extends WP_List_Table {
 			 * The dynamic portion of the hook name, `$plugin_file`, refers to the path
 			 * to the plugin file, relative to the plugins directory.
 			 *
-			 * @since 2.7.0
-			 * @since 4.9.0 The 'Edit' link was removed from the list of action links.
+			 * @since WP 2.7.0
+			 * @since WP 4.9.0 The 'Edit' link was removed from the list of action links.
 			 *
 			 * @param string[] $actions     An array of plugin action links. By default this can include
 			 *                              'activate', 'deactivate', and 'delete'. With Multisite active
@@ -1213,7 +1213,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 					/**
 					 * Filters the array of row meta for each plugin in the Plugins list table.
 					 *
-					 * @since 2.8.0
+					 * @since WP 2.8.0
 					 *
 					 * @param string[] $plugin_meta An array of the plugin's metadata, including
 					 *                              the version, author, author URI, and plugin URI.
@@ -1273,7 +1273,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 					/**
 					 * Fires after plugin row meta.
 					 *
-					 * @since 6.5.0
+					 * @since WP 6.5.0
 					 *
 					 * @param string $plugin_file Refer to {@see 'plugin_row_meta'} filter.
 					 * @param array  $plugin_data Refer to {@see 'plugin_row_meta'} filter.
@@ -1362,7 +1362,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 					/**
 					 * Filters the HTML of the auto-updates setting for each plugin in the Plugins list table.
 					 *
-					 * @since 5.5.0
+					 * @since WP 5.5.0
 					 *
 					 * @param string $html        The HTML of the plugin's auto-update column content,
 					 *                            including toggle auto-update action links and
@@ -1393,7 +1393,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 					/**
 					 * Fires inside each custom column of the Plugins list table.
 					 *
-					 * @since 3.1.0
+					 * @since WP 3.1.0
 					 *
 					 * @param string $column_name Name of the column.
 					 * @param string $plugin_file Path to the plugin file relative to the plugins directory.
@@ -1420,25 +1420,16 @@ class WP_Plugins_List_Table extends WP_List_Table {
 				$incompatible_message .= __( 'This plugin does not work with your versions of WordPress and PHP.' );
 				if ( current_user_can( 'update_core' ) && current_user_can( 'update_php' ) ) {
 					$incompatible_message .= sprintf(
-						/* translators: 1: URL to WordPress Updates screen, 2: URL to Update PHP page. */
-						' ' . __( '<a href="%1$s">Please update WordPress</a>, and then <a href="%2$s">learn more about updating PHP</a>.' ),
-						self_admin_url( 'update-core.php' ),
-						esc_url( wp_get_update_php_url() )
+						/* translators: %s: URL to WordPress Updates screen. */
+						' ' . __( '<a href="%s">Please update WordPress</a>.' ),
+						self_admin_url( 'update-core.php' )
 					);
-					$incompatible_message .= wp_update_php_annotation( '</p><p><em>', '</em>', false );
 				} elseif ( current_user_can( 'update_core' ) ) {
 					$incompatible_message .= sprintf(
 						/* translators: %s: URL to WordPress Updates screen. */
 						' ' . __( '<a href="%s">Please update WordPress</a>.' ),
 						self_admin_url( 'update-core.php' )
 					);
-				} elseif ( current_user_can( 'update_php' ) ) {
-					$incompatible_message .= sprintf(
-						/* translators: %s: URL to Update PHP page. */
-						' ' . __( '<a href="%s">Learn more about updating PHP</a>.' ),
-						esc_url( wp_get_update_php_url() )
-					);
-					$incompatible_message .= wp_update_php_annotation( '</p><p><em>', '</em>', false );
 				}
 			} elseif ( ! $compatible_wp ) {
 				$incompatible_message .= __( 'This plugin does not work with your version of WordPress.' );
@@ -1451,14 +1442,6 @@ class WP_Plugins_List_Table extends WP_List_Table {
 				}
 			} elseif ( ! $compatible_php ) {
 				$incompatible_message .= __( 'This plugin does not work with your version of PHP.' );
-				if ( current_user_can( 'update_php' ) ) {
-					$incompatible_message .= sprintf(
-						/* translators: %s: URL to Update PHP page. */
-						' ' . __( '<a href="%s">Learn more about updating PHP</a>.' ),
-						esc_url( wp_get_update_php_url() )
-					);
-					$incompatible_message .= wp_update_php_annotation( '</p><p><em>', '</em>', false );
-				}
 			}
 
 			wp_admin_notice(
@@ -1475,8 +1458,8 @@ class WP_Plugins_List_Table extends WP_List_Table {
 		/**
 		 * Fires after each row in the Plugins list table.
 		 *
-		 * @since 2.3.0
-		 * @since 5.5.0 Added 'auto-update-enabled' and 'auto-update-disabled'
+		 * @since WP 2.3.0
+		 * @since WP 5.5.0 Added 'auto-update-enabled' and 'auto-update-disabled'
 		 *              to possible values for `$status`.
 		 *
 		 * @param string $plugin_file Path to the plugin file relative to the plugins directory.
@@ -1496,8 +1479,8 @@ class WP_Plugins_List_Table extends WP_List_Table {
 		 * The dynamic portion of the hook name, `$plugin_file`, refers to the path
 		 * to the plugin file, relative to the plugins directory.
 		 *
-		 * @since 2.7.0
-		 * @since 5.5.0 Added 'auto-update-enabled' and 'auto-update-disabled'
+		 * @since WP 2.7.0
+		 * @since WP 5.5.0 Added 'auto-update-enabled' and 'auto-update-disabled'
 		 *              to possible values for `$status`.
 		 *
 		 * @param string $plugin_file Path to the plugin file relative to the plugins directory.
@@ -1515,7 +1498,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 	/**
 	 * Gets the name of the primary column for this specific list table.
 	 *
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 *
 	 * @return string Unalterable name for the primary column, in this case, 'name'.
 	 */
@@ -1526,7 +1509,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 	/**
 	 * Prints a list of other plugins that depend on the plugin.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $dependency The dependency's filepath, relative to the plugins directory.
 	 */
@@ -1556,7 +1539,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 	/**
 	 * Prints a list of other plugins that the plugin depends on.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $dependent The dependent plugin's filepath, relative to the plugins directory.
 	 */
@@ -1607,7 +1590,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 	/**
 	 * Returns a 'View details' like link for a dependency.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $name The dependency's name.
 	 * @param string $slug The dependency's slug.
@@ -1630,7 +1613,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 	/**
 	 * Returns a 'View details' link for the plugin.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $name The plugin's name.
 	 * @param string $slug The plugin's slug.

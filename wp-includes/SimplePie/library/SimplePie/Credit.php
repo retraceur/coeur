@@ -49,7 +49,7 @@ class_exists('SimplePie\Credit');
 // @trigger_error(sprintf('Using the "SimplePie_Credit" class is deprecated since SimplePie 1.7.0, use "SimplePie\Credit" instead.'), \E_USER_DEPRECATED);
 
 if (\false) {
-    /** @deprecated since SimplePie 1.7.0, use "SimplePie\Credit" instead */
+    /** @deprecated WP since SimplePie 1.7.0, use "SimplePie\Credit" instead */
     class SimplePie_Credit extends Credit
     {
     }

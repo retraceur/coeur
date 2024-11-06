@@ -83,14 +83,14 @@ wp.customize.navMenusPreview = wp.customize.MenusCustomizerPreview = ( function(
 		 *
 		 * @class
 		 * @augments wp.customize.selectiveRefresh.Partial
-		 * @since 4.5.0
+		 * @since WP 4.5.0
 		 */
 		self.NavMenuInstancePartial = api.selectiveRefresh.Partial.extend(/** @lends wp.customize.navMenusPreview.NavMenuInstancePartial.prototype */{
 
 			/**
 			 * Constructor.
 			 *
-			 * @since 4.5.0
+			 * @since WP 4.5.0
 			 * @param {string} id - Partial ID.
 			 * @param {Object} options
 			 * @param {Object} options.params
@@ -130,7 +130,7 @@ wp.customize.navMenusPreview = wp.customize.MenusCustomizerPreview = ( function(
 			/**
 			 * Return whether the setting is related to this partial.
 			 *
-			 * @since 4.5.0
+			 * @since WP 4.5.0
 			 * @param {wp.customize.Value|string} setting  - Object or ID.
 			 * @param {number|Object|false|null}  newValue - New value, or null if the setting was just removed.
 			 * @param {number|Object|false|null}  oldValue - Old value, or null if the setting was just added.
@@ -208,7 +208,7 @@ wp.customize.navMenusPreview = wp.customize.MenusCustomizerPreview = ( function(
 			/**
 			 * Make sure that partial fallback behavior is invoked if there is no associated menu.
 			 *
-			 * @since 4.5.0
+			 * @since WP 4.5.0
 			 *
 			 * @return {Promise}
 			 */
@@ -280,7 +280,7 @@ wp.customize.navMenusPreview = wp.customize.MenusCustomizerPreview = ( function(
 		/**
 		 * Add change listener for a nav_menu[], nav_menu_item[], or nav_menu_locations[] setting.
 		 *
-		 * @since 4.5.0
+		 * @since WP 4.5.0
 		 *
 		 * @param {wp.customize.Value} setting
 		 * @param {Object}             [options]
@@ -328,7 +328,7 @@ wp.customize.navMenusPreview = wp.customize.MenusCustomizerPreview = ( function(
 		/**
 		 * Remove change listeners for nav_menu[], nav_menu_item[], or nav_menu_locations[] setting.
 		 *
-		 * @since 4.5.0
+		 * @since WP 4.5.0
 		 *
 		 * @param {wp.customize.Value} setting
 		 */
@@ -341,7 +341,7 @@ wp.customize.navMenusPreview = wp.customize.MenusCustomizerPreview = ( function(
 		/**
 		 * Handle change for nav_menu[] setting for nav menu instances lacking partials.
 		 *
-		 * @since 4.5.0
+		 * @since WP 4.5.0
 		 *
 		 * @this {wp.customize.Value}
 		 */
@@ -368,7 +368,7 @@ wp.customize.navMenusPreview = wp.customize.MenusCustomizerPreview = ( function(
 		/**
 		 * Handle change for nav_menu_item[] setting for nav menu instances lacking partials.
 		 *
-		 * @since 4.5.0
+		 * @since WP 4.5.0
 		 *
 		 * @param {Object} newItem New value for nav_menu_item[] setting.
 		 * @param {Object} oldItem Old value for nav_menu_item[] setting.
@@ -385,7 +385,7 @@ wp.customize.navMenusPreview = wp.customize.MenusCustomizerPreview = ( function(
 		/**
 		 * Handle change for nav_menu_locations[] setting for nav menu instances lacking partials.
 		 *
-		 * @since 4.5.0
+		 * @since WP 4.5.0
 		 *
 		 * @this {wp.customize.Value}
 		 */
@@ -411,7 +411,7 @@ wp.customize.navMenusPreview = wp.customize.MenusCustomizerPreview = ( function(
 	 * Setup shift-click on nav menu items which are more granular than the nav menu partial itself.
 	 * Also this applies even if a nav menu is not partial-refreshable.
 	 *
-	 * @since 4.5.0
+	 * @since WP 4.5.0
 	 */
 	self.highlightControls = function() {
 		var selector = '.menu-item';

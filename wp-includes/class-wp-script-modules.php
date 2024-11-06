@@ -11,13 +11,13 @@
 /**
  * Core class used to register script modules.
  *
- * @since 6.5.0
+ * @since WP 6.5.0
  */
 class WP_Script_Modules {
 	/**
 	 * Holds the registered script modules, keyed by script module identifier.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 * @var array[]
 	 */
 	private $registered = array();
@@ -25,7 +25,7 @@ class WP_Script_Modules {
 	/**
 	 * Holds the script module identifiers that were enqueued before registered.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 * @var array<string, true>
 	 */
 	private $enqueued_before_registered = array();
@@ -36,7 +36,7 @@ class WP_Script_Modules {
 	 * Some additional HTML is required on the page for the module to work. Track
 	 * whether it's available to print at the appropriate time.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 * @var bool
 	 */
 	private $a11y_available = false;
@@ -45,7 +45,7 @@ class WP_Script_Modules {
 	 * Registers the script module if no script module with that script module
 	 * identifier has already been registered.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string            $id       The identifier of the script module. Should be unique. It will be used in the
 	 *                                    final import map.
@@ -110,7 +110,7 @@ class WP_Script_Modules {
 	 * If a src is provided and the script module has not been registered yet, it
 	 * will be registered.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string            $id       The identifier of the script module. Should be unique. It will be used in the
 	 *                                    final import map.
@@ -151,7 +151,7 @@ class WP_Script_Modules {
 	/**
 	 * Unmarks the script module so it will no longer be enqueued in the page.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $id The identifier of the script module.
 	 */
@@ -165,7 +165,7 @@ class WP_Script_Modules {
 	/**
 	 * Removes a registered script module.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $id The identifier of the script module.
 	 */
@@ -182,7 +182,7 @@ class WP_Script_Modules {
 	 * when the `wp_head` actions is fired, so it needs to print everything in the
 	 * footer.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 */
 	public function add_hooks() {
 		$position = wp_is_block_theme() ? 'wp_head' : 'wp_footer';
@@ -204,7 +204,7 @@ class WP_Script_Modules {
 	 * Prints the enqueued script modules using script tags with type="module"
 	 * attributes.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 */
 	public function print_enqueued_script_modules() {
 		foreach ( $this->get_marked_for_enqueue() as $id => $script_module ) {
@@ -224,7 +224,7 @@ class WP_Script_Modules {
 	 *
 	 * If a script module is marked for enqueue, it will not be preloaded.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 */
 	public function print_script_module_preloads() {
 		foreach ( $this->get_dependencies( array_keys( $this->get_marked_for_enqueue() ), array( 'static' ) ) as $id => $script_module ) {
@@ -242,7 +242,7 @@ class WP_Script_Modules {
 	/**
 	 * Prints the import map using a script tag with a type="importmap" attribute.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 */
 	public function print_import_map() {
 		$import_map = $this->get_import_map();
@@ -260,7 +260,7 @@ class WP_Script_Modules {
 	/**
 	 * Returns the import map array.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @return array Array with an `imports` key mapping to an array of script module identifiers and their respective
 	 *               URLs, including the version query.
@@ -276,7 +276,7 @@ class WP_Script_Modules {
 	/**
 	 * Retrieves the list of script modules marked for enqueue.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @return array[] Script modules marked for enqueue, keyed by script module identifier.
 	 */
@@ -298,7 +298,7 @@ class WP_Script_Modules {
 	 * on the requested import types: 'static', 'dynamic', or both. This method is
 	 * recursive and also retrieves dependencies of the dependencies.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string[] $ids          The identifiers of the script modules for which to gather dependencies.
 	 * @param string[] $import_types Optional. Import types of dependencies to retrieve: 'static', 'dynamic', or both.
@@ -332,7 +332,7 @@ class WP_Script_Modules {
 	 * WordPress version. If $version is set to null, no version is added.
 	 * Otherwise, the string passed in $version is used.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $id The script module identifier.
 	 * @return string The script module src with a version if relevant.
@@ -354,7 +354,7 @@ class WP_Script_Modules {
 		/**
 		 * Filters the script module source.
 		 *
-		 * @since 6.5.0
+		 * @since WP 6.5.0
 		 *
 		 * @param string $src Module source URL.
 		 * @param string $id  Module identifier.
@@ -369,7 +369,7 @@ class WP_Script_Modules {
 	 *
 	 * The data will be embedded in the page HTML and can be read by Script Modules on page load.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * Data can be associated with a Script Module via the
 	 * {@see "script_module_data_{$module_id}"} filter.
@@ -433,7 +433,7 @@ class WP_Script_Modules {
 			 *   }
 			 *   initMyScriptModuleWithData( data );
 			 *
-			 * @since 6.7.0
+			 * @since WP 6.7.0
 			 *
 			 * @param array $data The data associated with the Script Module.
 			 */
@@ -488,7 +488,7 @@ class WP_Script_Modules {
 	/**
 	 * @access private This is only intended to be called by the registered actions.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 */
 	public function print_a11y_script_module_html() {
 		if ( ! $this->a11y_available ) {

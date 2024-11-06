@@ -4,10 +4,12 @@
  * HTML API: WP_HTML_Decoder class
  *
  * Decodes spans of raw text found inside HTML content.
+ * 
+ * @since WP 6.6.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage HTML-API
- * @since 6.6.0
  */
 class WP_HTML_Decoder {
 	/**
@@ -19,11 +21,11 @@ class WP_HTML_Decoder {
 	 *
 	 * Example:
 	 *
-	 *     $value = 'http&colon;//wordpress.org/';
+	 *     $value = 'http&colon;//site.url/';
 	 *     true   === WP_HTML_Decoder::attribute_starts_with( $value, 'http:', 'ascii-case-insensitive' );
 	 *     false  === WP_HTML_Decoder::attribute_starts_with( $value, 'https:', 'ascii-case-insensitive' );
 	 *
-	 * @since 6.6.0
+	 * @since WP 6.6.0
 	 *
 	 * @param string $haystack         String containing the raw non-decoded attribute value.
 	 * @param string $search_text      Does the attribute value start with this plain string.
@@ -85,7 +87,7 @@ class WP_HTML_Decoder {
 	 *
 	 *     '“😄”' === WP_HTML_Decode::decode_text_node( '&#x93;&#x1f604;&#x94' );
 	 *
-	 * @since 6.6.0
+	 * @since WP 6.6.0
 	 *
 	 * @param string $text Text containing raw and non-decoded text node to decode.
 	 * @return string Decoded UTF-8 value of given text node.
@@ -105,7 +107,7 @@ class WP_HTML_Decoder {
 	 *
 	 *     '“😄”' === WP_HTML_Decode::decode_attribute( '&#x93;&#x1f604;&#x94' );
 	 *
-	 * @since 6.6.0
+	 * @since WP 6.6.0
 	 *
 	 * @param string $text Text containing raw and non-decoded attribute value to decode.
 	 * @return string Decoded UTF-8 value of given attribute value.
@@ -125,7 +127,7 @@ class WP_HTML_Decoder {
 	 *
 	 *     '©' = WP_HTML_Decoder::decode( 'data', '&copy;' );
 	 *
-	 * @since 6.6.0
+	 * @since WP 6.6.0
 	 *
 	 * @access private
 	 *
@@ -194,7 +196,7 @@ class WP_HTML_Decoder {
 	 *     '∉'  === WP_HTML_Decoder::read_character_reference( 'data', '&notin;', 0, $token_length );
 	 *     7    === $token_length; // `&notin;`
 	 *
-	 * @since 6.6.0
+	 * @since WP 6.6.0
 	 *
 	 * @global WP_Token_Map $html5_named_character_references Mappings for HTML5 named character references.
 	 *
@@ -416,7 +418,7 @@ class WP_HTML_Decoder {
 	 *     // Half of a surrogate pair is an invalid code point.
 	 *     '�' === WP_HTML_Decoder::code_point_to_utf8_bytes( 0xd83c );
 	 *
-	 * @since 6.6.0
+	 * @since WP 6.6.0
 	 *
 	 * @see https://www.rfc-editor.org/rfc/rfc3629 For the UTF-8 standard.
 	 *

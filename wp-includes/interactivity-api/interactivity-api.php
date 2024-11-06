@@ -4,7 +4,7 @@
  *
  * @package motsVertueux
  * @subpackage Interactivity API
- * @since 6.5.0
+ * @since WP 6.5.0
  */
 
 /**
@@ -13,7 +13,7 @@
  * It provides access to the WP_Interactivity_API instance, creating one if it
  * doesn't exist yet.
  *
- * @since 6.5.0
+ * @since WP 6.5.0
  *
  * @global WP_Interactivity_API $wp_interactivity
  *
@@ -31,7 +31,7 @@ function wp_interactivity(): WP_Interactivity_API {
  * Processes the interactivity directives contained within the HTML content
  * and updates the markup accordingly.
  *
- * @since 6.5.0
+ * @since WP 6.5.0
  *
  * @param string $html The HTML content to process.
  * @return string The processed HTML content. It returns the original content when the HTML contains unbalanced tags.
@@ -50,8 +50,8 @@ function wp_interactivity_process_directives( string $html ): string {
  * The namespace can be omitted inside derived state getters, using the
  * namespace where the getter is defined.
  *
- * @since 6.5.0
- * @since 6.6.0 The namespace can be omitted when called inside derived state getters.
+ * @since WP 6.5.0
+ * @since WP 6.6.0 The namespace can be omitted when called inside derived state getters.
  *
  * @param string $store_namespace The unique store namespace identifier.
  * @param array  $state           Optional. The array that will be merged with the existing state for the specified
@@ -70,7 +70,7 @@ function wp_interactivity_state( ?string $store_namespace = null, array $state =
  * If configuration for that store namespace exists, it merges the new
  * provided configuration with the existing one.
  *
- * @since 6.5.0
+ * @since WP 6.5.0
  *
  * @param string $store_namespace The unique store namespace identifier.
  * @param array  $config          Optional. The array that will be merged with the existing configuration for the
@@ -94,7 +94,7 @@ function wp_interactivity_config( string $store_namespace, array $config = array
  *
  *     <div <?php echo wp_interactivity_data_wp_context( array( 'isOpen' => true, 'count' => 0 ) ); ?>>
  *
- * @since 6.5.0
+ * @since WP 6.5.0
  *
  * @param array  $context         The array of context data to encode.
  * @param string $store_namespace Optional. The unique store namespace identifier.
@@ -117,7 +117,7 @@ function wp_interactivity_data_wp_context( array $context, string $store_namespa
  *
  * It returns an empty array when the specified namespace is not defined.
  *
- * @since 6.6.0
+ * @since WP 6.6.0
  *
  * @param string $store_namespace Optional. The unique store namespace identifier.
  * @return array The context for the specified store namespace.
@@ -131,7 +131,7 @@ function wp_interactivity_get_context( ?string $store_namespace = null ): array 
  *
  * The function should be used only during directive processing.
  *
- * @since 6.7.0
+ * @since WP 6.7.0
  *
  * @return array{attributes: array<string, string|bool>}|null Current element.
  */

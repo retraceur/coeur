@@ -4,14 +4,12 @@
  *
  * @package motsVertueux
  * @subpackage Administration
- *
- * @link https://developer.wordpress.org/plugins/javascript/ajax
  */
 
 /**
  * Executing Ajax process.
  *
- * @since 2.1.0
+ * @since WP 2.1.0
  */
 define( 'DOING_AJAX', true );
 if ( ! defined( 'WP_ADMIN' ) ) {
@@ -51,7 +49,6 @@ $core_actions_get = array(
 	'imgedit-preview',
 	'oembed-cache',
 	'autocomplete-user',
-	'dashboard-widgets',
 	'logged-in',
 	'rest-nonce',
 );
@@ -130,14 +127,11 @@ $core_actions_post = array(
 	'delete-theme',
 	'install-theme',
 	'get-post-thumbnail-html',
-	'get-community-events',
 	'edit-theme-plugin-file',
 	'wp-privacy-export-personal-data',
 	'wp-privacy-erase-personal-data',
 	'health-check-site-status-result',
-	'health-check-dotorg-communication',
 	'health-check-is-in-debug-mode',
-	'health-check-background-updates',
 	'health-check-loopback-requests',
 	'health-check-get-sizes',
 	'toggle-auto-updates',
@@ -149,9 +143,7 @@ $core_actions_post_deprecated = array(
 	'wp-fullscreen-save-post',
 	'press-this-save-post',
 	'press-this-add-category',
-	'health-check-dotorg-communication',
 	'health-check-is-in-debug-mode',
-	'health-check-background-updates',
 	'health-check-loopback-requests',
 );
 
@@ -187,7 +179,7 @@ if ( is_user_logged_in() ) {
 	 * The dynamic portion of the hook name, `$action`, refers
 	 * to the name of the Ajax action callback being fired.
 	 *
-	 * @since 2.1.0
+	 * @since WP 2.1.0
 	 */
 	do_action( "wp_ajax_{$action}" );
 } else {
@@ -202,7 +194,7 @@ if ( is_user_logged_in() ) {
 	 * The dynamic portion of the hook name, `$action`, refers
 	 * to the name of the Ajax action callback being fired.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 */
 	do_action( "wp_ajax_nopriv_{$action}" );
 }

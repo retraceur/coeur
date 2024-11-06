@@ -2,7 +2,7 @@
 /**
  * The block editor page.
  *
- * @since 5.0.0
+ * @since WP 5.0.0
  *
  * @package motsVertueux
  * @subpackage Administration
@@ -211,8 +211,8 @@ if ( $user_id ) {
 /**
  * Filters the body placeholder text.
  *
- * @since 5.0.0
- * @since 5.8.0 Changed the default placeholder text.
+ * @since WP 5.0.0
+ * @since WP 5.8.0 Changed the default placeholder text.
  *
  * @param string  $text Placeholder text. Default 'Type / to choose a block'.
  * @param WP_Post $post Post object.
@@ -297,7 +297,7 @@ wp_enqueue_style( 'wp-edit-post' );
  * In the function call you supply, simply use `wp_enqueue_script` and
  * `wp_enqueue_style` to add your functionality to the block editor.
  *
- * @since 5.0.0
+ * @since WP 5.0.0
  */
 do_action( 'enqueue_block_editor_assets' );
 
@@ -374,8 +374,8 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 		 * Filters the message displayed in the block editor interface when JavaScript is
 		 * not enabled in the browser.
 		 *
-		 * @since 5.0.3
-		 * @since 6.4.0 Added `$installed` parameter.
+		 * @since WP 5.0.3
+		 * @since WP 6.4.0 Added `$installed` parameter.
 		 *
 		 * @param string  $message   The message being displayed.
 		 * @param WP_Post $post      The post being edited.

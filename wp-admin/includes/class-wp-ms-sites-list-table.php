@@ -4,13 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage Administration
- * @since 3.1.0
+ * @since WP 3.1.0
  */
 
 /**
  * Core class used to implement displaying sites in a list table for the network admin.
  *
- * @since 3.1.0
+ * @since WP 3.1.0
  *
  * @see WP_List_Table
  */
@@ -19,7 +19,7 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 	/**
 	 * Site status list.
 	 *
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 * @var array
 	 */
 	public $status_list;
@@ -27,7 +27,7 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 	/**
 	 * Constructor.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @see WP_List_Table::__construct() for more information on default arguments.
 	 *
@@ -59,7 +59,7 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 	/**
 	 * Prepares the list of sites for display.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @global string $mode List table view mode.
 	 * @global string $s
@@ -173,7 +173,7 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 		/**
 		 * Filters the arguments for the site query in the sites list table.
 		 *
-		 * @since 4.6.0
+		 * @since WP 4.6.0
 		 *
 		 * @param array $args An array of get_sites() arguments.
 		 */
@@ -214,7 +214,7 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 	/**
 	 * Gets links to filter sites by status.
 	 *
-	 * @since 5.3.0
+	 * @since WP 5.3.0
 	 *
 	 * @return array
 	 */
@@ -317,7 +317,7 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 	/**
 	 * Displays extra controls between bulk actions and pagination.
 	 *
-	 * @since 5.3.0
+	 * @since WP 5.3.0
 	 *
 	 * @param string $which The location of the extra table nav markup: Either 'top' or 'bottom'.
 	 */
@@ -331,7 +331,7 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 			/**
 			 * Fires before the Filter button on the MS sites list table.
 			 *
-			 * @since 5.3.0
+			 * @since WP 5.3.0
 			 *
 			 * @param string $which The location of the extra table nav markup: Either 'top' or 'bottom'.
 			 */
@@ -351,7 +351,7 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 		 * Fires immediately following the closing "actions" div in the tablenav for the
 		 * MS sites list table.
 		 *
-		 * @since 5.3.0
+		 * @since WP 5.3.0
 		 *
 		 * @param string $which The location of the extra table nav markup: Either 'top' or 'bottom'.
 		 */
@@ -377,7 +377,7 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 		/**
 		 * Filters the displayed site columns in Sites list table.
 		 *
-		 * @since MU (3.0.0)
+		 * @since WP MU (3.0.0)
 		 *
 		 * @param string[] $sites_columns An array of displayed site columns. Default 'cb',
 		 *                               'blogname', 'lastupdated', 'registered', 'users'.
@@ -408,8 +408,8 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 	/**
 	 * Handles the checkbox column output.
 	 *
-	 * @since 4.3.0
-	 * @since 5.9.0 Renamed `$blog` to `$item` to match parent class for PHP 8 named parameter support.
+	 * @since WP 4.3.0
+	 * @since WP 5.9.0 Renamed `$blog` to `$item` to match parent class for PHP 8 named parameter support.
 	 *
 	 * @param array $item Current site.
 	 */
@@ -436,7 +436,7 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 	/**
 	 * Handles the ID column output.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 *
 	 * @param array $blog Current site.
 	 */
@@ -447,7 +447,7 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 	/**
 	 * Handles the site name column output.
 	 *
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 *
 	 * @global string $mode List table view mode.
 	 *
@@ -488,7 +488,7 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 	/**
 	 * Handles the lastupdated column output.
 	 *
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 *
 	 * @global string $mode List table view mode.
 	 *
@@ -513,7 +513,7 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 	/**
 	 * Handles the registered column output.
 	 *
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 *
 	 * @global string $mode List table view mode.
 	 *
@@ -538,7 +538,7 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 	/**
 	 * Handles the users column output.
 	 *
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 *
 	 * @param array $blog Current site.
 	 */
@@ -567,7 +567,7 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 	/**
 	 * Handles the plugins column output.
 	 *
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 *
 	 * @param array $blog Current site.
 	 */
@@ -578,7 +578,7 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 			 *
 			 * By default this column is hidden unless something is hooked to the action.
 			 *
-			 * @since MU (3.0.0)
+			 * @since WP MU (3.0.0)
 			 *
 			 * @param int $blog_id The site ID.
 			 */
@@ -589,8 +589,8 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 	/**
 	 * Handles output for the default column.
 	 *
-	 * @since 4.3.0
-	 * @since 5.9.0 Renamed `$blog` to `$item` to match parent class for PHP 8 named parameter support.
+	 * @since WP 4.3.0
+	 * @since WP 5.9.0 Renamed `$blog` to `$item` to match parent class for PHP 8 named parameter support.
 	 *
 	 * @param array  $item        Current site.
 	 * @param string $column_name Current column name.
@@ -602,7 +602,7 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 		/**
 		 * Fires for each registered custom column in the Sites list table.
 		 *
-		 * @since 3.1.0
+		 * @since WP 3.1.0
 		 *
 		 * @param string $column_name The name of the column to display.
 		 * @param int    $blog_id     The site ID.
@@ -613,7 +613,7 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 	/**
 	 * Generates the list table rows.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 */
 	public function display_rows() {
 		foreach ( $this->items as $blog ) {
@@ -638,7 +638,7 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 	/**
 	 * Determines whether to output comma-separated site states.
 	 *
-	 * @since 5.3.0
+	 * @since WP 5.3.0
 	 *
 	 * @param array $site
 	 */
@@ -664,7 +664,7 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 		/**
 		 * Filters the default site display states for items in the Sites list table.
 		 *
-		 * @since 5.3.0
+		 * @since WP 5.3.0
 		 *
 		 * @param string[] $site_states An array of site states. Default 'Main',
 		 *                              'Archived', 'Mature', 'Spam', 'Deleted'.
@@ -692,7 +692,7 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 	/**
 	 * Gets the name of the default primary column.
 	 *
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 *
 	 * @return string Name of the default primary column, in this case, 'blogname'.
 	 */
@@ -703,8 +703,8 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 	/**
 	 * Generates and displays row action links.
 	 *
-	 * @since 4.3.0
-	 * @since 5.9.0 Renamed `$blog` to `$item` to match parent class for PHP 8 named parameter support.
+	 * @since WP 4.3.0
+	 * @since WP 5.9.0 Renamed `$blog` to `$item` to match parent class for PHP 8 named parameter support.
 	 *
 	 * @param array  $item        Site being acted upon.
 	 * @param string $column_name Current column name.
@@ -849,7 +849,7 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 		 * 'Activate' or 'Deactivate' link, 'Unarchive' or 'Archive' links, and
 		 * 'Not Spam' or 'Spam' link for each site.
 		 *
-		 * @since 3.1.0
+		 * @since WP 3.1.0
 		 *
 		 * @param string[] $actions  An array of action links to be displayed.
 		 * @param int      $blog_id  The site ID.

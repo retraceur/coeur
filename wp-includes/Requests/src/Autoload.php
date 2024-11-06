@@ -5,7 +5,7 @@
  * Include this file if you'd like to avoid having to create your own autoloader.
  *
  * @package Requests
- * @since   2.0.0
+ * @since WP   2.0.0
  *
  * @codeCoverageIgnore
  */

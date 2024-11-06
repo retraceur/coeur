@@ -4,7 +4,8 @@
  *
  * @package motsVertueux
  * @subpackage Theme
- * @since 5.8.0
+ * @since WP 5.8.0
+ * @since 1.0.0 motsVertueux fork.
  */
 
 /**
@@ -22,7 +23,7 @@ class WP_Theme_JSON {
 	/**
 	 * Container of data in theme.json format.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 * @var array
 	 */
 	protected $theme_json = null;
@@ -32,8 +33,8 @@ class WP_Theme_JSON {
 	 * to be shared among all instances so we don't
 	 * process it twice.
 	 *
-	 * @since 5.8.0
-	 * @since 6.1.0 Initialize as an empty array.
+	 * @since WP 5.8.0
+	 * @since WP 6.1.0 Initialize as an empty array.
 	 * @var array
 	 */
 	protected static $blocks_metadata = array();
@@ -41,7 +42,7 @@ class WP_Theme_JSON {
 	/**
 	 * The CSS selector for the top-level preset settings.
 	 *
-	 * @since 6.6.0
+	 * @since WP 6.6.0
 	 * @var string
 	 */
 	const ROOT_CSS_PROPERTIES_SELECTOR = ':root';
@@ -49,7 +50,7 @@ class WP_Theme_JSON {
 	/**
 	 * The CSS selector for the top-level styles.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 * @var string
 	 */
 	const ROOT_BLOCK_SELECTOR = 'body';
@@ -57,8 +58,8 @@ class WP_Theme_JSON {
 	/**
 	 * The sources of data this object can represent.
 	 *
-	 * @since 5.8.0
-	 * @since 6.1.0 Added 'blocks'.
+	 * @since WP 5.8.0
+	 * @since WP 6.1.0 Added 'blocks'.
 	 * @var string[]
 	 */
 	const VALID_ORIGINS = array(
@@ -116,14 +117,14 @@ class WP_Theme_JSON {
 	 *                       validate the content of each preset
 	 *                       by means of the remove_insecure_properties method.
 	 *
-	 * @since 5.8.0
-	 * @since 5.9.0 Added the `color.duotone` and `typography.fontFamilies` presets,
+	 * @since WP 5.8.0
+	 * @since WP 5.9.0 Added the `color.duotone` and `typography.fontFamilies` presets,
 	 *              `use_default_names` preset key, and simplified the metadata structure.
-	 * @since 6.0.0 Replaced `override` with `prevent_override` and updated the
+	 * @since WP 6.0.0 Replaced `override` with `prevent_override` and updated the
 	 *              `prevent_override` value for `color.duotone` to use `color.defaultDuotone`.
-	 * @since 6.2.0 Added 'shadow' presets.
-	 * @since 6.3.0 Replaced value_func for duotone with `null`. Custom properties are handled by class-wp-duotone.php.
-	 * @since 6.6.0 Added the `dimensions.aspectRatios` and `dimensions.defaultAspectRatios` presets.
+	 * @since WP 6.2.0 Added 'shadow' presets.
+	 * @since WP 6.3.0 Replaced value_func for duotone with `null`. Custom properties are handled by class-wp-duotone.php.
+	 * @since WP 6.6.0 Added the `dimensions.aspectRatios` and `dimensions.defaultAspectRatios` presets.
 	 *              Updated the 'prevent_override' value for font size presets to use 'typography.defaultFontSizes'
 	 *              and spacing size presets to use `spacing.defaultSpacingSizes`.
 	 * @var array
@@ -213,20 +214,20 @@ class WP_Theme_JSON {
 	 * Each element is a direct mapping from the CSS property name to the
 	 * path to the value in theme.json & block attributes.
 	 *
-	 * @since 5.8.0
-	 * @since 5.9.0 Added the `border-*`, `font-family`, `font-style`, `font-weight`,
+	 * @since WP 5.8.0
+	 * @since WP 5.9.0 Added the `border-*`, `font-family`, `font-style`, `font-weight`,
 	 *              `letter-spacing`, `margin-*`, `padding-*`, `--wp--style--block-gap`,
 	 *              `text-decoration`, `text-transform`, and `filter` properties,
 	 *              simplified the metadata structure.
-	 * @since 6.1.0 Added the `border-*-color`, `border-*-width`, `border-*-style`,
+	 * @since WP 6.1.0 Added the `border-*-color`, `border-*-width`, `border-*-style`,
 	 *              `--wp--style--root--padding-*`, and `box-shadow` properties,
 	 *              removed the `--wp--style--block-gap` property.
-	 * @since 6.2.0 Added `outline-*`, and `min-height` properties.
-	 * @since 6.3.0 Added `column-count` property.
-	 * @since 6.4.0 Added `writing-mode` property.
-	 * @since 6.5.0 Added `aspect-ratio` property.
-	 * @since 6.6.0 Added `background-[image|position|repeat|size]` properties.
-	 * @since 6.7.0 Added `background-attachment` property.
+	 * @since WP 6.2.0 Added `outline-*`, and `min-height` properties.
+	 * @since WP 6.3.0 Added `column-count` property.
+	 * @since WP 6.4.0 Added `writing-mode` property.
+	 * @since WP 6.5.0 Added `aspect-ratio` property.
+	 * @since WP 6.6.0 Added `background-[image|position|repeat|size]` properties.
+	 * @since WP 6.7.0 Added `background-attachment` property.
 	 * @var array
 	 */
 	const PROPERTIES_METADATA = array(
@@ -304,8 +305,8 @@ class WP_Theme_JSON {
 	 * but are used elsewhere in the processing of global styles. The indirect
 	 * property is used to validate whether a style value is allowed.
 	 *
-	 * @since 6.2.0
-	 * @since 6.6.0 Added background-image properties.
+	 * @since WP 6.2.0
+	 * @since WP 6.6.0 Added background-image properties.
 	 * @var array
 	 */
 	const INDIRECT_PROPERTIES_METADATA = array(
@@ -336,7 +337,7 @@ class WP_Theme_JSON {
 	 * Each element maps the style property to the corresponding theme.json
 	 * setting key.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 * @var array
 	 */
 	const PROTECTED_PROPERTIES = array(
@@ -346,11 +347,11 @@ class WP_Theme_JSON {
 	/**
 	 * The top-level keys a theme.json can have.
 	 *
-	 * @since 5.8.0 As `ALLOWED_TOP_LEVEL_KEYS`.
-	 * @since 5.9.0 Renamed from `ALLOWED_TOP_LEVEL_KEYS` to `VALID_TOP_LEVEL_KEYS`,
+	 * @since WP 5.8.0 As `ALLOWED_TOP_LEVEL_KEYS`.
+	 * @since WP 5.9.0 Renamed from `ALLOWED_TOP_LEVEL_KEYS` to `VALID_TOP_LEVEL_KEYS`,
 	 *              added the `customTemplates` and `templateParts` values.
-	 * @since 6.3.0 Added the `description` value.
-	 * @since 6.6.0 Added `blockTypes` to support block style variation theme.json partials.
+	 * @since WP 6.3.0 Added the `description` value.
+	 * @since WP 6.6.0 Added `blockTypes` to support block style variation theme.json partials.
 	 * @var string[]
 	 */
 	const VALID_TOP_LEVEL_KEYS = array(
@@ -369,20 +370,20 @@ class WP_Theme_JSON {
 	/**
 	 * The valid properties under the settings key.
 	 *
-	 * @since 5.8.0 As `ALLOWED_SETTINGS`.
-	 * @since 5.9.0 Renamed from `ALLOWED_SETTINGS` to `VALID_SETTINGS`,
+	 * @since WP 5.8.0 As `ALLOWED_SETTINGS`.
+	 * @since WP 5.9.0 Renamed from `ALLOWED_SETTINGS` to `VALID_SETTINGS`,
 	 *              added new properties for `border`, `color`, `spacing`,
 	 *              and `typography`, and renamed others according to the new schema.
-	 * @since 6.0.0 Added `color.defaultDuotone`.
-	 * @since 6.1.0 Added `layout.definitions` and `useRootPaddingAwareAlignments`.
-	 * @since 6.2.0 Added `dimensions.minHeight`, 'shadow.presets', 'shadow.defaultPresets',
+	 * @since WP 6.0.0 Added `color.defaultDuotone`.
+	 * @since WP 6.1.0 Added `layout.definitions` and `useRootPaddingAwareAlignments`.
+	 * @since WP 6.2.0 Added `dimensions.minHeight`, 'shadow.presets', 'shadow.defaultPresets',
 	 *              `position.fixed` and `position.sticky`.
-	 * @since 6.3.0 Added support for `typography.textColumns`, removed `layout.definitions`.
-	 * @since 6.4.0 Added support for `layout.allowEditing`, `background.backgroundImage`,
+	 * @since WP 6.3.0 Added support for `typography.textColumns`, removed `layout.definitions`.
+	 * @since WP 6.4.0 Added support for `layout.allowEditing`, `background.backgroundImage`,
 	 *              `typography.writingMode`, `lightbox.enabled` and `lightbox.allowEditing`.
-	 * @since 6.5.0 Added support for `layout.allowCustomContentAndWideSize`,
+	 * @since WP 6.5.0 Added support for `layout.allowCustomContentAndWideSize`,
 	 *              `background.backgroundSize` and `dimensions.aspectRatio`.
-	 * @since 6.6.0 Added support for 'dimensions.aspectRatios', 'dimensions.defaultAspectRatios',
+	 * @since WP 6.6.0 Added support for 'dimensions.aspectRatios', 'dimensions.defaultAspectRatios',
 	 *              'typography.defaultFontSizes', and 'spacing.defaultSpacingSizes'.
 	 * @var array
 	 */
@@ -473,7 +474,7 @@ class WP_Theme_JSON {
 	/*
 	 * The valid properties for fontFamilies under settings key.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 * @var array
 	 */
 	const FONT_FAMILY_SCHEMA = array(
@@ -504,17 +505,17 @@ class WP_Theme_JSON {
 	/**
 	 * The valid properties under the styles key.
 	 *
-	 * @since 5.8.0 As `ALLOWED_STYLES`.
-	 * @since 5.9.0 Renamed from `ALLOWED_STYLES` to `VALID_STYLES`,
+	 * @since WP 5.8.0 As `ALLOWED_STYLES`.
+	 * @since WP 5.9.0 Renamed from `ALLOWED_STYLES` to `VALID_STYLES`,
 	 *              added new properties for `border`, `filter`, `spacing`,
 	 *              and `typography`.
-	 * @since 6.1.0 Added new side properties for `border`,
+	 * @since WP 6.1.0 Added new side properties for `border`,
 	 *              added new property `shadow`,
 	 *              updated `blockGap` to be allowed at any level.
-	 * @since 6.2.0 Added `outline`, and `minHeight` properties.
-	 * @since 6.3.0 Added support for `typography.textColumns`.
-	 * @since 6.5.0 Added support for `dimensions.aspectRatio`.
-	 * @since 6.6.0 Added `background` sub properties to top-level only.
+	 * @since WP 6.2.0 Added `outline`, and `minHeight` properties.
+	 * @since WP 6.3.0 Added support for `typography.textColumns`.
+	 * @since WP 6.5.0 Added support for `dimensions.aspectRatio`.
+	 * @since WP 6.6.0 Added `background` sub properties to top-level only.
 	 * @var array
 	 */
 	const VALID_STYLES = array(
@@ -582,12 +583,11 @@ class WP_Theme_JSON {
 	 * This is to ensure the user action (hover, focus and active) styles have a higher
 	 * specificity than the visited styles, which in turn have a higher specificity than
 	 * the unvisited styles.
-	 *
-	 * See https://core.trac.wordpress.org/ticket/56928.
+	 * 
 	 * Note: this will affect both top-level and block-level elements.
 	 *
-	 * @since 6.1.0
-	 * @since 6.2.0 Added support for ':link' and ':any-link'.
+	 * @since WP 6.1.0
+	 * @since WP 6.2.0 Added support for ':link' and ':any-link'.
 	 * @var array
 	 */
 	const VALID_ELEMENT_PSEUDO_SELECTORS = array(
@@ -598,8 +598,8 @@ class WP_Theme_JSON {
 	/**
 	 * The valid elements that can be found under styles.
 	 *
-	 * @since 5.8.0
-	 * @since 6.1.0 Added `heading`, `button`, and `caption` elements.
+	 * @since WP 5.8.0
+	 * @since WP 6.1.0 Added `heading`, `button`, and `caption` elements.
 	 * @var string[]
 	 */
 	const ELEMENTS = array(
@@ -627,7 +627,7 @@ class WP_Theme_JSON {
 	 * List of block support features that can have their related styles
 	 * generated under their own feature level selector rather than the block's.
 	 *
-	 * @since 6.1.0
+	 * @since WP 6.1.0
 	 * @var string[]
 	 */
 	const BLOCK_SUPPORT_FEATURE_LEVEL_SELECTORS = array(
@@ -640,7 +640,7 @@ class WP_Theme_JSON {
 	/**
 	 * Return the input schema at the root and per origin.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param array $schema The base schema.
 	 * @return array The schema at the root and per origin.
@@ -686,7 +686,7 @@ class WP_Theme_JSON {
 	/**
 	 * Returns a class name by an element name.
 	 *
-	 * @since 6.1.0
+	 * @since WP 6.1.0
 	 *
 	 * @param string $element The name of the element.
 	 * @return string The name of the class.
@@ -704,10 +704,10 @@ class WP_Theme_JSON {
 	/**
 	 * Options that settings.appearanceTools enables.
 	 *
-	 * @since 6.0.0
-	 * @since 6.2.0 Added `dimensions.minHeight` and `position.sticky`.
-	 * @since 6.4.0 Added `background.backgroundImage`.
-	 * @since 6.5.0 Added `background.backgroundSize` and `dimensions.aspectRatio`.
+	 * @since WP 6.0.0
+	 * @since WP 6.2.0 Added `dimensions.minHeight` and `position.sticky`.
+	 * @since WP 6.4.0 Added `background.backgroundImage`.
+	 * @since WP 6.5.0 Added `background.backgroundSize` and `dimensions.aspectRatio`.
 	 * @var array
 	 */
 	const APPEARANCE_TOOLS_OPT_INS = array(
@@ -733,9 +733,9 @@ class WP_Theme_JSON {
 	/**
 	 * The latest version of the schema in use.
 	 *
-	 * @since 5.8.0
-	 * @since 5.9.0 Changed value from 1 to 2.
-	 * @since 6.6.0 Changed value from 2 to 3.
+	 * @since WP 5.8.0
+	 * @since WP 5.9.0 Changed value from 1 to 2.
+	 * @since WP 6.6.0 Changed value from 2 to 3.
 	 * @var int
 	 */
 	const LATEST_SCHEMA = 3;
@@ -743,8 +743,8 @@ class WP_Theme_JSON {
 	/**
 	 * Constructor.
 	 *
-	 * @since 5.8.0
-	 * @since 6.6.0 Key spacingScale by origin, and Pre-generate the spacingSizes from spacingScale.
+	 * @since WP 5.8.0
+	 * @since WP 6.6.0 Key spacingScale by origin, and Pre-generate the spacingSizes from spacingScale.
 	 *              Added unwrapping of shared block style variations into block type variations if registered.
 	 *
 	 * @param array  $theme_json A structure that follows the theme.json schema.
@@ -841,7 +841,7 @@ class WP_Theme_JSON {
 	 *   }
 	 * }
 	 *
-	 * @since 6.6.0
+	 * @since WP 6.6.0
 	 *
 	 * @param array $theme_json       A structure that follows the theme.json schema.
 	 * @param array $valid_variations Valid block style variations.
@@ -874,7 +874,7 @@ class WP_Theme_JSON {
 	/**
 	 * Enables some opt-in settings if theme declared support.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param array $theme_json A theme.json structure to modify.
 	 * @return array The modified theme.json structure.
@@ -903,7 +903,7 @@ class WP_Theme_JSON {
 	/**
 	 * Enables some settings.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param array $context The context to which the settings belong.
 	 */
@@ -924,10 +924,10 @@ class WP_Theme_JSON {
 	/**
 	 * Sanitizes the input according to the schemas.
 	 *
-	 * @since 5.8.0
-	 * @since 5.9.0 Added the `$valid_block_names` and `$valid_element_name` parameters.
-	 * @since 6.3.0 Added the `$valid_variations` parameter.
-	 * @since 6.6.0 Updated schema to allow extended block style variations.
+	 * @since WP 5.8.0
+	 * @since WP 5.9.0 Added the `$valid_block_names` and `$valid_element_name` parameters.
+	 * @since WP 6.3.0 Added the `$valid_variations` parameter.
+	 * @since WP 6.6.0 Updated schema to allow extended block style variations.
 	 *
 	 * @param array $input               Structure to sanitize.
 	 * @param array $valid_block_names   List of valid block names.
@@ -1065,9 +1065,9 @@ class WP_Theme_JSON {
 	 * and the $to_append selector ".some-class" the result will be
 	 * "h1.some-class, h2.some-class, h3.some-class".
 	 *
-	 * @since 5.8.0
-	 * @since 6.1.0 Added append position.
-	 * @since 6.3.0 Removed append position parameter.
+	 * @since WP 5.8.0
+	 * @since WP 6.1.0 Added append position.
+	 * @since WP 6.3.0 Removed append position parameter.
 	 *
 	 * @param string $selector  Original selector.
 	 * @param string $to_append Selector to append.
@@ -1092,7 +1092,7 @@ class WP_Theme_JSON {
 	 * and the $to_prepend selector ".some-class " the result will be
 	 * ".some-class h1, .some-class  h2, .some-class  h3".
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param string $selector   Original selector.
 	 * @param string $to_prepend Selector to prepend.
@@ -1134,11 +1134,11 @@ class WP_Theme_JSON {
 	 *       }
 	 *     }
 	 *
-	 * @since 5.8.0
-	 * @since 5.9.0 Added `duotone` key with CSS selector.
-	 * @since 6.1.0 Added `features` key with block support feature level selectors.
-	 * @since 6.3.0 Refactored and stabilized selectors API.
-	 * @since 6.6.0 Updated to include block style variations from the block styles registry.
+	 * @since WP 5.8.0
+	 * @since WP 5.9.0 Added `duotone` key with CSS selector.
+	 * @since WP 6.1.0 Added `features` key with block support feature level selectors.
+	 * @since WP 6.3.0 Refactored and stabilized selectors API.
+	 * @since WP 6.6.0 Updated to include block style variations from the block styles registry.
 	 *
 	 * @return array Block metadata.
 	 */
@@ -1228,7 +1228,7 @@ class WP_Theme_JSON {
 	 *
 	 * It is recursive and modifies the input in-place.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @param array $tree   Input to process.
 	 * @param array $schema Schema to adhere to.
@@ -1290,7 +1290,7 @@ class WP_Theme_JSON {
 	 *       }
 	 *     }
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @return array Settings per block.
 	 */
@@ -1306,10 +1306,10 @@ class WP_Theme_JSON {
 	 * Returns the stylesheet that results of processing
 	 * the theme.json structure this object represents.
 	 *
-	 * @since 5.8.0
-	 * @since 5.9.0 Removed the `$type` parameter, added the `$types` and `$origins` parameters.
-	 * @since 6.3.0 Add fallback layout styles for Post Template when block gap support isn't available.
-	 * @since 6.6.0 Added boolean `skip_root_layout_styles` and `include_block_style_variations` options
+	 * @since WP 5.8.0
+	 * @since WP 5.9.0 Removed the `$type` parameter, added the `$types` and `$origins` parameters.
+	 * @since WP 6.3.0 Add fallback layout styles for Post Template when block gap support isn't available.
+	 * @since WP 6.6.0 Added boolean `skip_root_layout_styles` and `include_block_style_variations` options
 	 *              to control styles output as desired.
 	 *
 	 * @param string[] $types   Types of styles to load. Will load all by default. It accepts:
@@ -1435,8 +1435,8 @@ class WP_Theme_JSON {
 	/**
 	 * Processes the CSS, to apply nesting.
 	 *
-	 * @since 6.2.0
-	 * @since 6.6.0 Enforced 0-1-0 specificity for block custom CSS selectors.
+	 * @since WP 6.2.0
+	 * @since WP 6.6.0 Enforced 0-1-0 specificity for block custom CSS selectors.
 	 *
 	 * @param string $css      The CSS to process.
 	 * @param string $selector The selector to nest.
@@ -1493,8 +1493,8 @@ class WP_Theme_JSON {
 	/**
 	 * Returns the global styles custom CSS.
 	 *
-	 * @since 6.2.0
-	 * @deprecated 6.7.0 Use {@see 'get_stylesheet'} instead.
+	 * @since WP 6.2.0
+	 * @deprecated WP 6.7.0 Use {@see 'get_stylesheet'} instead.
 	 *
 	 * @return string The global styles custom CSS.
 	 */
@@ -1522,7 +1522,7 @@ class WP_Theme_JSON {
 	/**
 	 * Returns the page templates of the active theme.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @return array
 	 */
@@ -1546,7 +1546,7 @@ class WP_Theme_JSON {
 	/**
 	 * Returns the template part data of active theme.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @return array
 	 */
@@ -1579,11 +1579,11 @@ class WP_Theme_JSON {
 	 *     style-property-one: value;
 	 *   }
 	 *
-	 * @since 5.8.0 As `get_block_styles()`.
-	 * @since 5.9.0 Renamed from `get_block_styles()` to `get_block_classes()`
+	 * @since WP 5.8.0 As `get_block_styles()`.
+	 * @since WP 5.9.0 Renamed from `get_block_styles()` to `get_block_classes()`
 	 *              and no longer returns preset classes.
 	 *              Removed the `$setting_nodes` parameter.
-	 * @since 6.1.0 Moved most internal logic to `get_styles_for_block()`.
+	 * @since WP 6.1.0 Moved most internal logic to `get_styles_for_block()`.
 	 *
 	 * @param array $style_nodes Nodes with styles.
 	 * @return string The new stylesheet.
@@ -1604,11 +1604,11 @@ class WP_Theme_JSON {
 	/**
 	 * Gets the CSS layout rules for a particular block from theme.json layout definitions.
 	 *
-	 * @since 6.1.0
-	 * @since 6.3.0 Reduced specificity for layout margin rules.
-	 * @since 6.5.1 Only output rules referencing content and wide sizes when values exist.
-	 * @since 6.5.3 Add types parameter to check if only base layout styles are needed.
-	 * @since 6.6.0 Updated layout style specificity to be compatible with overall 0-1-0 specificity in global styles.
+	 * @since WP 6.1.0
+	 * @since WP 6.3.0 Reduced specificity for layout margin rules.
+	 * @since WP 6.5.1 Only output rules referencing content and wide sizes when values exist.
+	 * @since WP 6.5.3 Add types parameter to check if only base layout styles are needed.
+	 * @since WP 6.6.0 Updated layout style specificity to be compatible with overall 0-1-0 specificity in global styles.
 	 *
 	 * @param array $block_metadata Metadata about the block to get styles for.
 	 * @param array $types          Optional. Types of styles to output. If empty, all styles will be output.
@@ -1830,7 +1830,7 @@ class WP_Theme_JSON {
 	 *     background: value;
 	 *   }
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param array    $setting_nodes Nodes with settings.
 	 * @param string[] $origins       List of origins to process presets from.
@@ -1866,8 +1866,8 @@ class WP_Theme_JSON {
 	 *       --wp--custom--variable: value;
 	 *     }
 	 *
-	 * @since 5.8.0
-	 * @since 5.9.0 Added the `$origins` parameter.
+	 * @since WP 5.8.0
+	 * @since WP 5.9.0 Added the `$origins` parameter.
 	 *
 	 * @param array    $nodes   Nodes with settings.
 	 * @param string[] $origins List of origins to process.
@@ -1899,7 +1899,7 @@ class WP_Theme_JSON {
 	 * Given a selector and a declaration list,
 	 * creates the corresponding ruleset.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @param string $selector     CSS selector.
 	 * @param array  $declarations List of declarations.
@@ -1924,9 +1924,9 @@ class WP_Theme_JSON {
 	 * Given a settings array, returns the generated rulesets
 	 * for the preset classes.
 	 *
-	 * @since 5.8.0
-	 * @since 5.9.0 Added the `$origins` parameter.
-	 * @since 6.6.0 Added check for root CSS properties selector.
+	 * @since WP 5.8.0
+	 * @since WP 5.9.0 Added the `$origins` parameter.
+	 * @since WP 6.6.0 Added check for root CSS properties selector.
 	 *
 	 * @param array    $settings Settings to process.
 	 * @param string   $selector Selector wrapping the classes.
@@ -1982,8 +1982,8 @@ class WP_Theme_JSON {
 	 * // $merged is '.a > .x, .a .y, .b .c > .x, .b .c .y'
 	 * </code>
 	 *
-	 * @since 5.9.0
-	 * @since 6.6.0 Added early return if missing scope or selector.
+	 * @since WP 5.9.0
+	 * @since WP 6.6.0 Added early return if missing scope or selector.
 	 *
 	 * @param string $scope    Selector to scope to.
 	 * @param string $selector Original selector.
@@ -2022,7 +2022,7 @@ class WP_Theme_JSON {
 	 * This includes the primary selector, i.e. `$node['selector']`, as well as any custom
 	 * selectors for features and subfeatures, e.g. `$node['selectors']['border']` etc.
 	 *
-	 * @since 6.6.0
+	 * @since WP 6.6.0
 	 *
 	 * @param string $scope Selector to scope to.
 	 * @param array  $node  Style node with selectors to scope.
@@ -2078,8 +2078,8 @@ class WP_Theme_JSON {
 	 * // );
 	 * </code>
 	 *
-	 * @since 5.9.0
-	 * @since 6.6.0 Passing $settings to the callbacks defined in static::PRESETS_METADATA.
+	 * @since WP 5.9.0
+	 * @since WP 6.6.0 Passing $settings to the callbacks defined in static::PRESETS_METADATA.
 	 *
 	 * @param array    $settings        Settings to process.
 	 * @param array    $preset_metadata One of the PRESETS_METADATA values.
@@ -2121,7 +2121,7 @@ class WP_Theme_JSON {
 	/**
 	 * Similar to get_settings_values_by_slug, but doesn't compute the value.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param array    $settings        Settings to process.
 	 * @param array    $preset_metadata One of the PRESETS_METADATA values.
@@ -2153,7 +2153,7 @@ class WP_Theme_JSON {
 	/**
 	 * Transforms a slug into a CSS Custom Property.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param string $input String to replace.
 	 * @param string $slug  The slug value to use to generate the custom property.
@@ -2173,8 +2173,8 @@ class WP_Theme_JSON {
 	 *       'value' => 'property_value,
 	 *     )
 	 *
-	 * @since 5.8.0
-	 * @since 5.9.0 Added the `$origins` parameter.
+	 * @since WP 5.8.0
+	 * @since WP 5.9.0 Added the `$origins` parameter.
 	 *
 	 * @param array    $settings Settings to process.
 	 * @param string[] $origins  List of origins to process.
@@ -2208,7 +2208,7 @@ class WP_Theme_JSON {
 	 *       'value' => 'property_value,
 	 *     )
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @param array $settings Settings to process.
 	 * @return array The modified $declarations.
@@ -2257,7 +2257,7 @@ class WP_Theme_JSON {
 	 *       '--wp--nested-property--sub-property': 'value'
 	 *     }
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @param array  $tree   Input tree to process.
 	 * @param string $prefix Optional. Prefix to prepend to each variable. Default empty string.
@@ -2295,12 +2295,12 @@ class WP_Theme_JSON {
 	 *       'value' => 'property_value',
 	 *     )
 	 *
-	 * @since 5.8.0
-	 * @since 5.9.0 Added the `$settings` and `$properties` parameters.
-	 * @since 6.1.0 Added `$theme_json`, `$selector`, and `$use_root_padding` parameters.
-	 * @since 6.5.0 Output a `min-height: unset` rule when `aspect-ratio` is set.
-	 * @since 6.6.0 Pass current theme JSON settings to wp_get_typography_font_size_value(), and process background properties.
-	 * @since 6.7.0 `ref` resolution of background properties, and assigning custom default values.
+	 * @since WP 5.8.0
+	 * @since WP 5.9.0 Added the `$settings` and `$properties` parameters.
+	 * @since WP 6.1.0 Added `$theme_json`, `$selector`, and `$use_root_padding` parameters.
+	 * @since WP 6.5.0 Output a `min-height: unset` rule when `aspect-ratio` is set.
+	 * @since WP 6.6.0 Pass current theme JSON settings to wp_get_typography_font_size_value(), and process background properties.
+	 * @since WP 6.7.0 `ref` resolution of background properties, and assigning custom default values.
 	 *
 	 * @param array   $styles Styles to process.
 	 * @param array   $settings Theme settings.
@@ -2433,14 +2433,14 @@ class WP_Theme_JSON {
 	 * stored at that location, e.g.
 	 * { "ref": "style.color.background" } => "#fff".
 	 *
-	 * @since 5.8.0
-	 * @since 5.9.0 Added support for values of array type, which are returned as is.
-	 * @since 6.1.0 Added the `$theme_json` parameter.
-	 * @since 6.3.0 It no longer converts the internal format "var:preset|color|secondary"
+	 * @since WP 5.8.0
+	 * @since WP 5.9.0 Added support for values of array type, which are returned as is.
+	 * @since WP 6.1.0 Added the `$theme_json` parameter.
+	 * @since WP 6.3.0 It no longer converts the internal format "var:preset|color|secondary"
 	 *              to the standard form "--wp--preset--color--secondary".
 	 *              This is already done by the sanitize method,
 	 *              so every property will be in the standard form.
-	 * @since 6.7.0 Added support for background image refs.
+	 * @since WP 6.7.0 Added support for background image refs.
 	 *
 	 * @param array $styles Styles subtree.
 	 * @param array $path   Which property to process.
@@ -2511,7 +2511,7 @@ class WP_Theme_JSON {
 	 *       ],
 	 *     ]
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @param array $theme_json The tree to extract setting nodes from.
 	 * @param array $selectors  List of selectors per block.
@@ -2565,8 +2565,8 @@ class WP_Theme_JSON {
 	 *       ],
 	 *     ]
 	 *
-	 * @since 5.8.0
-	 * @since 6.6.0 Added options array for modifying generated nodes.
+	 * @since WP 5.8.0
+	 * @since WP 6.6.0 Added options array for modifying generated nodes.
 	 *
 	 * @param array $theme_json The tree to extract style nodes from.
 	 * @param array $selectors  List of selectors per block.
@@ -2629,7 +2629,7 @@ class WP_Theme_JSON {
 		 *
 		 * This allows for things like loading block CSS independently.
 		 *
-		 * @since 6.1.0
+		 * @since WP 6.1.0
 		 *
 		 * @param array $nodes Style nodes with metadata.
 		 */
@@ -2639,7 +2639,7 @@ class WP_Theme_JSON {
 	/**
 	 * A public helper to get the block nodes from a theme.json file.
 	 *
-	 * @since 6.1.0
+	 * @since WP 6.1.0
 	 *
 	 * @return array The block nodes in theme.json.
 	 */
@@ -2651,7 +2651,7 @@ class WP_Theme_JSON {
 	 * Returns a filtered declarations array if there is a separator block with only a background
 	 * style defined in theme.json by adding a color attribute to reflect the changes in the front.
 	 *
-	 * @since 6.1.1
+	 * @since WP 6.1.1
 	 *
 	 * @param array $declarations List of declarations.
 	 * @return array $declarations List of declarations filtered.
@@ -2688,10 +2688,10 @@ class WP_Theme_JSON {
 	/**
 	 * An internal method to get the block nodes from a theme.json file.
 	 *
-	 * @since 6.1.0
-	 * @since 6.3.0 Refactored and stabilized selectors API.
-	 * @since 6.6.0 Added optional selectors and options for generating block nodes.
-	 * @since 6.7.0 Added $include_node_paths_only option.
+	 * @since WP 6.1.0
+	 * @since WP 6.3.0 Refactored and stabilized selectors API.
+	 * @since WP 6.6.0 Added optional selectors and options for generating block nodes.
+	 * @since WP 6.7.0 Added $include_node_paths_only option.
 	 *
 	 * @param array $theme_json The theme.json converted to an array.
 	 * @param array $selectors  Optional list of selectors per block.
@@ -2806,8 +2806,8 @@ class WP_Theme_JSON {
 	/**
 	 * Gets the CSS rules for a particular block from theme.json.
 	 *
-	 * @since 6.1.0
-	 * @since 6.6.0 Setting a min-height of HTML when root styles have a background gradient or image.
+	 * @since WP 6.1.0
+	 * @since WP 6.6.0 Setting a min-height of HTML when root styles have a background gradient or image.
 	 *              Updated general global styles specificity to 0-1-0.
 	 *              Fixed custom CSS output in block style variations.
 	 *
@@ -3022,8 +3022,8 @@ class WP_Theme_JSON {
 	/**
 	 * Outputs the CSS for layout rules on the root.
 	 *
-	 * @since 6.1.0
-	 * @since 6.6.0 Use `ROOT_CSS_PROPERTIES_SELECTOR` for CSS custom properties and improved consistency of root padding rules.
+	 * @since WP 6.1.0
+	 * @since WP 6.6.0 Use `ROOT_CSS_PROPERTIES_SELECTOR` for CSS custom properties and improved consistency of root padding rules.
 	 *              Updated specificity of body margin reset and first/last child selectors.
 	 *
 	 * @param string $selector The root node selector.
@@ -3105,7 +3105,7 @@ class WP_Theme_JSON {
 	 *     static::get_metadata_boolean( $data, array( 'color', 'defaultPalette' ) );
 	 *     // => true
 	 *
-	 * @since 6.0.0
+	 * @since WP 6.0.0
 	 *
 	 * @param array      $data          The data to inspect.
 	 * @param bool|array $path          Boolean or path to a boolean.
@@ -3131,9 +3131,9 @@ class WP_Theme_JSON {
 	/**
 	 * Merges new incoming data.
 	 *
-	 * @since 5.8.0
-	 * @since 5.9.0 Duotone preset also has origins.
-	 * @since 6.7.0 Replace background image objects during merge.
+	 * @since WP 5.8.0
+	 * @since WP 5.9.0 Duotone preset also has origins.
+	 * @since WP 6.7.0 Replace background image objects during merge.
 	 *
 	 * @param WP_Theme_JSON $incoming Data to merge.
 	 */
@@ -3289,7 +3289,7 @@ class WP_Theme_JSON {
 	/**
 	 * Converts all filter (duotone) presets into SVGs.
 	 *
-	 * @since 5.9.1
+	 * @since WP 5.9.1
 	 *
 	 * @param array $origins List of origins to process.
 	 * @return string SVG filters.
@@ -3323,8 +3323,8 @@ class WP_Theme_JSON {
 	/**
 	 * Determines whether a presets should be overridden or not.
 	 *
-	 * @since 5.9.0
-	 * @deprecated 6.0.0 Use {@see 'get_metadata_boolean'} instead.
+	 * @since WP 5.9.0
+	 * @deprecated WP 6.0.0 Use {@see 'get_metadata_boolean'} instead.
 	 *
 	 * @param array      $theme_json The theme.json like structure to inspect.
 	 * @param array      $path       Path to inspect.
@@ -3379,7 +3379,7 @@ class WP_Theme_JSON {
 	 *       ),
 	 *     )
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param array $data      A theme.json like structure.
 	 * @param array $node_path The path to inspect. It's 'settings' by default.
@@ -3416,7 +3416,7 @@ class WP_Theme_JSON {
 	/**
 	 * Gets a `default`'s preset name by a provided slug.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param string $slug The slug we want to find a match from default presets.
 	 * @param array  $base_path The path to inspect. It's 'settings' by default.
@@ -3440,7 +3440,7 @@ class WP_Theme_JSON {
 	/**
 	 * Removes the preset values whose slug is equal to any of given slugs.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param array $node  The node with the presets to validate.
 	 * @param array $slugs The slugs that should not be overridden.
@@ -3464,9 +3464,9 @@ class WP_Theme_JSON {
 	/**
 	 * Removes insecure data from theme.json.
 	 *
-	 * @since 5.9.0
-	 * @since 6.3.2 Preserves global styles block variations when securing styles.
-	 * @since 6.6.0 Updated to allow variation element styles and $origin parameter.
+	 * @since WP 5.9.0
+	 * @since WP 6.3.2 Preserves global styles block variations when securing styles.
+	 * @since WP 6.6.0 Updated to allow variation element styles and $origin parameter.
 	 *
 	 * @param array  $theme_json Structure to sanitize.
 	 * @param string $origin     Optional. What source of data this object represents.
@@ -3597,7 +3597,7 @@ class WP_Theme_JSON {
 	 * Processes a setting node and returns the same node
 	 * without the insecure settings.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param array $input Node to process.
 	 * @return array
@@ -3659,7 +3659,7 @@ class WP_Theme_JSON {
 	 * Processes a style node and returns the same node
 	 * without the insecure styles.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param array $input Node to process.
 	 * @return array
@@ -3692,7 +3692,7 @@ class WP_Theme_JSON {
 	/**
 	 * Checks that a declaration provided by the user is safe.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param string $property_name  Property name in a CSS declaration, i.e. the `color` in `color: red`.
 	 * @param string $property_value Value in a CSS declaration, i.e. the `red` in `color: red`.
@@ -3708,7 +3708,7 @@ class WP_Theme_JSON {
 	 * Removes indirect properties from the given input node and
 	 * sets in the given output node.
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 *
 	 * @param array $input  Node to process.
 	 * @param array $output The processed node. Passed by reference.
@@ -3730,7 +3730,7 @@ class WP_Theme_JSON {
 	/**
 	 * Returns the raw data.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @return array Raw data.
 	 */
@@ -3742,7 +3742,7 @@ class WP_Theme_JSON {
 	 * Transforms the given editor settings according the
 	 * add_theme_support format to the theme.json format.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @param array $settings Existing editor settings.
 	 * @return array Config that adheres to the theme.json schema.
@@ -3810,7 +3810,7 @@ class WP_Theme_JSON {
 	 * Returns the current theme's wanted patterns(slugs) to be
 	 * registered from Pattern Directory.
 	 *
-	 * @since 6.0.0
+	 * @since WP 6.0.0
 	 *
 	 * @return string[]
 	 */
@@ -3827,7 +3827,7 @@ class WP_Theme_JSON {
 	 * Unlike get_raw_data() this returns the presets flattened, as provided by a theme.
 	 * This also uses appearanceTools instead of their opt-ins if all of them are true.
 	 *
-	 * @since 6.0.0
+	 * @since WP 6.0.0
 	 *
 	 * @return array
 	 */
@@ -3975,8 +3975,8 @@ class WP_Theme_JSON {
 	/**
 	 * Sets the spacingSizes array based on the spacingScale values from theme.json.
 	 *
-	 * @since 6.1.0
-	 * @deprecated 6.6.0 No longer used as the spacingSizes are automatically
+	 * @since WP 6.1.0
+	 * @deprecated WP 6.6.0 No longer used as the spacingSizes are automatically
 	 *                   generated in the constructor and merge methods instead
 	 *                   of manually after instantiation.
 	 *
@@ -4034,7 +4034,7 @@ class WP_Theme_JSON {
 	/**
 	 * Merges two sets of spacing size presets.
 	 *
-	 * @since 6.6.0
+	 * @since WP 6.6.0
 	 *
 	 * @param array $base     The base set of spacing sizes.
 	 * @param array $incoming The set of spacing sizes to merge with the base. Duplicate slugs will override the base values.
@@ -4079,7 +4079,7 @@ class WP_Theme_JSON {
 	 *     //        array( 'name' => 'X-Large', 'slug' => '70', 'size' => '20px' ),
 	 *     //    )
 	 *
-	 * @since 6.6.0
+	 * @since WP 6.6.0
 	 *
 	 * @param array $spacing_scale {
 	 *      The spacing scale values. All are required.
@@ -4201,7 +4201,7 @@ class WP_Theme_JSON {
 	 * This is used to convert the internal representation of variables to the CSS representation.
 	 * For example, `var:preset|color|vivid-green-cyan` becomes `var(--wp--preset--color--vivid-green-cyan)`.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param string $value The variable such as var:preset|color|vivid-green-cyan to convert.
 	 * @return string The converted variable.
@@ -4227,7 +4227,7 @@ class WP_Theme_JSON {
 	 * Given a tree, converts the internal representation of variables to the CSS representation.
 	 * It is recursive and modifies the input in-place.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param array $tree Input to process.
 	 * @return array The modified $tree.
@@ -4249,7 +4249,7 @@ class WP_Theme_JSON {
 	/**
 	 * Returns the selectors metadata for a block.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param object $block_type    The block type.
 	 * @param string $root_selector The block's root selector.
@@ -4274,7 +4274,7 @@ class WP_Theme_JSON {
 	/**
 	 * Generates all the element selectors for a block.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param string $root_selector The block's root CSS selector.
 	 * @return array The block's element selectors.
@@ -4307,7 +4307,7 @@ class WP_Theme_JSON {
 	 * typography etc. that have custom selectors in their related block's
 	 * metadata.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param object $metadata The related block metadata containing selectors.
 	 * @param object $node     A merged theme.json node for block or variation.
@@ -4417,8 +4417,8 @@ class WP_Theme_JSON {
 	/**
 	 * Replaces CSS variables with their values in place.
 	 *
-	 * @since 6.3.0
-	 * @since 6.5.0 Check for empty style before processing its value.
+	 * @since WP 6.3.0
+	 * @since WP 6.5.0 Check for empty style before processing its value.
 	 *
 	 * @param array $styles CSS declarations to convert.
 	 * @param array $values key => value pairs to use for replacement.
@@ -4469,7 +4469,7 @@ class WP_Theme_JSON {
 	/**
 	 * Resolves the values of CSS variables in the given styles.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param WP_Theme_JSON $theme_json The theme json resolver.
 	 * @return WP_Theme_JSON The $theme_json with resolved variables.
@@ -4496,7 +4496,7 @@ class WP_Theme_JSON {
 	/**
 	 * Generates a selector for a block style variation.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $variation_name Name of the block style variation.
 	 * @param string $block_selector CSS selector for the block.
@@ -4530,7 +4530,7 @@ class WP_Theme_JSON {
 	/**
 	 * Collects valid block style variations keyed by block type.
 	 *
-	 * @since 6.6.0
+	 * @since WP 6.6.0
 	 *
 	 * @return array Valid block style variations by block type.
 	 */

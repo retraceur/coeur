@@ -2,7 +2,7 @@
  * Creates a dialog containing posts that can have a particular media attached
  * to it.
  *
- * @since 2.7.0
+ * @since WP 2.7.0
  * @output wp-admin/js/media.js
  *
  * @namespace findPosts
@@ -19,7 +19,7 @@
 		 *
 		 * Adds an overlay prior to retrieving a list of posts to attach the media to.
 		 *
-		 * @since 2.7.0
+		 * @since WP 2.7.0
 		 *
 		 * @memberOf findPosts
 		 *
@@ -61,7 +61,7 @@
 		/**
 		 * Clears the found posts lists before hiding the attach media dialog.
 		 *
-		 * @since 2.7.0
+		 * @since WP 2.7.0
 		 *
 		 * @memberOf findPosts
 		 *
@@ -77,7 +77,7 @@
 		 * Binds a click event listener to the overlay which closes the attach media
 		 * dialog.
 		 *
-		 * @since 3.5.0
+		 * @since WP 3.5.0
 		 *
 		 * @memberOf findPosts
 		 *
@@ -96,7 +96,7 @@
 		 * search term provided by the user. Defaults to all posts if no search term is
 		 * provided.
 		 *
-		 * @since 2.7.0
+		 * @since WP 2.7.0
 		 *
 		 * @memberOf findPosts
 		 *
@@ -213,7 +213,7 @@
 		/**
 		 * Handles media list copy media URL button.
 		 *
-		 * @since 6.0.0
+		 * @since WP 6.0.0
 		 *
 		 * @param {MouseEvent} event A click event.
 		 * @return {void}

@@ -816,7 +816,7 @@ window.wp = window.wp || {};
 	 *
 	 * @class
 	 * @augments wp.customize.Class
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 *
 	 * @memberOf wp.customize
 	 * @alias wp.customize.Notification
@@ -836,7 +836,7 @@ window.wp = window.wp || {};
 		 *
 		 * This will be populated with template option or else it will be populated with template from the ID.
 		 *
-		 * @since 4.9.0
+		 * @since WP 4.9.0
 		 * @var {Function}
 		 */
 		template: null,
@@ -844,7 +844,7 @@ window.wp = window.wp || {};
 		/**
 		 * ID for the template to render the notification.
 		 *
-		 * @since 4.9.0
+		 * @since WP 4.9.0
 		 * @var {string}
 		 */
 		templateId: 'customize-notification',
@@ -852,7 +852,7 @@ window.wp = window.wp || {};
 		/**
 		 * Additional class names to add to the notification container.
 		 *
-		 * @since 4.9.0
+		 * @since WP 4.9.0
 		 * @var {string}
 		 */
 		containerClasses: '',
@@ -860,7 +860,7 @@ window.wp = window.wp || {};
 		/**
 		 * Initialize notification.
 		 *
-		 * @since 4.9.0
+		 * @since WP 4.9.0
 		 *
 		 * @param {string}   code - Notification code.
 		 * @param {Object}   params - Notification parameters.
@@ -895,7 +895,7 @@ window.wp = window.wp || {};
 		/**
 		 * Render the notification.
 		 *
-		 * @since 4.9.0
+		 * @since WP 4.9.0
 		 *
 		 * @return {jQuery} Notification container element.
 		 */
@@ -957,7 +957,7 @@ window.wp = window.wp || {};
 	/**
 	 * Parse query string.
 	 *
-	 * @since 4.7.0
+	 * @since WP 4.7.0
 	 * @access public
 	 *
 	 * @alias wp.customize.utils.parseQueryString

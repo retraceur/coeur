@@ -4,7 +4,7 @@
  *
  * @package motsVertueux
  * @subpackage Block Bindings
- * @since 6.5.0
+ * @since WP 6.5.0
  */
 
 /**
@@ -12,7 +12,7 @@
  *
  * This class is designed for internal use by the Block Bindings registry.
  *
- * @since 6.5.0
+ * @since WP 6.5.0
  * @access private
  *
  * @see WP_Block_Bindings_Registry
@@ -22,7 +22,7 @@ final class WP_Block_Bindings_Source {
 	/**
 	 * The name of the source.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 * @var string
 	 */
 	public $name;
@@ -30,7 +30,7 @@ final class WP_Block_Bindings_Source {
 	/**
 	 * The label of the source.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 * @var string
 	 */
 	public $label;
@@ -38,7 +38,7 @@ final class WP_Block_Bindings_Source {
 	/**
 	 * The function used to get the value from the source.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 * @var callable
 	 */
 	private $get_value_callback;
@@ -46,7 +46,7 @@ final class WP_Block_Bindings_Source {
 	/**
 	 * The context added to the blocks needed by the source.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 * @var string[]|null
 	 */
 	public $uses_context = null;
@@ -57,7 +57,7 @@ final class WP_Block_Bindings_Source {
 	 * Do not use this constructor directly. Instead, use the
 	 * `WP_Block_Bindings_Registry::register` method or the `register_block_bindings_source` function.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $name              The name of the source.
 	 * @param array  $source_properties The properties of the source.
@@ -74,8 +74,8 @@ final class WP_Block_Bindings_Source {
 	 * with the given arguments and returns the result. It can be modified with
 	 * `block_bindings_source_value` filter.
 	 *
-	 * @since 6.5.0
-	 * @since 6.7.0 `block_bindings_source_value` filter was added.
+	 * @since WP 6.5.0
+	 * @since WP 6.7.0 `block_bindings_source_value` filter was added.
 	 *
 	 * @param array    $source_args    Array containing source arguments used to look up the override value, i.e. {"key": "foo"}.
 	 * @param WP_Block $block_instance The block instance.
@@ -87,7 +87,7 @@ final class WP_Block_Bindings_Source {
 		/**
 		 * Filters the output of a block bindings source.
 		 *
-		 * @since 6.7.0
+		 * @since WP 6.7.0
 		 *
 		 * @param mixed    $value          The computed value for the source.
 		 * @param string   $name           The name of the source.
@@ -101,7 +101,7 @@ final class WP_Block_Bindings_Source {
 	/**
 	 * Wakeup magic method.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 */
 	public function __wakeup() {
 		throw new \LogicException( __CLASS__ . ' should never be unserialized' );

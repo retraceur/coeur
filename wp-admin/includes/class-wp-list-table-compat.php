@@ -4,13 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage List_Table
- * @since 4.7.0
+ * @since WP 4.7.0
  */
 
 /**
  * Helper class to be used only by back compat functions.
  *
- * @since 3.1.0
+ * @since WP 3.1.0
  */
 class _WP_List_Table_Compat extends WP_List_Table {
 	public $_screen;
@@ -19,7 +19,7 @@ class _WP_List_Table_Compat extends WP_List_Table {
 	/**
 	 * Constructor.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @param string|WP_Screen $screen  The screen hook name or screen object.
 	 * @param string[]         $columns An array of columns with column IDs as the keys
@@ -41,7 +41,7 @@ class _WP_List_Table_Compat extends WP_List_Table {
 	/**
 	 * Gets a list of all, hidden, and sortable columns.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @return array
 	 */
@@ -57,7 +57,7 @@ class _WP_List_Table_Compat extends WP_List_Table {
 	/**
 	 * Gets a list of columns.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @return array
 	 */

@@ -5,7 +5,7 @@
  * @version $Id: translations.php 1157 2015-11-20 04:30:11Z dd32 $
  * @package pomo
  * @subpackage translations
- * @since 2.8.0
+ * @since WP 2.8.0
  */
 
 require_once __DIR__ . '/plural-forms.php';
@@ -15,14 +15,14 @@ if ( ! class_exists( 'Translations', false ) ) :
 	/**
 	 * Translations class.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 */
 	#[AllowDynamicProperties]
 	class Translations {
 		/**
 		 * List of translation entries.
 		 *
-		 * @since 2.8.0
+		 * @since WP 2.8.0
 		 *
 		 * @var Translation_Entry[]
 		 */
@@ -31,7 +31,7 @@ if ( ! class_exists( 'Translations', false ) ) :
 		/**
 		 * List of translation headers.
 		 *
-		 * @since 2.8.0
+		 * @since WP 2.8.0
 		 *
 		 * @var array<string, string>
 		 */
@@ -40,7 +40,7 @@ if ( ! class_exists( 'Translations', false ) ) :
 		/**
 		 * Adds an entry to the PO structure.
 		 *
-		 * @since 2.8.0
+		 * @since WP 2.8.0
 		 *
 		 * @param array|Translation_Entry $entry
 		 * @return bool True on success, false if the entry doesn't have a key.
@@ -60,7 +60,7 @@ if ( ! class_exists( 'Translations', false ) ) :
 		/**
 		 * Adds or merges an entry to the PO structure.
 		 *
-		 * @since 2.8.0
+		 * @since WP 2.8.0
 		 *
 		 * @param array|Translation_Entry $entry
 		 * @return bool True on success, false if the entry doesn't have a key.
@@ -88,7 +88,7 @@ if ( ! class_exists( 'Translations', false ) ) :
 		 *
 		 * TODO: this should be out of this class, it is gettext specific
 		 *
-		 * @since 2.8.0
+		 * @since WP 2.8.0
 		 *
 		 * @param string $header header name, without trailing :
 		 * @param string $value header value, without trailing \n
@@ -100,7 +100,7 @@ if ( ! class_exists( 'Translations', false ) ) :
 		/**
 		 * Sets translation headers.
 		 *
-		 * @since 2.8.0
+		 * @since WP 2.8.0
 		 *
 		 * @param array $headers Associative array of headers.
 		 */
@@ -113,7 +113,7 @@ if ( ! class_exists( 'Translations', false ) ) :
 		/**
 		 * Returns a given translation header.
 		 *
-		 * @since 2.8.0
+		 * @since WP 2.8.0
 		 *
 		 * @param string $header
 		 * @return string|false Header if it exists, false otherwise.
@@ -125,7 +125,7 @@ if ( ! class_exists( 'Translations', false ) ) :
 		/**
 		 * Returns a given translation entry.
 		 *
-		 * @since 2.8.0
+		 * @since WP 2.8.0
 		 *
 		 * @param Translation_Entry $entry Translation entry.
 		 * @return Translation_Entry|false Translation entry if it exists, false otherwise.
@@ -138,7 +138,7 @@ if ( ! class_exists( 'Translations', false ) ) :
 		/**
 		 * Translates a singular string.
 		 *
-		 * @since 2.8.0
+		 * @since WP 2.8.0
 		 *
 		 * @param string $singular
 		 * @param string $context
@@ -164,7 +164,7 @@ if ( ! class_exists( 'Translations', false ) ) :
 		 * This function should be overridden by the subclasses. For example MO/PO can derive the logic
 		 * from their headers.
 		 *
-		 * @since 2.8.0
+		 * @since WP 2.8.0
 		 *
 		 * @param int $count Number of items.
 		 * @return int Plural form to use.
@@ -176,7 +176,7 @@ if ( ! class_exists( 'Translations', false ) ) :
 		/**
 		 * Returns the plural forms count.
 		 *
-		 * @since 2.8.0
+		 * @since WP 2.8.0
 		 *
 		 * @return int Plural forms count.
 		 */
@@ -187,7 +187,7 @@ if ( ! class_exists( 'Translations', false ) ) :
 		/**
 		 * Translates a plural string.
 		 *
-		 * @since 2.8.0
+		 * @since WP 2.8.0
 		 *
 		 * @param string $singular
 		 * @param string $plural
@@ -218,7 +218,7 @@ if ( ! class_exists( 'Translations', false ) ) :
 		/**
 		 * Merges other translations into the current one.
 		 *
-		 * @since 2.8.0
+		 * @since WP 2.8.0
 		 *
 		 * @param Translations $other Another Translation object, whose translations will be merged in this one (passed by reference).
 		 */
@@ -231,7 +231,7 @@ if ( ! class_exists( 'Translations', false ) ) :
 		/**
 		 * Merges originals with existing entries.
 		 *
-		 * @since 2.8.0
+		 * @since WP 2.8.0
 		 *
 		 * @param Translations $other
 		 */
@@ -249,7 +249,7 @@ if ( ! class_exists( 'Translations', false ) ) :
 	/**
 	 * Gettext_Translations class.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 */
 	class Gettext_Translations extends Translations {
 
@@ -258,7 +258,7 @@ if ( ! class_exists( 'Translations', false ) ) :
 		 *
 		 * @var int
 		 *
-		 * @since 2.8.0
+		 * @since WP 2.8.0
 		 */
 		public $_nplurals;
 
@@ -267,7 +267,7 @@ if ( ! class_exists( 'Translations', false ) ) :
 		 *
 		 * @var callable
 		 *
-		 * @since 2.8.0
+		 * @since WP 2.8.0
 		 */
 		public $_gettext_select_plural_form;
 
@@ -277,7 +277,7 @@ if ( ! class_exists( 'Translations', false ) ) :
 		 * It lives in this class, because there are more than one descendant, which will use it and
 		 * they can't share it effectively.
 		 *
-		 * @since 2.8.0
+		 * @since WP 2.8.0
 		 *
 		 * @param int $count Plural forms count.
 		 * @return int Plural form to use.
@@ -294,7 +294,7 @@ if ( ! class_exists( 'Translations', false ) ) :
 		/**
 		 * Returns the nplurals and plural forms expression from the Plural-Forms header.
 		 *
-		 * @since 2.8.0
+		 * @since WP 2.8.0
 		 *
 		 * @param string $header
 		 * @return array{0: int, 1: string}
@@ -313,7 +313,7 @@ if ( ! class_exists( 'Translations', false ) ) :
 		 * Makes a function, which will return the right translation index, according to the
 		 * plural forms header.
 		 *
-		 * @since 2.8.0
+		 * @since WP 2.8.0
 		 *
 		 * @param int    $nplurals
 		 * @param string $expression
@@ -333,8 +333,8 @@ if ( ! class_exists( 'Translations', false ) ) :
 		 * Adds parentheses to the inner parts of ternary operators in
 		 * plural expressions, because PHP evaluates ternary operators from left to right
 		 *
-		 * @since 2.8.0
-		 * @deprecated 6.5.0 Use the Plural_Forms class instead.
+		 * @since WP 2.8.0
+		 * @deprecated WP 6.5.0 Use the Plural_Forms class instead.
 		 *
 		 * @see Plural_Forms
 		 *
@@ -369,7 +369,7 @@ if ( ! class_exists( 'Translations', false ) ) :
 		/**
 		 * Prepare translation headers.
 		 *
-		 * @since 2.8.0
+		 * @since WP 2.8.0
 		 *
 		 * @param string $translation
 		 * @return array<string, string> Translation headers
@@ -392,7 +392,7 @@ if ( ! class_exists( 'Translations', false ) ) :
 		/**
 		 * Sets translation headers.
 		 *
-		 * @since 2.8.0
+		 * @since WP 2.8.0
 		 *
 		 * @param string $header
 		 * @param string $value
@@ -412,14 +412,14 @@ if ( ! class_exists( 'NOOP_Translations', false ) ) :
 	/**
 	 * Provides the same interface as Translations, but doesn't do anything.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 */
 	#[AllowDynamicProperties]
 	class NOOP_Translations {
 		/**
 		 * List of translation entries.
 		 *
-		 * @since 2.8.0
+		 * @since WP 2.8.0
 		 *
 		 * @var Translation_Entry[]
 		 */
@@ -428,7 +428,7 @@ if ( ! class_exists( 'NOOP_Translations', false ) ) :
 		/**
 		 * List of translation headers.
 		 *
-		 * @since 2.8.0
+		 * @since WP 2.8.0
 		 *
 		 * @var array<string, string>
 		 */
@@ -441,7 +441,7 @@ if ( ! class_exists( 'NOOP_Translations', false ) ) :
 		/**
 		 * Sets a translation header.
 		 *
-		 * @since 2.8.0
+		 * @since WP 2.8.0
 		 *
 		 * @param string $header
 		 * @param string $value
@@ -452,7 +452,7 @@ if ( ! class_exists( 'NOOP_Translations', false ) ) :
 		/**
 		 * Sets translation headers.
 		 *
-		 * @since 2.8.0
+		 * @since WP 2.8.0
 		 *
 		 * @param array $headers
 		 */
@@ -462,7 +462,7 @@ if ( ! class_exists( 'NOOP_Translations', false ) ) :
 		/**
 		 * Returns a translation header.
 		 *
-		 * @since 2.8.0
+		 * @since WP 2.8.0
 		 *
 		 * @param string $header
 		 * @return false
@@ -474,7 +474,7 @@ if ( ! class_exists( 'NOOP_Translations', false ) ) :
 		/**
 		 * Returns a given translation entry.
 		 *
-		 * @since 2.8.0
+		 * @since WP 2.8.0
 		 *
 		 * @param Translation_Entry $entry
 		 * @return false
@@ -486,7 +486,7 @@ if ( ! class_exists( 'NOOP_Translations', false ) ) :
 		/**
 		 * Translates a singular string.
 		 *
-		 * @since 2.8.0
+		 * @since WP 2.8.0
 		 *
 		 * @param string $singular
 		 * @param string $context
@@ -498,7 +498,7 @@ if ( ! class_exists( 'NOOP_Translations', false ) ) :
 		/**
 		 * Returns the plural form to use.
 		 *
-		 * @since 2.8.0
+		 * @since WP 2.8.0
 		 *
 		 * @param int $count
 		 * @return int
@@ -510,7 +510,7 @@ if ( ! class_exists( 'NOOP_Translations', false ) ) :
 		/**
 		 * Returns the plural forms count.
 		 *
-		 * @since 2.8.0
+		 * @since WP 2.8.0
 		 *
 		 * @return int
 		 */
@@ -521,7 +521,7 @@ if ( ! class_exists( 'NOOP_Translations', false ) ) :
 		/**
 		 * Translates a plural string.
 		 *
-		 * @since 2.8.0
+		 * @since WP 2.8.0
 		 *
 		 * @param string $singular
 		 * @param string $plural
@@ -536,7 +536,7 @@ if ( ! class_exists( 'NOOP_Translations', false ) ) :
 		/**
 		 * Merges other translations into the current one.
 		 *
-		 * @since 2.8.0
+		 * @since WP 2.8.0
 		 *
 		 * @param Translations $other
 		 */

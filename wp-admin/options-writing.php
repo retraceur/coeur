@@ -48,12 +48,6 @@ if ( apply_filters( 'enable_update_services_configuration', true ) ) {
 	);
 }
 
-get_current_screen()->set_help_sidebar(
-	'<p><strong>' . __( 'For more information:' ) . '</strong></p>' .
-	'<p>' . __( '<a href="https://wordpress.org/documentation/article/settings-writing-screen/">Documentation on Writing Settings</a>' ) . '</p>' .
-	'<p>' . __( '<a href="https://wordpress.org/support/forums/">Support forums</a>' ) . '</p>'
-);
-
 wp_enqueue_script( 'user-profile' );
 
 require_once ABSPATH . 'wp-admin/admin-header.php';
@@ -210,7 +204,7 @@ if ( apply_filters( 'enable_post_by_email_configuration', true ) ) {
 /**
  * Filters whether to enable the Update Services section in the Writing settings screen.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @param bool $enable Whether to enable the Update Services settings area. Default true.
  */
@@ -220,15 +214,9 @@ if ( apply_filters( 'enable_update_services_configuration', true ) ) {
 
 	<?php if ( '1' === get_option( 'blog_public' ) ) : ?>
 
-	<p><label for="ping_sites">
-		<?php
-		printf(
-			/* translators: %s: Documentation URL. */
-			__( 'When you publish a new post, WordPress automatically notifies the following site update services. For more about this, see the <a href="%s">Update Services</a> documentation article. Separate multiple service URLs with line breaks.' ),
-			__( 'https://developer.wordpress.org/advanced-administration/wordpress/update-services/' )
-		);
-		?>
-	</label></p>
+	<p>
+		<label for="ping_sites"><?php esc_html_e( 'When you publish a new post, WordPress automatically notifies the following site update services. Separate multiple service URLs with line breaks.' ) ;?></label>
+	</p>
 
 	<textarea name="ping_sites" id="ping_sites" class="large-text code" rows="3"><?php echo esc_textarea( get_option( 'ping_sites' ) ); ?></textarea>
 
@@ -237,9 +225,8 @@ if ( apply_filters( 'enable_update_services_configuration', true ) ) {
 	<p>
 		<?php
 		printf(
-			/* translators: 1: Documentation URL, 2: URL to Reading Settings screen. */
-			__( 'WordPress is not notifying any <a href="%1$s">Update Services</a> because of your site&#8217;s <a href="%2$s">visibility settings</a>.' ),
-			__( 'https://developer.wordpress.org/advanced-administration/wordpress/update-services/' ),
+			/* translators: 1: URL to Reading Settings screen. */
+			__( 'WordPress is not notifying any Update Services because of your site&#8217;s <a href="%s">visibility settings</a>.' ),
 			'options-reading.php'
 		);
 		?>

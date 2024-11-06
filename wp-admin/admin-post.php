@@ -41,7 +41,7 @@ if ( ! is_user_logged_in() ) {
 		/**
 		 * Fires on a non-authenticated admin post request where no action is supplied.
 		 *
-		 * @since 2.6.0
+		 * @since WP 2.6.0
 		 */
 		do_action( 'admin_post_nopriv' );
 	} else {
@@ -56,7 +56,7 @@ if ( ! is_user_logged_in() ) {
 		 * The dynamic portion of the hook name, `$action`, refers to the given
 		 * request action.
 		 *
-		 * @since 2.6.0
+		 * @since WP 2.6.0
 		 */
 		do_action( "admin_post_nopriv_{$action}" );
 	}
@@ -65,7 +65,7 @@ if ( ! is_user_logged_in() ) {
 		/**
 		 * Fires on an authenticated admin post request where no action is supplied.
 		 *
-		 * @since 2.6.0
+		 * @since WP 2.6.0
 		 */
 		do_action( 'admin_post' );
 	} else {
@@ -80,7 +80,7 @@ if ( ! is_user_logged_in() ) {
 		 * The dynamic portion of the hook name, `$action`, refers to the given
 		 * request action.
 		 *
-		 * @since 2.6.0
+		 * @since WP 2.6.0
 		 */
 		do_action( "admin_post_{$action}" );
 	}

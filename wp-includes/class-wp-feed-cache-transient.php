@@ -4,14 +4,14 @@
  *
  * @package motsVertueux
  * @subpackage Feed
- * @since 4.7.0
+ * @since WP 4.7.0
  */
 
 /**
  * Core class used to implement feed cache transients.
  *
- * @since 2.8.0
- * @since 6.7.0 Now properly implements the SimplePie\Cache\Base interface.
+ * @since WP 2.8.0
+ * @since WP 6.7.0 Now properly implements the SimplePie\Cache\Base interface.
  */
 #[AllowDynamicProperties]
 class WP_Feed_Cache_Transient implements SimplePie\Cache\Base {
@@ -19,7 +19,7 @@ class WP_Feed_Cache_Transient implements SimplePie\Cache\Base {
 	/**
 	 * Holds the transient name.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 * @var string
 	 */
 	public $name;
@@ -27,7 +27,7 @@ class WP_Feed_Cache_Transient implements SimplePie\Cache\Base {
 	/**
 	 * Holds the transient mod name.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 * @var string
 	 */
 	public $mod_name;
@@ -37,7 +37,7 @@ class WP_Feed_Cache_Transient implements SimplePie\Cache\Base {
 	 *
 	 * Defaults to 43200 seconds (12 hours).
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 * @var int
 	 */
 	public $lifetime = 43200;
@@ -45,9 +45,9 @@ class WP_Feed_Cache_Transient implements SimplePie\Cache\Base {
 	/**
 	 * Creates a new (transient) cache object.
 	 *
-	 * @since 2.8.0
-	 * @since 3.2.0 Updated to use a PHP5 constructor.
-	 * @since 6.7.0 Parameter names have been updated to be in line with the `SimplePie\Cache\Base` interface.
+	 * @since WP 2.8.0
+	 * @since WP 3.2.0 Updated to use a PHP5 constructor.
+	 * @since WP 6.7.0 Parameter names have been updated to be in line with the `SimplePie\Cache\Base` interface.
 	 *
 	 * @param string                           $location URL location (scheme is used to determine handler).
 	 * @param string                           $name     Unique identifier for cache object.
@@ -62,7 +62,7 @@ class WP_Feed_Cache_Transient implements SimplePie\Cache\Base {
 		/**
 		 * Filters the transient lifetime of the feed cache.
 		 *
-		 * @since 2.8.0
+		 * @since WP 2.8.0
 		 *
 		 * @param int    $lifetime Cache duration in seconds. Default is 43200 seconds (12 hours).
 		 * @param string $name     Unique identifier for the cache object.
@@ -73,7 +73,7 @@ class WP_Feed_Cache_Transient implements SimplePie\Cache\Base {
 	/**
 	 * Saves data to the transient.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @param array|SimplePie\SimplePie $data Data to save. If passed a SimplePie object,
 	 *                                        only cache the `$data` property.
@@ -92,7 +92,7 @@ class WP_Feed_Cache_Transient implements SimplePie\Cache\Base {
 	/**
 	 * Retrieves the data saved in the transient.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @return array Data for `SimplePie::$data`.
 	 */
@@ -103,7 +103,7 @@ class WP_Feed_Cache_Transient implements SimplePie\Cache\Base {
 	/**
 	 * Gets mod transient.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @return int Timestamp.
 	 */
@@ -114,7 +114,7 @@ class WP_Feed_Cache_Transient implements SimplePie\Cache\Base {
 	/**
 	 * Sets mod transient.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @return bool False if value was not set and true if value was set.
 	 */
@@ -125,7 +125,7 @@ class WP_Feed_Cache_Transient implements SimplePie\Cache\Base {
 	/**
 	 * Deletes transients.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @return true Always true.
 	 */

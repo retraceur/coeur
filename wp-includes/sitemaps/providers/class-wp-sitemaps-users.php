@@ -6,19 +6,19 @@
  *
  * @package motsVertueux
  * @subpackage Sitemaps
- * @since 5.5.0
+ * @since WP 5.5.0
  */
 
 /**
  * Users XML sitemap provider.
  *
- * @since 5.5.0
+ * @since WP 5.5.0
  */
 class WP_Sitemaps_Users extends WP_Sitemaps_Provider {
 	/**
 	 * WP_Sitemaps_Users constructor.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 */
 	public function __construct() {
 		$this->name        = 'users';
@@ -28,7 +28,7 @@ class WP_Sitemaps_Users extends WP_Sitemaps_Provider {
 	/**
 	 * Gets a URL list for a user sitemap.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @param int    $page_num       Page of results.
 	 * @param string $object_subtype Optional. Not applicable for Users but
@@ -43,7 +43,7 @@ class WP_Sitemaps_Users extends WP_Sitemaps_Provider {
 		 * Returning a non-null value will effectively short-circuit the generation,
 		 * returning that value instead.
 		 *
-		 * @since 5.5.0
+		 * @since WP 5.5.0
 		 *
 		 * @param array[]|null $url_list The URL list. Default null.
 		 * @param int        $page_num Page of results.
@@ -73,7 +73,7 @@ class WP_Sitemaps_Users extends WP_Sitemaps_Provider {
 			/**
 			 * Filters the sitemap entry for an individual user.
 			 *
-			 * @since 5.5.0
+			 * @since WP 5.5.0
 			 *
 			 * @param array   $sitemap_entry Sitemap entry for the user.
 			 * @param WP_User $user          User object.
@@ -88,7 +88,7 @@ class WP_Sitemaps_Users extends WP_Sitemaps_Provider {
 	/**
 	 * Gets the max number of pages available for the object type.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @see WP_Sitemaps_Provider::max_num_pages
 	 *
@@ -104,7 +104,7 @@ class WP_Sitemaps_Users extends WP_Sitemaps_Provider {
 		 * Returning a non-null value will effectively short-circuit the generation,
 		 * returning that value instead.
 		 *
-		 * @since 5.5.0
+		 * @since WP 5.5.0
 		 *
 		 * @param int|null $max_num_pages The maximum number of pages. Default null.
 		 */
@@ -125,7 +125,7 @@ class WP_Sitemaps_Users extends WP_Sitemaps_Provider {
 	/**
 	 * Returns the query args for retrieving users to list in the sitemap.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @return array Array of WP_User_Query arguments.
 	 */
@@ -147,7 +147,7 @@ class WP_Sitemaps_Users extends WP_Sitemaps_Provider {
 		 *
 		 * @see WP_User_Query for a full list of arguments
 		 *
-		 * @since 5.5.0
+		 * @since WP 5.5.0
 		 *
 		 * @param array $args Array of WP_User_Query arguments.
 		 */

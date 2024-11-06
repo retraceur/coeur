@@ -2,7 +2,7 @@
 /**
  * @package motsVertueux
  * @subpackage Theme_Compat
- * @deprecated 3.0.0
+ * @deprecated WP 3.0.0
  *
  * This file is here for backward compatibility with old themes and will be removed in a future version
  */
@@ -25,7 +25,7 @@ _deprecated_file(
 			/* translators: 1: Site name, 2: WordPress */
 			__( '%1$s is proudly powered by %2$s' ),
 			get_bloginfo( 'name' ),
-			'<a href="https://wordpress.org/">WordPress</a>'
+			'motsVertueux'
 		);
 		?>
 	</p>

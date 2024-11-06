@@ -9,7 +9,7 @@
  * Renders the `core/image` block on the server,
  * adding a data-id attribute to the element if core/gallery has added on pre-render.
  *
- * @since 5.9.0
+ * @since WP 5.9.0
  *
  * @param array    $attributes The block attributes.
  * @param string   $content    The block content.
@@ -96,7 +96,7 @@ function render_block_core_image( $attributes, $content, $block ) {
  *
  * This is used to determine whether the lightbox should be rendered or not.
  *
- * @since 6.4.0
+ * @since WP 6.4.0
  *
  * @param array $block Block data.
  *
@@ -128,7 +128,7 @@ function block_core_image_get_lightbox_settings( $block ) {
 /**
  * Adds the directives and layout needed for the lightbox behavior.
  *
- * @since 6.4.0
+ * @since WP 6.4.0
  *
  * @param string $block_content Rendered block content.
  * @param array  $block         Block object.
@@ -252,7 +252,7 @@ function block_core_image_render_lightbox( $block_content, $block ) {
 }
 
 /**
- * @since 6.5.0
+ * @since WP 6.5.0
  */
 function block_core_image_print_lightbox_overlay() {
 	$close_button_label = esc_attr__( 'Close' );
@@ -314,7 +314,7 @@ HTML;
 /**
  * Registers the `core/image` block on server.
  *
- * @since 5.9.0
+ * @since WP 5.9.0
  */
 function register_block_core_image() {
 	register_block_type_from_metadata(

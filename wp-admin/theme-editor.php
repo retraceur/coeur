@@ -38,22 +38,9 @@ get_current_screen()->add_help_tab(
 				'</ul>' .
 				'<p>' . __( 'After typing in your edits, click Update File.' ) . '</p>' .
 				'<p>' . __( '<strong>Advice:</strong> Think very carefully about your site crashing if you are live-editing the theme currently in use.' ) . '</p>' .
-				'<p>' . sprintf(
-					/* translators: %s: Link to documentation on child themes. */
-					__( 'Upgrading to a newer version of the same theme will override changes made here. To avoid this, consider creating a <a href="%s">child theme</a> instead.' ),
-					__( 'https://developer.wordpress.org/themes/advanced-topics/child-themes/' )
-				) . '</p>' .
+				'<p>' . __( 'Upgrading to a newer version of the same theme will override changes made here. To avoid this, consider creating a child theme instead.' ) . '</p>' .
 				( is_network_admin() ? '<p>' . __( 'Any edits to files from this screen will be reflected on all sites in the network.' ) . '</p>' : '' ),
 	)
-);
-
-get_current_screen()->set_help_sidebar(
-	'<p><strong>' . __( 'For more information:' ) . '</strong></p>' .
-	'<p>' . __( '<a href="https://developer.wordpress.org/themes/">Documentation on Theme Development</a>' ) . '</p>' .
-	'<p>' . __( '<a href="https://wordpress.org/documentation/article/appearance-theme-file-editor-screen/">Documentation on Editing Themes</a>' ) . '</p>' .
-	'<p>' . __( '<a href="https://developer.wordpress.org/advanced-administration/wordpress/edit-files/">Documentation on Editing Files</a>' ) . '</p>' .
-	'<p>' . __( '<a href="https://developer.wordpress.org/themes/basics/template-tags/">Documentation on Template Tags</a>' ) . '</p>' .
-	'<p>' . __( '<a href="https://wordpress.org/support/forums/">Support forums</a>' ) . '</p>'
 );
 
 $action = ! empty( $_REQUEST['action'] ) ? sanitize_text_field( $_REQUEST['action'] ) : '';
@@ -163,22 +150,6 @@ if ( ! empty( $posted_content ) ) {
 } elseif ( ! $error && filesize( $file ) > 0 ) {
 	$f       = fopen( $file, 'r' );
 	$content = fread( $f, filesize( $file ) );
-
-	if ( str_ends_with( $file, '.php' ) ) {
-		$functions = wp_doc_link_parse( $content );
-
-		if ( ! empty( $functions ) ) {
-			$docs_select  = '<select name="docs-list" id="docs-list">';
-			$docs_select .= '<option value="">' . esc_html__( 'Function Name&hellip;' ) . '</option>';
-
-			foreach ( $functions as $function ) {
-				$docs_select .= '<option value="' . esc_attr( $function ) . '">' . esc_html( $function ) . '()</option>';
-			}
-
-			$docs_select .= '</select>';
-		}
-	}
-
 	$content = esc_textarea( $content );
 }
 
@@ -320,14 +291,6 @@ else :
 			<input type="hidden" name="theme" value="<?php echo esc_attr( $theme->get_stylesheet() ); ?>" />
 		</div>
 
-		<?php if ( ! empty( $functions ) ) : ?>
-			<div id="documentation" class="hide-if-no-js">
-				<label for="docs-list"><?php _e( 'Documentation:' ); ?></label>
-				<?php echo $docs_select; ?>
-				<input disabled id="docs-lookup" type="button" class="button" value="<?php esc_attr_e( 'Look Up' ); ?>" onclick="if ( '' !== jQuery('#docs-list').val() ) { window.open( 'https://api.wordpress.org/core/handbook/1.0/?function=' + escape( jQuery( '#docs-list' ).val() ) + '&amp;locale=<?php echo urlencode( get_user_locale() ); ?>&amp;version=<?php echo urlencode( get_bloginfo( 'version' ) ); ?>&amp;redirect=true'); }" />
-			</div>
-		<?php endif; ?>
-
 		<div>
 			<div class="editor-notices">
 				<?php
@@ -354,15 +317,7 @@ else :
 				<?php
 			} else {
 				?>
-				<p>
-					<?php
-					printf(
-						/* translators: %s: Documentation URL. */
-						__( 'You need to make this file writable before you can save your changes. See <a href="%s">Changing File Permissions</a> for more information.' ),
-						__( 'https://developer.wordpress.org/advanced-administration/server/file-permissions/' )
-					);
-					?>
-				</p>
+				<p><?php esc_html_e( 'You need to make this file writable before you can save your changes.' ) ;?></p>
 				<?php
 			}
 			?>
@@ -405,11 +360,7 @@ if ( ! in_array( 'theme_editor_notice', $dismissed_pointers, true ) ) {
 						<?php
 						if ( ! $theme->parent() ) {
 							echo '<p>';
-							printf(
-								/* translators: %s: Link to documentation on child themes. */
-								__( 'If you need to tweak more than your theme&#8217;s CSS, you might want to try <a href="%s">making a child theme</a>.' ),
-								esc_url( __( 'https://developer.wordpress.org/themes/advanced-topics/child-themes/' ) )
-							);
+							esc_html_e( 'If you need to tweak more than your theme&#8217;s CSS, you might want to try making a child theme.' );
 							echo '</p>';
 						}
 						?>

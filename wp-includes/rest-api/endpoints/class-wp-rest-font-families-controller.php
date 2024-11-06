@@ -4,20 +4,20 @@
  *
  * @package motsVertueux
  * @subpackage REST_API
- * @since 6.5.0
+ * @since WP 6.5.0
  */
 
 /**
  * Font Families Controller class.
  *
- * @since 6.5.0
+ * @since WP 6.5.0
  */
 class WP_REST_Font_Families_Controller extends WP_REST_Posts_Controller {
 
 	/**
 	 * The latest version of theme.json schema supported by the controller.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 * @var int
 	 */
 	const LATEST_THEME_JSON_VERSION_SUPPORTED = 3;
@@ -25,7 +25,7 @@ class WP_REST_Font_Families_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Whether the controller supports batching.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 * @var false
 	 */
 	protected $allow_batch = false;
@@ -33,7 +33,7 @@ class WP_REST_Font_Families_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Checks if a given request has access to font families.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has read access, WP_Error object otherwise.
@@ -55,7 +55,7 @@ class WP_REST_Font_Families_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Checks if a given request has access to a font family.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has read access, WP_Error object otherwise.
@@ -80,7 +80,7 @@ class WP_REST_Font_Families_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Validates settings when creating or updating a font family.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string          $value   Encoded JSON string of font family settings.
 	 * @param WP_REST_Request $request Request object.
@@ -143,7 +143,7 @@ class WP_REST_Font_Families_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Sanitizes the font family settings when creating or updating a font family.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $value Encoded JSON string of font family settings.
 	 * @return array Decoded array of font family settings.
@@ -165,7 +165,7 @@ class WP_REST_Font_Families_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Creates a single font family.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
@@ -198,7 +198,7 @@ class WP_REST_Font_Families_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Deletes a single font family.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
@@ -222,7 +222,7 @@ class WP_REST_Font_Families_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Prepares a single font family output for response.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param WP_Post         $item    Post object.
 	 * @param WP_REST_Request $request Request object.
@@ -262,7 +262,7 @@ class WP_REST_Font_Families_Controller extends WP_REST_Posts_Controller {
 		/**
 		 * Filters the font family data for a REST API response.
 		 *
-		 * @since 6.5.0
+		 * @since WP 6.5.0
 		 *
 		 * @param WP_REST_Response $response The response object.
 		 * @param WP_Post          $post     Font family post object.
@@ -274,7 +274,7 @@ class WP_REST_Font_Families_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Retrieves the post's schema, conforming to JSON Schema.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @return array Item schema data.
 	 */
@@ -363,7 +363,7 @@ class WP_REST_Font_Families_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Retrieves the item's schema for display / public consumption purposes.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @return array Public item schema data.
 	 */
@@ -383,7 +383,7 @@ class WP_REST_Font_Families_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Retrieves the query params for the font family collection.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @return array Collection parameters.
 	 */
@@ -407,7 +407,7 @@ class WP_REST_Font_Families_Controller extends WP_REST_Posts_Controller {
 		/**
 		 * Filters collection parameters for the font family controller.
 		 *
-		 * @since 6.5.0
+		 * @since WP 6.5.0
 		 *
 		 * @param array $query_params JSON Schema-formatted collection parameters.
 		 */
@@ -417,7 +417,7 @@ class WP_REST_Font_Families_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Get the arguments used when creating or updating a font family.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @return array Font family create/edit arguments.
 	 */
@@ -444,7 +444,7 @@ class WP_REST_Font_Families_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Get the child font face post IDs.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param int $font_family_id Font family post ID.
 	 * @return int[] Array of child font face post IDs.
@@ -469,7 +469,7 @@ class WP_REST_Font_Families_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Prepares font family links for the request.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param WP_Post $post Post object.
 	 * @return array Links for the given post.
@@ -506,7 +506,7 @@ class WP_REST_Font_Families_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Prepares a single font family post for create or update.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param WP_REST_Request $request Request object.
 	 * @return stdClass|WP_Error Post object or WP_Error.
@@ -545,7 +545,7 @@ class WP_REST_Font_Families_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Gets the font family's settings from the post.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param WP_Post $post Font family post object.
 	 * @return array Font family settings array.

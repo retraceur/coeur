@@ -36,8 +36,8 @@ if ( isset( $_GET['rsd'] ) ) { // https://cyber.harvard.edu/blogs/gems/tech/rsd.
 	?>
 <rsd version="1.0" xmlns="http://archipelago.phrasewise.com/rsd">
 	<service>
-		<engineName>WordPress</engineName>
-		<engineLink>https://wordpress.org/</engineLink>
+		<engineName><?php bloginfo_rss( 'name' ); ?></engineName>
+		<engineLink><?php bloginfo_rss( 'url' ); ?></engineLink>
 		<homePageLink><?php bloginfo_rss( 'url' ); ?></homePageLink>
 		<apis>
 			<api name="WordPress" blogID="1" preferred="true" apiLink="<?php echo site_url( 'xmlrpc.php', 'rpc' ); ?>" />
@@ -50,7 +50,7 @@ if ( isset( $_GET['rsd'] ) ) { // https://cyber.harvard.edu/blogs/gems/tech/rsd.
 			 *
 			 * @link https://cyber.harvard.edu/blogs/gems/tech/rsd.html
 			 *
-			 * @since 3.5.0
+			 * @since WP 3.5.0
 			 */
 			do_action( 'xmlrpc_rsd_apis' );
 			?>
@@ -76,7 +76,7 @@ $post_default_title = '';
 /**
  * Filters the class used for handling XML-RPC requests.
  *
- * @since 3.1.0
+ * @since WP 3.1.0
  *
  * @param string $class The name of the XML-RPC server class.
  */
@@ -91,8 +91,8 @@ exit;
 /**
  * logIO() - Writes logging info to a file.
  *
- * @since 1.2.0
- * @deprecated 3.4.0 Use error_log()
+ * @since WP 1.2.0
+ * @deprecated WP 3.4.0 Use error_log()
  * @see error_log()
  *
  * @global int|bool $xmlrpc_logging Whether to enable XML-RPC logging.

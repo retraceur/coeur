@@ -4,7 +4,7 @@
  *
  * @package motsVertueux
  * @subpackage StyleEngine
- * @since 6.1.0
+ * @since WP 6.1.0
  */
 
 /**
@@ -20,12 +20,12 @@
  * Please, use wp_style_engine_get_styles() instead.
  *
  * @access private
- * @since 6.1.0
- * @since 6.3.0 Added support for text-columns.
- * @since 6.4.0 Added support for background.backgroundImage.
- * @since 6.5.0 Added support for background.backgroundPosition,
+ * @since WP 6.1.0
+ * @since WP 6.3.0 Added support for text-columns.
+ * @since WP 6.4.0 Added support for background.backgroundImage.
+ * @since WP 6.5.0 Added support for background.backgroundPosition,
  *              background.backgroundRepeat and dimensions.aspectRatio.
- * @since 6.7.0 Added support for typography.writingMode.
+ * @since WP 6.7.0 Added support for typography.writingMode.
  */
 #[AllowDynamicProperties]
 final class WP_Style_Engine {
@@ -46,7 +46,7 @@ final class WP_Style_Engine {
 	 *  - path          => (array) a path that accesses the corresponding style value in the block style object.
 	 *  - value_func    => (string) the name of a function to generate a CSS definition array for a particular style object. The output of this function should be `array( "$property" => "$value", ... )`.
 	 *
-	 * @since 6.1.0
+	 * @since WP 6.1.0
 	 * @var array
 	 */
 	const BLOCK_STYLE_DEFINITIONS_METADATA = array(
@@ -319,7 +319,7 @@ final class WP_Style_Engine {
 	 * Util: Extracts the slug in kebab case from a preset string,
 	 * e.g. `heavenly-blue` from `var:preset|color|heavenlyBlue`.
 	 *
-	 * @since 6.1.0
+	 * @since WP 6.1.0
 	 *
 	 * @param string $style_value  A single CSS preset value.
 	 * @param string $property_key The CSS property that is the second element of the preset string.
@@ -340,7 +340,7 @@ final class WP_Style_Engine {
 	 * Util: Generates a CSS var string, e.g. `var(--wp--preset--color--background)`
 	 * from a preset string such as `var:preset|space|50`.
 	 *
-	 * @since 6.1.0
+	 * @since WP 6.1.0
 	 *
 	 * @param string   $style_value  A single CSS preset value.
 	 * @param string[] $css_vars     An associate array of CSS var patterns
@@ -364,7 +364,7 @@ final class WP_Style_Engine {
 	/**
 	 * Util: Checks whether an incoming block style value is valid.
 	 *
-	 * @since 6.1.0
+	 * @since WP 6.1.0
 	 *
 	 * @param string $style_value A single CSS preset value.
 	 * @return bool
@@ -376,8 +376,8 @@ final class WP_Style_Engine {
 	/**
 	 * Stores a CSS rule using the provided CSS selector and CSS declarations.
 	 *
-	 * @since 6.1.0
-	 * @since 6.6.0 Added the `$rules_group` parameter.
+	 * @since WP 6.1.0
+	 * @since WP 6.6.0 Added the `$rules_group` parameter.
 	 *
 	 * @param string   $store_name       A valid store key.
 	 * @param string   $css_selector     When a selector is passed, the function will return
@@ -398,7 +398,7 @@ final class WP_Style_Engine {
 	/**
 	 * Returns a store by store key.
 	 *
-	 * @since 6.1.0
+	 * @since WP 6.1.0
 	 *
 	 * @param string $store_name A store key.
 	 * @return WP_Style_Engine_CSS_Rules_Store|null
@@ -412,7 +412,7 @@ final class WP_Style_Engine {
 	 *
 	 * Return values are parsed based on the instructions in BLOCK_STYLE_DEFINITIONS_METADATA.
 	 *
-	 * @since 6.1.0
+	 * @since WP 6.1.0
 	 *
 	 * @param array $block_styles The style object.
 	 * @param array $options      {
@@ -466,7 +466,7 @@ final class WP_Style_Engine {
 	 * Returns classnames, and generates classname(s) from a CSS preset property pattern,
 	 * e.g. `var:preset|<PRESET_TYPE>|<PRESET_SLUG>`.
 	 *
-	 * @since 6.1.0
+	 * @since WP 6.1.0
 	 *
 	 * @param string $style_value      A single raw style value or CSS preset property
 	 *                                 from the `$block_styles` array.
@@ -506,7 +506,7 @@ final class WP_Style_Engine {
 	/**
 	 * Returns an array of CSS declarations based on valid block style values.
 	 *
-	 * @since 6.1.0
+	 * @since WP 6.1.0
 	 *
 	 * @param mixed $style_value      A single raw style value from $block_styles array.
 	 * @param array $style_definition A single style definition from BLOCK_STYLE_DEFINITIONS_METADATA.
@@ -588,7 +588,7 @@ final class WP_Style_Engine {
 	 *
 	 *     "border-image-{outset|source|width|repeat|slice}: {value};"
 	 *
-	 * @since 6.1.0
+	 * @since WP 6.1.0
 	 *
 	 * @param array $style_value                    A single raw style value from `$block_styles` array.
 	 * @param array $individual_property_definition A single style definition from BLOCK_STYLE_DEFINITIONS_METADATA
@@ -652,7 +652,7 @@ final class WP_Style_Engine {
 	 * with a single property and value, with `url` escaped and injected into a CSS `url()` function,
 	 * e.g., array( 'background-image' => "url( '...' )" ).
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @param array $style_value      A single raw style value from $block_styles array.
 	 * @param array $style_definition A single style definition from BLOCK_STYLE_DEFINITIONS_METADATA.
@@ -685,7 +685,7 @@ final class WP_Style_Engine {
 	/**
 	 * Returns compiled CSS from CSS declarations.
 	 *
-	 * @since 6.1.0
+	 * @since WP 6.1.0
 	 *
 	 * @param string[] $css_declarations An associative array of CSS definitions,
 	 *                                   e.g. `array( "$property" => "$value", "$property" => "$value" )`.
@@ -712,7 +712,7 @@ final class WP_Style_Engine {
 	/**
 	 * Returns a compiled stylesheet from stored CSS rules.
 	 *
-	 * @since 6.1.0
+	 * @since WP 6.1.0
 	 *
 	 * @param WP_Style_Engine_CSS_Rule[] $css_rules An array of WP_Style_Engine_CSS_Rule objects
 	 *                                              from a store or otherwise.

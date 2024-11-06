@@ -6,13 +6,13 @@
  *
  * @package motsVertueux
  * @subpackage REST_API
- * @since 5.8.0
+ * @since WP 5.8.0
  */
 
 /**
  * Core class used to manage a site's sidebars.
  *
- * @since 5.8.0
+ * @since WP 5.8.0
  *
  * @see WP_REST_Controller
  */
@@ -21,7 +21,7 @@ class WP_REST_Sidebars_Controller extends WP_REST_Controller {
 	/**
 	 * Tracks whether {@see retrieve_widgets()} has been called in the current request.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 * @var bool
 	 */
 	protected $widgets_retrieved = false;
@@ -29,7 +29,7 @@ class WP_REST_Sidebars_Controller extends WP_REST_Controller {
 	/**
 	 * Sidebars controller constructor.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 */
 	public function __construct() {
 		$this->namespace = 'wp/v2';
@@ -39,7 +39,7 @@ class WP_REST_Sidebars_Controller extends WP_REST_Controller {
 	/**
 	 * Registers the controllers routes.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 */
 	public function register_routes() {
 		register_rest_route(
@@ -88,7 +88,7 @@ class WP_REST_Sidebars_Controller extends WP_REST_Controller {
 	/**
 	 * Checks if a given request has access to get sidebars.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has read access, WP_Error object otherwise.
@@ -113,7 +113,7 @@ class WP_REST_Sidebars_Controller extends WP_REST_Controller {
 	/**
 	 * Retrieves the list of sidebars (active or inactive).
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response Response object on success.
@@ -146,7 +146,7 @@ class WP_REST_Sidebars_Controller extends WP_REST_Controller {
 	/**
 	 * Checks if a given request has access to get a single sidebar.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has read access, WP_Error object otherwise.
@@ -165,7 +165,7 @@ class WP_REST_Sidebars_Controller extends WP_REST_Controller {
 	/**
 	 * Checks if a sidebar can be read publicly.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param array $sidebar The registered sidebar configuration.
 	 * @return bool Whether the side can be read.
@@ -177,7 +177,7 @@ class WP_REST_Sidebars_Controller extends WP_REST_Controller {
 	/**
 	 * Retrieves one sidebar from the collection.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
@@ -196,7 +196,7 @@ class WP_REST_Sidebars_Controller extends WP_REST_Controller {
 	/**
 	 * Checks if a given request has access to update sidebars.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has read access, WP_Error object otherwise.
@@ -208,7 +208,7 @@ class WP_REST_Sidebars_Controller extends WP_REST_Controller {
 	/**
 	 * Updates a sidebar.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response Response object on success, or WP_Error object on failure.
@@ -243,7 +243,7 @@ class WP_REST_Sidebars_Controller extends WP_REST_Controller {
 		/**
 		 * Fires after a sidebar is updated via the REST API.
 		 *
-		 * @since 5.8.0
+		 * @since WP 5.8.0
 		 *
 		 * @param array           $sidebar The updated sidebar.
 		 * @param WP_REST_Request $request Request object.
@@ -256,7 +256,7 @@ class WP_REST_Sidebars_Controller extends WP_REST_Controller {
 	/**
 	 * Checks if the user has permissions to make the request.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @return true|WP_Error True if the request has read access, WP_Error object otherwise.
 	 */
@@ -279,7 +279,7 @@ class WP_REST_Sidebars_Controller extends WP_REST_Controller {
 	/**
 	 * Retrieves the registered sidebar with the given id.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @param string|int $id ID of the sidebar.
 	 * @return array|null The discovered sidebar, or null if it is not registered.
@@ -291,7 +291,7 @@ class WP_REST_Sidebars_Controller extends WP_REST_Controller {
 	/**
 	 * Looks for "lost" widgets once per request.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @see retrieve_widgets()
 	 */
@@ -305,8 +305,8 @@ class WP_REST_Sidebars_Controller extends WP_REST_Controller {
 	/**
 	 * Prepares a single sidebar output for response.
 	 *
-	 * @since 5.8.0
-	 * @since 5.9.0 Renamed `$raw_sidebar` to `$item` to match parent class for PHP 8 named parameter support.
+	 * @since WP 5.8.0
+	 * @since WP 5.9.0 Renamed `$raw_sidebar` to `$item` to match parent class for PHP 8 named parameter support.
 	 *
 	 * @global array $wp_registered_sidebars The registered sidebars.
 	 * @global array $wp_registered_widgets  The registered widgets.
@@ -382,7 +382,7 @@ class WP_REST_Sidebars_Controller extends WP_REST_Controller {
 		/**
 		 * Filters the REST API response for a sidebar.
 		 *
-		 * @since 5.8.0
+		 * @since WP 5.8.0
 		 *
 		 * @param WP_REST_Response $response    The response object.
 		 * @param array            $raw_sidebar The raw sidebar data.
@@ -394,7 +394,7 @@ class WP_REST_Sidebars_Controller extends WP_REST_Controller {
 	/**
 	 * Prepares links for the sidebar.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @param array $sidebar Sidebar.
 	 * @return array Links for the given widget.
@@ -417,7 +417,7 @@ class WP_REST_Sidebars_Controller extends WP_REST_Controller {
 	/**
 	 * Retrieves the block type' schema, conforming to JSON Schema.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @return array Item schema data.
 	 */

@@ -4,13 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage REST_API
- * @since 6.4.0
+ * @since WP 6.4.0
  */
 
 /**
  * Core class used to access template autosaves via the REST API.
  *
- * @since 6.4.0
+ * @since WP 6.4.0
  *
  * @see WP_REST_Autosaves_Controller
  */
@@ -18,7 +18,7 @@ class WP_REST_Template_Autosaves_Controller extends WP_REST_Autosaves_Controller
 	/**
 	 * Parent post type.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 * @var string
 	 */
 	private $parent_post_type;
@@ -26,7 +26,7 @@ class WP_REST_Template_Autosaves_Controller extends WP_REST_Autosaves_Controller
 	/**
 	 * Parent post controller.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 * @var WP_REST_Controller
 	 */
 	private $parent_controller;
@@ -34,7 +34,7 @@ class WP_REST_Template_Autosaves_Controller extends WP_REST_Autosaves_Controller
 	/**
 	 * Revision controller.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 * @var WP_REST_Revisions_Controller
 	 */
 	private $revisions_controller;
@@ -42,7 +42,7 @@ class WP_REST_Template_Autosaves_Controller extends WP_REST_Autosaves_Controller
 	/**
 	 * The base of the parent controller's route.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 * @var string
 	 */
 	private $parent_base;
@@ -50,7 +50,7 @@ class WP_REST_Template_Autosaves_Controller extends WP_REST_Autosaves_Controller
 	/**
 	 * Constructor.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @param string $parent_post_type Post type of the parent.
 	 */
@@ -79,7 +79,7 @@ class WP_REST_Template_Autosaves_Controller extends WP_REST_Autosaves_Controller
 	/**
 	 * Registers the routes for autosaves.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @see register_rest_route()
 	 */
@@ -165,7 +165,7 @@ class WP_REST_Template_Autosaves_Controller extends WP_REST_Autosaves_Controller
 	/**
 	 * Prepares the item for the REST response.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @param WP_Post         $item    Post revision object.
 	 * @param WP_REST_Request $request Request object.
@@ -199,7 +199,7 @@ class WP_REST_Template_Autosaves_Controller extends WP_REST_Autosaves_Controller
 	/**
 	 * Gets the autosave, if the ID is valid.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_Post|WP_Error Autosave post object if ID is valid, WP_Error otherwise.
@@ -227,7 +227,7 @@ class WP_REST_Template_Autosaves_Controller extends WP_REST_Autosaves_Controller
 	/**
 	 * Get the parent post.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @param int $parent_id Supplied ID.
 	 * @return WP_Post|WP_Error Post object if ID is valid, WP_Error otherwise.
@@ -239,7 +239,7 @@ class WP_REST_Template_Autosaves_Controller extends WP_REST_Autosaves_Controller
 	/**
 	 * Prepares links for the request.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @param WP_Block_Template $template Template.
 	 * @return array Links for the given post.
@@ -260,7 +260,7 @@ class WP_REST_Template_Autosaves_Controller extends WP_REST_Autosaves_Controller
 	/**
 	 * Retrieves the autosave's schema, conforming to JSON Schema.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @return array Item schema data.
 	 */

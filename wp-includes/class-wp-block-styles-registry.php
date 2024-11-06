@@ -4,20 +4,21 @@
  *
  * @package motsVertueux
  * @subpackage Blocks
- * @since 5.3.0
+ * @since WP 5.3.0
+ * @since 1.0.0 motsVertueux fork.
  */
 
 /**
  * Class used for interacting with block styles.
  *
- * @since 5.3.0
+ * @since WP 5.3.0
  */
 #[AllowDynamicProperties]
 final class WP_Block_Styles_Registry {
 	/**
 	 * Registered block styles, as `$block_name => $block_style_name => $block_style_properties` multidimensional arrays.
 	 *
-	 * @since 5.3.0
+	 * @since WP 5.3.0
 	 *
 	 * @var array[]
 	 */
@@ -26,7 +27,7 @@ final class WP_Block_Styles_Registry {
 	/**
 	 * Container for the main instance of the class.
 	 *
-	 * @since 5.3.0
+	 * @since WP 5.3.0
 	 *
 	 * @var WP_Block_Styles_Registry|null
 	 */
@@ -41,10 +42,8 @@ final class WP_Block_Styles_Registry {
 	 * styles. However, you could also skip them and provide CSS styles in any stylesheet
 	 * or with an inline tag.
 	 *
-	 * @since 5.3.0
-	 * @since 6.6.0 Added ability to register style across multiple block types along with theme.json-like style data.
-	 *
-	 * @link https://developer.wordpress.org/block-editor/reference-guides/block-api/block-styles/
+	 * @since WP 5.3.0
+	 * @since WP 6.6.0 Added ability to register style across multiple block types along with theme.json-like style data.
 	 *
 	 * @param string|string[] $block_name       Block type name including namespace or array of namespaced block type names.
 	 * @param array           $style_properties {
@@ -106,7 +105,7 @@ final class WP_Block_Styles_Registry {
 	/**
 	 * Unregisters a block style of the given block type.
 	 *
-	 * @since 5.3.0
+	 * @since WP 5.3.0
 	 *
 	 * @param string $block_name       Block type name including namespace.
 	 * @param string $block_style_name Block style name.
@@ -131,7 +130,7 @@ final class WP_Block_Styles_Registry {
 	/**
 	 * Retrieves the properties of a registered block style for the given block type.
 	 *
-	 * @since 5.3.0
+	 * @since WP 5.3.0
 	 *
 	 * @param string $block_name       Block type name including namespace.
 	 * @param string $block_style_name Block style name.
@@ -148,7 +147,7 @@ final class WP_Block_Styles_Registry {
 	/**
 	 * Retrieves all registered block styles.
 	 *
-	 * @since 5.3.0
+	 * @since WP 5.3.0
 	 *
 	 * @return array[] Array of arrays containing the registered block styles properties grouped by block type.
 	 */
@@ -159,7 +158,7 @@ final class WP_Block_Styles_Registry {
 	/**
 	 * Retrieves registered block styles for a specific block type.
 	 *
-	 * @since 5.3.0
+	 * @since WP 5.3.0
 	 *
 	 * @param string $block_name Block type name including namespace.
 	 * @return array[] Array whose keys are block style names and whose values are block style properties.
@@ -174,7 +173,7 @@ final class WP_Block_Styles_Registry {
 	/**
 	 * Checks if a block style is registered for the given block type.
 	 *
-	 * @since 5.3.0
+	 * @since WP 5.3.0
 	 *
 	 * @param string $block_name       Block type name including namespace.
 	 * @param string $block_style_name Block style name.
@@ -189,7 +188,7 @@ final class WP_Block_Styles_Registry {
 	 *
 	 * The instance will be created if it does not exist yet.
 	 *
-	 * @since 5.3.0
+	 * @since WP 5.3.0
 	 *
 	 * @return WP_Block_Styles_Registry The main instance.
 	 */

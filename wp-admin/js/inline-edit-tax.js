@@ -25,7 +25,7 @@ window.inlineEditTax = {
 	 * Initializes the inline taxonomy editor by adding event handlers to be able to
 	 * quick edit.
 	 *
-	 * @since 2.7.0
+	 * @since WP 2.7.0
 	 *
 	 * @this inlineEditTax
 	 * @memberof inlineEditTax
@@ -89,7 +89,7 @@ window.inlineEditTax = {
 	/**
 	 * Toggles the quick edit based on if it is currently shown or hidden.
 	 *
-	 * @since 2.7.0
+	 * @since WP 2.7.0
 	 *
 	 * @this inlineEditTax
 	 * @memberof inlineEditTax
@@ -107,7 +107,7 @@ window.inlineEditTax = {
 	/**
 	 * Shows the quick editor
 	 *
-	 * @since 2.7.0
+	 * @since WP 2.7.0
 	 *
 	 * @this inlineEditTax
 	 * @memberof inlineEditTax
@@ -154,7 +154,7 @@ window.inlineEditTax = {
 	 * Saves the quick edit data to the server and replaces the table row with the
 	 * HTML retrieved from the server.
 	 *
-	 * @since 2.7.0
+	 * @since WP 2.7.0
 	 *
 	 * @this inlineEditTax
 	 * @memberof inlineEditTax
@@ -251,7 +251,7 @@ window.inlineEditTax = {
 	/**
 	 * Closes the quick edit form.
 	 *
-	 * @since 2.7.0
+	 * @since WP 2.7.0
 	 *
 	 * @this inlineEditTax
 	 * @memberof inlineEditTax
@@ -275,7 +275,7 @@ window.inlineEditTax = {
 	/**
 	 * Retrieves the ID of the term of the element inside the table row.
 	 *
-	 * @since 2.7.0
+	 * @since WP 2.7.0
 	 *
 	 * @memberof inlineEditTax
 	 *

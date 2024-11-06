@@ -4,7 +4,7 @@
  *
  * @package    WordPress
  * @subpackage REST_API
- * @since 5.9.0
+ * @since WP 5.9.0
  */
 
 /**
@@ -14,7 +14,7 @@ class WP_REST_Global_Styles_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Whether the controller supports batching.
 	 *
-	 * @since 6.6.0
+	 * @since WP 6.6.0
 	 * @var array
 	 */
 	protected $allow_batch = array( 'v1' => false );
@@ -22,7 +22,7 @@ class WP_REST_Global_Styles_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Constructor.
 	 *
-	 * @since 6.6.0
+	 * @since WP 6.6.0
 	 *
 	 * @param string $post_type Post type.
 	 */
@@ -33,7 +33,7 @@ class WP_REST_Global_Styles_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Registers the controllers routes.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 */
 	public function register_routes() {
 		register_rest_route(
@@ -119,7 +119,7 @@ class WP_REST_Global_Styles_Controller extends WP_REST_Posts_Controller {
 	 * For example, `wp/v2/global-styles/twentytwentytwo%200.4.0`
 	 * would be decoded to `twentytwentytwo 0.4.0`.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param string $id_or_stylesheet Global styles ID or stylesheet.
 	 * @return string Sanitized global styles ID or stylesheet.
@@ -131,7 +131,7 @@ class WP_REST_Global_Styles_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Get the post, if the ID is valid.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param int $id Supplied ID.
 	 * @return WP_Post|WP_Error Post object if ID is valid, WP_Error otherwise.
@@ -159,7 +159,7 @@ class WP_REST_Global_Styles_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Checks if a given request has access to read a single global style.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has read access, WP_Error object otherwise.
@@ -192,7 +192,7 @@ class WP_REST_Global_Styles_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Checks if a global style can be read.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param WP_Post $post Post object.
 	 * @return bool Whether the post can be read.
@@ -204,7 +204,7 @@ class WP_REST_Global_Styles_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Checks if a given request has access to write a single global styles config.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has write access for the item, WP_Error object otherwise.
@@ -229,9 +229,9 @@ class WP_REST_Global_Styles_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Prepares a single global styles config for update.
 	 *
-	 * @since 5.9.0
-	 * @since 6.2.0 Added validation of styles.css property.
-	 * @since 6.6.0 Added registration of block style variations from theme.json sources (theme.json, user theme.json, partials).
+	 * @since WP 5.9.0
+	 * @since WP 6.2.0 Added validation of styles.css property.
+	 * @since WP 6.6.0 Added registration of block style variations from theme.json sources (theme.json, user theme.json, partials).
 	 *
 	 * @param WP_REST_Request $request Request object.
 	 * @return stdClass|WP_Error Prepared item on success. WP_Error on when the custom CSS is not valid.
@@ -294,8 +294,8 @@ class WP_REST_Global_Styles_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Prepare a global styles config output for response.
 	 *
-	 * @since 5.9.0
-	 * @since 6.6.0 Added custom relative theme file URIs to `_links`.
+	 * @since WP 5.9.0
+	 * @since WP 6.6.0 Added custom relative theme file URIs to `_links`.
 	 *
 	 * @param WP_Post         $post    Global Styles post object.
 	 * @param WP_REST_Request $request Request object.
@@ -377,8 +377,8 @@ class WP_REST_Global_Styles_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Prepares links for the request.
 	 *
-	 * @since 5.9.0
-	 * @since 6.3.0 Adds revisions count and rest URL href to version-history.
+	 * @since WP 5.9.0
+	 * @since WP 6.3.0 Adds revisions count and rest URL href to version-history.
 	 *
 	 * @param integer $id ID.
 	 * @return array Links for the given post.
@@ -411,9 +411,9 @@ class WP_REST_Global_Styles_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Get the link relations available for the post and current user.
 	 *
-	 * @since 5.9.0
-	 * @since 6.2.0 Added 'edit-css' action.
-	 * @since 6.6.0 Added $post and $request parameters.
+	 * @since WP 5.9.0
+	 * @since WP 6.2.0 Added 'edit-css' action.
+	 * @since WP 6.6.0 Added $post and $request parameters.
 	 *
 	 * @param WP_Post         $post    Post object.
 	 * @param WP_REST_Request $request Request object.
@@ -437,7 +437,7 @@ class WP_REST_Global_Styles_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Retrieves the query params for the global styles collection.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @return array Collection parameters.
 	 */
@@ -448,7 +448,7 @@ class WP_REST_Global_Styles_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Retrieves the global styles type' schema, conforming to JSON Schema.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @return array Item schema data.
 	 */
@@ -508,8 +508,8 @@ class WP_REST_Global_Styles_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Checks if a given request has access to read a single theme global styles config.
 	 *
-	 * @since 5.9.0
-	 * @since 6.7.0 Allow users with edit post capabilities to view theme global styles.
+	 * @since WP 5.9.0
+	 * @since WP 6.7.0 Allow users with edit post capabilities to view theme global styles.
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has read access for the item, WP_Error object otherwise.
@@ -548,8 +548,8 @@ class WP_REST_Global_Styles_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Returns the given theme global styles config.
 	 *
-	 * @since 5.9.0
-	 * @since 6.6.0 Added custom relative theme file URIs to `_links`.
+	 * @since WP 5.9.0
+	 * @since WP 6.6.0 Added custom relative theme file URIs to `_links`.
 	 *
 	 * @param WP_REST_Request $request The request instance.
 	 * @return WP_REST_Response|WP_Error
@@ -602,8 +602,8 @@ class WP_REST_Global_Styles_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Checks if a given request has access to read a single theme global styles config.
 	 *
-	 * @since 6.0.0
-	 * @since 6.7.0 Allow users with edit post capabilities to view theme global styles.
+	 * @since WP 6.0.0
+	 * @since WP 6.7.0 Allow users with edit post capabilities to view theme global styles.
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has read access for the item, WP_Error object otherwise.
@@ -615,9 +615,9 @@ class WP_REST_Global_Styles_Controller extends WP_REST_Posts_Controller {
 	/**
 	 * Returns the given theme global styles variations.
 	 *
-	 * @since 6.0.0
-	 * @since 6.2.0 Returns parent theme variations, if they exist.
-	 * @since 6.6.0 Added custom relative theme file URIs to `_links` for each item.
+	 * @since WP 6.0.0
+	 * @since WP 6.2.0 Returns parent theme variations, if they exist.
+	 * @since WP 6.6.0 Added custom relative theme file URIs to `_links` for each item.
 	 *
 	 * @param WP_REST_Request $request The request instance.
 	 *
@@ -662,8 +662,8 @@ class WP_REST_Global_Styles_Controller extends WP_REST_Posts_Controller {
 	 *
 	 * Currently just checks for invalid markup.
 	 *
-	 * @since 6.2.0
-	 * @since 6.4.0 Changed method visibility to protected.
+	 * @since WP 6.2.0
+	 * @since WP 6.4.0 Changed method visibility to protected.
 	 *
 	 * @param string $css CSS to validate.
 	 * @return true|WP_Error True if the input was validated, otherwise WP_Error.

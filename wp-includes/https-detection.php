@@ -3,7 +3,7 @@
  * HTTPS detection functions.
  *
  * @package motsVertueux
- * @since 5.7.0
+ * @since WP 5.7.0
  */
 
 /**
@@ -11,7 +11,7 @@
  *
  * This is based on whether both the home and site URL are using HTTPS.
  *
- * @since 5.7.0
+ * @since WP 5.7.0
  * @see wp_is_home_url_using_https()
  * @see wp_is_site_url_using_https()
  *
@@ -28,7 +28,7 @@ function wp_is_using_https() {
 /**
  * Checks whether the current site URL is using HTTPS.
  *
- * @since 5.7.0
+ * @since WP 5.7.0
  * @see home_url()
  *
  * @return bool True if using HTTPS, false otherwise.
@@ -43,7 +43,7 @@ function wp_is_home_url_using_https() {
  * This checks the URL where WordPress application files (e.g. wp-blog-header.php or the wp-admin/ folder)
  * are accessible.
  *
- * @since 5.7.0
+ * @since WP 5.7.0
  * @see site_url()
  *
  * @return bool True if using HTTPS, false otherwise.
@@ -63,7 +63,7 @@ function wp_is_site_url_using_https() {
 /**
  * Checks whether HTTPS is supported for the server and domain.
  *
- * @since 5.7.0
+ * @since WP 5.7.0
  *
  * @return bool True if HTTPS is supported, false otherwise.
  */
@@ -86,7 +86,7 @@ function wp_is_https_supported() {
  *
  * This internal function is called by a regular Cron hook to ensure HTTPS support is detected and maintained.
  *
- * @since 6.4.0
+ * @since WP 6.4.0
  * @access private
  */
 function wp_get_https_detection_errors() {
@@ -96,7 +96,7 @@ function wp_get_https_detection_errors() {
 	 * Returning a `WP_Error` from the filter will effectively short-circuit the default logic of trying a remote
 	 * request to the site over HTTPS, storing the errors array from the returned `WP_Error` instead.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @param null|WP_Error $pre Error object to short-circuit detection,
 	 *                           or null to continue with the default behavior.
@@ -163,7 +163,7 @@ function wp_get_https_detection_errors() {
  * Since any of these actions may be disabled through third-party code, this function may also return null to indicate
  * that it was not possible to determine ownership.
  *
- * @since 5.7.0
+ * @since WP 5.7.0
  * @access private
  *
  * @param string $html Full HTML output string, e.g. from a HTTP response.

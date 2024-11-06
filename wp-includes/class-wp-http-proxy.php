@@ -4,7 +4,8 @@
  *
  * @package motsVertueux
  * @subpackage HTTP
- * @since 4.4.0
+ * @since WP 4.4.0
+ * @since 1.0.0 motsVertueux fork.
  */
 
 /**
@@ -25,19 +26,16 @@
  * <li>WP_PROXY_PASSWORD - Proxy password, if it requires authentication.</li>
  * <li>WP_PROXY_BYPASS_HOSTS - Will prevent the hosts in this list from going through the proxy.
  * You do not need to have localhost and the site host in this list, because they will not be passed
- * through the proxy. The list should be presented in a comma separated list, wildcards using * are supported. Example: *.wordpress.org</li>
+ * through the proxy. The list should be presented in a comma separated list, wildcards using * are supported.</li>
  * </ol>
  *
  * An example can be as seen below.
  *
  *     define('WP_PROXY_HOST', '192.168.84.101');
  *     define('WP_PROXY_PORT', '8080');
- *     define('WP_PROXY_BYPASS_HOSTS', 'localhost, www.example.com, *.wordpress.org');
+ *     define('WP_PROXY_BYPASS_HOSTS', 'localhost, www.example.com');
  *
- * @link https://core.trac.wordpress.org/ticket/4011 Proxy support ticket in WordPress.
- * @link https://core.trac.wordpress.org/ticket/14636 Allow wildcard domains in WP_PROXY_BYPASS_HOSTS
- *
- * @since 2.8.0
+ * @since WP 2.8.0
  */
 #[AllowDynamicProperties]
 class WP_HTTP_Proxy {
@@ -50,7 +48,7 @@ class WP_HTTP_Proxy {
 	 * - `WP_PROXY_HOST`
 	 * - `WP_PROXY_PORT`
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @return bool
 	 */
@@ -66,7 +64,7 @@ class WP_HTTP_Proxy {
 	 * - `WP_PROXY_USERNAME`
 	 * - `WP_PROXY_PASSWORD`
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @return bool
 	 */
@@ -77,7 +75,7 @@ class WP_HTTP_Proxy {
 	/**
 	 * Retrieve the host for the proxy server.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @return string
 	 */
@@ -92,7 +90,7 @@ class WP_HTTP_Proxy {
 	/**
 	 * Retrieve the port for the proxy server.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @return string
 	 */
@@ -107,7 +105,7 @@ class WP_HTTP_Proxy {
 	/**
 	 * Retrieve the username for proxy authentication.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @return string
 	 */
@@ -122,7 +120,7 @@ class WP_HTTP_Proxy {
 	/**
 	 * Retrieve the password for proxy authentication.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @return string
 	 */
@@ -137,7 +135,7 @@ class WP_HTTP_Proxy {
 	/**
 	 * Retrieve authentication string for proxy authentication.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @return string
 	 */
@@ -148,7 +146,7 @@ class WP_HTTP_Proxy {
 	/**
 	 * Retrieve header string for proxy authentication.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @return string
 	 */
@@ -163,7 +161,7 @@ class WP_HTTP_Proxy {
 	 * some proxies can not handle this. We also have the constant available for defining other
 	 * hosts that won't be sent through the proxy.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @param string $uri URL of the request.
 	 * @return bool Whether to send the request through the proxy.
@@ -184,7 +182,7 @@ class WP_HTTP_Proxy {
 		 * Returning false will bypass the proxy; returning true will send
 		 * the request through the proxy. Returning null bypasses the filter.
 		 *
-		 * @since 3.5.0
+		 * @since WP 3.5.0
 		 *
 		 * @param bool|null $override Whether to send the request through the proxy. Default null.
 		 * @param string    $uri      URL of the request.

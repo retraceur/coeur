@@ -4,13 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage Administration
- * @since 3.1.0
+ * @since WP 3.1.0
  */
 
 /**
  * Core class used to implement displaying posts in a list table.
  *
- * @since 3.1.0
+ * @since WP 3.1.0
  *
  * @see WP_List_Table
  */
@@ -19,7 +19,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 	/**
 	 * Whether the items should be displayed hierarchically or linearly.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 * @var bool
 	 */
 	protected $hierarchical_display;
@@ -27,7 +27,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 	/**
 	 * Holds the number of pending comments for each post.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 * @var array
 	 */
 	protected $comment_pending_count;
@@ -35,7 +35,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 	/**
 	 * Holds the number of posts for this user.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 * @var int
 	 */
 	private $user_posts_count;
@@ -43,7 +43,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 	/**
 	 * Holds the number of posts which are sticky.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 * @var int
 	 */
 	private $sticky_posts_count = 0;
@@ -53,7 +53,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 	/**
 	 * Current level for output.
 	 *
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 * @var int
 	 */
 	protected $current_level = 0;
@@ -61,7 +61,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 	/**
 	 * Constructor.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @see WP_List_Table::__construct() for more information on default arguments.
 	 *
@@ -130,7 +130,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 	/**
 	 * Sets whether the table layout should be hierarchical or not.
 	 *
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 *
 	 * @param bool $display Whether the table layout should be hierarchical.
 	 */
@@ -228,7 +228,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 	/**
 	 * Determines if the current view is the "All" view.
 	 *
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 *
 	 * @return bool Whether the current view is the "All" view.
 	 */
@@ -248,7 +248,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 	/**
 	 * Creates a link to edit.php with params.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 *
 	 * @param string[] $args      Associative array of URL parameters for the link.
 	 * @param string   $link_text Link text.
@@ -455,7 +455,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 	/**
 	 * Displays a categories drop-down for filtering on the Posts list table.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 *
 	 * @global int $cat Currently selected category.
 	 *
@@ -467,7 +467,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 		/**
 		 * Filters whether to remove the 'Categories' drop-down from the post list table.
 		 *
-		 * @since 4.6.0
+		 * @since WP 4.6.0
 		 *
 		 * @param bool   $disable   Whether to disable the categories drop-down. Default false.
 		 * @param string $post_type Post type slug.
@@ -495,7 +495,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 	/**
 	 * Displays a formats drop-down for filtering items.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 * @access protected
 	 *
 	 * @param string $post_type Post type slug.
@@ -504,8 +504,8 @@ class WP_Posts_List_Table extends WP_List_Table {
 		/**
 		 * Filters whether to remove the 'Formats' drop-down from the post list table.
 		 *
-		 * @since 5.2.0
-		 * @since 5.5.0 The `$post_type` parameter was added.
+		 * @since WP 5.2.0
+		 * @since WP 5.5.0 The `$post_type` parameter was added.
 		 *
 		 * @param bool   $disable   Whether to disable the drop-down. Default false.
 		 * @param string $post_type Post type slug.
@@ -582,9 +582,9 @@ class WP_Posts_List_Table extends WP_List_Table {
 			 * The Filter button allows sorting by date and/or category on the
 			 * Posts list table, and sorting by date on the Pages list table.
 			 *
-			 * @since 2.1.0
-			 * @since 4.4.0 The `$post_type` parameter was added.
-			 * @since 4.6.0 The `$which` parameter was added.
+			 * @since WP 2.1.0
+			 * @since WP 4.4.0 The `$post_type` parameter was added.
+			 * @since WP 4.6.0 The `$which` parameter was added.
 			 *
 			 * @param string $post_type The post type slug.
 			 * @param string $which     The location of the extra table nav markup:
@@ -613,7 +613,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 		 * Fires immediately following the closing "actions" div in the tablenav for the posts
 		 * list table.
 		 *
-		 * @since 4.4.0
+		 * @since WP 4.4.0
 		 *
 		 * @param string $which The location of the extra table nav markup: 'top' or 'bottom'.
 		 */
@@ -681,7 +681,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 		 *  - `manage_taxonomies_for_post_columns`
 		 *  - `manage_taxonomies_for_page_columns`
 		 *
-		 * @since 3.5.0
+		 * @since WP 3.5.0
 		 *
 		 * @param string[] $taxonomies Array of taxonomy names to show columns for.
 		 * @param string   $post_type  The post type.
@@ -721,7 +721,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 			/**
 			 * Filters the columns displayed in the Pages list table.
 			 *
-			 * @since 2.5.0
+			 * @since WP 2.5.0
 			 *
 			 * @param string[] $posts_columns An associative array of column headings.
 			 */
@@ -731,7 +731,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 			/**
 			 * Filters the columns displayed in the Posts list table.
 			 *
-			 * @since 1.5.0
+			 * @since WP 1.5.0
 			 *
 			 * @param string[] $posts_columns An associative array of column headings.
 			 * @param string   $post_type     The post type slug.
@@ -749,7 +749,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 		 *  - `manage_post_posts_columns`
 		 *  - `manage_page_posts_columns`
 		 *
-		 * @since 3.0.0
+		 * @since WP 3.0.0
 		 *
 		 * @param string[] $posts_columns An associative array of column headings.
 		 */
@@ -792,7 +792,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 	/**
 	 * Generates the list table rows.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @global WP_Query $wp_query WordPress Query object.
 	 * @global int      $per_page
@@ -946,8 +946,8 @@ class WP_Posts_List_Table extends WP_List_Table {
 	 * Displays the nested hierarchy of sub-pages together with paging
 	 * support, based on a top level page ID.
 	 *
-	 * @since 3.1.0 (Standalone function exists since 2.6.0)
-	 * @since 4.2.0 Added the `$to_display` parameter.
+	 * @since WP 3.1.0 (Standalone function exists since 2.6.0)
+	 * @since WP 4.2.0 Added the `$to_display` parameter.
 	 *
 	 * @param array $children_pages
 	 * @param int   $count
@@ -1016,8 +1016,8 @@ class WP_Posts_List_Table extends WP_List_Table {
 	/**
 	 * Handles the checkbox column output.
 	 *
-	 * @since 4.3.0
-	 * @since 5.9.0 Renamed `$post` to `$item` to match parent class for PHP 8 named parameter support.
+	 * @since WP 4.3.0
+	 * @since WP 5.9.0 Renamed `$post` to `$item` to match parent class for PHP 8 named parameter support.
 	 *
 	 * @param WP_Post $item The current WP_Post object.
 	 */
@@ -1032,7 +1032,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 		 *
 		 * By default the checkbox is only shown if the current user can edit the post.
 		 *
-		 * @since 5.7.0
+		 * @since WP 5.7.0
 		 *
 		 * @param bool    $show Whether to show the checkbox.
 		 * @param WP_Post $post The current WP_Post object.
@@ -1065,7 +1065,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 	}
 
 	/**
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 *
 	 * @param WP_Post $post
 	 * @param string  $classes
@@ -1082,7 +1082,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 	/**
 	 * Handles the title column output.
 	 *
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 *
 	 * @global string $mode List table view mode.
 	 *
@@ -1184,7 +1184,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 	/**
 	 * Handles the post date column output.
 	 *
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 *
 	 * @global string $mode List table view mode.
 	 *
@@ -1225,7 +1225,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 		/**
 		 * Filters the status text of the post.
 		 *
-		 * @since 4.8.0
+		 * @since WP 4.8.0
 		 *
 		 * @param string  $status      The status text.
 		 * @param WP_Post $post        Post object.
@@ -1241,8 +1241,8 @@ class WP_Posts_List_Table extends WP_List_Table {
 		/**
 		 * Filters the published, scheduled, or unpublished time of the post.
 		 *
-		 * @since 2.5.1
-		 * @since 5.5.0 Removed the difference between 'excerpt' and 'list' modes.
+		 * @since WP 2.5.1
+		 * @since WP 5.5.0 Removed the difference between 'excerpt' and 'list' modes.
 		 *              The published time and date are both displayed now,
 		 *              which is equivalent to the previous 'excerpt' mode.
 		 *
@@ -1257,7 +1257,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 	/**
 	 * Handles the comments column output.
 	 *
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 *
 	 * @param WP_Post $post The current WP_Post object.
 	 */
@@ -1276,7 +1276,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 	/**
 	 * Handles the post author column output.
 	 *
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 *
 	 * @param WP_Post $post The current WP_Post object.
 	 */
@@ -1291,8 +1291,8 @@ class WP_Posts_List_Table extends WP_List_Table {
 	/**
 	 * Handles the default column output.
 	 *
-	 * @since 4.3.0
-	 * @since 5.9.0 Renamed `$post` to `$item` to match parent class for PHP 8 named parameter support.
+	 * @since WP 4.3.0
+	 * @since WP 5.9.0 Renamed `$post` to `$item` to match parent class for PHP 8 named parameter support.
 	 *
 	 * @param WP_Post $item        The current WP_Post object.
 	 * @param string  $column_name The current column name.
@@ -1340,7 +1340,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 				/**
 				 * Filters the links in `$taxonomy` column of edit.php.
 				 *
-				 * @since 5.2.0
+				 * @since WP 5.2.0
 				 *
 				 * @param string[]  $term_links Array of term editing links.
 				 * @param string    $taxonomy   Taxonomy name.
@@ -1363,7 +1363,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 			 * This hook only fires if the current post type is hierarchical,
 			 * such as pages.
 			 *
-			 * @since 2.5.0
+			 * @since WP 2.5.0
 			 *
 			 * @param string $column_name The name of the column to display.
 			 * @param int    $post_id     The current post ID.
@@ -1377,7 +1377,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 			 * This hook only fires if the current post type is non-hierarchical,
 			 * such as posts.
 			 *
-			 * @since 1.5.0
+			 * @since WP 1.5.0
 			 *
 			 * @param string $column_name The name of the column to display.
 			 * @param int    $post_id     The current post ID.
@@ -1395,7 +1395,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 		 *  - `manage_post_posts_custom_column`
 		 *  - `manage_page_posts_custom_column`
 		 *
-		 * @since 3.1.0
+		 * @since WP 3.1.0
 		 *
 		 * @param string $column_name The name of the column to display.
 		 * @param int    $post_id     The current post ID.
@@ -1443,7 +1443,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 	/**
 	 * Gets the name of the default primary column.
 	 *
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 *
 	 * @return string Name of the default primary column, in this case, 'title'.
 	 */
@@ -1454,8 +1454,8 @@ class WP_Posts_List_Table extends WP_List_Table {
 	/**
 	 * Generates and displays row action links.
 	 *
-	 * @since 4.3.0
-	 * @since 5.9.0 Renamed `$post` to `$item` to match parent class for PHP 8 named parameter support.
+	 * @since WP 4.3.0
+	 * @since WP 5.9.0 Renamed `$post` to `$item` to match parent class for PHP 8 named parameter support.
 	 *
 	 * @param WP_Post $item        Post being acted upon.
 	 * @param string  $column_name Current column name.
@@ -1488,7 +1488,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 			/**
 			 * Filters whether Quick Edit should be enabled for the given post type.
 			 *
-			 * @since 6.4.0
+			 * @since WP 6.4.0
 			 *
 			 * @param bool   $enable    Whether to enable the Quick Edit functionality. Default true.
 			 * @param string $post_type Post type name.
@@ -1575,7 +1575,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 			 *
 			 * The filter is evaluated only for hierarchical post types.
 			 *
-			 * @since 2.8.0
+			 * @since WP 2.8.0
 			 *
 			 * @param string[] $actions An array of row action links. Defaults are
 			 *                          'Edit', 'Quick Edit', 'Restore', 'Trash',
@@ -1590,7 +1590,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 			 *
 			 * The filter is evaluated only for non-hierarchical post types.
 			 *
-			 * @since 2.8.0
+			 * @since WP 2.8.0
 			 *
 			 * @param string[] $actions An array of row action links. Defaults are
 			 *                          'Edit', 'Quick Edit', 'Restore', 'Trash',
@@ -1606,7 +1606,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 	/**
 	 * Outputs the hidden row displayed when inline editing
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @global string $mode List table view mode.
 	 */
@@ -1630,7 +1630,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 			/**
 			 * Filters whether the current taxonomy should be shown in the Quick Edit panel.
 			 *
-			 * @since 4.2.0
+			 * @since WP 4.2.0
 			 *
 			 * @param bool   $show_in_quick_edit Whether to show the current taxonomy in Quick Edit.
 			 * @param string $taxonomy_name      Taxonomy name.
@@ -1744,7 +1744,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 							/**
 							 * Filters the arguments used to generate the Quick Edit authors drop-down.
 							 *
-							 * @since 5.6.0
+							 * @since WP 5.6.0
 							 *
 							 * @see wp_dropdown_users()
 							 *
@@ -1848,8 +1848,8 @@ class WP_Posts_List_Table extends WP_List_Table {
 							/**
 							 * Filters the arguments used to generate the Quick Edit page-parent drop-down.
 							 *
-							 * @since 2.7.0
-							 * @since 5.6.0 The `$bulk` parameter was added.
+							 * @since WP 2.7.0
+							 * @since WP 5.6.0 The `$bulk` parameter was added.
 							 *
 							 * @see wp_dropdown_pages()
 							 *
@@ -2057,7 +2057,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 					/**
 					 * Fires once for each column in Bulk Edit mode.
 					 *
-					 * @since 2.7.0
+					 * @since WP 2.7.0
 					 *
 					 * @param string $column_name Name of the column to edit.
 					 * @param string $post_type   The post type slug.
@@ -2068,7 +2068,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 					/**
 					 * Fires once for each column in Quick Edit mode.
 					 *
-					 * @since 2.7.0
+					 * @since WP 2.7.0
 					 *
 					 * @param string $column_name Name of the column to edit.
 					 * @param string $post_type   The post type slug, or current screen name if this is a taxonomy list table.

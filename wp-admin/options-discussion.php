@@ -27,12 +27,6 @@ get_current_screen()->add_help_tab(
 	)
 );
 
-get_current_screen()->set_help_sidebar(
-	'<p><strong>' . __( 'For more information:' ) . '</strong></p>' .
-	'<p>' . __( '<a href="https://wordpress.org/documentation/article/settings-discussion-screen/">Documentation on Discussion Settings</a>' ) . '</p>' .
-	'<p>' . __( '<a href="https://wordpress.org/support/forums/">Support forums</a>' ) . '</p>'
-);
-
 require_once ABSPATH . 'wp-admin/admin-header.php';
 ?>
 
@@ -104,7 +98,7 @@ if ( ! get_option( 'users_can_register' ) && is_multisite() ) {
 /**
  * Filters the maximum depth of threaded/nested comments.
  *
- * @since 2.7.0
+ * @since WP 2.7.0
  *
  * @param int $max_depth The maximum depth of threaded comments. Default 10.
  */
@@ -316,7 +310,7 @@ $avatar_defaults = array(
  * Avatars are stored in key/value pairs, where the key is option value,
  * and the name is the displayed avatar name.
  *
- * @since 2.6.0
+ * @since WP 2.6.0
  *
  * @param string[] $avatar_defaults Associative array of default avatars.
  */
@@ -340,7 +334,7 @@ remove_filter( 'pre_option_show_avatars', '__return_true', 100 );
 /**
  * Filters the HTML output of the default avatar list.
  *
- * @since 2.6.0
+ * @since WP 2.6.0
  *
  * @param string $avatar_list HTML markup of the avatar list.
  */

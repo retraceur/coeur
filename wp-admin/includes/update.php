@@ -4,12 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage Administration
+ * @since 1.0.0 motsVertueux fork.
  */
 
 /**
  * Selects the first update version from the update_core option.
  *
- * @since 2.7.0
+ * @since WP 2.7.0
  *
  * @return object|array|false The response from the API on success, false on failure.
  */
@@ -30,7 +31,7 @@ function get_preferred_from_update_core() {
 /**
  * Gets available core updates.
  *
- * @since 2.7.0
+ * @since WP 2.7.0
  *
  * @param array $options Set $options['dismissed'] to true to show dismissed upgrades too,
  *                       set $options['available'] to false to skip not-dismissed updates.
@@ -86,7 +87,7 @@ function get_core_updates( $options = array() ) {
  *
  * If there's 1.2.3 and 1.3 on offer, it'll choose 1.3 if the installation allows it, else, 1.2.3.
  *
- * @since 3.7.0
+ * @since WP 3.7.0
  *
  * @return object|false The core update offering on success, false on failure.
  */
@@ -122,14 +123,18 @@ function find_core_auto_update() {
 /**
  * Gets and caches the checksums for the given version of WordPress.
  *
- * @since 3.7.0
+ * @since WP 3.7.0
+ * @since 1.0.0 Disable Core auto update for now.
  *
  * @param string $version Version string to query.
  * @param string $locale  Locale to query.
  * @return array|false An array of checksums on success, false on failure.
  */
 function get_core_checksums( $version, $locale ) {
-	$http_url = 'http://api.wordpress.org/core/checksums/1.0/?' . http_build_query( compact( 'version', 'locale' ), '', '&' );
+	return false;
+
+	// @todo See what's possible to achieve here.
+	$http_url = '';
 	$url      = $http_url;
 
 	$ssl = wp_http_supports( array( 'ssl' ) );
@@ -147,11 +152,7 @@ function get_core_checksums( $version, $locale ) {
 	if ( $ssl && is_wp_error( $response ) ) {
 		wp_trigger_error(
 			__FUNCTION__,
-			sprintf(
-				/* translators: %s: Support forums URL. */
-				__( 'An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="%s">support forums</a>.' ),
-				__( 'https://wordpress.org/support/forums/' )
-			) . ' ' . __( '(WordPress could not establish a secure connection to WordPress.org. Please contact your server administrator.)' ),
+			__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ) . ' ' . __( '(motsVertueux could not establish a secure connection to Core Updata API. Please contact your server administrator.)' ),
 			headers_sent() || WP_DEBUG ? E_USER_WARNING : E_USER_NOTICE
 		);
 
@@ -175,7 +176,7 @@ function get_core_checksums( $version, $locale ) {
 /**
  * Dismisses core update.
  *
- * @since 2.7.0
+ * @since WP 2.7.0
  *
  * @param object $update
  * @return bool
@@ -190,7 +191,7 @@ function dismiss_core_update( $update ) {
 /**
  * Undismisses core update.
  *
- * @since 2.7.0
+ * @since WP 2.7.0
  *
  * @param string $version
  * @param string $locale
@@ -212,7 +213,7 @@ function undismiss_core_update( $version, $locale ) {
 /**
  * Finds the available update for WordPress core.
  *
- * @since 2.7.0
+ * @since WP 2.7.0
  *
  * @param string $version Version string to find the update for.
  * @param string $locale  Locale to find the update for.
@@ -239,7 +240,7 @@ function find_core_update( $version, $locale ) {
 /**
  * Returns core update footer message.
  *
- * @since 2.3.0
+ * @since WP 2.3.0
  *
  * @param string $msg
  * @return string
@@ -294,13 +295,17 @@ function core_update_footer( $msg = '' ) {
 /**
  * Returns core update notification message.
  *
- * @since 2.3.0
+ * @since WP 2.3.0
+ * @since 1.0.0 Disable Core update notification message for now.
  *
  * @global string $pagenow The filename of the current screen.
  * @return void|false
  */
 function update_nag() {
 	global $pagenow;
+
+	// @todo see what can be done here.
+	return false;
 
 	if ( is_multisite() && ! current_user_can( 'update_core' ) ) {
 		return false;
@@ -316,26 +321,18 @@ function update_nag() {
 		return false;
 	}
 
-	$version_url = sprintf(
-		/* translators: %s: WordPress version. */
-		esc_url( __( 'https://wordpress.org/documentation/wordpress-version/version-%s/' ) ),
-		sanitize_title( $cur->current )
-	);
-
 	if ( current_user_can( 'update_core' ) ) {
 		$msg = sprintf(
-			/* translators: 1: URL to WordPress release notes, 2: New WordPress version, 3: URL to network admin, 4: Accessibility text. */
-			__( '<a href="%1$s">WordPress %2$s</a> is available! <a href="%3$s" aria-label="%4$s">Please update now</a>.' ),
-			$version_url,
+			/* translators: 1: New version, 2: URL to network admin, 3: Accessibility text. */
+			__( 'motsVertueux %1$s is available! <a href="%2$s" aria-label="%3$s">Please update now</a>.' ),
 			$cur->current,
 			network_admin_url( 'update-core.php' ),
 			esc_attr__( 'Please update WordPress now' )
 		);
 	} else {
 		$msg = sprintf(
-			/* translators: 1: URL to WordPress release notes, 2: New WordPress version. */
-			__( '<a href="%1$s">WordPress %2$s</a> is available! Please notify the site administrator.' ),
-			$version_url,
+			/* translators: %s: New version. */
+			__( 'motsVertueux %2$s is available! Please notify the site administrator.' ),
 			$cur->current
 		);
 	}
@@ -353,7 +350,7 @@ function update_nag() {
 /**
  * Displays WordPress version and active theme in the 'At a Glance' dashboard widget.
  *
- * @since 2.5.0
+ * @since WP 2.5.0
  */
 function update_right_now_message() {
 	$theme_name = wp_get_theme();
@@ -385,7 +382,7 @@ function update_right_now_message() {
 	 *
 	 * Prior to 3.8.0, the widget was named 'Right Now'.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 *
 	 * @param string $content Default text.
 	 */
@@ -399,7 +396,7 @@ function update_right_now_message() {
 /**
  * Retrieves plugins with updates available.
  *
- * @since 2.9.0
+ * @since WP 2.9.0
  *
  * @return array
  */
@@ -421,7 +418,7 @@ function get_plugin_updates() {
 /**
  * Adds a callback to display update information for plugins with updates available.
  *
- * @since 2.9.0
+ * @since WP 2.9.0
  */
 function wp_plugin_update_rows() {
 	if ( ! current_user_can( 'update_plugins' ) ) {
@@ -442,7 +439,7 @@ function wp_plugin_update_rows() {
 /**
  * Displays update information for a plugin.
  *
- * @since 2.3.0
+ * @since WP 2.3.0
  *
  * @param string $file        Plugin basename.
  * @param array  $plugin_data Plugin information.
@@ -568,8 +565,8 @@ function wp_plugin_update_row( $file, $plugin_data ) {
 				);
 			} else {
 				printf(
-					/* translators: 1: Plugin name, 2: Details URL, 3: Additional link attributes, 4: Version number 5: URL to Update PHP page. */
-					__( 'There is a new version of %1$s available, but it does not work with your version of PHP. <a href="%2$s" %3$s>View version %4$s details</a> or <a href="%5$s">learn more about updating PHP</a>.' ),
+					/* translators: 1: Plugin name, 2: Details URL, 3: Additional link attributes, 4: Version number. */
+					__( 'There is a new version of %1$s available, but it does not work with your version of PHP. <a href="%2$s" %3$s>View version %4$s details</a>.' ),
 					$plugin_name,
 					esc_url( $details_url ),
 					sprintf(
@@ -577,10 +574,8 @@ function wp_plugin_update_row( $file, $plugin_data ) {
 						/* translators: 1: Plugin name, 2: Version number. */
 						esc_attr( sprintf( __( 'View %1$s version %2$s details' ), $plugin_name, $response->new_version ) )
 					),
-					esc_attr( $response->new_version ),
-					esc_url( wp_get_update_php_url() )
+					esc_attr( $response->new_version )
 				);
-				wp_update_php_annotation( '<br><em>', '</em>' );
 			}
 		}
 
@@ -591,7 +586,7 @@ function wp_plugin_update_row( $file, $plugin_data ) {
 		 * The dynamic portion of the hook name, `$file`, refers to the path
 		 * of the plugin's primary file relative to the plugins directory.
 		 *
-		 * @since 2.8.0
+		 * @since WP 2.8.0
 		 *
 		 * @param array  $plugin_data An array of plugin metadata. See get_plugin_data()
 		 *                            and the {@see 'plugin_row_meta'} filter for the list
@@ -622,7 +617,7 @@ function wp_plugin_update_row( $file, $plugin_data ) {
 /**
  * Retrieves themes with updates available.
  *
- * @since 2.9.0
+ * @since WP 2.9.0
  *
  * @return array
  */
@@ -646,7 +641,7 @@ function get_theme_updates() {
 /**
  * Adds a callback to display update information for themes with updates available.
  *
- * @since 3.1.0
+ * @since WP 3.1.0
  */
 function wp_theme_update_rows() {
 	if ( ! current_user_can( 'update_themes' ) ) {
@@ -667,7 +662,7 @@ function wp_theme_update_rows() {
 /**
  * Displays update information for a theme.
  *
- * @since 3.1.0
+ * @since WP 3.1.0
  *
  * @param string   $theme_key Theme stylesheet.
  * @param WP_Theme $theme     Theme object.
@@ -768,25 +763,16 @@ function wp_theme_update_row( $theme_key, $theme ) {
 			);
 			if ( current_user_can( 'update_core' ) && current_user_can( 'update_php' ) ) {
 				printf(
-					/* translators: 1: URL to WordPress Updates screen, 2: URL to Update PHP page. */
-					' ' . __( '<a href="%1$s">Please update WordPress</a>, and then <a href="%2$s">learn more about updating PHP</a>.' ),
-					self_admin_url( 'update-core.php' ),
-					esc_url( wp_get_update_php_url() )
+					/* translators: %s: URL to WordPress Updates screen,. */
+					' ' . __( '<a href="%s">Please update WordPress</a>.' ),
+					self_admin_url( 'update-core.php' )
 				);
-				wp_update_php_annotation( '</p><p><em>', '</em>' );
 			} elseif ( current_user_can( 'update_core' ) ) {
 				printf(
 					/* translators: %s: URL to WordPress Updates screen. */
 					' ' . __( '<a href="%s">Please update WordPress</a>.' ),
 					self_admin_url( 'update-core.php' )
 				);
-			} elseif ( current_user_can( 'update_php' ) ) {
-				printf(
-					/* translators: %s: URL to Update PHP page. */
-					' ' . __( '<a href="%s">Learn more about updating PHP</a>.' ),
-					esc_url( wp_get_update_php_url() )
-				);
-				wp_update_php_annotation( '</p><p><em>', '</em>' );
 			}
 		} elseif ( ! $compatible_wp ) {
 			printf(
@@ -807,14 +793,6 @@ function wp_theme_update_row( $theme_key, $theme ) {
 				__( 'There is a new version of %s available, but it does not work with your version of PHP.' ),
 				$theme['Name']
 			);
-			if ( current_user_can( 'update_php' ) ) {
-				printf(
-					/* translators: %s: URL to Update PHP page. */
-					' ' . __( '<a href="%s">Learn more about updating PHP</a>.' ),
-					esc_url( wp_get_update_php_url() )
-				);
-				wp_update_php_annotation( '</p><p><em>', '</em>' );
-			}
 		}
 	}
 
@@ -822,10 +800,7 @@ function wp_theme_update_row( $theme_key, $theme ) {
 	 * Fires at the end of the update message container in each
 	 * row of the themes list table.
 	 *
-	 * The dynamic portion of the hook name, `$theme_key`, refers to
-	 * the theme slug as found in the WordPress.org themes repository.
-	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @param WP_Theme $theme    The WP_Theme object.
 	 * @param array    $response {
@@ -844,7 +819,7 @@ function wp_theme_update_row( $theme_key, $theme ) {
 /**
  * Displays maintenance nag HTML message.
  *
- * @since 2.7.0
+ * @since WP 2.7.0
  *
  * @global int $upgrading
  *
@@ -900,7 +875,7 @@ function maintenance_nag() {
 /**
  * Prints the JavaScript templates for update admin notices.
  *
- * @since 4.6.0
+ * @since WP 4.6.0
  *
  * Template takes one argument with four values:
  *
@@ -952,7 +927,7 @@ function wp_print_admin_notice_templates() {
 /**
  * Prints the JavaScript templates for update and deletion rows in list tables.
  *
- * @since 4.6.0
+ * @since WP 4.6.0
  *
  * The update template takes one argument with four values:
  *
@@ -1014,7 +989,7 @@ function wp_print_update_row_templates() {
 /**
  * Displays a notice when the user is in recovery mode.
  *
- * @since 5.2.0
+ * @since WP 5.2.0
  */
 function wp_recovery_mode_nag() {
 	if ( ! wp_is_recovery_mode() ) {
@@ -1036,7 +1011,7 @@ function wp_recovery_mode_nag() {
 /**
  * Checks whether auto-updates are enabled.
  *
- * @since 5.5.0
+ * @since WP 5.5.0
  *
  * @param string $type The type of update being checked: Either 'theme' or 'plugin'.
  * @return bool True if auto-updates are enabled for `$type`, false otherwise.
@@ -1054,7 +1029,7 @@ function wp_is_auto_update_enabled_for_type( $type ) {
 			/**
 			 * Filters whether plugins auto-update is enabled.
 			 *
-			 * @since 5.5.0
+			 * @since WP 5.5.0
 			 *
 			 * @param bool $enabled True if plugins auto-update is enabled, false otherwise.
 			 */
@@ -1063,7 +1038,7 @@ function wp_is_auto_update_enabled_for_type( $type ) {
 			/**
 			 * Filters whether themes auto-update is enabled.
 			 *
-			 * @since 5.5.0
+			 * @since WP 5.5.0
 			 *
 			 * @param bool $enabled True if themes auto-update is enabled, false otherwise.
 			 */
@@ -1076,7 +1051,7 @@ function wp_is_auto_update_enabled_for_type( $type ) {
 /**
  * Checks whether auto-updates are forced for an item.
  *
- * @since 5.6.0
+ * @since WP 5.6.0
  *
  * @param string    $type   The type of update being checked: Either 'theme' or 'plugin'.
  * @param bool|null $update Whether to update. The value of null is internally used
@@ -1092,7 +1067,7 @@ function wp_is_auto_update_forced_for_item( $type, $update, $item ) {
 /**
  * Determines the appropriate auto-update message to be displayed.
  *
- * @since 5.5.0
+ * @since WP 5.5.0
  *
  * @return string The update message to be shown.
  */

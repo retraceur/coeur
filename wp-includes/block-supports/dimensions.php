@@ -7,13 +7,13 @@
  * original `spacing.php` file for compatibility with core.
  *
  * @package motsVertueux
- * @since 5.9.0
+ * @since WP 5.9.0
  */
 
 /**
  * Registers the style block attribute for block types that support it.
  *
- * @since 5.9.0
+ * @since WP 5.9.0
  * @access private
  *
  * @param WP_Block_Type $block_type Block Type.
@@ -42,8 +42,8 @@ function wp_register_dimensions_support( $block_type ) {
  * Adds CSS classes for block dimensions to the incoming attributes array.
  * This will be applied to the block markup in the front-end.
  *
- * @since 5.9.0
- * @since 6.2.0 Added `minHeight` support.
+ * @since WP 5.9.0
+ * @since WP 6.2.0 Added `minHeight` support.
  * @access private
  *
  * @param WP_Block_Type $block_type       Block Type.
@@ -88,7 +88,7 @@ function wp_apply_dimensions_support( $block_type, $block_attributes ) {
  * This block support uses the `render_block` hook to ensure that
  * it is also applied to non-server-rendered blocks.
  *
- * @since 6.5.0
+ * @since WP 6.5.0
  * @access private
  *
  * @param  string $block_content Rendered block content.

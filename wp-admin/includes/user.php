@@ -9,7 +9,7 @@
 /**
  * Creates a new user from the "Users" form using $_POST information.
  *
- * @since 2.0.0
+ * @since WP 2.0.0
  *
  * @return int|WP_Error WP_Error or User ID.
  */
@@ -22,7 +22,7 @@ function add_user() {
  *
  * Used on user-edit.php and profile.php to manage and process user options, passwords etc.
  *
- * @since 2.0.0
+ * @since WP 2.0.0
  *
  * @param int $user_id Optional. User ID.
  * @return int|WP_Error User ID of the updated user or WP_Error on failure.
@@ -160,7 +160,7 @@ function edit_user( $user_id = 0 ) {
 	/**
 	 * Fires before the password and confirm password fields are checked for congruity.
 	 *
-	 * @since 1.5.1
+	 * @since WP 1.5.1
 	 *
 	 * @param string $user_login The username.
 	 * @param string $pass1     The password (passed by reference).
@@ -217,7 +217,7 @@ function edit_user( $user_id = 0 ) {
 	/**
 	 * Fires before user profile update errors are returned.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @param WP_Error $errors WP_Error object (passed by reference).
 	 * @param bool     $update Whether this is a user update.
@@ -238,7 +238,7 @@ function edit_user( $user_id = 0 ) {
 		/**
 		 * Fires after a new user has been created.
 		 *
-		 * @since 4.4.0
+		 * @since WP 4.4.0
 		 *
 		 * @param int|WP_Error $user_id ID of the newly created user or WP_Error on failure.
 		 * @param string       $notify  Type of notification that should happen. See
@@ -261,7 +261,7 @@ function edit_user( $user_id = 0 ) {
  * only editors or authors. This filter allows admins to delegate
  * user management.
  *
- * @since 2.8.0
+ * @since WP 2.8.0
  *
  * @return array[] Array of arrays containing role information.
  */
@@ -271,7 +271,7 @@ function get_editable_roles() {
 	/**
 	 * Filters the list of editable roles.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @param array[] $all_roles Array of arrays containing role information.
 	 */
@@ -283,7 +283,7 @@ function get_editable_roles() {
 /**
  * Retrieve user data and filter it.
  *
- * @since 2.0.5
+ * @since WP 2.0.5
  *
  * @param int $user_id User ID.
  * @return WP_User|false WP_User object on success, false on failure.
@@ -301,7 +301,7 @@ function get_user_to_edit( $user_id ) {
 /**
  * Retrieve the user's drafts.
  *
- * @since 2.0.0
+ * @since WP 2.0.0
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  *
@@ -315,7 +315,7 @@ function get_users_drafts( $user_id ) {
 	/**
 	 * Filters the user's drafts query string.
 	 *
-	 * @since 2.0.0
+	 * @since WP 2.0.0
 	 *
 	 * @param string $query The user's drafts query string.
 	 */
@@ -334,7 +334,7 @@ function get_users_drafts( $user_id ) {
  * being deleted will be run after the posts are either reassigned or deleted.
  * The user meta will also be deleted that are for that user ID.
  *
- * @since 2.0.0
+ * @since WP 2.0.0
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  *
@@ -369,8 +369,8 @@ function wp_delete_user( $id, $reassign = null ) {
 	 * Note that on a Multisite installation the user only gets removed from the site
 	 * and does not get deleted from the database.
 	 *
-	 * @since 2.0.0
-	 * @since 5.5.0 Added the `$user` parameter.
+	 * @since WP 2.0.0
+	 * @since WP 5.5.0 Added the `$user` parameter.
 	 *
 	 * @param int      $id       ID of the user to delete.
 	 * @param int|null $reassign ID of the user to reassign posts and links to.
@@ -392,7 +392,7 @@ function wp_delete_user( $id, $reassign = null ) {
 		/**
 		 * Filters the list of post types to delete with a user.
 		 *
-		 * @since 3.4.0
+		 * @since WP 3.4.0
 		 *
 		 * @param string[] $post_types_to_delete Array of post types to delete.
 		 * @param int      $id                   User ID.
@@ -452,8 +452,8 @@ function wp_delete_user( $id, $reassign = null ) {
 	 * the database depending on whether `wp_delete_user()` or `wpmu_delete_user()`
 	 * was called.
 	 *
-	 * @since 2.9.0
-	 * @since 5.5.0 Added the `$user` parameter.
+	 * @since WP 2.9.0
+	 * @since WP 5.5.0 Added the `$user` parameter.
 	 *
 	 * @param int      $id       ID of the deleted user.
 	 * @param int|null $reassign ID of the user to reassign posts and links to.
@@ -468,7 +468,7 @@ function wp_delete_user( $id, $reassign = null ) {
 /**
  * Remove all capabilities from user.
  *
- * @since 2.1.0
+ * @since WP 2.1.0
  *
  * @param int $id User ID.
  */
@@ -480,7 +480,7 @@ function wp_revoke_user( $id ) {
 }
 
 /**
- * @since 2.8.0
+ * @since WP 2.8.0
  *
  * @global int $user_ID
  *
@@ -503,7 +503,7 @@ function default_password_nag_handler( $errors = false ) {
 }
 
 /**
- * @since 2.8.0
+ * @since WP 2.8.0
  *
  * @param int     $user_ID
  * @param WP_User $old_data
@@ -524,7 +524,7 @@ function default_password_nag_edit_user( $user_ID, $old_data ) {
 }
 
 /**
- * @since 2.8.0
+ * @since WP 2.8.0
  *
  * @global string $pagenow The filename of the current screen.
  */
@@ -562,7 +562,7 @@ function default_password_nag() {
 }
 
 /**
- * @since 3.5.0
+ * @since WP 3.5.0
  * @access private
  */
 function delete_users_add_js() {
@@ -586,7 +586,7 @@ jQuery( function($) {
  *
  * See the {@see 'personal_options'} action.
  *
- * @since 2.7.0
+ * @since WP 2.7.0
  *
  * @param WP_User $user User data object.
  */
@@ -600,7 +600,7 @@ function use_ssl_preference( $user ) {
 }
 
 /**
- * @since MU (3.0.0)
+ * @since WP MU (3.0.0)
  *
  * @param string $text
  * @return string
@@ -636,9 +636,9 @@ Please click the following link to activate your user account:
 /**
  * Checks if the Authorize Application Password request is valid.
  *
- * @since 5.6.0
- * @since 6.2.0 Allow insecure HTTP connections for the local environment.
- * @since 6.3.2 Validates the success and reject URLs to prevent `javascript` pseudo protocol from being executed.
+ * @since WP 5.6.0
+ * @since WP 6.2.0 Allow insecure HTTP connections for the local environment.
+ * @since WP 6.3.2 Validates the success and reject URLs to prevent `javascript` pseudo protocol from being executed.
  *
  * @param array   $request {
  *     The array of request data. All arguments are optional and may be empty.
@@ -684,7 +684,7 @@ function wp_is_authorize_application_password_request_valid( $request, $user ) {
 	/**
 	 * Fires before application password errors are returned.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param WP_Error $error   The error object.
 	 * @param array    $request The array of request data.
@@ -702,7 +702,7 @@ function wp_is_authorize_application_password_request_valid( $request, $user ) {
 /**
  * Validates the redirect URL protocol scheme. The protocol can be anything except `http` and `javascript`.
  *
- * @since 6.3.2
+ * @since WP 6.3.2
  *
  * @param string $url The redirect URL to be validated.
  * @return true|WP_Error True if the redirect URL is valid, a WP_Error object otherwise.
@@ -725,7 +725,7 @@ function wp_is_authorize_application_redirect_url_valid( $url ) {
 	/**
 	 * Filters the list of invalid protocols used in applications redirect URLs.
 	 *
-	 * @since 6.3.2
+	 * @since WP 6.3.2
 	 *
 	 * @param string[] $bad_protocols Array of invalid protocols.
 	 * @param string   $url The redirect URL to be validated.

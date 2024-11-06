@@ -3,7 +3,7 @@
  * WordPress environment setup class.
  *
  * @package motsVertueux
- * @since 2.0.0
+ * @since WP 2.0.0
  */
 #[AllowDynamicProperties]
 class WP {
@@ -12,7 +12,7 @@ class WP {
 	 *
 	 * Long list of public query variables.
 	 *
-	 * @since 2.0.0
+	 * @since WP 2.0.0
 	 * @var string[]
 	 */
 	public $public_query_vars = array( 'm', 'p', 'posts', 'w', 'cat', 'withcomments', 'withoutcomments', 's', 'search', 'exact', 'sentence', 'calendar', 'page', 'paged', 'more', 'tb', 'pb', 'author', 'order', 'orderby', 'year', 'monthnum', 'day', 'hour', 'minute', 'second', 'name', 'category_name', 'tag', 'feed', 'author_name', 'pagename', 'page_id', 'error', 'attachment', 'attachment_id', 'subpost', 'subpost_id', 'preview', 'robots', 'favicon', 'taxonomy', 'term', 'cpage', 'post_type', 'embed' );
@@ -22,7 +22,7 @@ class WP {
 	 *
 	 * Long list of private query variables.
 	 *
-	 * @since 2.0.0
+	 * @since WP 2.0.0
 	 * @var string[]
 	 */
 	public $private_query_vars = array( 'offset', 'posts_per_page', 'posts_per_archive_page', 'showposts', 'nopaging', 'post_type', 'post_status', 'category__in', 'category__not_in', 'category__and', 'tag__in', 'tag__not_in', 'tag__and', 'tag_slug__in', 'tag_slug__and', 'tag_id', 'post_mime_type', 'perm', 'comments_per_page', 'post__in', 'post__not_in', 'post_parent', 'post_parent__in', 'post_parent__not_in', 'title', 'fields' );
@@ -30,7 +30,7 @@ class WP {
 	/**
 	 * Extra query variables set by the user.
 	 *
-	 * @since 2.1.0
+	 * @since WP 2.1.0
 	 * @var array
 	 */
 	public $extra_query_vars = array();
@@ -38,7 +38,7 @@ class WP {
 	/**
 	 * Query variables for setting up the WordPress Query Loop.
 	 *
-	 * @since 2.0.0
+	 * @since WP 2.0.0
 	 * @var array
 	 */
 	public $query_vars = array();
@@ -46,7 +46,7 @@ class WP {
 	/**
 	 * String parsed to set the query variables.
 	 *
-	 * @since 2.0.0
+	 * @since WP 2.0.0
 	 * @var string
 	 */
 	public $query_string = '';
@@ -54,7 +54,7 @@ class WP {
 	/**
 	 * The request path, e.g. 2015/05/06.
 	 *
-	 * @since 2.0.0
+	 * @since WP 2.0.0
 	 * @var string
 	 */
 	public $request = '';
@@ -62,7 +62,7 @@ class WP {
 	/**
 	 * Rewrite rule the request matched.
 	 *
-	 * @since 2.0.0
+	 * @since WP 2.0.0
 	 * @var string
 	 */
 	public $matched_rule = '';
@@ -70,7 +70,7 @@ class WP {
 	/**
 	 * Rewrite query the request matched.
 	 *
-	 * @since 2.0.0
+	 * @since WP 2.0.0
 	 * @var string
 	 */
 	public $matched_query = '';
@@ -78,7 +78,7 @@ class WP {
 	/**
 	 * Whether already did the permalink.
 	 *
-	 * @since 2.0.0
+	 * @since WP 2.0.0
 	 * @var bool
 	 */
 	public $did_permalink = false;
@@ -86,7 +86,7 @@ class WP {
 	/**
 	 * Adds a query variable to the list of public query variables.
 	 *
-	 * @since 2.1.0
+	 * @since WP 2.1.0
 	 *
 	 * @param string $qv Query variable name.
 	 */
@@ -99,7 +99,7 @@ class WP {
 	/**
 	 * Removes a query variable from a list of public query variables.
 	 *
-	 * @since 4.5.0
+	 * @since WP 4.5.0
 	 *
 	 * @param string $name Query variable name.
 	 */
@@ -110,7 +110,7 @@ class WP {
 	/**
 	 * Sets the value of a query variable.
 	 *
-	 * @since 2.3.0
+	 * @since WP 2.3.0
 	 *
 	 * @param string $key   Query variable name.
 	 * @param mixed  $value Query variable value.
@@ -125,8 +125,8 @@ class WP {
 	 * Sets up the query variables based on the request. There are also many
 	 * filters and actions that can be used to further manipulate the result.
 	 *
-	 * @since 2.0.0
-	 * @since 6.0.0 A return value was added.
+	 * @since WP 2.0.0
+	 * @since WP 6.0.0 A return value was added.
 	 *
 	 * @global WP_Rewrite $wp_rewrite WordPress rewrite component.
 	 *
@@ -139,7 +139,7 @@ class WP {
 		/**
 		 * Filters whether to parse the request.
 		 *
-		 * @since 3.5.0
+		 * @since WP 3.5.0
 		 *
 		 * @param bool         $bool             Whether or not to parse the request. Default true.
 		 * @param WP           $wp               Current WordPress environment instance.
@@ -304,7 +304,7 @@ class WP {
 		 * to executing the query. Needed to allow custom rewrite rules using your own arguments
 		 * to work, or any other custom query variables you want to be publicly available.
 		 *
-		 * @since 1.5.0
+		 * @since WP 1.5.0
 		 *
 		 * @param string[] $public_query_vars The array of allowed query variable names.
 		 */
@@ -402,7 +402,7 @@ class WP {
 		/**
 		 * Filters the array of parsed query variables.
 		 *
-		 * @since 2.1.0
+		 * @since WP 2.1.0
 		 *
 		 * @param array $query_vars The array of requested query variables.
 		 */
@@ -411,7 +411,7 @@ class WP {
 		/**
 		 * Fires once all query variables for the current request have been parsed.
 		 *
-		 * @since 2.1.0
+		 * @since WP 2.1.0
 		 *
 		 * @param WP $wp Current WordPress environment instance (passed by reference).
 		 */
@@ -426,9 +426,9 @@ class WP {
 	 * Sets the Content-Type header. Sets the 'error' status (if passed) and optionally exits.
 	 * If showing a feed, it will also send Last-Modified, ETag, and 304 status if needed.
 	 *
-	 * @since 2.0.0
-	 * @since 4.4.0 `X-Pingback` header is added conditionally for single posts that allow pings.
-	 * @since 6.1.0 Runs after posts have been queried.
+	 * @since WP 2.0.0
+	 * @since WP 4.4.0 `X-Pingback` header is added conditionally for single posts that allow pings.
+	 * @since WP 6.1.0 Runs after posts have been queried.
 	 *
 	 * @global WP_Query $wp_query WordPress Query object.
 	 */
@@ -550,7 +550,7 @@ class WP {
 		/**
 		 * Filters the HTTP headers before they're sent to the browser.
 		 *
-		 * @since 2.8.0
+		 * @since WP 2.8.0
 		 *
 		 * @param string[] $headers Associative array of headers to be sent.
 		 * @param WP       $wp      Current WordPress environment instance.
@@ -583,7 +583,7 @@ class WP {
 		/**
 		 * Fires once the requested HTTP headers for caching, content type, etc. have been sent.
 		 *
-		 * @since 2.1.0
+		 * @since WP 2.1.0
 		 *
 		 * @param WP $wp Current WordPress environment instance (passed by reference).
 		 */
@@ -596,7 +596,7 @@ class WP {
 	 * The {@see 'query_string'} filter is deprecated, but still works. Plugins should
 	 * use the {@see 'request'} filter instead.
 	 *
-	 * @since 2.0.0
+	 * @since WP 2.0.0
 	 */
 	public function build_query_string() {
 		$this->query_string = '';
@@ -617,8 +617,8 @@ class WP {
 			/**
 			 * Filters the query string before parsing.
 			 *
-			 * @since 1.5.0
-			 * @deprecated 2.1.0 Use {@see 'query_vars'} or {@see 'request'} filters instead.
+			 * @since WP 1.5.0
+			 * @deprecated WP 2.1.0 Use {@see 'query_vars'} or {@see 'request'} filters instead.
 			 *
 			 * @param string $query_string The query string to modify.
 			 */
@@ -640,7 +640,7 @@ class WP {
 	 * be taken when naming global variables that might interfere with the
 	 * WordPress environment.
 	 *
-	 * @since 2.0.0
+	 * @since WP 2.0.0
 	 *
 	 * @global WP_Query     $wp_query     WordPress Query object.
 	 * @global string       $query_string Query string for the loop.
@@ -677,7 +677,7 @@ class WP {
 	/**
 	 * Set up the current user.
 	 *
-	 * @since 2.0.0
+	 * @since WP 2.0.0
 	 */
 	public function init() {
 		wp_get_current_user();
@@ -686,7 +686,7 @@ class WP {
 	/**
 	 * Set up the Loop based on the query variables.
 	 *
-	 * @since 2.0.0
+	 * @since WP 2.0.0
 	 *
 	 * @global WP_Query $wp_the_query WordPress Query object.
 	 */
@@ -709,7 +709,7 @@ class WP {
 	 * By inspecting the result of querying posts, seemingly successful requests can be switched to
 	 * a 404 so that canonical redirection logic can kick in.
 	 *
-	 * @since 2.0.0
+	 * @since WP 2.0.0
 	 *
 	 * @global WP_Query $wp_query WordPress Query object.
 	 */
@@ -722,7 +722,7 @@ class WP {
 		 * Returning a non-false value from the filter will short-circuit the handling
 		 * and return early.
 		 *
-		 * @since 4.5.0
+		 * @since WP 4.5.0
 		 *
 		 * @param bool     $preempt  Whether to short-circuit default header status handling. Default false.
 		 * @param WP_Query $wp_query WordPress Query object.
@@ -803,7 +803,7 @@ class WP {
 	 * allows for accessing the properties and methods to further manipulate the
 	 * object.
 	 *
-	 * @since 2.0.0
+	 * @since WP 2.0.0
 	 *
 	 * @param string|array $query_args Passed to parse_request().
 	 */
@@ -823,7 +823,7 @@ class WP {
 		/**
 		 * Fires once the WordPress environment has been set up.
 		 *
-		 * @since 2.1.0
+		 * @since WP 2.1.0
 		 *
 		 * @param WP $wp Current WordPress environment instance (passed by reference).
 		 */

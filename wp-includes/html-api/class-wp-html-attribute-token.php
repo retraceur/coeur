@@ -4,7 +4,7 @@
  *
  * @package motsVertueux
  * @subpackage HTML-API
- * @since 6.2.0
+ * @since WP 6.2.0
  */
 
 /**
@@ -14,8 +14,8 @@
  * This class is for internal usage of the WP_HTML_Tag_Processor class.
  *
  * @access private
- * @since 6.2.0
- * @since 6.5.0 Replaced `end` with `length` to more closely match `substr()`.
+ * @since WP 6.2.0
+ * @since WP 6.5.0 Replaced `end` with `length` to more closely match `substr()`.
  *
  * @see WP_HTML_Tag_Processor
  */
@@ -23,7 +23,7 @@ class WP_HTML_Attribute_Token {
 	/**
 	 * Attribute name.
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 *
 	 * @var string
 	 */
@@ -32,7 +32,7 @@ class WP_HTML_Attribute_Token {
 	/**
 	 * Attribute value.
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 *
 	 * @var int
 	 */
@@ -41,7 +41,7 @@ class WP_HTML_Attribute_Token {
 	/**
 	 * How many bytes the value occupies in the input HTML.
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 *
 	 * @var int
 	 */
@@ -50,7 +50,7 @@ class WP_HTML_Attribute_Token {
 	/**
 	 * The string offset where the attribute name starts.
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 *
 	 * @var int
 	 */
@@ -77,7 +77,7 @@ class WP_HTML_Attribute_Token {
 	 *     <a rel=noopener>
 	 *        ------------ length is 11
 	 *
-	 * @since 6.5.0 Replaced `end` with `length` to more closely match `substr()`.
+	 * @since WP 6.5.0 Replaced `end` with `length` to more closely match `substr()`.
 	 *
 	 * @var int
 	 */
@@ -86,7 +86,7 @@ class WP_HTML_Attribute_Token {
 	/**
 	 * Whether the attribute is a boolean attribute with value `true`.
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 *
 	 * @var bool
 	 */
@@ -95,8 +95,8 @@ class WP_HTML_Attribute_Token {
 	/**
 	 * Constructor.
 	 *
-	 * @since 6.2.0
-	 * @since 6.5.0 Replaced `end` with `length` to more closely match `substr()`.
+	 * @since WP 6.2.0
+	 * @since WP 6.5.0 Replaced `end` with `length` to more closely match `substr()`.
 	 *
 	 * @param string $name         Attribute name.
 	 * @param int    $value_start  Attribute value.

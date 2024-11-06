@@ -23,7 +23,7 @@
  * - heartbeat-connection-restored
  * - heartbeat-nonces-expired
  *
- * @since 3.6.0
+ * @since WP 3.6.0
  * @output wp-includes/js/heartbeat.js
  */
 
@@ -32,7 +32,7 @@
 	/**
 	 * Constructs the Heartbeat API.
 	 *
-	 * @since 3.6.0
+	 * @since WP 3.6.0
 	 *
 	 * @return {Object} An instance of the Heartbeat class.
 	 * @constructor
@@ -106,7 +106,7 @@
 		/**
 		 * Sets local variables and events, then starts the heartbeat.
 		 *
-		 * @since 3.8.0
+		 * @since WP 3.8.0
 		 * @access private
 		 *
 		 * @return {void}
@@ -266,7 +266,7 @@
 		/**
 		 * Returns the current time according to the browser.
 		 *
-		 * @since 3.6.0
+		 * @since WP 3.6.0
 		 * @access private
 		 *
 		 * @return {number} Returns the current time.
@@ -278,7 +278,7 @@
 		/**
 		 * Checks if the iframe is from the same origin.
 		 *
-		 * @since 3.6.0
+		 * @since WP 3.6.0
 		 * @access private
 		 *
 		 * @return {boolean} Returns whether or not the iframe is from the same origin.
@@ -310,7 +310,7 @@
 		/**
 		 * Checks if the document's focus has changed.
 		 *
-		 * @since 4.1.0
+		 * @since WP 4.1.0
 		 * @access private
 		 *
 		 * @return {void}
@@ -326,7 +326,7 @@
 		/**
 		 * Sets error state and fires an event on XHR errors or timeout.
 		 *
-		 * @since 3.8.0
+		 * @since WP 3.8.0
 		 * @access private
 		 *
 		 * @param {string} error  The error type passed from the XHR.
@@ -376,7 +376,7 @@
 		/**
 		 * Clears the error state and fires an event if there is a connection error.
 		 *
-		 * @since 3.8.0
+		 * @since WP 3.8.0
 		 * @access private
 		 *
 		 * @return {void}
@@ -396,7 +396,7 @@
 		/**
 		 * Gathers the data and connects to the server.
 		 *
-		 * @since 3.6.0
+		 * @since WP 3.6.0
 		 * @access private
 		 *
 		 * @return {void}
@@ -495,7 +495,7 @@
 		 *
 		 * Fires immediately if the connection time is longer than the interval.
 		 *
-		 * @since 3.8.0
+		 * @since WP 3.8.0
 		 * @access private
 		 *
 		 * @return {void}
@@ -540,7 +540,7 @@
 		/**
 		 * Sets the internal state when the browser window becomes hidden or loses focus.
 		 *
-		 * @since 3.6.0
+		 * @since WP 3.6.0
 		 * @access private
 		 *
 		 * @return {void}
@@ -552,7 +552,7 @@
 		/**
 		 * Sets the internal state when the browser window becomes visible or is in focus.
 		 *
-		 * @since 3.6.0
+		 * @since WP 3.6.0
 		 * @access private
 		 *
 		 * @return {void}
@@ -586,7 +586,7 @@
 		/**
 		 * Runs when the user becomes active after a period of inactivity.
 		 *
-		 * @since 3.6.0
+		 * @since WP 3.6.0
 		 * @access private
 		 *
 		 * @return {void}
@@ -611,7 +611,7 @@
 		 * is in the background. Sets 'hasFocus = false' if the user has been inactive
 		 * (no mouse or keyboard activity) for 5 minutes even when the window has focus.
 		 *
-		 * @since 3.8.0
+		 * @since WP 3.8.0
 		 * @access private
 		 *
 		 * @return {void}
@@ -653,7 +653,7 @@
 		 * Checks whether the window (or any local iframe in it) has focus, or the user
 		 * is active.
 		 *
-		 * @since 3.6.0
+		 * @since WP 3.6.0
 		 * @memberOf wp.heartbeat.prototype
 		 *
 		 * @return {boolean} True if the window or the user is active.
@@ -665,7 +665,7 @@
 		/**
 		 * Checks whether there is a connection error.
 		 *
-		 * @since 3.6.0
+		 * @since WP 3.6.0
 		 *
 		 * @memberOf wp.heartbeat.prototype
 		 *
@@ -681,7 +681,7 @@
 		 * Will not open two concurrent connections. If a connection is in progress,
 		 * will connect again immediately after the current connection completes.
 		 *
-		 * @since 3.8.0
+		 * @since WP 3.8.0
 		 *
 		 * @memberOf wp.heartbeat.prototype
 		 *
@@ -700,7 +700,7 @@
 		 * the user's hosting account if several browser windows/tabs are left open
 		 * for a long time.
 		 *
-		 * @since 3.8.0
+		 * @since WP 3.8.0
 		 *
 		 * @memberOf wp.heartbeat.prototype
 		 *
@@ -718,7 +718,7 @@
 		 * can be passed as second argument. If the window doesn't have focus,
 		 * the interval slows down to 2 minutes.
 		 *
-		 * @since 3.6.0
+		 * @since WP 3.6.0
 		 *
 		 * @memberOf wp.heartbeat.prototype
 		 *
@@ -794,7 +794,7 @@
 		 * the third argument is 'true'. Use `wp.heartbeat.isQueued('handle')` to see if
 		 * any data is already queued for that handle.
 		 *
-		 * @since 3.6.0
+		 * @since WP 3.6.0
 		 *
 		 * @memberOf wp.heartbeat.prototype
 		 *
@@ -820,7 +820,7 @@
 		/**
 		 * Checks if data with a particular handle is queued.
 		 *
-		 * @since 3.6.0
+		 * @since WP 3.6.0
 		 *
 		 * @param {string} handle The handle for the data.
 		 *
@@ -835,7 +835,7 @@
 		/**
 		 * Removes data with a particular handle from the queue.
 		 *
-		 * @since 3.7.0
+		 * @since WP 3.7.0
 		 *
 		 * @memberOf wp.heartbeat.prototype
 		 *
@@ -852,7 +852,7 @@
 		/**
 		 * Gets data that was enqueued with a particular handle.
 		 *
-		 * @since 3.7.0
+		 * @since WP 3.7.0
 		 *
 		 * @memberOf wp.heartbeat.prototype
 		 *

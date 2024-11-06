@@ -7,20 +7,20 @@
  *
  * @package motsVertueux
  * @subpackage i18n
- * @since 6.1.0
+ * @since WP 6.1.0
  */
 
 /**
  * Core class used for registering text domains.
  *
- * @since 6.1.0
+ * @since WP 6.1.0
  */
 #[AllowDynamicProperties]
 class WP_Textdomain_Registry {
 	/**
 	 * List of domains and all their language directory paths for each locale.
 	 *
-	 * @since 6.1.0
+	 * @since WP 6.1.0
 	 *
 	 * @var array
 	 */
@@ -29,7 +29,7 @@ class WP_Textdomain_Registry {
 	/**
 	 * List of domains and their language directory path for the current (most recent) locale.
 	 *
-	 * @since 6.1.0
+	 * @since WP 6.1.0
 	 *
 	 * @var array
 	 */
@@ -41,7 +41,7 @@ class WP_Textdomain_Registry {
 	 * @see load_plugin_textdomain()
 	 * @see load_theme_textdomain()
 	 *
-	 * @since 6.1.0
+	 * @since WP 6.1.0
 	 *
 	 * @var array
 	 */
@@ -50,8 +50,8 @@ class WP_Textdomain_Registry {
 	/**
 	 * Holds a cached list of available .mo files to improve performance.
 	 *
-	 * @since 6.1.0
-	 * @since 6.5.0 This property is no longer used.
+	 * @since WP 6.1.0
+	 * @since WP 6.5.0 This property is no longer used.
 	 *
 	 * @var array
 	 *
@@ -62,7 +62,7 @@ class WP_Textdomain_Registry {
 	/**
 	 * Holds a cached list of domains with translations to improve performance.
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 *
 	 * @var string[]
 	 */
@@ -74,7 +74,7 @@ class WP_Textdomain_Registry {
 	 * Hooks into the {@see 'upgrader_process_complete'} filter
 	 * to invalidate MO files caches.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 */
 	public function init() {
 		add_action( 'upgrader_process_complete', array( $this, 'invalidate_mo_files_cache' ), 10, 2 );
@@ -83,7 +83,7 @@ class WP_Textdomain_Registry {
 	/**
 	 * Returns the languages directory path for a specific domain and locale.
 	 *
-	 * @since 6.1.0
+	 * @since WP 6.1.0
 	 *
 	 * @param string $domain Text domain.
 	 * @param string $locale Locale.
@@ -96,7 +96,7 @@ class WP_Textdomain_Registry {
 		/**
 		 * Filters the determined languages directory path for a specific domain and locale.
 		 *
-		 * @since 6.6.0
+		 * @since WP 6.6.0
 		 *
 		 * @param string|false $path   Languages directory path for the given domain and locale.
 		 * @param string       $domain Text domain.
@@ -112,7 +112,7 @@ class WP_Textdomain_Registry {
 	 * or if there is no information stored yet, in which case
 	 * {@see _load_textdomain_just_in_time()} will fetch the information first.
 	 *
-	 * @since 6.1.0
+	 * @since WP 6.1.0
 	 *
 	 * @param string $domain Text domain.
 	 * @return bool Whether any MO file paths are available for the domain.
@@ -131,7 +131,7 @@ class WP_Textdomain_Registry {
 	 * Also sets the 'current' property for direct access
 	 * to the path for the current (most recent) locale.
 	 *
-	 * @since 6.1.0
+	 * @since WP 6.1.0
 	 *
 	 * @param string       $domain Text domain.
 	 * @param string       $locale Locale.
@@ -147,7 +147,7 @@ class WP_Textdomain_Registry {
 	 *
 	 * Used by {@see load_plugin_textdomain()} and {@see load_theme_textdomain()}.
 	 *
-	 * @since 6.1.0
+	 * @since WP 6.1.0
 	 *
 	 * @param string $domain Text domain.
 	 * @param string $path   Language directory path.
@@ -162,7 +162,7 @@ class WP_Textdomain_Registry {
 	 * Allows early retrieval through the {@see 'pre_get_mo_files_from_path'} filter to optimize
 	 * performance, especially in directories with many files.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $path The directory path to search for translation files.
 	 * @return array Array of translation file paths. Can contain .mo and .l10n.php files.
@@ -179,7 +179,7 @@ class WP_Textdomain_Registry {
 		 * This can be useful in situations where the directory contains a large number of files
 		 * and the default glob() function becomes expensive in terms of performance.
 		 *
-		 * @since 6.5.0
+		 * @since WP 6.5.0
 		 *
 		 * @param null|array $files List of translation files. Default null.
 		 * @param string     $path  The path from which translation files are being fetched.
@@ -216,7 +216,7 @@ class WP_Textdomain_Registry {
 	 * This function deletes the cache entries related to .mo files when triggered
 	 * by specific actions, such as the completion of an upgrade process.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param WP_Upgrader $upgrader   Unused. WP_Upgrader instance. In other contexts this might be a
 	 *                                Theme_Upgrader, Plugin_Upgrader, Core_Upgrade, or Language_Pack_Upgrader instance.
@@ -268,7 +268,7 @@ class WP_Textdomain_Registry {
 	/**
 	 * Returns possible language directory paths for a given text domain.
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 *
 	 * @param string $domain Text domain.
 	 * @return string[] Array of language directory paths.
@@ -292,7 +292,7 @@ class WP_Textdomain_Registry {
 	 * Checks the plugins and themes language directories as well as any
 	 * custom directory set via {@see load_plugin_textdomain()} or {@see load_theme_textdomain()}.
 	 *
-	 * @since 6.1.0
+	 * @since WP 6.1.0
 	 *
 	 * @see _get_path_to_translation_from_lang_dir()
 	 *

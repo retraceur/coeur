@@ -1,9 +1,10 @@
 <?php
 /**
- * WordPress Dashboard Widget Administration Screen API
+ * Dashboard Widget Administration Screen API
  *
  * @package motsVertueux
  * @subpackage Administration
+ * @since 1.0.0 motsVertueux fork.
  */
 
 /**
@@ -11,7 +12,7 @@
  *
  * Handles POST data, sets up filters.
  *
- * @since 2.5.0
+ * @since WP 2.5.0
  *
  * @global array $wp_registered_widgets
  * @global array $wp_registered_widget_controls
@@ -24,19 +25,6 @@ function wp_dashboard_setup() {
 
 	/* Register Widgets and Controls */
 	$wp_dashboard_control_callbacks = array();
-
-	// Browser version
-	$check_browser = wp_check_browser_version();
-
-	if ( $check_browser && $check_browser['upgrade'] ) {
-		add_filter( 'postbox_classes_dashboard_dashboard_browser_nag', 'dashboard_browser_nag_class' );
-
-		if ( $check_browser['insecure'] ) {
-			wp_add_dashboard_widget( 'dashboard_browser_nag', __( 'You are using an insecure browser!' ), 'wp_dashboard_browser_nag' );
-		} else {
-			wp_add_dashboard_widget( 'dashboard_browser_nag', __( 'Your browser is out of date!' ), 'wp_dashboard_browser_nag' );
-		}
-	}
 
 	// PHP Version.
 	$check_php = wp_check_php_version();
@@ -88,22 +76,19 @@ function wp_dashboard_setup() {
 		wp_add_dashboard_widget( 'dashboard_quick_press', $quick_draft_title, 'wp_dashboard_quick_press' );
 	}
 
-	// WordPress Events and News.
-	wp_add_dashboard_widget( 'dashboard_primary', __( 'WordPress Events and News' ), 'wp_dashboard_events_news' );
-
 	if ( is_network_admin() ) {
 
 		/**
 		 * Fires after core widgets for the Network Admin dashboard have been registered.
 		 *
-		 * @since 3.1.0
+		 * @since WP 3.1.0
 		 */
 		do_action( 'wp_network_dashboard_setup' );
 
 		/**
 		 * Filters the list of widgets to load for the Network Admin dashboard.
 		 *
-		 * @since 3.1.0
+		 * @since WP 3.1.0
 		 *
 		 * @param string[] $dashboard_widgets An array of dashboard widget IDs.
 		 */
@@ -113,14 +98,14 @@ function wp_dashboard_setup() {
 		/**
 		 * Fires after core widgets for the User Admin dashboard have been registered.
 		 *
-		 * @since 3.1.0
+		 * @since WP 3.1.0
 		 */
 		do_action( 'wp_user_dashboard_setup' );
 
 		/**
 		 * Filters the list of widgets to load for the User Admin dashboard.
 		 *
-		 * @since 3.1.0
+		 * @since WP 3.1.0
 		 *
 		 * @param string[] $dashboard_widgets An array of dashboard widget IDs.
 		 */
@@ -130,14 +115,14 @@ function wp_dashboard_setup() {
 		/**
 		 * Fires after core widgets for the admin dashboard have been registered.
 		 *
-		 * @since 2.5.0
+		 * @since WP 2.5.0
 		 */
 		do_action( 'wp_dashboard_setup' );
 
 		/**
 		 * Filters the list of widgets to load for the admin dashboard.
 		 *
-		 * @since 2.5.0
+		 * @since WP 2.5.0
 		 *
 		 * @param string[] $dashboard_widgets An array of dashboard widget IDs.
 		 */
@@ -168,8 +153,8 @@ function wp_dashboard_setup() {
 /**
  * Adds a new dashboard widget.
  *
- * @since 2.7.0
- * @since 5.6.0 The `$context` and `$priority` parameters were added.
+ * @since WP 2.7.0
+ * @since WP 5.6.0 The `$context` and `$priority` parameters were added.
  *
  * @global callable[] $wp_dashboard_control_callbacks
  *
@@ -238,7 +223,7 @@ function wp_add_dashboard_widget( $widget_id, $widget_name, $callback, $control_
  * Outputs controls for the current dashboard widget.
  *
  * @access private
- * @since 2.7.0
+ * @since WP 2.7.0
  *
  * @param mixed $dashboard
  * @param array $meta_box
@@ -255,7 +240,7 @@ function _wp_dashboard_control_callback( $dashboard, $meta_box ) {
 /**
  * Displays the dashboard.
  *
- * @since 2.5.0
+ * @since WP 2.5.0
  */
 function wp_dashboard() {
 	$screen      = get_current_screen();
@@ -295,7 +280,7 @@ function wp_dashboard() {
  *
  * Formerly 'Right Now'. A streamlined 'At a Glance' as of 3.8.
  *
- * @since 2.7.0
+ * @since WP 2.7.0
  */
 function wp_dashboard_right_now() {
 	?>
@@ -354,7 +339,7 @@ function wp_dashboard_right_now() {
 	 * Prior to 3.8.0, the widget was named 'Right Now'. Each element
 	 * is wrapped in list-item tags on output.
 	 *
-	 * @since 3.8.0
+	 * @since WP 3.8.0
 	 *
 	 * @param string[] $items Array of extra 'At a Glance' widget items.
 	 */
@@ -380,8 +365,8 @@ function wp_dashboard_right_now() {
 		 *
 		 * Prior to 3.8.0, the widget was named 'Right Now'.
 		 *
-		 * @since 3.0.0
-		 * @since 4.5.0 The default for `$title` was updated to an empty string.
+		 * @since WP 3.0.0
+		 * @since WP 4.5.0 The default for `$title` was updated to an empty string.
 		 *
 		 * @param string $title Default attribute text.
 		 */
@@ -393,7 +378,7 @@ function wp_dashboard_right_now() {
 		 *
 		 * Prior to 3.8.0, the widget was named 'Right Now'.
 		 *
-		 * @since 3.0.0
+		 * @since WP 3.0.0
 		 *
 		 * @param string $content Default text.
 		 */
@@ -417,7 +402,7 @@ function wp_dashboard_right_now() {
 	 *
 	 * Prior to 3.8.0, the widget was named 'Right Now'.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 */
 	do_action( 'rightnow_end' );
 
@@ -426,7 +411,7 @@ function wp_dashboard_right_now() {
 	 *
 	 * Prior to 3.8.0, the widget was named 'Right Now'.
 	 *
-	 * @since 2.0.0
+	 * @since WP 2.0.0
 	 */
 	do_action( 'activity_box_end' );
 
@@ -442,7 +427,7 @@ function wp_dashboard_right_now() {
 }
 
 /**
- * @since 3.1.0
+ * @since WP 3.1.0
  */
 function wp_network_dashboard_right_now() {
 	$actions = array();
@@ -484,7 +469,7 @@ function wp_network_dashboard_right_now() {
 		 * Fires in the Network Admin 'Right Now' dashboard widget
 		 * just before the user and site search form fields.
 		 *
-		 * @since MU (3.0.0)
+		 * @since WP MU (3.0.0)
 		 */
 		do_action( 'wpmuadminresult' );
 	?>
@@ -518,14 +503,14 @@ function wp_network_dashboard_right_now() {
 	/**
 	 * Fires at the end of the 'Right Now' widget in the Network Admin dashboard.
 	 *
-	 * @since MU (3.0.0)
+	 * @since WP MU (3.0.0)
 	 */
 	do_action( 'mu_rightnow_end' );
 
 	/**
 	 * Fires at the end of the 'Right Now' widget in the Network Admin dashboard.
 	 *
-	 * @since MU (3.0.0)
+	 * @since WP MU (3.0.0)
 	 */
 	do_action( 'mu_activity_box_end' );
 }
@@ -533,7 +518,7 @@ function wp_network_dashboard_right_now() {
 /**
  * Displays the Quick Draft widget.
  *
- * @since 3.8.0
+ * @since WP 3.8.0
  *
  * @global int $post_ID
  *
@@ -616,7 +601,7 @@ function wp_dashboard_quick_press( $error_msg = false ) {
 /**
  * Show recent drafts of the user on the dashboard.
  *
- * @since 2.7.0
+ * @since WP 2.7.0
  *
  * @param WP_Post[]|false $drafts Optional. Array of posts to display. Default false.
  */
@@ -634,7 +619,7 @@ function wp_dashboard_recent_drafts( $drafts = false ) {
 		/**
 		 * Filters the post query arguments for the 'Recent Drafts' dashboard widget.
 		 *
-		 * @since 4.4.0
+		 * @since WP 4.4.0
 		 *
 		 * @param array $query_args The query arguments for the 'Recent Drafts' dashboard widget.
 		 */
@@ -694,7 +679,7 @@ function wp_dashboard_recent_drafts( $drafts = false ) {
  * Outputs a row for the Recent Comments widget.
  *
  * @access private
- * @since 2.7.0
+ * @since WP 2.7.0
  *
  * @global WP_Comment $comment Global comment object.
  *
@@ -922,7 +907,7 @@ function _wp_dashboard_recent_comments_row( &$comment, $show_date = true ) {
  *
  * Callback function for {@see 'dashboard_activity'}.
  *
- * @since 3.8.0
+ * @since WP 3.8.0
  */
 function wp_dashboard_site_activity() {
 
@@ -961,7 +946,7 @@ function wp_dashboard_site_activity() {
 /**
  * Generates Publishing Soon and Recently Published sections.
  *
- * @since 3.8.0
+ * @since WP 3.8.0
  *
  * @param array $args {
  *     An array of query and display arguments.
@@ -989,7 +974,7 @@ function wp_dashboard_recent_posts( $args ) {
 	/**
 	 * Filters the query arguments used for the Recent Posts widget.
 	 *
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 *
 	 * @param array $query_args The arguments passed to WP_Query to produce the list of posts.
 	 */
@@ -1056,7 +1041,7 @@ function wp_dashboard_recent_posts( $args ) {
 /**
  * Show Comments section.
  *
- * @since 3.8.0
+ * @since WP 3.8.0
  *
  * @param int $total_items Optional. Number of comments to query. Default 5.
  * @return bool False if no comments were found. True otherwise.
@@ -1130,7 +1115,7 @@ function wp_dashboard_recent_comments( $total_items = 5 ) {
 /**
  * Display generic dashboard RSS widget feed.
  *
- * @since 2.5.0
+ * @since WP 2.5.0
  *
  * @param string $widget_id
  */
@@ -1149,8 +1134,8 @@ function wp_dashboard_rss_output( $widget_id ) {
  * echoes out output for this widget. If not cache, echo a "Loading..." stub
  * which is later replaced by Ajax call (see top of /wp-admin/index.php)
  *
- * @since 2.5.0
- * @since 5.3.0 Formalized the existing and already documented `...$args` parameter
+ * @since WP 2.5.0
+ * @since WP 5.3.0 Formalized the existing and already documented `...$args` parameter
  *              by adding it to the function signature.
  *
  * @param string   $widget_id  The widget ID.
@@ -1213,7 +1198,7 @@ function wp_dashboard_cached_rss_widget( $widget_id, $callback, $check_urls = ar
 /**
  * Calls widget control callback.
  *
- * @since 2.5.0
+ * @since WP 2.5.0
  *
  * @global callable[] $wp_dashboard_control_callbacks
  *
@@ -1242,7 +1227,7 @@ function wp_dashboard_trigger_widget_control( $widget_control_id = false ) {
  *
  * Handles POST data from RSS-type widgets.
  *
- * @since 2.5.0
+ * @since WP 2.5.0
  *
  * @param string $widget_id
  * @param array  $form_inputs
@@ -1289,350 +1274,12 @@ function wp_dashboard_rss_control( $widget_id, $form_inputs = array() ) {
 	wp_widget_rss_form( $widget_options[ $widget_id ], $form_inputs );
 }
 
-
-/**
- * Renders the Events and News dashboard widget.
- *
- * @since 4.8.0
- */
-function wp_dashboard_events_news() {
-	wp_print_community_events_markup();
-
-	?>
-
-	<div class="wordpress-news hide-if-no-js">
-		<?php wp_dashboard_primary(); ?>
-	</div>
-
-	<p class="community-events-footer">
-		<?php
-			printf(
-				'<a href="%1$s" target="_blank">%2$s <span class="screen-reader-text"> %3$s</span><span aria-hidden="true" class="dashicons dashicons-external"></span></a>',
-				'https://make.wordpress.org/community/meetups-landing-page',
-				__( 'Meetups' ),
-				/* translators: Hidden accessibility text. */
-				__( '(opens in a new tab)' )
-			);
-		?>
-
-		|
-
-		<?php
-			printf(
-				'<a href="%1$s" target="_blank">%2$s <span class="screen-reader-text"> %3$s</span><span aria-hidden="true" class="dashicons dashicons-external"></span></a>',
-				'https://central.wordcamp.org/schedule/',
-				__( 'WordCamps' ),
-				/* translators: Hidden accessibility text. */
-				__( '(opens in a new tab)' )
-			);
-		?>
-
-		|
-
-		<?php
-			printf(
-				'<a href="%1$s" target="_blank">%2$s <span class="screen-reader-text"> %3$s</span><span aria-hidden="true" class="dashicons dashicons-external"></span></a>',
-				/* translators: If a Rosetta site exists (e.g. https://es.wordpress.org/news/), then use that. Otherwise, leave untranslated. */
-				esc_url( _x( 'https://wordpress.org/news/', 'Events and News dashboard widget' ) ),
-				__( 'News' ),
-				/* translators: Hidden accessibility text. */
-				__( '(opens in a new tab)' )
-			);
-		?>
-	</p>
-
-	<?php
-}
-
-/**
- * Prints the markup for the Community Events section of the Events and News Dashboard widget.
- *
- * @since 4.8.0
- */
-function wp_print_community_events_markup() {
-	$community_events_notice  = '<p class="hide-if-js">' . ( 'This widget requires JavaScript.' ) . '</p>';
-	$community_events_notice .= '<p class="community-events-error-occurred" aria-hidden="true">' . __( 'An error occurred. Please try again.' ) . '</p>';
-	$community_events_notice .= '<p class="community-events-could-not-locate" aria-hidden="true"></p>';
-
-	wp_admin_notice(
-		$community_events_notice,
-		array(
-			'type'               => 'error',
-			'additional_classes' => array( 'community-events-errors', 'inline', 'hide-if-js' ),
-			'paragraph_wrap'     => false,
-		)
-	);
-
-	/*
-	 * Hide the main element when the page first loads, because the content
-	 * won't be ready until wp.communityEvents.renderEventsTemplate() has run.
-	 */
-	?>
-	<div id="community-events" class="community-events" aria-hidden="true">
-		<div class="activity-block">
-			<p>
-				<span id="community-events-location-message"></span>
-
-				<button class="button-link community-events-toggle-location" aria-expanded="false">
-					<span class="dashicons dashicons-location" aria-hidden="true"></span>
-					<span class="community-events-location-edit"><?php _e( 'Select location' ); ?></span>
-				</button>
-			</p>
-
-			<form class="community-events-form" aria-hidden="true" action="<?php echo esc_url( admin_url( 'admin-ajax.php' ) ); ?>" method="post">
-				<label for="community-events-location">
-					<?php _e( 'City:' ); ?>
-				</label>
-				<?php
-				/* translators: Replace with a city related to your locale.
-				 * Test that it matches the expected location and has upcoming
-				 * events before including it. If no cities related to your
-				 * locale have events, then use a city related to your locale
-				 * that would be recognizable to most users. Use only the city
-				 * name itself, without any region or country. Use the endonym
-				 * (native locale name) instead of the English name if possible.
-				 */
-				?>
-				<input id="community-events-location" class="regular-text" type="text" name="community-events-location" placeholder="<?php esc_attr_e( 'Cincinnati' ); ?>" />
-
-				<?php submit_button( __( 'Submit' ), 'secondary', 'community-events-submit', false ); ?>
-
-				<button class="community-events-cancel button-link" type="button" aria-expanded="false">
-					<?php _e( 'Cancel' ); ?>
-				</button>
-
-				<span class="spinner"></span>
-			</form>
-		</div>
-
-		<ul class="community-events-results activity-block last"></ul>
-	</div>
-
-	<?php
-}
-
-/**
- * Renders the events templates for the Event and News widget.
- *
- * @since 4.8.0
- */
-function wp_print_community_events_templates() {
-	?>
-
-	<script id="tmpl-community-events-attend-event-near" type="text/template">
-		<?php
-		printf(
-			/* translators: %s: The name of a city. */
-			__( 'Attend an upcoming event near %s.' ),
-			'<strong>{{ data.location.description }}</strong>'
-		);
-		?>
-	</script>
-
-	<script id="tmpl-community-events-could-not-locate" type="text/template">
-		<?php
-		printf(
-			/* translators: %s is the name of the city we couldn't locate.
-			 * Replace the examples with cities in your locale, but test
-			 * that they match the expected location before including them.
-			 * Use endonyms (native locale names) whenever possible.
-			 */
-			__( '%s could not be located. Please try another nearby city. For example: Kansas City; Springfield; Portland.' ),
-			'<em>{{data.unknownCity}}</em>'
-		);
-		?>
-	</script>
-
-	<script id="tmpl-community-events-event-list" type="text/template">
-		<# _.each( data.events, function( event ) { #>
-			<li class="event event-{{ event.type }} wp-clearfix">
-				<div class="event-info">
-					<div class="dashicons event-icon" aria-hidden="true"></div>
-					<div class="event-info-inner">
-						<a class="event-title" href="{{ event.url }}">{{ event.title }}</a>
-						<# if ( event.type ) {
-							const titleCaseEventType = event.type.replace(
-								/\w\S*/g,
-								function ( type ) { return type.charAt(0).toUpperCase() + type.substr(1).toLowerCase(); }
-							);
-						#>
-							{{ 'wordcamp' === event.type ? 'WordCamp' : titleCaseEventType }}
-							<span class="ce-separator"></span>
-						<# } #>
-						<span class="event-city">{{ event.location.location }}</span>
-					</div>
-				</div>
-
-				<div class="event-date-time">
-					<span class="event-date">{{ event.user_formatted_date }}</span>
-					<# if ( 'meetup' === event.type ) { #>
-						<span class="event-time">
-							{{ event.user_formatted_time }} {{ event.timeZoneAbbreviation }}
-						</span>
-					<# } #>
-				</div>
-			</li>
-		<# } ) #>
-
-		<# if ( data.events.length <= 2 ) { #>
-			<li class="event-none">
-				<?php
-				printf(
-					/* translators: %s: Localized meetup organization documentation URL. */
-					__( 'Want more events? <a href="%s">Help organize the next one</a>!' ),
-					__( 'https://make.wordpress.org/community/organize-event-landing-page/' )
-				);
-				?>
-			</li>
-		<# } #>
-
-	</script>
-
-	<script id="tmpl-community-events-no-upcoming-events" type="text/template">
-		<li class="event-none">
-			<# if ( data.location.description ) { #>
-				<?php
-				printf(
-					/* translators: 1: The city the user searched for, 2: Meetup organization documentation URL. */
-					__( 'There are no events scheduled near %1$s at the moment. Would you like to <a href="%2$s">organize a WordPress event</a>?' ),
-					'{{ data.location.description }}',
-					__( 'https://make.wordpress.org/community/handbook/meetup-organizer/welcome/' )
-				);
-				?>
-
-			<# } else { #>
-				<?php
-				printf(
-					/* translators: %s: Meetup organization documentation URL. */
-					__( 'There are no events scheduled near you at the moment. Would you like to <a href="%s">organize a WordPress event</a>?' ),
-					__( 'https://make.wordpress.org/community/handbook/meetup-organizer/welcome/' )
-				);
-				?>
-			<# } #>
-		</li>
-	</script>
-	<?php
-}
-
-/**
- * 'WordPress Events and News' dashboard widget.
- *
- * @since 2.7.0
- * @since 4.8.0 Removed popular plugins feed.
- */
-function wp_dashboard_primary() {
-	$feeds = array(
-		'news'   => array(
-
-			/**
-			 * Filters the primary link URL for the 'WordPress Events and News' dashboard widget.
-			 *
-			 * @since 2.5.0
-			 *
-			 * @param string $link The widget's primary link URL.
-			 */
-			'link'         => apply_filters( 'dashboard_primary_link', __( 'https://wordpress.org/news/' ) ),
-
-			/**
-			 * Filters the primary feed URL for the 'WordPress Events and News' dashboard widget.
-			 *
-			 * @since 2.3.0
-			 *
-			 * @param string $url The widget's primary feed URL.
-			 */
-			'url'          => apply_filters( 'dashboard_primary_feed', __( 'https://wordpress.org/news/feed/' ) ),
-
-			/**
-			 * Filters the primary link title for the 'WordPress Events and News' dashboard widget.
-			 *
-			 * @since 2.3.0
-			 *
-			 * @param string $title Title attribute for the widget's primary link.
-			 */
-			'title'        => apply_filters( 'dashboard_primary_title', __( 'WordPress Blog' ) ),
-			'items'        => 2,
-			'show_summary' => 0,
-			'show_author'  => 0,
-			'show_date'    => 0,
-		),
-		'planet' => array(
-
-			/**
-			 * Filters the secondary link URL for the 'WordPress Events and News' dashboard widget.
-			 *
-			 * @since 2.3.0
-			 *
-			 * @param string $link The widget's secondary link URL.
-			 */
-			'link'         => apply_filters(
-				'dashboard_secondary_link',
-				/* translators: Link to the Planet website of the locale. */
-				__( 'https://planet.wordpress.org/' )
-			),
-
-			/**
-			 * Filters the secondary feed URL for the 'WordPress Events and News' dashboard widget.
-			 *
-			 * @since 2.3.0
-			 *
-			 * @param string $url The widget's secondary feed URL.
-			 */
-			'url'          => apply_filters(
-				'dashboard_secondary_feed',
-				/* translators: Link to the Planet feed of the locale. */
-				__( 'https://planet.wordpress.org/feed/' )
-			),
-
-			/**
-			 * Filters the secondary link title for the 'WordPress Events and News' dashboard widget.
-			 *
-			 * @since 2.3.0
-			 *
-			 * @param string $title Title attribute for the widget's secondary link.
-			 */
-			'title'        => apply_filters( 'dashboard_secondary_title', __( 'Other WordPress News' ) ),
-
-			/**
-			 * Filters the number of secondary link items for the 'WordPress Events and News' dashboard widget.
-			 *
-			 * @since 4.4.0
-			 *
-			 * @param string $items How many items to show in the secondary feed.
-			 */
-			'items'        => apply_filters( 'dashboard_secondary_items', 3 ),
-			'show_summary' => 0,
-			'show_author'  => 0,
-			'show_date'    => 0,
-		),
-	);
-
-	wp_dashboard_cached_rss_widget( 'dashboard_primary', 'wp_dashboard_primary_output', $feeds );
-}
-
-/**
- * Displays the WordPress events and news feeds.
- *
- * @since 3.8.0
- * @since 4.8.0 Removed popular plugins feed.
- *
- * @param string $widget_id Widget ID.
- * @param array  $feeds     Array of RSS feeds.
- */
-function wp_dashboard_primary_output( $widget_id, $feeds ) {
-	foreach ( $feeds as $type => $args ) {
-		$args['type'] = $type;
-		echo '<div class="rss-widget">';
-			wp_widget_rss_output( $args['url'], $args );
-		echo '</div>';
-	}
-}
-
 /**
  * Displays file upload quota on dashboard.
  *
  * Runs on the {@see 'activity_box_end'} hook in wp_dashboard_right_now().
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @return true|void True if not multisite, user can't upload files, or the space check option is disabled.
  */
@@ -1698,163 +1345,9 @@ function wp_dashboard_quota() {
 }
 
 /**
- * Displays the browser update nag.
- *
- * @since 3.2.0
- * @since 5.8.0 Added a special message for Internet Explorer users.
- *
- * @global bool $is_IE
- */
-function wp_dashboard_browser_nag() {
-	global $is_IE;
-
-	$notice   = '';
-	$response = wp_check_browser_version();
-
-	if ( $response ) {
-		if ( $is_IE ) {
-			$msg = __( 'Internet Explorer does not give you the best WordPress experience. Switch to Microsoft Edge, or another more modern browser to get the most from your site.' );
-		} elseif ( $response['insecure'] ) {
-			$msg = sprintf(
-				/* translators: %s: Browser name and link. */
-				__( "It looks like you're using an insecure version of %s. Using an outdated browser makes your computer unsafe. For the best WordPress experience, please update your browser." ),
-				sprintf( '<a href="%s">%s</a>', esc_url( $response['update_url'] ), esc_html( $response['name'] ) )
-			);
-		} else {
-			$msg = sprintf(
-				/* translators: %s: Browser name and link. */
-				__( "It looks like you're using an old version of %s. For the best WordPress experience, please update your browser." ),
-				sprintf( '<a href="%s">%s</a>', esc_url( $response['update_url'] ), esc_html( $response['name'] ) )
-			);
-		}
-
-		$browser_nag_class = '';
-		if ( ! empty( $response['img_src'] ) ) {
-			$img_src = ( is_ssl() && ! empty( $response['img_src_ssl'] ) ) ? $response['img_src_ssl'] : $response['img_src'];
-
-			$notice           .= '<div class="alignright browser-icon"><img src="' . esc_url( $img_src ) . '" alt="" /></div>';
-			$browser_nag_class = ' has-browser-icon';
-		}
-		$notice .= "<p class='browser-update-nag{$browser_nag_class}'>{$msg}</p>";
-
-		$browsehappy = 'https://browsehappy.com/';
-		$locale      = get_user_locale();
-		if ( 'en_US' !== $locale ) {
-			$browsehappy = add_query_arg( 'locale', $locale, $browsehappy );
-		}
-
-		if ( $is_IE ) {
-			$msg_browsehappy = sprintf(
-				/* translators: %s: Browse Happy URL. */
-				__( 'Learn how to <a href="%s" class="update-browser-link">browse happy</a>' ),
-				esc_url( $browsehappy )
-			);
-		} else {
-			$msg_browsehappy = sprintf(
-				/* translators: 1: Browser update URL, 2: Browser name, 3: Browse Happy URL. */
-				__( '<a href="%1$s" class="update-browser-link">Update %2$s</a> or learn how to <a href="%3$s" class="browse-happy-link">browse happy</a>' ),
-				esc_attr( $response['update_url'] ),
-				esc_html( $response['name'] ),
-				esc_url( $browsehappy )
-			);
-		}
-
-		$notice .= '<p>' . $msg_browsehappy . '</p>';
-		$notice .= '<p class="hide-if-no-js"><a href="" class="dismiss" aria-label="' . esc_attr__( 'Dismiss the browser warning panel' ) . '">' . __( 'Dismiss' ) . '</a></p>';
-		$notice .= '<div class="clear"></div>';
-	}
-
-	/**
-	 * Filters the notice output for the 'Browse Happy' nag meta box.
-	 *
-	 * @since 3.2.0
-	 *
-	 * @param string      $notice   The notice content.
-	 * @param array|false $response An array containing web browser information, or
-	 *                              false on failure. See wp_check_browser_version().
-	 */
-	echo apply_filters( 'browse-happy-notice', $notice, $response ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
-}
-
-/**
- * Adds an additional class to the browser nag if the current version is insecure.
- *
- * @since 3.2.0
- *
- * @param string[] $classes Array of meta box classes.
- * @return string[] Modified array of meta box classes.
- */
-function dashboard_browser_nag_class( $classes ) {
-	$response = wp_check_browser_version();
-
-	if ( $response && $response['insecure'] ) {
-		$classes[] = 'browser-insecure';
-	}
-
-	return $classes;
-}
-
-/**
- * Checks if the user needs a browser update.
- *
- * @since 3.2.0
- *
- * @return array|false Array of browser data on success, false on failure.
- */
-function wp_check_browser_version() {
-	if ( empty( $_SERVER['HTTP_USER_AGENT'] ) ) {
-		return false;
-	}
-
-	$key = md5( $_SERVER['HTTP_USER_AGENT'] );
-
-	$response = get_site_transient( 'browser_' . $key );
-
-	if ( false === $response ) {
-		$url     = 'http://api.wordpress.org/core/browse-happy/1.1/';
-		$options = array(
-			'body'       => array( 'useragent' => $_SERVER['HTTP_USER_AGENT'] ),
-			'user-agent' => 'WordPress/' . wp_get_wp_version() . '; ' . home_url( '/' ),
-		);
-
-		if ( wp_http_supports( array( 'ssl' ) ) ) {
-			$url = set_url_scheme( $url, 'https' );
-		}
-
-		$response = wp_remote_post( $url, $options );
-
-		if ( is_wp_error( $response ) || 200 !== wp_remote_retrieve_response_code( $response ) ) {
-			return false;
-		}
-
-		/**
-		 * Response should be an array with:
-		 *  'platform' - string - A user-friendly platform name, if it can be determined
-		 *  'name' - string - A user-friendly browser name
-		 *  'version' - string - The version of the browser the user is using
-		 *  'current_version' - string - The most recent version of the browser
-		 *  'upgrade' - boolean - Whether the browser needs an upgrade
-		 *  'insecure' - boolean - Whether the browser is deemed insecure
-		 *  'update_url' - string - The url to visit to upgrade
-		 *  'img_src' - string - An image representing the browser
-		 *  'img_src_ssl' - string - An image (over SSL) representing the browser
-		 */
-		$response = json_decode( wp_remote_retrieve_body( $response ), true );
-
-		if ( ! is_array( $response ) ) {
-			return false;
-		}
-
-		set_site_transient( 'browser_' . $key, $response, WEEK_IN_SECONDS );
-	}
-
-	return $response;
-}
-
-/**
  * Displays the PHP update nag.
  *
- * @since 5.1.0
+ * @since WP 5.1.0
  */
 function wp_dashboard_php_nag() {
 	$response = wp_check_php_version();
@@ -1869,7 +1362,7 @@ function wp_dashboard_php_nag() {
 		if ( $response['is_lower_than_future_minimum'] ) {
 			$message = sprintf(
 				/* translators: %s: The server PHP version. */
-				__( 'Your site is running on an outdated version of PHP (%s), which does not receive security updates and soon will not be supported by WordPress. Ensure that PHP is updated on your server as soon as possible. Otherwise you will not be able to upgrade WordPress.' ),
+				__( 'Your site is running on an outdated version of PHP (%s), which does not receive security updates and soon will not be supported by motsVertueux. Ensure that PHP is updated on your server as soon as possible. Otherwise you will not be able to upgrade motsVertueux.' ),
 				PHP_VERSION
 			);
 		} else {
@@ -1882,7 +1375,7 @@ function wp_dashboard_php_nag() {
 	} elseif ( $response['is_lower_than_future_minimum'] ) {
 		$message = sprintf(
 			/* translators: %s: The server PHP version. */
-			__( 'Your site is running on an outdated version of PHP (%s), which soon will not be supported by WordPress. Ensure that PHP is updated on your server as soon as possible. Otherwise you will not be able to upgrade WordPress.' ),
+			__( 'Your site is running on an outdated version of PHP (%s), which soon will not be supported by motsVertueux. Ensure that PHP is updated on your server as soon as possible. Otherwise you will not be able to upgrade motsVertueux.' ),
 			PHP_VERSION
 		);
 	} else {
@@ -1897,7 +1390,7 @@ function wp_dashboard_php_nag() {
 
 	<p><?php _e( 'What is PHP and how does it affect my site?' ); ?></p>
 	<p>
-		<?php _e( 'PHP is one of the programming languages used to build WordPress. Newer versions of PHP receive regular security updates and may increase your site&#8217;s performance.' ); ?>
+		<?php _e( 'PHP is one of the programming languages used to build motsVertueux. Newer versions of PHP receive regular security updates and may increase your site&#8217;s performance.' ); ?>
 		<?php
 		if ( ! empty( $response['recommended_version'] ) ) {
 			printf(
@@ -1908,28 +1401,13 @@ function wp_dashboard_php_nag() {
 		}
 		?>
 	</p>
-
-	<p class="button-container">
-		<?php
-		printf(
-			'<a class="button button-primary" href="%1$s" target="_blank">%2$s<span class="screen-reader-text"> %3$s</span><span aria-hidden="true" class="dashicons dashicons-external"></span></a>',
-			esc_url( wp_get_update_php_url() ),
-			__( 'Learn more about updating PHP' ),
-			/* translators: Hidden accessibility text. */
-			__( '(opens in a new tab)' )
-		);
-		?>
-	</p>
 	<?php
-
-	wp_update_php_annotation();
-	wp_direct_php_update_button();
 }
 
 /**
  * Adds an additional class to the PHP nag if the current version is insecure.
  *
- * @since 5.1.0
+ * @since WP 5.1.0
  *
  * @param string[] $classes Array of meta box classes.
  * @return string[] Modified array of meta box classes.
@@ -1953,7 +1431,7 @@ function dashboard_php_nag_class( $classes ) {
 /**
  * Displays the Site Health Status widget.
  *
- * @since 5.4.0
+ * @since WP 5.4.0
  */
 function wp_dashboard_site_health() {
 	$get_issues = get_transient( 'health-check-site-status-result' );
@@ -2045,18 +1523,18 @@ function wp_dashboard_site_health() {
  *
  * Usable by plugins.
  *
- * @since 2.5.0
+ * @since WP 2.5.0
  */
 function wp_dashboard_empty() {}
 
 /**
- * Displays a welcome panel to introduce users to WordPress.
+ * Displays a welcome panel to introduce users to motsVertueux.
  *
- * @since 3.3.0
- * @since 5.9.0 Send users to the Site Editor if the active theme is block-based.
+ * @since WP 3.3.0
+ * @since WP 5.9.0 Send users to the Site Editor if the active theme is block-based.
  */
 function wp_welcome_panel() {
-	list( $display_version ) = explode( '-', wp_get_wp_version() );
+	list( $display_version ) = explode( '-', mv_get_mv_version() );
 	$can_customize           = current_user_can( 'customize' );
 	$is_block_theme          = wp_is_block_theme();
 	?>
@@ -2065,11 +1543,11 @@ function wp_welcome_panel() {
 		<div class="welcome-panel-header-image">
 			<?php echo file_get_contents( dirname( __DIR__ ) . '/images/dashboard-background.svg' ); ?>
 		</div>
-		<h2><?php _e( 'Welcome to WordPress!' ); ?></h2>
+		<h2><?php _e( 'Welcome to motsVertueux!' ); ?></h2>
 		<p>
 			<a href="<?php echo esc_url( admin_url( 'about.php' ) ); ?>">
 			<?php
-				/* translators: %s: Current WordPress version. */
+				/* translators: %s: Current motsVertueux version. */
 				printf( __( 'Learn more about the %s version.' ), esc_html( $display_version ) );
 			?>
 			</a>
@@ -2118,8 +1596,7 @@ function wp_welcome_panel() {
 				<a href="<?php echo esc_url( admin_url( '/site-editor.php?path=%2Fwp_global_styles' ) ); ?>"><?php _e( 'Edit styles' ); ?></a>
 			<?php else : ?>
 				<h3><?php _e( 'Discover a new way to build your site.' ); ?></h3>
-				<p><?php _e( 'There is a new kind of WordPress theme, called a block theme, that lets you build the site you&#8217;ve always wanted &#8212; with blocks and styles.' ); ?></p>
-				<a href="<?php echo esc_url( __( 'https://wordpress.org/documentation/article/block-themes/' ) ); ?>"><?php _e( 'Learn about block themes' ); ?></a>
+				<p><?php _e( 'There is a new kind of theme, called a block theme, that lets you build the site you&#8217;ve always wanted &#8212; with blocks and styles.' ); ?></p>
 			<?php endif; ?>
 			</div>
 		</div>

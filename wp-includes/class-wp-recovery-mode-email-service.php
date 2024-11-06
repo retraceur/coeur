@@ -3,13 +3,13 @@
  * Error Protection API: WP_Recovery_Mode_Email_Link class
  *
  * @package motsVertueux
- * @since 5.2.0
+ * @since WP 5.2.0
  */
 
 /**
  * Core class used to send an email with a link to begin Recovery Mode.
  *
- * @since 5.2.0
+ * @since WP 5.2.0
  */
 #[AllowDynamicProperties]
 final class WP_Recovery_Mode_Email_Service {
@@ -19,7 +19,7 @@ final class WP_Recovery_Mode_Email_Service {
 	/**
 	 * Service to generate recovery mode URLs.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 * @var WP_Recovery_Mode_Link_Service
 	 */
 	private $link_service;
@@ -27,7 +27,7 @@ final class WP_Recovery_Mode_Email_Service {
 	/**
 	 * WP_Recovery_Mode_Email_Service constructor.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 *
 	 * @param WP_Recovery_Mode_Link_Service $link_service
 	 */
@@ -38,7 +38,7 @@ final class WP_Recovery_Mode_Email_Service {
 	/**
 	 * Sends the recovery mode email if the rate limit has not been sent.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 *
 	 * @param int   $rate_limit Number of seconds before another email can be sent.
 	 * @param array $error      Error details from `error_get_last()`.
@@ -88,7 +88,7 @@ final class WP_Recovery_Mode_Email_Service {
 	/**
 	 * Clears the rate limit, allowing a new recovery mode email to be sent immediately.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 *
 	 * @return bool True on success, false on failure.
 	 */
@@ -99,7 +99,7 @@ final class WP_Recovery_Mode_Email_Service {
 	/**
 	 * Sends the Recovery Mode email to the site admin email address.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 *
 	 * @param int   $rate_limit Number of seconds before another email can be sent.
 	 * @param array $error      Error details from `error_get_last()`.
@@ -134,7 +134,7 @@ final class WP_Recovery_Mode_Email_Service {
 		/**
 		 * Filters the support message sent with the the fatal error protection email.
 		 *
-		 * @since 5.2.0
+		 * @since WP 5.2.0
 		 *
 		 * @param string $message The Message to include in the email.
 		 */
@@ -143,7 +143,7 @@ final class WP_Recovery_Mode_Email_Service {
 		/**
 		 * Filters the debug information included in the fatal error protection email.
 		 *
-		 * @since 5.3.0
+		 * @since WP 5.3.0
 		 *
 		 * @param array $message An associative array of debug information.
 		 */
@@ -206,8 +206,8 @@ When seeking help with this issue, you may be asked for some of the following in
 		/**
 		 * Filters the contents of the Recovery Mode email.
 		 *
-		 * @since 5.2.0
-		 * @since 5.6.0 The `$email` argument includes the `attachments` key.
+		 * @since WP 5.2.0
+		 * @since WP 5.6.0 The `$email` argument includes the `attachments` key.
 		 *
 		 * @param array  $email {
 		 *     Used to build a call to wp_mail().
@@ -240,7 +240,7 @@ When seeking help with this issue, you may be asked for some of the following in
 	/**
 	 * Gets the email address to send the recovery mode link to.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 *
 	 * @return string Email address to send recovery mode link to.
 	 */
@@ -255,7 +255,7 @@ When seeking help with this issue, you may be asked for some of the following in
 	/**
 	 * Gets the description indicating the possible cause for the error.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 *
 	 * @param array $extension {
 	 *     The extension that caused the error.
@@ -292,7 +292,7 @@ When seeking help with this issue, you may be asked for some of the following in
 	/**
 	 * Return the details for a single plugin based on the extension data from an error.
 	 *
-	 * @since 5.3.0
+	 * @since WP 5.3.0
 	 *
 	 * @param array $extension {
 	 *     The extension that caused the error.
@@ -326,7 +326,7 @@ When seeking help with this issue, you may be asked for some of the following in
 	/**
 	 * Return debug information in an easy to manipulate format.
 	 *
-	 * @since 5.3.0
+	 * @since WP 5.3.0
 	 *
 	 * @param array $extension {
 	 *     The extension that caused the error.

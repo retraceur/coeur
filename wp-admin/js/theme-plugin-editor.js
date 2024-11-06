@@ -24,7 +24,7 @@ wp.themePluginEditor = (function( $ ) {
 	/**
 	 * Initialize component.
 	 *
-	 * @since 4.9.0
+	 * @since WP 4.9.0
 	 *
 	 * @param {jQuery}         form - Form element.
 	 * @param {Object}         settings - Settings.
@@ -86,7 +86,7 @@ wp.themePluginEditor = (function( $ ) {
 	/**
 	 * Set up and display the warning modal.
 	 *
-	 * @since 4.9.0
+	 * @since WP 4.9.0
 	 * @return {void}
 	 */
 	component.showWarning = function() {
@@ -116,7 +116,7 @@ wp.themePluginEditor = (function( $ ) {
 	/**
 	 * Constrain tabbing within the warning modal.
 	 *
-	 * @since 4.9.0
+	 * @since WP 4.9.0
 	 * @param {Object} event jQuery event object.
 	 * @return {void}
 	 */
@@ -142,7 +142,7 @@ wp.themePluginEditor = (function( $ ) {
 	/**
 	 * Dismiss the warning modal.
 	 *
-	 * @since 4.9.0
+	 * @since WP 4.9.0
 	 * @return {void}
 	 */
 	component.dismissWarning = function() {
@@ -160,7 +160,7 @@ wp.themePluginEditor = (function( $ ) {
 	/**
 	 * Callback for when a change happens.
 	 *
-	 * @since 4.9.0
+	 * @since WP 4.9.0
 	 * @return {void}
 	 */
 	component.onChange = function() {
@@ -171,7 +171,7 @@ wp.themePluginEditor = (function( $ ) {
 	/**
 	 * Submit file via Ajax.
 	 *
-	 * @since 4.9.0
+	 * @since WP 4.9.0
 	 * @param {jQuery.Event} event - Event.
 	 * @return {void}
 	 */
@@ -252,7 +252,7 @@ wp.themePluginEditor = (function( $ ) {
 	/**
 	 * Add notice.
 	 *
-	 * @since 4.9.0
+	 * @since WP 4.9.0
 	 *
 	 * @param {Object}   notice - Notice.
 	 * @param {string}   notice.code - Code.
@@ -293,7 +293,7 @@ wp.themePluginEditor = (function( $ ) {
 	/**
 	 * Remove notice.
 	 *
-	 * @since 4.9.0
+	 * @since WP 4.9.0
 	 *
 	 * @param {string} code - Notice code.
 	 * @return {boolean} Whether a notice was removed.
@@ -312,7 +312,7 @@ wp.themePluginEditor = (function( $ ) {
 	/**
 	 * Initialize code editor.
 	 *
-	 * @since 4.9.0
+	 * @since WP 4.9.0
 	 * @return {void}
 	 */
 	component.initCodeEditor = function initCodeEditor() {
@@ -323,7 +323,7 @@ wp.themePluginEditor = (function( $ ) {
 		/**
 		 * Handle tabbing to the field before the editor.
 		 *
-		 * @since 4.9.0
+		 * @since WP 4.9.0
 		 *
 		 * @return {void}
 		 */
@@ -334,7 +334,7 @@ wp.themePluginEditor = (function( $ ) {
 		/**
 		 * Handle tabbing to the field after the editor.
 		 *
-		 * @since 4.9.0
+		 * @since WP 4.9.0
 		 *
 		 * @return {void}
 		 */
@@ -345,7 +345,7 @@ wp.themePluginEditor = (function( $ ) {
 		/**
 		 * Handle change to the linting errors.
 		 *
-		 * @since 4.9.0
+		 * @since WP 4.9.0
 		 *
 		 * @param {Array} errors - List of linting errors.
 		 * @return {void}
@@ -362,7 +362,7 @@ wp.themePluginEditor = (function( $ ) {
 		/**
 		 * Update error notice.
 		 *
-		 * @since 4.9.0
+		 * @since WP 4.9.0
 		 *
 		 * @param {Array} errorAnnotations - Error annotations.
 		 * @return {void}
@@ -419,7 +419,7 @@ wp.themePluginEditor = (function( $ ) {
 	/**
 	 * Initialization of the file browser's folder states.
 	 *
-	 * @since 4.9.0
+	 * @since WP 4.9.0
 	 * @return {void}
 	 */
 	component.initFileBrowser = function initFileBrowser() {
@@ -455,7 +455,7 @@ wp.themePluginEditor = (function( $ ) {
 	/**
 	 * Creates a new TreeitemLink.
 	 *
-	 * @since 4.9.0
+	 * @since WP 4.9.0
 	 * @class
 	 * @private
 	 * @see {@link https://www.w3.org/TR/wai-aria-practices-1.1/examples/treeview/treeview-2/treeview-2b.html|W3C Treeview Example}
@@ -738,7 +738,7 @@ wp.themePluginEditor = (function( $ ) {
 	/**
 	 * Creates a new TreeLinks.
 	 *
-	 * @since 4.9.0
+	 * @since WP 4.9.0
 	 * @class
 	 * @private
 	 * @see {@link https://www.w3.org/TR/wai-aria-practices-1.1/examples/treeview/treeview-2/treeview-2b.html|W3C Treeview Example}
@@ -1004,8 +1004,8 @@ wp.themePluginEditor = (function( $ ) {
 /**
  * Removed in 5.5.0, needed for back-compatibility.
  *
- * @since 4.9.0
- * @deprecated 5.5.0
+ * @since WP 4.9.0
+ * @deprecated WP 5.5.0
  *
  * @type {object}
  */

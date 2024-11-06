@@ -4,14 +4,15 @@
  *
  * @package motsVertueux
  * @subpackage Upgrader
- * @since 4.6.0
+ * @since WP 4.6.0
+ * @since 1.0.0
  */
 
 /**
  * Theme Installer Skin for the WordPress Theme Installer.
  *
- * @since 2.8.0
- * @since 4.6.0 Moved to its own file from wp-admin/includes/class-wp-upgrader-skins.php.
+ * @since WP 2.8.0
+ * @since WP 4.6.0 Moved to its own file from wp-admin/includes/class-wp-upgrader-skins.php.
  *
  * @see WP_Upgrader_Skin
  */
@@ -28,7 +29,7 @@ class Theme_Installer_Skin extends WP_Upgrader_Skin {
 	 *
 	 * Sets up the theme installer skin.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @param array $args
 	 */
@@ -54,7 +55,7 @@ class Theme_Installer_Skin extends WP_Upgrader_Skin {
 	/**
 	 * Performs an action before installing a theme.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 */
 	public function before() {
 		if ( ! empty( $this->api ) ) {
@@ -69,7 +70,7 @@ class Theme_Installer_Skin extends WP_Upgrader_Skin {
 	/**
 	 * Hides the `process_failed` error when updating a theme by uploading a zip file.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @param WP_Error $wp_error WP_Error object.
 	 * @return bool True if the error should be hidden, false otherwise.
@@ -89,7 +90,7 @@ class Theme_Installer_Skin extends WP_Upgrader_Skin {
 	/**
 	 * Performs an action following a single theme install.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 */
 	public function after() {
 		if ( $this->do_overwrite() ) {
@@ -180,10 +181,10 @@ class Theme_Installer_Skin extends WP_Upgrader_Skin {
 		/**
 		 * Filters the list of action links available following a single theme installation.
 		 *
-		 * @since 2.8.0
+		 * @since WP 2.8.0
 		 *
 		 * @param string[] $install_actions Array of theme action links.
-		 * @param object   $api             Object containing WordPress.org API theme data.
+		 * @param object   $api             Object containing theme data.
 		 * @param string   $stylesheet      Theme directory name.
 		 * @param WP_Theme $theme_info      Theme object.
 		 */
@@ -196,7 +197,7 @@ class Theme_Installer_Skin extends WP_Upgrader_Skin {
 	/**
 	 * Checks if the theme can be overwritten and outputs the HTML for overwriting a theme on upload.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @return bool Whether the theme can be overwritten and HTML was outputted.
 	 */
@@ -286,7 +287,7 @@ class Theme_Installer_Skin extends WP_Upgrader_Skin {
 		/**
 		 * Filters the compare table output for overwriting a theme package on upload.
 		 *
-		 * @since 5.5.0
+		 * @since WP 5.5.0
 		 *
 		 * @param string   $table              The output table with Name, Version, Author, RequiresWP, and RequiresPHP info.
 		 * @param WP_Theme $current_theme_data Active theme data.
@@ -331,17 +332,9 @@ class Theme_Installer_Skin extends WP_Upgrader_Skin {
 
 		if ( $can_update ) {
 			if ( $this->is_downgrading ) {
-				$warning = sprintf(
-					/* translators: %s: Documentation URL. */
-					__( 'You are uploading an older version of the active theme. You can continue to install the older version, but be sure to <a href="%s">back up your database and files</a> first.' ),
-					__( 'https://developer.wordpress.org/advanced-administration/security/backup/' )
-				);
+				$warning = __( 'You are uploading an older version of the active theme. You can continue to install the older version, but be sure to back up your database and files first.' );
 			} else {
-				$warning = sprintf(
-					/* translators: %s: Documentation URL. */
-					__( 'You are updating a theme. Be sure to <a href="%s">back up your database and files</a> first.' ),
-					__( 'https://developer.wordpress.org/advanced-administration/security/backup/' )
-				);
+				$warning = __( 'You are updating a theme. Be sure to back up your database and files first.' );
 			}
 
 			echo '<p class="update-from-upload-notice">' . $warning . '</p>';
@@ -369,10 +362,10 @@ class Theme_Installer_Skin extends WP_Upgrader_Skin {
 		 * Filters the list of action links available following a single theme installation failure
 		 * when overwriting is allowed.
 		 *
-		 * @since 5.5.0
+		 * @since WP 5.5.0
 		 *
 		 * @param string[] $install_actions Array of theme action links.
-		 * @param object   $api             Object containing WordPress.org API theme data.
+		 * @param object   $api             Object containing theme data.
 		 * @param array    $new_theme_data  Array with uploaded theme data.
 		 */
 		$install_actions = apply_filters( 'install_theme_overwrite_actions', $install_actions, $this->api, $new_theme_data );

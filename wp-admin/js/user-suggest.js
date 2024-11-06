@@ -6,7 +6,7 @@
  * only be used in a multisite environment. Only users in the currently active
  * site are shown.
  *
- * @since 3.4.0
+ * @since WP 3.4.0
  * @output wp-admin/js/user-suggest.js
  */
 

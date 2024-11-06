@@ -22,7 +22,7 @@ if ( ! function_exists( '_' ) ) {
  * Returns whether PCRE/u (PCRE_UTF8 modifier) is available for use.
  *
  * @ignore
- * @since 4.2.2
+ * @since WP 4.2.2
  * @access private
  *
  * @param bool $set - Used for testing only
@@ -64,7 +64,7 @@ function _wp_can_use_pcre_u( $set = null ) {
  * `is_utf8_charset` should be used outside of this file.
  *
  * @ignore
- * @since 6.6.1
+ * @since WP 6.6.1
  *
  * @param string $charset_slug Slug representing a text character encoding, or "charset".
  *                             E.g. "UTF-8", "Windows-1252", "ISO-8859-1", "SJIS".
@@ -87,7 +87,7 @@ if ( ! function_exists( 'mb_substr' ) ) :
 	 * Compat function to mimic mb_substr().
 	 *
 	 * @ignore
-	 * @since 3.2.0
+	 * @since WP 3.2.0
 	 *
 	 * @see _mb_substr()
 	 *
@@ -111,7 +111,7 @@ endif;
  * sequence. The behavior of this function for invalid inputs is undefined.
  *
  * @ignore
- * @since 3.2.0
+ * @since WP 3.2.0
  *
  * @param string      $str      The string to extract the substring from.
  * @param int         $start    Position to being extraction from in `$str`.
@@ -182,7 +182,7 @@ if ( ! function_exists( 'mb_strlen' ) ) :
 	 * Compat function to mimic mb_strlen().
 	 *
 	 * @ignore
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 *
 	 * @see _mb_strlen()
 	 *
@@ -203,7 +203,7 @@ endif;
  * sequence. The behavior of this function for invalid inputs is undefined.
  *
  * @ignore
- * @since 4.2.0
+ * @since WP 4.2.0
  *
  * @param string      $str      The string to retrieve the character length from.
  * @param string|null $encoding Optional. Character encoding to use. Default null.
@@ -275,7 +275,7 @@ if ( ! function_exists( 'hash_hmac' ) ) :
 	 * and the associated `_hash_hmac()` function can be safely removed.
 	 *
 	 * @ignore
-	 * @since 3.2.0
+	 * @since WP 3.2.0
 	 *
 	 * @see _hash_hmac()
 	 *
@@ -296,7 +296,7 @@ endif;
  * Internal compat function to mimic hash_hmac().
  *
  * @ignore
- * @since 3.2.0
+ * @since WP 3.2.0
  *
  * @param string $algo   Hash algorithm. Accepts 'md5' or 'sha1'.
  * @param string $data   Data to be hashed.
@@ -351,7 +351,7 @@ if ( ! function_exists( 'hash_equals' ) ) :
 	 * I.e. when PHP 7.4.0 becomes the minimum requirement, this polyfill
 	 * can be safely removed.
 	 *
-	 * @since 3.9.2
+	 * @since WP 3.9.2
 	 *
 	 * @param string $known_string Expected string.
 	 * @param string $user_string  Actual, user supplied, string.
@@ -387,7 +387,7 @@ if ( ! function_exists( 'is_countable' ) ) {
 	 * Verify that the content of a variable is an array or an object
 	 * implementing the Countable interface.
 	 *
-	 * @since 4.9.6
+	 * @since WP 4.9.6
 	 *
 	 * @param mixed $value The value to check.
 	 * @return bool True if `$value` is countable, false otherwise.
@@ -408,7 +408,7 @@ if ( ! function_exists( 'array_key_first' ) ) {
 	 * Get the first key of the given array without affecting
 	 * the internal array pointer.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param array $array An array.
 	 * @return string|int|null The first key of array if the array
@@ -428,7 +428,7 @@ if ( ! function_exists( 'array_key_last' ) ) {
 	 * Get the last key of the given array without affecting the
 	 * internal array pointer.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param array $array An array.
 	 * @return string|int|null The last key of array if the array
@@ -455,7 +455,7 @@ if ( ! function_exists( 'array_is_list' ) ) {
 	 *
 	 * @see https://github.com/symfony/polyfill-php81/tree/main
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param array<mixed> $arr The array being evaluated.
 	 * @return bool True if array is a list, false otherwise.
@@ -484,7 +484,7 @@ if ( ! function_exists( 'str_contains' ) ) {
 	 * Performs a case-sensitive check indicating if needle is
 	 * contained in haystack.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param string $haystack The string to search in.
 	 * @param string $needle   The substring to search for in the `$haystack`.
@@ -506,7 +506,7 @@ if ( ! function_exists( 'str_starts_with' ) ) {
 	 * Performs a case-sensitive check indicating if
 	 * the haystack begins with needle.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param string $haystack The string to search in.
 	 * @param string $needle   The substring to search for in the `$haystack`.
@@ -528,7 +528,7 @@ if ( ! function_exists( 'str_ends_with' ) ) {
 	 * Performs a case-sensitive check indicating if
 	 * the haystack ends with needle.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param string $haystack The string to search in.
 	 * @param string $needle   The substring to search for in the `$haystack`.

@@ -3,7 +3,7 @@
  * Error Protection API: Functions
  *
  * @package motsVertueux
- * @since 5.2.0
+ * @since WP 5.2.0
  */
 
 /**
@@ -39,7 +39,7 @@ function wp_paused_themes() {
 /**
  * Get a human readable description of an extension's error.
  *
- * @since 5.2.0
+ * @since WP 5.2.0
  *
  * @param array $error Error details from `error_get_last()`.
  * @return string Formatted error description.
@@ -76,7 +76,7 @@ function wp_get_extension_error_description( $error ) {
  *
  * The handler will only be registered if {@see wp_is_fatal_error_handler_enabled()} returns true.
  *
- * @since 5.2.0
+ * @since WP 5.2.0
  */
 function wp_register_fatal_error_handler() {
 	if ( ! wp_is_fatal_error_handler_enabled() ) {
@@ -101,7 +101,7 @@ function wp_register_fatal_error_handler() {
  * A constant `WP_DISABLE_FATAL_ERROR_HANDLER` can be set in `wp-config.php` to disable it, or alternatively the
  * {@see 'wp_fatal_error_handler_enabled'} filter can be used to modify the return value.
  *
- * @since 5.2.0
+ * @since WP 5.2.0
  *
  * @return bool True if the fatal error handler is enabled, false otherwise.
  */
@@ -132,7 +132,7 @@ function wp_is_fatal_error_handler_enabled() {
 	 *
 	 * Alternatively you can use the `WP_DISABLE_FATAL_ERROR_HANDLER` constant.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 *
 	 * @param bool $enabled True if the fatal error handler is enabled, false otherwise.
 	 */
@@ -142,7 +142,7 @@ function wp_is_fatal_error_handler_enabled() {
 /**
  * Access the WordPress Recovery Mode instance.
  *
- * @since 5.2.0
+ * @since WP 5.2.0
  *
  * @return WP_Recovery_Mode
  */

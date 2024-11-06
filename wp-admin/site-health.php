@@ -24,7 +24,7 @@ $tabs = array(
  * Add a custom page to the Site Health screen, based on a tab slug and label.
  * The label you provide will also be used as part of the site title.
  *
- * @since 5.8.0
+ * @since WP 5.8.0
  *
  * @param string[] $tabs An associative array of tab labels keyed by their slug.
  */
@@ -83,11 +83,6 @@ get_current_screen()->add_help_tab(
 				'<p>' . __( 'In the Status tab, you can see critical information about your WordPress configuration, along with anything else that requires your attention.' ) . '</p>' .
 				'<p>' . __( 'In the Info tab, you will find all the details about the configuration of your WordPress site, server, and database. There is also an export feature that allows you to copy all of the information about your site to the clipboard, to help solve problems on your site when obtaining support.' ) . '</p>',
 	)
-);
-
-get_current_screen()->set_help_sidebar(
-	'<p><strong>' . __( 'For more information:' ) . '</strong></p>' .
-	'<p>' . __( '<a href="https://wordpress.org/documentation/article/site-health-screen/">Documentation on Site Health tool</a>' ) . '</p>'
 );
 
 // Start by checking if this is a special request checking for the existence of certain filters.
@@ -213,7 +208,7 @@ if ( isset( $_GET['tab'] ) && ! empty( $_GET['tab'] ) ) {
 	 * This action fires right after the Site Health header, and users are still subject to
 	 * the capability checks for the Site Health page to view any custom tabs and their contents.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @param string $tab The slug of the tab that was requested.
 	 */

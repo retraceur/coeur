@@ -13,7 +13,7 @@
 /**
  * Checks whether a category exists.
  *
- * @since 2.0.0
+ * @since WP 2.0.0
  *
  * @see term_exists()
  *
@@ -32,7 +32,7 @@ function category_exists( $cat_name, $category_parent = null ) {
 /**
  * Gets category object for given ID and 'edit' filter context.
  *
- * @since 2.0.0
+ * @since WP 2.0.0
  *
  * @param int $id
  * @return object
@@ -46,7 +46,7 @@ function get_category_to_edit( $id ) {
 /**
  * Adds a new category to the database if it does not already exist.
  *
- * @since 2.0.0
+ * @since WP 2.0.0
  *
  * @param int|string $cat_name        Category name.
  * @param int        $category_parent Optional. ID of parent category.
@@ -69,7 +69,7 @@ function wp_create_category( $cat_name, $category_parent = 0 ) {
 /**
  * Creates categories for the given post.
  *
- * @since 2.0.0
+ * @since WP 2.0.0
  *
  * @param string[] $categories Array of category names to create.
  * @param int      $post_id    Optional. The post ID. Default empty.
@@ -99,9 +99,9 @@ function wp_create_categories( $categories, $post_id = '' ) {
 /**
  * Updates an existing Category or creates a new Category.
  *
- * @since 2.0.0
- * @since 2.5.0 $wp_error parameter was added.
- * @since 3.0.0 The 'taxonomy' argument was added.
+ * @since WP 2.0.0
+ * @since WP 2.5.0 $wp_error parameter was added.
+ * @since WP 3.0.0 The 'taxonomy' argument was added.
  *
  * @param array $catarr {
  *     Array of arguments for inserting a new category.
@@ -180,7 +180,7 @@ function wp_insert_category( $catarr, $wp_error = false ) {
  * If you want to update only some fields of an existing category, call this
  * function with only the new values set inside $catarr.
  *
- * @since 2.0.0
+ * @since WP 2.0.0
  *
  * @param array $catarr The 'cat_ID' value is required. All other keys are optional.
  * @return int|false The ID number of the new or updated Category on success. Zero or FALSE on failure.
@@ -212,7 +212,7 @@ function wp_update_category( $catarr ) {
 /**
  * Checks whether a post tag with a given name exists.
  *
- * @since 2.3.0
+ * @since WP 2.3.0
  *
  * @param int|string $tag_name
  * @return mixed Returns null if the term does not exist.
@@ -226,7 +226,7 @@ function tag_exists( $tag_name ) {
 /**
  * Adds a new tag to the database if it does not already exist.
  *
- * @since 2.3.0
+ * @since WP 2.3.0
  *
  * @param int|string $tag_name
  * @return array|WP_Error
@@ -238,7 +238,7 @@ function wp_create_tag( $tag_name ) {
 /**
  * Gets comma-separated list of tags available to edit.
  *
- * @since 2.3.0
+ * @since WP 2.3.0
  *
  * @param int    $post_id
  * @param string $taxonomy Optional. The taxonomy for which to retrieve terms. Default 'post_tag'.
@@ -251,7 +251,7 @@ function get_tags_to_edit( $post_id, $taxonomy = 'post_tag' ) {
 /**
  * Gets comma-separated list of terms available to edit for the given post ID.
  *
- * @since 2.8.0
+ * @since WP 2.8.0
  *
  * @param int    $post_id
  * @param string $taxonomy Optional. The taxonomy for which to retrieve terms. Default 'post_tag'.
@@ -285,7 +285,7 @@ function get_terms_to_edit( $post_id, $taxonomy = 'post_tag' ) {
 	/**
 	 * Filters the comma-separated list of terms available to edit.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @see get_terms_to_edit()
 	 *
@@ -300,7 +300,7 @@ function get_terms_to_edit( $post_id, $taxonomy = 'post_tag' ) {
 /**
  * Adds a new term to the database if it does not already exist.
  *
- * @since 2.8.0
+ * @since WP 2.8.0
  *
  * @param string $tag_name The term name.
  * @param string $taxonomy Optional. The taxonomy within which to create the term. Default 'post_tag'.

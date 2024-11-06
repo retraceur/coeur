@@ -1,16 +1,18 @@
 <?php
 /**
  * REST API: WP_REST_Widgets_Controller class
+ * 
+ * @since WP 5.8.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage REST_API
- * @since 5.8.0
  */
 
 /**
  * Core class to access widgets via the REST API.
  *
- * @since 5.8.0
+ * @since WP 5.8.0
  *
  * @see WP_REST_Controller
  */
@@ -19,7 +21,7 @@ class WP_REST_Widgets_Controller extends WP_REST_Controller {
 	/**
 	 * Tracks whether {@see retrieve_widgets()} has been called in the current request.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 * @var bool
 	 */
 	protected $widgets_retrieved = false;
@@ -27,7 +29,7 @@ class WP_REST_Widgets_Controller extends WP_REST_Controller {
 	/**
 	 * Whether the controller supports batching.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 * @var array
 	 */
 	protected $allow_batch = array( 'v1' => true );
@@ -35,7 +37,7 @@ class WP_REST_Widgets_Controller extends WP_REST_Controller {
 	/**
 	 * Widgets controller constructor.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 */
 	public function __construct() {
 		$this->namespace = 'wp/v2';
@@ -45,7 +47,7 @@ class WP_REST_Widgets_Controller extends WP_REST_Controller {
 	/**
 	 * Registers the widget routes for the controller.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 */
 	public function register_routes() {
 		register_rest_route(
@@ -107,7 +109,7 @@ class WP_REST_Widgets_Controller extends WP_REST_Controller {
 	/**
 	 * Checks if a given request has access to get widgets.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has read access, WP_Error object otherwise.
@@ -130,7 +132,7 @@ class WP_REST_Widgets_Controller extends WP_REST_Controller {
 	/**
 	 * Retrieves a collection of widgets.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response Response object.
@@ -165,7 +167,7 @@ class WP_REST_Widgets_Controller extends WP_REST_Controller {
 	/**
 	 * Checks if a given request has access to get a widget.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has read access, WP_Error object otherwise.
@@ -186,7 +188,7 @@ class WP_REST_Widgets_Controller extends WP_REST_Controller {
 	/**
 	 * Checks if a sidebar can be read publicly.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param string $sidebar_id The sidebar ID.
 	 * @return bool Whether the sidebar can be read.
@@ -200,7 +202,7 @@ class WP_REST_Widgets_Controller extends WP_REST_Controller {
 	/**
 	 * Gets an individual widget.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
@@ -225,7 +227,7 @@ class WP_REST_Widgets_Controller extends WP_REST_Controller {
 	/**
 	 * Checks if a given request has access to create widgets.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has read access, WP_Error object otherwise.
@@ -237,7 +239,7 @@ class WP_REST_Widgets_Controller extends WP_REST_Controller {
 	/**
 	 * Creates a widget.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
@@ -269,7 +271,7 @@ class WP_REST_Widgets_Controller extends WP_REST_Controller {
 	/**
 	 * Checks if a given request has access to update widgets.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has read access, WP_Error object otherwise.
@@ -281,7 +283,7 @@ class WP_REST_Widgets_Controller extends WP_REST_Controller {
 	/**
 	 * Updates an existing widget.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @global WP_Widget_Factory $wp_widget_factory
 	 *
@@ -298,8 +300,6 @@ class WP_REST_Widgets_Controller extends WP_REST_Controller {
 		 * When batch requests are processed, this global is not properly updated by previous
 		 * calls, resulting in widgets incorrectly being moved to the wp_inactive_widgets
 		 * sidebar.
-		 *
-		 * See https://core.trac.wordpress.org/ticket/53657.
 		 */
 		wp_get_sidebars_widgets();
 		$this->retrieve_widgets();
@@ -343,7 +343,7 @@ class WP_REST_Widgets_Controller extends WP_REST_Controller {
 	/**
 	 * Checks if a given request has access to delete widgets.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has read access, WP_Error object otherwise.
@@ -355,7 +355,7 @@ class WP_REST_Widgets_Controller extends WP_REST_Controller {
 	/**
 	 * Deletes a widget.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @global WP_Widget_Factory $wp_widget_factory
 	 * @global array             $wp_registered_widget_updates The registered widget update functions.
@@ -373,8 +373,6 @@ class WP_REST_Widgets_Controller extends WP_REST_Controller {
 		 * When batch requests are processed, this global is not properly updated by previous
 		 * calls, resulting in widgets incorrectly being moved to the wp_inactive_widgets
 		 * sidebar.
-		 *
-		 * See https://core.trac.wordpress.org/ticket/53657.
 		 */
 		wp_get_sidebars_widgets();
 		$this->retrieve_widgets();
@@ -458,7 +456,7 @@ class WP_REST_Widgets_Controller extends WP_REST_Controller {
 		/**
 		 * Fires after a widget is deleted via the REST API.
 		 *
-		 * @since 5.8.0
+		 * @since WP 5.8.0
 		 *
 		 * @param string                    $widget_id  ID of the widget marked for deletion.
 		 * @param string                    $sidebar_id ID of the sidebar the widget was deleted from.
@@ -473,7 +471,7 @@ class WP_REST_Widgets_Controller extends WP_REST_Controller {
 	/**
 	 * Performs a permissions check for managing widgets.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error
@@ -495,7 +493,7 @@ class WP_REST_Widgets_Controller extends WP_REST_Controller {
 	/**
 	 * Looks for "lost" widgets once per request.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @see retrieve_widgets()
 	 */
@@ -509,7 +507,7 @@ class WP_REST_Widgets_Controller extends WP_REST_Controller {
 	/**
 	 * Saves the widget in the request object.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @global WP_Widget_Factory $wp_widget_factory
 	 * @global array             $wp_registered_widget_updates The registered widget update functions.
@@ -639,7 +637,7 @@ class WP_REST_Widgets_Controller extends WP_REST_Controller {
 		/**
 		 * Fires after a widget is created or updated via the REST API.
 		 *
-		 * @since 5.8.0
+		 * @since WP 5.8.0
 		 *
 		 * @param string          $id         ID of the widget being saved.
 		 * @param string          $sidebar_id ID of the sidebar containing the widget being saved.
@@ -654,7 +652,7 @@ class WP_REST_Widgets_Controller extends WP_REST_Controller {
 	/**
 	 * Prepares the widget for the REST response.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @global WP_Widget_Factory $wp_widget_factory
 	 * @global array             $wp_registered_widgets The registered widgets.
@@ -733,7 +731,7 @@ class WP_REST_Widgets_Controller extends WP_REST_Controller {
 		/**
 		 * Filters the REST API response for a widget.
 		 *
-		 * @since 5.8.0
+		 * @since WP 5.8.0
 		 *
 		 * @param WP_REST_Response|WP_Error $response The response object, or WP_Error object on failure.
 		 * @param array                     $widget   The registered widget data.
@@ -745,7 +743,7 @@ class WP_REST_Widgets_Controller extends WP_REST_Controller {
 	/**
 	 * Prepares links for the widget.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @param array $prepared Widget.
 	 * @return array Links for the given widget.
@@ -773,7 +771,7 @@ class WP_REST_Widgets_Controller extends WP_REST_Controller {
 	/**
 	 * Gets the list of collection params.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @return array[]
 	 */
@@ -790,7 +788,7 @@ class WP_REST_Widgets_Controller extends WP_REST_Controller {
 	/**
 	 * Retrieves the widget's schema, conforming to JSON Schema.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @return array Item schema data.
 	 */

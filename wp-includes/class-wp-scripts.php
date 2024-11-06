@@ -2,7 +2,7 @@
 /**
  * Dependencies API: WP_Scripts class
  *
- * @since 2.6.0
+ * @since WP 2.6.0
  *
  * @package motsVertueux
  * @subpackage Dependencies
@@ -11,7 +11,7 @@
 /**
  * Core class used to register scripts.
  *
- * @since 2.1.0
+ * @since WP 2.1.0
  *
  * @see WP_Dependencies
  */
@@ -21,7 +21,7 @@ class WP_Scripts extends WP_Dependencies {
 	 *
 	 * Full URL with trailing slash.
 	 *
-	 * @since 2.6.0
+	 * @since WP 2.6.0
 	 * @var string
 	 */
 	public $base_url;
@@ -29,7 +29,7 @@ class WP_Scripts extends WP_Dependencies {
 	/**
 	 * URL of the content directory.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 * @var string
 	 */
 	public $content_url;
@@ -37,7 +37,7 @@ class WP_Scripts extends WP_Dependencies {
 	/**
 	 * Default version string for scripts.
 	 *
-	 * @since 2.6.0
+	 * @since WP 2.6.0
 	 * @var string
 	 */
 	public $default_version;
@@ -45,7 +45,7 @@ class WP_Scripts extends WP_Dependencies {
 	/**
 	 * Holds handles of scripts which are enqueued in footer.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 * @var array
 	 */
 	public $in_footer = array();
@@ -53,7 +53,7 @@ class WP_Scripts extends WP_Dependencies {
 	/**
 	 * Holds a list of script handles which will be concatenated.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 * @var string
 	 */
 	public $concat = '';
@@ -61,8 +61,8 @@ class WP_Scripts extends WP_Dependencies {
 	/**
 	 * Holds a string which contains script handles and their version.
 	 *
-	 * @since 2.8.0
-	 * @deprecated 3.4.0
+	 * @since WP 2.8.0
+	 * @deprecated WP 3.4.0
 	 * @var string
 	 */
 	public $concat_version = '';
@@ -70,7 +70,7 @@ class WP_Scripts extends WP_Dependencies {
 	/**
 	 * Whether to perform concatenation.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 * @var bool
 	 */
 	public $do_concat = false;
@@ -79,7 +79,7 @@ class WP_Scripts extends WP_Dependencies {
 	 * Holds HTML markup of scripts and additional data if concatenation
 	 * is enabled.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 * @var string
 	 */
 	public $print_html = '';
@@ -87,7 +87,7 @@ class WP_Scripts extends WP_Dependencies {
 	/**
 	 * Holds inline code if concatenation is enabled.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 * @var string
 	 */
 	public $print_code = '';
@@ -98,7 +98,7 @@ class WP_Scripts extends WP_Dependencies {
 	 *
 	 * Unused in core.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 * @var string
 	 */
 	public $ext_handles = '';
@@ -109,7 +109,7 @@ class WP_Scripts extends WP_Dependencies {
 	 *
 	 * Unused in core.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 * @var string
 	 */
 	public $ext_version = '';
@@ -117,7 +117,7 @@ class WP_Scripts extends WP_Dependencies {
 	/**
 	 * List of default directories.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 * @var array
 	 */
 	public $default_dirs;
@@ -126,7 +126,7 @@ class WP_Scripts extends WP_Dependencies {
 	 * Holds a mapping of dependents (as handles) for a given script handle.
 	 * Used to optimize recursive dependency tree checks.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 * @var array
 	 */
 	private $dependents_map = array();
@@ -135,7 +135,7 @@ class WP_Scripts extends WP_Dependencies {
 	 * Holds a reference to the delayed (non-blocking) script loading strategies.
 	 * Used by methods that validate loading strategies.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 * @var string[]
 	 */
 	private $delayed_strategies = array( 'defer', 'async' );
@@ -143,7 +143,7 @@ class WP_Scripts extends WP_Dependencies {
 	/**
 	 * Constructor.
 	 *
-	 * @since 2.6.0
+	 * @since WP 2.6.0
 	 */
 	public function __construct() {
 		$this->init();
@@ -153,13 +153,13 @@ class WP_Scripts extends WP_Dependencies {
 	/**
 	 * Initialize the class.
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 */
 	public function init() {
 		/**
 		 * Fires when the WP_Scripts instance is initialized.
 		 *
-		 * @since 2.6.0
+		 * @since WP 2.6.0
 		 *
 		 * @param WP_Scripts $wp_scripts WP_Scripts instance (passed by reference).
 		 */
@@ -171,8 +171,8 @@ class WP_Scripts extends WP_Dependencies {
 	 *
 	 * Prints the scripts passed to it or the print queue. Also prints all necessary dependencies.
 	 *
-	 * @since 2.1.0
-	 * @since 2.8.0 Added the `$group` parameter.
+	 * @since WP 2.1.0
+	 * @since WP 2.8.0 Added the `$group` parameter.
 	 *
 	 * @param string|string[]|false $handles Optional. Scripts to be printed: queue (false),
 	 *                                       single script (string), or multiple scripts (array of strings).
@@ -188,9 +188,9 @@ class WP_Scripts extends WP_Dependencies {
 	/**
 	 * Prints extra scripts of a registered script.
 	 *
-	 * @since 2.1.0
-	 * @since 2.8.0 Added the `$display` parameter.
-	 * @deprecated 3.3.0
+	 * @since WP 2.1.0
+	 * @since WP 2.8.0 Added the `$display` parameter.
+	 * @deprecated WP 3.3.0
 	 *
 	 * @see print_extra_script()
 	 *
@@ -208,7 +208,7 @@ class WP_Scripts extends WP_Dependencies {
 	/**
 	 * Prints extra scripts of a registered script.
 	 *
-	 * @since 3.3.0
+	 * @since WP 3.3.0
 	 *
 	 * @param string $handle  The script's registered handle.
 	 * @param bool   $display Optional. Whether to print the extra script
@@ -236,7 +236,7 @@ class WP_Scripts extends WP_Dependencies {
 	 *
 	 * If there are no dependents, this is considered the same as if all dependents were in the footer.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @param string $handle Script handle.
 	 * @return bool Whether all dependents are in the footer.
@@ -253,8 +253,8 @@ class WP_Scripts extends WP_Dependencies {
 	/**
 	 * Processes a script dependency.
 	 *
-	 * @since 2.6.0
-	 * @since 2.8.0 Added the `$group` parameter.
+	 * @since WP 2.6.0
+	 * @since WP 2.8.0 Added the `$group` parameter.
 	 *
 	 * @see WP_Dependencies::do_item()
 	 *
@@ -348,7 +348,7 @@ class WP_Scripts extends WP_Dependencies {
 			/**
 			 * Filters the script loader source.
 			 *
-			 * @since 2.2.0
+			 * @since WP 2.2.0
 			 *
 			 * @param string $src    Script loader source path.
 			 * @param string $handle Script handle.
@@ -432,7 +432,7 @@ class WP_Scripts extends WP_Dependencies {
 		/**
 		 * Filters the HTML script tag of an enqueued script.
 		 *
-		 * @since 4.1.0
+		 * @since WP 4.1.0
 		 *
 		 * @param string $tag    The `<script>` tag for the enqueued script.
 		 * @param string $handle The script's registered handle.
@@ -452,7 +452,7 @@ class WP_Scripts extends WP_Dependencies {
 	/**
 	 * Adds extra code to a registered script.
 	 *
-	 * @since 4.5.0
+	 * @since WP 4.5.0
 	 *
 	 * @param string $handle   Name of the script to add the inline script to.
 	 *                         Must be lowercase.
@@ -479,8 +479,8 @@ class WP_Scripts extends WP_Dependencies {
 	/**
 	 * Prints inline scripts registered for a specific handle.
 	 *
-	 * @since 4.5.0
-	 * @deprecated 6.3.0 Use methods get_inline_script_tag() or get_inline_script_data() instead.
+	 * @since WP 4.5.0
+	 * @deprecated WP 6.3.0 Use methods get_inline_script_tag() or get_inline_script_data() instead.
 	 *
 	 * @param string $handle   Name of the script to print inline scripts for.
 	 *                         Must be lowercase.
@@ -507,7 +507,7 @@ class WP_Scripts extends WP_Dependencies {
 	/**
 	 * Gets data for inline scripts registered for a specific handle.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param string $handle   Name of the script to get data for.
 	 *                         Must be lowercase.
@@ -527,7 +527,7 @@ class WP_Scripts extends WP_Dependencies {
 	/**
 	 * Gets tags for inline scripts registered for a specific handle.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param string $handle   Name of the script to get associated inline script tag for.
 	 *                         Must be lowercase.
@@ -549,7 +549,7 @@ class WP_Scripts extends WP_Dependencies {
 	/**
 	 * Localizes a script, only if the script has already been added.
 	 *
-	 * @since 2.1.0
+	 * @since WP 2.1.0
 	 *
 	 * @param string $handle      Name of the script to attach data to.
 	 * @param string $object_name Name of the variable that will contain the data.
@@ -614,7 +614,7 @@ class WP_Scripts extends WP_Dependencies {
 	/**
 	 * Sets handle group.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @see WP_Dependencies::set_group()
 	 *
@@ -641,8 +641,8 @@ class WP_Scripts extends WP_Dependencies {
 	/**
 	 * Sets a translation textdomain.
 	 *
-	 * @since 5.0.0
-	 * @since 5.1.0 The `$domain` parameter was made optional.
+	 * @since WP 5.0.0
+	 * @since WP 5.1.0 The `$domain` parameter was made optional.
 	 *
 	 * @param string $handle Name of the script to register a translation domain to.
 	 * @param string $domain Optional. Text domain. Default 'default'.
@@ -667,7 +667,7 @@ class WP_Scripts extends WP_Dependencies {
 	/**
 	 * Prints translations set for a specific handle.
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 *
 	 * @param string $handle  Name of the script to add the inline script to.
 	 *                        Must be lowercase.
@@ -711,7 +711,7 @@ JS;
 	/**
 	 * Determines script dependencies.
 	 *
-	 * @since 2.1.0
+	 * @since WP 2.1.0
 	 *
 	 * @see WP_Dependencies::all_deps()
 	 *
@@ -728,7 +728,7 @@ JS;
 			/**
 			 * Filters the list of script dependencies left to print.
 			 *
-			 * @since 2.3.0
+			 * @since WP 2.3.0
 			 *
 			 * @param string[] $to_do An array of script dependency handles.
 			 */
@@ -740,7 +740,7 @@ JS;
 	/**
 	 * Processes items and dependencies for the head group.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @see WP_Dependencies::do_items()
 	 *
@@ -754,7 +754,7 @@ JS;
 	/**
 	 * Processes items and dependencies for the footer group.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @see WP_Dependencies::do_items()
 	 *
@@ -768,7 +768,7 @@ JS;
 	/**
 	 * Whether a handle's source is in a default directory.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @param string $src The source of the enqueued script.
 	 * @return bool True if found, false if not.
@@ -793,7 +793,7 @@ JS;
 	/**
 	 * This overrides the add_data method from WP_Dependencies, to support normalizing of $args.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param string $handle Name of the item. Should be unique.
 	 * @param string $key    The data key.
@@ -838,7 +838,7 @@ JS;
 	/**
 	 * Gets all dependents of a script.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param string $handle The script handle.
 	 * @return string[] Script handles.
@@ -867,7 +867,7 @@ JS;
 	/**
 	 * Checks if the strategy passed is a valid delayed (non-blocking) strategy.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param string $strategy The strategy to check.
 	 * @return bool True if $strategy is one of the delayed strategies, otherwise false.
@@ -883,7 +883,7 @@ JS;
 	/**
 	 * Gets the best eligible loading strategy for a script.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param string $handle The script handle.
 	 * @return string The best eligible loading strategy.
@@ -915,7 +915,7 @@ JS;
 	/**
 	 * Filter the list of eligible loading strategies for a script.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param string              $handle              The script handle.
 	 * @param string[]|null       $eligible_strategies Optional. The list of strategies to filter. Default null.
@@ -982,7 +982,7 @@ JS;
 	/**
 	 * Gets data for inline scripts registered for a specific handle.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param string $handle   Name of the script to get data for. Must be lowercase.
 	 * @param string $position The position of the inline script.
@@ -999,7 +999,7 @@ JS;
 	/**
 	 * Resets class properties.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 */
 	public function reset() {
 		$this->do_concat      = false;

@@ -8,7 +8,7 @@
 /**
  * Renders the `core/post-title` block on the server.
  *
- * @since 6.3.0 Omitting the $post argument from the `get_the_title`.
+ * @since WP 6.3.0 Omitting the $post argument from the `get_the_title`.
  *
  * @param array    $attributes Block attributes.
  * @param string   $content    Block default content.
@@ -61,7 +61,7 @@ function render_block_core_post_title( $attributes, $content, $block ) {
 /**
  * Registers the `core/post-title` block on the server.
  *
- * @since 5.8.0
+ * @since WP 5.8.0
  */
 function register_block_core_post_title() {
 	register_block_type_from_metadata(

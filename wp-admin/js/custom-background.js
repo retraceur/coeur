@@ -7,7 +7,7 @@
 /**
  * Registers all events for customizing the background.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @requires jQuery
  */
@@ -19,7 +19,7 @@
 		/**
 		 * Instantiates the WordPress color picker and binds the change and clear events.
 		 *
-		 * @since 3.5.0
+		 * @since WP 3.5.0
 		 *
 		 * @return {void}
 		 */
@@ -35,7 +35,7 @@
 		/**
 		 * Alters the background size CSS property whenever the background size input has changed.
 		 *
-		 * @since 4.7.0
+		 * @since WP 4.7.0
 		 *
 		 * @return {void}
 		 */
@@ -46,7 +46,7 @@
 		/**
 		 * Alters the background position CSS property whenever the background position input has changed.
 		 *
-		 * @since 4.7.0
+		 * @since WP 4.7.0
 		 *
 		 * @return {void}
 		 */
@@ -57,7 +57,7 @@
 		/**
 		 * Alters the background repeat CSS property whenever the background repeat input has changed.
 		 *
-		 * @since 3.0.0
+		 * @since WP 3.0.0
 		 *
 		 * @return {void}
 		 */
@@ -68,7 +68,7 @@
 		/**
 		 * Alters the background attachment CSS property whenever the background attachment input has changed.
 		 *
-		 * @since 4.7.0
+		 * @since WP 4.7.0
 		 *
 		 * @return {void}
 		 */
@@ -79,7 +79,7 @@
 		/**
 		 * Binds the event for opening the WP Media dialog.
 		 *
-		 * @since 3.5.0
+		 * @since WP 3.5.0
 		 *
 		 * @return {void}
 		 */
@@ -119,7 +119,7 @@
 			/**
 			 * When an image is selected, run a callback.
 			 *
-			 * @since 3.5.0
+			 * @since WP 3.5.0
 			 *
 			 * @return {void}
  			 */

@@ -3,13 +3,13 @@
  * Blocks API: WP_Block_Editor_Context class
  *
  * @package motsVertueux
- * @since 5.8.0
+ * @since WP 5.8.0
  */
 
 /**
  * Contains information about a block editor being rendered.
  *
- * @since 5.8.0
+ * @since WP 5.8.0
  */
 #[AllowDynamicProperties]
 final class WP_Block_Editor_Context {
@@ -23,7 +23,7 @@ final class WP_Block_Editor_Context {
 	 *
 	 * Defaults to 'core/edit-post'.
 	 *
-	 * @since 6.0.0
+	 * @since WP 6.0.0
 	 *
 	 * @var string
 	 */
@@ -32,7 +32,7 @@ final class WP_Block_Editor_Context {
 	/**
 	 * The post being edited by the block editor. Optional.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @var WP_Post|null
 	 */
@@ -43,7 +43,7 @@ final class WP_Block_Editor_Context {
 	 *
 	 * Populates optional properties for a given block editor context.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @param array $settings The list of optional settings to expose in a given context.
 	 */

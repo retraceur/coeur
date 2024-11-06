@@ -1,9 +1,10 @@
 <?php
 /**
- * WordPress Installer
+ * motsVertueux Installer
  *
  * @package motsVertueux
  * @subpackage Administration
+ * @since 1.0.0 motsVertueux fork.
  */
 
 // Confidence check.
@@ -16,29 +17,29 @@ if ( false ) {
 	<title>Error: PHP is not running</title>
 </head>
 <body class="wp-core-ui">
-	<p id="logo"><a href="https://wordpress.org/">WordPress</a></p>
+	<p id="logo">motsVertueux</p>
 	<h1>Error: PHP is not running</h1>
-	<p>WordPress requires that your web server is running PHP. Your server does not have PHP installed, or PHP is turned off.</p>
+	<p>motsVertueux requires that your web server is running PHP. Your server does not have PHP installed, or PHP is turned off.</p>
 </body>
 </html>
 	<?php
 }
 
 /**
- * We are installing WordPress.
+ * We are installing motsVertueux.
  *
- * @since 1.5.1
+ * @since WP 1.5.1
  * @var bool
  */
 define( 'WP_INSTALLING', true );
 
-/** Load WordPress Bootstrap */
+/** Load motsVertueux Bootstrap */
 require_once dirname( __DIR__ ) . '/wp-load.php';
 
-/** Load WordPress Administration Upgrade API */
+/** Load motsVertueux Administration Upgrade API */
 require_once ABSPATH . 'wp-admin/includes/upgrade.php';
 
-/** Load WordPress Translation Install API */
+/** Load motsVertueux Translation Install API */
 require_once ABSPATH . 'wp-admin/includes/translation-install.php';
 
 /** Load wpdb */
@@ -51,7 +52,7 @@ $step = isset( $_GET['step'] ) ? (int) $_GET['step'] : 0;
 /**
  * Display installation header.
  *
- * @since 2.5.0
+ * @since WP 2.5.0
  *
  * @param string $body_classes
  */
@@ -70,11 +71,11 @@ function display_header( $body_classes = '' ) {
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="robots" content="noindex,nofollow" />
-	<title><?php _e( 'WordPress &rsaquo; Installation' ); ?></title>
+	<title><?php _e( 'motsVertueux &rsaquo; Installation' ); ?></title>
 	<?php wp_admin_css( 'install', true ); ?>
 </head>
 <body class="wp-core-ui<?php echo $body_classes; ?>">
-<p id="logo"><?php _e( 'WordPress' ); ?></p>
+<p id="logo"><?php _e( 'motsVertueux' ); ?></p>
 
 	<?php
 } // End display_header().
@@ -82,9 +83,9 @@ function display_header( $body_classes = '' ) {
 /**
  * Displays installer setup form.
  *
- * @since 2.8.0
+ * @since WP 2.8.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb motsVertueux database abstraction object.
  *
  * @param string|null $error
  */
@@ -214,7 +215,7 @@ function display_setup_form( $error = null ) {
 			</td>
 		</tr>
 	</table>
-	<p class="step"><?php submit_button( __( 'Install WordPress' ), 'large', 'Submit', false, array( 'id' => 'submit' ) ); ?></p>
+	<p class="step"><?php submit_button( __( 'Install motsVertueux' ), 'large', 'Submit', false, array( 'id' => 'submit' ) ); ?></p>
 	<input type="hidden" name="language" value="<?php echo isset( $_REQUEST['language'] ) ? esc_attr( $_REQUEST['language'] ) : ''; ?>" />
 </form>
 	<?php
@@ -225,69 +226,48 @@ if ( is_blog_installed() ) {
 	display_header();
 	die(
 		'<h1>' . __( 'Already Installed' ) . '</h1>' .
-		'<p>' . __( 'You appear to have already installed WordPress. To reinstall please clear your old database tables first.' ) . '</p>' .
+		'<p>' . __( 'You appear to have already installed motsVertueux. To reinstall please clear your old database tables first.' ) . '</p>' .
 		'<p class="step"><a href="' . esc_url( wp_login_url() ) . '">' . __( 'Log In' ) . '</a></p>' .
 		'</body></html>'
 	);
 }
 
 /**
- * @global string $wp_version             The WordPress version string.
+ * @global string $mv_version             The motsVertueux version string.
  * @global string $required_php_version   The required PHP version string.
  * @global string $required_mysql_version The required MySQL version string.
- * @global wpdb   $wpdb                   WordPress database abstraction object.
+ * @global wpdb   $wpdb                   motsVertueux database abstraction object.
  */
-global $wp_version, $required_php_version, $required_mysql_version, $wpdb;
+global $mv_version, $required_php_version, $required_mysql_version, $wpdb;
 
 $php_version   = PHP_VERSION;
 $mysql_version = $wpdb->db_version();
 $php_compat    = version_compare( $php_version, $required_php_version, '>=' );
 $mysql_compat  = version_compare( $mysql_version, $required_mysql_version, '>=' ) || file_exists( WP_CONTENT_DIR . '/db.php' );
 
-$version_url = sprintf(
-	/* translators: %s: WordPress version. */
-	esc_url( __( 'https://wordpress.org/documentation/wordpress-version/version-%s/' ) ),
-	sanitize_title( $wp_version )
-);
-
-$php_update_message = '</p><p>' . sprintf(
-	/* translators: %s: URL to Update PHP page. */
-	__( '<a href="%s">Learn more about updating PHP</a>.' ),
-	esc_url( wp_get_update_php_url() )
-);
-
-$annotation = wp_get_update_php_annotation();
-
-if ( $annotation ) {
-	$php_update_message .= '</p><p><em>' . $annotation . '</em>';
-}
-
 if ( ! $mysql_compat && ! $php_compat ) {
 	$compat = sprintf(
-		/* translators: 1: URL to WordPress release notes, 2: WordPress version number, 3: Minimum required PHP version number, 4: Minimum required MySQL version number, 5: Current PHP version number, 6: Current MySQL version number. */
-		__( 'You cannot install because <a href="%1$s">WordPress %2$s</a> requires PHP version %3$s or higher and MySQL version %4$s or higher. You are running PHP version %5$s and MySQL version %6$s.' ),
-		$version_url,
-		$wp_version,
+		/* translators: 1: motsVertueux version number, 2: Minimum required PHP version number, 3: Minimum required MySQL version number, 4: Current PHP version number, 5: Current MySQL version number. */
+		__( 'You cannot install because motsVertueux %1$s requires PHP version %2$s or higher and MySQL version %3$s or higher. You are running PHP version %4$s and MySQL version %5$s.' ),
+		$mv_version,
 		$required_php_version,
 		$required_mysql_version,
 		$php_version,
 		$mysql_version
-	) . $php_update_message;
+	);
 } elseif ( ! $php_compat ) {
 	$compat = sprintf(
-		/* translators: 1: URL to WordPress release notes, 2: WordPress version number, 3: Minimum required PHP version number, 4: Current PHP version number. */
-		__( 'You cannot install because <a href="%1$s">WordPress %2$s</a> requires PHP version %3$s or higher. You are running version %4$s.' ),
-		$version_url,
-		$wp_version,
+		/* translators: 1: motsVertueux version number, 2: Minimum required PHP version number, 3: Current PHP version number. */
+		__( 'You cannot install because motsVertueux %1$s requires PHP version %2$s or higher. You are running version %3$s.' ),
+		$mv_version,
 		$required_php_version,
 		$php_version
-	) . $php_update_message;
+	);
 } elseif ( ! $mysql_compat ) {
 	$compat = sprintf(
-		/* translators: 1: URL to WordPress release notes, 2: WordPress version number, 3: Minimum required MySQL version number, 4: Current MySQL version number. */
-		__( 'You cannot install because <a href="%1$s">WordPress %2$s</a> requires MySQL version %3$s or higher. You are running version %4$s.' ),
-		$version_url,
-		$wp_version,
+		/* translators: 1: motsVertueux version number, 2: Minimum required MySQL version number, 3: Current MySQL version number. */
+		__( 'You cannot install because motsVertueux %1$s> requires MySQL version %2$s or higher. You are running version %3$s.' ),
+		$mv_version,
 		$required_mysql_version,
 		$mysql_version
 	);
@@ -317,7 +297,7 @@ if ( defined( 'DO_NOT_UPGRADE_GLOBAL_TABLES' ) ) {
 		'<h1>' . __( 'Configuration Error' ) . '</h1>' .
 		'<p>' . sprintf(
 			/* translators: %s: DO_NOT_UPGRADE_GLOBAL_TABLES */
-			__( 'The constant %s cannot be defined when installing WordPress.' ),
+			__( 'The constant %s cannot be defined when installing motsVertueux.' ),
 			'<code>DO_NOT_UPGRADE_GLOBAL_TABLES</code>'
 		) . '</p></body></html>'
 	);
@@ -325,7 +305,7 @@ if ( defined( 'DO_NOT_UPGRADE_GLOBAL_TABLES' ) ) {
 
 /**
  * @global string    $wp_local_package Locale code of the package.
- * @global WP_Locale $wp_locale        WordPress date and time locale object.
+ * @global WP_Locale $wp_locale        motsVertueux date and time locale object.
  */
 $language = '';
 if ( ! empty( $_REQUEST['language'] ) ) {
@@ -366,7 +346,7 @@ switch ( $step ) {
 		display_header();
 		?>
 <h1><?php _ex( 'Welcome', 'Howdy' ); ?></h1>
-<p><?php _e( 'Welcome to the famous five-minute WordPress installation process! Just fill in the information below and you&#8217;ll be on your way to using the most extendable and powerful personal publishing platform in the world.' ); ?></p>
+<p><?php _e( 'Welcome to the installation process! Just fill in the information below and you&#8217;ll be on your way to using the motsVertueux publishing platform.' ); ?></p>
 
 <h2><?php _e( 'Information needed' ); ?></h2>
 <p><?php _e( 'Please provide the following information. Do not worry, you can always change these settings later.' ); ?></p>
@@ -427,7 +407,7 @@ switch ( $step ) {
 
 <h1><?php _e( 'Success!' ); ?></h1>
 
-<p><?php _e( 'WordPress has been installed. Thank you, and enjoy!' ); ?></p>
+<p><?php _e( 'motsVertueux has been installed. Thank you, and enjoy!' ); ?></p>
 
 <table class="form-table install-success">
 	<tr>

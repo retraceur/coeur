@@ -3,13 +3,13 @@
  * Error Protection API: WP_Paused_Extensions_Storage class
  *
  * @package motsVertueux
- * @since 5.2.0
+ * @since WP 5.2.0
  */
 
 /**
  * Core class used for storing paused extensions.
  *
- * @since 5.2.0
+ * @since WP 5.2.0
  */
 #[AllowDynamicProperties]
 class WP_Paused_Extensions_Storage {
@@ -17,7 +17,7 @@ class WP_Paused_Extensions_Storage {
 	/**
 	 * Type of extension. Used to key extension storage. Either 'plugin' or 'theme'.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 * @var string
 	 */
 	protected $type;
@@ -25,7 +25,7 @@ class WP_Paused_Extensions_Storage {
 	/**
 	 * Constructor.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 *
 	 * @param string $extension_type Extension type. Either 'plugin' or 'theme'.
 	 */
@@ -39,7 +39,7 @@ class WP_Paused_Extensions_Storage {
 	 * Only one error is stored per extension, with subsequent errors for the same extension overriding the
 	 * previously stored error.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 *
 	 * @param string $extension Plugin or theme directory name.
 	 * @param array  $error     {
@@ -78,7 +78,7 @@ class WP_Paused_Extensions_Storage {
 	/**
 	 * Forgets a previously recorded extension error.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 *
 	 * @param string $extension Plugin or theme directory name.
 	 * @return bool True on success, false on failure.
@@ -118,7 +118,7 @@ class WP_Paused_Extensions_Storage {
 	/**
 	 * Gets the error for an extension, if paused.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 *
 	 * @param string $extension Plugin or theme directory name.
 	 * @return array|null Error that is stored, or null if the extension is not paused.
@@ -140,7 +140,7 @@ class WP_Paused_Extensions_Storage {
 	/**
 	 * Gets the paused extensions with their errors.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 *
 	 * @return array {
 	 *     Associative array of errors keyed by extension slug.
@@ -167,7 +167,7 @@ class WP_Paused_Extensions_Storage {
 	/**
 	 * Remove all paused extensions.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 *
 	 * @return bool
 	 */
@@ -196,7 +196,7 @@ class WP_Paused_Extensions_Storage {
 	/**
 	 * Checks whether the underlying API to store paused extensions is loaded.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 *
 	 * @return bool True if the API is loaded, false otherwise.
 	 */
@@ -207,7 +207,7 @@ class WP_Paused_Extensions_Storage {
 	/**
 	 * Get the option name for storing paused extensions.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 *
 	 * @return string
 	 */

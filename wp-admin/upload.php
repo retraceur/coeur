@@ -194,12 +194,6 @@ if ( 'grid' === $mode ) {
 		)
 	);
 
-	get_current_screen()->set_help_sidebar(
-		'<p><strong>' . __( 'For more information:' ) . '</strong></p>' .
-		'<p>' . __( '<a href="https://wordpress.org/documentation/article/media-library-screen/">Documentation on Media Library</a>' ) . '</p>' .
-		'<p>' . __( '<a href="https://wordpress.org/support/forums/">Support forums</a>' ) . '</p>'
-	);
-
 	// Used in the HTML title tag.
 	$title       = __( 'Media Library' );
 	$parent_file = 'upload.php';
@@ -394,12 +388,6 @@ get_current_screen()->add_help_tab(
 		'content' =>
 				'<p>' . __( 'If a media file has not been attached to any content, you will see that in the Uploaded To column, and can click on Attach to launch a small popup that will allow you to search for existing content and attach the file.' ) . '</p>',
 	)
-);
-
-get_current_screen()->set_help_sidebar(
-	'<p><strong>' . __( 'For more information:' ) . '</strong></p>' .
-	'<p>' . __( '<a href="https://wordpress.org/documentation/article/media-library-screen/">Documentation on Media Library</a>' ) . '</p>' .
-	'<p>' . __( '<a href="https://wordpress.org/support/forums/">Support forums</a>' ) . '</p>'
 );
 
 get_current_screen()->set_screen_reader_content(

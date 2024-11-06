@@ -3,13 +3,13 @@
  * Position block support flag.
  *
  * @package motsVertueux
- * @since 6.2.0
+ * @since WP 6.2.0
  */
 
 /**
  * Registers the style block attribute for block types that support it.
  *
- * @since 6.2.0
+ * @since WP 6.2.0
  * @access private
  *
  * @param WP_Block_Type $block_type Block Type.
@@ -32,7 +32,7 @@ function wp_register_position_support( $block_type ) {
 /**
  * Renders position styles to the block wrapper.
  *
- * @since 6.2.0
+ * @since WP 6.2.0
  * @access private
  *
  * @param  string $block_content Rendered block content.

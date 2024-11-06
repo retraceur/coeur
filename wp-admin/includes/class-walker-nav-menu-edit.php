@@ -4,13 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage Administration
- * @since 4.4.0
+ * @since WP 4.4.0
  */
 
 /**
  * Create HTML list of nav menu input items.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @see Walker_Nav_Menu
  */
@@ -20,7 +20,7 @@ class Walker_Nav_Menu_Edit extends Walker_Nav_Menu {
 	 *
 	 * @see Walker_Nav_Menu::start_lvl()
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 *
 	 * @param string   $output Passed by reference.
 	 * @param int      $depth  Depth of menu item. Used for padding.
@@ -33,7 +33,7 @@ class Walker_Nav_Menu_Edit extends Walker_Nav_Menu {
 	 *
 	 * @see Walker_Nav_Menu::end_lvl()
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 *
 	 * @param string   $output Passed by reference.
 	 * @param int      $depth  Depth of menu item. Used for padding.
@@ -45,8 +45,8 @@ class Walker_Nav_Menu_Edit extends Walker_Nav_Menu {
 	 * Start the element output.
 	 *
 	 * @see Walker_Nav_Menu::start_el()
-	 * @since 3.0.0
-	 * @since 5.9.0 Renamed `$item` to `$data_object` and `$id` to `$current_object_id`
+	 * @since WP 3.0.0
+	 * @since WP 5.9.0 Renamed `$item` to `$data_object` and `$id` to `$current_object_id`
 	 *              to match parent class for PHP 8 named parameter support.
 	 *
 	 * @global int $_wp_nav_menu_max_depth
@@ -244,7 +244,7 @@ class Walker_Nav_Menu_Edit extends Walker_Nav_Menu {
 				/**
 				 * Update parent and order of menu item using select inputs.
 				 *
-				 * @since 6.7.0
+				 * @since WP 6.7.0
 				 */
 				?>
 	
@@ -269,7 +269,7 @@ class Walker_Nav_Menu_Edit extends Walker_Nav_Menu {
 				/**
 				 * Fires just before the move buttons of a nav menu item in the menu editor.
 				 *
-				 * @since 5.4.0
+				 * @since WP 5.4.0
 				 *
 				 * @param string        $item_id           Menu item ID as a numeric string.
 				 * @param WP_Post       $menu_item         Menu item data object.

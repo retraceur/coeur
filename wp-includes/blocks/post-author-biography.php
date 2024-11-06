@@ -8,7 +8,7 @@
 /**
  * Renders the `core/post-author-biography` block on the server.
  *
- * @since 6.0.0
+ * @since WP 6.0.0
  *
  * @param  array    $attributes Block attributes.
  * @param  string   $content    Block default content.
@@ -40,7 +40,7 @@ function render_block_core_post_author_biography( $attributes, $content, $block 
 /**
  * Registers the `core/post-author-biography` block on the server.
  *
- * @since 6.0.0
+ * @since WP 6.0.0
  */
 function register_block_core_post_author_biography() {
 	register_block_type_from_metadata(

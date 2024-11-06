@@ -4,7 +4,7 @@
  *
  * @package motsVertueux
  * @subpackage Upgrader
- * @since 4.6.0
+ * @since WP 4.6.0
  */
 
 /**
@@ -12,7 +12,7 @@
  *
  * This skin is designed to be used for Ajax updates.
  *
- * @since 4.6.0
+ * @since WP 4.6.0
  *
  * @see Automatic_Upgrader_Skin
  */
@@ -42,7 +42,7 @@ class WP_Ajax_Upgrader_Skin extends Automatic_Upgrader_Skin {
 	/**
 	 * Holds the WP_Error object.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 *
 	 * @var null|WP_Error
 	 */
@@ -53,7 +53,7 @@ class WP_Ajax_Upgrader_Skin extends Automatic_Upgrader_Skin {
 	 *
 	 * Sets up the WordPress Ajax upgrader skin.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 *
 	 * @see WP_Upgrader_Skin::__construct()
 	 *
@@ -70,7 +70,7 @@ class WP_Ajax_Upgrader_Skin extends Automatic_Upgrader_Skin {
 	/**
 	 * Retrieves the list of errors.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 *
 	 * @return WP_Error Errors during an upgrade.
 	 */
@@ -81,7 +81,7 @@ class WP_Ajax_Upgrader_Skin extends Automatic_Upgrader_Skin {
 	/**
 	 * Retrieves a string for error messages.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 *
 	 * @return string Error messages during an upgrade.
 	 */
@@ -104,8 +104,8 @@ class WP_Ajax_Upgrader_Skin extends Automatic_Upgrader_Skin {
 	/**
 	 * Stores an error message about the upgrade.
 	 *
-	 * @since 4.6.0
-	 * @since 5.3.0 Formalized the existing `...$args` parameter by adding it
+	 * @since WP 4.6.0
+	 * @since WP 5.3.0 Formalized the existing `...$args` parameter by adding it
 	 *              to the function signature.
 	 *
 	 * @param string|WP_Error $errors  Errors.
@@ -139,10 +139,10 @@ class WP_Ajax_Upgrader_Skin extends Automatic_Upgrader_Skin {
 	/**
 	 * Stores a message about the upgrade.
 	 *
-	 * @since 4.6.0
-	 * @since 5.3.0 Formalized the existing `...$args` parameter by adding it
+	 * @since WP 4.6.0
+	 * @since WP 5.3.0 Formalized the existing `...$args` parameter by adding it
 	 *              to the function signature.
-	 * @since 5.9.0 Renamed `$data` to `$feedback` for PHP 8 named parameter support.
+	 * @since WP 5.9.0 Renamed `$data` to `$feedback` for PHP 8 named parameter support.
 	 *
 	 * @param string|array|WP_Error $feedback Message data.
 	 * @param mixed                 ...$args  Optional text replacements.

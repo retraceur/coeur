@@ -1,16 +1,18 @@
 <?php
 /**
  * REST API: WP_REST_Block_Directory_Controller class
+ * 
+ * @since WP 5.5.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage REST_API
- * @since 5.5.0
  */
 
 /**
  * Controller which provides REST endpoint for the blocks.
  *
- * @since 5.5.0
+ * @since WP 5.5.0
  *
  * @see WP_REST_Controller
  */
@@ -46,7 +48,7 @@ class WP_REST_Block_Directory_Controller extends WP_REST_Controller {
 	/**
 	 * Checks whether a given request has permission to install and activate plugins.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has permission, WP_Error object otherwise.
@@ -66,7 +68,7 @@ class WP_REST_Block_Directory_Controller extends WP_REST_Controller {
 	/**
 	 * Search and retrieve blocks metadata
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
@@ -108,8 +110,8 @@ class WP_REST_Block_Directory_Controller extends WP_REST_Controller {
 	/**
 	 * Parse block metadata for a block, and prepare it for an API response.
 	 *
-	 * @since 5.5.0
-	 * @since 5.9.0 Renamed `$plugin` to `$item` to match parent class for PHP 8 named parameter support.
+	 * @since WP 5.5.0
+	 * @since WP 5.9.0 Renamed `$plugin` to `$item` to match parent class for PHP 8 named parameter support.
 	 *
 	 * @param array           $item    The plugin metadata.
 	 * @param WP_REST_Request $request Request object.
@@ -159,9 +161,9 @@ class WP_REST_Block_Directory_Controller extends WP_REST_Controller {
 	/**
 	 * Generates a list of links to include in the response for the plugin.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
-	 * @param array $plugin The plugin data from WordPress.org.
+	 * @param array $plugin The plugin data.
 	 * @return array
 	 */
 	protected function prepare_links( $plugin ) {
@@ -186,9 +188,9 @@ class WP_REST_Block_Directory_Controller extends WP_REST_Controller {
 	/**
 	 * Finds an installed plugin for the given slug.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
-	 * @param string $slug The WordPress.org directory slug for a plugin.
+	 * @param string $slug The slug for a plugin.
 	 * @return string The plugin file found matching it.
 	 */
 	protected function find_plugin_for_slug( $slug ) {
@@ -208,7 +210,7 @@ class WP_REST_Block_Directory_Controller extends WP_REST_Controller {
 	/**
 	 * Retrieves the theme's schema, conforming to JSON Schema.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @return array Item schema data.
 	 */
@@ -268,7 +270,7 @@ class WP_REST_Block_Directory_Controller extends WP_REST_Controller {
 					'context'     => array( 'view' ),
 				),
 				'author'              => array(
-					'description' => __( 'The WordPress.org username of the block author.' ),
+					'description' => __( 'The username of the block author.' ),
 					'type'        => 'string',
 					'context'     => array( 'view' ),
 				),
@@ -298,7 +300,7 @@ class WP_REST_Block_Directory_Controller extends WP_REST_Controller {
 	/**
 	 * Retrieves the search params for the blocks collection.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @return array Collection parameters.
 	 */
@@ -319,7 +321,7 @@ class WP_REST_Block_Directory_Controller extends WP_REST_Controller {
 		/**
 		 * Filters REST API collection parameters for the block directory controller.
 		 *
-		 * @since 5.5.0
+		 * @since WP 5.5.0
 		 *
 		 * @param array $query_params JSON Schema-formatted collection parameters.
 		 */

@@ -73,7 +73,7 @@ class Text_Diff {
     /**
      * returns the number of new (added) lines in a given diff.
      *
-     * @since Text_Diff 1.1.0
+     * @since WP Text_Diff 1.1.0
      *
      * @return int The number of new lines
      */
@@ -92,7 +92,7 @@ class Text_Diff {
     /**
      * Returns the number of deleted (removed) lines in a given diff.
      *
-     * @since Text_Diff 1.1.0
+     * @since WP Text_Diff 1.1.0
      *
      * @return int The number of deleted lines
      */

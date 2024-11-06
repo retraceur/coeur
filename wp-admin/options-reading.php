@@ -29,11 +29,7 @@ get_current_screen()->add_help_tab(
 				__( 'You can choose what&#8217;s displayed on the homepage of your site. It can be posts in reverse chronological order (classic blog), or a fixed/static page. To set a static homepage, you first need to create two <a href="%s">Pages</a>. One will become the homepage, and the other will be where your posts are displayed.' ),
 				'post-new.php?post_type=page'
 			) . '</p>' .
-			'<p>' . sprintf(
-				/* translators: %s: Documentation URL. */
-				__( 'You can also control the display of your content in RSS feeds, including the maximum number of posts to display and whether to show full text or an excerpt. <a href="%s">Learn more about feeds</a>.' ),
-				__( 'https://developer.wordpress.org/advanced-administration/wordpress/feeds/' )
-			) . '</p>' .
+			'<p>' . __( 'You can also control the display of your content in RSS feeds, including the maximum number of posts to display and whether to show full text or an excerpt.' ). '</p>' .
 			'<p>' . __( 'You must click the Save Changes button at the bottom of the screen for new settings to take effect.' ) . '</p>',
 	)
 );
@@ -46,12 +42,6 @@ get_current_screen()->add_help_tab(
 			'<p>' . __( 'Note that even when set to discourage search engines, your site is still visible on the web and not all search engines adhere to this directive.' ) . '</p>' .
 			'<p>' . __( 'When this setting is in effect, a reminder is shown in the At a Glance box of the Dashboard that says, &#8220;Search engines discouraged&#8221;, to remind you that you have directed search engines to not crawl your site.' ) . '</p>',
 	)
-);
-
-get_current_screen()->set_help_sidebar(
-	'<p><strong>' . __( 'For more information:' ) . '</strong></p>' .
-	'<p>' . __( '<a href="https://wordpress.org/documentation/article/settings-reading-screen/">Documentation on Reading Settings</a>' ) . '</p>' .
-	'<p>' . __( '<a href="https://wordpress.org/support/forums/">Support forums</a>' ) . '</p>'
 );
 
 require_once ABSPATH . 'wp-admin/admin-header.php';
@@ -193,13 +183,7 @@ else :
 		<label><input name="rss_use_excerpt" type="radio" value="1" <?php checked( 1, get_option( 'rss_use_excerpt' ) ); ?> /> <?php _e( 'Excerpt' ); ?></label>
 	</p>
 	<p class="description">
-		<?php
-		printf(
-			/* translators: %s: Documentation URL. */
-			__( 'Your theme determines how content is displayed in browsers. <a href="%s">Learn more about feeds</a>.' ),
-			__( 'https://developer.wordpress.org/advanced-administration/wordpress/feeds/' )
-		);
-		?>
+		<?php esc_html_e( 'Your theme determines how content is displayed in browsers.' ) ;?>
 	</p>
 </fieldset></td>
 </tr>
@@ -235,7 +219,7 @@ else :
 	 * Hooking to this action also converts the 'Search engine visibility' heading to the more
 	 * open-ended 'Site visibility' heading.
 	 *
-	 * @since 2.1.0
+	 * @since WP 2.1.0
 	 */
 	do_action( 'blog_privacy_selector' );
 	?>

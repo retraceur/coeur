@@ -26,7 +26,7 @@ if ( ! current_user_can( 'update_core' ) && ! current_user_can( 'update_themes' 
 /**
  * Lists available core updates.
  *
- * @since 2.7.0
+ * @since WP 2.7.0
  *
  * @global string $wp_local_package Locale code of the package.
  * @global wpdb   $wpdb             WordPress database abstraction object.
@@ -89,59 +89,37 @@ function list_core_update( $update ) {
 				$mysql_compat = version_compare( $mysql_version, $update->mysql_version, '>=' );
 			}
 
-			$version_url = sprintf(
-				/* translators: %s: WordPress version. */
-				esc_url( __( 'https://wordpress.org/documentation/wordpress-version/version-%s/' ) ),
-				sanitize_title( $update->current )
-			);
-
-			$php_update_message = '</p><p>' . sprintf(
-				/* translators: %s: URL to Update PHP page. */
-				__( '<a href="%s">Learn more about updating PHP</a>.' ),
-				esc_url( wp_get_update_php_url() )
-			);
-
-			$annotation = wp_get_update_php_annotation();
-
-			if ( $annotation ) {
-				$php_update_message .= '</p><p><em>' . $annotation . '</em>';
-			}
-
 			if ( ! $mysql_compat && ! $php_compat ) {
 				$message = sprintf(
-					/* translators: 1: URL to WordPress release notes, 2: WordPress version number, 3: Minimum required PHP version number, 4: Minimum required MySQL version number, 5: Current PHP version number, 6: Current MySQL version number. */
-					__( 'You cannot update because <a href="%1$s">WordPress %2$s</a> requires PHP version %3$s or higher and MySQL version %4$s or higher. You are running PHP version %5$s and MySQL version %6$s.' ),
-					$version_url,
+					/* translators: 1: motsVertueux version number, 2: Minimum required PHP version number, 3: Minimum required MySQL version number, 4: Current PHP version number, 5: Current MySQL version number. */
+					__( 'You cannot update because motsVertueux %1$s requires PHP version %2$s or higher and MySQL version %3$s or higher. You are running PHP version %4$s and MySQL version %5$s.' ),
 					$update->current,
 					$update->php_version,
 					$update->mysql_version,
 					$php_version,
 					$mysql_version
-				) . $php_update_message;
+				);
 			} elseif ( ! $php_compat ) {
 				$message = sprintf(
-					/* translators: 1: URL to WordPress release notes, 2: WordPress version number, 3: Minimum required PHP version number, 4: Current PHP version number. */
-					__( 'You cannot update because <a href="%1$s">WordPress %2$s</a> requires PHP version %3$s or higher. You are running version %4$s.' ),
-					$version_url,
+					/* translators: 1: motsVertueux version number, 2: Minimum required PHP version number, 3: Current PHP version number. */
+					__( 'You cannot update because motsVertueux %1$s requires PHP version %2$s or higher. You are running version %3$s.' ),
 					$update->current,
 					$update->php_version,
 					$php_version
-				) . $php_update_message;
+				);
 			} elseif ( ! $mysql_compat ) {
 				$message = sprintf(
-					/* translators: 1: URL to WordPress release notes, 2: WordPress version number, 3: Minimum required MySQL version number, 4: Current MySQL version number. */
-					__( 'You cannot update because <a href="%1$s">WordPress %2$s</a> requires MySQL version %3$s or higher. You are running version %4$s.' ),
-					$version_url,
+					/* translators: 1: motsVertueux version number, 2: Minimum required MySQL version number, 3: Current MySQL version number. */
+					__( 'You cannot update because motsVertueux %1$s requires MySQL version %2$s or higher. You are running version %3$s.' ),
 					$update->current,
 					$update->mysql_version,
 					$mysql_version
 				);
 			} else {
 				$message = sprintf(
-					/* translators: 1: Installed WordPress version number, 2: URL to WordPress release notes, 3: New WordPress version number, including locale if necessary. */
-					__( 'You can update from WordPress %1$s to <a href="%2$s">WordPress %3$s</a> manually:' ),
+					/* translators: 1: Installed WordPress version number, 2: New WordPress version number, including locale if necessary. */
+					__( 'You can update from WordPress %1$s to motsVertueux %2$s</a> manually:' ),
 					$wp_version,
-					$version_url,
 					$version_string
 				);
 			}
@@ -196,7 +174,7 @@ function list_core_update( $update ) {
 /**
  * Display dismissed updates.
  *
- * @since 2.7.0
+ * @since WP 2.7.0
  */
 function dismissed_updates() {
 	$dismissed = get_core_updates(
@@ -240,10 +218,14 @@ function dismissed_updates() {
 /**
  * Display upgrade WordPress for downloading latest or upgrading automatically form.
  *
- * @since 2.7.0
+ * @since WP 2.7.0
  */
 function core_upgrade_preamble() {
 	$updates = get_core_updates();
+	
+	if ( ! $updates ) {
+		return;
+	}
 
 	// Include an unmodified $wp_version.
 	require ABSPATH . WPINC . '/version.php';
@@ -255,14 +237,8 @@ function core_upgrade_preamble() {
 		_e( 'An updated version of WordPress is available.' );
 		echo '</h2>';
 
-		$message = sprintf(
-			/* translators: 1: Documentation on WordPress backups, 2: Documentation on updating WordPress. */
-			__( '<strong>Important:</strong> Before updating, please <a href="%1$s">back up your database and files</a>. For help with updates, visit the <a href="%2$s">Updating WordPress</a> documentation page.' ),
-			__( 'https://developer.wordpress.org/advanced-administration/security/backup/' ),
-			__( 'https://wordpress.org/documentation/article/updating-wordpress/' )
-		);
 		wp_admin_notice(
-			$message,
+			__( '<strong>Important:</strong> Before updating, please back up your database and files.' ),
 			array(
 				'type'               => 'warning',
 				'additional_classes' => array( 'inline' ),
@@ -301,7 +277,7 @@ function core_upgrade_preamble() {
 /**
  * Display WordPress auto-updates settings.
  *
- * @since 5.6.0
+ * @since WP 5.6.0
  */
 function core_auto_updates_settings() {
 	if ( isset( $_GET['core-major-auto-updates-saved'] ) ) {
@@ -441,7 +417,7 @@ function core_auto_updates_settings() {
 	/**
 	 * Fires after the major core auto-update settings.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param array $auto_update_settings {
 	 *     Array of core auto-update settings.
@@ -457,7 +433,7 @@ function core_auto_updates_settings() {
 /**
  * Display the upgrade plugins form.
  *
- * @since 2.9.0
+ * @since WP 2.9.0
  */
 function list_plugin_updates() {
 	$wp_version     = wp_get_wp_version();
@@ -546,18 +522,7 @@ function list_plugin_updates() {
 		$compatible_php = is_php_version_compatible( $requires_php );
 
 		if ( ! $compatible_php && current_user_can( 'update_php' ) ) {
-			$compat .= '<br />' . __( 'This update does not work with your version of PHP.' ) . '&nbsp;';
-			$compat .= sprintf(
-				/* translators: %s: URL to Update PHP page. */
-				__( '<a href="%s">Learn more about updating PHP</a>.' ),
-				esc_url( wp_get_update_php_url() )
-			);
-
-			$annotation = wp_get_update_php_annotation();
-
-			if ( $annotation ) {
-				$compat .= '</p><p><em>' . $annotation . '</em>';
-			}
+			$compat .= '<br />' . __( 'This update does not work with your version of PHP.' );
 		}
 
 		// Get the upgrade notice for the new plugin version.
@@ -634,7 +599,7 @@ function list_plugin_updates() {
 /**
  * Display the upgrade themes form.
  *
- * @since 2.9.0
+ * @since WP 2.9.0
  */
 function list_theme_updates() {
 	$themes = get_theme_updates();
@@ -658,15 +623,7 @@ function list_theme_updates() {
 	?>
 </h2>
 <p><?php _e( 'The following themes have new versions available. Check the ones you want to update and then click &#8220;Update Themes&#8221;.' ); ?></p>
-<p>
-	<?php
-	printf(
-		/* translators: %s: Link to documentation on child themes. */
-		__( '<strong>Please Note:</strong> Any customizations you have made to theme files will be lost. Please consider using <a href="%s">child themes</a> for modifications.' ),
-		__( 'https://developer.wordpress.org/themes/advanced-topics/child-themes/' )
-	);
-	?>
-</p>
+<p><?php esc_html_e( 'Please Note: Any customizations you have made to theme files will be lost. Please consider using child themes for modifications.' ) ;?></p>
 <form method="post" action="<?php echo esc_url( $form_action ); ?>" name="upgrade-themes" class="upgrade">
 	<?php wp_nonce_field( 'upgrade-core' ); ?>
 <p><input id="upgrade-themes" class="button" type="submit" value="<?php esc_attr_e( 'Update Themes' ); ?>" name="upgrade" /></p>
@@ -699,35 +656,16 @@ function list_theme_updates() {
 			$compat .= '<br />' . __( 'This update does not work with your versions of WordPress and PHP.' ) . '&nbsp;';
 			if ( current_user_can( 'update_core' ) && current_user_can( 'update_php' ) ) {
 				$compat .= sprintf(
-					/* translators: 1: URL to WordPress Updates screen, 2: URL to Update PHP page. */
-					__( '<a href="%1$s">Please update WordPress</a>, and then <a href="%2$s">learn more about updating PHP</a>.' ),
-					esc_url( self_admin_url( 'update-core.php' ) ),
-					esc_url( wp_get_update_php_url() )
+					/* translators: %s: URL to WordPress Updates screen. */
+					__( '<a href="%s">Please update WordPress</a>.' ),
+					esc_url( self_admin_url( 'update-core.php' ) )
 				);
-
-				$annotation = wp_get_update_php_annotation();
-
-				if ( $annotation ) {
-					$compat .= '</p><p><em>' . $annotation . '</em>';
-				}
 			} elseif ( current_user_can( 'update_core' ) ) {
 				$compat .= sprintf(
 					/* translators: %s: URL to WordPress Updates screen. */
 					__( '<a href="%s">Please update WordPress</a>.' ),
 					esc_url( self_admin_url( 'update-core.php' ) )
 				);
-			} elseif ( current_user_can( 'update_php' ) ) {
-				$compat .= sprintf(
-					/* translators: %s: URL to Update PHP page. */
-					__( '<a href="%s">Learn more about updating PHP</a>.' ),
-					esc_url( wp_get_update_php_url() )
-				);
-
-				$annotation = wp_get_update_php_annotation();
-
-				if ( $annotation ) {
-					$compat .= '</p><p><em>' . $annotation . '</em>';
-				}
 			}
 		} elseif ( ! $compatible_wp ) {
 			$compat .= '<br />' . __( 'This update does not work with your version of WordPress.' ) . '&nbsp;';
@@ -739,20 +677,7 @@ function list_theme_updates() {
 				);
 			}
 		} elseif ( ! $compatible_php ) {
-			$compat .= '<br />' . __( 'This update does not work with your version of PHP.' ) . '&nbsp;';
-			if ( current_user_can( 'update_php' ) ) {
-				$compat .= sprintf(
-					/* translators: %s: URL to Update PHP page. */
-					__( '<a href="%s">Learn more about updating PHP</a>.' ),
-					esc_url( wp_get_update_php_url() )
-				);
-
-				$annotation = wp_get_update_php_annotation();
-
-				if ( $annotation ) {
-					$compat .= '</p><p><em>' . $annotation . '</em>';
-				}
-			}
+			$compat .= '<br />' . __( 'This update does not work with your version of PHP.' );
 		}
 
 		$checkbox_id = 'checkbox_' . md5( $theme->get( 'Name' ) );
@@ -810,7 +735,7 @@ function list_theme_updates() {
 /**
  * Display the update translations form.
  *
- * @since 3.7.0
+ * @since WP 3.7.0
  */
 function list_translation_updates() {
 	$updates = wp_get_translation_updates();
@@ -836,7 +761,7 @@ function list_translation_updates() {
 /**
  * Upgrades WordPress core display.
  *
- * @since 2.7.0
+ * @since WP 2.7.0
  *
  * @global WP_Filesystem_Base $wp_filesystem WordPress filesystem subclass.
  *
@@ -944,7 +869,7 @@ function do_core_upgrade( $reinstall = false ) {
 /**
  * Dismiss a core update.
  *
- * @since 2.7.0
+ * @since WP 2.7.0
  */
 function do_dismiss_core_update() {
 	$version = isset( $_POST['version'] ) ? $_POST['version'] : false;
@@ -961,7 +886,7 @@ function do_dismiss_core_update() {
 /**
  * Undismiss a core update.
  *
- * @since 2.7.0
+ * @since WP 2.7.0
  */
 function do_undismiss_core_update() {
 	$version = isset( $_POST['version'] ) ? $_POST['version'] : false;
@@ -987,7 +912,7 @@ if ( ( 'do-theme-upgrade' === $action || ( 'do-plugin-upgrade' === $action && ! 
 $title       = __( 'WordPress Updates' );
 $parent_file = 'index.php';
 
-$updates_overview  = '<p>' . __( 'On this screen, you can update to the latest version of WordPress, as well as update your themes, plugins, and translations from the WordPress.org repositories.' ) . '</p>';
+$updates_overview  = '<p>' . __( 'On this screen, you can update to the latest version of motsVertueux, as well as update your themes, plugins, and translations.' ) . '</p>';
 $updates_overview .= '<p>' . __( 'If an update is available, you&#8127;ll see a notification appear in the Toolbar and navigation menu.' ) . ' ' . __( 'Keeping your site updated is important for security. It also makes the internet a safer place for you and your readers.' ) . '</p>';
 
 get_current_screen()->add_help_tab(
@@ -1013,49 +938,6 @@ get_current_screen()->add_help_tab(
 	)
 );
 
-$help_sidebar_autoupdates = '';
-
-if ( ( current_user_can( 'update_themes' ) && wp_is_auto_update_enabled_for_type( 'theme' ) ) || ( current_user_can( 'update_plugins' ) && wp_is_auto_update_enabled_for_type( 'plugin' ) ) ) {
-	$help_tab_autoupdates  = '<p>' . __( 'Auto-updates can be enabled or disabled for WordPress major versions and for each individual theme or plugin. Themes or plugins with auto-updates enabled will display the estimated date of the next auto-update. Auto-updates depends on the WP-Cron task scheduling system.' ) . '</p>';
-	$help_tab_autoupdates .= '<p>' . __( 'Please note: Third-party themes and plugins, or custom code, may override WordPress scheduling.' ) . '</p>';
-
-	get_current_screen()->add_help_tab(
-		array(
-			'id'      => 'plugins-themes-auto-updates',
-			'title'   => __( 'Auto-updates' ),
-			'content' => $help_tab_autoupdates,
-		)
-	);
-
-	$help_sidebar_autoupdates = '<p>' . __( '<a href="https://wordpress.org/documentation/article/plugins-themes-auto-updates/">Documentation on Auto-updates</a>' ) . '</p>';
-}
-
-$help_sidebar_rollback = '';
-
-if ( current_user_can( 'update_themes' ) || current_user_can( 'update_plugins' ) ) {
-	$rollback_help = '<p>' . __( 'This feature will create a temporary backup of a plugin or theme before it is upgraded. This backup is used to restore the plugin or theme back to its previous state if there is an error during the update process.' ) . '</p>';
-
-	$rollback_help .= '<p>' . __( 'On systems with fewer resources, this may lead to server timeouts or resource limits being reached. If you encounter an issue during the update process, please create a support forum topic and reference <strong>Rollback</strong> in the issue title.' ) . '</p>';
-
-	get_current_screen()->add_help_tab(
-		array(
-			'id'      => 'rollback-plugins-themes',
-			'title'   => __( 'Restore Plugin or Theme' ),
-			'content' => $rollback_help,
-		)
-	);
-
-	$help_sidebar_rollback = '<p>' . __( '<a href="https://developer.wordpress.org/advanced-administration/wordpress/common-errors/">Common Errors</a>' ) . '</p>';
-}
-
-get_current_screen()->set_help_sidebar(
-	'<p><strong>' . __( 'For more information:' ) . '</strong></p>' .
-	'<p>' . __( '<a href="https://wordpress.org/documentation/article/dashboard-updates-screen/">Documentation on Updating WordPress</a>' ) . '</p>' .
-	$help_sidebar_autoupdates .
-	'<p>' . __( '<a href="https://wordpress.org/support/forums/">Support forums</a>' ) . '</p>' .
-	$help_sidebar_rollback
-);
-
 if ( 'upgrade-core' === $action ) {
 	// Force an update check when requested.
 	$force_check = ! empty( $_GET['force-check'] );
@@ -1064,7 +946,7 @@ if ( 'upgrade-core' === $action ) {
 	require_once ABSPATH . 'wp-admin/admin-header.php';
 	?>
 	<div class="wrap">
-	<h1><?php _e( 'WordPress Updates' ); ?></h1>
+	<h1><?php _e( 'motsVertueux Updates' ); ?></h1>
 	<p><?php _e( 'Updates may take several minutes to complete. If there is no feedback after 5 minutes, or if there are errors please refer to the Help section above.' ); ?></p>
 
 	<?php
@@ -1134,7 +1016,7 @@ if ( 'upgrade-core' === $action ) {
 	/**
 	 * Fires after the core, plugin, and theme update tables.
 	 *
-	 * @since 2.9.0
+	 * @since WP 2.9.0
 	 */
 	do_action( 'core_upgrade_preamble' );
 	echo '</div>';
@@ -1326,7 +1208,7 @@ if ( 'upgrade-core' === $action ) {
 	 * passed update action. The hook fires in lieu of all available
 	 * default update actions.
 	 *
-	 * @since 3.2.0
+	 * @since WP 3.2.0
 	 */
 	do_action( "update-core-custom_{$action}" );  // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
 }

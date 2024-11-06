@@ -6,20 +6,20 @@
  *
  * @package    WordPress
  * @subpackage Fonts
- * @since      6.5.0
+ * @since WP      6.5.0
  */
 
 /**
  * Font Library class.
  *
- * @since 6.5.0
+ * @since WP 6.5.0
  */
 class WP_Font_Library {
 
 	/**
 	 * Font collections.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 * @var array
 	 */
 	private $collections = array();
@@ -27,7 +27,7 @@ class WP_Font_Library {
 	/**
 	 * Container for the main instance of the class.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 * @var WP_Font_Library|null
 	 */
 	private static $instance = null;
@@ -35,7 +35,7 @@ class WP_Font_Library {
 	/**
 	 * Register a new font collection.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $slug Font collection slug. May only contain alphanumeric characters, dashes,
 	 *                     and underscores. See sanitize_title().
@@ -66,7 +66,7 @@ class WP_Font_Library {
 	/**
 	 * Unregisters a previously registered font collection.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $slug Font collection slug.
 	 * @return bool True if the font collection was unregistered successfully and false otherwise.
@@ -88,7 +88,7 @@ class WP_Font_Library {
 	/**
 	 * Checks if a font collection is registered.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $slug Font collection slug.
 	 * @return bool True if the font collection is registered and false otherwise.
@@ -100,7 +100,7 @@ class WP_Font_Library {
 	/**
 	 * Gets all the font collections available.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @return array List of font collections.
 	 */
@@ -111,7 +111,7 @@ class WP_Font_Library {
 	/**
 	 * Gets a font collection.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $slug Font collection slug.
 	 * @return WP_Font_Collection|null Font collection object, or null if the font collection doesn't exist.
@@ -128,7 +128,7 @@ class WP_Font_Library {
 	 *
 	 * The instance will be created if it does not exist yet.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @return WP_Font_Library The main instance.
 	 */

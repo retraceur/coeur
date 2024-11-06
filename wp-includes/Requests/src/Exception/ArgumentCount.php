@@ -15,7 +15,7 @@ use WpOrg\Requests\Exception;
  * with a certain number of elements and the provided number of elements does not comply.
  *
  * @package Requests\Exceptions
- * @since   2.0.0
+ * @since WP   2.0.0
  */
 final class ArgumentCount extends Exception {
 

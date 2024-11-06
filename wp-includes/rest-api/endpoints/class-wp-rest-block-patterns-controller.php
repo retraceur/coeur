@@ -4,13 +4,13 @@
  *
  * @package    WordPress
  * @subpackage REST_API
- * @since      6.0.0
+ * @since WP      6.0.0
  */
 
 /**
  * Core class used to access block patterns via the REST API.
  *
- * @since 6.0.0
+ * @since WP 6.0.0
  *
  * @see WP_REST_Controller
  */
@@ -19,7 +19,7 @@ class WP_REST_Block_Patterns_Controller extends WP_REST_Controller {
 	/**
 	 * Defines whether remote patterns should be loaded.
 	 *
-	 * @since 6.0.0
+	 * @since WP 6.0.0
 	 * @var bool
 	 */
 	private $remote_patterns_loaded;
@@ -27,7 +27,7 @@ class WP_REST_Block_Patterns_Controller extends WP_REST_Controller {
 	/**
 	 * An array that maps old categories names to new ones.
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 * @var array
 	 */
 	protected static $categories_migration = array(
@@ -39,7 +39,7 @@ class WP_REST_Block_Patterns_Controller extends WP_REST_Controller {
 	/**
 	 * Constructs the controller.
 	 *
-	 * @since 6.0.0
+	 * @since WP 6.0.0
 	 */
 	public function __construct() {
 		$this->namespace = 'wp/v2';
@@ -49,7 +49,7 @@ class WP_REST_Block_Patterns_Controller extends WP_REST_Controller {
 	/**
 	 * Registers the routes for the objects of the controller.
 	 *
-	 * @since 6.0.0
+	 * @since WP 6.0.0
 	 */
 	public function register_routes() {
 		register_rest_route(
@@ -69,7 +69,7 @@ class WP_REST_Block_Patterns_Controller extends WP_REST_Controller {
 	/**
 	 * Checks whether a given request has permission to read block patterns.
 	 *
-	 * @since 6.0.0
+	 * @since WP 6.0.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has read access, WP_Error object otherwise.
@@ -95,8 +95,8 @@ class WP_REST_Block_Patterns_Controller extends WP_REST_Controller {
 	/**
 	 * Retrieves all block patterns.
 	 *
-	 * @since 6.0.0
-	 * @since 6.2.0 Added migration for old core pattern categories to the new ones.
+	 * @since WP 6.0.0
+	 * @since WP 6.2.0 Added migration for old core pattern categories to the new ones.
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
@@ -127,7 +127,7 @@ class WP_REST_Block_Patterns_Controller extends WP_REST_Controller {
 	 * Core pattern categories are revamped. Migration is needed to ensure
 	 * backwards compatibility.
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 *
 	 * @param array $pattern Raw pattern as registered, before applying any changes.
 	 * @return array Migrated pattern.
@@ -154,8 +154,8 @@ class WP_REST_Block_Patterns_Controller extends WP_REST_Controller {
 	/**
 	 * Prepare a raw block pattern before it gets output in a REST API response.
 	 *
-	 * @since 6.0.0
-	 * @since 6.3.0 Added `source` property.
+	 * @since WP 6.0.0
+	 * @since WP 6.3.0 Added `source` property.
 	 *
 	 * @param array           $item    Raw pattern as registered, before any changes.
 	 * @param WP_REST_Request $request Request object.
@@ -199,8 +199,8 @@ class WP_REST_Block_Patterns_Controller extends WP_REST_Controller {
 	/**
 	 * Retrieves the block pattern schema, conforming to JSON Schema.
 	 *
-	 * @since 6.0.0
-	 * @since 6.3.0 Added `source` property.
+	 * @since WP 6.0.0
+	 * @since WP 6.3.0 Added `source` property.
 	 *
 	 * @return array Item schema data.
 	 */

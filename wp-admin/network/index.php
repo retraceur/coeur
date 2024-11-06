@@ -4,7 +4,8 @@
  *
  * @package motsVertueux
  * @subpackage Multisite
- * @since 3.0.0
+ * @since WP 3.0.0
+ * @since 1.0.0 motsVertueux fork.
  */
 
 /** Load WordPress Administration Bootstrap */
@@ -51,12 +52,6 @@ get_current_screen()->add_help_tab(
 	)
 );
 
-get_current_screen()->set_help_sidebar(
-	'<p><strong>' . __( 'For more information:' ) . '</strong></p>' .
-	'<p>' . __( '<a href="https://developer.wordpress.org/advanced-administration/multisite/admin/">Documentation on the Network Admin</a>' ) . '</p>' .
-	'<p>' . __( '<a href="https://wordpress.org/support/forum/multisite/">Support forums</a>' ) . '</p>'
-);
-
 wp_dashboard_setup();
 
 wp_enqueue_script( 'dashboard' );
@@ -80,5 +75,4 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 </div><!-- wrap -->
 
 <?php
-wp_print_community_events_templates();
 require_once ABSPATH . 'wp-admin/admin-footer.php';

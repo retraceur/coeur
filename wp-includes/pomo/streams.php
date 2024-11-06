@@ -34,7 +34,7 @@ if ( ! class_exists( 'POMO_Reader', false ) ) :
 		/**
 		 * PHP4 constructor.
 		 *
-		 * @deprecated 5.4.0 Use __construct() instead.
+		 * @deprecated WP 5.4.0 Use __construct() instead.
 		 *
 		 * @see POMO_Reader::__construct()
 		 */
@@ -172,7 +172,7 @@ if ( ! class_exists( 'POMO_FileReader', false ) ) :
 		/**
 		 * PHP4 constructor.
 		 *
-		 * @deprecated 5.4.0 Use __construct() instead.
+		 * @deprecated WP 5.4.0 Use __construct() instead.
 		 *
 		 * @see POMO_FileReader::__construct()
 		 */
@@ -252,7 +252,7 @@ if ( ! class_exists( 'POMO_StringReader', false ) ) :
 		/**
 		 * PHP4 constructor.
 		 *
-		 * @deprecated 5.4.0 Use __construct() instead.
+		 * @deprecated WP 5.4.0 Use __construct() instead.
 		 *
 		 * @see POMO_StringReader::__construct()
 		 */
@@ -322,7 +322,7 @@ if ( ! class_exists( 'POMO_CachedFileReader', false ) ) :
 		/**
 		 * PHP4 constructor.
 		 *
-		 * @deprecated 5.4.0 Use __construct() instead.
+		 * @deprecated WP 5.4.0 Use __construct() instead.
 		 *
 		 * @see POMO_CachedFileReader::__construct()
 		 */
@@ -348,7 +348,7 @@ if ( ! class_exists( 'POMO_CachedIntFileReader', false ) ) :
 		/**
 		 * PHP4 constructor.
 		 *
-		 * @deprecated 5.4.0 Use __construct() instead.
+		 * @deprecated WP 5.4.0 Use __construct() instead.
 		 *
 		 * @see POMO_CachedIntFileReader::__construct()
 		 */

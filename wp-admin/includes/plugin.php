@@ -4,6 +4,7 @@
  *
  * @package motsVertueux
  * @subpackage Administration
+ * @since 1.0.0 motsVertueux fork.
  */
 
 /**
@@ -42,10 +43,10 @@
  * the file. This is not checked however and the file is only opened for
  * reading.
  *
- * @since 1.5.0
- * @since 5.3.0 Added support for `Requires at least` and `Requires PHP` headers.
- * @since 5.8.0 Added support for `Update URI` header.
- * @since 6.5.0 Added support for `Requires Plugins` header.
+ * @since WP 1.5.0
+ * @since WP 5.3.0 Added support for `Requires at least` and `Requires PHP` headers.
+ * @since WP 5.8.0 Added support for `Update URI` header.
+ * @since WP 6.5.0 Added support for `Requires Plugins` header.
  *
  * @param string $plugin_file Absolute path to the main plugin file.
  * @param bool   $markup      Optional. If the returned data should have HTML markup applied.
@@ -123,7 +124,7 @@ function get_plugin_data( $plugin_file, $markup = true, $translate = true ) {
 /**
  * Sanitizes plugin data, optionally adds markup, optionally translates.
  *
- * @since 2.7.0
+ * @since WP 2.7.0
  *
  * @see get_plugin_data()
  *
@@ -224,7 +225,7 @@ function _get_plugin_data_markup_translate( $plugin_file, $plugin_data, $markup 
 /**
  * Gets a list of a plugin's files.
  *
- * @since 2.8.0
+ * @since WP 2.8.0
  *
  * @param string $plugin Path to the plugin file relative to the plugins directory.
  * @return string[] Array of file names relative to the plugin root.
@@ -240,7 +241,7 @@ function get_plugin_files( $plugin ) {
 		/**
 		 * Filters the array of excluded directories and files while scanning the folder.
 		 *
-		 * @since 4.9.0
+		 * @since WP 4.9.0
 		 *
 		 * @param string[] $exclusions Array of excluded directories and files.
 		 */
@@ -271,7 +272,7 @@ function get_plugin_files( $plugin ) {
  * be split for maintainability. Keep everything in one file for extreme
  * optimization purposes.
  *
- * @since 1.5.0
+ * @since WP 1.5.0
  *
  * @param string $plugin_folder Optional. Relative path to single plugin folder.
  * @return array[] Array of arrays of plugin data, keyed by plugin file name. See get_plugin_data().
@@ -359,7 +360,7 @@ function get_plugins( $plugin_folder = '' ) {
  *
  * WordPress only includes mu-plugin files in the base mu-plugins directory (wp-content/mu-plugins).
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  * @return array[] Array of arrays of mu-plugin data, keyed by plugin file name. See get_plugin_data().
  */
 function get_mu_plugins() {
@@ -416,7 +417,7 @@ function get_mu_plugins() {
 /**
  * Declares a callback to sort array by a 'Name' key.
  *
- * @since 3.1.0
+ * @since WP 3.1.0
  *
  * @access private
  *
@@ -431,7 +432,7 @@ function _sort_uname_callback( $a, $b ) {
 /**
  * Checks the wp-content directory and retrieve all drop-ins with any plugin data.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  * @return array[] Array of arrays of dropin plugin data, keyed by plugin file name. See get_plugin_data().
  */
 function get_dropins() {
@@ -483,7 +484,7 @@ function get_dropins() {
  *
  * Includes Multisite drop-ins only when is_multisite()
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @return array[] {
  *     Key is file name. The value is an array of data about the drop-in.
@@ -525,13 +526,9 @@ function _get_dropins() {
  * Only plugins installed in the plugins/ folder can be active.
  *
  * Plugins in the mu-plugins/ folder can't be "activated," so this function will
- * return false for those plugins.
+ * return false for those plugins..
  *
- * For more information on this and similar theme functions, check out
- * the {@link https://developer.wordpress.org/themes/basics/conditional-tags/
- * Conditional Tags} article in the Theme Developer Handbook.
- *
- * @since 2.5.0
+ * @since WP 2.5.0
  *
  * @param string $plugin Path to the plugin file relative to the plugins directory.
  * @return bool True, if in the active plugins list. False, not in the list.
@@ -545,11 +542,7 @@ function is_plugin_active( $plugin ) {
  *
  * Reverse of is_plugin_active(). Used as a callback.
  *
- * For more information on this and similar theme functions, check out
- * the {@link https://developer.wordpress.org/themes/basics/conditional-tags/
- * Conditional Tags} article in the Theme Developer Handbook.
- *
- * @since 3.1.0
+ * @since WP 3.1.0
  *
  * @see is_plugin_active()
  *
@@ -568,11 +561,7 @@ function is_plugin_inactive( $plugin ) {
  * Plugins in the mu-plugins/ folder can't be "activated," so this function will
  * return false for those plugins.
  *
- * For more information on this and similar theme functions, check out
- * the {@link https://developer.wordpress.org/themes/basics/conditional-tags/
- * Conditional Tags} article in the Theme Developer Handbook.
- *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @param string $plugin Path to the plugin file relative to the plugins directory.
  * @return bool True if active for the network, otherwise false.
@@ -597,7 +586,7 @@ function is_plugin_active_for_network( $plugin ) {
  *
  * Checks for "Site Wide Only: true" for backward compatibility.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @param string $plugin Path to the plugin file relative to the plugins directory.
  * @return bool True if plugin is network only, false otherwise.
@@ -628,8 +617,8 @@ function is_network_only_plugin( $plugin ) {
  * If any errors are found or text is outputted, then it will be captured to
  * ensure that the success redirection will update the error redirection.
  *
- * @since 2.5.0
- * @since 5.2.0 Test for WordPress version and PHP version compatibility.
+ * @since WP 2.5.0
+ * @since WP 5.2.0 Test for WordPress version and PHP version compatibility.
  *
  * @param string $plugin       Path to the plugin file relative to the plugins directory.
  * @param string $redirect     Optional. URL to redirect to.
@@ -679,7 +668,7 @@ function activate_plugin( $plugin, $redirect = '', $network_wide = false, $silen
 			 * If a plugin is silently activated (such as during an update),
 			 * this hook does not fire.
 			 *
-			 * @since 2.9.0
+			 * @since WP 2.9.0
 			 *
 			 * @param string $plugin       Path to the plugin file relative to the plugins directory.
 			 * @param bool   $network_wide Whether to enable the plugin for all sites in the network
@@ -695,7 +684,7 @@ function activate_plugin( $plugin, $redirect = '', $network_wide = false, $silen
 			 *
 			 * If a plugin is silently activated (such as during an update), this hook does not fire.
 			 *
-			 * @since 2.0.0
+			 * @since WP 2.0.0
 			 *
 			 * @param bool $network_wide Whether to enable the plugin for all sites in the network
 			 *                           or just the current site. Multisite only. Default false.
@@ -721,7 +710,7 @@ function activate_plugin( $plugin, $redirect = '', $network_wide = false, $silen
 			 * If a plugin is silently activated (such as during an update),
 			 * this hook does not fire.
 			 *
-			 * @since 2.9.0
+			 * @since WP 2.9.0
 			 *
 			 * @param string $plugin       Path to the plugin file relative to the plugins directory.
 			 * @param bool   $network_wide Whether to enable the plugin for all sites in the network
@@ -747,7 +736,7 @@ function activate_plugin( $plugin, $redirect = '', $network_wide = false, $silen
  * The deactivation hook is disabled by the plugin upgrader by using the $silent
  * parameter.
  *
- * @since 2.5.0
+ * @since WP 2.5.0
  *
  * @param string|string[] $plugins      Single plugin or list of plugins to deactivate.
  * @param bool            $silent       Prevent calling deactivation hooks. Default false.
@@ -778,7 +767,7 @@ function deactivate_plugins( $plugins, $silent = false, $network_wide = null ) {
 			 * If a plugin is silently deactivated (such as during an update),
 			 * this hook does not fire.
 			 *
-			 * @since 2.9.0
+			 * @since WP 2.9.0
 			 *
 			 * @param string $plugin               Path to the plugin file relative to the plugins directory.
 			 * @param bool   $network_deactivating Whether the plugin is deactivated for all sites in the network
@@ -818,7 +807,7 @@ function deactivate_plugins( $plugins, $silent = false, $network_wide = null ) {
 			 *
 			 * If a plugin is silently deactivated (such as during an update), this hook does not fire.
 			 *
-			 * @since 2.0.0
+			 * @since WP 2.0.0
 			 *
 			 * @param bool $network_deactivating Whether the plugin is deactivated for all sites in the network
 			 *                                   or just the current site. Multisite only. Default false.
@@ -831,7 +820,7 @@ function deactivate_plugins( $plugins, $silent = false, $network_wide = null ) {
 			 * If a plugin is silently deactivated (such as during an update),
 			 * this hook does not fire.
 			 *
-			 * @since 2.9.0
+			 * @since WP 2.9.0
 			 *
 			 * @param string $plugin               Path to the plugin file relative to the plugins directory.
 			 * @param bool   $network_deactivating Whether the plugin is deactivated for all sites in the network
@@ -857,7 +846,7 @@ function deactivate_plugins( $plugins, $silent = false, $network_wide = null ) {
  *
  * The execution will be halted as soon as one of the plugins has an error.
  *
- * @since 2.6.0
+ * @since WP 2.6.0
  *
  * @param string|string[] $plugins      Single plugin or list of plugins to activate.
  * @param string          $redirect     Redirect to page after successful activation.
@@ -892,7 +881,7 @@ function activate_plugins( $plugins, $redirect = '', $network_wide = false, $sil
 /**
  * Removes directory and files of a plugin for a list of plugins.
  *
- * @since 2.6.0
+ * @since WP 2.6.0
  *
  * @global WP_Filesystem_Base $wp_filesystem WordPress filesystem subclass.
  *
@@ -973,7 +962,7 @@ function delete_plugins( $plugins, $deprecated = '' ) {
 		/**
 		 * Fires immediately before a plugin deletion attempt.
 		 *
-		 * @since 4.4.0
+		 * @since WP 4.4.0
 		 *
 		 * @param string $plugin_file Path to the plugin file relative to the plugins directory.
 		 */
@@ -994,7 +983,7 @@ function delete_plugins( $plugins, $deprecated = '' ) {
 		/**
 		 * Fires immediately after a plugin deletion attempt.
 		 *
-		 * @since 4.4.0
+		 * @since WP 4.4.0
 		 *
 		 * @param string $plugin_file Path to the plugin file relative to the plugins directory.
 		 * @param bool   $deleted     Whether the plugin deletion was successful.
@@ -1063,7 +1052,7 @@ function delete_plugins( $plugins, $deprecated = '' ) {
  * Validate all active plugins, deactivates invalid and
  * returns an array of deactivated ones.
  *
- * @since 2.5.0
+ * @since WP 2.5.0
  * @return WP_Error[] Array of plugin errors keyed by plugin file name.
  */
 function validate_active_plugins() {
@@ -1101,7 +1090,7 @@ function validate_active_plugins() {
  *
  * Checks that the main plugin file exists and is a valid plugin. See validate_file().
  *
- * @since 2.5.0
+ * @since WP 2.5.0
  *
  * @param string $plugin Path to the plugin file relative to the plugins directory.
  * @return int|WP_Error 0 on success, WP_Error on failure.
@@ -1127,11 +1116,11 @@ function validate_plugin( $plugin ) {
  * Uses the information from `Requires at least`, `Requires PHP` and `Requires Plugins` headers
  * defined in the plugin's main PHP file.
  *
- * @since 5.2.0
- * @since 5.3.0 Added support for reading the headers from the plugin's
+ * @since WP 5.2.0
+ * @since WP 5.3.0 Added support for reading the headers from the plugin's
  *              main PHP file, with `readme.txt` as a fallback.
- * @since 5.8.0 Removed support for using `readme.txt` as a fallback.
- * @since 6.5.0 Added support for the 'Requires Plugins' header.
+ * @since WP 5.8.0 Removed support for using `readme.txt` as a fallback.
+ * @since WP 6.5.0 Added support for the 'Requires Plugins' header.
  *
  * @param string $plugin Path to the plugin file relative to the plugins directory.
  * @return true|WP_Error True if requirements are met, WP_Error on failure.
@@ -1148,18 +1137,6 @@ function validate_plugin_requirements( $plugin ) {
 	$compatible_wp  = is_wp_version_compatible( $requirements['requires'] );
 	$compatible_php = is_php_version_compatible( $requirements['requires_php'] );
 
-	$php_update_message = '</p><p>' . sprintf(
-		/* translators: %s: URL to Update PHP page. */
-		__( '<a href="%s">Learn more about updating PHP</a>.' ),
-		esc_url( wp_get_update_php_url() )
-	);
-
-	$annotation = wp_get_update_php_annotation();
-
-	if ( $annotation ) {
-		$php_update_message .= '</p><p><em>' . $annotation . '</em>';
-	}
-
 	if ( ! $compatible_wp && ! $compatible_php ) {
 		return new WP_Error(
 			'plugin_wp_php_incompatible',
@@ -1171,7 +1148,7 @@ function validate_plugin_requirements( $plugin ) {
 				$plugin_headers['Name'],
 				$requirements['requires'],
 				$requirements['requires_php']
-			) . $php_update_message . '</p>'
+			) . '</p>'
 		);
 	} elseif ( ! $compatible_php ) {
 		return new WP_Error(
@@ -1182,7 +1159,7 @@ function validate_plugin_requirements( $plugin ) {
 				PHP_VERSION,
 				$plugin_headers['Name'],
 				$requirements['requires_php']
-			) . $php_update_message . '</p>'
+			) . '</p>'
 		);
 	} elseif ( ! $compatible_wp ) {
 		return new WP_Error(
@@ -1259,7 +1236,7 @@ function validate_plugin_requirements( $plugin ) {
 /**
  * Determines whether the plugin can be uninstalled.
  *
- * @since 2.7.0
+ * @since WP 2.7.0
  *
  * @param string $plugin Path to the plugin file relative to the plugins directory.
  * @return bool Whether plugin can be uninstalled.
@@ -1280,7 +1257,7 @@ function is_uninstallable_plugin( $plugin ) {
  *
  * Calls the uninstall hook, if it is available.
  *
- * @since 2.7.0
+ * @since WP 2.7.0
  *
  * @param string $plugin Path to the plugin file relative to the plugins directory.
  * @return true|void True if a plugin's uninstall.php file has been found and included.
@@ -1294,7 +1271,7 @@ function uninstall_plugin( $plugin ) {
 	/**
 	 * Fires in uninstall_plugin() immediately before the plugin is uninstalled.
 	 *
-	 * @since 4.5.0
+	 * @since WP 4.5.0
 	 *
 	 * @param string $plugin                Path to the plugin file relative to the plugins directory.
 	 * @param array  $uninstallable_plugins Uninstallable plugins.
@@ -1333,7 +1310,7 @@ function uninstall_plugin( $plugin ) {
 		 * The action concatenates the 'uninstall_' prefix with the basename of the
 		 * plugin passed to uninstall_plugin() to create a dynamically-named action.
 		 *
-		 * @since 2.7.0
+		 * @since WP 2.7.0
 		 */
 		do_action( "uninstall_{$file}" );
 	}
@@ -1352,7 +1329,7 @@ function uninstall_plugin( $plugin ) {
  * The function which is hooked in to handle the output of the page must check
  * that the user has the required capability as well.
  *
- * @since 1.5.0
+ * @since WP 1.5.0
  *
  * @global array $menu
  * @global array $admin_page_hooks
@@ -1447,8 +1424,8 @@ function add_menu_page( $page_title, $menu_title, $capability, $menu_slug, $call
  * The function which is hooked in to handle the output of the page must check
  * that the user has the required capability as well.
  *
- * @since 1.5.0
- * @since 5.3.0 Added the `$position` parameter.
+ * @since WP 1.5.0
+ * @since WP 5.3.0 Added the `$position` parameter.
  *
  * @global array $submenu
  * @global array $menu
@@ -1572,8 +1549,8 @@ function add_submenu_page( $parent_slug, $page_title, $menu_title, $capability, 
  * The function which is hooked in to handle the output of the page must check
  * that the user has the required capability as well.
  *
- * @since 1.5.0
- * @since 5.3.0 Added the `$position` parameter.
+ * @since WP 1.5.0
+ * @since WP 5.3.0 Added the `$position` parameter.
  *
  * @param string   $page_title The text to be displayed in the title tags of the page when the menu is selected.
  * @param string   $menu_title The text to be used for the menu.
@@ -1596,8 +1573,8 @@ function add_management_page( $page_title, $menu_title, $capability, $menu_slug,
  * The function which is hooked in to handle the output of the page must check
  * that the user has the required capability as well.
  *
- * @since 1.5.0
- * @since 5.3.0 Added the `$position` parameter.
+ * @since WP 1.5.0
+ * @since WP 5.3.0 Added the `$position` parameter.
  *
  * @param string   $page_title The text to be displayed in the title tags of the page when the menu is selected.
  * @param string   $menu_title The text to be used for the menu.
@@ -1620,8 +1597,8 @@ function add_options_page( $page_title, $menu_title, $capability, $menu_slug, $c
  * The function which is hooked in to handle the output of the page must check
  * that the user has the required capability as well.
  *
- * @since 2.0.0
- * @since 5.3.0 Added the `$position` parameter.
+ * @since WP 2.0.0
+ * @since WP 5.3.0 Added the `$position` parameter.
  *
  * @param string   $page_title The text to be displayed in the title tags of the page when the menu is selected.
  * @param string   $menu_title The text to be used for the menu.
@@ -1644,8 +1621,8 @@ function add_theme_page( $page_title, $menu_title, $capability, $menu_slug, $cal
  * The function which is hooked in to handle the output of the page must check
  * that the user has the required capability as well.
  *
- * @since 3.0.0
- * @since 5.3.0 Added the `$position` parameter.
+ * @since WP 3.0.0
+ * @since WP 5.3.0 Added the `$position` parameter.
  *
  * @param string   $page_title The text to be displayed in the title tags of the page when the menu is selected.
  * @param string   $menu_title The text to be used for the menu.
@@ -1668,8 +1645,8 @@ function add_plugins_page( $page_title, $menu_title, $capability, $menu_slug, $c
  * The function which is hooked in to handle the output of the page must check
  * that the user has the required capability as well.
  *
- * @since 2.1.3
- * @since 5.3.0 Added the `$position` parameter.
+ * @since WP 2.1.3
+ * @since WP 5.3.0 Added the `$position` parameter.
  *
  * @param string   $page_title The text to be displayed in the title tags of the page when the menu is selected.
  * @param string   $menu_title The text to be used for the menu.
@@ -1697,8 +1674,8 @@ function add_users_page( $page_title, $menu_title, $capability, $menu_slug, $cal
  * The function which is hooked in to handle the output of the page must check
  * that the user has the required capability as well.
  *
- * @since 2.7.0
- * @since 5.3.0 Added the `$position` parameter.
+ * @since WP 2.7.0
+ * @since WP 5.3.0 Added the `$position` parameter.
  *
  * @param string   $page_title The text to be displayed in the title tags of the page when the menu is selected.
  * @param string   $menu_title The text to be used for the menu.
@@ -1721,8 +1698,8 @@ function add_dashboard_page( $page_title, $menu_title, $capability, $menu_slug, 
  * The function which is hooked in to handle the output of the page must check
  * that the user has the required capability as well.
  *
- * @since 2.7.0
- * @since 5.3.0 Added the `$position` parameter.
+ * @since WP 2.7.0
+ * @since WP 5.3.0 Added the `$position` parameter.
  *
  * @param string   $page_title The text to be displayed in the title tags of the page when the menu is selected.
  * @param string   $menu_title The text to be used for the menu.
@@ -1745,8 +1722,8 @@ function add_posts_page( $page_title, $menu_title, $capability, $menu_slug, $cal
  * The function which is hooked in to handle the output of the page must check
  * that the user has the required capability as well.
  *
- * @since 2.7.0
- * @since 5.3.0 Added the `$position` parameter.
+ * @since WP 2.7.0
+ * @since WP 5.3.0 Added the `$position` parameter.
  *
  * @param string   $page_title The text to be displayed in the title tags of the page when the menu is selected.
  * @param string   $menu_title The text to be used for the menu.
@@ -1769,8 +1746,8 @@ function add_media_page( $page_title, $menu_title, $capability, $menu_slug, $cal
  * The function which is hooked in to handle the output of the page must check
  * that the user has the required capability as well.
  *
- * @since 2.7.0
- * @since 5.3.0 Added the `$position` parameter.
+ * @since WP 2.7.0
+ * @since WP 5.3.0 Added the `$position` parameter.
  *
  * @param string   $page_title The text to be displayed in the title tags of the page when the menu is selected.
  * @param string   $menu_title The text to be used for the menu.
@@ -1793,8 +1770,8 @@ function add_links_page( $page_title, $menu_title, $capability, $menu_slug, $cal
  * The function which is hooked in to handle the output of the page must check
  * that the user has the required capability as well.
  *
- * @since 2.7.0
- * @since 5.3.0 Added the `$position` parameter.
+ * @since WP 2.7.0
+ * @since WP 5.3.0 Added the `$position` parameter.
  *
  * @param string   $page_title The text to be displayed in the title tags of the page when the menu is selected.
  * @param string   $menu_title The text to be used for the menu.
@@ -1817,8 +1794,8 @@ function add_pages_page( $page_title, $menu_title, $capability, $menu_slug, $cal
  * The function which is hooked in to handle the output of the page must check
  * that the user has the required capability as well.
  *
- * @since 2.7.0
- * @since 5.3.0 Added the `$position` parameter.
+ * @since WP 2.7.0
+ * @since WP 5.3.0 Added the `$position` parameter.
  *
  * @param string   $page_title The text to be displayed in the title tags of the page when the menu is selected.
  * @param string   $menu_title The text to be used for the menu.
@@ -1840,7 +1817,7 @@ function add_comments_page( $page_title, $menu_title, $capability, $menu_slug, $
  *  - `remove_menu_page( 'tools.php' )`
  *  - `remove_menu_page( 'plugin_menu_slug' )`
  *
- * @since 3.1.0
+ * @since WP 3.1.0
  *
  * @global array $menu
  *
@@ -1869,7 +1846,7 @@ function remove_menu_page( $menu_slug ) {
  *  - `remove_submenu_page( 'tools.php', 'plugin_submenu_slug' )`
  *  - `remove_submenu_page( 'plugin_menu_slug', 'plugin_submenu_slug' )`
  *
- * @since 3.1.0
+ * @since WP 3.1.0
  *
  * @global array $submenu
  *
@@ -1899,7 +1876,7 @@ function remove_submenu_page( $menu_slug, $submenu_slug ) {
  *
  * If the slug hasn't been registered properly, no URL will be returned.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @global array $_parent_pages
  *
@@ -1937,7 +1914,7 @@ function menu_page_url( $menu_slug, $display = true ) {
 /**
  * Gets the parent file of the current admin page.
  *
- * @since 1.5.0
+ * @since WP 1.5.0
  *
  * @global string $parent_file
  * @global array  $menu
@@ -2028,7 +2005,7 @@ function get_admin_page_parent( $parent_page = '' ) {
 /**
  * Gets the title of the current admin page.
  *
- * @since 1.5.0
+ * @since WP 1.5.0
  *
  * @global string $title       The title of the current screen.
  * @global array  $menu
@@ -2114,7 +2091,7 @@ function get_admin_page_title() {
 /**
  * Gets the hook attached to the administrative page of a plugin.
  *
- * @since 1.5.0
+ * @since WP 1.5.0
  *
  * @param string $plugin_page The slug name of the plugin page.
  * @param string $parent_page The slug name for the parent menu (or the file name of a standard
@@ -2133,7 +2110,7 @@ function get_plugin_page_hook( $plugin_page, $parent_page ) {
 /**
  * Gets the hook name for the administrative page of a plugin.
  *
- * @since 1.5.0
+ * @since WP 1.5.0
  *
  * @global array $admin_page_hooks
  *
@@ -2166,7 +2143,7 @@ function get_plugin_page_hookname( $plugin_page, $parent_page ) {
 /**
  * Determines whether the current user can access the current admin page.
  *
- * @since 1.5.0
+ * @since WP 1.5.0
  *
  * @global string $pagenow            The filename of the current screen.
  * @global array  $menu
@@ -2256,8 +2233,8 @@ function user_can_access_admin_page() {
  *
  * See the {@see 'allowed_options'} filter.
  *
- * @since 2.7.0
- * @since 5.5.0 `$new_whitelist_options` was renamed to `$new_allowed_options`.
+ * @since WP 2.7.0
+ * @since WP 5.5.0 `$new_whitelist_options` was renamed to `$new_allowed_options`.
  *              Please consider writing more inclusive code.
  *
  * @global array $new_allowed_options
@@ -2278,7 +2255,7 @@ function option_update_filter( $options ) {
 /**
  * Adds an array of options to the list of allowed options.
  *
- * @since 5.5.0
+ * @since WP 5.5.0
  *
  * @global array $allowed_options
  *
@@ -2313,7 +2290,7 @@ function add_allowed_options( $new_options, $options = '' ) {
 /**
  * Removes a list of options from the allowed options list.
  *
- * @since 5.5.0
+ * @since WP 5.5.0
  *
  * @global array $allowed_options
  *
@@ -2345,7 +2322,7 @@ function remove_allowed_options( $del_options, $options = '' ) {
 /**
  * Outputs nonce, action, and option_page fields for a settings page.
  *
- * @since 2.7.0
+ * @since WP 2.7.0
  *
  * @param string $option_group A settings group name. This should match the group name
  *                             used in register_setting().
@@ -2359,7 +2336,7 @@ function settings_fields( $option_group ) {
 /**
  * Clears the plugins cache used by get_plugins() and by default, the plugin updates cache.
  *
- * @since 3.7.0
+ * @since WP 3.7.0
  *
  * @param bool $clear_update_cache Whether to clear the plugin updates cache. Default true.
  */
@@ -2373,8 +2350,8 @@ function wp_clean_plugins_cache( $clear_update_cache = true ) {
 /**
  * Loads a given plugin attempt to generate errors.
  *
- * @since 3.0.0
- * @since 4.4.0 Function was moved into the `wp-admin/includes/plugin.php` file.
+ * @since WP 3.0.0
+ * @since WP 4.4.0 Function was moved into the `wp-admin/includes/plugin.php` file.
  *
  * @param string $plugin Path to the plugin file relative to the plugins directory.
  */
@@ -2394,12 +2371,6 @@ function plugin_sandbox_scrape( $plugin ) {
  * The suggested text should contain information about any functionality that affects user privacy,
  * and will be shown on the Privacy Policy Guide screen.
  *
- * A plugin or theme can use this function multiple times as long as it will help to better present
- * the suggested policy content. For example modular plugins such as WooCommerse or Jetpack
- * can add or remove suggested content depending on the modules/extensions that are enabled.
- * For more information see the Plugin Handbook:
- * https://developer.wordpress.org/plugins/privacy/suggesting-text-for-the-site-privacy-policy/.
- *
  * The HTML contents of the `$policy_text` supports use of a specialized `.privacy-policy-tutorial`
  * CSS class which can be used to provide supplemental information. Any content contained within
  * HTML elements that have the `.privacy-policy-tutorial` CSS class applied will be omitted
@@ -2407,7 +2378,7 @@ function plugin_sandbox_scrape( $plugin ) {
  *
  * Intended for use with the `'admin_init'` action.
  *
- * @since 4.9.6
+ * @since WP 4.9.6
  *
  * @param string $plugin_name The name of the plugin or theme that is suggesting content
  *                            for the site's privacy policy.
@@ -2449,11 +2420,7 @@ function wp_add_privacy_policy_content( $plugin_name, $policy_text ) {
  * Determines whether a plugin is technically active but was paused while
  * loading.
  *
- * For more information on this and similar theme functions, check out
- * the {@link https://developer.wordpress.org/themes/basics/conditional-tags/
- * Conditional Tags} article in the Theme Developer Handbook.
- *
- * @since 5.2.0
+ * @since WP 5.2.0
  *
  * @global WP_Paused_Extensions_Storage $_paused_plugins
  *
@@ -2477,7 +2444,7 @@ function is_plugin_paused( $plugin ) {
 /**
  * Gets the error that was recorded for a paused plugin.
  *
- * @since 5.2.0
+ * @since WP 5.2.0
  *
  * @global WP_Paused_Extensions_Storage $_paused_plugins
  *
@@ -2509,7 +2476,7 @@ function wp_get_plugin_error( $plugin ) {
  * include the plugin file. If the plugin fails, then the redirection will not
  * be overwritten with the success message and the plugin will not be resumed.
  *
- * @since 5.2.0
+ * @since WP 5.2.0
  *
  * @param string $plugin   Single plugin to resume.
  * @param string $redirect Optional. URL to redirect to. Default empty string.
@@ -2553,7 +2520,7 @@ function resume_plugin( $plugin, $redirect = '' ) {
 /**
  * Renders an admin notice in case some plugins have been paused due to errors.
  *
- * @since 5.2.0
+ * @since WP 5.2.0
  *
  * @global string                       $pagenow         The filename of the current screen.
  * @global WP_Paused_Extensions_Storage $_paused_plugins
@@ -2590,7 +2557,7 @@ function paused_plugins_notice() {
  * Displays an admin notice in case a plugin has been deactivated during an
  * upgrade due to incompatibility with the current version of WordPress.
  *
- * @since 5.8.0
+ * @since WP 5.8.0
  * @access private
  *
  * @global string $pagenow    The filename of the current screen.

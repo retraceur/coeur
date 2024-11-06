@@ -8,7 +8,7 @@
 /**
  * Renders the 'core/legacy-widget' block.
  *
- * @since 5.8.0
+ * @since WP 5.8.0
  *
  * @global int $wp_widget_factory.
  *
@@ -59,7 +59,7 @@ function render_block_core_legacy_widget( $attributes ) {
 /**
  * Registers the 'core/legacy-widget' block.
  *
- * @since 5.8.0
+ * @since WP 5.8.0
  */
 function register_block_core_legacy_widget() {
 	register_block_type_from_metadata(
@@ -77,7 +77,7 @@ add_action( 'init', 'register_block_core_legacy_widget' );
  * set, renders a page containing a preview of the requested Legacy Widget
  * block.
  *
- * @since 5.8.0
+ * @since WP 5.8.0
  */
 function handle_legacy_widget_preview_iframe() {
 	if ( empty( $_GET['legacy-widget-preview'] ) ) {

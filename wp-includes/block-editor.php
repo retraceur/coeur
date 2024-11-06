@@ -4,14 +4,14 @@
  *
  * @package motsVertueux
  * @subpackage Editor
- * @since 5.8.0
+ * @since WP 5.8.0
  */
 
 /**
  * Returns the list of default categories for block types.
  *
- * @since 5.8.0
- * @since 6.3.0 Reusable Blocks renamed to Patterns.
+ * @since WP 5.8.0
+ * @since WP 6.3.0 Reusable Blocks renamed to Patterns.
  *
  * @return array[] Array of categories for block types.
  */
@@ -58,8 +58,8 @@ function get_default_block_categories() {
 /**
  * Returns all the categories for block types that will be shown in the block editor.
  *
- * @since 5.0.0
- * @since 5.8.0 It is possible to pass the block editor context as param.
+ * @since WP 5.0.0
+ * @since WP 5.8.0 It is possible to pass the block editor context as param.
  *
  * @param WP_Post|WP_Block_Editor_Context $post_or_block_editor_context The current post object or
  *                                                                      the block editor context.
@@ -78,7 +78,7 @@ function get_block_categories( $post_or_block_editor_context ) {
 	/**
 	 * Filters the default array of categories for block types.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @param array[]                 $block_categories     Array of categories for block types.
 	 * @param WP_Block_Editor_Context $block_editor_context The current block editor context.
@@ -91,8 +91,8 @@ function get_block_categories( $post_or_block_editor_context ) {
 		/**
 		 * Filters the default array of categories for block types.
 		 *
-		 * @since 5.0.0
-		 * @deprecated 5.8.0 Use the {@see 'block_categories_all'} filter instead.
+		 * @since WP 5.0.0
+		 * @deprecated WP 5.8.0 Use the {@see 'block_categories_all'} filter instead.
 		 *
 		 * @param array[] $block_categories Array of categories for block types.
 		 * @param WP_Post $post             Post being loaded.
@@ -106,7 +106,7 @@ function get_block_categories( $post_or_block_editor_context ) {
 /**
  * Gets the list of allowed block types to use in the block editor.
  *
- * @since 5.8.0
+ * @since WP 5.8.0
  *
  * @param WP_Block_Editor_Context $block_editor_context The current block editor context.
  *
@@ -118,7 +118,7 @@ function get_allowed_block_types( $block_editor_context ) {
 	/**
 	 * Filters the allowed block types for all editor types.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @param bool|string[]           $allowed_block_types  Array of block type slugs, or boolean to enable/disable all.
 	 *                                                      Default true (all registered block types supported).
@@ -132,8 +132,8 @@ function get_allowed_block_types( $block_editor_context ) {
 		/**
 		 * Filters the allowed block types for the editor.
 		 *
-		 * @since 5.0.0
-		 * @deprecated 5.8.0 Use the {@see 'allowed_block_types_all'} filter instead.
+		 * @since WP 5.0.0
+		 * @deprecated WP 5.8.0 Use the {@see 'allowed_block_types_all'} filter instead.
 		 *
 		 * @param bool|string[] $allowed_block_types Array of block type slugs, or boolean to enable/disable all.
 		 *                                           Default true (all registered block types supported)
@@ -148,7 +148,7 @@ function get_allowed_block_types( $block_editor_context ) {
 /**
  * Returns the default block editor settings.
  *
- * @since 5.8.0
+ * @since WP 5.8.0
  *
  * @return array The default block editor settings.
  */
@@ -239,7 +239,7 @@ function get_default_block_editor_settings() {
  * Returns the block editor settings needed to use the Legacy Widget block which
  * is not registered by default.
  *
- * @since 5.8.0
+ * @since WP 5.8.0
  *
  * @return array Settings to be used with get_block_editor_settings().
  */
@@ -252,7 +252,7 @@ function get_legacy_widget_block_editor_settings() {
 	 *
 	 * Returning an empty array will make all widgets available.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @param string[] $widgets An array of excluded widget-type IDs.
 	 */
@@ -284,7 +284,7 @@ function get_legacy_widget_block_editor_settings() {
 /**
  * Collect the block editor assets that need to be loaded into the editor's iframe.
  *
- * @since 6.0.0
+ * @since WP 6.0.0
  * @access private
  *
  * @global WP_Styles  $wp_styles  The WP_Styles current instance.
@@ -391,7 +391,7 @@ function _wp_get_iframed_editor_assets() {
 /**
  * Finds the first occurrence of a specific block in an array of blocks.
  *
- * @since 6.3.0
+ * @since WP 6.3.0
  *
  * @param array  $blocks     Array of blocks.
  * @param string $block_name Name of the block to find.
@@ -417,8 +417,8 @@ function wp_get_first_block( $blocks, $block_name ) {
 /**
  * Retrieves Post Content block attributes from the current post template.
  *
- * @since 6.3.0
- * @since 6.4.0 Return null if there is no post content block.
+ * @since WP 6.3.0
+ * @since WP 6.4.0 Return null if there is no post content block.
  * @access private
  *
  * @global int $post_ID
@@ -478,7 +478,7 @@ function wp_get_post_content_block_attributes() {
 /**
  * Returns the contextualized block editor settings for a selected editor context.
  *
- * @since 5.8.0
+ * @since WP 5.8.0
  *
  * @param array                   $custom_settings      Custom settings to use with the given editor type.
  * @param WP_Block_Editor_Context $block_editor_context The current block editor context.
@@ -654,7 +654,7 @@ function get_block_editor_settings( array $custom_settings, $block_editor_contex
 	/**
 	 * Filters the settings to pass to the block editor for all editor type.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @param array                   $editor_settings      Default editor settings.
 	 * @param WP_Block_Editor_Context $block_editor_context The current block editor context.
@@ -667,8 +667,8 @@ function get_block_editor_settings( array $custom_settings, $block_editor_contex
 		/**
 		 * Filters the settings to pass to the block editor.
 		 *
-		 * @since 5.0.0
-		 * @deprecated 5.8.0 Use the {@see 'block_editor_settings_all'} filter instead.
+		 * @since WP 5.0.0
+		 * @deprecated WP 5.8.0 Use the {@see 'block_editor_settings_all'} filter instead.
 		 *
 		 * @param array   $editor_settings Default editor settings.
 		 * @param WP_Post $post            Post being edited.
@@ -683,7 +683,7 @@ function get_block_editor_settings( array $custom_settings, $block_editor_contex
  * Preloads common data used with the block editor by specifying an array of
  * REST API paths that will be preloaded for a given block editor context.
  *
- * @since 5.8.0
+ * @since WP 5.8.0
  *
  * @global WP_Post    $post       Global post object.
  * @global WP_Scripts $wp_scripts The WP_Scripts object for printing scripts.
@@ -698,7 +698,7 @@ function block_editor_rest_api_preload( array $preload_paths, $block_editor_cont
 	/**
 	 * Filters the array of REST API paths that will be used to preloaded common data for the block editor.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @param (string|string[])[]     $preload_paths        Array of paths to preload.
 	 * @param WP_Block_Editor_Context $block_editor_context The current block editor context.
@@ -713,8 +713,8 @@ function block_editor_rest_api_preload( array $preload_paths, $block_editor_cont
 		 *
 		 * Preload common data by specifying an array of REST API paths that will be preloaded.
 		 *
-		 * @since 5.0.0
-		 * @deprecated 5.8.0 Use the {@see 'block_editor_rest_api_preload_paths'} filter instead.
+		 * @since WP 5.0.0
+		 * @deprecated WP 5.8.0 Use the {@see 'block_editor_rest_api_preload_paths'} filter instead.
 		 *
 		 * @param (string|string[])[] $preload_paths Array of paths to preload.
 		 * @param WP_Post             $selected_post Post being edited.
@@ -774,7 +774,7 @@ function block_editor_rest_api_preload( array $preload_paths, $block_editor_cont
 /**
  * Creates an array of theme styles to load into the block editor.
  *
- * @since 5.8.0
+ * @since WP 5.8.0
  *
  * @global array $editor_styles
  *
@@ -816,8 +816,8 @@ function get_block_editor_theme_styles() {
 /**
  * Returns the classic theme supports settings for block editor.
  *
- * @since 6.2.0
- * @since 6.6.0 Add support for 'editor-spacing-sizes' theme support.
+ * @since WP 6.2.0
+ * @since WP 6.6.0 Add support for 'editor-spacing-sizes' theme support.
  *
  * @return array The classic theme supports settings.
  */

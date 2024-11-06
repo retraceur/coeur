@@ -6,7 +6,7 @@
  *
  * @package motsVertueux
  * @subpackage Block Bindings
- * @since 6.5.0
+ * @since WP 6.5.0
  */
 
 /**
@@ -67,7 +67,7 @@
  *     <p>Fallback text that gets replaced.</p>
  *     <!-- /wp:paragraph -->
  *
- * @since 6.5.0
+ * @since WP 6.5.0
  *
  * @param string $source_name       The name of the source. It must be a string containing a namespace prefix, i.e.
  *                                  `my-plugin/my-custom-source`. It must only contain lowercase alphanumeric
@@ -98,7 +98,7 @@ function register_block_bindings_source( string $source_name, array $source_prop
 /**
  * Unregisters a block bindings source.
  *
- * @since 6.5.0
+ * @since WP 6.5.0
  *
  * @param string $source_name Block bindings source name including namespace.
  * @return WP_Block_Bindings_Source|false The unregistered block bindings source on success and `false` otherwise.
@@ -110,7 +110,7 @@ function unregister_block_bindings_source( string $source_name ) {
 /**
  * Retrieves the list of all registered block bindings sources.
  *
- * @since 6.5.0
+ * @since WP 6.5.0
  *
  * @return WP_Block_Bindings_Source[] The array of registered block bindings sources.
  */
@@ -121,7 +121,7 @@ function get_all_registered_block_bindings_sources() {
 /**
  * Retrieves a registered block bindings source.
  *
- * @since 6.5.0
+ * @since WP 6.5.0
  *
  * @param string $source_name The name of the source.
  * @return WP_Block_Bindings_Source|null The registered block bindings source, or `null` if it is not registered.

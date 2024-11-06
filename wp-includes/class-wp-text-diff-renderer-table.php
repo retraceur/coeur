@@ -4,13 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage Diff
- * @since 4.7.0
+ * @since WP 4.7.0
  */
 
 /**
  * Table renderer to display the diff lines.
  *
- * @since 2.6.0
+ * @since WP 2.6.0
  * @uses Text_Diff_Renderer Extends
  */
 #[AllowDynamicProperties]
@@ -19,21 +19,21 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 	/**
 	 * @see Text_Diff_Renderer::_leading_context_lines
 	 * @var int
-	 * @since 2.6.0
+	 * @since WP 2.6.0
 	 */
 	public $_leading_context_lines = 10000;
 
 	/**
 	 * @see Text_Diff_Renderer::_trailing_context_lines
 	 * @var int
-	 * @since 2.6.0
+	 * @since WP 2.6.0
 	 */
 	public $_trailing_context_lines = 10000;
 
 	/**
 	 * Title of the item being compared.
 	 *
-	 * @since 6.4.0 Declared a previously dynamic property.
+	 * @since WP 6.4.0 Declared a previously dynamic property.
 	 * @var string|null
 	 */
 	public $_title;
@@ -41,7 +41,7 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 	/**
 	 * Title for the left column.
 	 *
-	 * @since 6.4.0 Declared a previously dynamic property.
+	 * @since WP 6.4.0 Declared a previously dynamic property.
 	 * @var string|null
 	 */
 	public $_title_left;
@@ -49,7 +49,7 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 	/**
 	 * Title for the right column.
 	 *
-	 * @since 6.4.0 Declared a previously dynamic property.
+	 * @since WP 6.4.0 Declared a previously dynamic property.
 	 * @var string|null
 	 */
 	public $_title_right;
@@ -58,7 +58,7 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 	 * Threshold for when a diff should be saved or omitted.
 	 *
 	 * @var float
-	 * @since 2.6.0
+	 * @since WP 2.6.0
 	 */
 	protected $_diff_threshold = 0.6;
 
@@ -66,7 +66,7 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 	 * Inline display helper object name.
 	 *
 	 * @var string
-	 * @since 2.6.0
+	 * @since WP 2.6.0
 	 */
 	protected $inline_diff_renderer = 'WP_Text_Diff_Renderer_inline';
 
@@ -74,7 +74,7 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 	 * Should we show the split view or not
 	 *
 	 * @var string
-	 * @since 3.6.0
+	 * @since WP 3.6.0
 	 */
 	protected $_show_split_view = true;
 
@@ -84,7 +84,7 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 	 * Caches the output of count_chars() in compute_string_distance()
 	 *
 	 * @var array
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 */
 	protected $count_cache = array();
 
@@ -92,7 +92,7 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 	 * Caches the difference calculation in compute_string_distance()
 	 *
 	 * @var array
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 */
 	protected $difference_cache = array();
 
@@ -101,7 +101,7 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 	 *
 	 * This will set class properties based on the key value pairs in the array.
 	 *
-	 * @since 2.6.0
+	 * @since WP 2.6.0
 	 *
 	 * @param array $params
 	 */
@@ -199,7 +199,7 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 				 * htmlspecialchars. Use this filter to remove or change the processing. Passes a context
 				 * indicating if the line is added, deleted or unchanged.
 				 *
-				 * @since 4.1.0
+				 * @since WP 4.1.0
 				 *
 				 * @param string $processed_line The processed diffed line.
 				 * @param string $line           The unprocessed diffed line.
@@ -273,7 +273,7 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 	 * (TRAC style) sometimes these lines can actually be deleted or added rows.
 	 * We do additional processing to figure that out
 	 *
-	 * @since 2.6.0
+	 * @since WP 2.6.0
 	 *
 	 * @param array $orig
 	 * @param array $final
@@ -367,7 +367,7 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 	/**
 	 * Takes changed blocks and matches which rows in orig turned into which rows in final.
 	 *
-	 * @since 2.6.0
+	 * @since WP 2.6.0
 	 *
 	 * @param array $orig  Lines of the original version of the text.
 	 * @param array $final Lines of the final version of the text.
@@ -479,7 +479,7 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 	/**
 	 * Computes a number that is intended to reflect the "distance" between two strings.
 	 *
-	 * @since 2.6.0
+	 * @since WP 2.6.0
 	 *
 	 * @param string $string1
 	 * @param string $string2
@@ -520,7 +520,7 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 
 	/**
 	 * @ignore
-	 * @since 2.6.0
+	 * @since WP 2.6.0
 	 *
 	 * @param int $a
 	 * @param int $b
@@ -533,8 +533,8 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 	/**
 	 * Make private properties readable for backward compatibility.
 	 *
-	 * @since 4.0.0
-	 * @since 6.4.0 Getting a dynamic property is deprecated.
+	 * @since WP 4.0.0
+	 * @since WP 6.4.0 Getting a dynamic property is deprecated.
 	 *
 	 * @param string $name Property to get.
 	 * @return mixed A declared property's value, else null.
@@ -556,8 +556,8 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 	/**
 	 * Make private properties settable for backward compatibility.
 	 *
-	 * @since 4.0.0
-	 * @since 6.4.0 Setting a dynamic property is deprecated.
+	 * @since WP 4.0.0
+	 * @since WP 6.4.0 Setting a dynamic property is deprecated.
 	 *
 	 * @param string $name  Property to check if set.
 	 * @param mixed  $value Property value.
@@ -579,8 +579,8 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 	/**
 	 * Make private properties checkable for backward compatibility.
 	 *
-	 * @since 4.0.0
-	 * @since 6.4.0 Checking a dynamic property is deprecated.
+	 * @since WP 4.0.0
+	 * @since WP 6.4.0 Checking a dynamic property is deprecated.
 	 *
 	 * @param string $name Property to check if set.
 	 * @return bool Whether the property is set.
@@ -602,8 +602,8 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 	/**
 	 * Make private properties un-settable for backward compatibility.
 	 *
-	 * @since 4.0.0
-	 * @since 6.4.0 Unsetting a dynamic property is deprecated.
+	 * @since WP 4.0.0
+	 * @since WP 6.4.0 Unsetting a dynamic property is deprecated.
 	 *
 	 * @param string $name Property to unset.
 	 */

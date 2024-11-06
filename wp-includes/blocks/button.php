@@ -8,7 +8,7 @@
 /**
  * Renders the `core/button` block on the server,
  *
- * @since 6.6.0
+ * @since WP 6.6.0
  *
  * @param array    $attributes The block attributes.
  * @param string   $content    The block content.
@@ -67,7 +67,7 @@ function render_block_core_button( $attributes, $content ) {
 /**
  * Registers the `core/button` block on server.
  *
- * @since 6.6.0
+ * @since WP 6.6.0
  */
 function register_block_core_button() {
 	register_block_type_from_metadata(

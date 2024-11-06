@@ -38,8 +38,8 @@ class Basic implements Auth {
 	/**
 	 * Constructor
 	 *
-	 * @since 2.0 Throws an `InvalidArgument` exception.
-	 * @since 2.0 Throws an `ArgumentCount` exception instead of the Requests base `Exception.
+	 * @since WP 2.0 Throws an `InvalidArgument` exception.
+	 * @since WP 2.0 Throws an `ArgumentCount` exception instead of the Requests base `Exception.
 	 *
 	 * @param array|null $args Array of user and password. Must have exactly two elements
 	 *

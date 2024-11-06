@@ -4,14 +4,14 @@
  *
  * @package motsVertueux
  * @subpackage Upgrader
- * @since 4.6.0
+ * @since WP 4.6.0
  */
 
 /**
  * Core class used for handling automatic background updates.
  *
- * @since 3.7.0
- * @since 4.6.0 Moved to its own file from wp-admin/includes/class-wp-upgrader.php.
+ * @since WP 3.7.0
+ * @since WP 4.6.0 Moved to its own file from wp-admin/includes/class-wp-upgrader.php.
  */
 #[AllowDynamicProperties]
 class WP_Automatic_Updater {
@@ -26,7 +26,7 @@ class WP_Automatic_Updater {
 	/**
 	 * Determines whether the entire automatic updater is disabled.
 	 *
-	 * @since 3.7.0
+	 * @since WP 3.7.0
 	 *
 	 * @return bool True if the automatic updater is disabled, false otherwise.
 	 */
@@ -51,7 +51,7 @@ class WP_Automatic_Updater {
 		 *
 		 * This also disables update notification emails. That may change in the future.
 		 *
-		 * @since 3.7.0
+		 * @since WP 3.7.0
 		 *
 		 * @param bool $disabled Whether the updater should be disabled.
 		 */
@@ -65,7 +65,7 @@ class WP_Automatic_Updater {
 	 * the PHP `open_basedir` restrictions, so that WordPress does not try to access
 	 * directories it is not allowed to.
 	 *
-	 * @since 6.2.0
+	 * @since WP 6.2.0
 	 *
 	 * @param string $dir The directory to check.
 	 * @return bool True if access to the directory is allowed, false otherwise.
@@ -118,7 +118,7 @@ class WP_Automatic_Updater {
 	 * using version control *anywhere*, then you should be making decisions for
 	 * how things get updated.
 	 *
-	 * @since 3.7.0
+	 * @since WP 3.7.0
 	 *
 	 * @param string $context The filesystem path to check, in addition to ABSPATH.
 	 * @return bool True if a VCS checkout was discovered at `$context` or ABSPATH,
@@ -168,7 +168,7 @@ class WP_Automatic_Updater {
 		 * Filters whether the automatic updater should consider a filesystem
 		 * location to be potentially managed by a version control system.
 		 *
-		 * @since 3.7.0
+		 * @since WP 3.7.0
 		 *
 		 * @param bool $checkout  Whether a VCS checkout was discovered at `$context`
 		 *                        or ABSPATH, or anywhere higher.
@@ -181,7 +181,7 @@ class WP_Automatic_Updater {
 	/**
 	 * Tests to see if we can and should update a specific item.
 	 *
-	 * @since 3.7.0
+	 * @since WP 3.7.0
 	 *
 	 * @global wpdb $wpdb WordPress database abstraction object.
 	 *
@@ -258,8 +258,8 @@ class WP_Automatic_Updater {
 		 * and {@see 'allow_major_auto_core_updates'} filters for a more straightforward way to
 		 * adjust core updates.
 		 *
-		 * @since 3.7.0
-		 * @since 5.5.0 The `$update` parameter accepts the value of null.
+		 * @since WP 3.7.0
+		 * @since WP 5.5.0 The `$update` parameter accepts the value of null.
 		 *
 		 * @param bool|null $update Whether to update. The value of null is internally used
 		 *                          to detect whether nothing has hooked into this filter.
@@ -303,7 +303,7 @@ class WP_Automatic_Updater {
 	/**
 	 * Notifies an administrator of a core update.
 	 *
-	 * @since 3.7.0
+	 * @since WP 3.7.0
 	 *
 	 * @param object $item The update offer.
 	 * @return bool True if the site administrator is notified of a core update,
@@ -327,8 +327,7 @@ class WP_Automatic_Updater {
 		 * Filters whether to notify the site administrator of a new core update.
 		 *
 		 * By default, administrators are notified when the update offer received
-		 * from WordPress.org sets a particular flag. This allows some discretion
-		 * in if and when to notify.
+		 * sets a particular flag. This allows some discretion in if and when to notify.
 		 *
 		 * This filter is only evaluated once per release. If the same email address
 		 * was already notified of the same new version, WordPress won't repeatedly
@@ -337,7 +336,7 @@ class WP_Automatic_Updater {
 		 * This filter is also used on about.php to check if a plugin has disabled
 		 * these notifications.
 		 *
-		 * @since 3.7.0
+		 * @since WP 3.7.0
 		 *
 		 * @param bool   $notify Whether the site administrator is notified.
 		 * @param object $item   The update offer.
@@ -353,7 +352,7 @@ class WP_Automatic_Updater {
 	/**
 	 * Updates an item, if appropriate.
 	 *
-	 * @since 3.7.0
+	 * @since WP 3.7.0
 	 *
 	 * @param string $type The type of update being checked: 'core', 'theme', 'plugin', 'translation'.
 	 * @param object $item The update offer.
@@ -391,7 +390,7 @@ class WP_Automatic_Updater {
 		/**
 		 * Fires immediately prior to an auto-update.
 		 *
-		 * @since 4.4.0
+		 * @since WP 4.4.0
 		 *
 		 * @param string $type    The type of update being checked: 'core', 'theme', 'plugin', or 'translation'.
 		 * @param object $item    The update offer.
@@ -637,7 +636,7 @@ class WP_Automatic_Updater {
 	/**
 	 * Kicks off the background update process, looping through all pending updates.
 	 *
-	 * @since 3.7.0
+	 * @since WP 3.7.0
 	 */
 	public function run() {
 		if ( $this->is_disabled() ) {
@@ -757,7 +756,7 @@ class WP_Automatic_Updater {
 			/**
 			 * Filters whether to send a debugging email for each automatic background update.
 			 *
-			 * @since 3.7.0
+			 * @since WP 3.7.0
 			 *
 			 * @param bool $development_version By default, emails are sent if the
 			 *                                  install is a development version.
@@ -776,7 +775,7 @@ class WP_Automatic_Updater {
 			/**
 			 * Fires after all automatic updates have run.
 			 *
-			 * @since 3.8.0
+			 * @since WP 3.8.0
 			 *
 			 * @param array $update_results The results of all attempted updates.
 			 */
@@ -790,7 +789,7 @@ class WP_Automatic_Updater {
 	 * Checks whether to send an email and avoid processing future updates after
 	 * attempting a core update.
 	 *
-	 * @since 3.7.0
+	 * @since WP 3.7.0
 	 *
 	 * @param object $update_result The result of the core update. Includes the update offer and result.
 	 */
@@ -848,8 +847,8 @@ class WP_Automatic_Updater {
 		 * But we can try again if another version is released.
 		 *
 		 * For certain 'transient' failures, like download_failed, we should allow retries.
-		 * In fact, let's schedule a special update for an hour from now. (It's possible
-		 * the issue could actually be on WordPress.org's side.) If that one fails, then email.
+		 * In fact, let's schedule a special update for an hour from now. If that one fails,
+		 * then email.
 		 */
 		$send               = true;
 		$transient_failures = array( 'incompatible_archive', 'download_failed', 'insane_distro', 'locked' );
@@ -889,7 +888,7 @@ class WP_Automatic_Updater {
 	/**
 	 * Sends an email upon the completion or failure of a background core update.
 	 *
-	 * @since 3.7.0
+	 * @since WP 3.7.0
 	 *
 	 * @param string $type        The type of email to send. Can be one of 'success', 'fail', 'manual', 'critical'.
 	 * @param object $core_update The update offer that was attempted.
@@ -924,7 +923,7 @@ class WP_Automatic_Updater {
 		/**
 		 * Filters whether to send an email following an automatic background core update.
 		 *
-		 * @since 3.7.0
+		 * @since WP 3.7.0
 		 *
 		 * @param bool   $send        Whether to send the email. Default true.
 		 * @param string $type        The type of email to send. Can be one of
@@ -1046,10 +1045,6 @@ class WP_Automatic_Updater {
 				__( 'The WordPress team is willing to help you. Forward this email to %s and the team will work with you to make sure your site is working.' ),
 				$core_update->support_email
 			);
-		} else {
-			// Add a note about the support forums.
-			$body .= "\n\n" . __( 'If you experience any issues or need support, the volunteers in the WordPress.org support forums may be able to help.' );
-			$body .= "\n" . __( 'https://wordpress.org/support/forums/' );
 		}
 
 		// Updates are important!
@@ -1120,7 +1115,7 @@ class WP_Automatic_Updater {
 		/**
 		 * Filters the email sent following an automatic background core update.
 		 *
-		 * @since 3.7.0
+		 * @since WP 3.7.0
 		 *
 		 * @param array $email {
 		 *     Array of email arguments that will be passed to wp_mail().
@@ -1145,7 +1140,7 @@ class WP_Automatic_Updater {
 	/**
 	 * Checks whether an email should be sent after attempting plugin or theme updates.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @param array $update_results The results of update tasks.
 	 */
@@ -1157,8 +1152,8 @@ class WP_Automatic_Updater {
 			/**
 			 * Filters whether to send an email following an automatic background plugin update.
 			 *
-			 * @since 5.5.0
-			 * @since 5.5.1 Added the `$update_results` parameter.
+			 * @since WP 5.5.0
+			 * @since WP 5.5.1 Added the `$update_results` parameter.
 			 *
 			 * @param bool  $enabled        True if plugin update notifications are enabled, false otherwise.
 			 * @param array $update_results The results of plugins update tasks.
@@ -1180,8 +1175,8 @@ class WP_Automatic_Updater {
 			/**
 			 * Filters whether to send an email following an automatic background theme update.
 			 *
-			 * @since 5.5.0
-			 * @since 5.5.1 Added the `$update_results` parameter.
+			 * @since WP 5.5.0
+			 * @since WP 5.5.1 Added the `$update_results` parameter.
 			 *
 			 * @param bool  $enabled        True if theme update notifications are enabled, false otherwise.
 			 * @param array $update_results The results of theme update tasks.
@@ -1215,7 +1210,7 @@ class WP_Automatic_Updater {
 	/**
 	 * Sends an email upon the completion or failure of a plugin or theme background update.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @param string $type               The type of email to send. Can be one of 'success', 'fail', 'mixed'.
 	 * @param array  $successful_updates A list of updates that succeeded.
@@ -1483,11 +1478,6 @@ class WP_Automatic_Updater {
 			$body[] = "\n";
 		}
 
-		// Add a note about the support forums.
-		$body[] = __( 'If you experience any issues or need support, the volunteers in the WordPress.org support forums may be able to help.' );
-		$body[] = __( 'https://wordpress.org/support/forums/' );
-		$body[] = "\n" . __( 'The WordPress Team' );
-
 		if ( '' !== get_option( 'blogname' ) ) {
 			$site_title = wp_specialchars_decode( get_option( 'blogname' ), ENT_QUOTES );
 		} else {
@@ -1504,7 +1494,7 @@ class WP_Automatic_Updater {
 		/**
 		 * Filters the email sent following an automatic background update for plugins and themes.
 		 *
-		 * @since 5.5.0
+		 * @since WP 5.5.0
 		 *
 		 * @param array  $email {
 		 *     Array of email arguments that will be passed to wp_mail().
@@ -1531,7 +1521,7 @@ class WP_Automatic_Updater {
 	/**
 	 * Prepares and sends an email of a full log of background update results, useful for debugging and geekery.
 	 *
-	 * @since 3.7.0
+	 * @since WP 3.7.0
 	 */
 	protected function send_debug_email() {
 		$update_count = 0;
@@ -1617,13 +1607,7 @@ class WP_Automatic_Updater {
 					"BETA TESTING?
 =============
 
-This debugging email is sent when you are using a development version of WordPress.
-
-If you think these failures might be due to a bug in WordPress, could you report it?
- * Open a thread in the support forums: https://wordpress.org/support/forum/alphabeta
- * Or, if you're comfortable writing a bug report: https://core.trac.wordpress.org/
-
-Thanks! -- The WordPress Team"
+This debugging email is sent when you are using a development version of motsVertueux."
 				)
 			);
 			$body[] = '';
@@ -1698,7 +1682,7 @@ Thanks! -- The WordPress Team"
 		 * Filters the debug email that can be sent following an automatic
 		 * background core update.
 		 *
-		 * @since 3.8.0
+		 * @since WP 3.8.0
 		 *
 		 * @param array $email {
 		 *     Array of email arguments that will be passed to wp_mail().
@@ -1722,7 +1706,7 @@ Thanks! -- The WordPress Team"
 	 *
 	 * Fatal errors cannot be detected unless maintenance mode is enabled.
 	 *
-	 * @since 6.6.0
+	 * @since WP 6.6.0
 	 *
 	 * @global int $upgrading The Unix timestamp marking when upgrading WordPress began.
 	 *

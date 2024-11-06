@@ -4,13 +4,14 @@
  *
  * @package motsVertueux
  * @subpackage Post
- * @since 4.6.0
+ * @since WP 4.6.0
+ * @since 1.0.0 motsVertueux fork.
  */
 
 /**
  * Core class used for interacting with post types.
  *
- * @since 4.6.0
+ * @since WP 4.6.0
  *
  * @see register_post_type()
  */
@@ -19,7 +20,7 @@ final class WP_Post_Type {
 	/**
 	 * Post type key.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 * @var string $name
 	 */
 	public $name;
@@ -27,7 +28,7 @@ final class WP_Post_Type {
 	/**
 	 * Name of the post type shown in the menu. Usually plural.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 * @var string $label
 	 */
 	public $label;
@@ -40,7 +41,7 @@ final class WP_Post_Type {
 	 *
 	 * @see get_post_type_labels()
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 * @var stdClass $labels
 	 */
 	public $labels;
@@ -48,7 +49,7 @@ final class WP_Post_Type {
 	/**
 	 * Default labels.
 	 *
-	 * @since 6.0.0
+	 * @since WP 6.0.0
 	 * @var (string|null)[][] $default_labels
 	 */
 	protected static $default_labels = array();
@@ -58,7 +59,7 @@ final class WP_Post_Type {
 	 *
 	 * Default empty.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 * @var string $description
 	 */
 	public $description = '';
@@ -71,7 +72,7 @@ final class WP_Post_Type {
 	 *
 	 * Default false.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 * @var bool $public
 	 */
 	public $public = false;
@@ -81,7 +82,7 @@ final class WP_Post_Type {
 	 *
 	 * Default false.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 * @var bool $hierarchical
 	 */
 	public $hierarchical = false;
@@ -92,7 +93,7 @@ final class WP_Post_Type {
 	 *
 	 * Default is the opposite value of $public.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 * @var bool $exclude_from_search
 	 */
 	public $exclude_from_search = null;
@@ -108,7 +109,7 @@ final class WP_Post_Type {
 	 *
 	 * Default is the value of $public.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 * @var bool $publicly_queryable
 	 */
 	public $publicly_queryable = null;
@@ -118,7 +119,7 @@ final class WP_Post_Type {
 	 *
 	 * Default is the value of $public.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 * @var bool $show_ui
 	 */
 	public $show_ui = null;
@@ -132,7 +133,7 @@ final class WP_Post_Type {
 	 *
 	 * Default is the value of $show_ui.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 * @var bool|string $show_in_menu
 	 */
 	public $show_in_menu = null;
@@ -142,7 +143,7 @@ final class WP_Post_Type {
 	 *
 	 * Default is the value $public.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 * @var bool $show_in_nav_menus
 	 */
 	public $show_in_nav_menus = null;
@@ -152,7 +153,7 @@ final class WP_Post_Type {
 	 *
 	 * Default is the value of $show_in_menu.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 * @var bool $show_in_admin_bar
 	 */
 	public $show_in_admin_bar = null;
@@ -162,7 +163,7 @@ final class WP_Post_Type {
 	 *
 	 * To work, $show_in_menu must be true. Default null (at the bottom).
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 * @var int $menu_position
 	 */
 	public $menu_position = null;
@@ -177,7 +178,7 @@ final class WP_Post_Type {
 	 *
 	 * Defaults to use the posts icon.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 * @var string $menu_icon
 	 */
 	public $menu_icon = null;
@@ -189,7 +190,7 @@ final class WP_Post_Type {
 	 * this argument as a base to construct the capabilities, e.g.
 	 * array( 'story', 'stories' ). Default 'post'.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 * @var string $capability_type
 	 */
 	public $capability_type = 'post';
@@ -199,7 +200,7 @@ final class WP_Post_Type {
 	 *
 	 * Default false.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 * @var bool $map_meta_cap
 	 */
 	public $map_meta_cap = false;
@@ -209,7 +210,7 @@ final class WP_Post_Type {
 	 *
 	 * Do `remove_meta_box()` and `add_meta_box()` calls in the callback. Default null.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 * @var callable $register_meta_box_cb
 	 */
 	public $register_meta_box_cb = null;
@@ -221,7 +222,7 @@ final class WP_Post_Type {
 	 *
 	 * Default empty array.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 * @var string[] $taxonomies
 	 */
 	public $taxonomies = array();
@@ -231,7 +232,7 @@ final class WP_Post_Type {
 	 *
 	 * Will generate the proper rewrite rules if $rewrite is enabled. Default false.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 * @var bool|string $has_archive
 	 */
 	public $has_archive = false;
@@ -242,7 +243,7 @@ final class WP_Post_Type {
 	 * Defaults to $post_type key. If false, a post type cannot be loaded at `?{query_var}={post_slug}`.
 	 * If specified as a string, the query `?{query_var_string}={post_slug}` will be valid.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 * @var string|bool $query_var
 	 */
 	public $query_var;
@@ -252,7 +253,7 @@ final class WP_Post_Type {
 	 *
 	 * Default true.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 * @var bool $can_export
 	 */
 	public $can_export = true;
@@ -267,7 +268,7 @@ final class WP_Post_Type {
 	 *
 	 * Default null.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 * @var bool $delete_with_user
 	 */
 	public $delete_with_user = null;
@@ -279,9 +280,7 @@ final class WP_Post_Type {
 	 *
 	 * Default empty array.
 	 *
-	 * @link https://developer.wordpress.org/block-editor/developers/block-api/block-templates/
-	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 * @var array[] $template
 	 */
 	public $template = array();
@@ -296,9 +295,7 @@ final class WP_Post_Type {
 	 *
 	 * Default false.
 	 *
-	 * @link https://developer.wordpress.org/block-editor/developers/block-api/block-templates/
-	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 * @var string|false $template_lock
 	 */
 	public $template_lock = false;
@@ -308,7 +305,7 @@ final class WP_Post_Type {
 	 *
 	 * Default false.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 * @var bool $_builtin
 	 */
 	public $_builtin = false;
@@ -318,7 +315,7 @@ final class WP_Post_Type {
 	 *
 	 * Default 'post.php?post=%d'.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 * @var string $_edit_link
 	 */
 	public $_edit_link = 'post.php?post=%d';
@@ -326,7 +323,7 @@ final class WP_Post_Type {
 	/**
 	 * Post type capabilities.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 * @var stdClass $cap
 	 */
 	public $cap;
@@ -336,7 +333,7 @@ final class WP_Post_Type {
 	 *
 	 * Defaults to true, using $post_type as slug.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 * @var array|false $rewrite
 	 */
 	public $rewrite;
@@ -344,7 +341,7 @@ final class WP_Post_Type {
 	/**
 	 * The features supported by the post type.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 * @var array|bool $supports
 	 */
 	public $supports;
@@ -355,7 +352,7 @@ final class WP_Post_Type {
 	 * Default false. If true, standard endpoints will be registered with
 	 * respect to $rest_base and $rest_controller_class.
 	 *
-	 * @since 4.7.4
+	 * @since WP 4.7.4
 	 * @var bool $show_in_rest
 	 */
 	public $show_in_rest;
@@ -363,7 +360,7 @@ final class WP_Post_Type {
 	/**
 	 * The base path for this post type's REST API endpoints.
 	 *
-	 * @since 4.7.4
+	 * @since WP 4.7.4
 	 * @var string|bool $rest_base
 	 */
 	public $rest_base;
@@ -371,7 +368,7 @@ final class WP_Post_Type {
 	/**
 	 * The namespace for this post type's REST API endpoints.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 * @var string|bool $rest_namespace
 	 */
 	public $rest_namespace;
@@ -381,7 +378,7 @@ final class WP_Post_Type {
 	 *
 	 * Custom controllers must extend WP_REST_Controller.
 	 *
-	 * @since 4.7.4
+	 * @since WP 4.7.4
 	 * @var string|bool $rest_controller_class
 	 */
 	public $rest_controller_class;
@@ -391,7 +388,7 @@ final class WP_Post_Type {
 	 *
 	 * Lazily computed. Should be accessed using {@see WP_Post_Type::get_rest_controller()}.
 	 *
-	 * @since 5.3.0
+	 * @since WP 5.3.0
 	 * @var WP_REST_Controller $rest_controller
 	 */
 	public $rest_controller;
@@ -401,7 +398,7 @@ final class WP_Post_Type {
 	 *
 	 * Custom controllers must extend WP_REST_Controller.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 * @var string|bool $revisions_rest_controller_class
 	 */
 	public $revisions_rest_controller_class;
@@ -411,7 +408,7 @@ final class WP_Post_Type {
 	 *
 	 * Lazily computed. Should be accessed using {@see WP_Post_Type::get_revisions_rest_controller()}.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 * @var WP_REST_Controller $revisions_rest_controller
 	 */
 	public $revisions_rest_controller;
@@ -421,7 +418,7 @@ final class WP_Post_Type {
 	 *
 	 * Custom controllers must extend WP_REST_Controller.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 * @var string|bool $autosave_rest_controller_class
 	 */
 	public $autosave_rest_controller_class;
@@ -431,7 +428,7 @@ final class WP_Post_Type {
 	 *
 	 * Lazily computed. Should be accessed using {@see WP_Post_Type::get_autosave_rest_controller()}.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 * @var WP_REST_Controller $autosave_rest_controller
 	 */
 	public $autosave_rest_controller;
@@ -439,7 +436,7 @@ final class WP_Post_Type {
 	/**
 	 * A flag to register the post type REST API controller after its associated autosave / revisions controllers, instead of before. Registration order affects route matching priority.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 * @var bool $late_route_registration
 	 */
 	public $late_route_registration;
@@ -452,7 +449,7 @@ final class WP_Post_Type {
 	 * Will populate object properties from the provided arguments and assign other
 	 * default properties based on that information.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 *
 	 * @see register_post_type()
 	 *
@@ -472,7 +469,7 @@ final class WP_Post_Type {
 	 *
 	 * See the register_post_type() function for accepted arguments for `$args`.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 *
 	 * @param array|string $args Array or string of arguments for registering a post type.
 	 */
@@ -482,7 +479,7 @@ final class WP_Post_Type {
 		/**
 		 * Filters the arguments for registering a post type.
 		 *
-		 * @since 4.4.0
+		 * @since WP 4.4.0
 		 *
 		 * @param array  $args      Array of arguments for registering a post type.
 		 *                          See the register_post_type() function for accepted arguments.
@@ -502,8 +499,8 @@ final class WP_Post_Type {
 		 *  - `register_post_post_type_args`
 		 *  - `register_page_post_type_args`
 		 *
-		 * @since 6.0.0
-		 * @since 6.4.0 Added `late_route_registration`, `autosave_rest_controller_class` and `revisions_rest_controller_class` arguments.
+		 * @since WP 6.0.0
+		 * @since WP 6.4.0 Added `late_route_registration`, `autosave_rest_controller_class` and `revisions_rest_controller_class` arguments.
 		 *
 		 * @param array  $args      Array of arguments for registering a post type.
 		 *                          See the register_post_type() function for accepted arguments.
@@ -658,7 +655,7 @@ final class WP_Post_Type {
 	/**
 	 * Sets the features support for the post type.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 */
 	public function add_supports() {
 		if ( ! empty( $this->supports ) ) {
@@ -690,7 +687,7 @@ final class WP_Post_Type {
 	/**
 	 * Adds the necessary rewrite rules for the post type.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 *
 	 * @global WP_Rewrite $wp_rewrite WordPress rewrite component.
 	 * @global WP         $wp         Current WordPress environment instance.
@@ -737,7 +734,7 @@ final class WP_Post_Type {
 	/**
 	 * Registers the post type meta box if a custom callback was specified.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 */
 	public function register_meta_boxes() {
 		if ( $this->register_meta_box_cb ) {
@@ -748,7 +745,7 @@ final class WP_Post_Type {
 	/**
 	 * Adds the future post hook action for the post type.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 */
 	public function add_hooks() {
 		add_action( 'future_' . $this->name, '_future_post_hook', 5, 2 );
@@ -757,7 +754,7 @@ final class WP_Post_Type {
 	/**
 	 * Registers the taxonomies for the post type.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 */
 	public function register_taxonomies() {
 		foreach ( $this->taxonomies as $taxonomy ) {
@@ -768,7 +765,7 @@ final class WP_Post_Type {
 	/**
 	 * Removes the features support for the post type.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 *
 	 * @global array $_wp_post_type_features Post type features.
 	 */
@@ -781,7 +778,7 @@ final class WP_Post_Type {
 	/**
 	 * Removes any rewrite rules, permastructs, and rules for the post type.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 *
 	 * @global WP_Rewrite $wp_rewrite          WordPress rewrite component.
 	 * @global WP         $wp                  Current WordPress environment instance.
@@ -815,7 +812,7 @@ final class WP_Post_Type {
 	/**
 	 * Unregisters the post type meta box if a custom callback was specified.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 */
 	public function unregister_meta_boxes() {
 		if ( $this->register_meta_box_cb ) {
@@ -826,7 +823,7 @@ final class WP_Post_Type {
 	/**
 	 * Removes the post type from all taxonomies.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 */
 	public function unregister_taxonomies() {
 		foreach ( get_object_taxonomies( $this->name ) as $taxonomy ) {
@@ -837,7 +834,7 @@ final class WP_Post_Type {
 	/**
 	 * Removes the future post hook action for the post type.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 */
 	public function remove_hooks() {
 		remove_action( 'future_' . $this->name, '_future_post_hook', 5 );
@@ -848,7 +845,7 @@ final class WP_Post_Type {
 	 *
 	 * Will only instantiate the controller class once per request.
 	 *
-	 * @since 5.3.0
+	 * @since WP 5.3.0
 	 *
 	 * @return WP_REST_Controller|null The controller instance, or null if the post type
 	 *                                 is set not to show in rest.
@@ -884,7 +881,7 @@ final class WP_Post_Type {
 	 *
 	 * Will only instantiate the controller class once per request.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @return WP_REST_Controller|null The controller instance, or null if the post type
 	 *                                 is set not to show in rest.
@@ -923,7 +920,7 @@ final class WP_Post_Type {
 	 *
 	 * Will only instantiate the controller class once per request.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @return WP_REST_Controller|null The controller instance, or null if the post type
 	 *                                 is set not to show in rest.
@@ -961,7 +958,7 @@ final class WP_Post_Type {
 	/**
 	 * Returns the default labels for post types.
 	 *
-	 * @since 6.0.0
+	 * @since WP 6.0.0
 	 *
 	 * @return (string|null)[][] The default labels for post types.
 	 */
@@ -1018,7 +1015,7 @@ final class WP_Post_Type {
 	/**
 	 * Resets the cache for the default labels.
 	 *
-	 * @since 6.0.0
+	 * @since WP 6.0.0
 	 */
 	public static function reset_default_labels() {
 		self::$default_labels = array();

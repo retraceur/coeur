@@ -4,13 +4,14 @@
  *
  * @package motsVertueux
  * @subpackage Customize
- * @since 4.4.0
+ * @since WP 4.4.0
+ * @since 1.0.0 motsVertueux fork.
  */
 
 /**
  * Customize Theme Control class.
  *
- * @since 4.2.0
+ * @since WP 4.2.0
  *
  * @see WP_Customize_Control
  */
@@ -19,7 +20,7 @@ class WP_Customize_Theme_Control extends WP_Customize_Control {
 	/**
 	 * Customize control type.
 	 *
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 * @var string
 	 */
 	public $type = 'theme';
@@ -27,7 +28,7 @@ class WP_Customize_Theme_Control extends WP_Customize_Control {
 	/**
 	 * Theme object.
 	 *
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 * @var WP_Theme
 	 */
 	public $theme;
@@ -35,7 +36,7 @@ class WP_Customize_Theme_Control extends WP_Customize_Control {
 	/**
 	 * Refresh the parameters passed to the JavaScript via JSON.
 	 *
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 *
 	 * @see WP_Customize_Control::to_json()
 	 */
@@ -47,14 +48,14 @@ class WP_Customize_Theme_Control extends WP_Customize_Control {
 	/**
 	 * Don't render the control content from PHP, as it's rendered via JS on load.
 	 *
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 */
 	public function render_content() {}
 
 	/**
 	 * Render a JS template for theme display.
 	 *
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 */
 	public function content_template() {
 		/* translators: %s: Theme name. */
@@ -118,25 +119,16 @@ class WP_Customize_Theme_Control extends WP_Customize_Control {
 								);
 								if ( current_user_can( 'update_core' ) && current_user_can( 'update_php' ) ) {
 									printf(
-										/* translators: 1: URL to WordPress Updates screen, 2: URL to Update PHP page. */
-										' ' . __( '<a href="%1$s">Please update WordPress</a>, and then <a href="%2$s">learn more about updating PHP</a>.' ),
-										self_admin_url( 'update-core.php' ),
-										esc_url( wp_get_update_php_url() )
+										/* translators: %s: URL to WordPress Updates screen. */
+										' ' . __( '<a href="%s">Please update WordPress</a>.' ),
+										self_admin_url( 'update-core.php' )
 									);
-									wp_update_php_annotation( '</p><p><em>', '</em>' );
 								} elseif ( current_user_can( 'update_core' ) ) {
 									printf(
 										/* translators: %s: URL to WordPress Updates screen. */
 										' ' . __( '<a href="%s">Please update WordPress</a>.' ),
 										self_admin_url( 'update-core.php' )
 									);
-								} elseif ( current_user_can( 'update_php' ) ) {
-									printf(
-										/* translators: %s: URL to Update PHP page. */
-										' ' . __( '<a href="%s">Learn more about updating PHP</a>.' ),
-										esc_url( wp_get_update_php_url() )
-									);
-									wp_update_php_annotation( '</p><p><em>', '</em>' );
 								}
 								?>
 							<# } else if ( ! data.theme.updateResponse.compatibleWP ) { #>
@@ -161,14 +153,6 @@ class WP_Customize_Theme_Control extends WP_Customize_Control {
 									__( 'There is a new version of %s available, but it does not work with your version of PHP.' ),
 									'{{{ data.theme.name }}}'
 								);
-								if ( current_user_can( 'update_php' ) ) {
-									printf(
-										/* translators: %s: URL to Update PHP page. */
-										' ' . __( '<a href="%s">Learn more about updating PHP</a>.' ),
-										esc_url( wp_get_update_php_url() )
-									);
-									wp_update_php_annotation( '</p><p><em>', '</em>' );
-								}
 								?>
 							<# } #>
 						</p>
@@ -183,25 +167,16 @@ class WP_Customize_Theme_Control extends WP_Customize_Control {
 						_e( 'This theme does not work with your versions of WordPress and PHP.' );
 						if ( current_user_can( 'update_core' ) && current_user_can( 'update_php' ) ) {
 							printf(
-								/* translators: 1: URL to WordPress Updates screen, 2: URL to Update PHP page. */
-								' ' . __( '<a href="%1$s">Please update WordPress</a>, and then <a href="%2$s">learn more about updating PHP</a>.' ),
-								self_admin_url( 'update-core.php' ),
-								esc_url( wp_get_update_php_url() )
+								/* translators: %s: URL to WordPress Updates screen. */
+								' ' . __( '<a href="%s">Please update WordPress</a>.' ),
+								self_admin_url( 'update-core.php' )
 							);
-							wp_update_php_annotation( '</p><p><em>', '</em>' );
 						} elseif ( current_user_can( 'update_core' ) ) {
 							printf(
 								/* translators: %s: URL to WordPress Updates screen. */
 								' ' . __( '<a href="%s">Please update WordPress</a>.' ),
 								self_admin_url( 'update-core.php' )
 							);
-						} elseif ( current_user_can( 'update_php' ) ) {
-							printf(
-								/* translators: %s: URL to Update PHP page. */
-								' ' . __( '<a href="%s">Learn more about updating PHP</a>.' ),
-								esc_url( wp_get_update_php_url() )
-							);
-							wp_update_php_annotation( '</p><p><em>', '</em>' );
 						}
 						?>
 					<# } else if ( ! data.theme.compatibleWP ) { #>
@@ -218,14 +193,6 @@ class WP_Customize_Theme_Control extends WP_Customize_Control {
 					<# } else if ( ! data.theme.compatiblePHP ) { #>
 						<?php
 						_e( 'This theme does not work with your version of PHP.' );
-						if ( current_user_can( 'update_php' ) ) {
-							printf(
-								/* translators: %s: URL to Update PHP page. */
-								' ' . __( '<a href="%s">Learn more about updating PHP</a>.' ),
-								esc_url( wp_get_update_php_url() )
-							);
-							wp_update_php_annotation( '</p><p><em>', '</em>' );
-						}
 						?>
 					<# } #>
 				</p></div>

@@ -807,7 +807,7 @@ var media = wp.media,
  *
  * @mixin
  *
- * @since 4.2.0
+ * @since WP 4.2.0
  */
 wp.media.mixin = {
 	mejsSettings: baseSettings,
@@ -815,7 +815,7 @@ wp.media.mixin = {
 	/**
 	 * Pauses and removes all players.
 	 *
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 *
 	 * @return {void}
 	 */
@@ -837,7 +837,7 @@ wp.media.mixin = {
 	 * MediaElement tries to pull the audio/video tag out of
 	 * its container and re-add it to the DOM.
 	 *
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 *
 	 * @return {void}
 	 */
@@ -884,7 +884,7 @@ wp.media.mixin = {
 	 *
 	 * Examples: modal closes, shortcode properties are removed, etc.
 	 *
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 */
 	unsetPlayers : function() {
 		if ( this.players && this.players.length ) {
@@ -900,7 +900,7 @@ wp.media.mixin = {
 /**
  * Shortcode modeling for playlists.
  *
- * @since 4.2.0
+ * @since WP 4.2.0
  */
 wp.media.playlist = new wp.media.collection({
 	tag: 'playlist',
@@ -924,7 +924,7 @@ wp.media.playlist = new wp.media.collection({
  *
  * @namespace
  *
- * @since 4.2.0
+ * @since WP 4.2.0
  */
 wp.media.audio = {
 	coerce : wp.media.coerce,
@@ -941,7 +941,7 @@ wp.media.audio = {
 	/**
 	 * Instantiates a new media object with the next matching shortcode.
 	 *
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 *
 	 * @param {string} data The text to apply the shortcode on.
 	 * @return {wp.media} The media object.
@@ -961,7 +961,7 @@ wp.media.audio = {
 	/**
 	 * Generates an audio shortcode.
 	 *
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 *
 	 * @param {Array} model Array with attributes for the shortcode.
 	 * @return {wp.shortcode} The audio shortcode object.
@@ -994,7 +994,7 @@ wp.media.audio = {
  *  `edit()` prepares the shortcode for the media modal.
  *  `shortcode()` builds the new shortcode after update.
  *
- * @since 4.2.0
+ * @since WP 4.2.0
  *
  * @namespace
  */
@@ -1016,7 +1016,7 @@ wp.media.video = {
 	/**
 	 * Instantiates a new media object with the next matching shortcode.
 	 *
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 *
 	 * @param {string} data The text to apply the shortcode on.
 	 * @return {wp.media} The media object.
@@ -1041,7 +1041,7 @@ wp.media.video = {
 	/**
 	 * Generates an video shortcode.
 	 *
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 *
 	 * @param {Array} model Array with attributes for the shortcode.
 	 * @return {wp.shortcode} The video shortcode object.

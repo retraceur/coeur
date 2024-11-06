@@ -4,13 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage REST_API
- * @since 5.0.0
+ * @since WP 5.0.0
  */
 
 /**
  * Controller which provides REST endpoint for rendering a block.
  *
- * @since 5.0.0
+ * @since WP 5.0.0
  *
  * @see WP_REST_Controller
  */
@@ -19,7 +19,7 @@ class WP_REST_Block_Renderer_Controller extends WP_REST_Controller {
 	/**
 	 * Constructs the controller.
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 */
 	public function __construct() {
 		$this->namespace = 'wp/v2';
@@ -29,7 +29,7 @@ class WP_REST_Block_Renderer_Controller extends WP_REST_Controller {
 	/**
 	 * Registers the necessary REST API routes, one for each dynamic block.
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 *
 	 * @see register_rest_route()
 	 */
@@ -101,7 +101,7 @@ class WP_REST_Block_Renderer_Controller extends WP_REST_Controller {
 	/**
 	 * Checks if a given request has access to read blocks.
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 *
 	 * @global WP_Post $post Global post object.
 	 *
@@ -143,7 +143,7 @@ class WP_REST_Block_Renderer_Controller extends WP_REST_Controller {
 	/**
 	 * Returns block output from block's registered render_callback.
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 *
 	 * @global WP_Post $post Global post object.
 	 *
@@ -196,7 +196,7 @@ class WP_REST_Block_Renderer_Controller extends WP_REST_Controller {
 	/**
 	 * Retrieves block's output schema, conforming to JSON Schema.
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 *
 	 * @return array Item schema data.
 	 */

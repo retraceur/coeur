@@ -6,20 +6,20 @@
  *
  * @package motsVertueux
  * @subpackage Block Bindings
- * @since 6.5.0
+ * @since WP 6.5.0
  */
 
 /**
  * Core class used for interacting with block bindings sources.
  *
- * @since 6.5.0
+ * @since WP 6.5.0
  */
 final class WP_Block_Bindings_Registry {
 
 	/**
 	 * Holds the registered block bindings sources, keyed by source identifier.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 * @var WP_Block_Bindings_Source[]
 	 */
 	private $sources = array();
@@ -27,7 +27,7 @@ final class WP_Block_Bindings_Registry {
 	/**
 	 * Container for the main instance of the class.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 * @var WP_Block_Bindings_Registry|null
 	 */
 	private static $instance = null;
@@ -35,7 +35,7 @@ final class WP_Block_Bindings_Registry {
 	/**
 	 * Supported source properties that can be passed to the registered source.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 * @var string[]
 	 */
 	private $allowed_source_properties = array(
@@ -47,7 +47,7 @@ final class WP_Block_Bindings_Registry {
 	/**
 	 * Supported blocks that can use the block bindings API.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 * @var string[]
 	 */
 	private $supported_blocks = array(
@@ -70,7 +70,7 @@ final class WP_Block_Bindings_Registry {
 	 * block by setting its `metadata.bindings` attribute to a value that refers
 	 * to the source.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $source_name       The name of the source. It must be a string containing a namespace prefix, i.e.
 	 *                                  `my-plugin/my-custom-source`. It must only contain lowercase alphanumeric
@@ -195,7 +195,7 @@ final class WP_Block_Bindings_Registry {
 	/**
 	 * Unregisters a block bindings source.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $source_name Block bindings source name including namespace.
 	 * @return WP_Block_Bindings_Source|false The unregistered block bindings source on success and `false` otherwise.
@@ -220,7 +220,7 @@ final class WP_Block_Bindings_Registry {
 	/**
 	 * Retrieves the list of all registered block bindings sources.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @return WP_Block_Bindings_Source[] The array of registered sources.
 	 */
@@ -231,7 +231,7 @@ final class WP_Block_Bindings_Registry {
 	/**
 	 * Retrieves a registered block bindings source.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $source_name The name of the source.
 	 * @return WP_Block_Bindings_Source|null The registered block bindings source, or `null` if it is not registered.
@@ -247,7 +247,7 @@ final class WP_Block_Bindings_Registry {
 	/**
 	 * Checks if a block bindings source is registered.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param string $source_name The name of the source.
 	 * @return bool `true` if the block bindings source is registered, `false` otherwise.
@@ -259,7 +259,7 @@ final class WP_Block_Bindings_Registry {
 	/**
 	 * Wakeup magic method.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 */
 	public function __wakeup() {
 		if ( ! $this->sources ) {
@@ -280,7 +280,7 @@ final class WP_Block_Bindings_Registry {
 	 *
 	 * The instance will be created if it does not exist yet.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @return WP_Block_Bindings_Registry The main instance.
 	 */

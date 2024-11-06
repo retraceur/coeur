@@ -55,7 +55,7 @@ use SimplePie\Cache\Base;
  *
  * @package SimplePie
  * @subpackage Caching
- * @deprecated since SimplePie 1.8.0, use "SimplePie\SimplePie::set_cache()" instead
+ * @deprecated WP since SimplePie 1.8.0, use "SimplePie\SimplePie::set_cache()" instead
  */
 class Cache
 {
@@ -103,7 +103,7 @@ class Cache
     /**
      * Create a new SimplePie\Cache object
      *
-     * @deprecated since SimplePie 1.3.1, use {@see get_handler()} instead
+     * @deprecated WP since SimplePie 1.3.1, use {@see get_handler()} instead
      */
     public function create($location, $filename, $extension)
     {

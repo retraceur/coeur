@@ -6,7 +6,7 @@
  * send HTML or text to the currently active editor.
  *
  * @file
- * @since 2.5.0
+ * @since WP 2.5.0
  * @output wp-admin/js/media-upload.js
  *
  * @requires jQuery
@@ -17,7 +17,7 @@
 /**
  * Sends the HTML passed in the parameters to TinyMCE.
  *
- * @since 2.5.0
+ * @since WP 2.5.0
  *
  * @global
  *
@@ -67,7 +67,7 @@ window.send_to_editor = function( html ) {
 	 * Recalculates and applies the new ThickBox position based on the current
 	 * window size.
 	 *
-	 * @since 2.6.0
+	 * @since WP 2.6.0
 	 *
 	 * @global
 	 *
@@ -96,7 +96,7 @@ window.send_to_editor = function( html ) {
 		/**
 		 * Recalculates the new height and width for all links with a ThickBox class.
 		 *
-		 * @since 2.6.0
+		 * @since WP 2.6.0
 		 */
 		return $('a.thickbox').each( function() {
 			var href = $(this).attr('href');

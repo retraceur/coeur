@@ -8,7 +8,7 @@
 /**
  * Renders the `core/term-description` block on the server.
  *
- * @since 5.9.0
+ * @since WP 5.9.0
  *
  * @param array $attributes Block attributes.
  *
@@ -40,7 +40,7 @@ function render_block_core_term_description( $attributes ) {
 /**
  * Registers the `core/term-description` block on the server.
  *
- * @since 5.9.0
+ * @since WP 5.9.0
  */
 function register_block_core_term_description() {
 	register_block_type_from_metadata(

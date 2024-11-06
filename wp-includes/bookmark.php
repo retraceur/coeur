@@ -9,7 +9,7 @@
 /**
  * Retrieves bookmark data.
  *
- * @since 2.1.0
+ * @since WP 2.1.0
  *
  * @global object $link Current link object.
  * @global wpdb   $wpdb WordPress database abstraction object.
@@ -68,7 +68,7 @@ function get_bookmark( $bookmark, $output = OBJECT, $filter = 'raw' ) {
 /**
  * Retrieves single bookmark data item or field.
  *
- * @since 2.3.0
+ * @since WP 2.3.0
  *
  * @param string $field    The name of the data field to return.
  * @param int    $bookmark The bookmark ID to get field.
@@ -101,7 +101,7 @@ function get_bookmark_field( $field, $bookmark, $context = 'display' ) {
  * that fails, then the query will be built from the arguments and executed. The
  * results will be stored to the cache.
  *
- * @since 2.1.0
+ * @since WP 2.1.0
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  *
@@ -165,7 +165,7 @@ function get_bookmarks( $args = '' ) {
 			 * link category is passed but does not exist. The third evaluation returns
 			 * the full cached results.
 			 *
-			 * @since 2.1.0
+			 * @since WP 2.1.0
 			 *
 			 * @see get_bookmarks()
 			 *
@@ -325,7 +325,7 @@ function get_bookmarks( $args = '' ) {
 /**
  * Sanitizes all bookmark fields.
  *
- * @since 2.3.0
+ * @since WP 2.3.0
  *
  * @param stdClass|array $bookmark Bookmark row.
  * @param string         $context  Optional. How to filter the fields. Default 'display'.
@@ -387,7 +387,7 @@ function sanitize_bookmark( $bookmark, $context = 'display' ) {
  * The 'display' context is the final context and has the `$field` has the filter name
  * and is passed the `$value`, `$bookmark_id`, and `$context`, respectively.
  *
- * @since 2.3.0
+ * @since WP 2.3.0
  *
  * @param string $field       The bookmark field.
  * @param mixed  $value       The bookmark field value.
@@ -460,7 +460,7 @@ function sanitize_bookmark_field( $field, $value, $bookmark_id, $context ) {
 /**
  * Deletes the bookmark cache.
  *
- * @since 2.7.0
+ * @since WP 2.7.0
  *
  * @param int $bookmark_id Bookmark ID.
  */

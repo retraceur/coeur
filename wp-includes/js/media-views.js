@@ -55,7 +55,7 @@ CollectionAdd = Library.extend(/** @lends wp.media.controller.CollectionAdd.prot
 	}, Library.prototype.defaults ),
 
 	/**
-	 * @since 3.9.0
+	 * @since WP 3.9.0
 	 */
 	initialize: function() {
 		var collectionType = this.get('collectionType');
@@ -76,7 +76,7 @@ CollectionAdd = Library.extend(/** @lends wp.media.controller.CollectionAdd.prot
 	},
 
 	/**
-	 * @since 3.9.0
+	 * @since WP 3.9.0
 	 */
 	activate: function() {
 		var library = this.get('library'),
@@ -173,7 +173,7 @@ CollectionEdit = Library.extend(/** @lends wp.media.controller.CollectionEdit.pr
 	},
 
 	/**
-	 * @since 3.9.0
+	 * @since WP 3.9.0
 	 */
 	initialize: function() {
 		var collectionType = this.get('collectionType');
@@ -197,7 +197,7 @@ CollectionEdit = Library.extend(/** @lends wp.media.controller.CollectionEdit.pr
 	},
 
 	/**
-	 * @since 3.9.0
+	 * @since WP 3.9.0
 	 */
 	activate: function() {
 		var library = this.get('library');
@@ -214,7 +214,7 @@ CollectionEdit = Library.extend(/** @lends wp.media.controller.CollectionEdit.pr
 	},
 
 	/**
-	 * @since 3.9.0
+	 * @since WP 3.9.0
 	 */
 	deactivate: function() {
 		// Stop watching for uploaded attachments.
@@ -231,7 +231,7 @@ CollectionEdit = Library.extend(/** @lends wp.media.controller.CollectionEdit.pr
 	 * @todo This is against the pattern elsewhere in media. Typically the frame
 	 *       is responsible for adding region mode callbacks. Explain.
 	 *
-	 * @since 3.9.0
+	 * @since WP 3.9.0
 	 *
 	 * @param {wp.media.view.attachmentsBrowser} The attachments browser view.
 	 */
@@ -314,7 +314,7 @@ Cropper = wp.media.controller.State.extend(/** @lends wp.media.controller.Croppe
 	/**
 	 * Shows the crop image window when called from the Add new image button.
 	 *
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 *
 	 * @return {void}
 	 */
@@ -327,7 +327,7 @@ Cropper = wp.media.controller.State.extend(/** @lends wp.media.controller.Croppe
 	/**
 	 * Changes the state of the toolbar window to browse mode.
 	 *
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 *
 	 * @return {void}
 	 */
@@ -340,7 +340,7 @@ Cropper = wp.media.controller.State.extend(/** @lends wp.media.controller.Croppe
 	 *
 	 * Initialized when clicking on the Select and Crop button.
 	 *
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 *
 	 * @fires crop window
 	 *
@@ -359,7 +359,7 @@ Cropper = wp.media.controller.State.extend(/** @lends wp.media.controller.Croppe
 	/**
 	 * Removes the image selection and closes the cropping window.
 	 *
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 *
 	 * @return {void}
 	 */
@@ -373,7 +373,7 @@ Cropper = wp.media.controller.State.extend(/** @lends wp.media.controller.Croppe
 	/**
 	 * Checks if cropping can be skipped and creates crop toolbar accordingly.
 	 *
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 *
 	 * @return {void}
 	 */
@@ -453,7 +453,7 @@ Cropper = wp.media.controller.State.extend(/** @lends wp.media.controller.Croppe
 	/**
 	 * Creates an object with the image attachment and crop properties.
 	 *
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 *
 	 * @return {$.promise} A jQuery promise with the custom header crop details.
 	 */
@@ -484,7 +484,7 @@ var Controller = wp.media.controller,
 /**
  * A state for cropping an image in the customizer.
  *
- * @since 4.3.0
+ * @since WP 4.3.0
  *
  * @constructs wp.media.controller.CustomizeImageCropper
  * @memberOf wp.media.controller
@@ -498,7 +498,7 @@ CustomizeImageCropper = Controller.Cropper.extend(/** @lends wp.media.controller
 	 * Uses crop measurements when flexible in both directions.
 	 * Constrains flexible side based on image ratio and size of the fixed side.
 	 *
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 *
 	 * @param {Object} attachment The attachment to crop.
 	 *
@@ -574,7 +574,7 @@ EditImage = wp.media.controller.State.extend(/** @lends wp.media.controller.Edit
 	/**
 	 * Activates a frame for editing a featured image.
 	 *
-	 * @since 3.9.0
+	 * @since WP 3.9.0
 	 *
 	 * @return {void}
 	 */
@@ -585,7 +585,7 @@ EditImage = wp.media.controller.State.extend(/** @lends wp.media.controller.Edit
 	/**
 	 * Deactivates a frame for editing a featured image.
 	 *
-	 * @since 3.9.0
+	 * @since WP 3.9.0
 	 *
 	 * @return {void}
 	 */
@@ -600,7 +600,7 @@ EditImage = wp.media.controller.State.extend(/** @lends wp.media.controller.Edit
 	 * In case there is a previous state it sets that previous state otherwise it
 	 * closes the frame.
 	 *
-	 * @since 3.9.0
+	 * @since WP 3.9.0
 	 *
 	 * @return {void}
 	 */
@@ -832,7 +832,7 @@ FeaturedImage = Library.extend(/** @lends wp.media.controller.FeaturedImage.prot
 	}, Library.prototype.defaults ),
 
 	/**
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 */
 	initialize: function() {
 		var library, comparator;
@@ -868,7 +868,7 @@ FeaturedImage = Library.extend(/** @lends wp.media.controller.FeaturedImage.prot
 	},
 
 	/**
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 */
 	activate: function() {
 		this.frame.on( 'open', this.updateSelection, this );
@@ -877,7 +877,7 @@ FeaturedImage = Library.extend(/** @lends wp.media.controller.FeaturedImage.prot
 	},
 
 	/**
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 */
 	deactivate: function() {
 		this.frame.off( 'open', this.updateSelection, this );
@@ -886,7 +886,7 @@ FeaturedImage = Library.extend(/** @lends wp.media.controller.FeaturedImage.prot
 	},
 
 	/**
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 */
 	updateSelection: function() {
 		var selection = this.get('selection'),
@@ -920,7 +920,7 @@ var Selection = wp.media.model.Selection,
  *
  * A state for selecting more images to add to a gallery.
  *
- * @since 3.5.0
+ * @since WP 3.5.0
  *
  * @class
  * @augments wp.media.controller.Library
@@ -965,7 +965,7 @@ GalleryAdd = Library.extend(/** @lends wp.media.controller.GalleryAdd.prototype 
 	/**
 	 * Initializes the library. Creates a library of images if a library isn't supplied.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @return {void}
 	 */
@@ -983,7 +983,7 @@ GalleryAdd = Library.extend(/** @lends wp.media.controller.GalleryAdd.prototype 
 	 * Removes all event listeners if in edit mode. Creates a validator to check an attachment.
 	 * Resets library and re-enables event listeners. Activates edit mode. Calls the parent's activate method.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @return {void}
 	 */
@@ -1033,7 +1033,7 @@ var Library = wp.media.controller.Library,
  *
  * A state for editing a gallery's images and settings.
  *
- * @since 3.5.0
+ * @since WP 3.5.0
  *
  * @class
  * @augments wp.media.controller.Library
@@ -1090,7 +1090,7 @@ GalleryEdit = Library.extend(/** @lends wp.media.controller.GalleryEdit.prototyp
 	 * Creates a selection if a library isn't supplied and creates an attachment
 	 * view if no attachment view is supplied.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @return {void}
 	 */
@@ -1114,7 +1114,7 @@ GalleryEdit = Library.extend(/** @lends wp.media.controller.GalleryEdit.prototyp
 	 * Limits the library to images, watches for uploaded attachments. Watches for
 	 * the browse event on the frame and binds it to gallerySettings.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @return {void}
 	 */
@@ -1137,7 +1137,7 @@ GalleryEdit = Library.extend(/** @lends wp.media.controller.GalleryEdit.prototyp
 	 *
 	 * Stops watching for uploaded attachments and browse events.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @return {void}
 	 */
@@ -1154,7 +1154,7 @@ GalleryEdit = Library.extend(/** @lends wp.media.controller.GalleryEdit.prototyp
 	 * Adds the gallery settings to the sidebar and adds a reverse button to the
 	 * toolbar.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @param {wp.media.view.Frame} browser The file browser.
 	 *
@@ -1244,7 +1244,7 @@ ImageDetails = State.extend(/** @lends wp.media.controller.ImageDetails.prototyp
 	}, Library.prototype.defaults ),
 
 	/**
-	 * @since 3.9.0
+	 * @since WP 3.9.0
 	 *
 	 * @param options Attributes
 	 */
@@ -1254,7 +1254,7 @@ ImageDetails = State.extend(/** @lends wp.media.controller.ImageDetails.prototyp
 	},
 
 	/**
-	 * @since 3.9.0
+	 * @since WP 3.9.0
 	 */
 	activate: function() {
 		this.frame.modal.$el.addClass('image-details');
@@ -1332,7 +1332,7 @@ Library = wp.media.controller.State.extend(/** @lends wp.media.controller.Librar
 	 * If a library isn't provided, query all media items.
 	 * If a selection instance isn't provided, create one.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 */
 	initialize: function() {
 		var selection = this.get('selection'),
@@ -1360,7 +1360,7 @@ Library = wp.media.controller.State.extend(/** @lends wp.media.controller.Librar
 	},
 
 	/**
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 */
 	activate: function() {
 		this.syncSelection();
@@ -1376,7 +1376,7 @@ Library = wp.media.controller.State.extend(/** @lends wp.media.controller.Librar
 	},
 
 	/**
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 */
 	deactivate: function() {
 		this.recordSelection();
@@ -1393,7 +1393,7 @@ Library = wp.media.controller.State.extend(/** @lends wp.media.controller.Librar
 	/**
 	 * Reset the library to its initial state.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 */
 	reset: function() {
 		this.get('selection').reset();
@@ -1406,7 +1406,7 @@ Library = wp.media.controller.State.extend(/** @lends wp.media.controller.Librar
 	 *
 	 * If site options don't define them, fall back to a persistent user setting.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 */
 	resetDisplays: function() {
 		var defaultProps = wp.media.view.settings.defaultProps;
@@ -1421,7 +1421,7 @@ Library = wp.media.controller.State.extend(/** @lends wp.media.controller.Librar
 	/**
 	 * Create a model to represent display settings (alignment, etc.) for an attachment.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @param {wp.media.model.Attachment} attachment
 	 * @return {Backbone.Model}
@@ -1438,7 +1438,7 @@ Library = wp.media.controller.State.extend(/** @lends wp.media.controller.Librar
 	/**
 	 * Given an attachment, create attachment display settings properties.
 	 *
-	 * @since 3.6.0
+	 * @since WP 3.6.0
 	 *
 	 * @param {wp.media.model.Attachment} attachment
 	 * @return {Object}
@@ -1459,7 +1459,7 @@ Library = wp.media.controller.State.extend(/** @lends wp.media.controller.Librar
 	/**
 	 * Whether an attachment is image.
 	 *
-	 * @since 4.4.1
+	 * @since WP 4.4.1
 	 *
 	 * @param {wp.media.model.Attachment} attachment
 	 * @return {boolean}
@@ -1476,7 +1476,7 @@ Library = wp.media.controller.State.extend(/** @lends wp.media.controller.Librar
 	/**
 	 * Whether an attachment can be embedded (audio or video).
 	 *
-	 * @since 3.6.0
+	 * @since WP 3.6.0
 	 *
 	 * @param {wp.media.model.Attachment} attachment
 	 * @return {boolean}
@@ -1499,7 +1499,7 @@ Library = wp.media.controller.State.extend(/** @lends wp.media.controller.Librar
 	 * content mode is not an option in the state's router (provided
 	 * the state has a router), reset the content mode to the default.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 */
 	refreshContent: function() {
 		var selection = this.get('selection'),
@@ -1523,7 +1523,7 @@ Library = wp.media.controller.State.extend(/** @lends wp.media.controller.Librar
 	 * attachments are uploaded, the last attachment in the upload queue will
 	 * be selected.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @param {wp.media.model.Attachment} attachment
 	 */
@@ -1543,7 +1543,7 @@ Library = wp.media.controller.State.extend(/** @lends wp.media.controller.Librar
 	/**
 	 * Persist the mode of the content region as a user setting.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 */
 	saveContentMode: function() {
 		if ( 'browse' !== this.get('router') ) {
@@ -1595,7 +1595,7 @@ MediaLibrary = Library.extend(/** @lends wp.media.controller.MediaLibrary.protot
 	}, Library.prototype.defaults ),
 
 	/**
-	 * @since 3.9.0
+	 * @since WP 3.9.0
 	 *
 	 * @param options
 	 */
@@ -1608,7 +1608,7 @@ MediaLibrary = Library.extend(/** @lends wp.media.controller.MediaLibrary.protot
 	},
 
 	/**
-	 * @since 3.9.0
+	 * @since WP 3.9.0
 	 */
 	activate: function() {
 		// @todo this should use this.frame.
@@ -1661,7 +1661,7 @@ _.extend( Region.prototype,/** @lends wp.media.controller.Region.prototype */{
 	/**
 	 * Activate a mode.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @param {string} mode
 	 *
@@ -1700,7 +1700,7 @@ _.extend( Region.prototype,/** @lends wp.media.controller.Region.prototype */{
 	/**
 	 * Render a mode.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @param {string} mode
 	 *
@@ -1748,7 +1748,7 @@ _.extend( Region.prototype,/** @lends wp.media.controller.Region.prototype */{
 	/**
 	 * Get the region's view.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @return {wp.media.View}
 	 */
@@ -1759,7 +1759,7 @@ _.extend( Region.prototype,/** @lends wp.media.controller.Region.prototype */{
 	/**
 	 * Set the region's view as a subview of the frame.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @param {Array|Object} views
 	 * @param {Object} [options={}]
@@ -1775,7 +1775,7 @@ _.extend( Region.prototype,/** @lends wp.media.controller.Region.prototype */{
 	/**
 	 * Trigger regional view events on the frame.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @param {string} event
 	 * @return {undefined|wp.media.controller.Region} Returns itself to allow chaining.
@@ -1859,7 +1859,7 @@ ReplaceImage = Library.extend(/** @lends wp.media.controller.ReplaceImage.protot
 	}, Library.prototype.defaults ),
 
 	/**
-	 * @since 3.9.0
+	 * @since WP 3.9.0
 	 *
 	 * @param options
 	 */
@@ -1898,7 +1898,7 @@ ReplaceImage = Library.extend(/** @lends wp.media.controller.ReplaceImage.protot
 	},
 
 	/**
-	 * @since 3.9.0
+	 * @since WP 3.9.0
 	 */
 	activate: function() {
 		this.frame.on( 'content:render:browse', this.updateSelection, this );
@@ -1907,7 +1907,7 @@ ReplaceImage = Library.extend(/** @lends wp.media.controller.ReplaceImage.protot
 	},
 
 	/**
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 */
 	deactivate: function() {
 		this.frame.off( 'content:render:browse', this.updateSelection, this );
@@ -1916,7 +1916,7 @@ ReplaceImage = Library.extend(/** @lends wp.media.controller.ReplaceImage.protot
 	},
 
 	/**
-	 * @since 3.9.0
+	 * @since WP 3.9.0
 	 */
 	updateSelection: function() {
 		var selection = this.get('selection'),
@@ -2000,7 +2000,7 @@ module.exports = SiteIconCropper;
  *
  * @memberOf wp.media.controller
  *
- * @since 3.5.0
+ * @since WP 3.5.0
  *
  * @class
  * @augments Backbone.Model
@@ -2025,7 +2025,7 @@ _.extend( StateMachine.prototype, Backbone.Events,/** @lends wp.media.controller
 	 * Ensure that the `states` collection exists so the `StateMachine`
 	 * can be used as a mixin.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @param {string} id
 	 * @return {wp.media.controller.State} Returns a State model from
@@ -2050,7 +2050,7 @@ _.extend( StateMachine.prototype, Backbone.Events,/** @lends wp.media.controller
 	 * created the `states` collection, or are trying to select a state
 	 * that does not exist.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @param {string} id
 	 *
@@ -2083,7 +2083,7 @@ _.extend( StateMachine.prototype, Backbone.Events,/** @lends wp.media.controller
 	 * Call the `state()` method with no parameters to retrieve the current
 	 * active state.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @return {wp.media.controller.State} Returns a State model from
 	 *                                     the StateMachine collection.
@@ -2156,7 +2156,7 @@ var State = Backbone.Model.extend(/** @lends wp.media.controller.State.prototype
 	/**
 	 * Constructor.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 */
 	constructor: function() {
 		this.on( 'activate', this._preActivate, this );
@@ -2177,7 +2177,7 @@ var State = Backbone.Model.extend(/** @lends wp.media.controller.State.prototype
 	 * Ready event callback.
 	 *
 	 * @abstract
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 */
 	ready: function() {},
 
@@ -2185,7 +2185,7 @@ var State = Backbone.Model.extend(/** @lends wp.media.controller.State.prototype
 	 * Activate event callback.
 	 *
 	 * @abstract
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 */
 	activate: function() {},
 
@@ -2193,7 +2193,7 @@ var State = Backbone.Model.extend(/** @lends wp.media.controller.State.prototype
 	 * Deactivate event callback.
 	 *
 	 * @abstract
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 */
 	deactivate: function() {},
 
@@ -2201,12 +2201,12 @@ var State = Backbone.Model.extend(/** @lends wp.media.controller.State.prototype
 	 * Reset event callback.
 	 *
 	 * @abstract
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 */
 	reset: function() {},
 
 	/**
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 * @access private
 	 */
 	_ready: function() {
@@ -2214,7 +2214,7 @@ var State = Backbone.Model.extend(/** @lends wp.media.controller.State.prototype
 	},
 
 	/**
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 * @access private
 	*/
 	_preActivate: function() {
@@ -2222,7 +2222,7 @@ var State = Backbone.Model.extend(/** @lends wp.media.controller.State.prototype
 	},
 
 	/**
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 * @access private
 	 */
 	_postActivate: function() {
@@ -2241,7 +2241,7 @@ var State = Backbone.Model.extend(/** @lends wp.media.controller.State.prototype
 	},
 
 	/**
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 * @access private
 	 */
 	_deactivate: function() {
@@ -2256,7 +2256,7 @@ var State = Backbone.Model.extend(/** @lends wp.media.controller.State.prototype
 	},
 
 	/**
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 * @access private
 	 */
 	_title: function() {
@@ -2264,7 +2264,7 @@ var State = Backbone.Model.extend(/** @lends wp.media.controller.State.prototype
 	},
 
 	/**
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 * @access private
 	 */
 	_renderTitle: function( view ) {
@@ -2272,7 +2272,7 @@ var State = Backbone.Model.extend(/** @lends wp.media.controller.State.prototype
 	},
 
 	/**
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 * @access private
 	 */
 	_router: function() {
@@ -2294,7 +2294,7 @@ var State = Backbone.Model.extend(/** @lends wp.media.controller.State.prototype
 	},
 
 	/**
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 * @access private
 	 */
 	_menu: function() {
@@ -2323,7 +2323,7 @@ var State = Backbone.Model.extend(/** @lends wp.media.controller.State.prototype
 	},
 
 	/**
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 * @access private
 	 */
 	_updateMenu: function() {
@@ -2342,7 +2342,7 @@ var State = Backbone.Model.extend(/** @lends wp.media.controller.State.prototype
 	/**
 	 * Create a view in the media menu for the state.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 * @access private
 	 *
 	 * @param {media.view.Menu} view The menu view.
@@ -2402,7 +2402,7 @@ module.exports = State;
  */
 var selectionSync = {
 	/**
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 */
 	syncSelection: function() {
 		var selection = this.get('selection'),
@@ -2434,7 +2434,7 @@ var selectionSync = {
 	 * attachments that this specific selection considered invalid.
 	 * Reset the difference and record the single attachment.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 */
 	recordSelection: function() {
 		var selection = this.get('selection'),
@@ -3524,7 +3524,7 @@ Details = Attachment.extend(/** @lends wp.media.view.Attachment.Details.prototyp
 	/**
 	 * Copies the attachment URL to the clipboard.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @param {MouseEvent} event A click event.
 	 *
@@ -3558,7 +3558,7 @@ Details = Attachment.extend(/** @lends wp.media.view.Attachment.Details.prototyp
 	/**
 	 * Shows the details of an attachment.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @constructs wp.media.view.Attachment.Details
 	 * @augments wp.media.view.Attachment
@@ -3579,7 +3579,7 @@ Details = Attachment.extend(/** @lends wp.media.view.Attachment.Details.prototyp
 	/**
 	 * Gets the focusable elements to move focus to.
 	 *
-	 * @since 5.3.0
+	 * @since WP 5.3.0
 	 */
 	getFocusableElements: function() {
 		var editedAttachment = $( 'li[data-id="' + this.model.id + '"]' );
@@ -3592,7 +3592,7 @@ Details = Attachment.extend(/** @lends wp.media.view.Attachment.Details.prototyp
 	 * Moves focus to the previous or next attachment in the grid.
 	 * Fallbacks to the upload button or media frame when there are no attachments.
 	 *
-	 * @since 5.3.0
+	 * @since WP 5.3.0
 	 */
 	moveFocus: function() {
 		if ( this.previousAttachment.length ) {
@@ -3618,7 +3618,7 @@ Details = Attachment.extend(/** @lends wp.media.view.Attachment.Details.prototyp
 	/**
 	 * Moves focus to the media frame as last fallback.
 	 *
-	 * @since 5.3.0
+	 * @since WP 5.3.0
 	 */
 	moveFocusToLastFallback: function() {
 		// Last fallback: make the frame focusable and move focus to it.
@@ -3633,7 +3633,7 @@ Details = Attachment.extend(/** @lends wp.media.view.Attachment.Details.prototyp
 	 * Deletes an attachment after asking for confirmation. After deletion,
 	 * keeps focus in the modal.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @param {MouseEvent} event A click event.
 	 *
@@ -3662,7 +3662,7 @@ Details = Attachment.extend(/** @lends wp.media.view.Attachment.Details.prototyp
 	 * If the mediaTrash setting is set to true, trashes the attachment.
 	 * Otherwise, the model itself is destroyed.
 	 *
-	 * @since 3.9.0
+	 * @since WP 3.9.0
 	 *
 	 * @param {MouseEvent} event A click event.
 	 *
@@ -3699,7 +3699,7 @@ Details = Attachment.extend(/** @lends wp.media.view.Attachment.Details.prototyp
 	/**
 	 * Untrashes an attachment.
 	 *
-	 * @since 4.0.0
+	 * @since WP 4.0.0
 	 *
 	 * @param {MouseEvent} event A click event.
 	 *
@@ -3718,7 +3718,7 @@ Details = Attachment.extend(/** @lends wp.media.view.Attachment.Details.prototyp
 	/**
 	 * Opens the edit page for a specific attachment.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @param {MouseEvent} event A click event.
 	 *
@@ -3741,7 +3741,7 @@ Details = Attachment.extend(/** @lends wp.media.view.Attachment.Details.prototyp
 	 *
 	 * This event can be used to make sure to move the focus correctly.
 	 *
-	 * @since 4.0.0
+	 * @since WP 4.0.0
 	 *
 	 * @fires wp.media.controller.MediaLibrary#attachment:details:shift-tab
 	 * @fires wp.media.controller.MediaLibrary#attachment:keydown:arrow
@@ -3900,7 +3900,7 @@ Attachments = View.extend(/** @lends wp.media.view.Attachments.prototype */{
 	 * The constructor binds events to the collection this view represents when
 	 * adding or removing attachments or resetting the entire collection.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @constructs
 	 * @memberof wp.media.view
@@ -3919,7 +3919,7 @@ Attachments = View.extend(/** @lends wp.media.view.Attachments.prototype */{
 		this.el.id = _.uniqueId('__attachments-view-');
 
 		/**
-		 * @since 5.8.0 Added the `infiniteScrolling` parameter.
+		 * @since WP 5.8.0 Added the `infiniteScrolling` parameter.
 		 *
 		 * @param infiniteScrolling  Whether to enable infinite scrolling or use
 		 *                           the default "load more" button.
@@ -4003,7 +4003,7 @@ Attachments = View.extend(/** @lends wp.media.view.Attachments.prototype */{
 	 * Adjusts the amount of columns accordingly. First removes any existing event
 	 * handlers to prevent duplicate listeners.
 	 *
-	 * @since 4.0.0
+	 * @since WP 4.0.0
 	 *
 	 * @listens window:resize
 	 *
@@ -4016,7 +4016,7 @@ Attachments = View.extend(/** @lends wp.media.view.Attachments.prototype */{
 	/**
 	 * Focuses the first item in the collection.
 	 *
-	 * @since 4.0.0
+	 * @since WP 4.0.0
 	 *
 	 * @return {void}
 	 */
@@ -4043,7 +4043,7 @@ Attachments = View.extend(/** @lends wp.media.view.Attachments.prototype */{
 	 * tabbing backwards from the attachment details sidebar.
 	 * See media.view.AttachmentsBrowser.
 	 *
-	 * @since 4.0.0
+	 * @since WP 4.0.0
 	 *
 	 * @return {void}
 	 */
@@ -4056,7 +4056,7 @@ Attachments = View.extend(/** @lends wp.media.view.Attachments.prototype */{
 	 *
 	 * Focuses the attachment in the direction of the used arrow key if it exists.
 	 *
-	 * @since 4.0.0
+	 * @since WP 4.0.0
 	 *
 	 * @param {KeyboardEvent} event The keyboard event that triggered this function.
 	 *
@@ -4108,7 +4108,7 @@ Attachments = View.extend(/** @lends wp.media.view.Attachments.prototype */{
 	/**
 	 * Clears any set event handlers.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @return {void}
 	 */
@@ -4128,7 +4128,7 @@ Attachments = View.extend(/** @lends wp.media.view.Attachments.prototype */{
 	 * Calculates the amount of columns and sets it on the data-columns attribute
 	 * of .media-frame-content.
 	 *
-	 * @since 4.0.0
+	 * @since WP 4.0.0
 	 *
 	 * @return {void}
 	 */
@@ -4151,7 +4151,7 @@ Attachments = View.extend(/** @lends wp.media.view.Attachments.prototype */{
 	 * Fails gracefully if jQuery sortable doesn't exist or isn't passed
 	 * in the options.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @fires collection:reset
 	 *
@@ -4227,7 +4227,7 @@ Attachments = View.extend(/** @lends wp.media.view.Attachments.prototype */{
 	 * Disables jQuery sortable if collection has a comparator or collection.orderby
 	 * equals menuOrder.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @return {void}
 	 */
@@ -4246,7 +4246,7 @@ Attachments = View.extend(/** @lends wp.media.view.Attachments.prototype */{
 	/**
 	 * Creates a new view for an attachment and adds it to _viewsByCid.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @param {wp.media.model.Attachment} attachment
 	 *
@@ -4269,7 +4269,7 @@ Attachments = View.extend(/** @lends wp.media.view.Attachments.prototype */{
 	 * Creates views for every attachment in collection if the collection is not
 	 * empty, otherwise clears all views and loads more attachments.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @return {void}
 	 */
@@ -4288,7 +4288,7 @@ Attachments = View.extend(/** @lends wp.media.view.Attachments.prototype */{
 	 * Triggers the scroll function to check if we should query for additional
 	 * attachments right away.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @return {void}
 	 */
@@ -4304,7 +4304,7 @@ Attachments = View.extend(/** @lends wp.media.view.Attachments.prototype */{
 	 * Shows the spinner if we're close to the bottom. Loads more attachments from
 	 * server if we're {refreshThreshold} times away from the bottom.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @return {void}
 	 */
@@ -4469,7 +4469,7 @@ AttachmentsBrowser = View.extend(/** @lends wp.media.view.AttachmentsBrowser.pro
 	 * the number of search results to screen reader users. This function is
 	 * debounced because the collection updates multiple times.
 	 *
-	 * @since 5.3.0
+	 * @since WP 5.3.0
 	 *
 	 * @return {void}
 	 */
@@ -4816,7 +4816,7 @@ AttachmentsBrowser = View.extend(/** @lends wp.media.view.AttachmentsBrowser.pro
 	/**
 	 * Creates the Attachments wrapper view.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @return {void}
 	 */
@@ -4866,7 +4866,7 @@ AttachmentsBrowser = View.extend(/** @lends wp.media.view.AttachmentsBrowser.pro
 	/**
 	 * Creates the load more button and attachments counter view.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @return {void}
 	 */
@@ -4917,7 +4917,7 @@ AttachmentsBrowser = View.extend(/** @lends wp.media.view.AttachmentsBrowser.pro
 	 * collection updates multiple times at the add, remove, and reset events.
 	 * We need it to run only once, after all attachments are added or removed.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @return {void}
 	 */
@@ -4970,7 +4970,7 @@ AttachmentsBrowser = View.extend(/** @lends wp.media.view.AttachmentsBrowser.pro
 	/**
 	 * Loads more attachments.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @return {void}
 	 */
@@ -5004,7 +5004,7 @@ AttachmentsBrowser = View.extend(/** @lends wp.media.view.AttachmentsBrowser.pro
 	/**
 	 * Moves focus to the first new added item.	.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @return {void}
 	 */
@@ -5754,7 +5754,7 @@ var FocusManager = wp.media.View.extend(/** @lends wp.media.view.FocusManager.pr
 	 *
 	 * @param {Object} options The Focus Manager options.
 	 *
-	 * @since 5.3.0
+	 * @since WP 5.3.0
 	 *
 	 * @return {void}
 	 */
@@ -5766,7 +5766,7 @@ var FocusManager = wp.media.View.extend(/** @lends wp.media.view.FocusManager.pr
  	/**
 	 * Determines which focus management mode to use.
 	 *
-	 * @since 5.3.0
+	 * @since WP 5.3.0
 	 *
 	 * @param {Object} event jQuery event object.
 	 *
@@ -5785,7 +5785,7 @@ var FocusManager = wp.media.View.extend(/** @lends wp.media.view.FocusManager.pr
 	/**
 	 * Gets all the tabbable elements.
 	 *
-	 * @since 5.3.0
+	 * @since WP 5.3.0
 	 *
 	 * @return {Object} A jQuery collection of tabbable elements.
 	 */
@@ -5797,7 +5797,7 @@ var FocusManager = wp.media.View.extend(/** @lends wp.media.view.FocusManager.pr
 	/**
 	 * Moves focus to the modal dialog.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @return {void}
 	 */
@@ -5808,7 +5808,7 @@ var FocusManager = wp.media.View.extend(/** @lends wp.media.view.FocusManager.pr
 	/**
 	 * Constrains navigation with the Tab key within the media view element.
 	 *
-	 * @since 4.0.0
+	 * @since WP 4.0.0
 	 *
 	 * @param {Object} event A keydown jQuery event.
 	 *
@@ -5845,7 +5845,7 @@ var FocusManager = wp.media.View.extend(/** @lends wp.media.view.FocusManager.pr
 	 * prevents the `wp.a11y.speak()` ARIA live regions to work as they're outside
 	 * of the modal dialog and get hidden from assistive technologies.
 	 *
-	 * @since 5.2.3
+	 * @since WP 5.2.3
 	 *
 	 * @param {Object} visibleElement The jQuery object representing the element that should not be hidden.
 	 *
@@ -5886,7 +5886,7 @@ var FocusManager = wp.media.View.extend(/** @lends wp.media.view.FocusManager.pr
 	 * Makes visible again to assistive technologies all the body children
 	 * previously hidden and stored in this.ariaHiddenElements.
 	 *
-	 * @since 5.2.3
+	 * @since WP 5.2.3
 	 *
 	 * @return {void}
 	 */
@@ -5902,7 +5902,7 @@ var FocusManager = wp.media.View.extend(/** @lends wp.media.view.FocusManager.pr
 	/**
 	 * Determines if the passed element should not be hidden from assistive technologies.
 	 *
-	 * @since 5.2.3
+	 * @since WP 5.2.3
 	 *
 	 * @param {Object} element The DOM element that should be checked.
 	 *
@@ -5927,7 +5927,7 @@ var FocusManager = wp.media.View.extend(/** @lends wp.media.view.FocusManager.pr
 	/**
 	 * Whether the body children are hidden from assistive technologies.
 	 *
-	 * @since 5.2.3
+	 * @since WP 5.2.3
 	 */
 	isBodyAriaHidden: false,
 
@@ -5935,21 +5935,21 @@ var FocusManager = wp.media.View.extend(/** @lends wp.media.view.FocusManager.pr
 	 * Stores an array of DOM elements that should be hidden from assistive
 	 * technologies, for example when the media modal dialog opens.
 	 *
-	 * @since 5.2.3
+	 * @since WP 5.2.3
 	 */
 	ariaHiddenElements: [],
 
 	/**
 	 * Holds the jQuery collection of ARIA tabs.
 	 *
-	 * @since 5.3.0
+	 * @since WP 5.3.0
 	 */
 	tabs: $(),
 
 	/**
 	 * Sets up tabs in an ARIA tabbed interface.
 	 *
-	 * @since 5.3.0
+	 * @since WP 5.3.0
 	 *
 	 * @param {Object} event jQuery event object.
 	 *
@@ -5973,7 +5973,7 @@ var FocusManager = wp.media.View.extend(/** @lends wp.media.view.FocusManager.pr
 	/**
 	 * Enables arrows navigation within the ARIA tabbed interface.
 	 *
-	 * @since 5.3.0
+	 * @since WP 5.3.0
 	 *
 	 * @param {Object} event jQuery event object.
 	 *
@@ -6009,7 +6009,7 @@ var FocusManager = wp.media.View.extend(/** @lends wp.media.view.FocusManager.pr
 	/**
 	 * Switches tabs in the ARIA tabbed interface.
 	 *
-	 * @since 5.3.0
+	 * @since WP 5.3.0
 	 *
 	 * @param {Object} event jQuery event object.
 	 *
@@ -6060,7 +6060,7 @@ var FocusManager = wp.media.View.extend(/** @lends wp.media.view.FocusManager.pr
 	/**
 	 * Sets a single tab to be focusable and semantically selected.
 	 *
-	 * @since 5.3.0
+	 * @since WP 5.3.0
 	 *
 	 * @param {Object} tab The tab DOM element.
 	 *
@@ -7775,7 +7775,7 @@ MediaFrame = Frame.extend(/** @lends wp.media.view.MediaFrame.prototype */{
 	/**
 	 * Sets the attributes to be used on the menu ARIA tab panel.
 	 *
-	 * @since 5.3.0
+	 * @since WP 5.3.0
 	 *
 	 * @return {void}
 	 */
@@ -7802,7 +7802,7 @@ MediaFrame = Frame.extend(/** @lends wp.media.view.MediaFrame.prototype */{
 	/**
 	 * Sets the attributes to be used on the router ARIA tab panel.
 	 *
-	 * @since 5.3.0
+	 * @since WP 5.3.0
 	 *
 	 * @return {void}
 	 */
@@ -8454,7 +8454,7 @@ Modal = wp.media.View.extend(/** @lends wp.media.view.Modal.prototype */{
 	/**
 	 * Handles the selection of attachments when the command or control key is pressed with the enter key.
 	 *
-	 * @since 6.7
+	 * @since WP 6.7
 	 *
 	 * @param {Object} event The keydown event object.
 	 */
@@ -9277,7 +9277,7 @@ module.exports = SiteIconPreview;
  *
  * Represents a spinner in the Media Library.
  *
- * @since 3.9.0
+ * @since WP 3.9.0
  *
  * @memberOf wp.media.view
  *
@@ -9295,7 +9295,7 @@ var Spinner = wp.media.View.extend(/** @lends wp.media.view.Spinner.prototype */
 	/**
 	 * Shows the spinner. Delays the visibility by the configured amount.
 	 *
-	 * @since 3.9.0
+	 * @since WP 3.9.0
 	 *
 	 * @return {wp.media.view.Spinner} The spinner.
 	 */
@@ -9312,7 +9312,7 @@ var Spinner = wp.media.View.extend(/** @lends wp.media.view.Spinner.prototype */
 	/**
 	 * Hides the spinner.
 	 *
-	 * @since 3.9.0
+	 * @since WP 3.9.0
 	 *
 	 * @return {wp.media.view.Spinner} The spinner.
 	 */
@@ -10283,7 +10283,6 @@ UploaderWindow = wp.media.View.extend(/** @lends wp.media.view.UploaderWindow.pr
 			}
 		});
 
-		// https://core.trac.wordpress.org/ticket/27341
 		_.delay( function() {
 			if ( '0' === $el.css('opacity') && $el.is(':visible') ) {
 				$el.hide();

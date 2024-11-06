@@ -13,7 +13,7 @@ if ( is_network_admin() ) {
 	 *
 	 * The hook fires before menus and sub-menus are removed based on user privileges.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 * @access private
 	 */
 	do_action( '_network_admin_menu' );
@@ -24,7 +24,7 @@ if ( is_network_admin() ) {
 	 *
 	 * The hook fires before menus and sub-menus are removed based on user privileges.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 * @access private
 	 */
 	do_action( '_user_admin_menu' );
@@ -35,7 +35,7 @@ if ( is_network_admin() ) {
 	 *
 	 * The hook fires before menus and sub-menus are removed based on user privileges.
 	 *
-	 * @since 2.2.0
+	 * @since WP 2.2.0
 	 * @access private
 	 */
 	do_action( '_admin_menu' );
@@ -134,7 +134,7 @@ if ( is_network_admin() ) {
 	/**
 	 * Fires before the administration menu loads in the Network Admin.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @param string $context Empty context.
 	 */
@@ -144,7 +144,7 @@ if ( is_network_admin() ) {
 	/**
 	 * Fires before the administration menu loads in the User Admin.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @param string $context Empty context.
 	 */
@@ -154,7 +154,7 @@ if ( is_network_admin() ) {
 	/**
 	 * Fires before the administration menu loads in the admin.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 *
 	 * @param string $context Empty context.
 	 */
@@ -196,7 +196,7 @@ unset( $id, $data, $subs, $first_sub );
 /**
  * Adds a CSS class to a string.
  *
- * @since 2.7.0
+ * @since WP 2.7.0
  *
  * @param string $class_to_add The CSS class to add.
  * @param string $classes      The string to add the CSS class to.
@@ -215,7 +215,7 @@ function add_cssclass( $class_to_add, $classes ) {
  *
  * The list of added classes includes `.menu-top-first` and `.menu-top-last`.
  *
- * @since 2.7.0
+ * @since WP 2.7.0
  *
  * @param array $menu The array of administration menu items.
  * @return array The array of administration menu items with the CSS classes added.
@@ -263,7 +263,7 @@ function add_menu_classes( $menu ) {
 	/**
 	 * Filters administration menu array with classes added for top-level items.
 	 *
-	 * @since 2.7.0
+	 * @since WP 2.7.0
 	 *
 	 * @param array $menu Associative array of administration menu items.
 	 */
@@ -277,7 +277,7 @@ uksort( $menu, 'strnatcasecmp' ); // Make it all pretty.
  *
  * See the {@see 'menu_order'} filter for reordering menu items.
  *
- * @since 2.8.0
+ * @since WP 2.8.0
  *
  * @param bool $custom Whether custom ordering is enabled. Default false.
  */
@@ -299,7 +299,7 @@ if ( apply_filters( 'custom_menu_order', false ) ) {
 	 *
 	 *     add_filter( 'custom_menu_order', '__return_true' );
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @param array $menu_order An ordered array of menu items.
 	 */
@@ -373,7 +373,7 @@ if ( ! user_can_access_admin_page() ) {
 	/**
 	 * Fires when access to an admin page is denied.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 */
 	do_action( 'admin_page_access_denied' );
 

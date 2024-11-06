@@ -4,13 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage Widgets
- * @since 4.4.0
+ * @since WP 4.4.0
  */
 
 /**
  * Core class used to implement a Text widget.
  *
- * @since 2.8.0
+ * @since WP 2.8.0
  *
  * @see WP_Widget
  */
@@ -19,7 +19,7 @@ class WP_Widget_Text extends WP_Widget {
 	/**
 	 * Whether or not the widget has been registered yet.
 	 *
-	 * @since 4.8.1
+	 * @since WP 4.8.1
 	 * @var bool
 	 */
 	protected $registered = false;
@@ -27,7 +27,7 @@ class WP_Widget_Text extends WP_Widget {
 	/**
 	 * Sets up a new Text widget instance.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 */
 	public function __construct() {
 		$widget_ops  = array(
@@ -76,7 +76,7 @@ class WP_Widget_Text extends WP_Widget {
 	/**
 	 * Determines whether a given instance is legacy and should bypass using TinyMCE.
 	 *
-	 * @since 4.8.1
+	 * @since WP 4.8.1
 	 *
 	 * @param array $instance {
 	 *     Instance data.
@@ -201,7 +201,7 @@ class WP_Widget_Text extends WP_Widget {
 	 * Prevents all of a site's attachments from being shown in a gallery displayed on a
 	 * non-singular template where a $post context is not available.
 	 *
-	 * @since 4.9.0
+	 * @since WP 4.9.0
 	 *
 	 * @param array $attrs Attributes.
 	 * @return array Attributes.
@@ -216,7 +216,7 @@ class WP_Widget_Text extends WP_Widget {
 	/**
 	 * Outputs the content for the current Text widget instance.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @global WP_Post $post Global post object.
 	 *
@@ -272,9 +272,9 @@ class WP_Widget_Text extends WP_Widget {
 		/**
 		 * Filters the content of the Text widget.
 		 *
-		 * @since 2.3.0
-		 * @since 4.4.0 Added the `$widget` parameter.
-		 * @since 4.8.1 The `$widget` param may now be a `WP_Widget_Custom_HTML` object in addition to a `WP_Widget_Text` object.
+		 * @since WP 2.3.0
+		 * @since WP 4.4.0 Added the `$widget` parameter.
+		 * @since WP 4.8.1 The `$widget` param may now be a `WP_Widget_Custom_HTML` object in addition to a `WP_Widget_Text` object.
 		 *
 		 * @param string                               $text     The widget content.
 		 * @param array                                $instance Array of settings for the current widget.
@@ -289,7 +289,7 @@ class WP_Widget_Text extends WP_Widget {
 			 *
 			 * By default a subset of the_content filters are applied, including wpautop and wptexturize.
 			 *
-			 * @since 4.8.0
+			 * @since WP 4.8.0
 			 *
 			 * @param string         $text     The widget content.
 			 * @param array          $instance Array of settings for the current widget.
@@ -343,7 +343,7 @@ class WP_Widget_Text extends WP_Widget {
 	/**
 	 * Injects max-width and removes height for videos too constrained to fit inside sidebars on frontend.
 	 *
-	 * @since 4.9.0
+	 * @since WP 4.9.0
 	 *
 	 * @see WP_Widget_Media_Video::inject_video_max_width_style()
 	 *
@@ -361,7 +361,7 @@ class WP_Widget_Text extends WP_Widget {
 	/**
 	 * Handles updating settings for the current Text widget instance.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @param array $new_instance New settings for this instance as input by the user via
 	 *                            WP_Widget::form().
@@ -417,7 +417,7 @@ class WP_Widget_Text extends WP_Widget {
 	 * However, in the customizer, a playlist shortcode may be used in a text widget and
 	 * dynamically added via selective refresh, so it is important to unconditionally enqueue them.
 	 *
-	 * @since 4.9.3
+	 * @since WP 4.9.3
 	 */
 	public function enqueue_preview_scripts() {
 		require_once dirname( __DIR__ ) . '/media.php';
@@ -429,7 +429,7 @@ class WP_Widget_Text extends WP_Widget {
 	/**
 	 * Loads the required scripts and styles for the widget control.
 	 *
-	 * @since 4.8.0
+	 * @since WP 4.8.0
 	 */
 	public function enqueue_admin_scripts() {
 		wp_enqueue_editor();
@@ -442,9 +442,9 @@ class WP_Widget_Text extends WP_Widget {
 	/**
 	 * Outputs the Text widget settings form.
 	 *
-	 * @since 2.8.0
-	 * @since 4.8.0 Form only contains hidden inputs which are synced with JS template.
-	 * @since 4.8.1 Restored original form to be displayed when in legacy mode.
+	 * @since WP 2.8.0
+	 * @since WP 4.8.0 Form only contains hidden inputs which are synced with JS template.
+	 * @since WP 4.8.1 Restored original form to be displayed when in legacy mode.
 	 *
 	 * @see WP_Widget_Text::render_control_template_scripts()
 	 * @see _WP_Editors::editor()
@@ -521,8 +521,8 @@ class WP_Widget_Text extends WP_Widget {
 	/**
 	 * Renders form template scripts.
 	 *
-	 * @since 4.8.0
-	 * @since 4.9.0 The method is now static.
+	 * @since WP 4.8.0
+	 * @since WP 4.9.0 The method is now static.
 	 */
 	public static function render_control_template_scripts() {
 		$dismissed_pointers = explode( ',', (string) get_user_meta( get_current_user_id(), 'dismissed_wp_pointers', true ) );

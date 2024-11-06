@@ -1,7 +1,7 @@
 /**
  * WordPress inline HTML embed
  *
- * @since 4.4.0
+ * @since WP 4.4.0
  * @output wp-includes/js/wp-embed.js
  *
  * Single line comments should not be used since they will break

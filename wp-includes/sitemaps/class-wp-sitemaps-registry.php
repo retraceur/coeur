@@ -6,20 +6,20 @@
  *
  * @package motsVertueux
  * @subpackage Sitemaps
- * @since 5.5.0
+ * @since WP 5.5.0
  */
 
 /**
  * Class WP_Sitemaps_Registry.
  *
- * @since 5.5.0
+ * @since WP 5.5.0
  */
 #[AllowDynamicProperties]
 class WP_Sitemaps_Registry {
 	/**
 	 * Registered sitemap providers.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @var WP_Sitemaps_Provider[] Array of registered sitemap providers.
 	 */
@@ -28,7 +28,7 @@ class WP_Sitemaps_Registry {
 	/**
 	 * Adds a new sitemap provider.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @param string               $name     Name of the sitemap provider.
 	 * @param WP_Sitemaps_Provider $provider Instance of a WP_Sitemaps_Provider.
@@ -42,7 +42,7 @@ class WP_Sitemaps_Registry {
 		/**
 		 * Filters the sitemap provider before it is added.
 		 *
-		 * @since 5.5.0
+		 * @since WP 5.5.0
 		 *
 		 * @param WP_Sitemaps_Provider $provider Instance of a WP_Sitemaps_Provider.
 		 * @param string               $name     Name of the sitemap provider.
@@ -60,7 +60,7 @@ class WP_Sitemaps_Registry {
 	/**
 	 * Returns a single registered sitemap provider.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @param string $name Sitemap provider name.
 	 * @return WP_Sitemaps_Provider|null Sitemap provider if it exists, null otherwise.
@@ -76,7 +76,7 @@ class WP_Sitemaps_Registry {
 	/**
 	 * Returns all registered sitemap providers.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @return WP_Sitemaps_Provider[] Array of sitemap providers.
 	 */

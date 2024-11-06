@@ -3,7 +3,7 @@
  * WP_Exception class
  *
  * @package motsVertueux
- * @since 6.7.0
+ * @since WP 6.7.0
  */
 
 /**
@@ -11,6 +11,6 @@
  *
  * Future, more specific, Exceptions should always extend this base class.
  *
- * @since 6.7.0
+ * @since WP 6.7.0
  */
 class WP_Exception extends Exception {}

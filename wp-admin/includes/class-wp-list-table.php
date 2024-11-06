@@ -4,13 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage List_Table
- * @since 3.1.0
+ * @since WP 3.1.0
  */
 
 /**
  * Base class for displaying a list of items in an ajaxified HTML table.
  *
- * @since 3.1.0
+ * @since WP 3.1.0
  */
 #[AllowDynamicProperties]
 class WP_List_Table {
@@ -18,7 +18,7 @@ class WP_List_Table {
 	/**
 	 * The current list of items.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 * @var array
 	 */
 	public $items;
@@ -26,7 +26,7 @@ class WP_List_Table {
 	/**
 	 * Various information about the current table.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 * @var array
 	 */
 	protected $_args;
@@ -34,7 +34,7 @@ class WP_List_Table {
 	/**
 	 * Various information needed for displaying the pagination.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 * @var array
 	 */
 	protected $_pagination_args = array();
@@ -42,7 +42,7 @@ class WP_List_Table {
 	/**
 	 * The current screen.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 * @var WP_Screen
 	 */
 	protected $screen;
@@ -50,7 +50,7 @@ class WP_List_Table {
 	/**
 	 * Cached bulk actions.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 * @var array
 	 */
 	private $_actions;
@@ -58,7 +58,7 @@ class WP_List_Table {
 	/**
 	 * Cached pagination output.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 * @var string
 	 */
 	private $_pagination;
@@ -66,7 +66,7 @@ class WP_List_Table {
 	/**
 	 * The view switcher modes.
 	 *
-	 * @since 4.1.0
+	 * @since WP 4.1.0
 	 * @var array
 	 */
 	protected $modes = array();
@@ -74,7 +74,7 @@ class WP_List_Table {
 	/**
 	 * Stores the value returned by ->get_column_info().
 	 *
-	 * @since 4.1.0
+	 * @since WP 4.1.0
 	 * @var array
 	 */
 	protected $_column_headers;
@@ -116,7 +116,7 @@ class WP_List_Table {
 	 * The child class should call this constructor from its own constructor to override
 	 * the default $args.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @param array|string $args {
 	 *     Array or string of arguments.
@@ -175,8 +175,8 @@ class WP_List_Table {
 	/**
 	 * Makes private properties readable for backward compatibility.
 	 *
-	 * @since 4.0.0
-	 * @since 6.4.0 Getting a dynamic property is deprecated.
+	 * @since WP 4.0.0
+	 * @since WP 6.4.0 Getting a dynamic property is deprecated.
 	 *
 	 * @param string $name Property to get.
 	 * @return mixed Property.
@@ -198,8 +198,8 @@ class WP_List_Table {
 	/**
 	 * Makes private properties settable for backward compatibility.
 	 *
-	 * @since 4.0.0
-	 * @since 6.4.0 Setting a dynamic property is deprecated.
+	 * @since WP 4.0.0
+	 * @since WP 6.4.0 Setting a dynamic property is deprecated.
 	 *
 	 * @param string $name  Property to check if set.
 	 * @param mixed  $value Property value.
@@ -221,8 +221,8 @@ class WP_List_Table {
 	/**
 	 * Makes private properties checkable for backward compatibility.
 	 *
-	 * @since 4.0.0
-	 * @since 6.4.0 Checking a dynamic property is deprecated.
+	 * @since WP 4.0.0
+	 * @since WP 6.4.0 Checking a dynamic property is deprecated.
 	 *
 	 * @param string $name Property to check if set.
 	 * @return bool Whether the property is a back-compat property and it is set.
@@ -244,8 +244,8 @@ class WP_List_Table {
 	/**
 	 * Makes private properties un-settable for backward compatibility.
 	 *
-	 * @since 4.0.0
-	 * @since 6.4.0 Unsetting a dynamic property is deprecated.
+	 * @since WP 4.0.0
+	 * @since WP 6.4.0 Unsetting a dynamic property is deprecated.
 	 *
 	 * @param string $name Property to unset.
 	 */
@@ -266,7 +266,7 @@ class WP_List_Table {
 	/**
 	 * Makes private/protected methods readable for backward compatibility.
 	 *
-	 * @since 4.0.0
+	 * @since WP 4.0.0
 	 *
 	 * @param string $name      Method to call.
 	 * @param array  $arguments Arguments to pass when calling.
@@ -282,7 +282,7 @@ class WP_List_Table {
 	/**
 	 * Checks the current user's permissions
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 * @abstract
 	 */
 	public function ajax_user_can() {
@@ -294,7 +294,7 @@ class WP_List_Table {
 	 *
 	 * @uses WP_List_Table::set_pagination_args()
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 * @abstract
 	 */
 	public function prepare_items() {
@@ -304,7 +304,7 @@ class WP_List_Table {
 	/**
 	 * Sets all the necessary pagination arguments.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @param array|string $args Array or string of arguments with information about the pagination.
 	 */
@@ -334,7 +334,7 @@ class WP_List_Table {
 	/**
 	 * Access the pagination args.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @param string $key Pagination argument to retrieve. Common values include 'total_items',
 	 *                    'total_pages', 'per_page', or 'infinite_scroll'.
@@ -355,7 +355,7 @@ class WP_List_Table {
 	/**
 	 * Determines whether the table has items to display or not
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @return bool
 	 */
@@ -366,7 +366,7 @@ class WP_List_Table {
 	/**
 	 * Message to be displayed when there are no items
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 */
 	public function no_items() {
 		_e( 'No items found.' );
@@ -375,7 +375,7 @@ class WP_List_Table {
 	/**
 	 * Displays the search box.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @param string $text     The 'submit' button label.
 	 * @param string $input_id ID attribute value for the search input field.
@@ -417,7 +417,7 @@ class WP_List_Table {
 	/**
 	 * Generates views links.
 	 *
-	 * @since 6.1.0
+	 * @since WP 6.1.0
 	 *
 	 * @param array $link_data {
 	 *     An array of link data.
@@ -493,7 +493,7 @@ class WP_List_Table {
 	 * The format is an associative array:
 	 * - `'id' => 'link'`
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @return array
 	 */
@@ -504,7 +504,7 @@ class WP_List_Table {
 	/**
 	 * Displays the list of views available on this table.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 */
 	public function views() {
 		$views = $this->get_views();
@@ -514,7 +514,7 @@ class WP_List_Table {
 		 * The dynamic portion of the hook name, `$this->screen->id`, refers
 		 * to the ID of the current screen.
 		 *
-		 * @since 3.1.0
+		 * @since WP 3.1.0
 		 *
 		 * @param string[] $views An array of available list table views.
 		 */
@@ -556,8 +556,8 @@ class WP_List_Table {
 	 *         ]
 	 *     ]
 	 *
-	 * @since 3.1.0
-	 * @since 5.6.0 A bulk action can now contain an array of options in order to create an optgroup.
+	 * @since WP 3.1.0
+	 * @since WP 5.6.0 A bulk action can now contain an array of options in order to create an optgroup.
 	 *
 	 * @return array
 	 */
@@ -568,7 +568,7 @@ class WP_List_Table {
 	/**
 	 * Displays the bulk actions dropdown.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @param string $which The location of the bulk actions: Either 'top' or 'bottom'.
 	 *                      This is designated as optional for backward compatibility.
@@ -583,8 +583,8 @@ class WP_List_Table {
 			 * The dynamic portion of the hook name, `$this->screen->id`, refers
 			 * to the ID of the current screen.
 			 *
-			 * @since 3.1.0
-			 * @since 5.6.0 A bulk action can now contain an array of options in order to create an optgroup.
+			 * @since WP 3.1.0
+			 * @since WP 5.6.0 A bulk action can now contain an array of options in order to create an optgroup.
 			 *
 			 * @param array $actions An array of the available bulk actions.
 			 */
@@ -632,7 +632,7 @@ class WP_List_Table {
 	/**
 	 * Gets the current action selected from the bulk actions dropdown.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @return string|false The action name. False if no action was selected.
 	 */
@@ -651,7 +651,7 @@ class WP_List_Table {
 	/**
 	 * Generates the required HTML for a list of row action links.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @param string[] $actions        An array of action links.
 	 * @param bool     $always_visible Whether the actions should be always visible.
@@ -695,7 +695,7 @@ class WP_List_Table {
 	/**
 	 * Displays a dropdown for filtering items in the list table by month.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @global wpdb      $wpdb      WordPress database abstraction object.
 	 * @global WP_Locale $wp_locale WordPress date and time locale object.
@@ -708,7 +708,7 @@ class WP_List_Table {
 		/**
 		 * Filters whether to remove the 'Months' drop-down from the post list table.
 		 *
-		 * @since 4.2.0
+		 * @since WP 4.2.0
 		 *
 		 * @param bool   $disable   Whether to disable the drop-down. Default false.
 		 * @param string $post_type The post type.
@@ -720,7 +720,7 @@ class WP_List_Table {
 		/**
 		 * Filters whether to short-circuit performing the months dropdown query.
 		 *
-		 * @since 5.7.0
+		 * @since WP 5.7.0
 		 *
 		 * @param object[]|false $months   'Months' drop-down results. Default false.
 		 * @param string         $post_type The post type.
@@ -750,7 +750,7 @@ class WP_List_Table {
 		/**
 		 * Filters the 'Months' drop-down results.
 		 *
-		 * @since 3.7.0
+		 * @since WP 3.7.0
 		 *
 		 * @param object[] $months    Array of the months drop-down query results.
 		 * @param string   $post_type The post type.
@@ -793,7 +793,7 @@ class WP_List_Table {
 	/**
 	 * Displays a view switcher.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @param string $current_mode
 	 */
@@ -828,7 +828,7 @@ class WP_List_Table {
 	/**
 	 * Displays a comment count bubble.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @param int $post_id          The post ID.
 	 * @param int $pending_comments Number of pending comments.
@@ -957,7 +957,7 @@ class WP_List_Table {
 	/**
 	 * Gets the current page number.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @return int
 	 */
@@ -974,7 +974,7 @@ class WP_List_Table {
 	/**
 	 * Gets the number of items to display on a single page.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @param string $option        User option name.
 	 * @param int    $default_value Optional. The number of items to display. Default 20.
@@ -1006,7 +1006,7 @@ class WP_List_Table {
 		 *  - `site_users_network_per_page`
 		 *  - `users_per_page`
 		 *
-		 * @since 2.9.0
+		 * @since WP 2.9.0
 		 *
 		 * @param int $per_page Number of items to be displayed. Default 20.
 		 */
@@ -1016,7 +1016,7 @@ class WP_List_Table {
 	/**
 	 * Displays the pagination.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @param string $which The location of the pagination: Either 'top' or 'bottom'.
 	 */
@@ -1181,7 +1181,7 @@ class WP_List_Table {
 	 * The format is:
 	 * - `'internal-name' => 'Title'`
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 * @abstract
 	 *
 	 * @return array
@@ -1204,8 +1204,8 @@ class WP_List_Table {
 	 * be used as 'abbr' attribute, a translatable string for the current sorting,
 	 * and the initial order for the initial sorted column, 'asc' or 'desc' (default: false).
 	 *
-	 * @since 3.1.0
-	 * @since 6.3.0 Added 'abbr', 'orderby-text' and 'initially-sorted-column-order'.
+	 * @since WP 3.1.0
+	 * @since WP 6.3.0 Added 'abbr', 'orderby-text' and 'initially-sorted-column-order'.
 	 *
 	 * @return array
 	 */
@@ -1216,7 +1216,7 @@ class WP_List_Table {
 	/**
 	 * Gets the name of the default primary column.
 	 *
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 *
 	 * @return string Name of the default primary column, in this case, an empty string.
 	 */
@@ -1249,7 +1249,7 @@ class WP_List_Table {
 	 *
 	 * Public wrapper for WP_List_Table::get_default_primary_column_name().
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 *
 	 * @return string Name of the default primary column.
 	 */
@@ -1260,7 +1260,7 @@ class WP_List_Table {
 	/**
 	 * Gets the name of the primary column.
 	 *
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 *
 	 * @return string The name of the primary column.
 	 */
@@ -1279,7 +1279,7 @@ class WP_List_Table {
 		/**
 		 * Filters the name of the primary column for the current list table.
 		 *
-		 * @since 4.3.0
+		 * @since WP 4.3.0
 		 *
 		 * @param string $default Column name default for the specific list table, e.g. 'name'.
 		 * @param string $context Screen ID for specific list table, e.g. 'plugins'.
@@ -1296,7 +1296,7 @@ class WP_List_Table {
 	/**
 	 * Gets a list of all, hidden, and sortable columns, with filter applied.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @return array
 	 */
@@ -1337,7 +1337,7 @@ class WP_List_Table {
 		 * The dynamic portion of the hook name, `$this->screen->id`, refers
 		 * to the ID of the current screen.
 		 *
-		 * @since 3.1.0
+		 * @since WP 3.1.0
 		 *
 		 * @param array $sortable_columns An array of sortable columns.
 		 */
@@ -1379,7 +1379,7 @@ class WP_List_Table {
 	/**
 	 * Returns the number of visible columns.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @return int
 	 */
@@ -1392,7 +1392,7 @@ class WP_List_Table {
 	/**
 	 * Prints column headers, accounting for hidden and sortable columns.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @param bool $with_id Whether to set the ID attribute or not
 	 */
@@ -1542,7 +1542,7 @@ class WP_List_Table {
 	 * For the table initial view, information about initial orderby and order
 	 * should be provided via get_sortable_columns().
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 * @access public
 	 */
 	public function print_table_description() {
@@ -1612,7 +1612,7 @@ class WP_List_Table {
 	/**
 	 * Displays the table.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 */
 	public function display() {
 		$singular = $this->_args['singular'];
@@ -1653,7 +1653,7 @@ class WP_List_Table {
 	/**
 	 * Gets a list of CSS classes for the WP_List_Table table tag.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @return string[] Array of CSS classes for the table tag.
 	 */
@@ -1668,7 +1668,7 @@ class WP_List_Table {
 	/**
 	 * Generates the table navigation above or below the table
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 * @param string $which The location of the navigation: Either 'top' or 'bottom'.
 	 */
 	protected function display_tablenav( $which ) {
@@ -1696,7 +1696,7 @@ class WP_List_Table {
 	/**
 	 * Displays extra controls between bulk actions and pagination.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @param string $which
 	 */
@@ -1705,7 +1705,7 @@ class WP_List_Table {
 	/**
 	 * Generates the tbody element for the list table.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 */
 	public function display_rows_or_placeholder() {
 		if ( $this->has_items() ) {
@@ -1720,7 +1720,7 @@ class WP_List_Table {
 	/**
 	 * Generates the list table rows.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 */
 	public function display_rows() {
 		foreach ( $this->items as $item ) {
@@ -1731,7 +1731,7 @@ class WP_List_Table {
 	/**
 	 * Generates content for a single row of the table.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @param object|array $item The current item
 	 */
@@ -1755,7 +1755,7 @@ class WP_List_Table {
 	/**
 	 * Generates the columns for a single row of the table.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @param object|array $item The current item.
 	 */
@@ -1809,7 +1809,7 @@ class WP_List_Table {
 	/**
 	 * Generates and display row actions links for the list table.
 	 *
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 *
 	 * @param object|array $item        The item being acted upon.
 	 * @param string       $column_name Current column name.
@@ -1827,7 +1827,7 @@ class WP_List_Table {
 	/**
 	 * Handles an incoming ajax request (called from admin-ajax.php)
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 */
 	public function ajax_response() {
 		$this->prepare_items();
@@ -1861,7 +1861,7 @@ class WP_List_Table {
 	/**
 	 * Sends required variables to JavaScript land.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 */
 	public function _js_vars() {
 		$args = array(

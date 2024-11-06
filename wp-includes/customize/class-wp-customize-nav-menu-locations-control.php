@@ -1,16 +1,19 @@
 <?php
 /**
  * Customize API: WP_Customize_Nav_Menu_Locations_Control class
+ * 
+ * @since WP 4.9.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Customize
- * @since 4.9.0
+ *
  */
 
 /**
  * Customize Nav Menu Locations Control Class.
  *
- * @since 4.9.0
+ * @since WP 4.9.0
  *
  * @see WP_Customize_Control
  */
@@ -19,7 +22,7 @@ class WP_Customize_Nav_Menu_Locations_Control extends WP_Customize_Control {
 	/**
 	 * Control type.
 	 *
-	 * @since 4.9.0
+	 * @since WP 4.9.0
 	 * @var string
 	 */
 	public $type = 'nav_menu_locations';
@@ -27,14 +30,14 @@ class WP_Customize_Nav_Menu_Locations_Control extends WP_Customize_Control {
 	/**
 	 * Don't render the control's content - it uses a JS template instead.
 	 *
-	 * @since 4.9.0
+	 * @since WP 4.9.0
 	 */
 	public function render_content() {}
 
 	/**
 	 * JS/Underscore template for the control UI.
 	 *
-	 * @since 4.9.0
+	 * @since WP 4.9.0
 	 */
 	public function content_template() {
 		if ( current_theme_supports( 'menus' ) ) :
@@ -48,10 +51,8 @@ class WP_Customize_Nav_Menu_Locations_Control extends WP_Customize_Control {
 							<?php echo _x( 'Where do you want this menu to appear?', 'menu locations' ); ?>
 							<?php
 							printf(
-								/* translators: 1: Documentation URL, 2: Additional link attributes, 3: Accessibility text. */
-								_x( '(If you plan to use a menu <a href="%1$s" %2$s>widget%3$s</a>, skip this step.)', 'menu locations' ),
-								__( 'https://wordpress.org/documentation/article/manage-wordpress-widgets/' ),
-								' class="external-link" target="_blank"',
+								/* translators: %s: Accessibility text. */
+								_x( '(If you plan to use a menu widget%s, skip this step.)', 'menu locations' ),
 								sprintf(
 									'<span class="screen-reader-text"> %s</span>',
 									/* translators: Hidden accessibility text. */

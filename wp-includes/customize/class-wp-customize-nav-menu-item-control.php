@@ -4,13 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage Customize
- * @since 4.4.0
+ * @since WP 4.4.0
  */
 
 /**
  * Customize control to represent the name field for a given menu.
  *
- * @since 4.3.0
+ * @since WP 4.3.0
  *
  * @see WP_Customize_Control
  */
@@ -19,7 +19,7 @@ class WP_Customize_Nav_Menu_Item_Control extends WP_Customize_Control {
 	/**
 	 * Control type.
 	 *
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 * @var string
 	 */
 	public $type = 'nav_menu_item';
@@ -27,7 +27,7 @@ class WP_Customize_Nav_Menu_Item_Control extends WP_Customize_Control {
 	/**
 	 * The nav menu item setting.
 	 *
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 * @var WP_Customize_Nav_Menu_Item_Setting
 	 */
 	public $setting;
@@ -35,7 +35,7 @@ class WP_Customize_Nav_Menu_Item_Control extends WP_Customize_Control {
 	/**
 	 * Constructor.
 	 *
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 *
 	 * @see WP_Customize_Control::__construct()
 	 *
@@ -52,14 +52,14 @@ class WP_Customize_Nav_Menu_Item_Control extends WP_Customize_Control {
 	/**
 	 * Don't render the control's content - it's rendered with a JS template.
 	 *
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 */
 	public function render_content() {}
 
 	/**
 	 * JS/Underscore template for the control UI.
 	 *
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 */
 	public function content_template() {
 		?>
@@ -157,7 +157,7 @@ class WP_Customize_Nav_Menu_Item_Control extends WP_Customize_Control {
 			 *
 			 * Additional fields can be rendered here and managed in JavaScript.
 			 *
-			 * @since 5.4.0
+			 * @since WP 5.4.0
 			 */
 			do_action( 'wp_nav_menu_item_custom_fields_customize_template' );
 			?>
@@ -185,7 +185,7 @@ class WP_Customize_Nav_Menu_Item_Control extends WP_Customize_Control {
 	/**
 	 * Return parameters for this control.
 	 *
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 *
 	 * @return array Exported parameters.
 	 */

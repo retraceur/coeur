@@ -73,12 +73,6 @@ get_current_screen()->add_help_tab(
 	)
 );
 
-get_current_screen()->set_help_sidebar(
-	'<p><strong>' . __( 'For more information:' ) . '</strong></p>' .
-	'<p>' . __( '<a href="https://wordpress.org/documentation/article/users-your-profile-screen/">Documentation on User Profiles</a>' ) . '</p>' .
-	'<p>' . __( '<a href="https://wordpress.org/support/forums/">Support forums</a>' ) . '</p>'
-);
-
 $wp_http_referer = remove_query_arg( array( 'update', 'delete_count', 'user_id' ), $wp_http_referer );
 
 $user_can_edit = current_user_can( 'edit_posts' ) || current_user_can( 'edit_pages' );
@@ -92,7 +86,7 @@ $user_can_edit = current_user_can( 'edit_posts' ) || current_user_can( 'edit_pag
  *
  * The filter was introduced to replace the EDIT_ANY_USER constant.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @param bool $allow Whether to allow editing of any user. Default true.
  */
@@ -142,7 +136,7 @@ switch ( $action ) {
 			 *
 			 * The action only fires if the current user is editing their own profile.
 			 *
-			 * @since 2.0.0
+			 * @since WP 2.0.0
 			 *
 			 * @param int $user_id The user ID.
 			 */
@@ -151,7 +145,7 @@ switch ( $action ) {
 			/**
 			 * Fires before the page loads on the 'Edit User' screen.
 			 *
-			 * @since 2.7.0
+			 * @since WP 2.7.0
 			 *
 			 * @param int $user_id The user ID.
 			 */
@@ -279,7 +273,7 @@ switch ( $action ) {
 				/**
 				 * Fires inside the your-profile form tag on the user editing screen.
 				 *
-				 * @since 3.0.0
+				 * @since WP 3.0.0
 				 */
 				do_action( 'user_edit_form_tag' );
 				?>
@@ -342,8 +336,8 @@ switch ( $action ) {
 							 * The section is only enabled if a callback is hooked to the action,
 							 * and if there is more than one defined color scheme for the admin.
 							 *
-							 * @since 3.0.0
-							 * @since 3.8.1 Added `$user_id` parameter.
+							 * @since WP 3.0.0
+							 * @since WP 3.8.1 Added `$user_id` parameter.
 							 *
 							 * @param int $user_id The user ID.
 							 */
@@ -361,7 +355,6 @@ switch ( $action ) {
 								<input type="checkbox" name="comment_shortcuts" id="comment_shortcuts" value="true" <?php checked( 'true', $profile_user->comment_shortcuts ); ?> />
 								<?php _e( 'Enable keyboard shortcuts for comment moderation.' ); ?>
 							</label>
-							<?php _e( '<a href="https://wordpress.org/documentation/article/keyboard-shortcuts-classic-editor/#keyboard-shortcuts-for-comments">Documentation on Keyboard Shortcuts</a>' ); ?>
 						</td>
 					</tr>
 					<?php endif; ?>
@@ -415,7 +408,7 @@ switch ( $action ) {
 					/**
 					 * Fires at the end of the 'Personal Options' settings table on the user editing screen.
 					 *
-					 * @since 2.7.0
+					 * @since WP 2.7.0
 					 *
 					 * @param WP_User $profile_user The current WP_User object.
 					 */
@@ -430,7 +423,7 @@ switch ( $action ) {
 					 *
 					 * The action only fires if the current user is editing their own profile.
 					 *
-					 * @since 2.0.0
+					 * @since WP 2.0.0
 					 *
 					 * @param WP_User $profile_user The current WP_User object.
 					 */
@@ -593,7 +586,7 @@ switch ( $action ) {
 							 * The dynamic portion of the hook name, `$name`, refers to
 							 * each of the keys in the contact methods array.
 							 *
-							 * @since 2.9.0
+							 * @since WP 2.9.0
 							 *
 							 * @param string $desc The translatable label for the contact method.
 							 */
@@ -638,8 +631,8 @@ switch ( $action ) {
 									/**
 									 * Filters the user profile picture description displayed under the Gravatar.
 									 *
-									 * @since 4.4.0
-									 * @since 4.7.0 Added the `$profile_user` parameter.
+									 * @since WP 4.4.0
+									 * @since WP 4.7.0 Added the `$profile_user` parameter.
 									 *
 									 * @param string  $description  The description that will be printed.
 									 * @param WP_User $profile_user The current WP_User object.
@@ -654,9 +647,9 @@ switch ( $action ) {
 					/**
 					 * Filters the display of the password fields.
 					 *
-					 * @since 1.5.1
-					 * @since 2.8.0 Added the `$profile_user` parameter.
-					 * @since 4.4.0 Now evaluated only in user-edit.php.
+					 * @since WP 1.5.1
+					 * @since WP 2.8.0 Added the `$profile_user` parameter.
+					 * @since WP 4.4.0 Now evaluated only in user-edit.php.
 					 *
 					 * @param bool    $show         Whether to show the password fields. Default true.
 					 * @param WP_User $profile_user User object for the current user to edit.
@@ -825,7 +818,7 @@ switch ( $action ) {
 										/**
 										 * Fires in the create Application Passwords form.
 										 *
-										 * @since 5.6.0
+										 * @since WP 5.6.0
 										 *
 										 * @param WP_User $profile_user The current WP_User object.
 										 */
@@ -855,15 +848,7 @@ switch ( $action ) {
 								</div>
 							<?php elseif ( ! wp_is_application_passwords_supported() ) : ?>
 								<p><?php _e( 'The application password feature requires HTTPS, which is not enabled on this site.' ); ?></p>
-								<p>
-									<?php
-									printf(
-										/* translators: %s: Documentation URL. */
-										__( 'If this is a development website, you can <a href="%s">set the environment type accordingly</a> to enable application passwords.' ),
-										__( 'https://developer.wordpress.org/apis/wp-config-php/#wp-environment-type' )
-									);
-									?>
-								</p>
+								<p><?php esc_html_e( 'If this is a development website, you can set the environment type accordingly to enable application passwords.' ) ;?></p>
 							<?php endif; ?>
 						</div>
 					<?php endif; // End Application Passwords. ?>
@@ -875,7 +860,7 @@ switch ( $action ) {
 						 *
 						 * The action only fires if the current user is editing their own profile.
 						 *
-						 * @since 2.0.0
+						 * @since WP 2.0.0
 						 *
 						 * @param WP_User $profile_user The current WP_User object.
 						 */
@@ -884,7 +869,7 @@ switch ( $action ) {
 						/**
 						 * Fires after the 'About the User' settings table on the 'Edit User' screen.
 						 *
-						 * @since 2.0.0
+						 * @since WP 2.0.0
 						 *
 						 * @param WP_User $profile_user The current WP_User object.
 						 */
@@ -900,7 +885,7 @@ switch ( $action ) {
 					 * the number of the user's capabilities exceeds their number of
 					 * roles.
 					 *
-					 * @since 2.8.0
+					 * @since WP 2.8.0
 					 *
 					 * @param bool    $enable      Whether to display the capabilities. Default true.
 					 * @param WP_User $profile_user The current WP_User object.

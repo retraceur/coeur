@@ -3,7 +3,7 @@
  * HTTPS migration functions.
  *
  * @package motsVertueux
- * @since 5.7.0
+ * @since WP 5.7.0
  */
 
 /**
@@ -13,7 +13,7 @@
  * add frontend filters to replace insecure site URLs that may be present in older database content. The
  * {@see 'wp_should_replace_insecure_home_url'} filter can be used to modify that behavior.
  *
- * @since 5.7.0
+ * @since WP 5.7.0
  *
  * @return bool True if insecure URLs should replaced, false otherwise.
  */
@@ -30,7 +30,7 @@ function wp_should_replace_insecure_home_url() {
 	 * If a WordPress site had its URL changed from HTTP to HTTPS, by default this will return `true`. This filter can
 	 * be used to disable that behavior, e.g. after having replaced URLs manually in the database.
 	 *
-	 * @since 5.7.0
+	 * @since WP 5.7.0
 	 *
 	 * @param bool $should_replace_insecure_home_url Whether insecure HTTP URLs to the site should be replaced.
 	 */
@@ -43,7 +43,7 @@ function wp_should_replace_insecure_home_url() {
  * This function replaces all occurrences of the HTTP version of the site's URL with its HTTPS counterpart, if
  * determined via {@see wp_should_replace_insecure_home_url()}.
  *
- * @since 5.7.0
+ * @since WP 5.7.0
  *
  * @param string $content Content to replace URLs in.
  * @return string Filtered content.
@@ -79,7 +79,7 @@ function wp_replace_insecure_home_url( $content ) {
  * If this update does not result in WordPress recognizing that the site is now using HTTPS (e.g. due to constants
  * overriding the URLs used), the changes will be reverted. In such a case the function will return false.
  *
- * @since 5.7.0
+ * @since WP 5.7.0
  *
  * @return bool True on success, false on failure.
  */
@@ -117,7 +117,7 @@ function wp_update_urls_to_https() {
  *
  * This is hooked into the {@see 'update_option_home'} action.
  *
- * @since 5.7.0
+ * @since WP 5.7.0
  * @access private
  *
  * @param mixed $old_url Previous value of the URL option.

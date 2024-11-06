@@ -4,13 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage REST_API
- * @since 5.8.0
+ * @since WP 5.8.0
  */
 
 /**
  * Core class to access widget types via the REST API.
  *
- * @since 5.8.0
+ * @since WP 5.8.0
  *
  * @see WP_REST_Controller
  */
@@ -19,7 +19,7 @@ class WP_REST_Widget_Types_Controller extends WP_REST_Controller {
 	/**
 	 * Constructor.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 */
 	public function __construct() {
 		$this->namespace = 'wp/v2';
@@ -29,7 +29,7 @@ class WP_REST_Widget_Types_Controller extends WP_REST_Controller {
 	/**
 	 * Registers the widget type routes.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @see register_rest_route()
 	 */
@@ -127,7 +127,7 @@ class WP_REST_Widget_Types_Controller extends WP_REST_Controller {
 	/**
 	 * Checks whether a given request has permission to read widget types.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has read access, WP_Error object otherwise.
@@ -139,7 +139,7 @@ class WP_REST_Widget_Types_Controller extends WP_REST_Controller {
 	/**
 	 * Retrieves the list of all widget types.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
@@ -157,7 +157,7 @@ class WP_REST_Widget_Types_Controller extends WP_REST_Controller {
 	/**
 	 * Checks if a given request has access to read a widget type.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has read access for the item, WP_Error object otherwise.
@@ -179,7 +179,7 @@ class WP_REST_Widget_Types_Controller extends WP_REST_Controller {
 	/**
 	 * Checks whether the user can read widget types.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @return true|WP_Error True if the widget type is visible, WP_Error otherwise.
 	 */
@@ -200,7 +200,7 @@ class WP_REST_Widget_Types_Controller extends WP_REST_Controller {
 	/**
 	 * Gets the details about the requested widget.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @param string $id The widget type id.
 	 * @return array|WP_Error The array of widget data if the name is valid, WP_Error otherwise.
@@ -218,7 +218,7 @@ class WP_REST_Widget_Types_Controller extends WP_REST_Controller {
 	/**
 	 * Normalize array of widgets.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @global WP_Widget_Factory $wp_widget_factory
 	 * @global array             $wp_registered_widgets The list of registered widgets.
@@ -268,7 +268,7 @@ class WP_REST_Widget_Types_Controller extends WP_REST_Controller {
 	/**
 	 * Retrieves a single widget type from the collection.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
@@ -287,8 +287,8 @@ class WP_REST_Widget_Types_Controller extends WP_REST_Controller {
 	/**
 	 * Prepares a widget type object for serialization.
 	 *
-	 * @since 5.8.0
-	 * @since 5.9.0 Renamed `$widget_type` to `$item` to match parent class for PHP 8 named parameter support.
+	 * @since WP 5.8.0
+	 * @since WP 5.9.0 Renamed `$widget_type` to `$item` to match parent class for PHP 8 named parameter support.
 	 *
 	 * @param array           $item    Widget type data.
 	 * @param WP_REST_Request $request Full details about the request.
@@ -343,7 +343,7 @@ class WP_REST_Widget_Types_Controller extends WP_REST_Controller {
 		/**
 		 * Filters the REST API response for a widget type.
 		 *
-		 * @since 5.8.0
+		 * @since WP 5.8.0
 		 *
 		 * @param WP_REST_Response $response    The response object.
 		 * @param array            $widget_type The array of widget data.
@@ -355,7 +355,7 @@ class WP_REST_Widget_Types_Controller extends WP_REST_Controller {
 	/**
 	 * Prepares links for the widget type.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @param array $widget_type Widget type data.
 	 * @return array Links for the given widget type.
@@ -374,7 +374,7 @@ class WP_REST_Widget_Types_Controller extends WP_REST_Controller {
 	/**
 	 * Retrieves the widget type's schema, conforming to JSON Schema.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @return array Item schema data.
 	 */
@@ -444,7 +444,7 @@ class WP_REST_Widget_Types_Controller extends WP_REST_Controller {
 	 * - form:     The widget's admin form after updating the widget with the
 	 *             given form data.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @global WP_Widget_Factory $wp_widget_factory
 	 *
@@ -542,7 +542,7 @@ class WP_REST_Widget_Types_Controller extends WP_REST_Controller {
 	 * Returns the output of WP_Widget::widget() when called with the provided
 	 * instance. Used by encode_form_data() to preview a widget.
 
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @param string    $widget   The widget's PHP class name (see class-wp-widget.php).
 	 * @param array     $instance Widget instance settings.
@@ -558,7 +558,7 @@ class WP_REST_Widget_Types_Controller extends WP_REST_Controller {
 	 * Returns the output of WP_Widget::form() when called with the provided
 	 * instance. Used by encode_form_data() to preview a widget's form.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @param WP_Widget $widget_object Widget object to call widget() on.
 	 * @param array     $instance Widget instance settings.
@@ -590,7 +590,7 @@ class WP_REST_Widget_Types_Controller extends WP_REST_Controller {
 	/**
 	 * Renders a single Legacy Widget and wraps it in a JSON-encodable array.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 *
@@ -608,7 +608,7 @@ class WP_REST_Widget_Types_Controller extends WP_REST_Controller {
 	/**
 	 * Renders a page containing a preview of the requested Legacy Widget block.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param string $id_base The id base of the requested widget.
 	 * @param array  $instance The widget instance attributes.
@@ -662,7 +662,7 @@ class WP_REST_Widget_Types_Controller extends WP_REST_Controller {
 	/**
 	 * Retrieves the query params for collections.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @return array Collection parameters.
 	 */

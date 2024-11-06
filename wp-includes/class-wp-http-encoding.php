@@ -4,7 +4,8 @@
  *
  * @package motsVertueux
  * @subpackage HTTP
- * @since 4.4.0
+ * @since WP 4.4.0
+ * @since 1.0.0 motsVertueux fork.
  */
 
 /**
@@ -12,7 +13,7 @@
  *
  * Includes RFC 1950, RFC 1951, and RFC 1952.
  *
- * @since 2.8.0
+ * @since WP 2.8.0
  */
 #[AllowDynamicProperties]
 class WP_Http_Encoding {
@@ -22,7 +23,7 @@ class WP_Http_Encoding {
 	 *
 	 * Supports the RFC 1951 standard.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @param string $raw      String to compress.
 	 * @param int    $level    Optional. Compression level, 9 is highest. Default 9.
@@ -42,7 +43,7 @@ class WP_Http_Encoding {
 	 * 1952 standard gzip decode will be attempted. If all fail, then the
 	 * original compressed string will be returned.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @param string $compressed String to decompress.
 	 * @param int    $length     The optional length of the compressed data.
@@ -89,12 +90,10 @@ class WP_Http_Encoding {
 	 *
 	 * Warning: Magic numbers within. Due to the potential different formats that the compressed
 	 * data may be returned in, some "magic offsets" are needed to ensure proper decompression
-	 * takes place. For a simple pragmatic way to determine the magic offset in use, see:
-	 * https://core.trac.wordpress.org/ticket/18273
+	 * takes place. For a simple pragmatic way to determine the magic offset in use.
 	 *
-	 * @since 2.8.1
-	 *
-	 * @link https://core.trac.wordpress.org/ticket/18273
+	 * @since WP 2.8.1
+	 * 
 	 * @link https://www.php.net/manual/en/function.gzinflate.php#70875
 	 * @link https://www.php.net/manual/en/function.gzinflate.php#77336
 	 *
@@ -140,7 +139,7 @@ class WP_Http_Encoding {
 	/**
 	 * What encoding types to accept and their priority values.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @param string $url
 	 * @param array  $args
@@ -175,7 +174,7 @@ class WP_Http_Encoding {
 		/**
 		 * Filters the allowed encoding types.
 		 *
-		 * @since 3.6.0
+		 * @since WP 3.6.0
 		 *
 		 * @param string[] $type Array of what encoding types to accept and their priority values.
 		 * @param string   $url  URL of the HTTP request.
@@ -189,7 +188,7 @@ class WP_Http_Encoding {
 	/**
 	 * What encoding the content used when it was compressed to send in the headers.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @return string Content-Encoding string to send in the header.
 	 */
@@ -200,7 +199,7 @@ class WP_Http_Encoding {
 	/**
 	 * Whether the content be decoded based on the headers.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @param array|string $headers All of the available headers.
 	 * @return bool
@@ -224,7 +223,7 @@ class WP_Http_Encoding {
 	 * ensure that the functions all exist in the PHP version and aren't
 	 * disabled.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @return bool
 	 */

@@ -8,8 +8,8 @@
 /**
  * Renders the `core/categories` block on server.
  *
- * @since 5.0.0
- * @since 6.7.0 Enable client-side rendering if enhancedPagination context is true.
+ * @since WP 5.0.0
+ * @since WP 6.7.0 Enable client-side rendering if enhancedPagination context is true.
  *
  * @param array    $attributes The block attributes.
  * @param string   $content    Block default content.
@@ -91,7 +91,7 @@ function render_block_core_categories( $attributes, $content, $block ) {
 /**
  * Generates the inline script for a categories dropdown field.
  *
- * @since 5.0.0
+ * @since WP 5.0.0
  *
  * @param string $dropdown_id ID of the dropdown field.
  *
@@ -118,7 +118,7 @@ function build_dropdown_script_block_core_categories( $dropdown_id ) {
 /**
  * Registers the `core/categories` block on server.
  *
- * @since 5.0.0
+ * @since WP 5.0.0
  */
 function register_block_core_categories() {
 	register_block_type_from_metadata(

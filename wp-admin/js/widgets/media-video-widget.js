@@ -142,7 +142,7 @@
 		/**
 		 * Whether a url is a supported external host.
 		 *
-		 * @deprecated since 4.9.
+		 * @deprecated WP since 4.9.
 		 *
 		 * @return {boolean} Whether url is a supported video host.
 		 */

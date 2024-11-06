@@ -16,8 +16,8 @@ window.wp = window.wp || {};
 	/**
 	 * A backbone subview manager.
 	 *
-	 * @since 3.5.0
-	 * @since 3.6.0 Moved wp.media.Views to wp.Backbone.Subviews.
+	 * @since WP 3.5.0
+	 * @since WP 3.6.0 Moved wp.media.Views to wp.Backbone.Subviews.
 	 *
 	 * @memberOf wp.Backbone
 	 *
@@ -37,7 +37,7 @@ window.wp = window.wp || {};
 		/**
 		 * Fetches all of the subviews.
 		 *
-		 * @since 3.5.0
+		 * @since WP 3.5.0
 		 *
 		 * @return {Array} All the subviews.
 		 */
@@ -51,7 +51,7 @@ window.wp = window.wp || {};
 		 * If no `selector` is provided, it will grab all subviews attached
 		 * to the view's root.
 		 *
-		 * @since 3.5.0
+		 * @since WP 3.5.0
 		 *
 		 * @param {string} selector A jQuery selector.
 		 *
@@ -70,7 +70,7 @@ window.wp = window.wp || {};
 		 *
 		 * Useful when a selector only has one subview at a time.
 		 *
-		 * @since 3.5.0
+		 * @since WP 3.5.0
 		 *
 		 * @param {string} selector A jQuery selector.
 		 *
@@ -109,7 +109,7 @@ window.wp = window.wp || {};
 		 * When adding, to insert `views` at a specific index, use `options.at`.
 		 * By default, `views` are added to the end of the array.
 		 *
-		 * @since 3.5.0
+		 * @since WP 3.5.0
 		 *
 		 * @param {string}       selector A jQuery selector.
 		 * @param {Array|Object} views    The subviews for the main view.
@@ -198,7 +198,7 @@ window.wp = window.wp || {};
 		 *
 		 * For more information on the `options` object, see `Views.set()`.
 		 *
-		 * @since 3.5.0
+		 * @since WP 3.5.0
 		 *
 		 * @param {string}       selector A jQuery selector.
 		 * @param {Array|Object} views    The subviews for the main view.
@@ -229,7 +229,7 @@ window.wp = window.wp || {};
 		 * Accepts an `options` object. If `options.silent` is set, `remove`
 		 * will *not* be triggered on the unregistered views.
 		 *
-		 * @since 3.5.0
+		 * @since WP 3.5.0
 		 *
 		 * @param {string}       selector A jQuery selector.
 		 * @param {Array|Object} views    The subviews for the main view.
@@ -267,7 +267,7 @@ window.wp = window.wp || {};
 		 * Helps to preserve all subview events when re-rendering the master
 		 * view. Used in conjunction with `Views.render()`.
 		 *
-		 * @since 3.5.0
+		 * @since WP 3.5.0
 		 *
 		 * @return {wp.Backbone.Subviews} The current Subviews instance.
 		 */
@@ -281,7 +281,7 @@ window.wp = window.wp || {};
 		 *
 		 * Used in conjunction with `Views.detach()`.
 		 *
-		 * @since 3.5.0
+		 * @since WP 3.5.0
 		 *
 		 * @return {wp.Backbone.Subviews} The current Subviews instance.
 		*/
@@ -307,7 +307,7 @@ window.wp = window.wp || {};
 		 * Accepts an `options` object. If `options.silent` is set, `unset`
 		 * will *not* be triggered on the master view's parent.
 		 *
-		 * @since 3.6.0
+		 * @since WP 3.6.0
 		 *
 		 * @param {Object}  options        Options for call.
 		 * @param {boolean} options.silent If true, `unset` will *not* be triggered on
@@ -335,7 +335,7 @@ window.wp = window.wp || {};
 		 *
 		 * Can be overridden in subclasses.
 		 *
-		 * @since 3.5.0
+		 * @since WP 3.5.0
 		 *
 		 * @param {string} $target Selector where to put the elements.
 		 * @param {*} els HTML or elements to put into the selector's HTML.
@@ -356,7 +356,7 @@ window.wp = window.wp || {};
 		 *
 		 * Can be overridden in subclasses.
 		 *
-		 * @since 3.5.0
+		 * @since WP 3.5.0
 		 *
 		 * @param {string}  $target    Selector where to put the elements.
 		 * @param {*}       els        HTML or elements to put at the end of the
@@ -387,7 +387,7 @@ window.wp = window.wp || {};
 		 *
 		 * Fires the ready event on the current view and all attached subviews.
 		 *
-		 * @since 3.5.0
+		 * @since WP 3.5.0
 		 */
 		ready: function() {
 			this.view.trigger('ready');
@@ -404,7 +404,7 @@ window.wp = window.wp || {};
 		 * performs the proper DOM operation, and then checks if the view is
 		 * attached to the document.
 		 *
-		 * @since 3.5.0
+		 * @since WP 3.5.0
 		 *
 		 * @private
 		 *
@@ -454,7 +454,7 @@ window.wp = window.wp || {};
 		/**
 		 * Determines whether or not the current view is in the DOM.
 		 *
-		 * @since 3.5.0
+		 * @since WP 3.5.0
 		 *
 		 * @private
 		 *
@@ -483,8 +483,8 @@ window.wp = window.wp || {};
 		 * This extends the backbone view to have a build-in way to use subviews. This
 		 * makes it easier to have nested views.
 		 *
-		 * @since 3.5.0
-		 * @since 3.6.0 Moved wp.media.View to wp.Backbone.View
+		 * @since WP 3.5.0
+		 * @since WP 3.6.0 Moved wp.media.View to wp.Backbone.View
 		 *
 		 * @constructs
 		 * @augments Backbone.View
@@ -506,7 +506,7 @@ window.wp = window.wp || {};
 		/**
 		 * Removes this view and all subviews.
 		 *
-		 * @since 3.5.0
+		 * @since WP 3.5.0
 		 *
 		 * @return {wp.Backbone.Subviews} The current Subviews instance.
 		 */
@@ -523,7 +523,7 @@ window.wp = window.wp || {};
 		/**
 		 * Renders this view and all subviews.
 		 *
-		 * @since 3.5.0
+		 * @since WP 3.5.0
 		 *
 		 * @return {wp.Backbone.View} The current instance of the view.
 		 */
@@ -548,7 +548,7 @@ window.wp = window.wp || {};
 		/**
 		 * Returns the options for this view.
 		 *
-		 * @since 3.5.0
+		 * @since WP 3.5.0
 		 *
 		 * @return {Object} The options for this view.
 		 */
@@ -559,7 +559,7 @@ window.wp = window.wp || {};
 		/**
 		 * Method that is called when the ready event is triggered.
 		 *
-		 * @since 3.5.0
+		 * @since WP 3.5.0
 		 */
 		ready: function() {}
 	});

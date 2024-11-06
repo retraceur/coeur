@@ -8,7 +8,7 @@
 /**
  * Modifies the static `core/query` block on the server.
  *
- * @since 6.4.0
+ * @since WP 6.4.0
  *
  * @param array    $attributes Block attributes.
  * @param string   $content    Block default content.
@@ -58,7 +58,7 @@ function render_block_core_query( $attributes, $content, $block ) {
 /**
  * Registers the `core/query` block on the server.
  *
- * @since 5.8.0
+ * @since WP 5.8.0
  */
 function register_block_core_query() {
 	register_block_type_from_metadata(
@@ -76,7 +76,7 @@ add_action( 'init', 'register_block_core_query' );
  * enabled. If at least one is found, the enhanced pagination is effectively
  * disabled to prevent any potential incompatibilities.
  *
- * @since 6.4.0
+ * @since WP 6.4.0
  *
  * @param array $parsed_block The block being rendered.
  * @return string Returns the parsed block, unmodified.

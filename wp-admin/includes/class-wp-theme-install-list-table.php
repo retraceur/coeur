@@ -4,13 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage Administration
- * @since 3.1.0
+ * @since WP 3.1.0
  */
 
 /**
  * Core class used to implement displaying themes to install in a list table.
  *
- * @since 3.1.0
+ * @since WP 3.1.0
  *
  * @see WP_Themes_List_Table
  */
@@ -74,7 +74,7 @@ class WP_Theme_Install_List_Table extends WP_Themes_List_Table {
 		/**
 		 * Filters tabs not associated with a menu item on the Install Themes screen.
 		 *
-		 * @since 2.8.0
+		 * @since WP 2.8.0
 		 *
 		 * @param string[] $nonmenu_tabs The tabs that don't have a menu item on
 		 *                               the Install Themes screen.
@@ -143,7 +143,7 @@ class WP_Theme_Install_List_Table extends WP_Themes_List_Table {
 		 *  - `install_themes_table_api_args_updated`
 		 *  - `install_themes_table_api_args_upload`
 		 *
-		 * @since 3.7.0
+		 * @since WP 3.7.0
 		 *
 		 * @param array|false $args Theme install API arguments.
 		 */
@@ -201,7 +201,7 @@ class WP_Theme_Install_List_Table extends WP_Themes_List_Table {
 	 *
 	 * Overrides the parent display() method to provide a different container.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 */
 	public function display() {
 		wp_nonce_field( 'fetch-list-' . get_class( $this ), '_ajax_fetch_list_nonce' );
@@ -212,7 +212,7 @@ class WP_Theme_Install_List_Table extends WP_Themes_List_Table {
 				/**
 				 * Fires in the Install Themes list table header.
 				 *
-				 * @since 2.8.0
+				 * @since WP 2.8.0
 				 */
 				do_action( 'install_themes_table_header' );
 				?>
@@ -232,7 +232,7 @@ class WP_Theme_Install_List_Table extends WP_Themes_List_Table {
 	/**
 	 * Generates the list table rows.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 */
 	public function display_rows() {
 		$themes = $this->items;
@@ -250,24 +250,24 @@ class WP_Theme_Install_List_Table extends WP_Themes_List_Table {
 	}
 
 	/**
-	 * Prints a theme from the WordPress.org API.
+	 * Prints a theme from the API.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @global array $themes_allowedtags
 	 *
 	 * @param stdClass $theme {
-	 *     An object that contains theme data returned by the WordPress.org API.
+	 *     An object that contains theme data returned by the API.
 	 *
 	 *     @type string $name           Theme name, e.g. 'Twenty Twenty-One'.
 	 *     @type string $slug           Theme slug, e.g. 'twentytwentyone'.
 	 *     @type string $version        Theme version, e.g. '1.1'.
 	 *     @type string $author         Theme author username, e.g. 'melchoyce'.
-	 *     @type string $preview_url    Preview URL, e.g. 'https://2021.wordpress.net/'.
-	 *     @type string $screenshot_url Screenshot URL, e.g. 'https://wordpress.org/themes/twentytwentyone/'.
+	 *     @type string $preview_url    Preview URL.
+	 *     @type string $screenshot_url Screenshot URL.
 	 *     @type float  $rating         Rating score.
 	 *     @type int    $num_ratings    The number of ratings.
-	 *     @type string $homepage       Theme homepage, e.g. 'https://wordpress.org/themes/twentytwentyone/'.
+	 *     @type string $homepage       Theme homepage.
 	 *     @type string $description    Theme description.
 	 *     @type string $download_link  Theme ZIP download URL.
 	 * }
@@ -353,12 +353,11 @@ class WP_Theme_Install_List_Table extends WP_Themes_List_Table {
 		/**
 		 * Filters the install action links for a theme in the Install Themes list table.
 		 *
-		 * @since 3.4.0
+		 * @since WP 3.4.0
 		 *
 		 * @param string[] $actions An array of theme action links. Defaults are
 		 *                          links to Install Now, Preview, and Details.
-		 * @param stdClass $theme   An object that contains theme data returned by the
-		 *                          WordPress.org API.
+		 * @param stdClass $theme   An object that contains theme data returned by the API.
 		 */
 		$actions = apply_filters( 'theme_install_actions', $actions, $theme );
 
@@ -418,7 +417,7 @@ class WP_Theme_Install_List_Table extends WP_Themes_List_Table {
 	 * Prints the wrapper for the theme installer with a provided theme's data.
 	 * Used to make the theme installer work for no-js.
 	 *
-	 * @param stdClass $theme A WordPress.org Theme API object.
+	 * @param stdClass $theme A Theme bject.
 	 */
 	public function theme_installer_single( $theme ) {
 		?>
@@ -438,7 +437,7 @@ class WP_Theme_Install_List_Table extends WP_Themes_List_Table {
 	 *
 	 * @global array $themes_allowedtags
 	 *
-	 * @param stdClass $theme A WordPress.org Theme API object.
+	 * @param stdClass $theme A Theme object.
 	 */
 	public function install_theme_info( $theme ) {
 		global $themes_allowedtags;
@@ -535,7 +534,7 @@ class WP_Theme_Install_List_Table extends WP_Themes_List_Table {
 	/**
 	 * Send required variables to JavaScript land
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 *
 	 * @global string $tab  Current tab within Themes->Install screen
 	 * @global string $type Type of search.
@@ -550,9 +549,9 @@ class WP_Theme_Install_List_Table extends WP_Themes_List_Table {
 	/**
 	 * Checks to see if the theme is already installed.
 	 *
-	 * @since 3.4.0
+	 * @since WP 3.4.0
 	 *
-	 * @param stdClass $theme A WordPress.org Theme API object.
+	 * @param stdClass $theme A Theme bject.
 	 * @return string Theme status.
 	 */
 	private function _get_theme_status( $theme ) {

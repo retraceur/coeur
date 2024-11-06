@@ -8,7 +8,7 @@
 /**
  * Renders the `core/rss` block on server.
  *
- * @since 5.2.0
+ * @since WP 5.2.0
  *
  * @param array $attributes The block attributes.
  *
@@ -110,7 +110,7 @@ function render_block_core_rss( $attributes ) {
 /**
  * Registers the `core/rss` block on server.
  *
- * @since 5.2.0
+ * @since WP 5.2.0
  */
 function register_block_core_rss() {
 	register_block_type_from_metadata(

@@ -4,14 +4,14 @@
  *
  * @package motsVertueux
  * @subpackage Widgets
- * @since 4.4.0
+ * @since WP 4.4.0
  */
 
 /**
  * Singleton that registers and instantiates WP_Widget classes.
  *
- * @since 2.8.0
- * @since 4.4.0 Moved to its own file from wp-includes/widgets.php
+ * @since WP 2.8.0
+ * @since WP 4.4.0 Moved to its own file from wp-includes/widgets.php
  */
 #[AllowDynamicProperties]
 class WP_Widget_Factory {
@@ -19,7 +19,7 @@ class WP_Widget_Factory {
 	/**
 	 * Widgets array.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 * @var array
 	 */
 	public $widgets = array();
@@ -27,7 +27,7 @@ class WP_Widget_Factory {
 	/**
 	 * PHP5 constructor.
 	 *
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 */
 	public function __construct() {
 		add_action( 'widgets_init', array( $this, '_register_widgets' ), 100 );
@@ -36,8 +36,8 @@ class WP_Widget_Factory {
 	/**
 	 * PHP4 constructor.
 	 *
-	 * @since 2.8.0
-	 * @deprecated 4.3.0 Use __construct() instead.
+	 * @since WP 2.8.0
+	 * @deprecated WP 4.3.0 Use __construct() instead.
 	 *
 	 * @see WP_Widget_Factory::__construct()
 	 */
@@ -49,8 +49,8 @@ class WP_Widget_Factory {
 	/**
 	 * Registers a widget subclass.
 	 *
-	 * @since 2.8.0
-	 * @since 4.6.0 Updated the `$widget` parameter to also accept a WP_Widget instance object
+	 * @since WP 2.8.0
+	 * @since WP 4.6.0 Updated the `$widget` parameter to also accept a WP_Widget instance object
 	 *              instead of simply a `WP_Widget` subclass name.
 	 *
 	 * @param string|WP_Widget $widget Either the name of a `WP_Widget` subclass or an instance of a `WP_Widget` subclass.
@@ -66,8 +66,8 @@ class WP_Widget_Factory {
 	/**
 	 * Un-registers a widget subclass.
 	 *
-	 * @since 2.8.0
-	 * @since 4.6.0 Updated the `$widget` parameter to also accept a WP_Widget instance object
+	 * @since WP 2.8.0
+	 * @since WP 4.6.0 Updated the `$widget` parameter to also accept a WP_Widget instance object
 	 *              instead of simply a `WP_Widget` subclass name.
 	 *
 	 * @param string|WP_Widget $widget Either the name of a `WP_Widget` subclass or an instance of a `WP_Widget` subclass.
@@ -83,7 +83,7 @@ class WP_Widget_Factory {
 	/**
 	 * Serves as a utility method for adding widgets to the registered widgets global.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @global array $wp_registered_widgets
 	 */
@@ -107,7 +107,7 @@ class WP_Widget_Factory {
 	/**
 	 * Returns the registered WP_Widget object for the given widget type.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @param string $id_base Widget type ID.
 	 * @return WP_Widget|null
@@ -124,7 +124,7 @@ class WP_Widget_Factory {
 	/**
 	 * Returns the registered key for the given widget type.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @param string $id_base Widget type ID.
 	 * @return string

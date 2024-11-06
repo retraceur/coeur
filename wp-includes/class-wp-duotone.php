@@ -29,7 +29,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  *
  * @package motsVertueux
- * @since 6.3.0
+ * @since WP 6.3.0
  */
 
 /**
@@ -50,7 +50,7 @@ class WP_Duotone {
 	 *
 	 * @internal
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @var array
 	 */
@@ -74,7 +74,7 @@ class WP_Duotone {
 	 *
 	 * @internal
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @var array
 	 */
@@ -95,7 +95,7 @@ class WP_Duotone {
 	 *
 	 * @internal
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @var array
 	 */
@@ -120,7 +120,7 @@ class WP_Duotone {
 	 *
 	 * @internal
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @var array
 	 */
@@ -142,7 +142,7 @@ class WP_Duotone {
 	 *
 	 * @internal
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @var array
 	 */
@@ -157,7 +157,7 @@ class WP_Duotone {
 	 *
 	 * @internal
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param float $number The number to clamp.
 	 * @param float $min    The minimum value.
@@ -177,7 +177,7 @@ class WP_Duotone {
 	 *
 	 * @internal
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param float $degrees The hue to clamp.
 	 * @return float The clamped hue.
@@ -196,7 +196,7 @@ class WP_Duotone {
 	 *
 	 * @internal
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param float  $value The hue value to parse.
 	 * @param string $unit  The unit of the hue value.
@@ -223,7 +223,7 @@ class WP_Duotone {
 	 *
 	 * @internal
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param string $hex The hex string to parse.
 	 * @return array|null An array of RGBA values or null if the hex string is invalid.
@@ -271,7 +271,7 @@ class WP_Duotone {
 	 *
 	 * @internal
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param array $rgba The RGBA array to clamp.
 	 * @return array The clamped RGBA array.
@@ -294,7 +294,7 @@ class WP_Duotone {
 	 *
 	 * @internal
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param string $input The RGBA string to parse.
 	 * @return array|null An array of RGBA values or null if the RGB string is invalid.
@@ -353,7 +353,7 @@ class WP_Duotone {
 	 *
 	 * @internal
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param array $hsla The HSLA array to clamp.
 	 * @return array The clamped HSLA array.
@@ -376,7 +376,7 @@ class WP_Duotone {
 	 *
 	 * @internal
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param array $hsva The HSVA array to convert.
 	 * @return array The RGBA array.
@@ -410,7 +410,7 @@ class WP_Duotone {
 	 *
 	 * @internal
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param array $hsla The HSLA array to convert.
 	 * @return array The HSVA array.
@@ -440,7 +440,7 @@ class WP_Duotone {
 	 *
 	 * @internal
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param array $hsla The HSLA array to convert.
 	 * @return array The RGBA array.
@@ -458,7 +458,7 @@ class WP_Duotone {
 	 *
 	 * @internal
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param string $input The HSLA string to parse.
 	 * @return array|null An array of RGBA values or null if the RGB string is invalid.
@@ -516,7 +516,7 @@ class WP_Duotone {
 	 *
 	 * @internal
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param string $input The string to parse.
 	 * @return array|null An array of RGBA values or null if the string is invalid.
@@ -544,7 +544,7 @@ class WP_Duotone {
 	 *
 	 * @internal
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param string $duotone_attr The duotone attribute from a block.
 	 * @return string The slug of the duotone preset or an empty string if no slug is found.
@@ -563,7 +563,7 @@ class WP_Duotone {
 	 *
 	 * @internal
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param string $duotone_attr The duotone attribute from a block.
 	 * @return bool True if the duotone preset present and valid.
@@ -583,7 +583,7 @@ class WP_Duotone {
 	 *
 	 * @internal
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param string $slug The slug of the duotone preset.
 	 * @return string The CSS variable name.
@@ -600,7 +600,7 @@ class WP_Duotone {
 	 *
 	 * @internal
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param string $slug The slug of the duotone preset.
 	 * @return string The ID of the duotone filter.
@@ -617,7 +617,7 @@ class WP_Duotone {
 	 *
 	 * @internal
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param string $slug The slug of the duotone preset.
 	 * @return string The CSS variable.
@@ -635,7 +635,7 @@ class WP_Duotone {
 	 *
 	 * @internal
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param string $filter_id The ID of the filter.
 	 * @return string The URL for the duotone filter.
@@ -651,7 +651,7 @@ class WP_Duotone {
 	 *
 	 * @internal
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param string $filter_id The ID of the filter.
 	 * @param array  $colors    An array of color strings.
@@ -742,8 +742,8 @@ class WP_Duotone {
 	 *
 	 * @internal
 	 *
-	 * @since 6.3.0
-	 * @deprecated 6.3.0
+	 * @since WP 6.3.0
+	 * @deprecated WP 6.3.0
 	 *
 	 * @param  array $preset Duotone preset value as seen in theme.json.
 	 * @return string        Duotone filter CSS id.
@@ -765,8 +765,8 @@ class WP_Duotone {
 	 *
 	 * @internal
 	 *
-	 * @since 6.3.0
-	 * @deprecated 6.3.0
+	 * @since WP 6.3.0
+	 * @deprecated WP 6.3.0
 	 *
 	 * @param array $preset The duotone preset.
 	 * @return string The SVG for the filter definition.
@@ -786,7 +786,7 @@ class WP_Duotone {
 	 *
 	 * @internal
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param array $sources The duotone presets.
 	 * @return string The SVGs for the duotone filters.
@@ -808,8 +808,8 @@ class WP_Duotone {
 	 *
 	 * @internal
 	 *
-	 * @since 6.3.0
-	 * @since 6.6.0 Replaced body selector with `WP_Theme_JSON::ROOT_CSS_PROPERTIES_SELECTOR`.
+	 * @since WP 6.3.0
+	 * @since WP 6.6.0 Replaced body selector with `WP_Theme_JSON::ROOT_CSS_PROPERTIES_SELECTOR`.
 	 *
 	 * @param array $sources The duotone presets.
 	 * @return string The CSS for global styles.
@@ -834,7 +834,7 @@ class WP_Duotone {
 	 *
 	 * @internal
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param string $filter_id        The filter ID. e.g. 'wp-duotone-000000-ffffff-2'.
 	 * @param string $duotone_selector The block's duotone selector. e.g. '.wp-block-image img'.
@@ -871,7 +871,7 @@ class WP_Duotone {
 	 *
 	 * @internal
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param string $filter_id        The filter ID. e.g. 'wp-duotone-000000-ffffff-2'.
 	 * @param string $duotone_selector The block's duotone selector. e.g. '.wp-block-image img'.
@@ -890,7 +890,7 @@ class WP_Duotone {
 	 *
 	 * @internal
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param string $filter_id        The filter ID. e.g. 'wp-duotone-blue-orange'.
 	 * @param string $duotone_selector The block's duotone selector. e.g. '.wp-block-image img'.
@@ -917,7 +917,7 @@ class WP_Duotone {
 	 *
 	 * Block support is added with `supports.filter.duotone` in block.json.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param WP_Block_Type $block_type Block Type.
 	 */
@@ -946,7 +946,7 @@ class WP_Duotone {
 	 * if `filter.duotone` support is not defined.
 	 *
 	 * @internal
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param WP_Block_Type $block_type Block type to check for support.
 	 * @return string|null The CSS selector or null if there is no support.
@@ -993,7 +993,7 @@ class WP_Duotone {
 	 * Used in conjunction with self::render_duotone_support for blocks that
 	 * use duotone preset filters.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @return array An array of global styles presets, keyed on the filter ID.
 	 */
@@ -1023,7 +1023,7 @@ class WP_Duotone {
 	 * Used in conjunction with self::render_duotone_support to output the
 	 * duotone filters defined in the theme.json global styles.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @return string[] An array of global style block slugs, keyed on the block name.
 	 */
@@ -1067,7 +1067,7 @@ class WP_Duotone {
 	 * The hooks self::set_global_style_block_names and self::set_global_styles_presets
 	 * must be called before this function.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param  string   $block_content Rendered block content.
 	 * @param  array    $block         Block object.
@@ -1158,7 +1158,7 @@ class WP_Duotone {
 	 * Fixes the issue with our generated class name not being added to the block's outer container
 	 * in classic themes due to gutenberg_restore_image_outer_container from layout block supports.
 	 *
-	 * @since 6.6.0
+	 * @since WP 6.6.0
 	 *
 	 * @param string $block_content Rendered block content.
 	 * @return string Filtered block content.
@@ -1198,7 +1198,7 @@ class WP_Duotone {
 	 *
 	 * Uses the declarations saved in earlier calls to self::enqueue_block_css.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 */
 	public static function output_block_styles() {
 		if ( ! empty( self::$block_css_declarations ) ) {
@@ -1217,7 +1217,7 @@ class WP_Duotone {
 	 *
 	 * Uses the declarations saved in earlier calls to self::enqueue_global_styles_preset.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 */
 	public static function output_global_styles() {
 		if ( ! empty( self::$used_global_styles_presets ) ) {
@@ -1231,7 +1231,7 @@ class WP_Duotone {
 	 * Uses the declarations saved in earlier calls to self::enqueue_global_styles_preset
 	 * and self::enqueue_custom_filter.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 */
 	public static function output_footer_assets() {
 		if ( ! empty( self::$used_svg_filter_data ) ) {
@@ -1258,7 +1258,7 @@ class WP_Duotone {
 	 * This allows the properties to be pulled in by the EditorStyles component
 	 * in JS and rendered in the post editor.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param array $settings The block editor settings from the `block_editor_settings_all` filter.
 	 * @return array The editor settings with duotone SVGs and CSS custom properties.
@@ -1297,7 +1297,7 @@ class WP_Duotone {
 	 *
 	 * This moves `supports.color.__experimentalDuotone` to `supports.filter.duotone`.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @param array $settings Current block type settings.
 	 * @param array $metadata Block metadata as read in via block.json.
@@ -1322,8 +1322,8 @@ class WP_Duotone {
 	 *
 	 * @internal
 	 *
-	 * @since 6.3.0
-	 * @deprecated 6.3.0
+	 * @since WP 6.3.0
+	 * @deprecated WP 6.3.0
 	 *
 	 * @param array $preset The duotone preset.
 	 * @return string The CSS filter property value.

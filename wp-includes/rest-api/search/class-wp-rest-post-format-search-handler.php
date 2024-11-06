@@ -4,13 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage REST_API
- * @since 5.6.0
+ * @since WP 5.6.0
  */
 
 /**
  * Core class representing a search handler for post formats in the REST API.
  *
- * @since 5.6.0
+ * @since WP 5.6.0
  *
  * @see WP_REST_Search_Handler
  */
@@ -19,7 +19,7 @@ class WP_REST_Post_Format_Search_Handler extends WP_REST_Search_Handler {
 	/**
 	 * Constructor.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 */
 	public function __construct() {
 		$this->type = 'post-format';
@@ -28,7 +28,7 @@ class WP_REST_Post_Format_Search_Handler extends WP_REST_Search_Handler {
 	/**
 	 * Searches the post formats for a given search request.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param WP_REST_Request $request Full REST request.
 	 * @return array {
@@ -53,7 +53,7 @@ class WP_REST_Post_Format_Search_Handler extends WP_REST_Search_Handler {
 		 *
 		 * Enables adding extra arguments or setting defaults for a post format search request.
 		 *
-		 * @since 5.6.0
+		 * @since WP 5.6.0
 		 *
 		 * @param array           $query_args Key value array of query var to query value.
 		 * @param WP_REST_Request $request    The request used.
@@ -89,7 +89,7 @@ class WP_REST_Post_Format_Search_Handler extends WP_REST_Search_Handler {
 	/**
 	 * Prepares the search result for a given post format.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param string $id     Item ID, the post format slug.
 	 * @param array  $fields Fields to include for the item.
@@ -127,7 +127,7 @@ class WP_REST_Post_Format_Search_Handler extends WP_REST_Search_Handler {
 	/**
 	 * Prepares links for the search result.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param string $id Item ID, the post format slug.
 	 * @return array Links for the given item.

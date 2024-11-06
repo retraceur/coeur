@@ -9,7 +9,7 @@
 /**
  * Resend an existing request and return the result.
  *
- * @since 4.9.6
+ * @since WP 4.9.6
  * @access private
  *
  * @param int $request_id Request ID.
@@ -37,7 +37,7 @@ function _wp_privacy_resend_request( $request_id ) {
 /**
  * Marks a request as completed by the admin and logs the current timestamp.
  *
- * @since 4.9.6
+ * @since WP 4.9.6
  * @access private
  *
  * @param int $request_id Request ID.
@@ -67,7 +67,7 @@ function _wp_privacy_completed_request( $request_id ) {
 /**
  * Handle list table actions.
  *
- * @since 4.9.6
+ * @since WP 4.9.6
  * @access private
  */
 function _wp_personal_data_handle_actions() {
@@ -189,7 +189,7 @@ function _wp_personal_data_handle_actions() {
 /**
  * Cleans up failed and expired requests before displaying the list table.
  *
- * @since 4.9.6
+ * @since WP 4.9.6
  * @access private
  */
 function _wp_personal_data_cleanup_requests() {
@@ -227,8 +227,8 @@ function _wp_personal_data_cleanup_requests() {
 /**
  * Generate a single group for the personal data export report.
  *
- * @since 4.9.6
- * @since 5.4.0 Added the `$group_id` and `$groups_count` parameters.
+ * @since WP 4.9.6
+ * @since WP 5.4.0 Added the `$group_id` and `$groups_count` parameters.
  *
  * @param array  $group_data {
  *     The group data to render.
@@ -303,7 +303,7 @@ function wp_privacy_generate_personal_data_export_group_html( $group_data, $grou
 /**
  * Generate the personal data export file.
  *
- * @since 4.9.6
+ * @since WP 4.9.6
  *
  * @param int $request_id The export request ID.
  */
@@ -551,8 +551,8 @@ function wp_privacy_generate_personal_data_export_file( $request_id ) {
 			/**
 			 * Fires right after all personal data has been written to the export file.
 			 *
-			 * @since 4.9.6
-			 * @since 5.4.0 Added the `$json_report_pathname` parameter.
+			 * @since WP 4.9.6
+			 * @since WP 5.4.0 Added the `$json_report_pathname` parameter.
 			 *
 			 * @param string $archive_pathname     The full path to the export file on the filesystem.
 			 * @param string $archive_url          The URL of the archive file.
@@ -580,7 +580,7 @@ function wp_privacy_generate_personal_data_export_file( $request_id ) {
 /**
  * Send an email to the user with a link to the personal data export file
  *
- * @since 4.9.6
+ * @since WP 4.9.6
  *
  * @param int $request_id The request ID for this personal data export.
  * @return true|WP_Error True on success or `WP_Error` on failure.
@@ -615,7 +615,7 @@ function wp_privacy_send_personal_data_export_email( $request_id ) {
 	 * Filters the recipient of the personal data export email notification.
 	 * Should be used with great caution to avoid sending the data export link to wrong emails.
 	 *
-	 * @since 5.3.0
+	 * @since WP 5.3.0
 	 *
 	 * @param string          $request_email The email address of the notification recipient.
 	 * @param WP_User_Request $request       The request that is initiating the notification.
@@ -638,7 +638,7 @@ function wp_privacy_send_personal_data_export_email( $request_id ) {
 	/**
 	 * Filters the subject of the email sent when an export request is completed.
 	 *
-	 * @since 5.3.0
+	 * @since WP 5.3.0
 	 *
 	 * @param string $subject    The email subject.
 	 * @param string $sitename   The name of the site.
@@ -683,8 +683,8 @@ All at ###SITENAME###
 	 * ###SITENAME###           The name of the site.
 	 * ###SITEURL###            The URL to the site.
 	 *
-	 * @since 4.9.6
-	 * @since 5.3.0 Introduced the `$email_data` array.
+	 * @since WP 4.9.6
+	 * @since WP 5.3.0 Introduced the `$email_data` array.
 	 *
 	 * @param string $email_text Text in the email.
 	 * @param int    $request_id The request ID for this personal data export.
@@ -714,7 +714,7 @@ All at ###SITENAME###
 	/**
 	 * Filters the headers of the email sent with a personal data export file.
 	 *
-	 * @since 5.4.0
+	 * @since WP 5.4.0
 	 *
 	 * @param string|array $headers    The email headers.
 	 * @param string       $subject    The email subject.
@@ -752,7 +752,7 @@ All at ###SITENAME###
 /**
  * Intercept personal data exporter page Ajax responses in order to assemble the personal data export file.
  *
- * @since 4.9.6
+ * @since WP 4.9.6
  *
  * @see 'wp_privacy_personal_data_export_page'
  *
@@ -857,7 +857,7 @@ function wp_privacy_process_personal_data_export_page( $response, $exporter_inde
 	/**
 	 * Generate the export file from the collected, grouped personal data.
 	 *
-	 * @since 4.9.6
+	 * @since WP 4.9.6
 	 *
 	 * @param int $request_id The export request ID.
 	 */
@@ -896,7 +896,7 @@ function wp_privacy_process_personal_data_export_page( $response, $exporter_inde
  * monitors the status of a request. Once all of the processing has finished, the
  * request is marked as completed.
  *
- * @since 4.9.6
+ * @since WP 4.9.6
  *
  * @see 'wp_privacy_personal_data_erasure_page'
  *
@@ -958,7 +958,7 @@ function wp_privacy_process_personal_data_erasure_page( $response, $eraser_index
 	/**
 	 * Fires immediately after a personal data erasure request has been marked completed.
 	 *
-	 * @since 4.9.6
+	 * @since WP 4.9.6
 	 *
 	 * @param int $request_id The privacy request post ID associated with this request.
 	 */

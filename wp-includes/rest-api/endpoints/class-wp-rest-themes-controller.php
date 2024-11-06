@@ -4,13 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage REST_API
- * @since 5.0.0
+ * @since WP 5.0.0
  */
 
 /**
  * Core class used to manage themes via the REST API.
  *
- * @since 5.0.0
+ * @since WP 5.0.0
  *
  * @see WP_REST_Controller
  */
@@ -25,7 +25,7 @@ class WP_REST_Themes_Controller extends WP_REST_Controller {
 	/**
 	 * Constructor.
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 */
 	public function __construct() {
 		$this->namespace = 'wp/v2';
@@ -35,7 +35,7 @@ class WP_REST_Themes_Controller extends WP_REST_Controller {
 	/**
 	 * Registers the routes for themes.
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 *
 	 * @see register_rest_route()
 	 */
@@ -78,7 +78,7 @@ class WP_REST_Themes_Controller extends WP_REST_Controller {
 	/**
 	 * Sanitize the stylesheet to decode endpoint.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param string $stylesheet The stylesheet name.
 	 * @return string Sanitized stylesheet.
@@ -90,7 +90,7 @@ class WP_REST_Themes_Controller extends WP_REST_Controller {
 	/**
 	 * Checks if a given request has access to read the theme.
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has read access for the item, otherwise WP_Error object.
@@ -115,7 +115,7 @@ class WP_REST_Themes_Controller extends WP_REST_Controller {
 	/**
 	 * Checks if a given request has access to read the theme.
 	 *
-	 * @since 5.7.0
+	 * @since WP 5.7.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has read access for the item, otherwise WP_Error object.
@@ -142,7 +142,7 @@ class WP_REST_Themes_Controller extends WP_REST_Controller {
 	/**
 	 * Checks if a theme can be read.
 	 *
-	 * @since 5.7.0
+	 * @since WP 5.7.0
 	 *
 	 * @return true|WP_Error True if the theme can be read, WP_Error object otherwise.
 	 */
@@ -167,7 +167,7 @@ class WP_REST_Themes_Controller extends WP_REST_Controller {
 	/**
 	 * Retrieves a single theme.
 	 *
-	 * @since 5.7.0
+	 * @since WP 5.7.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
@@ -189,7 +189,7 @@ class WP_REST_Themes_Controller extends WP_REST_Controller {
 	/**
 	 * Retrieves a collection of themes.
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
@@ -222,9 +222,9 @@ class WP_REST_Themes_Controller extends WP_REST_Controller {
 	/**
 	 * Prepares a single theme output for response.
 	 *
-	 * @since 5.0.0
-	 * @since 5.9.0 Renamed `$theme` to `$item` to match parent class for PHP 8 named parameter support.
-	 * @since 6.6.0 Added `stylesheet_uri` and `template_uri` fields.
+	 * @since WP 5.0.0
+	 * @since WP 5.9.0 Renamed `$theme` to `$item` to match parent class for PHP 8 named parameter support.
+	 * @since WP 6.6.0 Added `stylesheet_uri` and `template_uri` fields.
 	 *
 	 * @param WP_Theme        $item    Theme object.
 	 * @param WP_REST_Request $request Request object.
@@ -360,7 +360,7 @@ class WP_REST_Themes_Controller extends WP_REST_Controller {
 		/**
 		 * Filters theme data returned from the REST API.
 		 *
-		 * @since 5.0.0
+		 * @since WP 5.0.0
 		 *
 		 * @param WP_REST_Response $response The response object.
 		 * @param WP_Theme         $theme    Theme object used to create response.
@@ -372,7 +372,7 @@ class WP_REST_Themes_Controller extends WP_REST_Controller {
 	/**
 	 * Prepares links for the request.
 	 *
-	 * @since 5.7.0
+	 * @since WP 5.7.0
 	 *
 	 * @param WP_Theme $theme Theme data.
 	 * @return array Links for the given block type.
@@ -407,7 +407,7 @@ class WP_REST_Themes_Controller extends WP_REST_Controller {
 	/**
 	 * Helper function to compare two themes.
 	 *
-	 * @since 5.7.0
+	 * @since WP 5.7.0
 	 *
 	 * @param WP_Theme $theme_a First theme to compare.
 	 * @param WP_Theme $theme_b Second theme to compare.
@@ -420,7 +420,7 @@ class WP_REST_Themes_Controller extends WP_REST_Controller {
 	/**
 	 * Prepares the theme support value for inclusion in the REST API response.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @param mixed           $support The raw value from get_theme_support().
 	 * @param array           $args    The feature's registration args.
@@ -445,7 +445,7 @@ class WP_REST_Themes_Controller extends WP_REST_Controller {
 	/**
 	 * Retrieves the theme's schema, conforming to JSON Schema.
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 *
 	 * @return array Item schema data.
 	 */
@@ -641,7 +641,7 @@ class WP_REST_Themes_Controller extends WP_REST_Controller {
 	/**
 	 * Retrieves the search params for the themes collection.
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 *
 	 * @return array Collection parameters.
 	 */
@@ -660,7 +660,7 @@ class WP_REST_Themes_Controller extends WP_REST_Controller {
 		/**
 		 * Filters REST API collection parameters for the themes controller.
 		 *
-		 * @since 5.0.0
+		 * @since WP 5.0.0
 		 *
 		 * @param array $query_params JSON Schema-formatted collection parameters.
 		 */
@@ -670,8 +670,8 @@ class WP_REST_Themes_Controller extends WP_REST_Controller {
 	/**
 	 * Sanitizes and validates the list of theme status.
 	 *
-	 * @since 5.0.0
-	 * @deprecated 5.7.0
+	 * @since WP 5.0.0
+	 * @deprecated WP 5.7.0
 	 *
 	 * @param string|array    $statuses  One or more theme statuses.
 	 * @param WP_REST_Request $request   Full details about the request.

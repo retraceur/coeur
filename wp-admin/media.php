@@ -4,7 +4,7 @@
  *
  * This file is deprecated, use 'wp-admin/upload.php' instead.
  *
- * @deprecated 6.3.0
+ * @deprecated WP 6.3.0
  * @package motsVertueux
  * @subpackage Administration
  */

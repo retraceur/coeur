@@ -6,12 +6,13 @@
  * Allows for some configuration in wp-config.php (see default-constants.php)
  *
  * @package motsVertueux
+ * @since 1.0.0 motsVertueux fork.
  */
 
 /**
  * Stores the location of the WordPress directory of functions, classes, and core content.
  *
- * @since 1.0.0
+ * @since WP 1.0.0
  */
 define( 'WPINC', 'wp-includes' );
 
@@ -22,14 +23,15 @@ define( 'WPINC', 'wp-includes' );
  * include version.php from another installation and don't override
  * these values if already set.
  *
- * @global string $wp_version             The WordPress version string.
- * @global int    $wp_db_version          WordPress database version.
- * @global string $tinymce_version        TinyMCE version.
- * @global string $required_php_version   The required PHP version string.
- * @global string $required_mysql_version The required MySQL version string.
- * @global string $wp_local_package       Locale code of the package.
+ * @global string $wp_version              The WordPress version string.
+ * @global int    $wp_db_version           WordPress database version.
+ * @global string $tinymce_version         TinyMCE version.
+ * @global string $required_php_version    The required PHP version string.
+ * @global string $recommended_php_version The recommended PHP version string.
+ * @global string $required_mysql_version  The required MySQL version string.
+ * @global string $wp_local_package        Locale code of the package.
  */
-global $wp_version, $wp_db_version, $tinymce_version, $required_php_version, $required_mysql_version, $wp_local_package;
+global $wp_version, $wp_db_version, $tinymce_version, $required_php_version, $recommended_php_version, $required_mysql_version, $wp_local_package;
 require ABSPATH . WPINC . '/version.php';
 require ABSPATH . WPINC . '/compat.php';
 require ABSPATH . WPINC . '/load.php';
@@ -54,7 +56,7 @@ require_once ABSPATH . WPINC . '/plugin.php';
  * If not already configured, `$blog_id` will default to 1 in a single site
  * configuration. In multisite, it will be overridden by default in ms-settings.php.
  *
- * @since 2.0.0
+ * @since WP 2.0.0
  *
  * @global int $blog_id
  */
@@ -88,7 +90,7 @@ wp_debug_mode();
  * This filter runs before it can be used by plugins. It is designed for non-web
  * run-times. If false is returned, advanced-cache.php will never be loaded.
  *
- * @since 4.6.0
+ * @since WP 4.6.0
  *
  * @param bool $enable_advanced_cache Whether to enable loading advanced-cache.php (if present).
  *                                    Default true.
@@ -124,7 +126,7 @@ require ABSPATH . WPINC . '/l10n/class-wp-translation-file-mo.php';
 require ABSPATH . WPINC . '/l10n/class-wp-translation-file-php.php';
 
 /**
- * @since 0.71
+ * @since WP 0.71
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  */
@@ -133,7 +135,7 @@ global $wpdb;
 require_wp_db();
 
 /**
- * @since 3.3.0
+ * @since WP 3.3.0
  *
  * @global string $table_prefix The database table prefix.
  */
@@ -409,7 +411,7 @@ add_action( 'after_setup_theme', array( wp_script_modules(), 'add_hooks' ) );
 add_action( 'after_setup_theme', array( wp_interactivity(), 'add_hooks' ) );
 
 /**
- * @since 3.3.0
+ * @since WP 3.3.0
  *
  * @global WP_Embed $wp_embed WordPress Embed object.
  */
@@ -420,7 +422,7 @@ $GLOBALS['wp_embed'] = new WP_Embed();
  *
  * Used to support just-in-time translations for manually loaded text domains.
  *
- * @since 6.1.0
+ * @since WP 6.1.0
  *
  * @global WP_Textdomain_Registry $wp_textdomain_registry WordPress Textdomain Registry.
  */
@@ -439,7 +441,7 @@ if ( is_multisite() ) {
 wp_plugin_directory_constants();
 
 /**
- * @since 3.9.0
+ * @since WP 3.9.0
  *
  * @global array $wp_plugin_paths
  */
@@ -454,7 +456,7 @@ foreach ( wp_get_mu_plugins() as $mu_plugin ) {
 	/**
 	 * Fires once a single must-use plugin has loaded.
 	 *
-	 * @since 5.1.0
+	 * @since WP 5.1.0
 	 *
 	 * @param string $mu_plugin Full path to the plugin's main file.
 	 */
@@ -474,7 +476,7 @@ if ( is_multisite() ) {
 		/**
 		 * Fires once a single network-activated plugin has loaded.
 		 *
-		 * @since 5.1.0
+		 * @since WP 5.1.0
 		 *
 		 * @param string $network_plugin Full path to the plugin's main file.
 		 */
@@ -486,7 +488,7 @@ if ( is_multisite() ) {
 /**
  * Fires once all must-use and network-activated plugins have loaded.
  *
- * @since 2.8.0
+ * @since WP 2.8.0
  */
 do_action( 'muplugins_loaded' );
 
@@ -529,7 +531,7 @@ foreach ( wp_get_active_and_valid_plugins() as $plugin ) {
 	/**
 	 * Fires once a single activated plugin has loaded.
 	 *
-	 * @since 5.1.0
+	 * @since WP 5.1.0
 	 *
 	 * @param string $plugin Full path to the plugin's main file.
 	 */
@@ -554,7 +556,7 @@ if ( WP_CACHE && function_exists( 'wp_cache_postload' ) ) {
  *
  * Pluggable functions are also available at this point in the loading order.
  *
- * @since 1.5.0
+ * @since WP 1.5.0
  */
 do_action( 'plugins_loaded' );
 
@@ -567,14 +569,14 @@ wp_magic_quotes();
 /**
  * Fires when comment cookies are sanitized.
  *
- * @since 2.0.11
+ * @since WP 2.0.11
  */
 do_action( 'sanitize_comment_cookies' );
 
 /**
  * WordPress Query object
  *
- * @since 2.0.0
+ * @since WP 2.0.0
  *
  * @global WP_Query $wp_the_query WordPress Query object.
  */
@@ -584,7 +586,7 @@ $GLOBALS['wp_the_query'] = new WP_Query();
  * Holds the reference to {@see $wp_the_query}.
  * Use this global for WordPress queries
  *
- * @since 1.5.0
+ * @since WP 1.5.0
  *
  * @global WP_Query $wp_query WordPress Query object.
  */
@@ -593,7 +595,7 @@ $GLOBALS['wp_query'] = $GLOBALS['wp_the_query'];
 /**
  * Holds the WordPress Rewrite object for creating pretty URLs
  *
- * @since 1.5.0
+ * @since WP 1.5.0
  *
  * @global WP_Rewrite $wp_rewrite WordPress rewrite component.
  */
@@ -602,7 +604,7 @@ $GLOBALS['wp_rewrite'] = new WP_Rewrite();
 /**
  * WordPress Object
  *
- * @since 2.0.0
+ * @since WP 2.0.0
  *
  * @global WP $wp Current WordPress environment instance.
  */
@@ -611,7 +613,7 @@ $GLOBALS['wp'] = new WP();
 /**
  * WordPress Widget Factory Object
  *
- * @since 2.8.0
+ * @since WP 2.8.0
  *
  * @global WP_Widget_Factory $wp_widget_factory
  */
@@ -620,7 +622,7 @@ $GLOBALS['wp_widget_factory'] = new WP_Widget_Factory();
 /**
  * WordPress User Roles
  *
- * @since 2.0.0
+ * @since WP 2.0.0
  *
  * @global WP_Roles $wp_roles WordPress role management object.
  */
@@ -629,7 +631,7 @@ $GLOBALS['wp_roles'] = new WP_Roles();
 /**
  * Fires before the theme is loaded.
  *
- * @since 2.6.0
+ * @since WP 2.6.0
  */
 do_action( 'setup_theme' );
 
@@ -650,7 +652,7 @@ unset( $locale_file );
 /**
  * WordPress Locale object for loading locale domain date and various strings.
  *
- * @since 2.1.0
+ * @since WP 2.1.0
  *
  * @global WP_Locale $wp_locale WordPress date and time locale object.
  */
@@ -659,7 +661,7 @@ $GLOBALS['wp_locale'] = new WP_Locale();
 /**
  * WordPress Locale Switcher object for switching locales.
  *
- * @since 4.7.0
+ * @since WP 4.7.0
  *
  * @global WP_Locale_Switcher $wp_locale_switcher WordPress locale switcher object.
  */
@@ -677,7 +679,7 @@ unset( $theme );
 /**
  * Fires after the theme is loaded.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  */
 do_action( 'after_setup_theme' );
 
@@ -699,7 +701,7 @@ $GLOBALS['wp']->init();
  *
  * If you wish to plug an action once WP is loaded, use the {@see 'wp_loaded'} hook below.
  *
- * @since 1.5.0
+ * @since WP 1.5.0
  */
 do_action( 'init' );
 
@@ -719,8 +721,6 @@ if ( is_multisite() ) {
  * Ajax requests should use wp-admin/admin-ajax.php. admin-ajax.php can handle requests for
  * users not logged in.
  *
- * @link https://developer.wordpress.org/plugins/javascript/ajax
- *
- * @since 3.0.0
+ * @since WP 3.0.0
  */
 do_action( 'wp_loaded' );

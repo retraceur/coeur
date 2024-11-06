@@ -51,8 +51,8 @@ if ( post_type_supports( $post_type, 'editor' )
 	/**
 	 * Filters whether to enable the 'expand' functionality in the post editor.
 	 *
-	 * @since 4.0.0
-	 * @since 4.1.0 Added the `$post_type` parameter.
+	 * @since WP 4.0.0
+	 * @since WP 4.1.0 Added the `$post_type` parameter.
 	 *
 	 * @param bool   $expand    Whether to enable the 'expand' functionality. Default true.
 	 * @param string $post_type Post type.
@@ -212,7 +212,7 @@ $messages['attachment'] = array_fill( 1, 10, __( 'Media file updated.' ) ); // H
 /**
  * Filters the post updated messages.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @param array[] $messages Post updated messages. For defaults see `$messages` declarations above.
  */
@@ -309,16 +309,6 @@ if ( 'post' === $post_type ) {
 		)
 	);
 
-	get_current_screen()->set_help_sidebar(
-		'<p>' . sprintf(
-			/* translators: %s: URL to Press This bookmarklet. */
-			__( 'You can also create posts with the <a href="%s">Press This bookmarklet</a>.' ),
-			'tools.php'
-		) . '</p>' .
-			'<p><strong>' . __( 'For more information:' ) . '</strong></p>' .
-			'<p>' . __( '<a href="https://wordpress.org/documentation/article/write-posts-classic-editor/">Documentation on Writing and Editing Posts</a>' ) . '</p>' .
-			'<p>' . __( '<a href="https://wordpress.org/support/forums/">Support forums</a>' ) . '</p>'
-	);
 } elseif ( 'page' === $post_type ) {
 	$about_pages = '<p>' . __( 'Pages are similar to posts in that they have a title, body text, and associated metadata, but they are different in that they are not part of the chronological blog stream, kind of like permanent posts. Pages are not categorized or tagged, but can have a hierarchy. You can nest pages under other pages by making one the &#8220;Parent&#8221; of the other, creating a group of pages.' ) . '</p>' .
 		'<p>' . __( 'Creating a Page is very similar to creating a Post, and the screens can be customized in the same way using drag and drop, the Screen Options tab, and expanding/collapsing boxes as you choose. This screen also has the distraction-free writing space, available in both the Visual and Text modes via the Fullscreen buttons. The Page editor mostly works the same as the Post editor, but there are some Page-specific features in the Page Attributes box.' ) . '</p>';
@@ -330,13 +320,7 @@ if ( 'post' === $post_type ) {
 			'content' => $about_pages,
 		)
 	);
-
-	get_current_screen()->set_help_sidebar(
-		'<p><strong>' . __( 'For more information:' ) . '</strong></p>' .
-			'<p>' . __( '<a href="https://wordpress.org/documentation/article/pages-add-new-screen/">Documentation on Adding New Pages</a>' ) . '</p>' .
-			'<p>' . __( '<a href="https://wordpress.org/documentation/article/pages-screen/">Documentation on Editing Pages</a>' ) . '</p>' .
-			'<p>' . __( '<a href="https://wordpress.org/support/forums/">Support forums</a>' ) . '</p>'
-	);
+	
 } elseif ( 'attachment' === $post_type ) {
 	get_current_screen()->add_help_tab(
 		array(
@@ -349,17 +333,11 @@ if ( 'post' === $post_type ) {
 				'<p>' . __( 'Remember to click Update to save metadata entered or changed.' ) . '</p>',
 		)
 	);
-
-	get_current_screen()->set_help_sidebar(
-		'<p><strong>' . __( 'For more information:' ) . '</strong></p>' .
-		'<p>' . __( '<a href="https://wordpress.org/documentation/article/edit-media/">Documentation on Edit Media</a>' ) . '</p>' .
-		'<p>' . __( '<a href="https://wordpress.org/support/forums/">Support forums</a>' ) . '</p>'
-	);
 }
 
 if ( 'post' === $post_type || 'page' === $post_type ) {
 	$inserting_media  = '<p>' . __( 'You can upload and insert media (images, audio, documents, etc.) by clicking the Add Media button. You can select from the images and files already uploaded to the Media Library, or upload new media to add to your page or post. To create an image gallery, select the images to add and click the &#8220;Create a new gallery&#8221; button.' ) . '</p>';
-	$inserting_media .= '<p>' . __( 'You can also embed media from many popular websites including Twitter, YouTube, Flickr and others by pasting the media URL on its own line into the content of your post/page. <a href="https://wordpress.org/documentation/article/embeds/">Learn more about embeds</a>.' ) . '</p>';
+	$inserting_media .= '<p>' . __( 'You can also embed media from many popular websites including Twitter, YouTube, Flickr and others by pasting the media URL on its own line into the content of your post/page.' ) . '</p>';
 
 	get_current_screen()->add_help_tab(
 		array(
@@ -377,7 +355,7 @@ if ( 'post' === $post_type ) {
 	'</li>';
 
 	if ( current_theme_supports( 'post-formats' ) && post_type_supports( 'post', 'post-formats' ) ) {
-		$publish_box .= '<li>' . __( '<strong>Format</strong> &mdash; Post Formats designate how your theme will display a specific post. For example, you could have a <em>standard</em> blog post with a title and paragraphs, or a short <em>aside</em> that omits the title and contains a short text blurb. Your theme could enable all or some of 10 possible formats. <a href="https://developer.wordpress.org/advanced-administration/wordpress/post-formats/#supported-formats">Learn more about each post format</a>.' ) . '</li>';
+		$publish_box .= '<li>' . __( '<strong>Format</strong> &mdash; Post Formats designate how your theme will display a specific post. For example, you could have a <em>standard</em> blog post with a title and paragraphs, or a short <em>aside</em> that omits the title and contains a short text blurb. Your theme could enable all or some of 10 possible formats.' ) . '</li>';
 	}
 
 	if ( current_theme_supports( 'post-thumbnails' ) && post_type_supports( 'post', 'thumbnail' ) ) {
@@ -482,7 +460,7 @@ wp_admin_notice(
 /**
  * Fires inside the post editor form tag.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @param WP_Post $post Post object.
  */
@@ -519,7 +497,7 @@ wp_nonce_field( 'closedpostboxes', 'closedpostboxesnonce', false );
  *
  * At this point, the required hidden fields and nonces have already been output.
  *
- * @since 3.7.0
+ * @since WP 3.7.0
  *
  * @param WP_Post $post Post object.
  */
@@ -537,7 +515,7 @@ do_action( 'edit_form_top', $post );
 	/**
 	 * Filters the title field placeholder text.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @param string  $text Placeholder text. Default 'Add title'.
 	 * @param WP_Post $post Post object.
@@ -552,7 +530,7 @@ do_action( 'edit_form_top', $post );
 	/**
 	 * Fires before the permalink field in the edit form.
 	 *
-	 * @since 4.1.0
+	 * @since WP 4.1.0
 	 *
 	 * @param WP_Post $post Post object.
 	 */
@@ -601,7 +579,7 @@ endif;
 /**
  * Fires after the title field.
  *
- * @since 3.5.0
+ * @since WP 3.5.0
  *
  * @param WP_Post $post Post object.
  */
@@ -676,7 +654,7 @@ if ( post_type_supports( $post_type, 'editor' ) ) {
 /**
  * Fires after the content editor.
  *
- * @since 3.5.0
+ * @since WP 3.5.0
  *
  * @param WP_Post $post Post object.
  */
@@ -693,7 +671,7 @@ if ( 'page' === $post_type ) {
 	 *
 	 * The submitpage box is a meta box with 'side' context, so this hook fires just before it is output.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @param WP_Post $post Post object.
 	 */
@@ -704,7 +682,7 @@ if ( 'page' === $post_type ) {
 	 *
 	 * The submitpost box is a meta box with 'side' context, so this hook fires just before it is output.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @param WP_Post $post Post object.
 	 */
@@ -725,7 +703,7 @@ if ( 'page' === $post_type ) {
 	/**
 	 * Fires after 'normal' context meta boxes have been output for the 'page' post type.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 *
 	 * @param WP_Post $post Post object.
 	 */
@@ -734,7 +712,7 @@ if ( 'page' === $post_type ) {
 	/**
 	 * Fires after 'normal' context meta boxes have been output for all post types other than 'page'.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 *
 	 * @param WP_Post $post Post object.
 	 */
@@ -750,7 +728,7 @@ do_meta_boxes( null, 'advanced', $post );
 /**
  * Fires after all meta box sections have been output, before the closing #post-body div.
  *
- * @since 2.1.0
+ * @since WP 2.1.0
  *
  * @param WP_Post $post Post object.
  */

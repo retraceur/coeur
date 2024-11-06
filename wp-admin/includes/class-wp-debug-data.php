@@ -4,7 +4,7 @@
  *
  * @package motsVertueux
  * @subpackage Site_Health
- * @since 5.2.0
+ * @since WP 5.2.0
  */
 
 #[AllowDynamicProperties]
@@ -12,7 +12,7 @@ class WP_Debug_Data {
 	/**
 	 * Calls all core functions to check for updates.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 */
 	public static function check_for_updates() {
 		wp_version_check();
@@ -23,11 +23,11 @@ class WP_Debug_Data {
 	/**
 	 * Static function for generating site debug data when required.
 	 *
-	 * @since 5.2.0
-	 * @since 5.3.0 Added database charset, database collation,
+	 * @since WP 5.2.0
+	 * @since WP 5.3.0 Added database charset, database collation,
 	 *              and timezone information.
-	 * @since 5.5.0 Added pretty permalinks support information.
-	 * @since 6.7.0 Modularized into separate theme-oriented methods.
+	 * @since WP 5.5.0 Added pretty permalinks support information.
+	 * @since WP 6.7.0 Modularized into separate theme-oriented methods.
 	 *
 	 * @throws ImagickException
 	 *
@@ -86,7 +86,7 @@ class WP_Debug_Data {
 		 * All strings are expected to be plain text except `$description` that can contain
 		 * inline HTML tags (see below).
 		 *
-		 * @since 5.2.0
+		 * @since WP 5.2.0
 		 *
 		 * @param array $args {
 		 *     The debug information to be added to the core information page.
@@ -140,7 +140,7 @@ class WP_Debug_Data {
 	/**
 	 * Gets the WordPress core section of the debug data.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @return array
 	 */
@@ -272,38 +272,16 @@ class WP_Debug_Data {
 			'value' => get_user_count(),
 		);
 
-		// WordPress features requiring processing.
-		$wp_dotorg = wp_remote_get( 'https://wordpress.org', array( 'timeout' => 10 ) );
-
-		if ( ! is_wp_error( $wp_dotorg ) ) {
-			$fields['dotorg_communication'] = array(
-				'label' => __( 'Communication with WordPress.org' ),
-				'value' => __( 'WordPress.org is reachable' ),
-				'debug' => 'true',
-			);
-		} else {
-			$fields['dotorg_communication'] = array(
-				'label' => __( 'Communication with WordPress.org' ),
-				'value' => sprintf(
-				/* translators: 1: The IP address WordPress.org resolves to. 2: The error returned by the lookup. */
-					__( 'Unable to reach WordPress.org at %1$s: %2$s' ),
-					gethostbyname( 'wordpress.org' ),
-					$wp_dotorg->get_error_message()
-				),
-				'debug' => $wp_dotorg->get_error_message(),
-			);
-		}
-
 		return array(
-			'label'  => __( 'WordPress' ),
+			'label'  => __( 'motsVertueux' ),
 			'fields' => $fields,
 		);
 	}
 
 	/**
-	 * Gets the WordPress drop-in section of the debug data.
+	 * Gets the motsVertueux drop-in section of the debug data.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @return array
 	 */
@@ -338,7 +316,7 @@ class WP_Debug_Data {
 	/**
 	 * Gets the WordPress server section of the debug data.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @return array
 	 */
@@ -530,7 +508,7 @@ class WP_Debug_Data {
 	/**
 	 * Gets the WordPress media section of the debug data.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @throws ImagickException
 	 * @return array
@@ -724,7 +702,7 @@ class WP_Debug_Data {
 	/**
 	 * Gets the WordPress MU plugins section of the debug data.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @return array
 	 */
@@ -775,7 +753,7 @@ class WP_Debug_Data {
 	/**
 	 * Gets the WordPress paths and sizes section of the debug data.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @return array|null Paths and sizes debug data for single sites,
 	 *                    otherwise `null` for multi-site installs.
@@ -855,7 +833,7 @@ class WP_Debug_Data {
 	/**
 	 * Gets the WordPress active plugins section of the debug data.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @return array
 	 */
@@ -870,7 +848,7 @@ class WP_Debug_Data {
 	/**
 	 * Gets the WordPress inactive plugins section of the debug data.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @return array
 	 */
@@ -885,7 +863,7 @@ class WP_Debug_Data {
 	/**
 	 * Gets the raw plugin data for the WordPress active and inactive sections of the debug data.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @return array
 	 */
@@ -980,7 +958,7 @@ class WP_Debug_Data {
 				/**
 				 * Filters the text string of the auto-updates setting for each plugin in the Site Health debug data.
 				 *
-				 * @since 5.5.0
+				 * @since WP 5.5.0
 				 *
 				 * @param string $auto_updates_string The string output for the auto-updates column.
 				 * @param string $plugin_path         The path to the plugin file.
@@ -1006,7 +984,7 @@ class WP_Debug_Data {
 	/**
 	 * Gets the WordPress active theme section of the debug data.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @global array $_wp_theme_features
 	 *
@@ -1152,7 +1130,7 @@ class WP_Debug_Data {
 	/**
 	 * Gets the WordPress parent theme section of the debug data.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @return array
 	 */
@@ -1264,7 +1242,7 @@ class WP_Debug_Data {
 	/**
 	 * Gets the WordPress inactive themes section of the debug data.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @return array
 	 */
@@ -1360,7 +1338,7 @@ class WP_Debug_Data {
 				/**
 				 * Filters the text string of the auto-updates setting for each theme in the Site Health debug data.
 				 *
-				 * @since 5.5.0
+				 * @since WP 5.5.0
 				 *
 				 * @param string   $auto_updates_string The string output for the auto-updates column.
 				 * @param WP_Theme $theme               An object of theme data.
@@ -1394,7 +1372,7 @@ class WP_Debug_Data {
 	/**
 	 * Gets the WordPress constants section of the debug data.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @return array
 	 */
@@ -1556,7 +1534,7 @@ class WP_Debug_Data {
 	/**
 	 * Gets the WordPress database section of the debug data.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @global wpdb $wpdb WordPress database abstraction object.
 	 *
@@ -1640,7 +1618,7 @@ class WP_Debug_Data {
 	/**
 	 * Gets the file system section of the debug data.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @return array
 	 */
@@ -1707,7 +1685,7 @@ class WP_Debug_Data {
 	/**
 	 * Returns the value of a MySQL system variable.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @global wpdb $wpdb WordPress database abstraction object.
 	 *
@@ -1732,7 +1710,7 @@ class WP_Debug_Data {
 	/**
 	 * Formats the information gathered for debugging, in a manner suitable for copying to a forum or support ticket.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 *
 	 * @param array  $info_array Information gathered from the `WP_Debug_Data::debug_data()` function.
 	 * @param string $data_type  The data type to return, either 'info' or 'debug'.
@@ -1801,7 +1779,7 @@ class WP_Debug_Data {
 	/**
 	 * Fetches the total size of all the database tables for the active database user.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 *
 	 * @global wpdb $wpdb WordPress database abstraction object.
 	 *
@@ -1825,7 +1803,7 @@ class WP_Debug_Data {
 	 * Fetches the sizes of the WordPress directories: `wordpress` (ABSPATH), `plugins`, `themes`, and `uploads`.
 	 * Intended to supplement the array returned by `WP_Debug_Data::debug_data()`.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 *
 	 * @return array The sizes of the directories, also the database size and total installation size.
 	 */

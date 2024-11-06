@@ -4,7 +4,7 @@
  *
  * @package motsVertueux
  * @subpackage Feed
- * @since 4.7.0
+ * @since WP 4.7.0
  */
 
 /**
@@ -13,7 +13,7 @@
  * This uses Core's HTTP API to make requests, which gives plugins the ability
  * to hook into the process.
  *
- * @since 2.8.0
+ * @since WP 2.8.0
  */
 #[AllowDynamicProperties]
 class WP_SimplePie_File extends SimplePie\File {
@@ -28,9 +28,9 @@ class WP_SimplePie_File extends SimplePie\File {
 	/**
 	 * Constructor.
 	 *
-	 * @since 2.8.0
-	 * @since 3.2.0 Updated to use a PHP5 constructor.
-	 * @since 5.6.1 Multiple headers are concatenated into a comma-separated string,
+	 * @since WP 2.8.0
+	 * @since WP 3.2.0 Updated to use a PHP5 constructor.
+	 * @since WP 5.6.1 Multiple headers are concatenated into a comma-separated string,
 	 *              rather than remaining an array.
 	 *
 	 * @param string       $url             Remote file URL.

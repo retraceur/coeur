@@ -113,7 +113,7 @@ window.wp = window.wp || {};
 		 * Attempt to create image sub-sizes when an image was uploaded successfully
 		 * but the server responded with HTTP 5xx error.
 		 *
-		 * @since 5.3.0
+		 * @since WP 5.3.0
 		 *
 		 * @param {string}        message Error message.
 		 * @param {object}        data    Error data from Plupload.
@@ -302,8 +302,6 @@ window.wp = window.wp || {};
 				 * Using an instant timer prevents the drag-over class
 				 * from being quickly removed and re-added when elements
 				 * inside the dropzone are repositioned.
-				 *
-				 * @see https://core.trac.wordpress.org/ticket/21705
 				 */
 				timer = setTimeout( function() {
 					active = false;

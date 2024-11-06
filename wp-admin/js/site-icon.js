@@ -1,7 +1,7 @@
 /**
  * Handle the site icon setting in options-general.php.
  *
- * @since 6.5.0
+ * @since WP 6.5.0
  * @output wp-admin/js/site-icon.js
  */
 
@@ -19,7 +19,7 @@
 	/**
 	 * Calculate image selection options based on the attachment dimensions.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param {Object} attachment The attachment object representing the image.
 	 * @return {Object} The image selection options.
@@ -69,7 +69,7 @@
 	/**
 	 * Initializes the media frame for selecting or cropping an image.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 */
 	$chooseButton.on( 'click', function () {
 		var $el = $( this );
@@ -137,7 +137,7 @@
 	/**
 	 * Update the UI when a site icon is selected.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param {array} attributes The attributes for the attachment.
 	 */
@@ -210,7 +210,7 @@
 	/**
 	 * Handles the click event of the remove button.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 */
 	$removeButton.on( 'click', function () {
 		$hiddenDataField.val( 'false' );

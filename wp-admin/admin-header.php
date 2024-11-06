@@ -76,7 +76,7 @@ if ( wp_is_recovery_mode() ) {
 /**
  * Filters the title tag content for an admin page.
  *
- * @since 3.1.0
+ * @since WP 3.1.0
  *
  * @param string $admin_title The page title, with extra context added.
  * @param string $title       The original page title.
@@ -111,7 +111,7 @@ var ajaxurl = '<?php echo esc_js( admin_url( 'admin-ajax.php', 'relative' ) ); ?
 /**
  * Fires when enqueuing scripts for all admin pages.
  *
- * @since 2.8.0
+ * @since WP 2.8.0
  *
  * @param string $hook_suffix The current admin page.
  */
@@ -120,28 +120,28 @@ do_action( 'admin_enqueue_scripts', $hook_suffix );
 /**
  * Fires when styles are printed for a specific admin page based on $hook_suffix.
  *
- * @since 2.6.0
+ * @since WP 2.6.0
  */
 do_action( "admin_print_styles-{$hook_suffix}" ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
 
 /**
  * Fires when styles are printed for all admin pages.
  *
- * @since 2.6.0
+ * @since WP 2.6.0
  */
 do_action( 'admin_print_styles' );
 
 /**
  * Fires when scripts are printed for a specific admin page based on $hook_suffix.
  *
- * @since 2.1.0
+ * @since WP 2.1.0
  */
 do_action( "admin_print_scripts-{$hook_suffix}" ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
 
 /**
  * Fires when scripts are printed for all admin pages.
  *
- * @since 2.1.0
+ * @since WP 2.1.0
  */
 do_action( 'admin_print_scripts' );
 
@@ -151,14 +151,14 @@ do_action( 'admin_print_scripts' );
  * The dynamic portion of the hook name, `$hook_suffix`, refers to the hook suffix
  * for the admin page.
  *
- * @since 2.1.0
+ * @since WP 2.1.0
  */
 do_action( "admin_head-{$hook_suffix}" ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
 
 /**
  * Fires in head section for all admin pages.
  *
- * @since 2.1.0
+ * @since WP 2.1.0
  */
 do_action( 'admin_head' );
 
@@ -235,7 +235,7 @@ unset( $error_get_last );
  * 2. Not all core admin classes are filterable, notably: wp-admin, wp-core-ui,
  *    and no-js cannot be removed.
  *
- * @since 2.3.0
+ * @since WP 2.3.0
  *
  * @param string $classes Space-separated list of CSS classes.
  */
@@ -262,7 +262,7 @@ if ( current_user_can( 'customize' ) ) {
 /**
  * Fires at the beginning of the content section in an admin page.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  */
 do_action( 'in_admin_header' );
 ?>
@@ -284,21 +284,21 @@ if ( is_network_admin() ) {
 	/**
 	 * Prints network admin screen notices.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 */
 	do_action( 'network_admin_notices' );
 } elseif ( is_user_admin() ) {
 	/**
 	 * Prints user admin screen notices.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 */
 	do_action( 'user_admin_notices' );
 } else {
 	/**
 	 * Prints admin screen notices.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 */
 	do_action( 'admin_notices' );
 }
@@ -306,7 +306,7 @@ if ( is_network_admin() ) {
 /**
  * Prints generic admin screen notices.
  *
- * @since 3.1.0
+ * @since WP 3.1.0
  */
 do_action( 'all_admin_notices' );
 

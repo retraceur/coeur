@@ -4,13 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage Administration
- * @since 4.4.0
+ * @since WP 4.4.0
  */
 
 /**
  * Create HTML list of nav menu input items.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  * @uses Walker_Nav_Menu
  */
 class Walker_Nav_Menu_Checklist extends Walker_Nav_Menu {
@@ -28,7 +28,7 @@ class Walker_Nav_Menu_Checklist extends Walker_Nav_Menu {
 	 *
 	 * @see Walker_Nav_Menu::start_lvl()
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 *
 	 * @param string   $output Used to append additional content (passed by reference).
 	 * @param int      $depth  Depth of page. Used for padding.
@@ -44,7 +44,7 @@ class Walker_Nav_Menu_Checklist extends Walker_Nav_Menu {
 	 *
 	 * @see Walker_Nav_Menu::end_lvl()
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 *
 	 * @param string   $output Used to append additional content (passed by reference).
 	 * @param int      $depth  Depth of page. Used for padding.
@@ -60,8 +60,8 @@ class Walker_Nav_Menu_Checklist extends Walker_Nav_Menu {
 	 *
 	 * @see Walker_Nav_Menu::start_el()
 	 *
-	 * @since 3.0.0
-	 * @since 5.9.0 Renamed `$item` to `$data_object` and `$id` to `$current_object_id`
+	 * @since WP 3.0.0
+	 * @since WP 5.9.0 Renamed `$item` to `$data_object` and `$id` to `$current_object_id`
 	 *              to match parent class for PHP 8 named parameter support.
 	 *
 	 * @global int        $_nav_menu_placeholder

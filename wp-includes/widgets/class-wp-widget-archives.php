@@ -4,13 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage Widgets
- * @since 4.4.0
+ * @since WP 4.4.0
  */
 
 /**
  * Core class used to implement the Archives widget.
  *
- * @since 2.8.0
+ * @since WP 2.8.0
  *
  * @see WP_Widget
  */
@@ -19,7 +19,7 @@ class WP_Widget_Archives extends WP_Widget {
 	/**
 	 * Sets up a new Archives widget instance.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 */
 	public function __construct() {
 		$widget_ops = array(
@@ -34,7 +34,7 @@ class WP_Widget_Archives extends WP_Widget {
 	/**
 	 * Outputs the content for the current Archives widget instance.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @param array $args     Display arguments including 'before_title', 'after_title',
 	 *                        'before_widget', and 'after_widget'.
@@ -65,8 +65,8 @@ class WP_Widget_Archives extends WP_Widget {
 			/**
 			 * Filters the arguments for the Archives widget drop-down.
 			 *
-			 * @since 2.8.0
-			 * @since 4.9.0 Added the `$instance` parameter.
+			 * @since WP 2.8.0
+			 * @since WP 4.9.0 Added the `$instance` parameter.
 			 *
 			 * @see wp_get_archives()
 			 *
@@ -141,8 +141,8 @@ class WP_Widget_Archives extends WP_Widget {
 					/**
 					 * Filters the arguments for the Archives widget.
 					 *
-					 * @since 2.8.0
-					 * @since 4.9.0 Added the `$instance` parameter.
+					 * @since WP 2.8.0
+					 * @since WP 4.9.0 Added the `$instance` parameter.
 					 *
 					 * @see wp_get_archives()
 					 *
@@ -173,7 +173,7 @@ class WP_Widget_Archives extends WP_Widget {
 	/**
 	 * Handles updating settings for the current Archives widget instance.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @param array $new_instance New settings for this instance as input by the user via
 	 *                            WP_Widget_Archives::form().
@@ -200,7 +200,7 @@ class WP_Widget_Archives extends WP_Widget {
 	/**
 	 * Outputs the settings form for the Archives widget.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @param array $instance Current settings.
 	 */

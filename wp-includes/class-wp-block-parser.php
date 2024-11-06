@@ -10,8 +10,8 @@
  *
  * Parses a document and constructs a list of parsed block objects
  *
- * @since 5.0.0
- * @since 4.0.0 returns arrays not objects, all attributes are arrays
+ * @since WP 5.0.0
+ * @since WP 4.0.0 returns arrays not objects, all attributes are arrays
  */
 class WP_Block_Parser {
 	/**
@@ -19,7 +19,7 @@ class WP_Block_Parser {
 	 *
 	 * @example "Pre-text\n<!-- wp:paragraph -->This is inside a block!<!-- /wp:paragraph -->"
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 * @var string
 	 */
 	public $document;
@@ -27,7 +27,7 @@ class WP_Block_Parser {
 	/**
 	 * Tracks parsing progress through document
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 * @var int
 	 */
 	public $offset;
@@ -35,7 +35,7 @@ class WP_Block_Parser {
 	/**
 	 * List of parsed blocks
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 * @var WP_Block_Parser_Block[]
 	 */
 	public $output;
@@ -43,7 +43,7 @@ class WP_Block_Parser {
 	/**
 	 * Stack of partially-parsed structures in memory during parse
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 * @var WP_Block_Parser_Frame[]
 	 */
 	public $stack;
@@ -55,7 +55,7 @@ class WP_Block_Parser {
 	 * parse. In contrast to the specification parser this does not
 	 * return an error on invalid inputs.
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 *
 	 * @param string $document Input document being parsed.
 	 * @return array[]
@@ -84,7 +84,7 @@ class WP_Block_Parser {
 	 * or breaking out of a level of nesting.
 	 *
 	 * @internal
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 * @return bool
 	 */
 	public function proceed() {
@@ -229,8 +229,8 @@ class WP_Block_Parser {
 	 * Returns the type of the find: kind of find, block information, attributes
 	 *
 	 * @internal
-	 * @since 5.0.0
-	 * @since 4.6.1 fixed a bug in attribute parsing which caused catastrophic backtracking on invalid block comments
+	 * @since WP 5.0.0
+	 * @since WP 4.6.1 fixed a bug in attribute parsing which caused catastrophic backtracking on invalid block comments
 	 * @return array
 	 */
 	public function next_token() {
@@ -303,7 +303,7 @@ class WP_Block_Parser {
 	 * Returns a new block object for freeform HTML
 	 *
 	 * @internal
-	 * @since 3.9.0
+	 * @since WP 3.9.0
 	 *
 	 * @param string $inner_html HTML content of block.
 	 * @return WP_Block_Parser_Block freeform block object.
@@ -317,7 +317,7 @@ class WP_Block_Parser {
 	 * to the output list as a freeform block.
 	 *
 	 * @internal
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 * @param null $length how many bytes of document text to output.
 	 */
 	public function add_freeform( $length = null ) {
@@ -335,7 +335,7 @@ class WP_Block_Parser {
 	 * a new block to the output list.
 	 *
 	 * @internal
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 * @param WP_Block_Parser_Block $block        The block to add to the output.
 	 * @param int                   $token_start  Byte offset into the document where the first token for the block starts.
 	 * @param int                   $token_length Byte length of entire block from start of opening token to end of closing token.
@@ -359,7 +359,7 @@ class WP_Block_Parser {
 	 * Pushes the top block from the parsing stack to the output list.
 	 *
 	 * @internal
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 * @param int|null $end_offset byte offset into document for where we should stop sending text output as HTML.
 	 */
 	public function add_block_from_stack( $end_offset = null ) {

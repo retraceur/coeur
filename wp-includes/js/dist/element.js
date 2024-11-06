@@ -762,7 +762,7 @@ var client = __webpack_require__(4140);
 /**
  * Renders a given element into the target DOM node.
  *
- * @deprecated since WordPress 6.2.0. Use `createRoot` instead.
+ * @deprecated WP since WordPress 6.2.0. Use `createRoot` instead.
  * @see https://react.dev/reference/react-dom/render
  */
 
@@ -770,7 +770,7 @@ var client = __webpack_require__(4140);
 /**
  * Hydrates a given element into the target DOM node.
  *
- * @deprecated since WordPress 6.2.0. Use `hydrateRoot` instead.
+ * @deprecated WP since WordPress 6.2.0. Use `hydrateRoot` instead.
  * @see https://react.dev/reference/react-dom/hydrate
  */
 
@@ -778,7 +778,7 @@ var client = __webpack_require__(4140);
 /**
  * Creates a new React root for the target DOM node.
  *
- * @since 6.2.0 Introduced in WordPress core.
+ * @since WP 6.2.0 Introduced in WordPress core.
  * @see https://react.dev/reference/react-dom/client/createRoot
  */
 
@@ -786,7 +786,7 @@ var client = __webpack_require__(4140);
 /**
  * Creates a new React root for the target DOM node and hydrates it with a pre-generated markup.
  *
- * @since 6.2.0 Introduced in WordPress core.
+ * @since WP 6.2.0 Introduced in WordPress core.
  * @see https://react.dev/reference/react-dom/client/hydrateRoot
  */
 
@@ -794,7 +794,7 @@ var client = __webpack_require__(4140);
 /**
  * Removes any mounted element from the target DOM node.
  *
- * @deprecated since WordPress 6.2.0. Use `root.unmount()` instead.
+ * @deprecated WP since WordPress 6.2.0. Use `root.unmount()` instead.
  * @see https://react.dev/reference/react-dom/unmountComponentAtNode
  */
 
@@ -1085,14 +1085,14 @@ function __read(o, n) {
   return ar;
 }
 
-/** @deprecated */
+/** @deprecated WP */
 function __spread() {
   for (var ar = [], i = 0; i < arguments.length; i++)
       ar = ar.concat(__read(arguments[i]));
   return ar;
 }
 
-/** @deprecated */
+/** @deprecated WP */
 function __spreadArrays() {
   for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
   for (var r = Array(s), k = 0, i = 0; i < il; i++)

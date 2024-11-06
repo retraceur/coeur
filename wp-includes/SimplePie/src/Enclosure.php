@@ -806,7 +806,7 @@ class Enclosure
     /**
      * Embed the enclosure using `<embed>`
      *
-     * @deprecated Use the second parameter to {@see embed} instead
+     * @deprecated WP Use the second parameter to {@see embed} instead
      *
      * @param array|string $options See first parameter to {@see embed}
      * @return string HTML string to output

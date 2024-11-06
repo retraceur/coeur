@@ -123,8 +123,8 @@ let stack;
  *
  * @type {RegExp}
  *
- * @since 3.8.0
- * @since 4.6.1 added optimization to prevent backtracking on attribute parsing
+ * @since WP 3.8.0
+ * @since WP 4.6.1 added optimization to prevent backtracking on attribute parsing
  */
 const tokenizer = /<!--\s+(\/)?wp:([a-z][a-z0-9_-]*\/)?([a-z][a-z0-9_-]*)\s+({(?:(?=([^}]+|}+(?=})|(?!}\s+\/?-->)[^])*)\5|[^]*?)}\s+)?(\/)?-->/g;
 

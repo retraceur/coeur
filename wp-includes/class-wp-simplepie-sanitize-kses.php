@@ -4,7 +4,7 @@
  *
  * @package motsVertueux
  * @subpackage Feed
- * @since 4.7.0
+ * @since WP 4.7.0
  */
 
 /**
@@ -13,7 +13,7 @@
  * Extends the SimplePie\Sanitize class to use KSES, because
  * we cannot universally count on DOMDocument being available.
  *
- * @since 3.5.0
+ * @since WP 3.5.0
  */
 #[AllowDynamicProperties]
 class WP_SimplePie_Sanitize_KSES extends SimplePie\Sanitize {
@@ -23,7 +23,7 @@ class WP_SimplePie_Sanitize_KSES extends SimplePie\Sanitize {
 	 *
 	 * Sanitizes the incoming data, to ensure that it matches the type of data expected, using KSES.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @param mixed   $data The data that needs to be sanitized.
 	 * @param int     $type The type of data that it's supposed to be.

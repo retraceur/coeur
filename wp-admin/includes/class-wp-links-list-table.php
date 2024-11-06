@@ -4,13 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage Administration
- * @since 3.1.0
+ * @since WP 3.1.0
  */
 
 /**
  * Core class used to implement displaying links in a list table.
  *
- * @since 3.1.0
+ * @since WP 3.1.0
  *
  * @see WP_List_Table
  */
@@ -19,7 +19,7 @@ class WP_Links_List_Table extends WP_List_Table {
 	/**
 	 * Constructor.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @see WP_List_Table::__construct() for more information on default arguments.
 	 *
@@ -156,7 +156,7 @@ class WP_Links_List_Table extends WP_List_Table {
 	/**
 	 * Gets the name of the default primary column.
 	 *
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 *
 	 * @return string Name of the default primary column, in this case, 'name'.
 	 */
@@ -167,8 +167,8 @@ class WP_Links_List_Table extends WP_List_Table {
 	/**
 	 * Handles the checkbox column output.
 	 *
-	 * @since 4.3.0
-	 * @since 5.9.0 Renamed `$link` to `$item` to match parent class for PHP 8 named parameter support.
+	 * @since WP 4.3.0
+	 * @since WP 5.9.0 Renamed `$link` to `$item` to match parent class for PHP 8 named parameter support.
 	 *
 	 * @param object $item The current link object.
 	 */
@@ -192,7 +192,7 @@ class WP_Links_List_Table extends WP_List_Table {
 	/**
 	 * Handles the link name column output.
 	 *
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 *
 	 * @param object $link The current link object.
 	 */
@@ -210,7 +210,7 @@ class WP_Links_List_Table extends WP_List_Table {
 	/**
 	 * Handles the link URL column output.
 	 *
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 *
 	 * @param object $link The current link object.
 	 */
@@ -222,7 +222,7 @@ class WP_Links_List_Table extends WP_List_Table {
 	/**
 	 * Handles the link categories column output.
 	 *
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 *
 	 * @global int $cat_id
 	 *
@@ -249,7 +249,7 @@ class WP_Links_List_Table extends WP_List_Table {
 	/**
 	 * Handles the link relation column output.
 	 *
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 *
 	 * @param object $link The current link object.
 	 */
@@ -260,7 +260,7 @@ class WP_Links_List_Table extends WP_List_Table {
 	/**
 	 * Handles the link visibility column output.
 	 *
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 *
 	 * @param object $link The current link object.
 	 */
@@ -275,7 +275,7 @@ class WP_Links_List_Table extends WP_List_Table {
 	/**
 	 * Handles the link rating column output.
 	 *
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 *
 	 * @param object $link The current link object.
 	 */
@@ -286,8 +286,8 @@ class WP_Links_List_Table extends WP_List_Table {
 	/**
 	 * Handles the default column output.
 	 *
-	 * @since 4.3.0
-	 * @since 5.9.0 Renamed `$link` to `$item` to match parent class for PHP 8 named parameter support.
+	 * @since WP 4.3.0
+	 * @since WP 5.9.0 Renamed `$link` to `$item` to match parent class for PHP 8 named parameter support.
 	 *
 	 * @param object $item        Link object.
 	 * @param string $column_name Current column name.
@@ -299,7 +299,7 @@ class WP_Links_List_Table extends WP_List_Table {
 		/**
 		 * Fires for each registered custom link column.
 		 *
-		 * @since 2.1.0
+		 * @since WP 2.1.0
 		 *
 		 * @param string $column_name Name of the custom column.
 		 * @param int    $link_id     Link ID.
@@ -310,7 +310,7 @@ class WP_Links_List_Table extends WP_List_Table {
 	/**
 	 * Generates the list table rows.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 */
 	public function display_rows() {
 		foreach ( $this->items as $link ) {
@@ -328,8 +328,8 @@ class WP_Links_List_Table extends WP_List_Table {
 	/**
 	 * Generates and displays row action links.
 	 *
-	 * @since 4.3.0
-	 * @since 5.9.0 Renamed `$link` to `$item` to match parent class for PHP 8 named parameter support.
+	 * @since WP 4.3.0
+	 * @since WP 5.9.0 Renamed `$link` to `$item` to match parent class for PHP 8 named parameter support.
 	 *
 	 * @param object $item        Link being acted upon.
 	 * @param string $column_name Current column name.

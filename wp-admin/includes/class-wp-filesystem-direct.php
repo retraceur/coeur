@@ -9,7 +9,7 @@
 /**
  * WordPress Filesystem Class for direct PHP file and folder manipulation.
  *
- * @since 2.5.0
+ * @since WP 2.5.0
  *
  * @see WP_Filesystem_Base
  */
@@ -18,7 +18,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	/**
 	 * Constructor.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @param mixed $arg Not used.
 	 */
@@ -30,7 +30,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	/**
 	 * Reads entire file into a string.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @param string $file Name of the file to read.
 	 * @return string|false Read data on success, false on failure.
@@ -42,7 +42,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	/**
 	 * Reads entire file into an array.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @param string $file Path to the file.
 	 * @return array|false File contents in an array on success, false on failure.
@@ -54,7 +54,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	/**
 	 * Writes a string to a file.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @param string    $file     Remote path to the file where to write the data.
 	 * @param string    $contents The data to write.
@@ -91,7 +91,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	/**
 	 * Gets the current working directory.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @return string|false The current working directory on success, false on failure.
 	 */
@@ -102,7 +102,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	/**
 	 * Changes current directory.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @param string $dir The new current directory.
 	 * @return bool True on success, false on failure.
@@ -114,7 +114,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	/**
 	 * Changes the file group.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @param string     $file      Path to the file.
 	 * @param string|int $group     A group name or number.
@@ -149,7 +149,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	/**
 	 * Changes filesystem permissions.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @param string    $file      Path to the file.
 	 * @param int|false $mode      Optional. The permissions as octal number, usually 0644 for files,
@@ -187,7 +187,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	/**
 	 * Changes the owner of a file or directory.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @param string     $file      Path to the file or directory.
 	 * @param string|int $owner     A user name or number.
@@ -221,7 +221,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	/**
 	 * Gets the file owner.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @param string $file Path to the file.
 	 * @return string|false Username of the owner on success, false on failure.
@@ -251,7 +251,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	 *
 	 * FIXME does not handle errors in fileperms()
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @param string $file Path to the file.
 	 * @return string Mode of the file (the last 3 digits).
@@ -263,7 +263,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	/**
 	 * Gets the file's group.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @param string $file Path to the file.
 	 * @return string|false The group on success, false on failure.
@@ -291,7 +291,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	/**
 	 * Copies a file.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @param string    $source      Path to the source file.
 	 * @param string    $destination Path to the destination file.
@@ -325,7 +325,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	 * Use `move_dir()` for moving directories with OPcache invalidation and a
 	 * fallback to `copy_dir()`.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @param string $source      Path to the source file.
 	 * @param string $destination Path to the destination file.
@@ -361,7 +361,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	/**
 	 * Deletes a file or directory.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @param string       $file      Path to the file or directory.
 	 * @param bool         $recursive Optional. If set to true, deletes files and folders recursively.
@@ -410,7 +410,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	/**
 	 * Checks if a file or directory exists.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @param string $path Path to file or directory.
 	 * @return bool Whether $path exists or not.
@@ -422,7 +422,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	/**
 	 * Checks if resource is a file.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @param string $file File path.
 	 * @return bool Whether $file is a file.
@@ -434,7 +434,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	/**
 	 * Checks if resource is a directory.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @param string $path Directory path.
 	 * @return bool Whether $path is a directory.
@@ -446,7 +446,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	/**
 	 * Checks if a file is readable.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @param string $file Path to file.
 	 * @return bool Whether $file is readable.
@@ -458,7 +458,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	/**
 	 * Checks if a file or directory is writable.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @param string $path Path to file or directory.
 	 * @return bool Whether $path is writable.
@@ -470,7 +470,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	/**
 	 * Gets the file's last access time.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @param string $file Path to file.
 	 * @return int|false Unix timestamp representing last access time, false on failure.
@@ -482,7 +482,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	/**
 	 * Gets the file modification time.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @param string $file Path to file.
 	 * @return int|false Unix timestamp representing modification time, false on failure.
@@ -494,7 +494,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	/**
 	 * Gets the file size (in bytes).
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @param string $file Path to file.
 	 * @return int|false Size of the file in bytes on success, false on failure.
@@ -508,7 +508,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	 *
 	 * Note: If $file doesn't exist, it will be created.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @param string $file  Path to file.
 	 * @param int    $time  Optional. Modified time to set for file.
@@ -532,7 +532,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	/**
 	 * Creates a directory.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @param string           $path  Path for new directory.
 	 * @param int|false        $chmod Optional. The permissions as octal number (or false to skip chmod).
@@ -575,7 +575,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	/**
 	 * Deletes a directory.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @param string $path      Path to directory.
 	 * @param bool   $recursive Optional. Whether to recursively remove files/directories.
@@ -589,7 +589,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	/**
 	 * Gets details for files in a directory or a specific file.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 *
 	 * @param string $path           Path to directory or file.
 	 * @param bool   $include_hidden Optional. Whether to include details of hidden ("." prefixed) files.

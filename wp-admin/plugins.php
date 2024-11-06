@@ -563,12 +563,7 @@ get_current_screen()->add_help_tab(
 		'title'   => __( 'Overview' ),
 		'content' =>
 				'<p>' . __( 'Plugins extend and expand the functionality of WordPress. Once a plugin is installed, you may activate it or deactivate it here.' ) . '</p>' .
-				'<p>' . __( 'The search for installed plugins will search for terms in their name, description, or author.' ) . ' <span id="live-search-desc" class="hide-if-no-js">' . __( 'The search results will be updated as you type.' ) . '</span></p>' .
-				'<p>' . sprintf(
-					/* translators: %s: WordPress Plugin Directory URL. */
-					__( 'If you would like to see more plugins to choose from, click on the &#8220;Add New Plugin&#8221; button and you will be able to browse or search for additional plugins from the <a href="%s">WordPress Plugin Directory</a>. Plugins in the WordPress Plugin Directory are designed and developed by third parties, and are compatible with the license WordPress uses. Oh, and they are free!' ),
-					__( 'https://wordpress.org/plugins/' )
-				) . '</p>',
+				'<p>' . __( 'The search for installed plugins will search for terms in their name, description, or author.' ) . ' <span id="live-search-desc" class="hide-if-no-js">' . __( 'The search results will be updated as you type.' ) . '</span></p>',
 	)
 );
 get_current_screen()->add_help_tab(
@@ -585,23 +580,6 @@ get_current_screen()->add_help_tab(
 	)
 );
 
-$help_sidebar_autoupdates = '';
-
-if ( current_user_can( 'update_plugins' ) && wp_is_auto_update_enabled_for_type( 'plugin' ) ) {
-	get_current_screen()->add_help_tab(
-		array(
-			'id'      => 'plugins-themes-auto-updates',
-			'title'   => __( 'Auto-updates' ),
-			'content' =>
-					'<p>' . __( 'Auto-updates can be enabled or disabled for each individual plugin. Plugins with auto-updates enabled will display the estimated date of the next auto-update. Auto-updates depends on the WP-Cron task scheduling system.' ) . '</p>' .
-					'<p>' . __( 'Auto-updates are only available for plugins recognized by WordPress.org, or that include a compatible update system.' ) . '</p>' .
-					'<p>' . __( 'Please note: Third-party themes and plugins, or custom code, may override WordPress scheduling.' ) . '</p>',
-		)
-	);
-
-	$help_sidebar_autoupdates = '<p>' . __( '<a href="https://wordpress.org/documentation/article/plugins-themes-auto-updates/">Documentation on Auto-updates</a>' ) . '</p>';
-}
-
 if ( current_user_can( 'install_plugins' ) ) {
 	get_current_screen()->add_help_tab(
 		array(
@@ -614,13 +592,6 @@ if ( current_user_can( 'install_plugins' ) ) {
 		)
 	);
 }
-
-get_current_screen()->set_help_sidebar(
-	'<p><strong>' . __( 'For more information:' ) . '</strong></p>' .
-	'<p>' . __( '<a href="https://wordpress.org/documentation/article/manage-plugins/">Documentation on Managing Plugins</a>' ) . '</p>' .
-	$help_sidebar_autoupdates .
-	'<p>' . __( '<a href="https://wordpress.org/support/forums/">Support forums</a>' ) . '</p>'
-);
 
 get_current_screen()->set_screen_reader_content(
 	array(
@@ -793,7 +764,7 @@ if ( strlen( $s ) ) {
  * Please note: The 'active' portion of the hook name does not refer to whether the current
  * view is for active plugins, but rather all plugins actively-installed.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @param array[] $plugins_all An array of arrays containing information on all installed plugins.
  */

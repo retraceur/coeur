@@ -12,7 +12,7 @@ window.wp = window.wp || {};
 	/**
 	 * Contains functions to determine the password strength.
 	 *
-	 * @since 3.7.0
+	 * @since WP 3.7.0
 	 *
 	 * @namespace
 	 */
@@ -22,7 +22,7 @@ window.wp = window.wp || {};
 		 *
 		 * Compares first password to the password confirmation.
 		 *
-		 * @since 3.7.0
+		 * @since WP 3.7.0
 		 *
 		 * @param {string} password1       The subject password.
 		 * @param {Array}  disallowedList An array of words that will lower the entropy of
@@ -54,8 +54,8 @@ window.wp = window.wp || {};
 		 * password if they were used. The disallowedList is based on user input fields such
 		 * as username, first name, email etc.
 		 *
-		 * @since 3.7.0
-		 * @deprecated 5.5.0 Use {@see 'userInputDisallowedList()'} instead.
+		 * @since WP 3.7.0
+		 * @deprecated WP 5.5.0 Use {@see 'userInputDisallowedList()'} instead.
 		 *
 		 * @return {string[]} The array of words to be disallowed.
 		 */
@@ -80,7 +80,7 @@ window.wp = window.wp || {};
 		 * password if they were used. The disallowed list is based on user input fields such
 		 * as username, first name, email etc.
 		 *
-		 * @since 5.5.0
+		 * @since WP 5.5.0
 		 *
 		 * @return {string[]} The array of words to be disallowed.
 		 */
@@ -138,8 +138,8 @@ window.wp = window.wp || {};
 	/**
 	 * Password strength meter function.
 	 *
-	 * @since 2.5.0
-	 * @deprecated 3.7.0 Use wp.passwordStrength.meter instead.
+	 * @since WP 2.5.0
+	 * @deprecated WP 3.7.0 Use wp.passwordStrength.meter instead.
 	 *
 	 * @global
 	 *

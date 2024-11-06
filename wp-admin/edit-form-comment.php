@@ -225,7 +225,7 @@ endif;
 	/**
 	 * Filters miscellaneous actions for the edit comment form sidebar.
 	 *
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 *
 	 * @param string     $html    Output HTML to display miscellaneous action.
 	 * @param WP_Comment $comment Current comment object.
@@ -259,7 +259,7 @@ do_action( 'add_meta_boxes', 'comment', $comment );
 /**
  * Fires when comment-specific meta boxes are added.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @param WP_Comment $comment Comment object.
  */

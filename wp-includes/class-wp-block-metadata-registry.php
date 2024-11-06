@@ -4,7 +4,7 @@
  *
  * @package motsVertueux
  * @subpackage Blocks
- * @since 6.7.0
+ * @since WP 6.7.0
  */
 
 /**
@@ -15,7 +15,7 @@
  * reduces the need to read and decode multiple `block.json` files, enhancing
  * performance through opcode caching.
  *
- * @since 6.7.0
+ * @since WP 6.7.0
  */
 class WP_Block_Metadata_Registry {
 
@@ -24,7 +24,7 @@ class WP_Block_Metadata_Registry {
 	 *
 	 * Each entry maps a base path to its corresponding metadata and callback.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 * @var array<string, array<string, mixed>>
 	 */
 	private static $collections = array();
@@ -32,7 +32,7 @@ class WP_Block_Metadata_Registry {
 	/**
 	 * Caches the last matched collection path for performance optimization.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 * @var string|null
 	 */
 	private static $last_matched_collection = null;
@@ -40,7 +40,7 @@ class WP_Block_Metadata_Registry {
 	/**
 	 * Stores the WordPress 'wp-includes' directory path.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 * @var string|null
 	 */
 	private static $wpinc_dir = null;
@@ -48,7 +48,7 @@ class WP_Block_Metadata_Registry {
 	/**
 	 * Stores the normalized WordPress plugin directory path.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 * @var string|null
 	 */
 	private static $plugin_dir = null;
@@ -83,7 +83,7 @@ class WP_Block_Metadata_Registry {
 	 * );
 	 * ```
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @param string $path     The absolute base path for the collection ( e.g., WP_PLUGIN_DIR . '/my-plugin/blocks/' ).
 	 * @param string $manifest The absolute path to the manifest file containing the metadata collection.
@@ -142,7 +142,7 @@ class WP_Block_Metadata_Registry {
 	 * This method uses the registered collections to efficiently lookup
 	 * block metadata without reading individual `block.json` files.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @param string $file_or_folder The path to the file or folder containing the block.
 	 * @return array|null The block metadata for the block, or null if not found.
@@ -169,7 +169,7 @@ class WP_Block_Metadata_Registry {
 	/**
 	 * Finds the collection path for a given file or folder.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @param string $file_or_folder The path to the file or folder.
 	 * @return string|null The collection path if found, or null if not found.
@@ -198,7 +198,7 @@ class WP_Block_Metadata_Registry {
 	/**
 	 * Checks if metadata exists for a given block name in a specific collection.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @param string $file_or_folder The path to the file or folder containing the block metadata.
 	 * @return bool True if metadata exists for the block, false otherwise.
@@ -223,7 +223,7 @@ class WP_Block_Metadata_Registry {
 	 *
 	 * This default behavior matches the standard WordPress block structure.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @param string $path The file or folder path to determine the block identifier from.
 	 * @return string The block identifier, or an empty string if the path is empty.
@@ -246,7 +246,7 @@ class WP_Block_Metadata_Registry {
 	/**
 	 * Gets the WordPress 'wp-includes' directory path.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @return string The WordPress 'wp-includes' directory path.
 	 */
@@ -260,7 +260,7 @@ class WP_Block_Metadata_Registry {
 	/**
 	 * Gets the normalized WordPress plugin directory path.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @return string The normalized WordPress plugin directory path.
 	 */

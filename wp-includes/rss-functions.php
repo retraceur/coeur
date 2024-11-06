@@ -3,7 +3,7 @@
  * Deprecated. Use rss.php instead.
  *
  * @package motsVertueux
- * @deprecated 2.1.0
+ * @deprecated WP 2.1.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

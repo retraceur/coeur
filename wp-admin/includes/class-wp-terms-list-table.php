@@ -4,13 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage Administration
- * @since 3.1.0
+ * @since WP 3.1.0
  */
 
 /**
  * Core class used to implement displaying terms in a list table.
  *
- * @since 3.1.0
+ * @since WP 3.1.0
  *
  * @see WP_List_Table
  */
@@ -23,7 +23,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 	/**
 	 * Constructor.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @see WP_List_Table::__construct() for more information on default arguments.
 	 *
@@ -83,7 +83,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 			/**
 			 * Filters the number of terms displayed per page for the Tags list table.
 			 *
-			 * @since 2.8.0
+			 * @since WP 2.8.0
 			 *
 			 * @param int $tags_per_page Number of tags to be displayed. Default 20.
 			 */
@@ -92,8 +92,8 @@ class WP_Terms_List_Table extends WP_List_Table {
 			/**
 			 * Filters the number of terms displayed per page for the Tags list table.
 			 *
-			 * @since 2.7.0
-			 * @deprecated 2.8.0 Use {@see 'edit_tags_per_page'} instead.
+			 * @since WP 2.7.0
+			 * @deprecated WP 2.8.0 Use {@see 'edit_tags_per_page'} instead.
 			 *
 			 * @param int $tags_per_page Number of tags to be displayed. Default 20.
 			 */
@@ -102,7 +102,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 			/**
 			 * Filters the number of terms displayed per page for the Categories list table.
 			 *
-			 * @since 2.8.0
+			 * @since WP 2.8.0
 			 *
 			 * @param int $tags_per_page Number of categories to be displayed. Default 20.
 			 */
@@ -354,7 +354,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 	}
 
 	/**
-	 * @since 5.9.0 Renamed `$tag` to `$item` to match parent class for PHP 8 named parameter support.
+	 * @since WP 5.9.0 Renamed `$tag` to `$item` to match parent class for PHP 8 named parameter support.
 	 *
 	 * @param WP_Term $item Term object.
 	 * @return string
@@ -391,7 +391,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 		 * The default output may include padding due to the term's
 		 * current level in the term hierarchy.
 		 *
-		 * @since 2.5.0
+		 * @since WP 2.5.0
 		 *
 		 * @see WP_Terms_List_Table::column_name()
 		 *
@@ -444,7 +444,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 	/**
 	 * Gets the name of the default primary column.
 	 *
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 *
 	 * @return string Name of the default primary column, in this case, 'name'.
 	 */
@@ -455,8 +455,8 @@ class WP_Terms_List_Table extends WP_List_Table {
 	/**
 	 * Generates and displays row action links.
 	 *
-	 * @since 4.3.0
-	 * @since 5.9.0 Renamed `$tag` to `$item` to match parent class for PHP 8 named parameter support.
+	 * @since WP 4.3.0
+	 * @since WP 5.9.0 Renamed `$tag` to `$item` to match parent class for PHP 8 named parameter support.
 	 *
 	 * @param WP_Term $item        Tag being acted upon.
 	 * @param string  $column_name Current column name.
@@ -495,7 +495,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 			/**
 			 * Filters whether Quick Edit should be enabled for the given taxonomy.
 			 *
-			 * @since 6.4.0
+			 * @since WP 6.4.0
 			 *
 			 * @param bool   $enable   Whether to enable the Quick Edit functionality. Default true.
 			 * @param string $taxonomy Taxonomy name.
@@ -535,9 +535,9 @@ class WP_Terms_List_Table extends WP_List_Table {
 		/**
 		 * Filters the action links displayed for each term in the Tags list table.
 		 *
-		 * @since 2.8.0
-		 * @since 3.0.0 Deprecated in favor of {@see '{$taxonomy}_row_actions'} filter.
-		 * @since 5.4.2 Restored (un-deprecated).
+		 * @since WP 2.8.0
+		 * @since WP 3.0.0 Deprecated in favor of {@see '{$taxonomy}_row_actions'} filter.
+		 * @since WP 5.4.2 Restored (un-deprecated).
 		 *
 		 * @param string[] $actions An array of action links to be displayed. Default
 		 *                          'Edit', 'Quick Edit', 'Delete', and 'View'.
@@ -555,7 +555,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 		 *  - `category_row_actions`
 		 *  - `post_tag_row_actions`
 		 *
-		 * @since 3.0.0
+		 * @since WP 3.0.0
 		 *
 		 * @param string[] $actions An array of action links to be displayed. Default
 		 *                          'Edit', 'Quick Edit', 'Delete', and 'View'.
@@ -639,7 +639,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 	}
 
 	/**
-	 * @since 5.9.0 Renamed `$tag` to `$item` to match parent class for PHP 8 named parameter support.
+	 * @since WP 5.9.0 Renamed `$tag` to `$item` to match parent class for PHP 8 named parameter support.
 	 *
 	 * @param WP_Term $item        Term object.
 	 * @param string  $column_name Name of the column.
@@ -660,7 +660,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 		 *  - `manage_category_custom_column`
 		 *  - `manage_post_tag_custom_column`
 		 *
-		 * @since 2.8.0
+		 * @since WP 2.8.0
 		 *
 		 * @param string $string      Custom column output. Default empty.
 		 * @param string $column_name Name of the column.
@@ -672,7 +672,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 	/**
 	 * Outputs the hidden row displayed when inline editing
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 */
 	public function inline_edit() {
 		$tax = get_taxonomy( $this->screen->taxonomy );

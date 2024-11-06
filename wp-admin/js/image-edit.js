@@ -1,7 +1,7 @@
 /**
  * The functions necessary for editing images.
  *
- * @since 2.9.0
+ * @since WP 2.9.0
  * @output wp-admin/js/image-edit.js
  */
 
@@ -85,7 +85,7 @@
 	/**
 	 * Converts a value to an integer.
 	 *
-	 * @since 2.9.0
+	 * @since WP 2.9.0
 	 *
 	 * @memberof imageEdit
 	 *
@@ -104,7 +104,7 @@
 	/**
 	 * Adds the disabled attribute and class to a single form element or a field set.
 	 *
-	 * @since 2.9.0
+	 * @since WP 2.9.0
 	 *
 	 * @memberof imageEdit
 	 *
@@ -134,7 +134,7 @@
 	/**
 	 * Initializes the image editor.
 	 *
-	 * @since 2.9.0
+	 * @since WP 2.9.0
 	 *
 	 * @memberof imageEdit
 	 *
@@ -186,7 +186,7 @@
 	/**
 	 * Calculate the image size and save it to memory.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @memberof imageEdit
 	 *
@@ -209,8 +209,8 @@
 	/**
 	 * Toggles the wait/load icon in the editor.
 	 *
-	 * @since 2.9.0
-	 * @since 5.5.0 Added the triggerUIReady parameter.
+	 * @since WP 2.9.0
+	 * @since WP 5.5.0 Added the triggerUIReady parameter.
 	 *
 	 * @memberof imageEdit
 	 *
@@ -237,7 +237,7 @@
 	/**
 	 * Shows or hides image menu popup.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @memberof imageEdit
 	 *
@@ -265,7 +265,7 @@
 	/**
 	 * Observes whether the popup should remain open based on focus position.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @memberof imageEdit
 	 *
@@ -295,8 +295,8 @@
 	/**
 	 * Navigate popup menu by arrow keys.
 	 *
-	 * @since 6.3.0
-	 * @since 6.7.0 Added the event parameter.
+	 * @since WP 6.3.0
+	 * @since WP 6.7.0 Added the event parameter.
 	 *
 	 * @memberof imageEdit
 	 *
@@ -335,7 +335,7 @@
 	/**
 	 * Close popup menu and reset focus on feature activation.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @memberof imageEdit
 	 *
@@ -358,7 +358,7 @@
 	/**
 	 * Shows or hides the image edit help box.
 	 *
-	 * @since 2.9.0
+	 * @since WP 2.9.0
 	 *
 	 * @memberof imageEdit
 	 *
@@ -378,7 +378,7 @@
 	/**
 	 * Shows or hides image edit input fields when enabled.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 *
 	 * @memberof imageEdit
 	 *
@@ -403,7 +403,7 @@
 	 * The image edit target contains the image sizes where the (possible) changes
 	 * have to be applied to.
 	 *
-	 * @since 2.9.0
+	 * @since WP 2.9.0
 	 *
 	 * @memberof imageEdit
 	 *
@@ -427,7 +427,7 @@
 	 *
 	 * If the original image size is exceeded a red exclamation mark is shown.
 	 *
-	 * @since 2.9.0
+	 * @since WP 2.9.0
 	 *
 	 * @memberof imageEdit
 	 *
@@ -467,7 +467,7 @@
 	/**
 	 * Gets the selected aspect ratio.
 	 *
-	 * @since 2.9.0
+	 * @since WP 2.9.0
 	 *
 	 * @memberof imageEdit
 	 *
@@ -495,7 +495,7 @@
 	 * Removes the last action from the image edit history.
 	 * The history consist of (edit) actions performed on the image.
 	 *
-	 * @since 2.9.0
+	 * @since WP 2.9.0
 	 *
 	 * @memberof imageEdit
 	 *
@@ -561,7 +561,7 @@
 	 *
 	 * When the image source is reloaded the image will be reloaded.
 	 *
-	 * @since 2.9.0
+	 * @since WP 2.9.0
 	 *
 	 * @memberof imageEdit
 	 *
@@ -643,7 +643,7 @@
 	/**
 	 * Performs an image edit action.
 	 *
-	 * @since 2.9.0
+	 * @since WP 2.9.0
 	 *
 	 * @memberof imageEdit
 	 *
@@ -721,7 +721,7 @@
 	/**
 	 * Stores the changes that are made to the image.
 	 *
-	 * @since 2.9.0
+	 * @since WP 2.9.0
 	 *
 	 * @memberof imageEdit
 	 *
@@ -790,7 +790,7 @@
 	/**
 	 * Creates the image edit window.
 	 *
-	 * @since 2.9.0
+	 * @since WP 2.9.0
 	 *
 	 * @memberof imageEdit
 	 *
@@ -865,7 +865,7 @@
 	/**
 	 * Initializes the cropping tool and sets a default cropping selection.
 	 *
-	 * @since 2.9.0
+	 * @since WP 2.9.0
 	 *
 	 * @memberof imageEdit
 	 *
@@ -891,7 +891,7 @@
 	/**
 	 * Manages keyboard focus in the Image Editor user interface.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @return {void}
 	 */
@@ -916,7 +916,7 @@
 	/**
 	 * Initializes the cropping tool.
 	 *
-	 * @since 2.9.0
+	 * @since WP 2.9.0
 	 *
 	 * @memberof imageEdit
 	 *
@@ -1040,7 +1040,7 @@
 	/**
 	 * Stores the current crop selection.
 	 *
-	 * @since 2.9.0
+	 * @since WP 2.9.0
 	 *
 	 * @memberof imageEdit
 	 *
@@ -1086,7 +1086,7 @@
 	/**
 	 * Closes the image editor.
 	 *
-	 * @since 2.9.0
+	 * @since WP 2.9.0
 	 *
 	 * @memberof imageEdit
 	 *
@@ -1129,7 +1129,7 @@
 	/**
 	 * Checks if the image edit history is saved.
 	 *
-	 * @since 2.9.0
+	 * @since WP 2.9.0
 	 *
 	 * @memberof imageEdit
 	 *
@@ -1154,7 +1154,7 @@
 	/**
 	 * Adds an image edit action to the history.
 	 *
-	 * @since 2.9.0
+	 * @since WP 2.9.0
 	 *
 	 * @memberof imageEdit
 	 *
@@ -1188,7 +1188,7 @@
 	/**
 	 * Rotates the image.
 	 *
-	 * @since 2.9.0
+	 * @since WP 2.9.0
 	 *
 	 * @memberof imageEdit
 	 *
@@ -1215,7 +1215,7 @@
 	/**
 	 * Flips the image.
 	 *
-	 * @since 2.9.0
+	 * @since WP 2.9.0
 	 *
 	 * @memberof imageEdit
 	 *
@@ -1242,7 +1242,7 @@
 	/**
 	 * Crops the image.
 	 *
-	 * @since 2.9.0
+	 * @since WP 2.9.0
 	 *
 	 * @memberof imageEdit
 	 *
@@ -1279,7 +1279,7 @@
 	/**
 	 * Undoes an image edit action.
 	 *
-	 * @since 2.9.0
+	 * @since WP 2.9.0
 	 *
 	 * @memberof imageEdit
 	 *
@@ -1313,7 +1313,7 @@
 	/**
 	 * Reverts a undo action.
 	 *
-	 * @since 2.9.0
+	 * @since WP 2.9.0
 	 *
 	 * @memberof imageEdit
 	 *
@@ -1344,7 +1344,7 @@
 	/**
 	 * Sets the selection for the height and width in pixels.
 	 *
-	 * @since 2.9.0
+	 * @since WP 2.9.0
 	 *
 	 * @memberof imageEdit
 	 *
@@ -1407,7 +1407,7 @@
 	/**
 	 * Rounds a number to a whole.
 	 *
-	 * @since 2.9.0
+	 * @since WP 2.9.0
 	 *
 	 * @memberof imageEdit
 	 *
@@ -1437,7 +1437,7 @@
 	/**
 	 * Sets a locked aspect ratio for the selection.
 	 *
-	 * @since 2.9.0
+	 * @since WP 2.9.0
 	 *
 	 * @memberof imageEdit
 	 *
@@ -1497,7 +1497,7 @@
 	/**
 	 * Validates if a value in a jQuery.HTMLElement is numeric.
 	 *
-	 * @since 4.6.0
+	 * @since WP 4.6.0
 	 *
 	 * @memberof imageEdit
 	 *

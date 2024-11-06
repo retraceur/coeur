@@ -212,7 +212,7 @@ if ( $doaction ) {
 			 *
 			 * The dynamic portion of the hook name, `$screen`, refers to the current screen ID.
 			 *
-			 * @since 4.7.0
+			 * @since WP 4.7.0
 			 *
 			 * @param string $sendback The redirect URL.
 			 * @param string $doaction The action being taken.
@@ -296,12 +296,6 @@ if ( 'post' === $post_type ) {
 		)
 	);
 
-	get_current_screen()->set_help_sidebar(
-		'<p><strong>' . __( 'For more information:' ) . '</strong></p>' .
-		'<p>' . __( '<a href="https://wordpress.org/documentation/article/posts-screen/">Documentation on Managing Posts</a>' ) . '</p>' .
-		'<p>' . __( '<a href="https://wordpress.org/support/forums/">Support forums</a>' ) . '</p>'
-	);
-
 } elseif ( 'page' === $post_type ) {
 	get_current_screen()->add_help_tab(
 		array(
@@ -320,13 +314,6 @@ if ( 'post' === $post_type ) {
 					'<p>' . __( 'You can also perform the same types of actions, including narrowing the list by using the filters, acting on a page using the action links that appear when you hover over a row, or using the Bulk actions menu to edit the metadata for multiple pages at once.' ) . '</p>',
 		)
 	);
-
-	get_current_screen()->set_help_sidebar(
-		'<p><strong>' . __( 'For more information:' ) . '</strong></p>' .
-		'<p>' . __( '<a href="https://wordpress.org/documentation/article/pages-screen/">Documentation on Managing Pages</a>' ) . '</p>' .
-		'<p>' . __( '<a href="https://wordpress.org/support/forums/">Support forums</a>' ) . '</p>'
-	);
-
 }
 
 get_current_screen()->set_screen_reader_content(
@@ -399,7 +386,7 @@ $bulk_messages['wp_block'] = array(
  *
  * By default, custom post types use the messages for the 'post' post type.
  *
- * @since 3.7.0
+ * @since WP 3.7.0
  *
  * @param array[] $bulk_messages Arrays of messages, each keyed by the corresponding post type. Messages are
  *                               keyed with 'updated', 'locked', 'deleted', 'trashed', and 'untrashed'.

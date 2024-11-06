@@ -104,7 +104,7 @@ if ( isset( $_REQUEST['action'] ) && 'adduser' === $_REQUEST['action'] ) {
 			/**
 			 * Fires immediately after an existing user is invited to join the site, but before the notification is sent.
 			 *
-			 * @since 4.4.0
+			 * @since WP 4.4.0
 			 *
 			 * @param int    $user_id     The invited user's ID.
 			 * @param array  $role        Array containing role information for the invited user.
@@ -149,7 +149,7 @@ Please click the following link to confirm the invite:
 			/**
 			 * Filters the contents of the email sent when an existing user is invited to join the site.
 			 *
-			 * @since 5.6.0
+			 * @since WP 5.6.0
 			 *
 			 * @param array $new_user_email {
 			 *     Used to build wp_mail().
@@ -305,19 +305,13 @@ get_current_screen()->add_help_tab(
 	)
 );
 
-get_current_screen()->set_help_sidebar(
-	'<p><strong>' . __( 'For more information:' ) . '</strong></p>' .
-	'<p>' . __( '<a href="https://wordpress.org/documentation/article/users-add-new-screen/">Documentation on Adding New Users</a>' ) . '</p>' .
-	'<p>' . __( '<a href="https://wordpress.org/support/forums/">Support forums</a>' ) . '</p>'
-);
-
 wp_enqueue_script( 'wp-ajax-response' );
 wp_enqueue_script( 'user-profile' );
 
 /**
  * Filters whether to enable user auto-complete for non-super admins in Multisite.
  *
- * @since 3.4.0
+ * @since WP 3.4.0
  *
  * @param bool $enable Whether to enable auto-complete for non-super admins. Default false.
  */
@@ -456,7 +450,7 @@ if ( is_multisite() && current_user_can( 'promote_users' ) ) {
 	/**
 	 * Fires inside the adduser form tag.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 */
 	do_action( 'user_new_form_tag' );
 	?>
@@ -494,7 +488,7 @@ if ( is_multisite() && current_user_can( 'promote_users' ) ) {
 	 * uniquely targetable. Contexts are 'add-existing-user' (Multisite),
 	 * and 'add-new-user' (single site and network admin).
 	 *
-	 * @since 3.7.0
+	 * @since WP 3.7.0
 	 *
 	 * @param string $type A contextual string specifying which type of new user form the hook follows.
 	 */

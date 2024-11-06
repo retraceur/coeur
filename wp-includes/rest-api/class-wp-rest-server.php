@@ -1,16 +1,18 @@
 <?php
 /**
  * REST API: WP_REST_Server class
+ * 
+ * @since WP 4.4.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage REST_API
- * @since 4.4.0
  */
 
 /**
  * Core class used to implement the WordPress REST API server.
  *
- * @since 4.4.0
+ * @since WP 4.4.0
  */
 #[AllowDynamicProperties]
 class WP_REST_Server {
@@ -18,7 +20,7 @@ class WP_REST_Server {
 	/**
 	 * Alias for GET transport method.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 * @var string
 	 */
 	const READABLE = 'GET';
@@ -26,7 +28,7 @@ class WP_REST_Server {
 	/**
 	 * Alias for POST transport method.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 * @var string
 	 */
 	const CREATABLE = 'POST';
@@ -34,7 +36,7 @@ class WP_REST_Server {
 	/**
 	 * Alias for POST, PUT, PATCH transport methods together.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 * @var string
 	 */
 	const EDITABLE = 'POST, PUT, PATCH';
@@ -42,7 +44,7 @@ class WP_REST_Server {
 	/**
 	 * Alias for DELETE transport method.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 * @var string
 	 */
 	const DELETABLE = 'DELETE';
@@ -50,7 +52,7 @@ class WP_REST_Server {
 	/**
 	 * Alias for GET, POST, PUT, PATCH & DELETE transport methods together.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 * @var string
 	 */
 	const ALLMETHODS = 'GET, POST, PUT, PATCH, DELETE';
@@ -58,7 +60,7 @@ class WP_REST_Server {
 	/**
 	 * Namespaces registered to the server.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 * @var array
 	 */
 	protected $namespaces = array();
@@ -66,7 +68,7 @@ class WP_REST_Server {
 	/**
 	 * Endpoints registered to the server.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 * @var array
 	 */
 	protected $endpoints = array();
@@ -74,7 +76,7 @@ class WP_REST_Server {
 	/**
 	 * Options defined for the routes.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 * @var array
 	 */
 	protected $route_options = array();
@@ -82,7 +84,7 @@ class WP_REST_Server {
 	/**
 	 * Caches embedded requests.
 	 *
-	 * @since 5.4.0
+	 * @since WP 5.4.0
 	 * @var array
 	 */
 	protected $embed_cache = array();
@@ -90,7 +92,7 @@ class WP_REST_Server {
 	/**
 	 * Stores request objects that are currently being handled.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 * @var array
 	 */
 	protected $dispatching_requests = array();
@@ -98,7 +100,7 @@ class WP_REST_Server {
 	/**
 	 * Instantiates the REST server.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 */
 	public function __construct() {
 		$this->endpoints = array(
@@ -164,7 +166,7 @@ class WP_REST_Server {
 	/**
 	 * Checks the authentication headers if supplied.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 *
 	 * @return WP_Error|null|true WP_Error indicates unsuccessful login, null indicates successful
 	 *                            or no authentication provided
@@ -189,7 +191,7 @@ class WP_REST_Server {
 		 * data should be used). A callback can return `true` to indicate that
 		 * the authentication method was used, and it succeeded.
 		 *
-		 * @since 4.4.0
+		 * @since WP 4.4.0
 		 *
 		 * @param WP_Error|null|true $errors WP_Error if authentication error, null if authentication
 		 *                                   method wasn't used, true if authentication succeeded.
@@ -204,8 +206,8 @@ class WP_REST_Server {
 	 * array. This enables simpler client behavior, as it is represented as a
 	 * list in JSON rather than an object/map.
 	 *
-	 * @since 4.4.0
-	 * @since 5.7.0 Converted to a wrapper of {@see rest_convert_error_to_response()}.
+	 * @since WP 4.4.0
+	 * @since WP 5.7.0 Converted to a wrapper of {@see rest_convert_error_to_response()}.
 	 *
 	 * @param WP_Error $error WP_Error instance.
 	 * @return WP_REST_Response List of associative arrays with code and message keys.
@@ -222,7 +224,7 @@ class WP_REST_Server {
 	 * should instead return a WP_Error with the data set to an array that includes
 	 * a 'status' key, with the value being the HTTP status to send.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 *
 	 * @param string $code    WP_Error-style code.
 	 * @param string $message Human-readable message.
@@ -242,7 +244,7 @@ class WP_REST_Server {
 	/**
 	 * Gets the encoding options passed to {@see wp_json_encode}.
 	 *
-	 * @since 6.1.0
+	 * @since WP 6.1.0
 	 *
 	 * @param \WP_REST_Request $request The current request object.
 	 *
@@ -258,7 +260,7 @@ class WP_REST_Server {
 		/**
 		 * Filters the JSON encoding options used to send the REST API response.
 		 *
-		 * @since 6.1.0
+		 * @since WP 6.1.0
 		 *
 		 * @param int $options             JSON encoding options {@see json_encode()}.
 		 * @param WP_REST_Request $request Current request object.
@@ -272,7 +274,7 @@ class WP_REST_Server {
 	 * Matches the current server URI to a route and runs the first matching
 	 * callback then outputs a JSON representation of the returned value.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 *
 	 * @see WP_REST_Server::dispatch()
 	 *
@@ -303,7 +305,7 @@ class WP_REST_Server {
 		/**
 		 * Filters whether JSONP is enabled for the REST API.
 		 *
-		 * @since 4.4.0
+		 * @since WP 4.4.0
 		 *
 		 * @param bool $jsonp_enabled Whether JSONP is enabled. Default true.
 		 */
@@ -333,8 +335,8 @@ class WP_REST_Server {
 		/**
 		 * Filters whether the REST API is enabled.
 		 *
-		 * @since 4.4.0
-		 * @deprecated 4.7.0 Use the {@see 'rest_authentication_errors'} filter to
+		 * @since WP 4.4.0
+		 * @deprecated WP 4.7.0 Use the {@see 'rest_authentication_errors'} filter to
 		 *                   restrict access to the REST API.
 		 *
 		 * @param bool $rest_enabled Whether the REST API is enabled. Default true.
@@ -397,8 +399,8 @@ class WP_REST_Server {
 		/**
 		 * Filters the list of response headers that are exposed to REST API CORS requests.
 		 *
-		 * @since 5.5.0
-		 * @since 6.3.0 The `$request` parameter was added.
+		 * @since WP 5.5.0
+		 * @since WP 6.3.0 The `$request` parameter was added.
 		 *
 		 * @param string[]        $expose_headers The list of response headers to expose.
 		 * @param WP_REST_Request $request        The request in context.
@@ -423,8 +425,8 @@ class WP_REST_Server {
 		 * Content-* headers needed to upload files to the media endpoints.
 		 * As well as the Authorization and Nonce headers for allowing authentication.
 		 *
-		 * @since 5.5.0
-		 * @since 6.3.0 The `$request` parameter was added.
+		 * @since WP 5.5.0
+		 * @since WP 6.3.0 The `$request` parameter was added.
 		 *
 		 * @param string[]        $allow_headers The list of request headers to allow.
 		 * @param WP_REST_Request $request       The request in context.
@@ -452,8 +454,8 @@ class WP_REST_Server {
 		 *
 		 * Allows modification of the response before returning.
 		 *
-		 * @since 4.4.0
-		 * @since 4.5.0 Applied to embedded responses.
+		 * @since WP 4.4.0
+		 * @since WP 4.5.0 Applied to embedded responses.
 		 *
 		 * @param WP_HTTP_Response $result  Result to send to the client. Usually a `WP_REST_Response`.
 		 * @param WP_REST_Server   $server  Server instance.
@@ -477,8 +479,8 @@ class WP_REST_Server {
 		/**
 		 * Filters whether to send no-cache headers on a REST API request.
 		 *
-		 * @since 4.4.0
-		 * @since 6.3.2 Moved the block to catch the filter added on rest_cookie_check_errors() from wp-includes/rest-api.php.
+		 * @since WP 4.4.0
+		 * @since WP 6.3.2 Moved the block to catch the filter added on rest_cookie_check_errors() from wp-includes/rest-api.php.
 		 *
 		 * @param bool $rest_send_nocache_headers Whether to send no-cache headers.
 		 */
@@ -504,7 +506,7 @@ class WP_REST_Server {
 		 * Allow sending the request manually - by returning true, the API result
 		 * will not be sent to the client.
 		 *
-		 * @since 4.4.0
+		 * @since WP 4.4.0
 		 *
 		 * @param bool             $served  Whether the request has already been served.
 		 *                                           Default false.
@@ -529,7 +531,7 @@ class WP_REST_Server {
 			 * Allows modification of the response data after inserting
 			 * embedded data (if any) and before echoing the response data.
 			 *
-			 * @since 4.8.1
+			 * @since WP 4.8.1
 			 *
 			 * @param array            $result  Response data to send to the client.
 			 * @param WP_REST_Server   $server  Server instance.
@@ -573,8 +575,8 @@ class WP_REST_Server {
 	/**
 	 * Converts a response to data to send.
 	 *
-	 * @since 4.4.0
-	 * @since 5.4.0 The `$embed` parameter can now contain a list of link relations to include.
+	 * @since WP 4.4.0
+	 * @since WP 5.4.0 The `$embed` parameter can now contain a list of link relations to include.
 	 *
 	 * @param WP_REST_Response $response Response object.
 	 * @param bool|string[]    $embed    Whether to embed all links, a filtered list of link relations, or no links.
@@ -616,7 +618,7 @@ class WP_REST_Server {
 	 * Extracts the links from a response into a structured hash, suitable for
 	 * direct output.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 *
 	 * @param WP_REST_Response $response Response to extract links from.
 	 * @return array Map of link relation to list of link hashes.
@@ -657,7 +659,7 @@ class WP_REST_Server {
 	/**
 	 * Gets the target links for a REST API Link.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @param array $link
 	 *
@@ -711,7 +713,7 @@ class WP_REST_Server {
 	 * Extracts the links from a response into a structured hash, suitable for
 	 * direct output.
 	 *
-	 * @since 4.5.0
+	 * @since WP 4.5.0
 	 *
 	 * @param WP_REST_Response $response Response to extract links from.
 	 * @return array Map of link relation to list of link hashes.
@@ -759,8 +761,8 @@ class WP_REST_Server {
 	/**
 	 * Embeds the links from the data into the request.
 	 *
-	 * @since 4.4.0
-	 * @since 5.4.0 The `$embed` parameter can now contain a list of link relations to include.
+	 * @since WP 4.4.0
+	 * @since WP 5.4.0 The `$embed` parameter can now contain a list of link relations to include.
 	 *
 	 * @param array         $data  Data from the request.
 	 * @param bool|string[] $embed Whether to embed all links or a filtered list of link relations.
@@ -850,8 +852,8 @@ class WP_REST_Server {
 	 * compatibility issues. Essentially, it converts the full HTTP response to
 	 * data instead.
 	 *
-	 * @since 4.4.0
-	 * @since 6.0.0 The `$embed` parameter can now contain a list of link relations to include.
+	 * @since WP 4.4.0
+	 * @since WP 6.0.0 The `$embed` parameter can now contain a list of link relations to include.
 	 *
 	 * @param WP_REST_Response $response Response object.
 	 * @param bool|string[]    $embed    Whether to embed all links, a filtered list of link relations, or no links.
@@ -867,7 +869,7 @@ class WP_REST_Server {
 		/**
 		 * Filters the enveloped form of a REST API response.
 		 *
-		 * @since 4.4.0
+		 * @since WP 4.4.0
 		 *
 		 * @param array            $envelope {
 		 *     Envelope data.
@@ -887,7 +889,7 @@ class WP_REST_Server {
 	/**
 	 * Registers a route to the server.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 *
 	 * @param string $route_namespace Namespace.
 	 * @param string $route           The REST route.
@@ -946,8 +948,8 @@ class WP_REST_Server {
 	 * Note that the path regexes (array keys) must have @ escaped, as this is
 	 * used as the delimiter with preg_match()
 	 *
-	 * @since 4.4.0
-	 * @since 5.4.0 Added `$route_namespace` parameter.
+	 * @since WP 4.4.0
+	 * @since WP 5.4.0 Added `$route_namespace` parameter.
 	 *
 	 * @param string $route_namespace Optionally, only return routes in the given namespace.
 	 * @return array `'/path/regex' => array( $callback, $bitmask )` or
@@ -963,7 +965,7 @@ class WP_REST_Server {
 		/**
 		 * Filters the array of available REST API endpoints.
 		 *
-		 * @since 4.4.0
+		 * @since WP 4.4.0
 		 *
 		 * @param array $endpoints The available endpoints. An array of matching regex patterns, each mapped
 		 *                         to an array of callbacks for the endpoint. These take the format
@@ -1027,7 +1029,7 @@ class WP_REST_Server {
 	/**
 	 * Retrieves namespaces registered on the server.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 *
 	 * @return string[] List of registered namespaces.
 	 */
@@ -1038,7 +1040,7 @@ class WP_REST_Server {
 	/**
 	 * Retrieves specified options for a route.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 *
 	 * @param string $route Route pattern to fetch options for.
 	 * @return array|null Data as an associative array if found, or null if not found.
@@ -1054,7 +1056,7 @@ class WP_REST_Server {
 	/**
 	 * Matches the request to a callback and call it.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 *
 	 * @param WP_REST_Request $request Request to attempt dispatching.
 	 * @return WP_REST_Response Response returned by the callback.
@@ -1068,7 +1070,7 @@ class WP_REST_Server {
 		 * Allow hijacking the request before dispatching by returning a non-empty. The returned value
 		 * will be used to serve the request instead.
 		 *
-		 * @since 4.4.0
+		 * @since WP 4.4.0
 		 *
 		 * @param mixed           $result  Response to replace the requested version with. Can be anything
 		 *                                 a normal endpoint can return, or null to not hijack the request.
@@ -1132,7 +1134,7 @@ class WP_REST_Server {
 	 *
 	 * This may be a standalone REST API request, or an internal request dispatched from within a regular page load.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @return bool Whether the REST server is currently handling a request.
 	 */
@@ -1144,7 +1146,7 @@ class WP_REST_Server {
 	 * Matches a request object to its handler.
 	 *
 	 * @access private
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param WP_REST_Request $request The request object.
 	 * @return array|WP_Error The route and request handler on success or a WP_Error instance if no handler was found.
@@ -1226,7 +1228,7 @@ class WP_REST_Server {
 	 * Dispatches the request to the callback handler.
 	 *
 	 * @access private
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param WP_REST_Request $request  The request object.
 	 * @param string          $route    The matched route regex.
@@ -1245,7 +1247,7 @@ class WP_REST_Server {
 		 * Note that this filter will not be called for requests that
 		 * fail to authenticate or match to a registered route.
 		 *
-		 * @since 4.7.0
+		 * @since WP 4.7.0
 		 *
 		 * @param WP_REST_Response|WP_HTTP_Response|WP_Error|mixed $response Result to send to the client.
 		 *                                                                   Usually a WP_REST_Response or WP_Error.
@@ -1275,8 +1277,8 @@ class WP_REST_Server {
 			 *
 			 * Allow plugins to override dispatching the request.
 			 *
-			 * @since 4.4.0
-			 * @since 4.5.0 Added `$route` and `$handler` parameters.
+			 * @since WP 4.4.0
+			 * @since WP 4.5.0 Added `$route` and `$handler` parameters.
 			 *
 			 * @param mixed           $dispatch_result Dispatch result, will be used if not empty.
 			 * @param WP_REST_Request $request         Request used to generate the response.
@@ -1307,7 +1309,7 @@ class WP_REST_Server {
 		 * Note that an endpoint's `permission_callback` can still be
 		 * called after this filter - see `rest_send_allow_header()`.
 		 *
-		 * @since 4.7.0
+		 * @since WP 4.7.0
 		 *
 		 * @param WP_REST_Response|WP_HTTP_Response|WP_Error|mixed $response Result to send to the client.
 		 *                                                                   Usually a WP_REST_Response or WP_Error.
@@ -1334,7 +1336,7 @@ class WP_REST_Server {
 	 * Strings to be translated will be in format like
 	 * "Encoding error: Maximum stack depth exceeded".
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 *
 	 * @return false|string Boolean false or string error message.
 	 */
@@ -1353,7 +1355,7 @@ class WP_REST_Server {
 	 *
 	 * This endpoint describes the capabilities of the site.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 *
 	 * @param array $request {
 	 *     Request.
@@ -1389,7 +1391,6 @@ class WP_REST_Server {
 		}
 
 		if ( rest_is_field_included( '_links', $fields ) || rest_is_field_included( '_embedded', $fields ) ) {
-			$response->add_link( 'help', 'https://developer.wordpress.org/rest-api/' );
 			$this->add_active_theme_link_to_index( $response );
 			$this->add_site_logo_to_index( $response );
 			$this->add_site_icon_to_index( $response );
@@ -1409,8 +1410,8 @@ class WP_REST_Server {
 		 * about supported authentication schemes, supported namespaces, routes
 		 * available on the API, and a small amount of data about the site.
 		 *
-		 * @since 4.4.0
-		 * @since 6.0.0 Added `$request` parameter.
+		 * @since WP 4.4.0
+		 * @since WP 6.0.0 Added `$request` parameter.
 		 *
 		 * @param WP_REST_Response $response Response data.
 		 * @param WP_REST_Request  $request  Request data.
@@ -1421,7 +1422,7 @@ class WP_REST_Server {
 	/**
 	 * Adds a link to the active theme for users who have proper permissions.
 	 *
-	 * @since 5.7.0
+	 * @since WP 5.7.0
 	 *
 	 * @param WP_REST_Response $response REST API response.
 	 */
@@ -1453,7 +1454,7 @@ class WP_REST_Server {
 	 * This is used for fetching this information when user has no rights
 	 * to update settings.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @param WP_REST_Response $response REST API response.
 	 */
@@ -1469,7 +1470,7 @@ class WP_REST_Server {
 	 * This is used for fetching this information when user has no rights
 	 * to update settings.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param WP_REST_Response $response REST API response.
 	 */
@@ -1486,7 +1487,7 @@ class WP_REST_Server {
 	 * This is used for fetching this information when user has no rights
 	 * to update settings.
 	 *
-	 * @since 5.9.0
+	 * @since WP 5.9.0
 	 *
 	 * @param WP_REST_Response $response REST API response.
 	 * @param int              $image_id Image attachment ID.
@@ -1509,7 +1510,7 @@ class WP_REST_Server {
 	/**
 	 * Retrieves the index for a namespace.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 *
 	 * @param WP_REST_Request $request REST request instance.
 	 * @return WP_REST_Response|WP_Error WP_REST_Response instance if the index was found,
@@ -1544,7 +1545,7 @@ class WP_REST_Server {
 		 * This typically is just the route data for the namespace, but you can
 		 * add any data you'd like here.
 		 *
-		 * @since 4.4.0
+		 * @since WP 4.4.0
 		 *
 		 * @param WP_REST_Response $response Response data.
 		 * @param WP_REST_Request  $request  Request data. The namespace is passed as the 'namespace' parameter.
@@ -1555,7 +1556,7 @@ class WP_REST_Server {
 	/**
 	 * Retrieves the publicly-visible data for routes.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 *
 	 * @param array  $routes  Routes to get data for.
 	 * @param string $context Optional. Context for data. Accepts 'view' or 'help'. Default 'view'.
@@ -1574,7 +1575,7 @@ class WP_REST_Server {
 			/**
 			 * Filters the publicly-visible data for a single REST API route.
 			 *
-			 * @since 4.4.0
+			 * @since WP 4.4.0
 			 *
 			 * @param array $data Publicly-visible data for the route.
 			 */
@@ -1588,7 +1589,7 @@ class WP_REST_Server {
 		 * developers to investigate the site and find out how to use it. It
 		 * acts as a form of self-documentation.
 		 *
-		 * @since 4.4.0
+		 * @since WP 4.4.0
 		 *
 		 * @param array[] $available Route data to expose in indexes, keyed by route.
 		 * @param array   $routes    Internal route data as an associative array.
@@ -1599,7 +1600,7 @@ class WP_REST_Server {
 	/**
 	 * Retrieves publicly-visible data for the route.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 *
 	 * @param string $route     Route to get data for.
 	 * @param array  $callbacks Callbacks to convert to data.
@@ -1691,7 +1692,7 @@ class WP_REST_Server {
 	/**
 	 * Gets the maximum number of requests that can be included in a batch.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @return int The maximum requests.
 	 */
@@ -1699,7 +1700,7 @@ class WP_REST_Server {
 		/**
 		 * Filters the maximum number of REST API requests that can be included in a batch.
 		 *
-		 * @since 5.6.0
+		 * @since WP 5.6.0
 		 *
 		 * @param int $max_size The maximum size.
 		 */
@@ -1709,7 +1710,7 @@ class WP_REST_Server {
 	/**
 	 * Serves the batch/v1 request.
 	 *
-	 * @since 5.6.0
+	 * @since WP 5.6.0
 	 *
 	 * @param WP_REST_Request $batch_request The batch request object.
 	 * @return WP_REST_Response The generated response object.
@@ -1865,7 +1866,7 @@ class WP_REST_Server {
 	/**
 	 * Sends an HTTP status code.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 *
 	 * @param int $code HTTP status.
 	 */
@@ -1876,7 +1877,7 @@ class WP_REST_Server {
 	/**
 	 * Sends an HTTP header.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 *
 	 * @param string $key Header key.
 	 * @param string $value Header value.
@@ -1896,7 +1897,7 @@ class WP_REST_Server {
 	/**
 	 * Sends multiple HTTP headers.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 *
 	 * @param array $headers Map of header name to header value.
 	 */
@@ -1909,7 +1910,7 @@ class WP_REST_Server {
 	/**
 	 * Removes an HTTP header from the current response.
 	 *
-	 * @since 4.8.0
+	 * @since WP 4.8.0
 	 *
 	 * @param string $key Header key.
 	 */
@@ -1920,7 +1921,7 @@ class WP_REST_Server {
 	/**
 	 * Retrieves the raw request entity (body).
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 *
 	 * @global string $HTTP_RAW_POST_DATA Raw post data.
 	 *
@@ -1942,7 +1943,7 @@ class WP_REST_Server {
 	/**
 	 * Extracts headers from a PHP-style $_SERVER array.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 *
 	 * @param array $server Associative array similar to `$_SERVER`.
 	 * @return array Headers extracted from the input.

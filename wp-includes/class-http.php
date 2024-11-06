@@ -4,7 +4,7 @@
  *
  * This file is deprecated, use 'wp-includes/class-wp-http.php' instead.
  *
- * @deprecated 5.9.0
+ * @deprecated WP 5.9.0
  * @package motsVertueux
  */
 

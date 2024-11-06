@@ -30,7 +30,7 @@ class IdnaEncoder {
 	 *
 	 * @see \WpOrg\Requests\IdnaEncoder::to_ascii()
 	 *
-	 * @since 2.0.0
+	 * @since WP 2.0.0
 	 *
 	 * @var int
 	 */

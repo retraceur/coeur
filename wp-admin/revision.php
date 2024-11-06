@@ -6,7 +6,7 @@
  *
  * @package motsVertueux
  * @subpackage Administration
- * @since 2.6.0
+ * @since WP 2.6.0
  */
 
 /** WordPress Administration Bootstrap */
@@ -154,12 +154,6 @@ get_current_screen()->add_help_tab(
 		'content' => $revisions_overview,
 	)
 );
-
-$revisions_sidebar  = '<p><strong>' . __( 'For more information:' ) . '</strong></p>';
-$revisions_sidebar .= '<p>' . __( '<a href="https://wordpress.org/documentation/article/revisions/">Revisions Management</a>' ) . '</p>';
-$revisions_sidebar .= '<p>' . __( '<a href="https://wordpress.org/support/forums/">Support forums</a>' ) . '</p>';
-
-get_current_screen()->set_help_sidebar( $revisions_sidebar );
 
 require_once ABSPATH . 'wp-admin/admin-header.php';
 

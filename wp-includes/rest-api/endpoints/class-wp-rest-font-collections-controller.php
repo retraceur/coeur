@@ -6,20 +6,20 @@
  *
  * @package    WordPress
  * @subpackage REST_API
- * @since      6.5.0
+ * @since WP      6.5.0
  */
 
 /**
  * Font Library Controller class.
  *
- * @since 6.5.0
+ * @since WP 6.5.0
  */
 class WP_REST_Font_Collections_Controller extends WP_REST_Controller {
 
 	/**
 	 * Constructor.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 */
 	public function __construct() {
 		$this->rest_base = 'font-collections';
@@ -29,7 +29,7 @@ class WP_REST_Font_Collections_Controller extends WP_REST_Controller {
 	/**
 	 * Registers the routes for the objects of the controller.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 */
 	public function register_routes() {
 		register_rest_route(
@@ -67,7 +67,7 @@ class WP_REST_Font_Collections_Controller extends WP_REST_Controller {
 	/**
 	 * Gets the font collections available.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
 	 */
@@ -133,7 +133,7 @@ class WP_REST_Font_Collections_Controller extends WP_REST_Controller {
 	/**
 	 * Gets a font collection.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
@@ -152,7 +152,7 @@ class WP_REST_Font_Collections_Controller extends WP_REST_Controller {
 	/**
 	* Prepare a single collection output for response.
 	*
-	* @since 6.5.0
+	* @since WP 6.5.0
 	*
 	* @param WP_Font_Collection $item    Font collection object.
 	* @param WP_REST_Request    $request Request object.
@@ -196,7 +196,7 @@ class WP_REST_Font_Collections_Controller extends WP_REST_Controller {
 		/**
 		 * Filters the font collection data for a REST API response.
 		 *
-		 * @since 6.5.0
+		 * @since WP 6.5.0
 		 *
 		 * @param WP_REST_Response   $response The response object.
 		 * @param WP_Font_Collection $item     The font collection object.
@@ -208,7 +208,7 @@ class WP_REST_Font_Collections_Controller extends WP_REST_Controller {
 	/**
 	 * Retrieves the font collection's schema, conforming to JSON Schema.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @return array Item schema data.
 	 */
@@ -259,7 +259,7 @@ class WP_REST_Font_Collections_Controller extends WP_REST_Controller {
 	/**
 	 * Prepares links for the request.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @param WP_Font_Collection $collection Font collection data
 	 * @return array Links for the given font collection.
@@ -278,7 +278,7 @@ class WP_REST_Font_Collections_Controller extends WP_REST_Controller {
 	/**
 	 * Retrieves the search params for the font collections.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @return array Collection parameters.
 	 */
@@ -292,7 +292,7 @@ class WP_REST_Font_Collections_Controller extends WP_REST_Controller {
 		/**
 		 * Filters REST API collection parameters for the font collections controller.
 		 *
-		 * @since 6.5.0
+		 * @since WP 6.5.0
 		 *
 		 * @param array $query_params JSON Schema-formatted collection parameters.
 		 */
@@ -302,7 +302,7 @@ class WP_REST_Font_Collections_Controller extends WP_REST_Controller {
 	/**
 	 * Checks whether the user has permissions to use the Fonts Collections.
 	 *
-	 * @since 6.5.0
+	 * @since WP 6.5.0
 	 *
 	 * @return true|WP_Error True if the request has write access for the item, WP_Error object otherwise.
 	 */

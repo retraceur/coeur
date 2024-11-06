@@ -4,16 +4,15 @@
  *
  * @package motsVertueux
  * @subpackage Query
- * @since 4.7.0
+ * @since WP 4.7.0
+ * @since 1.0.0 motsVertueux fork.
  */
 
 /**
  * The WordPress Query class.
  *
- * @link https://developer.wordpress.org/reference/classes/wp_query/
- *
- * @since 1.5.0
- * @since 4.5.0 Removed the `$comments_popup` property.
+ * @since WP 1.5.0
+ * @since WP 4.5.0 Removed the `$comments_popup` property.
  */
 #[AllowDynamicProperties]
 class WP_Query {
@@ -21,7 +20,7 @@ class WP_Query {
 	/**
 	 * Query vars set by the user.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 * @var array
 	 */
 	public $query;
@@ -29,7 +28,7 @@ class WP_Query {
 	/**
 	 * Query vars, after parsing.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 * @var array
 	 */
 	public $query_vars = array();
@@ -37,7 +36,7 @@ class WP_Query {
 	/**
 	 * Taxonomy query, as passed to get_tax_sql().
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 * @var WP_Tax_Query|null A taxonomy query instance.
 	 */
 	public $tax_query;
@@ -45,7 +44,7 @@ class WP_Query {
 	/**
 	 * Metadata query container.
 	 *
-	 * @since 3.2.0
+	 * @since WP 3.2.0
 	 * @var WP_Meta_Query A meta query instance.
 	 */
 	public $meta_query = false;
@@ -53,7 +52,7 @@ class WP_Query {
 	/**
 	 * Date query container.
 	 *
-	 * @since 3.7.0
+	 * @since WP 3.7.0
 	 * @var WP_Date_Query A date query instance.
 	 */
 	public $date_query = false;
@@ -63,7 +62,7 @@ class WP_Query {
 	 *
 	 * Holds the contents of a post, page, category, attachment.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 * @var WP_Term|WP_Post_Type|WP_Post|WP_User|null
 	 */
 	public $queried_object;
@@ -71,7 +70,7 @@ class WP_Query {
 	/**
 	 * The ID of the queried object.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 * @var int
 	 */
 	public $queried_object_id;
@@ -79,7 +78,7 @@ class WP_Query {
 	/**
 	 * SQL for the database query.
 	 *
-	 * @since 2.0.1
+	 * @since WP 2.0.1
 	 * @var string
 	 */
 	public $request;
@@ -87,7 +86,7 @@ class WP_Query {
 	/**
 	 * Array of post objects or post IDs.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 * @var WP_Post[]|int[]
 	 */
 	public $posts;
@@ -95,7 +94,7 @@ class WP_Query {
 	/**
 	 * The number of posts for the current query.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 * @var int
 	 */
 	public $post_count = 0;
@@ -103,7 +102,7 @@ class WP_Query {
 	/**
 	 * Index of the current item in the loop.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 * @var int
 	 */
 	public $current_post = -1;
@@ -111,7 +110,7 @@ class WP_Query {
 	/**
 	 * Whether the caller is before the loop.
 	 *
-	 * @since 6.3.0
+	 * @since WP 6.3.0
 	 * @var bool
 	 */
 	public $before_loop = true;
@@ -119,7 +118,7 @@ class WP_Query {
 	/**
 	 * Whether the loop has started and the caller is in the loop.
 	 *
-	 * @since 2.0.0
+	 * @since WP 2.0.0
 	 * @var bool
 	 */
 	public $in_the_loop = false;
@@ -130,7 +129,7 @@ class WP_Query {
 	 * This property does not get populated when the `fields` argument is set to
 	 * `ids` or `id=>parent`.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 * @var WP_Post|null
 	 */
 	public $post;
@@ -138,7 +137,7 @@ class WP_Query {
 	/**
 	 * The list of comments for current post.
 	 *
-	 * @since 2.2.0
+	 * @since WP 2.2.0
 	 * @var WP_Comment[]
 	 */
 	public $comments;
@@ -146,7 +145,7 @@ class WP_Query {
 	/**
 	 * The number of comments for the posts.
 	 *
-	 * @since 2.2.0
+	 * @since WP 2.2.0
 	 * @var int
 	 */
 	public $comment_count = 0;
@@ -154,7 +153,7 @@ class WP_Query {
 	/**
 	 * The index of the comment in the comment loop.
 	 *
-	 * @since 2.2.0
+	 * @since WP 2.2.0
 	 * @var int
 	 */
 	public $current_comment = -1;
@@ -162,7 +161,7 @@ class WP_Query {
 	/**
 	 * Current comment object.
 	 *
-	 * @since 2.2.0
+	 * @since WP 2.2.0
 	 * @var WP_Comment
 	 */
 	public $comment;
@@ -172,7 +171,7 @@ class WP_Query {
 	 *
 	 * If limit clause was not used, equals $post_count.
 	 *
-	 * @since 2.1.0
+	 * @since WP 2.1.0
 	 * @var int
 	 */
 	public $found_posts = 0;
@@ -180,7 +179,7 @@ class WP_Query {
 	/**
 	 * The number of pages.
 	 *
-	 * @since 2.1.0
+	 * @since WP 2.1.0
 	 * @var int
 	 */
 	public $max_num_pages = 0;
@@ -188,7 +187,7 @@ class WP_Query {
 	/**
 	 * The number of comment pages.
 	 *
-	 * @since 2.7.0
+	 * @since WP 2.7.0
 	 * @var int
 	 */
 	public $max_num_comment_pages = 0;
@@ -196,7 +195,7 @@ class WP_Query {
 	/**
 	 * Signifies whether the current query is for a single post.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 * @var bool
 	 */
 	public $is_single = false;
@@ -204,7 +203,7 @@ class WP_Query {
 	/**
 	 * Signifies whether the current query is for a preview.
 	 *
-	 * @since 2.0.0
+	 * @since WP 2.0.0
 	 * @var bool
 	 */
 	public $is_preview = false;
@@ -212,7 +211,7 @@ class WP_Query {
 	/**
 	 * Signifies whether the current query is for a page.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 * @var bool
 	 */
 	public $is_page = false;
@@ -220,7 +219,7 @@ class WP_Query {
 	/**
 	 * Signifies whether the current query is for an archive.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 * @var bool
 	 */
 	public $is_archive = false;
@@ -228,7 +227,7 @@ class WP_Query {
 	/**
 	 * Signifies whether the current query is for a date archive.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 * @var bool
 	 */
 	public $is_date = false;
@@ -236,7 +235,7 @@ class WP_Query {
 	/**
 	 * Signifies whether the current query is for a year archive.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 * @var bool
 	 */
 	public $is_year = false;
@@ -244,7 +243,7 @@ class WP_Query {
 	/**
 	 * Signifies whether the current query is for a month archive.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 * @var bool
 	 */
 	public $is_month = false;
@@ -252,7 +251,7 @@ class WP_Query {
 	/**
 	 * Signifies whether the current query is for a day archive.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 * @var bool
 	 */
 	public $is_day = false;
@@ -260,7 +259,7 @@ class WP_Query {
 	/**
 	 * Signifies whether the current query is for a specific time.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 * @var bool
 	 */
 	public $is_time = false;
@@ -268,7 +267,7 @@ class WP_Query {
 	/**
 	 * Signifies whether the current query is for an author archive.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 * @var bool
 	 */
 	public $is_author = false;
@@ -276,7 +275,7 @@ class WP_Query {
 	/**
 	 * Signifies whether the current query is for a category archive.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 * @var bool
 	 */
 	public $is_category = false;
@@ -284,7 +283,7 @@ class WP_Query {
 	/**
 	 * Signifies whether the current query is for a tag archive.
 	 *
-	 * @since 2.3.0
+	 * @since WP 2.3.0
 	 * @var bool
 	 */
 	public $is_tag = false;
@@ -292,7 +291,7 @@ class WP_Query {
 	/**
 	 * Signifies whether the current query is for a taxonomy archive.
 	 *
-	 * @since 2.5.0
+	 * @since WP 2.5.0
 	 * @var bool
 	 */
 	public $is_tax = false;
@@ -300,7 +299,7 @@ class WP_Query {
 	/**
 	 * Signifies whether the current query is for a search.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 * @var bool
 	 */
 	public $is_search = false;
@@ -308,7 +307,7 @@ class WP_Query {
 	/**
 	 * Signifies whether the current query is for a feed.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 * @var bool
 	 */
 	public $is_feed = false;
@@ -316,7 +315,7 @@ class WP_Query {
 	/**
 	 * Signifies whether the current query is for a comment feed.
 	 *
-	 * @since 2.2.0
+	 * @since WP 2.2.0
 	 * @var bool
 	 */
 	public $is_comment_feed = false;
@@ -324,7 +323,7 @@ class WP_Query {
 	/**
 	 * Signifies whether the current query is for trackback endpoint call.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 * @var bool
 	 */
 	public $is_trackback = false;
@@ -332,7 +331,7 @@ class WP_Query {
 	/**
 	 * Signifies whether the current query is for the site homepage.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 * @var bool
 	 */
 	public $is_home = false;
@@ -340,7 +339,7 @@ class WP_Query {
 	/**
 	 * Signifies whether the current query is for the Privacy Policy page.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 * @var bool
 	 */
 	public $is_privacy_policy = false;
@@ -348,7 +347,7 @@ class WP_Query {
 	/**
 	 * Signifies whether the current query couldn't find anything.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 * @var bool
 	 */
 	public $is_404 = false;
@@ -356,7 +355,7 @@ class WP_Query {
 	/**
 	 * Signifies whether the current query is for an embed.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 * @var bool
 	 */
 	public $is_embed = false;
@@ -364,7 +363,7 @@ class WP_Query {
 	/**
 	 * Signifies whether the current query is for a paged result and not for the first page.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 * @var bool
 	 */
 	public $is_paged = false;
@@ -372,7 +371,7 @@ class WP_Query {
 	/**
 	 * Signifies whether the current query is for an administrative interface page.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 * @var bool
 	 */
 	public $is_admin = false;
@@ -380,7 +379,7 @@ class WP_Query {
 	/**
 	 * Signifies whether the current query is for an attachment page.
 	 *
-	 * @since 2.0.0
+	 * @since WP 2.0.0
 	 * @var bool
 	 */
 	public $is_attachment = false;
@@ -389,7 +388,7 @@ class WP_Query {
 	 * Signifies whether the current query is for an existing single post of any post type
 	 * (post, attachment, page, custom post types).
 	 *
-	 * @since 2.1.0
+	 * @since WP 2.1.0
 	 * @var bool
 	 */
 	public $is_singular = false;
@@ -397,7 +396,7 @@ class WP_Query {
 	/**
 	 * Signifies whether the current query is for the robots.txt file.
 	 *
-	 * @since 2.1.0
+	 * @since WP 2.1.0
 	 * @var bool
 	 */
 	public $is_robots = false;
@@ -405,7 +404,7 @@ class WP_Query {
 	/**
 	 * Signifies whether the current query is for the favicon.ico file.
 	 *
-	 * @since 5.4.0
+	 * @since WP 5.4.0
 	 * @var bool
 	 */
 	public $is_favicon = false;
@@ -415,7 +414,7 @@ class WP_Query {
 	 *
 	 * Basically, the homepage if the option isn't set for the static homepage.
 	 *
-	 * @since 2.1.0
+	 * @since WP 2.1.0
 	 * @var bool
 	 */
 	public $is_posts_page = false;
@@ -423,7 +422,7 @@ class WP_Query {
 	/**
 	 * Signifies whether the current query is for a post type archive.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 * @var bool
 	 */
 	public $is_post_type_archive = false;
@@ -432,7 +431,7 @@ class WP_Query {
 	 * Stores the ->query_vars state like md5(serialize( $this->query_vars ) ) so we know
 	 * whether we have to re-parse because something has changed
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 * @var bool|string
 	 */
 	private $query_vars_hash = false;
@@ -441,14 +440,14 @@ class WP_Query {
 	 * Whether query vars have changed since the initial parse_query() call. Used to catch modifications to query vars made
 	 * via pre_get_posts hooks.
 	 *
-	 * @since 3.1.1
+	 * @since WP 3.1.1
 	 */
 	private $query_vars_changed = true;
 
 	/**
 	 * Set if post thumbnails are cached
 	 *
-	 * @since 3.2.0
+	 * @since WP 3.2.0
 	 * @var bool
 	 */
 	public $thumbnails_cached = false;
@@ -456,7 +455,7 @@ class WP_Query {
 	/**
 	 * Controls whether an attachment query should include filenames or not.
 	 *
-	 * @since 6.0.3
+	 * @since WP 6.0.3
 	 * @var bool
 	 */
 	protected $allow_query_attachment_by_filename = false;
@@ -464,7 +463,7 @@ class WP_Query {
 	/**
 	 * Cached list of search stopwords.
 	 *
-	 * @since 3.7.0
+	 * @since WP 3.7.0
 	 * @var array
 	 */
 	private $stopwords;
@@ -478,7 +477,7 @@ class WP_Query {
 	 *
 	 * The query flags are what page info WordPress was able to figure out.
 	 *
-	 * @since 2.0.0
+	 * @since WP 2.0.0
 	 */
 	private function init_query_flags() {
 		$this->is_single            = false;
@@ -514,7 +513,7 @@ class WP_Query {
 	/**
 	 * Initiates object properties and sets default values.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 */
 	public function init() {
 		unset( $this->posts );
@@ -542,7 +541,7 @@ class WP_Query {
 	/**
 	 * Reparses the query vars.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 */
 	public function parse_query_vars() {
 		$this->parse_query();
@@ -551,8 +550,8 @@ class WP_Query {
 	/**
 	 * Fills in the query variables, which do not exist within the parameter.
 	 *
-	 * @since 2.1.0
-	 * @since 4.5.0 Removed the `comments_popup` public query variable.
+	 * @since WP 2.1.0
+	 * @since WP 4.5.0 Removed the `comments_popup` public query variable.
 	 *
 	 * @param array $query_vars Defined query variables.
 	 * @return array Complete query variables with undefined ones filled in empty.
@@ -634,20 +633,20 @@ class WP_Query {
 	/**
 	 * Parses a query string and sets query type booleans.
 	 *
-	 * @since 1.5.0
-	 * @since 4.2.0 Introduced the ability to order by specific clauses of a `$meta_query`, by passing the clause's
+	 * @since WP 1.5.0
+	 * @since WP 4.2.0 Introduced the ability to order by specific clauses of a `$meta_query`, by passing the clause's
 	 *              array key to `$orderby`.
-	 * @since 4.4.0 Introduced `$post_name__in` and `$title` parameters. `$s` was updated to support excluded
+	 * @since WP 4.4.0 Introduced `$post_name__in` and `$title` parameters. `$s` was updated to support excluded
 	 *              search terms, by prepending a hyphen.
-	 * @since 4.5.0 Removed the `$comments_popup` parameter.
+	 * @since WP 4.5.0 Removed the `$comments_popup` parameter.
 	 *              Introduced the `$comment_status` and `$ping_status` parameters.
 	 *              Introduced `RAND(x)` syntax for `$orderby`, which allows an integer seed value to random sorts.
-	 * @since 4.6.0 Added 'post_name__in' support for `$orderby`. Introduced the `$lazy_load_term_meta` argument.
-	 * @since 4.9.0 Introduced the `$comment_count` parameter.
-	 * @since 5.1.0 Introduced the `$meta_compare_key` parameter.
-	 * @since 5.3.0 Introduced the `$meta_type_key` parameter.
-	 * @since 6.1.0 Introduced the `$update_menu_item_cache` parameter.
-	 * @since 6.2.0 Introduced the `$search_columns` parameter.
+	 * @since WP 4.6.0 Added 'post_name__in' support for `$orderby`. Introduced the `$lazy_load_term_meta` argument.
+	 * @since WP 4.9.0 Introduced the `$comment_count` parameter.
+	 * @since WP 5.1.0 Introduced the `$meta_compare_key` parameter.
+	 * @since WP 5.3.0 Introduced the `$meta_type_key` parameter.
+	 * @since WP 6.1.0 Introduced the `$update_menu_item_cache` parameter.
+	 * @since WP 6.2.0 Introduced the `$search_columns` parameter.
 	 *
 	 * @param string|array $query {
 	 *     Optional. Array or string of Query parameters.
@@ -1133,7 +1132,7 @@ class WP_Query {
 		/**
 		 * Fires after the main query vars have been parsed.
 		 *
-		 * @since 1.5.0
+		 * @since WP 1.5.0
 		 *
 		 * @param WP_Query $query The WP_Query instance (passed by reference).
 		 */
@@ -1145,7 +1144,7 @@ class WP_Query {
 	 *
 	 * For BC, this method is not marked as protected. See [28987].
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @param array $q The query variables. Passed by reference.
 	 */
@@ -1374,7 +1373,7 @@ class WP_Query {
 		/**
 		 * Fires after taxonomy-related query vars have been parsed.
 		 *
-		 * @since 3.7.0
+		 * @since WP 3.7.0
 		 *
 		 * @param WP_Query $query The WP_Query instance.
 		 */
@@ -1384,7 +1383,7 @@ class WP_Query {
 	/**
 	 * Generates SQL for the WHERE clause based on passed search terms.
 	 *
-	 * @since 3.7.0
+	 * @since WP 3.7.0
 	 *
 	 * @global wpdb $wpdb WordPress database abstraction object.
 	 *
@@ -1435,7 +1434,7 @@ class WP_Query {
 		 * The supported columns are `post_title`, `post_excerpt` and `post_content`.
 		 * They are all included by default.
 		 *
-		 * @since 6.2.0
+		 * @since WP 6.2.0
 		 *
 		 * @param string[] $search_columns Array of column names to be searched.
 		 * @param string   $search         Text being searched.
@@ -1452,7 +1451,7 @@ class WP_Query {
 		/**
 		 * Filters the prefix that indicates that a search term should be excluded from results.
 		 *
-		 * @since 4.7.0
+		 * @since WP 4.7.0
 		 *
 		 * @param string $exclusion_prefix The prefix. Default '-'. Returning
 		 *                                 an empty value disables exclusions.
@@ -1509,7 +1508,7 @@ class WP_Query {
 	 * term matching when searching for posts. The list of English stopwords is
 	 * the approximate search engines list, and is translatable.
 	 *
-	 * @since 3.7.0
+	 * @since WP 3.7.0
 	 *
 	 * @param string[] $terms Array of terms to check.
 	 * @return string[] Terms that are not stopwords.
@@ -1546,7 +1545,7 @@ class WP_Query {
 	/**
 	 * Retrieves stopwords used when parsing search terms.
 	 *
-	 * @since 3.7.0
+	 * @since WP 3.7.0
 	 *
 	 * @return string[] Stopwords.
 	 */
@@ -1579,7 +1578,7 @@ class WP_Query {
 		/**
 		 * Filters stopwords used when parsing search terms.
 		 *
-		 * @since 3.7.0
+		 * @since WP 3.7.0
 		 *
 		 * @param string[] $stopwords Array of stopwords.
 		 */
@@ -1590,7 +1589,7 @@ class WP_Query {
 	/**
 	 * Generates SQL for the ORDER BY condition based on passed search terms.
 	 *
-	 * @since 3.7.0
+	 * @since WP 3.7.0
 	 *
 	 * @global wpdb $wpdb WordPress database abstraction object.
 	 *
@@ -1649,7 +1648,7 @@ class WP_Query {
 	/**
 	 * Converts the given orderby alias (if allowed) to a properly-prefixed value.
 	 *
-	 * @since 4.0.0
+	 * @since WP 4.0.0
 	 *
 	 * @global wpdb $wpdb WordPress database abstraction object.
 	 *
@@ -1779,7 +1778,7 @@ class WP_Query {
 	/**
 	 * Parse an 'order' query variable and cast it to ASC or DESC as necessary.
 	 *
-	 * @since 4.0.0
+	 * @since WP 4.0.0
 	 *
 	 * @param string $order The 'order' query variable.
 	 * @return string The sanitized 'order' query variable.
@@ -1799,7 +1798,7 @@ class WP_Query {
 	/**
 	 * Sets the 404 property and saves whether query is feed.
 	 *
-	 * @since 2.0.0
+	 * @since WP 2.0.0
 	 */
 	public function set_404() {
 		$is_feed = $this->is_feed;
@@ -1812,7 +1811,7 @@ class WP_Query {
 		/**
 		 * Fires after a 404 is triggered.
 		 *
-		 * @since 5.5.0
+		 * @since WP 5.5.0
 		 *
 		 * @param WP_Query $query The WP_Query instance (passed by reference).
 		 */
@@ -1822,8 +1821,8 @@ class WP_Query {
 	/**
 	 * Retrieves the value of a query variable.
 	 *
-	 * @since 1.5.0
-	 * @since 3.9.0 The `$default_value` argument was introduced.
+	 * @since WP 1.5.0
+	 * @since WP 3.9.0 The `$default_value` argument was introduced.
 	 *
 	 * @param string $query_var     Query variable key.
 	 * @param mixed  $default_value Optional. Value to return if the query variable is not set.
@@ -1841,7 +1840,7 @@ class WP_Query {
 	/**
 	 * Sets the value of a query variable.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 *
 	 * @param string $query_var Query variable key.
 	 * @param mixed  $value     Query variable value.
@@ -1856,7 +1855,7 @@ class WP_Query {
 	 * There are a few filters and actions that can be used to modify the post
 	 * database query.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 *
 	 * @global wpdb $wpdb WordPress database abstraction object.
 	 *
@@ -1874,7 +1873,7 @@ class WP_Query {
 		 * (e.g. $this->is_main_query() instead of is_main_query()). This is because the functions
 		 * like is_main_query() test against the global $wp_query instance, not the passed one.
 		 *
-		 * @since 2.0.0
+		 * @since WP 2.0.0
 		 *
 		 * @param WP_Query $query The WP_Query instance (passed by reference).
 		 */
@@ -1889,7 +1888,7 @@ class WP_Query {
 		/**
 		 * Filters whether an attachment query should include filenames or not.
 		 *
-		 * @since 6.0.3
+		 * @since WP 6.0.3
 		 *
 		 * @param bool $allow_query_attachment_by_filename Whether or not to include filenames.
 		 */
@@ -2231,7 +2230,7 @@ class WP_Query {
 			/**
 			 * Filters the search SQL that is used in the WHERE clause of WP_Query.
 			 *
-			 * @since 3.0.0
+			 * @since WP 3.0.0
 			 *
 			 * @param string   $search Search SQL for WHERE clause.
 			 * @param WP_Query $query  The current WP_Query object.
@@ -2493,7 +2492,7 @@ class WP_Query {
 				/**
 				 * Filters the ORDER BY used when ordering search results.
 				 *
-				 * @since 3.7.0
+				 * @since WP 3.7.0
 				 *
 				 * @param string   $search_orderby The ORDER BY clause.
 				 * @param WP_Query $query          The current WP_Query instance.
@@ -2714,7 +2713,7 @@ class WP_Query {
 			/**
 			 * Filters the WHERE clause of the query.
 			 *
-			 * @since 1.5.0
+			 * @since WP 1.5.0
 			 *
 			 * @param string   $where The WHERE clause of the query.
 			 * @param WP_Query $query The WP_Query instance (passed by reference).
@@ -2724,7 +2723,7 @@ class WP_Query {
 			/**
 			 * Filters the JOIN clause of the query.
 			 *
-			 * @since 1.5.0
+			 * @since WP 1.5.0
 			 *
 			 * @param string   $join  The JOIN clause of the query.
 			 * @param WP_Query $query The WP_Query instance (passed by reference).
@@ -2765,7 +2764,7 @@ class WP_Query {
 				/**
 				 * Filters the JOIN clause of the comments feed query before sending.
 				 *
-				 * @since 2.2.0
+				 * @since WP 2.2.0
 				 *
 				 * @param string   $cjoin The JOIN clause of the query.
 				 * @param WP_Query $query The WP_Query instance (passed by reference).
@@ -2775,7 +2774,7 @@ class WP_Query {
 				/**
 				 * Filters the WHERE clause of the comments feed query before sending.
 				 *
-				 * @since 2.2.0
+				 * @since WP 2.2.0
 				 *
 				 * @param string   $cwhere The WHERE clause of the query.
 				 * @param WP_Query $query  The WP_Query instance (passed by reference).
@@ -2785,7 +2784,7 @@ class WP_Query {
 				/**
 				 * Filters the GROUP BY clause of the comments feed query before sending.
 				 *
-				 * @since 2.2.0
+				 * @since WP 2.2.0
 				 *
 				 * @param string   $cgroupby The GROUP BY clause of the query.
 				 * @param WP_Query $query    The WP_Query instance (passed by reference).
@@ -2795,7 +2794,7 @@ class WP_Query {
 				/**
 				 * Filters the ORDER BY clause of the comments feed query before sending.
 				 *
-				 * @since 2.8.0
+				 * @since WP 2.8.0
 				 *
 				 * @param string   $corderby The ORDER BY clause of the query.
 				 * @param WP_Query $query    The WP_Query instance (passed by reference).
@@ -2805,7 +2804,7 @@ class WP_Query {
 				/**
 				 * Filters the LIMIT clause of the comments feed query before sending.
 				 *
-				 * @since 2.8.0
+				 * @since WP 2.8.0
 				 *
 				 * @param string   $climits The JOIN clause of the query.
 				 * @param WP_Query $query   The WP_Query instance (passed by reference).
@@ -2862,7 +2861,7 @@ class WP_Query {
 			 *
 			 * Specifically for manipulating paging queries.
 			 *
-			 * @since 1.5.0
+			 * @since WP 1.5.0
 			 *
 			 * @param string   $where The WHERE clause of the query.
 			 * @param WP_Query $query The WP_Query instance (passed by reference).
@@ -2872,7 +2871,7 @@ class WP_Query {
 			/**
 			 * Filters the GROUP BY clause of the query.
 			 *
-			 * @since 2.0.0
+			 * @since WP 2.0.0
 			 *
 			 * @param string   $groupby The GROUP BY clause of the query.
 			 * @param WP_Query $query   The WP_Query instance (passed by reference).
@@ -2884,7 +2883,7 @@ class WP_Query {
 			 *
 			 * Specifically for manipulating paging queries.
 			 *
-			 * @since 1.5.0
+			 * @since WP 1.5.0
 			 *
 			 * @param string   $join  The JOIN clause of the query.
 			 * @param WP_Query $query The WP_Query instance (passed by reference).
@@ -2894,7 +2893,7 @@ class WP_Query {
 			/**
 			 * Filters the ORDER BY clause of the query.
 			 *
-			 * @since 1.5.1
+			 * @since WP 1.5.1
 			 *
 			 * @param string   $orderby The ORDER BY clause of the query.
 			 * @param WP_Query $query   The WP_Query instance (passed by reference).
@@ -2904,7 +2903,7 @@ class WP_Query {
 			/**
 			 * Filters the DISTINCT clause of the query.
 			 *
-			 * @since 2.1.0
+			 * @since WP 2.1.0
 			 *
 			 * @param string   $distinct The DISTINCT clause of the query.
 			 * @param WP_Query $query    The WP_Query instance (passed by reference).
@@ -2914,7 +2913,7 @@ class WP_Query {
 			/**
 			 * Filters the LIMIT clause of the query.
 			 *
-			 * @since 2.1.0
+			 * @since WP 2.1.0
 			 *
 			 * @param string   $limits The LIMIT clause of the query.
 			 * @param WP_Query $query  The WP_Query instance (passed by reference).
@@ -2924,7 +2923,7 @@ class WP_Query {
 			/**
 			 * Filters the SELECT clause of the query.
 			 *
-			 * @since 2.1.0
+			 * @since WP 2.1.0
 			 *
 			 * @param string   $fields The SELECT clause of the query.
 			 * @param WP_Query $query  The WP_Query instance (passed by reference).
@@ -2937,7 +2936,7 @@ class WP_Query {
 			 * Covers the WHERE, GROUP BY, JOIN, ORDER BY, DISTINCT,
 			 * fields (SELECT), and LIMIT clauses.
 			 *
-			 * @since 3.1.0
+			 * @since WP 3.1.0
 			 *
 			 * @param string[] $clauses {
 			 *     Associative array of the clauses for the query.
@@ -2968,7 +2967,7 @@ class WP_Query {
 		 *
 		 * For use by caching plugins.
 		 *
-		 * @since 2.3.0
+		 * @since WP 2.3.0
 		 *
 		 * @param string $selection The assembled selection query.
 		 */
@@ -2984,7 +2983,7 @@ class WP_Query {
 			 *
 			 * For use by caching plugins.
 			 *
-			 * @since 2.5.0
+			 * @since WP 2.5.0
 			 *
 			 * @param string   $where The WHERE clause of the query.
 			 * @param WP_Query $query The WP_Query instance (passed by reference).
@@ -2996,7 +2995,7 @@ class WP_Query {
 			 *
 			 * For use by caching plugins.
 			 *
-			 * @since 2.5.0
+			 * @since WP 2.5.0
 			 *
 			 * @param string   $groupby The GROUP BY clause of the query.
 			 * @param WP_Query $query   The WP_Query instance (passed by reference).
@@ -3008,7 +3007,7 @@ class WP_Query {
 			 *
 			 * For use by caching plugins.
 			 *
-			 * @since 2.5.0
+			 * @since WP 2.5.0
 			 *
 			 * @param string   $join  The JOIN clause of the query.
 			 * @param WP_Query $query The WP_Query instance (passed by reference).
@@ -3020,7 +3019,7 @@ class WP_Query {
 			 *
 			 * For use by caching plugins.
 			 *
-			 * @since 2.5.0
+			 * @since WP 2.5.0
 			 *
 			 * @param string   $orderby The ORDER BY clause of the query.
 			 * @param WP_Query $query   The WP_Query instance (passed by reference).
@@ -3032,7 +3031,7 @@ class WP_Query {
 			 *
 			 * For use by caching plugins.
 			 *
-			 * @since 2.5.0
+			 * @since WP 2.5.0
 			 *
 			 * @param string   $distinct The DISTINCT clause of the query.
 			 * @param WP_Query $query    The WP_Query instance (passed by reference).
@@ -3044,7 +3043,7 @@ class WP_Query {
 			 *
 			 * For use by caching plugins.
 			 *
-			 * @since 2.5.0
+			 * @since WP 2.5.0
 			 *
 			 * @param string   $fields The SELECT clause of the query.
 			 * @param WP_Query $query  The WP_Query instance (passed by reference).
@@ -3056,7 +3055,7 @@ class WP_Query {
 			 *
 			 * For use by caching plugins.
 			 *
-			 * @since 2.5.0
+			 * @since WP 2.5.0
 			 *
 			 * @param string   $limits The LIMIT clause of the query.
 			 * @param WP_Query $query  The WP_Query instance (passed by reference).
@@ -3071,7 +3070,7 @@ class WP_Query {
 			 * Covers the WHERE, GROUP BY, JOIN, ORDER BY, DISTINCT,
 			 * fields (SELECT), and LIMIT clauses.
 			 *
-			 * @since 3.1.0
+			 * @since WP 3.1.0
 			 *
 			 * @param string[] $clauses {
 			 *     Associative array of the clauses for the query.
@@ -3116,8 +3115,7 @@ class WP_Query {
 		 * queries are identical to those generated when splitting queries. This
 		 * improves caching of the query by ensuring the same cache key is
 		 * generated for the same database queries functionally.
-		 *
-		 * See https://core.trac.wordpress.org/ticket/56841.
+		 * 
 		 * See https://github.com/WordPress/wordpress-develop/pull/6393#issuecomment-2088217429
 		 */
 		$old_request =
@@ -3134,7 +3132,7 @@ class WP_Query {
 			/**
 			 * Filters the completed SQL query before sending.
 			 *
-			 * @since 2.0.0
+			 * @since WP 2.0.0
 			 *
 			 * @param string   $request The complete SQL query.
 			 * @param WP_Query $query   The WP_Query instance (passed by reference).
@@ -3152,7 +3150,7 @@ class WP_Query {
 		 * passed to the filter by reference. If WP_Query does not perform a database
 		 * query, it will not have enough information to generate these values itself.
 		 *
-		 * @since 4.6.0
+		 * @since WP 4.6.0
 		 *
 		 * @param WP_Post[]|int[]|null $posts Return an array of post data to short-circuit WP's query,
 		 *                                    or null to allow WP to run its normal queries.
@@ -3312,8 +3310,8 @@ class WP_Query {
 			 * (and then individually fetch each post by ID), rather than fetching every
 			 * complete row at once. One massive result vs. many small results.
 			 *
-			 * @since 3.4.0
-			 * @since 6.6.0 Added the `$old_request` and `$clauses` parameters.
+			 * @since WP 3.4.0
+			 * @since WP 6.6.0 Added the `$old_request` and `$clauses` parameters.
 			 *
 			 * @param bool     $split_the_query Whether or not to split the query.
 			 * @param WP_Query $query           The WP_Query instance.
@@ -3335,7 +3333,7 @@ class WP_Query {
 			if ( $split_the_query ) {
 				// First get the IDs and then fill in the objects.
 
-				// Beginning of the string is on a new line to prevent leading whitespace. See https://core.trac.wordpress.org/ticket/56841.
+				// Beginning of the string is on a new line to prevent leading whitespace.
 				$this->request =
 					"SELECT $found_rows $distinct {$wpdb->posts}.ID
 					 FROM {$wpdb->posts} $join
@@ -3347,7 +3345,7 @@ class WP_Query {
 				/**
 				 * Filters the Post IDs SQL request before sending.
 				 *
-				 * @since 3.4.0
+				 * @since WP 3.4.0
 				 *
 				 * @param string   $request The post ID request.
 				 * @param WP_Query $query   The WP_Query instance.
@@ -3393,7 +3391,7 @@ class WP_Query {
 			/**
 			 * Filters the raw post results array, prior to status checks.
 			 *
-			 * @since 2.3.0
+			 * @since WP 2.3.0
 			 *
 			 * @param WP_Post[] $posts Array of post objects.
 			 * @param WP_Query  $query The WP_Query instance (passed by reference).
@@ -3487,7 +3485,7 @@ class WP_Query {
 				/**
 				 * Filters the single post for preview mode.
 				 *
-				 * @since 2.7.0
+				 * @since WP 2.7.0
 				 *
 				 * @param WP_Post  $post_preview  The Post object.
 				 * @param WP_Query $query         The WP_Query instance (passed by reference).
@@ -3550,7 +3548,7 @@ class WP_Query {
 			 * Filters the array of retrieved posts after they've been fetched and
 			 * internally processed.
 			 *
-			 * @since 1.5.0
+			 * @since WP 1.5.0
 			 *
 			 * @param WP_Post[] $posts Array of post objects.
 			 * @param WP_Query  $query The WP_Query instance (passed by reference).
@@ -3599,7 +3597,7 @@ class WP_Query {
 	 * Sets up the amount of found posts and the number of pages (if limit clause was used)
 	 * for the current query.
 	 *
-	 * @since 3.5.0
+	 * @since WP 3.5.0
 	 *
 	 * @global wpdb $wpdb WordPress database abstraction object.
 	 *
@@ -3621,7 +3619,7 @@ class WP_Query {
 			/**
 			 * Filters the query to run for retrieving the found posts.
 			 *
-			 * @since 2.1.0
+			 * @since WP 2.1.0
 			 *
 			 * @param string   $found_posts_query The query to run to find the found posts.
 			 * @param WP_Query $query             The WP_Query instance (passed by reference).
@@ -3644,7 +3642,7 @@ class WP_Query {
 		/**
 		 * Filters the number of found posts for the query.
 		 *
-		 * @since 2.1.0
+		 * @since WP 2.1.0
 		 *
 		 * @param int      $found_posts The number of posts found.
 		 * @param WP_Query $query       The WP_Query instance (passed by reference).
@@ -3659,7 +3657,7 @@ class WP_Query {
 	/**
 	 * Sets up the next post and iterate current post index.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 *
 	 * @return WP_Post Next post.
 	 */
@@ -3678,7 +3676,7 @@ class WP_Query {
 	 * Retrieves the next post, sets up the post, sets the 'in the loop'
 	 * property to true.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 *
 	 * @global WP_Post $post Global post object.
 	 */
@@ -3704,7 +3702,7 @@ class WP_Query {
 			/**
 			 * Fires once the loop is started.
 			 *
-			 * @since 2.0.0
+			 * @since WP 2.0.0
 			 *
 			 * @param WP_Query $query The WP_Query instance (passed by reference).
 			 */
@@ -3720,7 +3718,7 @@ class WP_Query {
 	 *
 	 * Calls the {@see 'loop_end'} action when the loop is complete.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 *
 	 * @return bool True if posts are available, false if end of the loop.
 	 */
@@ -3731,7 +3729,7 @@ class WP_Query {
 			/**
 			 * Fires once the loop has ended.
 			 *
-			 * @since 2.0.0
+			 * @since WP 2.0.0
 			 *
 			 * @param WP_Query $query The WP_Query instance (passed by reference).
 			 */
@@ -3744,7 +3742,7 @@ class WP_Query {
 			/**
 			 * Fires if no results are found in a post query.
 			 *
-			 * @since 4.9.0
+			 * @since WP 4.9.0
 			 *
 			 * @param WP_Query $query The WP_Query instance.
 			 */
@@ -3758,7 +3756,7 @@ class WP_Query {
 	/**
 	 * Rewinds the posts and resets post index.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 */
 	public function rewind_posts() {
 		$this->current_post = -1;
@@ -3770,7 +3768,7 @@ class WP_Query {
 	/**
 	 * Iterates current comment index and returns WP_Comment object.
 	 *
-	 * @since 2.2.0
+	 * @since WP 2.2.0
 	 *
 	 * @return WP_Comment Comment object.
 	 */
@@ -3785,7 +3783,7 @@ class WP_Query {
 	/**
 	 * Sets up the current comment.
 	 *
-	 * @since 2.2.0
+	 * @since WP 2.2.0
 	 *
 	 * @global WP_Comment $comment Global comment object.
 	 */
@@ -3798,7 +3796,7 @@ class WP_Query {
 			/**
 			 * Fires once the comment loop is started.
 			 *
-			 * @since 2.2.0
+			 * @since WP 2.2.0
 			 */
 			do_action( 'comment_loop_start' );
 		}
@@ -3809,7 +3807,7 @@ class WP_Query {
 	 *
 	 * Automatically rewinds comments when finished.
 	 *
-	 * @since 2.2.0
+	 * @since WP 2.2.0
 	 *
 	 * @return bool True if comments are available, false if no more comments.
 	 */
@@ -3826,7 +3824,7 @@ class WP_Query {
 	/**
 	 * Rewinds the comments, resets the comment index and comment to first.
 	 *
-	 * @since 2.2.0
+	 * @since WP 2.2.0
 	 */
 	public function rewind_comments() {
 		$this->current_comment = -1;
@@ -3838,7 +3836,7 @@ class WP_Query {
 	/**
 	 * Sets up the WordPress query by parsing query string.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 *
 	 * @see WP_Query::parse_query() for all available arguments.
 	 *
@@ -3859,7 +3857,7 @@ class WP_Query {
 	 * the category, tag, taxonomy, posts page, single post, page, or author
 	 * query variable. After it is set up, it will be returned.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 *
 	 * @return WP_Term|WP_Post_Type|WP_Post|WP_User|null The queried object.
 	 */
@@ -3954,7 +3952,7 @@ class WP_Query {
 	/**
 	 * Retrieves the ID of the currently queried object.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 *
 	 * @return int
 	 */
@@ -3973,7 +3971,7 @@ class WP_Query {
 	 *
 	 * Sets up the WordPress query, if parameter is not empty.
 	 *
-	 * @since 1.5.0
+	 * @since WP 1.5.0
 	 *
 	 * @see WP_Query::parse_query() for all available arguments.
 	 *
@@ -3988,7 +3986,7 @@ class WP_Query {
 	/**
 	 * Makes private properties readable for backward compatibility.
 	 *
-	 * @since 4.0.0
+	 * @since WP 4.0.0
 	 *
 	 * @param string $name Property to get.
 	 * @return mixed Property.
@@ -4002,7 +4000,7 @@ class WP_Query {
 	/**
 	 * Makes private properties checkable for backward compatibility.
 	 *
-	 * @since 4.0.0
+	 * @since WP 4.0.0
 	 *
 	 * @param string $name Property to check if set.
 	 * @return bool Whether the property is set.
@@ -4016,7 +4014,7 @@ class WP_Query {
 	/**
 	 * Makes private/protected methods readable for backward compatibility.
 	 *
-	 * @since 4.0.0
+	 * @since WP 4.0.0
 	 *
 	 * @param string $name      Method to call.
 	 * @param array  $arguments Arguments to pass when calling.
@@ -4035,7 +4033,7 @@ class WP_Query {
 	 * Archive pages include category, tag, author, date, custom post type,
 	 * and custom taxonomy based archives.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @see WP_Query::is_category()
 	 * @see WP_Query::is_tag()
@@ -4053,7 +4051,7 @@ class WP_Query {
 	/**
 	 * Determines whether the query is for an existing post type archive page.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @param string|string[] $post_types Optional. Post type or array of posts types
 	 *                                    to check against. Default empty.
@@ -4080,7 +4078,7 @@ class WP_Query {
 	/**
 	 * Determines whether the query is for an existing attachment page.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @param int|string|int[]|string[] $attachment Optional. Attachment ID, title, slug, or array of such
 	 *                                              to check against. Default empty.
@@ -4118,7 +4116,7 @@ class WP_Query {
 	 * If the $author parameter is specified, this function will additionally
 	 * check if the query is for one of the authors specified.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @param int|string|int[]|string[] $author Optional. User ID, nickname, nicename, or array of such
 	 *                                          to check against. Default empty.
@@ -4157,7 +4155,7 @@ class WP_Query {
 	 * If the $category parameter is specified, this function will additionally
 	 * check if the query is for one of the categories specified.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @param int|string|int[]|string[] $category Optional. Category ID, name, slug, or array of such
 	 *                                            to check against. Default empty.
@@ -4196,7 +4194,7 @@ class WP_Query {
 	 * If the $tag parameter is specified, this function will additionally
 	 * check if the query is for one of the tags specified.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @param int|string|int[]|string[] $tag Optional. Tag ID, name, slug, or array of such
 	 *                                       to check against. Default empty.
@@ -4239,7 +4237,7 @@ class WP_Query {
 	 * this function will additionally check if the query is for one of the terms
 	 * specified.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @global WP_Taxonomy[] $wp_taxonomies Registered taxonomies.
 	 *
@@ -4288,8 +4286,8 @@ class WP_Query {
 	/**
 	 * Determines whether the current URL is within the comments popup window.
 	 *
-	 * @since 3.1.0
-	 * @deprecated 4.5.0
+	 * @since WP 3.1.0
+	 * @deprecated WP 4.5.0
 	 *
 	 * @return false Always returns false.
 	 */
@@ -4302,7 +4300,7 @@ class WP_Query {
 	/**
 	 * Determines whether the query is for an existing date archive.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @return bool Whether the query is for an existing date archive.
 	 */
@@ -4313,7 +4311,7 @@ class WP_Query {
 	/**
 	 * Determines whether the query is for an existing day archive.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @return bool Whether the query is for an existing day archive.
 	 */
@@ -4324,7 +4322,7 @@ class WP_Query {
 	/**
 	 * Determines whether the query is for a feed.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @param string|string[] $feeds Optional. Feed type or array of feed types
 	 *                                         to check against. Default empty.
@@ -4346,7 +4344,7 @@ class WP_Query {
 	/**
 	 * Determines whether the query is for a comments feed.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @return bool Whether the query is for a comments feed.
 	 */
@@ -4366,7 +4364,7 @@ class WP_Query {
 	 *
 	 * Otherwise the same as {@see WP_Query::is_home()}.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @return bool Whether the query is for the front page of the site.
 	 */
@@ -4393,7 +4391,7 @@ class WP_Query {
 	 * If you set a static page for the front page of your site, this function will return
 	 * true only on the page you set as the "Posts page".
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @see WP_Query::is_front_page()
 	 *
@@ -4412,7 +4410,7 @@ class WP_Query {
 	 *
 	 * This function will return true only on the page you set as the "Privacy Policy page".
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 *
 	 * @return bool Whether the query is for the Privacy Policy page.
 	 */
@@ -4429,7 +4427,7 @@ class WP_Query {
 	/**
 	 * Determines whether the query is for an existing month archive.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @return bool Whether the query is for an existing month archive.
 	 */
@@ -4443,7 +4441,7 @@ class WP_Query {
 	 * If the $page parameter is specified, this function will additionally
 	 * check if the query is for one of the pages specified.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @see WP_Query::is_single()
 	 * @see WP_Query::is_singular()
@@ -4493,7 +4491,7 @@ class WP_Query {
 	/**
 	 * Determines whether the query is for a paged result and not for the first page.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @return bool Whether the query is for a paged result.
 	 */
@@ -4504,7 +4502,7 @@ class WP_Query {
 	/**
 	 * Determines whether the query is for a post or page preview.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @return bool Whether the query is for a post or page preview.
 	 */
@@ -4515,7 +4513,7 @@ class WP_Query {
 	/**
 	 * Determines whether the query is for the robots.txt file.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @return bool Whether the query is for the robots.txt file.
 	 */
@@ -4526,7 +4524,7 @@ class WP_Query {
 	/**
 	 * Determines whether the query is for the favicon.ico file.
 	 *
-	 * @since 5.4.0
+	 * @since WP 5.4.0
 	 *
 	 * @return bool Whether the query is for the favicon.ico file.
 	 */
@@ -4537,7 +4535,7 @@ class WP_Query {
 	/**
 	 * Determines whether the query is for a search.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @return bool Whether the query is for a search.
 	 */
@@ -4553,7 +4551,7 @@ class WP_Query {
 	 * If the $post parameter is specified, this function will additionally
 	 * check if the query is for one of the Posts specified.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @see WP_Query::is_page()
 	 * @see WP_Query::is_singular()
@@ -4606,7 +4604,7 @@ class WP_Query {
 	 * If the $post_types parameter is specified, this function will additionally
 	 * check if the query is for one of the Posts Types specified.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @see WP_Query::is_page()
 	 * @see WP_Query::is_single()
@@ -4632,7 +4630,7 @@ class WP_Query {
 	/**
 	 * Determines whether the query is for a specific time.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @return bool Whether the query is for a specific time.
 	 */
@@ -4643,7 +4641,7 @@ class WP_Query {
 	/**
 	 * Determines whether the query is for a trackback endpoint call.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @return bool Whether the query is for a trackback endpoint call.
 	 */
@@ -4654,7 +4652,7 @@ class WP_Query {
 	/**
 	 * Determines whether the query is for an existing year archive.
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @return bool Whether the query is for an existing year archive.
 	 */
@@ -4665,7 +4663,7 @@ class WP_Query {
 	/**
 	 * Determines whether the query is a 404 (returns no results).
 	 *
-	 * @since 3.1.0
+	 * @since WP 3.1.0
 	 *
 	 * @return bool Whether the query is a 404 error.
 	 */
@@ -4676,7 +4674,7 @@ class WP_Query {
 	/**
 	 * Determines whether the query is for an embedded post.
 	 *
-	 * @since 4.4.0
+	 * @since WP 4.4.0
 	 *
 	 * @return bool Whether the query is for an embedded post.
 	 */
@@ -4687,7 +4685,7 @@ class WP_Query {
 	/**
 	 * Determines whether the query is the main query.
 	 *
-	 * @since 3.3.0
+	 * @since WP 3.3.0
 	 *
 	 * @global WP_Query $wp_the_query WordPress Query object.
 	 *
@@ -4701,8 +4699,8 @@ class WP_Query {
 	/**
 	 * Sets up global post data.
 	 *
-	 * @since 4.1.0
-	 * @since 4.4.0 Added the ability to pass a post ID to `$post`.
+	 * @since WP 4.1.0
+	 * @since WP 4.4.0 Added the ability to pass a post ID to `$post`.
 	 *
 	 * @global int     $id
 	 * @global WP_User $authordata
@@ -4746,8 +4744,8 @@ class WP_Query {
 		/**
 		 * Fires once the post data has been set up.
 		 *
-		 * @since 2.8.0
-		 * @since 4.1.0 Introduced `$query` parameter.
+		 * @since WP 2.8.0
+		 * @since WP 4.1.0 Introduced `$query` parameter.
 		 *
 		 * @param WP_Post  $post  The Post object (passed by reference).
 		 * @param WP_Query $query The current Query object (passed by reference).
@@ -4760,7 +4758,7 @@ class WP_Query {
 	/**
 	 * Generates post data.
 	 *
-	 * @since 5.2.0
+	 * @since WP 5.2.0
 	 *
 	 * @param WP_Post|object|int $post WP_Post instance or Post ID/object.
 	 * @return array|false Elements of post or false on failure.
@@ -4837,7 +4835,7 @@ class WP_Query {
 		 * "Pages" are determined by splitting the post content based on the presence
 		 * of `<!-- nextpage -->` tags.
 		 *
-		 * @since 4.4.0
+		 * @since WP 4.4.0
 		 *
 		 * @param string[] $pages Array of "pages" from the post content split by `<!-- nextpage -->` tags.
 		 * @param WP_Post  $post  Current post object.
@@ -4863,7 +4861,7 @@ class WP_Query {
 	/**
 	 * Generates cache key.
 	 *
-	 * @since 6.1.0
+	 * @since WP 6.1.0
 	 *
 	 * @global wpdb $wpdb WordPress database abstraction object.
 	 *
@@ -4946,7 +4944,7 @@ class WP_Query {
 	 * After looping through a nested query, this function
 	 * restores the $post global to the current post in this query.
 	 *
-	 * @since 3.7.0
+	 * @since WP 3.7.0
 	 *
 	 * @global WP_Post $post Global post object.
 	 */
@@ -4960,8 +4958,8 @@ class WP_Query {
 	/**
 	 * Lazyloads term meta for posts in the loop.
 	 *
-	 * @since 4.4.0
-	 * @deprecated 4.5.0 See wp_queue_posts_for_term_meta_lazyload().
+	 * @since WP 4.4.0
+	 * @deprecated WP 4.5.0 See wp_queue_posts_for_term_meta_lazyload().
 	 *
 	 * @param mixed $check
 	 * @param int   $term_id
@@ -4975,8 +4973,8 @@ class WP_Query {
 	/**
 	 * Lazyloads comment meta for comments in the loop.
 	 *
-	 * @since 4.4.0
-	 * @deprecated 4.5.0 See wp_lazyload_comment_meta().
+	 * @since WP 4.4.0
+	 * @deprecated WP 4.5.0 See wp_lazyload_comment_meta().
 	 *
 	 * @param mixed $check
 	 * @param int   $comment_id

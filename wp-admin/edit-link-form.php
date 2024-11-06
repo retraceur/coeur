@@ -39,7 +39,7 @@ do_action( 'add_meta_boxes', 'link', $link );
 /**
  * Fires when link-specific meta boxes are added.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @param object $link Link object.
  */
@@ -69,12 +69,6 @@ get_current_screen()->add_help_tab(
 		'<p>' . __( 'The boxes for link name, web address, and description have fixed positions, while the others may be repositioned using drag and drop. You can also hide boxes you do not use in the Screen Options tab, or minimize boxes by clicking on the title bar of the box.' ) . '</p>' .
 		'<p>' . __( 'XFN stands for <a href="https://gmpg.org/xfn/">XHTML Friends Network</a>, which is optional. WordPress allows the generation of XFN attributes to show how you are related to the authors/owners of the site to which you are linking.' ) . '</p>',
 	)
-);
-
-get_current_screen()->set_help_sidebar(
-	'<p><strong>' . __( 'For more information:' ) . '</strong></p>' .
-	'<p>' . __( '<a href="https://codex.wordpress.org/Links_Add_New_Screen">Documentation on Creating Links</a>' ) . '</p>' .
-	'<p>' . __( '<a href="https://wordpress.org/support/forums/">Support forums</a>' ) . '</p>'
 );
 
 require_once ABSPATH . 'wp-admin/admin-header.php';
@@ -131,7 +125,7 @@ wp_nonce_field( 'meta-box-order', 'meta-box-order-nonce', false );
 <h2 class="postbox-header"><label for="link_url"><?php _e( 'Web Address' ); ?></label></h2>
 <div class="inside">
 	<input type="text" name="link_url" size="30" maxlength="255" class="code" value="<?php echo esc_url( $link->link_url ); ?>" id="link_url" />
-	<p><?php _e( 'Example: <code>https://wordpress.org/</code> &#8212; do not forget the <code>https://</code>' ); ?></p>
+	<p><?php _e( 'Example: <code>https://site.url/</code> &#8212; do not forget the <code>https://</code>' ); ?></p>
 </div>
 </div>
 

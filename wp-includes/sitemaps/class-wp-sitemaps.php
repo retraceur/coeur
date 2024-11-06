@@ -6,20 +6,20 @@
  *
  * @package motsVertueux
  * @subpackage Sitemaps
- * @since 5.5.0
+ * @since WP 5.5.0
  */
 
 /**
  * Class WP_Sitemaps.
  *
- * @since 5.5.0
+ * @since WP 5.5.0
  */
 #[AllowDynamicProperties]
 class WP_Sitemaps {
 	/**
 	 * The main index of supported sitemaps.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @var WP_Sitemaps_Index
 	 */
@@ -28,7 +28,7 @@ class WP_Sitemaps {
 	/**
 	 * The main registry of supported sitemaps.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @var WP_Sitemaps_Registry
 	 */
@@ -37,7 +37,7 @@ class WP_Sitemaps {
 	/**
 	 * An instance of the renderer class.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @var WP_Sitemaps_Renderer
 	 */
@@ -46,7 +46,7 @@ class WP_Sitemaps {
 	/**
 	 * WP_Sitemaps constructor.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 */
 	public function __construct() {
 		$this->registry = new WP_Sitemaps_Registry();
@@ -60,7 +60,7 @@ class WP_Sitemaps {
 	 * If sitemaps are disabled, only the rewrite rules will be registered
 	 * by this method, in order to properly send 404s.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 */
 	public function init() {
 		// These will all fire on the init hook.
@@ -81,7 +81,7 @@ class WP_Sitemaps {
 	/**
 	 * Determines whether sitemaps are enabled or not.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @return bool Whether sitemaps are enabled.
 	 */
@@ -96,7 +96,7 @@ class WP_Sitemaps {
 		 *
 		 * @see WP_Sitemaps::register_rewrites()
 		 *
-		 * @since 5.5.0
+		 * @since WP 5.5.0
 		 *
 		 * @param bool $is_enabled Whether XML Sitemaps are enabled or not.
 		 *                         Defaults to true for public sites.
@@ -107,7 +107,7 @@ class WP_Sitemaps {
 	/**
 	 * Registers and sets up the functionality for all supported sitemaps.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 */
 	public function register_sitemaps() {
 		$providers = array(
@@ -125,7 +125,7 @@ class WP_Sitemaps {
 	/**
 	 * Registers sitemap rewrite tags and routing rules.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 */
 	public function register_rewrites() {
 		// Add rewrite tags.
@@ -156,7 +156,7 @@ class WP_Sitemaps {
 	/**
 	 * Renders sitemap templates based on rewrite rules.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @global WP_Query $wp_query WordPress Query object.
 	 */
@@ -221,8 +221,8 @@ class WP_Sitemaps {
 	/**
 	 * Redirects a URL to the wp-sitemap.xml
 	 *
-	 * @since 5.5.0
-	 * @deprecated 6.7.0 Deprecated in favor of {@see WP_Rewrite::rewrite_rules()}
+	 * @since WP 5.5.0
+	 * @deprecated WP 6.7.0 Deprecated in favor of {@see WP_Rewrite::rewrite_rules()}
 	 *
 	 * @param bool     $bypass Pass-through of the pre_handle_404 filter value.
 	 * @param WP_Query $query  The WP_Query object.
@@ -250,7 +250,7 @@ class WP_Sitemaps {
 	/**
 	 * Adds the sitemap index to robots.txt.
 	 *
-	 * @since 5.5.0
+	 * @since WP 5.5.0
 	 *
 	 * @param string $output    robots.txt output.
 	 * @param bool   $is_public Whether the site is public.

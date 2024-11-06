@@ -23,17 +23,17 @@
  * This function does not check whether the user has the required capabilities,
  * it just returns what the required capabilities are.
  *
- * @since 2.0.0
- * @since 4.9.6 Added the `export_others_personal_data`, `erase_others_personal_data`,
+ * @since WP 2.0.0
+ * @since WP 4.9.6 Added the `export_others_personal_data`, `erase_others_personal_data`,
  *              and `manage_privacy_options` capabilities.
- * @since 5.1.0 Added the `update_php` capability.
- * @since 5.2.0 Added the `resume_plugin` and `resume_theme` capabilities.
- * @since 5.3.0 Formalized the existing and already documented `...$args` parameter
+ * @since WP 5.1.0 Added the `update_php` capability.
+ * @since WP 5.2.0 Added the `resume_plugin` and `resume_theme` capabilities.
+ * @since WP 5.3.0 Formalized the existing and already documented `...$args` parameter
  *              by adding it to the function signature.
- * @since 5.7.0 Added the `create_app_password`, `list_app_passwords`, `read_app_password`,
+ * @since WP 5.7.0 Added the `create_app_password`, `list_app_passwords`, `read_app_password`,
  *              `edit_app_password`, `delete_app_passwords`, `delete_app_password`,
  *              and `update_https` capabilities.
- * @since 6.7.0 Added the `edit_block_binding` capability.
+ * @since WP 6.7.0 Added the `edit_block_binding` capability.
  *
  * @global array $post_type_meta_caps Used to get post type meta capabilities.
  *
@@ -479,7 +479,7 @@ function map_meta_cap( $cap, $user_id, ...$args ) {
 					 * and `$object_subtype`, refer to the metadata object type (comment, post, term or user),
 					 * the meta key value, and the object subtype respectively.
 					 *
-					 * @since 4.9.8
+					 * @since WP 4.9.8
 					 *
 					 * @param bool     $allowed   Whether the user can add the object meta. Default false.
 					 * @param string   $meta_key  The meta key.
@@ -499,8 +499,8 @@ function map_meta_cap( $cap, $user_id, ...$args ) {
 					 * The dynamic portion of the hook name, `$object_type` refers to the object type being filtered.
 					 * The dynamic portion of the hook name, `$meta_key`, refers to the meta key passed to map_meta_cap().
 					 *
-					 * @since 3.3.0 As `auth_post_meta_{$meta_key}`.
-					 * @since 4.6.0
+					 * @since WP 3.3.0 As `auth_post_meta_{$meta_key}`.
+					 * @since WP 4.6.0
 					 *
 					 * @param bool     $allowed   Whether the user can add the object meta. Default false.
 					 * @param string   $meta_key  The meta key.
@@ -523,10 +523,10 @@ function map_meta_cap( $cap, $user_id, ...$args ) {
 					 * The dynamic portion of the hook name, `$object_subtype` refers to the object subtype being filtered.
 					 * The dynamic portion of the hook name, `$meta_key`, refers to the meta key passed to map_meta_cap().
 					 *
-					 * @since 4.6.0 As `auth_post_{$post_type}_meta_{$meta_key}`.
-					 * @since 4.7.0 Renamed from `auth_post_{$post_type}_meta_{$meta_key}` to
+					 * @since WP 4.6.0 As `auth_post_{$post_type}_meta_{$meta_key}`.
+					 * @since WP 4.7.0 Renamed from `auth_post_{$post_type}_meta_{$meta_key}` to
 					 *              `auth_{$object_type}_{$object_subtype}_meta_{$meta_key}`.
-					 * @deprecated 4.9.8 Use {@see 'auth_{$object_type}_meta_{$meta_key}_for_{$object_subtype}'} instead.
+					 * @deprecated WP 4.9.8 Use {@see 'auth_{$object_type}_meta_{$meta_key}_for_{$object_subtype}'} instead.
 					 *
 					 * @param bool     $allowed   Whether the user can add the object meta. Default false.
 					 * @param string   $meta_key  The meta key.
@@ -865,7 +865,7 @@ function map_meta_cap( $cap, $user_id, ...$args ) {
 	 * Filters the primitive capabilities required of the given user to satisfy the
 	 * capability being checked.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @param string[] $caps    Primitive capabilities required of the user.
 	 * @param string   $cap     Capability being checked.
@@ -894,10 +894,10 @@ function map_meta_cap( $cap, $user_id, ...$args ) {
  *
  * Note: Will always return true if the current user is a super admin, unless specifically denied.
  *
- * @since 2.0.0
- * @since 5.3.0 Formalized the existing and already documented `...$args` parameter
+ * @since WP 2.0.0
+ * @since WP 5.3.0 Formalized the existing and already documented `...$args` parameter
  *              by adding it to the function signature.
- * @since 5.8.0 Converted to wrapper for the user_can() function.
+ * @since WP 5.8.0 Converted to wrapper for the user_can() function.
  *
  * @see WP_User::has_cap()
  * @see map_meta_cap()
@@ -926,7 +926,7 @@ function current_user_can( $capability, ...$args ) {
  *     current_user_can_for_site( $site_id, 'edit_post', $post->ID );
  *     current_user_can_for_site( $site_id, 'edit_post_meta', $post->ID, $meta_key );
  *
- * @since 6.7.0
+ * @since WP 6.7.0
  *
  * @param int    $site_id    Site ID.
  * @param string $capability Capability name.
@@ -958,8 +958,8 @@ function current_user_can_for_site( $site_id, $capability, ...$args ) {
  *     author_can( $post, 'edit_post', $post->ID );
  *     author_can( $post, 'edit_post_meta', $post->ID, $meta_key );
  *
- * @since 2.9.0
- * @since 5.3.0 Formalized the existing and already documented `...$args` parameter
+ * @since WP 2.9.0
+ * @since WP 5.3.0 Formalized the existing and already documented `...$args` parameter
  *              by adding it to the function signature.
  *
  * @param int|WP_Post $post       Post ID or post object.
@@ -995,8 +995,8 @@ function author_can( $post, $capability, ...$args ) {
  *     user_can( $user->ID, 'edit_post', $post->ID );
  *     user_can( $user->ID, 'edit_post_meta', $post->ID, $meta_key );
  *
- * @since 3.1.0
- * @since 5.3.0 Formalized the existing and already documented `...$args` parameter
+ * @since WP 3.1.0
+ * @since WP 5.3.0 Formalized the existing and already documented `...$args` parameter
  *              by adding it to the function signature.
  *
  * @param int|WP_User $user       User ID or object.
@@ -1031,7 +1031,7 @@ function user_can( $user, $capability, ...$args ) {
  *     user_can_for_site( $user->ID, $site_id, 'edit_post', $post->ID );
  *     user_can_for_site( $user->ID, $site_id, 'edit_post_meta', $post->ID, $meta_key );
  *
- * @since 6.7.0
+ * @since WP 6.7.0
  *
  * @param int|WP_User $user       User ID or object.
  * @param int         $site_id    Site ID.
@@ -1069,7 +1069,7 @@ function user_can_for_site( $user, $site_id, $capability, ...$args ) {
 /**
  * Retrieves the global WP_Roles instance and instantiates it if necessary.
  *
- * @since 4.3.0
+ * @since WP 4.3.0
  *
  * @global WP_Roles $wp_roles WordPress role management object.
  *
@@ -1087,7 +1087,7 @@ function wp_roles() {
 /**
  * Retrieves role object.
  *
- * @since 2.0.0
+ * @since WP 2.0.0
  *
  * @param string $role Role name.
  * @return WP_Role|null WP_Role object if found, null if the role does not exist.
@@ -1099,7 +1099,7 @@ function get_role( $role ) {
 /**
  * Adds a role, if it does not exist.
  *
- * @since 2.0.0
+ * @since WP 2.0.0
  *
  * @param string $role         Role name.
  * @param string $display_name Display name for role.
@@ -1118,7 +1118,7 @@ function add_role( $role, $display_name, $capabilities = array() ) {
 /**
  * Removes a role, if it exists.
  *
- * @since 2.0.0
+ * @since WP 2.0.0
  *
  * @param string $role Role name.
  */
@@ -1129,7 +1129,7 @@ function remove_role( $role ) {
 /**
  * Retrieves a list of super admins.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @global array $super_admins
  *
@@ -1148,7 +1148,7 @@ function get_super_admins() {
 /**
  * Determines whether user is a site admin.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @param int|false $user_id Optional. The ID of a user. Defaults to false, to check the current user.
  * @return bool Whether the user is a site admin.
@@ -1179,7 +1179,7 @@ function is_super_admin( $user_id = false ) {
 /**
  * Grants Super Admin privileges.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @global array $super_admins
  *
@@ -1196,7 +1196,7 @@ function grant_super_admin( $user_id ) {
 	/**
 	 * Fires before the user is granted Super Admin privileges.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 *
 	 * @param int $user_id ID of the user that is about to be granted Super Admin privileges.
 	 */
@@ -1213,7 +1213,7 @@ function grant_super_admin( $user_id ) {
 		/**
 		 * Fires after the user is granted Super Admin privileges.
 		 *
-		 * @since 3.0.0
+		 * @since WP 3.0.0
 		 *
 		 * @param int $user_id ID of the user that was granted Super Admin privileges.
 		 */
@@ -1226,7 +1226,7 @@ function grant_super_admin( $user_id ) {
 /**
  * Revokes Super Admin privileges.
  *
- * @since 3.0.0
+ * @since WP 3.0.0
  *
  * @global array $super_admins
  *
@@ -1243,7 +1243,7 @@ function revoke_super_admin( $user_id ) {
 	/**
 	 * Fires before the user's Super Admin privileges are revoked.
 	 *
-	 * @since 3.0.0
+	 * @since WP 3.0.0
 	 *
 	 * @param int $user_id ID of the user Super Admin privileges are being revoked from.
 	 */
@@ -1262,7 +1262,7 @@ function revoke_super_admin( $user_id ) {
 			/**
 			 * Fires after the user's Super Admin privileges are revoked.
 			 *
-			 * @since 3.0.0
+			 * @since WP 3.0.0
 			 *
 			 * @param int $user_id ID of the user Super Admin privileges were revoked from.
 			 */
@@ -1279,7 +1279,7 @@ function revoke_super_admin( $user_id ) {
  * A user must have at least one out of the 'update_core', 'install_plugins', and
  * 'install_themes' capabilities to qualify for 'install_languages'.
  *
- * @since 4.9.0
+ * @since WP 4.9.0
  *
  * @param bool[] $allcaps An array of all the user's capabilities.
  * @return bool[] Filtered array of the user's capabilities.
@@ -1295,7 +1295,7 @@ function wp_maybe_grant_install_languages_cap( $allcaps ) {
 /**
  * Filters the user capabilities to grant the 'resume_plugins' and 'resume_themes' capabilities as necessary.
  *
- * @since 5.2.0
+ * @since WP 5.2.0
  *
  * @param bool[] $allcaps An array of all the user's capabilities.
  * @return bool[] Filtered array of the user's capabilities.
@@ -1317,7 +1317,7 @@ function wp_maybe_grant_resume_extensions_caps( $allcaps ) {
 /**
  * Filters the user capabilities to grant the 'view_site_health_checks' capabilities as necessary.
  *
- * @since 5.2.2
+ * @since WP 5.2.2
  *
  * @param bool[]   $allcaps An array of all the user's capabilities.
  * @param string[] $caps    Required primitive capabilities for the requested capability.

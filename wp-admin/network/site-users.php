@@ -4,7 +4,8 @@
  *
  * @package motsVertueux
  * @subpackage Multisite
- * @since 3.1.0
+ * @since WP 3.1.0
+ * @since 1.0.0 motsVertueux fork.
  */
 
 /** Load WordPress Administration Bootstrap */
@@ -18,7 +19,6 @@ $wp_list_table = _get_list_table( 'WP_Users_List_Table' );
 $wp_list_table->prepare_items();
 
 get_current_screen()->add_help_tab( get_site_screen_help_tab_args() );
-get_current_screen()->set_help_sidebar( get_site_screen_help_sidebar_content() );
 
 get_current_screen()->set_screen_reader_content(
 	array(
@@ -81,7 +81,7 @@ if ( $action ) {
 						/**
 						 * Fires after a user has been created via the network site-users.php page.
 						 *
-						 * @since 4.4.0
+						 * @since WP 4.4.0
 						 *
 						 * @param int $user_id ID of the newly created user.
 						 */
@@ -205,7 +205,7 @@ $submenu_file = 'sites.php';
 /**
  * Filters whether to show the Add Existing User form on the Multisite Users screen.
  *
- * @since 3.1.0
+ * @since WP 3.1.0
  *
  * @param bool $bool Whether to show the Add Existing User form. Default true.
  */
@@ -306,7 +306,7 @@ endif;
 /**
  * Fires after the list table on the Users screen in the Multisite Network Admin.
  *
- * @since 3.1.0
+ * @since WP 3.1.0
  */
 do_action( 'network_site_users_after_list_table' );
 
@@ -341,7 +341,7 @@ if ( current_user_can( 'promote_users' ) && apply_filters( 'show_network_site_us
 /**
  * Filters whether to show the Add New User form on the Multisite Users screen.
  *
- * @since 3.1.0
+ * @since WP 3.1.0
  *
  * @param bool $bool Whether to show the Add New User form. Default true.
  */

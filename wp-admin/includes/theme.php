@@ -4,12 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage Administration
+ * @since 1.0.0 motsVertueux fork.
  */
 
 /**
  * Removes a theme.
  *
- * @since 2.8.0
+ * @since WP 2.8.0
  *
  * @global WP_Filesystem_Base $wp_filesystem WordPress filesystem subclass.
  *
@@ -75,7 +76,7 @@ function delete_theme( $stylesheet, $redirect = '' ) {
 	/**
 	 * Fires immediately before a theme deletion attempt.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @param string $stylesheet Stylesheet of the theme to delete.
 	 */
@@ -90,7 +91,7 @@ function delete_theme( $stylesheet, $redirect = '' ) {
 	/**
 	 * Fires immediately after a theme deletion attempt.
 	 *
-	 * @since 5.8.0
+	 * @since WP 5.8.0
 	 *
 	 * @param string $stylesheet Stylesheet of the theme to delete.
 	 * @param bool   $deleted    Whether the theme deletion was successful.
@@ -140,8 +141,8 @@ function delete_theme( $stylesheet, $redirect = '' ) {
 /**
  * Gets the page templates available in this theme.
  *
- * @since 1.5.0
- * @since 4.7.0 Added the `$post_type` parameter.
+ * @since WP 1.5.0
+ * @since WP 4.7.0 Added the `$post_type` parameter.
  *
  * @param WP_Post|null $post      Optional. The post being edited, provided for context.
  * @param string       $post_type Optional. Post type to get the templates for. Default 'page'.
@@ -154,7 +155,7 @@ function get_page_templates( $post = null, $post_type = 'page' ) {
 /**
  * Tidies a filename for url display by the theme file editor.
  *
- * @since 2.9.0
+ * @since WP 2.9.0
  * @access private
  *
  * @param string $fullpath Full path to the theme file
@@ -170,7 +171,7 @@ function _get_template_edit_filename( $fullpath, $containingfolder ) {
  *
  * Will display link, if there is an update available.
  *
- * @since 2.7.0
+ * @since WP 2.7.0
  *
  * @see get_theme_update_available()
  *
@@ -185,7 +186,7 @@ function theme_update_available( $theme ) {
  *
  * Will return a link if there is an update available.
  *
- * @since 3.8.0
+ * @since WP 3.8.0
  *
  * @param WP_Theme $theme WP_Theme object.
  * @return string|false HTML for the update link, or false if invalid info was passed.
@@ -279,40 +280,40 @@ function get_theme_update_available( $theme ) {
 /**
  * Retrieves list of WordPress theme features (aka theme tags).
  *
- * @since 3.1.0
- * @since 3.2.0 Added 'Gray' color and 'Featured Image Header', 'Featured Images',
+ * @since WP 3.1.0
+ * @since WP 3.2.0 Added 'Gray' color and 'Featured Image Header', 'Featured Images',
  *              'Full Width Template', and 'Post Formats' features.
- * @since 3.5.0 Added 'Flexible Header' feature.
- * @since 3.8.0 Renamed 'Width' filter to 'Layout'.
- * @since 3.8.0 Renamed 'Fixed Width' and 'Flexible Width' options
+ * @since WP 3.5.0 Added 'Flexible Header' feature.
+ * @since WP 3.8.0 Renamed 'Width' filter to 'Layout'.
+ * @since WP 3.8.0 Renamed 'Fixed Width' and 'Flexible Width' options
  *              to 'Fixed Layout' and 'Fluid Layout'.
- * @since 3.8.0 Added 'Accessibility Ready' feature and 'Responsive Layout' option.
- * @since 3.9.0 Combined 'Layout' and 'Columns' filters.
- * @since 4.6.0 Removed 'Colors' filter.
- * @since 4.6.0 Added 'Grid Layout' option.
+ * @since WP 3.8.0 Added 'Accessibility Ready' feature and 'Responsive Layout' option.
+ * @since WP 3.9.0 Combined 'Layout' and 'Columns' filters.
+ * @since WP 4.6.0 Removed 'Colors' filter.
+ * @since WP 4.6.0 Added 'Grid Layout' option.
  *              Removed 'Fixed Layout', 'Fluid Layout', and 'Responsive Layout' options.
- * @since 4.6.0 Added 'Custom Logo' and 'Footer Widgets' features.
+ * @since WP 4.6.0 Added 'Custom Logo' and 'Footer Widgets' features.
  *              Removed 'Blavatar' feature.
- * @since 4.6.0 Added 'Blog', 'E-Commerce', 'Education', 'Entertainment', 'Food & Drink',
+ * @since WP 4.6.0 Added 'Blog', 'E-Commerce', 'Education', 'Entertainment', 'Food & Drink',
  *              'Holiday', 'News', 'Photography', and 'Portfolio' subjects.
  *              Removed 'Photoblogging' and 'Seasonal' subjects.
- * @since 4.9.0 Reordered the filters from 'Layout', 'Features', 'Subject'
+ * @since WP 4.9.0 Reordered the filters from 'Layout', 'Features', 'Subject'
  *              to 'Subject', 'Features', 'Layout'.
- * @since 4.9.0 Removed 'BuddyPress', 'Custom Menu', 'Flexible Header',
+ * @since WP 4.9.0 Removed 'BuddyPress', 'Custom Menu', 'Flexible Header',
  *              'Front Page Posting', 'Microformats', 'RTL Language Support',
  *              'Threaded Comments', and 'Translation Ready' features.
- * @since 5.5.0 Added 'Block Editor Patterns', 'Block Editor Styles',
+ * @since WP 5.5.0 Added 'Block Editor Patterns', 'Block Editor Styles',
  *              and 'Full Site Editing' features.
- * @since 5.5.0 Added 'Wide Blocks' layout option.
- * @since 5.8.1 Added 'Template Editing' feature.
- * @since 6.1.1 Replaced 'Full Site Editing' feature name with 'Site Editor'.
- * @since 6.2.0 Added 'Style Variations' feature.
- *
- * @param bool $api Optional. Whether try to fetch tags from the WordPress.org API. Defaults to true.
+ * @since WP 5.5.0 Added 'Wide Blocks' layout option.
+ * @since WP 5.8.1 Added 'Template Editing' feature.
+ * @since WP 6.1.1 Replaced 'Full Site Editing' feature name with 'Site Editor'.
+ * @since WP 6.2.0 Added 'Style Variations' feature.
+ * @since 1.0.0    Remove the WP API requesting part.
+ * 
  * @return array Array of features keyed by category with translations keyed by slug.
  */
-function get_theme_feature_list( $api = true ) {
-	// Hard-coded list is used if API is not accessible.
+function get_theme_feature_list() {
+	// Hard-coded list.
 	$features = array(
 
 		__( 'Subject' )  => array(
@@ -361,58 +362,11 @@ function get_theme_feature_list( $api = true ) {
 
 	);
 
-	if ( ! $api || ! current_user_can( 'install_themes' ) ) {
-		return $features;
-	}
-
-	$feature_list = get_site_transient( 'wporg_theme_feature_list' );
-	if ( ! $feature_list ) {
-		set_site_transient( 'wporg_theme_feature_list', array(), 3 * HOUR_IN_SECONDS );
-	}
-
-	if ( ! $feature_list ) {
-		$feature_list = themes_api( 'feature_list', array() );
-		if ( is_wp_error( $feature_list ) ) {
-			return $features;
-		}
-	}
-
-	if ( ! $feature_list ) {
-		return $features;
-	}
-
-	set_site_transient( 'wporg_theme_feature_list', $feature_list, 3 * HOUR_IN_SECONDS );
-
-	$category_translations = array(
-		'Layout'   => __( 'Layout' ),
-		'Features' => __( 'Features' ),
-		'Subject'  => __( 'Subject' ),
-	);
-
-	$wporg_features = array();
-
-	// Loop over the wp.org canonical list and apply translations.
-	foreach ( (array) $feature_list as $feature_category => $feature_items ) {
-		if ( isset( $category_translations[ $feature_category ] ) ) {
-			$feature_category = $category_translations[ $feature_category ];
-		}
-
-		$wporg_features[ $feature_category ] = array();
-
-		foreach ( $feature_items as $feature ) {
-			if ( isset( $features[ $feature_category ][ $feature ] ) ) {
-				$wporg_features[ $feature_category ][ $feature ] = $features[ $feature_category ][ $feature ];
-			} else {
-				$wporg_features[ $feature_category ][ $feature ] = $feature;
-			}
-		}
-	}
-
-	return $wporg_features;
+	return $features;
 }
 
 /**
- * Retrieves theme installer pages from the WordPress.org Themes API.
+ * Retrieves theme installer pages.
  *
  * It is possible for a theme to override the Themes API result with three
  * filters. Assume this is for themes, which can extend on the Theme Info to
@@ -423,9 +377,9 @@ function get_theme_feature_list( $api = true ) {
  * as the second parameter. The hook for {@see 'themes_api_args'} must ensure that
  * an object is returned.
  *
- * The second filter, {@see 'themes_api'}, allows a plugin to override the WordPress.org
- * Theme API entirely. If `$action` is 'query_themes', 'theme_information', or 'feature_list',
- * an object MUST be passed. If `$action` is 'hot_tags', an array should be passed.
+ * The second filter, {@see 'themes_api'}, allows a plugin to override the Theme API entirely
+ * If `$action` is 'query_themes', 'theme_information', or 'feature_list', an object MUST be
+ * passed. If `$action` is 'hot_tags', an array should be passed.
  *
  * Finally, the third filter, {@see 'themes_api_result'}, makes it possible to filter the
  * response object or array, depending on the `$action` type.
@@ -446,7 +400,7 @@ function get_theme_feature_list( $api = true ) {
  * | `$locale`          | Yes            |  Yes                | No         | No               |
  * | `$fields`          | Yes            |  Yes                | No         | No               |
  *
- * @since 2.8.0
+ * @since WP 2.8.0
  *
  * @param string       $action API action to perform: Accepts 'query_themes', 'theme_information',
  *                             'hot_tags' or 'feature_list'.
@@ -488,9 +442,7 @@ function get_theme_feature_list( $api = true ) {
  *         @type bool $extended_author    Whether to return nicename or nicename and display name. Default false.
  *     }
  * }
- * @return object|array|WP_Error Response object or array on success, WP_Error on failure. See the
- *         {@link https://developer.wordpress.org/reference/functions/themes_api/ function reference article}
- *         for more information on the make-up of possible return objects depending on the value of `$action`.
+ * @return object|array|WP_Error Response object or array on success, WP_Error on failure.
  */
 function themes_api( $action, $args = array() ) {
 	if ( is_array( $args ) ) {
@@ -512,29 +464,29 @@ function themes_api( $action, $args = array() ) {
 	}
 
 	/**
-	 * Filters arguments used to query for installer pages from the WordPress.org Themes API.
+	 * Filters arguments used to query for installer pages from the Themes API.
 	 *
 	 * Important: An object MUST be returned to this filter.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
-	 * @param object $args   Arguments used to query for installer pages from the WordPress.org Themes API.
+	 * @param object $args   Arguments used to query for installer pages from the Themes API.
 	 * @param string $action Requested action. Likely values are 'theme_information',
 	 *                       'feature_list', or 'query_themes'.
 	 */
 	$args = apply_filters( 'themes_api_args', $args, $action );
 
 	/**
-	 * Filters whether to override the WordPress.org Themes API.
+	 * Filters whether to override the Themes API.
 	 *
-	 * Returning a non-false value will effectively short-circuit the WordPress.org API request.
+	 * Returning a non-false value will effectively short-circuit the API request.
 	 *
 	 * If `$action` is 'query_themes', 'theme_information', or 'feature_list', an object MUST
 	 * be passed. If `$action` is 'hot_tags', an array should be passed.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
-	 * @param false|object|array $override Whether to override the WordPress.org Themes API. Default false.
+	 * @param false|object|array $override Whether to override the Themes API. Default false.
 	 * @param string             $action   Requested action. Likely values are 'theme_information',
 	 *                                    'feature_list', or 'query_themes'.
 	 * @param object             $args     Arguments used to query for installer pages from the Themes API.
@@ -542,7 +494,10 @@ function themes_api( $action, $args = array() ) {
 	$res = apply_filters( 'themes_api', false, $action, $args );
 
 	if ( ! $res ) {
-		$url = 'http://api.wordpress.org/themes/info/1.2/';
+		return new WP_Error( 'themes_api_disabled', __( 'motsVertueux does not provide a Theme Installation API.' ) );
+
+		// @todo use GitHub instead
+		$url = '';
 		$url = add_query_arg(
 			array(
 				'action'  => $action,
@@ -567,11 +522,7 @@ function themes_api( $action, $args = array() ) {
 			if ( ! wp_doing_ajax() ) {
 				wp_trigger_error(
 					__FUNCTION__,
-					sprintf(
-						/* translators: %s: Support forums URL. */
-						__( 'An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="%s">support forums</a>.' ),
-						__( 'https://wordpress.org/support/forums/' )
-					) . ' ' . __( '(WordPress could not establish a secure connection to WordPress.org. Please contact your server administrator.)' ),
+					__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ) . ' ' . __( '(motsVertueux could not establish a secure connection to Theme Installation API. Please contact your server administrator.)' ),
 					headers_sent() || WP_DEBUG ? E_USER_WARNING : E_USER_NOTICE
 				);
 			}
@@ -581,11 +532,7 @@ function themes_api( $action, $args = array() ) {
 		if ( is_wp_error( $request ) ) {
 			$res = new WP_Error(
 				'themes_api_failed',
-				sprintf(
-					/* translators: %s: Support forums URL. */
-					__( 'An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="%s">support forums</a>.' ),
-					__( 'https://wordpress.org/support/forums/' )
-				),
+				__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ),
 				$request->get_error_message()
 			);
 		} else {
@@ -596,11 +543,7 @@ function themes_api( $action, $args = array() ) {
 			} elseif ( null === $res ) {
 				$res = new WP_Error(
 					'themes_api_failed',
-					sprintf(
-						/* translators: %s: Support forums URL. */
-						__( 'An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="%s">support forums</a>.' ),
-						__( 'https://wordpress.org/support/forums/' )
-					),
+					__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ),
 					wp_remote_retrieve_body( $request )
 				);
 			}
@@ -626,14 +569,14 @@ function themes_api( $action, $args = array() ) {
 	}
 
 	/**
-	 * Filters the returned WordPress.org Themes API response.
+	 * Filters the returned Themes API response.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
-	 * @param array|stdClass|WP_Error $res    WordPress.org Themes API response.
+	 * @param array|stdClass|WP_Error $res    Themes API response.
 	 * @param string                  $action Requested action. Likely values are 'theme_information',
 	 *                                        'feature_list', or 'query_themes'.
-	 * @param stdClass                $args   Arguments used to query for installer pages from the WordPress.org Themes API.
+	 * @param stdClass                $args   Arguments used to query for installer pages from the Themes API.
 	 */
 	return apply_filters( 'themes_api_result', $res, $action, $args );
 }
@@ -641,7 +584,7 @@ function themes_api( $action, $args = array() ) {
 /**
  * Prepares themes for JavaScript.
  *
- * @since 3.8.0
+ * @since WP 3.8.0
  *
  * @param WP_Theme[] $themes Optional. Array of theme objects to prepare.
  *                           Defaults to all allowed themes.
@@ -657,7 +600,7 @@ function wp_prepare_themes_for_js( $themes = null ) {
 	 * Passing a non-empty array will result in wp_prepare_themes_for_js() returning
 	 * early with that value instead.
 	 *
-	 * @since 4.2.0
+	 * @since WP 4.2.0
 	 *
 	 * @param array           $prepared_themes An associative array of theme data. Default empty array.
 	 * @param WP_Theme[]|null $themes          An array of theme objects to prepare, if any.
@@ -809,7 +752,7 @@ function wp_prepare_themes_for_js( $themes = null ) {
 	 *
 	 * Could be useful for changing the order, which is by name by default.
 	 *
-	 * @since 3.8.0
+	 * @since WP 3.8.0
 	 *
 	 * @param array $prepared_themes Array of theme data.
 	 */
@@ -821,7 +764,7 @@ function wp_prepare_themes_for_js( $themes = null ) {
 /**
  * Prints JS templates for the theme-browsing UI in the Customizer.
  *
- * @since 4.2.0
+ * @since WP 4.2.0
  */
 function customize_themes_print_templates() {
 	?>
@@ -910,25 +853,16 @@ function customize_themes_print_templates() {
 										);
 										if ( current_user_can( 'update_core' ) && current_user_can( 'update_php' ) ) {
 											printf(
-												/* translators: 1: URL to WordPress Updates screen, 2: URL to Update PHP page. */
-												' ' . __( '<a href="%1$s">Please update WordPress</a>, and then <a href="%2$s">learn more about updating PHP</a>.' ),
-												self_admin_url( 'update-core.php' ),
-												esc_url( wp_get_update_php_url() )
+												/* translators: %s: URL to WordPress Updates screen. */
+												' ' . __( '<a href="%1$s">Please update WordPress</a>.' ),
+												self_admin_url( 'update-core.php' )
 											);
-											wp_update_php_annotation( '</p><p><em>', '</em>' );
 										} elseif ( current_user_can( 'update_core' ) ) {
 											printf(
 												/* translators: %s: URL to WordPress Updates screen. */
 												' ' . __( '<a href="%s">Please update WordPress</a>.' ),
 												self_admin_url( 'update-core.php' )
 											);
-										} elseif ( current_user_can( 'update_php' ) ) {
-											printf(
-												/* translators: %s: URL to Update PHP page. */
-												' ' . __( '<a href="%s">Learn more about updating PHP</a>.' ),
-												esc_url( wp_get_update_php_url() )
-											);
-											wp_update_php_annotation( '</p><p><em>', '</em>' );
 										}
 										?>
 									<# } else if ( ! data.updateResponse.compatibleWP ) { #>
@@ -953,14 +887,6 @@ function customize_themes_print_templates() {
 											__( 'There is a new version of %s available, but it does not work with your version of PHP.' ),
 											'{{{ data.name }}}'
 										);
-										if ( current_user_can( 'update_php' ) ) {
-											printf(
-												/* translators: %s: URL to Update PHP page. */
-												' ' . __( '<a href="%s">Learn more about updating PHP</a>.' ),
-												esc_url( wp_get_update_php_url() )
-											);
-											wp_update_php_annotation( '</p><p><em>', '</em>' );
-										}
 										?>
 									<# } #>
 								</p>
@@ -987,25 +913,16 @@ function customize_themes_print_templates() {
 								_e( 'This theme does not work with your versions of WordPress and PHP.' );
 								if ( current_user_can( 'update_core' ) && current_user_can( 'update_php' ) ) {
 									printf(
-										/* translators: 1: URL to WordPress Updates screen, 2: URL to Update PHP page. */
-										' ' . __( '<a href="%1$s">Please update WordPress</a>, and then <a href="%2$s">learn more about updating PHP</a>.' ),
-										self_admin_url( 'update-core.php' ),
-										esc_url( wp_get_update_php_url() )
+										/* translators: %s: URL to WordPress Updates screen. */
+										' ' . __( '<a href="%s">Please update WordPress</a>.' ),
+										self_admin_url( 'update-core.php' )
 									);
-									wp_update_php_annotation( '</p><p><em>', '</em>' );
 								} elseif ( current_user_can( 'update_core' ) ) {
 									printf(
 										/* translators: %s: URL to WordPress Updates screen. */
 										' ' . __( '<a href="%s">Please update WordPress</a>.' ),
 										self_admin_url( 'update-core.php' )
 									);
-								} elseif ( current_user_can( 'update_php' ) ) {
-									printf(
-										/* translators: %s: URL to Update PHP page. */
-										' ' . __( '<a href="%s">Learn more about updating PHP</a>.' ),
-										esc_url( wp_get_update_php_url() )
-									);
-									wp_update_php_annotation( '</p><p><em>', '</em>' );
 								}
 								?>
 							<# } else if ( ! data.compatibleWP ) { #>
@@ -1022,14 +939,6 @@ function customize_themes_print_templates() {
 							<# } else if ( ! data.compatiblePHP ) { #>
 								<?php
 								_e( 'This theme does not work with your version of PHP.' );
-								if ( current_user_can( 'update_php' ) ) {
-									printf(
-										/* translators: %s: URL to Update PHP page. */
-										' ' . __( '<a href="%s">Learn more about updating PHP</a>.' ),
-										esc_url( wp_get_update_php_url() )
-									);
-									wp_update_php_annotation( '</p><p><em>', '</em>' );
-								}
 								?>
 							<# } #>
 						</p></div>
@@ -1103,11 +1012,7 @@ function customize_themes_print_templates() {
  * Determines whether a theme is technically active but was paused while
  * loading.
  *
- * For more information on this and similar theme functions, check out
- * the {@link https://developer.wordpress.org/themes/basics/conditional-tags/
- * Conditional Tags} article in the Theme Developer Handbook.
- *
- * @since 5.2.0
+ * @since WP 5.2.0
  *
  * @global WP_Paused_Extensions_Storage $_paused_themes
  *
@@ -1129,7 +1034,7 @@ function is_theme_paused( $theme ) {
 /**
  * Gets the error that was recorded for a paused theme.
  *
- * @since 5.2.0
+ * @since WP 5.2.0
  *
  * @global WP_Paused_Extensions_Storage $_paused_themes
  *
@@ -1160,7 +1065,7 @@ function wp_get_theme_error( $theme ) {
  * include the file. If the theme fails, then the redirection will not be overwritten
  * with the success message and the theme will not be resumed.
  *
- * @since 5.2.0
+ * @since WP 5.2.0
  *
  * @global string $wp_stylesheet_path Path to current theme's stylesheet directory.
  * @global string $wp_template_path   Path to current theme's template directory.
@@ -1221,7 +1126,7 @@ function resume_theme( $theme, $redirect = '' ) {
 /**
  * Renders an admin notice in case some themes have been paused due to errors.
  *
- * @since 5.2.0
+ * @since WP 5.2.0
  *
  * @global string                       $pagenow        The filename of the current screen.
  * @global WP_Paused_Extensions_Storage $_paused_themes

@@ -4,8 +4,8 @@
  *
  * @package motsVertueux
  * @subpackage Customize
- * @since 4.4.0
- * @deprecated 4.9.0 This file is no longer used as of the menu creation UX introduced in #40104.
+ * @since WP 4.4.0
+ * @deprecated WP 4.9.0 This file is no longer used as of the menu creation UX introduced in #40104.
  */
 
 _deprecated_file( basename( __FILE__ ), '4.9.0' );
@@ -13,8 +13,8 @@ _deprecated_file( basename( __FILE__ ), '4.9.0' );
 /**
  * Customize control class for new menus.
  *
- * @since 4.3.0
- * @deprecated 4.9.0 This class is no longer used as of the menu creation UX introduced in #40104.
+ * @since WP 4.3.0
+ * @deprecated WP 4.9.0 This class is no longer used as of the menu creation UX introduced in #40104.
  *
  * @see WP_Customize_Control
  */
@@ -23,7 +23,7 @@ class WP_Customize_New_Menu_Control extends WP_Customize_Control {
 	/**
 	 * Control type.
 	 *
-	 * @since 4.3.0
+	 * @since WP 4.3.0
 	 * @var string
 	 */
 	public $type = 'new_menu';
@@ -31,8 +31,8 @@ class WP_Customize_New_Menu_Control extends WP_Customize_Control {
 	/**
 	 * Constructor.
 	 *
-	 * @since 4.9.0
-	 * @deprecated 4.9.0
+	 * @since WP 4.9.0
+	 * @deprecated WP 4.9.0
 	 *
 	 * @see WP_Customize_Control::__construct()
 	 *
@@ -50,8 +50,8 @@ class WP_Customize_New_Menu_Control extends WP_Customize_Control {
 	/**
 	 * Render the control's content.
 	 *
-	 * @since 4.3.0
-	 * @deprecated 4.9.0
+	 * @since WP 4.3.0
+	 * @deprecated WP 4.9.0
 	 */
 	public function render_content() {
 		_deprecated_function( __METHOD__, '4.9.0' );

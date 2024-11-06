@@ -14,7 +14,7 @@
 	 * Filters all items from an array into a new array containing only the unique
 	 * items. This also excludes whitespace or empty values.
 	 *
-	 * @since 2.8.0
+	 * @since WP 2.8.0
 	 *
 	 * @global
 	 *
@@ -44,7 +44,7 @@
 	 * Contains functions to create and manage tags that can be associated with a
 	 * post.
 	 *
-	 * @since 2.9.0
+	 * @since WP 2.9.0
 	 *
 	 * @global
 	 */
@@ -52,7 +52,7 @@
 		/**
 		 * Cleans up tags by removing redundant characters.
 		 *
-		 * @since 2.9.0
+		 * @since WP 2.9.0
 		 *
 		 * @memberOf tagBox
 		 *
@@ -77,7 +77,7 @@
 		/**
 		 * Parses tags and makes them editable.
 		 *
-		 * @since 2.9.0
+		 * @since WP 2.9.0
 		 *
 		 * @memberOf tagBox
 		 *
@@ -113,7 +113,7 @@
 		/**
 		 * Creates clickable links, buttons and fields for adding or editing tags.
 		 *
-		 * @since 2.9.0
+		 * @since WP 2.9.0
 		 *
 		 * @memberOf tagBox
 		 *
@@ -138,7 +138,7 @@
 			/**
 			 * Creates a delete button if tag editing is enabled, before adding it to the tag list.
 			 *
-			 * @since 2.5.0
+			 * @since WP 2.5.0
 			 *
 			 * @memberOf tagBox
 			 *
@@ -176,7 +176,7 @@
 					 * Makes sure the focus ends up in the tag input field when using
 					 * the keyboard to delete the tag.
 					 *
-					 * @since 4.2.0
+					 * @since WP 4.2.0
 					 *
 					 * @param {Event} e The click or keypress event to handle.
 					 *
@@ -215,7 +215,7 @@
 		 *
 		 * Also ensures that the quick links are properly generated.
 		 *
-		 * @since 2.9.0
+		 * @since WP 2.9.0
 		 *
 		 * @memberOf tagBox
 		 *
@@ -269,7 +269,7 @@
 		 * Retrieves the available tags from the database and creates an interactive
 		 * tagcloud. Clicking a tag will add it.
 		 *
-		 * @since 2.9.0
+		 * @since WP 2.9.0
 		 *
 		 * @memberOf tagBox
 		 *
@@ -285,7 +285,7 @@
 			 *
 			 * The tag cloud HTML is generated on the server.
 			 *
-			 * @since 2.9.0
+			 * @since WP 2.9.0
 			 *
 			 * @param {number|string} r The response message from the Ajax call.
 			 * @param {string} stat The status of the Ajax request.
@@ -302,7 +302,7 @@
 				/**
 				 * Adds a new tag when a tag in the tagcloud is clicked.
 				 *
-				 * @since 2.9.0
+				 * @since WP 2.9.0
 				 *
 				 * @return {boolean} Returns false to prevent the default action.
 				 */
@@ -319,7 +319,7 @@
 		/**
 		 * Track the user's last action.
 		 *
-		 * @since 4.7.0
+		 * @since WP 4.7.0
 		 */
 		userAction: '',
 
@@ -328,7 +328,7 @@
 		 *
 		 * This will inform the user when a tag has been added or removed.
 		 *
-		 * @since 4.7.0
+		 * @since WP 4.7.0
 		 *
 		 * @return {void}
 		 */
@@ -358,7 +358,7 @@
 		 * This includes handling of pressing the enter key in the input field and the
 		 * retrieval of tag suggestions.
 		 *
-		 * @since 2.9.0
+		 * @since WP 2.9.0
 		 *
 		 * @memberOf tagBox
 		 *
@@ -382,7 +382,7 @@
 			 * Prevents submitting the post edit form. Uses `keypress` to take
 			 * into account Input Method Editor (IME) converters.
 			 *
-			 * @since 2.9.0
+			 * @since WP 2.9.0
 			 *
 			 * @param {Event} event The keypress event that occurred.
 			 *
@@ -403,7 +403,7 @@
 			 * Before a post is saved the value currently in the new tag input field will be
 			 * added as a tag.
 			 *
-			 * @since 2.9.0
+			 * @since WP 2.9.0
 			 *
 			 * @return {void}
 			 */
@@ -418,7 +418,7 @@
 			 *
 			 * Makes sure the ARIA attributes are set correctly.
 			 *
-			 * @since 2.9.0
+			 * @since WP 2.9.0
 			 *
 			 * @return {void}
 			 */

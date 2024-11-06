@@ -4,7 +4,7 @@
  *
  * @package    WordPress
  * @subpackage Fonts
- * @since      6.4.0
+ * @since WP      6.4.0
  */
 
 /**
@@ -21,7 +21,7 @@ class WP_Font_Face_Resolver {
 	/**
 	 * Gets fonts defined in theme.json.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @return array Returns the font-families, each with their font-face variations.
 	 */
@@ -39,7 +39,7 @@ class WP_Font_Face_Resolver {
 	/**
 	 * Gets fonts defined in style variations.
 	 *
-	 * @since 6.7.0
+	 * @since WP 6.7.0
 	 *
 	 * @return array Returns an array of font-families.
 	 */
@@ -71,7 +71,7 @@ class WP_Font_Face_Resolver {
 	/**
 	 * Parse theme.json settings to extract font definitions with variations grouped by font-family.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @param array $settings Font settings to parse.
 	 * @return array Returns an array of fonts, grouped by font-family.
@@ -112,7 +112,7 @@ class WP_Font_Face_Resolver {
 	 * If the given `fontFamily` is a comma-separated lists (example: "Inter, sans-serif" ),
 	 * parse and return the fist font from the list.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @param string $font_family Font family `fontFamily' to parse.
 	 * @return string Font-family name.
@@ -128,7 +128,7 @@ class WP_Font_Face_Resolver {
 	/**
 	 * Converts font-face properties from theme.json format.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @param array  $font_face_definition The font-face definitions to convert.
 	 * @param string $font_family_property The value to store in the font-face font-family property.
@@ -162,7 +162,7 @@ class WP_Font_Face_Resolver {
 	 * replaced with the URI to the font file's location in the theme. When a "src"
 	 * beings with this placeholder, it is replaced, converting the src into a URI.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @param array $src An array of font file sources to process.
 	 * @return array An array of font file src URI(s).
@@ -186,7 +186,7 @@ class WP_Font_Face_Resolver {
 	/**
 	 * Converts all first dimension keys into kebab-case.
 	 *
-	 * @since 6.4.0
+	 * @since WP 6.4.0
 	 *
 	 * @param array $data The array to process.
 	 * @return array Data with first dimension keys converted into kebab-case.

@@ -67,12 +67,6 @@ switch ( $action ) {
 			)
 		);
 
-		get_current_screen()->set_help_sidebar(
-			'<p><strong>' . __( 'For more information:' ) . '</strong></p>' .
-			'<p>' . __( '<a href="https://wordpress.org/documentation/article/comments-screen/">Documentation on Comments</a>' ) . '</p>' .
-			'<p>' . __( '<a href="https://wordpress.org/support/forums/">Support forums</a>' ) . '</p>'
-		);
-
 		wp_enqueue_script( 'comment' );
 		require_once ABSPATH . 'wp-admin/admin-header.php';
 
@@ -369,7 +363,7 @@ switch ( $action ) {
 		/**
 		 * Filters the URI the user is redirected to after editing a comment in the admin.
 		 *
-		 * @since 2.1.0
+		 * @since WP 2.1.0
 		 *
 		 * @param string $location The URI the user will be redirected to.
 		 * @param int $comment_id The ID of the comment being edited.

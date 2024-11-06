@@ -4,13 +4,13 @@
  *
  * @package motsVertueux
  * @subpackage REST_API
- * @since 5.0.0
+ * @since WP 5.0.0
  */
 
 /**
  * Core class used to access autosaves via the REST API.
  *
- * @since 5.0.0
+ * @since WP 5.0.0
  *
  * @see WP_REST_Revisions_Controller
  * @see WP_REST_Controller
@@ -20,7 +20,7 @@ class WP_REST_Autosaves_Controller extends WP_REST_Revisions_Controller {
 	/**
 	 * Parent post type.
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 * @var string
 	 */
 	private $parent_post_type;
@@ -28,7 +28,7 @@ class WP_REST_Autosaves_Controller extends WP_REST_Revisions_Controller {
 	/**
 	 * Parent post controller.
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 * @var WP_REST_Controller
 	 */
 	private $parent_controller;
@@ -36,7 +36,7 @@ class WP_REST_Autosaves_Controller extends WP_REST_Revisions_Controller {
 	/**
 	 * Revision controller.
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 * @var WP_REST_Revisions_Controller
 	 */
 	private $revisions_controller;
@@ -44,7 +44,7 @@ class WP_REST_Autosaves_Controller extends WP_REST_Revisions_Controller {
 	/**
 	 * The base of the parent controller's route.
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 * @var string
 	 */
 	private $parent_base;
@@ -52,7 +52,7 @@ class WP_REST_Autosaves_Controller extends WP_REST_Revisions_Controller {
 	/**
 	 * Constructor.
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 *
 	 * @param string $parent_post_type Post type of the parent.
 	 */
@@ -80,7 +80,7 @@ class WP_REST_Autosaves_Controller extends WP_REST_Revisions_Controller {
 	/**
 	 * Registers the routes for autosaves.
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 *
 	 * @see register_rest_route()
 	 */
@@ -141,7 +141,7 @@ class WP_REST_Autosaves_Controller extends WP_REST_Revisions_Controller {
 	/**
 	 * Get the parent post.
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 *
 	 * @param int $parent_id Supplied ID.
 	 * @return WP_Post|WP_Error Post object if ID is valid, WP_Error otherwise.
@@ -153,7 +153,7 @@ class WP_REST_Autosaves_Controller extends WP_REST_Revisions_Controller {
 	/**
 	 * Checks if a given request has access to get autosaves.
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has read access, WP_Error object otherwise.
@@ -181,7 +181,7 @@ class WP_REST_Autosaves_Controller extends WP_REST_Revisions_Controller {
 	 * Autosave revisions inherit permissions from the parent post,
 	 * check if the current user has permission to edit the post.
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has access to create the item, WP_Error object otherwise.
@@ -203,7 +203,7 @@ class WP_REST_Autosaves_Controller extends WP_REST_Revisions_Controller {
 	/**
 	 * Creates, updates or deletes an autosave revision.
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
@@ -259,7 +259,7 @@ class WP_REST_Autosaves_Controller extends WP_REST_Revisions_Controller {
 	/**
 	 * Get the autosave, if the ID is valid.
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_Post|WP_Error Revision post object if ID is valid, WP_Error otherwise.
@@ -294,7 +294,7 @@ class WP_REST_Autosaves_Controller extends WP_REST_Revisions_Controller {
 	 *
 	 * Contains the user's autosave, for empty if it doesn't exist.
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
@@ -323,7 +323,7 @@ class WP_REST_Autosaves_Controller extends WP_REST_Revisions_Controller {
 	/**
 	 * Retrieves the autosave's schema, conforming to JSON Schema.
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 *
 	 * @return array Item schema data.
 	 */
@@ -352,8 +352,8 @@ class WP_REST_Autosaves_Controller extends WP_REST_Revisions_Controller {
 	 *
 	 * From wp-admin/post.php.
 	 *
-	 * @since 5.0.0
-	 * @since 6.4.0 The `$meta` parameter was added.
+	 * @since WP 5.0.0
+	 * @since WP 6.4.0 The `$meta` parameter was added.
 	 *
 	 * @param array $post_data Associative array containing the post data.
 	 * @param array $meta      Associative array containing the post meta data.
@@ -437,8 +437,8 @@ class WP_REST_Autosaves_Controller extends WP_REST_Revisions_Controller {
 	/**
 	 * Prepares the revision for the REST response.
 	 *
-	 * @since 5.0.0
-	 * @since 5.9.0 Renamed `$post` to `$item` to match parent class for PHP 8 named parameter support.
+	 * @since WP 5.0.0
+	 * @since WP 5.9.0 Renamed `$post` to `$item` to match parent class for PHP 8 named parameter support.
 	 *
 	 * @param WP_Post         $item    Post revision object.
 	 * @param WP_REST_Request $request Request object.
@@ -473,7 +473,7 @@ class WP_REST_Autosaves_Controller extends WP_REST_Revisions_Controller {
 		 *
 		 * Allows modification of the revision right before it is returned.
 		 *
-		 * @since 5.0.0
+		 * @since WP 5.0.0
 		 *
 		 * @param WP_REST_Response $response The response object.
 		 * @param WP_Post          $post     The original revision object.
@@ -485,7 +485,7 @@ class WP_REST_Autosaves_Controller extends WP_REST_Revisions_Controller {
 	/**
 	 * Retrieves the query params for the autosaves collection.
 	 *
-	 * @since 5.0.0
+	 * @since WP 5.0.0
 	 *
 	 * @return array Collection parameters.
 	 */

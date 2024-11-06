@@ -13,8 +13,6 @@
  * * Database table prefix
  * * ABSPATH
  *
- * @link https://developer.wordpress.org/advanced-administration/wordpress/wp-config/
- *
  * @package motsVertueux
  */
 
@@ -41,12 +39,11 @@ define( 'DB_COLLATE', '' );
  * Authentication unique keys and salts.
  *
  * Change these to different unique phrases! You can generate these using
- * the {@link https://api.wordpress.org/secret-key/1.1/salt/ WordPress.org secret-key service}.
  *
  * You can change these at any point in time to invalidate all existing cookies.
  * This will force all users to have to log in again.
  *
- * @since 2.6.0
+ * @since WP 2.6.0
  */
 define( 'AUTH_KEY',         'put your unique phrase here' );
 define( 'SECURE_AUTH_KEY',  'put your unique phrase here' );
@@ -68,8 +65,6 @@ define( 'NONCE_SALT',       'put your unique phrase here' );
  * At the installation time, database tables are created with the specified prefix.
  * Changing this value after WordPress is installed will make your site think
  * it has not been installed.
- *
- * @link https://developer.wordpress.org/advanced-administration/wordpress/wp-config/#table-prefix
  */
 $table_prefix = 'wp_';
 
@@ -82,8 +77,6 @@ $table_prefix = 'wp_';
  *
  * For information on other constants that can be used for debugging,
  * visit the documentation.
- *
- * @link https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/
  */
 define( 'WP_DEBUG', false );
 
