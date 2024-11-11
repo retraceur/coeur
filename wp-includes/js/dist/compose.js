@@ -2521,14 +2521,14 @@ function __read(o, n) {
   return ar;
 }
 
-/** @deprecated WP */
+/** @deprecated */
 function __spread() {
   for (var ar = [], i = 0; i < arguments.length; i++)
       ar = ar.concat(__read(arguments[i]));
   return ar;
 }
 
-/** @deprecated WP */
+/** @deprecated */
 function __spreadArrays() {
   for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
   for (var r = Array(s), k = 0, i = 0; i < il; i++)
@@ -3329,7 +3329,7 @@ const external_wp_element_namespaceObject = window["wp"]["element"];
  * Given a component returns the enhanced component augmented with a component
  * only re-rendering when its props/state change
  *
- * @deprecated WP Use `memo` or `PureComponent` instead.
+ * @deprecated Use `memo` or `PureComponent` instead.
  */
 
 const pure = createHigherOrderComponent(function (WrappedComponent) {
@@ -3645,7 +3645,7 @@ const withSafeTimeout = createHigherOrderComponent(OriginalComponent => {
  * A Higher Order Component used to provide and manage internal component state
  * via props.
  *
- * @deprecated WP Use `useState` instead.
+ * @deprecated Use `useState` instead.
  *
  * @param {any} initialState Optional initial state of the component.
  *
@@ -5248,7 +5248,7 @@ function useLegacyResizeObserver() {
 /**
  * **This is a legacy API and should not be used.**
  *
- * @deprecated WP Use the other `useResizeObserver` API instead: `const ref = useResizeObserver( ( entries ) => { ... } )`.
+ * @deprecated Use the other `useResizeObserver` API instead: `const ref = useResizeObserver( ( entries ) => { ... } )`.
  *
  * Hook which allows to listen to the resize event of any target element when it changes size.
  * _Note: `useResizeObserver` will report `null` sizes until after first render.

@@ -10612,7 +10612,7 @@ function WelcomeGuideStyles() {
         }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)("p", {
           className: "edit-site-welcome-guide__text",
           children: [(0,external_wp_i18n_namespaceObject.__)('New to block themes and styling your site?'), ' ', /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ExternalLink, {
-            href: (0,external_wp_i18n_namespaceObject.__)('#'),
+            href: (0,external_wp_i18n_namespaceObject.__)('https://wordpress.org/documentation/article/styles-overview/'),
             children: (0,external_wp_i18n_namespaceObject.__)('Here’s a detailed guide to learn how to make the most of it.')
           })]
         })]
@@ -11022,7 +11022,7 @@ PluginTemplateSettingPanel.Slot = Slot;
  * Renders items in the Template Sidebar below the main information
  * like the Template Card.
  *
- * @deprecated WP since 6.6. Use `wp.editor.PluginDocumentSettingPanel` instead.
+ * @deprecated since 6.6. Use `wp.editor.PluginDocumentSettingPanel` instead.
  *
  * @example
  * ```jsx
@@ -22664,7 +22664,7 @@ function ScreenCSS() {
       title: (0,external_wp_i18n_namespaceObject.__)('CSS'),
       description: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_ReactJSXRuntime_namespaceObject.Fragment, {
         children: [description, /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ExternalLink, {
-          href: (0,external_wp_i18n_namespaceObject.__)('#'),
+          href: (0,external_wp_i18n_namespaceObject.__)('https://developer.wordpress.org/advanced-administration/wordpress/css/'),
           className: "edit-site-global-styles-screen-css-help-link",
           children: (0,external_wp_i18n_namespaceObject.__)('Learn more about CSS')
         })]
@@ -37415,14 +37415,14 @@ function __read(o, n) {
   return ar;
 }
 
-/** @deprecated WP */
+/** @deprecated */
 function __spread() {
   for (var ar = [], i = 0; i < arguments.length; i++)
       ar = ar.concat(__read(arguments[i]));
   return ar;
 }
 
-/** @deprecated WP */
+/** @deprecated */
 function __spreadArrays() {
   for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
   for (var r = Array(s), k = 0, i = 0; i < il; i++)
@@ -39446,6 +39446,9 @@ const MAX_PAGE_COUNT = 100;
 const PAGES_QUERY = ['postType', 'page', {
   per_page: MAX_PAGE_COUNT,
   _fields: ['id', 'link', 'menu_order', 'parent', 'title', 'type'],
+  // TODO: When https://core.trac.wordpress.org/ticket/39037 REST API support for multiple orderby
+  // values is resolved, update 'orderby' to [ 'menu_order', 'post_title' ] to provide a consistent
+  // sort.
   orderby: 'menu_order',
   order: 'asc'
 }];

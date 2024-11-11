@@ -11721,14 +11721,14 @@ function __read(o, n) {
   return ar;
 }
 
-/** @deprecated WP */
+/** @deprecated */
 function __spread() {
   for (var ar = [], i = 0; i < arguments.length; i++)
       ar = ar.concat(__read(arguments[i]));
   return ar;
 }
 
-/** @deprecated WP */
+/** @deprecated */
 function __spreadArrays() {
   for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
   for (var r = Array(s), k = 0, i = 0; i < il; i++)
@@ -15522,7 +15522,7 @@ const THEME = {
   /** Used when placing text on the foreground color. */
   foregroundInverted: `var(--wp-components-color-foreground-inverted, ${white})`,
   gray: {
-    /** @deprecated WP Use `COLORS.theme.foreground` instead. */
+    /** @deprecated Use `COLORS.theme.foreground` instead. */
     900: `var(--wp-components-color-foreground, ${GRAY[900]})`,
     800: `var(--wp-components-color-gray-800, ${GRAY[800]})`,
     700: `var(--wp-components-color-gray-700, ${GRAY[700]})`,
@@ -15549,7 +15549,7 @@ const COLORS = Object.freeze({
   /**
    * The main gray color object.
    *
-   * @deprecated WP Use semantic aliases in `COLORS.ui` or theme-ready variables in `COLORS.theme.gray`.
+   * @deprecated Use semantic aliases in `COLORS.ui` or theme-ready variables in `COLORS.theme.gray`.
    */
   gray: GRAY,
   // TODO: Stop exporting this when everything is migrated to `theme` or `ui`
@@ -27500,7 +27500,7 @@ function UnconnectedSpacer(props, forwardedRef) {
  *   return (
  *     <View>
  *       <Spacer>
- *         <Heading>site.url</Heading>
+ *         <Heading>WordPress.org</Heading>
  *       </Spacer>
  *       <Text>
  *         Code is Poetry
@@ -32735,6 +32735,7 @@ const normalizeTextString = value => {
  * Backwards compatible with `_wp_to_kebab_case()`.
  *
  * @see https://lodash.com/docs/4.17.15#kebabCase
+ * @see https://developer.wordpress.org/reference/functions/_wp_to_kebab_case/
  *
  * @param str String to convert.
  * @return Kebab-cased string
@@ -33245,7 +33246,7 @@ const initialContextValue = {
   slots: (0,external_wp_compose_namespaceObject.observableMap)(),
   fills: (0,external_wp_compose_namespaceObject.observableMap)(),
   registerSlot: () => {
-     true ? external_wp_warning_default()('Components must be wrapped within `SlotFillProvider`.') : 0;
+     true ? external_wp_warning_default()('Components must be wrapped within `SlotFillProvider`. ' + 'See https://developer.wordpress.org/block-editor/components/slot-fill/') : 0;
   },
   updateSlot: () => {},
   unregisterSlot: () => {},
@@ -56311,7 +56312,7 @@ function UnforwardedExternalLink(props, ref) {
  * import { ExternalLink } from '@wordpress/components';
  *
  * const MyExternalLink = () => (
- *   <ExternalLink href="https://site.url">Site.url</ExternalLink>
+ *   <ExternalLink href="https://wordpress.org">WordPress.org</ExternalLink>
  * );
  * ```
  */
@@ -57450,6 +57451,10 @@ function FormFileUpload({
     ...props,
     children: children
   });
+  // @todo: Temporary fix a bug that prevents Chromium browsers from selecting ".heic" files
+  // from the file upload. See https://core.trac.wordpress.org/ticket/62268#comment:4.
+  // This can be removed once the Chromium fix is in the stable channel.
+  const compatAccept = !!accept?.includes('image/*') ? `${accept}, image/heic, image/heif` : accept;
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)("div", {
     className: "components-form-file-upload",
     children: [ui, /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("input", {
@@ -57459,7 +57464,7 @@ function FormFileUpload({
       style: {
         display: 'none'
       },
-      accept: accept,
+      accept: compatAccept,
       onChange: onChange,
       onClick: onClick,
       "data-testid": "form-file-upload-input"
@@ -59244,7 +59249,7 @@ const navigation_noop = () => {};
 /**
  * Render a navigation list with optional groupings and hierarchy.
  *
- * @deprecated WP Use `Navigator` instead.
+ * @deprecated Use `Navigator` instead.
  *
  * ```jsx
  * import {
@@ -59429,7 +59434,7 @@ function UnforwardedNavigationBackButton({
 }
 
 /**
- * @deprecated WP Use `Navigator` instead.
+ * @deprecated Use `Navigator` instead.
  */
 const NavigationBackButton = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedNavigationBackButton);
 /* harmony default export */ const back_button = (NavigationBackButton);
@@ -59471,7 +59476,7 @@ const useNavigationGroupContext = () => (0,external_wp_element_namespaceObject.u
 let uniqueId = 0;
 
 /**
- * @deprecated WP Use `Navigator` instead.
+ * @deprecated Use `Navigator` instead.
  */
 function NavigationGroup({
   children,
@@ -59681,7 +59686,7 @@ function NavigationItemBase(props) {
 const item_noop = () => {};
 
 /**
- * @deprecated WP Use `Navigator` instead.
+ * @deprecated Use `Navigator` instead.
  */
 function NavigationItem(props) {
   const {
@@ -59812,6 +59817,8 @@ const search = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ext
 
 /**
  * A Higher Order Component used to provide speak and debounced speak functions.
+ *
+ * @see https://developer.wordpress.org/block-editor/packages/packages-a11y/#speak
  *
  * @param {ComponentType} Component The component to be wrapped.
  *
@@ -60199,7 +60206,7 @@ function NavigationSearchNoResultsFound({
 
 
 /**
- * @deprecated WP Use `Navigator` instead.
+ * @deprecated Use `Navigator` instead.
  */
 function NavigationMenu(props) {
   const {
@@ -62581,7 +62588,7 @@ function UnforwardedRadio({
 }
 
 /**
- * @deprecated WP Use `RadioControl` or `ToggleGroupControl` instead.
+ * @deprecated Use `RadioControl` or `ToggleGroupControl` instead.
  */
 const radio_Radio = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedRadio);
 /* harmony default export */ const radio_group_radio = (radio_Radio);
@@ -62638,7 +62645,7 @@ function UnforwardedRadioGroup({
 }
 
 /**
- * @deprecated WP Use `RadioControl` or `ToggleGroupControl` instead.
+ * @deprecated Use `RadioControl` or `ToggleGroupControl` instead.
  */
 const radio_group_RadioGroup = (0,external_wp_element_namespaceObject.forwardRef)(UnforwardedRadioGroup);
 /* harmony default export */ const radio_group = (radio_group_RadioGroup);
@@ -65947,7 +65954,7 @@ function toolbar_item_ToolbarItem({
   const accessibleToolbarStore = (0,external_wp_element_namespaceObject.useContext)(toolbar_context);
   const isRenderProp = typeof children === 'function';
   if (!isRenderProp && !Component) {
-     true ? external_wp_warning_default()('`ToolbarItem` is a generic headless component. You must pass either a `children` prop as a function or an `as` prop as a component.') : 0;
+     true ? external_wp_warning_default()('`ToolbarItem` is a generic headless component. You must pass either a `children` prop as a function or an `as` prop as a component. ' + 'See https://developer.wordpress.org/block-editor/components/toolbar-item/') : 0;
     return null;
   }
   const allProps = {
@@ -66448,7 +66455,7 @@ function UnforwardedToolbar({
     external_wp_deprecated_default()('Using Toolbar without label prop', {
       since: '5.6',
       alternative: 'ToolbarGroup component',
-      link: '#'
+      link: 'https://developer.wordpress.org/block-editor/components/toolbar/'
     });
     // Extracting title from `props` because `ToolbarGroup` doesn't accept it.
     const {

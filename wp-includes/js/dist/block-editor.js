@@ -15998,7 +15998,7 @@ function __unstableSetTemporarilyEditingAsBlocks(temporarilyEditingAsBlocks, foc
  * 	 	} ) );
  * 	 },
  * 	 getReportUrl: ( { sourceId } ) =>
- * 	 	``,
+ * 	 	`https://wordpress.org/openverse/image/${ sourceId }/report/`,
  * 	 isExternalResource: true,
  * } );
  * ```
@@ -16205,7 +16205,7 @@ function use_settings_useSettings(...paths) {
  * It looks up the setting first in the block instance hierarchy.
  * If none is found, it'll look it up in the block editor settings.
  *
- * @deprecated WP 6.5.0 Use useSettings instead.
+ * @deprecated 6.5.0 Use useSettings instead.
  *
  * @param {string} path The path to the setting.
  * @return {any} Returns the value defined for the setting.
@@ -25120,7 +25120,7 @@ function BlockEditAnchorControlPure({
       help: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_ReactJSXRuntime_namespaceObject.Fragment, {
         children: [(0,external_wp_i18n_namespaceObject.__)('Enter a word or two — without spaces — to make a unique web address just for this block, called an “anchor”. Then, you’ll be able to link directly to this section of your page.'), isWeb && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_ReactJSXRuntime_namespaceObject.Fragment, {
           children: [' ', /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ExternalLink, {
-            href: (0,external_wp_i18n_namespaceObject.__)(''),
+            href: (0,external_wp_i18n_namespaceObject.__)('https://wordpress.org/documentation/article/page-jumps/'),
             children: (0,external_wp_i18n_namespaceObject.__)('Learn more about anchors')
           })]
         })]
@@ -32227,41 +32227,45 @@ function isScrollable(element) {
   const style = window.getComputedStyle(element);
   return style.overflowX === 'auto' || style.overflowX === 'scroll' || style.overflowY === 'auto' || style.overflowY === 'scroll';
 }
-
+const WITH_OVERFLOW_ELEMENT_BLOCKS = ['core/navigation'];
 /**
- * Returns the rect of the element including all visible nested elements.
+ * Returns the bounding rectangle of an element, with special handling for blocks
+ * that have visible overflowing children (defined in WITH_OVERFLOW_ELEMENT_BLOCKS).
  *
- * Visible nested elements, including elements that overflow the parent, are
- * taken into account.
- *
- * This function is useful for calculating the visible area of a block that
- * contains nested elements that overflow the block, e.g. the Navigation block,
- * which can contain overflowing Submenu blocks.
- *
+ * For blocks like Navigation that can have overflowing elements (e.g. submenus),
+ * this function calculates the combined bounds of both the parent and its visible
+ * children. The returned rect may extend beyond the viewport.
  * The returned rect represents the full extent of the element and its visible
  * children, which may extend beyond the viewport.
  *
  * @param {Element} element Element.
  * @return {DOMRect} Bounding client rect of the element and its visible children.
  */
-function getVisibleElementBounds(element) {
+function getElementBounds(element) {
   const viewport = element.ownerDocument.defaultView;
   if (!viewport) {
     return new window.DOMRectReadOnly();
   }
   let bounds = element.getBoundingClientRect();
-  const stack = [element];
-  let currentElement;
-  while (currentElement = stack.pop()) {
-    for (const child of currentElement.children) {
-      if (isElementVisible(child)) {
-        let childBounds = child.getBoundingClientRect();
-        // If the parent is scrollable, use parent's scrollable bounds.
-        if (isScrollable(currentElement)) {
-          childBounds = currentElement.getBoundingClientRect();
+  const dataType = element.getAttribute('data-type');
+
+  /*
+   * For blocks with overflowing elements (like Navigation), include the bounds
+   * of visible children that extend beyond the parent container.
+   */
+  if (dataType && WITH_OVERFLOW_ELEMENT_BLOCKS.includes(dataType)) {
+    const stack = [element];
+    let currentElement;
+    while (currentElement = stack.pop()) {
+      // Children won’t affect bounds unless the element is not scrollable.
+      if (!isScrollable(currentElement)) {
+        for (const child of currentElement.children) {
+          if (isElementVisible(child)) {
+            const childBounds = child.getBoundingClientRect();
+            bounds = rectUnion(bounds, childBounds);
+            stack.push(child);
+          }
         }
-        bounds = rectUnion(bounds, childBounds);
-        stack.push(child);
       }
     }
   }
@@ -32346,7 +32350,7 @@ function BlockPopover({
     }
     return {
       getBoundingClientRect() {
-        return lastSelectedElement ? rectUnion(getVisibleElementBounds(selectedElement), getVisibleElementBounds(lastSelectedElement)) : getVisibleElementBounds(selectedElement);
+        return lastSelectedElement ? rectUnion(getElementBounds(selectedElement), getElementBounds(lastSelectedElement)) : getElementBounds(selectedElement);
       },
       contextElement: selectedElement
     };
@@ -47564,9 +47568,9 @@ function PatternsFilter({
           })
         }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("div", {
           className: "block-editor-tool-selector__help",
-          children: (0,external_wp_element_namespaceObject.createInterpolateElement)((0,external_wp_i18n_namespaceObject.__)('Patterns are bundled in the active theme, or created by users on this site. Only patterns created on this site can be synced.'), {
+          children: (0,external_wp_element_namespaceObject.createInterpolateElement)((0,external_wp_i18n_namespaceObject.__)('Patterns are available from the <Link>WordPress.org Pattern Directory</Link>, bundled in the active theme, or created by users on this site. Only patterns created on this site can be synced.'), {
             Link: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ExternalLink, {
-              href: (0,external_wp_i18n_namespaceObject.__)('#')
+              href: (0,external_wp_i18n_namespaceObject.__)('https://wordpress.org/patterns/')
             })
           })
         })]
@@ -52949,7 +52953,7 @@ function getProps(contentElement, selectedBlockElement, scrollContainer, toolbar
 
   // Get how far the content area has been scrolled.
   const scrollTop = scrollContainer?.scrollTop || 0;
-  const blockRect = getVisibleElementBounds(selectedBlockElement);
+  const blockRect = getElementBounds(selectedBlockElement);
   const contentRect = contentElement.getBoundingClientRect();
 
   // Get the vertical position of top of the visible content area.
@@ -56673,7 +56677,7 @@ const BlockSettingsMenuControlsSlot = ({
     isGroupable,
     isUngroupable
   } = convertToGroupButtonProps;
-  const showConvertToGroupButton = isGroupable || isUngroupable;
+  const showConvertToGroupButton = (isGroupable || isUngroupable) && !isContentOnly;
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(block_settings_menu_controls_Slot, {
     fillProps: {
       ...fillProps,
@@ -56833,6 +56837,12 @@ function BlockSettingsDropdown({
   const currentClientId = block?.clientId;
   const count = clientIds.length;
   const firstBlockClientId = clientIds[0];
+  const isZoomOut = (0,external_wp_data_namespaceObject.useSelect)(select => {
+    const {
+      __unstableGetEditorMode
+    } = unlock(select(store));
+    return __unstableGetEditorMode() === 'zoom-out';
+  });
   const {
     firstParentClientId,
     onlyBlock,
@@ -56968,7 +56978,7 @@ function BlockSettingsDropdown({
             parentBlockType: parentBlockType
           }), count === 1 && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(block_html_convert_button, {
             clientId: firstBlockClientId
-          }), !isContentOnly && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(CopyMenuItem, {
+          }), (!isContentOnly || isZoomOut) && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(CopyMenuItem, {
             clientIds: clientIds,
             onCopy: onCopy,
             shortcut: external_wp_keycodes_namespaceObject.displayShortcut.primary('c')
@@ -57395,7 +57405,7 @@ function useIsAccessibleToolbar(toolbarRef) {
       external_wp_deprecated_default()('Using custom components as toolbar controls', {
         since: '5.6',
         alternative: 'ToolbarItem, ToolbarButton or ToolbarDropdownMenu components',
-        link: '#'
+        link: 'https://developer.wordpress.org/block-editor/components/toolbar-button/#inside-blockcontrols'
       });
     }
     setIsAccessibleToolbar(onlyToolbarItem);
@@ -57941,7 +57951,7 @@ function PrivateBlockToolbar({
         })]
       }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(BlockEditVisuallyButton, {
         clientIds: blockClientIds
-      }), isDefaultEditingMode && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(block_settings_menu, {
+      }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(block_settings_menu, {
         clientIds: blockClientIds
       })]
     })
@@ -63517,7 +63527,7 @@ function NonDefaultControls({
       hideLabelFromVision: true,
       help: (0,external_wp_element_namespaceObject.createInterpolateElement)((0,external_wp_i18n_namespaceObject.__)('Enter a date or time <Link>format string</Link>.'), {
         Link: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ExternalLink, {
-          href: (0,external_wp_i18n_namespaceObject.__)('#')
+          href: (0,external_wp_i18n_namespaceObject.__)('https://wordpress.org/documentation/article/customize-date-and-time-format/')
         })
       }),
       value: format,
@@ -64372,14 +64382,14 @@ function __read(o, n) {
   return ar;
 }
 
-/** @deprecated WP */
+/** @deprecated */
 function __spread() {
   for (var ar = [], i = 0; i < arguments.length; i++)
       ar = ar.concat(__read(arguments[i]));
   return ar;
 }
 
-/** @deprecated WP */
+/** @deprecated */
 function __spreadArrays() {
   for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
   for (var r = Array(s), k = 0, i = 0; i < il; i++)
@@ -67626,7 +67636,7 @@ function valueToHTMLString(value, multiline) {
       since: '6.1',
       version: '6.3',
       alternative: 'value prop as string',
-      link: '#'
+      link: 'https://developer.wordpress.org/block-editor/how-to-guides/block-tutorial/introducing-attributes-and-editable-fields/'
     });
     return external_wp_blocks_namespaceObject.children.toHTML(value);
   }
@@ -67688,7 +67698,7 @@ function RichTextMultiline({
     since: '6.1',
     version: '6.3',
     alternative: 'nested blocks (InnerBlocks)',
-    link: '#'
+    link: 'https://developer.wordpress.org/block-editor/how-to-guides/block-tutorial/nested-blocks-inner-blocks/'
   });
   const {
     clientId
@@ -67802,7 +67812,7 @@ function withDeprecations(Component) {
         since: '6.1',
         version: '6.3',
         alternative: 'value prop as string',
-        link: '#'
+        link: 'https://developer.wordpress.org/block-editor/how-to-guides/block-tutorial/introducing-attributes-and-editable-fields/'
       });
       value = external_wp_blocks_namespaceObject.children.toHTML(props.value);
       onChange = newValue => props.onChange(external_wp_blocks_namespaceObject.children.fromDOM((0,external_wp_richText_namespaceObject.__unstableCreateElement)(document, newValue).childNodes));

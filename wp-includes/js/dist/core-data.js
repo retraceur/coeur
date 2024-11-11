@@ -1139,14 +1139,14 @@ function __read(o, n) {
   return ar;
 }
 
-/** @deprecated WP */
+/** @deprecated */
 function __spread() {
   for (var ar = [], i = 0; i < arguments.length; i++)
       ar = ar.concat(__read(arguments[i]));
   return ar;
 }
 
-/** @deprecated WP */
+/** @deprecated */
 function __spreadArrays() {
   for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
   for (var r = Array(s), k = 0, i = 0; i < il; i++)
@@ -2103,7 +2103,7 @@ function __experimentalReceiveThemeGlobalStyleVariations(stylesheet, variations)
 /**
  * Returns an action object used in signalling that the index has been received.
  *
- * @deprecated WP since WP 5.9, this is not useful anymore, use the selector directly.
+ * @deprecated since WP 5.9, this is not useful anymore, use the selector directly.
  *
  * @return {Object} Action object.
  */
@@ -2120,7 +2120,7 @@ function receiveThemeSupports() {
  * Returns an action object used in signalling that the theme global styles CPT post revisions have been received.
  * Ignored from documentation as it's internal to the data store.
  *
- * @deprecated WP since WordPress 6.5.0. Callers should use `dispatch( 'core' ).receiveRevision` instead.
+ * @deprecated since WordPress 6.5.0. Callers should use `dispatch( 'core' ).receiveRevision` instead.
  *
  * @ignore
  *
@@ -2622,7 +2622,7 @@ const __experimentalSaveSpecifiedEntityEdits = (kind, name, recordId, itemsToSav
 /**
  * Returns an action object used in signalling that Upload permissions have been received.
  *
- * @deprecated WP since WP 5.9, use receiveUserPermission instead.
+ * @deprecated since WP 5.9, use receiveUserPermission instead.
  *
  * @param {boolean} hasUploadPermissions Does the user have permission to upload files?
  *
@@ -4500,11 +4500,11 @@ const isRequestingEmbedPreview = (0,external_wp_data_namespaceObject.createRegis
 /**
  * Returns all available authors.
  *
- * @deprecated WP since 11.3. Callers should use `select( 'core' ).getUsers({ who: 'authors' })` instead.
+ * @deprecated since 11.3. Callers should use `select( 'core' ).getUsers({ who: 'authors' })` instead.
  *
  * @param      state Data state.
  * @param      query Optional object of query parameters to
- *                   include with request.
+ *                   include with request. For valid query parameters see the [Users page](https://developer.wordpress.org/rest-api/reference/users/) in the REST API Handbook and see the arguments for [List Users](https://developer.wordpress.org/rest-api/reference/users/#list-users) and [Retrieve a User](https://developer.wordpress.org/rest-api/reference/users/#retrieve-a-user).
  * @return Authors list.
  */
 function getAuthors(state, query) {
@@ -4544,7 +4544,7 @@ const getUserQueryResults = (0,external_wp_data_namespaceObject.createSelector)(
 /**
  * Returns the loaded entities for the given kind.
  *
- * @deprecated WP since WordPress 6.0. Use getEntitiesConfig instead
+ * @deprecated since WordPress 6.0. Use getEntitiesConfig instead
  * @param      state Data state.
  * @param      kind  Entity kind.
  *
@@ -4572,7 +4572,7 @@ const getEntitiesConfig = (0,external_wp_data_namespaceObject.createSelector)((s
 /**
  * Returns the entity config given its kind and name.
  *
- * @deprecated WP since WordPress 6.0. Use getEntityConfig instead
+ * @deprecated since WordPress 6.0. Use getEntityConfig instead
  * @param      state Data state.
  * @param      kind  Entity kind.
  * @param      name  Entity name.
@@ -4635,7 +4635,7 @@ function getEntityConfig(state, kind, name) {
  * @param name  Entity name.
  * @param key   Record's key
  * @param query Optional query. If requesting specific
- *              fields, fields must always include the ID.
+ *              fields, fields must always include the ID. For valid query parameters see the [Reference](https://developer.wordpress.org/rest-api/reference/) in the REST API Handbook and select the entity kind. Then see the arguments available "Retrieve a [Entity kind]".
  *
  * @return Record.
  */
@@ -4742,7 +4742,7 @@ const getRawEntityRecord = (0,external_wp_data_namespaceObject.createSelector)((
  * @param state State tree
  * @param kind  Entity kind.
  * @param name  Entity name.
- * @param query Optional terms query.
+ * @param query Optional terms query. For valid query parameters see the [Reference](https://developer.wordpress.org/rest-api/reference/) in the REST API Handbook and select the entity kind. Then see the arguments available for "List [Entity kind]s".
  *
  * @return  Whether entity records have been received.
  */
@@ -4766,7 +4766,7 @@ function hasEntityRecords(state, kind, name, query) {
  * @param kind  Entity kind.
  * @param name  Entity name.
  * @param query Optional terms query. If requesting specific
- *              fields, fields must always include the ID.
+ *              fields, fields must always include the ID. For valid query parameters see the [Reference](https://developer.wordpress.org/rest-api/reference/) in the REST API Handbook and select the entity kind. Then see the arguments available for "List [Entity kind]s".
  *
  * @return Records.
  */
@@ -4787,7 +4787,7 @@ const getEntityRecords = (state, kind, name, query) => {
  * @param kind  Entity kind.
  * @param name  Entity name.
  * @param query Optional terms query. If requesting specific
- *              fields, fields must always include the ID.
+ *              fields, fields must always include the ID. For valid query parameters see the [Reference](https://developer.wordpress.org/rest-api/reference/) in the REST API Handbook and select the entity kind. Then see the arguments available for "List [Entity kind]s".
  *
  * @return number | null.
  */
@@ -4808,7 +4808,7 @@ const getEntityRecordsTotalItems = (state, kind, name, query) => {
  * @param kind  Entity kind.
  * @param name  Entity name.
  * @param query Optional terms query. If requesting specific
- *              fields, fields must always include the ID.
+ *              fields, fields must always include the ID. For valid query parameters see the [Reference](https://developer.wordpress.org/rest-api/reference/) in the REST API Handbook and select the entity kind. Then see the arguments available for "List [Entity kind]s".
  *
  * @return number | null.
  */
@@ -5079,7 +5079,7 @@ function getLastEntityDeleteError(state, kind, name, recordId) {
  * Returns the previous edit from the current undo offset
  * for the entity records edits history, if any.
  *
- * @deprecated WP since 6.3
+ * @deprecated since 6.3
  *
  * @param      state State tree.
  *
@@ -5098,7 +5098,7 @@ function getUndoEdit(state) {
  * Returns the next edit from the current undo offset
  * for the entity records edits history, if any.
  *
- * @deprecated WP since 6.3
+ * @deprecated since 6.3
  *
  * @param      state State tree.
  *
@@ -5213,6 +5213,8 @@ function isPreviewEmbedFallback(state, url) {
  * Calling this may trigger an OPTIONS request to the REST API via the
  * `canUser()` resolver.
  *
+ * https://developer.wordpress.org/rest-api/reference/
+ *
  * @param state    Data state.
  * @param action   Action to check. One of: 'create', 'read', 'update', 'delete'.
  * @param resource Entity resource to check. Accepts entity object `{ kind: 'root', name: 'media', id: 1 }`
@@ -5236,6 +5238,8 @@ function canUser(state, action, resource, id) {
  *
  * Calling this may trigger an OPTIONS request to the REST API via the
  * `canUser()` resolver.
+ *
+ * https://developer.wordpress.org/rest-api/reference/
  *
  * @param state    Data state.
  * @param kind     Entity kind.
@@ -5410,7 +5414,7 @@ function getUserPatternCategories(state) {
 /**
  * Returns the revisions of the current global styles theme.
  *
- * @deprecated WP since WordPress 6.5.0. Callers should use `select( 'core' ).getRevisions( 'root', 'globalStyles', ${ recordKey } )` instead, where `recordKey` is the id of the global styles parent post.
+ * @deprecated since WordPress 6.5.0. Callers should use `select( 'core' ).getRevisions( 'root', 'globalStyles', ${ recordKey } )` instead, where `recordKey` is the id of the global styles parent post.
  *
  * @param      state Data state.
  *
@@ -5448,7 +5452,7 @@ function getDefaultTemplateId(state, query) {
  * @param name      Entity name.
  * @param recordKey The key of the entity record whose revisions you want to fetch.
  * @param query     Optional query. If requesting specific
- *                  fields, fields must always include the ID.
+ *                  fields, fields must always include the ID. For valid query parameters see revisions schema in [the REST API Handbook](https://developer.wordpress.org/rest-api/reference/). Then see the arguments available "Retrieve a [Entity kind]".
  *
  * @return Record.
  */
@@ -5469,7 +5473,7 @@ const getRevisions = (state, kind, name, recordKey, query) => {
  * @param recordKey   The key of the entity record whose revisions you want to fetch.
  * @param revisionKey The revision's key.
  * @param query       Optional query. If requesting specific
- *                    fields, fields must always include the ID.
+ *                    fields, fields must always include the ID. For valid query parameters see revisions schema in [the REST API Handbook](https://developer.wordpress.org/rest-api/reference/). Then see the arguments available "Retrieve a [entity kind]".
  *
  * @return Record.
  */
@@ -7204,7 +7208,7 @@ const META_SELECTORS = ['getIsResolving', 'hasStartedResolution', 'hasFinishedRe
  * Like useSelect, but the selectors return objects containing
  * both the original data AND the resolution info.
  *
- * @since WP 6.1.0 Introduced in WordPress core.
+ * @since 6.1.0 Introduced in WordPress core.
  * @private
  *
  * @param {Function} mapQuerySelect see useSelect
@@ -7312,7 +7316,7 @@ const use_entity_record_EMPTY_OBJECT = {};
 /**
  * Resolves the specified entity record.
  *
- * @since WP 6.1.0 Introduced in WordPress core.
+ * @since 6.1.0 Introduced in WordPress core.
  *
  * @param    kind     Kind of the entity, e.g. `root` or a `postType`. See rootEntitiesConfig in ../entities.ts for a list of available kinds.
  * @param    name     Name of the entity, e.g. `plugin` or a `post`. See rootEntitiesConfig in ../entities.ts for a list of available names.
@@ -7477,7 +7481,7 @@ const EMPTY_ARRAY = [];
 /**
  * Resolves the specified entity records.
  *
- * @since WP 6.1.0 Introduced in WordPress core.
+ * @since 6.1.0 Introduced in WordPress core.
  *
  * @param    kind      Kind of the entity, e.g. `root` or a `postType`. See rootEntitiesConfig in ../entities.ts for a list of available kinds.
  * @param    name      Name of the entity, e.g. `plugin` or a `post`. See rootEntitiesConfig in ../entities.ts for a list of available names.
@@ -7624,7 +7628,7 @@ var external_wp_warning_default = /*#__PURE__*/__webpack_require__.n(external_wp
 /**
  * Resolves resource permissions.
  *
- * @since WP 6.1.0 Introduced in WordPress core.
+ * @since 6.1.0 Introduced in WordPress core.
  *
  * @param    resource Entity resource to check. Accepts entity object `{ kind: 'root', name: 'media', id: 1 }`
  *                    or REST base as a string - `media`.

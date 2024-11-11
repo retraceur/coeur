@@ -2829,7 +2829,7 @@ function getEditedPostAttribute(state, attributeName) {
  * Returns an attribute value of the current autosave revision for a post, or
  * null if there is no autosave for the post.
  *
- * @deprecated WP since 5.6. Callers should use the `getAutosave( postType, postId, userId )` selector
+ * @deprecated since 5.6. Callers should use the `getAutosave( postType, postId, userId )` selector
  * 			   from the '@wordpress/core-data' package and access properties on the returned
  * 			   autosave object using getPostRawValue.
  *
@@ -3544,7 +3544,7 @@ const isEditorPanelOpened = (0,external_wp_data_namespaceObject.createRegistrySe
  * @param {Object} state
  * @return {WPBlockSelection} The selection start.
  *
- * @deprecated WP since Gutenberg 10.0.0.
+ * @deprecated since Gutenberg 10.0.0.
  */
 function getEditorSelectionStart(state) {
   external_wp_deprecated_default()("select('core/editor').getEditorSelectionStart", {
@@ -3560,7 +3560,7 @@ function getEditorSelectionStart(state) {
  * @param {Object} state
  * @return {WPBlockSelection} The selection end.
  *
- * @deprecated WP since Gutenberg 10.0.0.
+ * @deprecated since Gutenberg 10.0.0.
  */
 function getEditorSelectionEnd(state) {
   external_wp_deprecated_default()("select('core/editor').getEditorSelectionStart", {
@@ -3669,7 +3669,7 @@ const getEditorMode = (0,external_wp_data_namespaceObject.createRegistrySelector
  * Returns state object prior to a specified optimist transaction ID, or `null`
  * if the transaction corresponding to the given ID cannot be found.
  *
- * @deprecated WP since Gutenberg 9.7.0.
+ * @deprecated since Gutenberg 9.7.0.
  */
 function getStateBeforeOptimisticTransaction() {
   external_wp_deprecated_default()("select('core/editor').getStateBeforeOptimisticTransaction", {
@@ -3682,7 +3682,7 @@ function getStateBeforeOptimisticTransaction() {
  * Returns true if an optimistic transaction is pending commit, for which the
  * before state satisfies the given predicate function.
  *
- * @deprecated WP since Gutenberg 9.7.0.
+ * @deprecated since Gutenberg 9.7.0.
  */
 function inSomeHistory() {
   external_wp_deprecated_default()("select('core/editor').inSomeHistory", {
@@ -4312,7 +4312,7 @@ function __experimentalTearDownEditor() {
  * Returns an action object used in signalling that the latest version of the
  * post has been received, either by initialization or save.
  *
- * @deprecated WP Since WordPress 6.0.
+ * @deprecated Since WordPress 6.0.
  */
 function resetPost() {
   external_wp_deprecated_default()("wp.data.dispatch( 'core/editor' ).resetPost", {
@@ -4330,7 +4330,7 @@ function resetPost() {
  * latest version of the post have been received.
  *
  * @return {Object} Action object.
- * @deprecated WP since Gutenberg 9.7.0.
+ * @deprecated since Gutenberg 9.7.0.
  */
 function updatePost() {
   external_wp_deprecated_default()("wp.data.dispatch( 'core/editor' ).updatePost", {
@@ -4491,7 +4491,7 @@ const savePost = (options = {}) => async ({
 /**
  * Action for refreshing the current post.
  *
- * @deprecated WP Since WordPress 6.0.
+ * @deprecated Since WordPress 6.0.
  */
 function refreshPost() {
   external_wp_deprecated_default()("wp.data.dispatch( 'core/editor' ).refreshPost", {
@@ -4615,7 +4615,7 @@ const undo = () => ({
 /**
  * Action that creates an undo history record.
  *
- * @deprecated WP Since WordPress 6.0
+ * @deprecated Since WordPress 6.0
  */
 function createUndoLevel() {
   external_wp_deprecated_default()("wp.data.dispatch( 'core/editor' ).createUndoLevel", {
@@ -5466,14 +5466,14 @@ function __read(o, n) {
   return ar;
 }
 
-/** @deprecated WP */
+/** @deprecated */
 function __spread() {
   for (var ar = [], i = 0; i < arguments.length; i++)
       ar = ar.concat(__read(arguments[i]));
   return ar;
 }
 
-/** @deprecated WP */
+/** @deprecated */
 function __spreadArrays() {
   for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
   for (var r = Array(s), k = 0, i = 0; i < il; i++)
@@ -8540,6 +8540,8 @@ unlock(store_store).registerPrivateSelectors(store_private_selectors_namespaceOb
 /**
  * Object whose keys are the names of block attributes, where each value
  * represents the meta key to which the block attribute is intended to save.
+ *
+ * @see https://developer.wordpress.org/reference/functions/register_meta/
  *
  * @typedef {Object<string,string>} WPMetaAttributeMapping
  */
@@ -12436,7 +12438,7 @@ function ParentRow() {
           }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("p", {
             children: (0,external_wp_element_namespaceObject.createInterpolateElement)((0,external_wp_i18n_namespaceObject.__)('They also show up as sub-items in the default navigation menu. <a>Learn more.</a>'), {
               a: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ExternalLink, {
-                href: (0,external_wp_i18n_namespaceObject.__)('#')
+                href: (0,external_wp_i18n_namespaceObject.__)('https://wordpress.org/documentation/article/page-post-settings-sidebar/#page-attributes')
               })
             })
           })]
@@ -13008,7 +13010,7 @@ const {
  * @param {string}                props.name                            Required. A machine-friendly name for the panel.
  * @param {string}                [props.className]                     An optional class name added to the row.
  * @param {string}                [props.title]                         The title of the panel
- * @param {WPBlockTypeIconRender} [props.icon=inherits from the plugin] The Dashicon icon slug string, or an SVG WP element, to be rendered when the sidebar is pinned to toolbar.
+ * @param {WPBlockTypeIconRender} [props.icon=inherits from the plugin] The [Dashicon](https://developer.wordpress.org/resource/dashicons/) icon slug string, or an SVG WP element, to be rendered when the sidebar is pinned to toolbar.
  * @param {Element}               props.children                        Children to be rendered
  *
  * @example
@@ -13130,7 +13132,7 @@ const shouldRenderItem = (selectedBlocks, allowedBlocks) => !Array.isArray(allow
  *
  * @param {Object}                props                 Component props.
  * @param {Array}                 [props.allowedBlocks] An array containing a list of block names for which the item should be shown. If not present, it'll be rendered for any block. If multiple blocks are selected, it'll be shown if and only if all of them are in the allowed list.
- * @param {WPBlockTypeIconRender} [props.icon]          The Dashicon icon slug string, or an SVG WP element.
+ * @param {WPBlockTypeIconRender} [props.icon]          The [Dashicon](https://developer.wordpress.org/resource/dashicons/) icon slug string, or an SVG WP element.
  * @param {string}                props.label           The menu item text.
  * @param {Function}              props.onClick         Callback function to be executed when the user click the menu item.
  * @param {boolean}               [props.small]         Whether to render the label or not.
@@ -13221,7 +13223,7 @@ const PluginBlockSettingsMenuItem = ({
  *
  * @param {Object}                props                                 Component properties.
  * @param {string}                [props.href]                          When `href` is provided then the menu item is represented as an anchor rather than button. It corresponds to the `href` attribute of the anchor.
- * @param {WPBlockTypeIconRender} [props.icon=inherits from the plugin] The Dashicon icon slug string, or an SVG WP element, to be rendered to the left of the menu item label.
+ * @param {WPBlockTypeIconRender} [props.icon=inherits from the plugin] The [Dashicon](https://developer.wordpress.org/resource/dashicons/) icon slug string, or an SVG WP element, to be rendered to the left of the menu item label.
  * @param {Function}              [props.onClick=noop]                  The callback function to be executed when the user clicks the menu item.
  * @param {...*}                  [props.other]                         Any additional props are passed through to the underlying [Button](/packages/components/src/button/README.md) component.
  *
@@ -13300,7 +13302,7 @@ const {
  * @param {string}                [props.className]                     An optional class name added to the panel.
  * @param {string}                [props.title]                         Title displayed at the top of the panel.
  * @param {boolean}               [props.initialOpen=false]             Whether to have the panel initially opened. When no title is provided it is always opened.
- * @param {WPBlockTypeIconRender} [props.icon=inherits from the plugin] The Dashicon icon slug string, or an SVG WP element, to be rendered when the sidebar is pinned to toolbar.
+ * @param {WPBlockTypeIconRender} [props.icon=inherits from the plugin] The [Dashicon](https://developer.wordpress.org/resource/dashicons/) icon slug string, or an SVG WP element, to be rendered when the sidebar is pinned to toolbar.
  * @param {Element}               props.children                        Children to be rendered
  *
  * @example
@@ -13436,7 +13438,7 @@ const {
  * @param {string}                [props.title]                         Title displayed at the top of the panel.
  * @param {boolean}               [props.initialOpen=false]             Whether to have the panel initially opened.
  *                                                                      When no title is provided it is always opened.
- * @param {WPBlockTypeIconRender} [props.icon=inherits from the plugin] The Dashicon
+ * @param {WPBlockTypeIconRender} [props.icon=inherits from the plugin] The [Dashicon](https://developer.wordpress.org/resource/dashicons/)
  *                                                                      icon slug string, or an SVG WP element, to be rendered when
  *                                                                      the sidebar is pinned to toolbar.
  * @param {Element}               props.children                        Children to be rendered
@@ -13565,7 +13567,7 @@ PluginPrePublishPanel.Slot = plugin_pre_publish_panel_Slot;
  * @param {string}                [props.className]                     An optional class name added to the sidebar body.
  * @param {string}                props.title                           Title displayed at the top of the sidebar.
  * @param {boolean}               [props.isPinnable=true]               Whether to allow to pin sidebar to the toolbar. When set to `true` it also automatically renders a corresponding menu item.
- * @param {WPBlockTypeIconRender} [props.icon=inherits from the plugin] The Dashicon icon slug string, or an SVG WP element, to be rendered when the sidebar is pinned to toolbar.
+ * @param {WPBlockTypeIconRender} [props.icon=inherits from the plugin] The [Dashicon](https://developer.wordpress.org/resource/dashicons/) icon slug string, or an SVG WP element, to be rendered when the sidebar is pinned to toolbar.
  *
  * @example
  * ```js
@@ -13648,7 +13650,7 @@ function PluginSidebar({
  *
  * @param {Object}                props                                 Component props.
  * @param {string}                props.target                          A string identifying the target sidebar you wish to be activated by this menu item. Must be the same as the `name` prop you have given to that sidebar.
- * @param {WPBlockTypeIconRender} [props.icon=inherits from the plugin] The Dashicon icon slug string, or an SVG WP element, to be rendered to the left of the menu item label.
+ * @param {WPBlockTypeIconRender} [props.icon=inherits from the plugin] The [Dashicon](https://developer.wordpress.org/resource/dashicons/) icon slug string, or an SVG WP element, to be rendered to the left of the menu item label.
  *
  * @example
  * ```js
@@ -14537,7 +14539,7 @@ function PostPingbacks() {
     checked: pingStatus === 'open',
     onChange: onTogglePingback,
     help: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ExternalLink, {
-      href: (0,external_wp_i18n_namespaceObject.__)('#'),
+      href: (0,external_wp_i18n_namespaceObject.__)('https://wordpress.org/documentation/article/trackbacks-and-pingbacks/'),
       children: (0,external_wp_i18n_namespaceObject.__)('Learn more about pingbacks & trackbacks')
     })
   });
@@ -14774,7 +14776,7 @@ function PostExcerpt({
       onBlur: updateOnBlur ? () => updatePost(localExcerpt) : undefined,
       value: updateOnBlur ? localExcerpt : excerpt,
       help: !shouldUseDescriptionLabel ? /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ExternalLink, {
-        href: (0,external_wp_i18n_namespaceObject.__)('#'),
+        href: (0,external_wp_i18n_namespaceObject.__)('https://wordpress.org/documentation/article/page-post-settings-sidebar/#excerpt'),
         children: (0,external_wp_i18n_namespaceObject.__)('Learn more about manual excerpts')
       }) : (0,external_wp_i18n_namespaceObject.__)('Write a description')
     })
@@ -15898,6 +15900,7 @@ function PostLockedModal() {
     }
 
     // Details on these events on the Heartbeat API docs
+    // https://developer.wordpress.org/plugins/javascript/heartbeat-api/
     (0,external_wp_hooks_namespaceObject.addAction)('heartbeat.send', hookName, sendPostLock);
     (0,external_wp_hooks_namespaceObject.addAction)('heartbeat.tick', hookName, receivePostLock);
     window.addEventListener('beforeunload', releasePostLock);
@@ -21310,7 +21313,7 @@ function PostURL({
       children: [isEditable && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("div", {
         children: (0,external_wp_element_namespaceObject.createInterpolateElement)((0,external_wp_i18n_namespaceObject.__)('Customize the last part of the URL. <a>Learn more.</a>'), {
           a: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ExternalLink, {
-            href: (0,external_wp_i18n_namespaceObject.__)('#')
+            href: (0,external_wp_i18n_namespaceObject.__)('https://wordpress.org/documentation/article/page-post-settings-sidebar/#permalink')
           })
         })
       }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)("div", {
@@ -24607,6 +24610,12 @@ const ExperimentalEditorProvider = with_registry_provider(({
       postTypeEntities: post.type === 'wp_template' ? getEntitiesConfig('postType') : null
     };
   }, [post.type]);
+  const isZoomOut = (0,external_wp_data_namespaceObject.useSelect)(select => {
+    const {
+      __unstableGetEditorMode
+    } = unlock(select(external_wp_blockEditor_namespaceObject.store));
+    return __unstableGetEditorMode() === 'zoom-out';
+  });
   const shouldRenderTemplate = !!template && mode !== 'post-only';
   const rootLevelPost = shouldRenderTemplate ? template : post;
   const defaultBlockContext = (0,external_wp_element_namespaceObject.useMemo)(() => {
@@ -24715,7 +24724,9 @@ const ExperimentalEditorProvider = with_registry_provider(({
           settings: blockEditorSettings,
           useSubRegistry: false,
           children: [children, !settings.__unstableIsPreviewMode && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_ReactJSXRuntime_namespaceObject.Fragment, {
-            children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(PatternsMenuItems, {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(TemplatePartMenuItems, {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ContentOnlySettingsMenu, {}), mode === 'template-locked' && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(DisableNonPageContentBlocks, {}), type === 'wp_navigation' && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(NavigationBlockEditingMode, {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(EditorKeyboardShortcuts, {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(keyboard_shortcut_help_modal, {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(BlockRemovalWarnings, {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(StartPageOptions, {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(StartTemplateOptions, {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(PatternRenameModal, {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(PatternDuplicateModal, {})]
+            children: [!isZoomOut && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_ReactJSXRuntime_namespaceObject.Fragment, {
+              children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(PatternsMenuItems, {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(TemplatePartMenuItems, {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ContentOnlySettingsMenu, {})]
+            }), mode === 'template-locked' && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(DisableNonPageContentBlocks, {}), type === 'wp_navigation' && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(NavigationBlockEditingMode, {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(EditorKeyboardShortcuts, {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(keyboard_shortcut_help_modal, {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(BlockRemovalWarnings, {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(StartPageOptions, {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(StartTemplateOptions, {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(PatternRenameModal, {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(PatternDuplicateModal, {})]
           })]
         })
       })
@@ -24804,215 +24815,215 @@ function deprecateFunction(name, func) {
 }
 
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.RichText` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.RichText` instead.
  */
 const RichText = deprecateComponent('RichText', external_wp_blockEditor_namespaceObject.RichText, ['Content']);
 RichText.isEmpty = deprecateFunction('RichText.isEmpty', external_wp_blockEditor_namespaceObject.RichText.isEmpty);
 
 
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.Autocomplete` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.Autocomplete` instead.
  */
 const Autocomplete = deprecateComponent('Autocomplete', external_wp_blockEditor_namespaceObject.Autocomplete);
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.AlignmentToolbar` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.AlignmentToolbar` instead.
  */
 const AlignmentToolbar = deprecateComponent('AlignmentToolbar', external_wp_blockEditor_namespaceObject.AlignmentToolbar);
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.BlockAlignmentToolbar` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.BlockAlignmentToolbar` instead.
  */
 const BlockAlignmentToolbar = deprecateComponent('BlockAlignmentToolbar', external_wp_blockEditor_namespaceObject.BlockAlignmentToolbar);
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.BlockControls` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.BlockControls` instead.
  */
 const BlockControls = deprecateComponent('BlockControls', external_wp_blockEditor_namespaceObject.BlockControls, ['Slot']);
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.BlockEdit` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.BlockEdit` instead.
  */
 const BlockEdit = deprecateComponent('BlockEdit', external_wp_blockEditor_namespaceObject.BlockEdit);
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.BlockEditorKeyboardShortcuts` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.BlockEditorKeyboardShortcuts` instead.
  */
 const BlockEditorKeyboardShortcuts = deprecateComponent('BlockEditorKeyboardShortcuts', external_wp_blockEditor_namespaceObject.BlockEditorKeyboardShortcuts);
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.BlockFormatControls` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.BlockFormatControls` instead.
  */
 const BlockFormatControls = deprecateComponent('BlockFormatControls', external_wp_blockEditor_namespaceObject.BlockFormatControls, ['Slot']);
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.BlockIcon` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.BlockIcon` instead.
  */
 const BlockIcon = deprecateComponent('BlockIcon', external_wp_blockEditor_namespaceObject.BlockIcon);
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.BlockInspector` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.BlockInspector` instead.
  */
 const BlockInspector = deprecateComponent('BlockInspector', external_wp_blockEditor_namespaceObject.BlockInspector);
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.BlockList` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.BlockList` instead.
  */
 const BlockList = deprecateComponent('BlockList', external_wp_blockEditor_namespaceObject.BlockList);
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.BlockMover` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.BlockMover` instead.
  */
 const BlockMover = deprecateComponent('BlockMover', external_wp_blockEditor_namespaceObject.BlockMover);
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.BlockNavigationDropdown` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.BlockNavigationDropdown` instead.
  */
 const BlockNavigationDropdown = deprecateComponent('BlockNavigationDropdown', external_wp_blockEditor_namespaceObject.BlockNavigationDropdown);
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.BlockSelectionClearer` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.BlockSelectionClearer` instead.
  */
 const BlockSelectionClearer = deprecateComponent('BlockSelectionClearer', external_wp_blockEditor_namespaceObject.BlockSelectionClearer);
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.BlockSettingsMenu` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.BlockSettingsMenu` instead.
  */
 const BlockSettingsMenu = deprecateComponent('BlockSettingsMenu', external_wp_blockEditor_namespaceObject.BlockSettingsMenu);
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.BlockTitle` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.BlockTitle` instead.
  */
 const BlockTitle = deprecateComponent('BlockTitle', external_wp_blockEditor_namespaceObject.BlockTitle);
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.BlockToolbar` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.BlockToolbar` instead.
  */
 const BlockToolbar = deprecateComponent('BlockToolbar', external_wp_blockEditor_namespaceObject.BlockToolbar);
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.ColorPalette` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.ColorPalette` instead.
  */
 const ColorPalette = deprecateComponent('ColorPalette', external_wp_blockEditor_namespaceObject.ColorPalette);
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.ContrastChecker` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.ContrastChecker` instead.
  */
 const ContrastChecker = deprecateComponent('ContrastChecker', external_wp_blockEditor_namespaceObject.ContrastChecker);
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.CopyHandler` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.CopyHandler` instead.
  */
 const CopyHandler = deprecateComponent('CopyHandler', external_wp_blockEditor_namespaceObject.CopyHandler);
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.DefaultBlockAppender` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.DefaultBlockAppender` instead.
  */
 const DefaultBlockAppender = deprecateComponent('DefaultBlockAppender', external_wp_blockEditor_namespaceObject.DefaultBlockAppender);
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.FontSizePicker` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.FontSizePicker` instead.
  */
 const FontSizePicker = deprecateComponent('FontSizePicker', external_wp_blockEditor_namespaceObject.FontSizePicker);
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.Inserter` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.Inserter` instead.
  */
 const Inserter = deprecateComponent('Inserter', external_wp_blockEditor_namespaceObject.Inserter);
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.InnerBlocks` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.InnerBlocks` instead.
  */
 const InnerBlocks = deprecateComponent('InnerBlocks', external_wp_blockEditor_namespaceObject.InnerBlocks, ['ButtonBlockAppender', 'DefaultBlockAppender', 'Content']);
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.InspectorAdvancedControls` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.InspectorAdvancedControls` instead.
  */
 const InspectorAdvancedControls = deprecateComponent('InspectorAdvancedControls', external_wp_blockEditor_namespaceObject.InspectorAdvancedControls, ['Slot']);
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.InspectorControls` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.InspectorControls` instead.
  */
 const InspectorControls = deprecateComponent('InspectorControls', external_wp_blockEditor_namespaceObject.InspectorControls, ['Slot']);
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.PanelColorSettings` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.PanelColorSettings` instead.
  */
 const PanelColorSettings = deprecateComponent('PanelColorSettings', external_wp_blockEditor_namespaceObject.PanelColorSettings);
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.PlainText` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.PlainText` instead.
  */
 const PlainText = deprecateComponent('PlainText', external_wp_blockEditor_namespaceObject.PlainText);
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.RichTextShortcut` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.RichTextShortcut` instead.
  */
 const RichTextShortcut = deprecateComponent('RichTextShortcut', external_wp_blockEditor_namespaceObject.RichTextShortcut);
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.RichTextToolbarButton` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.RichTextToolbarButton` instead.
  */
 const RichTextToolbarButton = deprecateComponent('RichTextToolbarButton', external_wp_blockEditor_namespaceObject.RichTextToolbarButton);
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.__unstableRichTextInputEvent` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.__unstableRichTextInputEvent` instead.
  */
 const __unstableRichTextInputEvent = deprecateComponent('__unstableRichTextInputEvent', external_wp_blockEditor_namespaceObject.__unstableRichTextInputEvent);
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.MediaPlaceholder` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.MediaPlaceholder` instead.
  */
 const MediaPlaceholder = deprecateComponent('MediaPlaceholder', external_wp_blockEditor_namespaceObject.MediaPlaceholder);
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.MediaUpload` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.MediaUpload` instead.
  */
 const MediaUpload = deprecateComponent('MediaUpload', external_wp_blockEditor_namespaceObject.MediaUpload);
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.MediaUploadCheck` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.MediaUploadCheck` instead.
  */
 const MediaUploadCheck = deprecateComponent('MediaUploadCheck', external_wp_blockEditor_namespaceObject.MediaUploadCheck);
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.MultiSelectScrollIntoView` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.MultiSelectScrollIntoView` instead.
  */
 const MultiSelectScrollIntoView = deprecateComponent('MultiSelectScrollIntoView', external_wp_blockEditor_namespaceObject.MultiSelectScrollIntoView);
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.NavigableToolbar` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.NavigableToolbar` instead.
  */
 const NavigableToolbar = deprecateComponent('NavigableToolbar', external_wp_blockEditor_namespaceObject.NavigableToolbar);
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.ObserveTyping` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.ObserveTyping` instead.
  */
 const ObserveTyping = deprecateComponent('ObserveTyping', external_wp_blockEditor_namespaceObject.ObserveTyping);
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.SkipToSelectedBlock` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.SkipToSelectedBlock` instead.
  */
 const SkipToSelectedBlock = deprecateComponent('SkipToSelectedBlock', external_wp_blockEditor_namespaceObject.SkipToSelectedBlock);
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.URLInput` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.URLInput` instead.
  */
 const URLInput = deprecateComponent('URLInput', external_wp_blockEditor_namespaceObject.URLInput);
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.URLInputButton` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.URLInputButton` instead.
  */
 const URLInputButton = deprecateComponent('URLInputButton', external_wp_blockEditor_namespaceObject.URLInputButton);
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.URLPopover` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.URLPopover` instead.
  */
 const URLPopover = deprecateComponent('URLPopover', external_wp_blockEditor_namespaceObject.URLPopover);
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.Warning` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.Warning` instead.
  */
 const Warning = deprecateComponent('Warning', external_wp_blockEditor_namespaceObject.Warning);
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.WritingFlow` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.WritingFlow` instead.
  */
 const WritingFlow = deprecateComponent('WritingFlow', external_wp_blockEditor_namespaceObject.WritingFlow);
 
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.createCustomColorsHOC` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.createCustomColorsHOC` instead.
  */
 const createCustomColorsHOC = deprecateFunction('createCustomColorsHOC', external_wp_blockEditor_namespaceObject.createCustomColorsHOC);
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.getColorClassName` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.getColorClassName` instead.
  */
 const getColorClassName = deprecateFunction('getColorClassName', external_wp_blockEditor_namespaceObject.getColorClassName);
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.getColorObjectByAttributeValues` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.getColorObjectByAttributeValues` instead.
  */
 const getColorObjectByAttributeValues = deprecateFunction('getColorObjectByAttributeValues', external_wp_blockEditor_namespaceObject.getColorObjectByAttributeValues);
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.getColorObjectByColorValue` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.getColorObjectByColorValue` instead.
  */
 const getColorObjectByColorValue = deprecateFunction('getColorObjectByColorValue', external_wp_blockEditor_namespaceObject.getColorObjectByColorValue);
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.getFontSize` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.getFontSize` instead.
  */
 const getFontSize = deprecateFunction('getFontSize', external_wp_blockEditor_namespaceObject.getFontSize);
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.getFontSizeClass` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.getFontSizeClass` instead.
  */
 const getFontSizeClass = deprecateFunction('getFontSizeClass', external_wp_blockEditor_namespaceObject.getFontSizeClass);
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.createCustomColorsHOC` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.createCustomColorsHOC` instead.
  */
 const withColorContext = deprecateFunction('withColorContext', external_wp_blockEditor_namespaceObject.withColorContext);
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.withColors` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.withColors` instead.
  */
 const withColors = deprecateFunction('withColors', external_wp_blockEditor_namespaceObject.withColors);
 /**
- * @deprecated WP since 5.3, use `wp.blockEditor.withFontSizes` instead.
+ * @deprecated since 5.3, use `wp.blockEditor.withFontSizes` instead.
  */
 const withFontSizes = deprecateFunction('withFontSizes', external_wp_blockEditor_namespaceObject.withFontSizes);
 
@@ -25795,7 +25806,7 @@ function MoreMenu() {
             children: (0,external_wp_i18n_namespaceObject.__)('Keyboard shortcuts')
           }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(CopyContentMenuItem, {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_wp_components_namespaceObject.MenuItem, {
             icon: library_external,
-            href: (0,external_wp_i18n_namespaceObject.__)('#'),
+            href: (0,external_wp_i18n_namespaceObject.__)('https://wordpress.org/documentation/article/wordpress-block-editor/'),
             target: "_blank",
             rel: "noopener noreferrer",
             children: [(0,external_wp_i18n_namespaceObject.__)('Help'), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.VisuallyHidden, {
@@ -25855,7 +25866,7 @@ function PostPublishButtonOrToggle({
    * Conditions to show a BUTTON (publish directly) or a TOGGLE (open publish sidebar):
    *
    * 1) We want to show a BUTTON when the post status is at the _final stage_
-   * for a particular role:
+   * for a particular role (see https://wordpress.org/documentation/article/post-status/):
    *
    * - is published
    * - post status has changed explicitely to something different than 'future' or 'publish'
@@ -28751,10 +28762,10 @@ function PostSummary({
             spacing: 4,
             children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_wp_components_namespaceObject.__experimentalVStack, {
               spacing: 1,
-              children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(PostStatus, {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(PostSchedulePanel, {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(PostURLPanel, {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(panel, {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(PostTemplatePanel, {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(PostDiscussionPanel, {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(PrivatePostLastRevision, {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(PageAttributesPanel, {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(PostSyncStatus, {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(BlogTitle, {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(PostsPerPage, {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(SiteDiscussion, {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(post_format_panel, {})]
+              children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(PostStatus, {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(PostSchedulePanel, {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(PostURLPanel, {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(panel, {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(PostTemplatePanel, {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(PostDiscussionPanel, {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(PrivatePostLastRevision, {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(PageAttributesPanel, {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(PostSyncStatus, {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(BlogTitle, {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(PostsPerPage, {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(SiteDiscussion, {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(post_format_panel, {}), fills]
             }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(PostTrash, {
               onActionPerformed: onActionPerformed
-            }), fills]
+            })]
           })]
         })
       })

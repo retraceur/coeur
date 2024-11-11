@@ -6177,14 +6177,14 @@ function __read(o, n) {
   return ar;
 }
 
-/** @deprecated WP */
+/** @deprecated */
 function __spread() {
   for (var ar = [], i = 0; i < arguments.length; i++)
       ar = ar.concat(__read(arguments[i]));
   return ar;
 }
 
-/** @deprecated WP */
+/** @deprecated */
 function __spreadArrays() {
   for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
   for (var r = Array(s), k = 0, i = 0; i < il; i++)
@@ -6835,6 +6835,8 @@ const i18nBlockSchema = {
  * or a component.
  *
  * @typedef {(string|Element|Component)} WPIcon
+ *
+ * @see https://developer.wordpress.org/resource/dashicons/
  */
 
 /**
@@ -6991,6 +6993,9 @@ function getBlockSettingsFromMetadata({
  * Registers a new block provided a unique name and an object defining its
  * behavior. Once registered, the block is made available as an option to any
  * editor interface where blocks are implemented.
+ *
+ * For more in-depth information on registering a custom block see the
+ * [Create a block tutorial](https://developer.wordpress.org/block-editor/getting-started/create-block/).
  *
  * @param {string|Object} blockNameOrMetadata Block type name or its metadata.
  * @param {Object}        settings            Block settings.
@@ -7226,7 +7231,7 @@ function setDefaultBlockName(name) {
  *
  * This function lets you select a different block to group other blocks in instead of the
  * default `core/group` block. This function must be used in a component or when the DOM is fully
- * loaded.
+ * loaded. See https://developer.wordpress.org/block-editor/reference-guides/packages/packages-dom-ready/
  *
  * @param {string} name Block name.
  *
@@ -7368,6 +7373,9 @@ const hasChildBlocksWithInserterSupport = blockName => {
 /**
  * Registers a new block style for the given block types.
  *
+ * For more information on connecting the styles with CSS
+ * [the official documentation](https://developer.wordpress.org/block-editor/reference-guides/block-api/block-styles/#styles).
+ *
  * @param {string|Array} blockNames     Name of blocks e.g. “core/latest-posts” or `["core/group", "core/columns"]`.
  * @param {Object}       styleVariation Object containing `name` which is the class name applied to the block and `label` which identifies the variation to the user.
  *
@@ -7444,6 +7452,9 @@ const getBlockVariations = (blockName, scope) => {
 
 /**
  * Registers a new block variation for the given block type.
+ *
+ * For more information on block variations see
+ * [the official documentation ](https://developer.wordpress.org/block-editor/reference-guides/block-api/block-variations/).
  *
  * @param {string}           blockName Name of the block (example: “core/columns”).
  * @param {WPBlockVariation} variation Object describing a block variation.
@@ -9589,7 +9600,7 @@ const processBlockType = (name, blockSettings) => ({
   }
   settings.icon = normalizeIconObject(settings.icon);
   if (!isValidIcon(settings.icon.src)) {
-     true ? external_wp_warning_default()('The icon passed is invalid. ' + 'The icon should be a string, an element, a function, or an object.') : 0;
+     true ? external_wp_warning_default()('The icon passed is invalid. ' + 'The icon should be a string, an element, a function, or an object following the specifications documented in https://developer.wordpress.org/block-editor/developers/block-api/block-registration/#icon-optional') : 0;
     return;
   }
   return settings;
@@ -10869,6 +10880,8 @@ function serializeAttributes(attributes) {
 
   // Bypass server stripslashes behavior which would unescape stringify's
   // escaping of quotation mark.
+  //
+  // See: https://developer.wordpress.org/reference/functions/wp_kses_stripslashes/
   .replace(/\\"/g, '\\u0022');
 }
 
@@ -12540,7 +12553,7 @@ function validateBlock(block, blockTypeOrName = block.name) {
  *
  * Logs to console in development environments when invalid.
  *
- * @deprecated WP Use validateBlock instead to avoid data loss.
+ * @deprecated Use validateBlock instead to avoid data loss.
  *
  * @param {string|Object} blockTypeOrName      Block type.
  * @param {Object}        attributes           Parsed block attributes.
@@ -13102,7 +13115,7 @@ function isNodeOfType(node, type) {
   external_wp_deprecated_default()('wp.blocks.node.isNodeOfType', {
     since: '6.1',
     version: '6.3',
-    link: '#'
+    link: 'https://developer.wordpress.org/block-editor/how-to-guides/block-tutorial/introducing-attributes-and-editable-fields/'
   });
   return node && node.type === type;
 }
@@ -13144,7 +13157,7 @@ function fromDOM(domNode) {
     since: '6.1',
     version: '6.3',
     alternative: 'wp.richText.create',
-    link: '#'
+    link: 'https://developer.wordpress.org/block-editor/how-to-guides/block-tutorial/introducing-attributes-and-editable-fields/'
   });
   if (domNode.nodeType === domNode.TEXT_NODE) {
     return domNode.nodeValue;
@@ -13173,7 +13186,7 @@ function toHTML(node) {
     since: '6.1',
     version: '6.3',
     alternative: 'wp.richText.toHTMLString',
-    link: '#'
+    link: 'https://developer.wordpress.org/block-editor/how-to-guides/block-tutorial/introducing-attributes-and-editable-fields/'
   });
   return children_toHTML([node]);
 }
@@ -13191,7 +13204,7 @@ function matcher(selector) {
     since: '6.1',
     version: '6.3',
     alternative: 'html source',
-    link: '#'
+    link: 'https://developer.wordpress.org/block-editor/how-to-guides/block-tutorial/introducing-attributes-and-editable-fields/'
   });
   return domNode => {
     let match = domNode;
@@ -13212,7 +13225,7 @@ function matcher(selector) {
  *
  * @see https://github.com/WordPress/gutenberg/pull/10439
  *
- * @deprecated WP since 4.0. The `node` source should not be used, and can be
+ * @deprecated since 4.0. The `node` source should not be used, and can be
  *             replaced by the `html` source.
  *
  * @private
@@ -13270,7 +13283,7 @@ function getChildrenArray(children) {
   external_wp_deprecated_default()('wp.blocks.children.getChildrenArray', {
     since: '6.1',
     version: '6.3',
-    link: '#'
+    link: 'https://developer.wordpress.org/block-editor/how-to-guides/block-tutorial/introducing-attributes-and-editable-fields/'
   });
 
   // The fact that block children are compatible with the element serializer
@@ -13292,7 +13305,7 @@ function concat(...blockNodes) {
     since: '6.1',
     version: '6.3',
     alternative: 'wp.richText.concat',
-    link: '#'
+    link: 'https://developer.wordpress.org/block-editor/how-to-guides/block-tutorial/introducing-attributes-and-editable-fields/'
   });
   const result = [];
   for (let i = 0; i < blockNodes.length; i++) {
@@ -13323,7 +13336,7 @@ function children_fromDOM(domNodes) {
     since: '6.1',
     version: '6.3',
     alternative: 'wp.richText.create',
-    link: '#'
+    link: 'https://developer.wordpress.org/block-editor/how-to-guides/block-tutorial/introducing-attributes-and-editable-fields/'
   });
   const result = [];
   for (let i = 0; i < domNodes.length; i++) {
@@ -13348,7 +13361,7 @@ function children_toHTML(children) {
     since: '6.1',
     version: '6.3',
     alternative: 'wp.richText.toHTMLString',
-    link: '#'
+    link: 'https://developer.wordpress.org/block-editor/how-to-guides/block-tutorial/introducing-attributes-and-editable-fields/'
   });
   const element = getSerializeCapableElement(children);
   return (0,external_wp_element_namespaceObject.renderToString)(element);
@@ -13367,7 +13380,7 @@ function children_matcher(selector) {
     since: '6.1',
     version: '6.3',
     alternative: 'html source',
-    link: '#'
+    link: 'https://developer.wordpress.org/block-editor/how-to-guides/block-tutorial/introducing-attributes-and-editable-fields/'
   });
   return domNode => {
     let match = domNode;
@@ -13387,7 +13400,7 @@ function children_matcher(selector) {
  *
  * @see https://github.com/WordPress/gutenberg/pull/10439
  *
- * @deprecated WP since 4.0. The `children` source should not be used, and can be
+ * @deprecated since 4.0. The `children` source should not be used, and can be
  *             replaced by the `html` source.
  *
  * @private
@@ -14102,6 +14115,9 @@ function parseRawBlock(rawBlock, options) {
  * prevent stack overflow. This initial pass is mainly interested in separating
  * and isolating the blocks serialized in the document and manifestly not in the
  * content within the blocks.
+ *
+ * @see
+ * https://developer.wordpress.org/block-editor/packages/packages-block-serialization-default-parser/
  *
  * @param {string}       content The post content.
  * @param {ParseOptions} options Extra options for handling block parsing.
@@ -15454,6 +15470,7 @@ function pasteHandler({
   // Not normalizing the content will only affect older browsers and won't
   // entirely break the app.
   // See: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/normalize
+  // See: https://core.trac.wordpress.org/ticket/30130
   // See: https://github.com/WordPress/gutenberg/pull/6983#pullrequestreview-125151075
   if (String.prototype.normalize) {
     HTML = HTML.normalize();
