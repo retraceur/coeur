@@ -1,10 +1,12 @@
 <?php
 /**
- * REST API: WP_REST_Application_Passwords_Controller class
+ * REST API: WP_REST_Application_Passwords_Controller class.
+ *
+ * @since WP 5.6.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package    WordPress
  * @subpackage REST_API
- * @since WP      5.6.0
  */
 
 /**

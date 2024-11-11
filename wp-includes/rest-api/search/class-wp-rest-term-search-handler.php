@@ -1,10 +1,12 @@
 <?php
 /**
- * REST API: WP_REST_Term_Search_Handler class
+ * REST API: WP_REST_Term_Search_Handler class.
+ *
+ * @since WP 5.6.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage REST_API
- * @since WP 5.6.0
  */
 
 /**

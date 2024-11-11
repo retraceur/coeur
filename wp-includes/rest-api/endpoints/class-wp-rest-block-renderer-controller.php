@@ -1,10 +1,12 @@
 <?php
 /**
- * Block Renderer REST API: WP_REST_Block_Renderer_Controller class
+ * Block Renderer REST API: WP_REST_Block_Renderer_Controller class.
+ *
+ * @since WP 5.0.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage REST_API
- * @since WP 5.0.0
  */
 
 /**

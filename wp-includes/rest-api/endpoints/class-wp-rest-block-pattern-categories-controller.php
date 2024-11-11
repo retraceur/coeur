@@ -1,10 +1,12 @@
 <?php
 /**
- * REST API: WP_REST_Block_Pattern_Categories_Controller class
+ * REST API: WP_REST_Block_Pattern_Categories_Controller class.
+ *
+ * @since WP 6.0.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package    WordPress
  * @subpackage REST_API
- * @since WP      6.0.0
  */
 
 /**

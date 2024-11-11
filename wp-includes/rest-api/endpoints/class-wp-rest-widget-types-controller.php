@@ -1,10 +1,12 @@
 <?php
 /**
- * REST API: WP_REST_Widget_Types_Controller class
+ * REST API: WP_REST_Widget_Types_Controller class.
+ *
+ * @since WP 5.8.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage REST_API
- * @since WP 5.8.0
  */
 
 /**

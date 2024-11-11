@@ -1,12 +1,14 @@
 <?php
 /**
- * REST API: WP_REST_Sidebars_Controller class
+ * REST API: WP_REST_Sidebars_Controller class.
  *
  * Original code from {@link https://github.com/martin-pettersson/wp-rest-api-sidebars Martin Pettersson (martin_pettersson@outlook.com)}.
  *
+ * @since WP 5.8.0
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage REST_API
- * @since WP 5.8.0
  */
 
 /**

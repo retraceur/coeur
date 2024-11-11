@@ -1,8 +1,11 @@
 <?php
 /**
- * WP_REST_Navigation_Fallback_Controller class
+ * WP_REST_Navigation_Fallback_Controller class.
  *
  * REST Controller to create/fetch a fallback Navigation Menu.
+ *
+ * @since WP 6.3.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage REST_API
