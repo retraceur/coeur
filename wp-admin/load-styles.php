@@ -1,4 +1,12 @@
 <?php
+/**
+ * Concatenate & optimize Admin styles loading.
+ *
+ * @since 1.0.0 motsVertueux fork.
+ *
+ * @package motsVertueux
+ * @subpackage Administration
+ */
 
 /*
  * The error_reporting() function can be disabled in php.ini. On systems where that is the case,

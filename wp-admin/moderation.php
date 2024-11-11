@@ -4,6 +4,8 @@
  *
  * Redirects to edit-comments.php?comment_status=moderated.
  *
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage Administration
  */

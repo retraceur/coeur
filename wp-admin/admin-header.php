@@ -1,6 +1,8 @@
 <?php
 /**
- * WordPress Administration Template Header
+ * WordPress Administration Template Header.
+ * 
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Administration

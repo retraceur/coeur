@@ -2,6 +2,8 @@
 /**
  * Press This Display and Handler.
  *
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage Press_This
  */

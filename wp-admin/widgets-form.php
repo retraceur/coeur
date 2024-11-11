@@ -2,6 +2,8 @@
 /**
  * The classic widget administration screen, for use in widgets.php.
  *
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage Administration
  */

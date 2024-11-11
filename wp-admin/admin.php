@@ -1,6 +1,8 @@
 <?php
 /**
- * WordPress Administration Bootstrap
+ * WordPress Administration Bootstrap.
+ *
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Administration

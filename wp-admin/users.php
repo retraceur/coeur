@@ -1,10 +1,12 @@
 <?php
 /**
- * User administration panel
+ * User administration panel.
+ *
+ * @since WP 1.0.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Administration
- * @since WP 1.0.0
  */
 
 /** WordPress Administration Bootstrap */

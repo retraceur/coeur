@@ -1,9 +1,10 @@
 <?php
 /**
  * WordPress Administration for Navigation Menus
- * Interface functions
+ * Interface functions.
  *
- * @version 2.0.0
+ * @version WP 2.0.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Administration

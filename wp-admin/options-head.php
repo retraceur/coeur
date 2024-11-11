@@ -4,6 +4,8 @@
  *
  * Displays updated message, if updated variable is part of the URL query.
  *
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage Administration
  */

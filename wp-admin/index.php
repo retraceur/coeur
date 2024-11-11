@@ -1,6 +1,8 @@
 <?php
 /**
- * Dashboard Administration Screen
+ * Dashboard Administration Screen.
+ *
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Administration

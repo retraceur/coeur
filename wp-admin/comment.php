@@ -1,6 +1,8 @@
 <?php
 /**
- * Comment Management Screen
+ * Comment Management Screen.
+ *
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Administration

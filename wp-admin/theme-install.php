@@ -2,9 +2,10 @@
 /**
  * Install theme administration panel.
  *
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage Administration
- * @since 1.0.0 motsVertueux fork.
  */
 
 /** WordPress Administration Bootstrap */
@@ -307,7 +308,7 @@ if ( $tab ) {
 					printf(
 						/* translators: %s: URL to WordPress Updates screen. */
 						' ' . __( '<a href="%1$s">Please update motsVertueux</a>.' ),
-						self_admin_url( 'update-core.php' ) )
+						self_admin_url( 'update-core.php' )
 					);
 				} elseif ( current_user_can( 'update_core' ) ) {
 					printf(

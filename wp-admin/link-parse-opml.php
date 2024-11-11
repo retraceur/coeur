@@ -2,6 +2,8 @@
 /**
  * Parse OPML XML files and store in globals.
  *
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage Administration
  */

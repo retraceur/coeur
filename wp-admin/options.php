@@ -11,6 +11,8 @@
  * that use the Settings API. In this case it saves the new option values
  * and returns the user to their page of origin.
  *
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage Administration
  */

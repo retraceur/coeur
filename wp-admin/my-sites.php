@@ -2,9 +2,11 @@
 /**
  * My Sites dashboard.
  *
+ * @since WP 3.0.0
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage Multisite
- * @since WP 3.0.0
  */
 
 require_once __DIR__ . '/admin.php';

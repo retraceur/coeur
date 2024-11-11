@@ -5,6 +5,7 @@
  * A multi-step process allowing the user to enable a network of WordPress sites.
  *
  * @since WP 3.0.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Administration

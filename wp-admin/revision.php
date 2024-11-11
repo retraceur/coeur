@@ -1,12 +1,14 @@
 <?php
 /**
- * Revisions administration panel
+ * Revisions administration panel.
  *
  * Requires wp-admin/includes/revision.php.
  *
+ * @since WP 2.6.0
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage Administration
- * @since WP 2.6.0
  */
 
 /** WordPress Administration Bootstrap */

@@ -1,8 +1,10 @@
 <?php
 /**
- * WordPress Generic Request (POST/GET) Handler
+ * WordPress Generic Request (POST/GET) Handler.
  *
  * Intended for form submission handling in themes and plugins.
+ *
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Administration

@@ -4,6 +4,8 @@
  *
  * Manage Post actions: post, edit, delete, etc.
  *
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage Administration
  */

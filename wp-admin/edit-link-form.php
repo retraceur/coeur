@@ -2,6 +2,8 @@
 /**
  * Edit links form for inclusion in administration panels.
  *
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage Administration
  */

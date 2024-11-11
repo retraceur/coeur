@@ -2,6 +2,8 @@
 /**
  * Server-side file upload handler from wp-plupload or other asynchronous upload methods.
  *
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage Administration
  */
