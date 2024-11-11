@@ -1,4 +1,42 @@
-# GNU GENERAL PUBLIC LICENSE
+# motsVertueux - Blogging software
+
+Copyright 2024 by the contributors
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+
+This program incorporates work covered by the following copyright and
+permission notices:
+
+  b2 is (c) 2001, 2002 Michel Valdrighi - https://cafelog.com
+
+  Wherever third party code has been used, credit has been given in the code's
+  comments.
+
+  b2 is released under the GPL
+
+and
+
+  WordPress - Web publishing software
+
+  Copyright 2003-2024 by the contributors
+
+  WordPress is released under the GPL
+
+---
+
+## GNU GENERAL PUBLIC LICENSE
 
 Version 2, June 1991
 
@@ -8,7 +46,7 @@ Version 2, June 1991
     Everyone is permitted to copy and distribute verbatim copies
     of this license document, but changing it is not allowed.
 
-## Preamble
+### Preamble
 
 The licenses for most software are designed to take away your freedom
 to share and change it. By contrast, the GNU General Public License is
@@ -59,7 +97,7 @@ all.
 The precise terms and conditions for copying, distribution and
 modification follow.
 
-## TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
+### TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
 
 **0.** This License applies to any program or other work which
 contains a notice placed by the copyright holder saying it may be
@@ -293,7 +331,7 @@ DAMAGES.
 
 END OF TERMS AND CONDITIONS
 
-## How to Apply These Terms to Your New Programs
+### How to Apply These Terms to Your New Programs
 
 If you develop a new program, and you want it to be of the greatest
 possible use to the public, the best way to achieve this is to make it
