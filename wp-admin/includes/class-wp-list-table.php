@@ -1,10 +1,12 @@
 <?php
 /**
- * Administration API: WP_List_Table class
+ * Administration API: WP_List_Table class.
+ *
+ * @since WP 3.1.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage List_Table
- * @since WP 3.1.0
  */
 
 /**

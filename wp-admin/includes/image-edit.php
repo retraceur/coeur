@@ -1,6 +1,8 @@
 <?php
 /**
- * WordPress Image Editor
+ * WordPress Image Editor.
+ *
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Administration

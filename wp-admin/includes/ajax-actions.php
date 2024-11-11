@@ -1,11 +1,12 @@
 <?php
 /**
- * Administration API: Core Ajax handlers
+ * Administration API: Core Ajax handlers.
+ *
+ * @since WP 2.1.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Administration
- * @since WP 2.1.0
- * @since 1.0.0
  */
 
 //

@@ -1,10 +1,12 @@
 <?php
 /**
- * List Table API: WP_Privacy_Requests_Table class
+ * List Table API: WP_Privacy_Requests_Table class.
+ *
+ * @since WP 4.9.6
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Administration
- * @since WP 4.9.6
  */
 
 abstract class WP_Privacy_Requests_Table extends WP_List_Table {

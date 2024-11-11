@@ -1,10 +1,11 @@
 <?php
 /**
- * Dashboard Widget Administration Screen API
+ * Dashboard Widget Administration Screen API.
+ *
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Administration
- * @since 1.0.0 motsVertueux fork.
  */
 
 /**

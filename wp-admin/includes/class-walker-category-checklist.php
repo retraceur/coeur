@@ -1,10 +1,12 @@
 <?php
 /**
- * Taxonomy API: Walker_Category_Checklist class
+ * Taxonomy API: Walker_Category_Checklist class.
+ *
+ * @since WP 4.4.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Administration
- * @since WP 4.4.0
  */
 
 /**

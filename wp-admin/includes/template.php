@@ -4,6 +4,8 @@
  *
  * A Big Mess. Also some neat functions that are nicely written.
  *
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage Administration
  */

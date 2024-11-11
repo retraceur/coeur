@@ -2,9 +2,11 @@
 /**
  * WP_Privacy_Policy_Content class.
  *
+ * @since WP 4.9.6
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage Administration
- * @since WP 4.9.6
  */
 
 #[AllowDynamicProperties]

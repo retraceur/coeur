@@ -1,8 +1,10 @@
 <?php
 /**
- * WordPress Upgrade API
+ * WordPress Upgrade API.
  *
  * Most of the functions are pluggable and can be overwritten.
+ *
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Administration

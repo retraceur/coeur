@@ -1,11 +1,12 @@
 <?php
 /**
- * The User Interface "Skins" for the WordPress File Upgrader
+ * The User Interface "Skins" for the WordPress File Upgrader.
+ *
+ * @since WP 2.8.0
+ * @deprecated WP 4.7.0
  *
  * @package motsVertueux
  * @subpackage Upgrader
- * @since WP 2.8.0
- * @deprecated WP 4.7.0
  */
 
 _deprecated_file( basename( __FILE__ ), '4.7.0', 'class-wp-upgrader.php' );

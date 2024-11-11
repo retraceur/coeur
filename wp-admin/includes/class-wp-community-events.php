@@ -2,9 +2,11 @@
 /**
  * Administration: Community Events class.
  *
+ * @since WP 3.1.0
+ * @deprecated 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage Administration
- * @since 4.8.0
  */
 
 _deprecated_file( basename( __FILE__ ), '1.0.0', '', '', true );

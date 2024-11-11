@@ -1,10 +1,12 @@
 <?php
 /**
- * Upgrader API: Language_Pack_Upgrader_Skin class
+ * Upgrader API: Language_Pack_Upgrader_Skin class.
+ *
+ * @since WP 4.6.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Upgrader
- * @since WP 4.6.0
  */
 
 /**

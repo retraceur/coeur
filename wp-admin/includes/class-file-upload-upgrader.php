@@ -1,10 +1,12 @@
 <?php
 /**
- * Upgrade API: File_Upload_Upgrader class
+ * Upgrade API: File_Upload_Upgrader class.
+ *
+ * @since WP 4.6.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Upgrader
- * @since WP 4.6.0
  */
 
 /**

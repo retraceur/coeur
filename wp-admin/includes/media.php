@@ -1,6 +1,8 @@
 <?php
 /**
- * WordPress Administration Media API.
+ * motsVertueux Administration Media API.
+ *
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Administration

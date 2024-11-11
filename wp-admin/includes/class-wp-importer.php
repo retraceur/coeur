@@ -1,6 +1,11 @@
 <?php
 /**
- * WP_Importer base class
+ * WP_Importer base class.
+ *
+ * @since 1.0.0 motsVertueux fork.
+ * 
+ * @package motsVertueux
+ * @subpackage Administration
  */
 #[AllowDynamicProperties]
 class WP_Importer {

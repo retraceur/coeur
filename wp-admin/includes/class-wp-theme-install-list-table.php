@@ -1,10 +1,12 @@
 <?php
 /**
- * List Table API: WP_Theme_Install_List_Table class
+ * List Table API: WP_Theme_Install_List_Table class.
+ *
+ * @since WP 3.1.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Administration
- * @since WP 3.1.0
  */
 
 /**
@@ -417,7 +419,7 @@ class WP_Theme_Install_List_Table extends WP_Themes_List_Table {
 	 * Prints the wrapper for the theme installer with a provided theme's data.
 	 * Used to make the theme installer work for no-js.
 	 *
-	 * @param stdClass $theme A Theme bject.
+	 * @param stdClass $theme A Theme object.
 	 */
 	public function theme_installer_single( $theme ) {
 		?>

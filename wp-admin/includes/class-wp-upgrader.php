@@ -1,12 +1,14 @@
 <?php
 /**
- * Upgrade API: WP_Upgrader class
+ * Upgrade API: WP_Upgrader class.
  *
  * Requires skin classes and WP_Upgrader subclasses for backward compatibility.
  *
+ * @since WP 2.8.0
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage Upgrader
- * @since WP 2.8.0
  */
 
 /** WP_Upgrader_Skin class */
@@ -525,11 +527,7 @@ class WP_Upgrader {
 		$destination       = $args['destination'];
 		$clear_destination = $args['clear_destination'];
 
-		/*
-		 * Give the upgrade an additional 300 seconds (5 minutes) to ensure the install
-		 * doesn't prematurely timeout having used up the maximum script execution time
-		 * upacking and downloading in WP_Upgrader->run().
-		 */
+		// Give the upgrade an additional 300 seconds(5 minutes) to ensure the install doesn't prematurely timeout having used up the maximum script execution time upacking and downloading in WP_Upgrader->run.
 		if ( function_exists( 'set_time_limit' ) ) {
 			set_time_limit( 300 );
 		}

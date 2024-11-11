@@ -1,10 +1,11 @@
 <?php
 /**
- * WordPress Theme Administration API
+ * WordPress Theme Administration API.
+ *
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Administration
- * @since 1.0.0 motsVertueux fork.
  */
 
 /**
@@ -308,7 +309,7 @@ function get_theme_update_available( $theme ) {
  * @since WP 5.8.1 Added 'Template Editing' feature.
  * @since WP 6.1.1 Replaced 'Full Site Editing' feature name with 'Site Editor'.
  * @since WP 6.2.0 Added 'Style Variations' feature.
- * @since 1.0.0    Remove the WP API requesting part.
+ * @since 1.0.0    motsVertueux: remove the WP API requesting part.
  * 
  * @return array Array of features keyed by category with translations keyed by slug.
  */

@@ -1,10 +1,12 @@
 <?php
 /**
- * Upgrade API: Language_Pack_Upgrader class
+ * Upgrade API: Language_Pack_Upgrader class.
+ *
+ * @since 1.0.0 motsVertueux fork.
+ * @since WP 4.6.0
  *
  * @package motsVertueux
  * @subpackage Upgrader
- * @since WP 4.6.0
  */
 
 /**

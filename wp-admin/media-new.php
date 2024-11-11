@@ -4,7 +4,7 @@
  *
  * There are many filters in here for media. Plugins can extend functionality
  * by hooking into the filters.
- * 
+ *
  * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux

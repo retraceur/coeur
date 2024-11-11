@@ -1,10 +1,12 @@
 <?php
 /**
- * List Table API: WP_Privacy_Data_Removal_Requests_List_Table class
+ * List Table API: WP_Privacy_Data_Removal_Requests_List_Table class.
+ *
+ * @since WP 4.9.6
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Administration
- * @since WP 4.9.6
  */
 
 if ( ! class_exists( 'WP_Privacy_Requests_Table' ) ) {

@@ -1,10 +1,12 @@
 <?php
 /**
- * List Table API: WP_Post_Comments_List_Table class
+ * List Table API: WP_Post_Comments_List_Table class.
+ *
+ * @since WP 4.4.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Administration
- * @since WP 4.4.0
  */
 
 /**

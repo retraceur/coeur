@@ -1,14 +1,16 @@
 <?php
 /**
- * Filesystem API: Top-level functionality
+ * Filesystem API: Top-level functionality.
  *
  * Functions for reading, writing, modifying, and deleting files on the file system.
  * Includes functionality for theme-specific files as well as operations for uploading,
  * archiving, and rendering output when necessary.
  *
+ * @since WP 2.3.0
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage Filesystem
- * @since WP 2.3.0
  */
 
 /** The descriptions for theme files. */

@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Filesystem Class for implementing SSH2
+ * WordPress Filesystem Class for implementing SSH2.
  *
  * To use this class you must follow these steps for PHP 5.2.6+
  *
@@ -29,6 +29,7 @@
  * Note: As of WordPress 2.8, this utilizes the PHP5+ function `stream_get_contents()`.
  *
  * @since WP 2.7.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Filesystem

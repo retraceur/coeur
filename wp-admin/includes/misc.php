@@ -2,9 +2,10 @@
 /**
  * Misc WordPress Administration API.
  *
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage Administration
- * @since 1.0.0 motsVertueux fork.
  */
 
 /**
@@ -1586,7 +1587,7 @@ function _wp_privacy_settings_filter_draft_page_titles( $title, $page ) {
  *
  * @since WP 5.1.0
  * @since WP 5.1.1 Added the {@see 'wp_is_php_version_acceptable'} filter.
- * @since 1.0.0    Stop using the distant WP API.
+ * @since 1.0.0    motsVertueux: stop using the distant WP API.
  * 
  * @global string $required_php_version    The required PHP version string.
  * @global string $recommended_php_version The recommended PHP version string.

@@ -1,10 +1,12 @@
 <?php
 /**
- * Edit Tags Administration: Messages
+ * Edit Tags Administration: Messages.
+ *
+ * @since WP 4.4.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Administration
- * @since WP 4.4.0
  */
 
 $messages = array();

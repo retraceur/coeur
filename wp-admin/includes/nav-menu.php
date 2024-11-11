@@ -1,10 +1,12 @@
 <?php
 /**
- * Core Navigation Menu API
+ * Core Navigation Menu API.
+ *
+ * @since WP 3.0.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Nav_Menus
- * @since WP 3.0.0
  */
 
 /** Walker_Nav_Menu_Edit class */

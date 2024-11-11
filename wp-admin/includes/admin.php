@@ -1,10 +1,12 @@
 <?php
 /**
- * Core Administration API
+ * Core Administration API.
+ *
+ * @since WP 2.3.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Administration
- * @since WP 2.3.0
  */
 
 if ( ! defined( 'WP_ADMIN' ) ) {

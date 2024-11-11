@@ -1,10 +1,12 @@
 <?php
 /**
- * Multisite Administration hooks
+ * Multisite Administration hooks.
+ *
+ * @since WP 4.3.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Administration
- * @since WP 4.3.0
  */
 
 // Media hooks.

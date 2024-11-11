@@ -1,10 +1,12 @@
 <?php
 /**
- * Administration API: WP_Site_Icon class
+ * Administration API: WP_Site_Icon class.
+ *
+ * @since WP 4.3.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Administration
- * @since WP 4.3.0
  */
 
 /**

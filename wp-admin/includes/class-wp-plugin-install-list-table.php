@@ -1,10 +1,12 @@
 <?php
 /**
- * List Table API: WP_Plugin_Install_List_Table class
+ * List Table API: WP_Plugin_Install_List_Table class.
+ *
+ * @since WP 3.1.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Administration
- * @since WP 3.1.0
  */
 
 /**

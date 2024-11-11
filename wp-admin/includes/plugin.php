@@ -1,10 +1,11 @@
 <?php
 /**
- * WordPress Plugin Administration API
+ * WordPress Plugin Administration API.
+ *
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Administration
- * @since 1.0.0 motsVertueux fork.
  */
 
 /**

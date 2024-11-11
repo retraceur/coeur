@@ -4,9 +4,10 @@
  * functions and look for the alternatives instead. The functions will be removed
  * in a later version.
  *
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage Deprecated
- * @since 1.0.0 motsVertueux fork.
  */
 
 /*

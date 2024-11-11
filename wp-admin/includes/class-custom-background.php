@@ -2,10 +2,10 @@
 /**
  * The custom background script.
  *
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage Administration
- * 
- * @since 1.0.0
  */
 
 /**

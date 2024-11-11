@@ -2,10 +2,11 @@
 /**
  * Class for looking up a site's health based on a user's WordPress environment.
  *
- * @package motsVertueux
- * @subpackage Site_Health
  * @since WP 5.2.0
  * @since 1.0.0 motsVertueux fork.
+ *
+ * @package motsVertueux
+ * @subpackage Site_Health
  */
 
 #[AllowDynamicProperties]

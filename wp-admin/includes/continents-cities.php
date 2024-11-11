@@ -1,12 +1,14 @@
 <?php
 /**
- * Translation API: Continent and city translations for timezone selection
+ * Translation API: Continent and city translations for timezone selection.
  *
  * This file is not included anywhere. It exists solely for use by xgettext.
  *
+ * @since WP 2.8.0
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage i18n
- * @since WP 2.8.0
  */
 
 __( 'Africa', 'continents-cities' );
