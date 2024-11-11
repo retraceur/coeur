@@ -1,10 +1,12 @@
 <?php
 /**
- * WordPress User Administration Bootstrap
+ * WordPress User Administration Bootstrap.
+ *
+ * @since WP 3.1.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Administration
- * @since WP 3.1.0
  */
 
 define( 'WP_USER_ADMIN', true );

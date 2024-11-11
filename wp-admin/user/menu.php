@@ -2,9 +2,11 @@
 /**
  * Build User Administration Menu.
  *
+ * @since WP 3.1.0
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage Administration
- * @since WP 3.1.0
  */
 
 $menu[2] = array( __( 'Dashboard' ), 'exist', 'index.php', '', 'menu-top menu-top-first menu-icon-dashboard', 'menu-dashboard', 'dashicons-dashboard' );

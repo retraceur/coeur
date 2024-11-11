@@ -1,10 +1,12 @@
 <?php
 /**
- * User Dashboard Administration Screen
+ * User Dashboard Administration Screen.
+ *
+ * @since WP 3.1.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Administration
- * @since WP 3.1.0
  */
 
 /** Load WordPress Administration Bootstrap */

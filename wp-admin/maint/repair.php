@@ -2,9 +2,10 @@
 /**
  * Database Repair and Optimization Script.
  *
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage Database
- * @since 1.0.0 motsVertueux fork.
  */
 define( 'WP_REPAIRING', true );
 

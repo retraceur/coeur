@@ -2,9 +2,11 @@
 /**
  * User Dashboard About administration panel.
  *
+ * @since WP 3.4.0
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage Administration
- * @since WP 3.4.0
  */
 
 /** Load WordPress Administration Bootstrap */
