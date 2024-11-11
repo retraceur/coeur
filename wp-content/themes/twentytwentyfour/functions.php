@@ -1,10 +1,11 @@
 <?php
 /**
- * Twenty Twenty-Four functions and definitions
+ * Twenty Twenty-Four functions and definitions.
  *
- * @package Twenty Twenty-Four
  * @since WP Twenty Twenty-Four 1.0
  * @since 1.0.0 motsVertueux fork.
+ *
+ * @package Twenty Twenty-Four
  */
 
 /**
