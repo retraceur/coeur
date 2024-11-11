@@ -1,10 +1,12 @@
 <?php
 /**
- * Customize API: WP_Customize_Code_Editor_Control class
+ * Customize API: WP_Customize_Code_Editor_Control class.
+ *
+ * @since WP 4.9.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Customize
- * @since WP 4.9.0
  */
 
 /**

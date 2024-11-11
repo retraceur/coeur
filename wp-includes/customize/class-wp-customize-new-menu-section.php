@@ -1,11 +1,12 @@
 <?php
 /**
- * Customize API: WP_Customize_New_Menu_Section class
+ * Customize API: WP_Customize_New_Menu_Section class.
+ *
+ * @since WP 4.4.0
+ * @deprecated WP 4.9.0 This file is no longer used as of the menu creation UX introduced in #40104.
  *
  * @package motsVertueux
  * @subpackage Customize
- * @since WP 4.4.0
- * @deprecated WP 4.9.0 This file is no longer used as of the menu creation UX introduced in #40104.
  */
 
 _deprecated_file( basename( __FILE__ ), '4.9.0' );

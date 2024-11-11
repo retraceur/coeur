@@ -1,12 +1,14 @@
 <?php
 /**
- * Customize API: WP_Customize_Custom_CSS_Setting class
+ * Customize API: WP_Customize_Custom_CSS_Setting class.
  *
  * This handles validation, sanitization and saving of the value.
  *
+ * @since WP 4.7.0
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage Customize
- * @since WP 4.7.0
  */
 
 /**

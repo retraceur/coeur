@@ -1,10 +1,12 @@
 <?php
 /**
- * Customize API: WP_Widget_Area_Customize_Control class
+ * Customize API: WP_Widget_Area_Customize_Control class.
+ *
+ * @since WP 4.4.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Customize
- * @since WP 4.4.0
  */
 
 /**

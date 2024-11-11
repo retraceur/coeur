@@ -1,10 +1,12 @@
 <?php
 /**
- * Customize API: WP_Customize_Selective_Refresh class
+ * Customize API: WP_Customize_Selective_Refresh class.
+ *
+ * @since WP 4.5.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Customize
- * @since WP 4.5.0
  */
 
 /**
