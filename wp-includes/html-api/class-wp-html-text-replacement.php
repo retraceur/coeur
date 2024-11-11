@@ -1,10 +1,12 @@
 <?php
 /**
- * HTML API: WP_HTML_Text_Replacement class
+ * HTML API: WP_HTML_Text_Replacement class.
+ *
+ * @since WP 6.2.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage HTML-API
- * @since WP 6.2.0
  */
 
 /**

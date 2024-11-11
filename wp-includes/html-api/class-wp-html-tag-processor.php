@@ -1,6 +1,6 @@
 <?php
 /**
- * HTML API: WP_HTML_Tag_Processor class
+ * HTML API: WP_HTML_Tag_Processor class.
  *
  * Scans through an HTML document to find specific tags, then
  * transforms those tags by adding, removing, or updating the
@@ -16,9 +16,11 @@
  *    This would increase the size of the changes for some operations but leave more
  *    natural-looking output HTML.
  *
+ * @since WP 6.2.0
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage HTML-API
- * @since WP 6.2.0
  */
 
 /**

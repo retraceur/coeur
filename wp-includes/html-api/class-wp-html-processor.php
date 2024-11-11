@@ -1,10 +1,12 @@
 <?php
 /**
- * HTML API: WP_HTML_Processor class
+ * HTML API: WP_HTML_Processor class.
  *
- * @package motsVertueux
- * @subpackage HTML-API
  * @since WP 6.4.0
+ * @since 1.0.0 motsVertueux fork.
+ *
+ * @package WordPress
+ * @subpackage HTML-API
  */
 
 /**
@@ -604,22 +606,6 @@ class WP_HTML_Processor extends WP_HTML_Tag_Processor {
 	}
 
 	/**
-	 * Finds the next token in the HTML document.
-	 *
-	 * This doesn't currently have a way to represent non-tags and doesn't process
-	 * semantic rules for text nodes. For access to the raw tokens consider using
-	 * WP_HTML_Tag_Processor instead.
-	 *
-	 * @since WP 6.5.0 Added for internal support; do not use.
-	 * @since WP 6.7.1 Refactored so subclasses may extend.
-	 *
-	 * @return bool Whether a token was parsed.
-	 */
-	public function next_token(): bool {
-		return $this->_next_token();
-	}
-
-	/**
 	 * Ensures internal accounting is maintained for HTML semantic rules while
 	 * the underlying Tag Processor class is seeking to a bookmark.
 	 *
@@ -627,13 +613,13 @@ class WP_HTML_Processor extends WP_HTML_Tag_Processor {
 	 * semantic rules for text nodes. For access to the raw tokens consider using
 	 * WP_HTML_Tag_Processor instead.
 	 *
-	 * @since WP 6.7.1 Added for internal support; do not use.
+	 * @since WP 6.5.0 Added for internal support; do not use.
 	 *
 	 * @access private
 	 *
 	 * @return bool
 	 */
-	private function _next_token(): bool {
+	public function next_token(): bool {
 		$this->current_element = null;
 
 		if ( isset( $this->last_error ) ) {
@@ -651,7 +637,7 @@ class WP_HTML_Processor extends WP_HTML_Tag_Processor {
 		 *       tokens works in the meantime and isn't obviously wrong.
 		 */
 		if ( empty( $this->element_queue ) && $this->step() ) {
-			return $this->_next_token();
+			return $this->next_token();
 		}
 
 		// Process the next event on the queue.
@@ -662,7 +648,7 @@ class WP_HTML_Processor extends WP_HTML_Tag_Processor {
 				continue;
 			}
 
-			return empty( $this->element_queue ) ? false : $this->_next_token();
+			return empty( $this->element_queue ) ? false : $this->next_token();
 		}
 
 		$is_pop = WP_HTML_Stack_Event::POP === $this->current_element->operation;
@@ -673,7 +659,7 @@ class WP_HTML_Processor extends WP_HTML_Tag_Processor {
 		 * the breadcrumbs.
 		 */
 		if ( 'root-node' === $this->current_element->token->bookmark_name ) {
-			return $this->_next_token();
+			return $this->next_token();
 		}
 
 		// Adjust the breadcrumbs for this event.
@@ -685,7 +671,7 @@ class WP_HTML_Processor extends WP_HTML_Tag_Processor {
 
 		// Avoid sending close events for elements which don't expect a closing.
 		if ( $is_pop && ! $this->expects_closer( $this->current_element->token ) ) {
-			return $this->_next_token();
+			return $this->next_token();
 		}
 
 		return true;

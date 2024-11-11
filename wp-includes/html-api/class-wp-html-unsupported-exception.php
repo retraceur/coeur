@@ -1,10 +1,12 @@
 <?php
 /**
- * HTML API: WP_HTML_Unsupported_Exception class
+ * HTML API: WP_HTML_Unsupported_Exception class.
+ *
+ * @since WP 6.4.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage HTML-API
- * @since WP 6.4.0
  */
 
 /**

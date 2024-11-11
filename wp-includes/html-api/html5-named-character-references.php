@@ -12,8 +12,10 @@
  *
  *     php tests/phpunit/data/html5-entities/generate-html5-named-character-references.php
  *
- * @package motsVertueux
  * @since WP 6.6.0
+ * @since 1.0.0 motsVertueux fork.
+ *
+ * @package motsVertueux
  */
 
 // phpcs:disable

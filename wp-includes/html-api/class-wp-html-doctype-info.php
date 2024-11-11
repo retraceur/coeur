@@ -1,10 +1,12 @@
 <?php
 /**
- * HTML API: WP_HTML_Doctype_Info class
+ * HTML API: WP_HTML_Doctype_Info class.
+ *
+ * @since WP 6.7.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage HTML-API
- * @since WP 6.7.0
  */
 
 /**

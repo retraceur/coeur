@@ -1,10 +1,12 @@
 <?php
 /**
- * HTML API: WP_HTML_Processor_State class
+ * HTML API: WP_HTML_Processor_State class.
+ *
+ * @since WP 6.4.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage HTML-API
- * @since WP 6.4.0
  */
 
 /**
