@@ -2,6 +2,8 @@
 /**
  * Used to set up all core blocks used with the block editor.
  *
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  */
 

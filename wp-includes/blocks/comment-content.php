@@ -2,6 +2,8 @@
 /**
  * Server-side rendering of the `core/comment-content` block.
  *
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  */
 

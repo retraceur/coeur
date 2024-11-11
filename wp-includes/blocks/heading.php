@@ -2,6 +2,8 @@
 /**
  * Appending the wp-block-heading to before rendering the stored `core/heading` block contents.
  *
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  */
 

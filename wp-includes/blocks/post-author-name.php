@@ -2,6 +2,8 @@
 /**
  * Server-side rendering of the `core/post-author-name` block.
  *
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  */
 

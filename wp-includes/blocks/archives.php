@@ -1,6 +1,8 @@
 <?php
 /**
  * Server-side rendering of the `core/archives` block.
+ * 
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  */

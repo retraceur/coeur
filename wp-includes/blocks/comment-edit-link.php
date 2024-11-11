@@ -2,6 +2,8 @@
 /**
  * Server-side rendering of the `core/comment-edit-link` block.
  *
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  */
 

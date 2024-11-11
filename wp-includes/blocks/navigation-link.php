@@ -2,6 +2,8 @@
 /**
  * Server-side registering and rendering of the `core/navigation-link` block.
  *
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  */
 

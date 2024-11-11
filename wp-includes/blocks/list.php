@@ -2,6 +2,8 @@
 /**
  * Adds the wp-block-list class to the rendered list block.
  *
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  */
 
