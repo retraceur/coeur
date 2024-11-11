@@ -2,9 +2,11 @@
 /**
  * oEmbed API: Top-level oEmbed functionality
  *
+ * @since WP 4.4.0
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage oEmbed
- * @since WP 4.4.0
  */
 
 /**
@@ -1215,8 +1217,8 @@ function the_embed_site_title() {
 	$site_title = sprintf(
 		'<a href="%s" target="_top"><img src="%s" srcset="%s 2x" width="32" height="32" alt="" class="wp-embed-site-icon" /><span>%s</span></a>',
 		esc_url( home_url() ),
-		esc_url( get_site_icon_url( 32, includes_url( 'images/w-logo-blue.png' ) ) ),
-		esc_url( get_site_icon_url( 64, includes_url( 'images/w-logo-blue.png' ) ) ),
+		esc_url( get_site_icon_url( 32, includes_url( 'images/mv-logo-red.png' ) ) ),
+		esc_url( get_site_icon_url( 64, includes_url( 'images/mv-logo-red.png' ) ) ),
 		esc_html( get_bloginfo( 'name' ) )
 	);
 
