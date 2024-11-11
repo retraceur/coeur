@@ -1,8 +1,10 @@
 /**
  * Handles updating and editing comments.
  *
- * @file This file contains functionality for the admin comments page.
  * @since WP 2.1.0
+ * @since 1.0.0 motsVertueux fork.
+ *
+ * @file This file contains functionality for the admin comments page.
  * @output wp-admin/js/edit-comments.js
  */
 

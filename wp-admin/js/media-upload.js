@@ -6,7 +6,10 @@
  * send HTML or text to the currently active editor.
  *
  * @file
+ *
  * @since WP 2.5.0
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @output wp-admin/js/media-upload.js
  *
  * @requires jQuery

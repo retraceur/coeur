@@ -1,8 +1,9 @@
 /**
  * WordPress Administration Navigation Menu
- * Interface JS functions
+ * Interface JS functions.
  *
- * @version 2.0.0
+ * @since WP 2.0.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Administration

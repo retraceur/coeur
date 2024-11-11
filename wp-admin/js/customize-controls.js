@@ -3843,7 +3843,7 @@
 		 * Control subclasses may override this method to do their own handling
 		 * of rendering notifications.
 		 *
-		 * @deprecated WP in favor of `control.notifications.render()`
+		 * @deprecated In favor of `control.notifications.render()`
 		 * @since WP 4.6.0
 		 * @this {wp.customize.Control}
 		 */

@@ -1,7 +1,9 @@
 /**
  * Functions for ajaxified updates, deletions and installs inside the WordPress admin.
  *
- * @version 4.2.0
+ * @since WP 4.2.0
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @output wp-admin/js/updates.js
  */
 

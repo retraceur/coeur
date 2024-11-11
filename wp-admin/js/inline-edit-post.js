@@ -2,6 +2,8 @@
  * This file contains the functions needed for the inline editing of posts.
  *
  * @since WP 2.7.0
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @output wp-admin/js/inline-edit-post.js
  */
 

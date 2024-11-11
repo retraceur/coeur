@@ -3,6 +3,8 @@
  * the state and ordering to the database.
  *
  * @since WP 2.5.0
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @requires jQuery
  * @output wp-admin/js/postbox.js
  */

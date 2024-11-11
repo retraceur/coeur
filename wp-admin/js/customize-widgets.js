@@ -1384,7 +1384,7 @@
 		/**
 		 * Expand or collapse the widget control
 		 *
-		 * @deprecated WP this is poor naming, and it is better to directly set control.expanded( showOrHide )
+		 * @deprecated This is poor naming, and it is better to directly set control.expanded( showOrHide )
 		 *
 		 * @param {boolean|undefined} [showOrHide] If not supplied, will be inverse of current visibility
 		 */

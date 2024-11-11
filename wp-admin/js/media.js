@@ -3,6 +3,8 @@
  * to it.
  *
  * @since WP 2.7.0
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @output wp-admin/js/media.js
  *
  * @namespace findPosts

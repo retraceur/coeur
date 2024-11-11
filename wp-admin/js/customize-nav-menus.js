@@ -864,12 +864,12 @@
 		}, 2000 ),
 
 		/**
-		 * @deprecated WP Since 4.7.0 now that the nav_menu sections are responsible for toggling the classes on their own containers.
+		 * @deprecated Since WP 4.7.0 now that the nav_menu sections are responsible for toggling the classes on their own containers.
 		 */
 		checked: function() {},
 
 		/**
-		 * @deprecated WP Since 4.7.0 now that the nav_menu sections are responsible for toggling the classes on their own containers.
+		 * @deprecated Since WP 4.7.0 now that the nav_menu sections are responsible for toggling the classes on their own containers.
 		 */
 		unchecked: function() {},
 
@@ -2136,7 +2136,7 @@
 		/**
 		 * Expand or collapse the menu item control.
 		 *
-		 * @deprecated WP this is poor naming, and it is better to directly set control.expanded( showOrHide )
+		 * @deprecated This is poor naming, and it is better to directly set control.expanded( showOrHide )
 		 * @since WP 4.5.0 Added params.completeCallback.
 		 *
 		 * @param {boolean}  [showOrHide] - If not supplied, will be inverse of current visibility
