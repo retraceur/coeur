@@ -5,8 +5,10 @@
  * For backwards compatibility, this remains separate to the dimensions.php
  * block support despite both belonging under a single panel in the editor.
  *
- * @package motsVertueux
  * @since WP 5.8.0
+ * @since 1.0.0 motsVertueux fork.
+ *
+ * @package motsVertueux
  */
 
 /**

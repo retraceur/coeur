@@ -3,8 +3,10 @@
  * Block support to enable per-section styling of block types via
  * block style variations.
  *
- * @package motsVertueux
  * @since WP 6.6.0
+ * @since 1.0.0 motsVertueux fork.
+ *
+ * @package motsVertueux
  */
 
 /**

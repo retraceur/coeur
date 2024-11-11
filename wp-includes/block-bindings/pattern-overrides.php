@@ -3,6 +3,8 @@
  * Pattern Overrides source for the Block Bindings.
  *
  * @since WP 6.5.0
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage Block Bindings
  */

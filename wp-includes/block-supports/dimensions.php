@@ -6,8 +6,10 @@
  * appears under the "Dimensions" panel in the editor. It remains in its
  * original `spacing.php` file for compatibility with core.
  *
- * @package motsVertueux
  * @since WP 5.9.0
+ * @since 1.0.0 motsVertueux fork.
+ *
+ * @package motsVertueux
  */
 
 /**

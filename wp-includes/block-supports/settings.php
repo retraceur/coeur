@@ -2,8 +2,10 @@
 /**
  * Block level presets support.
  *
- * @package motsVertueux
  * @since WP 6.2.0
+ * @since 1.0.0 motsVertueux fork.
+ *
+ * @package motsVertueux
  */
 
 /**

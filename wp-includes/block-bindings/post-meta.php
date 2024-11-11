@@ -3,6 +3,8 @@
  * Post Meta source for the block bindings.
  *
  * @since WP 6.5.0
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage Block Bindings
  */

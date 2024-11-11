@@ -2,8 +2,10 @@
 /**
  * Border block support flag.
  *
- * @package motsVertueux
  * @since WP 5.8.0
+ * @since 1.0.0 motsVertueux fork.
+ *
+ * @package motsVertueux
  */
 
 /**

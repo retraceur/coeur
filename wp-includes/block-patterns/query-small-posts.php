@@ -2,6 +2,8 @@
 /**
  * Query: Small image and title.
  *
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  */
 

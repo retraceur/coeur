@@ -2,9 +2,11 @@
 /**
  * Block support utility functions.
  *
+ * @since WP 6.0.0
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage Block Supports
- * @since WP 6.0.0
  */
 
 /**
