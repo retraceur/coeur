@@ -1,10 +1,12 @@
 <?php
 /**
- * Feed API: WP_SimplePie_File class
+ * Feed API: WP_SimplePie_File class.
+ *
+ * @since WP 4.7.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Feed
- * @since WP 4.7.0
  */
 
 /**

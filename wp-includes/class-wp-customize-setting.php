@@ -1,11 +1,12 @@
 <?php
 /**
- * WordPress Customize Setting classes
+ * WordPress Customize Setting classes.
+ *
+ * @since WP 3.4.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Customize
- * @since WP 3.4.0
- * @since 1.0.0 motsVertueux fork.
  */
 
 /**

@@ -1,4 +1,11 @@
 <?php
+/**
+ * Theme templating functions.
+ *
+ * @since 1.0.0 motsVertueux fork.
+ *
+ * @package  motsVertueux
+ */
 
 /**
  * Sets a custom slug when creating auto-draft template parts.

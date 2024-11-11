@@ -4,10 +4,11 @@
  *
  * Original code from {@link http://php.justinvincent.com Justin Vincent (justin@visunet.ie)}
  *
- * @package motsVertueux
- * @subpackage Database
  * @since WP 0.71
  * @since 1.0.0 motsVertueux fork.
+ *
+ * @package motsVertueux
+ * @subpackage Database
  */
 
 /**

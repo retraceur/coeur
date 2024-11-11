@@ -2,8 +2,10 @@
 /**
  * Send XML response back to Ajax request.
  *
- * @package motsVertueux
  * @since WP 2.1.0
+ * @since 1.0.0 motsVertueux fork.
+ *
+ * @package motsVertueux
  */
 #[AllowDynamicProperties]
 class WP_Ajax_Response {

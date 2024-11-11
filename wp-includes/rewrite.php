@@ -1,6 +1,8 @@
 <?php
 /**
- * WordPress Rewrite API
+ * WordPress Rewrite API.
+ *
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Rewrite

@@ -1,10 +1,12 @@
 <?php
 /**
- * Meta API: WP_Meta_Query class
+ * Meta API: WP_Meta_Query class.
+ *
+ * @since WP 4.4.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Meta
- * @since WP 4.4.0
  */
 
 /**

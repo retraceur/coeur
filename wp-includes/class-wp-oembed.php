@@ -1,14 +1,15 @@
 <?php
 /**
- * API for fetching the HTML to embed remote content based on a provided URL
+ * API for fetching the HTML to embed remote content based on a provided URL.
  *
  * Used internally by the WP_Embed class, but is designed to be generic.
- * 
+ *
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @link http://oembed.com/
  *
  * @package motsVertueux
  * @subpackage oEmbed
- * @since 1.0.0 motsVertueux fork.
  */
 
 /**

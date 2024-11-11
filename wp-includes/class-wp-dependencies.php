@@ -1,8 +1,9 @@
 <?php
 /**
- * Dependencies API: WP_Dependencies base class
+ * Dependencies API: WP_Dependencies base class.
  *
  * @since WP 2.6.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Dependencies

@@ -4,9 +4,11 @@
  * use these functions and look for the alternatives instead. The functions will be
  * removed in a later version.
  *
+ * @since WP 3.0.0
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage Deprecated
- * @since WP 3.0.0
  */
 
 /*

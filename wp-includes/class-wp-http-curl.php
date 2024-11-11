@@ -1,10 +1,12 @@
 <?php
 /**
- * HTTP API: WP_Http_Curl class
+ * HTTP API: WP_Http_Curl class.
+ *
+ * @since WP 4.4.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage HTTP
- * @since WP 4.4.0
  */
 
 /**

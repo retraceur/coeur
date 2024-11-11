@@ -1,10 +1,11 @@
 <?php
 /**
- * Dependencies API: WP_Scripts class
+ * Dependencies API: WP_Scripts class.
  *
  * This file is deprecated, use 'wp-includes/class-wp-scripts.php' instead.
  *
  * @deprecated WP 6.1.0
+ *
  * @package motsVertueux
  */
 

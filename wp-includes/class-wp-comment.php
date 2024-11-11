@@ -1,10 +1,12 @@
 <?php
 /**
- * Comment API: WP_Comment class
+ * Comment API: WP_Comment class.
+ *
+ * @since WP 4.4.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Comments
- * @since WP 4.4.0
  */
 
 /**

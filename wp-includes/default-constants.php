@@ -2,6 +2,8 @@
 /**
  * Defines constants and global variables that can be overridden, generally in wp-config.php.
  *
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  */
 

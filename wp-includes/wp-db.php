@@ -4,6 +4,8 @@
  *
  * This file is deprecated, use 'wp-includes/class-wpdb.php' instead.
  *
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @deprecated WP 6.1.0
  * @package motsVertueux
  */

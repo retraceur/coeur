@@ -1,10 +1,12 @@
 <?php
 /**
- * Widget API: Default core widgets
+ * Widget API: Default core widgets.
+ *
+ * @since WP 2.8.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Widgets
- * @since WP 2.8.0
  */
 
 /** WP_Widget_Pages class */

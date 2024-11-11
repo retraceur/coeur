@@ -2,6 +2,8 @@
 /**
  * RSS 1 RDF Feed Template for displaying RSS 1 Posts feed.
  *
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  */
 

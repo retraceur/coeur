@@ -4,6 +4,8 @@
  *
  * Native support for ES Modules and Import Maps.
  *
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage Script Modules
  */

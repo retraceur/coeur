@@ -4,6 +4,8 @@
  *
  * Handles many functions for formatting output.
  *
+ * 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  */
 

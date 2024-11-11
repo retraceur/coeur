@@ -1,10 +1,12 @@
 <?php
 /**
- * HTTP API: WP_HTTP_Requests_Response class
+ * HTTP API: WP_HTTP_Requests_Response class.
+ *
+ * @since WP 4.6.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage HTTP
- * @since WP 4.6.0
  */
 
 /**

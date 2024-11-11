@@ -1,9 +1,10 @@
 <?php
 /**
- * WordPress Cron API
+ * WordPress Cron API.
+ *
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
- * @since 1.0.0 motsVertueux fork.
  */
 
 /**

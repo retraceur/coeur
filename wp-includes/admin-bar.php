@@ -1,11 +1,12 @@
 <?php
 /**
- * Toolbar API: Top-level Toolbar functionality
+ * Toolbar API: Top-level Toolbar functionality.
+ *
+ * @since WP 3.1.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Toolbar
- * @since WP 3.1.0
- * @since 1.0.0 motsVertueux fork.
  */
 
 /**

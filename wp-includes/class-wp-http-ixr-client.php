@@ -1,9 +1,11 @@
 <?php
 /**
- * WP_HTTP_IXR_Client
+ * WP_HTTP_IXR_Client class.
+ *
+ * @since WP 3.1.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
- * @since WP 3.1.0
  */
 #[AllowDynamicProperties]
 class WP_HTTP_IXR_Client extends IXR_Client {

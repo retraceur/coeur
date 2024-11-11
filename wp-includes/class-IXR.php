@@ -1,6 +1,6 @@
 <?php
 /**
- * IXR - The Incutio XML-RPC Library
+ * IXR - The Incutio XML-RPC Library.
  *
  * Copyright (c) 2010, Incutio Ltd.
  * All rights reserved.
@@ -29,14 +29,17 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
- * @package IXR
- * @since WP 1.5.0
- *
  * @copyright  Incutio Ltd 2010 (http://www.incutio.com)
  * @version    1.7.4 7th September 2010
  * @author     Simon Willison
  * @link       http://scripts.incutio.com/xmlrpc/ Site/manual
  * @license    http://www.opensource.org/licenses/bsd-license.php BSD
+ *
+ * @since WP 1.5.0
+ * @since 1.0.0 motsVertueux fork.
+ *
+ * @package motsVertueux
+ * @subpackage IXR
  */
 
 require_once ABSPATH . WPINC . '/IXR/class-IXR-server.php';

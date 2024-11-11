@@ -2,9 +2,11 @@
 /**
  * Block Bindings API: WP_Block_Bindings_Source class.
  *
+ * @since WP 6.5.0
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage Block Bindings
- * @since WP 6.5.0
  */
 
 /**

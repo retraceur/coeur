@@ -1,10 +1,12 @@
 <?php
 /**
- * Meta API: WP_Metadata_Lazyloader class
+ * Meta API: WP_Metadata_Lazyloader class.
+ *
+ * @since WP 4.5.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Meta
- * @since WP 4.5.0
  */
 
 /**

@@ -2,6 +2,8 @@
 /**
  * RSS2 Feed Template for displaying RSS2 Posts feed.
  *
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  */
 

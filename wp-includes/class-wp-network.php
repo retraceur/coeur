@@ -1,10 +1,12 @@
 <?php
 /**
- * Network API: WP_Network class
+ * Network API: WP_Network class.
+ *
+ * @since WP 4.4.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Multisite
- * @since WP 4.4.0
  */
 
 /**

@@ -3,8 +3,10 @@
 /**
  * Class for efficiently looking up and mapping string keys to string values, with limits.
  *
- * @package    WordPress
- * @since WP      6.6.0
+ * @since WP 6.6.0
+ * @since 1.0.0 motsVertueux fork.
+ *
+ * @package motsVertueux
  */
 
 /**

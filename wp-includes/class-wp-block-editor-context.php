@@ -1,9 +1,12 @@
 <?php
 /**
- * Blocks API: WP_Block_Editor_Context class
+ * Blocks API: WP_Block_Editor_Context class.
+ *
+ * @since WP 5.8.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
- * @since WP 5.8.0
+ * @subpackage Blocks
  */
 
 /**

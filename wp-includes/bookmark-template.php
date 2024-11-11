@@ -2,8 +2,10 @@
 /**
  * Bookmark Template Functions for usage in Themes.
  *
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
- * @subpackage Template
+ * @subpackage Bookmark Template
  */
 
 /**

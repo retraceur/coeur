@@ -1,10 +1,14 @@
 <?php
 /**
  * Portable PHP password hashing framework.
- * @package phpass
+ * 
  * @since WP 2.5.0
- * @version 0.5 / WordPress
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @link https://www.openwall.com/phpass/
+ * 
+ * @package motsVertueux
+ * @subpackage phpass
  */
 
 #

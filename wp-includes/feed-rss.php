@@ -2,6 +2,8 @@
 /**
  * RSS 0.92 Feed Template for displaying RSS 0.92 Posts feed.
  *
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  */
 

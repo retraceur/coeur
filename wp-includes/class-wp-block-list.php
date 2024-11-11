@@ -1,9 +1,12 @@
 <?php
 /**
- * Blocks API: WP_Block_List class
+ * Blocks API: WP_Block_List class.
+ *
+ * @since WP 5.5.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
- * @since WP 5.5.0
+ * @subpackage Blocks
  */
 
 /**

@@ -1,11 +1,12 @@
 <?php
 /**
- * User API: WP_User_Query class
+ * User API: WP_User_Query class.
+ *
+ * @since WP 4.4.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Users
- * @since WP 4.4.0
- * @since 1.0.0 motsVertueux fork.
  */
 
 /**

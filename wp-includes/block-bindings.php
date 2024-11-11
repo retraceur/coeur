@@ -1,12 +1,14 @@
 <?php
 /**
- * Block Bindings API
+ * Block Bindings API.
  *
  * Contains functions for managing block bindings in WordPress.
  *
+ * @since WP 6.5.0
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage Block Bindings
- * @since WP 6.5.0
  */
 
 /**

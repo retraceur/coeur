@@ -4,10 +4,10 @@
  *
  * These functions must be used within the WordPress Loop.
  *
- * @package motsVertueux
- * @subpackage Template
  * @since 1.0.0 motsVertueux fork.
- * 
+ *
+ * @package motsVertueux
+ * @subpackage Author Template
  */
 
 /**

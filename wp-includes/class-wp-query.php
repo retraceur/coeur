@@ -1,11 +1,12 @@
 <?php
 /**
- * Query API: WP_Query class
+ * Query API: WP_Query class.
+ *
+ * @since WP 4.7.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Query
- * @since WP 4.7.0
- * @since 1.0.0 motsVertueux fork.
  */
 
 /**

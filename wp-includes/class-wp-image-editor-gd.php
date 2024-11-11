@@ -1,6 +1,8 @@
 <?php
 /**
- * WordPress GD Image Editor
+ * WordPress GD Image Editor.
+ *
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Image_Editor

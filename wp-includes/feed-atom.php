@@ -2,6 +2,8 @@
 /**
  * Atom Feed Template for displaying Atom Posts feed.
  *
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  */
 

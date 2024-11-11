@@ -1,11 +1,12 @@
 <?php
 /**
- * WordPress Plugin Administration API: WP_Plugin_Dependencies class
+ * WordPress Plugin Administration API: WP_Plugin_Dependencies class.
+ *
+ * @since WP 6.5.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Administration
- * @since WP 6.5.0
- * @since 1.0.0 motsVertueux fork.
  */
 
 /**

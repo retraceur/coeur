@@ -1,10 +1,12 @@
 <?php
 /**
- * Nav Menu API: Walker_Nav_Menu class
+ * Nav Menu API: Walker_Nav_Menu class.
+ *
+ * @since WP 4.6.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Nav_Menus
- * @since WP 4.6.0
  */
 
 /**

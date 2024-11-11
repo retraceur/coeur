@@ -2,8 +2,10 @@
 /**
  * HTTPS migration functions.
  *
- * @package motsVertueux
  * @since WP 5.7.0
+ * @since 1.0.0 motsVertueux fork.
+ *
+ * @package motsVertueux
  */
 
 /**

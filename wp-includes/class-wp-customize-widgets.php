@@ -1,10 +1,12 @@
 <?php
 /**
- * WordPress Customize Widgets classes
+ * WordPress Customize Widgets classes.
+ *
+ * @since WP 3.9.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Customize
- * @since WP 3.9.0
  */
 
 /**

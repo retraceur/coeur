@@ -1,6 +1,8 @@
 <?php
 /**
- * Taxonomy API: Core category-specific functionality
+ * Taxonomy API: Core category-specific functionality.
+ *
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Taxonomy

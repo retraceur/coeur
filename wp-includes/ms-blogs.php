@@ -3,9 +3,11 @@
 /**
  * Site/blog functions that work with the blogs table and related data.
  *
+ * @since WP MU (3.0.0)
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage Multisite
- * @since WP MU (3.0.0)
  */
 
 require_once ABSPATH . WPINC . '/ms-site.php';

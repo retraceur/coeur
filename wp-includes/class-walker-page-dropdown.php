@@ -1,10 +1,12 @@
 <?php
 /**
- * Post API: Walker_PageDropdown class
+ * Post API: Walker_PageDropdown class.
+ *
+ * @since WP 4.4.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Post
- * @since WP 4.4.0
  */
 
 /**

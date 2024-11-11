@@ -1,10 +1,12 @@
 <?php
 /**
- * Locale API: WP_Locale_Switcher class
+ * Locale API: WP_Locale_Switcher class.
+ *
+ * @since WP 4.7.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage i18n
- * @since WP 4.7.0
  */
 
 /**

@@ -1,10 +1,11 @@
 <?php
 /**
- * Core Comment API
+ * Core Comment API.
+ *
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Comment
- * @since 1.0.0 motsVertueux fork.
  */
 
 /**

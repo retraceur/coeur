@@ -2,6 +2,8 @@
 /**
  * Theme previews using the Site Editor for block themes.
  *
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  */
 

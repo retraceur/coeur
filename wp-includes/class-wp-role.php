@@ -1,10 +1,12 @@
 <?php
 /**
- * User API: WP_Role class
+ * User API: WP_Role class.
+ *
+ * @since WP 4.4.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Users
- * @since WP 4.4.0
  */
 
 /**

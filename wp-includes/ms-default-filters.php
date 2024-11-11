@@ -7,10 +7,12 @@
  *
  * Not all of the Multisite default hooks are found in ms-default-filters.php
  *
+ * @since WP 3.0.0
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage Multisite
  * @see default-filters.php
- * @since WP 3.0.0
  */
 
 add_action( 'init', 'ms_subdomain_constants' );

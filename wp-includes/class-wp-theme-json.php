@@ -1,11 +1,12 @@
 <?php
 /**
- * WP_Theme_JSON class
+ * WP_Theme_JSON class.
+ *
+ * @since WP 5.8.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Theme
- * @since WP 5.8.0
- * @since 1.0.0 motsVertueux fork.
  */
 
 /**

@@ -1,10 +1,12 @@
 <?php
 /**
- * WordPress Customize Panel classes
+ * WordPress Customize Panel classes.
+ *
+ * @since WP 4.0.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Customize
- * @since WP 4.0.0
  */
 
 /**

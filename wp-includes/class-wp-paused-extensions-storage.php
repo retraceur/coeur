@@ -1,9 +1,11 @@
 <?php
 /**
- * Error Protection API: WP_Paused_Extensions_Storage class
+ * Error Protection API: WP_Paused_Extensions_Storage class.
+ *
+ * @since WP 5.2.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
- * @since WP 5.2.0
  */
 
 /**

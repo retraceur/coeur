@@ -5,9 +5,11 @@
  * This file uses rtrim() instead of untrailingslashit() and trailingslashit()
  * to avoid formatting.php dependency.
  *
+ * @since WP 6.1.0
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage i18n
- * @since WP 6.1.0
  */
 
 /**

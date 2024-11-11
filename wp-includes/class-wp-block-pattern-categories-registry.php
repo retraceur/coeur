@@ -1,10 +1,12 @@
 <?php
 /**
- * Blocks API: WP_Block_Pattern_Categories_Registry class
+ * Blocks API: WP_Block_Pattern_Categories_Registry class.
+ *
+ * @since WP 5.5.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Blocks
- * @since WP 5.5.0
  */
 
 /**

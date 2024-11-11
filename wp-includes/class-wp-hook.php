@@ -1,10 +1,12 @@
 <?php
 /**
- * Plugin API: WP_Hook class
+ * Plugin API: WP_Hook class.
+ *
+ * @since WP 4.7.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Plugin
- * @since WP 4.7.0
  */
 
 /**

@@ -1,11 +1,12 @@
 <?php
 /**
- * Site API: WP_Site_Query class
+ * Site API: WP_Site_Query class.
+ *
+ * @since WP 4.6.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Sites
- * @since WP 4.6.0
- * @since 1.0.0 motsVertueux fork.
  */
 
 /**

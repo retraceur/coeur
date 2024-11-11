@@ -2,9 +2,10 @@
 /**
  * Object Cache API functions missing from 3rd party object caches.
  *
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage Cache
- * @since 1.0.0 motsVertueux fork.
  */
 
 if ( ! function_exists( 'wp_cache_add_multiple' ) ) :

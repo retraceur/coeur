@@ -4,9 +4,10 @@
  *
  * Contains version information for the current motsVertueux release.
  *
- * @package motsVertueux
  * @since WP 1.2.0
  * @since 1.0.0 motsVertueux fork.
+ *
+ * @package motsVertueux
  */
 
 /**
@@ -17,7 +18,7 @@
  *
  * @global string $wp_version
  */
-$wp_version = '6.8-alpha-59335';
+$wp_version = '6.7-RC4';
 
 /**
  * The motsVertueux version string.

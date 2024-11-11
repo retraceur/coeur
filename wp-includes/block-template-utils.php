@@ -2,8 +2,11 @@
 /**
  * Utilities used to fetch and create templates and template parts.
  *
- * @package motsVertueux
  * @since WP 5.8.0
+ * @since 1.0.0 motsVertueux fork.
+ *
+ * @package motsVertueux
+ * @subpackage Block Template
  */
 
 // Define constants for supported wp_template_part_area taxonomy.

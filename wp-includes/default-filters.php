@@ -20,6 +20,8 @@
  * (admin area, multisite environment…), please move it
  * to a more appropriate file instead.
  *
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  */
 

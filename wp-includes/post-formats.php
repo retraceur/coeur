@@ -2,6 +2,8 @@
 /**
  * Post format functions.
  *
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage Post
  */

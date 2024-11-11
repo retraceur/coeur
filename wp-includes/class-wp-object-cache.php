@@ -1,10 +1,12 @@
 <?php
 /**
- * Object Cache API: WP_Object_Cache class
+ * Object Cache API: WP_Object_Cache class.
+ *
+ * @since WP 5.4.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Cache
- * @since WP 5.4.0
  */
 
 /**

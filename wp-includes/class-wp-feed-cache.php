@@ -1,11 +1,12 @@
 <?php
 /**
- * Feed API: WP_Feed_Cache class
+ * Feed API: WP_Feed_Cache class.
+ *
+ * @since WP 4.7.0
+ * @deprecated WP 5.6.0
  *
  * @package motsVertueux
  * @subpackage Feed
- * @since WP 4.7.0
- * @deprecated WP 5.6.0
  */
 
 _deprecated_file(

@@ -2,9 +2,11 @@
 /**
  * REST API functions.
  *
+ * @since WP 4.4.0
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage REST_API
- * @since WP 4.4.0
  */
 
 /**

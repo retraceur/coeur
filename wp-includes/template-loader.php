@@ -1,6 +1,8 @@
 <?php
 /**
- * Loads the correct template based on the visitor's url
+ * Loads the correct template based on the visitor's url.
+ *
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  */

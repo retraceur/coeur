@@ -1,10 +1,12 @@
 <?php
 /**
- * Toolbar API: WP_Admin_Bar class
+ * Toolbar API: WP_Admin_Bar class.
+ *
+ * @since WP 3.1.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Toolbar
- * @since WP 3.1.0
  */
 
 /**

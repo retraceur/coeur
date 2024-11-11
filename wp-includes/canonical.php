@@ -1,12 +1,14 @@
 <?php
 /**
- * Canonical API to handle WordPress Redirecting
+ * Canonical API to handle WordPress Redirecting.
  *
  * Based on "Permalink Redirect" from Scott Yang and "Enforce www. Preference"
- * by Mark Jaquith
+ * by Mark Jaquith.
+ *
+ * @since WP 2.3.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
- * @since WP 2.3.0
  */
 
 /**

@@ -12,6 +12,8 @@
  *
  * @since WP 3.7.0
  * @since 1.0.0 motsVertueux fork.
+ * 
+ * @package motsVertueux
  */
 #[AllowDynamicProperties]
 class WP_Date_Query {

@@ -2,10 +2,12 @@
 /**
  * Facilitates adding of the WordPress editor as used on the Write and Edit screens.
  *
- * @package motsVertueux
- * @since WP 3.3.0
- *
  * Private, not included by default. See wp_editor() in wp-includes/general-template.php.
+ *
+ * @since WP 3.3.0
+ * @since 1.0.0 motsVertueux fork.
+ *
+ * @package motsVertueux
  */
 
 #[AllowDynamicProperties]

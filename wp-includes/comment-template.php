@@ -1,12 +1,13 @@
 <?php
 /**
- * Comment template functions
+ * Comment template functions.
  *
  * These functions are meant to live inside of the WordPress loop.
  *
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage Template
- * @since 1.0.0 motsVertueux fork.
  */
 
 /**

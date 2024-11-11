@@ -1,6 +1,6 @@
 <?php
 /**
- * WP_Duotone class
+ * WP_Duotone class.
  *
  * Parts of this source were derived and modified from colord,
  * released under the MIT license.
@@ -28,8 +28,10 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  *
- * @package motsVertueux
  * @since WP 6.3.0
+ * @since 1.0.0 motsVertueux fork.
+ *
+ * @package motsVertueux
  */
 
 /**

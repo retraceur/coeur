@@ -1,9 +1,11 @@
 <?php
 /**
- * Error Protection API: WP_Recovery_Mode class
+ * Error Protection API: WP_Recovery_Mode class.
+ *
+ * @since WP 5.2.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
- * @since WP 5.2.0
  */
 
 /**

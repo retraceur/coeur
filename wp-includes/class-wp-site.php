@@ -1,10 +1,12 @@
 <?php
 /**
- * Site API: WP_Site class
+ * Site API: WP_Site class.
+ *
+ * @since WP 4.5.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Multisite
- * @since WP 4.5.0
  */
 
 /**

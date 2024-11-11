@@ -1,9 +1,11 @@
 <?php
 /**
- * Core HTTP Request API
+ * Core HTTP Request API.
  *
  * Standardizes the HTTP requests for WordPress. Handles cookies, gzip encoding and decoding, chunk
  * decoding, if HTTP 1.1 and various other difficult HTTP protocol implementations.
+ *
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage HTTP

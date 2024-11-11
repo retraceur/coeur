@@ -1,9 +1,11 @@
 <?php
 /**
- * WP_MatchesMapRegex helper class
+ * WP_MatchesMapRegex helper class.
+ *
+ * @since WP 4.7.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
- * @since WP 4.7.0
  */
 
 /**

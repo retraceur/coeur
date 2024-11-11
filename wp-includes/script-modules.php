@@ -1,8 +1,9 @@
 <?php
 /**
- * Script Modules API: Script Module functions
+ * Script Modules API: Script Module functions.
  *
  * @since WP 6.5.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Script Modules

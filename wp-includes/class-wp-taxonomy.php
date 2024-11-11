@@ -1,10 +1,12 @@
 <?php
 /**
- * Taxonomy API: WP_Taxonomy class
+ * Taxonomy API: WP_Taxonomy class.
+ *
+ * @since WP 4.7.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Taxonomy
- * @since WP 4.7.0
  */
 
 /**

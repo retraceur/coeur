@@ -1,11 +1,12 @@
 <?php
 /**
- * Network API: WP_Network_Query class
+ * Network API: WP_Network_Query class.
+ *
+ * @since WP 4.6.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Multisite
- * @since WP 4.6.0
- * @since 1.0.0 motsVertueux fork.
  */
 
 /**

@@ -1,6 +1,8 @@
 <?php
 /**
- * Core User Role & Capabilities API
+ * Core User Role & Capabilities API.
+ *
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Users

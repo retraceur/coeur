@@ -1,10 +1,11 @@
 <?php
 /**
- * WordPress Imagick Image Editor
+ * WordPress Imagick Image Editor.
+ *
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Image_Editor
- * @since 1.0.0 motsVertueux fork.
  */
 
 /**

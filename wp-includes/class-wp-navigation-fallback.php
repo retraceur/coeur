@@ -1,12 +1,14 @@
 <?php
 /**
- * WP_Navigation_Fallback class
+ * WP_Navigation_Fallback class.
  *
  * Manages fallback behavior for Navigation menus.
  *
+ * @since WP 6.3.0
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage Navigation
- * @since WP 6.3.0
  */
 
 /**

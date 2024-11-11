@@ -1,8 +1,9 @@
 <?php
 /**
- * Dependencies API: Styles functions
+ * Dependencies API: Styles functions.
  *
  * @since WP 2.6.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Dependencies

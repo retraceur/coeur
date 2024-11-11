@@ -2,9 +2,11 @@
 /**
  * Fonts functions.
  *
+ * @since WP 6.4.0
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package    WordPress
  * @subpackage Fonts
- * @since WP      6.4.0
  */
 
 /**

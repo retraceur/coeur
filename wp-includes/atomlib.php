@@ -1,13 +1,16 @@
 <?php
 /**
- * Atom Syndication Format PHP Library
+ * Atom Syndication Format PHP Library.
  *
- * @package AtomLib
+ * @since WP 2.3.0
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @link http://code.google.com/p/phpatomlib/
- *
  * @author Elias Torres <elias@torrez.us>
  * @version 0.4
- * @since WP 2.3.0
+ * 
+ * @package motsVertueux
+ * @subpackage AtomLib
  */
 
 /**

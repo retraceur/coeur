@@ -1,6 +1,8 @@
 <?php
 /**
- * WordPress Link Template Functions
+ * WordPress Link Template Functions.
+ *
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Template

@@ -1,9 +1,11 @@
 <?php
 /**
- * WordPress List utility class
+ * WordPress List utility class.
+ *
+ * @since WP 4.7.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
- * @since WP 4.7.0
  */
 
 /**

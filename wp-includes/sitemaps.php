@@ -1,13 +1,15 @@
 <?php
 /**
- * Sitemaps: Public functions
+ * Sitemaps: Public functions.
  *
  * This file contains a variety of public functions developers can use to interact with
  * the XML Sitemaps API.
  *
+ * @since WP 5.5.0
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage Sitemaps
- * @since WP 5.5.0
  */
 
 /**

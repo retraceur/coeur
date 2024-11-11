@@ -1,10 +1,12 @@
 <?php
 /**
- * Rewrite API: WP_Rewrite class
+ * Rewrite API: WP_Rewrite class.
+ *
+ * @since WP 1.5.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Rewrite
- * @since WP 1.5.0
  */
 
 /**

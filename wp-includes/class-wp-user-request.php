@@ -5,6 +5,9 @@
  * Represents user request data loaded from a WP_Post object.
  *
  * @since WP 4.9.6
+ * @since 1.0.0 motsVertueux fork.
+ *
+ * @package motsVertueux
  */
 #[AllowDynamicProperties]
 final class WP_User_Request {

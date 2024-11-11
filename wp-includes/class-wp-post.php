@@ -1,10 +1,12 @@
 <?php
 /**
- * Post API: WP_Post class
+ * Post API: WP_Post class.
+ *
+ * @since WP 4.4.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Post
- * @since WP 4.4.0
  */
 
 /**

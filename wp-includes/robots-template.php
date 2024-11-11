@@ -2,9 +2,11 @@
 /**
  * Robots template functions.
  *
+ * @since WP 5.7.0
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage Robots
- * @since WP 5.7.0
  */
 
 /**

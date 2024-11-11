@@ -1,11 +1,12 @@
 <?php
 /**
- * WP_Theme Class
+ * WP_Theme Class.
+ *
+ * @since WP 3.4.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Theme
- * @since WP 3.4.0
- * @since 1.0.0 motsVertueux fork.
  */
 #[AllowDynamicProperties]
 final class WP_Theme implements ArrayAccess {

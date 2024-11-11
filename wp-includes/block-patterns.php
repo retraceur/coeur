@@ -1,10 +1,12 @@
 <?php
 /**
- * Register the block patterns and block patterns categories
+ * Register the block patterns and block patterns categories.
  *
- * @package motsVertueux
  * @since WP 5.5.0
  * @since 1.0.0 motsVertueux fork.
+ *
+ * @package motsVertueux
+ * @subpackage Block Patterns
  */
 
 add_theme_support( 'core-block-patterns' );

@@ -4,6 +4,8 @@
  *
  * Basically all that remains is the table structure and some method names.
  *
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage Diff
  */

@@ -2,8 +2,10 @@
 /**
  * Templates registry functions.
  *
- * @package motsVertueux
  * @since WP 6.7.0
+ * @since 1.0.0 motsVertueux fork.
+ *
+ * @package motsVertueux
  */
 
 /**

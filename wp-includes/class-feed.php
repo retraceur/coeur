@@ -1,10 +1,11 @@
 <?php
 /**
- * Feed API
+ * Feed API.
+ * 
+ * @deprecated WP 4.7.0
  *
  * @package motsVertueux
  * @subpackage Feed
- * @deprecated WP 4.7.0
  */
 
 _deprecated_file( basename( __FILE__ ), '4.7.0', 'fetch_feed()' );

@@ -1,11 +1,12 @@
 <?php
 /**
- * HTTP API: WP_Http class
+ * HTTP API: WP_Http class.
+ *
+ * @since WP 2.7.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage HTTP
- * @since WP 2.7.0
- * @since 1.0.0 motsVertueux fork.
  */
 
 if ( ! class_exists( 'WpOrg\Requests\Autoload' ) ) {

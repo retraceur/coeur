@@ -5,6 +5,7 @@
  * This file is deprecated, use 'wp-includes/class-wp-oembed.php' instead.
  *
  * @deprecated WP 5.3.0
+ * 
  * @package motsVertueux
  * @subpackage oEmbed
  */
