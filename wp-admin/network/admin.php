@@ -1,10 +1,12 @@
 <?php
 /**
- * WordPress Network Administration Bootstrap
+ * WordPress Network Administration Bootstrap.
+ *
+ * @since WP 3.1.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Multisite
- * @since WP 3.1.0
  */
 
 define( 'WP_NETWORK_ADMIN', true );

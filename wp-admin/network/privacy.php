@@ -2,9 +2,11 @@
 /**
  * Network Privacy administration panel.
  *
+ * @since WP 4.9.0
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage Multisite
- * @since WP 4.9.0
  */
 
 /** Load WordPress Administration Bootstrap */

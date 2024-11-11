@@ -2,10 +2,11 @@
 /**
  * Multisite themes administration panel.
  *
- * @package motsVertueux
- * @subpackage Multisite
  * @since WP 3.1.0
  * @since 1.0.0 motsVertueux fork.
+ *
+ * @package motsVertueux
+ * @subpackage Multisite
  */
 
 /** Load WordPress Administration Bootstrap */

@@ -2,9 +2,11 @@
 /**
  * Install theme network administration panel.
  *
+ * @since WP 3.1.0
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage Multisite
- * @since WP 3.1.0
  */
 
 if ( isset( $_GET['tab'] ) && ( 'theme-information' === $_GET['tab'] ) ) {
