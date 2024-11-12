@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Query API
+ * WordPress Query API.
  *
  * The query API attempts to get which part of WordPress the user is on. It
  * also provides functionality for getting URL query information.
@@ -812,7 +812,7 @@ function is_main_query() {
 			__FUNCTION__,
 			sprintf(
 				/* translators: 1: pre_get_posts, 2: WP_Query->is_main_query(), 3: is_main_query(). */
-				__( 'In %1$s, use the %2$s method, not the %3$s function. See %4$s.' ),
+				__( 'In %1$s, use the %2$s method, not the %3$s function.' ),
 				'<code>pre_get_posts</code>',
 				'<code>WP_Query->is_main_query()</code>',
 				'<code>is_main_query()</code>'
