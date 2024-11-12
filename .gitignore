@@ -9,3 +9,19 @@
 
 # Uploads
 /wp-content/uploads/
+
+# Default themes
+/wp-content/themes/twentyeleven
+/wp-content/themes/twentyfifteen
+/wp-content/themes/twentyfourteen
+/wp-content/themes/twentynineteen
+/wp-content/themes/twentyseventeen
+/wp-content/themes/twentysixteen
+/wp-content/themes/twentyten
+/wp-content/themes/twentythirteen
+/wp-content/themes/twentytwelve
+/wp-content/themes/twentytwenty
+/wp-content/themes/twentytwentyfive
+/wp-content/themes/twentytwentyone
+/wp-content/themes/twentytwentythree
+/wp-content/themes/twentytwentytwo
