@@ -17,7 +17,7 @@
  * @since 1.0.0 motsVertueux fork.
  *
  * @global string $mv_version       Used to check against the newest motsVertueux version.
- * @global wpdb   $wpdb             WordPress database abstraction object.
+ * @global wpdb   $wpdb             WP database abstraction object.
  * @global string $wp_local_package Locale code of the package.
  *
  * @param array $extra_stats Extra statistics.
@@ -61,7 +61,7 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
 	}
 
 	/**
-	 * Filters the locale requested for WordPress core translations.
+	 * Filters the locale requested for WP core translations.
 	 *
 	 * @since WP 2.8.0
 	 *
@@ -126,7 +126,7 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
 	if ( $ssl && is_wp_error( $response ) ) {
 		wp_trigger_error(
 			__FUNCTION__,
-			__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ) . ' ' . __( '(WordPress could not establish a secure connection to Core Updater. Please contact your server administrator.)' ),
+			__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ) . ' ' . __( '(motsVertueux could not establish a secure connection to Core Updater. Please contact your server administrator.)' ),
 			headers_sent() || WP_DEBUG ? E_USER_WARNING : E_USER_NOTICE
 		);
 		$response = wp_remote_post( $http_url, $options );
@@ -339,7 +339,7 @@ function wp_update_plugins( $extra_stats = array() ) {
 			'locale'       => wp_json_encode( $locales ),
 			'all'          => wp_json_encode( true ),
 		),
-		'user-agent' => 'WordPress/' . wp_get_wp_version() . '; ' . home_url( '/' ),
+		'user-agent' => 'motsVertueux/' . wp_get_wp_version() . '; ' . home_url( '/' ),
 	);
 
 	// @todo See what's doable using GitHub.
@@ -399,7 +399,7 @@ function wp_update_plugins( $extra_stats = array() ) {
 		 *     @type string $version      The version of the plugin.
 		 *     @type string $url          The URL for details of the plugin.
 		 *     @type string $package      Optional. The update ZIP for the plugin.
-		 *     @type string $tested       Optional. The version of WordPress the plugin is tested against.
+		 *     @type string $tested       Optional. The version of WP the plugin is tested against.
 		 *     @type string $requires_php Optional. The version of PHP which the plugin requires.
 		 *     @type bool   $autoupdate   Optional. Whether the plugin should automatically update.
 		 *     @type array  $icons        Optional. Array of plugin icons.
@@ -438,7 +438,7 @@ function wp_update_plugins( $extra_stats = array() ) {
 		$update->id     = $plugin_data['UpdateURI'];
 		$update->plugin = $plugin_file;
 
-		// WordPress needs the version field specified as 'new_version'.
+		// WP needs the version field specified as 'new_version'.
 		if ( ! isset( $update->new_version ) ) {
 			$update->new_version = $update->version;
 		}
@@ -488,7 +488,7 @@ function wp_update_plugins( $extra_stats = array() ) {
  * @since WP 2.7.0
  * @since 1.0.0 motsVertueux fork.
  *
- * @global string $wp_version The WordPress version string.
+ * @global string $wp_version The WP version string.
  *
  * @param array $extra_stats Extra statistics.
  */
@@ -612,7 +612,7 @@ function wp_update_themes( $extra_stats = array() ) {
 			'translations' => wp_json_encode( $translations ),
 			'locale'       => wp_json_encode( $locales ),
 		),
-		'user-agent' => 'WordPress/' . wp_get_wp_version() . '; ' . home_url( '/' ),
+		'user-agent' => 'motsVertueux/' . wp_get_wp_version() . '; ' . home_url( '/' ),
 	);
 
 	// @todo See what's doable using GitHub.
@@ -676,7 +676,7 @@ function wp_update_themes( $extra_stats = array() ) {
 		 *     @type string $version      The version of the theme.
 		 *     @type string $url          The URL for details of the theme.
 		 *     @type string $package      Optional. The update ZIP for the theme.
-		 *     @type string $tested       Optional. The version of WordPress the theme is tested against.
+		 *     @type string $tested       Optional. The version of WP the theme is tested against.
 		 *     @type string $requires_php Optional. The version of PHP which the theme requires.
 		 *     @type bool   $autoupdate   Optional. Whether the theme should automatically update.
 		 *     @type array  $translations {
@@ -711,7 +711,7 @@ function wp_update_themes( $extra_stats = array() ) {
 		// This should remain constant.
 		$update->id = $theme_data['UpdateURI'];
 
-		// WordPress needs the version field specified as 'new_version'.
+		// WP needs the version field specified as 'new_version'.
 		if ( ! isset( $update->new_version ) ) {
 			$update->new_version = $update->version;
 		}
@@ -741,9 +741,9 @@ function wp_update_themes( $extra_stats = array() ) {
 }
 
 /**
- * Performs WordPress automatic background updates.
+ * Performs WP automatic background updates.
  *
- * Updates WordPress core plus any plugins and themes that have automatic updates enabled.
+ * Updates WP core plus any plugins and themes that have automatic updates enabled.
  *
  * @since WP 3.7.0
  * @since 1.0.0 motsVertueux fork.
@@ -849,8 +849,8 @@ function wp_get_update_data() {
 	$titles          = array();
 
 	if ( $counts['wordpress'] ) {
-		/* translators: %d: Number of available WordPress updates. */
-		$titles['wordpress'] = sprintf( __( '%d WordPress Update' ), $counts['wordpress'] );
+		/* translators: %d: Number of available WP updates. */
+		$titles['wordpress'] = sprintf( __( '%d WP Update' ), $counts['wordpress'] );
 	}
 
 	if ( $counts['plugins'] ) {
@@ -874,14 +874,14 @@ function wp_get_update_data() {
 		'title'  => $update_title,
 	);
 	/**
-	 * Filters the returned array of update data for plugins, themes, and WordPress core.
+	 * Filters the returned array of update data for plugins, themes, and WP core.
 	 *
 	 * @since WP 3.5.0
 	 *
 	 * @param array $update_data {
 	 *     Fetched update data.
 	 *
-	 *     @type array   $counts       An array of counts for available plugin, theme, and WordPress updates.
+	 *     @type array   $counts       An array of counts for available plugin, theme, and WP updates.
 	 *     @type string  $update_title Titles of available updates.
 	 * }
 	 * @param array $titles An array of update counts and UI strings for available updates.
@@ -894,7 +894,7 @@ function wp_get_update_data() {
  *
  * @since WP 2.8.0
  *
- * @global string $wp_version The WordPress version string.
+ * @global string $wp_version The WP version string.
  */
 function _maybe_update_core() {
 	$current = get_site_transient( 'update_core' );
@@ -911,7 +911,7 @@ function _maybe_update_core() {
 /**
  * Checks the last time plugins were run before checking plugin versions.
  *
- * This might have been backported to WordPress 2.6.1 for performance reasons.
+ * This might have been backported to WP 2.6.1 for performance reasons.
  * This is used for the wp-admin to check only so often instead of every page
  * load.
  *
@@ -1014,7 +1014,7 @@ function wp_delete_all_temp_backups() {
  *
  * @access private
  *
- * @global WP_Filesystem_Base $wp_filesystem WordPress filesystem subclass.
+ * @global WP_Filesystem_Base $wp_filesystem WP filesystem subclass.
  */
 function _wp_delete_all_temp_backups() {
 	global $wp_filesystem;
