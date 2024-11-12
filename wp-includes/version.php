@@ -18,7 +18,7 @@
  *
  * @global string $wp_version
  */
-$wp_version = '6.7-RC4';
+$wp_version = '6.7-RC5';
 
 /**
  * The motsVertueux version string.
