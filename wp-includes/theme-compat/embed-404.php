@@ -1,13 +1,15 @@
 <?php
 /**
- * Contains the post embed content template part
+ * Contains the post embed content template part.
  *
  * When a post is embedded in an iframe, this file is used to create the content template part
  * output if the active theme does not include an embed-404.php template.
  *
+ * @since WP 4.5.0
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage Theme_Compat
- * @since WP 4.5.0
  */
 ?>
 <div class="wp-embed">

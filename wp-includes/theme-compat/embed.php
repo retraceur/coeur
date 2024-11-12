@@ -1,13 +1,15 @@
 <?php
 /**
- * Contains the post embed base template
+ * Contains the post embed base template;
  *
  * When a post is embedded in an iframe, this file is used to create the output
  * if the active theme does not include an embed.php template.
  *
+ * @since WP 4.4.0
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage oEmbed
- * @since WP 4.4.0
  */
 
 get_header( 'embed' );

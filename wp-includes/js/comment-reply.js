@@ -2,6 +2,8 @@
  * Handles the addition of the comment form.
  *
  * @since WP 2.7.0
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @output wp-includes/js/comment-reply.js
  *
  * @namespace addComment

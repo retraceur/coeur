@@ -1,10 +1,12 @@
 <?php
 /**
- * Interactivity API: Functions and hooks
+ * Interactivity API: Functions and hooks.
+ *
+ * @since 6.5.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Interactivity API
- * @since WP 6.5.0
  */
 
 /**

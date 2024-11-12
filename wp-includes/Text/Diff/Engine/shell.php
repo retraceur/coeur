@@ -10,9 +10,11 @@
  * See the enclosed file COPYING for license information (LGPL). If you did
  * not receive this file, see https://opensource.org/license/lgpl-2-1/.
  *
+ * @since WP 0.3.0
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @author  Milian Wolff <mail@milianw.de>
  * @package Text_Diff
- * @since WP   0.3.0
  */
 class Text_Diff_Engine_shell {
 

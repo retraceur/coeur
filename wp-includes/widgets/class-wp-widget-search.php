@@ -1,10 +1,12 @@
 <?php
 /**
- * Widget API: WP_Widget_Search class
+ * Widget API: WP_Widget_Search class.
+ *
+ * @since WP 4.4.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Widgets
- * @since WP 4.4.0
  */
 
 /**

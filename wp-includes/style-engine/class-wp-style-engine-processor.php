@@ -1,10 +1,12 @@
 <?php
 /**
- * Style Engine: WP_Style_Engine_Processor class
+ * Style Engine: WP_Style_Engine_Processor class.
+ *
+ * @since WP 6.1.0
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage StyleEngine
- * @since WP 6.1.0
  */
 
 /**

@@ -1,10 +1,12 @@
 <?php
 /**
- * Widget API: WP_Widget_Custom_HTML class
+ * Widget API: WP_Widget_Custom_HTML class.
+ *
+ * @since WP 4.8.1
+ * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
  * @subpackage Widgets
- * @since WP 4.8.1
  */
 
 /**

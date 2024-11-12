@@ -5,6 +5,7 @@
  * Admin bar with Vanilla JS, no external dependencies.
  *
  * @since WP 5.3.1
+ * @since 1.0.0 motsVertueux fork.
  *
  * @param {Object} document  The document object.
  * @param {Object} window    The window object.

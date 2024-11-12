@@ -1,7 +1,9 @@
 /**
- * WordPress inline HTML embed
+ * WordPress inline HTML embed.
  *
  * @since WP 4.4.0
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @output wp-includes/js/wp-embed.js
  *
  * Single line comments should not be used since they will break

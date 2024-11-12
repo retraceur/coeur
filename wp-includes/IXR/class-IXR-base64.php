@@ -1,10 +1,13 @@
 <?php
 
 /**
- * IXR_Base64
+ * IXR_Base64 class.
  *
- * @package IXR
  * @since WP 1.5.0
+ * @since 1.0.0 motsVertueux fork.
+ *
+ * @package motsVertueux
+ * @subpackage IXR
  */
 class IXR_Base64
 {

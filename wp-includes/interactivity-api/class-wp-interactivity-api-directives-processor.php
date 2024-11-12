@@ -2,9 +2,11 @@
 /**
  * Interactivity API: WP_Interactivity_API_Directives_Processor class.
  *
+ * @since WP 6.5.0
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage Interactivity API
- * @since WP 6.5.0
  */
 
 /**

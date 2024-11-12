@@ -1,12 +1,14 @@
 <?php
 /**
- * Sitemaps: WP_Sitemaps_Posts class
+ * Sitemaps: WP_Sitemaps_Posts class.
  *
  * Builds the sitemaps for the 'post' object type.
  *
+ * @since WP 5.5.0
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage Sitemaps
- * @since WP 5.5.0
  */
 
 /**

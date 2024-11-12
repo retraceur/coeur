@@ -1,12 +1,14 @@
 <?php
 /**
- * Sitemaps: WP_Sitemaps class
+ * Sitemaps: WP_Sitemaps class.
  *
  * This is the main class integrating all other classes.
  *
+ * @since WP 5.5.0
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage Sitemaps
- * @since WP 5.5.0
  */
 
 /**

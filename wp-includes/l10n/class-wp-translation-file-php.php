@@ -2,9 +2,11 @@
 /**
  * I18N: WP_Translation_File_PHP class.
  *
+ * @since WP 6.5.0
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage I18N
- * @since WP 6.5.0
  */
 
 /**

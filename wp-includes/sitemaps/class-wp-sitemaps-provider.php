@@ -1,12 +1,14 @@
 <?php
 /**
- * Sitemaps: WP_Sitemaps_Provider class
+ * Sitemaps: WP_Sitemaps_Provider class.
  *
  * This class is a base class for other sitemap providers to extend and contains shared functionality.
  *
+ * @since WP 5.5.0
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage Sitemaps
- * @since WP 5.5.0
  */
 
 /**

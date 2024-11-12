@@ -1,13 +1,15 @@
 <?php
 /**
- * Contains the post embed footer template
+ * Contains the post embed footer template.
  *
  * When a post is embedded in an iframe, this file is used to create the footer output
  * if the active theme does not include a footer-embed.php template.
  *
+ * @since WP 4.5.0
+ * @since 1.0.0 motsVertueux fork.
+ *
  * @package motsVertueux
  * @subpackage Theme_Compat
- * @since WP 4.5.0
  */
 
 /**
