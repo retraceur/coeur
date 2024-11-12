@@ -49,7 +49,7 @@ class_exists('SimplePie\Copyright');
 // @trigger_error(sprintf('Using the "SimplePie_Copyright" class is deprecated since SimplePie 1.7.0, use "SimplePie\Copyright" instead.'), \E_USER_DEPRECATED);
 
 if (\false) {
-    /** @deprecated WP since SimplePie 1.7.0, use "SimplePie\Copyright" instead */
+    /** @deprecated since SimplePie 1.7.0, use "SimplePie\Copyright" instead */
     class SimplePie_Copyright extends Copyright
     {
     }

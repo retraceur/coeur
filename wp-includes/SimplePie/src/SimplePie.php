@@ -897,7 +897,7 @@ class SimplePie
      * instead. This only works if caching is enabled and cached content
      * still exists.
      *
-     * @deprecated WP since SimplePie 1.8.0, expired cache will not be used anymore.
+     * @deprecated since SimplePie 1.8.0, expired cache will not be used anymore.
      *
      * @param bool $enable Force use of cache on fail.
      */
@@ -932,7 +932,7 @@ class SimplePie
     /**
      * Set the file system location where the cached files should be stored
      *
-     * @deprecated WP since SimplePie 1.8.0, use \SimplePie\SimplePie::set_cache() instead.
+     * @deprecated since SimplePie 1.8.0, use \SimplePie\SimplePie::set_cache() instead.
      *
      * @param string $location The file system location.
      */
@@ -1032,7 +1032,7 @@ class SimplePie
     /**
      * Set which class SimplePie uses for caching
      *
-     * @deprecated WP since SimplePie 1.3, use {@see set_cache()} instead
+     * @deprecated since SimplePie 1.3, use {@see set_cache()} instead
      *
      * @param string $class Name of custom class
      *
@@ -1048,7 +1048,7 @@ class SimplePie
     /**
      * Set which class SimplePie uses for auto-discovery
      *
-     * @deprecated WP since SimplePie 1.3, use {@see get_registry()} instead
+     * @deprecated since SimplePie 1.3, use {@see get_registry()} instead
      *
      * @param string $class Name of custom class
      *
@@ -1064,7 +1064,7 @@ class SimplePie
     /**
      * Set which class SimplePie uses for XML parsing
      *
-     * @deprecated WP since SimplePie 1.3, use {@see get_registry()} instead
+     * @deprecated since SimplePie 1.3, use {@see get_registry()} instead
      *
      * @param string $class Name of custom class
      *
@@ -1080,7 +1080,7 @@ class SimplePie
     /**
      * Set which class SimplePie uses for remote file fetching
      *
-     * @deprecated WP since SimplePie 1.3, use {@see get_registry()} instead
+     * @deprecated since SimplePie 1.3, use {@see get_registry()} instead
      *
      * @param string $class Name of custom class
      *
@@ -1096,7 +1096,7 @@ class SimplePie
     /**
      * Set which class SimplePie uses for data sanitization
      *
-     * @deprecated WP since SimplePie 1.3, use {@see get_registry()} instead
+     * @deprecated since SimplePie 1.3, use {@see get_registry()} instead
      *
      * @param string $class Name of custom class
      *
@@ -1112,7 +1112,7 @@ class SimplePie
     /**
      * Set which class SimplePie uses for handling feed items
      *
-     * @deprecated WP since SimplePie 1.3, use {@see get_registry()} instead
+     * @deprecated since SimplePie 1.3, use {@see get_registry()} instead
      *
      * @param string $class Name of custom class
      *
@@ -1128,7 +1128,7 @@ class SimplePie
     /**
      * Set which class SimplePie uses for handling author data
      *
-     * @deprecated WP since SimplePie 1.3, use {@see get_registry()} instead
+     * @deprecated since SimplePie 1.3, use {@see get_registry()} instead
      *
      * @param string $class Name of custom class
      *
@@ -1144,7 +1144,7 @@ class SimplePie
     /**
      * Set which class SimplePie uses for handling category data
      *
-     * @deprecated WP since SimplePie 1.3, use {@see get_registry()} instead
+     * @deprecated since SimplePie 1.3, use {@see get_registry()} instead
      *
      * @param string $class Name of custom class
      *
@@ -1160,7 +1160,7 @@ class SimplePie
     /**
      * Set which class SimplePie uses for feed enclosures
      *
-     * @deprecated WP since SimplePie 1.3, use {@see get_registry()} instead
+     * @deprecated since SimplePie 1.3, use {@see get_registry()} instead
      *
      * @param string $class Name of custom class
      *
@@ -1176,7 +1176,7 @@ class SimplePie
     /**
      * Set which class SimplePie uses for `<media:text>` captions
      *
-     * @deprecated WP since SimplePie 1.3, use {@see get_registry()} instead
+     * @deprecated since SimplePie 1.3, use {@see get_registry()} instead
      *
      * @param string $class Name of custom class
      *
@@ -1192,7 +1192,7 @@ class SimplePie
     /**
      * Set which class SimplePie uses for `<media:copyright>`
      *
-     * @deprecated WP since SimplePie 1.3, use {@see get_registry()} instead
+     * @deprecated since SimplePie 1.3, use {@see get_registry()} instead
      *
      * @param string $class Name of custom class
      *
@@ -1208,7 +1208,7 @@ class SimplePie
     /**
      * Set which class SimplePie uses for `<media:credit>`
      *
-     * @deprecated WP since SimplePie 1.3, use {@see get_registry()} instead
+     * @deprecated since SimplePie 1.3, use {@see get_registry()} instead
      *
      * @param string $class Name of custom class
      *
@@ -1224,7 +1224,7 @@ class SimplePie
     /**
      * Set which class SimplePie uses for `<media:rating>`
      *
-     * @deprecated WP since SimplePie 1.3, use {@see get_registry()} instead
+     * @deprecated since SimplePie 1.3, use {@see get_registry()} instead
      *
      * @param string $class Name of custom class
      *
@@ -1240,7 +1240,7 @@ class SimplePie
     /**
      * Set which class SimplePie uses for `<media:restriction>`
      *
-     * @deprecated WP since SimplePie 1.3, use {@see get_registry()} instead
+     * @deprecated since SimplePie 1.3, use {@see get_registry()} instead
      *
      * @param string $class Name of custom class
      *
@@ -1256,7 +1256,7 @@ class SimplePie
     /**
      * Set which class SimplePie uses for content-type sniffing
      *
-     * @deprecated WP since SimplePie 1.3, use {@see get_registry()} instead
+     * @deprecated since SimplePie 1.3, use {@see get_registry()} instead
      *
      * @param string $class Name of custom class
      *
@@ -1272,7 +1272,7 @@ class SimplePie
     /**
      * Set which class SimplePie uses item sources
      *
-     * @deprecated WP since SimplePie 1.3, use {@see get_registry()} instead
+     * @deprecated since SimplePie 1.3, use {@see get_registry()} instead
      *
      * @param string $class Name of custom class
      *
@@ -1314,7 +1314,7 @@ class SimplePie
     /**
      * Set callback function to create cache filename with
      *
-     * @deprecated WP since SimplePie 1.8.0, use {@see set_cache_namefilter()} instead
+     * @deprecated since SimplePie 1.8.0, use {@see set_cache_namefilter()} instead
      *
      * @param mixed $function Callback function
      */
@@ -3055,7 +3055,7 @@ class SimplePie
     /**
      * Set the favicon handler
      *
-     * @deprecated WP Use your own favicon handling instead
+     * @deprecated Use your own favicon handling instead
      */
     public function set_favicon_handler($page = false, $qs = 'i')
     {
@@ -3066,7 +3066,7 @@ class SimplePie
     /**
      * Get the favicon for the current feed
      *
-     * @deprecated WP Use your own favicon handling instead
+     * @deprecated Use your own favicon handling instead
      */
     public function get_favicon()
     {

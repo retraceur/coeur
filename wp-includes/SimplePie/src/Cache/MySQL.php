@@ -55,7 +55,7 @@ namespace SimplePie\Cache;
  *
  * @package SimplePie
  * @subpackage Caching
- * @deprecated WP since SimplePie 1.8.0, use implementation of "Psr\SimpleCache\CacheInterface" instead
+ * @deprecated since SimplePie 1.8.0, use implementation of "Psr\SimpleCache\CacheInterface" instead
  */
 class MySQL extends DB
 {

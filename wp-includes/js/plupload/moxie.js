@@ -1152,7 +1152,7 @@ define("moxie/core/utils/Env", [
 	};
 
 	// for backward compatibility
-	// @deprecated WP Use `Env.os` instead
+	// @deprecated Use `Env.os` instead
 	Env.OS = Env.os;
 
 	if (MXI_DEBUG) {

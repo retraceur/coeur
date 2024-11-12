@@ -49,7 +49,7 @@ class_exists('SimplePie\Cache\File');
 // @trigger_error(sprintf('Using the "SimplePie_Cache_File" class is deprecated since SimplePie 1.7.0, use "SimplePie\Cache\File" instead.'), \E_USER_DEPRECATED);
 
 if (\false) {
-    /** @deprecated WP since SimplePie 1.7.0, use "SimplePie\Cache\File" instead */
+    /** @deprecated since SimplePie 1.7.0, use "SimplePie\Cache\File" instead */
     class SimplePie_Cache_File extends File
     {
     }
