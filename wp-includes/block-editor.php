@@ -151,6 +151,7 @@ function get_allowed_block_types( $block_editor_context ) {
  * Returns the default block editor settings.
  *
  * @since WP 5.8.0
+ * @since 1.0.0 motsVertueux disable Openverse by default.
  *
  * @return array The default block editor settings.
  */
@@ -227,6 +228,7 @@ function get_default_block_editor_settings() {
 		'maxUploadFileSize'                => $max_upload_size,
 		// The following flag is required to enable the new Gallery block format on the mobile apps in 5.9.
 		'__unstableGalleryWithImageBlocks' => true,
+		'enableOpenverseMediaCategory'     => false,
 	);
 
 	$theme_settings = get_classic_theme_supports_block_editor_settings();

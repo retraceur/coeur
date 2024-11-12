@@ -6630,3 +6630,79 @@ function wp_print_community_events_markup() {
 function wp_print_community_events_templates() {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 }
+
+/**
+ * Enqueues the assets required for the block directory within the block editor.
+ *
+ * @since WP 5.5.0
+ * @deprecated 1.0.0 motsVertueux does not allow remote access to WP Block directory.
+ */
+function wp_enqueue_editor_block_directory_assets() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Normalize the pattern properties to camelCase.
+ *
+ * The API's format is snake_case, `register_block_pattern()` expects camelCase.
+ *
+ * @since WP 6.2.0
+ * 
+ * @deprecated 1.0.0 motsVertueux does not allow remote access to WP Pattern directory.
+ * 
+ * @access private
+ *
+ * @param array $pattern Pattern as returned from the Pattern Directory API.
+ * @return array Normalized pattern.
+ */
+function wp_normalize_remote_block_pattern( $pattern ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Register Core's official patterns.
+ *
+ * @since WP 5.8.0
+ * @since WP 5.9.0 The $current_screen argument was removed.
+ * @since WP 6.2.0 Normalize the pattern from the API (snake_case) to the
+ *              format expected by `register_block_pattern` (camelCase).
+ * @since WP 6.3.0 Add 'pattern-directory/core' to the pattern's 'source'.
+ * 
+ * @deprecated 1.0.0 motsVertueux does not allow remote access to WP Pattern directory.
+ *
+ * @param WP_Screen $deprecated Unused. Formerly the screen that the current request was triggered from.
+ */
+function _load_remote_block_patterns( $deprecated = null ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Register `Featured` (category) patterns.
+ *
+ * @since WP 5.9.0
+ * @since WP 6.2.0 Normalized the pattern from the API (snake_case) to the
+ *              format expected by `register_block_pattern()` (camelCase).
+ * @since WP 6.3.0 Add 'pattern-directory/featured' to the pattern's 'source'.
+ * 
+ * @deprecated 1.0.0 motsVertueux does not allow remote access to WP Pattern directory.
+ */
+function _load_remote_featured_patterns() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Registers patterns from Pattern Directory provided by a theme's
+ * `theme.json` file.
+ *
+ * @since WP 6.0.0
+ * @since WP 6.2.0 Normalized the pattern from the API (snake_case) to the
+ *              format expected by `register_block_pattern()` (camelCase).
+ * @since WP 6.3.0 Add 'pattern-directory/theme' to the pattern's 'source'.
+ * 
+ * @deprecated 1.0.0 motsVertueux does not allow remote access to WP Pattern directory.
+ * 
+ * @access private
+ */
+function _register_remote_theme_patterns() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}

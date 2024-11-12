@@ -22,6 +22,7 @@ class WP_REST_Block_Patterns_Controller extends WP_REST_Controller {
 	 * Defines whether remote patterns should be loaded.
 	 *
 	 * @since WP 6.0.0
+	 * @deprecated 1.0.0 motsVertueux does not allow remote access to WP Pattern directory.
 	 * @var bool
 	 */
 	private $remote_patterns_loaded;
@@ -99,20 +100,12 @@ class WP_REST_Block_Patterns_Controller extends WP_REST_Controller {
 	 *
 	 * @since WP 6.0.0
 	 * @since WP 6.2.0 Added migration for old core pattern categories to the new ones.
+	 * @since 1.0.0    motsVertueux does not allow remote access to WP Pattern directory.
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
 	 */
 	public function get_items( $request ) {
-		if ( ! $this->remote_patterns_loaded ) {
-			// Load block patterns from w.org.
-			_load_remote_block_patterns(); // Patterns with the `core` keyword.
-			_load_remote_featured_patterns(); // Patterns in the `featured` category.
-			_register_remote_theme_patterns(); // Patterns requested by current theme.
-
-			$this->remote_patterns_loaded = true;
-		}
-
 		$response = array();
 		$patterns = WP_Block_Patterns_Registry::get_instance()->get_all_registered();
 		foreach ( $patterns as $pattern ) {

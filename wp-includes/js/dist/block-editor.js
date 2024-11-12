@@ -47475,9 +47475,6 @@ const PATTERN_SOURCE_MENU_OPTIONS = [{
   value: 'all',
   label: (0,external_wp_i18n_namespaceObject._x)('All', 'patterns')
 }, {
-  value: INSERTER_PATTERN_TYPES.directory,
-  label: (0,external_wp_i18n_namespaceObject.__)('Pattern Directory')
-}, {
   value: INSERTER_PATTERN_TYPES.theme,
   label: (0,external_wp_i18n_namespaceObject.__)('Theme & Plugins')
 }, {
@@ -47565,13 +47562,6 @@ function PatternsFilter({
               scrollContainerRef.current?.scrollTo(0, 0);
             },
             value: patternSyncFilter
-          })
-        }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("div", {
-          className: "block-editor-tool-selector__help",
-          children: (0,external_wp_element_namespaceObject.createInterpolateElement)((0,external_wp_i18n_namespaceObject.__)('Patterns are available from the <Link>WordPress.org Pattern Directory</Link>, bundled in the active theme, or created by users on this site. Only patterns created on this site can be synced.'), {
-            Link: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ExternalLink, {
-              href: (0,external_wp_i18n_namespaceObject.__)('https://wordpress.org/patterns/')
-            })
           })
         })]
       })
