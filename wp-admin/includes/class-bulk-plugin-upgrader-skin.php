@@ -10,7 +10,7 @@
  */
 
 /**
- * Bulk Plugin Upgrader Skin for WordPress Plugin Upgrades.
+ * Bulk Plugin Upgrader Skin for motsVertueux Plugin Upgrades.
  *
  * @since WP 3.0.0
  * @since WP 4.6.0 Moved to its own file from wp-admin/includes/class-wp-upgrader-skins.php.

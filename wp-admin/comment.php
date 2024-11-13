@@ -8,7 +8,7 @@
  * @subpackage Administration
  */
 
-/** Load WordPress Bootstrap */
+/** Load motsVertueux Bootstrap */
 require_once __DIR__ . '/admin.php';
 
 $parent_file  = 'edit-comments.php';

@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Network Administration API.
+ * motsVertueux Network Administration API.
  *
  * @since WP 4.4.0
  * @since 1.0.0 motsVertueux fork.
@@ -14,7 +14,7 @@
  *
  * @since WP 3.0.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb motsVertueux database abstraction object.
  *
  * @return string|false Base domain if network exists, otherwise false.
  */
@@ -49,7 +49,7 @@ function allow_subdomain_install() {
  *
  * @since WP 3.0.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb motsVertueux database abstraction object.
  *
  * @return bool Whether subdirectory installation is allowed
  */
@@ -403,7 +403,7 @@ function network_step1( $errors = false ) {
  *
  * @since WP 3.0.0
  *
- * @global wpdb $wpdb     WordPress database abstraction object.
+ * @global wpdb $wpdb     motsVertueux database abstraction object.
  * @global bool $is_nginx Whether the server software is Nginx or something else.
  *
  * @param false|WP_Error $errors Optional. Error object. Default false.
@@ -595,23 +595,23 @@ define( 'BLOG_ID_CURRENT_SITE', 1 );
     <system.webServer>
         <rewrite>
             <rules>
-                <rule name="WordPress Rule 1" stopProcessing="true">
+                <rule name="motsVertueux Rule 1" stopProcessing="true">
                     <match url="^index\.php$" ignoreCase="false" />
                     <action type="None" />
                 </rule>';
 		if ( is_multisite() && get_site_option( 'ms_files_rewriting' ) ) {
 			$web_config_file .= '
-                <rule name="WordPress Rule for Files" stopProcessing="true">
+                <rule name="motsVertueux Rule for Files" stopProcessing="true">
                     <match url="^' . $iis_subdir_match . 'files/(.+)" ignoreCase="false" />
                     <action type="Rewrite" url="' . $iis_rewrite_base . WPINC . '/ms-files.php?file={R:1}" appendQueryString="false" />
                 </rule>';
 		}
 			$web_config_file .= '
-                <rule name="WordPress Rule 2" stopProcessing="true">
+                <rule name="motsVertueux Rule 2" stopProcessing="true">
                     <match url="^' . $iis_subdir_match . 'wp-admin$" ignoreCase="false" />
                     <action type="Redirect" url="' . $iis_subdir_replacement . 'wp-admin/" redirectType="Permanent" />
                 </rule>
-                <rule name="WordPress Rule 3" stopProcessing="true">
+                <rule name="motsVertueux Rule 3" stopProcessing="true">
                     <match url="^" ignoreCase="false" />
                     <conditions logicalGrouping="MatchAny">
                         <add input="{REQUEST_FILENAME}" matchType="IsFile" ignoreCase="false" />
@@ -619,15 +619,15 @@ define( 'BLOG_ID_CURRENT_SITE', 1 );
                     </conditions>
                     <action type="None" />
                 </rule>
-                <rule name="WordPress Rule 4" stopProcessing="true">
+                <rule name="motsVertueux Rule 4" stopProcessing="true">
                     <match url="^' . $iis_subdir_match . '(wp-(content|admin|includes).*)" ignoreCase="false" />
                     <action type="Rewrite" url="' . $iis_rewrite_base . '{R:1}" />
                 </rule>
-                <rule name="WordPress Rule 5" stopProcessing="true">
+                <rule name="motsVertueux Rule 5" stopProcessing="true">
                     <match url="^' . $iis_subdir_match . '([_0-9a-zA-Z-]+/)?(.*\.php)$" ignoreCase="false" />
                     <action type="Rewrite" url="' . $iis_rewrite_base . '{R:2}" />
                 </rule>
-                <rule name="WordPress Rule 6" stopProcessing="true">
+                <rule name="motsVertueux Rule 6" stopProcessing="true">
                     <match url="." ignoreCase="false" />
                     <action type="Rewrite" url="index.php" />
                 </rule>

@@ -13,7 +13,7 @@ if ( ! defined( 'IFRAME_REQUEST' ) && isset( $_GET['tab'] ) && ( 'plugin-informa
 }
 
 /**
- * WordPress Administration Bootstrap.
+ * motsVertueux Administration Bootstrap.
  */
 require_once __DIR__ . '/admin.php';
 
@@ -122,7 +122,7 @@ get_current_screen()->set_screen_reader_content(
 );
 
 /**
- * WordPress Administration Template Header.
+ * motsVertueux Administration Template Header.
  */
 require_once ABSPATH . 'wp-admin/admin-header.php';
 
@@ -198,6 +198,6 @@ wp_print_request_filesystem_credentials_modal();
 wp_print_admin_notice_templates();
 
 /**
- * WordPress Administration Template Footer.
+ * motsVertueux Administration Template Footer.
  */
 require_once ABSPATH . 'wp-admin/admin-footer.php';

@@ -8,10 +8,10 @@
  * @subpackage Administration
  */
 
-/** WordPress Administration Bootstrap */
+/** motsVertueux Administration Bootstrap */
 require_once __DIR__ . '/admin.php';
 
-/** WordPress Translation Installation API */
+/** motsVertueux Translation Installation API */
 require_once ABSPATH . 'wp-admin/includes/translation-install.php';
 
 if ( ! current_user_can( 'manage_options' ) ) {
@@ -550,7 +550,7 @@ foreach ( $time_formats as $format ) {
 <td><select name="start_of_week" id="start_of_week">
 <?php
 /**
- * @global WP_Locale $wp_locale WordPress date and time locale object.
+ * @global WP_Locale $wp_locale motsVertueux date and time locale object.
  */
 global $wp_locale;
 

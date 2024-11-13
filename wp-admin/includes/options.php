@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Options Administration API.
+ * motsVertueux Options Administration API.
  *
  * @since WP 4.4.0
  * @since 1.0.0 motsVertueux fork.

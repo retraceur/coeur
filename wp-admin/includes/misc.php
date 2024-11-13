@@ -1,6 +1,6 @@
 <?php
 /**
- * Misc WordPress Administration API.
+ * Misc motsVertueux Administration API.
  *
  * @since 1.0.0 motsVertueux fork.
  *
@@ -257,7 +257,7 @@ Any changes to the directives between these markers will be overwritten.'
  *
  * @since WP 1.5.0
  *
- * @global WP_Rewrite $wp_rewrite WordPress rewrite component.
+ * @global WP_Rewrite $wp_rewrite motsVertueux rewrite component.
  *
  * @return bool|null True on write success, false on failure. Null in multisite.
  */
@@ -297,7 +297,7 @@ function save_mod_rewrite_rules() {
  *
  * @since WP 2.8.0
  *
- * @global WP_Rewrite $wp_rewrite WordPress rewrite component.
+ * @global WP_Rewrite $wp_rewrite motsVertueux rewrite component.
  *
  * @return bool|null True on write success, false on failure. Null in multisite.
  */
@@ -813,7 +813,7 @@ function set_screen_options() {
 }
 
 /**
- * Checks if rewrite rule for WordPress already exists in the IIS 7+ configuration file.
+ * Checks if rewrite rule for motsVertueux already exists in the IIS 7+ configuration file.
  *
  * @since WP 2.8.0
  *
@@ -846,7 +846,7 @@ function iis7_rewrite_rule_exists( $filename ) {
 }
 
 /**
- * Deletes WordPress rewrite rule from web.config file if it exists there.
+ * Deletes motsVertueux rewrite rule from web.config file if it exists there.
  *
  * @since WP 2.8.0
  *
@@ -885,7 +885,7 @@ function iis7_delete_rewrite_rule( $filename ) {
 }
 
 /**
- * Adds WordPress rewrite rule to the IIS 7+ configuration file.
+ * Adds motsVertueux rewrite rule to the IIS 7+ configuration file.
  *
  * @since WP 2.8.0
  *

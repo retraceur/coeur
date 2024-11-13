@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Credits Administration API.
+ * motsVertueux Credits Administration API.
  *
  * @since WP 4.4.0
  * @since 1.0.0 motsVertueux fork.
@@ -15,8 +15,8 @@
  * @since WP 3.2.0
  * @since WP 5.6.0 Added the `$version` and `$locale` parameters.
  *
- * @param string $version WordPress version. Defaults to the current version.
- * @param string $locale  WordPress locale. Defaults to the current user's locale.
+ * @param string $version WP version. Defaults to the current version.
+ * @param string $locale  WP locale. Defaults to the current user's locale.
  * @return array|false A list of all of the contributors, or false on error.
  */
 function wp_credits( $version = '', $locale = '' ) {

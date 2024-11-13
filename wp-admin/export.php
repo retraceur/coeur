@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Export Administration Screen.
+ * motsVertueux Export Administration Screen.
  *
  * @since 1.0.0 motsVertueux fork.
  *
@@ -8,14 +8,14 @@
  * @subpackage Administration
  */
 
-/** Load WordPress Bootstrap */
+/** Load motsVertueux Bootstrap */
 require_once __DIR__ . '/admin.php';
 
 if ( ! current_user_can( 'export' ) ) {
 	wp_die( __( 'Sorry, you are not allowed to export the content of this site.' ) );
 }
 
-/** Load WordPress export API */
+/** Load motsVertueux export API */
 require_once ABSPATH . 'wp-admin/includes/export.php';
 
 // Used in the HTML title tag.

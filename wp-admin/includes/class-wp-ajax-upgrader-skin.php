@@ -10,7 +10,7 @@
  */
 
 /**
- * Upgrader Skin for Ajax WordPress upgrades.
+ * Upgrader Skin for Ajax motsVertueux upgrades.
  *
  * This skin is designed to be used for Ajax updates.
  *
@@ -53,13 +53,13 @@ class WP_Ajax_Upgrader_Skin extends Automatic_Upgrader_Skin {
 	/**
 	 * Constructor.
 	 *
-	 * Sets up the WordPress Ajax upgrader skin.
+	 * Sets up the motsVertueux Ajax upgrader skin.
 	 *
 	 * @since WP 4.6.0
 	 *
 	 * @see WP_Upgrader_Skin::__construct()
 	 *
-	 * @param array $args Optional. The WordPress Ajax upgrader skin arguments to
+	 * @param array $args Optional. The motsVertueux Ajax upgrader skin arguments to
 	 *                    override default options. See WP_Upgrader_Skin::__construct().
 	 *                    Default empty array.
 	 */

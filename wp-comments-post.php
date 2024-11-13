@@ -1,6 +1,6 @@
 <?php
 /**
- * Handles Comment Post to WordPress and prevents duplicate comment posting.
+ * Handles Comment Post to motsVertueux and prevents duplicate comment posting.
  *
  * @package motsVertueux
  */
@@ -17,7 +17,7 @@ if ( 'POST' !== $_SERVER['REQUEST_METHOD'] ) {
 	exit;
 }
 
-/** Sets up the WordPress Environment. */
+/** Sets up the motsVertueux Environment. */
 require __DIR__ . '/wp-load.php';
 
 nocache_headers();

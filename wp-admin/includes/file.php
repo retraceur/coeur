@@ -68,7 +68,7 @@ $wp_file_descriptions = array(
 );
 
 /**
- * Gets the description for standard WordPress theme files.
+ * Gets the description for standard motsVertueux theme files.
  *
  * @since WP 1.5.0
  *
@@ -100,11 +100,11 @@ function get_file_description( $file ) {
 }
 
 /**
- * Gets the absolute filesystem path to the root of the WordPress installation.
+ * Gets the absolute filesystem path to the root of the motsVertueux installation.
  *
  * @since WP 1.5.0
  *
- * @return string Full filesystem path to the root of the WordPress installation.
+ * @return string Full filesystem path to the root of the motsVertueux installation.
  */
 function get_home_path() {
 	$home    = set_url_scheme( get_option( 'home' ), 'http' );
@@ -1133,7 +1133,7 @@ function wp_handle_sideload( &$file, $overrides = false, $time = null ) {
 }
 
 /**
- * Downloads a URL to a local temporary file using the WordPress HTTP API.
+ * Downloads a URL to a local temporary file using the motsVertueux HTTP API.
  *
  * Please note that the calling function must delete or move the file.
  *
@@ -1329,7 +1329,7 @@ function wp_zip_file_is_valid( $file ) {
  *
  * @since WP 2.5.0
  *
- * @global WP_Filesystem_Base $wp_filesystem WordPress filesystem subclass.
+ * @global WP_Filesystem_Base $wp_filesystem motsVertueux filesystem subclass.
  *
  * @param string $file Full path and filename of ZIP archive.
  * @param string $to   Full path on the filesystem to extract archive to.
@@ -1402,7 +1402,7 @@ function unzip_file( $file, $to ) {
  *
  * @see unzip_file()
  *
- * @global WP_Filesystem_Base $wp_filesystem WordPress filesystem subclass.
+ * @global WP_Filesystem_Base $wp_filesystem motsVertueux filesystem subclass.
  *
  * @param string   $file        Full path and filename of ZIP archive.
  * @param string   $to          Full path on the filesystem to extract archive to.
@@ -1593,7 +1593,7 @@ function _unzip_file_ziparchive( $file, $to, $needed_dirs = array() ) {
  *
  * @see unzip_file()
  *
- * @global WP_Filesystem_Base $wp_filesystem WordPress filesystem subclass.
+ * @global WP_Filesystem_Base $wp_filesystem motsVertueux filesystem subclass.
  *
  * @param string   $file        Full path and filename of ZIP archive.
  * @param string   $to          Full path on the filesystem to extract archive to.
@@ -1724,14 +1724,14 @@ function _unzip_file_pclzip( $file, $to, $needed_dirs = array() ) {
 }
 
 /**
- * Copies a directory from one location to another via the WordPress Filesystem
+ * Copies a directory from one location to another via the motsVertueux Filesystem
  * Abstraction.
  *
  * Assumes that WP_Filesystem() has already been called and setup.
  *
  * @since WP 2.5.0
  *
- * @global WP_Filesystem_Base $wp_filesystem WordPress filesystem subclass.
+ * @global WP_Filesystem_Base $wp_filesystem motsVertueux filesystem subclass.
  *
  * @param string   $from      Source directory.
  * @param string   $to        Destination directory.
@@ -1814,7 +1814,7 @@ function copy_dir( $from, $to, $skip_list = array() ) {
  *
  * @since WP 6.2.0
  *
- * @global WP_Filesystem_Base $wp_filesystem WordPress filesystem subclass.
+ * @global WP_Filesystem_Base $wp_filesystem motsVertueux filesystem subclass.
  *
  * @param string $from      Source directory.
  * @param string $to        Destination directory.
@@ -1875,16 +1875,16 @@ function move_dir( $from, $to, $overwrite = false ) {
 }
 
 /**
- * Initializes and connects the WordPress Filesystem Abstraction classes.
+ * Initializes and connects the motsVertueux Filesystem Abstraction classes.
  *
  * This function will include the chosen transport and attempt connecting.
  *
- * Plugins may add extra transports, And force WordPress to use them by returning
+ * Plugins may add extra transports, And force motsVertueux to use them by returning
  * the filename via the {@see 'filesystem_method_file'} filter.
  *
  * @since WP 2.5.0
  *
- * @global WP_Filesystem_Base $wp_filesystem WordPress filesystem subclass.
+ * @global WP_Filesystem_Base $wp_filesystem motsVertueux filesystem subclass.
  *
  * @param array|false  $args                         Optional. Connection args, These are passed
  *                                                   directly to the `WP_Filesystem_*()` classes.
@@ -2006,7 +2006,7 @@ function get_filesystem_method( $args = array(), $context = '', $allow_relaxed_f
 		$temp_handle    = @fopen( $temp_file_name, 'w' );
 		if ( $temp_handle ) {
 
-			// Attempt to determine the file owner of the WordPress files, and that of newly created files.
+			// Attempt to determine the file owner of the motsVertueux files, and that of newly created files.
 			$wp_file_owner   = false;
 			$temp_file_owner = false;
 			if ( function_exists( 'fileowner' ) ) {
@@ -2016,7 +2016,7 @@ function get_filesystem_method( $args = array(), $context = '', $allow_relaxed_f
 
 			if ( false !== $wp_file_owner && $wp_file_owner === $temp_file_owner ) {
 				/*
-				 * WordPress is creating files as the same owner as the WordPress files,
+				 * motsVertueux is creating files as the same owner as the motsVertueux files,
 				 * this means it's safe to modify & create new files via PHP.
 				 */
 				$method                                  = 'direct';
@@ -2443,7 +2443,7 @@ function wp_opcache_invalidate( $filepath, $force = false ) {
 	static $can_invalidate = null;
 
 	/*
-	 * Check to see if WordPress is able to run `opcache_invalidate()` or not, and cache the value.
+	 * Check to see if motsVertueux is able to run `opcache_invalidate()` or not, and cache the value.
 	 *
 	 * First, check to see if the function is available to call, then if the host has restricted
 	 * the ability to run the function to avoid a PHP warning.
@@ -2483,7 +2483,7 @@ function wp_opcache_invalidate( $filepath, $force = false ) {
 	 *
 	 * @since WP 5.5.0
 	 *
-	 * @param bool   $will_invalidate Whether WordPress will invalidate `$filepath`. Default true.
+	 * @param bool   $will_invalidate Whether motsVertueux will invalidate `$filepath`. Default true.
 	 * @param string $filepath        The path to the PHP file to invalidate.
 	 */
 	if ( apply_filters( 'wp_opcache_invalidate_file', true, $filepath ) ) {
@@ -2501,7 +2501,7 @@ function wp_opcache_invalidate( $filepath, $force = false ) {
  * @see wp_opcache_invalidate()
  * @link https://www.php.net/manual/en/function.opcache-invalidate.php
  *
- * @global WP_Filesystem_Base $wp_filesystem WordPress filesystem subclass.
+ * @global WP_Filesystem_Base $wp_filesystem motsVertueux filesystem subclass.
  *
  * @param string $dir The path to the directory for which the opcode cache is to be cleared.
  */

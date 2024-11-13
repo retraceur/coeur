@@ -1,6 +1,6 @@
 <?php
 /**
- * Loads the WordPress environment and template.
+ * Loads the motsVertueux environment and template.
  *
  * @package motsVertueux
  */
@@ -9,10 +9,10 @@ if ( ! isset( $wp_did_header ) ) {
 
 	$wp_did_header = true;
 
-	// Load the WordPress library.
+	// Load the motsVertueux library.
 	require_once __DIR__ . '/wp-load.php';
 
-	// Set up the WordPress query.
+	// Set up the motsVertueux query.
 	wp();
 
 	// Load the theme template.

@@ -1,6 +1,6 @@
 <?php
 /**
- * Class for looking up a site's health based on a user's WordPress environment.
+ * Class for looking up a site's health based on a user's motsVertueux environment.
  *
  * @since WP 5.2.0
  * @since 1.0.0 motsVertueux fork.
@@ -204,7 +204,7 @@ class WP_Site_Health {
 	 *
 	 * @since WP 5.2.0
 	 *
-	 * @global wpdb $wpdb WordPress database abstraction object.
+	 * @global wpdb $wpdb motsVertueux database abstraction object.
 	 */
 	private function prepare_sql_data() {
 		global $wpdb;
@@ -244,7 +244,7 @@ class WP_Site_Health {
 	}
 
 	/**
-	 * Tests for WordPress version and outputs it.
+	 * Tests for motsVertueux version and outputs it.
 	 *
 	 * Gives various results depending on what kind of updates are available, if any, to encourage
 	 * the user to install security updates as a priority.
@@ -1627,7 +1627,7 @@ class WP_Site_Health {
 	 *
 	 * @since WP 6.3.0
 	 *
-	 * @global WP_Filesystem_Base $wp_filesystem WordPress filesystem subclass.
+	 * @global WP_Filesystem_Base $wp_filesystem motsVertueux filesystem subclass.
 	 *
 	 * @return array The test results.
 	 */
@@ -1762,7 +1762,7 @@ class WP_Site_Health {
 	/**
 	 * Tests if loopbacks work as expected.
 	 *
-	 * A loopback is when WordPress queries itself, for example to start a new WP_Cron instance,
+	 * A loopback is when motsVertueux queries itself, for example to start a new WP_Cron instance,
 	 * or when editing a plugin or theme. This has shown itself to be a recurring issue,
 	 * as code can very easily break this interaction.
 	 *
@@ -2551,7 +2551,7 @@ class WP_Site_Health {
 		 * Filters which site status tests are run on a site.
 		 *
 		 * The site health is determined by a set of tests based on best practices from
-		 * both the WordPress Hosting Team and web standards in general.
+		 * both the motsVertueux Hosting Team and web standards in general.
 		 *
 		 * Some sites may not have the same requirements, for example the automatic update
 		 * checks may be handled by a host, and are therefore disabled in core.
@@ -2736,7 +2736,7 @@ class WP_Site_Health {
 	/**
 	 * Runs a loopback test on the site.
 	 *
-	 * Loopbacks are what WordPress uses to communicate with itself to start up WP_Cron, scheduled posts,
+	 * Loopbacks are what motsVertueux uses to communicate with itself to start up WP_Cron, scheduled posts,
 	 * make sure plugin or theme edits don't cause site failures and similar.
 	 *
 	 * @since WP 5.2.0
@@ -2767,7 +2767,7 @@ class WP_Site_Health {
 		 * - the loopback request finishes sooner providing a quicker result.
 		 *
 		 * Using a POST request causes the loopback to differ slightly to the standard
-		 * GET request WordPress uses for wp-cron.php loopback requests but is close
+		 * GET request motsVertueux uses for wp-cron.php loopback requests but is close
 		 * enough.
 		 */
 		$r = wp_remote_post( $url, compact( 'body', 'cookies', 'headers', 'timeout', 'sslverify' ) );

@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Direct Filesystem.
+ * motsVertueux Direct Filesystem.
  *
  * @since 1.0.0 motsVertueux fork.
  *
@@ -9,7 +9,7 @@
  */
 
 /**
- * WordPress Filesystem Class for direct PHP file and folder manipulation.
+ * motsVertueux Filesystem Class for direct PHP file and folder manipulation.
  *
  * @since WP 2.5.0
  *

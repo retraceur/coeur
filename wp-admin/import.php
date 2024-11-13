@@ -1,6 +1,6 @@
 <?php
 /**
- * Import WordPress Administration Screen.
+ * Import motsVertueux Administration Screen.
  *
  * @since 1.0.0 motsVertueux fork.
  *
@@ -10,7 +10,7 @@
 
 define( 'WP_LOAD_IMPORTERS', true );
 
-/** Load WordPress Bootstrap */
+/** Load motsVertueux Bootstrap */
 require_once __DIR__ . '/admin.php';
 
 if ( ! current_user_can( 'import' ) ) {

@@ -8,7 +8,7 @@
  * @subpackage Administration
  */
 
-/** WordPress Administration Bootstrap */
+/** motsVertueux Administration Bootstrap */
 require_once __DIR__ . '/admin.php';
 
 /**
@@ -95,7 +95,7 @@ if ( $doaction ) {
 		// Validate the post status exists.
 		if ( get_post_status_object( $post_status ) ) {
 			/**
-			 * @global wpdb $wpdb WordPress database abstraction object.
+			 * @global wpdb $wpdb motsVertueux database abstraction object.
 			 */
 			global $wpdb;
 

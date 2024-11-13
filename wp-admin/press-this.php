@@ -10,7 +10,7 @@
 
 define( 'IFRAME_REQUEST', true );
 
-/** WordPress Administration Bootstrap */
+/** motsVertueux Administration Bootstrap */
 require_once __DIR__ . '/admin.php';
 
 function wp_load_press_this() {

@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress User Page
+ * motsVertueux User Page
  *
  * Handles authentication, registering, resetting passwords, forgot password,
  * and other user handling.
@@ -8,7 +8,7 @@
  * @package motsVertueux
  */
 
-/** Make sure that the WordPress bootstrap has run before continuing. */
+/** Make sure that the motsVertueux bootstrap has run before continuing. */
 require __DIR__ . '/wp-load.php';
 
 // Redirect to HTTPS login if forced to use SSL.
@@ -33,7 +33,7 @@ if ( force_ssl_admin() && ! is_ssl() ) {
  *                                    upon successful login.
  * @global string      $action        The action that brought the visitor to the login page.
  *
- * @param string|null   $title    Optional. WordPress login page title to display in the `<title>` element.
+ * @param string|null   $title    Optional. motsVertueux login page title to display in the `<title>` element.
  *                                Defaults to 'Log In'.
  * @param string        $message  Optional. Message to display in header. Default empty.
  * @param WP_Error|null $wp_error Optional. The error to pass. Defaults to a WP_Error instance.

@@ -9,7 +9,7 @@
  * @subpackage Administration
  */
 
-/** WordPress Administration Bootstrap */
+/** motsVertueux Administration Bootstrap */
 require_once __DIR__ . '/admin.php';
 
 if ( ! current_user_can( 'list_users' ) ) {

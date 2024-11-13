@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Administration Bootstrap.
+ * motsVertueux Administration Bootstrap.
  *
  * @since 1.0.0 motsVertueux fork.
  *
@@ -9,7 +9,7 @@
  */
 
 /**
- * In WordPress Administration Screens
+ * In motsVertueux Administration Screens
  *
  * @since WP 2.3.2
  */

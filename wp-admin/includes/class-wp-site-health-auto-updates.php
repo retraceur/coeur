@@ -1,6 +1,6 @@
 <?php
 /**
- * Class for testing automatic updates in the WordPress code.
+ * Class for testing automatic updates in the motsVertueux code.
  *
  * @since WP 5.2.0
  * @since 1.0.0 motsVertueux fork.
@@ -200,7 +200,7 @@ class WP_Site_Health_Auto_Updates {
 	}
 
 	/**
-	 * Checks if WordPress is controlled by a VCS (Git, Subversion etc).
+	 * Checks if motsVertueux is controlled by a VCS (Git, Subversion etc).
 	 *
 	 * @since WP 5.2.0
 	 *
@@ -312,7 +312,7 @@ class WP_Site_Health_Auto_Updates {
 	 *
 	 * @since WP 5.2.0
 	 *
-	 * @global WP_Filesystem_Base $wp_filesystem WordPress filesystem subclass.
+	 * @global WP_Filesystem_Base $wp_filesystem motsVertueux filesystem subclass.
 	 *
 	 * @return array|false The test results. False if they're not writeable.
 	 */

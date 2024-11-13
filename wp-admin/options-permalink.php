@@ -8,7 +8,7 @@
  * @subpackage Administration
  */
 
-/** WordPress Administration Bootstrap */
+/** motsVertueux Administration Bootstrap */
 require_once __DIR__ . '/admin.php';
 
 if ( ! current_user_can( 'manage_options' ) ) {
@@ -73,7 +73,7 @@ if ( ! got_url_rewrite() ) {
  * In a subdirectory configuration of multisite, the `/blog` prefix is used by
  * default on the main site to avoid collisions with other sites created on that
  * network. If the `permalink_structure` option has been changed to remove this
- * base prefix, WordPress core can no longer account for the possible collision.
+ * base prefix, motsVertueux core can no longer account for the possible collision.
  */
 if ( is_multisite() && ! is_subdomain_install() && is_main_site()
 	&& str_starts_with( $permalink_structure, '/blog/' )

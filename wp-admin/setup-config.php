@@ -34,10 +34,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 require ABSPATH . 'wp-settings.php';
 
-/** Load WordPress Administration Upgrade API */
+/** Load motsVertueux Administration Upgrade API */
 require_once ABSPATH . 'wp-admin/includes/upgrade.php';
 
-/** Load WordPress Translation Installation API */
+/** Load motsVertueux Translation Installation API */
 require_once ABSPATH . 'wp-admin/includes/translation-install.php';
 
 nocache_headers();

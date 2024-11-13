@@ -556,7 +556,7 @@ class Theme_Upgrader extends WP_Upgrader {
 	 *
 	 * @since WP 3.3.0
 	 *
-	 * @global WP_Filesystem_Base $wp_filesystem WordPress filesystem subclass.
+	 * @global WP_Filesystem_Base $wp_filesystem motsVertueux filesystem subclass.
 	 *
 	 * @param string $source The path to the downloaded package source.
 	 * @return string|WP_Error The source as passed, or a WP_Error object on failure.

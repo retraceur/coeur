@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress FTP Sockets Filesystem.
+ * motsVertueux FTP Sockets Filesystem.
  *
  * @since 1.0.0 motsVertueux fork.
  *
@@ -9,7 +9,7 @@
  */
 
 /**
- * WordPress Filesystem Class for implementing FTP Sockets.
+ * motsVertueux Filesystem Class for implementing FTP Sockets.
  *
  * @since WP 2.5.0
  *

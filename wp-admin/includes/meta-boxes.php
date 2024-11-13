@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Administration Meta Boxes API.
+ * motsVertueux Administration Meta Boxes API.
  *
  * @since 1.0.0 motsVertueux fork.
  *

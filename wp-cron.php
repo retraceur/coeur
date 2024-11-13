@@ -1,6 +1,6 @@
 <?php
 /**
- * A pseudo-cron daemon for scheduling WordPress tasks.
+ * A pseudo-cron daemon for scheduling motsVertueux tasks.
  *
  * WP-Cron is triggered when the site receives a visit. In the scenario
  * where a site may not receive enough visits to execute scheduled tasks
@@ -35,14 +35,14 @@ if ( ! empty( $_POST ) || defined( 'DOING_AJAX' ) || defined( 'DOING_CRON' ) ) {
 }
 
 /**
- * Tell WordPress the cron task is running.
+ * Tell motsVertueux the cron task is running.
  *
  * @var bool
  */
 define( 'DOING_CRON', true );
 
 if ( ! defined( 'ABSPATH' ) ) {
-	/** Set up WordPress environment */
+	/** Set up motsVertueux environment */
 	require_once __DIR__ . '/wp-load.php';
 }
 
@@ -57,7 +57,7 @@ wp_raise_memory_limit( 'cron' );
  * @ignore
  * @since WP 3.3.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb motsVertueux database abstraction object.
  *
  * @return string|int|false Value of the `doing_cron` transient, 0|false otherwise.
  */

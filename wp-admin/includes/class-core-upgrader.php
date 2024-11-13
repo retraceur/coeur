@@ -12,7 +12,7 @@
 /**
  * Core class used for updating core.
  *
- * It allows for WordPress to upgrade itself in combination with
+ * It allows for motsVertueux to upgrade itself in combination with
  * the wp-admin/includes/update-core.php file.
  *
  * Note: Newly introduced functions and methods cannot be used here.
@@ -45,16 +45,16 @@ class Core_Upgrader extends WP_Upgrader {
 	}
 
 	/**
-	 * Upgrades WordPress core.
+	 * Upgrades motsVertueux core.
 	 *
 	 * @since WP 2.8.0
 	 *
-	 * @global WP_Filesystem_Base $wp_filesystem                WordPress filesystem subclass.
+	 * @global WP_Filesystem_Base $wp_filesystem                motsVertueux filesystem subclass.
 	 * @global callable           $_wp_filesystem_direct_method
 	 *
-	 * @param object $current Response object for whether WordPress is current.
+	 * @param object $current Response object for whether motsVertueux is current.
 	 * @param array  $args {
-	 *     Optional. Arguments for upgrading WordPress core. Default empty array.
+	 *     Optional. Arguments for upgrading motsVertueux core. Default empty array.
 	 *
 	 *     @type bool $pre_check_md5    Whether to check the file checksums before
 	 *                                  attempting the upgrade. Default true.
@@ -63,7 +63,7 @@ class Core_Upgrader extends WP_Upgrader {
 	 *     @type bool $do_rollback      Whether to perform this "upgrade" as a rollback.
 	 *                                  Default false.
 	 * }
-	 * @return string|false|WP_Error New WordPress version on success, false or WP_Error on failure.
+	 * @return string|false|WP_Error New motsVertueux version on success, false or WP_Error on failure.
 	 */
 	public function upgrade( $current, $args = array() ) {
 		global $wp_filesystem;
@@ -263,7 +263,7 @@ class Core_Upgrader extends WP_Upgrader {
 	}
 
 	/**
-	 * Determines if this WordPress Core version should update to an offered version or not.
+	 * Determines if this motsVertueux Core version should update to an offered version or not.
 	 *
 	 * @since WP 3.7.0
 	 *
@@ -389,7 +389,7 @@ class Core_Upgrader extends WP_Upgrader {
 	 *
 	 * @since WP 3.7.0
 	 *
-	 * @global string $wp_version       The WordPress version string.
+	 * @global string $wp_version       The WP version string.
 	 * @global string $wp_local_package Locale code of the package.
 	 *
 	 * @return bool True if the checksums match, otherwise false.

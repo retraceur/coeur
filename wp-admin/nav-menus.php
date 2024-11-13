@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Administration for Navigation Menus
+ * motsVertueux Administration for Navigation Menus
  * Interface functions.
  *
  * @version WP 2.0.0
@@ -10,7 +10,7 @@
  * @subpackage Administration
  */
 
-/** Load WordPress Administration Bootstrap */
+/** Load motsVertueux Administration Bootstrap */
 require_once __DIR__ . '/admin.php';
 
 // Load all the nav menu interface functions.

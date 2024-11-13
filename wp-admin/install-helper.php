@@ -38,7 +38,7 @@
  * @subpackage Plugin
  */
 
-/** Load WordPress Bootstrap */
+/** Load motsVertueux Bootstrap */
 require_once dirname( __DIR__ ) . '/wp-load.php';
 
 if ( ! function_exists( 'maybe_create_table' ) ) :
@@ -47,7 +47,7 @@ if ( ! function_exists( 'maybe_create_table' ) ) :
 	 *
 	 * @since WP 1.0.0
 	 *
-	 * @global wpdb $wpdb WordPress database abstraction object.
+	 * @global wpdb $wpdb motsVertueux database abstraction object.
 	 *
 	 * @param string $table_name Database table name.
 	 * @param string $create_ddl SQL statement to create table.
@@ -83,7 +83,7 @@ if ( ! function_exists( 'maybe_add_column' ) ) :
 	 *
 	 * @since WP 1.0.0
 	 *
-	 * @global wpdb $wpdb WordPress database abstraction object.
+	 * @global wpdb $wpdb motsVertueux database abstraction object.
 	 *
 	 * @param string $table_name  Database table name.
 	 * @param string $column_name Table column name.
@@ -121,7 +121,7 @@ endif;
  *
  * @since WP 1.0.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb motsVertueux database abstraction object.
  *
  * @param string $table_name  Database table name.
  * @param string $column_name Table column name.
@@ -171,7 +171,7 @@ function maybe_drop_column( $table_name, $column_name, $drop_ddl ) {
  *
  * @since WP 1.0.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb motsVertueux database abstraction object.
  *
  * @param string $table_name    Database table name.
  * @param string $col_name      Table column name.

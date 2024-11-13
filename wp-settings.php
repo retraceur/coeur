@@ -1,7 +1,7 @@
 <?php
 /**
  * Used to set up and fix common variables and include
- * the WordPress procedural and class library.
+ * the motsVertueux procedural and class library.
  *
  * Allows for some configuration in wp-config.php (see default-constants.php)
  *
@@ -10,21 +10,21 @@
  */
 
 /**
- * Stores the location of the WordPress directory of functions, classes, and core content.
+ * Stores the location of the motsVertueux directory of functions, classes, and core content.
  *
  * @since WP 1.0.0
  */
 define( 'WPINC', 'wp-includes' );
 
 /**
- * Version information for the current WordPress release.
+ * Version information for the current motsVertueux release.
  *
  * These can't be directly globalized in version.php. When updating,
  * include version.php from another installation and don't override
  * these values if already set.
  *
- * @global string $wp_version              The WordPress version string.
- * @global int    $wp_db_version           WordPress database version.
+ * @global string $wp_version              The WP version string.
+ * @global int    $wp_db_version           WP database version.
  * @global string $tinymce_version         TinyMCE version.
  * @global string $required_php_version    The required PHP version string.
  * @global string $recommended_php_version The recommended PHP version string.
@@ -68,7 +68,7 @@ wp_initial_constants();
 // Register the shutdown handler for fatal errors as soon as possible.
 wp_register_fatal_error_handler();
 
-// WordPress calculates offsets from UTC.
+// motsVertueux calculates offsets from UTC.
 // phpcs:ignore WordPress.DateTime.RestrictedFunctions.timezone_change_date_default_timezone_set
 date_default_timezone_set( 'UTC' );
 
@@ -108,7 +108,7 @@ if ( WP_CACHE && apply_filters( 'enable_loading_advanced_cache_dropin', true ) &
 // Define WP_LANG_DIR if not set.
 wp_set_lang_dir();
 
-// Load early WordPress files.
+// Load early motsVertueux files.
 require ABSPATH . WPINC . '/class-wp-list-util.php';
 require ABSPATH . WPINC . '/class-wp-token-map.php';
 require ABSPATH . WPINC . '/formatting.php';
@@ -128,7 +128,7 @@ require ABSPATH . WPINC . '/l10n/class-wp-translation-file-php.php';
 /**
  * @since WP 0.71
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb motsVertueux database abstraction object.
  */
 global $wpdb;
 // Include the wpdb class and, if present, a db.php database drop-in.
@@ -144,7 +144,7 @@ $GLOBALS['table_prefix'] = $table_prefix;
 // Set the database table prefix and the format specifiers for database table columns.
 wp_set_wpdb_vars();
 
-// Start the WordPress object cache, or an external object cache if the drop-in is present.
+// Start the motsVertueux object cache, or an external object cache if the drop-in is present.
 wp_start_object_cache();
 
 // Attach the default filters.
@@ -162,7 +162,7 @@ if ( is_multisite() ) {
 
 register_shutdown_function( 'shutdown_action_hook' );
 
-// Stop most of WordPress from being loaded if SHORTINIT is enabled.
+// Stop most of motsVertueux from being loaded if SHORTINIT is enabled.
 if ( SHORTINIT ) {
 	return false;
 }
@@ -173,7 +173,7 @@ require_once ABSPATH . WPINC . '/class-wp-textdomain-registry.php';
 require_once ABSPATH . WPINC . '/class-wp-locale.php';
 require_once ABSPATH . WPINC . '/class-wp-locale-switcher.php';
 
-// Run the installer if WordPress is not installed.
+// Run the installer if motsVertueux is not installed.
 wp_not_installed();
 
 // Load most of WordPress.
@@ -413,18 +413,18 @@ add_action( 'after_setup_theme', array( wp_interactivity(), 'add_hooks' ) );
 /**
  * @since WP 3.3.0
  *
- * @global WP_Embed $wp_embed WordPress Embed object.
+ * @global WP_Embed $wp_embed motsVertueux Embed object.
  */
 $GLOBALS['wp_embed'] = new WP_Embed();
 
 /**
- * WordPress Textdomain Registry object.
+ * motsVertueux Textdomain Registry object.
  *
  * Used to support just-in-time translations for manually loaded text domains.
  *
  * @since WP 6.1.0
  *
- * @global WP_Textdomain_Registry $wp_textdomain_registry WordPress Textdomain Registry.
+ * @global WP_Textdomain_Registry $wp_textdomain_registry motsVertueux Textdomain Registry.
  */
 $GLOBALS['wp_textdomain_registry'] = new WP_Textdomain_Registry();
 $GLOBALS['wp_textdomain_registry']->init();
@@ -574,44 +574,44 @@ wp_magic_quotes();
 do_action( 'sanitize_comment_cookies' );
 
 /**
- * WordPress Query object
+ * motsVertueux Query object
  *
  * @since WP 2.0.0
  *
- * @global WP_Query $wp_the_query WordPress Query object.
+ * @global WP_Query $wp_the_query motsVertueux Query object.
  */
 $GLOBALS['wp_the_query'] = new WP_Query();
 
 /**
  * Holds the reference to {@see $wp_the_query}.
- * Use this global for WordPress queries
+ * Use this global for motsVertueux queries
  *
  * @since WP 1.5.0
  *
- * @global WP_Query $wp_query WordPress Query object.
+ * @global WP_Query $wp_query motsVertueux Query object.
  */
 $GLOBALS['wp_query'] = $GLOBALS['wp_the_query'];
 
 /**
- * Holds the WordPress Rewrite object for creating pretty URLs
+ * Holds the motsVertueux Rewrite object for creating pretty URLs
  *
  * @since WP 1.5.0
  *
- * @global WP_Rewrite $wp_rewrite WordPress rewrite component.
+ * @global WP_Rewrite $wp_rewrite motsVertueux rewrite component.
  */
 $GLOBALS['wp_rewrite'] = new WP_Rewrite();
 
 /**
- * WordPress Object
+ * motsVertueux Object
  *
  * @since WP 2.0.0
  *
- * @global WP $wp Current WordPress environment instance.
+ * @global WP $wp Current motsVertueux environment instance.
  */
 $GLOBALS['wp'] = new WP();
 
 /**
- * WordPress Widget Factory Object
+ * motsVertueux Widget Factory Object
  *
  * @since WP 2.8.0
  *
@@ -620,11 +620,11 @@ $GLOBALS['wp'] = new WP();
 $GLOBALS['wp_widget_factory'] = new WP_Widget_Factory();
 
 /**
- * WordPress User Roles
+ * motsVertueux User Roles
  *
  * @since WP 2.0.0
  *
- * @global WP_Roles $wp_roles WordPress role management object.
+ * @global WP_Roles $wp_roles motsVertueux role management object.
  */
 $GLOBALS['wp_roles'] = new WP_Roles();
 
@@ -650,20 +650,20 @@ if ( ( 0 === validate_file( $locale ) ) && is_readable( $locale_file ) ) {
 unset( $locale_file );
 
 /**
- * WordPress Locale object for loading locale domain date and various strings.
+ * motsVertueux Locale object for loading locale domain date and various strings.
  *
  * @since WP 2.1.0
  *
- * @global WP_Locale $wp_locale WordPress date and time locale object.
+ * @global WP_Locale $wp_locale motsVertueux date and time locale object.
  */
 $GLOBALS['wp_locale'] = new WP_Locale();
 
 /**
- * WordPress Locale Switcher object for switching locales.
+ * motsVertueux Locale Switcher object for switching locales.
  *
  * @since WP 4.7.0
  *
- * @global WP_Locale_Switcher $wp_locale_switcher WordPress locale switcher object.
+ * @global WP_Locale_Switcher $wp_locale_switcher motsVertueux locale switcher object.
  */
 $GLOBALS['wp_locale_switcher'] = new WP_Locale_Switcher();
 $GLOBALS['wp_locale_switcher']->init();
@@ -693,7 +693,7 @@ WP_Site_Health::get_instance();
 $GLOBALS['wp']->init();
 
 /**
- * Fires after WordPress has finished loading but before any headers are sent.
+ * Fires after motsVertueux has finished loading but before any headers are sent.
  *
  * Most of WP is loaded at this stage, and the user is authenticated. WP continues
  * to load on the {@see 'init'} hook that follows (e.g. widgets), and many plugins instantiate

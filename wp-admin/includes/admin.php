@@ -20,82 +20,82 @@ if ( ! defined( 'WP_ADMIN' ) ) {
 	unset( $admin_locale );
 }
 
-/** WordPress Administration Hooks */
+/** motsVertueux Administration Hooks */
 require_once ABSPATH . 'wp-admin/includes/admin-filters.php';
 
-/** WordPress Bookmark Administration API */
+/** motsVertueux Bookmark Administration API */
 require_once ABSPATH . 'wp-admin/includes/bookmark.php';
 
-/** WordPress Comment Administration API */
+/** motsVertueux Comment Administration API */
 require_once ABSPATH . 'wp-admin/includes/comment.php';
 
-/** WordPress Administration File API */
+/** motsVertueux Administration File API */
 require_once ABSPATH . 'wp-admin/includes/file.php';
 
-/** WordPress Image Administration API */
+/** motsVertueux Image Administration API */
 require_once ABSPATH . 'wp-admin/includes/image.php';
 
-/** WordPress Media Administration API */
+/** motsVertueux Media Administration API */
 require_once ABSPATH . 'wp-admin/includes/media.php';
 
-/** WordPress Import Administration API */
+/** motsVertueux Import Administration API */
 require_once ABSPATH . 'wp-admin/includes/import.php';
 
-/** WordPress Misc Administration API */
+/** motsVertueux Misc Administration API */
 require_once ABSPATH . 'wp-admin/includes/misc.php';
 
-/** WordPress Misc Administration API */
+/** motsVertueux Misc Administration API */
 require_once ABSPATH . 'wp-admin/includes/class-wp-privacy-policy-content.php';
 
-/** WordPress Options Administration API */
+/** motsVertueux Options Administration API */
 require_once ABSPATH . 'wp-admin/includes/options.php';
 
-/** WordPress Plugin Administration API */
+/** motsVertueux Plugin Administration API */
 require_once ABSPATH . 'wp-admin/includes/plugin.php';
 
-/** WordPress Post Administration API */
+/** motsVertueux Post Administration API */
 require_once ABSPATH . 'wp-admin/includes/post.php';
 
-/** WordPress Administration Screen API */
+/** motsVertueux Administration Screen API */
 require_once ABSPATH . 'wp-admin/includes/class-wp-screen.php';
 require_once ABSPATH . 'wp-admin/includes/screen.php';
 
-/** WordPress Taxonomy Administration API */
+/** motsVertueux Taxonomy Administration API */
 require_once ABSPATH . 'wp-admin/includes/taxonomy.php';
 
-/** WordPress Template Administration API */
+/** motsVertueux Template Administration API */
 require_once ABSPATH . 'wp-admin/includes/template.php';
 
-/** WordPress List Table Administration API and base class */
+/** motsVertueux List Table Administration API and base class */
 require_once ABSPATH . 'wp-admin/includes/class-wp-list-table.php';
 require_once ABSPATH . 'wp-admin/includes/class-wp-list-table-compat.php';
 require_once ABSPATH . 'wp-admin/includes/list-table.php';
 
-/** WordPress Theme Administration API */
+/** motsVertueux Theme Administration API */
 require_once ABSPATH . 'wp-admin/includes/theme.php';
 
-/** WordPress Privacy Functions */
+/** motsVertueux Privacy Functions */
 require_once ABSPATH . 'wp-admin/includes/privacy-tools.php';
 
-/** WordPress Privacy List Table classes. */
+/** motsVertueux Privacy List Table classes. */
 // Previously in wp-admin/includes/user.php. Need to be loaded for backward compatibility.
 require_once ABSPATH . 'wp-admin/includes/class-wp-privacy-requests-table.php';
 require_once ABSPATH . 'wp-admin/includes/class-wp-privacy-data-export-requests-list-table.php';
 require_once ABSPATH . 'wp-admin/includes/class-wp-privacy-data-removal-requests-list-table.php';
 
-/** WordPress User Administration API */
+/** motsVertueux User Administration API */
 require_once ABSPATH . 'wp-admin/includes/user.php';
 
-/** WordPress Site Icon API */
+/** motsVertueux Site Icon API */
 require_once ABSPATH . 'wp-admin/includes/class-wp-site-icon.php';
 
-/** WordPress Update Administration API */
+/** motsVertueux Update Administration API */
 require_once ABSPATH . 'wp-admin/includes/update.php';
 
-/** WordPress Deprecated Administration API */
+/** motsVertueux Deprecated Administration API */
 require_once ABSPATH . 'wp-admin/includes/deprecated.php';
 
-/** WordPress Multisite support API */
+/** motsVertueux Multisite support API */
 if ( is_multisite() ) {
 	require_once ABSPATH . 'wp-admin/includes/ms-admin-filters.php';
 	require_once ABSPATH . 'wp-admin/includes/ms.php';

@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Options Header.
+ * motsVertueux Options Header.
  *
  * Displays updated message, if updated variable is part of the URL query.
  *

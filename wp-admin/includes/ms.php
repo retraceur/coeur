@@ -139,7 +139,7 @@ function wpmu_delete_blog( $blog_id, $drop = false ) {
  *
  * @since WP 3.0.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb motsVertueux database abstraction object.
  *
  * @param int $id The user ID.
  * @return bool True if the user was deleted, false otherwise.
@@ -653,7 +653,7 @@ function mu_dropdown_languages( $lang_files = array(), $current = '' ) {
 		}
 	}
 
-	if ( false === $flag ) { // WordPress English.
+	if ( false === $flag ) { // motsVertueux English.
 		$output[] = '<option value=""' . selected( $current, '', false ) . '>' . __( 'English' ) . '</option>';
 	}
 
@@ -679,7 +679,7 @@ function mu_dropdown_languages( $lang_files = array(), $current = '' ) {
  *
  * @since WP 3.0.0
  *
- * @global int    $wp_db_version WordPress database version.
+ * @global int    $wp_db_version WP database version.
  * @global string $pagenow       The filename of the current screen.
  *
  * @return void|false Void on success. False if the current user is not a super admin.

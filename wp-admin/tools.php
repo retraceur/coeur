@@ -38,7 +38,7 @@ if ( isset( $_GET['wp-privacy-policy-guide'] ) ) {
 	}
 }
 
-/** WordPress Administration Bootstrap */
+/** motsVertueux Administration Bootstrap */
 require_once __DIR__ . '/admin.php';
 
 // Used in the HTML title tag.

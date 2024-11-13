@@ -8,7 +8,7 @@
 
 define( 'WP_INSTALLING', true );
 
-/** Sets up the WordPress Environment. */
+/** Sets up the motsVertueux Environment. */
 require __DIR__ . '/wp-load.php';
 
 require __DIR__ . '/wp-blog-header.php';

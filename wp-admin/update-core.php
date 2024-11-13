@@ -8,7 +8,7 @@
  * @subpackage Administration
  */
 
-/** WordPress Administration Bootstrap */
+/** motsVertueux Administration Bootstrap */
 require_once __DIR__ . '/admin.php';
 
 wp_enqueue_style( 'plugin-install' );
@@ -31,7 +31,7 @@ if ( ! current_user_can( 'update_core' ) && ! current_user_can( 'update_themes' 
  * @since WP 2.7.0
  *
  * @global string $wp_local_package Locale code of the package.
- * @global wpdb   $wpdb             WordPress database abstraction object.
+ * @global wpdb   $wpdb             motsVertueux database abstraction object.
  *
  * @param object $update
  */
@@ -218,7 +218,7 @@ function dismissed_updates() {
 }
 
 /**
- * Display upgrade WordPress for downloading latest or upgrading automatically form.
+ * Display upgrade motsVertueux for downloading latest or upgrading automatically form.
  *
  * @since WP 2.7.0
  */
@@ -277,7 +277,7 @@ function core_upgrade_preamble() {
 }
 
 /**
- * Display WordPress auto-updates settings.
+ * Display motsVertueux auto-updates settings.
  *
  * @since WP 5.6.0
  */
@@ -761,11 +761,11 @@ function list_translation_updates() {
 }
 
 /**
- * Upgrades WordPress core display.
+ * Upgrades motsVertueux core display.
  *
  * @since WP 2.7.0
  *
- * @global WP_Filesystem_Base $wp_filesystem WordPress filesystem subclass.
+ * @global WP_Filesystem_Base $wp_filesystem motsVertueux filesystem subclass.
  *
  * @param bool $reinstall
  */

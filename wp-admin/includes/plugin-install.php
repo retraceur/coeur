@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Plugin Install Administration API.
+ * motsVertueux Plugin Install Administration API.
  *
  * @since 1.0.0 motsVertueux fork.
  *
@@ -74,7 +74,7 @@
  *         @type bool $sections          Whether to return the plugin readme sections: description, installation,
  *                                       FAQ, screenshots, other notes, and changelog. Default false.
  *         @type bool $tested            Whether to return the 'Compatible up to' value. Default true.
- *         @type bool $requires          Whether to return the required WordPress version. Default true.
+ *         @type bool $requires          Whether to return the required motsVertueux version. Default true.
  *         @type bool $requires_php      Whether to return the required PHP version. Default true.
  *         @type bool $rating            Whether to return the rating in percent and total number of ratings.
  *                                       Default true.
@@ -84,7 +84,7 @@
  *         @type bool $last_updated      Whether to return the date of the last update. Default true.
  *         @type bool $added             Whether to return the date when the plugin was added. Default true.
  *         @type bool $tags              Whether to return the assigned tags. Default true.
- *         @type bool $compatibility     Whether to return the WordPress compatibility list. Default true.
+ *         @type bool $compatibility     Whether to return the motsVertueux compatibility list. Default true.
  *         @type bool $homepage          Whether to return the plugin homepage link. Default true.
  *         @type bool $versions          Whether to return the list of all available versions. Default false.
  *         @type bool $donate_link       Whether to return the donation link. Default true.
@@ -221,7 +221,7 @@ function plugins_api( $action, $args = array() ) {
 }
 
 /**
- * Retrieves popular WordPress plugin tags.
+ * Retrieves popular motsVertueux plugin tags.
  *
  * @since WP 2.7.0
  *

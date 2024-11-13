@@ -8,10 +8,10 @@
  * @subpackage Administration
  */
 
-/** WordPress Administration Bootstrap */
+/** motsVertueux Administration Bootstrap */
 require_once __DIR__ . '/admin.php';
 
-/** WordPress Translation Installation API */
+/** motsVertueux Translation Installation API */
 require_once ABSPATH . 'wp-admin/includes/translation-install.php';
 
 $action          = ! empty( $_REQUEST['action'] ) ? sanitize_text_field( $_REQUEST['action'] ) : '';

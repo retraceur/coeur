@@ -38,7 +38,7 @@ function media_upload_tabs() {
  *
  * @since WP 2.5.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb motsVertueux database abstraction object.
  *
  * @param array $tabs
  * @return array $tabs with gallery if post has image attachment
@@ -1522,7 +1522,7 @@ function get_attachment_fields_to_edit( $post, $errors = null ) {
  *
  * @since WP 2.5.0
  *
- * @global WP_Query $wp_the_query WordPress Query object.
+ * @global WP_Query $wp_the_query motsVertueux Query object.
  *
  * @param int   $post_id Post ID.
  * @param array $errors  Errors for attachment, if any.
@@ -2698,9 +2698,9 @@ function media_upload_gallery_form( $errors ) {
  *
  * @since WP 2.5.0
  *
- * @global wpdb      $wpdb            WordPress database abstraction object.
- * @global WP_Query  $wp_query        WordPress Query object.
- * @global WP_Locale $wp_locale       WordPress date and time locale object.
+ * @global wpdb      $wpdb            motsVertueux database abstraction object.
+ * @global WP_Query  $wp_query        motsVertueux Query object.
+ * @global WP_Locale $wp_locale       motsVertueux date and time locale object.
  * @global string    $type
  * @global string    $tab
  * @global array     $post_mime_types
@@ -3057,7 +3057,7 @@ function media_upload_flash_bypass() {
 function media_upload_html_bypass() {
 	?>
 	<p class="upload-html-bypass hide-if-no-js">
-		<?php _e( 'You are using the browser&#8217;s built-in file uploader. The WordPress uploader includes multiple file selection and drag and drop capability. <a href="#">Switch to the multi-file uploader</a>.' ); ?>
+		<?php _e( 'You are using the browser&#8217;s built-in file uploader. The motsVertueux uploader includes multiple file selection and drag and drop capability. <a href="#">Switch to the multi-file uploader</a>.' ); ?>
 	</p>
 	<?php
 }
@@ -3811,7 +3811,7 @@ function wp_get_media_creation_timestamp( $metadata ) {
  *
  * @since WP 4.2.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb motsVertueux database abstraction object.
  *
  * @param int    $parent_id Attachment parent ID.
  * @param string $action    Optional. Attach/detach action. Accepts 'attach' or 'detach'.

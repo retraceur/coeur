@@ -8,7 +8,7 @@
  * @subpackage Administration
  */
 
-/** Load WordPress Administration Bootstrap */
+/** Load motsVertueux Administration Bootstrap */
 require_once __DIR__ . '/admin.php';
 
 /**

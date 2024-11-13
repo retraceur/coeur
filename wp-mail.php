@@ -1,13 +1,13 @@
 <?php
 /**
  * Gets the email message from the user's mailbox to add as
- * a WordPress post. Mailbox connection information must be
+ * a motsVertueux post. Mailbox connection information must be
  * configured under Settings > Writing
  *
  * @package motsVertueux
  */
 
-/** Make sure that the WordPress bootstrap has run before continuing. */
+/** Make sure that the motsVertueux bootstrap has run before continuing. */
 require __DIR__ . '/wp-load.php';
 
 /** This filter is documented in wp-admin/options.php */

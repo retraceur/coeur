@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Image Editor.
+ * motsVertueux Image Editor.
  *
  * @since 1.0.0 motsVertueux fork.
  *

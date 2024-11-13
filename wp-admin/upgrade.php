@@ -1,6 +1,6 @@
 <?php
 /**
- * Upgrade WordPress Page.
+ * Upgrade motsVertueux Page.
  *
  * @since 1.0.0 motsVertueux fork.
  *
@@ -16,7 +16,7 @@
  */
 define( 'WP_INSTALLING', true );
 
-/** Load WordPress Bootstrap */
+/** Load motsVertueux Bootstrap */
 require dirname( __DIR__ ) . '/wp-load.php';
 
 nocache_headers();
@@ -38,10 +38,10 @@ if ( 'upgrade_db' === $step ) {
 }
 
 /**
- * @global string $wp_version             The WordPress version string.
+ * @global string $wp_version             The WP version string.
  * @global string $required_php_version   The required PHP version string.
  * @global string $required_mysql_version The required MySQL version string.
- * @global wpdb   $wpdb                   WordPress database abstraction object.
+ * @global wpdb   $wpdb                   WP database abstraction object.
  */
 global $wp_version, $required_php_version, $required_mysql_version, $wpdb;
 

@@ -665,7 +665,7 @@ class Plugin_Upgrader extends WP_Upgrader {
 	 *
 	 * @since WP 2.8.0
 	 *
-	 * @global WP_Filesystem_Base $wp_filesystem WordPress filesystem subclass.
+	 * @global WP_Filesystem_Base $wp_filesystem motsVertueux filesystem subclass.
 	 *
 	 * @param bool|WP_Error $removed            Whether the destination was cleared.
 	 *                                          True on success, WP_Error on failure.

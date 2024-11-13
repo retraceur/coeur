@@ -2,7 +2,7 @@
 /**
  * Network installation administration panel.
  *
- * A multi-step process allowing the user to enable a network of WordPress sites.
+ * A multi-step process allowing the user to enable a network of motsVertueux sites.
  *
  * @since WP 3.0.0
  * @since 1.0.0 motsVertueux fork.
@@ -13,7 +13,7 @@
 
 define( 'WP_INSTALLING_NETWORK', true );
 
-/** WordPress Administration Bootstrap */
+/** motsVertueux Administration Bootstrap */
 require_once __DIR__ . '/admin.php';
 
 if ( ! current_user_can( 'setup_network' ) ) {
