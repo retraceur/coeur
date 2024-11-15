@@ -220,14 +220,6 @@ class WP_Themes_List_Table extends WP_List_Table {
 				_x( 'Activate', 'theme' )
 			);
 
-			if ( current_user_can( 'edit_theme_options' ) && current_user_can( 'customize' ) ) {
-				$actions['preview'] .= sprintf(
-					'<a href="%s" class="load-customize hide-if-no-customize">%s</a>',
-					wp_customize_url( $stylesheet ),
-					__( 'Live Preview' )
-				);
-			}
-
 			if ( ! is_multisite() && current_user_can( 'delete_themes' ) ) {
 				$actions['delete'] = sprintf(
 					'<a class="submitdelete deletion" href="%s" onclick="return confirm( \'%s\' );">%s</a>',
@@ -249,16 +241,11 @@ class WP_Themes_List_Table extends WP_List_Table {
 			$screenshot = $theme->get_screenshot();
 			?>
 
-			<span class="screenshot hide-if-customize">
+			<span class="screenshot">
 				<?php if ( $screenshot ) : ?>
 					<img src="<?php echo esc_url( $screenshot . '?ver=' . $theme->version ); ?>" alt="" />
 				<?php endif; ?>
 			</span>
-			<a href="<?php echo wp_customize_url( $stylesheet ); ?>" class="screenshot load-customize hide-if-no-customize">
-				<?php if ( $screenshot ) : ?>
-					<img src="<?php echo esc_url( $screenshot . '?ver=' . $theme->version ); ?>" alt="" />
-				<?php endif; ?>
-			</a>
 
 			<h3><?php echo $title; ?></h3>
 			<div class="theme-author">

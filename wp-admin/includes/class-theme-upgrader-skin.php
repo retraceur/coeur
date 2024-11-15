@@ -85,29 +85,7 @@ class Theme_Upgrader_Skin extends WP_Upgrader_Skin {
 				admin_url( 'customize.php' )
 			);
 
-			if ( get_stylesheet() === $stylesheet ) {
-				if ( current_user_can( 'edit_theme_options' ) && current_user_can( 'customize' ) ) {
-					$update_actions['preview'] = sprintf(
-						'<a href="%s" class="hide-if-no-customize load-customize">' .
-						'<span aria-hidden="true">%s</span><span class="screen-reader-text">%s</span></a>',
-						esc_url( $customize_url ),
-						__( 'Customize' ),
-						/* translators: Hidden accessibility text. %s: Theme name. */
-						sprintf( __( 'Customize &#8220;%s&#8221;' ), $name )
-					);
-				}
-			} elseif ( current_user_can( 'switch_themes' ) ) {
-				if ( current_user_can( 'edit_theme_options' ) && current_user_can( 'customize' ) ) {
-					$update_actions['preview'] = sprintf(
-						'<a href="%s" class="hide-if-no-customize load-customize">' .
-						'<span aria-hidden="true">%s</span><span class="screen-reader-text">%s</span></a>',
-						esc_url( $customize_url ),
-						__( 'Live Preview' ),
-						/* translators: Hidden accessibility text. %s: Theme name. */
-						sprintf( __( 'Live Preview &#8220;%s&#8221;' ), $name )
-					);
-				}
-
+			if ( current_user_can( 'switch_themes' ) ) {
 				$update_actions['activate'] = sprintf(
 					'<a href="%s" class="activatelink">' .
 					'<span aria-hidden="true">%s</span><span class="screen-reader-text">%s</span></a>',

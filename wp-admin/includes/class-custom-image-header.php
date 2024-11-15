@@ -508,21 +508,6 @@ class Custom_Image_Header {
 <h1><?php _e( 'Custom Header' ); ?></h1>
 
 		<?php
-		if ( current_user_can( 'customize' ) ) {
-			$message = sprintf(
-				/* translators: %s: URL to header image configuration in Customizer. */
-				__( 'You can now manage and live-preview Custom Header in the <a href="%s">Customizer</a>.' ),
-				admin_url( 'customize.php?autofocus[control]=header_image' )
-			);
-			wp_admin_notice(
-				$message,
-				array(
-					'type'               => 'info',
-					'additional_classes' => array( 'hide-if-no-customize' ),
-				)
-			);
-		}
-
 		if ( ! empty( $this->updated ) ) {
 			$updated_message = sprintf(
 				/* translators: %s: Home URL. */

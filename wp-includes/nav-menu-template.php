@@ -1,7 +1,7 @@
 <?php
 /**
  * Nav Menu API: Template functions
- * 
+ *
  * @since WP 3.0.0
  * @since 1.0.0 motsVertueux fork.
  *
@@ -473,11 +473,6 @@ function _wp_menu_item_classes_by_context( &$menu_items ) {
 			// If the menu item corresponds to the currently requested URL.
 		} elseif ( 'custom' === $menu_item->object && isset( $_SERVER['HTTP_HOST'] ) ) {
 			$_root_relative_current = untrailingslashit( $_SERVER['REQUEST_URI'] );
-
-			// If it's the customize page then it will strip the query var off the URL before entering the comparison block.
-			if ( is_customize_preview() ) {
-				$_root_relative_current = strtok( untrailingslashit( $_SERVER['REQUEST_URI'] ), '?' );
-			}
 
 			$current_url        = set_url_scheme( 'http://' . $_SERVER['HTTP_HOST'] . $_root_relative_current );
 			$raw_item_url       = strpos( $menu_item->url, '#' ) ? substr( $menu_item->url, 0, strpos( $menu_item->url, '#' ) ) : $menu_item->url;

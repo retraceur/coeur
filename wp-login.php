@@ -1264,12 +1264,7 @@ switch ( $action ) {
 
 	case 'login':
 	default:
-		$secure_cookie   = '';
-		$customize_login = isset( $_REQUEST['customize-login'] );
-
-		if ( $customize_login ) {
-			wp_enqueue_script( 'customize-base' );
-		}
+		$secure_cookie = '';
 
 		// If the user wants SSL but the session is not SSL, force a secure cookie.
 		if ( ! empty( $_POST['log'] ) && ! force_ssl_admin() ) {
@@ -1342,15 +1337,6 @@ switch ( $action ) {
 
 				/** This action is documented in wp-login.php */
 				do_action( 'login_footer' );
-
-				if ( $customize_login ) {
-					ob_start();
-					?>
-					<script>setTimeout( function(){ new wp.customize.Messenger({ url: '<?php echo wp_customize_url(); ?>', channel: 'login' }).send('login') }, 1000 );</script>
-					<?php
-					wp_print_inline_script_tag( wp_remove_surrounding_empty_script_tags( ob_get_clean() ) );
-				}
-
 				?>
 				</body></html>
 				<?php
@@ -1517,12 +1503,6 @@ switch ( $action ) {
 				} else {
 					?>
 					<input type="hidden" name="redirect_to" value="<?php echo esc_attr( $redirect_to ); ?>" />
-					<?php
-				}
-
-				if ( $customize_login ) {
-					?>
-					<input type="hidden" name="customize-login" value="1" />
 					<?php
 				}
 

@@ -1,7 +1,7 @@
 <?php
 /**
  * Widget API: WP_Media_Widget class
- * 
+ *
  * @since WP 4.8.0
  * @since 1.0.0 motsVertueux fork.
  *
@@ -75,10 +75,9 @@ abstract class WP_Widget_Media extends WP_Widget {
 		$widget_opts = wp_parse_args(
 			$widget_options,
 			array(
-				'description'                 => self::get_default_description(),
-				'customize_selective_refresh' => true,
-				'show_instance_in_rest'       => true,
-				'mime_type'                   => '',
+				'description'           => self::get_default_description(),
+				'show_instance_in_rest' => true,
+				'mime_type'             => '',
 			)
 		);
 
@@ -109,20 +108,8 @@ abstract class WP_Widget_Media extends WP_Widget {
 		}
 		$this->registered = true;
 
-		/*
-		 * Note that the widgets component in the customizer will also do
-		 * the 'admin_print_scripts-widgets.php' action in WP_Customize_Widgets::print_scripts().
-		 */
 		add_action( 'admin_print_scripts-widgets.php', array( $this, 'enqueue_admin_scripts' ) );
 
-		if ( $this->is_preview() ) {
-			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_preview_scripts' ) );
-		}
-
-		/*
-		 * Note that the widgets component in the customizer will also do
-		 * the 'admin_footer-widgets.php' action in WP_Customize_Widgets::print_footer_scripts().
-		 */
 		add_action( 'admin_footer-widgets.php', array( $this, 'render_control_template_scripts' ) );
 
 		add_filter( 'display_media_states', array( $this, 'display_media_state' ), 10, 2 );
@@ -396,8 +383,11 @@ abstract class WP_Widget_Media extends WP_Widget {
 	 * case a widget does get added.
 	 *
 	 * @since WP 4.8.0
+	 * @deprecated 1.0.0 motsVertueux removed the customizer feature.
 	 */
-	public function enqueue_preview_scripts() {}
+	public function enqueue_preview_scripts() {
+		_deprecated_function( __METHOD__, '1.0.0', '', true );
+	}
 
 	/**
 	 * Loads the required scripts and styles for the widget control.

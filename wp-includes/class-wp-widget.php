@@ -175,8 +175,7 @@ class WP_Widget {
 		$this->widget_options  = wp_parse_args(
 			$widget_options,
 			array(
-				'classname'                   => str_replace( '\\', '_', $this->option_name ),
-				'customize_selective_refresh' => false,
+				'classname' => str_replace( '\\', '_', $this->option_name ),
 			)
 		);
 		$this->control_options = wp_parse_args( $control_options, array( 'id_base' => $this->id_base ) );
@@ -333,14 +332,13 @@ class WP_Widget {
 	 * to transients, or anywhere else.
 	 *
 	 * @since WP 3.9.0
-	 *
-	 * @global WP_Customize_Manager $wp_customize
+	 * @deprecated 1.0.0 motsVertueux removed the customizer feature.
 	 *
 	 * @return bool True if within the Customizer preview, false if not.
 	 */
 	public function is_preview() {
-		global $wp_customize;
-		return ( isset( $wp_customize ) && $wp_customize->is_preview() );
+		_deprecated_function( __METHOD__, '1.0.0', '', true );
+		return false;
 	}
 
 	/**

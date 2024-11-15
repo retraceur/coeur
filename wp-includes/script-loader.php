@@ -12,7 +12,7 @@
  * The globals $concatenate_scripts, $compress_scripts and $compress_css can be set by plugins
  * to temporarily override the above settings. Also a compression test is run once and the result is saved
  * as option 'can_compress_scripts' (0/1). The test will run again if that option is deleted.
- * 
+ *
  * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
@@ -1265,98 +1265,6 @@ function wp_default_scripts( $scripts ) {
 
 	// JS-only version of hoverintent (no dependencies).
 	$scripts->add( 'hoverintent-js', '/wp-includes/js/hoverintent-js.min.js', array(), '2.2.1', 1 );
-
-	$scripts->add( 'customize-base', "/wp-includes/js/customize-base$suffix.js", array( 'jquery', 'json2', 'underscore' ), false, 1 );
-	$scripts->add( 'customize-loader', "/wp-includes/js/customize-loader$suffix.js", array( 'customize-base' ), false, 1 );
-	$scripts->add( 'customize-preview', "/wp-includes/js/customize-preview$suffix.js", array( 'wp-a11y', 'customize-base' ), false, 1 );
-	$scripts->add( 'customize-models', '/wp-includes/js/customize-models.js', array( 'underscore', 'backbone' ), false, 1 );
-	$scripts->add( 'customize-views', '/wp-includes/js/customize-views.js', array( 'jquery', 'underscore', 'imgareaselect', 'customize-models', 'media-editor', 'media-views' ), false, 1 );
-	$scripts->add( 'customize-controls', "/wp-admin/js/customize-controls$suffix.js", array( 'customize-base', 'wp-a11y', 'wp-util', 'jquery-ui-core' ), false, 1 );
-	did_action( 'init' ) && $scripts->localize(
-		'customize-controls',
-		'_wpCustomizeControlsL10n',
-		array(
-			'activate'                => __( 'Activate &amp; Publish' ),
-			'save'                    => __( 'Save &amp; Publish' ), // @todo Remove as not required.
-			'publish'                 => __( 'Publish' ),
-			'published'               => __( 'Published' ),
-			'saveDraft'               => __( 'Save Draft' ),
-			'draftSaved'              => __( 'Draft Saved' ),
-			'updating'                => __( 'Updating' ),
-			'schedule'                => _x( 'Schedule', 'customizer changeset action/button label' ),
-			'scheduled'               => _x( 'Scheduled', 'customizer changeset status' ),
-			'invalid'                 => __( 'Invalid' ),
-			'saveBeforeShare'         => __( 'Please save your changes in order to share the preview.' ),
-			'futureDateError'         => __( 'You must supply a future date to schedule.' ),
-			'saveAlert'               => __( 'The changes you made will be lost if you navigate away from this page.' ),
-			'saved'                   => __( 'Saved' ),
-			'cancel'                  => __( 'Cancel' ),
-			'close'                   => __( 'Close' ),
-			'action'                  => __( 'Action' ),
-			'discardChanges'          => __( 'Discard changes' ),
-			'cheatin'                 => __( 'Something went wrong.' ),
-			'notAllowedHeading'       => __( 'You need a higher level of permission.' ),
-			'notAllowed'              => __( 'Sorry, you are not allowed to customize this site.' ),
-			'previewIframeTitle'      => __( 'Site Preview' ),
-			'loginIframeTitle'        => __( 'Session expired' ),
-			'collapseSidebar'         => _x( 'Hide Controls', 'label for hide controls button without length constraints' ),
-			'expandSidebar'           => _x( 'Show Controls', 'label for hide controls button without length constraints' ),
-			'untitledBlogName'        => __( '(Untitled)' ),
-			'unknownRequestFail'      => __( 'Looks like something&#8217;s gone wrong. Wait a couple seconds, and then try again.' ),
-			'themeDownloading'        => __( 'Downloading your new theme&hellip;' ),
-			'themePreviewWait'        => __( 'Setting up your live preview. This may take a bit.' ),
-			'revertingChanges'        => __( 'Reverting unpublished changes&hellip;' ),
-			'trashConfirm'            => __( 'Are you sure you want to discard your unpublished changes?' ),
-			/* translators: %s: Display name of the user who has taken over the changeset in customizer. */
-			'takenOverMessage'        => __( '%s has taken over and is currently customizing.' ),
-			/* translators: %s: URL to the Customizer to load the autosaved version. */
-			'autosaveNotice'          => __( 'There is a more recent autosave of your changes than the one you are previewing. <a href="%s">Restore the autosave</a>' ),
-			'videoHeaderNotice'       => __( 'This theme does not support video headers on this page. Navigate to the front page or another page that supports video headers.' ),
-			// Used for overriding the file types allowed in Plupload.
-			'allowedFiles'            => __( 'Allowed Files' ),
-			'customCssError'          => array(
-				/* translators: %d: Error count. */
-				'singular' => _n( 'There is %d error which must be fixed before you can save.', 'There are %d errors which must be fixed before you can save.', 1 ),
-				/* translators: %d: Error count. */
-				'plural'   => _n( 'There is %d error which must be fixed before you can save.', 'There are %d errors which must be fixed before you can save.', 2 ),
-				// @todo This is lacking, as some languages have a dedicated dual form. For proper handling of plurals in JS, see #20491.
-			),
-			'pageOnFrontError'        => __( 'Homepage and posts page must be different.' ),
-			'saveBlockedError'        => array(
-				/* translators: %s: Number of invalid settings. */
-				'singular' => _n( 'Unable to save due to %s invalid setting.', 'Unable to save due to %s invalid settings.', 1 ),
-				/* translators: %s: Number of invalid settings. */
-				'plural'   => _n( 'Unable to save due to %s invalid setting.', 'Unable to save due to %s invalid settings.', 2 ),
-				// @todo This is lacking, as some languages have a dedicated dual form. For proper handling of plurals in JS, see #20491.
-			),
-			'scheduleDescription'     => __( 'Schedule your customization changes to publish ("go live") at a future date.' ),
-			'themePreviewUnavailable' => __( 'Sorry, you cannot preview new themes when you have changes scheduled or saved as a draft. Please publish your changes, or wait until they publish to preview new themes.' ),
-			'themeInstallUnavailable' => sprintf(
-				/* translators: %s: URL to Add Themes admin screen. */
-				__( 'You will not be able to install new themes from here yet since your install requires SFTP credentials. For now, please <a href="%s">add themes in the admin</a>.' ),
-				esc_url( admin_url( 'theme-install.php' ) )
-			),
-			'publishSettings'         => __( 'Publish Settings' ),
-			'invalidDate'             => __( 'Invalid date.' ),
-			'invalidValue'            => __( 'Invalid value.' ),
-			'blockThemeNotification'  => sprintf(
-				/* translators: %s: HTML button. */
-				__( 'Hurray! Your theme supports site editing with blocks. %s' ),
-				sprintf(
-					'<button type="button" data-action="%1$s" class="button switch-to-editor">%2$s</button>',
-					esc_url( admin_url( 'site-editor.php' ) ),
-					__( 'Use Site Editor' )
-				)
-			),
-		)
-	);
-	$scripts->add( 'customize-selective-refresh', "/wp-includes/js/customize-selective-refresh$suffix.js", array( 'jquery', 'wp-util', 'customize-preview' ), false, 1 );
-
-	$scripts->add( 'customize-widgets', "/wp-admin/js/customize-widgets$suffix.js", array( 'jquery', 'jquery-ui-sortable', 'jquery-ui-droppable', 'wp-backbone', 'customize-controls' ), false, 1 );
-	$scripts->add( 'customize-preview-widgets', "/wp-includes/js/customize-preview-widgets$suffix.js", array( 'jquery', 'wp-util', 'customize-preview', 'customize-selective-refresh' ), false, 1 );
-
-	$scripts->add( 'customize-nav-menus', "/wp-admin/js/customize-nav-menus$suffix.js", array( 'jquery', 'wp-backbone', 'customize-controls', 'accordion', 'nav-menu', 'wp-sanitize' ), false, 1 );
-	$scripts->add( 'customize-preview-nav-menus', "/wp-includes/js/customize-preview-nav-menus$suffix.js", array( 'jquery', 'wp-util', 'customize-preview', 'customize-selective-refresh' ), false, 1 );
 
 	$scripts->add( 'wp-custom-header', "/wp-includes/js/wp-custom-header$suffix.js", array( 'wp-a11y' ), false, 1 );
 

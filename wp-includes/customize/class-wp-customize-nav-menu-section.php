@@ -3,41 +3,10 @@
  * Customize API: WP_Customize_Nav_Menu_Section class.
  *
  * @since WP 4.4.0
- * @since 1.0.0 motsVertueux fork.
+ * @deprecated 1.0.0 motsVertueux removed the customizer feature.
  *
  * @package motsVertueux
  * @subpackage Customize
  */
 
-/**
- * Customize Menu Section Class
- *
- * Custom section only needed in JS.
- *
- * @since WP 4.3.0
- *
- * @see WP_Customize_Section
- */
-class WP_Customize_Nav_Menu_Section extends WP_Customize_Section {
-
-	/**
-	 * Control type.
-	 *
-	 * @since WP 4.3.0
-	 * @var string
-	 */
-	public $type = 'nav_menu';
-
-	/**
-	 * Get section parameters for JS.
-	 *
-	 * @since WP 4.3.0
-	 * @return array Exported parameters.
-	 */
-	public function json() {
-		$exported            = parent::json();
-		$exported['menu_id'] = (int) preg_replace( '/^nav_menu\[(-?\d+)\]/', '$1', $this->id );
-
-		return $exported;
-	}
-}
+_deprecated_file( basename( __FILE__ ), '1.0.0', '', '', true );

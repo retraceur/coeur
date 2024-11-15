@@ -3,66 +3,10 @@
  * Customize API: WP_Customize_Background_Image_Control class.
  *
  * @since WP 4.4.0
- * @since 1.0.0 motsVertueux fork.
+ * @deprecated 1.0.0 motsVertueux removed the customizer feature.
  *
  * @package motsVertueux
  * @subpackage Customize
  */
 
-/**
- * Customize Background Image Control class.
- *
- * @since WP 3.4.0
- *
- * @see WP_Customize_Image_Control
- */
-class WP_Customize_Background_Image_Control extends WP_Customize_Image_Control {
-
-	/**
-	 * Customize control type.
-	 *
-	 * @since WP 4.1.0
-	 * @var string
-	 */
-	public $type = 'background';
-
-	/**
-	 * Constructor.
-	 *
-	 * @since WP 3.4.0
-	 * @uses WP_Customize_Image_Control::__construct()
-	 *
-	 * @param WP_Customize_Manager $manager Customizer bootstrap instance.
-	 */
-	public function __construct( $manager ) {
-		parent::__construct(
-			$manager,
-			'background_image',
-			array(
-				'label'   => __( 'Background Image' ),
-				'section' => 'background_image',
-			)
-		);
-	}
-
-	/**
-	 * Enqueue control related scripts/styles.
-	 *
-	 * @since WP 4.1.0
-	 */
-	public function enqueue() {
-		parent::enqueue();
-
-		$custom_background = get_theme_support( 'custom-background' );
-		wp_localize_script(
-			'customize-controls',
-			'_wpCustomizeBackground',
-			array(
-				'defaults' => ! empty( $custom_background[0] ) ? $custom_background[0] : array(),
-				'nonces'   => array(
-					'add' => wp_create_nonce( 'background-add' ),
-				),
-			)
-		);
-	}
-}
+_deprecated_file( basename( __FILE__ ), '1.0.0', '', '', true );

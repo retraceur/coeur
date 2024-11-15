@@ -44,10 +44,9 @@ class WP_Widget_Custom_HTML extends WP_Widget {
 	 */
 	public function __construct() {
 		$widget_ops  = array(
-			'classname'                   => 'widget_custom_html',
-			'description'                 => __( 'Arbitrary HTML code.' ),
-			'customize_selective_refresh' => true,
-			'show_instance_in_rest'       => true,
+			'classname'             => 'widget_custom_html',
+			'description'           => __( 'Arbitrary HTML code.' ),
+			'show_instance_in_rest' => true,
 		);
 		$control_ops = array(
 			'width'  => 400,
@@ -71,16 +70,8 @@ class WP_Widget_Custom_HTML extends WP_Widget {
 		}
 		$this->registered = true;
 
-		/*
-		 * Note that the widgets component in the customizer will also do
-		 * the 'admin_print_scripts-widgets.php' action in WP_Customize_Widgets::print_scripts().
-		 */
 		add_action( 'admin_print_scripts-widgets.php', array( $this, 'enqueue_admin_scripts' ) );
 
-		/*
-		 * Note that the widgets component in the customizer will also do
-		 * the 'admin_footer-widgets.php' action in WP_Customize_Widgets::print_footer_scripts().
-		 */
 		add_action( 'admin_footer-widgets.php', array( 'WP_Widget_Custom_HTML', 'render_control_template_scripts' ) );
 
 		// Note this action is used to ensure the help text is added to the end.

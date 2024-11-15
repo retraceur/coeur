@@ -1536,7 +1536,6 @@ function wp_dashboard_empty() {}
  */
 function wp_welcome_panel() {
 	list( $display_version ) = explode( '-', mv_get_mv_version() );
-	$can_customize           = current_user_can( 'customize' );
 	$is_block_theme          = wp_is_block_theme();
 	?>
 	<div class="welcome-panel-content">
@@ -1576,12 +1575,6 @@ function wp_welcome_panel() {
 				<h3><?php _e( 'Customize your entire site with block themes' ); ?></h3>
 				<p><?php _e( 'Design everything on your site &#8212; from the header down to the footer, all using blocks and patterns.' ); ?></p>
 				<a href="<?php echo esc_url( admin_url( 'site-editor.php' ) ); ?>"><?php _e( 'Open site editor' ); ?></a>
-			<?php else : ?>
-				<h3><?php _e( 'Start Customizing' ); ?></h3>
-				<p><?php _e( 'Configure your site&#8217;s logo, header, menus, and more in the Customizer.' ); ?></p>
-				<?php if ( $can_customize ) : ?>
-					<a class="load-customize hide-if-no-customize" href="<?php echo wp_customize_url(); ?>"><?php _e( 'Open the Customizer' ); ?></a>
-				<?php endif; ?>
 			<?php endif; ?>
 			</div>
 		</div>

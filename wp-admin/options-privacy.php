@@ -66,11 +66,7 @@ if ( ! empty( $action ) ) {
 				&& current_user_can( 'edit_theme_options' )
 				&& current_theme_supports( 'menus' )
 			) {
-				$privacy_page_updated_message = sprintf(
-					/* translators: %s: URL to Customizer -> Menus. */
-					__( 'Privacy Policy page setting updated successfully. Remember to <a href="%s">update your menus</a>!' ),
-					esc_url( add_query_arg( 'autofocus[panel]', 'nav_menus', admin_url( 'customize.php' ) ) )
-				);
+				$privacy_page_updated_message = __( 'Privacy Policy page setting updated successfully. Remember to update your menus!' );
 			}
 		}
 

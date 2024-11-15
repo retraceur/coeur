@@ -310,7 +310,7 @@ function get_theme_update_available( $theme ) {
  * @since WP 6.1.1 Replaced 'Full Site Editing' feature name with 'Site Editor'.
  * @since WP 6.2.0 Added 'Style Variations' feature.
  * @since 1.0.0    motsVertueux: remove the WP API requesting part.
- * 
+ *
  * @return array Array of features keyed by category with translations keyed by slug.
  */
 function get_theme_feature_list() {
@@ -655,7 +655,6 @@ function wp_prepare_themes_for_js( $themes = null ) {
 		$customize_action = null;
 
 		$can_edit_theme_options = current_user_can( 'edit_theme_options' );
-		$can_customize          = current_user_can( 'customize' );
 		$is_block_theme         = $theme->is_block_theme();
 
 		if ( $is_block_theme && $can_edit_theme_options ) {
@@ -663,10 +662,7 @@ function wp_prepare_themes_for_js( $themes = null ) {
 			if ( $current_theme !== $slug ) {
 				$customize_action = add_query_arg( 'wp_theme_preview', $slug, $customize_action );
 			}
-		} elseif ( ! $is_block_theme && $can_customize && $can_edit_theme_options ) {
-			$customize_action = wp_customize_url( $slug );
-		}
-		if ( null !== $customize_action ) {
+
 			$customize_action = add_query_arg(
 				array(
 					'return' => urlencode( sanitize_url( remove_query_arg( wp_removable_query_args(), wp_unslash( $_SERVER['REQUEST_URI'] ) ) ) ),

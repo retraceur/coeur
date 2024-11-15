@@ -119,28 +119,9 @@ class Theme_Installer_Skin extends WP_Upgrader_Skin {
 			),
 			admin_url( 'themes.php' )
 		);
-		$activate_link = wp_nonce_url( $activate_link, 'switch-theme_' . $stylesheet );
 
+		$activate_link   = wp_nonce_url( $activate_link, 'switch-theme_' . $stylesheet );
 		$install_actions = array();
-
-		if ( current_user_can( 'edit_theme_options' ) && current_user_can( 'customize' ) && ! $theme_info->is_block_theme() ) {
-			$customize_url = add_query_arg(
-				array(
-					'theme'  => urlencode( $stylesheet ),
-					'return' => urlencode( admin_url( 'web' === $this->type ? 'theme-install.php' : 'themes.php' ) ),
-				),
-				admin_url( 'customize.php' )
-			);
-
-			$install_actions['preview'] = sprintf(
-				'<a href="%s" class="hide-if-no-customize load-customize">' .
-				'<span aria-hidden="true">%s</span><span class="screen-reader-text">%s</span></a>',
-				esc_url( $customize_url ),
-				__( 'Live Preview' ),
-				/* translators: Hidden accessibility text. %s: Theme name. */
-				sprintf( __( 'Live Preview &#8220;%s&#8221;' ), $name )
-			);
-		}
 
 		$install_actions['activate'] = sprintf(
 			'<a href="%s" class="activatelink">' .

@@ -1,7 +1,7 @@
 <?php
 /**
  * Widget API: WP_Widget_Meta class
- * 
+ *
  * @since WP 4.4.0
  * @since 1.0.0 motsVertueux fork.
  *
@@ -27,10 +27,9 @@ class WP_Widget_Meta extends WP_Widget {
 	 */
 	public function __construct() {
 		$widget_ops = array(
-			'classname'                   => 'widget_meta',
-			'description'                 => __( 'Login, RSS, &amp; links.' ),
-			'customize_selective_refresh' => true,
-			'show_instance_in_rest'       => true,
+			'classname'             => 'widget_meta',
+			'description'           => __( 'Login, RSS, &amp; links.' ),
+			'show_instance_in_rest' => true,
 		);
 		parent::__construct( 'meta', __( 'Meta' ), $widget_ops );
 	}

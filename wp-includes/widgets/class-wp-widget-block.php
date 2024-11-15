@@ -35,18 +35,15 @@ class WP_Widget_Block extends WP_Widget {
 	 */
 	public function __construct() {
 		$widget_ops  = array(
-			'classname'                   => 'widget_block',
-			'description'                 => __( 'A widget containing a block.' ),
-			'customize_selective_refresh' => true,
-			'show_instance_in_rest'       => true,
+			'classname'             => 'widget_block',
+			'description'           => __( 'A widget containing a block.' ),
+			'show_instance_in_rest' => true,
 		);
 		$control_ops = array(
 			'width'  => 400,
 			'height' => 350,
 		);
 		parent::__construct( 'block', __( 'Block' ), $widget_ops, $control_ops );
-
-		add_filter( 'is_wide_widget_in_customizer', array( $this, 'set_is_wide_widget_in_customizer' ), 10, 2 );
 	}
 
 	/**
@@ -219,16 +216,14 @@ class WP_Widget_Block extends WP_Widget {
 	 * Makes sure no block widget is considered to be wide.
 	 *
 	 * @since WP 5.8.0
+	 * @deprecated 1.0.0 motsVertueux removed the customizer feature.
 	 *
 	 * @param bool   $is_wide   Whether the widget is considered wide.
 	 * @param string $widget_id Widget ID.
 	 * @return bool Updated `is_wide` value.
 	 */
 	public function set_is_wide_widget_in_customizer( $is_wide, $widget_id ) {
-		if ( str_starts_with( $widget_id, 'block-' ) ) {
-			return false;
-		}
-
-		return $is_wide;
+		_deprecated_function( __METHOD__, '1.0.0', '', true );
+		return false;
 	}
 }

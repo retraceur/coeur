@@ -25,9 +25,8 @@ class WP_Widget_Tag_Cloud extends WP_Widget {
 	 */
 	public function __construct() {
 		$widget_ops = array(
-			'description'                 => __( 'A cloud of your most used tags.' ),
-			'customize_selective_refresh' => true,
-			'show_instance_in_rest'       => true,
+			'description'           => __( 'A cloud of your most used tags.' ),
+			'show_instance_in_rest' => true,
 		);
 		parent::__construct( 'tag_cloud', __( 'Tag Cloud' ), $widget_ops );
 	}

@@ -313,7 +313,6 @@ class WP_REST_Widget_Types_Controller extends WP_REST_Controller {
 			'classname',
 			'widget_class',
 			'option_name',
-			'customize_selective_refresh',
 		);
 
 		foreach ( $extra_fields as $extra_field ) {

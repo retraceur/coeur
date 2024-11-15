@@ -445,58 +445,6 @@ function wp_admin_bar_edit_site_menu( $wp_admin_bar ) {
 }
 
 /**
- * Adds the "Customize" link to the Toolbar.
- *
- * @since WP 4.3.0
- *
- * @global WP_Customize_Manager $wp_customize
- *
- * @param WP_Admin_Bar $wp_admin_bar The WP_Admin_Bar instance.
- */
-function wp_admin_bar_customize_menu( $wp_admin_bar ) {
-	global $wp_customize;
-
-	// Don't show if a block theme is activated and no plugins use the customizer.
-	if ( wp_is_block_theme() && ! has_action( 'customize_register' ) ) {
-		return;
-	}
-
-	// Don't show for users who can't access the customizer or when in the admin.
-	if ( ! current_user_can( 'customize' ) || is_admin() ) {
-		return;
-	}
-
-	// Don't show if the user cannot edit a given customize_changeset post currently being previewed.
-	if ( is_customize_preview() && $wp_customize->changeset_post_id()
-		&& ! current_user_can( get_post_type_object( 'customize_changeset' )->cap->edit_post, $wp_customize->changeset_post_id() )
-	) {
-		return;
-	}
-
-	$current_url = ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-	if ( is_customize_preview() && $wp_customize->changeset_uuid() ) {
-		$current_url = remove_query_arg( 'customize_changeset_uuid', $current_url );
-	}
-
-	$customize_url = add_query_arg( 'url', urlencode( $current_url ), wp_customize_url() );
-	if ( is_customize_preview() ) {
-		$customize_url = add_query_arg( array( 'changeset_uuid' => $wp_customize->changeset_uuid() ), $customize_url );
-	}
-
-	$wp_admin_bar->add_node(
-		array(
-			'id'    => 'customize',
-			'title' => __( 'Customize' ),
-			'href'  => $customize_url,
-			'meta'  => array(
-				'class' => 'hide-if-no-customize',
-			),
-		)
-	);
-	add_action( 'wp_before_admin_bar_render', 'wp_customize_support_script' );
-}
-
-/**
  * Adds the "My Sites/[Site Name]" menu and all submenus.
  *
  * @since WP 3.1.0
@@ -1073,9 +1021,6 @@ function wp_admin_bar_appearance_menu( $wp_admin_bar ) {
 				'id'     => 'background',
 				'title'  => _x( 'Background', 'custom background' ),
 				'href'   => admin_url( 'themes.php?page=custom-background' ),
-				'meta'   => array(
-					'class' => 'hide-if-customize',
-				),
 			)
 		);
 	}
@@ -1087,9 +1032,6 @@ function wp_admin_bar_appearance_menu( $wp_admin_bar ) {
 				'id'     => 'header',
 				'title'  => _x( 'Header', 'custom image header' ),
 				'href'   => admin_url( 'themes.php?page=custom-header' ),
-				'meta'   => array(
-					'class' => 'hide-if-customize',
-				),
 			)
 		);
 	}

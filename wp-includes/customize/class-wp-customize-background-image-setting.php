@@ -3,35 +3,10 @@
  * Customize API: WP_Customize_Background_Image_Setting class.
  *
  * @since WP 4.4.0
- * @since 1.0.0 motsVertueux fork.
+ * @deprecated 1.0.0 motsVertueux removed the customizer feature.
  *
  * @package motsVertueux
  * @subpackage Customize
  */
 
-/**
- * Customizer Background Image Setting class.
- *
- * @since WP 3.4.0
- *
- * @see WP_Customize_Setting
- */
-final class WP_Customize_Background_Image_Setting extends WP_Customize_Setting {
-
-	/**
-	 * Unique string identifier for the setting.
-	 *
-	 * @since WP 3.4.0
-	 * @var string
-	 */
-	public $id = 'background_image_thumb';
-
-	/**
-	 * @since WP 3.4.0
-	 *
-	 * @param mixed $value The value to update. Not used.
-	 */
-	public function update( $value ) {
-		remove_theme_mod( 'background_image_thumb' );
-	}
-}
+_deprecated_file( basename( __FILE__ ), '1.0.0', '', '', true );
