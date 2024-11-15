@@ -25,9 +25,8 @@ class WP_Nav_Menu_Widget extends WP_Widget {
 	 */
 	public function __construct() {
 		$widget_ops = array(
-			'description'                 => __( 'Add a navigation menu to your sidebar.' ),
-			'customize_selective_refresh' => true,
-			'show_instance_in_rest'       => true,
+			'description'           => __( 'Add a navigation menu to your sidebar.' ),
+			'show_instance_in_rest' => true,
 		);
 		parent::__construct( 'nav_menu', __( 'Navigation Menu' ), $widget_ops );
 	}
@@ -139,12 +138,9 @@ class WP_Nav_Menu_Widget extends WP_Widget {
 	 *
 	 * @since WP 3.0.0
 	 *
-	 * @global WP_Customize_Manager $wp_customize
-	 *
 	 * @param array $instance Current settings.
 	 */
 	public function form( $instance ) {
-		global $wp_customize;
 		$title    = isset( $instance['title'] ) ? $instance['title'] : '';
 		$nav_menu = isset( $instance['nav_menu'] ) ? $instance['nav_menu'] : '';
 
@@ -168,11 +164,7 @@ class WP_Nav_Menu_Widget extends WP_Widget {
 		?>
 		<p class="nav-menu-widget-no-menus-message" <?php echo $not_empty_menus_style; ?>>
 			<?php
-			if ( $wp_customize instanceof WP_Customize_Manager ) {
-				$url = 'javascript: wp.customize.panel( "nav_menus" ).focus();';
-			} else {
-				$url = admin_url( 'nav-menus.php' );
-			}
+			$url = admin_url( 'nav-menus.php' );
 
 			printf(
 				/* translators: %s: URL to create a new menu. */
@@ -198,11 +190,6 @@ class WP_Nav_Menu_Widget extends WP_Widget {
 					<?php endforeach; ?>
 				</select>
 			</p>
-			<?php if ( $wp_customize instanceof WP_Customize_Manager ) : ?>
-				<p class="edit-selected-nav-menu" style="<?php echo $nav_menu_style; ?>">
-					<button type="button" class="button"><?php _e( 'Edit Menu' ); ?></button>
-				</p>
-			<?php endif; ?>
 		</div>
 		<?php
 	}

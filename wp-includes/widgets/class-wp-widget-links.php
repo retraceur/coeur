@@ -25,8 +25,7 @@ class WP_Widget_Links extends WP_Widget {
 	 */
 	public function __construct() {
 		$widget_ops = array(
-			'description'                 => __( 'Your blogroll' ),
-			'customize_selective_refresh' => true,
+			'description' => __( 'Your blogroll' ),
 		);
 		parent::__construct( 'links', __( 'Links' ), $widget_ops );
 	}

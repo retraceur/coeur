@@ -1,7 +1,7 @@
 <?php
 /**
  * Widget API: WP_Widget_Media_Video class
- * 
+ *
  * @since WP 4.8.0
  * @since 1.0.0 motsVertueux fork.
  *
@@ -160,25 +160,6 @@ class WP_Widget_Media_Video extends WP_Widget_Media {
 		$html = preg_replace( '/\swidth="\d+"/', '', $html );
 		$html = preg_replace( '/(?<=width:)\s*\d+px(?=;?)/', '100%', $html );
 		return $html;
-	}
-
-	/**
-	 * Enqueue preview scripts.
-	 *
-	 * These scripts normally are enqueued just-in-time when a video shortcode is used.
-	 * In the customizer, however, widgets can be dynamically added and rendered via
-	 * selective refresh, and so it is important to unconditionally enqueue them in
-	 * case a widget does get added.
-	 *
-	 * @since WP 4.8.0
-	 */
-	public function enqueue_preview_scripts() {
-		/** This filter is documented in wp-includes/media.php */
-		if ( 'mediaelement' === apply_filters( 'wp_video_shortcode_library', 'mediaelement' ) ) {
-			wp_enqueue_style( 'wp-mediaelement' );
-			wp_enqueue_script( 'mediaelement-vimeo' );
-			wp_enqueue_script( 'wp-mediaelement' );
-		}
 	}
 
 	/**

@@ -3,65 +3,10 @@
  * Customize API: WP_Customize_Upload_Control class.
  *
  * @since WP 4.4.0
- * @since 1.0.0 motsVertueux fork.
+ * @deprecated 1.0.0 motsVertueux removed the customizer feature.
  *
  * @package motsVertueux
  * @subpackage Customize
  */
 
-/**
- * Customize Upload Control Class.
- *
- * @since WP 3.4.0
- *
- * @see WP_Customize_Media_Control
- */
-class WP_Customize_Upload_Control extends WP_Customize_Media_Control {
-	/**
-	 * Control type.
-	 *
-	 * @since WP 3.4.0
-	 * @var string
-	 */
-	public $type = 'upload';
-
-	/**
-	 * Media control mime type.
-	 *
-	 * @since WP 4.1.0
-	 * @var string
-	 */
-	public $mime_type = '';
-
-	/**
-	 * Button labels.
-	 *
-	 * @since WP 4.1.0
-	 * @var array
-	 */
-	public $button_labels = array();
-
-	public $removed = '';         // Unused.
-	public $context;              // Unused.
-	public $extensions = array(); // Unused.
-
-	/**
-	 * Refresh the parameters passed to the JavaScript via JSON.
-	 *
-	 * @since WP 3.4.0
-	 *
-	 * @uses WP_Customize_Media_Control::to_json()
-	 */
-	public function to_json() {
-		parent::to_json();
-
-		$value = $this->value();
-		if ( $value ) {
-			// Get the attachment model for the existing file.
-			$attachment_id = attachment_url_to_postid( $value );
-			if ( $attachment_id ) {
-				$this->json['attachment'] = wp_prepare_attachment_for_js( $attachment_id );
-			}
-		}
-	}
-}
+_deprecated_file( basename( __FILE__ ), '1.0.0', '', '', true );

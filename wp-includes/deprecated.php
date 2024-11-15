@@ -3,7 +3,7 @@
  * Deprecated functions from past WordPress versions. You shouldn't use these
  * functions and look for the alternatives instead. The functions will be
  * removed in a later version.
- * 
+ *
  * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
@@ -6647,9 +6647,9 @@ function wp_enqueue_editor_block_directory_assets() {
  * The API's format is snake_case, `register_block_pattern()` expects camelCase.
  *
  * @since WP 6.2.0
- * 
+ *
  * @deprecated 1.0.0 motsVertueux does not allow remote access to WP Pattern directory.
- * 
+ *
  * @access private
  *
  * @param array $pattern Pattern as returned from the Pattern Directory API.
@@ -6667,7 +6667,7 @@ function wp_normalize_remote_block_pattern( $pattern ) {
  * @since WP 6.2.0 Normalize the pattern from the API (snake_case) to the
  *              format expected by `register_block_pattern` (camelCase).
  * @since WP 6.3.0 Add 'pattern-directory/core' to the pattern's 'source'.
- * 
+ *
  * @deprecated 1.0.0 motsVertueux does not allow remote access to WP Pattern directory.
  *
  * @param WP_Screen $deprecated Unused. Formerly the screen that the current request was triggered from.
@@ -6683,7 +6683,7 @@ function _load_remote_block_patterns( $deprecated = null ) {
  * @since WP 6.2.0 Normalized the pattern from the API (snake_case) to the
  *              format expected by `register_block_pattern()` (camelCase).
  * @since WP 6.3.0 Add 'pattern-directory/featured' to the pattern's 'source'.
- * 
+ *
  * @deprecated 1.0.0 motsVertueux does not allow remote access to WP Pattern directory.
  */
 function _load_remote_featured_patterns() {
@@ -6698,11 +6698,176 @@ function _load_remote_featured_patterns() {
  * @since WP 6.2.0 Normalized the pattern from the API (snake_case) to the
  *              format expected by `register_block_pattern()` (camelCase).
  * @since WP 6.3.0 Add 'pattern-directory/theme' to the pattern's 'source'.
- * 
+ *
  * @deprecated 1.0.0 motsVertueux does not allow remote access to WP Pattern directory.
- * 
+ *
  * @access private
  */
 function _register_remote_theme_patterns() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Includes and instantiates the WP_Customize_Manager class.
+ *
+ * Loads the Customizer at plugins_loaded when accessing the customize.php admin
+ * page or when any request includes a wp_customize=on param or a customize_changeset
+ * param (a UUID). This param is a signal for whether to bootstrap the Customizer when
+ * WordPress is loading, especially in the Customizer preview
+ * or when making Customizer Ajax requests for widgets or menus.
+ *
+ * @since WP 3.4.0
+ * @deprecated 1.0.0 motsVertueux removed the customizer feature.
+ */
+function _wp_customize_include() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Publishes a snapshot's changes.
+ *
+ * @since WP 4.7.0
+ * @deprecated 1.0.0 motsVertueux removed the customizer feature.
+ * @access private
+ *
+ * @param string  $new_status     New post status.
+ * @param string  $old_status     Old post status.
+ * @param WP_Post $changeset_post Changeset post object.
+ */
+function _wp_customize_publish_changeset( $new_status, $old_status, $changeset_post ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Filters changeset post data upon insert to ensure post_name is intact.
+ *
+ * This is needed to prevent the post_name from being dropped when the post is
+ * transitioned into pending status by a contributor.
+ *
+ * @since WP 4.7.0
+ * @deprecated 1.0.0 motsVertueux removed the customizer feature.
+ *
+ * @see wp_insert_post()
+ *
+ * @param array $post_data          An array of slashed post data.
+ * @param array $supplied_post_data An array of sanitized, but otherwise unmodified post data.
+ * @return array Filtered data.
+ */
+function _wp_customize_changeset_filter_insert_post_data( $post_data, $supplied_post_data ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Adds settings for the customize-loader script.
+ *
+ * @since WP 3.4.0
+ * @deprecated 1.0.0 motsVertueux removed the customizer feature.
+ */
+function _wp_customize_loader_settings() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Returns a URL to load the Customizer.
+ *
+ * @since WP 3.4.0
+ * @deprecated 1.0.0 motsVertueux removed the customizer feature.
+ *
+ * @param string $stylesheet Optional. Theme to customize. Defaults to active theme.
+ *                           The theme's stylesheet will be urlencoded if necessary.
+ * @return string
+ */
+function wp_customize_url( $stylesheet = '' ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return esc_url( admin_url( 'customize.php' ) );
+}
+
+/**
+ * Prints a script to check whether or not the Customizer is supported,
+ * and apply either the no-customize-support or customize-support class
+ * to the body.
+ *
+ * This function MUST be called inside the body tag.
+ *
+ * Ideally, call this function immediately after the body tag is opened.
+ * This prevents a flash of unstyled content.
+ *
+ * It is also recommended that you add the "no-customize-support" class
+ * to the body tag by default.
+ *
+ * @since WP 3.4.0
+ * @since WP 4.7.0 Support for IE8 and below is explicitly removed via conditional comments.
+ * @since WP 5.5.0 IE8 and older are no longer supported.
+ * @deprecated 1.0.0 motsVertueux removed the customizer feature.
+ */
+function wp_customize_support_script() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Whether the site is being previewed in the Customizer.
+ *
+ * @since WP 4.0.0
+ * @deprecated 1.0.0 motsVertueux removed the customizer feature.
+ *
+ * @return bool True if the site is being previewed in the Customizer, false otherwise.
+ */
+function is_customize_preview() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return false;
+}
+
+/**
+ * Makes sure that auto-draft posts get their post_date bumped or status changed
+ * to draft to prevent premature garbage-collection.
+ *
+ * When a changeset is updated but remains an auto-draft, ensure the post_date
+ * for the auto-draft posts remains the same so that it will be
+ * garbage-collected at the same time by `wp_delete_auto_drafts()`. Otherwise,
+ * if the changeset is updated to be a draft then update the posts
+ * to have a far-future post_date so that they will never be garbage collected
+ * unless the changeset post itself is deleted.
+ *
+ * When a changeset is updated to be a persistent draft or to be scheduled for
+ * publishing, then transition any dependent auto-drafts to a draft status so
+ * that they likewise will not be garbage-collected but also so that they can
+ * be edited in the admin before publishing since there is not yet a post/page
+ * editing flow in the Customizer.
+ *
+ * @since WP 4.8.0
+ * @deprecated 1.0.0 motsVertueux removed the customizer feature.
+ * @access private
+ * @see wp_delete_auto_drafts()
+ *
+ * @param string   $new_status Transition to this post status.
+ * @param string   $old_status Previous post status.
+ * @param \WP_Post $post       Post data.
+ */
+function _wp_keep_alive_customize_changeset_dependent_auto_drafts( $new_status, $old_status, $post ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Adds the "Customize" link to the Toolbar.
+ *
+ * @since WP 4.3.0
+ * @deprecated 1.0.0 motsVertueux removed the customizer feature.
+ *
+ * @param WP_Admin_Bar $wp_admin_bar The WP_Admin_Bar instance.
+ */
+function wp_admin_bar_customize_menu( $wp_admin_bar ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Deletes auto-draft posts associated with the supplied changeset.
+ *
+ * @since WP 4.8.0
+ * @deprecated 1.0.0 motsVertueux removed the customizer feature.
+ * @access private
+ *
+ * @param int $post_id Post ID for the customize_changeset.
+ */
+function _wp_delete_customize_changeset_dependent_auto_drafts( $post_id ) {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 }

@@ -135,7 +135,7 @@ if ( current_user_can( 'switch_themes' ) ) {
 		'<p>' . __( 'From this screen you can:' ) . '</p>' .
 		'<ul><li>' . __( 'Hover or tap to see Activate and Live Preview buttons' ) . '</li>' .
 		'<li>' . __( 'Click on the theme to see the theme name, version, author, description, tags, and the Delete link' ) . '</li>' .
-		'<li>' . __( 'Click Customize for the active theme or Live Preview for any other theme to see a live preview' ) . '</li></ul>' .
+		'</ul>' .
 		'<p>' . __( 'The active theme is displayed highlighted as the first theme.' ) . '</p>' .
 		'<p>' . __( 'The search for installed themes will search for terms in their name, description, author, or tag.' ) . ' <span id="live-search-desc">' . __( 'The search results will be updated as you type.' ) . '</span></p>';
 
@@ -147,22 +147,6 @@ if ( current_user_can( 'switch_themes' ) ) {
 		)
 	);
 } // End if 'switch_themes'.
-
-// Help tab: Previewing and Customizing.
-if ( current_user_can( 'edit_theme_options' ) && current_user_can( 'customize' ) ) {
-	$help_customize =
-		'<p>' . __( 'Tap or hover on any theme then click the Live Preview button to see a live preview of that theme and change theme options in a separate, full-screen view. You can also find a Live Preview button at the bottom of the theme details screen. Any installed theme can be previewed and customized in this way.' ) . '</p>' .
-		'<p>' . __( 'The theme being previewed is fully interactive &mdash; navigate to different pages to see how the theme handles posts, archives, and other page templates. The settings may differ depending on what theme features the theme being previewed supports. To accept the new settings and activate the theme all in one step, click the Activate &amp; Publish button above the menu.' ) . '</p>' .
-		'<p>' . __( 'When previewing on smaller monitors, you can use the collapse icon at the bottom of the left-hand pane. This will hide the pane, giving you more room to preview your site in the new theme. To bring the pane back, click on the collapse icon again.' ) . '</p>';
-
-	get_current_screen()->add_help_tab(
-		array(
-			'id'      => 'customize-preview-themes',
-			'title'   => __( 'Previewing and Customizing' ),
-			'content' => $help_customize,
-		)
-	);
-} // End if 'edit_theme_options' && 'customize'.
 
 if ( current_user_can( 'switch_themes' ) ) {
 	$themes = wp_prepare_themes_for_js();
@@ -319,10 +303,6 @@ if ( is_array( $submenu ) && isset( $submenu['themes.php'] ) ) {
 	foreach ( (array) $submenu['themes.php'] as $item ) {
 		$class = '';
 
-		if ( in_array( $item[2], $forbidden_paths, true ) || str_starts_with( $item[2], 'customize.php' ) ) {
-			continue;
-		}
-
 		// 0 = name, 1 = capability, 2 = file.
 		if ( 0 === strcmp( $self, $item[2] ) && empty( $parent_file )
 			|| $parent_file && $item[2] === $parent_file
@@ -341,14 +321,6 @@ if ( is_array( $submenu ) && isset( $submenu['themes.php'] ) ) {
 			}
 		} elseif ( ! empty( $item[2] ) && current_user_can( $item[1] ) ) {
 			$menu_file = $item[2];
-
-			if ( current_user_can( 'customize' ) ) {
-				if ( 'custom-header' === $menu_file ) {
-					$current_theme_actions[] = "<a class='button hide-if-no-customize$class' href='customize.php?autofocus[control]=header_image'>{$item[0]}</a>";
-				} elseif ( 'custom-background' === $menu_file ) {
-					$current_theme_actions[] = "<a class='button hide-if-no-customize$class' href='customize.php?autofocus[control]=background_image'>{$item[0]}</a>";
-				}
-			}
 
 			$pos = strpos( $menu_file, '?' );
 			if ( false !== $pos ) {
@@ -521,37 +493,18 @@ foreach ( $themes as $theme ) :
 		<?php } ?>
 
 		<div class="theme-actions">
-		<?php if ( $theme['active'] ) { ?>
-			<?php
-			if ( $theme['actions']['customize'] && current_user_can( 'edit_theme_options' ) && current_user_can( 'customize' ) ) {
-				/* translators: %s: Theme name. */
-				$customize_aria_label = sprintf( _x( 'Customize %s', 'theme' ), $theme['name'] );
-				?>
-				<a aria-label="<?php echo esc_attr( $customize_aria_label ); ?>" class="button button-primary customize load-customize hide-if-no-customize" href="<?php echo $theme['actions']['customize']; ?>"><?php _e( 'Customize' ); ?></a>
-			<?php } ?>
-		<?php } elseif ( $theme['compatibleWP'] && $theme['compatiblePHP'] ) { ?>
+		<?php if ( $theme['compatibleWP'] && $theme['compatiblePHP'] ) { ?>
 			<?php
 			/* translators: %s: Theme name. */
 			$aria_label = sprintf( _x( 'Activate %s', 'theme' ), '{{ data.name }}' );
 			?>
 			<a class="button activate" href="<?php echo $theme['actions']['activate']; ?>" aria-label="<?php echo esc_attr( $aria_label ); ?>"><?php _e( 'Activate' ); ?></a>
-			<?php
-			// Only classic themes require the "customize" capability.
-			if ( current_user_can( 'edit_theme_options' ) && ( $theme['blockTheme'] || current_user_can( 'customize' ) ) ) {
-				/* translators: %s: Theme name. */
-				$live_preview_aria_label = sprintf( _x( 'Live Preview %s', 'theme' ), '{{ data.name }}' );
-				?>
-				<a aria-label="<?php echo esc_attr( $live_preview_aria_label ); ?>" class="button button-primary load-customize hide-if-no-customize" href="<?php echo $theme['actions']['customize']; ?>"><?php _e( 'Live Preview' ); ?></a>
-			<?php } ?>
 		<?php } else { ?>
 			<?php
 			/* translators: %s: Theme name. */
 			$aria_label = sprintf( _x( 'Cannot Activate %s', 'theme' ), '{{ data.name }}' );
 			?>
 			<a class="button disabled" aria-label="<?php echo esc_attr( $aria_label ); ?>"><?php _ex( 'Cannot Activate', 'theme' ); ?></a>
-			<?php if ( ! $theme['blockTheme'] && current_user_can( 'edit_theme_options' ) && current_user_can( 'customize' ) ) { ?>
-				<a class="button button-primary hide-if-no-customize disabled"><?php _e( 'Live Preview' ); ?></a>
-			<?php } ?>
 		<?php } ?>
 
 		</div>
@@ -858,37 +811,19 @@ function wp_theme_auto_update_setting_template() {
 		<# } #>
 
 		<div class="theme-actions">
-			<# if ( data.active ) { #>
-				<# if ( data.actions.customize ) { #>
-					<?php
-					/* translators: %s: Theme name. */
-					$customize_aria_label = sprintf( _x( 'Customize %s', 'theme' ), '{{ data.name }}' );
-					?>
-					<a aria-label="<?php echo esc_attr( $customize_aria_label ); ?>" class="button button-primary customize load-customize hide-if-no-customize" href="{{{ data.actions.customize }}}"><?php _e( 'Customize' ); ?></a>
-				<# } #>
-			<# } else { #>
-				<# if ( data.compatibleWP && data.compatiblePHP ) { #>
-					<?php
-					/* translators: %s: Theme name. */
-					$aria_label = sprintf( _x( 'Activate %s', 'theme' ), '{{ data.name }}' );
-					?>
-					<a class="button activate" href="{{{ data.actions.activate }}}" aria-label="<?php echo esc_attr( $aria_label ); ?>"><?php _e( 'Activate' ); ?></a>
-					<?php
-					/* translators: %s: Theme name. */
-					$live_preview_aria_label = sprintf( _x( 'Live Preview %s', 'theme' ), '{{ data.name }}' );
-					?>
-					<a aria-label="<?php echo esc_attr( $live_preview_aria_label ); ?>" class="button button-primary load-customize hide-if-no-customize" href="{{{ data.actions.customize }}}"><?php _e( 'Live Preview' ); ?></a>
-				<# } else { #>
-					<?php
-					/* translators: %s: Theme name. */
-					$aria_label = sprintf( _x( 'Cannot Activate %s', 'theme' ), '{{ data.name }}' );
-					?>
-					<a class="button disabled" aria-label="<?php echo esc_attr( $aria_label ); ?>"><?php _ex( 'Cannot Activate', 'theme' ); ?></a>
-					<# if ( ! data.blockTheme ) { #>
-						<a class="button button-primary hide-if-no-customize disabled"><?php _e( 'Live Preview' ); ?></a>
-					<# } #>
-				<# } #>
-			<# } #>
+		<# if ( data.compatibleWP && data.compatiblePHP ) { #>
+			<?php
+			/* translators: %s: Theme name. */
+			$aria_label = sprintf( _x( 'Activate %s', 'theme' ), '{{ data.name }}' );
+			?>
+			<a class="button activate" href="{{{ data.actions.activate }}}" aria-label="<?php echo esc_attr( $aria_label ); ?>"><?php _e( 'Activate' ); ?></a>
+		<# } else { #>
+			<?php
+			/* translators: %s: Theme name. */
+			$aria_label = sprintf( _x( 'Cannot Activate %s', 'theme' ), '{{ data.name }}' );
+			?>
+			<a class="button disabled" aria-label="<?php echo esc_attr( $aria_label ); ?>"><?php _ex( 'Cannot Activate', 'theme' ); ?></a>
+		<# } #>
 		</div>
 	</div>
 </script>
@@ -1063,7 +998,6 @@ function wp_theme_auto_update_setting_template() {
 
 		<div class="theme-actions">
 			<div class="active-theme">
-				<a href="{{{ data.actions.customize }}}" class="button button-primary customize load-customize hide-if-no-customize"><?php _e( 'Customize' ); ?></a>
 				<?php echo implode( ' ', $current_theme_actions ); ?>
 			</div>
 			<div class="inactive-theme">
@@ -1072,9 +1006,6 @@ function wp_theme_auto_update_setting_template() {
 					/* translators: %s: Theme name. */
 					$aria_label = sprintf( _x( 'Activate %s', 'theme' ), '{{ data.name }}' );
 					?>
-					<# if ( ! data.blockTheme ) { #>
-						<a href="{{{ data.actions.customize }}}" class="button button-primary load-customize hide-if-no-customize"><?php _e( 'Live Preview' ); ?></a>
-					<# } #>
 					<# if ( data.actions.activate ) { #>
 						<a href="{{{ data.actions.activate }}}" class="button activate" aria-label="<?php echo esc_attr( $aria_label ); ?>"><?php _e( 'Activate' ); ?></a>
 					<# } #>
@@ -1083,9 +1014,6 @@ function wp_theme_auto_update_setting_template() {
 					/* translators: %s: Theme name. */
 					$aria_label = sprintf( _x( 'Cannot Activate %s', 'theme' ), '{{ data.name }}' );
 					?>
-					<# if ( ! data.blockTheme ) { #>
-						<a class="button button-primary hide-if-no-customize disabled"><?php _e( 'Live Preview' ); ?></a>
-					<# } #>
 					<# if ( data.actions.activate ) { #>
 						<a class="button disabled" aria-label="<?php echo esc_attr( $aria_label ); ?>"><?php _ex( 'Cannot Activate', 'theme' ); ?></a>
 					<# } #>

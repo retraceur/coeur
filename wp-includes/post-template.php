@@ -3,7 +3,7 @@
  * WordPress Post Template Functions.
  *
  * Gets content for the current post in the loop.
- * 
+ *
  * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
@@ -790,7 +790,6 @@ function get_body_class( $css_class = '' ) {
 
 	if ( is_admin_bar_showing() ) {
 		$classes[] = 'admin-bar';
-		$classes[] = 'no-customize-support';
 	}
 
 	if ( current_theme_supports( 'custom-background' )

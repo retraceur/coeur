@@ -1,7 +1,7 @@
 <?php
 /**
  * General template tags that can go anywhere in a template.
- * 
+ *
  * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
@@ -1126,12 +1126,6 @@ function get_custom_logo( $blog_id = 0 ) {
 				);
 			}
 		}
-	} elseif ( is_customize_preview() ) {
-		// If no logo is set but we're in the Customizer, leave a placeholder (needed for the live preview).
-		$html = sprintf(
-			'<a href="%1$s" class="custom-logo-link" style="display:none;"><img class="custom-logo" alt="" /></a>',
-			esc_url( home_url( '/' ) )
-		);
 	}
 
 	if ( $switched_blog ) {
@@ -3429,15 +3423,13 @@ function wp_strict_cross_origin_referrer() {
  * @link https://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#rel-icon HTML5 specification link icon.
  */
 function wp_site_icon() {
-	if ( ! has_site_icon() && ! is_customize_preview() ) {
+	if ( ! has_site_icon() ) {
 		return;
 	}
 
 	$meta_tags = array();
 	$icon_32   = get_site_icon_url( 32 );
-	if ( empty( $icon_32 ) && is_customize_preview() ) {
-		$icon_32 = '/favicon.ico'; // Serve default favicon URL in customizer so element can be updated for preview.
-	}
+
 	if ( $icon_32 ) {
 		$meta_tags[] = sprintf( '<link rel="icon" href="%s" sizes="32x32" />', esc_url( $icon_32 ) );
 	}

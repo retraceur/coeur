@@ -3626,18 +3626,6 @@ function wp_ajax_query_themes() {
 
 		// We only care about installed themes.
 		$theme->block_theme = $is_theme_installed && wp_get_theme( $theme->slug )->is_block_theme();
-
-		if ( ! is_multisite() && current_user_can( 'edit_theme_options' ) && current_user_can( 'customize' ) ) {
-			$customize_url = $theme->block_theme ? admin_url( 'site-editor.php' ) : wp_customize_url( $theme->slug );
-
-			$theme->customize_url = add_query_arg(
-				array(
-					'return' => urlencode( network_admin_url( 'theme-install.php', 'relative' ) ),
-				),
-				$customize_url
-			);
-		}
-
 		$theme->name        = wp_kses( $theme->name, $themes_allowedtags );
 		$theme->author      = wp_kses( $theme->author['display_name'], $themes_allowedtags );
 		$theme->version     = wp_kses( $theme->version, $themes_allowedtags );
@@ -4179,15 +4167,6 @@ function wp_ajax_install_theme() {
 
 	$theme                = wp_get_theme( $slug );
 	$status['blockTheme'] = $theme->is_block_theme();
-
-	if ( ! is_multisite() && current_user_can( 'edit_theme_options' ) && current_user_can( 'customize' ) ) {
-		$status['customizeUrl'] = add_query_arg(
-			array(
-				'return' => urlencode( network_admin_url( 'theme-install.php', 'relative' ) ),
-			),
-			wp_customize_url( $slug )
-		);
-	}
 
 	/*
 	 * See WP_Theme_Install_List_Table::_get_theme_status() if we wanted to check

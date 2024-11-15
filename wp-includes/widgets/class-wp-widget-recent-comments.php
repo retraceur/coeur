@@ -25,15 +25,14 @@ class WP_Widget_Recent_Comments extends WP_Widget {
 	 */
 	public function __construct() {
 		$widget_ops = array(
-			'classname'                   => 'widget_recent_comments',
-			'description'                 => __( 'Your site&#8217;s most recent comments.' ),
-			'customize_selective_refresh' => true,
-			'show_instance_in_rest'       => true,
+			'classname'             => 'widget_recent_comments',
+			'description'           => __( 'Your site&#8217;s most recent comments.' ),
+			'show_instance_in_rest' => true,
 		);
 		parent::__construct( 'recent-comments', __( 'Recent Comments' ), $widget_ops );
 		$this->alt_option_name = 'widget_recent_comments';
 
-		if ( is_active_widget( false, false, $this->id_base ) || is_customize_preview() ) {
+		if ( is_active_widget( false, false, $this->id_base ) ) {
 			add_action( 'wp_head', array( $this, 'recent_comments_style' ) );
 		}
 	}

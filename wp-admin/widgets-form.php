@@ -375,22 +375,6 @@ echo esc_html( $title );
 </h1>
 
 <?php
-if ( current_user_can( 'customize' ) ) {
-	printf(
-		' <a class="page-title-action hide-if-no-customize" href="%1$s">%2$s</a>',
-		esc_url(
-			add_query_arg(
-				array(
-					array( 'autofocus' => array( 'panel' => 'widgets' ) ),
-					'return' => urlencode( remove_query_arg( wp_removable_query_args(), wp_unslash( $_SERVER['REQUEST_URI'] ) ) ),
-				),
-				admin_url( 'customize.php' )
-			)
-		),
-		__( 'Manage with Live Preview' )
-	);
-}
-
 $nonce = wp_create_nonce( 'widgets-access' );
 ?>
 <div class="widget-access-link">

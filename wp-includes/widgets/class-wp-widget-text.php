@@ -33,10 +33,9 @@ class WP_Widget_Text extends WP_Widget {
 	 */
 	public function __construct() {
 		$widget_ops  = array(
-			'classname'                   => 'widget_text',
-			'description'                 => __( 'Arbitrary text.' ),
-			'customize_selective_refresh' => true,
-			'show_instance_in_rest'       => true,
+			'classname'             => 'widget_text',
+			'description'           => __( 'Arbitrary text.' ),
+			'show_instance_in_rest' => true,
 		);
 		$control_ops = array(
 			'width'  => 400,
@@ -58,20 +57,7 @@ class WP_Widget_Text extends WP_Widget {
 		}
 		$this->registered = true;
 
-		if ( $this->is_preview() ) {
-			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_preview_scripts' ) );
-		}
-
-		/*
-		 * Note that the widgets component in the customizer will also do
-		 * the 'admin_print_scripts-widgets.php' action in WP_Customize_Widgets::print_scripts().
-		 */
 		add_action( 'admin_print_scripts-widgets.php', array( $this, 'enqueue_admin_scripts' ) );
-
-		/*
-		 * Note that the widgets component in the customizer will also do
-		 * the 'admin_footer-widgets.php' action in WP_Customize_Widgets::print_footer_scripts().
-		 */
 		add_action( 'admin_footer-widgets.php', array( 'WP_Widget_Text', 'render_control_template_scripts' ) );
 	}
 
@@ -420,12 +406,10 @@ class WP_Widget_Text extends WP_Widget {
 	 * dynamically added via selective refresh, so it is important to unconditionally enqueue them.
 	 *
 	 * @since WP 4.9.3
+	 * @deprecated 1.0.0 motsVertueux removed the customizer feature.
 	 */
 	public function enqueue_preview_scripts() {
-		require_once dirname( __DIR__ ) . '/media.php';
-
-		wp_playlist_scripts( 'audio' );
-		wp_playlist_scripts( 'video' );
+		_deprecated_function( __METHOD__, '1.0.0', '', true );
 	}
 
 	/**
@@ -540,11 +524,7 @@ class WP_Widget_Text extends WP_Widget {
 				<div hidden class="wp-pointer custom-html-widget-pointer wp-pointer-top">
 					<div class="wp-pointer-content">
 						<h3><?php _e( 'New Custom HTML Widget' ); ?></h3>
-						<?php if ( is_customize_preview() ) : ?>
-							<p><?php _e( 'Did you know there is a &#8220;Custom HTML&#8221; widget now? You can find it by pressing the &#8220;<a class="add-widget" href="#">Add a Widget</a>&#8221; button and searching for &#8220;HTML&#8221;. Check it out to add some custom code to your site!' ); ?></p>
-						<?php else : ?>
-							<p><?php _e( 'Did you know there is a &#8220;Custom HTML&#8221; widget now? You can find it by scanning the list of available widgets on this screen. Check it out to add some custom code to your site!' ); ?></p>
-						<?php endif; ?>
+						<p><?php _e( 'Did you know there is a &#8220;Custom HTML&#8221; widget now? You can find it by scanning the list of available widgets on this screen. Check it out to add some custom code to your site!' ); ?></p>
 						<div class="wp-pointer-buttons">
 							<a class="close" href="#"><?php _e( 'Dismiss' ); ?></a>
 						</div>

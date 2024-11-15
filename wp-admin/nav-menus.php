@@ -773,23 +773,6 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 <div class="wrap">
 	<h1 class="wp-heading-inline"><?php esc_html_e( 'Menus' ); ?></h1>
 	<?php
-	if ( current_user_can( 'customize' ) ) :
-		$focus = $locations_screen ? array( 'section' => 'menu_locations' ) : array( 'panel' => 'nav_menus' );
-		printf(
-			' <a class="page-title-action hide-if-no-customize" href="%1$s">%2$s</a>',
-			esc_url(
-				add_query_arg(
-					array(
-						array( 'autofocus' => $focus ),
-						'return' => urlencode( remove_query_arg( wp_removable_query_args(), wp_unslash( $_SERVER['REQUEST_URI'] ) ) ),
-					),
-					admin_url( 'customize.php' )
-				)
-			),
-			__( 'Manage with Live Preview' )
-		);
-	endif;
-
 	$nav_tab_active_class = '';
 	$nav_aria_current     = '';
 

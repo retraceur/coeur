@@ -1,7 +1,7 @@
 <?php
 /**
  * motsVertueux Administration Template Header.
- * 
+ *
  * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
@@ -205,7 +205,7 @@ if ( is_network_admin() ) {
 	$admin_body_class .= ' network-admin';
 }
 
-$admin_body_class .= ' no-customize-support svg';
+$admin_body_class .= ' svg';
 
 if ( $current_screen->is_block_editor() ) {
 	$admin_body_class .= ' block-editor-page wp-embed-responsive';
@@ -248,14 +248,6 @@ $admin_body_classes = ltrim( $admin_body_classes . ' ' . $admin_body_class );
 <script type="text/javascript">
 	document.body.className = document.body.className.replace('no-js','js');
 </script>
-
-<?php
-// Make sure the customize body classes are correct as early as possible.
-if ( current_user_can( 'customize' ) ) {
-	wp_customize_support_script();
-}
-?>
-
 <div id="wpwrap">
 <?php require ABSPATH . 'wp-admin/menu-header.php'; ?>
 <div id="wpcontent">

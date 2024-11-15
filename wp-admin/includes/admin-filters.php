@@ -53,11 +53,7 @@ add_action( 'admin_head', 'wp_site_icon' );
 add_action( 'admin_head', 'wp_admin_viewport_meta' );
 add_action( 'customize_controls_head', 'wp_admin_viewport_meta' );
 add_filter( 'nav_menu_meta_box_object', '_wp_nav_menu_meta_box_object' );
-
-// Prerendering.
-if ( ! is_customize_preview() ) {
-	add_filter( 'admin_print_styles', 'wp_resource_hints', 1 );
-}
+add_filter( 'admin_print_styles', 'wp_resource_hints', 1 );
 
 add_action( 'admin_print_scripts', 'print_emoji_detection_script' );
 add_action( 'admin_print_scripts', 'print_head_scripts', 20 );
