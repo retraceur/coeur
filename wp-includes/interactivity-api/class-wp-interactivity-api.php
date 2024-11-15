@@ -586,7 +586,8 @@ final class WP_Interactivity_API {
 			} elseif ( is_object( $current ) && isset( $current->$path_segment ) ) {
 				$current = $current->$path_segment;
 			} else {
-				return null;
+				$current = null;
+				break;
 			}
 
 			if ( $current instanceof Closure ) {
