@@ -31,7 +31,7 @@ $options_help = '<p>' . __( 'The fields on this screen determine some of the bas
 
 if ( ! is_multisite() ) {
 	$options_help .= '<p>' . __( 'Two terms you will want to know are the WordPress URL and the site URL. The WordPress URL is where the core WordPress installation files are, and the site URL is the address a visitor uses in the browser to go to your site.' ) . '</p>' .
-		'<p>' . esc_html_e( 'Though the terms refer to two different concepts, in practice, they can be the same address or different. For example, you can have the core WordPress installation files in the root directory (`https://example.com`), in which case the two URLs would be the same. Or the WordPress files can be in a subdirectory (`https://example.com/subsite`). In that case, the WordPress URL and the site URL would be different.' ) . '</p>' .
+		'<p>' . esc_html__( 'Though the terms refer to two different concepts, in practice, they can be the same address or different. For example, you can have the core WordPress installation files in the root directory (`https://example.com`), in which case the two URLs would be the same. Or the WordPress files can be in a subdirectory (`https://example.com/subsite`). In that case, the WordPress URL and the site URL would be different.' ) . '</p>' .
 		'<p>' . sprintf(
 			/* translators: 1: http://, 2: https:// */
 			esc_html__( 'Both WordPress URL and site URL can start with either %1$s or %2$s. A URL starting with %2$s requires an SSL certificate, so be sure that you have one before changing to %2$s. With %2$s, a padlock will appear next to the address in the browser address bar. Both %2$s and the padlock signal that your site meets some basic security requirements, which can build trust with your visitors and with search engines.' ),
@@ -240,7 +240,7 @@ if ( ! is_multisite() ) {
 <td><input name="home" type="url" id="home" aria-describedby="home-description" value="<?php form_option( 'home' ); ?>"<?php disabled( defined( 'WP_HOME' ) ); ?> class="regular-text code<?php echo $wp_home_class; ?>" />
 	<?php if ( ! defined( 'WP_HOME' ) ) : ?>
 <p class="description" id="home-description">
-	<?php esc_html_( 'Enter the same address here unless you want your site home page to be different from your WordPress installation directory.' ); ?>
+	<?php esc_html__( 'Enter the same address here unless you want your site home page to be different from your WordPress installation directory.' ); ?>
 </p>
 <?php endif; ?>
 </td>
