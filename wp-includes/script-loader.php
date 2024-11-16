@@ -1518,9 +1518,6 @@ function wp_default_styles( $styles ) {
 	$styles->add( 'login', "/wp-admin/css/login$suffix.css", array( 'dashicons', 'buttons', 'forms', 'l10n' ) );
 	$styles->add( 'install', "/wp-admin/css/install$suffix.css", array( 'dashicons', 'buttons', 'forms', 'l10n' ) );
 	$styles->add( 'wp-color-picker', "/wp-admin/css/color-picker$suffix.css" );
-	$styles->add( 'customize-controls', "/wp-admin/css/customize-controls$suffix.css", array( 'wp-admin', 'colors', 'imgareaselect' ) );
-	$styles->add( 'customize-widgets', "/wp-admin/css/customize-widgets$suffix.css", array( 'wp-admin', 'colors' ) );
-	$styles->add( 'customize-nav-menus', "/wp-admin/css/customize-nav-menus$suffix.css", array( 'wp-admin', 'colors' ) );
 
 	// Common dependencies.
 	$styles->add( 'buttons', "/wp-includes/css/buttons$suffix.css" );
@@ -1532,7 +1529,6 @@ function wp_default_styles( $styles ) {
 	$styles->add( 'editor-buttons', "/wp-includes/css/editor$suffix.css", array( 'dashicons' ) );
 	$styles->add( 'media-views', "/wp-includes/css/media-views$suffix.css", array( 'buttons', 'dashicons', 'wp-mediaelement' ) );
 	$styles->add( 'wp-pointer', "/wp-includes/css/wp-pointer$suffix.css", array( 'dashicons' ) );
-	$styles->add( 'customize-preview', "/wp-includes/css/customize-preview$suffix.css", array( 'dashicons' ) );
 	$styles->add( 'wp-embed-template-ie', "/wp-includes/css/wp-embed-template-ie$suffix.css" );
 	$styles->add_data( 'wp-embed-template-ie', 'conditional', 'lte IE 8' );
 
@@ -1710,10 +1706,6 @@ function wp_default_styles( $styles ) {
 		'l10n',
 		'install',
 		'wp-color-picker',
-		'customize-controls',
-		'customize-widgets',
-		'customize-nav-menus',
-		'customize-preview',
 		'login',
 		'site-health',
 		// Includes CSS.
