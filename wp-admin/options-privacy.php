@@ -54,13 +54,6 @@ if ( ! empty( $action ) ) {
 		$privacy_page_updated_message = __( 'Privacy Policy page updated successfully.' );
 
 		if ( $privacy_policy_page_id ) {
-			/*
-			 * Don't always link to the menu customizer:
-			 *
-			 * - Unpublished pages can't be selected by default.
-			 * - `WP_Customize_Nav_Menus::__construct()` checks the user's capabilities.
-			 * - Themes might not "officially" support menus.
-			 */
 			if (
 				'publish' === get_post_status( $privacy_policy_page_id )
 				&& current_user_can( 'edit_theme_options' )
