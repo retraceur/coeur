@@ -19,10 +19,8 @@ final class WP_Block_Editor_Context {
 	/**
 	 * String that identifies the block editor being rendered. Can be one of:
 	 *
-	 * - `'core/edit-post'`         - The post editor at `/wp-admin/edit.php`.
-	 * - `'core/edit-widgets'`      - The widgets editor at `/wp-admin/widgets.php`.
-	 * - `'core/customize-widgets'` - The widgets editor at `/wp-admin/customize.php`.
-	 * - `'core/edit-site'`         - The site editor at `/wp-admin/site-editor.php`.
+	 * - `'core/edit-post'` - The post editor at `/wp-admin/edit.php`.
+	 * - `'core/edit-site'` - The site editor at `/wp-admin/site-editor.php`.
 	 *
 	 * Defaults to 'core/edit-post'.
 	 *

@@ -276,9 +276,6 @@ require ABSPATH . WPINC . '/class-wp-http-encoding.php';
 require ABSPATH . WPINC . '/class-wp-http-response.php';
 require ABSPATH . WPINC . '/class-wp-http-requests-response.php';
 require ABSPATH . WPINC . '/class-wp-http-requests-hooks.php';
-require ABSPATH . WPINC . '/widgets.php';
-require ABSPATH . WPINC . '/class-wp-widget.php';
-require ABSPATH . WPINC . '/class-wp-widget-factory.php';
 require ABSPATH . WPINC . '/nav-menu-template.php';
 require ABSPATH . WPINC . '/nav-menu.php';
 require ABSPATH . WPINC . '/admin-bar.php';
@@ -319,9 +316,6 @@ require ABSPATH . WPINC . '/rest-api/endpoints/class-wp-rest-block-patterns-cont
 require ABSPATH . WPINC . '/rest-api/endpoints/class-wp-rest-block-pattern-categories-controller.php';
 require ABSPATH . WPINC . '/rest-api/endpoints/class-wp-rest-application-passwords-controller.php';
 require ABSPATH . WPINC . '/rest-api/endpoints/class-wp-rest-site-health-controller.php';
-require ABSPATH . WPINC . '/rest-api/endpoints/class-wp-rest-sidebars-controller.php';
-require ABSPATH . WPINC . '/rest-api/endpoints/class-wp-rest-widget-types-controller.php';
-require ABSPATH . WPINC . '/rest-api/endpoints/class-wp-rest-widgets-controller.php';
 require ABSPATH . WPINC . '/rest-api/endpoints/class-wp-rest-templates-controller.php';
 require ABSPATH . WPINC . '/rest-api/endpoints/class-wp-rest-url-details-controller.php';
 require ABSPATH . WPINC . '/rest-api/endpoints/class-wp-rest-navigation-fallback-controller.php';
@@ -611,15 +605,6 @@ $GLOBALS['wp_rewrite'] = new WP_Rewrite();
 $GLOBALS['wp'] = new WP();
 
 /**
- * motsVertueux Widget Factory Object
- *
- * @since WP 2.8.0
- *
- * @global WP_Widget_Factory $wp_widget_factory
- */
-$GLOBALS['wp_widget_factory'] = new WP_Widget_Factory();
-
-/**
  * motsVertueux User Roles
  *
  * @since WP 2.0.0
@@ -696,7 +681,7 @@ $GLOBALS['wp']->init();
  * Fires after motsVertueux has finished loading but before any headers are sent.
  *
  * Most of WP is loaded at this stage, and the user is authenticated. WP continues
- * to load on the {@see 'init'} hook that follows (e.g. widgets), and many plugins instantiate
+ * to load on the {@see 'init'} hook that follows, and many plugins instantiate
  * themselves on it for all sorts of reasons (e.g. they need a user, a taxonomy, etc.).
  *
  * If you wish to plug an action once WP is loaded, use the {@see 'wp_loaded'} hook below.

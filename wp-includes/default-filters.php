@@ -278,11 +278,6 @@ foreach (
 	array(
 		'publish_post',
 		'publish_page',
-		'wp_ajax_save-widget',
-		'wp_ajax_widgets-order',
-		'rest_after_save_widget',
-		'rest_delete_widget',
-		'rest_save_sidebar',
 	) as $action
 ) {
 	add_action( $action, '_delete_option_fresh_site', 0 );
@@ -361,7 +356,6 @@ add_action( 'init', array( 'WP_Block_Supports', 'init' ), 22 );
 add_action( 'switch_theme', 'wp_clean_theme_json_cache' );
 add_action( 'start_previewing_theme', 'wp_clean_theme_json_cache' );
 add_action( 'after_switch_theme', '_wp_menus_changed' );
-add_action( 'after_switch_theme', '_wp_sidebars_changed' );
 add_action( 'wp_enqueue_scripts', 'wp_enqueue_emoji_styles' );
 add_action( 'wp_print_styles', 'print_emoji_styles' ); // Retained for backwards-compatibility. Unhooked by wp_enqueue_emoji_styles().
 
@@ -411,7 +405,6 @@ add_action( 'do_favicon', 'do_favicon' );
 add_action( 'set_comment_cookies', 'wp_set_comment_cookies', 10, 3 );
 add_action( 'sanitize_comment_cookies', 'sanitize_comment_cookies' );
 add_action( 'init', 'smilies_init', 5 );
-add_action( 'plugins_loaded', 'wp_maybe_load_widgets', 0 );
 add_action( 'plugins_loaded', 'wp_maybe_load_embeds', 0 );
 add_action( 'shutdown', 'wp_ob_end_flush_all', 1 );
 // Create a revision whenever a post is updated.
@@ -590,7 +583,6 @@ add_action( 'enqueue_block_editor_assets', 'wp_enqueue_editor_format_library_ass
 add_action( 'enqueue_block_editor_assets', 'wp_enqueue_global_styles_css_custom_properties' );
 add_action( 'wp_print_scripts', 'wp_just_in_time_script_localization' );
 add_filter( 'print_scripts_array', 'wp_prototype_before_jquery' );
-add_action( 'admin_head', 'wp_check_widget_editor_deps' );
 add_filter( 'block_editor_settings_all', 'wp_add_editor_classic_theme_styles' );
 
 // Global styles can be enqueued in both the header and the footer.
@@ -639,12 +631,6 @@ add_filter( 'plupload_default_settings', 'wp_show_heic_upload_error' );
 // Nav menu.
 add_filter( 'nav_menu_item_id', '_nav_menu_item_id_use_once', 10, 2 );
 add_filter( 'nav_menu_css_class', 'wp_nav_menu_remove_menu_item_has_children_class', 10, 4 );
-
-// Widgets.
-add_action( 'after_setup_theme', 'wp_setup_widgets_block_editor', 1 );
-add_action( 'init', 'wp_widgets_init', 1 );
-add_action( 'change_locale', array( 'WP_Widget_Media', 'reset_default_labels' ) );
-add_action( 'widgets_init', '_wp_block_theme_register_classic_sidebars', 1 );
 
 // Admin Bar.
 // Don't remove. Wrong way to disable.

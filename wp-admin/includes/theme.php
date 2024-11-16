@@ -340,7 +340,6 @@ function get_theme_feature_list() {
 			'editor-style'          => __( 'Editor Style' ),
 			'featured-image-header' => __( 'Featured Image Header' ),
 			'featured-images'       => __( 'Featured Images' ),
-			'footer-widgets'        => __( 'Footer Widgets' ),
 			'full-site-editing'     => __( 'Site Editor' ),
 			'full-width-template'   => __( 'Full Width Template' ),
 			'post-formats'          => __( 'Post Formats' ),

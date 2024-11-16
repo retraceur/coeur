@@ -1595,18 +1595,18 @@ function image_attachment_fields_to_save( $post, $attachment ) {
  *
  * @since 2.7.0
  * @since 4.8.0 Removed popular plugins feed.
- * @deprecated 1.0.0
+ * @deprecated 1.0.0 motsVertueux fork.
  */
 function wp_dashboard_primary() {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 }
-	
+
 /**
  * Displays the motsVertueux events and news feeds.
  *
  * @since 3.8.0
  * @since 4.8.0 Removed popular plugins feed.
- * @deprecated 1.0.0
+ * @deprecated 1.0.0 motsVertueux fork.
  *
  * @param string $widget_id Widget ID.
  * @param array  $feeds     Array of RSS feeds.
@@ -1620,7 +1620,7 @@ function wp_dashboard_primary_output( $widget_id, $feeds ) {
  *
  * @since 3.2.0
  * @since 5.8.0 Added a special message for Internet Explorer users.
- * @deprecated 1.0.0
+ * @deprecated 1.0.0 motsVertueux fork.
  *
  * @global bool $is_IE
  */
@@ -1632,7 +1632,7 @@ function wp_dashboard_browser_nag() {
  * Adds an additional class to the browser nag if the current version is insecure.
  *
  * @since 3.2.0
- * @deprecated 1.0.0
+ * @deprecated 1.0.0 motsVertueux fork.
  *
  * @param string[] $classes Array of meta box classes.
  * @return string[] Modified array of meta box classes.
@@ -1645,7 +1645,7 @@ function dashboard_browser_nag_class( $classes ) {
  * Checks if the user needs a browser update.
  *
  * @since 3.2.0
- * @deprecated 1.0.0
+ * @deprecated 1.0.0 motsVertueux fork.
  *
  * @return array|false Array of browser data on success, false on failure.
  */
@@ -1657,7 +1657,7 @@ function wp_check_browser_version() {
  * Verifies the contents of a file against its ED25519 signature.
  *
  * @since 5.2.0
- * @deprecated 1.0.0
+ * @deprecated 1.0.0 motsVertueux fork.
  *
  * @param string       $filename            The file to validate.
  * @param string|array $signatures          A Signature provided for the file.
@@ -1673,7 +1673,7 @@ function verify_file_signature( $filename, $signatures, $filename_for_errors = f
  * Retrieves the list of signing keys trusted by WordPress.
  *
  * @since 5.2.0
- * @deprecated 1.0.0
+ * @deprecated 1.0.0 motsVertueux fork.
  *
  * @return string[] Array of base64-encoded signing keys.
  */
@@ -1685,7 +1685,7 @@ function wp_trusted_keys() {
  * Returns the content for the help sidebar on the Edit Site screens.
  *
  * @since WP 4.9.0
- * @deprecated 1.0.0
+ * @deprecated 1.0.0 motsVertueux fork.
  *
  * @return string Help sidebar content.
  */
@@ -1698,8 +1698,95 @@ function get_site_screen_help_sidebar_content() {
  * Shows a username form for the favorites page.
  *
  * @since WP 3.5.0
- * @deprecated 1.0.0
+ * @deprecated 1.0.0 motsVertueux fork.
  */
 function install_plugins_favorites_form() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Display list of the available widgets.
+ *
+ * @since WP 2.5.0
+ * @deprecated 1.0.0 motsVertueux fork.
+ */
+function wp_list_widgets() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Callback to sort array by a 'name' key.
+ *
+ * @since WP 3.1.0
+ * @deprecated 1.0.0 motsVertueux fork.
+ *
+ * @access private
+ *
+ * @param array $a First array.
+ * @param array $b Second array.
+ */
+function _sort_name_callback( $a, $b ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Show the widgets and their settings for a sidebar.
+ * Used in the admin widget config screen.
+ *
+ * @since WP 2.5.0
+ * @deprecated 1.0.0 motsVertueux fork.
+ *
+ * @param string $sidebar      Sidebar ID.
+ * @param string $sidebar_name Optional. Sidebar name. Default empty.
+ */
+function wp_list_widget_controls( $sidebar, $sidebar_name = '' ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Retrieves the widget control arguments.
+ *
+ * @since WP 2.5.0
+ * @deprecated 1.0.0 motsVertueux fork.
+ *
+ * @param array $params
+ */
+function wp_list_widget_controls_dynamic_sidebar( $params ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * @deprecated 1.0.0 motsVertueux fork.
+ *
+ * @param string $id_base
+ */
+function next_widget_id_number( $id_base ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Meta widget used to display the control form for a widget.
+ *
+ * Called from dynamic_sidebar().
+ *
+ * @since WP 2.5.0
+ * @deprecated 1.0.0 motsVertueux fork.
+ *
+ * @global array $wp_registered_widgets
+ * @global array $wp_registered_widget_controls
+ * @global array $sidebars_widgets
+ *
+ * @param array $sidebar_args
+ * @return array
+ */
+function wp_widget_control( $sidebar_args ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * @deprecated 1.0.0 motsVertueux fork.
+ * @param string $classes
+ */
+function wp_widgets_access_body_class( $classes ) {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 }

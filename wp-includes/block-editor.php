@@ -240,52 +240,6 @@ function get_default_block_editor_settings() {
 }
 
 /**
- * Returns the block editor settings needed to use the Legacy Widget block which
- * is not registered by default.
- *
- * @since WP 5.8.0
- *
- * @return array Settings to be used with get_block_editor_settings().
- */
-function get_legacy_widget_block_editor_settings() {
-	$editor_settings = array();
-
-	/**
-	 * Filters the list of widget-type IDs that should **not** be offered by the
-	 * Legacy Widget block.
-	 *
-	 * Returning an empty array will make all widgets available.
-	 *
-	 * @since WP 5.8.0
-	 *
-	 * @param string[] $widgets An array of excluded widget-type IDs.
-	 */
-	$editor_settings['widgetTypesToHideFromLegacyWidgetBlock'] = apply_filters(
-		'widget_types_to_hide_from_legacy_widget_block',
-		array(
-			'pages',
-			'calendar',
-			'archives',
-			'media_audio',
-			'media_image',
-			'media_gallery',
-			'media_video',
-			'search',
-			'text',
-			'categories',
-			'recent-posts',
-			'recent-comments',
-			'rss',
-			'tag_cloud',
-			'custom_html',
-			'block',
-		)
-	);
-
-	return $editor_settings;
-}
-
-/**
  * Collect the block editor assets that need to be loaded into the editor's iframe.
  *
  * @since WP 6.0.0

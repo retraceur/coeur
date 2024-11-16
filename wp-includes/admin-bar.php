@@ -992,17 +992,6 @@ function wp_admin_bar_appearance_menu( $wp_admin_bar ) {
 		return;
 	}
 
-	if ( current_theme_supports( 'widgets' ) ) {
-		$wp_admin_bar->add_node(
-			array(
-				'parent' => 'appearance',
-				'id'     => 'widgets',
-				'title'  => __( 'Widgets' ),
-				'href'   => admin_url( 'widgets.php' ),
-			)
-		);
-	}
-
 	if ( current_theme_supports( 'menus' ) || current_theme_supports( 'widgets' ) ) {
 		$wp_admin_bar->add_node(
 			array(

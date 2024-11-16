@@ -8,7 +8,7 @@
  * To hook methods, you'll need to pass an array one of two ways.
  *
  * This file should have no external dependencies.
- * 
+ *
  * @since WP 1.5.0
  * @since 1.0.0 motsVertueux fork.
  *
