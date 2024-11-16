@@ -6871,3 +6871,1066 @@ function wp_admin_bar_customize_menu( $wp_admin_bar ) {
 function _wp_delete_customize_changeset_dependent_auto_drafts( $post_id ) {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 }
+
+/**
+ * Determines if Widgets library should be loaded.
+ *
+ * Checks to make sure that the widgets library hasn't already been loaded.
+ * If it hasn't, then it will load the widgets library and run an action hook.
+ *
+ * @since WP 2.2.0
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ */
+function wp_maybe_load_widgets() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Appends the Widgets menu to the themes main menu.
+ *
+ * @since WP 2.2.0
+ * @since WP 5.9.3 Don't specify menu order when the active theme is a block theme.
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ */
+function wp_widgets_add_menu() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Enables the widgets block editor. This is hooked into 'after_setup_theme' so
+ * that the block editor is enabled by default but can be disabled by themes.
+ *
+ * @since WP 5.8.0
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ *
+ * @access private
+ */
+function wp_setup_widgets_block_editor() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Displays a _doing_it_wrong() message for conflicting widget editor scripts.
+ *
+ * The 'wp-editor' script module is exposed as window.wp.editor. This overrides
+ * the legacy TinyMCE editor module which is required by the widgets editor.
+ * Because of that conflict, these two shouldn't be enqueued together.
+ *
+ * There is also another conflict related to styles where the block widgets
+ * editor is hidden if a block enqueues 'wp-edit-post' stylesheet.
+ *
+ * @since WP 5.8.0
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ *
+ * @access private
+ */
+function wp_check_widget_editor_deps() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Validates and remaps any "orphaned" widgets to wp_inactive_widgets sidebar,
+ * and saves the widget settings. This has to run at least on each theme change.
+ *
+ * For example, let's say theme A has a "footer" sidebar, and theme B doesn't have one.
+ * After switching from theme A to theme B, all the widgets previously assigned
+ * to the footer would be inaccessible. This function detects this scenario, and
+ * moves all the widgets previously assigned to the footer under wp_inactive_widgets.
+ *
+ * Despite the word "retrieve" in the name, this function actually updates the database
+ * and the global `$sidebars_widgets`. For that reason it should not be run on front end,
+ * unless the `$theme_changed` value is 'customize' (to bypass the database write).
+ *
+ * @since WP 2.8.0
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ *
+ * @param string|bool $theme_changed Whether the theme was changed as a boolean. A value
+ *                                   of 'customize' defers updates for the Customizer.
+ */
+function retrieve_widgets( $theme_changed = false ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Handle sidebars config after theme change
+ *
+ * @since WP 3.3.0
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ *
+ * @access private
+ */
+function _wp_sidebars_changed() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Register a widget
+ *
+ * Registers a WP_Widget widget
+ *
+ * @since      WP 2.8.0
+ * @since      WP 4.6.0 Updated the `$widget` parameter to also accept a WP_Widget instance object
+ *                      instead of simply a `WP_Widget` subclass name.
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ *
+ * @see WP_Widget
+ *
+ * @param string|WP_Widget $widget Either the name of a `WP_Widget` subclass or an instance of a `WP_Widget` subclass.
+ */
+function register_widget( $widget ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Unregisters a widget.
+ *
+ * Unregisters a WP_Widget widget. Useful for un-registering default widgets.
+ * Run within a function hooked to the {@see 'widgets_init'} action.
+ *
+ * @since      WP 2.8.0
+ * @since      WP 4.6.0 Updated the `$widget` parameter to also accept a WP_Widget instance object
+ *                      instead of simply a `WP_Widget` subclass name.
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ *
+ * @see WP_Widget
+ *
+ * @param string|WP_Widget $widget Either the name of a `WP_Widget` subclass or an instance of a `WP_Widget` subclass.
+ */
+function unregister_widget( $widget ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Creates multiple sidebars.
+ *
+ * If you wanted to quickly create multiple sidebars for a theme or internally.
+ * This function will allow you to do so. If you don't pass the 'name' and/or
+ * 'id' in `$args`, then they will be built for you.
+ *
+ * @since      WP 2.2.0
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ *
+ * @see register_sidebar() The second parameter is documented by register_sidebar() and is the same here.
+ *
+ * @param int          $number Optional. Number of sidebars to create. Default 1.
+ * @param array|string $args {
+ *     Optional. Array or string of arguments for building a sidebar.
+ *
+ *     @type string $id   The base string of the unique identifier for each sidebar. If provided, and multiple
+ *                        sidebars are being defined, the ID will have "-2" appended, and so on.
+ *                        Default 'sidebar-' followed by the number the sidebar creation is currently at.
+ *     @type string $name The name or title for the sidebars displayed in the admin dashboard. If registering
+ *                        more than one sidebar, include '%d' in the string as a placeholder for the uniquely
+ *                        assigned number for each sidebar.
+ *                        Default 'Sidebar' for the first sidebar, otherwise 'Sidebar %d'.
+ * }
+ */
+function register_sidebars( $number = 1, $args = array() ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Builds the definition for a single sidebar and returns the ID.
+ *
+ * Accepts either a string or an array and then parses that against a set
+ * of default arguments for the new sidebar. WordPress will automatically
+ * generate a sidebar ID and name based on the current number of registered
+ * sidebars if those arguments are not included.
+ *
+ * When allowing for automatic generation of the name and ID parameters, keep
+ * in mind that the incrementor for your sidebar can change over time depending
+ * on what other plugins and themes are installed.
+ *
+ * If theme support for 'widgets' has not yet been added when this function is
+ * called, it will be automatically enabled through the use of add_theme_support()
+ *
+ * @since      WP 2.2.0
+ * @since      WP 5.6.0 Added the `before_sidebar` and `after_sidebar` arguments.
+ * @since      WP 5.9.0 Added the `show_in_rest` argument.
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ *
+ * @param array|string $args {
+ *     Optional. Array or string of arguments for the sidebar being registered.
+ *
+ *     @type string $name           The name or title of the sidebar displayed in the Widgets
+ *                                  interface. Default 'Sidebar $instance'.
+ *     @type string $id             The unique identifier by which the sidebar will be called.
+ *                                  Default 'sidebar-$instance'.
+ *     @type string $description    Description of the sidebar, displayed in the Widgets interface.
+ *                                  Default empty string.
+ *     @type string $class          Extra CSS class to assign to the sidebar in the Widgets interface.
+ *                                  Default empty.
+ *     @type string $before_widget  HTML content to prepend to each widget's HTML output when assigned
+ *                                  to this sidebar. Receives the widget's ID attribute as `%1$s`
+ *                                  and class name as `%2$s`. Default is an opening list item element.
+ *     @type string $after_widget   HTML content to append to each widget's HTML output when assigned
+ *                                  to this sidebar. Default is a closing list item element.
+ *     @type string $before_title   HTML content to prepend to the sidebar title when displayed.
+ *                                  Default is an opening h2 element.
+ *     @type string $after_title    HTML content to append to the sidebar title when displayed.
+ *                                  Default is a closing h2 element.
+ *     @type string $before_sidebar HTML content to prepend to the sidebar when displayed.
+ *                                  Receives the `$id` argument as `%1$s` and `$class` as `%2$s`.
+ *                                  Outputs after the {@see 'dynamic_sidebar_before'} action.
+ *                                  Default empty string.
+ *     @type string $after_sidebar  HTML content to append to the sidebar when displayed.
+ *                                  Outputs before the {@see 'dynamic_sidebar_after'} action.
+ *                                  Default empty string.
+ *     @type bool $show_in_rest     Whether to show this sidebar publicly in the REST API.
+ *                                  Defaults to only showing the sidebar to administrator users.
+ * }
+ */
+function register_sidebar( $args = array() ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Removes a sidebar from the list.
+ *
+ * @since WP 2.2.0
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ *
+ * @param string|int $sidebar_id The ID of the sidebar when it was registered.
+ */
+function unregister_sidebar( $sidebar_id ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Checks if a sidebar is registered.
+ *
+ * @since      WP 4.4.0
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ *
+ * @param string|int $sidebar_id The ID of the sidebar when it was registered.
+ * @return bool True if the sidebar is registered, false otherwise.
+ */
+function is_registered_sidebar( $sidebar_id ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return false;
+}
+
+/**
+ * Register an instance of a widget.
+ *
+ * The default widget option is 'classname' that can be overridden.
+ *
+ * The function can also be used to un-register widgets when `$output_callback`
+ * parameter is an empty string.
+ *
+ * @since      WP 2.2.0
+ * @since      WP 5.3.0 Formalized the existing and already documented `...$params` parameter
+ *                      by adding it to the function signature.
+ * @since      WP 5.8.0 Added show_instance_in_rest option.
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ *
+ * @param int|string $id              Widget ID.
+ * @param string     $name            Widget display title.
+ * @param callable   $output_callback Run when widget is called.
+ * @param array      $options {
+ *     Optional. An array of supplementary widget options for the instance.
+ *
+ *     @type string $classname             Class name for the widget's HTML container. Default is a shortened
+ *                                         version of the output callback name.
+ *     @type string $description           Widget description for display in the widget administration
+ *                                         panel and/or theme.
+ *     @type bool   $show_instance_in_rest Whether to show the widget's instance settings in the REST API.
+ *                                         Only available for WP_Widget based widgets.
+ * }
+ * @param mixed      ...$params       Optional additional parameters to pass to the callback function when it's called.
+ */
+function wp_register_sidebar_widget( $id, $name, $output_callback, $options = array(), ...$params ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Retrieve description for widget.
+ *
+ * When registering widgets, the options can also include 'description' that
+ * describes the widget for display on the widget administration panel or
+ * in the theme.
+ *
+ * @since      WP 2.5.0
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ *
+ * @param int|string $id Widget ID.
+ */
+function wp_widget_description( $id ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Retrieve description for a sidebar.
+ *
+ * When registering sidebars a 'description' parameter can be included that
+ * describes the sidebar for display on the widget administration panel.
+ *
+ * @since WP 2.9.0
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ *
+ * @param string $id sidebar ID.
+ */
+function wp_sidebar_description( $id ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Remove widget from sidebar.
+ *
+ * @since WP 2.2.0
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ *
+ * @param int|string $id Widget ID.
+ */
+function wp_unregister_sidebar_widget( $id ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Fires just before a widget is removed from a sidebar.
+	 *
+	 * @since WP 3.0.0
+	 * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+	 *
+	 * @param int|string $id The widget ID.
+	 */
+	do_action_deprecated(
+		'wp_unregister_sidebar_widget',
+		array( $id ),
+		'1.0.0',
+		'',
+		__( 'The Widgets feature is not available in motsVertueux.' )
+	);
+}
+
+/**
+ * Registers widget control callback for customizing options.
+ *
+ * @since WP 2.2.0
+ * @since WP 5.3.0 Formalized the existing and already documented `...$params` parameter
+ *              by adding it to the function signature.
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ *
+ * @param int|string $id               Sidebar ID.
+ * @param string     $name             Sidebar display name.
+ * @param callable   $control_callback Run when sidebar is displayed.
+ * @param array      $options {
+ *     Optional. Array or string of control options. Default empty array.
+ *
+ *     @type int        $height  Never used. Default 200.
+ *     @type int        $width   Width of the fully expanded control form (but try hard to use the default width).
+ *                               Default 250.
+ *     @type int|string $id_base Required for multi-widgets, i.e widgets that allow multiple instances such as the
+ *                               text widget. The widget ID will end up looking like `{$id_base}-{$unique_number}`.
+ * }
+ * @param mixed      ...$params        Optional additional parameters to pass to the callback function when it's called.
+ */
+function wp_register_widget_control( $id, $name, $control_callback, $options = array(), ...$params ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Registers the update callback for a widget.
+ *
+ * @since WP 2.8.0
+ * @since WP 5.3.0 Formalized the existing and already documented `...$params` parameter
+ *              by adding it to the function signature.
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ *
+ * @param string   $id_base         The base ID of a widget created by extending WP_Widget.
+ * @param callable $update_callback Update callback method for the widget.
+ * @param array    $options         Optional. Widget control options. See wp_register_widget_control().
+ *                                  Default empty array.
+ * @param mixed    ...$params       Optional additional parameters to pass to the callback function when it's called.
+ */
+function _register_widget_update_callback( $id_base, $update_callback, $options = array(), ...$params ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Registers the form callback for a widget.
+ *
+ * @since WP 2.8.0
+ * @since WP 5.3.0 Formalized the existing and already documented `...$params` parameter
+ *              by adding it to the function signature.
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ *
+ * @param int|string $id            Widget ID.
+ * @param string     $name          Name attribute for the widget.
+ * @param callable   $form_callback Form callback.
+ * @param array      $options       Optional. Widget control options. See wp_register_widget_control().
+ *                                  Default empty array.
+ * @param mixed      ...$params     Optional additional parameters to pass to the callback function when it's called.
+ */
+
+function _register_widget_form_callback( $id, $name, $form_callback, $options = array(), ...$params ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Remove control callback for widget.
+ *
+ * @since WP 2.2.0
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ *
+ * @param int|string $id Widget ID.
+ */
+function wp_unregister_widget_control( $id ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Display dynamic sidebar.
+ *
+ * By default this displays the default sidebar or 'sidebar-1'. If your theme specifies the 'id' or
+ * 'name' parameter for its registered sidebars you can pass an ID or name as the $index parameter.
+ * Otherwise, you can pass in a numerical index to display the sidebar at that index.
+ *
+ * @since WP 2.2.0
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ *
+ * @param int|string $index Optional. Index, name or ID of dynamic sidebar. Default 1.
+ */
+function dynamic_sidebar( $index = 1 ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Fires before widgets are rendered in a dynamic sidebar.
+	 *
+	 * Note: The action also fires for empty sidebars, and on both the front end
+	 * and back end, including the Inactive Widgets sidebar on the Widgets screen.
+	 *
+	 * @since WP 3.9.0
+	 * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+	 *
+	 * @param int|string $index       Index, name, or ID of the dynamic sidebar.
+	 * @param bool       $has_widgets Whether the sidebar is populated with widgets.
+	 *                                Default true.
+	 */
+	do_action_deprecated(
+		'dynamic_sidebar_before',
+		array( $index, true ),
+		'1.0.0',
+		'',
+		__( 'The Widgets feature is not available in motsVertueux.' )
+	);
+
+	/**
+	 * Filters the parameters passed to a widget's display callback.
+	 *
+	 * Note: The filter is evaluated on both the front end and back end,
+	 * including for the Inactive Widgets sidebar on the Widgets screen.
+	 *
+	 * @since WP 2.5.0
+	 * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+	 *
+	 * @see register_sidebar()
+	 *
+	 * @param array $params {
+	 *     @type array $args  {
+	 *         An array of widget display arguments.
+	 *
+	 *         @type string $name          Name of the sidebar the widget is assigned to.
+	 *         @type string $id            ID of the sidebar the widget is assigned to.
+	 *         @type string $description   The sidebar description.
+	 *         @type string $class         CSS class applied to the sidebar container.
+	 *         @type string $before_widget HTML markup to prepend to each widget in the sidebar.
+	 *         @type string $after_widget  HTML markup to append to each widget in the sidebar.
+	 *         @type string $before_title  HTML markup to prepend to the widget title when displayed.
+	 *         @type string $after_title   HTML markup to append to the widget title when displayed.
+	 *         @type string $widget_id     ID of the widget.
+	 *         @type string $widget_name   Name of the widget.
+	 *     }
+	 *     @type array $widget_args {
+	 *         An array of multi-widget arguments.
+	 *
+	 *         @type int $number Number increment used for multiples of the same widget.
+	 *     }
+	 * }
+	 */
+	apply_filters_deprecated(
+		'dynamic_sidebar_params',
+		array( array() ),
+		'1.0.0',
+		'',
+		__( 'Widgets are not supported in motsVertueux.' )
+	);
+
+	/**
+	 * Fires before a widget's display callback is called.
+	 *
+	 * Note: The action fires on both the front end and back end, including
+	 * for widgets in the Inactive Widgets sidebar on the Widgets screen.
+	 *
+	 * The action is not fired for empty sidebars.
+	 *
+	 * @since WP 3.0.0
+	 * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+	 *
+	 * @param array $widget {
+	 *     An associative array of widget arguments.
+	 *
+	 *     @type string   $name        Name of the widget.
+	 *     @type string   $id          Widget ID.
+	 *     @type callable $callback    When the hook is fired on the front end, `$callback` is an array
+	 *                                 containing the widget object. Fired on the back end, `$callback`
+	 *                                 is 'wp_widget_control', see `$_callback`.
+	 *     @type array    $params      An associative array of multi-widget arguments.
+	 *     @type string   $classname   CSS class applied to the widget container.
+	 *     @type string   $description The widget description.
+	 *     @type array    $_callback   When the hook is fired on the back end, `$_callback` is populated
+	 *                                 with an array containing the widget object, see `$callback`.
+	 * }
+	 */
+	do_action_deprecated(
+		'dynamic_sidebar',
+		array( array() ),
+		'1.0.0',
+		'',
+		__( 'The Widgets feature is not available in motsVertueux.' )
+	);
+
+	/**
+	 * Fires after widgets are rendered in a dynamic sidebar.
+	 *
+	 * Note: The action also fires for empty sidebars, and on both the front end
+	 * and back end, including the Inactive Widgets sidebar on the Widgets screen.
+	 *
+	 * @since WP 3.9.0
+	 * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+	 *
+	 * @param int|string $index       Index, name, or ID of the dynamic sidebar.
+	 * @param bool       $has_widgets Whether the sidebar is populated with widgets.
+	 *                                Default true.
+	 */
+	do_action_deprecated(
+		'dynamic_sidebar_after',
+		array( $index, false ),
+		'1.0.0',
+		'',
+		__( 'The Widgets feature is not available in motsVertueux.' )
+	);
+
+	/**
+	 * Filters whether a sidebar has widgets.
+	 *
+	 * Note: The filter is also evaluated for empty sidebars, and on both the front end
+	 * and back end, including the Inactive Widgets sidebar on the Widgets screen.
+	 *
+	 * @since WP 3.9.0
+	 * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+	 *
+	 * @param bool       $did_one Whether at least one widget was rendered in the sidebar.
+	 *                            Default false.
+	 * @param int|string $index   Index, name, or ID of the dynamic sidebar.
+	 */
+	apply_filters_deprecated(
+		'dynamic_sidebar_has_widgets',
+		array( $did_one, $index ),
+		'1.0.0',
+		'',
+		__( 'Widgets are not supported in motsVertueux.' )
+	);
+}
+
+/**
+ * Determines whether a given widget is displayed on the front end.
+ *
+ * Either $callback or $id_base can be used
+ * $id_base is the first argument when extending WP_Widget class
+ * Without the optional $widget_id parameter, returns the ID of the first sidebar
+ * in which the first instance of the widget with the given callback or $id_base is found.
+ * With the $widget_id parameter, returns the ID of the sidebar where
+ * the widget with that callback/$id_base AND that ID is found.
+ *
+ * NOTE: $widget_id and $id_base are the same for single widgets. To be effective
+ * this function has to run after widgets have initialized, at action {@see 'init'} or later.
+ *
+ * @since WP 2.2.0
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ *
+ * @param callable|false $callback      Optional. Widget callback to check. Default false.
+ * @param string|false   $widget_id     Optional. Widget ID. Optional, but needed for checking.
+ *                                      Default false.
+ * @param string|false   $id_base       Optional. The base ID of a widget created by extending WP_Widget.
+ *                                      Default false.
+ * @param bool           $skip_inactive Optional. Whether to check in 'wp_inactive_widgets'.
+ *                                      Default true.
+ * @return string|false ID of the sidebar in which the widget is active,
+ *                      false if the widget is not active.
+ */
+function is_active_widget( $callback = false, $widget_id = false, $id_base = false, $skip_inactive = true ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Determines whether the dynamic sidebar is enabled and used by the theme.
+ *
+ * @since WP 2.2.0
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ *
+ * @return bool True if using widgets, false otherwise.
+ */
+function is_dynamic_sidebar() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Determines whether a sidebar contains widgets.
+ *
+ * @since WP 2.8.0
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ *
+ * @param string|int $index Sidebar name, id or number to check.
+ * @return bool True if the sidebar has widgets, false otherwise.
+ */
+function is_active_sidebar( $index ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters whether a dynamic sidebar is considered "active".
+	 *
+	 * @since WP 3.9.0
+	 * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+	 *
+	 * @param bool       $is_active_sidebar Whether or not the sidebar should be considered "active".
+	 *                                      In other words, whether the sidebar contains any widgets.
+	 * @param int|string $index             Index, name, or ID of the dynamic sidebar.
+	 */
+	apply_filters_deprecated(
+		'is_active_sidebar',
+		array( $is_active_sidebar, $index ),
+		'1.0.0',
+		'',
+		__( 'Widgets are not supported in motsVertueux.' )
+	);
+}
+
+/**
+ * Retrieve full list of sidebars and their widget instance IDs.
+ *
+ * Will upgrade sidebar widget list, if needed. Will also save updated list, if
+ * needed.
+ *
+ * @since WP 2.2.0
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @access private
+ *
+ * @param bool $deprecated Not used (argument deprecated).
+ */
+function wp_get_sidebars_widgets( $deprecated = true ) {
+	if ( true !== $deprecated ) {
+		_deprecated_argument( __FUNCTION__, '2.8.1' );
+	}
+
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the list of sidebars and their widgets.
+	 *
+	 * @since WP 2.7.0
+	 * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+	 *
+	 * @param array $sidebars_widgets An associative array of sidebars and their widgets.
+	 */
+	apply_filters_deprecated(
+		'sidebars_widgets',
+		array( $sidebars_widgets ),
+		'1.0.0',
+		'',
+		__( 'Widgets are not supported in motsVertueux.' )
+	);
+}
+
+/**
+ * Retrieves the registered sidebar with the given ID.
+ *
+ * @since WP 5.9.0
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ *
+ * @param string $id The sidebar ID.
+ */
+function wp_get_sidebar( $id ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Set the sidebar widget option to update sidebars.
+ *
+ * @since WP 2.2.0
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @access private
+ *
+ * @global array $_wp_sidebars_widgets
+ * @param array $sidebars_widgets Sidebar widgets and their settings.
+ */
+function wp_set_sidebars_widgets( $sidebars_widgets ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Retrieve default registered sidebars list.
+ *
+ * @since WP 2.2.0
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @access private
+ *
+ * @return array
+ */
+function wp_get_widget_defaults() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Converts the widget settings from single to multi-widget format.
+ *
+ * @since WP 2.8.0
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ *
+ * @global array $_wp_sidebars_widgets
+ *
+ * @param string $base_name   Root ID for all widgets of this type.
+ * @param string $option_name Option name for this widget type.
+ * @param array  $settings    The array of widget instance settings.
+ * @return array The array of widget settings converted to multi-widget format.
+ */
+function wp_convert_widget_settings( $base_name, $option_name, $settings ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Output an arbitrary widget as a template tag.
+ *
+ * @since WP 2.8.0
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ *
+ * @param string $widget   The widget's PHP class name (see class-wp-widget.php).
+ * @param array  $instance Optional. The widget's instance settings. Default empty array.
+ * @param array  $args {
+ *     Optional. Array of arguments to configure the display of the widget.
+ *
+ *     @type string $before_widget HTML content that will be prepended to the widget's HTML output.
+ *                                 Default `<div class="widget %s">`, where `%s` is the widget's class name.
+ *     @type string $after_widget  HTML content that will be appended to the widget's HTML output.
+ *                                 Default `</div>`.
+ *     @type string $before_title  HTML content that will be prepended to the widget's title when displayed.
+ *                                 Default `<h2 class="widgettitle">`.
+ *     @type string $after_title   HTML content that will be appended to the widget's title when displayed.
+ *                                 Default `</h2>`.
+ * }
+ */
+function the_widget( $widget, $instance = array(), $args = array() ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Fires before rendering the requested widget.
+	 *
+	 * @since WP 3.0.0
+	 * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+	 *
+	 * @param string $widget   The widget's class name.
+	 * @param array  $instance The current widget instance's settings.
+	 * @param array  $args     An array of the widget's sidebar arguments.
+	 */
+	do_action_deprecated(
+		'the_widget',
+		array( $widget, $instance, $args ),
+		'1.0.0',
+		'',
+		__( 'The Widgets feature is not available in motsVertueux.' )
+	);
+}
+
+/**
+ * Retrieves the widget ID base value.
+ *
+ * @since WP 2.8.0
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ *
+ * @param string $id Widget ID.
+ */
+function _get_widget_id_base( $id ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Compares a list of sidebars with their widgets against an allowed list.
+ *
+ * @since WP 4.9.0
+ * @since WP 4.9.2 Always tries to restore widget assignments from previous data, not just if sidebars needed mapping.
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ *
+ * @param array $existing_sidebars_widgets List of sidebars and their widget instance IDs.
+ * @return array Mapped sidebars widgets.
+ */
+function wp_map_sidebars_widgets( $existing_sidebars_widgets ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Compares a list of sidebars with their widgets against an allowed list.
+ *
+ * @since WP 4.9.0
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ *
+ * @param array $sidebars_widgets   List of sidebars and their widget instance IDs.
+ * @param array $allowed_widget_ids Optional. List of widget IDs to compare against. Default: Registered widgets.
+ */
+function _wp_remove_unregistered_widgets( $sidebars_widgets, $allowed_widget_ids = array() ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Display the RSS entries in a list.
+ *
+ * @since WP 2.5.0
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ *
+ * @param string|array|object $rss  RSS url.
+ * @param array               $args Widget arguments.
+ */
+function wp_widget_rss_output( $rss, $args = array() ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Display RSS widget options form.
+ *
+ * The options for what fields are displayed for the RSS form are all booleans
+ * and are as follows: 'url', 'title', 'items', 'show_summary', 'show_author',
+ * 'show_date'.
+ *
+ * @since WP 2.5.0
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ *
+ * @param array|string $args   Values for input fields.
+ * @param array        $inputs Override default display options.
+ */
+function wp_widget_rss_form( $args, $inputs = null ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Process RSS feed widget data and optionally retrieve feed items.
+ *
+ * The feed widget can not have more than 20 items or it will reset back to the
+ * default, which is 10.
+ *
+ * The resulting array has the feed title, feed url, feed link (from channel),
+ * feed items, error (if any), and whether to show summary, author, and date.
+ * All respectively in the order of the array elements.
+ *
+ * @since WP 2.5.0
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ *
+ * @param array $widget_rss RSS widget feed data. Expects unescaped data.
+ * @param bool  $check_feed Optional. Whether to check feed for errors. Default true.
+ * @return array
+ */
+function wp_widget_rss_process( $widget_rss, $check_feed = true ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Registers all of the default WordPress widgets on startup.
+ *
+ * Calls {@see 'widgets_init'} action after all of the WordPress widgets have been registered.
+ *
+ * @since WP 2.2.0
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ */
+function wp_widgets_init() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Fires after all default WordPress widgets have been registered.
+	 *
+	 * @since WP 2.2.0
+	 * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+	 */
+	do_action_deprecated(
+		'widgets_init',
+		array(),
+		'1.0.0',
+		'',
+		__( 'The Widgets feature is not available in motsVertueux.' )
+	);
+}
+
+/**
+ * Whether or not to use the block editor to manage widgets. Defaults to true
+ * unless a theme has removed support for widgets-block-editor or a plugin has
+ * filtered the return value of this function.
+ *
+ * @since WP 5.8.0
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ *
+ * @return bool Whether to use the block editor to manage widgets.
+ */
+function wp_use_widgets_block_editor() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters whether to use the block editor to manage widgets.
+	 *
+	 * @since WP 5.8.0
+	 * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+	 *
+	 * @param bool $use_widgets_block_editor Whether to use the block editor to manage widgets.
+	 */
+	apply_filters_deprecated(
+		'use_widgets_block_editor',
+		array( get_theme_support( 'widgets-block-editor' ) ),
+		'1.0.0',
+		'',
+		__( 'Widgets are not supported in motsVertueux.' )
+	);
+}
+
+/**
+ * Converts a widget ID into its id_base and number components.
+ *
+ * @since WP 5.8.0
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ *
+ * @param string $id Widget ID.
+ */
+function wp_parse_widget_id( $id ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Finds the sidebar that a given widget belongs to.
+ *
+ * @since WP 5.8.0
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ *
+ * @param string $widget_id The widget ID to look for.
+ */
+function wp_find_widgets_sidebar( $widget_id ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Assigns a widget to the given sidebar.
+ *
+ * @since WP 5.8.0
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ *
+ * @param string $widget_id  The widget ID to assign.
+ * @param string $sidebar_id The sidebar ID to assign to. If empty, the widget won't be added to any sidebar.
+ */
+function wp_assign_widget_to_sidebar( $widget_id, $sidebar_id ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Calls the render callback of a widget and returns the output.
+ *
+ * @since WP 5.8.0
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ *
+ * @param string $widget_id Widget ID.
+ * @param string $sidebar_id Sidebar ID.
+ * @return string
+ */
+function wp_render_widget( $widget_id, $sidebar_id ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Calls the control callback of a widget and returns the output.
+ *
+ * @since WP 5.8.0
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ *
+ * @param string $id Widget ID.
+ * @return string|null
+ */
+function wp_render_widget_control( $id ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Registers the previous theme's sidebars for the block themes.
+ *
+ * @since WP 6.2.0
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @access private
+ */
+function _wp_block_theme_register_classic_sidebars() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Returns the block editor settings needed to use the Legacy Widget block which
+ * is not registered by default.
+ *
+ * @since WP 5.8.0
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ *
+ * @return array Settings to be used with get_block_editor_settings().
+ */
+function get_legacy_widget_block_editor_settings() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the list of widget-type IDs that should **not** be offered by the
+	 * Legacy Widget block.
+	 *
+	 * Returning an empty array will make all widgets available.
+	 *
+	 * @since WP 5.8.0
+	 * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+	 *
+	 * @param string[] $widgets An array of excluded widget-type IDs.
+	 */
+	apply_filters_deprecated(
+		'widget_types_to_hide_from_legacy_widget_block',
+		array(),
+		'1.0.0',
+		'',
+		__( 'Widgets are not supported in motsVertueux.' )
+	);
+
+	return array();
+}
+
+/**
+ * Handles saving the widgets order via AJAX.
+ *
+ * @since WP 3.1.0
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ */
+function wp_ajax_widgets_order() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Handles saving a widget via AJAX.
+ *
+ * @since WP 3.1.0
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ */
+function wp_ajax_save_widget() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Handles updating a widget via AJAX.
+ *
+ * @since WP 3.9.0
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ */
+function wp_ajax_update_widget() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Handles removing inactive widgets via AJAX.
+ *
+ * @since WP 4.4.0
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ */
+function wp_ajax_delete_inactive_widgets() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}

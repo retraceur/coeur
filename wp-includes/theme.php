@@ -3481,7 +3481,6 @@ function check_theme_switched() {
 		// Prevent widget & menu mapping from running since Customizer already called it up front.
 		if ( get_option( 'theme_switched_via_customizer' ) ) {
 			remove_action( 'after_switch_theme', '_wp_menus_changed' );
-			remove_action( 'after_switch_theme', '_wp_sidebars_changed' );
 			update_option( 'theme_switched_via_customizer', false );
 		}
 

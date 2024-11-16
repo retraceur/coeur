@@ -1,7 +1,7 @@
 <?php
 /**
  * Main WordPress API.
- * 
+ *
  * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
@@ -5385,60 +5385,6 @@ function wp_list_sort( $input_list, $orderby = array(), $order = 'ASC', $preserv
 	$util = new WP_List_Util( $input_list );
 
 	return $util->sort( $orderby, $order, $preserve_keys );
-}
-
-/**
- * Determines if Widgets library should be loaded.
- *
- * Checks to make sure that the widgets library hasn't already been loaded.
- * If it hasn't, then it will load the widgets library and run an action hook.
- *
- * @since WP 2.2.0
- */
-function wp_maybe_load_widgets() {
-	/**
-	 * Filters whether to load the Widgets library.
-	 *
-	 * Returning a falsey value from the filter will effectively short-circuit
-	 * the Widgets library from loading.
-	 *
-	 * @since WP 2.8.0
-	 *
-	 * @param bool $wp_maybe_load_widgets Whether to load the Widgets library.
-	 *                                    Default true.
-	 */
-	if ( ! apply_filters( 'load_default_widgets', true ) ) {
-		return;
-	}
-
-	require_once ABSPATH . WPINC . '/default-widgets.php';
-
-	add_action( '_admin_menu', 'wp_widgets_add_menu' );
-}
-
-/**
- * Appends the Widgets menu to the themes main menu.
- *
- * @since WP 2.2.0
- * @since WP 5.9.3 Don't specify menu order when the active theme is a block theme.
- *
- * @global array $submenu
- */
-function wp_widgets_add_menu() {
-	global $submenu;
-
-	if ( ! current_theme_supports( 'widgets' ) ) {
-		return;
-	}
-
-	$menu_name = __( 'Widgets' );
-	if ( wp_is_block_theme() ) {
-		$submenu['themes.php'][] = array( $menu_name, 'edit_theme_options', 'widgets.php' );
-	} else {
-		$submenu['themes.php'][8] = array( $menu_name, 'edit_theme_options', 'widgets.php' );
-	}
-
-	ksort( $submenu['themes.php'], SORT_NUMERIC );
 }
 
 /**
