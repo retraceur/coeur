@@ -493,7 +493,15 @@ foreach ( $themes as $theme ) :
 		<?php } ?>
 
 		<div class="theme-actions">
-		<?php if ( $theme['compatibleWP'] && $theme['compatiblePHP'] ) { ?>
+		<?php if ( $theme['active'] ) { ?>
+			<?php
+			if ( $theme['actions']['customize'] && current_user_can( 'edit_theme_options' ) ) {
+				/* translators: %s: Theme name. */
+				$customize_aria_label = sprintf( _x( 'Customize %s', 'theme' ), $theme['name'] );
+				?>
+				<a aria-label="<?php echo esc_attr( $customize_aria_label ); ?>" class="button button-primary customize load-customize hide-if-no-customize" href="<?php echo $theme['actions']['customize']; ?>"><?php _e( 'Customize' ); ?></a>
+			<?php } ?>
+		<?php } elseif ( $theme['compatibleWP'] && $theme['compatiblePHP'] ) { ?>
 			<?php
 			/* translators: %s: Theme name. */
 			$aria_label = sprintf( _x( 'Activate %s', 'theme' ), '{{ data.name }}' );
@@ -811,19 +819,29 @@ function wp_theme_auto_update_setting_template() {
 		<# } #>
 
 		<div class="theme-actions">
-		<# if ( data.compatibleWP && data.compatiblePHP ) { #>
-			<?php
-			/* translators: %s: Theme name. */
-			$aria_label = sprintf( _x( 'Activate %s', 'theme' ), '{{ data.name }}' );
-			?>
-			<a class="button activate" href="{{{ data.actions.activate }}}" aria-label="<?php echo esc_attr( $aria_label ); ?>"><?php _e( 'Activate' ); ?></a>
-		<# } else { #>
-			<?php
-			/* translators: %s: Theme name. */
-			$aria_label = sprintf( _x( 'Cannot Activate %s', 'theme' ), '{{ data.name }}' );
-			?>
-			<a class="button disabled" aria-label="<?php echo esc_attr( $aria_label ); ?>"><?php _ex( 'Cannot Activate', 'theme' ); ?></a>
-		<# } #>
+			<# if ( data.active ) { #>
+				<# if ( data.actions.customize ) { #>
+					<?php
+					/* translators: %s: Theme name. */
+					$customize_aria_label = sprintf( _x( 'Customize %s', 'theme' ), '{{ data.name }}' );
+					?>
+					<a aria-label="<?php echo esc_attr( $customize_aria_label ); ?>" class="button button-primary customize load-customize hide-if-no-customize" href="{{{ data.actions.customize }}}"><?php _e( 'Customize' ); ?></a>
+				<# } #>
+			<# } else { #>
+				<# if ( data.compatibleWP && data.compatiblePHP ) { #>
+					<?php
+					/* translators: %s: Theme name. */
+					$aria_label = sprintf( _x( 'Activate %s', 'theme' ), '{{ data.name }}' );
+					?>
+					<a class="button activate" href="{{{ data.actions.activate }}}" aria-label="<?php echo esc_attr( $aria_label ); ?>"><?php _e( 'Activate' ); ?></a>
+				<# } else { #>
+					<?php
+					/* translators: %s: Theme name. */
+					$aria_label = sprintf( _x( 'Cannot Activate %s', 'theme' ), '{{ data.name }}' );
+					?>
+					<a class="button disabled" aria-label="<?php echo esc_attr( $aria_label ); ?>"><?php _ex( 'Cannot Activate', 'theme' ); ?></a>
+				<# } #>
+			<# } #>
 		</div>
 	</div>
 </script>
@@ -998,7 +1016,9 @@ function wp_theme_auto_update_setting_template() {
 
 		<div class="theme-actions">
 			<div class="active-theme">
-				<?php echo implode( ' ', $current_theme_actions ); ?>
+				<# if ( data.actions && data.actions.customize ) { #>
+					<a href="{{{ data.actions.customize }}}" class="button button-primary customize load-customize hide-if-no-customize"><?php _e( 'Customize' ); ?></a>
+				<# } #>
 			</div>
 			<div class="inactive-theme">
 				<# if ( data.compatibleWP && data.compatiblePHP ) { #>
