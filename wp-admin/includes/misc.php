@@ -1588,7 +1588,7 @@ function _wp_privacy_settings_filter_draft_page_titles( $title, $page ) {
  * @since WP 5.1.0
  * @since WP 5.1.1 Added the {@see 'wp_is_php_version_acceptable'} filter.
  * @since 1.0.0    motsVertueux: stop using the distant WP API.
- * 
+ *
  * @global string $required_php_version    The required PHP version string.
  * @global string $recommended_php_version The recommended PHP version string.
  *
@@ -1606,8 +1606,8 @@ function _wp_privacy_settings_filter_draft_page_titles( $title, $page ) {
 function wp_check_php_version() {
 	global $required_php_version, $recommended_php_version;
 	$version = PHP_VERSION;
-	
-	$responce = array(
+
+	$response = array(
 		'recommended_version' => $recommended_php_version,
 		'minimum_version'     => $required_php_version,
 		'is_supported'        => false,
@@ -1616,9 +1616,9 @@ function wp_check_php_version() {
 	);
 
 	if ( version_compare( $version, '7.4', '>=' ) ) {
-		$responce['is_supported']  = true;
-		$responce['is_secure']     = true;
-		
+		$response['is_supported']  = true;
+		$response['is_secure']     = true;
+
 		/**
 		 * Filters whether the active PHP version is considered acceptable by WordPress.
 		 *
