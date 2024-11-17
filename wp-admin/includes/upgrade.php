@@ -158,7 +158,7 @@ if ( ! function_exists( 'wp_install_defaults' ) ) :
 	 * Creates the initial content for a newly-installed site.
 	 *
 	 * Adds the default "Uncategorized" category, the first post (with comment),
-	 * first page, and default widgets for default theme for the current version.
+	 * first page for default theme for the current version.
 	 *
 	 * @since WP 2.1.0
 	 *
@@ -404,35 +404,6 @@ To get started with moderating, editing, and deleting comments, please visit the
 			);
 			update_option( 'wp_page_for_privacy_policy', 3 );
 		}
-
-		// Set up default widgets for default theme.
-		update_option(
-			'widget_block',
-			array(
-				2              => array( 'content' => '<!-- wp:search /-->' ),
-				3              => array( 'content' => '<!-- wp:group --><div class="wp-block-group"><!-- wp:heading --><h2>' . __( 'Recent Posts' ) . '</h2><!-- /wp:heading --><!-- wp:latest-posts /--></div><!-- /wp:group -->' ),
-				4              => array( 'content' => '<!-- wp:group --><div class="wp-block-group"><!-- wp:heading --><h2>' . __( 'Recent Comments' ) . '</h2><!-- /wp:heading --><!-- wp:latest-comments {"displayAvatar":false,"displayDate":false,"displayExcerpt":false} /--></div><!-- /wp:group -->' ),
-				5              => array( 'content' => '<!-- wp:group --><div class="wp-block-group"><!-- wp:heading --><h2>' . __( 'Archives' ) . '</h2><!-- /wp:heading --><!-- wp:archives /--></div><!-- /wp:group -->' ),
-				6              => array( 'content' => '<!-- wp:group --><div class="wp-block-group"><!-- wp:heading --><h2>' . __( 'Categories' ) . '</h2><!-- /wp:heading --><!-- wp:categories /--></div><!-- /wp:group -->' ),
-				'_multiwidget' => 1,
-			)
-		);
-		update_option(
-			'sidebars_widgets',
-			array(
-				'wp_inactive_widgets' => array(),
-				'sidebar-1'           => array(
-					0 => 'block-2',
-					1 => 'block-3',
-					2 => 'block-4',
-				),
-				'sidebar-2'           => array(
-					0 => 'block-5',
-					1 => 'block-6',
-				),
-				'array_version'       => 3,
-			)
-		);
 
 		if ( ! is_multisite() ) {
 			update_user_meta( $user_id, 'show_welcome_panel', 1 );
@@ -860,8 +831,6 @@ function upgrade_all() {
 		upgrade_670();
 	}
 	maybe_disable_link_manager();
-
-	maybe_disable_automattic_widgets();
 
 	update_option( 'db_version', $wp_db_version );
 	update_option( 'db_upgraded', true );
@@ -3590,23 +3559,6 @@ function wp_check_mysql_version() {
 	$result = $wpdb->check_database_version();
 	if ( is_wp_error( $result ) ) {
 		wp_die( $result );
-	}
-}
-
-/**
- * Disables the Automattic widgets plugin, which was merged into core.
- *
- * @since WP 2.2.0
- */
-function maybe_disable_automattic_widgets() {
-	$plugins = __get_option( 'active_plugins' );
-
-	foreach ( (array) $plugins as $plugin ) {
-		if ( 'widgets.php' === basename( $plugin ) ) {
-			array_splice( $plugins, array_search( $plugin, $plugins, true ), 1 );
-			update_option( 'active_plugins', $plugins );
-			break;
-		}
 	}
 }
 

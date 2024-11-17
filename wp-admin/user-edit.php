@@ -305,7 +305,6 @@ switch ( $action ) {
 
 					<?php
 					$show_syntax_highlighting_preference = (
-					// For Custom HTML widget and Additional CSS in Customizer.
 					user_can( $profile_user, 'edit_theme_options' )
 					||
 					// Edit plugins.

@@ -16,8 +16,8 @@ require_once __DIR__ . '/admin.php';
 // Load all the nav menu interface functions.
 require_once ABSPATH . 'wp-admin/includes/nav-menu.php';
 
-if ( ! current_theme_supports( 'menus' ) && ! current_theme_supports( 'widgets' ) ) {
-	wp_die( __( 'Your theme does not support navigation menus or widgets.' ) );
+if ( ! current_theme_supports( 'menus' ) ) {
+	wp_die( __( 'Your theme does not support navigation menus.' ) );
 }
 
 // Permissions check.
@@ -51,6 +51,10 @@ $nav_menu_selected_id = isset( $_REQUEST['menu'] ) ? (int) $_REQUEST['menu'] : 0
 $locations      = get_registered_nav_menus();
 $menu_locations = get_nav_menu_locations();
 $num_locations  = count( array_keys( $locations ) );
+
+if ( ! $num_locations ) {
+	wp_die( __( 'Your theme does not provide any location for navigation menus.' ) );
+}
 
 // Allowed actions: add, update, delete.
 $action = isset( $_REQUEST['action'] ) ? $_REQUEST['action'] : 'edit';
@@ -688,71 +692,7 @@ add_filter( 'admin_body_class', 'wp_nav_menu_max_depth' );
 wp_nav_menu_setup();
 wp_initial_nav_menu_meta_boxes();
 
-if ( ! current_theme_supports( 'menus' ) && ! $num_locations ) {
-	$message_no_theme_support = sprintf(
-		/* translators: %s: URL to Widgets screen. */
-		__( 'Your theme does not natively support menus, but you can use them in sidebars by adding a &#8220;Navigation Menu&#8221; widget on the <a href="%s">Widgets</a> screen.' ),
-		admin_url( 'widgets.php' )
-	);
-	$messages[] = wp_get_admin_notice(
-		$message_no_theme_support,
-		array(
-			'id'                 => 'message',
-			'additional_classes' => array( 'updated' ),
-			'dismissible'        => true,
-		)
-	);
-}
-
-if ( ! $locations_screen ) : // Main tab.
-	$overview  = '<p>' . __( 'This screen is used for managing your navigation menus.' ) . '</p>';
-	$overview .= '<p>' . sprintf(
-		/* translators: 1: URL to Widgets screen, 2 and 3: The names of the default themes. */
-		__( 'Menus can be displayed in locations defined by your theme, even used in sidebars by adding a &#8220;Navigation Menu&#8221; widget on the <a href="%1$s">Widgets</a> screen. If your theme does not support the navigation menus feature (the default themes, %2$s and %3$s, do), you can learn about adding this support by following the documentation link to the side.' ),
-		admin_url( 'widgets.php' ),
-		'Twenty Twenty',
-		'Twenty Twenty-One'
-	) . '</p>';
-	$overview .= '<p>' . __( 'From this screen you can:' ) . '</p>';
-	$overview .= '<ul><li>' . __( 'Create, edit, and delete menus' ) . '</li>';
-	$overview .= '<li>' . __( 'Add, organize, and modify individual menu items' ) . '</li></ul>';
-
-	get_current_screen()->add_help_tab(
-		array(
-			'id'      => 'overview',
-			'title'   => __( 'Overview' ),
-			'content' => $overview,
-		)
-	);
-
-	$menu_management  = '<p>' . __( 'The menu management box at the top of the screen is used to control which menu is opened in the editor below.' ) . '</p>';
-	$menu_management .= '<ul><li>' . __( 'To edit an existing menu, <strong>choose a menu from the dropdown and click Select</strong>' ) . '</li>';
-	$menu_management .= '<li>' . __( 'If you have not yet created any menus, <strong>click the &#8217;create a new menu&#8217; link</strong> to get started' ) . '</li></ul>';
-	$menu_management .= '<p>' . __( 'You can assign theme locations to individual menus by <strong>selecting the desired settings</strong> at the bottom of the menu editor. To assign menus to all theme locations at once, <strong>visit the Manage Locations tab</strong> at the top of the screen.' ) . '</p>';
-
-	get_current_screen()->add_help_tab(
-		array(
-			'id'      => 'menu-management',
-			'title'   => __( 'Menu Management' ),
-			'content' => $menu_management,
-		)
-	);
-
-	$editing_menus  = '<p>' . __( 'Each navigation menu may contain a mix of links to pages, categories, custom URLs or other content types. Menu links are added by selecting items from the expanding boxes in the left-hand column below.' ) . '</p>';
-	$editing_menus .= '<p>' . __( '<strong>Clicking the arrow to the right of any menu item</strong> in the editor will reveal a standard group of settings. Additional settings such as link target, CSS classes, link relationships, and link descriptions can be enabled and disabled via the Screen Options tab.' ) . '</p>';
-	$editing_menus .= '<ul><li>' . __( 'Add one or several items at once by <strong>selecting the checkbox next to each item and clicking Add to Menu</strong>' ) . '</li>';
-	$editing_menus .= '<li>' . __( 'To add a custom link, <strong>expand the Custom Links section, enter a URL and link text, and click Add to Menu</strong>' ) . '</li>';
-	$editing_menus .= '<li>' . __( 'To reorganize menu items, <strong>drag and drop items with your mouse or use your keyboard</strong>. Drag or move a menu item a little to the right to make it a submenu' ) . '</li>';
-	$editing_menus .= '<li>' . __( 'Delete a menu item by <strong>expanding it and clicking the Remove link</strong>' ) . '</li></ul>';
-
-	get_current_screen()->add_help_tab(
-		array(
-			'id'      => 'editing-menus',
-			'title'   => __( 'Editing Menus' ),
-			'content' => $editing_menus,
-		)
-	);
-else : // Locations tab.
+if ( $locations_screen ) {
 	$locations_overview  = '<p>' . __( 'This screen is used for globally assigning menus to locations defined by your theme.' ) . '</p>';
 	$locations_overview .= '<ul><li>' . __( 'To assign menus to one or more theme locations, <strong>select a menu from each location&#8217;s dropdown</strong>. When you are finished, <strong>click Save Changes</strong>' ) . '</li>';
 	$locations_overview .= '<li>' . __( 'To edit a menu currently assigned to a theme location, <strong>click the adjacent &#8217;Edit&#8217; link</strong>' ) . '</li>';
@@ -765,7 +705,7 @@ else : // Locations tab.
 			'content' => $locations_overview,
 		)
 	);
-endif;
+}
 
 // Get the admin header.
 require_once ABSPATH . 'wp-admin/admin-header.php';

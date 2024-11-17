@@ -1772,10 +1772,6 @@ function next_widget_id_number( $id_base ) {
  * @since WP 2.5.0
  * @deprecated 1.0.0 motsVertueux fork.
  *
- * @global array $wp_registered_widgets
- * @global array $wp_registered_widget_controls
- * @global array $sidebars_widgets
- *
  * @param array $sidebar_args
  * @return array
  */
@@ -1788,5 +1784,15 @@ function wp_widget_control( $sidebar_args ) {
  * @param string $classes
  */
 function wp_widgets_access_body_class( $classes ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Disables the Automattic widgets plugin, which was merged into core.
+ *
+ * @since WP 2.2.0
+ * @deprecated 1.0.0 motsVertueux fork.
+ */
+function maybe_disable_automattic_widgets() {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 }

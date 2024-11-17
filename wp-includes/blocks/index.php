@@ -15,8 +15,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 define( 'BLOCKS_PATH', ABSPATH . WPINC . '/blocks/' );
 
 // Include files required for core blocks registration.
-require BLOCKS_PATH . 'legacy-widget.php';
-require BLOCKS_PATH . 'widget-group.php';
 require BLOCKS_PATH . 'require-dynamic-blocks.php';
 
 /**

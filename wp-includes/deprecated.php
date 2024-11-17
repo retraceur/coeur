@@ -7934,3 +7934,87 @@ function wp_ajax_update_widget() {
 function wp_ajax_delete_inactive_widgets() {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 }
+
+/**
+ * Renders the 'core/legacy-widget' block.
+ *
+ * @since WP 5.8.0
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ *
+ * @param array $attributes The block attributes.
+ */
+function render_block_core_legacy_widget( $attributes ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Registers the 'core/legacy-widget' block.
+ *
+ * @since WP 5.8.0
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ */
+function register_block_core_legacy_widget() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Intercepts any request with legacy-widget-preview in the query param and, if
+ * set, renders a page containing a preview of the requested Legacy Widget
+ * block.
+ *
+ * @since WP 5.8.0
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ */
+function handle_legacy_widget_preview_iframe() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+
+/**
+ * Renders the 'core/widget-group' block.
+ *
+ * @since WP 5.9.0
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ *
+ * @param array    $attributes The block attributes.
+ * @param string   $content The block content.
+ * @param WP_Block $block The block.
+ */
+function render_block_core_widget_group( $attributes, $content, $block ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Registers the 'core/widget-group' block.
+ *
+ * @since WP 5.9.0
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ */
+function register_block_core_widget_group() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Make a note of the sidebar being rendered before WordPress starts rendering
+ * it. This lets us get to the current sidebar in
+ * render_block_core_widget_group().
+ *
+ * @since WP 5.9.0
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ *
+ * @param int|string $index Index, name, or ID of the dynamic sidebar.
+ */
+function note_sidebar_being_rendered( $index ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Clear whatever we set in note_sidebar_being_rendered() after WordPress
+ * finishes rendering a sidebar.
+ *
+ * @since WP 5.9.0
+ * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ */
+function discard_sidebar_being_rendered() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
