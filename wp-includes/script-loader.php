@@ -1338,19 +1338,6 @@ function wp_default_scripts( $scripts ) {
 
 		$scripts->add( 'admin-gallery', "/wp-admin/js/gallery$suffix.js", array( 'jquery-ui-sortable' ) );
 
-		$scripts->add( 'admin-widgets', "/wp-admin/js/widgets$suffix.js", array( 'jquery-ui-sortable', 'jquery-ui-draggable', 'jquery-ui-droppable', 'wp-a11y' ), false, 1 );
-		$scripts->set_translations( 'admin-widgets' );
-
-		$scripts->add( 'media-widgets', "/wp-admin/js/widgets/media-widgets$suffix.js", array( 'jquery', 'media-models', 'media-views', 'wp-api-request' ) );
-		$scripts->add_inline_script( 'media-widgets', 'wp.mediaWidgets.init();', 'after' );
-
-		$scripts->add( 'media-audio-widget', "/wp-admin/js/widgets/media-audio-widget$suffix.js", array( 'media-widgets', 'media-audiovideo' ) );
-		$scripts->add( 'media-image-widget', "/wp-admin/js/widgets/media-image-widget$suffix.js", array( 'media-widgets' ) );
-		$scripts->add( 'media-gallery-widget', "/wp-admin/js/widgets/media-gallery-widget$suffix.js", array( 'media-widgets' ) );
-		$scripts->add( 'media-video-widget', "/wp-admin/js/widgets/media-video-widget$suffix.js", array( 'media-widgets', 'media-audiovideo', 'wp-api-request' ) );
-		$scripts->add( 'text-widgets', "/wp-admin/js/widgets/text-widgets$suffix.js", array( 'jquery', 'backbone', 'editor', 'wp-util', 'wp-a11y' ) );
-		$scripts->add( 'custom-html-widgets', "/wp-admin/js/widgets/custom-html-widgets$suffix.js", array( 'jquery', 'backbone', 'wp-util', 'jquery-ui-core', 'wp-a11y' ) );
-
 		$scripts->add( 'theme', "/wp-admin/js/theme$suffix.js", array( 'wp-backbone', 'wp-a11y', 'customize-base' ), false, 1 );
 		$scripts->add( 'customize-base', "/wp-includes/js/customize-base$suffix.js", array( 'jquery', 'json2', 'underscore' ), false, 1 );
 
@@ -1507,13 +1494,12 @@ function wp_default_styles( $styles ) {
 	$styles->add( 'themes', "/wp-admin/css/themes$suffix.css" );
 	$styles->add( 'about', "/wp-admin/css/about$suffix.css" );
 	$styles->add( 'nav-menus', "/wp-admin/css/nav-menus$suffix.css" );
-	$styles->add( 'widgets', "/wp-admin/css/widgets$suffix.css", array( 'wp-pointer' ) );
 	$styles->add( 'site-icon', "/wp-admin/css/site-icon$suffix.css" );
 	$styles->add( 'l10n', "/wp-admin/css/l10n$suffix.css" );
 	$styles->add( 'code-editor', "/wp-admin/css/code-editor$suffix.css", array( 'wp-codemirror' ) );
 	$styles->add( 'site-health', "/wp-admin/css/site-health$suffix.css" );
 
-	$styles->add( 'wp-admin', false, array( 'dashicons', 'common', 'forms', 'admin-menu', 'dashboard', 'list-tables', 'edit', 'revisions', 'media', 'themes', 'about', 'nav-menus', 'widgets', 'site-icon', 'l10n' ) );
+	$styles->add( 'wp-admin', false, array( 'dashicons', 'common', 'forms', 'admin-menu', 'dashboard', 'list-tables', 'edit', 'revisions', 'media', 'themes', 'about', 'nav-menus', 'site-icon', 'l10n' ) );
 
 	$styles->add( 'login', "/wp-admin/css/login$suffix.css", array( 'dashicons', 'buttons', 'forms', 'l10n' ) );
 	$styles->add( 'install', "/wp-admin/css/install$suffix.css", array( 'dashicons', 'buttons', 'forms', 'l10n' ) );
@@ -1701,7 +1687,6 @@ function wp_default_styles( $styles ) {
 		'themes',
 		'about',
 		'nav-menus',
-		'widgets',
 		'site-icon',
 		'l10n',
 		'install',
@@ -1726,7 +1711,6 @@ function wp_default_styles( $styles ) {
 		'wp-block-directory',
 		'wp-commands',
 		'wp-components',
-		'wp-customize-widgets',
 		'wp-edit-post',
 		'wp-edit-site',
 		'wp-edit-widgets',

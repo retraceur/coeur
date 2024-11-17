@@ -112,7 +112,7 @@ final class WP_Taxonomy {
 	public $show_in_nav_menus = true;
 
 	/**
-	 * Whether to list the taxonomy in the tag cloud widget controls.
+	 * Whether to list the taxonomy in the tag cloud.
 	 *
 	 * @since WP 4.7.0
 	 * @var bool

@@ -754,37 +754,15 @@ function locale_stylesheet() {
  *
  * @global array                $wp_theme_directories
  * @global WP_Customize_Manager $wp_customize
- * @global array                $sidebars_widgets
- * @global array                $wp_registered_sidebars
  *
  * @param string $stylesheet Stylesheet name.
  */
 function switch_theme( $stylesheet ) {
-	global $wp_theme_directories, $wp_customize, $sidebars_widgets, $wp_registered_sidebars;
+	global $wp_theme_directories, $wp_customize;
 
 	$requirements = validate_theme_requirements( $stylesheet );
 	if ( is_wp_error( $requirements ) ) {
 		wp_die( $requirements );
-	}
-
-	$_sidebars_widgets = null;
-	if ( 'wp_ajax_customize_save' === current_action() ) {
-		$old_sidebars_widgets_data_setting = $wp_customize->get_setting( 'old_sidebars_widgets_data' );
-		if ( $old_sidebars_widgets_data_setting ) {
-			$_sidebars_widgets = $wp_customize->post_value( $old_sidebars_widgets_data_setting );
-		}
-	} elseif ( is_array( $sidebars_widgets ) ) {
-		$_sidebars_widgets = $sidebars_widgets;
-	}
-
-	if ( is_array( $_sidebars_widgets ) ) {
-		set_theme_mod(
-			'sidebars_widgets',
-			array(
-				'time' => time(),
-				'data' => $_sidebars_widgets,
-			)
-		);
 	}
 
 	$nav_menu_locations = get_theme_mod( 'nav_menu_locations' );
@@ -826,20 +804,6 @@ function switch_theme( $stylesheet ) {
 			$default_theme_mods['nav_menu_locations'] = $nav_menu_locations;
 		}
 		add_option( "theme_mods_$stylesheet", $default_theme_mods );
-	} else {
-		/*
-		 * Since retrieve_widgets() is called when initializing a theme in the Customizer,
-		 * we need to remove the theme mods to avoid overwriting changes made via
-		 * the Customizer when accessing wp-admin/widgets.php.
-		 */
-		if ( 'wp_ajax_customize_save' === current_action() ) {
-			remove_theme_mod( 'sidebars_widgets' );
-		}
-	}
-
-	// Stores classic sidebars for later use by block themes.
-	if ( $new_theme->is_block_theme() ) {
-		set_theme_mod( 'wp_classic_sidebars', $wp_registered_sidebars );
 	}
 
 	update_option( 'theme_switched', $old_theme->get_stylesheet() );
@@ -2286,78 +2250,6 @@ function get_theme_starter_content() {
 	}
 
 	$core_content = array(
-		'widgets'   => array(
-			'text_business_info' => array(
-				'text',
-				array(
-					'title'  => _x( 'Find Us', 'Theme starter content' ),
-					'text'   => implode(
-						'',
-						array(
-							'<strong>' . _x( 'Address', 'Theme starter content' ) . "</strong>\n",
-							_x( '123 Main Street', 'Theme starter content' ) . "\n",
-							_x( 'New York, NY 10001', 'Theme starter content' ) . "\n\n",
-							'<strong>' . _x( 'Hours', 'Theme starter content' ) . "</strong>\n",
-							_x( 'Monday&ndash;Friday: 9:00AM&ndash;5:00PM', 'Theme starter content' ) . "\n",
-							_x( 'Saturday &amp; Sunday: 11:00AM&ndash;3:00PM', 'Theme starter content' ),
-						)
-					),
-					'filter' => true,
-					'visual' => true,
-				),
-			),
-			'text_about'         => array(
-				'text',
-				array(
-					'title'  => _x( 'About This Site', 'Theme starter content' ),
-					'text'   => _x( 'This may be a good place to introduce yourself and your site or include some credits.', 'Theme starter content' ),
-					'filter' => true,
-					'visual' => true,
-				),
-			),
-			'archives'           => array(
-				'archives',
-				array(
-					'title' => _x( 'Archives', 'Theme starter content' ),
-				),
-			),
-			'calendar'           => array(
-				'calendar',
-				array(
-					'title' => _x( 'Calendar', 'Theme starter content' ),
-				),
-			),
-			'categories'         => array(
-				'categories',
-				array(
-					'title' => _x( 'Categories', 'Theme starter content' ),
-				),
-			),
-			'meta'               => array(
-				'meta',
-				array(
-					'title' => _x( 'Meta', 'Theme starter content' ),
-				),
-			),
-			'recent-comments'    => array(
-				'recent-comments',
-				array(
-					'title' => _x( 'Recent Comments', 'Theme starter content' ),
-				),
-			),
-			'recent-posts'       => array(
-				'recent-posts',
-				array(
-					'title' => _x( 'Recent Posts', 'Theme starter content' ),
-				),
-			),
-			'search'             => array(
-				'search',
-				array(
-					'title' => _x( 'Search', 'Theme starter content' ),
-				),
-			),
-		),
 		'nav_menus' => array(
 			'link_home'       => array(
 				'type'  => 'custom',
@@ -2484,31 +2376,6 @@ function get_theme_starter_content() {
 			case 'options':
 			case 'theme_mods':
 				$content[ $type ] = $config[ $type ];
-				break;
-
-			// Widgets are grouped into sidebars.
-			case 'widgets':
-				foreach ( $config[ $type ] as $sidebar_id => $widgets ) {
-					foreach ( $widgets as $id => $widget ) {
-						if ( is_array( $widget ) ) {
-
-							// Item extends core content.
-							if ( ! empty( $core_content[ $type ][ $id ] ) ) {
-								$widget = array(
-									$core_content[ $type ][ $id ][0],
-									array_merge( $core_content[ $type ][ $id ][1], $widget ),
-								);
-							}
-
-							$content[ $type ][ $sidebar_id ][] = $widget;
-						} elseif ( is_string( $widget )
-							&& ! empty( $core_content[ $type ] )
-							&& ! empty( $core_content[ $type ][ $widget ] )
-						) {
-							$content[ $type ][ $sidebar_id ][] = $core_content[ $type ][ $widget ];
-						}
-					}
-				}
 				break;
 
 			// And nav menu items are grouped into nav menus.
@@ -3697,13 +3564,6 @@ function create_initial_theme_features() {
 		)
 	);
 	register_theme_feature(
-		'customize-selective-refresh-widgets',
-		array(
-			'description'  => __( 'Whether the theme enables Selective Refresh for Widgets being managed with the Customizer.' ),
-			'show_in_rest' => true,
-		)
-	);
-	register_theme_feature(
 		'dark-editor-style',
 		array(
 			'description'  => __( 'Whether theme opts in to the dark editor style UI.' ),
@@ -3989,8 +3849,7 @@ function _add_default_theme_supports() {
 		static function ( $active, WP_Customize_Panel $panel ) {
 			if (
 				'nav_menus' === $panel->id &&
-				! current_theme_supports( 'menus' ) &&
-				! current_theme_supports( 'widgets' )
+				! current_theme_supports( 'menus' )
 			) {
 				$active = false;
 			}

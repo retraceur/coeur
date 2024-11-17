@@ -992,7 +992,7 @@ function wp_admin_bar_appearance_menu( $wp_admin_bar ) {
 		return;
 	}
 
-	if ( current_theme_supports( 'menus' ) || current_theme_supports( 'widgets' ) ) {
+	if ( current_theme_supports( 'menus' ) ) {
 		$wp_admin_bar->add_node(
 			array(
 				'parent' => 'appearance',

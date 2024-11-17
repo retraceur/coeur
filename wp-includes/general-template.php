@@ -219,9 +219,6 @@ function get_template_part( $slug, $name = null, $args = array() ) {
  * There is a filter applied to the search form HTML in order to edit or replace
  * it. The filter is {@see 'get_search_form'}.
  *
- * This function is primarily used by themes which want to hardcode the search
- * form into the sidebar and also by the search widget in WordPress.
- *
  * There is also an action that is called whenever the function is run called,
  * {@see 'pre_get_search_form'}. This can be useful for outputting JavaScript that the
  * search relies on or various formatting that applies to the beginning of the

@@ -507,9 +507,6 @@ function populate_options( array $options = array() ) {
 		'default_comments_page'           => 'newest',
 		'comment_order'                   => 'asc',
 		'sticky_posts'                    => array(),
-		'widget_categories'               => array(),
-		'widget_text'                     => array(),
-		'widget_rss'                      => array(),
 		'uninstall_plugins'               => array(),
 
 		// 2.8.0

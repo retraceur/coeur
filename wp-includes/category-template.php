@@ -4,7 +4,7 @@
  *
  * @since WP 1.2.0
  * @since 1.0.0 motsVertueux fork.
- * 
+ *
  * @package motsVertueux
  * @subpackage Template
  */
@@ -951,8 +951,7 @@ function wp_generate_tag_cloud( $tags, $args = '' ) {
 	 * the 'smallest' and 'largest' arguments to the same value).
 	 * In order to always serve the same content to all users, the 'aria-label' gets printed out:
 	 * - when tags have a different size
-	 * - when the tag count is displayed (for example when users check the checkbox in the
-	 *   Tag Cloud widget), regardless of the tags font size
+	 * - when the tag count is displayed, regardless of the tags font size
 	 */
 	if ( $args['show_count'] || 0 !== $font_spread ) {
 		$aria_label = true;

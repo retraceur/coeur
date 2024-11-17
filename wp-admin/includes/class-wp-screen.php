@@ -1058,19 +1058,13 @@ final class WP_Screen {
 
 		$wrapper_start = '';
 		$wrapper_end   = '';
-		$form_start    = '';
-		$form_end      = '';
+		$form_start = "\n<form id='adv-settings' method='post'>\n";
+		$form_end   = "\n" . wp_nonce_field( 'screen-options-nonce', 'screenoptionnonce', false, false ) . "\n</form>\n";
 
 		// Output optional wrapper.
 		if ( $options['wrap'] ) {
 			$wrapper_start = '<div id="screen-options-wrap" class="hidden" tabindex="-1" aria-label="' . esc_attr__( 'Screen Options Tab' ) . '">';
 			$wrapper_end   = '</div>';
-		}
-
-		// Don't output the form and nonce for the widgets accessibility mode links.
-		if ( 'widgets' !== $this->base ) {
-			$form_start = "\n<form id='adv-settings' method='post'>\n";
-			$form_end   = "\n" . wp_nonce_field( 'screen-options-nonce', 'screenoptionnonce', false, false ) . "\n</form>\n";
 		}
 
 		echo $wrapper_start . $form_start;
