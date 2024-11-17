@@ -5620,13 +5620,15 @@ function _deprecated_constructor( $class_name, $version, $parent_class = '' ) {
  * See {@see _deprecated_constructor()} for deprecating PHP4-style constructors.
  *
  * @since WP 6.4.0
+ * @since 1.0.0 Adds the `$is_mv` parameter to inform whether the deprecation is specific to motsVertueux fork.
  *
  * @param string $class_name  The name of the class being instantiated.
  * @param string $version     The version of WordPress that deprecated the class.
  * @param string $replacement Optional. The class or function that should have been called.
  *                            Default empty string.
+ * @param bool   $is_mv       Optional. Whether this deprecation is specific to motsVertueux fork.
  */
-function _deprecated_class( $class_name, $version, $replacement = '' ) {
+function _deprecated_class( $class_name, $version, $replacement = '', $is_mv = false ) {
 
 	/**
 	 * Fires when a deprecated class is called.
@@ -5650,32 +5652,36 @@ function _deprecated_class( $class_name, $version, $replacement = '' ) {
 		if ( function_exists( '__' ) ) {
 			if ( $replacement ) {
 				$message = sprintf(
-					/* translators: 1: PHP class name, 2: Version number, 3: Alternative class or function name. */
-					__( 'Class %1$s is <strong>deprecated</strong> since version %2$s! Use %3$s instead.' ),
+					/* translators: 1: PHP class name, 2: Project name, 3: Version number, 4: Alternative class or function name. */
+					__( 'Class %1$s is <strong>deprecated</strong> since %2$s version %3$s! Use %4$s instead.' ),
 					$class_name,
+					! $is_mv ? 'WP' : 'motsVertueux',
 					$version,
 					$replacement
 				);
 			} else {
 				$message = sprintf(
-					/* translators: 1: PHP class name, 2: Version number. */
-					__( 'Class %1$s is <strong>deprecated</strong> since version %2$s with no alternative available.' ),
+					/* translators: 1: PHP class name, 2: Project name, 3: Version number. */
+					__( 'Class %1$s is <strong>deprecated</strong> since %2$s version %3$s with no alternative available.' ),
 					$class_name,
+					! $is_mv ? 'WP' : 'motsVertueux',
 					$version
 				);
 			}
 		} else {
 			if ( $replacement ) {
 				$message = sprintf(
-					'Class %1$s is <strong>deprecated</strong> since version %2$s! Use %3$s instead.',
+					'Class %1$s is <strong>deprecated</strong> since %2$s version %3$s! Use %4$s instead.',
 					$class_name,
+					! $is_mv ? 'WP' : 'motsVertueux',
 					$version,
 					$replacement
 				);
 			} else {
 				$message = sprintf(
-					'Class %1$s is <strong>deprecated</strong> since version %2$s with no alternative available.',
+					'Class %1$s is <strong>deprecated</strong> since %2$s version %3$s with no alternative available.',
 					$class_name,
+					! $is_mv ? 'WP' : 'motsVertueux',
 					$version
 				);
 			}
