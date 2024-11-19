@@ -5919,7 +5919,7 @@ module.exports = window["React"];
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/ 	
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -5933,14 +5933,14 @@ module.exports = window["React"];
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
-/******/ 	
+/******/
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
@@ -5953,7 +5953,7 @@ module.exports = window["React"];
 /******/ 			return getter;
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/create fake namespace object */
 /******/ 	(() => {
 /******/ 		var getProto = Object.getPrototypeOf ? (obj) => (Object.getPrototypeOf(obj)) : (obj) => (obj.__proto__);
@@ -5983,7 +5983,7 @@ module.exports = window["React"];
 /******/ 			return ns;
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -5995,12 +5995,12 @@ module.exports = window["React"];
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -6011,7 +6011,7 @@ module.exports = window["React"];
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be in strict mode.
@@ -7811,9 +7811,9 @@ const external_wp_url_namespaceObject = window["wp"]["url"];
 
 const wordpress = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_primitives_namespaceObject.SVG, {
   xmlns: "http://www.w3.org/2000/svg",
-  viewBox: "-2 -2 24 24",
+  viewBox: "0 0 64 64",
   children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_primitives_namespaceObject.Path, {
-    d: "M20 10c0-5.51-4.49-10-10-10C4.48 0 0 4.49 0 10c0 5.52 4.48 10 10 10 5.51 0 10-4.48 10-10zM7.78 15.37L4.37 6.22c.55-.02 1.17-.08 1.17-.08.5-.06.44-1.13-.06-1.11 0 0-1.45.11-2.37.11-.18 0-.37 0-.58-.01C4.12 2.69 6.87 1.11 10 1.11c2.33 0 4.45.87 6.05 2.34-.68-.11-1.65.39-1.65 1.58 0 .74.45 1.36.9 2.1.35.61.55 1.36.55 2.46 0 1.49-1.4 5-1.4 5l-3.03-8.37c.54-.02.82-.17.82-.17.5-.05.44-1.25-.06-1.22 0 0-1.44.12-2.38.12-.87 0-2.33-.12-2.33-.12-.5-.03-.56 1.2-.06 1.22l.92.08 1.26 3.41zM17.41 10c.24-.64.74-1.87.43-4.25.7 1.29 1.05 2.71 1.05 4.25 0 3.29-1.73 6.24-4.4 7.78.97-2.59 1.94-5.2 2.92-7.78zM6.1 18.09C3.12 16.65 1.11 13.53 1.11 10c0-1.3.23-2.48.72-3.59C3.25 10.3 4.67 14.2 6.1 18.09zm4.03-6.63l2.58 6.98c-.86.29-1.76.45-2.71.45-.79 0-1.57-.11-2.29-.33.81-2.38 1.62-4.74 2.42-7.1z"
+    d: "M 16 4.287 C 37.333 -8.03 64 7.366 64 32 C 64 43.433 57.901 53.997 48 59.713 C 26.667 72.03 0 56.634 0 32 C 0 20.568 6.099 10.003 16 4.287 Z M 16.96 58.05 C 37.013 69.628 62.08 55.156 62.08 32 C 62.08 21.253 56.347 11.323 47.04 5.95 C 26.987 -5.628 1.92 8.844 1.92 32 C 1.92 42.747 7.653 52.677 16.96 58.05 Z M 59.774 31.995 C 59.774 40.36 56.075 47.862 50.222 52.954 L 39.3 52.954 C 57.751 37.458 56.139 24.234 56.139 24.234 L 56.101 24.234 C 55.663 17.173 50.453 11.589 44.067 11.589 C 37.684 11.589 32.472 16.605 32.037 23.67 L 31.989 23.67 C 31.548 16.609 26.338 11.589 19.955 11.589 C 13.57 11.589 8.359 17.173 7.923 24.234 L 7.882 24.234 C 7.882 24.234 6.273 37.43 24.669 52.904 L 13.73 52.904 C 7.911 47.813 4.235 40.334 4.235 31.995 C 4.235 16.659 16.669 4.226 32.005 4.226 C 47.341 4.226 59.774 16.659 59.774 31.995 Z M 32.005 59.764 C 28.483 59.764 25.114 59.107 22.014 57.912 L 31.254 57.912 C 31.264 57.92 31.276 57.929 31.288 57.937 L 21.402 38.818 L 21.426 38.818 C 18.603 34.208 19 31.003 19 31.003 L 19.025 31.003 C 19.261 27.26 22.076 24.303 25.524 24.303 C 28.974 24.303 31.79 26.962 32.025 30.705 L 32.057 30.705 C 32.292 26.962 35.107 24.303 38.556 24.303 C 42.006 24.303 44.821 27.26 45.056 31.003 L 45.082 31.003 C 45.074 31.003 45.472 34.243 42.592 38.899 L 32.75 57.93 C 32.764 57.92 32.779 57.91 32.794 57.9 L 32.755 57.962 L 41.867 57.962 C 38.802 59.126 35.478 59.764 32.005 59.764 Z"
   })
 });
 /* harmony default export */ const library_wordpress = (wordpress);
