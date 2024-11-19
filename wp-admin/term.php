@@ -57,9 +57,6 @@ if ( empty( $post_type ) ) {
 if ( 'post' !== $post_type ) {
 	$parent_file  = ( 'attachment' === $post_type ) ? 'upload.php' : "edit.php?post_type=$post_type";
 	$submenu_file = "edit-tags.php?taxonomy=$taxonomy&amp;post_type=$post_type";
-} elseif ( 'link_category' === $taxonomy ) {
-	$parent_file  = 'link-manager.php';
-	$submenu_file = 'edit-tags.php?taxonomy=link_category';
 } else {
 	$parent_file  = 'edit.php';
 	$submenu_file = "edit-tags.php?taxonomy=$taxonomy";

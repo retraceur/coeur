@@ -1796,3 +1796,301 @@ function wp_widgets_access_body_class( $classes ) {
 function maybe_disable_automattic_widgets() {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 }
+
+/**
+ * Outputs a link category checklist element.
+ *
+ * @since WP 2.5.1
+ * @deprecated 1.0.0 motsVertueux fork.
+ *
+ * @param int $link_id Optional. The link ID. Default 0.
+ */
+function wp_link_category_checklist( $link_id = 0 ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Displays link create form fields.
+ *
+ * @since WP 2.7.0
+ * @deprecated 1.0.0 motsVertueux fork.
+ *
+ * @param object $link Current link object.
+ */
+function link_submit_meta_box( $link ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+
+
+/**
+ * Displays advanced link options form fields.
+ *
+ * @since WP 2.6.0
+ * @deprecated 1.0.0 motsVertueux fork.
+ *
+ * @param object $link Current link object.
+ */
+function link_advanced_meta_box( $link ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Displays link categories form fields.
+ *
+ * @since WP 2.6.0
+ * @deprecated 1.0.0 motsVertueux fork.
+ *
+ * @param object $link Current link object.
+ */
+function link_categories_meta_box( $link ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Displays form fields for changing link target.
+ *
+ * @since WP 2.6.0
+ * @deprecated 1.0.0 motsVertueux fork.
+ *
+ * @param object $link Current link object.
+ */
+function link_target_meta_box( $link ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Displays 'checked' checkboxes attribute for XFN microformat options.
+ *
+ * @since WP 1.0.1
+ * @deprecated 1.0.0 motsVertueux fork.
+ *
+ * @param string $xfn_relationship XFN relationship category. Possible values are:
+ *                                 'friendship', 'physical', 'professional',
+ *                                 'geographical', 'family', 'romantic', 'identity'.
+ * @param string $xfn_value        Optional. The XFN value to mark as checked
+ *                                 if it matches the current link's relationship.
+ *                                 Default empty string.
+ * @param mixed  $deprecated       Deprecated. Not used.
+ */
+function xfn_check( $xfn_relationship, $xfn_value = '', $deprecated = '' ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Displays XFN form fields.
+ *
+ * @since WP 2.6.0
+ * @deprecated 1.0.0 motsVertueux fork.
+ *
+ * @param object $link Current link object.
+ */
+function link_xfn_meta_box( $link ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Adds a link using values provided in $_POST.
+ *
+ * @since WP 2.0.0
+ * @deprecated 1.0.0 motsVertueux fork.
+ */
+function add_link() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Updates or inserts a link using values provided in $_POST.
+ *
+ * @since WP 2.0.0
+ * @deprecated 1.0.0 motsVertueux fork.
+ *
+ * @param int $link_id Optional. ID of the link to edit. Default 0.
+ * @return int|WP_Error Value 0 or WP_Error on failure. The link ID on success.
+ */
+function edit_link( $link_id = 0 ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Retrieves the default link for editing.
+ *
+ * @since WP 2.0.0
+ * @deprecated 1.0.0 motsVertueux fork.
+ */
+function get_default_link_to_edit() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Deletes a specified link from the database.
+ *
+ * @since WP 2.0.0
+ * @deprecated 1.0.0 motsVertueux fork.
+ *
+ * @param int $link_id ID of the link to delete.
+ */
+function wp_delete_link( $link_id ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Fires before a link is deleted.
+	 *
+	 * @since WP 2.0.0
+	 * @deprecated 1.0.0 motsVertueux fork.
+	 *
+	 * @param int $link_id ID of the link to delete.
+	 */
+	do_action_deprecated(
+		'delete_link',
+		array( 0 ),
+		'1.0.0',
+		'',
+		__( 'The Link/bookmark manager feature is not available in motsVertueux.' )
+	);
+
+	/**
+	 * Fires after a link has been deleted.
+	 *
+	 * @since WP 2.2.0
+	 * @deprecated 1.0.0 motsVertueux fork.
+	 *
+	 * @param int $link_id ID of the deleted link.
+	 */
+	do_action_deprecated(
+		'deleted_link',
+		array( 0 ),
+		'1.0.0',
+		'',
+		__( 'The Link/bookmark manager feature is not available in motsVertueux.' )
+	);
+}
+
+/**
+ * Retrieves the link category IDs associated with the link specified.
+ *
+ * @since WP 2.1.0
+ * @deprecated 1.0.0 motsVertueux fork.
+ *
+ * @param int $link_id Link ID to look up.
+ */
+function wp_get_link_cats( $link_id = 0 ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Retrieves link data based on its ID.
+ *
+ * @since WP 2.0.0
+ * @deprecated 1.0.0 motsVertueux fork.
+ *
+ * @param int|stdClass $link Link ID or object to retrieve.
+ */
+function get_link_to_edit( $link ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Inserts a link into the database, or updates an existing link.
+ *
+ * Runs all the necessary sanitizing, provides default values if arguments are missing,
+ * and finally saves the link.
+ *
+ * @since WP 2.0.0
+ * @deprecated 1.0.0 motsVertueux fork.
+ *
+ * @param array $linkdata {
+ *     Elements that make up the link to insert.
+ *
+ *     @type int    $link_id          Optional. The ID of the existing link if updating.
+ *     @type string $link_url         The URL the link points to.
+ *     @type string $link_name        The title of the link.
+ *     @type string $link_image       Optional. A URL of an image.
+ *     @type string $link_target      Optional. The target element for the anchor tag.
+ *     @type string $link_description Optional. A short description of the link.
+ *     @type string $link_visible     Optional. 'Y' means visible, anything else means not.
+ *     @type int    $link_owner       Optional. A user ID.
+ *     @type int    $link_rating      Optional. A rating for the link.
+ *     @type string $link_rel         Optional. A relationship of the link to you.
+ *     @type string $link_notes       Optional. An extended description of or notes on the link.
+ *     @type string $link_rss         Optional. A URL of an associated RSS feed.
+ *     @type int    $link_category    Optional. The term ID of the link category.
+ *                                    If empty, uses default link category.
+ * }
+ * @param bool  $wp_error Optional. Whether to return a WP_Error object on failure. Default false.
+ */
+function wp_insert_link( $linkdata, $wp_error = false ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Fires after a link was updated in the database.
+	 *
+	 * @since WP 2.0.0
+	 * @deprecated 1.0.0 motsVertueux fork.
+	 *
+	 * @param int $link_id ID of the link that was updated.
+	 */
+	do_action_deprecated(
+		'edit_link',
+		array( 0 ),
+		'1.0.0',
+		'',
+		__( 'The Link/bookmark manager feature is not available in motsVertueux.' )
+	);
+
+	/**
+	 * Fires after a link was added to the database.
+	 *
+	 * @since WP 2.0.0
+	 * @deprecated 1.0.0 motsVertueux fork.
+	 *
+	 * @param int $link_id ID of the link that was added.
+	 */
+	do_action_deprecated(
+		'add_link',
+		array( 0 ),
+		'1.0.0',
+		'',
+		__( 'The Link/bookmark manager feature is not available in motsVertueux.' )
+	);
+}
+
+/**
+ * Updates link with the specified link categories.
+ *
+ * @since WP 2.1.0
+ * @deprecated 1.0.0 motsVertueux fork.
+ *
+ * @param int   $link_id         ID of the link to update.
+ * @param int[] $link_categories Array of link category IDs to add the link to.
+ */
+function wp_set_link_cats( $link_id = 0, $link_categories = array() ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Updates a link in the database.
+ *
+ * @since WP 2.0.0
+ * @deprecated 1.0.0 motsVertueux fork.
+ *
+ * @param array $linkdata Link data to update. See wp_insert_link() for accepted arguments.
+ * @return int|WP_Error Value 0 or WP_Error on failure. The updated link ID on success.
+ */
+function wp_update_link( $linkdata ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Outputs the 'disabled' message for the motsVertueux Link Manager.
+ *
+ * @since WP 3.5.0
+ * @deprecated 1.0.0 motsVertueux fork.
+ *
+ * @access private
+ *
+ * @global string $pagenow The filename of the current screen.
+ */
+function wp_link_manager_disabled_message() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}

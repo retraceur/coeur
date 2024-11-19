@@ -123,23 +123,6 @@ CREATE TABLE $wpdb->comments (
 	KEY comment_parent (comment_parent),
 	KEY comment_author_email (comment_author_email(10))
 ) $charset_collate;
-CREATE TABLE $wpdb->links (
-	link_id bigint(20) unsigned NOT NULL auto_increment,
-	link_url varchar(255) NOT NULL default '',
-	link_name varchar(255) NOT NULL default '',
-	link_image varchar(255) NOT NULL default '',
-	link_target varchar(25) NOT NULL default '',
-	link_description varchar(255) NOT NULL default '',
-	link_visible varchar(20) NOT NULL default 'Y',
-	link_owner bigint(20) unsigned NOT NULL default '1',
-	link_rating int(11) NOT NULL default '0',
-	link_updated datetime NOT NULL default '0000-00-00 00:00:00',
-	link_rel varchar(255) NOT NULL default '',
-	link_notes mediumtext NOT NULL,
-	link_rss varchar(255) NOT NULL default '',
-	PRIMARY KEY  (link_id),
-	KEY link_visible (link_visible)
-) $charset_collate;
 CREATE TABLE $wpdb->options (
 	option_id bigint(20) unsigned NOT NULL auto_increment,
 	option_name varchar(191) NOT NULL default '',
@@ -514,9 +497,6 @@ function populate_options( array $options = array() ) {
 		// 3.1.0
 		'default_post_format'             => 0,
 
-		// 3.5.0
-		'link_manager_enabled'            => 0,
-
 		// 4.3.0
 		'finished_splitting_shared_terms' => 1,
 		'site_icon'                       => 0,
@@ -737,7 +717,6 @@ function populate_roles_160() {
 	$role->add_cap( 'manage_options' );
 	$role->add_cap( 'moderate_comments' );
 	$role->add_cap( 'manage_categories' );
-	$role->add_cap( 'manage_links' );
 	$role->add_cap( 'upload_files' );
 	$role->add_cap( 'import' );
 	$role->add_cap( 'unfiltered_html' );
@@ -763,7 +742,6 @@ function populate_roles_160() {
 	$role = get_role( 'editor' );
 	$role->add_cap( 'moderate_comments' );
 	$role->add_cap( 'manage_categories' );
-	$role->add_cap( 'manage_links' );
 	$role->add_cap( 'upload_files' );
 	$role->add_cap( 'unfiltered_html' );
 	$role->add_cap( 'edit_posts' );

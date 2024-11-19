@@ -830,7 +830,6 @@ function upgrade_all() {
 	if ( $wp_current_db_version < 58975 ) {
 		upgrade_670();
 	}
-	maybe_disable_link_manager();
 
 	update_option( 'db_version', $wp_db_version );
 	update_option( 'db_upgraded', true );
@@ -918,8 +917,6 @@ function upgrade_101() {
 	add_clean_index( $wpdb->categories, 'category_nicename' );
 	add_clean_index( $wpdb->comments, 'comment_approved' );
 	add_clean_index( $wpdb->comments, 'comment_post_ID' );
-	add_clean_index( $wpdb->links, 'link_category' );
-	add_clean_index( $wpdb->links, 'link_visible' );
 }
 
 /**
@@ -1023,17 +1020,6 @@ function upgrade_130() {
 			$comment_author  = deslash( $comment->comment_author );
 
 			$wpdb->update( $wpdb->comments, compact( 'comment_content', 'comment_author' ), array( 'comment_ID' => $comment->comment_ID ) );
-		}
-	}
-
-	// Remove extraneous backslashes.
-	$links = $wpdb->get_results( "SELECT link_id, link_name, link_description FROM $wpdb->links" );
-	if ( $links ) {
-		foreach ( $links as $link ) {
-			$link_name        = deslash( $link->link_name );
-			$link_description = deslash( $link->link_description );
-
-			$wpdb->update( $wpdb->links, compact( 'link_name', 'link_description' ), array( 'link_id' => $link->link_id ) );
 		}
 	}
 
@@ -1312,13 +1298,6 @@ function upgrade_230() {
 			$tt_ids[ $term_id ][ $taxonomy ] = (int) $wpdb->insert_id;
 		}
 
-		if ( ! empty( $category->link_count ) ) {
-			$count    = (int) $category->link_count;
-			$taxonomy = 'link_category';
-			$wpdb->query( $wpdb->prepare( "INSERT INTO $wpdb->term_taxonomy (term_id, taxonomy, description, parent, count) VALUES ( %d, %s, %s, %d, %d)", $term_id, $taxonomy, $description, $parent, $count ) );
-			$tt_ids[ $term_id ][ $taxonomy ] = (int) $wpdb->insert_id;
-		}
-
 		if ( ! empty( $category->tag_count ) ) {
 			$have_tags = true;
 			$count     = (int) $category->tag_count;
@@ -1360,104 +1339,6 @@ function upgrade_230() {
 				'term_taxonomy_id' => $tt_id,
 			)
 		);
-	}
-
-	// < 3570 we used linkcategories. >= 3570 we used categories and link2cat.
-	if ( $wp_current_db_version < 3570 ) {
-		/*
-		 * Create link_category terms for link categories. Create a map of link
-		 * category IDs to link_category terms.
-		 */
-		$link_cat_id_map  = array();
-		$default_link_cat = 0;
-		$tt_ids           = array();
-		$link_cats        = $wpdb->get_results( 'SELECT cat_id, cat_name FROM ' . $wpdb->prefix . 'linkcategories' );
-		foreach ( $link_cats as $category ) {
-			$cat_id     = (int) $category->cat_id;
-			$term_id    = 0;
-			$name       = wp_slash( $category->cat_name );
-			$slug       = sanitize_title( $name );
-			$term_group = 0;
-
-			// Associate terms with the same slug in a term group and make slugs unique.
-			$exists = $wpdb->get_results( $wpdb->prepare( "SELECT term_id, term_group FROM $wpdb->terms WHERE slug = %s", $slug ) );
-			if ( $exists ) {
-				$term_group = $exists[0]->term_group;
-				$term_id    = $exists[0]->term_id;
-			}
-
-			if ( empty( $term_id ) ) {
-				$wpdb->insert( $wpdb->terms, compact( 'name', 'slug', 'term_group' ) );
-				$term_id = (int) $wpdb->insert_id;
-			}
-
-			$link_cat_id_map[ $cat_id ] = $term_id;
-			$default_link_cat           = $term_id;
-
-			$wpdb->insert(
-				$wpdb->term_taxonomy,
-				array(
-					'term_id'     => $term_id,
-					'taxonomy'    => 'link_category',
-					'description' => '',
-					'parent'      => 0,
-					'count'       => 0,
-				)
-			);
-			$tt_ids[ $term_id ] = (int) $wpdb->insert_id;
-		}
-
-		// Associate links to categories.
-		$links = $wpdb->get_results( "SELECT link_id, link_category FROM $wpdb->links" );
-		if ( ! empty( $links ) ) {
-			foreach ( $links as $link ) {
-				if ( 0 === (int) $link->link_category ) {
-					continue;
-				}
-				if ( ! isset( $link_cat_id_map[ $link->link_category ] ) ) {
-					continue;
-				}
-				$term_id = $link_cat_id_map[ $link->link_category ];
-				$tt_id   = $tt_ids[ $term_id ];
-				if ( empty( $tt_id ) ) {
-					continue;
-				}
-
-				$wpdb->insert(
-					$wpdb->term_relationships,
-					array(
-						'object_id'        => $link->link_id,
-						'term_taxonomy_id' => $tt_id,
-					)
-				);
-			}
-		}
-
-		// Set default to the last category we grabbed during the upgrade loop.
-		update_option( 'default_link_category', $default_link_cat );
-	} else {
-		$links = $wpdb->get_results( "SELECT link_id, category_id FROM $wpdb->link2cat GROUP BY link_id, category_id" );
-		foreach ( $links as $link ) {
-			$link_id  = (int) $link->link_id;
-			$term_id  = (int) $link->category_id;
-			$taxonomy = 'link_category';
-			$tt_id    = $tt_ids[ $term_id ][ $taxonomy ];
-			if ( empty( $tt_id ) ) {
-				continue;
-			}
-			$wpdb->insert(
-				$wpdb->term_relationships,
-				array(
-					'object_id'        => $link_id,
-					'term_taxonomy_id' => $tt_id,
-				)
-			);
-		}
-	}
-
-	if ( $wp_current_db_version < 4772 ) {
-		// Obsolete linkcategories table.
-		$wpdb->query( 'DROP TABLE IF EXISTS ' . $wpdb->prefix . 'linkcategories' );
 	}
 
 	// Recalculate all counts.
@@ -1825,10 +1706,6 @@ function upgrade_340() {
  */
 function upgrade_350() {
 	global $wp_current_db_version, $wpdb;
-
-	if ( $wp_current_db_version < 22006 && $wpdb->get_var( "SELECT link_id FROM $wpdb->links LIMIT 1" ) ) {
-		update_option( 'link_manager_enabled', 1 ); // Previously set to 0 by populate_options().
-	}
 
 	if ( $wp_current_db_version < 21811 && wp_should_upgrade_global_tables() ) {
 		$meta_keys = array();
@@ -3566,16 +3443,13 @@ function wp_check_mysql_version() {
  * Disables the Link Manager on upgrade if, at the time of upgrade, no links exist in the DB.
  *
  * @since WP 3.5.0
+ * @deprecated 1.0.0 motsVertueux removed the Link manager feature.
  *
  * @global int  $wp_current_db_version The old (current) database version.
  * @global wpdb $wpdb                  WordPress database abstraction object.
  */
 function maybe_disable_link_manager() {
-	global $wp_current_db_version, $wpdb;
-
-	if ( $wp_current_db_version >= 22006 && get_option( 'link_manager_enabled' ) && ! $wpdb->get_var( "SELECT link_id FROM $wpdb->links LIMIT 1" ) ) {
-		update_option( 'link_manager_enabled', 0 );
-	}
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 }
 
 /**

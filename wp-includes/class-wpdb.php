@@ -292,7 +292,6 @@ class wpdb {
 	public $tables = array(
 		'posts',
 		'comments',
-		'links',
 		'options',
 		'postmeta',
 		'terms',
@@ -368,15 +367,6 @@ class wpdb {
 	 * @var string
 	 */
 	public $commentmeta;
-
-	/**
-	 * WordPress Links table.
-	 *
-	 * @since WP 1.5.0
-	 *
-	 * @var string
-	 */
-	public $links;
 
 	/**
 	 * WordPress Options table.

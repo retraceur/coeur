@@ -367,21 +367,6 @@ function wp_dropdown_categories( $args = '' ) {
 
 	$defaults['selected'] = ( is_category() ) ? get_query_var( 'cat' ) : 0;
 
-	// Back compat.
-	if ( isset( $args['type'] ) && 'link' === $args['type'] ) {
-		_deprecated_argument(
-			__FUNCTION__,
-			'3.0.0',
-			sprintf(
-				/* translators: 1: "type => link", 2: "taxonomy => link_category" */
-				__( '%1$s is deprecated. Use %2$s instead.' ),
-				'<code>type => link</code>',
-				'<code>taxonomy => link_category</code>'
-			)
-		);
-		$args['taxonomy'] = 'link_category';
-	}
-
 	// Parse incoming $args into an array and merge it with $defaults.
 	$parsed_args = wp_parse_args( $args, $defaults );
 

@@ -10,30 +10,8 @@
  * needing to use these functions a lot, you might experience timeouts.
  * If you do, then it is advised to just write the SQL code yourself.
  *
- *     check_column( 'wp_links', 'link_description', 'mediumtext' );
- *
- *     if ( check_column( $wpdb->comments, 'comment_author', 'tinytext' ) ) {
- *         echo "ok\n";
- *     }
- *
- *     // Check the column.
- *     if ( ! check_column( $wpdb->links, 'link_description', 'varchar( 255 )' ) ) {
- *         $ddl = "ALTER TABLE $wpdb->links MODIFY COLUMN link_description varchar(255) NOT NULL DEFAULT '' ";
- *         $q = $wpdb->query( $ddl );
- *     }
- *
- *     $error_count = 0;
- *     $tablename   = $wpdb->links;
- *
- *     if ( check_column( $wpdb->links, 'link_description', 'varchar( 255 )' ) ) {
- *         $res .= $tablename . ' - ok <br />';
- *     } else {
- *         $res .= 'There was a problem with ' . $tablename . '<br />';
- *         ++$error_count;
- *     }
- *
  * @since 1.0.0 motsVertueux fork.
- * 
+ *
  * @package motsVertueux
  * @subpackage Plugin
  */
