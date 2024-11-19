@@ -11,9 +11,6 @@
 /**
  * Retrieves a list of category objects.
  *
- * If you set the 'taxonomy' argument to 'link_category', the link categories
- * will be returned instead.
- *
  * @since WP 2.1.0
  *
  * @see get_terms() Type of arguments that can be changed.
@@ -38,21 +35,6 @@ function get_categories( $args = '' ) {
 	 * @param array  $args     An array of arguments. See get_terms().
 	 */
 	$args['taxonomy'] = apply_filters( 'get_categories_taxonomy', $args['taxonomy'], $args );
-
-	// Back compat.
-	if ( isset( $args['type'] ) && 'link' === $args['type'] ) {
-		_deprecated_argument(
-			__FUNCTION__,
-			'3.0.0',
-			sprintf(
-				/* translators: 1: "type => link", 2: "taxonomy => link_category" */
-				__( '%1$s is deprecated. Use %2$s instead.' ),
-				'<code>type => link</code>',
-				'<code>taxonomy => link_category</code>'
-			)
-		);
-		$args['taxonomy'] = 'link_category';
-	}
 
 	$categories = get_terms( $args );
 

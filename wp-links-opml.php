@@ -9,90 +9,49 @@
  * feed links. It will have to be added manually for browsers and users to pick
  * up that this file exists.
  *
+ * @deprecated 1.0.0 motsVertueux removed the Link/Bookmark API.
+ *
  * @package motsVertueux
  */
 
 require_once __DIR__ . '/wp-load.php';
 
-header( 'Content-Type: text/xml; charset=' . get_option( 'blog_charset' ), true );
-$link_cat = '';
-if ( ! empty( $_GET['link_cat'] ) ) {
-	$link_cat = $_GET['link_cat'];
-	if ( ! in_array( $link_cat, array( 'all', '0' ), true ) ) {
-		$link_cat = absint( (string) urldecode( $link_cat ) );
-	}
-}
+_deprecated_file( basename( __FILE__ ), '1.0.0', '', '', true );
 
-echo '<?xml version="1.0"?' . ">\n";
-?>
-<opml version="1.0">
-	<head>
-		<title>
-		<?php
-			/* translators: %s: Site title. */
-			printf( __( 'Links for %s' ), esc_attr( get_bloginfo( 'name', 'display' ) ) );
-		?>
-		</title>
-		<dateCreated><?php echo gmdate( 'D, d M Y H:i:s' ); ?> GMT</dateCreated>
-		<?php
-		/**
-		 * Fires in the OPML header.
-		 *
-		 * @since WP 3.0.0
-		 */
-		do_action( 'opml_head' );
-		?>
-	</head>
-	<body>
-<?php
-if ( empty( $link_cat ) ) {
-	$cats = get_categories(
-		array(
-			'taxonomy'     => 'link_category',
-			'hierarchical' => 0,
-		)
-	);
-} else {
-	$cats = get_categories(
-		array(
-			'taxonomy'     => 'link_category',
-			'hierarchical' => 0,
-			'include'      => $link_cat,
-		)
-	);
-}
+/**
+ * Fires in the OPML header.
+ *
+ * @since WP 3.0.0
+ * @deprecated 1.0.0 motsVertueux removed the Link/Bookmark API.
+ */
+do_action_deprecated(
+	'opml_head',
+	array(),
+	'1.0.0',
+	'',
+	__( 'Link/bookmark manager is not supported in motsVertueux.' )
+);
 
-foreach ( (array) $cats as $cat ) :
-	/** This filter is documented in wp-includes/bookmark-template.php */
-	$catname = apply_filters( 'link_category', $cat->name );
+/** This filter is documented in wp-includes/bookmark-template.php */
+apply_filters_deprecated(
+	'link_category',
+	array( '' ),
+	'1.0.0',
+	'',
+	__( 'Link/bookmark manager is not supported in motsVertueux.' )
+);
 
-	?>
-<outline type="category" title="<?php echo esc_attr( $catname ); ?>">
-	<?php
-	$bookmarks = get_bookmarks( array( 'category' => $cat->term_id ) );
-	foreach ( (array) $bookmarks as $bookmark ) :
-		/**
-		 * Filters the OPML outline link title text.
-		 *
-		 * @since WP 2.2.0
-		 *
-		 * @param string $title The OPML outline title text.
-		 */
-		$title = apply_filters( 'link_title', $bookmark->link_name );
-		?>
-<outline text="<?php echo esc_attr( $title ); ?>" type="link" xmlUrl="<?php echo esc_url( $bookmark->link_rss ); ?>" htmlUrl="<?php echo esc_url( $bookmark->link_url ); ?>" updated="
-							<?php
-							if ( '0000-00-00 00:00:00' !== $bookmark->link_updated ) {
-								echo $bookmark->link_updated;
-							}
-							?>
-" />
-		<?php
-	endforeach; // $bookmarks
-	?>
-</outline>
-	<?php
-endforeach; // $cats
-?>
-</body>
-</opml>
+/** This filter is documented in wp-includes/bookmark-template.php */
+apply_filters_deprecated(
+	'link_title',
+	array( '' ),
+	'1.0.0',
+	'',
+	__( 'Link/bookmark manager is not supported in motsVertueux.' )
+);
+
+wp_die(
+	'<h1>' . __( 'motsVertueux does not provide the "Link/Boolmark" feature.' ) . '</h1>' .
+	'<p>' . __( 'Please use a plugin instead.' ) . '</p>',
+	500
+);

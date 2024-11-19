@@ -48,9 +48,6 @@ $title = $tax->labels->name;
 if ( 'post' !== $post_type ) {
 	$parent_file  = ( 'attachment' === $post_type ) ? 'upload.php' : "edit.php?post_type=$post_type";
 	$submenu_file = "edit-tags.php?taxonomy=$taxonomy&amp;post_type=$post_type";
-} elseif ( 'link_category' === $tax->name ) {
-	$parent_file  = 'link-manager.php';
-	$submenu_file = 'edit-tags.php?taxonomy=link_category';
 } else {
 	$parent_file  = 'edit.php';
 	$submenu_file = "edit-tags.php?taxonomy=$taxonomy";
@@ -244,7 +241,7 @@ if ( current_user_can( $tax->cap->edit_terms ) ) {
 	wp_enqueue_script( 'inline-edit-tax' );
 }
 
-if ( 'category' === $taxonomy || 'link_category' === $taxonomy || 'post_tag' === $taxonomy ) {
+if ( 'category' === $taxonomy || 'post_tag' === $taxonomy ) {
 	$help = '';
 	if ( 'category' === $taxonomy ) {
 		$help = '<p>' . sprintf(
@@ -252,17 +249,11 @@ if ( 'category' === $taxonomy || 'link_category' === $taxonomy || 'post_tag' ===
 			__( 'You can use categories to define sections of your site and group related posts. The default category is &#8220;Uncategorized&#8221; until you change it in your <a href="%s">writing settings</a>.' ),
 			'options-writing.php'
 		) . '</p>';
-	} elseif ( 'link_category' === $taxonomy ) {
-		$help = '<p>' . __( 'You can create groups of links by using Link Categories. Link Category names must be unique and Link Categories are separate from the categories you use for posts.' ) . '</p>';
 	} else {
 		$help = '<p>' . __( 'You can assign keywords to your posts using <strong>tags</strong>. Unlike categories, tags have no hierarchy, meaning there is no relationship from one tag to another.' ) . '</p>';
 	}
 
-	if ( 'link_category' === $taxonomy ) {
-		$help .= '<p>' . __( 'You can delete Link Categories in the Bulk Action pull-down, but that action does not delete the links within the category. Instead, it moves them to the default Link Category.' ) . '</p>';
-	} else {
-		$help .= '<p>' . __( 'What&#8217;s the difference between categories and tags? Normally, tags are ad-hoc keywords that identify important information in your post (names, subjects, etc) that may or may not recur in other posts, while categories are pre-determined sections. If you think of your site like a book, the categories are like the Table of Contents and the tags are like the terms in the index.' ) . '</p>';
-	}
+	$help .= '<p>' . __( 'What&#8217;s the difference between categories and tags? Normally, tags are ad-hoc keywords that identify important information in your post (names, subjects, etc) that may or may not recur in other posts, while categories are pre-determined sections. If you think of your site like a book, the categories are like the Table of Contents and the tags are like the terms in the index.' ) . '</p>';
 
 	get_current_screen()->add_help_tab(
 		array(
@@ -381,16 +372,6 @@ if ( $can_edit_terms ) {
 		 * @param object $arg Optional arguments cast to an object.
 		 */
 		do_action_deprecated( 'add_category_form_pre', array( (object) array( 'parent' => 0 ) ), '3.0.0', '{$taxonomy}_pre_add_form' );
-	} elseif ( 'link_category' === $taxonomy ) {
-		/**
-		 * Fires before the link category form.
-		 *
-		 * @since WP 2.3.0
-		 * @deprecated WP 3.0.0 Use {@see '{$taxonomy}_pre_add_form'} instead.
-		 *
-		 * @param object $arg Optional arguments cast to an object.
-		 */
-		do_action_deprecated( 'add_link_category_form_pre', array( (object) array( 'parent' => 0 ) ), '3.0.0', '{$taxonomy}_pre_add_form' );
 	} else {
 		/**
 		 * Fires before the Add Tag form.
@@ -552,16 +533,6 @@ if ( $can_edit_terms ) {
 		 * @param object $arg Optional arguments cast to an object.
 		 */
 		do_action_deprecated( 'edit_category_form', array( (object) array( 'parent' => 0 ) ), '3.0.0', '{$taxonomy}_add_form' );
-	} elseif ( 'link_category' === $taxonomy ) {
-		/**
-		 * Fires at the end of the Edit Link form.
-		 *
-		 * @since WP 2.3.0
-		 * @deprecated WP 3.0.0 Use {@see '{$taxonomy}_add_form'} instead.
-		 *
-		 * @param object $arg Optional arguments cast to an object.
-		 */
-		do_action_deprecated( 'edit_link_category_form', array( (object) array( 'parent' => 0 ) ), '3.0.0', '{$taxonomy}_add_form' );
 	} else {
 		/**
 		 * Fires at the end of the Add Tag form.

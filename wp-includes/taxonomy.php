@@ -136,40 +136,6 @@ function create_initial_taxonomies() {
 	);
 
 	register_taxonomy(
-		'link_category',
-		'link',
-		array(
-			'hierarchical' => false,
-			'labels'       => array(
-				'name'                       => __( 'Link Categories' ),
-				'singular_name'              => __( 'Link Category' ),
-				'search_items'               => __( 'Search Link Categories' ),
-				'popular_items'              => null,
-				'all_items'                  => __( 'All Link Categories' ),
-				'edit_item'                  => __( 'Edit Link Category' ),
-				'update_item'                => __( 'Update Link Category' ),
-				'add_new_item'               => __( 'Add New Link Category' ),
-				'new_item_name'              => __( 'New Link Category Name' ),
-				'separate_items_with_commas' => null,
-				'add_or_remove_items'        => null,
-				'choose_from_most_used'      => null,
-				'back_to_items'              => __( '&larr; Go to Link Categories' ),
-			),
-			'capabilities' => array(
-				'manage_terms' => 'manage_links',
-				'edit_terms'   => 'manage_links',
-				'delete_terms' => 'manage_links',
-				'assign_terms' => 'manage_links',
-			),
-			'query_var'    => false,
-			'rewrite'      => false,
-			'public'       => false,
-			'show_ui'      => true,
-			'_builtin'     => true,
-		)
-	);
-
-	register_taxonomy(
 		'post_format',
 		'post',
 		array(
@@ -4173,8 +4139,6 @@ function _update_post_term_count( $terms, $taxonomy ) {
 
 /**
  * Updates term count based on number of objects.
- *
- * Default callback for the 'link_category' taxonomy.
  *
  * @since WP 3.3.0
  *

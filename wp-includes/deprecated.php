@@ -8018,3 +8018,355 @@ function note_sidebar_being_rendered( $index ) {
 function discard_sidebar_being_rendered() {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 }
+
+/**
+ * Handles adding a link category via AJAX.
+ *
+ * @since WP 3.1.0
+ * @deprecated 1.0.0 motsVertueux removed the Link manager feature.
+ *
+ * @param string $action Action to perform.
+ */
+function wp_ajax_add_link_category( $action ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Handles deleting a link via AJAX.
+ *
+ * @since WP 3.1.0
+ * @deprecated 1.0.0 motsVertueux removed the Link manager feature.
+ */
+function wp_ajax_delete_link() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Retrieves bookmark data.
+ *
+ * @since WP 2.1.0
+ * @deprecated 1.0.0 motsVertueux removed the Link manager feature.
+ *
+ * @param int|stdClass $bookmark
+ * @param string       $output   Optional. The required return type. One of OBJECT, ARRAY_A, or ARRAY_N, which
+ *                               correspond to an stdClass object, an associative array, or a numeric array,
+ *                               respectively. Default OBJECT.
+ * @param string       $filter   Optional. How to sanitize bookmark fields. Default 'raw'.
+ */
+function get_bookmark( $bookmark, $output = OBJECT, $filter = 'raw' ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Retrieves single bookmark data item or field.
+ *
+ * @since WP 2.3.0
+ * @deprecated 1.0.0 motsVertueux removed the Link manager feature.
+ *
+ * @param string $field    The name of the data field to return.
+ * @param int    $bookmark The bookmark ID to get field.
+ * @param string $context  Optional. The context of how the field will be used. Default 'display'.
+ */
+function get_bookmark_field( $field, $bookmark, $context = 'display' ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Retrieves the list of bookmarks.
+ *
+ * Attempts to retrieve from the cache first based on MD5 hash of arguments. If
+ * that fails, then the query will be built from the arguments and executed. The
+ * results will be stored to the cache.
+ *
+ * @since WP 2.1.0
+ * @deprecated 1.0.0 motsVertueux removed the Link manager feature.
+ *
+ * @param string|array $args {
+ *     Optional. String or array of arguments to retrieve bookmarks.
+ *
+ *     @type string   $orderby        How to order the links by. Accepts 'id', 'link_id', 'name', 'link_name',
+ *                                    'url', 'link_url', 'visible', 'link_visible', 'rating', 'link_rating',
+ *                                    'owner', 'link_owner', 'updated', 'link_updated', 'notes', 'link_notes',
+ *                                    'description', 'link_description', 'length' and 'rand'.
+ *                                    When `$orderby` is 'length', orders by the character length of
+ *                                    'link_name'. Default 'name'.
+ *     @type string   $order          Whether to order bookmarks in ascending or descending order.
+ *                                    Accepts 'ASC' (ascending) or 'DESC' (descending). Default 'ASC'.
+ *     @type int      $limit          Amount of bookmarks to display. Accepts any positive number or
+ *                                    -1 for all.  Default -1.
+ *     @type string   $category       Comma-separated list of category IDs to include links from.
+ *                                    Default empty.
+ *     @type string   $category_name  Category to retrieve links for by name. Default empty.
+ *     @type int|bool $hide_invisible Whether to show or hide links marked as 'invisible'. Accepts
+ *                                    1|true or 0|false. Default 1|true.
+ *     @type int|bool $show_updated   Whether to display the time the bookmark was last updated.
+ *                                    Accepts 1|true or 0|false. Default 0|false.
+ *     @type string   $include        Comma-separated list of bookmark IDs to include. Default empty.
+ *     @type string   $exclude        Comma-separated list of bookmark IDs to exclude. Default empty.
+ *     @type string   $search         Search terms. Will be SQL-formatted with wildcards before and after
+ *                                    and searched in 'link_url', 'link_name' and 'link_description'.
+ *                                    Default empty.
+ * }
+ */
+function get_bookmarks( $args = '' ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the returned list of bookmarks.
+	 *
+	 * The first time the hook is evaluated in this file, it returns the cached
+	 * bookmarks list. The second evaluation returns a cached bookmarks list if the
+	 * link category is passed but does not exist. The third evaluation returns
+	 * the full cached results.
+	 *
+	 * @since WP 2.1.0
+	 * @deprecated 1.0.0 motsVertueux removed the Link manager feature.
+	 *
+	 * @see get_bookmarks()
+	 *
+	 * @param array $bookmarks   List of the cached bookmarks.
+	 * @param array $parsed_args An array of bookmark query arguments.
+	 */
+	apply_filters_deprecated(
+		'get_bookmarks',
+		array( array(), array() ),
+		'1.0.0',
+		'',
+		__( 'Link/bookmark manager is not supported in motsVertueux.' )
+	);
+}
+
+/**
+ * Sanitizes all bookmark fields.
+ *
+ * @since WP 2.3.0
+ * @deprecated 1.0.0 motsVertueux removed the Link manager feature.
+ *
+ * @param stdClass|array $bookmark Bookmark row.
+ * @param string         $context  Optional. How to filter the fields. Default 'display'.
+ */
+function sanitize_bookmark( $bookmark, $context = 'display' ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Sanitizes a bookmark field.
+ *
+ * Sanitizes the bookmark fields based on what the field name is. If the field
+ * has a strict value set, then it will be tested for that, else a more generic
+ * filtering is applied. After the more strict filter is applied, if the `$context`
+ * is 'raw' then the value is immediately return.
+ *
+ * Hooks exist for the more generic cases. With the 'edit' context, the {@see 'edit_$field'}
+ * filter will be called and passed the `$value` and `$bookmark_id` respectively.
+ *
+ * With the 'db' context, the {@see 'pre_$field'} filter is called and passed the value.
+ * The 'display' context is the final context and has the `$field` has the filter name
+ * and is passed the `$value`, `$bookmark_id`, and `$context`, respectively.
+ *
+ * @since WP 2.3.0
+ * @deprecated 1.0.0 motsVertueux removed the Link manager feature.
+ *
+ * @param string $field       The bookmark field.
+ * @param mixed  $value       The bookmark field value.
+ * @param int    $bookmark_id Bookmark ID.
+ * @param string $context     How to filter the field value. Accepts 'raw', 'edit', 'db',
+ *                            'display', 'attribute', or 'js'. Default 'display'.
+ */
+function sanitize_bookmark_field( $field, $value, $bookmark_id, $context ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Deletes the bookmark cache.
+ *
+ * @since WP 2.7.0
+ * @deprecated 1.0.0 motsVertueux removed the Link manager feature.
+ *
+ * @param int $bookmark_id Bookmark ID.
+ */
+function clean_bookmark_cache( $bookmark_id ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * The formatted output of a list of bookmarks.
+ *
+ * The $bookmarks array must contain bookmark objects and will be iterated over
+ * to retrieve the bookmark to be used in the output.
+ *
+ * The output is formatted as HTML with no way to change that format. However,
+ * what is between, before, and after can be changed. The link itself will be
+ * HTML.
+ *
+ * This function is used internally by wp_list_bookmarks() and should not be
+ * used by themes.
+ *
+ * @since WP 2.1.0
+ * @deprecated 1.0.0 motsVertueux removed the Link manager feature.
+ *
+ * @access private
+ *
+ * @param array        $bookmarks List of bookmarks to traverse.
+ * @param string|array $args {
+ *     Optional. Bookmarks arguments.
+ *
+ *     @type int|bool $show_updated     Whether to show the time the bookmark was last updated.
+ *                                      Accepts 1|true or 0|false. Default 0|false.
+ *     @type int|bool $show_description Whether to show the bookmark description. Accepts 1|true,
+ *                                      Accepts 1|true or 0|false. Default 0|false.
+ *     @type int|bool $show_images      Whether to show the link image if available. Accepts 1|true
+ *                                      or 0|false. Default 1|true.
+ *     @type int|bool $show_name        Whether to show link name if available. Accepts 1|true or
+ *                                      0|false. Default 0|false.
+ *     @type string   $before           The HTML or text to prepend to each bookmark. Default `<li>`.
+ *     @type string   $after            The HTML or text to append to each bookmark. Default `</li>`.
+ *     @type string   $link_before      The HTML or text to prepend to each bookmark inside the anchor
+ *                                      tags. Default empty.
+ *     @type string   $link_after       The HTML or text to append to each bookmark inside the anchor
+ *                                      tags. Default empty.
+ *     @type string   $between          The string for use in between the link, description, and image.
+ *                                      Default "\n".
+ *     @type int|bool $show_rating      Whether to show the link rating. Accepts 1|true or 0|false.
+ *                                      Default 0|false.
+ *
+ * }
+ */
+function _walk_bookmarks( $bookmarks, $args = '' ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Retrieves or echoes all of the bookmarks.
+ *
+ * List of default arguments are as follows:
+ *
+ * These options define how the Category name will appear before the category
+ * links are displayed, if 'categorize' is 1. If 'categorize' is 0, then it will
+ * display for only the 'title_li' string and only if 'title_li' is not empty.
+ *
+ * @since WP 2.1.0
+ * @deprecated 1.0.0 motsVertueux removed the Link manager feature.
+ *
+ * @see _walk_bookmarks()
+ *
+ * @param string|array $args {
+ *     Optional. String or array of arguments to list bookmarks.
+ *
+ *     @type string       $orderby          How to order the links by. Accepts post fields. Default 'name'.
+ *     @type string       $order            Whether to order bookmarks in ascending or descending order.
+ *                                          Accepts 'ASC' (ascending) or 'DESC' (descending). Default 'ASC'.
+ *     @type int          $limit            Amount of bookmarks to display. Accepts 1+ or -1 for all.
+ *                                          Default -1.
+ *     @type string       $category         Comma-separated list of category IDs to include links from.
+ *                                          Default empty.
+ *     @type string       $category_name    Category to retrieve links for by name. Default empty.
+ *     @type int|bool     $hide_invisible   Whether to show or hide links marked as 'invisible'. Accepts
+ *                                          1|true or 0|false. Default 1|true.
+ *     @type int|bool     $show_updated     Whether to display the time the bookmark was last updated.
+ *                                          Accepts 1|true or 0|false. Default 0|false.
+ *     @type int|bool     $echo             Whether to echo or return the formatted bookmarks. Accepts
+ *                                          1|true (echo) or 0|false (return). Default 1|true.
+ *     @type int|bool     $categorize       Whether to show links listed by category or in a single column.
+ *                                          Accepts 1|true (by category) or 0|false (one column). Default 1|true.
+ *     @type int|bool     $show_description Whether to show the bookmark descriptions. Accepts 1|true or 0|false.
+ *                                          Default 0|false.
+ *     @type string       $title_li         What to show before the links appear. Default 'Bookmarks'.
+ *     @type string       $title_before     The HTML or text to prepend to the $title_li string. Default '<h2>'.
+ *     @type string       $title_after      The HTML or text to append to the $title_li string. Default '</h2>'.
+ *     @type string|array $class            The CSS class or an array of classes to use for the $title_li.
+ *                                          Default 'linkcat'.
+ *     @type string       $category_before  The HTML or text to prepend to $title_before if $categorize is true.
+ *                                          String must contain '%id' and '%class' to inherit the category ID and
+ *                                          the $class argument used for formatting in themes.
+ *                                          Default '<li id="%id" class="%class">'.
+ *     @type string       $category_after   The HTML or text to append to $title_after if $categorize is true.
+ *                                          Default '</li>'.
+ *     @type string       $category_orderby How to order the bookmark category based on term scheme if $categorize
+ *                                          is true. Default 'name'.
+ *     @type string       $category_order   Whether to order categories in ascending or descending order if
+ *                                          $categorize is true. Accepts 'ASC' (ascending) or 'DESC' (descending).
+ *                                          Default 'ASC'.
+ * }
+ * @return void|string Void if 'echo' argument is true, HTML list of bookmarks if 'echo' is false.
+ */
+function wp_list_bookmarks( $args = '' ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the bookmarks list before it is echoed or returned.
+	 *
+	 * @since WP 2.5.0
+	 * @deprecated 1.0.0 motsVertueux removed the Link manager feature.
+	 *
+	 * @param string $html The HTML list of bookmarks.
+	 */
+	apply_filters_deprecated(
+		'wp_list_bookmarks',
+		array( '' ),
+		'1.0.0',
+		'',
+		__( 'Link/bookmark manager is not supported in motsVertueux.' )
+	);
+}
+
+/**
+ * Displays the edit bookmark link.
+ *
+ * @since WP 2.7.0
+ * @deprecated 1.0.0 motsVertueux removed the Link manager feature.
+ *
+ * @param int|stdClass $link Optional. Bookmark ID. Default is the ID of the current bookmark.
+ */
+function get_edit_bookmark_link( $link = 0 ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the bookmark edit link.
+	 *
+	 * @since WP 2.7.0
+	 * @deprecated 1.0.0 motsVertueux removed the Link manager feature.
+	 *
+	 * @param string $location The edit link.
+	 * @param int    $link_id  Bookmark ID.
+	 */
+	apply_filters_deprecated(
+		'get_edit_bookmark_link',
+		array( '', 0 ),
+		'1.0.0',
+		'',
+		__( 'Link/bookmark manager is not supported in motsVertueux.' )
+	);
+}
+
+/**
+ * Displays the edit bookmark link anchor content.
+ *
+ * @since WP 2.7.0
+ * @deprecated 1.0.0 motsVertueux removed the Link manager feature.
+ *
+ * @param string $link     Optional. Anchor text. If empty, default is 'Edit This'. Default empty.
+ * @param string $before   Optional. Display before edit link. Default empty.
+ * @param string $after    Optional. Display after edit link. Default empty.
+ * @param int    $bookmark Optional. Bookmark ID. Default is the current bookmark.
+ */
+function edit_bookmark_link( $link = '', $before = '', $after = '', $bookmark = null ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the bookmark edit link anchor tag.
+	 *
+	 * @since WP 2.7.0
+	 * @deprecated 1.0.0 motsVertueux removed the Link manager feature.
+	 *
+	 * @param string $link    Anchor tag for the edit link.
+	 * @param int    $link_id Bookmark ID.
+	 */
+	apply_filters_deprecated(
+		'edit_bookmark_link',
+		array( '', 0 ),
+		'1.0.0',
+		'',
+		__( 'Link/bookmark manager is not supported in motsVertueux.' )
+	);
+}

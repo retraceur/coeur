@@ -312,12 +312,6 @@ switch ( $wp_list_table->current_action() ) {
 				LIMIT 1'
 			) ) {
 				$users_have_content = true;
-			} elseif ( $wpdb->get_var(
-				"SELECT link_id FROM {$wpdb->links}
-				WHERE link_owner IN( " . implode( ',', $user_ids ) . ' )
-				LIMIT 1'
-			) ) {
-				$users_have_content = true;
 			}
 		}
 

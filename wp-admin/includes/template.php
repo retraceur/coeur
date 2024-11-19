@@ -260,50 +260,6 @@ function wp_popular_terms_checklist( $taxonomy, $default_term = 0, $number = 10,
 }
 
 /**
- * Outputs a link category checklist element.
- *
- * @since WP 2.5.1
- *
- * @param int $link_id Optional. The link ID. Default 0.
- */
-function wp_link_category_checklist( $link_id = 0 ) {
-	$default = 1;
-
-	$checked_categories = array();
-
-	if ( $link_id ) {
-		$checked_categories = wp_get_link_cats( $link_id );
-		// No selected categories, strange.
-		if ( ! count( $checked_categories ) ) {
-			$checked_categories[] = $default;
-		}
-	} else {
-		$checked_categories[] = $default;
-	}
-
-	$categories = get_terms(
-		array(
-			'taxonomy'   => 'link_category',
-			'orderby'    => 'name',
-			'hide_empty' => 0,
-		)
-	);
-
-	if ( empty( $categories ) ) {
-		return;
-	}
-
-	foreach ( $categories as $category ) {
-		$cat_id = $category->term_id;
-
-		/** This filter is documented in wp-includes/category-template.php */
-		$name    = esc_html( apply_filters( 'the_category', $category->name, '', '' ) );
-		$checked = in_array( $cat_id, $checked_categories, true ) ? ' checked="checked"' : '';
-		echo '<li id="link-category-', $cat_id, '"><label for="in-link-category-', $cat_id, '" class="selectit"><input value="', $cat_id, '" type="checkbox" name="link_category[]" id="in-link-category-', $cat_id, '"', $checked, '/> ', $name, '</label></li>';
-	}
-}
-
-/**
  * Adds hidden fields with the data for use in the inline editor for posts and pages.
  *
  * @since WP 2.7.0
@@ -1059,7 +1015,7 @@ function wp_import_upload_form( $action ) {
  * @param callable               $callback      Function that fills the box with the desired content.
  *                                              The function should echo its output.
  * @param string|array|WP_Screen $screen        Optional. The screen or screens on which to show the box
- *                                              (such as a post type, 'link', or 'comment'). Accepts a single
+ *                                              (such as a post type or 'comment'). Accepts a single
  *                                              screen ID, WP_Screen object, or array of screen IDs. Default
  *                                              is the current screen.  If you have used add_menu_page() or
  *                                              add_submenu_page() to create a new screen (and hence screen_id),
@@ -1478,7 +1434,7 @@ function do_meta_boxes( $screen, $context, $data_object ) {
  *
  * @param string                 $id      Meta box ID (used in the 'id' attribute for the meta box).
  * @param string|array|WP_Screen $screen  The screen or screens on which the meta box is shown (such as a
- *                                        post type, 'link', or 'comment'). Accepts a single screen ID,
+ *                                        post type or 'comment'). Accepts a single screen ID,
  *                                        WP_Screen object, or array of screen IDs.
  * @param string                 $context The context within the screen where the box is set to display.
  *                                        Contexts vary from screen to screen. Post edit screen contexts

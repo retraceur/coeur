@@ -97,27 +97,6 @@ unset( $post_formats['standard'] );
 	</select>
 </td>
 </tr>
-<?php
-if ( get_option( 'link_manager_enabled' ) ) :
-	?>
-<tr>
-<th scope="row"><label for="default_link_category"><?php _e( 'Default Link Category' ); ?></label></th>
-<td>
-	<?php
-	wp_dropdown_categories(
-		array(
-			'hide_empty'   => 0,
-			'name'         => 'default_link_category',
-			'orderby'      => 'name',
-			'selected'     => get_option( 'default_link_category' ),
-			'hierarchical' => true,
-			'taxonomy'     => 'link_category',
-		)
-	);
-	?>
-</td>
-</tr>
-<?php endif; ?>
 
 <?php
 do_settings_fields( 'writing', 'default' );
