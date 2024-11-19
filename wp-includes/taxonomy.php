@@ -1,7 +1,7 @@
 <?php
 /**
  * Core Taxonomy API
- * 
+ *
  * @since 1.0.0 motsVertueux fork.
  *
  * @package motsVertueux
@@ -4473,7 +4473,7 @@ function _wp_check_split_default_terms( $term_id, $new_term_id, $term_taxonomy_i
 		return;
 	}
 
-	foreach ( array( 'default_category', 'default_link_category', 'default_email_category' ) as $option ) {
+	foreach ( array( 'default_category', 'default_link_category' ) as $option ) {
 		if ( (int) get_option( $option, -1 ) === $term_id ) {
 			update_option( $option, $new_term_id );
 		}

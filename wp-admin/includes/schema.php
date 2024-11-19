@@ -424,10 +424,6 @@ function populate_options( array $options = array() ) {
 		'comments_notify'                 => 1,
 		'posts_per_rss'                   => 10,
 		'rss_use_excerpt'                 => 0,
-		'mailserver_url'                  => 'mail.example.com',
-		'mailserver_login'                => 'login@example.com',
-		'mailserver_pass'                 => '',
-		'mailserver_port'                 => 110,
 		'default_category'                => 1,
 		'default_comment_status'          => 'open',
 		'default_ping_status'             => 'open',
@@ -453,7 +449,6 @@ function populate_options( array $options = array() ) {
 		'gmt_offset'                      => $gmt_offset,
 
 		// 1.5.0
-		'default_email_category'          => 1,
 		'recently_edited'                 => '',
 		'template'                        => $template,
 		'stylesheet'                      => $stylesheet,

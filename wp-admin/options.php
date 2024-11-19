@@ -151,7 +151,6 @@ $allowed_options            = array(
 	),
 	'writing'    => array(
 		'default_category',
-		'default_email_category',
 		'default_link_category',
 		'default_post_format',
 	),
@@ -164,15 +163,17 @@ $allowed_options['privacy'] = array();
  * Filters whether the post-by-email functionality is enabled.
  *
  * @since WP 3.0.0
+ * @deprecated 1.0.0 motsVertueux removed the "Post by email" feature.
  *
  * @param bool $enabled Whether post-by-email configuration is enabled. Default true.
  */
-if ( apply_filters( 'enable_post_by_email_configuration', true ) ) {
-	$allowed_options['writing'][] = 'mailserver_url';
-	$allowed_options['writing'][] = 'mailserver_port';
-	$allowed_options['writing'][] = 'mailserver_login';
-	$allowed_options['writing'][] = 'mailserver_pass';
-}
+apply_filters_deprecated(
+	'enable_post_by_email_configuration',
+	array( true ),
+	'1.0.0',
+	'',
+	__( 'Posting by email is not supported in motsVertueux.' )
+);
 
 if ( ! is_utf8_charset() ) {
 	$allowed_options['reading'][] = 'blog_charset';

@@ -22,22 +22,10 @@ $parent_file = 'options-general.php';
 get_current_screen()->add_help_tab(
 	array(
 		'id'      => 'overview',
-		'title'   => __( 'Overview' ),
-		'content' => '<p>' . __( 'You can submit content in several different ways; this screen holds the settings for all of them. The top section controls the editor within the dashboard, while the rest control external publishing methods. For more information on any of these methods, use the documentation links.' ) . '</p>' .
-			'<p>' . __( 'You must click the Save Changes button at the bottom of the screen for new settings to take effect.' ) . '</p>',
+		'title'   => __( 'Writing settings' ),
+		'content' => '<p>' . __( 'Use this settings section to define the default category and format posts should be initialized with.' ) . '</p>',
 	)
 );
-
-/** This filter is documented in wp-admin/options.php */
-if ( apply_filters( 'enable_post_by_email_configuration', true ) ) {
-	get_current_screen()->add_help_tab(
-		array(
-			'id'      => 'options-postemail',
-			'title'   => __( 'Post Via Email' ),
-			'content' => '<p>' . __( 'Post via email settings allow you to send your WordPress installation an email with the content of your post. You must set up a secret email account with POP3 access to use this, and any mail received at this address will be posted, so it&#8217;s a good idea to keep this address very secret.' ) . '</p>',
-		)
-	);
-}
 
 /** This filter is documented in wp-admin/options-writing.php */
 if ( apply_filters( 'enable_update_services_configuration', true ) ) {
@@ -139,70 +127,14 @@ do_settings_fields( 'writing', 'remote_publishing' ); // A deprecated section.
 
 <?php
 /** This filter is documented in wp-admin/options.php */
-if ( apply_filters( 'enable_post_by_email_configuration', true ) ) {
-	?>
-<h2 class="title"><?php _e( 'Post via email' ); ?></h2>
-<p>
-	<?php
-	printf(
-		/* translators: 1, 2, 3: Examples of random email addresses. */
-		__( 'To post to WordPress by email, you must set up a secret email account with POP3 access. Any mail received at this address will be posted, so it&#8217;s a good idea to keep this address very secret. Here are three random strings you could use: %1$s, %2$s, %3$s.' ),
-		sprintf( '<kbd>%s</kbd>', wp_generate_password( 8, false ) ),
-		sprintf( '<kbd>%s</kbd>', wp_generate_password( 8, false ) ),
-		sprintf( '<kbd>%s</kbd>', wp_generate_password( 8, false ) )
-	);
-	?>
-</p>
+apply_filters_deprecated(
+	'enable_post_by_email_configuration',
+	array( true ),
+	'1.0.0',
+	'',
+	__( 'Posting by email is not supported in motsVertueux.' )
+);
 
-<table class="form-table" role="presentation">
-<tr>
-<th scope="row"><label for="mailserver_url"><?php _e( 'Mail Server' ); ?></label></th>
-<td><input name="mailserver_url" type="text" id="mailserver_url" value="<?php form_option( 'mailserver_url' ); ?>" class="regular-text code" />
-<label for="mailserver_port"><?php _e( 'Port' ); ?></label>
-<input name="mailserver_port" type="text" id="mailserver_port" value="<?php form_option( 'mailserver_port' ); ?>" class="small-text" />
-</td>
-</tr>
-<tr>
-<th scope="row"><label for="mailserver_login"><?php _e( 'Login Name' ); ?></label></th>
-<td><input name="mailserver_login" type="text" id="mailserver_login" value="<?php form_option( 'mailserver_login' ); ?>" class="regular-text ltr" /></td>
-</tr>
-<tr class="mailserver-pass-wrap">
-	<th scope="row">
-		<label for="mailserver_pass">
-			<?php _e( 'Password' ); ?>
-		</label>
-	</th>
-	<td>
-		<input type="hidden" value=" " /><!-- #24364 workaround -->
-		<span class="wp-pwd">
-			<input type="text" name="mailserver_pass" id="mailserver_pass" class="regular-text ltr" autocomplete="off" data-reveal="1" data-pw="<?php echo esc_attr( get_option( 'mailserver_pass' ) ); ?>" />
-			<button type="button" class="button wp-hide-pw hide-if-no-js" data-toggle="0" data-start-masked="1" aria-label="<?php esc_attr_e( 'Hide password' ); ?>">
-				<span class="dashicons dashicons-visibility" aria-hidden="true"></span>
-			</button>
-		</span>
-	</td>
-</tr>
-<tr>
-<th scope="row"><label for="default_email_category"><?php _e( 'Default Mail Category' ); ?></label></th>
-<td>
-	<?php
-	wp_dropdown_categories(
-		array(
-			'hide_empty'   => 0,
-			'name'         => 'default_email_category',
-			'orderby'      => 'name',
-			'selected'     => get_option( 'default_email_category' ),
-			'hierarchical' => true,
-		)
-	);
-	?>
-</td>
-</tr>
-	<?php do_settings_fields( 'writing', 'post_via_email' ); ?>
-</table>
-<?php } ?>
-
-<?php
 /**
  * Filters whether to enable the Update Services section in the Writing settings screen.
  *
