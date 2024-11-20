@@ -15,6 +15,7 @@ motsVertueux is regularly synchronized with WP Core latest version to benefit fr
 - All links to the [w.org](https://w.org) network or distant API were removed from the source code.
 - All references to the WordPress®[^1] trademark were replaced by the "WP" or "motsVertueux" terms or removed.
 - WordPress®[^1] logos were replaced by motsVertueux ones.
+- The Link/Bookmark manager was removed.
 - Using **Block Themes** in motsVertueux is recommended:
   - The WP Customizer was removed.
   - WP Widgets were removed.
