@@ -1257,7 +1257,7 @@ class WP_Site_Health {
 	}
 
 	/**
-	 * Tests if the site can communicate with WordPress.org.
+	 * Tests if the site can communicate with WP (org site).
 	 *
 	 * @since WP 5.2.0
 	 * @since 1.0.0

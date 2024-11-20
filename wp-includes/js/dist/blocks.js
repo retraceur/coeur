@@ -5754,7 +5754,7 @@ if (true) {
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/ 	
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -5768,14 +5768,14 @@ if (true) {
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
-/******/ 	
+/******/
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/ 	
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
@@ -5788,7 +5788,7 @@ if (true) {
 /******/ 			return getter;
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -5800,12 +5800,12 @@ if (true) {
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -5816,7 +5816,7 @@ if (true) {
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be in strict mode.
@@ -6835,8 +6835,6 @@ const i18nBlockSchema = {
  * or a component.
  *
  * @typedef {(string|Element|Component)} WPIcon
- *
- * @see https://developer.wordpress.org/resource/dashicons/
  */
 
 /**
@@ -6993,9 +6991,6 @@ function getBlockSettingsFromMetadata({
  * Registers a new block provided a unique name and an object defining its
  * behavior. Once registered, the block is made available as an option to any
  * editor interface where blocks are implemented.
- *
- * For more in-depth information on registering a custom block see the
- * [Create a block tutorial](https://developer.wordpress.org/block-editor/getting-started/create-block/).
  *
  * @param {string|Object} blockNameOrMetadata Block type name or its metadata.
  * @param {Object}        settings            Block settings.
@@ -7231,7 +7226,7 @@ function setDefaultBlockName(name) {
  *
  * This function lets you select a different block to group other blocks in instead of the
  * default `core/group` block. This function must be used in a component or when the DOM is fully
- * loaded. See https://developer.wordpress.org/block-editor/reference-guides/packages/packages-dom-ready/
+ * loaded.
  *
  * @param {string} name Block name.
  *
@@ -7373,9 +7368,6 @@ const hasChildBlocksWithInserterSupport = blockName => {
 /**
  * Registers a new block style for the given block types.
  *
- * For more information on connecting the styles with CSS
- * [the official documentation](https://developer.wordpress.org/block-editor/reference-guides/block-api/block-styles/#styles).
- *
  * @param {string|Array} blockNames     Name of blocks e.g. “core/latest-posts” or `["core/group", "core/columns"]`.
  * @param {Object}       styleVariation Object containing `name` which is the class name applied to the block and `label` which identifies the variation to the user.
  *
@@ -7452,9 +7444,6 @@ const getBlockVariations = (blockName, scope) => {
 
 /**
  * Registers a new block variation for the given block type.
- *
- * For more information on block variations see
- * [the official documentation ](https://developer.wordpress.org/block-editor/reference-guides/block-api/block-variations/).
  *
  * @param {string}           blockName Name of the block (example: “core/columns”).
  * @param {WPBlockVariation} variation Object describing a block variation.
@@ -9600,7 +9589,7 @@ const processBlockType = (name, blockSettings) => ({
   }
   settings.icon = normalizeIconObject(settings.icon);
   if (!isValidIcon(settings.icon.src)) {
-     true ? external_wp_warning_default()('The icon passed is invalid. ' + 'The icon should be a string, an element, a function, or an object following the specifications documented in https://developer.wordpress.org/block-editor/developers/block-api/block-registration/#icon-optional') : 0;
+     true ? external_wp_warning_default()('The icon passed is invalid. ' + 'The icon should be a string, an element, a function, or an object') : 0;
     return;
   }
   return settings;
@@ -10880,8 +10869,6 @@ function serializeAttributes(attributes) {
 
   // Bypass server stripslashes behavior which would unescape stringify's
   // escaping of quotation mark.
-  //
-  // See: https://developer.wordpress.org/reference/functions/wp_kses_stripslashes/
   .replace(/\\"/g, '\\u0022');
 }
 
@@ -13114,8 +13101,7 @@ const richText = (selector, preserveWhiteSpace) => el => {
 function isNodeOfType(node, type) {
   external_wp_deprecated_default()('wp.blocks.node.isNodeOfType', {
     since: '6.1',
-    version: '6.3',
-    link: 'https://developer.wordpress.org/block-editor/how-to-guides/block-tutorial/introducing-attributes-and-editable-fields/'
+    version: '6.3'
   });
   return node && node.type === type;
 }
@@ -13156,8 +13142,7 @@ function fromDOM(domNode) {
   external_wp_deprecated_default()('wp.blocks.node.fromDOM', {
     since: '6.1',
     version: '6.3',
-    alternative: 'wp.richText.create',
-    link: 'https://developer.wordpress.org/block-editor/how-to-guides/block-tutorial/introducing-attributes-and-editable-fields/'
+    alternative: 'wp.richText.create'
   });
   if (domNode.nodeType === domNode.TEXT_NODE) {
     return domNode.nodeValue;
@@ -13185,8 +13170,7 @@ function toHTML(node) {
   external_wp_deprecated_default()('wp.blocks.node.toHTML', {
     since: '6.1',
     version: '6.3',
-    alternative: 'wp.richText.toHTMLString',
-    link: 'https://developer.wordpress.org/block-editor/how-to-guides/block-tutorial/introducing-attributes-and-editable-fields/'
+    alternative: 'wp.richText.toHTMLString'
   });
   return children_toHTML([node]);
 }
@@ -13203,8 +13187,7 @@ function matcher(selector) {
   external_wp_deprecated_default()('wp.blocks.node.matcher', {
     since: '6.1',
     version: '6.3',
-    alternative: 'html source',
-    link: 'https://developer.wordpress.org/block-editor/how-to-guides/block-tutorial/introducing-attributes-and-editable-fields/'
+    alternative: 'html source'
   });
   return domNode => {
     let match = domNode;
@@ -13282,8 +13265,7 @@ function getSerializeCapableElement(children) {
 function getChildrenArray(children) {
   external_wp_deprecated_default()('wp.blocks.children.getChildrenArray', {
     since: '6.1',
-    version: '6.3',
-    link: 'https://developer.wordpress.org/block-editor/how-to-guides/block-tutorial/introducing-attributes-and-editable-fields/'
+    version: '6.3'
   });
 
   // The fact that block children are compatible with the element serializer
@@ -13304,8 +13286,7 @@ function concat(...blockNodes) {
   external_wp_deprecated_default()('wp.blocks.children.concat', {
     since: '6.1',
     version: '6.3',
-    alternative: 'wp.richText.concat',
-    link: 'https://developer.wordpress.org/block-editor/how-to-guides/block-tutorial/introducing-attributes-and-editable-fields/'
+    alternative: 'wp.richText.concat'
   });
   const result = [];
   for (let i = 0; i < blockNodes.length; i++) {
@@ -13335,8 +13316,7 @@ function children_fromDOM(domNodes) {
   external_wp_deprecated_default()('wp.blocks.children.fromDOM', {
     since: '6.1',
     version: '6.3',
-    alternative: 'wp.richText.create',
-    link: 'https://developer.wordpress.org/block-editor/how-to-guides/block-tutorial/introducing-attributes-and-editable-fields/'
+    alternative: 'wp.richText.create'
   });
   const result = [];
   for (let i = 0; i < domNodes.length; i++) {
@@ -13360,8 +13340,7 @@ function children_toHTML(children) {
   external_wp_deprecated_default()('wp.blocks.children.toHTML', {
     since: '6.1',
     version: '6.3',
-    alternative: 'wp.richText.toHTMLString',
-    link: 'https://developer.wordpress.org/block-editor/how-to-guides/block-tutorial/introducing-attributes-and-editable-fields/'
+    alternative: 'wp.richText.toHTMLString'
   });
   const element = getSerializeCapableElement(children);
   return (0,external_wp_element_namespaceObject.renderToString)(element);
@@ -13379,8 +13358,7 @@ function children_matcher(selector) {
   external_wp_deprecated_default()('wp.blocks.children.matcher', {
     since: '6.1',
     version: '6.3',
-    alternative: 'html source',
-    link: 'https://developer.wordpress.org/block-editor/how-to-guides/block-tutorial/introducing-attributes-and-editable-fields/'
+    alternative: 'html source'
   });
   return domNode => {
     let match = domNode;
@@ -14115,9 +14093,6 @@ function parseRawBlock(rawBlock, options) {
  * prevent stack overflow. This initial pass is mainly interested in separating
  * and isolating the blocks serialized in the document and manifestly not in the
  * content within the blocks.
- *
- * @see
- * https://developer.wordpress.org/block-editor/packages/packages-block-serialization-default-parser/
  *
  * @param {string}       content The post content.
  * @param {ParseOptions} options Extra options for handling block parsing.
@@ -15470,7 +15445,6 @@ function pasteHandler({
   // Not normalizing the content will only affect older browsers and won't
   // entirely break the app.
   // See: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/normalize
-  // See: https://core.trac.wordpress.org/ticket/30130
   // See: https://github.com/WordPress/gutenberg/pull/6983#pullrequestreview-125151075
   if (String.prototype.normalize) {
     HTML = HTML.normalize();

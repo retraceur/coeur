@@ -493,7 +493,7 @@ module.exports.remove = removeAccents;
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/ 	
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -507,14 +507,14 @@ module.exports.remove = removeAccents;
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
-/******/ 	
+/******/
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
@@ -527,7 +527,7 @@ module.exports.remove = removeAccents;
 /******/ 			return getter;
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -539,12 +539,12 @@ module.exports.remove = removeAccents;
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -555,7 +555,7 @@ module.exports.remove = removeAccents;
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be in strict mode.
@@ -603,11 +603,6 @@ __webpack_require__.d(__webpack_exports__, {
  *
  * @param {string} url The string to scrutinise.
  *
- * @example
- * ```js
- * const isURL = isURL( 'https://wordpress.org' ); // true
- * ```
- *
  * @see https://url.spec.whatwg.org/
  * @see https://url.spec.whatwg.org/#valid-url-string
  *
@@ -631,11 +626,6 @@ const EMAIL_REGEXP = /^(mailto:)?[a-z0-9._%+-]+@[a-z0-9][a-z0-9.-]*\.[a-z]{2,63}
  * Determines whether the given string looks like an email.
  *
  * @param {string} email The string to scrutinise.
- *
- * @example
- * ```js
- * const isEmail = isEmail( 'hello@wordpress.org' ); // true
- * ```
  *
  * @return {boolean} Whether or not it looks like an email.
  */
@@ -673,7 +663,6 @@ function isPhoneNumber(phoneNumber) {
  * @example
  * ```js
  * const protocol1 = getProtocol( 'tel:012345678' ); // 'tel:'
- * const protocol2 = getProtocol( 'https://wordpress.org' ); // 'https:'
  * ```
  *
  * @return {string|void} The protocol part of the URL.
@@ -714,7 +703,6 @@ function isValidProtocol(protocol) {
  *
  * @example
  * ```js
- * const authority1 = getAuthority( 'https://wordpress.org/help/' ); // 'wordpress.org'
  * const authority2 = getAuthority( 'https://localhost:8080/test/' ); // 'localhost:8080'
  * ```
  *
@@ -735,8 +723,8 @@ function getAuthority(url) {
  *
  * @example
  * ```js
- * const isValid = isValidAuthority( 'wordpress.org' ); // true
- * const isNotValid = isValidAuthority( 'wordpress#org' ); // false
+ * const isValid = isValidAuthority( 'site.url' ); // true
+ * const isNotValid = isValidAuthority( 'site#url' ); // false
  * ```
  *
  * @return {boolean} True if the argument contains a valid authority.
@@ -757,7 +745,6 @@ function isValidAuthority(authority) {
  * @example
  * ```js
  * const path1 = getPath( 'http://localhost:8080/this/is/a/test?query=true' ); // 'this/is/a/test'
- * const path2 = getPath( 'https://wordpress.org/help/faq/' ); // 'help/faq'
  * ```
  *
  * @return {string|void} The path part of the URL.
@@ -906,7 +893,6 @@ function isValidQueryString(queryString) {
  * @example
  * ```js
  * const pathAndQueryString1 = getPathAndQueryString( 'http://localhost:8080/this/is/a/test?query=true' ); // '/this/is/a/test?query=true'
- * const pathAndQueryString2 = getPathAndQueryString( 'https://wordpress.org/help/faq/' ); // '/help/faq'
  * ```
  *
  * @return {string} The path part and query string part of the URL.
@@ -933,7 +919,6 @@ function getPathAndQueryString(url) {
  * @example
  * ```js
  * const fragment1 = getFragment( 'http://localhost:8080/this/is/a/test?query=true#fragment' ); // '#fragment'
- * const fragment2 = getFragment( 'https://wordpress.org#another-fragment?query=true' ); // '#another-fragment'
  * ```
  *
  * @return {string|void} The fragment part of the URL.
@@ -1044,12 +1029,6 @@ function setPath(object, path, value) {
  *
  * @param {string} url URL.
  *
- * @example
- * ```js
- * const foo = getQueryArgs( 'https://wordpress.org?foo=bar&bar=baz' );
- * // { "foo": "bar", "bar": "baz" }
- * ```
- *
  * @return {QueryArgs} Query args object.
  */
 function getQueryArgs(url) {
@@ -1133,11 +1112,6 @@ function addQueryArgs(url = '', args) {
  * @param {string} url URL.
  * @param {string} arg Query arg name.
  *
- * @example
- * ```js
- * const foo = getQueryArg( 'https://wordpress.org?foo=bar&bar=baz', 'foo' ); // bar
- * ```
- *
  * @return {QueryArgParsed|void} Query arg value.
  */
 function getQueryArg(url, arg) {
@@ -1155,11 +1129,6 @@ function getQueryArg(url, arg) {
  *
  * @param {string} url URL.
  * @param {string} arg Query arg name.
- *
- * @example
- * ```js
- * const hasBar = hasQueryArg( 'https://wordpress.org?foo=bar&bar=baz', 'bar' ); // true
- * ```
  *
  * @return {boolean} Whether or not the URL contains the query arg.
  */
@@ -1179,11 +1148,6 @@ function hasQueryArg(url, arg) {
  *
  * @param {string}    url  URL.
  * @param {...string} args Query Args.
- *
- * @example
- * ```js
- * const newUrl = removeQueryArgs( 'https://wordpress.org?foo=bar&bar=baz&baz=foobar', 'foo', 'bar' ); // https://wordpress.org?baz=foobar
- * ```
  *
  * @return {string} Updated URL.
  */
@@ -1210,11 +1174,6 @@ const USABLE_HREF_REGEXP = /^(?:[a-z]+:|#|\?|\.|\/)/i;
  * Prepends "http://" to a url, if it looks like something that is meant to be a TLD.
  *
  * @param {string} url The URL to test.
- *
- * @example
- * ```js
- * const actualURL = prependHTTP( 'wordpress.org' ); // http://wordpress.org
- * ```
  *
  * @return {string} The updated URL.
  */
@@ -1257,12 +1216,6 @@ function safeDecodeURI(uri) {
  *
  * @param {string}      url       Original URL.
  * @param {number|null} maxLength URL length.
- *
- * @example
- * ```js
- * const displayUrl = filterURLForDisplay( 'https://www.wordpress.org/gutenberg/' ); // wordpress.org/gutenberg
- * const imageUrl = filterURLForDisplay( 'https://www.wordpress.org/wp-content/uploads/img.png', 20 ); // …ent/uploads/img.png
- * ```
  *
  * @return {string} Displayed URL.
  */
@@ -1418,11 +1371,6 @@ function normalizePath(path) {
  * Note: this will not replace "http://" with "https://".
  *
  * @param {string} url The URL to test.
- *
- * @example
- * ```js
- * const actualURL = prependHTTPS( 'wordpress.org' ); // https://wordpress.org
- * ```
  *
  * @return {string} The updated URL.
  */

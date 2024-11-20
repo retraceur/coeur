@@ -10600,23 +10600,6 @@ function WelcomeGuideStyles() {
           children: (0,external_wp_i18n_namespaceObject.__)('You can adjust your blocks to ensure a cohesive experience across your site — add your unique colors to a branded Button block, or adjust the Heading block to your preferred size.')
         })]
       })
-    }, {
-      image: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(WelcomeGuideImage, {
-        nonAnimatedSrc: "https://s.w.org/images/block-editor/welcome-documentation.svg",
-        animatedSrc: "https://s.w.org/images/block-editor/welcome-documentation.gif"
-      }),
-      content: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_ReactJSXRuntime_namespaceObject.Fragment, {
-        children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("h1", {
-          className: "edit-site-welcome-guide__heading",
-          children: (0,external_wp_i18n_namespaceObject.__)('Learn more')
-        }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)("p", {
-          className: "edit-site-welcome-guide__text",
-          children: [(0,external_wp_i18n_namespaceObject.__)('New to block themes and styling your site?'), ' ', /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ExternalLink, {
-            href: (0,external_wp_i18n_namespaceObject.__)('https://wordpress.org/documentation/article/styles-overview/'),
-            children: (0,external_wp_i18n_namespaceObject.__)('Here’s a detailed guide to learn how to make the most of it.')
-          })]
-        })]
-      })
     }]
   });
 }
@@ -22663,11 +22646,7 @@ function ScreenCSS() {
     children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(header, {
       title: (0,external_wp_i18n_namespaceObject.__)('CSS'),
       description: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_ReactJSXRuntime_namespaceObject.Fragment, {
-        children: [description, /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ExternalLink, {
-          href: (0,external_wp_i18n_namespaceObject.__)('https://developer.wordpress.org/advanced-administration/wordpress/css/'),
-          className: "edit-site-global-styles-screen-css-help-link",
-          children: (0,external_wp_i18n_namespaceObject.__)('Learn more about CSS')
-        })]
+        children: [description]
       })
     }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("div", {
       className: "edit-site-global-styles-screen-css",
@@ -39446,9 +39425,6 @@ const MAX_PAGE_COUNT = 100;
 const PAGES_QUERY = ['postType', 'page', {
   per_page: MAX_PAGE_COUNT,
   _fields: ['id', 'link', 'menu_order', 'parent', 'title', 'type'],
-  // TODO: When https://core.trac.wordpress.org/ticket/39037 REST API support for multiple orderby
-  // values is resolved, update 'orderby' to [ 'menu_order', 'post_title' ] to provide a consistent
-  // sort.
   orderby: 'menu_order',
   order: 'asc'
 }];

@@ -2,7 +2,7 @@
 /******/ 	"use strict";
 /******/ 	// The require scope
 /******/ 	var __webpack_require__ = {};
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
@@ -15,12 +15,12 @@
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -31,7 +31,7 @@
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
 var __webpack_exports__ = {};
 // ESM COMPAT FLAG
@@ -54,8 +54,6 @@ __webpack_require__.d(__webpack_exports__, {
  *
  * Note that if a resolution for Trac#45387 comes to fruition, it is no longer
  * necessary for `__unstableEscapeGreaterThan` to exist.
- *
- * See: https://core.trac.wordpress.org/ticket/45387
  *
  * @param value Original string.
  *
@@ -135,8 +133,6 @@ function escapeLessThan(value) {
  *
  * Note that if a resolution for Trac#45387 comes to fruition, it is no longer
  * necessary for `__unstableEscapeGreaterThan` to be used.
- *
- * See: https://core.trac.wordpress.org/ticket/45387
  *
  * @param value Attribute value.
  *

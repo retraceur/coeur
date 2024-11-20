@@ -2,7 +2,7 @@
 /******/ 	"use strict";
 /******/ 	// The require scope
 /******/ 	var __webpack_require__ = {};
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
@@ -15,12 +15,12 @@
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
 var __webpack_exports__ = {};
 
@@ -617,8 +617,6 @@ const createThemePreviewMiddleware = themePath => (options, next) => {
 const DEFAULT_HEADERS = {
   // The backend uses the Accept header as a condition for considering an
   // incoming request as a REST request.
-  //
-  // See: https://core.trac.wordpress.org/ticket/44534
   Accept: 'application/json, */*;q=0.1'
 };
 

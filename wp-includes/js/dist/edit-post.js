@@ -2430,24 +2430,6 @@ function WelcomeGuideDefault() {
           })
         })]
       })
-    }, {
-      image: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(WelcomeGuideImage, {
-        nonAnimatedSrc: "https://s.w.org/images/block-editor/welcome-documentation.svg",
-        animatedSrc: "https://s.w.org/images/block-editor/welcome-documentation.gif"
-      }),
-      content: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_ReactJSXRuntime_namespaceObject.Fragment, {
-        children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("h1", {
-          className: "edit-post-welcome-guide__heading",
-          children: (0,external_wp_i18n_namespaceObject.__)('Learn how to use the block editor')
-        }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("p", {
-          className: "edit-post-welcome-guide__text",
-          children: (0,external_wp_element_namespaceObject.createInterpolateElement)((0,external_wp_i18n_namespaceObject.__)("New to the block editor? Want to learn more about using it? <a>Here's a detailed guide.</a>"), {
-            a: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ExternalLink, {
-              href: (0,external_wp_i18n_namespaceObject.__)('https://wordpress.org/documentation/article/wordpress-block-editor/')
-            })
-          })
-        })]
-      })
     }]
   });
 }
@@ -3435,8 +3417,7 @@ function __experimentalPluginPostExcerpt() {
   }
   external_wp_deprecated_default()('wp.editPost.__experimentalPluginPostExcerpt', {
     since: '6.6',
-    hint: 'Core and custom panels can be access programmatically using their panel name.',
-    link: 'https://developer.wordpress.org/block-editor/reference-guides/slotfills/plugin-document-setting-panel/#accessing-a-panel-programmatically'
+    hint: 'Core and custom panels can be access programmatically using their panel name.'
   });
   return PluginPostExcerpt;
 }

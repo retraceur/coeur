@@ -2065,7 +2065,6 @@ function wp_sizes_attribute_includes_valid_auto( string $sizes_attr ): bool {
  *
  * @since 6.7.1
  * @see https://html.spec.whatwg.org/multipage/rendering.html#img-contain-size
- * @see https://core.trac.wordpress.org/ticket/62413
  */
 function wp_print_auto_sizes_contain_css_fix() {
 	/** This filter is documented in wp-includes/media.php */

@@ -156,7 +156,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 			// Using offsetHeight as a replacement for computed.height in IE, because IE does not account use of border-box
 			var actualHeight = computed.boxSizing === 'content-box' ? Math.round(parseFloat(computed.height)) : ta.offsetHeight;
 
-			// The actual height not matching the style height (set via the resize method) indicates that 
+			// The actual height not matching the style height (set via the resize method) indicates that
 			// the max-height has been exceeded, in which case the overflow should be allowed.
 			if (actualHeight < styleHeight) {
 				if (computed.overflowY === 'hidden') {
@@ -7487,7 +7487,7 @@ module.exports = { nanoid, customAlphabet }
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/ 	
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -7501,14 +7501,14 @@ module.exports = { nanoid, customAlphabet }
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
-/******/ 	
+/******/
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/ 	
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
@@ -7521,7 +7521,7 @@ module.exports = { nanoid, customAlphabet }
 /******/ 			return getter;
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -7533,12 +7533,12 @@ module.exports = { nanoid, customAlphabet }
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -7549,7 +7549,7 @@ module.exports = { nanoid, customAlphabet }
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be in strict mode.
@@ -15948,60 +15948,6 @@ function __unstableSetTemporarilyEditingAsBlocks(temporarilyEditingAsBlocks, foc
  * - _caption_ `[string]`: The caption of the media item.
  *
  * @param    {InserterMediaCategory}                                  category                       The inserter media category to register.
- *
- * @example
- * ```js
- *
- * wp.data.dispatch('core/block-editor').registerInserterMediaCategory( {
- * 	 name: 'openverse',
- * 	 labels: {
- * 	 	name: 'Openverse',
- * 	 	search_items: 'Search Openverse',
- * 	 },
- * 	 mediaType: 'image',
- * 	 async fetch( query = {} ) {
- * 	 	const defaultArgs = {
- * 	 		mature: false,
- * 	 		excluded_source: 'flickr,inaturalist,wikimedia',
- * 	 		license: 'pdm,cc0',
- * 	 	};
- * 	 	const finalQuery = { ...query, ...defaultArgs };
- * 	 	// Sometimes you might need to map the supported request params according to `InserterMediaRequest`.
- * 	 	// interface. In this example the `search` query param is named `q`.
- * 	 	const mapFromInserterMediaRequest = {
- * 	 		per_page: 'page_size',
- * 	 		search: 'q',
- * 	 	};
- * 	 	const url = new URL( 'https://api.openverse.org/v1/images/' );
- * 	 	Object.entries( finalQuery ).forEach( ( [ key, value ] ) => {
- * 	 		const queryKey = mapFromInserterMediaRequest[ key ] || key;
- * 	 		url.searchParams.set( queryKey, value );
- * 	 	} );
- * 	 	const response = await window.fetch( url, {
- * 	 		headers: {
- * 	 			'User-Agent': 'WordPress/inserter-media-fetch',
- * 	 		},
- * 	 	} );
- * 	 	const jsonResponse = await response.json();
- * 	 	const results = jsonResponse.results;
- * 	 	return results.map( ( result ) => ( {
- * 	 		...result,
- * 	 		// If your response result includes an `id` prop that you want to access later, it should
- * 	 		// be mapped to `InserterMediaItem`'s `sourceId` prop. This can be useful if you provide
- * 	 		// a report URL getter.
- * 	 		// Additionally you should always clear the `id` value of your response results because
- * 	 		// it is used to identify WordPress media items.
- * 	 		sourceId: result.id,
- * 	 		id: undefined,
- * 	 		caption: result.caption,
- * 	 		previewUrl: result.thumbnail,
- * 	 	} ) );
- * 	 },
- * 	 getReportUrl: ( { sourceId } ) =>
- * 	 	`https://wordpress.org/openverse/image/${ sourceId }/report/`,
- * 	 isExternalResource: true,
- * } );
- * ```
  *
  * @typedef {Object} InserterMediaCategory Interface for inserter media category.
  * @property {string}                                                 name                           The name of the media category, that should be unique among all media categories.
@@ -25118,12 +25064,7 @@ function BlockEditAnchorControlPure({
       className: "html-anchor-control",
       label: (0,external_wp_i18n_namespaceObject.__)('HTML anchor'),
       help: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_ReactJSXRuntime_namespaceObject.Fragment, {
-        children: [(0,external_wp_i18n_namespaceObject.__)('Enter a word or two — without spaces — to make a unique web address just for this block, called an “anchor”. Then, you’ll be able to link directly to this section of your page.'), isWeb && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_ReactJSXRuntime_namespaceObject.Fragment, {
-          children: [' ', /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ExternalLink, {
-            href: (0,external_wp_i18n_namespaceObject.__)('https://wordpress.org/documentation/article/page-jumps/'),
-            children: (0,external_wp_i18n_namespaceObject.__)('Learn more about anchors')
-          })]
-        })]
+        children: [(0,external_wp_i18n_namespaceObject.__)('Enter a word or two — without spaces — to make a unique web address just for this block, called an “anchor”. Then, you’ll be able to link directly to this section of your page.')]
       }),
       value: anchor || '',
       placeholder: !isWeb ? (0,external_wp_i18n_namespaceObject.__)('Add an anchor') : null,
@@ -44708,7 +44649,7 @@ function nestTokens(tokens, { list = true } = {}) {
 /**
  * Traverse an AST in depth-first order
  */
-function* flatten(node, 
+function* flatten(node,
 /**
  * @internal
  */
@@ -44733,7 +44674,7 @@ parent) {
 /**
  * Traverse an AST (or part thereof), in depth-first order
  */
-function walk(node, visit, 
+function walk(node, visit,
 /**
  * @internal
  */
@@ -45516,7 +45457,7 @@ function InserterPreviewPanel({
           //We want this CSS to be in sync with the one in BlockPreviewPanel.
           [{
             css: `
-										body { 
+										body {
 											padding: 24px;
 											min-height:${Math.round(minHeight)}px;
 											display:flex;
@@ -57392,13 +57333,6 @@ function useIsAccessibleToolbar(toolbarRef) {
   const determineIsAccessibleToolbar = (0,external_wp_element_namespaceObject.useCallback)(() => {
     const tabbables = external_wp_dom_namespaceObject.focus.tabbable.find(toolbarRef.current);
     const onlyToolbarItem = hasOnlyToolbarItem(tabbables);
-    if (!onlyToolbarItem) {
-      external_wp_deprecated_default()('Using custom components as toolbar controls', {
-        since: '5.6',
-        alternative: 'ToolbarItem, ToolbarButton or ToolbarDropdownMenu components',
-        link: 'https://developer.wordpress.org/block-editor/components/toolbar-button/#inside-blockcontrols'
-      });
-    }
     setIsAccessibleToolbar(onlyToolbarItem);
   }, [toolbarRef]);
   (0,external_wp_element_namespaceObject.useLayoutEffect)(() => {
@@ -63516,11 +63450,7 @@ function NonDefaultControls({
       __nextHasNoMarginBottom: true,
       label: (0,external_wp_i18n_namespaceObject.__)('Custom format'),
       hideLabelFromVision: true,
-      help: (0,external_wp_element_namespaceObject.createInterpolateElement)((0,external_wp_i18n_namespaceObject.__)('Enter a date or time <Link>format string</Link>.'), {
-        Link: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ExternalLink, {
-          href: (0,external_wp_i18n_namespaceObject.__)('https://wordpress.org/documentation/article/customize-date-and-time-format/')
-        })
-      }),
+      help: (0,external_wp_i18n_namespaceObject.__)('Enter a date or time format string.'),
       value: format,
       onChange: value => onChange(value)
     })]
@@ -67626,8 +67556,7 @@ function valueToHTMLString(value, multiline) {
     external_wp_deprecated_default()('wp.blockEditor.RichText value prop as children type', {
       since: '6.1',
       version: '6.3',
-      alternative: 'value prop as string',
-      link: 'https://developer.wordpress.org/block-editor/how-to-guides/block-tutorial/introducing-attributes-and-editable-fields/'
+      alternative: 'value prop as string'
     });
     return external_wp_blocks_namespaceObject.children.toHTML(value);
   }
@@ -67688,8 +67617,7 @@ function RichTextMultiline({
   external_wp_deprecated_default()('wp.blockEditor.RichText multiline prop', {
     since: '6.1',
     version: '6.3',
-    alternative: 'nested blocks (InnerBlocks)',
-    link: 'https://developer.wordpress.org/block-editor/how-to-guides/block-tutorial/nested-blocks-inner-blocks/'
+    alternative: 'nested blocks (InnerBlocks)'
   });
   const {
     clientId
@@ -67802,8 +67730,7 @@ function withDeprecations(Component) {
       external_wp_deprecated_default()('wp.blockEditor.RichText value prop as children type', {
         since: '6.1',
         version: '6.3',
-        alternative: 'value prop as string',
-        link: 'https://developer.wordpress.org/block-editor/how-to-guides/block-tutorial/introducing-attributes-and-editable-fields/'
+        alternative: 'value prop as string'
       });
       value = external_wp_blocks_namespaceObject.children.toHTML(props.value);
       onChange = newValue => props.onChange(external_wp_blocks_namespaceObject.children.fromDOM((0,external_wp_richText_namespaceObject.__unstableCreateElement)(document, newValue).childNodes));

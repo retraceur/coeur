@@ -588,7 +588,7 @@ module.exports = window["wp"]["isShallowEqual"];
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/ 	
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -602,14 +602,14 @@ module.exports = window["wp"]["isShallowEqual"];
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
-/******/ 	
+/******/
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
@@ -622,7 +622,7 @@ module.exports = window["wp"]["isShallowEqual"];
 /******/ 			return getter;
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -634,12 +634,12 @@ module.exports = window["wp"]["isShallowEqual"];
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -650,7 +650,7 @@ module.exports = window["wp"]["isShallowEqual"];
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
@@ -4504,7 +4504,7 @@ const isRequestingEmbedPreview = (0,external_wp_data_namespaceObject.createRegis
  *
  * @param      state Data state.
  * @param      query Optional object of query parameters to
- *                   include with request. For valid query parameters see the [Users page](https://developer.wordpress.org/rest-api/reference/users/) in the REST API Handbook and see the arguments for [List Users](https://developer.wordpress.org/rest-api/reference/users/#list-users) and [Retrieve a User](https://developer.wordpress.org/rest-api/reference/users/#retrieve-a-user).
+ *                   include with request.
  * @return Authors list.
  */
 function getAuthors(state, query) {
@@ -4635,7 +4635,7 @@ function getEntityConfig(state, kind, name) {
  * @param name  Entity name.
  * @param key   Record's key
  * @param query Optional query. If requesting specific
- *              fields, fields must always include the ID. For valid query parameters see the [Reference](https://developer.wordpress.org/rest-api/reference/) in the REST API Handbook and select the entity kind. Then see the arguments available "Retrieve a [Entity kind]".
+ *              fields, fields must always include the ID.
  *
  * @return Record.
  */
@@ -4742,7 +4742,7 @@ const getRawEntityRecord = (0,external_wp_data_namespaceObject.createSelector)((
  * @param state State tree
  * @param kind  Entity kind.
  * @param name  Entity name.
- * @param query Optional terms query. For valid query parameters see the [Reference](https://developer.wordpress.org/rest-api/reference/) in the REST API Handbook and select the entity kind. Then see the arguments available for "List [Entity kind]s".
+ * @param query Optional terms query.
  *
  * @return  Whether entity records have been received.
  */
@@ -4766,7 +4766,7 @@ function hasEntityRecords(state, kind, name, query) {
  * @param kind  Entity kind.
  * @param name  Entity name.
  * @param query Optional terms query. If requesting specific
- *              fields, fields must always include the ID. For valid query parameters see the [Reference](https://developer.wordpress.org/rest-api/reference/) in the REST API Handbook and select the entity kind. Then see the arguments available for "List [Entity kind]s".
+ *              fields, fields must always include the ID.
  *
  * @return Records.
  */
@@ -4787,7 +4787,7 @@ const getEntityRecords = (state, kind, name, query) => {
  * @param kind  Entity kind.
  * @param name  Entity name.
  * @param query Optional terms query. If requesting specific
- *              fields, fields must always include the ID. For valid query parameters see the [Reference](https://developer.wordpress.org/rest-api/reference/) in the REST API Handbook and select the entity kind. Then see the arguments available for "List [Entity kind]s".
+ *              fields, fields must always include the ID.
  *
  * @return number | null.
  */
@@ -4808,7 +4808,7 @@ const getEntityRecordsTotalItems = (state, kind, name, query) => {
  * @param kind  Entity kind.
  * @param name  Entity name.
  * @param query Optional terms query. If requesting specific
- *              fields, fields must always include the ID. For valid query parameters see the [Reference](https://developer.wordpress.org/rest-api/reference/) in the REST API Handbook and select the entity kind. Then see the arguments available for "List [Entity kind]s".
+ *              fields, fields must always include the ID.
  *
  * @return number | null.
  */
@@ -5213,8 +5213,6 @@ function isPreviewEmbedFallback(state, url) {
  * Calling this may trigger an OPTIONS request to the REST API via the
  * `canUser()` resolver.
  *
- * https://developer.wordpress.org/rest-api/reference/
- *
  * @param state    Data state.
  * @param action   Action to check. One of: 'create', 'read', 'update', 'delete'.
  * @param resource Entity resource to check. Accepts entity object `{ kind: 'root', name: 'media', id: 1 }`
@@ -5238,8 +5236,6 @@ function canUser(state, action, resource, id) {
  *
  * Calling this may trigger an OPTIONS request to the REST API via the
  * `canUser()` resolver.
- *
- * https://developer.wordpress.org/rest-api/reference/
  *
  * @param state    Data state.
  * @param kind     Entity kind.
@@ -5452,7 +5448,7 @@ function getDefaultTemplateId(state, query) {
  * @param name      Entity name.
  * @param recordKey The key of the entity record whose revisions you want to fetch.
  * @param query     Optional query. If requesting specific
- *                  fields, fields must always include the ID. For valid query parameters see revisions schema in [the REST API Handbook](https://developer.wordpress.org/rest-api/reference/). Then see the arguments available "Retrieve a [Entity kind]".
+ *                  fields, fields must always include the ID.
  *
  * @return Record.
  */
@@ -5473,7 +5469,7 @@ const getRevisions = (state, kind, name, recordKey, query) => {
  * @param recordKey   The key of the entity record whose revisions you want to fetch.
  * @param revisionKey The revision's key.
  * @param query       Optional query. If requesting specific
- *                    fields, fields must always include the ID. For valid query parameters see revisions schema in [the REST API Handbook](https://developer.wordpress.org/rest-api/reference/). Then see the arguments available "Retrieve a [entity kind]".
+ *                    fields, fields must always include the ID.
  *
  * @return Record.
  */

@@ -8541,8 +8541,6 @@ unlock(store_store).registerPrivateSelectors(store_private_selectors_namespaceOb
  * Object whose keys are the names of block attributes, where each value
  * represents the meta key to which the block attribute is intended to save.
  *
- * @see https://developer.wordpress.org/reference/functions/register_meta/
- *
  * @typedef {Object<string,string>} WPMetaAttributeMapping
  */
 
@@ -12436,11 +12434,7 @@ function ParentRow() {
           (0,external_wp_i18n_namespaceObject.__)('Child pages inherit characteristics from their parent, such as URL structure. For instance, if "Pricing" is a child of "Services", its URL would be %s<wbr />/services<wbr />/pricing.'), (0,external_wp_url_namespaceObject.filterURLForDisplay)(homeUrl).replace(/([/.])/g, '<wbr />$1')), {
             wbr: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("wbr", {})
           }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("p", {
-            children: (0,external_wp_element_namespaceObject.createInterpolateElement)((0,external_wp_i18n_namespaceObject.__)('They also show up as sub-items in the default navigation menu. <a>Learn more.</a>'), {
-              a: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ExternalLink, {
-                href: (0,external_wp_i18n_namespaceObject.__)('https://wordpress.org/documentation/article/page-post-settings-sidebar/#page-attributes')
-              })
-            })
+            children: (0,external_wp_i18n_namespaceObject.__)('They also show up as sub-items in the default navigation menu.')
           })]
         }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(PageAttributesParent, {})]
       })
@@ -13010,7 +13004,7 @@ const {
  * @param {string}                props.name                            Required. A machine-friendly name for the panel.
  * @param {string}                [props.className]                     An optional class name added to the row.
  * @param {string}                [props.title]                         The title of the panel
- * @param {WPBlockTypeIconRender} [props.icon=inherits from the plugin] The [Dashicon](https://developer.wordpress.org/resource/dashicons/) icon slug string, or an SVG WP element, to be rendered when the sidebar is pinned to toolbar.
+ * @param {WPBlockTypeIconRender} [props.icon=inherits from the plugin] The Dashicon icon slug string, or an SVG WP element, to be rendered when the sidebar is pinned to toolbar.
  * @param {Element}               props.children                        Children to be rendered
  *
  * @example
@@ -13132,7 +13126,7 @@ const shouldRenderItem = (selectedBlocks, allowedBlocks) => !Array.isArray(allow
  *
  * @param {Object}                props                 Component props.
  * @param {Array}                 [props.allowedBlocks] An array containing a list of block names for which the item should be shown. If not present, it'll be rendered for any block. If multiple blocks are selected, it'll be shown if and only if all of them are in the allowed list.
- * @param {WPBlockTypeIconRender} [props.icon]          The [Dashicon](https://developer.wordpress.org/resource/dashicons/) icon slug string, or an SVG WP element.
+ * @param {WPBlockTypeIconRender} [props.icon]          The Dashicon icon slug string, or an SVG WP element.
  * @param {string}                props.label           The menu item text.
  * @param {Function}              props.onClick         Callback function to be executed when the user click the menu item.
  * @param {boolean}               [props.small]         Whether to render the label or not.
@@ -13223,7 +13217,7 @@ const PluginBlockSettingsMenuItem = ({
  *
  * @param {Object}                props                                 Component properties.
  * @param {string}                [props.href]                          When `href` is provided then the menu item is represented as an anchor rather than button. It corresponds to the `href` attribute of the anchor.
- * @param {WPBlockTypeIconRender} [props.icon=inherits from the plugin] The [Dashicon](https://developer.wordpress.org/resource/dashicons/) icon slug string, or an SVG WP element, to be rendered to the left of the menu item label.
+ * @param {WPBlockTypeIconRender} [props.icon=inherits from the plugin] The Dashicon icon slug string, or an SVG WP element, to be rendered to the left of the menu item label.
  * @param {Function}              [props.onClick=noop]                  The callback function to be executed when the user clicks the menu item.
  * @param {...*}                  [props.other]                         Any additional props are passed through to the underlying [Button](/packages/components/src/button/README.md) component.
  *
@@ -13302,7 +13296,7 @@ const {
  * @param {string}                [props.className]                     An optional class name added to the panel.
  * @param {string}                [props.title]                         Title displayed at the top of the panel.
  * @param {boolean}               [props.initialOpen=false]             Whether to have the panel initially opened. When no title is provided it is always opened.
- * @param {WPBlockTypeIconRender} [props.icon=inherits from the plugin] The [Dashicon](https://developer.wordpress.org/resource/dashicons/) icon slug string, or an SVG WP element, to be rendered when the sidebar is pinned to toolbar.
+ * @param {WPBlockTypeIconRender} [props.icon=inherits from the plugin] The Dashicon icon slug string, or an SVG WP element, to be rendered when the sidebar is pinned to toolbar.
  * @param {Element}               props.children                        Children to be rendered
  *
  * @example
@@ -13438,7 +13432,7 @@ const {
  * @param {string}                [props.title]                         Title displayed at the top of the panel.
  * @param {boolean}               [props.initialOpen=false]             Whether to have the panel initially opened.
  *                                                                      When no title is provided it is always opened.
- * @param {WPBlockTypeIconRender} [props.icon=inherits from the plugin] The [Dashicon](https://developer.wordpress.org/resource/dashicons/)
+ * @param {WPBlockTypeIconRender} [props.icon=inherits from the plugin] The Dashicon
  *                                                                      icon slug string, or an SVG WP element, to be rendered when
  *                                                                      the sidebar is pinned to toolbar.
  * @param {Element}               props.children                        Children to be rendered
@@ -13567,7 +13561,7 @@ PluginPrePublishPanel.Slot = plugin_pre_publish_panel_Slot;
  * @param {string}                [props.className]                     An optional class name added to the sidebar body.
  * @param {string}                props.title                           Title displayed at the top of the sidebar.
  * @param {boolean}               [props.isPinnable=true]               Whether to allow to pin sidebar to the toolbar. When set to `true` it also automatically renders a corresponding menu item.
- * @param {WPBlockTypeIconRender} [props.icon=inherits from the plugin] The [Dashicon](https://developer.wordpress.org/resource/dashicons/) icon slug string, or an SVG WP element, to be rendered when the sidebar is pinned to toolbar.
+ * @param {WPBlockTypeIconRender} [props.icon=inherits from the plugin] The Dashicon icon slug string, or an SVG WP element, to be rendered when the sidebar is pinned to toolbar.
  *
  * @example
  * ```js
@@ -13650,7 +13644,7 @@ function PluginSidebar({
  *
  * @param {Object}                props                                 Component props.
  * @param {string}                props.target                          A string identifying the target sidebar you wish to be activated by this menu item. Must be the same as the `name` prop you have given to that sidebar.
- * @param {WPBlockTypeIconRender} [props.icon=inherits from the plugin] The [Dashicon](https://developer.wordpress.org/resource/dashicons/) icon slug string, or an SVG WP element, to be rendered to the left of the menu item label.
+ * @param {WPBlockTypeIconRender} [props.icon=inherits from the plugin] The Dashicon icon slug string, or an SVG WP element, to be rendered to the left of the menu item label.
  *
  * @example
  * ```js
@@ -14537,11 +14531,7 @@ function PostPingbacks() {
     __nextHasNoMarginBottom: true,
     label: (0,external_wp_i18n_namespaceObject.__)('Enable pingbacks & trackbacks'),
     checked: pingStatus === 'open',
-    onChange: onTogglePingback,
-    help: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ExternalLink, {
-      href: (0,external_wp_i18n_namespaceObject.__)('https://wordpress.org/documentation/article/trackbacks-and-pingbacks/'),
-      children: (0,external_wp_i18n_namespaceObject.__)('Learn more about pingbacks & trackbacks')
-    })
+    onChange: onTogglePingback
   });
 }
 
@@ -14775,10 +14765,7 @@ function PostExcerpt({
       onChange: updateOnBlur ? setLocalExcerpt : updatePost,
       onBlur: updateOnBlur ? () => updatePost(localExcerpt) : undefined,
       value: updateOnBlur ? localExcerpt : excerpt,
-      help: !shouldUseDescriptionLabel ? /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ExternalLink, {
-        href: (0,external_wp_i18n_namespaceObject.__)('https://wordpress.org/documentation/article/page-post-settings-sidebar/#excerpt'),
-        children: (0,external_wp_i18n_namespaceObject.__)('Learn more about manual excerpts')
-      }) : (0,external_wp_i18n_namespaceObject.__)('Write a description')
+      help: (0,external_wp_i18n_namespaceObject.__)('Write a description')
     })
   });
 }
@@ -15900,7 +15887,6 @@ function PostLockedModal() {
     }
 
     // Details on these events on the Heartbeat API docs
-    // https://developer.wordpress.org/plugins/javascript/heartbeat-api/
     (0,external_wp_hooks_namespaceObject.addAction)('heartbeat.send', hookName, sendPostLock);
     (0,external_wp_hooks_namespaceObject.addAction)('heartbeat.tick', hookName, receivePostLock);
     window.addEventListener('beforeunload', releasePostLock);
@@ -21311,11 +21297,7 @@ function PostURL({
     }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_wp_components_namespaceObject.__experimentalVStack, {
       spacing: 3,
       children: [isEditable && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("div", {
-        children: (0,external_wp_element_namespaceObject.createInterpolateElement)((0,external_wp_i18n_namespaceObject.__)('Customize the last part of the URL. <a>Learn more.</a>'), {
-          a: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ExternalLink, {
-            href: (0,external_wp_i18n_namespaceObject.__)('https://wordpress.org/documentation/article/page-post-settings-sidebar/#permalink')
-          })
-        })
+        children: ('Customize the last part of the URL.')
       }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)("div", {
         children: [isEditable && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.__experimentalInputControl, {
           __next40pxDefaultSize: true,
@@ -22120,54 +22102,6 @@ const inserterMediaCategories = [{
       media_type: 'audio'
     });
   }
-}, {
-  name: 'openverse',
-  labels: {
-    name: (0,external_wp_i18n_namespaceObject.__)('Openverse'),
-    search_items: (0,external_wp_i18n_namespaceObject.__)('Search Openverse')
-  },
-  mediaType: 'image',
-  async fetch(query = {}) {
-    const defaultArgs = {
-      mature: false,
-      excluded_source: 'flickr,inaturalist,wikimedia',
-      license: 'pdm,cc0'
-    };
-    const finalQuery = {
-      ...query,
-      ...defaultArgs
-    };
-    const mapFromInserterMediaRequest = {
-      per_page: 'page_size',
-      search: 'q'
-    };
-    const url = new URL('https://api.openverse.org/v1/images/');
-    Object.entries(finalQuery).forEach(([key, value]) => {
-      const queryKey = mapFromInserterMediaRequest[key] || key;
-      url.searchParams.set(queryKey, value);
-    });
-    const response = await window.fetch(url, {
-      headers: {
-        'User-Agent': 'WordPress/inserter-media-fetch'
-      }
-    });
-    const jsonResponse = await response.json();
-    const results = jsonResponse.results;
-    return results.map(result => ({
-      ...result,
-      // This is a temp solution for better titles, until Openverse API
-      // completes the cleaning up of some titles of their upstream data.
-      title: result.title?.toLowerCase().startsWith('file:') ? result.title.slice(5) : result.title,
-      sourceId: result.id,
-      id: undefined,
-      caption: getOpenverseCaption(result),
-      previewUrl: result.thumbnail
-    }));
-  },
-  getReportUrl: ({
-    sourceId
-  }) => `https://wordpress.org/openverse/image/${sourceId}/report/`,
-  isExternalResource: true
 }];
 /* harmony default export */ const media_categories = (inserterMediaCategories);
 
@@ -25804,16 +25738,6 @@ function MoreMenu() {
             onClick: () => openModal('editor/keyboard-shortcut-help'),
             shortcut: external_wp_keycodes_namespaceObject.displayShortcut.access('h'),
             children: (0,external_wp_i18n_namespaceObject.__)('Keyboard shortcuts')
-          }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(CopyContentMenuItem, {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_wp_components_namespaceObject.MenuItem, {
-            icon: library_external,
-            href: (0,external_wp_i18n_namespaceObject.__)('https://wordpress.org/documentation/article/wordpress-block-editor/'),
-            target: "_blank",
-            rel: "noopener noreferrer",
-            children: [(0,external_wp_i18n_namespaceObject.__)('Help'), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.VisuallyHidden, {
-              as: "span",
-              children: /* translators: accessibility text */
-              (0,external_wp_i18n_namespaceObject.__)('(opens in a new tab)')
-            })]
           }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(tools_more_menu_group.Slot, {
             fillProps: {
               onClose
@@ -25866,7 +25790,7 @@ function PostPublishButtonOrToggle({
    * Conditions to show a BUTTON (publish directly) or a TOGGLE (open publish sidebar):
    *
    * 1) We want to show a BUTTON when the post status is at the _final stage_
-   * for a particular role (see https://wordpress.org/documentation/article/post-status/):
+   * for a particular role:
    *
    * - is published
    * - post status has changed explicitely to something different than 'future' or 'publish'

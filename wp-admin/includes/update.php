@@ -595,7 +595,7 @@ function wp_plugin_update_row( $file, $plugin_data ) {
 		 * @param object $response {
 		 *     An object of metadata about the available plugin update.
 		 *
-		 *     @type string   $id           Plugin ID, e.g. `w.org/plugins/[plugin-name]`.
+		 *     @type string   $id           Plugin ID, e.g. `github.com/motsVertueux/[plugin-name]`.
 		 *     @type string   $slug         Plugin slug.
 		 *     @type string   $plugin       Plugin basename.
 		 *     @type string   $new_version  New plugin version.

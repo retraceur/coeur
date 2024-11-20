@@ -595,7 +595,7 @@ module.exports.remove = removeAccents;
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/ 	
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -609,14 +609,14 @@ module.exports.remove = removeAccents;
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
-/******/ 	
+/******/
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
@@ -629,7 +629,7 @@ module.exports.remove = removeAccents;
 /******/ 			return getter;
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -641,12 +641,12 @@ module.exports.remove = removeAccents;
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -657,7 +657,7 @@ module.exports.remove = removeAccents;
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be in strict mode.
@@ -6802,9 +6802,6 @@ function edit_ClassicEdit({
       }
       editor.on('blur', () => {
         bookmark = editor.selection.getBookmark(2, true);
-        // There is an issue with Chrome and the editor.focus call in core at https://core.trac.wordpress.org/browser/trunk/src/js/_enqueues/lib/link.js#L451.
-        // This causes a scroll to the top of editor content on return from some content updating dialogs so tracking
-        // scroll position until this is fixed in core.
         const scrollContainer = document.querySelector('.interface-interface-skeleton__content');
         const scrollPosition = scrollContainer.scrollTop;
 
@@ -16325,12 +16322,6 @@ const EmbedPlaceholder = ({
         type: "submit",
         children: (0,external_wp_i18n_namespaceObject._x)('Embed', 'button label')
       })]
-    }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("div", {
-      className: "wp-block-embed__learn-more",
-      children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ExternalLink, {
-        href: (0,external_wp_i18n_namespaceObject.__)('https://wordpress.org/documentation/article/embeds/'),
-        children: (0,external_wp_i18n_namespaceObject.__)('Learn more about embeds')
-      })
     }), cannotEmbed && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_wp_components_namespaceObject.__experimentalVStack, {
       spacing: 3,
       className: "components-placeholder__error",
@@ -34192,7 +34183,6 @@ function mapMenuItemsToBlocks(menuItems, level = 0) {
 /**
  * A WP nav_menu_item object.
  * For more documentation on the individual fields present on a menu item please see:
- * https://core.trac.wordpress.org/browser/tags/5.7.1/src/wp-includes/nav-menu.php#L789
  *
  * @typedef WPNavMenuItem
  *
@@ -37026,21 +37016,21 @@ const navigation_settings = {
       attributes: {
         // translators: 'Home' as in a website's home page.
         label: (0,external_wp_i18n_namespaceObject.__)('Home'),
-        url: 'https://make.wordpress.org/'
+        url: 'https://github.com/motsVertueux/'
       }
     }, {
       name: 'core/navigation-link',
       attributes: {
         // translators: 'About' as in a website's about page.
         label: (0,external_wp_i18n_namespaceObject.__)('About'),
-        url: 'https://make.wordpress.org/'
+        url: 'https://github.com/motsVertueux/'
       }
     }, {
       name: 'core/navigation-link',
       attributes: {
         // translators: 'Contact' as in a website's contact page.
         label: (0,external_wp_i18n_namespaceObject.__)('Contact'),
-        url: 'https://make.wordpress.org/'
+        url: 'https://github.com/motsVertueux/'
       }
     }]
   },
@@ -39337,9 +39327,6 @@ function PageListEdit({
   } = (0,external_wp_coreData_namespaceObject.useEntityRecords)('postType', 'page', {
     per_page: MAX_PAGE_COUNT,
     _fields: ['id', 'link', 'menu_order', 'parent', 'title', 'type'],
-    // TODO: When https://core.trac.wordpress.org/ticket/39037 REST API support for multiple orderby
-    // values is resolved, update 'orderby' to [ 'menu_order', 'post_title' ] to provide a consistent
-    // sort.
     orderby: 'menu_order',
     order: 'asc'
   });
@@ -39349,9 +39336,6 @@ function PageListEdit({
       return new Map();
     }
 
-    // TODO: Once the REST API supports passing multiple values to
-    // 'orderby', this can be removed.
-    // https://core.trac.wordpress.org/ticket/39037
     const sortedPages = pages.sort((a, b) => {
       if (a.menu_order === b.menu_order) {
         return a.title.rendered.localeCompare(b.title.rendered);
@@ -42696,7 +42680,6 @@ function PostExcerptEditor({
    * Add an exception and return early for the "page" post type,
    * which is registered without support for the excerpt UI,
    * but supports saving the excerpt to the database.
-   * See: https://core.trac.wordpress.org/browser/branches/6.1/src/wp-includes/post.php#L65
    * Without this exception, users that have excerpts saved to the database will
    * not be able to edit the excerpts.
    */
@@ -45694,8 +45677,6 @@ const pullquote_deprecated_v5 = {
     };
   }
 };
-
-// TODO: this is ripe for a bit of a clean up according to the example in https://developer.wordpress.org/block-editor/reference-guides/block-api/block-deprecation/#example
 
 const pullquote_deprecated_v4 = {
   attributes: {
@@ -52125,7 +52106,7 @@ const rss_settings = {
   icon: library_rss,
   example: {
     attributes: {
-      feedURL: 'https://wordpress.org'
+      feedURL: 'https://github.com/motsVertueux/core/releases.atom'
     }
   },
   edit: RSSEdit
@@ -53272,13 +53253,6 @@ const external_wp_autop_namespaceObject = window["wp"]["autop"];
 const shortcode_transforms_transforms = {
   from: [{
     type: 'shortcode',
-    // Per "Shortcode names should be all lowercase and use all
-    // letters, but numbers and underscores should work fine too.
-    // Be wary of using hyphens (dashes), you'll be better off not
-    // using them." in https://codex.wordpress.org/Shortcode_API
-    // Require that the first character be a letter. This notably
-    // prevents footnote markings ([1]) from being caught as
-    // shortcodes.
     tag: '[a-z][a-z0-9_-]*',
     attributes: {
       text: {
@@ -56624,20 +56598,14 @@ const social_links_settings = {
     innerBlocks: [{
       name: 'core/social-link',
       attributes: {
-        service: 'wordpress',
-        url: 'https://wordpress.org'
+        service: 'github',
+        url: 'https://github.com/motsVertueux'
       }
     }, {
       name: 'core/social-link',
       attributes: {
-        service: 'facebook',
-        url: 'https://www.facebook.com/WordPress/'
-      }
-    }, {
-      name: 'core/social-link',
-      attributes: {
-        service: 'twitter',
-        url: 'https://twitter.com/WordPress'
+        service: 'chain',
+        url: 'https://github.com/motsVertueux'
       }
     }]
   },

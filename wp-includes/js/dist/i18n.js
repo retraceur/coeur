@@ -244,7 +244,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/* global window, exports, define */
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/ 	
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -258,14 +258,14 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/* global window, exports, define */
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
-/******/ 	
+/******/
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
@@ -278,7 +278,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/* global window, exports, define */
 /******/ 			return getter;
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -290,12 +290,12 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/* global window, exports, define */
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -306,7 +306,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/* global window, exports, define */
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be in strict mode.
@@ -1119,31 +1119,23 @@ const I18N_HOOK_REGEXP = /^i18n\.(n?gettext|has_translation)(_|$)/;
  * @typedef {(text: string, domain?: string) => string} __
  *
  * Retrieve the translation of text.
- *
- * @see https://developer.wordpress.org/reference/functions/__/
  */
 /**
  * @typedef {(text: string, context: string, domain?: string) => string} _x
  *
  * Retrieve translated string with gettext context.
- *
- * @see https://developer.wordpress.org/reference/functions/_x/
  */
 /**
  * @typedef {(single: string, plural: string, number: number, domain?: string) => string} _n
  *
  * Translates and retrieves the singular or plural form based on the supplied
  * number.
- *
- * @see https://developer.wordpress.org/reference/functions/_n/
  */
 /**
  * @typedef {(single: string, plural: string, number: number, context: string, domain?: string) => string} _nx
  *
  * Translates and retrieves the singular or plural form based on the supplied
  * number, with gettext context.
- *
- * @see https://developer.wordpress.org/reference/functions/_nx/
  */
 /**
  * @typedef {() => boolean} IsRtl
@@ -1521,8 +1513,6 @@ const subscribe = i18n.subscribe.bind(i18n);
 /**
  * Retrieve the translation of text.
  *
- * @see https://developer.wordpress.org/reference/functions/__/
- *
  * @param {string} text     Text to translate.
  * @param {string} [domain] Domain to retrieve the translated text.
  *
@@ -1532,8 +1522,6 @@ const __ = i18n.__.bind(i18n);
 
 /**
  * Retrieve translated string with gettext context.
- *
- * @see https://developer.wordpress.org/reference/functions/_x/
  *
  * @param {string} text     Text to translate.
  * @param {string} context  Context information for the translators.
@@ -1546,8 +1534,6 @@ const _x = i18n._x.bind(i18n);
 /**
  * Translates and retrieves the singular or plural form based on the supplied
  * number.
- *
- * @see https://developer.wordpress.org/reference/functions/_n/
  *
  * @param {string} single   The text to be used if the number is singular.
  * @param {string} plural   The text to be used if the number is plural.
@@ -1562,8 +1548,6 @@ const _n = i18n._n.bind(i18n);
 /**
  * Translates and retrieves the singular or plural form based on the supplied
  * number, with gettext context.
- *
- * @see https://developer.wordpress.org/reference/functions/_nx/
  *
  * @param {string} single   The text to be used if the number is singular.
  * @param {string} plural   The text to be used if the number is plural.
