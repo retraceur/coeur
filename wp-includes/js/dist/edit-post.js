@@ -2399,8 +2399,8 @@ function WelcomeGuideDefault() {
       })
     }, {
       image: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(WelcomeGuideImage, {
-        nonAnimatedSrc: "https://s.w.org/images/block-editor/welcome-editor.svg",
-        animatedSrc: "https://s.w.org/images/block-editor/welcome-editor.gif"
+        nonAnimatedSrc: "https://wsrv.nl/?url=https://raw.githubusercontent.com/motsVertueux/ressources/refs/heads/main/images/welcome-editor.svg",
+        animatedSrc: "https://wsrv.nl/?url=https://raw.githubusercontent.com/motsVertueux/ressources/refs/heads/main/images/welcome-editor.gif&n=-1"
       }),
       content: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_ReactJSXRuntime_namespaceObject.Fragment, {
         children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("h1", {
