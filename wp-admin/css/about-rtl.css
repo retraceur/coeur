@@ -572,7 +572,7 @@
 	border-radius: var(--border-radius);
 	background-repeat: no-repeat;
 	background-position: left 7% center, top right;
-	background-color: var(--background);
+	background-color: #FFF;
 }
 
 .about__header-image {
@@ -601,6 +601,7 @@
 .contribute-php .about__header-title h1 {
 	/* Fluid font size scales on browser size 960px - 1200px. */
 	font-size: clamp(2rem, 20vw - 9rem, 4rem);
+	color: #191970;
 }
 
 .about__header-text {
@@ -924,28 +925,26 @@
 
 /* motsVertueux Version Badge */
 
-.wp-badge {
-	background: #0073aa url(../images/mv-logo-white.png?ver=20160308) no-repeat;
+.mv-badge {
+	background: #0073aa url(../images/mv-logo.png?ver=20241123) no-repeat;
 	background-position: center 25px;
 	background-size: 80px 80px;
 	color: #fff;
 	font-size: 14px;
 	text-align: center;
 	font-weight: 600;
-	margin: 5px 0 0;
-	padding-top: 120px;
-	height: 40px;
+	height: 80px;
 	display: inline-block;
-	width: 140px;
+	width: 100px;
 	text-rendering: optimizeLegibility;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-.svg .wp-badge {
-	background-image: url(../images/motsvertueux-logo-white.svg?ver=20160308);
+.svg .mv-badge {
+	background-image: transparent url(../images/motsvertueux-logo.svg?ver=20241123) no-repeat;
 }
 
-.about-wrap .wp-badge {
+.about-wrap .mv-badge {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -1362,7 +1361,7 @@
 		margin-bottom: 0.25em;
 	}
 
-	.about-wrap .wp-badge {
+	.about-wrap .mv-badge {
 		position: relative;
 		margin-bottom: 1.5em;
 		width: 100%;

@@ -19,11 +19,12 @@ list( $display_version ) = explode( '-', mv_get_mv_version() );
 
 require_once ABSPATH . 'wp-admin/admin-header.php';
 ?>
-	<div class="wrap about__container">
+	<div class="wrap about__container svg">
 
 		<div class="about__header">
 			<div class="about__header-title">
 				<h1>
+					<div class="mv-badge"></div>
 					<?php
 					printf(
 						/* translators: %s: Version number. */

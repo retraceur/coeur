@@ -1737,7 +1737,7 @@ function do_favicon() {
 	 */
 	do_action( 'do_faviconico' );
 
-	wp_redirect( get_site_icon_url( 32, includes_url( 'images/mv-logo-red-white.png' ) ) );
+	wp_redirect( get_site_icon_url( 32, includes_url( 'images/mv-logo-blue-white-red.png' ) ) );
 	exit;
 }
 
