@@ -359,7 +359,7 @@ GNU Lesser General Public License instead of this License.
 
 ## Copyrights
 
-motsVertueux - Blogging software
+Retraceur - Personal Web Publisher
 
 Copyright 2024 by the contributors
 
