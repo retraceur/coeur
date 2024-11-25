@@ -2,9 +2,9 @@
 /**
  * These functions are needed to load WordPress.
  * 
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  */
 
 /**
@@ -147,7 +147,7 @@ function wp_populate_basic_auth_from_authorization_header() {
  * Dies if requirements are not met.
  *
  * @since WP 3.0.0
- * @since 1.0.0    motsVertueux fork.
+ * @since 1.0.0    Retraceur fork.
  * @access private
  *
  * @global string $required_php_version The required PHP version string.

@@ -3,9 +3,9 @@
  * Utilities used to fetch and create templates and template parts.
  *
  * @since WP 5.8.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Block Template
  */
 

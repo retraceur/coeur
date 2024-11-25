@@ -5,7 +5,7 @@
  * This file contains the class for the REST API Font Collections Controller.
  *
  * @since WP 6.5.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
  * @package    WordPress
  * @subpackage REST_API

@@ -3,9 +3,9 @@
  * Multisite administration functions.
  *
  * @since WP 3.0.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Multisite
  */
 
@@ -139,7 +139,7 @@ function wpmu_delete_blog( $blog_id, $drop = false ) {
  *
  * @since WP 3.0.0
  *
- * @global wpdb $wpdb motsVertueux database abstraction object.
+ * @global wpdb $wpdb Retraceur database abstraction object.
  *
  * @param int $id The user ID.
  * @return bool True if the user was deleted, false otherwise.
@@ -644,7 +644,7 @@ function mu_dropdown_languages( $lang_files = array(), $current = '' ) {
 		}
 	}
 
-	if ( false === $flag ) { // motsVertueux English.
+	if ( false === $flag ) { // Retraceur English.
 		$output[] = '<option value=""' . selected( $current, '', false ) . '>' . __( 'English' ) . '</option>';
 	}
 

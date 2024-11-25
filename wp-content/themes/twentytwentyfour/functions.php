@@ -3,7 +3,7 @@
  * Twenty Twenty-Four functions and definitions.
  *
  * @since WP Twenty Twenty-Four 1.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
  * @package Twenty Twenty-Four
  */

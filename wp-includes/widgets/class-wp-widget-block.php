@@ -3,9 +3,9 @@
  * Widget API: WP_Widget_Block class.
  *
  * @since WP 5.8.0
- * @deprecated 1.0.0 motsVertueux fork.
+ * @deprecated 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Widgets
  */
 

@@ -5,9 +5,9 @@
  * This handles validation, sanitization and saving of the value.
  *
  * @since WP 4.7.0
- * @deprecated 1.0.0 motsVertueux removed the customizer feature.
+ * @deprecated 1.0.0 Retraceur removed the customizer feature.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Customize
  */
 

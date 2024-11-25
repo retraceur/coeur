@@ -2,13 +2,13 @@
 /**
  * Writing settings administration panel.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Administration
  */
 
-/** motsVertueux Administration Bootstrap */
+/** Retraceur Administration Bootstrap */
 require_once __DIR__ . '/admin.php';
 
 if ( ! current_user_can( 'manage_options' ) ) {
@@ -111,7 +111,7 @@ apply_filters_deprecated(
 	array( true ),
 	'1.0.0',
 	'',
-	__( 'Posting by email is not supported in motsVertueux.' )
+	__( 'Posting by email is not supported in Retraceur.' )
 );
 
 /**

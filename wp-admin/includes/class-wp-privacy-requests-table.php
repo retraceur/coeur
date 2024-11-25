@@ -3,9 +3,9 @@
  * List Table API: WP_Privacy_Requests_Table class.
  *
  * @since WP 4.9.6
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Administration
  */
 
@@ -104,7 +104,7 @@ abstract class WP_Privacy_Requests_Table extends WP_List_Table {
 	 *
 	 * @since WP 4.9.6
 	 *
-	 * @global wpdb $wpdb motsVertueux database abstraction object.
+	 * @global wpdb $wpdb Retraceur database abstraction object.
 	 *
 	 * @return object Number of posts for each status.
 	 */

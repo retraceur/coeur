@@ -5,7 +5,7 @@
  * @since WP 4.4.0
  * @deprecated WP 4.9.0 This file is no longer used as of the menu creation UX introduced in #40104.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Customize
  */
 

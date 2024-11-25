@@ -2,15 +2,15 @@
 /**
  * Press This Display and Handler.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Press_This
  */
 
 define( 'IFRAME_REQUEST', true );
 
-/** motsVertueux Administration Bootstrap */
+/** Retraceur Administration Bootstrap */
 require_once __DIR__ . '/admin.php';
 
 function wp_load_press_this() {

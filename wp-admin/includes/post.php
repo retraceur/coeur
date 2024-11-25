@@ -1,10 +1,10 @@
 <?php
 /**
- * motsVertueux Post Administration API.
+ * Retraceur Post Administration API.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Administration
  */
 
@@ -252,7 +252,7 @@ function _wp_get_allowed_postdata( $post_data = null ) {
  *
  * @since WP 1.5.0
  *
- * @global wpdb $wpdb motsVertueux database abstraction object.
+ * @global wpdb $wpdb Retraceur database abstraction object.
  *
  * @param array|null $post_data Optional. The array of post data to process.
  *                              Defaults to the `$_POST` superglobal.
@@ -491,7 +491,7 @@ function edit_post( $post_data = null ) {
  *
  * @since WP 2.7.0
  *
- * @global wpdb $wpdb motsVertueux database abstraction object.
+ * @global wpdb $wpdb Retraceur database abstraction object.
  *
  * @param array|null $post_data Optional. The array of post data to process.
  *                              Defaults to the `$_POST` superglobal.
@@ -839,7 +839,7 @@ function get_default_post_to_edit( $post_type = 'post', $create_in_db = false ) 
  * @since WP 5.2.0 Added the `$type` parameter.
  * @since WP 5.8.0 Added the `$status` parameter.
  *
- * @global wpdb $wpdb motsVertueux database abstraction object.
+ * @global wpdb $wpdb Retraceur database abstraction object.
  *
  * @param string $title   Post title.
  * @param string $content Optional. Post content.
@@ -1050,7 +1050,7 @@ function delete_meta( $mid ) {
  *
  * @since WP 1.2.0
  *
- * @global wpdb $wpdb motsVertueux database abstraction object.
+ * @global wpdb $wpdb Retraceur database abstraction object.
  *
  * @return string[] Array of meta key names.
  */
@@ -1084,7 +1084,7 @@ function get_post_meta_by_id( $mid ) {
  *
  * @since WP 1.2.0
  *
- * @global wpdb $wpdb motsVertueux database abstraction object.
+ * @global wpdb $wpdb Retraceur database abstraction object.
  *
  * @param int $post_id A post ID.
  * @return array[] {
@@ -2344,7 +2344,7 @@ function get_block_editor_server_block_settings() {
  * @since WP 5.0.0
  *
  * @global WP_Post   $post           Global post object.
- * @global WP_Screen $current_screen motsVertueux current screen object.
+ * @global WP_Screen $current_screen Retraceur current screen object.
  * @global array     $wp_meta_boxes  Global meta box state.
  */
 function the_block_editor_meta_boxes() {

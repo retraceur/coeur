@@ -3,9 +3,9 @@
  * Align block support flag.
  *
  * @since WP 5.6.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  */
 
 /**

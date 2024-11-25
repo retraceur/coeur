@@ -3,9 +3,9 @@
  * Widget API: Default core widgets.
  *
  * @since WP 2.8.0
- * @deprecated 1.0.0 motsVertueux fork.
+ * @deprecated 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Widgets
  */
 

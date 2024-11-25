@@ -10,13 +10,13 @@
  * needing to use these functions a lot, you might experience timeouts.
  * If you do, then it is advised to just write the SQL code yourself.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Plugin
  */
 
-/** Load motsVertueux Bootstrap */
+/** Load Retraceur Bootstrap */
 require_once dirname( __DIR__ ) . '/wp-load.php';
 
 if ( ! function_exists( 'maybe_create_table' ) ) :
@@ -25,7 +25,7 @@ if ( ! function_exists( 'maybe_create_table' ) ) :
 	 *
 	 * @since WP 1.0.0
 	 *
-	 * @global wpdb $wpdb motsVertueux database abstraction object.
+	 * @global wpdb $wpdb Retraceur database abstraction object.
 	 *
 	 * @param string $table_name Database table name.
 	 * @param string $create_ddl SQL statement to create table.
@@ -61,7 +61,7 @@ if ( ! function_exists( 'maybe_add_column' ) ) :
 	 *
 	 * @since WP 1.0.0
 	 *
-	 * @global wpdb $wpdb motsVertueux database abstraction object.
+	 * @global wpdb $wpdb Retraceur database abstraction object.
 	 *
 	 * @param string $table_name  Database table name.
 	 * @param string $column_name Table column name.
@@ -99,7 +99,7 @@ endif;
  *
  * @since WP 1.0.0
  *
- * @global wpdb $wpdb motsVertueux database abstraction object.
+ * @global wpdb $wpdb Retraceur database abstraction object.
  *
  * @param string $table_name  Database table name.
  * @param string $column_name Table column name.
@@ -149,7 +149,7 @@ function maybe_drop_column( $table_name, $column_name, $drop_ddl ) {
  *
  * @since WP 1.0.0
  *
- * @global wpdb $wpdb motsVertueux database abstraction object.
+ * @global wpdb $wpdb Retraceur database abstraction object.
  *
  * @param string $table_name    Database table name.
  * @param string $col_name      Table column name.

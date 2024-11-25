@@ -3,9 +3,9 @@
  * Diff API: WP_Text_Diff_Renderer_Table class.
  *
  * @since WP 4.7.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Diff
  */
 

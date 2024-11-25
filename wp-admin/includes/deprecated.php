@@ -1,12 +1,12 @@
 <?php
 /**
- * Deprecated admin functions from past WP & motsVertueux versions. You shouldn't use these
+ * Deprecated admin functions from past WP & Retraceur versions. You shouldn't use these
  * functions and look for the alternatives instead. The functions will be removed
  * in a later version.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Deprecated
  */
 
@@ -229,7 +229,7 @@ function use_codepress() {
  *
  * @deprecated WP 3.1.0 Use get_users()
  *
- * @global wpdb $wpdb motsVertueux database abstraction object.
+ * @global wpdb $wpdb Retraceur database abstraction object.
  *
  * @return array List of user IDs.
  */
@@ -250,7 +250,7 @@ function get_author_user_ids() {
  *
  * @deprecated WP 3.1.0 Use get_users()
  *
- * @global wpdb $wpdb motsVertueux database abstraction object.
+ * @global wpdb $wpdb Retraceur database abstraction object.
  *
  * @param int $user_id User ID.
  * @return array|false List of editable authors. False if no editable users.
@@ -277,7 +277,7 @@ function get_editable_authors( $user_id ) {
  *
  * @deprecated WP 3.1.0 Use get_users()
  *
- * @global wpdb $wpdb motsVertueux database abstraction object.
+ * @global wpdb $wpdb Retraceur database abstraction object.
  *
  * @param int  $user_id       User ID.
  * @param bool $exclude_zeros Optional. Whether to exclude zeroes. Default true.
@@ -316,7 +316,7 @@ function get_editable_user_ids( $user_id, $exclude_zeros = true, $post_type = 'p
  *
  * @deprecated WP 3.1.0 Use get_users()
  *
- * @global wpdb $wpdb motsVertueux database abstraction object.
+ * @global wpdb $wpdb Retraceur database abstraction object.
  */
 function get_nonauthor_user_ids() {
 	_deprecated_function( __FUNCTION__, '3.1.0', 'get_users()' );
@@ -333,7 +333,7 @@ function get_nonauthor_user_ids() {
 
 if ( ! class_exists( 'WP_User_Search', false ) ) :
 /**
- * motsVertueux User Search class.
+ * Retraceur User Search class.
  *
  * @since WP 2.1.0
  * @deprecated WP 3.1.0 Use WP_User_Query
@@ -528,7 +528,7 @@ class WP_User_Search {
 	 * @since WP 2.1.0
 	 * @access public
 	 *
-	 * @global wpdb $wpdb motsVertueux database abstraction object.
+	 * @global wpdb $wpdb Retraceur database abstraction object.
 	 */
 	public function prepare_query() {
 		global $wpdb;
@@ -568,7 +568,7 @@ class WP_User_Search {
 	 * @since WP 2.1.0
 	 * @access public
 	 *
-	 * @global wpdb $wpdb motsVertueux database abstraction object.
+	 * @global wpdb $wpdb Retraceur database abstraction object.
 	 */
 	public function query() {
 		global $wpdb;
@@ -686,7 +686,7 @@ endif;
  * @deprecated WP 3.1.0 Use get_posts()
  * @see get_posts()
  *
- * @global wpdb $wpdb motsVertueux database abstraction object.
+ * @global wpdb $wpdb Retraceur database abstraction object.
  *
  * @param int    $user_id User ID to not retrieve posts from.
  * @param string $type    Optional. Post type to retrieve. Accepts 'draft', 'pending' or 'any' (all).
@@ -1250,7 +1250,7 @@ function screen_icon() {
  */
 function get_screen_icon() {
 	_deprecated_function( __FUNCTION__, '3.8.0' );
-	return '<!-- Screen icons are no longer used as of motsVertueux 3.8. -->';
+	return '<!-- Screen icons are no longer used as of Retraceur 3.8. -->';
 }
 
 /**
@@ -1319,7 +1319,7 @@ function wp_dashboard_secondary() {}
 function wp_dashboard_secondary_control() {}
 
 /**
- * Display plugins text for the motsVertueux news widget.
+ * Display plugins text for the Retraceur news widget.
  *
  * @since WP 2.5.0
  * @deprecated WP 4.8.0
@@ -1591,22 +1591,22 @@ function image_attachment_fields_to_save( $post, $attachment ) {
 }
 
 /**
- * 'motsVertueux Events and News' dashboard widget.
+ * 'Retraceur Events and News' dashboard widget.
  *
  * @since 2.7.0
  * @since 4.8.0 Removed popular plugins feed.
- * @deprecated 1.0.0 motsVertueux fork.
+ * @deprecated 1.0.0 Retraceur fork.
  */
 function wp_dashboard_primary() {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 }
 
 /**
- * Displays the motsVertueux events and news feeds.
+ * Displays the Retraceur events and news feeds.
  *
  * @since 3.8.0
  * @since 4.8.0 Removed popular plugins feed.
- * @deprecated 1.0.0 motsVertueux fork.
+ * @deprecated 1.0.0 Retraceur fork.
  *
  * @param string $widget_id Widget ID.
  * @param array  $feeds     Array of RSS feeds.
@@ -1620,7 +1620,7 @@ function wp_dashboard_primary_output( $widget_id, $feeds ) {
  *
  * @since 3.2.0
  * @since 5.8.0 Added a special message for Internet Explorer users.
- * @deprecated 1.0.0 motsVertueux fork.
+ * @deprecated 1.0.0 Retraceur fork.
  *
  * @global bool $is_IE
  */
@@ -1632,7 +1632,7 @@ function wp_dashboard_browser_nag() {
  * Adds an additional class to the browser nag if the current version is insecure.
  *
  * @since 3.2.0
- * @deprecated 1.0.0 motsVertueux fork.
+ * @deprecated 1.0.0 Retraceur fork.
  *
  * @param string[] $classes Array of meta box classes.
  * @return string[] Modified array of meta box classes.
@@ -1645,7 +1645,7 @@ function dashboard_browser_nag_class( $classes ) {
  * Checks if the user needs a browser update.
  *
  * @since 3.2.0
- * @deprecated 1.0.0 motsVertueux fork.
+ * @deprecated 1.0.0 Retraceur fork.
  *
  * @return array|false Array of browser data on success, false on failure.
  */
@@ -1657,7 +1657,7 @@ function wp_check_browser_version() {
  * Verifies the contents of a file against its ED25519 signature.
  *
  * @since 5.2.0
- * @deprecated 1.0.0 motsVertueux fork.
+ * @deprecated 1.0.0 Retraceur fork.
  *
  * @param string       $filename            The file to validate.
  * @param string|array $signatures          A Signature provided for the file.
@@ -1673,7 +1673,7 @@ function verify_file_signature( $filename, $signatures, $filename_for_errors = f
  * Retrieves the list of signing keys trusted by WordPress.
  *
  * @since 5.2.0
- * @deprecated 1.0.0 motsVertueux fork.
+ * @deprecated 1.0.0 Retraceur fork.
  *
  * @return string[] Array of base64-encoded signing keys.
  */
@@ -1685,7 +1685,7 @@ function wp_trusted_keys() {
  * Returns the content for the help sidebar on the Edit Site screens.
  *
  * @since WP 4.9.0
- * @deprecated 1.0.0 motsVertueux fork.
+ * @deprecated 1.0.0 Retraceur fork.
  *
  * @return string Help sidebar content.
  */
@@ -1698,7 +1698,7 @@ function get_site_screen_help_sidebar_content() {
  * Shows a username form for the favorites page.
  *
  * @since WP 3.5.0
- * @deprecated 1.0.0 motsVertueux fork.
+ * @deprecated 1.0.0 Retraceur fork.
  */
 function install_plugins_favorites_form() {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
@@ -1708,7 +1708,7 @@ function install_plugins_favorites_form() {
  * Display list of the available widgets.
  *
  * @since WP 2.5.0
- * @deprecated 1.0.0 motsVertueux fork.
+ * @deprecated 1.0.0 Retraceur fork.
  */
 function wp_list_widgets() {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
@@ -1718,7 +1718,7 @@ function wp_list_widgets() {
  * Callback to sort array by a 'name' key.
  *
  * @since WP 3.1.0
- * @deprecated 1.0.0 motsVertueux fork.
+ * @deprecated 1.0.0 Retraceur fork.
  *
  * @access private
  *
@@ -1734,7 +1734,7 @@ function _sort_name_callback( $a, $b ) {
  * Used in the admin widget config screen.
  *
  * @since WP 2.5.0
- * @deprecated 1.0.0 motsVertueux fork.
+ * @deprecated 1.0.0 Retraceur fork.
  *
  * @param string $sidebar      Sidebar ID.
  * @param string $sidebar_name Optional. Sidebar name. Default empty.
@@ -1747,7 +1747,7 @@ function wp_list_widget_controls( $sidebar, $sidebar_name = '' ) {
  * Retrieves the widget control arguments.
  *
  * @since WP 2.5.0
- * @deprecated 1.0.0 motsVertueux fork.
+ * @deprecated 1.0.0 Retraceur fork.
  *
  * @param array $params
  */
@@ -1756,7 +1756,7 @@ function wp_list_widget_controls_dynamic_sidebar( $params ) {
 }
 
 /**
- * @deprecated 1.0.0 motsVertueux fork.
+ * @deprecated 1.0.0 Retraceur fork.
  *
  * @param string $id_base
  */
@@ -1770,7 +1770,7 @@ function next_widget_id_number( $id_base ) {
  * Called from dynamic_sidebar().
  *
  * @since WP 2.5.0
- * @deprecated 1.0.0 motsVertueux fork.
+ * @deprecated 1.0.0 Retraceur fork.
  *
  * @param array $sidebar_args
  * @return array
@@ -1780,7 +1780,7 @@ function wp_widget_control( $sidebar_args ) {
 }
 
 /**
- * @deprecated 1.0.0 motsVertueux fork.
+ * @deprecated 1.0.0 Retraceur fork.
  * @param string $classes
  */
 function wp_widgets_access_body_class( $classes ) {
@@ -1791,7 +1791,7 @@ function wp_widgets_access_body_class( $classes ) {
  * Disables the Automattic widgets plugin, which was merged into core.
  *
  * @since WP 2.2.0
- * @deprecated 1.0.0 motsVertueux fork.
+ * @deprecated 1.0.0 Retraceur fork.
  */
 function maybe_disable_automattic_widgets() {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
@@ -1801,7 +1801,7 @@ function maybe_disable_automattic_widgets() {
  * Outputs a link category checklist element.
  *
  * @since WP 2.5.1
- * @deprecated 1.0.0 motsVertueux fork.
+ * @deprecated 1.0.0 Retraceur fork.
  *
  * @param int $link_id Optional. The link ID. Default 0.
  */
@@ -1813,7 +1813,7 @@ function wp_link_category_checklist( $link_id = 0 ) {
  * Displays link create form fields.
  *
  * @since WP 2.7.0
- * @deprecated 1.0.0 motsVertueux fork.
+ * @deprecated 1.0.0 Retraceur fork.
  *
  * @param object $link Current link object.
  */
@@ -1827,7 +1827,7 @@ function link_submit_meta_box( $link ) {
  * Displays advanced link options form fields.
  *
  * @since WP 2.6.0
- * @deprecated 1.0.0 motsVertueux fork.
+ * @deprecated 1.0.0 Retraceur fork.
  *
  * @param object $link Current link object.
  */
@@ -1839,7 +1839,7 @@ function link_advanced_meta_box( $link ) {
  * Displays link categories form fields.
  *
  * @since WP 2.6.0
- * @deprecated 1.0.0 motsVertueux fork.
+ * @deprecated 1.0.0 Retraceur fork.
  *
  * @param object $link Current link object.
  */
@@ -1851,7 +1851,7 @@ function link_categories_meta_box( $link ) {
  * Displays form fields for changing link target.
  *
  * @since WP 2.6.0
- * @deprecated 1.0.0 motsVertueux fork.
+ * @deprecated 1.0.0 Retraceur fork.
  *
  * @param object $link Current link object.
  */
@@ -1863,7 +1863,7 @@ function link_target_meta_box( $link ) {
  * Displays 'checked' checkboxes attribute for XFN microformat options.
  *
  * @since WP 1.0.1
- * @deprecated 1.0.0 motsVertueux fork.
+ * @deprecated 1.0.0 Retraceur fork.
  *
  * @param string $xfn_relationship XFN relationship category. Possible values are:
  *                                 'friendship', 'physical', 'professional',
@@ -1881,7 +1881,7 @@ function xfn_check( $xfn_relationship, $xfn_value = '', $deprecated = '' ) {
  * Displays XFN form fields.
  *
  * @since WP 2.6.0
- * @deprecated 1.0.0 motsVertueux fork.
+ * @deprecated 1.0.0 Retraceur fork.
  *
  * @param object $link Current link object.
  */
@@ -1893,7 +1893,7 @@ function link_xfn_meta_box( $link ) {
  * Adds a link using values provided in $_POST.
  *
  * @since WP 2.0.0
- * @deprecated 1.0.0 motsVertueux fork.
+ * @deprecated 1.0.0 Retraceur fork.
  */
 function add_link() {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
@@ -1903,7 +1903,7 @@ function add_link() {
  * Updates or inserts a link using values provided in $_POST.
  *
  * @since WP 2.0.0
- * @deprecated 1.0.0 motsVertueux fork.
+ * @deprecated 1.0.0 Retraceur fork.
  *
  * @param int $link_id Optional. ID of the link to edit. Default 0.
  * @return int|WP_Error Value 0 or WP_Error on failure. The link ID on success.
@@ -1916,7 +1916,7 @@ function edit_link( $link_id = 0 ) {
  * Retrieves the default link for editing.
  *
  * @since WP 2.0.0
- * @deprecated 1.0.0 motsVertueux fork.
+ * @deprecated 1.0.0 Retraceur fork.
  */
 function get_default_link_to_edit() {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
@@ -1926,7 +1926,7 @@ function get_default_link_to_edit() {
  * Deletes a specified link from the database.
  *
  * @since WP 2.0.0
- * @deprecated 1.0.0 motsVertueux fork.
+ * @deprecated 1.0.0 Retraceur fork.
  *
  * @param int $link_id ID of the link to delete.
  */
@@ -1937,7 +1937,7 @@ function wp_delete_link( $link_id ) {
 	 * Fires before a link is deleted.
 	 *
 	 * @since WP 2.0.0
-	 * @deprecated 1.0.0 motsVertueux fork.
+	 * @deprecated 1.0.0 Retraceur fork.
 	 *
 	 * @param int $link_id ID of the link to delete.
 	 */
@@ -1946,14 +1946,14 @@ function wp_delete_link( $link_id ) {
 		array( 0 ),
 		'1.0.0',
 		'',
-		__( 'The Link/bookmark manager feature is not available in motsVertueux.' )
+		__( 'The Link/bookmark manager feature is not available in Retraceur.' )
 	);
 
 	/**
 	 * Fires after a link has been deleted.
 	 *
 	 * @since WP 2.2.0
-	 * @deprecated 1.0.0 motsVertueux fork.
+	 * @deprecated 1.0.0 Retraceur fork.
 	 *
 	 * @param int $link_id ID of the deleted link.
 	 */
@@ -1962,7 +1962,7 @@ function wp_delete_link( $link_id ) {
 		array( 0 ),
 		'1.0.0',
 		'',
-		__( 'The Link/bookmark manager feature is not available in motsVertueux.' )
+		__( 'The Link/bookmark manager feature is not available in Retraceur.' )
 	);
 }
 
@@ -1970,7 +1970,7 @@ function wp_delete_link( $link_id ) {
  * Retrieves the link category IDs associated with the link specified.
  *
  * @since WP 2.1.0
- * @deprecated 1.0.0 motsVertueux fork.
+ * @deprecated 1.0.0 Retraceur fork.
  *
  * @param int $link_id Link ID to look up.
  */
@@ -1982,7 +1982,7 @@ function wp_get_link_cats( $link_id = 0 ) {
  * Retrieves link data based on its ID.
  *
  * @since WP 2.0.0
- * @deprecated 1.0.0 motsVertueux fork.
+ * @deprecated 1.0.0 Retraceur fork.
  *
  * @param int|stdClass $link Link ID or object to retrieve.
  */
@@ -1997,7 +1997,7 @@ function get_link_to_edit( $link ) {
  * and finally saves the link.
  *
  * @since WP 2.0.0
- * @deprecated 1.0.0 motsVertueux fork.
+ * @deprecated 1.0.0 Retraceur fork.
  *
  * @param array $linkdata {
  *     Elements that make up the link to insert.
@@ -2026,7 +2026,7 @@ function wp_insert_link( $linkdata, $wp_error = false ) {
 	 * Fires after a link was updated in the database.
 	 *
 	 * @since WP 2.0.0
-	 * @deprecated 1.0.0 motsVertueux fork.
+	 * @deprecated 1.0.0 Retraceur fork.
 	 *
 	 * @param int $link_id ID of the link that was updated.
 	 */
@@ -2035,14 +2035,14 @@ function wp_insert_link( $linkdata, $wp_error = false ) {
 		array( 0 ),
 		'1.0.0',
 		'',
-		__( 'The Link/bookmark manager feature is not available in motsVertueux.' )
+		__( 'The Link/bookmark manager feature is not available in Retraceur.' )
 	);
 
 	/**
 	 * Fires after a link was added to the database.
 	 *
 	 * @since WP 2.0.0
-	 * @deprecated 1.0.0 motsVertueux fork.
+	 * @deprecated 1.0.0 Retraceur fork.
 	 *
 	 * @param int $link_id ID of the link that was added.
 	 */
@@ -2051,7 +2051,7 @@ function wp_insert_link( $linkdata, $wp_error = false ) {
 		array( 0 ),
 		'1.0.0',
 		'',
-		__( 'The Link/bookmark manager feature is not available in motsVertueux.' )
+		__( 'The Link/bookmark manager feature is not available in Retraceur.' )
 	);
 }
 
@@ -2059,7 +2059,7 @@ function wp_insert_link( $linkdata, $wp_error = false ) {
  * Updates link with the specified link categories.
  *
  * @since WP 2.1.0
- * @deprecated 1.0.0 motsVertueux fork.
+ * @deprecated 1.0.0 Retraceur fork.
  *
  * @param int   $link_id         ID of the link to update.
  * @param int[] $link_categories Array of link category IDs to add the link to.
@@ -2072,7 +2072,7 @@ function wp_set_link_cats( $link_id = 0, $link_categories = array() ) {
  * Updates a link in the database.
  *
  * @since WP 2.0.0
- * @deprecated 1.0.0 motsVertueux fork.
+ * @deprecated 1.0.0 Retraceur fork.
  *
  * @param array $linkdata Link data to update. See wp_insert_link() for accepted arguments.
  * @return int|WP_Error Value 0 or WP_Error on failure. The updated link ID on success.
@@ -2082,10 +2082,10 @@ function wp_update_link( $linkdata ) {
 }
 
 /**
- * Outputs the 'disabled' message for the motsVertueux Link Manager.
+ * Outputs the 'disabled' message for the Retraceur Link Manager.
  *
  * @since WP 3.5.0
- * @deprecated 1.0.0 motsVertueux fork.
+ * @deprecated 1.0.0 Retraceur fork.
  *
  * @access private
  *

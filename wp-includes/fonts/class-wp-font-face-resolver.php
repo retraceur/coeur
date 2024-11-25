@@ -3,7 +3,7 @@
  * WP_Font_Face_Resolver class.
  *
  * @since WP 6.4.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
  * @package    WordPress
  * @subpackage Fonts

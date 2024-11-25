@@ -4,7 +4,7 @@
  * 
  * @deprecated WP 4.7.0
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Feed
  */
 

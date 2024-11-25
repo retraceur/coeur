@@ -3,9 +3,9 @@
  * Interface JS functions.
  *
  * @since WP 2.0.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Administration
  * @output wp-admin/js/nav-menu.js
  */

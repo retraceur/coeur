@@ -2,7 +2,7 @@
 /**
  * REST API: WP_REST_Edit_Site_Export_Controller class.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
  * @package    WordPress
  * @subpackage REST_API

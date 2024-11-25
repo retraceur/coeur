@@ -1,16 +1,16 @@
 <?php
 /**
- * Import motsVertueux Administration Screen.
+ * Import Retraceur Administration Screen.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Administration
  */
 
 define( 'WP_LOAD_IMPORTERS', true );
 
-/** Load motsVertueux Bootstrap */
+/** Load Retraceur Bootstrap */
 require_once __DIR__ . '/admin.php';
 
 if ( ! current_user_can( 'import' ) ) {

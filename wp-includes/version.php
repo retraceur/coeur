@@ -1,13 +1,13 @@
 <?php
 /**
- * motsVertueux Version
+ * Retraceur Version
  *
- * Contains version information for the current motsVertueux release.
+ * Contains version information for the current Retraceur release.
  *
  * @since WP 1.2.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  */
 
 /**
@@ -21,9 +21,9 @@
 $wp_version = '6.7.2-alpha-59447';
 
 /**
- * The motsVertueux version string.
+ * The Retraceur version string.
  *
- * Holds the current version number for motsVertueux.
+ * Holds the current version number for Retraceur.
  *
  * @global string $mv_version
  */

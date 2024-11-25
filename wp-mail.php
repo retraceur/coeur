@@ -1,15 +1,15 @@
 <?php
 /**
  * Gets the email message from the user's mailbox to add as
- * a motsVertueux post. Mailbox connection information must be
+ * a Retraceur post. Mailbox connection information must be
  * configured under Settings > Writing
  *
- * @package motsVertueux
+ * @package Retraceur
  *
- * @deprecated 1.0.0 motsVertueux removed the "Post by email" feature.
+ * @deprecated 1.0.0 Retraceur removed the "Post by email" feature.
  */
 
-/** Make sure that the motsVertueux bootstrap has run before continuing. */
+/** Make sure that the Retraceur bootstrap has run before continuing. */
 require __DIR__ . '/wp-load.php';
 
 _deprecated_file( basename( __FILE__ ), '1.0.0', '', '', true );
@@ -20,21 +20,21 @@ apply_filters_deprecated(
 	array( true ),
 	'1.0.0',
 	'',
-	__( 'Posting by email is not supported in motsVertueux.' )
+	__( 'Posting by email is not supported in Retraceur.' )
 );
 
 /**
  * Fires to allow a plugin to do a complete takeover of Post by Email.
  *
  * @since WP 2.9.0
- * @deprecated 1.0.0 motsVertueux removed the "Post by email" feature.
+ * @deprecated 1.0.0 Retraceur removed the "Post by email" feature.
  */
 do_action_deprecated(
 	'wp-mail.php', // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
 	array(),
 	'1.0.0',
 	'',
-	__( 'Posting by email is not supported in motsVertueux.' )
+	__( 'Posting by email is not supported in Retraceur.' )
 );
 
 /**
@@ -44,7 +44,7 @@ do_action_deprecated(
  * the raw content, or the content of the last quoted-printable section.
  *
  * @since WP 2.8.0
- * @deprecated 1.0.0 motsVertueux removed the "Post by email" feature.
+ * @deprecated 1.0.0 Retraceur removed the "Post by email" feature.
  *
  * @param string $content The original email content.
  */
@@ -53,14 +53,14 @@ apply_filters_deprecated(
 	array( '' ),
 	'1.0.0',
 	'',
-	__( 'Posting by email is not supported in motsVertueux.' )
+	__( 'Posting by email is not supported in Retraceur.' )
 );
 
 /**
  * Filters the content of the post submitted by email before saving.
  *
  * @since WP 1.2.0
- * @deprecated 1.0.0 motsVertueux removed the "Post by email" feature.
+ * @deprecated 1.0.0 Retraceur removed the "Post by email" feature.
  *
  * @param string $content The email content.
  */
@@ -69,14 +69,14 @@ apply_filters_deprecated(
 	array( '' ),
 	'1.0.0',
 	'',
-	__( 'Posting by email is not supported in motsVertueux.' )
+	__( 'Posting by email is not supported in Retraceur.' )
 );
 
 /**
  * Fires after a post submitted by email is published.
  *
  * @since WP 1.2.0
- * @deprecated 1.0.0 motsVertueux removed the "Post by email" feature.
+ * @deprecated 1.0.0 Retraceur removed the "Post by email" feature.
  *
  * @param int $post_ID The post ID.
  */
@@ -85,11 +85,11 @@ do_action_deprecated(
 	array( 0 ),
 	'1.0.0',
 	'',
-	__( 'Posting by email is not supported in motsVertueux.' )
+	__( 'Posting by email is not supported in Retraceur.' )
 );
 
 wp_die(
-	'<h1>' . __( 'motsVertueux does not provide the "Post by email" feature.' ) . '</h1>' .
+	'<h1>' . __( 'Retraceur does not provide the "Post by email" feature.' ) . '</h1>' .
 	'<p>' . __( 'Please use a plugin instead.' ) . '</p>',
 	500
 );

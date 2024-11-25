@@ -4,9 +4,9 @@
  *
  * Native support for ES Modules and Import Maps.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Script Modules
  */
 

@@ -4,9 +4,9 @@
  *
  * These functions are meant to live inside of the WordPress loop.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Template
  */
 

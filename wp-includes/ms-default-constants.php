@@ -3,9 +3,9 @@
  * Defines constants and global variables that can be overridden, generally in wp-config.php.
  *
  * @since WP 3.0.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Multisite
  */
 

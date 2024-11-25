@@ -26,7 +26,7 @@
  * Note that any appropriate tags may be used, as long as the above classes are present.
  *
  * @since WP 3.6.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  * 
  * @output wp-admin/js/accordion.js
  */

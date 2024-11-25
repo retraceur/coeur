@@ -3,7 +3,7 @@
  * PemFTP - An Ftp implementation.
  *
  * @since WP 2.5.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
  * @package PemFTP
  *

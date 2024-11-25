@@ -2,7 +2,7 @@
 /**
  * Deprecated. No longer needed.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @deprecated WP 3.1.0
  */
 

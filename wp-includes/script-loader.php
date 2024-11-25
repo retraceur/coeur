@@ -13,9 +13,9 @@
  * to temporarily override the above settings. Also a compression test is run once and the result is saved
  * as option 'can_compress_scripts' (0/1). The test will run again if that option is deleted.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  */
 
 /** WordPress Dependency Class */

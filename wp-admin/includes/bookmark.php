@@ -1,10 +1,10 @@
 <?php
 /**
- * motsVertueux Bookmark Administration API.
+ * Retraceur Bookmark Administration API.
  *
- * @deprecated 1.0.0 motsVertueux removed the Link/Bookmark API.
+ * @deprecated 1.0.0 Retraceur removed the Link/Bookmark API.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Administration
  */
 

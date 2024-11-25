@@ -5,9 +5,9 @@
  * There are many filters in here for media. Plugins can extend functionality
  * by hooking into the filters.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Administration
  */
 
@@ -15,7 +15,7 @@ if ( ! isset( $_GET['inline'] ) ) {
 	define( 'IFRAME_REQUEST', true );
 }
 
-/** Load motsVertueux Administration Bootstrap */
+/** Load Retraceur Administration Bootstrap */
 require_once __DIR__ . '/admin.php';
 
 if ( ! current_user_can( 'upload_files' ) ) {

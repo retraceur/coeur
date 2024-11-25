@@ -3,9 +3,9 @@
  * API for easily embedding rich media such as videos and images into content.
  *
  * @since WP 2.9.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Embed
  */
 #[AllowDynamicProperties]

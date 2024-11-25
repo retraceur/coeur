@@ -3,9 +3,9 @@
  * Screen API: WP_Screen class.
  *
  * @since WP 4.4.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Administration
  */
 
@@ -405,7 +405,7 @@ final class WP_Screen {
 	 * @see set_current_screen()
 	 * @since WP 3.3.0
 	 *
-	 * @global WP_Screen $current_screen motsVertueux current screen object.
+	 * @global WP_Screen $current_screen Retraceur current screen object.
 	 * @global string    $typenow        The post type of the current screen.
 	 * @global string    $taxnow         The taxonomy of the current screen.
 	 */

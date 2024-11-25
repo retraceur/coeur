@@ -5,9 +5,9 @@
  * REST Controller to create/fetch a fallback Navigation Menu.
  *
  * @since WP 6.3.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage REST_API
  * @since WP 6.3.0
  */

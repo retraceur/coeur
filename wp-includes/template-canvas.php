@@ -2,9 +2,9 @@
 /**
  * Template canvas file to render the current 'wp_template'.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  */
 
 /*

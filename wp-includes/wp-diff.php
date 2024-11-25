@@ -4,9 +4,9 @@
  *
  * Basically all that remains is the table structure and some method names.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Diff
  */
 

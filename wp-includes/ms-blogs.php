@@ -4,9 +4,9 @@
  * Site/blog functions that work with the blogs table and related data.
  *
  * @since WP MU (3.0.0)
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Multisite
  */
 

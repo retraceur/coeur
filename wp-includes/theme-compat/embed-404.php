@@ -6,9 +6,9 @@
  * output if the active theme does not include an embed-404.php template.
  *
  * @since WP 4.5.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Theme_Compat
  */
 ?>

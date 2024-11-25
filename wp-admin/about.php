@@ -2,9 +2,9 @@
 /**
  * About This Version administration panel.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Administration
  */
 
@@ -28,7 +28,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 					<?php
 					printf(
 						/* translators: %s: Version number. */
-						__( 'motsVertueux %s' ),
+						__( 'Retraceur %s' ),
 						$display_version
 					);
 					?>
@@ -50,7 +50,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 					<?php
 					printf(
 						/* translators: %s: Version number. */
-						__( 'Welcome to motsVertueux %s' ),
+						__( 'Welcome to Retraceur %s' ),
 						$display_version
 					);
 					?>

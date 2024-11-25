@@ -2,9 +2,9 @@
 /**
  * Tools Administration Screen.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Administration
  */
 
@@ -38,7 +38,7 @@ if ( isset( $_GET['wp-privacy-policy-guide'] ) ) {
 	}
 }
 
-/** motsVertueux Administration Bootstrap */
+/** Retraceur Administration Bootstrap */
 require_once __DIR__ . '/admin.php';
 
 // Used in the HTML title tag.

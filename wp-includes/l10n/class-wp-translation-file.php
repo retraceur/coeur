@@ -3,9 +3,9 @@
  * I18N: WP_Translation_File class.
  *
  * @since WP 6.5.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage I18N
  */
 

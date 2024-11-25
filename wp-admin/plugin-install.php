@@ -2,9 +2,9 @@
 /**
  * Install plugin administration panel.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Administration
  */
 // TODO: Route this page via a specific iframe handler instead of the do_action below.
@@ -13,7 +13,7 @@ if ( ! defined( 'IFRAME_REQUEST' ) && isset( $_GET['tab'] ) && ( 'plugin-informa
 }
 
 /**
- * motsVertueux Administration Bootstrap.
+ * Retraceur Administration Bootstrap.
  */
 require_once __DIR__ . '/admin.php';
 
@@ -122,7 +122,7 @@ get_current_screen()->set_screen_reader_content(
 );
 
 /**
- * motsVertueux Administration Template Header.
+ * Retraceur Administration Template Header.
  */
 require_once ABSPATH . 'wp-admin/admin-header.php';
 
@@ -198,6 +198,6 @@ wp_print_request_filesystem_credentials_modal();
 wp_print_admin_notice_templates();
 
 /**
- * motsVertueux Administration Template Footer.
+ * Retraceur Administration Template Footer.
  */
 require_once ABSPATH . 'wp-admin/admin-footer.php';

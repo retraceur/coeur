@@ -5,7 +5,7 @@
  * @since WP 5.8.0
  * @deprecated WP 6.7.0 This pattern is deprecated. Please use the Social Links block instead.
  *
- * @package motsVertueux
+ * @package Retraceur
  */
 
 return array(

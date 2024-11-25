@@ -3,15 +3,15 @@
  * WP_Application_Passwords class.
  * 
  * @since WP 5.6.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  */
 
 /**
  * Class for displaying, modifying, and sanitizing application passwords.
  *
- * @package motsVertueux
+ * @package Retraceur
  */
 #[AllowDynamicProperties]
 class WP_Application_Passwords {

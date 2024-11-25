@@ -2,9 +2,9 @@
 /**
  * Database Repair and Optimization Script.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Database
  */
 define( 'WP_REPAIRING', true );
@@ -19,11 +19,11 @@ header( 'Content-Type: text/html; charset=utf-8' );
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="robots" content="noindex,nofollow" />
-	<title><?php _e( 'motsVertueux &rsaquo; Database Repair' ); ?></title>
+	<title><?php _e( 'Retraceur &rsaquo; Database Repair' ); ?></title>
 	<?php wp_admin_css( 'install', true ); ?>
 </head>
 <body class="wp-core-ui">
-<p id="logo"><?php _e( 'motsVertueux' ); ?></p>
+<p id="logo"><?php _e( 'Retraceur' ); ?></p>
 
 <?php
 

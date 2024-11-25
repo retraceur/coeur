@@ -6,7 +6,7 @@
  *
  * @deprecated WP 5.3.0
  * 
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage oEmbed
  */
 

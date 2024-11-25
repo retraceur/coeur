@@ -3,7 +3,7 @@
  * Fonts functions.
  *
  * @since WP 6.4.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
  * @package    WordPress
  * @subpackage Fonts
@@ -267,7 +267,7 @@ function _wp_register_default_font_collections() {
 		array(
 			'name'          => _x( 'Google Fonts', 'font collection name' ),
 			'description'   => __( 'Install from Google Fonts. Fonts are copied to and served from your site.' ),
-			'font_families' => 'https://raw.githubusercontent.com/motsVertueux/ressources/refs/heads/main/fonts/google-fonts-with-preview.json',
+			'font_families' => 'https://raw.githubusercontent.com/Retraceur/ressources/refs/heads/main/fonts/google-fonts-with-preview.json',
 			'categories'    => array(
 				array(
 					'name' => _x( 'Sans Serif', 'font category' ),

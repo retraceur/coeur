@@ -3,9 +3,9 @@
  * Administration API: Core Ajax handlers.
  *
  * @since WP 2.1.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Administration
  */
 
@@ -276,7 +276,7 @@ function wp_ajax_imgedit_preview() {
  *
  * @since WP 3.1.0
  *
- * @global WP_Embed $wp_embed motsVertueux Embed object.
+ * @global WP_Embed $wp_embed Retraceur Embed object.
  */
 function wp_ajax_oembed_cache() {
 	$GLOBALS['wp_embed']->cache_oembed( $_GET['post'] );
@@ -2597,7 +2597,7 @@ function wp_ajax_wp_remove_post_lock() {
 }
 
 /**
- * Handles dismissing a motsVertueux pointer via AJAX.
+ * Handles dismissing a Retraceur pointer via AJAX.
  *
  * @since WP 3.1.0
  */
@@ -3034,7 +3034,7 @@ function wp_ajax_send_attachment_to_editor() {
  * @since WP 3.5.0
  *
  * @global WP_Post  $post     Global post object.
- * @global WP_Embed $wp_embed motsVertueux Embed object.
+ * @global WP_Embed $wp_embed Retraceur Embed object.
  */
 function wp_ajax_send_link_to_editor() {
 	global $post, $wp_embed;
@@ -3062,10 +3062,10 @@ function wp_ajax_send_link_to_editor() {
 
 	$post = get_post( isset( $_POST['post_id'] ) ? $_POST['post_id'] : 0 );
 
-	// Ping motsVertueux for an embed.
+	// Ping Retraceur for an embed.
 	$check_embed = $wp_embed->run_shortcode( '[embed]' . $src . '[/embed]' );
 
-	// Fallback that motsVertueux creates when no oEmbed was found.
+	// Fallback that Retraceur creates when no oEmbed was found.
 	$fallback = $wp_embed->maybe_make_link( $src );
 
 	if ( $check_embed !== $fallback ) {
@@ -3376,7 +3376,7 @@ function wp_ajax_query_themes() {
  * @since WP 4.0.0
  *
  * @global WP_Post    $post          Global post object.
- * @global WP_Embed   $wp_embed      motsVertueux Embed object.
+ * @global WP_Embed   $wp_embed      Retraceur Embed object.
  * @global WP_Scripts $wp_scripts
  * @global int        $content_width
  */
@@ -3786,7 +3786,7 @@ function wp_ajax_save_wporg_username() {
  *
  * @see Theme_Upgrader
  *
- * @global WP_Filesystem_Base $wp_filesystem motsVertueux filesystem subclass.
+ * @global WP_Filesystem_Base $wp_filesystem Retraceur filesystem subclass.
  */
 function wp_ajax_install_theme() {
 	check_ajax_referer( 'updates' );
@@ -3903,7 +3903,7 @@ function wp_ajax_install_theme() {
  *
  * @see Theme_Upgrader
  *
- * @global WP_Filesystem_Base $wp_filesystem motsVertueux filesystem subclass.
+ * @global WP_Filesystem_Base $wp_filesystem Retraceur filesystem subclass.
  */
 function wp_ajax_update_theme() {
 	check_ajax_referer( 'updates' );
@@ -3998,7 +3998,7 @@ function wp_ajax_update_theme() {
  *
  * @see delete_theme()
  *
- * @global WP_Filesystem_Base $wp_filesystem motsVertueux filesystem subclass.
+ * @global WP_Filesystem_Base $wp_filesystem Retraceur filesystem subclass.
  */
 function wp_ajax_delete_theme() {
 	check_ajax_referer( 'updates' );
@@ -4072,7 +4072,7 @@ function wp_ajax_delete_theme() {
  *
  * @see Plugin_Upgrader
  *
- * @global WP_Filesystem_Base $wp_filesystem motsVertueux filesystem subclass.
+ * @global WP_Filesystem_Base $wp_filesystem Retraceur filesystem subclass.
  */
 function wp_ajax_install_plugin() {
 	check_ajax_referer( 'updates' );
@@ -4231,7 +4231,7 @@ function wp_ajax_activate_plugin() {
  *
  * @see Plugin_Upgrader
  *
- * @global WP_Filesystem_Base $wp_filesystem motsVertueux filesystem subclass.
+ * @global WP_Filesystem_Base $wp_filesystem Retraceur filesystem subclass.
  */
 function wp_ajax_update_plugin() {
 	check_ajax_referer( 'updates' );
@@ -4339,7 +4339,7 @@ function wp_ajax_update_plugin() {
  *
  * @see delete_plugins()
  *
- * @global WP_Filesystem_Base $wp_filesystem motsVertueux filesystem subclass.
+ * @global WP_Filesystem_Base $wp_filesystem Retraceur filesystem subclass.
  */
 function wp_ajax_delete_plugin() {
 	check_ajax_referer( 'updates' );

@@ -3,14 +3,14 @@
  * Upgrader API: Theme_Upgrader_Skin class.
  *
  * @since WP 4.6.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Upgrader
  */
 
 /**
- * Theme Upgrader Skin for motsVertueux Theme Upgrades.
+ * Theme Upgrader Skin for Retraceur Theme Upgrades.
  *
  * @since WP 2.8.0
  * @since WP 4.6.0 Moved to its own file from wp-admin/includes/class-wp-upgrader-skins.php.

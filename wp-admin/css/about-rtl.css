@@ -923,7 +923,7 @@
 	margin: 1.5em auto;
 }
 
-/* motsVertueux Version Badge */
+/* Retraceur Version Badge */
 
 .mv-badge {
 	background: #0073aa url(../images/mv-logo.png?ver=20241123) no-repeat;
@@ -941,7 +941,7 @@
 }
 
 .svg .mv-badge {
-	background-image: transparent url(../images/motsvertueux-logo.svg?ver=20241123) no-repeat;
+	background-image: transparent url(../images/Retraceur-logo.svg?ver=20241123) no-repeat;
 }
 
 .about-wrap .mv-badge {

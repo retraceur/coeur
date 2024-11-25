@@ -4,7 +4,7 @@
  * A gettext Plural-Forms parser.
  *
  * @since WP 4.9.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  */
 if ( ! class_exists( 'Plural_Forms', false ) ) :
 	#[AllowDynamicProperties]

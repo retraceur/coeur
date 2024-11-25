@@ -1,10 +1,10 @@
 <?php
 /**
- * Upgrade motsVertueux Page.
+ * Upgrade Retraceur Page.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Administration
  */
 
@@ -16,7 +16,7 @@
  */
 define( 'WP_INSTALLING', true );
 
-/** Load motsVertueux Bootstrap */
+/** Load Retraceur Bootstrap */
 require dirname( __DIR__ ) . '/wp-load.php';
 
 nocache_headers();
@@ -64,24 +64,24 @@ header( 'Content-Type: ' . get_option( 'html_type' ) . '; charset=' . get_option
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="Content-Type" content="<?php bloginfo( 'html_type' ); ?>; charset=<?php echo get_option( 'blog_charset' ); ?>" />
 	<meta name="robots" content="noindex,nofollow" />
-	<title><?php _e( 'motsVertueux &rsaquo; Update' ); ?></title>
+	<title><?php _e( 'Retraceur &rsaquo; Update' ); ?></title>
 	<?php wp_admin_css( 'install', true ); ?>
 </head>
 <body class="wp-core-ui">
-<p id="logo"><?php esc_html_e( 'motsVertueux' ); ?></a></p>
+<p id="logo"><?php esc_html_e( 'Retraceur' ); ?></a></p>
 
 <?php if ( (int) get_option( 'db_version' ) === $wp_db_version || ! is_blog_installed() ) : ?>
 
 <h1><?php _e( 'No Update Required' ); ?></h1>
-<p><?php _e( 'Your motsVertueux database is already up to date!' ); ?></p>
+<p><?php _e( 'Your Retraceur database is already up to date!' ); ?></p>
 <p class="step"><a class="button button-large" href="<?php echo esc_url( get_option( 'home' ) ); ?>/"><?php _e( 'Continue' ); ?></a></p>
 
 	<?php
 elseif ( ! $php_compat || ! $mysql_compat ) :
 	if ( ! $mysql_compat && ! $php_compat ) {
 		$message = sprintf(
-			/* translators: 1: motsVertueux version number, 2: Minimum required PHP version number, 3: Minimum required MySQL version number, 4: Current PHP version number, 5: Current MySQL version number. */
-			__( 'You cannot update because motsVertueux %1$s requires PHP version %2$s or higher and MySQL version %3$s or higher. You are running PHP version %4$s and MySQL version %5$s.' ),
+			/* translators: 1: Retraceur version number, 2: Minimum required PHP version number, 3: Minimum required MySQL version number, 4: Current PHP version number, 5: Current MySQL version number. */
+			__( 'You cannot update because Retraceur %1$s requires PHP version %2$s or higher and MySQL version %3$s or higher. You are running PHP version %4$s and MySQL version %5$s.' ),
 			$wp_version,
 			$required_php_version,
 			$required_mysql_version,
@@ -90,16 +90,16 @@ elseif ( ! $php_compat || ! $mysql_compat ) :
 		);
 	} elseif ( ! $php_compat ) {
 		$message = sprintf(
-			/* translators: 1: motsVertueux version number, 2: Minimum required PHP version number, 3: Current PHP version number. */
-			__( 'You cannot update because motsVertueux %1$s requires PHP version %2$s or higher. You are running version %3$s.' ),
+			/* translators: 1: Retraceur version number, 2: Minimum required PHP version number, 3: Current PHP version number. */
+			__( 'You cannot update because Retraceur %1$s requires PHP version %2$s or higher. You are running version %3$s.' ),
 			$wp_version,
 			$required_php_version,
 			$php_version
 		);
 	} elseif ( ! $mysql_compat ) {
 		$message = sprintf(
-			/* translators: 1: motsVertueux version number, 2: Minimum required MySQL version number, 3: Current MySQL version number. */
-			__( 'You cannot update because motsVertueux %1$s requires MySQL version %2$s or higher. You are running version %3$s.' ),
+			/* translators: 1: Retraceur version number, 2: Minimum required MySQL version number, 3: Current MySQL version number. */
+			__( 'You cannot update because Retraceur %1$s requires MySQL version %2$s or higher. You are running version %3$s.' ),
 			$wp_version,
 			$required_mysql_version,
 			$mysql_version

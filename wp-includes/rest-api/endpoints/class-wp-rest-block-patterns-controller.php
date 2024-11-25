@@ -3,7 +3,7 @@
  * REST API: WP_REST_Block_Patterns_Controller class.
  *
  * @since WP 6.0.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
  * @package    WordPress
  * @subpackage REST_API
@@ -22,7 +22,7 @@ class WP_REST_Block_Patterns_Controller extends WP_REST_Controller {
 	 * Defines whether remote patterns should be loaded.
 	 *
 	 * @since WP 6.0.0
-	 * @deprecated 1.0.0 motsVertueux does not allow remote access to WP Pattern directory.
+	 * @deprecated 1.0.0 Retraceur does not allow remote access to WP Pattern directory.
 	 * @var bool
 	 */
 	private $remote_patterns_loaded;
@@ -100,7 +100,7 @@ class WP_REST_Block_Patterns_Controller extends WP_REST_Controller {
 	 *
 	 * @since WP 6.0.0
 	 * @since WP 6.2.0 Added migration for old core pattern categories to the new ones.
-	 * @since 1.0.0    motsVertueux does not allow remote access to WP Pattern directory.
+	 * @since 1.0.0    Retraceur does not allow remote access to WP Pattern directory.
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.

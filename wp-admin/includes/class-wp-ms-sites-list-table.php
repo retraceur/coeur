@@ -3,9 +3,9 @@
  * List Table API: WP_MS_Sites_List_Table class.
  *
  * @since WP 3.1.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Administration
  */
 
@@ -65,7 +65,7 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 	 *
 	 * @global string $mode List table view mode.
 	 * @global string $s
-	 * @global wpdb   $wpdb motsVertueux database abstraction object.
+	 * @global wpdb   $wpdb Retraceur database abstraction object.
 	 */
 	public function prepare_items() {
 		global $mode, $s, $wpdb;

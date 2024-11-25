@@ -1,10 +1,10 @@
 <?php
 /**
- * motsVertueux Installer
+ * Retraceur Installer
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Administration
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  */
 
 // Confidence check.
@@ -17,29 +17,29 @@ if ( false ) {
 	<title>Error: PHP is not running</title>
 </head>
 <body class="wp-core-ui">
-	<p id="logo">motsVertueux</p>
+	<p id="logo">Retraceur</p>
 	<h1>Error: PHP is not running</h1>
-	<p>motsVertueux requires that your web server is running PHP. Your server does not have PHP installed, or PHP is turned off.</p>
+	<p>Retraceur requires that your web server is running PHP. Your server does not have PHP installed, or PHP is turned off.</p>
 </body>
 </html>
 	<?php
 }
 
 /**
- * We are installing motsVertueux.
+ * We are installing Retraceur.
  *
  * @since WP 1.5.1
  * @var bool
  */
 define( 'WP_INSTALLING', true );
 
-/** Load motsVertueux Bootstrap */
+/** Load Retraceur Bootstrap */
 require_once dirname( __DIR__ ) . '/wp-load.php';
 
-/** Load motsVertueux Administration Upgrade API */
+/** Load Retraceur Administration Upgrade API */
 require_once ABSPATH . 'wp-admin/includes/upgrade.php';
 
-/** Load motsVertueux Translation Install API */
+/** Load Retraceur Translation Install API */
 require_once ABSPATH . 'wp-admin/includes/translation-install.php';
 
 /** Load wpdb */
@@ -71,11 +71,11 @@ function display_header( $body_classes = '' ) {
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="robots" content="noindex,nofollow" />
-	<title><?php _e( 'motsVertueux &rsaquo; Installation' ); ?></title>
+	<title><?php _e( 'Retraceur &rsaquo; Installation' ); ?></title>
 	<?php wp_admin_css( 'install', true ); ?>
 </head>
 <body class="wp-core-ui<?php echo $body_classes; ?>">
-<p id="logo"><?php _e( 'motsVertueux' ); ?></p>
+<p id="logo"><?php _e( 'Retraceur' ); ?></p>
 
 	<?php
 } // End display_header().
@@ -85,7 +85,7 @@ function display_header( $body_classes = '' ) {
  *
  * @since WP 2.8.0
  *
- * @global wpdb $wpdb motsVertueux database abstraction object.
+ * @global wpdb $wpdb Retraceur database abstraction object.
  *
  * @param string|null $error
  */
@@ -215,7 +215,7 @@ function display_setup_form( $error = null ) {
 			</td>
 		</tr>
 	</table>
-	<p class="step"><?php submit_button( __( 'Install motsVertueux' ), 'large', 'Submit', false, array( 'id' => 'submit' ) ); ?></p>
+	<p class="step"><?php submit_button( __( 'Install Retraceur' ), 'large', 'Submit', false, array( 'id' => 'submit' ) ); ?></p>
 	<input type="hidden" name="language" value="<?php echo isset( $_REQUEST['language'] ) ? esc_attr( $_REQUEST['language'] ) : ''; ?>" />
 </form>
 	<?php
@@ -226,17 +226,17 @@ if ( is_blog_installed() ) {
 	display_header();
 	die(
 		'<h1>' . __( 'Already Installed' ) . '</h1>' .
-		'<p>' . __( 'You appear to have already installed motsVertueux. To reinstall please clear your old database tables first.' ) . '</p>' .
+		'<p>' . __( 'You appear to have already installed Retraceur. To reinstall please clear your old database tables first.' ) . '</p>' .
 		'<p class="step"><a href="' . esc_url( wp_login_url() ) . '">' . __( 'Log In' ) . '</a></p>' .
 		'</body></html>'
 	);
 }
 
 /**
- * @global string $mv_version             The motsVertueux version string.
+ * @global string $mv_version             The Retraceur version string.
  * @global string $required_php_version   The required PHP version string.
  * @global string $required_mysql_version The required MySQL version string.
- * @global wpdb   $wpdb                   motsVertueux database abstraction object.
+ * @global wpdb   $wpdb                   Retraceur database abstraction object.
  */
 global $mv_version, $required_php_version, $required_mysql_version, $wpdb;
 
@@ -247,8 +247,8 @@ $mysql_compat  = version_compare( $mysql_version, $required_mysql_version, '>=' 
 
 if ( ! $mysql_compat && ! $php_compat ) {
 	$compat = sprintf(
-		/* translators: 1: motsVertueux version number, 2: Minimum required PHP version number, 3: Minimum required MySQL version number, 4: Current PHP version number, 5: Current MySQL version number. */
-		__( 'You cannot install because motsVertueux %1$s requires PHP version %2$s or higher and MySQL version %3$s or higher. You are running PHP version %4$s and MySQL version %5$s.' ),
+		/* translators: 1: Retraceur version number, 2: Minimum required PHP version number, 3: Minimum required MySQL version number, 4: Current PHP version number, 5: Current MySQL version number. */
+		__( 'You cannot install because Retraceur %1$s requires PHP version %2$s or higher and MySQL version %3$s or higher. You are running PHP version %4$s and MySQL version %5$s.' ),
 		$mv_version,
 		$required_php_version,
 		$required_mysql_version,
@@ -257,16 +257,16 @@ if ( ! $mysql_compat && ! $php_compat ) {
 	);
 } elseif ( ! $php_compat ) {
 	$compat = sprintf(
-		/* translators: 1: motsVertueux version number, 2: Minimum required PHP version number, 3: Current PHP version number. */
-		__( 'You cannot install because motsVertueux %1$s requires PHP version %2$s or higher. You are running version %3$s.' ),
+		/* translators: 1: Retraceur version number, 2: Minimum required PHP version number, 3: Current PHP version number. */
+		__( 'You cannot install because Retraceur %1$s requires PHP version %2$s or higher. You are running version %3$s.' ),
 		$mv_version,
 		$required_php_version,
 		$php_version
 	);
 } elseif ( ! $mysql_compat ) {
 	$compat = sprintf(
-		/* translators: 1: motsVertueux version number, 2: Minimum required MySQL version number, 3: Current MySQL version number. */
-		__( 'You cannot install because motsVertueux %1$s> requires MySQL version %2$s or higher. You are running version %3$s.' ),
+		/* translators: 1: Retraceur version number, 2: Minimum required MySQL version number, 3: Current MySQL version number. */
+		__( 'You cannot install because Retraceur %1$s> requires MySQL version %2$s or higher. You are running version %3$s.' ),
 		$mv_version,
 		$required_mysql_version,
 		$mysql_version
@@ -297,7 +297,7 @@ if ( defined( 'DO_NOT_UPGRADE_GLOBAL_TABLES' ) ) {
 		'<h1>' . __( 'Configuration Error' ) . '</h1>' .
 		'<p>' . sprintf(
 			/* translators: %s: DO_NOT_UPGRADE_GLOBAL_TABLES */
-			__( 'The constant %s cannot be defined when installing motsVertueux.' ),
+			__( 'The constant %s cannot be defined when installing Retraceur.' ),
 			'<code>DO_NOT_UPGRADE_GLOBAL_TABLES</code>'
 		) . '</p></body></html>'
 	);
@@ -305,7 +305,7 @@ if ( defined( 'DO_NOT_UPGRADE_GLOBAL_TABLES' ) ) {
 
 /**
  * @global string    $wp_local_package Locale code of the package.
- * @global WP_Locale $wp_locale        motsVertueux date and time locale object.
+ * @global WP_Locale $wp_locale        Retraceur date and time locale object.
  */
 $language = '';
 if ( ! empty( $_REQUEST['language'] ) ) {
@@ -346,7 +346,7 @@ switch ( $step ) {
 		display_header();
 		?>
 <h1><?php _ex( 'Welcome', 'Howdy' ); ?></h1>
-<p><?php _e( 'Welcome to the installation process! Just fill in the information below and you&#8217;ll be on your way to using the motsVertueux publishing platform.' ); ?></p>
+<p><?php _e( 'Welcome to the installation process! Just fill in the information below and you&#8217;ll be on your way to using the Retraceur publishing platform.' ); ?></p>
 
 <h2><?php _e( 'Information needed' ); ?></h2>
 <p><?php _e( 'Please provide the following information. Do not worry, you can always change these settings later.' ); ?></p>
@@ -407,7 +407,7 @@ switch ( $step ) {
 
 <h1><?php _e( 'Success!' ); ?></h1>
 
-<p><?php _e( 'motsVertueux has been installed. Thank you, and enjoy!' ); ?></p>
+<p><?php _e( 'Retraceur has been installed. Thank you, and enjoy!' ); ?></p>
 
 <table class="form-table install-success">
 	<tr>

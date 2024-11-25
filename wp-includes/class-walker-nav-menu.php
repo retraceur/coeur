@@ -3,9 +3,9 @@
  * Nav Menu API: Walker_Nav_Menu class.
  *
  * @since WP 4.6.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Nav_Menus
  */
 

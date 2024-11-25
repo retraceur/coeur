@@ -2,9 +2,9 @@
 /**
  * Update/Install Plugin/Theme administration panel.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Administration
  */
 
@@ -14,7 +14,7 @@ if ( ! defined( 'IFRAME_REQUEST' )
 	define( 'IFRAME_REQUEST', true );
 }
 
-/** motsVertueux Administration Bootstrap */
+/** Retraceur Administration Bootstrap */
 require_once __DIR__ . '/admin.php';
 
 require_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';

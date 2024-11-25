@@ -3,9 +3,9 @@
  * Block Editor API.
  *
  * @since WP 5.8.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Editor
  */
 
@@ -151,7 +151,7 @@ function get_allowed_block_types( $block_editor_context ) {
  * Returns the default block editor settings.
  *
  * @since WP 5.8.0
- * @since 1.0.0 motsVertueux disable Openverse by default.
+ * @since 1.0.0 Retraceur disable Openverse by default.
  *
  * @return array The default block editor settings.
  */

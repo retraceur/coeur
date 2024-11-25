@@ -2,15 +2,15 @@
 /**
  * Site Editor administration screen.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Administration
  */
 
 global $editor_styles;
 
-/** motsVertueux Administration Bootstrap */
+/** Retraceur Administration Bootstrap */
 require_once __DIR__ . '/admin.php';
 
 if ( ! current_user_can( 'edit_theme_options' ) ) {

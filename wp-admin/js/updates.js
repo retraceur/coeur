@@ -2,7 +2,7 @@
  * Functions for ajaxified updates, deletions and installs inside the WordPress admin.
  *
  * @since WP 4.2.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
  * @output wp-admin/js/updates.js
  */

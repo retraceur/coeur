@@ -5,11 +5,11 @@
  * This file is deprecated, use 'wp-admin/upload.php' instead.
  *
  * @deprecated WP 6.3.0
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Administration
  */
 
-/** Load motsVertueux Administration Bootstrap. */
+/** Load Retraceur Administration Bootstrap. */
 require_once __DIR__ . '/admin.php';
 
 $parent_file  = 'upload.php';

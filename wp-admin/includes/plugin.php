@@ -1,10 +1,10 @@
 <?php
 /**
- * motsVertueux Plugin Administration API.
+ * Retraceur Plugin Administration API.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Administration
  */
 
@@ -32,7 +32,7 @@
  *     Network: Optional. Specify "Network: true" to require that a plugin is activated
  *          across all sites in an installation. This will prevent a plugin from being
  *          activated on a single site when Multisite is enabled.
- *     Requires at least: Optional. Specify the minimum required motsVertueux version.
+ *     Requires at least: Optional. Specify the minimum required Retraceur version.
  *     Requires PHP: Optional. Specify the minimum required PHP version.
  *     * / # Remove the space to close comment.
  *
@@ -261,7 +261,7 @@ function get_plugin_files( $plugin ) {
 /**
  * Checks the plugins directory and retrieve all plugin files with plugin data.
  *
- * motsVertueux only supports plugin files in the base plugins directory
+ * Retraceur only supports plugin files in the base plugins directory
  * (wp-content/plugins) and in one directory above the plugins directory
  * (wp-content/plugins/my-plugin). The file it looks for has the plugin data
  * and must be found in those two locations. It is recommended to keep your
@@ -359,7 +359,7 @@ function get_plugins( $plugin_folder = '' ) {
 /**
  * Checks the mu-plugins directory and retrieve all mu-plugin files with any plugin data.
  *
- * motsVertueux only includes mu-plugin files in the base mu-plugins directory (wp-content/mu-plugins).
+ * Retraceur only includes mu-plugin files in the base mu-plugins directory (wp-content/mu-plugins).
  *
  * @since WP 3.0.0
  * @return array[] Array of arrays of mu-plugin data, keyed by plugin file name. See get_plugin_data().
@@ -481,7 +481,7 @@ function get_dropins() {
 }
 
 /**
- * Returns drop-in plugins that motsVertueux uses.
+ * Returns drop-in plugins that Retraceur uses.
  *
  * Includes Multisite drop-ins only when is_multisite()
  *
@@ -884,7 +884,7 @@ function activate_plugins( $plugins, $redirect = '', $network_wide = false, $sil
  *
  * @since WP 2.6.0
  *
- * @global WP_Filesystem_Base $wp_filesystem motsVertueux filesystem subclass.
+ * @global WP_Filesystem_Base $wp_filesystem Retraceur filesystem subclass.
  *
  * @param string[] $plugins    List of plugin paths to delete, relative to the plugins directory.
  * @param string   $deprecated Not used.
@@ -1436,7 +1436,7 @@ function add_menu_page( $page_title, $menu_title, $capability, $menu_slug, $call
  * @global array $_parent_pages
  *
  * @param string    $parent_slug The slug name for the parent menu (or the file name of a standard
- *                               motsVertueux admin page).
+ *                               Retraceur admin page).
  * @param string    $page_title  The text to be displayed in the title tags of the page when the menu
  *                               is selected.
  * @param string    $menu_title  The text to be used for the menu.
@@ -1928,7 +1928,7 @@ function menu_page_url( $menu_slug, $display = true ) {
  * @global array  $_wp_submenu_nopriv
  *
  * @param string $parent_page Optional. The slug name for the parent menu (or the file name
- *                            of a standard motsVertueux admin page). Default empty string.
+ *                            of a standard Retraceur admin page). Default empty string.
  * @return string The parent file of the current admin page.
  */
 function get_admin_page_parent( $parent_page = '' ) {
@@ -2096,7 +2096,7 @@ function get_admin_page_title() {
  *
  * @param string $plugin_page The slug name of the plugin page.
  * @param string $parent_page The slug name for the parent menu (or the file name of a standard
- *                            motsVertueux admin page).
+ *                            Retraceur admin page).
  * @return string|null Hook attached to the plugin page, null otherwise.
  */
 function get_plugin_page_hook( $plugin_page, $parent_page ) {
@@ -2117,7 +2117,7 @@ function get_plugin_page_hook( $plugin_page, $parent_page ) {
  *
  * @param string $plugin_page The slug name of the plugin page.
  * @param string $parent_page The slug name for the parent menu (or the file name of a standard
- *                            motsVertueux admin page).
+ *                            Retraceur admin page).
  * @return string Hook name for the plugin page.
  */
 function get_plugin_page_hookname( $plugin_page, $parent_page ) {

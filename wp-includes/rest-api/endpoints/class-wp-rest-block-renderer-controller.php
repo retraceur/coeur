@@ -3,9 +3,9 @@
  * Block Renderer REST API: WP_REST_Block_Renderer_Controller class.
  *
  * @since WP 5.0.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage REST_API
  */
 

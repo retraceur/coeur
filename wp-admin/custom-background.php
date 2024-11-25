@@ -5,7 +5,7 @@
  * This file is deprecated, use 'wp-admin/includes/class-custom-background.php' instead.
  *
  * @deprecated WP 5.3.0
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Administration
  */
 

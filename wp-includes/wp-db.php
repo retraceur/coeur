@@ -4,10 +4,10 @@
  *
  * This file is deprecated, use 'wp-includes/class-wpdb.php' instead.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
  * @deprecated WP 6.1.0
- * @package motsVertueux
+ * @package Retraceur
  */
 
 if ( function_exists( '_deprecated_file' ) ) {

@@ -4,9 +4,9 @@
  *
  * Redirects to edit-comments.php?comment_status=moderated.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Administration
  */
 require_once dirname( __DIR__ ) . '/wp-load.php';

@@ -7,9 +7,9 @@
  * only needs to implement the methods that are needed.
  *
  * @since WP 2.1.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @abstract
  */
 #[AllowDynamicProperties]

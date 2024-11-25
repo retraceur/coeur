@@ -36,9 +36,9 @@
  * @license    http://www.opensource.org/licenses/bsd-license.php BSD
  *
  * @since WP 1.5.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage IXR
  */
 

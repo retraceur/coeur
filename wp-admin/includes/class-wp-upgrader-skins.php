@@ -1,11 +1,11 @@
 <?php
 /**
- * The User Interface "Skins" for the motsVertueux File Upgrader.
+ * The User Interface "Skins" for the Retraceur File Upgrader.
  *
  * @since WP 2.8.0
  * @deprecated WP 4.7.0
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Upgrader
  */
 

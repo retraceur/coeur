@@ -1,6 +1,6 @@
 <?php
 /**
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Theme_Compat
  * @deprecated WP 3.0.0
  *
@@ -25,7 +25,7 @@ _deprecated_file(
 			/* translators: 1: Site name, 2: WordPress */
 			__( '%1$s is proudly powered by %2$s' ),
 			get_bloginfo( 'name' ),
-			'motsVertueux'
+			'Retraceur'
 		);
 		?>
 	</p>

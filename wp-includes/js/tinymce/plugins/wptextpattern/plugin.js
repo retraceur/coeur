@@ -2,7 +2,7 @@
  * Text pattern plugin for TinyMCE.
  *
  * @since WP 4.3.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
  * This plugin can automatically format text patterns as you type. It includes several groups of patterns.
  *

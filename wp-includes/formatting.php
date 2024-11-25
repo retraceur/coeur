@@ -4,9 +4,9 @@
  *
  * Handles many functions for formatting output.
  *
- * 1.0.0 motsVertueux fork.
+ * 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  */
 
 /**

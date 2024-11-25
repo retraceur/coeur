@@ -6,7 +6,7 @@
  *
  * Based on concepts from SimplePie_File, RequestCore and WP_Http.
  * 
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
  * @package Requests
  */

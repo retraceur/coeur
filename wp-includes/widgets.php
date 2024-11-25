@@ -11,9 +11,9 @@
  * included it in the core from that point on.
  *
  * @since WP 2.2.0
- * @deprecated 1.0.0 motsVertueux fork.
+ * @deprecated 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Widgets
  */
 

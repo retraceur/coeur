@@ -6,7 +6,7 @@
  *
  * @deprecated WP 5.9.0
  * 
- * @package motsVertueux
+ * @package Retraceur
  */
 
 _deprecated_file( basename( __FILE__ ), '5.9.0', WPINC . '/class-wp-http.php' );

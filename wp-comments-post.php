@@ -1,8 +1,8 @@
 <?php
 /**
- * Handles Comment Post to motsVertueux and prevents duplicate comment posting.
+ * Handles Comment Post to Retraceur and prevents duplicate comment posting.
  *
- * @package motsVertueux
+ * @package Retraceur
  */
 
 if ( 'POST' !== $_SERVER['REQUEST_METHOD'] ) {
@@ -17,7 +17,7 @@ if ( 'POST' !== $_SERVER['REQUEST_METHOD'] ) {
 	exit;
 }
 
-/** Sets up the motsVertueux Environment. */
+/** Sets up the Retraceur Environment. */
 require __DIR__ . '/wp-load.php';
 
 nocache_headers();

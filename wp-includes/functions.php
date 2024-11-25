@@ -2,9 +2,9 @@
 /**
  * Main WordPress API.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  */
 
 require ABSPATH . WPINC . '/option.php';
@@ -5452,12 +5452,12 @@ function dead_db() {
  * @since WP 2.5.0
  * @since WP 5.4.0 This function is no longer marked as "private".
  * @since WP 5.4.0 The error type is now classified as E_USER_DEPRECATED (used to default to E_USER_NOTICE).
- * @since 1.0.0    Adds the `$is_mv` parameter to inform whether the deprecation is specific to motsVertueux fork.
+ * @since 1.0.0    Adds the `$is_mv` parameter to inform whether the deprecation is specific to Retraceur fork.
  *
  * @param string $function_name The function that was called.
  * @param string $version       The version of WordPress that deprecated the function.
  * @param string $replacement   Optional. The function that should have been called. Default empty string.
- * @param bool   $is_mv         Optional. Whether this deprecation is specific to motsVertueux fork.
+ * @param bool   $is_mv         Optional. Whether this deprecation is specific to Retraceur fork.
  */
 function _deprecated_function( $function_name, $version, $replacement = '', $is_mv = false ) {
 
@@ -5486,7 +5486,7 @@ function _deprecated_function( $function_name, $version, $replacement = '', $is_
 					/* translators: 1: PHP function name, 2: Project name, 3: Version number, 4: Alternative function name. */
 					__( 'Function %1$s is <strong>deprecated</strong> since %2$s version %3$s! Use %4$s instead.' ),
 					$function_name,
-					! $is_mv ? 'WP' : 'motsVertueux',
+					! $is_mv ? 'WP' : 'Retraceur',
 					$version,
 					$replacement
 				);
@@ -5495,7 +5495,7 @@ function _deprecated_function( $function_name, $version, $replacement = '', $is_
 					/* translators: 1: PHP function name, 2: Project name, 3: Version number. */
 					__( 'Function %1$s is <strong>deprecated</strong> since %2$s version %3$s with no alternative available.' ),
 					$function_name,
-					! $is_mv ? 'WP' : 'motsVertueux',
+					! $is_mv ? 'WP' : 'Retraceur',
 					$version
 				);
 			}
@@ -5504,7 +5504,7 @@ function _deprecated_function( $function_name, $version, $replacement = '', $is_
 				$message = sprintf(
 					'Function %1$s is <strong>deprecated</strong> since %2$s version %3$s! Use %4$s instead.',
 					$function_name,
-					! $is_mv ? 'WP' : 'motsVertueux',
+					! $is_mv ? 'WP' : 'Retraceur',
 					$version,
 					$replacement
 				);
@@ -5512,7 +5512,7 @@ function _deprecated_function( $function_name, $version, $replacement = '', $is_
 				$message = sprintf(
 					'Function %1$s is <strong>deprecated</strong> since %2$s version %3$s with no alternative available.',
 					$function_name,
-					! $is_mv ? 'WP' : 'motsVertueux',
+					! $is_mv ? 'WP' : 'Retraceur',
 					$version
 				);
 			}
@@ -5620,13 +5620,13 @@ function _deprecated_constructor( $class_name, $version, $parent_class = '' ) {
  * See {@see _deprecated_constructor()} for deprecating PHP4-style constructors.
  *
  * @since WP 6.4.0
- * @since 1.0.0 Adds the `$is_mv` parameter to inform whether the deprecation is specific to motsVertueux fork.
+ * @since 1.0.0 Adds the `$is_mv` parameter to inform whether the deprecation is specific to Retraceur fork.
  *
  * @param string $class_name  The name of the class being instantiated.
  * @param string $version     The version of WordPress that deprecated the class.
  * @param string $replacement Optional. The class or function that should have been called.
  *                            Default empty string.
- * @param bool   $is_mv       Optional. Whether this deprecation is specific to motsVertueux fork.
+ * @param bool   $is_mv       Optional. Whether this deprecation is specific to Retraceur fork.
  */
 function _deprecated_class( $class_name, $version, $replacement = '', $is_mv = false ) {
 
@@ -5655,7 +5655,7 @@ function _deprecated_class( $class_name, $version, $replacement = '', $is_mv = f
 					/* translators: 1: PHP class name, 2: Project name, 3: Version number, 4: Alternative class or function name. */
 					__( 'Class %1$s is <strong>deprecated</strong> since %2$s version %3$s! Use %4$s instead.' ),
 					$class_name,
-					! $is_mv ? 'WP' : 'motsVertueux',
+					! $is_mv ? 'WP' : 'Retraceur',
 					$version,
 					$replacement
 				);
@@ -5664,7 +5664,7 @@ function _deprecated_class( $class_name, $version, $replacement = '', $is_mv = f
 					/* translators: 1: PHP class name, 2: Project name, 3: Version number. */
 					__( 'Class %1$s is <strong>deprecated</strong> since %2$s version %3$s with no alternative available.' ),
 					$class_name,
-					! $is_mv ? 'WP' : 'motsVertueux',
+					! $is_mv ? 'WP' : 'Retraceur',
 					$version
 				);
 			}
@@ -5673,7 +5673,7 @@ function _deprecated_class( $class_name, $version, $replacement = '', $is_mv = f
 				$message = sprintf(
 					'Class %1$s is <strong>deprecated</strong> since %2$s version %3$s! Use %4$s instead.',
 					$class_name,
-					! $is_mv ? 'WP' : 'motsVertueux',
+					! $is_mv ? 'WP' : 'Retraceur',
 					$version,
 					$replacement
 				);
@@ -5681,7 +5681,7 @@ function _deprecated_class( $class_name, $version, $replacement = '', $is_mv = f
 				$message = sprintf(
 					'Class %1$s is <strong>deprecated</strong> since %2$s version %3$s with no alternative available.',
 					$class_name,
-					! $is_mv ? 'WP' : 'motsVertueux',
+					! $is_mv ? 'WP' : 'Retraceur',
 					$version
 				);
 			}
@@ -5704,14 +5704,14 @@ function _deprecated_class( $class_name, $version, $replacement = '', $is_mv = f
  * @since WP 2.5.0
  * @since WP 5.4.0 This function is no longer marked as "private".
  * @since WP 5.4.0 The error type is now classified as E_USER_DEPRECATED (used to default to E_USER_NOTICE).
- * @since 1.0.0    Adds the `$is_mv` parameter to inform whether the deprecation is specific to motsVertueux fork.
+ * @since 1.0.0    Adds the `$is_mv` parameter to inform whether the deprecation is specific to Retraceur fork.
  *
  * @param string $file        The file that was included.
  * @param string $version     The version of WordPress that deprecated the file.
  * @param string $replacement Optional. The file that should have been included based on ABSPATH.
  *                            Default empty string.
  * @param string $message     Optional. A message regarding the change. Default empty string.
- * @param bool   $is_mv       Optional. Whether this deprecation is specific to motsVertueux fork.
+ * @param bool   $is_mv       Optional. Whether this deprecation is specific to Retraceur fork.
  */
 function _deprecated_file( $file, $version, $replacement = '', $message = '', $is_mv = false ) {
 
@@ -5743,7 +5743,7 @@ function _deprecated_file( $file, $version, $replacement = '', $message = '', $i
 					/* translators: 1: PHP file name, 2: Project name, 3: Version number, 4: Alternative file name. */
 					__( 'File %1$s is <strong>deprecated</strong> since %2$s version %3$s! Use %4$s instead.' ),
 					$file,
-					! $is_mv ? 'WP' : 'motsVertueux',
+					! $is_mv ? 'WP' : 'Retraceur',
 					$version,
 					$replacement
 				) . $message;
@@ -5752,7 +5752,7 @@ function _deprecated_file( $file, $version, $replacement = '', $message = '', $i
 					/* translators: 1: PHP file name, 2: Project name, 3: Version number. */
 					__( 'File %1$s is <strong>deprecated</strong> since %2$s version %3$s with no alternative available.' ),
 					$file,
-					! $is_mv ? 'WP' : 'motsVertueux',
+					! $is_mv ? 'WP' : 'Retraceur',
 					$version
 				) . $message;
 			}
@@ -5761,7 +5761,7 @@ function _deprecated_file( $file, $version, $replacement = '', $message = '', $i
 				$message = sprintf(
 					'File %1$s is <strong>deprecated</strong> since %2$s version %3$s! Use %3$s instead.',
 					$file,
-					! $is_mv ? 'WP' : 'motsVertueux',
+					! $is_mv ? 'WP' : 'Retraceur',
 					$version,
 					$replacement
 				);
@@ -5769,7 +5769,7 @@ function _deprecated_file( $file, $version, $replacement = '', $message = '', $i
 				$message = sprintf(
 					'File %1$s is <strong>deprecated</strong> since %2$s version %3$s with no alternative available.',
 					$file,
-					! $is_mv ? 'WP' : 'motsVertueux',
+					! $is_mv ? 'WP' : 'Retraceur',
 					$version
 				) . $message;
 			}
@@ -8539,11 +8539,11 @@ function wp_get_wp_version() {
 }
 
 /**
- * Returns the current motsVertueux version.
+ * Returns the current Retraceur version.
  *
  * @since 1.0.0
  *
- * @return string The current motsVertueux version.
+ * @return string The current Retraceur version.
  */
 function mv_get_mv_version() {
 	static $mv_version;

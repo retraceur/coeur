@@ -1,6 +1,6 @@
 <?php
 /**
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Theme_Compat
  * @deprecated WP 3.0.0
  *

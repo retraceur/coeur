@@ -2,13 +2,13 @@
 /**
  * Update Core administration panel.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Administration
  */
 
-/** motsVertueux Administration Bootstrap */
+/** Retraceur Administration Bootstrap */
 require_once __DIR__ . '/admin.php';
 
 wp_enqueue_style( 'plugin-install' );
@@ -31,7 +31,7 @@ if ( ! current_user_can( 'update_core' ) && ! current_user_can( 'update_themes' 
  * @since WP 2.7.0
  *
  * @global string $wp_local_package Locale code of the package.
- * @global wpdb   $wpdb             motsVertueux database abstraction object.
+ * @global wpdb   $wpdb             Retraceur database abstraction object.
  *
  * @param object $update
  */
@@ -93,8 +93,8 @@ function list_core_update( $update ) {
 
 			if ( ! $mysql_compat && ! $php_compat ) {
 				$message = sprintf(
-					/* translators: 1: motsVertueux version number, 2: Minimum required PHP version number, 3: Minimum required MySQL version number, 4: Current PHP version number, 5: Current MySQL version number. */
-					__( 'You cannot update because motsVertueux %1$s requires PHP version %2$s or higher and MySQL version %3$s or higher. You are running PHP version %4$s and MySQL version %5$s.' ),
+					/* translators: 1: Retraceur version number, 2: Minimum required PHP version number, 3: Minimum required MySQL version number, 4: Current PHP version number, 5: Current MySQL version number. */
+					__( 'You cannot update because Retraceur %1$s requires PHP version %2$s or higher and MySQL version %3$s or higher. You are running PHP version %4$s and MySQL version %5$s.' ),
 					$update->current,
 					$update->php_version,
 					$update->mysql_version,
@@ -103,16 +103,16 @@ function list_core_update( $update ) {
 				);
 			} elseif ( ! $php_compat ) {
 				$message = sprintf(
-					/* translators: 1: motsVertueux version number, 2: Minimum required PHP version number, 3: Current PHP version number. */
-					__( 'You cannot update because motsVertueux %1$s requires PHP version %2$s or higher. You are running version %3$s.' ),
+					/* translators: 1: Retraceur version number, 2: Minimum required PHP version number, 3: Current PHP version number. */
+					__( 'You cannot update because Retraceur %1$s requires PHP version %2$s or higher. You are running version %3$s.' ),
 					$update->current,
 					$update->php_version,
 					$php_version
 				);
 			} elseif ( ! $mysql_compat ) {
 				$message = sprintf(
-					/* translators: 1: motsVertueux version number, 2: Minimum required MySQL version number, 3: Current MySQL version number. */
-					__( 'You cannot update because motsVertueux %1$s requires MySQL version %2$s or higher. You are running version %3$s.' ),
+					/* translators: 1: Retraceur version number, 2: Minimum required MySQL version number, 3: Current MySQL version number. */
+					__( 'You cannot update because Retraceur %1$s requires MySQL version %2$s or higher. You are running version %3$s.' ),
 					$update->current,
 					$update->mysql_version,
 					$mysql_version
@@ -120,7 +120,7 @@ function list_core_update( $update ) {
 			} else {
 				$message = sprintf(
 					/* translators: 1: Installed WordPress version number, 2: New WordPress version number, including locale if necessary. */
-					__( 'You can update from WordPress %1$s to motsVertueux %2$s</a> manually:' ),
+					__( 'You can update from WordPress %1$s to Retraceur %2$s</a> manually:' ),
 					$wp_version,
 					$version_string
 				);
@@ -218,7 +218,7 @@ function dismissed_updates() {
 }
 
 /**
- * Display upgrade motsVertueux for downloading latest or upgrading automatically form.
+ * Display upgrade Retraceur for downloading latest or upgrading automatically form.
  *
  * @since WP 2.7.0
  */
@@ -277,7 +277,7 @@ function core_upgrade_preamble() {
 }
 
 /**
- * Display motsVertueux auto-updates settings.
+ * Display Retraceur auto-updates settings.
  *
  * @since WP 5.6.0
  */
@@ -761,11 +761,11 @@ function list_translation_updates() {
 }
 
 /**
- * Upgrades motsVertueux core display.
+ * Upgrades Retraceur core display.
  *
  * @since WP 2.7.0
  *
- * @global WP_Filesystem_Base $wp_filesystem motsVertueux filesystem subclass.
+ * @global WP_Filesystem_Base $wp_filesystem Retraceur filesystem subclass.
  *
  * @param bool $reinstall
  */
@@ -914,7 +914,7 @@ if ( ( 'do-theme-upgrade' === $action || ( 'do-plugin-upgrade' === $action && ! 
 $title       = __( 'WordPress Updates' );
 $parent_file = 'index.php';
 
-$updates_overview  = '<p>' . __( 'On this screen, you can update to the latest version of motsVertueux, as well as update your themes, plugins, and translations.' ) . '</p>';
+$updates_overview  = '<p>' . __( 'On this screen, you can update to the latest version of Retraceur, as well as update your themes, plugins, and translations.' ) . '</p>';
 $updates_overview .= '<p>' . __( 'If an update is available, you&#8127;ll see a notification appear in the Toolbar and navigation menu.' ) . ' ' . __( 'Keeping your site updated is important for security. It also makes the internet a safer place for you and your readers.' ) . '</p>';
 
 get_current_screen()->add_help_tab(
@@ -948,7 +948,7 @@ if ( 'upgrade-core' === $action ) {
 	require_once ABSPATH . 'wp-admin/admin-header.php';
 	?>
 	<div class="wrap">
-	<h1><?php _e( 'motsVertueux Updates' ); ?></h1>
+	<h1><?php _e( 'Retraceur Updates' ); ?></h1>
 	<p><?php _e( 'Updates may take several minutes to complete. If there is no feedback after 5 minutes, or if there are errors please refer to the Help section above.' ); ?></p>
 
 	<?php

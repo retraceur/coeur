@@ -3,9 +3,9 @@
  * Locale API: WP_Locale class.
  *
  * @since WP 4.6.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage i18n
  */
 

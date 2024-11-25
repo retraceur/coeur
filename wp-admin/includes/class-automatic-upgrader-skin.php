@@ -3,14 +3,14 @@
  * Upgrader API: Automatic_Upgrader_Skin class.
  *
  * @since WP 4.6.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Upgrader
  */
 
 /**
- * Upgrader Skin for Automatic motsVertueux Upgrades.
+ * Upgrader Skin for Automatic Retraceur Upgrades.
  *
  * This skin is designed to be used when no output is intended, all output
  * is captured and stored for the caller to process and log/email/discard.

@@ -3,14 +3,14 @@
  * Upgrader API: WP_Ajax_Upgrader_Skin class.
  *
  * @since WP 4.6.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Upgrader
  */
 
 /**
- * Upgrader Skin for Ajax motsVertueux upgrades.
+ * Upgrader Skin for Ajax Retraceur upgrades.
  *
  * This skin is designed to be used for Ajax updates.
  *
@@ -53,13 +53,13 @@ class WP_Ajax_Upgrader_Skin extends Automatic_Upgrader_Skin {
 	/**
 	 * Constructor.
 	 *
-	 * Sets up the motsVertueux Ajax upgrader skin.
+	 * Sets up the Retraceur Ajax upgrader skin.
 	 *
 	 * @since WP 4.6.0
 	 *
 	 * @see WP_Upgrader_Skin::__construct()
 	 *
-	 * @param array $args Optional. The motsVertueux Ajax upgrader skin arguments to
+	 * @param array $args Optional. The Retraceur Ajax upgrader skin arguments to
 	 *                    override default options. See WP_Upgrader_Skin::__construct().
 	 *                    Default empty array.
 	 */

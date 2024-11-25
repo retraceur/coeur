@@ -17,9 +17,9 @@
  *    natural-looking output HTML.
  *
  * @since WP 6.2.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage HTML-API
  */
 

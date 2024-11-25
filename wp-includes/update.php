@@ -3,20 +3,20 @@
  * A simple set of functions to check the Version Update service.
  * 
  * @since WP 2.3.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  */
 
 /**
- * Checks motsVertueux version against the newest version.
+ * Checks Retraceur version against the newest version.
  *
- * The motsVertueux version and locale is sent.
+ * The Retraceur version and locale is sent.
  *
  * @since WP 2.3.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @global string $mv_version       Used to check against the newest motsVertueux version.
+ * @global string $mv_version       Used to check against the newest Retraceur version.
  * @global wpdb   $wpdb             WP database abstraction object.
  * @global string $wp_local_package Locale code of the package.
  *
@@ -90,7 +90,7 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
 	 * @param array $query {
 	 *     Version check query arguments.
 	 *
-	 *     @type string $version motsVertueux version number.
+	 *     @type string $version Retraceur version number.
 	 *     @type string $locale  The locale to retrieve updates for.
 	 * }
 	 */
@@ -113,7 +113,7 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
 
 	$options = array(
 		'timeout'    => $doing_cron ? 30 : 3,
-		'user-agent' => 'motsVertueux/' . mv_get_mv_version() . '; ' . home_url( '/' ),
+		'user-agent' => 'Retraceur/' . mv_get_mv_version() . '; ' . home_url( '/' ),
 		'headers'    => array(
 			'wp_install' => $wp_install,
 			'wp_blog'    => home_url( '/' ),
@@ -126,7 +126,7 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
 	if ( $ssl && is_wp_error( $response ) ) {
 		wp_trigger_error(
 			__FUNCTION__,
-			__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ) . ' ' . __( '(motsVertueux could not establish a secure connection to Core Updater. Please contact your server administrator.)' ),
+			__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ) . ' ' . __( '(Retraceur could not establish a secure connection to Core Updater. Please contact your server administrator.)' ),
 			headers_sent() || WP_DEBUG ? E_USER_WARNING : E_USER_NOTICE
 		);
 		$response = wp_remote_post( $http_url, $options );
@@ -220,9 +220,9 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
  * A list of all plugins installed is sent to WP, along with the site locale.
  *
  * @since WP 2.3.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @global string $mv_version The motsVertueux version string.
+ * @global string $mv_version The Retraceur version string.
  *
  * @param array $extra_stats Extra statistics.
  */
@@ -339,7 +339,7 @@ function wp_update_plugins( $extra_stats = array() ) {
 			'locale'       => wp_json_encode( $locales ),
 			'all'          => wp_json_encode( true ),
 		),
-		'user-agent' => 'motsVertueux/' . wp_get_wp_version() . '; ' . home_url( '/' ),
+		'user-agent' => 'Retraceur/' . wp_get_wp_version() . '; ' . home_url( '/' ),
 	);
 
 	// @todo See what's doable using GitHub.
@@ -356,7 +356,7 @@ function wp_update_plugins( $extra_stats = array() ) {
 	if ( $ssl && is_wp_error( $raw_response ) ) {
 		wp_trigger_error(
 			__FUNCTION__,
-			__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ) . ' ' . __( '(motsVertueux could not establish a secure connection to Plugins updater. Please contact your server administrator.)' ),
+			__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ) . ' ' . __( '(Retraceur could not establish a secure connection to Plugins updater. Please contact your server administrator.)' ),
 			headers_sent() || WP_DEBUG ? E_USER_WARNING : E_USER_NOTICE
 		);
 		$raw_response = wp_remote_post( $http_url, $options );
@@ -486,7 +486,7 @@ function wp_update_plugins( $extra_stats = array() ) {
  * A list of all themes installed is sent to WP, along with the site locale.
  *
  * @since WP 2.7.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
  * @global string $wp_version The WP version string.
  *
@@ -612,7 +612,7 @@ function wp_update_themes( $extra_stats = array() ) {
 			'translations' => wp_json_encode( $translations ),
 			'locale'       => wp_json_encode( $locales ),
 		),
-		'user-agent' => 'motsVertueux/' . wp_get_wp_version() . '; ' . home_url( '/' ),
+		'user-agent' => 'Retraceur/' . wp_get_wp_version() . '; ' . home_url( '/' ),
 	);
 
 	// @todo See what's doable using GitHub.
@@ -629,7 +629,7 @@ function wp_update_themes( $extra_stats = array() ) {
 	if ( $ssl && is_wp_error( $raw_response ) ) {
 		wp_trigger_error(
 			__FUNCTION__,
-			__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ) . ' ' . __( '(motsVertueux could not establish a secure connection to Theme updater. Please contact your server administrator.)' ),
+			__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ) . ' ' . __( '(Retraceur could not establish a secure connection to Theme updater. Please contact your server administrator.)' ),
 			headers_sent() || WP_DEBUG ? E_USER_WARNING : E_USER_NOTICE
 		);
 		$raw_response = wp_remote_post( $http_url, $options );
@@ -746,7 +746,7 @@ function wp_update_themes( $extra_stats = array() ) {
  * Updates WP core plus any plugins and themes that have automatic updates enabled.
  *
  * @since WP 3.7.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  */
 function wp_maybe_auto_update() {
 	// Disable auto updates for now.
@@ -763,7 +763,7 @@ function wp_maybe_auto_update() {
  * Retrieves a list of all language updates available.
  *
  * @since WP 3.7.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
  * @return object[] Array of translation objects that have available updates.
  */
@@ -1061,7 +1061,7 @@ if ( ( ! is_main_site() && ! is_network_admin() ) || wp_doing_ajax() ) {
 /**
  * Disable updates for now.
  * 
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  */
 /*add_action( 'admin_init', '_maybe_update_core' );
 add_action( 'wp_version_check', 'wp_version_check' );

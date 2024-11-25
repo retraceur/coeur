@@ -2,7 +2,7 @@
  * Adds functionality for password visibility buttons to toggle between text and password input types.
  *
  * @since WP 6.3.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
  * @output wp-admin/js/password-toggle.js
  */

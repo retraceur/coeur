@@ -3,9 +3,9 @@
  * Administration: Community Events class.
  *
  * @since WP 3.1.0
- * @deprecated 1.0.0 motsVertueux fork.
+ * @deprecated 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Administration
  */
 

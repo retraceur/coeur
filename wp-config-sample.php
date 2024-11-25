@@ -13,11 +13,11 @@
  * * Database table prefix
  * * ABSPATH
  *
- * @package motsVertueux
+ * @package Retraceur
  */
 
 // ** Database settings - You can get this info from your web host ** //
-/** The name of the database for motsVertueux */
+/** The name of the database for Retraceur */
 define( 'DB_NAME', 'database_name_here' );
 
 /** Database username */
@@ -57,19 +57,19 @@ define( 'NONCE_SALT',       'put your unique phrase here' );
 /**#@-*/
 
 /**
- * motsVertueux database table prefix.
+ * Retraceur database table prefix.
  *
  * You can have multiple installations in one database if you give each
  * a unique prefix. Only numbers, letters, and underscores please!
  *
  * At the installation time, database tables are created with the specified prefix.
- * Changing this value after motsVertueux is installed will make your site think
+ * Changing this value after Retraceur is installed will make your site think
  * it has not been installed.
  */
 $table_prefix = 'mv_';
 
 /**
- * For developers: motsVertueux debugging mode.
+ * For developers: Retraceur debugging mode.
  *
  * Change this to true to enable the display of notices during development.
  * It is strongly recommended that plugin and theme developers use WP_DEBUG
@@ -86,10 +86,10 @@ define( 'WP_DEBUG', false );
 
 /* That's all, stop editing! Happy publishing. */
 
-/** Absolute path to the motsVertueux directory. */
+/** Absolute path to the Retraceur directory. */
 if ( ! defined( 'ABSPATH' ) ) {
 	define( 'ABSPATH', __DIR__ . '/' );
 }
 
-/** Sets up motsVertueux vars and included files. */
+/** Sets up Retraceur vars and included files. */
 require_once ABSPATH . 'wp-settings.php';

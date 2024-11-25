@@ -1,14 +1,14 @@
 <?php
 /**
- * motsVertueux User Page
+ * Retraceur User Page
  *
  * Handles authentication, registering, resetting passwords, forgot password,
  * and other user handling.
  *
- * @package motsVertueux
+ * @package Retraceur
  */
 
-/** Make sure that the motsVertueux bootstrap has run before continuing. */
+/** Make sure that the Retraceur bootstrap has run before continuing. */
 require __DIR__ . '/wp-load.php';
 
 // Redirect to HTTPS login if forced to use SSL.
@@ -33,7 +33,7 @@ if ( force_ssl_admin() && ! is_ssl() ) {
  *                                    upon successful login.
  * @global string      $action        The action that brought the visitor to the login page.
  *
- * @param string|null   $title    Optional. motsVertueux login page title to display in the `<title>` element.
+ * @param string|null   $title    Optional. Retraceur login page title to display in the `<title>` element.
  *                                Defaults to 'Log In'.
  * @param string        $message  Optional. Message to display in header. Default empty.
  * @param WP_Error|null $wp_error Optional. The error to pass. Defaults to a WP_Error instance.
@@ -155,7 +155,7 @@ function login_header( $title = null, $message = '', $wp_error = null ) {
 		__( 'Usage of the title attribute on the login logo is not recommended for accessibility reasons. Use the link text instead.' )
 	);
 
-	$login_header_text = empty( $login_header_title ) ? __( 'Propulsé par motsVertueux' ) : $login_header_title;
+	$login_header_text = empty( $login_header_title ) ? __( 'Propulsé par Retraceur' ) : $login_header_title;
 
 	/**
 	 * Filters the link text of the header logo above the login form.

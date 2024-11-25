@@ -2,7 +2,7 @@
 /**
  * Locale API
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage i18n
  * @since WP 1.2.0
  * @deprecated WP 4.7.0

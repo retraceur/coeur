@@ -6,9 +6,9 @@
  * block support despite both belonging under a single panel in the editor.
  *
  * @since WP 5.8.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  */
 
 /**

@@ -3,9 +3,9 @@
  * REST API: WP_REST_Post_Format_Search_Handler class.
  *
  * @since WP 5.6.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage REST_API
  */
 

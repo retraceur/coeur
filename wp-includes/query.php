@@ -5,9 +5,9 @@
  * The query API attempts to get which part of WordPress the user is on. It
  * also provides functionality for getting URL query information.
  * 
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Query
  */
 

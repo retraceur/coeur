@@ -1,15 +1,15 @@
 <?php
 /**
- * motsVertueux Direct Filesystem.
+ * Retraceur Direct Filesystem.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Filesystem
  */
 
 /**
- * motsVertueux Filesystem Class for direct PHP file and folder manipulation.
+ * Retraceur Filesystem Class for direct PHP file and folder manipulation.
  *
  * @since WP 2.5.0
  *

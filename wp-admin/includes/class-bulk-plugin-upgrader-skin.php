@@ -3,14 +3,14 @@
  * Upgrader API: Bulk_Plugin_Upgrader_Skin class.
  *
  * @since WP 4.6.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Upgrader
  */
 
 /**
- * Bulk Plugin Upgrader Skin for motsVertueux Plugin Upgrades.
+ * Bulk Plugin Upgrader Skin for Retraceur Plugin Upgrades.
  *
  * @since WP 3.0.0
  * @since WP 4.6.0 Moved to its own file from wp-admin/includes/class-wp-upgrader-skins.php.

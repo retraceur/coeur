@@ -5,13 +5,13 @@
  * Requires wp-admin/includes/revision.php.
  *
  * @since WP 2.6.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Administration
  */
 
-/** motsVertueux Administration Bootstrap */
+/** Retraceur Administration Bootstrap */
 require_once __DIR__ . '/admin.php';
 
 require ABSPATH . 'wp-admin/includes/revision.php';

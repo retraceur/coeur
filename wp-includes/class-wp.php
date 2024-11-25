@@ -3,9 +3,9 @@
  * WordPress environment setup class.
  *
  * @since WP 2.0.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  */
 #[AllowDynamicProperties]
 class WP {

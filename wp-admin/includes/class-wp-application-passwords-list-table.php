@@ -3,9 +3,9 @@
  * List Table API: WP_Application_Passwords_List_Table class.
  *
  * @since WP 5.6.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Administration
  */
 

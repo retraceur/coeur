@@ -3,9 +3,9 @@
  * Helper functions for displaying a list of items in an ajaxified HTML table.
  *
  * @since WP 4.7.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage List_Table
  */
 

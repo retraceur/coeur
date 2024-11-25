@@ -37016,21 +37016,21 @@ const navigation_settings = {
       attributes: {
         // translators: 'Home' as in a website's home page.
         label: (0,external_wp_i18n_namespaceObject.__)('Home'),
-        url: 'https://github.com/motsVertueux/'
+        url: 'https://github.com/Retraceur/'
       }
     }, {
       name: 'core/navigation-link',
       attributes: {
         // translators: 'About' as in a website's about page.
         label: (0,external_wp_i18n_namespaceObject.__)('About'),
-        url: 'https://github.com/motsVertueux/'
+        url: 'https://github.com/Retraceur/'
       }
     }, {
       name: 'core/navigation-link',
       attributes: {
         // translators: 'Contact' as in a website's contact page.
         label: (0,external_wp_i18n_namespaceObject.__)('Contact'),
-        url: 'https://github.com/motsVertueux/'
+        url: 'https://github.com/Retraceur/'
       }
     }]
   },
@@ -52106,7 +52106,7 @@ const rss_settings = {
   icon: library_rss,
   example: {
     attributes: {
-      feedURL: 'https://github.com/motsVertueux/core/releases.atom'
+      feedURL: 'https://github.com/Retraceur/core/releases.atom'
     }
   },
   edit: RSSEdit
@@ -56599,13 +56599,13 @@ const social_links_settings = {
       name: 'core/social-link',
       attributes: {
         service: 'github',
-        url: 'https://github.com/motsVertueux'
+        url: 'https://github.com/Retraceur'
       }
     }, {
       name: 'core/social-link',
       attributes: {
         service: 'chain',
-        url: 'https://github.com/motsVertueux'
+        url: 'https://github.com/Retraceur'
       }
     }]
   },

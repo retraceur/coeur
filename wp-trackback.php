@@ -4,7 +4,7 @@
  *
  * @since WP 0.71
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Trackbacks
  */
 

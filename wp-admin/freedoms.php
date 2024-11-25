@@ -2,13 +2,13 @@
 /**
  * Your Rights administration panel.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Administration
  */
 
-/** motsVertueux Administration Bootstrap */
+/** Retraceur Administration Bootstrap */
 require_once __DIR__ . '/admin.php';
 
 // This file was used to also display the Privacy tab on the About screen from 4.9.6 until 5.3.0.
@@ -34,7 +34,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 		</div>
 
 		<div class="about__header-text">
-			<?php esc_html_e( 'motsVertueux is free and open source software' ); ?>
+			<?php esc_html_e( 'Retraceur is free and open source software' ); ?>
 		</div>
 	</div>
 
@@ -48,7 +48,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 
 	<div class="about__section is-feature">
 		<p class="about-description">
-		<?php esc_html_e( 'motsVertueux comes with some awesome, worldview-changing rights courtesy of its license, the GPL.' ); ?>
+		<?php esc_html_e( 'Retraceur comes with some awesome, worldview-changing rights courtesy of its license, the GPL.' ); ?>
 		</p>
 	</div>
 

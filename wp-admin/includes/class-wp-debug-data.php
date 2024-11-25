@@ -1,11 +1,11 @@
 <?php
 /**
- * Class for providing debug data based on a users motsVertueux environment.
+ * Class for providing debug data based on a users Retraceur environment.
  *
  * @since WP 5.2.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Site_Health
  */
 
@@ -140,7 +140,7 @@ class WP_Debug_Data {
 	}
 
 	/**
-	 * Gets the motsVertueux core section of the debug data.
+	 * Gets the Retraceur core section of the debug data.
 	 *
 	 * @since WP 6.7.0
 	 *
@@ -275,13 +275,13 @@ class WP_Debug_Data {
 		);
 
 		return array(
-			'label'  => __( 'motsVertueux' ),
+			'label'  => __( 'Retraceur' ),
 			'fields' => $fields,
 		);
 	}
 
 	/**
-	 * Gets the motsVertueux drop-in section of the debug data.
+	 * Gets the Retraceur drop-in section of the debug data.
 	 *
 	 * @since WP 6.7.0
 	 *
@@ -465,7 +465,7 @@ class WP_Debug_Data {
 			// If the file exists, grab the content of it.
 			$htaccess_content = file_get_contents( ABSPATH . '.htaccess' );
 
-			// Filter away the core motsVertueux rules.
+			// Filter away the core Retraceur rules.
 			$filtered_htaccess_content = trim( preg_replace( '/\# BEGIN WordPress[\s\S]+?# END WordPress/si', '', $htaccess_content ) );
 			$filtered_htaccess_content = ! empty( $filtered_htaccess_content );
 
@@ -508,7 +508,7 @@ class WP_Debug_Data {
 	}
 
 	/**
-	 * Gets the motsVertueux media section of the debug data.
+	 * Gets the Retraceur media section of the debug data.
 	 *
 	 * @since WP 6.7.0
 	 *
@@ -702,7 +702,7 @@ class WP_Debug_Data {
 	}
 
 	/**
-	 * Gets the motsVertueux MU plugins section of the debug data.
+	 * Gets the Retraceur MU plugins section of the debug data.
 	 *
 	 * @since WP 6.7.0
 	 *
@@ -753,7 +753,7 @@ class WP_Debug_Data {
 	}
 
 	/**
-	 * Gets the motsVertueux paths and sizes section of the debug data.
+	 * Gets the Retraceur paths and sizes section of the debug data.
 	 *
 	 * @since WP 6.7.0
 	 *
@@ -833,7 +833,7 @@ class WP_Debug_Data {
 	}
 
 	/**
-	 * Gets the motsVertueux active plugins section of the debug data.
+	 * Gets the Retraceur active plugins section of the debug data.
 	 *
 	 * @since WP 6.7.0
 	 *
@@ -848,7 +848,7 @@ class WP_Debug_Data {
 	}
 
 	/**
-	 * Gets the motsVertueux inactive plugins section of the debug data.
+	 * Gets the Retraceur inactive plugins section of the debug data.
 	 *
 	 * @since WP 6.7.0
 	 *
@@ -863,7 +863,7 @@ class WP_Debug_Data {
 	}
 
 	/**
-	 * Gets the raw plugin data for the motsVertueux active and inactive sections of the debug data.
+	 * Gets the raw plugin data for the Retraceur active and inactive sections of the debug data.
 	 *
 	 * @since WP 6.7.0
 	 *
@@ -984,7 +984,7 @@ class WP_Debug_Data {
 	}
 
 	/**
-	 * Gets the motsVertueux active theme section of the debug data.
+	 * Gets the Retraceur active theme section of the debug data.
 	 *
 	 * @since WP 6.7.0
 	 *
@@ -1130,7 +1130,7 @@ class WP_Debug_Data {
 	}
 
 	/**
-	 * Gets the motsVertueux parent theme section of the debug data.
+	 * Gets the Retraceur parent theme section of the debug data.
 	 *
 	 * @since WP 6.7.0
 	 *
@@ -1242,7 +1242,7 @@ class WP_Debug_Data {
 	}
 
 	/**
-	 * Gets the motsVertueux inactive themes section of the debug data.
+	 * Gets the Retraceur inactive themes section of the debug data.
 	 *
 	 * @since WP 6.7.0
 	 *
@@ -1372,7 +1372,7 @@ class WP_Debug_Data {
 	}
 
 	/**
-	 * Gets the motsVertueux constants section of the debug data.
+	 * Gets the Retraceur constants section of the debug data.
 	 *
 	 * @since WP 6.7.0
 	 *
@@ -1534,11 +1534,11 @@ class WP_Debug_Data {
 	}
 
 	/**
-	 * Gets the motsVertueux database section of the debug data.
+	 * Gets the Retraceur database section of the debug data.
 	 *
 	 * @since WP 6.7.0
 	 *
-	 * @global wpdb $wpdb motsVertueux database abstraction object.
+	 * @global wpdb $wpdb Retraceur database abstraction object.
 	 *
 	 * @return array
 	 */
@@ -1689,7 +1689,7 @@ class WP_Debug_Data {
 	 *
 	 * @since WP 5.9.0
 	 *
-	 * @global wpdb $wpdb motsVertueux database abstraction object.
+	 * @global wpdb $wpdb Retraceur database abstraction object.
 	 *
 	 * @param string $mysql_var Name of the MySQL system variable.
 	 * @return string|null The variable value on success. Null if the variable does not exist.
@@ -1783,7 +1783,7 @@ class WP_Debug_Data {
 	 *
 	 * @since WP 5.2.0
 	 *
-	 * @global wpdb $wpdb motsVertueux database abstraction object.
+	 * @global wpdb $wpdb Retraceur database abstraction object.
 	 *
 	 * @return int The size of the database, in bytes.
 	 */
@@ -1802,7 +1802,7 @@ class WP_Debug_Data {
 	}
 
 	/**
-	 * Fetches the sizes of the motsVertueux directories: `wordpress` (ABSPATH), `plugins`, `themes`, and `uploads`.
+	 * Fetches the sizes of the Retraceur directories: `wordpress` (ABSPATH), `plugins`, `themes`, and `uploads`.
 	 * Intended to supplement the array returned by `WP_Debug_Data::debug_data()`.
 	 *
 	 * @since WP 5.2.0

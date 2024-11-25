@@ -3,9 +3,9 @@
  * Administration API: WP_List_Table class.
  *
  * @since WP 3.1.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage List_Table
  */
 
@@ -699,8 +699,8 @@ class WP_List_Table {
 	 *
 	 * @since WP 3.1.0
 	 *
-	 * @global wpdb      $wpdb      motsVertueux database abstraction object.
-	 * @global WP_Locale $wp_locale motsVertueux date and time locale object.
+	 * @global wpdb      $wpdb      Retraceur database abstraction object.
+	 * @global WP_Locale $wp_locale Retraceur date and time locale object.
 	 *
 	 * @param string $post_type The post type.
 	 */
@@ -1309,9 +1309,9 @@ class WP_List_Table {
 			is_array( $this->_column_headers )
 		) {
 			/*
-			 * Backward compatibility for `$_column_headers` format prior to motsVertueux 4.3.
+			 * Backward compatibility for `$_column_headers` format prior to Retraceur 4.3.
 			 *
-			 * In motsVertueux 4.3 the primary column name was added as a fourth item in the
+			 * In Retraceur 4.3 the primary column name was added as a fourth item in the
 			 * column headers property. This ensures the primary column name is included
 			 * in plugins setting the property directly in the three item format.
 			 */

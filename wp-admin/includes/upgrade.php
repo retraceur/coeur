@@ -4,9 +4,9 @@
  *
  * Most of the functions are pluggable and can be overwritten.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Administration
  */
 
@@ -270,7 +270,7 @@ if ( ! function_exists( 'wp_install_defaults' ) ) :
 			$first_comment        = get_site_option( 'first_comment' );
 		}
 
-		$first_comment_author = ! empty( $first_comment_author ) ? $first_comment_author : __( 'A motsVertueux Commenter' );
+		$first_comment_author = ! empty( $first_comment_author ) ? $first_comment_author : __( 'A Retraceur Commenter' );
 		$first_comment_email  = ! empty( $first_comment_email ) ? $first_comment_email : 'user@site.url';
 		$first_comment_url    = ! empty( $first_comment_url ) ? $first_comment_url : esc_url( __( 'https://site.url/' ) );
 		$first_comment        = ! empty( $first_comment ) ? $first_comment : __(
@@ -3443,7 +3443,7 @@ function wp_check_mysql_version() {
  * Disables the Link Manager on upgrade if, at the time of upgrade, no links exist in the DB.
  *
  * @since WP 3.5.0
- * @deprecated 1.0.0 motsVertueux removed the Link manager feature.
+ * @deprecated 1.0.0 Retraceur removed the Link manager feature.
  *
  * @global int  $wp_current_db_version The old (current) database version.
  * @global wpdb $wpdb                  WordPress database abstraction object.

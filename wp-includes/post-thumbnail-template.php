@@ -5,9 +5,9 @@
  * Support for post thumbnails.
  * Theme's functions.php must call add_theme_support( 'post-thumbnails' ) to use these.
  * 
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Template
  */
 

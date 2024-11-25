@@ -1,15 +1,15 @@
 <?php
 /**
- * motsVertueux Administration Bootstrap.
+ * Retraceur Administration Bootstrap.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Administration
  */
 
 /**
- * In motsVertueux Administration Screens
+ * In Retraceur Administration Screens
  *
  * @since WP 2.3.2
  */

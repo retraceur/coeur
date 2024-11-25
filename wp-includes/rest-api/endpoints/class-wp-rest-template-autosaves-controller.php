@@ -3,9 +3,9 @@
  * REST API: WP_REST_Template_Autosaves_Controller class.
  *
  * @since WP 6.4.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage REST_API
  */
 

@@ -2,13 +2,13 @@
 /**
  * Install theme administration panel.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Administration
  */
 
-/** motsVertueux Administration Bootstrap */
+/** Retraceur Administration Bootstrap */
 require_once __DIR__ . '/admin.php';
 require ABSPATH . 'wp-admin/includes/theme-install.php';
 
@@ -295,7 +295,7 @@ if ( $tab ) {
 				if ( current_user_can( 'update_core' ) && current_user_can( 'update_php' ) ) {
 					printf(
 						/* translators: %s: URL to WordPress Updates screen. */
-						' ' . __( '<a href="%1$s">Please update motsVertueux</a>.' ),
+						' ' . __( '<a href="%1$s">Please update Retraceur</a>.' ),
 						self_admin_url( 'update-core.php' )
 					);
 				} elseif ( current_user_can( 'update_core' ) ) {

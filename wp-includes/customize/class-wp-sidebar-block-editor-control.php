@@ -3,9 +3,9 @@
  * Customize API: WP_Sidebar_Block_Editor_Control class.
  *
  * @since WP 5.8.0
- * @deprecated 1.0.0 motsVertueux removed the customizer feature.
+ * @deprecated 1.0.0 Retraceur removed the customizer feature.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Customize
  */
 

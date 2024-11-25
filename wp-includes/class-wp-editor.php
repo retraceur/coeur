@@ -5,9 +5,9 @@
  * Private, not included by default. See wp_editor() in wp-includes/general-template.php.
  *
  * @since WP 3.3.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  */
 
 #[AllowDynamicProperties]

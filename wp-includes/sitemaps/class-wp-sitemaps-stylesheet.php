@@ -5,9 +5,9 @@
  * This class provides the XSL stylesheets to style all sitemaps.
  * 
  * @since WP 5.5.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Sitemaps
  */
 

@@ -3,9 +3,9 @@
  * WP_Theme_JSON_Data class.
  *
  * @since WP 6.1.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Theme
  */
 

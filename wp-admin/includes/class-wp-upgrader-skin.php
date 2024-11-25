@@ -3,14 +3,14 @@
  * Upgrader API: WP_Upgrader_Skin class.
  *
  * @since WP 4.6.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Upgrader
  */
 
 /**
- * Generic Skin for the motsVertueux Upgrader classes. This skin is designed to be extended for specific purposes.
+ * Generic Skin for the Retraceur Upgrader classes. This skin is designed to be extended for specific purposes.
  *
  * @since WP 2.8.0
  * @since WP 4.6.0 Moved to its own file from wp-admin/includes/class-wp-upgrader-skins.php.
@@ -61,11 +61,11 @@ class WP_Upgrader_Skin {
 	/**
 	 * Constructor.
 	 *
-	 * Sets up the generic skin for the motsVertueux Upgrader classes.
+	 * Sets up the generic skin for the Retraceur Upgrader classes.
 	 *
 	 * @since WP 2.8.0
 	 *
-	 * @param array $args Optional. The motsVertueux upgrader skin arguments to
+	 * @param array $args Optional. The Retraceur upgrader skin arguments to
 	 *                    override default options. Default empty array.
 	 */
 	public function __construct( $args = array() ) {

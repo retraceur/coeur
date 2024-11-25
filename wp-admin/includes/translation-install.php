@@ -2,9 +2,9 @@
 /**
  * WordPress Translation Installation Administration API.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Administration
  */
 
@@ -51,7 +51,7 @@ function translations_api( $type, $args = null ) {
 	$res = apply_filters( 'translations_api', false, $type, $args );
 
 	if ( false === $res ) {
-		return new WP_Error( 'translations_api_disabled', __( 'motsVertueux does not provide a Translations API.' ) );
+		return new WP_Error( 'translations_api_disabled', __( 'Retraceur does not provide a Translations API.' ) );
 
 		// @todo use GitHub instead
 		$url      = '';
@@ -79,7 +79,7 @@ function translations_api( $type, $args = null ) {
 		if ( $ssl && is_wp_error( $request ) ) {
 			wp_trigger_error(
 				__FUNCTION__,
-				__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ) . ' ' . __( '(motsVertueux could not establish a secure connection to Translations API. Please contact your server administrator.)' ),
+				__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ) . ' ' . __( '(Retraceur could not establish a secure connection to Translations API. Please contact your server administrator.)' ),
 				headers_sent() || WP_DEBUG ? E_USER_WARNING : E_USER_NOTICE
 			);
 

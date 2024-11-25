@@ -3,9 +3,9 @@
  * Core Navigation Menu API.
  *
  * @since WP 3.0.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Nav_Menus
  */
 
@@ -1349,7 +1349,7 @@ function wp_nav_menu_manage_columns() {
  * @access private
  * @since WP 3.0.0
  *
- * @global wpdb $wpdb motsVertueux database abstraction object.
+ * @global wpdb $wpdb Retraceur database abstraction object.
  */
 function _wp_delete_orphaned_draft_menu_items() {
 	global $wpdb;

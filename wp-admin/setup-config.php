@@ -5,9 +5,9 @@
  * The permissions for the base directory must allow for writing files in order
  * for the wp-config.php to be created using this page.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Administration
  */
 
@@ -34,10 +34,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 require ABSPATH . 'wp-settings.php';
 
-/** Load motsVertueux Administration Upgrade API */
+/** Load Retraceur Administration Upgrade API */
 require_once ABSPATH . 'wp-admin/includes/upgrade.php';
 
-/** Load motsVertueux Translation Installation API */
+/** Load Retraceur Translation Installation API */
 require_once ABSPATH . 'wp-admin/includes/translation-install.php';
 
 nocache_headers();

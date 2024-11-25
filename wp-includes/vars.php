@@ -12,9 +12,9 @@
  * Note: Though Nginx is detected, WordPress does not currently
  * generate rewrite rules for it.
  * 
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  */
 
 global $pagenow,

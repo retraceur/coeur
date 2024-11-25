@@ -2,9 +2,9 @@
 /**
  * APIs to interact with global settings & styles.
  * 
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  */
 
 /**

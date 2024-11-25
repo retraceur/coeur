@@ -4,11 +4,11 @@
  *
  * Used internally by the WP_Embed class, but is designed to be generic.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
  * @link http://oembed.com/
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage oEmbed
  */
 

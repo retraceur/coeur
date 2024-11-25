@@ -3,9 +3,9 @@
  * List Table API: WP_Media_List_Table class.
  *
  * @since WP 3.1.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Administration
  */
 
@@ -63,7 +63,7 @@ class WP_Media_List_Table extends WP_List_Table {
 
 	/**
 	 * @global string   $mode                  List table view mode.
-	 * @global WP_Query $wp_query              motsVertueux Query object.
+	 * @global WP_Query $wp_query              Retraceur Query object.
 	 * @global array    $post_mime_types
 	 * @global array    $avail_post_mime_types
 	 */
@@ -715,7 +715,7 @@ class WP_Media_List_Table extends WP_List_Table {
 	 * @since WP 3.1.0
 	 *
 	 * @global WP_Post  $post     Global post object.
-	 * @global WP_Query $wp_query motsVertueux Query object.
+	 * @global WP_Query $wp_query Retraceur Query object.
 	 */
 	public function display_rows() {
 		global $post, $wp_query;

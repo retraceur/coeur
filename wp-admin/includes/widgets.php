@@ -2,9 +2,9 @@
 /**
  * WordPress Widgets Administration API.
  *
- * @deprecated 1.0.0 motsVertueux fork.
+ * @deprecated 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Administration
  */
 

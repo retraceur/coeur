@@ -1,21 +1,21 @@
 <?php
 /**
- * motsVertueux Export Administration Screen.
+ * Retraceur Export Administration Screen.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Administration
  */
 
-/** Load motsVertueux Bootstrap */
+/** Load Retraceur Bootstrap */
 require_once __DIR__ . '/admin.php';
 
 if ( ! current_user_can( 'export' ) ) {
 	wp_die( __( 'Sorry, you are not allowed to export the content of this site.' ) );
 }
 
-/** Load motsVertueux export API */
+/** Load Retraceur export API */
 require_once ABSPATH . 'wp-admin/includes/export.php';
 
 // Used in the HTML title tag.

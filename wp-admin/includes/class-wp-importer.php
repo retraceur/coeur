@@ -2,9 +2,9 @@
 /**
  * WP_Importer base class.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  * 
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Administration
  */
 #[AllowDynamicProperties]
@@ -15,9 +15,9 @@ class WP_Importer {
 	public function __construct() {}
 
 	/**
-	 * Returns array with imported permalinks from motsVertueux database.
+	 * Returns array with imported permalinks from Retraceur database.
 	 *
-	 * @global wpdb $wpdb motsVertueux database abstraction object.
+	 * @global wpdb $wpdb Retraceur database abstraction object.
 	 *
 	 * @param string $importer_name
 	 * @param string $blog_id
@@ -52,9 +52,9 @@ class WP_Importer {
 	}
 
 	/**
-	 * Returns count of imported permalinks from motsVertueux database.
+	 * Returns count of imported permalinks from Retraceur database.
 	 *
-	 * @global wpdb $wpdb motsVertueux database abstraction object.
+	 * @global wpdb $wpdb Retraceur database abstraction object.
 	 *
 	 * @param string $importer_name
 	 * @param string $blog_id
@@ -79,9 +79,9 @@ class WP_Importer {
 	}
 
 	/**
-	 * Sets array with imported comments from motsVertueux database.
+	 * Sets array with imported comments from Retraceur database.
 	 *
-	 * @global wpdb $wpdb motsVertueux database abstraction object.
+	 * @global wpdb $wpdb Retraceur database abstraction object.
 	 *
 	 * @param string $blog_id
 	 * @return array
@@ -258,7 +258,7 @@ class WP_Importer {
 	 *
 	 * @since WP 3.0.0
 	 *
-	 * @global wpdb  $wpdb       motsVertueux database abstraction object.
+	 * @global wpdb  $wpdb       Retraceur database abstraction object.
 	 * @global int[] $wp_actions
 	 */
 	public function stop_the_insanity() {

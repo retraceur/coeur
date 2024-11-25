@@ -11,7 +11,7 @@
  * not receive this file, see https://opensource.org/license/lgpl-2-1/.
  *
  * @since WP 0.3.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
  * @author  Milian Wolff <mail@milianw.de>
  * @package Text_Diff

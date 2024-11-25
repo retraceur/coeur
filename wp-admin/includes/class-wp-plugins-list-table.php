@@ -3,9 +3,9 @@
  * List Table API: WP_Plugins_List_Table class.
  *
  * @since WP 3.1.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Administration
  */
 
@@ -1223,7 +1223,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 					 * @param array    $plugin_data {
 					 *     An array of plugin data.
 					 *
-					 *     @type string   $id               Plugin ID, e.g. `github.com/motsVertueux/[plugin-name]`.
+					 *     @type string   $id               Plugin ID, e.g. `github.com/Retraceur/[plugin-name]`.
 					 *     @type string   $slug             Plugin slug.
 					 *     @type string   $plugin           Plugin basename.
 					 *     @type string   $new_version      New plugin version.

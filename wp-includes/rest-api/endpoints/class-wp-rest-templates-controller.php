@@ -3,7 +3,7 @@
  * REST API: WP_REST_Templates_Controller class
  * 
  * @since WP 5.8.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
  * @package    WordPress
  * @subpackage REST_API

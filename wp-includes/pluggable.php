@@ -3,9 +3,9 @@
  * These functions can be replaced via plugins. If plugins do not redefine these
  * functions, then these will be used instead.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  */
 
 if ( ! function_exists( 'wp_set_current_user' ) ) :

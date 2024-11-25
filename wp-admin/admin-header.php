@@ -1,10 +1,10 @@
 <?php
 /**
- * motsVertueux Administration Template Header.
+ * Retraceur Administration Template Header.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Administration
  */
 
@@ -18,8 +18,8 @@ if ( ! defined( 'WP_ADMIN' ) ) {
  *
  * @global string    $title              The title of the current screen.
  * @global string    $hook_suffix
- * @global WP_Screen $current_screen     motsVertueux current screen object.
- * @global WP_Locale $wp_locale          motsVertueux date and time locale object.
+ * @global WP_Screen $current_screen     Retraceur current screen object.
+ * @global WP_Locale $wp_locale          Retraceur date and time locale object.
  * @global string    $pagenow            The filename of the current screen.
  * @global string    $update_title
  * @global int       $total_update_count

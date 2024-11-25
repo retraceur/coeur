@@ -2,9 +2,9 @@
 /**
  * The block-based widgets editor, for use in widgets.php.
  *
- * @deprecated 1.0.0 motsVertueux fork.
+ * @deprecated 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Administration
  */
 
@@ -21,7 +21,7 @@ do_action_deprecated(
 	array(),
 	'1.0.0',
 	'',
-	__( 'The Widgets feature is not available in motsVertueux.' )
+	__( 'The Widgets feature is not available in Retraceur.' )
 );
 
 /** This action is documented in wp-admin/widgets-form.php */
@@ -30,7 +30,7 @@ do_action_deprecated(
 	array(),
 	'1.0.0',
 	'',
-	__( 'The Widgets feature is not available in motsVertueux.' )
+	__( 'The Widgets feature is not available in Retraceur.' )
 );
 
 /**
@@ -38,7 +38,7 @@ do_action_deprecated(
  * not enabled in the browser.
  *
  * @since WP 6.4.0
- * @deprecated 1.0.0 motsVertueux fork.
+ * @deprecated 1.0.0 Retraceur fork.
  *
  * @param string $message The message being displayed.
  * @param bool   $installed Whether the Classic Widget plugin is installed.
@@ -48,7 +48,7 @@ apply_filters_deprecated(
 	array( '', false ),
 	'1.0.0',
 	'',
-	__( 'Widgets are not supported in motsVertueux.' )
+	__( 'Widgets are not supported in Retraceur.' )
 );
 
 /** This action is documented in wp-admin/widgets-form.php */
@@ -57,5 +57,5 @@ do_action_deprecated(
 	array(),
 	'1.0.0',
 	'',
-	__( 'The Widgets feature is not available in motsVertueux.' )
+	__( 'The Widgets feature is not available in Retraceur.' )
 );

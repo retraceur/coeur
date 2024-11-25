@@ -2,9 +2,9 @@
 /**
  * WordPress Theme Administration API.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Administration
  */
 
@@ -309,7 +309,7 @@ function get_theme_update_available( $theme ) {
  * @since WP 5.8.1 Added 'Template Editing' feature.
  * @since WP 6.1.1 Replaced 'Full Site Editing' feature name with 'Site Editor'.
  * @since WP 6.2.0 Added 'Style Variations' feature.
- * @since 1.0.0    motsVertueux: remove the WP API requesting part.
+ * @since 1.0.0    Retraceur: remove the WP API requesting part.
  *
  * @return array Array of features keyed by category with translations keyed by slug.
  */
@@ -494,7 +494,7 @@ function themes_api( $action, $args = array() ) {
 	$res = apply_filters( 'themes_api', false, $action, $args );
 
 	if ( ! $res ) {
-		return new WP_Error( 'themes_api_disabled', __( 'motsVertueux does not provide a Theme Installation API.' ) );
+		return new WP_Error( 'themes_api_disabled', __( 'Retraceur does not provide a Theme Installation API.' ) );
 
 		// @todo use GitHub instead
 		$url = '';
@@ -522,7 +522,7 @@ function themes_api( $action, $args = array() ) {
 			if ( ! wp_doing_ajax() ) {
 				wp_trigger_error(
 					__FUNCTION__,
-					__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ) . ' ' . __( '(motsVertueux could not establish a secure connection to Theme Installation API. Please contact your server administrator.)' ),
+					__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ) . ' ' . __( '(Retraceur could not establish a secure connection to Theme Installation API. Please contact your server administrator.)' ),
 					headers_sent() || WP_DEBUG ? E_USER_WARNING : E_USER_NOTICE
 				);
 			}

@@ -4,9 +4,9 @@
  * functions and look for the alternatives instead. The functions will be
  * removed in a later version.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Deprecated
  */
 
@@ -6635,7 +6635,7 @@ function wp_print_community_events_templates() {
  * Enqueues the assets required for the block directory within the block editor.
  *
  * @since WP 5.5.0
- * @deprecated 1.0.0 motsVertueux does not allow remote access to WP Block directory.
+ * @deprecated 1.0.0 Retraceur does not allow remote access to WP Block directory.
  */
 function wp_enqueue_editor_block_directory_assets() {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
@@ -6648,7 +6648,7 @@ function wp_enqueue_editor_block_directory_assets() {
  *
  * @since WP 6.2.0
  *
- * @deprecated 1.0.0 motsVertueux does not allow remote access to WP Pattern directory.
+ * @deprecated 1.0.0 Retraceur does not allow remote access to WP Pattern directory.
  *
  * @access private
  *
@@ -6668,7 +6668,7 @@ function wp_normalize_remote_block_pattern( $pattern ) {
  *              format expected by `register_block_pattern` (camelCase).
  * @since WP 6.3.0 Add 'pattern-directory/core' to the pattern's 'source'.
  *
- * @deprecated 1.0.0 motsVertueux does not allow remote access to WP Pattern directory.
+ * @deprecated 1.0.0 Retraceur does not allow remote access to WP Pattern directory.
  *
  * @param WP_Screen $deprecated Unused. Formerly the screen that the current request was triggered from.
  */
@@ -6684,7 +6684,7 @@ function _load_remote_block_patterns( $deprecated = null ) {
  *              format expected by `register_block_pattern()` (camelCase).
  * @since WP 6.3.0 Add 'pattern-directory/featured' to the pattern's 'source'.
  *
- * @deprecated 1.0.0 motsVertueux does not allow remote access to WP Pattern directory.
+ * @deprecated 1.0.0 Retraceur does not allow remote access to WP Pattern directory.
  */
 function _load_remote_featured_patterns() {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
@@ -6699,7 +6699,7 @@ function _load_remote_featured_patterns() {
  *              format expected by `register_block_pattern()` (camelCase).
  * @since WP 6.3.0 Add 'pattern-directory/theme' to the pattern's 'source'.
  *
- * @deprecated 1.0.0 motsVertueux does not allow remote access to WP Pattern directory.
+ * @deprecated 1.0.0 Retraceur does not allow remote access to WP Pattern directory.
  *
  * @access private
  */
@@ -6717,7 +6717,7 @@ function _register_remote_theme_patterns() {
  * or when making Customizer Ajax requests for widgets or menus.
  *
  * @since WP 3.4.0
- * @deprecated 1.0.0 motsVertueux removed the customizer feature.
+ * @deprecated 1.0.0 Retraceur removed the customizer feature.
  */
 function _wp_customize_include() {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
@@ -6727,7 +6727,7 @@ function _wp_customize_include() {
  * Publishes a snapshot's changes.
  *
  * @since WP 4.7.0
- * @deprecated 1.0.0 motsVertueux removed the customizer feature.
+ * @deprecated 1.0.0 Retraceur removed the customizer feature.
  * @access private
  *
  * @param string  $new_status     New post status.
@@ -6745,7 +6745,7 @@ function _wp_customize_publish_changeset( $new_status, $old_status, $changeset_p
  * transitioned into pending status by a contributor.
  *
  * @since WP 4.7.0
- * @deprecated 1.0.0 motsVertueux removed the customizer feature.
+ * @deprecated 1.0.0 Retraceur removed the customizer feature.
  *
  * @see wp_insert_post()
  *
@@ -6761,7 +6761,7 @@ function _wp_customize_changeset_filter_insert_post_data( $post_data, $supplied_
  * Adds settings for the customize-loader script.
  *
  * @since WP 3.4.0
- * @deprecated 1.0.0 motsVertueux removed the customizer feature.
+ * @deprecated 1.0.0 Retraceur removed the customizer feature.
  */
 function _wp_customize_loader_settings() {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
@@ -6771,7 +6771,7 @@ function _wp_customize_loader_settings() {
  * Returns a URL to load the Customizer.
  *
  * @since WP 3.4.0
- * @deprecated 1.0.0 motsVertueux removed the customizer feature.
+ * @deprecated 1.0.0 Retraceur removed the customizer feature.
  *
  * @param string $stylesheet Optional. Theme to customize. Defaults to active theme.
  *                           The theme's stylesheet will be urlencoded if necessary.
@@ -6798,7 +6798,7 @@ function wp_customize_url( $stylesheet = '' ) {
  * @since WP 3.4.0
  * @since WP 4.7.0 Support for IE8 and below is explicitly removed via conditional comments.
  * @since WP 5.5.0 IE8 and older are no longer supported.
- * @deprecated 1.0.0 motsVertueux removed the customizer feature.
+ * @deprecated 1.0.0 Retraceur removed the customizer feature.
  */
 function wp_customize_support_script() {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
@@ -6808,7 +6808,7 @@ function wp_customize_support_script() {
  * Whether the site is being previewed in the Customizer.
  *
  * @since WP 4.0.0
- * @deprecated 1.0.0 motsVertueux removed the customizer feature.
+ * @deprecated 1.0.0 Retraceur removed the customizer feature.
  *
  * @return bool True if the site is being previewed in the Customizer, false otherwise.
  */
@@ -6835,7 +6835,7 @@ function is_customize_preview() {
  * editing flow in the Customizer.
  *
  * @since WP 4.8.0
- * @deprecated 1.0.0 motsVertueux removed the customizer feature.
+ * @deprecated 1.0.0 Retraceur removed the customizer feature.
  * @access private
  * @see wp_delete_auto_drafts()
  *
@@ -6851,7 +6851,7 @@ function _wp_keep_alive_customize_changeset_dependent_auto_drafts( $new_status, 
  * Adds the "Customize" link to the Toolbar.
  *
  * @since WP 4.3.0
- * @deprecated 1.0.0 motsVertueux removed the customizer feature.
+ * @deprecated 1.0.0 Retraceur removed the customizer feature.
  *
  * @param WP_Admin_Bar $wp_admin_bar The WP_Admin_Bar instance.
  */
@@ -6863,7 +6863,7 @@ function wp_admin_bar_customize_menu( $wp_admin_bar ) {
  * Deletes auto-draft posts associated with the supplied changeset.
  *
  * @since WP 4.8.0
- * @deprecated 1.0.0 motsVertueux removed the customizer feature.
+ * @deprecated 1.0.0 Retraceur removed the customizer feature.
  * @access private
  *
  * @param int $post_id Post ID for the customize_changeset.
@@ -6879,7 +6879,7 @@ function _wp_delete_customize_changeset_dependent_auto_drafts( $post_id ) {
  * If it hasn't, then it will load the widgets library and run an action hook.
  *
  * @since WP 2.2.0
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  */
 function wp_maybe_load_widgets() {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
@@ -6890,7 +6890,7 @@ function wp_maybe_load_widgets() {
  *
  * @since WP 2.2.0
  * @since WP 5.9.3 Don't specify menu order when the active theme is a block theme.
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  */
 function wp_widgets_add_menu() {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
@@ -6901,7 +6901,7 @@ function wp_widgets_add_menu() {
  * that the block editor is enabled by default but can be disabled by themes.
  *
  * @since WP 5.8.0
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  *
  * @access private
  */
@@ -6920,7 +6920,7 @@ function wp_setup_widgets_block_editor() {
  * editor is hidden if a block enqueues 'wp-edit-post' stylesheet.
  *
  * @since WP 5.8.0
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  *
  * @access private
  */
@@ -6942,7 +6942,7 @@ function wp_check_widget_editor_deps() {
  * unless the `$theme_changed` value is 'customize' (to bypass the database write).
  *
  * @since WP 2.8.0
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  *
  * @param string|bool $theme_changed Whether the theme was changed as a boolean. A value
  *                                   of 'customize' defers updates for the Customizer.
@@ -6955,7 +6955,7 @@ function retrieve_widgets( $theme_changed = false ) {
  * Handle sidebars config after theme change
  *
  * @since WP 3.3.0
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  *
  * @access private
  */
@@ -6971,7 +6971,7 @@ function _wp_sidebars_changed() {
  * @since      WP 2.8.0
  * @since      WP 4.6.0 Updated the `$widget` parameter to also accept a WP_Widget instance object
  *                      instead of simply a `WP_Widget` subclass name.
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  *
  * @see WP_Widget
  *
@@ -6990,7 +6990,7 @@ function register_widget( $widget ) {
  * @since      WP 2.8.0
  * @since      WP 4.6.0 Updated the `$widget` parameter to also accept a WP_Widget instance object
  *                      instead of simply a `WP_Widget` subclass name.
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  *
  * @see WP_Widget
  *
@@ -7008,7 +7008,7 @@ function unregister_widget( $widget ) {
  * 'id' in `$args`, then they will be built for you.
  *
  * @since      WP 2.2.0
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  *
  * @see register_sidebar() The second parameter is documented by register_sidebar() and is the same here.
  *
@@ -7047,7 +7047,7 @@ function register_sidebars( $number = 1, $args = array() ) {
  * @since      WP 2.2.0
  * @since      WP 5.6.0 Added the `before_sidebar` and `after_sidebar` arguments.
  * @since      WP 5.9.0 Added the `show_in_rest` argument.
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  *
  * @param array|string $args {
  *     Optional. Array or string of arguments for the sidebar being registered.
@@ -7088,7 +7088,7 @@ function register_sidebar( $args = array() ) {
  * Removes a sidebar from the list.
  *
  * @since WP 2.2.0
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  *
  * @param string|int $sidebar_id The ID of the sidebar when it was registered.
  */
@@ -7100,7 +7100,7 @@ function unregister_sidebar( $sidebar_id ) {
  * Checks if a sidebar is registered.
  *
  * @since      WP 4.4.0
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  *
  * @param string|int $sidebar_id The ID of the sidebar when it was registered.
  * @return bool True if the sidebar is registered, false otherwise.
@@ -7122,7 +7122,7 @@ function is_registered_sidebar( $sidebar_id ) {
  * @since      WP 5.3.0 Formalized the existing and already documented `...$params` parameter
  *                      by adding it to the function signature.
  * @since      WP 5.8.0 Added show_instance_in_rest option.
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  *
  * @param int|string $id              Widget ID.
  * @param string     $name            Widget display title.
@@ -7151,7 +7151,7 @@ function wp_register_sidebar_widget( $id, $name, $output_callback, $options = ar
  * in the theme.
  *
  * @since      WP 2.5.0
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  *
  * @param int|string $id Widget ID.
  */
@@ -7166,7 +7166,7 @@ function wp_widget_description( $id ) {
  * describes the sidebar for display on the widget administration panel.
  *
  * @since WP 2.9.0
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  *
  * @param string $id sidebar ID.
  */
@@ -7178,7 +7178,7 @@ function wp_sidebar_description( $id ) {
  * Remove widget from sidebar.
  *
  * @since WP 2.2.0
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  *
  * @param int|string $id Widget ID.
  */
@@ -7189,7 +7189,7 @@ function wp_unregister_sidebar_widget( $id ) {
 	 * Fires just before a widget is removed from a sidebar.
 	 *
 	 * @since WP 3.0.0
-	 * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+	 * @deprecated 1.0.0 Retraceur removed the Widgets feature.
 	 *
 	 * @param int|string $id The widget ID.
 	 */
@@ -7198,7 +7198,7 @@ function wp_unregister_sidebar_widget( $id ) {
 		array( $id ),
 		'1.0.0',
 		'',
-		__( 'The Widgets feature is not available in motsVertueux.' )
+		__( 'The Widgets feature is not available in Retraceur.' )
 	);
 }
 
@@ -7208,7 +7208,7 @@ function wp_unregister_sidebar_widget( $id ) {
  * @since WP 2.2.0
  * @since WP 5.3.0 Formalized the existing and already documented `...$params` parameter
  *              by adding it to the function signature.
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  *
  * @param int|string $id               Sidebar ID.
  * @param string     $name             Sidebar display name.
@@ -7234,7 +7234,7 @@ function wp_register_widget_control( $id, $name, $control_callback, $options = a
  * @since WP 2.8.0
  * @since WP 5.3.0 Formalized the existing and already documented `...$params` parameter
  *              by adding it to the function signature.
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  *
  * @param string   $id_base         The base ID of a widget created by extending WP_Widget.
  * @param callable $update_callback Update callback method for the widget.
@@ -7252,7 +7252,7 @@ function _register_widget_update_callback( $id_base, $update_callback, $options 
  * @since WP 2.8.0
  * @since WP 5.3.0 Formalized the existing and already documented `...$params` parameter
  *              by adding it to the function signature.
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  *
  * @param int|string $id            Widget ID.
  * @param string     $name          Name attribute for the widget.
@@ -7270,7 +7270,7 @@ function _register_widget_form_callback( $id, $name, $form_callback, $options = 
  * Remove control callback for widget.
  *
  * @since WP 2.2.0
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  *
  * @param int|string $id Widget ID.
  */
@@ -7286,7 +7286,7 @@ function wp_unregister_widget_control( $id ) {
  * Otherwise, you can pass in a numerical index to display the sidebar at that index.
  *
  * @since WP 2.2.0
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  *
  * @param int|string $index Optional. Index, name or ID of dynamic sidebar. Default 1.
  */
@@ -7300,7 +7300,7 @@ function dynamic_sidebar( $index = 1 ) {
 	 * and back end, including the Inactive Widgets sidebar on the Widgets screen.
 	 *
 	 * @since WP 3.9.0
-	 * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+	 * @deprecated 1.0.0 Retraceur removed the Widgets feature.
 	 *
 	 * @param int|string $index       Index, name, or ID of the dynamic sidebar.
 	 * @param bool       $has_widgets Whether the sidebar is populated with widgets.
@@ -7311,7 +7311,7 @@ function dynamic_sidebar( $index = 1 ) {
 		array( $index, true ),
 		'1.0.0',
 		'',
-		__( 'The Widgets feature is not available in motsVertueux.' )
+		__( 'The Widgets feature is not available in Retraceur.' )
 	);
 
 	/**
@@ -7321,7 +7321,7 @@ function dynamic_sidebar( $index = 1 ) {
 	 * including for the Inactive Widgets sidebar on the Widgets screen.
 	 *
 	 * @since WP 2.5.0
-	 * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+	 * @deprecated 1.0.0 Retraceur removed the Widgets feature.
 	 *
 	 * @see register_sidebar()
 	 *
@@ -7352,7 +7352,7 @@ function dynamic_sidebar( $index = 1 ) {
 		array( array() ),
 		'1.0.0',
 		'',
-		__( 'Widgets are not supported in motsVertueux.' )
+		__( 'Widgets are not supported in Retraceur.' )
 	);
 
 	/**
@@ -7364,7 +7364,7 @@ function dynamic_sidebar( $index = 1 ) {
 	 * The action is not fired for empty sidebars.
 	 *
 	 * @since WP 3.0.0
-	 * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+	 * @deprecated 1.0.0 Retraceur removed the Widgets feature.
 	 *
 	 * @param array $widget {
 	 *     An associative array of widget arguments.
@@ -7386,7 +7386,7 @@ function dynamic_sidebar( $index = 1 ) {
 		array( array() ),
 		'1.0.0',
 		'',
-		__( 'The Widgets feature is not available in motsVertueux.' )
+		__( 'The Widgets feature is not available in Retraceur.' )
 	);
 
 	/**
@@ -7396,7 +7396,7 @@ function dynamic_sidebar( $index = 1 ) {
 	 * and back end, including the Inactive Widgets sidebar on the Widgets screen.
 	 *
 	 * @since WP 3.9.0
-	 * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+	 * @deprecated 1.0.0 Retraceur removed the Widgets feature.
 	 *
 	 * @param int|string $index       Index, name, or ID of the dynamic sidebar.
 	 * @param bool       $has_widgets Whether the sidebar is populated with widgets.
@@ -7407,7 +7407,7 @@ function dynamic_sidebar( $index = 1 ) {
 		array( $index, false ),
 		'1.0.0',
 		'',
-		__( 'The Widgets feature is not available in motsVertueux.' )
+		__( 'The Widgets feature is not available in Retraceur.' )
 	);
 
 	/**
@@ -7417,7 +7417,7 @@ function dynamic_sidebar( $index = 1 ) {
 	 * and back end, including the Inactive Widgets sidebar on the Widgets screen.
 	 *
 	 * @since WP 3.9.0
-	 * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+	 * @deprecated 1.0.0 Retraceur removed the Widgets feature.
 	 *
 	 * @param bool       $did_one Whether at least one widget was rendered in the sidebar.
 	 *                            Default false.
@@ -7428,7 +7428,7 @@ function dynamic_sidebar( $index = 1 ) {
 		array( $did_one, $index ),
 		'1.0.0',
 		'',
-		__( 'Widgets are not supported in motsVertueux.' )
+		__( 'Widgets are not supported in Retraceur.' )
 	);
 }
 
@@ -7446,7 +7446,7 @@ function dynamic_sidebar( $index = 1 ) {
  * this function has to run after widgets have initialized, at action {@see 'init'} or later.
  *
  * @since WP 2.2.0
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  *
  * @param callable|false $callback      Optional. Widget callback to check. Default false.
  * @param string|false   $widget_id     Optional. Widget ID. Optional, but needed for checking.
@@ -7466,7 +7466,7 @@ function is_active_widget( $callback = false, $widget_id = false, $id_base = fal
  * Determines whether the dynamic sidebar is enabled and used by the theme.
  *
  * @since WP 2.2.0
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  *
  * @return bool True if using widgets, false otherwise.
  */
@@ -7478,7 +7478,7 @@ function is_dynamic_sidebar() {
  * Determines whether a sidebar contains widgets.
  *
  * @since WP 2.8.0
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  *
  * @param string|int $index Sidebar name, id or number to check.
  * @return bool True if the sidebar has widgets, false otherwise.
@@ -7490,7 +7490,7 @@ function is_active_sidebar( $index ) {
 	 * Filters whether a dynamic sidebar is considered "active".
 	 *
 	 * @since WP 3.9.0
-	 * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+	 * @deprecated 1.0.0 Retraceur removed the Widgets feature.
 	 *
 	 * @param bool       $is_active_sidebar Whether or not the sidebar should be considered "active".
 	 *                                      In other words, whether the sidebar contains any widgets.
@@ -7501,7 +7501,7 @@ function is_active_sidebar( $index ) {
 		array( $is_active_sidebar, $index ),
 		'1.0.0',
 		'',
-		__( 'Widgets are not supported in motsVertueux.' )
+		__( 'Widgets are not supported in Retraceur.' )
 	);
 }
 
@@ -7512,7 +7512,7 @@ function is_active_sidebar( $index ) {
  * needed.
  *
  * @since WP 2.2.0
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  * @access private
  *
  * @param bool $deprecated Not used (argument deprecated).
@@ -7528,7 +7528,7 @@ function wp_get_sidebars_widgets( $deprecated = true ) {
 	 * Filters the list of sidebars and their widgets.
 	 *
 	 * @since WP 2.7.0
-	 * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+	 * @deprecated 1.0.0 Retraceur removed the Widgets feature.
 	 *
 	 * @param array $sidebars_widgets An associative array of sidebars and their widgets.
 	 */
@@ -7537,7 +7537,7 @@ function wp_get_sidebars_widgets( $deprecated = true ) {
 		array( $sidebars_widgets ),
 		'1.0.0',
 		'',
-		__( 'Widgets are not supported in motsVertueux.' )
+		__( 'Widgets are not supported in Retraceur.' )
 	);
 }
 
@@ -7545,7 +7545,7 @@ function wp_get_sidebars_widgets( $deprecated = true ) {
  * Retrieves the registered sidebar with the given ID.
  *
  * @since WP 5.9.0
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  *
  * @param string $id The sidebar ID.
  */
@@ -7557,7 +7557,7 @@ function wp_get_sidebar( $id ) {
  * Set the sidebar widget option to update sidebars.
  *
  * @since WP 2.2.0
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  * @access private
  *
  * @global array $_wp_sidebars_widgets
@@ -7571,7 +7571,7 @@ function wp_set_sidebars_widgets( $sidebars_widgets ) {
  * Retrieve default registered sidebars list.
  *
  * @since WP 2.2.0
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  * @access private
  *
  * @return array
@@ -7584,7 +7584,7 @@ function wp_get_widget_defaults() {
  * Converts the widget settings from single to multi-widget format.
  *
  * @since WP 2.8.0
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  *
  * @global array $_wp_sidebars_widgets
  *
@@ -7601,7 +7601,7 @@ function wp_convert_widget_settings( $base_name, $option_name, $settings ) {
  * Output an arbitrary widget as a template tag.
  *
  * @since WP 2.8.0
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  *
  * @param string $widget   The widget's PHP class name (see class-wp-widget.php).
  * @param array  $instance Optional. The widget's instance settings. Default empty array.
@@ -7625,7 +7625,7 @@ function the_widget( $widget, $instance = array(), $args = array() ) {
 	 * Fires before rendering the requested widget.
 	 *
 	 * @since WP 3.0.0
-	 * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+	 * @deprecated 1.0.0 Retraceur removed the Widgets feature.
 	 *
 	 * @param string $widget   The widget's class name.
 	 * @param array  $instance The current widget instance's settings.
@@ -7636,7 +7636,7 @@ function the_widget( $widget, $instance = array(), $args = array() ) {
 		array( $widget, $instance, $args ),
 		'1.0.0',
 		'',
-		__( 'The Widgets feature is not available in motsVertueux.' )
+		__( 'The Widgets feature is not available in Retraceur.' )
 	);
 }
 
@@ -7644,7 +7644,7 @@ function the_widget( $widget, $instance = array(), $args = array() ) {
  * Retrieves the widget ID base value.
  *
  * @since WP 2.8.0
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  *
  * @param string $id Widget ID.
  */
@@ -7657,7 +7657,7 @@ function _get_widget_id_base( $id ) {
  *
  * @since WP 4.9.0
  * @since WP 4.9.2 Always tries to restore widget assignments from previous data, not just if sidebars needed mapping.
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  *
  * @param array $existing_sidebars_widgets List of sidebars and their widget instance IDs.
  * @return array Mapped sidebars widgets.
@@ -7670,7 +7670,7 @@ function wp_map_sidebars_widgets( $existing_sidebars_widgets ) {
  * Compares a list of sidebars with their widgets against an allowed list.
  *
  * @since WP 4.9.0
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  *
  * @param array $sidebars_widgets   List of sidebars and their widget instance IDs.
  * @param array $allowed_widget_ids Optional. List of widget IDs to compare against. Default: Registered widgets.
@@ -7683,7 +7683,7 @@ function _wp_remove_unregistered_widgets( $sidebars_widgets, $allowed_widget_ids
  * Display the RSS entries in a list.
  *
  * @since WP 2.5.0
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  *
  * @param string|array|object $rss  RSS url.
  * @param array               $args Widget arguments.
@@ -7700,7 +7700,7 @@ function wp_widget_rss_output( $rss, $args = array() ) {
  * 'show_date'.
  *
  * @since WP 2.5.0
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  *
  * @param array|string $args   Values for input fields.
  * @param array        $inputs Override default display options.
@@ -7720,7 +7720,7 @@ function wp_widget_rss_form( $args, $inputs = null ) {
  * All respectively in the order of the array elements.
  *
  * @since WP 2.5.0
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  *
  * @param array $widget_rss RSS widget feed data. Expects unescaped data.
  * @param bool  $check_feed Optional. Whether to check feed for errors. Default true.
@@ -7736,7 +7736,7 @@ function wp_widget_rss_process( $widget_rss, $check_feed = true ) {
  * Calls {@see 'widgets_init'} action after all of the WordPress widgets have been registered.
  *
  * @since WP 2.2.0
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  */
 function wp_widgets_init() {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
@@ -7745,14 +7745,14 @@ function wp_widgets_init() {
 	 * Fires after all default WordPress widgets have been registered.
 	 *
 	 * @since WP 2.2.0
-	 * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+	 * @deprecated 1.0.0 Retraceur removed the Widgets feature.
 	 */
 	do_action_deprecated(
 		'widgets_init',
 		array(),
 		'1.0.0',
 		'',
-		__( 'The Widgets feature is not available in motsVertueux.' )
+		__( 'The Widgets feature is not available in Retraceur.' )
 	);
 }
 
@@ -7762,7 +7762,7 @@ function wp_widgets_init() {
  * filtered the return value of this function.
  *
  * @since WP 5.8.0
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  *
  * @return bool Whether to use the block editor to manage widgets.
  */
@@ -7773,7 +7773,7 @@ function wp_use_widgets_block_editor() {
 	 * Filters whether to use the block editor to manage widgets.
 	 *
 	 * @since WP 5.8.0
-	 * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+	 * @deprecated 1.0.0 Retraceur removed the Widgets feature.
 	 *
 	 * @param bool $use_widgets_block_editor Whether to use the block editor to manage widgets.
 	 */
@@ -7782,7 +7782,7 @@ function wp_use_widgets_block_editor() {
 		array( get_theme_support( 'widgets-block-editor' ) ),
 		'1.0.0',
 		'',
-		__( 'Widgets are not supported in motsVertueux.' )
+		__( 'Widgets are not supported in Retraceur.' )
 	);
 }
 
@@ -7790,7 +7790,7 @@ function wp_use_widgets_block_editor() {
  * Converts a widget ID into its id_base and number components.
  *
  * @since WP 5.8.0
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  *
  * @param string $id Widget ID.
  */
@@ -7802,7 +7802,7 @@ function wp_parse_widget_id( $id ) {
  * Finds the sidebar that a given widget belongs to.
  *
  * @since WP 5.8.0
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  *
  * @param string $widget_id The widget ID to look for.
  */
@@ -7814,7 +7814,7 @@ function wp_find_widgets_sidebar( $widget_id ) {
  * Assigns a widget to the given sidebar.
  *
  * @since WP 5.8.0
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  *
  * @param string $widget_id  The widget ID to assign.
  * @param string $sidebar_id The sidebar ID to assign to. If empty, the widget won't be added to any sidebar.
@@ -7827,7 +7827,7 @@ function wp_assign_widget_to_sidebar( $widget_id, $sidebar_id ) {
  * Calls the render callback of a widget and returns the output.
  *
  * @since WP 5.8.0
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  *
  * @param string $widget_id Widget ID.
  * @param string $sidebar_id Sidebar ID.
@@ -7841,7 +7841,7 @@ function wp_render_widget( $widget_id, $sidebar_id ) {
  * Calls the control callback of a widget and returns the output.
  *
  * @since WP 5.8.0
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  *
  * @param string $id Widget ID.
  * @return string|null
@@ -7854,7 +7854,7 @@ function wp_render_widget_control( $id ) {
  * Registers the previous theme's sidebars for the block themes.
  *
  * @since WP 6.2.0
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  * @access private
  */
 function _wp_block_theme_register_classic_sidebars() {
@@ -7866,7 +7866,7 @@ function _wp_block_theme_register_classic_sidebars() {
  * is not registered by default.
  *
  * @since WP 5.8.0
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  *
  * @return array Settings to be used with get_block_editor_settings().
  */
@@ -7880,7 +7880,7 @@ function get_legacy_widget_block_editor_settings() {
 	 * Returning an empty array will make all widgets available.
 	 *
 	 * @since WP 5.8.0
-	 * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+	 * @deprecated 1.0.0 Retraceur removed the Widgets feature.
 	 *
 	 * @param string[] $widgets An array of excluded widget-type IDs.
 	 */
@@ -7889,7 +7889,7 @@ function get_legacy_widget_block_editor_settings() {
 		array(),
 		'1.0.0',
 		'',
-		__( 'Widgets are not supported in motsVertueux.' )
+		__( 'Widgets are not supported in Retraceur.' )
 	);
 
 	return array();
@@ -7899,7 +7899,7 @@ function get_legacy_widget_block_editor_settings() {
  * Handles saving the widgets order via AJAX.
  *
  * @since WP 3.1.0
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  */
 function wp_ajax_widgets_order() {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
@@ -7909,7 +7909,7 @@ function wp_ajax_widgets_order() {
  * Handles saving a widget via AJAX.
  *
  * @since WP 3.1.0
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  */
 function wp_ajax_save_widget() {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
@@ -7919,7 +7919,7 @@ function wp_ajax_save_widget() {
  * Handles updating a widget via AJAX.
  *
  * @since WP 3.9.0
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  */
 function wp_ajax_update_widget() {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
@@ -7929,7 +7929,7 @@ function wp_ajax_update_widget() {
  * Handles removing inactive widgets via AJAX.
  *
  * @since WP 4.4.0
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  */
 function wp_ajax_delete_inactive_widgets() {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
@@ -7939,7 +7939,7 @@ function wp_ajax_delete_inactive_widgets() {
  * Renders the 'core/legacy-widget' block.
  *
  * @since WP 5.8.0
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  *
  * @param array $attributes The block attributes.
  */
@@ -7951,7 +7951,7 @@ function render_block_core_legacy_widget( $attributes ) {
  * Registers the 'core/legacy-widget' block.
  *
  * @since WP 5.8.0
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  */
 function register_block_core_legacy_widget() {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
@@ -7963,7 +7963,7 @@ function register_block_core_legacy_widget() {
  * block.
  *
  * @since WP 5.8.0
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  */
 function handle_legacy_widget_preview_iframe() {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
@@ -7974,7 +7974,7 @@ function handle_legacy_widget_preview_iframe() {
  * Renders the 'core/widget-group' block.
  *
  * @since WP 5.9.0
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  *
  * @param array    $attributes The block attributes.
  * @param string   $content The block content.
@@ -7988,7 +7988,7 @@ function render_block_core_widget_group( $attributes, $content, $block ) {
  * Registers the 'core/widget-group' block.
  *
  * @since WP 5.9.0
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  */
 function register_block_core_widget_group() {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
@@ -8000,7 +8000,7 @@ function register_block_core_widget_group() {
  * render_block_core_widget_group().
  *
  * @since WP 5.9.0
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  *
  * @param int|string $index Index, name, or ID of the dynamic sidebar.
  */
@@ -8013,7 +8013,7 @@ function note_sidebar_being_rendered( $index ) {
  * finishes rendering a sidebar.
  *
  * @since WP 5.9.0
- * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+ * @deprecated 1.0.0 Retraceur removed the Widgets feature.
  */
 function discard_sidebar_being_rendered() {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
@@ -8023,7 +8023,7 @@ function discard_sidebar_being_rendered() {
  * Handles adding a link category via AJAX.
  *
  * @since WP 3.1.0
- * @deprecated 1.0.0 motsVertueux removed the Link manager feature.
+ * @deprecated 1.0.0 Retraceur removed the Link manager feature.
  *
  * @param string $action Action to perform.
  */
@@ -8035,7 +8035,7 @@ function wp_ajax_add_link_category( $action ) {
  * Handles deleting a link via AJAX.
  *
  * @since WP 3.1.0
- * @deprecated 1.0.0 motsVertueux removed the Link manager feature.
+ * @deprecated 1.0.0 Retraceur removed the Link manager feature.
  */
 function wp_ajax_delete_link() {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
@@ -8045,7 +8045,7 @@ function wp_ajax_delete_link() {
  * Retrieves bookmark data.
  *
  * @since WP 2.1.0
- * @deprecated 1.0.0 motsVertueux removed the Link manager feature.
+ * @deprecated 1.0.0 Retraceur removed the Link manager feature.
  *
  * @param int|stdClass $bookmark
  * @param string       $output   Optional. The required return type. One of OBJECT, ARRAY_A, or ARRAY_N, which
@@ -8061,7 +8061,7 @@ function get_bookmark( $bookmark, $output = OBJECT, $filter = 'raw' ) {
  * Retrieves single bookmark data item or field.
  *
  * @since WP 2.3.0
- * @deprecated 1.0.0 motsVertueux removed the Link manager feature.
+ * @deprecated 1.0.0 Retraceur removed the Link manager feature.
  *
  * @param string $field    The name of the data field to return.
  * @param int    $bookmark The bookmark ID to get field.
@@ -8079,7 +8079,7 @@ function get_bookmark_field( $field, $bookmark, $context = 'display' ) {
  * results will be stored to the cache.
  *
  * @since WP 2.1.0
- * @deprecated 1.0.0 motsVertueux removed the Link manager feature.
+ * @deprecated 1.0.0 Retraceur removed the Link manager feature.
  *
  * @param string|array $args {
  *     Optional. String or array of arguments to retrieve bookmarks.
@@ -8120,7 +8120,7 @@ function get_bookmarks( $args = '' ) {
 	 * the full cached results.
 	 *
 	 * @since WP 2.1.0
-	 * @deprecated 1.0.0 motsVertueux removed the Link manager feature.
+	 * @deprecated 1.0.0 Retraceur removed the Link manager feature.
 	 *
 	 * @see get_bookmarks()
 	 *
@@ -8132,7 +8132,7 @@ function get_bookmarks( $args = '' ) {
 		array( array(), array() ),
 		'1.0.0',
 		'',
-		__( 'Link/bookmark manager is not supported in motsVertueux.' )
+		__( 'Link/bookmark manager is not supported in Retraceur.' )
 	);
 }
 
@@ -8140,7 +8140,7 @@ function get_bookmarks( $args = '' ) {
  * Sanitizes all bookmark fields.
  *
  * @since WP 2.3.0
- * @deprecated 1.0.0 motsVertueux removed the Link manager feature.
+ * @deprecated 1.0.0 Retraceur removed the Link manager feature.
  *
  * @param stdClass|array $bookmark Bookmark row.
  * @param string         $context  Optional. How to filter the fields. Default 'display'.
@@ -8165,7 +8165,7 @@ function sanitize_bookmark( $bookmark, $context = 'display' ) {
  * and is passed the `$value`, `$bookmark_id`, and `$context`, respectively.
  *
  * @since WP 2.3.0
- * @deprecated 1.0.0 motsVertueux removed the Link manager feature.
+ * @deprecated 1.0.0 Retraceur removed the Link manager feature.
  *
  * @param string $field       The bookmark field.
  * @param mixed  $value       The bookmark field value.
@@ -8181,7 +8181,7 @@ function sanitize_bookmark_field( $field, $value, $bookmark_id, $context ) {
  * Deletes the bookmark cache.
  *
  * @since WP 2.7.0
- * @deprecated 1.0.0 motsVertueux removed the Link manager feature.
+ * @deprecated 1.0.0 Retraceur removed the Link manager feature.
  *
  * @param int $bookmark_id Bookmark ID.
  */
@@ -8203,7 +8203,7 @@ function clean_bookmark_cache( $bookmark_id ) {
  * used by themes.
  *
  * @since WP 2.1.0
- * @deprecated 1.0.0 motsVertueux removed the Link manager feature.
+ * @deprecated 1.0.0 Retraceur removed the Link manager feature.
  *
  * @access private
  *
@@ -8246,7 +8246,7 @@ function _walk_bookmarks( $bookmarks, $args = '' ) {
  * display for only the 'title_li' string and only if 'title_li' is not empty.
  *
  * @since WP 2.1.0
- * @deprecated 1.0.0 motsVertueux removed the Link manager feature.
+ * @deprecated 1.0.0 Retraceur removed the Link manager feature.
  *
  * @see _walk_bookmarks()
  *
@@ -8297,7 +8297,7 @@ function wp_list_bookmarks( $args = '' ) {
 	 * Filters the bookmarks list before it is echoed or returned.
 	 *
 	 * @since WP 2.5.0
-	 * @deprecated 1.0.0 motsVertueux removed the Link manager feature.
+	 * @deprecated 1.0.0 Retraceur removed the Link manager feature.
 	 *
 	 * @param string $html The HTML list of bookmarks.
 	 */
@@ -8306,7 +8306,7 @@ function wp_list_bookmarks( $args = '' ) {
 		array( '' ),
 		'1.0.0',
 		'',
-		__( 'Link/bookmark manager is not supported in motsVertueux.' )
+		__( 'Link/bookmark manager is not supported in Retraceur.' )
 	);
 }
 
@@ -8314,7 +8314,7 @@ function wp_list_bookmarks( $args = '' ) {
  * Displays the edit bookmark link.
  *
  * @since WP 2.7.0
- * @deprecated 1.0.0 motsVertueux removed the Link manager feature.
+ * @deprecated 1.0.0 Retraceur removed the Link manager feature.
  *
  * @param int|stdClass $link Optional. Bookmark ID. Default is the ID of the current bookmark.
  */
@@ -8325,7 +8325,7 @@ function get_edit_bookmark_link( $link = 0 ) {
 	 * Filters the bookmark edit link.
 	 *
 	 * @since WP 2.7.0
-	 * @deprecated 1.0.0 motsVertueux removed the Link manager feature.
+	 * @deprecated 1.0.0 Retraceur removed the Link manager feature.
 	 *
 	 * @param string $location The edit link.
 	 * @param int    $link_id  Bookmark ID.
@@ -8335,7 +8335,7 @@ function get_edit_bookmark_link( $link = 0 ) {
 		array( '', 0 ),
 		'1.0.0',
 		'',
-		__( 'Link/bookmark manager is not supported in motsVertueux.' )
+		__( 'Link/bookmark manager is not supported in Retraceur.' )
 	);
 }
 
@@ -8343,7 +8343,7 @@ function get_edit_bookmark_link( $link = 0 ) {
  * Displays the edit bookmark link anchor content.
  *
  * @since WP 2.7.0
- * @deprecated 1.0.0 motsVertueux removed the Link manager feature.
+ * @deprecated 1.0.0 Retraceur removed the Link manager feature.
  *
  * @param string $link     Optional. Anchor text. If empty, default is 'Edit This'. Default empty.
  * @param string $before   Optional. Display before edit link. Default empty.
@@ -8357,7 +8357,7 @@ function edit_bookmark_link( $link = '', $before = '', $after = '', $bookmark = 
 	 * Filters the bookmark edit link anchor tag.
 	 *
 	 * @since WP 2.7.0
-	 * @deprecated 1.0.0 motsVertueux removed the Link manager feature.
+	 * @deprecated 1.0.0 Retraceur removed the Link manager feature.
 	 *
 	 * @param string $link    Anchor tag for the edit link.
 	 * @param int    $link_id Bookmark ID.
@@ -8367,6 +8367,6 @@ function edit_bookmark_link( $link = '', $before = '', $after = '', $bookmark = 
 		array( '', 0 ),
 		'1.0.0',
 		'',
-		__( 'Link/bookmark manager is not supported in motsVertueux.' )
+		__( 'Link/bookmark manager is not supported in Retraceur.' )
 	);
 }

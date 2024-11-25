@@ -20,9 +20,9 @@
  * (admin area, multisite environment…), please move it
  * to a more appropriate file instead.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  */
 
 // Strip, trim, kses, special chars for string saves.

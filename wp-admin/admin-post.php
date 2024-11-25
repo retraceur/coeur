@@ -1,16 +1,16 @@
 <?php
 /**
- * motsVertueux Generic Request (POST/GET) Handler.
+ * Retraceur Generic Request (POST/GET) Handler.
  *
  * Intended for form submission handling in themes and plugins.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Administration
  */
 
-/** We are located in motsVertueux Administration Screens */
+/** We are located in Retraceur Administration Screens */
 if ( ! defined( 'WP_ADMIN' ) ) {
 	define( 'WP_ADMIN', true );
 }

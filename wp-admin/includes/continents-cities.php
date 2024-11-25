@@ -5,9 +5,9 @@
  * This file is not included anywhere. It exists solely for use by xgettext.
  *
  * @since WP 2.8.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage i18n
  */
 

@@ -3,9 +3,9 @@
  * Toolbar API: Top-level Toolbar functionality.
  *
  * @since WP 3.1.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Toolbar
  */
 
@@ -140,11 +140,11 @@ function wp_admin_bar_wp_menu( $wp_admin_bar ) {
 		'id'    => 'wp-logo',
 		'title' => '<span class="ab-icon" aria-hidden="true"></span><span class="screen-reader-text">' .
 				/* translators: Hidden accessibility text. */
-				__( 'About motsVertueux' ) .
+				__( 'About Retraceur' ) .
 			'</span>',
 		'href'  => $about_url,
 		'meta'  => array(
-			'menu_title' => __( 'About motsVertueux' ),
+			'menu_title' => __( 'About Retraceur' ),
 		),
 	);
 
@@ -158,12 +158,12 @@ function wp_admin_bar_wp_menu( $wp_admin_bar ) {
 	$wp_admin_bar->add_node( $wp_logo_menu_args );
 
 	if ( $about_url ) {
-		// Add "About motsVertueuxs" link.
+		// Add "About Retraceurs" link.
 		$wp_admin_bar->add_node(
 			array(
 				'parent' => 'wp-logo',
 				'id'     => 'about',
-				'title'  => __( 'About motsVertueux' ),
+				'title'  => __( 'About Retraceur' ),
 				'href'   => $about_url,
 			)
 		);

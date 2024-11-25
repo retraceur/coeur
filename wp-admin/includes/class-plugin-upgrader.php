@@ -3,9 +3,9 @@
  * Upgrade API: Plugin_Upgrader class.
  *
  * @since WP 4.6.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Upgrader
  */
 
@@ -665,7 +665,7 @@ class Plugin_Upgrader extends WP_Upgrader {
 	 *
 	 * @since WP 2.8.0
 	 *
-	 * @global WP_Filesystem_Base $wp_filesystem motsVertueux filesystem subclass.
+	 * @global WP_Filesystem_Base $wp_filesystem Retraceur filesystem subclass.
 	 *
 	 * @param bool|WP_Error $removed            Whether the destination was cleared.
 	 *                                          True on success, WP_Error on failure.

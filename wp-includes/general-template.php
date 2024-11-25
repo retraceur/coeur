@@ -2,9 +2,9 @@
 /**
  * General template tags that can go anywhere in a template.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Template
  */
 
@@ -5023,19 +5023,19 @@ function get_the_generator( $type = '' ) {
 
 	switch ( $type ) {
 		case 'html':
-			$gen = '<meta name="generator" content="motsVertueux ' . esc_attr( get_bloginfo( 'version' ) ) . '">';
+			$gen = '<meta name="generator" content="Retraceur ' . esc_attr( get_bloginfo( 'version' ) ) . '">';
 			break;
 		case 'xhtml':
-			$gen = '<meta name="generator" content="motsVertueux ' . esc_attr( get_bloginfo( 'version' ) ) . '" />';
+			$gen = '<meta name="generator" content="Retraceur ' . esc_attr( get_bloginfo( 'version' ) ) . '" />';
 			break;
 		case 'atom':
-			$gen = '<generator version="' . esc_attr( get_bloginfo_rss( 'version' ) ) . '">motsVertueux</generator>';
+			$gen = '<generator version="' . esc_attr( get_bloginfo_rss( 'version' ) ) . '">Retraceur</generator>';
 			break;
 		case 'comment':
-			$gen = '<!-- generator="motsVertueux/' . esc_attr( get_bloginfo( 'version' ) ) . '" -->';
+			$gen = '<!-- generator="Retraceur/' . esc_attr( get_bloginfo( 'version' ) ) . '" -->';
 			break;
 		case 'export':
-			$gen = '<!-- generator="motsVertueux/' . esc_attr( get_bloginfo_rss( 'version' ) ) . '" created="' . gmdate( 'Y-m-d H:i' ) . '" -->';
+			$gen = '<!-- generator="Retraceur/' . esc_attr( get_bloginfo_rss( 'version' ) ) . '" created="' . gmdate( 'Y-m-d H:i' ) . '" -->';
 			break;
 	}
 

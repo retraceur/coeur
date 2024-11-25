@@ -4,7 +4,7 @@
  * references the original PSR-0 Requests class.
  *
  * @deprecated WP 6.2.0
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Requests
  * @since WP 6.2.0
  */

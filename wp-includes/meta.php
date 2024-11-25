@@ -6,9 +6,9 @@
  * for an object is a represented by a simple key-value pair. Objects may contain multiple
  * metadata entries that share the same key and differ only in their value.
  * 
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Meta
  */
 

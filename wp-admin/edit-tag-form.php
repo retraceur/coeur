@@ -2,9 +2,9 @@
 /**
  * Edit tag form for inclusion in administration panels.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Administration
  */
 

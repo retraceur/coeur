@@ -3,9 +3,9 @@
  * Upgrade API: WP_Automatic_Updater class.
  *
  * @since WP 4.6.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Upgrader
  */
 
@@ -64,7 +64,7 @@ class WP_Automatic_Updater {
 	 * Checks whether access to a given directory is allowed.
 	 *
 	 * This is used when detecting version control checkouts. Takes into account
-	 * the PHP `open_basedir` restrictions, so that motsVertueux does not try to access
+	 * the PHP `open_basedir` restrictions, so that Retraceur does not try to access
 	 * directories it is not allowed to.
 	 *
 	 * @since WP 6.2.0
@@ -185,7 +185,7 @@ class WP_Automatic_Updater {
 	 *
 	 * @since WP 3.7.0
 	 *
-	 * @global wpdb $wpdb motsVertueux database abstraction object.
+	 * @global wpdb $wpdb Retraceur database abstraction object.
 	 *
 	 * @param string $type    The type of update being checked: 'core', 'theme',
 	 *                        'plugin', 'translation'.
@@ -1609,7 +1609,7 @@ class WP_Automatic_Updater {
 					"BETA TESTING?
 =============
 
-This debugging email is sent when you are using a development version of motsVertueux."
+This debugging email is sent when you are using a development version of Retraceur."
 				)
 			);
 			$body[] = '';
@@ -1710,7 +1710,7 @@ This debugging email is sent when you are using a development version of motsVer
 	 *
 	 * @since WP 6.6.0
 	 *
-	 * @global int $upgrading The Unix timestamp marking when upgrading motsVertueux began.
+	 * @global int $upgrading The Unix timestamp marking when upgrading Retraceur began.
 	 *
 	 * @return bool Whether a fatal error was detected.
 	 */

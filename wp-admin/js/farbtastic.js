@@ -6,7 +6,7 @@
  *   http://www.gnu.org/licenses/gpl.html
  */
 /**
- * Modified for motsVertueux: replaced deprecated jQuery methods.
+ * Modified for Retraceur: replaced deprecated jQuery methods.
  */
 
 (function($) {

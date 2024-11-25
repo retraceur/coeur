@@ -2,9 +2,9 @@
 /**
  * Dashboard Widget Administration Screen API.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Administration
  */
 
@@ -14,7 +14,7 @@
  * Handles POST data, sets up filters.
  *
  * @since WP 2.5.0
- * @since 1.0.0 motsVertueux fork is removing WP Widget API globals.
+ * @since 1.0.0 Retraceur fork is removing WP Widget API globals.
  *
  * @global callable[] $wp_dashboard_control_callbacks
  */
@@ -89,7 +89,7 @@ function wp_dashboard_setup() {
 		 * Filters the list of widgets to load for the Network Admin dashboard.
 		 *
 		 * @since WP 3.1.0
-		 * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+		 * @deprecated 1.0.0 Retraceur removed the Widgets feature.
 		 *
 		 * @param string[] $dashboard_widgets An array of dashboard widget IDs.
 		 */
@@ -98,7 +98,7 @@ function wp_dashboard_setup() {
 			array( array() ),
 			'1.0.0',
 			'',
-			__( 'Widgets are not supported in motsVertueux, use the `wp_network_dashboard_setup` action instead.' )
+			__( 'Widgets are not supported in Retraceur, use the `wp_network_dashboard_setup` action instead.' )
 		);
 	} elseif ( is_user_admin() ) {
 
@@ -113,7 +113,7 @@ function wp_dashboard_setup() {
 		 * Filters the list of widgets to load for the User Admin dashboard.
 		 *
 		 * @since WP 3.1.0
-		 * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+		 * @deprecated 1.0.0 Retraceur removed the Widgets feature.
 		 *
 		 * @param string[] $dashboard_widgets An array of dashboard widget IDs.
 		 */
@@ -122,7 +122,7 @@ function wp_dashboard_setup() {
 			array( array() ),
 			'1.0.0',
 			'',
-			__( 'Widgets are not supported in motsVertueux, use the `wp_user_dashboard_setup` action instead.' )
+			__( 'Widgets are not supported in Retraceur, use the `wp_user_dashboard_setup` action instead.' )
 		);
 	} else {
 
@@ -137,7 +137,7 @@ function wp_dashboard_setup() {
 		 * Filters the list of widgets to load for the admin dashboard.
 		 *
 		 * @since WP 2.5.0
-		 * @deprecated 1.0.0 motsVertueux removed the Widgets feature.
+		 * @deprecated 1.0.0 Retraceur removed the Widgets feature.
 		 *
 		 * @param string[] $dashboard_widgets An array of dashboard widget IDs.
 		 */
@@ -146,7 +146,7 @@ function wp_dashboard_setup() {
 			array( array() ),
 			'1.0.0',
 			'',
-			__( 'Widgets are not supported in motsVertueux, use the `wp_dashboard_setup` action instead.' )
+			__( 'Widgets are not supported in Retraceur, use the `wp_dashboard_setup` action instead.' )
 		);
 	}
 
@@ -1378,7 +1378,7 @@ function wp_dashboard_php_nag() {
 		if ( $response['is_lower_than_future_minimum'] ) {
 			$message = sprintf(
 				/* translators: %s: The server PHP version. */
-				__( 'Your site is running on an outdated version of PHP (%s), which does not receive security updates and soon will not be supported by motsVertueux. Ensure that PHP is updated on your server as soon as possible. Otherwise you will not be able to upgrade motsVertueux.' ),
+				__( 'Your site is running on an outdated version of PHP (%s), which does not receive security updates and soon will not be supported by Retraceur. Ensure that PHP is updated on your server as soon as possible. Otherwise you will not be able to upgrade Retraceur.' ),
 				PHP_VERSION
 			);
 		} else {
@@ -1391,7 +1391,7 @@ function wp_dashboard_php_nag() {
 	} elseif ( $response['is_lower_than_future_minimum'] ) {
 		$message = sprintf(
 			/* translators: %s: The server PHP version. */
-			__( 'Your site is running on an outdated version of PHP (%s), which soon will not be supported by motsVertueux. Ensure that PHP is updated on your server as soon as possible. Otherwise you will not be able to upgrade motsVertueux.' ),
+			__( 'Your site is running on an outdated version of PHP (%s), which soon will not be supported by Retraceur. Ensure that PHP is updated on your server as soon as possible. Otherwise you will not be able to upgrade Retraceur.' ),
 			PHP_VERSION
 		);
 	} else {
@@ -1406,7 +1406,7 @@ function wp_dashboard_php_nag() {
 
 	<p><?php _e( 'What is PHP and how does it affect my site?' ); ?></p>
 	<p>
-		<?php _e( 'PHP is one of the programming languages used to build motsVertueux. Newer versions of PHP receive regular security updates and may increase your site&#8217;s performance.' ); ?>
+		<?php _e( 'PHP is one of the programming languages used to build Retraceur. Newer versions of PHP receive regular security updates and may increase your site&#8217;s performance.' ); ?>
 		<?php
 		if ( ! empty( $response['recommended_version'] ) ) {
 			printf(
@@ -1544,7 +1544,7 @@ function wp_dashboard_site_health() {
 function wp_dashboard_empty() {}
 
 /**
- * Displays a welcome panel to introduce users to motsVertueux.
+ * Displays a welcome panel to introduce users to Retraceur.
  *
  * @since WP 3.3.0
  * @since WP 5.9.0 Send users to the Site Editor if the active theme is block-based.
@@ -1558,11 +1558,11 @@ function wp_welcome_panel() {
 		<div class="welcome-panel-header-image">
 			<?php echo file_get_contents( dirname( __DIR__ ) . '/images/dashboard-background.svg' ); ?>
 		</div>
-		<h2><?php _e( 'Welcome to motsVertueux!' ); ?></h2>
+		<h2><?php _e( 'Welcome to Retraceur!' ); ?></h2>
 		<p>
 			<a href="<?php echo esc_url( admin_url( 'about.php' ) ); ?>">
 			<?php
-				/* translators: %s: Current motsVertueux version. */
+				/* translators: %s: Current Retraceur version. */
 				printf( __( 'Learn more about the %s version.' ), esc_html( $display_version ) );
 			?>
 			</a>

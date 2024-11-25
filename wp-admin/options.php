@@ -11,13 +11,13 @@
  * that use the Settings API. In this case it saves the new option values
  * and returns the user to their page of origin.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Administration
  */
 
-/** motsVertueux Administration Bootstrap */
+/** Retraceur Administration Bootstrap */
 require_once __DIR__ . '/admin.php';
 
 // Used in the HTML title tag.
@@ -163,7 +163,7 @@ $allowed_options['privacy'] = array();
  * Filters whether the post-by-email functionality is enabled.
  *
  * @since WP 3.0.0
- * @deprecated 1.0.0 motsVertueux removed the "Post by email" feature.
+ * @deprecated 1.0.0 Retraceur removed the "Post by email" feature.
  *
  * @param bool $enabled Whether post-by-email configuration is enabled. Default true.
  */
@@ -172,7 +172,7 @@ apply_filters_deprecated(
 	array( true ),
 	'1.0.0',
 	'',
-	__( 'Posting by email is not supported in motsVertueux.' )
+	__( 'Posting by email is not supported in Retraceur.' )
 );
 
 if ( ! is_utf8_charset() ) {

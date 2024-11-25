@@ -2,7 +2,7 @@
  * Handle the site icon setting in options-general.php.
  *
  * @since WP 6.5.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
  * @output wp-admin/js/site-icon.js
  */

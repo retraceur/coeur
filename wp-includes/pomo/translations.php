@@ -3,7 +3,7 @@
  * Class for a set of entries for translation and their associated headers.
  *
  * @since WP 2.8.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
  * @version $Id: translations.php 1157 2015-11-20 04:30:11Z dd32 $
  * @package pomo

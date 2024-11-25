@@ -1,15 +1,15 @@
 <?php
 /**
- * motsVertueux FTP Sockets Filesystem.
+ * Retraceur FTP Sockets Filesystem.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Filesystem
  */
 
 /**
- * motsVertueux Filesystem Class for implementing FTP Sockets.
+ * Retraceur Filesystem Class for implementing FTP Sockets.
  *
  * @since WP 2.5.0
  *

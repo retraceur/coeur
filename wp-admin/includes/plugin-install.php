@@ -1,10 +1,10 @@
 <?php
 /**
- * motsVertueux Plugin Install Administration API.
+ * Retraceur Plugin Install Administration API.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Administration
  */
 
@@ -74,7 +74,7 @@
  *         @type bool $sections          Whether to return the plugin readme sections: description, installation,
  *                                       FAQ, screenshots, other notes, and changelog. Default false.
  *         @type bool $tested            Whether to return the 'Compatible up to' value. Default true.
- *         @type bool $requires          Whether to return the required motsVertueux version. Default true.
+ *         @type bool $requires          Whether to return the required Retraceur version. Default true.
  *         @type bool $requires_php      Whether to return the required PHP version. Default true.
  *         @type bool $rating            Whether to return the rating in percent and total number of ratings.
  *                                       Default true.
@@ -84,7 +84,7 @@
  *         @type bool $last_updated      Whether to return the date of the last update. Default true.
  *         @type bool $added             Whether to return the date when the plugin was added. Default true.
  *         @type bool $tags              Whether to return the assigned tags. Default true.
- *         @type bool $compatibility     Whether to return the motsVertueux compatibility list. Default true.
+ *         @type bool $compatibility     Whether to return the Retraceur compatibility list. Default true.
  *         @type bool $homepage          Whether to return the plugin homepage link. Default true.
  *         @type bool $versions          Whether to return the list of all available versions. Default false.
  *         @type bool $donate_link       Whether to return the donation link. Default true.
@@ -145,7 +145,7 @@ function plugins_api( $action, $args = array() ) {
 	$res = apply_filters( 'plugins_api', false, $action, $args );
 
 	if ( false === $res ) {
-		return new WP_Error( 'plugins_api_disabled', __( 'motsVertueux does not provide a Plugin Installation API.' ) );
+		return new WP_Error( 'plugins_api_disabled', __( 'Retraceur does not provide a Plugin Installation API.' ) );
 
 		// @todo use GitHub instead
 		$url = '';
@@ -165,7 +165,7 @@ function plugins_api( $action, $args = array() ) {
 
 		$http_args = array(
 			'timeout'    => 15,
-			'user-agent' => 'motsVertueux/' . wp_get_wp_version() . '; ' . home_url( '/' ),
+			'user-agent' => 'Retraceur/' . wp_get_wp_version() . '; ' . home_url( '/' ),
 		);
 		$request   = wp_remote_get( $url, $http_args );
 
@@ -173,7 +173,7 @@ function plugins_api( $action, $args = array() ) {
 			if ( ! wp_is_json_request() ) {
 				wp_trigger_error(
 					__FUNCTION__,
-					__( 'An unexpected error occurred. Something may be wrong this server&#8217;s configuration.' ) . ' ' . __( '(motsVertueux could not establish a secure connection to Plugin Installation API. Please contact your server administrator.)' ),
+					__( 'An unexpected error occurred. Something may be wrong this server&#8217;s configuration.' ) . ' ' . __( '(Retraceur could not establish a secure connection to Plugin Installation API. Please contact your server administrator.)' ),
 					headers_sent() || WP_DEBUG ? E_USER_WARNING : E_USER_NOTICE
 				);
 			}
@@ -221,7 +221,7 @@ function plugins_api( $action, $args = array() ) {
 }
 
 /**
- * Retrieves popular motsVertueux plugin tags.
+ * Retrieves popular Retraceur plugin tags.
  *
  * @since WP 2.7.0
  *

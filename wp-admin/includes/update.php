@@ -2,9 +2,9 @@
 /**
  * WordPress Administration Update API.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Administration
  */
 
@@ -153,7 +153,7 @@ function get_core_checksums( $version, $locale ) {
 	if ( $ssl && is_wp_error( $response ) ) {
 		wp_trigger_error(
 			__FUNCTION__,
-			__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ) . ' ' . __( '(motsVertueux could not establish a secure connection to Core Updata API. Please contact your server administrator.)' ),
+			__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ) . ' ' . __( '(Retraceur could not establish a secure connection to Core Updata API. Please contact your server administrator.)' ),
 			headers_sent() || WP_DEBUG ? E_USER_WARNING : E_USER_NOTICE
 		);
 
@@ -325,7 +325,7 @@ function update_nag() {
 	if ( current_user_can( 'update_core' ) ) {
 		$msg = sprintf(
 			/* translators: 1: New version, 2: URL to network admin, 3: Accessibility text. */
-			__( 'motsVertueux %1$s is available! <a href="%2$s" aria-label="%3$s">Please update now</a>.' ),
+			__( 'Retraceur %1$s is available! <a href="%2$s" aria-label="%3$s">Please update now</a>.' ),
 			$cur->current,
 			network_admin_url( 'update-core.php' ),
 			esc_attr__( 'Please update WordPress now' )
@@ -333,7 +333,7 @@ function update_nag() {
 	} else {
 		$msg = sprintf(
 			/* translators: %s: New version. */
-			__( 'motsVertueux %2$s is available! Please notify the site administrator.' ),
+			__( 'Retraceur %2$s is available! Please notify the site administrator.' ),
 			$cur->current
 		);
 	}
@@ -595,7 +595,7 @@ function wp_plugin_update_row( $file, $plugin_data ) {
 		 * @param object $response {
 		 *     An object of metadata about the available plugin update.
 		 *
-		 *     @type string   $id           Plugin ID, e.g. `github.com/motsVertueux/[plugin-name]`.
+		 *     @type string   $id           Plugin ID, e.g. `github.com/Retraceur/[plugin-name]`.
 		 *     @type string   $slug         Plugin slug.
 		 *     @type string   $plugin       Plugin basename.
 		 *     @type string   $new_version  New plugin version.

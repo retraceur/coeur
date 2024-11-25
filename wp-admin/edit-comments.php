@@ -2,13 +2,13 @@
 /**
  * Edit Comments Administration Screen.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Administration
  */
 
-/** motsVertueux Administration Bootstrap */
+/** Retraceur Administration Bootstrap */
 require_once __DIR__ . '/admin.php';
 if ( ! current_user_can( 'edit_posts' ) ) {
 	wp_die(
@@ -28,7 +28,7 @@ if ( $doaction ) {
 
 	if ( 'delete_all' === $doaction && ! empty( $_REQUEST['pagegen_timestamp'] ) ) {
 		/**
-		 * @global wpdb $wpdb motsVertueux database abstraction object.
+		 * @global wpdb $wpdb Retraceur database abstraction object.
 		 */
 		global $wpdb;
 

@@ -3,9 +3,9 @@
  * WP_HTTP_IXR_Client class.
  *
  * @since WP 3.1.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  */
 #[AllowDynamicProperties]
 class WP_HTTP_IXR_Client extends IXR_Client {

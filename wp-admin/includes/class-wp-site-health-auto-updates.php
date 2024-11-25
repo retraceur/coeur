@@ -1,11 +1,11 @@
 <?php
 /**
- * Class for testing automatic updates in the motsVertueux code.
+ * Class for testing automatic updates in the Retraceur code.
  *
  * @since WP 5.2.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Site_Health
  */
 
@@ -200,7 +200,7 @@ class WP_Site_Health_Auto_Updates {
 	}
 
 	/**
-	 * Checks if motsVertueux is controlled by a VCS (Git, Subversion etc).
+	 * Checks if Retraceur is controlled by a VCS (Git, Subversion etc).
 	 *
 	 * @since WP 5.2.0
 	 *
@@ -312,7 +312,7 @@ class WP_Site_Health_Auto_Updates {
 	 *
 	 * @since WP 5.2.0
 	 *
-	 * @global WP_Filesystem_Base $wp_filesystem motsVertueux filesystem subclass.
+	 * @global WP_Filesystem_Base $wp_filesystem Retraceur filesystem subclass.
 	 *
 	 * @return array|false The test results. False if they're not writeable.
 	 */
@@ -353,8 +353,8 @@ class WP_Site_Health_Auto_Updates {
 
 		if ( ! $checksums ) {
 			$description = sprintf(
-				/* translators: %s: motsVertueux version. */
-				__( "Couldn't retrieve a list of the checksums for motsVertueux %s." ),
+				/* translators: %s: Retraceur version. */
+				__( "Couldn't retrieve a list of the checksums for Retraceur %s." ),
 				$wp_version
 			);
 			return array(

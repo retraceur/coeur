@@ -2,16 +2,16 @@
 /**
  * Dashboard Administration Screen.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Administration
  */
 
-/** Load motsVertueux Bootstrap */
+/** Load Retraceur Bootstrap */
 require_once __DIR__ . '/admin.php';
 
-/** Load motsVertueux dashboard API */
+/** Load Retraceur dashboard API */
 require_once ABSPATH . 'wp-admin/includes/dashboard.php';
 
 wp_dashboard_setup();

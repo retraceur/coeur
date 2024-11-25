@@ -1,11 +1,11 @@
 <?php
 /**
- * motsVertueux Comment Administration API.
+ * Retraceur Comment Administration API.
  *
  * @since WP 2.3.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Administration
  */
 
@@ -18,7 +18,7 @@
  * @since WP 2.0.0
  * @since WP 4.4.0 Added the `$timezone` parameter.
  *
- * @global wpdb $wpdb motsVertueux database abstraction object.
+ * @global wpdb $wpdb Retraceur database abstraction object.
  *
  * @param string $comment_author Author of the comment.
  * @param string $comment_date   Date of the comment.
@@ -141,7 +141,7 @@ function get_comment_to_edit( $id ) {
  *
  * @since WP 2.3.0
  *
- * @global wpdb $wpdb motsVertueux database abstraction object.
+ * @global wpdb $wpdb Retraceur database abstraction object.
  *
  * @param int|int[] $post_id Either a single Post ID or an array of Post IDs
  * @return int|int[] Either a single Posts pending comments as an int or an array of ints keyed on the Post IDs

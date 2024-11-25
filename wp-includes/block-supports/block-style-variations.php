@@ -4,9 +4,9 @@
  * block style variations.
  *
  * @since WP 6.6.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  */
 
 /**

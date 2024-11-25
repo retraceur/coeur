@@ -3,14 +3,14 @@
  * Upgrader API: Plugin_Installer_Skin class.
  *
  * @since WP 4.6.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Upgrader
  */
 
 /**
- * Plugin Installer Skin for motsVertueux Plugin Installer.
+ * Plugin Installer Skin for Retraceur Plugin Installer.
  *
  * @since WP 2.8.0
  * @since WP 4.6.0 Moved to its own file from wp-admin/includes/class-wp-upgrader-skins.php.

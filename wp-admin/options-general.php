@@ -2,16 +2,16 @@
 /**
  * General settings administration panel.
  *
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage Administration
  */
 
-/** motsVertueux Administration Bootstrap */
+/** Retraceur Administration Bootstrap */
 require_once __DIR__ . '/admin.php';
 
-/** motsVertueux Translation Installation API */
+/** Retraceur Translation Installation API */
 require_once ABSPATH . 'wp-admin/includes/translation-install.php';
 
 if ( ! current_user_can( 'manage_options' ) ) {
@@ -550,7 +550,7 @@ foreach ( $time_formats as $format ) {
 <td><select name="start_of_week" id="start_of_week">
 <?php
 /**
- * @global WP_Locale $wp_locale motsVertueux date and time locale object.
+ * @global WP_Locale $wp_locale Retraceur date and time locale object.
  */
 global $wp_locale;
 

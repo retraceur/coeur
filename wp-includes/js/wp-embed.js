@@ -2,7 +2,7 @@
  * WordPress inline HTML embed.
  *
  * @since WP 4.4.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
  * @output wp-includes/js/wp-embed.js
  *

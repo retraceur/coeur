@@ -3,13 +3,13 @@
  * Atom Syndication Format PHP Library.
  *
  * @since WP 2.3.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
  * @link http://code.google.com/p/phpatomlib/
  * @author Elias Torres <elias@torrez.us>
  * @version 0.4
  * 
- * @package motsVertueux
+ * @package Retraceur
  * @subpackage AtomLib
  */
 

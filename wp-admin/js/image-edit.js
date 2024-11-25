@@ -2,7 +2,7 @@
  * The functions necessary for editing images.
  *
  * @since WP 2.9.0
- * @since 1.0.0 motsVertueux fork.
+ * @since 1.0.0 Retraceur fork.
  *
  * @output wp-admin/js/image-edit.js
  */
