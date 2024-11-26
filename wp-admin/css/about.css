@@ -585,6 +585,8 @@
 }
 
 .about__header-title h1 {
+	display: flex;
+    align-items: center;
 	margin: 0;
 	padding: 0;
 	/* Fluid font size scales on browser size 960px - 1200px. */
@@ -924,8 +926,8 @@
 
 /* Retraceur Version Badge */
 
-.mv-badge {
-	background: transparent url(../images/mv-logo.png?ver=20241124) no-repeat;
+.retraceur-badge {
+	background: transparent url(../images/retraceur-80x80.png?ver=20241124) no-repeat;
 	background-position: center;
 	background-size: 80px 80px;
 	color: #fff;
@@ -938,11 +940,13 @@
 	text-rendering: optimizeLegibility;
 }
 
-.svg .mv-badge {
-	background-image: transparent url(../images/Retraceur-logo.svg?ver=20241123) no-repeat;
+.svg .retraceur-badge {
+	background: transparent url(../images/retraceur-64x64.svg?ver=20241126) no-repeat;
+	background-position: center;
+	background-size: 80px 80px;
 }
 
-.about-wrap .mv-badge {
+.about-wrap .retraceur-badge {
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -1359,7 +1363,7 @@
 		margin-bottom: 0.25em;
 	}
 
-	.about-wrap .mv-badge {
+	.about-wrap .retraceur-badge {
 		position: relative;
 		margin-bottom: 1.5em;
 		width: 100%;

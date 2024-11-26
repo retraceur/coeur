@@ -78,8 +78,8 @@ fieldset {
 	width: 84px;
 	height: 84px;
 	overflow: hidden;
-	background-image: url(../images/mv-logo.png?ver=20241123);
-	background-image: none, url(../images/Retraceur-logo.svg?ver=20241123);
+	background-image: url(../images/retraceur-80x80.png?ver=20241126);
+	background-image: none, url(../images/retraceur-64x64.svg?ver=20241126);
 	background-size: 84px;
 	background-position: center top;
 	background-repeat: no-repeat;

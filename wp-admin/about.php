@@ -24,7 +24,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 		<div class="about__header">
 			<div class="about__header-title">
 				<h1>
-					<div class="mv-badge"></div>
+					<div class="retraceur-badge"></div>
 					<?php
 					printf(
 						/* translators: %s: Version number. */
