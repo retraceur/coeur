@@ -1550,7 +1550,7 @@ function wp_dashboard_empty() {}
  * @since WP 5.9.0 Send users to the Site Editor if the active theme is block-based.
  */
 function wp_welcome_panel() {
-	list( $display_version ) = explode( '-', mv_get_mv_version() );
+	list( $display_version ) = explode( '-', retraceur_get_version() );
 	$is_block_theme          = wp_is_block_theme();
 	?>
 	<div class="welcome-panel-content">

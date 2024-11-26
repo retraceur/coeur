@@ -38,14 +38,14 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
 	$translations = wp_get_installed_translations( 'core' );
 
 	// Invalidate the transient when $wp_version changes.
-	if ( is_object( $current ) && mv_get_mv_version() !== $current->version_checked ) {
+	if ( is_object( $current ) && retraceur_get_version() !== $current->version_checked ) {
 		$current = false;
 	}
 
 	if ( ! is_object( $current ) ) {
 		$current                  = new stdClass();
 		$current->updates         = array();
-		$current->version_checked = mv_get_mv_version();
+		$current->version_checked = retraceur_get_version();
 	}
 
 	if ( ! empty( $extra_stats ) ) {
@@ -74,7 +74,7 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
 	set_site_transient( 'update_core', $current );
 
 	$query = array(
-		'version' => mv_get_mv_version(),
+		'version' => retraceur_get_version(),
 		'locale'  => $locale,
 	);
 
@@ -113,7 +113,7 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
 
 	$options = array(
 		'timeout'    => $doing_cron ? 30 : 3,
-		'user-agent' => 'Retraceur/' . mv_get_mv_version() . '; ' . home_url( '/' ),
+		'user-agent' => 'Retraceur/' . retraceur_get_version() . '; ' . home_url( '/' ),
 		'headers'    => array(
 			'wp_install' => $wp_install,
 			'wp_blog'    => home_url( '/' ),
@@ -184,7 +184,7 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
 	$updates                  = new stdClass();
 	$updates->updates         = $offers;
 	$updates->last_checked    = time();
-	$updates->version_checked = mv_get_mv_version();
+	$updates->version_checked = retraceur_get_version();
 
 	if ( isset( $body['translations'] ) ) {
 		$updates->translations = $body['translations'];

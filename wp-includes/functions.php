@@ -8545,7 +8545,7 @@ function wp_get_wp_version() {
  *
  * @return string The current Retraceur version.
  */
-function mv_get_mv_version() {
+function retraceur_get_version() {
 	static $retraceur_version;
 
 	if ( ! isset( $retraceur_version ) ) {

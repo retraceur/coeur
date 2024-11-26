@@ -15,7 +15,7 @@ require_once __DIR__ . '/admin.php';
 /* translators: Page title of the About WordPress page in the admin. */
 $title = _x( 'About', 'page title' );
 
-list( $display_version ) = explode( '-', mv_get_mv_version() );
+list( $display_version ) = explode( '-', retraceur_get_version() );
 
 require_once ABSPATH . 'wp-admin/admin-header.php';
 ?>
