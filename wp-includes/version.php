@@ -25,9 +25,9 @@ $wp_version = '6.7.2-alpha-59447';
  *
  * Holds the current version number for Retraceur.
  *
- * @global string $mv_version
+ * @global string $retraceur_version
  */
-$mv_version = '1.0.0-alpha';
+$retraceur_version = '1.0.0-alpha';
 
 /**
  * Holds the WP DB revision, increments when changes are made to the WP DB schema.

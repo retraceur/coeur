@@ -1,7 +1,7 @@
 <?php
 /**
  * A simple set of functions to check the Version Update service.
- * 
+ *
  * @since WP 2.3.0
  * @since 1.0.0 Retraceur fork.
  *
@@ -16,7 +16,7 @@
  * @since WP 2.3.0
  * @since 1.0.0 Retraceur fork.
  *
- * @global string $mv_version       Used to check against the newest Retraceur version.
+ * @global string $retraceur_version       Used to check against the newest Retraceur version.
  * @global wpdb   $wpdb             WP database abstraction object.
  * @global string $wp_local_package Locale code of the package.
  *
@@ -72,7 +72,7 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
 	// Update last_checked for current to prevent multiple blocking requests if request hangs.
 	$current->last_checked = time();
 	set_site_transient( 'update_core', $current );
-	
+
 	$query = array(
 		'version' => mv_get_mv_version(),
 		'locale'  => $locale,
@@ -222,7 +222,7 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
  * @since WP 2.3.0
  * @since 1.0.0 Retraceur fork.
  *
- * @global string $mv_version The Retraceur version string.
+ * @global string $retraceur_version The Retraceur version string.
  *
  * @param array $extra_stats Extra statistics.
  */
@@ -1060,7 +1060,7 @@ if ( ( ! is_main_site() && ! is_network_admin() ) || wp_doing_ajax() ) {
 
 /**
  * Disable updates for now.
- * 
+ *
  * @since 1.0.0 Retraceur fork.
  */
 /*add_action( 'admin_init', '_maybe_update_core' );

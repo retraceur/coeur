@@ -8546,13 +8546,13 @@ function wp_get_wp_version() {
  * @return string The current Retraceur version.
  */
 function mv_get_mv_version() {
-	static $mv_version;
+	static $retraceur_version;
 
-	if ( ! isset( $mv_version ) ) {
+	if ( ! isset( $retraceur_version ) ) {
 		require ABSPATH . WPINC . '/version.php';
 	}
 
-	return $mv_version;
+	return $retraceur_version;
 }
 
 /**
