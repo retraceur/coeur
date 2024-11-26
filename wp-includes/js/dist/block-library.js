@@ -9020,7 +9020,7 @@ function PostCommentsPlaceholder({
                 /*#__PURE__*/
                 // eslint-disable-next-line jsx-a11y/anchor-has-content
                 (0,external_ReactJSXRuntime_namespaceObject.jsx)("a", {
-                  href: "https://gravatar.com/"
+                  href: "https://libravatar.org/"
                 })
               })]
             })
@@ -55581,11 +55581,11 @@ const social_link_variations_variations = [{
   title: 'GitHub',
   icon: GitHubIcon
 }, {
-  name: 'gravatar',
+  name: 'libravatar',
   attributes: {
-    service: 'gravatar'
+    service: 'libravatar'
   },
-  title: 'Gravatar',
+  title: 'Libravatar',
   icon: GravatarIcon
 }, {
   name: 'instagram',

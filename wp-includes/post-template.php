@@ -1903,7 +1903,7 @@ function wp_post_revision_title( $revision, $link = true ) {
  *
  * @param int|WP_Post $revision Revision ID or revision object.
  * @param bool        $link     Optional. Whether to link to revision's page. Default true.
- * @return string|false gravatar, user, i18n formatted datetimestamp or localized 'Current Revision'.
+ * @return string|false avatar, user, i18n formatted datetimestamp or localized 'Current Revision'.
  */
 function wp_post_revision_title_expanded( $revision, $link = true ) {
 	$revision = get_post( $revision );
@@ -1920,7 +1920,7 @@ function wp_post_revision_title_expanded( $revision, $link = true ) {
 	/* translators: Revision date format, see https://www.php.net/manual/datetime.format.php */
 	$datef = _x( 'F j, Y @ H:i:s', 'revision date format' );
 
-	$gravatar = get_avatar( $revision->post_author, 24 );
+	$avatar = get_avatar( $revision->post_author, 24 );
 
 	$date      = date_i18n( $datef, strtotime( $revision->post_modified ) );
 	$edit_link = get_edit_post_link( $revision->ID );
@@ -1931,7 +1931,7 @@ function wp_post_revision_title_expanded( $revision, $link = true ) {
 	$revision_date_author = sprintf(
 		/* translators: Post revision title. 1: Author avatar, 2: Author name, 3: Time ago, 4: Date. */
 		__( '%1$s %2$s, %3$s ago (%4$s)' ),
-		$gravatar,
+		$avatar,
 		$author,
 		human_time_diff( strtotime( $revision->post_modified_gmt ) ),
 		$date

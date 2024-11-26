@@ -10,7 +10,6 @@
 
 /** Retraceur Administration Bootstrap */
 require_once __DIR__ . '/admin.php';
-require_once __DIR__ . '/includes/credits.php';
 
 // Used in the HTML title tag.
 $title = __( 'Credits' );
@@ -18,8 +17,6 @@ $title = __( 'Credits' );
 list( $display_version ) = explode( '-', get_bloginfo( 'version' ) );
 
 require_once ABSPATH . 'wp-admin/admin-header.php';
-
-$credits = wp_credits();
 ?>
 <div class="wrap about__container">
 
@@ -45,8 +42,6 @@ $credits = wp_credits();
 
 	<div class="about__section has-1-column has-gutters">
 		<div class="column aligncenter">
-			<?php if ( ! $credits ) : ?>
-
 			<p>
 				<?php
 				printf(
@@ -58,71 +53,12 @@ $credits = wp_credits();
 				<br />
 				<a href="<?php echo esc_url( __( 'https://github.com/WordPress/wordpress-develop/blob/trunk/CONTRIBUTING.md' ) ); ?>"><?php _e( 'Get involved in WordPress.' ); ?></a>
 			</p>
-
-			<?php else : ?>
-
-			<p>
-				<?php _e( 'Want to see your name in lights on this page?' ); ?>
-				<br />
-				<a href="<?php echo esc_url( __( 'https://github.com/WordPress/wordpress-develop/blob/trunk/CONTRIBUTING.md' ) ); ?>"><?php _e( 'Get involved in WordPress.' ); ?></a>
-			</p>
-
-			<?php endif; ?>
-		</div>
-	</div>
-
-<?php
-if ( ! $credits ) {
-	echo '</div>';
-	require_once ABSPATH . 'wp-admin/admin-footer.php';
-	exit;
-}
-?>
-
-	<hr class="is-large" />
-
-	<div class="about__section">
-		<div class="column is-edge-to-edge">
-			<?php wp_credits_section_title( $credits['groups']['core-developers'] ); ?>
-			<?php wp_credits_section_list( $credits, 'core-developers' ); ?>
-			<?php wp_credits_section_list( $credits, 'contributing-developers' ); ?>
-		</div>
-	</div>
-
-	<hr />
-
-	<div class="about__section">
-		<div class="column">
-			<?php wp_credits_section_title( $credits['groups']['props'] ); ?>
-			<?php wp_credits_section_list( $credits, 'props' ); ?>
-		</div>
-	</div>
-
-	<hr />
-
-	<?php if ( isset( $credits['groups']['translators'] ) || isset( $credits['groups']['validators'] ) ) : ?>
-	<div class="about__section">
-		<div class="column">
-			<?php wp_credits_section_title( $credits['groups']['validators'] ); ?>
-			<?php wp_credits_section_list( $credits, 'validators' ); ?>
-			<?php wp_credits_section_list( $credits, 'translators' ); ?>
-		</div>
-	</div>
-
-	<hr />
-	<?php endif; ?>
-
-	<div class="about__section">
-		<div class="column">
-			<?php wp_credits_section_title( $credits['groups']['libraries'] ); ?>
-			<?php wp_credits_section_list( $credits, 'libraries' ); ?>
 		</div>
 	</div>
 </div>
+
 <?php
-
 require_once ABSPATH . 'wp-admin/admin-footer.php';
-
 return;
 
 // These are strings returned by the API that we want to be translatable.

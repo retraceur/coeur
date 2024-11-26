@@ -298,8 +298,7 @@ endforeach;
 <?php
 $avatar_defaults = array(
 	'mystery'          => __( 'Mystery Person' ),
-	'blank'            => __( 'Blank' ),
-	'gravatar_default' => __( 'Gravatar Logo' ),
+	'pagan'            => __( 'Pagan (Generated)' ),
 	'identicon'        => __( 'Identicon (Generated)' ),
 	'wavatar'          => __( 'Wavatar (Generated)' ),
 	'monsterid'        => __( 'MonsterID (Generated)' ),

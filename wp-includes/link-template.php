@@ -4244,7 +4244,7 @@ function the_shortlink( $text = '', $title = '', $before = '', $after = '' ) {
  *                                  - 'identicon' (the "quilt", a geometric pattern)
  *                                  - 'mystery', 'mm', or 'mysteryman' (The Oyster Man)
  *                                  - 'blank' (transparent GIF)
- *                                  - 'gravatar_default' (the Gravatar logo)
+ *                                  - 'pagan' (a retro adventure game character)
  *                                  Default is the value of the 'avatar_default' option,
  *                                  with a fallback of 'mystery'.
  *     @type bool   $force_default  Whether to always show the default image, never the Gravatar.
@@ -4293,6 +4293,7 @@ function is_avatar_comment_type( $comment_type ) {
  *
  * @since WP 4.2.0
  * @since WP 6.7.0 Gravatar URLs always use HTTPS.
+ * @since 1.0.0 Retraceur uses Libravatar.
  *
  * @param mixed $id_or_email The avatar to retrieve. Accepts a user ID, Gravatar MD5 hash,
  *                           user email, WP_User object, WP_Post object, or WP_Comment object.
@@ -4311,7 +4312,7 @@ function is_avatar_comment_type( $comment_type ) {
  *                                  - 'identicon' (the "quilt", a geometric pattern)
  *                                  - 'mystery', 'mm', or 'mysteryman' (The Oyster Man)
  *                                  - 'blank' (transparent GIF)
- *                                  - 'gravatar_default' (the Gravatar logo)
+ *                                  - 'pagan' (a retro adventure game character)
  *                                  Default is the value of the 'avatar_default' option,
  *                                  with a fallback of 'mystery'.
  *     @type bool   $force_default  Whether to always show the default image, never the Gravatar.
@@ -4393,9 +4394,6 @@ function get_avatar_data( $id_or_email, $args = null ) {
 		case 'mysteryman':
 			$args['default'] = 'mm';
 			break;
-		case 'gravatar_default':
-			$args['default'] = false;
-			break;
 	}
 
 	$args['force_default'] = (bool) $args['force_default'];
@@ -4436,13 +4434,7 @@ function get_avatar_data( $id_or_email, $args = null ) {
 	if ( is_numeric( $id_or_email ) ) {
 		$user = get_user_by( 'id', absint( $id_or_email ) );
 	} elseif ( is_string( $id_or_email ) ) {
-		if ( str_contains( $id_or_email, '@md5.gravatar.com' ) ) {
-			// MD5 hash.
-			list( $email_hash ) = explode( '@', $id_or_email );
-		} else {
-			// Email address.
-			$email = $id_or_email;
-		}
+		$email = $id_or_email;
 	} elseif ( $id_or_email instanceof WP_User ) {
 		// User object.
 		$user = $id_or_email;
@@ -4486,12 +4478,12 @@ function get_avatar_data( $id_or_email, $args = null ) {
 	);
 
 	/*
-	 * Gravatars are always served over HTTPS.
+	 * Libravatars are always served over HTTPS.
 	 *
-	 * The Gravatar website redirects HTTP requests to HTTPS URLs so always
+	 * The Libravatar website redirects HTTP requests to HTTPS URLs so always
 	 * use the HTTPS scheme to avoid unnecessary redirects.
 	 */
-	$url = 'https://secure.gravatar.com/avatar/' . $email_hash;
+	$url = 'https://seccdn.libravatar.org/avatar/' . $email_hash;
 
 	$url = add_query_arg(
 		rawurlencode_deep( array_filter( $url_args ) ),

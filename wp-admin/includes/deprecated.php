@@ -2094,3 +2094,72 @@ function wp_update_link( $linkdata ) {
 function wp_link_manager_disabled_message() {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 }
+
+/**
+ * Retrieves the contributor credits.
+ *
+ * @since WP 3.2.0
+ * @since WP 5.6.0 Added the `$version` and `$locale` parameters.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string $version WP version. Defaults to the current version.
+ * @param string $locale  WP locale. Defaults to the current user's locale.
+ * @return array|false A list of all of the contributors, or false on error.
+ */
+function wp_credits( $version = '', $locale = '' ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return false;
+}
+
+/**
+ * Displays a list of contributors for a given group.
+ *
+ * @since WP 5.3.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param array  $credits The credits groups returned from the API.
+ * @param string $slug    The current group to display.
+ */
+function wp_credits_section_list( $credits = array(), $slug = '' ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Displays the title for a given group of contributors.
+ *
+ * @since WP 5.3.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param array $group_data The current contributor group.
+ */
+function wp_credits_section_title( $group_data = array() ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Retrieves the link to a contributor's profile page.
+ *
+ * @access private
+ * @since WP 3.2.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string $display_name  The contributor's display name (passed by reference).
+ * @param string $username      The contributor's username.
+ * @param string $profiles      URL to the contributor's profile page.
+ */
+function _wp_credits_add_profile_link( &$display_name, $username, $profiles ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Retrieves the link to an external library used in WordPress.
+ *
+ * @access private
+ * @since WP 3.2.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string $data External library data (passed by reference).
+ */
+function _wp_credits_build_object_link( &$data ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}

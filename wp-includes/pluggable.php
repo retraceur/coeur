@@ -2880,8 +2880,7 @@ if ( ! function_exists( 'get_avatar' ) ) :
 	 *                              - 'wavatar' (a cartoon face)
 	 *                              - 'identicon' (the "quilt", a geometric pattern)
 	 *                              - 'mystery', 'mm', or 'mysteryman' (The Oyster Man)
-	 *                              - 'blank' (transparent GIF)
-	 *                              - 'gravatar_default' (the Gravatar logo)
+	 *                              - 'pagan' (a retro adventure game character)
 	 *                              Default is the value of the 'avatar_default' option,
 	 *                              with a fallback of 'mystery'.
 	 * @param string $alt           Optional. Alternative text to use in the avatar image tag.
@@ -3071,8 +3070,7 @@ if ( ! function_exists( 'get_avatar' ) ) :
 		 *                              - 'wavatar' (a cartoon face)
 		 *                              - 'identicon' (the "quilt", a geometric pattern)
 		 *                              - 'mystery', 'mm', or 'mysteryman' (The Oyster Man)
-		 *                              - 'blank' (transparent GIF)
-		 *                              - 'gravatar_default' (the Gravatar logo)
+		 *                              - 'pagan' (retro adventure game character)
 		 * @param string $alt           Alternative text to use in the avatar image tag.
 		 * @param array  $args          Arguments passed to get_avatar_data(), after processing.
 		 */
