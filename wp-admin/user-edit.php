@@ -768,7 +768,7 @@ switch ( $action ) {
 					<?php if ( wp_is_application_passwords_available_for_user( $user_id ) || ! wp_is_application_passwords_supported() ) : ?>
 						<div class="application-passwords hide-if-no-js" id="application-passwords-section">
 							<h2><?php _e( 'Application Passwords' ); ?></h2>
-							<p><?php _e( 'Application passwords allow authentication via non-interactive systems, such as XML-RPC or the REST API, without providing your actual password. Application passwords can be easily revoked. They cannot be used for traditional logins to your website.' ); ?></p>
+							<p><?php _e( 'Application passwords allow authentication via non-interactive systems, such as the REST API, without providing your actual password. Application passwords can be easily revoked. They cannot be used for traditional logins to your website.' ); ?></p>
 							<?php if ( wp_is_application_passwords_available_for_user( $user_id ) ) : ?>
 								<?php
 								if ( is_multisite() ) :

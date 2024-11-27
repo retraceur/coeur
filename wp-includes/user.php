@@ -1,7 +1,7 @@
 <?php
 /**
  * Core User API
- * 
+ *
  * @since 1.0.0 Retraceur fork.
  *
  * @package Retraceur
@@ -354,12 +354,12 @@ function wp_authenticate_application_password( $input_user, $username, $password
 	}
 
 	// The 'REST_REQUEST' check here may happen too early for the constant to be available.
-	$is_api_request = ( ( defined( 'XMLRPC_REQUEST' ) && XMLRPC_REQUEST ) || ( defined( 'REST_REQUEST' ) && REST_REQUEST ) );
+	$is_api_request = defined( 'REST_REQUEST' ) && REST_REQUEST;
 
 	/**
 	 * Filters whether this is an API request that Application Passwords can be used on.
 	 *
-	 * By default, Application Passwords is available for the REST API and XML-RPC.
+	 * By default, Application Passwords is available for the REST API.
 	 *
 	 * @since WP 5.6.0
 	 *
@@ -3645,11 +3645,6 @@ function _wp_get_current_user() {
 
 		// $current_user has a junk value. Force to WP_User with ID 0.
 		$current_user = null;
-		wp_set_current_user( 0 );
-		return $current_user;
-	}
-
-	if ( defined( 'XMLRPC_REQUEST' ) && XMLRPC_REQUEST ) {
 		wp_set_current_user( 0 );
 		return $current_user;
 	}

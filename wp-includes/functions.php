@@ -756,69 +756,6 @@ function is_serialized_string( $data ) {
 }
 
 /**
- * Retrieves post title from XMLRPC XML.
- *
- * If the title element is not part of the XML, then the default post title from
- * the $post_default_title will be used instead.
- *
- * @since WP 0.71
- *
- * @global string $post_default_title Default XML-RPC post title.
- *
- * @param string $content XMLRPC XML Request content
- * @return string Post title
- */
-function xmlrpc_getposttitle( $content ) {
-	global $post_default_title;
-	if ( preg_match( '/<title>(.+?)<\/title>/is', $content, $matchtitle ) ) {
-		$post_title = $matchtitle[1];
-	} else {
-		$post_title = $post_default_title;
-	}
-	return $post_title;
-}
-
-/**
- * Retrieves the post category or categories from XMLRPC XML.
- *
- * If the category element is not found, then the default post category will be
- * used. The return type then would be what $post_default_category. If the
- * category is found, then it will always be an array.
- *
- * @since WP 0.71
- *
- * @global string $post_default_category Default XML-RPC post category.
- *
- * @param string $content XMLRPC XML Request content
- * @return string|array List of categories or category name.
- */
-function xmlrpc_getpostcategory( $content ) {
-	global $post_default_category;
-	if ( preg_match( '/<category>(.+?)<\/category>/is', $content, $matchcat ) ) {
-		$post_category = trim( $matchcat[1], ',' );
-		$post_category = explode( ',', $post_category );
-	} else {
-		$post_category = $post_default_category;
-	}
-	return $post_category;
-}
-
-/**
- * XMLRPC XML content without title and category elements.
- *
- * @since WP 0.71
- *
- * @param string $content XML-RPC XML Request content.
- * @return string XMLRPC XML Request content without title and category elements.
- */
-function xmlrpc_removepostdata( $content ) {
-	$content = preg_replace( '/<title>(.+?)<\/title>/si', '', $content );
-	$content = preg_replace( '/<category>(.+?)<\/category>/si', '', $content );
-	$content = trim( $content );
-	return $content;
-}
-
-/**
  * Uses RegEx to extract URLs from arbitrary content.
  *
  * @since WP 3.7.0
@@ -3778,15 +3715,6 @@ function wp_die( $message = '', $title = '', $args = array() ) {
 		 * @param callable $callback Callback function name.
 		 */
 		$callback = apply_filters( 'wp_die_jsonp_handler', '_jsonp_wp_die_handler' );
-	} elseif ( defined( 'XMLRPC_REQUEST' ) && XMLRPC_REQUEST ) {
-		/**
-		 * Filters the callback for killing WordPress execution for XML-RPC requests.
-		 *
-		 * @since WP 3.4.0
-		 *
-		 * @param callable $callback Callback function name.
-		 */
-		$callback = apply_filters( 'wp_die_xmlrpc_handler', '_xmlrpc_wp_die_handler' );
 	} elseif ( wp_is_xml_request()
 		|| isset( $wp_query ) &&
 			( function_exists( 'is_feed' ) && is_feed()
@@ -4142,38 +4070,6 @@ function _jsonp_wp_die_handler( $message, $title = '', $args = array() ) {
 	$result         = wp_json_encode( $data );
 	$jsonp_callback = $_GET['_jsonp'];
 	echo '/**/' . $jsonp_callback . '(' . $result . ')';
-	if ( $parsed_args['exit'] ) {
-		die();
-	}
-}
-
-/**
- * Kills WordPress execution and displays XML response with an error message.
- *
- * This is the handler for wp_die() when processing XMLRPC requests.
- *
- * @since WP 3.2.0
- * @access private
- *
- * @global wp_xmlrpc_server $wp_xmlrpc_server
- *
- * @param string       $message Error message.
- * @param string       $title   Optional. Error title. Default empty string.
- * @param string|array $args    Optional. Arguments to control behavior. Default empty array.
- */
-function _xmlrpc_wp_die_handler( $message, $title = '', $args = array() ) {
-	global $wp_xmlrpc_server;
-
-	list( $message, $title, $parsed_args ) = _wp_die_process_input( $message, $title, $args );
-
-	if ( ! headers_sent() ) {
-		nocache_headers();
-	}
-
-	if ( $wp_xmlrpc_server ) {
-		$error = new IXR_Error( $parsed_args['response'], $message );
-		$wp_xmlrpc_server->output( $error->getXml() );
-	}
 	if ( $parsed_args['exit'] ) {
 		die();
 	}
@@ -5452,14 +5348,14 @@ function dead_db() {
  * @since WP 2.5.0
  * @since WP 5.4.0 This function is no longer marked as "private".
  * @since WP 5.4.0 The error type is now classified as E_USER_DEPRECATED (used to default to E_USER_NOTICE).
- * @since 1.0.0    Adds the `$is_mv` parameter to inform whether the deprecation is specific to Retraceur fork.
+ * @since 1.0.0    Adds the `$is_retraceur` parameter to inform whether the deprecation is specific to Retraceur fork.
  *
  * @param string $function_name The function that was called.
  * @param string $version       The version of WordPress that deprecated the function.
  * @param string $replacement   Optional. The function that should have been called. Default empty string.
- * @param bool   $is_mv         Optional. Whether this deprecation is specific to Retraceur fork.
+ * @param bool   $is_retraceur         Optional. Whether this deprecation is specific to Retraceur fork.
  */
-function _deprecated_function( $function_name, $version, $replacement = '', $is_mv = false ) {
+function _deprecated_function( $function_name, $version, $replacement = '', $is_retraceur = false ) {
 
 	/**
 	 * Fires when a deprecated function is called.
@@ -5486,7 +5382,7 @@ function _deprecated_function( $function_name, $version, $replacement = '', $is_
 					/* translators: 1: PHP function name, 2: Project name, 3: Version number, 4: Alternative function name. */
 					__( 'Function %1$s is <strong>deprecated</strong> since %2$s version %3$s! Use %4$s instead.' ),
 					$function_name,
-					! $is_mv ? 'WP' : 'Retraceur',
+					! $is_retraceur ? 'WP' : 'Retraceur',
 					$version,
 					$replacement
 				);
@@ -5495,7 +5391,7 @@ function _deprecated_function( $function_name, $version, $replacement = '', $is_
 					/* translators: 1: PHP function name, 2: Project name, 3: Version number. */
 					__( 'Function %1$s is <strong>deprecated</strong> since %2$s version %3$s with no alternative available.' ),
 					$function_name,
-					! $is_mv ? 'WP' : 'Retraceur',
+					! $is_retraceur ? 'WP' : 'Retraceur',
 					$version
 				);
 			}
@@ -5504,7 +5400,7 @@ function _deprecated_function( $function_name, $version, $replacement = '', $is_
 				$message = sprintf(
 					'Function %1$s is <strong>deprecated</strong> since %2$s version %3$s! Use %4$s instead.',
 					$function_name,
-					! $is_mv ? 'WP' : 'Retraceur',
+					! $is_retraceur ? 'WP' : 'Retraceur',
 					$version,
 					$replacement
 				);
@@ -5512,7 +5408,7 @@ function _deprecated_function( $function_name, $version, $replacement = '', $is_
 				$message = sprintf(
 					'Function %1$s is <strong>deprecated</strong> since %2$s version %3$s with no alternative available.',
 					$function_name,
-					! $is_mv ? 'WP' : 'Retraceur',
+					! $is_retraceur ? 'WP' : 'Retraceur',
 					$version
 				);
 			}
@@ -5620,15 +5516,15 @@ function _deprecated_constructor( $class_name, $version, $parent_class = '' ) {
  * See {@see _deprecated_constructor()} for deprecating PHP4-style constructors.
  *
  * @since WP 6.4.0
- * @since 1.0.0 Adds the `$is_mv` parameter to inform whether the deprecation is specific to Retraceur fork.
+ * @since 1.0.0 Adds the `$is_retraceur` parameter to inform whether the deprecation is specific to Retraceur fork.
  *
  * @param string $class_name  The name of the class being instantiated.
  * @param string $version     The version of WordPress that deprecated the class.
  * @param string $replacement Optional. The class or function that should have been called.
  *                            Default empty string.
- * @param bool   $is_mv       Optional. Whether this deprecation is specific to Retraceur fork.
+ * @param bool   $is_retraceur       Optional. Whether this deprecation is specific to Retraceur fork.
  */
-function _deprecated_class( $class_name, $version, $replacement = '', $is_mv = false ) {
+function _deprecated_class( $class_name, $version, $replacement = '', $is_retraceur = false ) {
 
 	/**
 	 * Fires when a deprecated class is called.
@@ -5655,7 +5551,7 @@ function _deprecated_class( $class_name, $version, $replacement = '', $is_mv = f
 					/* translators: 1: PHP class name, 2: Project name, 3: Version number, 4: Alternative class or function name. */
 					__( 'Class %1$s is <strong>deprecated</strong> since %2$s version %3$s! Use %4$s instead.' ),
 					$class_name,
-					! $is_mv ? 'WP' : 'Retraceur',
+					! $is_retraceur ? 'WP' : 'Retraceur',
 					$version,
 					$replacement
 				);
@@ -5664,7 +5560,7 @@ function _deprecated_class( $class_name, $version, $replacement = '', $is_mv = f
 					/* translators: 1: PHP class name, 2: Project name, 3: Version number. */
 					__( 'Class %1$s is <strong>deprecated</strong> since %2$s version %3$s with no alternative available.' ),
 					$class_name,
-					! $is_mv ? 'WP' : 'Retraceur',
+					! $is_retraceur ? 'WP' : 'Retraceur',
 					$version
 				);
 			}
@@ -5673,7 +5569,7 @@ function _deprecated_class( $class_name, $version, $replacement = '', $is_mv = f
 				$message = sprintf(
 					'Class %1$s is <strong>deprecated</strong> since %2$s version %3$s! Use %4$s instead.',
 					$class_name,
-					! $is_mv ? 'WP' : 'Retraceur',
+					! $is_retraceur ? 'WP' : 'Retraceur',
 					$version,
 					$replacement
 				);
@@ -5681,7 +5577,7 @@ function _deprecated_class( $class_name, $version, $replacement = '', $is_mv = f
 				$message = sprintf(
 					'Class %1$s is <strong>deprecated</strong> since %2$s version %3$s with no alternative available.',
 					$class_name,
-					! $is_mv ? 'WP' : 'Retraceur',
+					! $is_retraceur ? 'WP' : 'Retraceur',
 					$version
 				);
 			}
@@ -5704,16 +5600,16 @@ function _deprecated_class( $class_name, $version, $replacement = '', $is_mv = f
  * @since WP 2.5.0
  * @since WP 5.4.0 This function is no longer marked as "private".
  * @since WP 5.4.0 The error type is now classified as E_USER_DEPRECATED (used to default to E_USER_NOTICE).
- * @since 1.0.0    Adds the `$is_mv` parameter to inform whether the deprecation is specific to Retraceur fork.
+ * @since 1.0.0    Adds the `$is_retraceur` parameter to inform whether the deprecation is specific to Retraceur fork.
  *
  * @param string $file        The file that was included.
  * @param string $version     The version of WordPress that deprecated the file.
  * @param string $replacement Optional. The file that should have been included based on ABSPATH.
  *                            Default empty string.
  * @param string $message     Optional. A message regarding the change. Default empty string.
- * @param bool   $is_mv       Optional. Whether this deprecation is specific to Retraceur fork.
+ * @param bool   $is_retraceur       Optional. Whether this deprecation is specific to Retraceur fork.
  */
-function _deprecated_file( $file, $version, $replacement = '', $message = '', $is_mv = false ) {
+function _deprecated_file( $file, $version, $replacement = '', $message = '', $is_retraceur = false ) {
 
 	/**
 	 * Fires when a deprecated file is called.
@@ -5743,7 +5639,7 @@ function _deprecated_file( $file, $version, $replacement = '', $message = '', $i
 					/* translators: 1: PHP file name, 2: Project name, 3: Version number, 4: Alternative file name. */
 					__( 'File %1$s is <strong>deprecated</strong> since %2$s version %3$s! Use %4$s instead.' ),
 					$file,
-					! $is_mv ? 'WP' : 'Retraceur',
+					! $is_retraceur ? 'WP' : 'Retraceur',
 					$version,
 					$replacement
 				) . $message;
@@ -5752,7 +5648,7 @@ function _deprecated_file( $file, $version, $replacement = '', $message = '', $i
 					/* translators: 1: PHP file name, 2: Project name, 3: Version number. */
 					__( 'File %1$s is <strong>deprecated</strong> since %2$s version %3$s with no alternative available.' ),
 					$file,
-					! $is_mv ? 'WP' : 'Retraceur',
+					! $is_retraceur ? 'WP' : 'Retraceur',
 					$version
 				) . $message;
 			}
@@ -5761,7 +5657,7 @@ function _deprecated_file( $file, $version, $replacement = '', $message = '', $i
 				$message = sprintf(
 					'File %1$s is <strong>deprecated</strong> since %2$s version %3$s! Use %3$s instead.',
 					$file,
-					! $is_mv ? 'WP' : 'Retraceur',
+					! $is_retraceur ? 'WP' : 'Retraceur',
 					$version,
 					$replacement
 				);
@@ -5769,7 +5665,7 @@ function _deprecated_file( $file, $version, $replacement = '', $message = '', $i
 				$message = sprintf(
 					'File %1$s is <strong>deprecated</strong> since %2$s version %3$s with no alternative available.',
 					$file,
-					! $is_mv ? 'WP' : 'Retraceur',
+					! $is_retraceur ? 'WP' : 'Retraceur',
 					$version
 				) . $message;
 			}
@@ -5799,12 +5695,13 @@ function _deprecated_file( $file, $version, $replacement = '', $message = '', $i
  * @since WP 3.0.0
  * @since WP 5.4.0 This function is no longer marked as "private".
  * @since WP 5.4.0 The error type is now classified as E_USER_DEPRECATED (used to default to E_USER_NOTICE).
+ * @since 1.0.0    Adds the `$is_retraceur` parameter to inform whether the deprecation is specific to Retraceur fork.
  *
  * @param string $function_name The function that was called.
  * @param string $version       The version of WordPress that deprecated the argument used.
  * @param string $message       Optional. A message regarding the change. Default empty string.
  */
-function _deprecated_argument( $function_name, $version, $message = '' ) {
+function _deprecated_argument( $function_name, $version, $message = '', $is_retraceur = false ) {
 
 	/**
 	 * Fires when a deprecated argument is called.
@@ -5828,32 +5725,36 @@ function _deprecated_argument( $function_name, $version, $message = '' ) {
 		if ( function_exists( '__' ) ) {
 			if ( $message ) {
 				$message = sprintf(
-					/* translators: 1: PHP function name, 2: Version number, 3: Optional message regarding the change. */
-					__( 'Function %1$s was called with an argument that is <strong>deprecated</strong> since version %2$s! %3$s' ),
+					/* translators: 1: PHP function name, 2: Software name, 3: Version number, 4: Optional message regarding the change. */
+					__( 'Function %1$s was called with an argument that is <strong>deprecated</strong> since %2$s version %3$s! %4$s' ),
 					$function_name,
+					! $is_retraceur ? 'WP' : 'Retraceur',
 					$version,
 					$message
 				);
 			} else {
 				$message = sprintf(
-					/* translators: 1: PHP function name, 2: Version number. */
-					__( 'Function %1$s was called with an argument that is <strong>deprecated</strong> since version %2$s with no alternative available.' ),
+					/* translators: 1: PHP function name, 2: Software name, 3: Version number. */
+					__( 'Function %1$s was called with an argument that is <strong>deprecated</strong> since %2$s version %3$s with no alternative available.' ),
 					$function_name,
+					! $is_retraceur ? 'WP' : 'Retraceur',
 					$version
 				);
 			}
 		} else {
 			if ( $message ) {
 				$message = sprintf(
-					'Function %1$s was called with an argument that is <strong>deprecated</strong> since version %2$s! %3$s',
+					'Function %1$s was called with an argument that is <strong>deprecated</strong> since %2$s version %3$s! %4$s',
 					$function_name,
+					! $is_retraceur ? 'WP' : 'Retraceur',
 					$version,
 					$message
 				);
 			} else {
 				$message = sprintf(
-					'Function %1$s was called with an argument that is <strong>deprecated</strong> since version %2$s with no alternative available.',
+					'Function %1$s was called with an argument that is <strong>deprecated</strong> since %2$s version %3$s with no alternative available.',
 					$function_name,
+					! $is_retraceur ? 'WP' : 'Retraceur',
 					$version
 				);
 			}

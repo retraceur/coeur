@@ -1,7 +1,7 @@
 <?php
 /**
  * Core Post API
- * 
+ *
  * @since 1.0.0 Retraceur fork.
  *
  * @package Retraceur
@@ -7825,7 +7825,7 @@ function _future_post_hook( $deprecated, $post ) {
 /**
  * Hook to schedule pings and enclosures when a post is published.
  *
- * Uses XMLRPC_REQUEST and WP_IMPORTING constants.
+ * Uses WP_IMPORTING constants.
  *
  * @since WP 2.3.0
  * @access private
@@ -7833,17 +7833,6 @@ function _future_post_hook( $deprecated, $post ) {
  * @param int $post_id The ID of the post being published.
  */
 function _publish_post_hook( $post_id ) {
-	if ( defined( 'XMLRPC_REQUEST' ) ) {
-		/**
-		 * Fires when _publish_post_hook() is called during an XML-RPC request.
-		 *
-		 * @since WP 2.1.0
-		 *
-		 * @param int $post_id Post ID.
-		 */
-		do_action( 'xmlrpc_publish_post', $post_id );
-	}
-
 	if ( defined( 'WP_IMPORTING' ) ) {
 		return;
 	}

@@ -1,7 +1,7 @@
 <?php
 /**
  * These functions are needed to load WordPress.
- * 
+ *
  * @since 1.0.0 Retraceur fork.
  *
  * @package Retraceur
@@ -537,7 +537,7 @@ function timer_stop( $display = 0, $precision = 3 ) {
  * When `WP_DEBUG_LOG` is true, errors will be logged to `wp-content/debug.log`.
  * When `WP_DEBUG_LOG` is a valid path, errors will be logged to the specified file.
  *
- * Errors are never displayed for XML-RPC, REST, `ms-files.php`, and Ajax requests.
+ * Errors are never displayed for REST, `ms-files.php`, and Ajax requests.
  *
  * @since WP 3.0.0
  * @since WP 5.1.0 `WP_DEBUG_LOG` can be a file path.
@@ -607,7 +607,7 @@ function wp_debug_mode() {
 	 * The 'REST_REQUEST' check here is optimistic as the constant is most
 	 * likely not set at this point even if it is in fact a REST request.
 	 */
-	if ( defined( 'XMLRPC_REQUEST' ) || defined( 'REST_REQUEST' ) || defined( 'MS_FILES_REQUEST' )
+	if ( defined( 'REST_REQUEST' ) || defined( 'MS_FILES_REQUEST' )
 		|| ( defined( 'WP_INSTALLING' ) && WP_INSTALLING )
 		|| wp_doing_ajax() || wp_is_json_request()
 	) {

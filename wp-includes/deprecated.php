@@ -8381,3 +8381,82 @@ function edit_bookmark_link( $link = '', $before = '', $after = '', $bookmark = 
 function _wp_register_default_font_collections() {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 }
+
+/**
+ * Kills WordPress execution and displays XML response with an error message.
+ *
+ * This is the handler for wp_die() when processing XMLRPC requests.
+ *
+ * @since WP 3.2.0
+ * @deprecated 1.0.0 Retraceur removed the XML-RPC API.
+ *
+ * @access private
+ *
+ * @param string       $message Error message.
+ * @param string       $title   Optional. Error title. Default empty string.
+ * @param string|array $args    Optional. Arguments to control behavior. Default empty array.
+ */
+function _xmlrpc_wp_die_handler( $message, $title = '', $args = array() ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Retrieves post title from XMLRPC XML.
+ *
+ * If the title element is not part of the XML, then the default post title from
+ * the $post_default_title will be used instead.
+ *
+ * @since WP 0.71
+ * @deprecated 1.0.0 Retraceur removed the XML-RPC API.
+ *
+ * @global string $post_default_title Default XML-RPC post title.
+ *
+ * @param string $content XMLRPC XML Request content
+ * @return string Post title
+ */
+function xmlrpc_getposttitle( $content ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Retrieves the post category or categories from XMLRPC XML.
+ *
+ * If the category element is not found, then the default post category will be
+ * used. The return type then would be what $post_default_category. If the
+ * category is found, then it will always be an array.
+ *
+ * @since WP 0.71
+ * @deprecated 1.0.0 Retraceur removed the XML-RPC API.
+ *
+ * @global string $post_default_category Default XML-RPC post category.
+ *
+ * @param string $content XMLRPC XML Request content
+ * @return string|array List of categories or category name.
+ */
+function xmlrpc_getpostcategory( $content ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * XMLRPC XML content without title and category elements.
+ *
+ * @since WP 0.71
+ * @deprecated 1.0.0 Retraceur removed the XML-RPC API.
+ *
+ * @param string $content XML-RPC XML Request content.
+ * @return string XMLRPC XML Request content without title and category elements.
+ */
+function xmlrpc_removepostdata( $content ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Displays the link to the Really Simple Discovery service endpoint.
+ *
+ * @link http://archipelago.phrasewise.com/rsd
+ * @since WP 2.0.0
+ * @deprecated 1.0.0 Retraceur removed the XML-RPC API.
+ */
+function rsd_link() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}

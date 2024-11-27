@@ -659,7 +659,6 @@ function populate_options( array $options = array() ) {
 		'what_to_show',
 		'rss_language',
 		'language',
-		'enable_xmlrpc',
 		'enable_app',
 		'embed_autourls',
 		'default_post_edit_rows',

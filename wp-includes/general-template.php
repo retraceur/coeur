@@ -780,7 +780,7 @@ function bloginfo( $show = '' ) {
  *   will take precedence over this value
  * - 'template_url' / 'template_directory' - URL of the active theme's directory. An active
  *   child theme will NOT take precedence over this value
- * - 'pingback_url' - The pingback XML-RPC file URL (xmlrpc.php)
+ * - 'pingback_url' - The pingback XML-RPC file URL.
  * - 'atom_url' - The Atom feed URL (/feed/atom)
  * - 'rdf_url' - The RDF/RSS 1.0 feed URL (/feed/rdf)
  * - 'rss_url' - The RSS 0.92 feed URL (/feed/rss)
@@ -824,6 +824,7 @@ function get_bloginfo( $show = '', $filter = 'raw' ) {
 			$output = home_url();
 			break;
 		case 'wpurl':
+		case 'pingback_url':
 			$output = site_url();
 			break;
 		case 'description':
@@ -846,9 +847,6 @@ function get_bloginfo( $show = '', $filter = 'raw' ) {
 			break;
 		case 'comments_rss2_url':
 			$output = get_feed_link( 'comments_rss2' );
-			break;
-		case 'pingback_url':
-			$output = site_url( 'xmlrpc.php' );
 			break;
 		case 'stylesheet_url':
 			$output = get_stylesheet_uri();
@@ -3379,19 +3377,6 @@ function feed_links_extra( $args = array() ) {
 			esc_url( $href )
 		);
 	}
-}
-
-/**
- * Displays the link to the Really Simple Discovery service endpoint.
- *
- * @link http://archipelago.phrasewise.com/rsd
- * @since WP 2.0.0
- */
-function rsd_link() {
-	printf(
-		'<link rel="EditURI" type="application/rsd+xml" title="RSD" href="%s" />' . "\n",
-		esc_url( site_url( 'xmlrpc.php?rsd', 'rpc' ) )
-	);
 }
 
 /**
