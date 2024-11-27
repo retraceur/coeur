@@ -1,13 +1,13 @@
 <?php
 /**
- * XML-RPC protocol support for WordPress.
+ * XML-RPC protocol support for Retraceur.
  *
  * @deprecated 1.0.0 Retraceur fork.
  *
  * @package Retraceur
  */
 
-/** Include the bootstrap for setting up WordPress environment */
+/** Include the bootstrap for setting up Retraceur environment */
 require_once __DIR__ . '/wp-load.php';
 
 _deprecated_file( basename( __FILE__ ), '1.0.0', '', '', true );

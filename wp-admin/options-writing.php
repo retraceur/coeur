@@ -33,7 +33,7 @@ if ( apply_filters( 'enable_update_services_configuration', true ) ) {
 		array(
 			'id'      => 'options-services',
 			'title'   => __( 'Update Services' ),
-			'content' => '<p>' . __( 'If desired, WordPress will automatically alert various services of your new posts.' ) . '</p>',
+			'content' => '<p>' . __( 'If desired, Retraceur will automatically alert various services of your new posts.' ) . '</p>',
 		)
 	);
 }
@@ -62,7 +62,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 <label for="use_smilies">
 <input name="use_smilies" type="checkbox" id="use_smilies" value="1" <?php checked( '1', get_option( 'use_smilies' ) ); ?> />
 	<?php _e( 'Convert emoticons like <code>:-)</code> and <code>:-P</code> to graphics on display' ); ?></label><br />
-<label for="use_balanceTags"><input name="use_balanceTags" type="checkbox" id="use_balanceTags" value="1" <?php checked( '1', get_option( 'use_balanceTags' ) ); ?> /> <?php _e( 'WordPress should correct invalidly nested XHTML automatically' ); ?></label>
+<label for="use_balanceTags"><input name="use_balanceTags" type="checkbox" id="use_balanceTags" value="1" <?php checked( '1', get_option( 'use_balanceTags' ) ); ?> /> <?php _e( 'Retraceur should correct invalidly nested XHTML automatically' ); ?></label>
 </fieldset></td>
 </tr>
 <?php endif; ?>
@@ -128,7 +128,7 @@ if ( apply_filters( 'enable_update_services_configuration', true ) ) {
 	<?php if ( '1' === get_option( 'blog_public' ) ) : ?>
 
 	<p>
-		<label for="ping_sites"><?php esc_html_e( 'When you publish a new post, WordPress automatically notifies the following site update services. Separate multiple service URLs with line breaks.' ) ;?></label>
+		<label for="ping_sites"><?php esc_html_e( 'When you publish a new post, Retraceur automatically notifies the following site update services. Separate multiple service URLs with line breaks.' ) ;?></label>
 	</p>
 
 	<textarea name="ping_sites" id="ping_sites" class="large-text code" rows="3"><?php echo esc_textarea( get_option( 'ping_sites' ) ); ?></textarea>
@@ -139,7 +139,7 @@ if ( apply_filters( 'enable_update_services_configuration', true ) ) {
 		<?php
 		printf(
 			/* translators: 1: URL to Reading Settings screen. */
-			__( 'WordPress is not notifying any Update Services because of your site&#8217;s <a href="%s">visibility settings</a>.' ),
+			__( 'Retraceur is not notifying any Update Services because of your site&#8217;s <a href="%s">visibility settings</a>.' ),
 			'options-reading.php'
 		);
 		?>

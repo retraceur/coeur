@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Administration Revisions API.
+ * Retraceur Administration Revisions API.
  *
  * @since WP 3.6.0
  * @since 1.0.0 Retraceur fork.

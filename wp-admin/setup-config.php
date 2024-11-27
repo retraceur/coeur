@@ -51,7 +51,7 @@ if ( file_exists( ABSPATH . 'wp-config-sample.php' ) ) {
 	wp_die(
 		sprintf(
 			/* translators: %s: wp-config-sample.php */
-			__( 'Sorry, I need a %s file to work from. Please re-upload this file to your WordPress installation.' ),
+			__( 'Sorry, I need a %s file to work from. Please re-upload this file to your Retraceur installation.' ),
 			'<code>wp-config-sample.php</code>'
 		)
 	);
@@ -75,7 +75,7 @@ if ( @file_exists( ABSPATH . '../wp-config.php' ) && ! @file_exists( ABSPATH . '
 	wp_die(
 		'<p>' . sprintf(
 			/* translators: 1: wp-config.php, 2: install.php */
-			__( 'The file %1$s already exists one level above your WordPress installation. If you need to reset any of the configuration items in this file, please delete it first. You may try <a href="%2$s">installing now</a>.' ),
+			__( 'The file %1$s already exists one level above your Retraceur installation. If you need to reset any of the configuration items in this file, please delete it first. You may try <a href="%2$s">installing now</a>.' ),
 			'<code>wp-config.php</code>',
 			'install.php'
 		) . '</p>',
@@ -110,17 +110,17 @@ function setup_config_display_header( $body_classes = array() ) {
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="robots" content="noindex,nofollow" />
-	<title><?php _e( 'WordPress &rsaquo; Setup Configuration File' ); ?></title>
+	<title><?php _e( 'Retraceur &rsaquo; Setup Configuration File' ); ?></title>
 	<?php wp_admin_css( 'install', true ); ?>
 </head>
 <body class="<?php echo implode( ' ', $body_classes ); ?>">
-<p id="logo"><?php _e( 'WordPress' ); ?></p>
+<p id="logo"><?php _e( 'Retraceur' ); ?></p>
 	<?php
 } // End function setup_config_display_header();
 
 /**
  * @global string    $wp_local_package Locale code of the package.
- * @global WP_Locale $wp_locale        WordPress date and time locale object.
+ * @global WP_Locale $wp_locale        Retraceur date and time locale object.
  */
 $language = '';
 if ( ! empty( $_REQUEST['language'] ) ) {
@@ -169,13 +169,13 @@ switch ( $step ) {
 		_e( 'Before getting started' );
 		?>
 </h1>
-<p><?php _e( 'Welcome to WordPress. Before getting started, you will need to know the following items.' ); ?></p>
+<p><?php _e( 'Welcome to Retraceur. Before getting started, you will need to know the following items.' ); ?></p>
 <ol>
 	<li><?php _e( 'Database name' ); ?></li>
 	<li><?php _e( 'Database username' ); ?></li>
 	<li><?php _e( 'Database password' ); ?></li>
 	<li><?php _e( 'Database host' ); ?></li>
-	<li><?php _e( 'Table prefix (if you want to run more than one WordPress in a single database)' ); ?></li>
+	<li><?php _e( 'Table prefix (if you want to run more than one Retraceur in a single database)' ); ?></li>
 </ol>
 <p>
 		<?php
@@ -221,8 +221,8 @@ switch ( $step ) {
 	<table class="form-table" role="presentation">
 		<tr>
 			<th scope="row"><label for="dbname"><?php _e( 'Database Name' ); ?></label></th>
-			<td><input name="dbname" id="dbname" type="text" aria-describedby="dbname-desc" size="25" placeholder="wordpress"<?php echo $autofocus; ?>/>
-			<p id="dbname-desc"><?php _e( 'The name of the database you want to use with WordPress.' ); ?></p></td>
+			<td><input name="dbname" id="dbname" type="text" aria-describedby="dbname-desc" size="25" placeholder="retraceur"<?php echo $autofocus; ?>/>
+			<p id="dbname-desc"><?php _e( 'The name of the database you want to use with Retraceur.' ); ?></p></td>
 		</tr>
 		<tr>
 			<th scope="row"><label for="uname"><?php _e( 'Username' ); ?></label></th>
@@ -255,7 +255,7 @@ switch ( $step ) {
 		<tr>
 			<th scope="row"><label for="prefix"><?php _e( 'Table Prefix' ); ?></label></th>
 			<td><input name="prefix" id="prefix" type="text" aria-describedby="prefix-desc" value="wp_" size="25" />
-			<p id="prefix-desc"><?php _e( 'If you want to run multiple WordPress installations in a single database, change this.' ); ?></p></td>
+			<p id="prefix-desc"><?php _e( 'If you want to run multiple Retraceur installations in a single database, change this.' ); ?></p></td>
 		</tr>
 	</table>
 		<?php
@@ -486,7 +486,7 @@ if ( ! /iPad|iPod|iPhone/.test( navigator.userAgent ) ) {
 				_e( 'Successful database connection' );
 				?>
 </h1>
-<p><?php _e( 'All right, sparky! You&#8217;ve made it through this part of the installation. WordPress can now communicate with your database. If you are ready, time now to&hellip;' ); ?></p>
+<p><?php _e( 'All right, sparky! You&#8217;ve made it through this part of the installation. Retraceur can now communicate with your database. If you are ready, time now to&hellip;' ); ?></p>
 
 <p class="step"><a href="<?php echo $install; ?>" class="button button-large"><?php _e( 'Run the installation' ); ?></a></p>
 				<?php

@@ -750,7 +750,7 @@ function validate_file_to_edit( $file, $allowed_files = array() ) {
 }
 
 /**
- * Handles PHP uploads in WordPress.
+ * Handles PHP uploads in Retraceur.
  *
  * Sanitizes file names, checks extensions for mime type, and moves the file
  * to the appropriate directory within the uploads directory.
@@ -804,7 +804,7 @@ function _wp_handle_upload( &$file, $overrides, $time, $action ) {
 	}
 
 	/**
-	 * Filters the data for a file before it is uploaded to WordPress.
+	 * Filters the data for a file before it is uploaded to Retraceur.
 	 *
 	 * The dynamic portion of the hook name, `$action`, refers to the post action.
 	 *
@@ -829,7 +829,7 @@ function _wp_handle_upload( &$file, $overrides, $time, $action ) {
 	$file = apply_filters( "{$action}_prefilter", $file );
 
 	/**
-	 * Filters the override parameters for a file before it is uploaded to WordPress.
+	 * Filters the override parameters for a file before it is uploaded to Retraceur.
 	 *
 	 * The dynamic portion of the hook name, `$action`, refers to the post action.
 	 *
@@ -1318,7 +1318,7 @@ function wp_zip_file_is_valid( $file ) {
 }
 
 /**
- * Unzips a specified ZIP file to a location on the filesystem via the WordPress
+ * Unzips a specified ZIP file to a location on the filesystem via the Retraceur
  * Filesystem Abstraction.
  *
  * Assumes that WP_Filesystem() has already been called and set up. Does not extract
@@ -2284,7 +2284,7 @@ function request_filesystem_credentials( $form_post, $type = '', $error = false,
 	<?php
 	$label_user = __( 'Username' );
 	$label_pass = __( 'Password' );
-	_e( 'To perform the requested action, WordPress needs to access your web server.' );
+	_e( 'To perform the requested action, Retraceur needs to access your web server.' );
 	echo ' ';
 	if ( ( isset( $types['ftp'] ) || isset( $types['ftps'] ) ) ) {
 		if ( isset( $types['ssh'] ) ) {

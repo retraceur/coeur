@@ -176,7 +176,7 @@ require_once ABSPATH . WPINC . '/class-wp-locale-switcher.php';
 // Run the installer if Retraceur is not installed.
 wp_not_installed();
 
-// Load most of WordPress.
+// Load most of Retraceur.
 require ABSPATH . WPINC . '/class-wp-walker.php';
 require ABSPATH . WPINC . '/class-wp-ajax-response.php';
 require ABSPATH . WPINC . '/capabilities.php';

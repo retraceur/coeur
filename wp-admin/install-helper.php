@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugins may load this file to gain access to special helper functions
- * for plugin installation. This file is not included by WordPress and it is
+ * for plugin installation. This file is not included by Retraceur and it is
  * recommended, to prevent fatal errors, that this file is included using
  * require_once.
  *

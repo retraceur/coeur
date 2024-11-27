@@ -1670,7 +1670,7 @@ function verify_file_signature( $filename, $signatures, $filename_for_errors = f
 }
 
 /**
- * Retrieves the list of signing keys trusted by WordPress.
+ * Retrieves the list of signing keys trusted by WP.
  *
  * @since 5.2.0
  * @deprecated 1.0.0 Retraceur fork.
@@ -2152,7 +2152,7 @@ function _wp_credits_add_profile_link( &$display_name, $username, $profiles ) {
 }
 
 /**
- * Retrieves the link to an external library used in WordPress.
+ * Retrieves the link to an external library used in WP.
  *
  * @access private
  * @since WP 3.2.0

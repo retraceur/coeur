@@ -228,7 +228,7 @@ class Theme_Installer_Skin extends WP_Upgrader_Skin {
 			'Name'        => __( 'Theme name' ),
 			'Version'     => __( 'Version' ),
 			'Author'      => __( 'Author' ),
-			'RequiresWP'  => __( 'Required WordPress version' ),
+			'RequiresWP'  => __( 'Required Retraceur version' ),
 			'RequiresPHP' => __( 'Required PHP version' ),
 			'Template'    => __( 'Parent theme' ),
 		);
@@ -300,8 +300,8 @@ class Theme_Installer_Skin extends WP_Upgrader_Skin {
 
 		if ( ! is_wp_version_compatible( $requires_wp ) ) {
 			$error = sprintf(
-				/* translators: 1: Current WordPress version, 2: Version required by the uploaded theme. */
-				__( 'Your WordPress version is %1$s, however the uploaded theme requires %2$s.' ),
+				/* translators: 1: Current Retraceur version, 2: Version required by the uploaded theme. */
+				__( 'Your Retraceur version is %1$s, however the uploaded theme requires %2$s.' ),
 				esc_html( wp_get_wp_version() ),
 				$requires_wp
 			);

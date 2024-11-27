@@ -81,7 +81,7 @@ class Bulk_Plugin_Upgrader_Skin extends Bulk_Upgrader_Skin {
 			'updates_page' => sprintf(
 				'<a href="%s" target="_parent">%s</a>',
 				self_admin_url( 'update-core.php' ),
-				__( 'Go to WordPress Updates page' )
+				__( 'Go to Retraceur Updates page' )
 			),
 		);
 

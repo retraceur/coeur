@@ -9,7 +9,7 @@
  */
 
 /**
- * We are upgrading WordPress.
+ * We are upgrading Retraceur.
  *
  * @since WP 1.5.1
  * @var bool
@@ -119,9 +119,9 @@ else :
 			}
 			?>
 	<h1><?php _e( 'Database Update Required' ); ?></h1>
-<p><?php _e( 'WordPress has been updated! Next and final step is to update your database to the newest version.' ); ?></p>
+<p><?php _e( 'Retraceur has been updated! Next and final step is to update your database to the newest version.' ); ?></p>
 <p><?php _e( 'The database update process may take a little while, so please be patient.' ); ?></p>
-<p class="step"><a class="button button-large button-primary" href="upgrade.php?step=1&amp;backto=<?php echo $goback; ?>"><?php _e( 'Update WordPress Database' ); ?></a></p>
+<p class="step"><a class="button button-large button-primary" href="upgrade.php?step=1&amp;backto=<?php echo $goback; ?>"><?php _e( 'Update Retraceur Database' ); ?></a></p>
 			<?php
 			break;
 		case 1:
@@ -132,7 +132,7 @@ else :
 			$backto = wp_validate_redirect( $backto, __get_option( 'home' ) . '/' );
 			?>
 	<h1><?php _e( 'Update Complete' ); ?></h1>
-	<p><?php _e( 'Your WordPress database has been successfully updated!' ); ?></p>
+	<p><?php _e( 'Your Retraceur database has been successfully updated!' ); ?></p>
 	<p class="step"><a class="button button-large" href="<?php echo $backto; ?>"><?php _e( 'Continue' ); ?></a></p>
 			<?php
 			break;

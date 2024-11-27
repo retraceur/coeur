@@ -449,8 +449,8 @@ class Theme_Upgrader extends WP_Upgrader {
 				$result = new WP_Error(
 					'incompatible_wp_required_version',
 					sprintf(
-						/* translators: 1: Current WordPress version, 2: WordPress version required by the new theme version. */
-						__( 'Your WordPress version is %1$s, however the new theme version requires %2$s.' ),
+						/* translators: 1: Current Retraceur version, 2: Retraceur version required by the new theme version. */
+						__( 'Your Retraceur version is %1$s, however the new theme version requires %2$s.' ),
 						$wp_version,
 						$r['requires']
 					)
@@ -655,8 +655,8 @@ class Theme_Upgrader extends WP_Upgrader {
 		}
 		if ( ! is_wp_version_compatible( $requires_wp ) ) {
 			$error = sprintf(
-				/* translators: 1: Current WordPress version, 2: Version required by the uploaded theme. */
-				__( 'Your WordPress version is %1$s, however the uploaded theme requires %2$s.' ),
+				/* translators: 1: Current Retraceur version, 2: Version required by the uploaded theme. */
+				__( 'Your Retraceur version is %1$s, however the uploaded theme requires %2$s.' ),
 				$wp_version,
 				$requires_wp
 			);

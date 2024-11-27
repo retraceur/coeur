@@ -291,28 +291,28 @@ if ( $tab ) {
 		<div class="notice notice-error notice-alt"><p>
 			<# if ( ! data.compatible_wp && ! data.compatible_php ) { #>
 				<?php
-				_e( 'This theme does not work with your versions of WordPress and PHP.' );
+				_e( 'This theme does not work with your versions of Retraceur and PHP.' );
 				if ( current_user_can( 'update_core' ) && current_user_can( 'update_php' ) ) {
 					printf(
-						/* translators: %s: URL to WordPress Updates screen. */
+						/* translators: %s: URL to Retraceur Updates screen. */
 						' ' . __( '<a href="%1$s">Please update Retraceur</a>.' ),
 						self_admin_url( 'update-core.php' )
 					);
 				} elseif ( current_user_can( 'update_core' ) ) {
 					printf(
-						/* translators: %s: URL to WordPress Updates screen. */
-						' ' . __( '<a href="%s">Please update WordPress</a>.' ),
+						/* translators: %s: URL to Retraceur Updates screen. */
+						' ' . __( '<a href="%s">Please update Retraceur</a>.' ),
 						self_admin_url( 'update-core.php' )
 					);
 				}
 				?>
 			<# } else if ( ! data.compatible_wp ) { #>
 				<?php
-				_e( 'This theme does not work with your version of WordPress.' );
+				_e( 'This theme does not work with your version of Retraceur.' );
 				if ( current_user_can( 'update_core' ) ) {
 					printf(
-						/* translators: %s: URL to WordPress Updates screen. */
-						' ' . __( '<a href="%s">Please update WordPress</a>.' ),
+						/* translators: %s: URL to Retraceur Updates screen. */
+						' ' . __( '<a href="%s">Please update Retraceur</a>.' ),
 						self_admin_url( 'update-core.php' )
 					);
 				}
@@ -465,28 +465,28 @@ if ( $tab ) {
 							<div class="notice notice-error notice-alt notice-large"><p>
 								<# if ( ! data.compatible_wp && ! data.compatible_php ) { #>
 									<?php
-									_e( 'This theme does not work with your versions of WordPress and PHP.' );
+									_e( 'This theme does not work with your versions of Retraceur and PHP.' );
 									if ( current_user_can( 'update_core' ) && current_user_can( 'update_php' ) ) {
 										printf(
-											/* translators: %s: URL to WordPress Updates screen. */
-											' ' . __( '<a href="%s">Please update WordPress</a>' ),
+											/* translators: %s: URL to Retraceur Updates screen. */
+											' ' . __( '<a href="%s">Please update Retraceur</a>' ),
 											self_admin_url( 'update-core.php' )
 										);
 									} elseif ( current_user_can( 'update_core' ) ) {
 										printf(
-											/* translators: %s: URL to WordPress Updates screen. */
-											' ' . __( '<a href="%s">Please update WordPress</a>.' ),
+											/* translators: %s: URL to Retraceur Updates screen. */
+											' ' . __( '<a href="%s">Please update Retraceur</a>.' ),
 											self_admin_url( 'update-core.php' )
 										);
 									}
 									?>
 								<# } else if ( ! data.compatible_wp ) { #>
 									<?php
-									_e( 'This theme does not work with your version of WordPress.' );
+									_e( 'This theme does not work with your version of Retraceur.' );
 									if ( current_user_can( 'update_core' ) ) {
 										printf(
-											/* translators: %s: URL to WordPress Updates screen. */
-											' ' . __( '<a href="%s">Please update WordPress</a>.' ),
+											/* translators: %s: URL to Retraceur Updates screen. */
+											' ' . __( '<a href="%s">Please update Retraceur</a>.' ),
 											self_admin_url( 'update-core.php' )
 										);
 									}

@@ -423,7 +423,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 
 			// We assume that somebody who can install plugins in multisite is experienced enough to not need this helper link.
 			if ( ! is_multisite() && current_user_can( 'install_plugins' ) ) {
-				echo ' <a href="' . esc_url( admin_url( 'plugin-install.php?tab=search&s=' . urlencode( $s ) ) ) . '">' . __( 'Search for plugins in the WordPress Plugin Directory.' ) . '</a>';
+				echo ' <a href="' . esc_url( admin_url( 'plugin-install.php?tab=search&s=' . urlencode( $s ) ) ) . '">' . __( 'Search for plugins in the Retraceur Plugin Directory.' ) . '</a>';
 			}
 		} elseif ( ! empty( $plugins['all'] ) ) {
 			_e( 'No plugins found.' );
@@ -677,7 +677,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 		} elseif ( 'top' === $which && 'dropins' === $status ) {
 			echo '<p>' . sprintf(
 				/* translators: %s: wp-content directory name. */
-				__( 'Drop-ins are single files, found in the %s directory, that replace or enhance WordPress features in ways that are not possible for traditional plugins.' ),
+				__( 'Drop-ins are single files, found in the %s directory, that replace or enhance Retraceur features in ways that are not possible for traditional plugins.' ),
 				'<code>' . str_replace( ABSPATH, '', WP_CONTENT_DIR ) . '</code>'
 			) . '</p>';
 		}
@@ -1232,8 +1232,8 @@ class WP_Plugins_List_Table extends WP_List_Table {
 					 *     @type string[] $icons            An array of plugin icon URLs.
 					 *     @type string[] $banners          An array of plugin banner URLs.
 					 *     @type string[] $banners_rtl      An array of plugin RTL banner URLs.
-					 *     @type string   $requires         The version of WordPress which the plugin requires.
-					 *     @type string   $tested           The version of WordPress the plugin is tested against.
+					 *     @type string   $requires         The version of Retraceur which the plugin requires.
+					 *     @type string   $tested           The version of Retraceur the plugin is tested against.
 					 *     @type string   $requires_php     The version of PHP which the plugin requires.
 					 *     @type string   $upgrade_notice   The upgrade notice for the new plugin version.
 					 *     @type bool     $update-supported Whether the plugin supports updates.
@@ -1246,7 +1246,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 					 *     @type string   $TextDomain       Plugin textdomain.
 					 *     @type string   $DomainPath       Relative path to the plugin's .mo file(s).
 					 *     @type bool     $Network          Whether the plugin can only be activated network-wide.
-					 *     @type string   $RequiresWP       The version of WordPress which the plugin requires.
+					 *     @type string   $RequiresWP       The version of Retraceur which the plugin requires.
 					 *     @type string   $RequiresPHP      The version of PHP which the plugin requires.
 					 *     @type string   $UpdateURI        ID of the plugin for update purposes, should be a URI.
 					 *     @type string   $Title            The human-readable title of the plugin.
@@ -1419,26 +1419,26 @@ class WP_Plugins_List_Table extends WP_List_Table {
 
 			$incompatible_message = '';
 			if ( ! $compatible_php && ! $compatible_wp ) {
-				$incompatible_message .= __( 'This plugin does not work with your versions of WordPress and PHP.' );
+				$incompatible_message .= __( 'This plugin does not work with your versions of Retraceur and PHP.' );
 				if ( current_user_can( 'update_core' ) && current_user_can( 'update_php' ) ) {
 					$incompatible_message .= sprintf(
-						/* translators: %s: URL to WordPress Updates screen. */
-						' ' . __( '<a href="%s">Please update WordPress</a>.' ),
+						/* translators: %s: URL to Retraceur Updates screen. */
+						' ' . __( '<a href="%s">Please update Retraceur</a>.' ),
 						self_admin_url( 'update-core.php' )
 					);
 				} elseif ( current_user_can( 'update_core' ) ) {
 					$incompatible_message .= sprintf(
-						/* translators: %s: URL to WordPress Updates screen. */
-						' ' . __( '<a href="%s">Please update WordPress</a>.' ),
+						/* translators: %s: URL to Retraceur Updates screen. */
+						' ' . __( '<a href="%s">Please update Retraceur</a>.' ),
 						self_admin_url( 'update-core.php' )
 					);
 				}
 			} elseif ( ! $compatible_wp ) {
-				$incompatible_message .= __( 'This plugin does not work with your version of WordPress.' );
+				$incompatible_message .= __( 'This plugin does not work with your version of Retraceur.' );
 				if ( current_user_can( 'update_core' ) ) {
 					$incompatible_message .= sprintf(
-						/* translators: %s: URL to WordPress Updates screen. */
-						' ' . __( '<a href="%s">Please update WordPress</a>.' ),
+						/* translators: %s: URL to Retraceur Updates screen. */
+						' ' . __( '<a href="%s">Please update Retraceur</a>.' ),
 						self_admin_url( 'update-core.php' )
 					);
 				}

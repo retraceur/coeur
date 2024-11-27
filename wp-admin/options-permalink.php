@@ -152,7 +152,7 @@ if ( $iis7_permalinks ) {
 		$writable = true;
 	} else {
 		$writable       = false;
-		$existing_rules = array_filter( extract_from_markers( $home_path . '.htaccess', 'WordPress' ) );
+		$existing_rules = array_filter( extract_from_markers( $home_path . '.htaccess', 'Retraceur' ) );
 		$new_rules      = array_filter( explode( "\n", $wp_rewrite->mod_rewrite_rules() ) );
 
 		$htaccess_update_required = ( $new_rules !== $existing_rules );
@@ -208,7 +208,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 <form name="form" action="options-permalink.php" method="post">
 <?php wp_nonce_field( 'update-permalink' ); ?>
 
-<p><?php esc_html_e( 'WordPress offers you the ability to create a custom URL structure for your permalinks and archives. Custom URL structures can improve the aesthetics, usability, and forward-compatibility of your links. A number of tags are available, and here are some examples to get you started.' ); ?></p>
+<p><?php esc_html_e( 'Retraceur offers you the ability to create a custom URL structure for your permalinks and archives. Custom URL structures can improve the aesthetics, usability, and forward-compatibility of your links. A number of tags are available, and here are some examples to get you started.' ); ?></p>
 
 <?php
 if ( is_multisite() && ! is_subdomain_install() && is_main_site()

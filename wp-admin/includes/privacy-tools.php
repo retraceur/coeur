@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Administration Privacy Tools API.
+ * Retraceur Administration Privacy Tools API.
  *
  * @since 1.0.0 Retraceur fork.
  *

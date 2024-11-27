@@ -539,7 +539,7 @@ function wp_iframe( $content_func, ...$args ) {
 
 	_wp_admin_html_begin();
 	?>
-	<title><?php bloginfo( 'name' ); ?> &rsaquo; <?php _e( 'Uploads' ); ?> &#8212; <?php _e( 'WordPress' ); ?></title>
+	<title><?php bloginfo( 'name' ); ?> &rsaquo; <?php _e( 'Uploads' ); ?> &#8212; <?php _e( 'Retraceur' ); ?></title>
 	<?php
 
 	wp_enqueue_style( 'colors' );

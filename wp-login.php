@@ -73,7 +73,7 @@ function login_header( $title = null, $message = '', $wp_error = null ) {
 	$login_title = get_bloginfo( 'name', 'display' );
 
 	/* translators: Login screen title. 1: Login screen name, 2: Network or site name. */
-	$login_title = sprintf( __( '%1$s &lsaquo; %2$s &#8212; WordPress' ), $title, $login_title );
+	$login_title = sprintf( __( '%1$s &lsaquo; %2$s &#8212; Retraceur' ), $title, $login_title );
 
 	if ( wp_is_recovery_mode() ) {
 		/* translators: %s: Login screen title. */
@@ -1307,7 +1307,7 @@ switch ( $action ) {
 				// If cookies are disabled, the user can't log in even with a valid username and password.
 				$user = new WP_Error(
 					'test_cookie',
-					__( '<strong>Error:</strong> Cookies are blocked or not supported by your browser. You must enable cookies to use WordPress.' )
+					__( '<strong>Error:</strong> Cookies are blocked or not supported by your browser. You must enable cookies to use Retraceur.' )
 				);
 			}
 		}
@@ -1405,7 +1405,7 @@ switch ( $action ) {
 			} elseif ( isset( $_GET['registration'] ) && 'disabled' === $_GET['registration'] ) {
 				$errors->add( 'registerdisabled', __( '<strong>Error:</strong> User registration is currently not allowed.' ) );
 			} elseif ( str_contains( $redirect_to, 'about.php?updated' ) ) {
-				$errors->add( 'updated', __( '<strong>You have successfully updated WordPress!</strong> Please log back in to see what&#8217;s new.' ), 'message' );
+				$errors->add( 'updated', __( '<strong>You have successfully updated Retraceur!</strong> Please log back in to see what&#8217;s new.' ), 'message' );
 			} elseif ( WP_Recovery_Mode_Link_Service::LOGIN_ACTION_ENTERED === $action ) {
 				$errors->add( 'enter_recovery_mode', __( 'Recovery Mode Initialized. Please log in to continue.' ), 'message' );
 			} elseif ( isset( $_GET['redirect_to'] ) && is_string( $_GET['redirect_to'] )

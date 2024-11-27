@@ -361,10 +361,10 @@ function display_plugins_table() {
 
 	switch ( current_filter() ) {
 		case 'install_plugins_beta':
-			echo '<p>' . __( 'You are using a development version of WordPress. These feature plugins are also under development.' ) . '</p>';
+			echo '<p>' . __( 'You are using a development version of Retraceur. These feature plugins are also under development.' ) . '</p>';
 			break;
 		case 'install_plugins_featured':
-			echo '<p>' . __( 'Plugins extend and expand the functionality of WordPress. You may upload a plugin in .zip format by clicking the button at the top of this page.' ) . '</p>';
+			echo '<p>' . __( 'Plugins extend and expand the functionality of Retraceur. You may upload a plugin in .zip format by clicking the button at the top of this page.' ) . '</p>';
 			break;
 		case 'install_plugins_recommended':
 			echo '<p>' . __( 'These suggestions are based on the plugins you and other users have installed.' ) . '</p>';
@@ -626,7 +626,7 @@ function install_plugin_information() {
 				</li>
 			<?php } if ( ! empty( $api->requires ) ) { ?>
 				<li>
-					<strong><?php _e( 'Requires WordPress Version:' ); ?></strong>
+					<strong><?php _e( 'Requires Retraceur Version:' ); ?></strong>
 					<?php
 					/* translators: %s: Version number. */
 					printf( __( '%s or higher' ), $api->requires );
@@ -738,18 +738,18 @@ function install_plugin_information() {
 
 	if ( ! $tested_wp ) {
 		wp_admin_notice(
-			__( '<strong>Warning:</strong> This plugin <strong>has not been tested</strong> with your current version of WordPress.' ),
+			__( '<strong>Warning:</strong> This plugin <strong>has not been tested</strong> with your current version of Retraceur.' ),
 			array(
 				'type'               => 'warning',
 				'additional_classes' => array( 'notice-alt' ),
 			)
 		);
 	} elseif ( ! $compatible_wp ) {
-		$compatible_wp_notice_message = __( '<strong>Error:</strong> This plugin <strong>requires a newer version of WordPress</strong>.' );
+		$compatible_wp_notice_message = __( '<strong>Error:</strong> This plugin <strong>requires a newer version of Retraceur</strong>.' );
 		if ( current_user_can( 'update_core' ) ) {
 			$compatible_wp_notice_message .= sprintf(
-				/* translators: %s: URL to WordPress Updates screen. */
-				' ' . __( '<a href="%s" target="_parent">Click here to update WordPress</a>.' ),
+				/* translators: %s: URL to Retraceur Updates screen. */
+				' ' . __( '<a href="%s" target="_parent">Click here to update Retraceur</a>.' ),
 				esc_url( self_admin_url( 'update-core.php' ) )
 			);
 		}

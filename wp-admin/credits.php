@@ -46,12 +46,12 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 				<?php
 				printf(
 					/* translators: 1: GH URL listing contributors */
-					__( 'WordPress est maintenu par une <a href="%1$s">équipe de passionnés du monde entier</a>.' ),
+					__( 'WP est maintenu par une <a href="%1$s">équipe de passionnés du monde entier</a>.' ),
 					__( 'https://github.com/WordPress/wordpress-develop/graphs/contributors' )
 				);
 				?>
 				<br />
-				<a href="<?php echo esc_url( __( 'https://github.com/WordPress/wordpress-develop/blob/trunk/CONTRIBUTING.md' ) ); ?>"><?php _e( 'Get involved in WordPress.' ); ?></a>
+				<a href="<?php echo esc_url( __( 'https://github.com/WordPress/wordpress-develop/blob/trunk/CONTRIBUTING.md' ) ); ?>"><?php _e( 'Get involved in WP.' ); ?></a>
 			</p>
 		</div>
 	</div>
@@ -63,8 +63,8 @@ return;
 
 // These are strings returned by the API that we want to be translatable.
 __( 'Project Leaders' );
-/* translators: %s: The current WordPress version number. */
-__( 'Core Contributors to WordPress %s' );
+/* translators: %s: The current Retraceur version number. */
+__( 'Core Contributors to Retraceur %s' );
 __( 'Noteworthy Contributors' );
 __( 'Cofounder, Project Lead' );
 __( 'Lead Developer' );

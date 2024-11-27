@@ -292,7 +292,7 @@ class WP_Site_Health_Auto_Updates {
 		$success = $skin->request_filesystem_credentials( false, ABSPATH );
 
 		if ( ! $success ) {
-			$description  = __( 'Your installation of WordPress prompts for FTP credentials to perform updates.' );
+			$description  = __( 'Your installation of Retraceur prompts for FTP credentials to perform updates.' );
 			$description .= ' ' . __( '(Your site is performing updates over FTP due to file ownership. Talk to your hosting company.)' );
 
 			return array(
@@ -302,7 +302,7 @@ class WP_Site_Health_Auto_Updates {
 		}
 
 		return array(
-			'description' => __( 'Your installation of WordPress does not require FTP credentials to perform updates.' ),
+			'description' => __( 'Your installation of Retraceur does not require FTP credentials to perform updates.' ),
 			'severity'    => 'pass',
 		);
 	}
@@ -382,12 +382,12 @@ class WP_Site_Health_Auto_Updates {
 				$unwritable_files[] = '...';
 			}
 			return array(
-				'description' => __( 'Some files are not writable by WordPress:' ) . ' <ul><li>' . implode( '</li><li>', $unwritable_files ) . '</li></ul>',
+				'description' => __( 'Some files are not writable by Retraceur:' ) . ' <ul><li>' . implode( '</li><li>', $unwritable_files ) . '</li></ul>',
 				'severity'    => 'fail',
 			);
 		} else {
 			return array(
-				'description' => __( 'All of your WordPress files are writable.' ),
+				'description' => __( 'All of your Retraceur files are writable.' ),
 				'severity'    => 'pass',
 			);
 		}
@@ -411,7 +411,7 @@ class WP_Site_Health_Auto_Updates {
 			return array(
 				'description' => sprintf(
 					/* translators: %s: Name of the constant used. */
-					__( 'WordPress development updates are blocked by the %s constant.' ),
+					__( 'Retraceur development updates are blocked by the %s constant.' ),
 					'<code>WP_AUTO_UPDATE_CORE</code>'
 				),
 				'severity'    => 'fail',
@@ -423,7 +423,7 @@ class WP_Site_Health_Auto_Updates {
 			return array(
 				'description' => sprintf(
 					/* translators: %s: Name of the filter used. */
-					__( 'WordPress development updates are blocked by the %s filter.' ),
+					__( 'Retraceur development updates are blocked by the %s filter.' ),
 					'<code>allow_dev_auto_core_updates</code>'
 				),
 				'severity'    => 'fail',
@@ -443,7 +443,7 @@ class WP_Site_Health_Auto_Updates {
 			return array(
 				'description' => sprintf(
 					/* translators: %s: Name of the constant used. */
-					__( 'WordPress security and maintenance releases are blocked by %s.' ),
+					__( 'Retraceur security and maintenance releases are blocked by %s.' ),
 					"<code>define( 'WP_AUTO_UPDATE_CORE', false );</code>"
 				),
 				'severity'    => 'fail',
@@ -455,7 +455,7 @@ class WP_Site_Health_Auto_Updates {
 			return array(
 				'description' => sprintf(
 					/* translators: %s: Name of the filter used. */
-					__( 'WordPress security and maintenance releases are blocked by the %s filter.' ),
+					__( 'Retraceur security and maintenance releases are blocked by the %s filter.' ),
 					'<code>allow_minor_auto_core_updates</code>'
 				),
 				'severity'    => 'fail',

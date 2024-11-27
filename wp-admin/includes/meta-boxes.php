@@ -784,7 +784,7 @@ function post_trackback_meta_box( $post ) {
 </p>
 <p id="trackback-url-desc" class="howto"><?php _e( 'Separate multiple URLs with spaces' ); ?></p>
 <p>
-	<?php esc_html_e( 'Trackbacks are a way to notify legacy blog systems that you&#8217;ve linked to them. If you link other WordPress sites, they&#8217;ll be notified automatically using pingbacks, no other action necessary.' ); ?>
+	<?php esc_html_e( 'Trackbacks are a way to notify legacy blog systems that you&#8217;ve linked to them. If you link other Retraceur sites, they&#8217;ll be notified automatically using pingbacks, no other action necessary.' ); ?>
 </p>
 	<?php
 	if ( ! empty( $pings ) ) {

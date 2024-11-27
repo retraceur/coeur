@@ -65,7 +65,7 @@
  *     @type string $TextDomain      Plugin textdomain.
  *     @type string $DomainPath      Plugin's relative directory path to .mo files.
  *     @type bool   $Network         Whether the plugin can only be activated network-wide.
- *     @type string $RequiresWP      Minimum required version of WordPress.
+ *     @type string $RequiresWP      Minimum required version of Retraceur.
  *     @type string $RequiresPHP     Minimum required version of PHP.
  *     @type string $UpdateURI       ID of the plugin for update purposes, should be a URI.
  *     @type string $RequiresPlugins Comma separated list of dot org plugin slugs.
@@ -945,7 +945,7 @@ function delete_plugins( $plugins, $deprecated = '' ) {
 	// Get the base plugin folder.
 	$plugins_dir = $wp_filesystem->wp_plugins_dir();
 	if ( empty( $plugins_dir ) ) {
-		return new WP_Error( 'fs_no_plugins_dir', __( 'Unable to locate WordPress plugin directory.' ) );
+		return new WP_Error( 'fs_no_plugins_dir', __( 'Unable to locate Retraceur plugin directory.' ) );
 	}
 
 	$plugins_dir = trailingslashit( $plugins_dir );
@@ -1112,7 +1112,7 @@ function validate_plugin( $plugin ) {
 }
 
 /**
- * Validates the plugin requirements for WordPress version and PHP version.
+ * Validates the plugin requirements for Retraceur version and PHP version.
  *
  * Uses the information from `Requires at least`, `Requires PHP` and `Requires Plugins` headers
  * defined in the plugin's main PHP file.
@@ -1142,8 +1142,8 @@ function validate_plugin_requirements( $plugin ) {
 		return new WP_Error(
 			'plugin_wp_php_incompatible',
 			'<p>' . sprintf(
-				/* translators: 1: Current WordPress version, 2: Current PHP version, 3: Plugin name, 4: Required WordPress version, 5: Required PHP version. */
-				_x( '<strong>Error:</strong> Current versions of WordPress (%1$s) and PHP (%2$s) do not meet minimum requirements for %3$s. The plugin requires WordPress %4$s and PHP %5$s.', 'plugin' ),
+				/* translators: 1: Current Retraceur version, 2: Current PHP version, 3: Plugin name, 4: Required Retraceur version, 5: Required PHP version. */
+				_x( '<strong>Error:</strong> Current versions of Retraceur (%1$s) and PHP (%2$s) do not meet minimum requirements for %3$s. The plugin requires Retraceur %4$s and PHP %5$s.', 'plugin' ),
 				get_bloginfo( 'version' ),
 				PHP_VERSION,
 				$plugin_headers['Name'],
@@ -1166,8 +1166,8 @@ function validate_plugin_requirements( $plugin ) {
 		return new WP_Error(
 			'plugin_wp_incompatible',
 			'<p>' . sprintf(
-				/* translators: 1: Current WordPress version, 2: Plugin name, 3: Required WordPress version. */
-				_x( '<strong>Error:</strong> Current WordPress version (%1$s) does not meet minimum requirements for %2$s. The plugin requires WordPress %3$s.', 'plugin' ),
+				/* translators: 1: Current Retraceur version, 2: Plugin name, 3: Required Retraceur version. */
+				_x( '<strong>Error:</strong> Current Retraceur version (%1$s) does not meet minimum requirements for %2$s. The plugin requires Retraceur %3$s.', 'plugin' ),
 				get_bloginfo( 'version' ),
 				$plugin_headers['Name'],
 				$requirements['requires']
@@ -2556,7 +2556,7 @@ function paused_plugins_notice() {
  * Renders an admin notice when a plugin was deactivated during an update.
  *
  * Displays an admin notice in case a plugin has been deactivated during an
- * upgrade due to incompatibility with the current version of WordPress.
+ * upgrade due to incompatibility with the current version of Retraceur.
  *
  * @since WP 5.8.0
  * @access private
@@ -2600,7 +2600,7 @@ function deactivated_plugins_notice() {
 		if ( ! empty( $plugin['version_compatible'] ) && ! empty( $plugin['version_deactivated'] ) ) {
 			$explanation = sprintf(
 				/* translators: 1: Name of deactivated plugin, 2: Plugin version deactivated, 3: Current WP version, 4: Compatible plugin version. */
-				__( '%1$s %2$s was deactivated due to incompatibility with WordPress %3$s, please upgrade to %1$s %4$s or later.' ),
+				__( '%1$s %2$s was deactivated due to incompatibility with Retraceur %3$s, please upgrade to %1$s %4$s or later.' ),
 				$plugin['plugin_name'],
 				$plugin['version_deactivated'],
 				$GLOBALS['wp_version'],
@@ -2609,7 +2609,7 @@ function deactivated_plugins_notice() {
 		} else {
 			$explanation = sprintf(
 				/* translators: 1: Name of deactivated plugin, 2: Plugin version deactivated, 3: Current WP version. */
-				__( '%1$s %2$s was deactivated due to incompatibility with WordPress %3$s.' ),
+				__( '%1$s %2$s was deactivated due to incompatibility with Retraceur %3$s.' ),
 				$plugin['plugin_name'],
 				! empty( $plugin['version_deactivated'] ) ? $plugin['version_deactivated'] : '',
 				$GLOBALS['wp_version'],
@@ -2621,7 +2621,7 @@ function deactivated_plugins_notice() {
 			'<strong>%s</strong><br>%s</p><p><a href="%s">%s</a>',
 			sprintf(
 				/* translators: %s: Name of deactivated plugin. */
-				__( '%s plugin deactivated during WordPress upgrade.' ),
+				__( '%s plugin deactivated during Retraceur upgrade.' ),
 				$plugin['plugin_name']
 			),
 			$explanation,

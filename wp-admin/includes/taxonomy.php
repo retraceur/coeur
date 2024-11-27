@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Taxonomy Administration API.
+ * Reacteur Taxonomy Administration API.
  *
  * @since 1.0.0 Retraceur fork.
  *

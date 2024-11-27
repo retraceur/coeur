@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Administration Template Footer.
+ * Retraceur Administration Template Footer.
  *
  * @since 1.0.0 Retraceur fork.
  *
@@ -50,7 +50,7 @@ global $hook_suffix;
 		/**
 		 * Filters the version/update text displayed in the admin footer.
 		 *
-		 * WordPress prints the current version and update information,
+		 * Retraceur prints the current version and update information,
 		 * using core_update_footer() at priority 10.
 		 *
 		 * @since WP 2.3.0

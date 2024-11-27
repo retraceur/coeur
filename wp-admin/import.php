@@ -25,7 +25,7 @@ get_current_screen()->add_help_tab(
 		'id'      => 'overview',
 		'title'   => __( 'Overview' ),
 		'content' => '<p>' . __( 'This screen lists links to plugins to import data from blogging/content management platforms. Choose the platform you want to import from, and click Install Now when you are prompted in the popup window. If your platform is not listed, click the link to search the plugin directory for other importer plugins to see if there is one for your platform.' ) . '</p>' .
-			'<p>' . __( 'In previous versions of WordPress, all importers were built-in. They have been turned into plugins since most people only use them once or infrequently.' ) . '</p>',
+			'<p>' . __( 'In previous versions of WP, all importers were built-in. They have been turned into plugins since most people only use them once or infrequently.' ) . '</p>',
 	)
 );
 
@@ -70,7 +70,7 @@ if ( ! empty( $_GET['invalid'] ) ) :
 	);
 endif;
 ?>
-<p><?php _e( 'If you have posts or comments in another system, WordPress can import those into this site. To get started, choose a system to import from below:' ); ?></p>
+<p><?php _e( 'If you have posts or comments in another system, Retraceur can import those into this site. To get started, choose a system to import from below:' ); ?></p>
 
 <?php
 // Registered (already installed) importers. They're stored in the global $wp_importers.

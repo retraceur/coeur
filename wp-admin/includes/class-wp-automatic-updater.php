@@ -332,7 +332,7 @@ class WP_Automatic_Updater {
 		 * sets a particular flag. This allows some discretion in if and when to notify.
 		 *
 		 * This filter is only evaluated once per release. If the same email address
-		 * was already notified of the same new version, WordPress won't repeatedly
+		 * was already notified of the same new version, Retraceur won't repeatedly
 		 * email the administrator.
 		 *
 		 * This filter is also used on about.php to check if a plugin has disabled
@@ -404,10 +404,10 @@ class WP_Automatic_Updater {
 		$upgrader_item = $item;
 		switch ( $type ) {
 			case 'core':
-				/* translators: %s: WordPress version. */
-				$skin->feedback( __( 'Updating to WordPress %s' ), $item->version );
-				/* translators: %s: WordPress version. */
-				$item_name = sprintf( __( 'WordPress %s' ), $item->version );
+				/* translators: %s: Retraceur version. */
+				$skin->feedback( __( 'Updating to Retraceur %s' ), $item->version );
+				/* translators: %s: Retraceur version. */
+				$item_name = sprintf( __( 'Retraceur %s' ), $item->version );
 				break;
 			case 'theme':
 				$upgrader_item = $item->theme;
@@ -435,9 +435,9 @@ class WP_Automatic_Updater {
 				break;
 			case 'translation':
 				$language_item_name = $upgrader->get_name_for_update( $item );
-				/* translators: %s: Project name (plugin, theme, or WordPress). */
+				/* translators: %s: Project name (plugin, theme, or Retraceur). */
 				$item_name = sprintf( __( 'Translations for %s' ), $language_item_name );
-				/* translators: 1: Project name (plugin, theme, or WordPress), 2: Language. */
+				/* translators: 1: Project name (plugin, theme, or Retraceur), 2: Language. */
 				$skin->feedback( sprintf( __( 'Updating translations for %1$s (%2$s)&#8230;' ), $language_item_name, $item->language ) );
 				break;
 		}
@@ -527,7 +527,7 @@ class WP_Automatic_Updater {
 				$upgrade_result->add( 'installation_failed', __( 'Installation failed.' ) );
 				$skin->error( $upgrade_result );
 			} else {
-				$skin->feedback( __( 'WordPress updated successfully.' ) );
+				$skin->feedback( __( 'Retraceur updated successfully.' ) );
 			}
 		}
 
@@ -939,14 +939,14 @@ class WP_Automatic_Updater {
 
 		switch ( $type ) {
 			case 'success': // We updated.
-				/* translators: Site updated notification email subject. 1: Site title, 2: WordPress version. */
-				$subject = __( '[%1$s] Your site has updated to WordPress %2$s' );
+				/* translators: Site updated notification email subject. 1: Site title, 2: Retraceur version. */
+				$subject = __( '[%1$s] Your site has updated to Retraceur %2$s' );
 				break;
 
 			case 'fail':   // We tried to update but couldn't.
 			case 'manual': // We can't update (and made no attempt).
-				/* translators: Update available notification email subject. 1: Site title, 2: WordPress version. */
-				$subject = __( '[%1$s] WordPress %2$s is available. Please update!' );
+				/* translators: Update available notification email subject. 1: Site title, 2: Retraceur version. */
+				$subject = __( '[%1$s] Retraceur %2$s is available. Please update!' );
 				break;
 
 			case 'critical': // We tried to update, started to copy files, then things went wrong.
@@ -967,8 +967,8 @@ class WP_Automatic_Updater {
 		switch ( $type ) {
 			case 'success':
 				$body .= sprintf(
-					/* translators: 1: Home URL, 2: WordPress version. */
-					__( 'Howdy! Your site at %1$s has been updated automatically to WordPress %2$s.' ),
+					/* translators: 1: Home URL, 2: Retraceur version. */
+					__( 'Howdy! Your site at %1$s has been updated automatically to Retraceur %2$s.' ),
 					home_url(),
 					$core_update->current
 				);
@@ -979,13 +979,13 @@ class WP_Automatic_Updater {
 
 				// Can only reference the About screen if their update was successful.
 				list( $about_version ) = explode( '-', $core_update->current, 2 );
-				/* translators: %s: WordPress version. */
-				$body .= sprintf( __( 'For more on version %s, see the About WordPress screen:' ), $about_version );
+				/* translators: %s: Retraceur version. */
+				$body .= sprintf( __( 'For more on version %s, see the About Retraceur screen:' ), $about_version );
 				$body .= "\n" . admin_url( 'about.php' );
 
 				if ( $newer_version_available ) {
-					/* translators: %s: WordPress latest version. */
-					$body .= "\n\n" . sprintf( __( 'WordPress %s is also now available.' ), $next_user_core_update->current ) . ' ';
+					/* translators: %s: Retraceur latest version. */
+					$body .= "\n\n" . sprintf( __( 'Retraceur %s is also now available.' ), $next_user_core_update->current ) . ' ';
 					$body .= __( 'Updating is easy and only takes a few moments:' );
 					$body .= "\n" . network_admin_url( 'update-core.php' );
 				}
@@ -995,8 +995,8 @@ class WP_Automatic_Updater {
 			case 'fail':
 			case 'manual':
 				$body .= sprintf(
-					/* translators: 1: Home URL, 2: WordPress version. */
-					__( 'Please update your site at %1$s to WordPress %2$s.' ),
+					/* translators: 1: Home URL, 2: Retraceur version. */
+					__( 'Please update your site at %1$s to Retraceur %2$s.' ),
 					home_url(),
 					$next_user_core_update->current
 				);
@@ -1018,15 +1018,15 @@ class WP_Automatic_Updater {
 			case 'critical':
 				if ( $newer_version_available ) {
 					$body .= sprintf(
-						/* translators: 1: Home URL, 2: WordPress version. */
-						__( 'Your site at %1$s experienced a critical failure while trying to update WordPress to version %2$s.' ),
+						/* translators: 1: Home URL, 2: Retraceur version. */
+						__( 'Your site at %1$s experienced a critical failure while trying to update Retraceur to version %2$s.' ),
 						home_url(),
 						$core_update->current
 					);
 				} else {
 					$body .= sprintf(
-						/* translators: 1: Home URL, 2: WordPress latest version. */
-						__( 'Your site at %1$s experienced a critical failure while trying to update to the latest version of WordPress, %2$s.' ),
+						/* translators: 1: Home URL, 2: Retraceur latest version. */
+						__( 'Your site at %1$s experienced a critical failure while trying to update to the latest version of Retraceur, %2$s.' ),
 						home_url(),
 						$core_update->current
 					);
@@ -1044,7 +1044,7 @@ class WP_Automatic_Updater {
 			// Support offer if available.
 			$body .= "\n\n" . sprintf(
 				/* translators: %s: Support email address. */
-				__( 'The WordPress team is willing to help you. Forward this email to %s and the team will work with you to make sure your site is working.' ),
+				__( 'The Retraceur team is willing to help you. Forward this email to %s and the team will work with you to make sure your site is working.' ),
 				$core_update->support_email
 			);
 		}
@@ -1055,7 +1055,7 @@ class WP_Automatic_Updater {
 		}
 
 		if ( $critical_support ) {
-			$body .= ' ' . __( "Reach out to WordPress Core developers to ensure you'll never have this problem again." );
+			$body .= ' ' . __( "Reach out to Retraceur Core developers to ensure you'll never have this problem again." );
 		}
 
 		// If things are successful and we're now on the latest, mention plugins and themes if any are out of date.
@@ -1064,11 +1064,11 @@ class WP_Automatic_Updater {
 			$body .= "\n" . network_admin_url();
 		}
 
-		$body .= "\n\n" . __( 'The WordPress Team' ) . "\n";
+		$body .= "\n\n" . __( 'The Retraceur Team' ) . "\n";
 
 		if ( 'critical' === $type && is_wp_error( $result ) ) {
 			$body .= "\n***\n\n";
-			/* translators: %s: WordPress version. */
+			/* translators: %s: Retraceur version. */
 			$body .= sprintf( __( 'Your site was running version %s.' ), get_bloginfo( 'version' ) );
 			$body .= ' ' . __( 'Some data that describes the error your site encountered has been put together.' );
 			$body .= ' ' . __( 'Your hosting company, support forum volunteers, or a friendly developer may be able to use this information to help you:' );
@@ -1535,18 +1535,18 @@ class WP_Automatic_Updater {
 		$failures = 0;
 
 		/* translators: %s: Network home URL. */
-		$body[] = sprintf( __( 'WordPress site: %s' ), network_home_url( '/' ) );
+		$body[] = sprintf( __( 'Retraceur site: %s' ), network_home_url( '/' ) );
 
 		// Core.
 		if ( isset( $this->update_results['core'] ) ) {
 			$result = $this->update_results['core'][0];
 
 			if ( $result->result && ! is_wp_error( $result->result ) ) {
-				/* translators: %s: WordPress version. */
-				$body[] = sprintf( __( 'SUCCESS: WordPress was successfully updated to %s' ), $result->name );
+				/* translators: %s: Retraceur version. */
+				$body[] = sprintf( __( 'SUCCESS: Retraceur was successfully updated to %s' ), $result->name );
 			} else {
-				/* translators: %s: WordPress version. */
-				$body[] = sprintf( __( 'FAILED: WordPress failed to update to %s' ), $result->name );
+				/* translators: %s: Retraceur version. */
+				$body[] = sprintf( __( 'FAILED: Retraceur failed to update to %s' ), $result->name );
 				++$failures;
 			}
 

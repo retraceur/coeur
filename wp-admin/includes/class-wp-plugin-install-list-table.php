@@ -605,26 +605,26 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 			if ( ! $compatible_php || ! $compatible_wp ) {
 				$incompatible_notice_message = '';
 				if ( ! $compatible_php && ! $compatible_wp ) {
-					$incompatible_notice_message .= __( 'This plugin does not work with your versions of WordPress and PHP.' );
+					$incompatible_notice_message .= __( 'This plugin does not work with your versions of Retraceur and PHP.' );
 					if ( current_user_can( 'update_core' ) && current_user_can( 'update_php' ) ) {
 						$incompatible_notice_message .= sprintf(
-							/* translators: %s: URL to WordPress Updates screen. */
-							' ' . __( '<a href="%s">Please update WordPress</a>.' ),
+							/* translators: %s: URL to Retraceur Updates screen. */
+							' ' . __( '<a href="%s">Please update Retraceur</a>.' ),
 							self_admin_url( 'update-core.php' )
 						);
 					} elseif ( current_user_can( 'update_core' ) ) {
 						$incompatible_notice_message .= sprintf(
-							/* translators: %s: URL to WordPress Updates screen. */
-							' ' . __( '<a href="%s">Please update WordPress</a>.' ),
+							/* translators: %s: URL to Retraceur Updates screen. */
+							' ' . __( '<a href="%s">Please update Retraceur</a>.' ),
 							self_admin_url( 'update-core.php' )
 						);
 					}
 				} elseif ( ! $compatible_wp ) {
-					$incompatible_notice_message .= __( 'This plugin does not work with your version of WordPress.' );
+					$incompatible_notice_message .= __( 'This plugin does not work with your version of Retraceur.' );
 					if ( current_user_can( 'update_core' ) ) {
 						$incompatible_notice_message .= sprintf(
-							/* translators: %s: URL to WordPress Updates screen. */
-							' ' . __( '<a href="%s">Please update WordPress</a>.' ),
+							/* translators: %s: URL to Retraceur Updates screen. */
+							' ' . __( '<a href="%s">Please update Retraceur</a>.' ),
 							self_admin_url( 'update-core.php' )
 						);
 					}
@@ -709,11 +709,11 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 				<div class="column-compatibility">
 					<?php
 					if ( ! $tested_wp ) {
-						echo '<span class="compatibility-untested">' . __( 'Untested with your version of WordPress' ) . '</span>';
+						echo '<span class="compatibility-untested">' . __( 'Untested with your version of Retraceur' ) . '</span>';
 					} elseif ( ! $compatible_wp ) {
-						echo '<span class="compatibility-incompatible">' . __( '<strong>Incompatible</strong> with your version of WordPress' ) . '</span>';
+						echo '<span class="compatibility-incompatible">' . __( '<strong>Incompatible</strong> with your version of Retraceur' ) . '</span>';
 					} else {
-						echo '<span class="compatibility-compatible">' . __( '<strong>Compatible</strong> with your version of WordPress' ) . '</span>';
+						echo '<span class="compatibility-compatible">' . __( '<strong>Compatible</strong> with your version of Retraceur' ) . '</span>';
 					}
 					?>
 				</div>

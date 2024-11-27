@@ -9,7 +9,7 @@
  * will be displayed asking the visitor to set up the
  * wp-config.php file.
  *
- * Will also search for wp-config.php in WordPress' parent
+ * Will also search for wp-config.php in Retraceur' parent
  * directory to allow the Retraceur directory to remain
  * untouched.
  *
@@ -39,8 +39,8 @@ if ( function_exists( 'error_reporting' ) ) {
 /*
  * If wp-config.php exists in the Retraceur root, or if it exists in the root and wp-settings.php
  * doesn't, load wp-config.php. The secondary check for wp-settings.php has the added benefit
- * of avoiding cases where the current directory is a nested installation, e.g. / is WordPress(a)
- * and /blog/ is WordPress(b).
+ * of avoiding cases where the current directory is a nested installation, e.g. / is Retraceur(a)
+ * and /blog/ is Retraceur(b).
  *
  * If neither set of conditions is true, initiate loading the setup process.
  */

@@ -83,7 +83,7 @@ function export_wp( $args = array() ) {
 		$sitename .= '.';
 	}
 	$date        = gmdate( 'Y-m-d' );
-	$wp_filename = $sitename . 'WordPress.' . $date . '.xml';
+	$wp_filename = $sitename . 'Retraceur.' . $date . '.xml';
 	/**
 	 * Filters the export filename.
 	 *
@@ -501,7 +501,7 @@ function export_wp( $args = array() ) {
 <!-- To import this information into a Retraceur site follow these steps: -->
 <!-- 1. Log in to that site as an administrator. -->
 <!-- 2. Go to Tools: Import in the Retraceur admin panel. -->
-<!-- 3. Install the "WordPress" importer from the list. -->
+<!-- 3. Install the "Retraceur" importer from the list. -->
 <!-- 4. Activate & Run Importer. -->
 <!-- 5. Upload this file using the form provided on that page. -->
 <!-- 6. You will first be asked to map the authors in this export file to users -->

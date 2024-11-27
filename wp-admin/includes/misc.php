@@ -143,7 +143,7 @@ function insert_with_markers( $filename, $marker, $insertion ) {
 		/* translators: 1: Marker. */
 		__(
 			'The directives (lines) between "BEGIN %1$s" and "END %1$s" are
-dynamically generated, and should only be modified via WordPress filters.
+dynamically generated, and should only be modified via Retraceur filters.
 Any changes to the directives between these markers will be overwritten.'
 		),
 		$marker
@@ -284,7 +284,7 @@ function save_mod_rewrite_rules() {
 		if ( got_mod_rewrite() ) {
 			$rules = explode( "\n", $wp_rewrite->mod_rewrite_rules() );
 
-			return insert_with_markers( $htaccess_file, 'WordPress', $rules );
+			return insert_with_markers( $htaccess_file, 'Retraceur', $rules );
 		}
 	}
 
@@ -836,7 +836,7 @@ function iis7_rewrite_rule_exists( $filename ) {
 	}
 
 	$xpath = new DOMXPath( $doc );
-	$rules = $xpath->query( '/configuration/system.webServer/rewrite/rules/rule[starts-with(@name,\'wordpress\')] | /configuration/system.webServer/rewrite/rules/rule[starts-with(@name,\'WordPress\')]' );
+	$rules = $xpath->query( '/configuration/system.webServer/rewrite/rules/rule[starts-with(@name,\'wordpress\')] | /configuration/system.webServer/rewrite/rules/rule[starts-with(@name,\'Retraceur\')]' );
 
 	if ( 0 === $rules->length ) {
 		return false;
@@ -871,7 +871,7 @@ function iis7_delete_rewrite_rule( $filename ) {
 	}
 
 	$xpath = new DOMXPath( $doc );
-	$rules = $xpath->query( '/configuration/system.webServer/rewrite/rules/rule[starts-with(@name,\'wordpress\')] | /configuration/system.webServer/rewrite/rules/rule[starts-with(@name,\'WordPress\')]' );
+	$rules = $xpath->query( '/configuration/system.webServer/rewrite/rules/rule[starts-with(@name,\'wordpress\')] | /configuration/system.webServer/rewrite/rules/rule[starts-with(@name,\'Retraceur\')]' );
 
 	if ( $rules->length > 0 ) {
 		$child  = $rules->item( 0 );
@@ -915,7 +915,7 @@ function iis7_add_rewrite_rule( $filename, $rewrite_rule ) {
 	$xpath = new DOMXPath( $doc );
 
 	// First check if the rule already exists as in that case there is no need to re-add it.
-	$wordpress_rules = $xpath->query( '/configuration/system.webServer/rewrite/rules/rule[starts-with(@name,\'wordpress\')] | /configuration/system.webServer/rewrite/rules/rule[starts-with(@name,\'WordPress\')]' );
+	$wordpress_rules = $xpath->query( '/configuration/system.webServer/rewrite/rules/rule[starts-with(@name,\'wordpress\')] | /configuration/system.webServer/rewrite/rules/rule[starts-with(@name,\'Retraceur\')]' );
 
 	if ( $wordpress_rules->length > 0 ) {
 		return true;
@@ -1595,7 +1595,7 @@ function _wp_privacy_settings_filter_draft_page_titles( $title, $page ) {
  * @return array|false {
  *     Array of PHP version data. False on failure.
  *
- *     @type string $recommended_version The PHP version recommended by WordPress.
+ *     @type string $recommended_version The PHP version recommended by Retraceur.
  *     @type string $minimum_version     The minimum required PHP version.
  *     @type bool   $is_supported        Whether the PHP version is actively supported.
  *     @type bool   $is_secure           Whether the PHP version receives security updates.
@@ -1620,7 +1620,7 @@ function wp_check_php_version() {
 		$response['is_secure']     = true;
 
 		/**
-		 * Filters whether the active PHP version is considered acceptable by WordPress.
+		 * Filters whether the active PHP version is considered acceptable by Retraceur.
 		 *
 		 * Returning false will trigger a PHP version warning to show up in the admin dashboard to administrators.
 		 *

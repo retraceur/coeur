@@ -35,8 +35,8 @@ if ( wp_is_mobile() ) {
 $title       = __( 'Dashboard' );
 $parent_file = 'index.php';
 
-$help  = '<p>' . __( 'Welcome to your WordPress Dashboard!' ) . '</p>';
-$help .= '<p>' . __( 'The Dashboard is the first place you will come to every time you log into your site. It is where you will find all your WordPress tools. If you need help, just click the &#8220;Help&#8221; tab above the screen title.' ) . '</p>';
+$help  = '<p>' . __( 'Welcome to your Retraceur Dashboard!' ) . '</p>';
+$help .= '<p>' . __( 'The Dashboard is the first place you will come to every time you log into your site. It is where you will find all your Retraceur tools. If you need help, just click the &#8220;Help&#8221; tab above the screen title.' ) . '</p>';
 
 $screen = get_current_screen();
 
@@ -50,8 +50,8 @@ $screen->add_help_tab(
 
 // Help tabs.
 
-$help  = '<p>' . __( 'The left-hand navigation menu provides links to all of the WordPress administration screens, with submenu items displayed on hover. You can minimize this menu to a narrow icon strip by clicking on the Collapse Menu arrow at the bottom.' ) . '</p>';
-$help .= '<p>' . __( 'Links in the Toolbar at the top of the screen connect your dashboard and the front end of your site, and provide access to your profile and helpful WordPress information.' ) . '</p>';
+$help  = '<p>' . __( 'The left-hand navigation menu provides links to all of the Retraceur administration screens, with submenu items displayed on hover. You can minimize this menu to a narrow icon strip by clicking on the Collapse Menu arrow at the bottom.' ) . '</p>';
+$help .= '<p>' . __( 'Links in the Toolbar at the top of the screen connect your dashboard and the front end of your site, and provide access to your profile and helpful Retraceur information.' ) . '</p>';
 
 $screen->add_help_tab(
 	array(
@@ -85,7 +85,7 @@ if ( current_user_can( 'view_site_health_checks' ) ) {
 }
 
 if ( current_user_can( 'edit_posts' ) ) {
-	$help .= '<p>' . __( '<strong>At a Glance</strong> &mdash; Displays a summary of the content on your site and identifies which theme and version of WordPress you are using.' ) . '</p>';
+	$help .= '<p>' . __( '<strong>At a Glance</strong> &mdash; Displays a summary of the content on your site and identifies which theme and version of Retraceur you are using.' ) . '</p>';
 }
 
 $help .= '<p>' . __( '<strong>Activity</strong> &mdash; Shows the upcoming scheduled posts, recently published posts, and the most recent comments on your posts and allows you to moderate them.' ) . '</p>';
@@ -105,7 +105,7 @@ $screen->add_help_tab(
 unset( $help );
 
 $wp_version = get_bloginfo( 'version', 'display' );
-/* translators: %s: WordPress version. */
+/* translators: %s: Retraceur version. */
 $wp_version_text = sprintf( __( 'Version %s' ), $wp_version );
 
 require_once ABSPATH . 'wp-admin/admin-header.php';

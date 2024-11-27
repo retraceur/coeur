@@ -28,7 +28,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 		</div>
 
 		<div class="about__header-text">
-			<?php _e( 'Be the future of WordPress' ); ?>
+			<?php _e( 'Be the future of Retraceur' ); ?>
 		</div>
 	</div>
 
@@ -49,17 +49,10 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 	<div class="about__section has-2-columns is-wider-left">
 		<div class="column is-vertically-aligned-center">
 			<h2 class="is-smaller-heading"><?php _e( 'No-code contribution' ); ?></h2>
-			<p><?php _e( 'WordPress may thrive on technical contributions, but you don&#8217;t have to code to contribute. Here are some of the ways you can make an impact without writing a single line of code:' ); ?></p>
+			<p><?php _e( 'Retraceur may thrive on technical contributions, but you don&#8217;t have to code to contribute. Here are some of the ways you can make an impact without writing a single line of code:' ); ?></p>
 			<ul>
-				<li><?php _e( '<strong>Share</strong> your knowledge in the WordPress support forums.' ); ?></li>
-				<li><?php _e( '<strong>Write</strong> or improve documentation for WordPress.' ); ?></li>
-				<li><?php _e( '<strong>Translate</strong> WordPress into your local language.' ); ?></li>
-				<li><?php _e( '<strong>Create</strong> and improve WordPress educational materials.' ); ?></li>
-				<li><?php _e( '<strong>Promote</strong> the WordPress project to your community.' ); ?></li>
-				<li><?php _e( '<strong>Curate</strong> submissions or take photos for the Photo Directory.' ); ?></li>
-				<li><?php _e( '<strong>Organize</strong> or participate in local Meetups and WordCamps.' ); ?></li>
-				<li><?php _e( '<strong>Lend</strong> your creative imagination to the WordPress UI design.' ); ?></li>
-				<li><?php _e( '<strong>Edit</strong> videos and add captions to WordPress.tv.' ); ?></li>
+				<li><?php _e( '<strong>Write</strong> or improve documentation for Retraceur.' ); ?></li>
+				<li><?php _e( '<strong>Translate</strong> Retraceur into your local language.' ); ?></li>
 				<li><?php _e( '<strong>Explore</strong> ways to reduce the environmental impact of websites.' ); ?></li>
 			</ul>
 		</div>
@@ -75,15 +68,13 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 			<h2 class="is-smaller-heading"><?php _e( 'Code-based contribution' ); ?></h2>
 			<p><?php _e( 'If you do code, or want to learn how, you can contribute technically in numerous ways:' ); ?></p>
 			<ul>
-				<li><?php _e( '<strong>Find</strong> and report bugs in the WordPress core software.' ); ?></li>
+				<li><?php _e( '<strong>Find</strong> and report bugs in the Retraceur core software.' ); ?></li>
 				<li><?php _e( '<strong>Test</strong> new releases and proposed features for the Block Editor.' ); ?></li>
 				<li><?php _e( '<strong>Write</strong> and submit patches to fix bugs or help build new features.' ); ?></li>
-				<li><?php _e( '<strong>Contribute</strong> to the code, improve the UX, and test the WordPress app.' ); ?></li>
 			</ul>
-			<p><?php _e( 'WordPress embraces new technologies, while being committed to backward compatibility. The WordPress project uses the following languages and libraries:' ); ?></p>
+			<p><?php _e( 'Retraceur embraces new technologies, while being committed to backward compatibility. The Retraceur project uses the following languages and libraries:' ); ?></p>
 			<ul>
-				<li><?php _e( 'WordPress Core and Block Editor: HTML, CSS, PHP, SQL, JavaScript, and React.' ); ?></li>
-				<li><?php _e( 'WordPress app: Kotlin, Java, Swift, Objective-C, Vue, Python, and TypeScript.' ); ?></li>
+				<li><?php _e( 'Retraceur Core and Block Editor: HTML, CSS, PHP, SQL, JavaScript, and React.' ); ?></li>
 			</ul>
 		</div>
 	</div>

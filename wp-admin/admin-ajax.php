@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Ajax Process Execution
+ * Retraceur Ajax Process Execution.
  *
  * @since 1.0.0 Retraceur fork.
  *
@@ -18,7 +18,7 @@ if ( ! defined( 'WP_ADMIN' ) ) {
 	define( 'WP_ADMIN', true );
 }
 
-/** Load WordPress Bootstrap */
+/** Load Retraceur Bootstrap */
 require_once dirname( __DIR__ ) . '/wp-load.php';
 
 /** Allow for cross-domain requests (from the front end). */
@@ -32,10 +32,10 @@ if ( empty( $_REQUEST['action'] ) || ! is_scalar( $_REQUEST['action'] ) ) {
 	wp_die( '0', 400 );
 }
 
-/** Load WordPress Administration APIs */
+/** Load Retraceur Administration APIs */
 require_once ABSPATH . 'wp-admin/includes/admin.php';
 
-/** Load Ajax Handlers for WordPress Core */
+/** Load Ajax Handlers for Retraceur Core */
 require_once ABSPATH . 'wp-admin/includes/ajax-actions.php';
 
 send_nosniff_header();

@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Administration Scheme API.
+ * Retraceur Administration Scheme API.
  *
  * Here we keep the DB structure and option values.
  *
@@ -13,7 +13,7 @@
 /**
  * Declare these as global in case schema.php is included from a function.
  *
- * @global wpdb   $wpdb            WordPress database abstraction object.
+ * @global wpdb   $wpdb            Retraceur database abstraction object.
  * @global array  $wp_queries
  * @global string $charset_collate
  */
@@ -29,7 +29,7 @@ $charset_collate = $wpdb->get_charset_collate();
  *
  * @since WP 3.3.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb Retraceur database abstraction object.
  *
  * @param string $scope   Optional. The tables for which to retrieve SQL. Can be all, global, ms_global, or blog tables. Defaults to all.
  * @param int    $blog_id Optional. The site ID for which to retrieve SQL. Default is the current site ID.
@@ -332,13 +332,13 @@ CREATE TABLE $wpdb->signups (
 $wp_queries = wp_get_db_schema( 'all' );
 
 /**
- * Create WordPress options and set the default values.
+ * Create Retraceur options and set the default values.
  *
  * @since WP 1.5.0
  * @since WP 5.1.0 The $options parameter has been added.
  *
- * @global wpdb $wpdb                  WordPress database abstraction object.
- * @global int  $wp_db_version         WordPress database version.
+ * @global wpdb $wpdb                  Retraceur database abstraction object.
+ * @global int  $wp_db_version         Retraceur database version.
  * @global int  $wp_current_db_version The old (current) database version.
  *
  * @param array $options Optional. Custom option $key => $value pairs to use. Default empty array.
@@ -348,7 +348,7 @@ function populate_options( array $options = array() ) {
 
 	$guessurl = wp_guess_url();
 	/**
-	 * Fires before creating WordPress options and populating their default values.
+	 * Fires before creating Retraceur options and populating their default values.
 	 *
 	 * @since WP 2.6.0
 	 */
@@ -677,7 +677,7 @@ function populate_options( array $options = array() ) {
 }
 
 /**
- * Execute WordPress role creation for the various WordPress versions.
+ * Execute Retraceur role creation for the various Retraceur versions.
  *
  * @since WP 2.0.0
  */
@@ -693,7 +693,7 @@ function populate_roles() {
 }
 
 /**
- * Create the roles for WordPress 2.0
+ * Create the roles for WP 2.0
  *
  * @since WP 2.0.0
  */
@@ -783,7 +783,7 @@ function populate_roles_160() {
 }
 
 /**
- * Create and modify WordPress roles for WordPress 2.1.
+ * Create and modify WP roles for WP 2.1.
  *
  * @since WP 2.1.0
  */
@@ -831,7 +831,7 @@ function populate_roles_210() {
 }
 
 /**
- * Create and modify WordPress roles for WordPress 2.3.
+ * Create and modify WP roles for WP 2.3.
  *
  * @since WP 2.3.0
  */
@@ -844,7 +844,7 @@ function populate_roles_230() {
 }
 
 /**
- * Create and modify WordPress roles for WordPress 2.5.
+ * Create and modify WP roles for WP 2.5.
  *
  * @since WP 2.5.0
  */
@@ -857,7 +857,7 @@ function populate_roles_250() {
 }
 
 /**
- * Create and modify WordPress roles for WordPress 2.6.
+ * Create and modify WP roles for WP 2.6.
  *
  * @since WP 2.6.0
  */
@@ -871,7 +871,7 @@ function populate_roles_260() {
 }
 
 /**
- * Create and modify WordPress roles for WordPress 2.7.
+ * Create and modify WP roles for WP 2.7.
  *
  * @since WP 2.7.0
  */
@@ -885,7 +885,7 @@ function populate_roles_270() {
 }
 
 /**
- * Create and modify WordPress roles for WordPress 2.8.
+ * Create and modify WP roles for WP 2.8.
  *
  * @since WP 2.8.0
  */
@@ -898,7 +898,7 @@ function populate_roles_280() {
 }
 
 /**
- * Create and modify WordPress roles for WordPress 3.0.
+ * Create and modify WP roles for WP 3.0.
  *
  * @since WP 3.0.0
  */
@@ -936,9 +936,9 @@ endif;
  *
  * @since WP 3.0.0
  *
- * @global wpdb       $wpdb         WordPress database abstraction object.
+ * @global wpdb       $wpdb         Reacteur database abstraction object.
  * @global object     $current_site
- * @global WP_Rewrite $wp_rewrite   WordPress rewrite component.
+ * @global WP_Rewrite $wp_rewrite   Reacteur rewrite component.
  *
  * @param int    $network_id        ID of network to populate.
  * @param string $domain            The domain name for the network. Example: "example.com".
@@ -1119,12 +1119,12 @@ function populate_network( $network_id = 1, $domain = '', $email = '', $site_nam
 }
 
 /**
- * Creates WordPress network meta and sets the default values.
+ * Creates Reacteur network meta and sets the default values.
  *
  * @since WP 5.1.0
  *
- * @global wpdb $wpdb          WordPress database abstraction object.
- * @global int  $wp_db_version WordPress database version.
+ * @global wpdb $wpdb          Reacteur database abstraction object.
+ * @global int  $wp_db_version Reacteur database version.
  *
  * @param int   $network_id Network ID to populate meta for.
  * @param array $meta       Optional. Custom meta $key => $value pairs to use. Default empty array.
@@ -1274,11 +1274,11 @@ We hope you enjoy your new site. Thanks!
 }
 
 /**
- * Creates WordPress site meta and sets the default values.
+ * Creates Reacteur site meta and sets the default values.
  *
  * @since WP 5.1.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb Reacteur database abstraction object.
  *
  * @param int   $site_id Site ID to populate meta for.
  * @param array $meta    Optional. Custom meta $key => $value pairs to use. Default empty array.

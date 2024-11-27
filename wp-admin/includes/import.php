@@ -41,7 +41,7 @@ function _usort_by_first_member( $a, $b ) {
 }
 
 /**
- * Registers importer for WordPress.
+ * Registers importer for Retraceur.
  *
  * @since WP 2.0.0
  *
@@ -177,8 +177,8 @@ function wp_get_popular_importers() {
 			'importer-id' => 'tumblr',
 		),
 		'wordpress'   => array(
-			'name'        => 'WordPress',
-			'description' => __( 'Import posts, pages, comments, custom fields, categories, and tags from a WordPress export file.' ),
+			'name'        => 'Retraceur',
+			'description' => __( 'Import posts, pages, comments, custom fields, categories, and tags from a Retraceur export file.' ),
 			'plugin-slug' => 'wordpress-importer',
 			'importer-id' => 'wordpress',
 		),

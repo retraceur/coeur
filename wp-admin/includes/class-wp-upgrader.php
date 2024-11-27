@@ -190,11 +190,11 @@ class WP_Upgrader {
 		$this->strings['bad_request']    = __( 'Invalid data provided.' );
 		$this->strings['fs_unavailable'] = __( 'Could not access filesystem.' );
 		$this->strings['fs_error']       = __( 'Filesystem error.' );
-		$this->strings['fs_no_root_dir'] = __( 'Unable to locate WordPress root directory.' );
+		$this->strings['fs_no_root_dir'] = __( 'Unable to locate Retraceur root directory.' );
 		/* translators: %s: Directory name. */
-		$this->strings['fs_no_content_dir'] = sprintf( __( 'Unable to locate WordPress content directory (%s).' ), 'wp-content' );
-		$this->strings['fs_no_plugins_dir'] = __( 'Unable to locate WordPress plugin directory.' );
-		$this->strings['fs_no_themes_dir']  = __( 'Unable to locate WordPress theme directory.' );
+		$this->strings['fs_no_content_dir'] = sprintf( __( 'Unable to locate Retraceur content directory (%s).' ), 'wp-content' );
+		$this->strings['fs_no_plugins_dir'] = __( 'Unable to locate Retraceur plugin directory.' );
+		$this->strings['fs_no_themes_dir']  = __( 'Unable to locate Retraceur theme directory.' );
 		/* translators: %s: Directory name. */
 		$this->strings['fs_no_folder'] = __( 'Unable to locate needed folder (%s).' );
 
