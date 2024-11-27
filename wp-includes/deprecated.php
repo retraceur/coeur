@@ -8370,3 +8370,14 @@ function edit_bookmark_link( $link = '', $before = '', $after = '', $bookmark = 
 		__( 'Link/bookmark manager is not supported in Retraceur.' )
 	);
 }
+
+/**
+ * Register the default font collections.
+ *
+ * @access private
+ * @since WP 6.5.0
+ * @deprecated 1.0.0 Retraceur removed the default font collection.
+ */
+function _wp_register_default_font_collections() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
