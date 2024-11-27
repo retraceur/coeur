@@ -5889,7 +5889,7 @@ function _print_emoji_detection_script() {
 		 *
 		 * @param string $url The emoji base URL for png images.
 		 */
-		'baseUrl' => apply_filters( 'emoji_url', 'https://s.w.org/images/core/emoji/15.0.3/72x72/' ),
+		'baseUrl' => apply_filters( 'emoji_url', 'https://cdn.jsdelivr.net/gh/hfg-gmuend/openmoji/color/72x72/' ),
 
 		/**
 		 * Filters the extension of the emoji png files.
@@ -5907,7 +5907,7 @@ function _print_emoji_detection_script() {
 		 *
 		 * @param string $url The emoji base URL for svg images.
 		 */
-		'svgUrl'  => apply_filters( 'emoji_svg_url', 'https://s.w.org/images/core/emoji/15.0.3/svg/' ),
+		'svgUrl'  => apply_filters( 'emoji_svg_url', 'https://cdn.jsdelivr.net/gh/hfg-gmuend/openmoji/color/svg/' ),
 
 		/**
 		 * Filters the extension of the emoji SVG files.
@@ -6002,7 +6002,7 @@ function wp_staticize_emoji( $text ) {
 	}
 
 	/** This filter is documented in wp-includes/formatting.php */
-	$cdn_url = apply_filters( 'emoji_url', 'https://s.w.org/images/core/emoji/15.0.3/72x72/' );
+	$cdn_url = apply_filters( 'emoji_url', 'https://cdn.jsdelivr.net/gh/hfg-gmuend/openmoji/color/72x72/' );
 
 	/** This filter is documented in wp-includes/formatting.php */
 	$ext = apply_filters( 'emoji_ext', '.png' );
@@ -6039,7 +6039,7 @@ function wp_staticize_emoji( $text ) {
 				$file = str_replace( ';&#x', '-', $emojum );
 				$file = str_replace( array( '&#x', ';' ), '', $file );
 
-				$entity = sprintf( '<img src="%s" alt="%s" class="wp-smiley" style="height: 1em; max-height: 1em;" />', $cdn_url . $file . $ext, $emoji_char );
+				$entity = sprintf( '<img src="%s" alt="%s" class="wp-smiley" style="height: 1em; max-height: 1em;" />', $cdn_url . strtoupper( $file ) . $ext, $emoji_char );
 
 				$content = str_replace( $emojum, $entity, $content );
 			}

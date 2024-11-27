@@ -240,7 +240,7 @@
 						return false;
 					}
 
-					return ''.concat( options.base, icon, options.ext );
+					return ''.concat( options.base, icon.toUpperCase(), options.ext );
 				},
 				attributes: function() {
 					return {

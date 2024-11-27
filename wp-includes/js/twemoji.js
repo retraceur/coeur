@@ -277,7 +277,7 @@ var twemoji = (function (
    * @return  string    the image source to use
    */
   function defaultImageSrcGenerator(icon, options) {
-    return ''.concat(options.base, options.size, '/', icon, options.ext);
+    return ''.concat(options.base, options.size, '/', icon.toUpperCase(), options.ext);
   }
 
   /**
