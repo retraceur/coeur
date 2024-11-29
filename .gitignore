@@ -10,6 +10,9 @@
 # Uploads
 /wp-content/uploads/
 
+# My plugins
+/wp-content/plugins/reseau
+
 # My theme
 /wp-content/themes/ensemble
 

@@ -152,10 +152,13 @@ require ABSPATH . WPINC . '/default-filters.php';
 
 // Initialize multisite if enabled.
 if ( is_multisite() ) {
-	require ABSPATH . WPINC . '/class-wp-site-query.php';
-	require ABSPATH . WPINC . '/class-wp-network-query.php';
-	require ABSPATH . WPINC . '/ms-blogs.php';
-	require ABSPATH . WPINC . '/ms-settings.php';
+	/**
+	 * Load files needed to run a Multisite network.
+	 *
+	 * @since 1.0.0 Retraceur fork.
+	 */
+	do_action( 'retraceur_init_multisite' );
+
 } elseif ( ! defined( 'MULTISITE' ) ) {
 	define( 'MULTISITE', false );
 }
@@ -423,9 +426,12 @@ $GLOBALS['wp_textdomain_registry']->init();
 
 // Load multisite-specific files.
 if ( is_multisite() ) {
-	require ABSPATH . WPINC . '/ms-functions.php';
-	require ABSPATH . WPINC . '/ms-default-filters.php';
-	require ABSPATH . WPINC . '/ms-deprecated.php';
+	/**
+	 * Load files needed to set up the Multisite network.
+	 *
+	 * @since 1.0.0 Retraceur fork.
+	 */
+	do_action( 'retraceur_setup_multisite' );
 }
 
 // Define constants that rely on the API to obtain the default value.
