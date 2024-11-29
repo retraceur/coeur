@@ -94,7 +94,10 @@ require_once ABSPATH . 'wp-admin/includes/deprecated.php';
 
 /** Retraceur Multisite support API */
 if ( is_multisite() ) {
-	require_once ABSPATH . 'wp-admin/includes/ms-admin-filters.php';
-	require_once ABSPATH . 'wp-admin/includes/ms.php';
-	require_once ABSPATH . 'wp-admin/includes/ms-deprecated.php';
+	/**
+	 * Sets up Multisite administration.
+	 *
+	 * @since 1.0.0 Retraceur fork.
+	 */
+	do_action( 'retraceur_admin_setup_multisite' );
 }
