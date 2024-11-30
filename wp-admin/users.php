@@ -29,12 +29,25 @@ $parent_file = 'users.php';
 
 add_screen_option( 'per_page' );
 
+$role_names      = wp_list_pluck( get_editable_roles(), 'name' );
+$last_role_names = array_pop( $role_names );
+
+$role_list = sprintf(
+	/* Translators: 1: a comma separated list of first role names. 2: the last role names. */
+	__( '%1$s or %2$s' ), implode( ', ', $role_names ),
+	$last_role_names
+);
+
 // Contextual help - choose Help on the top right of admin panel to preview this.
 get_current_screen()->add_help_tab(
 	array(
 		'id'      => 'overview',
 		'title'   => __( 'Overview' ),
-		'content' => '<p>' . __( 'This screen lists all the existing users for your site. Each user has one of five defined roles as set by the site admin: Site Administrator, Editor, Author, Contributor, or Subscriber. Users with roles other than Administrator will see fewer options in the dashboard navigation when they are logged in, based on their role.' ) . '</p>' .
+		'content' => '<p>' . sprintf(
+			/* Translators: %s: a comma separated list of role names. */
+			__( 'This screen lists all the existing users for your site. Each user has one of five defined roles as set by the site admin: %s. Users with roles other than Administrator will see fewer options in the dashboard navigation when they are logged in, based on their role.' ),
+			$role_list
+		) . '</p>' .
 		'<p>' . __( 'To add a new user for your site, click the Add New User button at the top of the screen or Add New User in the Users menu section.' ) . '</p>',
 	)
 );
@@ -46,7 +59,11 @@ get_current_screen()->add_help_tab(
 		'content' => '<p>' . __( 'You can customize the display of this screen in a number of ways:' ) . '</p>' .
 						'<ul>' .
 						'<li>' . __( 'You can hide/display columns based on your needs and decide how many users to list per screen using the Screen Options tab.' ) . '</li>' .
-						'<li>' . __( 'You can filter the list of users by User Role using the text links above the users list to show All, Administrator, Editor, Author, Contributor, or Subscriber. The default view is to show all users. Unused User Roles are not listed.' ) . '</li>' .
+						'<li>' . sprintf(
+							/* Translators: %s: a comma separated list of role names. */
+							__( 'You can filter the list of users by User Role using the text links above the users list to show All, %s. The default view is to show all users. Unused User Roles are not listed.' ),
+							$role_list
+						) . '</li>' .
 						'<li>' . __( 'You can view all posts made by a user by clicking on the number under the Posts column.' ) . '</li>' .
 						'</ul>',
 	)

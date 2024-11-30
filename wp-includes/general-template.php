@@ -5016,6 +5016,12 @@ function get_the_generator( $type = '' ) {
 		case 'atom':
 			$gen = '<generator version="' . esc_attr( get_bloginfo_rss( 'version' ) ) . '">Retraceur</generator>';
 			break;
+		case 'rss2':
+			$gen = '<generator>' . sanitize_url( 'https://github.com/retraceur/?v=' . get_bloginfo_rss( 'version' ) ) . '</generator>';
+			break;
+		case 'rdf':
+			$gen = '<admin:generatorAgent rdf:resource="' . sanitize_url( 'https://github.com/retraceur/?v=' . get_bloginfo_rss( 'version' ) ) . '" />';
+			break;
 		case 'comment':
 			$gen = '<!-- generator="Retraceur/' . esc_attr( get_bloginfo( 'version' ) ) . '" -->';
 			break;
