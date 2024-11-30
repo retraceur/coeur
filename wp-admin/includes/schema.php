@@ -38,14 +38,14 @@ $charset_collate = $wpdb->get_charset_collate();
 function wp_get_db_schema( $scope = 'all', $blog_id = null ) {
 	global $wpdb;
 
+	// Use an array to ease db table manipulation.
+	$tables = array();
+
 	$charset_collate = $wpdb->get_charset_collate();
 
 	if ( $blog_id && (int) $blog_id !== $wpdb->blogid ) {
 		$old_blog_id = $wpdb->set_blog_id( $blog_id );
 	}
-
-	// Engage multisite if in the middle of turning it on from network.php.
-	$is_multisite = is_multisite() || ( defined( 'WP_INSTALLING_NETWORK' ) && WP_INSTALLING_NETWORK );
 
 	/*
 	 * Indexes have a maximum size of 767 bytes. Historically, we haven't need to be concerned about that.
@@ -55,7 +55,7 @@ function wp_get_db_schema( $scope = 'all', $blog_id = null ) {
 	$max_index_length = 191;
 
 	// Blog-specific tables.
-	$blog_tables = "CREATE TABLE $wpdb->termmeta (
+	$tables['blog'] = "CREATE TABLE $wpdb->termmeta (
 	meta_id bigint(20) unsigned NOT NULL auto_increment,
 	term_id bigint(20) unsigned NOT NULL default '0',
 	meta_key varchar(255) default NULL,
@@ -173,7 +173,7 @@ CREATE TABLE $wpdb->posts (
 ) $charset_collate;\n";
 
 	// Single site users table. The multisite flavor of the users table is handled below.
-	$users_single_table = "CREATE TABLE $wpdb->users (
+	$tables['users_table'] = "CREATE TABLE $wpdb->users (
 	ID bigint(20) unsigned NOT NULL auto_increment,
 	user_login varchar(60) NOT NULL default '',
 	user_pass varchar(255) NOT NULL default '',
@@ -184,26 +184,6 @@ CREATE TABLE $wpdb->posts (
 	user_activation_key varchar(255) NOT NULL default '',
 	user_status int(11) NOT NULL default '0',
 	display_name varchar(250) NOT NULL default '',
-	PRIMARY KEY  (ID),
-	KEY user_login_key (user_login),
-	KEY user_nicename (user_nicename),
-	KEY user_email (user_email)
-) $charset_collate;\n";
-
-	// Multisite users table.
-	$users_multi_table = "CREATE TABLE $wpdb->users (
-	ID bigint(20) unsigned NOT NULL auto_increment,
-	user_login varchar(60) NOT NULL default '',
-	user_pass varchar(255) NOT NULL default '',
-	user_nicename varchar(50) NOT NULL default '',
-	user_email varchar(100) NOT NULL default '',
-	user_url varchar(100) NOT NULL default '',
-	user_registered datetime NOT NULL default '0000-00-00 00:00:00',
-	user_activation_key varchar(255) NOT NULL default '',
-	user_status int(11) NOT NULL default '0',
-	display_name varchar(250) NOT NULL default '',
-	spam tinyint(2) NOT NULL default '0',
-	deleted tinyint(2) NOT NULL default '0',
 	PRIMARY KEY  (ID),
 	KEY user_login_key (user_login),
 	KEY user_nicename (user_nicename),
@@ -211,7 +191,7 @@ CREATE TABLE $wpdb->posts (
 ) $charset_collate;\n";
 
 	// Usermeta.
-	$usermeta_table = "CREATE TABLE $wpdb->usermeta (
+	$tables['usermeta_table'] = "CREATE TABLE $wpdb->usermeta (
 	umeta_id bigint(20) unsigned NOT NULL auto_increment,
 	user_id bigint(20) unsigned NOT NULL default '0',
 	meta_key varchar(255) default NULL,
@@ -219,66 +199,6 @@ CREATE TABLE $wpdb->posts (
 	PRIMARY KEY  (umeta_id),
 	KEY user_id (user_id),
 	KEY meta_key (meta_key($max_index_length))
-) $charset_collate;\n";
-
-	// Global tables.
-	if ( $is_multisite ) {
-		$global_tables = $users_multi_table . $usermeta_table;
-	} else {
-		$global_tables = $users_single_table . $usermeta_table;
-	}
-
-	// Multisite global tables.
-	$ms_global_tables = "CREATE TABLE $wpdb->blogs (
-	blog_id bigint(20) NOT NULL auto_increment,
-	site_id bigint(20) NOT NULL default '0',
-	domain varchar(200) NOT NULL default '',
-	path varchar(100) NOT NULL default '',
-	registered datetime NOT NULL default '0000-00-00 00:00:00',
-	last_updated datetime NOT NULL default '0000-00-00 00:00:00',
-	public tinyint(2) NOT NULL default '1',
-	archived tinyint(2) NOT NULL default '0',
-	mature tinyint(2) NOT NULL default '0',
-	spam tinyint(2) NOT NULL default '0',
-	deleted tinyint(2) NOT NULL default '0',
-	lang_id int(11) NOT NULL default '0',
-	PRIMARY KEY  (blog_id),
-	KEY domain (domain(50),path(5)),
-	KEY lang_id (lang_id)
-) $charset_collate;
-CREATE TABLE $wpdb->blogmeta (
-	meta_id bigint(20) unsigned NOT NULL auto_increment,
-	blog_id bigint(20) NOT NULL default '0',
-	meta_key varchar(255) default NULL,
-	meta_value longtext,
-	PRIMARY KEY  (meta_id),
-	KEY meta_key (meta_key($max_index_length)),
-	KEY blog_id (blog_id)
-) $charset_collate;
-CREATE TABLE $wpdb->registration_log (
-	ID bigint(20) NOT NULL auto_increment,
-	email varchar(255) NOT NULL default '',
-	IP varchar(30) NOT NULL default '',
-	blog_id bigint(20) NOT NULL default '0',
-	date_registered datetime NOT NULL default '0000-00-00 00:00:00',
-	PRIMARY KEY  (ID),
-	KEY IP (IP)
-) $charset_collate;
-CREATE TABLE $wpdb->site (
-	id bigint(20) NOT NULL auto_increment,
-	domain varchar(200) NOT NULL default '',
-	path varchar(100) NOT NULL default '',
-	PRIMARY KEY  (id),
-	KEY domain (domain(140),path(51))
-) $charset_collate;
-CREATE TABLE $wpdb->sitemeta (
-	meta_id bigint(20) NOT NULL auto_increment,
-	site_id bigint(20) NOT NULL default '0',
-	meta_key varchar(255) default NULL,
-	meta_value longtext,
-	PRIMARY KEY  (meta_id),
-	KEY meta_key (meta_key($max_index_length)),
-	KEY site_id (site_id)
 ) $charset_collate;
 CREATE TABLE $wpdb->signups (
 	signup_id bigint(20) NOT NULL auto_increment,
@@ -297,26 +217,39 @@ CREATE TABLE $wpdb->signups (
 	KEY user_email (user_email),
 	KEY user_login_email (user_login,user_email),
 	KEY domain_path (domain(140),path(51))
-) $charset_collate;";
+) $charset_collate;\n";
+
+	/**
+	 * Filter here to edit global tables.
+	 *
+	 * @since 1.0.0 Retraceur fork.
+	 *
+	 * @param array  $tables          The queries to run to create the db tables.
+	 * @param string $charset_collate The database character collate.
+	 */
+	$tables = apply_filters( 'retraceur_db_schema', $tables, $charset_collate );
+
+	// Global tables.
+	$global_tables = $tables['users_table'] . $tables['usermeta_table'];
 
 	switch ( $scope ) {
 		case 'blog':
-			$queries = $blog_tables;
+			$queries = $tables['blog'];
 			break;
 		case 'global':
 			$queries = $global_tables;
-			if ( $is_multisite ) {
-				$queries .= $ms_global_tables;
+			if ( isset( $tables['ms_global'] ) ) {
+				$queries .= $tables['ms_global'];
 			}
 			break;
-		case 'ms_global':
-			$queries = $ms_global_tables;
+		case 'ms_global' && isset( $tables['ms_global'] ):
+			$queries = $tables['ms_global'];
 			break;
 		case 'all':
 		default:
-			$queries = $global_tables . $blog_tables;
-			if ( $is_multisite ) {
-				$queries .= $ms_global_tables;
+			$queries = $global_tables . $tables['blog'];
+			if ( isset( $tables['ms_global'] ) ) {
+				$queries .= $tables['ms_global'];
 			}
 			break;
 	}
@@ -587,88 +520,6 @@ function populate_options( array $options = array() ) {
 		update_option( 'home', $guessurl );
 	}
 
-	// Delete unused options.
-	$unusedoptions = array(
-		'blodotgsping_url',
-		'bodyterminator',
-		'emailtestonly',
-		'phoneemail_separator',
-		'smilies_directory',
-		'subjectprefix',
-		'use_bbcode',
-		'use_blodotgsping',
-		'use_phoneemail',
-		'use_quicktags',
-		'use_weblogsping',
-		'weblogs_cache_file',
-		'use_preview',
-		'use_htmltrans',
-		'smilies_directory',
-		'fileupload_allowedusers',
-		'use_phoneemail',
-		'default_post_status',
-		'default_post_category',
-		'archive_mode',
-		'time_difference',
-		'links_minadminlevel',
-		'links_use_adminlevels',
-		'links_rating_type',
-		'links_rating_char',
-		'links_rating_ignore_zero',
-		'links_rating_single_image',
-		'links_rating_image0',
-		'links_rating_image1',
-		'links_rating_image2',
-		'links_rating_image3',
-		'links_rating_image4',
-		'links_rating_image5',
-		'links_rating_image6',
-		'links_rating_image7',
-		'links_rating_image8',
-		'links_rating_image9',
-		'links_recently_updated_time',
-		'links_recently_updated_prepend',
-		'links_recently_updated_append',
-		'weblogs_cacheminutes',
-		'comment_allowed_tags',
-		'search_engine_friendly_urls',
-		'default_geourl_lat',
-		'default_geourl_lon',
-		'use_default_geourl',
-		'weblogs_xml_url',
-		'new_users_can_blog',
-		'_wpnonce',
-		'_wp_http_referer',
-		'Update',
-		'action',
-		'rich_editing',
-		'autosave_interval',
-		'deactivated_plugins',
-		'can_compress_scripts',
-		'page_uris',
-		'update_core',
-		'update_plugins',
-		'update_themes',
-		'doing_cron',
-		'random_seed',
-		'rss_excerpt_length',
-		'secret',
-		'use_linksupdate',
-		'default_comment_status_page',
-		'wporg_popular_tags',
-		'what_to_show',
-		'rss_language',
-		'language',
-		'enable_app',
-		'embed_autourls',
-		'default_post_edit_rows',
-		'gzipcompression',
-		'advanced_edit',
-	);
-	foreach ( $unusedoptions as $option ) {
-		delete_option( $option );
-	}
-
 	// Delete obsolete magpie stuff.
 	$wpdb->query( "DELETE FROM $wpdb->options WHERE option_name REGEXP '^rss_[0-9a-f]{32}(_ts)?$'" );
 
@@ -680,645 +531,163 @@ function populate_options( array $options = array() ) {
  * Execute Retraceur role creation for the various Retraceur versions.
  *
  * @since WP 2.0.0
+ * @since 1.0.0 Retraceur fork grouped all populate functions into one.
  */
 function populate_roles() {
-	populate_roles_160();
-	populate_roles_210();
-	populate_roles_230();
-	populate_roles_250();
-	populate_roles_260();
-	populate_roles_270();
-	populate_roles_280();
-	populate_roles_300();
-}
-
-/**
- * Create the roles for WP 2.0
- *
- * @since WP 2.0.0
- */
-function populate_roles_160() {
-	// Add roles.
-	add_role( 'administrator', 'Administrator' );
-	add_role( 'editor', 'Editor' );
-	add_role( 'author', 'Author' );
-	add_role( 'contributor', 'Contributor' );
-	add_role( 'subscriber', 'Subscriber' );
-
-	// Add caps for Administrator role.
-	$role = get_role( 'administrator' );
-	$role->add_cap( 'switch_themes' );
-	$role->add_cap( 'edit_themes' );
-	$role->add_cap( 'activate_plugins' );
-	$role->add_cap( 'edit_plugins' );
-	$role->add_cap( 'edit_users' );
-	$role->add_cap( 'edit_files' );
-	$role->add_cap( 'manage_options' );
-	$role->add_cap( 'moderate_comments' );
-	$role->add_cap( 'manage_categories' );
-	$role->add_cap( 'upload_files' );
-	$role->add_cap( 'import' );
-	$role->add_cap( 'unfiltered_html' );
-	$role->add_cap( 'edit_posts' );
-	$role->add_cap( 'edit_others_posts' );
-	$role->add_cap( 'edit_published_posts' );
-	$role->add_cap( 'publish_posts' );
-	$role->add_cap( 'edit_pages' );
-	$role->add_cap( 'read' );
-	$role->add_cap( 'level_10' );
-	$role->add_cap( 'level_9' );
-	$role->add_cap( 'level_8' );
-	$role->add_cap( 'level_7' );
-	$role->add_cap( 'level_6' );
-	$role->add_cap( 'level_5' );
-	$role->add_cap( 'level_4' );
-	$role->add_cap( 'level_3' );
-	$role->add_cap( 'level_2' );
-	$role->add_cap( 'level_1' );
-	$role->add_cap( 'level_0' );
-
-	// Add caps for Editor role.
-	$role = get_role( 'editor' );
-	$role->add_cap( 'moderate_comments' );
-	$role->add_cap( 'manage_categories' );
-	$role->add_cap( 'upload_files' );
-	$role->add_cap( 'unfiltered_html' );
-	$role->add_cap( 'edit_posts' );
-	$role->add_cap( 'edit_others_posts' );
-	$role->add_cap( 'edit_published_posts' );
-	$role->add_cap( 'publish_posts' );
-	$role->add_cap( 'edit_pages' );
-	$role->add_cap( 'read' );
-	$role->add_cap( 'level_7' );
-	$role->add_cap( 'level_6' );
-	$role->add_cap( 'level_5' );
-	$role->add_cap( 'level_4' );
-	$role->add_cap( 'level_3' );
-	$role->add_cap( 'level_2' );
-	$role->add_cap( 'level_1' );
-	$role->add_cap( 'level_0' );
-
-	// Add caps for Author role.
-	$role = get_role( 'author' );
-	$role->add_cap( 'upload_files' );
-	$role->add_cap( 'edit_posts' );
-	$role->add_cap( 'edit_published_posts' );
-	$role->add_cap( 'publish_posts' );
-	$role->add_cap( 'read' );
-	$role->add_cap( 'level_2' );
-	$role->add_cap( 'level_1' );
-	$role->add_cap( 'level_0' );
-
-	// Add caps for Contributor role.
-	$role = get_role( 'contributor' );
-	$role->add_cap( 'edit_posts' );
-	$role->add_cap( 'read' );
-	$role->add_cap( 'level_1' );
-	$role->add_cap( 'level_0' );
-
-	// Add caps for Subscriber role.
-	$role = get_role( 'subscriber' );
-	$role->add_cap( 'read' );
-	$role->add_cap( 'level_0' );
-}
-
-/**
- * Create and modify WP roles for WP 2.1.
- *
- * @since WP 2.1.0
- */
-function populate_roles_210() {
-	$roles = array( 'administrator', 'editor' );
-	foreach ( $roles as $role ) {
-		$role = get_role( $role );
-		if ( empty( $role ) ) {
-			continue;
-		}
-
-		$role->add_cap( 'edit_others_pages' );
-		$role->add_cap( 'edit_published_pages' );
-		$role->add_cap( 'publish_pages' );
-		$role->add_cap( 'delete_pages' );
-		$role->add_cap( 'delete_others_pages' );
-		$role->add_cap( 'delete_published_pages' );
-		$role->add_cap( 'delete_posts' );
-		$role->add_cap( 'delete_others_posts' );
-		$role->add_cap( 'delete_published_posts' );
-		$role->add_cap( 'delete_private_posts' );
-		$role->add_cap( 'edit_private_posts' );
-		$role->add_cap( 'read_private_posts' );
-		$role->add_cap( 'delete_private_pages' );
-		$role->add_cap( 'edit_private_pages' );
-		$role->add_cap( 'read_private_pages' );
-	}
-
-	$role = get_role( 'administrator' );
-	if ( ! empty( $role ) ) {
-		$role->add_cap( 'delete_users' );
-		$role->add_cap( 'create_users' );
-	}
-
-	$role = get_role( 'author' );
-	if ( ! empty( $role ) ) {
-		$role->add_cap( 'delete_posts' );
-		$role->add_cap( 'delete_published_posts' );
-	}
-
-	$role = get_role( 'contributor' );
-	if ( ! empty( $role ) ) {
-		$role->add_cap( 'delete_posts' );
-	}
-}
-
-/**
- * Create and modify WP roles for WP 2.3.
- *
- * @since WP 2.3.0
- */
-function populate_roles_230() {
-	$role = get_role( 'administrator' );
-
-	if ( ! empty( $role ) ) {
-		$role->add_cap( 'unfiltered_upload' );
-	}
-}
-
-/**
- * Create and modify WP roles for WP 2.5.
- *
- * @since WP 2.5.0
- */
-function populate_roles_250() {
-	$role = get_role( 'administrator' );
-
-	if ( ! empty( $role ) ) {
-		$role->add_cap( 'edit_dashboard' );
-	}
-}
-
-/**
- * Create and modify WP roles for WP 2.6.
- *
- * @since WP 2.6.0
- */
-function populate_roles_260() {
-	$role = get_role( 'administrator' );
-
-	if ( ! empty( $role ) ) {
-		$role->add_cap( 'update_plugins' );
-		$role->add_cap( 'delete_plugins' );
-	}
-}
-
-/**
- * Create and modify WP roles for WP 2.7.
- *
- * @since WP 2.7.0
- */
-function populate_roles_270() {
-	$role = get_role( 'administrator' );
-
-	if ( ! empty( $role ) ) {
-		$role->add_cap( 'install_plugins' );
-		$role->add_cap( 'update_themes' );
-	}
-}
-
-/**
- * Create and modify WP roles for WP 2.8.
- *
- * @since WP 2.8.0
- */
-function populate_roles_280() {
-	$role = get_role( 'administrator' );
-
-	if ( ! empty( $role ) ) {
-		$role->add_cap( 'install_themes' );
-	}
-}
-
-/**
- * Create and modify WP roles for WP 3.0.
- *
- * @since WP 3.0.0
- */
-function populate_roles_300() {
-	$role = get_role( 'administrator' );
-
-	if ( ! empty( $role ) ) {
-		$role->add_cap( 'update_core' );
-		$role->add_cap( 'list_users' );
-		$role->add_cap( 'remove_users' );
-		$role->add_cap( 'promote_users' );
-		$role->add_cap( 'edit_theme_options' );
-		$role->add_cap( 'delete_themes' );
-		$role->add_cap( 'export' );
-	}
-}
-
-if ( ! function_exists( 'install_network' ) ) :
-	/**
-	 * Install Network.
-	 *
-	 * @since WP 3.0.0
-	 */
-	function install_network() {
-		if ( ! defined( 'WP_INSTALLING_NETWORK' ) ) {
-			define( 'WP_INSTALLING_NETWORK', true );
-		}
-
-		dbDelta( wp_get_db_schema( 'global' ) );
-	}
-endif;
-
-/**
- * Populate network settings.
- *
- * @since WP 3.0.0
- *
- * @global wpdb       $wpdb         Reacteur database abstraction object.
- * @global object     $current_site
- * @global WP_Rewrite $wp_rewrite   Reacteur rewrite component.
- *
- * @param int    $network_id        ID of network to populate.
- * @param string $domain            The domain name for the network. Example: "example.com".
- * @param string $email             Email address for the network administrator.
- * @param string $site_name         The name of the network.
- * @param string $path              Optional. The path to append to the network's domain name. Default '/'.
- * @param bool   $subdomain_install Optional. Whether the network is a subdomain installation or a subdirectory installation.
- *                                  Default false, meaning the network is a subdirectory installation.
- * @return true|WP_Error True on success, or WP_Error on warning (with the installation otherwise successful,
- *                       so the error code must be checked) or failure.
- */
-function populate_network( $network_id = 1, $domain = '', $email = '', $site_name = '', $path = '/', $subdomain_install = false ) {
-	global $wpdb, $current_site, $wp_rewrite;
-
-	$network_id = (int) $network_id;
-
-	$errors = new WP_Error();
-	if ( '' === $domain ) {
-		$errors->add( 'empty_domain', __( 'You must provide a domain name.' ) );
-	}
-	if ( '' === $site_name ) {
-		$errors->add( 'empty_sitename', __( 'You must provide a name for your network of sites.' ) );
-	}
-
-	// Check for network collision.
-	$network_exists = false;
-	if ( is_multisite() ) {
-		if ( get_network( $network_id ) ) {
-			$errors->add( 'siteid_exists', __( 'The network already exists.' ) );
-		}
-	} else {
-		if ( $network_id === (int) $wpdb->get_var(
-			$wpdb->prepare( "SELECT id FROM $wpdb->site WHERE id = %d", $network_id )
-		) ) {
-			$errors->add( 'siteid_exists', __( 'The network already exists.' ) );
-		}
-	}
-
-	if ( ! is_email( $email ) ) {
-		$errors->add( 'invalid_email', __( 'You must provide a valid email address.' ) );
-	}
-
-	if ( $errors->has_errors() ) {
-		return $errors;
-	}
-
-	if ( 1 === $network_id ) {
-		$wpdb->insert(
-			$wpdb->site,
-			array(
-				'domain' => $domain,
-				'path'   => $path,
-			)
-		);
-		$network_id = $wpdb->insert_id;
-	} else {
-		$wpdb->insert(
-			$wpdb->site,
-			array(
-				'domain' => $domain,
-				'path'   => $path,
-				'id'     => $network_id,
-			)
-		);
-	}
-
-	populate_network_meta(
-		$network_id,
-		array(
-			'admin_email'       => $email,
-			'site_name'         => $site_name,
-			'subdomain_install' => $subdomain_install,
-		)
+	// Retraceur capabilities.
+	$caps  = array(
+		'administrator' => array(
+			'update_core',
+			'export',
+			'edit_dashboard',
+			'install_themes',
+			'switch_themes',
+			'edit_themes',
+			'edit_theme_options',
+			'delete_themes',
+			'update_themes',
+			'install_plugins',
+			'activate_plugins',
+			'edit_plugins',
+			'update_plugins',
+			'delete_plugins',
+			'edit_users',
+			'delete_users',
+			'create_users',
+			'list_users',
+			'remove_users',
+			'promote_users',
+			'edit_files',
+			'manage_options',
+			'moderate_comments',
+			'manage_categories',
+			'upload_files',
+			'unfiltered_upload',
+			'import',
+			'unfiltered_html',
+			'edit_posts',
+			'edit_others_posts',
+			'edit_published_posts',
+			'publish_posts',
+			'edit_pages',
+			'edit_others_pages',
+			'edit_published_pages',
+			'publish_pages',
+			'delete_pages',
+			'delete_others_pages',
+			'delete_published_pages',
+			'delete_posts',
+			'delete_others_posts',
+			'delete_published_posts',
+			'delete_private_posts',
+			'edit_private_posts',
+			'read_private_posts',
+			'delete_private_pages',
+			'edit_private_pages',
+			'read_private_pages',
+			'read',
+			'level_10',
+			'level_9',
+			'level_8',
+			'level_7',
+			'level_6',
+			'level_5',
+			'level_4',
+			'level_3',
+			'level_2',
+			'level_1',
+			'level_0',
+		),
+		'subscriber'    => array(
+			'read',
+			'level_0',
+		),
 	);
 
-	/*
-	 * When upgrading from single to multisite, assume the current site will
-	 * become the main site of the network. When using populate_network()
-	 * to create another network in an existing multisite environment, skip
-	 * these steps since the main site of the new network has not yet been
-	 * created.
-	 */
-	if ( ! is_multisite() ) {
-		$current_site            = new stdClass();
-		$current_site->domain    = $domain;
-		$current_site->path      = $path;
-		$current_site->site_name = ucfirst( $domain );
-		$wpdb->insert(
-			$wpdb->blogs,
-			array(
-				'site_id'    => $network_id,
-				'blog_id'    => 1,
-				'domain'     => $domain,
-				'path'       => $path,
-				'registered' => current_time( 'mysql' ),
-			)
-		);
-		$current_site->blog_id = $wpdb->insert_id;
-
-		$site_user_id = (int) $wpdb->get_var(
-			$wpdb->prepare(
-				"SELECT meta_value
-				FROM $wpdb->sitemeta
-				WHERE meta_key = %s AND site_id = %d",
-				'admin_user_id',
-				$network_id
-			)
-		);
-
-		update_user_meta( $site_user_id, 'source_domain', $domain );
-		update_user_meta( $site_user_id, 'primary_blog', $current_site->blog_id );
-
-		// Unable to use update_network_option() while populating the network.
-		$wpdb->insert(
-			$wpdb->sitemeta,
-			array(
-				'site_id'    => $network_id,
-				'meta_key'   => 'main_site',
-				'meta_value' => $current_site->blog_id,
-			)
-		);
-
-		if ( $subdomain_install ) {
-			$wp_rewrite->set_permalink_structure( '/%year%/%monthnum%/%day%/%postname%/' );
-		} else {
-			$wp_rewrite->set_permalink_structure( '/blog/%year%/%monthnum%/%day%/%postname%/' );
-		}
-
-		flush_rewrite_rules();
-
-		if ( ! $subdomain_install ) {
-			return true;
-		}
-
-		$vhost_ok = false;
-		$errstr   = '';
-		$hostname = substr( md5( time() ), 0, 6 ) . '.' . $domain; // Very random hostname!
-		$page     = wp_remote_get(
-			'http://' . $hostname,
-			array(
-				'timeout'     => 5,
-				'httpversion' => '1.1',
-			)
-		);
-		if ( is_wp_error( $page ) ) {
-			$errstr = $page->get_error_message();
-		} elseif ( 200 === wp_remote_retrieve_response_code( $page ) ) {
-				$vhost_ok = true;
-		}
-
-		if ( ! $vhost_ok ) {
-			$msg = '<p><strong>' . __( 'Warning! Wildcard DNS may not be configured correctly!' ) . '</strong></p>';
-
-			$msg .= '<p>' . sprintf(
-				/* translators: %s: Host name. */
-				__( 'The installer attempted to contact a random hostname (%s) on your domain.' ),
-				'<code>' . $hostname . '</code>'
-			);
-			if ( ! empty( $errstr ) ) {
-				/* translators: %s: Error message. */
-				$msg .= ' ' . sprintf( __( 'This resulted in an error message: %s' ), '<code>' . $errstr . '</code>' );
-			}
-			$msg .= '</p>';
-
-			$msg .= '<p>' . sprintf(
-				/* translators: %s: Asterisk symbol (*). */
-				__( 'To use a subdomain configuration, you must have a wildcard entry in your DNS. This usually means adding a %s hostname record pointing at your web server in your DNS configuration tool.' ),
-				'<code>*</code>'
-			) . '</p>';
-
-			$msg .= '<p>' . __( 'You can still use your site but any subdomain you create may not be accessible. If you know your DNS is correct, ignore this message.' ) . '</p>';
-
-			return new WP_Error( 'no_wildcard_dns', $msg );
-		}
-	}
-
-	return true;
-}
-
-/**
- * Creates Reacteur network meta and sets the default values.
- *
- * @since WP 5.1.0
- *
- * @global wpdb $wpdb          Reacteur database abstraction object.
- * @global int  $wp_db_version Reacteur database version.
- *
- * @param int   $network_id Network ID to populate meta for.
- * @param array $meta       Optional. Custom meta $key => $value pairs to use. Default empty array.
- */
-function populate_network_meta( $network_id, array $meta = array() ) {
-	global $wpdb, $wp_db_version;
-
-	$network_id = (int) $network_id;
-
-	$email             = ! empty( $meta['admin_email'] ) ? $meta['admin_email'] : '';
-	$subdomain_install = isset( $meta['subdomain_install'] ) ? (int) $meta['subdomain_install'] : 0;
-
-	// If a user with the provided email does not exist, default to the current user as the new network admin.
-	$site_user = ! empty( $email ) ? get_user_by( 'email', $email ) : false;
-	if ( false === $site_user ) {
-		$site_user = wp_get_current_user();
-	}
-
-	if ( empty( $email ) ) {
-		$email = $site_user->user_email;
-	}
-
-	$template       = get_option( 'template' );
-	$stylesheet     = get_option( 'stylesheet' );
-	$allowed_themes = array( $stylesheet => true );
-
-	if ( $template !== $stylesheet ) {
-		$allowed_themes[ $template ] = true;
-	}
-
-	if ( WP_DEFAULT_THEME !== $stylesheet && WP_DEFAULT_THEME !== $template ) {
-		$allowed_themes[ WP_DEFAULT_THEME ] = true;
-	}
-
-	// If WP_DEFAULT_THEME doesn't exist, also include the latest core default theme.
-	if ( ! wp_get_theme( WP_DEFAULT_THEME )->exists() ) {
-		$core_default = WP_Theme::get_core_default_theme();
-		if ( $core_default ) {
-			$allowed_themes[ $core_default->get_stylesheet() ] = true;
-		}
-	}
-
-	if ( function_exists( 'clean_network_cache' ) ) {
-		clean_network_cache( $network_id );
-	} else {
-		wp_cache_delete( $network_id, 'networks' );
-	}
-
-	if ( ! is_multisite() ) {
-		$site_admins = array( $site_user->user_login );
-		$users       = get_users(
-			array(
-				'fields' => array( 'user_login' ),
-				'role'   => 'administrator',
-			)
-		);
-		if ( $users ) {
-			foreach ( $users as $user ) {
-				$site_admins[] = $user->user_login;
-			}
-
-			$site_admins = array_unique( $site_admins );
-		}
-	} else {
-		$site_admins = get_site_option( 'site_admins' );
-	}
-
-	/* translators: Do not translate USERNAME, SITE_NAME, BLOG_URL, PASSWORD: those are placeholders. */
-	$welcome_email = __(
-		'Howdy USERNAME,
-
-Your new SITE_NAME site has been successfully set up at:
-BLOG_URL
-
-You can log in to the administrator account with the following information:
-
-Username: USERNAME
-Password: PASSWORD
-Log in here: BLOG_URLwp-login.php
-
-We hope you enjoy your new site. Thanks!
-
---The Team @ SITE_NAME'
+	// Retraceur roles.
+	$roles = array(
+		'administrator' => 'Administrator',
+		'subscriber'    => 'Subscriber',
 	);
 
-	$allowed_file_types = array();
-	$all_mime_types     = get_allowed_mime_types();
+	// Default WP Roles.
+	if ( defined( 'USE_DEFAULT_WP_ROLES' ) && USE_DEFAULT_WP_ROLES ) {
+		// Other WP capabilities.
+		$caps  = array(
+			'editor'      => array(
+				'moderate_comments',
+				'manage_categories',
+				'upload_files',
+				'unfiltered_html',
+				'edit_posts',
+				'edit_others_posts',
+				'edit_published_posts',
+				'publish_posts',
+				'edit_pages',
+				'edit_others_pages',
+				'edit_published_pages',
+				'publish_pages',
+				'delete_pages',
+				'delete_others_pages',
+				'delete_published_pages',
+				'delete_posts',
+				'delete_others_posts',
+				'delete_published_posts',
+				'delete_private_posts',
+				'edit_private_posts',
+				'read_private_posts',
+				'delete_private_pages',
+				'edit_private_pages',
+				'read_private_pages',
+				'read',
+				'level_7',
+				'level_6',
+				'level_5',
+				'level_4',
+				'level_3',
+				'level_2',
+				'level_1',
+				'level_0',
+			),
+			'author'      => array(
+				'upload_files',
+				'edit_posts',
+				'edit_published_posts',
+				'publish_posts',
+				'delete_posts',
+				'delete_published_posts',
+				'read',
+				'level_2',
+				'level_1',
+				'level_0',
+			),
+			'contributor' => array(
+				'edit_posts',
+				'delete_posts',
+				'read',
+				'level_1',
+				'level_0',
+			),
+		);
 
-	foreach ( $all_mime_types as $ext => $mime ) {
-		array_push( $allowed_file_types, ...explode( '|', $ext ) );
+		$roles = array(
+			'administrator' => 'Administrator',
+			'editor'        => 'Editor',
+			'author'        => 'Author',
+			'contributor'   => 'Contributor',
+			'subscriber'    => 'Subscriber',
+		);
 	}
-	$upload_filetypes = array_unique( $allowed_file_types );
 
-	$sitemeta = array(
-		'site_name'                   => __( 'My Network' ),
-		'admin_email'                 => $email,
-		'admin_user_id'               => $site_user->ID,
-		'registration'                => 'none',
-		'upload_filetypes'            => implode( ' ', $upload_filetypes ),
-		'blog_upload_space'           => 100,
-		'fileupload_maxk'             => 1500,
-		'site_admins'                 => $site_admins,
-		'allowedthemes'               => $allowed_themes,
-		'illegal_names'               => array( 'www', 'web', 'root', 'admin', 'main', 'invite', 'administrator', 'files' ),
-		'wpmu_upgrade_site'           => $wp_db_version,
-		'welcome_email'               => $welcome_email,
-		/* translators: %s: Site link. */
-		'first_post'                  => __( 'Welcome to %s. This is your first post. Edit or delete it, then start writing!' ),
-		// @todo - Network admins should have a method of editing the network siteurl (used for cookie hash).
-		'siteurl'                     => get_option( 'siteurl' ) . '/',
-		'add_new_users'               => '0',
-		'upload_space_check_disabled' => is_multisite() ? get_site_option( 'upload_space_check_disabled' ) : '1',
-		'subdomain_install'           => $subdomain_install,
-		'ms_files_rewriting'          => is_multisite() ? get_site_option( 'ms_files_rewriting' ) : '0',
-		'user_count'                  => get_site_option( 'user_count' ),
-		'initial_db_version'          => get_option( 'initial_db_version' ),
-		'active_sitewide_plugins'     => array(),
-		'WPLANG'                      => get_locale(),
-	);
-	if ( ! $subdomain_install ) {
-		$sitemeta['illegal_names'][] = 'blog';
-	}
+	foreach ( $roles as $role_id => $role_name ) {
+		// Add roles.
+		add_role( $role_id, $role_name );
 
-	$sitemeta = wp_parse_args( $meta, $sitemeta );
+		// Add caps for role.
+		$role = get_role( $role_id );
 
-	/**
-	 * Filters meta for a network on creation.
-	 *
-	 * @since WP 3.7.0
-	 *
-	 * @param array $sitemeta   Associative array of network meta keys and values to be inserted.
-	 * @param int   $network_id ID of network to populate.
-	 */
-	$sitemeta = apply_filters( 'populate_network_meta', $sitemeta, $network_id );
-
-	$insert = '';
-	foreach ( $sitemeta as $meta_key => $meta_value ) {
-		if ( is_array( $meta_value ) ) {
-			$meta_value = serialize( $meta_value );
+		foreach ( $caps[ $role_id ] as $cap ) {
+			$role->add_cap( $cap );
 		}
-		if ( ! empty( $insert ) ) {
-			$insert .= ', ';
-		}
-		$insert .= $wpdb->prepare( '( %d, %s, %s)', $network_id, $meta_key, $meta_value );
 	}
-	$wpdb->query( "INSERT INTO $wpdb->sitemeta ( site_id, meta_key, meta_value ) VALUES " . $insert ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
-}
-
-/**
- * Creates Reacteur site meta and sets the default values.
- *
- * @since WP 5.1.0
- *
- * @global wpdb $wpdb Reacteur database abstraction object.
- *
- * @param int   $site_id Site ID to populate meta for.
- * @param array $meta    Optional. Custom meta $key => $value pairs to use. Default empty array.
- */
-function populate_site_meta( $site_id, array $meta = array() ) {
-	global $wpdb;
-
-	$site_id = (int) $site_id;
-
-	if ( ! is_site_meta_supported() ) {
-		return;
-	}
-
-	if ( empty( $meta ) ) {
-		return;
-	}
-
-	/**
-	 * Filters meta for a site on creation.
-	 *
-	 * @since WP 5.2.0
-	 *
-	 * @param array $meta    Associative array of site meta keys and values to be inserted.
-	 * @param int   $site_id ID of site to populate.
-	 */
-	$site_meta = apply_filters( 'populate_site_meta', $meta, $site_id );
-
-	$insert = '';
-	foreach ( $site_meta as $meta_key => $meta_value ) {
-		if ( is_array( $meta_value ) ) {
-			$meta_value = serialize( $meta_value );
-		}
-		if ( ! empty( $insert ) ) {
-			$insert .= ', ';
-		}
-		$insert .= $wpdb->prepare( '( %d, %s, %s)', $site_id, $meta_key, $meta_value );
-	}
-
-	$wpdb->query( "INSERT INTO $wpdb->blogmeta ( blog_id, meta_key, meta_value ) VALUES " . $insert ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
-
-	wp_cache_delete( $site_id, 'blog_meta' );
-	wp_cache_set_sites_last_changed();
 }

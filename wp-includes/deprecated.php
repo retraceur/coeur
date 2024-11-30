@@ -8460,3 +8460,25 @@ function xmlrpc_removepostdata( $content ) {
 function rsd_link() {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 }
+
+/**
+ * Updates the comment type for a batch of comments.
+ *
+ * @since WP 5.5.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function _wp_batch_update_comment_type() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * In order to avoid the _wp_batch_update_comment_type() job being accidentally removed,
+ * check that it's still scheduled while we haven't finished updating comment types.
+ *
+ * @ignore
+ * @since WP 5.5.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function _wp_check_for_scheduled_update_comment_type() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
