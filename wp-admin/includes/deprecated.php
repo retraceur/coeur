@@ -2163,3 +2163,546 @@ function _wp_credits_add_profile_link( &$display_name, $username, $profiles ) {
 function _wp_credits_build_object_link( &$data ) {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 }
+
+/**
+ * Create the roles for WP 2.0
+ *
+ * @since WP 2.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function populate_roles_160() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Create and modify WP roles for WP 2.1.
+ *
+ * @since WP 2.1.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function populate_roles_210() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Create and modify WP roles for WP 2.3.
+ *
+ * @since WP 2.3.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function populate_roles_230() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Create and modify WP roles for WP 2.5.
+ *
+ * @since WP 2.5.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function populate_roles_250() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Create and modify WP roles for WP 2.6.
+ *
+ * @since WP 2.6.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function populate_roles_260() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Create and modify WP roles for WP 2.7.
+ *
+ * @since WP 2.7.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function populate_roles_270() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Create and modify WP roles for WP 2.8.
+ *
+ * @since WP 2.8.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function populate_roles_280() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Create and modify WP roles for WP 3.0.
+ *
+ * @since WP 3.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function populate_roles_300() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Execute changes made in WordPress 1.0.
+ *
+ * @ignore
+ * @since WP 1.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function upgrade_100() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Execute changes made in WordPress 1.0.1.
+ *
+ * @ignore
+ * @since WP 1.0.1
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function upgrade_101() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+
+/**
+ * Execute changes made in WordPress 1.2.
+ *
+ * @ignore
+ * @since WP 1.2.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function upgrade_110() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Execute changes made in WordPress 1.5.
+ *
+ * @ignore
+ * @since WP 1.5.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function upgrade_130() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Execute changes made in WordPress 2.0.
+ *
+ * @ignore
+ * @since WP 2.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function upgrade_160() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Execute changes made in WordPress 2.1.
+ *
+ * @ignore
+ * @since WP 2.1.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function upgrade_210() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Execute changes made in WordPress 2.3.
+ *
+ * @ignore
+ * @since WP 2.3.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function upgrade_230() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Remove old options from the database.
+ *
+ * @ignore
+ * @since WP 2.3.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function upgrade_230_options_table() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Remove old categories, link2cat, and post2cat database tables.
+ *
+ * @ignore
+ * @since WP 2.3.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function upgrade_230_old_tables() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Upgrade old slugs made in version 2.2.
+ *
+ * @ignore
+ * @since WP 2.2.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function upgrade_old_slugs() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Execute changes made in WordPress 2.5.0.
+ *
+ * @ignore
+ * @since WP 2.5.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function upgrade_250() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Execute changes made in WordPress 2.5.2.
+ *
+ * @ignore
+ * @since WP 2.5.2
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function upgrade_252() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Execute changes made in WordPress 2.6.
+ *
+ * @ignore
+ * @since WP 2.6.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function upgrade_260() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Execute changes made in WordPress 2.7.
+ *
+ * @ignore
+ * @since WP 2.7.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function upgrade_270() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Execute changes made in WordPress 2.8.
+ *
+ * @ignore
+ * @since WP 2.8.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function upgrade_280() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Execute changes made in WordPress 2.9.
+ *
+ * @ignore
+ * @since WP 2.9.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function upgrade_290() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Execute changes made in WordPress 3.0.
+ *
+ * @ignore
+ * @since WP 3.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function upgrade_300() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Execute changes made in WordPress 3.3.
+ *
+ * @ignore
+ * @since WP 3.3.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function upgrade_330() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Execute changes made in WordPress 3.4.
+ *
+ * @ignore
+ * @since WP 3.4.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function upgrade_340() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Execute changes made in WordPress 3.5.
+ *
+ * @ignore
+ * @since WP 3.5.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function upgrade_350() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Execute changes made in WordPress 3.7.
+ *
+ * @ignore
+ * @since WP 3.7.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function upgrade_370() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Execute changes made in WordPress 3.7.2.
+ *
+ * @ignore
+ * @since WP 3.7.2
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function upgrade_372() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Execute changes made in WordPress 3.8.0.
+ *
+ * @ignore
+ * @since WP 3.8.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function upgrade_380() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Execute changes made in WordPress 4.0.0.
+ *
+ * @ignore
+ * @since WP 4.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function upgrade_400() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Execute changes made in WordPress 4.2.0.
+ *
+ * @ignore
+ * @since WP 4.2.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function upgrade_420() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Executes changes made in WordPress 4.3.0.
+ *
+ * @ignore
+ * @since WP 4.3.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function upgrade_430() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Executes comments changes made in WordPress 4.3.0.
+ *
+ * @ignore
+ * @since WP 4.3.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function upgrade_430_fix_comments() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Executes changes made in WordPress 4.3.1.
+ *
+ * @ignore
+ * @since WP 4.3.1
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function upgrade_431() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Executes changes made in WordPress 4.4.0.
+ *
+ * @ignore
+ * @since WP 4.4.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function upgrade_440() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Executes changes made in WordPress 4.5.0.
+ *
+ * @ignore
+ * @since WP 4.5.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function upgrade_450() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Executes changes made in WordPress 4.6.0.
+ *
+ * @ignore
+ * @since WP 4.6.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function upgrade_460() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Executes changes made in WordPress 5.0.0.
+ *
+ * @ignore
+ * @since WP 5.0.0
+ * @deprecated WP 5.1.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function upgrade_500() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Executes changes made in WordPress 5.1.0.
+ *
+ * @ignore
+ * @since WP 5.1.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function upgrade_510() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Executes changes made in WordPress 5.3.0.
+ *
+ * @ignore
+ * @since WP 5.3.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function upgrade_530() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Executes changes made in WordPress 5.5.0.
+ *
+ * @ignore
+ * @since WP 5.5.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function upgrade_550() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Executes changes made in WordPress 5.6.0.
+ *
+ * @ignore
+ * @since WP 5.6.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function upgrade_560() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Executes changes made in WordPress 5.9.0.
+ *
+ * @ignore
+ * @since WP 5.9.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function upgrade_590() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Executes changes made in WordPress 6.0.0.
+ *
+ * @ignore
+ * @since WP 6.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function upgrade_600() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Executes changes made in WordPress 6.3.0.
+ *
+ * @ignore
+ * @since WP 6.3.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function upgrade_630() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Executes changes made in WordPress 6.4.0.
+ *
+ * @ignore
+ * @since WP 6.4.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function upgrade_640() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Executes changes made in WordPress 6.5.0.
+ *
+ * @ignore
+ * @since WP 6.5.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function upgrade_650() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Retrieve all options as it was for 1.2.
+ *
+ * @since WP 1.2.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function get_alloptions_110() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}

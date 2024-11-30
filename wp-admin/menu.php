@@ -27,10 +27,6 @@ $menu[2] = array( __( 'Dashboard' ), 'read', 'index.php', '', 'menu-top menu-top
 
 $submenu['index.php'][0] = array( __( 'Home' ), 'read', 'index.php' );
 
-if ( is_multisite() ) {
-	$submenu['index.php'][5] = array( __( 'My Sites' ), 'read', 'my-sites.php' );
-}
-
 if ( ! is_multisite() || current_user_can( 'update_core' ) ) {
 	$update_data = wp_get_update_data();
 }
@@ -292,8 +288,6 @@ if ( current_user_can( 'list_users' ) ) {
 	$submenu['users.php'][5]             = array( __( 'All Users' ), 'list_users', 'users.php' );
 	if ( current_user_can( 'create_users' ) ) {
 		$submenu['users.php'][10] = array( __( 'Add New User' ), 'create_users', 'user-new.php' );
-	} elseif ( is_multisite() ) {
-		$submenu['users.php'][10] = array( __( 'Add New User' ), 'promote_users', 'user-new.php' );
 	}
 
 	$submenu['users.php'][15] = array( __( 'Profile' ), 'read', 'profile.php' );
@@ -302,8 +296,6 @@ if ( current_user_can( 'list_users' ) ) {
 	$submenu['profile.php'][5]         = array( __( 'Profile' ), 'read', 'profile.php' );
 	if ( current_user_can( 'create_users' ) ) {
 		$submenu['profile.php'][10] = array( __( 'Add New User' ), 'create_users', 'user-new.php' );
-	} elseif ( is_multisite() ) {
-		$submenu['profile.php'][10] = array( __( 'Add New User' ), 'promote_users', 'user-new.php' );
 	}
 }
 
@@ -340,12 +332,6 @@ $menu[75]                     = array( __( 'Tools' ), 'edit_posts', 'tools.php',
 	$submenu['tools.php'][20] = array( sprintf( __( 'Site Health %s' ), $site_health_count ), 'view_site_health_checks', 'site-health.php' );
 	$submenu['tools.php'][25] = array( __( 'Export Personal Data' ), 'export_others_personal_data', 'export-personal-data.php' );
 	$submenu['tools.php'][30] = array( __( 'Erase Personal Data' ), 'erase_others_personal_data', 'erase-personal-data.php' );
-if ( is_multisite() && ! is_main_site() ) {
-	$submenu['tools.php'][35] = array( __( 'Delete Site' ), 'delete_site', 'ms-delete-site.php' );
-}
-if ( ! is_multisite() && defined( 'WP_ALLOW_MULTISITE' ) && WP_ALLOW_MULTISITE ) {
-	$submenu['tools.php'][50] = array( __( 'Network Setup' ), 'setup_network', 'network.php' );
-}
 
 $menu[80]                               = array( __( 'Settings' ), 'manage_options', 'options-general.php', '', 'menu-top menu-icon-settings', 'menu-settings', 'dashicons-admin-settings' );
 	$submenu['options-general.php'][10] = array( _x( 'General', 'settings screen' ), 'manage_options', 'options-general.php' );

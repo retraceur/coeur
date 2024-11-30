@@ -317,11 +317,12 @@ class wpdb {
 	 * List of WordPress global tables.
 	 *
 	 * @since WP 3.0.0
+	 * @since 1.0.0 Retraceur fork is using the signups table for non-ms sites.
 	 *
 	 * @see wpdb::tables()
 	 * @var string[]
 	 */
-	public $global_tables = array( 'users', 'usermeta' );
+	public $global_tables = array( 'users', 'usermeta', 'signups' );
 
 	/**
 	 * List of Multisite global tables.
@@ -334,7 +335,6 @@ class wpdb {
 	public $ms_global_tables = array(
 		'blogs',
 		'blogmeta',
-		'signups',
 		'site',
 		'sitemeta',
 		'registration_log',
