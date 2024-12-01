@@ -13,7 +13,7 @@ if ( isset( $_GET['action'] ) && in_array( $_GET['action'], array( 'update-selec
 	define( 'IFRAME_REQUEST', true );
 }
 
-/** Load WordPress Administration Bootstrap */
+/** Load Retraceur Administration Bootstrap */
 require_once __DIR__ . '/admin.php';
 
 if ( ! has_filter( 'retraceur_network_admin_update', 'retraceur_reseau_network_admin_update' ) ) {

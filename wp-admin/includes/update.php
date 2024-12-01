@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Administration Update API.
+ * Retraceur Administration Update API.
  *
  * @since 1.0.0 Retraceur fork.
  *
@@ -84,7 +84,7 @@ function get_core_updates( $options = array() ) {
 }
 
 /**
- * Gets the best available (and enabled) Auto-Update for WordPress core.
+ * Gets the best available (and enabled) Auto-Update for Retraceur core.
  *
  * If there's 1.2.3 and 1.3 on offer, it'll choose 1.3 if the installation allows it, else, 1.2.3.
  *
@@ -122,7 +122,7 @@ function find_core_auto_update() {
 }
 
 /**
- * Gets and caches the checksums for the given version of WordPress.
+ * Gets and caches the checksums for the given version of Retraceur.
  *
  * @since WP 3.7.0
  * @since 1.0.0 Disable Core auto update for now.
@@ -212,7 +212,7 @@ function undismiss_core_update( $version, $locale ) {
 }
 
 /**
- * Finds the available update for WordPress core.
+ * Finds the available update for Retraceur core.
  *
  * @since WP 2.7.0
  *
@@ -248,7 +248,7 @@ function find_core_update( $version, $locale ) {
  */
 function core_update_footer( $msg = '' ) {
 	if ( ! current_user_can( 'update_core' ) ) {
-		/* translators: %s: WordPress version. */
+		/* translators: %s: Retraceur version. */
 		return sprintf( __( 'Version %s' ), get_bloginfo( 'version', 'display' ) );
 	}
 
@@ -270,7 +270,7 @@ function core_update_footer( $msg = '' ) {
 
 	if ( $is_development_version ) {
 		return sprintf(
-			/* translators: 1: WordPress version number, 2: URL to WordPress Updates screen. */
+			/* translators: 1: Retraceur version number, 2: URL to Retraceur Updates screen. */
 			__( 'You are using a development version (%1$s). Cool! Please <a href="%2$s">stay updated</a>.' ),
 			get_bloginfo( 'version', 'display' ),
 			network_admin_url( 'update-core.php' )
@@ -282,13 +282,13 @@ function core_update_footer( $msg = '' ) {
 			return sprintf(
 				'<strong><a href="%s">%s</a></strong>',
 				network_admin_url( 'update-core.php' ),
-				/* translators: %s: WordPress version. */
+				/* translators: %s: Retraceur version. */
 				sprintf( __( 'Get Version %s' ), $cur->current )
 			);
 
 		case 'latest':
 		default:
-			/* translators: %s: WordPress version. */
+			/* translators: %s: Retraceur version. */
 			return sprintf( __( 'Version %s' ), get_bloginfo( 'version', 'display' ) );
 	}
 }
@@ -328,7 +328,7 @@ function update_nag() {
 			__( 'Retraceur %1$s is available! <a href="%2$s" aria-label="%3$s">Please update now</a>.' ),
 			$cur->current,
 			network_admin_url( 'update-core.php' ),
-			esc_attr__( 'Please update WordPress now' )
+			esc_attr__( 'Please update Retraceur now' )
 		);
 	} else {
 		$msg = sprintf(
@@ -349,7 +349,7 @@ function update_nag() {
 }
 
 /**
- * Displays WordPress version and active theme in the 'At a Glance' dashboard widget.
+ * Displays Retraceur version and active theme in the 'At a Glance' dashboard widget.
  *
  * @since WP 2.5.0
  */
@@ -369,14 +369,14 @@ function update_right_now_message() {
 			$msg .= sprintf(
 				'<a href="%s" class="button" aria-describedby="wp-version">%s</a> ',
 				network_admin_url( 'update-core.php' ),
-				/* translators: %s: WordPress version number, or 'Latest' string. */
+				/* translators: %s: Retraceur version number, or 'Latest' string. */
 				sprintf( __( 'Update to %s' ), $cur->current ? $cur->current : __( 'Latest' ) )
 			);
 		}
 	}
 
 	/* translators: 1: Version number, 2: Theme name. */
-	$content = __( 'WordPress %1$s running %2$s theme.' );
+	$content = __( 'Retraceur %1$s running %2$s theme.' );
 
 	/**
 	 * Filters the text displayed in the 'At a Glance' dashboard widget.
@@ -604,8 +604,8 @@ function wp_plugin_update_row( $file, $plugin_data ) {
 		 *     @type string[] $icons        An array of plugin icon URLs.
 		 *     @type string[] $banners      An array of plugin banner URLs.
 		 *     @type string[] $banners_rtl  An array of plugin RTL banner URLs.
-		 *     @type string   $requires     The version of WordPress which the plugin requires.
-		 *     @type string   $tested       The version of WordPress the plugin is tested against.
+		 *     @type string   $requires     The version of Retraceur which the plugin requires.
+		 *     @type string   $tested       The version of Retraceur the plugin is tested against.
 		 *     @type string   $requires_php The version of PHP which the plugin requires.
 		 * }
 		 */
@@ -759,32 +759,32 @@ function wp_theme_update_row( $theme_key, $theme ) {
 		if ( ! $compatible_wp && ! $compatible_php ) {
 			printf(
 				/* translators: %s: Theme name. */
-				__( 'There is a new version of %s available, but it does not work with your versions of WordPress and PHP.' ),
+				__( 'There is a new version of %s available, but it does not work with your versions of Retraceur and PHP.' ),
 				$theme['Name']
 			);
 			if ( current_user_can( 'update_core' ) && current_user_can( 'update_php' ) ) {
 				printf(
-					/* translators: %s: URL to WordPress Updates screen,. */
-					' ' . __( '<a href="%s">Please update WordPress</a>.' ),
+					/* translators: %s: URL to Retraceur Updates screen,. */
+					' ' . __( '<a href="%s">Please update Retraceur</a>.' ),
 					self_admin_url( 'update-core.php' )
 				);
 			} elseif ( current_user_can( 'update_core' ) ) {
 				printf(
-					/* translators: %s: URL to WordPress Updates screen. */
-					' ' . __( '<a href="%s">Please update WordPress</a>.' ),
+					/* translators: %s: URL to Retraceur Updates screen. */
+					' ' . __( '<a href="%s">Please update Retraceur</a>.' ),
 					self_admin_url( 'update-core.php' )
 				);
 			}
 		} elseif ( ! $compatible_wp ) {
 			printf(
 				/* translators: %s: Theme name. */
-				__( 'There is a new version of %s available, but it does not work with your version of WordPress.' ),
+				__( 'There is a new version of %s available, but it does not work with your version of Retraceur.' ),
 				$theme['Name']
 			);
 			if ( current_user_can( 'update_core' ) ) {
 				printf(
-					/* translators: %s: URL to WordPress Updates screen. */
-					' ' . __( '<a href="%s">Please update WordPress</a>.' ),
+					/* translators: %s: URL to Retraceur Updates screen. */
+					' ' . __( '<a href="%s">Please update Retraceur</a>.' ),
 					self_admin_url( 'update-core.php' )
 				);
 			}
@@ -855,12 +855,12 @@ function maintenance_nag() {
 
 	if ( current_user_can( 'update_core' ) ) {
 		$msg = sprintf(
-			/* translators: %s: URL to WordPress Updates screen. */
-			__( 'An automated WordPress update has failed to complete - <a href="%s">please attempt the update again now</a>.' ),
+			/* translators: %s: URL to Retraceur Updates screen. */
+			__( 'An automated Retraceur update has failed to complete - <a href="%s">please attempt the update again now</a>.' ),
 			'update-core.php'
 		);
 	} else {
-		$msg = __( 'An automated WordPress update has failed to complete! Please notify the site administrator.' );
+		$msg = __( 'An automated Retraceur update has failed to complete! Please notify the site administrator.' );
 	}
 
 	wp_admin_notice(

@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Upgrade API.
+ * RetraceurUpgrade API.
  *
  * Most of the functions are pluggable and can be overwritten.
  *
@@ -15,10 +15,10 @@ if ( file_exists( WP_CONTENT_DIR . '/install.php' ) ) {
 	require WP_CONTENT_DIR . '/install.php';
 }
 
-/** WordPress Administration API */
+/** Retraceur Administration API */
 require_once ABSPATH . 'wp-admin/includes/admin.php';
 
-/** WordPress Schema API */
+/** Retraceur Schema API */
 require_once ABSPATH . 'wp-admin/includes/schema.php';
 
 if ( ! function_exists( 'wp_install' ) ) :
@@ -162,8 +162,8 @@ if ( ! function_exists( 'wp_install_defaults' ) ) :
 	 *
 	 * @since WP 2.1.0
 	 *
-	 * @global wpdb       $wpdb         WordPress database abstraction object.
-	 * @global WP_Rewrite $wp_rewrite   WordPress rewrite component.
+	 * @global wpdb       $wpdb         Retraceur database abstraction object.
+	 * @global WP_Rewrite $wp_rewrite   Retraceur rewrite component.
 	 * @global string     $table_prefix The database table prefix.
 	 *
 	 * @param int $user_id User ID.
@@ -447,7 +447,7 @@ endif;
  *
  * @since WP 4.2.0
  *
- * @global WP_Rewrite $wp_rewrite WordPress rewrite component.
+ * @global WP_Rewrite $wp_rewrite Retraceur rewrite component.
  *
  * @return bool Whether pretty permalinks are enabled. False otherwise.
  */
@@ -483,7 +483,7 @@ function wp_install_maybe_enable_pretty_permalinks() {
 
 		$test_url = '';
 
-		// Test against a real WordPress post.
+		// Test against a real Retraceur post.
 		$first_post = get_page_by_path( sanitize_title( _x( 'hello-world', 'Default post slug' ) ), OBJECT, 'post' );
 		if ( $first_post ) {
 			$test_url = get_permalink( $first_post->ID );
@@ -517,7 +517,7 @@ function wp_install_maybe_enable_pretty_permalinks() {
 
 if ( ! function_exists( 'wp_new_blog_notification' ) ) :
 	/**
-	 * Notifies the site admin that the installation of WordPress is complete.
+	 * Notifies the site admin that the installation of Retraceur is complete.
 	 *
 	 * Sends an email to the new administrator that the installation is complete
 	 * and provides them with a record of their login credentials.
@@ -539,7 +539,7 @@ if ( ! function_exists( 'wp_new_blog_notification' ) ) :
 		$message = sprintf(
 			/* translators: New site notification email. 1: New site URL, 2: User login, 3: User password or password reset link, 4: Login URL. */
 			__(
-				'Your new WordPress site has been successfully set up at:
+				'Your new Retraceur site has been successfully set up at:
 
 %1$s
 
@@ -560,13 +560,13 @@ We hope you enjoy your new site. Thanks!
 
 		$installed_email = array(
 			'to'      => $email,
-			'subject' => __( 'New WordPress Site' ),
+			'subject' => __( 'New Retraceur Site' ),
 			'message' => $message,
 			'headers' => '',
 		);
 
 		/**
-		 * Filters the contents of the email sent to the site administrator when WordPress is installed.
+		 * Filters the contents of the email sent to the site administrator when Retraceur is installed.
 		 *
 		 * @since WP 5.6.0
 		 *
@@ -597,7 +597,7 @@ endif;
 
 if ( ! function_exists( 'wp_upgrade' ) ) :
 	/**
-	 * Runs WordPress Upgrade functions.
+	 * Runs Retraceur Upgrade functions.
 	 *
 	 * Upgrades the database if needed during a site update.
 	 *
@@ -687,7 +687,7 @@ function upgrade_all() {
 }
 
 /**
- * Executes changes made in WordPress 6.7.0.
+ * Executes changes made in WP 6.7.0.
  *
  * @ignore
  * @since WP 6.7.0
@@ -722,7 +722,7 @@ function upgrade_670() {
  * @since WP 3.0.0
  *
  * @global int  $wp_current_db_version The old (current) database version.
- * @global wpdb $wpdb                  WordPress database abstraction object.
+ * @global wpdb $wpdb                  Retraceur database abstraction object.
  */
 function upgrade_network() {
 	global $wp_current_db_version, $wpdb;
@@ -744,7 +744,7 @@ function upgrade_network() {
  *
  * @since WP 1.0.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb Retraceur database abstraction object.
  *
  * @param string $table_name Database table name.
  * @param string $create_ddl SQL statement to create table.
@@ -775,7 +775,7 @@ function maybe_create_table( $table_name, $create_ddl ) {
  *
  * @since WP 1.0.1
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb Retraceur database abstraction object.
  *
  * @param string $table Database table name.
  * @param string $index Index name to drop.
@@ -803,7 +803,7 @@ function drop_index( $table, $index ) {
  *
  * @since WP 1.0.1
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb Retraceur database abstraction object.
  *
  * @param string $table Database table name.
  * @param string $index Database table index column.
@@ -823,7 +823,7 @@ function add_clean_index( $table, $index ) {
  *
  * @since WP 1.3.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb Retraceur database abstraction object.
  *
  * @param string $table_name  Database table name.
  * @param string $column_name Table column name.
@@ -857,7 +857,7 @@ function maybe_add_column( $table_name, $column_name, $create_ddl ) {
  *
  * @since WP 4.2.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb Retraceur database abstraction object.
  *
  * @param string $table The table to convert.
  * @return bool True if the table was converted, false if it wasn't.
@@ -902,7 +902,7 @@ function maybe_convert_table_to_utf8mb4( $table ) {
  * @since WP 1.5.1
  * @access private
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb Retraceur database abstraction object.
  *
  * @param string $setting Option name.
  * @return mixed
@@ -969,7 +969,7 @@ function deslash( $content ) {
  * @since WP 6.1.0 Ignores display width for integer data types on MySQL 8.0.17 or later,
  *              to match MySQL behavior. Note: This does not affect MariaDB.
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb Retraceur database abstraction object.
  *
  * @param string[]|string $queries Optional. The query to run. Can be multiple queries
  *                                 in an array, or a string of queries separated by
@@ -1719,7 +1719,7 @@ function translate_level_to_role( $level ) {
  *
  * @since WP 2.1.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb Retraceur database abstraction object.
  */
 function wp_check_mysql_version() {
 	global $wpdb;
@@ -1736,7 +1736,7 @@ function wp_check_mysql_version() {
  * @deprecated 1.0.0 Retraceur removed the Link manager feature.
  *
  * @global int  $wp_current_db_version The old (current) database version.
- * @global wpdb $wpdb                  WordPress database abstraction object.
+ * @global wpdb $wpdb                  Retraceur database abstraction object.
  */
 function maybe_disable_link_manager() {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
@@ -1748,7 +1748,7 @@ function maybe_disable_link_manager() {
  * @since WP 2.9.0
  *
  * @global int  $wp_current_db_version The old (current) database version.
- * @global wpdb $wpdb                  WordPress database abstraction object.
+ * @global wpdb $wpdb                  Retraceur database abstraction object.
  */
 function pre_schema_upgrade() {
 	global $wp_current_db_version, $wpdb;
@@ -1808,14 +1808,14 @@ function pre_schema_upgrade() {
  * Determine if global tables should be upgraded.
  *
  * This function performs a series of checks to ensure the environment allows
- * for the safe upgrading of global WordPress database tables. It is necessary
+ * for the safe upgrading of global Retraceur database tables. It is necessary
  * because global tables will commonly grow to millions of rows on large
  * installations, and the ability to control their upgrade routines can be
  * critical to the operation of large networks.
  *
  * In a future iteration, this function may use `wp_is_large_network()` to more-
  * intelligently prevent global table upgrades. Until then, we make sure
- * WordPress is on the main site of the main network, to avoid running queries
+ * Retraceur is on the main site of the main network, to avoid running queries
  * more than once in multi-site or multi-network environments.
  *
  * @since WP 4.3.0

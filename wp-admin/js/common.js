@@ -6,7 +6,7 @@
 /* global columns, screenMeta */
 
 /**
- *  Adds common WordPress functionality to the window.
+ *  Adds common Retraceur functionality to the window.
  *
  *  @param {jQuery} $        jQuery object.
  *  @param {Object} window   The window object.
@@ -25,7 +25,7 @@
  * @since WP 5.5.1
  *
  * @param {string} propName    The property that was used.
- * @param {string} version     The version of WordPress that deprecated the property.
+ * @param {string} version     The version of Retraceur that deprecated the property.
  * @param {string} replacement The property that should have been used.
  */
 function deprecatedProperty( propName, version, replacement ) {
@@ -59,7 +59,7 @@ function deprecatedProperty( propName, version, replacement ) {
  *
  * @param {string} name       The name of the object, i.e. commonL10n.
  * @param {object} l10nObject The object to deprecate the properties on.
- * @param {string} version    The version of WordPress that deprecated the property.
+ * @param {string} version    The version of Retraceur that deprecated the property.
  *
  * @return {object} The object with all its properties deprecated.
  */

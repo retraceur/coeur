@@ -9,7 +9,7 @@
  * @subpackage Multisite
  */
 
-/** Load WordPress Administration Bootstrap */
+/** Load Retraceur Administration Bootstrap */
 require_once __DIR__ . '/admin.php';
 
 if ( ! has_action( 'retraceur_network_site_new', 'retraceur_reseau_network_site_new' ) ) {

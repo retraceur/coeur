@@ -1,5 +1,5 @@
 /**
- * WordPress Administration Navigation Menu
+ * Retraceur Administration Navigation Menu
  * Interface JS functions.
  *
  * @since WP 2.0.0
@@ -17,7 +17,7 @@
 	var api;
 
 	/**
-	 * Contains all the functions to handle WordPress navigation menus administration.
+	 * Contains all the functions to handle Retraceur navigation menus administration.
 	 *
 	 * @namespace wpNavMenu
 	 */
@@ -338,7 +338,7 @@
 
 							parentDropdown.html( $html );
 						});
-						
+
 					});
 				},
 				updateOrderDropdown : function() {
@@ -362,10 +362,10 @@
 
 								for ( let i = 1; i < totalMenuItems + 1; i++ ) {
 									$selected = '';
-									if ( i == itemPosition ) { 
+									if ( i == itemPosition ) {
 										$selected = 'selected';
 									}
-									var itemString = wp.i18n.sprintf( 
+									var itemString = wp.i18n.sprintf(
 										/* translators: 1: The current menu item number, 2: The total number of menu items. */
 										wp.i18n._x( '%1$s of %2$s', 'part of a total number of menu items' ),
 										i,
@@ -387,7 +387,7 @@
 									if ( i == itemPosition ) {
 										$selected = 'selected';
 									}
-									var submenuString = wp.i18n.sprintf( 
+									var submenuString = wp.i18n.sprintf(
 										/* translators: 1: The current submenu item number, 2: The total number of submenu items. */
 										wp.i18n._x( '%1$s of %2$s', 'part of a total number of menu items' ),
 										i,
@@ -400,7 +400,7 @@
 
 							orderDropdown.html( $html );
 						});
-						
+
 					});
 				}
 			});
@@ -557,7 +557,7 @@
 			menu.on( 'change', '.edit-menu-item-parent', function() {
 				api.changeMenuParent( $( this ) );
 			});
-			
+
 			// Update menu item order when value is changed.
 			menu.on( 'change', '.edit-menu-item-order', function() {
 				api.changeMenuOrder( $( this ) );
@@ -566,7 +566,7 @@
 
 		/**
 		 * changeMenuParent( [parentDropdown] )
-		 * 
+		 *
 		 * @since WP 6.7.0
 		 *
 		 * @param {object} parentDropdown select field
@@ -622,7 +622,7 @@
 
 		/**
 		 * changeMenuOrder( [OrderDropdown] )
-		 * 
+		 *
 		 * @since WP 6.7.0
 		 *
 		 * @param {object} orderDropdown select field
@@ -1116,7 +1116,7 @@
 		 * Handle toggling bulk selection checkboxes for menu items.
 		 *
 		 * @since WP 5.8.0
-		 */ 
+		 */
 		attachBulkSelectButtonListeners : function() {
 			var that = this;
 
@@ -1135,7 +1135,7 @@
 		 * Enable bulk selection checkboxes for menu items.
 		 *
 		 * @since WP 5.8.0
-		 */ 
+		 */
 		enableBulkSelection : function() {
 			var checkbox = $( '#menu-to-edit .menu-item-checkbox' );
 
@@ -1152,7 +1152,7 @@
 		 * Disable bulk selection checkboxes for menu items.
 		 *
 		 * @since WP 5.8.0
-		 */ 
+		 */
 		disableBulkSelection : function() {
 			var checkbox = $( '#menu-to-edit .menu-item-checkbox' );
 
@@ -1176,7 +1176,7 @@
 		 * Listen for state changes on bulk action checkboxes.
 		 *
 		 * @since WP 5.8.0
-		 */ 
+		 */
 		attachMenuCheckBoxListeners : function() {
 			var that = this;
 
@@ -1189,7 +1189,7 @@
 		 * Create delete button to remove menu items from collection.
 		 *
 		 * @since WP 5.8.0
-		 */ 
+		 */
 		attachMenuItemDeleteButton : function() {
 			var that = this;
 
@@ -1232,7 +1232,7 @@
 		 * List menu items awaiting deletion.
 		 *
 		 * @since WP 5.8.0
-		 */ 
+		 */
 		attachPendingMenuItemsListForDeletion : function() {
 			$( '#post-body-content' ).on( 'change', '.menu-item-checkbox', function() {
 				var menuItemName, menuItemType, menuItemID, listedMenuItem;
@@ -1269,7 +1269,7 @@
 		 * Set status of bulk delete checkbox.
 		 *
 		 * @since WP 5.8.0
-		 */ 
+		 */
 		setBulkDeleteCheckboxStatus : function() {
 			var that = this;
 			var checkbox = $( '#menu-to-edit .menu-item-checkbox' );
@@ -1293,7 +1293,7 @@
 		 * Set status of menu items removal button.
 		 *
 		 * @since WP 5.8.0
-		 */ 
+		 */
 		setRemoveSelectedButtonStatus : function() {
 			var button = $( '.menu-items-delete' );
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Widgets Administration API.
+ * WP Widgets Administration API.
  *
  * @deprecated 1.0.0 Retraceur fork.
  *

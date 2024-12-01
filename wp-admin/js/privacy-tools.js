@@ -1,5 +1,5 @@
 /**
- * Interactions used by the User Privacy tools in WordPress.
+ * Interactions used by the User Privacy tools in Retraceur.
  *
  * @output wp-admin/js/privacy-tools.js
  */

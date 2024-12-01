@@ -114,7 +114,7 @@ if ( ! defined( 'WP_ALLOW_REPAIR' ) || ! WP_ALLOW_REPAIR ) {
 			printf( __( 'The %s table is okay.' ), "<code>$table</code>" );
 		} else {
 			/* translators: 1: Table name, 2: Error message. */
-			printf( __( 'The %1$s table is not okay. It is reporting the following error: %2$s. WordPress will attempt to repair this table&hellip;' ), "<code>$table</code>", "<code>$check->Msg_text</code>" );
+			printf( __( 'The %1$s table is not okay. It is reporting the following error: %2$s. Retraceur will attempt to repair this table&hellip;' ), "<code>$table</code>", "<code>$check->Msg_text</code>" );
 
 			$repair = $wpdb->get_row( "REPAIR TABLE $table" );
 
@@ -167,17 +167,17 @@ if ( ! defined( 'WP_ALLOW_REPAIR' ) || ! WP_ALLOW_REPAIR ) {
 
 	echo '<h1 class="screen-reader-text">' .
 		/* translators: Hidden accessibility text. */
-		__( 'WordPress database repair' ) .
+		__( 'Retraceur database repair' ) .
 	'</h1>';
 
 	if ( isset( $_GET['referrer'] ) && 'is_blog_installed' === $_GET['referrer'] ) {
-		echo '<p>' . __( 'One or more database tables are unavailable. To allow WordPress to attempt to repair these tables, press the &#8220;Repair Database&#8221; button. Repairing can take a while, so please be patient.' ) . '</p>';
+		echo '<p>' . __( 'One or more database tables are unavailable. To allow Retraceur to attempt to repair these tables, press the &#8220;Repair Database&#8221; button. Repairing can take a while, so please be patient.' ) . '</p>';
 	} else {
-		echo '<p>' . __( 'WordPress can automatically look for some common database problems and repair them. Repairing can take a while, so please be patient.' ) . '</p>';
+		echo '<p>' . __( 'Retraceur can automatically look for some common database problems and repair them. Repairing can take a while, so please be patient.' ) . '</p>';
 	}
 	?>
 	<p class="step"><a class="button button-large" href="repair.php?repair=1"><?php _e( 'Repair Database' ); ?></a></p>
-	<p><?php _e( 'WordPress can also attempt to optimize the database. This improves performance in some situations. Repairing and optimizing the database can take a long time and the database will be locked while optimizing.' ); ?></p>
+	<p><?php _e( 'Retraceur can also attempt to optimize the database. This improves performance in some situations. Repairing and optimizing the database can take a long time and the database will be locked while optimizing.' ); ?></p>
 	<p class="step"><a class="button button-large" href="repair.php?repair=2"><?php _e( 'Repair and Optimize Database' ); ?></a></p>
 	<?php
 }

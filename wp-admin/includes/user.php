@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress user administration API.
+ * Retraceur user administration API.
  *
  * @since 1.0.0 Retraceur fork.
  *
@@ -305,7 +305,7 @@ function get_user_to_edit( $user_id ) {
  *
  * @since WP 2.0.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb Retraceur database abstraction object.
  *
  * @param int $user_id User ID.
  * @return array
@@ -338,7 +338,7 @@ function get_users_drafts( $user_id ) {
  *
  * @since WP 2.0.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb Retraceur database abstraction object.
  *
  * @param int $id       User ID.
  * @param int $reassign Optional. Reassign posts and links to new User ID.

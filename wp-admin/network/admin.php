@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Network Administration Bootstrap.
+ * WP Network Administration Bootstrap.
  *
  * @since WP 3.1.0
  * @since 1.0.0 Retraceur fork.
@@ -11,7 +11,7 @@
 
 define( 'WP_NETWORK_ADMIN', true );
 
-/** Load WordPress Administration Bootstrap */
+/** Load Retraceur Administration Bootstrap */
 require_once dirname( __DIR__ ) . '/admin.php';
 
 if ( ! has_filter( 'retraceur_network_admin', 'retraceur_reseau_network_admin' ) ) {

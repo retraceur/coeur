@@ -1,5 +1,5 @@
 /**
- * Functions for ajaxified updates, deletions and installs inside the WordPress admin.
+ * Functions for ajaxified updates, deletions and installs inside the Retraceur admin.
  *
  * @since WP 4.2.0
  * @since 1.0.0 Retraceur fork.
@@ -281,7 +281,7 @@
 	};
 
 	/**
-	 * Handles Ajax requests to WordPress.
+	 * Handles Ajax requests to Retraceur.
 	 *
 	 * @since WP 4.6.0
 	 *

@@ -13,7 +13,7 @@ if ( isset( $_GET['tab'] ) && ( 'theme-information' === $_GET['tab'] ) ) {
 	define( 'IFRAME_REQUEST', true );
 }
 
-/** Load WordPress Administration Bootstrap */
+/** Load Retraceur Administration Bootstrap */
 require_once __DIR__ . '/admin.php';
 
 if ( ! has_filter( 'retraceur_network_admin_theme_install', 'retraceur_reseau_network_admin_theme_install' ) ) {
