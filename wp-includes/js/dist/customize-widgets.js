@@ -85,7 +85,7 @@ module.exports = function equal(a, b) {
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/ 	
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -99,14 +99,14 @@ module.exports = function equal(a, b) {
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
-/******/ 	
+/******/
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
@@ -119,7 +119,7 @@ module.exports = function equal(a, b) {
 /******/ 			return getter;
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -131,12 +131,12 @@ module.exports = function equal(a, b) {
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -147,7 +147,7 @@ module.exports = function equal(a, b) {
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
@@ -1501,11 +1501,11 @@ function WelcomeGuide({
       className: "customize-widgets-welcome-guide__image__wrapper",
       children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)("picture", {
         children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("source", {
-          srcSet: "https://s.w.org/images/block-editor/welcome-editor.svg",
+          srcSet: "https://wsrv.nl/?url=https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/images/welcome-editor.svg",
           media: "(prefers-reduced-motion: reduce)"
         }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("img", {
           className: "customize-widgets-welcome-guide__image",
-          src: "https://s.w.org/images/block-editor/welcome-editor.gif",
+          src: "https://wsrv.nl/?url=https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/images/welcome-editor.svg",
           width: "312",
           height: "240",
           alt: ""

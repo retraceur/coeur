@@ -2385,8 +2385,8 @@ function WelcomeGuideDefault() {
     onFinish: () => toggleFeature('welcomeGuide'),
     pages: [{
       image: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(WelcomeGuideImage, {
-        nonAnimatedSrc: "https://s.w.org/images/block-editor/welcome-canvas.svg",
-        animatedSrc: "https://s.w.org/images/block-editor/welcome-canvas.gif"
+        nonAnimatedSrc: "https://wsrv.nl/?url=https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/images/welcome-canvas.svg",
+        animatedSrc: "https://wsrv.nl/?url=https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/images/welcome-canvas.svg"
       }),
       content: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_ReactJSXRuntime_namespaceObject.Fragment, {
         children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("h1", {
@@ -2400,7 +2400,7 @@ function WelcomeGuideDefault() {
     }, {
       image: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(WelcomeGuideImage, {
         nonAnimatedSrc: "https://wsrv.nl/?url=https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/images/welcome-editor.svg",
-        animatedSrc: "https://wsrv.nl/?url=https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/images/welcome-editor.gif&n=-1"
+        animatedSrc: "https://wsrv.nl/?url=https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/images/welcome-editor.svg"
       }),
       content: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_ReactJSXRuntime_namespaceObject.Fragment, {
         children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("h1", {
@@ -2413,8 +2413,8 @@ function WelcomeGuideDefault() {
       })
     }, {
       image: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(WelcomeGuideImage, {
-        nonAnimatedSrc: "https://s.w.org/images/block-editor/welcome-library.svg",
-        animatedSrc: "https://s.w.org/images/block-editor/welcome-library.gif"
+        nonAnimatedSrc: "https://wsrv.nl/?url=https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/images/welcome-library.svg",
+        animatedSrc: "https://wsrv.nl/?url=https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/images/welcome-library.svg"
       }),
       content: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_ReactJSXRuntime_namespaceObject.Fragment, {
         children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("h1", {
@@ -2461,8 +2461,8 @@ function WelcomeGuideTemplate() {
     onFinish: () => toggleFeature('welcomeGuideTemplate'),
     pages: [{
       image: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(WelcomeGuideImage, {
-        nonAnimatedSrc: "https://s.w.org/images/block-editor/welcome-template-editor.svg",
-        animatedSrc: "https://s.w.org/images/block-editor/welcome-template-editor.gif"
+        nonAnimatedSrc: "https://wsrv.nl/?url=https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/images/welcome-template-editor.svg",
+        animatedSrc: "https://wsrv.nl/?url=https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/images/welcome-template-editor.svg"
       }),
       content: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_ReactJSXRuntime_namespaceObject.Fragment, {
         children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("h1", {

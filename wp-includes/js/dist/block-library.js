@@ -8677,7 +8677,7 @@ const columns_settings = {
       }, {
         name: 'core/image',
         attributes: {
-          url: 'https://s.w.org/images/core/5.3/Windbuchencom.jpg'
+          url: 'https://wsrv.nl/?url=https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/images/Windbuchencom.jpg'
         }
       }, {
         name: 'core/paragraph',
@@ -15709,7 +15709,7 @@ const cover_settings = {
     attributes: {
       customOverlayColor: '#065174',
       dimRatio: 40,
-      url: 'https://s.w.org/images/core/5.3/Windbuchencom.jpg'
+      url: 'https://wsrv.nl/?url=https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/images/Windbuchencom.jpg'
     },
     innerBlocks: [{
       name: 'core/paragraph',
@@ -22370,12 +22370,12 @@ const gallery_settings = {
     innerBlocks: [{
       name: 'core/image',
       attributes: {
-        url: 'https://s.w.org/images/core/5.3/Glacial_lakes%2C_Bhutan.jpg'
+        url: 'https://wsrv.nl/?url=https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/images/Glacial_lakes_Bhutan.jpg'
       }
     }, {
       name: 'core/image',
       attributes: {
-        url: 'https://s.w.org/images/core/5.3/Sediment_off_the_Yucatan_Peninsula.jpg'
+        url: 'https://wsrv.nl/?url=https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/images/Sediment_off_the_Yucatan_Peninsula.jpg'
       }
     }]
   },
@@ -27512,7 +27512,7 @@ const image_settings = {
   example: {
     attributes: {
       sizeSlug: 'large',
-      url: 'https://s.w.org/images/core/5.3/MtBlanc1.jpg',
+      url: 'https://wsrv.nl/?url=https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/images/MtBlanc1.jpg',
       // translators: Caption accompanying an image of the Mont Blanc, which serves as an example for the Image block.
       caption: (0,external_wp_i18n_namespaceObject.__)('Mont Blanc appears—still, snowy, and serene.')
     }
@@ -32677,7 +32677,7 @@ const media_text_settings = {
     // Columns collapse "@media (max-width: 600px)".
     attributes: {
       mediaType: 'image',
-      mediaUrl: 'https://s.w.org/images/core/5.3/Biologia_Centrali-Americana_-_Cantorchilus_semibadius_1902.jpg'
+      mediaUrl: 'https://wsrv.nl/?url=https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/images/Biologia_Centrali-Americana_-_Cantorchilus_semibadius_1902.jpg'
     },
     innerBlocks: [{
       name: 'core/paragraph',

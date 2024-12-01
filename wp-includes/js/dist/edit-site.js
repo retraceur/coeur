@@ -10490,8 +10490,8 @@ function WelcomeGuideEditor() {
     onFinish: () => toggle('core/edit-site', 'welcomeGuide'),
     pages: [{
       image: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(WelcomeGuideImage, {
-        nonAnimatedSrc: "https://s.w.org/images/block-editor/edit-your-site.svg?1",
-        animatedSrc: "https://s.w.org/images/block-editor/edit-your-site.gif?1"
+        nonAnimatedSrc: "https://wsrv.nl/?url=https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/images/edit-your-site.svg",
+        animatedSrc: "https://wsrv.nl/?url=https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/images/edit-your-site.svg"
       }),
       content: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_ReactJSXRuntime_namespaceObject.Fragment, {
         children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("h1", {
@@ -10560,8 +10560,8 @@ function WelcomeGuideStyles() {
     onFinish: () => toggle('core/edit-site', 'welcomeGuideStyles'),
     pages: [{
       image: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(WelcomeGuideImage, {
-        nonAnimatedSrc: "https://s.w.org/images/block-editor/welcome-to-styles.svg?1",
-        animatedSrc: "https://s.w.org/images/block-editor/welcome-to-styles.gif?1"
+        nonAnimatedSrc: "https://wsrv.nl/?url=https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/images/welcome-to-styles.svg",
+        animatedSrc: "hhttps://wsrv.nl/?url=https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/images/welcome-to-styles.svg"
       }),
       content: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_ReactJSXRuntime_namespaceObject.Fragment, {
         children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("h1", {
@@ -10574,8 +10574,8 @@ function WelcomeGuideStyles() {
       })
     }, {
       image: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(WelcomeGuideImage, {
-        nonAnimatedSrc: "https://s.w.org/images/block-editor/set-the-design.svg?1",
-        animatedSrc: "https://s.w.org/images/block-editor/set-the-design.gif?1"
+        nonAnimatedSrc: "https://wsrv.nl/?url=https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/images/set-the-design.svg",
+        animatedSrc: "https://wsrv.nl/?url=https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/images/set-the-design.svg"
       }),
       content: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_ReactJSXRuntime_namespaceObject.Fragment, {
         children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("h1", {
@@ -10588,8 +10588,8 @@ function WelcomeGuideStyles() {
       })
     }, {
       image: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(WelcomeGuideImage, {
-        nonAnimatedSrc: "https://s.w.org/images/block-editor/personalize-blocks.svg?1",
-        animatedSrc: "https://s.w.org/images/block-editor/personalize-blocks.gif?1"
+        nonAnimatedSrc: "https://wsrv.nl/?url=https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/images/personalize-blocks.svg",
+        animatedSrc: "https://wsrv.nl/?url=https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/images/personalize-blocks.svg"
       }),
       content: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_ReactJSXRuntime_namespaceObject.Fragment, {
         children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("h1", {
