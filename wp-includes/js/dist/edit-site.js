@@ -10650,7 +10650,7 @@ function WelcomeGuidePage() {
         width: "312",
         height: "240",
         children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("source", {
-          src: "https://s.w.org/images/block-editor/editing-your-page.mp4",
+          src: "https://cdn.jsdelivr.net/gh/retraceur/ressources@main/videos/editing-your-page.mp4",
           type: "video/mp4"
         })
       }),
@@ -10727,7 +10727,7 @@ function WelcomeGuideTemplate() {
         width: "312",
         height: "240",
         children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("source", {
-          src: "https://s.w.org/images/block-editor/editing-your-template.mp4",
+          src: "https://cdn.jsdelivr.net/gh/retraceur/ressources@main/videos/editing-your-template.mp4",
           type: "video/mp4"
         })
       }),
