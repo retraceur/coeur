@@ -19,6 +19,7 @@ Retraceur is regularly synchronized with WP Core latest version to benefit from 
 - WP Emojis were replaced by [OpenMojis](https://openmoji.org/).
 - The default font collection was removed as it's hosted on `s.w.org`.
 - The Link/Bookmark manager was removed.
+- The Multisite feature was removed.
 - Using **Block Themes** in Retraceur is recommended:
   - The WP Customizer was removed.
   - WP Widgets were removed.
@@ -27,7 +28,8 @@ This software comes without any warranty. Everyone is welcome to contribute!
 
 My next steps will be:
 - [ ] build an automatic & distributed update system based on GitHub services replacing the WP distant plugin & theme API using the [entrepôt](https://github.com/imath/entrepot) plugin features merge.
-- [ ] move the WP comments feature out of Retraceur Core & make it available as a plugin. 
+- [ ] move the WP comments feature out of Retraceur Core & make it available as a plugin.
+- [ ] package the Multisite feature as a plugin.
 
 
 [^1]: The WordPress® trademark is the intellectual property of the [WordPress Foundation](https://wordpressfoundation.org/trademark-policy/). Uses of the WordPress® name in this repository are for identification purposes only and do not imply an endorsement by the WordPress Foundation.
