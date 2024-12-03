@@ -437,21 +437,10 @@ function export_wp( $args = array() ) {
 	 * Outputs all navigation menu terms.
 	 *
 	 * @since WP 3.1.0
+	 * @deprecated 1.0.0 Retraceur fork.
 	 */
 	function wxr_nav_menu_terms() {
-		$nav_menus = wp_get_nav_menus();
-		if ( empty( $nav_menus ) || ! is_array( $nav_menus ) ) {
-			return;
-		}
-
-		foreach ( $nav_menus as $menu ) {
-			echo "\t<wp:term>";
-			echo '<wp:term_id>' . (int) $menu->term_id . '</wp:term_id>';
-			echo '<wp:term_taxonomy>nav_menu</wp:term_taxonomy>';
-			echo '<wp:term_slug>' . wxr_cdata( $menu->slug ) . '</wp:term_slug>';
-			wxr_term_name( $menu );
-			echo "</wp:term>\n";
-		}
+		_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 	}
 
 	/**
@@ -565,11 +554,6 @@ function export_wp( $args = array() ) {
 		?>
 	</wp:term>
 	<?php endforeach; ?>
-	<?php
-	if ( 'all' === $args['content'] ) {
-		wxr_nav_menu_terms();
-	}
-	?>
 
 	<?php
 	/** This action is documented in wp-includes/feed-rss2.php */

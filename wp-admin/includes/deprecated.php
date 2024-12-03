@@ -2720,3 +2720,297 @@ function get_alloptions_110() {
 function _wp_nav_menu_meta_box_object( $data_object = null ) {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 }
+
+/**
+ * Handles adding a menu item via AJAX.
+ *
+ * @since WP 3.1.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function wp_ajax_add_menu_item() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Handles for retrieving menu meta boxes via AJAX.
+ *
+ * @since WP 3.1.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function wp_ajax_menu_get_metabox() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Handles saving menu locations via AJAX.
+ *
+ * @since WP 3.1.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function wp_ajax_menu_locations_save() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Handles menu quick searching via AJAX.
+ *
+ * @since WP 3.1.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function wp_ajax_menu_quick_search() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Prints the appropriate response to a menu quick search.
+ *
+ * @since WP 3.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param array $request The unsanitized request values.
+ */
+function _wp_ajax_menu_quick_search( $request = array() ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string $classes
+ */
+function wp_nav_menu_max_depth( $classes ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Register nav menu meta boxes and advanced menu items.
+ *
+ * @since WP 3.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function wp_nav_menu_setup() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Creates meta boxes for any post type menu item..
+ *
+ * @since WP 3.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function wp_nav_menu_post_type_meta_boxes() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters whether a menu items meta box will be added for the current
+	 * object type.
+	 *
+	 * If a falsey value is returned instead of an object, the menu items
+	 * meta box for the current meta box object will not be added.
+	 *
+	 * @since WP 3.0.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param WP_Post_Type|false $post_type The current object to add a menu items
+	 *                                      meta box for.
+	 */
+	apply_filters_deprecated(
+		'nav_menu_meta_box_object',
+		array( false ),
+		'1.0.0',
+		'',
+		__( 'WP Nav Menus feature is not supported in Retraceur.' )
+	);
+}
+
+/**
+ * Displays a meta box for the custom links menu item.
+ *
+ * @since WP 3.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @global int        $_nav_menu_placeholder
+ * @global int|string $nav_menu_selected_id
+ */
+function wp_nav_menu_item_link_meta_box() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Displays a meta box for a post type menu item.
+ *
+ * @since WP 3.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string $data_object Not used.
+ * @param array  $box {
+ *     Post type menu item meta box arguments.
+ *
+ *     @type string       $id       Meta box 'id' attribute.
+ *     @type string       $title    Meta box title.
+ *     @type callable     $callback Meta box display callback.
+ *     @type WP_Post_Type $args     Extra meta box arguments (the post type object for this meta box).
+ * }
+ */
+function wp_nav_menu_item_post_type_meta_box( $data_object, $box ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Check whether to disable the Menu Locations meta box submit button and inputs.
+ *
+ * @since WP 3.6.0
+ * @since WP 5.3.1 The `$display` parameter was added.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @global bool $one_theme_location_no_menus to determine if no menus exist
+ *
+ * @param int|string $nav_menu_selected_id ID, name, or slug of the currently selected menu.
+ * @param bool       $display              Whether to display or just return the string.
+ * @return string|false Disabled attribute if at least one menu exists, false if not.
+ */
+function wp_nav_menu_disabled_check( $nav_menu_selected_id, $display = true ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return false;
+}
+
+/**
+ * Limit the amount of meta boxes to pages, posts, links, and categories for first time users.
+ *
+ * @since WP 3.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @global array $wp_meta_boxes Global meta box state.
+ */
+function wp_initial_nav_menu_meta_boxes() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Creates meta boxes for any taxonomy menu item.
+ *
+ * @since WP 3.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function wp_nav_menu_taxonomy_meta_boxes() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Displays a meta box for a taxonomy menu item.
+ *
+ * @since WP 3.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string $data_object Not used.
+ * @param array  $box {
+ *     Taxonomy menu item meta box arguments.
+ *
+ *     @type string   $id       Meta box 'id' attribute.
+ *     @type string   $title    Meta box title.
+ *     @type callable $callback Meta box display callback.
+ *     @type object   $args     Extra meta box arguments (the taxonomy object for this meta box).
+ * }
+ */
+function wp_nav_menu_item_taxonomy_meta_box( $data_object, $box ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Save posted nav menu item data.
+ *
+ * @since WP 3.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int     $menu_id   The menu ID for which to save this item. Value of 0 makes a draft, orphaned menu item. Default 0.
+ * @param array[] $menu_data The unsanitized POSTed menu item data.
+ * @return int[] The database IDs of the items saved
+ */
+function wp_save_nav_menu_items( $menu_id = 0, $menu_data = array() ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return array();
+}
+
+/**
+ * Returns the menu formatted to edit.
+ *
+ * @since WP 3.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int $menu_id Optional. The ID of the menu to format. Default 0.
+ * @return string|WP_Error The menu formatted to edit or error object on failure.
+ */
+function wp_get_nav_menu_to_edit( $menu_id = 0 ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the Walker class used when adding nav menu items.
+	 *
+	 * @since WP 3.0.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string $class   The walker class to use. Default 'Walker_Nav_Menu_Edit'.
+	 * @param int    $menu_id ID of the menu being rendered.
+	 */
+	apply_filters_deprecated(
+		'wp_edit_nav_menu_walker',
+		array( 'Walker_Nav_Menu_Edit', 0 ),
+		'1.0.0',
+		'',
+		__( 'WP Nav Menus feature is not supported in Retraceur.' )
+	);
+}
+
+/**
+ * Returns the columns for the nav menus page.
+ *
+ * @since WP 3.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @return string[] Array of column titles keyed by their column name.
+ */
+function wp_nav_menu_manage_columns() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return array();
+}
+
+/**
+ * Deletes orphaned draft menu items
+ *
+ * @since WP 3.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @access private
+ */
+function _wp_delete_orphaned_draft_menu_items() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Saves nav menu items.
+ *
+ * @since WP 3.6.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int|string $nav_menu_selected_id    ID, slug, or name of the currently-selected menu.
+ * @param string     $nav_menu_selected_title Title of the currently-selected menu.
+ * @return string[] The menu updated messages.
+ */
+function wp_nav_menu_update_menu_items( $nav_menu_selected_id, $nav_menu_selected_title ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return array();
+}
+
+/**
+ * If a JSON blob of navigation menu data is in POST data, expand it and inject
+ * it into `$_POST` to avoid PHP `max_input_vars` limitations. See #14134.
+ *
+ * @ignore
+ * @since WP 4.5.3
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @access private
+ */
+function _wp_expand_nav_menu_post_data() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}

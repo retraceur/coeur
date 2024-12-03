@@ -779,7 +779,6 @@ class WP_Query {
 	 *     @type string          $title                  Post title.
 	 *     @type bool            $update_post_meta_cache Whether to update the post meta cache. Default true.
 	 *     @type bool            $update_post_term_cache Whether to update the post term cache. Default true.
-	 *     @type bool            $update_menu_item_cache Whether to update the menu item cache. Default false.
 	 *     @type bool            $lazy_load_term_meta    Whether to lazy-load term meta. Setting to false will
 	 *                                                   disable cache priming for term meta, so that each
 	 *                                                   get_term_meta() call will hit the database.
@@ -789,6 +788,17 @@ class WP_Query {
 	 * }
 	 */
 	public function parse_query( $query = '' ) {
+		if ( isset( $query['update_menu_item_cache'] ) ) {
+			unset( $query['update_menu_item_cache'] );
+
+			_deprecated_argument(
+				__FUNCTION__,
+				'1.0.0',
+				__( 'The "update_menu_item_cache" argument has been removed. Retraceur does not support WP Nav Menus.' ),
+				true
+			);
+		}
+
 		if ( ! empty( $query ) ) {
 			$this->init();
 			$this->query      = wp_parse_args( $query );
@@ -1953,10 +1963,6 @@ class WP_Query {
 			$q['update_post_term_cache'] = true;
 		}
 
-		if ( ! isset( $q['update_menu_item_cache'] ) ) {
-			$q['update_menu_item_cache'] = false;
-		}
-
 		if ( ! isset( $q['lazy_load_term_meta'] ) ) {
 			$q['lazy_load_term_meta'] = $q['update_post_term_cache'];
 		} elseif ( $q['lazy_load_term_meta'] ) { // Lazy loading term meta only works if term caches are primed.
@@ -3116,7 +3122,7 @@ class WP_Query {
 		 * queries are identical to those generated when splitting queries. This
 		 * improves caching of the query by ensuring the same cache key is
 		 * generated for the same database queries functionally.
-		 * 
+		 *
 		 * See https://github.com/WordPress/wordpress-develop/pull/6393#issuecomment-2088217429
 		 */
 		$old_request =
@@ -3581,10 +3587,6 @@ class WP_Query {
 		} else {
 			$this->post_count = 0;
 			$this->posts      = array();
-		}
-
-		if ( ! empty( $this->posts ) && $q['update_menu_item_cache'] ) {
-			update_menu_item_cache( $this->posts );
 		}
 
 		if ( $q['lazy_load_term_meta'] ) {
@@ -4879,7 +4881,6 @@ class WP_Query {
 			$args['lazy_load_term_meta'],
 			$args['update_post_meta_cache'],
 			$args['update_post_term_cache'],
-			$args['update_menu_item_cache'],
 			$args['suppress_filters']
 		);
 

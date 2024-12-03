@@ -704,7 +704,6 @@ function upgrade_670() {
 			'dashboard_widget_options',
 			'ftp_credentials',
 			'adminhash',
-			'nav_menu_options',
 			'wp_force_deactivated_plugins',
 			'delete_blog_hash',
 			'allowedthemes',

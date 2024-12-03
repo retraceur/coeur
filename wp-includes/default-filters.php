@@ -340,7 +340,6 @@ add_action( 'init', 'check_theme_switched', 99 );
 add_action( 'init', array( 'WP_Block_Supports', 'init' ), 22 );
 add_action( 'switch_theme', 'wp_clean_theme_json_cache' );
 add_action( 'start_previewing_theme', 'wp_clean_theme_json_cache' );
-add_action( 'after_switch_theme', '_wp_menus_changed' );
 add_action( 'wp_enqueue_scripts', 'wp_enqueue_emoji_styles' );
 add_action( 'wp_print_styles', 'print_emoji_styles' ); // Retained for backwards-compatibility. Unhooked by wp_enqueue_emoji_styles().
 
@@ -416,11 +415,6 @@ add_action( 'wp_scheduled_auto_draft_delete', 'wp_delete_auto_drafts' );
 add_action( 'importer_scheduled_cleanup', 'wp_delete_attachment' );
 add_action( 'upgrader_scheduled_cleanup', 'wp_delete_attachment' );
 add_action( 'delete_expired_transients', 'delete_expired_transients' );
-
-// Navigation menu actions.
-add_action( 'delete_post', '_wp_delete_post_menu_item' );
-add_action( 'delete_term', '_wp_delete_tax_menu_item', 10, 3 );
-add_action( 'transition_post_status', '_wp_auto_add_pages_to_menu', 10, 3 );
 
 // Post Thumbnail specific image filtering.
 add_action( 'begin_fetch_post_thumbnail_html', '_wp_post_thumbnail_class_filter_add' );

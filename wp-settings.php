@@ -351,7 +351,6 @@ require ABSPATH . WPINC . '/class-wp-block-metadata-registry.php';
 require ABSPATH . WPINC . '/class-wp-block-parser-block.php';
 require ABSPATH . WPINC . '/class-wp-block-parser-frame.php';
 require ABSPATH . WPINC . '/class-wp-block-parser.php';
-require ABSPATH . WPINC . '/class-wp-classic-to-block-menu-converter.php';
 require ABSPATH . WPINC . '/class-wp-navigation-fallback.php';
 require ABSPATH . WPINC . '/block-bindings.php';
 require ABSPATH . WPINC . '/block-bindings/pattern-overrides.php';

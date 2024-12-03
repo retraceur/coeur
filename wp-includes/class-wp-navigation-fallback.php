@@ -86,13 +86,6 @@ class WP_Navigation_Fallback {
 			return $fallback;
 		}
 
-		$fallback = static::create_classic_menu_fallback();
-
-		if ( $fallback && ! is_wp_error( $fallback ) ) {
-			// Return the newly created fallback post object which will now be the most recently created navigation menu.
-			return $fallback instanceof WP_Post ? $fallback : static::get_most_recently_published_navigation();
-		}
-
 		$fallback = static::create_default_fallback();
 
 		if ( $fallback && ! is_wp_error( $fallback ) ) {
@@ -136,70 +129,26 @@ class WP_Navigation_Fallback {
 	 * Creates a Navigation Menu post from a Classic Menu.
 	 *
 	 * @since WP 6.3.0
+	 * @deprecated 1.0.0 Retraceur fork removed the WP Nav Menu feature.
 	 *
 	 * @return int|WP_Error The post ID of the default fallback menu or a WP_Error object.
 	 */
 	private static function create_classic_menu_fallback() {
-		// See if we have a classic menu.
-		$classic_nav_menu = static::get_fallback_classic_menu();
-
-		if ( ! $classic_nav_menu ) {
-			return new WP_Error( 'no_classic_menus', __( 'No Classic Menus found.' ) );
-		}
-
-		// If there is a classic menu then convert it to blocks.
-		$classic_nav_menu_blocks = WP_Classic_To_Block_Menu_Converter::convert( $classic_nav_menu );
-
-		if ( is_wp_error( $classic_nav_menu_blocks ) ) {
-			return $classic_nav_menu_blocks;
-		}
-
-		if ( empty( $classic_nav_menu_blocks ) ) {
-			return new WP_Error( 'cannot_convert_classic_menu', __( 'Unable to convert Classic Menu to blocks.' ) );
-		}
-
-		// Create a new navigation menu from the classic menu.
-		$classic_menu_fallback = wp_insert_post(
-			array(
-				'post_content' => $classic_nav_menu_blocks,
-				'post_title'   => $classic_nav_menu->name,
-				'post_name'    => $classic_nav_menu->slug,
-				'post_status'  => 'publish',
-				'post_type'    => 'wp_navigation',
-			),
-			true // So that we can check whether the result is an error.
-		);
-
-		return $classic_menu_fallback;
+		_deprecated_function( __METHOD__, '1.0.0', '', true );
+		return new WP_Error( 'classic_menus_no_support', __( 'Classic Menus are not supported by Retraceur.' ) );
 	}
 
 	/**
 	 * Determines the most appropriate classic navigation menu to use as a fallback.
 	 *
 	 * @since WP 6.3.0
+	 * @deprecated 1.0.0 Retraceur fork removed the WP Nav Menu feature.
 	 *
 	 * @return WP_Term|null The most appropriate classic navigation menu to use as a fallback.
 	 */
 	private static function get_fallback_classic_menu() {
-		$classic_nav_menus = wp_get_nav_menus();
-
-		if ( ! $classic_nav_menus || is_wp_error( $classic_nav_menus ) ) {
-			return null;
-		}
-
-		$nav_menu = static::get_nav_menu_at_primary_location();
-
-		if ( $nav_menu ) {
-			return $nav_menu;
-		}
-
-		$nav_menu = static::get_nav_menu_with_primary_slug( $classic_nav_menus );
-
-		if ( $nav_menu ) {
-			return $nav_menu;
-		}
-
-		return static::get_most_recently_created_nav_menu( $classic_nav_menus );
+		_deprecated_function( __METHOD__, '1.0.0', '', true );
+		return null;
 	}
 
 
@@ -226,17 +175,13 @@ class WP_Navigation_Fallback {
 	 * Returns the classic menu with the slug `primary` if it exists.
 	 *
 	 * @since WP 6.3.0
+	 * @deprecated 1.0.0 Retraceur fork removed the WP Nav Menu feature.
 	 *
 	 * @param WP_Term[] $classic_nav_menus Array of classic nav menu term objects.
 	 * @return WP_Term|null The classic nav menu with the slug `primary` or null.
 	 */
 	private static function get_nav_menu_with_primary_slug( $classic_nav_menus ) {
-		foreach ( $classic_nav_menus as $classic_nav_menu ) {
-			if ( 'primary' === $classic_nav_menu->slug ) {
-				return $classic_nav_menu;
-			}
-		}
-
+		_deprecated_function( __METHOD__, '1.0.0', '', true );
 		return null;
 	}
 
@@ -246,20 +191,12 @@ class WP_Navigation_Fallback {
 	 * if it exists.
 	 *
 	 * @since WP 6.3.0
+	 * @deprecated 1.0.0 Retraceur fork removed the WP Nav Menu feature.
 	 *
 	 * @return WP_Term|null The classic nav menu assigned to the `primary` location or null.
 	 */
 	private static function get_nav_menu_at_primary_location() {
-		$locations = get_nav_menu_locations();
-
-		if ( isset( $locations['primary'] ) ) {
-			$primary_menu = wp_get_nav_menu_object( $locations['primary'] );
-
-			if ( $primary_menu ) {
-				return $primary_menu;
-			}
-		}
-
+		_deprecated_function( __METHOD__, '1.0.0', '', true );
 		return null;
 	}
 
