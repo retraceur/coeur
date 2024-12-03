@@ -2706,3 +2706,17 @@ function upgrade_650() {
 function get_alloptions_110() {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 }
+
+/**
+ * Adds custom arguments to some of the meta box object types.
+ *
+ * @since WP 3.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @access private
+ *
+ * @param object $data_object The post type or taxonomy meta-object.
+ */
+function _wp_nav_menu_meta_box_object( $data_object = null ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}

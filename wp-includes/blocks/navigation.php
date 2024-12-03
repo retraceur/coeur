@@ -1,7 +1,7 @@
 <?php
 /**
  * Server-side rendering of the `core/navigation` block.
- * 
+ *
  * @since 1.0.0 Retraceur fork.
  *
  * @package Retraceur
@@ -717,36 +717,14 @@ if ( defined( 'IS_GUTENBERG_PLUGIN' ) && IS_GUTENBERG_PLUGIN ) {
 	 * Returns the menu items for a WordPress menu location.
 	 *
 	 * @since WP 5.9.0
+	 * @deprecated 1.0.0 Retraceur fork.
 	 *
 	 * @param string $location The menu location.
 	 * @return array Menu items for the location.
 	 */
 	function block_core_navigation_get_menu_items_at_location( $location ) {
-		if ( empty( $location ) ) {
-			return;
-		}
-
-		// Build menu data. The following approximates the code in
-		// `wp_nav_menu()` and `gutenberg_output_block_nav_menu`.
-
-		// Find the location in the list of locations, returning early if the
-		// location can't be found.
-		$locations = get_nav_menu_locations();
-		if ( ! isset( $locations[ $location ] ) ) {
-			return;
-		}
-
-		// Get the menu from the location, returning early if there is no
-		// menu or there was an error.
-		$menu = wp_get_nav_menu_object( $locations[ $location ] );
-		if ( ! $menu || is_wp_error( $menu ) ) {
-			return;
-		}
-
-		$menu_items = wp_get_nav_menu_items( $menu->term_id, array( 'update_post_term_cache' => false ) );
-		_wp_menu_item_classes_by_context( $menu_items );
-
-		return $menu_items;
+		_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+		return array();
 	}
 
 
@@ -784,7 +762,7 @@ if ( defined( 'IS_GUTENBERG_PLUGIN' ) && IS_GUTENBERG_PLUGIN ) {
 	 * @return WP_Block_List Returns the inner blocks for the navigation block.
 	 */
 	function block_core_navigation_get_inner_blocks_from_unstable_location( $attributes ) {
-		$menu_items = block_core_navigation_get_menu_items_at_location( $attributes['__unstableLocation'] );
+		$menu_items = array();
 		if ( empty( $menu_items ) ) {
 			return new WP_Block_List( array(), $attributes );
 		}
@@ -1307,50 +1285,6 @@ function block_core_navigation_get_classic_menu_fallback() {
 		);
 		return $classic_nav_menus[0];
 	}
-}
-
-/**
- * Converts a classic navigation to blocks.
- *
- * @since WP 6.2.0
- *
- * @deprecated WP 6.3.0 Use WP_Navigation_Fallback::get_classic_menu_fallback_blocks() instead.
- *
- * @param  object $classic_nav_menu WP_Term The classic navigation object to convert.
- * @return array the normalized parsed blocks.
- */
-function block_core_navigation_get_classic_menu_fallback_blocks( $classic_nav_menu ) {
-
-	_deprecated_function( __FUNCTION__, '6.3.0', 'WP_Navigation_Fallback::get_classic_menu_fallback_blocks' );
-
-	// BEGIN: Code that already exists in wp_nav_menu().
-	$menu_items = wp_get_nav_menu_items( $classic_nav_menu->term_id, array( 'update_post_term_cache' => false ) );
-
-	// Set up the $menu_item variables.
-	_wp_menu_item_classes_by_context( $menu_items );
-
-	$sorted_menu_items = array();
-	foreach ( (array) $menu_items as $menu_item ) {
-		$sorted_menu_items[ $menu_item->menu_order ] = $menu_item;
-	}
-
-	unset( $menu_items, $menu_item );
-
-	// END: Code that already exists in wp_nav_menu().
-
-	$menu_items_by_parent_id = array();
-	foreach ( $sorted_menu_items as $menu_item ) {
-		$menu_items_by_parent_id[ $menu_item->menu_item_parent ][] = $menu_item;
-	}
-
-	$inner_blocks = block_core_navigation_parse_blocks_from_menu_items(
-		isset( $menu_items_by_parent_id[0] )
-			? $menu_items_by_parent_id[0]
-			: array(),
-		$menu_items_by_parent_id
-	);
-
-	return serialize_blocks( $inner_blocks );
 }
 
 /**

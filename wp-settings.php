@@ -277,8 +277,6 @@ require ABSPATH . WPINC . '/class-wp-http-encoding.php';
 require ABSPATH . WPINC . '/class-wp-http-response.php';
 require ABSPATH . WPINC . '/class-wp-http-requests-response.php';
 require ABSPATH . WPINC . '/class-wp-http-requests-hooks.php';
-require ABSPATH . WPINC . '/nav-menu-template.php';
-require ABSPATH . WPINC . '/nav-menu.php';
 require ABSPATH . WPINC . '/admin-bar.php';
 require ABSPATH . WPINC . '/class-wp-application-passwords.php';
 require ABSPATH . WPINC . '/rest-api.php';
@@ -298,9 +296,6 @@ require ABSPATH . WPINC . '/rest-api/endpoints/class-wp-rest-autosaves-controlle
 require ABSPATH . WPINC . '/rest-api/endpoints/class-wp-rest-template-autosaves-controller.php';
 require ABSPATH . WPINC . '/rest-api/endpoints/class-wp-rest-taxonomies-controller.php';
 require ABSPATH . WPINC . '/rest-api/endpoints/class-wp-rest-terms-controller.php';
-require ABSPATH . WPINC . '/rest-api/endpoints/class-wp-rest-menu-items-controller.php';
-require ABSPATH . WPINC . '/rest-api/endpoints/class-wp-rest-menus-controller.php';
-require ABSPATH . WPINC . '/rest-api/endpoints/class-wp-rest-menu-locations-controller.php';
 require ABSPATH . WPINC . '/rest-api/endpoints/class-wp-rest-users-controller.php';
 require ABSPATH . WPINC . '/rest-api/endpoints/class-wp-rest-comments-controller.php';
 require ABSPATH . WPINC . '/rest-api/endpoints/class-wp-rest-search-controller.php';
