@@ -765,9 +765,6 @@ function switch_theme( $stylesheet ) {
 		wp_die( $requirements );
 	}
 
-	$nav_menu_locations = get_theme_mod( 'nav_menu_locations' );
-	update_option( 'theme_switch_menu_locations', $nav_menu_locations, true );
-
 	if ( func_num_args() > 1 ) {
 		$stylesheet = func_get_arg( 1 );
 	}
@@ -800,9 +797,6 @@ function switch_theme( $stylesheet ) {
 	// Migrate from the old mods_{name} option to theme_mods_{slug}.
 	if ( is_admin() && false === get_option( 'theme_mods_' . $stylesheet ) ) {
 		$default_theme_mods = (array) get_option( 'mods_' . $new_name );
-		if ( ! empty( $nav_menu_locations ) && empty( $default_theme_mods['nav_menu_locations'] ) ) {
-			$default_theme_mods['nav_menu_locations'] = $nav_menu_locations;
-		}
 		add_option( "theme_mods_$stylesheet", $default_theme_mods );
 	}
 
@@ -2250,79 +2244,6 @@ function get_theme_starter_content() {
 	}
 
 	$core_content = array(
-		'nav_menus' => array(
-			'link_home'       => array(
-				'type'  => 'custom',
-				'title' => _x( 'Home', 'Theme starter content' ),
-				'url'   => home_url( '/' ),
-			),
-			'page_home'       => array( // Deprecated in favor of 'link_home'.
-				'type'      => 'post_type',
-				'object'    => 'page',
-				'object_id' => '{{home}}',
-			),
-			'page_about'      => array(
-				'type'      => 'post_type',
-				'object'    => 'page',
-				'object_id' => '{{about}}',
-			),
-			'page_blog'       => array(
-				'type'      => 'post_type',
-				'object'    => 'page',
-				'object_id' => '{{blog}}',
-			),
-			'page_news'       => array(
-				'type'      => 'post_type',
-				'object'    => 'page',
-				'object_id' => '{{news}}',
-			),
-			'page_contact'    => array(
-				'type'      => 'post_type',
-				'object'    => 'page',
-				'object_id' => '{{contact}}',
-			),
-
-			'link_email'      => array(
-				'title' => _x( 'Email', 'Theme starter content' ),
-				'url'   => 'mailto:wordpress@example.com',
-			),
-			'link_facebook'   => array(
-				'title' => _x( 'Facebook', 'Theme starter content' ),
-				'url'   => 'https://www.facebook.com/wordpress',
-			),
-			'link_foursquare' => array(
-				'title' => _x( 'Foursquare', 'Theme starter content' ),
-				'url'   => 'https://foursquare.com/',
-			),
-			'link_github'     => array(
-				'title' => _x( 'GitHub', 'Theme starter content' ),
-				'url'   => 'https://github.com/wordpress/',
-			),
-			'link_instagram'  => array(
-				'title' => _x( 'Instagram', 'Theme starter content' ),
-				'url'   => 'https://www.instagram.com/explore/tags/wordcamp/',
-			),
-			'link_linkedin'   => array(
-				'title' => _x( 'LinkedIn', 'Theme starter content' ),
-				'url'   => 'https://www.linkedin.com/company/1089783',
-			),
-			'link_pinterest'  => array(
-				'title' => _x( 'Pinterest', 'Theme starter content' ),
-				'url'   => 'https://www.pinterest.com/',
-			),
-			'link_twitter'    => array(
-				'title' => _x( 'Twitter', 'Theme starter content' ),
-				'url'   => 'https://twitter.com/wordpress',
-			),
-			'link_yelp'       => array(
-				'title' => _x( 'Yelp', 'Theme starter content' ),
-				'url'   => 'https://www.yelp.com',
-			),
-			'link_youtube'    => array(
-				'title' => _x( 'YouTube', 'Theme starter content' ),
-				'url'   => 'https://www.youtube.com/channel/UCdof4Ju7amm1chz1gi1T2ZA',
-			),
-		),
 		'posts'     => array(
 			'home'             => array(
 				'post_type'    => 'page',
@@ -2378,34 +2299,14 @@ function get_theme_starter_content() {
 				$content[ $type ] = $config[ $type ];
 				break;
 
-			// And nav menu items are grouped into nav menus.
+			// Nav menus are not supported in Retraceur.
 			case 'nav_menus':
-				foreach ( $config[ $type ] as $nav_menu_location => $nav_menu ) {
-
-					// Ensure nav menus get a name.
-					if ( empty( $nav_menu['name'] ) ) {
-						$nav_menu['name'] = $nav_menu_location;
-					}
-
-					$content[ $type ][ $nav_menu_location ]['name'] = $nav_menu['name'];
-
-					foreach ( $nav_menu['items'] as $id => $nav_menu_item ) {
-						if ( is_array( $nav_menu_item ) ) {
-
-							// Item extends core content.
-							if ( ! empty( $core_content[ $type ][ $id ] ) ) {
-								$nav_menu_item = array_merge( $core_content[ $type ][ $id ], $nav_menu_item );
-							}
-
-							$content[ $type ][ $nav_menu_location ]['items'][] = $nav_menu_item;
-						} elseif ( is_string( $nav_menu_item )
-							&& ! empty( $core_content[ $type ] )
-							&& ! empty( $core_content[ $type ][ $nav_menu_item ] )
-						) {
-							$content[ $type ][ $nav_menu_location ]['items'][] = $core_content[ $type ][ $nav_menu_item ];
-						}
-					}
-				}
+				_deprecated_argument(
+					__FUNCTION__,
+					'1.0.0',
+					__( 'The "nav_menus" argument has been removed. Retraceur does not support WP Nav Menus.' ),
+					true
+				);
 				break;
 
 			// Attachments are posts but have special treatment.
@@ -2541,7 +2442,6 @@ function get_theme_starter_content() {
  *                          - 'featured-content'
  *                          - 'html5'
  *                          - 'link-color'
- *                          - 'menus'
  *                          - 'post-formats'
  *                          - 'post-thumbnails'
  *                          - 'responsive-embeds'
@@ -2934,7 +2834,7 @@ function get_theme_support( $feature, ...$args ) {
  */
 function remove_theme_support( $feature ) {
 	// Do not remove internal registrations that are not used directly by themes.
-	if ( in_array( $feature, array( 'editor-style', 'widgets', 'menus' ), true ) ) {
+	if ( in_array( $feature, array( 'editor-style' ), true ) ) {
 		return false;
 	}
 
@@ -3347,7 +3247,6 @@ function check_theme_switched() {
 
 		// Prevent widget & menu mapping from running since Customizer already called it up front.
 		if ( get_option( 'theme_switched_via_customizer' ) ) {
-			remove_action( 'after_switch_theme', '_wp_menus_changed' );
 			update_option( 'theme_switched_via_customizer', false );
 		}
 
@@ -3840,22 +3739,4 @@ function _add_default_theme_supports() {
 	add_theme_support( 'automatic-feed-links' );
 
 	add_filter( 'should_load_separate_core_block_assets', '__return_true' );
-
-	/*
-	 * Remove the Customizer's Menus panel when block theme is active.
-	 */
-	add_filter(
-		'customize_panel_active',
-		static function ( $active, WP_Customize_Panel $panel ) {
-			if (
-				'nav_menus' === $panel->id &&
-				! current_theme_supports( 'menus' )
-			) {
-				$active = false;
-			}
-			return $active;
-		},
-		10,
-		2
-	);
 }

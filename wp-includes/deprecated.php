@@ -8595,7 +8595,7 @@ function wp_nav_menu( $args = array() ) {
 		array( array() ),
 		'1.0.0',
 		'',
-		__( 'WP Nav Menu is not supported in Retraceur.' )
+		__( 'WP Nav Menus feature is not supported in Retraceur.' )
 	);
 
 	/**
@@ -8617,7 +8617,7 @@ function wp_nav_menu( $args = array() ) {
 		array( null, null ),
 		'1.0.0',
 		'',
-		__( 'WP Nav Menu is not supported in Retraceur.' )
+		__( 'WP Nav Menus feature is not supported in Retraceur.' )
 	);
 
 	/**
@@ -8634,7 +8634,7 @@ function wp_nav_menu( $args = array() ) {
 		array( array( 'div', 'nav' ) ),
 		'1.0.0',
 		'',
-		__( 'WP Nav Menu is not supported in Retraceur.' )
+		__( 'WP Nav Menus feature is not supported in Retraceur.' )
 	);
 
 	/**
@@ -8651,7 +8651,7 @@ function wp_nav_menu( $args = array() ) {
 		array( array(), null ),
 		'1.0.0',
 		'',
-		__( 'WP Nav Menu is not supported in Retraceur.' )
+		__( 'WP Nav Menus feature is not supported in Retraceur.' )
 	);
 
 	/**
@@ -8670,7 +8670,7 @@ function wp_nav_menu( $args = array() ) {
 		array( array(), null ),
 		'1.0.0',
 		'',
-		__( 'WP Nav Menu is not supported in Retraceur.' )
+		__( 'WP Nav Menus feature is not supported in Retraceur.' )
 	);
 
 	/**
@@ -8689,7 +8689,7 @@ function wp_nav_menu( $args = array() ) {
 		array( '', null ),
 		'1.0.0',
 		'',
-		__( 'WP Nav Menu is not supported in Retraceur.' )
+		__( 'WP Nav Menus feature is not supported in Retraceur.' )
 	);
 }
 
@@ -8697,9 +8697,8 @@ function wp_nav_menu( $args = array() ) {
  * Converts a classic navigation to blocks.
  *
  * @since WP 6.2.0
- * @deprecated 1.0.0 Retraceur fork.
- *
  * @deprecated WP 6.3.0 Use WP_Navigation_Fallback::get_classic_menu_fallback_blocks() instead.
+ * @deprecated 1.0.0 Retraceur fork.
  *
  * @param  object $classic_nav_menu WP_Term The classic navigation object to convert.
  * @return array the normalized parsed blocks.
@@ -8707,6 +8706,68 @@ function wp_nav_menu( $args = array() ) {
 function block_core_navigation_get_classic_menu_fallback_blocks( $classic_nav_menu ) {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 	return array();
+}
+
+/**
+ * Turns menu item data into a nested array of parsed blocks
+ *
+ * @since WP 5.9.0
+ * @deprecated WP 6.3.0 Use WP_Navigation_Fallback::parse_blocks_from_menu_items() instead.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param array $menu_items               An array of menu items that represent
+ *                                        an individual level of a menu.
+ * @param array $menu_items_by_parent_id  An array keyed by the id of the
+ *                                        parent menu where each element is an
+ *                                        array of menu items that belong to
+ *                                        that parent.
+ * @return array An array of parsed block data.
+ */
+function block_core_navigation_parse_blocks_from_menu_items( $menu_items, $menu_items_by_parent_id ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return array();
+}
+
+/**
+ * Get the classic navigation menu to use as a fallback.
+ *
+ * @since WP 6.2.0
+ * @deprecated WP 6.3.0 Use WP_Navigation_Fallback::get_classic_menu_fallback() instead.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @return object WP_Term The classic navigation.
+ */
+function block_core_navigation_get_classic_menu_fallback() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return null;
+}
+
+/**
+ * If there's a classic menu then use it as a fallback.
+ *
+ * @since WP 6.2.0
+ * @deprecated WP 6.3.0 Use WP_Navigation_Fallback::create_classic_menu_fallback() instead.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @return array the normalized parsed blocks.
+ */
+function block_core_navigation_maybe_use_classic_menu_fallback() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return array();
+}
+
+/**
+ * Finds the most recently published `wp_navigation` Post.
+ *
+ * @since WP 6.1.0
+ * @deprecated WP 6.3.0 Use WP_Navigation_Fallback::get_most_recently_published_navigation() instead.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @return WP_Post|null the first non-empty Navigation or null.
+ */
+function block_core_navigation_get_most_recently_published_navigation() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return null;
 }
 
 /**
@@ -8737,4 +8798,688 @@ function _wp_menu_item_classes_by_context( $menu_items ) {
 function walk_nav_menu_tree( $items, $depth, $args ) {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 	return '';
+}
+
+/**
+ * Returns a navigation menu object.
+ *
+ * @since WP 3.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int|string|WP_Term $menu Menu ID, slug, name, or object.
+ * @return WP_Term|false Menu object on success, false if $menu param isn't supplied or term does not exist.
+ */
+function wp_get_nav_menu_object( $menu ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the nav_menu term retrieved for wp_get_nav_menu_object().
+	 *
+	 * @since WP 4.3.0
+	 *
+	 * @param WP_Term|false      $menu_obj Term from nav_menu taxonomy, or false if nothing had been found.
+	 * @param int|string|WP_Term $menu     The menu ID, slug, name, or object passed to wp_get_nav_menu_object().
+	 */
+	apply_filters_deprecated(
+		'wp_get_nav_menu_object',
+		array( false, 0 ),
+		'1.0.0',
+		'',
+		__( 'WP Nav Menus feature is not supported in Retraceur.' )
+	);
+
+	return false;
+}
+
+/**
+ * Determines whether the given ID is a navigation menu.
+ *
+ * Returns true if it is; false otherwise.
+ *
+ * @since WP 3.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int|string|WP_Term $menu Menu ID, slug, name, or object of menu to check.
+ * @return bool Whether the menu exists.
+ */
+function is_nav_menu( $menu ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return false;
+}
+
+/**
+ * Registers navigation menu locations for a theme.
+ *
+ * @since WP 3.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string[] $locations Associative array of menu location identifiers (like a slug) and descriptive text.
+ */
+function register_nav_menus( $locations = array() ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Unregisters a navigation menu location for a theme.
+ *
+ * @since WP 3.1.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string $location The menu location identifier.
+ * @return bool True on success, false on failure.
+ */
+function unregister_nav_menu( $location ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return false;
+}
+
+/**
+ * Registers a navigation menu location for a theme.
+ *
+ * @since WP 3.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string $location    Menu location identifier, like a slug.
+ * @param string $description Menu location descriptive text.
+ */
+function register_nav_menu( $location, $description ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+/**
+ * Retrieves all registered navigation menu locations in a theme.
+ *
+ * @since WP 3.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @return string[] Associative array of registered navigation menu descriptions keyed
+ *                  by their location. If none are registered, an empty array.
+ */
+function get_registered_nav_menus() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return array();
+}
+
+/**
+ * Retrieves all registered navigation menu locations and the menus assigned to them.
+ *
+ * @since WP 3.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @return int[] Associative array of registered navigation menu IDs keyed by their
+ *               location name. If none are registered, an empty array.
+ */
+function get_nav_menu_locations() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return array();
+}
+
+/**
+ * Determines whether a registered nav menu location has a menu assigned to it.
+ *
+ * @since WP 3.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string $location Menu location identifier.
+ * @return bool Whether location has a menu.
+ */
+function has_nav_menu( $location ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters whether a nav menu is assigned to the specified location.
+	 *
+	 * @since WP 4.3.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param bool   $has_nav_menu Whether there is a menu assigned to a location.
+	 * @param string $location     Menu location.
+	 */
+	apply_filters_deprecated(
+		'has_nav_menu',
+		array( false, '' ),
+		'1.0.0',
+		'',
+		__( 'WP Nav Menus feature is not supported in Retraceur.' )
+	);
+
+	return false;
+}
+
+/**
+ * Returns the name of a navigation menu.
+ *
+ * @since WP 4.9.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string $location Menu location identifier.
+ * @return string Menu name.
+ */
+function wp_get_nav_menu_name( $location ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the navigation menu name being returned.
+	 *
+	 * @since WP 4.9.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string $menu_name Menu name.
+	 * @param string $location  Menu location identifier.
+	 */
+	apply_filters_deprecated(
+		'wp_get_nav_menu_name',
+		array( '', '' ),
+		'1.0.0',
+		'',
+		__( 'WP Nav Menus feature is not supported in Retraceur.' )
+	);
+
+	return '';
+}
+
+/**
+ * Determines whether the given ID is a nav menu item.
+ *
+ * @since WP 3.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int $menu_item_id The ID of the potential nav menu item.
+ * @return bool Whether the given ID is that of a nav menu item.
+ */
+function is_nav_menu_item( $menu_item_id = 0 ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return false;
+}
+
+/**
+ * Creates a navigation menu.
+ *
+ * Note that `$menu_name` is expected to be pre-slashed.
+ *
+ * @since WP 3.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string $menu_name Menu name.
+ * @return int|WP_Error Menu ID on success, WP_Error object on failure.
+ */
+function wp_create_nav_menu( $menu_name ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return 0;
+}
+
+/**
+ * Deletes a navigation menu.
+ *
+ * @since WP 3.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int|string|WP_Term $menu Menu ID, slug, name, or object.
+ * @return bool|WP_Error True on success, false or WP_Error object on failure.
+ */
+function wp_delete_nav_menu( $menu ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Fires after a navigation menu has been successfully deleted.
+	 *
+	 * @since WP 3.0.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param int $term_id ID of the deleted menu.
+	 */
+	do_action_deprecated(
+		'wp_delete_nav_menu',
+		array( 0 ),
+		'1.0.0',
+		'',
+		__( 'WP Nav Menus feature is not supported in Retraceur.' )
+	);
+
+	return false;
+}
+
+/**
+ * Saves the properties of a menu or create a new menu with those properties.
+ *
+ * Note that `$menu_data` is expected to be pre-slashed.
+ *
+ * @since WP 3.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int   $menu_id   The ID of the menu or "0" to create a new menu.
+ * @param array $menu_data The array of menu data.
+ * @return int|WP_Error Menu ID on success, WP_Error object on failure.
+ */
+function wp_update_nav_menu_object( $menu_id = 0, $menu_data = array() ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Fires after a navigation menu is successfully created.
+	 *
+	 * @since WP 3.0.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param int   $term_id   ID of the new menu.
+	 * @param array $menu_data An array of menu data.
+	 */
+	do_action_deprecated(
+		'wp_create_nav_menu',
+		array( 0, array() ),
+		'1.0.0',
+		'',
+		__( 'WP Nav Menus feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Fires after a navigation menu has been successfully updated.
+	 *
+	 * @since WP 3.0.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param int   $menu_id   ID of the updated menu.
+	 * @param array $menu_data An array of menu data.
+	 */
+	do_action_deprecated(
+		'wp_update_nav_menu',
+		array( 0, array() ),
+		'1.0.0',
+		'',
+		__( 'WP Nav Menus feature is not supported in Retraceur.' )
+	);
+
+	return 0;
+}
+
+/**
+ * Saves the properties of a menu item or create a new one.
+ *
+ * The menu-item-title, menu-item-description and menu-item-attr-title are expected
+ * to be pre-slashed since they are passed directly to APIs that expect slashed data.
+ *
+ * @since WP 3.0.0
+ * @since WP 5.9.0 Added the `$fire_after_hooks` parameter.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int   $menu_id          The ID of the menu. If 0, makes the menu item a draft orphan.
+ * @param int   $menu_item_db_id  The ID of the menu item. If 0, creates a new menu item.
+ * @param array $menu_item_data   The menu item's data.
+ * @param bool  $fire_after_hooks Whether to fire the after insert hooks. Default true.
+ * @return int|WP_Error The menu item's database ID or WP_Error object on failure.
+ */
+function wp_update_nav_menu_item( $menu_id = 0, $menu_item_db_id = 0, $menu_item_data = array(), $fire_after_hooks = true ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Fires immediately after a new navigation menu item has been added.
+	 *
+	 * @since WP 4.4.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @see wp_update_nav_menu_item()
+	 *
+	 * @param int   $menu_id         ID of the updated menu.
+	 * @param int   $menu_item_db_id ID of the new menu item.
+	 * @param array $args            An array of arguments used to update/add the menu item.
+	 */
+	do_action_deprecated(
+		'wp_add_nav_menu_item',
+		array( 0, 0, array() ),
+		'1.0.0',
+		'',
+		__( 'WP Nav Menus feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Fires after a navigation menu item has been updated.
+	 *
+	 * @since WP 3.0.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @see wp_update_nav_menu_item()
+	 *
+	 * @param int   $menu_id         ID of the updated menu.
+	 * @param int   $menu_item_db_id ID of the updated menu item.
+	 * @param array $args            An array of arguments used to update a menu item.
+	 */
+	do_action_deprecated(
+		'wp_update_nav_menu_item',
+		array( 0, 0, array() ),
+		'1.0.0',
+		'',
+		__( 'WP Nav Menus feature is not supported in Retraceur.' )
+	);
+
+	return 0;
+}
+
+/**
+ * Returns all navigation menu objects.
+ *
+ * @since WP 3.0.0
+ * @since WP 4.1.0 Default value of the 'orderby' argument was changed from 'none'
+ *              to 'name'.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param array $args Optional. Array of arguments passed on to get_terms().
+ *                    Default empty array.
+ * @return WP_Term[] An array of menu objects.
+ */
+function wp_get_nav_menus( $args = array() ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the navigation menu objects being returned.
+	 *
+	 * @since WP 3.0.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @see get_terms()
+	 *
+	 * @param WP_Term[] $menus An array of menu objects.
+	 * @param array     $args  An array of arguments used to retrieve menu objects.
+	 */
+	apply_filters_deprecated(
+		'wp_get_nav_menus',
+		array( null, array() ),
+		'1.0.0',
+		'',
+		__( 'WP Nav Menus feature is not supported in Retraceur.' )
+	);
+}
+
+/**
+ * Determines whether a menu item is valid.
+ *
+ * @since WP 3.2.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @access private
+ *
+ * @param object $item The menu item to check.
+ * @return bool False if invalid, otherwise true.
+ */
+function _is_valid_nav_menu_item( $item ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return false;
+}
+
+/**
+ * Retrieves all menu items of a navigation menu.
+ *
+ * Note: Most arguments passed to the `$args` parameter – save for 'output_key' – are
+ * specifically for retrieving nav_menu_item posts from get_posts() and may only
+ * indirectly affect the ultimate ordering and content of the resulting nav menu
+ * items that get returned from this function.
+ *
+ * @since WP 3.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int|string|WP_Term $menu Menu ID, slug, name, or object.
+ * @param array              $args {
+ *     Optional. Arguments to pass to get_posts().
+ *
+ *     @type string $order                  How to order nav menu items as queried with get_posts().
+ *                                          Will be ignored if 'output' is ARRAY_A. Default 'ASC'.
+ *     @type string $orderby                Field to order menu items by as retrieved from get_posts().
+ *                                          Supply an orderby field via 'output_key' to affect the
+ *                                          output order of nav menu items. Default 'menu_order'.
+ *     @type string $post_type              Menu items post type. Default 'nav_menu_item'.
+ *     @type string $post_status            Menu items post status. Default 'publish'.
+ *     @type string $output                 How to order outputted menu items. Default ARRAY_A.
+ *     @type string $output_key             Key to use for ordering the actual menu items that get
+ *                                          returned. Note that that is not a get_posts() argument
+ *                                          and will only affect output of menu items processed in
+ *                                          this function. Default 'menu_order'.
+ *     @type bool   $nopaging               Whether to retrieve all menu items (true) or paginate
+ *                                          (false). Default true.
+ *     @type bool   $update_menu_item_cache Whether to update the menu item cache. Default true.
+ * }
+ * @return array|false Array of menu items, otherwise false.
+ */
+function wp_get_nav_menu_items( $menu, $args = array() ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the navigation menu items being returned.
+	 *
+	 * @since WP 3.0.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param array  $items An array of menu item post objects.
+	 * @param object $menu  The menu object.
+	 * @param array  $args  An array of arguments used to retrieve menu item objects.
+	 */
+	apply_filters_deprecated(
+		'wp_get_nav_menu_items',
+		array( array(), null, array() ),
+		'1.0.0',
+		'',
+		__( 'WP Nav Menus feature is not supported in Retraceur.' )
+	);
+
+	return false;
+}
+
+/**
+ * Updates post and term caches for all linked objects for a list of menu items.
+ *
+ * @since WP 6.1.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param WP_Post[] $menu_items Array of menu item post objects.
+ */
+function update_menu_item_cache( $menu_items ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Decorates a menu item object with the shared navigation menu item properties.
+ *
+ * Properties:
+ * - ID:               The term_id if the menu item represents a taxonomy term.
+ * - attr_title:       The title attribute of the link element for this menu item.
+ * - classes:          The array of class attribute values for the link element of this menu item.
+ * - db_id:            The DB ID of this item as a nav_menu_item object, if it exists (0 if it doesn't exist).
+ * - description:      The description of this menu item.
+ * - menu_item_parent: The DB ID of the nav_menu_item that is this item's menu parent, if any. 0 otherwise.
+ * - object:           The type of object originally represented, such as 'category', 'post', or 'attachment'.
+ * - object_id:        The DB ID of the original object this menu item represents, e.g. ID for posts and term_id for categories.
+ * - post_parent:      The DB ID of the original object's parent object, if any (0 otherwise).
+ * - post_title:       A "no title" label if menu item represents a post that lacks a title.
+ * - target:           The target attribute of the link element for this menu item.
+ * - title:            The title of this menu item.
+ * - type:             The family of objects originally represented, such as 'post_type' or 'taxonomy'.
+ * - type_label:       The singular label used to describe this type of menu item.
+ * - url:              The URL to which this menu item points.
+ * - xfn:              The XFN relationship expressed in the link of this menu item.
+ * - _invalid:         Whether the menu item represents an object that no longer exists.
+ *
+ * @since WP 3.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param object $menu_item The menu item to modify.
+ * @return object The menu item with standard menu item properties.
+ */
+function wp_setup_nav_menu_item( $menu_item ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters whether to short-circuit the wp_setup_nav_menu_item() output.
+	 *
+	 * Returning a non-null value from the filter will short-circuit wp_setup_nav_menu_item(),
+	 * returning that value instead.
+	 *
+	 * @since WP 6.3.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param object|null $modified_menu_item Modified menu item. Default null.
+	 * @param object      $menu_item          The menu item to modify.
+	 */
+	apply_filters_deprecated(
+		'pre_wp_setup_nav_menu_item',
+		array( null, $menu_item ),
+		'1.0.0',
+		'',
+		__( 'WP Nav Menus feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Filters a navigation menu item's title attribute.
+	 *
+	 * @since WP 3.0.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string $item_title The menu item title attribute.
+	 */
+	apply_filters_deprecated(
+		'nav_menu_attr_title',
+		array( '' ),
+		'1.0.0',
+		'',
+		__( 'WP Nav Menus feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Filters a navigation menu item's description.
+	 *
+	 * @since WP 3.0.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string $description The menu item description.
+	 */
+	apply_filters_deprecated(
+		'nav_menu_description',
+		array( '' ),
+		'1.0.0',
+		'',
+		__( 'WP Nav Menus feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Filters a navigation menu item object.
+	 *
+	 * @since WP 3.0.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param object $menu_item The menu item object.
+	 */
+	apply_filters_deprecated(
+		'wp_setup_nav_menu_item',
+		array( $menu_item ),
+		'1.0.0',
+		'',
+		__( 'WP Nav Menus feature is not supported in Retraceur.' )
+	);
+
+	return null;
+}
+
+/**
+ * Returns the menu items associated with a particular object.
+ *
+ * @since WP 3.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int    $object_id   Optional. The ID of the original object. Default 0.
+ * @param string $object_type Optional. The type of object, such as 'post_type' or 'taxonomy'.
+ *                            Default 'post_type'.
+ * @param string $taxonomy    Optional. If $object_type is 'taxonomy', $taxonomy is the name
+ *                            of the tax that $object_id belongs to. Default empty.
+ * @return int[] The array of menu item IDs; empty array if none.
+ */
+function wp_get_associated_nav_menu_items( $object_id = 0, $object_type = 'post_type', $taxonomy = '' ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return array();
+}
+
+/**
+ * Callback for handling a menu item when its original object is deleted.
+ *
+ * @since WP 3.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @access private
+ *
+ * @param int $object_id The ID of the original object being trashed.
+ */
+function _wp_delete_post_menu_item( $object_id ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Serves as a callback for handling a menu item when its original object is deleted.
+ *
+ * @since WP 3.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @access private
+ *
+ * @param int    $object_id The ID of the original object being trashed.
+ * @param int    $tt_id     Term taxonomy ID. Unused.
+ * @param string $taxonomy  Taxonomy slug.
+ */
+function _wp_delete_tax_menu_item( $object_id, $tt_id, $taxonomy ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Automatically add newly published page objects to menus with that as an option.
+ *
+ * @since WP 3.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @access private
+ *
+ * @param string  $new_status The new status of the post object.
+ * @param string  $old_status The old status of the post object.
+ * @param WP_Post $post       The post object being transitioned from one status to another.
+ */
+function _wp_auto_add_pages_to_menu( $new_status, $old_status, $post ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Handles menu config after theme change.
+ *
+ * @since WP 4.9.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @access private
+ */
+function _wp_menus_changed() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Maps nav menu locations according to assignments in previously active theme.
+ *
+ * @since WP 4.9.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param array $new_nav_menu_locations New nav menu locations assignments.
+ * @param array $old_nav_menu_locations Old nav menu locations assignments.
+ * @return array Nav menus mapped to new nav menu locations.
+ */
+function wp_map_nav_menu_locations( $new_nav_menu_locations, $old_nav_menu_locations ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return array();
+}
+
+/**
+ * Prevents menu items from being their own parent.
+ *
+ * Resets menu_item_parent to 0 when the parent is set to the item itself.
+ * For use before saving `_menu_item_menu_item_parent` in nav-menus.php.
+ *
+ * @since WP 6.2.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @access private
+ *
+ * @param array $menu_item_data The menu item data array.
+ * @return array The menu item data with reset menu_item_parent.
+ */
+function _wp_reset_invalid_menu_item_parent( $menu_item_data ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return array();
 }

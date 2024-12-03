@@ -1,7 +1,7 @@
 <?php
 /**
  * REST API: WP_REST_Posts_Controller class
- * 
+ *
  * @since WP 4.7.0
  * @since 1.0.0 Retraceur fork.
  *
@@ -2201,7 +2201,7 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 			);
 		}
 
-		if ( ! in_array( $post->post_type, array( 'attachment', 'nav_menu_item', 'revision' ), true ) ) {
+		if ( ! in_array( $post->post_type, array( 'attachment', 'revision' ), true ) ) {
 			$attachments_url = rest_url( rest_get_route_for_post_type_items( 'attachment' ) );
 			$attachments_url = add_query_arg( 'parent', $post->ID, $attachments_url );
 

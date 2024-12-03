@@ -1490,8 +1490,6 @@ function wp_page_menu( $args = array() ) {
 	}
 
 	if ( $menu ) {
-
-		// wp_nav_menu() doesn't set before and after.
 		if ( isset( $args['fallback_cb'] ) &&
 			'wp_page_menu' === $args['fallback_cb'] &&
 			'ul' !== $container ) {
