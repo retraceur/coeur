@@ -49,7 +49,6 @@ add_action( 'admin_head', 'wp_admin_canonical_url' );
 add_action( 'admin_head', 'wp_site_icon' );
 add_action( 'admin_head', 'wp_admin_viewport_meta' );
 add_action( 'customize_controls_head', 'wp_admin_viewport_meta' );
-add_filter( 'nav_menu_meta_box_object', '_wp_nav_menu_meta_box_object' );
 add_filter( 'admin_print_styles', 'wp_resource_hints', 1 );
 
 add_action( 'admin_print_scripts', 'print_emoji_detection_script' );
@@ -83,9 +82,6 @@ add_filter( 'heartbeat_settings', 'wp_heartbeat_set_suspension' );
 add_action( 'use_block_editor_for_post_type', '_disable_block_editor_for_navigation_post_type', 10, 2 );
 add_action( 'edit_form_after_title', '_disable_content_editor_for_navigation_post_type' );
 add_action( 'edit_form_after_editor', '_enable_content_editor_for_navigation_post_type' );
-
-// Nav Menu hooks.
-add_action( 'admin_head-nav-menus.php', '_wp_delete_orphaned_draft_menu_items' );
 
 // Plugin hooks.
 add_filter( 'allowed_options', 'option_update_filter' );

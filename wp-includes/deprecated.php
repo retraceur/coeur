@@ -8482,3 +8482,259 @@ function _wp_batch_update_comment_type() {
 function _wp_check_for_scheduled_update_comment_type() {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 }
+
+/**
+ * If the term being split is a nav_menu, changes associations.
+ *
+ * @ignore
+ * @since WP 4.3.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int    $term_id          ID of the formerly shared term.
+ * @param int    $new_term_id      ID of the new term created for the $term_taxonomy_id.
+ * @param int    $term_taxonomy_id ID for the term_taxonomy row affected by the split.
+ * @param string $taxonomy         Taxonomy for the split term.
+ */
+function _wp_check_split_nav_menu_terms( $term_id, $new_term_id, $term_taxonomy_id, $taxonomy ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Prevents a menu item ID from being used more than once.
+ *
+ * @since WP 3.0.1
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @access private
+ *
+ * @param string $id
+ * @param object $item
+ */
+function _nav_menu_item_id_use_once( $id, $item ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Remove the `menu-item-has-children` class from bottom level menu items.
+ *
+ * This runs on the {@see 'nav_menu_css_class'} filter. The $args and $depth
+ * parameters were added after the filter was originally introduced in
+ * WordPress 3.0.0 so this needs to allow for cases in which the filter is
+ * called without them.
+ *
+ * @since WP 6.2.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string[]       $classes   Array of the CSS classes that are applied to the menu item's `<li>` element.
+ * @param WP_Post        $menu_item The current menu item object.
+ * @param stdClass|false $args      An object of wp_nav_menu() arguments. Default false ($args unspecified when filter is called).
+ * @param int|false      $depth     Depth of menu item. Default false ($depth unspecified when filter is called).
+ */
+function wp_nav_menu_remove_menu_item_has_children_class( $classes, $menu_item, $args = false, $depth = false ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Displays a navigation menu.
+ *
+ * @since WP 3.0.0
+ * @since WP 4.7.0 Added the `item_spacing` argument.
+ * @since WP 5.5.0 Added the `container_aria_label` argument.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param array $args {
+ *     Optional. Array of nav menu arguments.
+ *
+ *     @type int|string|WP_Term $menu                 Desired menu. Accepts a menu ID, slug, name, or object.
+ *                                                    Default empty.
+ *     @type string             $menu_class           CSS class to use for the ul element which forms the menu.
+ *                                                    Default 'menu'.
+ *     @type string             $menu_id              The ID that is applied to the ul element which forms the menu.
+ *                                                    Default is the menu slug, incremented.
+ *     @type string             $container            Whether to wrap the ul, and what to wrap it with.
+ *                                                    Default 'div'.
+ *     @type string             $container_class      Class that is applied to the container.
+ *                                                    Default 'menu-{menu slug}-container'.
+ *     @type string             $container_id         The ID that is applied to the container. Default empty.
+ *     @type string             $container_aria_label The aria-label attribute that is applied to the container
+ *                                                    when it's a nav element. Default empty.
+ *     @type callable|false     $fallback_cb          If the menu doesn't exist, a callback function will fire.
+ *                                                    Default is 'wp_page_menu'. Set to false for no fallback.
+ *     @type string             $before               Text before the link markup. Default empty.
+ *     @type string             $after                Text after the link markup. Default empty.
+ *     @type string             $link_before          Text before the link text. Default empty.
+ *     @type string             $link_after           Text after the link text. Default empty.
+ *     @type bool               $echo                 Whether to echo the menu or return it. Default true.
+ *     @type int                $depth                How many levels of the hierarchy are to be included.
+ *                                                    0 means all. Default 0.
+ *                                                    Default 0.
+ *     @type object             $walker               Instance of a custom walker class. Default empty.
+ *     @type string             $theme_location       Theme location to be used. Must be registered with
+ *                                                    register_nav_menu() in order to be selectable by the user.
+ *     @type string             $items_wrap           How the list items should be wrapped. Uses printf() format with
+ *                                                    numbered placeholders. Default is a ul with an id and class.
+ *     @type string             $item_spacing         Whether to preserve whitespace within the menu's HTML.
+ *                                                    Accepts 'preserve' or 'discard'. Default 'preserve'.
+ * }
+ */
+function wp_nav_menu( $args = array() ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the arguments used to display a navigation menu.
+	 *
+	 * @since WP 3.0.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @see wp_nav_menu()
+	 *
+	 * @param array $args Array of wp_nav_menu() arguments.
+	 */
+	apply_filters_deprecated(
+		'wp_nav_menu_args',
+		array( array() ),
+		'1.0.0',
+		'',
+		__( 'WP Nav Menu is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Filters whether to short-circuit the wp_nav_menu() output.
+	 *
+	 * Returning a non-null value from the filter will short-circuit wp_nav_menu(),
+	 * echoing that value if $args->echo is true, returning that value otherwise.
+	 *
+	 * @since WP 3.9.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @see wp_nav_menu()
+	 *
+	 * @param string|null $output Nav menu output to short-circuit with. Default null.
+	 * @param stdClass    $args   An object containing wp_nav_menu() arguments.
+	 */
+	apply_filters_deprecated(
+		'pre_wp_nav_menu',
+		array( null, null ),
+		'1.0.0',
+		'',
+		__( 'WP Nav Menu is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Filters the list of HTML tags that are valid for use as menu containers.
+	 *
+	 * @since WP 3.0.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string[] $tags The acceptable HTML tags for use as menu containers.
+	 *                       Default is array containing 'div' and 'nav'.
+	 */
+	apply_filters_deprecated(
+		'wp_nav_menu_container_allowedtags',
+		array( array( 'div', 'nav' ) ),
+		'1.0.0',
+		'',
+		__( 'WP Nav Menu is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Filters the sorted list of menu item objects before generating the menu's HTML.
+	 *
+	 * @since WP 3.1.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param array    $sorted_menu_items The menu items, sorted by each menu item's menu order.
+	 * @param stdClass $args              An object containing wp_nav_menu() arguments.
+	 */
+	apply_filters_deprecated(
+		'wp_nav_menu_objects',
+		array( array(), null ),
+		'1.0.0',
+		'',
+		__( 'WP Nav Menu is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Filters the HTML list content for navigation menus.
+	 *
+	 * @since WP 3.0.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @see wp_nav_menu()
+	 *
+	 * @param string   $items The HTML list content for the menu items.
+	 * @param stdClass $args  An object containing wp_nav_menu() arguments.
+	 */
+	apply_filters_deprecated(
+		'wp_nav_menu_items',
+		array( array(), null ),
+		'1.0.0',
+		'',
+		__( 'WP Nav Menu is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Filters the HTML content for navigation menus.
+	 *
+	 * @since WP 3.0.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @see wp_nav_menu()
+	 *
+	 * @param string   $nav_menu The HTML content for the navigation menu.
+	 * @param stdClass $args     An object containing wp_nav_menu() arguments.
+	 */
+	apply_filters_deprecated(
+		'wp_nav_menu',
+		array( '', null ),
+		'1.0.0',
+		'',
+		__( 'WP Nav Menu is not supported in Retraceur.' )
+	);
+}
+
+/**
+ * Converts a classic navigation to blocks.
+ *
+ * @since WP 6.2.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @deprecated WP 6.3.0 Use WP_Navigation_Fallback::get_classic_menu_fallback_blocks() instead.
+ *
+ * @param  object $classic_nav_menu WP_Term The classic navigation object to convert.
+ * @return array the normalized parsed blocks.
+ */
+function block_core_navigation_get_classic_menu_fallback_blocks( $classic_nav_menu ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return array();
+}
+
+/**
+ * Adds the class property classes for the current context, if applicable.
+ *
+ * @access private
+ * @since WP 3.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param array $menu_items The current menu item objects to which to add the class property information.
+ */
+function _wp_menu_item_classes_by_context( $menu_items ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Retrieves the HTML list content for nav menu items.
+ *
+ * @uses Walker_Nav_Menu to create HTML list content.
+ * @since WP 3.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param array    $items The menu items, sorted by each menu item's menu order.
+ * @param int      $depth Depth of the item in reference to parents.
+ * @param stdClass $args  An object containing wp_nav_menu() arguments.
+ * @return string The HTML list content for the menu items.
+ */
+function walk_nav_menu_tree( $items, $depth, $args ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return '';
+}

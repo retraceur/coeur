@@ -168,7 +168,7 @@ foreach ( array( 'the_content', 'the_title', 'wp_title', 'document_title' ) as $
 add_filter( 'comment_text', 'capital_P_dangit', 31 );
 
 // Format titles.
-foreach ( array( 'single_post_title', 'single_cat_title', 'single_tag_title', 'single_month_title', 'nav_menu_attr_title', 'nav_menu_description' ) as $filter ) {
+foreach ( array( 'single_post_title', 'single_cat_title', 'single_tag_title', 'single_month_title' ) as $filter ) {
 	add_filter( $filter, 'wptexturize' );
 	add_filter( $filter, 'strip_tags' );
 }
@@ -470,7 +470,6 @@ add_filter( 'determine_current_user', 'wp_validate_application_password', 20 );
 add_action( 'admin_init', '_wp_check_for_scheduled_split_terms' );
 add_action( 'split_shared_term', '_wp_check_split_default_terms', 10, 4 );
 add_action( 'split_shared_term', '_wp_check_split_terms_in_menus', 10, 4 );
-add_action( 'split_shared_term', '_wp_check_split_nav_menu_terms', 10, 4 );
 add_action( 'wp_split_shared_term_batch', '_wp_batch_split_terms' );
 
 // Email notifications.
@@ -606,10 +605,6 @@ add_action( 'template_redirect', 'wp_redirect_admin_locations', 1000 );
 add_action( 'wp_playlist_scripts', 'wp_playlist_scripts' );
 add_action( 'plugins_loaded', '_wp_add_additional_image_sizes', 0 );
 add_filter( 'plupload_default_settings', 'wp_show_heic_upload_error' );
-
-// Nav menu.
-add_filter( 'nav_menu_item_id', '_nav_menu_item_id_use_once', 10, 2 );
-add_filter( 'nav_menu_css_class', 'wp_nav_menu_remove_menu_item_has_children_class', 10, 4 );
 
 // Admin Bar.
 // Don't remove. Wrong way to disable.

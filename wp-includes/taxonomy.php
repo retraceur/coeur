@@ -109,33 +109,6 @@ function create_initial_taxonomies() {
 	);
 
 	register_taxonomy(
-		'nav_menu',
-		'nav_menu_item',
-		array(
-			'public'                => false,
-			'hierarchical'          => false,
-			'labels'                => array(
-				'name'          => __( 'Navigation Menus' ),
-				'singular_name' => __( 'Navigation Menu' ),
-			),
-			'query_var'             => false,
-			'rewrite'               => false,
-			'show_ui'               => false,
-			'_builtin'              => true,
-			'show_in_nav_menus'     => false,
-			'capabilities'          => array(
-				'manage_terms' => 'edit_theme_options',
-				'edit_terms'   => 'edit_theme_options',
-				'delete_terms' => 'edit_theme_options',
-				'assign_terms' => 'edit_theme_options',
-			),
-			'show_in_rest'          => true,
-			'rest_base'             => 'menus',
-			'rest_controller_class' => 'WP_REST_Menus_Controller',
-		)
-	);
-
-	register_taxonomy(
 		'post_format',
 		'post',
 		array(
@@ -4478,32 +4451,6 @@ function _wp_check_split_terms_in_menus( $term_id, $new_term_id, $term_taxonomy_
 			update_post_meta( $post_id, '_menu_item_object_id', $new_term_id, $term_id );
 		}
 	}
-}
-
-/**
- * If the term being split is a nav_menu, changes associations.
- *
- * @ignore
- * @since WP 4.3.0
- *
- * @param int    $term_id          ID of the formerly shared term.
- * @param int    $new_term_id      ID of the new term created for the $term_taxonomy_id.
- * @param int    $term_taxonomy_id ID for the term_taxonomy row affected by the split.
- * @param string $taxonomy         Taxonomy for the split term.
- */
-function _wp_check_split_nav_menu_terms( $term_id, $new_term_id, $term_taxonomy_id, $taxonomy ) {
-	if ( 'nav_menu' !== $taxonomy ) {
-		return;
-	}
-
-	// Update menu locations.
-	$locations = get_nav_menu_locations();
-	foreach ( $locations as $location => $menu_id ) {
-		if ( $term_id === $menu_id ) {
-			$locations[ $location ] = $new_term_id;
-		}
-	}
-	set_theme_mod( 'nav_menu_locations', $locations );
 }
 
 /**

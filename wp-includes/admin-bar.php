@@ -988,17 +988,6 @@ function wp_admin_bar_appearance_menu( $wp_admin_bar ) {
 		return;
 	}
 
-	if ( current_theme_supports( 'menus' ) ) {
-		$wp_admin_bar->add_node(
-			array(
-				'parent' => 'appearance',
-				'id'     => 'menus',
-				'title'  => __( 'Menus' ),
-				'href'   => admin_url( 'nav-menus.php' ),
-			)
-		);
-	}
-
 	if ( current_theme_supports( 'custom-background' ) ) {
 		$wp_admin_bar->add_node(
 			array(
