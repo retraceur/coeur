@@ -60,7 +60,7 @@ wp_localize_script(
 			'search'              => __( 'Search Themes' ),
 			'upload'              => __( 'Upload Theme' ),
 			'back'                => __( 'Back' ),
-			'error'               => __( 'An unexpected error occurred.' ),
+			'error'               => __( 'Retraceur does not provide a Theme Install API.' ),
 			'tryAgain'            => __( 'Try Again' ),
 			/* translators: %d: Number of themes. */
 			'themesFound'         => __( 'Number of Themes found: %d' ),
@@ -185,7 +185,6 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 			<li><a href="#" data-sort="popular"><?php _ex( 'Popular', 'themes' ); ?></a></li>
 			<li><a href="#" data-sort="new"><?php _ex( 'Latest', 'themes' ); ?></a></li>
 			<li><a href="#" data-sort="block-themes"><?php _ex( 'Block Themes', 'themes' ); ?></a></li>
-			<li><a href="#" data-sort="favorites"><?php _ex( 'Favorites', 'themes' ); ?></a></li>
 		</ul>
 
 		<button type="button" class="button drawer-toggle" aria-expanded="false"><?php _e( 'Feature Filter' ); ?></button>

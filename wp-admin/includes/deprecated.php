@@ -3014,3 +3014,13 @@ function wp_nav_menu_update_menu_items( $nav_menu_selected_id, $nav_menu_selecte
 function _wp_expand_nav_menu_post_data() {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 }
+
+/**
+ * Handles saving the user's username via AJAX.
+ *
+ * @since WP 4.4.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function wp_ajax_save_wporg_username() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}

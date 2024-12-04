@@ -3101,13 +3101,6 @@ function wp_ajax_query_themes() {
 		)
 	);
 
-	if ( isset( $args['browse'] ) && 'favorites' === $args['browse'] && ! isset( $args['user'] ) ) {
-		$user = get_user_option( 'wporg_favorites' );
-		if ( $user ) {
-			$args['user'] = $user;
-		}
-	}
-
 	$old_filter = isset( $args['browse'] ) ? $args['browse'] : 'search';
 
 	/** This filter is documented in wp-admin/includes/class-wp-theme-install-list-table.php */
@@ -3578,27 +3571,6 @@ function wp_ajax_generate_password() {
  */
 function wp_ajax_nopriv_generate_password() {
 	wp_send_json_success( wp_generate_password( 24 ) );
-}
-
-/**
- * Handles saving the user's username via AJAX.
- *
- * @since WP 4.4.0
- */
-function wp_ajax_save_wporg_username() {
-	if ( ! current_user_can( 'install_themes' ) && ! current_user_can( 'install_plugins' ) ) {
-		wp_send_json_error();
-	}
-
-	check_ajax_referer( 'save_wporg_username_' . get_current_user_id() );
-
-	$username = isset( $_REQUEST['username'] ) ? wp_unslash( $_REQUEST['username'] ) : false;
-
-	if ( ! $username ) {
-		wp_send_json_error();
-	}
-
-	wp_send_json_success( update_user_meta( get_current_user_id(), 'wporg_favorites', $username ) );
 }
 
 /**

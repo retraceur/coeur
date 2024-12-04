@@ -111,10 +111,8 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 			$tabs['beta'] = _x( 'Beta Testing', 'Plugin Installer' );
 		}
 
+		$tabs['all']         = _x( 'All', 'Plugin Installer' );
 		$tabs['featured']    = _x( 'Featured', 'Plugin Installer' );
-		$tabs['popular']     = _x( 'Popular', 'Plugin Installer' );
-		$tabs['recommended'] = _x( 'Recommended', 'Plugin Installer' );
-		$tabs['favorites']   = _x( 'Favorites', 'Plugin Installer' );
 
 		if ( current_user_can( 'upload_plugins' ) ) {
 			/*
@@ -132,7 +130,7 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 		 * @since WP 2.7.0
 		 *
 		 * @param string[] $tabs The tabs shown on the Add Plugins screen. Defaults include
-		 *                       'featured', 'popular', 'recommended', 'favorites', and 'upload'.
+		 *                       'all', 'featured' and 'upload'.
 		 */
 		$tabs = apply_filters( 'install_plugins_tabs', $tabs );
 
@@ -179,34 +177,10 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 				break;
 
 			case 'featured':
-			case 'popular':
 			case 'new':
 			case 'beta':
+			case 'all':
 				$args['browse'] = $tab;
-				break;
-			case 'recommended':
-				$args['browse'] = $tab;
-				// Include the list of installed plugins so we can get relevant results.
-				$args['installed_plugins'] = array_keys( $installed_plugins );
-				break;
-
-			case 'favorites':
-				$action = 'save_wporg_username_' . get_current_user_id();
-				if ( isset( $_GET['_wpnonce'] ) && wp_verify_nonce( wp_unslash( $_GET['_wpnonce'] ), $action ) ) {
-					$user = isset( $_GET['user'] ) ? wp_unslash( $_GET['user'] ) : get_user_option( 'wporg_favorites' );
-
-					// If the save url parameter is passed with a falsey value, don't save the favorite user.
-					if ( ! isset( $_GET['save'] ) || $_GET['save'] ) {
-						update_user_meta( get_current_user_id(), 'wporg_favorites', $user );
-					}
-				} else {
-					$user = get_user_option( 'wporg_favorites' );
-				}
-				if ( $user ) {
-					$args['user'] = $user;
-				} else {
-					$args = false;
-				}
 				break;
 
 			default:
@@ -221,10 +195,8 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 		 *
 		 * Possible hook names include:
 		 *
-		 *  - `install_plugins_table_api_args_favorites`
+		 *  - `install_plugins_table_api_args_all`
 		 *  - `install_plugins_table_api_args_featured`
-		 *  - `install_plugins_table_api_args_popular`
-		 *  - `install_plugins_table_api_args_recommended`
 		 *  - `install_plugins_table_api_args_upload`
 		 *  - `install_plugins_table_api_args_search`
 		 *  - `install_plugins_table_api_args_beta`
@@ -292,7 +264,6 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 	public function no_items() {
 		if ( isset( $this->error ) ) {
 			$error_message  = '<p>' . $this->error->get_error_message() . '</p>';
-			$error_message .= '<p class="hide-if-no-js"><button class="button try-again">' . __( 'Try Again' ) . '</button></p>';
 			wp_admin_notice(
 				$error_message,
 				array(

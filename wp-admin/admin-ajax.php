@@ -110,7 +110,6 @@ $core_actions_post = array(
 	'update-plugin',
 	'crop-image',
 	'generate-password',
-	'save-wporg-username',
 	'delete-plugin',
 	'search-plugins',
 	'search-install-plugins',

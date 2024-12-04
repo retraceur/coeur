@@ -71,11 +71,9 @@ wp_enqueue_script( 'updates' );
  * Possible hook names include:
  *
  *  - `install_plugins_pre_beta`
- *  - `install_plugins_pre_favorites`
  *  - `install_plugins_pre_featured`
  *  - `install_plugins_pre_plugin-information`
- *  - `install_plugins_pre_popular`
- *  - `install_plugins_pre_recommended`
+ *  - `install_plugins_pre_all`
  *  - `install_plugins_pre_search`
  *  - `install_plugins_pre_upload`
  *
