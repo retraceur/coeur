@@ -155,7 +155,7 @@ function login_header( $title = null, $message = '', $wp_error = null ) {
 		__( 'Usage of the title attribute on the login logo is not recommended for accessibility reasons. Use the link text instead.' )
 	);
 
-	$login_header_text = empty( $login_header_title ) ? __( 'Propulsé par Retraceur' ) : $login_header_title;
+	$login_header_text = empty( $login_header_title ) ? __( 'With ♥ from Retraceur' ) : $login_header_title;
 
 	/**
 	 * Filters the link text of the header logo above the login form.

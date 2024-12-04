@@ -46,8 +46,8 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 				<?php
 				printf(
 					/* translators: 1: GH URL listing contributors */
-					__( 'WP est maintenu par une <a href="%1$s">équipe de passionnés du monde entier</a>.' ),
-					__( 'https://github.com/WordPress/wordpress-develop/graphs/contributors' )
+					__( 'Retraceur is a fork of WP. Many thanks to the <a href="%1$s">WP Core Contributors</a>.' ),
+					esc_url( 'https://github.com/WordPress/wordpress-develop/graphs/contributors' )
 				);
 				?>
 				<br />

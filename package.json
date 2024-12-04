@@ -1,0 +1,24 @@
+{
+  "name": "retraceur",
+  "version": "1.0.0-alpha",
+  "description": "Personal Web Publisher",
+  "scripts": {
+    "pot:admin": "wp i18n make-pot . wp-content/languages/admin.pot --include=\"wp-admin\" --exclude=\"wp-admin/includes/continents-cities.php\" --ignore-domain",
+		"pot:countries": "wp i18n make-pot . wp-content/languages/continents-and-cities.pot --include=\"wp-admin/includes/continents-cities.php\" --ignore-domain",
+		"pot:coeur": "wp i18n make-pot . wp-content/languages/coeur.pot --include=\"wp-activate.php,wp-cron.php,wp-links-opml.php,wp-load.php,wp-login.php,wp-mail.php,wp-settings.php,wp-signups.php,wp-trackback.php,xmlrpc.php,wp-includes\" --skip-js --ignore-domain"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/retraceur/coeur.git"
+  },
+  "keywords": [
+    "blog",
+    "php-software"
+  ],
+  "author": "imath",
+  "license": "GPL-2.0+",
+  "bugs": {
+    "url": "https://github.com/retraceur/coeur/issues"
+  },
+  "homepage": "https://github.com/retraceur/coeur#readme"
+}

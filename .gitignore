@@ -15,6 +15,7 @@
 
 # My theme
 /wp-content/themes/ensemble
+/wp-content/languages/*fr_FR*
 
 # Default themes
 /wp-content/themes/twentyeleven
