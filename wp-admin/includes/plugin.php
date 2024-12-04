@@ -1843,7 +1843,6 @@ function remove_menu_page( $menu_slug ) {
  *
  * Example usage:
  *
- *  - `remove_submenu_page( 'themes.php', 'nav-menus.php' )`
  *  - `remove_submenu_page( 'tools.php', 'plugin_submenu_slug' )`
  *  - `remove_submenu_page( 'plugin_menu_slug', 'plugin_submenu_slug' )`
  *

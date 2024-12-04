@@ -1484,7 +1484,7 @@ function wp_page_menu( $args = array() ) {
 
 	$container = sanitize_text_field( $args['container'] );
 
-	// Fallback in case `wp_nav_menu()` was called without a container.
+	// Fallback to a div if not set.
 	if ( empty( $container ) ) {
 		$container = 'div';
 	}
