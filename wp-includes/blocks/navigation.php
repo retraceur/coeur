@@ -1019,8 +1019,6 @@ function block_core_navigation_block_contains_core_navigation( $inner_blocks ) {
  * Retrieves the appropriate fallback to be used on the front of the
  * site when there is no menu assigned to the Nav block.
  *
- * This aims to mirror how the fallback mechanic for wp_nav_menu works.
- *
  * @since WP 5.9.0
  *
  * @return array the array of blocks to be used as a fallback.

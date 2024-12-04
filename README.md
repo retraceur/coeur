@@ -23,6 +23,7 @@ Retraceur is regularly synchronized with WP Core latest version to benefit from 
 - Using **Block Themes** in Retraceur is recommended:
   - The WP Customizer was removed.
   - WP Widgets were removed.
+	- WP Nav Menus were removed.
 
 This software comes without any warranty. Everyone is welcome to contribute!
 
