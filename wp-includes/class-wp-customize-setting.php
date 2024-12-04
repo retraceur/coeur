@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Customize Setting classes.
+ * WP Customize Setting classes.
  *
  * @since WP 3.4.0
  * @deprecated 1.0.0 Retraceur removed the customizer feature.

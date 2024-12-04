@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Customize Panel classes.
+ * WP Customize Panel classes.
  *
  * @since WP 4.0.0
  * @deprecated 1.0.0 Retraceur removed the customizer feature.

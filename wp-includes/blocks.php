@@ -814,7 +814,7 @@ function has_block( $block_name, $post = null ) {
 
 	/*
 	 * Normalize block name to include namespace, if provided as non-namespaced.
-	 * This matches behavior for WordPress 5.0.0 - 5.3.0 in matching blocks by
+	 * This matches behavior for WP 5.0.0 - 5.3.0 in matching blocks by
 	 * their serialized names.
 	 */
 	if ( ! str_contains( $block_name, '/' ) ) {

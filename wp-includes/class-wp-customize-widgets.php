@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Customize Widgets classes.
+ * WP Customize Widgets classes.
  *
  * @since WP 3.9.0
  * @deprecated 1.0.0 Retraceur removed the customizer feature.

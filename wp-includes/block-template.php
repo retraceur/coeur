@@ -1,7 +1,7 @@
 <?php
 /**
  * Block template loader functions.
- * 
+ *
  * @since WP 5.8.0
  * @since 1.0.0 Retraceur fork.
  *
@@ -214,8 +214,8 @@ function _block_template_render_title_tag() {
  *
  * @global string   $_wp_current_template_id
  * @global string   $_wp_current_template_content
- * @global WP_Embed $wp_embed                     WordPress Embed object.
- * @global WP_Query $wp_query                     WordPress Query object.
+ * @global WP_Embed $wp_embed                     Retraceur Embed object.
+ * @global WP_Query $wp_query                     Retraceur Query object.
  *
  * @return string Block template markup.
  */

@@ -2,7 +2,7 @@
 /**
  * Block Bindings API.
  *
- * Contains functions for managing block bindings in WordPress.
+ * Contains functions for managing block bindings in Retraceur.
  *
  * @since WP 6.5.0
  * @since 1.0.0 Retraceur fork.

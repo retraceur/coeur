@@ -177,7 +177,7 @@ final class WP_Comment {
 	 *
 	 * @since WP 4.4.0
 	 *
-	 * @global wpdb $wpdb WordPress database abstraction object.
+	 * @global wpdb $wpdb Retraceur database abstraction object.
 	 *
 	 * @param int $id Comment ID.
 	 * @return WP_Comment|false Comment object, otherwise false.

@@ -40,7 +40,7 @@ class WP_Block_Metadata_Registry {
 	private static $last_matched_collection = null;
 
 	/**
-	 * Stores the WordPress 'wp-includes' directory path.
+	 * Stores the Retraceur 'wp-includes' directory path.
 	 *
 	 * @since WP 6.7.0
 	 * @var string|null
@@ -48,7 +48,7 @@ class WP_Block_Metadata_Registry {
 	private static $wpinc_dir = null;
 
 	/**
-	 * Stores the normalized WordPress plugin directory path.
+	 * Stores the normalized Retraceur plugin directory path.
 	 *
 	 * @since WP 6.7.0
 	 * @var string|null
@@ -223,7 +223,7 @@ class WP_Block_Metadata_Registry {
 	 * - Path: '/wp-content/plugins/my-plugin/blocks/another-block'
 	 *   Identifier: 'another-block'
 	 *
-	 * This default behavior matches the standard WordPress block structure.
+	 * This default behavior matches the standard Retraceur block structure.
 	 *
 	 * @since WP 6.7.0
 	 *
@@ -246,11 +246,11 @@ class WP_Block_Metadata_Registry {
 	}
 
 	/**
-	 * Gets the WordPress 'wp-includes' directory path.
+	 * Gets the Retraceur 'wp-includes' directory path.
 	 *
 	 * @since WP 6.7.0
 	 *
-	 * @return string The WordPress 'wp-includes' directory path.
+	 * @return string The Retraceur 'wp-includes' directory path.
 	 */
 	private static function get_wpinc_dir() {
 		if ( ! isset( self::$wpinc_dir ) ) {
@@ -260,11 +260,11 @@ class WP_Block_Metadata_Registry {
 	}
 
 	/**
-	 * Gets the normalized WordPress plugin directory path.
+	 * Gets the normalized Retraceur plugin directory path.
 	 *
 	 * @since WP 6.7.0
 	 *
-	 * @return string The normalized WordPress plugin directory path.
+	 * @return string The normalized Retraceur plugin directory path.
 	 */
 	private static function get_plugin_dir() {
 		if ( ! isset( self::$plugin_dir ) ) {

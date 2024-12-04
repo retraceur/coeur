@@ -1,12 +1,12 @@
 <?php
 /**
  * Portable PHP password hashing framework.
- * 
+ *
  * @since WP 2.5.0
  * @since 1.0.0 Retraceur fork.
  *
  * @link https://www.openwall.com/phpass/
- * 
+ *
  * @package Retraceur
  * @subpackage phpass
  */
@@ -14,7 +14,7 @@
 #
 # Portable PHP password hashing framework.
 #
-# Version 0.5.4 / WordPress.
+# Version 0.5.4 / WP.
 #
 # Written by Solar Designer <solar at openwall.com> in 2004-2006 and placed in
 # the public domain.  Revised in subsequent years, still public domain.

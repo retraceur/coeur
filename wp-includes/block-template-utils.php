@@ -1083,7 +1083,7 @@ function get_block_templates( $query = array(), $template_type = 'wp_template' )
 	/**
 	 * Filters the block templates array before the query takes place.
 	 *
-	 * Return a non-null value to bypass the WordPress queries.
+	 * Return a non-null value to bypass the Retraceur queries.
 	 *
 	 * @since WP 5.9.0
 	 *
@@ -1227,7 +1227,7 @@ function get_block_template( $id, $template_type = 'wp_template' ) {
 	/**
 	 * Filters the block template object before the query takes place.
 	 *
-	 * Return a non-null value to bypass the WordPress queries.
+	 * Return a non-null value to bypass the Retraceur queries.
 	 *
 	 * @since WP 5.9.0
 	 *
@@ -1301,7 +1301,7 @@ function get_block_file_template( $id, $template_type = 'wp_template' ) {
 	/**
 	 * Filters the block template object before the theme file discovery takes place.
 	 *
-	 * Return a non-null value to bypass the WordPress theme file discovery.
+	 * Return a non-null value to bypass the Retraceur theme file discovery.
 	 *
 	 * @since WP 5.9.0
 	 *

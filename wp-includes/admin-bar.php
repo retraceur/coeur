@@ -118,7 +118,7 @@ function wp_admin_bar_render() {
 }
 
 /**
- * Adds the WordPress logo menu.
+ * Adds the Retraceur logo menu.
  *
  * @since WP 3.3.0
  *
@@ -701,7 +701,7 @@ function wp_admin_bar_shortlink_menu( $wp_admin_bar ) {
  * @since WP 5.5.0 Added a "View Post" link on Comments screen for a single post.
  *
  * @global WP_Term  $tag
- * @global WP_Query $wp_the_query WordPress Query object.
+ * @global WP_Query $wp_the_query Retraceur Query object.
  * @global int      $user_id      The ID of the user being edited. Not to be confused with the
  *                                global $user_ID, which contains the ID of the current user.
  * @global int      $post_id      The ID of the post when editing comments for a single post.

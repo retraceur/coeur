@@ -8,7 +8,7 @@ if ( class_exists( 'SimplePie', false ) ) {
 require ABSPATH . WPINC . '/SimplePie/autoloader.php';
 
 /**
- * WordPress autoloader for SimplePie.
+ * Retraceur autoloader for SimplePie.
  *
  * @since WP 3.5.0
  * @deprecated WP 6.7.0 Use `SimplePie_Autoloader` instead.

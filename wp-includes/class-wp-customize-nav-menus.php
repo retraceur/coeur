@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Customize Nav Menus classes.
+ * WP Customize Nav Menus classes.
  *
  * @since WP 4.3.0
  * @deprecated 1.0.0 Retraceur removed the customizer feature.

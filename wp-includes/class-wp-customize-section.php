@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Customize Section classes.
+ * WP Customize Section classes.
  *
  * @since WP 3.4.0
  * @deprecated 1.0.0 Retraceur removed the customizer feature.

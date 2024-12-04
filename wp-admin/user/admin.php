@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress User Administration Bootstrap.
+ * Retraceur User Administration Bootstrap.
  *
  * @since WP 3.1.0
  * @since 1.0.0 Retraceur fork.
