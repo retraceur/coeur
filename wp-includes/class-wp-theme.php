@@ -63,26 +63,11 @@ final class WP_Theme implements ArrayAccess {
 	 * @since WP 6.1.0 Added the Twenty Twenty-Three theme.
 	 * @since WP 6.4.0 Added the Twenty Twenty-Four theme.
 	 * @since WP 6.7.0 Added the Twenty Twenty-Five theme.
+	 * @since 1.0.0 Retraceur fork only kept Twenty Twenty-Four.
 	 * @var string[]
 	 */
 	private static $default_themes = array(
-		'classic'           => 'WordPress Classic',
-		'default'           => 'WordPress Default',
-		'twentyten'         => 'Twenty Ten',
-		'twentyeleven'      => 'Twenty Eleven',
-		'twentytwelve'      => 'Twenty Twelve',
-		'twentythirteen'    => 'Twenty Thirteen',
-		'twentyfourteen'    => 'Twenty Fourteen',
-		'twentyfifteen'     => 'Twenty Fifteen',
-		'twentysixteen'     => 'Twenty Sixteen',
-		'twentyseventeen'   => 'Twenty Seventeen',
-		'twentynineteen'    => 'Twenty Nineteen',
-		'twentytwenty'      => 'Twenty Twenty',
-		'twentytwentyone'   => 'Twenty Twenty-One',
-		'twentytwentytwo'   => 'Twenty Twenty-Two',
-		'twentytwentythree' => 'Twenty Twenty-Three',
 		'twentytwentyfour'  => 'Twenty Twenty-Four',
-		'twentytwentyfive'  => 'Twenty Twenty-Five',
 	);
 
 	/**
@@ -860,7 +845,7 @@ final class WP_Theme implements ArrayAccess {
 	 *
 	 * Use the get_template() method, not the 'Template' header, for finding the template.
 	 * The 'Template' header is only good for what was written in the style.css, while
-	 * get_template() takes into account where WordPress actually located the theme and
+	 * get_template() takes into account where Retraceur actually located the theme and
 	 * whether it is actually valid.
 	 *
 	 * @since WP 3.4.0
@@ -1628,7 +1613,7 @@ final class WP_Theme implements ArrayAccess {
 	}
 
 	/**
-	 * Determines the latest WordPress default theme that is installed.
+	 * Determines the latest Retraceur default theme that is installed.
 	 *
 	 * This hits the filesystem.
 	 *

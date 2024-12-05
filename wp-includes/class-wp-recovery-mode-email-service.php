@@ -155,13 +155,13 @@ final class WP_Recovery_Mode_Email_Service {
 		$message = __(
 			'Howdy!
 
-WordPress has a built-in feature that detects when a plugin or theme causes a fatal error on your site, and notifies you with this automated email.
+Retraceur has a built-in feature that detects when a plugin or theme causes a fatal error on your site, and notifies you with this automated email.
 ###CAUSE###
 First, visit your website (###SITEURL###) and check for any visible issues. Next, visit the page where the error was caught (###PAGEURL###) and check for any visible issues.
 
 ###SUPPORT###
 
-If your site appears broken and you can\'t access your dashboard normally, WordPress now has a special "recovery mode". This lets you safely login to your dashboard and investigate further.
+If your site appears broken and you can\'t access your dashboard normally, Retraceur now has a special "recovery mode". This lets you safely login to your dashboard and investigate further.
 
 ###LINK###
 
@@ -279,13 +279,13 @@ When seeking help with this issue, you may be asked for some of the following in
 			}
 
 			/* translators: %s: Plugin name. */
-			$cause = sprintf( __( 'In this case, WordPress caught an error with one of your plugins, %s.' ), $name );
+			$cause = sprintf( __( 'In this case, Retraceur caught an error with one of your plugins, %s.' ), $name );
 		} else {
 			$theme = wp_get_theme( $extension['slug'] );
 			$name  = $theme->exists() ? $theme->display( 'Name' ) : $extension['slug'];
 
 			/* translators: %s: Theme name. */
-			$cause = sprintf( __( 'In this case, WordPress caught an error with your theme, %s.' ), $name );
+			$cause = sprintf( __( 'In this case, Retraceur caught an error with your theme, %s.' ), $name );
 		}
 
 		return $cause;
@@ -350,8 +350,8 @@ When seeking help with this issue, you may be asked for some of the following in
 
 		$debug = array(
 			'wp'    => sprintf(
-				/* translators: %s: Current WordPress version number. */
-				__( 'WordPress version %s' ),
+				/* translators: %s: Current Retraceur version number. */
+				__( 'Retraceur version %s' ),
 				$wp_version
 			),
 			'theme' => sprintf(

@@ -10,7 +10,7 @@
  */
 
 /**
- * The WordPress Query class.
+ * The Retraceur Query class.
  *
  * @since WP 1.5.0
  * @since WP 4.5.0 Removed the `$comments_popup` property.
@@ -476,7 +476,7 @@ class WP_Query {
 	/**
 	 * Resets query flags to false.
 	 *
-	 * The query flags are what page info WordPress was able to figure out.
+	 * The query flags are what page info Retraceur was able to figure out.
 	 *
 	 * @since WP 2.0.0
 	 */
@@ -1396,7 +1396,7 @@ class WP_Query {
 	 *
 	 * @since WP 3.7.0
 	 *
-	 * @global wpdb $wpdb WordPress database abstraction object.
+	 * @global wpdb $wpdb Retraceur database abstraction object.
 	 *
 	 * @param array $q Query variables.
 	 * @return string WHERE clause.
@@ -1602,7 +1602,7 @@ class WP_Query {
 	 *
 	 * @since WP 3.7.0
 	 *
-	 * @global wpdb $wpdb WordPress database abstraction object.
+	 * @global wpdb $wpdb Retraceur database abstraction object.
 	 *
 	 * @param array $q Query variables.
 	 * @return string ORDER BY clause.
@@ -1661,7 +1661,7 @@ class WP_Query {
 	 *
 	 * @since WP 4.0.0
 	 *
-	 * @global wpdb $wpdb WordPress database abstraction object.
+	 * @global wpdb $wpdb Retraceur database abstraction object.
 	 *
 	 * @param string $orderby Alias for the field to order by.
 	 * @return string|false Table-prefixed value to used in the ORDER clause. False otherwise.
@@ -1868,7 +1868,7 @@ class WP_Query {
 	 *
 	 * @since WP 1.5.0
 	 *
-	 * @global wpdb $wpdb WordPress database abstraction object.
+	 * @global wpdb $wpdb Retraceur database abstraction object.
 	 *
 	 * @return WP_Post[]|int[] Array of post objects or post IDs.
 	 */
@@ -3150,7 +3150,7 @@ class WP_Query {
 		/**
 		 * Filters the posts array before the query takes place.
 		 *
-		 * Return a non-null value to bypass WordPress' default post queries.
+		 * Return a non-null value to bypass Retraceur' default post queries.
 		 *
 		 * Filtering functions that require pagination information are encouraged to set
 		 * the `found_posts` and `max_num_pages` properties of the WP_Query object,
@@ -3602,7 +3602,7 @@ class WP_Query {
 	 *
 	 * @since WP 3.5.0
 	 *
-	 * @global wpdb $wpdb WordPress database abstraction object.
+	 * @global wpdb $wpdb Retraceur database abstraction object.
 	 *
 	 * @param array  $q      Query variables.
 	 * @param string $limits LIMIT clauses of the query.
@@ -3837,7 +3837,7 @@ class WP_Query {
 	}
 
 	/**
-	 * Sets up the WordPress query by parsing query string.
+	 * Sets up the Retraceur query by parsing query string.
 	 *
 	 * @since WP 1.5.0
 	 *
@@ -3972,7 +3972,7 @@ class WP_Query {
 	/**
 	 * Constructor.
 	 *
-	 * Sets up the WordPress query, if parameter is not empty.
+	 * Sets up the Retraceur query, if parameter is not empty.
 	 *
 	 * @since WP 1.5.0
 	 *
@@ -4690,7 +4690,7 @@ class WP_Query {
 	 *
 	 * @since WP 3.3.0
 	 *
-	 * @global WP_Query $wp_the_query WordPress Query object.
+	 * @global WP_Query $wp_the_query Retraceur Query object.
 	 *
 	 * @return bool Whether the query is the main query.
 	 */
@@ -4866,7 +4866,7 @@ class WP_Query {
 	 *
 	 * @since WP 6.1.0
 	 *
-	 * @global wpdb $wpdb WordPress database abstraction object.
+	 * @global wpdb $wpdb Retraceur database abstraction object.
 	 *
 	 * @param array  $args Query arguments.
 	 * @param string $sql  SQL statement.

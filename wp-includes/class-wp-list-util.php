@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress List utility class.
+ * Retraceur List utility class.
  *
  * @since WP 4.7.0
  * @since 1.0.0 Retraceur fork.

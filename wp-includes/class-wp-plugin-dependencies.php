@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Plugin Administration API: WP_Plugin_Dependencies class.
+ * Retraceur Plugin Administration API: WP_Plugin_Dependencies class.
  *
  * @since WP 6.5.0
  * @since 1.0.0 Retraceur fork.

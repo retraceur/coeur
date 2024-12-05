@@ -147,8 +147,8 @@ class WP_User_Query {
 	 *              Deprecated the 'who' parameter.
 	 * @since WP 6.3.0 Added 'cache_results' parameter.
 	 *
-	 * @global wpdb     $wpdb     WordPress database abstraction object.
-	 * @global WP_Roles $wp_roles WordPress role management object.
+	 * @global wpdb     $wpdb     Retraceur database abstraction object.
+	 * @global WP_Roles $wp_roles Retraceur role management object.
 	 *
 	 * @param string|array $query {
 	 *     Optional. Array or string of query parameters.
@@ -779,7 +779,7 @@ class WP_User_Query {
 	 *
 	 * @since WP 3.1.0
 	 *
-	 * @global wpdb $wpdb WordPress database abstraction object.
+	 * @global wpdb $wpdb Retraceur database abstraction object.
 	 */
 	public function query() {
 		global $wpdb;
@@ -806,7 +806,7 @@ class WP_User_Query {
 		/**
 		 * Filters the users array before the query takes place.
 		 *
-		 * Return a non-null value to bypass WordPress' default user queries.
+		 * Return a non-null value to bypass Retraceur' default user queries.
 		 *
 		 * Filtering functions that require pagination information are encouraged to set
 		 * the `total_users` property of the WP_User_Query object, passed to the filter
@@ -853,7 +853,7 @@ class WP_User_Query {
 					 * @since WP 3.2.0
 					 * @since WP 5.1.0 Added the `$this` parameter.
 					 *
-					 * @global wpdb $wpdb WordPress database abstraction object.
+					 * @global wpdb $wpdb Retraceur database abstraction object.
 					 *
 					 * @param string        $sql   The SELECT FOUND_ROWS() query for the current WP_User_Query.
 					 * @param WP_User_Query $query The current WP_User_Query instance.
@@ -934,7 +934,7 @@ class WP_User_Query {
 	 *
 	 * @since WP 3.1.0
 	 *
-	 * @global wpdb $wpdb WordPress database abstraction object.
+	 * @global wpdb $wpdb Retraceur database abstraction object.
 	 *
 	 * @param string   $search  Search string.
 	 * @param string[] $columns Array of columns to search.
@@ -988,7 +988,7 @@ class WP_User_Query {
 	 *
 	 * @since WP 4.2.0
 	 *
-	 * @global wpdb $wpdb WordPress database abstraction object.
+	 * @global wpdb $wpdb Retraceur database abstraction object.
 	 *
 	 * @param string $orderby Alias for the field to order by.
 	 * @return string Value to used in the ORDER clause, if `$orderby` is valid.
@@ -1046,7 +1046,7 @@ class WP_User_Query {
 	 *
 	 * @since WP 6.3.0
 	 *
-	 * @global wpdb $wpdb WordPress database abstraction object.
+	 * @global wpdb $wpdb Retraceur database abstraction object.
 	 *
 	 * @param array  $args Query arguments.
 	 * @param string $sql  SQL statement.

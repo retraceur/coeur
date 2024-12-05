@@ -162,7 +162,7 @@ final class WP_oEmbed_Controller {
 	 * @since WP 4.8.0
 	 *
 	 * @see WP_oEmbed::get_html()
-	 * @global WP_Embed   $wp_embed   WordPress Embed object.
+	 * @global WP_Embed   $wp_embed   Retraceur Embed object.
 	 * @global WP_Scripts $wp_scripts
 	 *
 	 * @param WP_REST_Request $request Full data about the request.

@@ -21,7 +21,7 @@
 class WP_SimplePie_Sanitize_KSES extends SimplePie\Sanitize {
 
 	/**
-	 * WordPress SimplePie sanitization using KSES.
+	 * Retraceur SimplePie sanitization using KSES.
 	 *
 	 * Sanitizes the incoming data, to ensure that it matches the type of data expected, using KSES.
 	 *

@@ -1,6 +1,6 @@
 <?php
 /**
- * Base WordPress Image Editor.
+ * Base Retraceur Image Editor.
  *
  * @since 1.0.0 Retraceur fork.
  *

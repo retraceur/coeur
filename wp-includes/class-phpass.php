@@ -41,7 +41,7 @@
  * Portable PHP password hashing framework.
  *
  * @package phpass
- * @version 0.5 / WordPress
+ * @version 0.5 / WP
  * @link https://www.openwall.com/phpass/
  * @since WP 2.5.0
  */

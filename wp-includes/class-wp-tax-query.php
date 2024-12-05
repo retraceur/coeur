@@ -372,7 +372,7 @@ class WP_Tax_Query {
 	 *
 	 * @since WP 4.1.0
 	 *
-	 * @global wpdb $wpdb The WordPress database abstraction object.
+	 * @global wpdb $wpdb The Retraceur database abstraction object.
 	 *
 	 * @param array $clause       Query clause (passed by reference).
 	 * @param array $parent_query Parent query array.

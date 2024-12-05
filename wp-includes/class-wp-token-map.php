@@ -151,7 +151,7 @@ class WP_Token_Map {
 	 *
 	 * This version will be used not only to verify pre-computed data, but also
 	 * to upgrade pre-computed data from older versions. Choosing a name that
-	 * corresponds to the WordPress release will help people identify where an
+	 * corresponds to the Retraceur release will help people identify where an
 	 * old copy of data came from.
 	 */
 	const STORAGE_VERSION = '6.6.0-trunk';

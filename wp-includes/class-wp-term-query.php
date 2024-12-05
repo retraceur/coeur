@@ -342,7 +342,7 @@ class WP_Term_Query {
 	 *
 	 * @since WP 4.6.0
 	 *
-	 * @global wpdb $wpdb WordPress database abstraction object.
+	 * @global wpdb $wpdb Retraceur database abstraction object.
 	 *
 	 * @return WP_Term[]|int[]|string[]|string Array of terms, or number of terms as numeric string
 	 *                                         when 'count' is passed to `$args['fields']`.
@@ -764,7 +764,7 @@ class WP_Term_Query {
 		/**
 		 * Filters the terms array before the query takes place.
 		 *
-		 * Return a non-null value to bypass WordPress' default term queries.
+		 * Return a non-null value to bypass Retraceur' default term queries.
 		 *
 		 * @since WP 5.3.0
 		 *
@@ -1097,7 +1097,7 @@ class WP_Term_Query {
 	 *
 	 * @since WP 4.6.0
 	 *
-	 * @global wpdb $wpdb WordPress database abstraction object.
+	 * @global wpdb $wpdb Retraceur database abstraction object.
 	 *
 	 * @param string $search Search string.
 	 * @return string Search SQL.
@@ -1152,7 +1152,7 @@ class WP_Term_Query {
 	 *
 	 * @since WP 6.2.0
 	 *
-	 * @global wpdb $wpdb WordPress database abstraction object.
+	 * @global wpdb $wpdb Retraceur database abstraction object.
 	 *
 	 * @param array  $args WP_Term_Query arguments.
 	 * @param string $sql  SQL statement.

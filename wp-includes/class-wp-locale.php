@@ -246,7 +246,7 @@ class WP_Locale {
 		if ( isset( $GLOBALS['text_direction'] ) ) {
 			$this->text_direction = $GLOBALS['text_direction'];
 
-			/* translators: 'rtl' or 'ltr'. This sets the text direction for WordPress. */
+			/* translators: 'rtl' or 'ltr'. This sets the text direction for Retraceur. */
 		} elseif ( 'rtl' === _x( 'ltr', 'text direction' ) ) {
 			$this->text_direction = 'rtl';
 		}

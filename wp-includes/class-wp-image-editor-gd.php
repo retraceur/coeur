@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress GD Image Editor.
+ * Retraceur GD Image Editor.
  *
  * @since 1.0.0 Retraceur fork.
  *
@@ -9,7 +9,7 @@
  */
 
 /**
- * WordPress Image Editor Class for Image Manipulation through GD
+ * Retraceur Image Editor Class for Image Manipulation through GD
  *
  * @since WP 3.5.0
  *

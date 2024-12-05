@@ -10,7 +10,7 @@
  */
 
 /**
- * Bridge to connect Requests internal hooks to WordPress actions.
+ * Bridge to connect Requests internal hooks to Retraceur actions.
  *
  * @since WP 4.7.0
  *
@@ -26,7 +26,7 @@ class WP_HTTP_Requests_Hooks extends WpOrg\Requests\Hooks {
 	protected $url;
 
 	/**
-	 * WordPress WP_HTTP request data.
+	 * Retraceur WP_HTTP request data.
 	 *
 	 * @var array Request data in WP_Http format.
 	 */
@@ -44,7 +44,7 @@ class WP_HTTP_Requests_Hooks extends WpOrg\Requests\Hooks {
 	}
 
 	/**
-	 * Dispatch a Requests hook to a native WordPress action.
+	 * Dispatch a Requests hook to a native Retraceur action.
 	 *
 	 * @param string $hook       Hook name.
 	 * @param array  $parameters Parameters to pass to callbacks.
@@ -62,9 +62,9 @@ class WP_HTTP_Requests_Hooks extends WpOrg\Requests\Hooks {
 		}
 
 		/**
-		 * Transforms a native Request hook to a WordPress action.
+		 * Transforms a native Request hook to a Retraceur action.
 		 *
-		 * This action maps Requests internal hook to a native WordPress action.
+		 * This action maps Requests internal hook to a native Retraceur action.
 		 *
 		 * @see https://github.com/WordPress/Requests/blob/master/docs/hooks.md
 		 *

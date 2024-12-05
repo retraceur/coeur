@@ -12,7 +12,7 @@
  * Core class used as the default shutdown handler for fatal errors.
  *
  * A drop-in 'fatal-error-handler.php' can be used to override the instance of this class and use a custom
- * implementation for the fatal error handler that WordPress registers. The custom class should extend this class and
+ * implementation for the fatal error handler that Retraceur registers. The custom class should extend this class and
  * can override its methods individually as necessary. The file must return the instance of the class that should be
  * registered.
  *
@@ -28,7 +28,7 @@ class WP_Fatal_Error_Handler {
 	 *
 	 * @since WP 5.2.0
 	 *
-	 * @global WP_Locale $wp_locale WordPress date and time locale object.
+	 * @global WP_Locale $wp_locale Retraceur date and time locale object.
 	 */
 	public function handle() {
 		if ( defined( 'WP_SANDBOX_SCRAPING' ) && WP_SANDBOX_SCRAPING ) {
@@ -91,13 +91,13 @@ class WP_Fatal_Error_Handler {
 	}
 
 	/**
-	 * Determines whether we are dealing with an error that WordPress should handle
+	 * Determines whether we are dealing with an error that Retraceur should handle
 	 * in order to protect the admin backend against WSODs.
 	 *
 	 * @since WP 5.2.0
 	 *
 	 * @param array $error Error information retrieved from `error_get_last()`.
-	 * @return bool Whether WordPress should handle this error.
+	 * @return bool Whether Retraceur should handle this error.
 	 */
 	protected function should_handle_error( $error ) {
 		$error_types_to_handle = array(
@@ -115,7 +115,7 @@ class WP_Fatal_Error_Handler {
 		/**
 		 * Filters whether a given thrown error should be handled by the fatal error handler.
 		 *
-		 * This filter is only fired if the error is not already configured to be handled by WordPress core. As such,
+		 * This filter is only fired if the error is not already configured to be handled by Retraceur core. As such,
 		 * it exclusively allows adding further rules for which errors should be handled, but not removing existing
 		 * ones.
 		 *
@@ -132,7 +132,7 @@ class WP_Fatal_Error_Handler {
 	 *
 	 * A drop-in 'php-error.php' can be used as a custom template. This drop-in should control the HTTP status code and
 	 * print the HTML markup indicating that a PHP error occurred. Note that this drop-in may potentially be executed
-	 * very early in the WordPress bootstrap process, so any core functions used that are not part of
+	 * very early in the Retraceur bootstrap process, so any core functions used that are not part of
 	 * `wp-includes/load.php` should be checked for before being called.
 	 *
 	 * If no such drop-in is available, this will call {@see WP_Fatal_Error_Handler::display_default_error_template()}.

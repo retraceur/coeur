@@ -21,7 +21,7 @@ if ( ! class_exists( 'WpOrg\Requests\Autoload' ) ) {
  *
  * This class is used to consistently make outgoing HTTP requests easy for developers
  * while still being compatible with the many PHP configurations under which
- * WordPress runs.
+ * Retraceur runs.
  *
  * Debugging includes several actions, which pass different variables for debugging the HTTP API.
  *
@@ -119,7 +119,7 @@ class WP_Http {
 	 *     @type string       $httpversion         Version of the HTTP protocol to use. Accepts '1.0' and '1.1'.
 	 *                                             Default '1.0'.
 	 *     @type string       $user-agent          User-agent value sent.
-	 *                                             Default 'WordPress/' . get_bloginfo( 'version' ) . '; ' . get_bloginfo( 'url' ).
+	 *                                             Default 'Retraceur/' . get_bloginfo( 'version' ) . '; ' . get_bloginfo( 'url' ).
 	 *     @type bool         $reject_unsafe_urls  Whether to pass URLs through wp_http_validate_url().
 	 *                                             Default false.
 	 *     @type bool         $blocking            Whether the calling code requires the result of the request.
@@ -202,10 +202,10 @@ class WP_Http {
 			 * @since WP 2.7.0
 			 * @since WP 5.1.0 The `$url` parameter was added.
 			 *
-			 * @param string $user_agent WordPress user agent string.
+			 * @param string $user_agent Retraceur user agent string.
 			 * @param string $url        The request URL.
 			 */
-			'user-agent'          => apply_filters( 'http_headers_useragent', 'WordPress/' . get_bloginfo( 'version' ) . '; ' . get_bloginfo( 'url' ), $url ),
+			'user-agent'          => apply_filters( 'http_headers_useragent', 'Retraceur/' . get_bloginfo( 'version' ) . '; ' . get_bloginfo( 'url' ), $url ),
 			/**
 			 * Filters whether to pass URLs through wp_http_validate_url() in an HTTP request.
 			 *

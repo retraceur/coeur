@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress database access abstraction class.
+ * Retraceur database access abstraction class.
  *
  * Original code from {@link http://php.justinvincent.com Justin Vincent (justin@visunet.ie)}
  *
@@ -39,11 +39,11 @@ define( 'ARRAY_A', 'ARRAY_A' );
 define( 'ARRAY_N', 'ARRAY_N' );
 
 /**
- * WordPress database access abstraction class.
+ * Retraceur database access abstraction class.
  *
  * This class is used to interact with a database without needing to use raw SQL statements.
- * By default, WordPress uses this class to instantiate the global $wpdb object, providing
- * access to the WordPress database.
+ * By default, Retraceur uses this class to instantiate the global $wpdb object, providing
+ * access to the Retraceur database.
  *
  * It is possible to replace this class with your own by setting the $wpdb global variable
  * in wp-content/db.php file to your class. The wpdb class will still be included, so you can
@@ -234,9 +234,9 @@ class wpdb {
 	protected $reconnect_retries = 5;
 
 	/**
-	 * WordPress table prefix.
+	 * Retraceur table prefix.
 	 *
-	 * You can set this to have multiple WordPress installations in a single database.
+	 * You can set this to have multiple Retraceur installations in a single database.
 	 * The second reason is for possible security precautions.
 	 *
 	 * @since WP 2.5.0
@@ -246,7 +246,7 @@ class wpdb {
 	public $prefix = '';
 
 	/**
-	 * WordPress base table prefix.
+	 * Retraceur base table prefix.
 	 *
 	 * @since WP 3.0.0
 	 *
@@ -282,7 +282,7 @@ class wpdb {
 	public $siteid = 0;
 
 	/**
-	 * List of WordPress per-site tables.
+	 * List of Retraceur per-site tables.
 	 *
 	 * @since WP 2.5.0
 	 *
@@ -302,7 +302,7 @@ class wpdb {
 	);
 
 	/**
-	 * List of deprecated WordPress tables.
+	 * List of deprecated Retraceur tables.
 	 *
 	 * 'categories', 'post2cat', and 'link2cat' were deprecated in 2.3.0, db version 5539.
 	 *
@@ -314,7 +314,7 @@ class wpdb {
 	public $old_tables = array( 'categories', 'post2cat', 'link2cat' );
 
 	/**
-	 * List of WordPress global tables.
+	 * List of Retraceur global tables.
 	 *
 	 * @since WP 3.0.0
 	 * @since 1.0.0 Retraceur fork is using the signups table for non-ms sites.
@@ -341,7 +341,7 @@ class wpdb {
 	);
 
 	/**
-	 * List of deprecated WordPress Multisite global tables.
+	 * List of deprecated Retraceur Multisite global tables.
 	 *
 	 * @since WP 6.1.0
 	 *
@@ -351,7 +351,7 @@ class wpdb {
 	public $old_ms_global_tables = array( 'sitecategories' );
 
 	/**
-	 * WordPress Comments table.
+	 * Retraceur Comments table.
 	 *
 	 * @since WP 1.5.0
 	 *
@@ -360,7 +360,7 @@ class wpdb {
 	public $comments;
 
 	/**
-	 * WordPress Comment Metadata table.
+	 * Retraceur Comment Metadata table.
 	 *
 	 * @since WP 2.9.0
 	 *
@@ -369,7 +369,7 @@ class wpdb {
 	public $commentmeta;
 
 	/**
-	 * WordPress Options table.
+	 * Retraceur Options table.
 	 *
 	 * @since WP 1.5.0
 	 *
@@ -378,7 +378,7 @@ class wpdb {
 	public $options;
 
 	/**
-	 * WordPress Post Metadata table.
+	 * Retraceur Post Metadata table.
 	 *
 	 * @since WP 1.5.0
 	 *
@@ -387,7 +387,7 @@ class wpdb {
 	public $postmeta;
 
 	/**
-	 * WordPress Posts table.
+	 * Retraceur Posts table.
 	 *
 	 * @since WP 1.5.0
 	 *
@@ -396,7 +396,7 @@ class wpdb {
 	public $posts;
 
 	/**
-	 * WordPress Terms table.
+	 * Retraceur Terms table.
 	 *
 	 * @since WP 2.3.0
 	 *
@@ -405,7 +405,7 @@ class wpdb {
 	public $terms;
 
 	/**
-	 * WordPress Term Relationships table.
+	 * Retraceur Term Relationships table.
 	 *
 	 * @since WP 2.3.0
 	 *
@@ -414,7 +414,7 @@ class wpdb {
 	public $term_relationships;
 
 	/**
-	 * WordPress Term Taxonomy table.
+	 * Retraceur Term Taxonomy table.
 	 *
 	 * @since WP 2.3.0
 	 *
@@ -423,7 +423,7 @@ class wpdb {
 	public $term_taxonomy;
 
 	/**
-	 * WordPress Term Meta table.
+	 * Retraceur Term Meta table.
 	 *
 	 * @since WP 4.4.0
 	 *
@@ -436,7 +436,7 @@ class wpdb {
 	//
 
 	/**
-	 * WordPress User Metadata table.
+	 * Retraceur User Metadata table.
 	 *
 	 * @since WP 2.3.0
 	 *
@@ -445,7 +445,7 @@ class wpdb {
 	public $usermeta;
 
 	/**
-	 * WordPress Users table.
+	 * Retraceur Users table.
 	 *
 	 * @since WP 1.5.0
 	 *
@@ -615,7 +615,7 @@ class wpdb {
 	 * Whether MySQL is used as the database engine.
 	 *
 	 * Set in wpdb::db_connect() to true, by default. This is used when checking
-	 * against the required MySQL version for WordPress. Normally, a replacement
+	 * against the required MySQL version for Retraceur. Normally, a replacement
 	 * database drop-in (db.php) will skip these checks, but setting this to true
 	 * will force the checks to occur.
 	 *
@@ -921,7 +921,7 @@ class wpdb {
 	}
 
 	/**
-	 * Changes the current SQL mode, and ensures its WordPress compatibility.
+	 * Changes the current SQL mode, and ensures its Retraceur compatibility.
 	 *
 	 * If no modes are passed, it will ensure the current MySQL server modes are compatible.
 	 *
@@ -975,7 +975,7 @@ class wpdb {
 	}
 
 	/**
-	 * Sets the table prefix for the WordPress tables.
+	 * Sets the table prefix for the Retraceur tables.
 	 *
 	 * @since WP 2.5.0
 	 *
@@ -1078,9 +1078,9 @@ class wpdb {
 	}
 
 	/**
-	 * Returns an array of WordPress tables.
+	 * Returns an array of Retraceur tables.
 	 *
-	 * Also allows for the `CUSTOM_USER_TABLE` and `CUSTOM_USER_META_TABLE` to override the WordPress users
+	 * Also allows for the `CUSTOM_USER_TABLE` and `CUSTOM_USER_META_TABLE` to override the Retraceur users
 	 * and usermeta tables that would otherwise be determined by the prefix.
 	 *
 	 * The `$scope` argument can take one of the following:
@@ -1442,7 +1442,7 @@ class wpdb {
 		 * This is not meant to be foolproof -- but it will catch obviously incorrect usage.
 		 *
 		 * Note: str_contains() is not used here, as this file can be included
-		 * directly outside of WordPress core, e.g. by HyperDB, in which case
+		 * directly outside of Retraceur core, e.g. by HyperDB, in which case
 		 * the polyfills from wp-includes/compat.php are not loaded.
 		 */
 		if ( false === strpos( $query, '%' ) ) {
@@ -1514,7 +1514,7 @@ class wpdb {
 			if ( 'f' === $type && true === $this->allow_unsafe_unquoted_parameters
 				/*
 				 * Note: str_ends_with() is not used here, as this file can be included
-				 * directly outside of WordPress core, e.g. by HyperDB, in which case
+				 * directly outside of Retraceur core, e.g. by HyperDB, in which case
 				 * the polyfills from wp-includes/compat.php are not loaded.
 				 */
 				&& '%' === substr( $split_query[ $key - 1 ], -1, 1 )
@@ -1580,7 +1580,7 @@ class wpdb {
 					if ( true !== $this->allow_unsafe_unquoted_parameters
 						/*
 						 * Note: str_ends_with() is not used here, as this file can be included
-						 * directly outside of WordPress core, e.g. by HyperDB, in which case
+						 * directly outside of Retraceur core, e.g. by HyperDB, in which case
 						 * the polyfills from wp-includes/compat.php are not loaded.
 						 */
 						|| ( '' === $format && '%' !== substr( $split_query[ $key - 1 ], -1, 1 ) )
@@ -1793,9 +1793,9 @@ class wpdb {
 		$caller = $this->get_caller();
 		if ( $caller ) {
 			// Not translated, as this will only appear in the error log.
-			$error_str = sprintf( 'WordPress database error %1$s for query %2$s made by %3$s', $str, $this->last_query, $caller );
+			$error_str = sprintf( 'Retraceur database error %1$s for query %2$s made by %3$s', $str, $this->last_query, $caller );
 		} else {
-			$error_str = sprintf( 'WordPress database error %1$s for query %2$s', $str, $this->last_query );
+			$error_str = sprintf( 'Retraceur database error %1$s for query %2$s', $str, $this->last_query );
 		}
 
 		error_log( $error_str );
@@ -1811,7 +1811,7 @@ class wpdb {
 		if ( is_multisite() ) {
 			$msg = sprintf(
 				"%s [%s]\n%s\n",
-				__( 'WordPress database error:' ),
+				__( 'Retraceur database error:' ),
 				$str,
 				$this->last_query
 			);
@@ -1828,7 +1828,7 @@ class wpdb {
 
 			printf(
 				'<div id="error"><p class="wpdberror"><strong>%s</strong> [%s]<br /><code>%s</code></p></div>',
-				__( 'WordPress database error:' ),
+				__( 'Retraceur database error:' ),
 				$str,
 				$query
 			);
@@ -1935,7 +1935,7 @@ class wpdb {
 		$client_flags = defined( 'MYSQL_CLIENT_FLAGS' ) ? MYSQL_CLIENT_FLAGS : 0;
 
 		/*
-		 * Set the MySQLi error reporting off because WordPress handles its own.
+		 * Set the MySQLi error reporting off because Retraceur handles its own.
 		 * This is due to the default value change from `MYSQLI_REPORT_OFF`
 		 * to `MYSQLI_REPORT_ERROR|MYSQLI_REPORT_STRICT` in PHP 8.1.
 		 */
@@ -2219,7 +2219,7 @@ class wpdb {
 
 				wp_load_translations_early();
 
-				$this->last_error = __( 'WordPress database error: Could not perform query because it contains invalid data.' );
+				$this->last_error = __( 'Retraceur database error: Could not perform query because it contains invalid data.' );
 
 				return false;
 			}
@@ -2809,13 +2809,13 @@ class wpdb {
 			if ( 1 === count( $problem_fields ) ) {
 				$this->last_error = sprintf(
 					/* translators: %s: Database field where the error occurred. */
-					__( 'WordPress database error: Processing the value for the following field failed: %s. The supplied value may be too long or contains invalid data.' ),
+					__( 'Retraceur database error: Processing the value for the following field failed: %s. The supplied value may be too long or contains invalid data.' ),
 					reset( $problem_fields )
 				);
 			} else {
 				$this->last_error = sprintf(
 					/* translators: %s: Database fields where the error occurred. */
-					__( 'WordPress database error: Processing the values for the following fields failed: %s. The supplied values may be too long or contain invalid data.' ),
+					__( 'Retraceur database error: Processing the values for the following fields failed: %s. The supplied values may be too long or contain invalid data.' ),
 					implode( ', ', $problem_fields )
 				);
 			}
@@ -3966,15 +3966,15 @@ class wpdb {
 
 		// Make sure the server has the required MySQL version.
 		if ( version_compare( $this->db_version(), $required_mysql_version, '<' ) ) {
-			/* translators: 1: WordPress version number, 2: Minimum required MySQL version number. */
-			return new WP_Error( 'database_version', sprintf( __( '<strong>Error:</strong> WordPress %1$s requires MySQL %2$s or higher' ), $wp_version, $required_mysql_version ) );
+			/* translators: 1: Retraceur version number, 2: Minimum required MySQL version number. */
+			return new WP_Error( 'database_version', sprintf( __( '<strong>Error:</strong> Retraceur %1$s requires MySQL %2$s or higher' ), $wp_version, $required_mysql_version ) );
 		}
 	}
 
 	/**
 	 * Determines whether the database supports collation.
 	 *
-	 * Called when WordPress is generating the table scheme.
+	 * Called when Retraceur is generating the table scheme.
 	 *
 	 * Use `wpdb::has_cap( 'collation' )`.
 	 *
@@ -4017,7 +4017,7 @@ class wpdb {
 	 *
 	 * WPDB sniffs are added as new features are introduced to allow theme and plugin
 	 * developers to determine feature support. This is to account for drop-ins which may
-	 * introduce feature support at a different time to WordPress.
+	 * introduce feature support at a different time to Retraceur.
 	 *
 	 * @since WP 2.7.0
 	 * @since WP 4.1.0 Added support for the 'utf8mb4' feature.
@@ -4040,7 +4040,7 @@ class wpdb {
 		 * Account for MariaDB version being prefixed with '5.5.5-' on older PHP versions.
 		 *
 		 * Note: str_contains() is not used here, as this file can be included
-		 * directly outside of WordPress core, e.g. by HyperDB, in which case
+		 * directly outside of Retraceur coeur, e.g. by HyperDB, in which case
 		 * the polyfills from wp-includes/compat.php are not loaded.
 		 */
 		if ( '5.5.5' === $db_version && false !== strpos( $db_server_info, 'MariaDB' )
@@ -4064,7 +4064,7 @@ class wpdb {
 				return version_compare( $db_version, '5.6', '>=' );
 			case 'identifier_placeholders': // @since WP 6.2.0
 				/*
-				 * As of WordPress 6.2, wpdb::prepare() supports identifiers via '%i',
+				 * As of WP 6.2, wpdb::prepare() supports identifiers via '%i',
 				 * e.g. table/field names.
 				 */
 				return true;

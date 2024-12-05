@@ -1,7 +1,7 @@
 <?php
 /**
  * User API: WP_Roles class.
- * 
+ *
  * @since WP 4.4.0
  * @since 1.0.0 Retraceur fork.
  *
@@ -310,7 +310,7 @@ class WP_Roles {
 	 *
 	 * @since WP 4.9.0
 	 *
-	 * @global wpdb $wpdb WordPress database abstraction object.
+	 * @global wpdb $wpdb Retraceur database abstraction object.
 	 *
 	 * @param int $site_id Site ID to initialize roles for. Default is the current site.
 	 */

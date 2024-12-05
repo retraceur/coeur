@@ -168,7 +168,7 @@ class WP_Theme_JSON_Resolver {
 		$config = static::translate( $config );
 
 		/**
-		 * Filters the default data provided by WordPress for global styles & settings.
+		 * Filters the default data provided by Retraceur for global styles & settings.
 		 *
 		 * @since WP 6.1.0
 		 *
@@ -621,7 +621,7 @@ class WP_Theme_JSON_Resolver {
 	 *
 	 * There are four sources of data (origins) for a site:
 	 *
-	 * - default => WordPress
+	 * - default => Retraceur
 	 * - blocks  => each one of the blocks provides data for itself
 	 * - theme   => the active theme
 	 * - custom  => data provided by the user

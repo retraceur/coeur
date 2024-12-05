@@ -130,7 +130,7 @@ class WP_oEmbed {
 		/**
 		 * Filters the list of sanctioned oEmbed providers.
 		 *
-		 * Since WordPress 4.4, oEmbed discovery is enabled for all users and allows embedding of sanitized
+		 * Since WP 4.4, oEmbed discovery is enabled for all users and allows embedding of sanitized
 		 * iframes. The providers in this list are sanctioned, meaning they are trusted and allowed to
 		 * embed any content, such as iframes, videos, JavaScript, and arbitrary HTML.
 		 *
