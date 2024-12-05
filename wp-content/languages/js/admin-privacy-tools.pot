@@ -1,0 +1,53 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-12-05T22:43:47+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.11.0\n"
+
+#: wp-admin/js/privacy-tools.js:80
+msgid "This user&#8217;s personal data export link was sent."
+msgstr ""
+
+#: wp-admin/js/privacy-tools.js:83
+msgid "This user&#8217;s personal data export file was downloaded."
+msgstr ""
+
+#: wp-admin/js/privacy-tools.js:93
+msgid "No personal data export file was generated."
+msgstr ""
+
+#: wp-admin/js/privacy-tools.js:100
+msgid "An error occurred while attempting to export personal data."
+msgstr ""
+
+#: wp-admin/js/privacy-tools.js:185
+#: wp-admin/js/privacy-tools.js:192
+msgid "No personal data was found for this user."
+msgstr ""
+
+#: wp-admin/js/privacy-tools.js:194
+msgid "Personal data was found for this user but was not erased."
+msgstr ""
+
+#: wp-admin/js/privacy-tools.js:199
+msgid "All of the personal data found for this user was erased."
+msgstr ""
+
+#: wp-admin/js/privacy-tools.js:201
+msgid "Personal data was found for this user but some of the personal data found was not erased."
+msgstr ""
+
+#: wp-admin/js/privacy-tools.js:211
+msgid "An error occurred while attempting to find and erase personal data."
+msgstr ""
+
+#: wp-admin/js/privacy-tools.js:317
+msgid "The suggested policy text has been copied to your clipboard."
+msgstr ""

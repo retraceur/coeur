@@ -1,0 +1,32 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-12-05T22:43:35+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.11.0\n"
+
+#. translators: %s: The selected image alt text.
+#: wp-admin/js/site-icon.js:152
+msgid "App icon preview: Current image: %s"
+msgstr ""
+
+#. translators: %s: The selected image alt text.
+#: wp-admin/js/site-icon.js:157
+msgid "Browser icon preview: Current image: %s"
+msgstr ""
+
+#. translators: %s: The selected image filename.
+#: wp-admin/js/site-icon.js:163
+msgid "App icon preview: The current image has no alternative text. The file name is: %s"
+msgstr ""
+
+#. translators: %s: The selected image filename.
+#: wp-admin/js/site-icon.js:170
+msgid "Browser icon preview: The current image has no alternative text. The file name is: %s"
+msgstr ""

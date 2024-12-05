@@ -1,0 +1,181 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-12-05T22:44:25+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.11.0\n"
+
+#: wp-includes/js/dist/patterns.js:372
+#: wp-includes/js/dist/patterns.js:1454
+msgid "Overrides"
+msgstr ""
+
+#: wp-includes/js/dist/patterns.js:429
+msgid "Categories"
+msgstr ""
+
+#: wp-includes/js/dist/patterns.js:571
+msgid "Add"
+msgstr ""
+
+#: wp-includes/js/dist/patterns.js:626
+#: wp-includes/js/dist/patterns.js:833
+#: wp-includes/js/dist/patterns.js:1241
+#: wp-includes/js/dist/patterns.js:1329
+msgid "Name"
+msgstr ""
+
+#: wp-includes/js/dist/patterns.js:629
+msgid "My pattern"
+msgstr ""
+
+#: wp-includes/js/dist/patterns.js:639
+msgctxt "pattern (singular)"
+msgid "Synced"
+msgstr ""
+
+#: wp-includes/js/dist/patterns.js:640
+msgid "Sync this pattern across multiple locations."
+msgstr ""
+
+#: wp-includes/js/dist/patterns.js:654
+#: wp-includes/js/dist/patterns.js:843
+#: wp-includes/js/dist/patterns.js:1257
+#: wp-includes/js/dist/patterns.js:1339
+#: wp-includes/js/dist/patterns.js:1381
+msgid "Cancel"
+msgstr ""
+
+#. translators: %s: Existing pattern title
+#: wp-includes/js/dist/patterns.js:716
+msgctxt "pattern"
+msgid "%s (Copy)"
+msgstr ""
+
+#. translators: %s: The new pattern's title e.g. 'Call to action (copy)'.
+#: wp-includes/js/dist/patterns.js:722
+msgctxt "pattern"
+msgid "\"%s\" duplicated."
+msgstr ""
+
+#: wp-includes/js/dist/patterns.js:745
+msgid "Duplicate pattern"
+msgstr ""
+
+#: wp-includes/js/dist/patterns.js:746
+msgid "Duplicate"
+msgstr ""
+
+#: wp-includes/js/dist/patterns.js:800
+msgid "Pattern renamed"
+msgstr ""
+
+#: wp-includes/js/dist/patterns.js:806
+msgid "An error occurred while renaming the pattern."
+msgstr ""
+
+#: wp-includes/js/dist/patterns.js:821
+#: wp-includes/js/dist/patterns.js:1228
+msgid "Rename"
+msgstr ""
+
+#: wp-includes/js/dist/patterns.js:848
+#: wp-includes/js/dist/patterns.js:1264
+msgid "Save"
+msgstr ""
+
+#. translators: %s: the name the user has given to the pattern.
+#: wp-includes/js/dist/patterns.js:975
+msgid "Unsynced pattern created: %s"
+msgstr ""
+
+#. translators: %s: the name the user has given to the pattern.
+#: wp-includes/js/dist/patterns.js:977
+msgid "Synced pattern created: %s"
+msgstr ""
+
+#: wp-includes/js/dist/patterns.js:989
+msgid "Create pattern"
+msgstr ""
+
+#: wp-includes/js/dist/patterns.js:1077
+msgid "Detach"
+msgstr ""
+
+#: wp-includes/js/dist/patterns.js:1080
+msgid "Manage patterns"
+msgstr ""
+
+#: wp-includes/js/dist/patterns.js:1174
+msgid "Please enter a new name for this category."
+msgstr ""
+
+#: wp-includes/js/dist/patterns.js:1187
+msgid "This category already exists. Please use a different name."
+msgstr ""
+
+#: wp-includes/js/dist/patterns.js:1208
+msgid "Pattern category renamed."
+msgstr ""
+
+#. translators: %s: new name/label for the block
+#: wp-includes/js/dist/patterns.js:1294
+msgid "Block name changed to: \"%s\"."
+msgstr ""
+
+#: wp-includes/js/dist/patterns.js:1305
+#: wp-includes/js/dist/patterns.js:1470
+msgid "Enable overrides"
+msgstr ""
+
+#: wp-includes/js/dist/patterns.js:1324
+msgid "Overrides are changes you make to a block within a synced pattern instance. Use overrides to customize a synced pattern instance to suit its new context. Name this block to specify an override."
+msgstr ""
+
+#: wp-includes/js/dist/patterns.js:1330
+msgid "For example, if you are creating a recipe pattern, you use \"Recipe Title\", \"Recipe Description\", etc."
+msgstr ""
+
+#: wp-includes/js/dist/patterns.js:1345
+msgid "Enable"
+msgstr ""
+
+#: wp-includes/js/dist/patterns.js:1358
+#: wp-includes/js/dist/patterns.js:1470
+msgid "Disable overrides"
+msgstr ""
+
+#: wp-includes/js/dist/patterns.js:1374
+msgid "Are you sure you want to disable overrides? Disabling overrides will revert all applied overrides for this block throughout instances of this pattern."
+msgstr ""
+
+#: wp-includes/js/dist/patterns.js:1386
+msgid "Disable"
+msgstr ""
+
+#: wp-includes/js/dist/patterns.js:1447
+msgid "Overrides currently don't support image captions or links. Remove the caption or link first before enabling overrides."
+msgstr ""
+
+#: wp-includes/js/dist/patterns.js:1447
+msgid "Allow changes to this block throughout instances of this pattern."
+msgstr ""
+
+#: wp-includes/js/dist/patterns.js:1552
+msgid "Reset"
+msgstr ""
+
+#. translators: 1: The block type's name. 2: The block's user-provided name (the same as the override name).
+#: wp-includes/js/dist/patterns.js:1637
+msgid "This %1$s is editable using the \"%2$s\" override."
+msgstr ""
+
+#: wp-includes/js/dist/patterns.js:1637
+msgid "These blocks are editable using overrides."
+msgstr ""

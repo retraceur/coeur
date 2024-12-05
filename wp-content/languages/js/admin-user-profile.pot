@@ -1,0 +1,44 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-12-05T22:43:37+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.11.0\n"
+
+#: wp-admin/js/user-profile.js:57
+msgid "Confirm use of weak password"
+msgstr ""
+
+#: wp-admin/js/user-profile.js:88
+msgid "Show password"
+msgstr ""
+
+#: wp-admin/js/user-profile.js:88
+msgid "Hide password"
+msgstr ""
+
+#: wp-admin/js/user-profile.js:91
+msgid "Show"
+msgstr ""
+
+#: wp-admin/js/user-profile.js:91
+msgid "Hide"
+msgstr ""
+
+#: wp-admin/js/user-profile.js:369
+msgid "Application password has been copied to your clipboard."
+msgstr ""
+
+#: wp-admin/js/user-profile.js:516
+msgid "Your new password has not been saved."
+msgstr ""
+
+#: wp-admin/js/user-profile.js:519
+msgid "The changes you made will be lost if you navigate away from this page."
+msgstr ""

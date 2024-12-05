@@ -1,0 +1,142 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-12-05T22:43:55+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.11.0\n"
+
+#: wp-includes/js/dist/fields.js:130
+msgid "Title"
+msgstr ""
+
+#: wp-includes/js/dist/fields.js:131
+#: wp-includes/js/dist/fields.js:1065
+msgid "No title"
+msgstr ""
+
+#: wp-includes/js/dist/fields.js:151
+#: wp-includes/js/dist/fields.js:994
+msgid "Order"
+msgstr ""
+
+#: wp-includes/js/dist/fields.js:152
+msgid "Determines the order of pages."
+msgstr ""
+
+#: wp-includes/js/dist/fields.js:192
+msgctxt "verb"
+msgid "View"
+msgstr ""
+
+#: wp-includes/js/dist/fields.js:503
+msgid "Select item"
+msgstr ""
+
+#: wp-includes/js/dist/fields.js:755
+msgid "Close"
+msgstr ""
+
+#. translators: %s: Field name.
+#: wp-includes/js/dist/fields.js:806
+msgctxt "field"
+msgid "Edit %s"
+msgstr ""
+
+#: wp-includes/js/dist/fields.js:944
+msgid "Order updated."
+msgstr ""
+
+#: wp-includes/js/dist/fields.js:950
+msgid "An error occurred while updating the order"
+msgstr ""
+
+#: wp-includes/js/dist/fields.js:962
+msgid "Determines the order of pages. Pages with the same order value are sorted alphabetically. Negative order values are supported."
+msgstr ""
+
+#: wp-includes/js/dist/fields.js:979
+#: wp-includes/js/dist/fields.js:1132
+msgid "Cancel"
+msgstr ""
+
+#: wp-includes/js/dist/fields.js:986
+msgid "Save"
+msgstr ""
+
+#: wp-includes/js/dist/fields.js:1033
+#: wp-includes/js/dist/fields.js:1139
+#: wp-includes/js/dist/fields.js:1362
+#: wp-includes/js/dist/fields.js:1376
+msgctxt "action label"
+msgid "Duplicate"
+msgstr ""
+
+#. translators: %s: Existing template title
+#: wp-includes/js/dist/fields.js:1047
+msgctxt "template"
+msgid "%s (Copy)"
+msgstr ""
+
+#. translators: %s: Title of the created post or template, e.g: "Hello world".
+#: wp-includes/js/dist/fields.js:1095
+msgid "\"%s\" successfully created."
+msgstr ""
+
+#: wp-includes/js/dist/fields.js:1104
+msgid "An error occurred while duplicating the page."
+msgstr ""
+
+#. translators: %s: number of revisions.
+#: wp-includes/js/dist/fields.js:1179
+msgid "View revisions (%s)"
+msgstr ""
+
+#: wp-includes/js/dist/fields.js:1237
+msgid "Permanently delete"
+msgstr ""
+
+#. translators: The posts's title.
+#: wp-includes/js/dist/fields.js:1275
+msgid "\"%s\" permanently deleted."
+msgstr ""
+
+#: wp-includes/js/dist/fields.js:1277
+msgid "The items were permanently deleted."
+msgstr ""
+
+#: wp-includes/js/dist/fields.js:1293
+msgid "An error occurred while permanently deleting the item."
+msgstr ""
+
+#: wp-includes/js/dist/fields.js:1308
+msgid "An error occurred while permanently deleting the items."
+msgstr ""
+
+#. translators: %s: an error message
+#: wp-includes/js/dist/fields.js:1311
+msgid "An error occurred while permanently deleting the items: %s"
+msgstr ""
+
+#. translators: %s: a list of comma separated error messages
+#: wp-includes/js/dist/fields.js:1314
+msgid "Some errors occurred while permanently deleting the items: %s"
+msgstr ""
+
+#: wp-includes/js/dist/fields.js:1364
+msgctxt "action label"
+msgid "Duplicate pattern"
+msgstr ""
+
+#: wp-includes/js/dist/fields.js:1908
+msgid "Export as JSON"
+msgstr ""
+
+#: wp-includes/js/dist/fields.js:1926
+msgid "patterns-export"
+msgstr ""

@@ -1,0 +1,1101 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-12-05T22:44:15+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.11.0\n"
+
+#: wp-includes/js/dist/components.js:14995
+msgid "Top Left"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:14996
+msgid "Top Center"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:14997
+msgid "Top Right"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:14998
+msgid "Center Left"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:14999
+#: wp-includes/js/dist/components.js:15000
+msgid "Center"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:15001
+msgid "Center Right"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:15002
+msgid "Bottom Left"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:15003
+msgid "Bottom Center"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:15004
+msgid "Bottom Right"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:15815
+msgid "Alignment Matrix Control"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:32437
+msgid "Increment"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:32443
+msgid "Decrement"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:32612
+msgid "Angle"
+msgstr ""
+
+#. translators: %d: number of results.
+#: wp-includes/js/dist/components.js:34525
+#: wp-includes/js/dist/components.js:46884
+#: wp-includes/js/dist/components.js:58073
+msgid "%d result found, use up and down arrow keys to navigate."
+msgid_plural "%d results found, use up and down arrow keys to navigate."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %d: number of results.
+#: wp-includes/js/dist/components.js:34528
+msgid "Initial %d result loaded. Type to filter all available results. Use up and down arrow keys to navigate."
+msgid_plural "Initial %d results loaded. Type to filter all available results. Use up and down arrow keys to navigate."
+msgstr[0] ""
+msgstr[1] ""
+
+#: wp-includes/js/dist/components.js:34531
+#: wp-includes/js/dist/components.js:46884
+#: wp-includes/js/dist/components.js:58073
+msgid "No results."
+msgstr ""
+
+#: wp-includes/js/dist/components.js:35137
+#: wp-includes/js/dist/components.js:42540
+msgid "Unlink sides"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:35137
+#: wp-includes/js/dist/components.js:42540
+msgid "Link sides"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:36292
+msgid "Solid"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:36296
+msgid "Dashed"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:36300
+msgid "Dotted"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:37799
+#: wp-includes/js/dist/components.js:40383
+#: wp-includes/js/dist/components.js:42712
+#: wp-includes/js/dist/components.js:46933
+#: wp-includes/js/dist/components.js:57370
+#: wp-includes/js/dist/components.js:66685
+msgid "Reset"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:37958
+msgid "Copied!"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:37958
+msgid "Copy"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:38311
+msgid "Hex color"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:38482
+msgid "Color format"
+msgstr ""
+
+#. translators: shown when the user has picked a custom color (i.e not in the palette of colors).
+#: wp-includes/js/dist/components.js:39284
+#: wp-includes/js/dist/components.js:57048
+#: wp-includes/js/dist/components.js:57233
+#: wp-includes/js/dist/components.js:57315
+msgid "Custom"
+msgstr ""
+
+#. translators: %s: color hex code e.g: "#f00".
+#: wp-includes/js/dist/components.js:39368
+#: wp-includes/js/dist/components.js:39378
+msgid "Color code: %s"
+msgstr ""
+
+#. translators: %s: The name of the color e.g: "vivid red".
+#: wp-includes/js/dist/components.js:39376
+msgid "Color: %s"
+msgstr ""
+
+#. translators: 1: The name of the color e.g: "vivid red". 2: The color's hex code e.g: "#f00".
+#: wp-includes/js/dist/components.js:39491
+msgid "Custom color picker. The currently selected color is called \"%1$s\" and has a value of \"%2$s\"."
+msgstr ""
+
+#: wp-includes/js/dist/components.js:39491
+#: wp-includes/js/dist/components.js:39524
+#: wp-includes/js/dist/components.js:45302
+#: wp-includes/js/dist/components.js:56181
+msgid "Custom color picker."
+msgstr ""
+
+#: wp-includes/js/dist/components.js:39499
+#: wp-includes/js/dist/components.js:45382
+#: wp-includes/js/dist/components.js:56192
+msgid "Clear"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:39557
+msgid "No color selected"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:39734
+#: wp-includes/js/dist/components.js:39735
+msgid "Pixels (px)"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:39740
+msgid "Percentage (%)"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:39741
+msgid "Percent (%)"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:39746
+msgid "Relative to parent font size (em)"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:39747
+msgctxt "Relative to parent font size (em)"
+msgid "ems"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:39752
+msgid "Relative to root font size (rem)"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:39753
+msgctxt "Relative to root font size (rem)"
+msgid "rems"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:39758
+#: wp-includes/js/dist/components.js:39759
+msgid "Viewport width (vw)"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:39764
+#: wp-includes/js/dist/components.js:39765
+msgid "Viewport height (vh)"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:39770
+#: wp-includes/js/dist/components.js:39771
+msgid "Viewport smallest dimension (vmin)"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:39776
+#: wp-includes/js/dist/components.js:39777
+msgid "Viewport largest dimension (vmax)"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:39782
+#: wp-includes/js/dist/components.js:39783
+msgid "Width of the zero (0) character (ch)"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:39788
+#: wp-includes/js/dist/components.js:39789
+msgid "x-height of the font (ex)"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:39794
+#: wp-includes/js/dist/components.js:39795
+msgid "Centimeters (cm)"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:39800
+#: wp-includes/js/dist/components.js:39801
+msgid "Millimeters (mm)"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:39806
+#: wp-includes/js/dist/components.js:39807
+msgid "Inches (in)"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:39812
+#: wp-includes/js/dist/components.js:39813
+msgid "Picas (pc)"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:39818
+#: wp-includes/js/dist/components.js:39819
+msgid "Points (pt)"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:39824
+#: wp-includes/js/dist/components.js:39825
+msgid "Small viewport width (svw)"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:39830
+#: wp-includes/js/dist/components.js:39831
+msgid "Small viewport height (svh)"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:39836
+msgid "Viewport smallest size in the inline direction (svi)"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:39837
+msgid "Small viewport width or height (svi)"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:39842
+msgid "Viewport smallest size in the block direction (svb)"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:39843
+msgid "Small viewport width or height (svb)"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:39848
+#: wp-includes/js/dist/components.js:39849
+msgid "Small viewport smallest dimension (svmin)"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:39854
+#: wp-includes/js/dist/components.js:39855
+msgid "Large viewport width (lvw)"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:39860
+#: wp-includes/js/dist/components.js:39861
+msgid "Large viewport height (lvh)"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:39866
+#: wp-includes/js/dist/components.js:39867
+msgid "Large viewport width or height (lvi)"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:39872
+#: wp-includes/js/dist/components.js:39873
+msgid "Large viewport width or height (lvb)"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:39878
+#: wp-includes/js/dist/components.js:39879
+msgid "Large viewport smallest dimension (lvmin)"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:39884
+#: wp-includes/js/dist/components.js:39885
+msgid "Dynamic viewport width (dvw)"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:39890
+#: wp-includes/js/dist/components.js:39891
+msgid "Dynamic viewport height (dvh)"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:39896
+#: wp-includes/js/dist/components.js:39897
+msgid "Dynamic viewport width or height (dvi)"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:39902
+#: wp-includes/js/dist/components.js:39903
+msgid "Dynamic viewport width or height (dvb)"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:39908
+#: wp-includes/js/dist/components.js:39909
+msgid "Dynamic viewport smallest dimension (dvmin)"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:39914
+#: wp-includes/js/dist/components.js:39915
+msgid "Dynamic viewport largest dimension (dvmax)"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:39920
+#: wp-includes/js/dist/components.js:39921
+msgid "Small viewport largest dimension (svmax)"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:39926
+#: wp-includes/js/dist/components.js:39927
+msgid "Large viewport largest dimension (lvmax)"
+msgstr ""
+
+#. translators: 1: The name of the color e.g. "vivid red". 2: The color's hex code e.g.: "#f00:". 3: The current border style selection e.g. "solid".
+#: wp-includes/js/dist/components.js:40268
+msgid "Border color and style picker. The currently selected color is called \"%1$s\" and has a value of \"%2$s\". The currently selected style is \"%3$s\"."
+msgstr ""
+
+#. translators: 1: The name of the color e.g. "vivid red". 2: The color's hex code e.g.: "#f00:".
+#: wp-includes/js/dist/components.js:40270
+msgid "Border color and style picker. The currently selected color is called \"%1$s\" and has a value of \"%2$s\"."
+msgstr ""
+
+#. translators: 1: The color's hex code e.g.: "#f00:". 2: The current border style selection e.g. "solid".
+#: wp-includes/js/dist/components.js:40276
+msgid "Border color and style picker. The currently selected color has a value of \"%1$s\". The currently selected style is \"%2$s\"."
+msgstr ""
+
+#. translators: %s: The color's hex code e.g: "#f00".
+#: wp-includes/js/dist/components.js:40278
+msgid "Border color and style picker. The currently selected color has a value of \"%s\"."
+msgstr ""
+
+#: wp-includes/js/dist/components.js:40280
+msgid "Border color and style picker."
+msgstr ""
+
+#. translators: 1: The name of the color e.g. "vivid red". 2: The color's hex code e.g: "#f00".
+#: wp-includes/js/dist/components.js:40285
+msgid "Border color picker. The currently selected color is called \"%1$s\" and has a value of \"%2$s\"."
+msgstr ""
+
+#. translators: %s: The color's hex code e.g: "#f00".
+#: wp-includes/js/dist/components.js:40290
+msgid "Border color picker. The currently selected color has a value of \"%s\"."
+msgstr ""
+
+#: wp-includes/js/dist/components.js:40292
+msgid "Border color picker."
+msgstr ""
+
+#: wp-includes/js/dist/components.js:40331
+msgid "Border color and style picker"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:40352
+msgid "Border color"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:40355
+msgid "Close border color"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:40369
+msgid "Style"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:40586
+msgid "Select unit"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:40874
+#: wp-includes/js/dist/components.js:40885
+msgid "Border width"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:41215
+msgid "Top border"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:41222
+msgid "Left border"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:41230
+msgid "Right border"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:41238
+msgid "Bottom border"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:41640
+#: wp-includes/js/dist/components.js:42016
+msgid "Mixed"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:42011
+msgid "All sides"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:42012
+msgid "Top side"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:42013
+msgid "Bottom side"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:42014
+msgid "Left side"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:42015
+msgid "Right side"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:42017
+msgid "Top and bottom sides"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:42018
+msgid "Left and right sides"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:42616
+msgid "Box Control"
+msgstr ""
+
+#. translators: 1: gradient position e.g: 70. 2: gradient color code e.g: rgb(52,121,151).
+#: wp-includes/js/dist/components.js:44393
+msgid "Gradient control point at position %1$s%% with color code %2$s."
+msgstr ""
+
+#: wp-includes/js/dist/components.js:44403
+msgid "Use your left or right arrow keys or drag and drop with the mouse to change the gradient position. Press the button to change the color or remove the control point."
+msgstr ""
+
+#: wp-includes/js/dist/components.js:44545
+msgid "Remove Control Point"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:44797
+msgid "Linear"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:44800
+msgid "Radial"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:45081
+msgid "Type"
+msgstr ""
+
+#. translators: %s: gradient code e.g: "linear-gradient(90deg, rgba(98,16,153,1) 0%, rgba(172,110,22,1) 100%);".
+#: wp-includes/js/dist/components.js:45210
+#: wp-includes/js/dist/components.js:45220
+msgid "Gradient code: %s"
+msgstr ""
+
+#. translators: %s: The name of the gradient e.g: "Angular red to blue".
+#: wp-includes/js/dist/components.js:45218
+msgid "Gradient: %s"
+msgstr ""
+
+#. translators: %s: is an id for a custom color
+#: wp-includes/js/dist/components.js:46065
+msgid "Color %s"
+msgstr ""
+
+#. translators: %s is a color or gradient name, e.g. "Red".
+#: wp-includes/js/dist/components.js:46145
+msgid "Edit: %s"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:46154
+msgid "Gradient name"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:46154
+msgid "Color name"
+msgstr ""
+
+#. translators: %s is a color or gradient name, e.g. "Red".
+#: wp-includes/js/dist/components.js:46171
+msgid "Remove color: %s"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:46296
+msgid "Done"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:46302
+msgid "Add gradient"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:46302
+msgid "Add color"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:46326
+msgid "Gradient options"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:46326
+#: wp-includes/js/dist/components.js:55981
+msgid "Color options"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:46342
+msgid "Show details"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:46352
+msgid "Remove all gradients"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:46352
+msgid "Remove all colors"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:46360
+msgid "Reset gradient"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:46360
+msgid "Reset colors"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:46744
+msgid "Item selected."
+msgstr ""
+
+#: wp-includes/js/dist/components.js:47510
+msgid "Scrollable section"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:47533
+#: wp-includes/js/dist/components.js:61606
+msgid "Close"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:47664
+msgid "Cancel"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:47665
+msgid "OK"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:49395
+msgid "Select an item"
+msgstr ""
+
+#. translators: %s: number of items selected (it will always be 2 or more items)
+#: wp-includes/js/dist/components.js:49400
+msgid "%s items selected"
+msgstr ""
+
+#. translators: %s: The selected option.
+#: wp-includes/js/dist/components.js:49575
+msgid "Currently selected: %s"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:54224
+msgid "Calendar"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:54229
+msgid "View previous month"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:54244
+msgid "View next month"
+msgstr ""
+
+#. translators: 1: The calendar date. 2: Number of events on the calendar date.
+#: wp-includes/js/dist/components.js:54366
+msgid "%1$s. Selected. There is %2$d event"
+msgid_plural "%1$s. Selected. There are %2$d events"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %s: The calendar date.
+#: wp-includes/js/dist/components.js:54370
+msgid "%1$s. Selected"
+msgstr ""
+
+#. translators: 1: The calendar date. 2: Number of events on the calendar date.
+#: wp-includes/js/dist/components.js:54374
+msgid "%1$s. There is %2$d event"
+msgid_plural "%1$s. There are %2$d events"
+msgstr[0] ""
+msgstr[1] ""
+
+#: wp-includes/js/dist/components.js:54508
+msgid "Coordinated Universal Time"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:54670
+msgid "Hours"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:54693
+msgid "Minutes"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:54716
+msgid "Select AM or PM"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:54724
+msgid "AM"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:54727
+msgid "PM"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:54802
+msgid "January"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:54805
+msgid "February"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:54808
+msgid "March"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:54811
+msgid "April"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:54814
+msgid "May"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:54817
+msgid "June"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:54820
+msgid "July"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:54823
+msgid "August"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:54826
+msgid "September"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:54829
+msgid "October"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:54832
+msgid "November"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:54835
+msgid "December"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:54883
+msgid "Day"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:54901
+msgid "Month"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:54917
+msgid "Year"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:54952
+#: wp-includes/js/dist/components.js:54957
+msgid "Time"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:54973
+#: wp-includes/js/dist/components.js:54978
+msgid "Date"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:55150
+msgctxt "Size of a UI element"
+msgid "None"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:55153
+msgctxt "Size of a UI element"
+msgid "Small"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:55156
+msgctxt "Size of a UI element"
+msgid "Medium"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:55159
+msgctxt "Size of a UI element"
+msgid "Large"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:55162
+msgctxt "Size of a UI element"
+msgid "Extra Large"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:55254
+#: wp-includes/js/dist/components.js:57043
+msgid "Default"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:55769
+msgid "Drop files to upload"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:56120
+msgid "Unset"
+msgstr ""
+
+#. translators: %s: duotone code e.g: "dark-grayscale" or "7f7f7f-ffffff".
+#: wp-includes/js/dist/components.js:56142
+msgid "Duotone code: %s"
+msgstr ""
+
+#. translators: %s: The name of the option e.g: "Dark grayscale".
+#: wp-includes/js/dist/components.js:56145
+msgid "Duotone: %s"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:56202
+msgid "Shadows"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:56202
+msgid "Highlights"
+msgstr ""
+
+#. translators: accessibility text
+#: wp-includes/js/dist/components.js:56282
+msgid "(opens in a new tab)"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:56459
+msgid "Left"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:56460
+msgid "Focal point left position"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:56465
+msgid "Top"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:56466
+msgid "Focal point top position"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:56884
+msgid "Media preview"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:57083
+#: wp-includes/js/dist/components.js:57155
+#: wp-includes/js/dist/components.js:57264
+msgid "Font size"
+msgstr ""
+
+#. translators: %s: Currently selected font size.
+#: wp-includes/js/dist/components.js:57087
+msgid "Currently selected font size: %s"
+msgstr ""
+
+#. translators: S stands for 'small' and is a size label.
+#: wp-includes/js/dist/components.js:57118
+msgid "S"
+msgstr ""
+
+#. translators: M stands for 'medium' and is a size label.
+#: wp-includes/js/dist/components.js:57119
+msgid "M"
+msgstr ""
+
+#. translators: L stands for 'large' and is a size label.
+#: wp-includes/js/dist/components.js:57120
+msgid "L"
+msgstr ""
+
+#. translators: XL stands for 'extra large' and is a size label.
+#: wp-includes/js/dist/components.js:57121
+msgid "XL"
+msgstr ""
+
+#. translators: XXL stands for 'extra extra large' and is a size label.
+#: wp-includes/js/dist/components.js:57122
+msgid "XXL"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:57130
+msgid "Small"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:57130
+msgid "Medium"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:57130
+msgid "Large"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:57130
+msgid "Extra Large"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:57130
+msgid "Extra Extra Large"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:57269
+#: wp-includes/js/dist/components.js:57270
+msgid "Size"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:57275
+msgid "Use size preset"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:57275
+msgid "Set custom size"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:57340
+msgid "Custom Size"
+msgstr ""
+
+#. translators: 1: term name, 2: term position in a set of terms, 3: total term set count.
+#: wp-includes/js/dist/components.js:57570
+msgid "%1$s (%2$s of %3$s)"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:57669
+msgid "Add item"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:57683
+msgid "Item added."
+msgstr ""
+
+#: wp-includes/js/dist/components.js:57684
+msgid "Item removed."
+msgstr ""
+
+#: wp-includes/js/dist/components.js:57685
+msgid "Remove item"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:57686
+msgid "Invalid item"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:58180
+msgid "Separate with commas, spaces, or the Enter key."
+msgstr ""
+
+#: wp-includes/js/dist/components.js:58180
+msgid "Separate with commas or the Enter key."
+msgstr ""
+
+#: wp-includes/js/dist/components.js:58224
+msgid "Guide controls"
+msgstr ""
+
+#. translators: 1: current page number 2: total number of pages
+#: wp-includes/js/dist/components.js:58233
+msgid "Page %1$d of %2$d"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:58297
+msgid "Finish"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:58372
+msgid "Previous"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:58378
+msgid "Next"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:59408
+msgid "Back"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:59871
+msgid "Close search"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:59871
+msgid "Reset search"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:59880
+#: wp-includes/js/dist/components.js:59881
+msgid "Search"
+msgstr ""
+
+#. translators: %d: number of results.
+#: wp-includes/js/dist/components.js:60009
+msgid "%d result found."
+msgid_plural "%d results found."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: placeholder for menu search box. %s: menu title
+#: wp-includes/js/dist/components.js:60026
+msgid "Search %s"
+msgstr ""
+
+#. translators: search button label for menu search box. %s: menu title
+#: wp-includes/js/dist/components.js:60088
+msgid "Search in %s"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:60152
+msgid "No results found."
+msgstr ""
+
+#: wp-includes/js/dist/components.js:61520
+msgid "Warning notice"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:61522
+msgid "Information notice"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:61524
+msgid "Error notice"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:61527
+msgid "Notice"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:62112
+msgid "Loading …"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:62436
+msgid "Order by"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:62439
+msgid "Newest to oldest"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:62442
+msgid "Oldest to newest"
+msgstr ""
+
+#. translators: Label for ordering posts by title in ascending order.
+#: wp-includes/js/dist/components.js:62446
+msgid "A → Z"
+msgstr ""
+
+#. translators: Label for ordering posts by title in descending order.
+#: wp-includes/js/dist/components.js:62450
+msgid "Z → A"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:62468
+msgid "Category"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:62469
+msgctxt "categories"
+msgid "All"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:62475
+msgid "Categories"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:62490
+msgid "Author"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:62491
+msgctxt "authors"
+msgid "All"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:62497
+msgid "Number of items"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:64435
+#: wp-includes/js/dist/components.js:64456
+msgid "Dismiss this notice"
+msgstr ""
+
+#. translators: %s: The name of the control being reset e.g. "Padding".
+#: wp-includes/js/dist/components.js:66695
+msgid "Reset %s"
+msgstr ""
+
+#. translators: %s: The name of the control being reset e.g. "Padding".
+#: wp-includes/js/dist/components.js:66700
+msgid "%s reset to default"
+msgstr ""
+
+#. translators: %s: The name of the control being hidden and reset e.g. "Padding".
+#: wp-includes/js/dist/components.js:66728
+msgid "Hide and reset %s"
+msgstr ""
+
+#. translators: %s: The name of the control to display e.g. "Padding".
+#: wp-includes/js/dist/components.js:66730
+msgctxt "input control"
+msgid "Show %s"
+msgstr ""
+
+#. translators: %s: The name of the control being reset e.g. "Padding".
+#: wp-includes/js/dist/components.js:66739
+msgid "%s hidden and reset to default"
+msgstr ""
+
+#. translators: %s: The name of the control being reset e.g. "Padding".
+#: wp-includes/js/dist/components.js:66743
+msgid "%s is now visible"
+msgstr ""
+
+#. translators: %s: The name of the tool e.g. "Color" or "Typography".
+#: wp-includes/js/dist/components.js:66776
+msgctxt "Button label to reveal tool panel options"
+msgid "%s options"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:66777
+msgid "All options are currently hidden"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:66819
+msgid "All options reset"
+msgstr ""
+
+#: wp-includes/js/dist/components.js:66822
+msgid "Reset all"
+msgstr ""

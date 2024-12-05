@@ -1,0 +1,32 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-12-05T22:43:44+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.11.0\n"
+
+#: wp-admin/js/tags-suggest.js:8
+msgctxt "tag delimiter"
+msgid ","
+msgstr ""
+
+#: wp-admin/js/tags-suggest.js:112
+msgid "Term selected."
+msgstr ""
+
+#: wp-admin/js/tags-suggest.js:141
+msgid "No results found."
+msgstr ""
+
+#. translators: %d: Number of search results found.
+#: wp-admin/js/tags-suggest.js:145
+msgid "%d result found. Use up and down arrow keys to navigate."
+msgid_plural "%d results found. Use up and down arrow keys to navigate."
+msgstr[0] ""
+msgstr[1] ""

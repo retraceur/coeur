@@ -1,0 +1,191 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-12-05T22:44:07+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.11.0\n"
+
+#: wp-includes/js/dist/edit-post.js:300
+msgid "Site Icon"
+msgstr ""
+
+#: wp-includes/js/dist/edit-post.js:322
+msgid "Back"
+msgstr ""
+
+#: wp-includes/js/dist/edit-post.js:1672
+msgid "Toggle fullscreen mode."
+msgstr ""
+
+#: wp-includes/js/dist/edit-post.js:1730
+msgid "Create pattern"
+msgstr ""
+
+#: wp-includes/js/dist/edit-post.js:1749
+msgid "Name"
+msgstr ""
+
+#: wp-includes/js/dist/edit-post.js:1752
+msgid "My pattern"
+msgstr ""
+
+#: wp-includes/js/dist/edit-post.js:1758
+msgctxt "pattern (singular)"
+msgid "Synced"
+msgstr ""
+
+#: wp-includes/js/dist/edit-post.js:1759
+msgid "Sync this pattern across multiple locations."
+msgstr ""
+
+#: wp-includes/js/dist/edit-post.js:1774
+msgid "Create"
+msgstr ""
+
+#: wp-includes/js/dist/edit-post.js:2067
+msgid "Manage patterns"
+msgstr ""
+
+#: wp-includes/js/dist/edit-post.js:2086
+msgid "Welcome Guide"
+msgstr ""
+
+#: wp-includes/js/dist/edit-post.js:2126
+msgid "A page reload is required for this change. Make sure your content is saved before reloading."
+msgstr ""
+
+#: wp-includes/js/dist/edit-post.js:2140
+msgid "Show & Reload Page"
+msgstr ""
+
+#: wp-includes/js/dist/edit-post.js:2140
+msgid "Hide & Reload Page"
+msgstr ""
+
+#: wp-includes/js/dist/edit-post.js:2233
+msgid "Custom fields"
+msgstr ""
+
+#: wp-includes/js/dist/edit-post.js:2281
+msgid "Advanced"
+msgstr ""
+
+#: wp-includes/js/dist/edit-post.js:2286
+msgid "Make the editor look like your theme."
+msgstr ""
+
+#: wp-includes/js/dist/edit-post.js:2287
+msgid "Use theme styles"
+msgstr ""
+
+#: wp-includes/js/dist/edit-post.js:2326
+msgid "Fullscreen mode"
+msgstr ""
+
+#: wp-includes/js/dist/edit-post.js:2327
+msgid "Show and hide the admin user interface"
+msgstr ""
+
+#: wp-includes/js/dist/edit-post.js:2328
+msgid "Fullscreen mode activated"
+msgstr ""
+
+#: wp-includes/js/dist/edit-post.js:2329
+msgid "Fullscreen mode deactivated"
+msgstr ""
+
+#: wp-includes/js/dist/edit-post.js:2383
+#: wp-includes/js/dist/edit-post.js:2394
+msgid "Welcome to the block editor"
+msgstr ""
+
+#: wp-includes/js/dist/edit-post.js:2384
+#: wp-includes/js/dist/edit-post.js:2460
+msgid "Get started"
+msgstr ""
+
+#: wp-includes/js/dist/edit-post.js:2397
+msgid "In the WordPress editor, each paragraph, image, or video is presented as a distinct “block” of content."
+msgstr ""
+
+#: wp-includes/js/dist/edit-post.js:2408
+msgid "Make each block your own"
+msgstr ""
+
+#: wp-includes/js/dist/edit-post.js:2411
+msgid "Each block comes with its own set of controls for changing things like color, width, and alignment. These will show and hide automatically when you have a block selected."
+msgstr ""
+
+#: wp-includes/js/dist/edit-post.js:2422
+msgid "Get to know the block library"
+msgstr ""
+
+#: wp-includes/js/dist/edit-post.js:2425
+msgid "All of the blocks available to you live in the block library. You’ll find it wherever you see the <InserterIconImage /> icon."
+msgstr ""
+
+#: wp-includes/js/dist/edit-post.js:2427
+msgid "inserter"
+msgstr ""
+
+#: wp-includes/js/dist/edit-post.js:2459
+#: wp-includes/js/dist/edit-post.js:2470
+msgid "Welcome to the template editor"
+msgstr ""
+
+#: wp-includes/js/dist/edit-post.js:2473
+msgid "Templates help define the layout of the site. You can customize all aspects of your posts and pages using blocks and patterns in this editor."
+msgstr ""
+
+#: wp-includes/js/dist/edit-post.js:2560
+msgid "Exit fullscreen"
+msgstr ""
+
+#: wp-includes/js/dist/edit-post.js:2560
+msgid "Enter fullscreen"
+msgstr ""
+
+#: wp-includes/js/dist/edit-post.js:2567
+msgid "Fullscreen off."
+msgstr ""
+
+#: wp-includes/js/dist/edit-post.js:2567
+msgid "Fullscreen on."
+msgstr ""
+
+#: wp-includes/js/dist/edit-post.js:2571
+msgid "Undo"
+msgstr ""
+
+#: wp-includes/js/dist/edit-post.js:3010
+msgid "Meta Boxes"
+msgstr ""
+
+#: wp-includes/js/dist/edit-post.js:3044
+#: wp-includes/js/dist/edit-post.js:3051
+msgid "Drag to resize"
+msgstr ""
+
+#: wp-includes/js/dist/edit-post.js:3057
+msgid "Use up and down arrow keys to resize the meta box panel."
+msgstr ""
+
+#. translators: %s: plugin name
+#: wp-includes/js/dist/edit-post.js:3189
+msgid "The \"%s\" plugin has encountered an error and cannot be rendered."
+msgstr ""
+
+#. translators: %s: Title of the created post or template, e.g: "Hello world".
+#: wp-includes/js/dist/edit-post.js:3211
+msgid "\"%s\" successfully created."
+msgstr ""
+
+#: wp-includes/js/dist/edit-post.js:3215
+msgid "Edit"
+msgstr ""

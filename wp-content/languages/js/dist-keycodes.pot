@@ -1,0 +1,32 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-12-05T22:44:05+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.11.0\n"
+
+#. translators: comma as in the character ','
+#: wp-includes/js/dist/keycodes.js:380
+msgid "Comma"
+msgstr ""
+
+#. translators: period as in the character '.'
+#: wp-includes/js/dist/keycodes.js:382
+msgid "Period"
+msgstr ""
+
+#. translators: backtick as in the character '`'
+#: wp-includes/js/dist/keycodes.js:384
+msgid "Backtick"
+msgstr ""
+
+#. translators: tilde as in the character '~'
+#: wp-includes/js/dist/keycodes.js:386
+msgid "Tilde"
+msgstr ""

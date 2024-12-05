@@ -1,0 +1,53 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-12-05T22:44:04+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.11.0\n"
+
+#: wp-includes/js/dist/core-commands.js:142
+msgid "An error occurred while creating the item."
+msgstr ""
+
+#: wp-includes/js/dist/core-commands.js:154
+msgid "Add new page"
+msgstr ""
+
+#: wp-includes/js/dist/core-commands.js:167
+msgid "Add new post"
+msgstr ""
+
+#: wp-includes/js/dist/core-commands.js:394
+#: wp-includes/js/dist/core-commands.js:490
+msgid "(no title)"
+msgstr ""
+
+#: wp-includes/js/dist/core-commands.js:513
+msgid "Template parts"
+msgstr ""
+
+#: wp-includes/js/dist/core-commands.js:563
+msgid "Navigation"
+msgstr ""
+
+#: wp-includes/js/dist/core-commands.js:582
+msgid "Styles"
+msgstr ""
+
+#: wp-includes/js/dist/core-commands.js:601
+msgid "Pages"
+msgstr ""
+
+#: wp-includes/js/dist/core-commands.js:620
+msgid "Templates"
+msgstr ""
+
+#: wp-includes/js/dist/core-commands.js:640
+msgid "Patterns"
+msgstr ""

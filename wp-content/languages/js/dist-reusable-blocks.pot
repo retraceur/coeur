@@ -1,0 +1,64 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-12-05T22:44:03+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.11.0\n"
+
+#: wp-includes/js/dist/reusable-blocks.js:108
+msgid "Untitled pattern block"
+msgstr ""
+
+#. translators: %s: the name the user has given to the pattern.
+#: wp-includes/js/dist/reusable-blocks.js:334
+msgid "Synced pattern created: %s"
+msgstr ""
+
+#. translators: %s: the name the user has given to the pattern.
+#: wp-includes/js/dist/reusable-blocks.js:336
+msgid "Unsynced pattern created: %s"
+msgstr ""
+
+#: wp-includes/js/dist/reusable-blocks.js:354
+#: wp-includes/js/dist/reusable-blocks.js:356
+msgid "Create pattern"
+msgstr ""
+
+#: wp-includes/js/dist/reusable-blocks.js:375
+msgid "Name"
+msgstr ""
+
+#: wp-includes/js/dist/reusable-blocks.js:378
+msgid "My pattern"
+msgstr ""
+
+#: wp-includes/js/dist/reusable-blocks.js:381
+msgctxt "pattern (singular)"
+msgid "Synced"
+msgstr ""
+
+#: wp-includes/js/dist/reusable-blocks.js:382
+msgid "Sync this pattern across multiple locations."
+msgstr ""
+
+#: wp-includes/js/dist/reusable-blocks.js:396
+msgid "Cancel"
+msgstr ""
+
+#: wp-includes/js/dist/reusable-blocks.js:401
+msgid "Create"
+msgstr ""
+
+#: wp-includes/js/dist/reusable-blocks.js:478
+msgid "Manage patterns"
+msgstr ""
+
+#: wp-includes/js/dist/reusable-blocks.js:481
+msgid "Detach"
+msgstr ""

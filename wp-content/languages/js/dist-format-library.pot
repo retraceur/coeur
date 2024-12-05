@@ -1,0 +1,153 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-12-05T22:44:04+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.11.0\n"
+
+#: wp-includes/js/dist/format-library.js:60
+msgid "Bold"
+msgstr ""
+
+#: wp-includes/js/dist/format-library.js:132
+msgid "Inline code"
+msgstr ""
+
+#: wp-includes/js/dist/format-library.js:216
+msgid "Inline image"
+msgstr ""
+
+#: wp-includes/js/dist/format-library.js:220
+msgid "photo"
+msgstr ""
+
+#: wp-includes/js/dist/format-library.js:220
+msgid "media"
+msgstr ""
+
+#: wp-includes/js/dist/format-library.js:277
+msgid "Width"
+msgstr ""
+
+#: wp-includes/js/dist/format-library.js:284
+msgid "Alternative text"
+msgstr ""
+
+#. translators: Localized tutorial, if one exists. W3C Web Accessibility Initiative link has list of existing translations.
+#: wp-includes/js/dist/format-library.js:294
+msgid "https://www.w3.org/WAI/tutorials/images/decision-tree/"
+msgstr ""
+
+#: wp-includes/js/dist/format-library.js:295
+msgid "Describe the purpose of the image."
+msgstr ""
+
+#: wp-includes/js/dist/format-library.js:296
+msgid "Leave empty if decorative."
+msgstr ""
+
+#: wp-includes/js/dist/format-library.js:306
+#: wp-includes/js/dist/format-library.js:1944
+msgid "Apply"
+msgstr ""
+
+#: wp-includes/js/dist/format-library.js:391
+msgid "Italic"
+msgstr ""
+
+#: wp-includes/js/dist/format-library.js:685
+msgid "Mark as nofollow"
+msgstr ""
+
+#: wp-includes/js/dist/format-library.js:732
+#: wp-includes/js/dist/format-library.js:1056
+msgid "Link removed."
+msgstr ""
+
+#: wp-includes/js/dist/format-library.js:822
+msgid "Warning: the link has been inserted but may have errors. Please test it."
+msgstr ""
+
+#: wp-includes/js/dist/format-library.js:824
+msgid "Link edited."
+msgstr ""
+
+#: wp-includes/js/dist/format-library.js:826
+msgid "Link inserted."
+msgstr ""
+
+#. translators: %s: search term.
+#: wp-includes/js/dist/format-library.js:851
+msgid "Create page: <mark>%s</mark>"
+msgstr ""
+
+#: wp-includes/js/dist/format-library.js:933
+#: wp-includes/js/dist/format-library.js:1073
+msgid "Link"
+msgstr ""
+
+#: wp-includes/js/dist/format-library.js:1164
+msgid "Strikethrough"
+msgstr ""
+
+#: wp-includes/js/dist/format-library.js:1210
+msgid "Underline"
+msgstr ""
+
+#: wp-includes/js/dist/format-library.js:1342
+msgid "Text"
+msgstr ""
+
+#: wp-includes/js/dist/format-library.js:1345
+msgid "Background"
+msgstr ""
+
+#: wp-includes/js/dist/format-library.js:1502
+msgid "Highlight"
+msgstr ""
+
+#: wp-includes/js/dist/format-library.js:1605
+msgid "Subscript"
+msgstr ""
+
+#: wp-includes/js/dist/format-library.js:1662
+msgid "Superscript"
+msgstr ""
+
+#: wp-includes/js/dist/format-library.js:1719
+msgid "Keyboard input"
+msgstr ""
+
+#: wp-includes/js/dist/format-library.js:1776
+msgid "Clear Unknown Formatting"
+msgstr ""
+
+#: wp-includes/js/dist/format-library.js:1847
+msgid "Language"
+msgstr ""
+
+#: wp-includes/js/dist/format-library.js:1924
+msgid "A valid language attribute, like \"en\" or \"fr\"."
+msgstr ""
+
+#: wp-includes/js/dist/format-library.js:1928
+msgid "Text direction"
+msgstr ""
+
+#: wp-includes/js/dist/format-library.js:1931
+msgid "Left to right"
+msgstr ""
+
+#: wp-includes/js/dist/format-library.js:1934
+msgid "Right to left"
+msgstr ""
+
+#: wp-includes/js/dist/format-library.js:1960
+msgid "Non breaking space"
+msgstr ""

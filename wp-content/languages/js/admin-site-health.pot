@@ -1,0 +1,67 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-12-05T22:43:33+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.11.0\n"
+
+#: wp-admin/js/site-health.js:40
+msgid "Site information has been copied to your clipboard."
+msgstr ""
+
+#: wp-admin/js/site-health.js:148
+msgid "%s critical issue"
+msgid_plural "%s critical issues"
+msgstr[0] ""
+msgstr[1] ""
+
+#: wp-admin/js/site-health.js:153
+msgid "%s recommended improvement"
+msgid_plural "%s recommended improvements"
+msgstr[0] ""
+msgstr[1] ""
+
+#: wp-admin/js/site-health.js:158
+msgid "%s item with no issues detected"
+msgid_plural "%s items with no issues detected"
+msgstr[0] ""
+msgstr[1] ""
+
+#: wp-admin/js/site-health.js:225
+msgid "Good"
+msgstr ""
+
+#: wp-admin/js/site-health.js:230
+msgid "Should be improved"
+msgstr ""
+
+#: wp-admin/js/site-health.js:289
+#: wp-admin/js/site-health.js:310
+msgid "No details available"
+msgstr ""
+
+#: wp-admin/js/site-health.js:338
+msgid "A test is unavailable"
+msgstr ""
+
+#: wp-admin/js/site-health.js:341
+msgid "Unavailable"
+msgstr ""
+
+#: wp-admin/js/site-health.js:470
+msgid "All site health tests have finished running. Your site is looking good."
+msgstr ""
+
+#: wp-admin/js/site-health.js:473
+msgid "All site health tests have finished running. There are items that should be addressed."
+msgstr ""
+
+#: wp-admin/js/site-health.js:476
+msgid "Running additional tests... please wait."
+msgstr ""

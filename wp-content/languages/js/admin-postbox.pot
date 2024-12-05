@@ -1,0 +1,32 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-12-05T22:43:38+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.11.0\n"
+
+#: wp-admin/js/postbox.js:116
+msgid "The box is on the first position"
+msgstr ""
+
+#: wp-admin/js/postbox.js:117
+msgid "The box is on the last position"
+msgstr ""
+
+#: wp-admin/js/postbox.js:506
+msgid "The boxes order has been saved."
+msgstr ""
+
+#: wp-admin/js/postbox.js:558
+msgid "Add boxes from the Screen Options menu"
+msgstr ""
+
+#: wp-admin/js/postbox.js:558
+msgid "Drag boxes here"
+msgstr ""

@@ -1,0 +1,41 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-12-05T22:44:15+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.11.0\n"
+
+#: wp-includes/js/dist/media-utils.js:458
+msgid "Select or Upload Media"
+msgstr ""
+
+#. translators: %s: file name.
+#: wp-includes/js/dist/media-utils.js:643
+msgid "%s: Sorry, this file type is not supported here."
+msgstr ""
+
+#. translators: %s: file name.
+#: wp-includes/js/dist/media-utils.js:701
+msgid "%s: Sorry, you are not allowed to upload this file type."
+msgstr ""
+
+#. translators: %s: file name.
+#: wp-includes/js/dist/media-utils.js:731
+msgid "%s: This file is empty."
+msgstr ""
+
+#. translators: %s: file name.
+#: wp-includes/js/dist/media-utils.js:740
+msgid "%s: This file exceeds the maximum upload size for this site."
+msgstr ""
+
+#. translators: %s: file name
+#: wp-includes/js/dist/media-utils.js:843
+msgid "Error while uploading file %s to the media library."
+msgstr ""
