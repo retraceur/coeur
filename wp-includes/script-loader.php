@@ -1626,24 +1626,6 @@ function wp_default_styles( $styles ) {
 		'widgets'              => array(
 			'wp-components',
 		),
-		'edit-widgets'         => array(
-			'wp-widgets',
-			'wp-block-editor',
-			'wp-edit-blocks',
-			'wp-block-library',
-			'wp-reusable-blocks',
-			'wp-patterns',
-			'wp-preferences',
-		),
-		'customize-widgets'    => array(
-			'wp-widgets',
-			'wp-block-editor',
-			'wp-edit-blocks',
-			'wp-block-library',
-			'wp-reusable-blocks',
-			'wp-patterns',
-			'wp-preferences',
-		),
 		'edit-site'            => array(
 			'wp-components',
 			'wp-block-editor',
@@ -1704,7 +1686,6 @@ function wp_default_styles( $styles ) {
 		'wp-components',
 		'wp-edit-post',
 		'wp-edit-site',
-		'wp-edit-widgets',
 		'wp-editor',
 		'wp-format-library',
 		'wp-list-reusable-blocks',
