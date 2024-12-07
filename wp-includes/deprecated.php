@@ -9534,3 +9534,15 @@ function render_block_core_latest_comments( $attributes = array() ) {
 function register_block_core_latest_comments() {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 }
+
+/**
+ * Adds edit comments link with awaiting moderation count bubble.
+ *
+ * @since WP 3.1.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param WP_Admin_Bar $wp_admin_bar The WP_Admin_Bar instance.
+ */
+function wp_admin_bar_comments_menu( $wp_admin_bar ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
