@@ -3067,6 +3067,30 @@ function wp_ajax_replyto_comment( $action ) {
 }
 
 /**
+ * Handles editing a comment via AJAX.
+ *
+ * @since WP 3.1.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function wp_ajax_edit_comment() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	wp_die( __( 'Retraceur does not support WP Comments.' ) );
+}
+
+/**
+ * Handles getting comments via AJAX.
+ *
+ * @since WP 3.1.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string $action Action to perform.
+ */
+function wp_ajax_get_comments( $action ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	wp_die( __( 'Retraceur does not support WP Comments.' ) );
+}
+
+/**
  * Enqueues comment shortcuts jQuery script.
  *
  * @since WP 2.7.0
@@ -3086,4 +3110,93 @@ function enqueue_comment_hotkeys_js() {
 function comment_footer_die( $msg ) {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 	die;
+}
+
+/**
+ * Displays comments for post table header
+ *
+ * @since WP 3.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param array $result Table header rows.
+ * @return array
+ */
+function post_comment_meta_box_thead( $result ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return array();
+}
+
+/**
+ * Displays comments for post.
+ *
+ * @since WP 2.8.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param WP_Post $post Current post object.
+ */
+function post_comment_meta_box( $post ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Outputs the in-line comment reply-to form in the Comments list table.
+ *
+ * @since WP 2.7.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int    $position  Optional. The value of the 'position' input field. Default 1.
+ * @param bool   $checkbox  Optional. The value of the 'checkbox' input field. Default false.
+ * @param string $mode      Optional. If set to 'single', will use WP_Post_Comments_List_Table,
+ *                          otherwise WP_Comments_List_Table. Default 'single'.
+ * @param bool   $table_row Optional. Whether to use a table instead of a div element. Default true.
+ */
+function wp_comment_reply( $position = 1, $checkbox = false, $mode = 'single', $table_row = true ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the in-line comment reply-to form output in the Comments
+	 * list table.
+	 *
+	 * Returning a non-empty value here will short-circuit display
+	 * of the in-line comment-reply form in the Comments list table,
+	 * echoing the returned value instead.
+	 *
+	 * @since WP 2.7.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string $content The reply-to form content.
+	 * @param array  $args    An array of default args.
+	 */
+	apply_filters_deprecated(
+		'wp_comment_reply',
+		array( '', array() ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+}
+
+/**
+ * Adds a submenu page to the Comments main menu.
+ *
+ * This function takes a capability which will be used to determine whether
+ * or not a page is included in the menu.
+ *
+ * The function which is hooked in to handle the output of the page must check
+ * that the user has the required capability as well.
+ *
+ * @since WP 2.7.0
+ * @since WP 5.3.0 Added the `$position` parameter.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string   $page_title The text to be displayed in the title tags of the page when the menu is selected.
+ * @param string   $menu_title The text to be used for the menu.
+ * @param string   $capability The capability required for this menu to be displayed to the user.
+ * @param string   $menu_slug  The slug name to refer to this menu by (should be unique for this menu).
+ * @param callable $callback   Optional. The function to be called to output the content for this page.
+ * @param int      $position   Optional. The position in the menu order this item should appear.
+ * @return string|false The resulting page's hook_suffix, or false if the user does not have the capability required.
+ */
+function add_comments_page( $page_title, $menu_title, $capability, $menu_slug, $callback = '', $position = null ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 }

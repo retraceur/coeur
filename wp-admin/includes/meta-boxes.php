@@ -850,60 +850,6 @@ function post_comment_status_meta_box( $post ) {
 }
 
 /**
- * Displays comments for post table header
- *
- * @since WP 3.0.0
- *
- * @param array $result Table header rows.
- * @return array
- */
-function post_comment_meta_box_thead( $result ) {
-	unset( $result['cb'], $result['response'] );
-	return $result;
-}
-
-/**
- * Displays comments for post.
- *
- * @since WP 2.8.0
- *
- * @param WP_Post $post Current post object.
- */
-function post_comment_meta_box( $post ) {
-	wp_nonce_field( 'get-comments', 'add_comment_nonce', false );
-	?>
-	<p class="hide-if-no-js" id="add-new-comment"><button type="button" class="button" onclick="window.commentReply && commentReply.addcomment(<?php echo $post->ID; ?>);"><?php _e( 'Add Comment' ); ?></button></p>
-	<?php
-
-	$total         = get_comments(
-		array(
-			'post_id' => $post->ID,
-			'count'   => true,
-			'orderby' => 'none',
-		)
-	);
-	$wp_list_table = _get_list_table( 'WP_Post_Comments_List_Table' );
-	$wp_list_table->display( true );
-
-	if ( 1 > $total ) {
-		echo '<p id="no-comments">' . __( 'No comments yet.' ) . '</p>';
-	} else {
-		$hidden = get_hidden_meta_boxes( get_current_screen() );
-		if ( ! in_array( 'commentsdiv', $hidden, true ) ) {
-			?>
-			<script type="text/javascript">jQuery(function(){commentsBox.get(<?php echo $total; ?>, 10);});</script>
-			<?php
-		}
-
-		?>
-		<p class="hide-if-no-js" id="show-comments"><a href="#commentstatusdiv" onclick="commentsBox.load(<?php echo $total; ?>);return false;"><?php _e( 'Show comments' ); ?></a> <span class="spinner"></span></p>
-		<?php
-	}
-
-	wp_comment_trashnotice();
-}
-
-/**
  * Displays slug form fields.
  *
  * @since WP 2.6.0
@@ -1241,16 +1187,6 @@ function register_and_do_post_meta_boxes( $post ) {
 	}
 
 	$statuses[] = 'private';
-
-	if ( in_array( get_post_status( $post ), $statuses, true ) ) {
-		/*
-		 * If the post type support comments, or the post has comments,
-		 * allow the Comments meta box.
-		 */
-		if ( comments_open( $post ) || pings_open( $post ) || $post->comment_count > 0 || post_type_supports( $post_type, 'comments' ) ) {
-			add_meta_box( 'commentsdiv', __( 'Comments' ), 'post_comment_meta_box', null, 'normal', 'core', array( '__back_compat_meta_box' => true ) );
-		}
-	}
 
 	if ( ! ( 'pending' === get_post_status( $post ) && ! current_user_can( $post_type_object->cap->publish_posts ) ) ) {
 		add_meta_box( 'slugdiv', __( 'Slug' ), 'post_slug_meta_box', null, 'normal', 'core', array( '__back_compat_meta_box' => true ) );

@@ -68,8 +68,6 @@ $core_actions_post = array(
 	'dim-comment',
 	'add-tag',
 	'get-tagcloud',
-	'get-comments',
-	'edit-comment',
 	'add-meta',
 	'add-user',
 	'closed-postboxes',

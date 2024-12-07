@@ -327,27 +327,6 @@ function wp_dashboard_right_now() {
 		}
 	}
 
-	// Comments.
-	$num_comm = wp_count_comments();
-
-	if ( $num_comm && ( $num_comm->approved || $num_comm->moderated ) ) {
-		/* translators: %s: Number of comments. */
-		$text = sprintf( _n( '%s Comment', '%s Comments', $num_comm->approved ), number_format_i18n( $num_comm->approved ) );
-		?>
-		<li class="comment-count">
-			<a href="edit-comments.php"><?php echo $text; ?></a>
-		</li>
-		<?php
-		$moderated_comments_count_i18n = number_format_i18n( $num_comm->moderated );
-		/* translators: %s: Number of comments. */
-		$text = sprintf( _n( '%s Comment in moderation', '%s Comments in moderation', $num_comm->moderated ), $moderated_comments_count_i18n );
-		?>
-		<li class="comment-mod-count<?php echo ! $num_comm->moderated ? ' hidden' : ''; ?>">
-			<a href="edit-comments.php?comment_status=moderated" class="comments-in-moderation-text"><?php echo $text; ?></a>
-		</li>
-		<?php
-	}
-
 	/**
 	 * Filters the array of extra elements to list in the 'At a Glance'
 	 * dashboard widget.

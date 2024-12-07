@@ -11,7 +11,6 @@ require_once ABSPATH . WPINC . '/blocks/categories.php';
 require_once ABSPATH . WPINC . '/blocks/comment-author-name.php';
 require_once ABSPATH . WPINC . '/blocks/comment-content.php';
 require_once ABSPATH . WPINC . '/blocks/comment-date.php';
-require_once ABSPATH . WPINC . '/blocks/comment-edit-link.php';
 require_once ABSPATH . WPINC . '/blocks/comment-reply-link.php';
 require_once ABSPATH . WPINC . '/blocks/comment-template.php';
 require_once ABSPATH . WPINC . '/blocks/comments.php';

@@ -834,16 +834,6 @@ __webpack_require__.d(comment_date_namespaceObject, {
   settings: () => (comment_date_settings)
 });
 
-// NAMESPACE OBJECT: ./node_modules/@wordpress/block-library/build-module/comment-edit-link/index.js
-var build_module_comment_edit_link_namespaceObject = {};
-__webpack_require__.r(build_module_comment_edit_link_namespaceObject);
-__webpack_require__.d(build_module_comment_edit_link_namespaceObject, {
-  init: () => (comment_edit_link_init),
-  metadata: () => (comment_edit_link_metadata),
-  name: () => (comment_edit_link_name),
-  settings: () => (comment_edit_link_settings)
-});
-
 // NAMESPACE OBJECT: ./node_modules/@wordpress/block-library/build-module/comment-reply-link/index.js
 var build_module_comment_reply_link_namespaceObject = {};
 __webpack_require__.r(build_module_comment_reply_link_namespaceObject);
@@ -9141,8 +9131,6 @@ const TEMPLATE = [['core/comments-title'], ['core/comment-template', {}, [['core
   }
 }, [['core/comment-date', {
   fontSize: 'small'
-}], ['core/comment-edit-link', {
-  fontSize: 'small'
 }]]], ['core/comment-content'], ['core/comment-reply-link', {
   fontSize: 'small'
 }]]]]]]], ['core/comments-pagination'], ['core/post-comments-form']];
@@ -10170,172 +10158,6 @@ const comment_date_init = () => initBlock({
   settings: comment_date_settings
 });
 
-;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/comment-edit-link.js
-/**
- * WordPress dependencies
- */
-
-
-const commentEditLink = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_primitives_namespaceObject.SVG, {
-  width: "24",
-  height: "24",
-  viewBox: "0 0 24 24",
-  xmlns: "http://www.w3.org/2000/svg",
-  children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_primitives_namespaceObject.Path, {
-    d: "m6.249 11.065.44-.44h3.186l-1.5 1.5H7.31l-1.957 1.96A.792.792 0 0 1 4 13.524V5a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v1.5L12.5 8V5.5h-7v6.315l.749-.75ZM20 19.75H7v-1.5h13v1.5Zm0-12.653-8.967 9.064L8 17l.867-2.935L17.833 5 20 7.097Z"
-  })
-});
-/* harmony default export */ const comment_edit_link = (commentEditLink);
-
-;// CONCATENATED MODULE: ./node_modules/@wordpress/block-library/build-module/comment-edit-link/edit.js
-/**
- * External dependencies
- */
-
-
-/**
- * WordPress dependencies
- */
-
-
-
-
-
-
-function comment_edit_link_edit_Edit({
-  attributes: {
-    linkTarget,
-    textAlign
-  },
-  setAttributes
-}) {
-  const blockProps = (0,external_wp_blockEditor_namespaceObject.useBlockProps)({
-    className: dist_clsx({
-      [`has-text-align-${textAlign}`]: textAlign
-    })
-  });
-  const blockControls = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_blockEditor_namespaceObject.BlockControls, {
-    group: "block",
-    children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_blockEditor_namespaceObject.AlignmentControl, {
-      value: textAlign,
-      onChange: newAlign => setAttributes({
-        textAlign: newAlign
-      })
-    })
-  });
-  const inspectorControls = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_blockEditor_namespaceObject.InspectorControls, {
-    children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.PanelBody, {
-      title: (0,external_wp_i18n_namespaceObject.__)('Settings'),
-      children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ToggleControl, {
-        __nextHasNoMarginBottom: true,
-        label: (0,external_wp_i18n_namespaceObject.__)('Open in new tab'),
-        onChange: value => setAttributes({
-          linkTarget: value ? '_blank' : '_self'
-        }),
-        checked: linkTarget === '_blank'
-      })
-    })
-  });
-  return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_ReactJSXRuntime_namespaceObject.Fragment, {
-    children: [blockControls, inspectorControls, /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("div", {
-      ...blockProps,
-      children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("a", {
-        href: "#edit-comment-pseudo-link",
-        onClick: event => event.preventDefault(),
-        children: (0,external_wp_i18n_namespaceObject.__)('Edit')
-      })
-    })]
-  });
-}
-
-;// CONCATENATED MODULE: ./node_modules/@wordpress/block-library/build-module/comment-edit-link/index.js
-/**
- * WordPress dependencies
- */
-
-
-/**
- * Internal dependencies
- */
-
-const comment_edit_link_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
-  apiVersion: 3,
-  name: "core/comment-edit-link",
-  title: "Comment Edit Link",
-  category: "theme",
-  ancestor: ["core/comment-template"],
-  description: "Displays a link to edit the comment in the WordPress Dashboard. This link is only visible to users with the edit comment capability.",
-  textdomain: "default",
-  usesContext: ["commentId"],
-  attributes: {
-    linkTarget: {
-      type: "string",
-      "default": "_self"
-    },
-    textAlign: {
-      type: "string"
-    }
-  },
-  supports: {
-    html: false,
-    color: {
-      link: true,
-      gradients: true,
-      text: false,
-      __experimentalDefaultControls: {
-        background: true,
-        link: true
-      }
-    },
-    spacing: {
-      margin: true,
-      padding: true,
-      __experimentalDefaultControls: {
-        margin: false,
-        padding: false
-      }
-    },
-    typography: {
-      fontSize: true,
-      lineHeight: true,
-      __experimentalFontFamily: true,
-      __experimentalFontWeight: true,
-      __experimentalFontStyle: true,
-      __experimentalTextTransform: true,
-      __experimentalTextDecoration: true,
-      __experimentalLetterSpacing: true,
-      __experimentalDefaultControls: {
-        fontSize: true
-      }
-    },
-    interactivity: {
-      clientNavigation: true
-    },
-    __experimentalBorder: {
-      radius: true,
-      color: true,
-      width: true,
-      style: true
-    }
-  },
-  style: "wp-block-comment-edit-link"
-};
-
-const {
-  name: comment_edit_link_name
-} = comment_edit_link_metadata;
-
-const comment_edit_link_settings = {
-  icon: comment_edit_link,
-  edit: comment_edit_link_edit_Edit
-};
-const comment_edit_link_init = () => initBlock({
-  name: comment_edit_link_name,
-  metadata: comment_edit_link_metadata,
-  settings: comment_edit_link_settings
-});
-
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/comment-reply-link.js
 /**
  * WordPress dependencies
@@ -10681,7 +10503,7 @@ const useCommentTree = topLevelComments => {
 
 
 
-const edit_TEMPLATE = [['core/avatar'], ['core/comment-author-name'], ['core/comment-date'], ['core/comment-content'], ['core/comment-reply-link'], ['core/comment-edit-link']];
+const edit_TEMPLATE = [['core/avatar'], ['core/comment-author-name'], ['core/comment-date'], ['core/comment-content'], ['core/comment-reply-link']];
 
 /**
  * Function that returns a comment structure that will be rendered with default placehoders.
@@ -41224,7 +41046,7 @@ const blockDefault = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.js
 
 
 
-const post_comment_edit_TEMPLATE = [['core/avatar'], ['core/comment-author-name'], ['core/comment-date'], ['core/comment-content'], ['core/comment-reply-link'], ['core/comment-edit-link']];
+const post_comment_edit_TEMPLATE = [['core/avatar'], ['core/comment-author-name'], ['core/comment-date'], ['core/comment-content'], ['core/comment-reply-link']];
 function post_comment_edit_Edit({
   attributes: {
     commentId
@@ -41297,7 +41119,7 @@ const post_comment_metadata = {
   name: "core/post-comment",
   title: "Comment (deprecated)",
   category: "theme",
-  allowedBlocks: ["core/avatar", "core/comment-author-name", "core/comment-content", "core/comment-date", "core/comment-edit-link", "core/comment-reply-link"],
+  allowedBlocks: ["core/avatar", "core/comment-author-name", "core/comment-content", "core/comment-date", "core/comment-reply-link"],
   description: "This block is deprecated. Please use the Comments block instead.",
   textdomain: "default",
   attributes: {
@@ -64371,7 +64193,7 @@ const getAllBlocks = () => {
   // Register all remaining core blocks.
   archives_namespaceObject, build_module_audio_namespaceObject, build_module_button_namespaceObject, build_module_buttons_namespaceObject, build_module_calendar_namespaceObject, categories_namespaceObject, build_module_code_namespaceObject, build_module_column_namespaceObject, build_module_columns_namespaceObject, build_module_comment_author_avatar_namespaceObject, build_module_cover_namespaceObject, build_module_details_namespaceObject, embed_namespaceObject, build_module_file_namespaceObject, build_module_group_namespaceObject, build_module_html_namespaceObject, latest_posts_namespaceObject, media_text_namespaceObject, missing_namespaceObject, build_module_more_namespaceObject, nextpage_namespaceObject, page_list_namespaceObject, page_list_item_namespaceObject, pattern_namespaceObject, build_module_preformatted_namespaceObject, build_module_pullquote_namespaceObject, block_namespaceObject, build_module_rss_namespaceObject, build_module_search_namespaceObject, build_module_separator_namespaceObject, build_module_shortcode_namespaceObject, social_link_namespaceObject, social_links_namespaceObject, spacer_namespaceObject, build_module_table_namespaceObject, tag_cloud_namespaceObject, text_columns_namespaceObject, build_module_verse_namespaceObject, build_module_video_namespaceObject, footnotes_namespaceObject,
   // theme blocks
-  build_module_navigation_namespaceObject, navigation_link_namespaceObject, navigation_submenu_namespaceObject, build_module_site_logo_namespaceObject, site_title_namespaceObject, site_tagline_namespaceObject, query_namespaceObject, template_part_namespaceObject, avatar_namespaceObject, post_title_namespaceObject, build_module_post_excerpt_namespaceObject, build_module_post_featured_image_namespaceObject, build_module_post_content_namespaceObject, build_module_post_author_namespaceObject, post_author_name_namespaceObject, post_comment_namespaceObject, build_module_post_comments_count_namespaceObject, post_comments_link_namespaceObject, build_module_post_date_namespaceObject, build_module_post_terms_namespaceObject, post_navigation_link_namespaceObject, post_template_namespaceObject, post_time_to_read_namespaceObject, build_module_query_pagination_namespaceObject, build_module_query_pagination_next_namespaceObject, build_module_query_pagination_numbers_namespaceObject, build_module_query_pagination_previous_namespaceObject, query_no_results_namespaceObject, read_more_namespaceObject, comments_namespaceObject, build_module_comment_author_name_namespaceObject, build_module_comment_content_namespaceObject, comment_date_namespaceObject, build_module_comment_edit_link_namespaceObject, build_module_comment_reply_link_namespaceObject, comment_template_namespaceObject, comments_title_namespaceObject, comments_pagination_namespaceObject, comments_pagination_next_namespaceObject, comments_pagination_numbers_namespaceObject, comments_pagination_previous_namespaceObject, build_module_post_comments_form_namespaceObject, build_module_table_of_contents_namespaceObject, home_link_namespaceObject, loginout_namespaceObject, build_module_term_description_namespaceObject, query_title_namespaceObject, post_author_biography_namespaceObject];
+  build_module_navigation_namespaceObject, navigation_link_namespaceObject, navigation_submenu_namespaceObject, build_module_site_logo_namespaceObject, site_title_namespaceObject, site_tagline_namespaceObject, query_namespaceObject, template_part_namespaceObject, avatar_namespaceObject, post_title_namespaceObject, build_module_post_excerpt_namespaceObject, build_module_post_featured_image_namespaceObject, build_module_post_content_namespaceObject, build_module_post_author_namespaceObject, post_author_name_namespaceObject, post_comment_namespaceObject, build_module_post_comments_count_namespaceObject, post_comments_link_namespaceObject, build_module_post_date_namespaceObject, build_module_post_terms_namespaceObject, post_navigation_link_namespaceObject, post_template_namespaceObject, post_time_to_read_namespaceObject, build_module_query_pagination_namespaceObject, build_module_query_pagination_next_namespaceObject, build_module_query_pagination_numbers_namespaceObject, build_module_query_pagination_previous_namespaceObject, query_no_results_namespaceObject, read_more_namespaceObject, comments_namespaceObject, build_module_comment_author_name_namespaceObject, build_module_comment_content_namespaceObject, comment_date_namespaceObject, build_module_comment_reply_link_namespaceObject, comment_template_namespaceObject, comments_title_namespaceObject, comments_pagination_namespaceObject, comments_pagination_next_namespaceObject, comments_pagination_numbers_namespaceObject, comments_pagination_previous_namespaceObject, build_module_post_comments_form_namespaceObject, build_module_table_of_contents_namespaceObject, home_link_namespaceObject, loginout_namespaceObject, build_module_term_description_namespaceObject, query_title_namespaceObject, post_author_biography_namespaceObject];
   if (window?.__experimentalEnableFormBlocks) {
     blocks.push(build_module_form_namespaceObject);
     blocks.push(form_input_namespaceObject);
