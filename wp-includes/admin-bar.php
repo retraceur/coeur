@@ -643,17 +643,6 @@ function wp_admin_bar_my_sites_menu( $wp_admin_bar ) {
 			);
 		}
 
-		if ( current_user_can( 'edit_posts' ) ) {
-			$wp_admin_bar->add_node(
-				array(
-					'parent' => $menu_id,
-					'id'     => $menu_id . '-c',
-					'title'  => __( 'Manage Comments' ),
-					'href'   => admin_url( 'edit-comments.php' ),
-				)
-			);
-		}
-
 		$wp_admin_bar->add_node(
 			array(
 				'parent' => $menu_id,
@@ -720,14 +709,9 @@ function wp_admin_bar_edit_menu( $wp_admin_bar ) {
 			$post_type_object = get_post_type_object( $post->post_type );
 		} elseif ( 'edit' === $current_screen->base ) {
 			$post_type_object = get_post_type_object( $current_screen->post_type );
-		} elseif ( 'edit-comments' === $current_screen->base && $post_id ) {
-			$post = get_post( $post_id );
-			if ( $post ) {
-				$post_type_object = get_post_type_object( $post->post_type );
-			}
 		}
 
-		if ( ( 'post' === $current_screen->base || 'edit-comments' === $current_screen->base )
+		if ( ( 'post' === $current_screen->base )
 			&& 'add' !== $current_screen->action
 			&& ( $post_type_object )
 			&& current_user_can( 'read_post', $post->ID )
@@ -923,39 +907,6 @@ function wp_admin_bar_new_content_menu( $wp_admin_bar ) {
 			)
 		);
 	}
-}
-
-/**
- * Adds edit comments link with awaiting moderation count bubble.
- *
- * @since WP 3.1.0
- *
- * @param WP_Admin_Bar $wp_admin_bar The WP_Admin_Bar instance.
- */
-function wp_admin_bar_comments_menu( $wp_admin_bar ) {
-	if ( ! current_user_can( 'edit_posts' ) ) {
-		return;
-	}
-
-	$awaiting_mod  = wp_count_comments();
-	$awaiting_mod  = $awaiting_mod->moderated;
-	$awaiting_text = sprintf(
-		/* translators: Hidden accessibility text. %s: Number of comments. */
-		_n( '%s Comment in moderation', '%s Comments in moderation', $awaiting_mod ),
-		number_format_i18n( $awaiting_mod )
-	);
-
-	$icon   = '<span class="ab-icon" aria-hidden="true"></span>';
-	$title  = '<span class="ab-label awaiting-mod pending-count count-' . $awaiting_mod . '" aria-hidden="true">' . number_format_i18n( $awaiting_mod ) . '</span>';
-	$title .= '<span class="screen-reader-text comments-in-moderation-text">' . $awaiting_text . '</span>';
-
-	$wp_admin_bar->add_node(
-		array(
-			'id'    => 'comments',
-			'title' => $icon . $title,
-			'href'  => admin_url( 'edit-comments.php' ),
-		)
-	);
 }
 
 /**
