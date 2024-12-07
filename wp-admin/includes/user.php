@@ -140,8 +140,6 @@ function edit_user( $user_id = 0 ) {
 		$user->show_admin_bar_front = isset( $_POST['admin_bar_front'] ) ? 'true' : 'false';
 	}
 
-	$user->comment_shortcuts = isset( $_POST['comment_shortcuts'] ) && 'true' === $_POST['comment_shortcuts'] ? 'true' : '';
-
 	$user->use_ssl = 0;
 	if ( ! empty( $_POST['use_ssl'] ) ) {
 		$user->use_ssl = 1;

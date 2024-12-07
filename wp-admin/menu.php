@@ -76,29 +76,6 @@ foreach ( get_taxonomies_for_attachments( 'objects' ) as $tax ) {
 
 // $menu[20] = Pages.
 
-// Avoid the comment count query for users who cannot edit_posts.
-if ( current_user_can( 'edit_posts' ) ) {
-	$awaiting_mod      = wp_count_comments();
-	$awaiting_mod      = $awaiting_mod->moderated;
-	$awaiting_mod_i18n = number_format_i18n( $awaiting_mod );
-	/* translators: %s: Number of comments. */
-	$awaiting_mod_text = sprintf( _n( '%s Comment in moderation', '%s Comments in moderation', $awaiting_mod ), $awaiting_mod_i18n );
-
-	$menu[25] = array(
-		/* translators: %s: Number of comments. */
-		sprintf( __( 'Comments %s' ), '<span class="awaiting-mod count-' . absint( $awaiting_mod ) . '"><span class="pending-count" aria-hidden="true">' . $awaiting_mod_i18n . '</span><span class="comments-in-moderation-text screen-reader-text">' . $awaiting_mod_text . '</span></span>' ),
-		'edit_posts',
-		'edit-comments.php',
-		'',
-		'menu-top menu-icon-comments',
-		'menu-comments',
-		'dashicons-admin-comments',
-	);
-	unset( $awaiting_mod );
-}
-
-$submenu['edit-comments.php'][0] = array( __( 'All Comments' ), 'edit_posts', 'edit-comments.php' );
-
 $_wp_last_object_menu = 25; // The index of the last top-level menu in the object menu group.
 
 $types   = (array) get_post_types(
@@ -337,7 +314,7 @@ $menu[80]                               = array( __( 'Settings' ), 'manage_optio
 	$submenu['options-general.php'][10] = array( _x( 'General', 'settings screen' ), 'manage_options', 'options-general.php' );
 	$submenu['options-general.php'][15] = array( __( 'Writing' ), 'manage_options', 'options-writing.php' );
 	$submenu['options-general.php'][20] = array( __( 'Reading' ), 'manage_options', 'options-reading.php' );
-	$submenu['options-general.php'][25] = array( __( 'Discussion' ), 'manage_options', 'options-discussion.php' );
+	$submenu['options-general.php'][25] = array( __( 'Membership' ), 'manage_options', 'options-membership.php' );
 	$submenu['options-general.php'][30] = array( __( 'Media' ), 'manage_options', 'options-media.php' );
 	$submenu['options-general.php'][40] = array( __( 'Permalinks' ), 'manage_options', 'options-permalink.php' );
 	$submenu['options-general.php'][45] = array( __( 'Privacy' ), 'manage_privacy_options', 'options-privacy.php' );

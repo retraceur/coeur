@@ -9546,3 +9546,217 @@ function register_block_core_latest_comments() {
 function wp_admin_bar_comments_menu( $wp_admin_bar ) {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 }
+
+if ( ! function_exists( 'wp_notify_postauthor' ) ) :
+	/**
+	 * Notifies an author (and/or others) of a comment/trackback/pingback on a post.
+	 *
+	 * @since WP 1.0.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param int|WP_Comment $comment_id Comment ID or WP_Comment object.
+	 * @param string         $deprecated Not used.
+	 * @return bool True on completion. False if no email addresses were specified.
+	 */
+	function wp_notify_postauthor( $comment_id, $deprecated = null ) {
+		_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+		/**
+		 * Filters the list of email addresses to receive a comment notification.
+		 *
+		 * By default, only post authors are notified of comments. This filter allows
+		 * others to be added.
+		 *
+		 * @since WP 3.7.0
+		 * @deprecated 1.0.0 Retraceur fork.
+		 *
+		 * @param string[] $emails     An array of email addresses to receive a comment notification.
+		 * @param string   $comment_id The comment ID as a numeric string.
+		 */
+		apply_filters_deprecated(
+			'comment_notification_recipients',
+			array( array(), 0 ),
+			'1.0.0',
+			'',
+			__( 'WP Comments feature is not supported in Retraceur.' )
+		);
+
+		/**
+		 * Filters whether to notify comment authors of their comments on their own posts.
+		 *
+		 * By default, comment authors aren't notified of their comments on their own
+		 * posts. This filter allows you to override that.
+		 *
+		 * @since WP 3.8.0
+		 * @deprecated 1.0.0 Retraceur fork.
+		 *
+		 * @param bool   $notify     Whether to notify the post author of their own comment.
+		 *                           Default false.
+		 * @param string $comment_id The comment ID as a numeric string.
+		 */
+		apply_filters_deprecated(
+			'comment_notification_notify_author',
+			array( false, 0 ),
+			'1.0.0',
+			'',
+			__( 'WP Comments feature is not supported in Retraceur.' )
+		);
+
+		/**
+		 * Filters the comment notification email headers.
+		 *
+		 * @since WP 1.5.2
+		 * @deprecated 1.0.0 Retraceur fork.
+		 *
+		 * @param string $message_headers Headers for the comment notification email.
+		 * @param string $comment_id      Comment ID as a numeric string.
+		 */
+		apply_filters_deprecated(
+			'comment_notification_headers',
+			array( '', 0 ),
+			'1.0.0',
+			'',
+			__( 'WP Comments feature is not supported in Retraceur.' )
+		);
+
+		/**
+		 * Filters the comment notification email text.
+		 *
+		 * @since WP 1.5.2
+		 * @deprecated 1.0.0 Retraceur fork.
+		 *
+		 * @param string $notify_message The comment notification email text.
+		 * @param string $comment_id     Comment ID as a numeric string.
+		 */
+		apply_filters_deprecated(
+			'comment_notification_text',
+			array( '', 0 ),
+			'1.0.0',
+			'',
+			__( 'WP Comments feature is not supported in Retraceur.' )
+		);
+
+		/**
+		 * Filters the comment notification email subject.
+		 *
+		 * @since WP 1.5.2
+		 * @deprecated 1.0.0 Retraceur fork.
+		 *
+		 * @param string $subject    The comment notification email subject.
+		 * @param string $comment_id Comment ID as a numeric string.
+		 */
+		apply_filters_deprecated(
+			'comment_notification_subject',
+			array( '', 0 ),
+			'1.0.0',
+			'',
+			__( 'WP Comments feature is not supported in Retraceur.' )
+		);
+
+		return false;
+	}
+endif;
+
+if ( ! function_exists( 'wp_notify_moderator' ) ) :
+	/**
+	 * Notifies the moderator of the site about a new comment that is awaiting approval.
+	 *
+	 * @since WP 1.0.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * Uses the {@see 'notify_moderator'} filter to determine whether the site moderator
+	 * should be notified, overriding the site setting.
+	 *
+	 * @param int $comment_id Comment ID.
+	 * @return true Always returns true.
+	 */
+	function wp_notify_moderator( $comment_id ) {
+
+		/**
+		 * Filters whether to send the site moderator email notifications, overriding the site setting.
+		 *
+		 * @since WP 4.4.0
+		 * @deprecated 1.0.0 Retraceur fork.
+		 *
+		 * @param bool $maybe_notify Whether to notify blog moderator.
+		 * @param int  $comment_id   The ID of the comment for the notification.
+		 */
+		apply_filters_deprecated(
+			'notify_moderator',
+			array( false, 0 ),
+			'1.0.0',
+			'',
+			__( 'WP Comments feature is not supported in Retraceur.' )
+		);
+
+		/**
+		 * Filters the list of recipients for comment moderation emails.
+		 *
+		 * @since WP 3.7.0
+		 * @deprecated 1.0.0 Retraceur fork.
+		 *
+		 * @param string[] $emails     List of email addresses to notify for comment moderation.
+		 * @param int      $comment_id Comment ID.
+		 */
+		apply_filters_deprecated(
+			'comment_moderation_recipients',
+			array( array(), 0 ),
+			'1.0.0',
+			'',
+			__( 'WP Comments feature is not supported in Retraceur.' )
+		);
+
+		/**
+		 * Filters the comment moderation email headers.
+		 *
+		 * @since WP 2.8.0
+		 * @deprecated 1.0.0 Retraceur fork.
+		 *
+		 * @param string $message_headers Headers for the comment moderation email.
+		 * @param int    $comment_id      Comment ID.
+		 */
+		apply_filters_deprecated(
+			'comment_moderation_headers',
+			array( '', 0 ),
+			'1.0.0',
+			'',
+			__( 'WP Comments feature is not supported in Retraceur.' )
+		);
+
+		/**
+		 * Filters the comment moderation email text.
+		 *
+		 * @since WP 1.5.2
+		 * @deprecated 1.0.0 Retraceur fork.
+		 *
+		 * @param string $notify_message Text of the comment moderation email.
+		 * @param int    $comment_id     Comment ID.
+		 */
+		apply_filters_deprecated(
+			'comment_moderation_text',
+			array( '', 0 ),
+			'1.0.0',
+			'',
+			__( 'WP Comments feature is not supported in Retraceur.' )
+		);
+
+		/**
+		 * Filters the comment moderation email subject.
+		 *
+		 * @since WP 1.5.2
+		 * @deprecated 1.0.0 Retraceur fork.
+		 *
+		 * @param string $subject    Subject of the comment moderation email.
+		 * @param int    $comment_id Comment ID.
+		 */
+		apply_filters_deprecated(
+			'comment_moderation_subject',
+			array( '', 0 ),
+			'1.0.0',
+			'',
+			__( 'WP Comments feature is not supported in Retraceur.' )
+		);
+
+		return true;
+	}
+endif;

@@ -39,7 +39,7 @@ function create_initial_post_types() {
 			'rewrite'               => false,
 			'query_var'             => false,
 			'delete_with_user'      => true,
-			'supports'              => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'trackbacks', 'custom-fields', 'comments', 'revisions', 'post-formats' ),
+			'supports'              => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'custom-fields', 'revisions', 'post-formats' ),
 			'show_in_rest'          => true,
 			'rest_base'             => 'posts',
 			'rest_controller_class' => 'WP_REST_Posts_Controller',
@@ -64,7 +64,7 @@ function create_initial_post_types() {
 			'rewrite'               => false,
 			'query_var'             => false,
 			'delete_with_user'      => true,
-			'supports'              => array( 'title', 'editor', 'author', 'thumbnail', 'page-attributes', 'custom-fields', 'comments', 'revisions' ),
+			'supports'              => array( 'title', 'editor', 'author', 'thumbnail', 'page-attributes', 'custom-fields', 'revisions' ),
 			'show_in_rest'          => true,
 			'rest_base'             => 'pages',
 			'rest_controller_class' => 'WP_REST_Posts_Controller',
@@ -97,7 +97,7 @@ function create_initial_post_types() {
 			'query_var'             => false,
 			'show_in_nav_menus'     => false,
 			'delete_with_user'      => true,
-			'supports'              => array( 'title', 'author', 'comments' ),
+			'supports'              => array( 'title', 'author' ),
 			'show_in_rest'          => true,
 			'rest_base'             => 'media',
 			'rest_controller_class' => 'WP_REST_Attachments_Controller',
@@ -1679,12 +1679,11 @@ function get_post_types( $args = array(), $output = 'names', $operator = 'and' )
  *                                                         Default false.
  *     @type array|false  $supports                        Core feature(s) the post type supports. Serves as an alias for calling
  *                                                         add_post_type_support() directly. Core features include 'title',
- *                                                         'editor', 'comments', 'revisions', 'trackbacks', 'author', 'excerpt',
- *                                                         'page-attributes', 'thumbnail', 'custom-fields', and 'post-formats'.
+ *                                                         'editor', 'revisions', 'author', 'excerpt', 'page-attributes', 'thumbnail',
+ *                                                         'custom-fields', and 'post-formats'.
  *                                                         Additionally, the 'revisions' feature dictates whether the post type
  *                                                         will store revisions, the 'autosave' feature dictates whether the post type
- *                                                         will be autosaved, and the 'comments' feature dictates whether the
- *                                                         comments count will show on the edit screen. For backward compatibility reasons,
+ *                                                         will be autosaved. For backward compatibility reasons,
  *                                                         adding 'editor' support implies 'autosave' support too. A feature can also be
  *                                                         specified as an array of arguments to provide additional information
  *                                                         about supporting that feature.
@@ -2167,20 +2166,19 @@ function _add_post_type_submenus() {
  *
  * All core features are directly associated with a functional area of the edit
  * screen, such as the editor or a meta box. Features include: 'title', 'editor',
- * 'comments', 'revisions', 'trackbacks', 'author', 'excerpt', 'page-attributes',
- * 'thumbnail', 'custom-fields', and 'post-formats'.
+ * 'revisions', 'author', 'excerpt', 'page-attributes', 'thumbnail', 'custom-fields',
+ * and 'post-formats'.
  *
  * Additionally, the 'revisions' feature dictates whether the post type will
  * store revisions, the 'autosave' feature dictates whether the post type
- * will be autosaved, and the 'comments' feature dictates whether the comments
- * count will show on the edit screen.
+ * will be autosaved
+ * .
  *
  * A third, optional parameter can also be passed along with a feature to provide
  * additional information about supporting that feature.
  *
  * Example usage:
  *
- *     add_post_type_support( 'my_post_type', 'comments' );
  *     add_post_type_support( 'my_post_type', array(
  *         'author', 'excerpt',
  *     ) );

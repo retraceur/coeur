@@ -124,7 +124,6 @@ function the_modified_author() {
  *
  * - admin_color
  * - aim
- * - comment_shortcuts
  * - description
  * - display_name
  * - first_name

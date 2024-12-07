@@ -197,25 +197,3 @@ function floated_admin_avatar( $name ) {
 	$avatar = get_avatar( get_comment(), 32, 'mystery' );
 	return "$avatar $name";
 }
-
-/**
- * Enqueues comment shortcuts jQuery script.
- *
- * @since WP 2.7.0
- */
-function enqueue_comment_hotkeys_js() {
-	if ( 'true' === get_user_option( 'comment_shortcuts' ) ) {
-		wp_enqueue_script( 'jquery-table-hotkeys' );
-	}
-}
-
-/**
- * Displays error message at bottom of comments.
- *
- * @param string $msg Error Message. Assumed to contain HTML and be sanitized.
- */
-function comment_footer_die( $msg ) {
-	echo "<div class='wrap'><p>$msg</p></div>";
-	require_once ABSPATH . 'wp-admin/admin-footer.php';
-	die;
-}

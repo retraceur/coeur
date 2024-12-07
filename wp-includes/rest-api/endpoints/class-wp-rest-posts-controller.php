@@ -2153,16 +2153,6 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 			);
 		}
 
-		if ( in_array( $post->post_type, array( 'post', 'page' ), true ) || post_type_supports( $post->post_type, 'comments' ) ) {
-			$replies_url = rest_url( 'wp/v2/comments' );
-			$replies_url = add_query_arg( 'post', $post->ID, $replies_url );
-
-			$links['replies'] = array(
-				'href'       => $replies_url,
-				'embeddable' => true,
-			);
-		}
-
 		if ( in_array( $post->post_type, array( 'post', 'page' ), true ) || post_type_supports( $post->post_type, 'revisions' ) ) {
 			$revisions       = wp_get_latest_revision_id_and_total_count( $post->ID );
 			$revisions_count = ! is_wp_error( $revisions ) ? $revisions['count'] : 0;
@@ -2445,7 +2435,6 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 			'author',
 			'excerpt',
 			'thumbnail',
-			'comments',
 			'revisions',
 			'page-attributes',
 			'post-formats',
@@ -2458,7 +2447,6 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 				'author',
 				'excerpt',
 				'thumbnail',
-				'comments',
 				'revisions',
 				'post-formats',
 				'custom-fields',
@@ -2469,7 +2457,6 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 				'author',
 				'excerpt',
 				'thumbnail',
-				'comments',
 				'revisions',
 				'page-attributes',
 				'custom-fields',
@@ -2477,7 +2464,6 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 			'attachment' => array(
 				'title',
 				'author',
-				'comments',
 				'revisions',
 				'custom-fields',
 				'thumbnail',
@@ -2599,21 +2585,6 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 						'description' => __( 'The ID of the featured media for the post.' ),
 						'type'        => 'integer',
 						'context'     => array( 'view', 'edit', 'embed' ),
-					);
-					break;
-
-				case 'comments':
-					$schema['properties']['comment_status'] = array(
-						'description' => __( 'Whether or not comments are open on the post.' ),
-						'type'        => 'string',
-						'enum'        => array( 'open', 'closed' ),
-						'context'     => array( 'view', 'edit' ),
-					);
-					$schema['properties']['ping_status']    = array(
-						'description' => __( 'Whether or not the post can be pinged.' ),
-						'type'        => 'string',
-						'enum'        => array( 'open', 'closed' ),
-						'context'     => array( 'view', 'edit' ),
 					);
 					break;
 

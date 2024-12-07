@@ -276,31 +276,7 @@ if ( $new_admin_email && get_option( 'admin_email' ) !== $new_admin_email ) {
 </td>
 </tr>
 
-<?php if ( ! is_multisite() ) { ?>
-
-<tr>
-<th scope="row"><?php _e( 'Membership' ); ?></th>
-<td> <fieldset><legend class="screen-reader-text"><span>
-	<?php
-	/* translators: Hidden accessibility text. */
-	_e( 'Membership' );
-	?>
-</span></legend><label for="users_can_register">
-<input name="users_can_register" type="checkbox" id="users_can_register" value="1" <?php checked( '1', get_option( 'users_can_register' ) ); ?> />
-	<?php _e( 'Anyone can register' ); ?></label>
-</fieldset></td>
-</tr>
-
-<tr>
-<th scope="row"><label for="default_role"><?php _e( 'New User Default Role' ); ?></label></th>
-<td>
-<select name="default_role" id="default_role"><?php wp_dropdown_roles( get_option( 'default_role' ) ); ?></select>
-</td>
-</tr>
-
-	<?php
-}
-
+<?php
 $languages    = get_available_languages();
 $translations = wp_get_available_translations();
 if ( ! is_multisite() && defined( 'WPLANG' ) && '' !== WPLANG && 'en_US' !== WPLANG && ! in_array( WPLANG, $languages, true ) ) {

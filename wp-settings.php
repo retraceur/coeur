@@ -297,7 +297,6 @@ require ABSPATH . WPINC . '/rest-api/endpoints/class-wp-rest-template-autosaves-
 require ABSPATH . WPINC . '/rest-api/endpoints/class-wp-rest-taxonomies-controller.php';
 require ABSPATH . WPINC . '/rest-api/endpoints/class-wp-rest-terms-controller.php';
 require ABSPATH . WPINC . '/rest-api/endpoints/class-wp-rest-users-controller.php';
-require ABSPATH . WPINC . '/rest-api/endpoints/class-wp-rest-comments-controller.php';
 require ABSPATH . WPINC . '/rest-api/endpoints/class-wp-rest-search-controller.php';
 require ABSPATH . WPINC . '/rest-api/endpoints/class-wp-rest-blocks-controller.php';
 require ABSPATH . WPINC . '/rest-api/endpoints/class-wp-rest-block-types-controller.php';
@@ -319,7 +318,6 @@ require ABSPATH . WPINC . '/rest-api/endpoints/class-wp-rest-font-families-contr
 require ABSPATH . WPINC . '/rest-api/endpoints/class-wp-rest-font-faces-controller.php';
 require ABSPATH . WPINC . '/rest-api/endpoints/class-wp-rest-font-collections-controller.php';
 require ABSPATH . WPINC . '/rest-api/fields/class-wp-rest-meta-fields.php';
-require ABSPATH . WPINC . '/rest-api/fields/class-wp-rest-comment-meta-fields.php';
 require ABSPATH . WPINC . '/rest-api/fields/class-wp-rest-post-meta-fields.php';
 require ABSPATH . WPINC . '/rest-api/fields/class-wp-rest-term-meta-fields.php';
 require ABSPATH . WPINC . '/rest-api/fields/class-wp-rest-user-meta-fields.php';
