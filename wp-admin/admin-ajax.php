@@ -69,7 +69,6 @@ $core_actions_post = array(
 	'add-tag',
 	'get-tagcloud',
 	'get-comments',
-	'replyto-comment',
 	'edit-comment',
 	'add-meta',
 	'add-user',

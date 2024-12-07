@@ -1054,16 +1054,6 @@ __webpack_require__.d(build_module_image_namespaceObject, {
   settings: () => (image_settings)
 });
 
-// NAMESPACE OBJECT: ./node_modules/@wordpress/block-library/build-module/latest-comments/index.js
-var latest_comments_namespaceObject = {};
-__webpack_require__.r(latest_comments_namespaceObject);
-__webpack_require__.d(latest_comments_namespaceObject, {
-  init: () => (latest_comments_init),
-  metadata: () => (latest_comments_metadata),
-  name: () => (latest_comments_name),
-  settings: () => (latest_comments_settings)
-});
-
 // NAMESPACE OBJECT: ./node_modules/@wordpress/block-library/build-module/latest-posts/index.js
 var latest_posts_namespaceObject = {};
 __webpack_require__.r(latest_posts_namespaceObject);
@@ -27572,192 +27562,6 @@ const comment = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ex
   })
 });
 /* harmony default export */ const library_comment = (comment);
-
-;// CONCATENATED MODULE: ./node_modules/@wordpress/block-library/build-module/latest-comments/edit.js
-/**
- * WordPress dependencies
- */
-
-
-
-
-
-/**
- * Minimum number of comments a user can show using this block.
- *
- * @type {number}
- */
-
-
-const MIN_COMMENTS = 1;
-/**
- * Maximum number of comments a user can show using this block.
- *
- * @type {number}
- */
-const MAX_COMMENTS = 100;
-function LatestComments({
-  attributes,
-  setAttributes
-}) {
-  const {
-    commentsToShow,
-    displayAvatar,
-    displayDate,
-    displayExcerpt
-  } = attributes;
-  const serverSideAttributes = {
-    ...attributes,
-    style: {
-      ...attributes?.style,
-      spacing: undefined
-    }
-  };
-  return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)("div", {
-    ...(0,external_wp_blockEditor_namespaceObject.useBlockProps)(),
-    children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_blockEditor_namespaceObject.InspectorControls, {
-      children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_wp_components_namespaceObject.PanelBody, {
-        title: (0,external_wp_i18n_namespaceObject.__)('Settings'),
-        children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ToggleControl, {
-          __nextHasNoMarginBottom: true,
-          label: (0,external_wp_i18n_namespaceObject.__)('Display avatar'),
-          checked: displayAvatar,
-          onChange: () => setAttributes({
-            displayAvatar: !displayAvatar
-          })
-        }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ToggleControl, {
-          __nextHasNoMarginBottom: true,
-          label: (0,external_wp_i18n_namespaceObject.__)('Display date'),
-          checked: displayDate,
-          onChange: () => setAttributes({
-            displayDate: !displayDate
-          })
-        }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ToggleControl, {
-          __nextHasNoMarginBottom: true,
-          label: (0,external_wp_i18n_namespaceObject.__)('Display excerpt'),
-          checked: displayExcerpt,
-          onChange: () => setAttributes({
-            displayExcerpt: !displayExcerpt
-          })
-        }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.RangeControl, {
-          __nextHasNoMarginBottom: true,
-          __next40pxDefaultSize: true,
-          label: (0,external_wp_i18n_namespaceObject.__)('Number of comments'),
-          value: commentsToShow,
-          onChange: value => setAttributes({
-            commentsToShow: value
-          }),
-          min: MIN_COMMENTS,
-          max: MAX_COMMENTS,
-          required: true
-        })]
-      })
-    }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.Disabled, {
-      children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)((external_wp_serverSideRender_default()), {
-        block: "core/latest-comments",
-        attributes: serverSideAttributes
-        // The preview uses the site's locale to make it more true to how
-        // the block appears on the frontend. Setting the locale
-        // explicitly prevents any middleware from setting it to 'user'.
-        ,
-        urlQueryArgs: {
-          _locale: 'site'
-        }
-      })
-    })]
-  });
-}
-
-;// CONCATENATED MODULE: ./node_modules/@wordpress/block-library/build-module/latest-comments/index.js
-/**
- * WordPress dependencies
- */
-
-
-/**
- * Internal dependencies
- */
-
-const latest_comments_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
-  apiVersion: 3,
-  name: "core/latest-comments",
-  title: "Latest Comments",
-  category: "widgets",
-  description: "Display a list of your most recent comments.",
-  keywords: ["recent comments"],
-  textdomain: "default",
-  attributes: {
-    commentsToShow: {
-      type: "number",
-      "default": 5,
-      minimum: 1,
-      maximum: 100
-    },
-    displayAvatar: {
-      type: "boolean",
-      "default": true
-    },
-    displayDate: {
-      type: "boolean",
-      "default": true
-    },
-    displayExcerpt: {
-      type: "boolean",
-      "default": true
-    }
-  },
-  supports: {
-    align: true,
-    color: {
-      gradients: true,
-      link: true,
-      __experimentalDefaultControls: {
-        background: true,
-        text: true,
-        link: true
-      }
-    },
-    html: false,
-    spacing: {
-      margin: true,
-      padding: true
-    },
-    typography: {
-      fontSize: true,
-      lineHeight: true,
-      __experimentalFontFamily: true,
-      __experimentalFontWeight: true,
-      __experimentalFontStyle: true,
-      __experimentalTextTransform: true,
-      __experimentalTextDecoration: true,
-      __experimentalLetterSpacing: true,
-      __experimentalDefaultControls: {
-        fontSize: true
-      }
-    },
-    interactivity: {
-      clientNavigation: true
-    }
-  },
-  editorStyle: "wp-block-latest-comments-editor",
-  style: "wp-block-latest-comments"
-};
-
-const {
-  name: latest_comments_name
-} = latest_comments_metadata;
-
-const latest_comments_settings = {
-  icon: library_comment,
-  example: {},
-  edit: LatestComments
-};
-const latest_comments_init = () => initBlock({
-  name: latest_comments_name,
-  metadata: latest_comments_metadata,
-  settings: latest_comments_settings
-});
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/post-list.js
 /**
@@ -64565,7 +64369,7 @@ const getAllBlocks = () => {
   // in various contexts — like the inserter and auto-complete components.
   build_module_paragraph_namespaceObject, build_module_image_namespaceObject, build_module_heading_namespaceObject, build_module_gallery_namespaceObject, build_module_list_namespaceObject, build_module_list_item_namespaceObject, build_module_quote_namespaceObject,
   // Register all remaining core blocks.
-  archives_namespaceObject, build_module_audio_namespaceObject, build_module_button_namespaceObject, build_module_buttons_namespaceObject, build_module_calendar_namespaceObject, categories_namespaceObject, build_module_code_namespaceObject, build_module_column_namespaceObject, build_module_columns_namespaceObject, build_module_comment_author_avatar_namespaceObject, build_module_cover_namespaceObject, build_module_details_namespaceObject, embed_namespaceObject, build_module_file_namespaceObject, build_module_group_namespaceObject, build_module_html_namespaceObject, latest_comments_namespaceObject, latest_posts_namespaceObject, media_text_namespaceObject, missing_namespaceObject, build_module_more_namespaceObject, nextpage_namespaceObject, page_list_namespaceObject, page_list_item_namespaceObject, pattern_namespaceObject, build_module_preformatted_namespaceObject, build_module_pullquote_namespaceObject, block_namespaceObject, build_module_rss_namespaceObject, build_module_search_namespaceObject, build_module_separator_namespaceObject, build_module_shortcode_namespaceObject, social_link_namespaceObject, social_links_namespaceObject, spacer_namespaceObject, build_module_table_namespaceObject, tag_cloud_namespaceObject, text_columns_namespaceObject, build_module_verse_namespaceObject, build_module_video_namespaceObject, footnotes_namespaceObject,
+  archives_namespaceObject, build_module_audio_namespaceObject, build_module_button_namespaceObject, build_module_buttons_namespaceObject, build_module_calendar_namespaceObject, categories_namespaceObject, build_module_code_namespaceObject, build_module_column_namespaceObject, build_module_columns_namespaceObject, build_module_comment_author_avatar_namespaceObject, build_module_cover_namespaceObject, build_module_details_namespaceObject, embed_namespaceObject, build_module_file_namespaceObject, build_module_group_namespaceObject, build_module_html_namespaceObject, latest_posts_namespaceObject, media_text_namespaceObject, missing_namespaceObject, build_module_more_namespaceObject, nextpage_namespaceObject, page_list_namespaceObject, page_list_item_namespaceObject, pattern_namespaceObject, build_module_preformatted_namespaceObject, build_module_pullquote_namespaceObject, block_namespaceObject, build_module_rss_namespaceObject, build_module_search_namespaceObject, build_module_separator_namespaceObject, build_module_shortcode_namespaceObject, social_link_namespaceObject, social_links_namespaceObject, spacer_namespaceObject, build_module_table_namespaceObject, tag_cloud_namespaceObject, text_columns_namespaceObject, build_module_verse_namespaceObject, build_module_video_namespaceObject, footnotes_namespaceObject,
   // theme blocks
   build_module_navigation_namespaceObject, navigation_link_namespaceObject, navigation_submenu_namespaceObject, build_module_site_logo_namespaceObject, site_title_namespaceObject, site_tagline_namespaceObject, query_namespaceObject, template_part_namespaceObject, avatar_namespaceObject, post_title_namespaceObject, build_module_post_excerpt_namespaceObject, build_module_post_featured_image_namespaceObject, build_module_post_content_namespaceObject, build_module_post_author_namespaceObject, post_author_name_namespaceObject, post_comment_namespaceObject, build_module_post_comments_count_namespaceObject, post_comments_link_namespaceObject, build_module_post_date_namespaceObject, build_module_post_terms_namespaceObject, post_navigation_link_namespaceObject, post_template_namespaceObject, post_time_to_read_namespaceObject, build_module_query_pagination_namespaceObject, build_module_query_pagination_next_namespaceObject, build_module_query_pagination_numbers_namespaceObject, build_module_query_pagination_previous_namespaceObject, query_no_results_namespaceObject, read_more_namespaceObject, comments_namespaceObject, build_module_comment_author_name_namespaceObject, build_module_comment_content_namespaceObject, comment_date_namespaceObject, build_module_comment_edit_link_namespaceObject, build_module_comment_reply_link_namespaceObject, comment_template_namespaceObject, comments_title_namespaceObject, comments_pagination_namespaceObject, comments_pagination_next_namespaceObject, comments_pagination_numbers_namespaceObject, comments_pagination_previous_namespaceObject, build_module_post_comments_form_namespaceObject, build_module_table_of_contents_namespaceObject, home_link_namespaceObject, loginout_namespaceObject, build_module_term_description_namespaceObject, query_title_namespaceObject, post_author_biography_namespaceObject];
   if (window?.__experimentalEnableFormBlocks) {
