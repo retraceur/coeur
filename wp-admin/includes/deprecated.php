@@ -3024,3 +3024,44 @@ function _wp_expand_nav_menu_post_data() {
 function wp_ajax_save_wporg_username() {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 }
+
+/**
+ * Show Comments section.
+ *
+ * @since WP 3.8.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int $total_items Optional. Number of comments to query. Default 5.
+ * @return bool False if no comments were found. True otherwise.
+ */
+function wp_dashboard_recent_comments( $total_items = 5 ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return false;
+}
+
+/**
+ * Outputs a row for the Recent Comments widget.
+ *
+ * @access private
+ * @since WP 2.7.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param WP_Comment $comment   The current comment.
+ * @param bool       $show_date Optional. Whether to display the date.
+ */
+function _wp_dashboard_recent_comments_row( &$comment, $show_date = true ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Handles replying to a comment via AJAX.
+ *
+ * @since WP 3.1.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string $action Action to perform.
+ */
+function wp_ajax_replyto_comment( $action ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	wp_die( __( 'Retraceur does not support WP Comments.' ) );
+}

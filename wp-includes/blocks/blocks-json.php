@@ -213,7 +213,7 @@
       'content' => array(
         'type' => 'object',
         'default' => array(
-          
+
         )
       )
     ),
@@ -2098,7 +2098,7 @@
       'images' => array(
         'type' => 'array',
         'default' => array(
-          
+
         ),
         'source' => 'query',
         'selector' => '.blocks-gallery-item',
@@ -2147,7 +2147,7 @@
           'type' => 'number'
         ),
         'default' => array(
-          
+
         )
       ),
       'shortCodeTransforms' => array(
@@ -2156,7 +2156,7 @@
           'type' => 'object'
         ),
         'default' => array(
-          
+
         )
       ),
       'columns' => array(
@@ -2702,73 +2702,6 @@
     ),
     'editorStyle' => 'wp-block-image-editor',
     'style' => 'wp-block-image'
-  ),
-  'latest-comments' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
-    'apiVersion' => 3,
-    'name' => 'core/latest-comments',
-    'title' => 'Latest Comments',
-    'category' => 'widgets',
-    'description' => 'Display a list of your most recent comments.',
-    'keywords' => array(
-      'recent comments'
-    ),
-    'textdomain' => 'default',
-    'attributes' => array(
-      'commentsToShow' => array(
-        'type' => 'number',
-        'default' => 5,
-        'minimum' => 1,
-        'maximum' => 100
-      ),
-      'displayAvatar' => array(
-        'type' => 'boolean',
-        'default' => true
-      ),
-      'displayDate' => array(
-        'type' => 'boolean',
-        'default' => true
-      ),
-      'displayExcerpt' => array(
-        'type' => 'boolean',
-        'default' => true
-      )
-    ),
-    'supports' => array(
-      'align' => true,
-      'color' => array(
-        'gradients' => true,
-        'link' => true,
-        '__experimentalDefaultControls' => array(
-          'background' => true,
-          'text' => true,
-          'link' => true
-        )
-      ),
-      'html' => false,
-      'spacing' => array(
-        'margin' => true,
-        'padding' => true
-      ),
-      'typography' => array(
-        'fontSize' => true,
-        'lineHeight' => true,
-        '__experimentalFontFamily' => true,
-        '__experimentalFontWeight' => true,
-        '__experimentalFontStyle' => true,
-        '__experimentalTextTransform' => true,
-        '__experimentalTextDecoration' => true,
-        '__experimentalLetterSpacing' => true,
-        '__experimentalDefaultControls' => array(
-          'fontSize' => true
-        )
-      ),
-      'interactivity' => array(
-        'clientNavigation' => true
-      )
-    ),
-    'editorStyle' => 'wp-block-latest-comments-editor',
-    'style' => 'wp-block-latest-comments'
   ),
   'latest-posts' => array(
     '$schema' => 'https://schemas.wp.org/trunk/block.json',
@@ -5088,16 +5021,16 @@
           'author' => '',
           'search' => '',
           'exclude' => array(
-            
+
           ),
           'sticky' => '',
           'inherit' => true,
           'taxQuery' => null,
           'parents' => array(
-            
+
           ),
           'format' => array(
-            
+
           )
         )
       ),
@@ -5761,7 +5694,7 @@
       'query' => array(
         'type' => 'object',
         'default' => array(
-          
+
         )
       ),
       'isSearchFieldHidden' => array(
@@ -6378,7 +6311,7 @@
       'head' => array(
         'type' => 'array',
         'default' => array(
-          
+
         ),
         'source' => 'query',
         'selector' => 'thead tr',
@@ -6386,7 +6319,7 @@
           'cells' => array(
             'type' => 'array',
             'default' => array(
-              
+
             ),
             'source' => 'query',
             'selector' => 'td,th',
@@ -6427,7 +6360,7 @@
       'body' => array(
         'type' => 'array',
         'default' => array(
-          
+
         ),
         'source' => 'query',
         'selector' => 'tbody tr',
@@ -6435,7 +6368,7 @@
           'cells' => array(
             'type' => 'array',
             'default' => array(
-              
+
             ),
             'source' => 'query',
             'selector' => 'td,th',
@@ -6476,7 +6409,7 @@
       'foot' => array(
         'type' => 'array',
         'default' => array(
-          
+
         ),
         'source' => 'query',
         'selector' => 'tfoot tr',
@@ -6484,7 +6417,7 @@
           'cells' => array(
             'type' => 'array',
             'default' => array(
-              
+
             ),
             'source' => 'query',
             'selector' => 'td,th',
@@ -6776,10 +6709,10 @@
         ),
         'default' => array(
           array(
-            
+
           ),
           array(
-            
+
           )
         )
       ),
@@ -6966,7 +6899,7 @@
           'type' => 'object'
         ),
         'default' => array(
-          
+
         )
       )
     ),

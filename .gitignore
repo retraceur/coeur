@@ -18,6 +18,7 @@ built
 
 # My plugins
 /wp-content/plugins/reseau
+/wp-content/plugins/reactions
 
 # My theme
 /wp-content/themes/ensemble

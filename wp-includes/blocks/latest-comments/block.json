@@ -1,10 +1,9 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
 	"name": "core/latest-comments",
 	"title": "Latest Comments",
 	"category": "widgets",
-	"description": "Display a list of your most recent comments.",
+	"description": "Deprecated block.",
 	"keywords": [ "recent comments" ],
 	"textdomain": "default",
 	"attributes": {
