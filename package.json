@@ -8,7 +8,7 @@
     "pot:coeur": "wp i18n make-pot . wp-content/languages/coeur.pot --include=\"wp-activate.php,wp-cron.php,wp-links-opml.php,wp-load.php,wp-login.php,wp-mail.php,wp-settings.php,wp-signups.php,wp-trackback.php,xmlrpc.php,wp-includes\" --skip-js --ignore-domain",
     "pot:js": "./tools/makepot.sh",
     "pot:makejson": "wp i18n make-json wp-content/languages/js wp-content/languages --no-purge",
-    "build": "wp-scripts build"
+    "build": "wp-scripts build && ./tools/update-build.sh"
   },
   "repository": {
     "type": "git",
@@ -25,9 +25,7 @@
   },
   "homepage": "https://github.com/retraceur/coeur#readme",
   "devDependencies": {
-    "@wordpress/scripts": "^30.6.0"
-  },
-  "dependencies": {
-    "@emotion/is-prop-valid": "^1.3.1"
+    "@wordpress/scripts": "^30.6.0",
+		"@emotion/is-prop-valid": "^1.3.1"
   }
 }
