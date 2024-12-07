@@ -759,6 +759,10 @@ class WP_Posts_List_Table extends WP_List_Table {
 	}
 
 	/**
+	 * Returns the list table sortable columns.
+	 *
+	 * @since 1.0.0 Retraceur removed the `comments` column.
+	 *
 	 * @return array
 	 */
 	protected function get_sortable_columns() {
@@ -775,14 +779,12 @@ class WP_Posts_List_Table extends WP_List_Table {
 			$sortables = array(
 				'title'    => array( 'title', false, __( 'Title' ), $title_orderby_text, 'asc' ),
 				'parent'   => array( 'parent', false ),
-				'comments' => array( 'comment_count', false, __( 'Comments' ), __( 'Table ordered by Comments.' ) ),
 				'date'     => array( 'date', true, __( 'Date' ), __( 'Table ordered by Date.' ) ),
 			);
 		} else {
 			$sortables = array(
 				'title'    => array( 'title', false, __( 'Title' ), __( 'Table ordered by Title.' ) ),
 				'parent'   => array( 'parent', false ),
-				'comments' => array( 'comment_count', false, __( 'Comments' ), __( 'Table ordered by Comments.' ) ),
 				'date'     => array( 'date', true, __( 'Date' ), __( 'Table ordered by Date.' ), 'desc' ),
 			);
 		}
@@ -1260,19 +1262,12 @@ class WP_Posts_List_Table extends WP_List_Table {
 	 * Handles the comments column output.
 	 *
 	 * @since WP 4.3.0
+	 * @deprecated 1.0.0 Retraceur forks.
 	 *
 	 * @param WP_Post $post The current WP_Post object.
 	 */
 	public function column_comments( $post ) {
-		?>
-		<div class="post-com-count-wrapper">
-		<?php
-			$pending_comments = isset( $this->comment_pending_count[ $post->ID ] ) ? $this->comment_pending_count[ $post->ID ] : 0;
-
-			$this->comments_bubble( $post->ID, $pending_comments );
-		?>
-		</div>
-		<?php
+		_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 	}
 
 	/**

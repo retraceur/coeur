@@ -395,6 +395,10 @@ class WP_Media_List_Table extends WP_List_Table {
 	}
 
 	/**
+	 * Returns the list table sortable columns.
+	 *
+	 * @since 1.0.0 Retraceur removed the `comments` column.
+	 *
 	 * @return array
 	 */
 	protected function get_sortable_columns() {
@@ -402,7 +406,6 @@ class WP_Media_List_Table extends WP_List_Table {
 			'title'    => array( 'title', false, _x( 'File', 'column name' ), __( 'Table ordered by File Name.' ) ),
 			'author'   => array( 'author', false, __( 'Author' ), __( 'Table ordered by Author.' ) ),
 			'parent'   => array( 'parent', false, _x( 'Uploaded to', 'column name' ), __( 'Table ordered by Uploaded To.' ) ),
-			'comments' => array( 'comment_count', __( 'Comments' ), false, __( 'Table ordered by Comments.' ) ),
 			'date'     => array( 'date', true, __( 'Date' ), __( 'Table ordered by Date.' ), 'desc' ),
 		);
 	}
@@ -630,21 +633,12 @@ class WP_Media_List_Table extends WP_List_Table {
 	 * Handles the comments column output.
 	 *
 	 * @since WP 4.3.0
+	 * @deprecated 1.0.0 Retraceur fork.
 	 *
 	 * @param WP_Post $post The current WP_Post object.
 	 */
 	public function column_comments( $post ) {
-		echo '<div class="post-com-count-wrapper">';
-
-		if ( isset( $this->comment_pending_count[ $post->ID ] ) ) {
-			$pending_comments = $this->comment_pending_count[ $post->ID ];
-		} else {
-			$pending_comments = get_pending_comments_num( $post->ID );
-		}
-
-		$this->comments_bubble( $post->ID, $pending_comments );
-
-		echo '</div>';
+		_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 	}
 
 	/**

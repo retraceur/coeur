@@ -9536,6 +9536,33 @@ function register_block_core_latest_comments() {
 }
 
 /**
+ * Renders the `core/comment-edit-link` block on the server.
+ *
+ * @since WP 6.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param array    $attributes Block attributes.
+ * @param string   $content    Block default content.
+ * @param WP_Block $block      Block instance.
+ *
+ * @return string Return the post comment's date.
+ */
+function render_block_core_comment_edit_link( $attributes, $content, $block ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Registers the `core/comment-edit-link` block on the server.
+ *
+ * @since WP 6.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function register_block_core_comment_edit_link() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+
+/**
  * Adds edit comments link with awaiting moderation count bubble.
  *
  * @since WP 3.1.0
@@ -9671,6 +9698,7 @@ if ( ! function_exists( 'wp_notify_moderator' ) ) :
 	 * @return true Always returns true.
 	 */
 	function wp_notify_moderator( $comment_id ) {
+		_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 
 		/**
 		 * Filters whether to send the site moderator email notifications, overriding the site setting.
@@ -9760,3 +9788,73 @@ if ( ! function_exists( 'wp_notify_moderator' ) ) :
 		return true;
 	}
 endif;
+
+/**
+ * Retrieves the edit comment link.
+ *
+ * @since WP 2.3.0
+ * @since WP 6.7.0 The $context parameter was added.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int|WP_Comment $comment_id Optional. Comment ID or WP_Comment object.
+ * @param string         $context    Optional. Context in which the URL should be used. Either 'display',
+ *                                   to include HTML entities, or 'url'. Default 'display'.
+ * @return string|void The edit comment link URL for the given comment, or void if the comment id does not exist or
+ *                     the current user is not allowed to edit it.
+ */
+function get_edit_comment_link( $comment_id = 0, $context = 'display' ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the comment edit link.
+	 *
+	 * @since WP 2.3.0
+	 * @since WP 6.7.0 The $comment_id and $context parameters are now being passed to the filter.
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string $location   The edit link.
+	 * @param int    $comment_id Unique ID of the comment to generate an edit link.
+	 * @param string $context    Context to include HTML entities in link. Default 'display'.
+	 */
+	apply_filters_deprecated(
+		'get_edit_comment_link',
+		array( '', 0, '' ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return '';
+}
+
+/**
+ * Displays the edit comment link with formatting.
+ *
+ * @since WP 1.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string $text   Optional. Anchor text. If null, default is 'Edit This'. Default null.
+ * @param string $before Optional. Display before edit link. Default empty.
+ * @param string $after  Optional. Display after edit link. Default empty.
+ */
+function edit_comment_link( $text = null, $before = '', $after = '' ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the comment edit link anchor tag.
+	 *
+	 * @since WP 2.3.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string $link       Anchor tag for the edit link.
+	 * @param string $comment_id Comment ID as a numeric string.
+	 * @param string $text       Anchor text.
+	 */
+	apply_filters_deprecated(
+		'edit_comment_link',
+		array( '', 0, '' ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+}

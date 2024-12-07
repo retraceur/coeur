@@ -22,7 +22,7 @@ abstract class WP_REST_Meta_Fields {
 	 *
 	 * @since WP 4.7.0
 	 *
-	 * @return string One of 'post', 'comment', 'term', 'user', or anything
+	 * @return string One of 'post', 'term', 'user', or anything
 	 *                else supported by `_get_meta_table()`.
 	 */
 	abstract protected function get_meta_type();

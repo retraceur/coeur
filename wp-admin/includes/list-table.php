@@ -13,6 +13,7 @@
  * Fetches an instance of a WP_List_Table class.
  *
  * @since WP 3.1.0
+ * @since 1.0.0 Retraceur fork remove Comments list table objects.
  *
  * @global string $hook_suffix
  *
@@ -27,8 +28,6 @@ function _get_list_table( $class_name, $args = array() ) {
 		'WP_Media_List_Table'                         => 'media',
 		'WP_Terms_List_Table'                         => 'terms',
 		'WP_Users_List_Table'                         => 'users',
-		'WP_Comments_List_Table'                      => 'comments',
-		'WP_Post_Comments_List_Table'                 => array( 'comments', 'post-comments' ),
 		'WP_Links_List_Table'                         => 'links',
 		'WP_Plugin_Install_List_Table'                => 'plugin-install',
 		'WP_Themes_List_Table'                        => 'themes',
