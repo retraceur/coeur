@@ -348,18 +348,6 @@ switch ( $action ) {
 					</tr>
 					<?php endif; // End if count ( $_wp_admin_css_colors ) > 1 ?>
 
-					<?php if ( ! ( IS_PROFILE_PAGE && ! $user_can_edit ) ) : ?>
-					<tr class="user-comment-shortcuts-wrap">
-						<th scope="row"><?php _e( 'Keyboard Shortcuts' ); ?></th>
-						<td>
-							<label for="comment_shortcuts">
-								<input type="checkbox" name="comment_shortcuts" id="comment_shortcuts" value="true" <?php checked( 'true', $profile_user->comment_shortcuts ); ?> />
-								<?php _e( 'Enable keyboard shortcuts for comment moderation.' ); ?>
-							</label>
-						</td>
-					</tr>
-					<?php endif; ?>
-
 					<tr class="show-admin-bar user-admin-bar-front-wrap">
 						<th scope="row"><?php _e( 'Toolbar' ); ?></th>
 						<td>

@@ -23,9 +23,6 @@ if ( ! defined( 'WP_ADMIN' ) ) {
 /** Retraceur Administration Hooks */
 require_once ABSPATH . 'wp-admin/includes/admin-filters.php';
 
-/** Retraceur Comment Administration API */
-require_once ABSPATH . 'wp-admin/includes/comment.php';
-
 /** Retraceur Administration File API */
 require_once ABSPATH . 'wp-admin/includes/file.php';
 

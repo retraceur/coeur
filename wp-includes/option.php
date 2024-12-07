@@ -1,7 +1,7 @@
 <?php
 /**
  * Option API.
- * 
+ *
  * @since 1.0.0 Retraceur fork.
  *
  * @package Retraceur
@@ -2872,35 +2872,6 @@ function register_initial_settings() {
 			'description'  => __( 'The ID of the page that should display the latest posts' ),
 		)
 	);
-
-	register_setting(
-		'discussion',
-		'default_ping_status',
-		array(
-			'show_in_rest' => array(
-				'schema' => array(
-					'enum' => array( 'open', 'closed' ),
-				),
-			),
-			'type'         => 'string',
-			'description'  => __( 'Allow link notifications from other blogs (pingbacks and trackbacks) on new articles.' ),
-		)
-	);
-
-	register_setting(
-		'discussion',
-		'default_comment_status',
-		array(
-			'show_in_rest' => array(
-				'schema' => array(
-					'enum' => array( 'open', 'closed' ),
-				),
-			),
-			'type'         => 'string',
-			'label'        => __( 'Allow comments on new posts' ),
-			'description'  => __( 'Allow people to submit comments on new posts.' ),
-		)
-	);
 }
 
 /**
@@ -2918,7 +2889,7 @@ function register_initial_settings() {
  * @global array $wp_registered_settings
  *
  * @param string $option_group A settings group name. Should correspond to an allowed option key name.
- *                             Default allowed option key names include 'general', 'discussion', 'media',
+ *                             Default allowed option key names include 'general', 'membership', 'media',
  *                             'reading', 'writing', and 'options'.
  * @param string $option_name The name of an option to sanitize and save.
  * @param array  $args {

@@ -337,13 +337,9 @@ function populate_options( array $options = array() ) {
 		'use_balanceTags'                 => 0,
 		'use_smilies'                     => 1,
 		'require_name_email'              => 1,
-		'comments_notify'                 => 1,
 		'posts_per_rss'                   => 10,
 		'rss_use_excerpt'                 => 0,
 		'default_category'                => 1,
-		'default_comment_status'          => 'open',
-		'default_ping_status'             => 'open',
-		'default_pingback_flag'           => 1,
 		'posts_per_page'                  => 10,
 		/* translators: Default date format, see https://www.php.net/manual/datetime.format.php */
 		'date_format'                     => __( 'F j, Y' ),
@@ -351,24 +347,19 @@ function populate_options( array $options = array() ) {
 		'time_format'                     => __( 'g:i a' ),
 		/* translators: Links last updated date format, see https://www.php.net/manual/datetime.format.php */
 		'links_updated_date_format'       => __( 'F j, Y g:i a' ),
-		'comment_moderation'              => 0,
-		'moderation_notify'               => 1,
 		'permalink_structure'             => '',
 		'rewrite_rules'                   => '',
 		'hack_file'                       => 0,
 		'blog_charset'                    => 'UTF-8',
-		'moderation_keys'                 => '',
 		'active_plugins'                  => array(),
 		'category_base'                   => '',
 		'ping_sites'                      => '',
-		'comment_max_links'               => 2,
 		'gmt_offset'                      => $gmt_offset,
 
 		// 1.5.0
 		'recently_edited'                 => '',
 		'template'                        => $template,
 		'stylesheet'                      => $stylesheet,
-		'comment_registration'            => 0,
 		'html_type'                       => 'text/html',
 
 		// 1.5.1
@@ -409,14 +400,6 @@ function populate_options( array $options = array() ) {
 		'image_default_link_type'         => 'none',
 		'image_default_size'              => '',
 		'image_default_align'             => '',
-		'close_comments_for_old_posts'    => 0,
-		'close_comments_days_old'         => 14,
-		'thread_comments'                 => 1,
-		'thread_comments_depth'           => 5,
-		'page_comments'                   => 0,
-		'comments_per_page'               => 50,
-		'default_comments_page'           => 'newest',
-		'comment_order'                   => 'asc',
 		'sticky_posts'                    => array(),
 		'uninstall_plugins'               => array(),
 
@@ -441,15 +424,10 @@ function populate_options( array $options = array() ) {
 		// 4.9.6
 		'wp_page_for_privacy_policy'      => 0,
 
-		// 4.9.8
-		'show_comments_cookies_opt_in'    => 1,
-
 		// 5.3.0
 		'admin_email_lifespan'            => ( time() + 6 * MONTH_IN_SECONDS ),
 
 		// 5.5.0
-		'disallowed_keys'                 => '',
-		'comment_previously_approved'     => 1,
 		'auto_plugin_theme_update_emails' => array(),
 
 		// 5.6.0
@@ -479,9 +457,7 @@ function populate_options( array $options = array() ) {
 
 	// Set autoload to no for these options.
 	$fat_options = array(
-		'moderation_keys',
 		'recently_edited',
-		'disallowed_keys',
 		'uninstall_plugins',
 		'auto_plugin_theme_update_emails',
 	);

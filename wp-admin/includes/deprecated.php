@@ -3065,3 +3065,25 @@ function wp_ajax_replyto_comment( $action ) {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 	wp_die( __( 'Retraceur does not support WP Comments.' ) );
 }
+
+/**
+ * Enqueues comment shortcuts jQuery script.
+ *
+ * @since WP 2.7.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function enqueue_comment_hotkeys_js() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Displays error message at bottom of comments.
+ *
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string $msg Error Message. Assumed to contain HTML and be sanitized.
+ */
+function comment_footer_die( $msg ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	die;
+}
