@@ -363,6 +363,9 @@ Retraceur - Personal Web Publisher
 
 Copyright 2024 by the contributors
 
+I, [@imath](https://github.com/imath) (Mathieu Viet), dedicate all my
+[work about Retraceur](https://github.com/retraceur/coeur/commits?author=imath) (including the "Retraceur" name or [logo](https://github.com/retraceur/coeur/blob/trunk/wp-admin/images/retraceur-64x64.svg)) to the public domain [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/).
+
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation; either version 2 of the License, or
