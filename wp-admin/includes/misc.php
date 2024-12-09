@@ -689,7 +689,7 @@ function wp_doc_link_parse( $content ) {
 }
 
 /**
- * Saves option for number of rows when listing posts, pages, comments, etc.
+ * Saves option for number of rows when listing posts, pages, etc.
  *
  * @since WP 2.8.0
  */
@@ -728,7 +728,6 @@ function set_screen_options() {
 	switch ( $map_option ) {
 		case 'edit_per_page':
 		case 'users_per_page':
-		case 'edit_comments_per_page':
 		case 'upload_per_page':
 		case 'edit_tags_per_page':
 		case 'plugins_per_page':

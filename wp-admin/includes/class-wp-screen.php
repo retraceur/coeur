@@ -252,7 +252,7 @@ final class WP_Screen {
 			}
 
 			$id = sanitize_key( $id );
-			if ( 'edit-comments' !== $id && 'edit-tags' !== $id && str_starts_with( $id, 'edit-' ) ) {
+			if ( 'edit-tags' !== $id && str_starts_with( $id, 'edit-' ) ) {
 				$maybe = substr( $id, 5 );
 				if ( taxonomy_exists( $maybe ) ) {
 					$id       = 'edit-tags';
@@ -1158,7 +1158,7 @@ final class WP_Screen {
 		<fieldset class="metabox-prefs">
 		<legend><?php echo $legend; ?></legend>
 		<?php
-		$special = array( '_title', 'cb', 'comment', 'media', 'name', 'title', 'username', 'blogname' );
+		$special = array( '_title', 'cb', 'media', 'name', 'title', 'username', 'blogname' );
 
 		foreach ( $columns as $column => $title ) {
 			// Can't hide these for they are special.
@@ -1247,12 +1247,7 @@ final class WP_Screen {
 			}
 		}
 
-		if ( 'edit_comments_per_page' === $option ) {
-			$comment_status = isset( $_REQUEST['comment_status'] ) ? $_REQUEST['comment_status'] : 'all';
-
-			/** This filter is documented in wp-admin/includes/class-wp-comments-list-table.php */
-			$per_page = apply_filters( 'comments_per_page', $per_page, $comment_status );
-		} elseif ( 'categories_per_page' === $option ) {
+		if ( 'categories_per_page' === $option ) {
 			/** This filter is documented in wp-admin/includes/class-wp-terms-list-table.php */
 			$per_page = apply_filters( 'edit_categories_per_page', $per_page );
 		} else {
@@ -1295,8 +1290,8 @@ final class WP_Screen {
 
 		$screen = get_current_screen();
 
-		// Currently only enabled for posts and comments lists.
-		if ( 'edit' !== $screen->base && 'edit-comments' !== $screen->base ) {
+		// Currently only enabled for posts lists.
+		if ( 'edit' !== $screen->base ) {
 			return;
 		}
 

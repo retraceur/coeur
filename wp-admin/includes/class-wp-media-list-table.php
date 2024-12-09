@@ -21,6 +21,7 @@ class WP_Media_List_Table extends WP_List_Table {
 	 * Holds the number of pending comments for each post.
 	 *
 	 * @since WP 4.4.0
+	 * @deprecated 1.0.0 Retraceur fork.
 	 * @var array
 	 */
 	protected $comment_pending_count = array();
@@ -368,15 +369,6 @@ class WP_Media_List_Table extends WP_List_Table {
 		/* translators: Column name. */
 		if ( ! $this->detached ) {
 			$posts_columns['parent'] = _x( 'Uploaded to', 'column name' );
-
-			if ( post_type_supports( 'attachment', 'comments' ) ) {
-				$posts_columns['comments'] = sprintf(
-					'<span class="vers comment-grey-bubble" title="%1$s" aria-hidden="true"></span><span class="screen-reader-text">%2$s</span>',
-					esc_attr__( 'Comments' ),
-					/* translators: Hidden accessibility text. */
-					__( 'Comments' )
-				);
-			}
 		}
 
 		/* translators: Column name. */
@@ -716,8 +708,6 @@ class WP_Media_List_Table extends WP_List_Table {
 
 		$post_ids = wp_list_pluck( $wp_query->posts, 'ID' );
 		reset( $wp_query->posts );
-
-		$this->comment_pending_count = get_pending_comments_num( $post_ids );
 
 		add_filter( 'the_title', 'esc_html' );
 

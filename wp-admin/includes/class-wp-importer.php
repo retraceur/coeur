@@ -3,7 +3,7 @@
  * WP_Importer base class.
  *
  * @since 1.0.0 Retraceur fork.
- * 
+ *
  * @package Retraceur
  * @subpackage Administration
  */
@@ -81,43 +81,14 @@ class WP_Importer {
 	/**
 	 * Sets array with imported comments from Retraceur database.
 	 *
-	 * @global wpdb $wpdb Retraceur database abstraction object.
+	 * @deprecated 1.0.0 Retraceur fork.
 	 *
 	 * @param string $blog_id
 	 * @return array
 	 */
 	public function get_imported_comments( $blog_id ) {
-		global $wpdb;
-
-		$hashtable = array();
-
-		$limit  = 100;
-		$offset = 0;
-
-		// Grab all comments in chunks.
-		do {
-			$sql     = $wpdb->prepare( "SELECT comment_ID, comment_agent FROM $wpdb->comments LIMIT %d,%d", $offset, $limit );
-			$results = $wpdb->get_results( $sql );
-
-			// Increment offset.
-			$offset = ( $limit + $offset );
-
-			if ( ! empty( $results ) ) {
-				foreach ( $results as $r ) {
-					// Explode comment_agent key.
-					list ( $comment_agent_blog_id, $source_comment_id ) = explode( '-', $r->comment_agent );
-
-					$source_comment_id = (int) $source_comment_id;
-
-					// Check if this comment came from this blog.
-					if ( (int) $blog_id === (int) $comment_agent_blog_id ) {
-						$hashtable[ $source_comment_id ] = (int) $r->comment_ID;
-					}
-				}
-			}
-		} while ( count( $results ) === $limit );
-
-		return $hashtable;
+		_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+		return array();
 	}
 
 	/**

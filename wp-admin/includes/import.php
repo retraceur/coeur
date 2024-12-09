@@ -142,7 +142,7 @@ function wp_get_popular_importers() {
 		// slug => name, description, plugin slug, and register_importer() slug.
 		'blogger'     => array(
 			'name'        => __( 'Blogger' ),
-			'description' => __( 'Import posts, comments, and users from a Blogger blog.' ),
+			'description' => __( 'Import posts and users from a Blogger blog.' ),
 			'plugin-slug' => 'blogger-importer',
 			'importer-id' => 'blogger',
 		),
@@ -160,7 +160,7 @@ function wp_get_popular_importers() {
 		),
 		'movabletype' => array(
 			'name'        => __( 'Movable Type and TypePad' ),
-			'description' => __( 'Import posts and comments from a Movable Type or TypePad blog.' ),
+			'description' => __( 'Import posts from a Movable Type or TypePad blog.' ),
 			'plugin-slug' => 'movabletype-importer',
 			'importer-id' => 'mt',
 		),
@@ -178,7 +178,7 @@ function wp_get_popular_importers() {
 		),
 		'wordpress'   => array(
 			'name'        => 'Retraceur',
-			'description' => __( 'Import posts, pages, comments, custom fields, categories, and tags from a Retraceur export file.' ),
+			'description' => __( 'Import posts, pages, custom fields, categories, and tags from a Retraceur export file.' ),
 			'plugin-slug' => 'wordpress-importer',
 			'importer-id' => 'wordpress',
 		),

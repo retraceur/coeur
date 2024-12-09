@@ -70,12 +70,6 @@ function wp_dashboard_setup() {
 		wp_add_dashboard_widget( 'dashboard_activity', __( 'Activity' ), 'wp_dashboard_site_activity' );
 	}
 
-	// QuickPress Widget.
-	if ( is_blog_admin() && current_user_can( get_post_type_object( 'post' )->cap->create_posts ) ) {
-		$quick_draft_title = sprintf( '<span class="hide-if-no-js">%1$s</span> <span class="hide-if-js">%2$s</span>', __( 'Quick Draft' ), __( 'Your Recent Drafts' ) );
-		wp_add_dashboard_widget( 'dashboard_quick_press', $quick_draft_title, 'wp_dashboard_quick_press' );
-	}
-
 	if ( is_network_admin() ) {
 
 		/**
@@ -212,7 +206,7 @@ function wp_add_dashboard_widget( $widget_id, $widget_name, $callback, $control_
 		}
 	}
 
-	$side_widgets = array( 'dashboard_quick_press', 'dashboard_primary' );
+	$side_widgets = array( 'dashboard_activity', 'dashboard_primary' );
 
 	if ( in_array( $widget_id, $side_widgets, true ) ) {
 		$context = 'side';
@@ -508,166 +502,6 @@ function wp_network_dashboard_right_now() {
 	 * @since WP MU (3.0.0)
 	 */
 	do_action( 'mu_activity_box_end' );
-}
-
-/**
- * Displays the Quick Draft widget.
- *
- * @since WP 3.8.0
- *
- * @global int $post_ID
- *
- * @param string|false $error_msg Optional. Error message. Default false.
- */
-function wp_dashboard_quick_press( $error_msg = false ) {
-	global $post_ID;
-
-	if ( ! current_user_can( 'edit_posts' ) ) {
-		return;
-	}
-
-	// Check if a new auto-draft (= no new post_ID) is needed or if the old can be used.
-	$last_post_id = (int) get_user_option( 'dashboard_quick_press_last_post_id' ); // Get the last post_ID.
-
-	if ( $last_post_id ) {
-		$post = get_post( $last_post_id );
-
-		if ( empty( $post ) || 'auto-draft' !== $post->post_status ) { // auto-draft doesn't exist anymore.
-			$post = get_default_post_to_edit( 'post', true );
-			update_user_option( get_current_user_id(), 'dashboard_quick_press_last_post_id', (int) $post->ID ); // Save post_ID.
-		} else {
-			$post->post_title = ''; // Remove the auto draft title.
-		}
-	} else {
-		$post    = get_default_post_to_edit( 'post', true );
-		$user_id = get_current_user_id();
-
-		// Don't create an option if this is a super admin who does not belong to this site.
-		if ( in_array( get_current_blog_id(), array_keys( get_blogs_of_user( $user_id ) ), true ) ) {
-			update_user_option( $user_id, 'dashboard_quick_press_last_post_id', (int) $post->ID ); // Save post_ID.
-		}
-	}
-
-	$post_ID = (int) $post->ID;
-	?>
-
-	<form name="post" action="<?php echo esc_url( admin_url( 'post.php' ) ); ?>" method="post" id="quick-press" class="initial-form hide-if-no-js">
-
-		<?php
-		if ( $error_msg ) {
-			wp_admin_notice(
-				$error_msg,
-				array(
-					'additional_classes' => array( 'error' ),
-				)
-			);
-		}
-		?>
-
-		<div class="input-text-wrap" id="title-wrap">
-			<label for="title">
-				<?php
-				/** This filter is documented in wp-admin/edit-form-advanced.php */
-				echo apply_filters( 'enter_title_here', __( 'Title' ), $post );
-				?>
-			</label>
-			<input type="text" name="post_title" id="title" autocomplete="off" />
-		</div>
-
-		<div class="textarea-wrap" id="description-wrap">
-			<label for="content"><?php _e( 'Content' ); ?></label>
-			<textarea name="content" id="content" placeholder="<?php esc_attr_e( 'What&#8217;s on your mind?' ); ?>" class="mceEditor" rows="3" cols="15" autocomplete="off"></textarea>
-		</div>
-
-		<p class="submit">
-			<input type="hidden" name="action" id="quickpost-action" value="post-quickdraft-save" />
-			<input type="hidden" name="post_ID" value="<?php echo $post_ID; ?>" />
-			<input type="hidden" name="post_type" value="post" />
-			<?php wp_nonce_field( 'add-post' ); ?>
-			<?php submit_button( __( 'Save Draft' ), 'primary', 'save', false, array( 'id' => 'save-post' ) ); ?>
-			<br class="clear" />
-		</p>
-
-	</form>
-	<?php
-	wp_dashboard_recent_drafts();
-}
-
-/**
- * Show recent drafts of the user on the dashboard.
- *
- * @since WP 2.7.0
- *
- * @param WP_Post[]|false $drafts Optional. Array of posts to display. Default false.
- */
-function wp_dashboard_recent_drafts( $drafts = false ) {
-	if ( ! $drafts ) {
-		$query_args = array(
-			'post_type'      => 'post',
-			'post_status'    => 'draft',
-			'author'         => get_current_user_id(),
-			'posts_per_page' => 4,
-			'orderby'        => 'modified',
-			'order'          => 'DESC',
-		);
-
-		/**
-		 * Filters the post query arguments for the 'Recent Drafts' dashboard widget.
-		 *
-		 * @since WP 4.4.0
-		 *
-		 * @param array $query_args The query arguments for the 'Recent Drafts' dashboard widget.
-		 */
-		$query_args = apply_filters( 'dashboard_recent_drafts_query_args', $query_args );
-
-		$drafts = get_posts( $query_args );
-		if ( ! $drafts ) {
-			return;
-		}
-	}
-
-	echo '<div class="drafts">';
-
-	if ( count( $drafts ) > 3 ) {
-		printf(
-			'<p class="view-all"><a href="%s">%s</a></p>' . "\n",
-			esc_url( admin_url( 'edit.php?post_status=draft' ) ),
-			__( 'View all drafts' )
-		);
-	}
-
-	echo '<h2 class="hide-if-no-js">' . __( 'Your Recent Drafts' ) . "</h2>\n";
-	echo '<ul>';
-
-	/* translators: Maximum number of words used in a preview of a draft on the dashboard. */
-	$draft_length = (int) _x( '10', 'draft_length' );
-
-	$drafts = array_slice( $drafts, 0, 3 );
-	foreach ( $drafts as $draft ) {
-		$url   = get_edit_post_link( $draft->ID );
-		$title = _draft_or_post_title( $draft->ID );
-
-		echo "<li>\n";
-		printf(
-			'<div class="draft-title"><a href="%s" aria-label="%s">%s</a><time datetime="%s">%s</time></div>',
-			esc_url( $url ),
-			/* translators: %s: Post title. */
-			esc_attr( sprintf( __( 'Edit &#8220;%s&#8221;' ), $title ) ),
-			esc_html( $title ),
-			get_the_time( 'c', $draft ),
-			get_the_time( __( 'F j, Y' ), $draft )
-		);
-
-		$the_content = wp_trim_words( $draft->post_content, $draft_length );
-
-		if ( $the_content ) {
-			echo '<p>' . $the_content . '</p>';
-		}
-		echo "</li>\n";
-	}
-
-	echo "</ul>\n";
-	echo '</div>';
 }
 
 /**

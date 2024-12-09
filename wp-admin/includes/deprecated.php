@@ -3091,6 +3091,46 @@ function wp_ajax_get_comments( $action ) {
 }
 
 /**
+ * Sends back current comment total and new page links if they need to be updated.
+ *
+ * Contrary to normal success Ajax response ("1"), die with time() on success.
+ *
+ * @since WP 2.7.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @access private
+ *
+ * @param int $comment_id
+ * @param int $delta
+ */
+function _wp_ajax_delete_comment_response( $comment_id, $delta = -1 ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	wp_die( __( 'Retraceur does not support WP Comments.' ) );
+}
+
+/**
+ * Handles deleting a comment via AJAX.
+ *
+ * @since WP 3.1.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function wp_ajax_delete_comment() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	wp_die( __( 'Retraceur does not support WP Comments.' ) );
+}
+
+/**
+ * Handles dimming a comment via AJAX.
+ *
+ * @since WP 3.1.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function wp_ajax_dim_comment() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	wp_die( __( 'Retraceur does not support WP Comments.' ) );
+}
+
+/**
  * Enqueues comment shortcuts jQuery script.
  *
  * @since WP 2.7.0
@@ -3127,6 +3167,32 @@ function post_comment_meta_box_thead( $result ) {
 }
 
 /**
+ * Displays the Quick Draft widget.
+ *
+ * @since WP 3.8.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @global int $post_ID
+ *
+ * @param string|false $error_msg Optional. Error message. Default false.
+ */
+function wp_dashboard_quick_press( $error_msg = false ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Show recent drafts of the user on the dashboard.
+ *
+ * @since WP 2.7.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param WP_Post[]|false $drafts Optional. Array of posts to display. Default false.
+ */
+function wp_dashboard_recent_drafts( $drafts = false ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
  * Displays comments for post.
  *
  * @since WP 2.8.0
@@ -3136,6 +3202,34 @@ function post_comment_meta_box_thead( $result ) {
  */
 function post_comment_meta_box( $post ) {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Displays comments status form fields.
+ *
+ * @since WP 2.6.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param WP_Post $post Current post object.
+ */
+function post_comment_status_meta_box( $post ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Fires at the end of the Discussion meta box on the post editing screen.
+	 *
+	 * @since WP 3.1.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param WP_Post $post WP_Post object for the current post.
+	 */
+	do_action_deprecated(
+		'post_comment_status_meta_box-options', // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
+		array( null ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
 }
 
 /**

@@ -26,7 +26,7 @@ get_current_screen()->add_help_tab(
 		'content' =>
 					'<p>' . __( 'This screen is where you manage requests for an export of personal data.' ) . '</p>' .
 					'<p>' . __( 'Privacy Laws around the world require businesses and online services to provide an export of some of the data they collect about an individual, and to deliver that export on request. The rights those laws enshrine are sometimes called the "Right of Data Portability". It allows individuals to obtain and reuse their personal data for their own purposes across different services. It allows them to move, copy or transfer personal data easily from one IT environment to another.' ) . '</p>' .
-					'<p>' . __( 'The tool associates data stored in Retraceur with a supplied email address, including profile data and comments.' ) . '</p>' .
+					'<p>' . __( 'The tool associates data stored in Retraceur with a supplied email address, including profile data.' ) . '</p>' .
 					'<p><strong>' . __( 'Note: Since this tool only gathers data from Retraceur and participating plugins, you may need to do more to comply with export requests. For example, you should also send the requester some of the data collected from or stored with the 3rd party services your organization uses.' ) . '</strong></p>',
 	)
 );
@@ -36,10 +36,9 @@ get_current_screen()->add_help_tab(
 		'id'      => 'default-data',
 		'title'   => __( 'Default Data' ),
 		'content' =>
-					'<p>' . __( 'Retraceur collects (but <em>never</em> publishes) a limited amount of data from registered users who have logged in to the site. Generally, these users are people who contribute to the site in some way -- content, store management, and so on. With rare exceptions, these users do not include occasional visitors who might have registered to comment on articles or buy products. The data Retraceur retains can include:' ) . '</p>' .
+					'<p>' . __( 'Retraceur collects (but <em>never</em> publishes) a limited amount of data from registered users who have logged in to the site. Generally, these users are people who contribute to the site in some way -- content, store management, and so on. With rare exceptions, these users do not include occasional visitors. The data Retraceur retains can include:' ) . '</p>' .
 					'<p>' . __( '<strong>Profile Information</strong> &mdash; user email address, username, display name, nickname, first name, last name, description/bio, and registration date.' ) . '</p>' .
 					'<p>' . __( '<strong>Session Tokens</strong> &mdash; User login information, IP Addresses, Expiration Date, User Agent (Browser/OS), and Last Login.' ) . '</p>' .
-					'<p>' . __( '<strong>Comments</strong> &mdash; For user comments, Email Address, IP Address, User Agent (Browser/OS), Date/Time, Comment Content, and Content URL.' ) . '</p>' .
 					'<p>' . __( '<strong>Media</strong> &mdash; A list of URLs for media files the user uploads.' ) . '</p>',
 	)
 );
