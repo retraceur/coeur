@@ -378,16 +378,6 @@ if ( 'post' === $post_type ) {
 		)
 	);
 
-	$discussion_settings  = '<p>' . __( '<strong>Send Trackbacks</strong> &mdash; Trackbacks are a way to notify legacy blog systems that you&#8217;ve linked to them. Enter the URL(s) you want to send trackbacks. If you link to other Retraceur sites they&#8217;ll be notified automatically using pingbacks, and this field is unnecessary.' ) . '</p>';
-	$discussion_settings .= '<p>' . __( '<strong>Discussion</strong> &mdash; You can turn comments and pings on or off, and if there are comments on the post, you can see them here and moderate them.' ) . '</p>';
-
-	get_current_screen()->add_help_tab(
-		array(
-			'id'      => 'discussion-settings',
-			'title'   => __( 'Discussion Settings' ),
-			'content' => $discussion_settings,
-		)
-	);
 } elseif ( 'page' === $post_type ) {
 	$page_attributes = '<p>' . __( '<strong>Parent</strong> &mdash; You can arrange your pages in hierarchies. For example, you could have an &#8220;About&#8221; page that has &#8220;Life Story&#8221; and &#8220;My Dog&#8221; pages under it. There are no limits to how many levels you can nest pages.' ) . '</p>' .
 		'<p>' . __( '<strong>Template</strong> &mdash; Some themes have custom templates you can use for certain pages that might have additional features or custom layouts. If so, you&#8217;ll see them in this dropdown menu.' ) . '</p>' .

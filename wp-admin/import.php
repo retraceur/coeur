@@ -70,7 +70,7 @@ if ( ! empty( $_GET['invalid'] ) ) :
 	);
 endif;
 ?>
-<p><?php _e( 'If you have posts or comments in another system, Retraceur can import those into this site. To get started, choose a system to import from below:' ); ?></p>
+<p><?php _e( 'If you have posts in another system, Retraceur can import those into this site. To get started, choose a system to import from below:' ); ?></p>
 
 <?php
 // Registered (already installed) importers. They're stored in the global $wp_importers.

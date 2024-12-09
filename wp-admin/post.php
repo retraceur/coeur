@@ -72,44 +72,6 @@ if ( ! $sendback ||
 }
 
 switch ( $action ) {
-	case 'post-quickdraft-save':
-		// Check nonce and capabilities.
-		$nonce     = $_REQUEST['_wpnonce'];
-		$error_msg = false;
-
-		// For output of the Quick Draft dashboard widget.
-		require_once ABSPATH . 'wp-admin/includes/dashboard.php';
-
-		if ( ! wp_verify_nonce( $nonce, 'add-post' ) ) {
-			$error_msg = __( 'Unable to submit this form, please refresh and try again.' );
-		}
-
-		if ( ! current_user_can( get_post_type_object( 'post' )->cap->create_posts ) ) {
-			exit;
-		}
-
-		if ( $error_msg ) {
-			return wp_dashboard_quick_press( $error_msg );
-		}
-
-		$post = get_post( $_REQUEST['post_ID'] );
-		check_admin_referer( 'add-' . $post->post_type );
-
-		$_POST['comment_status'] = get_default_comment_status( $post->post_type );
-		$_POST['ping_status']    = get_default_comment_status( $post->post_type, 'pingback' );
-
-		// Wrap Quick Draft content in the Paragraph block.
-		if ( ! str_contains( $_POST['content'], '<!-- wp:paragraph -->' ) ) {
-			$_POST['content'] = sprintf(
-				'<!-- wp:paragraph -->%s<!-- /wp:paragraph -->',
-				str_replace( array( "\r\n", "\r", "\n" ), '<br />', $_POST['content'] )
-			);
-		}
-
-		edit_post();
-		wp_dashboard_quick_press();
-		exit;
-
 	case 'postajaxpost':
 	case 'post':
 		check_admin_referer( 'add-' . $post_type );

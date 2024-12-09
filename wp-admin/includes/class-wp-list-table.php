@@ -877,7 +877,6 @@ class WP_List_Table {
 		 * The dynamic hook name, `$option`, refers to the `per_page` option depending
 		 * on the type of list table in use. Possible filter names include:
 		 *
-		 *  - `edit_comments_per_page`
 		 *  - `sites_network_per_page`
 		 *  - `site_themes_network_per_page`
 		 *  - `themes_network_per_page`
@@ -1327,7 +1326,7 @@ class WP_List_Table {
 
 			if ( 'cb' === $column_key ) {
 				$class[] = 'check-column';
-			} elseif ( in_array( $column_key, array( 'posts', 'comments', 'links' ), true ) ) {
+			} elseif ( in_array( $column_key, array( 'posts', 'links' ), true ) ) {
 				$class[] = 'num';
 			}
 

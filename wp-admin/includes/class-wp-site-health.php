@@ -3177,7 +3177,6 @@ class WP_Site_Health {
 			array(
 				'alloptions_count' => 500,
 				'alloptions_bytes' => 100000,
-				'comments_count'   => 1000,
 				'options_count'    => 1000,
 				'posts_count'      => 1000,
 				'terms_count'      => 1000,
@@ -3195,7 +3194,7 @@ class WP_Site_Health {
 			return true;
 		}
 
-		$table_names = implode( "','", array( $wpdb->comments, $wpdb->options, $wpdb->posts, $wpdb->terms, $wpdb->users ) );
+		$table_names = implode( "','", array( $wpdb->options, $wpdb->posts, $wpdb->terms, $wpdb->users ) );
 
 		// With InnoDB the `TABLE_ROWS` are estimates, which are accurate enough and faster to retrieve than individual `COUNT()` queries.
 		$results = $wpdb->get_results(
@@ -3208,7 +3207,6 @@ class WP_Site_Health {
 		);
 
 		$threshold_map = array(
-			'comments_count' => $wpdb->comments,
 			'options_count'  => $wpdb->options,
 			'posts_count'    => $wpdb->posts,
 			'terms_count'    => $wpdb->terms,

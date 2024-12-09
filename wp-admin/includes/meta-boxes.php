@@ -821,35 +821,6 @@ function post_custom_meta_box( $post ) {
 }
 
 /**
- * Displays comments status form fields.
- *
- * @since WP 2.6.0
- *
- * @param WP_Post $post Current post object.
- */
-function post_comment_status_meta_box( $post ) {
-	?>
-<input name="advanced_view" type="hidden" value="1" />
-<p class="meta-options">
-	<label for="comment_status" class="selectit"><input name="comment_status" type="checkbox" id="comment_status" value="open" <?php checked( $post->comment_status, 'open' ); ?> /> <?php _e( 'Allow comments' ); ?></label><br />
-	<label for="ping_status" class="selectit"><input name="ping_status" type="checkbox" id="ping_status" value="open" <?php checked( $post->ping_status, 'open' ); ?> />
-		<?php esc_html_e( 'Allow trackbacks and pingbacks' ); ?>
-	</label>
-	<?php
-	/**
-	 * Fires at the end of the Discussion meta box on the post editing screen.
-	 *
-	 * @since WP 3.1.0
-	 *
-	 * @param WP_Post $post WP_Post object for the current post.
-	 */
-	do_action( 'post_comment_status_meta_box-options', $post ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
-	?>
-</p>
-	<?php
-}
-
-/**
  * Displays slug form fields.
  *
  * @since WP 2.6.0
@@ -1171,14 +1142,6 @@ function register_and_do_post_meta_boxes( $post ) {
 	 * @param WP_Post $post Post object.
 	 */
 	do_action_deprecated( 'dbx_post_advanced', array( $post ), '3.7.0', 'add_meta_boxes' );
-
-	/*
-	 * Allow the Discussion meta box to show up if the post type supports comments,
-	 * or if comments or pings are open.
-	 */
-	if ( comments_open( $post ) || pings_open( $post ) || post_type_supports( $post_type, 'comments' ) ) {
-		add_meta_box( 'commentstatusdiv', __( 'Discussion' ), 'post_comment_status_meta_box', null, 'normal', 'core', array( '__back_compat_meta_box' => true ) );
-	}
 
 	$statuses = get_post_stati( array( 'public' => true ) );
 

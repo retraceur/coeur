@@ -26,7 +26,7 @@ get_current_screen()->add_help_tab(
 		'content' =>
 					'<p>' . __( 'This screen is where you manage requests to erase personal data.' ) . '</p>' .
 					'<p>' . __( 'Privacy Laws around the world require businesses and online services to delete, anonymize, or forget the data they collect about an individual. The rights those laws enshrine are sometimes called the "Right to be Forgotten".' ) . '</p>' .
-					'<p>' . __( 'The tool associates data stored in Retraceur with a supplied email address, including profile data and comments.' ) . '</p>' .
+					'<p>' . __( 'The tool associates data stored in Retraceur with a supplied email address, including profile data.' ) . '</p>' .
 					'<p><strong>' . __( 'Note: As this tool only gathers data from Retraceur and participating plugins, you may need to do more to comply with erasure requests. For example, you are also responsible for ensuring that data collected by or stored with the 3rd party services your organization uses gets deleted.' ) . '</strong></p>',
 	)
 );
@@ -39,7 +39,6 @@ get_current_screen()->add_help_tab(
 					'<p>' . __( 'Retraceur collects (but <em>never</em> publishes) a limited amount of data from logged-in users but then deletes it or anonymizes it. That data can include:' ) . '</p>' .
 					'<p>' . __( '<strong>Profile Information</strong> &mdash; user email address, username, display name, nickname, first name, last name, description/bio, and registration date.' ) . '</p>' .
 					'<p>' . __( '<strong>Session Tokens</strong> &mdash; User login information, IP Addresses, Expiration Date, User Agent (Browser/OS), and Last Login.' ) . '</p>' .
-					'<p>' . __( '<strong>Comments</strong> &mdash; Retraceur does not delete comments. The software does anonymize (but, again, <em>never</em> publishes) the associated Email Address, IP Address, and User Agent (Browser/OS).' ) . '</p>' .
 					'<p>' . __( '<strong>Media</strong> &mdash; A list of URLs for all media file uploads made by the user.' ) . '</p>',
 	)
 );

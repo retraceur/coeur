@@ -152,7 +152,6 @@ class WP_Debug_Data {
 		$is_ssl                 = is_ssl();
 		$users_can_register     = get_option( 'users_can_register' );
 		$blog_public            = get_option( 'blog_public' );
-		$default_comment_status = get_option( 'default_comment_status' );
 		$environment_type       = wp_get_environment_type();
 		$core_version           = wp_get_wp_version();
 		$core_updates           = get_core_updates();
@@ -221,11 +220,6 @@ class WP_Debug_Data {
 				'label' => __( 'Is this site discouraging search engines?' ),
 				'value' => $blog_public ? __( 'No' ) : __( 'Yes' ),
 				'debug' => $blog_public,
-			),
-			'default_comment_status' => array(
-				'label' => __( 'Default comment status' ),
-				'value' => 'open' === $default_comment_status ? _x( 'Open', 'comment status' ) : _x( 'Closed', 'comment status' ),
-				'debug' => $default_comment_status,
 			),
 			'environment_type'       => array(
 				'label' => __( 'Environment type' ),

@@ -30,6 +30,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 	 * Holds the number of pending comments for each post.
 	 *
 	 * @since WP 3.1.0
+	 * @deprecated 1.0.0 Retraceur fork.
 	 * @var array
 	 */
 	protected $comment_pending_count;
@@ -705,17 +706,6 @@ class WP_Posts_List_Table extends WP_List_Table {
 
 		$post_status = ! empty( $_REQUEST['post_status'] ) ? $_REQUEST['post_status'] : 'all';
 
-		if ( post_type_supports( $post_type, 'comments' )
-			&& ! in_array( $post_status, array( 'pending', 'draft', 'future' ), true )
-		) {
-			$posts_columns['comments'] = sprintf(
-				'<span class="vers comment-grey-bubble" title="%1$s" aria-hidden="true"></span><span class="screen-reader-text">%2$s</span>',
-				esc_attr__( 'Comments' ),
-				/* translators: Hidden accessibility text. */
-				__( 'Comments' )
-			);
-		}
-
 		$posts_columns['date'] = __( 'Date' );
 
 		if ( 'page' === $post_type ) {
@@ -834,9 +824,6 @@ class WP_Posts_List_Table extends WP_List_Table {
 			$post_ids[] = $a_post->ID;
 		}
 
-		if ( post_type_supports( $post_type, 'comments' ) ) {
-			$this->comment_pending_count = get_pending_comments_num( $post_ids );
-		}
 		update_post_author_caches( $posts );
 
 		foreach ( $posts as $post ) {
@@ -1652,7 +1639,6 @@ class WP_Posts_List_Table extends WP_List_Table {
 			'title'      => true,
 			'categories' => true,
 			'tags'       => true,
-			'comments'   => true,
 			'author'     => true,
 		);
 		?>
@@ -1909,68 +1895,6 @@ class WP_Posts_List_Table extends WP_List_Table {
 					<?php endforeach; // $flat_taxonomies as $taxonomy ?>
 
 				<?php endif; // count( $flat_taxonomies ) && ! $bulk ?>
-
-				<?php if ( post_type_supports( $screen->post_type, 'comments' ) || post_type_supports( $screen->post_type, 'trackbacks' ) ) : ?>
-
-					<?php if ( $bulk ) : ?>
-
-						<div class="inline-edit-group wp-clearfix">
-
-						<?php if ( post_type_supports( $screen->post_type, 'comments' ) ) : ?>
-
-							<label class="alignleft">
-								<span class="title"><?php _e( 'Comments' ); ?></span>
-								<select name="comment_status">
-									<option value=""><?php _e( '&mdash; No Change &mdash;' ); ?></option>
-									<option value="open"><?php _e( 'Allow' ); ?></option>
-									<option value="closed"><?php _e( 'Do not allow' ); ?></option>
-								</select>
-							</label>
-
-						<?php endif; ?>
-
-						<?php if ( post_type_supports( $screen->post_type, 'trackbacks' ) ) : ?>
-
-							<label class="alignright">
-								<span class="title"><?php _e( 'Pings' ); ?></span>
-								<select name="ping_status">
-									<option value=""><?php _e( '&mdash; No Change &mdash;' ); ?></option>
-									<option value="open"><?php _e( 'Allow' ); ?></option>
-									<option value="closed"><?php _e( 'Do not allow' ); ?></option>
-								</select>
-							</label>
-
-						<?php endif; ?>
-
-						</div>
-
-					<?php else : // $bulk ?>
-
-						<div class="inline-edit-group wp-clearfix">
-
-						<?php if ( post_type_supports( $screen->post_type, 'comments' ) ) : ?>
-
-							<label class="alignleft">
-								<input type="checkbox" name="comment_status" value="open" />
-								<span class="checkbox-title"><?php _e( 'Allow Comments' ); ?></span>
-							</label>
-
-						<?php endif; ?>
-
-						<?php if ( post_type_supports( $screen->post_type, 'trackbacks' ) ) : ?>
-
-							<label class="alignleft">
-								<input type="checkbox" name="ping_status" value="open" />
-								<span class="checkbox-title"><?php _e( 'Allow Pings' ); ?></span>
-							</label>
-
-						<?php endif; ?>
-
-						</div>
-
-					<?php endif; // $bulk ?>
-
-				<?php endif; // post_type_supports( ... comments or pings ) ?>
 
 					<div class="inline-edit-group wp-clearfix">
 
