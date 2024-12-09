@@ -15,8 +15,9 @@
     "url": "git+https://github.com/retraceur/coeur.git"
   },
   "keywords": [
-    "blog",
-    "php-software"
+    "blogging",
+    "blog-engine",
+		"blogging-platform"
   ],
   "author": "imath",
   "license": "GPL-2.0+",

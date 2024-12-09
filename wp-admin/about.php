@@ -56,7 +56,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 					?>
 				</h2>
 				<p class="is-subheading">
-					<?php esc_html_e( 'Your new personal web publisher, completely freed from wpdotorg chains.' ); ?>
+					<?php esc_html_e( 'Your personal web publisher, a WP fork completely freed from wp-dot-org chains.' ); ?>
 				</p>
 			</div>
 		</div>
