@@ -47,7 +47,6 @@
 .menu-icon-media div.wp-menu-image,
 .menu-icon-links div.wp-menu-image,
 .menu-icon-page div.wp-menu-image,
-.menu-icon-comments div.wp-menu-image,
 .menu-icon-appearance div.wp-menu-image,
 .menu-icon-plugins div.wp-menu-image,
 .menu-icon-users div.wp-menu-image,
@@ -429,9 +428,8 @@ ul#adminmenu > li.current > a.current:after {
 	border: 0 none;
 }
 
-/* @todo: consider to use a single rule for these counters and the list table comments counters. */
+/* @todo: consider to use a single rule for these counters. */
 #adminmenu .menu-counter,
-#adminmenu .awaiting-mod,
 #adminmenu .update-plugins {
 	display: inline-block;
 	vertical-align: top;
@@ -449,7 +447,6 @@ ul#adminmenu > li.current > a.current:after {
 	z-index: 26;
 }
 
-#adminmenu li.current a .awaiting-mod,
 #adminmenu li a.wp-has-current-submenu .update-plugins {
 	background-color: #d63638;
 	color: #fff;
