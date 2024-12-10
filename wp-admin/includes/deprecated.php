@@ -3294,3 +3294,97 @@ function wp_comment_reply( $position = 1, $checkbox = false, $mode = 'single', $
 function add_comments_page( $page_title, $menu_title, $capability, $menu_slug, $callback = '', $position = null ) {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 }
+
+/**
+ * Determines if a comment exists based on author and date.
+ *
+ * For best performance, use `$timezone = 'gmt'`, which queries a field that is properly indexed. The default value
+ * for `$timezone` is 'blog' for legacy reasons.
+ *
+ * @since WP 2.0.0
+ * @since WP 4.4.0 Added the `$timezone` parameter.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string $comment_author Author of the comment.
+ * @param string $comment_date   Date of the comment.
+ * @param string $timezone       Timezone. Accepts 'blog' or 'gmt'. Default 'blog'.
+ * @return string|null Comment post ID on success.
+ */
+function comment_exists( $comment_author, $comment_date, $timezone = 'blog' ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return '';
+}
+
+/**
+ * Updates a comment with values provided in $_POST.
+ *
+ * @since WP 2.0.0
+ * @since WP 5.5.0 A return value was added.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @return int|WP_Error The value 1 if the comment was updated, 0 if not updated.
+ *                      A WP_Error object on failure.
+ */
+function edit_comment() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return 0;
+}
+
+/**
+ * Returns a WP_Comment object based on comment ID.
+ *
+ * @since WP 2.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int $id ID of comment to retrieve.
+ * @return WP_Comment|false Comment if found. False on failure.
+ */
+function get_comment_to_edit( $id ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the comment content before editing.
+	 *
+	 * @since WP 2.0.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string $comment_content Comment content.
+	 */
+	apply_filters_deprecated(
+		'comment_edit_pre',
+		array( '' ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return false;
+}
+
+/**
+ * Gets the number of pending comments on a post or posts.
+ *
+ * @since WP 2.3.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int|int[] $post_id Either a single Post ID or an array of Post IDs
+ * @return int|int[] Either a single Posts pending comments as an int or an array of ints keyed on the Post IDs
+ */
+function get_pending_comments_num( $post_id ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return 0;
+}
+
+/**
+ * Adds avatars to relevant places in admin.
+ *
+ * @since WP 2.5.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string $name User name.
+ * @return string Avatar with the user name.
+ */
+function floated_admin_avatar( $name ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return '';
+}

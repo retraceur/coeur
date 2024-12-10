@@ -1,185 +1,10 @@
 /*! This file is auto-generated */
-.response-links {
-	display: block;
-	margin-bottom: 1em;
-}
-
-.response-links a {
-	display: block;
-}
-
-.response-links a.comments-edit-item-link {
-	font-weight: 600;
-}
-
-.response-links a.comments-view-item-link {
-	font-size: 12px;
-}
-
-.post-com-count-wrapper strong {
-	font-weight: 400;
-}
-
-.comments-view-item-link {
-	display: inline-block;
-	clear: both;
-}
-
-.column-response .post-com-count-wrapper,
-.column-comments .post-com-count-wrapper {
-	white-space: nowrap;
-	word-wrap: normal;
-}
-
-/* comments bubble common */
-.column-response .post-com-count,
-.column-comments .post-com-count {
-	display: inline-block;
-	vertical-align: top;
-}
-
-/* comments bubble approved */
-.column-response .post-com-count-no-comments,
-.column-response .post-com-count-approved,
-.column-comments .post-com-count-no-comments,
-.column-comments .post-com-count-approved {
-	margin-top: 5px;
-}
-
-.column-response .comment-count-no-comments,
-.column-response .comment-count-approved,
-.column-comments .comment-count-no-comments,
-.column-comments .comment-count-approved {
-	box-sizing: border-box;
-	display: block;
-	padding: 0 8px;
-	min-width: 24px;
-	height: 2em;
-	border-radius: 5px;
-	background-color: #646970;
-	color: #fff;
-	font-size: 11px;
-	line-height: 1.90909090;
-	text-align: center;
-}
-
-.column-response .post-com-count-no-comments:after,
-.column-response .post-com-count-approved:after,
-.column-comments .post-com-count-no-comments:after,
-.column-comments .post-com-count-approved:after {
-	content: "";
-	display: block;
-	margin-right: 8px;
-	width: 0;
-	height: 0;
-	border-top: 5px solid #646970;
-	border-left: 5px solid transparent;
-}
-
-.column-response a.post-com-count-approved:hover .comment-count-approved,
-.column-response a.post-com-count-approved:focus .comment-count-approved,
-.column-comments a.post-com-count-approved:hover .comment-count-approved,
-.column-comments a.post-com-count-approved:focus .comment-count-approved {
-	background: #2271b1;
-}
-
-.column-response a.post-com-count-approved:hover:after,
-.column-response a.post-com-count-approved:focus:after,
-.column-comments a.post-com-count-approved:hover:after,
-.column-comments a.post-com-count-approved:focus:after {
-	border-top-color: #2271b1;
-}
-
-/* @todo: consider to use a single rule for these counters and the admin menu counters. */
-.column-response .post-com-count-pending,
-.column-comments .post-com-count-pending {
-	position: relative;
-	right: -3px;
-	padding: 0 5px;
-	min-width: 7px;
-	height: 17px;
-	border: 2px solid #fff;
-	border-radius: 11px;
-	background: #d63638;
-	color: #fff;
-	font-size: 9px;
-	line-height: 1.88888888;
-	text-align: center;
-}
-
-.column-response .post-com-count-no-pending,
-.column-comments .post-com-count-no-pending {
-	display: none;
-}
-
-/* comments */
-
-.commentlist li {
-	padding: 1em 1em .2em;
-	margin: 0;
-	border-bottom: 1px solid #c3c4c7;
-}
-
-.commentlist li li {
-	border-bottom: 0;
-	padding: 0;
-}
-
-.commentlist p {
-	padding: 0;
-	margin: 0 0 .8em;
-}
-
 #submitted-on,
 .submitted-on {
 	color: #50575e;
 }
 
-/* reply to comments */
-#replyrow td {
-	padding: 2px;
-}
-
-#replysubmit {
-	margin: 0;
-	padding: 5px 7px 10px;
-	overflow: hidden;
-}
-
-#replysubmit .reply-submit-buttons {
-	margin-bottom: 0;
-}
-
-#replysubmit .button {
-	margin-left: 5px;
-}
-
-#replysubmit .spinner {
-	float: none;
-	margin: -4px 0 0;
-}
-
-#replyrow.inline-edit-row fieldset.comment-reply {
-	font-size: inherit;
-	line-height: inherit;
-}
-
-#replyrow legend {
-	margin: 0;
-	padding: .2em 5px 0;
-	font-size: 13px;
-	line-height: 1.4;
-	font-weight: 600;
-}
-
-#replyrow.inline-edit-row label {
-	display: inline;
-	vertical-align: baseline;
-	line-height: inherit;
-}
-
-#edithead .inside,
-#commentsdiv #edithead .inside {
+#edithead .inside {
 	float: right;
 	padding: 3px 5px 2px 0;
 	margin: 0;
@@ -194,94 +19,11 @@
 	padding: 2px 0;
 }
 
-#replycontainer {
-	padding: 5px;
-}
-
-#replycontent {
-	height: 120px;
-	box-shadow: none;
-}
-
-#replyerror {
-	border-color: #dcdcde;
-	background-color: #f6f7f7;
-}
-
-/* @todo: is this used? */
-.commentlist .avatar {
-	vertical-align: text-top;
-}
-
-#the-comment-list tr.undo,
-#the-comment-list div.undo {
-	background-color: #f6f7f7;
-}
-
-#the-comment-list .unapproved th,
-#the-comment-list .unapproved td {
-	background-color: #fcf9e8;
-}
-
-#the-comment-list .unapproved th.check-column {
-	border-right: 4px solid #d63638;
-}
-
-#the-comment-list .unapproved th.check-column input {
-	margin-right: 4px;
-}
-
-#the-comment-list .approve a {
-	color: #007017;
-}
-
-#the-comment-list .unapprove a {
-	color: #996800;
-}
-
-#the-comment-list th,
-#the-comment-list td {
-	box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-}
-
-#the-comment-list tr:last-child th,
-#the-comment-list tr:last-child td {
-	box-shadow: none;
-}
-
-#the-comment-list tr.unapproved + tr.approved th,
-#the-comment-list tr.unapproved + tr.approved td {
-	border-top: 1px solid rgba(0, 0, 0, 0.03);
-}
-
 /* table vim shortcuts */
 .vim-current,
 .vim-current th,
 .vim-current td {
 	background-color: #f0f6fc !important;
-}
-
-th .comment-grey-bubble {
-	width: 16px;
-	/* Make sure the link clickable area fills the entire table header. */
-	position: relative;
-	top: 2px;
-}
-
-th .comment-grey-bubble:before {
-	content: "\f101";
-	font: normal 20px/.5 dashicons;
-	speak: never;
-	display: inline-block;
-	padding: 0;
-	top: 4px;
-	right: -4px;
-	position: relative;
-	vertical-align: top;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	text-decoration: none !important;
-	color: #3c434a;
 }
 
 /*------------------------------------------------------------------------------
@@ -323,10 +65,6 @@ table.fixed {
 	hyphens: auto;
 }
 
-.fixed .column-comment .comment-author {
-	display: none;
-}
-
 .fixed .column-response,
 .fixed .column-categories,
 .fixed .column-tags,
@@ -341,15 +79,6 @@ table.fixed {
 
 .fixed .column-locations {
 	width: 35%;
-}
-
-.fixed .column-comments {
-	width: 5.5em;
-	text-align: right;
-}
-
-.fixed .column-comments .vers {
-	padding-right: 3px;
 }
 
 td.column-title strong,
@@ -411,55 +140,6 @@ table.media .column-title .filename {
 #the-list tr:last-child th {
 	border-bottom: none !important;
 	box-shadow: none;
-}
-
-#comments-form .fixed .column-author {
-	width: 20%;
-}
-
-#commentsdiv.postbox .inside {
-	margin: 0;
-	padding: 0;
-}
-
-#commentsdiv .inside .row-actions {
-	line-height: 1.38461538;
-}
-
-#commentsdiv .inside .column-author {
-	width: 25%;
-}
-
-#commentsdiv .column-comment p {
-	margin: 0.6em 0;
-	padding: 0;
-}
-
-#commentsdiv #replyrow td {
-	padding: 0;
-}
-
-#commentsdiv p {
-	padding: 8px 10px;
-	margin: 0;
-}
-
-#commentsdiv .comments-box {
-	border: 0 none;
-}
-
-#commentsdiv .comments-box thead th,
-#commentsdiv .comments-box thead td {
-	background: transparent;
-	padding: 0 7px 4px;
-}
-
-#commentsdiv .comments-box tr:last-child td {
-	border-bottom: 0 none;
-}
-
-#commentsdiv #edithead .inside input {
-	width: 160px;
 }
 
 .sorting-indicators {
@@ -834,13 +514,8 @@ p.pagenav {
 	font-weight: 600;
 }
 
-.column-comment .comment-author {
-	margin-bottom: 0.6em;
-}
-
 .column-author img,
-.column-username img,
-.column-comment .comment-author img {
+.column-username img {
 	float: right;
 	margin-left: 10px;
 	margin-top: 1px;
@@ -867,8 +542,7 @@ p.pagenav {
 .no-js .row-actions,
 tr:hover .row-actions,
 .mobile .row-actions,
-.row-actions.visible,
-.comment-item:hover .row-actions {
+.row-actions.visible {
 	position: static;
 }
 
@@ -1978,87 +1652,6 @@ div.action-links,
 		text-align: right;
 	}
 
-	#comments-form .fixed .column-author,
-	#commentsdiv .fixed .column-author {
-		display: none !important;
-	}
-
-	.fixed .column-comment .comment-author {
-		display: block;
-	}
-
-	/* Comment author hidden via Screen Options */
-	.fixed .column-author.hidden ~ .column-comment .comment-author {
-		display: none;
-	}
-
-	#the-comment-list .is-expanded td {
-		box-shadow: none;
-	}
-
-	#the-comment-list .is-expanded td:last-child {
-		box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-	}
-
-	/* Show comment bubble as text instead */
-	.post-com-count .screen-reader-text {
-		position: static;
-		clip-path: none;
-		width: auto;
-		height: auto;
-		margin: 0;
-	}
-
-	.column-response .post-com-count-no-comments:after,
-	.column-response .post-com-count-approved:after,
-	.column-comments .post-com-count-no-comments:after,
-	.column-comments .post-com-count-approved:after {
-		content: none;
-	}
-
-	.column-response .post-com-count [aria-hidden="true"],
-	.column-comments .post-com-count [aria-hidden="true"] {
-		display: none;
-	}
-
-	.column-response .post-com-count-wrapper,
-	.column-comments .post-com-count-wrapper {
-		white-space: normal;
-	}
-
-	.column-response .post-com-count-wrapper > a,
-	.column-comments .post-com-count-wrapper > a {
-		display: block;
-	}
-
-	.column-response .post-com-count-no-comments,
-	.column-response .post-com-count-approved,
-	.column-comments .post-com-count-no-comments,
-	.column-comments .post-com-count-approved {
-		margin-top: 0;
-		margin-left: 0.5em;
-	}
-
-	.column-response .post-com-count-pending,
-	.column-comments .post-com-count-pending {
-		position: static;
-		height: auto;
-		min-width: 0;
-		padding: 0;
-		border: none;
-		border-radius: 0;
-		background: none;
-		color: #b32d2e;
-		font-size: inherit;
-		line-height: inherit;
-		text-align: right;
-	}
-
-	.column-response .post-com-count-pending:hover,
-	.column-comments .post-com-count-pending:hover {
-		color: #d63638;
-	}
-
 	.widefat thead td.check-column,
 	.widefat tfoot td.check-column {
 		padding-top: 10px;
@@ -2185,14 +1778,12 @@ div.action-links,
 		margin: 0 0 0 6px;
 	}
 
-	#edithead .inside,
-	#commentsdiv #edithead .inside {
+	#edithead .inside {
 		float: none;
 		text-align: right;
 		padding: 3px 5px;
 	}
 
-	#commentsdiv #edithead .inside input,
 	#edithead .inside input {
 		width: 100%;
 	}
@@ -2217,7 +1808,6 @@ div.action-links,
 	}
 
 	/* List tables that don't toggle rows */
-	.comments-box .toggle-row,
 	.wp-list-table.plugins .toggle-row {
 		display: none;
 	}
