@@ -1,6 +1,6 @@
 <?php
 /**
- * Discussion settings administration panel.
+ * Membership settings administration panel.
  *
  * @since 1.0.0 Retraceur fork.
  *

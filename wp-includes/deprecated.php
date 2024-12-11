@@ -9858,3 +9858,49 @@ function edit_comment_link( $text = null, $before = '', $after = '' ) {
 		__( 'WP Comments feature is not supported in Retraceur.' )
 	);
 }
+
+/**
+ * Sets the cookies used to store an unauthenticated commentator's identity. Typically used
+ * to recall previous comments by this commentator that are still held in moderation.
+ *
+ * @since WP 3.4.0
+ * @since WP 4.9.6 The `$cookies_consent` parameter was added.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param WP_Comment $comment         Comment object.
+ * @param WP_User    $user            Comment author's user object. The user may not exist.
+ * @param bool       $cookies_consent Optional. Comment author's consent to store cookies. Default true.
+ */
+function wp_set_comment_cookies( $comment, $user, $cookies_consent = true ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the lifetime of the comment cookie in seconds.
+	 *
+	 * @since WP 2.8.0
+	 * @since WP 6.6.0 The default $seconds value changed from 30000000 to YEAR_IN_SECONDS.
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param int $seconds Comment cookie lifetime. Default YEAR_IN_SECONDS.
+	 */
+	apply_filters_deprecated(
+		'comment_cookie_lifetime',
+		array( 0 ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+}
+
+/**
+ * Sanitizes the cookies sent to the user already.
+ *
+ * Will only do anything if the cookies have already been created for the user.
+ * Mostly used after cookies had been sent to use elsewhere.
+ *
+ * @since WP 2.0.4
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function sanitize_comment_cookies() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}

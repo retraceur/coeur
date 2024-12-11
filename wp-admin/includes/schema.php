@@ -330,9 +330,6 @@ function populate_options( array $options = array() ) {
 		'stylesheet'                      => $stylesheet,
 		'html_type'                       => 'text/html',
 
-		// 1.5.1
-		'use_trackback'                   => 0,
-
 		// 2.0.0
 		'default_role'                    => 'subscriber',
 		'db_version'                      => $wp_db_version,
