@@ -281,7 +281,7 @@ add_screen_option(
 );
 
 if ( 'post' === $post_type ) {
-	$customize_display = '<p>' . __( 'The title field and the big Post Editing Area are fixed in place, but you can reposition all the other boxes using drag and drop. You can also minimize or expand them by clicking the title bar of each box. Use the Screen Options tab to unhide more boxes (Excerpt, Send Trackbacks, Custom Fields, Discussion, Slug, Author) or to choose a 1- or 2-column layout for this screen.' ) . '</p>';
+	$customize_display = '<p>' . __( 'The title field and the big Post Editing Area are fixed in place, but you can reposition all the other boxes using drag and drop. You can also minimize or expand them by clicking the title bar of each box. Use the Screen Options tab to unhide more boxes (Excerpt, Custom Fields, Slug, Author) or to choose a 1- or 2-column layout for this screen.' ) . '</p>';
 
 	get_current_screen()->add_help_tab(
 		array(

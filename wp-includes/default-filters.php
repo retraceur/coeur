@@ -386,8 +386,6 @@ add_action( 'do_all_pings', 'do_all_trackbacks', 10, 0 );
 add_action( 'do_all_pings', 'generic_ping', 10, 0 );
 add_action( 'do_robots', 'do_robots' );
 add_action( 'do_favicon', 'do_favicon' );
-add_action( 'set_comment_cookies', 'wp_set_comment_cookies', 10, 3 );
-add_action( 'sanitize_comment_cookies', 'sanitize_comment_cookies' );
 add_action( 'init', 'smilies_init', 5 );
 add_action( 'plugins_loaded', 'wp_maybe_load_embeds', 0 );
 add_action( 'shutdown', 'wp_ob_end_flush_all', 1 );
