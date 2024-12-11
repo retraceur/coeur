@@ -280,8 +280,6 @@ function get_inline_data( $post ) {
 	/** This filter is documented in wp-admin/edit-tag-form.php */
 	'<div class="post_name">' . apply_filters( 'editable_slug', $post->post_name, $post ) . '</div>
 	<div class="post_author">' . $post->post_author . '</div>
-	<div class="comment_status">' . esc_html( $post->comment_status ) . '</div>
-	<div class="ping_status">' . esc_html( $post->ping_status ) . '</div>
 	<div class="_status">' . esc_html( $post->post_status ) . '</div>
 	<div class="jj">' . mysql2date( 'd', $post->post_date, false ) . '</div>
 	<div class="mm">' . mysql2date( 'm', $post->post_date, false ) . '</div>
@@ -353,34 +351,6 @@ function get_inline_data( $post ) {
 	do_action( 'add_inline_data', $post, $post_type_object );
 
 	echo '</div>';
-}
-
-/**
- * Outputs 'undo move to Trash' text for comments.
- *
- * @since WP 2.9.0
- */
-function wp_comment_trashnotice() {
-	?>
-<div class="hidden" id="trash-undo-holder">
-	<div class="trash-undo-inside">
-		<?php
-		/* translators: %s: Comment author, filled by Ajax. */
-		printf( __( 'Comment by %s moved to the Trash.' ), '<strong></strong>' );
-		?>
-		<span class="undo untrash"><a href="#"><?php _e( 'Undo' ); ?></a></span>
-	</div>
-</div>
-<div class="hidden" id="spam-undo-holder">
-	<div class="spam-undo-inside">
-		<?php
-		/* translators: %s: Comment author, filled by Ajax. */
-		printf( __( 'Comment by %s marked as spam.' ), '<strong></strong>' );
-		?>
-		<span class="undo unspam"><a href="#"><?php _e( 'Undo' ); ?></a></span>
-	</div>
-</div>
-	<?php
 }
 
 /**
@@ -599,15 +569,16 @@ function meta_form( $post = null ) {
 }
 
 /**
- * Prints out HTML form date elements for editing post or comment publish date.
+ * Prints out HTML form date elements for editing post publish date.
  *
  * @since WP 0.71
  * @since WP 4.4.0 Converted to use get_comment() instead of the global `$comment`.
+ * @since 1.0.0 Retracteur fork removed the code about comments.
  *
  * @global WP_Locale $wp_locale Reacteur date and time locale object.
  *
  * @param int|bool $edit      Accepts 1|true for editing the date, 0|false for adding the date.
- * @param int|bool $for_post  Accepts 1|true for applying the date to a post, 0|false for a comment.
+ * @param int|bool $for_post  Accepts 1|true for applying the date to a post.
  * @param int      $tab_index The tabindex attribute to add. Default 0.
  * @param int|bool $multi     Optional. Whether the additional fields and buttons should be added.
  *                            Default 0|false.
@@ -615,20 +586,14 @@ function meta_form( $post = null ) {
 function touch_time( $edit = 1, $for_post = 1, $tab_index = 0, $multi = 0 ) {
 	global $wp_locale;
 	$post = get_post();
-
-	if ( $for_post ) {
-		$edit = ! ( in_array( $post->post_status, array( 'draft', 'pending' ), true ) && ( ! $post->post_date_gmt || '0000-00-00 00:00:00' === $post->post_date_gmt ) );
-	}
+	$edit = ! ( in_array( $post->post_status, array( 'draft', 'pending' ), true ) && ( ! $post->post_date_gmt || '0000-00-00 00:00:00' === $post->post_date_gmt ) );
 
 	$tab_index_attribute = '';
 	if ( (int) $tab_index > 0 ) {
 		$tab_index_attribute = " tabindex=\"$tab_index\"";
 	}
 
-	// @todo Remove this?
-	// echo '<label for="timestamp" style="display: block;"><input type="checkbox" class="checkbox" name="edit_date" value="1" id="timestamp"'.$tab_index_attribute.' /> '.__( 'Edit timestamp' ).'</label><br />';
-
-	$post_date = ( $for_post ) ? $post->post_date : get_comment()->comment_date;
+	$post_date = $post->post_date;
 	$jj        = ( $edit ) ? mysql2date( 'd', $post_date, false ) : current_time( 'd' );
 	$mm        = ( $edit ) ? mysql2date( 'm', $post_date, false ) : current_time( 'm' );
 	$aa        = ( $edit ) ? mysql2date( 'Y', $post_date, false ) : current_time( 'Y' );
@@ -865,7 +830,7 @@ function wp_import_upload_form( $action ) {
  * @param callable               $callback      Function that fills the box with the desired content.
  *                                              The function should echo its output.
  * @param string|array|WP_Screen $screen        Optional. The screen or screens on which to show the box
- *                                              (such as a post type or 'comment'). Accepts a single
+ *                                              (such as a post type). Accepts a single
  *                                              screen ID, WP_Screen object, or array of screen IDs. Default
  *                                              is the current screen.  If you have used add_menu_page() or
  *                                              add_submenu_page() to create a new screen (and hence screen_id),
@@ -1284,8 +1249,8 @@ function do_meta_boxes( $screen, $context, $data_object ) {
  *
  * @param string                 $id      Meta box ID (used in the 'id' attribute for the meta box).
  * @param string|array|WP_Screen $screen  The screen or screens on which the meta box is shown (such as a
- *                                        post type or 'comment'). Accepts a single screen ID,
- *                                        WP_Screen object, or array of screen IDs.
+ *                                        post type). Accepts a single screen ID, WP_Screen object, or
+ *                                        array of screen IDs.
  * @param string                 $context The context within the screen where the box is set to display.
  *                                        Contexts vary from screen to screen. Post edit screen contexts
  *                                        include 'normal', 'side', and 'advanced'. Comments screen contexts
