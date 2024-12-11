@@ -313,34 +313,6 @@ window.plugininstallL10n = deprecateL10nObject( 'plugininstallL10n', window.plug
 /**
  * Removed in 5.5.0, needed for back-compatibility.
  *
- * @since WP 3.0.0
- * @deprecated WP 5.5.0
- */
-window.navMenuL10n = window.navMenuL10n || {
-	noResultsFound: '',
-	warnDeleteMenu: '',
-	saveAlert: '',
-	untitled: ''
-};
-
-window.navMenuL10n = deprecateL10nObject( 'navMenuL10n', window.navMenuL10n, '5.5.0' );
-
-/**
- * Removed in 5.5.0, needed for back-compatibility.
- *
- * @since WP 2.5.0
- * @deprecated WP 5.5.0
- */
-window.commentL10n = window.commentL10n || {
-	submittedOn: '',
-	dateFormat: ''
-};
-
-window.commentL10n = deprecateL10nObject( 'commentL10n', window.commentL10n, '5.5.0' );
-
-/**
- * Removed in 5.5.0, needed for back-compatibility.
- *
  * @since WP 2.9.0
  * @deprecated WP 5.5.0
  */

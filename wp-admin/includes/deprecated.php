@@ -3167,6 +3167,18 @@ function post_comment_meta_box_thead( $result ) {
 }
 
 /**
+ * Displays trackback links form fields.
+ *
+ * @since WP 2.6.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param WP_Post $post Current post object.
+ */
+function post_trackback_meta_box( $post ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
  * Displays the Quick Draft widget.
  *
  * @since WP 3.8.0
@@ -3387,4 +3399,71 @@ function get_pending_comments_num( $post_id ) {
 function floated_admin_avatar( $name ) {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 	return '';
+}
+
+/**
+ * Outputs 'undo move to Trash' text for comments.
+ *
+ * @since WP 2.9.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function wp_comment_trashnotice() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Creates a site theme from an existing theme.
+ *
+ * {@internal Missing Long Description}}
+ *
+ * @since WP 1.5.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string $theme_name The name of the theme.
+ * @param string $template   The directory name of the theme.
+ * @return bool
+ */
+function make_site_theme_from_oldschool( $theme_name, $template ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return false;
+}
+
+/**
+ * Creates a site theme from the default theme.
+ *
+ * {@internal Missing Long Description}}
+ *
+ * @since WP 1.5.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string $theme_name The name of the theme.
+ * @param string $template   The directory name of the theme.
+ */
+function make_site_theme_from_default( $theme_name, $template ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Creates a site theme.
+ *
+ * {@internal Missing Long Description}}
+ *
+ * @since WP 1.5.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @return string|false
+ */
+function make_site_theme() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return false;
+}
+
+/**
+ * Runs before the schema is upgraded.
+ *
+ * @since WP 2.9.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function pre_schema_upgrade() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 }

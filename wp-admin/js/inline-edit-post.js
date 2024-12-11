@@ -380,12 +380,6 @@ window.wp = window.wp || {};
 			$(':input[name="' + fields[f] + '"]', editRow).val( val );
 		}
 
-		if ( $( '.comment_status', rowData ).text() === 'open' ) {
-			$( 'input[name="comment_status"]', editRow ).prop( 'checked', true );
-		}
-		if ( $( '.ping_status', rowData ).text() === 'open' ) {
-			$( 'input[name="ping_status"]', editRow ).prop( 'checked', true );
-		}
 		if ( $( '.sticky', rowData ).text() === 'sticky' ) {
 			$( 'input[name="sticky"]', editRow ).prop( 'checked', true );
 		}

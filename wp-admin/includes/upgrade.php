@@ -157,19 +157,18 @@ if ( ! function_exists( 'wp_install_defaults' ) ) :
 	/**
 	 * Creates the initial content for a newly-installed site.
 	 *
-	 * Adds the default "Uncategorized" category, the first post (with comment),
+	 * Adds the default "Uncategorized" category, the first post,
 	 * first page for default theme for the current version.
 	 *
 	 * @since WP 2.1.0
 	 *
 	 * @global wpdb       $wpdb         Retraceur database abstraction object.
-	 * @global WP_Rewrite $wp_rewrite   Retraceur rewrite component.
 	 * @global string     $table_prefix The database table prefix.
 	 *
 	 * @param int $user_id User ID.
 	 */
 	function wp_install_defaults( $user_id ) {
-		global $wpdb, $wp_rewrite, $table_prefix;
+		global $wpdb, $table_prefix;
 
 		// Default category.
 		$cat_name = __( 'Uncategorized' );
@@ -203,30 +202,20 @@ if ( ! function_exists( 'wp_install_defaults' ) ) :
 		$now             = current_time( 'mysql' );
 		$now_gmt         = current_time( 'mysql', 1 );
 		$first_post_guid = get_option( 'home' ) . '/?p=1';
-
-		if ( is_multisite() ) {
-			$first_post = get_site_option( 'first_post' );
-
-			if ( ! $first_post ) {
-				$first_post = "<!-- wp:paragraph -->\n<p>" .
-				/* translators: First post content. %s: Site link. */
-				__( 'Welcome to %s. This is your first post. Edit or delete it, then start writing!' ) .
-				"</p>\n<!-- /wp:paragraph -->";
-			}
-
-			$first_post = sprintf(
-				$first_post,
-				sprintf( '<a href="%s">%s</a>', esc_url( network_home_url() ), get_network()->site_name )
-			);
-
-			// Back-compat for pre-4.4.
-			$first_post = str_replace( 'SITE_URL', esc_url( network_home_url() ), $first_post );
-			$first_post = str_replace( 'SITE_NAME', get_network()->site_name, $first_post );
-		} else {
-			$first_post = "<!-- wp:paragraph -->\n<p>" .
+		$first_post      = "<!-- wp:paragraph -->\n<p>" .
 			/* translators: First post content. %s: Site link. */
 			__( 'Welcome to Retraceur. This is your first post. Edit or delete it, then start writing!' ) .
 			"</p>\n<!-- /wp:paragraph -->";
+
+		if ( is_multisite() ) {
+			/**
+			 * Filter here to edit the first network site post.
+			 *
+			 * @since 1.0.0
+			 *
+			 * @param string $first_post The content of the first default post.
+			 */
+			$first_post = apply_filters( 'retraceur_ms_default_post', $first_post );
 		}
 
 		$wpdb->insert(
@@ -243,7 +232,6 @@ if ( ! function_exists( 'wp_install_defaults' ) ) :
 				'post_modified'         => $now,
 				'post_modified_gmt'     => $now_gmt,
 				'guid'                  => $first_post_guid,
-				'comment_count'         => 1,
 				'to_ping'               => '',
 				'pinged'                => '',
 				'post_content_filtered' => '',
@@ -262,68 +250,43 @@ if ( ! function_exists( 'wp_install_defaults' ) ) :
 			)
 		);
 
-		// Default comment.
-		if ( is_multisite() ) {
-			$first_comment_author = get_site_option( 'first_comment_author' );
-			$first_comment_email  = get_site_option( 'first_comment_email' );
-			$first_comment_url    = get_site_option( 'first_comment_url', network_home_url() );
-			$first_comment        = get_site_option( 'first_comment' );
-		}
+		$first_page = "<!-- wp:paragraph -->\n<p>";
+		/* translators: First page content. */
+		$first_page .= __( "This is an example page. It's different from a blog post because it will stay in one place and will show up in your site navigation (in most themes). Most people start with an About page that introduces them to potential site visitors. It might say something like this:" );
+		$first_page .= "</p>\n<!-- /wp:paragraph -->\n\n";
 
-		$first_comment_author = ! empty( $first_comment_author ) ? $first_comment_author : __( 'A Retraceur Commenter' );
-		$first_comment_email  = ! empty( $first_comment_email ) ? $first_comment_email : 'user@site.url';
-		$first_comment_url    = ! empty( $first_comment_url ) ? $first_comment_url : esc_url( __( 'https://site.url/' ) );
-		$first_comment        = ! empty( $first_comment ) ? $first_comment : __(
-				'Hi, this is a comment.
-To get started with moderating, editing, and deleting comments, please visit the Comments screen in the dashboard.'
+		$first_page .= "<!-- wp:quote -->\n<blockquote class=\"wp-block-quote\"><p>";
+		/* translators: First page content. */
+		$first_page .= __( "Hi there! I'm a bike messenger by day, aspiring actor by night, and this is my website. I live in Los Angeles, have a great dog named Jack, and I like pi&#241;a coladas. (And gettin' caught in the rain.)" );
+		$first_page .= "</p></blockquote>\n<!-- /wp:quote -->\n\n";
+
+		$first_page .= "<!-- wp:paragraph -->\n<p>";
+		/* translators: First page content. */
+		$first_page .= __( '...or something like this:' );
+		$first_page .= "</p>\n<!-- /wp:paragraph -->\n\n";
+
+		$first_page .= "<!-- wp:quote -->\n<blockquote class=\"wp-block-quote\"><p>";
+		/* translators: First page content. */
+		$first_page .= __( 'The XYZ Doohickey Company was founded in 1971, and has been providing quality doohickeys to the public ever since. Located in Gotham City, XYZ employs over 2,000 people and does all kinds of awesome things for the Gotham community.' );
+		$first_page .= "</p></blockquote>\n<!-- /wp:quote -->\n\n";
+
+		$first_page .= "<!-- wp:paragraph -->\n<p>";
+		$first_page .= sprintf(
+			/* translators: First page content. %s: Site admin URL. */
+			__( 'As a new Retraceur user, you should go to <a href="%s">your dashboard</a> to delete this page and create new pages for your content. Have fun!' ),
+			admin_url()
 		);
-		$wpdb->insert(
-			$wpdb->comments,
-			array(
-				'comment_post_ID'      => 1,
-				'comment_author'       => $first_comment_author,
-				'comment_author_email' => $first_comment_email,
-				'comment_author_url'   => $first_comment_url,
-				'comment_date'         => $now,
-				'comment_date_gmt'     => $now_gmt,
-				'comment_content'      => $first_comment,
-				'comment_type'         => 'comment',
-			)
-		);
+		$first_page .= "</p>\n<!-- /wp:paragraph -->";
 
-		// First page.
 		if ( is_multisite() ) {
-			$first_page = get_site_option( 'first_page' );
-		}
-
-		if ( empty( $first_page ) ) {
-			$first_page = "<!-- wp:paragraph -->\n<p>";
-			/* translators: First page content. */
-			$first_page .= __( "This is an example page. It's different from a blog post because it will stay in one place and will show up in your site navigation (in most themes). Most people start with an About page that introduces them to potential site visitors. It might say something like this:" );
-			$first_page .= "</p>\n<!-- /wp:paragraph -->\n\n";
-
-			$first_page .= "<!-- wp:quote -->\n<blockquote class=\"wp-block-quote\"><p>";
-			/* translators: First page content. */
-			$first_page .= __( "Hi there! I'm a bike messenger by day, aspiring actor by night, and this is my website. I live in Los Angeles, have a great dog named Jack, and I like pi&#241;a coladas. (And gettin' caught in the rain.)" );
-			$first_page .= "</p></blockquote>\n<!-- /wp:quote -->\n\n";
-
-			$first_page .= "<!-- wp:paragraph -->\n<p>";
-			/* translators: First page content. */
-			$first_page .= __( '...or something like this:' );
-			$first_page .= "</p>\n<!-- /wp:paragraph -->\n\n";
-
-			$first_page .= "<!-- wp:quote -->\n<blockquote class=\"wp-block-quote\"><p>";
-			/* translators: First page content. */
-			$first_page .= __( 'The XYZ Doohickey Company was founded in 1971, and has been providing quality doohickeys to the public ever since. Located in Gotham City, XYZ employs over 2,000 people and does all kinds of awesome things for the Gotham community.' );
-			$first_page .= "</p></blockquote>\n<!-- /wp:quote -->\n\n";
-
-			$first_page .= "<!-- wp:paragraph -->\n<p>";
-			$first_page .= sprintf(
-				/* translators: First page content. %s: Site admin URL. */
-				__( 'As a new Retraceur user, you should go to <a href="%s">your dashboard</a> to delete this page and create new pages for your content. Have fun!' ),
-				admin_url()
-			);
-			$first_page .= "</p>\n<!-- /wp:paragraph -->";
+			/**
+			 * Filter here to edit the first network site page.
+			 *
+			 * @since 1.0.0
+			 *
+			 * @param string $first_page The content of the first default page.
+			 */
+			$first_page = apply_filters( 'retraceur_ms_default_page', $first_page );
 		}
 
 		$first_post_guid = get_option( 'home' ) . '/?page_id=2';
@@ -411,32 +374,14 @@ To get started with moderating, editing, and deleting comments, please visit the
 			update_user_meta( $user_id, 'show_welcome_panel', 2 );
 		}
 
-		if ( is_multisite() ) {
-			// Flush rules to pick up the new page.
-			$wp_rewrite->init();
-			$wp_rewrite->flush_rules();
-
-			$user = new WP_User( $user_id );
-			$wpdb->update( $wpdb->options, array( 'option_value' => $user->user_email ), array( 'option_name' => 'admin_email' ) );
-
-			// Remove all perms except for the login user.
-			$wpdb->query( $wpdb->prepare( "DELETE FROM $wpdb->usermeta WHERE user_id != %d AND meta_key = %s", $user_id, $table_prefix . 'user_level' ) );
-			$wpdb->query( $wpdb->prepare( "DELETE FROM $wpdb->usermeta WHERE user_id != %d AND meta_key = %s", $user_id, $table_prefix . 'capabilities' ) );
-
-			/*
-			 * Delete any caps that snuck into the previously active blog. (Hardcoded to blog 1 for now.)
-			 * TODO: Get previous_blog_id.
-			 */
-			if ( ! is_super_admin( $user_id ) && 1 !== $user_id ) {
-				$wpdb->delete(
-					$wpdb->usermeta,
-					array(
-						'user_id'  => $user_id,
-						'meta_key' => $wpdb->base_prefix . '1_capabilities',
-					)
-				);
-			}
-		}
+		/**
+		 * Fire once default content has been created.
+		 *
+		 * @since 1.0.0 Retraceur fork.
+		 *
+		 * @param integer $user_id The user ID.
+		 */
+		do_action( 'retraceur_installed_defaults', $user_id );
 	}
 endif;
 
@@ -622,7 +567,6 @@ if ( ! function_exists( 'wp_upgrade' ) ) :
 
 		wp_check_mysql_version();
 		wp_cache_flush();
-		pre_schema_upgrade();
 		make_db_current_silent();
 		upgrade_all();
 		if ( is_multisite() && is_main_site() ) {
@@ -1437,253 +1381,6 @@ function make_db_current_silent( $tables = 'all' ) {
 }
 
 /**
- * Creates a site theme from an existing theme.
- *
- * {@internal Missing Long Description}}
- *
- * @since WP 1.5.0
- *
- * @param string $theme_name The name of the theme.
- * @param string $template   The directory name of the theme.
- * @return bool
- */
-function make_site_theme_from_oldschool( $theme_name, $template ) {
-	$home_path   = get_home_path();
-	$site_dir    = WP_CONTENT_DIR . "/themes/$template";
-	$default_dir = WP_CONTENT_DIR . '/themes/' . WP_DEFAULT_THEME;
-
-	if ( ! file_exists( "$home_path/index.php" ) ) {
-		return false;
-	}
-
-	/*
-	 * Copy files from the old locations to the site theme.
-	 * TODO: This does not copy arbitrary include dependencies. Only the standard WP files are copied.
-	 */
-	$files = array(
-		'index.php'             => 'index.php',
-		'wp-layout.css'         => 'style.css',
-		'wp-comments.php'       => 'comments.php',
-		'wp-comments-popup.php' => 'comments-popup.php',
-	);
-
-	foreach ( $files as $oldfile => $newfile ) {
-		if ( 'index.php' === $oldfile ) {
-			$oldpath = $home_path;
-		} else {
-			$oldpath = ABSPATH;
-		}
-
-		// Check to make sure it's not a new index.
-		if ( 'index.php' === $oldfile ) {
-			$index = implode( '', file( "$oldpath/$oldfile" ) );
-			if ( str_contains( $index, 'WP_USE_THEMES' ) ) {
-				if ( ! copy( "$default_dir/$oldfile", "$site_dir/$newfile" ) ) {
-					return false;
-				}
-
-				// Don't copy anything.
-				continue;
-			}
-		}
-
-		if ( ! copy( "$oldpath/$oldfile", "$site_dir/$newfile" ) ) {
-			return false;
-		}
-
-		chmod( "$site_dir/$newfile", 0777 );
-
-		// Update the blog header include in each file.
-		$lines = explode( "\n", implode( '', file( "$site_dir/$newfile" ) ) );
-		if ( $lines ) {
-			$f = fopen( "$site_dir/$newfile", 'w' );
-
-			foreach ( $lines as $line ) {
-				if ( preg_match( '/require.*wp-blog-header/', $line ) ) {
-					$line = '//' . $line;
-				}
-
-				// Update stylesheet references.
-				$line = str_replace(
-					"<?php echo __get_option('siteurl'); ?>/wp-layout.css",
-					"<?php bloginfo('stylesheet_url'); ?>",
-					$line
-				);
-
-				// Update comments template inclusion.
-				$line = str_replace(
-					"<?php include(ABSPATH . 'wp-comments.php'); ?>",
-					'<?php comments_template(); ?>',
-					$line
-				);
-
-				fwrite( $f, "{$line}\n" );
-			}
-			fclose( $f );
-		}
-	}
-
-	// Add a theme header.
-	$header = "/*\n" .
-		"Theme Name: $theme_name\n" .
-		'Theme URI: ' . __get_option( 'siteurl' ) . "\n" .
-		"Description: A theme automatically created by the update.\n" .
-		"Version: 1.0\n" .
-		"Author: Moi\n" .
-		"*/\n";
-
-	$stylelines = file_get_contents( "$site_dir/style.css" );
-	if ( $stylelines ) {
-		$f = fopen( "$site_dir/style.css", 'w' );
-
-		fwrite( $f, $header );
-		fwrite( $f, $stylelines );
-		fclose( $f );
-	}
-
-	return true;
-}
-
-/**
- * Creates a site theme from the default theme.
- *
- * {@internal Missing Long Description}}
- *
- * @since WP 1.5.0
- *
- * @param string $theme_name The name of the theme.
- * @param string $template   The directory name of the theme.
- * @return void|false
- */
-function make_site_theme_from_default( $theme_name, $template ) {
-	$site_dir    = WP_CONTENT_DIR . "/themes/$template";
-	$default_dir = WP_CONTENT_DIR . '/themes/' . WP_DEFAULT_THEME;
-
-	/*
-	 * Copy files from the default theme to the site theme.
-	 * $files = array( 'index.php', 'comments.php', 'comments-popup.php', 'footer.php', 'header.php', 'sidebar.php', 'style.css' );
-	 */
-
-	$theme_dir = @opendir( $default_dir );
-	if ( $theme_dir ) {
-		while ( ( $theme_file = readdir( $theme_dir ) ) !== false ) {
-			if ( is_dir( "$default_dir/$theme_file" ) ) {
-				continue;
-			}
-
-			if ( ! copy( "$default_dir/$theme_file", "$site_dir/$theme_file" ) ) {
-				return;
-			}
-
-			chmod( "$site_dir/$theme_file", 0777 );
-		}
-
-		closedir( $theme_dir );
-	}
-
-	// Rewrite the theme header.
-	$stylelines = explode( "\n", implode( '', file( "$site_dir/style.css" ) ) );
-	if ( $stylelines ) {
-		$f = fopen( "$site_dir/style.css", 'w' );
-
-		$headers = array(
-			'Theme Name:'  => $theme_name,
-			'Theme URI:'   => __get_option( 'url' ),
-			'Description:' => 'Your theme.',
-			'Version:'     => '1',
-			'Author:'      => 'You',
-		);
-
-		foreach ( $stylelines as $line ) {
-			foreach ( $headers as $header => $value ) {
-				if ( str_contains( $line, $header ) ) {
-					$line = $header . ' ' . $value;
-					break;
-				}
-			}
-
-			fwrite( $f, $line . "\n" );
-		}
-
-		fclose( $f );
-	}
-
-	// Copy the images.
-	umask( 0 );
-	if ( ! mkdir( "$site_dir/images", 0777 ) ) {
-		return false;
-	}
-
-	$images_dir = @opendir( "$default_dir/images" );
-	if ( $images_dir ) {
-		while ( ( $image = readdir( $images_dir ) ) !== false ) {
-			if ( is_dir( "$default_dir/images/$image" ) ) {
-				continue;
-			}
-
-			if ( ! copy( "$default_dir/images/$image", "$site_dir/images/$image" ) ) {
-				return;
-			}
-
-			chmod( "$site_dir/images/$image", 0777 );
-		}
-
-		closedir( $images_dir );
-	}
-}
-
-/**
- * Creates a site theme.
- *
- * {@internal Missing Long Description}}
- *
- * @since WP 1.5.0
- *
- * @return string|false
- */
-function make_site_theme() {
-	// Name the theme after the blog.
-	$theme_name = __get_option( 'blogname' );
-	$template   = sanitize_title( $theme_name );
-	$site_dir   = WP_CONTENT_DIR . "/themes/$template";
-
-	// If the theme already exists, nothing to do.
-	if ( is_dir( $site_dir ) ) {
-		return false;
-	}
-
-	// We must be able to write to the themes dir.
-	if ( ! is_writable( WP_CONTENT_DIR . '/themes' ) ) {
-		return false;
-	}
-
-	umask( 0 );
-	if ( ! mkdir( $site_dir, 0777 ) ) {
-		return false;
-	}
-
-	if ( file_exists( ABSPATH . 'wp-layout.css' ) ) {
-		if ( ! make_site_theme_from_oldschool( $theme_name, $template ) ) {
-			// TODO: rm -rf the site theme directory.
-			return false;
-		}
-	} else {
-		if ( ! make_site_theme_from_default( $theme_name, $template ) ) {
-			// TODO: rm -rf the site theme directory.
-			return false;
-		}
-	}
-
-	// Make the new site theme active.
-	$current_template = __get_option( 'template' );
-	if ( WP_DEFAULT_THEME === $current_template ) {
-		update_option( 'template', $template );
-		update_option( 'stylesheet', $template );
-	}
-	return $template;
-}
-
-/**
  * Translate user level to user role name.
  *
  * @since WP 2.0.0
@@ -1739,68 +1436,6 @@ function wp_check_mysql_version() {
  */
 function maybe_disable_link_manager() {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
-}
-
-/**
- * Runs before the schema is upgraded.
- *
- * @since WP 2.9.0
- *
- * @global int  $wp_current_db_version The old (current) database version.
- * @global wpdb $wpdb                  Retraceur database abstraction object.
- */
-function pre_schema_upgrade() {
-	global $wp_current_db_version, $wpdb;
-
-	// Upgrade versions prior to 2.9.
-	if ( $wp_current_db_version < 11557 ) {
-		// Delete duplicate options. Keep the option with the highest option_id.
-		$wpdb->query( "DELETE o1 FROM $wpdb->options AS o1 JOIN $wpdb->options AS o2 USING (`option_name`) WHERE o2.option_id > o1.option_id" );
-
-		// Drop the old primary key and add the new.
-		$wpdb->query( "ALTER TABLE $wpdb->options DROP PRIMARY KEY, ADD PRIMARY KEY(option_id)" );
-
-		// Drop the old option_name index. dbDelta() doesn't do the drop.
-		$wpdb->query( "ALTER TABLE $wpdb->options DROP INDEX option_name" );
-	}
-
-	// Multisite schema upgrades.
-	if ( $wp_current_db_version < 25448 && is_multisite() && wp_should_upgrade_global_tables() ) {
-
-		// Upgrade versions prior to 3.7.
-		if ( $wp_current_db_version < 25179 ) {
-			// New primary key for signups.
-			$wpdb->query( "ALTER TABLE $wpdb->signups ADD signup_id BIGINT(20) NOT NULL AUTO_INCREMENT PRIMARY KEY FIRST" );
-			$wpdb->query( "ALTER TABLE $wpdb->signups DROP INDEX domain" );
-		}
-
-		if ( $wp_current_db_version < 25448 ) {
-			// Convert archived from enum to tinyint.
-			$wpdb->query( "ALTER TABLE $wpdb->blogs CHANGE COLUMN archived archived varchar(1) NOT NULL default '0'" );
-			$wpdb->query( "ALTER TABLE $wpdb->blogs CHANGE COLUMN archived archived tinyint(2) NOT NULL default 0" );
-		}
-	}
-
-	// Upgrade versions prior to 4.2.
-	if ( $wp_current_db_version < 31351 ) {
-		if ( ! is_multisite() && wp_should_upgrade_global_tables() ) {
-			$wpdb->query( "ALTER TABLE $wpdb->usermeta DROP INDEX meta_key, ADD INDEX meta_key(meta_key(191))" );
-		}
-		$wpdb->query( "ALTER TABLE $wpdb->terms DROP INDEX slug, ADD INDEX slug(slug(191))" );
-		$wpdb->query( "ALTER TABLE $wpdb->terms DROP INDEX name, ADD INDEX name(name(191))" );
-		$wpdb->query( "ALTER TABLE $wpdb->commentmeta DROP INDEX meta_key, ADD INDEX meta_key(meta_key(191))" );
-		$wpdb->query( "ALTER TABLE $wpdb->postmeta DROP INDEX meta_key, ADD INDEX meta_key(meta_key(191))" );
-		$wpdb->query( "ALTER TABLE $wpdb->posts DROP INDEX post_name, ADD INDEX post_name(post_name(191))" );
-	}
-
-	// Upgrade versions prior to 4.4.
-	if ( $wp_current_db_version < 34978 ) {
-		// If compatible termmeta table is found, use it, but enforce a proper index and update collation.
-		if ( $wpdb->get_var( "SHOW TABLES LIKE '{$wpdb->termmeta}'" ) && $wpdb->get_results( "SHOW INDEX FROM {$wpdb->termmeta} WHERE Column_name = 'meta_key'" ) ) {
-			$wpdb->query( "ALTER TABLE $wpdb->termmeta DROP INDEX meta_key, ADD INDEX meta_key(meta_key(191))" );
-			maybe_convert_table_to_utf8mb4( $wpdb->termmeta );
-		}
-	}
 }
 
 /**

@@ -758,41 +758,6 @@ function post_excerpt_meta_box( $post ) {
 }
 
 /**
- * Displays trackback links form fields.
- *
- * @since WP 2.6.0
- *
- * @param WP_Post $post Current post object.
- */
-function post_trackback_meta_box( $post ) {
-	$form_trackback = '<input type="text" name="trackback_url" id="trackback_url" class="code" value="' .
-		esc_attr( str_replace( "\n", ' ', $post->to_ping ) ) . '" aria-describedby="trackback-url-desc" />';
-
-	if ( '' !== $post->pinged ) {
-		$pings          = '<p>' . __( 'Already pinged:' ) . '</p><ul>';
-		$already_pinged = explode( "\n", trim( $post->pinged ) );
-		foreach ( $already_pinged as $pinged_url ) {
-			$pings .= "\n\t<li>" . esc_html( $pinged_url ) . '</li>';
-		}
-		$pings .= '</ul>';
-	}
-
-	?>
-<p>
-	<label for="trackback_url"><?php _e( 'Send trackbacks to:' ); ?></label>
-	<?php echo $form_trackback; ?>
-</p>
-<p id="trackback-url-desc" class="howto"><?php _e( 'Separate multiple URLs with spaces' ); ?></p>
-<p>
-	<?php esc_html_e( 'Trackbacks are a way to notify legacy blog systems that you&#8217;ve linked to them. If you link other Retraceur sites, they&#8217;ll be notified automatically using pingbacks, no other action necessary.' ); ?>
-</p>
-	<?php
-	if ( ! empty( $pings ) ) {
-		echo $pings;
-	}
-}
-
-/**
  * Displays custom fields form fields.
  *
  * @since WP 2.6.0
@@ -1112,10 +1077,6 @@ function register_and_do_post_meta_boxes( $post ) {
 
 	if ( post_type_supports( $post_type, 'excerpt' ) ) {
 		add_meta_box( 'postexcerpt', __( 'Excerpt' ), 'post_excerpt_meta_box', null, 'normal', 'core', array( '__back_compat_meta_box' => true ) );
-	}
-
-	if ( post_type_supports( $post_type, 'trackbacks' ) ) {
-		add_meta_box( 'trackbacksdiv', __( 'Send Trackbacks' ), 'post_trackback_meta_box', null, 'normal', 'core', array( '__back_compat_meta_box' => true ) );
 	}
 
 	if ( post_type_supports( $post_type, 'custom-fields' ) ) {

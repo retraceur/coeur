@@ -672,11 +672,11 @@ function bulk_edit_posts( $post_data = null ) {
 		$post_data['post_ID']        = $post_id;
 		$post_data['post_type']      = $post->post_type;
 		$post_data['post_mime_type'] = $post->post_mime_type;
+		$post_data['comment_status'] = 'closed';
+		$post_data['ping_status']    = 'closed';
 
-		foreach ( array( 'comment_status', 'ping_status', 'post_author' ) as $field ) {
-			if ( ! isset( $post_data[ $field ] ) ) {
-				$post_data[ $field ] = $post->$field;
-			}
+		if ( ! isset( $post_data['post_author'] ) ) {
+			$post_data[ $field ] = $post->$field;
 		}
 
 		$post_data = _wp_translate_postdata( true, $post_data );
@@ -789,8 +789,8 @@ function get_default_post_to_edit( $post_type = 'post', $create_in_db = false ) 
 		$post->post_status    = 'draft';
 		$post->to_ping        = '';
 		$post->pinged         = '';
-		$post->comment_status = get_default_comment_status( $post_type );
-		$post->ping_status    = get_default_comment_status( $post_type, 'pingback' );
+		$post->comment_status = 'closed';
+		$post->ping_status    = 'closed';
 		$post->post_pingback  = get_option( 'default_pingback_flag' );
 		$post->post_category  = get_option( 'default_category' );
 		$post->page_template  = 'default';
