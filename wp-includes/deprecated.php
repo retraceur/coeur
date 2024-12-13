@@ -9818,6 +9818,31 @@ function register_block_core_comments_pagination() {
 }
 
 /**
+ * Renders the `core/comments-title` block on the server.
+ *
+ * @since WP 6.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param array $attributes Block attributes.
+ *
+ * @return string Return the post comments title.
+ */
+function render_block_core_comments_title( $attributes ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return '';
+}
+
+/**
+ * Registers the `core/comments-title` block on the server.
+ *
+ * @since WP 6.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function register_block_core_comments_title() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
  * Adds edit comments link with awaiting moderation count bubble.
  *
  * @since WP 3.1.0
