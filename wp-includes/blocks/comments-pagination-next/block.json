@@ -5,7 +5,7 @@
 	"title": "Comments Next Page",
 	"category": "theme",
 	"parent": [ "core/comments-pagination" ],
-	"description": "Displays the next comment's page link.",
+	"description": "Deprecated block.",
 	"textdomain": "default",
 	"attributes": {
 		"label": {

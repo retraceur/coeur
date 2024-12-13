@@ -9711,6 +9711,113 @@ function register_block_core_comment_template() {
 }
 
 /**
+ * Renders the `core/comments-pagination-previous` block on the server.
+ *
+ * @since WP 6.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param array    $attributes Block attributes.
+ * @param string   $content    Block default content.
+ * @param WP_Block $block      Block instance.
+ *
+ * @return string Returns the previous posts link for the comments pagination.
+ */
+function render_block_core_comments_pagination_previous( $attributes, $content, $block ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return '';
+}
+
+/**
+ * Registers the `core/comments-pagination-previous` block on the server.
+ *
+ * @since WP 6.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function register_block_core_comments_pagination_previous() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Renders the `core/comments-pagination-next` block on the server.
+ *
+ * @since WP 6.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param array    $attributes Block attributes.
+ * @param string   $content    Block default content.
+ * @param WP_Block $block      Block instance.
+ *
+ * @return string Returns the next comments link for the query pagination.
+ */
+function render_block_core_comments_pagination_next( $attributes, $content, $block ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return '';
+}
+
+/**
+ * Registers the `core/comments-pagination-next` block on the server.
+ *
+ * @since WP 6.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function register_block_core_comments_pagination_next() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Renders the `core/comments-pagination-numbers` block on the server.
+ *
+ * @since WP 6.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param array    $attributes Block attributes.
+ * @param string   $content    Block default content.
+ * @param WP_Block $block      Block instance.
+ *
+ * @return string Returns the pagination numbers for the comments.
+ */
+function render_block_core_comments_pagination_numbers( $attributes, $content, $block ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return '';
+}
+
+/**
+ * Registers the `core/comments-pagination-numbers` block on the server.
+ *
+ * @since WP 6.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function register_block_core_comments_pagination_numbers() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Renders the `core/comments-pagination` block on the server.
+ *
+ * @since WP 6.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param array  $attributes Block attributes.
+ * @param string $content    Block default content.
+ *
+ * @return string Returns the wrapper for the Comments pagination.
+ */
+function render_block_core_comments_pagination( $attributes, $content ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return '';
+}
+
+/**
+ * Registers the `core/comments-pagination` block on the server.
+ *
+ * @since WP 6.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function register_block_core_comments_pagination() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
  * Adds edit comments link with awaiting moderation count bubble.
  *
  * @since WP 3.1.0

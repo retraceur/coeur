@@ -5,7 +5,7 @@
 	"title": "Comments Previous Page",
 	"category": "theme",
 	"parent": [ "core/comments-pagination" ],
-	"description": "Displays the previous comment's page link.",
+	"description": "Deprecated block.",
 	"textdomain": "default",
 	"attributes": {
 		"label": {

@@ -5,7 +5,7 @@
 	"title": "Comments Page Numbers",
 	"category": "theme",
 	"parent": [ "core/comments-pagination" ],
-	"description": "Displays a list of page numbers for comments pagination.",
+	"description": "Deprecated block.",
 	"textdomain": "default",
 	"usesContext": [ "postId" ],
 	"supports": {
