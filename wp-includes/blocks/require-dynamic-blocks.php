@@ -8,7 +8,6 @@ require_once ABSPATH . WPINC . '/blocks/block.php';
 require_once ABSPATH . WPINC . '/blocks/button.php';
 require_once ABSPATH . WPINC . '/blocks/calendar.php';
 require_once ABSPATH . WPINC . '/blocks/categories.php';
-require_once ABSPATH . WPINC . '/blocks/comment-reply-link.php';
 require_once ABSPATH . WPINC . '/blocks/comment-template.php';
 require_once ABSPATH . WPINC . '/blocks/comments.php';
 require_once ABSPATH . WPINC . '/blocks/comments-pagination.php';
