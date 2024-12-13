@@ -19,9 +19,7 @@
  *
  * In cases where the given metadata may not even be used in the loop, we can improve performance
  * even more by only priming the metadata cache for affected items the first time a piece of metadata
- * is requested - ie, by lazy-loading it. So, for example, comment meta may not be loaded into the
- * cache in the comments section of a post until the first time get_comment_meta() is called in the
- * context of the comment loop.
+ * is requested - ie, by lazy-loading it.
  *
  * WP uses the WP_Metadata_Lazyloader class to queue objects for metadata cache priming. The class
  * then detects the relevant get_*_meta() function call, and queries the metadata of all queued objects.
@@ -59,10 +57,6 @@ class WP_Metadata_Lazyloader {
 				'filter'   => 'get_term_metadata',
 				'callback' => array( $this, 'lazyload_meta_callback' ),
 			),
-			'comment' => array(
-				'filter'   => 'get_comment_metadata',
-				'callback' => array( $this, 'lazyload_meta_callback' ),
-			),
 			'blog'    => array(
 				'filter'   => 'get_blog_metadata',
 				'callback' => array( $this, 'lazyload_meta_callback' ),
@@ -75,7 +69,7 @@ class WP_Metadata_Lazyloader {
 	 *
 	 * @since WP 4.5.0
 	 *
-	 * @param string $object_type Type of object whose meta is to be lazy-loaded. Accepts 'term' or 'comment'.
+	 * @param string $object_type Type of object whose meta is to be lazy-loaded. Accepts 'term' or 'blog'.
 	 * @param array  $object_ids  Array of object IDs.
 	 * @return void|WP_Error WP_Error on failure.
 	 */
@@ -116,7 +110,7 @@ class WP_Metadata_Lazyloader {
 	 *
 	 * @since WP 4.5.0
 	 *
-	 * @param string $object_type Object type. Accepts 'comment' or 'term'.
+	 * @param string $object_type Object type. Accepts 'blog' or 'term'.
 	 * @return void|WP_Error WP_Error on failure.
 	 */
 	public function reset_queue( $object_type ) {
@@ -177,7 +171,7 @@ class WP_Metadata_Lazyloader {
 	 * @param int    $object_id ID of the object metadata is for.
 	 * @param string $meta_key  Unused.
 	 * @param bool   $single    Unused.
-	 * @param string $meta_type Type of object metadata is for. Accepts 'post', 'comment', 'term', 'user',
+	 * @param string $meta_type Type of object metadata is for. Accepts 'post', 'blog', 'term', 'user',
 	 *                          or any other object type with an associated meta table.
 	 * @return mixed In order not to short-circuit `get_metadata()`. Generally, this is `null`, but it could be
 	 *               another value if filtered by a plugin.

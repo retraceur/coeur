@@ -93,17 +93,19 @@ final class WP_Post {
 	 * Whether comments are allowed.
 	 *
 	 * @since WP 3.5.0
+	 * @deprecated 1.0.0 Retraceur fork.
 	 * @var string
 	 */
-	public $comment_status = 'open';
+	public $comment_status = 'closed';
 
 	/**
 	 * Whether pings are allowed.
 	 *
 	 * @since WP 3.5.0
+	 * @deprecated 1.0.0 Retraceur fork.
 	 * @var string
 	 */
-	public $ping_status = 'open';
+	public $ping_status = 'closed';
 
 	/**
 	 * The post's password in plain text.
@@ -133,6 +135,7 @@ final class WP_Post {
 	 * URLs that have been pinged.
 	 *
 	 * @since WP 3.5.0
+	 * @deprecated 1.0.0 Retraceur fork.
 	 * @var string
 	 */
 	public $pinged = '';
@@ -207,6 +210,7 @@ final class WP_Post {
 	 * A numeric string, for compatibility reasons.
 	 *
 	 * @since WP 3.5.0
+	 * @deprecated 1.0.0 Retraceur fork.
 	 * @var string
 	 */
 	public $comment_count = 0;

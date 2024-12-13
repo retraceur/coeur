@@ -500,7 +500,6 @@ function populate_roles() {
 			'promote_users',
 			'edit_files',
 			'manage_options',
-			'moderate_comments',
 			'manage_categories',
 			'upload_files',
 			'unfiltered_upload',
@@ -556,7 +555,6 @@ function populate_roles() {
 		// Other WP capabilities.
 		$caps  = array(
 			'editor'      => array(
-				'moderate_comments',
 				'manage_categories',
 				'upload_files',
 				'unfiltered_html',

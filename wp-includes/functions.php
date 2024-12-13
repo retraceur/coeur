@@ -6688,24 +6688,6 @@ function wp_scheduled_delete() {
 			wp_delete_post( $post_id );
 		}
 	}
-
-	$comments_to_delete = $wpdb->get_results( $wpdb->prepare( "SELECT comment_id FROM $wpdb->commentmeta WHERE meta_key = '_wp_trash_meta_time' AND meta_value < %d", $delete_timestamp ), ARRAY_A );
-
-	foreach ( (array) $comments_to_delete as $comment ) {
-		$comment_id = (int) $comment['comment_id'];
-		if ( ! $comment_id ) {
-			continue;
-		}
-
-		$del_comment = get_comment( $comment_id );
-
-		if ( ! $del_comment || 'trash' !== $del_comment->comment_approved ) {
-			delete_comment_meta( $comment_id, '_wp_trash_meta_time' );
-			delete_comment_meta( $comment_id, '_wp_trash_meta_status' );
-		} else {
-			wp_delete_comment( $del_comment );
-		}
-	}
 }
 
 /**

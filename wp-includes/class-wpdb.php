@@ -285,20 +285,19 @@ class wpdb {
 	 * List of Retraceur per-site tables.
 	 *
 	 * @since WP 2.5.0
+	 * @since 1.0.0 Retraceur fork removed `comments` & `commentmeta` tables.
 	 *
 	 * @see wpdb::tables()
 	 * @var string[]
 	 */
 	public $tables = array(
 		'posts',
-		'comments',
 		'options',
 		'postmeta',
 		'terms',
 		'term_taxonomy',
 		'term_relationships',
 		'termmeta',
-		'commentmeta',
 	);
 
 	/**
@@ -354,6 +353,7 @@ class wpdb {
 	 * Retraceur Comments table.
 	 *
 	 * @since WP 1.5.0
+	 * @deprecated 1.0.0 Retraceur fork.
 	 *
 	 * @var string
 	 */
@@ -363,6 +363,7 @@ class wpdb {
 	 * Retraceur Comment Metadata table.
 	 *
 	 * @since WP 2.9.0
+	 * @deprecated 1.0.0 Retraceur fork.
 	 *
 	 * @var string
 	 */

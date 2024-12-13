@@ -342,7 +342,7 @@ class WP_Meta_Query {
 	 * @since WP 3.2.0
 	 *
 	 * @param string $type              Type of meta. Possible values include but are not limited
-	 *                                  to 'post', 'comment', 'blog', 'term', and 'user'.
+	 *                                  to 'post', 'blog', 'term', and 'user'.
 	 * @param string $primary_table     Database table where the object being filtered is stored (eg wp_users).
 	 * @param string $primary_id_column ID column for the filtered object in $primary_table.
 	 * @param object $context           Optional. The main query object that corresponds to the type, for
@@ -388,7 +388,7 @@ class WP_Meta_Query {
 		 * @param string[] $sql               Array containing the query's JOIN and WHERE clauses.
 		 * @param array    $queries           Array of meta queries.
 		 * @param string   $type              Type of meta. Possible values include but are not limited
-		 *                                    to 'post', 'comment', 'blog', 'term', and 'user'.
+		 *                                    to 'post', 'blog', 'term', and 'user'.
 		 * @param string   $primary_table     Primary table.
 		 * @param string   $primary_id_column Primary column ID.
 		 * @param object   $context           The main query object that corresponds to the type, for

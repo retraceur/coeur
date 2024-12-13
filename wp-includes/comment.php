@@ -3200,8 +3200,6 @@ function clean_comment_cache( $ids ) {
 		 */
 		do_action( 'clean_comment_cache', $id );
 	}
-
-	wp_cache_set_comments_last_changed();
 }
 
 /**
@@ -3595,23 +3593,6 @@ function wp_handle_comment_submission( $comment_data ) {
 }
 
 /**
- * Registers the personal data exporter for comments.
- *
- * @since WP 4.9.6
- *
- * @param array[] $exporters An array of personal data exporters.
- * @return array[] An array of personal data exporters.
- */
-function wp_register_comment_personal_data_exporter( $exporters ) {
-	$exporters['wordpress-comments'] = array(
-		'exporter_friendly_name' => __( 'WordPress Comments' ),
-		'callback'               => 'wp_comments_personal_data_exporter',
-	);
-
-	return $exporters;
-}
-
-/**
  * Finds and exports personal data associated with an email address from the comments table.
  *
  * @since WP 4.9.6
@@ -3707,23 +3688,6 @@ function wp_comments_personal_data_exporter( $email_address, $page = 1 ) {
 		'data' => $data_to_export,
 		'done' => $done,
 	);
-}
-
-/**
- * Registers the personal data eraser for comments.
- *
- * @since WP 4.9.6
- *
- * @param array $erasers An array of personal data erasers.
- * @return array An array of personal data erasers.
- */
-function wp_register_comment_personal_data_eraser( $erasers ) {
-	$erasers['wordpress-comments'] = array(
-		'eraser_friendly_name' => __( 'WordPress Comments' ),
-		'callback'             => 'wp_comments_personal_data_eraser',
-	);
-
-	return $erasers;
 }
 
 /**
@@ -3835,13 +3799,4 @@ function wp_comments_personal_data_eraser( $email_address, $page = 1 ) {
 		'messages'       => $messages,
 		'done'           => $done,
 	);
-}
-
-/**
- * Sets the last changed time for the 'comment' cache group.
- *
- * @since WP 5.0.0
- */
-function wp_cache_set_comments_last_changed() {
-	wp_cache_set_last_changed( 'comment' );
 }

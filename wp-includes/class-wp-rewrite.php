@@ -94,6 +94,7 @@ class WP_Rewrite {
 	 * Comments permalink base.
 	 *
 	 * @since WP 1.5.0
+	 * @deprecated 1.0.0 Retraceur fork.
 	 * @var string
 	 */
 	public $comments_base = 'comments';
@@ -110,6 +111,7 @@ class WP_Rewrite {
 	 * Comments pagination permalink base.
 	 *
 	 * @since WP 4.2.0
+	 * @deprecated 1.0.0 Retraceur fork.
 	 * @var string
 	 */
 	public $comments_pagination_base = 'comment-page';
@@ -126,6 +128,7 @@ class WP_Rewrite {
 	 * Comments feed permalink structure.
 	 *
 	 * @since WP 1.5.0
+	 * @deprecated 1.0.0 Retraceur fork.
 	 * @var string
 	 */
 	public $comment_feed_structure;
@@ -765,6 +768,7 @@ class WP_Rewrite {
 	 * and then return it without attempting to set the value again.
 	 *
 	 * @since WP 1.5.0
+	 * @deprecated 1.0.0 Retraceur fork.
 	 *
 	 * @return string|false Comment feed permalink structure on success, false on failure.
 	 */
