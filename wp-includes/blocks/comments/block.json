@@ -4,7 +4,7 @@
 	"name": "core/comments",
 	"title": "Comments",
 	"category": "theme",
-	"description": "An advanced block that allows displaying post comments using different visual configurations.",
+	"description": "Deprecated block.",
 	"textdomain": "default",
 	"attributes": {
 		"tagName": {

@@ -9843,6 +9843,128 @@ function register_block_core_comments_title() {
 }
 
 /**
+ * Renders the `core/post-comments-form` block on the server.
+ *
+ * @since WP 6.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param array    $attributes Block attributes.
+ * @param string   $content    Block default content.
+ * @param WP_Block $block      Block instance.
+ * @return string Returns the filtered post comments form for the current post.
+ */
+function render_block_core_post_comments_form( $attributes, $content, $block ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return '';
+}
+
+/**
+ * Registers the `core/post-comments-form` block on the server.
+ *
+ * @since WP 6.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function register_block_core_post_comments_form() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Use the button block classes for the form-submit button.
+ *
+ * @since WP 6.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param array $fields The default comment form arguments.
+ *
+ * @return array Returns the modified fields.
+ */
+function post_comments_form_block_form_defaults( $fields ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return $fields;
+}
+
+/**
+ * Renders the `core/comments` block on the server.
+ *
+ * This render callback is mainly for rendering a dynamic, legacy version of
+ * this block (the old `core/post-comments`). It uses the `comments_template()`
+ * function to generate the output, in the same way as classic PHP themes.
+ *
+ * As this callback will always run during SSR, first we need to check whether
+ * the block is in legacy mode. If not, the HTML generated in the editor is
+ * returned instead.
+ *
+ * @since WP 6.1.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @global WP_Post $post Global post object.
+ *
+ * @param array    $attributes Block attributes.
+ * @param string   $content    Block default content.
+ * @param WP_Block $block      Block instance.
+ * @return string Returns the filtered post comments for the current post wrapped inside "p" tags.
+ */
+function render_block_core_comments( $attributes, $content, $block ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return '';
+}
+
+/**
+ * Registers the `core/comments` block on the server.
+ *
+ * @since WP 6.1.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function register_block_core_comments() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Use the button block classes for the form-submit button.
+ *
+ * @since WP 6.1.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param array $fields The default comment form arguments.
+ *
+ * @return array Returns the modified fields.
+ */
+function comments_block_form_defaults( $fields ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return $fields;
+}
+
+/**
+ * Enqueues styles from the legacy `core/post-comments` block. These styles are
+ * required only by the block's fallback.
+ *
+ * @since WP 6.1.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string $block_name Name of the new block type.
+ */
+function enqueue_legacy_post_comments_block_styles( $block_name ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Ensures backwards compatibility for any users running the Gutenberg plugin
+ * who have used Post Comments before it was merged into Comments Query Loop.
+ *
+ * The same approach was followed when core/query-loop was renamed to
+ * core/post-template.
+ *
+ * @since WP 6.1.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @see https://github.com/WordPress/gutenberg/pull/41807
+ * @see https://github.com/WordPress/gutenberg/pull/32514
+ */
+function register_legacy_post_comments_block() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
  * Adds edit comments link with awaiting moderation count bubble.
  *
  * @since WP 3.1.0
