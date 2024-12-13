@@ -5,7 +5,7 @@
 	"title": "Comment Content",
 	"category": "theme",
 	"ancestor": [ "core/comment-template" ],
-	"description": "Displays the contents of a comment.",
+	"description": "Deprecated block.",
 	"textdomain": "default",
 	"usesContext": [ "commentId" ],
 	"attributes": {
