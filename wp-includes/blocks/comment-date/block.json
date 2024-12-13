@@ -5,7 +5,7 @@
 	"title": "Comment Date",
 	"category": "theme",
 	"ancestor": [ "core/comment-template" ],
-	"description": "Displays the date on which the comment was posted.",
+	"description": "Deprecated block.",
 	"textdomain": "default",
 	"attributes": {
 		"format": {

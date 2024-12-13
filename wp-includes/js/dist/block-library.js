@@ -824,16 +824,6 @@ __webpack_require__.d(build_module_comment_content_namespaceObject, {
   settings: () => (comment_content_settings)
 });
 
-// NAMESPACE OBJECT: ./node_modules/@wordpress/block-library/build-module/comment-date/index.js
-var comment_date_namespaceObject = {};
-__webpack_require__.r(comment_date_namespaceObject);
-__webpack_require__.d(comment_date_namespaceObject, {
-  init: () => (comment_date_init),
-  metadata: () => (comment_date_metadata),
-  name: () => (comment_date_name),
-  settings: () => (comment_date_settings)
-});
-
 // NAMESPACE OBJECT: ./node_modules/@wordpress/block-library/build-module/comment-reply-link/index.js
 var build_module_comment_reply_link_namespaceObject = {};
 __webpack_require__.r(build_module_comment_reply_link_namespaceObject);
@@ -9129,9 +9119,7 @@ const TEMPLATE = [['core/comments-title'], ['core/comment-template', {}, [['core
       }
     }
   }
-}, [['core/comment-date', {
-  fontSize: 'small'
-}]]], ['core/comment-content'], ['core/comment-reply-link', {
+}], ['core/comment-content'], ['core/comment-reply-link', {
   fontSize: 'small'
 }]]]]]]], ['core/comments-pagination'], ['core/post-comments-form']];
 /* harmony default export */ const template = (TEMPLATE);
@@ -9932,232 +9920,6 @@ const postDate = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(
 
 ;// CONCATENATED MODULE: external ["wp","date"]
 const external_wp_date_namespaceObject = window["wp"]["date"];
-;// CONCATENATED MODULE: ./node_modules/@wordpress/block-library/build-module/comment-date/edit.js
-/**
- * WordPress dependencies
- */
-
-
-
-
-
-
-/**
- * Renders the `core/comment-date` block on the editor.
- *
- * @param {Object} props                   React props.
- * @param {Object} props.setAttributes     Callback for updating block attributes.
- * @param {Object} props.attributes        Block attributes.
- * @param {string} props.attributes.format Format of the date.
- * @param {string} props.attributes.isLink Whether the author name should be linked.
- * @param {Object} props.context           Inherited context.
- * @param {string} props.context.commentId The comment ID.
- *
- * @return {JSX.Element} React element.
- */
-
-
-
-function comment_date_edit_Edit({
-  attributes: {
-    format,
-    isLink
-  },
-  context: {
-    commentId
-  },
-  setAttributes
-}) {
-  const blockProps = (0,external_wp_blockEditor_namespaceObject.useBlockProps)();
-  let [date] = (0,external_wp_coreData_namespaceObject.useEntityProp)('root', 'comment', 'date', commentId);
-  const [siteFormat = (0,external_wp_date_namespaceObject.getSettings)().formats.date] = (0,external_wp_coreData_namespaceObject.useEntityProp)('root', 'site', 'date_format');
-  const inspectorControls = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_blockEditor_namespaceObject.InspectorControls, {
-    children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_wp_components_namespaceObject.PanelBody, {
-      title: (0,external_wp_i18n_namespaceObject.__)('Settings'),
-      children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_blockEditor_namespaceObject.__experimentalDateFormatPicker, {
-        format: format,
-        defaultFormat: siteFormat,
-        onChange: nextFormat => setAttributes({
-          format: nextFormat
-        })
-      }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ToggleControl, {
-        __nextHasNoMarginBottom: true,
-        label: (0,external_wp_i18n_namespaceObject.__)('Link to comment'),
-        onChange: () => setAttributes({
-          isLink: !isLink
-        }),
-        checked: isLink
-      })]
-    })
-  });
-  if (!commentId || !date) {
-    date = (0,external_wp_i18n_namespaceObject._x)('Comment Date', 'block title');
-  }
-  let commentDate = date instanceof Date ? /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("time", {
-    dateTime: (0,external_wp_date_namespaceObject.dateI18n)('c', date),
-    children: format === 'human-diff' ? (0,external_wp_date_namespaceObject.humanTimeDiff)(date) : (0,external_wp_date_namespaceObject.dateI18n)(format || siteFormat, date)
-  }) : /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("time", {
-    children: date
-  });
-  if (isLink) {
-    commentDate = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("a", {
-      href: "#comment-date-pseudo-link",
-      onClick: event => event.preventDefault(),
-      children: commentDate
-    });
-  }
-  return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_ReactJSXRuntime_namespaceObject.Fragment, {
-    children: [inspectorControls, /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("div", {
-      ...blockProps,
-      children: commentDate
-    })]
-  });
-}
-
-;// CONCATENATED MODULE: ./node_modules/@wordpress/block-library/build-module/comment-date/deprecated.js
-/**
- * Internal dependencies
- */
-
-const comment_date_deprecated_v1 = {
-  attributes: {
-    format: {
-      type: 'string'
-    },
-    isLink: {
-      type: 'boolean',
-      default: false
-    }
-  },
-  supports: {
-    html: false,
-    color: {
-      gradients: true,
-      link: true
-    },
-    typography: {
-      fontSize: true,
-      lineHeight: true,
-      __experimentalFontFamily: true,
-      __experimentalFontWeight: true,
-      __experimentalFontStyle: true,
-      __experimentalTextTransform: true,
-      __experimentalLetterSpacing: true
-    }
-  },
-  save() {
-    return null;
-  },
-  migrate: migrate_font_family,
-  isEligible({
-    style
-  }) {
-    return style?.typography?.fontFamily;
-  }
-};
-
-/**
- * New deprecations need to be placed first
- * for them to have higher priority.
- *
- * Old deprecations may need to be updated as well.
- *
- * See block-deprecation.md
- */
-/* harmony default export */ const comment_date_deprecated = ([comment_date_deprecated_v1]);
-
-;// CONCATENATED MODULE: ./node_modules/@wordpress/block-library/build-module/comment-date/index.js
-/**
- * WordPress dependencies
- */
-
-
-/**
- * Internal dependencies
- */
-
-const comment_date_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
-  apiVersion: 3,
-  name: "core/comment-date",
-  title: "Comment Date",
-  category: "theme",
-  ancestor: ["core/comment-template"],
-  description: "Displays the date on which the comment was posted.",
-  textdomain: "default",
-  attributes: {
-    format: {
-      type: "string"
-    },
-    isLink: {
-      type: "boolean",
-      "default": true
-    }
-  },
-  usesContext: ["commentId"],
-  supports: {
-    html: false,
-    color: {
-      gradients: true,
-      link: true,
-      __experimentalDefaultControls: {
-        background: true,
-        text: true,
-        link: true
-      }
-    },
-    spacing: {
-      margin: true,
-      padding: true
-    },
-    typography: {
-      fontSize: true,
-      lineHeight: true,
-      __experimentalFontFamily: true,
-      __experimentalFontWeight: true,
-      __experimentalFontStyle: true,
-      __experimentalTextTransform: true,
-      __experimentalTextDecoration: true,
-      __experimentalLetterSpacing: true,
-      __experimentalDefaultControls: {
-        fontSize: true
-      }
-    },
-    interactivity: {
-      clientNavigation: true
-    },
-    __experimentalBorder: {
-      radius: true,
-      color: true,
-      width: true,
-      style: true,
-      __experimentalDefaultControls: {
-        radius: true,
-        color: true,
-        width: true,
-        style: true
-      }
-    }
-  },
-  style: "wp-block-comment-date"
-};
-
-
-const {
-  name: comment_date_name
-} = comment_date_metadata;
-
-const comment_date_settings = {
-  icon: post_date,
-  edit: comment_date_edit_Edit,
-  deprecated: comment_date_deprecated
-};
-const comment_date_init = () => initBlock({
-  name: comment_date_name,
-  metadata: comment_date_metadata,
-  settings: comment_date_settings
-});
-
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/comment-reply-link.js
 /**
  * WordPress dependencies
@@ -10503,7 +10265,7 @@ const useCommentTree = topLevelComments => {
 
 
 
-const edit_TEMPLATE = [['core/avatar'], ['core/comment-author-name'], ['core/comment-date'], ['core/comment-content'], ['core/comment-reply-link']];
+const edit_TEMPLATE = [['core/avatar'], ['core/comment-author-name'], ['core/comment-content'], ['core/comment-reply-link']];
 
 /**
  * Function that returns a comment structure that will be rendered with default placehoders.
@@ -41046,7 +40808,7 @@ const blockDefault = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.js
 
 
 
-const post_comment_edit_TEMPLATE = [['core/avatar'], ['core/comment-author-name'], ['core/comment-date'], ['core/comment-content'], ['core/comment-reply-link']];
+const post_comment_edit_TEMPLATE = [['core/avatar'], ['core/comment-author-name'], ['core/comment-content'], ['core/comment-reply-link']];
 function post_comment_edit_Edit({
   attributes: {
     commentId
@@ -41119,7 +40881,7 @@ const post_comment_metadata = {
   name: "core/post-comment",
   title: "Comment (deprecated)",
   category: "theme",
-  allowedBlocks: ["core/avatar", "core/comment-author-name", "core/comment-content", "core/comment-date", "core/comment-reply-link"],
+  allowedBlocks: ["core/avatar", "core/comment-author-name", "core/comment-content", "core/comment-reply-link"],
   description: "This block is deprecated. Please use the Comments block instead.",
   textdomain: "default",
   attributes: {
@@ -64193,7 +63955,7 @@ const getAllBlocks = () => {
   // Register all remaining core blocks.
   archives_namespaceObject, build_module_audio_namespaceObject, build_module_button_namespaceObject, build_module_buttons_namespaceObject, build_module_calendar_namespaceObject, categories_namespaceObject, build_module_code_namespaceObject, build_module_column_namespaceObject, build_module_columns_namespaceObject, build_module_comment_author_avatar_namespaceObject, build_module_cover_namespaceObject, build_module_details_namespaceObject, embed_namespaceObject, build_module_file_namespaceObject, build_module_group_namespaceObject, build_module_html_namespaceObject, latest_posts_namespaceObject, media_text_namespaceObject, missing_namespaceObject, build_module_more_namespaceObject, nextpage_namespaceObject, page_list_namespaceObject, page_list_item_namespaceObject, pattern_namespaceObject, build_module_preformatted_namespaceObject, build_module_pullquote_namespaceObject, block_namespaceObject, build_module_rss_namespaceObject, build_module_search_namespaceObject, build_module_separator_namespaceObject, build_module_shortcode_namespaceObject, social_link_namespaceObject, social_links_namespaceObject, spacer_namespaceObject, build_module_table_namespaceObject, tag_cloud_namespaceObject, text_columns_namespaceObject, build_module_verse_namespaceObject, build_module_video_namespaceObject, footnotes_namespaceObject,
   // theme blocks
-  build_module_navigation_namespaceObject, navigation_link_namespaceObject, navigation_submenu_namespaceObject, build_module_site_logo_namespaceObject, site_title_namespaceObject, site_tagline_namespaceObject, query_namespaceObject, template_part_namespaceObject, avatar_namespaceObject, post_title_namespaceObject, build_module_post_excerpt_namespaceObject, build_module_post_featured_image_namespaceObject, build_module_post_content_namespaceObject, build_module_post_author_namespaceObject, post_author_name_namespaceObject, post_comment_namespaceObject, build_module_post_comments_count_namespaceObject, post_comments_link_namespaceObject, build_module_post_date_namespaceObject, build_module_post_terms_namespaceObject, post_navigation_link_namespaceObject, post_template_namespaceObject, post_time_to_read_namespaceObject, build_module_query_pagination_namespaceObject, build_module_query_pagination_next_namespaceObject, build_module_query_pagination_numbers_namespaceObject, build_module_query_pagination_previous_namespaceObject, query_no_results_namespaceObject, read_more_namespaceObject, comments_namespaceObject, build_module_comment_author_name_namespaceObject, build_module_comment_content_namespaceObject, comment_date_namespaceObject, build_module_comment_reply_link_namespaceObject, comment_template_namespaceObject, comments_title_namespaceObject, comments_pagination_namespaceObject, comments_pagination_next_namespaceObject, comments_pagination_numbers_namespaceObject, comments_pagination_previous_namespaceObject, build_module_post_comments_form_namespaceObject, build_module_table_of_contents_namespaceObject, home_link_namespaceObject, loginout_namespaceObject, build_module_term_description_namespaceObject, query_title_namespaceObject, post_author_biography_namespaceObject];
+  build_module_navigation_namespaceObject, navigation_link_namespaceObject, navigation_submenu_namespaceObject, build_module_site_logo_namespaceObject, site_title_namespaceObject, site_tagline_namespaceObject, query_namespaceObject, template_part_namespaceObject, avatar_namespaceObject, post_title_namespaceObject, build_module_post_excerpt_namespaceObject, build_module_post_featured_image_namespaceObject, build_module_post_content_namespaceObject, build_module_post_author_namespaceObject, post_author_name_namespaceObject, post_comment_namespaceObject, build_module_post_comments_count_namespaceObject, post_comments_link_namespaceObject, build_module_post_date_namespaceObject, build_module_post_terms_namespaceObject, post_navigation_link_namespaceObject, post_template_namespaceObject, post_time_to_read_namespaceObject, build_module_query_pagination_namespaceObject, build_module_query_pagination_next_namespaceObject, build_module_query_pagination_numbers_namespaceObject, build_module_query_pagination_previous_namespaceObject, query_no_results_namespaceObject, read_more_namespaceObject, comments_namespaceObject, build_module_comment_author_name_namespaceObject, build_module_comment_content_namespaceObject, build_module_comment_reply_link_namespaceObject, comment_template_namespaceObject, comments_title_namespaceObject, comments_pagination_namespaceObject, comments_pagination_next_namespaceObject, comments_pagination_numbers_namespaceObject, comments_pagination_previous_namespaceObject, build_module_post_comments_form_namespaceObject, build_module_table_of_contents_namespaceObject, home_link_namespaceObject, loginout_namespaceObject, build_module_term_description_namespaceObject, query_title_namespaceObject, post_author_biography_namespaceObject];
   if (window?.__experimentalEnableFormBlocks) {
     blocks.push(build_module_form_namespaceObject);
     blocks.push(form_input_namespaceObject);
