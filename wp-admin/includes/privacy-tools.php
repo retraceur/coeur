@@ -235,7 +235,7 @@ function _wp_personal_data_cleanup_requests() {
  * @param array  $group_data {
  *     The group data to render.
  *
- *     @type string $group_label  The user-facing heading for the group, e.g. 'Comments'.
+ *     @type string $group_label  The user-facing heading for the group.
  *     @type array  $items        {
  *         An array of group items.
  *

@@ -139,6 +139,7 @@ class WP_Query {
 	 * The list of comments for current post.
 	 *
 	 * @since WP 2.2.0
+	 * @deprecated 1.0.0 Retraceur fork.
 	 * @var WP_Comment[]
 	 */
 	public $comments;
@@ -147,6 +148,7 @@ class WP_Query {
 	 * The number of comments for the posts.
 	 *
 	 * @since WP 2.2.0
+	 * @deprecated 1.0.0 Retraceur fork.
 	 * @var int
 	 */
 	public $comment_count = 0;
@@ -155,6 +157,7 @@ class WP_Query {
 	 * The index of the comment in the comment loop.
 	 *
 	 * @since WP 2.2.0
+	 * @deprecated 1.0.0 Retraceur fork.
 	 * @var int
 	 */
 	public $current_comment = -1;
@@ -163,6 +166,7 @@ class WP_Query {
 	 * Current comment object.
 	 *
 	 * @since WP 2.2.0
+	 * @deprecated 1.0.0 Retraceur fork.
 	 * @var WP_Comment
 	 */
 	public $comment;
@@ -189,6 +193,7 @@ class WP_Query {
 	 * The number of comment pages.
 	 *
 	 * @since WP 2.7.0
+	 * @deprecated 1.0.0 Retraceur fork.
 	 * @var int
 	 */
 	public $max_num_comment_pages = 0;
@@ -317,6 +322,7 @@ class WP_Query {
 	 * Signifies whether the current query is for a comment feed.
 	 *
 	 * @since WP 2.2.0
+	 * @deprecated 1.0.0 Retraceur fork.
 	 * @var bool
 	 */
 	public $is_comment_feed = false;

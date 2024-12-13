@@ -420,9 +420,6 @@ function map_meta_cap( $cap, $user_id, ...$args ) {
 		case 'edit_post_meta':
 		case 'delete_post_meta':
 		case 'add_post_meta':
-		case 'edit_comment_meta':
-		case 'delete_comment_meta':
-		case 'add_comment_meta':
 		case 'edit_term_meta':
 		case 'delete_term_meta':
 		case 'add_term_meta':
@@ -435,9 +432,6 @@ function map_meta_cap( $cap, $user_id, ...$args ) {
 				if ( 'post' === $object_type ) {
 					/* translators: %s: Capability name. */
 					$message = __( 'When checking for the %s capability, you must always check it against a specific post.' );
-				} elseif ( 'comment' === $object_type ) {
-					/* translators: %s: Capability name. */
-					$message = __( 'When checking for the %s capability, you must always check it against a specific comment.' );
 				} elseif ( 'term' === $object_type ) {
 					/* translators: %s: Capability name. */
 					$message = __( 'When checking for the %s capability, you must always check it against a specific term.' );
@@ -478,7 +472,7 @@ function map_meta_cap( $cap, $user_id, ...$args ) {
 					 * Filters whether the user is allowed to edit a specific meta key of a specific object type and subtype.
 					 *
 					 * The dynamic portions of the hook name, `$object_type`, `$meta_key`,
-					 * and `$object_subtype`, refer to the metadata object type (comment, post, term or user),
+					 * and `$object_subtype`, refer to the metadata object type (post, term or user),
 					 * the meta key value, and the object subtype respectively.
 					 *
 					 * @since WP 4.9.8
@@ -548,39 +542,6 @@ function map_meta_cap( $cap, $user_id, ...$args ) {
 				if ( ! $allowed ) {
 					$caps[] = $cap;
 				}
-			}
-			break;
-		case 'edit_comment':
-			if ( ! isset( $args[0] ) ) {
-				/* translators: %s: Capability name. */
-				$message = __( 'When checking for the %s capability, you must always check it against a specific comment.' );
-
-				_doing_it_wrong(
-					__FUNCTION__,
-					sprintf( $message, '<code>' . $cap . '</code>' ),
-					'6.1.0'
-				);
-
-				$caps[] = 'do_not_allow';
-				break;
-			}
-
-			$comment = get_comment( $args[0] );
-			if ( ! $comment ) {
-				$caps[] = 'do_not_allow';
-				break;
-			}
-
-			$post = get_post( $comment->comment_post_ID );
-
-			/*
-			 * If the post doesn't exist, we have an orphaned comment.
-			 * Fall back to the edit_posts capability, instead.
-			 */
-			if ( $post ) {
-				$caps = map_meta_cap( 'edit_post', $user_id, $post->ID );
-			} else {
-				$caps = map_meta_cap( 'edit_posts', $user_id );
 			}
 			break;
 		case 'unfiltered_upload':

@@ -9904,3 +9904,52 @@ function wp_set_comment_cookies( $comment, $user, $cookies_consent = true ) {
 function sanitize_comment_cookies() {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 }
+
+/**
+ * Prints the necessary markup for the embed comments button.
+ *
+ * @since WP 4.4.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function print_embed_comments_button() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return;
+}
+
+/**
+ * Sets the last changed time for the 'comment' cache group.
+ *
+ * @since WP 5.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function wp_cache_set_comments_last_changed() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Registers the personal data exporter for comments.
+ *
+ * @since WP 4.9.6
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param array[] $exporters An array of personal data exporters.
+ * @return array[] An array of personal data exporters.
+ */
+function wp_register_comment_personal_data_exporter( $exporters ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return $exporters;
+}
+
+/**
+ * Registers the personal data eraser for comments.
+ *
+ * @since WP 4.9.6
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param array $erasers An array of personal data erasers.
+ * @return array An array of personal data erasers.
+ */
+function wp_register_comment_personal_data_eraser( $erasers ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return $erasers;
+}
