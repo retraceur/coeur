@@ -876,66 +876,6 @@
     'editorStyle' => 'wp-block-columns-editor',
     'style' => 'wp-block-columns'
   ),
-  'comment-reply-link' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
-    'apiVersion' => 3,
-    'name' => 'core/comment-reply-link',
-    'title' => 'Comment Reply Link',
-    'category' => 'theme',
-    'ancestor' => array(
-      'core/comment-template'
-    ),
-    'description' => 'Displays a link to reply to a comment.',
-    'textdomain' => 'default',
-    'usesContext' => array(
-      'commentId'
-    ),
-    'attributes' => array(
-      'textAlign' => array(
-        'type' => 'string'
-      )
-    ),
-    'supports' => array(
-      'color' => array(
-        'gradients' => true,
-        'link' => true,
-        'text' => false,
-        '__experimentalDefaultControls' => array(
-          'background' => true,
-          'link' => true
-        )
-      ),
-      'spacing' => array(
-        'margin' => true,
-        'padding' => true,
-        '__experimentalDefaultControls' => array(
-          'margin' => false,
-          'padding' => false
-        )
-      ),
-      'typography' => array(
-        'fontSize' => true,
-        'lineHeight' => true,
-        '__experimentalFontFamily' => true,
-        '__experimentalFontWeight' => true,
-        '__experimentalFontStyle' => true,
-        '__experimentalTextTransform' => true,
-        '__experimentalTextDecoration' => true,
-        '__experimentalLetterSpacing' => true,
-        '__experimentalDefaultControls' => array(
-          'fontSize' => true
-        )
-      ),
-      '__experimentalBorder' => array(
-        'radius' => true,
-        'color' => true,
-        'width' => true,
-        'style' => true
-      ),
-      'html' => false
-    ),
-    'style' => 'wp-block-comment-reply-link'
-  ),
   'comment-template' => array(
     '$schema' => 'https://schemas.wp.org/trunk/block.json',
     'apiVersion' => 3,
