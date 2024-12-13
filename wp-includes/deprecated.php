@@ -9666,6 +9666,51 @@ function register_block_core_comment_reply_link() {
 }
 
 /**
+ * Function that recursively renders a list of nested comments.
+ *
+ * @since WP 6.3.0 Changed render_block_context priority to `1`.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @global int $comment_depth
+ *
+ * @param WP_Comment[] $comments        The array of comments.
+ * @param WP_Block     $block           Block instance.
+ * @return string
+ */
+function block_core_comment_template_render_comments( $comments, $block ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return '';
+}
+
+/**
+ * Renders the `core/comment-template` block on the server.
+ *
+ * @since WP 6.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param array    $attributes Block attributes.
+ * @param string   $content    Block default content.
+ * @param WP_Block $block      Block instance.
+ *
+ * @return string Returns the HTML representing the comments using the layout
+ * defined by the block's inner blocks.
+ */
+function render_block_core_comment_template( $attributes, $content, $block ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return '';
+}
+
+/**
+ * Registers the `core/comment-template` block on the server.
+ *
+ * @since WP 6.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function register_block_core_comment_template() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
  * Adds edit comments link with awaiting moderation count bubble.
  *
  * @since WP 3.1.0

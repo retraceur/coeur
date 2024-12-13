@@ -4391,6 +4391,8 @@ function get_avatar_data( $id_or_email, $args = null ) {
 
 	if ( $email_hash ) {
 		$args['found_avatar'] = true;
+	} else {
+		$email_hash = 0;
 	}
 
 	$url_args = array(
