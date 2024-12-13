@@ -876,59 +876,6 @@
     'editorStyle' => 'wp-block-columns-editor',
     'style' => 'wp-block-columns'
   ),
-  'comment-template' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
-    'apiVersion' => 3,
-    'name' => 'core/comment-template',
-    'title' => 'Comment Template',
-    'category' => 'design',
-    'parent' => array(
-      'core/comments'
-    ),
-    'description' => 'Contains the block elements used to display a comment, like the title, date, author, avatar and more.',
-    'textdomain' => 'default',
-    'usesContext' => array(
-      'postId'
-    ),
-    'supports' => array(
-      'align' => true,
-      'html' => false,
-      'reusable' => false,
-      'spacing' => array(
-        'margin' => true,
-        'padding' => true
-      ),
-      'typography' => array(
-        'fontSize' => true,
-        'lineHeight' => true,
-        '__experimentalFontFamily' => true,
-        '__experimentalFontWeight' => true,
-        '__experimentalFontStyle' => true,
-        '__experimentalTextTransform' => true,
-        '__experimentalTextDecoration' => true,
-        '__experimentalLetterSpacing' => true,
-        '__experimentalDefaultControls' => array(
-          'fontSize' => true
-        )
-      ),
-      'interactivity' => array(
-        'clientNavigation' => true
-      ),
-      '__experimentalBorder' => array(
-        'radius' => true,
-        'color' => true,
-        'width' => true,
-        'style' => true,
-        '__experimentalDefaultControls' => array(
-          'radius' => true,
-          'color' => true,
-          'width' => true,
-          'style' => true
-        )
-      )
-    ),
-    'style' => 'wp-block-comment-template'
-  ),
   'comments' => array(
     '$schema' => 'https://schemas.wp.org/trunk/block.json',
     'apiVersion' => 3,

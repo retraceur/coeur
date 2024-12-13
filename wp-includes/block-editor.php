@@ -583,6 +583,16 @@ function get_block_editor_settings( array $custom_settings, $block_editor_contex
 	$editor_settings['__unstableIsBlockBasedTheme']      = wp_is_block_theme();
 	$editor_settings['localAutosaveInterval']            = 15;
 	$editor_settings['disableLayoutStyles']              = current_theme_supports( 'disable-layout-styles' );
+	$editor_settings['__experimentalDiscussionSettings'] = array(
+		'avatarURL' => get_avatar_url(
+			'',
+			array(
+				'size'          => 96,
+				'force_default' => true,
+				'default'       => get_option( 'avatar_default' ),
+			)
+		),
+	);
 
 	$post_content_block_attributes = wp_get_post_content_block_attributes();
 
