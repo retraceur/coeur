@@ -10,7 +10,7 @@
 		"core/comments-pagination-numbers",
 		"core/comments-pagination-next"
 	],
-	"description": "Displays a paginated navigation to next/previous set of comments, when applicable.",
+	"description": "Deprecated block.",
 	"textdomain": "default",
 	"attributes": {
 		"paginationArrow": {
