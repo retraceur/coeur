@@ -9,7 +9,6 @@ require_once ABSPATH . WPINC . '/blocks/button.php';
 require_once ABSPATH . WPINC . '/blocks/calendar.php';
 require_once ABSPATH . WPINC . '/blocks/categories.php';
 require_once ABSPATH . WPINC . '/blocks/comments.php';
-require_once ABSPATH . WPINC . '/blocks/comments-title.php';
 require_once ABSPATH . WPINC . '/blocks/cover.php';
 require_once ABSPATH . WPINC . '/blocks/file.php';
 require_once ABSPATH . WPINC . '/blocks/footnotes.php';
