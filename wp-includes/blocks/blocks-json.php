@@ -876,64 +876,6 @@
     'editorStyle' => 'wp-block-columns-editor',
     'style' => 'wp-block-columns'
   ),
-  'comments' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
-    'apiVersion' => 3,
-    'name' => 'core/comments',
-    'title' => 'Comments',
-    'category' => 'theme',
-    'description' => 'An advanced block that allows displaying post comments using different visual configurations.',
-    'textdomain' => 'default',
-    'attributes' => array(
-      'tagName' => array(
-        'type' => 'string',
-        'default' => 'div'
-      ),
-      'legacy' => array(
-        'type' => 'boolean',
-        'default' => false
-      )
-    ),
-    'supports' => array(
-      'align' => array(
-        'wide',
-        'full'
-      ),
-      'html' => false,
-      'color' => array(
-        'gradients' => true,
-        'heading' => true,
-        'link' => true,
-        '__experimentalDefaultControls' => array(
-          'background' => true,
-          'text' => true,
-          'link' => true
-        )
-      ),
-      'spacing' => array(
-        'margin' => true,
-        'padding' => true
-      ),
-      'typography' => array(
-        'fontSize' => true,
-        'lineHeight' => true,
-        '__experimentalFontFamily' => true,
-        '__experimentalFontWeight' => true,
-        '__experimentalFontStyle' => true,
-        '__experimentalTextTransform' => true,
-        '__experimentalTextDecoration' => true,
-        '__experimentalLetterSpacing' => true,
-        '__experimentalDefaultControls' => array(
-          'fontSize' => true
-        )
-      )
-    ),
-    'editorStyle' => 'wp-block-comments-editor',
-    'usesContext' => array(
-      'postId',
-      'postType'
-    )
-  ),
   'cover' => array(
     '$schema' => 'https://schemas.wp.org/trunk/block.json',
     'apiVersion' => 3,
@@ -3470,69 +3412,6 @@
       )
     ),
     'style' => 'wp-block-post-author-name'
-  ),
-  'post-comments-form' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
-    'apiVersion' => 3,
-    'name' => 'core/post-comments-form',
-    'title' => 'Comments Form',
-    'category' => 'theme',
-    'description' => 'Display a post\'s comments form.',
-    'textdomain' => 'default',
-    'attributes' => array(
-      'textAlign' => array(
-        'type' => 'string'
-      )
-    ),
-    'usesContext' => array(
-      'postId',
-      'postType'
-    ),
-    'supports' => array(
-      'html' => false,
-      'color' => array(
-        'gradients' => true,
-        'heading' => true,
-        'link' => true,
-        '__experimentalDefaultControls' => array(
-          'background' => true,
-          'text' => true
-        )
-      ),
-      'spacing' => array(
-        'margin' => true,
-        'padding' => true
-      ),
-      'typography' => array(
-        'fontSize' => true,
-        'lineHeight' => true,
-        '__experimentalFontStyle' => true,
-        '__experimentalFontWeight' => true,
-        '__experimentalLetterSpacing' => true,
-        '__experimentalTextTransform' => true,
-        '__experimentalDefaultControls' => array(
-          'fontSize' => true
-        )
-      ),
-      '__experimentalBorder' => array(
-        'radius' => true,
-        'color' => true,
-        'width' => true,
-        'style' => true,
-        '__experimentalDefaultControls' => array(
-          'radius' => true,
-          'color' => true,
-          'width' => true,
-          'style' => true
-        )
-      )
-    ),
-    'editorStyle' => 'wp-block-post-comments-form-editor',
-    'style' => array(
-      'wp-block-post-comments-form',
-      'wp-block-buttons',
-      'wp-block-button'
-    )
   ),
   'post-content' => array(
     '$schema' => 'https://schemas.wp.org/trunk/block.json',
