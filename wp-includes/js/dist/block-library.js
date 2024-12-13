@@ -804,16 +804,6 @@ __webpack_require__.d(build_module_comment_author_avatar_namespaceObject, {
   settings: () => (comment_author_avatar_settings)
 });
 
-// NAMESPACE OBJECT: ./node_modules/@wordpress/block-library/build-module/comment-author-name/index.js
-var build_module_comment_author_name_namespaceObject = {};
-__webpack_require__.r(build_module_comment_author_name_namespaceObject);
-__webpack_require__.d(build_module_comment_author_name_namespaceObject, {
-  init: () => (comment_author_name_init),
-  metadata: () => (comment_author_name_metadata),
-  name: () => (comment_author_name_name),
-  settings: () => (comment_author_name_settings)
-});
-
 // NAMESPACE OBJECT: ./node_modules/@wordpress/block-library/build-module/comment-content/index.js
 var build_module_comment_content_namespaceObject = {};
 __webpack_require__.r(build_module_comment_content_namespaceObject);
@@ -9105,9 +9095,7 @@ const TEMPLATE = [['core/comments-title'], ['core/comment-template', {}, [['core
       radius: '20px'
     }
   }
-}]]], ['core/column', {}, [['core/comment-author-name', {
-  fontSize: 'small'
-}], ['core/group', {
+}]]], ['core/column', {}, [['core/group', {
   layout: {
     type: 'flex'
   },
@@ -9437,290 +9425,6 @@ const comment_author_avatar_init = () => initBlock({
   name: comment_author_avatar_name,
   metadata: comment_author_avatar_metadata,
   settings: comment_author_avatar_settings
-});
-
-;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/comment-author-name.js
-/**
- * WordPress dependencies
- */
-
-
-
-const commentAuthorName = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_wp_primitives_namespaceObject.SVG, {
-  viewBox: "0 0 24 24",
-  xmlns: "http://www.w3.org/2000/svg",
-  children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_primitives_namespaceObject.Path, {
-    d: "M18 4H6c-1.1 0-2 .9-2 2v12.9c0 .6.5 1.1 1.1 1.1.3 0 .5-.1.8-.3L8.5 17H18c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm.5 11c0 .3-.2.5-.5.5H7.9l-2.4 2.4V6c0-.3.2-.5.5-.5h12c.3 0 .5.2.5.5v9z",
-    fillRule: "evenodd",
-    clipRule: "evenodd"
-  }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_primitives_namespaceObject.Path, {
-    d: "M15 15V15C15 13.8954 14.1046 13 13 13L11 13C9.89543 13 9 13.8954 9 15V15",
-    fillRule: "evenodd",
-    clipRule: "evenodd"
-  }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_primitives_namespaceObject.Circle, {
-    cx: "12",
-    cy: "9",
-    r: "2",
-    fillRule: "evenodd",
-    clipRule: "evenodd"
-  })]
-});
-/* harmony default export */ const comment_author_name = (commentAuthorName);
-
-;// CONCATENATED MODULE: ./node_modules/@wordpress/block-library/build-module/comment-author-name/edit.js
-/**
- * External dependencies
- */
-
-
-/**
- * WordPress dependencies
- */
-
-
-
-
-
-
-/**
- * Renders the `core/comment-author-name` block on the editor.
- *
- * @param {Object} props                       React props.
- * @param {Object} props.setAttributes         Callback for updating block attributes.
- * @param {Object} props.attributes            Block attributes.
- * @param {string} props.attributes.isLink     Whether the author name should be linked.
- * @param {string} props.attributes.linkTarget Target of the link.
- * @param {string} props.attributes.textAlign  Text alignment.
- * @param {Object} props.context               Inherited context.
- * @param {string} props.context.commentId     The comment ID.
- *
- * @return {JSX.Element} React element.
- */
-
-
-
-function comment_author_name_edit_Edit({
-  attributes: {
-    isLink,
-    linkTarget,
-    textAlign
-  },
-  context: {
-    commentId
-  },
-  setAttributes
-}) {
-  const blockProps = (0,external_wp_blockEditor_namespaceObject.useBlockProps)({
-    className: dist_clsx({
-      [`has-text-align-${textAlign}`]: textAlign
-    })
-  });
-  let displayName = (0,external_wp_data_namespaceObject.useSelect)(select => {
-    const {
-      getEntityRecord
-    } = select(external_wp_coreData_namespaceObject.store);
-    const comment = getEntityRecord('root', 'comment', commentId);
-    const authorName = comment?.author_name; // eslint-disable-line camelcase
-
-    if (comment && !authorName) {
-      var _user$name;
-      const user = getEntityRecord('root', 'user', comment.author);
-      return (_user$name = user?.name) !== null && _user$name !== void 0 ? _user$name : (0,external_wp_i18n_namespaceObject.__)('Anonymous');
-    }
-    return authorName !== null && authorName !== void 0 ? authorName : '';
-  }, [commentId]);
-  const blockControls = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_blockEditor_namespaceObject.BlockControls, {
-    group: "block",
-    children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_blockEditor_namespaceObject.AlignmentControl, {
-      value: textAlign,
-      onChange: newAlign => setAttributes({
-        textAlign: newAlign
-      })
-    })
-  });
-  const inspectorControls = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_blockEditor_namespaceObject.InspectorControls, {
-    children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_wp_components_namespaceObject.PanelBody, {
-      title: (0,external_wp_i18n_namespaceObject.__)('Settings'),
-      children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ToggleControl, {
-        __nextHasNoMarginBottom: true,
-        label: (0,external_wp_i18n_namespaceObject.__)('Link to authors URL'),
-        onChange: () => setAttributes({
-          isLink: !isLink
-        }),
-        checked: isLink
-      }), isLink && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ToggleControl, {
-        __nextHasNoMarginBottom: true,
-        label: (0,external_wp_i18n_namespaceObject.__)('Open in new tab'),
-        onChange: value => setAttributes({
-          linkTarget: value ? '_blank' : '_self'
-        }),
-        checked: linkTarget === '_blank'
-      })]
-    })
-  });
-  if (!commentId || !displayName) {
-    displayName = (0,external_wp_i18n_namespaceObject._x)('Comment Author', 'block title');
-  }
-  const displayAuthor = isLink ? /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("a", {
-    href: "#comment-author-pseudo-link",
-    onClick: event => event.preventDefault(),
-    children: displayName
-  }) : displayName;
-  return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_ReactJSXRuntime_namespaceObject.Fragment, {
-    children: [inspectorControls, blockControls, /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("div", {
-      ...blockProps,
-      children: displayAuthor
-    })]
-  });
-}
-
-;// CONCATENATED MODULE: ./node_modules/@wordpress/block-library/build-module/comment-author-name/deprecated.js
-/**
- * Internal dependencies
- */
-
-const deprecated_v1 = {
-  attributes: {
-    isLink: {
-      type: 'boolean',
-      default: false
-    },
-    linkTarget: {
-      type: 'string',
-      default: '_self'
-    }
-  },
-  supports: {
-    html: false,
-    color: {
-      gradients: true,
-      link: true
-    },
-    typography: {
-      fontSize: true,
-      lineHeight: true,
-      __experimentalFontFamily: true,
-      __experimentalFontWeight: true,
-      __experimentalFontStyle: true,
-      __experimentalTextTransform: true,
-      __experimentalLetterSpacing: true
-    }
-  },
-  save() {
-    return null;
-  },
-  migrate: migrate_font_family,
-  isEligible({
-    style
-  }) {
-    return style?.typography?.fontFamily;
-  }
-};
-
-/**
- * New deprecations need to be placed first
- * for them to have higher priority.
- *
- * Old deprecations may need to be updated as well.
- *
- * See block-deprecation.md
- */
-/* harmony default export */ const comment_author_name_deprecated = ([deprecated_v1]);
-
-;// CONCATENATED MODULE: ./node_modules/@wordpress/block-library/build-module/comment-author-name/index.js
-/**
- * WordPress dependencies
- */
-
-
-/**
- * Internal dependencies
- */
-
-const comment_author_name_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
-  apiVersion: 3,
-  name: "core/comment-author-name",
-  title: "Comment Author Name",
-  category: "theme",
-  ancestor: ["core/comment-template"],
-  description: "Displays the name of the author of the comment.",
-  textdomain: "default",
-  attributes: {
-    isLink: {
-      type: "boolean",
-      "default": true
-    },
-    linkTarget: {
-      type: "string",
-      "default": "_self"
-    },
-    textAlign: {
-      type: "string"
-    }
-  },
-  usesContext: ["commentId"],
-  supports: {
-    html: false,
-    spacing: {
-      margin: true,
-      padding: true
-    },
-    color: {
-      gradients: true,
-      link: true,
-      __experimentalDefaultControls: {
-        background: true,
-        text: true,
-        link: true
-      }
-    },
-    typography: {
-      fontSize: true,
-      lineHeight: true,
-      __experimentalFontFamily: true,
-      __experimentalFontWeight: true,
-      __experimentalFontStyle: true,
-      __experimentalTextTransform: true,
-      __experimentalTextDecoration: true,
-      __experimentalLetterSpacing: true,
-      __experimentalDefaultControls: {
-        fontSize: true
-      }
-    },
-    interactivity: {
-      clientNavigation: true
-    },
-    __experimentalBorder: {
-      radius: true,
-      color: true,
-      width: true,
-      style: true,
-      __experimentalDefaultControls: {
-        radius: true,
-        color: true,
-        width: true,
-        style: true
-      }
-    }
-  },
-  style: "wp-block-comment-author-name"
-};
-
-
-const {
-  name: comment_author_name_name
-} = comment_author_name_metadata;
-
-const comment_author_name_settings = {
-  icon: comment_author_name,
-  edit: comment_author_name_edit_Edit,
-  deprecated: comment_author_name_deprecated
-};
-const comment_author_name_init = () => initBlock({
-  name: comment_author_name_name,
-  metadata: comment_author_name_metadata,
-  settings: comment_author_name_settings
 });
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/comment-content.js
@@ -10265,7 +9969,7 @@ const useCommentTree = topLevelComments => {
 
 
 
-const edit_TEMPLATE = [['core/avatar'], ['core/comment-author-name'], ['core/comment-content'], ['core/comment-reply-link']];
+const edit_TEMPLATE = [['core/avatar'], ['core/comment-content'], ['core/comment-reply-link']];
 
 /**
  * Function that returns a comment structure that will be rendered with default placehoders.
@@ -40808,7 +40512,7 @@ const blockDefault = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.js
 
 
 
-const post_comment_edit_TEMPLATE = [['core/avatar'], ['core/comment-author-name'], ['core/comment-content'], ['core/comment-reply-link']];
+const post_comment_edit_TEMPLATE = [['core/avatar'], ['core/comment-content'], ['core/comment-reply-link']];
 function post_comment_edit_Edit({
   attributes: {
     commentId
@@ -40881,7 +40585,7 @@ const post_comment_metadata = {
   name: "core/post-comment",
   title: "Comment (deprecated)",
   category: "theme",
-  allowedBlocks: ["core/avatar", "core/comment-author-name", "core/comment-content", "core/comment-reply-link"],
+  allowedBlocks: ["core/avatar", "core/comment-content", "core/comment-reply-link"],
   description: "This block is deprecated. Please use the Comments block instead.",
   textdomain: "default",
   attributes: {
@@ -63955,7 +63659,7 @@ const getAllBlocks = () => {
   // Register all remaining core blocks.
   archives_namespaceObject, build_module_audio_namespaceObject, build_module_button_namespaceObject, build_module_buttons_namespaceObject, build_module_calendar_namespaceObject, categories_namespaceObject, build_module_code_namespaceObject, build_module_column_namespaceObject, build_module_columns_namespaceObject, build_module_comment_author_avatar_namespaceObject, build_module_cover_namespaceObject, build_module_details_namespaceObject, embed_namespaceObject, build_module_file_namespaceObject, build_module_group_namespaceObject, build_module_html_namespaceObject, latest_posts_namespaceObject, media_text_namespaceObject, missing_namespaceObject, build_module_more_namespaceObject, nextpage_namespaceObject, page_list_namespaceObject, page_list_item_namespaceObject, pattern_namespaceObject, build_module_preformatted_namespaceObject, build_module_pullquote_namespaceObject, block_namespaceObject, build_module_rss_namespaceObject, build_module_search_namespaceObject, build_module_separator_namespaceObject, build_module_shortcode_namespaceObject, social_link_namespaceObject, social_links_namespaceObject, spacer_namespaceObject, build_module_table_namespaceObject, tag_cloud_namespaceObject, text_columns_namespaceObject, build_module_verse_namespaceObject, build_module_video_namespaceObject, footnotes_namespaceObject,
   // theme blocks
-  build_module_navigation_namespaceObject, navigation_link_namespaceObject, navigation_submenu_namespaceObject, build_module_site_logo_namespaceObject, site_title_namespaceObject, site_tagline_namespaceObject, query_namespaceObject, template_part_namespaceObject, avatar_namespaceObject, post_title_namespaceObject, build_module_post_excerpt_namespaceObject, build_module_post_featured_image_namespaceObject, build_module_post_content_namespaceObject, build_module_post_author_namespaceObject, post_author_name_namespaceObject, post_comment_namespaceObject, build_module_post_comments_count_namespaceObject, post_comments_link_namespaceObject, build_module_post_date_namespaceObject, build_module_post_terms_namespaceObject, post_navigation_link_namespaceObject, post_template_namespaceObject, post_time_to_read_namespaceObject, build_module_query_pagination_namespaceObject, build_module_query_pagination_next_namespaceObject, build_module_query_pagination_numbers_namespaceObject, build_module_query_pagination_previous_namespaceObject, query_no_results_namespaceObject, read_more_namespaceObject, comments_namespaceObject, build_module_comment_author_name_namespaceObject, build_module_comment_content_namespaceObject, build_module_comment_reply_link_namespaceObject, comment_template_namespaceObject, comments_title_namespaceObject, comments_pagination_namespaceObject, comments_pagination_next_namespaceObject, comments_pagination_numbers_namespaceObject, comments_pagination_previous_namespaceObject, build_module_post_comments_form_namespaceObject, build_module_table_of_contents_namespaceObject, home_link_namespaceObject, loginout_namespaceObject, build_module_term_description_namespaceObject, query_title_namespaceObject, post_author_biography_namespaceObject];
+  build_module_navigation_namespaceObject, navigation_link_namespaceObject, navigation_submenu_namespaceObject, build_module_site_logo_namespaceObject, site_title_namespaceObject, site_tagline_namespaceObject, query_namespaceObject, template_part_namespaceObject, avatar_namespaceObject, post_title_namespaceObject, build_module_post_excerpt_namespaceObject, build_module_post_featured_image_namespaceObject, build_module_post_content_namespaceObject, build_module_post_author_namespaceObject, post_author_name_namespaceObject, post_comment_namespaceObject, build_module_post_comments_count_namespaceObject, post_comments_link_namespaceObject, build_module_post_date_namespaceObject, build_module_post_terms_namespaceObject, post_navigation_link_namespaceObject, post_template_namespaceObject, post_time_to_read_namespaceObject, build_module_query_pagination_namespaceObject, build_module_query_pagination_next_namespaceObject, build_module_query_pagination_numbers_namespaceObject, build_module_query_pagination_previous_namespaceObject, query_no_results_namespaceObject, read_more_namespaceObject, comments_namespaceObject, build_module_comment_content_namespaceObject, build_module_comment_reply_link_namespaceObject, comment_template_namespaceObject, comments_title_namespaceObject, comments_pagination_namespaceObject, comments_pagination_next_namespaceObject, comments_pagination_numbers_namespaceObject, comments_pagination_previous_namespaceObject, build_module_post_comments_form_namespaceObject, build_module_table_of_contents_namespaceObject, home_link_namespaceObject, loginout_namespaceObject, build_module_term_description_namespaceObject, query_title_namespaceObject, post_author_biography_namespaceObject];
   if (window?.__experimentalEnableFormBlocks) {
     blocks.push(build_module_form_namespaceObject);
     blocks.push(form_input_namespaceObject);
