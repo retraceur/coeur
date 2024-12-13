@@ -10101,3 +10101,98 @@ function wp_register_comment_personal_data_eraser( $erasers ) {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 	return $erasers;
 }
+
+/**
+ * Moves comments for a post to the Trash.
+ *
+ * @since WP 2.9.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int|WP_Post|null $post Optional. Post ID or post object. Defaults to global $post.
+ * @return mixed|void False on failure.
+ */
+function wp_trash_post_comments( $post = null ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Fires before comments are sent to the Trash.
+	 *
+	 * @since WP 2.9.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param int $post_id Post ID.
+	 */
+	do_action_deprecated(
+		'trash_post_comments',
+		array( 0 ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Fires after comments are sent to the Trash.
+	 *
+	 * @since WP 2.9.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param int   $post_id  Post ID.
+	 * @param array $statuses Array of comment statuses.
+	 */
+	do_action_deprecated(
+		'trashed_post_comments',
+		array( 0, array() ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return false;
+}
+
+/**
+ * Restores comments for a post from the Trash.
+ *
+ * @since WP 2.9.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int|WP_Post|null $post Optional. Post ID or post object. Defaults to global $post.
+ * @return true|void
+ */
+function wp_untrash_post_comments( $post = null ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Fires before comments are restored for a post from the Trash.
+	 *
+	 * @since WP 2.9.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param int $post_id Post ID.
+	 */
+	do_action_deprecated(
+		'untrash_post_comments',
+		array( 0 ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Fires after comments are restored for a post from the Trash.
+	 *
+	 * @since WP 2.9.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param int $post_id Post ID.
+	 */
+	do_action_deprecated(
+		'untrashed_post_comments',
+		array( 0 ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return;
+}
