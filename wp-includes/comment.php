@@ -813,65 +813,6 @@ function separate_comments( &$comments ) {
 }
 
 /**
- * Calculates the total number of comment pages.
- *
- * @since WP 2.7.0
- *
- * @uses Walker_Comment
- *
- * @global WP_Query $wp_query WordPress Query object.
- *
- * @param WP_Comment[] $comments Optional. Array of WP_Comment objects. Defaults to `$wp_query->comments`.
- * @param int          $per_page Optional. Comments per page. Defaults to the value of `comments_per_page`
- *                               query var, option of the same name, or 1 (in that order).
- * @param bool         $threaded Optional. Control over flat or threaded comments. Defaults to the value
- *                               of `thread_comments` option.
- * @return int Number of comment pages.
- */
-function get_comment_pages_count( $comments = null, $per_page = null, $threaded = null ) {
-	global $wp_query;
-
-	if ( null === $comments && null === $per_page && null === $threaded && ! empty( $wp_query->max_num_comment_pages ) ) {
-		return $wp_query->max_num_comment_pages;
-	}
-
-	if ( ( ! $comments || ! is_array( $comments ) ) && ! empty( $wp_query->comments ) ) {
-		$comments = $wp_query->comments;
-	}
-
-	if ( empty( $comments ) ) {
-		return 0;
-	}
-
-	if ( ! get_option( 'page_comments' ) ) {
-		return 1;
-	}
-
-	if ( ! isset( $per_page ) ) {
-		$per_page = (int) get_query_var( 'comments_per_page' );
-	}
-	if ( 0 === $per_page ) {
-		$per_page = (int) get_option( 'comments_per_page' );
-	}
-	if ( 0 === $per_page ) {
-		return 1;
-	}
-
-	if ( ! isset( $threaded ) ) {
-		$threaded = get_option( 'thread_comments' );
-	}
-
-	if ( $threaded ) {
-		$walker = new Walker_Comment();
-		$count  = ceil( $walker->get_number_of_root_elements( $comments ) / $per_page );
-	} else {
-		$count = ceil( count( $comments ) / $per_page );
-	}
-
-	return (int) $count;
-}
-
-/**
  * Calculates what page number a comment will appear on for comment paging.
  *
  * @since WP 2.7.0
