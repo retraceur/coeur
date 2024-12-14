@@ -10842,3 +10842,153 @@ function build_comment_query_vars_from_block( $block ) {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 	return array();
 }
+
+/**
+ * Outputs the link to the comments for the current post in an XML safe way.
+ *
+ * @since WP 3.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function comments_link_feed() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the comments permalink for the current post.
+	 *
+	 * @since WP 3.6.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string $comment_permalink The current comment permalink with
+	 *                                  '#comments' appended.
+	 */
+	apply_filters_deprecated(
+		'comments_link_feed',
+		array( '' ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+}
+
+/**
+ * Displays the feed GUID for the current comment.
+ *
+ * @since WP 2.5.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int|WP_Comment $comment_id Optional comment object or ID. Defaults to global comment object.
+ */
+function comment_guid( $comment_id = null ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Retrieves the feed GUID for the current comment.
+ *
+ * @since WP 2.5.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int|WP_Comment $comment_id Optional comment object or ID. Defaults to global comment object.
+ * @return string|false GUID for comment on success, false on failure.
+ */
+function get_comment_guid( $comment_id = null ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return false;
+}
+
+/**
+ * Displays the link to the comments.
+ *
+ * @since WP 1.5.0
+ * @since WP 4.4.0 Introduced the `$comment` argument.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int|WP_Comment $comment Optional. Comment object or ID. Defaults to global comment object.
+ */
+function comment_link( $comment = null ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the current comment's permalink.
+	 *
+	 * @since WP 3.6.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @see get_comment_link()
+	 *
+	 * @param string $comment_permalink The current comment permalink.
+	 */
+	apply_filters_deprecated(
+		'comment_link',
+		array( '' ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+}
+
+/**
+ * Retrieves the current comment author for use in the feeds.
+ *
+ * @since WP 2.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @return string Comment Author.
+ */
+function get_comment_author_rss() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the current comment author for use in a feed.
+	 *
+	 * @since WP 1.5.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @see get_comment_author()
+	 *
+	 * @param string $comment_author The current comment author.
+	 */
+	apply_filters_deprecated(
+		'comment_author_rss',
+		array( '' ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+}
+
+/**
+ * Displays the current comment author in the feed.
+ *
+ * @since WP 1.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function comment_author_rss() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Displays the current comment content for use in the feeds.
+ *
+ * @since WP 1.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function comment_text_rss() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the current comment content for use in a feed.
+	 *
+	 * @since WP 1.5.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string $comment_text The content of the current comment.
+	 */
+	apply_filters_deprecated(
+		'comment_text_rss',
+		array( '' ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+}
