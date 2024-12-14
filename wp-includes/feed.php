@@ -255,120 +255,6 @@ function the_permalink_rss() {
 }
 
 /**
- * Outputs the link to the comments for the current post in an XML safe way.
- *
- * @since WP 3.0.0
- */
-function comments_link_feed() {
-	/**
-	 * Filters the comments permalink for the current post.
-	 *
-	 * @since WP 3.6.0
-	 *
-	 * @param string $comment_permalink The current comment permalink with
-	 *                                  '#comments' appended.
-	 */
-	echo esc_url( apply_filters( 'comments_link_feed', get_comments_link() ) );
-}
-
-/**
- * Displays the feed GUID for the current comment.
- *
- * @since WP 2.5.0
- *
- * @param int|WP_Comment $comment_id Optional comment object or ID. Defaults to global comment object.
- */
-function comment_guid( $comment_id = null ) {
-	echo esc_url( get_comment_guid( $comment_id ) );
-}
-
-/**
- * Retrieves the feed GUID for the current comment.
- *
- * @since WP 2.5.0
- *
- * @param int|WP_Comment $comment_id Optional comment object or ID. Defaults to global comment object.
- * @return string|false GUID for comment on success, false on failure.
- */
-function get_comment_guid( $comment_id = null ) {
-	$comment = get_comment( $comment_id );
-
-	if ( ! is_object( $comment ) ) {
-		return false;
-	}
-
-	return get_the_guid( $comment->comment_post_ID ) . '#comment-' . $comment->comment_ID;
-}
-
-/**
- * Displays the link to the comments.
- *
- * @since WP 1.5.0
- * @since WP 4.4.0 Introduced the `$comment` argument.
- *
- * @param int|WP_Comment $comment Optional. Comment object or ID. Defaults to global comment object.
- */
-function comment_link( $comment = null ) {
-	/**
-	 * Filters the current comment's permalink.
-	 *
-	 * @since WP 3.6.0
-	 *
-	 * @see get_comment_link()
-	 *
-	 * @param string $comment_permalink The current comment permalink.
-	 */
-	echo esc_url( apply_filters( 'comment_link', get_comment_link( $comment ) ) );
-}
-
-/**
- * Retrieves the current comment author for use in the feeds.
- *
- * @since WP 2.0.0
- *
- * @return string Comment Author.
- */
-function get_comment_author_rss() {
-	/**
-	 * Filters the current comment author for use in a feed.
-	 *
-	 * @since WP 1.5.0
-	 *
-	 * @see get_comment_author()
-	 *
-	 * @param string $comment_author The current comment author.
-	 */
-	return apply_filters( 'comment_author_rss', get_comment_author() );
-}
-
-/**
- * Displays the current comment author in the feed.
- *
- * @since WP 1.0.0
- */
-function comment_author_rss() {
-	echo get_comment_author_rss();
-}
-
-/**
- * Displays the current comment content for use in the feeds.
- *
- * @since WP 1.0.0
- */
-function comment_text_rss() {
-	$comment_text = get_comment_text();
-	/**
-	 * Filters the current comment content for use in a feed.
-	 *
-	 * @since WP 1.5.0
-	 *
-	 * @param string $comment_text The content of the current comment.
-	 */
-	$comment_text = apply_filters( 'comment_text_rss', $comment_text );
-	echo $comment_text;
-}
-
-/**
  * Retrieves all of the post categories, formatted for use in feeds.
  *
  * All of the categories for the current post in the feed loop, will be
@@ -700,10 +586,8 @@ function self_link() {
 /**
  * Gets the UTC time of the most recently modified post from WP_Query.
  *
- * If viewing a comment feed, the time of the most recently modified
- * comment will be returned.
- *
  * @since WP 5.2.0
+ * @since 1.0.0 Retraceur fork removed the code about WP Comments
  *
  * @global WP_Query $wp_query WordPress Query object.
  *
@@ -721,15 +605,6 @@ function get_feed_build_date( $format ) {
 		// Extract the post modified times from the posts.
 		$modified_times = wp_list_pluck( $wp_query->posts, 'post_modified_gmt' );
 
-		// If this is a comment feed, check those objects too.
-		if ( $wp_query->is_comment_feed() && $wp_query->comment_count ) {
-			// Extract the comment modified times from the comments.
-			$comment_times = wp_list_pluck( $wp_query->comments, 'comment_date_gmt' );
-
-			// Add the comment times to the post times for comparison.
-			$modified_times = array_merge( $modified_times, $comment_times );
-		}
-
 		// Determine the maximum modified time.
 		$datetime = date_create_immutable_from_format( 'Y-m-d H:i:s', max( $modified_times ), $utc );
 	}
@@ -744,11 +619,11 @@ function get_feed_build_date( $format ) {
 	}
 
 	/**
-	 * Filters the date the last post or comment in the query was modified.
+	 * Filters the date the last post in the query was modified.
 	 *
 	 * @since WP 5.2.0
 	 *
-	 * @param string|false $max_modified_time Date the last post or comment was modified in the query, in UTC.
+	 * @param string|false $max_modified_time Date the last post was modified in the query, in UTC.
 	 *                                        False on failure.
 	 * @param string       $format            The date format requested in get_feed_build_date().
 	 */

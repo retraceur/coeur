@@ -17,8 +17,7 @@ echo '<?xml version="1.0" encoding="' . get_option( 'blog_charset' ) . '"?' . '>
  *
  * @since WP 4.0.0
  *
- * @param string $context Type of feed. Possible values include 'rss2', 'rss2-comments',
- *                        'rdf', 'atom', and 'atom-comments'.
+ * @param string $context Type of feed. Possible values include 'rss2', 'rdf', and 'atom'.
  */
 do_action( 'rss_tag_pre', 'rss2' );
 ?>
