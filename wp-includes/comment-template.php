@@ -1025,8 +1025,6 @@ function get_comments_number_text( $zero = false, $one = false, $more = false, $
  * @since WP 4.4.0 Added the ability for `$comment_id` to also accept a WP_Comment object.
  * @since WP 5.4.0 Added 'In reply to %s.' prefix to child comments in comments feed.
  *
- * @see Walker_Comment::comment()
- *
  * @param int|WP_Comment $comment_id Optional. WP_Comment or ID of the comment for which to get the text.
  *                                   Default current comment.
  * @param array          $args       Optional. An array of arguments. Default empty array.
@@ -1056,8 +1054,6 @@ function get_comment_text( $comment_id = 0, $args = array() ) {
 	 *
 	 * @since WP 1.5.0
 	 *
-	 * @see Walker_Comment::comment()
-	 *
 	 * @param string     $comment_text Text of the comment.
 	 * @param WP_Comment $comment      The comment object.
 	 * @param array      $args         An array of arguments.
@@ -1070,8 +1066,6 @@ function get_comment_text( $comment_id = 0, $args = array() ) {
  *
  * @since WP 0.71
  * @since WP 4.4.0 Added the ability for `$comment_id` to also accept a WP_Comment object.
- *
- * @see Walker_Comment::comment()
  *
  * @param int|WP_Comment $comment_id Optional. WP_Comment or ID of the comment for which to print the text.
  *                                   Default current comment.
@@ -1086,8 +1080,6 @@ function comment_text( $comment_id = 0, $args = array() ) {
 	 * Filters the text of a comment to be displayed.
 	 *
 	 * @since WP 1.2.0
-	 *
-	 * @see Walker_Comment::comment()
 	 *
 	 * @param string          $comment_text Text of the comment.
 	 * @param WP_Comment|null $comment      The comment object. Null if not found.
@@ -2181,240 +2173,6 @@ function _get_comment_reply_id( $post = null ) {
 	}
 
 	return $reply_to_id;
-}
-
-/**
- * Displays a list of comments.
- *
- * Used in the comments.php template to list comments for a particular post.
- *
- * @since WP 2.7.0
- *
- * @see WP_Query::$comments
- *
- * @global WP_Query $wp_query           Retraceur Query object.
- * @global int      $comment_alt
- * @global int      $comment_depth
- * @global int      $comment_thread_alt
- * @global bool     $overridden_cpage
- * @global bool     $in_comment_loop
- *
- * @param string|array $args {
- *     Optional. Formatting options.
- *
- *     @type object   $walker            Instance of a Walker class to list comments. Default null.
- *     @type int      $max_depth         The maximum comments depth. Default empty.
- *     @type string   $style             The style of list ordering. Accepts 'ul', 'ol', or 'div'.
- *                                       'div' will result in no additional list markup. Default 'ul'.
- *     @type callable $callback          Callback function to use. Default null.
- *     @type callable $end-callback      Callback function to use at the end. Default null.
- *     @type string   $type              Type of comments to list. Accepts 'all', 'comment',
- *                                       'pingback', 'trackback', 'pings'. Default 'all'.
- *     @type int      $page              Page ID to list comments for. Default empty.
- *     @type int      $per_page          Number of comments to list per page. Default empty.
- *     @type int      $avatar_size       Height and width dimensions of the avatar size. Default 32.
- *     @type bool     $reverse_top_level Ordering of the listed comments. If true, will display
- *                                       newest comments first. Default null.
- *     @type bool     $reverse_children  Whether to reverse child comments in the list. Default null.
- *     @type string   $format            How to format the comments list. Accepts 'html5', 'xhtml'.
- *                                       Default 'html5' if the theme supports it.
- *     @type bool     $short_ping        Whether to output short pings. Default false.
- *     @type bool     $echo              Whether to echo the output or return it. Default true.
- * }
- * @param WP_Comment[] $comments Optional. Array of WP_Comment objects. Default null.
- * @return void|string Void if 'echo' argument is true, or no comments to list.
- *                     Otherwise, HTML list of comments.
- */
-function wp_list_comments( $args = array(), $comments = null ) {
-	global $wp_query, $comment_alt, $comment_depth, $comment_thread_alt, $overridden_cpage, $in_comment_loop;
-
-	$in_comment_loop = true;
-
-	$comment_alt        = 0;
-	$comment_thread_alt = 0;
-	$comment_depth      = 1;
-
-	$defaults = array(
-		'walker'            => null,
-		'max_depth'         => '',
-		'style'             => 'ul',
-		'callback'          => null,
-		'end-callback'      => null,
-		'type'              => 'all',
-		'page'              => '',
-		'per_page'          => '',
-		'avatar_size'       => 32,
-		'reverse_top_level' => null,
-		'reverse_children'  => '',
-		'format'            => current_theme_supports( 'html5', 'comment-list' ) ? 'html5' : 'xhtml',
-		'short_ping'        => false,
-		'echo'              => true,
-	);
-
-	$parsed_args = wp_parse_args( $args, $defaults );
-
-	/**
-	 * Filters the arguments used in retrieving the comment list.
-	 *
-	 * @since WP 4.0.0
-	 *
-	 * @see wp_list_comments()
-	 *
-	 * @param array $parsed_args An array of arguments for displaying comments.
-	 */
-	$parsed_args = apply_filters( 'wp_list_comments_args', $parsed_args );
-
-	// Figure out what comments we'll be looping through ($_comments).
-	if ( null !== $comments ) {
-		$comments = (array) $comments;
-		if ( empty( $comments ) ) {
-			return;
-		}
-		if ( 'all' !== $parsed_args['type'] ) {
-			$comments_by_type = separate_comments( $comments );
-			if ( empty( $comments_by_type[ $parsed_args['type'] ] ) ) {
-				return;
-			}
-			$_comments = $comments_by_type[ $parsed_args['type'] ];
-		} else {
-			$_comments = $comments;
-		}
-	} else {
-		/*
-		 * If 'page' or 'per_page' has been passed, and does not match what's in $wp_query,
-		 * perform a separate comment query and allow Walker_Comment to paginate.
-		 */
-		if ( $parsed_args['page'] || $parsed_args['per_page'] ) {
-			$current_cpage = (int) get_query_var( 'cpage' );
-			if ( ! $current_cpage ) {
-				$current_cpage = 'newest' === get_option( 'default_comments_page' ) ? 1 : $wp_query->max_num_comment_pages;
-			}
-
-			$current_per_page = (int) get_query_var( 'comments_per_page' );
-			if ( (int) $parsed_args['page'] !== $current_cpage || (int) $parsed_args['per_page'] !== $current_per_page ) {
-				$comment_args = array(
-					'post_id' => get_the_ID(),
-					'orderby' => 'comment_date_gmt',
-					'order'   => 'ASC',
-					'status'  => 'approve',
-				);
-
-				if ( is_user_logged_in() ) {
-					$comment_args['include_unapproved'] = array( get_current_user_id() );
-				} else {
-					$unapproved_email = wp_get_unapproved_comment_author_email();
-
-					if ( $unapproved_email ) {
-						$comment_args['include_unapproved'] = array( $unapproved_email );
-					}
-				}
-
-				$comments = get_comments( $comment_args );
-
-				if ( 'all' !== $parsed_args['type'] ) {
-					$comments_by_type = separate_comments( $comments );
-					if ( empty( $comments_by_type[ $parsed_args['type'] ] ) ) {
-						return;
-					}
-
-					$_comments = $comments_by_type[ $parsed_args['type'] ];
-				} else {
-					$_comments = $comments;
-				}
-			}
-
-			// Otherwise, fall back on the comments from `$wp_query->comments`.
-		} else {
-			if ( empty( $wp_query->comments ) ) {
-				return;
-			}
-			if ( 'all' !== $parsed_args['type'] ) {
-				if ( empty( $wp_query->comments_by_type ) ) {
-					$wp_query->comments_by_type = separate_comments( $wp_query->comments );
-				}
-				if ( empty( $wp_query->comments_by_type[ $parsed_args['type'] ] ) ) {
-					return;
-				}
-				$_comments = $wp_query->comments_by_type[ $parsed_args['type'] ];
-			} else {
-				$_comments = $wp_query->comments;
-			}
-
-			if ( $wp_query->max_num_comment_pages ) {
-				$default_comments_page = get_option( 'default_comments_page' );
-				$cpage                 = (int) get_query_var( 'cpage' );
-
-				if ( 'newest' === $default_comments_page ) {
-					$parsed_args['cpage'] = $cpage;
-				} elseif ( 1 === $cpage ) {
-					/*
-					 * When the first page shows the oldest comments,
-					 * post permalink is the same as the comment permalink.
-					 */
-					$parsed_args['cpage'] = '';
-				} else {
-					$parsed_args['cpage'] = $cpage;
-				}
-
-				$parsed_args['page']     = 0;
-				$parsed_args['per_page'] = 0;
-			}
-		}
-	}
-
-	if ( '' === $parsed_args['per_page'] && get_option( 'page_comments' ) ) {
-		$parsed_args['per_page'] = get_query_var( 'comments_per_page' );
-	}
-
-	if ( empty( $parsed_args['per_page'] ) ) {
-		$parsed_args['per_page'] = 0;
-		$parsed_args['page']     = 0;
-	}
-
-	if ( '' === $parsed_args['max_depth'] ) {
-		if ( get_option( 'thread_comments' ) ) {
-			$parsed_args['max_depth'] = get_option( 'thread_comments_depth' );
-		} else {
-			$parsed_args['max_depth'] = -1;
-		}
-	}
-
-	if ( '' === $parsed_args['page'] ) {
-		if ( empty( $overridden_cpage ) ) {
-			$parsed_args['page'] = get_query_var( 'cpage' );
-		} else {
-			$threaded            = ( -1 !== (int) $parsed_args['max_depth'] );
-			$parsed_args['page'] = ( 'newest' === get_option( 'default_comments_page' ) ) ? get_comment_pages_count( $_comments, $parsed_args['per_page'], $threaded ) : 1;
-			set_query_var( 'cpage', $parsed_args['page'] );
-		}
-	}
-
-	// Validation check.
-	$parsed_args['page']     = (int) $parsed_args['page'];
-	$parsed_args['per_page'] = (int) $parsed_args['per_page'];
-	if ( 0 === $parsed_args['page'] && 0 !== $parsed_args['per_page'] ) {
-		$parsed_args['page'] = 1;
-	}
-
-	if ( null === $parsed_args['reverse_top_level'] ) {
-		$parsed_args['reverse_top_level'] = ( 'desc' === get_option( 'comment_order' ) );
-	}
-
-	if ( empty( $parsed_args['walker'] ) ) {
-		$walker = new Walker_Comment();
-	} else {
-		$walker = $parsed_args['walker'];
-	}
-
-	$output = $walker->paged_walk( $_comments, $parsed_args['max_depth'], $parsed_args['page'], $parsed_args['per_page'], $parsed_args );
-
-	$in_comment_loop = false;
-
-	if ( $parsed_args['echo'] ) {
-		echo $output;
-	} else {
-		return $output;
-	}
 }
 
 /**

@@ -5937,17 +5937,23 @@ function wp_trigger_error( $function_name, $message, $error_level = E_USER_NOTIC
 		$message = sprintf( '%s(): %s', $function_name, $message );
 	}
 
-	$message = wp_kses(
-		$message,
-		array(
-			'a'      => array( 'href' => true ),
-			'br'     => array(),
-			'code'   => array(),
-			'em'     => array(),
-			'strong' => array(),
-		),
-		array( 'http', 'https' )
+	$allowed_tags = array(
+		'a'      => array( 'href' => true ),
+		'br'     => array(),
+		'code'   => array(),
+		'em'     => array(),
+		'strong' => array(),
 	);
+
+	if ( function_exists( 'wp_kses' ) ) {
+		$message = wp_kses(
+			$message,
+			$allowed_tags,
+			array( 'http', 'https' )
+		);
+	} else {
+		$message = strip_tags( $message, array_keys( $allowed_tags ) );
+	}
 
 	if ( E_USER_ERROR === $error_level ) {
 		throw new WP_Exception( $message );
