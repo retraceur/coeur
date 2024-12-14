@@ -447,15 +447,16 @@ class WP {
 		if ( is_user_logged_in() ) {
 			$headers = array_merge( $headers, wp_get_nocache_headers() );
 		} elseif ( ! empty( $_GET['unapproved'] ) && ! empty( $_GET['moderation-hash'] ) ) {
-			// Unmoderated comments are only visible for 10 minutes via the moderation hash.
-			$expires = 10 * MINUTE_IN_SECONDS;
-
-			$headers['Expires']       = gmdate( $date_format, time() + $expires );
-			$headers['Cache-Control'] = sprintf(
-				'max-age=%d, must-revalidate',
-				$expires
-			);
+			/**
+			 * Fires when a reaction is not approved yet.
+			 *
+			 * @since 1.0.0 Retraceur fork.
+			 *
+			 * @param array $headers HTTP Response headers.
+			 */
+			$headers = apply_filters( 'retraceur_unapproved_reaction_headers', $headers );
 		}
+
 		if ( ! empty( $this->query_vars['error'] ) ) {
 			$status = (int) $this->query_vars['error'];
 
@@ -478,31 +479,7 @@ class WP {
 			}
 
 			$headers['Content-Type'] = feed_content_type( $type ) . '; charset=' . get_option( 'blog_charset' );
-
-			// We're showing a feed, so WP is indeed the only thing that last changed.
-			if ( ! empty( $this->query_vars['withcomments'] )
-				|| str_contains( $this->query_vars['feed'], 'comments-' )
-				|| ( empty( $this->query_vars['withoutcomments'] )
-					&& ( ! empty( $this->query_vars['p'] )
-						|| ! empty( $this->query_vars['name'] )
-						|| ! empty( $this->query_vars['page_id'] )
-						|| ! empty( $this->query_vars['pagename'] )
-						|| ! empty( $this->query_vars['attachment'] )
-						|| ! empty( $this->query_vars['attachment_id'] )
-					)
-				)
-			) {
-				$wp_last_modified_post    = mysql2date( $date_format, get_lastpostmodified( 'GMT' ), false );
-				$wp_last_modified_comment = mysql2date( $date_format, get_lastcommentmodified( 'GMT' ), false );
-
-				if ( strtotime( $wp_last_modified_post ) > strtotime( $wp_last_modified_comment ) ) {
-					$wp_last_modified = $wp_last_modified_post;
-				} else {
-					$wp_last_modified = $wp_last_modified_comment;
-				}
-			} else {
-				$wp_last_modified = mysql2date( $date_format, get_lastpostmodified( 'GMT' ), false );
-			}
+			$wp_last_modified        = mysql2date( $date_format, get_lastpostmodified( 'GMT' ), false );
 
 			if ( ! $wp_last_modified ) {
 				$wp_last_modified = gmdate( $date_format );
@@ -539,15 +516,6 @@ class WP {
 			) {
 				$status        = 304;
 				$exit_required = true;
-			}
-		}
-
-		if ( is_singular() ) {
-			$post = isset( $wp_query->post ) ? $wp_query->post : null;
-
-			// Only set X-Pingback for single posts that allow pings.
-			if ( $post && pings_open( $post ) ) {
-				$headers['X-Pingback'] = get_bloginfo( 'pingback_url', 'display' );
 			}
 		}
 

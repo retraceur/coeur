@@ -1565,7 +1565,7 @@ function do_feed() {
 	 * @param bool   $is_comment_feed Whether the feed is a comment feed.
 	 * @param string $feed            The feed name.
 	 */
-	do_action( "do_feed_{$feed}", $wp_query->is_comment_feed, $feed );
+	do_action( "do_feed_{$feed}", false, $feed );
 }
 
 /**
@@ -1594,34 +1594,24 @@ function do_feed_rss() {
  * Loads either the RSS2 comment feed or the RSS2 posts feed.
  *
  * @since WP 2.1.0
+ * @since 1.0.0 Retraceur removed the WP Comments feature & the `$for_comments` parameter.
  *
  * @see load_template()
- *
- * @param bool $for_comments True for the comment feed, false for normal feed.
  */
-function do_feed_rss2( $for_comments ) {
-	if ( $for_comments ) {
-		load_template( ABSPATH . WPINC . '/feed-rss2-comments.php' );
-	} else {
-		load_template( ABSPATH . WPINC . '/feed-rss2.php' );
-	}
+function do_feed_rss2() {
+	load_template( ABSPATH . WPINC . '/feed-rss2.php' );
 }
 
 /**
  * Loads either Atom comment feed or Atom posts feed.
  *
  * @since WP 2.1.0
+ * @since 1.0.0 Retraceur removed the WP Comments feature & the `$for_comments` parameter.
  *
  * @see load_template()
- *
- * @param bool $for_comments True for the comment feed, false for normal feed.
  */
-function do_feed_atom( $for_comments ) {
-	if ( $for_comments ) {
-		load_template( ABSPATH . WPINC . '/feed-atom-comments.php' );
-	} else {
-		load_template( ABSPATH . WPINC . '/feed-atom.php' );
-	}
+function do_feed_atom() {
+	load_template( ABSPATH . WPINC . '/feed-atom.php' );
 }
 
 /**
