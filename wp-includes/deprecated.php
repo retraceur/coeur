@@ -10526,3 +10526,319 @@ function get_comment_pages_count( $comments = null, $per_page = null, $threaded 
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 	return 0;
 }
+
+/**
+ * Retrieves comment data given a comment ID or comment object.
+ *
+ * If an object is passed then the comment data will be cached and then returned
+ * after being passed through a filter. If the comment is empty, then the global
+ * comment variable will be used, if it is set.
+ *
+ * @since WP 2.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param WP_Comment|string|int $comment Comment to retrieve.
+ * @param string                $output  Optional. The required return type. One of OBJECT, ARRAY_A, or ARRAY_N, which
+ *                                       correspond to a WP_Comment object, an associative array, or a numeric array,
+ *                                       respectively. Default OBJECT.
+ * @return WP_Comment|array|null Depends on $output value.
+ */
+function get_comment( $comment = null, $output = OBJECT ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Fires after a comment is retrieved.
+	 *
+	 * @since WP 2.3.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param WP_Comment $_comment Comment data.
+	 */
+	apply_filters_deprecated(
+		'get_comment',
+		array( null ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return null;
+}
+
+/**
+ * Retrieves the approved comments for a post.
+ *
+ * @since WP 2.0.0
+ * @since WP 4.1.0 Refactored to leverage WP_Comment_Query over a direct query.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int   $post_id The ID of the post.
+ * @param array $args    {
+ *     Optional. See WP_Comment_Query::__construct() for information on accepted arguments.
+ *
+ *     @type int    $status  Comment status to limit results by. Defaults to approved comments.
+ *     @type int    $post_id Limit results to those affiliated with a given post ID.
+ *     @type string $order   How to order retrieved comments. Default 'ASC'.
+ * }
+ * @return WP_Comment[]|int[]|int The approved comments, or number of comments if `$count`
+ *                                argument is true.
+ */
+function get_approved_comments( $post_id, $args = array() ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	if ( isset( $args['count'] ) && $args['count'] ) {
+		return 0;
+	}
+
+	return array();
+}
+
+/**
+ * Retrieves a list of comments.
+ *
+ * The comment list can be for the blog as a whole or for an individual post.
+ *
+ * @since WP 2.7.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string|array $args Optional. Array or string of arguments. See WP_Comment_Query::__construct()
+ *                           for information on accepted arguments. Default empty string.
+ * @return WP_Comment[]|int[]|int List of comments or number of found comments if `$count` argument is true.
+ */
+function get_comments( $args = '' ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return array();
+}
+
+/**
+ * Calculates what page number a comment will appear on for comment paging.
+ *
+ * @since WP 2.7.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int   $comment_id Comment ID.
+ * @param array $args {
+ *     Array of optional arguments.
+ *
+ *     @type string     $type      Limit paginated comments to those matching a given type.
+ *                                 Accepts 'comment', 'trackback', 'pingback', 'pings'
+ *                                 (trackbacks and pingbacks), or 'all'. Default 'all'.
+ *     @type int        $per_page  Per-page count to use when calculating pagination.
+ *                                 Defaults to the value of the 'comments_per_page' option.
+ *     @type int|string $max_depth If greater than 1, comment page will be determined
+ *                                 for the top-level parent `$comment_id`.
+ *                                 Defaults to the value of the 'thread_comments_depth' option.
+ * }
+ * @return int|null Comment page number or null on error.
+ */
+function get_page_of_comment( $comment_id, $args = array() ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the arguments used to query comments in get_page_of_comment().
+	 *
+	 * @since WP 5.5.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @see WP_Comment_Query::__construct()
+	 *
+	 * @param array $comment_args {
+	 *     Array of WP_Comment_Query arguments.
+	 *
+	 *     @type string $type               Limit paginated comments to those matching a given type.
+	 *                                      Accepts 'comment', 'trackback', 'pingback', 'pings'
+	 *                                      (trackbacks and pingbacks), or 'all'. Default 'all'.
+	 *     @type int    $post_id            ID of the post.
+	 *     @type string $fields             Comment fields to return.
+	 *     @type bool   $count              Whether to return a comment count (true) or array
+	 *                                      of comment objects (false).
+	 *     @type string $status             Comment status.
+	 *     @type int    $parent             Parent ID of comment to retrieve children of.
+	 *     @type array  $date_query         Date query clauses to limit comments by. See WP_Date_Query.
+	 *     @type array  $include_unapproved Array of IDs or email addresses whose unapproved comments
+	 *                                      will be included in paginated comments.
+	 * }
+	 */
+	apply_filters_deprecated(
+		'get_page_of_comment_query_args',
+		array( array() ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Filters the calculated page on which a comment appears.
+	 *
+	 * @since WP 4.4.0
+	 * @since WP 4.7.0 Introduced the `$comment_id` parameter.
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param int   $page          Comment page.
+	 * @param array $args {
+	 *     Arguments used to calculate pagination. These include arguments auto-detected by the function,
+	 *     based on query vars, system settings, etc. For pristine arguments passed to the function,
+	 *     see `$original_args`.
+	 *
+	 *     @type string $type      Type of comments to count.
+	 *     @type int    $page      Calculated current page.
+	 *     @type int    $per_page  Calculated number of comments per page.
+	 *     @type int    $max_depth Maximum comment threading depth allowed.
+	 * }
+	 * @param array $original_args {
+	 *     Array of arguments passed to the function. Some or all of these may not be set.
+	 *
+	 *     @type string $type      Type of comments to count.
+	 *     @type int    $page      Current comment page.
+	 *     @type int    $per_page  Number of comments per page.
+	 *     @type int    $max_depth Maximum comment threading depth allowed.
+	 * }
+	 * @param int $comment_id ID of the comment.
+	 */
+	apply_filters_deprecated(
+		'get_page_of_comment',
+		array( 0, array(), array(), 0 ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return null;
+}
+
+/**
+ * Loads the comment template specified in $file.
+ *
+ * Will not display the comments template if not on single post or page, or if
+ * the post does not have comments.
+ *
+ * Uses the Retraceur database object to query for the comments. The comments
+ * are passed through the {@see 'comments_array'} filter hook with the list of comments
+ * and the post ID respectively.
+ *
+ * The `$file` path is passed through a filter hook called {@see 'comments_template'},
+ * which includes the template directory and $file combined. Tries the $filtered path
+ * first and if it fails it will require the default comment template from the
+ * default theme. If either does not exist, then the Retraceur process will be
+ * halted. It is advised for that reason, that the default theme is not deleted.
+ *
+ * Will not try to get the comments if the post has none.
+ *
+ * @since WP 1.5.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string $file              Optional. The file to load. Default '/comments.php'.
+ * @param bool   $separate_comments Optional. Whether to separate the comments by comment type.
+ *                                  Default false.
+ */
+function comments_template( $file = '/comments.php', $separate_comments = false ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the arguments used in the top level comments query.
+	 *
+	 * @since WP 5.6.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @see WP_Comment_Query::__construct()
+	 *
+	 * @param array $top_level_args {
+	 *     The top level query arguments for the comments template.
+	 *
+	 *     @type bool         $count   Whether to return a comment count.
+	 *     @type string|array $orderby The field(s) to order by.
+	 *     @type int          $post_id The post ID.
+	 *     @type string|array $status  The comment status to limit results by.
+	 * }
+	 */
+	apply_filters_deprecated(
+		'comments_template_top_level_query_args',
+		array( array() ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Filters the arguments used to query comments in comments_template().
+	 *
+	 * @since WP 4.5.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @see WP_Comment_Query::__construct()
+	 *
+	 * @param array $comment_args {
+	 *     Array of WP_Comment_Query arguments.
+	 *
+	 *     @type string|array $orderby                   Field(s) to order by.
+	 *     @type string       $order                     Order of results. Accepts 'ASC' or 'DESC'.
+	 *     @type string       $status                    Comment status.
+	 *     @type array        $include_unapproved        Array of IDs or email addresses whose unapproved comments
+	 *                                                   will be included in results.
+	 *     @type int          $post_id                   ID of the post.
+	 *     @type bool         $no_found_rows             Whether to refrain from querying for found rows.
+	 *     @type bool         $update_comment_meta_cache Whether to prime cache for comment meta.
+	 *     @type bool|string  $hierarchical              Whether to query for comments hierarchically.
+	 *     @type int          $offset                    Comment offset.
+	 *     @type int          $number                    Number of comments to fetch.
+	 * }
+	 */
+	apply_filters_deprecated(
+		'comments_template_query_args',
+		array( array() ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Filters the comments array.
+	 *
+	 * @since WP 2.1.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param array $comments Array of comments supplied to the comments template.
+	 * @param int   $post_id  Post ID.
+	 */
+	apply_filters_deprecated(
+		'comments_array',
+		array( array(), 0 ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Filters the path to the theme template file used for the comments template.
+	 *
+	 * @since WP 1.5.1
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string $theme_template The path to the theme template file.
+	 */
+	apply_filters_deprecated(
+		'comments_template',
+		array( '' ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+}
+
+/**
+ * Helper function that constructs a comment query vars array from the passed
+ * block properties.
+ *
+ * It's used with the Comment Query Loop inner blocks.
+ *
+ * @since WP 6.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param WP_Block $block Block instance.
+ * @return array Returns the comment query parameters to use with the
+ *               WP_Comment_Query constructor.
+ */
+function build_comment_query_vars_from_block( $block ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return array();
+}
