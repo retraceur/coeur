@@ -1031,20 +1031,11 @@ class WP_Query {
 			$this->is_admin = true;
 		}
 
-		if ( str_contains( $qv['feed'], 'comments-' ) ) {
-			$qv['feed']         = str_replace( 'comments-', '', $qv['feed'] );
-			$qv['withcomments'] = 1;
-		}
-
 		$this->is_singular = $this->is_single || $this->is_page || $this->is_attachment;
-
-		if ( $this->is_feed && ( ! empty( $qv['withcomments'] ) || ( empty( $qv['withoutcomments'] ) && $this->is_singular ) ) ) {
-			$this->is_comment_feed = true;
-		}
 
 		if ( ! ( $this->is_singular || $this->is_archive || $this->is_search || $this->is_feed
 				|| ( wp_is_serving_rest_request() && $this->is_main_query() )
-				|| $this->is_trackback || $this->is_404 || $this->is_admin || $this->is_robots || $this->is_favicon ) ) {
+				|| $this->is_404 || $this->is_admin || $this->is_robots || $this->is_favicon ) ) {
 			$this->is_home = true;
 		}
 
@@ -1128,10 +1119,6 @@ class WP_Query {
 			} else {
 				$qv['post_status'] = preg_replace( '|[^a-z0-9_,-]|', '', $qv['post_status'] );
 			}
-		}
-
-		if ( $this->is_posts_page && ( ! isset( $qv['withcomments'] ) || ! $qv['withcomments'] ) ) {
-			$this->is_comment_feed = false;
 		}
 
 		$this->is_singular = $this->is_single || $this->is_page || $this->is_attachment;
@@ -1693,7 +1680,6 @@ class WP_Query {
 			'type',
 			'ID',
 			'menu_order',
-			'comment_count',
 			'rand',
 			'post__in',
 			'post_parent__in',
@@ -1740,7 +1726,6 @@ class WP_Query {
 			case 'post_type':
 			case 'ID':
 			case 'menu_order':
-			case 'comment_count':
 				$orderby_clause = "{$wpdb->posts}.{$orderby}";
 				break;
 			case 'rand':
@@ -2021,8 +2006,8 @@ class WP_Query {
 			$q['posts_per_page'] = 1;
 		}
 
-		if ( ! isset( $q['comments_per_page'] ) || 0 == $q['comments_per_page'] ) {
-			$q['comments_per_page'] = get_option( 'comments_per_page' );
+		if ( ! isset( $q['comments_per_page'] ) ) {
+			$q['comments_per_page'] = 0;
 		}
 
 		if ( $this->is_home && ( empty( $this->query ) || 'true' === $q['preview'] ) && ( 'page' === get_option( 'show_on_front' ) ) && get_option( 'page_on_front' ) ) {
@@ -2386,33 +2371,6 @@ class WP_Query {
 			$whichauthor .= " AND ({$wpdb->posts}.post_author = " . absint( $q['author'] ) . ')';
 		}
 
-		// Matching by comment count.
-		if ( isset( $q['comment_count'] ) ) {
-			// Numeric comment count is converted to array format.
-			if ( is_numeric( $q['comment_count'] ) ) {
-				$q['comment_count'] = array(
-					'value' => (int) $q['comment_count'],
-				);
-			}
-
-			if ( isset( $q['comment_count']['value'] ) ) {
-				$q['comment_count'] = array_merge(
-					array(
-						'compare' => '=',
-					),
-					$q['comment_count']
-				);
-
-				// Fallback for invalid compare operators is '='.
-				$compare_operators = array( '=', '!=', '>', '>=', '<', '<=' );
-				if ( ! in_array( $q['comment_count']['compare'], $compare_operators, true ) ) {
-					$q['comment_count']['compare'] = '=';
-				}
-
-				$where .= $wpdb->prepare( " AND {$wpdb->posts}.comment_count {$q['comment_count']['compare']} %d", $q['comment_count']['value'] );
-			}
-		}
-
 		// MIME-Type stuff for attachment browsing.
 
 		if ( isset( $q['post_mime_type'] ) && '' !== $q['post_mime_type'] ) {
@@ -2537,14 +2495,6 @@ class WP_Query {
 			}
 		} elseif ( isset( $q['has_password'] ) ) {
 			$where .= sprintf( " AND {$wpdb->posts}.post_password %s ''", $q['has_password'] ? '!=' : '=' );
-		}
-
-		if ( ! empty( $q['comment_status'] ) ) {
-			$where .= $wpdb->prepare( " AND {$wpdb->posts}.comment_status = %s ", $q['comment_status'] );
-		}
-
-		if ( ! empty( $q['ping_status'] ) ) {
-			$where .= $wpdb->prepare( " AND {$wpdb->posts}.ping_status = %s ", $q['ping_status'] );
 		}
 
 		$skip_post_status = false;
@@ -3640,37 +3590,37 @@ class WP_Query {
 	 * Iterates current comment index and returns WP_Comment object.
 	 *
 	 * @since WP 2.2.0
+	 * @deprecated 1.0.0 Retraceur fork.
 	 *
 	 * @return WP_Comment Comment object.
 	 */
 	public function next_comment() {
-		++$this->current_comment;
-
-		/** @var WP_Comment */
-		$this->comment = $this->comments[ $this->current_comment ];
-		return $this->comment;
+		_deprecated_function( __METHOD__, '1.0.0', '', true );
+		return null;
 	}
 
 	/**
 	 * Sets up the current comment.
 	 *
 	 * @since WP 2.2.0
-	 *
-	 * @global WP_Comment $comment Global comment object.
+	 * @deprecated 1.0.0 Retraceur fork.
 	 */
 	public function the_comment() {
-		global $comment;
+		_deprecated_function( __METHOD__, '1.0.0', '', true );
 
-		$comment = $this->next_comment();
-
-		if ( 0 == $this->current_comment ) {
-			/**
-			 * Fires once the comment loop is started.
-			 *
-			 * @since WP 2.2.0
-			 */
-			do_action( 'comment_loop_start' );
-		}
+		/**
+		 * Fires once the comment loop is started.
+		 *
+		 * @since WP 2.2.0
+		 * @deprecated 1.0.0 Retraceur fork.
+		 */
+		do_action_deprecated(
+			'comment_loop_start',
+			array(),
+			'1.0.0',
+			'',
+			__( 'WP Comments feature is not supported in Retraceur.' )
+		);
 	}
 
 	/**
@@ -3679,16 +3629,12 @@ class WP_Query {
 	 * Automatically rewinds comments when finished.
 	 *
 	 * @since WP 2.2.0
+	 * @deprecated 1.0.0 Retraceur fork.
 	 *
 	 * @return bool True if comments are available, false if no more comments.
 	 */
 	public function have_comments() {
-		if ( $this->current_comment + 1 < $this->comment_count ) {
-			return true;
-		} elseif ( $this->current_comment + 1 == $this->comment_count ) {
-			$this->rewind_comments();
-		}
-
+		_deprecated_function( __METHOD__, '1.0.0', '', true );
 		return false;
 	}
 
@@ -3696,12 +3642,10 @@ class WP_Query {
 	 * Rewinds the comments, resets the comment index and comment to first.
 	 *
 	 * @since WP 2.2.0
+	 * @deprecated 1.0.0 Retraceur fork.
 	 */
 	public function rewind_comments() {
-		$this->current_comment = -1;
-		if ( $this->comment_count > 0 ) {
-			$this->comment = $this->comments[0];
-		}
+		_deprecated_function( __METHOD__, '1.0.0', '', true );
 	}
 
 	/**
@@ -4216,11 +4160,13 @@ class WP_Query {
 	 * Determines whether the query is for a comments feed.
 	 *
 	 * @since WP 3.1.0
+	 * @deprecated 1.0.0 Retraceur fork.
 	 *
 	 * @return bool Whether the query is for a comments feed.
 	 */
 	public function is_comment_feed() {
-		return (bool) $this->is_comment_feed;
+		_deprecated_function( __METHOD__, '1.0.0', '', true );
+		return false;
 	}
 
 	/**
