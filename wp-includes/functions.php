@@ -1591,7 +1591,7 @@ function do_feed_rss() {
 }
 
 /**
- * Loads either the RSS2 comment feed or the RSS2 posts feed.
+ * Loads the RSS2 posts feed.
  *
  * @since WP 2.1.0
  * @since 1.0.0 Retraceur removed the WP Comments feature & the `$for_comments` parameter.
@@ -1603,7 +1603,7 @@ function do_feed_rss2() {
 }
 
 /**
- * Loads either Atom comment feed or Atom posts feed.
+ * Loads Atom posts feed.
  *
  * @since WP 2.1.0
  * @since 1.0.0 Retraceur removed the WP Comments feature & the `$for_comments` parameter.
@@ -3705,11 +3705,7 @@ function wp_die( $message = '', $title = '', $args = array() ) {
 		 * @param callable $callback Callback function name.
 		 */
 		$callback = apply_filters( 'wp_die_jsonp_handler', '_jsonp_wp_die_handler' );
-	} elseif ( wp_is_xml_request()
-		|| isset( $wp_query ) &&
-			( function_exists( 'is_feed' ) && is_feed()
-			|| function_exists( 'is_comment_feed' ) && is_comment_feed()
-			|| function_exists( 'is_trackback' ) && is_trackback() ) ) {
+	} elseif ( wp_is_xml_request() || isset( $wp_query ) && function_exists( 'is_feed' ) && is_feed() ) {
 		/**
 		 * Filters the callback for killing WordPress execution for XML requests.
 		 *
@@ -6653,7 +6649,7 @@ function _cleanup_header_comment( $str ) {
 }
 
 /**
- * Permanently deletes comments or posts of any type that have held a status
+ * Permanently deletes posts of any type that have held a status
  * of 'trash' for the number of days defined in EMPTY_TRASH_DAYS.
  *
  * The default value of `EMPTY_TRASH_DAYS` is 30 (days).

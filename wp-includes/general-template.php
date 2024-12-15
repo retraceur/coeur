@@ -785,8 +785,6 @@ function bloginfo( $show = '' ) {
  * - 'rdf_url' - The RDF/RSS 1.0 feed URL (/feed/rdf)
  * - 'rss_url' - The RSS 0.92 feed URL (/feed/rss)
  * - 'rss2_url' - The RSS 2.0 feed URL (/feed)
- * - 'comments_atom_url' - The comments Atom feed URL (/comments/feed)
- * - 'comments_rss2_url' - The comments RSS 2.0 feed URL (/comments/feed)
  *
  * Some `$show` values are deprecated and will be removed in future versions.
  * These options will trigger the _deprecated_argument() function.
@@ -843,10 +841,19 @@ function get_bloginfo( $show = '', $filter = 'raw' ) {
 			$output = get_feed_link( 'atom' );
 			break;
 		case 'comments_atom_url':
-			$output = get_feed_link( 'comments_atom' );
-			break;
 		case 'comments_rss2_url':
-			$output = get_feed_link( 'comments_rss2' );
+			_deprecated_argument(
+				__FUNCTION__,
+				'2.2.0',
+				sprintf(
+					/* translators: 1: 'siteurl'/'home' argument, 2: bloginfo() function name. */
+					__( 'The %1$s option is deprecated for the family of %2$s functions.' ),
+					'<code>' . $show . '</code>',
+					'<code>bloginfo()</code>'
+				),
+				true
+			);
+			$output = '';
 			break;
 		case 'stylesheet_url':
 			$output = get_stylesheet_uri();
@@ -2467,8 +2474,7 @@ function delete_get_calendar_cache() {
 /**
  * Displays all of the allowed tags in HTML format with attributes.
  *
- * This is useful for displaying in the comment area, which elements and
- * attributes are supported. As well as any plugins which want to display it.
+ * This is useful for any plugins which want to display it.
  *
  * @since WP 1.0.1
  * @since WP 4.4.0 No longer used in core.
@@ -3100,8 +3106,6 @@ function feed_links( $args = array() ) {
 		'separator' => _x( '&raquo;', 'feed link' ),
 		/* translators: 1: Site title, 2: Separator (raquo). */
 		'feedtitle' => __( '%1$s %2$s Feed' ),
-		/* translators: 1: Site title, 2: Separator (raquo). */
-		'comstitle' => __( '%1$s %2$s Comments Feed' ),
 	);
 
 	$args = wp_parse_args( $args, $defaults );
@@ -3135,23 +3139,24 @@ function feed_links( $args = array() ) {
 	 * Filters whether to display the comments feed link.
 	 *
 	 * @since WP 4.4.0
+	 * @deprecated 1.0.0 Retraceur fork.
 	 *
 	 * @param bool $show Whether to display the comments feed link. Default true.
 	 */
-	if ( apply_filters( 'feed_links_show_comments_feed', true ) ) {
-		printf(
-			'<link rel="alternate" type="%s" title="%s" href="%s" />' . "\n",
-			feed_content_type(),
-			esc_attr( sprintf( $args['comstitle'], get_bloginfo( 'name' ), $args['separator'] ) ),
-			esc_url( get_feed_link( 'comments_' . get_default_feed() ) )
-		);
-	}
+	apply_filters_deprecated(
+		'feed_links_show_comments_feed',
+		array( false ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
 }
 
 /**
  * Displays the links to the extra feeds such as category feeds.
  *
  * @since WP 2.8.0
+ * @since 1.0.0 Retraceur fork removed the code about WP Comments.
  *
  * @param array $args Optional arguments.
  */
@@ -3159,8 +3164,6 @@ function feed_links_extra( $args = array() ) {
 	$defaults = array(
 		/* translators: Separator between site name and feed type in feed links. */
 		'separator'     => _x( '&raquo;', 'feed link' ),
-		/* translators: 1: Site name, 2: Separator (raquo), 3: Post title. */
-		'singletitle'   => __( '%1$s %2$s %3$s Comments Feed' ),
 		/* translators: 1: Site name, 2: Separator (raquo), 3: Category name. */
 		'cattitle'      => __( '%1$s %2$s %3$s Category Feed' ),
 		/* translators: 1: Site name, 2: Separator (raquo), 3: Tag name. */
@@ -3186,43 +3189,7 @@ function feed_links_extra( $args = array() ) {
 	 */
 	$args = apply_filters( 'feed_links_extra_args', $args );
 
-	if ( is_singular() ) {
-		$id   = 0;
-		$post = get_post( $id );
-
-		/** This filter is documented in wp-includes/general-template.php */
-		$show_comments_feed = apply_filters( 'feed_links_show_comments_feed', true );
-
-		/**
-		 * Filters whether to display the post comments feed link.
-		 *
-		 * This filter allows to enable or disable the feed link for a singular post
-		 * in a way that is independent of {@see 'feed_links_show_comments_feed'}
-		 * (which controls the global comments feed). The result of that filter
-		 * is accepted as a parameter.
-		 *
-		 * @since WP 6.1.0
-		 *
-		 * @param bool $show_comments_feed Whether to display the post comments feed link. Defaults to
-		 *                                 the {@see 'feed_links_show_comments_feed'} filter result.
-		 */
-		$show_post_comments_feed = apply_filters( 'feed_links_extra_show_post_comments_feed', $show_comments_feed );
-
-		if ( $show_post_comments_feed && ( comments_open() || pings_open() || $post->comment_count > 0 ) ) {
-			$title = sprintf(
-				$args['singletitle'],
-				get_bloginfo( 'name' ),
-				$args['separator'],
-				the_title_attribute( array( 'echo' => false ) )
-			);
-
-			$feed_link = get_post_comments_feed_link( $post->ID );
-
-			if ( $feed_link ) {
-				$href = $feed_link;
-			}
-		}
-	} elseif ( is_post_type_archive() ) {
+	if ( is_post_type_archive() ) {
 		/**
 		 * Filters whether to display the post type archive feed link.
 		 *
@@ -4988,18 +4955,15 @@ function get_the_generator( $type = '' ) {
 
 		switch ( $current_filter ) {
 			case 'rss2_head':
-			case 'commentsrss2_head':
 				$type = 'rss2';
 				break;
 			case 'rss_head':
-			case 'opml_head':
-				$type = 'comment';
+				$type = 'rss';
 				break;
 			case 'rdf_header':
 				$type = 'rdf';
 				break;
 			case 'atom_head':
-			case 'comments_atom_head':
 			case 'app_head':
 				$type = 'atom';
 				break;
@@ -5022,7 +4986,7 @@ function get_the_generator( $type = '' ) {
 		case 'rdf':
 			$gen = '<admin:generatorAgent rdf:resource="' . sanitize_url( 'https://github.com/retraceur/?v=' . get_bloginfo_rss( 'version' ) ) . '" />';
 			break;
-		case 'comment':
+		case 'rss':
 			$gen = '<!-- generator="Retraceur/' . esc_attr( get_bloginfo( 'version' ) ) . '" -->';
 			break;
 		case 'export':
@@ -5038,7 +5002,7 @@ function get_the_generator( $type = '' ) {
 	 * Possible hook names include:
 	 *
 	 *  - `get_the_generator_atom`
-	 *  - `get_the_generator_comment`
+	 *  - `get_the_generator_rss`
 	 *  - `get_the_generator_export`
 	 *  - `get_the_generator_html`
 	 *  - `get_the_generator_rdf`

@@ -3033,11 +3033,6 @@ function _make_clickable_rel_attr( $url ) {
 		$rel_parts[] = 'nofollow';
 	}
 
-	// Apply "ugc" when in comment context.
-	if ( 'comment_text' === current_filter() ) {
-		$rel_parts[] = 'ugc';
-	}
-
 	$rel = implode( ' ', $rel_parts );
 
 	/**
@@ -4853,15 +4848,11 @@ function sanitize_option( $option, $value ) {
 		case 'medium_large_size_h':
 		case 'large_size_w':
 		case 'large_size_h':
-		case 'comment_max_links':
 		case 'page_on_front':
 		case 'page_for_posts':
 		case 'rss_excerpt_length':
 		case 'default_category':
 		case 'default_link_category':
-		case 'close_comments_days_old':
-		case 'comments_per_page':
-		case 'thread_comments_depth':
 		case 'users_can_register':
 		case 'start_of_week':
 		case 'site_icon':
@@ -4877,14 +4868,6 @@ function sanitize_option( $option, $value ) {
 			}
 			if ( $value < -1 ) {
 				$value = abs( $value );
-			}
-			break;
-
-		case 'default_ping_status':
-		case 'default_comment_status':
-			// Options that if not there have 0 value but need to be something like "closed".
-			if ( '0' === (string) $value || '' === $value ) {
-				$value = 'closed';
 			}
 			break;
 
@@ -4929,13 +4912,6 @@ function sanitize_option( $option, $value ) {
 				$value = strip_tags( $value );
 				$value = wp_kses_data( $value );
 			}
-			break;
-
-		case 'ping_sites':
-			$value = explode( "\n", $value );
-			$value = array_filter( array_map( 'trim', $value ) );
-			$value = array_filter( array_map( 'sanitize_url', $value ) );
-			$value = implode( "\n", $value );
 			break;
 
 		case 'gmt_offset':
@@ -4999,30 +4975,6 @@ function sanitize_option( $option, $value ) {
 			}
 			break;
 
-		case 'limited_email_domains':
-		case 'banned_email_domains':
-			$value = $wpdb->strip_invalid_text_for_column( $wpdb->options, 'option_value', $value );
-			if ( is_wp_error( $value ) ) {
-				$error = $value->get_error_message();
-			} else {
-				if ( ! is_array( $value ) ) {
-					$value = explode( "\n", $value );
-				}
-
-				$domains = array_values( array_filter( array_map( 'trim', $value ) ) );
-				$value   = array();
-
-				foreach ( $domains as $domain ) {
-					if ( ! preg_match( '/(--|\.\.)/', $domain ) && preg_match( '|^([a-zA-Z0-9-\.])+$|', $domain ) ) {
-						$value[] = $domain;
-					}
-				}
-				if ( ! $value ) {
-					$value = '';
-				}
-			}
-			break;
-
 		case 'timezone_string':
 			$allowed_zones = timezone_identifiers_list( DateTimeZone::ALL_WITH_BC );
 			if ( ! in_array( $value, $allowed_zones, true ) && ! empty( $value ) ) {
@@ -5051,19 +5003,6 @@ function sanitize_option( $option, $value ) {
 		case 'default_role':
 			if ( ! get_role( $value ) && get_role( 'subscriber' ) ) {
 				$value = 'subscriber';
-			}
-			break;
-
-		case 'moderation_keys':
-		case 'disallowed_keys':
-			$value = $wpdb->strip_invalid_text_for_column( $wpdb->options, 'option_value', $value );
-			if ( is_wp_error( $value ) ) {
-				$error = $value->get_error_message();
-			} else {
-				$value = explode( "\n", $value );
-				$value = array_filter( array_map( 'trim', $value ) );
-				$value = array_unique( $value );
-				$value = implode( "\n", $value );
 			}
 			break;
 	}

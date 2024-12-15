@@ -327,7 +327,7 @@ add_action( 'login_footer', 'wp_print_footer_scripts', 20 );
 add_action( 'login_init', 'send_frame_options_header', 10, 0 );
 
 // Feed generator tags.
-foreach ( array( 'rss2_head', 'rss_head', 'rdf_header', 'atom_head', 'opml_head', 'app_head' ) as $action ) {
+foreach ( array( 'rss2_head', 'rss_head', 'rdf_header', 'atom_head', 'app_head' ) as $action ) {
 	add_action( $action, 'the_generator' );
 }
 
