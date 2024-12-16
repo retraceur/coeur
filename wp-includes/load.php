@@ -723,9 +723,6 @@ function wp_set_wpdb_vars() {
 		'object_id'        => '%d',
 		'term_order'       => '%d',
 		'ID'               => '%d',
-		'comment_ID'       => '%d',
-		'comment_post_ID'  => '%d',
-		'comment_parent'   => '%d',
 		'user_id'          => '%d',
 		'link_id'          => '%d',
 		'link_owner'       => '%d',
@@ -736,7 +733,6 @@ function wp_set_wpdb_vars() {
 		'post_id'          => '%d',
 		'user_status'      => '%d',
 		'umeta_id'         => '%d',
-		'comment_karma'    => '%d',
 		'comment_count'    => '%d',
 		// Multisite:
 		'active'           => '%d',

@@ -88,29 +88,6 @@ function get_option( $option, $default_value = false ) {
 		return false;
 	}
 
-	/*
-	 * Until a proper _deprecated_option() function can be introduced,
-	 * redirect requests to deprecated keys to the new, correct ones.
-	 */
-	$deprecated_keys = array(
-		'blacklist_keys'    => 'disallowed_keys',
-		'comment_whitelist' => 'comment_previously_approved',
-	);
-
-	if ( isset( $deprecated_keys[ $option ] ) && ! wp_installing() ) {
-		_deprecated_argument(
-			__FUNCTION__,
-			'5.5.0',
-			sprintf(
-				/* translators: 1: Deprecated option key, 2: New option key. */
-				__( 'The "%1$s" option key has been renamed to "%2$s".' ),
-				$option,
-				$deprecated_keys[ $option ]
-			)
-		);
-		return get_option( $deprecated_keys[ $option ], $default_value );
-	}
-
 	/**
 	 * Filters the value of an existing option before it is retrieved.
 	 *
@@ -848,29 +825,6 @@ function update_option( $option, $value, $autoload = null ) {
 		return false;
 	}
 
-	/*
-	 * Until a proper _deprecated_option() function can be introduced,
-	 * redirect requests to deprecated keys to the new, correct ones.
-	 */
-	$deprecated_keys = array(
-		'blacklist_keys'    => 'disallowed_keys',
-		'comment_whitelist' => 'comment_previously_approved',
-	);
-
-	if ( isset( $deprecated_keys[ $option ] ) && ! wp_installing() ) {
-		_deprecated_argument(
-			__FUNCTION__,
-			'5.5.0',
-			sprintf(
-				/* translators: 1: Deprecated option key, 2: New option key. */
-				__( 'The "%1$s" option key has been renamed to "%2$s".' ),
-				$option,
-				$deprecated_keys[ $option ]
-			)
-		);
-		return update_option( $deprecated_keys[ $option ], $value, $autoload );
-	}
-
 	wp_protect_special_option( $option );
 
 	if ( is_object( $value ) ) {
@@ -1071,29 +1025,6 @@ function add_option( $option, $value = '', $deprecated = '', $autoload = null ) 
 
 	if ( empty( $option ) ) {
 		return false;
-	}
-
-	/*
-	 * Until a proper _deprecated_option() function can be introduced,
-	 * redirect requests to deprecated keys to the new, correct ones.
-	 */
-	$deprecated_keys = array(
-		'blacklist_keys'    => 'disallowed_keys',
-		'comment_whitelist' => 'comment_previously_approved',
-	);
-
-	if ( isset( $deprecated_keys[ $option ] ) && ! wp_installing() ) {
-		_deprecated_argument(
-			__FUNCTION__,
-			'5.5.0',
-			sprintf(
-				/* translators: 1: Deprecated option key, 2: New option key. */
-				__( 'The "%1$s" option key has been renamed to "%2$s".' ),
-				$option,
-				$deprecated_keys[ $option ]
-			)
-		);
-		return add_option( $deprecated_keys[ $option ], $value, $deprecated, $autoload );
 	}
 
 	wp_protect_special_option( $option );

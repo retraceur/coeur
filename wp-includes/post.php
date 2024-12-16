@@ -1595,8 +1595,8 @@ function get_post_types( $args = array(), $output = 'names', $operator = 'and' )
  *
  * Post types can support any number of built-in core features such
  * as meta boxes, custom fields, post thumbnails, post statuses,
- * comments, and more. See the `$supports` argument for a complete
- * list of supported features.
+ * and more. See the `$supports` argument for a complete list of
+ * supported features.
  *
  * @since WP 2.9.0
  * @since WP 3.0.0 The `show_ui` argument is now enforced on the new post screen.
@@ -2912,11 +2912,6 @@ function sanitize_post_field( $field, $value, $post_id, $context = 'display' ) {
 			 * post field name. Possible filter names include:
 			 *
 			 *  - `edit_post_ID`
-			 *  - `edit_post_ping_status`
-			 *  - `edit_post_pinged`
-			 *  - `edit_post_to_ping`
-			 *  - `edit_post_comment_count`
-			 *  - `edit_post_comment_status`
 			 *  - `edit_post_guid`
 			 *  - `edit_post_menu_order`
 			 *
@@ -3009,13 +3004,8 @@ function sanitize_post_field( $field, $value, $post_id, $context = 'display' ) {
 			 * post field name minus the `post_` prefix. Possible filter names include:
 			 *
 			 *  - `pre_post_ID`
-			 *  - `pre_post_comment_status`
-			 *  - `pre_post_ping_status`
-			 *  - `pre_post_to_ping`
-			 *  - `pre_post_pinged`
 			 *  - `pre_post_guid`
 			 *  - `pre_post_menu_order`
-			 *  - `pre_post_comment_count`
 			 *
 			 * @since WP 2.3.0
 			 *
@@ -3032,13 +3022,8 @@ function sanitize_post_field( $field, $value, $post_id, $context = 'display' ) {
 			 * field name. Possible filter names include:
 			 *
 			 *  - `ID_pre`
-			 *  - `comment_status_pre`
-			 *  - `ping_status_pre`
-			 *  - `to_ping_pre`
-			 *  - `pinged_pre`
 			 *  - `guid_pre`
 			 *  - `menu_order_pre`
-			 *  - `comment_count_pre`
 			 *
 			 * @since WP 2.3.0
 			 *
@@ -3094,13 +3079,8 @@ function sanitize_post_field( $field, $value, $post_id, $context = 'display' ) {
 			 * field name. Possible filter names include:
 			 *
 			 *  - `post_ID`
-			 *  - `post_comment_status`
-			 *  - `post_ping_status`
-			 *  - `post_to_ping`
-			 *  - `post_pinged`
 			 *  - `post_guid`
 			 *  - `post_menu_order`
-			 *  - `post_comment_count`
 			 *
 			 * @since WP 2.3.0
 			 *
@@ -3585,8 +3565,8 @@ function wp_post_mime_type_where( $post_mime_types, $table_alias = '' ) {
  * Trashes or deletes a post or page.
  *
  * When the post and page is permanently deleted, everything that is tied to
- * it is deleted also. This includes comments, post meta fields, and terms
- * associated with the post.
+ * it is deleted also. This includes post meta fields, and terms associated
+ * with the post.
  *
  * The post or page is moved to Trash instead of permanently deleted unless
  * Trash is disabled, item is already in the Trash, or $force_delete is true.
@@ -4123,8 +4103,7 @@ function wp_get_recent_posts( $args = array(), $output = ARRAY_A ) {
  * If the $postarr parameter has 'ID' set to a value, then post will be updated.
  *
  * You can set the post date manually, by setting the values for 'post_date'
- * and 'post_date_gmt' keys. You can close the comments or open the comments by
- * setting the value for 'comment_status' key.
+ * and 'post_date_gmt' keys.
  *
  * @since WP 1.0.0
  * @since WP 2.6.0 Added the `$wp_error` parameter to allow a WP_Error to be returned on failure.
@@ -4151,17 +4130,9 @@ function wp_get_recent_posts( $args = array(), $output = ARRAY_A ) {
  *     @type string $post_excerpt          The post excerpt. Default empty.
  *     @type string $post_status           The post status. Default 'draft'.
  *     @type string $post_type             The post type. Default 'post'.
- *     @type string $comment_status        Whether the post can accept comments. Accepts 'open' or 'closed'.
- *                                         Default is the value of 'default_comment_status' option.
- *     @type string $ping_status           Whether the post can accept pings. Accepts 'open' or 'closed'.
- *                                         Default is the value of 'default_ping_status' option.
  *     @type string $post_password         The password to access the post. Default empty.
  *     @type string $post_name             The post name. Default is the sanitized post title
  *                                         when creating a new post.
- *     @type string $to_ping               Space or carriage return-separated list of URLs to ping.
- *                                         Default empty.
- *     @type string $pinged                Space or carriage return-separated list of URLs that have
- *                                         been pinged. Default empty.
  *     @type int    $post_parent           Set this for the post it belongs to, if any. Default 0.
  *     @type int    $menu_order            The order the post should be displayed in. Default 0.
  *     @type string $post_mime_type        The mime type of the post. Default empty.
@@ -4202,8 +4173,8 @@ function wp_insert_post( $postarr, $wp_error = false, $fire_after_hooks = true )
 		'post_excerpt'          => '',
 		'post_status'           => 'draft',
 		'post_type'             => 'post',
-		'comment_status'        => '',
-		'ping_status'           => '',
+		'comment_status'        => 'closed',
+		'ping_status'           => 'closed',
 		'post_password'         => '',
 		'to_ping'               => '',
 		'pinged'                => '',
@@ -4400,22 +4371,14 @@ function wp_insert_post( $postarr, $wp_error = false, $fire_after_hooks = true )
 	}
 
 	// Comment status.
-	if ( empty( $postarr['comment_status'] ) ) {
-		if ( $update ) {
-			$comment_status = 'closed';
-		} else {
-			$comment_status = get_default_comment_status( $post_type );
-		}
-	} else {
-		$comment_status = $postarr['comment_status'];
-	}
+	$comment_status = 'closed';
 
 	// These variables are needed by compact() later.
 	$post_content_filtered = $postarr['post_content_filtered'];
 	$post_author           = isset( $postarr['post_author'] ) ? $postarr['post_author'] : $user_id;
-	$ping_status           = empty( $postarr['ping_status'] ) ? get_default_comment_status( $post_type, 'pingback' ) : $postarr['ping_status'];
-	$to_ping               = isset( $postarr['to_ping'] ) ? sanitize_trackback_urls( $postarr['to_ping'] ) : '';
-	$pinged                = isset( $postarr['pinged'] ) ? $postarr['pinged'] : '';
+	$ping_status           = 'closed';
+	$to_ping               = '';
+	$pinged                = '';
 	$import_id             = isset( $postarr['import_id'] ) ? $postarr['import_id'] : 0;
 
 	/*
@@ -5588,56 +5551,6 @@ function wp_after_insert_post( $post, $update, $post_before ) {
 	do_action( 'wp_after_insert_post', $post_id, $post, $update, $post_before );
 }
 
-//
-// Comment, trackback, and pingback functions.
-//
-
-/**
- * Adds a URL to those already pinged.
- *
- * @since WP 1.5.0
- * @since WP 4.7.0 `$post` can be a WP_Post object.
- * @since WP 4.7.0 `$uri` can be an array of URIs.
- *
- * @global wpdb $wpdb WordPress database abstraction object.
- *
- * @param int|WP_Post  $post Post ID or post object.
- * @param string|array $uri  Ping URI or array of URIs.
- * @return int|false How many rows were updated.
- */
-function add_ping( $post, $uri ) {
-	global $wpdb;
-
-	$post = get_post( $post );
-
-	if ( ! $post ) {
-		return false;
-	}
-
-	$pung = trim( $post->pinged );
-	$pung = preg_split( '/\s/', $pung );
-
-	if ( is_array( $uri ) ) {
-		$pung = array_merge( $pung, $uri );
-	} else {
-		$pung[] = $uri;
-	}
-	$new = implode( "\n", $pung );
-
-	/**
-	 * Filters the new ping URL to add for the given post.
-	 *
-	 * @since WP 2.0.0
-	 *
-	 * @param string $new New ping URL to add.
-	 */
-	$new = apply_filters( 'add_ping', $new );
-
-	$return = $wpdb->update( $wpdb->posts, array( 'pinged' => $new ), array( 'ID' => $post->ID ) );
-	clean_post_cache( $post->ID );
-	return $return;
-}
-
 /**
  * Retrieves enclosures already enclosed for a post.
  *
@@ -5672,36 +5585,6 @@ function get_enclosed( $post_id ) {
 	 * @param int      $post_id Post ID.
 	 */
 	return apply_filters( 'get_enclosed', $pung, $post_id );
-}
-
-/**
- * Retrieves URLs already pinged for a post.
- *
- * @since WP 1.5.0
- *
- * @since WP 4.7.0 `$post` can be a WP_Post object.
- *
- * @param int|WP_Post $post Post ID or object.
- * @return string[]|false Array of URLs already pinged for the given post, false if the post is not found.
- */
-function get_pung( $post ) {
-	$post = get_post( $post );
-
-	if ( ! $post ) {
-		return false;
-	}
-
-	$pung = trim( $post->pinged );
-	$pung = preg_split( '/\s/', $pung );
-
-	/**
-	 * Filters the list of already-pinged URLs for the given post.
-	 *
-	 * @since WP 2.0.0
-	 *
-	 * @param string[] $pung Array of URLs already pinged for the given post.
-	 */
-	return apply_filters( 'get_pung', $pung );
 }
 
 /**
@@ -6050,7 +5933,7 @@ function get_page_uri( $page = 0 ) {
  *     @type string       $sort_order   How to sort retrieved pages. Accepts 'ASC', 'DESC'. Default 'ASC'.
  *     @type string       $sort_column  What columns to sort pages by, comma-separated. Accepts 'post_author',
  *                                      'post_date', 'post_title', 'post_name', 'post_modified', 'menu_order',
- *                                      'post_modified_gmt', 'post_parent', 'ID', 'rand', 'comment_count'.
+ *                                      'post_modified_gmt', 'post_parent', 'ID', 'rand'.
  *                                      'post_' can be omitted for any values that start with it.
  *                                      Default 'post_title'.
  *     @type bool         $hierarchical Whether to return pages hierarchically. If false in conjunction with
@@ -6296,10 +6179,6 @@ function is_local_attachment( $url ) {
  * You can set the dates for the attachment manually by setting the 'post_date'
  * and 'post_date_gmt' keys' values.
  *
- * By default, the comments will use the default settings for whether the
- * comments are allowed. You can close them manually or keep them open by
- * setting the value for the 'comment_status' key.
- *
  * @since WP 2.0.0
  * @since WP 4.7.0 Added the `$wp_error` parameter to allow a WP_Error to be returned on failure.
  * @since WP 5.6.0 Added the `$fire_after_hooks` parameter.
@@ -6334,7 +6213,7 @@ function wp_insert_attachment( $args, $file = false, $parent_post_id = 0, $wp_er
  * Trashes or deletes an attachment.
  *
  * When an attachment is permanently deleted, the file will also be removed.
- * Deletion removes all post meta fields, taxonomy, comments, etc. associated
+ * Deletion removes all post meta fields, taxonomy, etc. associated
  * with the attachment (except the main post).
  *
  * The attachment is moved to the Trash instead of permanently deleted unless Trash
@@ -7628,36 +7507,6 @@ function _transition_post_status( $new_status, $old_status, $post ) {
 function _future_post_hook( $deprecated, $post ) {
 	wp_clear_scheduled_hook( 'publish_future_post', array( $post->ID ) );
 	wp_schedule_single_event( strtotime( get_gmt_from_date( $post->post_date ) . ' GMT' ), 'publish_future_post', array( $post->ID ) );
-}
-
-/**
- * Hook to schedule pings and enclosures when a post is published.
- *
- * Uses WP_IMPORTING constants.
- *
- * @since WP 2.3.0
- * @access private
- *
- * @param int $post_id The ID of the post being published.
- */
-function _publish_post_hook( $post_id ) {
-	if ( defined( 'WP_IMPORTING' ) ) {
-		return;
-	}
-
-	if ( get_option( 'default_pingback_flag' ) ) {
-		add_post_meta( $post_id, '_pingme', '1', true );
-	}
-	add_post_meta( $post_id, '_encloseme', '1', true );
-
-	$to_ping = get_to_ping( $post_id );
-	if ( ! empty( $to_ping ) ) {
-		add_post_meta( $post_id, '_trackbackme', '1' );
-	}
-
-	if ( ! wp_next_scheduled( 'do_pings' ) ) {
-		wp_schedule_single_event( time(), 'do_pings' );
-	}
 }
 
 /**
