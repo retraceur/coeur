@@ -2265,23 +2265,17 @@ function wp_filter_nohtml_kses( $data ) {
  * Adds all KSES input form content filters.
  *
  * All hooks have default priority. The `wp_filter_kses()` function is added to
- * the 'pre_comment_content' and 'title_save_pre' hooks.
+ * the 'title_save_pre' hooks.
  *
  * The `wp_filter_post_kses()` function is added to the 'content_save_pre',
  * 'excerpt_save_pre', and 'content_filtered_save_pre' hooks.
  *
  * @since WP 2.0.0
+ * @since 1.0.0 Retraceur fork removed comment filters.
  */
 function kses_init_filters() {
 	// Normal filtering.
 	add_filter( 'title_save_pre', 'wp_filter_kses' );
-
-	// Comment filtering.
-	if ( current_user_can( 'unfiltered_html' ) ) {
-		add_filter( 'pre_comment_content', 'wp_filter_post_kses' );
-	} else {
-		add_filter( 'pre_comment_content', 'wp_filter_kses' );
-	}
 
 	// Global Styles filtering: Global Styles filters should be executed before normal post_kses HTML filters.
 	add_filter( 'content_save_pre', 'wp_filter_global_styles_post', 9 );
@@ -2304,14 +2298,11 @@ function kses_init_filters() {
  * hook (priority is also default).
  *
  * @since WP 2.0.6
+ * @since 1.0.0 Retraceur fork removed comment filters.
  */
 function kses_remove_filters() {
 	// Normal filtering.
 	remove_filter( 'title_save_pre', 'wp_filter_kses' );
-
-	// Comment filtering.
-	remove_filter( 'pre_comment_content', 'wp_filter_post_kses' );
-	remove_filter( 'pre_comment_content', 'wp_filter_kses' );
 
 	// Global Styles filtering.
 	remove_filter( 'content_save_pre', 'wp_filter_global_styles_post', 9 );
