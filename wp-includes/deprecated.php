@@ -11063,3 +11063,357 @@ function post_comments_feed_link( $link_text = '', $post_id = '', $feed = '' ) {
 		__( 'WP Comments feature is not supported in Retraceur.' )
 	);
 }
+
+/**
+ * Retrieves the permalink for the search results comments feed.
+ *
+ * @since WP 2.5.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string $search_query Optional. Search query. Default empty.
+ * @param string $feed         Optional. Feed type. Possible values include 'rss2', 'atom'.
+ *                             Default is the value of get_default_feed().
+ * @return string The comments feed search results permalink.
+ */
+function get_search_comments_feed_link( $search_query = '', $feed = '' ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/** This filter is documented in wp-includes/link-template.php */
+	apply_filters_deprecated(
+		'search_feed_link',
+		array( '', '', '' ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return '';
+}
+
+/**
+ * Retrieves the comments page number link.
+ *
+ * @since WP 2.7.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int $pagenum  Optional. Page number. Default 1.
+ * @param int $max_page Optional. The maximum number of comment pages. Default 0.
+ * @return string The comments page number link URL.
+ */
+function get_comments_pagenum_link( $pagenum = 1, $max_page = 0 ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the comments page number link for the current request.
+	 *
+	 * @since WP 2.7.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string $result The comments page number link.
+	 */
+	apply_filters_deprecated(
+		'get_comments_pagenum_link',
+		array( '' ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return '';
+}
+
+/**
+ * Retrieves the link to the next comments page.
+ *
+ * @since WP 2.7.1
+ * @since WP 6.7.0 Added the `page` parameter.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string   $label    Optional. Label for link text. Default empty.
+ * @param int      $max_page Optional. Max page. Default 0.
+ * @param int|null $page     Optional. Page number. Default null.
+ * @return string|void HTML-formatted link for the next page of comments.
+ */
+function get_next_comments_link( $label = '', $max_page = 0, $page = null ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the anchor tag attributes for the next comments page link.
+	 *
+	 * @since WP 2.7.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string $attributes Attributes for the anchor tag.
+	 */
+	apply_filters_deprecated(
+		'next_comments_link_attributes',
+		array( '' ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return '';
+}
+
+/**
+ * Displays the link to the next comments page.
+ *
+ * @since WP 2.7.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string $label    Optional. Label for link text. Default empty.
+ * @param int    $max_page Optional. Max page. Default 0.
+ */
+function next_comments_link( $label = '', $max_page = 0 ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Retrieves the link to the previous comments page.
+ *
+ * @since WP 2.7.1
+ * @since WP 6.7.0 Added the `page` parameter.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string   $label Optional. Label for comments link text. Default empty.
+ * @param int|null $page  Optional. Page number. Default null.
+ * @return string|void HTML-formatted link for the previous page of comments.
+ */
+function get_previous_comments_link( $label = '', $page = null ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the anchor tag attributes for the previous comments page link.
+	 *
+	 * @since WP 2.7.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string $attributes Attributes for the anchor tag.
+	 */
+	apply_filters_deprecated(
+		'previous_comments_link_attributes',
+		array( '' ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return '';
+}
+
+/**
+ * Displays the link to the previous comments page.
+ *
+ * @since WP 2.7.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string $label Optional. Label for comments link text. Default empty.
+ */
+function previous_comments_link( $label = '' ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Displays or retrieves pagination links for the comments on the current post.
+ *
+ * @see paginate_links()
+ * @since WP 2.7.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string|array $args Optional args. See paginate_links(). Default empty array.
+ * @return void|string|array Void if 'echo' argument is true and 'type' is not an array,
+ *                           or if the query is not for an existing single post of any post type.
+ *                           Otherwise, markup for comment page links or array of comment page links,
+ *                           depending on 'type' argument.
+ */
+function paginate_comments_links( $args = array() ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Retrieves navigation to next/previous set of comments, when applicable.
+ *
+ * @since WP 4.4.0
+ * @since WP 5.3.0 Added the `aria_label` parameter.
+ * @since WP 5.5.0 Added the `class` parameter.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param array $args {
+ *     Optional. Default comments navigation arguments.
+ *
+ *     @type string $prev_text          Anchor text to display in the previous comments link.
+ *                                      Default 'Older comments'.
+ *     @type string $next_text          Anchor text to display in the next comments link.
+ *                                      Default 'Newer comments'.
+ *     @type string $screen_reader_text Screen reader text for the nav element. Default 'Comments navigation'.
+ *     @type string $aria_label         ARIA label text for the nav element. Default 'Comments'.
+ *     @type string $class              Custom class for the nav element. Default 'comment-navigation'.
+ * }
+ * @return string Markup for comments links.
+ */
+function get_the_comments_navigation( $args = array() ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return '';
+}
+
+/**
+ * Displays navigation to next/previous set of comments, when applicable.
+ *
+ * @since WP 4.4.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param array $args See get_the_comments_navigation() for available arguments. Default empty array.
+ */
+function the_comments_navigation( $args = array() ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Retrieves a paginated navigation to next/previous set of comments, when applicable.
+ *
+ * @since WP 4.4.0
+ * @since WP 5.3.0 Added the `aria_label` parameter.
+ * @since WP 5.5.0 Added the `class` parameter.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @see paginate_comments_links()
+ *
+ * @param array $args {
+ *     Optional. Default pagination arguments.
+ *
+ *     @type string $screen_reader_text Screen reader text for the nav element. Default 'Comments pagination'.
+ *     @type string $aria_label         ARIA label text for the nav element. Default 'Comments pagination'.
+ *     @type string $class              Custom class for the nav element. Default 'comments-pagination'.
+ * }
+ * @return string Markup for pagination links.
+ */
+function get_the_comments_pagination( $args = array() ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return '';
+}
+
+/**
+ * Displays a paginated navigation to next/previous set of comments, when applicable.
+ *
+ * @since WP 4.4.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param array $args See get_the_comments_pagination() for available arguments. Default empty array.
+ */
+function the_comments_pagination( $args = array() ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Check if this comment type allows avatars to be retrieved.
+ *
+ * @since WP 5.1.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string $comment_type Comment type to check.
+ * @return bool Whether the comment type is allowed for retrieving avatars.
+ */
+function is_avatar_comment_type( $comment_type ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the list of allowed comment types for retrieving avatars.
+	 *
+	 * @since WP 3.0.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param array $types An array of content types. Default only contains 'comment'.
+	 */
+	apply_filters_deprecated(
+		'get_avatar_comment_types',
+		array( array() ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return false;
+}
+
+/**
+ * Adds a URL to those already pinged.
+ *
+ * @since WP 1.5.0
+ * @since WP 4.7.0 `$post` can be a WP_Post object.
+ * @since WP 4.7.0 `$uri` can be an array of URIs.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int|WP_Post  $post Post ID or post object.
+ * @param string|array $uri  Ping URI or array of URIs.
+ * @return int|false How many rows were updated.
+ */
+function add_ping( $post, $uri ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the new ping URL to add for the given post.
+	 *
+	 * @since WP 2.0.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string $new New ping URL to add.
+	 */
+	apply_filters_deprecated(
+		'add_ping',
+		array( '' ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return false;
+}
+
+/**
+ * Retrieves URLs already pinged for a post.
+ *
+ * @since WP 1.5.0
+ * @since WP 4.7.0 `$post` can be a WP_Post object.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int|WP_Post $post Post ID or object.
+ * @return string[]|false Array of URLs already pinged for the given post, false if the post is not found.
+ */
+function get_pung( $post ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the list of already-pinged URLs for the given post.
+	 *
+	 * @since WP 2.0.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string[] $pung Array of URLs already pinged for the given post.
+	 */
+	apply_filters_deprecated(
+		'get_pung',
+		array( array() ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return false;
+}
+
+/**
+ * Hook to schedule pings and enclosures when a post is published.
+ *
+ * Uses WP_IMPORTING constants.
+ *
+ * @since WP 2.3.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @access private
+ *
+ * @param int $post_id The ID of the post being published.
+ */
+function _publish_post_hook( $post_id ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}

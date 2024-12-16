@@ -1120,42 +1120,9 @@ function get_search_feed_link( $search_query = '', $feed = '' ) {
 	 *
 	 * @param string $link Search feed link.
 	 * @param string $feed Feed type. Possible values include 'rss2', 'atom'.
-	 * @param string $type The search type. One of 'posts' or 'comments'.
+	 * @param string $type The search type. One of 'posts'.
 	 */
 	return apply_filters( 'search_feed_link', $link, $feed, 'posts' );
-}
-
-/**
- * Retrieves the permalink for the search results comments feed.
- *
- * @since WP 2.5.0
- *
- * @global WP_Rewrite $wp_rewrite WordPress rewrite component.
- *
- * @param string $search_query Optional. Search query. Default empty.
- * @param string $feed         Optional. Feed type. Possible values include 'rss2', 'atom'.
- *                             Default is the value of get_default_feed().
- * @return string The comments feed search results permalink.
- */
-function get_search_comments_feed_link( $search_query = '', $feed = '' ) {
-	global $wp_rewrite;
-
-	if ( empty( $feed ) ) {
-		$feed = get_default_feed();
-	}
-
-	$link = get_search_feed_link( $search_query, $feed );
-
-	$permastruct = $wp_rewrite->get_search_permastruct();
-
-	if ( empty( $permastruct ) ) {
-		$link = add_query_arg( 'feed', 'comments-' . $feed, $link );
-	} else {
-		$link = add_query_arg( 'withcomments', 1, $link );
-	}
-
-	/** This filter is documented in wp-includes/link-template.php */
-	return apply_filters( 'search_feed_link', $link, $feed, 'comments' );
 }
 
 /**
@@ -2791,364 +2758,6 @@ function _navigation_markup( $links, $css_class = 'posts-navigation', $screen_re
 }
 
 /**
- * Retrieves the comments page number link.
- *
- * @since WP 2.7.0
- *
- * @global WP_Rewrite $wp_rewrite WordPress rewrite component.
- *
- * @param int $pagenum  Optional. Page number. Default 1.
- * @param int $max_page Optional. The maximum number of comment pages. Default 0.
- * @return string The comments page number link URL.
- */
-function get_comments_pagenum_link( $pagenum = 1, $max_page = 0 ) {
-	global $wp_rewrite;
-
-	$pagenum  = (int) $pagenum;
-	$max_page = (int) $max_page;
-
-	$result = get_permalink();
-
-	if ( 'newest' === get_option( 'default_comments_page' ) ) {
-		if ( $pagenum !== $max_page ) {
-			if ( $wp_rewrite->using_permalinks() ) {
-				$result = user_trailingslashit( trailingslashit( $result ) . $wp_rewrite->comments_pagination_base . '-' . $pagenum, 'commentpaged' );
-			} else {
-				$result = add_query_arg( 'cpage', $pagenum, $result );
-			}
-		}
-	} elseif ( $pagenum > 1 ) {
-		if ( $wp_rewrite->using_permalinks() ) {
-			$result = user_trailingslashit( trailingslashit( $result ) . $wp_rewrite->comments_pagination_base . '-' . $pagenum, 'commentpaged' );
-		} else {
-			$result = add_query_arg( 'cpage', $pagenum, $result );
-		}
-	}
-
-	$result .= '#comments';
-
-	/**
-	 * Filters the comments page number link for the current request.
-	 *
-	 * @since WP 2.7.0
-	 *
-	 * @param string $result The comments page number link.
-	 */
-	return apply_filters( 'get_comments_pagenum_link', $result );
-}
-
-/**
- * Retrieves the link to the next comments page.
- *
- * @since WP 2.7.1
- * @since WP 6.7.0 Added the `page` parameter.
- *
- * @global WP_Query $wp_query WordPress Query object.
- *
- * @param string   $label    Optional. Label for link text. Default empty.
- * @param int      $max_page Optional. Max page. Default 0.
- * @param int|null $page     Optional. Page number. Default null.
- * @return string|void HTML-formatted link for the next page of comments.
- */
-function get_next_comments_link( $label = '', $max_page = 0, $page = null ) {
-	global $wp_query;
-
-	if ( ! is_singular() ) {
-		return;
-	}
-
-	if ( is_null( $page ) ) {
-		$page = get_query_var( 'cpage' );
-	}
-
-	if ( ! $page ) {
-		$page = 1;
-	}
-
-	$next_page = (int) $page + 1;
-
-	if ( empty( $max_page ) ) {
-		$max_page = $wp_query->max_num_comment_pages;
-	}
-
-	if ( empty( $max_page ) ) {
-		$max_page = get_comment_pages_count();
-	}
-
-	if ( $next_page > $max_page ) {
-		return;
-	}
-
-	if ( empty( $label ) ) {
-		$label = __( 'Newer Comments &raquo;' );
-	}
-
-	/**
-	 * Filters the anchor tag attributes for the next comments page link.
-	 *
-	 * @since WP 2.7.0
-	 *
-	 * @param string $attributes Attributes for the anchor tag.
-	 */
-	$attr = apply_filters( 'next_comments_link_attributes', '' );
-
-	return sprintf(
-		'<a href="%1$s" %2$s>%3$s</a>',
-		esc_url( get_comments_pagenum_link( $next_page, $max_page ) ),
-		$attr,
-		preg_replace( '/&([^#])(?![a-z]{1,8};)/i', '&#038;$1', $label )
-	);
-}
-
-/**
- * Displays the link to the next comments page.
- *
- * @since WP 2.7.0
- *
- * @param string $label    Optional. Label for link text. Default empty.
- * @param int    $max_page Optional. Max page. Default 0.
- */
-function next_comments_link( $label = '', $max_page = 0 ) {
-	echo get_next_comments_link( $label, $max_page );
-}
-
-/**
- * Retrieves the link to the previous comments page.
- *
- * @since WP 2.7.1
- * @since WP 6.7.0 Added the `page` parameter.
- *
- * @param string   $label Optional. Label for comments link text. Default empty.
- * @param int|null $page  Optional. Page number. Default null.
- * @return string|void HTML-formatted link for the previous page of comments.
- */
-function get_previous_comments_link( $label = '', $page = null ) {
-	if ( ! is_singular() ) {
-		return;
-	}
-
-	if ( is_null( $page ) ) {
-		$page = get_query_var( 'cpage' );
-	}
-
-	if ( (int) $page <= 1 ) {
-		return;
-	}
-
-	$previous_page = (int) $page - 1;
-
-	if ( empty( $label ) ) {
-		$label = __( '&laquo; Older Comments' );
-	}
-
-	/**
-	 * Filters the anchor tag attributes for the previous comments page link.
-	 *
-	 * @since WP 2.7.0
-	 *
-	 * @param string $attributes Attributes for the anchor tag.
-	 */
-	$attr = apply_filters( 'previous_comments_link_attributes', '' );
-
-	return sprintf(
-		'<a href="%1$s" %2$s>%3$s</a>',
-		esc_url( get_comments_pagenum_link( $previous_page ) ),
-		$attr,
-		preg_replace( '/&([^#])(?![a-z]{1,8};)/i', '&#038;$1', $label )
-	);
-}
-
-/**
- * Displays the link to the previous comments page.
- *
- * @since WP 2.7.0
- *
- * @param string $label Optional. Label for comments link text. Default empty.
- */
-function previous_comments_link( $label = '' ) {
-	echo get_previous_comments_link( $label );
-}
-
-/**
- * Displays or retrieves pagination links for the comments on the current post.
- *
- * @see paginate_links()
- * @since WP 2.7.0
- *
- * @global WP_Rewrite $wp_rewrite WordPress rewrite component.
- *
- * @param string|array $args Optional args. See paginate_links(). Default empty array.
- * @return void|string|array Void if 'echo' argument is true and 'type' is not an array,
- *                           or if the query is not for an existing single post of any post type.
- *                           Otherwise, markup for comment page links or array of comment page links,
- *                           depending on 'type' argument.
- */
-function paginate_comments_links( $args = array() ) {
-	global $wp_rewrite;
-
-	if ( ! is_singular() ) {
-		return;
-	}
-
-	$page = get_query_var( 'cpage' );
-	if ( ! $page ) {
-		$page = 1;
-	}
-	$max_page = get_comment_pages_count();
-	$defaults = array(
-		'base'         => add_query_arg( 'cpage', '%#%' ),
-		'format'       => '',
-		'total'        => $max_page,
-		'current'      => $page,
-		'echo'         => true,
-		'type'         => 'plain',
-		'add_fragment' => '#comments',
-	);
-	if ( $wp_rewrite->using_permalinks() ) {
-		$defaults['base'] = user_trailingslashit( trailingslashit( get_permalink() ) . $wp_rewrite->comments_pagination_base . '-%#%', 'commentpaged' );
-	}
-
-	$args       = wp_parse_args( $args, $defaults );
-	$page_links = paginate_links( $args );
-
-	if ( $args['echo'] && 'array' !== $args['type'] ) {
-		echo $page_links;
-	} else {
-		return $page_links;
-	}
-}
-
-/**
- * Retrieves navigation to next/previous set of comments, when applicable.
- *
- * @since WP 4.4.0
- * @since WP 5.3.0 Added the `aria_label` parameter.
- * @since WP 5.5.0 Added the `class` parameter.
- *
- * @param array $args {
- *     Optional. Default comments navigation arguments.
- *
- *     @type string $prev_text          Anchor text to display in the previous comments link.
- *                                      Default 'Older comments'.
- *     @type string $next_text          Anchor text to display in the next comments link.
- *                                      Default 'Newer comments'.
- *     @type string $screen_reader_text Screen reader text for the nav element. Default 'Comments navigation'.
- *     @type string $aria_label         ARIA label text for the nav element. Default 'Comments'.
- *     @type string $class              Custom class for the nav element. Default 'comment-navigation'.
- * }
- * @return string Markup for comments links.
- */
-function get_the_comments_navigation( $args = array() ) {
-	$navigation = '';
-
-	// Are there comments to navigate through?
-	if ( get_comment_pages_count() > 1 ) {
-		// Make sure the nav element has an aria-label attribute: fallback to the screen reader text.
-		if ( ! empty( $args['screen_reader_text'] ) && empty( $args['aria_label'] ) ) {
-			$args['aria_label'] = $args['screen_reader_text'];
-		}
-
-		$args = wp_parse_args(
-			$args,
-			array(
-				'prev_text'          => __( 'Older comments' ),
-				'next_text'          => __( 'Newer comments' ),
-				'screen_reader_text' => __( 'Comments navigation' ),
-				'aria_label'         => __( 'Comments' ),
-				'class'              => 'comment-navigation',
-			)
-		);
-
-		$prev_link = get_previous_comments_link( $args['prev_text'] );
-		$next_link = get_next_comments_link( $args['next_text'] );
-
-		if ( $prev_link ) {
-			$navigation .= '<div class="nav-previous">' . $prev_link . '</div>';
-		}
-
-		if ( $next_link ) {
-			$navigation .= '<div class="nav-next">' . $next_link . '</div>';
-		}
-
-		$navigation = _navigation_markup( $navigation, $args['class'], $args['screen_reader_text'], $args['aria_label'] );
-	}
-
-	return $navigation;
-}
-
-/**
- * Displays navigation to next/previous set of comments, when applicable.
- *
- * @since WP 4.4.0
- *
- * @param array $args See get_the_comments_navigation() for available arguments. Default empty array.
- */
-function the_comments_navigation( $args = array() ) {
-	echo get_the_comments_navigation( $args );
-}
-
-/**
- * Retrieves a paginated navigation to next/previous set of comments, when applicable.
- *
- * @since WP 4.4.0
- * @since WP 5.3.0 Added the `aria_label` parameter.
- * @since WP 5.5.0 Added the `class` parameter.
- *
- * @see paginate_comments_links()
- *
- * @param array $args {
- *     Optional. Default pagination arguments.
- *
- *     @type string $screen_reader_text Screen reader text for the nav element. Default 'Comments pagination'.
- *     @type string $aria_label         ARIA label text for the nav element. Default 'Comments pagination'.
- *     @type string $class              Custom class for the nav element. Default 'comments-pagination'.
- * }
- * @return string Markup for pagination links.
- */
-function get_the_comments_pagination( $args = array() ) {
-	$navigation = '';
-
-	// Make sure the nav element has an aria-label attribute: fallback to the screen reader text.
-	if ( ! empty( $args['screen_reader_text'] ) && empty( $args['aria_label'] ) ) {
-		$args['aria_label'] = $args['screen_reader_text'];
-	}
-
-	$args         = wp_parse_args(
-		$args,
-		array(
-			'screen_reader_text' => __( 'Comments pagination' ),
-			'aria_label'         => __( 'Comments pagination' ),
-			'class'              => 'comments-pagination',
-		)
-	);
-	$args['echo'] = false;
-
-	// Make sure we get a string back. Plain is the next best thing.
-	if ( isset( $args['type'] ) && 'array' === $args['type'] ) {
-		$args['type'] = 'plain';
-	}
-
-	$links = paginate_comments_links( $args );
-
-	if ( $links ) {
-		$navigation = _navigation_markup( $links, $args['class'], $args['screen_reader_text'], $args['aria_label'] );
-	}
-
-	return $navigation;
-}
-
-/**
- * Displays a paginated navigation to next/previous set of comments, when applicable.
- *
- * @since WP 4.4.0
- *
- * @param array $args See get_the_comments_pagination() for available arguments. Default empty array.
- */
-function the_comments_pagination( $args = array() ) {
-	echo get_the_comments_pagination( $args );
-}
-
-/**
  * Retrieves the URL for the current site where the front end is accessible.
  *
  * Returns the 'home' option with the appropriate protocol. The protocol will be 'https'
@@ -3812,11 +3421,6 @@ function wp_get_canonical_url( $post = null ) {
 				$canonical_url = trailingslashit( $canonical_url ) . user_trailingslashit( $page, 'single_paged' );
 			}
 		}
-
-		$cpage = get_query_var( 'cpage', 0 );
-		if ( $cpage ) {
-			$canonical_url = get_comments_pagenum_link( $cpage );
-		}
 	}
 
 	/**
@@ -4022,7 +3626,7 @@ function the_shortlink( $text = '', $title = '', $before = '', $after = '' ) {
  * @since WP 4.2.0
  *
  * @param mixed $id_or_email The avatar to retrieve a URL for. Accepts a user ID, Gravatar MD5 hash,
- *                           user email, WP_User object, WP_Post object, or WP_Comment object.
+ *                           user email, WP_User object, or WP_Post object object.
  * @param array $args {
  *     Optional. Arguments to use instead of the default arguments.
  *
@@ -4060,27 +3664,6 @@ function get_avatar_url( $id_or_email, $args = null ) {
 }
 
 /**
- * Check if this comment type allows avatars to be retrieved.
- *
- * @since WP 5.1.0
- *
- * @param string $comment_type Comment type to check.
- * @return bool Whether the comment type is allowed for retrieving avatars.
- */
-function is_avatar_comment_type( $comment_type ) {
-	/**
-	 * Filters the list of allowed comment types for retrieving avatars.
-	 *
-	 * @since WP 3.0.0
-	 *
-	 * @param array $types An array of content types. Default only contains 'comment'.
-	 */
-	$allowed_comment_types = apply_filters( 'get_avatar_comment_types', array( 'comment' ) );
-
-	return in_array( $comment_type, (array) $allowed_comment_types, true );
-}
-
-/**
  * Retrieves default data about the avatar.
  *
  * @since WP 4.2.0
@@ -4088,7 +3671,7 @@ function is_avatar_comment_type( $comment_type ) {
  * @since 1.0.0 Retraceur uses Libravatar.
  *
  * @param mixed $id_or_email The avatar to retrieve. Accepts a user ID, Gravatar MD5 hash,
- *                           user email, WP_User object, WP_Post object, or WP_Comment object.
+ *                           user email, WP_User object, or WP_Post object.
  * @param array $args {
  *     Optional. Arguments to use instead of the default arguments.
  *
@@ -4205,7 +3788,7 @@ function get_avatar_data( $id_or_email, $args = null ) {
 	 *
 	 * @param array $args        Arguments passed to get_avatar_data(), after processing.
 	 * @param mixed $id_or_email The avatar to retrieve. Accepts a user ID, Gravatar MD5 hash,
-	 *                           user email, WP_User object, WP_Post object, or WP_Comment object.
+	 *                           user email, WP_User object, or WP_Post object.
 	 */
 	$args = apply_filters( 'pre_get_avatar_data', $args, $id_or_email );
 
@@ -4218,10 +3801,6 @@ function get_avatar_data( $id_or_email, $args = null ) {
 	$user       = false;
 	$email      = false;
 
-	if ( is_object( $id_or_email ) && isset( $id_or_email->comment_ID ) ) {
-		$id_or_email = get_comment( $id_or_email );
-	}
-
 	// Process the user identifier.
 	if ( is_numeric( $id_or_email ) ) {
 		$user = get_user_by( 'id', absint( $id_or_email ) );
@@ -4233,19 +3812,6 @@ function get_avatar_data( $id_or_email, $args = null ) {
 	} elseif ( $id_or_email instanceof WP_Post ) {
 		// Post object.
 		$user = get_user_by( 'id', (int) $id_or_email->post_author );
-	} elseif ( $id_or_email instanceof WP_Comment ) {
-		if ( ! is_avatar_comment_type( get_comment_type( $id_or_email ) ) ) {
-			$args['url'] = false;
-			/** This filter is documented in wp-includes/link-template.php */
-			return apply_filters( 'get_avatar_data', $args, $id_or_email );
-		}
-
-		if ( ! empty( $id_or_email->user_id ) ) {
-			$user = get_user_by( 'id', (int) $id_or_email->user_id );
-		}
-		if ( ( ! $user || is_wp_error( $user ) ) && ! empty( $id_or_email->comment_author_email ) ) {
-			$email = $id_or_email->comment_author_email;
-		}
 	}
 
 	if ( ! $email_hash ) {
@@ -4291,7 +3857,7 @@ function get_avatar_data( $id_or_email, $args = null ) {
 	 *
 	 * @param string $url         The URL of the avatar.
 	 * @param mixed  $id_or_email The avatar to retrieve. Accepts a user ID, Gravatar MD5 hash,
-	 *                            user email, WP_User object, WP_Post object, or WP_Comment object.
+	 *                            user email, WP_User object, or WP_Post object.
 	 * @param array  $args        Arguments passed to get_avatar_data(), after processing.
 	 */
 	$args['url'] = apply_filters( 'get_avatar_url', $url, $id_or_email, $args );
@@ -4300,12 +3866,14 @@ function get_avatar_data( $id_or_email, $args = null ) {
 	 * Filters the avatar data.
 	 *
 	 * @since WP 4.2.0
+	 * @since 1.0.0 Retraceur fork added the `$url_args` parameter.
 	 *
 	 * @param array $args        Arguments passed to get_avatar_data(), after processing.
 	 * @param mixed $id_or_email The avatar to retrieve. Accepts a user ID, Gravatar MD5 hash,
-	 *                           user email, WP_User object, WP_Post object, or WP_Comment object.
+	 *                           user email, WP_User object, or WP_Post object.
+	 * @param array $url_args    URL query parameters.
 	 */
-	return apply_filters( 'get_avatar_data', $args, $id_or_email );
+	return apply_filters( 'get_avatar_data', $args, $id_or_email, $url_args );
 }
 
 /**

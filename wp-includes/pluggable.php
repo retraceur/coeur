@@ -2431,7 +2431,7 @@ endif;
 
 if ( ! function_exists( 'get_avatar' ) ) :
 	/**
-	 * Retrieves the avatar `<img>` tag for a user, email address, MD5 hash, comment, or post.
+	 * Retrieves the avatar `<img>` tag for a user, email address, MD5 hash, or post.
 	 *
 	 * @since WP 2.5.0
 	 * @since WP 4.2.0 Added the optional `$args` parameter.
@@ -2440,7 +2440,7 @@ if ( ! function_exists( 'get_avatar' ) ) :
 	 * @since WP 6.3.0 Added the `fetchpriority` argument.
 	 *
 	 * @param mixed  $id_or_email   The avatar to retrieve. Accepts a user ID, Gravatar MD5 hash,
-	 *                              user email, WP_User object, WP_Post object, or WP_Comment object.
+	 *                              user email, WP_User object, or WP_Post object.
 	 * @param int    $size          Optional. Height and width of the avatar in pixels. Default 96.
 	 * @param string $default_value URL for the default image or a default type. Accepts:
 	 *                              - '404' (return a 404 instead of a default image)
@@ -2526,10 +2526,6 @@ if ( ! function_exists( 'get_avatar' ) ) :
 
 		$args = array_merge( $args, $loading_optimization_attr );
 
-		if ( is_object( $id_or_email ) && isset( $id_or_email->comment_ID ) ) {
-			$id_or_email = get_comment( $id_or_email );
-		}
-
 		/**
 		 * Allows the HTML for a user's avatar to be returned early.
 		 *
@@ -2540,7 +2536,7 @@ if ( ! function_exists( 'get_avatar' ) ) :
 		 *
 		 * @param string|null $avatar      HTML for the user's avatar. Default null.
 		 * @param mixed       $id_or_email The avatar to retrieve. Accepts a user ID, Gravatar MD5 hash,
-		 *                                 user email, WP_User object, WP_Post object, or WP_Comment object.
+		 *                                 user email, WP_User object, or WP_Post object.
 		 * @param array       $args        Arguments passed to get_avatar_url(), after processing.
 		 */
 		$avatar = apply_filters( 'pre_get_avatar', null, $id_or_email, $args );
@@ -2630,7 +2626,7 @@ if ( ! function_exists( 'get_avatar' ) ) :
 		 *
 		 * @param string $avatar        HTML for the user's avatar.
 		 * @param mixed  $id_or_email   The avatar to retrieve. Accepts a user ID, Gravatar MD5 hash,
-		 *                              user email, WP_User object, WP_Post object, or WP_Comment object.
+		 *                              user email, WP_User object, or WP_Post object.
 		 * @param int    $size          Height and width of the avatar in pixels.
 		 * @param string $default_value URL for the default image or a default type. Accepts:
 		 *                              - '404' (return a 404 instead of a default image)
