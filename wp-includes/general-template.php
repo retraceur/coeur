@@ -4911,14 +4911,14 @@ function wp_generator() {
 }
 
 /**
- * Displays the generator XML or Comment for RSS, ATOM, etc.
+ * Displays the generator XML for RSS, ATOM, etc.
  *
  * Returns the correct generator type for the requested output format. Allows
  * for a plugin to filter generators overall the {@see 'the_generator'} filter.
  *
  * @since WP 2.5.0
  *
- * @param string $type The type of generator to output - (html|xhtml|atom|rss2|rdf|comment|export).
+ * @param string $type The type of generator to output - (html|xhtml|atom|rss2|rdf|export).
  */
 function the_generator( $type ) {
 	/**
@@ -4928,13 +4928,13 @@ function the_generator( $type ) {
 	 *
 	 * @param string $generator_type The generator output.
 	 * @param string $type           The type of generator to output. Accepts 'html',
-	 *                               'xhtml', 'atom', 'rss2', 'rdf', 'comment', 'export'.
+	 *                               'xhtml', 'atom', 'rss2', 'rdf', 'export'.
 	 */
 	echo apply_filters( 'the_generator', get_the_generator( $type ), $type ) . "\n";
 }
 
 /**
- * Creates the generator XML or Comment for RSS, ATOM, etc.
+ * Creates the generator XML for RSS, ATOM, etc.
  *
  * Returns the correct generator type for the requested output format. Allows
  * for a plugin to filter generators on an individual basis using the
@@ -4942,7 +4942,7 @@ function the_generator( $type ) {
  *
  * @since WP 2.5.0
  *
- * @param string $type The type of generator to return - (html|xhtml|atom|rss2|rdf|comment|export).
+ * @param string $type The type of generator to return - (html|xhtml|atom|rss2|rdf|export).
  * @return string|void The HTML content for the generator.
  */
 function get_the_generator( $type = '' ) {
@@ -5013,7 +5013,7 @@ function get_the_generator( $type = '' ) {
 	 *
 	 * @param string $gen  The HTML markup output to wp_head().
 	 * @param string $type The type of generator. Accepts 'html', 'xhtml', 'atom',
-	 *                     'rss2', 'rdf', 'comment', 'export'.
+	 *                     'rss2', 'rdf', 'export'.
 	 */
 	return apply_filters( "get_the_generator_{$type}", $gen, $type );
 }

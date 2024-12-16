@@ -10992,3 +10992,74 @@ function comment_text_rss() {
 		__( 'WP Comments feature is not supported in Retraceur.' )
 	);
 }
+
+/**
+ * Retrieves the permalink for the post comments feed.
+ *
+ * @since WP 2.2.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int    $post_id Optional. Post ID. Default is the ID of the global `$post`.
+ * @param string $feed    Optional. Feed type. Possible values include 'rss2', 'atom'.
+ *                        Default is the value of get_default_feed().
+ * @return string The permalink for the comments feed for the given post on success, empty string on failure.
+ */
+function get_post_comments_feed_link( $post_id = 0, $feed = '' ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the post comments feed permalink.
+	 *
+	 * @since WP 1.5.1
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string $url Post comments feed permalink.
+	 */
+	apply_filters_deprecated(
+		'post_comments_feed_link',
+		array( '' ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return '';
+}
+
+/**
+ * Displays the comment feed link for a post.
+ *
+ * Prints out the comment feed link for a post. Link text is placed in the
+ * anchor. If no link text is specified, default text is used. If no post ID is
+ * specified, the current post is used.
+ *
+ * @since WP 2.5.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string $link_text Optional. Descriptive link text. Default 'Comments Feed'.
+ * @param int    $post_id   Optional. Post ID. Default is the ID of the global `$post`.
+ * @param string $feed      Optional. Feed type. Possible values include 'rss2', 'atom'.
+ *                          Default is the value of get_default_feed().
+ */
+function post_comments_feed_link( $link_text = '', $post_id = '', $feed = '' ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the post comment feed link anchor tag.
+	 *
+	 * @since WP 2.8.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string $link    The complete anchor tag for the comment feed link.
+	 * @param int    $post_id Post ID.
+	 * @param string $feed    The feed type. Possible values include 'rss2', 'atom',
+	 *                        or an empty string for the default feed type.
+	 */
+	apply_filters_deprecated(
+		'post_comments_feed_link_html',
+		array( '', 0, '' ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+}
