@@ -155,8 +155,7 @@
     ),
     'usesContext' => array(
       'postType',
-      'postId',
-      'commentId'
+      'postId'
     ),
     'supports' => array(
       'html' => false,

@@ -2507,7 +2507,7 @@ function add_theme_support( $feature, ...$args ) {
 				}
 
 				// Build an array of types for back-compat.
-				$args = array( 0 => array( 'comment-list', 'comment-form', 'search-form' ) );
+				$args = array( 0 => array( 'search-form' ) );
 			}
 
 			// Calling 'html5' again merges, rather than overwrites.
@@ -2910,7 +2910,7 @@ function _remove_theme_support( $feature ) {
  * Example usage:
  *
  *     current_theme_supports( 'custom-logo' );
- *     current_theme_supports( 'html5', 'comment-form' );
+ *     current_theme_supports( 'html5' );
  *
  * @since WP 2.9.0
  * @since WP 5.3.0 Formalized the existing and already documented `...$args` parameter
@@ -3296,7 +3296,7 @@ function create_initial_theme_features() {
 	register_theme_feature(
 		'automatic-feed-links',
 		array(
-			'description'  => __( 'Whether posts and comments RSS feed links are added to head.' ),
+			'description'  => __( 'Whether posts RSS feed links are added to head.' ),
 			'show_in_rest' => true,
 		)
 	);
@@ -3608,15 +3608,13 @@ function create_initial_theme_features() {
 		'html5',
 		array(
 			'type'         => 'array',
-			'description'  => __( 'Allows use of HTML5 markup for search forms, comment forms, comment lists, gallery, and caption.' ),
+			'description'  => __( 'Allows use of HTML5 markup for search forms, gallery, and caption.' ),
 			'show_in_rest' => array(
 				'schema' => array(
 					'items' => array(
 						'type' => 'string',
 						'enum' => array(
 							'search-form',
-							'comment-form',
-							'comment-list',
 							'gallery',
 							'caption',
 							'script',
@@ -3731,11 +3729,11 @@ function _add_default_theme_supports() {
 	add_theme_support( 'responsive-embeds' );
 	add_theme_support( 'editor-styles' );
 	/*
-	 * Makes block themes support HTML5 by default for the comment block and search form
-	 * (which use default template functions) and `[caption]` and `[gallery]` shortcodes.
+	 * Makes block themes support HTML5 by default for search form (which use default template functions)
+	 * and `[caption]` and `[gallery]` shortcodes.
 	 * Other blocks contain their own HTML5 markup.
 	 */
-	add_theme_support( 'html5', array( 'comment-form', 'comment-list', 'search-form', 'gallery', 'caption', 'style', 'script' ) );
+	add_theme_support( 'html5', array( 'search-form', 'gallery', 'caption', 'style', 'script' ) );
 	add_theme_support( 'automatic-feed-links' );
 
 	add_filter( 'should_load_separate_core_block_assets', '__return_true' );

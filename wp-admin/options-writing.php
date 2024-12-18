@@ -27,17 +27,6 @@ get_current_screen()->add_help_tab(
 	)
 );
 
-/** This filter is documented in wp-admin/options-writing.php */
-if ( apply_filters( 'enable_update_services_configuration', true ) ) {
-	get_current_screen()->add_help_tab(
-		array(
-			'id'      => 'options-services',
-			'title'   => __( 'Update Services' ),
-			'content' => '<p>' . __( 'If desired, Retraceur will automatically alert various services of your new posts.' ) . '</p>',
-		)
-	);
-}
-
 wp_enqueue_script( 'user-profile' );
 
 require_once ABSPATH . 'wp-admin/admin-header.php';
@@ -118,35 +107,18 @@ apply_filters_deprecated(
  * Filters whether to enable the Update Services section in the Writing settings screen.
  *
  * @since WP 3.0.0
+ * @deprecated 1.0.0 Retraceur fork.
  *
  * @param bool $enable Whether to enable the Update Services settings area. Default true.
  */
-if ( apply_filters( 'enable_update_services_configuration', true ) ) {
-	?>
-<h2 class="title"><?php _e( 'Update Services' ); ?></h2>
-
-	<?php if ( '1' === get_option( 'blog_public' ) ) : ?>
-
-	<p>
-		<label for="ping_sites"><?php esc_html_e( 'When you publish a new post, Retraceur automatically notifies the following site update services. Separate multiple service URLs with line breaks.' ) ;?></label>
-	</p>
-
-	<textarea name="ping_sites" id="ping_sites" class="large-text code" rows="3"><?php echo esc_textarea( get_option( 'ping_sites' ) ); ?></textarea>
-
-	<?php else : ?>
-
-	<p>
-		<?php
-		printf(
-			/* translators: 1: URL to Reading Settings screen. */
-			__( 'Retraceur is not notifying any Update Services because of your site&#8217;s <a href="%s">visibility settings</a>.' ),
-			'options-reading.php'
-		);
-		?>
-	</p>
-
-	<?php endif; ?>
-<?php } // enable_update_services_configuration ?>
+apply_filters_deprecated(
+	'enable_update_services_configuration',
+	array( false ),
+	'1.0.0',
+	'',
+	__( 'WP Comments feature is not supported in Retraceur.' )
+);
+?>
 
 <?php do_settings_sections( 'writing' ); ?>
 

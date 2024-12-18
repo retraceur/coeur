@@ -166,7 +166,7 @@ function register_rest_route( $route_namespace, $route, $args = array(), $overri
  *                                          by object type.
  *
  * @param string|array $object_type Object(s) the field is being registered to,
- *                                  "post"|"term"|"comment" etc.
+ *                                  "post"|"term" etc.
  * @param string       $attribute   The attribute name.
  * @param array        $args {
  *     Optional. An array of arguments used to handle the registered field.
@@ -1247,7 +1247,7 @@ function rest_add_application_passwords_to_index( $response ) {
  * @see get_avatar_url()
  *
  * @param mixed $id_or_email The avatar to retrieve a URL for. Accepts a user ID, Gravatar MD5 hash,
- *                           user email, WP_User object, WP_Post object, or WP_Comment object.
+ *                           user email, WP_User object, or WP_Post object.
  * @return (string|false)[] Avatar URLs keyed by size. Each value can be a URL string or boolean false.
  */
 function rest_get_avatar_urls( $id_or_email ) {

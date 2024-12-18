@@ -43,7 +43,7 @@ abstract class WP_REST_Meta_Fields {
 	 *
 	 * @since WP 4.7.0
 	 *
-	 * @return string The REST field type, such as post type name, taxonomy name, 'comment', or `user`.
+	 * @return string The REST field type, such as post type name, taxonomy name or `user`.
 	 */
 	abstract protected function get_rest_field_type();
 

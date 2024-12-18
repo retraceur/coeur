@@ -2652,41 +2652,6 @@ function get_query_pagination_arrow( $block, $is_next ) {
 }
 
 /**
- * Helper function that returns the proper pagination arrow HTML for
- * `CommentsPaginationNext` and `CommentsPaginationPrevious` blocks based on the
- * provided `paginationArrow` from `CommentsPagination` context.
- *
- * It's used in CommentsPaginationNext and CommentsPaginationPrevious blocks.
- *
- * @since WP 6.0.0
- *
- * @param WP_Block $block           Block instance.
- * @param string   $pagination_type Optional. Type of the arrow we will be rendering.
- *                                  Accepts 'next' or 'previous'. Default 'next'.
- * @return string|null The pagination arrow HTML or null if there is none.
- */
-function get_comments_pagination_arrow( $block, $pagination_type = 'next' ) {
-	$arrow_map = array(
-		'none'    => '',
-		'arrow'   => array(
-			'next'     => '→',
-			'previous' => '←',
-		),
-		'chevron' => array(
-			'next'     => '»',
-			'previous' => '«',
-		),
-	);
-	if ( ! empty( $block->context['comments/paginationArrow'] ) && ! empty( $arrow_map[ $block->context['comments/paginationArrow'] ][ $pagination_type ] ) ) {
-		$arrow_attribute = $block->context['comments/paginationArrow'];
-		$arrow           = $arrow_map[ $block->context['comments/paginationArrow'] ][ $pagination_type ];
-		$arrow_classes   = "wp-block-comments-pagination-$pagination_type-arrow is-arrow-$arrow_attribute";
-		return "<span class='$arrow_classes' aria-hidden='true'>$arrow</span>";
-	}
-	return null;
-}
-
-/**
  * Strips all HTML from the content of footnotes, and sanitizes the ID.
  *
  * This function expects slashed data on the footnotes content.

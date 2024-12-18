@@ -3668,7 +3668,7 @@ function clean_taxonomy_cache( $taxonomy ) {
  * @since WP 4.7.0 Returns a `WP_Error` object if there's an error with
  *              any of the matched terms.
  *
- * @param int    $id       Term object ID, for example a post, comment, or user ID.
+ * @param int    $id       Term object ID, for example a post or user ID.
  * @param string $taxonomy Taxonomy name.
  * @return bool|WP_Term[]|WP_Error Array of `WP_Term` objects, if cached.
  *                                 False if cache is empty for `$taxonomy` and `$id`.

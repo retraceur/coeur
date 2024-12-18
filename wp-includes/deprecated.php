@@ -9711,6 +9711,26 @@ function register_block_core_comment_template() {
 }
 
 /**
+ * Helper function that returns the proper pagination arrow HTML for
+ * `CommentsPaginationNext` and `CommentsPaginationPrevious` blocks based on the
+ * provided `paginationArrow` from `CommentsPagination` context.
+ *
+ * It's used in CommentsPaginationNext and CommentsPaginationPrevious blocks.
+ *
+ * @since WP 6.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param WP_Block $block           Block instance.
+ * @param string   $pagination_type Optional. Type of the arrow we will be rendering.
+ *                                  Accepts 'next' or 'previous'. Default 'next'.
+ * @return string|null The pagination arrow HTML or null if there is none.
+ */
+function get_comments_pagination_arrow( $block, $pagination_type = 'next' ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return null;
+}
+
+/**
  * Renders the `core/comments-pagination-previous` block on the server.
  *
  * @since WP 6.0.0
@@ -11416,4 +11436,2223 @@ function get_pung( $post ) {
  */
 function _publish_post_hook( $post_id ) {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Checks whether a comment passes internal checks to be allowed to add.
+ *
+ * If manual comment moderation is set in the administration, then all checks,
+ * regardless of their type and substance, will fail and the function will
+ * return false.
+ *
+ * If the number of links exceeds the amount in the administration, then the
+ * check fails. If any of the parameter contents contain any disallowed words,
+ * then the check fails.
+ *
+ * If the comment author was approved before, then the comment is automatically
+ * approved.
+ *
+ * If all checks pass, the function will return true.
+ *
+ * @since WP 1.2.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string $author       Comment author name.
+ * @param string $email        Comment author email.
+ * @param string $url          Comment author URL.
+ * @param string $comment      Content of the comment.
+ * @param string $user_ip      Comment author IP address.
+ * @param string $user_agent   Comment author User-Agent.
+ * @param string $comment_type Comment type, either user-submitted comment,
+ *                             trackback, or pingback.
+ * @return bool If all checks pass, true, otherwise false.
+ */
+function check_comment( $author, $email, $url, $comment, $user_ip, $user_agent, $comment_type ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/** This filter is documented in wp-includes/comment-template.php */
+	apply_filters_deprecated(
+		'comment_text',
+		array( null, null, array() ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Filters the number of links found in a comment.
+	 *
+	 * @since WP 3.0.0
+	 * @since WP 4.7.0 Added the `$comment` parameter.
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param int    $num_links The number of links found.
+	 * @param string $url       Comment author's URL. Included in allowed links total.
+	 * @param string $comment   Content of the comment.
+	 */
+	apply_filters_deprecated(
+		'comment_max_links_url',
+		array( 0, '', '' ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return false;
+}
+
+/**
+ * Retrieves all of the WordPress supported comment statuses.
+ *
+ * Comments have a limited set of valid status values, this provides the comment
+ * status values and descriptions.
+ *
+ * @since WP 2.7.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @return string[] List of comment status labels keyed by status.
+ */
+function get_comment_statuses() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return array();
+}
+
+/**
+ * Gets the default comment status for a post type.
+ *
+ * @since WP 4.3.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string $post_type    Optional. Post type. Default 'post'.
+ * @param string $comment_type Optional. Comment type. Default 'comment'.
+ * @return string Either 'open' or 'closed'.
+ */
+function get_default_comment_status( $post_type = 'post', $comment_type = 'comment' ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the default comment status for the given post type.
+	 *
+	 * @since WP 4.3.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string $status       Default status for the given post type,
+	 *                             either 'open' or 'closed'.
+	 * @param string $post_type    Post type. Default is `post`.
+	 * @param string $comment_type Type of comment. Default is `comment`.
+	 */
+	apply_filters_deprecated(
+		'get_default_comment_status',
+		array( '', '', '' ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return 'closed';
+}
+
+/**
+ * Retrieves the date the last comment was modified.
+ *
+ * @since WP 1.5.0
+ * @since WP 4.7.0 Replaced caching the modified date in a local static variable
+ *              with the Object Cache API.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string $timezone Which timezone to use in reference to 'gmt', 'blog', or 'server' locations.
+ * @return string|false Last comment modified date on success, false on failure.
+ */
+function get_lastcommentmodified( $timezone = 'server' ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return false;
+}
+
+/**
+ * Retrieves the total comment counts for the whole site or a single post.
+ *
+ * @since WP 2.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int $post_id Optional. Restrict the comment counts to the given post. Default 0, which indicates that
+ *                     comment counts for the whole site will be retrieved.
+ * @return int[] {
+ *     The number of comments keyed by their status.
+ *
+ *     @type int $approved            The number of approved comments.
+ *     @type int $awaiting_moderation The number of comments awaiting moderation (a.k.a. pending).
+ *     @type int $spam                The number of spam comments.
+ *     @type int $trash               The number of trashed comments.
+ *     @type int $post-trashed        The number of comments for posts that are in the trash.
+ *     @type int $total_comments      The total number of non-trashed comments, including spam.
+ *     @type int $all                 The total number of pending or approved comments.
+ * }
+ */
+function get_comment_count( $post_id = 0 ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return array();
+}
+
+/**
+ * Adds meta data field to a comment.
+ *
+ * @since WP 2.9.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int    $comment_id Comment ID.
+ * @param string $meta_key   Metadata name.
+ * @param mixed  $meta_value Metadata value. Must be serializable if non-scalar.
+ * @param bool   $unique     Optional. Whether the same key should not be added.
+ *                           Default false.
+ * @return int|false Meta ID on success, false on failure.
+ */
+function add_comment_meta( $comment_id, $meta_key, $meta_value, $unique = false ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return false;
+}
+
+/**
+ * Removes metadata matching criteria from a comment.
+ *
+ * You can match based on the key, or key and value. Removing based on key and
+ * value, will keep from removing duplicate metadata with the same key. It also
+ * allows removing all metadata matching key, if needed.
+ *
+ * @since WP 2.9.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int    $comment_id Comment ID.
+ * @param string $meta_key   Metadata name.
+ * @param mixed  $meta_value Optional. Metadata value. If provided,
+ *                           rows will only be removed that match the value.
+ *                           Must be serializable if non-scalar. Default empty string.
+ * @return bool True on success, false on failure.
+ */
+function delete_comment_meta( $comment_id, $meta_key, $meta_value = '' ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return false;
+}
+
+/**
+ * Retrieves comment meta field for a comment.
+ *
+ * @since WP 2.9.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int    $comment_id Comment ID.
+ * @param string $key        Optional. The meta key to retrieve. By default,
+ *                           returns data for all keys. Default empty string.
+ * @param bool   $single     Optional. Whether to return a single value.
+ *                           This parameter has no effect if `$key` is not specified.
+ *                           Default false.
+ * @return mixed An array of values if `$single` is false.
+ *               The value of meta data field if `$single` is true.
+ *               False for an invalid `$comment_id` (non-numeric, zero, or negative value).
+ *               An empty array if a valid but non-existing comment ID is passed and `$single` is false.
+ *               An empty string if a valid but non-existing comment ID is passed and `$single` is true.
+ */
+function get_comment_meta( $comment_id, $key = '', $single = false ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return false;
+}
+
+/**
+ * Queue comment meta for lazy-loading.
+ *
+ * @since WP 6.3.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param array $comment_ids List of comment IDs.
+ */
+function wp_lazyload_comment_meta( array $comment_ids ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Updates comment meta field based on comment ID.
+ *
+ * Use the $prev_value parameter to differentiate between meta fields with the
+ * same key and comment ID.
+ *
+ * If the meta field for the comment does not exist, it will be added.
+ *
+ * @since WP 2.9.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int    $comment_id Comment ID.
+ * @param string $meta_key   Metadata key.
+ * @param mixed  $meta_value Metadata value. Must be serializable if non-scalar.
+ * @param mixed  $prev_value Optional. Previous value to check before updating.
+ *                           If specified, only update existing metadata entries with
+ *                           this value. Otherwise, update all entries. Default empty string.
+ * @return int|bool Meta ID if the key didn't exist, true on successful update,
+ *                  false on failure or if the value passed to the function
+ *                  is the same as the one that is already in the database.
+ */
+function update_comment_meta( $comment_id, $meta_key, $meta_value, $prev_value = '' ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return false;
+}
+
+/**
+ * Validates whether this comment is allowed to be made.
+ *
+ * @since WP 2.0.0
+ * @since WP 4.7.0 The `$avoid_die` parameter was added, allowing the function
+ *              to return a WP_Error object instead of dying.
+ * @since WP 5.5.0 The `$avoid_die` parameter was renamed to `$wp_error`.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param array $commentdata Contains information on the comment.
+ * @param bool  $wp_error    When true, a disallowed comment will result in the function
+ *                           returning a WP_Error object, rather than executing wp_die().
+ *                           Default false.
+ * @return int|string|WP_Error Allowed comments return the approval status (0|1|'spam'|'trash').
+ *                             If `$wp_error` is true, disallowed comments return a WP_Error.
+ */
+function wp_allow_comment( $commentdata, $wp_error = false ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the ID, if any, of the duplicate comment found when creating a new comment.
+	 *
+	 * Return an empty value from this filter to allow what WP considers a duplicate comment.
+	 *
+	 * @since WP 4.4.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param int   $dupe_id     ID of the comment identified as a duplicate.
+	 * @param array $commentdata Data for the comment being created.
+	 */
+	apply_filters_deprecated(
+		'duplicate_comment_id',
+		array( 0, array() ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Fires immediately after a duplicate comment is detected.
+	 *
+	 * @since WP 3.0.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param array $commentdata Comment data.
+	 */
+	do_action_deprecated(
+		'comment_duplicate_trigger',
+		array( array() ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Filters duplicate comment error message.
+	 *
+	 * @since WP 5.2.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string $comment_duplicate_message Duplicate comment error message.
+	 */
+	apply_filters_deprecated(
+		'comment_duplicate_message',
+		array( '' ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Fires immediately before a comment is marked approved.
+	 *
+	 * Allows checking for comment flooding.
+	 *
+	 * @since WP 2.3.0
+	 * @since WP 4.7.0 The `$avoid_die` parameter was added.
+	 * @since WP 5.5.0 The `$avoid_die` parameter was renamed to `$wp_error`.
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string $comment_author_ip    Comment author's IP address.
+	 * @param string $comment_author_email Comment author's email.
+	 * @param string $comment_date_gmt     GMT date the comment was posted.
+	 * @param bool   $wp_error             Whether to return a WP_Error object instead of executing
+	 *                                     wp_die() or die() if a comment flood is occurring.
+	 */
+	do_action_deprecated(
+		'check_comment_flood',
+		array( '', '', '', false ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Filters whether a comment is part of a comment flood.
+	 *
+	 * The default check is wp_check_comment_flood(). See check_comment_flood_db().
+	 *
+	 * @since WP 4.7.0
+	 * @since WP 5.5.0 The `$avoid_die` parameter was renamed to `$wp_error`.
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param bool   $is_flood             Is a comment flooding occurring? Default false.
+	 * @param string $comment_author_ip    Comment author's IP address.
+	 * @param string $comment_author_email Comment author's email.
+	 * @param string $comment_date_gmt     GMT date the comment was posted.
+	 * @param bool   $wp_error             Whether to return a WP_Error object instead of executing
+	 *                                     wp_die() or die() if a comment flood is occurring.
+	 */
+	apply_filters_deprecated(
+		'wp_is_comment_flood',
+		array( false,'' , '', '', false ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return 0;
+}
+
+/**
+ * Hooks WP's native database-based comment-flood check.
+ *
+ * This wrapper maintains backward compatibility with plugins that expect to
+ * be able to unhook the legacy check_comment_flood_db() function from
+ * 'check_comment_flood' using remove_action().
+ *
+ * @since WP 2.3.0
+ * @since WP 4.7.0 Converted to be an add_filter() wrapper.
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function check_comment_flood_db() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Checks whether comment flooding is occurring.
+ *
+ * Won't run, if current user can manage options, so to not block
+ * administrators.
+ *
+ * @since WP 4.7.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param bool   $is_flood  Is a comment flooding occurring?
+ * @param string $ip        Comment author's IP address.
+ * @param string $email     Comment author's email address.
+ * @param string $date      MySQL time string.
+ * @param bool   $avoid_die When true, a disallowed comment will result in the function
+ *                          returning without executing wp_die() or die(). Default false.
+ * @return bool Whether comment flooding is occurring.
+ */
+function wp_check_comment_flood( $is_flood, $ip, $email, $date, $avoid_die = false ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the comment flood status.
+	 *
+	 * @since WP 2.1.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param bool $bool             Whether a comment flood is occurring. Default false.
+	 * @param int  $time_lastcomment Timestamp of when the last comment was posted.
+	 * @param int  $time_newcomment  Timestamp of when the new comment was posted.
+	 */
+	apply_filters_deprecated(
+		'comment_flood_filter',
+		array( false, 0, 0 ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Fires before the comment flood message is triggered.
+	 *
+	 * @since WP 1.5.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param int $time_lastcomment Timestamp of when the last comment was posted.
+	 * @param int $time_newcomment  Timestamp of when the new comment was posted.
+	 */
+	do_action_deprecated(
+		'comment_flood_trigger',
+		array( 0, 0 ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Filters the comment flood error message.
+	 *
+	 * @since WP 5.2.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string $comment_flood_message Comment flood error message.
+	 */
+	apply_filters_deprecated(
+		'comment_flood_message',
+		array( '' ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return false;
+}
+
+/**
+ * Separates an array of comments into an array keyed by comment_type.
+ *
+ * @since WP 2.7.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param WP_Comment[] $comments Array of comments
+ * @return WP_Comment[] Array of comments keyed by comment_type.
+ */
+function separate_comments( &$comments ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return array();
+}
+
+/**
+ * Retrieves the maximum character lengths for the comment form fields.
+ *
+ * @since WP 4.5.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @return int[] Array of maximum lengths keyed by field name.
+ */
+function wp_get_comment_fields_max_lengths() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the lengths for the comment form fields.
+	 *
+	 * @since WP 4.5.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param int[] $lengths Array of maximum lengths keyed by field name.
+	 */
+	apply_filters_deprecated(
+		'wp_get_comment_fields_max_lengths',
+		array( array() ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return array();
+}
+
+/**
+ * Compares the lengths of comment data against the maximum character limits.
+ *
+ * @since WP 4.7.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param array $comment_data Array of arguments for inserting a comment.
+ * @return WP_Error|true WP_Error when a comment field exceeds the limit,
+ *                       otherwise true.
+ */
+function wp_check_comment_data_max_lengths( $comment_data ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return true;
+}
+
+/**
+ * Checks whether comment data passes internal checks or has disallowed content.
+ *
+ * @since WP 6.7.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param array $comment_data Array of arguments for inserting a comment.
+ * @return int|string|WP_Error The approval status on success (0|1|'spam'|'trash'),
+  *                            WP_Error otherwise.
+ */
+function wp_check_comment_data( $comment_data ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters a comment's approval status before it is set.
+	 *
+	 * @since WP 2.1.0
+	 * @since WP 4.9.0 Returning a WP_Error value from the filter will short-circuit comment insertion
+	 *              and allow skipping further processing.
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param int|string|WP_Error $approved    The approval status. Accepts 1, 0, 'spam', 'trash',
+	 *                                         or WP_Error.
+	 * @param array               $commentdata Comment data.
+	 */
+	apply_filters_deprecated(
+		'pre_comment_approved',
+		array( 0, array() ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return 0;
+}
+
+/**
+ * Checks if a comment contains disallowed characters or words.
+ *
+ * @since WP 5.5.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string $author The author of the comment
+ * @param string $email The email of the comment
+ * @param string $url The url used in the comment
+ * @param string $comment The comment content
+ * @param string $user_ip The comment author's IP address
+ * @param string $user_agent The author's browser user agent
+ * @return bool True if comment contains disallowed content, false if comment does not
+ */
+function wp_check_comment_disallowed_list( $author, $email, $url, $comment, $user_ip, $user_agent ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Fires before the comment is tested for disallowed characters or words.
+	 *
+	 * @since WP 1.5.0
+	 * @deprecated WP 5.5.0 Use {@see 'wp_check_comment_disallowed_list'} instead.
+	 *
+	 * @param string $author     Comment author.
+	 * @param string $email      Comment author's email.
+	 * @param string $url        Comment author's URL.
+	 * @param string $comment    Comment content.
+	 * @param string $user_ip    Comment author's IP address.
+	 * @param string $user_agent Comment author's browser user agent.
+	 */
+	do_action_deprecated(
+		'wp_blacklist_check',
+		array( $author, $email, $url, $comment, $user_ip, $user_agent ),
+		'5.5.0',
+		'wp_check_comment_disallowed_list',
+		__( 'Please consider writing more inclusive code.' )
+	);
+
+	/**
+	 * Fires before the comment is tested for disallowed characters or words.
+	 *
+	 * @since WP 5.5.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string $author     Comment author.
+	 * @param string $email      Comment author's email.
+	 * @param string $url        Comment author's URL.
+	 * @param string $comment    Comment content.
+	 * @param string $user_ip    Comment author's IP address.
+	 * @param string $user_agent Comment author's browser user agent.
+	 */
+	do_action_deprecated(
+		'wp_check_comment_disallowed_list',
+		array( '', '', '', '', '', '' ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return false;
+}
+
+/**
+ * Retrieves the total comment counts for the whole site or a single post.
+ *
+ * The comment stats are cached and then retrieved, if they already exist in the
+ * cache.
+ *
+ * @see get_comment_count() Which handles fetching the live comment counts.
+ *
+ * @since WP 2.5.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int $post_id Optional. Restrict the comment counts to the given post. Default 0, which indicates that
+ *                     comment counts for the whole site will be retrieved.
+ * @return stdClass {
+ *     The number of comments keyed by their status.
+ *
+ *     @type int $approved       The number of approved comments.
+ *     @type int $moderated      The number of comments awaiting moderation (a.k.a. pending).
+ *     @type int $spam           The number of spam comments.
+ *     @type int $trash          The number of trashed comments.
+ *     @type int $post-trashed   The number of comments for posts that are in the trash.
+ *     @type int $total_comments The total number of non-trashed comments, including spam.
+ *     @type int $all            The total number of pending or approved comments.
+ * }
+ */
+function wp_count_comments( $post_id = 0 ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the comments count for a given post or the whole site.
+	 *
+	 * @since WP 2.7.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param array|stdClass $count   An empty array or an object containing comment counts.
+	 * @param int            $post_id The post ID. Can be 0 to represent the whole site.
+	 */
+	apply_filters_deprecated(
+		'wp_count_comments',
+		array( array(), 0 ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return null;
+}
+
+/**
+ * Trashes or deletes a comment.
+ *
+ * The comment is moved to Trash instead of permanently deleted unless Trash is
+ * disabled, item is already in the Trash, or $force_delete is true.
+ *
+ * The post comment count will be updated if the comment was approved and has a
+ * post ID available.
+ *
+ * @since WP 2.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int|WP_Comment $comment_id   Comment ID or WP_Comment object.
+ * @param bool           $force_delete Whether to bypass Trash and force deletion. Default false.
+ * @return bool True on success, false on failure.
+ */
+function wp_delete_comment( $comment_id, $force_delete = false ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Fires immediately before a comment is deleted from the database.
+	 *
+	 * @since WP 1.2.0
+	 * @since WP 4.9.0 Added the `$comment` parameter.
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string     $comment_id The comment ID as a numeric string.
+	 * @param WP_Comment $comment    The comment to be deleted.
+	 */
+	do_action_deprecated(
+		'delete_comment',
+		array( '', null ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Fires immediately after a comment is deleted from the database.
+	 *
+	 * @since WP 2.9.0
+	 * @since WP 4.9.0 Added the `$comment` parameter.
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string     $comment_id The comment ID as a numeric string.
+	 * @param WP_Comment $comment    The deleted comment.
+	 */
+	do_action_deprecated(
+		'deleted_comment',
+		array( '', null ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return false;
+}
+
+/**
+ * Moves a comment to the Trash
+ *
+ * If Trash is disabled, comment is permanently deleted.
+ *
+ * @since WP 2.9.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int|WP_Comment $comment_id Comment ID or WP_Comment object.
+ * @return bool True on success, false on failure.
+ */
+function wp_trash_comment( $comment_id ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Fires immediately before a comment is sent to the Trash.
+	 *
+	 * @since WP 2.9.0
+	 * @since WP 4.9.0 Added the `$comment` parameter.
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string     $comment_id The comment ID as a numeric string.
+	 * @param WP_Comment $comment    The comment to be trashed.
+	 */
+	do_action_deprecated(
+		'trash_comment',
+		array( '', null ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Fires immediately after a comment is sent to Trash.
+	 *
+	 * @since WP 2.9.0
+	 * @since WP 4.9.0 Added the `$comment` parameter.
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string     $comment_id The comment ID as a numeric string.
+	 * @param WP_Comment $comment    The trashed comment.
+	 */
+	do_action_deprecated(
+		'trashed_comment',
+		array( '', null ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return false;
+}
+
+/**
+ * Removes a comment from the Trash
+ *
+ * @since WP 2.9.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int|WP_Comment $comment_id Comment ID or WP_Comment object.
+ * @return bool True on success, false on failure.
+ */
+function wp_untrash_comment( $comment_id ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Fires immediately before a comment is restored from the Trash.
+	 *
+	 * @since WP 2.9.0
+	 * @since WP 4.9.0 Added the `$comment` parameter.
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string     $comment_id The comment ID as a numeric string.
+	 * @param WP_Comment $comment    The comment to be untrashed.
+	 */
+	do_action_deprecated(
+		'untrash_comment',
+		array( '', null ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Fires immediately after a comment is restored from the Trash.
+	 *
+	 * @since WP 2.9.0
+	 * @since WP 4.9.0 Added the `$comment` parameter.
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string     $comment_id The comment ID as a numeric string.
+	 * @param WP_Comment $comment    The untrashed comment.
+	 */
+	do_action_deprecated(
+		'untrashed_comment',
+		array( '', null ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return false;
+}
+
+/**
+ * Marks a comment as Spam.
+ *
+ * @since WP 2.9.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int|WP_Comment $comment_id Comment ID or WP_Comment object.
+ * @return bool True on success, false on failure.
+ */
+function wp_spam_comment( $comment_id ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Fires immediately before a comment is marked as Spam.
+	 *
+	 * @since WP 2.9.0
+	 * @since WP 4.9.0 Added the `$comment` parameter.
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param int        $comment_id The comment ID.
+	 * @param WP_Comment $comment    The comment to be marked as spam.
+	 */
+	do_action_deprecated(
+		'spam_comment',
+		array( 0, null ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Fires immediately after a comment is marked as Spam.
+	 *
+	 * @since WP 2.9.0
+	 * @since WP 4.9.0 Added the `$comment` parameter.
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param int        $comment_id The comment ID.
+	 * @param WP_Comment $comment    The comment marked as spam.
+	 */
+	do_action_deprecated(
+		'spammed_comment',
+		array( 0, null ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return false;
+}
+
+/**
+ * Removes a comment from the Spam.
+ *
+ * @since WP 2.9.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int|WP_Comment $comment_id Comment ID or WP_Comment object.
+ * @return bool True on success, false on failure.
+ */
+function wp_unspam_comment( $comment_id ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Fires immediately before a comment is unmarked as Spam.
+	 *
+	 * @since WP 2.9.0
+	 * @since WP 4.9.0 Added the `$comment` parameter.
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string     $comment_id The comment ID as a numeric string.
+	 * @param WP_Comment $comment    The comment to be unmarked as spam.
+	 */
+	do_action_deprecated(
+		'unspam_comment',
+		array( '', null ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Fires immediately after a comment is unmarked as Spam.
+	 *
+	 * @since WP 2.9.0
+	 * @since WP 4.9.0 Added the `$comment` parameter.
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string     $comment_id The comment ID as a numeric string.
+	 * @param WP_Comment $comment    The comment unmarked as spam.
+	 */
+	do_action_deprecated(
+		'unspammed_comment',
+		array( '', null ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return false;
+}
+
+/**
+ * Retrieves the status of a comment by comment ID.
+ *
+ * @since WP 1.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int|WP_Comment $comment_id Comment ID or WP_Comment object
+ * @return string|false Status might be 'trash', 'approved', 'unapproved', 'spam'. False on failure.
+ */
+function wp_get_comment_status( $comment_id ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return false;
+}
+
+/**
+ * Calls hooks for when a comment status transition occurs.
+ *
+ * Calls hooks for comment status transitions. If the new comment status is not the same
+ * as the previous comment status, then two hooks will be ran, the first is
+ * {@see 'transition_comment_status'} with new status, old status, and comment data.
+ * The next action called is {@see 'comment_$old_status_to_$new_status'}. It has
+ * the comment data.
+ *
+ * The final action will run whether or not the comment statuses are the same.
+ * The action is named {@see 'comment_$new_status_$comment->comment_type'}.
+ *
+ * @since WP 2.7.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string     $new_status New comment status.
+ * @param string     $old_status Previous comment status.
+ * @param WP_Comment $comment    Comment object.
+ */
+function wp_transition_comment_status( $new_status, $old_status, $comment ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Fires when the comment status is in transition.
+	 *
+	 * @since WP 2.7.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param int|string $new_status The new comment status.
+	 * @param int|string $old_status The old comment status.
+	 * @param WP_Comment $comment    Comment object.
+	 */
+	do_action_deprecated(
+		'transition_comment_status',
+		array( 0, 0, null ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Fires when the comment status is in transition from one specific status to another.
+	 *
+	 * The dynamic portions of the hook name, `$old_status`, and `$new_status`,
+	 * refer to the old and new comment statuses, respectively.
+	 *
+	 * Possible hook names include:
+	 *
+	 *  - `comment_unapproved_to_approved`
+	 *  - `comment_spam_to_approved`
+	 *  - `comment_approved_to_unapproved`
+	 *  - `comment_spam_to_unapproved`
+	 *  - `comment_unapproved_to_spam`
+	 *  - `comment_approved_to_spam`
+	 *
+	 * @since WP 2.7.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param WP_Comment $comment Comment object.
+	 */
+	do_action_deprecated(
+		"comment_{$old_status}_to_{$new_status}",
+		array( null ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+}
+
+/**
+ * Clears the lastcommentmodified cached value when a comment status is changed.
+ *
+ * Deletes the lastcommentmodified cache key when a comment enters or leaves
+ * 'approved' status.
+ *
+ * @since WP 4.7.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @access private
+ *
+ * @param string $new_status The new comment status.
+ * @param string $old_status The old comment status.
+ */
+function _clear_modified_cache_on_transition_comment_status( $new_status, $old_status ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Gets current commenter's name, email, and URL.
+ *
+ * Expects cookies content to already be sanitized. User of this function might
+ * wish to recheck the returned array for validity.
+ *
+ * @see sanitize_comment_cookies() Use to sanitize cookies
+ *
+ * @since WP 2.0.4
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @return array {
+ *     An array of current commenter variables.
+ *
+ *     @type string $comment_author       The name of the current commenter, or an empty string.
+ *     @type string $comment_author_email The email address of the current commenter, or an empty string.
+ *     @type string $comment_author_url   The URL address of the current commenter, or an empty string.
+ * }
+ */
+function wp_get_current_commenter() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the current commenter's name, email, and URL.
+	 *
+	 * @since WP 3.1.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param array $comment_author_data {
+	 *     An array of current commenter variables.
+	 *
+	 *     @type string $comment_author       The name of the current commenter, or an empty string.
+	 *     @type string $comment_author_email The email address of the current commenter, or an empty string.
+	 *     @type string $comment_author_url   The URL address of the current commenter, or an empty string.
+	 * }
+	 */
+	apply_filters_deprecated(
+		'wp_get_current_commenter',
+		array( array() ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return array();
+}
+
+/**
+ * Gets unapproved comment author's email.
+ *
+ * Used to allow the commenter to see their pending comment.
+ *
+ * @since WP 5.1.0
+ * @since WP 5.7.0 The window within which the author email for an unapproved comment
+ *              can be retrieved was extended to 10 minutes.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @return string The unapproved comment author's email (when supplied).
+ */
+function wp_get_unapproved_comment_author_email() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return '';
+}
+
+/**
+ * Inserts a comment into the database.
+ *
+ * @since WP 2.0.0
+ * @since WP 4.4.0 Introduced the `$comment_meta` argument.
+ * @since WP 5.5.0 Default value for `$comment_type` argument changed to `comment`.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param array $commentdata {
+ *     Array of arguments for inserting a new comment.
+ *
+ *     @type string     $comment_agent        The HTTP user agent of the `$comment_author` when
+ *                                            the comment was submitted. Default empty.
+ *     @type int|string $comment_approved     Whether the comment has been approved. Default 1.
+ *     @type string     $comment_author       The name of the author of the comment. Default empty.
+ *     @type string     $comment_author_email The email address of the `$comment_author`. Default empty.
+ *     @type string     $comment_author_IP    The IP address of the `$comment_author`. Default empty.
+ *     @type string     $comment_author_url   The URL address of the `$comment_author`. Default empty.
+ *     @type string     $comment_content      The content of the comment. Default empty.
+ *     @type string     $comment_date         The date the comment was submitted. To set the date
+ *                                            manually, `$comment_date_gmt` must also be specified.
+ *                                            Default is the current time.
+ *     @type string     $comment_date_gmt     The date the comment was submitted in the GMT timezone.
+ *                                            Default is `$comment_date` in the site's GMT timezone.
+ *     @type int        $comment_karma        The karma of the comment. Default 0.
+ *     @type int        $comment_parent       ID of this comment's parent, if any. Default 0.
+ *     @type int        $comment_post_ID      ID of the post that relates to the comment, if any.
+ *                                            Default 0.
+ *     @type string     $comment_type         Comment type. Default 'comment'.
+ *     @type array      $comment_meta         Optional. Array of key/value pairs to be stored in commentmeta for the
+ *                                            new comment.
+ *     @type int        $user_id              ID of the user who submitted the comment. Default 0.
+ * }
+ * @return int|false The new comment's ID on success, false on failure.
+ */
+function wp_insert_comment( $commentdata ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Fires immediately after a comment is inserted into the database.
+	 *
+	 * @since WP 2.8.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param int        $id      The comment ID.
+	 * @param WP_Comment $comment Comment object.
+	 */
+	do_action_deprecated(
+		'wp_insert_comment',
+		array( 0, null ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return false;
+}
+
+/**
+ * Filters and sanitizes comment data.
+ *
+ * Sets the comment data 'filtered' field to true when finished. This can be
+ * checked as to whether the comment should be filtered and to keep from
+ * filtering the same comment more than once.
+ *
+ * @since WP 2.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param array $commentdata Contains information on the comment.
+ * @return array Parsed comment information.
+ */
+function wp_filter_comment( $commentdata ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the comment author's user ID before it is set.
+	 *
+	 * The first time this filter is evaluated, `user_ID` is checked
+	 * (for back-compat), followed by the standard `user_id` value.
+	 *
+	 * @since WP 1.5.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param int $user_id The comment author's user ID.
+	 */
+	apply_filters_deprecated(
+		'pre_user_id',
+		array( 0 ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Filters the comment author's browser user agent before it is set.
+	 *
+	 * @since WP 1.5.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string $comment_agent The comment author's browser user agent.
+	 */
+	apply_filters_deprecated(
+		'pre_comment_user_agent',
+		array( '' ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/** This filter is documented in wp-includes/comment.php */
+	apply_filters_deprecated(
+		'pre_comment_author_name',
+		array( '' ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Filters the comment content before it is set.
+	 *
+	 * @since WP 1.5.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string $comment_content The comment content.
+	 */
+	apply_filters_deprecated(
+		'pre_comment_content',
+		array( '' ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Filters the comment author's IP address before it is set.
+	 *
+	 * @since WP 1.5.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string $comment_author_ip The comment author's IP address.
+	 */
+	apply_filters_deprecated(
+		'pre_comment_user_ip',
+		array( '' ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/** This filter is documented in wp-includes/comment.php */
+	apply_filters_deprecated(
+		'pre_comment_author_url',
+		array( '' ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/** This filter is documented in wp-includes/comment.php */
+	apply_filters_deprecated(
+		'pre_comment_author_email',
+		array( '' ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return array();
+}
+
+/**
+ * Determines whether a comment should be blocked because of comment flood.
+ *
+ * @since WP 2.1.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param bool $block            Whether plugin has already blocked comment.
+ * @param int  $time_lastcomment Timestamp for last comment.
+ * @param int  $time_newcomment  Timestamp for new comment.
+ * @return bool Whether comment should be blocked.
+ */
+function wp_throttle_comment_flood( $block, $time_lastcomment, $time_newcomment ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return false;
+}
+
+/**
+ * Adds a new comment to the database.
+ *
+ * Filters new comment to ensure that the fields are sanitized and valid before
+ * inserting comment into database. Calls {@see 'comment_post'} action with comment ID
+ * and whether comment is approved by WordPress. Also has {@see 'preprocess_comment'}
+ * filter for processing the comment data before the function handles it.
+ *
+ * We use `REMOTE_ADDR` here directly. If you are behind a proxy, you should ensure
+ * that it is properly set, such as in wp-config.php, for your environment.
+ *
+ * @since WP 1.5.0
+ * @since WP 4.3.0 Introduced the `comment_agent` and `comment_author_IP` arguments.
+ * @since WP 4.7.0 The `$avoid_die` parameter was added, allowing the function
+ *              to return a WP_Error object instead of dying.
+ * @since WP 5.5.0 The `$avoid_die` parameter was renamed to `$wp_error`.
+ * @since WP 5.5.0 Introduced the `comment_type` argument.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @see wp_insert_comment()
+ *
+ * @param array $commentdata {
+ *     Comment data.
+ *
+ *     @type string $comment_author       The name of the comment author.
+ *     @type string $comment_author_email The comment author email address.
+ *     @type string $comment_author_url   The comment author URL.
+ *     @type string $comment_content      The content of the comment.
+ *     @type string $comment_date         The date the comment was submitted. Default is the current time.
+ *     @type string $comment_date_gmt     The date the comment was submitted in the GMT timezone.
+ *                                        Default is `$comment_date` in the GMT timezone.
+ *     @type string $comment_type         Comment type. Default 'comment'.
+ *     @type int    $comment_parent       The ID of this comment's parent, if any. Default 0.
+ *     @type int    $comment_post_ID      The ID of the post that relates to the comment.
+ *     @type int    $user_id              The ID of the user who submitted the comment. Default 0.
+ *     @type int    $user_ID              Kept for backward-compatibility. Use `$user_id` instead.
+ *     @type string $comment_agent        Comment author user agent. Default is the value of 'HTTP_USER_AGENT'
+ *                                        in the `$_SERVER` superglobal sent in the original request.
+ *     @type string $comment_author_IP    Comment author IP address in IPv4 format. Default is the value of
+ *                                        'REMOTE_ADDR' in the `$_SERVER` superglobal sent in the original request.
+ * }
+ * @param bool  $wp_error Should errors be returned as WP_Error objects instead of
+ *                        executing wp_die()? Default false.
+ * @return int|false|WP_Error The ID of the comment on success, false or WP_Error on failure.
+ */
+function wp_new_comment( $commentdata, $wp_error = false ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters a comment's data before it is sanitized and inserted into the database.
+	 *
+	 * @since WP 1.5.0
+	 * @since WP 5.6.0 Comment data includes the `comment_agent` and `comment_author_IP` values.
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param array $commentdata Comment data.
+	 */
+	apply_filters_deprecated(
+		'preprocess_comment',
+		array( array() ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Fires immediately after a comment is inserted into the database.
+	 *
+	 * @since WP 1.2.0
+	 * @since WP 4.5.0 The `$commentdata` parameter was added.
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param int        $comment_id       The comment ID.
+	 * @param int|string $comment_approved 1 if the comment is approved, 0 if not, 'spam' if spam.
+	 * @param array      $commentdata      Comment data.
+	 */
+	do_action_deprecated(
+		'comment_post',
+		array( 0, 0, array() ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return false;
+}
+
+/**
+ * Sends a comment moderation notification to the comment moderator.
+ *
+ * @since WP 4.4.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int $comment_id ID of the comment.
+ * @return bool True on success, false on failure.
+ */
+function wp_new_comment_notify_moderator( $comment_id ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return false;
+}
+
+/**
+ * Sends a notification of a new comment to the post author.
+ *
+ * @since WP 4.4.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * Uses the {@see 'notify_post_author'} filter to determine whether the post author
+ * should be notified when a new comment is added, overriding site setting.
+ *
+ * @param int $comment_id Comment ID.
+ * @return bool True on success, false on failure.
+ */
+function wp_new_comment_notify_postauthor( $comment_id ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters whether to send the post author new comment notification emails,
+	 * overriding the site setting.
+	 *
+	 * @since WP 4.4.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param bool $maybe_notify Whether to notify the post author about the new comment.
+	 * @param int  $comment_id   The ID of the comment for the notification.
+	 */
+	apply_filters_deprecated(
+		'notify_post_author',
+		array( false, 1 ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return false;
+}
+
+/**
+ * Sets the status of a comment.
+ *
+ * The {@see 'wp_set_comment_status'} action is called after the comment is handled.
+ * If the comment status is not in the list, then false is returned.
+ *
+ * @since WP 1.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int|WP_Comment $comment_id     Comment ID or WP_Comment object.
+ * @param string         $comment_status New comment status, either 'hold', 'approve', 'spam', or 'trash'.
+ * @param bool           $wp_error       Whether to return a WP_Error object if there is a failure. Default false.
+ * @return bool|WP_Error True on success, false or WP_Error on failure.
+ */
+function wp_set_comment_status( $comment_id, $comment_status, $wp_error = false ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Fires immediately after transitioning a comment's status from one to another in the database
+	 * and removing the comment from the object cache, but prior to all status transition hooks.
+	 *
+	 * @since WP 1.5.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string $comment_id     Comment ID as a numeric string.
+	 * @param string $comment_status Current comment status. Possible values include
+	 *                               'hold', '0', 'approve', '1', 'spam', and 'trash'.
+	 */
+	do_action_deprecated(
+		'wp_set_comment_status',
+		array( 0, '' ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return false;
+}
+
+/**
+ * Updates an existing comment in the database.
+ *
+ * Filters the comment and makes sure certain fields are valid before updating.
+ *
+ * @since WP 2.0.0
+ * @since WP 4.9.0 Add updating comment meta during comment update.
+ * @since WP 5.5.0 The `$wp_error` parameter was added.
+ * @since WP 5.5.0 The return values for an invalid comment or post ID
+ *              were changed to false instead of 0.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param array $commentarr Contains information on the comment.
+ * @param bool  $wp_error   Optional. Whether to return a WP_Error on failure. Default false.
+ * @return int|false|WP_Error The value 1 if the comment was updated, 0 if not updated.
+ *                            False or a WP_Error object on failure.
+ */
+function wp_update_comment( $commentarr, $wp_error = false ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the comment content before it is updated in the database.
+	 *
+	 * @since WP 1.5.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string $comment_content The comment data.
+	 */
+	apply_filters_deprecated(
+		'comment_save_pre',
+		array( '' ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Filters the comment data immediately before it is updated in the database.
+	 *
+	 * Note: data being passed to the filter is already unslashed.
+	 *
+	 * @since WP 4.7.0
+	 * @since WP 5.5.0 Returning a WP_Error value from the filter will short-circuit comment update
+	 *              and allow skipping further processing.
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param array|WP_Error $data       The new, processed comment data, or WP_Error.
+	 * @param array          $comment    The old, unslashed comment data.
+	 * @param array          $commentarr The new, raw comment data.
+	 */
+	apply_filters_deprecated(
+		'wp_update_comment_data',
+		array( array(), array(), array() ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Fires immediately after a comment is updated in the database.
+	 *
+	 * The hook also fires immediately before comment status transition hooks are fired.
+	 *
+	 * @since WP 1.2.0
+	 * @since WP 4.6.0 Added the `$data` parameter.
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param int   $comment_id The comment ID.
+	 * @param array $data       Comment data.
+	 */
+	do_action_deprecated(
+		'edit_comment',
+		array( 0, array() ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return false;
+}
+
+/**
+ * Determines whether to defer comment counting.
+ *
+ * When setting $defer to true, all post comment counts will not be updated
+ * until $defer is set to false. When $defer is set to false, then all
+ * previously deferred updated post comment counts will then be automatically
+ * updated without having to call wp_update_comment_count() after.
+ *
+ * @since WP 2.5.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param bool $defer
+ * @return bool
+ */
+function wp_defer_comment_counting( $defer = null ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return false;
+}
+
+/**
+ * Updates the comment count for post(s).
+ *
+ * When $do_deferred is false (is by default) and the comments have been set to
+ * be deferred, the post_id will be added to a queue, which will be updated at a
+ * later date and only updated once per post ID.
+ *
+ * If the comments have not be set up to be deferred, then the post will be
+ * updated. When $do_deferred is set to true, then all previous deferred post
+ * IDs will be updated along with the current $post_id.
+ *
+ * @since WP 2.1.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @see wp_update_comment_count_now() For what could cause a false return value
+ *
+ * @param int|null $post_id     Post ID.
+ * @param bool     $do_deferred Optional. Whether to process previously deferred
+ *                              post comment counts. Default false.
+ * @return bool|void True on success, false on failure or if post with ID does
+ *                   not exist.
+ */
+function wp_update_comment_count( $post_id, $do_deferred = false ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return false;
+}
+
+/**
+ * Updates the comment count for the post.
+ *
+ * @since WP 2.5.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int $post_id Post ID
+ * @return bool True on success, false if the post does not exist.
+ */
+function wp_update_comment_count_now( $post_id ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters a post's comment count before it is updated in the database.
+	 *
+	 * @since WP 4.5.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param int|null $new     The new comment count. Default null.
+	 * @param int      $old     The old comment count.
+	 * @param int      $post_id Post ID.
+	 */
+	apply_filters_deprecated(
+		'pre_wp_update_comment_count_now',
+		array( 0, 0, 0 ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Fires immediately after a post's comment count is updated in the database.
+	 *
+	 * @since WP 2.3.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param int $post_id Post ID.
+	 * @param int $new     The new comment count.
+	 * @param int $old     The old comment count.
+	 */
+	do_action_deprecated(
+		'wp_update_comment_count',
+		array( 0, 0, 0 ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/** This action is documented in wp-includes/post.php */
+	do_action_deprecated(
+		'edit_post',
+		array( 0, null ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return false;
+}
+
+/**
+ * Finds a pingback server URI based on the given URL.
+ *
+ * Checks the HTML for the rel="pingback" link and X-Pingback headers. It does
+ * a check for the X-Pingback headers first and returns that, if available.
+ * The check for the rel="pingback" has more overhead than just the header.
+ *
+ * @since WP 1.5.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string $url        URL to ping.
+ * @param string $deprecated Not Used.
+ * @return string|false String containing URI on success, false on failure.
+ */
+function discover_pingback_server_uri( $url, $deprecated = '' ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return false;
+}
+
+/**
+ * Performs all pingbacks, enclosures, trackbacks, and sends to pingback services.
+ *
+ * @since WP 2.1.0
+ * @since WP 5.6.0 Introduced `do_all_pings` action hook for individual services.
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function do_all_pings() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Fires immediately after the `do_pings` event to hook services individually.
+	 *
+	 * @since WP 5.6.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 */
+	do_action_deprecated(
+		'do_all_pings',
+		array(),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+}
+
+/**
+ * Performs all pingbacks.
+ *
+ * @since WP 5.6.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function do_all_pingbacks() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Performs all enclosures.
+ *
+ * @since WP 5.6.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function do_all_enclosures() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Performs all trackbacks.
+ *
+ * @since WP 5.6.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function do_all_trackbacks() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Performs trackbacks.
+ *
+ * @since WP 1.5.0
+ * @since WP 4.7.0 `$post` can be a WP_Post object.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @global wpdb $wpdb WordPress database abstraction object.
+ *
+ * @param int|WP_Post $post Post ID or object to do trackbacks on.
+ * @return void|false Returns false on failure.
+ */
+function do_trackbacks( $post ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Sends pings to all of the ping site services.
+ *
+ * @since WP 1.2.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int $post_id Post ID.
+ * @return int Same post ID as provided.
+ */
+function generic_ping( $post_id = 0 ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return $post_id;
+}
+
+/**
+ * Pings back the links found in a post.
+ *
+ * @since WP 0.71
+ * @since WP 4.7.0 `$post` can be a WP_Post object.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string      $content Post content to check for links. If empty will retrieve from post.
+ * @param int|WP_Post $post    Post ID or object.
+ */
+function pingback( $content, $post ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Fires just before pinging back links found in a post.
+	 *
+	 * @since WP 2.0.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string[] $post_links Array of link URLs to be checked (passed by reference).
+	 * @param string[] $pung       Array of link URLs already pinged (passed by reference).
+	 * @param int      $post_id    The post ID.
+	 */
+	do_action_deprecated(
+		'pre_ping',
+		array( array(), array(), 0 ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Filters the user agent sent when pinging-back a URL.
+	 *
+	 * @since WP 2.9.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string $concat_useragent    The user agent concatenated with ' -- WordPress/'
+	 *                                    and the WordPress version.
+	 * @param string $useragent           The useragent.
+	 * @param string $pingback_server_url The server URL being linked to.
+	 * @param string $pagelinkedto        URL of page linked to.
+	 * @param string $pagelinkedfrom      URL of page linked from.
+	 */
+	apply_filters_deprecated(
+		'pingback_useragent',
+		array( '', '', '', '', '' ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+}
+
+/**
+ * Checks whether blog is public before returning sites.
+ *
+ * @since WP 2.1.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param mixed $sites Will return if blog is public, will not return if not public.
+ * @return mixed Empty string if blog is not public, returns $sites, if site is public.
+ */
+function privacy_ping_filter( $sites ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return '';
+}
+
+/**
+ * Sends a Trackback.
+ *
+ * Updates database when sending trackback to prevent duplicates.
+ *
+ * @since WP 0.71
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string $trackback_url URL to send trackbacks.
+ * @param string $title         Title of post.
+ * @param string $excerpt       Excerpt of post.
+ * @param int    $post_id       Post ID.
+ * @return int|false|void Database query from update.
+ */
+function trackback( $trackback_url, $title, $excerpt, $post_id ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Sends a pingback.
+ *
+ * @since WP 1.2.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string $server Host of blog to connect to.
+ * @param string $path Path to send the ping.
+ */
+function weblog_ping( $server = '', $path = '' ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Default filter attached to pingback_ping_source_uri to validate the pingback's Source URI.
+ *
+ * @since WP 3.5.1
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @see wp_http_validate_url()
+ *
+ * @param string $source_uri
+ * @return string
+ */
+function pingback_ping_source_uri( $source_uri ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Default filter attached to xmlrpc_pingback_error.
+ *
+ * Returns a generic pingback error code unless the error code is 48,
+ * which reports that the pingback is already registered.
+ *
+ * @since WP 3.5.1
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @link https://www.hixie.ch/specs/pingback/pingback#TOC3
+ *
+ * @param IXR_Error $ixr_error
+ * @return IXR_Error
+ */
+function xmlrpc_pingback_error( $ixr_error ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Removes a comment from the object cache.
+ *
+ * @since WP 2.3.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int|array $ids Comment ID or an array of comment IDs to remove from cache.
+ */
+function clean_comment_cache( $ids ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Fires immediately after a comment has been removed from the object cache.
+	 *
+	 * @since WP 4.5.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param int $id Comment ID.
+	 */
+	do_action_deprecated(
+		'clean_comment_cache',
+		array( 0 ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+}
+
+/**
+ * Updates the comment cache of given comments.
+ *
+ * Will add the comments in $comments to the cache. If comment ID already exists
+ * in the comment cache then it will not be updated. The comment is added to the
+ * cache using the comment group with the key using the ID of the comments.
+ *
+ * @since WP 2.3.0
+ * @since WP 4.4.0 Introduced the `$update_meta_cache` parameter.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param WP_Comment[] $comments          Array of comment objects
+ * @param bool         $update_meta_cache Whether to update commentmeta cache. Default true.
+ */
+function update_comment_cache( $comments, $update_meta_cache = true ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Adds any comments from the given IDs to the cache that do not already exist in cache.
+ *
+ * @since WP 4.4.0
+ * @since WP 6.1.0 This function is no longer marked as "private".
+ * @since WP 6.3.0 Use wp_lazyload_comment_meta() for lazy-loading of comment meta.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @see update_comment_cache()
+ *
+ * @param int[] $comment_ids       Array of comment IDs.
+ * @param bool  $update_meta_cache Optional. Whether to update the meta cache. Default true.
+ */
+function _prime_comment_caches( $comment_ids, $update_meta_cache = true ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Closes comments on old posts on the fly, without any extra DB queries. Hooked to the_posts.
+ *
+ * @since WP 2.7.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @access private
+ *
+ * @param WP_Post  $posts Post data object.
+ * @param WP_Query $query Query object.
+ * @return array
+ */
+function _close_comments_for_old_posts( $posts, $query ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the list of post types to automatically close comments for.
+	 *
+	 * @since WP 3.2.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string[] $post_types An array of post type names.
+	 */
+	apply_filters_deprecated(
+		'close_comments_for_post_types',
+		array( array( 'post' ) ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return array();
+}
+
+/**
+ * Closes comments on an old post. Hooked to comments_open and pings_open.
+ *
+ * @since WP 2.7.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @access private
+ *
+ * @param bool $open    Comments open or closed.
+ * @param int  $post_id Post ID.
+ * @return bool $open
+ */
+function _close_comments_for_old_post( $open, $post_id ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return false;
+}
+
+/**
+ * Handles the submission of a comment, usually posted to wp-comments-post.php via a comment form.
+ *
+ * This function expects unslashed data, as opposed to functions such as `wp_new_comment()` which
+ * expect slashed data.
+ *
+ * @since WP 4.4.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param array $comment_data {
+ *     Comment data.
+ *
+ *     @type string|int $comment_post_ID             The ID of the post that relates to the comment.
+ *     @type string     $author                      The name of the comment author.
+ *     @type string     $email                       The comment author email address.
+ *     @type string     $url                         The comment author URL.
+ *     @type string     $comment                     The content of the comment.
+ *     @type string|int $comment_parent              The ID of this comment's parent, if any. Default 0.
+ *     @type string     $_wp_unfiltered_html_comment The nonce value for allowing unfiltered HTML.
+ * }
+ * @return WP_Comment|WP_Error A WP_Comment object on success, a WP_Error object on failure.
+ */
+function wp_handle_comment_submission( $comment_data ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Fires when a comment reply is attempted to an unapproved comment.
+	 *
+	 * @since WP 6.2.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param int $comment_post_id Post ID.
+	 * @param int $comment_parent  Parent comment ID.
+	 */
+	do_action_deprecated(
+		'comment_reply_to_unapproved_comment',
+		array( 0, 0 ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Fires when a comment is attempted on a post that does not exist.
+	 *
+	 * @since WP 1.5.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param int $comment_post_id Post ID.
+	 */
+	do_action_deprecated(
+		'comment_id_not_found',
+		array( 0 ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Fires when a comment is attempted on a post that has comments closed.
+	 *
+	 * @since WP 1.5.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param int $comment_post_id Post ID.
+	 */
+	do_action_deprecated(
+		'comment_closed',
+		array( 0 ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Fires when a comment is attempted on a trashed post.
+	 *
+	 * @since WP 2.9.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param int $comment_post_id Post ID.
+	 */
+	do_action_deprecated(
+		'comment_on_trash',
+		array( 0 ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Fires when a comment is attempted on a post in draft mode.
+	 *
+	 * @since WP 1.5.1
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param int $comment_post_id Post ID.
+	 */
+	do_action_deprecated(
+		'comment_on_draft',
+		array( 0 ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Fires when a comment is attempted on a password-protected post.
+	 *
+	 * @since WP 2.9.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param int $comment_post_id Post ID.
+	 */
+	do_action_deprecated(
+		'comment_on_password_protected',
+		array( 0 ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Fires before a comment is posted.
+	 *
+	 * @since WP 2.8.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param int $comment_post_id Post ID.
+	 */
+	do_action_deprecated(
+		'pre_comment_on_post',
+		array( 0 ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Filters whether an empty comment should be allowed.
+	 *
+	 * @since WP 5.1.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param bool  $allow_empty_comment Whether to allow empty comments. Default false.
+	 * @param array $commentdata         Array of comment data to be sent to wp_insert_comment().
+	 */
+	apply_filters_deprecated(
+		'allow_empty_comment',
+		array( false, array() ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return null;
+}
+
+/**
+ * Finds and exports personal data associated with an email address from the comments table.
+ *
+ * @since WP 4.9.6
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string $email_address The comment author email address.
+ * @param int    $page          Comment page number.
+ * @return array {
+ *     An array of personal data.
+ *
+ *     @type array[] $data An array of personal data arrays.
+ *     @type bool    $done Whether the exporter is finished.
+ * }
+ */
+function wp_comments_personal_data_exporter( $email_address, $page = 1 ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return array();
+}
+
+/**
+ * Erases personal data associated with an email address from the comments table.
+ *
+ * @since WP 4.9.6
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string $email_address The comment author email address.
+ * @param int    $page          Comment page number.
+ * @return array {
+ *     Data removal results.
+ *
+ *     @type bool     $items_removed  Whether items were actually removed.
+ *     @type bool     $items_retained Whether items were retained.
+ *     @type string[] $messages       An array of messages to add to the personal data export file.
+ *     @type bool     $done           Whether the eraser is finished.
+ * }
+ */
+function wp_comments_personal_data_eraser( $email_address, $page = 1 ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters whether to anonymize the comment.
+	 *
+	 * @since WP 4.9.6
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param bool|string $anon_message       Whether to apply the comment anonymization (bool) or a custom
+	 *                                        message (string). Default true.
+	 * @param WP_Comment  $comment            WP_Comment object.
+	 * @param array       $anonymized_comment Anonymized comment data.
+	 */
+	apply_filters_deprecated(
+		'wp_anonymize_comment',
+		array( false, null, array() ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return array();
 }
