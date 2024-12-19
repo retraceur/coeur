@@ -228,7 +228,6 @@ require ABSPATH . WPINC . '/category.php';
 require ABSPATH . WPINC . '/class-walker-category.php';
 require ABSPATH . WPINC . '/class-walker-category-dropdown.php';
 require ABSPATH . WPINC . '/category-template.php';
-require ABSPATH . WPINC . '/comment-template.php';
 require ABSPATH . WPINC . '/rewrite.php';
 require ABSPATH . WPINC . '/class-wp-rewrite.php';
 require ABSPATH . WPINC . '/feed.php';
