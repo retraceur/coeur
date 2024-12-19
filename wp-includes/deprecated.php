@@ -13656,3 +13656,1916 @@ function wp_comments_personal_data_eraser( $email_address, $page = 1 ) {
 
 	return array();
 }
+
+/**
+ * Retrieves the author of the current comment.
+ *
+ * If the comment has an empty comment_author field, then 'Anonymous' person is
+ * assumed.
+ *
+ * @since WP 1.5.0
+ * @since WP 4.4.0 Added the ability for `$comment_id` to also accept a WP_Comment object.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int|WP_Comment $comment_id Optional. WP_Comment or the ID of the comment for which to retrieve the author.
+ *                                   Default current comment.
+ * @return string The comment author
+ */
+function get_comment_author( $comment_id = 0 ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the returned comment author name.
+	 *
+	 * @since WP 1.5.0
+	 * @since WP 4.1.0 The `$comment_id` and `$comment` parameters were added.
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string     $comment_author The comment author's username.
+	 * @param string     $comment_id     The comment ID as a numeric string.
+	 * @param WP_Comment $comment        The comment object.
+	 */
+	apply_filters_deprecated(
+		'get_comment_author',
+		array( '', '', null ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return '';
+}
+
+/**
+ * Displays the author of the current comment.
+ *
+ * @since WP 0.71
+ * @since WP 4.4.0 Added the ability for `$comment_id` to also accept a WP_Comment object.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int|WP_Comment $comment_id Optional. WP_Comment or the ID of the comment for which to print the author.
+ *                                   Default current comment.
+ */
+function comment_author( $comment_id = 0 ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the comment author's name for display.
+	 *
+	 * @since WP 1.2.0
+	 * @since WP 4.1.0 The `$comment_id` parameter was added.
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string $comment_author The comment author's username.
+	 * @param string $comment_id     The comment ID as a numeric string.
+	 */
+	apply_filters_deprecated(
+		'comment_author',
+		array( '', '' ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+}
+
+/**
+ * Retrieves the email of the author of the current comment.
+ *
+ * @since WP 1.5.0
+ * @since WP 4.4.0 Added the ability for `$comment_id` to also accept a WP_Comment object.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int|WP_Comment $comment_id Optional. WP_Comment or the ID of the comment for which to get the author's email.
+ *                                   Default current comment.
+ * @return string The current comment author's email
+ */
+function get_comment_author_email( $comment_id = 0 ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the comment author's returned email address.
+	 *
+	 * @since WP 1.5.0
+	 * @since WP 4.1.0 The `$comment_id` and `$comment` parameters were added.
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string     $comment_author_email The comment author's email address.
+	 * @param string     $comment_id           The comment ID as a numeric string.
+	 * @param WP_Comment $comment              The comment object.
+	 */
+	apply_filters_deprecated(
+		'get_comment_author_email',
+		array( '', '', null ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return '';
+}
+
+/**
+ * Displays the email of the author of the current global $comment.
+ *
+ * Care should be taken to protect the email address and assure that email
+ * harvesters do not capture your commenter's email address. Most assume that
+ * their email address will not appear in raw form on the site. Doing so will
+ * enable anyone, including those that people don't want to get the email
+ * address and use it for their own means good and bad.
+ *
+ * @since WP 0.71
+ * @since WP 4.4.0 Added the ability for `$comment_id` to also accept a WP_Comment object.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int|WP_Comment $comment_id Optional. WP_Comment or the ID of the comment for which to print the author's email.
+ *                                   Default current comment.
+ */
+function comment_author_email( $comment_id = 0 ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the comment author's email for display.
+	 *
+	 * @since WP 1.2.0
+	 * @since WP 4.1.0 The `$comment_id` parameter was added.
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string $comment_author_email The comment author's email address.
+	 * @param string $comment_id           The comment ID as a numeric string.
+	 */
+	apply_filters_deprecated(
+		'author_email',
+		array( '', '' ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+}
+
+/**
+ * Displays the HTML email link to the author of the current comment.
+ *
+ * Care should be taken to protect the email address and assure that email
+ * harvesters do not capture your commenter's email address. Most assume that
+ * their email address will not appear in raw form on the site. Doing so will
+ * enable anyone, including those that people don't want to get the email
+ * address and use it for their own means good and bad.
+ *
+ * @since WP 0.71
+ * @since WP 4.6.0 Added the `$comment` parameter.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string         $link_text Optional. Text to display instead of the comment author's email address.
+ *                                  Default empty.
+ * @param string         $before    Optional. Text or HTML to display before the email link. Default empty.
+ * @param string         $after     Optional. Text or HTML to display after the email link. Default empty.
+ * @param int|WP_Comment $comment   Optional. Comment ID or WP_Comment object. Default is the current comment.
+ */
+function comment_author_email_link( $link_text = '', $before = '', $after = '', $comment = null ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Returns the HTML email link to the author of the current comment.
+ *
+ * Care should be taken to protect the email address and assure that email
+ * harvesters do not capture your commenter's email address. Most assume that
+ * their email address will not appear in raw form on the site. Doing so will
+ * enable anyone, including those that people don't want to get the email
+ * address and use it for their own means good and bad.
+ *
+ * @since WP 2.7.0
+ * @since WP 4.6.0 Added the `$comment` parameter.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string         $link_text Optional. Text to display instead of the comment author's email address.
+ *                                  Default empty.
+ * @param string         $before    Optional. Text or HTML to display before the email link. Default empty.
+ * @param string         $after     Optional. Text or HTML to display after the email link. Default empty.
+ * @param int|WP_Comment $comment   Optional. Comment ID or WP_Comment object. Default is the current comment.
+ * @return string HTML markup for the comment author email link. By default, the email address is obfuscated
+ *                via the {@see 'comment_email'} filter with antispambot().
+ */
+function get_comment_author_email_link( $link_text = '', $before = '', $after = '', $comment = null ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the comment author's email for display.
+	 *
+	 * Care should be taken to protect the email address and assure that email
+	 * harvesters do not capture your commenter's email address.
+	 *
+	 * @since WP 1.2.0
+	 * @since WP 4.1.0 The `$comment` parameter was added.
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string     $comment_author_email The comment author's email address.
+	 * @param WP_Comment $comment              The comment object.
+	 */
+	apply_filters_deprecated(
+		'comment_email',
+		array( '', null ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return '';
+}
+
+/**
+ * Retrieves the HTML link to the URL of the author of the current comment.
+ *
+ * Both get_comment_author_url() and get_comment_author() rely on get_comment(),
+ * which falls back to the global comment variable if the $comment_id argument is empty.
+ *
+ * @since WP 1.5.0
+ * @since WP 4.4.0 Added the ability for `$comment_id` to also accept a WP_Comment object.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int|WP_Comment $comment_id Optional. WP_Comment or the ID of the comment for which to get the author's link.
+ *                                   Default current comment.
+ * @return string The comment author name or HTML link for author's URL.
+ */
+function get_comment_author_link( $comment_id = 0 ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the rel attributes of the comment author's link.
+	 *
+	 * @since WP 6.2.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string[]   $rel_parts An array of strings representing the rel tags
+	 *                              which will be joined into the anchor's rel attribute.
+	 * @param WP_Comment $comment   The comment object.
+	 */
+	apply_filters_deprecated(
+		'comment_author_link_rel',
+		array( array(), null ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Filters the comment author's link for display.
+	 *
+	 * @since WP 1.5.0
+	 * @since WP 4.1.0 The `$comment_author` and `$comment_id` parameters were added.
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string $comment_author_link The HTML-formatted comment author link.
+	 *                                    Empty for an invalid URL.
+	 * @param string $comment_author      The comment author's username.
+	 * @param string $comment_id          The comment ID as a numeric string.
+	 */
+	apply_filters_deprecated(
+		'get_comment_author_link',
+		array( '', '', '' ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return '';
+}
+
+/**
+ * Displays the HTML link to the URL of the author of the current comment.
+ *
+ * @since WP 0.71
+ * @since WP 4.4.0 Added the ability for `$comment_id` to also accept a WP_Comment object.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int|WP_Comment $comment_id Optional. WP_Comment or the ID of the comment for which to print the author's link.
+ *                                   Default current comment.
+ */
+function comment_author_link( $comment_id = 0 ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Retrieves the IP address of the author of the current comment.
+ *
+ * @since WP 1.5.0
+ * @since WP 4.4.0 Added the ability for `$comment_id` to also accept a WP_Comment object.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int|WP_Comment $comment_id Optional. WP_Comment or the ID of the comment for which to get the author's IP address.
+ *                                   Default current comment.
+ * @return string Comment author's IP address, or an empty string if it's not available.
+ */
+function get_comment_author_IP( $comment_id = 0 ) { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the comment author's returned IP address.
+	 *
+	 * @since WP 1.5.0
+	 * @since WP 4.1.0 The `$comment_id` and `$comment` parameters were added.
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string     $comment_author_ip The comment author's IP address, or an empty string if it's not available.
+	 * @param string     $comment_id        The comment ID as a numeric string.
+	 * @param WP_Comment $comment           The comment object.
+	 */
+	apply_filters_deprecated(
+		'get_comment_author_IP', // phpcs:ignore WordPress.NamingConventions.ValidHookName.NotLowercase
+		array( '', '', null ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+}
+
+/**
+ * Displays the IP address of the author of the current comment.
+ *
+ * @since WP 0.71
+ * @since WP 4.4.0 Added the ability for `$comment_id` to also accept a WP_Comment object.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int|WP_Comment $comment_id Optional. WP_Comment or the ID of the comment for which to print the author's IP address.
+ *                                   Default current comment.
+ */
+function comment_author_IP( $comment_id = 0 ) { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Retrieves the URL of the author of the current comment, not linked.
+ *
+ * @since WP 1.5.0
+ * @since WP 4.4.0 Added the ability for `$comment_id` to also accept a WP_Comment object.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int|WP_Comment $comment_id Optional. WP_Comment or the ID of the comment for which to get the author's URL.
+ *                                   Default current comment.
+ * @return string Comment author URL, if provided, an empty string otherwise.
+ */
+function get_comment_author_url( $comment_id = 0 ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the comment author's URL.
+	 *
+	 * @since WP 1.5.0
+	 * @since WP 4.1.0 The `$comment_id` and `$comment` parameters were added.
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string          $comment_author_url The comment author's URL, or an empty string.
+	 * @param string|int      $comment_id         The comment ID as a numeric string, or 0 if not found.
+	 * @param WP_Comment|null $comment            The comment object, or null if not found.
+	 */
+	apply_filters_deprecated(
+		'get_comment_author_url',
+		array( '', '', null ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return '';
+}
+
+/**
+ * Displays the URL of the author of the current comment, not linked.
+ *
+ * @since WP 0.71
+ * @since WP 4.4.0 Added the ability for `$comment_id` to also accept a WP_Comment object.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int|WP_Comment $comment_id Optional. WP_Comment or the ID of the comment for which to print the author's URL.
+ *                                   Default current comment.
+ */
+function comment_author_url( $comment_id = 0 ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the comment author's URL for display.
+	 *
+	 * @since WP 1.2.0
+	 * @since WP 4.1.0 The `$comment_id` parameter was added.
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string $comment_author_url The comment author's URL.
+	 * @param string $comment_id         The comment ID as a numeric string.
+	 */
+	apply_filters_deprecated(
+		'comment_url',
+		array( '', '' ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+}
+
+/**
+ * Retrieves the HTML link of the URL of the author of the current comment.
+ *
+ * $link_text parameter is only used if the URL does not exist for the comment
+ * author. If the URL does exist then the URL will be used and the $link_text
+ * will be ignored.
+ *
+ * Encapsulate the HTML link between the $before and $after. So it will appear
+ * in the order of $before, link, and finally $after.
+ *
+ * @since WP 1.5.0
+ * @since WP 4.6.0 Added the `$comment` parameter.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string         $link_text Optional. The text to display instead of the comment
+ *                                  author's email address. Default empty.
+ * @param string         $before    Optional. The text or HTML to display before the email link.
+ *                                  Default empty.
+ * @param string         $after     Optional. The text or HTML to display after the email link.
+ *                                  Default empty.
+ * @param int|WP_Comment $comment   Optional. Comment ID or WP_Comment object.
+ *                                  Default is the current comment.
+ * @return string The HTML link between the $before and $after parameters.
+ */
+function get_comment_author_url_link( $link_text = '', $before = '', $after = '', $comment = 0 ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the comment author's returned URL link.
+	 *
+	 * @since WP 1.5.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string $comment_author_url_link The HTML-formatted comment author URL link.
+	 */
+	apply_filters_deprecated(
+		'get_comment_author_url_link',
+		array( '' ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return '';
+}
+
+/**
+ * Displays the HTML link of the URL of the author of the current comment.
+ *
+ * @since WP 0.71
+ * @since WP 4.6.0 Added the `$comment` parameter.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string         $link_text Optional. Text to display instead of the comment author's
+ *                                  email address. Default empty.
+ * @param string         $before    Optional. Text or HTML to display before the email link.
+ *                                  Default empty.
+ * @param string         $after     Optional. Text or HTML to display after the email link.
+ *                                  Default empty.
+ * @param int|WP_Comment $comment   Optional. Comment ID or WP_Comment object.
+ *                                  Default is the current comment.
+ */
+function comment_author_url_link( $link_text = '', $before = '', $after = '', $comment = 0 ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Generates semantic classes for each comment element.
+ *
+ * @since WP 2.7.0
+ * @since WP 4.4.0 Added the ability for `$comment` to also accept a WP_Comment object.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string|string[] $css_class Optional. One or more classes to add to the class list.
+ *                                   Default empty.
+ * @param int|WP_Comment  $comment   Optional. Comment ID or WP_Comment object. Default current comment.
+ * @param int|WP_Post     $post      Optional. Post ID or WP_Post object. Default current post.
+ * @param bool            $display   Optional. Whether to print or return the output.
+ *                                   Default true.
+ * @return void|string Void if `$display` argument is true, comment classes if `$display` is false.
+ */
+function comment_class( $css_class = '', $comment = null, $post = null, $display = true ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Returns the classes for the comment div as an array.
+ *
+ * @since WP 2.7.0
+ * @since WP 4.4.0 Added the ability for `$comment_id` to also accept a WP_Comment object.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @global int $comment_alt
+ * @global int $comment_depth
+ * @global int $comment_thread_alt
+ *
+ * @param string|string[] $css_class  Optional. One or more classes to add to the class list.
+ *                                    Default empty.
+ * @param int|WP_Comment  $comment_id Optional. Comment ID or WP_Comment object. Default current comment.
+ * @param int|WP_Post     $post       Optional. Post ID or WP_Post object. Default current post.
+ * @return string[] An array of classes.
+ */
+function get_comment_class( $css_class = '', $comment_id = null, $post = null ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the returned CSS classes for the current comment.
+	 *
+	 * @since WP 2.7.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string[]    $classes    An array of comment classes.
+	 * @param string[]    $css_class  An array of additional classes added to the list.
+	 * @param string      $comment_id The comment ID as a numeric string.
+	 * @param WP_Comment  $comment    The comment object.
+	 * @param int|WP_Post $post       The post ID or WP_Post object.
+	 */
+	apply_filters_deprecated(
+		'comment_class',
+		array( array(), array(), '', null, 0 ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return array();
+}
+
+/**
+ * Retrieves the comment date of the current comment.
+ *
+ * @since WP 1.5.0
+ * @since WP 4.4.0 Added the ability for `$comment_id` to also accept a WP_Comment object.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string         $format     Optional. PHP date format. Defaults to the 'date_format' option.
+ * @param int|WP_Comment $comment_id Optional. WP_Comment or ID of the comment for which to get the date.
+ *                                   Default current comment.
+ * @return string The comment's date.
+ */
+function get_comment_date( $format = '', $comment_id = 0 ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the returned comment date.
+	 *
+	 * @since WP 1.5.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string|int $comment_date Formatted date string or Unix timestamp.
+	 * @param string     $format       PHP date format.
+	 * @param WP_Comment $comment      The comment object.
+	 */
+	apply_filters_deprecated(
+		'get_comment_date',
+		array( '', '', null ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return '';
+}
+
+/**
+ * Displays the comment date of the current comment.
+ *
+ * @since WP 0.71
+ * @since WP 4.4.0 Added the ability for `$comment_id` to also accept a WP_Comment object.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string         $format     Optional. PHP date format. Defaults to the 'date_format' option.
+ * @param int|WP_Comment $comment_id WP_Comment or ID of the comment for which to print the date.
+ *                                   Default current comment.
+ */
+function comment_date( $format = '', $comment_id = 0 ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Retrieves the excerpt of the given comment.
+ *
+ * Returns a maximum of 20 words with an ellipsis appended if necessary.
+ *
+ * @since WP 1.5.0
+ * @since WP 4.4.0 Added the ability for `$comment_id` to also accept a WP_Comment object.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int|WP_Comment $comment_id Optional. WP_Comment or ID of the comment for which to get the excerpt.
+ *                                   Default current comment.
+ * @return string The possibly truncated comment excerpt.
+ */
+function get_comment_excerpt( $comment_id = 0 ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the maximum number of words used in the comment excerpt.
+	 *
+	 * @since WP 4.4.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param int $comment_excerpt_length The amount of words you want to display in the comment excerpt.
+	 */
+	apply_filters_deprecated(
+		'comment_excerpt_length',
+		array( 0 ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Filters the retrieved comment excerpt.
+	 *
+	 * @since WP 1.5.0
+	 * @since WP 4.1.0 The `$comment_id` and `$comment` parameters were added.
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string     $comment_excerpt The comment excerpt text.
+	 * @param string     $comment_id      The comment ID as a numeric string.
+	 * @param WP_Comment $comment         The comment object.
+	 */
+	apply_filters_deprecated(
+		'get_comment_excerpt',
+		array( '', '', null ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return '';
+}
+
+/**
+ * Displays the excerpt of the current comment.
+ *
+ * @since WP 1.2.0
+ * @since WP 4.4.0 Added the ability for `$comment_id` to also accept a WP_Comment object.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int|WP_Comment $comment_id Optional. WP_Comment or ID of the comment for which to print the excerpt.
+ *                                   Default current comment.
+ */
+function comment_excerpt( $comment_id = 0 ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the comment excerpt for display.
+	 *
+	 * @since WP 1.2.0
+	 * @since WP 4.1.0 The `$comment_id` parameter was added.
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string $comment_excerpt The comment excerpt text.
+	 * @param string $comment_id      The comment ID as a numeric string.
+	 */
+	apply_filters_deprecated(
+		'comment_excerpt',
+		array( '', '' ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+}
+
+/**
+ * Retrieves the comment ID of the current comment.
+ *
+ * @since WP 1.5.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @return string The comment ID as a numeric string.
+ */
+function get_comment_ID() { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the returned comment ID.
+	 *
+	 * @since WP 1.5.0
+	 * @since WP 4.1.0 The `$comment` parameter was added.
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string     $comment_id The current comment ID as a numeric string.
+	 * @param WP_Comment $comment    The comment object.
+	 */
+	apply_filters_deprecated(
+		'get_comment_ID', // phpcs:ignore WordPress.NamingConventions.ValidHookName.NotLowercase
+		array( '', null ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return '';
+}
+
+/**
+ * Displays the comment ID of the current comment.
+ *
+ * @since WP 0.71
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function comment_ID() { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Retrieves the link to a given comment.
+ *
+ * @since WP 1.5.0
+ * @since WP 4.4.0 Added the ability for `$comment` to also accept a WP_Comment object. Added `$cpage` argument.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @see get_page_of_comment()
+ *
+ * @global WP_Rewrite $wp_rewrite      Retraceur rewrite component.
+ * @global bool       $in_comment_loop
+ *
+ * @param WP_Comment|int|null $comment Optional. Comment to retrieve. Default current comment.
+ * @param array               $args {
+ *     An array of optional arguments to override the defaults.
+ *
+ *     @type string     $type      Passed to get_page_of_comment().
+ *     @type int        $page      Current page of comments, for calculating comment pagination.
+ *     @type int        $per_page  Per-page value for comment pagination.
+ *     @type int        $max_depth Passed to get_page_of_comment().
+ *     @type int|string $cpage     Value to use for the comment's "comment-page" or "cpage" value.
+ *                                 If provided, this value overrides any value calculated from `$page`
+ *                                 and `$per_page`.
+ * }
+ * @return string The permalink to the given comment.
+ */
+function get_comment_link( $comment = null, $args = array() ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the returned single comment permalink.
+	 *
+	 * @since WP 2.8.0
+	 * @since WP 4.4.0 Added the `$cpage` parameter.
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @see get_page_of_comment()
+	 *
+	 * @param string     $comment_link The comment permalink with '#comment-$id' appended.
+	 * @param WP_Comment $comment      The current comment object.
+	 * @param array      $args         An array of arguments to override the defaults.
+	 * @param int        $cpage        The calculated 'cpage' value.
+	 */
+	apply_filters_deprecated(
+		'get_comment_link',
+		array( '', null, array(), 0 ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return '';
+}
+
+/**
+ * Retrieves the link to the current post comments.
+ *
+ * @since WP 1.5.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int|WP_Post $post Optional. Post ID or WP_Post object. Default is global $post.
+ * @return string The link to the comments.
+ */
+function get_comments_link( $post = 0 ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the returned post comments permalink.
+	 *
+	 * @since WP 3.6.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string      $comments_link Post comments permalink with '#comments' appended.
+	 * @param int|WP_Post $post          Post ID or WP_Post object.
+	 */
+	apply_filters_deprecated(
+		'get_comments_link',
+		array( '', null ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return '';
+}
+
+/**
+ * Displays the link to the current post comments.
+ *
+ * @since WP 0.71
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string $deprecated   Not Used.
+ * @param string $deprecated_2 Not Used.
+ */
+function comments_link( $deprecated = '', $deprecated_2 = '' ) {
+	if ( ! empty( $deprecated ) ) {
+		_deprecated_argument( __FUNCTION__, '0.72' );
+	}
+	if ( ! empty( $deprecated_2 ) ) {
+		_deprecated_argument( __FUNCTION__, '1.3.0' );
+	}
+
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Retrieves the amount of comments a post has.
+ *
+ * @since WP 1.5.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int|WP_Post $post Optional. Post ID or WP_Post object. Default is the global `$post`.
+ * @return string|int If the post exists, a numeric string representing the number of comments
+ *                    the post has, otherwise 0.
+ */
+function get_comments_number( $post = 0 ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the returned comment count for a post.
+	 *
+	 * @since WP 1.5.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string|int $comments_number A string representing the number of comments a post has, otherwise 0.
+	 * @param int        $post_id Post ID.
+	 */
+	apply_filters_deprecated(
+		'get_comments_number',
+		array( '', 0 ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return '';
+}
+
+/**
+ * Displays the language string for the number of comments the current post has.
+ *
+ * @since WP 0.71
+ * @since WP 5.4.0 The `$deprecated` parameter was changed to `$post`.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string|false $zero Optional. Text for no comments. Default false.
+ * @param string|false $one  Optional. Text for one comment. Default false.
+ * @param string|false $more Optional. Text for more than one comment. Default false.
+ * @param int|WP_Post  $post Optional. Post ID or WP_Post object. Default is the global `$post`.
+ */
+function comments_number( $zero = false, $one = false, $more = false, $post = 0 ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Displays the language string for the number of comments the current post has.
+ *
+ * @since WP 4.0.0
+ * @since WP 5.4.0 Added the `$post` parameter to allow using the function outside of the loop.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string      $zero Optional. Text for no comments. Default false.
+ * @param string      $one  Optional. Text for one comment. Default false.
+ * @param string      $more Optional. Text for more than one comment. Default false.
+ * @param int|WP_Post $post Optional. Post ID or WP_Post object. Default is the global `$post`.
+ * @return string Language string for the number of comments a post has.
+ */
+function get_comments_number_text( $zero = false, $one = false, $more = false, $post = 0 ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the comments count for display.
+	 *
+	 * @since WP 1.5.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @see _n()
+	 *
+	 * @param string $comments_number_text A translatable string formatted based on whether the count
+	 *                                     is equal to 0, 1, or 1+.
+	 * @param int    $comments_number      The number of post comments.
+	 */
+	apply_filters_deprecated(
+		'comments_number',
+		array( '', 0 ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return '';
+}
+
+/**
+ * Retrieves the text of the current comment.
+ *
+ * @since WP 1.5.0
+ * @since WP 4.4.0 Added the ability for `$comment_id` to also accept a WP_Comment object.
+ * @since WP 5.4.0 Added 'In reply to %s.' prefix to child comments in comments feed.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int|WP_Comment $comment_id Optional. WP_Comment or ID of the comment for which to get the text.
+ *                                   Default current comment.
+ * @param array          $args       Optional. An array of arguments. Default empty array.
+ * @return string The comment content.
+ */
+function get_comment_text( $comment_id = 0, $args = array() ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the text of a comment.
+	 *
+	 * @since WP 1.5.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string     $comment_text Text of the comment.
+	 * @param WP_Comment $comment      The comment object.
+	 * @param array      $args         An array of arguments.
+	 */
+	apply_filters_deprecated(
+		'get_comment_text',
+		array( '', null, array() ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return '';
+}
+
+/**
+ * Displays the text of the current comment.
+ *
+ * @since WP 0.71
+ * @since WP 4.4.0 Added the ability for `$comment_id` to also accept a WP_Comment object.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int|WP_Comment $comment_id Optional. WP_Comment or ID of the comment for which to print the text.
+ *                                   Default current comment.
+ * @param array          $args       Optional. An array of arguments. Default empty array.
+ */
+function comment_text( $comment_id = 0, $args = array() ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the text of a comment to be displayed.
+	 *
+	 * @since WP 1.2.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string          $comment_text Text of the comment.
+	 * @param WP_Comment|null $comment      The comment object. Null if not found.
+	 * @param array           $args         An array of arguments.
+	 */
+	apply_filters_deprecated(
+		'comment_text',
+		array( '', null, array() ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+}
+
+/**
+ * Retrieves the comment time of the current comment.
+ *
+ * @since WP 1.5.0
+ * @since WP 6.2.0 Added the `$comment_id` parameter.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string         $format     Optional. PHP date format. Defaults to the 'time_format' option.
+ * @param bool           $gmt        Optional. Whether to use the GMT date. Default false.
+ * @param bool           $translate  Optional. Whether to translate the time (for use in feeds).
+ *                                   Default true.
+ * @param int|WP_Comment $comment_id Optional. WP_Comment or ID of the comment for which to get the time.
+ *                                   Default current comment.
+ * @return string The formatted time.
+ */
+function get_comment_time( $format = '', $gmt = false, $translate = true, $comment_id = 0 ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the returned comment time.
+	 *
+	 * @since WP 1.5.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string|int $comment_time The comment time, formatted as a date string or Unix timestamp.
+	 * @param string     $format       PHP date format.
+	 * @param bool       $gmt          Whether the GMT date is in use.
+	 * @param bool       $translate    Whether the time is translated.
+	 * @param WP_Comment $comment      The comment object.
+	 */
+	apply_filters_deprecated(
+		'get_comment_time',
+		array( '', '', false, false, null ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return '';
+}
+
+/**
+ * Displays the comment time of the current comment.
+ *
+ * @since WP 0.71
+ * @since WP 6.2.0 Added the `$comment_id` parameter.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string         $format     Optional. PHP time format. Defaults to the 'time_format' option.
+ * @param int|WP_Comment $comment_id Optional. WP_Comment or ID of the comment for which to print the time.
+ *                                   Default current comment.
+ */
+function comment_time( $format = '', $comment_id = 0 ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Retrieves the comment type of the current comment.
+ *
+ * @since WP 1.5.0
+ * @since WP 4.4.0 Added the ability for `$comment_id` to also accept a WP_Comment object.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int|WP_Comment $comment_id Optional. WP_Comment or ID of the comment for which to get the type.
+ *                                   Default current comment.
+ * @return string The comment type.
+ */
+function get_comment_type( $comment_id = 0 ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the returned comment type.
+	 *
+	 * @since WP 1.5.0
+	 * @since WP 4.1.0 The `$comment_id` and `$comment` parameters were added.
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string     $comment_type The type of comment, such as 'comment', 'pingback', or 'trackback'.
+	 * @param string     $comment_id   The comment ID as a numeric string.
+	 * @param WP_Comment $comment      The comment object.
+	 */
+	apply_filters_deprecated(
+		'get_comment_type',
+		array( '', '', null ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return '';
+}
+
+/**
+ * Displays the comment type of the current comment.
+ *
+ * @since WP 0.71
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string|false $commenttxt   Optional. String to display for comment type. Default false.
+ * @param string|false $trackbacktxt Optional. String to display for trackback type. Default false.
+ * @param string|false $pingbacktxt  Optional. String to display for pingback type. Default false.
+ */
+function comment_type( $commenttxt = false, $trackbacktxt = false, $pingbacktxt = false ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Retrieves the current post's trackback URL.
+ *
+ * There is a check to see if permalink's have been enabled and if so, will
+ * retrieve the pretty path. If permalinks weren't enabled, the ID of the
+ * current post is used and appended to the correct page to go to.
+ *
+ * @since WP 1.5.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @return string The trackback URL after being filtered.
+ */
+function get_trackback_url() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the returned trackback URL.
+	 *
+	 * @since WP 2.2.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string $trackback_url The trackback URL.
+	 */
+	apply_filters_deprecated(
+		'trackback_url',
+		array( '' ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return '';
+}
+
+/**
+ * Displays the current post's trackback URL.
+ *
+ * @since WP 0.71
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param bool $deprecated_echo Not used.
+ * @return void|string Should only be used to echo the trackback URL, use get_trackback_url()
+ *                     for the result instead.
+ */
+function trackback_url( $deprecated_echo = true ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Generates and displays the RDF for the trackback information of current post.
+ *
+ * Deprecated in 3.0.0, and restored in 3.0.1.
+ *
+ * @since WP 0.71
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int|string $deprecated Not used (Was $timezone = 0).
+ */
+function trackback_rdf( $deprecated = '' ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Determines whether the current post is open for comments.
+ *
+ * @since WP 1.5.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int|WP_Post $post Optional. Post ID or WP_Post object. Default current post.
+ * @return bool True if the comments are open.
+ */
+function comments_open( $post = null ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters whether the current post is open for comments.
+	 *
+	 * @since WP 2.5.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param bool $comments_open Whether the current post is open for comments.
+	 * @param int  $post_id       The post ID.
+	 */
+	apply_filters_deprecated(
+		'comments_open',
+		array( false, 0 ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return false;
+}
+
+/**
+ * Determines whether the current post is open for pings.
+ *
+ * @since WP 1.5.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int|WP_Post $post Optional. Post ID or WP_Post object. Default current post.
+ * @return bool True if pings are accepted
+ */
+function pings_open( $post = null ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters whether the current post is open for pings.
+	 *
+	 * @since WP 2.5.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param bool $pings_open Whether the current post is open for pings.
+	 * @param int  $post_id    The post ID.
+	 */
+	apply_filters_deprecated(
+		'pings_open',
+		array( false, 0 ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return false;
+}
+
+/**
+ * Displays form token for unfiltered comments.
+ *
+ * Will only display nonce token if the current user has permissions for
+ * unfiltered html. Won't display the token for other users.
+ *
+ * The function was backported to 2.0.10 and was added to versions 2.1.3 and
+ * above. Does not exist in versions prior to 2.0.10 in the 2.0 branch and in
+ * the 2.1 branch, prior to 2.1.3. Technically added in 2.2.0.
+ *
+ * Backported to 2.0.10.
+ *
+ * @since WP 2.1.3
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function wp_comment_form_unfiltered_html_nonce() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Displays the link to the comments for the current post ID.
+ *
+ * @since WP 0.71
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param false|string $zero      Optional. String to display when no comments. Default false.
+ * @param false|string $one       Optional. String to display when only one comment is available. Default false.
+ * @param false|string $more      Optional. String to display when there are more than one comment. Default false.
+ * @param string       $css_class Optional. CSS class to use for comments. Default empty.
+ * @param false|string $none      Optional. String to display when comments have been turned off. Default false.
+ */
+function comments_popup_link( $zero = false, $one = false, $more = false, $css_class = '', $none = false ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the respond link when a post has no comments.
+	 *
+	 * @since WP 4.4.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string $respond_link The default response link.
+	 * @param int    $post_id      The post ID.
+	 */
+	apply_filters_deprecated(
+		'respond_link',
+		array( '', 0 ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Filters the comments link attributes for display.
+	 *
+	 * @since WP 2.5.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string $link_attributes The comments link attributes. Default empty.
+	 */
+	apply_filters_deprecated(
+		'comments_popup_link_attributes',
+		array( '' ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+}
+
+/**
+ * Retrieves HTML content for reply to comment link.
+ *
+ * @since WP 2.7.0
+ * @since WP 4.4.0 Added the ability for `$comment` to also accept a WP_Comment object.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param array          $args {
+ *     Optional. Override default arguments.
+ *
+ *     @type string $add_below          The first part of the selector used to identify the comment to respond below.
+ *                                      The resulting value is passed as the first parameter to addComment.moveForm(),
+ *                                      concatenated as $add_below-$comment->comment_ID. Default 'comment'.
+ *     @type string $respond_id         The selector identifying the responding comment. Passed as the third parameter
+ *                                      to addComment.moveForm(), and appended to the link URL as a hash value.
+ *                                      Default 'respond'.
+ *     @type string $reply_text         The visible text of the Reply link. Default 'Reply'.
+ *     @type string $reply_to_text      The accessible name of the Reply link, using `%s` as a placeholder
+ *                                      for the comment author's name. Default 'Reply to %s'.
+ *                                      Should start with the visible `reply_text` value.
+ *     @type bool   $show_reply_to_text Whether to use `reply_to_text` as visible link text. Default false.
+ *     @type string $login_text         The text of the link to reply if logged out. Default 'Log in to Reply'.
+ *     @type int    $max_depth          The max depth of the comment tree. Default 0.
+ *     @type int    $depth              The depth of the new comment. Must be greater than 0 and less than the value
+ *                                      of the 'thread_comments_depth' option set in Settings > Discussion. Default 0.
+ *     @type string $before             The text or HTML to add before the reply link. Default empty.
+ *     @type string $after              The text or HTML to add after the reply link. Default empty.
+ * }
+ * @param int|WP_Comment $comment Optional. Comment being replied to. Default current comment.
+ * @param int|WP_Post    $post    Optional. Post ID or WP_Post object the comment is going to be displayed on.
+ *                                Default current post.
+ * @return string|false|null Link to show comment form, if successful. False, if comments are closed.
+ */
+function get_comment_reply_link( $args = array(), $comment = null, $post = null ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the comment reply link arguments.
+	 *
+	 * @since WP 4.1.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param array      $args    Comment reply link arguments. See get_comment_reply_link()
+	 *                            for more information on accepted arguments.
+	 * @param WP_Comment $comment The object of the comment being replied to.
+	 * @param WP_Post    $post    The WP_Post object.
+	 */
+	apply_filters_deprecated(
+		'comment_reply_link_args',
+		array( array(), null, null ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Filters the comment reply link.
+	 *
+	 * @since WP 2.7.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string     $comment_reply_link The HTML markup for the comment reply link.
+	 * @param array      $args               An array of arguments overriding the defaults.
+	 * @param WP_Comment $comment            The object of the comment being replied.
+	 * @param WP_Post    $post               The WP_Post object.
+	 */
+	apply_filters_deprecated(
+		'comment_reply_link',
+		array( '', array(), null, null ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return '';
+}
+
+/**
+ * Displays the HTML content for reply to comment link.
+ *
+ * @since WP 2.7.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @see get_comment_reply_link()
+ *
+ * @param array          $args    Optional. Override default options. Default empty array.
+ * @param int|WP_Comment $comment Optional. Comment being replied to. Default current comment.
+ * @param int|WP_Post    $post    Optional. Post ID or WP_Post object the comment is going to be displayed on.
+ *                                Default current post.
+ */
+function comment_reply_link( $args = array(), $comment = null, $post = null ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Retrieves HTML content for reply to post link.
+ *
+ * @since WP 2.7.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param array       $args {
+ *     Optional. Override default arguments.
+ *
+ *     @type string $add_below  The first part of the selector used to identify the comment to respond below.
+ *                              The resulting value is passed as the first parameter to addComment.moveForm(),
+ *                              concatenated as $add_below-$comment->comment_ID. Default is 'post'.
+ *     @type string $respond_id The selector identifying the responding comment. Passed as the third parameter
+ *                              to addComment.moveForm(), and appended to the link URL as a hash value.
+ *                              Default 'respond'.
+ *     @type string $reply_text Text of the Reply link. Default is 'Leave a Comment'.
+ *     @type string $login_text Text of the link to reply if logged out. Default is 'Log in to leave a Comment'.
+ *     @type string $before     Text or HTML to add before the reply link. Default empty.
+ *     @type string $after      Text or HTML to add after the reply link. Default empty.
+ * }
+ * @param int|WP_Post $post    Optional. Post ID or WP_Post object the comment is going to be displayed on.
+ *                             Default current post.
+ * @return string|false|null Link to show comment form, if successful. False, if comments are closed.
+ */
+function get_post_reply_link( $args = array(), $post = null ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the formatted post comments link HTML.
+	 *
+	 * @since WP 2.7.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string      $post_reply_link The HTML-formatted post comments link.
+	 * @param int|WP_Post $post            The post ID or WP_Post object.
+	 */
+	apply_filters_deprecated(
+		'post_comments_link',
+		array( '', 0 ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return '';
+}
+
+/**
+ * Displays the HTML content for reply to post link.
+ *
+ * @since WP 2.7.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @see get_post_reply_link()
+ *
+ * @param array       $args Optional. Override default options. Default empty array.
+ * @param int|WP_Post $post Optional. Post ID or WP_Post object the comment is going to be displayed on.
+ *                          Default current post.
+ */
+function post_reply_link( $args = array(), $post = null ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Retrieves HTML content for cancel comment reply link.
+ *
+ * @since WP 2.7.0
+ * @since WP 6.2.0 Added the `$post` parameter.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string           $link_text Optional. Text to display for cancel reply link. If empty,
+ *                                    defaults to 'Click here to cancel reply'. Default empty.
+ * @param int|WP_Post|null $post      Optional. The post the comment thread is being
+ *                                    displayed for. Defaults to the current global post.
+ * @return string
+ */
+function get_cancel_comment_reply_link( $link_text = '', $post = null ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the cancel comment reply link HTML.
+	 *
+	 * @since WP 2.7.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string $cancel_comment_reply_link The HTML-formatted cancel comment reply link.
+	 * @param string $link_url                  Cancel comment reply link URL.
+	 * @param string $link_text                 Cancel comment reply link text.
+	 */
+	apply_filters_deprecated(
+		'cancel_comment_reply_link',
+		array( '', '', '' ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return '';
+}
+
+/**
+ * Displays HTML content for cancel comment reply link.
+ *
+ * @since WP 2.7.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string $link_text Optional. Text to display for cancel reply link. If empty,
+ *                     defaults to 'Click here to cancel reply'. Default empty.
+ */
+function cancel_comment_reply_link( $link_text = '' ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Retrieves hidden input HTML for replying to comments.
+ *
+ * @since WP 3.0.0
+ * @since WP 6.2.0 Renamed `$post_id` to `$post` and added WP_Post support.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int|WP_Post|null $post Optional. The post the comment is being displayed for.
+ *                               Defaults to the current global post.
+ * @return string Hidden input HTML for replying to comments.
+ */
+function get_comment_id_fields( $post = null ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the returned comment ID fields.
+	 *
+	 * @since WP 3.0.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string $comment_id_fields The HTML-formatted hidden ID field comment elements.
+	 * @param int    $post_id           The post ID.
+	 * @param int    $reply_to_id       The ID of the comment being replied to.
+	 */
+	apply_filters_deprecated(
+		'comment_id_fields',
+		array( '', 0, 0 ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return '';
+}
+
+/**
+ * Outputs hidden input HTML for replying to comments.
+ *
+ * Adds two hidden inputs to the comment form to identify the `comment_post_ID`
+ * and `comment_parent` values for threaded comments.
+ *
+ * This tag must be within the `<form>` section of the `comments.php` template.
+ *
+ * @since WP 2.7.0
+ * @since WP 6.2.0 Renamed `$post_id` to `$post` and added WP_Post support.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @see get_comment_id_fields()
+ *
+ * @param int|WP_Post|null $post Optional. The post the comment is being displayed for.
+ *                               Defaults to the current global post.
+ */
+function comment_id_fields( $post = null ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Displays text based on comment reply status.
+ *
+ * Only affects users with JavaScript disabled.
+ *
+ * @internal The $comment global must be present to allow template tags access to the current
+ *           comment.
+ *
+ * @since WP 2.7.0
+ * @since WP 6.2.0 Added the `$post` parameter.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @global WP_Comment $comment Global comment object.
+ *
+ * @param string|false     $no_reply_text  Optional. Text to display when not replying to a comment.
+ *                                         Default false.
+ * @param string|false     $reply_text     Optional. Text to display when replying to a comment.
+ *                                         Default false. Accepts "%s" for the author of the comment
+ *                                         being replied to.
+ * @param bool             $link_to_parent Optional. Boolean to control making the author's name a link
+ *                                         to their comment. Default true.
+ * @param int|WP_Post|null $post           Optional. The post that the comment form is being displayed for.
+ *                                         Defaults to the current global post.
+ */
+function comment_form_title( $no_reply_text = false, $reply_text = false, $link_to_parent = true, $post = null ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Gets the comment's reply to ID from the $_GET['replytocom'].
+ *
+ * @since WP 6.2.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @access private
+ *
+ * @param int|WP_Post $post The post the comment is being displayed for.
+ *                          Defaults to the current global post.
+ * @return int Comment's reply to ID.
+ */
+function _get_comment_reply_id( $post = null ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return 0;
+}
+
+/**
+ * Outputs a complete commenting form for use within a template.
+ *
+ * Most strings and form fields may be controlled through the `$args` array passed
+ * into the function, while you may also choose to use the {@see 'comment_form_default_fields'}
+ * filter to modify the array of default fields if you'd just like to add a new
+ * one or remove a single field. All fields are also individually passed through
+ * a filter of the {@see 'comment_form_field_$name'} where `$name` is the key used
+ * in the array of fields.
+ *
+ * @since WP 3.0.0
+ * @since WP 4.1.0 Introduced the 'class_submit' argument.
+ * @since WP 4.2.0 Introduced the 'submit_button' and 'submit_fields' arguments.
+ * @since WP 4.4.0 Introduced the 'class_form', 'title_reply_before', 'title_reply_after',
+ *              'cancel_reply_before', and 'cancel_reply_after' arguments.
+ * @since WP 4.5.0 The 'author', 'email', and 'url' form fields are limited to 245, 100,
+ *              and 200 characters, respectively.
+ * @since WP 4.6.0 Introduced the 'action' argument.
+ * @since WP 4.9.6 Introduced the 'cookies' default comment field.
+ * @since WP 5.5.0 Introduced the 'class_container' argument.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param array       $args {
+ *     Optional. Default arguments and form fields to override.
+ *
+ *     @type array $fields {
+ *         Default comment fields, filterable by default via the {@see 'comment_form_default_fields'} hook.
+ *
+ *         @type string $author  Comment author field HTML.
+ *         @type string $email   Comment author email field HTML.
+ *         @type string $url     Comment author URL field HTML.
+ *         @type string $cookies Comment cookie opt-in field HTML.
+ *     }
+ *     @type string $comment_field        The comment textarea field HTML.
+ *     @type string $must_log_in          HTML element for a 'must be logged in to comment' message.
+ *     @type string $logged_in_as         The HTML for the 'logged in as [user]' message, the Edit profile link,
+ *                                        and the Log out link.
+ *     @type string $comment_notes_before HTML element for a message displayed before the comment fields
+ *                                        if the user is not logged in.
+ *                                        Default 'Your email address will not be published.'.
+ *     @type string $comment_notes_after  HTML element for a message displayed after the textarea field.
+ *     @type string $action               The comment form element action attribute. Default '/wp-comments-post.php'.
+ *     @type string $id_form              The comment form element id attribute. Default 'commentform'.
+ *     @type string $id_submit            The comment submit element id attribute. Default 'submit'.
+ *     @type string $class_container      The comment form container class attribute. Default 'comment-respond'.
+ *     @type string $class_form           The comment form element class attribute. Default 'comment-form'.
+ *     @type string $class_submit         The comment submit element class attribute. Default 'submit'.
+ *     @type string $name_submit          The comment submit element name attribute. Default 'submit'.
+ *     @type string $title_reply          The translatable 'reply' button label. Default 'Leave a Reply'.
+ *     @type string $title_reply_to       The translatable 'reply-to' button label. Default 'Leave a Reply to %s',
+ *                                        where %s is the author of the comment being replied to.
+ *     @type string $title_reply_before   HTML displayed before the comment form title.
+ *                                        Default: '<h3 id="reply-title" class="comment-reply-title">'.
+ *     @type string $title_reply_after    HTML displayed after the comment form title.
+ *                                        Default: '</h3>'.
+ *     @type string $cancel_reply_before  HTML displayed before the cancel reply link.
+ *     @type string $cancel_reply_after   HTML displayed after the cancel reply link.
+ *     @type string $cancel_reply_link    The translatable 'cancel reply' button label. Default 'Cancel reply'.
+ *     @type string $label_submit         The translatable 'submit' button label. Default 'Post a comment'.
+ *     @type string $submit_button        HTML format for the Submit button.
+ *                                        Default: '<input name="%1$s" type="submit" id="%2$s" class="%3$s" value="%4$s" />'.
+ *     @type string $submit_field         HTML format for the markup surrounding the Submit button and comment hidden
+ *                                        fields. Default: '<p class="form-submit">%1$s %2$s</p>', where %1$s is the
+ *                                        submit button markup and %2$s is the comment hidden fields.
+ *     @type string $format               The comment form format. Default 'xhtml'. Accepts 'xhtml', 'html5'.
+ * }
+ * @param int|WP_Post $post Optional. Post ID or WP_Post object to generate the form for. Default current post.
+ */
+function comment_form( $args = array(), $post = null ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Fires after the comment form if comments are closed.
+	 *
+	 * For backward compatibility, this action also fires if comment_form()
+	 * is called with an invalid post object or ID.
+	 *
+	 * @since WP 3.0.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 */
+	do_action_deprecated(
+		'comment_form_comments_closed',
+		array(),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Filters the default comment form fields.
+	 *
+	 * @since WP 3.0.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string[] $fields Array of the default comment fields.
+	 */
+	apply_filters_deprecated(
+		'comment_form_default_fields',
+		array( array() ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Filters the comment form default arguments.
+	 *
+	 * Use {@see 'comment_form_default_fields'} to filter the comment fields.
+	 *
+	 * @since WP 3.0.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param array $defaults The default comment form arguments.
+	 */
+	apply_filters_deprecated(
+		'comment_form_defaults',
+		array( array() ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Fires before the comment form.
+	 *
+	 * @since WP 3.0.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 */
+	do_action_deprecated(
+		'comment_form_before',
+		array(),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Fires after the HTML-formatted 'must log in after' message in the comment form.
+	 *
+	 * @since WP 3.0.0
+	 */
+	do_action_deprecated(
+		'comment_form_must_log_in_after',
+		array(),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Fires at the top of the comment form, inside the form tag.
+	 *
+	 * @since WP 3.0.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 */
+	do_action_deprecated(
+		'comment_form_top',
+		array(),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Filters the 'logged in' message for the comment form for display.
+	 *
+	 * @since WP 3.0.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string $args_logged_in The HTML for the 'logged in as [user]' message,
+	 *                               the Edit profile link, and the Log out link.
+	 * @param array  $commenter      An array containing the comment author's
+	 *                               username, email, and URL.
+	 * @param string $user_identity  If the commenter is a registered user,
+	 *                               the display name, blank otherwise.
+	 */
+	apply_filters_deprecated(
+		'comment_form_logged_in',
+		array( '', array(), '' ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Fires after the is_user_logged_in() check in the comment form.
+	 *
+	 * @since WP 3.0.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param array  $commenter     An array containing the comment author's
+	 *                              username, email, and URL.
+	 * @param string $user_identity If the commenter is a registered user,
+	 *                              the display name, blank otherwise.
+	 */
+	do_action_deprecated(
+		'comment_form_logged_in_after',
+		array( array(), '' ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Filters the comment form fields, including the textarea.
+	 *
+	 * @since WP 4.4.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param array $comment_fields The comment fields.
+	 */
+	apply_filters_deprecated(
+		'comment_form_fields',
+		array( array() ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Filters the content of the comment textarea field for display.
+	 *
+	 * @since WP 3.0.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string $args_comment_field The content of the comment textarea field.
+	 */
+	apply_filters_deprecated(
+		'comment_form_field_comment',
+		array( '' ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Fires before the comment fields in the comment form, excluding the textarea.
+	 *
+	 * @since WP 3.0.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 */
+	do_action_deprecated(
+		'comment_form_before_fields',
+		array(),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Fires after the comment fields in the comment form, excluding the textarea.
+	 *
+	 * @since WP 3.0.0
+	 */
+	do_action_deprecated(
+		'comment_form_after_fields',
+		array(),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Filters the submit button for the comment form to display.
+	 *
+	 * @since WP 4.2.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string $submit_button HTML markup for the submit button.
+	 * @param array  $args          Arguments passed to comment_form().
+	 */
+	apply_filters_deprecated(
+		'comment_form_submit_button',
+		array( '', array() ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Filters the submit field for the comment form to display.
+	 *
+	 * The submit field includes the submit button, hidden fields for the
+	 * comment form, and any wrapper markup.
+	 *
+	 * @since WP 4.2.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string $submit_field HTML markup for the submit field.
+	 * @param array  $args         Arguments passed to comment_form().
+	 */
+	apply_filters_deprecated(
+		'comment_form_submit_field',
+		array( '', array() ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Fires at the bottom of the comment form, inside the closing form tag.
+	 *
+	 * @since WP 1.5.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param int $post_id The post ID.
+	 */
+	do_action_deprecated(
+		'comment_form',
+		array( 0 ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Fires after the comment form.
+	 *
+	 * @since WP 3.0.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 */
+	do_action_deprecated(
+		'comment_form_after',
+		array(),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+}
