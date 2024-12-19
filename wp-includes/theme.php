@@ -2341,7 +2341,6 @@ function get_theme_starter_content() {
 								'post_name',
 								'post_content',
 								'menu_order',
-								'comment_status',
 								'thumbnail',
 								'template',
 							)

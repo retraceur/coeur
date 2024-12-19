@@ -91,15 +91,6 @@ class WP_Rewrite {
 	public $search_structure;
 
 	/**
-	 * Comments permalink base.
-	 *
-	 * @since WP 1.5.0
-	 * @deprecated 1.0.0 Retraceur fork.
-	 * @var string
-	 */
-	public $comments_base = 'comments';
-
-	/**
 	 * Pagination permalink base.
 	 *
 	 * @since WP 3.1.0
@@ -108,30 +99,12 @@ class WP_Rewrite {
 	public $pagination_base = 'page';
 
 	/**
-	 * Comments pagination permalink base.
-	 *
-	 * @since WP 4.2.0
-	 * @deprecated 1.0.0 Retraceur fork.
-	 * @var string
-	 */
-	public $comments_pagination_base = 'comment-page';
-
-	/**
 	 * Feed permalink base.
 	 *
 	 * @since WP 1.5.0
 	 * @var string
 	 */
 	public $feed_base = 'feed';
-
-	/**
-	 * Comments feed permalink structure.
-	 *
-	 * @since WP 1.5.0
-	 * @deprecated 1.0.0 Retraceur fork.
-	 * @var string
-	 */
-	public $comment_feed_structure;
 
 	/**
 	 * Feed request permalink structure.
@@ -345,6 +318,18 @@ class WP_Rewrite {
 	 * @var string[]
 	 */
 	public $feeds = array( 'feed', 'rdf', 'rss', 'rss2', 'atom' );
+
+	/**
+	 * Deprecated properties.
+	 *
+	 * @since 1.0.0 Retraceur fork does not provide support for WP Comments.
+	 * @var string[]
+	 */
+	private $deprecated_properties = array(
+		'comments_base',
+		'comments_pagination_base',
+		'comment_feed_structure',
+	);
 
 	/**
 	 * Determines whether permalinks are being used.
@@ -773,18 +758,8 @@ class WP_Rewrite {
 	 * @return string|false Comment feed permalink structure on success, false on failure.
 	 */
 	public function get_comment_feed_permastruct() {
-		if ( isset( $this->comment_feed_structure ) ) {
-			return $this->comment_feed_structure;
-		}
-
-		if ( empty( $this->permalink_structure ) ) {
-			$this->comment_feed_structure = '';
-			return false;
-		}
-
-		$this->comment_feed_structure = $this->root . $this->comments_base . '/' . $this->feed_base . '/%feed%';
-
-		return $this->comment_feed_structure;
+		_deprecated_function( __METHOD__, '1.0.0', '', true );
+		return false;
 	}
 
 	/**
@@ -844,6 +819,7 @@ class WP_Rewrite {
 	 * so best just ignore the contents and move to the parameters.
 	 *
 	 * @since WP 1.5.0
+	 * @since 1.0.0 Retraceur fork deprecated the `$forcomments` argument.
 	 *
 	 * @param string $permalink_structure The permalink structure.
 	 * @param int    $ep_mask             Optional. Endpoint mask defining what endpoints are added to the structure.
@@ -854,7 +830,6 @@ class WP_Rewrite {
 	 *                                    - `EP_ATTACHMENT`
 	 *                                    - `EP_AUTHORS`
 	 *                                    - `EP_CATEGORIES`
-	 *                                    - `EP_COMMENTS`
 	 *                                    - `EP_DATE`
 	 *                                    - `EP_DAY`
 	 *                                    - `EP_MONTH`
@@ -869,15 +844,17 @@ class WP_Rewrite {
 	 *                                    Default true.
 	 * @param bool   $feed                Optional. Whether feed rewrite rules should be added for the structure.
 	 *                                    Default true.
-	 * @param bool   $forcomments         Optional. Whether the feed rules should be a query for a comments feed.
-	 *                                    Default false.
 	 * @param bool   $walk_dirs           Optional. Whether the 'directories' making up the structure should be walked
 	 *                                    over and rewrite rules built for each in-turn. Default true.
 	 * @param bool   $endpoints           Optional. Whether endpoints should be applied to the generated rewrite rules.
 	 *                                    Default true.
 	 * @return string[] Array of rewrite rules keyed by their regex pattern.
 	 */
-	public function generate_rewrite_rules( $permalink_structure, $ep_mask = EP_NONE, $paged = true, $feed = true, $forcomments = false, $walk_dirs = true, $endpoints = true ) {
+	public function generate_rewrite_rules( $permalink_structure, $ep_mask = EP_NONE, $paged = true, $feed = true, $deprecated = false, $walk_dirs = true, $endpoints = true ) {
+		if ( ! empty( $deprecated ) ) {
+			_deprecated_argument( __METHOD__, '1.0.0', '', true );
+		}
+
 		// Build a regex to match the feed section of URLs, something like (feed|atom|rss|rss2)/?
 		$feedregex2 = '';
 		foreach ( (array) $this->feeds as $feed_name ) {
@@ -892,9 +869,7 @@ class WP_Rewrite {
 		$feedregex = $this->feed_base . '/' . $feedregex2;
 
 		// Build a regex to match the trackback and page/xx parts of URLs.
-		$trackbackregex = 'trackback/?$';
 		$pageregex      = $this->pagination_base . '/?([0-9]{1,})/?$';
-		$commentregex   = $this->comments_pagination_base . '-([0-9]{1,})/?$';
 		$embedregex     = 'embed/?$';
 
 		// Build up an array of endpoint regexes to append => queries to append.
@@ -993,33 +968,17 @@ class WP_Rewrite {
 			$pagematch = $match . $pageregex;
 			$pagequery = $index . '?' . $query . '&paged=' . $this->preg_index( $num_toks + 1 );
 
-			// Create query for /comment-page-xx.
-			$commentmatch = $match . $commentregex;
-			$commentquery = $index . '?' . $query . '&cpage=' . $this->preg_index( $num_toks + 1 );
-
-			if ( get_option( 'page_on_front' ) ) {
-				// Create query for Root /comment-page-xx.
-				$rootcommentmatch = $match . $commentregex;
-				$rootcommentquery = $index . '?' . $query . '&page_id=' . get_option( 'page_on_front' ) . '&cpage=' . $this->preg_index( $num_toks + 1 );
-			}
-
 			// Create query for /feed/(feed|atom|rss|rss2|rdf).
 			$feedmatch = $match . $feedregex;
 			$feedquery = $feedindex . '?' . $query . '&feed=' . $this->preg_index( $num_toks + 1 );
 
-			// Create query for /(feed|atom|rss|rss2|rdf) (see comment near creation of $feedregex).
+			// Create query for /(feed|atom|rss|rss2|rdf).
 			$feedmatch2 = $match . $feedregex2;
 			$feedquery2 = $feedindex . '?' . $query . '&feed=' . $this->preg_index( $num_toks + 1 );
 
 			// Create query and regex for embeds.
 			$embedmatch = $match . $embedregex;
 			$embedquery = $embedindex . '?' . $query . '&embed=true';
-
-			// If asked to, turn the feed queries into comment feed ones.
-			if ( $forcomments ) {
-				$feedquery  .= '&withcomments=1';
-				$feedquery2 .= '&withcomments=1';
-			}
 
 			// Start creating the array of rewrites for this dir.
 			$rewrite = array();
@@ -1036,13 +995,6 @@ class WP_Rewrite {
 			// ...and /page/xx ones.
 			if ( $paged ) {
 				$rewrite = array_merge( $rewrite, array( $pagematch => $pagequery ) );
-			}
-
-			// Only on pages with comments add ../comment-page-xx/.
-			if ( EP_PAGES & $ep_mask || EP_PERMALINK & $ep_mask ) {
-				$rewrite = array_merge( $rewrite, array( $commentmatch => $commentquery ) );
-			} elseif ( EP_ROOT & $ep_mask && get_option( 'page_on_front' ) ) {
-				$rewrite = array_merge( $rewrite, array( $rootcommentmatch => $rootcommentquery ) );
 			}
 
 			// Do endpoints.
@@ -1097,10 +1049,6 @@ class WP_Rewrite {
 
 				// If creating rules for a permalink, do all the endpoints like attachments etc.
 				if ( $post ) {
-					// Create query and regex for trackback.
-					$trackbackmatch = $match . $trackbackregex;
-					$trackbackquery = $trackbackindex . '?' . $query . '&tb=1';
-
 					// Create query and regex for embeds.
 					$embedmatch = $match . $embedregex;
 					$embedquery = $embedindex . '?' . $query . '&embed=true';
@@ -1114,17 +1062,11 @@ class WP_Rewrite {
 					// Add a rule for at attachments, which take the form of <permalink>/some-text.
 					$sub1 = $submatchbase . '/([^/]+)/';
 
-					// Add trackback regex <permalink>/trackback/...
-					$sub1tb = $sub1 . $trackbackregex;
-
 					// And <permalink>/feed/(atom|...)
 					$sub1feed = $sub1 . $feedregex;
 
 					// And <permalink>/(feed|atom...)
 					$sub1feed2 = $sub1 . $feedregex2;
-
-					// And <permalink>/comment-page-xx
-					$sub1comment = $sub1 . $commentregex;
 
 					// And <permalink>/embed/...
 					$sub1embed = $sub1 . $embedregex;
@@ -1135,17 +1077,11 @@ class WP_Rewrite {
 					 */
 					$sub2 = $submatchbase . '/attachment/([^/]+)/';
 
-					// And add trackbacks <permalink>/attachment/trackback.
-					$sub2tb = $sub2 . $trackbackregex;
-
 					// Feeds, <permalink>/attachment/feed/(atom|...)
 					$sub2feed = $sub2 . $feedregex;
 
 					// And feeds again on to this <permalink>/attachment/(feed|atom...)
 					$sub2feed2 = $sub2 . $feedregex2;
-
-					// And <permalink>/comment-page-xx
-					$sub2comment = $sub2 . $commentregex;
 
 					// And <permalink>/embed/...
 					$sub2embed = $sub2 . $embedregex;
@@ -1154,7 +1090,6 @@ class WP_Rewrite {
 					$subquery        = $index . '?attachment=' . $this->preg_index( 1 );
 					$subtbquery      = $subquery . '&tb=1';
 					$subfeedquery    = $subquery . '&feed=' . $this->preg_index( 2 );
-					$subcommentquery = $subquery . '&cpage=' . $this->preg_index( 2 );
 					$subembedquery   = $subquery . '&embed=true';
 
 					// Do endpoints for attachments.
@@ -1199,9 +1134,6 @@ class WP_Rewrite {
 
 				// If we're matching a permalink, add those extras (attachments etc) on.
 				if ( $post ) {
-					// Add trackback.
-					$rewrite = array_merge( array( $trackbackmatch => $trackbackquery ), $rewrite );
-
 					// Add embed.
 					$rewrite = array_merge( array( $embedmatch => $embedquery ), $rewrite );
 
@@ -1212,10 +1144,8 @@ class WP_Rewrite {
 							$rewrite,
 							array(
 								$sub1        => $subquery,
-								$sub1tb      => $subtbquery,
 								$sub1feed    => $subfeedquery,
 								$sub1feed2   => $subfeedquery,
-								$sub1comment => $subcommentquery,
 								$sub1embed   => $subembedquery,
 							)
 						);
@@ -1224,10 +1154,8 @@ class WP_Rewrite {
 					$rewrite = array_merge(
 						array(
 							$sub2        => $subquery,
-							$sub2tb      => $subtbquery,
 							$sub2feed    => $subfeedquery,
 							$sub2feed2   => $subfeedquery,
-							$sub2comment => $subcommentquery,
 							$sub2embed   => $subembedquery,
 						),
 						$rewrite
@@ -1353,19 +1281,23 @@ class WP_Rewrite {
 		 */
 		$root_rewrite = apply_filters( 'root_rewrite_rules', $root_rewrite );
 
-		// Comments rewrite rules.
-		$comments_rewrite = $this->generate_rewrite_rules( $this->root . $this->comments_base, EP_COMMENTS, false, true, true, false );
-
 		/**
 		 * Filters rewrite rules used for comment feed archives.
 		 *
 		 * Likely comments feed archives include `/comments/feed/` and `/comments/feed/atom/`.
 		 *
 		 * @since WP 1.5.0
+		 * @deprecated 1.0.0 Retraceur fork.
 		 *
 		 * @param string[] $comments_rewrite Array of rewrite rules for the site-wide comments feeds, keyed by their regex pattern.
 		 */
-		$comments_rewrite = apply_filters( 'comments_rewrite_rules', $comments_rewrite );
+		apply_filters_deprecated(
+			'comments_rewrite_rules',
+			array( array() ),
+			'1.0.0',
+			'',
+			__( 'WP Comments feature is not supported in Retraceur.' )
+		);
 
 		// Search rewrite rules.
 		$search_structure = $this->get_search_permastruct();
@@ -1416,7 +1348,7 @@ class WP_Rewrite {
 				if ( count( $struct ) === 2 ) {
 					$rules = $this->generate_rewrite_rules( $struct[0], $struct[1] );
 				} else {
-					$rules = $this->generate_rewrite_rules( $struct['struct'], $struct['ep_mask'], $struct['paged'], $struct['feed'], $struct['forcomments'], $struct['walk_dirs'], $struct['endpoints'] );
+					$rules = $this->generate_rewrite_rules( $struct['struct'], $struct['ep_mask'], $struct['paged'], $struct['feed'], false, $struct['walk_dirs'], $struct['endpoints'] );
 				}
 			} else {
 				$rules = $this->generate_rewrite_rules( $struct );
@@ -1458,9 +1390,9 @@ class WP_Rewrite {
 
 		// Put them together.
 		if ( $this->use_verbose_page_rules ) {
-			$this->rules = array_merge( $this->extra_rules_top, $robots_rewrite, $favicon_rewrite, $sitemap_rewrite, $deprecated_files, $registration_pages, $root_rewrite, $comments_rewrite, $search_rewrite, $author_rewrite, $date_rewrite, $page_rewrite, $post_rewrite, $this->extra_rules );
+			$this->rules = array_merge( $this->extra_rules_top, $robots_rewrite, $favicon_rewrite, $sitemap_rewrite, $deprecated_files, $registration_pages, $root_rewrite, $search_rewrite, $author_rewrite, $date_rewrite, $page_rewrite, $post_rewrite, $this->extra_rules );
 		} else {
-			$this->rules = array_merge( $this->extra_rules_top, $robots_rewrite, $favicon_rewrite, $sitemap_rewrite, $deprecated_files, $registration_pages, $root_rewrite, $comments_rewrite, $search_rewrite, $author_rewrite, $date_rewrite, $post_rewrite, $page_rewrite, $this->extra_rules );
+			$this->rules = array_merge( $this->extra_rules_top, $robots_rewrite, $favicon_rewrite, $sitemap_rewrite, $deprecated_files, $registration_pages, $root_rewrite, $search_rewrite, $author_rewrite, $date_rewrite, $post_rewrite, $page_rewrite, $this->extra_rules );
 		}
 
 		/**
@@ -1741,7 +1673,6 @@ class WP_Rewrite {
 	 *                               - `EP_ATTACHMENT`
 	 *                               - `EP_AUTHORS`
 	 *                               - `EP_CATEGORIES`
-	 *                               - `EP_COMMENTS`
 	 *                               - `EP_DATE`
 	 *                               - `EP_DAY`
 	 *                               - `EP_MONTH`
@@ -1784,6 +1715,7 @@ class WP_Rewrite {
 	 * works on the new permastruct.
 	 *
 	 * @since WP 2.5.0
+	 * @since 1.0.0 Retraceur fork deprecated the `$args['forcomments']` argument.
 	 *
 	 * @param string $name   Name for permalink structure.
 	 * @param string $struct Permalink structure (e.g. category/%category%)
@@ -1801,7 +1733,6 @@ class WP_Rewrite {
 	 *                             - `EP_ATTACHMENT`
 	 *                             - `EP_AUTHORS`
 	 *                             - `EP_CATEGORIES`
-	 *                             - `EP_COMMENTS`
 	 *                             - `EP_DATE`
 	 *                             - `EP_DAY`
 	 *                             - `EP_MONTH`
@@ -1815,7 +1746,6 @@ class WP_Rewrite {
 	 *     @type bool $paged       Whether archive pagination rules should be added for the structure.
 	 *                             Default true.
 	 *     @type bool $feed        Whether feed rewrite rules should be added for the structure. Default true.
-	 *     @type bool $forcomments Whether the feed rules should be a query for a comments feed. Default false.
 	 *     @type bool $walk_dirs   Whether the 'directories' making up the structure should be walked over
 	 *                             and rewrite rules built for each in-turn. Default true.
 	 *     @type bool $endpoints   Whether endpoints should be applied to the generated rules. Default true.
@@ -1836,10 +1766,13 @@ class WP_Rewrite {
 			'ep_mask'     => EP_NONE,
 			'paged'       => true,
 			'feed'        => true,
-			'forcomments' => false,
 			'walk_dirs'   => true,
 			'endpoints'   => true,
 		);
+
+		if ( isset( $args['forcomments'] ) ) {
+			_deprecated_argument( __METHOD__, '1.0.0', '', true );
+		}
 
 		$args = array_intersect_key( $args, $defaults );
 		$args = wp_parse_args( $args, $defaults );
@@ -1939,7 +1872,6 @@ class WP_Rewrite {
 		unset( $this->page_structure );
 		unset( $this->search_structure );
 		unset( $this->feed_structure );
-		unset( $this->comment_feed_structure );
 
 		$this->use_trailing_slashes = str_ends_with( $this->permalink_structure, '/' );
 
@@ -2027,5 +1959,58 @@ class WP_Rewrite {
 	 */
 	public function __construct() {
 		$this->init();
+	}
+
+	/**
+	 * Proxies getting values for deprecated properties.
+	 *
+	 * @since 1.0.0 Retraceur fork does not provide support for WP Comments.
+	 *
+	 * @param string $name Deprecated property name.
+	 *
+	 * @return mixed|null Null if the property is deprecated, the property value otherwise.
+	 */
+	public function __get( $name ) {
+		if ( in_array( $name, $this->deprecated_properties, true ) ) {
+			_deprecated_argument( __METHOD__, '1.0.0', '', true );
+			return null;
+		}
+
+		return isset( $this->{$name} ) ? $this->{$name} : null;
+	}
+
+	/**
+	 * Proxies checking for deprecated properties.
+	 *
+	 * @since 1.0.0 Retraceur fork does not provide support for WP Comments.
+	 *
+	 * @param string $name Deprecated property name.
+	 *
+	 * @return bool Returns true for existing and valid properties, false otherwise.
+	 */
+	public function __isset( $name ) {
+		if ( in_array( $name, $this->deprecated_properties, true ) ) {
+			_deprecated_argument( __METHOD__, '1.0.0', '', true );
+			return false;
+		}
+
+		return isset( $this->{$name} );
+	}
+
+	/**
+	 * Proxies setting values for deprecated properties.
+	 *
+	 * @since 1.0.0 Retraceur fork does not provide support for WP Comments.
+	 *
+	 * @param string $name  Property name.
+	 * @param mixed  $value Property value.
+	 */
+	public function __set( $name, $value ) {
+		if ( in_array( $name, $this->deprecated_properties, true ) ) {
+			_deprecated_argument( __METHOD__, '1.0.0', '', true );
+			$this->{$name} = null;
+		} else {
+			$this->{$name} = $value;
+		}
 	}
 }

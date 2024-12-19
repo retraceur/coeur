@@ -105,21 +105,6 @@ function redirect_canonical( $requested_url = null, $do_redirect = true ) {
 
 	$post_id = get_query_var( 'p' );
 
-	if ( is_feed() && $post_id ) {
-		$redirect_url = get_post_comments_feed_link( $post_id, get_query_var( 'feed' ) );
-		$redirect_obj = get_post( $post_id );
-
-		if ( $redirect_url ) {
-			$redirect['query'] = _remove_qs_args_if_not_in_url(
-				$redirect['query'],
-				array( 'p', 'page_id', 'attachment_id', 'pagename', 'name', 'post_type', 'feed' ),
-				$redirect_url
-			);
-
-			$redirect['path'] = parse_url( $redirect_url, PHP_URL_PATH );
-		}
-	}
-
 	if ( is_singular() && $wp_query->post_count < 1 && $post_id ) {
 
 		$vars = $wpdb->get_results( $wpdb->prepare( "SELECT post_type, post_parent FROM $wpdb->posts WHERE ID = %d", $post_id ) );
@@ -435,22 +420,14 @@ function redirect_canonical( $requested_url = null, $do_redirect = true ) {
 		if ( get_query_var( 'sitemap' ) ) {
 			$redirect_url      = get_sitemap_url( get_query_var( 'sitemap' ), get_query_var( 'sitemap-subtype' ), get_query_var( 'paged' ) );
 			$redirect['query'] = remove_query_arg( array( 'sitemap', 'sitemap-subtype', 'paged' ), $redirect['query'] );
-		} elseif ( get_query_var( 'paged' ) || is_feed() || get_query_var( 'cpage' ) ) {
+		} elseif ( get_query_var( 'paged' ) || is_feed() ) {
 			// Paging and feeds.
 			$paged = get_query_var( 'paged' );
 			$feed  = get_query_var( 'feed' );
-			$cpage = get_query_var( 'cpage' );
 
-			while ( preg_match( "#/$wp_rewrite->pagination_base/?[0-9]+?(/+)?$#", $redirect['path'] )
-				|| preg_match( '#/(comments/?)?(feed|rss2?|rdf|atom)(/+)?$#', $redirect['path'] )
-				|| preg_match( "#/{$wp_rewrite->comments_pagination_base}-[0-9]+(/+)?$#", $redirect['path'] )
-			) {
+			while ( preg_match( "#/$wp_rewrite->pagination_base/?[0-9]+?(/+)?$#", $redirect['path'] ) ) {
 				// Strip off any existing paging.
 				$redirect['path'] = preg_replace( "#/$wp_rewrite->pagination_base/?[0-9]+?(/+)?$#", '/', $redirect['path'] );
-				// Strip off feed endings.
-				$redirect['path'] = preg_replace( '#/(comments/?)?(feed|rss2?|rdf|atom)(/+|$)#', '/', $redirect['path'] );
-				// Strip off any existing comment paging.
-				$redirect['path'] = preg_replace( "#/{$wp_rewrite->comments_pagination_base}-[0-9]+?(/+)?$#", '/', $redirect['path'] );
 			}
 
 			$addl_path    = '';
@@ -458,10 +435,6 @@ function redirect_canonical( $requested_url = null, $do_redirect = true ) {
 
 			if ( is_feed() && in_array( $feed, $wp_rewrite->feeds, true ) ) {
 				$addl_path = ! empty( $addl_path ) ? trailingslashit( $addl_path ) : '';
-
-				if ( ! is_singular() && get_query_var( 'withcomments' ) ) {
-					$addl_path .= 'comments/';
-				}
 
 				if ( ( 'rss' === $default_feed && 'feed' === $feed ) || 'rss' === $feed ) {
 					$format = ( 'rss2' === $default_feed ) ? '' : 'rss2';
@@ -475,7 +448,6 @@ function redirect_canonical( $requested_url = null, $do_redirect = true ) {
 			} elseif ( is_feed() && 'old' === $feed ) {
 				$old_feed_files = array(
 					'wp-atom.php'         => 'atom',
-					'wp-commentsrss2.php' => 'comments_rss2',
 					'wp-feed.php'         => $default_feed,
 					'wp-rdf.php'          => 'rdf',
 					'wp-rss.php'          => 'rss2',
@@ -504,18 +476,6 @@ function redirect_canonical( $requested_url = null, $do_redirect = true ) {
 				} elseif ( $paged > 1 ) {
 					$redirect['query'] = add_query_arg( 'paged', $paged, $redirect['query'] );
 				}
-			}
-
-			$default_comments_page = get_option( 'default_comments_page' );
-
-			if ( get_option( 'page_comments' )
-				&& ( 'newest' === $default_comments_page && $cpage > 0
-					|| 'newest' !== $default_comments_page && $cpage > 1 )
-			) {
-				$addl_path  = ( ! empty( $addl_path ) ? trailingslashit( $addl_path ) : '' );
-				$addl_path .= user_trailingslashit( $wp_rewrite->comments_pagination_base . '-' . $cpage, 'commentpaged' );
-
-				$redirect['query'] = remove_query_arg( 'cpage', $redirect['query'] );
 			}
 
 			// Strip off trailing /index.php/.
@@ -1007,9 +967,7 @@ function redirect_guess_404_permalink() {
 			return false;
 		}
 
-		if ( get_query_var( 'feed' ) ) {
-			return get_post_comments_feed_link( $post_id, get_query_var( 'feed' ) );
-		} elseif ( get_query_var( 'page' ) > 1 ) {
+		if ( get_query_var( 'page' ) > 1 ) {
 			return trailingslashit( get_permalink( $post_id ) ) . user_trailingslashit( get_query_var( 'page' ), 'single_paged' );
 		} else {
 			return get_permalink( $post_id );
