@@ -4,7 +4,7 @@
  *
  * The query API attempts to get which part of WordPress the user is on. It
  * also provides functionality for getting URL query information.
- * 
+ *
  * @since 1.0.0 Retraceur fork.
  *
  * @package Retraceur
@@ -379,26 +379,6 @@ function is_feed( $feeds = '' ) {
 	}
 
 	return $wp_query->is_feed( $feeds );
-}
-
-/**
- * Is the query for a comments feed?
- *
- * @since WP 3.0.0
- *
- * @global WP_Query $wp_query WordPress Query object.
- *
- * @return bool Whether the query is for a comments feed.
- */
-function is_comment_feed() {
-	global $wp_query;
-
-	if ( ! isset( $wp_query ) ) {
-		_doing_it_wrong( __FUNCTION__, __( 'Conditional query tags do not work before the query is run. Before then, they always return false.' ), '3.1.0' );
-		return false;
-	}
-
-	return $wp_query->is_comment_feed();
 }
 
 /**
@@ -898,46 +878,6 @@ function the_post() {
 	}
 
 	$wp_query->the_post();
-}
-
-/*
- * Comments loop.
- */
-
-/**
- * Determines whether current WordPress query has comments to loop over.
- *
- * @since WP 2.2.0
- *
- * @global WP_Query $wp_query WordPress Query object.
- *
- * @return bool True if comments are available, false if no more comments.
- */
-function have_comments() {
-	global $wp_query;
-
-	if ( ! isset( $wp_query ) ) {
-		return false;
-	}
-
-	return $wp_query->have_comments();
-}
-
-/**
- * Iterate comment index in the comment loop.
- *
- * @since WP 2.2.0
- *
- * @global WP_Query $wp_query WordPress Query object.
- */
-function the_comment() {
-	global $wp_query;
-
-	if ( ! isset( $wp_query ) ) {
-		return;
-	}
-
-	$wp_query->the_comment();
 }
 
 /**

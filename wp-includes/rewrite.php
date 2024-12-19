@@ -65,13 +65,6 @@ define( 'EP_DAY', 32 );
 define( 'EP_ROOT', 64 );
 
 /**
- * Endpoint mask that matches comment feeds.
- *
- * @since WP 2.1.0
- */
-define( 'EP_COMMENTS', 128 );
-
-/**
  * Endpoint mask that matches searches.
  *
  * Note that this only matches a search at a "pretty" URL such as
@@ -121,7 +114,7 @@ define( 'EP_ALL_ARCHIVES', EP_DATE | EP_YEAR | EP_MONTH | EP_DAY | EP_CATEGORIES
  *
  * @since WP 2.1.0
  */
-define( 'EP_ALL', EP_PERMALINK | EP_ATTACHMENT | EP_ROOT | EP_COMMENTS | EP_SEARCH | EP_PAGES | EP_ALL_ARCHIVES );
+define( 'EP_ALL', EP_PERMALINK | EP_ATTACHMENT | EP_ROOT | EP_SEARCH | EP_PAGES | EP_ALL_ARCHIVES );
 
 /**
  * Adds a rewrite rule that transforms a URL structure to a set of query vars.
@@ -321,7 +314,6 @@ function flush_rewrite_rules( $hard = true ) {
  *                               - `EP_ATTACHMENT`
  *                               - `EP_AUTHORS`
  *                               - `EP_CATEGORIES`
- *                               - `EP_COMMENTS`
  *                               - `EP_DATE`
  *                               - `EP_DAY`
  *                               - `EP_MONTH`

@@ -15569,3 +15569,39 @@ function comment_form( $args = array(), $post = null ) {
 		__( 'WP Comments feature is not supported in Retraceur.' )
 	);
 }
+
+/**
+ * Is the query for a comments feed?
+ *
+ * @since WP 3.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @return bool Whether the query is for a comments feed.
+ */
+function is_comment_feed() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return false;
+}
+
+/**
+ * Determines whether current WordPress query has comments to loop over.
+ *
+ * @since WP 2.2.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @return bool True if comments are available, false if no more comments.
+ */
+function have_comments() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return false;
+}
+
+/**
+ * Iterate comment index in the comment loop.
+ *
+ * @since WP 2.2.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function the_comment() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}

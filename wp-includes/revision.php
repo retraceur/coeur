@@ -43,8 +43,7 @@ function _wp_post_revision_fields( $post = array(), $deprecated = false ) {
 	 * Included by default: 'post_title', 'post_content' and 'post_excerpt'.
 	 *
 	 * Disallowed fields: 'ID', 'post_name', 'post_parent', 'post_date',
-	 * 'post_date_gmt', 'post_status', 'post_type', 'comment_count',
-	 * and 'post_author'.
+	 * 'post_date_gmt', 'post_status', 'post_type', and 'post_author'.
 	 *
 	 * @since WP 2.6.0
 	 * @since WP 4.5.0 The `$post` parameter was added.
@@ -56,7 +55,7 @@ function _wp_post_revision_fields( $post = array(), $deprecated = false ) {
 	$fields = apply_filters( '_wp_post_revision_fields', $fields, $post );
 
 	// WP uses these internally either in versioning or elsewhere - they cannot be versioned.
-	foreach ( array( 'ID', 'post_name', 'post_parent', 'post_date', 'post_date_gmt', 'post_status', 'post_type', 'comment_count', 'post_author' ) as $protect ) {
+	foreach ( array( 'ID', 'post_name', 'post_parent', 'post_date', 'post_date_gmt', 'post_status', 'post_type', 'post_author' ) as $protect ) {
 		unset( $fields[ $protect ] );
 	}
 
