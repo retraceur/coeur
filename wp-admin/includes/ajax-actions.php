@@ -1247,9 +1247,6 @@ function wp_ajax_inline_save() {
 		$data['post_status'] = $data['_status'];
 	}
 
-	$data['comment_status'] = 'closed';
-	$data['ping_status']    = 'closed';
-
 	// Exclude terms from taxonomies that are not supposed to appear in Quick Edit.
 	if ( ! empty( $data['tax_input'] ) ) {
 		foreach ( $data['tax_input'] as $taxonomy => $terms ) {

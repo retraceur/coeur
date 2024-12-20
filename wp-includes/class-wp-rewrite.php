@@ -207,7 +207,7 @@ class WP_Rewrite {
 	public $extra_permastructs = array();
 
 	/**
-	 * Endpoints (like /trackback/) added by add_rewrite_endpoint().
+	 * Endpoints added by add_rewrite_endpoint().
 	 *
 	 * @since WP 2.1.0
 	 * @var array[]
@@ -868,7 +868,7 @@ class WP_Rewrite {
 		 */
 		$feedregex = $this->feed_base . '/' . $feedregex2;
 
-		// Build a regex to match the trackback and page/xx parts of URLs.
+		// Build a regex to match the page/xx parts of URLs.
 		$pageregex      = $this->pagination_base . '/?([0-9]{1,})/?$';
 		$embedregex     = 'embed/?$';
 
@@ -895,7 +895,6 @@ class WP_Rewrite {
 
 		$index          = $this->index; // Probably 'index.php'.
 		$feedindex      = $index;
-		$trackbackindex = $index;
 		$embedindex     = $index;
 
 		/*
@@ -1127,7 +1126,7 @@ class WP_Rewrite {
 
 				/*
 				 * Create the final array for this dir by joining the $rewrite array (which currently
-				 * only contains rules/queries for trackback, pages etc) to the main regex/query for
+				 * only contains rules/queries for pages etc) to the main regex/query for
 				 * this dir
 				 */
 				$rewrite = array_merge( $rewrite, array( $match => $query ) );
@@ -1137,7 +1136,7 @@ class WP_Rewrite {
 					// Add embed.
 					$rewrite = array_merge( array( $embedmatch => $embedquery ), $rewrite );
 
-					// Add regexes/queries for attachments, attachment trackbacks and so on.
+					// Add regexes/queries for attachments and so on.
 					if ( ! $page ) {
 						// Require <permalink>/attachment/stuff form for pages because of confusion with subpages.
 						$rewrite = array_merge(
@@ -1655,7 +1654,7 @@ class WP_Rewrite {
 	}
 
 	/**
-	 * Adds an endpoint, like /trackback/.
+	 * Adds an endpoint.
 	 *
 	 * @since WP 2.1.0
 	 * @since WP 3.9.0 $query_var parameter added.

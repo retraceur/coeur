@@ -60,8 +60,8 @@ function user_trailingslashit( $url, $type_of_url = '' ) {
 	 * @since WP 2.2.0
 	 *
 	 * @param string $url         URL with or without a trailing slash.
-	 * @param string $type_of_url The type of URL being considered. Accepts 'single', 'single_trackback',
-	 *                            'single_feed', 'single_paged', 'paged', 'home', 'feed', 'category', 'page',
+	 * @param string $type_of_url The type of URL being considered. Accepts 'single', 'single_feed',
+	 *                            'single_paged', 'paged', 'home', 'feed', 'category', 'page',
 	 *                            'year', 'month', 'day', 'post_type_archive'.
 	 */
 	return apply_filters( 'user_trailingslashit', $url, $type_of_url );

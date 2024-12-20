@@ -17,18 +17,20 @@
  * @see WP_List_Table
  */
 class WP_Media_List_Table extends WP_List_Table {
-	/**
-	 * Holds the number of pending comments for each post.
-	 *
-	 * @since WP 4.4.0
-	 * @deprecated 1.0.0 Retraceur fork.
-	 * @var array
-	 */
-	protected $comment_pending_count = array();
 
 	private $detached;
 
 	private $is_trash;
+
+	/**
+	 * Deprecated properties.
+	 *
+	 * @since 1.0.0 Retraceur fork does not provide support for WP Comments.
+	 * @var string[]
+	 */
+	private $deprecated_properties = array(
+		'comment_pending_count',
+	);
 
 	/**
 	 * Constructor.
@@ -877,5 +879,58 @@ class WP_Media_List_Table extends WP_List_Table {
 		$actions   = $this->_get_row_actions( $post, $att_title );
 
 		return $this->row_actions( $actions );
+	}
+
+	/**
+	 * Proxies getting values for deprecated properties.
+	 *
+	 * @since 1.0.0 Retraceur fork does not provide support for WP Comments.
+	 *
+	 * @param string $name Deprecated property name.
+	 *
+	 * @return mixed|null Null if the property is deprecated, the property value otherwise.
+	 */
+	public function __get( $name ) {
+		if ( in_array( $name, $this->deprecated_properties, true ) ) {
+			_deprecated_argument( __METHOD__, '1.0.0', '', true );
+			return null;
+		}
+
+		return isset( $this->{$name} ) ? $this->{$name} : null;
+	}
+
+	/**
+	 * Proxies checking for deprecated properties.
+	 *
+	 * @since 1.0.0 Retraceur fork does not provide support for WP Comments.
+	 *
+	 * @param string $name Deprecated property name.
+	 *
+	 * @return bool Returns true for existing and valid properties, false otherwise.
+	 */
+	public function __isset( $name ) {
+		if ( in_array( $name, $this->deprecated_properties, true ) ) {
+			_deprecated_argument( __METHOD__, '1.0.0', '', true );
+			return false;
+		}
+
+		return isset( $this->{$name} );
+	}
+
+	/**
+	 * Proxies setting values for deprecated properties.
+	 *
+	 * @since 1.0.0 Retraceur fork does not provide support for WP Comments.
+	 *
+	 * @param string $name  Property name.
+	 * @param mixed  $value Property value.
+	 */
+	public function __set( $name, $value ) {
+		if ( in_array( $name, $this->deprecated_properties, true ) ) {
+			_deprecated_argument( __METHOD__, '1.0.0', '', true );
+			$this->{$name} = null;
+		} else {
+			$this->{$name} = $value;
+		}
 	}
 }

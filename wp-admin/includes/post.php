@@ -154,14 +154,6 @@ function _wp_translate_postdata( $update = false, $post_data = null ) {
 		unset( $post_data['post_password'] );
 	}
 
-	if ( ! isset( $post_data['comment_status'] ) ) {
-		$post_data['comment_status'] = 'closed';
-	}
-
-	if ( ! isset( $post_data['ping_status'] ) ) {
-		$post_data['ping_status'] = 'closed';
-	}
-
 	foreach ( array( 'aa', 'mm', 'jj', 'hh', 'mn' ) as $timeunit ) {
 		if ( ! empty( $post_data[ 'hidden_' . $timeunit ] ) && $post_data[ 'hidden_' . $timeunit ] !== $post_data[ $timeunit ] ) {
 			$post_data['edit_date'] = '1';
@@ -538,8 +530,6 @@ function bulk_edit_posts( $post_data = null ) {
 		'post_password',
 		'post_parent',
 		'page_template',
-		'comment_status',
-		'ping_status',
 		'keep_private',
 		'tax_input',
 		'post_category',
@@ -668,8 +658,6 @@ function bulk_edit_posts( $post_data = null ) {
 		$post_data['post_ID']        = $post_id;
 		$post_data['post_type']      = $post->post_type;
 		$post_data['post_mime_type'] = $post->post_mime_type;
-		$post_data['comment_status'] = 'closed';
-		$post_data['ping_status']    = 'closed';
 
 		if ( ! isset( $post_data['post_author'] ) ) {
 			$post_data[ $field ] = $post->$field;
@@ -783,11 +771,6 @@ function get_default_post_to_edit( $post_type = 'post', $create_in_db = false ) 
 		$post->post_name      = '';
 		$post->post_type      = $post_type;
 		$post->post_status    = 'draft';
-		$post->to_ping        = '';
-		$post->pinged         = '';
-		$post->comment_status = 'closed';
-		$post->ping_status    = 'closed';
-		$post->post_pingback  = get_option( 'default_pingback_flag' );
 		$post->post_category  = get_option( 'default_category' );
 		$post->page_template  = 'default';
 		$post->post_parent    = 0;

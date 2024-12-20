@@ -15,10 +15,10 @@ class WP {
 	 * Long list of public query variables.
 	 *
 	 * @since WP 2.0.0
-	 * @since 1.0.0 Retraceur fork removed `withcomments` & `withoutcomments` query vars.
+	 * @since 1.0.0 Retraceur fork removed `withcomments`, `withoutcomments`, `tb` and `cpage` query vars.
 	 * @var string[]
 	 */
-	public $public_query_vars = array( 'm', 'p', 'posts', 'w', 'cat', 's', 'search', 'exact', 'sentence', 'calendar', 'page', 'paged', 'more', 'tb', 'pb', 'author', 'order', 'orderby', 'year', 'monthnum', 'day', 'hour', 'minute', 'second', 'name', 'category_name', 'tag', 'feed', 'author_name', 'pagename', 'page_id', 'error', 'attachment', 'attachment_id', 'subpost', 'subpost_id', 'preview', 'robots', 'favicon', 'taxonomy', 'term', 'cpage', 'post_type', 'embed' );
+	public $public_query_vars = array( 'm', 'p', 'posts', 'w', 'cat', 's', 'search', 'exact', 'sentence', 'calendar', 'page', 'paged', 'more', 'pb', 'author', 'order', 'orderby', 'year', 'monthnum', 'day', 'hour', 'minute', 'second', 'name', 'category_name', 'tag', 'feed', 'author_name', 'pagename', 'page_id', 'error', 'attachment', 'attachment_id', 'subpost', 'subpost_id', 'preview', 'robots', 'favicon', 'taxonomy', 'term', 'post_type', 'embed' );
 
 	/**
 	 * Private query variables.

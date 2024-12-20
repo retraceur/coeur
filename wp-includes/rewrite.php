@@ -279,7 +279,7 @@ function flush_rewrite_rules( $hard = true ) {
 }
 
 /**
- * Adds an endpoint, like /trackback/.
+ * Adds an endpoint.
  *
  * Adding an endpoint creates extra rewrite rules for each of the matching
  * places specified by the provided bitmask. For example:

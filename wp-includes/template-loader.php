@@ -29,7 +29,7 @@ if ( 'HEAD' === $_SERVER['REQUEST_METHOD'] && apply_filters( 'exit_on_http_head'
 	exit;
 }
 
-// Process feeds and trackbacks even if not using themes.
+// Process feeds even if not using themes.
 if ( is_robots() ) {
 	/**
 	 * Fired when the template loader determines a robots.txt request.
@@ -48,9 +48,6 @@ if ( is_robots() ) {
 	return;
 } elseif ( is_feed() ) {
 	do_feed();
-	return;
-} elseif ( is_trackback() ) {
-	require ABSPATH . 'wp-trackback.php';
 	return;
 }
 
