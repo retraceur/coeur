@@ -15605,3 +15605,170 @@ function have_comments() {
 function the_comment() {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 }
+
+/**
+ * Sanitizes space or carriage return separated URLs that are used to send trackbacks.
+ *
+ * @since WP 3.4.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string $to_ping Space or carriage return separated URLs
+ * @return string URLs starting with the http or https protocol, separated by a carriage return.
+ */
+function sanitize_trackback_urls( $to_ping ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters a list of trackback URLs following sanitization.
+	 *
+	 * The string returned here consists of a space or carriage return-delimited list
+	 * of trackback URLs.
+	 *
+	 * @since WP 3.4.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string $urls_to_ping Sanitized space or carriage return separated URLs.
+	 * @param string $to_ping      Space or carriage return separated URLs before sanitization.
+	 */
+	apply_filters_deprecated(
+		'sanitize_trackback_urls',
+		array( '', '' ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return '';
+}
+
+/**
+ * Retrieves enclosures already enclosed for a post.
+ *
+ * @since WP 1.5.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int $post_id Post ID.
+ * @return string[] Array of enclosures for the given post.
+ */
+function get_enclosed( $post_id ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the list of enclosures already enclosed for the given post.
+	 *
+	 * @since WP 2.0.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string[] $pung    Array of enclosures for the given post.
+	 * @param int      $post_id Post ID.
+	 */
+	apply_filters_deprecated(
+		'get_enclosed',
+		array( '', 0 ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+}
+
+/**
+ * Retrieves URLs that need to be pinged.
+ *
+ * @since WP 1.5.0
+ * @since WP 4.7.0 `$post` can be a WP_Post object.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param int|WP_Post $post Post ID or post object.
+ * @return string[]|false List of URLs yet to ping.
+ */
+function get_to_ping( $post ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the list of URLs yet to ping for the given post.
+	 *
+	 * @since WP 2.0.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string[] $to_ping List of URLs yet to ping.
+	 */
+	apply_filters_deprecated(
+		'get_to_ping',
+		array( array() ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return false;
+}
+
+/**
+ * Does trackbacks for a list of URLs.
+ *
+ * @since WP 1.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string $tb_list Comma separated list of URLs.
+ * @param int    $post_id Post ID.
+ */
+function trackback_url_list( $tb_list, $post_id ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Checks content for video and audio links to add as enclosures.
+ *
+ * Will not add enclosures that have already been added and will
+ * remove enclosures that are no longer in the post. This is called as
+ * pingbacks and trackbacks.
+ *
+ * @since WP 1.5.0
+ * @since WP 5.3.0 The `$content` parameter was made optional, and the `$post` parameter was
+ *              updated to accept a post ID or a WP_Post object.
+ * @since WP 5.6.0 The `$content` parameter is no longer optional, but passing `null` to skip it
+ *              is still supported.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string|null $content Post content. If `null`, the `post_content` field from `$post` is used.
+ * @param int|WP_Post $post    Post ID or post object.
+ * @return void|false Void on success, false if the post is not found.
+ */
+function do_enclose( $content, $post ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the list of enclosure links before querying the database.
+	 *
+	 * Allows for the addition and/or removal of potential enclosures to save
+	 * to postmeta before checking the database for existing enclosures.
+	 *
+	 * @since WP 4.4.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string[] $post_links An array of enclosure links.
+	 * @param int      $post_id    Post ID.
+	 */
+	apply_filters_deprecated(
+		'enclosure_links',
+		array( array(), 0 ),
+		'1.0.0',
+		'',
+		__( 'WP Comments feature is not supported in Retraceur.' )
+	);
+
+	return false;
+}
+
+/**
+ * Determines whether the query is for a trackback endpoint call.
+ *
+ * @since WP 1.5.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @return bool Whether the query is for a trackback endpoint call.
+ */
+function is_trackback() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return false;
+}

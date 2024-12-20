@@ -136,42 +136,6 @@ class WP_Query {
 	public $post;
 
 	/**
-	 * The list of comments for current post.
-	 *
-	 * @since WP 2.2.0
-	 * @deprecated 1.0.0 Retraceur fork.
-	 * @var WP_Comment[]
-	 */
-	public $comments;
-
-	/**
-	 * The number of comments for the posts.
-	 *
-	 * @since WP 2.2.0
-	 * @deprecated 1.0.0 Retraceur fork.
-	 * @var int
-	 */
-	public $comment_count = 0;
-
-	/**
-	 * The index of the comment in the comment loop.
-	 *
-	 * @since WP 2.2.0
-	 * @deprecated 1.0.0 Retraceur fork.
-	 * @var int
-	 */
-	public $current_comment = -1;
-
-	/**
-	 * Current comment object.
-	 *
-	 * @since WP 2.2.0
-	 * @deprecated 1.0.0 Retraceur fork.
-	 * @var WP_Comment
-	 */
-	public $comment;
-
-	/**
 	 * The number of found posts for the current query.
 	 *
 	 * If limit clause was not used, equals $post_count.
@@ -188,15 +152,6 @@ class WP_Query {
 	 * @var int
 	 */
 	public $max_num_pages = 0;
-
-	/**
-	 * The number of comment pages.
-	 *
-	 * @since WP 2.7.0
-	 * @deprecated 1.0.0 Retraceur fork.
-	 * @var int
-	 */
-	public $max_num_comment_pages = 0;
 
 	/**
 	 * Signifies whether the current query is for a single post.
@@ -317,23 +272,6 @@ class WP_Query {
 	 * @var bool
 	 */
 	public $is_feed = false;
-
-	/**
-	 * Signifies whether the current query is for a comment feed.
-	 *
-	 * @since WP 2.2.0
-	 * @deprecated 1.0.0 Retraceur fork.
-	 * @var bool
-	 */
-	public $is_comment_feed = false;
-
-	/**
-	 * Signifies whether the current query is for trackback endpoint call.
-	 *
-	 * @since WP 1.5.0
-	 * @var bool
-	 */
-	public $is_trackback = false;
 
 	/**
 	 * Signifies whether the current query is for the site homepage.
@@ -480,6 +418,22 @@ class WP_Query {
 	private $compat_methods = array( 'init_query_flags', 'parse_tax_query' );
 
 	/**
+	 * Deprecated properties.
+	 *
+	 * @since 1.0.0 Retraceur fork does not provide support for WP Comments.
+	 * @var string[]
+	 */
+	private $deprecated_properties = array(
+		'comments',
+		'comments_count',
+		'current_comment',
+		'comment',
+		'max_num_comment_pages',
+		'is_comment_feed',
+		'is_trackback',
+	);
+
+	/**
 	 * Resets query flags to false.
 	 *
 	 * The query flags are what page info Retraceur was able to figure out.
@@ -502,8 +456,6 @@ class WP_Query {
 		$this->is_tax               = false;
 		$this->is_search            = false;
 		$this->is_feed              = false;
-		$this->is_comment_feed      = false;
-		$this->is_trackback         = false;
 		$this->is_home              = false;
 		$this->is_privacy_policy    = false;
 		$this->is_404               = false;
@@ -534,13 +486,8 @@ class WP_Query {
 		$this->before_loop  = true;
 		unset( $this->request );
 		unset( $this->post );
-		unset( $this->comments );
-		unset( $this->comment );
-		$this->comment_count         = 0;
-		$this->current_comment       = -1;
 		$this->found_posts           = 0;
 		$this->max_num_pages         = 0;
-		$this->max_num_comment_pages = 0;
 
 		$this->init_query_flags();
 	}
@@ -590,7 +537,6 @@ class WP_Query {
 			'author',
 			'author_name',
 			'feed',
-			'tb',
 			'paged',
 			'meta_key',
 			'meta_value',
@@ -654,6 +600,8 @@ class WP_Query {
 	 * @since WP 5.3.0 Introduced the `$meta_type_key` parameter.
 	 * @since WP 6.1.0 Introduced the `$update_menu_item_cache` parameter.
 	 * @since WP 6.2.0 Introduced the `$search_columns` parameter.
+	 * @since 1.0.0 Retraceur fork removed the `$comment_count`, `$comment_status`, `comments_per_page` and
+	 *              `$ping_status` parameters.
 	 *
 	 * @param string|array $query {
 	 *     Optional. Array or string of Query parameters.
@@ -669,13 +617,6 @@ class WP_Query {
 	 *     @type int[]           $category__in           An array of category IDs (OR in, no children).
 	 *     @type int[]           $category__not_in       An array of category IDs (NOT in).
 	 *     @type string          $category_name          Use category slug (not name, this or any children).
-	 *     @type array|int       $comment_count          Filter results by comment count. Provide an integer to match
-	 *                                                   comment count exactly. Provide an array with integer 'value'
-	 *                                                   and 'compare' operator ('=', '!=', '>', '>=', '<', '<=' ) to
-	 *                                                   compare against comment_count in a specific way.
-	 *     @type string          $comment_status         Comment status.
-	 *     @type int             $comments_per_page      The number of comments to return per page.
-	 *                                                   Default 'comments_per_page' option.
 	 *     @type array           $date_query             An associative array of WP_Date_Query arguments.
 	 *                                                   See WP_Date_Query::__construct().
 	 *     @type int             $day                    Day of the month. Default empty. Accepts numbers 1-31.
@@ -730,7 +671,6 @@ class WP_Query {
 	 *                                                   - 'rand'
 	 *                                                   - 'relevance'
 	 *                                                   - 'RAND(x)' (where 'x' is an integer seed value)
-	 *                                                   - 'comment_count'
 	 *                                                   - 'meta_value'
 	 *                                                   - 'meta_value_num'
 	 *                                                   - 'post__in'
@@ -746,7 +686,6 @@ class WP_Query {
 	 *     @type int             $page_id                Page ID.
 	 *     @type string          $pagename               Page slug.
 	 *     @type string          $perm                   Show posts if user has the appropriate capability.
-	 *     @type string          $ping_status            Ping status.
 	 *     @type int[]           $post__in               An array of post IDs to retrieve, sticky posts will be included.
 	 *     @type int[]           $post__not_in           An array of post IDs not to retrieve. Note: a string of comma-
 	 *                                                   separated IDs will NOT work.
@@ -1014,10 +953,6 @@ class WP_Query {
 			$this->is_embed = true;
 		}
 
-		if ( '' != $qv['tb'] ) {
-			$this->is_trackback = true;
-		}
-
 		if ( '' != $qv['paged'] && ( (int) $qv['paged'] > 1 ) ) {
 			$this->is_paged = true;
 		}
@@ -1049,7 +984,7 @@ class WP_Query {
 
 			unset( $_query['embed'] );
 
-			if ( empty( $_query ) || ! array_diff( array_keys( $_query ), array( 'preview', 'page', 'paged', 'cpage' ) ) ) {
+			if ( empty( $_query ) || ! array_diff( array_keys( $_query ), array( 'preview', 'page', 'paged' ) ) ) {
 				$this->is_page = true;
 				$this->is_home = false;
 				$qv['page_id'] = get_option( 'page_on_front' );
@@ -2004,10 +1939,6 @@ class WP_Query {
 			$q['posts_per_page'] = abs( $q['posts_per_page'] );
 		} elseif ( 0 == $q['posts_per_page'] ) {
 			$q['posts_per_page'] = 1;
-		}
-
-		if ( ! isset( $q['comments_per_page'] ) ) {
-			$q['comments_per_page'] = 0;
 		}
 
 		if ( $this->is_home && ( empty( $this->query ) || 'true' === $q['preview'] ) && ( 'page' === get_option( 'show_on_front' ) ) && get_option( 'page_on_front' ) ) {
@@ -3119,6 +3050,7 @@ class WP_Query {
 		if ( 'id=>parent' === $q['fields'] ) {
 			if ( null === $this->posts ) {
 				$this->posts = $wpdb->get_results( $this->request );
+				$this->posts = array_map( 'retraceur_clean_deprecated_post_properties', $this->posts );
 			}
 
 			$this->post_count = count( $this->posts );
@@ -3225,6 +3157,7 @@ class WP_Query {
 				}
 			} else {
 				$this->posts = $wpdb->get_results( $this->request );
+				$this->posts = array_map( 'retraceur_clean_deprecated_post_properties', $this->posts );
 				$this->set_found_posts( $q, $limits );
 			}
 		}
@@ -3810,6 +3743,11 @@ class WP_Query {
 		if ( in_array( $name, $this->compat_fields, true ) ) {
 			return $this->$name;
 		}
+
+		if ( in_array( $name, $this->deprecated_properties, true ) ) {
+			_deprecated_argument( __METHOD__, '1.0.0', '', true );
+			return null;
+		}
 	}
 
 	/**
@@ -3823,6 +3761,28 @@ class WP_Query {
 	public function __isset( $name ) {
 		if ( in_array( $name, $this->compat_fields, true ) ) {
 			return isset( $this->$name );
+		}
+
+		if ( in_array( $name, $this->deprecated_properties, true ) ) {
+			_deprecated_argument( __METHOD__, '1.0.0', '', true );
+			return false;
+		}
+	}
+
+	/**
+	 * Proxies setting values for deprecated properties.
+	 *
+	 * @since 1.0.0 Retraceur fork does not provide support for WP Comments.
+	 *
+	 * @param string $name  Property name.
+	 * @param mixed  $value Property value.
+	 */
+	public function __set( $name, $value ) {
+		if ( in_array( $name, $this->deprecated_properties, true ) ) {
+			_deprecated_argument( __METHOD__, '1.0.0', '', true );
+			$this->{$name} = null;
+		} else {
+			$this->{$name} = $value;
 		}
 	}
 
@@ -4459,11 +4419,13 @@ class WP_Query {
 	 * Determines whether the query is for a trackback endpoint call.
 	 *
 	 * @since WP 3.1.0
+	 * @deprecated 1.0.0 Retraceur fork.
 	 *
 	 * @return bool Whether the query is for a trackback endpoint call.
 	 */
 	public function is_trackback() {
-		return (bool) $this->is_trackback;
+		_deprecated_function( __METHOD__, '1.0.0', '', true );
+		return false;
 	}
 
 	/**

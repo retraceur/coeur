@@ -1430,16 +1430,6 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 			$prepared_post->menu_order = (int) $request['menu_order'];
 		}
 
-		// Comment status.
-		if ( ! empty( $schema['properties']['comment_status'] ) && ! empty( $request['comment_status'] ) ) {
-			$prepared_post->comment_status = $request['comment_status'];
-		}
-
-		// Ping status.
-		if ( ! empty( $schema['properties']['ping_status'] ) && ! empty( $request['ping_status'] ) ) {
-			$prepared_post->ping_status = $request['ping_status'];
-		}
-
 		if ( ! empty( $schema['properties']['template'] ) ) {
 			// Force template to null so that it can be handled exclusively by the REST controller.
 			$prepared_post->page_template = null;
@@ -1993,14 +1983,6 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 
 		if ( rest_is_field_included( 'menu_order', $fields ) ) {
 			$data['menu_order'] = (int) $post->menu_order;
-		}
-
-		if ( rest_is_field_included( 'comment_status', $fields ) ) {
-			$data['comment_status'] = $post->comment_status;
-		}
-
-		if ( rest_is_field_included( 'ping_status', $fields ) ) {
-			$data['ping_status'] = $post->ping_status;
 		}
 
 		if ( rest_is_field_included( 'sticky', $fields ) ) {

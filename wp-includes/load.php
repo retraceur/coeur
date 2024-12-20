@@ -733,7 +733,6 @@ function wp_set_wpdb_vars() {
 		'post_id'          => '%d',
 		'user_status'      => '%d',
 		'umeta_id'         => '%d',
-		'comment_count'    => '%d',
 		// Multisite:
 		'active'           => '%d',
 		'cat_id'           => '%d',

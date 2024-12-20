@@ -90,24 +90,6 @@ final class WP_Post {
 	public $post_status = 'publish';
 
 	/**
-	 * Whether comments are allowed.
-	 *
-	 * @since WP 3.5.0
-	 * @deprecated 1.0.0 Retraceur fork.
-	 * @var string
-	 */
-	public $comment_status = 'closed';
-
-	/**
-	 * Whether pings are allowed.
-	 *
-	 * @since WP 3.5.0
-	 * @deprecated 1.0.0 Retraceur fork.
-	 * @var string
-	 */
-	public $ping_status = 'closed';
-
-	/**
 	 * The post's password in plain text.
 	 *
 	 * @since WP 3.5.0
@@ -122,23 +104,6 @@ final class WP_Post {
 	 * @var string
 	 */
 	public $post_name = '';
-
-	/**
-	 * URLs queued to be pinged.
-	 *
-	 * @since WP 3.5.0
-	 * @var string
-	 */
-	public $to_ping = '';
-
-	/**
-	 * URLs that have been pinged.
-	 *
-	 * @since WP 3.5.0
-	 * @deprecated 1.0.0 Retraceur fork.
-	 * @var string
-	 */
-	public $pinged = '';
 
 	/**
 	 * The post's local modified time.
@@ -205,17 +170,6 @@ final class WP_Post {
 	public $post_mime_type = '';
 
 	/**
-	 * Cached comment count.
-	 *
-	 * A numeric string, for compatibility reasons.
-	 *
-	 * @since WP 3.5.0
-	 * @deprecated 1.0.0 Retraceur fork.
-	 * @var string
-	 */
-	public $comment_count = 0;
-
-	/**
 	 * Stores the post object's sanitization level.
 	 *
 	 * Does not correspond to a DB field.
@@ -224,6 +178,21 @@ final class WP_Post {
 	 * @var string
 	 */
 	public $filter;
+
+	/**
+	 * Deprecated properties.
+	 *
+	 * @since 1.0.0 Retraceur fork does not provide support for WP Comments.
+	 * @var string[]
+	 */
+	private static $deprecated_properties = array(
+		'comment_status',
+		'ping_status',
+		'to_ping',
+		'pinged',
+		'comment_count',
+		'post_pingback',
+	);
 
 	/**
 	 * Retrieve WP_Post instance.
@@ -250,6 +219,14 @@ final class WP_Post {
 
 			if ( ! $_post ) {
 				return false;
+			}
+
+			foreach ( get_object_vars( $_post ) as $_post_key => $_post_value ) {
+				if ( ! in_array( $_post_key, self::$deprecated_properties, true ) ) {
+					continue;
+				}
+
+				unset( $_post->{ $_post_key } );
 			}
 
 			$_post = sanitize_post( $_post, 'raw' );
@@ -283,6 +260,11 @@ final class WP_Post {
 	 * @return bool
 	 */
 	public function __isset( $key ) {
+		if ( in_array( $key, self::$deprecated_properties, true ) ) {
+			_deprecated_argument( __METHOD__, '1.0.0', '', true );
+			return false;
+		}
+
 		if ( 'ancestors' === $key ) {
 			return true;
 		}
@@ -311,6 +293,11 @@ final class WP_Post {
 	 * @return mixed
 	 */
 	public function __get( $key ) {
+		if ( in_array( $key, self::$deprecated_properties, true ) ) {
+			_deprecated_argument( __METHOD__, '1.0.0', '', true );
+			return null;
+		}
+
 		if ( 'page_template' === $key && $this->__isset( $key ) ) {
 			return get_post_meta( $this->ID, '_wp_page_template', true );
 		}
@@ -390,5 +377,26 @@ final class WP_Post {
 		}
 
 		return $post;
+	}
+
+	/**
+	 * Proxies setting values for deprecated properties.
+	 *
+	 * @since 1.0.0 Retraceur fork does not provide support for WP Comments.
+	 *
+	 * @param string $key  Property name.
+	 * @param mixed  $value Property value.
+	 */
+	public function __set( $key, $value ) {
+		if ( in_array( $key, self::$deprecated_properties, true ) ) {
+			_deprecated_argument( __METHOD__, '1.0.0', wp_debug_backtrace_summary(), true );
+			$this->{$key} = null;
+		} else {
+			$this->{$key} = $value;
+		}
+	}
+
+	public static function get_deprecated_properties() {
+		return self::$deprecated_properties;
 	}
 }

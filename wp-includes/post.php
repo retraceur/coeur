@@ -4173,11 +4173,7 @@ function wp_insert_post( $postarr, $wp_error = false, $fire_after_hooks = true )
 		'post_excerpt'          => '',
 		'post_status'           => 'draft',
 		'post_type'             => 'post',
-		'comment_status'        => 'closed',
-		'ping_status'           => 'closed',
 		'post_password'         => '',
-		'to_ping'               => '',
-		'pinged'                => '',
 		'post_parent'           => 0,
 		'menu_order'            => 0,
 		'guid'                  => '',
@@ -4370,15 +4366,9 @@ function wp_insert_post( $postarr, $wp_error = false, $fire_after_hooks = true )
 		}
 	}
 
-	// Comment status.
-	$comment_status = 'closed';
-
 	// These variables are needed by compact() later.
 	$post_content_filtered = $postarr['post_content_filtered'];
 	$post_author           = isset( $postarr['post_author'] ) ? $postarr['post_author'] : $user_id;
-	$ping_status           = 'closed';
-	$to_ping               = '';
-	$pinged                = '';
 	$import_id             = isset( $postarr['import_id'] ) ? $postarr['import_id'] : 0;
 
 	/*
@@ -4473,12 +4463,8 @@ function wp_insert_post( $postarr, $wp_error = false, $fire_after_hooks = true )
 		'post_excerpt',
 		'post_status',
 		'post_type',
-		'comment_status',
-		'ping_status',
 		'post_password',
 		'post_name',
-		'to_ping',
-		'pinged',
 		'post_modified',
 		'post_modified_gmt',
 		'post_parent',
@@ -5549,99 +5535,6 @@ function wp_after_insert_post( $post, $update, $post_before ) {
 	 *                                  to the update for updated posts.
 	 */
 	do_action( 'wp_after_insert_post', $post_id, $post, $update, $post_before );
-}
-
-/**
- * Retrieves enclosures already enclosed for a post.
- *
- * @since WP 1.5.0
- *
- * @param int $post_id Post ID.
- * @return string[] Array of enclosures for the given post.
- */
-function get_enclosed( $post_id ) {
-	$custom_fields = get_post_custom( $post_id );
-	$pung          = array();
-	if ( ! is_array( $custom_fields ) ) {
-		return $pung;
-	}
-
-	foreach ( $custom_fields as $key => $val ) {
-		if ( 'enclosure' !== $key || ! is_array( $val ) ) {
-			continue;
-		}
-		foreach ( $val as $enc ) {
-			$enclosure = explode( "\n", $enc );
-			$pung[]    = trim( $enclosure[0] );
-		}
-	}
-
-	/**
-	 * Filters the list of enclosures already enclosed for the given post.
-	 *
-	 * @since WP 2.0.0
-	 *
-	 * @param string[] $pung    Array of enclosures for the given post.
-	 * @param int      $post_id Post ID.
-	 */
-	return apply_filters( 'get_enclosed', $pung, $post_id );
-}
-
-/**
- * Retrieves URLs that need to be pinged.
- *
- * @since WP 1.5.0
- * @since WP 4.7.0 `$post` can be a WP_Post object.
- *
- * @param int|WP_Post $post Post ID or post object.
- * @return string[]|false List of URLs yet to ping.
- */
-function get_to_ping( $post ) {
-	$post = get_post( $post );
-
-	if ( ! $post ) {
-		return false;
-	}
-
-	$to_ping = sanitize_trackback_urls( $post->to_ping );
-	$to_ping = preg_split( '/\s/', $to_ping, -1, PREG_SPLIT_NO_EMPTY );
-
-	/**
-	 * Filters the list of URLs yet to ping for the given post.
-	 *
-	 * @since WP 2.0.0
-	 *
-	 * @param string[] $to_ping List of URLs yet to ping.
-	 */
-	return apply_filters( 'get_to_ping', $to_ping );
-}
-
-/**
- * Does trackbacks for a list of URLs.
- *
- * @since WP 1.0.0
- *
- * @param string $tb_list Comma separated list of URLs.
- * @param int    $post_id Post ID.
- */
-function trackback_url_list( $tb_list, $post_id ) {
-	if ( ! empty( $tb_list ) ) {
-		// Get post data.
-		$postdata = get_post( $post_id, ARRAY_A );
-
-		// Form an excerpt.
-		$excerpt = strip_tags( $postdata['post_excerpt'] ? $postdata['post_excerpt'] : $postdata['post_content'] );
-
-		if ( strlen( $excerpt ) > 255 ) {
-			$excerpt = substr( $excerpt, 0, 252 ) . '&hellip;';
-		}
-
-		$trackback_urls = explode( ',', $tb_list );
-		foreach ( (array) $trackback_urls as $tb_url ) {
-			$tb_url = trim( $tb_url );
-			trackback( $tb_url, wp_unslash( $postdata['post_title'] ), $excerpt, $post_id );
-		}
-	}
 }
 
 //
@@ -7712,6 +7605,28 @@ function _update_term_count_on_transition_post_status( $new_status, $old_status,
 }
 
 /**
+ * Removes deprecated WP_Post properties from a post object.
+ *
+ * @since 1.0.0 (Retraceur fork).
+ *
+ * @param object $post the Post object.
+ * @return object The post object without deprecated properties.
+ */
+function retraceur_clean_deprecated_post_properties( $post ) {
+	if ( ! is_object( $post ) ) {
+		$post = (object) $post;
+	}
+
+	$deprecated_post_properties = WP_Post::get_deprecated_properties();
+
+	foreach ( $deprecated_post_properties as $prop ) {
+		unset( $post->{$prop} );
+	}
+
+	return $post;
+}
+
+/**
  * Adds any posts from the given IDs to the cache that do not already exist in cache.
  *
  * @since WP 3.4.0
@@ -7735,6 +7650,8 @@ function _prime_post_caches( $ids, $update_term_cache = true, $update_meta_cache
 		$fresh_posts = $wpdb->get_results( sprintf( "SELECT $wpdb->posts.* FROM $wpdb->posts WHERE ID IN (%s)", implode( ',', $non_cached_ids ) ) );
 
 		if ( $fresh_posts ) {
+			$fresh_posts = array_map( 'retraceur_clean_deprecated_post_properties', $fresh_posts );
+
 			// Despite the name, update_post_cache() expects an array rather than a single post.
 			update_post_cache( $fresh_posts );
 		}

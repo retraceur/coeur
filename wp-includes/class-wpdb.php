@@ -350,26 +350,6 @@ class wpdb {
 	public $old_ms_global_tables = array( 'sitecategories' );
 
 	/**
-	 * Retraceur Comments table.
-	 *
-	 * @since WP 1.5.0
-	 * @deprecated 1.0.0 Retraceur fork.
-	 *
-	 * @var string
-	 */
-	public $comments;
-
-	/**
-	 * Retraceur Comment Metadata table.
-	 *
-	 * @since WP 2.9.0
-	 * @deprecated 1.0.0 Retraceur fork.
-	 *
-	 * @var string
-	 */
-	public $commentmeta;
-
-	/**
 	 * Retraceur Options table.
 	 *
 	 * @since WP 1.5.0
@@ -726,6 +706,17 @@ class wpdb {
 	public $error = null;
 
 	/**
+	 * Deprecated properties.
+	 *
+	 * @since 1.0.0 Retraceur fork does not provide support for WP Comments.
+	 * @var string[]
+	 */
+	private $deprecated_properties = array(
+		'comments',
+		'commentmeta',
+	);
+
+	/**
 	 * Connects to the database server and selects a database.
 	 *
 	 * Does the actual setting up
@@ -769,6 +760,11 @@ class wpdb {
 			$this->load_col_info();
 		}
 
+		if ( in_array( $name, $this->deprecated_properties, true ) ) {
+			_deprecated_argument( __METHOD__, '1.0.0', '', true );
+			return null;
+		}
+
 		return $this->$name;
 	}
 
@@ -787,9 +783,16 @@ class wpdb {
 			'check_current_query',
 			'allow_unsafe_unquoted_parameters',
 		);
+
 		if ( in_array( $name, $protected_members, true ) ) {
 			return;
 		}
+
+		if ( in_array( $name, $this->deprecated_properties, true ) ) {
+			_deprecated_argument( __METHOD__, '1.0.0', '', true );
+			return;
+		}
+
 		$this->$name = $value;
 	}
 
@@ -802,6 +805,11 @@ class wpdb {
 	 * @return bool If the member is set or not.
 	 */
 	public function __isset( $name ) {
+		if ( in_array( $name, $this->deprecated_properties, true ) ) {
+			_deprecated_argument( __METHOD__, '1.0.0', '', true );
+			return false;
+		}
+
 		return isset( $this->$name );
 	}
 

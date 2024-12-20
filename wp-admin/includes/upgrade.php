@@ -232,8 +232,6 @@ if ( ! function_exists( 'wp_install_defaults' ) ) :
 				'post_modified'         => $now,
 				'post_modified_gmt'     => $now_gmt,
 				'guid'                  => $first_post_guid,
-				'to_ping'               => '',
-				'pinged'                => '',
 				'post_content_filtered' => '',
 			)
 		);
@@ -298,7 +296,6 @@ if ( ! function_exists( 'wp_install_defaults' ) ) :
 				'post_date_gmt'         => $now_gmt,
 				'post_content'          => $first_page,
 				'post_excerpt'          => '',
-				'comment_status'        => 'closed',
 				'post_title'            => __( 'Sample Page' ),
 				/* translators: Default page slug. */
 				'post_name'             => __( 'sample-page' ),
@@ -306,8 +303,6 @@ if ( ! function_exists( 'wp_install_defaults' ) ) :
 				'post_modified_gmt'     => $now_gmt,
 				'guid'                  => $first_post_guid,
 				'post_type'             => 'page',
-				'to_ping'               => '',
-				'pinged'                => '',
 				'post_content_filtered' => '',
 			)
 		);
@@ -343,7 +338,6 @@ if ( ! function_exists( 'wp_install_defaults' ) ) :
 					'post_date_gmt'         => $now_gmt,
 					'post_content'          => $privacy_policy_content,
 					'post_excerpt'          => '',
-					'comment_status'        => 'closed',
 					'post_title'            => __( 'Privacy Policy' ),
 					/* translators: Privacy Policy page slug. */
 					'post_name'             => __( 'privacy-policy' ),
@@ -352,8 +346,6 @@ if ( ! function_exists( 'wp_install_defaults' ) ) :
 					'guid'                  => $privacy_policy_guid,
 					'post_type'             => 'page',
 					'post_status'           => 'draft',
-					'to_ping'               => '',
-					'pinged'                => '',
 					'post_content_filtered' => '',
 				)
 			);

@@ -97,7 +97,7 @@ foreach ( array( 'user_url', 'link_url', 'link_image', 'link_rss', 'post_guid' )
 add_filter( 'pre_term_slug', 'sanitize_title' );
 
 // Keys.
-foreach ( array( 'pre_post_type', 'pre_post_status', 'pre_post_ping_status' ) as $filter ) {
+foreach ( array( 'pre_post_type', 'pre_post_status' ) as $filter ) {
 	add_filter( $filter, 'sanitize_key' );
 }
 
