@@ -1854,7 +1854,7 @@ function wp_style_loader_src( $src, $handle ) {
 		$color = get_user_option( 'admin_color' );
 
 		if ( empty( $color ) || ! isset( $_wp_admin_css_colors[ $color ] ) ) {
-			$color = 'fresh';
+			$color = 'retraceur';
 		}
 
 		$color = $_wp_admin_css_colors[ $color ];

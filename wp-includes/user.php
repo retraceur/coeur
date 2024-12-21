@@ -2347,7 +2347,7 @@ function wp_insert_user( $userdata ) {
 
 	$meta['syntax_highlighting'] = empty( $userdata['syntax_highlighting'] ) ? 'true' : $userdata['syntax_highlighting'];
 
-	$admin_color         = empty( $userdata['admin_color'] ) ? 'fresh' : $userdata['admin_color'];
+	$admin_color         = empty( $userdata['admin_color'] ) ? 'retraceur' : $userdata['admin_color'];
 	$meta['admin_color'] = preg_replace( '|[^a-z0-9 _.\-@]|i', '', $admin_color );
 
 	$meta['use_ssl'] = empty( $userdata['use_ssl'] ) ? '0' : '1';

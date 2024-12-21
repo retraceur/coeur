@@ -4673,6 +4673,18 @@ function register_admin_color_schemes() {
 	$suffix .= SCRIPT_DEBUG ? '' : '.min';
 
 	wp_admin_css_color(
+		'retraceur',
+		_x( 'Retraceur', 'admin color scheme' ),
+		admin_url( "css/colors/retraceur/colors$suffix.css" ),
+		array( '#1e1e1e', '#191970', '#5d76cb' ),
+		array(
+			'base'    => '#f3f1f1',
+			'focus'   => '#fff',
+			'current' => '#fff',
+		)
+	);
+
+	wp_admin_css_color(
 		'fresh',
 		_x( 'Default', 'admin color scheme' ),
 		false,

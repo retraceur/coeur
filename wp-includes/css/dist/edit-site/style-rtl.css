@@ -3293,6 +3293,21 @@ body.admin-color-modern{
   }
 }
 
+body.admin-color-retraceur{
+  --wp-admin-theme-color:#5d76cb;
+  --wp-admin-theme-color--rgb:93, 118, 203;
+  --wp-admin-theme-color-darker-10:#002395;
+  --wp-admin-theme-color-darker-10--rgb:0, 35, 149;
+  --wp-admin-theme-color-darker-20:#191970;
+  --wp-admin-theme-color-darker-20--rgb:25, 25, 112;
+  --wp-admin-border-width-focus:2px;
+}
+@media (min-resolution:192dpi){
+  body.admin-color-retraceur{
+    --wp-admin-border-width-focus:1.5px;
+  }
+}
+
 body.admin-color-blue{
   --wp-admin-theme-color:#096484;
   --wp-admin-theme-color--rgb:9, 100, 132;

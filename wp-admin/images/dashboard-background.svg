@@ -1,6 +1,6 @@
 <svg preserveAspectRatio="xMidYMin slice" fill="none" viewBox="0 0 1232 240" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
   <g clip-path="url(#a)">
-    <path fill="#151515" d="M0 0h1232v240H0z"/>
+    <path fill="#191970" d="M0 0h1232v240H0z"/>
     <ellipse cx="616" cy="232" fill="url(#b)" opacity=".05" rx="1497" ry="249"/>
     <mask id="d" width="1000" height="400" x="232" y="20" maskUnits="userSpaceOnUse" style="mask-type:alpha">
       <path fill="url(#c)" d="M0 0h1000v400H0z" transform="translate(232 20)"/>

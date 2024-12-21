@@ -29,8 +29,8 @@
 	--text-light: #fff;
 
 	/* Accent colors: used in header, on special classes. */
-	--accent-1: #3858e9; /* Link color */
-	--accent-2: #3858e9; /* Accent background */
+	--accent-1: #191970; /* Link color */
+	--accent-2: #191970; /* Accent background */
 	--accent-3: #ededed; /* hr background */
 
 	/* Navigation colors. */
