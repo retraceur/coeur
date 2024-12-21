@@ -523,7 +523,7 @@ class WP_REST_Font_Faces_Controller extends WP_REST_Posts_Controller {
 					'context'     => array( 'view', 'edit', 'embed' ),
 				),
 				// Font face settings come directly from theme.json schema
-				// See https://schemas.wp.org/trunk/theme.json
+				// See https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/theme.json
 				'font_face_settings' => array(
 					'description'          => __( 'font-face declaration in theme.json format.' ),
 					'type'                 => 'object',

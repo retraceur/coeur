@@ -1482,9 +1482,8 @@ function wp_generate_block_templates_export_file() {
 	$theme_json_raw = $tree->get_data();
 	// If a version is defined, add a schema.
 	if ( $theme_json_raw['version'] ) {
-		$theme_json_version = 'wp/' . substr( $wp_version, 0, 3 );
-		$schema             = array( '$schema' => 'https://schemas.wp.org/' . $theme_json_version . '/theme.json' );
-		$theme_json_raw     = array_merge( $schema, $theme_json_raw );
+		$schema         = array( '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/theme.json' );
+		$theme_json_raw = array_merge( $schema, $theme_json_raw );
 	}
 
 	// Convert to a string.

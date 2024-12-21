@@ -75,7 +75,7 @@ function wp_print_font_faces_from_style_variations() {
 /**
  * Registers a new font collection in the font library.
  *
- * See {@link https://schemas.wp.org/trunk/font-collection.json} for the schema
+ * See {@link https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/font-collection.json} for the schema
  * the font collection data must adhere to.
  *
  * @since WP 6.5.0
