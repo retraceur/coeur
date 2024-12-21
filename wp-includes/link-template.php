@@ -4145,3 +4145,108 @@ function wp_is_internal_link( $link ) {
 	}
 	return false;
 }
+
+/**
+ * Performs post queries for internal linking.
+ *
+ * @since 1.0.0 Retraceur fork moved the `_WP_Editors::wp_link_query()` method here.
+ *
+ * @param array $args {
+ *     Optional. Array of link query arguments.
+ *
+ *     @type int    $pagenum Page number. Default 1.
+ *     @type string $s       Search keywords.
+ * }
+ * @return array|false $results {
+ *     An array of associative arrays of query results, false if there are none.
+ *
+ *     @type array ...$0 {
+ *         @type int    $ID        Post ID.
+ *         @type string $title     The trimmed, escaped post title.
+ *         @type string $permalink Post permalink.
+ *         @type string $info      A 'Y/m/d'-formatted date for 'post' post type,
+ *                                 the 'singular_name' post type label otherwise.
+ *     }
+ * }
+ */
+function retraceur_link_query( $args = array() ) {
+	$pts      = get_post_types( array( 'public' => true ), 'objects' );
+	$pt_names = array_keys( $pts );
+
+	$query = array(
+		'post_type'              => $pt_names,
+		'suppress_filters'       => true,
+		'update_post_term_cache' => false,
+		'update_post_meta_cache' => false,
+		'post_status'            => 'publish',
+		'posts_per_page'         => 20,
+	);
+
+	$args['pagenum'] = isset( $args['pagenum'] ) ? absint( $args['pagenum'] ) : 1;
+
+	if ( isset( $args['s'] ) ) {
+		$query['s'] = $args['s'];
+	}
+
+	$query['offset'] = $args['pagenum'] > 1 ? $query['posts_per_page'] * ( $args['pagenum'] - 1 ) : 0;
+
+	/**
+	 * Filters the link query arguments.
+	 *
+	 * Allows modification of the link query arguments before querying.
+	 *
+	 * @see WP_Query for a full list of arguments
+	 *
+	 * @since WP 3.7.0
+	 *
+	 * @param array $query An array of WP_Query arguments.
+	 */
+	$query = apply_filters( 'wp_link_query_args', $query );
+
+	// Do main query.
+	$get_posts = new WP_Query();
+	$posts     = $get_posts->query( $query );
+
+	// Build results.
+	$results = array();
+	foreach ( $posts as $post ) {
+		if ( 'post' === $post->post_type ) {
+			$info = mysql2date( __( 'Y/m/d' ), $post->post_date );
+		} else {
+			$info = $pts[ $post->post_type ]->labels->singular_name;
+		}
+
+		$results[] = array(
+			'ID'        => $post->ID,
+			'title'     => trim( esc_html( strip_tags( get_the_title( $post ) ) ) ),
+			'permalink' => get_permalink( $post->ID ),
+			'info'      => $info,
+		);
+	}
+
+	/**
+	 * Filters the link query results.
+	 *
+	 * Allows modification of the returned link query results.
+	 *
+	 * @since WP 3.7.0
+	 *
+	 * @see 'wp_link_query_args' filter
+	 *
+	 * @param array $results {
+	 *     An array of associative arrays of query results.
+	 *
+	 *     @type array ...$0 {
+	 *         @type int    $ID        Post ID.
+	 *         @type string $title     The trimmed, escaped post title.
+	 *         @type string $permalink Post permalink.
+	 *         @type string $info      A 'Y/m/d'-formatted date for 'post' post type,
+	 *                                 the 'singular_name' post type label otherwise.
+	 *     }
+	 * }
+	 * @param array $query  An array of WP_Query arguments.
+	 */
+	$results = apply_filters( 'wp_link_query', $results, $query );
+
+	return ! empty( $results ) ? $results : false;
+}

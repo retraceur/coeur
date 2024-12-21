@@ -3755,50 +3755,6 @@ function wp_default_editor() {
 }
 
 /**
- * Renders an editor.
- *
- * Using this function is the proper way to output all needed components for both TinyMCE and Quicktags.
- * _WP_Editors should not be used directly.
- *
- * NOTE: Once initialized the TinyMCE editor cannot be safely moved in the DOM. For that reason
- * running wp_editor() inside of a meta box is not a good idea unless only Quicktags is used.
- * On the post edit screen several actions can be used to include additional editors
- * containing TinyMCE: 'edit_page_form', 'edit_form_advanced' and 'dbx_post_sidebar'.
- *
- * @see _WP_Editors::editor()
- * @see _WP_Editors::parse_settings()
- * @since WP 3.3.0
- *
- * @param string $content   Initial content for the editor.
- * @param string $editor_id HTML ID attribute value for the textarea and TinyMCE.
- *                          Should not contain square brackets.
- * @param array  $settings  See _WP_Editors::parse_settings() for description.
- */
-function wp_editor( $content, $editor_id, $settings = array() ) {
-	if ( ! class_exists( '_WP_Editors', false ) ) {
-		require ABSPATH . WPINC . '/class-wp-editor.php';
-	}
-	_WP_Editors::editor( $content, $editor_id, $settings );
-}
-
-/**
- * Outputs the editor scripts, stylesheets, and default settings.
- *
- * The editor can be initialized when needed after page load.
- * See wp.editor.initialize() in wp-admin/js/editor.js for initialization options.
- *
- * @uses _WP_Editors
- * @since WP 4.8.0
- */
-function wp_enqueue_editor() {
-	if ( ! class_exists( '_WP_Editors', false ) ) {
-		require ABSPATH . WPINC . '/class-wp-editor.php';
-	}
-
-	_WP_Editors::enqueue_default_editor();
-}
-
-/**
  * Enqueues assets needed by the code editor for the given settings.
  *
  * @since WP 4.9.0

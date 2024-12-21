@@ -1101,11 +1101,7 @@ function wp_ajax_wp_link_ajax() {
 
 	$args['pagenum'] = ! empty( $_POST['page'] ) ? absint( $_POST['page'] ) : 1;
 
-	if ( ! class_exists( '_WP_Editors', false ) ) {
-		require ABSPATH . WPINC . '/class-wp-editor.php';
-	}
-
-	$results = _WP_Editors::wp_link_query( $args );
+	$results = retraceur_link_query( $args );
 
 	if ( ! isset( $results ) ) {
 		wp_die( 0 );

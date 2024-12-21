@@ -37460,7 +37460,7 @@ function BlockInvalidWarning({
     return {
       block: getBlock(clientId),
       canInsertHTMLBlock: canInsertBlockType('core/html', rootClientId),
-      canInsertClassicBlock: canInsertBlockType('core/freeform', rootClientId)
+      canInsertClassicBlock: false
     };
   }, [clientId]);
   const {
@@ -37470,10 +37470,7 @@ function BlockInvalidWarning({
   const onCompareClose = (0,external_wp_element_namespaceObject.useCallback)(() => setCompare(false), []);
   const convert = (0,external_wp_element_namespaceObject.useMemo)(() => ({
     toClassic() {
-      const classicBlock = (0,external_wp_blocks_namespaceObject.createBlock)('core/freeform', {
-        content: block.originalContent
-      });
-      return replaceBlock(block.clientId, classicBlock);
+			return toHTML();
     },
     toHTML() {
       const htmlBlock = (0,external_wp_blocks_namespaceObject.createBlock)('core/html', {
