@@ -1331,27 +1331,6 @@
     ),
     'style' => 'wp-block-footnotes'
   ),
-  'freeform' => array(
-    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
-    'apiVersion' => 3,
-    'name' => 'core/freeform',
-    'title' => 'Classic',
-    'category' => 'text',
-    'description' => 'Use the classic WordPress editor.',
-    'textdomain' => 'default',
-    'attributes' => array(
-      'content' => array(
-        'type' => 'string',
-        'source' => 'raw'
-      )
-    ),
-    'supports' => array(
-      'className' => false,
-      'customClassName' => false,
-      'reusable' => false
-    ),
-    'editorStyle' => 'wp-block-freeform-editor'
-  ),
   'gallery' => array(
     '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,

@@ -152,18 +152,6 @@ switch ( $action ) {
 			break;
 		}
 
-		if ( ! wp_check_post_lock( $post->ID ) ) {
-			$active_post_lock = wp_set_post_lock( $post->ID );
-
-			if ( 'attachment' !== $post_type ) {
-				wp_enqueue_script( 'autosave' );
-			}
-		}
-
-		$post = get_post( $post_id, OBJECT, 'edit' );
-
-		require ABSPATH . 'wp-admin/edit-form-advanced.php';
-
 		break;
 
 	case 'editattachment':

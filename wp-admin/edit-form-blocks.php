@@ -140,11 +140,6 @@ $meta_box_url = add_query_arg(
 	),
 	$meta_box_url
 );
-wp_add_inline_script(
-	'wp-editor',
-	sprintf( 'var _wpMetaBoxUrl = %s;', wp_json_encode( $meta_box_url ) ),
-	'before'
-);
 
 // Set Heartbeat interval to 10 seconds, used to refresh post locks.
 wp_add_inline_script(
@@ -282,8 +277,6 @@ wp_enqueue_media(
 		'post' => $post->ID,
 	)
 );
-wp_tinymce_inline_scripts();
-wp_enqueue_editor();
 
 /**
  * Styles
@@ -351,25 +344,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 	<div class="wrap hide-if-js block-editor-no-js">
 		<h1 class="wp-heading-inline"><?php echo esc_html( $title ); ?></h1>
 		<?php
-		if ( file_exists( WP_PLUGIN_DIR . '/classic-editor/classic-editor.php' ) ) {
-			// If Classic Editor is already installed, provide a link to activate the plugin.
-			$installed           = true;
-			$plugin_activate_url = wp_nonce_url( 'plugins.php?action=activate&amp;plugin=classic-editor/classic-editor.php', 'activate-plugin_classic-editor/classic-editor.php' );
-			$message             = sprintf(
-				/* translators: %s: Link to activate the Classic Editor plugin. */
-				__( 'The block editor requires JavaScript. Please enable JavaScript in your browser settings, or activate the <a href="%s">Classic Editor plugin</a>.' ),
-				esc_url( $plugin_activate_url )
-			);
-		} else {
-			// If Classic Editor is not installed, provide a link to install it.
-			$installed          = false;
-			$plugin_install_url = wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=classic-editor' ), 'install-plugin_classic-editor' );
-			$message            = sprintf(
-				/* translators: %s: Link to install the Classic Editor plugin. */
-				__( 'The block editor requires JavaScript. Please enable JavaScript in your browser settings, or install the <a href="%s">Classic Editor plugin</a>.' ),
-				esc_url( $plugin_install_url )
-			);
-		}
+		$message = __( 'The block editor requires JavaScript. Please enable JavaScript in your browser settings.' );
 
 		/**
 		 * Filters the message displayed in the block editor interface when JavaScript is
@@ -377,12 +352,12 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 		 *
 		 * @since WP 5.0.3
 		 * @since WP 6.4.0 Added `$installed` parameter.
+		 * @since 1.0.0 Retraceur fork removed the `$installed` parameter.
 		 *
 		 * @param string  $message   The message being displayed.
 		 * @param WP_Post $post      The post being edited.
-		 * @param bool    $installed Whether the classic editor is installed.
 		 */
-		$message = apply_filters( 'block_editor_no_javascript_message', $message, $post, $installed );
+		$message = apply_filters( 'block_editor_no_javascript_message', $message, $post );
 		wp_admin_notice(
 			$message,
 			array(

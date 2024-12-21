@@ -1947,7 +1947,6 @@ function excerpt_remove_blocks( $content ) {
 	$allowed_inner_blocks = array(
 		// Classic blocks have their blockName set to null.
 		null,
-		'core/freeform',
 		'core/heading',
 		'core/html',
 		'core/list',

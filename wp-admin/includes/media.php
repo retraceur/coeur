@@ -3258,36 +3258,18 @@ function edit_form_image_editor( $post ) {
 			<textarea class="widefat" name="excerpt" id="attachment_caption"><?php echo $post->post_excerpt; ?></textarea>
 		</p>
 
-	<?php
+		<p>
+			<label for="attachment_content" class="attachment-content-description"><strong><?php _e( 'Description' ); ?></strong>
+			<?php
 
-	$quicktags_settings = array( 'buttons' => 'strong,em,link,block,del,ins,img,ul,ol,li,code,close' );
-	$editor_args        = array(
-		'textarea_name' => 'content',
-		'textarea_rows' => 5,
-		'media_buttons' => false,
-		/**
-		 * Filters the TinyMCE argument for the media description field on the attachment details screen.
-		 *
-		 * @since WP 6.6.0
-		 *
-		 * @param bool $tinymce Whether to activate TinyMCE in media description field. Default false.
-		 */
-		'tinymce'       => apply_filters( 'activate_tinymce_for_media_description', false ),
-		'quicktags'     => $quicktags_settings,
-	);
+			if ( preg_match( '#^(audio|video)/#', $post->post_mime_type ) ) {
+				echo ': ' . __( 'Displayed on attachment pages.' );
+			}
 
-	?>
-
-	<label for="attachment_content" class="attachment-content-description"><strong><?php _e( 'Description' ); ?></strong>
-	<?php
-
-	if ( preg_match( '#^(audio|video)/#', $post->post_mime_type ) ) {
-		echo ': ' . __( 'Displayed on attachment pages.' );
-	}
-
-	?>
-	</label>
-	<?php wp_editor( format_to_edit( $post->post_content ), 'attachment_content', $editor_args ); ?>
+			?>
+			</label>
+			<textarea class="widefat" name="content" id="attachment_caption"><?php echo format_to_edit( $post->post_content ); ?></textarea>
+		</p>
 
 	</div>
 	<?php

@@ -15772,3 +15772,55 @@ function is_trackback() {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 	return false;
 }
+
+/**
+ * Adds inline scripts required for the TinyMCE in the block editor.
+ *
+ * These TinyMCE init settings are used to extend and override the default settings
+ * from `_WP_Editors::default_settings()` for the Classic block.
+ *
+ * @since WP 5.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function wp_tinymce_inline_scripts() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Renders an editor.
+ *
+ * Using this function is the proper way to output all needed components for both TinyMCE and Quicktags.
+ * _WP_Editors should not be used directly.
+ *
+ * NOTE: Once initialized the TinyMCE editor cannot be safely moved in the DOM. For that reason
+ * running wp_editor() inside of a meta box is not a good idea unless only Quicktags is used.
+ * On the post edit screen several actions can be used to include additional editors
+ * containing TinyMCE: 'edit_page_form', 'edit_form_advanced' and 'dbx_post_sidebar'.
+ *
+ * @see _WP_Editors::editor()
+ * @see _WP_Editors::parse_settings()
+ * @since WP 3.3.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string $content   Initial content for the editor.
+ * @param string $editor_id HTML ID attribute value for the textarea and TinyMCE.
+ *                          Should not contain square brackets.
+ * @param array  $settings  See _WP_Editors::parse_settings() for description.
+ */
+function wp_editor( $content, $editor_id, $settings = array() ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Outputs the editor scripts, stylesheets, and default settings.
+ *
+ * The editor can be initialized when needed after page load.
+ * See wp.editor.initialize() in wp-admin/js/editor.js for initialization options.
+ *
+ * @uses _WP_Editors
+ * @since WP 4.8.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function wp_enqueue_editor() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
