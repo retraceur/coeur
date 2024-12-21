@@ -336,7 +336,7 @@ class WP_REST_Global_Styles_Revisions_Controller extends WP_REST_Revisions_Contr
 		if ( ! empty( $resolved_theme_uris ) ) {
 			$response->add_links(
 				array(
-					'https://api.w.org/theme-file' => $resolved_theme_uris,
+					'https://retraceur.github.io/api/theme-file' => $resolved_theme_uris,
 				)
 			);
 		}

@@ -1,7 +1,7 @@
 <?php
 /**
  * REST API: WP_REST_Terms_Controller class
- * 
+ *
  * @since WP 4.7.0
  * @since 1.0.0 Retraceur fork.
  *
@@ -993,7 +993,7 @@ class WP_REST_Terms_Controller extends WP_REST_Controller {
 		}
 
 		if ( ! empty( $post_type_links ) ) {
-			$links['https://api.w.org/post_type'] = $post_type_links;
+			$links['https://retraceur.github.io/api/post_type'] = $post_type_links;
 		}
 
 		return $links;

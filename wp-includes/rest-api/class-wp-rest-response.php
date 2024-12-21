@@ -258,7 +258,7 @@ class WP_REST_Response extends WP_HTTP_Response {
 		$curies = array(
 			array(
 				'name'      => 'wp',
-				'href'      => 'https://api.w.org/{rel}',
+				'href'      => 'https://retraceur.github.io/api/{rel}',
 				'templated' => true,
 			),
 		);
@@ -277,7 +277,7 @@ class WP_REST_Response extends WP_HTTP_Response {
 		 * shortened relation.
 		 *
 		 * For example, a CURIE with name `example` and URI template
-		 * `http://w.org/{rel}` would transform a `http://w.org/term` relation
+		 * `https://retraceur.github.io/api/{rel}` would transform a `https://retraceur.github.io/api/term` relation
 		 * into `example:term`.
 		 *
 		 * Well-behaved clients should expand and normalize these back to their

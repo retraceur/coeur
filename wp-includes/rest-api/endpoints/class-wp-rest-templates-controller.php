@@ -1,7 +1,7 @@
 <?php
 /**
  * REST API: WP_REST_Templates_Controller class
- * 
+ *
  * @since WP 5.8.0
  * @since 1.0.0 Retraceur fork.
  *
@@ -981,11 +981,11 @@ class WP_REST_Templates_Controller extends WP_REST_Controller {
 		$post_type = get_post_type_object( $this->post_type );
 
 		if ( current_user_can( $post_type->cap->publish_posts ) ) {
-			$rels[] = 'https://api.w.org/action-publish';
+			$rels[] = 'https://retraceur.github.io/api/action-publish';
 		}
 
 		if ( current_user_can( 'unfiltered_html' ) ) {
-			$rels[] = 'https://api.w.org/action-unfiltered-html';
+			$rels[] = 'https://retraceur.github.io/api/action-unfiltered-html';
 		}
 
 		return $rels;

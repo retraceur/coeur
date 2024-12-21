@@ -375,7 +375,7 @@ class WP_REST_Block_Types_Controller extends WP_REST_Controller {
 		);
 
 		if ( $block_type->is_dynamic() ) {
-			$links['https://api.w.org/render-block'] = array(
+			$links['https://retraceur.github.io/api/render-block'] = array(
 				'href' => add_query_arg(
 					'context',
 					'edit',
