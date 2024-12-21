@@ -1289,7 +1289,7 @@ const transforms = {
  * Internal dependencies
  */
 const metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/legacy-widget",
   title: "Legacy Widget",
@@ -1481,7 +1481,7 @@ const v1 = {
  * Internal dependencies
  */
 const widget_group_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/widget-group",
   title: "Widget Group",

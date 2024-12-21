@@ -1658,7 +1658,7 @@ function ArchivesEdit({
  */
 
 const metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/archives",
   title: "Archives",
@@ -2100,7 +2100,7 @@ const commentAuthorAvatar = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceOb
  */
 
 const avatar_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/avatar",
   title: "Avatar",
@@ -2487,7 +2487,7 @@ const {
  * Internal dependencies
  */
 const util_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/embed",
   title: "Embed",
@@ -3382,7 +3382,7 @@ const transforms = {
 
 
 const audio_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/audio",
   title: "Audio",
@@ -5101,7 +5101,7 @@ function save_save({
 
 
 const button_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/button",
   title: "Button",
@@ -5614,7 +5614,7 @@ function buttons_save_save({
 
 
 const buttons_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/buttons",
   title: "Buttons",
@@ -5864,7 +5864,7 @@ const calendar_transforms_transforms = {
  */
 
 const calendar_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/calendar",
   title: "Calendar",
@@ -6211,7 +6211,7 @@ const variations = [{
  */
 
 const categories_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/categories",
   title: "Terms List",
@@ -6779,7 +6779,7 @@ function freeform_save_save({
 
 
 const freeform_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/freeform",
   title: "Classic",
@@ -7032,7 +7032,7 @@ const code_transforms_transforms = {
 
 
 const code_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/code",
   title: "Code",
@@ -7376,7 +7376,7 @@ function column_save_save({
 
 
 const column_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/column",
   title: "Column",
@@ -8377,7 +8377,7 @@ const columns_transforms_transforms = {
 
 
 const columns_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/columns",
   title: "Columns",
@@ -12186,7 +12186,7 @@ const cover_variations_variations = [{
 
 
 const cover_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/cover",
   title: "Cover",
@@ -12521,7 +12521,7 @@ function details_save_save({
  */
 
 const details_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/details",
   title: "Details",
@@ -13495,7 +13495,7 @@ function embed_save_save({
  * Internal dependencies
  */
 const transforms_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/embed",
   title: "Embed",
@@ -13998,7 +13998,7 @@ embed_variations_variations.forEach(variation => {
  * Internal dependencies
  */
 const embed_deprecated_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/embed",
   title: "Embed",
@@ -14133,7 +14133,7 @@ const embed_deprecated_deprecated = [deprecated_v2, embed_deprecated_v1];
 
 
 const embed_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/embed",
   title: "Embed",
@@ -15221,7 +15221,7 @@ const file_transforms_transforms = {
 
 
 const file_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/file",
   title: "File",
@@ -15576,7 +15576,7 @@ const form_variations_variations = [{
 
 
 const form_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   __experimental: true,
   name: "core/form",
@@ -16256,7 +16256,7 @@ const form_input_variations_variations = [{
 
 
 const form_input_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   __experimental: true,
   name: "core/form-input",
@@ -16393,7 +16393,7 @@ function form_submit_button_save_save() {
 
 
 const form_submit_button_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   __experimental: true,
   name: "core/form-submit-button",
@@ -16582,7 +16582,7 @@ const form_submission_notification_variations_variations = [{
 
 
 const form_submission_notification_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   __experimental: true,
   name: "core/form-submission-notification",
@@ -18799,7 +18799,7 @@ const gallery_transforms_transforms = {
 
 
 const gallery_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/gallery",
   title: "Gallery",
@@ -19846,7 +19846,7 @@ const group_variations_variations = [{
 
 
 const group_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/group",
   title: "Group",
@@ -20691,7 +20691,7 @@ const heading_transforms_transforms = {
 
 
 const heading_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/heading",
   title: "Heading",
@@ -20948,7 +20948,7 @@ function home_link_save_save() {
  */
 
 const home_link_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/home-link",
   category: "design",
@@ -21183,7 +21183,7 @@ const html_transforms_transforms = {
 
 
 const html_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/html",
   title: "Custom HTML",
@@ -23958,7 +23958,7 @@ const image_transforms_transforms = {
 
 
 const image_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/image",
   title: "Image",
@@ -24193,7 +24193,7 @@ const postList = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(e
  * Internal dependencies
  */
 const latest_posts_deprecated_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/latest-posts",
   title: "Latest Posts",
@@ -24885,7 +24885,7 @@ function LatestPostsEdit({
 
 
 const latest_posts_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/latest-posts",
   title: "Latest Posts",
@@ -25987,7 +25987,7 @@ const list_transforms_transforms = {
 
 
 const list_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/list",
   title: "List",
@@ -26710,7 +26710,7 @@ const list_item_transforms_transforms = {
  */
 
 const list_item_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/list-item",
   title: "List item",
@@ -26882,7 +26882,7 @@ function LoginOutEdit({
 
 
 const loginout_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/loginout",
   title: "Login/out",
@@ -28929,7 +28929,7 @@ const media_text_transforms_transforms = {
 
 
 const media_text_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/media-text",
   title: "Media & Text",
@@ -29222,7 +29222,7 @@ function missing_save_save({
 
 
 const missing_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/missing",
   title: "Unsupported",
@@ -29428,7 +29428,7 @@ const more_transforms_transforms = {
 
 
 const more_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/more",
   title: "More",
@@ -33280,7 +33280,7 @@ const navigation_deprecated_deprecated = [navigation_deprecated_v6, navigation_d
  */
 
 const navigation_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/navigation",
   title: "Navigation",
@@ -34225,7 +34225,7 @@ const navigation_link_transforms_transforms = {
  */
 
 const navigation_link_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/navigation-link",
   title: "Custom Link",
@@ -34915,7 +34915,7 @@ const navigation_submenu_transforms_transforms = {
  */
 
 const navigation_submenu_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/navigation-submenu",
   title: "Submenu",
@@ -35097,7 +35097,7 @@ const nextpage_transforms_transforms = {
 
 
 const nextpage_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/nextpage",
   title: "Page Break",
@@ -35400,7 +35400,7 @@ const PatternEdit = ({
  */
 
 const pattern_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/pattern",
   title: "Pattern placeholder",
@@ -35936,7 +35936,7 @@ function PageListEdit({
  */
 
 const page_list_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/page-list",
   title: "Page List",
@@ -36114,7 +36114,7 @@ function PageListItemEdit({
  */
 
 const page_list_item_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/page-list-item",
   title: "Page List Item",
@@ -36856,7 +36856,7 @@ function paragraph_save_save({
 const {
   name: transforms_name
 } = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/paragraph",
   title: "Paragraph",
@@ -36978,7 +36978,7 @@ const paragraph_transforms_transforms = {
 
 
 const paragraph_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/paragraph",
   title: "Paragraph",
@@ -37337,7 +37337,7 @@ function PostAuthorEdit({
  */
 
 const post_author_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/post-author",
   title: "Author",
@@ -37570,7 +37570,7 @@ const post_author_name_transforms_transforms = {
  */
 
 const post_author_name_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/post-author-name",
   title: "Author Name",
@@ -37733,7 +37733,7 @@ function PostAuthorBiographyEdit({
  */
 
 const post_author_biography_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/post-author-biography",
   title: "Author Biography",
@@ -38013,7 +38013,7 @@ function PostContentEdit({
  */
 
 const post_content_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/post-content",
   title: "Content",
@@ -38325,7 +38325,7 @@ const post_date_variations_variations = [{
  */
 
 const post_date_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/post-date",
   title: "Date",
@@ -38671,7 +38671,7 @@ const post_excerpt_transforms_transforms = {
  */
 
 const post_excerpt_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/post-excerpt",
   title: "Excerpt",
@@ -39446,7 +39446,7 @@ function PostFeaturedImageEdit({
  */
 
 const post_featured_image_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/post-featured-image",
   title: "Featured Image",
@@ -39810,7 +39810,7 @@ post_navigation_link_variations_variations.forEach(variation => {
  */
 
 const post_navigation_link_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/post-navigation-link",
   title: "Post Navigation Link",
@@ -40177,7 +40177,7 @@ function PostTemplateSave() {
  */
 
 const post_template_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/post-template",
   title: "Post Template",
@@ -40498,7 +40498,7 @@ function enhanceVariations(settings, name) {
  */
 
 const post_terms_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/post-terms",
   title: "Post Terms",
@@ -40709,7 +40709,7 @@ function PostTimeToReadEdit({
  */
 
 const post_time_to_read_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   __experimental: true,
   name: "core/post-time-to-read",
@@ -41024,7 +41024,7 @@ const post_title_deprecated_v1 = {
  */
 
 const post_title_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/post-title",
   title: "Title",
@@ -41253,7 +41253,7 @@ const preformatted_transforms_transforms = {
 
 
 const preformatted_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/preformatted",
   title: "Preformatted",
@@ -42163,7 +42163,7 @@ const pullquote_transforms_transforms = {
 
 
 const pullquote_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/pullquote",
   title: "Pullquote",
@@ -44987,7 +44987,7 @@ const query_deprecated_deprecated = [query_deprecated_v5, query_deprecated_v4, q
  */
 
 const query_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/query",
   title: "Query Loop",
@@ -45140,7 +45140,7 @@ function query_no_results_save_save() {
  */
 
 const query_no_results_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/query-no-results",
   title: "No results",
@@ -45362,7 +45362,7 @@ const query_pagination_deprecated_deprecated = [
  */
 
 const query_pagination_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/query-pagination",
   title: "Pagination",
@@ -45501,7 +45501,7 @@ function QueryPaginationNextEdit({
  */
 
 const query_pagination_next_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/query-pagination-next",
   title: "Next Page",
@@ -45643,7 +45643,7 @@ function QueryPaginationNumbersEdit({
  */
 
 const query_pagination_numbers_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/query-pagination-numbers",
   title: "Page Numbers",
@@ -45758,7 +45758,7 @@ function QueryPaginationPreviousEdit({
  */
 
 const query_pagination_previous_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/query-pagination-previous",
   title: "Previous Page",
@@ -46141,7 +46141,7 @@ const query_title_deprecated_v1 = {
  */
 
 const query_title_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/query-title",
   title: "Query Title",
@@ -46938,7 +46938,7 @@ const quote_transforms_transforms = {
 
 
 const quote_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/quote",
   title: "Quote",
@@ -47460,7 +47460,7 @@ const block_deprecated_v1 = {
  */
 
 const block_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/block",
   title: "Pattern",
@@ -47579,7 +47579,7 @@ function ReadMore({
  */
 
 const read_more_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/read-more",
   title: "Read More",
@@ -47847,7 +47847,7 @@ function RSSEdit({
  */
 
 const rss_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/rss",
   title: "RSS",
@@ -48539,7 +48539,7 @@ const search_variations_variations = [{
  */
 
 const search_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/search",
   title: "Search",
@@ -48907,7 +48907,7 @@ const separator_deprecated_v1 = {
 
 
 const separator_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/separator",
   title: "Separator",
@@ -49085,7 +49085,7 @@ const shortcode_transforms_transforms = {
 
 
 const shortcode_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/shortcode",
   title: "Shortcode",
@@ -49777,7 +49777,7 @@ const site_logo_transforms_transforms = {
  */
 
 const site_logo_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/site-logo",
   title: "Site Logo",
@@ -50025,7 +50025,7 @@ const site_tagline_deprecated_v1 = {
  */
 
 const site_tagline_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/site-tagline",
   title: "Site Tagline",
@@ -50357,7 +50357,7 @@ const site_title_transforms_transforms = {
  */
 
 const site_title_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/site-title",
   title: "Site Title",
@@ -51820,7 +51820,7 @@ const SocialLinkEdit = ({
 
 
 const social_link_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/social-link",
   title: "Social Icon",
@@ -52280,7 +52280,7 @@ function social_links_save_save(props) {
 
 
 const social_links_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/social-links",
   title: "Social Icons",
@@ -52946,7 +52946,7 @@ function spacer_save_save({
 
 
 const spacer_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/spacer",
   title: "Spacer",
@@ -54912,7 +54912,7 @@ const table_transforms_transforms = {
 
 
 const table_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/table",
   title: "Table",
@@ -55631,7 +55631,7 @@ function table_of_contents_save_save({
  */
 
 const table_of_contents_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   __experimental: true,
   name: "core/table-of-contents",
@@ -55922,7 +55922,7 @@ function TagCloudEdit({
 
 
 const tag_cloud_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/tag-cloud",
   title: "Tag Cloud",
@@ -57775,7 +57775,7 @@ function enhanceTemplatePartVariations(settings, name) {
  */
 
 const template_part_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/template-part",
   title: "Template Part",
@@ -57940,7 +57940,7 @@ function TermDescriptionEdit({
  */
 
 const term_description_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/term-description",
   title: "Term Description",
@@ -58153,7 +58153,7 @@ const text_columns_transforms_transforms = {
 
 
 const text_columns_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/text-columns",
   title: "Text Columns (deprecated)",
@@ -58456,7 +58456,7 @@ const verse_transforms_transforms = {
 
 
 const verse_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/verse",
   title: "Verse",
@@ -58603,7 +58603,7 @@ function Tracks({
  * Internal dependencies
  */
 const video_deprecated_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/video",
   title: "Video",
@@ -59573,7 +59573,7 @@ const video_transforms_transforms = {
 
 
 const video_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/video",
   title: "Video",
@@ -60046,7 +60046,7 @@ const format = {
 
 
 const footnotes_metadata = {
-  $schema: "https://schemas.wp.org/trunk/block.json",
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
   apiVersion: 3,
   name: "core/footnotes",
   title: "Footnotes",

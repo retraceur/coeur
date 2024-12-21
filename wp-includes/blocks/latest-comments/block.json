@@ -1,4 +1,5 @@
 {
+	"$schema": "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
 	"apiVersion": 3,
 	"name": "core/latest-comments",
 	"title": "Latest Comments",

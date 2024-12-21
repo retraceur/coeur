@@ -1,6 +1,6 @@
 <?php return array(
   'archives' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/archives',
     'title' => 'Archives',
@@ -56,7 +56,7 @@
     'editorStyle' => 'wp-block-archives-editor'
   ),
   'audio' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/audio',
     'title' => 'Audio',
@@ -129,7 +129,7 @@
     'style' => 'wp-block-audio'
   ),
   'avatar' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/avatar',
     'title' => 'Avatar',
@@ -195,7 +195,7 @@
     'style' => 'wp-block-avatar'
   ),
   'block' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/block',
     'title' => 'Pattern',
@@ -230,7 +230,7 @@
     )
   ),
   'button' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/button',
     'title' => 'Button',
@@ -383,7 +383,7 @@
     'style' => 'wp-block-button'
   ),
   'buttons' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/buttons',
     'title' => 'Buttons',
@@ -465,7 +465,7 @@
     'style' => 'wp-block-buttons'
   ),
   'calendar' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/calendar',
     'title' => 'Calendar',
@@ -517,7 +517,7 @@
     'style' => 'wp-block-calendar'
   ),
   'categories' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/categories',
     'title' => 'Terms List',
@@ -608,7 +608,7 @@
     'style' => 'wp-block-categories'
   ),
   'code' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/code',
     'title' => 'Code',
@@ -678,7 +678,7 @@
     'style' => 'wp-block-code'
   ),
   'column' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/column',
     'title' => 'Column',
@@ -767,7 +767,7 @@
     )
   ),
   'columns' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/columns',
     'title' => 'Columns',
@@ -876,7 +876,7 @@
     'style' => 'wp-block-columns'
   ),
   'cover' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/cover',
     'title' => 'Cover',
@@ -1035,7 +1035,7 @@
     'style' => 'wp-block-cover'
   ),
   'details' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/details',
     'title' => 'Details',
@@ -1112,7 +1112,7 @@
     'style' => 'wp-block-details'
   ),
   'embed' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/embed',
     'title' => 'Embed',
@@ -1166,7 +1166,7 @@
     'style' => 'wp-block-embed'
   ),
   'file' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/file',
     'title' => 'File',
@@ -1263,7 +1263,7 @@
     'style' => 'wp-block-file'
   ),
   'footnotes' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/footnotes',
     'title' => 'Footnotes',
@@ -1332,7 +1332,7 @@
     'style' => 'wp-block-footnotes'
   ),
   'freeform' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/freeform',
     'title' => 'Classic',
@@ -1353,7 +1353,7 @@
     'editorStyle' => 'wp-block-freeform-editor'
   ),
   'gallery' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/gallery',
     'title' => 'Gallery',
@@ -1532,7 +1532,7 @@
     'style' => 'wp-block-gallery'
   ),
   'group' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/group',
     'title' => 'Group',
@@ -1649,7 +1649,7 @@
     'style' => 'wp-block-group'
   ),
   'heading' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/heading',
     'title' => 'Heading',
@@ -1741,7 +1741,7 @@
     'style' => 'wp-block-heading'
   ),
   'home-link' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/home-link',
     'category' => 'design',
@@ -1789,7 +1789,7 @@
     'style' => 'wp-block-home-link'
   ),
   'html' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/html',
     'title' => 'Custom HTML',
@@ -1816,7 +1816,7 @@
     'editorStyle' => 'wp-block-html-editor'
   ),
   'image' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/image',
     'title' => 'Image',
@@ -1977,7 +1977,7 @@
     'style' => 'wp-block-image'
   ),
   'latest-posts' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/latest-posts',
     'title' => 'Latest Posts',
@@ -2103,7 +2103,7 @@
     'style' => 'wp-block-latest-posts'
   ),
   'legacy-widget' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/legacy-widget',
     'title' => 'Legacy Widget',
@@ -2132,7 +2132,7 @@
     'editorStyle' => 'wp-block-legacy-widget-editor'
   ),
   'list' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/list',
     'title' => 'List',
@@ -2230,7 +2230,7 @@
     'style' => 'wp-block-list'
   ),
   'list-item' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/list-item',
     'title' => 'List item',
@@ -2303,7 +2303,7 @@
     )
   ),
   'loginout' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/loginout',
     'title' => 'Login/out',
@@ -2370,7 +2370,7 @@
     'style' => 'wp-block-loginout'
   ),
   'media-text' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/media-text',
     'title' => 'Media & Text',
@@ -2529,7 +2529,7 @@
     'style' => 'wp-block-media-text'
   ),
   'missing' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/missing',
     'title' => 'Unsupported',
@@ -2560,7 +2560,7 @@
     )
   ),
   'more' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/more',
     'title' => 'More',
@@ -2592,7 +2592,7 @@
     'editorStyle' => 'wp-block-more-editor'
   ),
   'navigation' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/navigation',
     'title' => 'Navigation',
@@ -2760,7 +2760,7 @@
     'style' => 'wp-block-navigation'
   ),
   'navigation-link' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/navigation-link',
     'title' => 'Custom Link',
@@ -2849,7 +2849,7 @@
     'style' => 'wp-block-navigation-link'
   ),
   'navigation-submenu' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/navigation-submenu',
     'title' => 'Submenu',
@@ -2932,7 +2932,7 @@
     'style' => 'wp-block-navigation-submenu'
   ),
   'nextpage' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/nextpage',
     'title' => 'Page Break',
@@ -2957,7 +2957,7 @@
     'editorStyle' => 'wp-block-nextpage-editor'
   ),
   'page-list' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/page-list',
     'title' => 'Page List',
@@ -3020,7 +3020,7 @@
     'style' => 'wp-block-page-list'
   ),
   'page-list-item' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/page-list-item',
     'title' => 'Page List Item',
@@ -3081,7 +3081,7 @@
     'style' => 'wp-block-page-list'
   ),
   'paragraph' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/paragraph',
     'title' => 'Paragraph',
@@ -3166,7 +3166,7 @@
     'style' => 'wp-block-paragraph'
   ),
   'pattern' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/pattern',
     'title' => 'Pattern placeholder',
@@ -3188,7 +3188,7 @@
     )
   ),
   'post-author' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/post-author',
     'title' => 'Author',
@@ -3275,7 +3275,7 @@
     'style' => 'wp-block-post-author'
   ),
   'post-author-biography' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/post-author-biography',
     'title' => 'Author Biography',
@@ -3339,7 +3339,7 @@
     'style' => 'wp-block-post-author-biography'
   ),
   'post-author-name' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/post-author-name',
     'title' => 'Author Name',
@@ -3413,7 +3413,7 @@
     'style' => 'wp-block-post-author-name'
   ),
   'post-content' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/post-content',
     'title' => 'Content',
@@ -3479,7 +3479,7 @@
     'editorStyle' => 'wp-block-post-content-editor'
   ),
   'post-date' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/post-date',
     'title' => 'Date',
@@ -3556,7 +3556,7 @@
     )
   ),
   'post-excerpt' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/post-excerpt',
     'title' => 'Excerpt',
@@ -3635,7 +3635,7 @@
     'style' => 'wp-block-post-excerpt'
   ),
   'post-featured-image' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/post-featured-image',
     'title' => 'Featured Image',
@@ -3750,7 +3750,7 @@
     'style' => 'wp-block-post-featured-image'
   ),
   'post-navigation-link' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/post-navigation-link',
     'title' => 'Post Navigation Link',
@@ -3815,7 +3815,7 @@
     'style' => 'wp-block-post-navigation-link'
   ),
   'post-template' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/post-template',
     'title' => 'Post Template',
@@ -3878,7 +3878,7 @@
     'editorStyle' => 'wp-block-post-template-editor'
   ),
   'post-terms' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/post-terms',
     'title' => 'Post Terms',
@@ -3959,7 +3959,7 @@
     'style' => 'wp-block-post-terms'
   ),
   'post-title' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/post-title',
     'title' => 'Title',
@@ -4050,7 +4050,7 @@
     'style' => 'wp-block-post-title'
   ),
   'preformatted' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/preformatted',
     'title' => 'Preformatted',
@@ -4111,7 +4111,7 @@
     'style' => 'wp-block-preformatted'
   ),
   'pullquote' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/pullquote',
     'title' => 'Pullquote',
@@ -4208,7 +4208,7 @@
     'style' => 'wp-block-pullquote'
   ),
   'query' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/query',
     'title' => 'Query Loop',
@@ -4277,7 +4277,7 @@
     'editorStyle' => 'wp-block-query-editor'
   ),
   'query-no-results' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/query-no-results',
     'title' => 'No results',
@@ -4318,7 +4318,7 @@
     )
   ),
   'query-pagination' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/query-pagination',
     'title' => 'Pagination',
@@ -4392,7 +4392,7 @@
     'style' => 'wp-block-query-pagination'
   ),
   'query-pagination-next' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/query-pagination-next',
     'title' => 'Next Page',
@@ -4443,7 +4443,7 @@
     )
   ),
   'query-pagination-numbers' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/query-pagination-numbers',
     'title' => 'Page Numbers',
@@ -4494,7 +4494,7 @@
     'editorStyle' => 'wp-block-query-pagination-numbers-editor'
   ),
   'query-pagination-previous' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/query-pagination-previous',
     'title' => 'Previous Page',
@@ -4545,7 +4545,7 @@
     )
   ),
   'query-title' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/query-title',
     'title' => 'Query Title',
@@ -4624,7 +4624,7 @@
     'style' => 'wp-block-query-title'
   ),
   'quote' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/quote',
     'title' => 'Quote',
@@ -4739,7 +4739,7 @@
     'style' => 'wp-block-quote'
   ),
   'read-more' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/read-more',
     'title' => 'Read More',
@@ -4803,7 +4803,7 @@
     'style' => 'wp-block-read-more'
   ),
   'rss' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/rss',
     'title' => 'RSS',
@@ -4859,7 +4859,7 @@
     'style' => 'wp-block-rss'
   ),
   'search' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/search',
     'title' => 'Search',
@@ -4962,7 +4962,7 @@
     'style' => 'wp-block-search'
   ),
   'separator' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/separator',
     'title' => 'Separator',
@@ -5026,7 +5026,7 @@
     'style' => 'wp-block-separator'
   ),
   'shortcode' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/shortcode',
     'title' => 'Shortcode',
@@ -5047,7 +5047,7 @@
     'editorStyle' => 'wp-block-shortcode-editor'
   ),
   'site-logo' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/site-logo',
     'title' => 'Site Logo',
@@ -5113,7 +5113,7 @@
     'style' => 'wp-block-site-logo'
   ),
   'site-tagline' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/site-tagline',
     'title' => 'Site Tagline',
@@ -5199,7 +5199,7 @@
     'style' => 'wp-block-site-tagline'
   ),
   'site-title' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/site-title',
     'title' => 'Site Title',
@@ -5289,7 +5289,7 @@
     'style' => 'wp-block-site-title'
   ),
   'social-link' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/social-link',
     'title' => 'Social Icon',
@@ -5331,7 +5331,7 @@
     'editorStyle' => 'wp-block-social-link-editor'
   ),
   'social-links' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/social-links',
     'title' => 'Social Icons',
@@ -5463,7 +5463,7 @@
     'style' => 'wp-block-social-links'
   ),
   'spacer' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/spacer',
     'title' => 'Spacer',
@@ -5501,7 +5501,7 @@
     'style' => 'wp-block-spacer'
   ),
   'table' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/table',
     'title' => 'Table',
@@ -5729,7 +5729,7 @@
     'style' => 'wp-block-table'
   ),
   'tag-cloud' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/tag-cloud',
     'title' => 'Tag Cloud',
@@ -5805,7 +5805,7 @@
     'editorStyle' => 'wp-block-tag-cloud-editor'
   ),
   'template-part' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/template-part',
     'title' => 'Template Part',
@@ -5838,7 +5838,7 @@
     'editorStyle' => 'wp-block-template-part-editor'
   ),
   'term-description' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/term-description',
     'title' => 'Term Description',
@@ -5898,7 +5898,7 @@
     )
   ),
   'text-columns' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/text-columns',
     'title' => 'Text Columns (deprecated)',
@@ -5944,7 +5944,7 @@
     'style' => 'wp-block-text-columns'
   ),
   'verse' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/verse',
     'title' => 'Verse',
@@ -6026,7 +6026,7 @@
     'editorStyle' => 'wp-block-verse-editor'
   ),
   'video' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/video',
     'title' => 'Video',
@@ -6132,7 +6132,7 @@
     'style' => 'wp-block-video'
   ),
   'widget-group' => array(
-    '$schema' => 'https://schemas.wp.org/trunk/block.json',
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/widget-group',
     'title' => 'Widget Group',
