@@ -1013,7 +1013,7 @@ function rest_output_link_wp_head() {
 		return;
 	}
 
-	printf( '<link rel="https://api.w.org/" href="%s" />', esc_url( $api_root ) );
+	printf( '<link rel="https://retraceur.github.io/api/rest" href="%s" />', esc_url( $api_root ) );
 
 	$resource = rest_get_queried_resource_route();
 
@@ -1042,7 +1042,7 @@ function rest_output_link_header() {
 		return;
 	}
 
-	header( sprintf( 'Link: <%s>; rel="https://api.w.org/"', sanitize_url( $api_root ) ), false );
+	header( sprintf( 'Link: <%s>; rel="https://retraceur.github.io/api/rest"', sanitize_url( $api_root ) ), false );
 
 	$resource = rest_get_queried_resource_route();
 

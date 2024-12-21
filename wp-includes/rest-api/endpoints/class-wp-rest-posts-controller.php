@@ -2167,7 +2167,7 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 		if ( $featured_media ) {
 			$image_url = rest_url( rest_get_route_for_post( $featured_media ) );
 
-			$links['https://api.w.org/featuredmedia'] = array(
+			$links['https://retraceur.github.io/api/featuredmedia'] = array(
 				'href'       => $image_url,
 				'embeddable' => true,
 			);
@@ -2177,7 +2177,7 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 			$attachments_url = rest_url( rest_get_route_for_post_type_items( 'attachment' ) );
 			$attachments_url = add_query_arg( 'parent', $post->ID, $attachments_url );
 
-			$links['https://api.w.org/attachment'] = array(
+			$links['https://retraceur.github.io/api/attachment'] = array(
 				'href' => $attachments_url,
 			);
 		}
@@ -2185,7 +2185,7 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 		$taxonomies = get_object_taxonomies( $post->post_type );
 
 		if ( ! empty( $taxonomies ) ) {
-			$links['https://api.w.org/term'] = array();
+			$links['https://retraceur.github.io/api/term'] = array();
 
 			foreach ( $taxonomies as $tax ) {
 				$taxonomy_route = rest_get_route_for_taxonomy_items( $tax );
@@ -2200,7 +2200,7 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 					rest_url( $taxonomy_route )
 				);
 
-				$links['https://api.w.org/term'][] = array(
+				$links['https://retraceur.github.io/api/term'][] = array(
 					'href'       => $terms_url,
 					'taxonomy'   => $tax,
 					'embeddable' => true,
@@ -2231,22 +2231,22 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 		$post_type = get_post_type_object( $post->post_type );
 
 		if ( 'attachment' !== $this->post_type && current_user_can( $post_type->cap->publish_posts ) ) {
-			$rels[] = 'https://api.w.org/action-publish';
+			$rels[] = 'https://retraceur.github.io/api/action-publish';
 		}
 
 		if ( current_user_can( 'unfiltered_html' ) ) {
-			$rels[] = 'https://api.w.org/action-unfiltered-html';
+			$rels[] = 'https://retraceur.github.io/api/action-unfiltered-html';
 		}
 
 		if ( 'post' === $post_type->name ) {
 			if ( current_user_can( $post_type->cap->edit_others_posts ) && current_user_can( $post_type->cap->publish_posts ) ) {
-				$rels[] = 'https://api.w.org/action-sticky';
+				$rels[] = 'https://retraceur.github.io/api/action-sticky';
 			}
 		}
 
 		if ( post_type_supports( $post_type->name, 'author' ) ) {
 			if ( current_user_can( $post_type->cap->edit_others_posts ) ) {
-				$rels[] = 'https://api.w.org/action-assign-author';
+				$rels[] = 'https://retraceur.github.io/api/action-assign-author';
 			}
 		}
 
@@ -2257,11 +2257,11 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 			$create_cap = is_taxonomy_hierarchical( $tax->name ) ? $tax->cap->edit_terms : $tax->cap->assign_terms;
 
 			if ( current_user_can( $create_cap ) ) {
-				$rels[] = 'https://api.w.org/action-create-' . $tax_base;
+				$rels[] = 'https://retraceur.github.io/api/action-create-' . $tax_base;
 			}
 
 			if ( current_user_can( $tax->cap->assign_terms ) ) {
-				$rels[] = 'https://api.w.org/action-assign-' . $tax_base;
+				$rels[] = 'https://retraceur.github.io/api/action-assign-' . $tax_base;
 			}
 		}
 
@@ -2706,7 +2706,7 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 
 		if ( 'attachment' !== $this->post_type ) {
 			$links[] = array(
-				'rel'          => 'https://api.w.org/action-publish',
+				'rel'          => 'https://retraceur.github.io/api/action-publish',
 				'title'        => __( 'The current user can publish this post.' ),
 				'href'         => $href,
 				'targetSchema' => array(
@@ -2722,7 +2722,7 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 		}
 
 		$links[] = array(
-			'rel'          => 'https://api.w.org/action-unfiltered-html',
+			'rel'          => 'https://retraceur.github.io/api/action-unfiltered-html',
 			'title'        => __( 'The current user can post unfiltered HTML markup and JavaScript.' ),
 			'href'         => $href,
 			'targetSchema' => array(
@@ -2739,7 +2739,7 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 
 		if ( 'post' === $this->post_type ) {
 			$links[] = array(
-				'rel'          => 'https://api.w.org/action-sticky',
+				'rel'          => 'https://retraceur.github.io/api/action-sticky',
 				'title'        => __( 'The current user can sticky this post.' ),
 				'href'         => $href,
 				'targetSchema' => array(
@@ -2755,7 +2755,7 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 
 		if ( post_type_supports( $this->post_type, 'author' ) ) {
 			$links[] = array(
-				'rel'          => 'https://api.w.org/action-assign-author',
+				'rel'          => 'https://retraceur.github.io/api/action-assign-author',
 				'title'        => __( 'The current user can change the author on this post.' ),
 				'href'         => $href,
 				'targetSchema' => array(
@@ -2780,7 +2780,7 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 			$create_title = sprintf( __( 'The current user can create terms in the %s taxonomy.' ), $tax->name );
 
 			$links[] = array(
-				'rel'          => 'https://api.w.org/action-assign-' . $tax_base,
+				'rel'          => 'https://retraceur.github.io/api/action-assign-' . $tax_base,
 				'title'        => $assign_title,
 				'href'         => $href,
 				'targetSchema' => array(
@@ -2797,7 +2797,7 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 			);
 
 			$links[] = array(
-				'rel'          => 'https://api.w.org/action-create-' . $tax_base,
+				'rel'          => 'https://retraceur.github.io/api/action-create-' . $tax_base,
 				'title'        => $create_title,
 				'href'         => $href,
 				'targetSchema' => array(

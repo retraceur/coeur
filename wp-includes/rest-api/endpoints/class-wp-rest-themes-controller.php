@@ -398,7 +398,7 @@ class WP_REST_Themes_Controller extends WP_REST_Controller {
 		}
 
 		if ( $id ) {
-			$links['https://api.w.org/user-global-styles'] = array(
+			$links['https://retraceur.github.io/api/user-global-styles'] = array(
 				'href' => rest_url( 'wp/v2/global-styles/' . $id ),
 			);
 		}

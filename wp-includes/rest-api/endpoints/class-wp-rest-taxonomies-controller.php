@@ -306,7 +306,7 @@ class WP_REST_Taxonomies_Controller extends WP_REST_Controller {
 			'collection'              => array(
 				'href' => rest_url( sprintf( '%s/%s', $this->namespace, $this->rest_base ) ),
 			),
-			'https://api.w.org/items' => array(
+			'https://retraceur.github.io/api/items' => array(
 				'href' => rest_url( rest_get_route_for_taxonomy_items( $taxonomy->name ) ),
 			),
 		);

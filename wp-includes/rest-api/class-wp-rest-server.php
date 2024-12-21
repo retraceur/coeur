@@ -1,7 +1,7 @@
 <?php
 /**
  * REST API: WP_REST_Server class
- * 
+ *
  * @since WP 4.4.0
  * @since 1.0.0 Retraceur fork.
  *
@@ -322,7 +322,7 @@ class WP_REST_Server {
 
 		$api_root = get_rest_url();
 		if ( ! empty( $api_root ) ) {
-			$this->send_header( 'Link', '<' . sanitize_url( $api_root ) . '>; rel="https://api.w.org/"' );
+			$this->send_header( 'Link', '<' . sanitize_url( $api_root ) . '>; rel="https://retraceur.github.io/api/rest"' );
 		}
 
 		/*
@@ -1444,7 +1444,7 @@ class WP_REST_Server {
 
 		if ( $should_add ) {
 			$theme = wp_get_theme();
-			$response->add_link( 'https://api.w.org/active-theme', rest_url( 'wp/v2/themes/' . $theme->get_stylesheet() ) );
+			$response->add_link( 'https://retraceur.github.io/api/active-theme', rest_url( 'wp/v2/themes/' . $theme->get_stylesheet() ) );
 		}
 	}
 
@@ -1497,7 +1497,7 @@ class WP_REST_Server {
 		$response->data[ $type ] = (int) $image_id;
 		if ( $image_id ) {
 			$response->add_link(
-				'https://api.w.org/featuredmedia',
+				'https://retraceur.github.io/api/featuredmedia',
 				rest_url( rest_get_route_for_post( $image_id ) ),
 				array(
 					'embeddable' => true,

@@ -1,7 +1,7 @@
 <?php
 /**
  * REST API: WP_REST_Block_Directory_Controller class
- * 
+ *
  * @since WP 5.5.0
  * @since 1.0.0 Retraceur fork.
  *
@@ -168,7 +168,7 @@ class WP_REST_Block_Directory_Controller extends WP_REST_Controller {
 	 */
 	protected function prepare_links( $plugin ) {
 		$links = array(
-			'https://api.w.org/install-plugin' => array(
+			'https://retraceur.github.io/api/install-plugin' => array(
 				'href' => add_query_arg( 'slug', urlencode( $plugin['slug'] ), rest_url( 'wp/v2/plugins' ) ),
 			),
 		);
@@ -176,7 +176,7 @@ class WP_REST_Block_Directory_Controller extends WP_REST_Controller {
 		$plugin_file = $this->find_plugin_for_slug( $plugin['slug'] );
 
 		if ( $plugin_file ) {
-			$links['https://api.w.org/plugin'] = array(
+			$links['https://retraceur.github.io/api/plugin'] = array(
 				'href'       => rest_url( 'wp/v2/plugins/' . substr( $plugin_file, 0, - 4 ) ),
 				'embeddable' => true,
 			);

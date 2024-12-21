@@ -359,7 +359,7 @@ class WP_REST_Global_Styles_Controller extends WP_REST_Posts_Controller {
 			if ( $theme_json ) {
 				$resolved_theme_uris = WP_Theme_JSON_Resolver::get_resolved_theme_uris( $theme_json );
 				if ( ! empty( $resolved_theme_uris ) ) {
-					$links['https://api.w.org/theme-file'] = $resolved_theme_uris;
+					$links['https://retraceur.github.io/api/theme-file'] = $resolved_theme_uris;
 				}
 			}
 
@@ -426,11 +426,11 @@ class WP_REST_Global_Styles_Controller extends WP_REST_Posts_Controller {
 
 		$post_type = get_post_type_object( $post->post_type );
 		if ( current_user_can( $post_type->cap->publish_posts ) ) {
-			$rels[] = 'https://api.w.org/action-publish';
+			$rels[] = 'https://retraceur.github.io/api/action-publish';
 		}
 
 		if ( current_user_can( 'edit_css' ) ) {
-			$rels[] = 'https://api.w.org/action-edit-css';
+			$rels[] = 'https://retraceur.github.io/api/action-edit-css';
 		}
 
 		return $rels;
@@ -593,7 +593,7 @@ class WP_REST_Global_Styles_Controller extends WP_REST_Posts_Controller {
 			);
 			$resolved_theme_uris = WP_Theme_JSON_Resolver::get_resolved_theme_uris( $theme );
 			if ( ! empty( $resolved_theme_uris ) ) {
-				$links['https://api.w.org/theme-file'] = $resolved_theme_uris;
+				$links['https://retraceur.github.io/api/theme-file'] = $resolved_theme_uris;
 			}
 			$response->add_links( $links );
 		}
@@ -649,7 +649,7 @@ class WP_REST_Global_Styles_Controller extends WP_REST_Posts_Controller {
 			if ( ! empty( $resolved_theme_uris ) ) {
 				$data->add_links(
 					array(
-						'https://api.w.org/theme-file' => $resolved_theme_uris,
+						'https://retraceur.github.io/api/theme-file' => $resolved_theme_uris,
 					)
 				);
 			}
