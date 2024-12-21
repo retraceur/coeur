@@ -47908,7 +47908,7 @@ const rss_settings = {
   icon: library_rss,
   example: {
     attributes: {
-      feedURL: 'https://github.com/Retraceur/core/releases.atom'
+      feedURL: 'https://github.com/retraceur/coeur/releases.atom'
     }
   },
   edit: RSSEdit
