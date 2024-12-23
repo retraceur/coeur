@@ -6,7 +6,7 @@ body {
 }
 
 body {
-	background: #f0f0f1;
+	background: #fff;
 	min-width: 0;
 	color: #3c434a;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
@@ -15,7 +15,7 @@ body {
 }
 
 a {
-	color: #2271b1;
+	color: #2243b6;
 	transition-property: border, background, color;
 	transition-duration: .05s;
 	transition-timing-function: ease-in-out;
@@ -27,12 +27,12 @@ a {
 
 a:hover,
 a:active {
-	color: #135e96;
+	color: rgb(39, 60, 134);
 }
 
 a:focus {
-	color: #043959;
-	box-shadow: 0 0 0 2px #2271b1;
+	color: #4563c9;
+	box-shadow: 0 0 0 2px #2243b6;
 	/* Only visible in Windows High Contrast mode */
 	outline: 2px solid transparent;
 }
@@ -44,7 +44,7 @@ p {
 .login .message,
 .login .notice,
 .login .success {
-	border-left: 4px solid #72aee6;
+	border-left: 4px solid #273c86;
 	padding: 12px;
 	margin-left: 0;
 	margin-bottom: 20px;
@@ -112,8 +112,8 @@ p {
 
 .login .button.wp-hide-pw:focus {
 	background: transparent;
-	border-color: #3582c4;
-	box-shadow: 0 0 0 1px #3582c4;
+	border-color: #4563c9;
+	box-shadow: 0 0 0 1px #4563c9;
 	/* Only visible in Windows High Contrast mode */
 	outline: 2px solid transparent;
 }
@@ -145,7 +145,6 @@ p {
 	font-weight: 400;
 	overflow: hidden;
 	background: #fff;
-	border: 1px solid #c3c4c7;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
@@ -324,13 +323,13 @@ p {
 .login #nav a:hover,
 .login #backtoblog a:hover,
 .login h1 a:hover {
-	color: #135e96;
+	color: rgb(39, 60, 134);
 }
 
 .login #nav a:focus,
 .login #backtoblog a:focus,
 .login h1 a:focus {
-	color: #043959;
+	color: #4563c9;
 }
 
 .login .privacy-policy-page-link {
@@ -488,4 +487,15 @@ input::-ms-reveal {
 		display: block;
 		margin: 5px auto 0;
 	}
+}
+
+.login .button-primary {
+	background: #2243b6;
+	border-color: #2243b6;
+}
+
+.login .button-primary:hover,
+.login .button-primary:focus {
+	background: rgb(39, 60, 134);
+	border-color: rgb(39, 60, 134);
 }
