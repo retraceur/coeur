@@ -66,7 +66,7 @@ define( 'NONCE_SALT',       'put your unique phrase here' );
  * Changing this value after Retraceur is installed will make your site think
  * it has not been installed.
  */
-$table_prefix = 'mv_';
+$table_prefix = 're_';
 
 /**
  * For developers: Retraceur debugging mode.
