@@ -152,6 +152,11 @@ switch ( $action ) {
 			break;
 		}
 
+		if ( 'attachment' === $post_type ) {
+			require ABSPATH . 'wp-admin/edit-media-form.php';
+			break;
+		}
+
 		break;
 
 	case 'editattachment':

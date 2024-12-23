@@ -3162,11 +3162,9 @@ function edit_form_image_editor( $post ) {
 		</div>
 		<div<?php echo $not_open_style; ?> class="image-editor" id="image-editor-<?php echo $attachment_id; ?>">
 		<?php
-
 		if ( $open ) {
 			wp_image_editor( $attachment_id );
 		}
-
 		?>
 		</div>
 		<?php
@@ -3268,7 +3266,7 @@ function edit_form_image_editor( $post ) {
 
 			?>
 			</label>
-			<textarea class="widefat" name="content" id="attachment_caption"><?php echo format_to_edit( $post->post_content ); ?></textarea>
+			<textarea class="widefat" name="content" id="attachment_content"><?php echo format_to_edit( $post->post_content ); ?></textarea>
 		</p>
 
 	</div>
