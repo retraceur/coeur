@@ -788,7 +788,7 @@ form#tags-filter {
 
 .privacy-settings-tab.active,
 .health-check-tab.active {
-	box-shadow: inset 0 -3px #191970;
+	box-shadow: inset 0 -3px #2243b6;
 	font-weight: 600;
 }
 

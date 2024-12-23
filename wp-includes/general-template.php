@@ -4676,10 +4676,10 @@ function register_admin_color_schemes() {
 		'retraceur',
 		_x( 'Retraceur', 'admin color scheme' ),
 		admin_url( "css/colors/retraceur/colors$suffix.css" ),
-		array( '#1e1e1e', '#191970', '#5d76cb' ),
+		array( '#1e1e1e', '#273c86', '#2243b6', '#4563c9' ),
 		array(
-			'base'    => '#f3f1f1',
-			'focus'   => '#fff',
+			'base'    => '#f9f9f9',
+			'focus'   => '#4563c9',
 			'current' => '#fff',
 		)
 	);

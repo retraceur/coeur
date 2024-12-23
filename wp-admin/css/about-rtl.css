@@ -30,8 +30,8 @@
 	--text-light: #fff;
 
 	/* Accent colors: used in header, on special classes. */
-	--accent-1: #191970; /* Link color */
-	--accent-2: #191970; /* Accent background */
+	--accent-1: #2243b6; /* Link color */
+	--accent-2: #2243b6; /* Accent background */
 	--accent-3: #ededed; /* hr background */
 
 	/* Navigation colors. */
@@ -603,7 +603,7 @@
 .contribute-php .about__header-title h1 {
 	/* Fluid font size scales on browser size 960px - 1200px. */
 	font-size: clamp(2rem, 20vw - 9rem, 4rem);
-	color: #191970;
+	color: #2243b6;
 }
 
 .about__header-text {

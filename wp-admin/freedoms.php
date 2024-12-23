@@ -52,35 +52,12 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 		</p>
 	</div>
 
-	<div class="about__section has-2-columns">
-		<div class="column aligncenter">
-			<img class="freedom-image" src="<?php echo esc_url( admin_url( 'images/freedom-1.svg?ver=6.5' ) ); ?>" alt="" />
-			<h2 class="is-smaller-heading"><?php esc_html_e( 'The 1st Freedom' ); ?></h2>
-			<p><?php _e( 'To run the program for any purpose.' ); ?></p>
-		</div>
-		<div class="column aligncenter">
-			<img class="freedom-image" src="<?php echo esc_url( admin_url( 'images/freedom-2.svg?ver=6.5' ) ); ?>" alt="" />
-			<h2 class="is-smaller-heading"><?php esc_html_e( 'The 2nd Freedom' ); ?></h2>
-			<p><?php esc_html_e( 'To study how the program works and change it to make it do what you wish.' ); ?></p>
-		</div>
-		<div class="column aligncenter">
-			<img class="freedom-image" src="<?php echo esc_url( admin_url( 'images/freedom-3.svg?ver=6.5' ) ); ?>" alt="" />
-			<h2 class="is-smaller-heading"><?php esc_html_e( 'The 3rd Freedom' ); ?></h2>
-			<p><?php esc_html_e( 'To redistribute.' ); ?></p>
-		</div>
-		<div class="column aligncenter">
-			<img class="freedom-image" src="<?php echo esc_url( admin_url( 'images/freedom-4.svg?ver=6.5' ) ); ?>" alt="" />
-			<h2 class="is-smaller-heading"><?php esc_html_e( 'The 4th Freedom' ); ?></h2>
-			<p><?php esc_html_e( 'To distribute copies of your modified versions to others.' ); ?></p>
-		</div>
-	</div>
-
 	<div class="about__section has-1-column">
 		<div class="column">
 			<h3 id="SEC1">GNU GENERAL PUBLIC LICENSE</h3>
 			<p>Version 2, June 1991</p>
 			<pre>
-				Copyright (C) 1989, 1991 Free Software Foundation, Inc.  
+				Copyright (C) 1989, 1991 Free Software Foundation, Inc.
 				&lt;<a href="https://fsf.org/">https://fsf.org/</a>&gt;
 				Everyone is permitted to copy and distribute verbatim copies
 				of this license document, but changing it is not allowed.
@@ -465,7 +442,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 				Gnomovision version 69, Copyright (C) <var>year</var> <var>name of author</var>
 				Gnomovision comes with ABSOLUTELY NO WARRANTY; for details
 				type `show w'.  This is free software, and you are welcome
-				to redistribute it under certain conditions; type `show c' 
+				to redistribute it under certain conditions; type `show c'
 				for details.
 			</pre>
 			<p>
@@ -483,7 +460,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 			<pre>
 				Yoyodyne, Inc., hereby disclaims all copyright
 				interest in the program `Gnomovision'
-				(which makes passes at compilers) written 
+				(which makes passes at compilers) written
 				by James Hacker.
 
 				<var>signature of Moe Ghoul</var>, 1 April 1989
@@ -493,7 +470,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 				This General Public License does not permit incorporating your program into
 				proprietary programs.  If your program is a subroutine library, you may
 				consider it more useful to permit linking proprietary applications with the
-				library.  If this is what you want to do, use the 
+				library.  If this is what you want to do, use the
 				<a href="https://www.gnu.org/licenses/lgpl.html">GNU Lesser General Public License</a>
 				instead of this License.
 			</p>

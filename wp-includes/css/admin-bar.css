@@ -502,6 +502,13 @@ html:lang(he-il) .rtl #wpadminbar * {
 
 #wpadminbar #wp-admin-bar-wp-logo > .ab-item {
 	padding: 0 7px;
+	background: url(../images/retraceur-white-64x64.svg) no-repeat;
+	background-size: 20px 20px;
+	background-position: center;
+}
+
+#wpadminbar #wp-admin-bar-wp-logo > .ab-item:hover {
+	padding: 0 7px;
 	background: url(../images/retraceur-grey-64x64.svg) no-repeat;
 	background-size: 20px 20px;
 	background-position: center;
