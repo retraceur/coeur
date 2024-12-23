@@ -1025,7 +1025,7 @@ function register_and_do_post_meta_boxes( $post ) {
 		wp_enqueue_script( 'image-edit' );
 		wp_enqueue_style( 'imgareaselect' );
 		add_meta_box( 'submitdiv', __( 'Save' ), 'attachment_submit_meta_box', null, 'side', 'core', array( '__back_compat_meta_box' => true ) );
-		add_action( 'edit_form_after_title', 'edit_form_image_editor' );
+		add_action( 'edit_media_form_after_title', 'edit_form_image_editor' );
 
 		if ( wp_attachment_is( 'audio', $post ) ) {
 			add_meta_box( 'attachment-id3', __( 'Metadata' ), 'attachment_id3_data_meta_box', null, 'normal', 'core', array( '__back_compat_meta_box' => true ) );
