@@ -166,7 +166,7 @@ class WP_REST_Autosaves_Controller extends WP_REST_Revisions_Controller {
 			return $parent;
 		}
 
-		if ( ! current_user_can( 'edit_post', $parent->ID ) ) {
+		if ( ! isset( $parent->ID ) || ! current_user_can( 'edit_post', $parent->ID ) ) {
 			return new WP_Error(
 				'rest_cannot_read',
 				__( 'Sorry, you are not allowed to view autosaves of this post.' ),
