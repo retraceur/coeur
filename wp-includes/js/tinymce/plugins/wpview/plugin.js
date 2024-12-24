@@ -1,5 +1,5 @@
 /**
- * WordPress View plugin.
+ * Retraceur View plugin.
  */
 ( function( tinymce ) {
 	tinymce.PluginManager.add( 'wpview', function( editor ) {

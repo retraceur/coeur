@@ -1913,7 +1913,7 @@ const external_wp_blockEditor_namespaceObject = window["wp"]["blockEditor"];
  * @property {boolean}       richEditingEnabled    Whether rich editing is enabled or not
  * @property {boolean}       codeEditingEnabled    Whether code editing is enabled or not
  * @property {boolean}       fontLibraryEnabled    Whether the font library is enabled or not.
- * @property {boolean}       enableCustomFields    Whether the WordPress custom fields are enabled or not.
+ * @property {boolean}       enableCustomFields    Whether the Retraceur custom fields are enabled or not.
  *                                                 true  = the user has opted to show the Custom Fields panel at the bottom of the editor.
  *                                                 false = the user has opted to hide the Custom Fields panel at the bottom of the editor.
  *                                                 undefined = the current environment does not support Custom Fields, so the option toggle in Preferences -> Panels to enable the Custom Fields panel is not displayed.
@@ -4312,7 +4312,7 @@ function __experimentalTearDownEditor() {
  * Returns an action object used in signalling that the latest version of the
  * post has been received, either by initialization or save.
  *
- * @deprecated Since WordPress 6.0.
+ * @deprecated Since WP 6.0.
  */
 function resetPost() {
   external_wp_deprecated_default()("wp.data.dispatch( 'core/editor' ).resetPost", {
@@ -4491,7 +4491,7 @@ const savePost = (options = {}) => async ({
 /**
  * Action for refreshing the current post.
  *
- * @deprecated Since WordPress 6.0.
+ * @deprecated Since WP 6.0.
  */
 function refreshPost() {
   external_wp_deprecated_default()("wp.data.dispatch( 'core/editor' ).refreshPost", {
@@ -4615,7 +4615,7 @@ const undo = () => ({
 /**
  * Action that creates an undo history record.
  *
- * @deprecated Since WordPress 6.0
+ * @deprecated Since WP 6.0
  */
 function createUndoLevel() {
   external_wp_deprecated_default()("wp.data.dispatch( 'core/editor' ).createUndoLevel", {
@@ -9822,7 +9822,7 @@ const FullscreenMode = ({
   (0,external_wp_element_namespaceObject.useEffect)(() => {
     let isSticky = false;
     // `is-fullscreen-mode` is set in PHP as a body class by Gutenberg, and this causes
-    // `sticky-menu` to be applied by WordPress and prevents the admin menu being scrolled
+    // `sticky-menu` to be applied by WP and prevents the admin menu being scrolled
     // even if `is-fullscreen-mode` is then removed. Let's remove `sticky-menu` here as
     // a consequence of the FullscreenMode setup.
     if (document.body.classList.contains('sticky-menu')) {
@@ -12430,7 +12430,7 @@ function ParentRow() {
           title: (0,external_wp_i18n_namespaceObject.__)('Parent'),
           onClose: onClose
         }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)("div", {
-          children: [(0,external_wp_element_namespaceObject.createInterpolateElement)((0,external_wp_i18n_namespaceObject.sprintf)( /* translators: %s: The home URL of the WordPress installation without the scheme. */
+          children: [(0,external_wp_element_namespaceObject.createInterpolateElement)((0,external_wp_i18n_namespaceObject.sprintf)( /* translators: %s: The home URL of the Retraceur installation without the scheme. */
           (0,external_wp_i18n_namespaceObject.__)('Child pages inherit characteristics from their parent, such as URL structure. For instance, if "Pricing" is a child of "Services", its URL would be %s<wbr />/services<wbr />/pricing.'), (0,external_wp_url_namespaceObject.filterURLForDisplay)(homeUrl).replace(/([/.])/g, '<wbr />$1')), {
             wbr: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("wbr", {})
           }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("p", {
@@ -14537,7 +14537,7 @@ function PostPingbacks() {
 
 /**
  * Renders a control for enabling or disabling pingbacks and trackbacks
- * in a WordPress post.
+ * in a Retraceur post.
  *
  * @module PostPingbacks
  */
@@ -17744,7 +17744,7 @@ const Wrapper = ({
  *
  * @param {Object}  props                         The component props.
  * @param {string}  props.slug                    The slug of the taxonomy.
- * @param {boolean} props.__nextHasNoMarginBottom Start opting into the new margin-free styles that will become the default in a future version, currently scheduled to be WordPress 7.0. (The prop can be safely removed once this happens.)
+ * @param {boolean} props.__nextHasNoMarginBottom Start opting into the new margin-free styles that will become the default in a future version, currently scheduled to be WP 7.0. (The prop can be safely removed once this happens.)
  *
  * @return {JSX.Element} The rendered flat term selector component.
  */
@@ -25092,7 +25092,7 @@ const TextEditorGlobalKeyboardShortcuts = EditorKeyboardShortcuts;
 /**
  * Performs some basic cleanup of a string for use as a post slug
  *
- * This replicates some of what sanitize_title() does in WordPress core, but
+ * This replicates some of what sanitize_title() does in Retraceur core, but
  * is only designed to approximate what the slug will be.
  *
  * Converts Latin-1 Supplement and Latin Extended-A letters to basic Latin letters.

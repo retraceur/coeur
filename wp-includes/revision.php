@@ -271,7 +271,7 @@ function wp_save_post_revision( $post_id ) {
  *
  * @since WP 2.6.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb WP database abstraction object.
  *
  * @param int $post_id The post ID.
  * @param int $user_id Optional. The post author ID. Default 0.
@@ -1004,7 +1004,7 @@ function _wp_get_post_revision_version( $revision ) {
  * @since WP 3.6.0
  * @access private
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb WP database abstraction object.
  *
  * @param WP_Post $post      Post object.
  * @param array   $revisions Current revisions of the post.

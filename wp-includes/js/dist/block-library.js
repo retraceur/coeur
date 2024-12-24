@@ -2618,10 +2618,10 @@ const createUpgradedEmbedBlock = (props, attributesFromPreview = {}) => {
   }
   const matchedBlock = findMoreSuitableBlock(url);
 
-  // WordPress blocks can work on multiple sites, and so don't have patterns,
-  // so if we're in a WordPress block, assume the user has chosen it for a WordPress URL.
+  // WP blocks can work on multiple sites, and so don't have patterns,
+  // so if we're in a WP block, assume the user has chosen it for a WP URL.
   const isCurrentBlockWP = providerNameSlug === 'wordpress' || type === WP_EMBED_TYPE;
-  // If current block is not WordPress and a more suitable block found
+  // If current block is not WP and a more suitable block found
   // that is different from the current one, create the new matched block.
   const shouldCreateNewBlock = !isCurrentBlockWP && matchedBlock && (matchedBlock.attributes.providerNameSlug !== providerNameSlug || !providerNameSlug);
   if (shouldCreateNewBlock) {
@@ -2635,12 +2635,12 @@ const createUpgradedEmbedBlock = (props, attributesFromPreview = {}) => {
     name
   }) => name === 'wordpress');
 
-  // We can't match the URL for WordPress embeds, we have to check the HTML instead.
+  // We can't match the URL for WP embeds, we have to check the HTML instead.
   if (!wpVariation || !preview || !isFromWordPress(preview.html) || isCurrentBlockWP) {
     return;
   }
 
-  // This is not the WordPress embed block so transform it into one.
+  // This is not the WP embed block so transform it into one.
   return (0,external_wp_blocks_namespaceObject.createBlock)(DEFAULT_EMBED_BLOCK, {
     url,
     ...wpVariation.attributes,
@@ -2648,7 +2648,7 @@ const createUpgradedEmbedBlock = (props, attributesFromPreview = {}) => {
     // won't have had all the attributes set, and so won't get the correct
     // type and it won't render correctly. So, we pass through the current attributes
     // here so that the initial render works when we switch to the WordPress
-    // block. This only affects the WordPress block because it can't be
+    // block. This only affects the WP block because it can't be
     // rendered in the usual Sandbox (it has a sandbox of its own) and it
     // relies on the preview to set the correct render type.
     ...attributesFromPreview
@@ -12547,16 +12547,16 @@ function WpEmbedPreview({
     } = ownerDocument;
 
     /**
-     * Checks for WordPress embed events signaling the height change when
+     * Checks for WP embed events signaling the height change when
      * iframe content loads or iframe's window is resized.  The event is
-     * sent from WordPress core via the window.postMessage API.
+     * sent from WP core via the window.postMessage API.
      *
      * References:
      * window.postMessage:
      * https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage
-     * WordPress core embed-template on load:
+     * WP core embed-template on load:
      * https://github.com/WordPress/WordPress/blob/HEAD/wp-includes/js/wp-embed-template.js#L143
-     * WordPress core embed-template on resize:
+     * WP core embed-template on resize:
      * https://github.com/WordPress/WordPress/blob/HEAD/wp-includes/js/wp-embed-template.js#L187
      *
      * @param {MessageEvent} event Message event.
@@ -12789,7 +12789,7 @@ const EmbedEdit = props => {
 
     // The external oEmbed provider does not exist. We got no type info and no html.
     const badEmbedProvider = embedPreview?.html === false && embedPreview?.type === undefined;
-    // Some WordPress URLs that can't be embedded will cause the API to return
+    // Some WP URLs that can't be embedded will cause the API to return
     // a valid JSON response with no HTML and `data.status` set to 404, rather
     // than generating a fallback response as other embeds do.
     const wordpressCantEmbed = embedPreview?.data?.status === 404;
@@ -13186,7 +13186,7 @@ const embed_variations_variations = [{
   title: getTitle('WordPress'),
   icon: embedWordPressIcon,
   keywords: [(0,external_wp_i18n_namespaceObject.__)('post'), (0,external_wp_i18n_namespaceObject.__)('blog')],
-  description: (0,external_wp_i18n_namespaceObject.__)('Embed a WordPress post.'),
+  description: (0,external_wp_i18n_namespaceObject.__)('Embed a Retraceur post.'),
   attributes: {
     providerNameSlug: 'wordpress'
   }
@@ -16208,7 +16208,7 @@ function defaultColumnsNumberV1(attributes) {
  */
 function getHrefAndDestination(image, destination) {
   // Need to determine the URL that the selected destination maps to.
-  // Gutenberg and WordPress use different constants so the new link
+  // Gutenberg and WP use different constants so the new link
   // destination also needs to be tweaked.
   switch (destination) {
     case DEPRECATED_LINK_DESTINATION_MEDIA:
@@ -17206,7 +17206,7 @@ const MEDIA_ID_NO_FEATURED_IMAGE_SET = 0;
  * @return {Object}            New attributes to assign to image block.
  */
 function utils_getHrefAndDestination(image, galleryDestination, imageDestination) {
-  // Gutenberg and WordPress use different constants so if image_default_link_type
+  // Gutenberg and WP use different constants so if image_default_link_type
   // option is set we need to map from the WP Core values.
   switch (imageDestination ? imageDestination : galleryDestination) {
     case LINK_DESTINATION_MEDIA_WP_CORE:
@@ -23044,7 +23044,7 @@ function ImageEdit({
     // Check if default link setting should be used.
     let linkDestination = attributes.linkDestination;
     if (!linkDestination) {
-      // Use the WordPress option to determine the proper default.
+      // Use the WP option to determine the proper default.
       // The constants used in Gutenberg do not match WP options so a little more complicated than ideal.
       // TODO: fix this in a follow up PR, requires updating media-text and ui component.
       switch (window?.wp?.media?.view?.settings?.defaultProps?.link || constants_LINK_DESTINATION_NONE) {
@@ -48605,7 +48605,7 @@ const shortcode_metadata = {
   name: "core/shortcode",
   title: "Shortcode",
   category: "widgets",
-  description: "Insert additional custom elements with a WordPress shortcode.",
+  description: "Insert additional custom elements with a Retraceur shortcode.",
   textdomain: "default",
   attributes: {
     text: {
@@ -48880,7 +48880,7 @@ const SiteLogo = ({
   // when the required WP core version for Gutenberg is >= 6.5.0.
   const shouldUseNewUrl = !window?.__experimentalUseCustomizerSiteLogoUrl;
   const siteIconSettingsUrl = shouldUseNewUrl ? siteUrl + '/wp-admin/options-general.php' : siteUrl + '/wp-admin/customize.php?autofocus[section]=title_tagline';
-  const syncSiteIconHelpText = (0,external_wp_element_namespaceObject.createInterpolateElement)((0,external_wp_i18n_namespaceObject.__)('Site Icons are what you see in browser tabs, bookmark bars, and within the WordPress mobile apps. To use a custom icon that is different from your site logo, use the <a>Site Icon settings</a>.'), {
+  const syncSiteIconHelpText = (0,external_wp_element_namespaceObject.createInterpolateElement)((0,external_wp_i18n_namespaceObject.__)('Site Icons are what you see in browser tabs, bookmark bars, and within the Retraceur mobile apps. To use a custom icon that is different from your site logo, use the <a>Site Icon settings</a>.'), {
     a:
     /*#__PURE__*/
     // eslint-disable-next-line jsx-a11y/anchor-has-content

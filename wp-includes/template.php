@@ -751,7 +751,7 @@ function locate_template( $template_names, $load = false, $load_once = true, $ar
 }
 
 /**
- * Requires the template file with WordPress environment.
+ * Requires the template file with Retraceur environment.
  *
  * The globals are set up for the template file to ensure that the WordPress
  * environment is available from within the function. The query variables are
@@ -763,11 +763,11 @@ function locate_template( $template_names, $load = false, $load_once = true, $ar
  * @global array      $posts
  * @global WP_Post    $post          Global post object.
  * @global bool       $wp_did_header
- * @global WP_Query   $wp_query      WordPress Query object.
- * @global WP_Rewrite $wp_rewrite    WordPress rewrite component.
- * @global wpdb       $wpdb          WordPress database abstraction object.
+ * @global WP_Query   $wp_query      WP Query object.
+ * @global WP_Rewrite $wp_rewrite    WP rewrite component.
+ * @global wpdb       $wpdb          WP database abstraction object.
  * @global string     $wp_version
- * @global WP         $wp            Current WordPress environment instance.
+ * @global WP         $wp            Current WP environment instance.
  * @global int        $id
  * @global int        $user_ID
  *

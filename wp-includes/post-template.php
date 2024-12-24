@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Post Template Functions.
+ * Retraceur Post Template Functions.
  *
  * Gets content for the current post in the loop.
  *
@@ -11,7 +11,7 @@
  */
 
 /**
- * Displays the ID of the current item in the WordPress Loop.
+ * Displays the ID of the current item in the Retraceur Loop.
  *
  * @since WP 0.71
  */
@@ -20,11 +20,11 @@ function the_ID() { // phpcs:ignore WordPress.NamingConventions.ValidFunctionNam
 }
 
 /**
- * Retrieves the ID of the current item in the WordPress Loop.
+ * Retrieves the ID of the current item in the Retraceur Loop.
  *
  * @since WP 2.1.0
  *
- * @return int|false The ID of the current item in the WordPress Loop. False if $post is not set.
+ * @return int|false The ID of the current item in the Retraceur Loop. False if $post is not set.
  */
 function get_the_ID() { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid
 	$post = get_post();
@@ -625,7 +625,7 @@ function body_class( $css_class = '' ) {
  *
  * @since WP 2.8.0
  *
- * @global WP_Query $wp_query WordPress Query object.
+ * @global WP_Query $wp_query WP Query object.
  *
  * @param string|string[] $css_class Optional. Space-separated string or array of class names
  *                                   to add to the class list. Default empty.
@@ -1045,7 +1045,7 @@ function wp_link_pages( $args = '' ) {
  * @since WP 3.1.0
  * @access private
  *
- * @global WP_Rewrite $wp_rewrite WordPress rewrite component.
+ * @global WP_Rewrite $wp_rewrite WP rewrite component.
  *
  * @param int $i Page number.
  * @return string Link.
@@ -1254,7 +1254,7 @@ function wp_dropdown_pages( $args = '' ) {
  *
  * @see get_pages()
  *
- * @global WP_Query $wp_query WordPress Query object.
+ * @global WP_Query $wp_query WP Query object.
  *
  * @param array|string $args {
  *     Optional. Array or string of arguments to generate a list of pages. See get_pages() for additional arguments.
@@ -1772,7 +1772,7 @@ function get_the_password_form( $post = 0 ) {
 	/**
 	 * Filters the HTML output for the protected post password form.
 	 *
-	 * If modifying the password field, please note that the WordPress database schema
+	 * If modifying the password field, please note that the Retraceur database schema
 	 * limits the password field to 255 characters regardless of the value of the
 	 * `minlength` or `maxlength` attributes or other validation that may be added to
 	 * the input.

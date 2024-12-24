@@ -10223,7 +10223,7 @@ function useResolveEditedEntityAndContext({
   }, []);
 
   /**
-   * This is a hook that recreates the logic to resolve a template for a given WordPress postID postTypeId
+   * This is a hook that recreates the logic to resolve a template for a given Retraceur postID postTypeId
    * in order to match the frontend as closely as possible in the site editor.
    *
    * It is not possible to rely on the server logic because there maybe unsaved changes that impact the template resolution.

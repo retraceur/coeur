@@ -10641,7 +10641,7 @@ const deprecatedFlags = {
 const prefixedFlags = {
   /*
    * These were only available in the plugin
-   * and can be removed when the minimum WordPress version
+   * and can be removed when the minimum WP version
    * for the plugin is 5.9.
    */
   'border.customColor': 'border.color',
@@ -10653,7 +10653,7 @@ const prefixedFlags = {
   'typography.customTextDecorations': 'typography.textDecoration',
   'typography.customTextTransforms': 'typography.textTransform',
   /*
-   * These were part of WordPress 5.8 and we need to keep them.
+   * These were part of WP 5.8 and we need to keep them.
    */
   'border.customRadius': 'border.radius',
   'spacing.customMargin': 'spacing.margin',
@@ -13813,7 +13813,7 @@ const castArray = maybeArray => Array.isArray(maybeArray) ? maybeArray : [maybeA
 
 /**
  * A list of private/experimental block editor settings that
- * should not become a part of the WordPress public API.
+ * should not become a part of the WP public API.
  * BlockEditorProvider will remove these settings from the
  * settings object it receives.
  *
@@ -15904,13 +15904,13 @@ function __unstableSetTemporarilyEditingAsBlocks(temporarilyEditingAsBlocks, foc
 /**
  * Interface for inserter media responses. Any media resource should
  * map their response to this interface, in order to create the core
- * WordPress media blocks (image, video, audio).
+ * WP media blocks (image, video, audio).
  *
  * @typedef {Object} InserterMediaItem
  * @property {string}        title        The title of the media item.
  * @property {string}        url          The source url of the media item.
  * @property {string}        [previewUrl] The preview source url of the media item to display in the media list.
- * @property {number}        [id]         The WordPress id of the media item.
+ * @property {number}        [id]         The WP id of the media item.
  * @property {number|string} [sourceId]   The id of the media item from external source.
  * @property {string}        [alt]        The alt text of the media item.
  * @property {string}        [caption]    The caption of the media item.
@@ -15935,14 +15935,14 @@ function __unstableSetTemporarilyEditingAsBlocks(temporarilyEditingAsBlocks, foc
  *
  * - _InserterMediaItem_ `Object`: Interface for inserter media responses. Any media resource should
  * map their response to this interface, in order to create the core
- * WordPress media blocks (image, video, audio).
+ * WP media blocks (image, video, audio).
  *
  * _Properties_
  *
  * - _title_ `string`: The title of the media item.
  * - _url_ `string: The source url of the media item.
  * - _previewUrl_ `[string]`: The preview source url of the media item to display in the media list.
- * - _id_ `[number]`: The WordPress id of the media item.
+ * - _id_ `[number]`: The WP id of the media item.
  * - _sourceId_ `[number|string]`: The id of the media item from external source.
  * - _alt_ `[string]`: The alt text of the media item.
  * - _caption_ `[string]`: The caption of the media item.
@@ -23659,7 +23659,7 @@ function LinkControl({
     setSettingsOpen(prefVal);
   };
 
-  // Block Editor components can be consumed by non-WordPress environments
+  // Block Editor components can be consumed by non-WP environments
   // which may not have these preferences setup.
   // Therefore a local state is used as a fallback.
   const isSettingsOpen = advancedSettingsPreference || settingsOpen;

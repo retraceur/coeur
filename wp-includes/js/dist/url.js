@@ -1265,7 +1265,7 @@ var remove_accents_default = /*#__PURE__*/__webpack_require__.n(remove_accents);
 /**
  * Performs some basic cleanup of a string for use as a post slug.
  *
- * This replicates some of what `sanitize_title()` does in WordPress core, but
+ * This replicates some of what `sanitize_title()` does in WP core, but
  * is only designed to approximate what the slug will be.
  *
  * Converts Latin-1 Supplement and Latin Extended-A letters to basic Latin

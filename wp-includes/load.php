@@ -151,7 +151,7 @@ function wp_populate_basic_auth_from_authorization_header() {
  * @access private
  *
  * @global string $required_php_version The required PHP version string.
- * @global string $wp_version           The WordPress version string.
+ * @global string $wp_version           The WP version string.
  */
 function wp_check_php_mysql_versions() {
 	global $required_php_version, $wp_version;
@@ -163,7 +163,7 @@ function wp_check_php_mysql_versions() {
 		header( sprintf( '%s 500 Internal Server Error', $protocol ), true, 500 );
 		header( 'Content-Type: text/html; charset=utf-8' );
 		printf(
-			'Your server is running PHP version %1$s but WordPress %2$s requires at least %3$s.',
+			'Your server is running PHP version %1$s but Retraceur %2$s requires at least %3$s.',
 			$php_version,
 			$wp_version,
 			$required_php_version
@@ -270,7 +270,7 @@ function wp_get_environment_type() {
 /**
  * Retrieves the current development mode.
  *
- * The development mode affects how certain parts of the WordPress application behave,
+ * The development mode affects how certain parts of the Retraceur application behave,
  * which is relevant when developing for WordPress.
  *
  * Development mode can be set via the `WP_DEVELOPMENT_MODE` constant in `wp-config.php`.
@@ -343,7 +343,7 @@ function wp_is_development_mode( $mode ) {
 }
 
 /**
- * Ensures all of WordPress is not loaded when handling a favicon.ico request.
+ * Ensures all of Retraceur is not loaded when handling a favicon.ico request.
  *
  * Instead, send the headers for a zero-length favicon and bail.
  *
@@ -392,14 +392,14 @@ function wp_maintenance() {
 /**
  * Checks if maintenance mode is enabled.
  *
- * Checks for a file in the WordPress root directory named ".maintenance".
+ * Checks for a file in the Retraceur root directory named ".maintenance".
  * This file will contain the variable $upgrading, set to the time the file
  * was created. If the file was created less than 10 minutes ago, WordPress
  * is in maintenance mode.
  *
  * @since WP 5.5.0
  *
- * @global int $upgrading The Unix timestamp marking when upgrading WordPress began.
+ * @global int $upgrading The Unix timestamp marking when upgrading Retraceur began.
  *
  * @return bool True if maintenance mode is enabled, false otherwise.
  */
@@ -459,7 +459,7 @@ function timer_float() {
 }
 
 /**
- * Starts the WordPress micro-timer.
+ * Starts the Retraceur micro-timer.
  *
  * @since WP 0.71
  * @access private
@@ -512,14 +512,14 @@ function timer_stop( $display = 0, $precision = 3 ) {
 }
 
 /**
- * Sets PHP error reporting based on WordPress debug settings.
+ * Sets PHP error reporting based on Retraceur debug settings.
  *
  * Uses three constants: `WP_DEBUG`, `WP_DEBUG_DISPLAY`, and `WP_DEBUG_LOG`.
  * All three can be defined in wp-config.php. By default, `WP_DEBUG` and
  * `WP_DEBUG_LOG` are set to false, and `WP_DEBUG_DISPLAY` is set to true.
  *
- * When `WP_DEBUG` is true, all PHP notices are reported. WordPress will also
- * display internal notices: when a deprecated WordPress function, function
+ * When `WP_DEBUG` is true, all PHP notices are reported. Retraceur will also
+ * display internal notices: when a deprecated Retraceur function, function
  * argument, or file is used. Deprecated code may be removed from a later
  * version.
  *
@@ -529,7 +529,7 @@ function timer_stop( $display = 0, $precision = 3 ) {
  * `WP_DEBUG_DISPLAY` and `WP_DEBUG_LOG` perform no function unless `WP_DEBUG`
  * is true.
  *
- * When `WP_DEBUG_DISPLAY` is true, WordPress will force errors to be displayed.
+ * When `WP_DEBUG_DISPLAY` is true, Retraceur will force errors to be displayed.
  * `WP_DEBUG_DISPLAY` defaults to true. Defining it as null prevents WordPress
  * from changing the global configuration setting. Defining `WP_DEBUG_DISPLAY`
  * as false will force errors to be hidden.
@@ -553,7 +553,7 @@ function wp_debug_mode() {
 	 * will be used unless you take care to update them yourself.
 	 *
 	 * To use this filter you must define a `$wp_filter` global before
-	 * WordPress loads, usually in `wp-config.php`.
+	 * Retraceur loads, usually in `wp-config.php`.
 	 *
 	 * Example:
 	 *
@@ -669,7 +669,7 @@ function wp_set_lang_dir() {
  *
  * @since WP 2.5.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb WP database abstraction object.
  */
 function require_wp_db() {
 	global $wpdb;
@@ -701,7 +701,7 @@ function require_wp_db() {
  * @since WP 3.0.0
  * @access private
  *
- * @global wpdb   $wpdb         WordPress database abstraction object.
+ * @global wpdb   $wpdb         WP database abstraction object.
  * @global string $table_prefix The database table prefix.
  */
 function wp_set_wpdb_vars() {
@@ -783,7 +783,7 @@ function wp_using_ext_object_cache( $using = null ) {
 }
 
 /**
- * Starts the WordPress object cache.
+ * Starts the Retraceur object cache.
  *
  * If an object-cache.php file exists in the wp-content directory,
  * it uses that drop-in as an external object cache.
@@ -895,7 +895,7 @@ function wp_start_object_cache() {
 }
 
 /**
- * Redirects to the installer if WordPress is not installed.
+ * Redirects to the installer if Retraceur is not installed.
  *
  * Dies with an error message when Multisite is enabled.
  *
@@ -1119,7 +1119,7 @@ function wp_skip_paused_themes( array $themes ) {
 }
 
 /**
- * Determines whether WordPress is in Recovery Mode.
+ * Determines whether Retraceur is in Recovery Mode.
  *
  * In this mode, plugins or themes that cause WSODs will be paused.
  *
@@ -1160,7 +1160,7 @@ function is_protected_endpoint() {
 	 * Filters whether the current request is against a protected endpoint.
 	 *
 	 * This filter is only fired when an endpoint is requested which is not already protected by
-	 * WordPress core. As such, it exclusively allows providing further protected endpoints in
+	 * Retraceur core. As such, it exclusively allows providing further protected endpoints in
 	 * addition to the admin backend, login pages and protected Ajax actions.
 	 *
 	 * @since WP 5.2.0
@@ -1294,7 +1294,7 @@ function wp_clone( $input_object ) {
  *
  * @see wp_login_url()
  *
- * @return bool True if inside WordPress login screen, false otherwise.
+ * @return bool True if inside Retraceur login screen, false otherwise.
  */
 function is_login() {
 	return false !== stripos( wp_login_url(), $_SERVER['SCRIPT_NAME'] );
@@ -1308,9 +1308,9 @@ function is_login() {
  *
  * @since WP 1.5.1
  *
- * @global WP_Screen $current_screen WordPress current screen object.
+ * @global WP_Screen $current_screen WP current screen object.
  *
- * @return bool True if inside WordPress administration interface, false otherwise.
+ * @return bool True if inside Retraceur administration interface, false otherwise.
  */
 function is_admin() {
 	if ( isset( $GLOBALS['current_screen'] ) ) {
@@ -1332,9 +1332,9 @@ function is_admin() {
  *
  * @since WP 3.1.0
  *
- * @global WP_Screen $current_screen WordPress current screen object.
+ * @global WP_Screen $current_screen WP current screen object.
  *
- * @return bool True if inside WordPress site administration pages.
+ * @return bool True if inside Retraceur site administration pages.
  */
 function is_blog_admin() {
 	if ( isset( $GLOBALS['current_screen'] ) ) {
@@ -1359,9 +1359,9 @@ function is_blog_admin() {
  *
  * @since WP 3.1.0
  *
- * @global WP_Screen $current_screen WordPress current screen object.
+ * @global WP_Screen $current_screen WP current screen object.
  *
- * @return bool True if inside WordPress network administration pages.
+ * @return bool True if inside Retraceur network administration pages.
  */
 function is_network_admin() {
 	if ( isset( $GLOBALS['current_screen'] ) ) {
@@ -1383,9 +1383,9 @@ function is_network_admin() {
  *
  * @since WP 3.1.0
  *
- * @global WP_Screen $current_screen WordPress current screen object.
+ * @global WP_Screen $current_screen WP current screen object.
  *
- * @return bool True if inside WordPress user administration pages.
+ * @return bool True if inside Retraceur user administration pages.
  */
 function is_user_admin() {
 	if ( isset( $GLOBALS['current_screen'] ) ) {
@@ -1477,8 +1477,8 @@ function get_current_network_id() {
  * @since WP 3.4.0
  * @access private
  *
- * @global WP_Textdomain_Registry $wp_textdomain_registry WordPress Textdomain Registry.
- * @global WP_Locale              $wp_locale              WordPress date and time locale object.
+ * @global WP_Textdomain_Registry $wp_textdomain_registry WP Textdomain Registry.
+ * @global WP_Locale              $wp_locale              WP date and time locale object.
  */
 function wp_load_translations_early() {
 	global $wp_textdomain_registry, $wp_locale;
@@ -1578,7 +1578,7 @@ function wp_load_translations_early() {
 }
 
 /**
- * Checks or sets whether WordPress is in "installation" mode.
+ * Checks or sets whether Retraceur is in "installation" mode.
  *
  * If the `WP_INSTALLING` constant is defined during the bootstrap, `wp_installing()` will default to `true`.
  *
@@ -1695,19 +1695,19 @@ function wp_is_ini_value_changeable( $setting ) {
 }
 
 /**
- * Determines whether the current request is a WordPress Ajax request.
+ * Determines whether the current request is a Retraceur Ajax request.
  *
  * @since WP 4.7.0
  *
- * @return bool True if it's a WordPress Ajax request, false otherwise.
+ * @return bool True if it's a Retraceur Ajax request, false otherwise.
  */
 function wp_doing_ajax() {
 	/**
-	 * Filters whether the current request is a WordPress Ajax request.
+	 * Filters whether the current request is a Retraceur Ajax request.
 	 *
 	 * @since WP 4.7.0
 	 *
-	 * @param bool $wp_doing_ajax Whether the current request is a WordPress Ajax request.
+	 * @param bool $wp_doing_ajax Whether the current request is a Retraceur Ajax request.
 	 */
 	return apply_filters( 'wp_doing_ajax', defined( 'DOING_AJAX' ) && DOING_AJAX );
 }
@@ -1731,25 +1731,25 @@ function wp_using_themes() {
 }
 
 /**
- * Determines whether the current request is a WordPress cron request.
+ * Determines whether the current request is a Retraceur cron request.
  *
  * @since WP 4.8.0
  *
- * @return bool True if it's a WordPress cron request, false otherwise.
+ * @return bool True if it's a Retraceur cron request, false otherwise.
  */
 function wp_doing_cron() {
 	/**
-	 * Filters whether the current request is a WordPress cron request.
+	 * Filters whether the current request is a Retraceur cron request.
 	 *
 	 * @since WP 4.8.0
 	 *
-	 * @param bool $wp_doing_cron Whether the current request is a WordPress cron request.
+	 * @param bool $wp_doing_cron Whether the current request is a Retraceur cron request.
 	 */
 	return apply_filters( 'wp_doing_cron', defined( 'DOING_CRON' ) && DOING_CRON );
 }
 
 /**
- * Checks whether the given variable is a WordPress Error.
+ * Checks whether the given variable is a Retraceur Error.
  *
  * Returns whether `$thing` is an instance of the `WP_Error` class.
  *

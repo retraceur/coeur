@@ -1,7 +1,7 @@
 <?php
 /**
  * REST API: WP_REST_Controller class
- * 
+ *
  * @since WP 4.7.0
  * @since 1.0.0 Retraceur fork.
  *
@@ -249,7 +249,7 @@ abstract class WP_REST_Controller {
 	 *
 	 * @since WP 4.7.0
 	 *
-	 * @param mixed           $item    WordPress representation of the item.
+	 * @param mixed           $item    Retraceur representation of the item.
 	 * @param WP_REST_Request $request Request object.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
 	 */

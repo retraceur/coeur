@@ -2093,7 +2093,7 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 	/**
 	 * Overwrites the default protected and private title format.
 	 *
-	 * By default, WordPress will show password protected or private posts with a title of
+	 * By default, Retraceur will show password protected or private posts with a title of
 	 * "Protected: %s" or "Private: %s", as the REST API communicates the status of a post
 	 * in a machine-readable format, we remove the prefix.
 	 *

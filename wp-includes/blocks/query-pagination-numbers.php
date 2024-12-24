@@ -1,7 +1,7 @@
 <?php
 /**
  * Server-side rendering of the `core/query-pagination-numbers` block.
- * 
+ *
  * @since 1.0.0 Retraceur fork.
  *
  * @package Retraceur
@@ -12,7 +12,7 @@
  *
  * @since WP 5.8.0
  *
- * @global WP_Query $wp_query WordPress Query object.
+ * @global WP_Query $wp_query WP Query object.
  *
  * @param array    $attributes Block attributes.
  * @param string   $content    Block default content.

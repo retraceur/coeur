@@ -1,7 +1,7 @@
 <?php
 /**
- * WordPress media templates.
- * 
+ * Retraceur media templates.
+ *
  * @since WP 3.5.0
  * @since 1.0.0 Retraceur fork.
  *
@@ -371,7 +371,7 @@ function wp_print_media_templates() {
 			<?php
 			if ( isset( $_GET['error'] ) && 'deprecated' === $_GET['error'] ) {
 				wp_admin_notice(
-					__( 'The Edit Media screen is deprecated as of WordPress 6.3. Please use the Media Library instead.' ),
+					__( 'The Edit Media screen is deprecated as of WP 6.3. Please use the Media Library instead.' ),
 					array(
 						'id'                 => 'message',
 						'additional_classes' => array( 'error' ),
@@ -599,7 +599,7 @@ function wp_print_media_templates() {
 					<div class="centered">
 						<# if ( data.image && data.image.src && data.image.src !== data.icon ) { #>
 							<img src="{{ data.image.src }}" class="thumbnail" draggable="false" alt="" />
-						<# } else if ( data.sizes ) { 
+						<# } else if ( data.sizes ) {
 								if ( data.sizes.medium ) { #>
 									<img src="{{ data.sizes.medium.url }}" class="thumbnail" draggable="false" alt="" />
 								<# } else { #>

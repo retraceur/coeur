@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress API for media display.
+ * Retraceur API for media display.
  *
  * @since 1.0.0 Retraceur fork.
  *
@@ -365,7 +365,7 @@ function set_post_thumbnail_size( $width = 0, $height = 0, $crop = false ) {
  *
  * The {@see 'get_image_tag_class'} filter allows for changing the class name for the
  * image without having to use regular expressions on the HTML content. The
- * parameters are: what WordPress will use for the class, the Attachment ID,
+ * parameters are: what Retraceur will use for the class, the Attachment ID,
  * image align value, and the size the image should be.
  *
  * The second filter, {@see 'get_image_tag'}, has the HTML content, which can then be
@@ -1353,7 +1353,7 @@ function wp_calculate_image_srcset( $size_array, $image_src, $image_meta, $attac
 	$image_basename = wp_basename( $image_meta['file'] );
 
 	/*
-	 * WordPress flattens animated GIFs into one frame when generating intermediate sizes.
+	 * Retraceur flattens animated GIFs into one frame when generating intermediate sizes.
 	 * To avoid hiding animation in user content, if src is a full size GIF, a srcset attribute is not generated.
 	 * If src is an intermediate size GIF, the full size is excluded from srcset to keep a flattened GIF from becoming animated.
 	 */
@@ -1399,7 +1399,7 @@ function wp_calculate_image_srcset( $size_array, $image_src, $image_meta, $attac
 	}
 
 	/*
-	 * Images that have been edited in WordPress after being uploaded will
+	 * Images that have been edited in Retraceur after being uploaded will
 	 * contain a unique hash. Look for that hash and use it later to filter
 	 * out images that are leftovers from previous versions.
 	 */
@@ -2017,7 +2017,7 @@ function wp_img_tag_add_auto_sizes( string $image ): string {
 
 	/*
 	 * Bail early if the image doesn't have a width attribute.
-	 * Per WordPress Core itself, lazy-loaded images should always have a width attribute.
+	 * Per Retraceur Core itself, lazy-loaded images should always have a width attribute.
 	 * However, it is possible that lazy-loading could be added by a plugin, where we don't have that guarantee.
 	 * As such, it still makes sense to ensure presence of a width attribute here in order to use `sizes=auto`.
 	 */
@@ -2625,7 +2625,7 @@ add_shortcode( 'gallery', 'gallery_shortcode' );
  * Builds the Gallery shortcode output.
  *
  * This implements the functionality of the Gallery Shortcode for displaying
- * WordPress images on a post.
+ * Retraceur images on a post.
  *
  * @since WP 2.5.0
  * @since WP 2.8.0 Added the `$attr` parameter to set the shortcode output. New attributes included
@@ -2999,7 +2999,7 @@ function wp_playlist_scripts( $type ) {
  * Builds the Playlist shortcode output.
  *
  * This implements the functionality of the playlist shortcode for displaying
- * a collection of WordPress audio or video files in a post.
+ * a collection of Retraceur audio or video files in a post.
  *
  * @since WP 3.9.0
  *
@@ -3338,7 +3338,7 @@ function wp_get_attachment_id3_keys( $attachment, $context = 'display' ) {
  * Builds the Audio shortcode output.
  *
  * This implements the functionality of the Audio Shortcode for displaying
- * WordPress mp3s in a post.
+ * Retraceur mp3s in a post.
  *
  * @since WP 3.6.0
  *
@@ -3549,7 +3549,7 @@ function wp_get_video_extensions() {
  * Builds the Video shortcode output.
  *
  * This implements the functionality of the Video Shortcode for displaying
- * WordPress mp4s in a post.
+ * Retraceur mp4s in a post.
  *
  * @since WP 3.6.0
  *
@@ -4707,8 +4707,8 @@ function wp_prepare_attachment_for_js( $attachment ) {
  * @since WP 3.5.0
  *
  * @global int       $content_width
- * @global wpdb      $wpdb          WordPress database abstraction object.
- * @global WP_Locale $wp_locale     WordPress date and time locale object.
+ * @global wpdb      $wpdb          WP database abstraction object.
+ * @global WP_Locale $wp_locale     WP date and time locale object.
  *
  * @param array $args {
  *     Arguments for enqueuing media scripts.
@@ -5437,7 +5437,7 @@ function wp_maybe_generate_attachment_metadata( $attachment ) {
  *
  * @since WP 4.0.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb WP database abstraction object.
  *
  * @param string $url The URL to resolve.
  * @return int The found post ID, or 0 on failure.
@@ -5453,7 +5453,7 @@ function attachment_url_to_postid( $url ) {
 	 *
 	 * - 0 (integer) to indicate the attachment is not found,
 	 * - attachment ID (integer) to indicate the attachment ID found,
-	 * - null to indicate WordPress should proceed with the lookup.
+	 * - null to indicate Retraceur should proceed with the lookup.
 	 *
 	 * Warning: The post ID may be null or zero, both of which cast to a
 	 * boolean false. For information about casting to booleans see the
@@ -5541,7 +5541,7 @@ function wpview_media_sandbox_styles() {
  */
 function wp_register_media_personal_data_exporter( $exporters ) {
 	$exporters['wordpress-media'] = array(
-		'exporter_friendly_name' => __( 'WordPress Media' ),
+		'exporter_friendly_name' => __( 'Retraceur Media' ),
 		'callback'               => 'wp_media_personal_data_exporter',
 	);
 
@@ -5621,7 +5621,7 @@ function wp_media_personal_data_exporter( $email_address, $page = 1 ) {
 /**
  * Adds additional default image sub-sizes.
  *
- * These sizes are meant to enhance the way WordPress displays images on the front-end on larger,
+ * These sizes are meant to enhance the way Retraceur displays images on the front-end on larger,
  * high-density devices. They make it possible to generate more suitable `srcset` and `sizes` attributes
  * when the users upload large images.
  *
@@ -5908,7 +5908,7 @@ function wp_get_webp_info( $filename ) {
  *
  * @since WP 6.3.0
  *
- * @global WP_Query $wp_query WordPress Query object.
+ * @global WP_Query $wp_query WP Query object.
  *
  * @param string $tag_name The tag name.
  * @param array  $attr     Array of the attributes for the tag.
@@ -6201,7 +6201,7 @@ function wp_maybe_add_fetchpriority_high_attr( $loading_attrs, $tag_name, $attr 
 		/*
 		 * While any `fetchpriority` value could be set in `$loading_attrs`,
 		 * for consistency we only do it for `fetchpriority="high"` since that
-		 * is the only possible value that WordPress core would apply on its
+		 * is the only possible value that Retraceur core would apply on its
 		 * own.
 		 */
 		if ( 'high' === $attr['fetchpriority'] ) {

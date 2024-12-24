@@ -2,7 +2,7 @@
 /******/ 	"use strict";
 /******/ 	// The require scope
 /******/ 	var __webpack_require__ = {};
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
@@ -15,12 +15,12 @@
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -31,7 +31,7 @@
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
 var __webpack_exports__ = {};
 // ESM COMPAT FLAG
@@ -59,7 +59,7 @@ __webpack_require__.d(__webpack_exports__, {
  * @property {RegExp}              wordsRegExp                       Regular expression that matches words
  * @property {RegExp}              characters_excluding_spacesRegExp Regular expression that matches characters excluding spaces
  * @property {RegExp}              characters_including_spacesRegExp Regular expression that matches characters including spaces
- * @property {RegExp}              shortcodesRegExp                  Regular expression that matches WordPress shortcodes
+ * @property {RegExp}              shortcodesRegExp                  Regular expression that matches WP shortcodes
  * @property {string[]}            shortcodes                        List of all shortcodes
  * @property {WPWordCountStrategy} type                              Describes what and how are we counting
  * @property {WPWordCountL10n}     l10n                              Object with human translations

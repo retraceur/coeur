@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress database access abstraction class.
+ * WP database access abstraction class.
  *
  * This file is deprecated, use 'wp-includes/class-wpdb.php' instead.
  *

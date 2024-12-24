@@ -9,9 +9,9 @@
  */
 
 /**
- * Checks whether WordPress should replace old HTTP URLs to the site with their HTTPS counterpart.
+ * Checks whether Retraceur should replace old HTTP URLs to the site with their HTTPS counterpart.
  *
- * If a WordPress site had its URL changed from HTTP to HTTPS, by default this will return `true`, causing WordPress to
+ * If a Retraceur site had its URL changed from HTTP to HTTPS, by default this will return `true`, causing Retraceur to
  * add frontend filters to replace insecure site URLs that may be present in older database content. The
  * {@see 'wp_should_replace_insecure_home_url'} filter can be used to modify that behavior.
  *
@@ -27,9 +27,9 @@ function wp_should_replace_insecure_home_url() {
 		&& wp_parse_url( home_url(), PHP_URL_HOST ) === wp_parse_url( site_url(), PHP_URL_HOST );
 
 	/**
-	 * Filters whether WordPress should replace old HTTP URLs to the site with their HTTPS counterpart.
+	 * Filters whether Retraceur should replace old HTTP URLs to the site with their HTTPS counterpart.
 	 *
-	 * If a WordPress site had its URL changed from HTTP to HTTPS, by default this will return `true`. This filter can
+	 * If a Retraceur site had its URL changed from HTTP to HTTPS, by default this will return `true`. This filter can
 	 * be used to disable that behavior, e.g. after having replaced URLs manually in the database.
 	 *
 	 * @since WP 5.7.0
@@ -78,7 +78,7 @@ function wp_replace_insecure_home_url( $content ) {
 /**
  * Update the 'home' and 'siteurl' option to use the HTTPS variant of their URL.
  *
- * If this update does not result in WordPress recognizing that the site is now using HTTPS (e.g. due to constants
+ * If this update does not result in Retraceur recognizing that the site is now using HTTPS (e.g. due to constants
  * overriding the URLs used), the changes will be reverted. In such a case the function will return false.
  *
  * @since WP 5.7.0
@@ -126,7 +126,7 @@ function wp_update_urls_to_https() {
  * @param mixed $new_url New value of the URL option.
  */
 function wp_update_https_migration_required( $old_url, $new_url ) {
-	// Do nothing if WordPress is being installed.
+	// Do nothing if Retraceur is being installed.
 	if ( wp_installing() ) {
 		return;
 	}

@@ -5010,7 +5010,7 @@
     'name' => 'core/shortcode',
     'title' => 'Shortcode',
     'category' => 'widgets',
-    'description' => 'Insert additional custom elements with a WordPress shortcode.',
+    'description' => 'Insert additional custom elements with a Retraceur shortcode.',
     'textdomain' => 'default',
     'attributes' => array(
       'text' => array(

@@ -1,11 +1,11 @@
 <?php
 /**
- * Deprecated pluggable functions from past WordPress versions. You shouldn't use these
+ * Deprecated pluggable functions from past WP versions. You shouldn't use these
  * functions and look for the alternatives instead. The functions will be removed in a
  * later version.
  *
  * Deprecated warnings are also thrown if one of these functions is being defined by a plugin.
- * 
+ *
  * @since 1.0.0 Retraceur fork.
  *
  * @package Retraceur
@@ -187,7 +187,7 @@ else :
 endif;
 
 /**
- * WordPress AtomPub API implementation.
+ * WP AtomPub API implementation.
  *
  * Originally stored in wp-app.php, and later wp-includes/class-wp-atom-server.php.
  * It is kept here in case a plugin directly referred to the class.

@@ -2,7 +2,7 @@
 /******/ 	"use strict";
 /******/ 	// The require scope
 /******/ 	var __webpack_require__ = {};
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
@@ -15,12 +15,12 @@
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -31,7 +31,7 @@
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
 var __webpack_exports__ = {};
 // ESM COMPAT FLAG
@@ -614,7 +614,7 @@ function generateBoxRules(style, options, path, ruleKeys, individualProperties =
 }
 
 /**
- * Returns a WordPress CSS custom var value from incoming style preset value,
+ * Returns a Retraceur CSS custom var value from incoming style preset value,
  * if one is detected.
  *
  * The preset value is a string and follows the pattern `var:description|context|slug`.
@@ -1071,7 +1071,7 @@ const styleDefinitions = [...border, ...styles_color, ...dimensions, ...outline,
 /**
  * Generates a stylesheet for a given style object and selector.
  *
- * @since 6.1.0 Introduced in WordPress core.
+ * @since 6.1.0 Introduced in WP core.
  *
  * @param style   Style object, for example, the value of a block's attributes.style object or the top level styles in theme.json
  * @param options Options object with settings to adjust how the styles are generated.
@@ -1112,7 +1112,7 @@ function compileCSS(style, options = {}) {
 /**
  * Returns a JSON representation of the generated CSS rules.
  *
- * @since 6.1.0 Introduced in WordPress core.
+ * @since 6.1.0 Introduced in WP core.
  *
  * @param style   Style object, for example, the value of a block's attributes.style object or the top level styles in theme.json
  * @param options Options object with settings to adjust how the styles are generated.

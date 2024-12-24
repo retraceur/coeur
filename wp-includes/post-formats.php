@@ -186,7 +186,7 @@ function _post_format_request( $qvs ) {
  * @access private
  * @since WP 3.1.0
  *
- * @global WP_Rewrite $wp_rewrite WordPress rewrite component.
+ * @global WP_Rewrite $wp_rewrite WP rewrite component.
  *
  * @param string  $link
  * @param WP_Term $term

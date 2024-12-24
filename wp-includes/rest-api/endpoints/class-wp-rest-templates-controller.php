@@ -202,7 +202,7 @@ class WP_REST_Templates_Controller extends WP_REST_Controller {
 	/**
 	 * Requesting this endpoint for a template like 'twentytwentytwo//home'
 	 * requires using a path like /wp/v2/templates/twentytwentytwo//home. There
-	 * are special cases when WordPress routing corrects the name to contain
+	 * are special cases when Retraceur routing corrects the name to contain
 	 * only a single slash like 'twentytwentytwo/home'.
 	 *
 	 * This method doubles the last slash if it's not already doubled. It relies
@@ -846,7 +846,7 @@ class WP_REST_Templates_Controller extends WP_REST_Controller {
 			/*
 			 * Added by site.
 			 * Template was created from scratch, but has no author. Author support
-			 * was only added to templates in WordPress 5.9. Fallback to showing the
+			 * was only added to templates in WP 5.9. Fallback to showing the
 			 * site logo and title.
 			 */
 			if ( empty( $template_object->has_theme_file ) && 'custom' === $template_object->source && empty( $template_object->author ) ) {

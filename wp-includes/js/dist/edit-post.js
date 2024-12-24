@@ -1014,7 +1014,7 @@ function __unstableCreateTemplate() {
 let actions_metaBoxesInitialized = false;
 
 /**
- * Initializes WordPress `postboxes` script and the logic for saving meta boxes.
+ * Initializes WP `postboxes` script and the logic for saving meta boxes.
  */
 const initializeMetaBoxes = () => ({
   registry,
@@ -2394,7 +2394,7 @@ function WelcomeGuideDefault() {
           children: (0,external_wp_i18n_namespaceObject.__)('Welcome to the block editor')
         }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("p", {
           className: "edit-post-welcome-guide__text",
-          children: (0,external_wp_i18n_namespaceObject.__)('In the WordPress editor, each paragraph, image, or video is presented as a distinct “block” of content.')
+          children: (0,external_wp_i18n_namespaceObject.__)('In the Retraceur editor, each paragraph, image, or video is presented as a distinct “block” of content.')
         })]
       })
     }, {

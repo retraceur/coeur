@@ -1,7 +1,7 @@
 <?php
 /**
  * REST API: WP_REST_Users_Controller class
- * 
+ *
  * @since WP 4.7.0
  * @since 1.0.0 Retraceur fork.
  *
@@ -1204,7 +1204,7 @@ class WP_REST_Users_Controller extends WP_REST_Controller {
 	 *
 	 * @since WP 4.7.0
 	 *
-	 * @global WP_Roles $wp_roles WordPress role management object.
+	 * @global WP_Roles $wp_roles WP role management object.
 	 *
 	 * @param int   $user_id User ID.
 	 * @param array $roles   New user roles.

@@ -1,6 +1,6 @@
 <?php
 /**
- * Multisite WordPress API.
+ * Multisite WP API.
  *
  * @since WP 3.0.0
  * @deprecated 1.0.0 Retraceur fork.

@@ -58,7 +58,7 @@ function register_core_block_style_handles() {
 	if ( $can_use_cached ) {
 		$cached_files = get_transient( $transient_name );
 
-		// Check the validity of cached values by checking against the current WordPress version.
+		// Check the validity of cached values by checking against the current Retraceur version.
 		if (
 			is_array( $cached_files )
 			&& isset( $cached_files['version'] )

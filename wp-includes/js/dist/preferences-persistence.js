@@ -2,7 +2,7 @@
 /******/ 	"use strict";
 /******/ 	// The require scope
 /******/ 	var __webpack_require__ = {};
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
@@ -15,7 +15,7 @@
 /******/ 			return getter;
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -27,12 +27,12 @@
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -43,7 +43,7 @@
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
 var __webpack_exports__ = {};
 // ESM COMPAT FLAG
@@ -141,7 +141,7 @@ const EMPTY_OBJECT = {};
 const localStorage = window.localStorage;
 
 /**
- * Creates a persistence layer that stores data in WordPress user meta via the
+ * Creates a persistence layer that stores data in WP user meta via the
  * REST API.
  *
  * @param {Object}  options
@@ -155,7 +155,7 @@ const localStorage = window.localStorage;
  *                                                 minimum every `requestDebounceMS` milliseconds, and don't
  *                                                 swamp the server. Defaults to 2500ms.
  *
- * @return {Object} A persistence layer for WordPress user meta.
+ * @return {Object} A persistence layer for WP user meta.
  */
 function create({
   preloadedData,
@@ -862,7 +862,7 @@ function convertPreferencesPackageData(data) {
  * It prioritizes any data from the server, but falls back first to localStorage
  * restore data, and then to any legacy data.
  *
- * This function is used internally by WordPress in an inline script, so
+ * This function is used internally by WP in an inline script, so
  * prefixed with `__unstable`.
  *
  * @param {Object} serverData Preferences data preloaded from the server.

@@ -40,7 +40,7 @@ function block_core_post_template_uses_featured_image( $inner_blocks ) {
  *
  * @since WP 6.3.0 Changed render_block_context priority to `1`.
  *
- * @global WP_Query $wp_query WordPress Query object.
+ * @global WP_Query $wp_query WP Query object.
  *
  * @param array    $attributes Block attributes.
  * @param string   $content    Block default content.

@@ -1,5 +1,5 @@
 /**
- * WordPress inline HTML embed.
+ * Retraceur inline HTML embed.
  *
  * @since WP 4.4.0
  * @since 1.0.0 Retraceur fork.

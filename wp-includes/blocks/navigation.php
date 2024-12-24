@@ -714,7 +714,7 @@ class WP_Navigation_Block_Renderer {
 // when the gutenberg plugin is active.
 if ( defined( 'IS_GUTENBERG_PLUGIN' ) && IS_GUTENBERG_PLUGIN ) {
 	/**
-	 * Returns the menu items for a WordPress menu location.
+	 * Returns the menu items for a WP menu location.
 	 *
 	 * @since WP 5.9.0
 	 * @deprecated 1.0.0 Retraceur fork.

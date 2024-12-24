@@ -3812,9 +3812,9 @@ class WP_HTML_Tag_Processor {
 		}
 
 		/*
-		 * WordPress rejects more characters than are strictly forbidden
+		 * Retraceur rejects more characters than are strictly forbidden
 		 * in HTML5. This is to prevent additional security risks deeper
-		 * in the WordPress and plugin stack. Specifically the
+		 * in the Retraceur and plugin stack. Specifically the
 		 * less-than (<) greater-than (>) and ampersand (&) aren't allowed.
 		 *
 		 * The use of a PCRE match enables looking for specific Unicode

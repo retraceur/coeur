@@ -160,7 +160,7 @@ class WP_Sitemaps {
 	 *
 	 * @since WP 5.5.0
 	 *
-	 * @global WP_Query $wp_query WordPress Query object.
+	 * @global WP_Query $wp_query WP Query object.
 	 */
 	public function render_sitemaps() {
 		global $wp_query;

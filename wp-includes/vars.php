@@ -5,13 +5,13 @@
  * Sets $pagenow global which is the filename of the current screen.
  * Checks for the browser to set which one is currently being used.
  *
- * Detects which user environment WordPress is being used on.
+ * Detects which user environment Retraceur is being used on.
  * Only attempts to check for Apache, Nginx and IIS -- three web
  * servers with known pretty permalink capability.
  *
- * Note: Though Nginx is detected, WordPress does not currently
+ * Note: Though Nginx is detected, Retraceur does not currently
  * generate rewrite rules for it.
- * 
+ *
  * @since 1.0.0 Retraceur fork.
  *
  * @package Retraceur

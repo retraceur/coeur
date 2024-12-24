@@ -1,7 +1,7 @@
 <?php
 /**
  * Server-side rendering of the `core/calendar` block.
- * 
+ *
  * @since 1.0.0 Retraceur fork.
  *
  * @package Retraceur
@@ -129,7 +129,7 @@ function block_core_calendar_has_published_posts() {
  *
  * @since WP 5.9.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb WP database abstraction object.
  *
  * @return bool Has any published posts or not.
  */

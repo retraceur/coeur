@@ -27,7 +27,7 @@ module.exports = window["ReactDOM"];
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/ 	
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -41,14 +41,14 @@ module.exports = window["ReactDOM"];
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
-/******/ 	
+/******/
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
@@ -61,12 +61,12 @@ module.exports = window["ReactDOM"];
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -77,7 +77,7 @@ module.exports = window["ReactDOM"];
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
@@ -508,7 +508,7 @@ function closeOuterElement(endOffset) {
 
 
 /**
- * A base class to create WordPress Components (Refs, state and lifecycle hooks)
+ * A base class to create WP Components (Refs, state and lifecycle hooks)
  */
 
 
@@ -762,7 +762,7 @@ var client = __webpack_require__(4140);
 /**
  * Renders a given element into the target DOM node.
  *
- * @deprecated since WordPress 6.2.0. Use `createRoot` instead.
+ * @deprecated since WP 6.2.0. Use `createRoot` instead.
  * @see https://react.dev/reference/react-dom/render
  */
 
@@ -770,7 +770,7 @@ var client = __webpack_require__(4140);
 /**
  * Hydrates a given element into the target DOM node.
  *
- * @deprecated since WordPress 6.2.0. Use `hydrateRoot` instead.
+ * @deprecated since WP 6.2.0. Use `hydrateRoot` instead.
  * @see https://react.dev/reference/react-dom/hydrate
  */
 
@@ -778,7 +778,7 @@ var client = __webpack_require__(4140);
 /**
  * Creates a new React root for the target DOM node.
  *
- * @since 6.2.0 Introduced in WordPress core.
+ * @since 6.2.0 Introduced in WP core.
  * @see https://react.dev/reference/react-dom/client/createRoot
  */
 
@@ -786,7 +786,7 @@ var client = __webpack_require__(4140);
 /**
  * Creates a new React root for the target DOM node and hydrates it with a pre-generated markup.
  *
- * @since 6.2.0 Introduced in WordPress core.
+ * @since 6.2.0 Introduced in WP core.
  * @see https://react.dev/reference/react-dom/client/hydrateRoot
  */
 
@@ -794,7 +794,7 @@ var client = __webpack_require__(4140);
 /**
  * Removes any mounted element from the target DOM node.
  *
- * @deprecated since WordPress 6.2.0. Use `root.unmount()` instead.
+ * @deprecated since WP 6.2.0. Use `root.unmount()` instead.
  * @see https://react.dev/reference/react-dom/unmountComponentAtNode
  */
 

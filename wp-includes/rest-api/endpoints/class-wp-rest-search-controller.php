@@ -10,7 +10,7 @@
  */
 
 /**
- * Core class to search through all WordPress content via the REST API.
+ * Core class to search through all Retraceur content via the REST API.
  *
  * @since WP 5.0.0
  *

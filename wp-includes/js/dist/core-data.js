@@ -1753,7 +1753,7 @@ async function defaultProcessor(requests) {
 
 /**
  * Creates a batch, which can be used to combine multiple API requests into one
- * API request using the WordPress batch processing API (/v1/batch).
+ * API request using the WP batch processing API (/v1/batch).
  *
  * ```
  * const batch = createBatch();
@@ -2120,7 +2120,7 @@ function receiveThemeSupports() {
  * Returns an action object used in signalling that the theme global styles CPT post revisions have been received.
  * Ignored from documentation as it's internal to the data store.
  *
- * @deprecated since WordPress 6.5.0. Callers should use `dispatch( 'core' ).receiveRevision` instead.
+ * @deprecated since WP 6.5.0. Callers should use `dispatch( 'core' ).receiveRevision` instead.
  *
  * @ignore
  *
@@ -4535,7 +4535,7 @@ const getUserQueryResults = (0,external_wp_data_namespaceObject.createSelector)(
 /**
  * Returns the loaded entities for the given kind.
  *
- * @deprecated since WordPress 6.0. Use getEntitiesConfig instead
+ * @deprecated since WP 6.0. Use getEntitiesConfig instead
  * @param      state Data state.
  * @param      kind  Entity kind.
  *
@@ -4563,7 +4563,7 @@ const getEntitiesConfig = (0,external_wp_data_namespaceObject.createSelector)((s
 /**
  * Returns the entity config given its kind and name.
  *
- * @deprecated since WordPress 6.0. Use getEntityConfig instead
+ * @deprecated since WP 6.0. Use getEntityConfig instead
  * @param      state Data state.
  * @param      kind  Entity kind.
  * @param      name  Entity name.
@@ -5179,7 +5179,7 @@ function getEmbedPreview(state, url) {
 /**
  * Determines if the returned preview is an oEmbed link fallback.
  *
- * WordPress can be configured to return a simple link to a URL if it is not embeddable.
+ * WP can be configured to return a simple link to a URL if it is not embeddable.
  * We need to be able to determine if a URL is embeddable or not, based on what we
  * get back from the oEmbed preview API.
  *
@@ -5401,7 +5401,7 @@ function getUserPatternCategories(state) {
 /**
  * Returns the revisions of the current global styles theme.
  *
- * @deprecated since WordPress 6.5.0. Callers should use `select( 'core' ).getRevisions( 'root', 'globalStyles', ${ recordKey } )` instead, where `recordKey` is the id of the global styles parent post.
+ * @deprecated since WP 6.5.0. Callers should use `select( 'core' ).getRevisions( 'root', 'globalStyles', ${ recordKey } )` instead, where `recordKey` is the id of the global styles parent post.
  *
  * @param      state Data state.
  *
@@ -5644,9 +5644,9 @@ const forwardResolver = resolverName => (...args) => async ({
 
 
 /**
- * Fetches link suggestions from the WordPress API.
+ * Fetches link suggestions from the WP API.
  *
- * WordPress does not support searching multiple tables at once, e.g. posts and terms, so we
+ * WP does not support searching multiple tables at once, e.g. posts and terms, so we
  * perform multiple queries at the same time and then merge the results together.
  *
  * @param search
@@ -7195,7 +7195,7 @@ const META_SELECTORS = ['getIsResolving', 'hasStartedResolution', 'hasFinishedRe
  * Like useSelect, but the selectors return objects containing
  * both the original data AND the resolution info.
  *
- * @since 6.1.0 Introduced in WordPress core.
+ * @since 6.1.0 Introduced in WP core.
  * @private
  *
  * @param {Function} mapQuerySelect see useSelect
@@ -7303,7 +7303,7 @@ const use_entity_record_EMPTY_OBJECT = {};
 /**
  * Resolves the specified entity record.
  *
- * @since 6.1.0 Introduced in WordPress core.
+ * @since 6.1.0 Introduced in WP core.
  *
  * @param    kind     Kind of the entity, e.g. `root` or a `postType`. See rootEntitiesConfig in ../entities.ts for a list of available kinds.
  * @param    name     Name of the entity, e.g. `plugin` or a `post`. See rootEntitiesConfig in ../entities.ts for a list of available names.
@@ -7468,7 +7468,7 @@ const EMPTY_ARRAY = [];
 /**
  * Resolves the specified entity records.
  *
- * @since 6.1.0 Introduced in WordPress core.
+ * @since 6.1.0 Introduced in WP core.
  *
  * @param    kind      Kind of the entity, e.g. `root` or a `postType`. See rootEntitiesConfig in ../entities.ts for a list of available kinds.
  * @param    name      Name of the entity, e.g. `plugin` or a `post`. See rootEntitiesConfig in ../entities.ts for a list of available names.
@@ -7615,7 +7615,7 @@ var external_wp_warning_default = /*#__PURE__*/__webpack_require__.n(external_wp
 /**
  * Resolves resource permissions.
  *
- * @since 6.1.0 Introduced in WordPress core.
+ * @since 6.1.0 Introduced in WP core.
  *
  * @param    resource Entity resource to check. Accepts entity object `{ kind: 'root', name: 'media', id: 1 }`
  *                    or REST base as a string - `media`.

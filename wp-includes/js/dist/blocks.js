@@ -8103,7 +8103,7 @@ function bootstrappedBlockTypes(state = {}, action) {
       if (serverDefinition) {
         // The `blockHooks` prop is not yet included in the server provided
         // definitions and needs to be polyfilled. This can be removed when the
-        // minimum supported WordPress is >= 6.4.
+        // minimum supported WP is >= 6.4.
         if (serverDefinition.blockHooks === undefined && blockType.blockHooks) {
           newDefinition = {
             ...serverDefinition,
@@ -8114,7 +8114,7 @@ function bootstrappedBlockTypes(state = {}, action) {
 
         // The `allowedBlocks` prop is not yet included in the server provided
         // definitions and needs to be polyfilled. This can be removed when the
-        // minimum supported WordPress is >= 6.5.
+        // minimum supported WP is >= 6.5.
         if (serverDefinition.allowedBlocks === undefined && blockType.allowedBlocks) {
           newDefinition = {
             ...serverDefinition,
@@ -10652,7 +10652,7 @@ const external_ReactJSXRuntime_namespaceObject = window["ReactJSXRuntime"];
 
 function getBlockDefaultClassName(blockName) {
   // Generated HTML classes for blocks follow the `wp-block-{name}` nomenclature.
-  // Blocks provided by WordPress drop the prefixes 'core/' or 'core-' (historically used in 'core-embed/').
+  // Blocks provided by WP drop the prefixes 'core/' or 'core-' (historically used in 'core-embed/').
   const className = 'wp-block-' + blockName.replace(/\//, '-').replace(/^core-/, '');
   return (0,external_wp_hooks_namespaceObject.applyFilters)('blocks.getBlockDefaultClassName', className, blockName);
 }
@@ -10666,7 +10666,7 @@ function getBlockDefaultClassName(blockName) {
  */
 function getBlockMenuDefaultClassName(blockName) {
   // Generated HTML classes for blocks follow the `editor-block-list-item-{name}` nomenclature.
-  // Blocks provided by WordPress drop the prefixes 'core/' or 'core-' (historically used in 'core-embed/').
+  // Blocks provided by WP drop the prefixes 'core/' or 'core-' (historically used in 'core-embed/').
   const className = 'editor-block-list-item-' + blockName.replace(/\//, '-').replace(/^core-/, '');
   return (0,external_wp_hooks_namespaceObject.applyFilters)('blocks.getBlockMenuDefaultClassName', className, blockName);
 }
@@ -13228,7 +13228,7 @@ function matcher(selector) {
  */
 
 /**
- * Given block children, returns a serialize-capable WordPress element.
+ * Given block children, returns a serialize-capable WP element.
  *
  * @param {WPBlockChildren} children Block children object to convert.
  *

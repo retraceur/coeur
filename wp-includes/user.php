@@ -27,7 +27,7 @@
  * @since WP 2.5.0
  *
  * @global string $auth_secure_cookie
- * @global wpdb   $wpdb               WordPress database abstraction object.
+ * @global wpdb   $wpdb               WP database abstraction object.
  *
  * @param array       $credentials {
  *     Optional. User info in order to sign on.
@@ -292,7 +292,7 @@ function wp_authenticate_email_password( $user, $email, $password ) {
 }
 
 /**
- * Authenticates the user using the WordPress auth cookie.
+ * Authenticates the user using the Retraceur auth cookie.
  *
  * @since WP 2.8.0
  *
@@ -576,7 +576,7 @@ function wp_validate_logged_in_cookie( $user_id ) {
  * @since WP 4.3.0 Added `$public_only` argument. Added the ability to pass an array
  *              of post types to `$post_type`.
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb WP database abstraction object.
  *
  * @param int          $userid      User ID.
  * @param array|string $post_type   Optional. Single post type or array of post types to count the number of posts for. Default 'post'.
@@ -610,7 +610,7 @@ function count_user_posts( $userid, $post_type = 'post', $public_only = false ) 
  *
  * @since WP 3.0.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb WP database abstraction object.
  *
  * @param int[]           $users       Array of user IDs.
  * @param string|string[] $post_type   Optional. Single post type or array of post types to check. Defaults to 'post'.
@@ -673,7 +673,7 @@ function get_current_user_id() {
  *
  * @since WP 2.0.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb WP database abstraction object.
  *
  * @param string $option     User option name.
  * @param int    $user       Optional. User ID.
@@ -724,13 +724,13 @@ function get_user_option( $option, $user = 0, $deprecated = '' ) {
  *
  * User options are just like user metadata except that they have support for
  * global blog options. If the 'is_global' parameter is false, which it is by default,
- * it will prepend the WordPress table prefix to the option name.
+ * it will prepend the Retraceur table prefix to the option name.
  *
  * Deletes the user option if $newvalue is empty.
  *
  * @since WP 2.0.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb WP database abstraction object.
  *
  * @param int    $user_id     User ID.
  * @param string $option_name User option name.
@@ -755,11 +755,11 @@ function update_user_option( $user_id, $option_name, $newvalue, $is_global = fal
  *
  * User options are just like user metadata except that they have support for
  * global blog options. If the 'is_global' parameter is false, which it is by default,
- * it will prepend the WordPress table prefix to the option name.
+ * it will prepend the Retraceur table prefix to the option name.
  *
  * @since WP 3.0.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb WP database abstraction object.
  *
  * @param int    $user_id     User ID
  * @param string $option_name User option name.
@@ -953,7 +953,7 @@ function wp_list_users( $args = array() ) {
  * @since WP 3.0.0
  * @since WP 4.7.0 Converted to use `get_sites()`.
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb WP database abstraction object.
  *
  * @param int  $user_id User ID
  * @param bool $all     Whether to retrieve all sites, or only sites that are not
@@ -1083,7 +1083,7 @@ function get_blogs_of_user( $user_id, $all = false ) {
  *
  * @since WP MU (3.0.0)
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb WP database abstraction object.
  *
  * @param int $user_id Optional. The unique ID of the user. Defaults to the current user.
  * @param int $blog_id Optional. ID of the blog to check. Defaults to the current site.
@@ -1239,7 +1239,7 @@ function update_user_meta( $user_id, $meta_key, $meta_value, $prev_value = '' ) 
  * @since WP 4.4.0 The number of users with no role is now included in the `none` element.
  * @since WP 4.9.0 The `$site_id` parameter was added to support multisite.
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb WP database abstraction object.
  *
  * @param string   $strategy Optional. The computational strategy to use when counting the users.
  *                           Accepts either 'time' or 'memory'. Default 'time'.
@@ -1424,7 +1424,7 @@ function wp_maybe_update_user_counts( $network_id = null ) {
 /**
  * Updates the total count of users on the site.
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb WP database abstraction object.
  * @since WP 6.0.0
  *
  * @param int|null $network_id ID of the network. Defaults to the current network.
@@ -2062,7 +2062,7 @@ function validate_username( $username ) {
  * @since WP 5.9.0 The `meta_input` field can be passed to `$userdata` to allow addition of user meta data.
  * @since 1.0.0 Retraceur removed the `comment_shortcuts` meta key.
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb WP database abstraction object.
  *
  * @param array|object|WP_User $userdata {
  *     An array, object, or WP_User object of user data arguments.
@@ -3084,7 +3084,7 @@ function check_password_reset_key( $key, $login ) {
  * @since WP 2.5.0
  * @since WP 5.7.0 Added `$user_login` parameter.
  *
- * @global wpdb         $wpdb      WordPress database abstraction object.
+ * @global wpdb         $wpdb      WP database abstraction object.
  * @global PasswordHash $wp_hasher Portable PHP password hashing framework instance.
  *
  * @param string $user_login Optional. Username to send a password retrieval email for.
@@ -3568,7 +3568,7 @@ function wp_destroy_all_sessions() {
  * @since WP 4.4.0
  * @since WP 4.9.0 The `$site_id` parameter was added to support multisite.
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb WP database abstraction object.
  *
  * @param int|null $site_id Optional. The site ID to get users with no role for. Defaults to the current site.
  * @return string[] Array of user IDs as strings.
@@ -3830,7 +3830,7 @@ function _wp_privacy_action_request_types() {
  */
 function wp_register_user_personal_data_exporter( $exporters ) {
 	$exporters['wordpress-user'] = array(
-		'exporter_friendly_name' => __( 'WordPress User' ),
+		'exporter_friendly_name' => __( 'Retraceur User' ),
 		'callback'               => 'wp_user_personal_data_exporter',
 	);
 
@@ -3988,14 +3988,6 @@ function wp_user_personal_data_exporter( $email_address ) {
 				);
 			}
 		}
-
-		$data_to_export[] = array(
-			'group_id'          => 'community-events-location',
-			'group_label'       => __( 'Community Events Location' ),
-			'group_description' => __( 'User&#8217;s location data used for the Community Events in the WordPress Events and News dashboard widget.' ),
-			'item_id'           => "community-events-location-{$user->ID}",
-			'data'              => $location_data_to_export,
-		);
 	}
 
 	if ( isset( $user_meta['session_tokens'] ) ) {
@@ -5035,7 +5027,7 @@ function wp_is_application_passwords_available_for_user( $user ) {
  * @since WP 6.1.0
  * @access private
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb WP database abstraction object.
  */
 function wp_register_persisted_preferences_meta() {
 	/*

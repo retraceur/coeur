@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress scripts and styles default loader.
+ * Retraceur scripts and styles default loader.
  *
  * Several constants are used to manage the loading, concatenating and compression of scripts and CSS:
  * define('SCRIPT_DEBUG', true); loads the development (non-minified) versions of all scripts and CSS, and disables compression and concatenation,
@@ -18,22 +18,22 @@
  * @package Retraceur
  */
 
-/** WordPress Dependency Class */
+/** Retraceur Dependency Class */
 require ABSPATH . WPINC . '/class-wp-dependency.php';
 
-/** WordPress Dependencies Class */
+/** Retraceur Dependencies Class */
 require ABSPATH . WPINC . '/class-wp-dependencies.php';
 
-/** WordPress Scripts Class */
+/** Retraceur Scripts Class */
 require ABSPATH . WPINC . '/class-wp-scripts.php';
 
-/** WordPress Scripts Functions */
+/** Retraceur Scripts Functions */
 require ABSPATH . WPINC . '/functions.wp-scripts.php';
 
-/** WordPress Styles Class */
+/** Retraceur Styles Class */
 require ABSPATH . WPINC . '/class-wp-styles.php';
 
-/** WordPress Styles Functions */
+/** Retraceur Styles Functions */
 require ABSPATH . WPINC . '/functions.wp-styles.php';
 
 /**
@@ -73,14 +73,14 @@ function wp_register_tinymce_scripts( $scripts, $force_uncompressed = false ) {
 }
 
 /**
- * Registers all the WordPress vendor scripts that are in the standardized
+ * Registers all the Retraceur vendor scripts that are in the standardized
  * `js/dist/vendor/` location.
  *
  * For the order of `$scripts->add` see `wp_default_scripts`.
  *
  * @since WP 5.0.0
  *
- * @global WP_Locale $wp_locale WordPress date and time locale object.
+ * @global WP_Locale $wp_locale WP date and time locale object.
  *
  * @param WP_Scripts $scripts WP_Scripts object.
  */
@@ -262,7 +262,7 @@ function wp_register_development_scripts( $scripts ) {
 }
 
 /**
- * Registers all the WordPress packages scripts that are in the standardized
+ * Registers all the Retraceur packages scripts that are in the standardized
  * `js/dist/` location.
  *
  * For the order of `$scripts->add` see `wp_default_scripts`.
@@ -313,7 +313,7 @@ function wp_default_packages_scripts( $scripts ) {
 		 * Manually set the text direction localization after wp-i18n is printed.
 		 * This ensures that wp.i18n.isRTL() returns true in RTL languages.
 		 * We cannot use $scripts->set_translations( 'wp-i18n' ) to do this
-		 * because WordPress prints a script's translations *before* the script,
+		 * because Retraceur prints a script's translations *before* the script,
 		 * which means, in the case of wp-i18n, that wp.i18n.setLocaleData()
 		 * is called before wp.i18n is defined.
 		 */
@@ -326,13 +326,13 @@ function wp_default_packages_scripts( $scripts ) {
 }
 
 /**
- * Adds inline scripts required for the WordPress JavaScript packages.
+ * Adds inline scripts required for the Retraceur JavaScript packages.
  *
  * @since WP 5.0.0
  * @since WP 6.4.0 Added relative time strings for the `wp-date` inline script output.
  *
- * @global WP_Locale $wp_locale WordPress date and time locale object.
- * @global wpdb      $wpdb      WordPress database abstraction object.
+ * @global WP_Locale $wp_locale WP date and time locale object.
+ * @global wpdb      $wpdb      WP database abstraction object.
  *
  * @param WP_Scripts $scripts WP_Scripts object.
  */
@@ -484,7 +484,7 @@ function wp_default_packages_inline_scripts( $scripts ) {
 }
 
 /**
- * Registers all the WordPress packages scripts.
+ * Registers all the Retraceur packages scripts.
  *
  * @since WP 5.0.0
  *
@@ -551,7 +551,7 @@ function wp_scripts_get_suffix( $type = '' ) {
 }
 
 /**
- * Registers all WordPress scripts.
+ * Registers all Retraceur scripts.
  *
  * Localizes some of them.
  * args order: `$scripts->add( 'handle', 'url', 'dependencies', 'query-string', 1 );`
@@ -685,7 +685,7 @@ function wp_default_scripts( $scripts ) {
 	$scripts->add( 'site-icon', '/wp-admin/js/site-icon.js', array( 'jquery' ), false, 1 );
 	$scripts->set_translations( 'site-icon' );
 
-	// WordPress no longer uses or bundles Prototype or script.aculo.us. These are now pulled from an external source.
+	// WP no longer uses or bundles Prototype or script.aculo.us. These are now pulled from an external source.
 	$scripts->add( 'prototype', 'https://ajax.googleapis.com/ajax/libs/prototype/1.7.1.0/prototype.js', array(), '1.7.1' );
 	$scripts->add( 'scriptaculous-root', 'https://ajax.googleapis.com/ajax/libs/scriptaculous/1.9.0/scriptaculous.js', array( 'prototype' ), '1.9.0' );
 	$scripts->add( 'scriptaculous-builder', 'https://ajax.googleapis.com/ajax/libs/scriptaculous/1.9.0/builder.js', array( 'scriptaculous-root' ), '1.9.0' );
@@ -1592,7 +1592,7 @@ function wp_just_in_time_script_localization() {
  *
  * @link https://api.jqueryui.com/datepicker/#options
  *
- * @global WP_Locale $wp_locale WordPress date and time locale object.
+ * @global WP_Locale $wp_locale WP date and time locale object.
  */
 function wp_localize_jquery_ui_datepicker() {
 	global $wp_locale;
@@ -2165,7 +2165,7 @@ function wp_enqueue_global_styles() {
  *
  * @since WP 5.6.0
  *
- * @global WP_Screen $current_screen WordPress current screen object.
+ * @global WP_Screen $current_screen WP current screen object.
  *
  * @return bool Whether scripts and styles should be enqueued.
  */
@@ -2231,7 +2231,7 @@ function wp_should_load_separate_core_block_assets() {
  *
  * @since WP 5.0.0
  *
- * @global WP_Screen $current_screen WordPress current screen object.
+ * @global WP_Screen $current_screen WP current screen object.
  */
 function wp_enqueue_registered_block_scripts_and_styles() {
 	global $current_screen;
@@ -2644,15 +2644,15 @@ function wp_maybe_inline_styles() {
 }
 
 /**
- * Makes URLs relative to the WordPress installation.
+ * Makes URLs relative to the Retraceur installation.
  *
  * @since WP 5.9.0
  * @access private
  *
- * @param string $css            The CSS to make URLs relative to the WordPress installation.
+ * @param string $css            The CSS to make URLs relative to the Retraceur installation.
  * @param string $stylesheet_url The URL to the stylesheet.
  *
- * @return string The CSS with URLs made relative to the WordPress installation.
+ * @return string The CSS with URLs made relative to the Retraceur installation.
  */
 function _wp_normalize_relative_css_links( $css, $stylesheet_url ) {
 	return preg_replace_callback(

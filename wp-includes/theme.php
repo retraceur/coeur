@@ -277,12 +277,12 @@ function get_stylesheet_uri() {
  * the {@see 'stylesheet_directory_uri'} or {@see 'locale_stylesheet_uri'} filters.
  *
  * If you want to change the location of the stylesheet files for the entire
- * WordPress workflow, then change the former. If you just have the locale in a
+ * Retraceur workflow, then change the former. If you just have the locale in a
  * separate folder, then change the latter.
  *
  * @since WP 2.1.0
  *
- * @global WP_Locale $wp_locale WordPress date and time locale object.
+ * @global WP_Locale $wp_locale WP date and time locale object.
  *
  * @return string URI to active theme's localized stylesheet.
  */
@@ -678,7 +678,7 @@ function get_theme_root_uri( $stylesheet_or_template = '', $theme_root = '' ) {
 	 * @since WP 1.5.0
 	 *
 	 * @param string $theme_root_uri         The URI for themes directory.
-	 * @param string $siteurl                WordPress web address which is set in General Options.
+	 * @param string $siteurl                Retraceur web address which is set in General Options.
 	 * @param string $stylesheet_or_template The stylesheet or template name of the theme.
 	 */
 	return apply_filters( 'theme_root_uri', $theme_root_uri, get_option( 'siteurl' ), $stylesheet_or_template );
@@ -911,7 +911,7 @@ function validate_current_theme() {
 }
 
 /**
- * Validates the theme requirements for WordPress version and PHP version.
+ * Validates the theme requirements for Retraceur version and PHP version.
  *
  * Uses the information from `Requires at least` and `Requires PHP` headers
  * defined in the theme's `style.css` file.
@@ -938,7 +938,7 @@ function validate_theme_requirements( $stylesheet ) {
 			'theme_wp_php_incompatible',
 			sprintf(
 				/* translators: %s: Theme name. */
-				_x( '<strong>Error:</strong> Current WordPress and PHP versions do not meet minimum requirements for %s.', 'theme' ),
+				_x( '<strong>Error:</strong> Current Retraceur and PHP versions do not meet minimum requirements for %s.', 'theme' ),
 				$theme->display( 'Name' )
 			)
 		);
@@ -956,7 +956,7 @@ function validate_theme_requirements( $stylesheet ) {
 			'theme_wp_incompatible',
 			sprintf(
 				/* translators: %s: Theme name. */
-				_x( '<strong>Error:</strong> Current WordPress version does not meet minimum requirements for %s.', 'theme' ),
+				_x( '<strong>Error:</strong> Current Retraceur version does not meet minimum requirements for %s.', 'theme' ),
 				$theme->display( 'Name' )
 			)
 		);
@@ -3679,7 +3679,7 @@ function create_initial_theme_features() {
 	register_theme_feature(
 		'wp-block-styles',
 		array(
-			'description'  => __( 'Whether theme opts in to default WordPress block styles for viewing.' ),
+			'description'  => __( 'Whether theme opts in to default Retraceur block styles for viewing.' ),
 			'show_in_rest' => true,
 		)
 	);

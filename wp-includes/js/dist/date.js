@@ -1081,7 +1081,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"version":"2022g","zones":["Africa/Ab
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/ 	
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -1095,14 +1095,14 @@ module.exports = /*#__PURE__*/JSON.parse('{"version":"2022g","zones":["Africa/Ab
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
-/******/ 	
+/******/
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/ 	
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
@@ -1115,7 +1115,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"version":"2022g","zones":["Africa/Ab
 /******/ 			return getter;
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -1127,12 +1127,12 @@ module.exports = /*#__PURE__*/JSON.parse('{"version":"2022g","zones":["Africa/Ab
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -1143,7 +1143,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"version":"2022g","zones":["Africa/Ab
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be in strict mode.
@@ -1304,7 +1304,7 @@ function setSettings(dateSettings) {
   // Does moment already have a locale with the right name?
   if (external_moment_default().locales().includes(dateSettings.l10n.locale)) {
     // Is that locale misconfigured, e.g. because we are on a site running
-    // WordPress < 6.0?
+    // WP < 6.0?
     if (external_moment_default().localeData(dateSettings.l10n.locale).longDateFormat('LTS') === null) {
       // Delete the misconfigured locale.
       // @ts-ignore Type definitions are incorrect - null is permitted.
@@ -1689,7 +1689,7 @@ function gmdateI18n(dateFormat, dateValue = new Date()) {
 }
 
 /**
- * Check whether a date is considered in the future according to the WordPress settings.
+ * Check whether a date is considered in the future according to the WP settings.
  *
  * @param {string} dateValue Date String or Date object in the Defined WP Timezone.
  *

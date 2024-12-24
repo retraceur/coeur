@@ -36458,7 +36458,7 @@ const UnconnectedDropdown = (props, forwardedRef) => {
   };
   const popoverPropsHaveAnchor = !!popoverProps?.anchor ||
   // Note: `anchorRef`, `getAnchorRect` and `anchorRect` are deprecated and
-  // be removed from `Popover` from WordPress 6.3
+  // be removed from `Popover` from WP 6.3
   !!popoverProps?.anchorRef || !!popoverProps?.getAnchorRect || !!popoverProps?.anchorRect;
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)("div", {
     className: className,

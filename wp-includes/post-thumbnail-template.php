@@ -1,10 +1,10 @@
 <?php
 /**
- * WordPress Post Thumbnail Template Functions.
+ * Retraceur Post Thumbnail Template Functions.
  *
  * Support for post thumbnails.
  * Theme's functions.php must call add_theme_support( 'post-thumbnails' ) to use these.
- * 
+ *
  * @since 1.0.0 Retraceur fork.
  *
  * @package Retraceur
@@ -95,7 +95,7 @@ function the_post_thumbnail( $size = 'post-thumbnail', $attr = '' ) {
  *
  * @since WP 3.2.0
  *
- * @global WP_Query $wp_query WordPress Query object.
+ * @global WP_Query $wp_query WP Query object.
  *
  * @param WP_Query $wp_query Optional. A WP_Query instance. Defaults to the $wp_query global.
  */

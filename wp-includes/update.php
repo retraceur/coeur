@@ -1036,7 +1036,7 @@ function _wp_delete_all_temp_backups() {
 		wp_trigger_error(
 			__FUNCTION__,
 			/* translators: %s: Directory name. */
-			sprintf( __( 'Unable to locate WordPress content directory (%s).' ), 'wp-content' )
+			sprintf( __( 'Unable to locate Retraceur content directory (%s).' ), 'wp-content' )
 		);
 		return;
 	}

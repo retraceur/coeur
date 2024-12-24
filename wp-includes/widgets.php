@@ -5,9 +5,9 @@
  * This API is used for creating dynamic sidebar without hardcoding functionality into
  * themes
  *
- * Includes both internal WordPress routines and theme-use routines.
+ * Includes both internal WP routines and theme-use routines.
  *
- * This functionality was found in a plugin before the WordPress 2.2 release, which
+ * This functionality was found in a plugin before the WP 2.2 release, which
  * included it in the core from that point on.
  *
  * @since WP 2.2.0

@@ -82,7 +82,7 @@ class WP_Sitemaps_Index {
 	 *
 	 * @since WP 5.5.0
 	 *
-	 * @global WP_Rewrite $wp_rewrite WordPress rewrite component.
+	 * @global WP_Rewrite $wp_rewrite WP rewrite component.
 	 *
 	 * @return string The sitemap index URL.
 	 */
