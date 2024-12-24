@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Feed API.
+ * Retraceur Feed API.
  *
  * Many of the functions used in here belong in The Loop, or The Loop for the
  * Feeds.
@@ -589,7 +589,7 @@ function self_link() {
  * @since WP 5.2.0
  * @since 1.0.0 Retraceur fork removed the code about WP Comments
  *
- * @global WP_Query $wp_query WordPress Query object.
+ * @global WP_Query $wp_query WP Query object.
  *
  * @param string $format Date format string to return the time in.
  * @return string|false The time in requested format, or false on failure.

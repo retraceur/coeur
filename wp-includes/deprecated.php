@@ -1,6 +1,6 @@
 <?php
 /**
- * Deprecated functions from past WordPress versions. You shouldn't use these
+ * Deprecated functions from past WP/Retraceur versions. You shouldn't use these
  * functions and look for the alternatives instead. The functions will be
  * removed in a later version.
  *
@@ -51,19 +51,19 @@ function get_postdata($postid) {
 }
 
 /**
- * Sets up the WordPress Loop.
+ * Sets up the WP Loop.
  *
  * Use The Loop instead.
  *
  * @since WP 1.0.1
  * @deprecated WP 1.5.0
  *
- * @global WP_Query $wp_query WordPress Query object.
+ * @global WP_Query $wp_query WP Query object.
  */
 function start_wp() {
 	global $wp_query;
 
-	_deprecated_function( __FUNCTION__, '1.5.0', __('new WordPress Loop') );
+	_deprecated_function( __FUNCTION__, '1.5.0', __('new WP Loop') );
 
 	// Since the old style loop is being used, advance the query iterator here.
 	$wp_query->next_post();
@@ -2217,7 +2217,7 @@ function unregister_widget_control($id) {
  * @deprecated WP 3.0.0 Use delete_user_meta()
  * @see delete_user_meta()
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb WP database abstraction object.
  *
  * @param int $user_id User ID.
  * @param string $meta_key Metadata key.
@@ -2266,7 +2266,7 @@ function delete_usermeta( $user_id, $meta_key, $meta_value = '' ) {
  * @deprecated WP 3.0.0 Use get_user_meta()
  * @see get_user_meta()
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb WP database abstraction object.
  *
  * @param int $user_id User ID
  * @param string $meta_key Optional. Metadata key. Default empty.
@@ -2320,7 +2320,7 @@ function get_usermeta( $user_id, $meta_key = '' ) {
  * @deprecated WP 3.0.0 Use update_user_meta()
  * @see update_user_meta()
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb WP database abstraction object.
  *
  * @param int $user_id User ID
  * @param string $meta_key Metadata key.
@@ -2376,7 +2376,7 @@ function update_usermeta( $user_id, $meta_key, $meta_value ) {
  * @deprecated WP 3.1.0 Use get_users()
  * @see get_users()
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb WP database abstraction object.
  *
  * @param int $id Site ID.
  * @return array List of users that are part of that site ID
@@ -3223,8 +3223,8 @@ function wp_load_image( $file ) {
  * be PNG. The only supported image types are PNG, GIF, and JPEG.
  *
  * Some functionality requires API to exist, so some PHP version may lose out
- * support. This is not the fault of WordPress (where functionality is
- * downgraded, not actual defects), but of your PHP version.
+ * support. This is not the fault of WP (where functionality is downgraded,
+ * not actual defects), but of your PHP version.
  *
  * @since WP 2.5.0
  * @deprecated WP 3.5.0 Use wp_get_image_editor()
@@ -3397,7 +3397,7 @@ function _search_terms_tidy( $t ) {
  * Determine if TinyMCE is available.
  *
  * Checks to see if the user has deleted the tinymce files to slim down
- * their WordPress installation.
+ * their WP installation.
  *
  * @since WP 2.1.0
  * @deprecated WP 3.9.0
@@ -3462,7 +3462,7 @@ function like_escape($text) {
 /**
  * Determines if the URL can be accessed over SSL.
  *
- * Determines if the URL can be accessed over SSL by using the WordPress HTTP API to access
+ * Determines if the URL can be accessed over SSL by using the WP HTTP API to access
  * the URL using https as the scheme.
  *
  * @since WP 2.5.0
@@ -4552,7 +4552,7 @@ function _filter_query_attachment_filenames( $clauses ) {
  * @since WP 3.0.0 The `$post_type` parameter was added.
  * @deprecated WP 6.2.0 Use WP_Query.
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb WP database abstraction object.
  *
  * @param string       $page_title Page title.
  * @param string       $output     Optional. The required return type. One of OBJECT, ARRAY_A, or ARRAY_N, which
@@ -4685,7 +4685,7 @@ function wp_queue_comments_for_comment_meta_lazyload( $comments ) {
  * @deprecated WP 6.3.0 Use wp_get_loading_optimization_attributes() instead.
  * @see wp_get_loading_optimization_attributes()
  *
- * @global WP_Query $wp_query WordPress Query object.
+ * @global WP_Query $wp_query WP Query object.
  *
  * @param string $context Context for the element for which the `loading` attribute value is requested.
  * @return string|bool The default `loading` attribute value. Either 'lazy', 'eager', or a boolean `false`, to indicate
@@ -6009,8 +6009,8 @@ function wp_update_https_detection_errors() {
  * browser can decode the image off the main thread (`async`), on the
  * main thread (`sync`) or as determined by the browser (`auto`).
  *
- * By default WordPress adds `decoding="async"` to images but developers
- * can use the {@see 'wp_img_tag_add_decoding_attr'} filter to modify this
+ * By default WP adds `decoding="async"` to images but developers can
+ * use the {@see 'wp_img_tag_add_decoding_attr'} filter to modify this
  * to remove the attribute or set it to another accepted value.
  *
  * @since WP 6.1.0
@@ -6713,8 +6713,8 @@ function _register_remote_theme_patterns() {
  * Loads the Customizer at plugins_loaded when accessing the customize.php admin
  * page or when any request includes a wp_customize=on param or a customize_changeset
  * param (a UUID). This param is a signal for whether to bootstrap the Customizer when
- * WordPress is loading, especially in the Customizer preview
- * or when making Customizer Ajax requests for widgets or menus.
+ * WP is loading, especially in the Customizer preview or when making Customizer Ajax
+ * requests for widgets or menus.
  *
  * @since WP 3.4.0
  * @deprecated 1.0.0 Retraceur removed the customizer feature.
@@ -7033,9 +7033,9 @@ function register_sidebars( $number = 1, $args = array() ) {
  * Builds the definition for a single sidebar and returns the ID.
  *
  * Accepts either a string or an array and then parses that against a set
- * of default arguments for the new sidebar. WordPress will automatically
- * generate a sidebar ID and name based on the current number of registered
- * sidebars if those arguments are not included.
+ * of default arguments for the new sidebar. WP will automatically generate
+ * a sidebar ID and name based on the current number of registered sidebars
+ * if those arguments are not included.
  *
  * When allowing for automatic generation of the name and ID parameters, keep
  * in mind that the incrementor for your sidebar can change over time depending
@@ -7731,9 +7731,9 @@ function wp_widget_rss_process( $widget_rss, $check_feed = true ) {
 }
 
 /**
- * Registers all of the default WordPress widgets on startup.
+ * Registers all of the default WP widgets on startup.
  *
- * Calls {@see 'widgets_init'} action after all of the WordPress widgets have been registered.
+ * Calls {@see 'widgets_init'} action after all of the WP widgets have been registered.
  *
  * @since WP 2.2.0
  * @deprecated 1.0.0 Retraceur removed the Widgets feature.
@@ -7742,7 +7742,7 @@ function wp_widgets_init() {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 
 	/**
-	 * Fires after all default WordPress widgets have been registered.
+	 * Fires after all default WP widgets have been registered.
 	 *
 	 * @since WP 2.2.0
 	 * @deprecated 1.0.0 Retraceur removed the Widgets feature.
@@ -7995,7 +7995,7 @@ function register_block_core_widget_group() {
 }
 
 /**
- * Make a note of the sidebar being rendered before WordPress starts rendering
+ * Make a note of the sidebar being rendered before WP starts rendering
  * it. This lets us get to the current sidebar in
  * render_block_core_widget_group().
  *
@@ -8383,7 +8383,7 @@ function _wp_register_default_font_collections() {
 }
 
 /**
- * Kills WordPress execution and displays XML response with an error message.
+ * Kills WP execution and displays XML response with an error message.
  *
  * This is the handler for wp_die() when processing XMLRPC requests.
  *
@@ -8519,7 +8519,7 @@ function _nav_menu_item_id_use_once( $id, $item ) {
  *
  * This runs on the {@see 'nav_menu_css_class'} filter. The $args and $depth
  * parameters were added after the filter was originally introduced in
- * WordPress 3.0.0 so this needs to allow for cases in which the filter is
+ * WP 3.0.0 so this needs to allow for cases in which the filter is
  * called without them.
  *
  * @since WP 6.2.0
@@ -11502,7 +11502,7 @@ function check_comment( $author, $email, $url, $comment, $user_ip, $user_agent, 
 }
 
 /**
- * Retrieves all of the WordPress supported comment statuses.
+ * Retrieves all of the WP supported comment statuses.
  *
  * Comments have a limited set of valid status values, this provides the comment
  * status values and descriptions.
@@ -13169,7 +13169,7 @@ function do_all_trackbacks() {
  * @since WP 4.7.0 `$post` can be a WP_Post object.
  * @deprecated 1.0.0 Retraceur fork.
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb WP database abstraction object.
  *
  * @param int|WP_Post $post Post ID or object to do trackbacks on.
  * @return void|false Returns false on failure.
@@ -13229,8 +13229,8 @@ function pingback( $content, $post ) {
 	 * @since WP 2.9.0
 	 * @deprecated 1.0.0 Retraceur fork.
 	 *
-	 * @param string $concat_useragent    The user agent concatenated with ' -- WordPress/'
-	 *                                    and the WordPress version.
+	 * @param string $concat_useragent    The user agent concatenated with ' -- WP/'
+	 *                                    and the WP version.
 	 * @param string $useragent           The useragent.
 	 * @param string $pingback_server_url The server URL being linked to.
 	 * @param string $pagelinkedto        URL of page linked to.
@@ -15584,7 +15584,7 @@ function is_comment_feed() {
 }
 
 /**
- * Determines whether current WordPress query has comments to loop over.
+ * Determines whether current WP query has comments to loop over.
  *
  * @since WP 2.2.0
  * @deprecated 1.0.0 Retraceur fork.

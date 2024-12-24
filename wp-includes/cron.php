@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Cron API.
+ * Retraceur Cron API.
  *
  * @since 1.0.0 Retraceur fork.
  *
@@ -10,8 +10,8 @@
 /**
  * Schedules an event to run only once.
  *
- * Schedules a hook which will be triggered by WordPress at the specified UTC time.
- * The action will trigger when someone visits your WordPress site if the scheduled
+ * Schedules a hook which will be triggered by Retraceur at the specified UTC time.
+ * The action will trigger when someone visits your Retraceur site if the scheduled
  * time has passed.
  *
  * Note that scheduling an event to occur within 10 minutes of an existing event
@@ -202,8 +202,8 @@ function wp_schedule_single_event( $timestamp, $hook, $args = array(), $wp_error
 /**
  * Schedules a recurring event.
  *
- * Schedules a hook which will be triggered by WordPress at the specified interval.
- * The action will trigger when someone visits your WordPress site if the scheduled
+ * Schedules a hook which will be triggered by Retraceur at the specified interval.
+ * The action will trigger when someone visits your Retraceur site if the scheduled
  * time has passed.
  *
  * Valid values for the recurrence are 'hourly', 'twicedaily', 'daily', and 'weekly'.

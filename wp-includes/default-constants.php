@@ -8,14 +8,14 @@
  */
 
 /**
- * Defines initial WordPress constants.
+ * Defines initial Retraceur constants.
  *
  * @see wp_debug_mode()
  *
  * @since WP 3.0.0
  *
  * @global int    $blog_id    The current site ID.
- * @global string $wp_version The WordPress version string.
+ * @global string $wp_version The WP version string.
  */
 function wp_initial_constants() {
 	global $blog_id, $wp_version;
@@ -84,7 +84,7 @@ function wp_initial_constants() {
 	/*
 	 * Add define( 'WP_DEVELOPMENT_MODE', 'core' ), or define( 'WP_DEVELOPMENT_MODE', 'plugin' ), or
 	 * define( 'WP_DEVELOPMENT_MODE', 'theme' ), or define( 'WP_DEVELOPMENT_MODE', 'all' ) to wp-config.php
-	 * to signify development mode for WordPress core, a plugin, a theme, or all three types respectively.
+	 * to signify development mode for Retraceur core, a plugin, a theme, or all three types respectively.
 	 */
 	if ( ! defined( 'WP_DEVELOPMENT_MODE' ) ) {
 		define( 'WP_DEVELOPMENT_MODE', '' );
@@ -167,7 +167,7 @@ function wp_initial_constants() {
 }
 
 /**
- * Defines plugin directory WordPress constants.
+ * Defines plugin directory Retraceur constants.
  *
  * Defines must-use plugin directory constants, which may be overridden in the sunrise.php drop-in.
  *
@@ -236,7 +236,7 @@ function wp_plugin_directory_constants() {
 }
 
 /**
- * Defines cookie-related WordPress constants.
+ * Defines cookie-related Retraceur constants.
  *
  * Defines constants after multisite is loaded.
  *
@@ -344,7 +344,7 @@ function wp_cookie_constants() {
 }
 
 /**
- * Defines SSL-related WordPress constants.
+ * Defines SSL-related Retraceur constants.
  *
  * @since WP 3.0.0
  */
@@ -371,7 +371,7 @@ function wp_ssl_constants() {
 }
 
 /**
- * Defines functionality-related WordPress constants.
+ * Defines functionality-related Retraceur constants.
  *
  * @since WP 3.0.0
  */
@@ -403,7 +403,7 @@ function wp_functionality_constants() {
 }
 
 /**
- * Defines templating-related WordPress constants.
+ * Defines templating-related Retraceur constants.
  *
  * @since WP 3.0.0
  */

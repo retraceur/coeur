@@ -1,6 +1,6 @@
 <?php
 /**
- * Main WordPress API.
+ * Main Retraceur API.
  *
  * @since 1.0.0 Retraceur fork.
  *
@@ -230,7 +230,7 @@ function date_i18n( $format, $timestamp_with_offset = false, $gmt = false ) {
  *
  * @since WP 5.3.0
  *
- * @global WP_Locale $wp_locale WordPress date and time locale object.
+ * @global WP_Locale $wp_locale WP date and time locale object.
  *
  * @param string       $format    PHP date format.
  * @param int          $timestamp Optional. Unix timestamp. Defaults to current time.
@@ -327,7 +327,7 @@ function wp_date( $format, $timestamp = null, $timezone = null ) {
  * @since WP 4.4.0
  * @since WP 5.4.0 The `$format` parameter was added.
  *
- * @global WP_Locale $wp_locale WordPress date and time locale object.
+ * @global WP_Locale $wp_locale WP date and time locale object.
  *
  * @param string $date   Formatted date string.
  * @param string $format Optional. Date format to check. Default empty string.
@@ -413,7 +413,7 @@ function wp_maybe_decline_date( $date, $format = '' ) {
  *
  * @since WP 2.3.0
  *
- * @global WP_Locale $wp_locale WordPress date and time locale object.
+ * @global WP_Locale $wp_locale WP date and time locale object.
  *
  * @param float $number   The number to convert based on locale.
  * @param int   $decimals Optional. Precision of the number of decimal places. Default 0.
@@ -1143,13 +1143,13 @@ function wp_remote_fopen( $uri ) {
 }
 
 /**
- * Sets up the WordPress query.
+ * Sets up the Retraceur query.
  *
  * @since WP 2.0.0
  *
- * @global WP       $wp           Current WordPress environment instance.
- * @global WP_Query $wp_query     WordPress Query object.
- * @global WP_Query $wp_the_query Copy of the WordPress Query object.
+ * @global WP       $wp           Current Retraceur environment instance.
+ * @global WP_Query $wp_query     WP Query object.
+ * @global WP_Query $wp_the_query Copy of the WP Query object.
  *
  * @param string|array $query_vars Default WP_Query arguments.
  */
@@ -1381,11 +1381,11 @@ function cache_javascript_headers() {
 }
 
 /**
- * Retrieves the number of database queries during the WordPress execution.
+ * Retrieves the number of database queries during the Retraceur execution.
  *
  * @since WP 2.0.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb WP database abstraction object.
  *
  * @return int Number of database queries.
  */
@@ -1418,7 +1418,7 @@ function bool_from_yn( $yn ) {
  *
  * @since WP 2.1.0
  *
- * @global WP_Query $wp_query WordPress Query object.
+ * @global WP_Query $wp_query WP Query object.
  */
 function do_feed() {
 	global $wp_query;
@@ -1558,17 +1558,17 @@ function do_favicon() {
 }
 
 /**
- * Determines whether WordPress is already installed.
+ * Determines whether Retraceur is already installed.
  *
  * The cache will be checked first. If you have a cache plugin, which saves
- * the cache values, then this will work. If you use the default WordPress
+ * the cache values, then this will work. If you use the default Retraceur
  * cache, and the database goes away, then you might have problems.
  *
- * Checks for the 'siteurl' option for whether WordPress is installed.
+ * Checks for the 'siteurl' option for whether Retraceur is installed.
  *
  * @since WP 2.1.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb WP database abstraction object.
  *
  * @return bool Whether the site is already installed.
  */
@@ -3510,7 +3510,7 @@ function wp_nonce_ays( $action ) {
 }
 
 /**
- * Kills WordPress execution and displays HTML page with an error message.
+ * Kills Retraceur execution and displays HTML page with an error message.
  *
  * This function complements the `die()` PHP function. The difference is that
  * HTML will be displayed to the user. It is recommended to use this function
@@ -3529,7 +3529,7 @@ function wp_nonce_ays( $action ) {
  * @since WP 5.5.0 The `$text_direction` argument has a priority over get_language_attributes()
  *              in the default handler.
  *
- * @global WP_Query $wp_query WordPress Query object.
+ * @global WP_Query $wp_query WP Query object.
  *
  * @param string|WP_Error  $message Optional. Error message. If this is a WP_Error object,
  *                                  and not an Ajax or XML-RPC request, the error's messages are used.
@@ -3548,7 +3548,7 @@ function wp_nonce_ays( $action ) {
  *     @type string $link_text      A label for the link to include. Only works in combination with $link_url.
  *                                  Default empty string.
  *     @type bool   $back_link      Whether to include a link to go back. Default false.
- *     @type string $text_direction The text direction. This is only useful internally, when WordPress is still
+ *     @type string $text_direction The text direction. This is only useful internally, when Retraceur is still
  *                                  loading and the site's locale is not set up yet. Accepts 'rtl' and 'ltr'.
  *                                  Default is the value of is_rtl().
  *     @type string $charset        Character set of the HTML output. Default 'utf-8'.
@@ -3569,7 +3569,7 @@ function wp_die( $message = '', $title = '', $args = array() ) {
 
 	if ( wp_doing_ajax() ) {
 		/**
-		 * Filters the callback for killing WordPress execution for Ajax requests.
+		 * Filters the callback for killing Retraceur execution for Ajax requests.
 		 *
 		 * @since WP 3.4.0
 		 *
@@ -3578,7 +3578,7 @@ function wp_die( $message = '', $title = '', $args = array() ) {
 		$callback = apply_filters( 'wp_die_ajax_handler', '_ajax_wp_die_handler' );
 	} elseif ( wp_is_json_request() ) {
 		/**
-		 * Filters the callback for killing WordPress execution for JSON requests.
+		 * Filters the callback for killing Retraceur execution for JSON requests.
 		 *
 		 * @since WP 5.1.0
 		 *
@@ -3587,7 +3587,7 @@ function wp_die( $message = '', $title = '', $args = array() ) {
 		$callback = apply_filters( 'wp_die_json_handler', '_json_wp_die_handler' );
 	} elseif ( wp_is_serving_rest_request() && wp_is_jsonp_request() ) {
 		/**
-		 * Filters the callback for killing WordPress execution for JSONP REST requests.
+		 * Filters the callback for killing Retraceur execution for JSONP REST requests.
 		 *
 		 * @since WP 5.2.0
 		 *
@@ -3596,7 +3596,7 @@ function wp_die( $message = '', $title = '', $args = array() ) {
 		$callback = apply_filters( 'wp_die_jsonp_handler', '_jsonp_wp_die_handler' );
 	} elseif ( wp_is_xml_request() || isset( $wp_query ) && function_exists( 'is_feed' ) && is_feed() ) {
 		/**
-		 * Filters the callback for killing WordPress execution for XML requests.
+		 * Filters the callback for killing Retraceur execution for XML requests.
 		 *
 		 * @since WP 5.2.0
 		 *
@@ -3605,7 +3605,7 @@ function wp_die( $message = '', $title = '', $args = array() ) {
 		$callback = apply_filters( 'wp_die_xml_handler', '_xml_wp_die_handler' );
 	} else {
 		/**
-		 * Filters the callback for killing WordPress execution for all non-Ajax, non-JSON, non-XML requests.
+		 * Filters the callback for killing Retraceur execution for all non-Ajax, non-JSON, non-XML requests.
 		 *
 		 * @since WP 3.0.0
 		 *
@@ -3618,7 +3618,7 @@ function wp_die( $message = '', $title = '', $args = array() ) {
 }
 
 /**
- * Kills WordPress execution and displays HTML page with an error message.
+ * Kills Retraceur execution and displays HTML page with an error message.
  *
  * This is the default handler for wp_die(). If you want a custom one,
  * you can override this using the {@see 'wp_die_handler'} filter in wp_die().
@@ -3821,7 +3821,7 @@ function _default_wp_die_handler( $message, $title = '', $args = array() ) {
 }
 
 /**
- * Kills WordPress execution and displays Ajax response with an error message.
+ * Kills Retraceur execution and displays Ajax response with an error message.
  *
  * This is the handler for wp_die() when processing Ajax requests.
  *
@@ -3863,7 +3863,7 @@ function _ajax_wp_die_handler( $message, $title = '', $args = array() ) {
 }
 
 /**
- * Kills WordPress execution and displays JSON response with an error message.
+ * Kills Retraceur execution and displays JSON response with an error message.
  *
  * This is the handler for wp_die() when processing JSON requests.
  *
@@ -3905,7 +3905,7 @@ function _json_wp_die_handler( $message, $title = '', $args = array() ) {
 }
 
 /**
- * Kills WordPress execution and displays JSONP response with an error message.
+ * Kills Retraceur execution and displays JSONP response with an error message.
  *
  * This is the handler for wp_die() when processing JSONP requests.
  *
@@ -3951,7 +3951,7 @@ function _jsonp_wp_die_handler( $message, $title = '', $args = array() ) {
 }
 
 /**
- * Kills WordPress execution and displays XML response with an error message.
+ * Kills Retraceur execution and displays XML response with an error message.
  *
  * This is the handler for wp_die() when processing XML requests.
  *
@@ -3995,7 +3995,7 @@ EOD;
 }
 
 /**
- * Kills WordPress execution and displays an error message.
+ * Kills Retraceur execution and displays an error message.
  *
  * This is the handler for wp_die() when processing APP requests.
  *
@@ -4098,7 +4098,7 @@ function _wp_die_process_input( $message, $title = '', $args = array() ) {
 		$args['response'] = 500;
 	}
 	if ( empty( $title ) ) {
-		$title = $have_gettext ? __( 'WordPress &rsaquo; Error' ) : 'WordPress &rsaquo; Error';
+		$title = $have_gettext ? __( 'Retraceur &rsaquo; Error' ) : 'Retraceur &rsaquo; Error';
 	}
 	if ( empty( $args['text_direction'] ) || ! in_array( $args['text_direction'], array( 'ltr', 'rtl' ), true ) ) {
 		$args['text_direction'] = 'ltr';
@@ -4443,7 +4443,7 @@ function wp_json_file_decode( $filename, $options = array() ) {
 }
 
 /**
- * Retrieves the WordPress home page URL.
+ * Retrieves the Retraceur home page URL.
  *
  * If the constant named 'WP_HOME' exists, then it will be used and returned
  * by the function. This can be used to counter the redirection on your local
@@ -4465,7 +4465,7 @@ function _config_wp_home( $url = '' ) {
 }
 
 /**
- * Retrieves the WordPress site URL.
+ * Retrieves the Retraceur site URL.
  *
  * If the constant named 'WP_SITEURL' is defined, then the value in that
  * constant will always be returned. This can be used for debugging a site
@@ -4476,8 +4476,8 @@ function _config_wp_home( $url = '' ) {
  *
  * @see WP_SITEURL
  *
- * @param string $url URL to set the WordPress site location.
- * @return string The WordPress site URL.
+ * @param string $url URL to set the Retraceur site location.
+ * @return string The Retraceur site URL.
  */
 function _config_wp_siteurl( $url = '' ) {
 	if ( defined( 'WP_SITEURL' ) ) {
@@ -4499,7 +4499,7 @@ function _delete_option_fresh_site() {
 /**
  * Sets the localized direction for MCE plugin.
  *
- * Will only set the direction to 'rtl', if the WordPress locale has
+ * Will only set the direction to 'rtl', if the Retraceur locale has
  * the text direction set to 'rtl'.
  *
  * Fills in the 'directionality' setting, enables the 'directionality'
@@ -4531,7 +4531,7 @@ function _mce_set_direction( $mce_init ) {
 }
 
 /**
- * Determines whether WordPress is currently serving a REST API request.
+ * Determines whether Retraceur is currently serving a REST API request.
  *
  * The function relies on the 'REST_REQUEST' global. As such, it only returns true when an actual REST _request_ is
  * being made. It does not return true when a REST endpoint is hit as part of another request, e.g. for preloading a
@@ -4542,7 +4542,7 @@ function _mce_set_direction( $mce_init ) {
  *
  * @since WP 6.5.0
  *
- * @return bool True if it's a WordPress REST API request, false otherwise.
+ * @return bool True if it's a WP REST API request, false otherwise.
  */
 function wp_is_serving_rest_request() {
 	return defined( 'REST_REQUEST' ) && REST_REQUEST;
@@ -4683,7 +4683,7 @@ function smilies_init() {
 /**
  * Merges user defined arguments into defaults array.
  *
- * This function is used throughout WordPress to allow for both string or array
+ * This function is used throughout Retraceur to allow for both string or array
  * to be merged into another array.
  *
  * @since WP 2.2.0
@@ -5173,22 +5173,22 @@ function wp_ob_end_flush_all() {
 }
 
 /**
- * Loads custom DB error or display WordPress DB error.
+ * Loads custom DB error or display Retraceur DB error.
  *
  * If a file exists in the wp-content directory named db-error.php, then it will
- * be loaded instead of displaying the WordPress DB error. If it is not found,
- * then the WordPress DB error will be displayed instead.
+ * be loaded instead of displaying the Retraceur DB error. If it is not found,
+ * then the Retraceur DB error will be displayed instead.
  *
- * The WordPress DB error sets the HTTP status header to 500 to try to prevent
+ * The Retraceur DB error sets the HTTP status header to 500 to try to prevent
  * search engines from caching the message. Custom DB messages should do the
  * same.
  *
- * This function was backported to WordPress 2.3.2, but originally was added
- * in WordPress 2.5.0.
+ * This function was backported to WP 2.3.2, but originally was added
+ * in WP 2.5.0.
  *
  * @since WP 2.3.2
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb WP database abstraction object.
  */
 function dead_db() {
 	global $wpdb;
@@ -5226,7 +5226,7 @@ function dead_db() {
  * @since 1.0.0    Adds the `$is_retraceur` parameter to inform whether the deprecation is specific to Retraceur fork.
  *
  * @param string $function_name The function that was called.
- * @param string $version       The version of WordPress that deprecated the function.
+ * @param string $version       The version of WP or Retraceur that deprecated the function.
  * @param string $replacement   Optional. The function that should have been called. Default empty string.
  * @param bool   $is_retraceur         Optional. Whether this deprecation is specific to Retraceur fork.
  */
@@ -5239,7 +5239,7 @@ function _deprecated_function( $function_name, $version, $replacement = '', $is_
 	 *
 	 * @param string $function_name The function that was called.
 	 * @param string $replacement   The function that should have been called.
-	 * @param string $version       The version of WordPress that deprecated the function.
+	 * @param string $version       The version of WP or Retraceur that deprecated the function.
 	 */
 	do_action( 'deprecated_function_run', $function_name, $replacement, $version );
 
@@ -5309,7 +5309,7 @@ function _deprecated_function( $function_name, $version, $replacement = '', $is_
  * @since WP 5.4.0 The error type is now classified as E_USER_DEPRECATED (used to default to E_USER_NOTICE).
  *
  * @param string $class_name   The class containing the deprecated constructor.
- * @param string $version      The version of WordPress that deprecated the function.
+ * @param string $version      The version of WP that deprecated the function.
  * @param string $parent_class Optional. The parent class calling the deprecated constructor.
  *                             Default empty string.
  */
@@ -5322,7 +5322,7 @@ function _deprecated_constructor( $class_name, $version, $parent_class = '' ) {
 	 * @since WP 4.5.0 Added the `$parent_class` parameter.
 	 *
 	 * @param string $class_name   The class containing the deprecated constructor.
-	 * @param string $version      The version of WordPress that deprecated the function.
+	 * @param string $version      The version of WP that deprecated the function.
 	 * @param string $parent_class The parent class calling the deprecated constructor.
 	 */
 	do_action( 'deprecated_constructor_run', $class_name, $version, $parent_class );
@@ -5394,7 +5394,7 @@ function _deprecated_constructor( $class_name, $version, $parent_class = '' ) {
  * @since 1.0.0 Adds the `$is_retraceur` parameter to inform whether the deprecation is specific to Retraceur fork.
  *
  * @param string $class_name  The name of the class being instantiated.
- * @param string $version     The version of WordPress that deprecated the class.
+ * @param string $version     The version of WP or Retraceur that deprecated the class.
  * @param string $replacement Optional. The class or function that should have been called.
  *                            Default empty string.
  * @param bool   $is_retraceur       Optional. Whether this deprecation is specific to Retraceur fork.
@@ -5408,7 +5408,7 @@ function _deprecated_class( $class_name, $version, $replacement = '', $is_retrac
 	 *
 	 * @param string $class_name  The name of the class being instantiated.
 	 * @param string $replacement The class or function that should have been called.
-	 * @param string $version     The version of WordPress that deprecated the class.
+	 * @param string $version     The version of WP or Retraceur that deprecated the class.
 	 */
 	do_action( 'deprecated_class_run', $class_name, $replacement, $version );
 
@@ -5478,7 +5478,7 @@ function _deprecated_class( $class_name, $version, $replacement = '', $is_retrac
  * @since 1.0.0    Adds the `$is_retraceur` parameter to inform whether the deprecation is specific to Retraceur fork.
  *
  * @param string $file        The file that was included.
- * @param string $version     The version of WordPress that deprecated the file.
+ * @param string $version     The version of WP or Retraceur that deprecated the file.
  * @param string $replacement Optional. The file that should have been included based on ABSPATH.
  *                            Default empty string.
  * @param string $message     Optional. A message regarding the change. Default empty string.
@@ -5493,7 +5493,7 @@ function _deprecated_file( $file, $version, $replacement = '', $message = '', $i
 	 *
 	 * @param string $file        The file that was called.
 	 * @param string $replacement The file that should have been included based on ABSPATH.
-	 * @param string $version     The version of WordPress that deprecated the file.
+	 * @param string $version     The version of WP or Retraceur that deprecated the file.
 	 * @param string $message     A message regarding the change.
 	 */
 	do_action( 'deprecated_file_included', $file, $replacement, $version, $message );
@@ -5573,7 +5573,7 @@ function _deprecated_file( $file, $version, $replacement = '', $message = '', $i
  * @since 1.0.0    Adds the `$is_retraceur` parameter to inform whether the deprecation is specific to Retraceur fork.
  *
  * @param string $function_name The function that was called.
- * @param string $version       The version of WordPress that deprecated the argument used.
+ * @param string $version       The version of WP or Retraceur that deprecated the argument used.
  * @param string $message       Optional. A message regarding the change. Default empty string.
  */
 function _deprecated_argument( $function_name, $version, $message = '', $is_retraceur = false ) {
@@ -5585,7 +5585,7 @@ function _deprecated_argument( $function_name, $version, $message = '', $is_retr
 	 *
 	 * @param string $function_name The function that was called.
 	 * @param string $message       A message regarding the change.
-	 * @param string $version       The version of WordPress that deprecated the argument used.
+	 * @param string $version       The version of WP or Retraceur that deprecated the argument used.
 	 */
 	do_action( 'deprecated_argument_run', $function_name, $message, $version );
 
@@ -5655,7 +5655,7 @@ function _deprecated_argument( $function_name, $version, $message = '', $is_retr
  * @access private
  *
  * @param string $hook        The hook that was used.
- * @param string $version     The version of WordPress that deprecated the hook.
+ * @param string $version     The version of WP that deprecated the hook.
  * @param string $replacement Optional. The hook that should have been used. Default empty string.
  * @param string $message     Optional. A message regarding the change. Default empty.
  */
@@ -5667,7 +5667,7 @@ function _deprecated_hook( $hook, $version, $replacement = '', $message = '' ) {
 	 *
 	 * @param string $hook        The hook that was called.
 	 * @param string $replacement The hook that should be used as a replacement.
-	 * @param string $version     The version of WordPress that deprecated the argument used.
+	 * @param string $version     The version of WP that deprecated the argument used.
 	 * @param string $message     A message regarding the change.
 	 */
 	do_action( 'deprecated_hook_run', $hook, $replacement, $version, $message );
@@ -5685,7 +5685,7 @@ function _deprecated_hook( $hook, $version, $replacement = '', $message = '' ) {
 
 		if ( $replacement ) {
 			$message = sprintf(
-				/* translators: 1: WordPress hook name, 2: Version number, 3: Alternative hook name. */
+				/* translators: 1: WP hook name, 2: Version number, 3: Alternative hook name. */
 				__( 'Hook %1$s is <strong>deprecated</strong> since version %2$s! Use %3$s instead.' ),
 				$hook,
 				$version,
@@ -5693,7 +5693,7 @@ function _deprecated_hook( $hook, $version, $replacement = '', $message = '' ) {
 			) . $message;
 		} else {
 			$message = sprintf(
-				/* translators: 1: WordPress hook name, 2: Version number. */
+				/* translators: 1: WP hook name, 2: Version number. */
 				__( 'Hook %1$s is <strong>deprecated</strong> since version %2$s with no alternative available.' ),
 				$hook,
 				$version
@@ -5717,7 +5717,7 @@ function _deprecated_hook( $hook, $version, $replacement = '', $message = '' ) {
  *
  * @param string $function_name The function that was called.
  * @param string $message       A message explaining what has been done incorrectly.
- * @param string $version       The version of WordPress where the message was added.
+ * @param string $version       The version of WP where the message was added.
  */
 function _doing_it_wrong( $function_name, $message, $version ) {
 
@@ -5728,7 +5728,7 @@ function _doing_it_wrong( $function_name, $message, $version ) {
 	 *
 	 * @param string $function_name The function that was called.
 	 * @param string $message       A message explaining what has been done incorrectly.
-	 * @param string $version       The version of WordPress where the message was added.
+	 * @param string $version       The version of WP where the message was added.
 	 */
 	do_action( 'doing_it_wrong_run', $function_name, $message, $version );
 
@@ -5741,7 +5741,7 @@ function _doing_it_wrong( $function_name, $message, $version ) {
 	 * @param bool   $trigger       Whether to trigger the error for _doing_it_wrong() calls. Default true.
 	 * @param string $function_name The function that was called.
 	 * @param string $message       A message explaining what has been done incorrectly.
-	 * @param string $version       The version of WordPress where the message was added.
+	 * @param string $version       The version of WP where the message was added.
 	 */
 	if ( WP_DEBUG && apply_filters( 'doing_it_wrong_trigger_error', true, $function_name, $message, $version ) ) {
 		if ( function_exists( '__' ) ) {
@@ -5751,7 +5751,7 @@ function _doing_it_wrong( $function_name, $message, $version ) {
 			}
 
 			$message = sprintf(
-				/* translators: Developer debugging message. 1: PHP function name, 2: WordPress version number. */
+				/* translators: Developer debugging message. 1: PHP function name, 2: WP version number. */
 				__( 'Function %1$s was called <strong>incorrectly</strong>. %2$s' ),
 				$function_name,
 				$version
@@ -6219,7 +6219,7 @@ function get_main_network_id() {
  *
  * @since WP 5.1.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb WP database abstraction object.
  *
  * @return bool True if site meta is supported, false otherwise.
  */
@@ -6545,7 +6545,7 @@ function _cleanup_header_comment( $str ) {
  *
  * @since WP 2.9.0
  *
- * @global wpdb $wpdb WordPress database abstraction object.
+ * @global wpdb $wpdb WP database abstraction object.
  */
 function wp_scheduled_delete() {
 	global $wpdb;
@@ -7259,7 +7259,7 @@ function _canonical_charset( $charset ) {
 	 * the input character sets that here are transformed into "ISO-8859-1".
 	 *
 	 * @todo Should this entire check be removed since it's not required for the stated purpose?
-	 * @todo Should WordPress transform other potential charset equivalents, such as "latin1"?
+	 * @todo Should WP transform other potential charset equivalents, such as "latin1"?
 	 */
 	if (
 		( 0 === strcasecmp( 'iso-8859-1', $charset ) ) ||
@@ -7519,7 +7519,7 @@ function wp_raise_memory_limit( $context = 'admin' ) {
 			 * @since WP 3.0.0
 			 * @since WP 4.6.0 The default now takes the original `memory_limit` into account.
 			 *
-			 * @param int|string $filtered_limit The maximum WordPress memory limit. Accepts an integer
+			 * @param int|string $filtered_limit The maximum Retraceur memory limit. Accepts an integer
 			 *                                   (bytes), or a shorthand string notation, such as '256M'.
 			 */
 			$filtered_limit = apply_filters( 'admin_memory_limit', $filtered_limit );
@@ -8082,7 +8082,7 @@ function wp_privacy_delete_old_export_files() {
  *
  * @param string $directory Full path of a directory.
  * @param int    $max_execution_time Maximum time to run before giving up. In seconds.
- *                                   The timeout is global and is measured from the moment WordPress started to load.
+ *                                   The timeout is global and is measured from the moment Retraceur started to load.
  * @return int|false|null Size in bytes if a valid directory. False if not. Null if timeout.
  */
 function get_dirsize( $directory, $max_execution_time = null ) {
@@ -8116,7 +8116,7 @@ function get_dirsize( $directory, $max_execution_time = null ) {
  *                                            Default null.
  * @param int             $max_execution_time Optional. Maximum time to run before giving up. In seconds.
  *                                            The timeout is global and is measured from the moment
- *                                            WordPress started to load. Defaults to the value of
+ *                                            Retraceur started to load. Defaults to the value of
  *                                            `max_execution_time` PHP setting.
  * @param array           $directory_cache    Optional. Array of cached directory paths.
  *                                            Defaults to the value of `dirsize_cache` transient.
@@ -8282,7 +8282,7 @@ function clean_dirsize_cache( $path ) {
 }
 
 /**
- * Returns the current WordPress version.
+ * Returns the current WP version.
  *
  * Returns an unmodified value of `$wp_version`. Some plugins modify the global
  * in an attempt to improve security through obscurity. This practice can cause
@@ -8290,7 +8290,7 @@ function clean_dirsize_cache( $path ) {
  *
  * @since WP 6.7.0
  *
- * @return string The current WordPress version.
+ * @return string The current WP version.
  */
 function wp_get_wp_version() {
 	static $wp_version;
@@ -8320,13 +8320,13 @@ function retraceur_get_version() {
 }
 
 /**
- * Checks compatibility with the current WordPress version.
+ * Checks compatibility with the current Retraceur version.
  *
  * @since WP 5.2.0
  *
- * @global string $_wp_tests_wp_version The WordPress version string. Used only in Core tests.
+ * @global string $_wp_tests_wp_version The Retraceur version string. Used only in Core tests.
  *
- * @param string $required Minimum required WordPress version.
+ * @param string $required Minimum required Retraceur version.
  * @return bool True if required version is compatible or empty, false if not.
  */
 function is_wp_version_compatible( $required ) {

@@ -115,7 +115,7 @@ function wp_is_fatal_error_handler_enabled() {
 	 *
 	 * **Important:** This filter runs before it can be used by plugins. It cannot
 	 * be used by plugins, mu-plugins, or themes. To use this filter you must define
-	 * a `$wp_filter` global before WordPress loads, usually in `wp-config.php`.
+	 * a `$wp_filter` global before WP loads, usually in `wp-config.php`.
 	 *
 	 * Example:
 	 *
@@ -142,7 +142,7 @@ function wp_is_fatal_error_handler_enabled() {
 }
 
 /**
- * Access the WordPress Recovery Mode instance.
+ * Access the WP Recovery Mode instance.
  *
  * @since WP 5.2.0
  *
