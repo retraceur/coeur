@@ -129,7 +129,7 @@ function debounceAsync(func, delayMS) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/preferences-persistence/build-module/create/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 

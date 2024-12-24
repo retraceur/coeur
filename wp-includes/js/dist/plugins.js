@@ -2,7 +2,7 @@
 /******/ 	"use strict";
 /******/ 	// The require scope
 /******/ 	var __webpack_require__ = {};
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
@@ -15,7 +15,7 @@
 /******/ 			return getter;
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -27,12 +27,12 @@
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -43,7 +43,7 @@
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
 var __webpack_exports__ = {};
 // ESM COMPAT FLAG
@@ -235,7 +235,7 @@ const external_wp_compose_namespaceObject = window["wp"]["compose"];
 const external_ReactJSXRuntime_namespaceObject = window["ReactJSXRuntime"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/plugins/build-module/components/plugin-context/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -280,7 +280,7 @@ const withPluginContext = mapContextToProps => (0,external_wp_compose_namespaceO
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/plugins/build-module/components/plugin-error-boundary/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 class PluginErrorBoundary extends external_wp_element_namespaceObject.Component {
@@ -323,7 +323,7 @@ class PluginErrorBoundary extends external_wp_element_namespaceObject.Component 
 const external_wp_primitives_namespaceObject = window["wp"]["primitives"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/plugins.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -343,7 +343,7 @@ const plugins = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ex
  */
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -543,7 +543,7 @@ function getPlugins(scope) {
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 

@@ -2,7 +2,7 @@
 /******/ 	"use strict";
 /******/ 	// The require scope
 /******/ 	var __webpack_require__ = {};
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
@@ -15,7 +15,7 @@
 /******/ 			return getter;
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -27,12 +27,12 @@
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -43,7 +43,7 @@
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
 var __webpack_exports__ = {};
 // ESM COMPAT FLAG
@@ -81,7 +81,7 @@ var external_wp_deprecated_default = /*#__PURE__*/__webpack_require__.n(external
 const external_wp_data_namespaceObject = window["wp"]["data"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/nux/build-module/store/reducer.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -206,7 +206,7 @@ function enableTips() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/nux/build-module/store/selectors.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -280,7 +280,7 @@ function selectors_areTipsEnabled(state) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/nux/build-module/store/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -329,7 +329,7 @@ const external_wp_primitives_namespaceObject = window["wp"]["primitives"];
 const external_ReactJSXRuntime_namespaceObject = window["ReactJSXRuntime"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/close.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -344,7 +344,7 @@ const close_close = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/nux/build-module/components/dot-tip/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -442,7 +442,7 @@ function DotTip({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/nux/build-module/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 

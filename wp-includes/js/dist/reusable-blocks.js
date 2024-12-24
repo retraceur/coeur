@@ -2,7 +2,7 @@
 /******/ 	"use strict";
 /******/ 	// The require scope
 /******/ 	var __webpack_require__ = {};
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
@@ -15,12 +15,12 @@
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -31,7 +31,7 @@
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
 var __webpack_exports__ = {};
 // ESM COMPAT FLAG
@@ -70,7 +70,7 @@ const external_wp_blocks_namespaceObject = window["wp"]["blocks"];
 const external_wp_i18n_namespaceObject = window["wp"]["i18n"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/reusable-blocks/build-module/store/actions.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -165,7 +165,7 @@ function __experimentalSetEditingReusableBlock(clientId, isEditing) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/reusable-blocks/build-module/store/reducer.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 function isEditingReusableBlock(state = {}, action) {
@@ -195,7 +195,7 @@ function __experimentalIsEditingReusableBlock(state, clientId) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/reusable-blocks/build-module/store/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -231,7 +231,7 @@ const external_wp_primitives_namespaceObject = window["wp"]["primitives"];
 const external_ReactJSXRuntime_namespaceObject = window["ReactJSXRuntime"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/symbol.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -250,7 +250,7 @@ const external_wp_notices_namespaceObject = window["wp"]["notices"];
 const external_wp_coreData_namespaceObject = window["wp"]["coreData"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/reusable-blocks/build-module/components/reusable-blocks-menu-items/reusable-block-convert-button.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -411,7 +411,7 @@ function ReusableBlockConvertButton({
 const external_wp_url_namespaceObject = window["wp"]["url"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/reusable-blocks/build-module/components/reusable-blocks-menu-items/reusable-blocks-manage-button.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -486,7 +486,7 @@ function ReusableBlocksManageButton({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/reusable-blocks/build-module/components/reusable-blocks-menu-items/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 

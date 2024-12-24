@@ -1444,7 +1444,7 @@ function RawHTML({
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 

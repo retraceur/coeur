@@ -2,7 +2,7 @@
 /******/ 	"use strict";
 /******/ 	// The require scope
 /******/ 	var __webpack_require__ = {};
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
@@ -15,12 +15,12 @@
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -31,7 +31,7 @@
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
 var __webpack_exports__ = {};
 // ESM COMPAT FLAG
@@ -52,7 +52,7 @@ const external_wp_primitives_namespaceObject = window["wp"]["primitives"];
 const external_ReactJSXRuntime_namespaceObject = window["ReactJSXRuntime"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/plus.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -81,7 +81,7 @@ const external_wp_router_namespaceObject = window["wp"]["router"];
 const external_wp_privateApis_namespaceObject = window["wp"]["privateApis"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/core-commands/build-module/lock-unlock.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 const {
@@ -91,7 +91,7 @@ const {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/core-commands/build-module/admin-navigation-commands.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -178,7 +178,7 @@ function useAdminNavigationCommands() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/post.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -193,7 +193,7 @@ const post = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(exter
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/page.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -211,7 +211,7 @@ const page = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(exte
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/layout.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -226,7 +226,7 @@ const layout = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ext
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/symbol-filled.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -241,7 +241,7 @@ const symbolFilled = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.js
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/navigation.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -256,7 +256,7 @@ const navigation = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/styles.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -273,7 +273,7 @@ const styles = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ext
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/symbol.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -313,7 +313,7 @@ function orderEntityRecordsBySearch(records = [], search = '') {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/core-commands/build-module/site-editor-navigation-commands.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 

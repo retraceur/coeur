@@ -131,7 +131,7 @@ const createRootURLMiddleware = rootURL => (options, next) => {
 const external_wp_url_namespaceObject = window["wp"]["url"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/api-fetch/build-module/middlewares/preloading.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -196,7 +196,7 @@ function prepareResponse(responseData, parse) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/api-fetch/build-module/middlewares/fetch-all-middleware.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -367,7 +367,7 @@ const httpV1Middleware = (options, next) => {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/api-fetch/build-module/middlewares/user-locale.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -391,7 +391,7 @@ const userLocaleMiddleware = (options, next) => {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/api-fetch/build-module/utils/response.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -467,7 +467,7 @@ function parseAndThrowError(response, shouldParseResponse = true) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/api-fetch/build-module/middlewares/media-upload.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -549,7 +549,7 @@ const mediaUploadMiddleware = (options, next) => {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/api-fetch/build-module/middlewares/theme-preview.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -590,7 +590,7 @@ const createThemePreviewMiddleware = themePath => (options, next) => {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/api-fetch/build-module/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 

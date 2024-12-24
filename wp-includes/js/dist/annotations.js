@@ -2,7 +2,7 @@
 /******/ 	"use strict";
 /******/ 	// The require scope
 /******/ 	var __webpack_require__ = {};
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
@@ -15,12 +15,12 @@
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -31,7 +31,7 @@
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
 var __webpack_exports__ = {};
 // ESM COMPAT FLAG
@@ -76,7 +76,7 @@ const STORE_NAME = 'core/annotations';
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/annotations/build-module/format/annotation.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -250,7 +250,7 @@ const annotation = {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/annotations/build-module/format/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -270,7 +270,7 @@ const external_wp_hooks_namespaceObject = window["wp"]["hooks"];
 const external_wp_data_namespaceObject = window["wp"]["data"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/annotations/build-module/block/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -404,7 +404,7 @@ function annotations(state = {}, action) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/annotations/build-module/store/selectors.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -673,7 +673,7 @@ function __experimentalRemoveAnnotationsBySource(source) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/annotations/build-module/store/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 

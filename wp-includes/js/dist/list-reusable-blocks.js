@@ -2,7 +2,7 @@
 /******/ 	"use strict";
 /******/ 	// The require scope
 /******/ 	var __webpack_require__ = {};
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
@@ -15,7 +15,7 @@
 /******/ 			return getter;
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -27,12 +27,12 @@
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -43,7 +43,7 @@
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
 var __webpack_exports__ = {};
 // ESM COMPAT FLAG
@@ -542,7 +542,7 @@ const external_wp_blob_namespaceObject = window["wp"]["blob"];
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -600,7 +600,7 @@ function readTextFile(file) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/list-reusable-blocks/build-module/utils/import.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -649,7 +649,7 @@ async function importReusableBlock(file) {
 const external_ReactJSXRuntime_namespaceObject = window["ReactJSXRuntime"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/list-reusable-blocks/build-module/components/import-form/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -743,7 +743,7 @@ function ImportForm({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/list-reusable-blocks/build-module/components/import-dropdown/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -784,7 +784,7 @@ function ImportDropdown({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/list-reusable-blocks/build-module/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 

@@ -11,7 +11,7 @@
 /* harmony import */ var _wordpress_is_shallow_equal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(923);
 /* harmony import */ var _wordpress_is_shallow_equal__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_is_shallow_equal__WEBPACK_IMPORTED_MODULE_0__);
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -1669,7 +1669,7 @@ function receiveQueriedItems(items, query = {}, edits, meta) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/core-data/build-module/batch/default-processor.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -1927,7 +1927,7 @@ const STORE_NAME = 'core';
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -2765,7 +2765,7 @@ const receiveRevisions = (kind, name, recordKey, records, query, invalidateCache
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -3312,7 +3312,7 @@ function withWeakMapCache(fn) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/core-data/build-module/queried-data/get-query-parts.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -3416,7 +3416,7 @@ function getQueryParts(query) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/core-data/build-module/queried-data/reducer.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -3657,7 +3657,7 @@ const queries = (state = {}, action) => {
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -4261,7 +4261,7 @@ var equivalent_key_map_default = /*#__PURE__*/__webpack_require__.n(equivalent_k
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -4439,7 +4439,7 @@ function getUserPermissionCacheKey(action, resource, id) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/core-data/build-module/selectors.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -5502,7 +5502,7 @@ const getRevision = (0,external_wp_data_namespaceObject.createSelector)((state, 
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/core-data/build-module/private-selectors.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -5637,7 +5637,7 @@ const forwardResolver = resolverName => (...args) => async ({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/core-data/build-module/fetch/__experimental-fetch-link-suggestions.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -5820,7 +5820,7 @@ function tokenize(text) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/core-data/build-module/fetch/__experimental-fetch-url-data.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -5894,7 +5894,7 @@ const fetchUrlData = async (url, options = {}) => {
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -5916,7 +5916,7 @@ async function fetchBlockPatterns() {
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -6935,7 +6935,7 @@ function createLocksActions() {
 const external_wp_privateApis_namespaceObject = window["wp"]["privateApis"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/core-data/build-module/lock-unlock.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 const {
@@ -6947,7 +6947,7 @@ const {
 const external_wp_element_namespaceObject = window["wp"]["element"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/core-data/build-module/entity-context.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 const EntityContext = (0,external_wp_element_namespaceObject.createContext)({});
@@ -6956,7 +6956,7 @@ const EntityContext = (0,external_wp_element_namespaceObject.createContext)({});
 const external_ReactJSXRuntime_namespaceObject = window["ReactJSXRuntime"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/core-data/build-module/entity-provider.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -7181,7 +7181,7 @@ let Status = /*#__PURE__*/function (Status) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/core-data/build-module/hooks/use-query-select.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -7287,7 +7287,7 @@ const enrichSelectors = memoize(selectors => {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/core-data/build-module/hooks/use-entity-record.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -7450,7 +7450,7 @@ function __experimentalUseEntityRecord(kind, name, recordId, options) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/core-data/build-module/hooks/use-entity-records.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -7596,7 +7596,7 @@ const external_wp_warning_namespaceObject = window["wp"]["warning"];
 var external_wp_warning_default = /*#__PURE__*/__webpack_require__.n(external_wp_warning_namespaceObject);
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/core-data/build-module/hooks/use-resource-permissions.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -7754,7 +7754,7 @@ function __experimentalUseResourcePermissions(resource, id) {
 const external_wp_blocks_namespaceObject = window["wp"]["blocks"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/core-data/build-module/hooks/use-entity-id.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -7779,7 +7779,7 @@ function useEntityId(kind, name) {
 const external_wp_blockEditor_namespaceObject = window["wp"]["blockEditor"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/core-data/build-module/footnotes/get-rich-text-values-cached.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -7849,7 +7849,7 @@ function getFootnotesOrder(blocks) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/core-data/build-module/footnotes/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -7961,7 +7961,7 @@ function updateFootnotesFromMeta(blocks, meta) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/core-data/build-module/hooks/use-entity-block-editor.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -8094,7 +8094,7 @@ function useEntityBlockEditor(kind, name, {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/core-data/build-module/hooks/use-entity-prop.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -8172,7 +8172,7 @@ lock(privateApis, {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/core-data/build-module/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 

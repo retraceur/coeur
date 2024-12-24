@@ -1449,7 +1449,7 @@ const external_wp_hooks_namespaceObject = window["wp"]["hooks"];
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 const i18n = createI18n(undefined, undefined, external_wp_hooks_namespaceObject.defaultHooks);

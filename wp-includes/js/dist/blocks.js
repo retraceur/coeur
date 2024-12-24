@@ -6795,7 +6795,7 @@ var external_wp_warning_default = /*#__PURE__*/__webpack_require__.n(external_wp
 const external_wp_privateApis_namespaceObject = window["wp"]["privateApis"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/blocks/build-module/lock-unlock.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 const {
@@ -6805,7 +6805,7 @@ const {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/blocks/build-module/api/registration.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -7678,7 +7678,7 @@ function getBlockBindingsSources() {
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -8027,7 +8027,7 @@ function omit(object, keys) {
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -8447,7 +8447,7 @@ function matchesAttributes(blockAttributes, variationAttributes) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/blocks/build-module/store/private-selectors.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -8629,7 +8629,7 @@ const hasContentRoleAttribute = (state, blockTypeName) => {
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -9454,7 +9454,7 @@ const external_wp_hooks_namespaceObject = window["wp"]["hooks"];
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -9597,7 +9597,7 @@ const processBlockType = (name, blockSettings) => ({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/blocks/build-module/store/actions.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -9991,7 +9991,7 @@ const STORE_NAME = 'core/blocks';
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/blocks/build-module/store/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -10117,7 +10117,7 @@ function v4(options, buf, offset) {
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -10619,7 +10619,7 @@ function serializeRawBlock(rawBlock, options = {}) {
 const external_ReactJSXRuntime_namespaceObject = window["ReactJSXRuntime"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/blocks/build-module/api/serializer.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -11950,7 +11950,7 @@ function createQueuedLogger() {
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -13016,7 +13016,7 @@ function memize(fn, options) {
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -13058,7 +13058,7 @@ const richText = (selector, preserveWhiteSpace) => el => {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/blocks/build-module/api/node.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -13211,7 +13211,7 @@ function matcher(selector) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/blocks/build-module/api/children.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -13388,7 +13388,7 @@ function children_matcher(selector) {
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -13822,7 +13822,7 @@ function applyBlockDeprecatedVersions(block, rawBlock, blockType) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/blocks/build-module/api/parser/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -14116,7 +14116,7 @@ function getRawTransforms() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/blocks/build-module/api/raw-handling/html-to-blocks.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -14173,7 +14173,7 @@ function htmlToBlocks(html, handler) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/blocks/build-module/api/raw-handling/normalise-blocks.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 function normaliseBlocks(HTML, options = {}) {
@@ -14234,7 +14234,7 @@ function normaliseBlocks(HTML, options = {}) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/blocks/build-module/api/raw-handling/special-comment-converter.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -14332,7 +14332,7 @@ function createNextpage(doc) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/blocks/build-module/api/raw-handling/list-reducer.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 function isList(node) {
@@ -14400,7 +14400,7 @@ function blockquoteNormaliser(options) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/blocks/build-module/api/raw-handling/figure-content-reducer.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -14494,7 +14494,7 @@ function figureContentReducer(node, doc, schema) {
 const external_wp_shortcode_namespaceObject = window["wp"]["shortcode"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/blocks/build-module/api/raw-handling/shortcode-converter.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -14586,7 +14586,7 @@ function segmentHTMLToShortcodeBlock(HTML, lastIndex = 0, excludedBlockNames = [
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/blocks/build-module/api/raw-handling/utils.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -14771,7 +14771,7 @@ function getSibling(node, which) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/blocks/build-module/api/raw-handling/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -14852,7 +14852,7 @@ function rawHandler({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/blocks/build-module/api/raw-handling/comment-remover.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -14870,7 +14870,7 @@ function commentRemover(node) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/blocks/build-module/api/raw-handling/is-inline-content.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -14909,7 +14909,7 @@ function isInlineContent(HTML, contextTag) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/blocks/build-module/api/raw-handling/phrasing-content-reducer.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 function phrasingContentReducer(node, doc) {
@@ -15069,7 +15069,7 @@ const external_wp_blob_namespaceObject = window["wp"]["blob"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/blocks/build-module/api/raw-handling/image-corrector.js
 /* wp:polyfill */
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 function imageCorrector(node) {
@@ -15191,7 +15191,7 @@ function iframeRemover(node) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/blocks/build-module/api/raw-handling/google-docs-uid-remover.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 function googleDocsUIdRemover(node) {
@@ -15337,7 +15337,7 @@ function slackParagraphCorrector(node) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/blocks/build-module/api/raw-handling/paste-handler.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -15520,7 +15520,7 @@ function pasteHandler({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/blocks/build-module/api/categories.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -15614,7 +15614,7 @@ function categories_updateCategory(slug, category) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/blocks/build-module/api/templates.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -15823,7 +15823,7 @@ lock(privateApis, {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/blocks/build-module/deprecated.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 

@@ -2,7 +2,7 @@
 /******/ 	"use strict";
 /******/ 	// The require scope
 /******/ 	var __webpack_require__ = {};
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
@@ -15,12 +15,12 @@
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -31,7 +31,7 @@
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
 var __webpack_exports__ = {};
 // ESM COMPAT FLAG
@@ -234,7 +234,7 @@ function unregisterShortcut(name) {
 const external_wp_keycodes_namespaceObject = window["wp"]["keycodes"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/keyboard-shortcuts/build-module/store/selectors.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -595,7 +595,7 @@ const getCategoryShortcuts = (0,external_wp_data_namespaceObject.createSelector)
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/keyboard-shortcuts/build-module/store/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -625,7 +625,7 @@ const store = (0,external_wp_data_namespaceObject.createReduxStore)(STORE_NAME, 
 const external_wp_element_namespaceObject = window["wp"]["element"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/keyboard-shortcuts/build-module/hooks/use-shortcut-event-match.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -668,7 +668,7 @@ function useShortcutEventMatch() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/keyboard-shortcuts/build-module/context.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 const globalShortcuts = new Set();
@@ -694,7 +694,7 @@ const context = (0,external_wp_element_namespaceObject.createContext)({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/keyboard-shortcuts/build-module/hooks/use-shortcut.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -741,7 +741,7 @@ function useShortcut(name, callback, {
 const external_ReactJSXRuntime_namespaceObject = window["ReactJSXRuntime"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/keyboard-shortcuts/build-module/components/shortcut-provider.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 

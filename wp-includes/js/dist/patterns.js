@@ -2,7 +2,7 @@
 /******/ 	"use strict";
 /******/ 	// The require scope
 /******/ 	var __webpack_require__ = {};
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
@@ -15,12 +15,12 @@
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -31,7 +31,7 @@
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
 var __webpack_exports__ = {};
 // ESM COMPAT FLAG
@@ -64,7 +64,7 @@ __webpack_require__.d(selectors_namespaceObject, {
 const external_wp_data_namespaceObject = window["wp"]["data"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/patterns/build-module/store/reducer.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 function isEditingPattern(state = {}, action) {
@@ -110,7 +110,7 @@ const PATTERN_OVERRIDES_BINDING_SOURCE = 'core/pattern-overrides';
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/patterns/build-module/store/actions.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -248,7 +248,7 @@ function selectors_isEditingPattern(state, clientId) {
 const external_wp_privateApis_namespaceObject = window["wp"]["privateApis"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/patterns/build-module/lock-unlock.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 const {
@@ -258,7 +258,7 @@ const {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/patterns/build-module/store/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -339,7 +339,7 @@ function hasOverridableBlocks(blocks) {
 const external_ReactJSXRuntime_namespaceObject = window["ReactJSXRuntime"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/patterns/build-module/components/overrides-panel.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -384,7 +384,7 @@ const external_wp_compose_namespaceObject = window["wp"]["compose"];
 const external_wp_htmlEntities_namespaceObject = window["wp"]["htmlEntities"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/patterns/build-module/components/category-selector.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -436,7 +436,7 @@ function CategorySelector({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/patterns/build-module/private-hooks.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -531,7 +531,7 @@ function useAddPatternCategory() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/patterns/build-module/components/create-pattern-modal.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -667,7 +667,7 @@ function CreatePatternModalContents({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/patterns/build-module/components/duplicate-pattern-modal.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -752,7 +752,7 @@ function DuplicatePatternModal({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/patterns/build-module/components/rename-pattern-modal.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -857,7 +857,7 @@ function RenamePatternModal({
 const external_wp_primitives_namespaceObject = window["wp"]["primitives"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/symbol.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -872,7 +872,7 @@ const symbol = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ext
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/patterns/build-module/components/pattern-convert-button.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -1006,7 +1006,7 @@ function PatternConvertButton({
 const external_wp_url_namespaceObject = window["wp"]["url"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/patterns/build-module/components/patterns-manage-button.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -1085,7 +1085,7 @@ function PatternsManageButton({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/patterns/build-module/components/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -1120,7 +1120,7 @@ function PatternsMenuItems({
 const external_wp_a11y_namespaceObject = window["wp"]["a11y"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/patterns/build-module/components/rename-pattern-category-modal.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -1271,7 +1271,7 @@ function RenamePatternCategoryModal({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/patterns/build-module/components/allow-overrides-modal.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -1393,7 +1393,7 @@ function DisallowOverridesModal({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/patterns/build-module/components/pattern-overrides-controls.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -1486,7 +1486,7 @@ function PatternOverridesControls({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/patterns/build-module/components/reset-overrides-control.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -1557,7 +1557,7 @@ function ResetOverridesControl(props) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/copy.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -1574,7 +1574,7 @@ const copy = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(exter
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/patterns/build-module/components/pattern-overrides-block-controls.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 

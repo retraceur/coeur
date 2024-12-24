@@ -104,7 +104,7 @@ const external_wp_element_namespaceObject = window["wp"]["element"];
 const external_wp_editor_namespaceObject = window["wp"]["editor"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/block-directory/build-module/store/reducer.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -236,7 +236,7 @@ function hasBlockType(blockType, blocks = []) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/block-directory/build-module/store/selectors.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -358,7 +358,7 @@ const external_wp_notices_namespaceObject = window["wp"]["notices"];
 const external_wp_url_namespaceObject = window["wp"]["url"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/block-directory/build-module/store/load-assets.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -449,7 +449,7 @@ function getPluginUrl(block) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/block-directory/build-module/store/actions.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -1210,7 +1210,7 @@ function camelCase(input, options) {
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -1236,7 +1236,7 @@ const resolvers_getDownloadableBlocks = filterValue => async ({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/block-directory/build-module/store/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -1279,7 +1279,7 @@ const store = (0,external_wp_data_namespaceObject.createReduxStore)(STORE_NAME, 
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/block-directory/build-module/components/auto-block-uninstaller/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -1325,7 +1325,7 @@ function r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else i
 const external_wp_htmlEntities_namespaceObject = window["wp"]["htmlEntities"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/icon/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -1361,7 +1361,7 @@ const external_wp_primitives_namespaceObject = window["wp"]["primitives"];
 const external_ReactJSXRuntime_namespaceObject = window["ReactJSXRuntime"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/star-filled.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -1376,7 +1376,7 @@ const starFilled = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/star-half.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -1391,7 +1391,7 @@ const starHalf = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(e
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/star-empty.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -1408,7 +1408,7 @@ const starEmpty = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/block-directory/build-module/components/block-ratings/stars.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -1465,7 +1465,7 @@ const BlockRatings = ({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/block-directory/build-module/components/downloadable-block-icon/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -1487,7 +1487,7 @@ function DownloadableBlockIcon({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/block-directory/build-module/components/downloadable-block-notice/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -1522,7 +1522,7 @@ const DownloadableBlockNotice = ({
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -1668,7 +1668,7 @@ function DownloadableBlockListItem({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/block-directory/build-module/components/downloadable-blocks-list/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -1726,7 +1726,7 @@ function DownloadableBlocksList({
 const external_wp_a11y_namespaceObject = window["wp"]["a11y"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/block-directory/build-module/components/downloadable-blocks-panel/inserter-panel.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -1769,7 +1769,7 @@ function DownloadableBlocksInserterPanel({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/block-default.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -1784,7 +1784,7 @@ const blockDefault = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.js
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/block-directory/build-module/components/downloadable-blocks-panel/no-results.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -1809,7 +1809,7 @@ function DownloadableBlocksNoResults() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/block-directory/build-module/components/downloadable-blocks-panel/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -1918,7 +1918,7 @@ function DownloadableBlocksPanel({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/block-directory/build-module/plugins/inserter-menu-downloadable-blocks-panel/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -1959,7 +1959,7 @@ function InserterMenuDownloadableBlocksPanel() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/block-directory/build-module/components/compact-list/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -2004,7 +2004,7 @@ function CompactList({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/block-directory/build-module/plugins/installed-blocks-pre-publish-panel/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -2040,7 +2040,7 @@ function InstalledBlocksPrePublishPanel() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/block-directory/build-module/plugins/get-install-missing/install-button.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -2087,7 +2087,7 @@ function InstallButton({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/block-directory/build-module/plugins/get-install-missing/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -2193,7 +2193,7 @@ const ModifiedWarning = ({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/block-directory/build-module/plugins/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 

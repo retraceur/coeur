@@ -2,7 +2,7 @@
 /******/ 	"use strict";
 /******/ 	// The require scope
 /******/ 	var __webpack_require__ = {};
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
@@ -15,12 +15,12 @@
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -31,7 +31,7 @@
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
 var __webpack_exports__ = {};
 // ESM COMPAT FLAG
@@ -141,7 +141,7 @@ function isViewportMatch(state, query) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/viewport/build-module/store/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -169,7 +169,7 @@ const store = (0,external_wp_data_namespaceObject.createReduxStore)(STORE_NAME, 
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/viewport/build-module/listener.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -219,7 +219,7 @@ const addDimensionsEventListener = (breakpoints, operators) => {
 const external_ReactJSXRuntime_namespaceObject = window["ReactJSXRuntime"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/viewport/build-module/with-viewport-match.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -275,7 +275,7 @@ const withViewportMatch = queries => {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/viewport/build-module/if-viewport-matches.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 

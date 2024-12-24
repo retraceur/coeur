@@ -1902,7 +1902,7 @@ const external_wp_hooks_namespaceObject = window["wp"]["hooks"];
 const external_wp_blockEditor_namespaceObject = window["wp"]["blockEditor"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/store/defaults.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -1936,7 +1936,7 @@ const EDITOR_SETTINGS_DEFAULTS = {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/dataviews/store/reducer.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 function isReady(state = {}, action) {
@@ -1984,7 +1984,7 @@ function actions(state = {}, action) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/store/reducer.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -2398,7 +2398,7 @@ const external_wp_primitives_namespaceObject = window["wp"]["primitives"];
 const external_ReactJSXRuntime_namespaceObject = window["ReactJSXRuntime"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/layout.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -2448,7 +2448,7 @@ const GLOBAL_POST_TYPES = [...TEMPLATE_POST_TYPES, 'wp_block', 'wp_navigation'];
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/header.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -2463,7 +2463,7 @@ const header = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ext
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/footer.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -2479,7 +2479,7 @@ const footer = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ext
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/sidebar.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -2494,7 +2494,7 @@ const sidebar = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ex
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/symbol-filled.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -2509,7 +2509,7 @@ const symbolFilled = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.js
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/utils/get-template-part-icon.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 /**
@@ -2532,7 +2532,7 @@ function getTemplatePartIcon(iconName) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/store/selectors.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -4104,7 +4104,7 @@ function localAutosaveClear(postId, isPostNew) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/store/utils/notice-builder.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -4233,7 +4233,7 @@ function getNotificationArgumentsForTrashFail(data) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/store/actions.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -5255,7 +5255,7 @@ function isTemplateRevertable(templateOrTemplatePart) {
 const external_wp_components_namespaceObject = window["wp"]["components"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/check.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -5752,7 +5752,7 @@ function paramCase(input, options) {
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -5802,7 +5802,7 @@ const getCleanTemplatePartSlug = title => {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/create-template-part-modal/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -5966,7 +5966,7 @@ function CreateTemplatePartModalContents({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/dataviews/actions/utils.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -6014,7 +6014,7 @@ function isTemplateRemovable(template) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/dataviews/actions/duplicate-template-part.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -6073,7 +6073,7 @@ const duplicateTemplatePart = {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/backup.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -6090,7 +6090,7 @@ const backup = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ext
 const external_wp_privateApis_namespaceObject = window["wp"]["privateApis"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/lock-unlock.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 const {
@@ -6100,7 +6100,7 @@ const {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/dataviews/actions/reset-post.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -6207,7 +6207,7 @@ const reset_post_resetPost = {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/trash.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -6224,7 +6224,7 @@ const trash = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(exte
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/dataviews/actions/trash-post.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -6364,7 +6364,7 @@ const trash_post_trashPost = {
 const external_wp_patterns_namespaceObject = window["wp"]["patterns"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/dataviews/actions/rename-post.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -6483,7 +6483,7 @@ const renamePost = {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/dataviews/actions/restore-post.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -6588,7 +6588,7 @@ const restorePost = {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/external.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -6603,7 +6603,7 @@ const external = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(e
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/fields/build-module/actions/base-post/view-post.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -6634,7 +6634,7 @@ const viewPost = {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/fields/build-module/actions/common/view-post-revisions.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -6678,7 +6678,7 @@ const viewPostRevisions = {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/fields/build-module/lock-unlock.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 const {
@@ -6688,7 +6688,7 @@ const {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/fields/build-module/actions/pattern/duplicate-pattern.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 // @ts-ignore
@@ -6851,7 +6851,7 @@ function getFieldTypeDefinition(type) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/dataviews/build-module/dataform-controls/datetime.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -6895,7 +6895,7 @@ function DateTime({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/dataviews/build-module/dataform-controls/integer.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -6934,7 +6934,7 @@ function Integer({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/dataviews/build-module/dataform-controls/radio.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -6973,7 +6973,7 @@ function Radio({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/dataviews/build-module/dataform-controls/select.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -7025,7 +7025,7 @@ function Select({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/dataviews/build-module/dataform-controls/text.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -7182,7 +7182,7 @@ function isItemValid(item, fields, form) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/dataviews/build-module/dataforms-layouts/regular/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -7218,7 +7218,7 @@ function FormRegular({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/close-small.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -7233,7 +7233,7 @@ const closeSmall = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/dataviews/build-module/dataforms-layouts/panel/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -7400,7 +7400,7 @@ function DataForm({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/fields/build-module/fields/order/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -7418,7 +7418,7 @@ const orderField = {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/fields/build-module/actions/base-post/reorder-page.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -7534,7 +7534,7 @@ const reorderPage = {
 const external_wp_blob_namespaceObject = window["wp"]["blob"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/download.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -7549,7 +7549,7 @@ const download = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(e
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/fields/build-module/actions/utils.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -7610,7 +7610,7 @@ function utils_isTemplateRemovable(template) {
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -7656,7 +7656,7 @@ const exportPattern = {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/fields/build-module/actions/common/permanently-delete-post.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -7759,7 +7759,7 @@ const permanentlyDeletePost = {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/dataviews/actions/delete-post.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -7849,7 +7849,7 @@ const deletePostAction = {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/dataviews/store/private-actions.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -7919,7 +7919,7 @@ const registerPostTypeActions = postType => async ({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/store/private-actions.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -8253,7 +8253,7 @@ var fast_deep_equal = __webpack_require__(5215);
 var fast_deep_equal_default = /*#__PURE__*/__webpack_require__.n(fast_deep_equal);
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/symbol.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -8268,7 +8268,7 @@ const symbol = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ext
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/navigation.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -8283,7 +8283,7 @@ const navigation = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/page.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -8301,7 +8301,7 @@ const page = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(exte
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/verse.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -8335,7 +8335,7 @@ function isEntityReady(state, kind, name) {
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -8477,7 +8477,7 @@ const getPostBlocksByName = (0,external_wp_data_namespaceObject.createRegistrySe
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/store/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -8521,7 +8521,7 @@ unlock(store_store).registerPrivateSelectors(store_private_selectors_namespaceOb
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/hooks/custom-sources-backwards-compatibility.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -8609,7 +8609,7 @@ function shimAttributeSource(settings) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/autocompleters/user.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -8671,7 +8671,7 @@ function getUserLabel(user) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/hooks/default-autocompleters.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -8692,7 +8692,7 @@ function setDefaultCompleters(completers = []) {
 const external_wp_mediaUtils_namespaceObject = window["wp"]["mediaUtils"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/hooks/media-upload.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -8700,7 +8700,7 @@ const external_wp_mediaUtils_namespaceObject = window["wp"]["mediaUtils"];
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/hooks/pattern-overrides.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -8798,7 +8798,7 @@ const external_wp_keyboardShortcuts_namespaceObject = window["wp"]["keyboardShor
 function clsx_r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else if("object"==typeof e)if(Array.isArray(e)){var o=e.length;for(t=0;t<o;t++)e[t]&&(f=clsx_r(e[t]))&&(n&&(n+=" "),n+=f)}else for(f in e)e[f]&&(n&&(n+=" "),n+=f);return n}function clsx(){for(var e,t,f=0,n="",o=arguments.length;f<o;f++)(e=arguments[f])&&(t=clsx_r(e))&&(n&&(n+=" "),n+=t);return n}/* harmony default export */ const dist_clsx = (clsx);
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/star-filled.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -8813,7 +8813,7 @@ const starFilled = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/star-empty.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -8832,7 +8832,7 @@ const starEmpty = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(
 const external_wp_viewport_namespaceObject = window["wp"]["viewport"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/interface/build-module/store/deprecated.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 function normalizeComplementaryAreaScope(scope) {
@@ -8866,7 +8866,7 @@ function normalizeComplementaryAreaName(scope, name) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/interface/build-module/store/actions.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -9074,7 +9074,7 @@ function closeModal() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/interface/build-module/store/selectors.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -9166,7 +9166,7 @@ function isModalActive(state, modalName) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/interface/build-module/store/reducer.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 function complementaryAreas(state = {}, action) {
@@ -9234,7 +9234,7 @@ const constants_STORE_NAME = 'core/interface';
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/interface/build-module/store/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -9267,7 +9267,7 @@ const store = (0,external_wp_data_namespaceObject.createReduxStore)(constants_ST
 const external_wp_plugins_namespaceObject = window["wp"]["plugins"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/interface/build-module/components/complementary-area-context/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 /* harmony default export */ const complementary_area_context = ((0,external_wp_plugins_namespaceObject.withPluginContext)((context, ownProps) => {
@@ -9279,7 +9279,7 @@ const external_wp_plugins_namespaceObject = window["wp"]["plugins"];
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/interface/build-module/components/complementary-area-toggle/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -9343,7 +9343,7 @@ function ComplementaryAreaToggle({
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -9382,7 +9382,7 @@ const ComplementaryAreaHeader = ({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/interface/build-module/components/action-item/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -9459,7 +9459,7 @@ ActionItem.Slot = ActionItemSlot;
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/interface/build-module/components/complementary-area-more-menu-item/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -9511,7 +9511,7 @@ function ComplementaryAreaMoreMenuItem({
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -9548,7 +9548,7 @@ PinnedItems.Slot = PinnedItemsSlot;
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -9813,7 +9813,7 @@ ComplementaryAreaWrapped.Slot = ComplementaryAreaSlot;
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/interface/build-module/components/fullscreen-mode/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 const FullscreenMode = ({
@@ -9853,7 +9853,7 @@ const FullscreenMode = ({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/interface/build-module/components/navigable-region/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -9889,7 +9889,7 @@ NavigableRegion.displayName = 'NavigableRegion';
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -10090,7 +10090,7 @@ function InterfaceSkeleton({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/global-keyboard-shortcuts/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -10205,7 +10205,7 @@ function EditorKeyboardShortcuts() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/autosave-monitor/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -10327,7 +10327,7 @@ class AutosaveMonitor extends external_wp_element_namespaceObject.Component {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/chevron-right-small.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -10342,7 +10342,7 @@ const chevronRightSmall = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObje
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/chevron-left-small.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -10366,7 +10366,7 @@ const external_wp_commands_namespaceObject = window["wp"]["commands"];
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -10573,7 +10573,7 @@ const TableOfContentsItem = ({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/document-outline/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -10802,7 +10802,7 @@ function DocumentOutline({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/document-outline/check.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -10832,7 +10832,7 @@ function DocumentOutlineCheck({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/global-keyboard-shortcuts/register-shortcuts.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -10969,7 +10969,7 @@ function EditorKeyboardShortcutsRegister() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/redo.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -10984,7 +10984,7 @@ const redo_redo = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/undo.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -10999,7 +10999,7 @@ const undo_undo = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/editor-history/redo.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -11051,7 +11051,7 @@ function EditorHistoryRedo(props, ref) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/editor-history/undo.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -11102,7 +11102,7 @@ function EditorHistoryUndo(props, ref) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/template-validation-notice/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -11153,7 +11153,7 @@ function TemplateValidationNotice() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/editor-notices/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -11210,7 +11210,7 @@ function EditorNotices() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/editor-snackbars/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -11242,7 +11242,7 @@ function EditorSnackbars() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/entities-saved-states/entity-record-item.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -11306,7 +11306,7 @@ function EntityRecordItem({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/entities-saved-states/entity-type-list.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -11398,7 +11398,7 @@ function EntityTypeList({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/entities-saved-states/hooks/use-is-dirty.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -11477,7 +11477,7 @@ const useIsDirty = () => {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/entities-saved-states/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -11643,7 +11643,7 @@ function EntitiesSavedStatesExtensible({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/error-boundary/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -11732,7 +11732,7 @@ class ErrorBoundary extends external_wp_element_namespaceObject.Component {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/local-autosave-monitor/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -11923,7 +11923,7 @@ function LocalAutosaveMonitor() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/page-attributes/check.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -11965,7 +11965,7 @@ function PageAttributesCheck({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-type-support-check/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -12013,7 +12013,7 @@ function PostTypeSupportCheck({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/page-attributes/order.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -12086,7 +12086,7 @@ var remove_accents_default = /*#__PURE__*/__webpack_require__.n(remove_accents);
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -12113,7 +12113,7 @@ const PostPanelRow = (0,external_wp_element_namespaceObject.forwardRef)(({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/utils/terms.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -12197,7 +12197,7 @@ const unescapeTerms = terms => {
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -12445,7 +12445,7 @@ function ParentRow() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/page-attributes/panel.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -12493,7 +12493,7 @@ function PageAttributesPanel() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/add-template.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -12510,7 +12510,7 @@ const addTemplate = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-template/create-new-template-modal.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -12629,7 +12629,7 @@ function CreateNewTemplateModal({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-template/hooks.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -12712,7 +12712,7 @@ function useCurrentTemplateSlug() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-template/classic-theme.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -12915,7 +12915,7 @@ const external_wp_warning_namespaceObject = window["wp"]["warning"];
 var external_wp_warning_default = /*#__PURE__*/__webpack_require__.n(external_wp_warning_namespaceObject);
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/preferences-modal/enable-panel.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -12950,7 +12950,7 @@ const {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/preferences-modal/enable-plugin-document-setting-panel.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -12977,7 +12977,7 @@ EnablePluginDocumentSettingPanelOption.Slot = Slot;
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/plugin-document-setting-panel/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -13100,7 +13100,7 @@ PluginDocumentSettingPanel.Slot = plugin_document_setting_panel_Slot;
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/block-settings-menu/plugin-block-settings-menu-item.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -13204,7 +13204,7 @@ const PluginBlockSettingsMenuItem = ({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/plugin-more-menu-item/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -13278,7 +13278,7 @@ const PluginBlockSettingsMenuItem = ({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/plugin-post-publish-panel/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -13347,7 +13347,7 @@ PluginPostPublishPanel.Slot = plugin_post_publish_panel_Slot;
  */
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -13413,7 +13413,7 @@ PluginPostStatusInfo.Slot = plugin_post_status_info_Slot;
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/plugin-pre-publish-panel/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -13481,7 +13481,7 @@ PluginPrePublishPanel.Slot = plugin_pre_publish_panel_Slot;
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/plugin-preview-menu-item/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -13534,7 +13534,7 @@ PluginPrePublishPanel.Slot = plugin_pre_publish_panel_Slot;
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/plugin-sidebar/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -13633,7 +13633,7 @@ function PluginSidebar({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/plugin-sidebar-more-menu-item/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -13698,7 +13698,7 @@ function PluginSidebarMoreMenuItem(props) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-template/swap-template-button.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -13782,7 +13782,7 @@ function TemplatesList({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-template/reset-default-template.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -13825,7 +13825,7 @@ function ResetDefaultTemplate({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-template/create-new-template.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -13881,7 +13881,7 @@ function CreateNewTemplate({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-template/block-theme.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -14012,7 +14012,7 @@ function BlockThemeControl({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-template/panel.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -14104,7 +14104,7 @@ const AUTHORS_QUERY = {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-author/hook.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -14178,7 +14178,7 @@ function useAuthorsQuery(search) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-author/combobox.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -14239,7 +14239,7 @@ function PostAuthorCombobox() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-author/select.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -14279,7 +14279,7 @@ function PostAuthorSelect() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-author/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -14312,7 +14312,7 @@ function PostAuthor() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-author/check.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -14360,7 +14360,7 @@ function PostAuthorCheck({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-author/panel.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -14450,7 +14450,7 @@ function panel_PostAuthor() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-comments/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -14505,7 +14505,7 @@ function PostComments() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-pingbacks/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -14545,7 +14545,7 @@ function PostPingbacks() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-discussion/panel.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -14697,7 +14697,7 @@ function PostDiscussionPanel() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-excerpt/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -14801,7 +14801,7 @@ function PostExcerptCheck({
  */
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -14865,7 +14865,7 @@ PluginPostExcerpt.Slot = plugin_Slot;
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-excerpt/panel.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -15045,7 +15045,7 @@ function PrivateExcerpt() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/theme-support-check/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -15127,7 +15127,7 @@ function PostFeaturedImageCheck({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-featured-image/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -15363,7 +15363,7 @@ const applyWithDispatch = (0,external_wp_data_namespaceObject.withDispatch)((dis
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-featured-image/panel.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -15434,7 +15434,7 @@ function PostFeaturedImagePanel({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-format/check.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -15469,7 +15469,7 @@ function PostFormatCheck({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-format/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -15600,7 +15600,7 @@ function PostFormat() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-last-revision/check.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -15647,7 +15647,7 @@ function PostLastRevisionCheck({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-last-revision/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -15723,7 +15723,7 @@ function PrivatePostLastRevision() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-last-revision/panel.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -15751,7 +15751,7 @@ function PostLastRevisionPanel() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-locked-modal/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -15976,7 +15976,7 @@ function PostLockedModal() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-pending-status/check.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -16021,7 +16021,7 @@ function PostPendingStatusCheck({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-pending-status/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -16063,7 +16063,7 @@ function PostPendingStatus() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-preview-button/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -16261,7 +16261,7 @@ function PostPreviewButton({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-publish-button/label.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -16338,7 +16338,7 @@ function PublishButtonLabel() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-publish-button/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -16548,7 +16548,7 @@ class PostPublishButton extends external_wp_element_namespaceObject.Component {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/wordpress.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -16563,7 +16563,7 @@ const wordpress = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-visibility/utils.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 const visibilityOptions = {
@@ -16583,7 +16583,7 @@ const visibilityOptions = {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-visibility/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -16748,7 +16748,7 @@ function PostVisibilityChoice({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-visibility/label.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -17415,7 +17415,7 @@ function validateTimezone(_hours, minutes) {
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -17507,7 +17507,7 @@ function PrivatePostSchedule({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-schedule/label.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -17622,7 +17622,7 @@ function isSameDay(left, right) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-taxonomies/most-used-terms.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -17684,7 +17684,7 @@ function MostUsedTerms({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-taxonomies/flat-term-selector.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -17937,7 +17937,7 @@ function FlatTermSelector({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-publish-panel/maybe-tags-panel.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -18007,7 +18007,7 @@ const MaybeTagsPanel = () => {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-publish-panel/maybe-post-format-panel.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -18082,7 +18082,7 @@ function PostFormatPanel() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-taxonomies/hierarchical-term-selector.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -18470,7 +18470,7 @@ function HierarchicalTermSelector({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-publish-panel/maybe-category-panel.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -18629,7 +18629,7 @@ function v4(options, buf, offset) {
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -18697,7 +18697,7 @@ function fetchMedia(urls) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-publish-panel/maybe-upload-media.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -18952,7 +18952,7 @@ function MaybeUploadMediaPanel() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-publish-panel/prepublish.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -19076,7 +19076,7 @@ function PostPublishPanelPrepublish({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-publish-panel/postpublish.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -19250,7 +19250,7 @@ class PostPublishPanelPostpublish extends external_wp_element_namespaceObject.Co
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-publish-panel/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -19433,7 +19433,7 @@ class PostPublishPanel extends external_wp_element_namespaceObject.Component {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/cloud-upload.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -19448,7 +19448,7 @@ const cloudUpload = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/icon/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -19480,7 +19480,7 @@ function Icon({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/cloud.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -19495,7 +19495,7 @@ const cloud = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(exte
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/drafts.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -19512,7 +19512,7 @@ const drafts = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ext
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/pending.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -19529,7 +19529,7 @@ const pending = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ex
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/not-allowed.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -19546,7 +19546,7 @@ const notAllowed = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/scheduled.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -19563,7 +19563,7 @@ const scheduled = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/published.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -19580,7 +19580,7 @@ const published = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-sticky/check.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -19619,7 +19619,7 @@ function PostStickyCheck({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-sticky/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -19661,7 +19661,7 @@ function PostSticky() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-status/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -19899,7 +19899,7 @@ function PostStatus() {
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -20060,7 +20060,7 @@ function PostSavedState({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-schedule/check.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -20092,7 +20092,7 @@ function PostScheduleCheck({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-schedule/panel.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -20198,7 +20198,7 @@ function PostSlugCheck({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-slug/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -20270,7 +20270,7 @@ function PostSlug() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-switch-to-draft-button/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -20362,7 +20362,7 @@ function PostSwitchToDraftButton() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-sync-status/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -20410,7 +20410,7 @@ function PostSyncStatus() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-taxonomies/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -20470,7 +20470,7 @@ function PostTaxonomies({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-taxonomies/check.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -20506,7 +20506,7 @@ function PostTaxonomiesCheck({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-taxonomies/panel.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -20587,7 +20587,7 @@ var lib = __webpack_require__(4132);
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -20683,7 +20683,7 @@ const REGEXP_NEWLINES = /[\r\n]+/g;
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-title/use-post-title-focus.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -20749,7 +20749,7 @@ function usePostTitleFocus(forwardedRef) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-title/use-post-title.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 /**
@@ -20793,7 +20793,7 @@ function usePostTitle() {
  */
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -20984,7 +20984,7 @@ function PostTitle(_, forwardedRef) {
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -21068,7 +21068,7 @@ function PostTitleRaw(_, forwardedRef) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-trash/check.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -21121,7 +21121,7 @@ function PostTrashCheck({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-trash/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -21200,7 +21200,7 @@ function PostTrash({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/copy-small.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -21217,7 +21217,7 @@ const copySmall = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-url/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -21374,7 +21374,7 @@ function PostURL({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-url/check.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -21419,7 +21419,7 @@ function PostURLCheck({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-url/label.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -21450,7 +21450,7 @@ function usePostURLLabel() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-url/panel.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -21558,7 +21558,7 @@ function PostURLToggle({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-visibility/check.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -21590,7 +21590,7 @@ function PostVisibilityCheck({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/info.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -21607,7 +21607,7 @@ const info = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(exter
 const external_wp_wordcount_namespaceObject = window["wp"]["wordcount"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/word-count/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -21641,7 +21641,7 @@ function WordCount() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/time-to-read/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -21692,7 +21692,7 @@ function TimeToRead() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/character-count/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -21714,7 +21714,7 @@ function CharacterCount() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/table-of-contents/panel.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -21813,7 +21813,7 @@ function TableOfContentsPanel({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/table-of-contents/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -21878,7 +21878,7 @@ function TableOfContents({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/unsaved-changes-warning/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -21924,7 +21924,7 @@ function UnsavedChangesWarning() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/provider/with-registry-provider.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -21985,7 +21985,7 @@ const withRegistryProvider = (0,external_wp_compose_namespaceObject.createHigher
  */
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -22112,7 +22112,7 @@ const inserterMediaCategories = [{
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -22246,7 +22246,7 @@ function isPlainObject(o) {
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -22417,7 +22417,7 @@ function GlobalStylesProvider({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/provider/use-block-editor-settings.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -22650,7 +22650,7 @@ function useBlockEditorSettings(settings, postType, postId, renderingMode) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/provider/disable-non-page-content-blocks.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -22718,7 +22718,7 @@ function DisableNonPageContentBlocks() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/provider/navigation-block-editing-mode.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -22753,7 +22753,7 @@ function NavigationBlockEditingMode() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/provider/use-hide-blocks-from-inserter.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -22802,7 +22802,7 @@ function useHideBlocksFromInserter(postType, mode) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/keyboard.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -22820,7 +22820,7 @@ const keyboard = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/list-view.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -22835,7 +22835,7 @@ const listView = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(e
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/code.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -22850,7 +22850,7 @@ const code = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(exter
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/drawer-left.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -22869,7 +22869,7 @@ const drawerLeft = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/drawer-right.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -22888,7 +22888,7 @@ const drawerRight = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/block-default.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -22903,7 +22903,7 @@ const blockDefault = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.js
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/format-list-bullets.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -22918,7 +22918,7 @@ const formatListBullets = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObje
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/pencil.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -22941,7 +22941,7 @@ const pencil = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ext
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/pattern-rename-modal/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -22992,7 +22992,7 @@ function PatternRenameModal() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/pattern-duplicate-modal/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -23044,7 +23044,7 @@ function PatternDuplicateModal() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/commands/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -23378,7 +23378,7 @@ function useCommands() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/block-removal-warnings/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -23443,7 +23443,7 @@ function BlockRemovalWarnings() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/start-page-options/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -23576,7 +23576,7 @@ function StartPageOptions() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/keyboard-shortcut-help-modal/config.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 const textFormattingShortcuts = [{
@@ -23652,7 +23652,7 @@ const textFormattingShortcuts = [{
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/keyboard-shortcut-help-modal/shortcut.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -23707,7 +23707,7 @@ function Shortcut({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/keyboard-shortcut-help-modal/dynamic-shortcut.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -23754,7 +23754,7 @@ function DynamicShortcut({
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -23874,7 +23874,7 @@ function KeyboardShortcutHelpModal() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/block-settings-menu/content-only-settings-menu.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -24020,7 +24020,7 @@ function ContentOnlySettingsMenu() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/start-template-options/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -24214,7 +24214,7 @@ function StartTemplateOptions() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/template-part-menu-items/convert-to-regular.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -24246,7 +24246,7 @@ function ConvertToRegularBlocks({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/template-part-menu-items/convert-to-template-part.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -24318,7 +24318,7 @@ function ConvertToTemplatePart({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/template-part-menu-items/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -24378,7 +24378,7 @@ function TemplatePartConverterMenuItem({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/provider/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -24713,7 +24713,7 @@ var external_wp_serverSideRender_default = /*#__PURE__*/__webpack_require__.n(ex
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/deprecated.js
 // Block Creation Components.
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -25084,7 +25084,7 @@ const TextEditorGlobalKeyboardShortcuts = EditorKeyboardShortcuts;
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/utils/url.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -25125,7 +25125,7 @@ function cleanForSlug(string) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/editor-interface/content-slot-fill.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -25142,7 +25142,7 @@ const EditorContentSlotFill = createPrivateSlotFill(SLOT_FILL_NAME);
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/header/back-button.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -25172,7 +25172,7 @@ BackButton.Slot = BackButtonSlot;
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/next.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -25187,7 +25187,7 @@ const next = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(exter
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/previous.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -25207,7 +25207,7 @@ const previous = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(e
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -25272,7 +25272,7 @@ function CollapsibleBlockToolbar({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/plus.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -25292,7 +25292,7 @@ const plus = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(exter
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -25453,7 +25453,7 @@ function DocumentTools({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/more-vertical.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -25468,7 +25468,7 @@ const moreVertical = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.js
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/more-menu/copy-content-menu-item.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -25522,7 +25522,7 @@ function CopyContentMenuItem() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/mode-switcher/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -25604,7 +25604,7 @@ function ModeSwitcher() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/more-menu/tools-more-menu-group.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -25621,7 +25621,7 @@ ToolsMoreMenuGroup.Slot = ({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/more-menu/view-more-menu-group.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -25639,7 +25639,7 @@ ViewMoreMenuGroup.Slot = ({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/more-menu/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -25756,7 +25756,7 @@ function MoreMenu() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-publish-button/post-publish-button-or-toggle.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -25848,7 +25848,7 @@ function PostPublishButtonOrToggle({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-view-link/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -25901,7 +25901,7 @@ function PostViewLink() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/desktop.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -25916,7 +25916,7 @@ const desktop = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ex
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/mobile.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -25931,7 +25931,7 @@ const mobile = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ext
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/tablet.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -25951,7 +25951,7 @@ const tablet = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ext
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -26115,7 +26115,7 @@ function PreviewDropdown({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/square.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -26135,7 +26135,7 @@ const square = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ext
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/zoom-out-toggle/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -26187,7 +26187,7 @@ const ZoomOutToggle = ({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/header/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -26360,7 +26360,7 @@ function Header({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/inserter-sidebar/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -26470,7 +26470,7 @@ function InserterSidebar() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/list-view-sidebar/list-view-outline.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -26510,7 +26510,7 @@ function ListViewOutline() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/list-view-sidebar/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -26645,7 +26645,7 @@ function ListViewSidebar() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/save-publish-panels/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -26750,7 +26750,7 @@ function SavePublishPanels({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/text-editor/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -26826,7 +26826,7 @@ function TextEditor({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/visual-editor/edit-template-blocks-notification.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -26915,7 +26915,7 @@ function EditTemplateBlocksNotification({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/resizable-editor/resize-handle.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -26975,7 +26975,7 @@ function ResizeHandle({
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -27060,7 +27060,7 @@ function ResizableEditor({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/visual-editor/use-select-nearest-editable-block.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -27146,7 +27146,7 @@ function useSelectNearestEditableBlock({
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -27509,7 +27509,7 @@ function VisualEditor({
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -27670,7 +27670,7 @@ function EditorInterface({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/pattern-overrides-panel/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -27694,7 +27694,7 @@ function PatternOverridesPanel() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-actions/actions.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -27783,7 +27783,7 @@ function usePostActions({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-actions/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -27955,7 +27955,7 @@ function ActionsDropdownMenuGroup({
  */
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -28053,7 +28053,7 @@ function PostCardPanel({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-content-information/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -28128,7 +28128,7 @@ function PostContentInformation() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-format/panel.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -28215,7 +28215,7 @@ function panel_PostFormat() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-last-edited-panel/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -28250,7 +28250,7 @@ function PostLastEditedPanel() {
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -28267,7 +28267,7 @@ function PostPanelSection({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/blog-title/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -28382,7 +28382,7 @@ function BlogTitle() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/posts-per-page/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -28490,7 +28490,7 @@ function PostsPerPage() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/sidebar/post-summary.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -28581,7 +28581,7 @@ function PostSummary({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-transform-panel/hooks.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -28665,7 +28665,7 @@ function useAvailablePatterns(template) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/post-transform-panel/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -28766,7 +28766,7 @@ const sidebars = {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/sidebar/header.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -28818,7 +28818,7 @@ const SidebarHeader = (_, ref) => {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/template-content-panel/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -28878,7 +28878,7 @@ function TemplateContentPanel() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/template-part-content-panel/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -28942,7 +28942,7 @@ function TemplatePartContentPanel() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/provider/use-auto-switch-editor-sidebars.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -28989,7 +28989,7 @@ function useAutoSwitchEditorSidebars() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/sidebar/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -29141,7 +29141,7 @@ const Sidebar = ({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/editor/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -29213,7 +29213,7 @@ function Editor({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/preferences-modal/enable-publish-sidebar.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -29241,7 +29241,7 @@ const {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/block-manager/checklist.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -29271,7 +29271,7 @@ function BlockTypesChecklist({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/block-manager/category.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -29372,7 +29372,7 @@ function BlockManagerCategory({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/block-manager/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -29481,7 +29481,7 @@ function BlockManager() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/components/preferences-modal/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -29723,7 +29723,7 @@ function PreferencesModalContents({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/bindings/pattern-overrides.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 const CONTENT = 'content';
@@ -29817,7 +29817,7 @@ const CONTENT = 'content';
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/bindings/post-meta.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -29969,7 +29969,7 @@ function getPostMetaFields(select, context) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/bindings/api.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -29996,7 +29996,7 @@ function registerCoreBlockBindingsSources() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/private-apis.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -30046,7 +30046,7 @@ lock(privateApis, {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/dataviews/api.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 

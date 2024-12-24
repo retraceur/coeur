@@ -11,7 +11,7 @@
 /* harmony import */ var _wordpress_is_shallow_equal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(923);
 /* harmony import */ var _wordpress_is_shallow_equal__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_is_shallow_equal__WEBPACK_IMPORTED_MODULE_0__);
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -1013,7 +1013,7 @@ module.exports.TinyEmitter = E;
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/ 	
+/******/
 /******/ 	// The require function
 /******/ 	function __nested_webpack_require_24495__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -1026,14 +1026,14 @@ module.exports.TinyEmitter = E;
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
-/******/ 	
+/******/
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId](module, module.exports, __nested_webpack_require_24495__);
-/******/ 	
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	!function() {
@@ -1046,7 +1046,7 @@ module.exports.TinyEmitter = E;
 /******/ 			return getter;
 /******/ 		};
 /******/ 	}();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	!function() {
 /******/ 		// define getter functions for harmony exports
@@ -1058,12 +1058,12 @@ module.exports.TinyEmitter = E;
 /******/ 			}
 /******/ 		};
 /******/ 	}();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	!function() {
 /******/ 		__nested_webpack_require_24495__.o = function(obj, prop) { return Object.prototype.hasOwnProperty.call(obj, prop); }
 /******/ 	}();
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	// module exports must be returned from runtime so entry inlining is disabled
 /******/ 	// startup
@@ -2206,7 +2206,7 @@ module.exports = window["wp"]["isShallowEqual"];
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/ 	
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -2220,14 +2220,14 @@ module.exports = window["wp"]["isShallowEqual"];
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
-/******/ 	
+/******/
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/ 	
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
@@ -2240,7 +2240,7 @@ module.exports = window["wp"]["isShallowEqual"];
 /******/ 			return getter;
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -2252,12 +2252,12 @@ module.exports = window["wp"]["isShallowEqual"];
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -2268,7 +2268,7 @@ module.exports = window["wp"]["isShallowEqual"];
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be in strict mode.
@@ -3315,7 +3315,7 @@ const external_wp_element_namespaceObject = window["wp"]["element"];
  */
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -3397,7 +3397,7 @@ class Listener {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/compose/build-module/higher-order/with-global-events/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -3494,7 +3494,7 @@ function withGlobalEvents(eventTypesToHandlers) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/compose/build-module/hooks/use-instance-id/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 const instanceMap = new WeakMap();
@@ -3568,7 +3568,7 @@ const withInstanceId = createHigherOrderComponent(WrappedComponent => {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/compose/build-module/higher-order/with-safe-timeout/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -3631,7 +3631,7 @@ const withSafeTimeout = createHigherOrderComponent(OriginalComponent => {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/compose/build-module/higher-order/with-state/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -3683,7 +3683,7 @@ const external_wp_dom_namespaceObject = window["wp"]["dom"];
  */
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -3719,7 +3719,7 @@ function useRefEffect(callback, dependencies) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/compose/build-module/hooks/use-constrained-tabbing/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -3816,7 +3816,7 @@ var clipboard_default = /*#__PURE__*/__webpack_require__.n(dist_clipboard);
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -3892,7 +3892,7 @@ function useCopyOnClick(ref, text, timeout = 4000) {
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -3955,7 +3955,7 @@ function useCopyToClipboard(text, onSuccess) {
 const external_wp_keycodes_namespaceObject = window["wp"]["keycodes"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/compose/build-module/hooks/use-focus-on-mount/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -4037,7 +4037,7 @@ function useFocusOnMount(focusOnMount = 'firstElement') {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/compose/build-module/hooks/use-focus-return/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -4110,7 +4110,7 @@ function useFocusReturn(onFocusReturn) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/compose/build-module/hooks/use-focus-outside/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -4263,7 +4263,7 @@ function useFocusOutside(onFocusOutside) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/compose/build-module/hooks/use-merge-refs/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -4394,7 +4394,7 @@ function useMergeRefs(refs) {
  */
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -4540,7 +4540,7 @@ function useDisabled({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/compose/build-module/hooks/use-event/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -4586,7 +4586,7 @@ callback) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/compose/build-module/hooks/use-isomorphic-layout-effect/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -4600,7 +4600,7 @@ const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? external_wp_el
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/compose/build-module/hooks/use-dragging/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -4684,7 +4684,7 @@ var mousetrap_global_bind = __webpack_require__(5760);
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -4761,7 +4761,7 @@ shortcuts, callback, {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/compose/build-module/hooks/use-media-query/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 const matchMediaCache = new Map();
@@ -4821,7 +4821,7 @@ function useMediaQuery(query) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/compose/build-module/hooks/use-previous/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -4863,7 +4863,7 @@ const useReducedMotion = () => useMediaQuery('(prefers-reduced-motion: reduce)')
 var build_module = __webpack_require__(6689);
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/compose/build-module/hooks/use-state-with-history/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -4951,7 +4951,7 @@ function useStateWithHistory(initialValue) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/compose/build-module/hooks/use-viewport-match/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -5036,7 +5036,7 @@ useViewportMatch.__experimentalWidthProvider = ViewportMatchWidthContext.Provide
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/compose/build-module/hooks/use-resize-observer/use-resize-observer.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 /**
@@ -5084,7 +5084,7 @@ function useResizeObserver(callback, resizeObserverOptions = {}) {
  */
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 /**
@@ -5277,7 +5277,7 @@ function use_resize_observer_useResizeObserver(callback, options = {}) {
 const external_wp_priorityQueue_namespaceObject = window["wp"]["priorityQueue"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/compose/build-module/hooks/use-async-list/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -5432,7 +5432,7 @@ var useCallback = (/* unused pure expression or super */ null && (useCallbackOne
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -5464,7 +5464,7 @@ function useDebounce(fn, wait, options) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/compose/build-module/hooks/use-debounced-input/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -5496,7 +5496,7 @@ function useDebouncedInput(defaultValue = '') {
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -5528,7 +5528,7 @@ function useThrottle(fn, wait, options) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/compose/build-module/hooks/use-drop-zone/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -5786,7 +5786,7 @@ function useFocusableIframe() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/compose/build-module/hooks/use-fixed-window-list/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -5922,7 +5922,7 @@ function useFixedWindowList(elementRef, itemHeight, totalItems, options) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/compose/build-module/hooks/use-observable-value/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 

@@ -2,7 +2,7 @@
 /******/ 	"use strict";
 /******/ 	// The require scope
 /******/ 	var __webpack_require__ = {};
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
@@ -15,12 +15,12 @@
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -31,7 +31,7 @@
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
 var __webpack_exports__ = {};
 // ESM COMPAT FLAG
@@ -59,7 +59,7 @@ const external_wp_i18n_namespaceObject = window["wp"]["i18n"];
 const external_wp_htmlEntities_namespaceObject = window["wp"]["htmlEntities"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/fields/build-module/actions/utils.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -114,7 +114,7 @@ function isTemplateRemovable(template) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/fields/build-module/fields/title/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -137,7 +137,7 @@ const titleField = {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/fields/build-module/fields/order/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -163,7 +163,7 @@ const external_wp_primitives_namespaceObject = window["wp"]["primitives"];
 const external_ReactJSXRuntime_namespaceObject = window["ReactJSXRuntime"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/external.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -178,7 +178,7 @@ const external = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(e
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/fields/build-module/actions/base-post/view-post.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -342,7 +342,7 @@ function getFieldTypeDefinition(type) {
 const external_wp_components_namespaceObject = window["wp"]["components"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/dataviews/build-module/dataform-controls/datetime.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -386,7 +386,7 @@ function DateTime({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/dataviews/build-module/dataform-controls/integer.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -425,7 +425,7 @@ function Integer({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/dataviews/build-module/dataform-controls/radio.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -464,7 +464,7 @@ function Radio({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/dataviews/build-module/dataform-controls/select.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -516,7 +516,7 @@ function Select({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/dataviews/build-module/dataform-controls/text.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -673,7 +673,7 @@ function isItemValid(item, fields, form) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/dataviews/build-module/dataforms-layouts/regular/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -709,7 +709,7 @@ function FormRegular({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/close-small.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -724,7 +724,7 @@ const closeSmall = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/dataviews/build-module/dataforms-layouts/panel/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -891,7 +891,7 @@ function DataForm({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/fields/build-module/actions/base-post/reorder-page.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -1007,7 +1007,7 @@ const reorder_page_native_reorderPage = undefined;
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/fields/build-module/actions/base-post/duplicate-post.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -1160,7 +1160,7 @@ const duplicate_post_native_duplicatePost = undefined;
 const external_wp_url_namespaceObject = window["wp"]["url"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/fields/build-module/actions/common/view-post-revisions.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -1204,7 +1204,7 @@ const viewPostRevisions = {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/trash.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -1221,7 +1221,7 @@ const trash = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(exte
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/fields/build-module/actions/common/permanently-delete-post.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -1332,7 +1332,7 @@ const external_wp_patterns_namespaceObject = window["wp"]["patterns"];
 const external_wp_privateApis_namespaceObject = window["wp"]["privateApis"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/fields/build-module/lock-unlock.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 const {
@@ -1342,7 +1342,7 @@ const {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/fields/build-module/actions/pattern/duplicate-pattern.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 // @ts-ignore
@@ -1863,7 +1863,7 @@ function paramCase(input, options) {
 const external_wp_blob_namespaceObject = window["wp"]["blob"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/download.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -1884,7 +1884,7 @@ const download = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(e
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 

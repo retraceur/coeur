@@ -4,7 +4,7 @@
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/ 	
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -18,14 +18,14 @@
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
-/******/ 	
+/******/
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/create fake namespace object */
 /******/ 	(() => {
@@ -56,7 +56,7 @@
 /******/ 			return ns;
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -68,12 +68,12 @@
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -84,12 +84,12 @@
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/nonce */
 /******/ 	(() => {
 /******/ 		__webpack_require__.nc = undefined;
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
 var __webpack_exports__ = {};
 // ESM COMPAT FLAG
@@ -3117,7 +3117,7 @@ const external_wp_components_namespaceObject = window["wp"]["components"];
 const external_wp_keyboardShortcuts_namespaceObject = window["wp"]["keyboardShortcuts"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/icon/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -3153,7 +3153,7 @@ const external_wp_primitives_namespaceObject = window["wp"]["primitives"];
 const external_ReactJSXRuntime_namespaceObject = window["ReactJSXRuntime"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/search.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -3168,7 +3168,7 @@ const search = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ext
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/commands/build-module/store/reducer.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -3390,7 +3390,7 @@ function actions_close() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/commands/build-module/store/selectors.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -3461,7 +3461,7 @@ function setContext(context) {
 const external_wp_privateApis_namespaceObject = window["wp"]["privateApis"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/commands/build-module/lock-unlock.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 const {
@@ -3471,7 +3471,7 @@ const {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/commands/build-module/store/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -3516,7 +3516,7 @@ unlock(store).registerPrivateActions(private_actions_namespaceObject);
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -3792,7 +3792,7 @@ function CommandMenu() {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/commands/build-module/hooks/use-command-context.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -3845,7 +3845,7 @@ lock(privateApis, {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/commands/build-module/hooks/use-command.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -3905,7 +3905,7 @@ function useCommand(command) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/commands/build-module/hooks/use-command-loader.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 

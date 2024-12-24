@@ -1186,7 +1186,7 @@ var external_wp_deprecated_default = /*#__PURE__*/__webpack_require__.n(external
 
 
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 

@@ -2,7 +2,7 @@
 /******/ 	"use strict";
 /******/ 	// The require scope
 /******/ 	var __webpack_require__ = {};
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
@@ -15,7 +15,7 @@
 /******/ 			return getter;
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -27,12 +27,12 @@
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -43,7 +43,7 @@
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
 var __webpack_exports__ = {};
 // ESM COMPAT FLAG
@@ -85,7 +85,7 @@ const external_wp_primitives_namespaceObject = window["wp"]["primitives"];
 const external_ReactJSXRuntime_namespaceObject = window["ReactJSXRuntime"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/check.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -102,7 +102,7 @@ const check = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(exte
 const external_wp_a11y_namespaceObject = window["wp"]["a11y"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/preferences/build-module/store/reducer.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -287,7 +287,7 @@ const external_wp_deprecated_namespaceObject = window["wp"]["deprecated"];
 var external_wp_deprecated_default = /*#__PURE__*/__webpack_require__.n(external_wp_deprecated_namespaceObject);
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/preferences/build-module/store/selectors.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 const withDeprecatedKeys = originalGet => (state, scope, name) => {
@@ -327,7 +327,7 @@ const STORE_NAME = 'core/preferences';
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/preferences/build-module/store/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -355,7 +355,7 @@ const store = (0,external_wp_data_namespaceObject.createReduxStore)(STORE_NAME, 
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/preferences/build-module/components/preference-toggle-menu-item/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -418,7 +418,7 @@ function PreferenceToggleMenuItem({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/preferences/build-module/components/preference-base-option/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -445,7 +445,7 @@ function BaseOption({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/preferences/build-module/components/preference-toggle-control/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -480,7 +480,7 @@ function PreferenceToggleControl(props) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/preferences/build-module/components/preferences-modal/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -528,7 +528,7 @@ const external_wp_compose_namespaceObject = window["wp"]["compose"];
 const external_wp_element_namespaceObject = window["wp"]["element"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/icon/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -560,7 +560,7 @@ function Icon({
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/chevron-left.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -575,7 +575,7 @@ const chevronLeft = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/chevron-right.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -592,7 +592,7 @@ const chevronRight = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.js
 const external_wp_privateApis_namespaceObject = window["wp"]["privateApis"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/preferences/build-module/lock-unlock.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 const {
@@ -602,7 +602,7 @@ const {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/preferences/build-module/components/preferences-modal-tabs/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 

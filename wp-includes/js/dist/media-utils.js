@@ -2,7 +2,7 @@
 /******/ 	"use strict";
 /******/ 	// The require scope
 /******/ 	var __webpack_require__ = {};
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
@@ -15,7 +15,7 @@
 /******/ 			return getter;
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -27,12 +27,12 @@
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -43,7 +43,7 @@
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
 var __webpack_exports__ = {};
 // ESM COMPAT FLAG
@@ -65,7 +65,7 @@ const external_wp_element_namespaceObject = window["wp"]["element"];
 const external_wp_i18n_namespaceObject = window["wp"]["i18n"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/media-utils/build-module/components/media-upload/index.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -556,7 +556,7 @@ function transformAttachment(attachment) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/media-utils/build-module/utils/upload-to-server.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -606,7 +606,7 @@ class UploadError extends Error {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/media-utils/build-module/utils/validate-mime-type.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -670,7 +670,7 @@ function getMimeTypesArray(wpMimeTypesObject) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/media-utils/build-module/utils/validate-mime-type-for-user.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -706,7 +706,7 @@ function validateMimeTypeForUser(file, wpAllowedMimeTypes) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/media-utils/build-module/utils/validate-file-size.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
@@ -745,7 +745,7 @@ function validateFileSize(file, maxUploadFileSize) {
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/media-utils/build-module/utils/upload-media.js
 /**
- * WordPress dependencies
+ * WP dependencies
  */
 
 
