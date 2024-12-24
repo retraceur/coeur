@@ -1,4 +1,12 @@
 /tools export-ignore
+/wp-admin/css/colors/retraceur/colors.js export-ignore
+/wp-admin/css/colors/retraceur/colors-rtl.js export-ignore
+/wp-admin/css/colors/retraceur/webpack.config.js export-ignore
+/wp-admin/css/login.js export-ignore
+/wp-admin/css/login-rtl.js export-ignore
+/wp-admin/css/install.js export-ignore
+/wp-admin/css/install-rtl.js export-ignore
+/wp-admin/css/webpack.config.js export-ignore
 /wp-content/languages export-ignore
 /.editorconfig export-ignore
 /.gitattributes export-ignore
