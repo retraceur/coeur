@@ -306,7 +306,10 @@ function wp_get_post_autosave( $post_id, $user_id = 0 ) {
 		return false;
 	}
 
-	return get_post( $autosave[0] );
+	// Clean up deprecated properties.
+	$post = retraceur_clean_deprecated_post_properties( $autosave[0] );
+
+	return get_post( $post );
 }
 
 /**
