@@ -1068,7 +1068,7 @@ function wp_welcome_panel() {
 		<div class="welcome-panel-header-image">
 			<?php echo file_get_contents( dirname( __DIR__ ) . '/images/dashboard-background.svg' ); ?>
 		</div>
-		<h2><?php _e( 'Welcome to Retraceur!' ); ?></h2>
+		<h2><?php esc_html_e( 'Thanks for making Retraceur your very own Personal Online Publication Hub' ); ?></h2>
 		<p>
 			<a href="<?php echo esc_url( admin_url( 'about.php' ) ); ?>">
 			<?php

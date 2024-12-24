@@ -29,26 +29,23 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 	<div class="about__header">
 		<div class="about__header-title">
 			<h1>
-				<?php esc_html_e( 'The Four Freedoms' ); ?>
+				<?php esc_html_e( 'About' ); ?>
+				<div class="retraceur-badge"></div>
 			</h1>
-		</div>
-
-		<div class="about__header-text">
-			<?php esc_html_e( 'Retraceur is free and open source software' ); ?>
 		</div>
 	</div>
 
 	<nav class="about__header-navigation nav-tab-wrapper wp-clearfix" aria-label="<?php esc_attr_e( 'Secondary menu' ); ?>">
-		<a href="about.php" class="nav-tab"><?php esc_html_e( 'What&#8217;s New' ); ?></a>
+		<a href="about.php" class="nav-tab"><?php esc_html_e( 'What’s New' ); ?></a>
 		<a href="credits.php" class="nav-tab"><?php esc_html_e( 'Credits' ); ?></a>
 		<a href="freedoms.php" class="nav-tab nav-tab-active" aria-current="page"><?php esc_html_e( 'Freedoms' ); ?></a>
 		<a href="privacy.php" class="nav-tab"><?php esc_html_e( 'Privacy' ); ?></a>
-		<a href="contribute.php" class="nav-tab"><?php esc_html_e( 'Get Involved' ); ?></a>
+		<a href="contribute.php" class="nav-tab"><?php esc_html_e( 'Contributing' ); ?></a>
 	</nav>
 
 	<div class="about__section is-feature">
 		<p class="about-description">
-		<?php esc_html_e( 'Retraceur comes with some awesome, worldview-changing rights courtesy of its license, the GPL.' ); ?>
+		<?php esc_html_e( 'Retraceur is Free & Open Source. It comes with some awesome, worldview-changing rights courtesy of its license, the GPL.' ); ?>
 		</p>
 	</div>
 

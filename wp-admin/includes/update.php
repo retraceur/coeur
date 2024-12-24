@@ -266,13 +266,13 @@ function core_update_footer( $msg = '' ) {
 		$cur->response = '';
 	}
 
-	$is_development_version = preg_match( '/alpha|beta|RC/', wp_get_wp_version() );
+	$is_development_version = preg_match( '/alpha|beta|RC/', retraceur_get_version() );
 
 	if ( $is_development_version ) {
 		return sprintf(
 			/* translators: 1: Retraceur version number, 2: URL to Retraceur Updates screen. */
 			__( 'You are using a development version (%1$s). Cool! Please <a href="%2$s">stay updated</a>.' ),
-			get_bloginfo( 'version', 'display' ),
+			retraceur_get_version(),
 			network_admin_url( 'update-core.php' )
 		);
 	}

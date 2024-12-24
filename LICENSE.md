@@ -359,7 +359,7 @@ GNU Lesser General Public License instead of this License.
 
 ## Copyrights
 
-Retraceur - Personal Web Publisher
+Retraceur - Personal Online Publication Hub
 
 Copyright 2024 by the contributors
 

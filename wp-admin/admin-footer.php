@@ -42,7 +42,7 @@ global $hook_suffix;
 		 *
 		 * @param string $text The content that will be printed.
 		 */
-		echo apply_filters( 'admin_footer_text', '<span id="footer-thankyou">' . __( 'Thanks for using Retraceur as your personal web publisher.' ) . '</span>' );
+		echo apply_filters( 'admin_footer_text', '<span id="footer-thankyou">' . __( 'Thanks for making Retraceur your very own Personal Online Publication Hub.' ) . '</span>' );
 		?>
 	</p>
 	<p id="footer-upgrade" class="alignright">

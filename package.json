@@ -1,7 +1,7 @@
 {
   "name": "retraceur",
   "version": "1.0.0-alpha",
-  "description": "Personal Web Publisher",
+  "description": "Personal Online Publication Hub",
   "scripts": {
     "pot:admin": "wp i18n make-pot . wp-content/languages/admin.pot --include=\"wp-admin\" --exclude=\"wp-admin/includes/continents-cities.php\" --ignore-domain",
     "pot:countries": "wp i18n make-pot . wp-content/languages/continents-and-cities.pot --include=\"wp-admin/includes/continents-cities.php\" --ignore-domain",
@@ -16,8 +16,8 @@
   },
   "keywords": [
     "blogging",
-    "blog-engine",
-		"blogging-platform"
+    "personal-website",
+		"publication"
   ],
   "author": "imath",
   "license": "GPL-2.0+",

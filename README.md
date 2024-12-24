@@ -32,7 +32,7 @@ Retraceur Core ("**coeur**" in french, if you're wondering about the meaning of 
 
 **This software comes without any warranty.**
 
-"Retraceur" is not a trademark, it's just a GitHub organization name! You can use this name or the software logos (CC0 licensed) for any purpose. The users of the software wishing to make sure to get Retraceur safely can do so from this URL: [https://github.com/retraceur/coeur](https://github.com/retraceur/coeur) or from the [Retraceur’s documentation site](https://retraceur.github.io/).
+"Retraceur" is not a trademark, it's just a [GitHub organization name](https://github.com/retraceur)! You can use this name or the software logos (CC0 licensed) for any purpose. The users of the software wishing to make sure to get Retraceur safely can do so from this URL: [https://github.com/retraceur/coeur](https://github.com/retraceur/coeur) or from the [Retraceur’s documentation site](https://retraceur.github.io/).
 
 There's no Benevolent Dictator For Life (BDFL), I'll be the first leader/committer as I'm currently the only one maintaining the software 😂. Below is how I believe leaders should behave & I'll do my best to do so:
 
@@ -42,7 +42,7 @@ There's no Benevolent Dictator For Life (BDFL), I'll be the first leader/committ
 Credits [greenleaf.org](https://www.greenleaf.org/what-is-servant-leadership/).
 
 Next Retraceur steps are:
-- [ ] build an automatic & distributed update system based on GitHub services replacing the WP distant plugin & theme API meging the [entrepôt](https://github.com/imath/entrepot) plugin features.
+- [ ] build an automatic & distributed update system based on GitHub services replacing the WP distant plugin, block & theme API.
 - [ ] Create a Retraceur Reactions feature as a plugin (using the Comments feature as an example of use).
 - [ ] package the Multisite feature as a plugin.
 
