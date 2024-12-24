@@ -1,0 +1,1 @@
+import './install-rtl.css';
