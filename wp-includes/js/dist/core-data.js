@@ -2912,15 +2912,6 @@ const rootEntitiesConfig = [{
   plural: 'comments',
   label: (0,external_wp_i18n_namespaceObject.__)('Comment')
 }, {
-  name: 'menu',
-  kind: 'root',
-  baseURL: '/wp/v2/menus',
-  baseURLParams: {
-    context: 'edit'
-  },
-  plural: 'menus',
-  label: (0,external_wp_i18n_namespaceObject.__)('Menu')
-}, {
   name: 'menuItem',
   kind: 'root',
   baseURL: '/wp/v2/menu-items',
