@@ -1,34 +1,35 @@
 {
-  "name": "retraceur",
-  "version": "1.0.0-alpha",
-  "description": "Personal Online Publication Hub",
-  "scripts": {
-    "pot:admin": "wp i18n make-pot . wp-content/languages/admin.pot --include=\"wp-admin\" --exclude=\"wp-admin/includes/continents-cities.php\" --ignore-domain",
-    "pot:countries": "wp i18n make-pot . wp-content/languages/continents-and-cities.pot --include=\"wp-admin/includes/continents-cities.php\" --ignore-domain",
-    "pot:coeur": "wp i18n make-pot . wp-content/languages/coeur.pot --include=\"wp-activate.php,wp-cron.php,wp-links-opml.php,wp-load.php,wp-login.php,wp-mail.php,wp-settings.php,wp-signups.php,wp-trackback.php,xmlrpc.php,wp-includes\" --skip-js --ignore-domain",
-    "pot:js": "./tools/makepot.sh",
-    "pot:makejson": "wp i18n make-json wp-content/languages/js wp-content/languages --no-purge",
-    "build": "wp-scripts build && ./tools/update-build.sh",
-		"build:colors": "wp-scripts build --webpack-src-dir=wp-admin/css/colors/retraceur --config wp-admin/css/colors/retraceur/webpack.config.js && ./tools/update-css-colors.sh",
-		"build:admincss": "wp-scripts build --webpack-src-dir=wp-admin/css/ --config wp-admin/css/webpack.config.js && ./tools/update-admin-css.sh"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/retraceur/coeur.git"
-  },
-  "keywords": [
-    "blogging",
-    "personal-website",
+	"name": "retraceur",
+	"version": "1.0.0-alpha",
+	"description": "Personal Online Publication Hub",
+	"scripts": {
+		"pot:admin": "wp i18n make-pot . wp-content/languages/admin.pot --include=\"wp-admin\" --exclude=\"wp-admin/includes/continents-cities.php\" --ignore-domain",
+		"pot:countries": "wp i18n make-pot . wp-content/languages/continents-and-cities.pot --include=\"wp-admin/includes/continents-cities.php\" --ignore-domain",
+		"pot:coeur": "wp i18n make-pot . wp-content/languages/coeur.pot --include=\"wp-activate.php,wp-cron.php,wp-links-opml.php,wp-load.php,wp-login.php,wp-mail.php,wp-settings.php,wp-signups.php,wp-trackback.php,xmlrpc.php,wp-includes\" --skip-js --ignore-domain",
+		"pot:js": "./tools/makepot.sh",
+		"pot:makejson": "wp i18n make-json wp-content/languages/js wp-content/languages --no-purge",
+		"build": "wp-scripts build && ./tools/update-build.sh",
+		"build:admin:css": "wp-scripts build --webpack-src-dir=wp-admin/css/ --config wp-admin/css/webpack.config.js && ./tools/update-admin-css.sh",
+		"build:admin:css:colors": "wp-scripts build --webpack-src-dir=wp-admin/css/colors/retraceur --config wp-admin/css/colors/retraceur/webpack.config.js && ./tools/update-css-colors.sh",
+		"build:inc:css": "wp-scripts build --webpack-src-dir=wp-includes/css/ --config wp-includes/css/webpack.config.js && ./tools/update-inc-css.sh"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/retraceur/coeur.git"
+	},
+	"keywords": [
+		"blogging",
+		"personal-website",
 		"publication"
-  ],
-  "author": "imath",
-  "license": "GPL-2.0+",
-  "bugs": {
-    "url": "https://github.com/retraceur/coeur/issues"
-  },
-  "homepage": "https://github.com/retraceur/coeur#readme",
-  "devDependencies": {
-    "@wordpress/scripts": "^30.6.0",
+	],
+	"author": "imath",
+	"license": "GPL-2.0+",
+	"bugs": {
+		"url": "https://github.com/retraceur/coeur/issues"
+	},
+	"homepage": "https://github.com/retraceur/coeur#readme",
+	"devDependencies": {
+		"@wordpress/scripts": "^30.6.0",
 		"@emotion/is-prop-valid": "^1.3.1"
-  }
+	}
 }
