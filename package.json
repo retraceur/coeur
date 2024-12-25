@@ -11,7 +11,8 @@
 		"build": "wp-scripts build && ./tools/update-build.sh",
 		"build:admin:css": "wp-scripts build --webpack-src-dir=wp-admin/css/ --config wp-admin/css/webpack.config.js && ./tools/update-admin-css.sh",
 		"build:admin:css:colors": "wp-scripts build --webpack-src-dir=wp-admin/css/colors/retraceur --config wp-admin/css/colors/retraceur/webpack.config.js && ./tools/update-css-colors.sh",
-		"build:inc:css": "wp-scripts build --webpack-src-dir=wp-includes/css/ --config wp-includes/css/webpack.config.js && ./tools/update-inc-css.sh"
+		"build:inc:css": "wp-scripts build --webpack-src-dir=wp-includes/css/ --config wp-includes/css/webpack.config.js && ./tools/update-inc-css.sh",
+		"build:inc:css:dist": "wp-scripts build --webpack-src-dir=wp-includes/css/dist/ --config wp-includes/css/dist/webpack.config.js && ./tools/update-inc-dist-css.sh"
 	},
 	"repository": {
 		"type": "git",
