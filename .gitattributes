@@ -2,6 +2,7 @@
 /wp-admin/css/colors/retraceur/*.js export-ignore
 /wp-admin/css/*.js export-ignore
 /wp-includes/css/dist/*.js export-ignore
+/wp-admin/js/webpack.config.js export-ignore
 /wp-includes/js/dist/webpack.config.js export-ignore
 /wp-includes/css/*.js export-ignore
 /wp-content/languages export-ignore
