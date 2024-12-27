@@ -173,7 +173,7 @@ function plugins_api( $action, $args = array() ) {
 			if ( ! wp_is_json_request() ) {
 				wp_trigger_error(
 					__FUNCTION__,
-					__( 'An unexpected error occurred. Something may be wrong this server&#8217;s configuration.' ) . ' ' . __( '(Retraceur could not establish a secure connection to Plugin Installation API. Please contact your server administrator.)' ),
+					__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ) . ' ' . __( '(Retraceur could not establish a secure connection to Plugin Installation API. Please contact your server administrator.)' ),
 					headers_sent() || WP_DEBUG ? E_USER_WARNING : E_USER_NOTICE
 				);
 			}
@@ -184,7 +184,7 @@ function plugins_api( $action, $args = array() ) {
 		if ( is_wp_error( $request ) ) {
 			$res = new WP_Error(
 				'plugins_api_failed',
-				__( 'An unexpected error occurred. Something may be wrong this server&#8217;s configuration.' ),
+				__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ),
 				$request->get_error_message()
 			);
 		} else {
