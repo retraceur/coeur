@@ -2091,7 +2091,7 @@ function validate_username( $username ) {
  *     @type string $syntax_highlighting  Whether to enable the rich code editor for the user.
  *                                        Accepts 'true' or 'false' as a string literal,
  *                                        not boolean. Default 'true'.
- *     @type string $admin_color          Admin color scheme for the user. Default 'fresh'.
+ *     @type string $admin_color          Admin color scheme for the user. Default 'Retraceur'.
  *     @type bool   $use_ssl              Whether the user should always access the admin over
  *                                        https. Default false.
  *     @type string $user_registered      Date the user registered in UTC. Format is 'Y-m-d H:i:s'.
@@ -2429,7 +2429,7 @@ function wp_insert_user( $userdata ) {
 	 *     @type string   $description          The user's description.
 	 *     @type string   $rich_editing         Whether to enable the rich-editor for the user. Default 'true'.
 	 *     @type string   $syntax_highlighting  Whether to enable the rich code editor for the user. Default 'true'.
-	 *     @type string   $admin_color          The color scheme for a user's admin screen. Default 'fresh'.
+	 *     @type string   $admin_color          The color scheme for a user's admin screen. Default 'Retraceur'.
 	 *     @type int|bool $use_ssl              Whether to force SSL on the user's admin area. 0|false if SSL
 	 *                                          is not forced.
 	 *     @type string   $show_admin_bar_front Whether to show the admin bar on the front end for the user.
