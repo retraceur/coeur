@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-12-05T22:44:10+00:00\n"
+"POT-Creation-Date: 2024-12-27T10:19:49+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 
@@ -125,7 +125,7 @@ msgstr ""
 #: wp-includes/js/dist/editor.js:6123
 #: wp-includes/js/dist/editor.js:6200
 #: wp-includes/js/dist/editor.js:11142
-#: wp-includes/js/dist/editor.js:29570
+#: wp-includes/js/dist/editor.js:29452
 msgid "Reset"
 msgstr ""
 
@@ -490,8 +490,8 @@ msgstr ""
 
 #. translators: accessibility text for the content landmark region.
 #: wp-includes/js/dist/editor.js:9980
-#: wp-includes/js/dist/editor.js:28987
-#: wp-includes/js/dist/editor.js:29042
+#: wp-includes/js/dist/editor.js:28869
+#: wp-includes/js/dist/editor.js:28924
 msgid "Content"
 msgstr ""
 
@@ -713,7 +713,7 @@ msgstr ""
 msgid "Change parent: %s"
 msgstr ""
 
-#. translators: %s: The home URL of the WordPress installation without the scheme.
+#. translators: %s: The home URL of the Retraceur installation without the scheme.
 #: wp-includes/js/dist/editor.js:12434
 msgid "Child pages inherit characteristics from their parent, such as URL structure. For instance, if \"Pricing\" is a child of \"Services\", its URL would be %s<wbr />/services<wbr />/pricing."
 msgstr ""
@@ -792,7 +792,7 @@ msgid "Choose a template"
 msgstr ""
 
 #: wp-includes/js/dist/editor.js:13776
-#: wp-includes/js/dist/editor.js:28812
+#: wp-includes/js/dist/editor.js:28694
 msgid "Templates"
 msgstr ""
 
@@ -828,34 +828,28 @@ msgstr ""
 #: wp-includes/js/dist/editor.js:14465
 #: wp-includes/js/dist/editor.js:14616
 #: wp-includes/js/dist/editor.js:14618
-#: wp-includes/js/dist/editor.js:28512
 msgctxt "Adjective: e.g. \"Comments are open\""
 msgid "Open"
 msgstr ""
 
 #: wp-includes/js/dist/editor.js:14467
-#: wp-includes/js/dist/editor.js:28514
 msgid "Visitors can add new comments and replies."
 msgstr ""
 
 #: wp-includes/js/dist/editor.js:14469
 #: wp-includes/js/dist/editor.js:14623
-#: wp-includes/js/dist/editor.js:28516
 msgid "Closed"
 msgstr ""
 
 #: wp-includes/js/dist/editor.js:14471
-#: wp-includes/js/dist/editor.js:28518
 msgid "Visitors cannot add new comments or replies."
 msgstr ""
 
 #: wp-includes/js/dist/editor.js:14471
-#: wp-includes/js/dist/editor.js:28518
 msgid "Existing comments remain visible."
 msgstr ""
 
 #: wp-includes/js/dist/editor.js:14490
-#: wp-includes/js/dist/editor.js:28598
 msgid "Comment status"
 msgstr ""
 
@@ -865,9 +859,7 @@ msgstr ""
 
 #: wp-includes/js/dist/editor.js:14574
 #: wp-includes/js/dist/editor.js:14674
-#: wp-includes/js/dist/editor.js:28568
-#: wp-includes/js/dist/editor.js:28589
-#: wp-includes/js/dist/editor.js:29729
+#: wp-includes/js/dist/editor.js:29611
 msgid "Discussion"
 msgstr ""
 
@@ -906,7 +898,7 @@ msgstr ""
 
 #: wp-includes/js/dist/editor.js:14922
 #: wp-includes/js/dist/editor.js:14983
-#: wp-includes/js/dist/editor.js:29723
+#: wp-includes/js/dist/editor.js:29605
 msgid "Excerpt"
 msgstr ""
 
@@ -928,7 +920,7 @@ msgstr ""
 
 #: wp-includes/js/dist/editor.js:15152
 #: wp-includes/js/dist/editor.js:15427
-#: wp-includes/js/dist/editor.js:29718
+#: wp-includes/js/dist/editor.js:29600
 msgid "Featured image"
 msgstr ""
 
@@ -1275,7 +1267,7 @@ msgstr ""
 
 #. translators: %d: number of results.
 #: wp-includes/js/dist/editor.js:18377
-#: wp-includes/js/dist/editor.js:29558
+#: wp-includes/js/dist/editor.js:29440
 msgid "%d result found."
 msgid_plural "%d results found."
 msgstr[0] ""
@@ -1602,7 +1594,7 @@ msgid "Paragraphs"
 msgstr ""
 
 #: wp-includes/js/dist/editor.js:21793
-#: wp-includes/js/dist/editor.js:29800
+#: wp-includes/js/dist/editor.js:29682
 msgid "Blocks"
 msgstr ""
 
@@ -1738,7 +1730,7 @@ msgid "Hide block breadcrumbs"
 msgstr ""
 
 #: wp-includes/js/dist/editor.js:23244
-#: wp-includes/js/dist/editor.js:29696
+#: wp-includes/js/dist/editor.js:29578
 msgid "Show block breadcrumbs"
 msgstr ""
 
@@ -1763,7 +1755,7 @@ msgid "Disable pre-publish checks"
 msgstr ""
 
 #: wp-includes/js/dist/editor.js:23290
-#: wp-includes/js/dist/editor.js:29742
+#: wp-includes/js/dist/editor.js:29624
 msgid "Enable pre-publish checks"
 msgstr ""
 
@@ -1988,7 +1980,7 @@ msgid "View"
 msgstr ""
 
 #: wp-includes/js/dist/editor.js:25702
-#: wp-includes/js/dist/editor.js:29757
+#: wp-includes/js/dist/editor.js:29639
 msgid "Top toolbar"
 msgstr ""
 
@@ -2005,7 +1997,7 @@ msgid "Top toolbar deactivated"
 msgstr ""
 
 #: wp-includes/js/dist/editor.js:25709
-#: wp-includes/js/dist/editor.js:29767
+#: wp-includes/js/dist/editor.js:29649
 msgid "Distraction free"
 msgstr ""
 
@@ -2022,7 +2014,7 @@ msgid "Distraction free mode deactivated"
 msgstr ""
 
 #: wp-includes/js/dist/editor.js:25719
-#: wp-includes/js/dist/editor.js:29772
+#: wp-includes/js/dist/editor.js:29654
 msgid "Spotlight mode"
 msgstr ""
 
@@ -2240,221 +2232,205 @@ msgstr ""
 msgid "Set the default number of posts to display on blog pages, including categories and tags. Some templates may override this setting."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:28581
-msgid "Change discussion settings"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:28583
-msgid "Comments open"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:28583
-msgid "Comments closed"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:28594
-msgid "Changes will apply to new posts only. Individual posts may override these settings."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:28854
+#: wp-includes/js/dist/editor.js:28736
 msgid "Design"
 msgstr ""
 
 #. translators: Default label for the Document sidebar tab, not selected.
-#: wp-includes/js/dist/editor.js:28915
+#: wp-includes/js/dist/editor.js:28797
 msgctxt "noun, sidebar"
 msgid "Document"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:28931
+#: wp-includes/js/dist/editor.js:28813
 msgid "Block"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:29186
+#: wp-includes/js/dist/editor.js:29068
 msgid "Close Settings"
 msgstr ""
 
 #. translators: button label text should, if possible, be under 16 characters.
-#: wp-includes/js/dist/editor.js:29194
+#: wp-includes/js/dist/editor.js:29076
 msgctxt "sidebar button label"
 msgid "Settings"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:29313
+#: wp-includes/js/dist/editor.js:29195
 msgid "You attempted to edit an item that doesn't exist. Perhaps it was deleted?"
 msgstr ""
 
 #. translators: %d: number of blocks.
-#: wp-includes/js/dist/editor.js:29566
+#: wp-includes/js/dist/editor.js:29448
 msgid "%d block is hidden."
 msgid_plural "%d blocks are hidden."
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-includes/js/dist/editor.js:29574
-#: wp-includes/js/dist/editor.js:29575
+#: wp-includes/js/dist/editor.js:29456
+#: wp-includes/js/dist/editor.js:29457
 msgid "Search for a block"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:29582
+#: wp-includes/js/dist/editor.js:29464
 msgid "Available block types"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:29586
+#: wp-includes/js/dist/editor.js:29468
 msgid "No blocks found."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:29591
+#: wp-includes/js/dist/editor.js:29473
 msgid "Uncategorized"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:29683
-#: wp-includes/js/dist/editor.js:29821
+#: wp-includes/js/dist/editor.js:29565
+#: wp-includes/js/dist/editor.js:29703
 msgid "General"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:29686
-#: wp-includes/js/dist/editor.js:29789
+#: wp-includes/js/dist/editor.js:29568
+#: wp-includes/js/dist/editor.js:29671
 msgid "Interface"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:29690
+#: wp-includes/js/dist/editor.js:29572
 msgid "Opens the List View sidebar by default."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:29691
+#: wp-includes/js/dist/editor.js:29573
 msgid "Always open List View"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:29695
+#: wp-includes/js/dist/editor.js:29577
 msgid "Display the block hierarchy trail at the bottom of the editor."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:29700
+#: wp-includes/js/dist/editor.js:29582
 msgid "Allows contextual List View menus via right-click, overriding browser defaults."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:29701
+#: wp-includes/js/dist/editor.js:29583
 msgid "Allow right-click contextual menus"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:29705
+#: wp-includes/js/dist/editor.js:29587
 msgid "Shows starter patterns when creating a new page."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:29706
+#: wp-includes/js/dist/editor.js:29588
 msgid "Show starter patterns"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:29709
+#: wp-includes/js/dist/editor.js:29591
 msgid "Document settings"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:29710
+#: wp-includes/js/dist/editor.js:29592
 msgid "Select what settings are shown in the document panel."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:29734
+#: wp-includes/js/dist/editor.js:29616
 msgid "Page attributes"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:29739
+#: wp-includes/js/dist/editor.js:29621
 msgid "Publishing"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:29741
+#: wp-includes/js/dist/editor.js:29623
 msgid "Review settings, such as visibility and tags."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:29748
-#: wp-includes/js/dist/editor.js:29750
+#: wp-includes/js/dist/editor.js:29630
+#: wp-includes/js/dist/editor.js:29632
 msgid "Appearance"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:29751
+#: wp-includes/js/dist/editor.js:29633
 msgid "Customize the editor interface to suit your needs."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:29756
+#: wp-includes/js/dist/editor.js:29638
 msgid "Access all block and document tools in a single place."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:29766
+#: wp-includes/js/dist/editor.js:29648
 msgid "Reduce visual distractions by hiding the toolbar and other elements to focus on writing."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:29771
+#: wp-includes/js/dist/editor.js:29653
 msgid "Highlights the current block and fades other content."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:29777
+#: wp-includes/js/dist/editor.js:29659
 msgid "Accessibility"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:29780
+#: wp-includes/js/dist/editor.js:29662
 msgid "Navigation"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:29781
+#: wp-includes/js/dist/editor.js:29663
 msgid "Optimize the editing experience for enhanced control."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:29785
+#: wp-includes/js/dist/editor.js:29667
 msgid "Keeps the text cursor within the block boundaries, aiding users with screen readers by preventing unintentional cursor movement outside the block."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:29786
+#: wp-includes/js/dist/editor.js:29668
 msgid "Contain text cursor inside block"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:29793
+#: wp-includes/js/dist/editor.js:29675
 msgid "Show button text labels"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:29794
+#: wp-includes/js/dist/editor.js:29676
 msgid "Show text instead of icons on buttons across the interface."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:29803
+#: wp-includes/js/dist/editor.js:29685
 msgid "Inserter"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:29807
+#: wp-includes/js/dist/editor.js:29689
 msgid "Adds a category with the most frequently used blocks in the inserter."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:29808
+#: wp-includes/js/dist/editor.js:29690
 msgid "Show most used blocks"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:29811
+#: wp-includes/js/dist/editor.js:29693
 msgid "Manage block visibility"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:29812
+#: wp-includes/js/dist/editor.js:29694
 msgid "Disable blocks that you don't want to appear in the inserter. They can always be toggled back on later."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:29818
+#: wp-includes/js/dist/editor.js:29700
 msgid "Media"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:29822
+#: wp-includes/js/dist/editor.js:29704
 msgid "Customize options related to the media upload flow."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:29826
+#: wp-includes/js/dist/editor.js:29708
 msgid "Compress media items before uploading to the server."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:29827
+#: wp-includes/js/dist/editor.js:29709
 msgid "Pre-upload compression"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:29831
+#: wp-includes/js/dist/editor.js:29713
 msgid "Require approval step when optimizing existing media."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:29832
+#: wp-includes/js/dist/editor.js:29714
 msgid "Approval step"
 msgstr ""

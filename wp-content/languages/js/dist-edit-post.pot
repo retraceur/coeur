@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-12-05T22:44:07+00:00\n"
+"POT-Creation-Date: 2024-12-27T10:19:46+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 
@@ -111,7 +111,7 @@ msgid "Get started"
 msgstr ""
 
 #: wp-includes/js/dist/edit-post.js:2397
-msgid "In the WordPress editor, each paragraph, image, or video is presented as a distinct “block” of content."
+msgid "In the Retraceur editor, each paragraph, image, or video is presented as a distinct “block” of content."
 msgstr ""
 
 #: wp-includes/js/dist/edit-post.js:2408

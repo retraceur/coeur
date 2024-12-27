@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-12-05T22:44:29+00:00\n"
+"POT-Creation-Date: 2024-12-27T10:20:04+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 
@@ -48,40 +48,36 @@ msgid "Comment"
 msgstr ""
 
 #: wp-includes/js/dist/core-data.js:2922
-msgid "Menu"
-msgstr ""
-
-#: wp-includes/js/dist/core-data.js:2931
 msgid "Menu Item"
 msgstr ""
 
-#: wp-includes/js/dist/core-data.js:2941
+#: wp-includes/js/dist/core-data.js:2932
 msgid "Menu Location"
 msgstr ""
 
-#: wp-includes/js/dist/core-data.js:2944
+#: wp-includes/js/dist/core-data.js:2935
 msgid "Global Styles"
 msgstr ""
 
-#: wp-includes/js/dist/core-data.js:2957
+#: wp-includes/js/dist/core-data.js:2948
 msgid "Themes"
 msgstr ""
 
-#: wp-includes/js/dist/core-data.js:2967
+#: wp-includes/js/dist/core-data.js:2958
 msgid "Plugins"
 msgstr ""
 
-#: wp-includes/js/dist/core-data.js:2977
+#: wp-includes/js/dist/core-data.js:2968
 msgid "Status"
 msgstr ""
 
-#: wp-includes/js/dist/core-data.js:3151
+#: wp-includes/js/dist/core-data.js:3142
 msgid "Site"
 msgstr ""
 
-#: wp-includes/js/dist/core-data.js:5708
-#: wp-includes/js/dist/core-data.js:5730
-#: wp-includes/js/dist/core-data.js:5752
-#: wp-includes/js/dist/core-data.js:5772
+#: wp-includes/js/dist/core-data.js:5699
+#: wp-includes/js/dist/core-data.js:5721
+#: wp-includes/js/dist/core-data.js:5743
+#: wp-includes/js/dist/core-data.js:5763
 msgid "(no title)"
 msgstr ""

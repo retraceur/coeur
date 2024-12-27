@@ -7,110 +7,102 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-12-05T22:43:44+00:00\n"
+"POT-Creation-Date: 2024-12-27T10:19:27+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 
-#: wp-admin/js/post.js:77
-msgid "Show more comments"
-msgstr ""
-
-#: wp-admin/js/post.js:81
-msgid "No more comments found."
-msgstr ""
-
-#: wp-admin/js/post.js:153
+#: wp-admin/js/post.js:112
 msgid "Could not set that as the thumbnail image. Try a different attachment."
 msgstr ""
 
-#: wp-admin/js/post.js:466
+#: wp-admin/js/post.js:425
 msgid "Saving Draft…"
 msgstr ""
 
-#: wp-admin/js/post.js:493
+#: wp-admin/js/post.js:452
 msgid "The changes you made will be lost if you navigate away from this page."
 msgstr ""
 
-#: wp-admin/js/post.js:776
+#: wp-admin/js/post.js:735
 msgid "Schedule for:"
 msgstr ""
 
-#: wp-admin/js/post.js:777
+#: wp-admin/js/post.js:736
 msgctxt "post action/button label"
 msgid "Schedule"
 msgstr ""
 
-#: wp-admin/js/post.js:779
+#: wp-admin/js/post.js:738
 msgid "Publish on:"
 msgstr ""
 
-#: wp-admin/js/post.js:780
+#: wp-admin/js/post.js:739
 msgid "Publish"
 msgstr ""
 
-#: wp-admin/js/post.js:782
+#: wp-admin/js/post.js:741
 msgid "Published on:"
 msgstr ""
 
-#: wp-admin/js/post.js:783
-#: wp-admin/js/post.js:806
+#: wp-admin/js/post.js:742
+#: wp-admin/js/post.js:765
 msgid "Update"
 msgstr ""
 
 #. translators: 1: Month, 2: Day, 3: Year, 4: Hour, 5: Minute.
-#: wp-admin/js/post.js:794
+#: wp-admin/js/post.js:753
 msgid "%1$s %2$s, %3$s at %4$s:%5$s"
 msgstr ""
 
-#: wp-admin/js/post.js:808
-#: wp-admin/js/post.js:810
+#: wp-admin/js/post.js:767
+#: wp-admin/js/post.js:769
 msgid "Privately Published"
 msgstr ""
 
-#: wp-admin/js/post.js:821
+#: wp-admin/js/post.js:780
 msgid "Published"
 msgstr ""
 
-#: wp-admin/js/post.js:842
+#: wp-admin/js/post.js:801
 msgid "Save as Pending"
 msgstr ""
 
-#: wp-admin/js/post.js:844
+#: wp-admin/js/post.js:803
 msgid "Save Draft"
 msgstr ""
 
-#: wp-admin/js/post.js:888
+#: wp-admin/js/post.js:847
 msgid "Public, Sticky"
 msgstr ""
 
-#: wp-admin/js/post.js:888
+#: wp-admin/js/post.js:847
 msgid "Public"
 msgstr ""
 
-#: wp-admin/js/post.js:891
+#: wp-admin/js/post.js:850
 msgid "Private"
 msgstr ""
 
-#: wp-admin/js/post.js:894
+#: wp-admin/js/post.js:853
 msgid "Password Protected"
 msgstr ""
 
-#: wp-admin/js/post.js:1012
+#: wp-admin/js/post.js:971
 msgid "OK"
 msgstr ""
 
-#: wp-admin/js/post.js:1013
+#: wp-admin/js/post.js:972
 msgid "Cancel"
 msgstr ""
 
-#: wp-admin/js/post.js:1047
+#: wp-admin/js/post.js:1006
 msgid "Permalink saved"
 msgstr ""
 
-#: wp-admin/js/post.js:1068
+#: wp-admin/js/post.js:1027
 msgid "URL Slug"
 msgstr ""
 
-#: wp-admin/js/post.js:1300
+#: wp-admin/js/post.js:1259
 msgid "The file URL has been copied to your clipboard"
 msgstr ""

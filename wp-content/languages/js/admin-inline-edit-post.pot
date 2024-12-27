@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-12-05T22:43:41+00:00\n"
+"POT-Creation-Date: 2024-12-27T10:19:24+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 
@@ -32,16 +32,16 @@ msgstr ""
 msgid "All selected items have been removed. Select new items to use Bulk Actions."
 msgstr ""
 
-#: wp-admin/js/inline-edit-post.js:414
+#: wp-admin/js/inline-edit-post.js:408
 msgctxt "tag delimiter"
 msgid ","
 msgstr ""
 
-#: wp-admin/js/inline-edit-post.js:527
+#: wp-admin/js/inline-edit-post.js:521
 msgid "Changes saved."
 msgstr ""
 
-#: wp-admin/js/inline-edit-post.js:537
-#: wp-admin/js/inline-edit-post.js:538
+#: wp-admin/js/inline-edit-post.js:531
+#: wp-admin/js/inline-edit-post.js:532
 msgid "Error while saving the changes."
 msgstr ""

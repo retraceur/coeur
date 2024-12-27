@@ -7,38 +7,6 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-12-05T22:43:48+00:00\n"
+"POT-Creation-Date: 2024-12-27T10:19:30+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
-
-#. translators: %s: Comments count.
-#: wp-admin/js/edit-comments.js:198
-#: wp-admin/js/edit-comments.js:218
-msgid "Comments (%s)"
-msgstr ""
-
-#: wp-admin/js/edit-comments.js:223
-msgid "Comments"
-msgstr ""
-
-#: wp-admin/js/edit-comments.js:368
-#: wp-admin/js/edit-comments.js:1015
-msgid "Approve and Reply"
-msgstr ""
-
-#: wp-admin/js/edit-comments.js:375
-#: wp-admin/js/edit-comments.js:1017
-msgid "Reply"
-msgstr ""
-
-#: wp-admin/js/edit-comments.js:854
-msgid ""
-"Are you sure you want to edit this comment?\n"
-"The changes you made will be lost."
-msgstr ""
-
-#: wp-admin/js/edit-comments.js:1235
-msgid ""
-"Are you sure you want to do this?\n"
-"The comment changes you made will be lost."
-msgstr ""
