@@ -1,6 +1,6 @@
 <?php
 /**
- * Reacteur Theme Installation Administration API.
+ * Retraceur Theme Installation Administration API.
  *
  * @since 1.0.0 Retraceur fork.
  *
@@ -53,7 +53,7 @@ $theme_field_defaults = array(
 );
 
 /**
- * Retrieves the list of Reacteur theme features (aka theme tags).
+ * Retrieves the list of Retraceur theme features (aka theme tags).
  *
  * @since WP 2.8.0
  *

@@ -1,6 +1,6 @@
 <?php
 /**
- * Reacteur Administration Screen API.
+ * Retraceur Administration Screen API.
  *
  * @since 1.0.0 Retraceur fork.
  *
@@ -219,7 +219,7 @@ function add_screen_option( $option, $args = array() ) {
  *
  * @since WP 3.1.0
  *
- * @global WP_Screen $current_screen Reacteur current screen object.
+ * @global WP_Screen $current_screen WP current screen object.
  *
  * @return WP_Screen|null Current screen object or null when screen not defined.
  */

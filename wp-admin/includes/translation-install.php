@@ -1,6 +1,6 @@
 <?php
 /**
- * Reacteur Translation Installation Administration API.
+ * Retraceur Translation Installation Administration API.
  *
  * @since 1.0.0 Retraceur fork.
  *
@@ -9,7 +9,7 @@
  */
 
 /**
- * Retrieve translations from Reacteur Translation API.
+ * Retrieve translations from Retraceur Translation API.
  *
  * @since WP 4.0.0
  *
@@ -23,7 +23,7 @@
  *
  *         @type array ...$0 {
  *             @type string   $language     Language code.
- *             @type string   $version      Reacteur version.
+ *             @type string   $version      Retraceur version.
  *             @type string   $updated      Date the translation was last updated, in MySQL datetime format.
  *             @type string   $english_name English name of the language.
  *             @type string   $native_name  Native name of the language.
@@ -117,7 +117,7 @@ function translations_api( $type, $args = null ) {
 	 *
 	 *         @type array ...$0 {
 	 *             @type string   $language     Language code.
-	 *             @type string   $version      Reacteur version.
+	 *             @type string   $version      Retraceur version.
 	 *             @type string   $updated      Date the translation was last updated, in MySQL datetime format.
 	 *             @type string   $english_name English name of the language.
 	 *             @type string   $native_name  Native name of the language.
@@ -146,7 +146,7 @@ function translations_api( $type, $args = null ) {
  *
  *     @type array ...$0 {
  *         @type string   $language     Language code.
- *         @type string   $version      Reacteur version.
+ *         @type string   $version      Retraceur version.
  *         @type string   $updated      Date the translation was last updated, in MySQL datetime format.
  *         @type string   $english_name English name of the language.
  *         @type string   $native_name  Native name of the language.
@@ -284,7 +284,7 @@ function wp_download_language_pack( $download ) {
 }
 
 /**
- * Check if Reacteur has access to the filesystem without asking for
+ * Check if Retraceur has access to the filesystem without asking for
  * credentials.
  *
  * @since WP 4.0.0

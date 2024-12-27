@@ -1,6 +1,6 @@
 <?php
 /**
- * Reacteur Taxonomy Administration API.
+ * Retraceur Taxonomy Administration API.
  *
  * @since 1.0.0 Retraceur fork.
  *

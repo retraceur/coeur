@@ -1,6 +1,6 @@
 <?php
 /**
- * Reacteur Theme Administration API.
+ * Retraceur Theme Administration API.
  *
  * @since 1.0.0 Retraceur fork.
  *
@@ -13,7 +13,7 @@
  *
  * @since WP 2.8.0
  *
- * @global WP_Filesystem_Base $wp_filesystem Reacteur filesystem subclass.
+ * @global WP_Filesystem_Base $wp_filesystem WP filesystem subclass.
  *
  * @param string $stylesheet Stylesheet of the theme to delete.
  * @param string $redirect   Redirect to page when complete.
@@ -71,7 +71,7 @@ function delete_theme( $stylesheet, $redirect = '' ) {
 	// Get the base theme folder.
 	$themes_dir = $wp_filesystem->wp_themes_dir();
 	if ( empty( $themes_dir ) ) {
-		return new WP_Error( 'fs_no_themes_dir', __( 'Unable to locate Reacteur theme directory.' ) );
+		return new WP_Error( 'fs_no_themes_dir', __( 'Unable to locate Retraceur theme directory.' ) );
 	}
 
 	/**
@@ -279,7 +279,7 @@ function get_theme_update_available( $theme ) {
 }
 
 /**
- * Retrieves list of Reacteur theme features (aka theme tags).
+ * Retrieves list of Retraceur theme features (aka theme tags).
  *
  * @since WP 3.1.0
  * @since WP 3.2.0 Added 'Gray' color and 'Featured Image Header', 'Featured Images',
@@ -514,7 +514,7 @@ function themes_api( $action, $args = array() ) {
 
 		$http_args = array(
 			'timeout'    => 15,
-			'user-agent' => 'Reacteur/' . wp_get_wp_version() . '; ' . home_url( '/' ),
+			'user-agent' => 'Retraceur/' . wp_get_wp_version() . '; ' . home_url( '/' ),
 		);
 		$request   = wp_remote_get( $url, $http_args );
 
@@ -844,19 +844,19 @@ function customize_themes_print_templates() {
 										<?php
 										printf(
 											/* translators: %s: Theme name. */
-											__( 'There is a new version of %s available, but it does not work with your versions of Reacteur and PHP.' ),
+											__( 'There is a new version of %s available, but it does not work with your versions of Retraceur and PHP.' ),
 											'{{{ data.name }}}'
 										);
 										if ( current_user_can( 'update_core' ) && current_user_can( 'update_php' ) ) {
 											printf(
-												/* translators: %s: URL to Reacteur Updates screen. */
-												' ' . __( '<a href="%1$s">Please update Reacteur</a>.' ),
+												/* translators: %s: URL to Retraceur Updates screen. */
+												' ' . __( '<a href="%1$s">Please update Retraceur</a>.' ),
 												self_admin_url( 'update-core.php' )
 											);
 										} elseif ( current_user_can( 'update_core' ) ) {
 											printf(
-												/* translators: %s: URL to Reacteur Updates screen. */
-												' ' . __( '<a href="%s">Please update Reacteur</a>.' ),
+												/* translators: %s: URL to Retraceur Updates screen. */
+												' ' . __( '<a href="%s">Please update Retraceur</a>.' ),
 												self_admin_url( 'update-core.php' )
 											);
 										}
@@ -865,13 +865,13 @@ function customize_themes_print_templates() {
 										<?php
 										printf(
 											/* translators: %s: Theme name. */
-											__( 'There is a new version of %s available, but it does not work with your version of Reacteur.' ),
+											__( 'There is a new version of %s available, but it does not work with your version of Retraceur.' ),
 											'{{{ data.name }}}'
 										);
 										if ( current_user_can( 'update_core' ) ) {
 											printf(
-												/* translators: %s: URL to Reacteur Updates screen. */
-												' ' . __( '<a href="%s">Please update Reacteur</a>.' ),
+												/* translators: %s: URL to Retraceur Updates screen. */
+												' ' . __( '<a href="%s">Please update Retraceur</a>.' ),
 												self_admin_url( 'update-core.php' )
 											);
 										}
@@ -906,28 +906,28 @@ function customize_themes_print_templates() {
 						<div class="notice notice-error notice-alt notice-large"><p>
 							<# if ( ! data.compatibleWP && ! data.compatiblePHP ) { #>
 								<?php
-								_e( 'This theme does not work with your versions of Reacteur and PHP.' );
+								_e( 'This theme does not work with your versions of Retraceur and PHP.' );
 								if ( current_user_can( 'update_core' ) && current_user_can( 'update_php' ) ) {
 									printf(
-										/* translators: %s: URL to Reacteur Updates screen. */
-										' ' . __( '<a href="%s">Please update Reacteur</a>.' ),
+										/* translators: %s: URL to Retraceur Updates screen. */
+										' ' . __( '<a href="%s">Please update Retraceur</a>.' ),
 										self_admin_url( 'update-core.php' )
 									);
 								} elseif ( current_user_can( 'update_core' ) ) {
 									printf(
-										/* translators: %s: URL to Reacteur Updates screen. */
-										' ' . __( '<a href="%s">Please update Reacteur</a>.' ),
+										/* translators: %s: URL to Retraceur Updates screen. */
+										' ' . __( '<a href="%s">Please update Retraceur</a>.' ),
 										self_admin_url( 'update-core.php' )
 									);
 								}
 								?>
 							<# } else if ( ! data.compatibleWP ) { #>
 								<?php
-								_e( 'This theme does not work with your version of Reacteur.' );
+								_e( 'This theme does not work with your version of Retraceur.' );
 								if ( current_user_can( 'update_core' ) ) {
 									printf(
-										/* translators: %s: URL to Reacteur Updates screen. */
-										' ' . __( '<a href="%s">Please update Reacteur</a>.' ),
+										/* translators: %s: URL to Retraceur Updates screen. */
+										' ' . __( '<a href="%s">Please update Retraceur</a>.' ),
 										self_admin_url( 'update-core.php' )
 									);
 								}
