@@ -36,7 +36,7 @@ $title       = __( 'Dashboard' );
 $parent_file = 'index.php';
 
 $help  = '<p>' . __( 'Welcome to your Retraceur Dashboard!' ) . '</p>';
-$help .= '<p>' . __( 'The Dashboard is the first place you will come to every time you log into your site. It is where you will find all your Retraceur tools. If you need help, just click the &#8220;Help&#8221; tab above the screen title.' ) . '</p>';
+$help .= '<p>' . __( 'The Dashboard is the first place you will come to every time you log into your site. It is where you will find all your Retraceur tools.' ) . '</p>';
 
 $screen = get_current_screen();
 

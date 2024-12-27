@@ -333,7 +333,7 @@ function update_nag() {
 	} else {
 		$msg = sprintf(
 			/* translators: %s: New version. */
-			__( 'Retraceur %2$s is available! Please notify the site administrator.' ),
+			__( 'Retraceur %s is available! Please notify the site administrator.' ),
 			$cur->current
 		);
 	}

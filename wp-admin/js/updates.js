@@ -1825,7 +1825,7 @@
 					return $( '<a>' )
 						.attr( 'href', response.customizeUrl )
 						.addClass( 'button load-customize' )
-						.text( __( 'Live Preview' ) );
+						.text( __( 'Customize' ) );
 				} );
 			}
 		}, 1000 );

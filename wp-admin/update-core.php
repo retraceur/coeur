@@ -120,7 +120,7 @@ function list_core_update( $update ) {
 			} else {
 				$message = sprintf(
 					/* translators: 1: Installed Retraceur version number, 2: New Retraceur version number, including locale if necessary. */
-					__( 'You can update from Retraceur %1$s to Retraceur %2$s</a> manually:' ),
+					__( 'You can update from Retraceur %1$s to Retraceur %2$s manually:' ),
 					$wp_version,
 					$version_string
 				);

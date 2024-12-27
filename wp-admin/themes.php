@@ -133,7 +133,7 @@ $parent_file = 'themes.php';
 if ( current_user_can( 'switch_themes' ) ) {
 	$help_overview = '<p>' . __( 'This screen is used for managing your installed themes. Aside from the default theme(s) included with your Retraceur installation, themes are designed and developed by third parties.' ) . '</p>' .
 		'<p>' . __( 'From this screen you can:' ) . '</p>' .
-		'<ul><li>' . __( 'Hover or tap to see Activate and Live Preview buttons' ) . '</li>' .
+		'<ul><li>' . __( 'Hover or tap to see the Activate and Customize buttons' ) . '</li>' .
 		'<li>' . __( 'Click on the theme to see the theme name, version, author, description, tags, and the Delete link' ) . '</li>' .
 		'</ul>' .
 		'<p>' . __( 'The active theme is displayed highlighted as the first theme.' ) . '</p>' .

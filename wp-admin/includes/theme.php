@@ -938,20 +938,15 @@ function customize_themes_print_templates() {
 								?>
 							<# } #>
 						</p></div>
-					<# } else if ( ! data.active && data.blockTheme ) { #>
-						<div class="notice notice-error notice-alt notice-large"><p>
-						<?php
-							_e( 'This theme doesn\'t support Customizer.' );
-						?>
-						<# if ( data.actions.activate ) { #>
+					<# } else if ( ! data.active && data.blockTheme && data.actions.activate ) { #>
+						<div class="notice notice-warning notice-alt notice-large"><p>
 							<?php
 							printf(
 								/* translators: %s: URL to the themes page (also it activates the theme). */
-								' ' . __( 'However, you can still <a href="%s">activate this theme</a>, and use the Site Editor to customize it.' ),
+								' ' . __( '<a href="%s">Activate this theme</a>, and use the Site Editor to customize it.' ),
 								'{{{ data.actions.activate }}}'
 							);
 							?>
-						<# } #>
 						</p></div>
 					<# } #>
 
@@ -978,9 +973,9 @@ function customize_themes_print_templates() {
 						<# } #>
 					<# } else { #>
 						<# if ( data.compatibleWP && data.compatiblePHP ) { #>
-							<button type="button" class="button button-primary preview-theme" data-slug="{{ data.id }}"><?php _e( 'Live Preview' ); ?></button>
+							<button type="button" class="button button-primary preview-theme" data-slug="{{ data.id }}"><?php _e( 'Customize' ); ?></button>
 						<# } else { #>
-							<button class="button button-primary disabled"><?php _e( 'Live Preview' ); ?></button>
+							<button class="button button-primary disabled"><?php _e( 'Customize' ); ?></button>
 						<# } #>
 					<# } #>
 					</div>
@@ -992,10 +987,10 @@ function customize_themes_print_templates() {
 				<# } else { #>
 					<# if ( data.compatibleWP && data.compatiblePHP ) { #>
 						<button type="button" class="button theme-install" data-slug="{{ data.id }}"><?php _e( 'Install' ); ?></button>
-						<button type="button" class="button button-primary theme-install preview" data-slug="{{ data.id }}"><?php _e( 'Install &amp; Preview' ); ?></button>
+						<button type="button" class="button button-primary theme-install preview" data-slug="{{ data.id }}"><?php _e( 'Install &amp; Activate' ); ?></button>
 					<# } else { #>
 						<button type="button" class="button disabled"><?php _ex( 'Cannot Install', 'theme' ); ?></button>
-						<button type="button" class="button button-primary disabled"><?php _e( 'Install &amp; Preview' ); ?></button>
+						<button type="button" class="button button-primary disabled"><?php _e( 'Install &amp; Activate' ); ?></button>
 					<# } #>
 				<# } #>
 			</div>

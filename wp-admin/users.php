@@ -45,7 +45,7 @@ get_current_screen()->add_help_tab(
 		'title'   => __( 'Overview' ),
 		'content' => '<p>' . sprintf(
 			/* Translators: %s: a comma separated list of role names. */
-			__( 'This screen lists all the existing users for your site. Each user has one of five defined roles as set by the site admin: %s. Users with roles other than Administrator will see fewer options in the dashboard navigation when they are logged in, based on their role.' ),
+			__( 'This screen lists all the existing users for your site. Each user has one of the defined roles as set by the site admin: %s. Users with roles other than Administrator will see fewer options in the dashboard navigation when they are logged in, based on their role.' ),
 			$role_list
 		) . '</p>' .
 		'<p>' . __( 'To add a new user for your site, click the Add New User button at the top of the screen or Add New User in the Users menu section.' ) . '</p>',
