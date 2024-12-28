@@ -7,9 +7,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-12-27T21:21:37+00:00\n"
+"POT-Creation-Date: 2024-12-28T13:31:57+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.11.0\n"
+"X-Generator: WP-CLI 2.10.0\n"
 
 #. translators: Page title of the About Retraceur page in the admin.
 #: wp-admin/about.php:16
@@ -83,7 +83,6 @@ msgstr ""
 msgid "Contributing"
 msgstr ""
 
-#. translators: %s: Version number.
 #. translators: %s: Retraceur version.
 #: wp-admin/about.php:47
 #: wp-admin/includes/class-wp-automatic-updater.php:410
@@ -217,7 +216,6 @@ msgid "Recovery Mode &#8212; %s"
 msgstr ""
 
 #. translators: Default date format, see https://www.php.net/manual/datetime.format.php
-#. translators: Last update date format. See https://www.php.net/manual/datetime.format.php
 #: wp-admin/admin.php:115
 #: wp-admin/includes/ajax-actions.php:856
 #: wp-admin/includes/ajax-actions.php:1804
@@ -235,7 +233,6 @@ msgstr ""
 msgid "F j, Y"
 msgstr ""
 
-#. translators: Post time format. See https://www.php.net/manual/datetime.format.php
 #. translators: Default time format, see https://www.php.net/manual/datetime.format.php
 #: wp-admin/admin.php:116
 #: wp-admin/includes/ajax-actions.php:857
@@ -1482,8 +1479,7 @@ msgstr ""
 msgid "Run Importer"
 msgstr ""
 
-#. translators: %s: Importer name.
-#. translators: %s: Plugin name and version.
+#. translators: %s: Plugin name.
 #: wp-admin/import.php:160
 #: wp-admin/includes/plugin-install.php:853
 msgctxt "plugin"
@@ -1504,8 +1500,6 @@ msgstr ""
 msgid "This importer is not installed. Please install importers from <a href=\"%s\">the main site</a>."
 msgstr ""
 
-#. translators: %s: Importer name.
-#. translators: %s: Plugin name and version.
 #. translators: %s: Plugin name.
 #: wp-admin/import.php:205
 #: wp-admin/includes/class-wp-plugin-install-list-table.php:545
@@ -1671,7 +1665,6 @@ msgstr ""
 msgid "Draft"
 msgstr ""
 
-#. translators: Date format in table columns, see https://www.php.net/manual/datetime.format.php
 #. translators: Post date format. See https://www.php.net/manual/datetime.format.php
 #: wp-admin/includes/ajax-actions.php:1404
 #: wp-admin/includes/class-wp-media-list-table.php:548
@@ -1818,10 +1811,7 @@ msgstr ""
 msgid "Sorry, you are not allowed to update plugins for this site."
 msgstr ""
 
-#. translators: %s: Plugin version.
-#. translators: %s: Plugin version number.
-#. translators: %s: Theme version number.
-#. translators: %s: Retraceur version.
+#. translators: %s: Version number.
 #: wp-admin/includes/ajax-actions.php:3508
 #: wp-admin/includes/ajax-actions.php:3551
 #: wp-admin/includes/class-wp-debug-data.php:730
@@ -2486,8 +2476,7 @@ msgstr ""
 msgid "Images should be at least %s wide."
 msgstr ""
 
-#. translators: %d: Custom header width.
-#. translators: %d: Custom header height.
+#. translators: %d: Custom header size.
 #: wp-admin/includes/class-custom-image-header.php:594
 #: wp-admin/includes/class-custom-image-header.php:606
 #: wp-admin/includes/class-custom-image-header.php:622
@@ -2936,7 +2925,6 @@ msgctxt "theme"
 msgid "Activate"
 msgstr ""
 
-#. translators: Hidden accessibility text. %s: Theme name.
 #. translators: %s: Theme name.
 #: wp-admin/includes/class-theme-installer-skin.php:132
 #: wp-admin/includes/class-theme-upgrader-skin.php:95
@@ -3525,9 +3513,7 @@ msgstr ""
 msgid "Error: [%1$s] %2$s"
 msgstr ""
 
-#. translators: %s: Latest Retraceur version number.
-#. translators: %s: Latest plugin version number.
-#. translators: %s: Latest theme version number.
+#. translators: %s: Latest version number.
 #: wp-admin/includes/class-wp-debug-data.php:164
 #: wp-admin/includes/class-wp-debug-data.php:913
 #: wp-admin/includes/class-wp-debug-data.php:1018
@@ -3884,8 +3870,7 @@ msgstr ""
 msgid "No version or author information is available."
 msgstr ""
 
-#. translators: 1: Plugin version number. 2: Plugin author name.
-#. translators: 1: Theme version number. 2: Theme author name.
+#. translators: 1: Version number. 2: Author name.
 #: wp-admin/includes/class-wp-debug-data.php:719
 #: wp-admin/includes/class-wp-debug-data.php:895
 #: wp-admin/includes/class-wp-debug-data.php:1282
@@ -3893,24 +3878,11 @@ msgid "Version %1$s by %2$s"
 msgstr ""
 
 #. translators: %s: Plugin author name.
-#. translators: %s: Theme author name.
-#. translators: %s: Plugin author.
-#. translators: %s: Theme author.
-#. translators: %s: Theme author link.
 #: wp-admin/includes/class-wp-debug-data.php:724
 #: wp-admin/includes/class-wp-debug-data.php:900
-#: wp-admin/includes/class-wp-debug-data.php:1287
 #: wp-admin/includes/class-wp-plugin-install-list-table.php:522
 #: wp-admin/includes/class-wp-plugins-list-table.php:1185
-#: wp-admin/includes/class-wp-theme-install-list-table.php:375
-#: wp-admin/includes/class-wp-theme-install-list-table.php:507
-#: wp-admin/includes/class-wp-themes-list-table.php:254
-#: wp-admin/includes/theme.php:812
-#: wp-admin/theme-install.php:331
-#: wp-admin/theme-install.php:433
-#: wp-admin/themes.php:482
-#: wp-admin/themes.php:808
-#: wp-admin/themes.php:894
+msgctxt "plugin"
 msgid "By %s"
 msgstr ""
 
@@ -4049,6 +4021,21 @@ msgstr ""
 
 #: wp-admin/includes/class-wp-debug-data.php:1233
 msgid "Parent Theme"
+msgstr ""
+
+#. translators: %s: Theme author name.
+#: wp-admin/includes/class-wp-debug-data.php:1287
+#: wp-admin/includes/class-wp-theme-install-list-table.php:375
+#: wp-admin/includes/class-wp-theme-install-list-table.php:507
+#: wp-admin/includes/class-wp-themes-list-table.php:254
+#: wp-admin/includes/theme.php:812
+#: wp-admin/theme-install.php:331
+#: wp-admin/theme-install.php:433
+#: wp-admin/themes.php:482
+#: wp-admin/themes.php:808
+#: wp-admin/themes.php:894
+msgctxt "theme"
+msgid "By %s"
 msgstr ""
 
 #: wp-admin/includes/class-wp-debug-data.php:1362
@@ -4317,7 +4304,6 @@ msgid "%1$s %2$d"
 msgstr ""
 
 #. translators: %s: Number of items.
-#. translators: Number of items.
 #: wp-admin/includes/class-wp-list-table.php:925
 #: wp-admin/includes/class-wp-list-table.php:1733
 msgid "%s item"
@@ -4509,27 +4495,13 @@ msgstr ""
 msgid "Table ordered by Date."
 msgstr ""
 
-#. translators: Hidden accessibility text. %s: Attachment title.
-#. translators: Hidden accessibility text. %s: Plugin name.
-#. translators: %s: Post title.
-#. translators: Hidden accessibility text. %s: Email address.
-#. translators: Hidden accessibility text. %s: Taxonomy term name.
-#. translators: Hidden accessibility text. %s: User login.
-#. translators: Hidden accessibility text. %s: Theme name.
+#. translators: %s: Attachment title.
 #: wp-admin/includes/class-wp-media-list-table.php:426
-#: wp-admin/includes/class-wp-plugins-list-table.php:1108
-#: wp-admin/includes/class-wp-posts-list-table.php:1039
-#: wp-admin/includes/class-wp-privacy-requests-table.php:425
-#: wp-admin/includes/class-wp-terms-list-table.php:369
-#: wp-admin/includes/class-wp-users-list-table.php:534
-#: wp-admin/update-core.php:557
-#: wp-admin/update-core.php:695
+msgctxt "attachment"
 msgid "Select %s"
 msgstr ""
 
-#. translators: %s: Attachment title.
-#. translators: %s: Post title.
-#. translators: %s: Taxonomy term name.
+#. translators: %s: Object title.
 #: wp-admin/includes/class-wp-media-list-table.php:464
 #: wp-admin/includes/class-wp-posts-list-table.php:1137
 #: wp-admin/includes/class-wp-terms-list-table.php:416
@@ -4581,9 +4553,7 @@ msgstr ""
 msgid "Attach &#8220;%s&#8221; to existing content"
 msgstr ""
 
-#. translators: %s: Attachment title.
-#. translators: %s: Post title.
-#. translators: %s: Taxonomy term name.
+#. translators: %s: Object title.
 #: wp-admin/includes/class-wp-media-list-table.php:758
 #: wp-admin/includes/class-wp-posts-list-table.php:1469
 #: wp-admin/includes/class-wp-terms-list-table.php:488
@@ -4603,15 +4573,13 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
-#. translators: %s: Attachment title.
-#. translators: %s: Post title.
+#. translators: %s: Object title.
 #: wp-admin/includes/class-wp-media-list-table.php:769
 #: wp-admin/includes/class-wp-posts-list-table.php:1499
 msgid "Restore &#8220;%s&#8221; from the Trash"
 msgstr ""
 
-#. translators: %s: Attachment title.
-#. translators: %s: Post title.
+#. translators: %s: Object title.
 #: wp-admin/includes/class-wp-media-list-table.php:777
 #: wp-admin/includes/class-wp-posts-list-table.php:1507
 msgid "Move &#8220;%s&#8221; to the Trash"
@@ -4623,8 +4591,7 @@ msgctxt "verb"
 msgid "Trash"
 msgstr ""
 
-#. translators: %s: Attachment title.
-#. translators: %s: Post title.
+#. translators: %s: Object title.
 #: wp-admin/includes/class-wp-media-list-table.php:790
 #: wp-admin/includes/class-wp-posts-list-table.php:1517
 msgid "Delete &#8220;%s&#8221; permanently"
@@ -4636,8 +4603,7 @@ msgstr ""
 msgid "Delete Permanently"
 msgstr ""
 
-#. translators: %s: Attachment title.
-#. translators: %s: Post title.
+#. translators: %s: Object title.
 #: wp-admin/includes/class-wp-media-list-table.php:806
 #: wp-admin/includes/class-wp-posts-list-table.php:1540
 msgid "View &#8220;%s&#8221;"
@@ -4726,7 +4692,6 @@ msgid "This plugin does not work with your versions of Retraceur and PHP."
 msgstr ""
 
 #. translators: %s: URL to Retraceur Updates screen.
-#. translators: %s: URL to Retraceur Updates screen,.
 #: wp-admin/includes/class-wp-plugin-install-list-table.php:583
 #: wp-admin/includes/class-wp-plugin-install-list-table.php:589
 #: wp-admin/includes/class-wp-plugin-install-list-table.php:598
@@ -5045,6 +5010,13 @@ msgctxt "plugin"
 msgid "Activate %s"
 msgstr ""
 
+#. translators: %s: Plugin name.
+#: wp-admin/includes/class-wp-plugins-list-table.php:1108
+#: wp-admin/update-core.php:557
+msgctxt "plugin"
+msgid "Select %s"
+msgstr ""
+
 #: wp-admin/includes/class-wp-plugins-list-table.php:1201
 msgid "View details"
 msgstr ""
@@ -5142,6 +5114,12 @@ msgstr ""
 msgid "Table ordered by Hierarchical Menu Order and Title."
 msgstr ""
 
+#. translators: %s: Post title.
+#: wp-admin/includes/class-wp-posts-list-table.php:1039
+msgctxt "post"
+msgid "Select %s"
+msgstr ""
+
 #. translators: Hidden accessibility text. %s: Post title.
 #: wp-admin/includes/class-wp-posts-list-table.php:1049
 msgid "&#8220;%s&#8221; is locked"
@@ -5153,9 +5131,7 @@ msgstr ""
 msgid "%s is currently editing"
 msgstr ""
 
-#. translators: 1: Post date, 2: Post time.
-#. translators: Publish box date string. 1: Date, 2: Time. See https://www.php.net/manual/datetime.format.php
-#. translators: Publish box date string. 1: Date, 2: Time.
+#. translators: 1: Date, 2: Time. See https://www.php.net/manual/datetime.format.php
 #: wp-admin/includes/class-wp-posts-list-table.php:1194
 #: wp-admin/includes/meta-boxes.php:234
 #: wp-admin/includes/meta-boxes.php:439
@@ -5170,8 +5146,7 @@ msgstr ""
 msgid "Last Modified"
 msgstr ""
 
-#. translators: %s: Post title.
-#. translators: %s: Taxonomy term name.
+#. translators: %s: Object title.
 #: wp-admin/includes/class-wp-posts-list-table.php:1487
 #: wp-admin/includes/class-wp-terms-list-table.php:506
 msgid "Quick edit &#8220;%s&#8221; inline"
@@ -5182,8 +5157,7 @@ msgstr ""
 msgid "Quick&nbsp;Edit"
 msgstr ""
 
-#. translators: %s: Post title.
-#. translators: %s: Theme name.
+#. translators: %s: Object title.
 #: wp-admin/includes/class-wp-posts-list-table.php:1531
 #: wp-admin/includes/class-wp-theme-install-list-table.php:288
 msgid "Preview &#8220;%s&#8221;"
@@ -5757,6 +5731,12 @@ msgid "%d request deleted successfully."
 msgid_plural "%d requests deleted successfully."
 msgstr[0] ""
 msgstr[1] ""
+
+#. translators: %s: Email address.
+#: wp-admin/includes/class-wp-privacy-requests-table.php:425
+msgctxt "user email"
+msgid "Select %s"
+msgstr ""
 
 #: wp-admin/includes/class-wp-screen.php:299
 #: wp-admin/post.php:22
@@ -6596,7 +6576,6 @@ msgstr ""
 msgid "REST API Endpoint: %s"
 msgstr ""
 
-#. translators: 1: The Retraceur error code. 2: The Retraceur error message.
 #. translators: 1: The Retraceur error code. 2: The HTTP status code error message.
 #: wp-admin/includes/class-wp-site-health.php:1944
 #: wp-admin/includes/class-wp-site-health.php:1964
@@ -6940,11 +6919,17 @@ msgid "Table ordered by Links."
 msgstr ""
 
 #. translators: %s: Taxonomy term name.
+#: wp-admin/includes/class-wp-terms-list-table.php:369
+msgctxt "taxonomy"
+msgid "Select %s"
+msgstr ""
+
+#. translators: %s: Taxonomy term name.
 #: wp-admin/includes/class-wp-terms-list-table.php:517
 msgid "Delete &#8220;%s&#8221;"
 msgstr ""
 
-#. translators: %s: Taxonomy term name.
+#. translators: %s: Object title.
 #: wp-admin/includes/class-wp-terms-list-table.php:527
 msgid "View &#8220;%s&#8221; archive"
 msgstr ""
@@ -6982,8 +6967,7 @@ msgstr ""
 msgid "No themes match your request."
 msgstr ""
 
-#. translators: %s: Theme version.
-#. translators: %s: Retraceur version.
+#. translators: %s: Version number.
 #: wp-admin/includes/class-wp-theme-install-list-table.php:323
 #: wp-admin/includes/class-wp-theme-install-list-table.php:481
 #: wp-admin/update-core.php:76
@@ -7275,6 +7259,12 @@ msgstr ""
 #. translators: %s: Author's display name.
 #: wp-admin/includes/class-wp-users-list-table.php:499
 msgid "View posts by %s"
+msgstr ""
+
+#. translators: %s: User login.
+#: wp-admin/includes/class-wp-users-list-table.php:534
+msgctxt "user login"
+msgid "Select %s"
 msgstr ""
 
 #. translators: 1: User's first name, 2: Last name.
@@ -9340,7 +9330,6 @@ msgstr ""
 msgid "<a href=\"%s\" target=\"_parent\">Click here to update Retraceur</a>."
 msgstr ""
 
-#. translators: %s: Plugin name and version.
 #. translators: %s: Plugin name.
 #: wp-admin/includes/plugin-install.php:875
 #: wp-admin/includes/update.php:564
@@ -9487,8 +9476,7 @@ msgstr ""
 msgid "Please contact your network administrator."
 msgstr ""
 
-#. translators: %s: add_menu_page()
-#. translators: %s: add_submenu_page()
+#. translators: %s: Function name.
 #: wp-admin/includes/plugin.php:1384
 #: wp-admin/includes/plugin.php:1488
 msgid "The seventh parameter passed to %s should be numeric representing menu position."
@@ -10045,8 +10033,7 @@ msgstr ""
 msgid "Toggle panel: %s"
 msgstr ""
 
-#. translators: %s: misc
-#. translators: %s: privacy
+#. translators: %s: Slug-name of the settings page.
 #: wp-admin/includes/template.php:1426
 #: wp-admin/includes/template.php:1439
 #: wp-admin/includes/template.php:1493
@@ -10240,43 +10227,34 @@ msgid "Could not fully remove the theme %s."
 msgstr ""
 
 #. translators: 1: Theme name, 2: Theme details URL, 3: Additional link attributes, 4: Version number.
-#. translators: 1: Plugin name, 2: Details URL, 3: Additional link attributes, 4: Version number.
-#. translators: 1: Theme name, 2: Details URL, 3: Additional link attributes, 4: Version number.
 #: wp-admin/includes/theme.php:231
-#: wp-admin/includes/update.php:524
 #: wp-admin/includes/update.php:715
+msgctxt "theme"
 msgid "There is a new version of %1$s available. <a href=\"%2$s\" %3$s>View version %4$s details</a>."
 msgstr ""
 
 #. translators: 1: Theme name, 2: Version number.
-#. translators: 1: Plugin name, 2: Version number.
 #: wp-admin/includes/theme.php:237
 #: wp-admin/includes/theme.php:250
 #: wp-admin/includes/theme.php:263
-#: wp-admin/includes/update.php:530
-#: wp-admin/includes/update.php:543
-#: wp-admin/includes/update.php:557
-#: wp-admin/includes/update.php:576
 #: wp-admin/includes/update.php:721
 #: wp-admin/includes/update.php:734
 #: wp-admin/includes/update.php:747
-#: wp-admin/update-core.php:542
+msgctxt "theme"
 msgid "View %1$s version %2$s details"
 msgstr ""
 
 #. translators: 1: Theme name, 2: Theme details URL, 3: Additional link attributes, 4: Version number.
-#. translators: 1: Theme name, 2: Details URL, 3: Additional link attributes, 4: Version number.
 #: wp-admin/includes/theme.php:244
 #: wp-admin/includes/update.php:728
+msgctxt "theme"
 msgid "There is a new version of %1$s available. <a href=\"%2$s\" %3$s>View version %4$s details</a>. <em>Automatic update is unavailable for this theme.</em>"
 msgstr ""
 
 #. translators: 1: Theme name, 2: Theme details URL, 3: Additional link attributes, 4: Version number, 5: Update URL, 6: Additional link attributes.
-#. translators: 1: Plugin name, 2: Details URL, 3: Additional link attributes, 4: Version number, 5: Update URL, 6: Additional link attributes.
-#. translators: 1: Theme name, 2: Details URL, 3: Additional link attributes, 4: Version number, 5: Update URL, 6: Additional link attributes.
 #: wp-admin/includes/theme.php:257
-#: wp-admin/includes/update.php:551
 #: wp-admin/includes/update.php:741
+msgctxt "theme"
 msgid "There is a new version of %1$s available. <a href=\"%2$s\" %3$s>View version %4$s details</a> or <a href=\"%5$s\" %6$s>update now</a>."
 msgstr ""
 
@@ -10718,9 +10696,32 @@ msgstr ""
 msgid "Retraceur %1$s running %2$s theme."
 msgstr ""
 
-#. translators: 1: Plugin name, 2: Details URL, 3: Additional link attributes, 4: Version number.
+#. translators: 1: Plugin name, 2: Plugin details URL, 3: Additional link attributes, 4: Version number.
+#: wp-admin/includes/update.php:524
+msgctxt "plugin"
+msgid "There is a new version of %1$s available. <a href=\"%2$s\" %3$s>View version %4$s details</a>."
+msgstr ""
+
+#. translators: 1: Plugin name, 2: Version number.
+#: wp-admin/includes/update.php:530
+#: wp-admin/includes/update.php:543
+#: wp-admin/includes/update.php:557
+#: wp-admin/includes/update.php:576
+#: wp-admin/update-core.php:542
+msgctxt "plugin"
+msgid "View %1$s version %2$s details"
+msgstr ""
+
+#. translators: 1: Plugin name, 2: Plugin details URL, 3: Additional link attributes, 4: Version number.
 #: wp-admin/includes/update.php:537
+msgctxt "plugin"
 msgid "There is a new version of %1$s available. <a href=\"%2$s\" %3$s>View version %4$s details</a>. <em>Automatic update is unavailable for this plugin.</em>"
+msgstr ""
+
+#. translators: 1: Plugin name, 2: Plugin details URL, 3: Additional link attributes, 4: Version number, 5: Update URL, 6: Additional link attributes.
+#: wp-admin/includes/update.php:551
+msgctxt "plugin"
+msgid "There is a new version of %1$s available. <a href=\"%2$s\" %3$s>View version %4$s details</a> or <a href=\"%5$s\" %6$s>update now</a>."
 msgstr ""
 
 #. translators: 1: Plugin name, 2: Details URL, 3: Additional link attributes, 4: Version number.
@@ -12105,14 +12106,13 @@ msgstr ""
 msgid "Permalink structure updated."
 msgstr ""
 
-#. translators: %s: web.config
-#. translators: %s: .htaccess
+#. translators: %s: Permalink config file name
 #: wp-admin/options-permalink.php:172
 #: wp-admin/options-permalink.php:185
 msgid "You should update your %s file now."
 msgstr ""
 
-#. translators: %s: web.config
+#. translators: %s: Permalink config file name
 #: wp-admin/options-permalink.php:178
 msgid "Permalink structure updated. Remove write access on %s file now!"
 msgstr ""
@@ -13807,7 +13807,7 @@ msgstr ""
 msgid "Sorry, you are not allowed to update this site."
 msgstr ""
 
-#. translators: %s: Retraceur version.
+#. translators: %s: Version number.
 #: wp-admin/update-core.php:73
 msgid "Update to latest %s nightly"
 msgstr ""
@@ -13816,7 +13816,7 @@ msgstr ""
 msgid "You can update to the latest nightly build manually:"
 msgstr ""
 
-#. translators: %s: Retraceur version.
+#. translators: %s: Version number.
 #: wp-admin/update-core.php:84
 msgid "Re-install version %s"
 msgstr ""
@@ -13958,9 +13958,8 @@ msgid "View version %s details."
 msgstr ""
 
 #. translators: 1: Plugin version, 2: New version.
-#. translators: 1: Theme version, 2: New version.
 #: wp-admin/update-core.php:569
-#: wp-admin/update-core.php:707
+msgctxt "plugin"
 msgid "You have version %1$s installed. Update to %2$s."
 msgstr ""
 
@@ -13989,6 +13988,18 @@ msgstr ""
 
 #: wp-admin/update-core.php:673
 msgid "This update does not work with your version of Retraceur."
+msgstr ""
+
+#. translators: %s: Theme name.
+#: wp-admin/update-core.php:695
+msgctxt "theme"
+msgid "Select %s"
+msgstr ""
+
+#. translators: 1: Theme version, 2: New version.
+#: wp-admin/update-core.php:707
+msgctxt "theme"
+msgid "You have version %1$s installed. Update to %2$s."
 msgstr ""
 
 #: wp-admin/update-core.php:746
@@ -14059,7 +14070,7 @@ msgstr ""
 msgid "Last checked on %1$s at %2$s."
 msgstr ""
 
-#. translators: Last update time format. See https://www.php.net/manual/datetime.format.php
+#. translators: Last update time format, see https://www.php.net/manual/datetime.format.php
 #: wp-admin/update-core.php:999
 msgid "g:i a T"
 msgstr ""
