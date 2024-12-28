@@ -479,7 +479,7 @@ foreach ( $themes as $theme ) :
 	<div class="theme-author">
 		<?php
 		/* translators: %s: Theme author name. */
-		printf( __( 'By %s' ), $theme['author'] );
+		printf( _x( 'By %s', 'theme' ), $theme['author'] );
 		?>
 	</div>
 
@@ -805,7 +805,7 @@ function wp_theme_auto_update_setting_template() {
 	<div class="theme-author">
 		<?php
 		/* translators: %s: Theme author name. */
-		printf( __( 'By %s' ), '{{{ data.author }}}' );
+		printf( _x( 'By %s', 'theme' ), '{{{ data.author }}}' );
 		?>
 	</div>
 
@@ -890,8 +890,8 @@ function wp_theme_auto_update_setting_template() {
 				</span></h2>
 				<p class="theme-author">
 					<?php
-					/* translators: %s: Theme author link. */
-					printf( __( 'By %s' ), '{{{ data.authorAndUri }}}' );
+					/* translators: %s: Theme author name. */
+					printf( _x( 'By %s', 'theme' ), '{{{ data.authorAndUri }}}' );
 					?>
 				</p>
 

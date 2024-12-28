@@ -168,20 +168,20 @@ if ( $structure_updated ) {
 		if ( $iis7_permalinks ) {
 			if ( ! $writable ) {
 				$message = sprintf(
-					/* translators: %s: web.config */
+					/* translators: %s: Permalink config file name */
 					__( 'You should update your %s file now.' ),
 					'<code>web.config</code>'
 				);
 			} else {
 				$message = sprintf(
-					/* translators: %s: web.config */
+					/* translators: %s: Permalink config file name */
 					__( 'Permalink structure updated. Remove write access on %s file now!' ),
 					'<code>web.config</code>'
 				);
 			}
 		} elseif ( ! $is_nginx && ! $is_caddy && $htaccess_update_required && ! $writable ) {
 			$message = sprintf(
-				/* translators: %s: .htaccess */
+				/* translators: %s: Permalink config file name */
 				__( 'You should update your %s file now.' ),
 				'<code>.htaccess</code>'
 			);

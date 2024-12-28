@@ -1104,8 +1104,8 @@ class WP_Plugins_List_Table extends WP_List_Table {
 				'<span class="screen-reader-text">%2$s</span></label>' .
 				'<input type="checkbox" name="checked[]" value="%3$s" id="%1$s" ' . $disabled . '/>',
 				$checkbox_id,
-				/* translators: Hidden accessibility text. %s: Plugin name. */
-				sprintf( __( 'Select %s' ), $plugin_data['Name'] ),
+				/* translators: %s: Plugin name. */
+				sprintf( _x( 'Select %s', 'plugin' ), $plugin_data['Name'] ),
 				esc_attr( $plugin_file )
 			);
 		}
@@ -1170,7 +1170,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 					$plugin_meta = array();
 
 					if ( ! empty( $plugin_data['Version'] ) ) {
-						/* translators: %s: Plugin version number. */
+						/* translators: %s: Version number. */
 						$plugin_meta[] = sprintf( __( 'Version %s' ), $plugin_data['Version'] );
 					}
 
@@ -1182,7 +1182,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 						}
 
 						/* translators: %s: Plugin author name. */
-						$plugin_meta[] = sprintf( __( 'By %s' ), $author );
+						$plugin_meta[] = sprintf( _x( 'By %s', 'plugin' ), $author );
 					}
 
 					// Details link using API info, if available.

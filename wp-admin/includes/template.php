@@ -1422,7 +1422,7 @@ function add_settings_section( $id, $title, $callback, $page, $args = array() ) 
 			__FUNCTION__,
 			'3.0.0',
 			sprintf(
-				/* translators: %s: misc */
+				/* translators: %s: Slug-name of the settings page. */
 				__( 'The "%s" options group has been removed. Use another settings group.' ),
 				'misc'
 			)
@@ -1435,7 +1435,7 @@ function add_settings_section( $id, $title, $callback, $page, $args = array() ) 
 			__FUNCTION__,
 			'3.5.0',
 			sprintf(
-				/* translators: %s: privacy */
+				/* translators: %s: Slug-name of the settings page. */
 				__( 'The "%s" options group has been removed. Use another settings group.' ),
 				'privacy'
 			)
@@ -1489,7 +1489,7 @@ function add_settings_field( $id, $title, $callback, $page, $section = 'default'
 			__FUNCTION__,
 			'3.0.0',
 			sprintf(
-				/* translators: %s: misc */
+				/* translators: %s: Slug-name of the settings page. */
 				__( 'The "%s" options group has been removed. Use another settings group.' ),
 				'misc'
 			)
@@ -1502,7 +1502,7 @@ function add_settings_field( $id, $title, $callback, $page, $section = 'default'
 			__FUNCTION__,
 			'3.5.0',
 			sprintf(
-				/* translators: %s: privacy */
+				/* translators: %s: Slug-name of the settings page. */
 				__( 'The "%s" options group has been removed. Use another settings group.' ),
 				'privacy'
 			)

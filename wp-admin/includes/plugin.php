@@ -1380,7 +1380,7 @@ function add_menu_page( $page_title, $menu_title, $capability, $menu_slug, $call
 		_doing_it_wrong(
 			__FUNCTION__,
 			sprintf(
-				/* translators: %s: add_menu_page() */
+				/* translators: %s: Function name. */
 				__( 'The seventh parameter passed to %s should be numeric representing menu position.' ),
 				'<code>add_menu_page()</code>'
 			),
@@ -1484,7 +1484,7 @@ function add_submenu_page( $parent_slug, $page_title, $menu_title, $capability, 
 		_doing_it_wrong(
 			__FUNCTION__,
 			sprintf(
-				/* translators: %s: add_submenu_page() */
+				/* translators: %s: Function name. */
 				__( 'The seventh parameter passed to %s should be numeric representing menu position.' ),
 				'<code>add_submenu_page()</code>'
 			),

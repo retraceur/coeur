@@ -590,7 +590,7 @@ class Custom_Image_Header {
 						/* translators: %s: Size in pixels. */
 						__( 'Images should be at least %s wide.' ) . ' ',
 						sprintf(
-							/* translators: %d: Custom header width. */
+							/* translators: %d: Custom header size. */
 							'<strong>' . __( '%d pixels' ) . '</strong>',
 							get_theme_support( 'custom-header', 'width' )
 						)
@@ -602,7 +602,7 @@ class Custom_Image_Header {
 						/* translators: %s: Size in pixels. */
 						__( 'Images should be at least %s tall.' ) . ' ',
 						sprintf(
-							/* translators: %d: Custom header height. */
+							/* translators: %d: Custom header size. */
 							'<strong>' . __( '%d pixels' ) . '</strong>',
 							get_theme_support( 'custom-header', 'height' )
 						)
@@ -618,7 +618,7 @@ class Custom_Image_Header {
 						/* translators: %s: Size in pixels. */
 						__( 'Suggested width is %s.' ) . ' ',
 						sprintf(
-							/* translators: %d: Custom header width. */
+							/* translators: %d: Custom header size. */
 							'<strong>' . __( '%d pixels' ) . '</strong>',
 							get_theme_support( 'custom-header', 'width' )
 						)
@@ -630,7 +630,7 @@ class Custom_Image_Header {
 						/* translators: %s: Size in pixels. */
 						__( 'Suggested height is %s.' ) . ' ',
 						sprintf(
-							/* translators: %d: Custom header height. */
+							/* translators: %d: Custom header size. */
 							'<strong>' . __( '%d pixels' ) . '</strong>',
 							get_theme_support( 'custom-header', 'height' )
 						)

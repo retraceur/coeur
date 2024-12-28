@@ -284,7 +284,7 @@ class WP_Theme_Install_List_Table extends WP_Themes_List_Table {
 		$name   = wp_kses( $theme->name, $themes_allowedtags );
 		$author = wp_kses( $theme->author, $themes_allowedtags );
 
-		/* translators: %s: Theme name. */
+		/* translators: %s: Object title. */
 		$preview_title = sprintf( __( 'Preview &#8220;%s&#8221;' ), $name );
 		$preview_url   = add_query_arg(
 			array(
@@ -319,7 +319,7 @@ class WP_Theme_Install_List_Table extends WP_Themes_List_Table {
 				$actions[] = sprintf(
 					'<a class="install-now" href="%s" title="%s">%s</a>',
 					esc_url( wp_nonce_url( $update_url, 'upgrade-theme_' . $theme->slug ) ),
-					/* translators: %s: Theme version. */
+					/* translators: %s: Version number. */
 					esc_attr( sprintf( __( 'Update to version %s' ), $theme->version ) ),
 					__( 'Update' )
 				);
@@ -371,8 +371,8 @@ class WP_Theme_Install_List_Table extends WP_Themes_List_Table {
 		<h3><?php echo $name; ?></h3>
 		<div class="theme-author">
 		<?php
-			/* translators: %s: Theme author. */
-			printf( __( 'By %s' ), $author );
+			/* translators: %s: Theme author name. */
+			printf( _x( 'By %s', 'theme' ), $author );
 		?>
 		</div>
 
@@ -477,7 +477,7 @@ class WP_Theme_Install_List_Table extends WP_Themes_List_Table {
 				printf(
 					'<a class="theme-install button button-primary" href="%s" title="%s">%s</a>',
 					esc_url( wp_nonce_url( $update_url, 'upgrade-theme_' . $theme->slug ) ),
-					/* translators: %s: Theme version. */
+					/* translators: %s: Version number. */
 					esc_attr( sprintf( __( 'Update to version %s' ), $theme->version ) ),
 					__( 'Update' )
 				);
@@ -503,8 +503,8 @@ class WP_Theme_Install_List_Table extends WP_Themes_List_Table {
 			<h3 class="theme-name"><?php echo $name; ?></h3>
 			<span class="theme-by">
 			<?php
-				/* translators: %s: Theme author. */
-				printf( __( 'By %s' ), $author );
+				/* translators: %s: Theme author name. */
+				printf( _x( 'By %s', 'theme' ), $author );
 			?>
 			</span>
 			<?php if ( isset( $theme->screenshot_url ) ) : ?>

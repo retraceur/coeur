@@ -228,39 +228,39 @@ function get_theme_update_available( $theme ) {
 			if ( ! current_user_can( 'update_themes' ) ) {
 				$html = sprintf(
 					/* translators: 1: Theme name, 2: Theme details URL, 3: Additional link attributes, 4: Version number. */
-					'<p><strong>' . __( 'There is a new version of %1$s available. <a href="%2$s" %3$s>View version %4$s details</a>.' ) . '</strong></p>',
+					'<p><strong>' . _x( 'There is a new version of %1$s available. <a href="%2$s" %3$s>View version %4$s details</a>.', 'theme' ) . '</strong></p>',
 					$theme_name,
 					esc_url( $details_url ),
 					sprintf(
 						'class="thickbox open-plugin-details-modal" aria-label="%s"',
 						/* translators: 1: Theme name, 2: Version number. */
-						esc_attr( sprintf( __( 'View %1$s version %2$s details' ), $theme_name, $update['new_version'] ) )
+						esc_attr( sprintf( _x( 'View %1$s version %2$s details', 'theme' ), $theme_name, $update['new_version'] ) )
 					),
 					$update['new_version']
 				);
 			} elseif ( empty( $update['package'] ) ) {
 				$html = sprintf(
 					/* translators: 1: Theme name, 2: Theme details URL, 3: Additional link attributes, 4: Version number. */
-					'<p><strong>' . __( 'There is a new version of %1$s available. <a href="%2$s" %3$s>View version %4$s details</a>. <em>Automatic update is unavailable for this theme.</em>' ) . '</strong></p>',
+					'<p><strong>' . _x( 'There is a new version of %1$s available. <a href="%2$s" %3$s>View version %4$s details</a>. <em>Automatic update is unavailable for this theme.</em>', 'theme' ) . '</strong></p>',
 					$theme_name,
 					esc_url( $details_url ),
 					sprintf(
 						'class="thickbox open-plugin-details-modal" aria-label="%s"',
 						/* translators: 1: Theme name, 2: Version number. */
-						esc_attr( sprintf( __( 'View %1$s version %2$s details' ), $theme_name, $update['new_version'] ) )
+						esc_attr( sprintf( _x( 'View %1$s version %2$s details', 'theme' ), $theme_name, $update['new_version'] ) )
 					),
 					$update['new_version']
 				);
 			} else {
 				$html = sprintf(
 					/* translators: 1: Theme name, 2: Theme details URL, 3: Additional link attributes, 4: Version number, 5: Update URL, 6: Additional link attributes. */
-					'<p><strong>' . __( 'There is a new version of %1$s available. <a href="%2$s" %3$s>View version %4$s details</a> or <a href="%5$s" %6$s>update now</a>.' ) . '</strong></p>',
+					'<p><strong>' . _x( 'There is a new version of %1$s available. <a href="%2$s" %3$s>View version %4$s details</a> or <a href="%5$s" %6$s>update now</a>.', 'theme' ) . '</strong></p>',
 					$theme_name,
 					esc_url( $details_url ),
 					sprintf(
 						'class="thickbox open-plugin-details-modal" aria-label="%s"',
 						/* translators: 1: Theme name, 2: Version number. */
-						esc_attr( sprintf( __( 'View %1$s version %2$s details' ), $theme_name, $update['new_version'] ) )
+						esc_attr( sprintf( _x( 'View %1$s version %2$s details', 'theme' ), $theme_name, $update['new_version'] ) )
 					),
 					$update['new_version'],
 					$update_url,
@@ -808,8 +808,8 @@ function customize_themes_print_templates() {
 					</span></h2>
 					<h3 class="theme-author">
 						<?php
-						/* translators: %s: Theme author link. */
-						printf( __( 'By %s' ), '{{{ data.authorAndUri }}}' );
+						/* translators: %s: Theme author name. */
+						printf( _x( 'By %s', 'theme' ), '{{{ data.authorAndUri }}}' );
 						?>
 					</h3>
 

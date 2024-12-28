@@ -43,7 +43,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 				<h2>
 					<?php
 					printf(
-						/* translators: %s: Version number. */
+						/* translators: %s: Retraceur version. */
 						__( 'Retraceur %s' ),
 						$display_version
 					);

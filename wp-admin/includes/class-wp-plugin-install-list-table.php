@@ -518,8 +518,8 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 
 			$author = wp_kses( $plugin['author'], $plugins_allowedtags );
 			if ( ! empty( $author ) ) {
-				/* translators: %s: Plugin author. */
-				$author = ' <cite>' . sprintf( __( 'By %s' ), $author ) . '</cite>';
+				/* translators: %s: Plugin author name. */
+				$author = ' <cite>' . sprintf( _x( 'By %s', 'plugin' ), $author ) . '</cite>';
 			}
 
 			$requires_php = isset( $plugin['requires_php'] ) ? $plugin['requires_php'] : null;
@@ -541,7 +541,7 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 			$action_links[] = sprintf(
 				'<a href="%s" class="thickbox open-plugin-details-modal" aria-label="%s" data-title="%s">%s</a>',
 				esc_url( $details_link ),
-				/* translators: %s: Plugin name and version. */
+				/* translators: %s: Plugin name. */
 				esc_attr( sprintf( __( 'More information about %s' ), $name ) ),
 				esc_attr( $name ),
 				__( 'More Details' )

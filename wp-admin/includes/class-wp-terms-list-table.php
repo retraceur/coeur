@@ -365,8 +365,8 @@ class WP_Terms_List_Table extends WP_List_Table {
 				'<input type="checkbox" name="delete_tags[]" value="%1$s" id="cb-select-%1$s" />' .
 				'<label for="cb-select-%1$s"><span class="screen-reader-text">%2$s</span></label>',
 				$tag->term_id,
-				/* translators: Hidden accessibility text. %s: Taxonomy term name. */
-				sprintf( __( 'Select %s' ), $tag->name )
+				/* translators: %s: Taxonomy term name. */
+				sprintf( _x( 'Select %s', 'taxonomy' ), $tag->name )
 			);
 		}
 
@@ -412,7 +412,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 			$name      = sprintf(
 				'<a class="row-title" href="%s" aria-label="%s">%s</a>',
 				esc_url( $edit_link ),
-				/* translators: %s: Taxonomy term name. */
+				/* translators: %s: Object title. */
 				esc_attr( sprintf( __( '&#8220;%s&#8221; (Edit)' ), $tag->name ) ),
 				$name
 			);
@@ -484,7 +484,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 						get_edit_term_link( $tag, $taxonomy, $this->screen->post_type )
 					)
 				),
-				/* translators: %s: Taxonomy term name. */
+				/* translators: %s: Object title. */
 				esc_attr( sprintf( __( 'Edit &#8220;%s&#8221;' ), $tag->name ) ),
 				__( 'Edit' )
 			);
@@ -502,7 +502,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 			if ( $quick_edit_enabled ) {
 				$actions['inline hide-if-no-js'] = sprintf(
 					'<button type="button" class="button-link editinline" aria-label="%s" aria-expanded="false">%s</button>',
-					/* translators: %s: Taxonomy term name. */
+					/* translators: %s: Object title. */
 					esc_attr( sprintf( __( 'Quick edit &#8220;%s&#8221; inline' ), $tag->name ) ),
 					__( 'Quick&nbsp;Edit' )
 				);
@@ -523,7 +523,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 			$actions['view'] = sprintf(
 				'<a href="%s" aria-label="%s">%s</a>',
 				get_term_link( $tag ),
-				/* translators: %s: Taxonomy term name. */
+				/* translators: %s: Object title. */
 				esc_attr( sprintf( __( 'View &#8220;%s&#8221; archive' ), $tag->name ) ),
 				__( 'View' )
 			);

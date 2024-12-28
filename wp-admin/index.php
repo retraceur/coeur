@@ -99,7 +99,7 @@ $screen->add_help_tab(
 unset( $help );
 
 $wp_version = get_bloginfo( 'version', 'display' );
-/* translators: %s: Retraceur version. */
+/* translators: %s: Version number. */
 $wp_version_text = sprintf( __( 'Version %s' ), $wp_version );
 
 require_once ABSPATH . 'wp-admin/admin-header.php';

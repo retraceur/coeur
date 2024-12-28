@@ -1940,7 +1940,7 @@ class WP_Site_Health {
 					$url
 				),
 				sprintf(
-					// translators: 1: The Retraceur error code. 2: The Retraceur error message.
+					// translators: 1: The Retraceur error code. 2: The HTTP status code error message.
 					__( 'REST API Response: (%1$s) %2$s' ),
 					$r->get_error_code(),
 					$r->get_error_message()

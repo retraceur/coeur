@@ -248,7 +248,7 @@ function find_core_update( $version, $locale ) {
  */
 function core_update_footer( $msg = '' ) {
 	if ( ! current_user_can( 'update_core' ) ) {
-		/* translators: %s: Retraceur version. */
+		/* translators: %s: Version number. */
 		return sprintf( __( 'Version %s' ), get_bloginfo( 'version', 'display' ) );
 	}
 
@@ -288,7 +288,7 @@ function core_update_footer( $msg = '' ) {
 
 		case 'latest':
 		default:
-			/* translators: %s: Retraceur version. */
+			/* translators: %s: Version number. */
 			return sprintf( __( 'Version %s' ), get_bloginfo( 'version', 'display' ) );
 	}
 }
@@ -520,41 +520,41 @@ function wp_plugin_update_row( $file, $plugin_data ) {
 
 		if ( ! current_user_can( 'update_plugins' ) ) {
 			printf(
-				/* translators: 1: Plugin name, 2: Details URL, 3: Additional link attributes, 4: Version number. */
-				__( 'There is a new version of %1$s available. <a href="%2$s" %3$s>View version %4$s details</a>.' ),
+				/* translators: 1: Plugin name, 2: Plugin details URL, 3: Additional link attributes, 4: Version number. */
+				_x( 'There is a new version of %1$s available. <a href="%2$s" %3$s>View version %4$s details</a>.', 'plugin' ),
 				$plugin_name,
 				esc_url( $details_url ),
 				sprintf(
 					'class="thickbox open-plugin-details-modal" aria-label="%s"',
 					/* translators: 1: Plugin name, 2: Version number. */
-					esc_attr( sprintf( __( 'View %1$s version %2$s details' ), $plugin_name, $response->new_version ) )
+					esc_attr( sprintf( _x( 'View %1$s version %2$s details', 'plugin' ), $plugin_name, $response->new_version ) )
 				),
 				esc_attr( $response->new_version )
 			);
 		} elseif ( empty( $response->package ) ) {
 			printf(
-				/* translators: 1: Plugin name, 2: Details URL, 3: Additional link attributes, 4: Version number. */
-				__( 'There is a new version of %1$s available. <a href="%2$s" %3$s>View version %4$s details</a>. <em>Automatic update is unavailable for this plugin.</em>' ),
+				/* translators: 1: Plugin name, 2: Plugin details URL, 3: Additional link attributes, 4: Version number. */
+				_x( 'There is a new version of %1$s available. <a href="%2$s" %3$s>View version %4$s details</a>. <em>Automatic update is unavailable for this plugin.</em>', 'plugin' ),
 				$plugin_name,
 				esc_url( $details_url ),
 				sprintf(
 					'class="thickbox open-plugin-details-modal" aria-label="%s"',
 					/* translators: 1: Plugin name, 2: Version number. */
-					esc_attr( sprintf( __( 'View %1$s version %2$s details' ), $plugin_name, $response->new_version ) )
+					esc_attr( sprintf( _x( 'View %1$s version %2$s details', 'plugin' ), $plugin_name, $response->new_version ) )
 				),
 				esc_attr( $response->new_version )
 			);
 		} else {
 			if ( $compatible_php ) {
 				printf(
-					/* translators: 1: Plugin name, 2: Details URL, 3: Additional link attributes, 4: Version number, 5: Update URL, 6: Additional link attributes. */
-					__( 'There is a new version of %1$s available. <a href="%2$s" %3$s>View version %4$s details</a> or <a href="%5$s" %6$s>update now</a>.' ),
+					/* translators: 1: Plugin name, 2: Plugin details URL, 3: Additional link attributes, 4: Version number, 5: Update URL, 6: Additional link attributes. */
+					_x( 'There is a new version of %1$s available. <a href="%2$s" %3$s>View version %4$s details</a> or <a href="%5$s" %6$s>update now</a>.', 'plugin' ),
 					$plugin_name,
 					esc_url( $details_url ),
 					sprintf(
 						'class="thickbox open-plugin-details-modal" aria-label="%s"',
 						/* translators: 1: Plugin name, 2: Version number. */
-						esc_attr( sprintf( __( 'View %1$s version %2$s details' ), $plugin_name, $response->new_version ) )
+						esc_attr( sprintf( _x( 'View %1$s version %2$s details', 'plugin' ), $plugin_name, $response->new_version ) )
 					),
 					esc_attr( $response->new_version ),
 					wp_nonce_url( self_admin_url( 'update.php?action=upgrade-plugin&plugin=' ) . $file, 'upgrade-plugin_' . $file ),
@@ -573,7 +573,7 @@ function wp_plugin_update_row( $file, $plugin_data ) {
 					sprintf(
 						'class="thickbox open-plugin-details-modal" aria-label="%s"',
 						/* translators: 1: Plugin name, 2: Version number. */
-						esc_attr( sprintf( __( 'View %1$s version %2$s details' ), $plugin_name, $response->new_version ) )
+						esc_attr( sprintf( _x( 'View %1$s version %2$s details', 'plugin' ), $plugin_name, $response->new_version ) )
 					),
 					esc_attr( $response->new_version )
 				);
@@ -711,40 +711,40 @@ function wp_theme_update_row( $theme_key, $theme ) {
 	if ( $compatible_wp && $compatible_php ) {
 		if ( ! current_user_can( 'update_themes' ) ) {
 			printf(
-				/* translators: 1: Theme name, 2: Details URL, 3: Additional link attributes, 4: Version number. */
-				__( 'There is a new version of %1$s available. <a href="%2$s" %3$s>View version %4$s details</a>.' ),
+				/* translators: 1: Theme name, 2: Theme details URL, 3: Additional link attributes, 4: Version number. */
+				_x( 'There is a new version of %1$s available. <a href="%2$s" %3$s>View version %4$s details</a>.', 'theme' ),
 				$theme['Name'],
 				esc_url( $details_url ),
 				sprintf(
 					'class="thickbox open-plugin-details-modal" aria-label="%s"',
 					/* translators: 1: Theme name, 2: Version number. */
-					esc_attr( sprintf( __( 'View %1$s version %2$s details' ), $theme['Name'], $response['new_version'] ) )
+					esc_attr( sprintf( _x( 'View %1$s version %2$s details', 'theme' ), $theme['Name'], $response['new_version'] ) )
 				),
 				$response['new_version']
 			);
 		} elseif ( empty( $response['package'] ) ) {
 			printf(
-				/* translators: 1: Theme name, 2: Details URL, 3: Additional link attributes, 4: Version number. */
-				__( 'There is a new version of %1$s available. <a href="%2$s" %3$s>View version %4$s details</a>. <em>Automatic update is unavailable for this theme.</em>' ),
+				/* translators: 1: Theme name, 2: Theme details URL, 3: Additional link attributes, 4: Version number. */
+				_x( 'There is a new version of %1$s available. <a href="%2$s" %3$s>View version %4$s details</a>. <em>Automatic update is unavailable for this theme.</em>', 'theme' ),
 				$theme['Name'],
 				esc_url( $details_url ),
 				sprintf(
 					'class="thickbox open-plugin-details-modal" aria-label="%s"',
 					/* translators: 1: Theme name, 2: Version number. */
-					esc_attr( sprintf( __( 'View %1$s version %2$s details' ), $theme['Name'], $response['new_version'] ) )
+					esc_attr( sprintf( _x( 'View %1$s version %2$s details', 'theme' ), $theme['Name'], $response['new_version'] ) )
 				),
 				$response['new_version']
 			);
 		} else {
 			printf(
-				/* translators: 1: Theme name, 2: Details URL, 3: Additional link attributes, 4: Version number, 5: Update URL, 6: Additional link attributes. */
-				__( 'There is a new version of %1$s available. <a href="%2$s" %3$s>View version %4$s details</a> or <a href="%5$s" %6$s>update now</a>.' ),
+				/* translators: 1: Theme name, 2: Theme details URL, 3: Additional link attributes, 4: Version number, 5: Update URL, 6: Additional link attributes. */
+				_x( 'There is a new version of %1$s available. <a href="%2$s" %3$s>View version %4$s details</a> or <a href="%5$s" %6$s>update now</a>.', 'theme' ),
 				$theme['Name'],
 				esc_url( $details_url ),
 				sprintf(
 					'class="thickbox open-plugin-details-modal" aria-label="%s"',
 					/* translators: 1: Theme name, 2: Version number. */
-					esc_attr( sprintf( __( 'View %1$s version %2$s details' ), $theme['Name'], $response['new_version'] ) )
+					esc_attr( sprintf( _x( 'View %1$s version %2$s details', 'theme' ), $theme['Name'], $response['new_version'] ) )
 				),
 				$response['new_version'],
 				wp_nonce_url( self_admin_url( 'update.php?action=upgrade-theme&theme=' ) . $theme_key, 'upgrade-theme_' . $theme_key ),
@@ -764,7 +764,7 @@ function wp_theme_update_row( $theme_key, $theme ) {
 			);
 			if ( current_user_can( 'update_core' ) && current_user_can( 'update_php' ) ) {
 				printf(
-					/* translators: %s: URL to Retraceur Updates screen,. */
+					/* translators: %s: URL to Retraceur Updates screen. */
 					' ' . __( '<a href="%s">Please update Retraceur</a>.' ),
 					self_admin_url( 'update-core.php' )
 				);

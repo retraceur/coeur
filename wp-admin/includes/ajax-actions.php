@@ -1400,7 +1400,7 @@ function wp_ajax_find_posts() {
 		if ( '0000-00-00 00:00:00' === $post->post_date ) {
 			$time = '';
 		} else {
-			/* translators: Date format in table columns, see https://www.php.net/manual/datetime.format.php */
+			/* translators: Post date format. See https://www.php.net/manual/datetime.format.php */
 			$time = mysql2date( __( 'Y/m/d' ), $post->post_date );
 		}
 
@@ -3504,7 +3504,7 @@ function wp_ajax_update_plugin() {
 	$status['pluginName'] = $plugin_data['Name'];
 
 	if ( $plugin_data['Version'] ) {
-		/* translators: %s: Plugin version. */
+		/* translators: %s: Version number. */
 		$status['oldVersion'] = sprintf( __( 'Version %s' ), $plugin_data['Version'] );
 	}
 
@@ -3547,7 +3547,7 @@ function wp_ajax_update_plugin() {
 		$plugin_data = reset( $plugin_data );
 
 		if ( $plugin_data['Version'] ) {
-			/* translators: %s: Plugin version. */
+			/* translators: %s: Version number. */
 			$status['newVersion'] = sprintf( __( 'Version %s' ), $plugin_data['Version'] );
 		}
 

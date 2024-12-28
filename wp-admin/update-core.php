@@ -69,10 +69,10 @@ function list_core_update( $update ) {
 	if ( preg_match( '/-\w+-\d+/', $update->current ) ) {
 		// Retrieve the major version number.
 		preg_match( '/^\d+.\d+/', $update->current, $update_major );
-		/* translators: %s: Retraceur version. */
+		/* translators: %s: Version number. */
 		$submit = sprintf( __( 'Update to latest %s nightly' ), $update_major[0] );
 	} else {
-		/* translators: %s: Retraceur version. */
+		/* translators: %s: Version number. */
 		$submit = sprintf( __( 'Update to version %s' ), $version_string );
 	}
 
@@ -80,7 +80,7 @@ function list_core_update( $update ) {
 		$message = __( 'You can update to the latest nightly build manually:' );
 	} else {
 		if ( $current ) {
-			/* translators: %s: Retraceur version. */
+			/* translators: %s: Version number. */
 			$submit      = sprintf( __( 'Re-install version %s' ), $version_string );
 			$form_action = 'update-core.php?action=do-core-reinstall';
 		} else {
@@ -539,7 +539,7 @@ function list_plugin_updates() {
 			'<a href="%1$s" class="thickbox open-plugin-details-modal" aria-label="%2$s">%3$s</a>',
 			esc_url( $details_url ),
 			/* translators: 1: Plugin name, 2: Version number. */
-			esc_attr( sprintf( __( 'View %1$s version %2$s details' ), $plugin_data->Name, $plugin_data->update->new_version ) ),
+			esc_attr( sprintf( _x( 'View %1$s version %2$s details', 'plugin' ), $plugin_data->Name, $plugin_data->update->new_version ) ),
 			/* translators: %s: Plugin version. */
 			sprintf( __( 'View version %s details.' ), $plugin_data->update->new_version )
 		);
@@ -553,8 +553,8 @@ function list_plugin_updates() {
 				<label for="<?php echo $checkbox_id; ?>">
 					<span class="screen-reader-text">
 					<?php
-					/* translators: Hidden accessibility text. %s: Plugin name. */
-					printf( __( 'Select %s' ), $plugin_data->Name );
+					/* translators: %s: Plugin name. */
+					printf( _x( 'Select %s', 'plugin' ), $plugin_data->Name );
 					?>
 					</span>
 				</label>
@@ -566,7 +566,7 @@ function list_plugin_updates() {
 			<?php
 			printf(
 				/* translators: 1: Plugin version, 2: New version. */
-				__( 'You have version %1$s installed. Update to %2$s.' ),
+				_x( 'You have version %1$s installed. Update to %2$s.', 'plugin' ),
 				$plugin_data->Version,
 				$plugin_data->update->new_version
 			);
@@ -691,8 +691,8 @@ function list_theme_updates() {
 				<label for="<?php echo $checkbox_id; ?>">
 					<span class="screen-reader-text">
 					<?php
-					/* translators: Hidden accessibility text. %s: Theme name. */
-					printf( __( 'Select %s' ), $theme->display( 'Name' ) );
+					/* translators: %s: Theme name. */
+					printf( _x( 'Select %s', 'theme' ), $theme->display( 'Name' ) );
 					?>
 					</span>
 				</label>
@@ -704,7 +704,7 @@ function list_theme_updates() {
 			<?php
 			printf(
 				/* translators: 1: Theme version, 2: New version. */
-				__( 'You have version %1$s installed. Update to %2$s.' ),
+				_x( 'You have version %1$s installed. Update to %2$s.', 'theme' ),
 				$theme->display( 'Version' ),
 				$theme->update['new_version']
 			);
@@ -993,9 +993,9 @@ if ( 'upgrade-core' === $action ) {
 	printf(
 		/* translators: 1: Date, 2: Time. */
 		__( 'Last checked on %1$s at %2$s.' ),
-		/* translators: Last update date format. See https://www.php.net/manual/datetime.format.php */
+		/* translators: Default date format, see https://www.php.net/manual/datetime.format.php */
 		date_i18n( __( 'F j, Y' ), $last_update_check ),
-		/* translators: Last update time format. See https://www.php.net/manual/datetime.format.php */
+		/* translators: Last update time format, see https://www.php.net/manual/datetime.format.php */
 		date_i18n( __( 'g:i a T' ), $last_update_check )
 	);
 	echo ' <a href="' . esc_url( self_admin_url( 'update-core.php?force-check=1' ) ) . '">' . __( 'Check again.' ) . '</a>';

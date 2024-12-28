@@ -849,7 +849,7 @@ function wp_get_plugin_action_button( $name, $data, $compatible_php, $compatible
 							'<a class="install-now button" data-slug="%s" href="%s" aria-label="%s" data-name="%s" role="button">%s</a>',
 							esc_attr( $data->slug ),
 							esc_url( $status['url'] ),
-							/* translators: %s: Plugin name and version. */
+							/* translators: %s: Plugin name. */
 							esc_attr( sprintf( _x( 'Install %s now', 'plugin' ), $name ) ),
 							esc_attr( $name ),
 							_x( 'Install Now', 'plugin' )
@@ -871,7 +871,7 @@ function wp_get_plugin_action_button( $name, $data, $compatible_php, $compatible
 							esc_attr( $status['file'] ),
 							esc_attr( $data->slug ),
 							esc_url( $status['url'] ),
-							/* translators: %s: Plugin name and version. */
+							/* translators: %s: Plugin name. */
 							esc_attr( sprintf( _x( 'Update %s now', 'plugin' ), $name ) ),
 							esc_attr( $name ),
 							_x( 'Update Now', 'plugin' )

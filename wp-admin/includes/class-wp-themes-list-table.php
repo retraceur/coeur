@@ -250,8 +250,8 @@ class WP_Themes_List_Table extends WP_List_Table {
 			<h3><?php echo $title; ?></h3>
 			<div class="theme-author">
 				<?php
-					/* translators: %s: Theme author. */
-					printf( __( 'By %s' ), $author );
+					/* translators: %s: Theme author name. */
+					printf( _x( 'By %s', 'theme' ), $author );
 				?>
 			</div>
 			<div class="action-links">

@@ -421,8 +421,8 @@ abstract class WP_Privacy_Requests_Table extends WP_List_Table {
 			'<input type="checkbox" name="request_id[]" id="requester_%1$s" value="%1$s" />' .
 			'<label for="requester_%1$s"><span class="screen-reader-text">%2$s</span></label><span class="spinner"></span>',
 			esc_attr( $item->ID ),
-			/* translators: Hidden accessibility text. %s: Email address. */
-			sprintf( __( 'Select %s' ), $item->email )
+			/* translators: %s: Email address. */
+			sprintf( _x( 'Select %s', 'user email' ), $item->email )
 		);
 	}
 

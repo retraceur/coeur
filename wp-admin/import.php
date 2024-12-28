@@ -156,7 +156,7 @@ if ( empty( $importers ) ) {
 						esc_url( $url ),
 						esc_attr( $plugin_slug ),
 						esc_attr( $data[0] ),
-						/* translators: %s: Importer name. */
+						/* translators: %s: Plugin name. */
 						esc_attr( sprintf( _x( 'Install %s now', 'plugin' ), $data[0] ) ),
 						_x( 'Install Now', 'plugin' )
 					);
@@ -201,7 +201,7 @@ if ( empty( $importers ) ) {
 			$action .= sprintf(
 				' | <a href="%1$s" class="thickbox open-plugin-details-modal" aria-label="%2$s">%3$s</a>',
 				esc_url( $url ),
-				/* translators: %s: Importer name. */
+				/* translators: %s: Plugin name. */
 				esc_attr( sprintf( __( 'More information about %s' ), $data[0] ) ),
 				__( 'Details' )
 			);

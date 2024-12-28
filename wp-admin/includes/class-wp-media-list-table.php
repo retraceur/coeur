@@ -422,8 +422,8 @@ class WP_Media_List_Table extends WP_List_Table {
 			<label for="cb-select-<?php echo $post->ID; ?>">
 				<span class="screen-reader-text">
 				<?php
-				/* translators: Hidden accessibility text. %s: Attachment title. */
-				printf( __( 'Select %s' ), _draft_or_post_title() );
+				/* translators: %s: Attachment title. */
+				printf( _x( 'Select %s', 'attachment' ), _draft_or_post_title() );
 				?>
 				</span>
 			</label>
@@ -460,7 +460,7 @@ class WP_Media_List_Table extends WP_List_Table {
 			$link_start = sprintf(
 				'<a href="%s" aria-label="%s">',
 				get_edit_post_link( $post->ID ),
-				/* translators: %s: Attachment title. */
+				/* translators: %s: Object title. */
 				esc_attr( sprintf( __( '&#8220;%s&#8221; (Edit)' ), $title ) )
 			);
 			$link_end = '</a>';
@@ -754,7 +754,7 @@ class WP_Media_List_Table extends WP_List_Table {
 			$actions['edit'] = sprintf(
 				'<a href="%s" aria-label="%s">%s</a>',
 				esc_url( get_edit_post_link( $post->ID ) ),
-				/* translators: %s: Attachment title. */
+				/* translators: %s: Object title. */
 				esc_attr( sprintf( __( 'Edit &#8220;%s&#8221;' ), $att_title ) ),
 				__( 'Edit' )
 			);
@@ -765,7 +765,7 @@ class WP_Media_List_Table extends WP_List_Table {
 				$actions['untrash'] = sprintf(
 					'<a href="%s" class="submitdelete aria-button-if-js" aria-label="%s">%s</a>',
 					esc_url( wp_nonce_url( "post.php?action=untrash&amp;post=$post->ID", 'untrash-post_' . $post->ID ) ),
-					/* translators: %s: Attachment title. */
+					/* translators: %s: Object title. */
 					esc_attr( sprintf( __( 'Restore &#8220;%s&#8221; from the Trash' ), $att_title ) ),
 					__( 'Restore' )
 				);
@@ -773,7 +773,7 @@ class WP_Media_List_Table extends WP_List_Table {
 				$actions['trash'] = sprintf(
 					'<a href="%s" class="submitdelete aria-button-if-js" aria-label="%s">%s</a>',
 					esc_url( wp_nonce_url( "post.php?action=trash&amp;post=$post->ID", 'trash-post_' . $post->ID ) ),
-					/* translators: %s: Attachment title. */
+					/* translators: %s: Object title. */
 					esc_attr( sprintf( __( 'Move &#8220;%s&#8221; to the Trash' ), $att_title ) ),
 					_x( 'Trash', 'verb' )
 				);
@@ -786,7 +786,7 @@ class WP_Media_List_Table extends WP_List_Table {
 					'<a href="%s" class="submitdelete aria-button-if-js"%s aria-label="%s">%s</a>',
 					esc_url( wp_nonce_url( "post.php?action=delete&amp;post=$post->ID", 'delete-post_' . $post->ID ) ),
 					$show_confirmation,
-					/* translators: %s: Attachment title. */
+					/* translators: %s: Object title. */
 					esc_attr( sprintf( __( 'Delete &#8220;%s&#8221; permanently' ), $att_title ) ),
 					__( 'Delete Permanently' )
 				);
@@ -802,7 +802,7 @@ class WP_Media_List_Table extends WP_List_Table {
 				$actions['view'] = sprintf(
 					'<a href="%s" aria-label="%s" rel="bookmark">%s</a>',
 					esc_url( $permalink ),
-					/* translators: %s: Attachment title. */
+					/* translators: %s: Object title. */
 					esc_attr( sprintf( __( 'View &#8220;%s&#8221;' ), $att_title ) ),
 					__( 'View' )
 				);

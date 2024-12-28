@@ -328,7 +328,7 @@ if ( $tab ) {
 	<div class="theme-author">
 		<?php
 		/* translators: %s: Theme author name. */
-		printf( __( 'By %s' ), '{{ data.author }}' );
+		printf( _x( 'By %s', 'theme' ), '{{ data.author }}' );
 		?>
 	</div>
 
@@ -430,7 +430,7 @@ if ( $tab ) {
 					<span class="theme-by">
 						<?php
 						/* translators: %s: Theme author name. */
-						printf( __( 'By %s' ), '{{ data.author }}' );
+						printf( _x( 'By %s', 'theme' ), '{{ data.author }}' );
 						?>
 					</span>
 
