@@ -2890,7 +2890,7 @@ function register_setting( $option_group, $option_name, $args = array() ) {
 			__FUNCTION__,
 			'3.0.0',
 			sprintf(
-				/* translators: %s: misc */
+				/* translators: %s: Slug-name of the settings page. */
 				__( 'The "%s" options group has been removed. Use another settings group.' ),
 				'misc'
 			)
@@ -2903,7 +2903,7 @@ function register_setting( $option_group, $option_name, $args = array() ) {
 			__FUNCTION__,
 			'3.5.0',
 			sprintf(
-				/* translators: %s: privacy */
+				/* translators: %s: Slug-name of the settings page. */
 				__( 'The "%s" options group has been removed. Use another settings group.' ),
 				'privacy'
 			)
@@ -2963,7 +2963,7 @@ function unregister_setting( $option_group, $option_name, $deprecated = '' ) {
 			__FUNCTION__,
 			'3.0.0',
 			sprintf(
-				/* translators: %s: misc */
+				/* translators: %s: Slug-name of the settings page. */
 				__( 'The "%s" options group has been removed. Use another settings group.' ),
 				'misc'
 			)
@@ -2976,7 +2976,7 @@ function unregister_setting( $option_group, $option_name, $deprecated = '' ) {
 			__FUNCTION__,
 			'3.5.0',
 			sprintf(
-				/* translators: %s: privacy */
+				/* translators: %s: Slug-name of the settings page. */
 				__( 'The "%s" options group has been removed. Use another settings group.' ),
 				'privacy'
 			)

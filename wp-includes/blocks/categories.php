@@ -44,8 +44,8 @@ function render_block_core_categories( $attributes, $content, $block ) {
 		$args['name']             = $taxonomy->query_var;
 		$args['value_field']      = 'slug';
 		$args['show_option_none'] = sprintf(
-			/* translators: %s: taxonomy's singular name */
-			__( 'Select %s' ),
+			/* translators: %s: Taxonomy term name */
+			_x( 'Select %s', 'taxonomy' ),
 			$taxonomy->labels->singular_name
 		);
 
