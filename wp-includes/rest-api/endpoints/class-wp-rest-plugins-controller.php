@@ -54,7 +54,7 @@ class WP_REST_Plugins_Controller extends WP_REST_Controller {
 						'slug'   => array(
 							'type'        => 'string',
 							'required'    => true,
-							'description' => __( 'Plugin directory slug.' ),
+							'description' => __( 'Plugin slug.' ),
 							'pattern'     => '[\w\-]+',
 						),
 						'status' => array(
