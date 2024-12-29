@@ -7,62 +7,85 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-12-29T11:55:49+00:00\n"
+"POT-Creation-Date: 2024-12-29T15:44:26+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 
+#: wp-activate.php:26
+#: wp-includes/deprecated.php:15851
+#: wp-includes/deprecated.php:15885
+#: wp-includes/deprecated.php:15925
+#: wp-includes/deprecated.php:15970
+#: wp-includes/deprecated.php:16021
+#: wp-includes/deprecated.php:16038
+#: wp-includes/deprecated.php:16090
+#: wp-includes/deprecated.php:16125
+#: wp-includes/deprecated.php:16164
+#: wp-includes/deprecated.php:16230
+#: wp-includes/deprecated.php:16297
+msgid "WP Multisite feature is not supported in Retraceur."
+msgstr ""
+
 #: wp-activate.php:30
+msgid "Retraceur does not provide the Multisite feature by default."
+msgstr ""
+
+#: wp-activate.php:31
+msgid "Please download and install the « Retraceur Réseau » add-on."
+msgstr ""
+
+#: wp-content/plugins/reseau/wp-activate.php:30
 msgid "A key value mismatch has been detected. Please follow the link provided in your activation email."
 msgstr ""
 
-#: wp-activate.php:30
-#: wp-activate.php:171
+#: wp-content/plugins/reseau/wp-activate.php:30
+#: wp-content/plugins/reseau/wp-activate.php:171
 msgid "An error occurred during the activation"
 msgstr ""
 
-#: wp-activate.php:130
+#: wp-content/plugins/reseau/wp-activate.php:130
 msgid "Activation Key Required"
 msgstr ""
 
-#: wp-activate.php:133
+#: wp-content/plugins/reseau/wp-activate.php:133
 msgid "Activation Key:"
 msgstr ""
 
-#: wp-activate.php:137
+#: wp-content/plugins/reseau/wp-activate.php:137
 msgid "Activate"
 msgstr ""
 
-#: wp-activate.php:146
-#: wp-activate.php:180
+#: wp-content/plugins/reseau/wp-activate.php:146
+#: wp-content/plugins/reseau/wp-activate.php:180
 msgid "Your account is now active!"
 msgstr ""
 
 #. translators: 1: Login URL, 2: Username, 3: User email address, 4: Lost password URL.
-#: wp-activate.php:152
+#: wp-content/plugins/reseau/wp-activate.php:152
 msgid "Your account has been activated. You may now <a href=\"%1$s\">log in</a> to the site using your chosen username of &#8220;%2$s&#8221;. Please check your email inbox at %3$s for your password and login instructions. If you do not receive an email, please check your junk or spam folder. If you still do not receive an email within an hour, you can <a href=\"%4$s\">reset your password</a>."
 msgstr ""
 
 #. translators: 1: Site URL, 2: Username, 3: User email address, 4: Lost password URL.
-#: wp-activate.php:161
+#: wp-content/plugins/reseau/wp-activate.php:161
 msgid "Your site at %1$s is active. You may now log in to your site using your chosen username of &#8220;%2$s&#8221;. Please check your email inbox at %3$s for your password and login instructions. If you do not receive an email, please check your junk or spam folder. If you still do not receive an email within an hour, you can <a href=\"%4$s\">reset your password</a>."
 msgstr ""
 
-#: wp-activate.php:183
+#: wp-content/plugins/reseau/wp-activate.php:183
 msgid "Username:"
 msgstr ""
 
-#: wp-activate.php:184
+#: wp-content/plugins/reseau/wp-activate.php:184
 #: wp-includes/post-template.php:1769
 msgid "Password:"
 msgstr ""
 
 #. translators: 1: Site URL, 2: Login URL.
-#: wp-activate.php:196
+#: wp-content/plugins/reseau/wp-activate.php:196
 msgid "Your account is now activated. <a href=\"%1$s\">View your site</a> or <a href=\"%2$s\">Log in</a>"
 msgstr ""
 
 #. translators: 1: Login URL, 2: Network home URL.
-#: wp-activate.php:204
+#: wp-content/plugins/reseau/wp-activate.php:204
 msgid "Your account is now activated. <a href=\"%1$s\">Log in</a> or go back to the <a href=\"%2$s\">homepage</a>."
 msgstr ""
 
