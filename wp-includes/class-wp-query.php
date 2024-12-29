@@ -1861,7 +1861,7 @@ class WP_Query {
 				'WP_Query',
 				'3.1.0',
 				sprintf(
-					/* translators: 1: caller_get_posts, 2: ignore_sticky_posts */
+					/* translators: 1: Deprecated argument key, 2: Valid argument key. */
 					__( '%1$s is deprecated. Use %2$s instead.' ),
 					'<code>caller_get_posts</code>',
 					'<code>ignore_sticky_posts</code>'

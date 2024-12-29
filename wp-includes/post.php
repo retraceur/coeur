@@ -649,7 +649,7 @@ function create_initial_post_types() {
 			'label'         => _x( 'Pending', 'post status' ),
 			'protected'     => true,
 			'_builtin'      => true, /* internal use only. */
-			/* translators: %s: Number of pending posts. */
+			/* translators: %s: Number of pending items. */
 			'label_count'   => _n_noop(
 				'Pending <span class="count">(%s)</span>',
 				'Pending <span class="count">(%s)</span>'
@@ -713,7 +713,7 @@ function create_initial_post_types() {
 			'label'               => _x( 'Pending', 'request status' ),
 			'internal'            => true,
 			'_builtin'            => true, /* internal use only. */
-			/* translators: %s: Number of pending requests. */
+			/* translators: %s: Number of pending items. */
 			'label_count'         => _n_noop(
 				'Pending <span class="count">(%s)</span>',
 				'Pending <span class="count">(%s)</span>'

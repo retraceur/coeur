@@ -680,7 +680,7 @@ function _wp_build_title_and_description_for_single_post_type_block_template( $p
 
 	if ( empty( $posts_query->posts ) ) {
 		$template->title = sprintf(
-			/* translators: Custom template title in the Site Editor referencing a post that was not found. 1: Post type singular name, 2: Post type slug. */
+			/* translators: 1: Object singular name, 2: Object slug. */
 			__( 'Not found: %1$s (%2$s)' ),
 			$post_type_object->labels->singular_name,
 			$slug
@@ -692,14 +692,14 @@ function _wp_build_title_and_description_for_single_post_type_block_template( $p
 	$post_title = $posts_query->posts[0]->post_title;
 
 	$template->title = sprintf(
-		/* translators: Custom template title in the Site Editor. 1: Post type singular name, 2: Post title. */
+		/* translators: 1: Object singular name, 2: Object title. */
 		__( '%1$s: %2$s' ),
 		$post_type_object->labels->singular_name,
 		$post_title
 	);
 
 	$template->description = sprintf(
-		/* translators: Custom template description in the Site Editor. %s: Post title. */
+		/* translators: %s: Object title or name. */
 		__( 'Template for %s' ),
 		$post_title
 	);
@@ -713,7 +713,7 @@ function _wp_build_title_and_description_for_single_post_type_block_template( $p
 
 	if ( count( $posts_with_same_title_query->posts ) > 1 ) {
 		$template->title = sprintf(
-			/* translators: Custom template title in the Site Editor. 1: Template title, 2: Post type slug. */
+			/* translators: 1: Template title, 2: Template slug. */
 			__( '%1$s (%2$s)' ),
 			$template->title,
 			$slug
@@ -757,7 +757,7 @@ function _wp_build_title_and_description_for_taxonomy_block_template( $taxonomy,
 
 	if ( empty( $terms_query ) ) {
 		$template->title = sprintf(
-			/* translators: Custom template title in the Site Editor, referencing a taxonomy term that was not found. 1: Taxonomy singular name, 2: Term slug. */
+			/* translators: 1: Object singular name, 2: Object slug. */
 			__( 'Not found: %1$s (%2$s)' ),
 			$taxonomy_object->labels->singular_name,
 			$slug
@@ -768,14 +768,14 @@ function _wp_build_title_and_description_for_taxonomy_block_template( $taxonomy,
 	$term_title = $terms_query[0]->name;
 
 	$template->title = sprintf(
-		/* translators: Custom template title in the Site Editor. 1: Taxonomy singular name, 2: Term title. */
+		/* translators: 1: Object singular name, 2: Object title. */
 		__( '%1$s: %2$s' ),
 		$taxonomy_object->labels->singular_name,
 		$term_title
 	);
 
 	$template->description = sprintf(
-		/* translators: Custom template description in the Site Editor. %s: Term title. */
+		/* translators: %s: Object title or name. */
 		__( 'Template for %s' ),
 		$term_title
 	);
@@ -792,7 +792,7 @@ function _wp_build_title_and_description_for_taxonomy_block_template( $taxonomy,
 
 	if ( count( $terms_with_same_title_query ) > 1 ) {
 		$template->title = sprintf(
-			/* translators: Custom template title in the Site Editor. 1: Template title, 2: Term slug. */
+			/* translators: 1: Template title, 2: Template slug. */
 			__( '%1$s (%2$s)' ),
 			$template->title,
 			$slug
@@ -949,7 +949,7 @@ function _build_block_template_result_from_post( $post ) {
 						);
 
 						$template->description = sprintf(
-							/* translators: Custom template description in the Site Editor. %s: Author name. */
+							/* translators: %s: Object title or name. */
 							__( 'Template for %s' ),
 							$author_name
 						);
@@ -965,7 +965,7 @@ function _build_block_template_result_from_post( $post ) {
 
 						if ( count( $users_with_same_name ) > 1 ) {
 							$template->title = sprintf(
-								/* translators: Custom template title in the Site Editor. 1: Template title of an author template, 2: Author nicename. */
+								/* translators: 1: Template title, 2: Template slug. */
 								__( '%1$s (%2$s)' ),
 								$template->title,
 								$nice_name

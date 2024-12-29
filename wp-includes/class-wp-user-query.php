@@ -403,7 +403,7 @@ class WP_User_Query {
 				'WP_User_Query',
 				'5.9.0',
 				sprintf(
-					/* translators: 1: who, 2: capability */
+					/* translators: 1: Deprecated argument key, 2: Valid argument key. */
 					__( '%1$s is deprecated. Use %2$s instead.' ),
 					'<code>who</code>',
 					'<code>capability</code>'

@@ -189,7 +189,7 @@ class WP_REST_Font_Faces_Controller extends WP_REST_Posts_Controller {
 			if ( isset( $settings[ $key ] ) && ! $settings[ $key ] ) {
 				return new WP_Error(
 					'rest_invalid_param',
-					/* translators: %s: Name of the missing font face settings parameter, e.g. "font_face_settings[src]". */
+					/* translators: %s: Name of the missing key. */
 					sprintf( __( '%s cannot be empty.' ), "font_face_setting[ $key ]" ),
 					array( 'status' => 400 )
 				);

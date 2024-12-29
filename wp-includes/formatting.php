@@ -3859,21 +3859,21 @@ function human_time_diff( $from, $to = 0 ) {
 		if ( $secs <= 1 ) {
 			$secs = 1;
 		}
-		/* translators: Time difference between two dates, in seconds. %s: Number of seconds. */
+		/* translators: %s: Time duration in second or seconds. */
 		$since = sprintf( _n( '%s second', '%s seconds', $secs ), $secs );
 	} elseif ( $diff < HOUR_IN_SECONDS && $diff >= MINUTE_IN_SECONDS ) {
 		$mins = round( $diff / MINUTE_IN_SECONDS );
 		if ( $mins <= 1 ) {
 			$mins = 1;
 		}
-		/* translators: Time difference between two dates, in minutes. %s: Number of minutes. */
+		/* translators: %s: Time duration in minute or minutes. */
 		$since = sprintf( _n( '%s minute', '%s minutes', $mins ), $mins );
 	} elseif ( $diff < DAY_IN_SECONDS && $diff >= HOUR_IN_SECONDS ) {
 		$hours = round( $diff / HOUR_IN_SECONDS );
 		if ( $hours <= 1 ) {
 			$hours = 1;
 		}
-		/* translators: Time difference between two dates, in hours. %s: Number of hours. */
+		/* translators: %s: Time duration in hour or hours. */
 		$since = sprintf( _n( '%s hour', '%s hours', $hours ), $hours );
 	} elseif ( $diff < WEEK_IN_SECONDS && $diff >= DAY_IN_SECONDS ) {
 		$days = round( $diff / DAY_IN_SECONDS );

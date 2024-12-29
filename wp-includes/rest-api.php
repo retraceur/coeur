@@ -700,7 +700,7 @@ function rest_handle_deprecated_argument( $function_name, $message, $version ) {
 		return;
 	}
 	if ( $message ) {
-		/* translators: 1: Function name, 2: WP version number, 3: Error message. */
+		/* translators: 1: Function name, 2: Version number, 3: Error message. */
 		$string = sprintf( __( '%1$s (since %2$s; %3$s)' ), $function_name, $version, $message );
 	} else {
 		/* translators: 1: Function name, 2: WP version number. */
@@ -725,12 +725,12 @@ function rest_handle_doing_it_wrong( $function_name, $message, $version ) {
 	}
 
 	if ( $version ) {
-		/* translators: Developer debugging message. 1: PHP function name, 2: WP version number, 3: Explanatory message. */
+		/* translators: 1: Function name, 2: Version number, 3: Error message. */
 		$string = __( '%1$s (since %2$s; %3$s)' );
 		$string = sprintf( $string, $function_name, $version, $message );
 	} else {
 		/* translators: Developer debugging message. 1: PHP function name, 2: Explanatory message. */
-		$string = __( '%1$s (%2$s)' );
+		$string = _x( '%1$s (%2$s)', 'rest-api' );
 		$string = sprintf( $string, $function_name, $message );
 	}
 
@@ -2173,7 +2173,7 @@ function rest_validate_value_from_schema( $value, $args, $param = '' ) {
 		if ( ! $best_type ) {
 			return new WP_Error(
 				'rest_invalid_type',
-				/* translators: 1: Parameter, 2: List of types. */
+				/* translators: 1: Parameter, 2: Type name or list of type names. */
 				sprintf( __( '%1$s is not of type %2$s.' ), $param, implode( ',', $args['type'] ) ),
 				array( 'param' => $param )
 			);
@@ -2285,7 +2285,7 @@ function rest_validate_null_value_from_schema( $value, $param ) {
 	if ( null !== $value ) {
 		return new WP_Error(
 			'rest_invalid_type',
-			/* translators: 1: Parameter, 2: Type name. */
+			/* translators: 1: Parameter, 2: Type name or list of type names. */
 			sprintf( __( '%1$s is not of type %2$s.' ), $param, 'null' ),
 			array( 'param' => $param )
 		);
@@ -2307,7 +2307,7 @@ function rest_validate_boolean_value_from_schema( $value, $param ) {
 	if ( ! rest_is_boolean( $value ) ) {
 		return new WP_Error(
 			'rest_invalid_type',
-			/* translators: 1: Parameter, 2: Type name. */
+			/* translators: 1: Parameter, 2: Type name or list of type names. */
 			sprintf( __( '%1$s is not of type %2$s.' ), $param, 'boolean' ),
 			array( 'param' => $param )
 		);
@@ -2330,7 +2330,7 @@ function rest_validate_object_value_from_schema( $value, $args, $param ) {
 	if ( ! rest_is_object( $value ) ) {
 		return new WP_Error(
 			'rest_invalid_type',
-			/* translators: 1: Parameter, 2: Type name. */
+			/* translators: 1: Parameter, 2: Type name or list of type names. */
 			sprintf( __( '%1$s is not of type %2$s.' ), $param, 'object' ),
 			array( 'param' => $param )
 		);
@@ -2445,7 +2445,7 @@ function rest_validate_array_value_from_schema( $value, $args, $param ) {
 	if ( ! rest_is_array( $value ) ) {
 		return new WP_Error(
 			'rest_invalid_type',
-			/* translators: 1: Parameter, 2: Type name. */
+			/* translators: 1: Parameter, 2: Type name or list of type names. */
 			sprintf( __( '%1$s is not of type %2$s.' ), $param, 'array' ),
 			array( 'param' => $param )
 		);
@@ -2516,7 +2516,7 @@ function rest_validate_number_value_from_schema( $value, $args, $param ) {
 	if ( ! is_numeric( $value ) ) {
 		return new WP_Error(
 			'rest_invalid_type',
-			/* translators: 1: Parameter, 2: Type name. */
+			/* translators: 1: Parameter, 2: Type name or list of type names. */
 			sprintf( __( '%1$s is not of type %2$s.' ), $param, $args['type'] ),
 			array( 'param' => $param )
 		);
@@ -2645,7 +2645,7 @@ function rest_validate_string_value_from_schema( $value, $args, $param ) {
 	if ( ! is_string( $value ) ) {
 		return new WP_Error(
 			'rest_invalid_type',
-			/* translators: 1: Parameter, 2: Type name. */
+			/* translators: 1: Parameter, 2: Type name or list of type names. */
 			sprintf( __( '%1$s is not of type %2$s.' ), $param, 'string' ),
 			array( 'param' => $param )
 		);
@@ -2713,7 +2713,7 @@ function rest_validate_integer_value_from_schema( $value, $args, $param ) {
 	if ( ! rest_is_integer( $value ) ) {
 		return new WP_Error(
 			'rest_invalid_type',
-			/* translators: 1: Parameter, 2: Type name. */
+			/* translators: 1: Parameter, 2: Type name or list of type names. */
 			sprintf( __( '%1$s is not of type %2$s.' ), $param, 'integer' ),
 			array( 'param' => $param )
 		);

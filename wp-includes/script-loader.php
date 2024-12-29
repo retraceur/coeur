@@ -429,9 +429,9 @@ function wp_default_packages_inline_scripts( $scripts ) {
 						'weekdaysShort' => array_values( $wp_locale->weekday_abbrev ),
 						'meridiem'      => (object) $wp_locale->meridiem,
 						'relative'      => array(
-							/* translators: %s: Duration. */
+							/* translators: %s: Human-readable time difference. */
 							'future' => __( '%s from now' ),
-							/* translators: %s: Duration. */
+							/* translators: %s: Human-readable time difference. */
 							'past'   => __( '%s ago' ),
 							/* translators: One second from or to a particular datetime, e.g., "a second ago" or "a second from now". */
 							's'      => __( 'a second' ),

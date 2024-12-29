@@ -132,7 +132,7 @@ class WP_REST_Font_Families_Controller extends WP_REST_Posts_Controller {
 			if ( isset( $settings[ $key ] ) && ! $settings[ $key ] ) {
 				return new WP_Error(
 					'rest_invalid_param',
-					/* translators: %s: Name of the empty font family setting parameter, e.g. "font_family_settings[slug]". */
+					/* translators: %s: Name of the missing key. */
 					sprintf( __( '%s cannot be empty.' ), "font_family_settings[ $key ]" ),
 					array( 'status' => 400 )
 				);

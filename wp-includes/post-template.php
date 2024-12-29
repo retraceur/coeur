@@ -1874,9 +1874,9 @@ function wp_post_revision_title( $revision, $link = true ) {
 
 	/* translators: Revision date format, see https://www.php.net/manual/datetime.format.php */
 	$datef = _x( 'F j, Y @ H:i:s', 'revision date format' );
-	/* translators: %s: Revision date. */
+	/* translators: %s: Revision date with author avatar. */
 	$autosavef = __( '%s [Autosave]' );
-	/* translators: %s: Revision date. */
+	/* translators: %s: Revision date with author avatar. */
 	$currentf = __( '%s [Current Revision]' );
 
 	$date      = date_i18n( $datef, strtotime( $revision->post_modified ) );

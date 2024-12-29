@@ -168,7 +168,7 @@ abstract class WP_REST_Meta_Fields {
 					if ( is_wp_error( rest_validate_value_from_schema( $current, $args['schema'] ) ) ) {
 						$error->add(
 							'rest_invalid_stored_value',
-							/* translators: %s: Custom field key. */
+							/* translators: %s: Property name. */
 							sprintf( __( 'The %s property has an invalid stored value, and cannot be updated to null.' ), $name ),
 							array( 'status' => 500 )
 						);
@@ -186,7 +186,7 @@ abstract class WP_REST_Meta_Fields {
 			if ( ! $args['single'] && is_array( $value ) && count( array_filter( $value, 'is_null' ) ) ) {
 				$error->add(
 					'rest_invalid_stored_value',
-					/* translators: %s: Custom field key. */
+					/* translators: %s: Property name. */
 					sprintf( __( 'The %s property has an invalid stored value, and cannot be updated to null.' ), $name ),
 					array( 'status' => 500 )
 				);
