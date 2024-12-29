@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-12-27T10:19:05+00:00\n"
+"POT-Creation-Date: 2024-12-29T02:13:42+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 
@@ -741,37 +741,29 @@ msgstr ""
 msgid "\"%1$s\" is not a supported wp_template_part area value and has been added as \"%2$s\"."
 msgstr ""
 
-#. translators: Custom template title in the Site Editor referencing a post that was not found. 1: Post type singular name, 2: Post type slug.
-#. translators: Custom template title in the Site Editor, referencing a taxonomy term that was not found. 1: Taxonomy singular name, 2: Term slug.
+#. translators: 1: Object singular name, 2: Object slug.
 #: wp-includes/block-template-utils.php:684
 #: wp-includes/block-template-utils.php:761
 msgid "Not found: %1$s (%2$s)"
 msgstr ""
 
-#. translators: Custom template title in the Site Editor. 1: Post type singular name, 2: Post title.
-#. translators: Custom template title in the Site Editor. 1: Taxonomy singular name, 2: Term title.
+#. translators: 1: Object singular name, 2: Object title.
 #: wp-includes/block-template-utils.php:696
 #: wp-includes/block-template-utils.php:772
 msgid "%1$s: %2$s"
 msgstr ""
 
-#. translators: Custom template description in the Site Editor. %s: Post title.
-#. translators: Custom template description in the Site Editor. %s: Term title.
-#. translators: Custom template description in the Site Editor. %s: Author name.
+#. translators: %s: Object title or name.
 #: wp-includes/block-template-utils.php:703
 #: wp-includes/block-template-utils.php:779
 #: wp-includes/block-template-utils.php:953
 msgid "Template for %s"
 msgstr ""
 
-#. translators: Custom template title in the Site Editor. 1: Template title, 2: Post type slug.
-#. translators: Custom template title in the Site Editor. 1: Template title, 2: Term slug.
-#. translators: Custom template title in the Site Editor. 1: Template title of an author template, 2: Author nicename.
-#. translators: Developer debugging message. 1: PHP function name, 2: Explanatory message.
+#. translators: 1: Template title, 2: Template slug.
 #: wp-includes/block-template-utils.php:717
 #: wp-includes/block-template-utils.php:796
 #: wp-includes/block-template-utils.php:969
-#: wp-includes/rest-api.php:733
 msgid "%1$s (%2$s)"
 msgstr ""
 
@@ -871,8 +863,9 @@ msgstr ""
 msgid "The calendar block is hidden because there are no published posts."
 msgstr ""
 
-#. translators: %s: taxonomy's singular name
+#. translators: %s: Taxonomy term name
 #: wp-includes/blocks/categories.php:48
+msgctxt "taxonomy"
 msgid "Select %s"
 msgstr ""
 
@@ -966,16 +959,13 @@ msgstr ""
 msgid "[block rendering halted for pattern \"%s\"]"
 msgstr ""
 
-#. translators: %s: human-readable time difference.
-#. translators: %s: Duration.
+#. translators: %s: Human-readable time difference.
 #: wp-includes/blocks/post-date.php:31
 #: wp-includes/script-loader.php:433
 msgid "%s from now"
 msgstr ""
 
-#. translators: %s: human-readable time difference.
 #. translators: %s: Human-readable time difference.
-#. translators: %s: Duration.
 #: wp-includes/blocks/post-date.php:34
 #: wp-includes/blocks/post-date.php:57
 #: wp-includes/rest-api/endpoints/class-wp-rest-block-directory-controller.php:145
@@ -1929,7 +1919,6 @@ msgctxt "text direction"
 msgid "ltr"
 msgstr ""
 
-#. translators: Localized date format, see https://www.php.net/manual/datetime.format.php
 #. translators: Date format, see https://www.php.net/manual/datetime.format.php
 #: wp-includes/class-wp-locale.php:398
 #: wp-includes/media.php:4502
@@ -1938,7 +1927,6 @@ msgstr ""
 msgid "F j, Y"
 msgstr ""
 
-#. translators: Localized time format, see https://www.php.net/manual/datetime.format.php
 #. translators: Time format, see https://www.php.net/manual/datetime.format.php
 #: wp-includes/class-wp-locale.php:400
 #: wp-includes/script-loader.php:157
@@ -1946,7 +1934,6 @@ msgstr ""
 msgid "g:i a"
 msgstr ""
 
-#. translators: Localized date and time format, see https://www.php.net/manual/datetime.format.php
 #. translators: Date/Time format, see https://www.php.net/manual/datetime.format.php
 #: wp-includes/class-wp-locale.php:402
 #: wp-includes/script-loader.php:161
@@ -2016,7 +2003,6 @@ msgstr ""
 msgid "Some required plugins are missing or inactive."
 msgstr ""
 
-#. translators: %s: Link to the network plugins page.
 #. translators: %s: Link to the plugins page.
 #: wp-includes/class-wp-plugin-dependencies.php:380
 #: wp-includes/class-wp-plugin-dependencies.php:389
@@ -2340,8 +2326,7 @@ msgctxt "Comma-separated list of search stopwords in your language"
 msgid "about,an,are,as,at,be,by,com,for,from,how,in,is,it,of,on,or,that,the,this,to,was,what,when,where,who,will,with,www"
 msgstr ""
 
-#. translators: 1: caller_get_posts, 2: ignore_sticky_posts
-#. translators: 1: who, 2: capability
+#. translators: 1: Deprecated argument key, 2: Valid argument key.
 #: wp-includes/class-wp-query.php:1865
 #: wp-includes/class-wp-user-query.php:407
 msgid "%1$s is deprecated. Use %2$s instead."
@@ -3636,7 +3621,6 @@ msgctxt "Comma-separated list of replacement words in your language"
 msgid "&#8217;tain&#8217;t,&#8217;twere,&#8217;twas,&#8217;tis,&#8217;twill,&#8217;til,&#8217;bout,&#8217;nuff,&#8217;round,&#8217;cause,&#8217;em"
 msgstr ""
 
-#. translators: Time difference between two dates, in seconds. %s: Number of seconds.
 #. translators: %s: Time duration in second or seconds.
 #: wp-includes/formatting.php:3863
 #: wp-includes/functions.php:565
@@ -3645,7 +3629,6 @@ msgid_plural "%s seconds"
 msgstr[0] ""
 msgstr[1] ""
 
-#. translators: Time difference between two dates, in minutes. %s: Number of minutes.
 #. translators: %s: Time duration in minute or minutes.
 #: wp-includes/formatting.php:3870
 #: wp-includes/functions.php:559
@@ -3654,7 +3637,6 @@ msgid_plural "%s minutes"
 msgstr[0] ""
 msgstr[1] ""
 
-#. translators: Time difference between two dates, in hours. %s: Number of hours.
 #. translators: %s: Time duration in hour or hours.
 #: wp-includes/formatting.php:3877
 #: wp-includes/functions.php:553
@@ -4047,8 +4029,7 @@ msgstr ""
 msgid "This notice was triggered by the %s handle."
 msgstr ""
 
-#. translators: 1: <script>, 2: wp_add_inline_script()
-#. translators: 1: <style>, 2: wp_add_inline_style()
+#. translators: 1: HTML tag, 2: Functions name.
 #: wp-includes/functions.wp-scripts.php:139
 #: wp-includes/functions.wp-styles.php:96
 msgid "Do not pass %1$s tags to %2$s."
@@ -4277,7 +4258,6 @@ msgctxt "archive title"
 msgid "%1$s %2$s"
 msgstr ""
 
-#. translators: 1: Month name, 2: 4-digit year.
 #. translators: 1: Month, 2: Year.
 #: wp-includes/general-template.php:2080
 #: wp-includes/media.php:4846
@@ -5742,8 +5722,7 @@ msgstr ""
 msgid "When registering an \"array\" setting to show in the REST API, you must specify the schema for each array item in \"show_in_rest.schema.items\"."
 msgstr ""
 
-#. translators: %s: misc
-#. translators: %s: privacy
+#. translators: %s: Slug-name of the settings page.
 #: wp-includes/option.php:2894
 #: wp-includes/option.php:2907
 #: wp-includes/option.php:2967
@@ -5927,14 +5906,12 @@ msgctxt "revision date format"
 msgid "F j, Y @ H:i:s"
 msgstr ""
 
-#. translators: %s: Revision date.
 #. translators: %s: Revision date with author avatar.
 #: wp-includes/post-template.php:1878
 #: wp-includes/post-template.php:1939
 msgid "%s [Autosave]"
 msgstr ""
 
-#. translators: %s: Revision date.
 #. translators: %s: Revision date with author avatar.
 #: wp-includes/post-template.php:1880
 #: wp-includes/post-template.php:1941
@@ -6440,8 +6417,7 @@ msgctxt "post status"
 msgid "Pending"
 msgstr ""
 
-#. translators: %s: Number of pending posts.
-#. translators: %s: Number of pending requests.
+#. translators: %s: Number of pending items.
 #: wp-includes/post.php:653
 #: wp-includes/post.php:717
 msgid "Pending <span class=\"count\">(%s)</span>"
@@ -6781,11 +6757,16 @@ msgstr ""
 msgid "%1$s (since %2$s; no alternative available)"
 msgstr ""
 
-#. translators: 1: Function name, 2: WP version number, 3: Error message.
-#. translators: Developer debugging message. 1: PHP function name, 2: WP version number, 3: Explanatory message.
+#. translators: 1: Function name, 2: Version number, 3: Error message.
 #: wp-includes/rest-api.php:704
 #: wp-includes/rest-api.php:729
 msgid "%1$s (since %2$s; %3$s)"
+msgstr ""
+
+#. translators: Developer debugging message. 1: PHP function name, 2: Explanatory message.
+#: wp-includes/rest-api.php:733
+msgctxt "rest-api"
+msgid "%1$s (%2$s)"
 msgstr ""
 
 #: wp-includes/rest-api.php:1023
@@ -6853,8 +6834,7 @@ msgstr ""
 msgid "The \"type\" schema keyword for %s is required."
 msgstr ""
 
-#. translators: 1: Parameter, 2: List of types.
-#. translators: 1: Parameter, 2: Type name.
+#. translators: 1: Parameter, 2: Type name or list of type names.
 #: wp-includes/rest-api.php:2177
 #: wp-includes/rest-api.php:2289
 #: wp-includes/rest-api.php:2311
@@ -7886,8 +7866,7 @@ msgstr ""
 msgid "font_face_settings parameter must be a valid JSON string."
 msgstr ""
 
-#. translators: %s: Name of the missing font face settings parameter, e.g. "font_face_settings[src]".
-#. translators: %s: Name of the empty font family setting parameter, e.g. "font_family_settings[slug]".
+#. translators: %s: Name of the missing key.
 #: wp-includes/rest-api/endpoints/class-wp-rest-font-faces-controller.php:193
 #: wp-includes/rest-api/endpoints/class-wp-rest-font-families-controller.php:136
 msgid "%s cannot be empty."
@@ -8986,7 +8965,6 @@ msgid "Invalid type parameter."
 msgstr ""
 
 #. translators: %s: Property name.
-#. translators: %s: Custom field key.
 #: wp-includes/rest-api/endpoints/class-wp-rest-settings-controller.php:198
 #: wp-includes/rest-api/fields/class-wp-rest-meta-fields.php:172
 #: wp-includes/rest-api/fields/class-wp-rest-meta-fields.php:190
