@@ -38,7 +38,8 @@ define( 'DB_COLLATE', '' );
 /**#@+
  * Authentication unique keys and salts.
  *
- * Change these to different unique phrases! You can generate these using
+ * Change these to different unique phrases! You can generate these using online
+ * services like https://generate.plus/en/base64
  *
  * You can change these at any point in time to invalidate all existing cookies.
  * This will force all users to have to log in again.

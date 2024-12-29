@@ -15824,3 +15824,476 @@ function wp_editor( $content, $editor_id, $settings = array() ) {
 function wp_enqueue_editor() {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 }
+
+/**
+ * Adds an action hook specific to this page.
+ *
+ * Fires on {@see 'wp_head'}.
+ *
+ * @since WP MU (3.0.0)
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function do_activate_header() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Fires within the `<head>` section of the Site Activation page.
+	 *
+	 * Fires on the {@see 'wp_head'} action.
+	 *
+	 * @since WP 3.0.0
+	 */
+	do_action_deprecated(
+		'activate_wp_head',
+		array(),
+		'1.0.0',
+		'',
+		__( 'WP Multisite feature is not supported in Retraceur.' )
+	);
+}
+
+/**
+ * Loads styles specific to this page.
+ *
+ * @since WP MU (3.0.0)
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function wpmu_activate_stylesheet() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Prints signup_header via wp_head.
+ *
+ * @since WP MU (3.0.0)
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function do_signup_header() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Fires within the head section of the site sign-up screen.
+	 *
+	 * @since WP 3.0.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 */
+	do_action_deprecated(
+		'signup_header',
+		array(),
+		'1.0.0',
+		'',
+		__( 'WP Multisite feature is not supported in Retraceur.' )
+	);
+}
+
+/**
+ * Prints styles for front-end Multisite Sign-up pages.
+ *
+ * @since WP MU (3.0.0)
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function wpmu_signup_stylesheet() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Generates and displays the Sign-up and Create Site forms.
+ *
+ * @since WP MU (3.0.0)
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string          $blogname   The new site name.
+ * @param string          $blog_title The new site title.
+ * @param WP_Error|string $errors     A WP_Error object containing existing errors. Defaults to empty string.
+ */
+function show_blog_form( $blogname = '', $blog_title = '', $errors = '' ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Fires after the site sign-up form.
+	 *
+	 * @since WP 3.0.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param WP_Error $errors A WP_Error object possibly containing 'blogname' or 'blog_title' errors.
+	 */
+	do_action_deprecated(
+		'signup_blogform',
+		array( null ),
+		'1.0.0',
+		'',
+		__( 'WP Multisite feature is not supported in Retraceur.' )
+	);
+}
+
+
+/**
+ * Validates the new site sign-up.
+ *
+ * @since WP MU (3.0.0)
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @return array Contains the new site data and error messages.
+ *               See wpmu_validate_blog_signup() for details.
+ */
+function validate_blog_form() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return array();
+}
+
+/**
+ * Displays the fields for the new user account registration form.
+ *
+ * @since WP MU (3.0.0)
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string          $user_name  The entered username.
+ * @param string          $user_email The entered email address.
+ * @param WP_Error|string $errors     A WP_Error object containing existing errors. Defaults to empty string.
+ */
+function show_user_form( $user_name = '', $user_email = '', $errors = '' ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Fires at the end of the new user account registration form.
+	 *
+	 * @since WP 3.0.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param WP_Error $errors A WP_Error object containing 'user_name' or 'user_email' errors.
+	 */
+	do_action_deprecated(
+		'signup_extra_fields',
+		array( null ),
+		'1.0.0',
+		'',
+		__( 'WP Multisite feature is not supported in Retraceur.' )
+	);
+}
+
+
+/**
+ * Validates user sign-up name and email.
+ *
+ * @since WP MU (3.0.0)
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @return array Contains username, email, and error messages.
+ *               See wpmu_validate_user_signup() for details.
+ */
+function validate_user_form() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return array();
+}
+
+/**
+ * Shows a form for returning users to sign up for another site.
+ *
+ * @since WP MU (3.0.0)
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string          $blogname   The new site name
+ * @param string          $blog_title The new site title.
+ * @param WP_Error|string $errors     A WP_Error object containing existing errors. Defaults to empty string.
+ */
+function signup_another_blog( $blogname = '', $blog_title = '', $errors = '' ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the default site sign-up variables.
+	 *
+	 * @since WP 3.0.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param array $signup_defaults {
+	 *     An array of default site sign-up variables.
+	 *
+	 *     @type string   $blogname   The site blogname.
+	 *     @type string   $blog_title The site title.
+	 *     @type WP_Error $errors     A WP_Error object possibly containing 'blogname' or 'blog_title' errors.
+	 * }
+	 */
+	apply_filters_deprecated(
+		'signup_another_blog_init',
+		array( array() ),
+		'1.0.0',
+		'',
+		__( 'WP Multisite feature is not supported in Retraceur.' )
+	);
+
+	/**
+	 * Fires when hidden sign-up form fields output when creating another site or user.
+	 *
+	 * @since WP MU (3.0.0)
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string $context A string describing the steps of the sign-up process. The value can be
+	 *                        'create-another-site', 'validate-user', or 'validate-site'.
+	 */
+	do_action_deprecated(
+		'signup_hidden_fields',
+		array( 'create-another-site' ),
+		'1.0.0',
+		'',
+		__( 'WP Multisite feature is not supported in Retraceur.' )
+	);
+}
+
+/**
+ * Validates a new site sign-up for an existing user.
+ *
+ * @since WP MU (3.0.0)
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @global string   $blogname   The new site's subdomain or directory name.
+ * @global string   $blog_title The new site's title.
+ * @global WP_Error $errors     Existing errors in the global scope.
+ * @global string   $domain     The new site's domain.
+ * @global string   $path       The new site's path.
+ *
+ * @return null|bool True if site signup was validated, false on error.
+ *                   The function halts all execution if the user is not logged in.
+ */
+function validate_another_blog_signup() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the new site meta variables.
+	 *
+	 * Use the {@see 'add_signup_meta'} filter instead.
+	 *
+	 * @since WP MU (3.0.0)
+	 * @deprecated WP 3.0.0 Use the {@see 'add_signup_meta'} filter instead.
+	 *
+	 * @param array $blog_meta_defaults An array of default blog meta variables.
+	 */
+	$meta_defaults = apply_filters_deprecated( 'signup_create_blog_meta', array( $blog_meta_defaults ), '3.0.0', 'add_signup_meta' );
+
+	/**
+	 * Filters the new default site meta variables.
+	 *
+	 * @since WP 3.0.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param array $meta {
+	 *     An array of default site meta variables.
+	 *
+	 *     @type int $lang_id     The language ID.
+	 *     @type int $blog_public Whether search engines should be discouraged from indexing the site. 1 for true, 0 for false.
+	 * }
+	 */
+	apply_filters_deprecated(
+		'add_signup_meta',
+		array( $meta_defaults ),
+		'1.0.0',
+		'',
+		__( 'WP Multisite feature is not supported in Retraceur.' )
+	);
+
+	return false;
+}
+
+/**
+ * Shows a message confirming that the new site has been created.
+ *
+ * @since WP MU (3.0.0)
+ * @since WP 4.4.0 Added the `$blog_id` parameter.
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string $domain     The domain URL.
+ * @param string $path       The site root path.
+ * @param string $blog_title The site title.
+ * @param string $user_name  The username.
+ * @param string $user_email The user's email address.
+ * @param array  $meta       Any additional meta from the {@see 'add_signup_meta'} filter in validate_blog_signup().
+ * @param int    $blog_id    The site ID.
+ */
+function confirm_another_blog_signup( $domain, $path, $blog_title, $user_name, $user_email = '', $meta = array(), $blog_id = 0 ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Fires when the site or user sign-up process is complete.
+	 *
+	 * @since WP 3.0.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 */
+	do_action_deprecated(
+		'signup_finished',
+		array(),
+		'1.0.0',
+		'',
+		__( 'WP Multisite feature is not supported in Retraceur.' )
+	);
+}
+
+/**
+ * Shows a form for a visitor to sign up for a new user account.
+ *
+ * @since WP MU (3.0.0)
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @global string $active_signup String that returns registration type. The value can be
+ *                               'all', 'none', 'blog', or 'user'.
+ *
+ * @param string          $user_name  The username.
+ * @param string          $user_email The user's email.
+ * @param WP_Error|string $errors     A WP_Error object containing existing errors. Defaults to empty string.
+ */
+function signup_user( $user_name = '', $user_email = '', $errors = '' ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the default user variables used on the user sign-up form.
+	 *
+	 * @since WP 3.0.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param array $signup_user_defaults {
+	 *     An array of default user variables.
+	 *
+	 *     @type string   $user_name  The user username.
+	 *     @type string   $user_email The user email address.
+	 *     @type WP_Error $errors     A WP_Error object with possible errors relevant to the sign-up user.
+	 * }
+	 */
+	apply_filters_deprecated(
+		'signup_user_init',
+		array( array() ),
+		'1.0.0',
+		'',
+		__( 'WP Multisite feature is not supported in Retraceur.' )
+	);
+}
+
+/**
+ * Validates the new user sign-up.
+ *
+ * @since WP MU (3.0.0)
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @return bool True if new user sign-up was validated, false on error.
+ */
+function validate_user_signup() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return false;
+}
+
+/**
+ * Shows a message confirming that the new user has been registered and is awaiting activation.
+ *
+ * @since WP MU (3.0.0)
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string $user_name  The username.
+ * @param string $user_email The user's email address.
+ */
+function confirm_user_signup( $user_name, $user_email ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Shows a form for a user or visitor to sign up for a new site.
+ *
+ * @since WP MU (3.0.0)
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string          $user_name  The username.
+ * @param string          $user_email The user's email address.
+ * @param string          $blogname   The site name.
+ * @param string          $blog_title The site title.
+ * @param WP_Error|string $errors     A WP_Error object containing existing errors. Defaults to empty string.
+ */
+function signup_blog( $user_name = '', $user_email = '', $blogname = '', $blog_title = '', $errors = '' ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the default site creation variables for the site sign-up form.
+	 *
+	 * @since WP 3.0.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param array $signup_blog_defaults {
+	 *     An array of default site creation variables.
+	 *
+	 *     @type string   $user_name  The user username.
+	 *     @type string   $user_email The user email address.
+	 *     @type string   $blogname   The blogname.
+	 *     @type string   $blog_title The title of the site.
+	 *     @type WP_Error $errors     A WP_Error object with possible errors relevant to new site creation variables.
+	 * }
+	 */
+	apply_filters_deprecated(
+		'signup_blog_init',
+		array( array() ),
+		'1.0.0',
+		'',
+		__( 'WP Multisite feature is not supported in Retraceur.' )
+	);
+}
+
+/**
+ * Validates new site signup.
+ *
+ * @since WP MU (3.0.0)
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @return bool True if the site sign-up was validated, false on error.
+ */
+function validate_blog_signup() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return false;
+}
+
+/**
+ * Shows a message confirming that the new site has been registered and is awaiting activation.
+ *
+ * @since WP MU (3.0.0)
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string $domain     The domain or subdomain of the site.
+ * @param string $path       The path of the site.
+ * @param string $blog_title The title of the new site.
+ * @param string $user_name  The user's username.
+ * @param string $user_email The user's email address.
+ * @param array  $meta       Any additional meta from the {@see 'add_signup_meta'} filter in validate_blog_signup().
+ */
+function confirm_blog_signup( $domain, $path, $blog_title, $user_name = '', $user_email = '', $meta = array() ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Retrieves languages available during the site/user sign-up process.
+ *
+ * @since WP 4.4.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @see get_available_languages()
+ *
+ * @return string[] Array of available language codes. Language codes are formed by
+ *                  stripping the .mo extension from the language file names.
+ */
+function signup_get_available_languages() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the list of available languages for front-end site sign-ups.
+	 *
+	 * Passing an empty array to this hook will disable output of the setting on the
+	 * sign-up form, and the default language will be used when creating the site.
+	 *
+	 * Languages not already installed will be stripped.
+	 *
+	 * @since WP 4.4.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string[] $languages Array of available language codes. Language codes are formed by
+	 *                            stripping the .mo extension from the language file names.
+	 */
+	apply_filters_deprecated(
+		'signup_get_available_languages',
+		array( array() ),
+		'1.0.0',
+		'',
+		__( 'WP Multisite feature is not supported in Retraceur.' )
+	);
+}
