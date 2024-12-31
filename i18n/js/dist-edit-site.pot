@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-12-27T10:20:07+00:00\n"
+"POT-Creation-Date: 2024-12-31T18:34:29+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 
@@ -1284,7 +1284,7 @@ msgstr ""
 
 #. translators: Admin document title. 1: Admin screen name, 2: Network or site name.
 #: wp-includes/js/dist/edit-site.js:24099
-msgid "%1$s ‹ %2$s ‹ Editor — WordPress"
+msgid "%1$s ‹ %2$s ‹ Editor — Retraceur"
 msgstr ""
 
 #. translators: A breadcrumb trail for the Admin document title. 1: title of template being edited, 2: type of template (Template or Template Part).
