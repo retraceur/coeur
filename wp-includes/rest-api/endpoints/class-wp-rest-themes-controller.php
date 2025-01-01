@@ -255,7 +255,7 @@ class WP_REST_Themes_Controller extends WP_REST_Controller {
 
 		$plain_field_mappings = array(
 			'requires_php' => 'RequiresPHP',
-			'requires_wp'  => 'RequiresWP',
+			'requires_wp'  => 'RequiresR',
 			'textdomain'   => 'TextDomain',
 			'version'      => 'Version',
 		);

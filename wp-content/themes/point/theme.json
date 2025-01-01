@@ -1,0 +1,19 @@
+{
+	"$schema": "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/theme.json",
+	"version": 3,
+	"settings": {
+		"appearanceTools": true
+	},
+	"templateParts": [
+		{
+			"area": "header",
+			"name": "header",
+			"title": "Header"
+		},
+		{
+			"area": "footer",
+			"name": "footer",
+			"title": "Footer"
+		}
+	]
+}

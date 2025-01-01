@@ -228,7 +228,7 @@ class Theme_Installer_Skin extends WP_Upgrader_Skin {
 			'Name'        => __( 'Theme name' ),
 			'Version'     => __( 'Version' ),
 			'Author'      => __( 'Author' ),
-			'RequiresWP'  => __( 'Required Retraceur version' ),
+			'RequiresR'   => __( 'Required Retraceur version' ),
 			'RequiresPHP' => __( 'Required PHP version' ),
 			'Template'    => __( 'Parent theme' ),
 		);
@@ -271,7 +271,7 @@ class Theme_Installer_Skin extends WP_Upgrader_Skin {
 		 *
 		 * @since WP 5.5.0
 		 *
-		 * @param string   $table              The output table with Name, Version, Author, RequiresWP, and RequiresPHP info.
+		 * @param string   $table              The output table with Name, Version, Author, RequiresR, and RequiresPHP info.
 		 * @param WP_Theme $current_theme_data Active theme data.
 		 * @param array    $new_theme_data     Array with uploaded theme data.
 		 */
@@ -284,7 +284,7 @@ class Theme_Installer_Skin extends WP_Upgrader_Skin {
 		$blocked_message .= '<ul class="ul-disc">';
 
 		$requires_php = isset( $new_theme_data['RequiresPHP'] ) ? $new_theme_data['RequiresPHP'] : null;
-		$requires_wp  = isset( $new_theme_data['RequiresWP'] ) ? $new_theme_data['RequiresWP'] : null;
+		$requires_wp  = isset( $new_theme_data['RequiresR'] ) ? $new_theme_data['RequiresR'] : null;
 
 		if ( ! is_php_version_compatible( $requires_php ) ) {
 			$error = sprintf(

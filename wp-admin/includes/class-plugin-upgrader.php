@@ -493,7 +493,7 @@ class Plugin_Upgrader extends WP_Upgrader {
 		}
 
 		$requires_php = isset( $info['RequiresPHP'] ) ? $info['RequiresPHP'] : null;
-		$requires_wp  = isset( $info['RequiresWP'] ) ? $info['RequiresWP'] : null;
+		$requires_wp  = isset( $info['RequiresR'] ) ? $info['RequiresR'] : null;
 
 		if ( ! is_php_version_compatible( $requires_php ) ) {
 			$error = sprintf(
