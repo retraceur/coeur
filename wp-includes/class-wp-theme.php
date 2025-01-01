@@ -27,6 +27,7 @@ final class WP_Theme implements ArrayAccess {
 	 * @since WP 3.4.0
 	 * @since WP 5.4.0 Added `Requires at least` and `Requires PHP` headers.
 	 * @since WP 6.1.0 Added `Update URI` header.
+	 * @since 1.0.0 Retraceur fork replaced `Requires at least` with `Requires Retraceur`.
 	 * @var string[]
 	 */
 	private static $file_headers = array(
@@ -41,7 +42,7 @@ final class WP_Theme implements ArrayAccess {
 		'Tags'        => 'Tags',
 		'TextDomain'  => 'Text Domain',
 		'DomainPath'  => 'Domain Path',
-		'RequiresWP'  => 'Requires at least',
+		'RequiresR'   => 'Requires Retraceur',
 		'RequiresPHP' => 'Requires PHP',
 		'UpdateURI'   => 'Update URI',
 	);
@@ -920,9 +921,10 @@ final class WP_Theme implements ArrayAccess {
 	 * @since WP 3.4.0
 	 * @since WP 5.4.0 Added support for `Requires at least` and `Requires PHP` headers.
 	 * @since WP 6.1.0 Added support for `Update URI` header.
+	 * @since 1.0.0 Retraceur fork replaced `Requires at least` with `Requires Retraceur`.
 	 *
 	 * @param string $header Theme header. Accepts 'Name', 'Description', 'Author', 'Version',
-	 *                       'ThemeURI', 'AuthorURI', 'Status', 'Tags', 'RequiresWP', 'RequiresPHP',
+	 *                       'ThemeURI', 'AuthorURI', 'Status', 'Tags', 'RequiresR', 'RequiresPHP',
 	 *                       'UpdateURI'.
 	 * @param string $value  Value to sanitize.
 	 * @return string|array An array for Tags header, string otherwise.
@@ -971,7 +973,7 @@ final class WP_Theme implements ArrayAccess {
 				$value = array_filter( array_map( 'trim', explode( ',', strip_tags( $value ) ) ) );
 				break;
 			case 'Version':
-			case 'RequiresWP':
+			case 'RequiresR':
 			case 'RequiresPHP':
 			case 'UpdateURI':
 				$value = strip_tags( $value );

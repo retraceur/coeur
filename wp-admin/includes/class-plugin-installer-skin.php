@@ -218,7 +218,7 @@ class Plugin_Installer_Skin extends WP_Upgrader_Skin {
 			'Name'        => __( 'Plugin name' ),
 			'Version'     => __( 'Version' ),
 			'Author'      => __( 'Author' ),
-			'RequiresWP'  => __( 'Required Retraceur version' ),
+			'RequiresR'   => __( 'Required Retraceur version' ),
 			'RequiresPHP' => __( 'Required PHP version' ),
 		);
 
@@ -249,7 +249,7 @@ class Plugin_Installer_Skin extends WP_Upgrader_Skin {
 		 *
 		 * @since WP 5.5.0
 		 *
-		 * @param string $table               The output table with Name, Version, Author, RequiresWP, and RequiresPHP info.
+		 * @param string $table               The output table with Name, Version, Author, RequiresR, and RequiresPHP info.
 		 * @param array  $current_plugin_data Array with current plugin data.
 		 * @param array  $new_plugin_data     Array with uploaded plugin data.
 		 */
@@ -262,7 +262,7 @@ class Plugin_Installer_Skin extends WP_Upgrader_Skin {
 		$blocked_message .= '<ul class="ul-disc">';
 
 		$requires_php = isset( $new_plugin_data['RequiresPHP'] ) ? $new_plugin_data['RequiresPHP'] : null;
-		$requires_wp  = isset( $new_plugin_data['RequiresWP'] ) ? $new_plugin_data['RequiresWP'] : null;
+		$requires_wp  = isset( $new_plugin_data['RequiresR'] ) ? $new_plugin_data['RequiresR'] : null;
 
 		if ( ! is_php_version_compatible( $requires_php ) ) {
 			$error = sprintf(

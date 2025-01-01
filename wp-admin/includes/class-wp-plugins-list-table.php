@@ -756,7 +756,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 		$restrict_network_only   = false;
 
 		$requires_php = isset( $plugin_data['RequiresPHP'] ) ? $plugin_data['RequiresPHP'] : null;
-		$requires_wp  = isset( $plugin_data['RequiresWP'] ) ? $plugin_data['RequiresWP'] : null;
+		$requires_wp  = isset( $plugin_data['RequiresR'] ) ? $plugin_data['RequiresR'] : null;
 
 		$compatible_php = is_php_version_compatible( $requires_php );
 		$compatible_wp  = is_wp_version_compatible( $requires_wp );
@@ -1246,7 +1246,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 					 *     @type string   $TextDomain       Plugin textdomain.
 					 *     @type string   $DomainPath       Relative path to the plugin's .mo file(s).
 					 *     @type bool     $Network          Whether the plugin can only be activated network-wide.
-					 *     @type string   $RequiresWP       The version of Retraceur which the plugin requires.
+					 *     @type string   $RequiresR        The version of Retraceur which the plugin requires.
 					 *     @type string   $RequiresPHP      The version of PHP which the plugin requires.
 					 *     @type string   $UpdateURI        ID of the plugin for update purposes, should be a URI.
 					 *     @type string   $Title            The human-readable title of the plugin.

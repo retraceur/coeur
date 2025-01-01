@@ -698,7 +698,7 @@ function wp_prepare_themes_for_js( $themes = null ) {
 				'new_version'  => $theme->get( 'Version' ),
 				'url'          => '',
 				'package'      => '',
-				'requires'     => $theme->get( 'RequiresWP' ),
+				'requires'     => $theme->get( 'RequiresR' ),
 				'requires_php' => $theme->get( 'RequiresPHP' ),
 			);
 		}
@@ -714,7 +714,7 @@ function wp_prepare_themes_for_js( $themes = null ) {
 			'authorAndUri'   => $theme->display( 'Author' ),
 			'tags'           => $theme->display( 'Tags' ),
 			'version'        => $theme->get( 'Version' ),
-			'compatibleWP'   => is_wp_version_compatible( $theme->get( 'RequiresWP' ) ),
+			'compatibleWP'   => is_wp_version_compatible( $theme->get( 'RequiresR' ) ),
 			'compatiblePHP'  => is_php_version_compatible( $theme->get( 'RequiresPHP' ) ),
 			'updateResponse' => array(
 				'compatibleWP'  => is_wp_version_compatible( $update_requires_wp ),

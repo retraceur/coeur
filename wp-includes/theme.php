@@ -913,7 +913,7 @@ function validate_current_theme() {
 /**
  * Validates the theme requirements for Retraceur version and PHP version.
  *
- * Uses the information from `Requires at least` and `Requires PHP` headers
+ * Uses the information from `Requires Retraceur` and `Requires PHP` headers
  * defined in the theme's `style.css` file.
  *
  * @since WP 5.5.0
@@ -926,7 +926,7 @@ function validate_theme_requirements( $stylesheet ) {
 	$theme = wp_get_theme( $stylesheet );
 
 	$requirements = array(
-		'requires'     => ! empty( $theme->get( 'RequiresWP' ) ) ? $theme->get( 'RequiresWP' ) : '',
+		'requires'     => ! empty( $theme->get( 'RequiresR' ) ) ? $theme->get( 'RequiresR' ) : '',
 		'requires_php' => ! empty( $theme->get( 'RequiresPHP' ) ) ? $theme->get( 'RequiresPHP' ) : '',
 	);
 

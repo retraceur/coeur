@@ -32,7 +32,7 @@
  *     Network: Optional. Specify "Network: true" to require that a plugin is activated
  *          across all sites in an installation. This will prevent a plugin from being
  *          activated on a single site when Multisite is enabled.
- *     Requires at least: Optional. Specify the minimum required Retraceur version.
+ *     Requires Retraceur: Optional. Specify the minimum required Retraceur version.
  *     Requires PHP: Optional. Specify the minimum required PHP version.
  *     * / # Remove the space to close comment.
  *
@@ -48,6 +48,7 @@
  * @since WP 5.3.0 Added support for `Requires at least` and `Requires PHP` headers.
  * @since WP 5.8.0 Added support for `Update URI` header.
  * @since WP 6.5.0 Added support for `Requires Plugins` header.
+ * @since 1.0.0 Retraceur fork replaced `Requires at least` with `Requires Retraceur`.
  *
  * @param string $plugin_file Absolute path to the main plugin file.
  * @param bool   $markup      Optional. If the returned data should have HTML markup applied.
@@ -65,7 +66,7 @@
  *     @type string $TextDomain      Plugin textdomain.
  *     @type string $DomainPath      Plugin's relative directory path to .mo files.
  *     @type bool   $Network         Whether the plugin can only be activated network-wide.
- *     @type string $RequiresWP      Minimum required version of Retraceur.
+ *     @type string $RequiresR       Minimum required version of Retraceur.
  *     @type string $RequiresPHP     Minimum required version of PHP.
  *     @type string $UpdateURI       ID of the plugin for update purposes, should be a URI.
  *     @type string $RequiresPlugins Comma separated list of dot org plugin slugs.
@@ -85,7 +86,7 @@ function get_plugin_data( $plugin_file, $markup = true, $translate = true ) {
 		'TextDomain'      => 'Text Domain',
 		'DomainPath'      => 'Domain Path',
 		'Network'         => 'Network',
-		'RequiresWP'      => 'Requires at least',
+		'RequiresR'       => 'Requires Retraceur',
 		'RequiresPHP'     => 'Requires PHP',
 		'UpdateURI'       => 'Update URI',
 		'RequiresPlugins' => 'Requires Plugins',
@@ -1114,7 +1115,7 @@ function validate_plugin( $plugin ) {
 /**
  * Validates the plugin requirements for Retraceur version and PHP version.
  *
- * Uses the information from `Requires at least`, `Requires PHP` and `Requires Plugins` headers
+ * Uses the information from `Requires Retraceur`, `Requires PHP` and `Requires Plugins` headers
  * defined in the plugin's main PHP file.
  *
  * @since WP 5.2.0
@@ -1130,7 +1131,7 @@ function validate_plugin_requirements( $plugin ) {
 	$plugin_headers = get_plugin_data( WP_PLUGIN_DIR . '/' . $plugin );
 
 	$requirements = array(
-		'requires'         => ! empty( $plugin_headers['RequiresWP'] ) ? $plugin_headers['RequiresWP'] : '',
+		'requires'         => ! empty( $plugin_headers['RequiresR'] ) ? $plugin_headers['RequiresR'] : '',
 		'requires_php'     => ! empty( $plugin_headers['RequiresPHP'] ) ? $plugin_headers['RequiresPHP'] : '',
 		'requires_plugins' => ! empty( $plugin_headers['RequiresPlugins'] ) ? $plugin_headers['RequiresPlugins'] : '',
 	);

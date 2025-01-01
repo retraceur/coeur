@@ -596,7 +596,7 @@ class WP_REST_Plugins_Controller extends WP_REST_Controller {
 			),
 			'version'      => $item['Version'],
 			'network_only' => $item['Network'],
-			'requires_wp'  => $item['RequiresWP'],
+			'requires_wp'  => $item['RequiresR'],
 			'requires_php' => $item['RequiresPHP'],
 			'textdomain'   => $item['TextDomain'],
 		);
