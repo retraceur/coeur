@@ -84,7 +84,7 @@ html:lang(he-il) .rtl #wpadminbar * {
 
 #wpadminbar {
 	direction: ltr;
-	color: #c3c4c7;
+	color: #fff;
 	font-size: 13px;
 	font-weight: 400;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
@@ -96,7 +96,7 @@ html:lang(he-il) .rtl #wpadminbar * {
 	width: 100%;
 	min-width: 600px; /* match the min-width of the body in wp-admin/css/common.css */
 	z-index: 99999;
-	background: #1d2327;
+	background: #1e1e1e;
 	/* Only visible in Windows High Contrast mode */
 	outline: 1px solid transparent;
 }
@@ -148,7 +148,7 @@ html:lang(he-il) .rtl #wpadminbar * {
 	margin: 0;
 	padding: 0;
 	box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
-	background: #2c3338;
+	background: rgb(12.15, 12.15, 12.15);
 	display: none;
 	position: absolute;
 	float: none;
@@ -218,14 +218,14 @@ html:lang(he-il) .rtl #wpadminbar * {
 #wpadminbar.nojq .quicklinks .ab-top-menu > li > .ab-item:focus,
 #wpadminbar:not(.mobile) .ab-top-menu > li:hover > .ab-item,
 #wpadminbar .ab-top-menu > li.hover > .ab-item {
-	background: #2c3338;
-	color: #72aee6;
+	background: rgb(12.15, 12.15, 12.15);
+	color: #5d76cb;
 }
 
 #wpadminbar:not(.mobile) > #wp-toolbar li:hover span.ab-label,
 #wpadminbar > #wp-toolbar li.hover span.ab-label,
 #wpadminbar:not(.mobile) > #wp-toolbar a:focus span.ab-label {
-	color: #72aee6;
+	color: #5d76cb;
 }
 
 #wpadminbar > #wp-toolbar > #wp-admin-bar-root-default .ab-icon,
@@ -246,8 +246,7 @@ html:lang(he-il) .rtl #wpadminbar * {
 #wpadminbar .ab-icon:before,
 #wpadminbar .ab-item:before,
 #wpadminbar #adminbarsearch:before {
-	color: #a7aaad;
-	color: rgba(240, 246, 252, 0.6);
+	color: hsl(0, 7%, 95%);
 }
 
 #wpadminbar .ab-icon:before,
@@ -295,7 +294,7 @@ html:lang(he-il) .rtl #wpadminbar * {
 #wpadminbar li.hover .ab-item:before,
 #wpadminbar li:hover #adminbarsearch:before,
 #wpadminbar li #adminbarsearch.adminbar-focused:before {
-	color: #72aee6;
+	color: #5d76cb;
 }
 
 #wpadminbar.mobile .quicklinks .ab-icon:before,
@@ -305,7 +304,7 @@ html:lang(he-il) .rtl #wpadminbar * {
 
 #wpadminbar.mobile .quicklinks .hover .ab-icon:before,
 #wpadminbar.mobile .quicklinks .hover .ab-item:before {
-	color: #72aee6;
+	color: #5d76cb;
 }
 
 #wpadminbar .menupop .menupop > .ab-item .wp-admin-bar-arrow:before,
@@ -356,7 +355,7 @@ html:lang(he-il) .rtl #wpadminbar * {
 
 #wpadminbar .quicklinks .menupop .ab-sub-secondary > li > a:hover,
 #wpadminbar .quicklinks .menupop .ab-sub-secondary > li .ab-item:focus a {
-	color: #72aee6;
+	color: #5d76cb;
 }
 
 #wpadminbar .quicklinks a span#ab-updates {
@@ -472,7 +471,7 @@ html:lang(he-il) .rtl #wpadminbar * {
 }
 
 #wpadminbar #wp-admin-bar-user-info .username {
-	color: #a7aaad;
+	color: hsl(0, 7%, 95%);
 	font-size: 11px;
 }
 
@@ -481,8 +480,8 @@ html:lang(he-il) .rtl #wpadminbar * {
 	width: auto;
 	height: 16px;
 	padding: 0;
-	border: 1px solid #8c8f94;
-	background: #f0f0f1;
+	border: 1px solid rgb(47.85, 47.85, 47.85);
+	background: rgb(47.85, 47.85, 47.85);
 	line-height: 1.84615384;
 	vertical-align: middle;
 	margin: -4px 0 0 6px;
@@ -530,7 +529,7 @@ html:lang(he-il) .rtl #wpadminbar * {
 #wpadminbar .quicklinks li a:hover .blavatar,
 #wpadminbar .quicklinks li a:focus .blavatar,
 #wpadminbar .quicklinks .ab-sub-wrapper .menupop.hover > a .blavatar {
-	color: #72aee6;
+	color: #5d76cb;
 }
 
 #wpadminbar .quicklinks li img.blavatar,
@@ -857,7 +856,7 @@ html:lang(he-il) .rtl #wpadminbar * {
 		overflow: hidden;
 		width: 52px;
 		padding: 0;
-		color: #a7aaad; /* @todo not needed? this text is hidden */
+		color: hsl(0, 7%, 95%); /* @todo not needed? this text is hidden */
 		position: relative;
 	}
 
