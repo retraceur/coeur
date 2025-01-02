@@ -3467,3 +3467,28 @@ function make_site_theme() {
 function pre_schema_upgrade() {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 }
+
+/**
+ * Retrieves the list of importers.
+ *
+ * @since WP 2.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ * @return array
+ */
+function get_importers() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return array();
+}
+
+/**
+ * Returns a list of popular importer plugins.
+ *
+ * @since WP 3.5.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @return array Importers with metadata for each.
+ */
+function wp_get_popular_importers() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return array();
+}

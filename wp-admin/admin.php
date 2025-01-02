@@ -119,17 +119,15 @@ wp_enqueue_script( 'common' );
 
 /**
  * $pagenow is set in vars.php.
- * $wp_importers is sometimes set in wp-admin/includes/import.php.
  * The remaining variables are imported as globals elsewhere, declared as globals here.
  *
  * @global string $pagenow      The filename of the current screen.
- * @global array  $wp_importers
  * @global string $hook_suffix
  * @global string $plugin_page
  * @global string $typenow      The post type of the current screen.
  * @global string $taxnow       The taxonomy of the current screen.
  */
-global $pagenow, $wp_importers, $hook_suffix, $plugin_page, $typenow, $taxnow;
+global $pagenow, $hook_suffix, $plugin_page, $typenow, $taxnow;
 
 $page_hook = null;
 
@@ -297,78 +295,6 @@ if ( isset( $plugin_page ) ) {
 	}
 
 	require_once ABSPATH . 'wp-admin/admin-footer.php';
-
-	exit;
-} elseif ( isset( $_GET['import'] ) ) {
-
-	$importer = $_GET['import'];
-
-	if ( ! current_user_can( 'import' ) ) {
-		wp_die( __( 'Sorry, you are not allowed to import content into this site.' ) );
-	}
-
-	if ( validate_file( $importer ) ) {
-		wp_redirect( admin_url( 'import.php?invalid=' . $importer ) );
-		exit;
-	}
-
-	if ( ! isset( $wp_importers[ $importer ] ) || ! is_callable( $wp_importers[ $importer ][2] ) ) {
-		wp_redirect( admin_url( 'import.php?invalid=' . $importer ) );
-		exit;
-	}
-
-	/**
-	 * Fires before an importer screen is loaded.
-	 *
-	 * The dynamic portion of the hook name, `$importer`, refers to the importer slug.
-	 *
-	 * Possible hook names include:
-	 *
-	 *  - `load-importer-blogger`
-	 *  - `load-importer-wpcat2tag`
-	 *  - `load-importer-livejournal`
-	 *  - `load-importer-mt`
-	 *  - `load-importer-rss`
-	 *  - `load-importer-tumblr`
-	 *  - `load-importer-wordpress`
-	 *
-	 * @since WP 3.5.0
-	 */
-	do_action( "load-importer-{$importer}" ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
-
-	// Used in the HTML title tag.
-	$title        = __( 'Import' );
-	$parent_file  = 'tools.php';
-	$submenu_file = 'import.php';
-
-	if ( ! isset( $_GET['noheader'] ) ) {
-		require_once ABSPATH . 'wp-admin/admin-header.php';
-	}
-
-	require_once ABSPATH . 'wp-admin/includes/upgrade.php';
-
-	define( 'WP_IMPORTING', true );
-
-	/**
-	 * Filters whether to filter imported data through kses on import.
-	 *
-	 * Multisite uses this hook to filter all data through kses by default,
-	 * as a super administrator may be assisting an untrusted user.
-	 *
-	 * @since WP 3.1.0
-	 *
-	 * @param bool $force Whether to force data to be filtered through kses. Default false.
-	 */
-	if ( apply_filters( 'force_filtered_html_on_import', false ) ) {
-		kses_init_filters();  // Always filter imported data with kses on multisite.
-	}
-
-	call_user_func( $wp_importers[ $importer ][2] );
-
-	require_once ABSPATH . 'wp-admin/admin-footer.php';
-
-	// Make sure rules are flushed.
-	flush_rewrite_rules( false );
 
 	exit;
 } else {
