@@ -303,10 +303,9 @@ if ( ! is_multisite() && current_user_can( 'view_site_health_checks' ) ) {
 
 $menu[75]                     = array( __( 'Tools' ), 'edit_posts', 'tools.php', '', 'menu-top menu-icon-tools', 'menu-tools', 'dashicons-admin-tools' );
 	$submenu['tools.php'][5]  = array( __( 'Available Tools' ), 'edit_posts', 'tools.php' );
-	$submenu['tools.php'][10] = array( __( 'Import' ), 'import', 'import.php' );
-	$submenu['tools.php'][15] = array( __( 'Export' ), 'export', 'export.php' );
 	/* translators: %s: Number of critical Site Health checks. */
-	$submenu['tools.php'][20] = array( sprintf( __( 'Site Health %s' ), $site_health_count ), 'view_site_health_checks', 'site-health.php' );
+	$submenu['tools.php'][10] = array( sprintf( __( 'Site Health %s' ), $site_health_count ), 'view_site_health_checks', 'site-health.php' );
+	$submenu['tools.php'][15] = array( __( 'Export' ), 'export', 'export.php' );
 	$submenu['tools.php'][25] = array( __( 'Export Personal Data' ), 'export_others_personal_data', 'export-personal-data.php' );
 	$submenu['tools.php'][30] = array( __( 'Erase Personal Data' ), 'erase_others_personal_data', 'erase-personal-data.php' );
 

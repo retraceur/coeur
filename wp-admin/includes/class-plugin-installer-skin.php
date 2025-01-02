@@ -134,13 +134,7 @@ class Plugin_Installer_Skin extends WP_Upgrader_Skin {
 			unset( $install_actions['activate_plugin'] );
 		}
 
-		if ( 'import' === $from ) {
-			$install_actions['importers_page'] = sprintf(
-				'<a href="%s" target="_parent">%s</a>',
-				admin_url( 'import.php' ),
-				__( 'Go to Importers' )
-			);
-		} elseif ( 'web' === $this->type ) {
+		if ( 'web' === $this->type ) {
 			$install_actions['plugins_page'] = sprintf(
 				'<a href="%s" target="_parent">%s</a>',
 				self_admin_url( 'plugin-install.php' ),

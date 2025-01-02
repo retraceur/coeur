@@ -9,22 +9,6 @@
  */
 
 /**
- * Retrieves the list of importers.
- *
- * @since WP 2.0.0
- *
- * @global array $wp_importers
- * @return array
- */
-function get_importers() {
-	global $wp_importers;
-	if ( is_array( $wp_importers ) ) {
-		uasort( $wp_importers, '_usort_by_first_member' );
-	}
-	return $wp_importers;
-}
-
-/**
  * Sorts a multidimensional array by first member of each top level member.
  *
  * Used by uasort() as a callback, should not be used directly.
@@ -38,27 +22,6 @@ function get_importers() {
  */
 function _usort_by_first_member( $a, $b ) {
 	return strnatcasecmp( $a[0], $b[0] );
-}
-
-/**
- * Registers importer for Retraceur.
- *
- * @since WP 2.0.0
- *
- * @global array $wp_importers
- *
- * @param string   $id          Importer tag. Used to uniquely identify importer.
- * @param string   $name        Importer name and title.
- * @param string   $description Importer description.
- * @param callable $callback    Callback to run.
- * @return void|WP_Error Void on success. WP_Error when $callback is WP_Error.
- */
-function register_importer( $id, $name, $description, $callback ) {
-	global $wp_importers;
-	if ( is_wp_error( $callback ) ) {
-		return $callback;
-	}
-	$wp_importers[ $id ] = array( $name, $description, $callback );
 }
 
 /**
@@ -127,60 +90,5 @@ function wp_import_handle_upload() {
 	return array(
 		'file' => $upload['file'],
 		'id'   => $id,
-	);
-}
-
-/**
- * Returns a list of popular importer plugins.
- *
- * @since WP 3.5.0
- *
- * @return array Importers with metadata for each.
- */
-function wp_get_popular_importers() {
-	return array(
-		// slug => name, description, plugin slug, and register_importer() slug.
-		'blogger'     => array(
-			'name'        => __( 'Blogger' ),
-			'description' => __( 'Import posts and users from a Blogger blog.' ),
-			'plugin-slug' => 'blogger-importer',
-			'importer-id' => 'blogger',
-		),
-		'wpcat2tag'   => array(
-			'name'        => __( 'Categories and Tags Converter' ),
-			'description' => __( 'Convert existing categories to tags or tags to categories, selectively.' ),
-			'plugin-slug' => 'wpcat2tag-importer',
-			'importer-id' => 'wp-cat2tag',
-		),
-		'livejournal' => array(
-			'name'        => __( 'LiveJournal' ),
-			'description' => __( 'Import posts from LiveJournal using their API.' ),
-			'plugin-slug' => 'livejournal-importer',
-			'importer-id' => 'livejournal',
-		),
-		'movabletype' => array(
-			'name'        => __( 'Movable Type and TypePad' ),
-			'description' => __( 'Import posts from a Movable Type or TypePad blog.' ),
-			'plugin-slug' => 'movabletype-importer',
-			'importer-id' => 'mt',
-		),
-		'rss'         => array(
-			'name'        => __( 'RSS' ),
-			'description' => __( 'Import posts from an RSS feed.' ),
-			'plugin-slug' => 'rss-importer',
-			'importer-id' => 'rss',
-		),
-		'tumblr'      => array(
-			'name'        => __( 'Tumblr' ),
-			'description' => __( 'Import posts &amp; media from Tumblr using their API.' ),
-			'plugin-slug' => 'tumblr-importer',
-			'importer-id' => 'tumblr',
-		),
-		'wordpress'   => array(
-			'name'        => 'Retraceur',
-			'description' => __( 'Import posts, pages, custom fields, categories, and tags from a Retraceur export file.' ),
-			'plugin-slug' => 'wordpress-importer',
-			'importer-id' => 'wordpress',
-		),
 	);
 }
