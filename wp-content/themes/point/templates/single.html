@@ -1,0 +1,34 @@
+<!-- wp:template-part {"slug":"header","tagName":"header","className":"site-header"} /-->
+<!-- wp:group {"tagName":"main","layout":{"inherit":false}} -->
+<main class="wp-block-group">
+	<!-- wp:spacer {"height":"20px"} -->
+	<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+	<!-- /wp:spacer -->
+	<!-- wp:group {"tagName":"section","className":"entry-header","layout":{"inherit":true}} -->
+	<section class="wp-block-group entry-header">
+		<!-- wp:post-title /-->
+		<!-- wp:pattern {"slug":"point/entry-header-single"} /-->
+		<!-- wp:post-featured-image /-->
+	</section>
+	<!-- /wp:group -->
+	<!-- wp:post-content {"layout":{"inherit":true}} /-->
+	<!-- wp:group {"tagName":"section","className":"entry-footer","layout":{"inherit":true}} -->
+	<section class="wp-block-group entry-footer">
+		<!-- wp:post-author {"avatarSize":32,"showBio":true,"isLink":true,"style":{"spacing":{"margin":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40"},"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|20","right":"var:preset|spacing|20"}},"border":{"left":{"color":"var:preset|color|retraceur-blue-hover","width":"4px"}},"color":{"background":"#4464c912"}}} /-->
+		<!-- wp:spacer {"height":"10px"} -->
+		<div style="height:10px" aria-hidden="true" class="wp-block-spacer"></div>
+		<!-- /wp:spacer -->
+		<!-- wp:group {"tagName":"nav","className":"entry-footer-pagination","layout":{"type":"flex","justifyContent":"space-between"}} -->
+		<nav class="wp-block-group entry-footer-pagination">
+			<!-- wp:post-navigation-link {"type":"previous","showTitle":true,"arrow":"arrow"} /-->
+			<!-- wp:post-navigation-link {"showTitle":true,"arrow":"arrow"} /-->
+		</nav>
+		<!-- /wp:group -->
+	</section>
+	<!-- /wp:group -->
+	<!-- wp:spacer {"height":"20px"} -->
+	<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+	<!-- /wp:spacer -->
+</main>
+<!-- /wp:group -->
+<!-- wp:template-part {"slug":"footer","tagName":"footer","className":"site-footer"} /-->
