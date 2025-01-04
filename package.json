@@ -5,7 +5,7 @@
 	"scripts": {
 		"pot:admin": "wp i18n make-pot . i18n/admin.pot --include=\"wp-admin\" --exclude=\"wp-admin/includes/continents-cities.php\" --skip-js --ignore-domain",
 		"pot:countries": "wp i18n make-pot . i18n/continents-and-cities.pot --include=\"wp-admin/includes/continents-cities.php\" --ignore-domain",
-		"pot:coeur": "wp i18n make-pot . i18n/coeur.pot --include=\"wp-activate.php,wp-cron.php,wp-links-opml.php,wp-load.php,wp-login.php,wp-mail.php,wp-settings.php,wp-signups.php,wp-trackback.php,xmlrpc.php,wp-includes\" --skip-js --ignore-domain",
+		"pot:coeur": "wp i18n make-pot . i18n/coeur.pot --include=\"wp-activate.php,wp-cron.php,wp-links-opml.php,wp-load.php,wp-login.php,wp-mail.php,wp-settings.php,wp-signups.php,wp-trackback.php,xmlrpc.php,wp-content/themes/point,wp-includes\" --skip-js --ignore-domain",
 		"pot:js": "./tools/makepot.sh",
 		"build:admin:js": "wp-scripts build --webpack-src-dir=wp-admin/js/ --config wp-admin/js/webpack.config.js && ./tools/update-admin-js.sh",
 		"build:inc:js:dist": "wp-scripts build --webpack-src-dir=wp-includes/js/dist/ --config wp-includes/js/dist/webpack.config.js && ./tools/update-build.sh",

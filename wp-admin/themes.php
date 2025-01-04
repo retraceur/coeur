@@ -997,7 +997,11 @@ function wp_theme_auto_update_setting_template() {
 					<?php echo wp_theme_auto_update_setting_template(); ?>
 				<# } #>
 
-				<p class="theme-description">{{{ data.description }}}</p>
+				<# if ( 'Point' === data.name ) { #>
+					<p class="theme-description"><?php esc_html_e( 'Built-in default Retraceur Theme. There’s always a point to start retracing.' ); ?></p>
+				<# } else { #>
+					<p class="theme-description">{{{ data.description }}}</p>
+				<# } #>
 
 				<# if ( data.parent ) { #>
 					<p class="parent-theme">

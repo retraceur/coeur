@@ -18,7 +18,7 @@
 		<ul class="wp-block-social-links">
 		<?php
 		printf(
-			__( '<!-- wp:social-link {"url":"%s","service":"feed"} /-->' ),
+			'<!-- wp:social-link {"url":"%s","service":"feed"} /-->',
 			esc_url( get_bloginfo( 'rss2_url' ) )
 		);
 		?>
@@ -30,7 +30,7 @@
 		<p class="has-text-align-right">
 		<?php
 		printf(
-			/* Translators: Retraceur link. */
+			/* Translators: %s: Retraceur link. */
 			esc_html__( '♡ %s' ),
 			'<a href="' . esc_url( __( 'https://retraceur.github.io/' ) ) . '" rel="nofollow">Retraceur</a>'
 		);
