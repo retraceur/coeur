@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-12-29T15:44:26+00:00\n"
+"POT-Creation-Date: 2025-01-04T18:50:11+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 
@@ -87,6 +87,68 @@ msgstr ""
 #. translators: 1: Login URL, 2: Network home URL.
 #: wp-content/plugins/reseau/wp-activate.php:204
 msgid "Your account is now activated. <a href=\"%1$s\">Log in</a> or go back to the <a href=\"%2$s\">homepage</a>."
+msgstr ""
+
+#. translators: %s: Name of current post. Only visible to screen readers
+#: wp-content/themes/point/functions.php:68
+msgid "Read more<span class=\"screen-reader-text\"> about \"%s\"</span>"
+msgstr ""
+
+#: wp-content/themes/point/patterns/404.php:20
+msgctxt "Heading for a webpage that is not found"
+msgid "Page Not Found"
+msgstr ""
+
+#: wp-content/themes/point/patterns/404.php:24
+msgctxt "Message to convey that a webpage could not be found"
+msgid "The page you are looking for does not exist, or it has been moved."
+msgstr ""
+
+#: wp-content/themes/point/patterns/entry-footer.php:16
+msgctxt "\"Published in\" category separator"
+msgid "Categorized in"
+msgstr ""
+
+#: wp-content/themes/point/patterns/entry-footer.php:17
+msgctxt "\"Tagged\" tag separator"
+msgid "Tagged"
+msgstr ""
+
+#: wp-content/themes/point/patterns/entry-header-single.php:16
+#: wp-content/themes/point/patterns/entry-header.php:16
+msgctxt "\"Published on\" date separator"
+msgid "Published on"
+msgstr ""
+
+#: wp-content/themes/point/patterns/entry-header-single.php:20
+msgctxt "\"in\" category"
+msgid "in"
+msgstr ""
+
+#: wp-content/themes/point/patterns/entry-header.php:20
+msgctxt "\"by\" Author separator"
+msgid "by"
+msgstr ""
+
+#. Translators: %s: Retraceur link.
+#: wp-content/themes/point/patterns/footer.php:34
+#: wp-includes/theme-compat/footer.php:25
+msgid "♡ %s"
+msgstr ""
+
+#: wp-content/themes/point/patterns/footer.php:35
+#: wp-includes/theme-compat/footer.php:26
+msgid "https://retraceur.github.io/"
+msgstr ""
+
+#: wp-content/themes/point/patterns/posts-no-results.php:9
+msgctxt "Message explaining that the query returned no results"
+msgid "No posts were found."
+msgstr ""
+
+#: wp-content/themes/point/patterns/site-header-search.php:13
+msgctxt "placeholder for header search field"
+msgid "Search for..."
 msgstr ""
 
 #. translators: 1: Hook name, 2: Error code, 3: Error message, 4: Event data.
@@ -805,11 +867,11 @@ msgstr ""
 msgid "Author: %s"
 msgstr ""
 
-#: wp-includes/block-template-utils.php:1416
+#: wp-includes/block-template-utils.php:1417
 msgid "Zip Export not supported."
 msgstr ""
 
-#: wp-includes/block-template-utils.php:1425
+#: wp-includes/block-template-utils.php:1426
 msgid "Unable to open export file (archive) for writing."
 msgstr ""
 
@@ -2936,154 +2998,154 @@ msgid "%sX-Large"
 msgstr ""
 
 #. translators: %s: Theme directory name.
-#: wp-includes/class-wp-theme.php:293
+#: wp-includes/class-wp-theme.php:294
 msgid "The theme directory \"%s\" does not exist."
 msgstr ""
 
-#: wp-includes/class-wp-theme.php:298
+#: wp-includes/class-wp-theme.php:299
 msgid "Stylesheet is missing."
 msgstr ""
 
-#: wp-includes/class-wp-theme.php:315
+#: wp-includes/class-wp-theme.php:316
 msgid "<strong>Error:</strong> The themes directory is either empty or does not exist. Please check your installation."
 msgstr ""
 
-#: wp-includes/class-wp-theme.php:320
+#: wp-includes/class-wp-theme.php:321
 msgid "Stylesheet is not readable."
 msgstr ""
 
 #. translators: %s: Template.
-#: wp-includes/class-wp-theme.php:355
+#: wp-includes/class-wp-theme.php:356
 msgid "The theme defines itself as its parent theme. Please check the %s header."
 msgstr ""
 
 #. translators: 1: templates/index.html, 2: index.php, 3: Template, 4: style.css
-#: wp-includes/class-wp-theme.php:385
+#: wp-includes/class-wp-theme.php:386
 msgid "Template is missing. Standalone themes need to have a %1$s or %2$s template file. Child themes need to have a %3$s header in the %4$s stylesheet."
 msgstr ""
 
 #. translators: %s: Theme directory name.
-#: wp-includes/class-wp-theme.php:435
+#: wp-includes/class-wp-theme.php:436
 msgid "The parent theme is missing. Please install the \"%s\" parent theme."
 msgstr ""
 
 #. translators: %s: Theme directory name.
-#: wp-includes/class-wp-theme.php:464
-#: wp-includes/class-wp-theme.php:485
+#: wp-includes/class-wp-theme.php:465
+#: wp-includes/class-wp-theme.php:486
 msgid "The \"%s\" theme is not a valid parent theme."
 msgstr ""
 
-#: wp-includes/class-wp-theme.php:508
+#: wp-includes/class-wp-theme.php:509
 msgid "This theme failed to load properly and was paused within the admin backend."
 msgstr ""
 
-#: wp-includes/class-wp-theme.php:1008
+#: wp-includes/class-wp-theme.php:1010
 msgid "Anonymous"
 msgstr ""
 
-#: wp-includes/class-wp-theme.php:1057
+#: wp-includes/class-wp-theme.php:1059
 msgid "Black"
 msgstr ""
 
-#: wp-includes/class-wp-theme.php:1058
+#: wp-includes/class-wp-theme.php:1060
 msgid "Blue"
 msgstr ""
 
-#: wp-includes/class-wp-theme.php:1059
+#: wp-includes/class-wp-theme.php:1061
 msgid "Brown"
 msgstr ""
 
-#: wp-includes/class-wp-theme.php:1060
+#: wp-includes/class-wp-theme.php:1062
 msgid "Gray"
 msgstr ""
 
-#: wp-includes/class-wp-theme.php:1061
+#: wp-includes/class-wp-theme.php:1063
 msgid "Green"
 msgstr ""
 
-#: wp-includes/class-wp-theme.php:1062
+#: wp-includes/class-wp-theme.php:1064
 msgid "Orange"
 msgstr ""
 
-#: wp-includes/class-wp-theme.php:1063
+#: wp-includes/class-wp-theme.php:1065
 msgid "Pink"
 msgstr ""
 
-#: wp-includes/class-wp-theme.php:1064
+#: wp-includes/class-wp-theme.php:1066
 msgid "Purple"
 msgstr ""
 
-#: wp-includes/class-wp-theme.php:1065
+#: wp-includes/class-wp-theme.php:1067
 msgid "Red"
 msgstr ""
 
-#: wp-includes/class-wp-theme.php:1066
+#: wp-includes/class-wp-theme.php:1068
 msgid "Silver"
 msgstr ""
 
-#: wp-includes/class-wp-theme.php:1067
+#: wp-includes/class-wp-theme.php:1069
 msgid "Tan"
 msgstr ""
 
-#: wp-includes/class-wp-theme.php:1068
+#: wp-includes/class-wp-theme.php:1070
 msgid "White"
 msgstr ""
 
-#: wp-includes/class-wp-theme.php:1069
+#: wp-includes/class-wp-theme.php:1071
 msgid "Yellow"
 msgstr ""
 
-#: wp-includes/class-wp-theme.php:1070
+#: wp-includes/class-wp-theme.php:1072
 msgctxt "color scheme"
 msgid "Dark"
 msgstr ""
 
-#: wp-includes/class-wp-theme.php:1071
+#: wp-includes/class-wp-theme.php:1073
 msgctxt "color scheme"
 msgid "Light"
 msgstr ""
 
-#: wp-includes/class-wp-theme.php:1072
+#: wp-includes/class-wp-theme.php:1074
 msgid "Fixed Layout"
 msgstr ""
 
-#: wp-includes/class-wp-theme.php:1073
+#: wp-includes/class-wp-theme.php:1075
 msgid "Fluid Layout"
 msgstr ""
 
-#: wp-includes/class-wp-theme.php:1074
+#: wp-includes/class-wp-theme.php:1076
 msgid "Responsive Layout"
 msgstr ""
 
-#: wp-includes/class-wp-theme.php:1075
+#: wp-includes/class-wp-theme.php:1077
 msgid "Blavatar"
 msgstr ""
 
-#: wp-includes/class-wp-theme.php:1076
+#: wp-includes/class-wp-theme.php:1078
 msgid "Photoblogging"
 msgstr ""
 
-#: wp-includes/class-wp-theme.php:1077
+#: wp-includes/class-wp-theme.php:1079
 msgid "Seasonal"
 msgstr ""
 
 #. translators: 1: file name.
-#: wp-includes/class-wp-theme.php:1883
+#: wp-includes/class-wp-theme.php:1885
 msgid "Could not register file \"%s\" as a block pattern (\"Slug\" field missing)"
 msgstr ""
 
 #. translators: 1: file name; 2: slug value found.
-#: wp-includes/class-wp-theme.php:1896
+#: wp-includes/class-wp-theme.php:1898
 msgid "Could not register file \"%1$s\" as a block pattern (invalid slug \"%2$s\")"
 msgstr ""
 
 #. translators: 1: file name.
-#: wp-includes/class-wp-theme.php:1910
+#: wp-includes/class-wp-theme.php:1912
 msgid "Could not register file \"%s\" as a block pattern (\"Title\" field missing)"
 msgstr ""
 
 #. translators: %1$s: The filter name.
-#: wp-includes/class-wp-theme.php:2010
+#: wp-includes/class-wp-theme.php:2012
 msgid "The %1$s filter must return an integer value greater than 0."
 msgstr ""
 
@@ -7502,12 +7564,12 @@ msgid "The pattern name."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-block-patterns-controller.php:219
-#: wp-includes/rest-api/endpoints/class-wp-rest-pattern-directory-controller.php:194
+#: wp-includes/rest-api/endpoints/class-wp-rest-pattern-directory-controller.php:195
 msgid "The pattern title, in human readable format."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-block-patterns-controller.php:225
-#: wp-includes/rest-api/endpoints/class-wp-rest-pattern-directory-controller.php:201
+#: wp-includes/rest-api/endpoints/class-wp-rest-pattern-directory-controller.php:202
 msgid "The pattern content."
 msgstr ""
 
@@ -8165,43 +8227,43 @@ msgstr ""
 msgid "Sorry, you are not allowed to browse the local block pattern directory."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-pattern-directory-controller.php:187
+#: wp-includes/rest-api/endpoints/class-wp-rest-pattern-directory-controller.php:188
 msgid "The pattern ID."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-pattern-directory-controller.php:208
+#: wp-includes/rest-api/endpoints/class-wp-rest-pattern-directory-controller.php:209
 msgid "The pattern's category slugs."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-pattern-directory-controller.php:216
+#: wp-includes/rest-api/endpoints/class-wp-rest-pattern-directory-controller.php:217
 msgid "The pattern's keywords."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-pattern-directory-controller.php:224
+#: wp-includes/rest-api/endpoints/class-wp-rest-pattern-directory-controller.php:225
 msgid "A description of the pattern."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-pattern-directory-controller.php:231
+#: wp-includes/rest-api/endpoints/class-wp-rest-pattern-directory-controller.php:232
 msgid "The preferred width of the viewport when previewing a pattern, in pixels."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-pattern-directory-controller.php:237
+#: wp-includes/rest-api/endpoints/class-wp-rest-pattern-directory-controller.php:238
 msgid "The block types which can use this pattern."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-pattern-directory-controller.php:265
+#: wp-includes/rest-api/endpoints/class-wp-rest-pattern-directory-controller.php:266
 msgid "Limit results to those matching a category ID."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-pattern-directory-controller.php:271
+#: wp-includes/rest-api/endpoints/class-wp-rest-pattern-directory-controller.php:272
 msgid "Limit results to those matching a keyword ID."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-pattern-directory-controller.php:277
+#: wp-includes/rest-api/endpoints/class-wp-rest-pattern-directory-controller.php:278
 msgid "Limit results to those matching a pattern (slug)."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-pattern-directory-controller.php:282
+#: wp-includes/rest-api/endpoints/class-wp-rest-pattern-directory-controller.php:283
 #: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2909
 #: wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php:822
 #: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:1120
@@ -8209,7 +8271,7 @@ msgstr ""
 msgid "Offset the result set by a specific number of items."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-pattern-directory-controller.php:287
+#: wp-includes/rest-api/endpoints/class-wp-rest-pattern-directory-controller.php:288
 #: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2914
 #: wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php:827
 #: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:1126
@@ -8217,7 +8279,7 @@ msgstr ""
 msgid "Order sort attribute ascending or descending."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-pattern-directory-controller.php:294
+#: wp-includes/rest-api/endpoints/class-wp-rest-pattern-directory-controller.php:295
 #: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2921
 msgid "Sort collection by post attribute."
 msgstr ""
@@ -10741,11 +10803,6 @@ msgstr ""
 #: wp-includes/theme-compat/header.php:15
 #: wp-includes/theme-compat/sidebar.php:15
 msgid "Please include a %s template in your theme."
-msgstr ""
-
-#. translators: 1: Site name, 2: Retraceur
-#: wp-includes/theme-compat/footer.php:26
-msgid "%1$s is proudly powered by %2$s"
 msgstr ""
 
 #: wp-includes/theme-compat/sidebar.php:29
