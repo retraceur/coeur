@@ -51,24 +51,21 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 <h1><?php echo esc_html( $title ); ?></h1>
 
 <?php
-$leftcol_descriptions = array(
-	'site-health.php' => array(
+$tool_infos = array(
+	'site-health.php'          => array(
 		'title' => __( 'Site Health' ),
 		'desc'  => array(
 			__( 'Retraceur offers a diagnosis of your site’s health. There are two tabs on the site health screen:' ),
 			__( 'The first one allows you to see critical information about your configuration while the second one gives you a granular view of the most technical aspects of your website' ),
 		),
 	),
-	'export.php'      => array(
+	'export.php'               => array(
 		'title' => __( 'Export' ),
 		'desc'  => array(
 			__( 'Exporting your WordPress data (posts, pages, custom post types, comments, custom fields, categories, tags, custom taxonomies, and users) is sometimes necessary and useful.' ),
 			__( 'If you are moving to a new host or just want a backup of your site data, then Exporting your site is the answer.' ),
 		),
 	),
-);
-
-$rightcol_descriptions = array(
 	'export-personal-data.php' => array(
 		'title' => __( 'Export Personal Data' ),
 		'desc'  => array(
@@ -87,32 +84,19 @@ $rightcol_descriptions = array(
 ?>
 
 <div class="flex-row">
-	<?php  foreach ( $leftcol_descriptions as $tool ) {
+	<?php foreach ( $tool_infos as $page => $tool ) {
 		printf(
 			'<div class="card">
 				<h2 class="title">%1$s</h2>
 				<p>%2$s</p>
+				<p><a href="%3$s" class="button button-secondary alignright">&rarr; %1$s</a></p>
 			</div>',
 			esc_html( $tool['title'] ),
-			esc_html( implode( ' ', $tool['desc'] ) )
+			esc_html( implode( ' ', $tool['desc'] ) ),
+			esc_url( admin_url( $page ) )
 		);
 	}
-	unset( $tool );
-	?>
-</div>
-
-<div class="flex-row">
-	<?php  foreach ( $rightcol_descriptions as $tool ) {
-		printf(
-			'<div class="card">
-				<h2 class="title">%1$s</h2>
-				<p>%2$s</p>
-			</div>',
-			esc_html( $tool['title'] ),
-			esc_html( implode( ' ', $tool['desc'] ) )
-		);
-	}
-	unset( $tool );
+	unset( $page, $tool );
 	?>
 </div>
 

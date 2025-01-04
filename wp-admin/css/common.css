@@ -2368,12 +2368,17 @@ h1.nav-tab-wrapper, /* Back-compat for pre-4.4 */
   26.0 - Misc
 ------------------------------------------------------------------------------*/
 
+/* Tools main screen */
 .flex-row {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	width: 100%;
-	justify-content: space-evenly;
+}
+
+/* Tools main screen */
+.flex-row .card {
+	margin-right: 1em;
 }
 
 .spinner {
