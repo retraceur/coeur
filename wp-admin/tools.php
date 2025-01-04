@@ -62,7 +62,7 @@ $tool_infos = array(
 	'export.php'               => array(
 		'title' => __( 'Export' ),
 		'desc'  => array(
-			__( 'Exporting your WordPress data (posts, pages, custom post types, comments, custom fields, categories, tags, custom taxonomies, and users) is sometimes necessary and useful.' ),
+			__( 'Exporting your site’s data (posts, pages, custom post types, comments, custom fields, categories, tags, custom taxonomies, and users) is sometimes necessary and useful.' ),
 			__( 'If you are moving to a new host or just want a backup of your site data, then Exporting your site is the answer.' ),
 		),
 	),
