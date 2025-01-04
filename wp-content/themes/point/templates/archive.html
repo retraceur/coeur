@@ -7,6 +7,17 @@
 		<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
 		<!-- /wp:spacer -->
 
+		<!-- wp:group {"tagName":"section","className":"archive-header alignfull","style":{"spacing":{"padding":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|30"},"margin":{"bottom":"var:preset|spacing|60"}}},"layout":{"inherit":true}} -->
+		<section class="wp-block-group archive-header alignfull" style="margin-bottom:var(--wp--preset--spacing--60);padding-top:var(--wp--preset--spacing--20);padding-bottom:var(--wp--preset--spacing--30);">
+			<!-- wp:group {"tagName":"div","layout":{"inherit":true}} -->
+			<div class="wp-block-group">
+			<!-- wp:query-title {"type":"archive","level":2} /-->
+			<!-- wp:term-description /-->
+			</div>
+			<!-- /wp:group -->
+		</section>
+		<!-- /wp:group -->
+
 		<!-- wp:query-no-results -->
 		<!-- wp:pattern {"slug":"point/posts-no-results"} /-->
 		<!-- /wp:query-no-results -->

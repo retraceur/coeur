@@ -64,11 +64,11 @@ final class WP_Theme implements ArrayAccess {
 	 * @since WP 6.1.0 Added the Twenty Twenty-Three theme.
 	 * @since WP 6.4.0 Added the Twenty Twenty-Four theme.
 	 * @since WP 6.7.0 Added the Twenty Twenty-Five theme.
-	 * @since 1.0.0 Retraceur fork only kept Twenty Twenty-Four.
+	 * @since 1.0.0 Retraceur fork only includes a point!
 	 * @var string[]
 	 */
 	private static $default_themes = array(
-		'twentytwentyfour'  => 'Twenty Twenty-Four',
+		'point' => 'Point',
 	);
 
 	/**
