@@ -302,7 +302,7 @@ class Theme_Installer_Skin extends WP_Upgrader_Skin {
 			$error = sprintf(
 				/* translators: 1: Current Retraceur version, 2: Version required by the uploaded theme. */
 				__( 'Your Retraceur version is %1$s, however the uploaded theme requires %2$s.' ),
-				esc_html( wp_get_wp_version() ),
+				esc_html( retraceur_get_version() ),
 				$requires_wp
 			);
 

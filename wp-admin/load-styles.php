@@ -63,7 +63,7 @@ $out            = '';
 $wp_styles = new WP_Styles();
 wp_default_styles( $wp_styles );
 
-$etag = $wp_styles->get_etag( $wp_version, $load );
+$etag = $wp_styles->get_etag( $retraceur_version, $load );
 
 if ( isset( $_SERVER['HTTP_IF_NONE_MATCH'] ) && stripslashes( $_SERVER['HTTP_IF_NONE_MATCH'] ) === $etag ) {
 	header( "$protocol 304 Not Modified" );

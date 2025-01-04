@@ -319,7 +319,7 @@ class WP_Site_Health_Auto_Updates {
 	public function test_all_files_writable() {
 		global $wp_filesystem;
 
-		require ABSPATH . WPINC . '/version.php'; // $wp_version; // x.y.z
+		require ABSPATH . WPINC . '/version.php'; // $retraceur_version; // x.y.z
 
 		$skin    = new Automatic_Upgrader_Skin();
 		$success = $skin->request_filesystem_credentials( false, ABSPATH );
@@ -339,11 +339,11 @@ class WP_Site_Health_Auto_Updates {
 			require_once ABSPATH . 'wp-admin/includes/update.php';
 		}
 
-		$checksums = get_core_checksums( $wp_version, 'en_US' );
-		$dev       = ( str_contains( $wp_version, '-' ) );
+		$checksums = get_core_checksums( $retraceur_version, 'en_US' );
+		$dev       = ( str_contains( $retraceur_version, '-' ) );
 		// Get the last stable version's files and test against that.
 		if ( ! $checksums && $dev ) {
-			$checksums = get_core_checksums( (float) $wp_version - 0.1, 'en_US' );
+			$checksums = get_core_checksums( (float) $retraceur_version - 0.1, 'en_US' );
 		}
 
 		// There aren't always checksums for development releases, so just skip the test if we still can't find any.
@@ -355,7 +355,7 @@ class WP_Site_Health_Auto_Updates {
 			$description = sprintf(
 				/* translators: %s: Retraceur version. */
 				__( "Couldn't retrieve a list of the checksums for Retraceur %s." ),
-				$wp_version
+				$retraceur_version
 			);
 			return array(
 				'description' => $description,
@@ -401,9 +401,9 @@ class WP_Site_Health_Auto_Updates {
 	 * @return array|false The test results. False if it isn't a development version.
 	 */
 	public function test_accepts_dev_updates() {
-		require ABSPATH . WPINC . '/version.php'; // $wp_version; // x.y.z
+		require ABSPATH . WPINC . '/version.php'; // $retraceur_version; // x.y.z
 		// Only for dev versions.
-		if ( ! str_contains( $wp_version, '-' ) ) {
+		if ( ! str_contains( $retraceur_version, '-' ) ) {
 			return false;
 		}
 
@@ -419,7 +419,7 @@ class WP_Site_Health_Auto_Updates {
 		}
 
 		/** This filter is documented in wp-admin/includes/class-core-upgrader.php */
-		if ( ! apply_filters( 'allow_dev_auto_core_updates', $wp_version ) ) {
+		if ( ! apply_filters( 'allow_dev_auto_core_updates', $retraceur_version ) ) {
 			return array(
 				'description' => sprintf(
 					/* translators: %s: Name of the filter used. */

@@ -39,11 +39,12 @@ if ( 'upgrade_db' === $step ) {
 
 /**
  * @global string $wp_version             The WP version string.
+ * @global string $retraceur_version      The Retraceur version string.
  * @global string $required_php_version   The required PHP version string.
  * @global string $required_mysql_version The required MySQL version string.
  * @global wpdb   $wpdb                   WP database abstraction object.
  */
-global $wp_version, $required_php_version, $required_mysql_version, $wpdb;
+global $wp_version, $retraceur_version, $required_php_version, $required_mysql_version, $wpdb;
 
 $step = (int) $step;
 
@@ -82,7 +83,7 @@ elseif ( ! $php_compat || ! $mysql_compat ) :
 		$message = sprintf(
 			/* translators: 1: Retraceur version number, 2: Minimum required PHP version number, 3: Minimum required MySQL version number, 4: Current PHP version number, 5: Current MySQL version number. */
 			__( 'You cannot update because Retraceur %1$s requires PHP version %2$s or higher and MySQL version %3$s or higher. You are running PHP version %4$s and MySQL version %5$s.' ),
-			$wp_version,
+			$retraceur_version,
 			$required_php_version,
 			$required_mysql_version,
 			$php_version,
@@ -92,7 +93,7 @@ elseif ( ! $php_compat || ! $mysql_compat ) :
 		$message = sprintf(
 			/* translators: 1: Retraceur version number, 2: Minimum required PHP version number, 3: Current PHP version number. */
 			__( 'You cannot update because Retraceur %1$s requires PHP version %2$s or higher. You are running version %3$s.' ),
-			$wp_version,
+			$retraceur_version,
 			$required_php_version,
 			$php_version
 		);
@@ -100,7 +101,7 @@ elseif ( ! $php_compat || ! $mysql_compat ) :
 		$message = sprintf(
 			/* translators: 1: Retraceur version number, 2: Minimum required MySQL version number, 3: Current MySQL version number. */
 			__( 'You cannot update because Retraceur %1$s requires MySQL version %2$s or higher. You are running version %3$s.' ),
-			$wp_version,
+			$retraceur_version,
 			$required_mysql_version,
 			$mysql_version
 		);

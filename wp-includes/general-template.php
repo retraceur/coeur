@@ -796,7 +796,7 @@ function bloginfo( $show = '' ) {
  *
  * @since WP 0.71
  *
- * @global string $wp_version The WP version string.
+ * @global string $retraceur_version The Retraceur version string.
  *
  * @param string $show   Optional. Site info to retrieve. Default empty (site name).
  * @param string $filter Optional. How to filter what is retrieved. Default 'raw'.
@@ -878,8 +878,8 @@ function get_bloginfo( $show = '', $filter = 'raw' ) {
 			$output = get_option( 'html_type' );
 			break;
 		case 'version':
-			global $wp_version;
-			$output = $wp_version;
+			global $retraceur_version;
+			$output = $retraceur_version;
 			break;
 		case 'language':
 			/*

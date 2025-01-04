@@ -516,9 +516,9 @@ function wp_scripts_get_suffix( $type = '' ) {
 
 	if ( null === $suffixes ) {
 		/*
-		 * Include an unmodified $wp_version.
+		 * Include an unmodified $retraceur_version.
 		 *
-		 * Note: wp_get_wp_version() is not used here, as this file can be included
+		 * Note: retraceur_get_version() is not used here, as this file can be included
 		 * via wp-admin/load-scripts.php or wp-admin/load-styles.php, in which case
 		 * wp-includes/functions.php is not loaded.
 		 */
@@ -529,7 +529,7 @@ function wp_scripts_get_suffix( $type = '' ) {
 		 * via wp-admin/load-scripts.php or wp-admin/load-styles.php, in which case
 		 * the polyfills from wp-includes/compat.php are not loaded.
 		 */
-		$develop_src = false !== strpos( $wp_version, '-src' );
+		$develop_src = false !== strpos( $retraceur_version, '-src' );
 
 		if ( ! defined( 'SCRIPT_DEBUG' ) ) {
 			define( 'SCRIPT_DEBUG', $develop_src );
@@ -1221,9 +1221,9 @@ function wp_default_styles( $styles ) {
 	global $editor_styles;
 
 	/*
-	 * Include an unmodified $wp_version.
+	 * Include an unmodified $retraceur_version.
 	 *
-	 * Note: wp_get_wp_version() is not used here, as this file can be included
+	 * Note: retraceur_get_version() is not used here, as this file can be included
 	 * via wp-admin/load-scripts.php or wp-admin/load-styles.php, in which case
 	 * wp-includes/functions.php is not loaded.
 	 */
@@ -1235,7 +1235,7 @@ function wp_default_styles( $styles ) {
 		 * via wp-admin/load-scripts.php or wp-admin/load-styles.php, in which case
 		 * the polyfills from wp-includes/compat.php are not loaded.
 		 */
-		define( 'SCRIPT_DEBUG', false !== strpos( $wp_version, '-src' ) );
+		define( 'SCRIPT_DEBUG', false !== strpos( $retraceur_version, '-src' ) );
 	}
 
 	$guessurl = site_url();

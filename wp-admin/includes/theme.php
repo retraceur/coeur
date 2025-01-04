@@ -463,6 +463,10 @@ function themes_api( $action, $args = array() ) {
 		$args->wp_version = substr( wp_get_wp_version(), 0, 3 ); // x.y
 	}
 
+	if ( ! isset( $args->retraceur_version ) ) {
+		$args->retraceur_version = substr( retraceur_get_version(), 0, 5 ); // x.y
+	}
+
 	/**
 	 * Filters arguments used to query for installer pages from the Themes API.
 	 *
@@ -514,7 +518,7 @@ function themes_api( $action, $args = array() ) {
 
 		$http_args = array(
 			'timeout'    => 15,
-			'user-agent' => 'Retraceur/' . wp_get_wp_version() . '; ' . home_url( '/' ),
+			'user-agent' => 'Retraceur/' . retraceur_get_version() . '; ' . home_url( '/' ),
 		);
 		$request   = wp_remote_get( $url, $http_args );
 

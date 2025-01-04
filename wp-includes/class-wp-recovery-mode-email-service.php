@@ -339,8 +339,8 @@ When seeking help with this issue, you may be asked for some of the following in
 	 * @return array An associative array of debug information.
 	 */
 	private function get_debug( $extension ) {
-		$theme      = wp_get_theme();
-		$wp_version = get_bloginfo( 'version' );
+		$theme             = wp_get_theme();
+		$retraceur_version = get_bloginfo( 'version' );
 
 		if ( $extension ) {
 			$plugin = $this->get_plugin( $extension );
@@ -352,7 +352,7 @@ When seeking help with this issue, you may be asked for some of the following in
 			'wp'    => sprintf(
 				/* translators: %s: Current Retraceur version number. */
 				__( 'Retraceur version %s' ),
-				$wp_version
+				$retraceur_version
 			),
 			'theme' => sprintf(
 				/* translators: 1: Current active theme name. 2: Current active theme version. */

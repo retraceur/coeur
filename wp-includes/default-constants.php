@@ -14,11 +14,12 @@
  *
  * @since WP 3.0.0
  *
- * @global int    $blog_id    The current site ID.
- * @global string $wp_version The WP version string.
+ * @global int    $blog_id           The current site ID.
+ * @global string $wp_version        The WP version string.
+ * @global string $retraceur_version The Retraceur version string.
  */
 function wp_initial_constants() {
-	global $blog_id, $wp_version;
+	global $blog_id, $wp_version, $retraceur_version;
 
 	/**#@+
 	 * Constants for expressing human-readable data sizes in their respective number of bytes.
@@ -121,8 +122,8 @@ function wp_initial_constants() {
 	 * non-concatenated scripts and stylesheets.
 	 */
 	if ( ! defined( 'SCRIPT_DEBUG' ) ) {
-		if ( ! empty( $wp_version ) ) {
-			$develop_src = str_contains( $wp_version, '-src' );
+		if ( ! empty( $retraceur_version ) ) {
+			$develop_src = str_contains( $retraceur_version, '-src' );
 		} else {
 			$develop_src = false;
 		}

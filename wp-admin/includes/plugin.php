@@ -2536,8 +2536,8 @@ function paused_plugins_notice() {
  * @since WP 5.8.0
  * @access private
  *
- * @global string $pagenow    The filename of the current screen.
- * @global string $wp_version The WP version string.
+ * @global string $pagenow           The filename of the current screen.
+ * @global string $retraceur_version The Retraceur version string.
  */
 function deactivated_plugins_notice() {
 	if ( 'plugins.php' === $GLOBALS['pagenow'] ) {
@@ -2578,7 +2578,7 @@ function deactivated_plugins_notice() {
 				__( '%1$s %2$s was deactivated due to incompatibility with Retraceur %3$s, please upgrade to %1$s %4$s or later.' ),
 				$plugin['plugin_name'],
 				$plugin['version_deactivated'],
-				$GLOBALS['wp_version'],
+				$GLOBALS['retraceur_version'],
 				$plugin['version_compatible']
 			);
 		} else {
@@ -2587,7 +2587,7 @@ function deactivated_plugins_notice() {
 				__( '%1$s %2$s was deactivated due to incompatibility with Retraceur %3$s.' ),
 				$plugin['plugin_name'],
 				! empty( $plugin['version_deactivated'] ) ? $plugin['version_deactivated'] : '',
-				$GLOBALS['wp_version'],
+				$GLOBALS['retraceur_version'],
 				$plugin['version_compatible']
 			);
 		}

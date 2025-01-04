@@ -1,7 +1,7 @@
 <?php
 /**
  * Block Pattern Directory REST API: WP_REST_Pattern_Directory_Controller class
- * 
+ *
  * @since WP 5.8.0
  * @since 1.0.0 Retraceur fork.
  *
@@ -99,6 +99,7 @@ class WP_REST_Pattern_Directory_Controller extends WP_REST_Controller {
 
 		$query_args['locale']             = get_user_locale();
 		$query_args['wp-version']         = wp_get_wp_version();
+		$query_args['retraceur-version']  = retraceur_get_version();
 		$query_args['pattern-categories'] = isset( $request['category'] ) ? $request['category'] : false;
 		$query_args['pattern-keywords']   = isset( $request['keyword'] ) ? $request['keyword'] : false;
 

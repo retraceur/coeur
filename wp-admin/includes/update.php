@@ -844,7 +844,7 @@ function maintenance_nag() {
 		 * This flag is cleared whenever a successful update occurs using Core_Upgrader.
 		 */
 		$comparison = ! empty( $failed['critical'] ) ? '>=' : '>';
-		if ( isset( $failed['attempted'] ) && version_compare( $failed['attempted'], wp_get_wp_version(), $comparison ) ) {
+		if ( isset( $failed['attempted'] ) && version_compare( $failed['attempted'], retraceur_get_version(), $comparison ) ) {
 			$nag = true;
 		}
 	}

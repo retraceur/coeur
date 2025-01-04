@@ -266,7 +266,7 @@ class WP_Site_Health {
 			'test'        => 'wordpress_version',
 		);
 
-		$core_current_version = wp_get_wp_version();
+		$core_current_version = retraceur_get_version();
 		$core_updates         = get_core_updates();
 
 		if ( ! is_array( $core_updates ) ) {

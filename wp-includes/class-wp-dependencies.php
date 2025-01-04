@@ -497,27 +497,27 @@ class WP_Dependencies {
 	 *
 	 * @since WP 6.7.0
 	 *
-	 * @global string $wp_version The Retraceur version string.
+	 * @global string $retraceur_version The Retraceur version string.
 	 *
 	 * @param string[] $load Array of script or style handles to load.
 	 * @return string Etag header.
 	 */
 	public function get_etag( $load ) {
 		/*
-		 * Note: wp_get_wp_version() is not used here, as this file can be included
+		 * Note: retraceur_get_version() is not used here, as this file can be included
 		 * via wp-admin/load-scripts.php or wp-admin/load-styles.php, in which case
 		 * wp-includes/functions.php is not loaded.
 		 */
-		global $wp_version;
+		global $retraceur_version;
 
-		$etag = "WP:{$wp_version};";
+		$etag = "Retraceur:{$retraceur_version};";
 
 		foreach ( $load as $handle ) {
 			if ( ! array_key_exists( $handle, $this->registered ) ) {
 				continue;
 			}
 
-			$ver   = $this->registered[ $handle ]->ver ?? $wp_version;
+			$ver   = $this->registered[ $handle ]->ver ?? $retraceur_version;
 			$etag .= "{$handle}:{$ver};";
 		}
 
@@ -527,6 +527,6 @@ class WP_Dependencies {
 		 * load the full Retraceur environment, it is not possible to use the salted
 		 * wp_hash() function.
 		 */
-		return 'W/"' . md5( $etag ) . '"';
+		return 'R/"' . md5( $etag ) . '"';
 	}
 }

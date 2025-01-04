@@ -24,6 +24,7 @@ define( 'WPINC', 'wp-includes' );
  * these values if already set.
  *
  * @global string $wp_version              The WP version string.
+ * @global string $retraceur_version       The Retraceur version string.
  * @global int    $wp_db_version           WP database version.
  * @global string $tinymce_version         TinyMCE version.
  * @global string $required_php_version    The required PHP version string.
@@ -31,7 +32,7 @@ define( 'WPINC', 'wp-includes' );
  * @global string $required_mysql_version  The required MySQL version string.
  * @global string $wp_local_package        Locale code of the package.
  */
-global $wp_version, $wp_db_version, $tinymce_version, $required_php_version, $recommended_php_version, $required_mysql_version, $wp_local_package;
+global $wp_version, $retraceur_version, $wp_db_version, $tinymce_version, $required_php_version, $recommended_php_version, $required_mysql_version, $wp_local_package;
 require ABSPATH . WPINC . '/version.php';
 require ABSPATH . WPINC . '/compat.php';
 require ABSPATH . WPINC . '/load.php';

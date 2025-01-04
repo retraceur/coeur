@@ -383,8 +383,8 @@ class Theme_Upgrader extends WP_Upgrader {
 	 * @return array[]|false An array of results, or false if unable to connect to the filesystem.
 	 */
 	public function bulk_upgrade( $themes, $args = array() ) {
-		$wp_version  = wp_get_wp_version();
-		$defaults    = array(
+		$retraceur_version  = retraceur_get_version();
+		$defaults           = array(
 			'clear_update_cache' => true,
 		);
 		$parsed_args = wp_parse_args( $args, $defaults );
@@ -451,7 +451,7 @@ class Theme_Upgrader extends WP_Upgrader {
 					sprintf(
 						/* translators: 1: Current Retraceur version, 2: Retraceur version required by the new theme version. */
 						__( 'Your Retraceur version is %1$s, however the new theme version requires %2$s.' ),
-						$wp_version,
+						$retraceur_version,
 						$r['requires']
 					)
 				);
@@ -564,7 +564,7 @@ class Theme_Upgrader extends WP_Upgrader {
 	public function check_package( $source ) {
 		global $wp_filesystem;
 
-		$wp_version           = wp_get_wp_version();
+		$retraceur_version    = retraceur_get_version();
 		$this->new_theme_data = array();
 
 		if ( is_wp_error( $source ) ) {
@@ -657,7 +657,7 @@ class Theme_Upgrader extends WP_Upgrader {
 			$error = sprintf(
 				/* translators: 1: Current Retraceur version, 2: Version required by the uploaded theme. */
 				__( 'Your Retraceur version is %1$s, however the uploaded theme requires %2$s.' ),
-				$wp_version,
+				$retraceur_version,
 				$requires_wp
 			);
 

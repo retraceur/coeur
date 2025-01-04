@@ -280,7 +280,7 @@ class Plugin_Installer_Skin extends WP_Upgrader_Skin {
 			$error = sprintf(
 				/* translators: 1: Current Retraceur version, 2: Version required by the uploaded plugin. */
 				__( 'Your Retraceur version is %1$s, however the uploaded plugin requires %2$s.' ),
-				esc_html( wp_get_wp_version() ),
+				esc_html( retraceur_get_version() ),
 				$requires_wp
 			);
 

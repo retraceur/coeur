@@ -753,7 +753,7 @@ class WP_Automatic_Updater {
 
 		// Send debugging email to admin for all development installations.
 		if ( ! empty( $this->update_results ) ) {
-			$development_version = str_contains( wp_get_wp_version(), '-' );
+			$development_version = str_contains( retraceur_get_version(), '-' );
 
 			/**
 			 * Filters whether to send a debugging email for each automatic background update.
@@ -796,7 +796,7 @@ class WP_Automatic_Updater {
 	 * @param object $update_result The result of the core update. Includes the update offer and result.
 	 */
 	protected function after_core_update( $update_result ) {
-		$wp_version = wp_get_wp_version();
+		$retraceur_version = retraceur_get_version();
 
 		$core_update = $update_result->item;
 		$result      = $update_result->result;
@@ -826,7 +826,7 @@ class WP_Automatic_Updater {
 		if ( $critical ) {
 			$critical_data = array(
 				'attempted'  => $core_update->current,
-				'current'    => $wp_version,
+				'current'    => $retraceur_version,
 				'error_code' => $error_code,
 				'error_data' => $result->get_error_data(),
 				'timestamp'  => time(),
@@ -874,7 +874,7 @@ class WP_Automatic_Updater {
 			'auto_core_update_failed',
 			array(
 				'attempted'  => $core_update->current,
-				'current'    => $wp_version,
+				'current'    => $retraceur_version,
 				'error_code' => $error_code,
 				'error_data' => $result->get_error_data(),
 				'timestamp'  => time(),

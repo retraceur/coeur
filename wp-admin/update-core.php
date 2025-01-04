@@ -39,12 +39,12 @@ function list_core_update( $update ) {
 	global $wp_local_package, $wpdb;
 	static $first_pass = true;
 
-	$wp_version     = wp_get_wp_version();
-	$version_string = sprintf( '%s&ndash;%s', $update->current, get_locale() );
+	$retraceur_version  = retraceur_get_version();
+	$version_string     = sprintf( '%s&ndash;%s', $update->current, get_locale() );
 
 	if ( 'en_US' === $update->locale && 'en_US' === get_locale() ) {
 		$version_string = $update->current;
-	} elseif ( 'en_US' === $update->locale && $update->packages->partial && $wp_version === $update->partial_version ) {
+	} elseif ( 'en_US' === $update->locale && $update->packages->partial && $retraceur_version === $update->partial_version ) {
 		$updates = get_core_updates();
 		if ( $updates && 1 === count( $updates ) ) {
 			// If the only available update is a partial builds, it doesn't need a language-specific version string.
@@ -121,7 +121,7 @@ function list_core_update( $update ) {
 				$message = sprintf(
 					/* translators: 1: Installed Retraceur version number, 2: New Retraceur version number, including locale if necessary. */
 					__( 'You can update from Retraceur %1$s to Retraceur %2$s manually:' ),
-					$wp_version,
+					$retraceur_version,
 					$version_string
 				);
 			}
@@ -161,7 +161,7 @@ function list_core_update( $update ) {
 
 	if ( 'en_US' !== $update->locale && ( ! isset( $wp_local_package ) || $wp_local_package !== $update->locale ) ) {
 		echo '<p class="hint">' . __( 'This localized version contains both the translation and various other localization fixes.' ) . '</p>';
-	} elseif ( 'en_US' === $update->locale && 'en_US' !== get_locale() && ( ! $update->packages->partial && $wp_version === $update->partial_version ) ) {
+	} elseif ( 'en_US' === $update->locale && 'en_US' !== get_locale() && ( ! $update->packages->partial && $retraceur_version === $update->partial_version ) ) {
 		// Partial builds don't need language-specific warnings.
 		echo '<p class="hint">' . sprintf(
 			/* translators: %s: Retraceur version. */
@@ -229,12 +229,12 @@ function core_upgrade_preamble() {
 		return;
 	}
 
-	// Include an unmodified $wp_version.
+	// Include an unmodified $retraceur_version.
 	require ABSPATH . WPINC . '/version.php';
 
-	$is_development_version = preg_match( '/alpha|beta|RC/', $wp_version );
+	$is_development_version = preg_match( '/alpha|beta|RC/', $retraceur_version );
 
-	if ( isset( $updates[0]->version ) && version_compare( $updates[0]->version, $wp_version, '>' ) ) {
+	if ( isset( $updates[0]->version ) && version_compare( $updates[0]->version, $retraceur_version, '>' ) ) {
 		echo '<h2 class="response">';
 		_e( 'An updated version of Retraceur is available.' );
 		echo '</h2>';
@@ -264,7 +264,7 @@ function core_upgrade_preamble() {
 	if ( $updates && ( count( $updates ) > 1 || 'latest' !== $updates[0]->response ) ) {
 		echo '<p>' . __( 'While your site is being updated, it will be in maintenance mode. As soon as your updates are complete, this mode will be deactivated.' ) . '</p>';
 	} elseif ( ! $updates ) {
-		list( $normalized_version ) = explode( '-', $wp_version );
+		list( $normalized_version ) = explode( '-', $retraceur_version );
 		echo '<p>' . sprintf(
 			/* translators: 1: URL to About screen, 2: Retraceur version. */
 			__( '<a href="%1$s">Learn more about Retraceur %2$s</a>.' ),
@@ -371,10 +371,10 @@ function core_auto_updates_settings() {
 	);
 
 	if ( $upgrade_major ) {
-		$wp_version = wp_get_wp_version();
-		$updates    = get_core_updates();
+		$retraceur_version = retraceur_get_version();
+		$updates           = get_core_updates();
 
-		if ( isset( $updates[0]->version ) && version_compare( $updates[0]->version, $wp_version, '>' ) ) {
+		if ( isset( $updates[0]->version ) && version_compare( $updates[0]->version, $retraceur_version, '>' ) ) {
 			echo '<p>' . wp_get_auto_update_message() . '</p>';
 		}
 	}
@@ -438,8 +438,8 @@ function core_auto_updates_settings() {
  * @since WP 2.9.0
  */
 function list_plugin_updates() {
-	$wp_version     = wp_get_wp_version();
-	$cur_wp_version = preg_replace( '/-.*$/', '', $wp_version );
+	$retraceur_version = retraceur_get_version();
+	$cur_wp_version    = preg_replace( '/-.*$/', '', $retraceur_version );
 
 	require_once ABSPATH . 'wp-admin/includes/plugin-install.php';
 	$plugins = get_plugin_updates();
@@ -985,7 +985,7 @@ if ( 'upgrade-core' === $action ) {
 
 	echo '<h2 class="wp-current-version">';
 	/* translators: Current version of Retraceur. */
-	printf( __( 'Current version: %s' ), esc_html( wp_get_wp_version() ) );
+	printf( __( 'Current version: %s' ), esc_html( retraceur_get_version() ) );
 	echo '</h2>';
 
 	echo '<p class="update-last-checked">';

@@ -8324,7 +8324,7 @@ function retraceur_get_version() {
  *
  * @since WP 5.2.0
  *
- * @global string $_wp_tests_wp_version The Retraceur version string. Used only in Core tests.
+ * @global string $_retraceur_tests_version The Retraceur version string. Used only in Core tests.
  *
  * @param string $required Minimum required Retraceur version.
  * @return bool True if required version is compatible or empty, false if not.
@@ -8333,15 +8333,15 @@ function is_wp_version_compatible( $required ) {
 	if (
 		defined( 'WP_RUN_CORE_TESTS' )
 		&& WP_RUN_CORE_TESTS
-		&& isset( $GLOBALS['_wp_tests_wp_version'] )
+		&& isset( $GLOBALS['_retraceur_tests_version'] )
 	) {
-		$wp_version = $GLOBALS['_wp_tests_wp_version'];
+		$retraceur_version = $GLOBALS['_retraceur_tests_version'];
 	} else {
-		$wp_version = wp_get_wp_version();
+		$retraceur_version = retraceur_get_version();
 	}
 
 	// Strip off any -alpha, -RC, -beta, -src suffixes.
-	list( $version ) = explode( '-', $wp_version );
+	list( $version ) = explode( '-', $retraceur_version );
 
 	if ( is_string( $required ) ) {
 		$trimmed = trim( $required );

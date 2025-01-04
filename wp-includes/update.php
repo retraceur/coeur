@@ -37,7 +37,7 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
 	$current      = get_site_transient( 'update_core' );
 	$translations = wp_get_installed_translations( 'core' );
 
-	// Invalidate the transient when $wp_version changes.
+	// Invalidate the transient when $retraceur_version changes.
 	if ( is_object( $current ) && retraceur_get_version() !== $current->version_checked ) {
 		$current = false;
 	}
@@ -339,7 +339,7 @@ function wp_update_plugins( $extra_stats = array() ) {
 			'locale'       => wp_json_encode( $locales ),
 			'all'          => wp_json_encode( true ),
 		),
-		'user-agent' => 'Retraceur/' . wp_get_wp_version() . '; ' . home_url( '/' ),
+		'user-agent' => 'Retraceur/' . retraceur_get_version() . '; ' . home_url( '/' ),
 	);
 
 	// @todo See what's doable using GitHub.
@@ -488,7 +488,7 @@ function wp_update_plugins( $extra_stats = array() ) {
  * @since WP 2.7.0
  * @since 1.0.0 Retraceur fork.
  *
- * @global string $wp_version The WP version string.
+ * @global string $retraceur_version The Retraceur version string.
  *
  * @param array $extra_stats Extra statistics.
  */
@@ -612,7 +612,7 @@ function wp_update_themes( $extra_stats = array() ) {
 			'translations' => wp_json_encode( $translations ),
 			'locale'       => wp_json_encode( $locales ),
 		),
-		'user-agent' => 'Retraceur/' . wp_get_wp_version() . '; ' . home_url( '/' ),
+		'user-agent' => 'Retraceur/' . retraceur_get_version() . '; ' . home_url( '/' ),
 	);
 
 	// @todo See what's doable using GitHub.
@@ -894,14 +894,14 @@ function wp_get_update_data() {
  *
  * @since WP 2.8.0
  *
- * @global string $wp_version The WP version string.
+ * @global string $retraceur_version The WP version string.
  */
 function _maybe_update_core() {
 	$current = get_site_transient( 'update_core' );
 
 	if ( isset( $current->last_checked, $current->version_checked )
 		&& 12 * HOUR_IN_SECONDS > ( time() - $current->last_checked )
-		&& wp_get_wp_version() === $current->version_checked
+		&& retraceur_get_version() === $current->version_checked
 	) {
 		return;
 	}

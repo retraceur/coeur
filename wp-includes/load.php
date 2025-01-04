@@ -151,10 +151,10 @@ function wp_populate_basic_auth_from_authorization_header() {
  * @access private
  *
  * @global string $required_php_version The required PHP version string.
- * @global string $wp_version           The WP version string.
+ * @global string $retraceur_version    The Retraceur version string.
  */
 function wp_check_php_mysql_versions() {
-	global $required_php_version, $wp_version;
+	global $required_php_version, $retraceur_version;
 
 	$php_version = PHP_VERSION;
 
@@ -165,7 +165,7 @@ function wp_check_php_mysql_versions() {
 		printf(
 			'Your server is running PHP version %1$s but Retraceur %2$s requires at least %3$s.',
 			$php_version,
-			$wp_version,
+			$retraceur_version,
 			$required_php_version
 		);
 		exit( 1 );

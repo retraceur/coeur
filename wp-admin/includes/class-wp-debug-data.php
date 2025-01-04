@@ -153,7 +153,7 @@ class WP_Debug_Data {
 		$users_can_register     = get_option( 'users_can_register' );
 		$blog_public            = get_option( 'blog_public' );
 		$environment_type       = wp_get_environment_type();
-		$core_version           = wp_get_wp_version();
+		$core_version           = retraceur_get_version();
 		$core_updates           = get_core_updates();
 		$core_update_needed     = '';
 

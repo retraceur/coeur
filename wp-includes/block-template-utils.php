@@ -1410,7 +1410,8 @@ function wp_is_theme_directory_ignored( $path ) {
  * @return WP_Error|string Path of the ZIP file or error on failure.
  */
 function wp_generate_block_templates_export_file() {
-	$wp_version = wp_get_wp_version();
+	$wp_version        = wp_get_wp_version();
+	$retraceur_version = retraceur_get_version();
 
 	if ( ! class_exists( 'ZipArchive' ) ) {
 		return new WP_Error( 'missing_zip_package', __( 'Zip Export not supported.' ) );

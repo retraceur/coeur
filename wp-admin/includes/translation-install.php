@@ -64,9 +64,10 @@ function translations_api( $type, $args = null ) {
 		$options = array(
 			'timeout' => 3,
 			'body'    => array(
-				'wp_version' => wp_get_wp_version(),
-				'locale'     => get_locale(),
-				'version'    => $args['version'], // Version of plugin, theme or core.
+				'wp_version'        => wp_get_wp_version(),
+				'retraceur_version' => retraceur_get_version(),
+				'locale'            => get_locale(),
+				'version'           => $args['version'], // Version of plugin, theme or core.
 			),
 		);
 
@@ -164,7 +165,7 @@ function wp_get_available_translations() {
 		}
 	}
 
-	$api = translations_api( 'core', array( 'version' => wp_get_wp_version() ) );
+	$api = translations_api( 'core', array( 'version' => wp_get_wp_version(), 'retraceur_version' => retraceur_get_version() ) );
 
 	if ( is_wp_error( $api ) || empty( $api['translations'] ) ) {
 		return array();

@@ -285,7 +285,7 @@ class Plugin_Upgrader extends WP_Upgrader {
 	 * @return array|false An array of results indexed by plugin file, or false if unable to connect to the filesystem.
 	 */
 	public function bulk_upgrade( $plugins, $args = array() ) {
-		$wp_version = wp_get_wp_version();
+		$retraceur_version = retraceur_get_version();
 
 		$defaults    = array(
 			'clear_update_cache' => true,
@@ -353,7 +353,7 @@ class Plugin_Upgrader extends WP_Upgrader {
 					sprintf(
 						/* translators: 1: Current Retraceur version, 2: Retraceur version required by the new plugin version. */
 						__( 'Your Retraceur version is %1$s, however the new plugin version requires %2$s.' ),
-						$wp_version,
+						$retraceur_version,
 						$r->requires
 					)
 				);
@@ -464,7 +464,7 @@ class Plugin_Upgrader extends WP_Upgrader {
 	public function check_package( $source ) {
 		global $wp_filesystem;
 
-		$wp_version            = wp_get_wp_version();
+		$retraceur_version     = retraceur_get_version();
 		$this->new_plugin_data = array();
 
 		if ( is_wp_error( $source ) ) {
@@ -510,7 +510,7 @@ class Plugin_Upgrader extends WP_Upgrader {
 			$error = sprintf(
 				/* translators: 1: Current Retraceur version, 2: Version required by the uploaded plugin. */
 				__( 'Your Retraceur version is %1$s, however the uploaded plugin requires %2$s.' ),
-				$wp_version,
+				$retraceur_version,
 				$requires_wp
 			);
 

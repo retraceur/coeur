@@ -1010,6 +1010,7 @@ $_new_bundled_files = array(
  * @global array              $_new_bundled_files
  * @global wpdb               $wpdb                   WP database abstraction object.
  * @global string             $wp_version
+ * @global string             $retraceur_version      The Retraceur version string.
  * @global string             $required_php_version
  * @global string             $required_mysql_version
  *
@@ -1072,7 +1073,7 @@ function update_core( $from, $to ) {
 	}
 
 	/*
-	 * Import $wp_version, $required_php_version, and $required_mysql_version from the new version.
+	 * Import $wp_version, $retraceur_version, $required_php_version, and $required_mysql_version from the new version.
 	 * DO NOT globalize any variables imported from `version-current.php` in this function.
 	 *
 	 * BC Note: $wp_filesystem->wp_content_dir() returned unslashed pre-2.8.
@@ -1104,13 +1105,13 @@ function update_core( $from, $to ) {
 
 	$php_version    = PHP_VERSION;
 	$mysql_version  = $wpdb->db_version();
-	$old_wp_version = $GLOBALS['wp_version']; // The version of Retraceur we're updating from.
+	$old_wp_version = $GLOBALS['retraceur_version']; // The version of Retraceur we're updating from.
 	/*
 	 * Note: str_contains() is not used here, as this file is included
 	 * when updating from older Retraceur versions, in which case
 	 * the polyfills from wp-includes/compat.php may not be available.
 	 */
-	$development_build = ( false !== strpos( $old_wp_version . $wp_version, '-' ) ); // A dash in the version indicates a development release.
+	$development_build = ( false !== strpos( $old_wp_version . $retraceur_version, '-' ) ); // A dash in the version indicates a development release.
 	$php_compat        = version_compare( $php_version, $required_php_version, '>=' );
 
 	if ( file_exists( WP_CONTENT_DIR . '/db.php' ) && empty( $wpdb->is_mysql ) ) {
@@ -1129,7 +1130,7 @@ function update_core( $from, $to ) {
 			sprintf(
 				/* translators: 1: Retraceur version number, 2: Minimum required PHP version number, 3: Minimum required MySQL version number, 4: Current PHP version number, 5: Current MySQL version number. */
 				__( 'The update cannot be installed because Retraceur %1$s requires PHP version %2$s or higher and MySQL version %3$s or higher. You are running PHP version %4$s and MySQL version %5$s.' ),
-				$wp_version,
+				$retraceur_version,
 				$required_php_version,
 				$required_mysql_version,
 				$php_version,
@@ -1142,7 +1143,7 @@ function update_core( $from, $to ) {
 			sprintf(
 				/* translators: 1: Retraceur version number, 2: Minimum required PHP version number, 3: Current PHP version number. */
 				__( 'The update cannot be installed because Retraceur %1$s requires PHP version %2$s or higher. You are running version %3$s.' ),
-				$wp_version,
+				$retraceur_version,
 				$required_php_version,
 				$php_version
 			)
@@ -1153,7 +1154,7 @@ function update_core( $from, $to ) {
 			sprintf(
 				/* translators: 1: Retraceur version number, 2: Minimum required MySQL version number, 3: Current MySQL version number. */
 				__( 'The update cannot be installed because Retraceur %1$s requires MySQL version %2$s or higher. You are running version %3$s.' ),
-				$wp_version,
+				$retraceur_version,
 				$required_mysql_version,
 				$mysql_version
 			)
@@ -1167,7 +1168,7 @@ function update_core( $from, $to ) {
 			sprintf(
 				/* translators: 1: Retraceur version number, 2: The PHP extension name needed. */
 				__( 'The update cannot be installed because Retraceur %1$s requires the %2$s PHP extension.' ),
-				$wp_version,
+				$retraceur_version,
 				'JSON'
 			)
 		);
@@ -1188,10 +1189,10 @@ function update_core( $from, $to ) {
 		// Find the local version of the working directory.
 		$working_dir_local = WP_CONTENT_DIR . '/upgrade/' . basename( $from ) . $distro;
 
-		$checksums = get_core_checksums( $wp_version, isset( $wp_local_package ) ? $wp_local_package : 'en_US' );
+		$checksums = get_core_checksums( $retraceur_version, isset( $wp_local_package ) ? $wp_local_package : 'en_US' );
 
-		if ( is_array( $checksums ) && isset( $checksums[ $wp_version ] ) ) {
-			$checksums = $checksums[ $wp_version ]; // Compat code for 3.7-beta2.
+		if ( is_array( $checksums ) && isset( $checksums[ $retraceur_version ] ) ) {
+			$checksums = $checksums[ $retraceur_version ]; // Compat code for 3.7-beta2.
 		}
 
 		if ( is_array( $checksums ) ) {
@@ -1547,16 +1548,17 @@ function update_core( $from, $to ) {
 	 *
 	 * @since WP 3.3.0
 	 *
-	 * @param string $wp_version The current Retraceur version.
+	 * @param string $wp_version        The current WP version.
+	 * @param string $retraceur_version The current Retraceur version.
 	 */
-	do_action( '_core_updated_successfully', $wp_version );
+	do_action( '_core_updated_successfully', $wp_version, $retraceur_version );
 
 	// Clear the option that blocks auto-updates after failures, now that we've been successful.
 	if ( function_exists( 'delete_site_option' ) ) {
 		delete_site_option( 'auto_core_update_failed' );
 	}
 
-	return $wp_version;
+	return $retraceur_version;
 }
 
 /**
@@ -1576,11 +1578,12 @@ function update_core( $from, $to ) {
  * @global array              $_old_requests_files Requests files to be preloaded.
  * @global WP_Filesystem_Base $wp_filesystem       WP filesystem subclass.
  * @global string             $wp_version          The WP version string.
+ * @global string             $retraceur_version   The Retraceur version string.
  *
  * @param string $to Path to old Retraceur installation.
  */
 function _preload_old_requests_classes_and_interfaces( $to ) {
-	global $_old_requests_files, $wp_filesystem, $wp_version;
+	global $_old_requests_files, $wp_filesystem, $wp_version, $retraceur_version;
 
 	/*
 	 * Requests was introduced in WP 4.6.
@@ -1623,14 +1626,15 @@ function _preload_old_requests_classes_and_interfaces( $to ) {
  *
  * @since WP 3.3.0
  *
- * @global string $wp_version The WP version string.
- * @global string $pagenow    The filename of the current screen.
+ * @global string $wp_version        The WP version string.
+ * @global string $retraceur_version The Retraceur version string.
+ * @global string $pagenow           The filename of the current screen.
  * @global string $action
  *
  * @param string $new_version
  */
 function _redirect_to_about_wordpress( $new_version ) {
-	global $wp_version, $pagenow, $action;
+	global $wp_version, $retraceur_version, $pagenow, $action;
 
 	if ( version_compare( $wp_version, '3.4-RC1', '>=' ) ) {
 		return;

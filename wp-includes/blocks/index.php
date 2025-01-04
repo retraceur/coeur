@@ -27,7 +27,7 @@ require BLOCKS_PATH . 'require-dynamic-blocks.php';
  * @since WP 6.3.0
  */
 function register_core_block_style_handles() {
-	$wp_version = wp_get_wp_version();
+	$retraceur_version = retraceur_get_version();
 
 	if ( ! wp_should_load_separate_core_block_assets() ) {
 		return;
@@ -62,7 +62,7 @@ function register_core_block_style_handles() {
 		if (
 			is_array( $cached_files )
 			&& isset( $cached_files['version'] )
-			&& $cached_files['version'] === $wp_version
+			&& $cached_files['version'] === $retraceur_version
 			&& isset( $cached_files['files'] )
 		) {
 			$files = $cached_files['files'];
@@ -87,7 +87,7 @@ function register_core_block_style_handles() {
 			set_transient(
 				$transient_name,
 				array(
-					'version' => $wp_version,
+					'version' => $retraceur_version,
 					'files'   => $files,
 				)
 			);
