@@ -16297,3 +16297,19 @@ function signup_get_available_languages() {
 		__( 'WP Multisite feature is not supported in Retraceur.' )
 	);
 }
+
+/**
+ * Forever eliminate "Wordpress" from the planet (or at least the little bit we can influence).
+ *
+ * Violating our coding standards for a good function name.
+ *
+ * @since WP 3.0.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string $text The text to be modified.
+ * @return string The modified text.
+ */
+function capital_P_dangit( $text ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return '';
+}
