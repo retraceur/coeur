@@ -63,3 +63,12 @@ $recommended_php_version = '7.4';
  * @global string $required_mysql_version
  */
 $required_mysql_version = '5.5.5';
+
+/**
+ * `fr_FR` is used as the default language package.
+ *
+ * @since 1.0.0 Retraceur fork.
+ *
+ * @global string $wp_local_package
+ */
+$wp_local_package = 'fr_FR';
