@@ -800,7 +800,7 @@ function wp_load_core_site_options( $network_id = null ) {
  * @param mixed     $value    Option value. Must be serializable if non-scalar. Expected to not be SQL-escaped.
  * @param bool|null $autoload Optional. Whether to load the option when Retraceur starts up.
  *                            Accepts a boolean, or `null` to stick with the initial value or, if no initial value is
- *                            set, to leave the decision up to default heuristics in WordPress.
+ *                            set, to leave the decision up to default heuristics in Retraceur.
  *                            For existing options, `$autoload` can only be updated using `update_option()` if `$value`
  *                            is also changed.
  *                            For backward compatibility 'yes' and 'no' are also accepted, though using these values is
@@ -1002,7 +1002,7 @@ function update_option( $option, $value, $autoload = null ) {
  * @param string    $deprecated Optional. Description. Not used anymore.
  * @param bool|null $autoload   Optional. Whether to load the option when Retraceur starts up.
  *                              Accepts a boolean, or `null` to leave the decision up to default heuristics in
- *                              WordPress. For backward compatibility 'yes' and 'no' are also accepted, though using
+ *                              Retraceur. For backward compatibility 'yes' and 'no' are also accepted, though using
  *                              these values is deprecated.
  *                              Autoloading too many options can lead to performance problems, especially if the
  *                              options are not frequently used. For options which are accessed across several places
@@ -2605,10 +2605,10 @@ function set_site_transient( $transient, $value, $expiration = 0 ) {
 }
 
 /**
- * Registers default settings available in WordPress.
+ * Registers default settings available in Retraceur.
  *
  * The settings registered here are primarily useful for the REST API, so this
- * does not encompass all settings available in WordPress.
+ * does not encompass all settings available in Retraceur.
  *
  * @since WP 4.7.0
  * @since WP 6.0.1 The `show_on_front`, `page_on_front`, and `page_for_posts` options were added.

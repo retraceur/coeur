@@ -483,7 +483,7 @@ function wp_registration_url() {
 }
 
 /**
- * Provides a simple login form for use anywhere within WordPress.
+ * Provides a simple login form for use anywhere within Retraceur.
  *
  * The login form HTML is echoed by default. Pass a false value for `$echo` to return it instead.
  *

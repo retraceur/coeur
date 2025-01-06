@@ -461,7 +461,7 @@ function atom_enclosure() {
  *
  * Tell whether the type is text, HTML, or XHTML, per RFC 4287 section 3.1.
  *
- * In the case of WordPress, text is defined as containing no markup,
+ * In the case of Retraceur, text is defined as containing no markup,
  * XHTML is defined as "well formed", and HTML as tag soup (i.e., the rest).
  *
  * Container div tags are added to XHTML values, per section 3.1.1.3.

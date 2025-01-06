@@ -1,6 +1,6 @@
 <?php
 /**
- * These functions are needed to load WordPress.
+ * These functions are needed to load Retraceur.
  *
  * @since 1.0.0 Retraceur fork.
  *
@@ -100,7 +100,7 @@ function wp_fix_server_vars() {
  * Populates the Basic Auth server details from the Authorization header.
  *
  * Some servers running in CGI or FastCGI mode don't pass the Authorization
- * header on to WordPress.  If it's been rewritten to the `HTTP_AUTHORIZATION` header,
+ * header on to Retraceur. If it's been rewritten to the `HTTP_AUTHORIZATION` header,
  * fill in the proper $_SERVER variables instead.
  *
  * @since WP 5.6.0
@@ -180,7 +180,7 @@ function wp_check_php_mysql_versions() {
 		require_once ABSPATH . WPINC . '/functions.php';
 		wp_load_translations_early();
 
-		$message = '<p>' . __( 'Your PHP installation appears to be missing the MySQL extension which is required by WordPress.' ) . "</p>\n";
+		$message = '<p>' . __( 'Your PHP installation appears to be missing the MySQL extension which is required by Retraceur.' ) . "</p>\n";
 
 		$message .= '<p>' . sprintf(
 			/* translators: %s: mysqli. */
@@ -271,7 +271,7 @@ function wp_get_environment_type() {
  * Retrieves the current development mode.
  *
  * The development mode affects how certain parts of the Retraceur application behave,
- * which is relevant when developing for WordPress.
+ * which is relevant when developing for Retraceur.
  *
  * Development mode can be set via the `WP_DEVELOPMENT_MODE` constant in `wp-config.php`.
  * Possible values are 'core', 'plugin', 'theme', 'all', or an empty string to disable
@@ -279,7 +279,7 @@ function wp_get_environment_type() {
  * ('core', 'plugin', and 'theme') are enabled.
  *
  * Development mode is considered separately from `WP_DEBUG` and wp_get_environment_type().
- * It does not affect debugging output, but rather functional nuances in WordPress.
+ * It does not affect debugging output, but rather functional nuances in Retraceur.
  *
  * This function retrieves the currently set development mode value. To check whether
  * a specific development mode is enabled, use wp_is_development_mode().
@@ -394,7 +394,7 @@ function wp_maintenance() {
  *
  * Checks for a file in the Retraceur root directory named ".maintenance".
  * This file will contain the variable $upgrading, set to the time the file
- * was created. If the file was created less than 10 minutes ago, WordPress
+ * was created. If the file was created less than 10 minutes ago, Retraceur
  * is in maintenance mode.
  *
  * @since WP 5.5.0
@@ -530,7 +530,7 @@ function timer_stop( $display = 0, $precision = 3 ) {
  * is true.
  *
  * When `WP_DEBUG_DISPLAY` is true, Retraceur will force errors to be displayed.
- * `WP_DEBUG_DISPLAY` defaults to true. Defining it as null prevents WordPress
+ * `WP_DEBUG_DISPLAY` defaults to true. Defining it as null prevents Retraceur
  * from changing the global configuration setting. Defining `WP_DEBUG_DISPLAY`
  * as false will force errors to be hidden.
  *
@@ -962,7 +962,7 @@ function wp_get_mu_plugins() {
 /**
  * Retrieves an array of active and valid plugin files.
  *
- * While upgrading or installing WordPress, no plugins are returned.
+ * While upgrading or installing Retraceur, no plugins are returned.
  *
  * The default directory is `wp-content/plugins`. To change the default
  * directory manually, define `WP_PLUGIN_DIR` and `WP_PLUGIN_URL`
@@ -1045,7 +1045,7 @@ function wp_skip_paused_plugins( array $plugins ) {
 /**
  * Retrieves an array of active and valid themes.
  *
- * While upgrading or installing WordPress, no themes are returned.
+ * While upgrading or installing Retraceur, no themes are returned.
  *
  * @since WP 5.1.0
  * @access private

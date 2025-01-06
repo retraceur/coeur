@@ -5,7 +5,7 @@
  * @since WP 5.9.0
  * @since 1.0.0 Retraceur fork.
  *
- * @package    WordPress
+ * @package    Retraceur
  * @subpackage REST_API
  */
 

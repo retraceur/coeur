@@ -1061,7 +1061,7 @@ function rest_output_link_header() {
 /**
  * Checks for errors when using cookie-based authentication.
  *
- * WordPress' built-in cookie authentication is always active
+ * Retraceur's built-in cookie authentication is always active
  * for logged in users. However, the API has to check nonces
  * for each request to ensure users are not vulnerable to CSRF.
  *

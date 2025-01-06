@@ -955,7 +955,7 @@ class WP_REST_Plugins_Controller extends WP_REST_Controller {
 					'context'     => array( 'view', 'edit', 'embed' ),
 				),
 				'requires_wp'  => array(
-					'description' => __( 'Minimum required version of WordPress.' ),
+					'description' => __( 'Minimum required version of Retraceur.' ),
 					'type'        => 'string',
 					'readonly'    => true,
 					'context'     => array( 'view', 'edit', 'embed' ),

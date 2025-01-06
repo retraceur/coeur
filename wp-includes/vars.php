@@ -1,6 +1,6 @@
 <?php
 /**
- * Creates common globals for the rest of WordPress
+ * Creates common globals for the rest of Retraceur.
  *
  * Sets $pagenow global which is the filename of the current screen.
  * Checks for the browser to set which one is currently being used.

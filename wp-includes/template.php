@@ -753,7 +753,7 @@ function locate_template( $template_names, $load = false, $load_once = true, $ar
 /**
  * Requires the template file with Retraceur environment.
  *
- * The globals are set up for the template file to ensure that the WordPress
+ * The globals are set up for the template file to ensure that the Retraceur
  * environment is available from within the function. The query variables are
  * also available.
  *

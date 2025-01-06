@@ -5134,7 +5134,7 @@ function wp_pre_kses_block_attributes( $content, $allowed_html, $allowed_protoco
 }
 
 /**
- * WordPress' implementation of PHP sprintf() with filters.
+ * Retraceur's implementation of PHP sprintf() with filters.
  *
  * @since WP 2.5.0
  * @since WP 5.3.0 Formalized the existing and already documented `...$args` parameter

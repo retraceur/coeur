@@ -57,7 +57,7 @@ window.wp = window.wp || {};
 		/**
 		 * wp.ajax.post( [action], [data] )
 		 *
-		 * Sends a POST request to WordPress.
+		 * Sends a POST request to Retraceur.
 		 *
 		 * @param {(string|Object)} action The slug of the action to fire in Retraceur or options passed
 		 *                                 to jQuery.ajax.
@@ -74,7 +74,7 @@ window.wp = window.wp || {};
 		/**
 		 * wp.ajax.send( [action], [options] )
 		 *
-		 * Sends a POST request to WordPress.
+		 * Sends a POST request to Retraceur.
 		 *
 		 * @param {(string|Object)} action  The slug of the action to fire in Retraceur or options passed
 		 *                                  to jQuery.ajax.

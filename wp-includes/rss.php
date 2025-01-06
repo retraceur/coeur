@@ -29,7 +29,7 @@ do_action( 'load_feed_engine' );
 /** RSS feed constant. */
 define('RSS', 'RSS');
 define('ATOM', 'Atom');
-define('MAGPIE_USER_AGENT', 'WordPress/' . $GLOBALS['wp_version']);
+define('MAGPIE_USER_AGENT', 'Retraceur/' . $GLOBALS['retraceur_version']);
 
 class MagpieRSS {
 	var $parser;
@@ -666,7 +666,7 @@ function init () {
 	}
 
 	if ( !defined('MAGPIE_USER_AGENT') ) {
-		$ua = 'WordPress/' . $GLOBALS['wp_version'];
+		$ua = 'Retraceur/' . $GLOBALS['retraceur_version'];
 
 		if ( MAGPIE_CACHE_ON ) {
 			$ua = $ua . ')';

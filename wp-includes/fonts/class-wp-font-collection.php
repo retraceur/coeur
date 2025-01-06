@@ -7,7 +7,7 @@
  * @since WP 6.5.0
  * @since 1.0.0 Retraceur fork.
  *
- * @package    WordPress
+ * @package    Retraceur
  * @subpackage Fonts
  */
 

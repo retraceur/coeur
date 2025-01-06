@@ -8286,7 +8286,7 @@ function clean_dirsize_cache( $path ) {
  *
  * Returns an unmodified value of `$wp_version`. Some plugins modify the global
  * in an attempt to improve security through obscurity. This practice can cause
- * errors in WordPress, so the ability to get an unmodified version is needed.
+ * errors in Retraceur, so the ability to get an unmodified version is needed.
  *
  * @since WP 6.7.0
  *

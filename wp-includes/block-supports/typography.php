@@ -286,7 +286,7 @@ function wp_typography_get_preset_inline_style_value( $style_value, $css_propert
 
 	/*
 	 * For backwards compatibility.
-	 * Presets were removed in WordPress/gutenberg#27555.
+	 * Presets were removed in WP/gutenberg#27555.
 	 * A preset CSS variable is the style.
 	 * Gets the style value from the string and return CSS style.
 	 */

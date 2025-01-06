@@ -364,11 +364,11 @@ if ( ! function_exists( 'wp_mail' ) ) :
 
 		// If we don't have a name from the input headers.
 		if ( ! isset( $from_name ) ) {
-			$from_name = 'WordPress';
+			$from_name = 'Retraceur';
 		}
 
 		/*
-		 * If we don't have an email from the input headers, default to wordpress@$sitename
+		 * If we don't have an email from the input headers, default to retraceur@$sitename
 		 * Some hosts will block outgoing mail from this address if it doesn't exist,
 		 * but there's no easy alternative. Defaulting to admin_email might appear to be
 		 * another option, but some hosts may refuse to relay mail from an unknown domain.
@@ -376,7 +376,7 @@ if ( ! function_exists( 'wp_mail' ) ) :
 		if ( ! isset( $from_email ) ) {
 			// Get the site domain and get rid of www.
 			$sitename   = wp_parse_url( network_home_url(), PHP_URL_HOST );
-			$from_email = 'wordpress@';
+			$from_email = 'retraceur@';
 
 			if ( null !== $sitename ) {
 				if ( str_starts_with( $sitename, 'www.' ) ) {
@@ -1376,10 +1376,10 @@ if ( ! function_exists( 'wp_redirect' ) ) :
 	 *
 	 * @param string       $location      The path or URL to redirect to.
 	 * @param int          $status        Optional. HTTP response status code to use. Default '302' (Moved Temporarily).
-	 * @param string|false $x_redirect_by Optional. The application doing the redirect or false to omit. Default 'WordPress'.
+	 * @param string|false $x_redirect_by Optional. The application doing the redirect or false to omit. Default 'Retraceur'.
 	 * @return bool False if the redirect was canceled, true otherwise.
 	 */
-	function wp_redirect( $location, $status = 302, $x_redirect_by = 'WordPress' ) {
+	function wp_redirect( $location, $status = 302, $x_redirect_by = 'Retraceur' ) {
 		global $is_IIS;
 
 		/**
@@ -1519,10 +1519,10 @@ if ( ! function_exists( 'wp_safe_redirect' ) ) :
 	 *
 	 * @param string       $location      The path or URL to redirect to.
 	 * @param int          $status        Optional. HTTP response status code to use. Default '302' (Moved Temporarily).
-	 * @param string|false $x_redirect_by Optional. The application doing the redirect or false to omit. Default 'WordPress'.
+	 * @param string|false $x_redirect_by Optional. The application doing the redirect or false to omit. Default 'Retraceur'.
 	 * @return bool False if the redirect was canceled, true otherwise.
 	 */
-	function wp_safe_redirect( $location, $status = 302, $x_redirect_by = 'WordPress' ) {
+	function wp_safe_redirect( $location, $status = 302, $x_redirect_by = 'Retraceur' ) {
 
 		// Need to look at the URL the way it will end up in wp_redirect().
 		$location = wp_sanitize_redirect( $location );

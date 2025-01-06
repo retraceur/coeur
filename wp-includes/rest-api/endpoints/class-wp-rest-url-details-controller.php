@@ -227,10 +227,10 @@ class WP_REST_URL_Details_Controller extends WP_REST_Controller {
 
 		/*
 		 * Provide a modified UA string to workaround web properties which block Retraceur "Pingbacks".
-		 * Why? The UA string used for pingback requests contains `WordPress/` which is very similar
+		 * Why? The UA string used for pingback requests contains `WP/` which is very similar
 		 * to that used as the default UA string by the WP HTTP API. Therefore requests from this
 		 * REST endpoint are being unintentionally blocked as they are misidentified as pingback requests.
-		 * By slightly modifying the UA string, but still retaining the "WordPress" identification (via "WP")
+		 * By slightly modifying the UA string, but still retaining the "WP" identification (via "WP")
 		 * we are able to work around this issue.
 		 * Example UA string: `WP-URLDetails/5.9-alpha-51389 (+http://localhost:8888)`.
 		*/

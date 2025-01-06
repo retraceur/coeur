@@ -133,7 +133,7 @@ if ( !function_exists('wp_get_cookie_login') ):
  * Gets the user cookie login. This function is deprecated.
  *
  * This function is deprecated and should no longer be extended as it won't be
- * used anywhere in WordPress. Also, plugins shouldn't use it either.
+ * used anywhere in Retraceur. Also, plugins shouldn't use it either.
  *
  * @since WP 2.0.3
  * @deprecated WP 2.5.0

@@ -881,7 +881,7 @@ function _wp_relative_upload_path( $path ) {
  * Retrieves all children of the post parent ID.
  *
  * Normally, without any enhancements, the children would apply to pages. In the
- * context of the inner workings of WordPress, pages, posts, and attachments
+ * context of the inner workings of Retraceur, pages, posts, and attachments
  * share the same table, so therefore the functionality could apply to any one
  * of them. It is then noted that while this function does not work on posts, it
  * does not mean that it won't work on posts. It is recommended that you know
@@ -911,7 +911,7 @@ function _wp_relative_upload_path( $path ) {
  * retrieve that amount of posts.
  *
  * The 'post_type' and 'post_status' arguments can be used to choose what
- * criteria of posts to retrieve. The 'post_type' can be anything, but WordPress
+ * criteria of posts to retrieve. The 'post_type' can be anything, but Retraceur
  * post types are 'post', 'pages', and 'attachments'. The 'post_status'
  * argument will accept any post status within the write administration panels.
  *
