@@ -10331,7 +10331,7 @@ const external_wp_privateApis_namespaceObject = window["wp"]["privateApis"];
 const {
   lock,
   unlock
-} = (0,external_wp_privateApis_namespaceObject.__dangerousOptInToUnstableAPIsOnlyForCoreModules)('I acknowledge private features are not for use in themes or plugins and doing so will break in the next version of WordPress.', '@wordpress/block-editor');
+} = (0,external_wp_privateApis_namespaceObject.__dangerousOptInToUnstableAPIsOnlyForCoreModules)('I acknowledge private features are not for use in themes or plugins and doing so will break in the next version of Retraceur.', '@wordpress/block-editor');
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/block-editor/build-module/store/constants.js
 const STORE_NAME = 'core/block-editor';

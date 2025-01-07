@@ -6152,7 +6152,7 @@ const external_wp_privateApis_namespaceObject = window["wp"]["privateApis"];
 const {
   lock,
   unlock
-} = (0,external_wp_privateApis_namespaceObject.__dangerousOptInToUnstableAPIsOnlyForCoreModules)('I acknowledge private features are not for use in themes or plugins and doing so will break in the next version of WordPress.', '@wordpress/edit-site');
+} = (0,external_wp_privateApis_namespaceObject.__dangerousOptInToUnstableAPIsOnlyForCoreModules)('I acknowledge private features are not for use in themes or plugins and doing so will break in the next version of Retraceur.', '@wordpress/edit-site');
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/edit-site/build-module/components/global-styles/hooks.js
 /**
@@ -30405,7 +30405,7 @@ function FilterSummary({
 const {
   lock: lock_unlock_lock,
   unlock: lock_unlock_unlock
-} = (0,external_wp_privateApis_namespaceObject.__dangerousOptInToUnstableAPIsOnlyForCoreModules)('I acknowledge private features are not for use in themes or plugins and doing so will break in the next version of WordPress.', '@wordpress/dataviews');
+} = (0,external_wp_privateApis_namespaceObject.__dangerousOptInToUnstableAPIsOnlyForCoreModules)('I acknowledge private features are not for use in themes or plugins and doing so will break in the next version of Retraceur.', '@wordpress/dataviews');
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/dataviews/build-module/components/dataviews-filters/add-filter.js
 /**

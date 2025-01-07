@@ -6096,7 +6096,7 @@ const external_wp_privateApis_namespaceObject = window["wp"]["privateApis"];
 const {
   lock,
   unlock
-} = (0,external_wp_privateApis_namespaceObject.__dangerousOptInToUnstableAPIsOnlyForCoreModules)('I acknowledge private features are not for use in themes or plugins and doing so will break in the next version of WordPress.', '@wordpress/editor');
+} = (0,external_wp_privateApis_namespaceObject.__dangerousOptInToUnstableAPIsOnlyForCoreModules)('I acknowledge private features are not for use in themes or plugins and doing so will break in the next version of Retraceur.', '@wordpress/editor');
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/editor/build-module/dataviews/actions/reset-post.js
 /**
@@ -6684,7 +6684,7 @@ const viewPostRevisions = {
 const {
   lock: lock_unlock_lock,
   unlock: lock_unlock_unlock
-} = (0,external_wp_privateApis_namespaceObject.__dangerousOptInToUnstableAPIsOnlyForCoreModules)('I acknowledge private features are not for use in themes or plugins and doing so will break in the next version of WordPress.', '@wordpress/fields');
+} = (0,external_wp_privateApis_namespaceObject.__dangerousOptInToUnstableAPIsOnlyForCoreModules)('I acknowledge private features are not for use in themes or plugins and doing so will break in the next version of Retraceur.', '@wordpress/fields');
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/fields/build-module/actions/pattern/duplicate-pattern.js
 /**
