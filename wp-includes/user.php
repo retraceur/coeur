@@ -3485,6 +3485,365 @@ function register_new_user( $user_login, $user_email ) {
 }
 
 /**
+ * Sanitizes and validates data required for a user sign-up.
+ *
+ * Verifies the validity and uniqueness of user names and user email addresses,
+ * and checks email addresses against allowed and disallowed domains provided by
+ * administrators.
+ *
+ * @since 1.0.0 Retraceur fork.
+ *
+ * @global wpdb $wpdb WP database abstraction object.
+ *
+ * @param string $user_login The login name provided by the user.
+ * @param string $user_email The email provided by the user.
+ * @return array {
+ *     The array of user name, email, and the error messages.
+ *
+ *     @type string   $user_name     Sanitized and unique username.
+ *     @type string   $orig_username Original username.
+ *     @type string   $user_email    User email address.
+ *     @type WP_Error $errors        WP_Error object containing any errors found.
+ * }
+ */
+function retraceur_validate_signup( $user_login, $user_email ) {
+	global $wpdb;
+
+	$errors = new WP_Error();
+
+	$orig_username = $user_login;
+	$user_name     = preg_replace( '/\s+/', '', sanitize_user( $user_login, true ) );
+
+	if ( $user_name != $orig_username || preg_match( '/[^a-z0-9]/', $user_name ) ) {
+		$errors->add( 'user_name', __( 'Usernames can only contain lowercase letters (a-z) and numbers.' ) );
+		$user_name = $orig_username;
+	}
+
+	$user_email = sanitize_email( $user_email );
+
+	if ( empty( $user_name ) ) {
+		$errors->add( 'user_name', __( 'Please enter a username.' ) );
+	}
+
+	$illegal_names = get_site_option( 'illegal_names' );
+	if ( ! is_array( $illegal_names ) ) {
+		$illegal_names = array( 'www', 'web', 'root', 'admin', 'main', 'invite', 'administrator' );
+		add_site_option( 'illegal_names', $illegal_names );
+	}
+	if ( in_array( $user_name, $illegal_names, true ) ) {
+		$errors->add( 'user_name', __( 'Sorry, that username is not allowed.' ) );
+	}
+
+	/** This filter is documented in wp-includes/user.php */
+	$illegal_logins = (array) apply_filters( 'illegal_user_logins', array() );
+
+	if ( in_array( strtolower( $user_name ), array_map( 'strtolower', $illegal_logins ), true ) ) {
+		$errors->add( 'user_name', __( 'Sorry, that username is not allowed.' ) );
+	}
+
+	if ( ! is_email( $user_email ) ) {
+		$errors->add( 'user_email', __( 'Please enter a valid email address.' ) );
+	}
+
+	if ( strlen( $user_name ) < 4 ) {
+		$errors->add( 'user_name', __( 'Username must be at least 4 characters.' ) );
+	}
+
+	if ( strlen( $user_name ) > 60 ) {
+		$errors->add( 'user_name', __( 'Username may not be longer than 60 characters.' ) );
+	}
+
+	// All numeric?
+	if ( preg_match( '/^[0-9]*$/', $user_name ) ) {
+		$errors->add( 'user_name', __( 'Sorry, usernames must have letters too!' ) );
+	}
+
+	// Check if the username has been used already.
+	if ( username_exists( $user_name ) ) {
+		$errors->add( 'user_name', __( 'Sorry, that username already exists!' ) );
+	}
+
+	// Check if the email address has been used already.
+	if ( email_exists( $user_email ) ) {
+		$errors->add(
+			'user_email',
+			sprintf(
+				/* translators: %s: Link to the login page. */
+				__( '<strong>Error:</strong> This email address is already registered. <a href="%s">Log in</a> with this address or choose another one.' ),
+				wp_login_url()
+			)
+		);
+	}
+
+	// Has someone already signed up for this username?
+	$signup = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM $wpdb->signups WHERE user_login = %s", $user_name ) );
+	if ( $signup instanceof stdClass ) {
+		$registered_at = mysql2date( 'U', $signup->registered );
+		$now           = time();
+		$diff          = $now - $registered_at;
+		// If registered more than two days ago, cancel registration and let this signup go through.
+		if ( $diff > 2 * DAY_IN_SECONDS ) {
+			$wpdb->delete( $wpdb->signups, array( 'user_login' => $user_name ) );
+		} else {
+			$errors->add( 'user_name', __( 'That username is currently reserved but may be available in a couple of days.' ) );
+		}
+	}
+
+	$signup = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM $wpdb->signups WHERE user_email = %s", $user_email ) );
+	if ( $signup instanceof stdClass ) {
+		$diff = time() - mysql2date( 'U', $signup->registered );
+		// If registered more than two days ago, cancel registration and let this signup go through.
+		if ( $diff > 2 * DAY_IN_SECONDS ) {
+			$wpdb->delete( $wpdb->signups, array( 'user_email' => $user_email ) );
+		} else {
+			$errors->add( 'user_email', __( 'That email address has already been used. Please check your inbox for an activation email. It will become available in a couple of days if you do nothing.' ) );
+		}
+	}
+
+	$result = array(
+		'user_name'     => $user_name,
+		'orig_username' => $orig_username,
+		'user_email'    => $user_email,
+		'errors'        => $errors,
+	);
+
+	/**
+	 * Filters the validated user registration details.
+	 *
+	 * This does not allow you to override the username or email of the user during
+	 * registration. The values are solely used for validation and error handling.
+	 *
+	 * @since 1.0.0 Retraceur fork.
+	 *
+	 * @param array $result {
+	 *     The array of user name, email, and the error messages.
+	 *
+	 *     @type string   $user_name     Sanitized and unique username.
+	 *     @type string   $orig_username Original username.
+	 *     @type string   $user_email    User email address.
+	 *     @type WP_Error $errors        WP_Error object containing any errors found.
+	 * }
+	 */
+	return apply_filters( 'retraceur_validate_signup', $result );
+}
+
+/**
+ * Records user signup information for future activation.
+ *
+ * This function is used when user registration is open but
+ * new site registration is not.
+ *
+ * @since 1.0.0 Retraceur fork.
+ *
+ * @global wpdb $wpdb WP database abstraction object.
+ *
+ * @param string $user       The user's requested login name.
+ * @param string $user_email The user's email address.
+ * @param array  $meta       Optional. Signup meta data. Default empty array.
+ * @return string|WP_Error The activation key on success. An error object otherwise.
+ */
+function retraceur_signup_user( $user, $user_email, $meta = array() ) {
+	global $wpdb;
+
+	if ( empty( $user ) || empty( $user_email ) ) {
+		return new WP_Error( 'signup_missing_arguments', __( 'Signing up failed due to missing arguments. Please contact the administrator' ) );
+	}
+
+	// Format data.
+	$user       = preg_replace( '/\s+/', '', sanitize_user( $user, true ) );
+	$user_email = sanitize_email( $user_email );
+	$key        = substr( md5( time() . wp_rand() . $user_email ), 0, 16 );
+
+	/**
+	 * Filters the metadata for a user signup.
+	 *
+	 * The metadata will be serialized prior to storing it in the database.
+	 *
+	 * @since 1.0.0 Retraceur fork.
+	 *
+	 * @param array  $meta       Signup meta data. Default empty array.
+	 * @param string $user       The user's requested login name.
+	 * @param string $user_email The user's email address.
+	 * @param string $key        The user's activation key.
+	 */
+	$meta = apply_filters( 'retraceur_signup_user_meta', $meta, $user, $user_email, $key );
+
+	$signed_up = $wpdb->insert(
+		$wpdb->signups,
+		array(
+			'domain'         => '',
+			'path'           => '',
+			'title'          => '',
+			'user_login'     => $user,
+			'user_email'     => $user_email,
+			'registered'     => current_time( 'mysql', true ),
+			'activation_key' => $key,
+			'meta'           => serialize( $meta ),
+		)
+	);
+
+	if ( ! $signed_up ) {
+		return new WP_Error( 'signup_failed', __( 'Signing up failed due to a database issue. Please contact the administrator' ) );
+	}
+
+	/**
+	 * Fires after a user's signup information has been written to the database.
+	 *
+	 * @since 1.0.0 Retraceur fork.
+	 *
+	 * @param string $user       The user's requested login name.
+	 * @param string $user_email The user's email address.
+	 * @param string $key        The user's activation key.
+	 * @param array  $meta       Signup meta data. Default empty array.
+	 */
+	do_action( 'retraceur_signed_up', $user, $user_email, $key, $meta );
+
+	return $key;
+}
+
+/**
+ * Activates a signup.
+ *
+ * @since 1.0.0
+ *
+ * @global wpdb $wpdb WP database abstraction object.
+ *
+ * @param string $key The activation key provided to the user.
+ * @return array|WP_Error An array containing information about the activated user and/or blog.
+ */
+function retraceur_activate_signup( $key ) {
+	global $wpdb;
+
+	$signup = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM $wpdb->signups WHERE activation_key = %s", $key ) );
+
+	if ( empty( $signup ) ) {
+		return new WP_Error( 'invalid_key', __( 'Invalid activation key.' ) );
+	}
+
+	if ( $signup->active ) {
+		return new WP_Error( 'already_active', __( 'This account is already active.' ), $signup );
+	}
+
+	$meta                = maybe_unserialize( $signup->meta );
+	$user_id             = username_exists( $signup->user_login );
+	$user_already_exists = false;
+
+	if ( ! $user_id ) {
+		if ( ! empty( $meta['pass1'] ) ) {
+			$password = $meta['pass1'];
+		} else {
+			$password = wp_generate_password( 12, false );
+		}
+
+		$userdata = array(
+			'user_pass'  => $password,
+			'user_login' => wp_slash( preg_replace( '/\s+/', '', sanitize_user( $signup->user_login, true ) ) ),
+			'user_email' => wp_slash( $signup->user_email ),
+		);
+
+		$user_metadata = array();
+
+		if ( ! isset( $meta['add_to_blog'] ) ) {
+			$meta['add_to_blog'] = get_current_blog_id();
+		}
+
+		if ( isset( $meta['locale'] ) ) {
+			if ( 'site-default' === $meta['locale'] ) {
+				$meta['locale'] = get_locale();
+			} elseif ( '' === $meta['locale'] ) {
+				$meta['locale'] = 'en_US';
+			}
+		} else {
+			$meta['locale'] = get_locale();
+		}
+
+		foreach ( $meta as $prop_key => $prop_value ) {
+			$prop = $prop_key;
+			if ( 'new_role' === $prop_key ) {
+				$prop = 'role';
+			}
+
+			if ( 'url' === $prop_key ) {
+				$prop = 'user_url';
+			}
+
+			if ( in_array( $prop, array( 'role', 'first_name', 'last_name', 'user_url', 'locale' ), true ) && $prop_value ) {
+				$userdata[ $prop ] = $prop_value;
+
+				// Only keep registered user meta.
+			} elseif ( registered_meta_key_exists( 'user', $prop ) ) {
+				$user_metadata[ $prop ] = $prop_value;
+			}
+		}
+
+		// Include potential user metadata.
+		if ( array_filter( $user_metadata ) ) {
+			$userdata['meta_input'] = $user_metadata;
+		}
+
+		$user_id = wp_insert_user( $userdata );
+	} else {
+		$password            = '';
+		$user_already_exists = true;
+	}
+
+	if ( ! $user_id ) {
+		return new WP_Error( 'create_user', __( 'Could not create user' ), $signup );
+	}
+
+	/**
+	 * Filter here to edit the signup result.
+	 *
+	 * @since 1.0.0 Retraceur fork.
+	 *
+	 * @param array $result {
+	 *     The array of user id, password, and the meta data.
+	 *
+	 *     @type int    $user_id             Sanitized and unique username.
+	 *     @type string $password            The default generated password.
+	 *     @type array  $meta                Signup meta data
+	 *     @type bool   $user_already_exists True if user was preexisting, false otherwise.
+	 * }
+	 */
+	$signup_result = apply_filters(
+		'retraceur_signup_result',
+		array(
+			'user_id'             => $user_id,
+			'user_login'          => $userdata['user_login'],
+			'password'            => $password,
+			'meta'                => $meta,
+			'user_already_exists' => $user_already_exists,
+		)
+	);
+
+	$wpdb->update(
+		$wpdb->signups,
+		array(
+			'active'    => 1,
+			'activated' => current_time( 'mysql', true ),
+		),
+		array( 'activation_key' => $key )
+	);
+
+	if ( true === $user_already_exists ) {
+		return new WP_Error( 'user_already_exists', __( 'That username is already activated.' ), $signup );
+	}
+
+	/**
+	 * Fires immediately after a new user is activated.
+	 *
+	 * @since 1.0.0 Retraceur fork.
+	 *
+	 * @param int    $user_id  User ID.
+	 * @param string $password User password.
+	 * @param array  $meta     Signup meta data.
+	 */
+	do_action( 'retraceur_activated_user', $user_id, $password, $meta );
+
+	return $signup_result;
+}
+
+/**
  * Initiates email notifications related to the creation of new users.
  *
  * Notifications are sent both to the site admin and to the newly created user.
@@ -3500,6 +3859,106 @@ function register_new_user( $user_login, $user_email ) {
  */
 function wp_send_new_user_notifications( $user_id, $notify = 'both' ) {
 	wp_new_user_notification( $user_id, null, $notify );
+}
+
+/**
+ * Sends a confirmation request email to a user when they sign up for a new user account.
+ *
+ * The user account will not become active until the confirmation link is clicked.
+ *
+ * @since 1.0.0 Retraceur fork.
+ *
+ * @param string $user_login The user's login name.
+ * @param string $user_email The user's email address.
+ * @param string $key        The activation key created in wpmu_signup_user()
+ * @param array  $meta       Optional. Signup meta data. Default empty array.
+ * @return bool
+ */
+function retraceur_send_activation_notification( $user_login, $user_email, $key, $meta ) {
+	/**
+	 * Filter here to bypass this notification completely.
+	 *
+	 * @since 1.0.0 Retraceur fork.
+	 *
+	 * @param bool $do_send True to send the notification. False otherwise.
+	 */
+	$do_send = apply_filters( 'retraceur_send_activation_notification', true );
+
+	if ( ! $do_send ) {
+		return;
+	}
+
+	$locale          = get_locale();
+	$signup_locale   = ! empty( $meta['locale'] ) && 'site-default' !== $meta['locale'] ? $meta['locale'] : $locale;
+	$switched_locale = $locale !== $signup_locale && switch_to_locale( $signup_locale );
+
+	// Send email with activation link.
+	$admin_email = get_option( 'admin_email' );
+
+	if ( '' === $admin_email ) {
+		$admin_email = 'support@' . wp_parse_url( home_url(), PHP_URL_HOST );
+	}
+
+	$from_name       = ( '' !== get_option( 'blogname' ) ) ? esc_html( get_option( 'blogname' ) ) : 'Retraceur';
+	$message_headers = "From: \"{$from_name}\" <{$admin_email}>\n" . 'Content-Type: text/plain; charset="' . get_option( 'blog_charset' ) . "\"\n";
+	$message         = sprintf(
+		/**
+		 * Filters the content of the notification email for new user sign-up.
+		 *
+		 * Content should be formatted for transmission via wp_mail().
+		 *
+		 * @since 1.0.0 Retraceur fork.
+		 *
+		 * @param string $content    Content of the notification email.
+		 * @param string $user_login User login name.
+		 * @param string $user_email User email address.
+		 * @param string $key        Activation key created in wpmu_signup_user().
+		 * @param array  $meta       Signup meta data. Default empty array.
+		 */
+		apply_filters(
+			'retraceur_activation_notification_email',
+			/* translators: New user notification email. %s: Activation URL. */
+			__( "To activate & confirm your registration, please click the following link:\n\n%s\n\nAfter you activate, you will receive *another email* with your login information." ),
+			$user_login,
+			$user_email,
+			$key,
+			$meta
+		),
+		site_url( "wp-login.php?key={$key}&action=activate" )
+	);
+
+	$subject = sprintf(
+		/**
+		 * Filters the subject of the notification email of new user signup.
+		 *
+		 * @since 1.0.0 Retraceur fork.
+		 *
+		 * @param string $subject    Subject of the notification email.
+		 * @param string $user_login User login name.
+		 * @param string $user_email User email address.
+		 * @param string $key        Activation key created in wpmu_signup_user().
+		 * @param array  $meta       Signup meta data. Default empty array.
+		 */
+		apply_filters(
+			'retraceur_activation_notification_subject',
+			/* translators: New user notification email subject. 1: Network title, 2: New user login. */
+			_x( '[%1$s] Activate %2$s', 'New user notification email subject' ),
+			$user_login,
+			$user_email,
+			$key,
+			$meta
+		),
+		$from_name,
+		$user_login
+	);
+
+	wp_mail( $user_email, wp_specialchars_decode( $subject ), $message, $message_headers );
+
+	if ( $switched_locale ) {
+		restore_previous_locale();
+	}
+
+	return true;
 }
 
 /**
@@ -5103,4 +5562,21 @@ function wp_is_password_reset_allowed_for_user( $user ) {
 	 * @param int  $user_id The ID of the user attempting to reset a password.
 	 */
 	return apply_filters( 'allow_password_reset', $allow, $user->ID );
+}
+
+/**
+ * Deletes an associated signup entry when a user is deleted from the database.
+ *
+ * @since 1.0.0 Retraceur fork
+ *
+ * @global wpdb $wpdb WP database abstraction object.
+ *
+ * @param int      $id       ID of the user to delete.
+ * @param int|null $reassign ID of the user to reassign posts and links to.
+ * @param WP_User  $user     User object.
+ */
+function retraceur_delete_signup( $id, $reassign, $user ) {
+	global $wpdb;
+
+	$wpdb->delete( $wpdb->signups, array( 'user_login' => $user->user_login ) );
 }
