@@ -95,6 +95,7 @@ foreach ( array( 'user_url', 'link_url', 'link_image', 'link_rss', 'post_guid' )
 
 // Slugs.
 add_filter( 'pre_term_slug', 'sanitize_title' );
+add_filter( 'sanitize_user', 'strtolower' );
 
 // Keys.
 foreach ( array( 'pre_post_type', 'pre_post_status' ) as $filter ) {
@@ -423,6 +424,9 @@ add_action( 'wp_split_shared_term_batch', '_wp_batch_split_terms' );
 add_action( 'after_password_reset', 'wp_password_change_notification' );
 add_action( 'register_new_user', 'wp_send_new_user_notifications' );
 add_action( 'edit_user_created_user', 'wp_send_new_user_notifications', 10, 2 );
+add_action( 'retraceur_signed_up', 'retraceur_send_activation_notification', 10, 4 );
+add_action( 'retraceur_activated_user', 'wp_new_user_notification', 10, 1 );
+add_action( 'deleted_user', 'retraceur_delete_signup', 10, 3 );
 
 // REST API actions.
 add_action( 'init', 'rest_api_init' );

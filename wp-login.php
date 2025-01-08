@@ -482,7 +482,7 @@ function wp_login_viewport_meta() {
 $action = isset( $_REQUEST['action'] ) ? $_REQUEST['action'] : 'login';
 $errors = new WP_Error();
 
-if ( isset( $_GET['key'] ) ) {
+if ( isset( $_GET['key'] ) && 'activate' !== $action ) {
 	$action = 'resetpass';
 }
 
@@ -502,6 +502,7 @@ $default_actions = array(
 	'checkemail',
 	'confirmaction',
 	'login',
+	'activate',
 	WP_Recovery_Mode_Link_Service::LOGIN_ACTION_ENTERED,
 );
 
@@ -565,6 +566,7 @@ do_action( 'login_init' );
  *  - `login_form_resetpass`
  *  - `login_form_retrievepassword`
  *  - `login_form_rp`
+ *  - `login_form_activate`
  *
  * @since WP 2.8.0
  */
@@ -1080,18 +1082,6 @@ switch ( $action ) {
 		break;
 
 	case 'register':
-		if ( is_multisite() ) {
-			/**
-			 * Filters the Multisite sign up URL.
-			 *
-			 * @since WP 3.0.0
-			 *
-			 * @param string $sign_up_url The sign up URL.
-			 */
-			wp_redirect( apply_filters( 'wp_signup_location', network_site_url( 'wp-signup.php' ) ) );
-			exit;
-		}
-
 		if ( ! get_option( 'users_can_register' ) ) {
 			wp_redirect( site_url( 'wp-login.php?registration=disabled' ) );
 			exit;
@@ -1109,7 +1099,30 @@ switch ( $action ) {
 				$user_email = wp_unslash( $_POST['user_email'] );
 			}
 
-			$errors = register_new_user( $user_login, $user_email );
+			/**
+			 * Retraceur is using the Multisite registration workflow by default.
+			 * Use `add_filter( 'retraceur_create_account_on_signup', '__return_true' )`
+			 * to use the regular site one.
+			 *
+			 * @since 1.0.0 Retraceur fork.
+			 *
+			 * @param bool $value True to create an account. False otherwise.
+			 */
+			if ( apply_filters( 'retraceur_create_account_on_signup', false ) ) {
+				$errors = register_new_user( $user_login, $user_email );
+			} else {
+				$user_details = retraceur_validate_signup( $user_login, $user_email );
+
+				if ( is_wp_error( $user_details['errors'] ) && $user_details['errors']->has_errors() ) {
+					$errors = $user_details['errors'];
+				} else {
+					$meta   = array(
+						'add_to_blog' => get_current_blog_id(),
+						'new_role'    => get_option( 'default_role' ),
+					);
+					$errors = retraceur_signup_user( $user_details['user_name'], $user_details['user_email'], $meta );
+				}
+			}
 
 			if ( ! is_wp_error( $errors ) ) {
 				$redirect_to = ! empty( $_POST['redirect_to'] ) ? $_POST['redirect_to'] : 'wp-login.php?checkemail=registered';
@@ -1260,6 +1273,78 @@ switch ( $action ) {
 
 		login_header( __( 'User action confirmed.' ), $message );
 		login_footer();
+		exit;
+
+	case 'activate':
+		$activation_key = '';
+		if ( isset( $_GET['key'] ) ) {
+			$activation_key = wp_unslash( $_GET['key'] );
+		}
+
+		$signup = retraceur_activate_signup( $activation_key );
+
+		if ( is_wp_error( $signup ) ) {
+			login_header( __( 'Check your email' ), '', $signup );
+			login_footer();
+			exit;
+		} else {
+			$new_user      = get_user_by( 'id', $signup['user_id'] );
+			$signup_errors = new WP_Error();
+
+			if ( ! ( $new_user instanceof WP_User ) ) {
+				$signup_errors->add( 'user_unknown', __( 'Sorry, something went wrong during the registration process. Please contact the administrator.' ) );
+			}
+
+			if ( empty( $signup['meta']['pass1'] ) ) {
+				$reset_pass_key = get_password_reset_key( $new_user );
+
+				if ( is_wp_error( $reset_pass_key ) ) {
+					$signup_errors->add( $reset_pass_key->get_error_code(), $reset_pass_key->get_error_message() );
+				} else {
+					$redirect_to = site_url(
+						sprintf(
+							'wp-login.php?login=%1$s&key=%2$s&action=rp',
+							$new_user->user_login,
+							$reset_pass_key
+						)
+					);
+
+					wp_safe_redirect( $redirect_to );
+					exit;
+				}
+			} else {
+				login_header(
+					__( 'Account activated' ),
+					wp_get_admin_notice(
+						wp_kses(
+							sprintf(
+								/* Translators: 1: The user login. 2: The user password. */
+								__( '<p>Your account is now active. Please log in using the following information:<br><br><strong>Login:</strong> %1$s<br><strong>Password:</strong> %2$s<br><br></p>' ),
+								$new_user->user_login,
+								$signup['meta']['pass1']
+							),
+							array(
+								'p'      => true,
+								'br'     => true,
+								'strong' => true,
+							)
+						) . '<p><a href="' . esc_url( wp_login_url() ) . '">' . __( 'Log in' ) . '</a></p>',
+						array(
+							'type'               => 'info',
+							'additional_classes' => array( 'message', 'reset-pass' ),
+						)
+					)
+				);
+				login_footer();
+				exit;
+			}
+
+			if ( $signup_errors->has_errors() ) {
+				login_header( __( 'Registration failed' ), '', $signup_errors );
+				login_footer();
+				exit;
+			}
+		}
 		exit;
 
 	case 'login':
