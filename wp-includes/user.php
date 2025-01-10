@@ -3918,7 +3918,7 @@ function retraceur_send_activation_notification( $user_login, $user_email, $key,
 		apply_filters(
 			'retraceur_activation_notification_email',
 			/* translators: New user notification email. %s: Activation URL. */
-			__( "To activate & confirm your registration, please click the following link:\n\n%s\n\nAfter you activate, you will receive *another email* with your login information." ),
+			__( "To activate & confirm your registration, please click the following link:\n\n%s\n\nAfter you activate, your login information will be temporarly displayed on the site’s login page." ),
 			$user_login,
 			$user_email,
 			$key,

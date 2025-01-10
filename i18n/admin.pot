@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-01-04T18:51:07+00:00\n"
+"POT-Creation-Date: 2025-01-10T21:37:18+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 
@@ -626,7 +626,7 @@ msgstr ""
 #: wp-admin/upload.php:180
 #: wp-admin/upload.php:364
 #: wp-admin/user-edit.php:73
-#: wp-admin/user-new.php:290
+#: wp-admin/user-new.php:90
 #: wp-admin/users.php:45
 msgid "Overview"
 msgstr ""
@@ -759,10 +759,7 @@ msgstr ""
 #: wp-admin/themes.php:16
 #: wp-admin/themes.php:44
 #: wp-admin/themes.php:64
-#: wp-admin/user-new.php:17
-#: wp-admin/user-new.php:24
-#: wp-admin/user-new.php:58
-#: wp-admin/user-new.php:193
+#: wp-admin/user-new.php:16
 #: wp-admin/users.php:17
 msgid "You need a higher level of permission."
 msgstr ""
@@ -5109,7 +5106,7 @@ msgstr ""
 #: wp-admin/install.php:138
 #: wp-admin/install.php:418
 #: wp-admin/setup-config.php:233
-#: wp-admin/user-new.php:584
+#: wp-admin/user-new.php:262
 msgid "Password"
 msgstr ""
 
@@ -7140,21 +7137,19 @@ msgstr ""
 #: wp-admin/install.php:414
 #: wp-admin/setup-config.php:228
 #: wp-admin/user-edit.php:427
-#: wp-admin/user-new.php:534
+#: wp-admin/user-new.php:213
 msgid "Username"
 msgstr ""
 
 #: wp-admin/includes/class-wp-users-list-table.php:377
 #: wp-admin/user-edit.php:528
-#: wp-admin/user-new.php:442
-#: wp-admin/user-new.php:538
+#: wp-admin/user-new.php:217
 msgid "Email"
 msgstr ""
 
 #: wp-admin/includes/class-wp-users-list-table.php:378
 #: wp-admin/user-edit.php:433
-#: wp-admin/user-new.php:469
-#: wp-admin/user-new.php:630
+#: wp-admin/user-new.php:307
 msgid "Role"
 msgstr ""
 
@@ -8435,7 +8430,7 @@ msgstr ""
 #: wp-admin/includes/media.php:2577
 #: wp-admin/install.php:150
 #: wp-admin/user-edit.php:666
-#: wp-admin/user-new.php:599
+#: wp-admin/user-new.php:277
 msgid "Hide"
 msgstr ""
 
@@ -10950,7 +10945,7 @@ msgstr ""
 
 #: wp-admin/install.php:148
 #: wp-admin/user-edit.php:664
-#: wp-admin/user-new.php:597
+#: wp-admin/user-new.php:275
 msgid "Hide password"
 msgstr ""
 
@@ -10965,29 +10960,29 @@ msgid "You will need this password to log&nbsp;in. Please store it in a secure l
 msgstr ""
 
 #: wp-admin/install.php:161
-#: wp-admin/user-new.php:605
+#: wp-admin/user-new.php:283
 msgid "Repeat Password"
 msgstr ""
 
 #: wp-admin/install.php:162
 #: wp-admin/user-edit.php:480
 #: wp-admin/user-edit.php:528
-#: wp-admin/user-new.php:534
-#: wp-admin/user-new.php:538
-#: wp-admin/user-new.php:585
-#: wp-admin/user-new.php:605
+#: wp-admin/user-new.php:213
+#: wp-admin/user-new.php:217
+#: wp-admin/user-new.php:263
+#: wp-admin/user-new.php:283
 msgid "(required)"
 msgstr ""
 
 #: wp-admin/install.php:170
 #: wp-admin/user-edit.php:687
-#: wp-admin/user-new.php:612
+#: wp-admin/user-new.php:290
 msgid "Confirm Password"
 msgstr ""
 
 #: wp-admin/install.php:174
 #: wp-admin/user-edit.php:691
-#: wp-admin/user-new.php:616
+#: wp-admin/user-new.php:294
 msgid "Confirm use of weak password"
 msgstr ""
 
@@ -11364,10 +11359,9 @@ msgstr ""
 #: wp-admin/menu.php:267
 #: wp-admin/menu.php:275
 #: wp-admin/user-edit.php:265
-#: wp-admin/user-new.php:266
-#: wp-admin/user-new.php:382
-#: wp-admin/user-new.php:506
-#: wp-admin/user-new.php:658
+#: wp-admin/user-new.php:84
+#: wp-admin/user-new.php:134
+#: wp-admin/user-new.php:326
 #: wp-admin/users.php:787
 msgid "Add New User"
 msgstr ""
@@ -14280,9 +14274,7 @@ msgid "Error while saving the new email address. Please try again."
 msgstr ""
 
 #: wp-admin/user-edit.php:267
-#: wp-admin/user-new.php:384
-#: wp-admin/user-new.php:438
-#: wp-admin/user-new.php:499
+#: wp-admin/user-new.php:136
 #: wp-admin/users.php:793
 msgid "Add Existing User"
 msgstr ""
@@ -14317,7 +14309,7 @@ msgstr ""
 
 #. translators: The user language selection field label.
 #: wp-admin/user-edit.php:369
-#: wp-admin/user-new.php:562
+#: wp-admin/user-new.php:240
 msgid "Language"
 msgstr ""
 
@@ -14334,12 +14326,12 @@ msgid "Super admin privileges cannot be removed because this user has the networ
 msgstr ""
 
 #: wp-admin/user-edit.php:470
-#: wp-admin/user-new.php:543
+#: wp-admin/user-new.php:221
 msgid "First Name"
 msgstr ""
 
 #: wp-admin/user-edit.php:475
-#: wp-admin/user-new.php:547
+#: wp-admin/user-new.php:225
 msgid "Last Name"
 msgstr ""
 
@@ -14365,7 +14357,7 @@ msgid "There is a pending change of your email to %s."
 msgstr ""
 
 #: wp-admin/user-edit.php:563
-#: wp-admin/user-new.php:551
+#: wp-admin/user-new.php:229
 msgid "Website"
 msgstr ""
 
@@ -14540,166 +14532,84 @@ msgstr ""
 msgid "Dismiss this notice."
 msgstr ""
 
-#: wp-admin/user-new.php:18
-#: wp-admin/user-new.php:59
-msgid "Sorry, you are not allowed to add users to this network."
-msgstr ""
-
-#: wp-admin/user-new.php:25
-#: wp-admin/user-new.php:194
+#: wp-admin/user-new.php:17
 msgid "Sorry, you are not allowed to create users."
 msgstr ""
 
-#. translators: 1: Site title, 2: Site URL, 3: User role, 4: Activation URL.
-#: wp-admin/user-new.php:126
-msgid ""
-"Hi,\n"
-"\n"
-"You've been invited to join '%1$s' at\n"
-"%2$s with the role of %3$s.\n"
-"\n"
-"Please click the following link to confirm the invite:\n"
-"%4$s"
-msgstr ""
-
-#. translators: Joining confirmation notification email subject. %s: Site title.
-#: wp-admin/user-new.php:139
-msgid "[%s] Joining Confirmation"
-msgstr ""
-
-#: wp-admin/user-new.php:274
+#: wp-admin/user-new.php:91
 msgid "To add a new user to your site, fill in the form on this screen and click the Add New User button at the bottom."
 msgstr ""
 
-#: wp-admin/user-new.php:277
-msgid "Because this is a multisite installation, you may add accounts that already exist on the Network by specifying a username or email, and defining a role. For more options, such as specifying a password, you have to be a Network Administrator and use the hover link under an existing user&#8217;s name to Edit the user profile under Network Admin > All Users."
-msgstr ""
-
-#: wp-admin/user-new.php:278
-msgid "New users will receive an email letting them know they&#8217;ve been added as a user for your site. This email will also contain their password. Check the box if you do not want the user to receive a welcome email."
-msgstr ""
-
-#: wp-admin/user-new.php:280
+#: wp-admin/user-new.php:92
 msgid "New users are automatically assigned a password, which they can change after logging in. You can view or edit the assigned password by clicking the Show Password button. The username cannot be changed once the user has been added."
 msgstr ""
 
-#: wp-admin/user-new.php:282
+#: wp-admin/user-new.php:93
 msgid "By default, new users will receive an email letting them know they&#8217;ve been added as a user for your site. This email will also contain a password reset link. Uncheck the box if you do not want to send the new user a welcome email."
 msgstr ""
 
-#: wp-admin/user-new.php:285
+#: wp-admin/user-new.php:94
 msgid "Remember to click the Add New User button at the bottom of this screen when you are finished."
 msgstr ""
 
-#: wp-admin/user-new.php:298
+#: wp-admin/user-new.php:101
 msgid "User Roles"
 msgstr ""
 
-#: wp-admin/user-new.php:299
+#: wp-admin/user-new.php:102
 msgid "Here is a basic overview of the different user roles and the permissions associated with each one:"
 msgstr ""
 
-#: wp-admin/user-new.php:301
+#: wp-admin/user-new.php:104
 msgid "Subscribers can read regular site content but cannot create it."
 msgstr ""
 
-#: wp-admin/user-new.php:302
+#: wp-admin/user-new.php:105
 msgid "Contributors can write and manage their posts but not publish posts or upload media files."
 msgstr ""
 
-#: wp-admin/user-new.php:303
+#: wp-admin/user-new.php:106
 msgid "Authors can publish and manage their own posts, and are able to upload files."
 msgstr ""
 
-#: wp-admin/user-new.php:304
+#: wp-admin/user-new.php:107
 msgid "Editors can publish posts, manage posts as well as manage other people&#8217;s posts, etc."
 msgstr ""
 
-#: wp-admin/user-new.php:305
+#: wp-admin/user-new.php:108
 msgid "Administrators have access to all the administration features."
 msgstr ""
 
-#: wp-admin/user-new.php:341
-msgid "Invitation email sent to new user. A confirmation link must be clicked before their account is created."
-msgstr ""
-
-#: wp-admin/user-new.php:344
-msgid "Invitation email sent to user. A confirmation link must be clicked for them to be added to your site."
-msgstr ""
-
-#: wp-admin/user-new.php:347
-msgid "User has been added to your site."
-msgstr ""
-
-#: wp-admin/user-new.php:350
-#: wp-admin/users.php:647
-msgid "Edit user"
-msgstr ""
-
-#: wp-admin/user-new.php:356
-msgid "That user is already a member of this site."
-msgstr ""
-
-#: wp-admin/user-new.php:359
-msgid "That user could not be added to this site."
-msgstr ""
-
-#: wp-admin/user-new.php:362
-msgid "User has been created, but could not be added to this site."
-msgstr ""
-
-#: wp-admin/user-new.php:365
-msgid "The requested user does not exist."
-msgstr ""
-
-#: wp-admin/user-new.php:368
-msgid "Please enter a valid email address."
-msgstr ""
-
-#: wp-admin/user-new.php:373
+#: wp-admin/user-new.php:122
 msgid "User added."
 msgstr ""
 
-#: wp-admin/user-new.php:441
-msgid "Enter the email address of an existing user on this network to invite them to this site. That person will be sent an email asking them to confirm the invite."
+#: wp-admin/user-new.php:124
+msgid "Invitation email sent to new user. A confirmation link must be clicked before their account is created."
 msgstr ""
 
-#: wp-admin/user-new.php:445
-msgid "Enter the email address or username of an existing user on this network to invite them to this site. That person will be sent an email asking them to confirm the invite."
+#: wp-admin/user-new.php:126
+msgid "That user could not be added to this site."
 msgstr ""
 
-#: wp-admin/user-new.php:446
-msgid "Email or Username"
-msgstr ""
-
-#: wp-admin/user-new.php:477
-#: wp-admin/user-new.php:644
-msgid "Skip Confirmation Email"
-msgstr ""
-
-#: wp-admin/user-new.php:480
-#: wp-admin/user-new.php:647
-msgid "Add the user without sending an email that requires their confirmation"
-msgstr ""
-
-#: wp-admin/user-new.php:509
+#: wp-admin/user-new.php:189
 msgid "Create a brand new user and add them to this site."
 msgstr ""
 
-#: wp-admin/user-new.php:590
+#: wp-admin/user-new.php:268
 msgid "Generate password"
 msgstr ""
 
-#: wp-admin/user-new.php:608
+#: wp-admin/user-new.php:286
 msgid "Type the password again."
 msgstr ""
 
-#: wp-admin/user-new.php:621
-msgid "Send User Notification"
+#: wp-admin/user-new.php:299
+msgid "Skip Confirmation Email"
 msgstr ""
 
-#: wp-admin/user-new.php:624
-msgid "Send the new user an email about their account"
+#: wp-admin/user-new.php:302
+msgid "Add the user without sending an email that requires their confirmation"
 msgstr ""
 
 #: wp-admin/users.php:18
@@ -14894,6 +14804,10 @@ msgstr[1] ""
 
 #: wp-admin/users.php:635
 msgid "New user created."
+msgstr ""
+
+#: wp-admin/users.php:647
+msgid "Edit user"
 msgstr ""
 
 #: wp-admin/users.php:663

@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-01-04T18:50:11+00:00\n"
+"POT-Creation-Date: 2025-01-10T21:55:18+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 
@@ -3643,7 +3643,6 @@ msgstr ""
 
 #. translators: Opening curly double quote.
 #: wp-includes/formatting.php:86
-#: wp-includes/formatting.php:5611
 msgctxt "opening curly double quote"
 msgid "&#8220;"
 msgstr ""
@@ -4144,10 +4143,11 @@ msgid "Search"
 msgstr ""
 
 #: wp-includes/general-template.php:383
-#: wp-login.php:899
-#: wp-login.php:987
-#: wp-login.php:1063
-#: wp-login.php:1177
+#: wp-login.php:901
+#: wp-login.php:989
+#: wp-login.php:1065
+#: wp-login.php:1190
+#: wp-login.php:1331
 msgid "Log in"
 msgstr ""
 
@@ -4156,33 +4156,33 @@ msgid "Log out"
 msgstr ""
 
 #: wp-includes/general-template.php:527
-#: wp-login.php:879
-#: wp-login.php:1471
+#: wp-login.php:881
+#: wp-login.php:1556
 msgid "Username or Email Address"
 msgstr ""
 
 #: wp-includes/general-template.php:528
-#: wp-login.php:1476
+#: wp-login.php:1561
 msgid "Password"
 msgstr ""
 
 #: wp-includes/general-template.php:529
-#: wp-login.php:1494
+#: wp-login.php:1579
 msgid "Remember Me"
 msgstr ""
 
 #: wp-includes/general-template.php:530
 #: wp-login.php:45
-#: wp-login.php:1447
-#: wp-login.php:1496
+#: wp-login.php:1532
+#: wp-login.php:1581
 msgid "Log In"
 msgstr ""
 
 #: wp-includes/general-template.php:701
-#: wp-login.php:903
-#: wp-login.php:1067
-#: wp-login.php:1172
-#: wp-login.php:1522
+#: wp-login.php:905
+#: wp-login.php:1069
+#: wp-login.php:1185
+#: wp-login.php:1607
 msgid "Register"
 msgstr ""
 
@@ -4671,7 +4671,7 @@ msgid "Y/m/d"
 msgstr ""
 
 #: wp-includes/load.php:183
-msgid "Your PHP installation appears to be missing the MySQL extension which is required by WordPress."
+msgid "Your PHP installation appears to be missing the MySQL extension which is required by Retraceur."
 msgstr ""
 
 #. translators: %s: mysqli.
@@ -5381,7 +5381,7 @@ msgstr ""
 
 #: wp-includes/media.php:4925
 #: wp-includes/script-loader.php:1072
-#: wp-login.php:719
+#: wp-login.php:721
 msgid "Update"
 msgstr ""
 
@@ -6943,7 +6943,7 @@ msgstr ""
 
 #: wp-includes/rest-api.php:2254
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:743
-#: wp-includes/user.php:4607
+#: wp-includes/user.php:5066
 msgid "Invalid email address."
 msgstr ""
 
@@ -8394,7 +8394,7 @@ msgid "Whether the plugin can only be activated network-wide."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-plugins-controller.php:958
-msgid "Minimum required version of WordPress."
+msgid "Minimum required version of Retraceur."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-plugins-controller.php:964
@@ -9696,6 +9696,8 @@ msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1293
 #: wp-includes/user.php:2179
+#: wp-includes/user.php:3534
+#: wp-includes/user.php:3541
 msgid "Sorry, that username is not allowed."
 msgstr ""
 
@@ -11134,8 +11136,8 @@ msgstr ""
 
 #: wp-includes/user.php:214
 #: wp-includes/user.php:286
-#: wp-login.php:1182
-#: wp-login.php:1530
+#: wp-login.php:1195
+#: wp-login.php:1615
 msgid "Lost your password?"
 msgstr ""
 
@@ -11187,10 +11189,12 @@ msgid "Cannot create a user with an empty login name."
 msgstr ""
 
 #: wp-includes/user.php:2162
+#: wp-includes/user.php:3553
 msgid "Username may not be longer than 60 characters."
 msgstr ""
 
 #: wp-includes/user.php:2166
+#: wp-includes/user.php:3563
 msgid "Sorry, that username already exists!"
 msgstr ""
 
@@ -11345,12 +11349,13 @@ msgid "<strong>Error:</strong> Please type your email address."
 msgstr ""
 
 #: wp-includes/user.php:3404
-#: wp-includes/user.php:3697
+#: wp-includes/user.php:4156
 msgid "<strong>Error:</strong> The email address is not correct."
 msgstr ""
 
 #. translators: %s: Link to the login page.
 #: wp-includes/user.php:3411
+#: wp-includes/user.php:3572
 msgid "<strong>Error:</strong> This email address is already registered. <a href=\"%s\">Log in</a> with this address or choose another one."
 msgstr ""
 
@@ -11359,12 +11364,80 @@ msgstr ""
 msgid "<strong>Error:</strong> Could not register you&hellip; please contact the <a href=\"mailto:%s\">site admin</a>!"
 msgstr ""
 
-#: wp-includes/user.php:3709
+#: wp-includes/user.php:3518
+msgid "Usernames can only contain lowercase letters (a-z) and numbers."
+msgstr ""
+
+#: wp-includes/user.php:3525
+msgid "Please enter a username."
+msgstr ""
+
+#: wp-includes/user.php:3545
+msgid "Please enter a valid email address."
+msgstr ""
+
+#: wp-includes/user.php:3549
+msgid "Username must be at least 4 characters."
+msgstr ""
+
+#: wp-includes/user.php:3558
+msgid "Sorry, usernames must have letters too!"
+msgstr ""
+
+#: wp-includes/user.php:3588
+msgid "That username is currently reserved but may be available in a couple of days."
+msgstr ""
+
+#: wp-includes/user.php:3599
+msgid "That email address has already been used. Please check your inbox for an activation email. It will become available in a couple of days if you do nothing."
+msgstr ""
+
+#: wp-includes/user.php:3649
+msgid "Signing up failed due to missing arguments. Please contact the administrator"
+msgstr ""
+
+#: wp-includes/user.php:3686
+msgid "Signing up failed due to a database issue. Please contact the administrator"
+msgstr ""
+
+#: wp-includes/user.php:3720
+msgid "Invalid activation key."
+msgstr ""
+
+#: wp-includes/user.php:3724
+msgid "This account is already active."
+msgstr ""
+
+#: wp-includes/user.php:3791
+msgid "Could not create user"
+msgstr ""
+
+#: wp-includes/user.php:3829
+msgid "That username is already activated."
+msgstr ""
+
+#. translators: New user notification email. %s: Activation URL.
+#: wp-includes/user.php:3921
+msgid ""
+"To activate & confirm your registration, please click the following link:\n"
+"\n"
+"%s\n"
+"\n"
+"After you activate, your login information will be temporarly displayed on the site’s login page."
+msgstr ""
+
+#. translators: New user notification email subject. 1: Network title, 2: New user login.
+#: wp-includes/user.php:3945
+msgctxt "New user notification email subject"
+msgid "[%1$s] Activate %2$s"
+msgstr ""
+
+#: wp-includes/user.php:4168
 msgid "<strong>Error:</strong> The email address is already used."
 msgstr ""
 
 #. translators: Do not translate USERNAME, ADMIN_URL, EMAIL, SITENAME, SITEURL: those are placeholders.
-#: wp-includes/user.php:3729
+#: wp-includes/user.php:4188
 msgid ""
 "Howdy ###USERNAME###,\n"
 "\n"
@@ -11384,124 +11457,124 @@ msgid ""
 msgstr ""
 
 #. translators: New email address notification email subject. %s: Site title.
-#: wp-includes/user.php:3777
+#: wp-includes/user.php:4236
 msgid "[%s] Email Change Request"
 msgstr ""
 
 #. translators: %s: New email address.
-#: wp-includes/user.php:3800
+#: wp-includes/user.php:4259
 msgid "Your email address has not been updated yet. Please check your inbox at %s for a confirmation email."
 msgstr ""
 
-#: wp-includes/user.php:3833
+#: wp-includes/user.php:4292
 msgid "Retraceur User"
 msgstr ""
 
-#: wp-includes/user.php:3872
+#: wp-includes/user.php:4331
 msgid "User ID"
 msgstr ""
 
-#: wp-includes/user.php:3873
+#: wp-includes/user.php:4332
 msgid "User Login Name"
 msgstr ""
 
-#: wp-includes/user.php:3874
+#: wp-includes/user.php:4333
 msgid "User Nice Name"
 msgstr ""
 
-#: wp-includes/user.php:3875
+#: wp-includes/user.php:4334
 msgid "User Email"
 msgstr ""
 
-#: wp-includes/user.php:3876
+#: wp-includes/user.php:4335
 msgid "User URL"
 msgstr ""
 
-#: wp-includes/user.php:3877
+#: wp-includes/user.php:4336
 msgid "User Registration Date"
 msgstr ""
 
-#: wp-includes/user.php:3878
+#: wp-includes/user.php:4337
 msgid "User Display Name"
 msgstr ""
 
-#: wp-includes/user.php:3879
+#: wp-includes/user.php:4338
 msgid "User Nickname"
 msgstr ""
 
-#: wp-includes/user.php:3880
+#: wp-includes/user.php:4339
 msgid "User First Name"
 msgstr ""
 
-#: wp-includes/user.php:3881
+#: wp-includes/user.php:4340
 msgid "User Last Name"
 msgstr ""
 
-#: wp-includes/user.php:3882
+#: wp-includes/user.php:4341
 msgid "User Description"
 msgstr ""
 
 #. translators: %s: wp_privacy_additional_user_profile_data
-#: wp-includes/user.php:3950
+#: wp-includes/user.php:4409
 msgid "Filter %s returned items with reserved names."
 msgstr ""
 
-#: wp-includes/user.php:3964
+#: wp-includes/user.php:4423
 msgid "User"
 msgstr ""
 
-#: wp-includes/user.php:3965
+#: wp-includes/user.php:4424
 msgid "User&#8217;s profile data."
 msgstr ""
 
-#: wp-includes/user.php:3974
+#: wp-includes/user.php:4433
 msgid "City"
 msgstr ""
 
-#: wp-includes/user.php:3975
+#: wp-includes/user.php:4434
 msgid "Country"
 msgstr ""
 
-#: wp-includes/user.php:3976
+#: wp-includes/user.php:4435
 msgid "Latitude"
 msgstr ""
 
-#: wp-includes/user.php:3977
+#: wp-includes/user.php:4436
 msgid "Longitude"
 msgstr ""
 
-#: wp-includes/user.php:3978
-#: wp-includes/user.php:3998
+#: wp-includes/user.php:4437
+#: wp-includes/user.php:4457
 msgid "IP"
 msgstr ""
 
-#: wp-includes/user.php:3997
+#: wp-includes/user.php:4456
 msgid "Expiration"
 msgstr ""
 
-#: wp-includes/user.php:3999
+#: wp-includes/user.php:4458
 msgid "User Agent"
 msgstr ""
 
-#: wp-includes/user.php:4000
+#: wp-includes/user.php:4459
 msgid "Last Login"
 msgstr ""
 
-#: wp-includes/user.php:4021
+#: wp-includes/user.php:4480
 msgid "Session Tokens"
 msgstr ""
 
-#: wp-includes/user.php:4022
+#: wp-includes/user.php:4481
 msgid "User&#8217;s Session Tokens data."
 msgstr ""
 
 #. translators: Privacy data request confirmed notification email subject. 1: Site title, 2: Name of the confirmed action.
-#: wp-includes/user.php:4121
+#: wp-includes/user.php:4580
 msgid "[%1$s] Action Confirmed: %2$s"
 msgstr ""
 
 #. translators: Do not translate SITENAME, USER_EMAIL, DESCRIPTION, MANAGE_URL, SITEURL; those are placeholders.
-#: wp-includes/user.php:4148
+#: wp-includes/user.php:4607
 msgid ""
 "Howdy,\n"
 "\n"
@@ -11520,18 +11593,18 @@ msgid ""
 msgstr ""
 
 #. translators: 1 & 2: Deprecation replacement options.
-#: wp-includes/user.php:4203
-#: wp-includes/user.php:4443
+#: wp-includes/user.php:4662
+#: wp-includes/user.php:4902
 msgid "%1$s or %2$s"
 msgstr ""
 
 #. translators: Erasure request fulfilled notification email subject. %s: Site title.
-#: wp-includes/user.php:4325
+#: wp-includes/user.php:4784
 msgid "[%s] Erasure Request Fulfilled"
 msgstr ""
 
 #. translators: Do not translate SITENAME, SITEURL; those are placeholders.
-#: wp-includes/user.php:4378
+#: wp-includes/user.php:4837
 msgid ""
 "Howdy,\n"
 "\n"
@@ -11545,7 +11618,7 @@ msgid ""
 msgstr ""
 
 #. translators: Do not translate SITENAME, SITEURL, PRIVACY_POLICY_URL; those are placeholders.
-#: wp-includes/user.php:4392
+#: wp-includes/user.php:4851
 msgid ""
 "Howdy,\n"
 "\n"
@@ -11560,67 +11633,67 @@ msgid ""
 "###SITEURL###"
 msgstr ""
 
-#: wp-includes/user.php:4559
+#: wp-includes/user.php:5018
 msgid "Action has been confirmed."
 msgstr ""
 
-#: wp-includes/user.php:4560
+#: wp-includes/user.php:5019
 msgid "The site administrator has been notified and will fulfill your request as soon as possible."
 msgstr ""
 
-#: wp-includes/user.php:4564
+#: wp-includes/user.php:5023
 msgid "Thanks for confirming your export request."
 msgstr ""
 
-#: wp-includes/user.php:4565
+#: wp-includes/user.php:5024
 msgid "The site administrator has been notified. You will receive a link to download your export via email when they fulfill your request."
 msgstr ""
 
-#: wp-includes/user.php:4567
+#: wp-includes/user.php:5026
 msgid "Thanks for confirming your erasure request."
 msgstr ""
 
-#: wp-includes/user.php:4568
+#: wp-includes/user.php:5027
 msgid "The site administrator has been notified. You will receive an email confirmation when they erase your data."
 msgstr ""
 
-#: wp-includes/user.php:4611
+#: wp-includes/user.php:5070
 msgid "Invalid action name."
 msgstr ""
 
-#: wp-includes/user.php:4615
+#: wp-includes/user.php:5074
 msgid "Invalid request status."
 msgstr ""
 
-#: wp-includes/user.php:4636
+#: wp-includes/user.php:5095
 msgid "An incomplete personal data request for this email address already exists."
 msgstr ""
 
-#: wp-includes/user.php:4667
+#: wp-includes/user.php:5126
 msgid "Export Personal Data"
 msgstr ""
 
-#: wp-includes/user.php:4670
+#: wp-includes/user.php:5129
 msgid "Erase Personal Data"
 msgstr ""
 
 #. translators: %s: Action name.
-#: wp-includes/user.php:4674
+#: wp-includes/user.php:5133
 msgid "Confirm the \"%s\" action"
 msgstr ""
 
-#: wp-includes/user.php:4704
-#: wp-includes/user.php:4894
+#: wp-includes/user.php:5163
+#: wp-includes/user.php:5353
 msgid "Invalid personal data request."
 msgstr ""
 
 #. translators: Confirm privacy data request notification email subject. 1: Site title, 2: Name of the action.
-#: wp-includes/user.php:4731
+#: wp-includes/user.php:5190
 msgid "[%1$s] Confirm Action: %2$s"
 msgstr ""
 
 #. translators: Do not translate DESCRIPTION, CONFIRM_URL, SITENAME, SITEURL: those are placeholders.
-#: wp-includes/user.php:4754
+#: wp-includes/user.php:5213
 msgid ""
 "Howdy,\n"
 "\n"
@@ -11639,27 +11712,27 @@ msgid ""
 "###SITEURL###"
 msgstr ""
 
-#: wp-includes/user.php:4835
+#: wp-includes/user.php:5294
 msgid "Unable to send personal data export confirmation email."
 msgstr ""
 
-#: wp-includes/user.php:4898
+#: wp-includes/user.php:5357
 msgid "This personal data request has expired."
 msgstr ""
 
-#: wp-includes/user.php:4902
+#: wp-includes/user.php:5361
 msgid "The confirmation key is missing from this personal data request."
 msgstr ""
 
-#: wp-includes/user.php:4921
+#: wp-includes/user.php:5380
 msgid "The confirmation key is invalid for this personal data request."
 msgstr ""
 
-#: wp-includes/user.php:4925
+#: wp-includes/user.php:5384
 msgid "The confirmation key has expired for this personal data request."
 msgstr ""
 
-#: wp-includes/user.php:5054
+#: wp-includes/user.php:5513
 msgid "The date and time the preferences were updated."
 msgstr ""
 
@@ -11719,186 +11792,204 @@ msgstr ""
 msgid "Change"
 msgstr ""
 
-#: wp-login.php:662
+#: wp-login.php:664
 msgid "Confirm your administration email"
 msgstr ""
 
-#: wp-login.php:691
+#: wp-login.php:693
 msgid "Administration email verification"
 msgstr ""
 
-#: wp-login.php:694
+#: wp-login.php:696
 msgid "Please verify that the <strong>administration email</strong> for this website is still correct."
 msgstr ""
 
 #. translators: %s: Admin email address.
-#: wp-login.php:701
+#: wp-login.php:703
 msgid "Current administration email: %s"
 msgstr ""
 
-#: wp-login.php:708
+#: wp-login.php:710
 msgid "This email may be different from your personal email address."
 msgstr ""
 
-#: wp-login.php:720
+#: wp-login.php:722
 msgid "The email is correct"
 msgstr ""
 
-#: wp-login.php:736
+#: wp-login.php:738
 msgid "Remind me later"
 msgstr ""
 
-#: wp-login.php:830
+#: wp-login.php:832
 msgid "<strong>Error:</strong> Your password reset link appears to be invalid. Please request a new link below."
 msgstr ""
 
-#: wp-login.php:832
+#: wp-login.php:834
 msgid "<strong>Error:</strong> Your password reset link has expired. Please request a new link below."
 msgstr ""
 
-#: wp-login.php:858
+#: wp-login.php:860
 msgid "Lost Password"
 msgstr ""
 
-#: wp-login.php:860
+#: wp-login.php:862
 msgid "Please enter your username or email address. You will receive an email message with instructions on how to reset your password."
 msgstr ""
 
-#: wp-login.php:894
+#: wp-login.php:896
 msgid "Get New Password"
 msgstr ""
 
-#: wp-login.php:962
+#: wp-login.php:964
 msgid "The password cannot be a space or all spaces."
 msgstr ""
 
-#: wp-login.php:968
+#: wp-login.php:970
 msgid "<strong>Error:</strong> The passwords do not match."
 msgstr ""
 
-#: wp-login.php:985
+#: wp-login.php:987
 msgid "Password Reset"
 msgstr ""
 
-#: wp-login.php:987
+#: wp-login.php:989
 msgid "Your password has been reset."
 msgstr ""
 
-#: wp-login.php:1002
+#: wp-login.php:1004
 msgid "Reset Password"
 msgstr ""
 
-#: wp-login.php:1004
+#: wp-login.php:1006
 msgid "Enter your new password below or generate one."
 msgstr ""
 
-#: wp-login.php:1019
+#: wp-login.php:1021
 msgid "New password"
 msgstr ""
 
-#: wp-login.php:1025
+#: wp-login.php:1027
 msgid "Hide password"
 msgstr ""
 
-#: wp-login.php:1028
+#: wp-login.php:1030
 msgid "Strength indicator"
 msgstr ""
 
-#: wp-login.php:1032
+#: wp-login.php:1034
 msgid "Confirm use of weak password"
 msgstr ""
 
-#: wp-login.php:1037
+#: wp-login.php:1039
 msgid "Confirm new password"
 msgstr ""
 
-#: wp-login.php:1057
+#: wp-login.php:1059
 msgid "Generate Password"
 msgstr ""
 
-#: wp-login.php:1058
+#: wp-login.php:1060
 msgid "Save Password"
 msgstr ""
 
-#: wp-login.php:1136
+#: wp-login.php:1149
 msgid "Registration Form"
 msgstr ""
 
-#: wp-login.php:1138
+#: wp-login.php:1151
 msgid "Register For This Site"
 msgstr ""
 
-#: wp-login.php:1150
+#: wp-login.php:1163
 msgid "Username"
 msgstr ""
 
-#: wp-login.php:1154
+#: wp-login.php:1167
 msgid "Email"
 msgstr ""
 
-#: wp-login.php:1168
+#: wp-login.php:1181
 msgid "Registration confirmation will be emailed to you."
 msgstr ""
 
 #. translators: %s: Link to the login page.
-#: wp-login.php:1203
+#: wp-login.php:1216
 msgid "Check your email for the confirmation link, then visit the <a href=\"%s\">login page</a>."
 msgstr ""
 
 #. translators: %s: Link to the login page.
-#: wp-login.php:1213
+#: wp-login.php:1226
 msgid "Registration complete. Please check your email, then visit the <a href=\"%s\">login page</a>."
 msgstr ""
 
-#: wp-login.php:1223
+#: wp-login.php:1236
+#: wp-login.php:1287
 msgid "Check your email"
 msgstr ""
 
-#: wp-login.php:1229
+#: wp-login.php:1242
 msgid "Missing request ID."
 msgstr ""
 
-#: wp-login.php:1233
+#: wp-login.php:1246
 msgid "Missing confirm key."
 msgstr ""
 
-#: wp-login.php:1261
+#: wp-login.php:1274
 msgid "User action confirmed."
 msgstr ""
 
-#: wp-login.php:1304
+#: wp-login.php:1295
+msgid "Sorry, something went wrong during the registration process. Please contact the administrator."
+msgstr ""
+
+#: wp-login.php:1317
+msgid "Account activated"
+msgstr ""
+
+#. Translators: 1: The user login. 2: The user password.
+#: wp-login.php:1322
+msgid "<p>Your account is now active. Please log in using the following information:<br><br><strong>Login:</strong> %1$s<br><strong>Password:</strong> %2$s<br><br></p>"
+msgstr ""
+
+#: wp-login.php:1343
+msgid "Registration failed"
+msgstr ""
+
+#: wp-login.php:1389
 msgid "<strong>Error:</strong> Cookies are blocked due to unexpected output."
 msgstr ""
 
-#: wp-login.php:1310
+#: wp-login.php:1395
 msgid "<strong>Error:</strong> Cookies are blocked or not supported by your browser. You must enable cookies to use Retraceur."
 msgstr ""
 
-#: wp-login.php:1330
+#: wp-login.php:1415
 msgid "You have logged in successfully."
 msgstr ""
 
-#: wp-login.php:1399
+#: wp-login.php:1484
 msgid "Your session has expired. Please log in to continue where you left off."
 msgstr ""
 
-#: wp-login.php:1404
+#: wp-login.php:1489
 msgid "You are now logged out."
 msgstr ""
 
-#: wp-login.php:1406
+#: wp-login.php:1491
 msgid "<strong>Error:</strong> User registration is currently not allowed."
 msgstr ""
 
-#: wp-login.php:1408
+#: wp-login.php:1493
 msgid "<strong>You have successfully updated Retraceur!</strong> Please log back in to see what&#8217;s new."
 msgstr ""
 
-#: wp-login.php:1410
+#: wp-login.php:1495
 msgid "Recovery Mode Initialized. Please log in to continue."
 msgstr ""
 
-#: wp-login.php:1479
+#: wp-login.php:1564
 msgid "Show password"
 msgstr ""
 
