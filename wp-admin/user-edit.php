@@ -125,6 +125,42 @@ if ( IS_PROFILE_PAGE && isset( $_GET['newuseremail'] ) && $current_user->ID ) {
 }
 
 switch ( $action ) {
+	case 'do-account-deletion':
+		if ( ! IS_PROFILE_PAGE || current_user_can( 'edit_posts' ) ) {
+			wp_die( __( 'Sorry, you are not allowed to delete this account.' ) );
+		}
+
+		check_admin_referer( 'user-deletion-confirmed' );
+
+		if ( wp_delete_user( $user_id ) ) {
+			wp_safe_redirect( home_url() );
+			exit;
+		} else {
+			wp_die( __( 'Sorry, something went wrong. Please contact the administrator.' ) );
+		}
+
+	case 'account-deletion':
+		if ( ! IS_PROFILE_PAGE || current_user_can( 'edit_posts' ) ) {
+			wp_die( __( 'Sorry, you are not allowed to delete this account.' ) );
+		}
+
+		require_once ABSPATH . 'wp-admin/admin-header.php';
+
+		check_admin_referer( 'delete-user-account' );
+		?>
+		<div class="wrap" id="profile-page">
+			<h1 class="wp-heading-inline">
+				<?php esc_html_e( 'Account deletion' ); ?>
+			</h1>
+			<div class="card">
+				<p><?php esc_html_e( 'All your data will be deleted and this action is irreversible, please confirm your wish to delete your account.' ); ?></p>
+				<p><a href="<?php echo esc_url( wp_nonce_url( 'profile.php?action=do-account-deletion', 'user-deletion-confirmed' ) ); ?>" class="button button-primary"><?php esc_html_e( 'I confirm!' ); ?></a></p>
+			</div>
+		</div>
+		<?php
+		require_once ABSPATH . 'wp-admin/admin-footer.php';
+		die();
+
 	case 'update':
 		check_admin_referer( 'update-user_' . $user_id );
 
@@ -911,6 +947,21 @@ switch ( $action ) {
 						</tr>
 					</table>
 				<?php endif; // End Display Additional Capabilities. ?>
+
+				<?php if ( IS_PROFILE_PAGE && ! current_user_can( 'edit_posts' ) ): ?>
+					<h2 class="attention"><?php esc_html_e( 'Danger zone' ); ?></h2>
+
+					<table class="form-table" role="presentation">
+						<tr class="user-account-deletion">
+							<th scope="row"><?php esc_html_e( 'Account deletion' ); ?></th>
+							<td>
+								<a href="<?php echo esc_url( wp_nonce_url( 'profile.php?action=account-deletion', 'delete-user-account' ) ); ?>" class="button attention button-secondary">
+									<?php esc_html_e( 'I wish to delete my account' ); ?>
+								</a>
+							</td>
+						</tr>
+					</table>
+				<?php endif; ?>
 
 				<input type="hidden" name="action" value="update" />
 				<input type="hidden" name="user_id" id="user_id" value="<?php echo esc_attr( $user_id ); ?>" />
