@@ -762,11 +762,11 @@ class WP_Debug_Data {
 		$loading = __( 'Loading&hellip;' );
 
 		$fields = array(
-			'wordpress_path' => array(
+			'retraceur_path' => array(
 				'label' => __( 'Retraceur directory location' ),
 				'value' => untrailingslashit( ABSPATH ),
 			),
-			'wordpress_size' => array(
+			'retraceur_size' => array(
 				'label' => __( 'Retraceur directory size' ),
 				'value' => $loading,
 				'debug' => 'loading...',
@@ -1628,7 +1628,7 @@ class WP_Debug_Data {
 		$is_writable_fonts_dir          = wp_is_writable( wp_get_font_dir()['basedir'] );
 
 		$fields = array(
-			'wordpress'  => array(
+			'retraceur'  => array(
 				'label' => __( 'The main Retraceur directory' ),
 				'value' => ( $is_writable_abspath ? __( 'Writable' ) : __( 'Not writable' ) ),
 				'debug' => ( $is_writable_abspath ? 'writable' : 'not writable' ),
@@ -1796,7 +1796,7 @@ class WP_Debug_Data {
 	}
 
 	/**
-	 * Fetches the sizes of the Retraceur directories: `wordpress` (ABSPATH), `plugins`, `themes`, and `uploads`.
+	 * Fetches the sizes of the Retraceur directories: `retraceur` (ABSPATH), `plugins`, `themes`, and `uploads`.
 	 * Intended to supplement the array returned by `WP_Debug_Data::debug_data()`.
 	 *
 	 * @since WP 5.2.0
@@ -1837,7 +1837,7 @@ class WP_Debug_Data {
 		 * No trailing slashes.
 		 */
 		$paths = array(
-			'wordpress_size' => untrailingslashit( ABSPATH ),
+			'retraceur_size' => untrailingslashit( ABSPATH ),
 			'themes_size'    => get_theme_root(),
 			'plugins_size'   => WP_PLUGIN_DIR,
 			'uploads_size'   => $upload_dir['basedir'],
@@ -1845,7 +1845,7 @@ class WP_Debug_Data {
 		);
 
 		$exclude = $paths;
-		unset( $exclude['wordpress_size'] );
+		unset( $exclude['retraceur_size'] );
 		$exclude = array_values( $exclude );
 
 		$size_total = 0;
@@ -1872,7 +1872,7 @@ class WP_Debug_Data {
 			}
 
 			if ( microtime( true ) - WP_START_TIMESTAMP < $max_execution_time ) {
-				if ( 'wordpress_size' === $name ) {
+				if ( 'retraceur_size' === $name ) {
 					$dir_size = recurse_dirsize( $path, $exclude, $max_execution_time );
 				} else {
 					$dir_size = recurse_dirsize( $path, null, $max_execution_time );

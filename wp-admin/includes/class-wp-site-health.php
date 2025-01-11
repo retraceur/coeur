@@ -249,11 +249,11 @@ class WP_Site_Health {
 	 * Gives various results depending on what kind of updates are available, if any, to encourage
 	 * the user to install security updates as a priority.
 	 *
-	 * @since WP 5.2.0
+	 * @since 1.0.0 Retraceur fork.
 	 *
 	 * @return array The test result.
 	 */
-	public function get_test_wordpress_version() {
+	public function get_test_retraceur_version() {
 		$result = array(
 			'label'       => '',
 			'status'      => '',
@@ -263,7 +263,7 @@ class WP_Site_Health {
 			),
 			'description' => '',
 			'actions'     => '',
-			'test'        => 'wordpress_version',
+			'test'        => 'retraceur_version',
 		);
 
 		$core_current_version = retraceur_get_version();
@@ -2431,9 +2431,9 @@ class WP_Site_Health {
 	public static function get_tests() {
 		$tests = array(
 			'direct' => array(
-				'wordpress_version'            => array(
+				'retraceur_version'            => array(
 					'label' => __( 'Retraceur Version' ),
-					'test'  => 'wordpress_version',
+					'test'  => 'retraceur_version',
 				),
 				'plugin_version'               => array(
 					'label' => __( 'Plugin Versions' ),

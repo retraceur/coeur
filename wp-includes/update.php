@@ -804,7 +804,7 @@ function wp_get_update_data() {
 	$counts = array(
 		'plugins'      => 0,
 		'themes'       => 0,
-		'wordpress'    => 0,
+		'retraceur'    => 0,
 		'translations' => 0,
 	);
 
@@ -831,13 +831,13 @@ function wp_get_update_data() {
 	$core = current_user_can( 'update_core' );
 
 	if ( $core && function_exists( 'get_core_updates' ) ) {
-		$update_wordpress = get_core_updates( array( 'dismissed' => false ) );
+		$update_retraceur = get_core_updates( array( 'dismissed' => false ) );
 
-		if ( ! empty( $update_wordpress )
-			&& ! in_array( $update_wordpress[0]->response, array( 'development', 'latest' ), true )
+		if ( ! empty( $update_retraceur )
+			&& ! in_array( $update_retraceur[0]->response, array( 'development', 'latest' ), true )
 			&& current_user_can( 'update_core' )
 		) {
-			$counts['wordpress'] = 1;
+			$counts['retraceur'] = 1;
 		}
 	}
 
@@ -845,12 +845,12 @@ function wp_get_update_data() {
 		$counts['translations'] = 1;
 	}
 
-	$counts['total'] = $counts['plugins'] + $counts['themes'] + $counts['wordpress'] + $counts['translations'];
+	$counts['total'] = $counts['plugins'] + $counts['themes'] + $counts['retraceur'] + $counts['translations'];
 	$titles          = array();
 
-	if ( $counts['wordpress'] ) {
-		/* translators: %d: Number of available WP updates. */
-		$titles['wordpress'] = sprintf( __( '%d WP Update' ), $counts['wordpress'] );
+	if ( $counts['retraceur'] ) {
+		/* translators: %d: Number of available Retraceur updates. */
+		$titles['retraceur'] = sprintf( __( '%d Retraceur Update' ), $counts['retraceur'] );
 	}
 
 	if ( $counts['plugins'] ) {
