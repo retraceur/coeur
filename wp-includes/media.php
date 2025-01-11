@@ -5540,7 +5540,7 @@ function wpview_media_sandbox_styles() {
  * @return array[] Updated array of personal data exporters.
  */
 function wp_register_media_personal_data_exporter( $exporters ) {
-	$exporters['wordpress-media'] = array(
+	$exporters['retraceur-media'] = array(
 		'exporter_friendly_name' => __( 'Retraceur Media' ),
 		'callback'               => 'wp_media_personal_data_exporter',
 	);

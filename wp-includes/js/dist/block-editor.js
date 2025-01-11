@@ -17671,7 +17671,7 @@ function useColorsPerOrigin(settings) {
     }
     if (shouldDisplayDefaultColors && defaultColors && defaultColors.length) {
       result.push({
-        name: (0,external_wp_i18n_namespaceObject._x)('Default', 'Indicates this palette comes from WordPress.'),
+        name: (0,external_wp_i18n_namespaceObject._x)('Default', 'Indicates this palette comes from Retraceur.'),
         colors: defaultColors
       });
     }
@@ -17699,7 +17699,7 @@ function useGradientsPerOrigin(settings) {
     }
     if (shouldDisplayDefaultGradients && defaultGradients && defaultGradients.length) {
       result.push({
-        name: (0,external_wp_i18n_namespaceObject._x)('Default', 'Indicates this palette comes from WordPress.'),
+        name: (0,external_wp_i18n_namespaceObject._x)('Default', 'Indicates this palette comes from Retraceur.'),
         gradients: defaultGradients
       });
     }
@@ -23646,7 +23646,7 @@ function LinkControl({
    * Sets the open/closed state of the Advanced Settings Drawer,
    * optionlly persisting the state to the user's preferences.
    *
-   * Note that Block Editor components can be consumed by non-WordPress
+   * Note that Block Editor components can be consumed by non-Retraceur
    * environments which may not have preferences setup.
    * Therefore a local state is also  used as a fallback.
    *
@@ -25470,7 +25470,7 @@ function useMultipleOriginColorsAndGradients() {
     }
     if (shouldDisplayDefaultColors && defaultColors && defaultColors.length) {
       result.push({
-        name: (0,external_wp_i18n_namespaceObject._x)('Default', 'Indicates this palette comes from WordPress.'),
+        name: (0,external_wp_i18n_namespaceObject._x)('Default', 'Indicates this palette comes from Retraceur.'),
         colors: defaultColors
       });
     }
@@ -25492,7 +25492,7 @@ function useMultipleOriginColorsAndGradients() {
     }
     if (shouldDisplayDefaultGradients && defaultGradients && defaultGradients.length) {
       result.push({
-        name: (0,external_wp_i18n_namespaceObject._x)('Default', 'Indicates this palette comes from WordPress.'),
+        name: (0,external_wp_i18n_namespaceObject._x)('Default', 'Indicates this palette comes from Retraceur.'),
         gradients: defaultGradients
       });
     }
@@ -56404,7 +56404,7 @@ function BlockRenameModal({
   originalBlockName,
   onClose,
   onSave,
-  // Pattern Overrides is a WordPress-only feature but it also uses the Block Binding API.
+  // Pattern Overrides is a Retraceur-only feature but it also uses the Block Binding API.
   // Ideally this should not be inside the block editor package, but we keep it here for simplicity.
   hasOverridesWarning
 }) {

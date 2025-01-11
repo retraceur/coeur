@@ -944,6 +944,7 @@ function add_meta_box( $id, $title, $callback, $screen = null, $context = 'advan
  * shown on the block editor, when an incompatible meta box is found.
  *
  * @since WP 5.0.0
+ * @since 1.0.0 Retraceur fork removed links to the Classic Editor.
  *
  * @param mixed $data_object The data object being rendered on this screen.
  * @param array $box         {
@@ -966,44 +967,6 @@ function do_block_editor_incompatible_meta_box( $data_object, $box ) {
 		_e( 'This meta box is not compatible with the block editor.' );
 	}
 	echo '</p>';
-
-	if ( empty( $plugins['classic-editor/classic-editor.php'] ) ) {
-		if ( current_user_can( 'install_plugins' ) ) {
-			$install_url = wp_nonce_url(
-				self_admin_url( 'plugin-install.php?tab=favorites&user=wordpressdotorg&save=0' ),
-				'save_wporg_username_' . get_current_user_id()
-			);
-
-			echo '<p>';
-			/* translators: %s: A link to install the Classic Editor plugin. */
-			printf( __( 'Please install the <a href="%s">Classic Editor plugin</a> to use this meta box.' ), esc_url( $install_url ) );
-			echo '</p>';
-		}
-	} elseif ( is_plugin_inactive( 'classic-editor/classic-editor.php' ) ) {
-		if ( current_user_can( 'activate_plugins' ) ) {
-			$activate_url = wp_nonce_url(
-				self_admin_url( 'plugins.php?action=activate&plugin=classic-editor/classic-editor.php' ),
-				'activate-plugin_classic-editor/classic-editor.php'
-			);
-
-			echo '<p>';
-			/* translators: %s: A link to activate the Classic Editor plugin. */
-			printf( __( 'Please activate the <a href="%s">Classic Editor plugin</a> to use this meta box.' ), esc_url( $activate_url ) );
-			echo '</p>';
-		}
-	} elseif ( $data_object instanceof WP_Post ) {
-		$edit_url = add_query_arg(
-			array(
-				'classic-editor'         => '',
-				'classic-editor__forget' => '',
-			),
-			get_edit_post_link( $data_object )
-		);
-		echo '<p>';
-		/* translators: %s: A link to use the Classic Editor plugin. */
-		printf( __( 'Please open the <a href="%s">classic editor</a> to use this meta box.' ), esc_url( $edit_url ) );
-		echo '</p>';
-	}
 }
 
 /**

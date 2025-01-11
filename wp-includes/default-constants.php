@@ -262,42 +262,42 @@ function wp_cookie_constants() {
 	 * @since WP 2.0.0
 	 */
 	if ( ! defined( 'USER_COOKIE' ) ) {
-		define( 'USER_COOKIE', 'wordpressuser_' . COOKIEHASH );
+		define( 'USER_COOKIE', 'retraceuruser_' . COOKIEHASH );
 	}
 
 	/**
 	 * @since WP 2.0.0
 	 */
 	if ( ! defined( 'PASS_COOKIE' ) ) {
-		define( 'PASS_COOKIE', 'wordpresspass_' . COOKIEHASH );
+		define( 'PASS_COOKIE', 'retraceurpass_' . COOKIEHASH );
 	}
 
 	/**
 	 * @since WP 2.5.0
 	 */
 	if ( ! defined( 'AUTH_COOKIE' ) ) {
-		define( 'AUTH_COOKIE', 'wordpress_' . COOKIEHASH );
+		define( 'AUTH_COOKIE', 'retraceur_' . COOKIEHASH );
 	}
 
 	/**
 	 * @since WP 2.6.0
 	 */
 	if ( ! defined( 'SECURE_AUTH_COOKIE' ) ) {
-		define( 'SECURE_AUTH_COOKIE', 'wordpress_sec_' . COOKIEHASH );
+		define( 'SECURE_AUTH_COOKIE', 'retraceur_sec_' . COOKIEHASH );
 	}
 
 	/**
 	 * @since WP 2.6.0
 	 */
 	if ( ! defined( 'LOGGED_IN_COOKIE' ) ) {
-		define( 'LOGGED_IN_COOKIE', 'wordpress_logged_in_' . COOKIEHASH );
+		define( 'LOGGED_IN_COOKIE', 'retraceur_logged_in_' . COOKIEHASH );
 	}
 
 	/**
 	 * @since WP 2.3.0
 	 */
 	if ( ! defined( 'TEST_COOKIE' ) ) {
-		define( 'TEST_COOKIE', 'wordpress_test_cookie' );
+		define( 'TEST_COOKIE', 'retraceur_test_cookie' );
 	}
 
 	/**
@@ -340,7 +340,7 @@ function wp_cookie_constants() {
 		/**
 		 * @since WP 5.2.0
 		 */
-		define( 'RECOVERY_MODE_COOKIE', 'wordpress_rec_' . COOKIEHASH );
+		define( 'RECOVERY_MODE_COOKIE', 'retraceur_rec_' . COOKIEHASH );
 	}
 }
 

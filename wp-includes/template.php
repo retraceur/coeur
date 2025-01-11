@@ -284,7 +284,7 @@ function get_category_template() {
  *
  * An example of this is:
  *
- * 1. tag-wordpress.php
+ * 1. tag-retraceur.php
  * 2. tag-3.php
  * 3. tag.php
  *

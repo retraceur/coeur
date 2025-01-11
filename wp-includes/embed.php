@@ -1139,26 +1139,26 @@ function print_embed_sharing_dialog() {
 	}
 
 	$unique_suffix            = get_the_ID() . '-' . wp_rand();
-	$share_tab_wordpress_id   = 'wp-embed-share-tab-wordpress-' . $unique_suffix;
+	$share_tab_retraceur_id   = 'wp-embed-share-tab-retraceur-' . $unique_suffix;
 	$share_tab_html_id        = 'wp-embed-share-tab-html-' . $unique_suffix;
-	$description_wordpress_id = 'wp-embed-share-description-wordpress-' . $unique_suffix;
+	$description_retraceur_id = 'wp-embed-share-description-retraceur-' . $unique_suffix;
 	$description_html_id      = 'wp-embed-share-description-html-' . $unique_suffix;
 	?>
 	<div class="wp-embed-share-dialog hidden" role="dialog" aria-label="<?php esc_attr_e( 'Sharing options' ); ?>">
 		<div class="wp-embed-share-dialog-content">
 			<div class="wp-embed-share-dialog-text">
 				<ul class="wp-embed-share-tabs" role="tablist">
-					<li class="wp-embed-share-tab-button wp-embed-share-tab-button-wordpress" role="presentation">
-						<button type="button" role="tab" aria-controls="<?php echo $share_tab_wordpress_id; ?>" aria-selected="true" tabindex="0"><?php esc_html_e( 'WP Embed' ); ?></button>
+					<li class="wp-embed-share-tab-button wp-embed-share-tab-button-retraceur" role="presentation">
+						<button type="button" role="tab" aria-controls="<?php echo $share_tab_retraceur_id; ?>" aria-selected="true" tabindex="0"><?php esc_html_e( 'WP Embed' ); ?></button>
 					</li>
 					<li class="wp-embed-share-tab-button wp-embed-share-tab-button-html" role="presentation">
 						<button type="button" role="tab" aria-controls="<?php echo $share_tab_html_id; ?>" aria-selected="false" tabindex="-1"><?php esc_html_e( 'HTML Embed' ); ?></button>
 					</li>
 				</ul>
-				<div id="<?php echo $share_tab_wordpress_id; ?>" class="wp-embed-share-tab" role="tabpanel" aria-hidden="false">
-					<input type="text" value="<?php the_permalink(); ?>" class="wp-embed-share-input" aria-label="<?php esc_attr_e( 'URL' ); ?>" aria-describedby="<?php echo $description_wordpress_id; ?>" tabindex="0" readonly/>
+				<div id="<?php echo $share_tab_retraceur_id; ?>" class="wp-embed-share-tab" role="tabpanel" aria-hidden="false">
+					<input type="text" value="<?php the_permalink(); ?>" class="wp-embed-share-input" aria-label="<?php esc_attr_e( 'URL' ); ?>" aria-describedby="<?php echo $description_retraceur_id; ?>" tabindex="0" readonly/>
 
-					<p class="wp-embed-share-description" id="<?php echo $description_wordpress_id; ?>">
+					<p class="wp-embed-share-description" id="<?php echo $description_retraceur_id; ?>">
 						<?php _e( 'Copy and paste this URL into your WP site to embed' ); ?>
 					</p>
 				</div>

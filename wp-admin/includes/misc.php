@@ -835,7 +835,7 @@ function iis7_rewrite_rule_exists( $filename ) {
 	}
 
 	$xpath = new DOMXPath( $doc );
-	$rules = $xpath->query( '/configuration/system.webServer/rewrite/rules/rule[starts-with(@name,\'wordpress\')] | /configuration/system.webServer/rewrite/rules/rule[starts-with(@name,\'Retraceur\')]' );
+	$rules = $xpath->query( '/configuration/system.webServer/rewrite/rules/rule[starts-with(@name,\'retraceur\')] | /configuration/system.webServer/rewrite/rules/rule[starts-with(@name,\'Retraceur\')]' );
 
 	if ( 0 === $rules->length ) {
 		return false;
@@ -870,7 +870,7 @@ function iis7_delete_rewrite_rule( $filename ) {
 	}
 
 	$xpath = new DOMXPath( $doc );
-	$rules = $xpath->query( '/configuration/system.webServer/rewrite/rules/rule[starts-with(@name,\'wordpress\')] | /configuration/system.webServer/rewrite/rules/rule[starts-with(@name,\'Retraceur\')]' );
+	$rules = $xpath->query( '/configuration/system.webServer/rewrite/rules/rule[starts-with(@name,\'retraceur\')] | /configuration/system.webServer/rewrite/rules/rule[starts-with(@name,\'Retraceur\')]' );
 
 	if ( $rules->length > 0 ) {
 		$child  = $rules->item( 0 );
@@ -914,9 +914,9 @@ function iis7_add_rewrite_rule( $filename, $rewrite_rule ) {
 	$xpath = new DOMXPath( $doc );
 
 	// First check if the rule already exists as in that case there is no need to re-add it.
-	$wordpress_rules = $xpath->query( '/configuration/system.webServer/rewrite/rules/rule[starts-with(@name,\'wordpress\')] | /configuration/system.webServer/rewrite/rules/rule[starts-with(@name,\'Retraceur\')]' );
+	$retraceur_rules = $xpath->query( '/configuration/system.webServer/rewrite/rules/rule[starts-with(@name,\'retraceur\')] | /configuration/system.webServer/rewrite/rules/rule[starts-with(@name,\'Retraceur\')]' );
 
-	if ( $wordpress_rules->length > 0 ) {
+	if ( $retraceur_rules->length > 0 ) {
 		return true;
 	}
 
