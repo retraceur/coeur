@@ -283,7 +283,7 @@ class WP_Filesystem_Base {
 			}
 
 			/*
-			 * Working from /home/ to /user/ to /wordpress/ see if that file exists within
+			 * Working from /home/ to /user/ to /retraceur/ see if that file exists within
 			 * the current folder, If it's found, change into it and follow through looking
 			 * for it. If it can't find Retraceur down that route, it'll continue onto the next
 			 * folder level, and see if that matches, and so on. If it reaches the end, and still
