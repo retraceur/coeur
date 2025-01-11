@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-01-10T21:55:18+00:00\n"
+"POT-Creation-Date: 2025-01-11T10:05:01+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 
@@ -11083,9 +11083,9 @@ msgstr ""
 msgid "(Retraceur could not establish a secure connection to Theme updater. Please contact your server administrator.)"
 msgstr ""
 
-#. translators: %d: Number of available WP updates.
+#. translators: %d: Number of available Retraceur updates.
 #: wp-includes/update.php:853
-msgid "%d WP Update"
+msgid "%d Retraceur Update"
 msgstr ""
 
 #. translators: %d: Number of available plugin updates.
