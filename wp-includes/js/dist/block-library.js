@@ -12283,17 +12283,6 @@ const embedInstagramIcon = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObj
     })
   })
 });
-const embedWordPressIcon = {
-  foreground: '#0073AA',
-  src: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.SVG, {
-    viewBox: "0 0 24 24",
-    children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.G, {
-      children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.Path, {
-        d: "M12.158 12.786l-2.698 7.84c.806.236 1.657.365 2.54.365 1.047 0 2.05-.18 2.986-.51-.024-.037-.046-.078-.065-.123l-2.762-7.57zM3.008 12c0 3.56 2.07 6.634 5.068 8.092L3.788 8.342c-.5 1.117-.78 2.354-.78 3.658zm15.06-.454c0-1.112-.398-1.88-.74-2.48-.456-.74-.883-1.368-.883-2.11 0-.825.627-1.595 1.51-1.595.04 0 .078.006.116.008-1.598-1.464-3.73-2.36-6.07-2.36-3.14 0-5.904 1.613-7.512 4.053.21.008.41.012.58.012.94 0 2.395-.114 2.395-.114.484-.028.54.684.057.74 0 0-.487.058-1.03.086l3.275 9.74 1.968-5.902-1.4-3.838c-.485-.028-.944-.085-.944-.085-.486-.03-.43-.77.056-.742 0 0 1.484.114 2.368.114.94 0 2.397-.114 2.397-.114.486-.028.543.684.058.74 0 0-.488.058-1.03.086l3.25 9.665.897-2.997c.456-1.17.684-2.137.684-2.907zm1.82-3.86c.04.286.06.593.06.924 0 .912-.17 1.938-.683 3.22l-2.746 7.94c2.672-1.558 4.47-4.454 4.47-7.77 0-1.564-.4-3.033-1.1-4.314zM12 22C6.486 22 2 17.514 2 12S6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"
-      })
-    })
-  })
-};
 const embedSpotifyIcon = {
   foreground: '#1db954',
   src: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.SVG, {
@@ -13182,15 +13171,6 @@ const embed_variations_variations = [{
     responsive: true
   }
 }, {
-  name: 'wordpress',
-  title: getTitle('WordPress'),
-  icon: embedWordPressIcon,
-  keywords: [(0,external_wp_i18n_namespaceObject.__)('post'), (0,external_wp_i18n_namespaceObject.__)('blog')],
-  description: (0,external_wp_i18n_namespaceObject.__)('Embed a Retraceur post.'),
-  attributes: {
-    providerNameSlug: 'wordpress'
-  }
-}, {
   name: 'soundcloud',
   title: getTitle('SoundCloud'),
   icon: embedAudioIcon,
@@ -13245,16 +13225,6 @@ const embed_variations_variations = [{
     responsive: true
   }
 }, {
-  name: 'cloudup',
-  title: getTitle('Cloudup'),
-  icon: embedContentIcon,
-  description: (0,external_wp_i18n_namespaceObject.__)('Embed Cloudup content.'),
-  patterns: [/^https?:\/\/cloudup\.com\/.+/i],
-  attributes: {
-    providerNameSlug: 'cloudup',
-    responsive: true
-  }
-}, {
   // Deprecated since CollegeHumor content is now powered by YouTube.
   name: 'collegehumor',
   title: getTitle('CollegeHumor'),
@@ -13264,17 +13234,6 @@ const embed_variations_variations = [{
   patterns: [],
   attributes: {
     providerNameSlug: 'collegehumor',
-    responsive: true
-  }
-}, {
-  name: 'crowdsignal',
-  title: getTitle('Crowdsignal'),
-  icon: embedContentIcon,
-  keywords: ['polldaddy', (0,external_wp_i18n_namespaceObject.__)('survey')],
-  description: (0,external_wp_i18n_namespaceObject.__)('Embed Crowdsignal (formerly Polldaddy) content.'),
-  patterns: [/^https?:\/\/((.+\.)?polldaddy\.com|poll\.fm|.+\.crowdsignal\.net|.+\.survey\.fm)\/.+/i],
-  attributes: {
-    providerNameSlug: 'crowdsignal',
     responsive: true
   }
 }, {
@@ -13420,38 +13379,6 @@ const embed_variations_variations = [{
   patterns: [/^https?:\/\/(www\.|embed\.)?ted\.com\/.+/i],
   attributes: {
     providerNameSlug: 'ted',
-    responsive: true
-  }
-}, {
-  name: 'tumblr',
-  title: getTitle('Tumblr'),
-  icon: embedTumblrIcon,
-  keywords: [(0,external_wp_i18n_namespaceObject.__)('social')],
-  description: (0,external_wp_i18n_namespaceObject.__)('Embed a Tumblr post.'),
-  patterns: [/^https?:\/\/(.+)\.tumblr\.com\/.+/i],
-  attributes: {
-    providerNameSlug: 'tumblr',
-    responsive: true
-  }
-}, {
-  name: 'videopress',
-  title: getTitle('VideoPress'),
-  icon: embedVideoIcon,
-  keywords: [(0,external_wp_i18n_namespaceObject.__)('video')],
-  description: (0,external_wp_i18n_namespaceObject.__)('Embed a VideoPress video.'),
-  patterns: [/^https?:\/\/videopress\.com\/.+/i],
-  attributes: {
-    providerNameSlug: 'videopress',
-    responsive: true
-  }
-}, {
-  name: 'wordpress-tv',
-  title: getTitle('WordPress.tv'),
-  icon: embedVideoIcon,
-  description: (0,external_wp_i18n_namespaceObject.__)('Embed a WordPress.tv video.'),
-  patterns: [/^https?:\/\/wordpress\.tv\/.+/i],
-  attributes: {
-    providerNameSlug: 'wordpress-tv',
     responsive: true
   }
 }, {
@@ -50004,23 +49931,6 @@ const keyboardReturn = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.
 });
 /* harmony default export */ const keyboard_return = (keyboardReturn);
 
-;// CONCATENATED MODULE: ./node_modules/@wordpress/block-library/build-module/social-link/icons/wordpress.js
-/**
- * WP dependencies
- */
-
-
-const WordPressIcon = () => /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_primitives_namespaceObject.SVG, {
-  width: "24",
-  height: "24",
-  viewBox: "0 0 24 24",
-  version: "1.1",
-  xmlns: "http://www.w3.org/2000/svg",
-  children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_primitives_namespaceObject.Path, {
-    d: "M12.158,12.786L9.46,20.625c0.806,0.237,1.657,0.366,2.54,0.366c1.047,0,2.051-0.181,2.986-0.51 c-0.024-0.038-0.046-0.079-0.065-0.124L12.158,12.786z M3.009,12c0,3.559,2.068,6.634,5.067,8.092L3.788,8.341 C3.289,9.459,3.009,10.696,3.009,12z M18.069,11.546c0-1.112-0.399-1.881-0.741-2.48c-0.456-0.741-0.883-1.368-0.883-2.109 c0-0.826,0.627-1.596,1.51-1.596c0.04,0,0.078,0.005,0.116,0.007C16.472,3.904,14.34,3.009,12,3.009 c-3.141,0-5.904,1.612-7.512,4.052c0.211,0.007,0.41,0.011,0.579,0.011c0.94,0,2.396-0.114,2.396-0.114 C7.947,6.93,8.004,7.642,7.52,7.699c0,0-0.487,0.057-1.029,0.085l3.274,9.739l1.968-5.901l-1.401-3.838 C9.848,7.756,9.389,7.699,9.389,7.699C8.904,7.67,8.961,6.93,9.446,6.958c0,0,1.484,0.114,2.368,0.114 c0.94,0,2.397-0.114,2.397-0.114c0.485-0.028,0.542,0.684,0.057,0.741c0,0-0.488,0.057-1.029,0.085l3.249,9.665l0.897-2.996 C17.841,13.284,18.069,12.316,18.069,11.546z M19.889,7.686c0.039,0.286,0.06,0.593,0.06,0.924c0,0.912-0.171,1.938-0.684,3.22 l-2.746,7.94c2.673-1.558,4.47-4.454,4.47-7.771C20.991,10.436,20.591,8.967,19.889,7.686z M12,22C6.486,22,2,17.514,2,12 C2,6.486,6.486,2,12,2c5.514,0,10,4.486,10,10C22,17.514,17.514,22,12,22z"
-  })
-});
-
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/block-library/build-module/social-link/icons/fivehundredpx.js
 /**
  * WP dependencies
@@ -50764,13 +50674,13 @@ const YouTubeIcon = () => /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObje
  */
 
 const social_link_variations_variations = [{
-  isDefault: true,
-  name: 'wordpress',
+	isDefault: true,
+  name: 'chain',
   attributes: {
-    service: 'wordpress'
+    service: 'chain'
   },
-  title: 'WordPress',
-  icon: WordPressIcon
+  title: 'Link',
+  icon: ChainIcon
 }, {
   name: 'fivehundredpx',
   attributes: {
@@ -50806,13 +50716,6 @@ const social_link_variations_variations = [{
   },
   title: 'Bluesky',
   icon: BlueskyIcon
-}, {
-  name: 'chain',
-  attributes: {
-    service: 'chain'
-  },
-  title: 'Link',
-  icon: ChainIcon
 }, {
   name: 'codepen',
   attributes: {
@@ -51031,13 +50934,6 @@ const social_link_variations_variations = [{
   },
   title: 'TikTok',
   icon: TiktokIcon
-}, {
-  name: 'tumblr',
-  attributes: {
-    service: 'tumblr'
-  },
-  title: 'Tumblr',
-  icon: TumblrIcon
 }, {
   name: 'twitch',
   attributes: {

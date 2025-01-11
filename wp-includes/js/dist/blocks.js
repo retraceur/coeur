@@ -12590,10 +12590,10 @@ function convertLegacyBlockNameAndAttributes(name, attributes) {
     name = 'core/paragraph';
   }
 
-  // Convert derivative blocks such as 'core/social-link-wordpress' to the
+  // Convert derivative blocks such as 'core/social-link-chain' to the
   // canonical form 'core/social-link'.
   if (name && name.indexOf('core/social-link-') === 0) {
-    // Capture `social-link-wordpress` into `{"service":"wordpress"}`
+    // Capture `social-link-chain` into `{"service":"chain"}`
     newAttributes.service = name.substring(17);
     name = 'core/social-link';
   }
@@ -12610,7 +12610,7 @@ function convertLegacyBlockNameAndAttributes(name, attributes) {
     newAttributes.providerNameSlug = providerSlug in deprecated ? deprecated[providerSlug] : providerSlug;
     // This is needed as the `responsive` attribute was passed
     // in a different way before the refactoring to block variations.
-    if (!['amazon-kindle', 'wordpress'].includes(providerSlug)) {
+    if (!['amazon-kindle'].includes(providerSlug)) {
       newAttributes.responsive = true;
     }
     name = 'core/embed';
