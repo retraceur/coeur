@@ -34,13 +34,13 @@ if ( ! function_exists( 'retraceur_point_setup' ) ) {
 function retraceur_render_default_logo( $block = '' ) {
 	if ( ! $block ) {
 		$block = sprintf(
-			'<div class="is-retraceur-size wp-block-site-logo">
+			'<div class="is-style-rounded is-style-rounded--1 wp-block-site-logo" style="padding-right:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30);padding-top:0;padding-bottom:0;">
 				<a href="%1$s" class="custom-logo-link" rel="home" aria-current="page">
-					<img width="60" height="60" src="%2$s" class="custom-logo" alt="%3$s" decoding="async" fetchpriority="high">
+					<img width="64" height="64" src="%2$s" class="custom-logo" alt="%3$s" decoding="async" fetchpriority="high">
 				</a>
 			</div>',
 			esc_url( home_url() ),
-			esc_url( includes_url( 'images/retraceur-white-64x64.svg' ) ),
+			esc_url( get_template_directory_uri() . '/assets/images/logo.svg' ),
 			esc_attr( get_bloginfo( 'name', 'display' ) )
 		);
 	}
