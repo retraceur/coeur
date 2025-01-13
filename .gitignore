@@ -20,8 +20,7 @@ wp-config.php
 /wp-content/uploads/
 
 # My plugins
-/wp-content/plugins/reseau
-/wp-content/plugins/reactions
+/wp-content/plugins/
 
 # My theme
 /wp-content/themes/ensemble
