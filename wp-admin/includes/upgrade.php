@@ -288,7 +288,7 @@ if ( ! function_exists( 'wp_install_defaults' ) ) :
 				'post_excerpt'          => '',
 				'post_title'            => __( 'About' ),
 				/* translators: Default page slug. */
-				'post_name'             => __( 'about' ),
+				'post_name'             => sanitize_title( _x( 'about', 'Default post slug' ) ),
 				'post_modified'         => $now,
 				'post_modified_gmt'     => $now_gmt,
 				'guid'                  => $first_post_guid,

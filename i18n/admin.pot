@@ -7,9 +7,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-01-14T02:07:40+00:00\n"
+"POT-Creation-Date: 2025-01-14T23:30:03+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.10.0\n"
+"X-Generator: WP-CLI 2.11.0\n"
 
 #. translators: Page title of the About Retraceur page in the admin.
 #: wp-admin/about.php:16
@@ -411,9 +411,9 @@ msgstr ""
 #: wp-admin/comment.php:30
 #: wp-admin/edit-form-comment.php:32
 #: wp-admin/edit-form-comment.php:48
-#: wp-admin/includes/deprecated.php:3243
-#: wp-admin/includes/deprecated.php:3281
-#: wp-admin/includes/deprecated.php:3370
+#: wp-admin/includes/deprecated.php:3258
+#: wp-admin/includes/deprecated.php:3296
+#: wp-admin/includes/deprecated.php:3385
 #: wp-admin/options-discussion.php:27
 #: wp-admin/options-writing.php:119
 msgid "WP Comments feature is not supported in Retraceur."
@@ -7518,19 +7518,19 @@ msgstr ""
 msgid "The Link/bookmark manager feature is not available in Retraceur."
 msgstr ""
 
-#: wp-admin/includes/deprecated.php:2822
-#: wp-admin/includes/deprecated.php:2960
+#: wp-admin/includes/deprecated.php:2837
+#: wp-admin/includes/deprecated.php:2975
 #: wp-admin/nav-menus.php:29
 #: wp-admin/nav-menus.php:45
 msgid "WP Nav Menus feature is not supported in Retraceur."
 msgstr ""
 
-#: wp-admin/includes/deprecated.php:3066
-#: wp-admin/includes/deprecated.php:3077
-#: wp-admin/includes/deprecated.php:3090
-#: wp-admin/includes/deprecated.php:3108
-#: wp-admin/includes/deprecated.php:3119
-#: wp-admin/includes/deprecated.php:3130
+#: wp-admin/includes/deprecated.php:3081
+#: wp-admin/includes/deprecated.php:3092
+#: wp-admin/includes/deprecated.php:3105
+#: wp-admin/includes/deprecated.php:3123
+#: wp-admin/includes/deprecated.php:3134
+#: wp-admin/includes/deprecated.php:3145
 #: wp-admin/options-discussion.php:31
 msgid "Retraceur does not support WP Comments."
 msgstr ""
@@ -10675,6 +10675,7 @@ msgstr ""
 
 #. translators: Default page slug.
 #: wp-admin/includes/upgrade.php:291
+msgctxt "Default post slug"
 msgid "about"
 msgstr ""
 
