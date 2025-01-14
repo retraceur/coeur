@@ -604,43 +604,10 @@ function upgrade_all() {
 
 	populate_options();
 
-	if ( $wp_current_db_version < 58975 ) {
-		upgrade_670();
-	}
-
 	update_option( 'db_version', $wp_db_version );
 	update_option( 'db_upgraded', true );
 }
 
-/**
- * Executes changes made in WP 6.7.0.
- *
- * @ignore
- * @since WP 6.7.0
- *
- * @global int  $wp_current_db_version The old (current) database version.
- */
-function upgrade_670() {
-	global $wp_current_db_version;
-
-	if ( $wp_current_db_version < 58975 ) {
-		$options = array(
-			'recently_activated',
-			'_wp_suggested_policy_text_has_changed',
-			'dashboard_widget_options',
-			'ftp_credentials',
-			'adminhash',
-			'wp_force_deactivated_plugins',
-			'delete_blog_hash',
-			'allowedthemes',
-			'recovery_keys',
-			'https_detection_errors',
-			'fresh_site',
-		);
-
-		wp_set_options_autoload( $options, false );
-	}
-}
 /**
  * Executes network-level upgrade routines.
  *

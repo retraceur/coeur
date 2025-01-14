@@ -2697,6 +2697,21 @@ function upgrade_650() {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 }
 
+
+
+/**
+ * Executes changes made in WP 6.7.0.
+ *
+ * @ignore
+ * @since WP 6.7.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @global int  $wp_current_db_version The old (current) database version.
+ */
+function upgrade_670() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
 /**
  * Retrieve all options as it was for 1.2.
  *

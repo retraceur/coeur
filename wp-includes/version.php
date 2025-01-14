@@ -27,14 +27,14 @@ $wp_version = '6.7.2-alpha-59581';
  *
  * @global string $retraceur_version
  */
-$retraceur_version = '1.0.0-alpha';
+$retraceur_version = '1.0.0-beta1';
 
 /**
  * Holds the WP DB revision, increments when changes are made to the WP DB schema.
  *
  * @global int $wp_db_version
  */
-$wp_db_version = 58975;
+$wp_db_version = 20250114;
 
 /**
  * Holds the TinyMCE version.
