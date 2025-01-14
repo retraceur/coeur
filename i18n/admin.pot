@@ -7,9 +7,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-01-11T21:15:36+00:00\n"
+"POT-Creation-Date: 2025-01-14T02:07:40+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.11.0\n"
+"X-Generator: WP-CLI 2.10.0\n"
 
 #. translators: Page title of the About Retraceur page in the admin.
 #: wp-admin/about.php:16
@@ -21,6 +21,7 @@ msgstr ""
 #: wp-admin/contribute.php:26
 #: wp-admin/credits.php:26
 #: wp-admin/freedoms.php:32
+#: wp-admin/includes/upgrade.php:289
 #: wp-admin/privacy.php:26
 msgid "About"
 msgstr ""
@@ -10641,68 +10642,54 @@ msgctxt "Default category slug"
 msgid "Uncategorized"
 msgstr ""
 
-#. translators: First post content. %s: Site link.
+#. translators: First post content.
 #: wp-admin/includes/upgrade.php:207
-msgid "Welcome to Retraceur. This is your first post. Edit or delete it, then start writing!"
+msgid "This a post. Posts appear chronologically in your news feed and are a great way to retrace stories about you, your interests or what you accomplished."
 msgstr ""
 
 #: wp-admin/includes/upgrade.php:229
-msgid "Hello world!"
+msgid "Thanks for making Retraceur your very own Personal Online Publication Hub ♡"
 msgstr ""
 
 #. translators: Default post slug.
 #: wp-admin/includes/upgrade.php:231
-#: wp-admin/includes/upgrade.php:424
+#: wp-admin/includes/upgrade.php:414
 msgctxt "Default post slug"
-msgid "hello-world"
+msgid "thank-you"
 msgstr ""
 
 #. translators: First page content.
 #: wp-admin/includes/upgrade.php:253
-msgid "This is an example page. It's different from a blog post because it will stay in one place and will show up in your site navigation (in most themes). Most people start with an About page that introduces them to potential site visitors. It might say something like this:"
+msgid "This is a page, unlike posts, which appear chronologically in your news feed, pages are hierarchical content that can be used to introduce yourself or share lasting information about you. As most people start with an About page, here is an example of what you might say to your visitors:"
 msgstr ""
 
 #. translators: First page content.
 #: wp-admin/includes/upgrade.php:258
-msgid "Hi there! I'm a bike messenger by day, aspiring actor by night, and this is my website. I live in Los Angeles, have a great dog named Jack, and I like pi&#241;a coladas. (And gettin' caught in the rain.)"
-msgstr ""
-
-#. translators: First page content.
-#: wp-admin/includes/upgrade.php:263
-msgid "...or something like this:"
-msgstr ""
-
-#. translators: First page content.
-#: wp-admin/includes/upgrade.php:268
-msgid "The XYZ Doohickey Company was founded in 1971, and has been providing quality doohickeys to the public ever since. Located in Gotham City, XYZ employs over 2,000 people and does all kinds of awesome things for the Gotham community."
+msgid "Hi there! This is my personal website. I use it to retrace great stories and share my thoughts."
 msgstr ""
 
 #. translators: First page content. %s: Site admin URL.
-#: wp-admin/includes/upgrade.php:274
-msgid "As a new Retraceur user, you should go to <a href=\"%s\">your dashboard</a> to delete this page and create new pages for your content. Have fun!"
-msgstr ""
-
-#: wp-admin/includes/upgrade.php:299
-msgid "Sample Page"
+#: wp-admin/includes/upgrade.php:264
+msgid "As a new Retraceur writer, you should go to <a href=\"%s\">your dashboard</a> to edit or delete this page and create new pages for your content. Be inspired!"
 msgstr ""
 
 #. translators: Default page slug.
-#: wp-admin/includes/upgrade.php:301
-msgid "sample-page"
+#: wp-admin/includes/upgrade.php:291
+msgid "about"
 msgstr ""
 
-#: wp-admin/includes/upgrade.php:341
+#: wp-admin/includes/upgrade.php:331
 #: wp-admin/options-privacy.php:76
 msgid "Privacy Policy"
 msgstr ""
 
 #. translators: Privacy Policy page slug.
-#: wp-admin/includes/upgrade.php:343
+#: wp-admin/includes/upgrade.php:333
 msgid "privacy-policy"
 msgstr ""
 
 #. translators: New site notification email. 1: New site URL, 2: User login, 3: User password or password reset link, 4: Login URL.
-#: wp-admin/includes/upgrade.php:478
+#: wp-admin/includes/upgrade.php:468
 msgid ""
 "Your new Retraceur site has been successfully set up at:\n"
 "\n"
@@ -10718,7 +10705,7 @@ msgid ""
 ""
 msgstr ""
 
-#: wp-admin/includes/upgrade.php:500
+#: wp-admin/includes/upgrade.php:490
 msgid "New Retraceur Site"
 msgstr ""
 

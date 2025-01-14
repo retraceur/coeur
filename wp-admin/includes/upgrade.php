@@ -203,8 +203,8 @@ if ( ! function_exists( 'wp_install_defaults' ) ) :
 		$now_gmt         = current_time( 'mysql', 1 );
 		$first_post_guid = get_option( 'home' ) . '/?p=1';
 		$first_post      = "<!-- wp:paragraph -->\n<p>" .
-			/* translators: First post content. %s: Site link. */
-			__( 'Welcome to Retraceur. This is your first post. Edit or delete it, then start writing!' ) .
+			/* translators: First post content. */
+			__( 'This a post. Posts appear chronologically in your news feed and are a great way to retrace stories about you, your interests or what you accomplished.' ) .
 			"</p>\n<!-- /wp:paragraph -->";
 
 		if ( is_multisite() ) {
@@ -226,9 +226,9 @@ if ( ! function_exists( 'wp_install_defaults' ) ) :
 				'post_date_gmt'         => $now_gmt,
 				'post_content'          => $first_post,
 				'post_excerpt'          => '',
-				'post_title'            => __( 'Hello world!' ),
+				'post_title'            => __( 'Thanks for making Retraceur your very own Personal Online Publication Hub ♡' ),
 				/* translators: Default post slug. */
-				'post_name'             => sanitize_title( _x( 'hello-world', 'Default post slug' ) ),
+				'post_name'             => sanitize_title( _x( 'thank-you', 'Default post slug' ) ),
 				'post_modified'         => $now,
 				'post_modified_gmt'     => $now_gmt,
 				'guid'                  => $first_post_guid,
@@ -250,28 +250,18 @@ if ( ! function_exists( 'wp_install_defaults' ) ) :
 
 		$first_page = "<!-- wp:paragraph -->\n<p>";
 		/* translators: First page content. */
-		$first_page .= __( "This is an example page. It's different from a blog post because it will stay in one place and will show up in your site navigation (in most themes). Most people start with an About page that introduces them to potential site visitors. It might say something like this:" );
+		$first_page .= __( "This is a page, unlike posts, which appear chronologically in your news feed, pages are hierarchical content that can be used to introduce yourself or share lasting information about you. As most people start with an About page, here is an example of what you might say to your visitors:" );
 		$first_page .= "</p>\n<!-- /wp:paragraph -->\n\n";
 
 		$first_page .= "<!-- wp:quote -->\n<blockquote class=\"wp-block-quote\"><p>";
 		/* translators: First page content. */
-		$first_page .= __( "Hi there! I'm a bike messenger by day, aspiring actor by night, and this is my website. I live in Los Angeles, have a great dog named Jack, and I like pi&#241;a coladas. (And gettin' caught in the rain.)" );
-		$first_page .= "</p></blockquote>\n<!-- /wp:quote -->\n\n";
-
-		$first_page .= "<!-- wp:paragraph -->\n<p>";
-		/* translators: First page content. */
-		$first_page .= __( '...or something like this:' );
-		$first_page .= "</p>\n<!-- /wp:paragraph -->\n\n";
-
-		$first_page .= "<!-- wp:quote -->\n<blockquote class=\"wp-block-quote\"><p>";
-		/* translators: First page content. */
-		$first_page .= __( 'The XYZ Doohickey Company was founded in 1971, and has been providing quality doohickeys to the public ever since. Located in Gotham City, XYZ employs over 2,000 people and does all kinds of awesome things for the Gotham community.' );
+		$first_page .= __( "Hi there! This is my personal website. I use it to retrace great stories and share my thoughts." );
 		$first_page .= "</p></blockquote>\n<!-- /wp:quote -->\n\n";
 
 		$first_page .= "<!-- wp:paragraph -->\n<p>";
 		$first_page .= sprintf(
 			/* translators: First page content. %s: Site admin URL. */
-			__( 'As a new Retraceur user, you should go to <a href="%s">your dashboard</a> to delete this page and create new pages for your content. Have fun!' ),
+			__( 'As a new Retraceur writer, you should go to <a href="%s">your dashboard</a> to edit or delete this page and create new pages for your content. Be inspired!' ),
 			admin_url()
 		);
 		$first_page .= "</p>\n<!-- /wp:paragraph -->";
@@ -296,9 +286,9 @@ if ( ! function_exists( 'wp_install_defaults' ) ) :
 				'post_date_gmt'         => $now_gmt,
 				'post_content'          => $first_page,
 				'post_excerpt'          => '',
-				'post_title'            => __( 'Sample Page' ),
+				'post_title'            => __( 'About' ),
 				/* translators: Default page slug. */
-				'post_name'             => __( 'sample-page' ),
+				'post_name'             => __( 'about' ),
 				'post_modified'         => $now,
 				'post_modified_gmt'     => $now_gmt,
 				'guid'                  => $first_post_guid,
@@ -421,7 +411,7 @@ function wp_install_maybe_enable_pretty_permalinks() {
 		$test_url = '';
 
 		// Test against a real Retraceur post.
-		$first_post = get_page_by_path( sanitize_title( _x( 'hello-world', 'Default post slug' ) ), OBJECT, 'post' );
+		$first_post = get_page_by_path( sanitize_title( _x( 'thank-you', 'Default post slug' ) ), OBJECT, 'post' );
 		if ( $first_post ) {
 			$test_url = get_permalink( $first_post->ID );
 		}
