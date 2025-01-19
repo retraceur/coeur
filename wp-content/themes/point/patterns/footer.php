@@ -12,8 +12,8 @@
 ?>
 <!-- wp:group {"layout":{"inherit":true}} -->
 <div class="wp-block-group">
-	<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|40"}}},"layout":{"type":"flex","justifyContent":"space-between"}} -->
-	<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--40)">
+	<!-- wp:group {"className":"navigation-container","align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|40"}}},"layout":{"type":"flex","justifyContent":"space-between"}} -->
+	<div class="wp-block-group navigation-container alignwide" style="padding-top:var(--wp--preset--spacing--40)">
 		<!-- wp:social-links -->
 		<ul class="wp-block-social-links">
 		<?php
