@@ -37,21 +37,80 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 		<a href="contribute.php" class="nav-tab"><?php esc_html_e( 'Contributing' ); ?></a>
 	</nav>
 
-	<div class="about__section has-1-column has-gutters">
+	<div class="about__section is-feature">
 		<div class="column aligncenter">
-			<p>
+			<p class="is-subheading">
 				<?php
+				esc_html_e( 'Retraceur is currently maintained by a unique contributor!' );
+				echo '<br/>';
 				printf(
-					/* translators: 1: GH URL listing contributors */
-					__( 'Retraceur is a fork of WP. Many thanks to the <a href="%1$s">WP Core Contributors</a>.' ),
-					esc_url( 'https://github.com/WordPress/wordpress-develop/graphs/contributors' )
+					/* Translators: %s: GH link to learn how to get involved. */
+					esc_html__( 'You’re welcome to join the party and %s.' ),
+					'<a href="https://github.com/retraceur/coeur/blob/trunk/CONTRIBUTING.md">' . esc_html__( 'contribute' ) . '</a>'
 				);
 				?>
-				<br />
-				<a href="<?php echo esc_url( __( 'https://github.com/WordPress/wordpress-develop/blob/trunk/CONTRIBUTING.md' ) ); ?>"><?php _e( 'Get involved in WP.' ); ?></a>
 			</p>
 		</div>
 	</div>
+
+	<div class="about__section">
+		<div class="column">
+			<h3><?php esc_html_e( 'Contributor' ) ;?></h3>
+			<p><a href="https://github.com/imath">imath</a></p>
+		</div>
+	</div>
+
+	<div class="about__section">
+		<div class="column">
+			<h3><?php esc_html_e( 'Eternal thanks' ) ;?></h3>
+			<p>
+				<?php
+				printf(
+					/* translators: %s: GH link listing contributors */
+					__( 'As a fork of WP, Retraceur doesn’t forget where it comes from: the passion of the %s.' ),
+					'<a href="https://github.com/WordPress/wordpress-develop/graphs/contributors">' . esc_html__( 'WP Core Contributors' ) . '</a>'
+				);
+				?>
+			</p>
+		</div>
+	</div>
+
+	<div class="about__section">
+		<div class="column">
+			<h3>
+				<?php
+				/* Translators: %s is the Heart emoji. */
+				printf( esc_html__( '%s GitHub' ), wp_staticize_emoji( '❤️' ) );
+				?>
+			</h3>
+			<p>
+				<?php
+				printf(
+					/* Translators: %s: GitHub’ about URL. */
+					__( 'Building free and Open Source software requires time, energy and great tools such as the ones provided freely by %s.' ),
+					'<a href="https://github.com/about">GitHub</a>'
+				);
+				?>
+			</p>
+		</div>
+	</div>
+
+	<div class="about__section">
+		<div class="column">
+			<h3>
+				<?php
+				/* Translators: %s is the Handshake emoji. */
+				printf( esc_html__( 'The other Retraceur best Open Source friends %s' ), wp_staticize_emoji( '🤝' ) );
+				?>
+			</h3>
+			<ul>
+				<li><a href="https://www.libravatar.org/">Libravatar</a></li>
+				<li><a href="https://openmoji.org/">OpenMoji</a> <?php echo wp_staticize_emoji( '🚀' ) ;?></li>
+				<li><a href="https://wsrv.nl/">wsrv.nl</a></li>
+			</ul>
+		</div>
+	</div>
+
 </div>
 
 <?php
