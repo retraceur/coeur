@@ -37,12 +37,17 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 		<a href="contribute.php" class="nav-tab"><?php esc_html_e( 'Contributing' ); ?></a>
 	</nav>
 
-	<div class="about__section is-feature">
+	<div class="about__section">
 		<div class="column">
 			<h2><?php esc_html_e( 'Privacy policy' ) ;?></h2>
 			<p class="is-subheading">
 				<?php esc_html_e( 'In short: Retraceur does not collect any of your personal data, the GitHub services are & third party plugins or themes might!' ); ?>
 			</p>
+		</div>
+	</div>
+
+	<div class="about__section">
+		<div class="column">
 			<p>
 				<?php
 				printf(
@@ -52,9 +57,11 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 				?>
 			</p>
 			<p><?php esc_html_e( 'Retraceur considers users privacy to be extremely important, so important it does not collect any personal information. This privacy policy document describes how to be informed about the personal data collected and recorded by the GitHub services Retraceur uses, as well as warns you about the fact third party Retraceur plugins or themes might collect your personal data.' ) ; ?></p>
+		</div>
+	</div>
 
-			<hr style="border: none" />
-
+	<div class="about__section">
+		<div class="column">
 			<h3><?php esc_html_e( 'Scope' ) ;?></h3>
 			<p>
 				<?php
@@ -74,9 +81,11 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 				);
 				?>
 			</p>
+		</div>
+	</div>
 
-			<hr style="border: none" />
-
+	<div class="about__section">
+		<div class="column">
 			<h3><?php esc_html_e( 'Retraceur documentation site’s Cookies' ) ;?></h3>
 			<p>
 				<?php
@@ -91,9 +100,10 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 				);
 				?>
 			</p>
-
-			<hr style="border: none" />
-
+		</div>
+	</div>
+	<div class="about__section">
+		<div class="column">
 			<h3><?php esc_html_e( 'GitHub services privacy policy' ) ;?></h3>
 			<p>
 				<?php
@@ -117,9 +127,10 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 				);
 				?>
 			</p>
-
-			<hr style="border: none" />
-
+		</div>
+	</div>
+	<div class="about__section">
+		<div class="column">
 			<h3><?php esc_html_e( 'Third party Plugins or Themes' ) ;?></h3>
 			<p><?php esc_html_e( 'Retraceur cannot monitor third party Plugins or Themes practices regarding your personal information. As a result it takes no responsibility nor provide any warranty about how these third parties are using your data.' ) ;?></p>
 			<p>
@@ -135,9 +146,10 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 				);
 				?>
 			</p>
-
-			<hr style="border: none" />
-
+		</div>
+	</div>
+	<div class="about__section">
+		<div class="column">
 			<h3><?php esc_html_e( 'Consent' ) ;?></h3>
 			<p><?php esc_html_e( 'By using Retraceur, you hereby consent to this privacy policy and agree to its terms.' ) ;?></p>
 
@@ -153,7 +165,6 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 				);
 				?>
 			</p>
-
 		</div>
 	</div>
 </div>
