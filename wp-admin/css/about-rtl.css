@@ -573,7 +573,6 @@
 	justify-content: flex-end;
 	box-sizing: border-box;
 	padding: calc(var(--gap) * 1.5);
-	min-height: clamp(10rem, 25vw, 18.75rem);
 	border-radius: var(--border-radius);
 	background-repeat: no-repeat;
 	background-position: left 7% center, top right;
