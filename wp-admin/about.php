@@ -24,7 +24,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 		<div class="about__header">
 			<div class="about__header-title">
 				<h1>
-					<?php esc_html_e( 'About' ); ?>
+					<?php echo esc_html_x( 'About', 'About admin page before software logo' ); ?>
 					<div class="retraceur-badge"></div>
 				</h1>
 			</div>
