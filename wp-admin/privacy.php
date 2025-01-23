@@ -51,6 +51,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 			<p>
 				<?php
 				printf(
+					/* Translators: %s: Link to the email address to use to ask questions about privacy. */
 					esc_html__( 'If you require any more information or have any questions about Retraceur privacy policy, please feel free to contact us by email at %s.' ),
 					'<a href="mailto:retraceur+privacy@proton.me">retraceur+privacy@proton.me</a>'
 				);

@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-01-18T11:59:58+00:00\n"
+"POT-Creation-Date: 2025-01-23T02:40:00+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 
@@ -21,8 +21,8 @@ msgstr ""
 #: wp-admin/contribute.php:26
 #: wp-admin/credits.php:26
 #: wp-admin/freedoms.php:32
-#: wp-admin/includes/upgrade.php:289
 #: wp-admin/privacy.php:26
+msgctxt "About admin page before software logo"
 msgid "About"
 msgstr ""
 
@@ -484,57 +484,89 @@ msgstr ""
 msgid "Retraceur Core and Block Editor: HTML, CSS, PHP, SQL, JavaScript, and React."
 msgstr ""
 
-#. translators: 1: GH URL listing contributors
-#: wp-admin/credits.php:46
-msgid "Retraceur is a fork of WP. Many thanks to the <a href=\"%1$s\">WP Core Contributors</a>."
+#: wp-admin/credits.php:44
+msgid "Retraceur is currently maintained by a unique contributor!"
 msgstr ""
 
-#: wp-admin/credits.php:51
-msgid "https://github.com/WordPress/wordpress-develop/blob/trunk/CONTRIBUTING.md"
+#. Translators: %s: GH link to learn how to get involved.
+#: wp-admin/credits.php:48
+msgid "You’re welcome to join the party and %s."
 msgstr ""
 
-#: wp-admin/credits.php:51
-msgid "Get involved in WP."
+#: wp-admin/credits.php:49
+msgid "contribute"
 msgstr ""
 
-#: wp-admin/credits.php:62
+#: wp-admin/credits.php:58
+msgid "Contributor"
+msgstr ""
+
+#: wp-admin/credits.php:65
+msgid "Eternal thanks"
+msgstr ""
+
+#. translators: %s: GH link listing contributors
+#: wp-admin/credits.php:70
+msgid "As a fork of WP, Retraceur doesn’t forget where it comes from: the passion of the %s."
+msgstr ""
+
+#: wp-admin/credits.php:71
+msgid "WP Core Contributors"
+msgstr ""
+
+#. Translators: %s is the Heart emoji.
+#: wp-admin/credits.php:83
+msgid "%s GitHub"
+msgstr ""
+
+#. Translators: %s: GitHub’ about URL.
+#: wp-admin/credits.php:90
+msgid "Building free and Open Source software requires time, energy and great tools such as the ones provided freely by %s."
+msgstr ""
+
+#. Translators: %s is the Handshake emoji.
+#: wp-admin/credits.php:103
+msgid "The other Retraceur best Open Source friends %s"
+msgstr ""
+
+#: wp-admin/credits.php:121
 msgid "Project Leaders"
 msgstr ""
 
 #. translators: %s: The current Retraceur version number.
-#: wp-admin/credits.php:64
+#: wp-admin/credits.php:123
 msgid "Core Contributors to Retraceur %s"
 msgstr ""
 
-#: wp-admin/credits.php:65
+#: wp-admin/credits.php:124
 msgid "Noteworthy Contributors"
 msgstr ""
 
-#: wp-admin/credits.php:66
+#: wp-admin/credits.php:125
 msgid "Cofounder, Project Lead"
 msgstr ""
 
-#: wp-admin/credits.php:67
+#: wp-admin/credits.php:126
 msgid "Lead Developer"
 msgstr ""
 
-#: wp-admin/credits.php:68
+#: wp-admin/credits.php:127
 msgid "Release Lead"
 msgstr ""
 
-#: wp-admin/credits.php:69
+#: wp-admin/credits.php:128
 msgid "Release Design Lead"
 msgstr ""
 
-#: wp-admin/credits.php:70
+#: wp-admin/credits.php:129
 msgid "Release Deputy"
 msgstr ""
 
-#: wp-admin/credits.php:71
+#: wp-admin/credits.php:130
 msgid "Core Developer"
 msgstr ""
 
-#: wp-admin/credits.php:72
+#: wp-admin/credits.php:131
 msgid "External Libraries"
 msgstr ""
 
@@ -1416,8 +1448,8 @@ msgstr ""
 msgid "Download Export File"
 msgstr ""
 
-#: wp-admin/freedoms.php:48
-msgid "Retraceur is Free & Open Source. It comes with some awesome, worldview-changing rights courtesy of its license, the GPL."
+#: wp-admin/freedoms.php:49
+msgid "Retraceur is Free & Open Source. Its license is the GPL."
 msgstr ""
 
 #: wp-admin/import.php:19
@@ -10673,6 +10705,10 @@ msgstr ""
 msgid "As a new Retraceur writer, you should go to <a href=\"%s\">your dashboard</a> to edit or delete this page and create new pages for your content. Be inspired!"
 msgstr ""
 
+#: wp-admin/includes/upgrade.php:289
+msgid "About"
+msgstr ""
+
 #. translators: Default page slug.
 #: wp-admin/includes/upgrade.php:291
 msgctxt "Default post slug"
@@ -12879,96 +12915,97 @@ msgstr ""
 msgid "In short: Retraceur does not collect any of your personal data, the GitHub services are & third party plugins or themes might!"
 msgstr ""
 
-#: wp-admin/privacy.php:49
+#. Translators: %s: Link to the email address to use to ask questions about privacy.
+#: wp-admin/privacy.php:55
 msgid "If you require any more information or have any questions about Retraceur privacy policy, please feel free to contact us by email at %s."
 msgstr ""
 
-#: wp-admin/privacy.php:54
+#: wp-admin/privacy.php:60
 msgid "Retraceur considers users privacy to be extremely important, so important it does not collect any personal information. This privacy policy document describes how to be informed about the personal data collected and recorded by the GitHub services Retraceur uses, as well as warns you about the fact third party Retraceur plugins or themes might collect your personal data."
 msgstr ""
 
-#: wp-admin/privacy.php:58
+#: wp-admin/privacy.php:66
 msgid "Scope"
 msgstr ""
 
 #. translators: 1: Retraceur’s repositories link. 2: Retraceur’s documentation site link.
-#: wp-admin/privacy.php:63
+#: wp-admin/privacy.php:71
 msgid "This privacy policy applies only to the %1$s, as well as %2$s."
 msgstr ""
 
-#: wp-admin/privacy.php:67
-#: wp-admin/privacy.php:133
+#: wp-admin/privacy.php:75
+#: wp-admin/privacy.php:145
 msgid "Retraceur’s repositories"
 msgstr ""
 
-#: wp-admin/privacy.php:71
-#: wp-admin/privacy.php:88
+#: wp-admin/privacy.php:79
+#: wp-admin/privacy.php:98
 msgid "https://retraceur.github.io/"
 msgstr ""
 
-#: wp-admin/privacy.php:72
+#: wp-admin/privacy.php:80
 msgid "its documentation websiste"
 msgstr ""
 
-#: wp-admin/privacy.php:80
+#: wp-admin/privacy.php:90
 msgid "Retraceur documentation site’s Cookies"
 msgstr ""
 
 #. translators: %s: Retraceur’s documentation site link.
-#: wp-admin/privacy.php:85
+#: wp-admin/privacy.php:95
 msgid "If you visit the %s, be aware it uses cookies to store information about visitors’ preferences, to personalize or customize its web page content based upon visitors’ browser type or other information that the visitor sends via their browser."
 msgstr ""
 
-#: wp-admin/privacy.php:89
+#: wp-admin/privacy.php:99
 msgid "Retraceur documentation site"
 msgstr ""
 
-#: wp-admin/privacy.php:97
+#: wp-admin/privacy.php:108
 msgid "GitHub services privacy policy"
 msgstr ""
 
 #. translators: %s: Retraceur’s GitHub organization link.
-#: wp-admin/privacy.php:102
+#: wp-admin/privacy.php:113
 msgid "Retraceur’s source code and tools to manage translations, issues, documentation and contributions are hosted on %s."
 msgstr ""
 
 #. translators: %s: GitHub privacy policy link.
-#: wp-admin/privacy.php:111
+#: wp-admin/privacy.php:122
 msgid "You should consult the %s for more detailed information on their practices as well as for instructions about how to opt-out of certain practices."
 msgstr ""
 
-#: wp-admin/privacy.php:115
+#: wp-admin/privacy.php:126
 msgid "GitHub privacy policy"
 msgstr ""
 
-#: wp-admin/privacy.php:123
+#: wp-admin/privacy.php:135
 msgid "Third party Plugins or Themes"
 msgstr ""
 
-#: wp-admin/privacy.php:124
+#: wp-admin/privacy.php:136
 msgid "Retraceur cannot monitor third party Plugins or Themes practices regarding your personal information. As a result it takes no responsibility nor provide any warranty about how these third parties are using your data."
 msgstr ""
 
 #. translators: %s: Retraceur’s repositories link.
-#: wp-admin/privacy.php:129
+#: wp-admin/privacy.php:141
 msgid "Before installing a plugin or theme that is not listed into the %s, please make sure to check its privacy policy matches your expectations regarding how your personal information is managed."
 msgstr ""
 
-#: wp-admin/privacy.php:141
+#: wp-admin/privacy.php:154
 msgid "Consent"
 msgstr ""
 
-#: wp-admin/privacy.php:142
+#: wp-admin/privacy.php:155
 msgid "By using Retraceur, you hereby consent to this privacy policy and agree to its terms."
 msgstr ""
 
-#: wp-admin/privacy.php:146
+#: wp-admin/privacy.php:159
 msgctxt "Retraceur privacy policy"
 msgid "Update"
 msgstr ""
 
 #. translators: %s: Privacy policy last updated date.
-#: wp-admin/privacy.php:151
+#: wp-admin/privacy.php:164
 msgid "This Privacy Policy was last updated on: %s. Should we update, amend or make any changes to our privacy policy, those changes will be posted here."
 msgstr ""
 
