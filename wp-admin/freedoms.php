@@ -45,16 +45,21 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 
 	<div class="about__section is-feature">
 		<div class="column aligncenter">
-			<p class="about-description">
+			<p class="is-subheading">
 				<?php esc_html_e( 'Retraceur is Free & Open Source. Its license is the GPL.' ); ?>
 			</p>
 		</div>
 	</div>
 
-	<div class="about__section has-1-column">
+	<div class="about__section">
+		<div class="column aligncenter">
+			<h2 id="SEC1">GNU GENERAL PUBLIC LICENSE</h2>
+			<p class="description">Version 2, June 1991</p>
+		</div>
+	</div>
+
+	<div class="about__section">
 		<div class="column">
-			<h3 id="SEC1">GNU GENERAL PUBLIC LICENSE</h3>
-			<p>Version 2, June 1991</p>
 			<pre>
 				Copyright (C) 1989, 1991 Free Software Foundation, Inc.
 				&lt;<a href="https://fsf.org/">https://fsf.org/</a>&gt;
@@ -62,7 +67,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 				of this license document, but changing it is not allowed.
 			</pre>
 			<span id="SEC2"></span>
-			<h4 id="preamble">Preamble</h4>
+			<h3 id="preamble">Preamble</h3>
 			<p>
 				The licenses for most software are designed to take away your
 				freedom to share and change it.  By contrast, the GNU General Public
@@ -120,7 +125,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 				modification follow.
 			</p>
 			<span id="SEC3"></span>
-			<h4 id="terms">TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION</h4>
+			<h3 id="terms">TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION</h3>
 			<p id="section0">
 				<strong>0.</strong>
 				This License applies to any program or other work which contains
