@@ -60,7 +60,7 @@ wp_localize_script(
 			'search'              => __( 'Search Themes' ),
 			'upload'              => __( 'Upload Theme' ),
 			'back'                => __( 'Back' ),
-			'error'               => __( 'Retraceur does not provide a Theme Install API.' ),
+			'error'               => __( 'Retraceur does not provide a Theme Install API, yet! It will soon do so, the independant way.' ),
 			'tryAgain'            => __( 'Try Again' ),
 			/* translators: %d: Number of themes. */
 			'themesFound'         => __( 'Number of Themes found: %d' ),

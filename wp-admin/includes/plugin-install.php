@@ -149,7 +149,7 @@ function plugins_api( $action, $args = array() ) {
 	$res = apply_filters( 'plugins_api', false, $action, $args );
 
 	if ( false === $res ) {
-		return new WP_Error( 'plugins_api_disabled', __( 'Retraceur does not provide a Plugin Installation API.' ) );
+		return new WP_Error( 'plugins_api_disabled', __( 'Retraceur does not provide a Plugin Install API, yet! It will soon do so, the independant way.' ) );
 
 		// @todo use GitHub instead
 		$url = '';

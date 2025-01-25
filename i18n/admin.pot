@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-01-23T02:40:00+00:00\n"
+"POT-Creation-Date: 2025-01-25T11:00:19+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 
@@ -9036,7 +9036,7 @@ msgid "The character encoding of your site (UTF-8 is recommended)"
 msgstr ""
 
 #: wp-admin/includes/plugin-install.php:152
-msgid "Retraceur does not provide a Plugin Installation API."
+msgid "Retraceur does not provide a Plugin Install API, yet! It will soon do so, the independant way."
 msgstr ""
 
 #: wp-admin/includes/plugin-install.php:180
@@ -13448,7 +13448,7 @@ msgid "Back"
 msgstr ""
 
 #: wp-admin/theme-install.php:63
-msgid "Retraceur does not provide a Theme Install API."
+msgid "Retraceur does not provide a Theme Install API, yet! It will soon do so, the independant way."
 msgstr ""
 
 #. translators: %d: Number of themes.
