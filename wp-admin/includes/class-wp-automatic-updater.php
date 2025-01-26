@@ -54,10 +54,11 @@ class WP_Automatic_Updater {
 		 * This also disables update notification emails. That may change in the future.
 		 *
 		 * @since WP 3.7.0
+		 * @since 1.0.0 Retraceur fork disabled auto-updates. It will be back soon.
 		 *
 		 * @param bool $disabled Whether the updater should be disabled.
 		 */
-		return apply_filters( 'automatic_updater_disabled', $disabled );
+		return apply_filters( 'automatic_updater_disabled', true );
 	}
 
 	/**
