@@ -12,13 +12,24 @@ if ( ! defined( 'IFRAME_REQUEST' ) && isset( $_GET['tab'] ) && ( 'plugin-informa
 	define( 'IFRAME_REQUEST', true );
 }
 
+$plugin_type = 'regular';
+if ( defined( 'IS_BLOCKS_ADMIN' ) && IS_BLOCKS_ADMIN ) {
+	$plugin_type = 'block';
+}
+
 /**
  * Retraceur Administration Bootstrap.
  */
 require_once __DIR__ . '/admin.php';
 
 if ( ! current_user_can( 'install_plugins' ) ) {
-	wp_die( __( 'Sorry, you are not allowed to install plugins on this site.' ) );
+	wp_die(
+		sprintf(
+			/* Translators: %s: The plugin type's plural name. */
+			esc_html__( 'Sorry, you are not allowed to install %s on this site.' ),
+			'block' === $plugin_type ? __( 'blocks' ) : __( 'plugins' )
+		)
+	);
 }
 
 if ( is_multisite() && ! is_network_admin() ) {
@@ -52,6 +63,11 @@ if ( $pagenum > $total_pages && $total_pages > 0 ) {
 // Used in the HTML title tag.
 $title       = __( 'Add Plugins' );
 $parent_file = 'plugins.php';
+
+if ( 'block' === $plugin_type ) {
+	$title       = _x( 'Add Blocks', 'block install page title' );
+	$parent_file = 'blocks.php';
+}
 
 wp_enqueue_script( 'plugin-install' );
 if ( 'plugin-information' !== $tab ) {
@@ -138,8 +154,8 @@ if ( ! empty( $tabs['upload'] ) && current_user_can( 'upload_plugins' ) ) {
 	printf(
 		' <a href="%s" class="upload-view-toggle page-title-action"><span class="upload">%s</span><span class="browse">%s</span></a>',
 		( 'upload' === $tab ) ? self_admin_url( 'plugin-install.php' ) : self_admin_url( 'plugin-install.php?tab=upload' ),
-		__( 'Upload Plugin' ),
-		__( 'Browse Plugins' )
+		'block' === $plugin_type ? __( 'Upload Block' ) : __( 'Upload Plugin' ),
+		'block' === $plugin_type ? __( 'Browse Blocks' ) : __( 'Browse Plugins' )
 	);
 }
 ?>
@@ -155,8 +171,17 @@ if ( 'upload' !== $tab ) {
 	?>
 	<div class="upload-plugin-wrap">
 		<?php
-		/** This action is documented in wp-admin/plugin-install.php */
-		do_action( 'install_plugins_upload' );
+		if ( 'block' === $plugin_type ) {
+			/**
+			 * Fire the hook to display the Block upload form.
+			 *
+			 * @since 1.0.0 Retraceur fork.
+			 */
+			do_action( 'install_blocks_upload' );
+		} else {
+			/** This action is documented in wp-admin/plugin-install.php */
+			do_action( 'install_plugins_upload' );
+		}
 		?>
 	</div>
 	<?php

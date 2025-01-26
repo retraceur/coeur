@@ -96,7 +96,12 @@ wp_enqueue_style( 'colors' );
 wp_enqueue_script( 'utils' );
 wp_enqueue_script( 'svg-painter' );
 
-$admin_body_class = preg_replace( '/[^a-z0-9_-]+/i', '-', $hook_suffix );
+// Blocks are actually a specific type of plugins.
+if ( 'block-install.php' === $hook_suffix ) {
+	$admin_body_class = 'plugin-install-php';
+} else {
+	$admin_body_class = preg_replace( '/[^a-z0-9_-]+/i', '-', $hook_suffix );
+}
 ?>
 <script type="text/javascript">
 addLoadEvent = function(func){if(typeof jQuery!=='undefined')jQuery(function(){func();});else if(typeof wpOnload!=='function'){wpOnload=func;}else{var oldonload=wpOnload;wpOnload=function(){oldonload();func();}}};

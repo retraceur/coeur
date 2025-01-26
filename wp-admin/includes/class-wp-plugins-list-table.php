@@ -43,8 +43,9 @@ class WP_Plugins_List_Table extends WP_List_Table {
 
 		parent::__construct(
 			array(
-				'plural' => 'plugins',
-				'screen' => isset( $args['screen'] ) ? $args['screen'] : null,
+				'singular' => isset( $args['singular'] ) ? $args['singular'] : 'plugin',
+				'plural'   => isset( $args['plural'] ) ? $args['plural'] : 'plugins',
+				'screen'   => isset( $args['screen'] ) ? $args['screen'] : null,
 			)
 		);
 
@@ -106,8 +107,14 @@ class WP_Plugins_List_Table extends WP_List_Table {
 		 */
 		$all_plugins = apply_filters( 'all_plugins', get_plugins() );
 
+		// Determine the type of plugins displayed.
+		$plugin_type = 'regular';
+		if ( 'block' === $this->_args['singular'] ) {
+			$plugin_type = 'block';
+		}
+
 		$plugins = array(
-			'all'                => $all_plugins,
+			'all'                => wp_list_filter( $all_plugins, array( 'Type' => $plugin_type ) ),
 			'search'             => array(),
 			'active'             => array(),
 			'inactive'           => array(),
@@ -418,17 +425,19 @@ class WP_Plugins_List_Table extends WP_List_Table {
 		if ( ! empty( $_REQUEST['s'] ) ) {
 			$s = esc_html( urldecode( wp_unslash( $_REQUEST['s'] ) ) );
 
-			/* translators: %s: Plugin search term. */
-			printf( __( 'No plugins found for: %s.' ), '<strong>' . $s . '</strong>' );
+			/* translators: %1$s: Plugin type. %2$s: Plugin search term. */
+			printf( esc_html__( 'No %1$s found for: %2$s.' ), $this->_args['plural'], '<strong>' . $s . '</strong>' );
 
 			// We assume that somebody who can install plugins in multisite is experienced enough to not need this helper link.
 			if ( ! is_multisite() && current_user_can( 'install_plugins' ) ) {
 				echo ' <a href="' . esc_url( admin_url( 'plugin-install.php?tab=search&s=' . urlencode( $s ) ) ) . '">' . __( 'Search for plugins in the Retraceur Plugin Directory.' ) . '</a>';
 			}
 		} elseif ( ! empty( $plugins['all'] ) ) {
-			_e( 'No plugins found.' );
+			/* translators: %s: Plugin type.*/
+			printf( esc_html__( 'No %s found.' ), $this->_args['plural'] );
 		} else {
-			_e( 'No plugins are currently available.' );
+			/* translators: %s: Plugin type.*/
+			printf( esc_html__( 'No %s are currently available.' ), $this->_args['plural'] );
 		}
 	}
 
@@ -472,7 +481,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 
 		$columns = array(
 			'cb'          => ! in_array( $status, array( 'mustuse', 'dropins' ), true ) ? '<input type="checkbox" />' : '',
-			'name'        => __( 'Plugin' ),
+			'name'        => 'plugins' === $this->_args['plural'] ? __( 'Plugin' ) : _x( 'Block', 'plugins list table' ),
 			'description' => __( 'Description' ),
 		);
 
