@@ -353,6 +353,30 @@ function install_plugins_upload() {
 }
 
 /**
+ * Displays a form to upload blocks from zip files.
+ *
+ * @since 1.0.0 Retraceur fork.
+ */
+function retraceur_block_upload() {
+	?>
+<div class="upload-plugin">
+	<p class="install-help"><?php esc_html_e( 'If you have a block in a .zip format, you may install or update it by uploading it here.' ); ?></p>
+	<form method="post" enctype="multipart/form-data" class="wp-upload-form" action="<?php echo esc_url( self_admin_url( 'update.php?action=upload-block' ) ); ?>">
+		<?php wp_nonce_field( 'plugin-upload' ); ?>
+		<label class="screen-reader-text" for="pluginzip">
+			<?php
+			/* translators: Hidden accessibility text. */
+			esc_html_e( 'Block zip file' );
+			?>
+		</label>
+		<input type="file" id="pluginzip" name="pluginzip" accept=".zip" />
+		<?php submit_button( _x( 'Install Now', 'plugin' ), '', 'install-plugin-submit', false ); ?>
+	</form>
+</div>
+	<?php
+}
+
+/**
  * Displays plugin content based on plugin list.
  *
  * @since WP 2.7.0

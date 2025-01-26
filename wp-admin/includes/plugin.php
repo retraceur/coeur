@@ -49,6 +49,7 @@
  * @since WP 5.8.0 Added support for `Update URI` header.
  * @since WP 6.5.0 Added support for `Requires Plugins` header.
  * @since 1.0.0 Retraceur fork replaced `Requires at least` with `Requires Retraceur`.
+ *              It also added `Plugin Type` to differentiate blocks from plugins.
  *
  * @param string $plugin_file Absolute path to the main plugin file.
  * @param bool   $markup      Optional. If the returned data should have HTML markup applied.
@@ -58,6 +59,7 @@
  *     Plugin data. Values will be empty if not supplied by the plugin.
  *
  *     @type string $Name            Name of the plugin. Should be unique.
+ *     @type string $Type            Whether the plugin is a `regular` or a `block` one.
  *     @type string $PluginURI       Plugin URI.
  *     @type string $Version         Plugin version.
  *     @type string $Description     Plugin description.
@@ -78,6 +80,7 @@ function get_plugin_data( $plugin_file, $markup = true, $translate = true ) {
 
 	$default_headers = array(
 		'Name'            => 'Plugin Name',
+		'Type'            => 'Plugin Type',
 		'PluginURI'       => 'Plugin URI',
 		'Version'         => 'Version',
 		'Description'     => 'Description',
@@ -344,6 +347,10 @@ function get_plugins( $plugin_folder = '' ) {
 
 		if ( empty( $plugin_data['Name'] ) ) {
 			continue;
+		}
+
+		if ( empty( $plugin_data['Type'] ) ) {
+			$plugin_data['Type'] = 'regular';
 		}
 
 		$wp_plugins[ plugin_basename( $plugin_file ) ] = $plugin_data;

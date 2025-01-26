@@ -11,11 +11,31 @@
 /** Retraceur Administration Bootstrap */
 require_once __DIR__ . '/admin.php';
 
-if ( ! current_user_can( 'activate_plugins' ) ) {
-	wp_die( __( 'Sorry, you are not allowed to manage plugins for this site.' ) );
+$plugins_type = 'regular';
+$plugins_args = array(
+	'singular' => 'plugin',
+	'plural'   => 'plugins',
+);
+
+if ( defined( 'IS_BLOCKS_ADMIN' ) && IS_BLOCKS_ADMIN ) {
+	$plugins_type = 'block';
+	$plugins_args = array(
+		'singular' => 'block',
+		'plural'   => 'blocks',
+	);
 }
 
-$wp_list_table = _get_list_table( 'WP_Plugins_List_Table' );
+if ( ! current_user_can( 'activate_plugins' ) ) {
+	wp_die(
+		sprintf(
+			/* Translators: %s: The plugin type's plural name. */
+			esc_html__( 'Sorry, you are not allowed to manage %s for this site.' ),
+			esc_html( $plugins_args['plural'] )
+		)
+	);
+}
+
+$wp_list_table = _get_list_table( 'WP_Plugins_List_Table', $plugins_args );
 $pagenum       = $wp_list_table->get_pagenum();
 
 $action = $wp_list_table->current_action();
@@ -604,6 +624,11 @@ get_current_screen()->set_screen_reader_content(
 $title       = __( 'Plugins' );
 $parent_file = 'plugins.php';
 
+if ( 'block' === $plugins_type ) {
+	$title       = _x( 'Blocks', 'blocks admin page title' );
+	$parent_file = 'blocks.php';
+}
+
 require_once ABSPATH . 'wp-admin/admin-header.php';
 
 $invalid = validate_active_plugins();
@@ -736,9 +761,15 @@ echo esc_html( $title );
 
 <?php
 if ( ( ! is_multisite() || is_network_admin() ) && current_user_can( 'install_plugins' ) ) {
-	?>
-	<a href="<?php echo esc_url( self_admin_url( 'plugin-install.php' ) ); ?>" class="page-title-action"><?php echo esc_html__( 'Add New Plugin' ); ?></a>
-	<?php
+	if ( 'block' === $plugins_type ) {
+		?>
+		<a href="<?php echo esc_url( self_admin_url( 'block-install.php' ) ); ?>" class="page-title-action"><?php echo esc_html__( 'Add New Block' ); ?></a>
+		<?php
+	} else {
+		?>
+		<a href="<?php echo esc_url( self_admin_url( 'plugin-install.php' ) ); ?>" class="page-title-action"><?php echo esc_html__( 'Add New Plugin' ); ?></a>
+		<?php
+	}
 }
 
 if ( strlen( $s ) ) {

@@ -254,6 +254,14 @@ if ( ! is_multisite() ) {
 
 unset( $update_data );
 
+$menu[67] = array( __( 'Blocks' ), 'activate_plugins', 'blocks.php', '', 'menu-top menu-icon-blocks', 'menu-blocks', 'dashicons-block-default' );
+
+$submenu['blocks.php'][5] = array( __( 'Installed Blocks' ), 'activate_plugins', 'blocks.php' );
+
+if ( ! is_multisite() ) {
+	$submenu['blocks.php'][10] = array( __( 'Add New Block' ), 'install_plugins', 'block-install.php' );
+}
+
 if ( current_user_can( 'list_users' ) ) {
 	$menu[70] = array( __( 'Users' ), 'list_users', 'users.php', '', 'menu-top menu-icon-users', 'menu-users', 'dashicons-admin-users' );
 } else {
