@@ -211,7 +211,7 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 			return;
 		}
 
-		$api = plugins_api( 'query_plugins', $args );
+		$api = plugins_api( 'query_' . $this->_args['plural'], $args );
 
 		if ( is_wp_error( $api ) ) {
 			$this->error = $api;

@@ -1279,6 +1279,9 @@ class WP_Upgrader {
 /** Plugin_Upgrader class */
 require_once ABSPATH . 'wp-admin/includes/class-plugin-upgrader.php';
 
+/** Block_Upgrader class */
+require_once ABSPATH . 'wp-admin/includes/class-block-upgrader.php';
+
 /** Theme_Upgrader class */
 require_once ABSPATH . 'wp-admin/includes/class-theme-upgrader.php';
 

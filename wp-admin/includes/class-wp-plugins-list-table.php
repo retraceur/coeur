@@ -507,6 +507,11 @@ class WP_Plugins_List_Table extends WP_List_Table {
 	protected function get_views() {
 		global $totals, $status;
 
+		$parent_file = 'plugins.php';
+		if ( 'block' === $this->_args['singular'] ) {
+			$parent_file = 'blocks.php';
+		}
+
 		$status_links = array();
 		foreach ( $totals as $type => $count ) {
 			if ( ! $count ) {
@@ -599,7 +604,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 
 			if ( 'search' !== $type ) {
 				$status_links[ $type ] = array(
-					'url'     => add_query_arg( 'plugin_status', $type, 'plugins.php' ),
+					'url'     => add_query_arg( 'plugin_status', $type, $parent_file ),
 					'label'   => sprintf( $text, number_format_i18n( $count ) ),
 					'current' => $type === $status,
 				);
@@ -734,6 +739,11 @@ class WP_Plugins_List_Table extends WP_List_Table {
 	public function single_row( $item ) {
 		global $status, $page, $s, $totals;
 		static $plugin_id_attrs = array();
+
+		$parent_file = 'plugins.php';
+		if ( 'block' === $this->_args['singular'] ) {
+			$parent_file = 'blocks.php';
+		}
 
 		list( $plugin_file, $plugin_data ) = $item;
 
@@ -913,7 +923,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 								__( 'You cannot deactivate this plugin as other plugins depend on it.' ) .
 								'</span>';
 						} else {
-							$deactivate_url = 'plugins.php?action=deactivate' .
+							$deactivate_url = $parent_file . '?action=deactivate' .
 								'&amp;plugin=' . urlencode( $plugin_file ) .
 								'&amp;plugin_status=' . $context .
 								'&amp;paged=' . $page .
@@ -931,7 +941,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 					}
 
 					if ( current_user_can( 'resume_plugin', $plugin_file ) && is_plugin_paused( $plugin_file ) ) {
-						$resume_url = 'plugins.php?action=resume' .
+						$resume_url = $parent_file . '?action=resume' .
 							'&amp;plugin=' . urlencode( $plugin_file ) .
 							'&amp;plugin_status=' . $context .
 							'&amp;paged=' . $page .
@@ -955,7 +965,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 									__( 'You cannot activate this plugin as it has unmet requirements.' ) .
 									'</span>';
 							} else {
-								$activate_url = 'plugins.php?action=activate' .
+								$activate_url = $parent_file . '?action=activate' .
 									'&amp;plugin=' . urlencode( $plugin_file ) .
 									'&amp;plugin_status=' . $context .
 									'&amp;paged=' . $page .
@@ -985,7 +995,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 								__( 'You cannot delete this plugin as other plugins require it.' ) .
 								'</span>';
 						} else {
-							$delete_url = 'plugins.php?action=delete-selected' .
+							$delete_url = $parent_file . '?action=delete-selected' .
 								'&amp;checked[]=' . urlencode( $plugin_file ) .
 								'&amp;plugin_status=' . $context .
 								'&amp;paged=' . $page .
@@ -1344,7 +1354,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 						'plugin_status' => $status,
 					);
 
-					$url = add_query_arg( $query_args, 'plugins.php' );
+					$url = add_query_arg( $query_args, $parent_file );
 
 					if ( 'unavailable' === $action ) {
 						$html[] = '<span class="label">' . $text . '</span>';

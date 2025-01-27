@@ -77,7 +77,7 @@ class Plugin_Upgrader extends WP_Upgrader {
 		$this->strings['no_package'] = __( 'Installation package not available.' );
 		/* translators: %s: Package URL. */
 		$this->strings['downloading_package'] = sprintf( __( 'Downloading installation package from %s&#8230;' ), '<span class="code pre">%s</span>' );
-		$this->strings['unpack_package']      = __( 'Unpacking the package&#8230;' );
+		$this->strings['unpack_package']      = __( 'Unpacking the plugin package&#8230;' );
 		$this->strings['installing_package']  = __( 'Installing the plugin&#8230;' );
 		$this->strings['remove_old']          = __( 'Removing the current plugin&#8230;' );
 		$this->strings['remove_old_failed']   = __( 'Could not remove the current plugin.' );
