@@ -301,29 +301,37 @@ function install_dashboard() {
  *
  * @since WP 2.7.0
  * @since WP 4.6.0 The `$type_selector` parameter was deprecated.
+ * @since 1.0.0 Retraceur fork added the `$args` parameter.
  *
  * @param bool $deprecated Not used.
  */
-function install_search_form( $deprecated = true ) {
+function install_search_form( $deprecated = true, $args = array() ) {
 	$type = isset( $_REQUEST['type'] ) ? wp_unslash( $_REQUEST['type'] ) : 'term';
 	$term = isset( $_REQUEST['s'] ) ? urldecode( wp_unslash( $_REQUEST['s'] ) ) : '';
+
+	$search_label = __( 'Search Plugins' );
+
+	/* translators: Hidden accessibility text. */
+	$search_by_label = __( 'Search plugins by:' );
+
+	if ( isset( $args['plural'] ) && 'blocks' === $args['plural'] ) {
+		$search_label = __( 'Search Blocks' );
+
+		/* translators: Hidden accessibility text. */
+		$search_by_label = __( 'Search blocks by:' );
+	}
 	?>
 	<form class="search-form search-plugins" method="get">
 		<input type="hidden" name="tab" value="search" />
-		<label for="search-plugins"><?php _e( 'Search Plugins' ); ?></label>
+		<label for="search-plugins"><?php echo esc_html( $search_label ); ?></label>
 		<input type="search" name="s" id="search-plugins" value="<?php echo esc_attr( $term ); ?>" class="wp-filter-search" />
-		<label class="screen-reader-text" for="typeselector">
-			<?php
-			/* translators: Hidden accessibility text. */
-			_e( 'Search plugins by:' );
-			?>
-		</label>
+		<label class="screen-reader-text" for="typeselector"><?php echo esc_html( $search_by_label ) ;?></label>
 		<select name="type" id="typeselector">
 			<option value="term"<?php selected( 'term', $type ); ?>><?php _e( 'Keyword' ); ?></option>
 			<option value="author"<?php selected( 'author', $type ); ?>><?php _e( 'Author' ); ?></option>
 			<option value="tag"<?php selected( 'tag', $type ); ?>><?php _ex( 'Tag', 'Plugin Installer' ); ?></option>
 		</select>
-		<?php submit_button( __( 'Search Plugins' ), 'hide-if-js', false, false, array( 'id' => 'search-submit' ) ); ?>
+		<?php submit_button( $search_label, 'hide-if-js', false, false, array( 'id' => 'search-submit' ) ); ?>
 	</form>
 	<?php
 }

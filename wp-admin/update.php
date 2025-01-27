@@ -148,10 +148,16 @@ if ( isset( $_GET['action'] ) ) {
 
 		require_once ABSPATH . 'wp-admin/admin-footer.php';
 
-	} elseif ( 'upload-plugin' === $action ) {
+	} elseif ( 'upload-plugin' === $action || 'upload-block' === $action ) {
 
 		if ( ! current_user_can( 'upload_plugins' ) ) {
-			wp_die( __( 'Sorry, you are not allowed to install plugins on this site.' ) );
+			wp_die(
+				sprintf(
+					/* Translators: %s: The plugin type's plural name. */
+					esc_html__( 'Sorry, you are not allowed to install %s on this site.' ),
+					'upload-block' === $action ? __( 'blocks' ) : __( 'plugins' )
+				)
+			);
 		}
 
 		check_admin_referer( 'plugin-upload' );
@@ -167,12 +173,22 @@ if ( isset( $_GET['action'] ) ) {
 		$parent_file  = 'plugins.php';
 		$submenu_file = 'plugin-install.php';
 
+		if ( 'upload-block' === $action ) {
+			$title        = __( 'Upload Block' );
+			$parent_file  = 'blocks.php';
+			$submenu_file = 'block-install.php';
+		}
+
 		require_once ABSPATH . 'wp-admin/admin-header.php';
 
-		/* translators: %s: File name. */
-		$title = sprintf( __( 'Installing plugin from uploaded file: %s' ), esc_html( basename( $file_upload->filename ) ) );
+		$title = sprintf(
+			/* translators: %1$s: Plugin type. %2$s: File name. */
+			__( 'Installing %1$s from uploaded file: %2$s' ),
+			'upload-block' === $action ? __( 'block' ) : __( 'plugin' ),
+			esc_html( basename( $file_upload->filename ) )
+		);
 		$nonce = 'plugin-upload';
-		$url   = add_query_arg( array( 'package' => $file_upload->id ), 'update.php?action=upload-plugin' );
+		$url   = add_query_arg( array( 'package' => $file_upload->id ), "update.php?action={$action}" );
 		$type  = 'upload'; // Install plugin type, From Web or an Upload.
 
 		$overwrite = isset( $_GET['overwrite'] ) ? sanitize_text_field( $_GET['overwrite'] ) : '';

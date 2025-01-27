@@ -324,7 +324,14 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 		?>
 	</ul>
 
-		<?php install_search_form(); ?>
+		<?php
+		$search_args = array(
+			'plural'   => $this->_args['plural'],
+			'singular' => $this->_args['singular'],
+		);
+
+		install_search_form( true, $search_args );
+		?>
 </div>
 		<?php
 	}
