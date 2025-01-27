@@ -194,8 +194,13 @@ if ( isset( $_GET['action'] ) ) {
 		$overwrite = isset( $_GET['overwrite'] ) ? sanitize_text_field( $_GET['overwrite'] ) : '';
 		$overwrite = in_array( $overwrite, array( 'update-plugin', 'downgrade-plugin' ), true ) ? $overwrite : '';
 
-		$upgrader = new Plugin_Upgrader( new Plugin_Installer_Skin( compact( 'type', 'title', 'nonce', 'url', 'overwrite' ) ) );
-		$result   = $upgrader->install( $file_upload->package, array( 'overwrite_package' => $overwrite ) );
+		if ( 'upload-block' === $action ) {
+			$upgrader = new Block_Upgrader( new Plugin_Installer_Skin( compact( 'type', 'title', 'nonce', 'url', 'overwrite' ) ) );
+		} else {
+			$upgrader = new Plugin_Upgrader( new Plugin_Installer_Skin( compact( 'type', 'title', 'nonce', 'url', 'overwrite' ) ) );
+		}
+
+		$result = $upgrader->install( $file_upload->package, array( 'overwrite_package' => $overwrite ) );
 
 		if ( $result || is_wp_error( $result ) ) {
 			$file_upload->cleanup();

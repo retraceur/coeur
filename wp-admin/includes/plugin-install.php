@@ -46,10 +46,10 @@
  * | `$fields`            | Yes           |  Yes               | No       |
  *
  * @since WP 2.7.0
- * @since 1.0.0    Disable the WP Plugins API distant requests.
+ * @since 1.0.0 Retraceur fork disabled the WP Plugins API distant requests.
  *
  * @param string       $action API action to perform: 'query_plugins', 'plugin_information',
- *                             or 'hot_tags'.
+ *                            'query_blocks', 'block_information' or 'hot_tags'.
  * @param array|object $args   {
  *     Optional. Array or object of arguments to serialize for the Plugin Info API.
  *
@@ -102,7 +102,7 @@ function plugins_api( $action, $args = array() ) {
 		$args = (object) $args;
 	}
 
-	if ( 'query_plugins' === $action ) {
+	if ( 'query_plugins' === $action || 'query_blocks' === $action ) {
 		if ( ! isset( $args->per_page ) ) {
 			$args->per_page = 24;
 		}
@@ -149,7 +149,14 @@ function plugins_api( $action, $args = array() ) {
 	$res = apply_filters( 'plugins_api', false, $action, $args );
 
 	if ( false === $res ) {
-		return new WP_Error( 'plugins_api_disabled', __( 'Retraceur does not provide a Plugin Install API, yet! It will soon do so, the independant way.' ) );
+		return new WP_Error(
+			'plugins_api_disabled',
+			sprintf(
+				/* Translators: %s: Plugin type. */
+				__( 'Retraceur does not provide a %s Install API, yet! It will soon do so, the independant way.' ),
+				'query_blocks' === $action ? __( 'Block' ) : __( 'Plugin' )
+			)
+		);
 
 		// @todo use GitHub instead
 		$url = '';

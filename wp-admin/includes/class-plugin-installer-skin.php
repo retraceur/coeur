@@ -100,6 +100,11 @@ class Plugin_Installer_Skin extends WP_Upgrader_Skin {
 		}
 
 		$plugin_file = $this->upgrader->plugin_info();
+		$plugin_data = get_plugin_data( WP_PLUGIN_DIR . '/' . $plugin_file );
+		$plugin_type = 'regular';
+		if ( isset( $plugin_data['Type'] ) && 'block' === strtolower( $plugin_data['Type'] ) ) {
+			$plugin_type = 'block';
+		}
 
 		$install_actions = array();
 
@@ -116,6 +121,12 @@ class Plugin_Installer_Skin extends WP_Upgrader_Skin {
 				'<a class="button button-primary" href="%s" target="_parent">%s</a>',
 				wp_nonce_url( 'plugins.php?action=activate&amp;from=press-this&amp;plugin=' . urlencode( $plugin_file ), 'activate-plugin_' . $plugin_file ),
 				__( 'Activate Plugin &amp; Go to Press This' )
+			);
+		} elseif ( 'block' === $plugin_type ) {
+			$install_actions['activate_plugin'] = sprintf(
+				'<a class="button button-primary" href="%s" target="_parent">%s</a>',
+				wp_nonce_url( 'blocks.php?action=activate&amp;plugin=' . urlencode( $plugin_file ), 'activate-plugin_' . $plugin_file ),
+				__( 'Activate Block' )
 			);
 		} else {
 			$install_actions['activate_plugin'] = sprintf(
@@ -141,11 +152,19 @@ class Plugin_Installer_Skin extends WP_Upgrader_Skin {
 				__( 'Go to Plugin Installer' )
 			);
 		} elseif ( 'upload' === $this->type && 'plugins' === $from ) {
-			$install_actions['plugins_page'] = sprintf(
-				'<a href="%s">%s</a>',
-				self_admin_url( 'plugin-install.php' ),
-				__( 'Go to Plugin Installer' )
-			);
+			if ( 'block' === $plugin_type ) {
+				$install_actions['plugins_page'] = sprintf(
+					'<a href="%s">%s</a>',
+					self_admin_url( 'block-install.php' ),
+					__( 'Go to Block Installer' )
+				);
+			} else {
+				$install_actions['plugins_page'] = sprintf(
+					'<a href="%s">%s</a>',
+					self_admin_url( 'plugin-install.php' ),
+					__( 'Go to Plugin Installer' )
+				);
+			}
 		} else {
 			$install_actions['plugins_page'] = sprintf(
 				'<a href="%s" target="_parent">%s</a>',
