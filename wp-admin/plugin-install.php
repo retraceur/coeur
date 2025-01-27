@@ -12,9 +12,18 @@ if ( ! defined( 'IFRAME_REQUEST' ) && isset( $_GET['tab'] ) && ( 'plugin-informa
 	define( 'IFRAME_REQUEST', true );
 }
 
-$plugin_type = 'regular';
+$plugin_type  = 'regular';
+$plugins_args = array(
+	'singular' => 'plugin',
+	'plural'   => 'plugins',
+);
+
 if ( defined( 'IS_BLOCKS_ADMIN' ) && IS_BLOCKS_ADMIN ) {
-	$plugin_type = 'block';
+	$plugin_type  = 'block';
+	$plugins_args = array(
+		'singular' => 'block',
+		'plural'   => 'blocks',
+	);
 }
 
 /**
@@ -27,7 +36,7 @@ if ( ! current_user_can( 'install_plugins' ) ) {
 		sprintf(
 			/* Translators: %s: The plugin type's plural name. */
 			esc_html__( 'Sorry, you are not allowed to install %s on this site.' ),
-			'block' === $plugin_type ? __( 'blocks' ) : __( 'plugins' )
+			esc_html( $plugins_args['plural'] )
 		)
 	);
 }
@@ -37,7 +46,7 @@ if ( is_multisite() && ! is_network_admin() ) {
 	exit;
 }
 
-$wp_list_table = _get_list_table( 'WP_Plugin_Install_List_Table' );
+$wp_list_table = _get_list_table( 'WP_Plugin_Install_List_Table', $plugins_args );
 $pagenum       = $wp_list_table->get_pagenum();
 
 if ( ! empty( $_REQUEST['_wp_http_referer'] ) ) {
