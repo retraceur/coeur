@@ -33,7 +33,6 @@ module.exports = {
 			'tags-box.min': './wp-admin/js/tags-box.js',
 			'tags-suggest.min': './wp-admin/js/tags-suggest.js',
 			'tags.min': './wp-admin/js/tags.js',
-			'theme-plugin-editor.min': './wp-admin/js/theme-plugin-editor.js',
 			'theme.min': './wp-admin/js/theme.js',
 			'updates.min': './wp-admin/js/updates.js',
 			'user-profile.min': './wp-admin/js/user-profile.js',

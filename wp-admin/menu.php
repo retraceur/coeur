@@ -181,50 +181,6 @@ if ( wp_is_block_theme() ) {
 
 unset( $appearance_cap );
 
-// Add 'Theme File Editor' to the bottom of the Appearance (non-block themes) or Tools (block themes) menu.
-if ( ! is_multisite() ) {
-	// Must use API on the admin_menu hook, direct modification is only possible on/before the _admin_menu hook.
-	add_action( 'admin_menu', '_add_themes_utility_last', 101 );
-}
-/**
- * Adds the 'Theme File Editor' menu item to the bottom of the Appearance (non-block themes)
- * or Tools (block themes) menu.
- *
- * @access private
- * @since WP 3.0.0
- * @since WP 5.9.0 Renamed 'Theme Editor' to 'Theme File Editor'.
- *              Relocates to Tools for block themes.
- */
-function _add_themes_utility_last() {
-	add_submenu_page(
-		wp_is_block_theme() ? 'tools.php' : 'themes.php',
-		__( 'Theme File Editor' ),
-		__( 'Theme File Editor' ),
-		'edit_themes',
-		'theme-editor.php'
-	);
-}
-
-/**
- * Adds the 'Plugin File Editor' menu item after the 'Themes File Editor' in Tools
- * for block themes.
- *
- * @access private
- * @since WP 5.9.0
- */
-function _add_plugin_file_editor_to_tools() {
-	if ( ! wp_is_block_theme() ) {
-		return;
-	}
-	add_submenu_page(
-		'tools.php',
-		__( 'Plugin File Editor' ),
-		__( 'Plugin File Editor' ),
-		'edit_plugins',
-		'plugin-editor.php'
-	);
-}
-
 $count = '';
 if ( ! is_multisite() && current_user_can( 'update_plugins' ) ) {
 	if ( ! isset( $update_data ) ) {
@@ -244,12 +200,6 @@ $submenu['plugins.php'][5] = array( __( 'Installed Plugins' ), 'activate_plugins
 
 if ( ! is_multisite() ) {
 	$submenu['plugins.php'][10] = array( __( 'Add New Plugin' ), 'install_plugins', 'plugin-install.php' );
-	if ( wp_is_block_theme() ) {
-		// Place the menu item below the Theme File Editor menu item.
-		add_action( 'admin_menu', '_add_plugin_file_editor_to_tools', 101 );
-	} else {
-		$submenu['plugins.php'][15] = array( __( 'Plugin File Editor' ), 'edit_plugins', 'plugin-editor.php' );
-	}
 }
 
 unset( $update_data );
