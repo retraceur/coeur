@@ -16313,3 +16313,106 @@ function capital_P_dangit( $text ) {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 	return '';
 }
+
+/**
+ * Gets the list of file extensions that are editable in plugins.
+ *
+ * @since WP 4.9.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string $plugin Path to the plugin file relative to the plugins directory.
+ * @return string[] Array of editable file extensions.
+ */
+function wp_get_plugin_file_editable_extensions( $plugin ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+
+	/**
+	 * Filters the list of file types allowed for editing in the plugin file editor.
+	 *
+	 * @since WP 2.8.0
+	 * @since WP 4.9.0 Added the `$plugin` parameter.
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string[] $default_types An array of editable plugin file extensions.
+	 * @param string   $plugin        Path to the plugin file relative to the plugins directory.
+	 */
+	apply_filters_deprecated(
+		'editable_extensions',
+		array( array(), '' ),
+		'1.0.0',
+		'',
+		__( 'Editing plugin files is not supported by Retraceur.' )
+	);
+
+	return array();
+}
+
+/**
+ * Gets the list of file extensions that are editable for a given theme.
+ *
+ * @since WP 4.9.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param WP_Theme $theme Theme object.
+ * @return string[] Array of editable file extensions.
+ */
+function wp_get_theme_file_editable_extensions( $theme ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+
+	/**
+	 * Filters the list of file types allowed for editing in the theme file editor.
+	 *
+	 * @since WP 4.4.0
+	 * @deprecated 1.0.0 Retraceur fork.
+	 *
+	 * @param string[] $default_types An array of editable theme file extensions.
+	 * @param WP_Theme $theme         The active theme object.
+	 */
+	apply_filters_deprecated(
+		'wp_theme_editor_filetypes',
+		array( array(), '' ),
+		'1.0.0',
+		'',
+		__( 'Editing theme files is not supported by Retraceur.' )
+	);
+
+	return array();
+}
+
+/**
+ * Attempts to edit a file for a theme or plugin.
+ *
+ * When editing a PHP file, loopback requests will be made to the admin and the homepage
+ * to attempt to see if there is a fatal error introduced. If so, the PHP change will be
+ * reverted.
+ *
+ * @since WP 4.9.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string[] $args {
+ *     Args. Note that all of the arg values are already unslashed. They are, however,
+ *     coming straight from `$_POST` and are not validated or sanitized in any way.
+ *
+ *     @type string $file       Relative path to file.
+ *     @type string $plugin     Path to the plugin file relative to the plugins directory.
+ *     @type string $theme      Theme being edited.
+ *     @type string $newcontent New content for the file.
+ *     @type string $nonce      Nonce.
+ * }
+ * @return true|WP_Error True on success or `WP_Error` on failure.
+ */
+function wp_edit_theme_plugin_file( $args ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return new WP_Error( 'no_support', __( 'Editing plugin or theme files is not supported by Retraceur.' ) );
+}
+
+/**
+ * Prints file editor templates (for plugins and themes).
+ *
+ * @since WP 4.9.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function wp_print_file_editor_templates() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}

@@ -3507,3 +3507,92 @@ function wp_get_popular_importers() {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 	return array();
 }
+
+/**
+ * Adds the 'Theme File Editor' menu item to the bottom of the Appearance (non-block themes)
+ * or Tools (block themes) menu.
+ *
+ * @access private
+ * @since WP 3.0.0
+ * @since WP 5.9.0 Renamed 'Theme Editor' to 'Theme File Editor'.
+ *              Relocates to Tools for block themes.
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function _add_themes_utility_last() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Adds the 'Plugin File Editor' menu item after the 'Themes File Editor' in Tools
+ * for block themes.
+ *
+ * @access private
+ * @since WP 5.9.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function _add_plugin_file_editor_to_tools() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Makes a tree structure for the theme file editor's file list.
+ *
+ * @since WP 4.9.0
+ * @deprecated 1.0.0 Retraceur fork.
+ * @access private
+ *
+ * @param array $allowed_files List of theme file paths.
+ * @return array Tree structure for listing theme files.
+ */
+function wp_make_theme_file_tree( $allowed_files ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return array();
+}
+
+/**
+ * Outputs the formatted file list for the theme file editor.
+ *
+ * @since WP 4.9.0
+ * @deprecated 1.0.0 Retraceur fork.
+ * @access private
+ *
+ * @param array|string $tree  List of file/folder paths, or filename.
+ * @param int          $level The aria-level for the current iteration.
+ * @param int          $size  The aria-setsize for the current iteration.
+ * @param int          $index The aria-posinset for the current iteration.
+ */
+function wp_print_theme_file_tree( $tree, $level = 2, $size = 1, $index = 1 ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Makes a tree structure for the plugin file editor's file list.
+ *
+ * @since WP 4.9.0
+ * @deprecated 1.0.0 Retraceur fork.
+ * @access private
+ *
+ * @param array $plugin_editable_files List of plugin file paths.
+ * @return array Tree structure for listing plugin files.
+ */
+function wp_make_plugin_file_tree( $plugin_editable_files ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+	return array();
+}
+
+/**
+ * Outputs the formatted file list for the plugin file editor.
+ *
+ * @since WP 4.9.0
+ * @deprecated 1.0.0 Retraceur fork.
+ * @access private
+ *
+ * @param array|string $tree  List of file/folder paths, or filename.
+ * @param string       $label Name of file or folder to print.
+ * @param int          $level The aria-level for the current iteration.
+ * @param int          $size  The aria-setsize for the current iteration.
+ * @param int          $index The aria-posinset for the current iteration.
+ */
+function wp_print_plugin_file_tree( $tree, $label = '', $level = 2, $size = 1, $index = 1 ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
