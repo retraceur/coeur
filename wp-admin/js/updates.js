@@ -1456,7 +1456,12 @@
 				$views.find( '.all' ).remove();
 
 				if ( ! $form.find( 'tr.no-items' ).length ) {
-					$form.find( '#the-list' ).append( '<tr class="no-items"><td class="colspanchange" colspan="' + columnCount + '">' + __( 'No plugins are currently available.' ) + '</td></tr>' );
+					var $noPluginItems = __( 'No plugins are currently available.' );
+					if ( 'blocks' === pagenow ) {
+						$noPluginItems = __( 'No blocks are currently available.' );
+					}
+
+					$form.find( '#the-list' ).append( '<tr class="no-items"><td class="colspanchange" colspan="' + columnCount + '">' + $noPluginItems + '</td></tr>' );
 				}
 			}
 

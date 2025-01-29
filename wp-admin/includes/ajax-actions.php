@@ -3662,16 +3662,20 @@ function wp_ajax_search_plugins() {
 	wp_plugin_update_rows();
 
 	$pagenow = isset( $_POST['pagenow'] ) ? sanitize_key( $_POST['pagenow'] ) : '';
-	if ( 'plugins-network' === $pagenow || 'plugins' === $pagenow ) {
+	if ( 'plugins-network' === $pagenow || 'plugins' === $pagenow || 'blocks' === $pagenow ) {
 		set_current_screen( $pagenow );
 	}
+
+	$plugin_args = array(
+		'screen'   => get_current_screen(),
+		'singular' => 'blocks' === $pagenow ? 'block' : 'plugin',
+		'plural'   => 'blocks' === $pagenow ? 'blocks' : 'plugins',
+	);
 
 	/** @var WP_Plugins_List_Table $wp_list_table */
 	$wp_list_table = _get_list_table(
 		'WP_Plugins_List_Table',
-		array(
-			'screen' => get_current_screen(),
-		)
+		$plugin_args
 	);
 
 	$status = array();
@@ -3714,16 +3718,20 @@ function wp_ajax_search_install_plugins() {
 	check_ajax_referer( 'updates' );
 
 	$pagenow = isset( $_POST['pagenow'] ) ? sanitize_key( $_POST['pagenow'] ) : '';
-	if ( 'plugin-install-network' === $pagenow || 'plugin-install' === $pagenow ) {
+	if ( 'plugin-install-network' === $pagenow || 'plugin-install' === $pagenow || 'block-install' === $pagenow ) {
 		set_current_screen( $pagenow );
 	}
+
+	$plugin_args = array(
+		'screen'   => get_current_screen(),
+		'singular' => 'block-install' === $pagenow ? 'block' : 'plugin',
+		'plural'   => 'block-install' === $pagenow ? 'blocks' : 'plugins',
+	);
 
 	/** @var WP_Plugin_Install_List_Table $wp_list_table */
 	$wp_list_table = _get_list_table(
 		'WP_Plugin_Install_List_Table',
-		array(
-			'screen' => get_current_screen(),
-		)
+		$plugin_args
 	);
 
 	$status = array();
