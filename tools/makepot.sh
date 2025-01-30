@@ -26,7 +26,6 @@ wp i18n make-pot . i18n/js/admin-plugin-install.pot --include="wp-admin/js/plugi
 wp i18n make-pot . i18n/js/admin-application-passwords.pot --include="wp-admin/js/application-passwords.js" --ignore-domain
 wp i18n make-pot . i18n/js/admin-tags-suggest.pot --include="wp-admin/js/tags-suggest.js" --ignore-domain
 wp i18n make-pot . i18n/js/admin-post.pot --include="wp-admin/js/post.js" --ignore-domain
-wp i18n make-pot . i18n/js/admin-theme-plugin-editor.pot --include="wp-admin/js/theme-plugin-editor.js" --ignore-domain
 wp i18n make-pot . i18n/js/admin-password-toggle.pot --include="wp-admin/js/password-toggle.js" --ignore-domain
 wp i18n make-pot . i18n/js/admin-color-picker.pot --include="wp-admin/js/color-picker.js" --ignore-domain
 wp i18n make-pot . i18n/js/admin-privacy-tools.pot --include="wp-admin/js/privacy-tools.js" --ignore-domain
