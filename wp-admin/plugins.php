@@ -407,7 +407,7 @@ if ( $action ) {
 						<?php
 						printf(
 							/* Translators: %s: Plugin type singular name. */
-							esc_html__( 'Delete %s' ),
+							esc_html_x( 'Delete %s', 'Plugins Admin confirm plugin delete' ),
 							ucfirst( $plugins_args['singular'] )
 						);
 						?>
@@ -427,7 +427,7 @@ if ( $action ) {
 						<?php
 						printf(
 							/* Translators: %s: Plugin type singular name. */
-							esc_html__( 'You are about to remove the following %s:' ),
+							esc_html_x( 'You are about to remove the following %s:', 'Plugins Admin confirm plugin delete' ),
 							$plugins_args['singular']
 						);
 						?>
@@ -437,7 +437,7 @@ if ( $action ) {
 						<?php
 						printf(
 							/* Translators: %s: Plugin type plural name. */
-							esc_html__( 'Delete %s' ),
+							esc_html_x( 'Delete %s', 'Plugins Admin confirm plugins delete' ),
 							ucfirst( $plugins_args['plural'] )
 						);
 						?>
@@ -457,7 +457,7 @@ if ( $action ) {
 						<?php
 						printf(
 							/* Translators: %s: Plugin type plural name. */
-							esc_html__( 'You are about to remove the following %s:' ),
+							esc_html_x( 'You are about to remove the following %s:', 'Plugins Admin confirm plugins delete' ),
 							$plugins_args['plural']
 						);
 						?>
@@ -946,6 +946,7 @@ do_action( 'pre_current_active_plugins', $plugins['all'] );
 <?php
 $wp_list_table->search_box(
 	sprintf(
+		/* Translators: %s: Plugin type plural name. */
 		esc_html__( 'Search installed %s' ),
 		esc_html( $plugins_args['plural'] )
 	),
