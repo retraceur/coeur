@@ -425,19 +425,34 @@ class WP_Plugins_List_Table extends WP_List_Table {
 		if ( ! empty( $_REQUEST['s'] ) ) {
 			$s = esc_html( urldecode( wp_unslash( $_REQUEST['s'] ) ) );
 
-			/* translators: %1$s: Plugin type. %2$s: Plugin search term. */
-			printf( esc_html__( 'No %1$s found for: %2$s.' ), $this->_args['plural'], '<strong>' . $s . '</strong>' );
+			if ( 'blocks' === $this->_args['plural'] ) {
+				/* translators: %s: Plugin search term. */
+				printf( esc_html__( 'No blocks found for: %s.' ), '<strong>' . $s . '</strong>' );
+			} else {
+				/* translators: %s: Plugin search term. */
+				printf( esc_html__( 'No plugins found for: %s.' ), '<strong>' . $s . '</strong>' );
+			}
 
 			// We assume that somebody who can install plugins in multisite is experienced enough to not need this helper link.
 			if ( ! is_multisite() && current_user_can( 'install_plugins' ) ) {
-				echo ' <a href="' . esc_url( admin_url( 'plugin-install.php?tab=search&s=' . urlencode( $s ) ) ) . '">' . __( 'Search for plugins in the Retraceur Plugin Directory.' ) . '</a>';
+				if ( 'blocks' === $this->_args['plural'] ) {
+					echo ' <a href="' . esc_url( admin_url( 'block-install.php?tab=search&s=' . urlencode( $s ) ) ) . '">' . __( 'Search for blocks in the Retraceur Block Directory.' ) . '</a>';
+				} else {
+					echo ' <a href="' . esc_url( admin_url( 'plugin-install.php?tab=search&s=' . urlencode( $s ) ) ) . '">' . __( 'Search for plugins in the Retraceur Plugin Directory.' ) . '</a>';
+				}
 			}
 		} elseif ( ! empty( $plugins['all'] ) ) {
-			/* translators: %s: Plugin type.*/
-			printf( esc_html__( 'No %s found.' ), $this->_args['plural'] );
+			if ( 'blocks' === $this->_args['plural'] ) {
+				esc_html_e( 'No blocks found.' );
+			} else {
+				esc_html_e( 'No plugins found.' );
+			}
 		} else {
-			/* translators: %s: Plugin type.*/
-			printf( esc_html__( 'No %s are currently available.' ), $this->_args['plural'] );
+			if ( 'blocks' === $this->_args['plural'] ) {
+				esc_html_e( 'No blocks are currently available.' );
+			} else {
+				esc_html_e( 'No plugins are currently available.' );
+			}
 		}
 	}
 

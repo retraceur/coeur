@@ -290,7 +290,7 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 		$display_tabs = array();
 		foreach ( (array) $tabs as $action => $text ) {
 			$display_tabs[ 'plugin-install-' . $action ] = array(
-				'url'     => self_admin_url( 'plugin-install.php?tab=' . $action ),
+				'url'     => self_admin_url( $this->_args['singular'] . '-install.php?tab=' . $action ),
 				'label'   => $text,
 				'current' => $action === $tab,
 			);

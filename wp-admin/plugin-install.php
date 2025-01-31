@@ -32,13 +32,11 @@ if ( defined( 'IS_BLOCKS_ADMIN' ) && IS_BLOCKS_ADMIN ) {
 require_once __DIR__ . '/admin.php';
 
 if ( ! current_user_can( 'install_plugins' ) ) {
-	wp_die(
-		sprintf(
-			/* Translators: %s: The plugin type's plural name. */
-			esc_html__( 'Sorry, you are not allowed to install %s on this site.' ),
-			esc_html( $plugins_args['plural'] )
-		)
-	);
+	if ( 'block' === $plugins_type ) {
+		wp_die( esc_html__( 'Sorry, you are not allowed to install blocks for this site.' ) );
+	} else {
+		wp_die( esc_html__( 'Sorry, you are not allowed to install plugins for this site.' ) );
+	}
 }
 
 if ( is_multisite() && ! is_network_admin() ) {

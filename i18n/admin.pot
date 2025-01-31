@@ -7,9 +7,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-01-30T04:55:46+00:00\n"
+"POT-Creation-Date: 2025-01-31T06:06:04+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.11.0\n"
+"X-Generator: WP-CLI 2.10.0\n"
 
 #. translators: Page title of the About Retraceur page in the admin.
 #: wp-admin/about.php:16
@@ -645,8 +645,8 @@ msgstr ""
 #: wp-admin/options-permalink.php:25
 #: wp-admin/options-privacy.php:40
 #: wp-admin/options-reading.php:27
-#: wp-admin/plugin-install.php:121
-#: wp-admin/plugins.php:681
+#: wp-admin/plugin-install.php:119
+#: wp-admin/plugins.php:658
 #: wp-admin/revision.php:155
 #: wp-admin/site-health.php:82
 #: wp-admin/theme-install.php:116
@@ -721,7 +721,7 @@ msgstr ""
 
 #: wp-admin/edit-tag-form.php:198
 #: wp-admin/edit-tags.php:481
-#: wp-admin/includes/class-wp-plugins-list-table.php:485
+#: wp-admin/includes/class-wp-plugins-list-table.php:500
 #: wp-admin/includes/class-wp-terms-list-table.php:195
 #: wp-admin/includes/class-wp-terms-list-table.php:217
 #: wp-admin/includes/media.php:1412
@@ -731,7 +731,7 @@ msgid "Description"
 msgstr ""
 
 #: wp-admin/edit-tag-form.php:280
-#: wp-admin/includes/class-wp-plugins-list-table.php:636
+#: wp-admin/includes/class-wp-plugins-list-table.php:651
 #: wp-admin/includes/class-wp-posts-list-table.php:2007
 #: wp-admin/includes/class-wp-posts-list-table.php:2009
 #: wp-admin/includes/class-wp-theme-install-list-table.php:324
@@ -745,11 +745,11 @@ msgid "Update"
 msgstr ""
 
 #: wp-admin/edit-tag-form.php:284
-#: wp-admin/includes/class-wp-plugins-list-table.php:640
-#: wp-admin/includes/class-wp-plugins-list-table.php:887
-#: wp-admin/includes/class-wp-plugins-list-table.php:904
-#: wp-admin/includes/class-wp-plugins-list-table.php:993
-#: wp-admin/includes/class-wp-plugins-list-table.php:1010
+#: wp-admin/includes/class-wp-plugins-list-table.php:655
+#: wp-admin/includes/class-wp-plugins-list-table.php:902
+#: wp-admin/includes/class-wp-plugins-list-table.php:919
+#: wp-admin/includes/class-wp-plugins-list-table.php:1008
+#: wp-admin/includes/class-wp-plugins-list-table.php:1025
 #: wp-admin/includes/class-wp-terms-list-table.php:171
 #: wp-admin/includes/class-wp-terms-list-table.php:518
 #: wp-admin/includes/class-wp-themes-list-table.php:229
@@ -883,7 +883,7 @@ msgstr ""
 #. translators: %s: Search query.
 #: wp-admin/edit-tags.php:312
 #: wp-admin/edit.php:409
-#: wp-admin/plugins.php:918
+#: wp-admin/plugins.php:900
 #: wp-admin/upload.php:420
 #: wp-admin/users.php:801
 msgid "Search results for: %s"
@@ -1747,7 +1747,7 @@ msgstr ""
 #: wp-admin/includes/class-wp-debug-data.php:730
 #: wp-admin/includes/class-wp-debug-data.php:906
 #: wp-admin/includes/class-wp-debug-data.php:1293
-#: wp-admin/includes/class-wp-plugins-list-table.php:1193
+#: wp-admin/includes/class-wp-plugins-list-table.php:1208
 #: wp-admin/includes/update.php:252
 #: wp-admin/includes/update.php:292
 #: wp-admin/index.php:103
@@ -1761,10 +1761,12 @@ msgid "Plugin update failed."
 msgstr ""
 
 #: wp-admin/includes/ajax-actions.php:3604
+#: wp-admin/plugins.php:321
 msgid "Sorry, you are not allowed to delete plugins for this site."
 msgstr ""
 
 #: wp-admin/includes/ajax-actions.php:3613
+#: wp-admin/plugins.php:742
 msgid "You cannot delete a plugin while it is active on the main site."
 msgstr ""
 
@@ -1774,6 +1776,7 @@ msgstr ""
 
 #: wp-admin/includes/ajax-actions.php:3684
 #: wp-admin/includes/ajax-actions.php:3740
+#: wp-admin/plugins.php:39
 msgid "Sorry, you are not allowed to manage plugins for this site."
 msgstr ""
 
@@ -2721,9 +2724,9 @@ msgid "Activate Plugin"
 msgstr ""
 
 #: wp-admin/includes/class-plugin-installer-skin.php:143
-#: wp-admin/includes/class-wp-plugins-list-table.php:627
-#: wp-admin/includes/class-wp-plugins-list-table.php:857
-#: wp-admin/includes/class-wp-plugins-list-table.php:874
+#: wp-admin/includes/class-wp-plugins-list-table.php:642
+#: wp-admin/includes/class-wp-plugins-list-table.php:872
+#: wp-admin/includes/class-wp-plugins-list-table.php:889
 #: wp-admin/includes/plugin-install.php:953
 #: wp-admin/includes/plugin-install.php:971
 msgctxt "plugin"
@@ -3638,7 +3641,7 @@ msgstr ""
 
 #. translators: %s: wp-content directory name.
 #: wp-admin/includes/class-wp-debug-data.php:305
-#: wp-admin/includes/class-wp-plugins-list-table.php:694
+#: wp-admin/includes/class-wp-plugins-list-table.php:709
 msgid "Drop-ins are single files, found in the %s directory, that replace or enhance Retraceur features in ways that are not possible for traditional plugins."
 msgstr ""
 
@@ -3891,7 +3894,7 @@ msgstr ""
 #: wp-admin/includes/class-wp-debug-data.php:724
 #: wp-admin/includes/class-wp-debug-data.php:900
 #: wp-admin/includes/class-wp-plugin-install-list-table.php:529
-#: wp-admin/includes/class-wp-plugins-list-table.php:1204
+#: wp-admin/includes/class-wp-plugins-list-table.php:1219
 msgctxt "plugin"
 msgid "By %s"
 msgstr ""
@@ -3968,14 +3971,14 @@ msgstr ""
 
 #: wp-admin/includes/class-wp-debug-data.php:949
 #: wp-admin/includes/class-wp-debug-data.php:1329
-#: wp-admin/includes/class-wp-plugins-list-table.php:1330
+#: wp-admin/includes/class-wp-plugins-list-table.php:1345
 #: wp-admin/themes.php:654
 msgid "Auto-updates enabled"
 msgstr ""
 
 #: wp-admin/includes/class-wp-debug-data.php:951
 #: wp-admin/includes/class-wp-debug-data.php:1331
-#: wp-admin/includes/class-wp-plugins-list-table.php:1332
+#: wp-admin/includes/class-wp-plugins-list-table.php:1347
 #: wp-admin/themes.php:652
 msgid "Auto-updates disabled"
 msgstr ""
@@ -4667,7 +4670,7 @@ msgid "Featured"
 msgstr ""
 
 #: wp-admin/includes/class-wp-plugin-install-list-table.php:122
-#: wp-admin/plugin-install.php:166
+#: wp-admin/plugin-install.php:164
 #: wp-admin/update.php:172
 msgid "Upload Plugin"
 msgstr ""
@@ -4694,8 +4697,8 @@ msgstr ""
 #. translators: %s: Plugin name.
 #: wp-admin/includes/class-wp-plugin-install-list-table.php:552
 #: wp-admin/includes/class-wp-plugin-install-list-table.php:787
-#: wp-admin/includes/class-wp-plugins-list-table.php:1218
-#: wp-admin/includes/class-wp-plugins-list-table.php:1660
+#: wp-admin/includes/class-wp-plugins-list-table.php:1233
+#: wp-admin/includes/class-wp-plugins-list-table.php:1675
 msgid "More information about %s"
 msgstr ""
 
@@ -4705,7 +4708,7 @@ msgid "More Details"
 msgstr ""
 
 #: wp-admin/includes/class-wp-plugin-install-list-table.php:586
-#: wp-admin/includes/class-wp-plugins-list-table.php:1441
+#: wp-admin/includes/class-wp-plugins-list-table.php:1456
 msgid "This plugin does not work with your versions of Retraceur and PHP."
 msgstr ""
 
@@ -4713,9 +4716,9 @@ msgstr ""
 #: wp-admin/includes/class-wp-plugin-install-list-table.php:590
 #: wp-admin/includes/class-wp-plugin-install-list-table.php:596
 #: wp-admin/includes/class-wp-plugin-install-list-table.php:605
-#: wp-admin/includes/class-wp-plugins-list-table.php:1445
-#: wp-admin/includes/class-wp-plugins-list-table.php:1451
 #: wp-admin/includes/class-wp-plugins-list-table.php:1460
+#: wp-admin/includes/class-wp-plugins-list-table.php:1466
+#: wp-admin/includes/class-wp-plugins-list-table.php:1475
 #: wp-admin/includes/theme.php:863
 #: wp-admin/includes/theme.php:878
 #: wp-admin/includes/theme.php:917
@@ -4752,12 +4755,12 @@ msgid "<a href=\"%s\">Please update Retraceur</a>."
 msgstr ""
 
 #: wp-admin/includes/class-wp-plugin-install-list-table.php:601
-#: wp-admin/includes/class-wp-plugins-list-table.php:1456
+#: wp-admin/includes/class-wp-plugins-list-table.php:1471
 msgid "This plugin does not work with your version of Retraceur."
 msgstr ""
 
 #: wp-admin/includes/class-wp-plugin-install-list-table.php:610
-#: wp-admin/includes/class-wp-plugins-list-table.php:1465
+#: wp-admin/includes/class-wp-plugins-list-table.php:1480
 msgid "This plugin does not work with your version of PHP."
 msgstr ""
 
@@ -4802,41 +4805,56 @@ msgstr ""
 msgid "Additional plugins are required"
 msgstr ""
 
-#. translators: %1$s: Plugin type. %2$s: Plugin search term.
-#: wp-admin/includes/class-wp-plugins-list-table.php:429
-msgid "No %1$s found for: %2$s."
+#. translators: %s: Plugin search term.
+#: wp-admin/includes/class-wp-plugins-list-table.php:430
+msgid "No blocks found for: %s."
 msgstr ""
 
+#. translators: %s: Plugin search term.
 #: wp-admin/includes/class-wp-plugins-list-table.php:433
+msgid "No plugins found for: %s."
+msgstr ""
+
+#: wp-admin/includes/class-wp-plugins-list-table.php:439
+msgid "Search for blocks in the Retraceur Block Directory."
+msgstr ""
+
+#: wp-admin/includes/class-wp-plugins-list-table.php:441
 msgid "Search for plugins in the Retraceur Plugin Directory."
 msgstr ""
 
-#. translators: %s: Plugin type.
-#: wp-admin/includes/class-wp-plugins-list-table.php:437
-msgid "No %s found."
+#: wp-admin/includes/class-wp-plugins-list-table.php:446
+msgid "No blocks found."
 msgstr ""
 
-#. translators: %s: Plugin type.
-#: wp-admin/includes/class-wp-plugins-list-table.php:440
-msgid "No %s are currently available."
+#: wp-admin/includes/class-wp-plugins-list-table.php:448
+msgid "No plugins found."
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugins-list-table.php:484
+#: wp-admin/includes/class-wp-plugins-list-table.php:452
+msgid "No blocks are currently available."
+msgstr ""
+
+#: wp-admin/includes/class-wp-plugins-list-table.php:454
+msgid "No plugins are currently available."
+msgstr ""
+
+#: wp-admin/includes/class-wp-plugins-list-table.php:499
 #: wp-admin/includes/plugin-install.php:157
 msgid "Plugin"
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugins-list-table.php:484
+#: wp-admin/includes/class-wp-plugins-list-table.php:499
 msgctxt "plugins list table"
 msgid "Block"
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugins-list-table.php:489
+#: wp-admin/includes/class-wp-plugins-list-table.php:504
 msgid "Automatic Updates"
 msgstr ""
 
 #. translators: %s: Number of plugins.
-#: wp-admin/includes/class-wp-plugins-list-table.php:524
+#: wp-admin/includes/class-wp-plugins-list-table.php:539
 msgctxt "plugins"
 msgid "All <span class=\"count\">(%s)</span>"
 msgid_plural "All <span class=\"count\">(%s)</span>"
@@ -4844,71 +4862,71 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %s: Number of plugins.
-#: wp-admin/includes/class-wp-plugins-list-table.php:533
+#: wp-admin/includes/class-wp-plugins-list-table.php:548
 msgid "Active <span class=\"count\">(%s)</span>"
 msgid_plural "Active <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %s: Number of plugins.
-#: wp-admin/includes/class-wp-plugins-list-table.php:541
+#: wp-admin/includes/class-wp-plugins-list-table.php:556
 msgid "Recently Active <span class=\"count\">(%s)</span>"
 msgid_plural "Recently Active <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %s: Number of plugins.
-#: wp-admin/includes/class-wp-plugins-list-table.php:549
+#: wp-admin/includes/class-wp-plugins-list-table.php:564
 msgid "Inactive <span class=\"count\">(%s)</span>"
 msgid_plural "Inactive <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %s: Number of plugins.
-#: wp-admin/includes/class-wp-plugins-list-table.php:557
+#: wp-admin/includes/class-wp-plugins-list-table.php:572
 msgid "Must-Use <span class=\"count\">(%s)</span>"
 msgid_plural "Must-Use <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %s: Number of plugins.
-#: wp-admin/includes/class-wp-plugins-list-table.php:565
+#: wp-admin/includes/class-wp-plugins-list-table.php:580
 msgid "Drop-in <span class=\"count\">(%s)</span>"
 msgid_plural "Drop-ins <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %s: Number of plugins.
-#: wp-admin/includes/class-wp-plugins-list-table.php:573
+#: wp-admin/includes/class-wp-plugins-list-table.php:588
 msgid "Paused <span class=\"count\">(%s)</span>"
 msgid_plural "Paused <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %s: Number of plugins.
-#: wp-admin/includes/class-wp-plugins-list-table.php:581
+#: wp-admin/includes/class-wp-plugins-list-table.php:596
 msgid "Update Available <span class=\"count\">(%s)</span>"
 msgid_plural "Update Available <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %s: Number of plugins.
-#: wp-admin/includes/class-wp-plugins-list-table.php:589
+#: wp-admin/includes/class-wp-plugins-list-table.php:604
 msgid "Auto-updates Enabled <span class=\"count\">(%s)</span>"
 msgid_plural "Auto-updates Enabled <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %s: Number of plugins.
-#: wp-admin/includes/class-wp-plugins-list-table.php:597
+#: wp-admin/includes/class-wp-plugins-list-table.php:612
 msgid "Auto-updates Disabled <span class=\"count\">(%s)</span>"
 msgid_plural "Auto-updates Disabled <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-admin/includes/class-wp-plugins-list-table.php:627
-#: wp-admin/includes/class-wp-plugins-list-table.php:963
-#: wp-admin/includes/class-wp-plugins-list-table.php:980
+#: wp-admin/includes/class-wp-plugins-list-table.php:642
+#: wp-admin/includes/class-wp-plugins-list-table.php:978
+#: wp-admin/includes/class-wp-plugins-list-table.php:995
 #: wp-admin/includes/plugin-install.php:826
 #: wp-admin/includes/plugin-install.php:940
 #: wp-admin/includes/plugin-install.php:971
@@ -4916,178 +4934,178 @@ msgctxt "plugin"
 msgid "Activate"
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugins-list-table.php:631
-#: wp-admin/includes/class-wp-plugins-list-table.php:849
+#: wp-admin/includes/class-wp-plugins-list-table.php:646
+#: wp-admin/includes/class-wp-plugins-list-table.php:864
 msgctxt "plugin"
 msgid "Network Deactivate"
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugins-list-table.php:631
+#: wp-admin/includes/class-wp-plugins-list-table.php:646
 msgctxt "plugin"
 msgid "Deactivate"
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugins-list-table.php:645
+#: wp-admin/includes/class-wp-plugins-list-table.php:660
 msgid "Enable Auto-updates"
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugins-list-table.php:648
+#: wp-admin/includes/class-wp-plugins-list-table.php:663
 msgid "Disable Auto-updates"
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugins-list-table.php:684
+#: wp-admin/includes/class-wp-plugins-list-table.php:699
 msgid "Clear List"
 msgstr ""
 
 #. translators: %s: mu-plugins directory name.
-#: wp-admin/includes/class-wp-plugins-list-table.php:688
+#: wp-admin/includes/class-wp-plugins-list-table.php:703
 msgid "Files in the %s directory are executed automatically."
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugins-list-table.php:806
+#: wp-admin/includes/class-wp-plugins-list-table.php:821
 msgid "Inactive:"
 msgstr ""
 
 #. translators: 1: Drop-in constant name, 2: wp-config.php
-#: wp-admin/includes/class-wp-plugins-list-table.php:809
+#: wp-admin/includes/class-wp-plugins-list-table.php:824
 msgid "Requires %1$s in %2$s file."
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugins-list-table.php:831
-#: wp-admin/includes/class-wp-plugins-list-table.php:921
-#: wp-admin/includes/class-wp-plugins-list-table.php:938
+#: wp-admin/includes/class-wp-plugins-list-table.php:846
+#: wp-admin/includes/class-wp-plugins-list-table.php:936
+#: wp-admin/includes/class-wp-plugins-list-table.php:953
 msgid "Deactivate"
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugins-list-table.php:833
+#: wp-admin/includes/class-wp-plugins-list-table.php:848
 msgid "You cannot deactivate this plugin as other plugins require it."
 msgstr ""
 
 #. translators: %s: Plugin name.
-#: wp-admin/includes/class-wp-plugins-list-table.php:848
+#: wp-admin/includes/class-wp-plugins-list-table.php:863
 msgctxt "plugin"
 msgid "Network Deactivate %s"
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugins-list-table.php:859
-#: wp-admin/includes/class-wp-plugins-list-table.php:965
+#: wp-admin/includes/class-wp-plugins-list-table.php:874
+#: wp-admin/includes/class-wp-plugins-list-table.php:980
 msgid "You cannot activate this plugin as it has unmet requirements."
 msgstr ""
 
 #. translators: %s: Plugin name.
-#: wp-admin/includes/class-wp-plugins-list-table.php:873
+#: wp-admin/includes/class-wp-plugins-list-table.php:888
 #: wp-admin/includes/plugin-install.php:955
 msgctxt "plugin"
 msgid "Network Activate %s"
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugins-list-table.php:880
-#: wp-admin/includes/class-wp-plugins-list-table.php:986
+#: wp-admin/includes/class-wp-plugins-list-table.php:895
+#: wp-admin/includes/class-wp-plugins-list-table.php:1001
 msgctxt "plugin"
 msgid "Cannot Activate"
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugins-list-table.php:889
-#: wp-admin/includes/class-wp-plugins-list-table.php:995
+#: wp-admin/includes/class-wp-plugins-list-table.php:904
+#: wp-admin/includes/class-wp-plugins-list-table.php:1010
 msgid "You cannot delete this plugin as other plugins require it."
 msgstr ""
 
 #. translators: %s: Plugin name.
-#: wp-admin/includes/class-wp-plugins-list-table.php:903
-#: wp-admin/includes/class-wp-plugins-list-table.php:1009
+#: wp-admin/includes/class-wp-plugins-list-table.php:918
+#: wp-admin/includes/class-wp-plugins-list-table.php:1024
 msgctxt "plugin"
 msgid "Delete %s"
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugins-list-table.php:912
+#: wp-admin/includes/class-wp-plugins-list-table.php:927
 msgid "Network Active"
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugins-list-table.php:916
+#: wp-admin/includes/class-wp-plugins-list-table.php:931
 msgid "Network Only"
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugins-list-table.php:923
+#: wp-admin/includes/class-wp-plugins-list-table.php:938
 msgid "You cannot deactivate this plugin as other plugins depend on it."
 msgstr ""
 
 #. translators: %s: Plugin name.
-#: wp-admin/includes/class-wp-plugins-list-table.php:937
+#: wp-admin/includes/class-wp-plugins-list-table.php:952
 msgctxt "plugin"
 msgid "Deactivate %s"
 msgstr ""
 
 #. translators: %s: Plugin name.
-#: wp-admin/includes/class-wp-plugins-list-table.php:955
+#: wp-admin/includes/class-wp-plugins-list-table.php:970
 msgctxt "plugin"
 msgid "Resume %s"
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugins-list-table.php:956
+#: wp-admin/includes/class-wp-plugins-list-table.php:971
 #: wp-admin/themes.php:576
 msgid "Resume"
 msgstr ""
 
 #. translators: %s: Plugin name.
-#: wp-admin/includes/class-wp-plugins-list-table.php:979
+#: wp-admin/includes/class-wp-plugins-list-table.php:994
 #: wp-admin/includes/plugin-install.php:942
 msgctxt "plugin"
 msgid "Activate %s"
 msgstr ""
 
 #. translators: %s: Plugin name.
-#: wp-admin/includes/class-wp-plugins-list-table.php:1127
+#: wp-admin/includes/class-wp-plugins-list-table.php:1142
 #: wp-admin/update-core.php:557
 msgctxt "plugin"
 msgid "Select %s"
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugins-list-table.php:1220
+#: wp-admin/includes/class-wp-plugins-list-table.php:1235
 msgid "View details"
 msgstr ""
 
 #. translators: %s: Plugin name.
-#: wp-admin/includes/class-wp-plugins-list-table.php:1224
+#: wp-admin/includes/class-wp-plugins-list-table.php:1239
 msgid "Visit plugin site for %s"
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugins-list-table.php:1230
+#: wp-admin/includes/class-wp-plugins-list-table.php:1245
 msgid "Visit plugin site"
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugins-list-table.php:1305
+#: wp-admin/includes/class-wp-plugins-list-table.php:1320
 msgid "This plugin failed to load properly and is paused during recovery mode."
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugins-list-table.php:1341
+#: wp-admin/includes/class-wp-plugins-list-table.php:1356
 #: wp-admin/themes.php:657
 msgid "Disable auto-updates"
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugins-list-table.php:1345
+#: wp-admin/includes/class-wp-plugins-list-table.php:1360
 #: wp-admin/themes.php:661
 msgid "Enable auto-updates"
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugins-list-table.php:1544
+#: wp-admin/includes/class-wp-plugins-list-table.php:1559
 msgid "Note: This plugin cannot be deactivated or deleted until the plugins that require it are deactivated or deleted."
 msgstr ""
 
 #. translators: %s: List of dependencies.
-#: wp-admin/includes/class-wp-plugins-list-table.php:1549
+#: wp-admin/includes/class-wp-plugins-list-table.php:1564
 msgid "<strong>Required by:</strong> %s"
 msgstr ""
 
 #. translators: %s: List of dependency names.
-#: wp-admin/includes/class-wp-plugins-list-table.php:1583
+#: wp-admin/includes/class-wp-plugins-list-table.php:1598
 msgid "<strong>Requires:</strong> %s"
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugins-list-table.php:1591
+#: wp-admin/includes/class-wp-plugins-list-table.php:1606
 msgid "This plugin is active but may not function correctly because required plugins are missing or inactive."
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugins-list-table.php:1593
+#: wp-admin/includes/class-wp-plugins-list-table.php:1608
 msgid "This plugin cannot be activated because required plugins are missing or inactive."
 msgstr ""
 
@@ -11369,7 +11387,7 @@ msgid "Installed Plugins"
 msgstr ""
 
 #: wp-admin/menu.php:202
-#: wp-admin/plugins.php:909
+#: wp-admin/plugins.php:891
 msgid "Add New Plugin"
 msgstr ""
 
@@ -11382,7 +11400,7 @@ msgid "Installed Blocks"
 msgstr ""
 
 #: wp-admin/menu.php:212
-#: wp-admin/plugins.php:905
+#: wp-admin/plugins.php:887
 msgid "Add New Block"
 msgstr ""
 
@@ -12512,69 +12530,71 @@ msgstr ""
 msgid "Editing plugin files is not supported by Retraceur."
 msgstr ""
 
-#. Translators: %s: The plugin type's plural name.
-#: wp-admin/plugin-install.php:38
-#: wp-admin/update.php:157
-msgid "Sorry, you are not allowed to install %s on this site."
+#: wp-admin/plugin-install.php:36
+msgid "Sorry, you are not allowed to install blocks for this site."
 msgstr ""
 
-#: wp-admin/plugin-install.php:73
+#: wp-admin/plugin-install.php:38
+msgid "Sorry, you are not allowed to install plugins for this site."
+msgstr ""
+
+#: wp-admin/plugin-install.php:71
 msgid "Add Plugins"
 msgstr ""
 
-#: wp-admin/plugin-install.php:77
+#: wp-admin/plugin-install.php:75
 msgctxt "block install page title"
 msgid "Add Blocks"
 msgstr ""
 
-#: wp-admin/plugin-install.php:123
+#: wp-admin/plugin-install.php:121
 msgid "Plugins hook into Retraceur to extend its functionality with custom features. Plugins are developed independently from the core Retraceur application by thousands of developers all over the world."
 msgstr ""
 
-#: wp-admin/plugin-install.php:124
+#: wp-admin/plugin-install.php:122
 msgid "You can find new plugins to install by searching or browsing the directory right here in your own Plugins section."
 msgstr ""
 
-#: wp-admin/plugin-install.php:124
-#: wp-admin/plugins.php:684
+#: wp-admin/plugin-install.php:122
+#: wp-admin/plugins.php:661
 #: wp-admin/theme-install.php:105
 #: wp-admin/themes.php:140
 msgid "The search results will be updated as you type."
 msgstr ""
 
-#: wp-admin/plugin-install.php:131
+#: wp-admin/plugin-install.php:129
 msgid "Adding Plugins"
 msgstr ""
 
-#: wp-admin/plugin-install.php:133
+#: wp-admin/plugin-install.php:131
 msgid "If you want to install a plugin that you&#8217;ve downloaded elsewhere, click the Upload Plugin button above the plugins list. You will be prompted to upload the .zip package, and once uploaded, you can activate the new plugin."
 msgstr ""
 
-#: wp-admin/plugin-install.php:139
-#: wp-admin/plugins.php:716
+#: wp-admin/plugin-install.php:137
+#: wp-admin/plugins.php:693
 msgid "Filter plugins list"
 msgstr ""
 
-#: wp-admin/plugin-install.php:140
-#: wp-admin/plugins.php:717
+#: wp-admin/plugin-install.php:138
+#: wp-admin/plugins.php:694
 msgid "Plugins list navigation"
 msgstr ""
 
-#: wp-admin/plugin-install.php:141
-#: wp-admin/plugins.php:718
+#: wp-admin/plugin-install.php:139
+#: wp-admin/plugins.php:695
 msgid "Plugins list"
 msgstr ""
 
-#: wp-admin/plugin-install.php:166
+#: wp-admin/plugin-install.php:164
 #: wp-admin/update.php:177
 msgid "Upload Block"
 msgstr ""
 
-#: wp-admin/plugin-install.php:167
+#: wp-admin/plugin-install.php:165
 msgid "Browse Blocks"
 msgstr ""
 
-#: wp-admin/plugin-install.php:167
+#: wp-admin/plugin-install.php:165
 msgid "Browse Plugins"
 msgstr ""
 
@@ -12589,23 +12609,29 @@ msgctxt "blocks admin page title"
 msgid "Blocks"
 msgstr ""
 
-#. Translators: %s: The plugin type's plural name.
-#: wp-admin/plugins.php:39
-msgid "Sorry, you are not allowed to manage %s for this site."
+#: wp-admin/plugins.php:37
+msgid "Sorry, you are not allowed to manage blocks for this site."
 msgstr ""
 
-#. Translators: %s: The plugin type's singular name.
-#: wp-admin/plugins.php:82
-#: wp-admin/plugins.php:222
-msgid "Sorry, you are not allowed to activate this %s."
+#: wp-admin/plugins.php:78
+#: wp-admin/plugins.php:214
+msgid "Sorry, you are not allowed to activate this block."
 msgstr ""
 
-#. Translators: %s: The plugin type's plural name.
-#: wp-admin/plugins.php:129
-msgid "Sorry, you are not allowed to activate %s for this site."
+#: wp-admin/plugins.php:80
+#: wp-admin/plugins.php:216
+msgid "Sorry, you are not allowed to activate this plugin."
 msgstr ""
 
-#: wp-admin/plugins.php:197
+#: wp-admin/plugins.php:123
+msgid "Sorry, you are not allowed to activate blocks for this site."
+msgstr ""
+
+#: wp-admin/plugins.php:125
+msgid "Sorry, you are not allowed to activate plugins for this site."
+msgstr ""
+
+#: wp-admin/plugins.php:191
 #: wp-admin/update-core.php:474
 #: wp-admin/update-core.php:596
 #: wp-admin/update-core.php:1093
@@ -12613,252 +12639,324 @@ msgstr ""
 msgid "Update Plugins"
 msgstr ""
 
-#: wp-admin/plugins.php:200
+#: wp-admin/plugins.php:194
 msgid "Update Blocks"
 msgstr ""
 
-#. Translators: %s: The plugin type's singular name.
-#: wp-admin/plugins.php:251
-msgid "Sorry, you are not allowed to deactivate this %s."
+#: wp-admin/plugins.php:241
+msgid "Sorry, you are not allowed to deactivate this block."
 msgstr ""
 
-#. Translators: %s: The plugin type's plural name.
-#: wp-admin/plugins.php:284
-msgid "Sorry, you are not allowed to deactivate %s for this site."
+#: wp-admin/plugins.php:243
+msgid "Sorry, you are not allowed to deactivate this plugin."
 msgstr ""
 
-#. Translators: %s: The plugin type's plural name.
-#: wp-admin/plugins.php:333
-msgid "Sorry, you are not allowed to delete %s for this site."
+#: wp-admin/plugins.php:272
+msgid "Sorry, you are not allowed to deactivate blocks for this site."
 msgstr ""
 
-#. Translators: %s: Plugin type singular name.
-#: wp-admin/plugins.php:410
-msgctxt "Plugins Admin confirm plugin delete"
-msgid "Delete %s"
+#: wp-admin/plugins.php:274
+msgid "Sorry, you are not allowed to deactivate plugins for this site."
 msgstr ""
 
-#: wp-admin/plugins.php:417
-#: wp-admin/plugins.php:447
+#: wp-admin/plugins.php:319
+msgid "Sorry, you are not allowed to delete blocks for this site."
+msgstr ""
+
+#: wp-admin/plugins.php:395
+msgid "Delete Block"
+msgstr ""
+
+#: wp-admin/plugins.php:397
+msgid "Delete Plugin"
+msgstr ""
+
+#: wp-admin/plugins.php:403
+#: wp-admin/plugins.php:433
 msgid "Caution:"
 msgstr ""
 
-#: wp-admin/plugins.php:417
+#: wp-admin/plugins.php:403
 msgid "This plugin may be active on other sites in the network."
 msgstr ""
 
-#. Translators: %s: Plugin type singular name.
-#: wp-admin/plugins.php:430
-msgctxt "Plugins Admin confirm plugin delete"
-msgid "You are about to remove the following %s:"
+#: wp-admin/plugins.php:415
+msgid "You are about to remove the following block:"
 msgstr ""
 
-#. Translators: %s: Plugin type plural name.
-#: wp-admin/plugins.php:440
-msgctxt "Plugins Admin confirm plugins delete"
-msgid "Delete %s"
+#: wp-admin/plugins.php:417
+msgid "You are about to remove the following plugin:"
 msgstr ""
 
-#: wp-admin/plugins.php:447
+#: wp-admin/plugins.php:425
+msgid "Delete Blocks"
+msgstr ""
+
+#: wp-admin/plugins.php:427
+msgid "Delete Plugins"
+msgstr ""
+
+#: wp-admin/plugins.php:433
 msgid "These plugins may be active on other sites in the network."
 msgstr ""
 
-#. Translators: %s: Plugin type plural name.
-#: wp-admin/plugins.php:460
-msgctxt "Plugins Admin confirm plugins delete"
-msgid "You are about to remove the following %s:"
+#: wp-admin/plugins.php:445
+msgid "You are about to remove the following blocks:"
+msgstr ""
+
+#: wp-admin/plugins.php:447
+msgid "You are about to remove the following plugins:"
 msgstr ""
 
 #. translators: 1: Plugin name, 2: Plugin author.
-#: wp-admin/plugins.php:474
+#: wp-admin/plugins.php:460
 msgid "%1$s by %2$s (will also <strong>delete its data</strong>)"
 msgstr ""
 
 #. translators: 1: Plugin name, 2: Plugin author.
-#: wp-admin/plugins.php:478
+#: wp-admin/plugins.php:464
 msgctxt "plugin"
 msgid "%1$s by %2$s"
 msgstr ""
 
-#: wp-admin/plugins.php:488
+#: wp-admin/plugins.php:474
 msgid "Are you sure you want to delete these files and data?"
 msgstr ""
 
-#: wp-admin/plugins.php:490
+#: wp-admin/plugins.php:476
 msgid "Are you sure you want to delete these files?"
 msgstr ""
 
-#: wp-admin/plugins.php:506
+#: wp-admin/plugins.php:492
 msgid "Yes, delete these files and data"
 msgstr ""
 
-#: wp-admin/plugins.php:506
+#: wp-admin/plugins.php:492
 msgid "Yes, delete these files"
 msgstr ""
 
-#. Translators: %s: Plugin type singular name.
-#: wp-admin/plugins.php:518
-msgid "No, return me to the %s list"
+#: wp-admin/plugins.php:502
+msgid "No, return me to the block list"
 msgstr ""
 
-#. Translators: %s: The plugin type's singular name.
-#: wp-admin/plugins.php:560
-msgid "Sorry, you are not allowed to resume this %s."
+#: wp-admin/plugins.php:504
+msgid "No, return me to the plugin list"
 msgstr ""
 
-#. Translators: %s: The plugin type's plural name.
-#: wp-admin/plugins.php:584
-msgid "Sorry, you are not allowed to manage %s automatic updates."
+#: wp-admin/plugins.php:539
+msgid "Sorry, you are not allowed to resume this block."
 msgstr ""
 
-#: wp-admin/plugins.php:591
+#: wp-admin/plugins.php:541
+msgid "Sorry, you are not allowed to resume this plugin."
+msgstr ""
+
+#: wp-admin/plugins.php:561
+msgid "Sorry, you are not allowed to manage blocks automatic updates."
+msgstr ""
+
+#: wp-admin/plugins.php:563
+msgid "Sorry, you are not allowed to manage plugins automatic updates."
+msgstr ""
+
+#: wp-admin/plugins.php:568
 msgid "Please connect to your network admin to manage plugins automatic updates."
 msgstr ""
 
-#: wp-admin/plugins.php:683
+#: wp-admin/plugins.php:660
 msgid "Plugins extend and expand the functionality of Retraceur. Once a plugin is installed, you may activate it or deactivate it here."
 msgstr ""
 
-#: wp-admin/plugins.php:684
+#: wp-admin/plugins.php:661
 msgid "The search for installed plugins will search for terms in their name, description, or author."
 msgstr ""
 
-#: wp-admin/plugins.php:690
+#: wp-admin/plugins.php:667
 msgid "Troubleshooting"
 msgstr ""
 
-#: wp-admin/plugins.php:692
+#: wp-admin/plugins.php:669
 msgid "Most of the time, plugins play nicely with the core of Retraceur and with other plugins. Sometimes, though, a plugin&#8217;s code will get in the way of another plugin, causing compatibility issues. If your site starts doing strange things, this may be the problem. Try deactivating all your plugins and re-activating them in various combinations until you isolate which one(s) caused the issue."
 msgstr ""
 
 #. translators: %s: WP_PLUGIN_DIR constant value.
-#: wp-admin/plugins.php:695
+#: wp-admin/plugins.php:672
 msgid "If something goes wrong with a plugin and you cannot use Retraceur, delete or rename that file in the %s directory and it will be automatically deactivated."
 msgstr ""
 
-#: wp-admin/plugins.php:705
+#: wp-admin/plugins.php:682
 msgid "Dependencies"
 msgstr ""
 
-#: wp-admin/plugins.php:707
+#: wp-admin/plugins.php:684
 msgid "Plugin Dependencies aims to make the process of installing and activating add-ons (dependents) and the plugins they rely on (dependencies) consistent and easy."
 msgstr ""
 
-#: wp-admin/plugins.php:708
+#: wp-admin/plugins.php:685
 msgid "If a required plugin is deleted, a notice will be displayed on the Plugin administration screen informing the user that there is some missing dependencies to install and/or activate. Additionally, each plugin whose dependencies are not met will have an error notice on their plugin row."
 msgstr ""
 
-#: wp-admin/plugins.php:709
+#: wp-admin/plugins.php:686
 msgid "If a dependent plugin is missing some dependencies, its activation button will be disabled until the required dependencies are activated."
 msgstr ""
 
-#. translators: 1: Plugin Type singular name, 2: Plugin file, 3: Error message.
-#: wp-admin/plugins.php:729
-msgid "The %1$s %2$s has been deactivated due to an error: %3$s"
+#. translators: 1: Plugin file, 2: Error message.
+#: wp-admin/plugins.php:707
+msgid "The block %1$s has been deactivated due to an error: %2$s"
 msgstr ""
 
-#. translators: %s: Plugin Type singular name.
-#: wp-admin/plugins.php:755
-msgid "You cannot delete a %s while it is active on the main site."
+#. translators: 1: Plugin file, 2: Error message.
+#: wp-admin/plugins.php:714
+msgid "The plugin %1$s has been deactivated due to an error: %2$s"
+msgstr ""
+
+#: wp-admin/plugins.php:740
+msgid "You cannot delete a block while it is active on the main site."
 msgstr ""
 
 #. translators: %d: Number of characters.
-#: wp-admin/plugins.php:762
+#: wp-admin/plugins.php:748
 msgid "The block generated %d character of <strong>unexpected output</strong> during activation."
 msgid_plural "The block generated %d characters of <strong>unexpected output</strong> during activation."
 msgstr[0] ""
 msgstr[1] ""
 
+#: wp-admin/plugins.php:756
+#: wp-admin/plugins.php:768
+msgid "If you notice &#8220;headers already sent&#8221; messages, problems with syndication feeds or other issues, try deactivating or removing this plugin."
+msgstr ""
+
 #. translators: %d: Number of characters.
-#: wp-admin/plugins.php:772
+#: wp-admin/plugins.php:760
 msgid "The plugin generated %d character of <strong>unexpected output</strong> during activation."
 msgid_plural "The plugin generated %d characters of <strong>unexpected output</strong> during activation."
 msgstr[0] ""
 msgstr[1] ""
 
-#. translators: %s: Plugin Type singular name.
-#: wp-admin/plugins.php:783
-msgid "If you notice &#8220;headers already sent&#8221; messages, problems with syndication feeds or other issues, try deactivating or removing this %s."
+#: wp-admin/plugins.php:772
+msgid "Block could not be resumed because it triggered a <strong>fatal error</strong>."
 msgstr ""
 
-#. translators: %s: Plugin Type singular name.
-#: wp-admin/plugins.php:789
-msgid "%s could not be resumed because it triggered a <strong>fatal error</strong>."
+#: wp-admin/plugins.php:774
+msgid "Plugin could not be resumed because it triggered a <strong>fatal error</strong>."
 msgstr ""
 
-#. translators: %s: Plugin Type singular name.
-#: wp-admin/plugins.php:795
-msgid "%s could not be activated because it triggered a <strong>fatal error</strong>."
+#: wp-admin/plugins.php:778
+msgid "Block could not be activated because it triggered a <strong>fatal error</strong>."
 msgstr ""
 
-#. translators: 1: Plugin type singular name, 2: Error message.
-#: wp-admin/plugins.php:831
-msgid "%1$s could not be deleted due to an error: %2$s"
+#: wp-admin/plugins.php:780
+msgid "Plugin could not be activated because it triggered a <strong>fatal error</strong>."
 msgstr ""
 
-#. translators: %s: Plugin Type singular name.
-#: wp-admin/plugins.php:847
-msgid "The selected %s has been deleted."
+#. translators: %s: Error message.
+#: wp-admin/plugins.php:816
+msgid "Block could not be deleted due to an error: %s"
 msgstr ""
 
-#. translators: %s: Plugin Type plural name.
-#: wp-admin/plugins.php:853
-msgid "The selected %s have been deleted."
+#. translators: %s: Error message.
+#: wp-admin/plugins.php:822
+msgid "Plugin could not be deleted due to an error: %s"
 msgstr ""
 
-#. translators: %s: Plugin Type singular name.
-#: wp-admin/plugins.php:861
-msgid "%s activated."
+#: wp-admin/plugins.php:838
+msgid "The selected block has been deleted."
 msgstr ""
 
-#. translators: %s: Plugin Type plural name.
+#: wp-admin/plugins.php:840
+msgid "The selected plugin has been deleted."
+msgstr ""
+
+#: wp-admin/plugins.php:844
+msgid "The selected blocks has been deleted."
+msgstr ""
+
+#: wp-admin/plugins.php:846
+msgid "The selected plugins has been deleted."
+msgstr ""
+
+#: wp-admin/plugins.php:852
+msgid "Block activated."
+msgstr ""
+
+#: wp-admin/plugins.php:852
+msgid "Plugin activated."
+msgstr ""
+
+#: wp-admin/plugins.php:854
+msgid "Selected blocks activated."
+msgstr ""
+
+#: wp-admin/plugins.php:854
+msgid "Selected plugins activated."
+msgstr ""
+
+#: wp-admin/plugins.php:856
+msgid "Block deactivated."
+msgstr ""
+
+#: wp-admin/plugins.php:856
+msgid "Plugin deactivated."
+msgstr ""
+
+#: wp-admin/plugins.php:858
+msgid "Selected blocks deactivated."
+msgstr ""
+
+#: wp-admin/plugins.php:858
+msgid "Selected plugins deactivated."
+msgstr ""
+
+#: wp-admin/plugins.php:860
+msgid "All selected blocks are up to date."
+msgstr ""
+
+#: wp-admin/plugins.php:860
+msgid "All selected plugins are up to date."
+msgstr ""
+
+#: wp-admin/plugins.php:862
+msgid "Block resumed."
+msgstr ""
+
+#: wp-admin/plugins.php:862
+msgid "Plugin resumed."
+msgstr ""
+
 #: wp-admin/plugins.php:864
-msgid "Selected %s activated."
+msgid "Block will be auto-updated."
 msgstr ""
 
-#. translators: %s: Plugin Type singular name.
-#: wp-admin/plugins.php:867
-msgid "%s deactivated."
+#: wp-admin/plugins.php:864
+msgid "Plugin will be auto-updated."
 msgstr ""
 
-#. translators: %s: Plugin Type plural name.
-#: wp-admin/plugins.php:870
-msgid "Selected %s deactivated."
+#: wp-admin/plugins.php:866
+msgid "Block will no longer be auto-updated."
 msgstr ""
 
-#. translators: %s: Plugin Type plural name.
-#: wp-admin/plugins.php:873
-msgid "All selected %s are up to date."
+#: wp-admin/plugins.php:866
+msgid "Plugin will no longer be auto-updated."
 msgstr ""
 
-#. translators: %s: Plugin Type singular name.
-#: wp-admin/plugins.php:876
-msgid "%s resumed."
+#: wp-admin/plugins.php:868
+msgid "Selected blocks will be auto-updated."
 msgstr ""
 
-#. translators: %s: Plugin Type singular name.
-#: wp-admin/plugins.php:879
-msgid "%s will be auto-updated."
-msgstr ""
-
-#. translators: %s: Plugin Type singular name.
-#: wp-admin/plugins.php:882
-msgid "%s will no longer be auto-updated."
-msgstr ""
-
-#. translators: %s: Plugin Type plural name.
-#: wp-admin/plugins.php:885
+#: wp-admin/plugins.php:868
 msgid "Selected plugins will be auto-updated."
 msgstr ""
 
-#. translators: %s: Plugin Type plural name.
-#: wp-admin/plugins.php:888
-msgid "Selected plugins will no longer be auto-updated."
+#: wp-admin/plugins.php:870
+msgid "Selected blocks will no longer be auto-updated."
 msgstr ""
 
-#. Translators: %s: Plugin type plural name.
-#: wp-admin/plugins.php:950
-msgid "Search installed %s"
+#: wp-admin/plugins.php:929
+msgid "Search installed blocks"
+msgstr ""
+
+#: wp-admin/plugins.php:929
+msgid "Search installed plugins"
 msgstr ""
 
 #: wp-admin/post.php:49
@@ -14078,6 +14176,11 @@ msgstr ""
 #. translators: %s: Plugin name and version.
 #: wp-admin/update.php:137
 msgid "Installing Plugin: %s"
+msgstr ""
+
+#. Translators: %s: The plugin type's plural name.
+#: wp-admin/update.php:157
+msgid "Sorry, you are not allowed to install %s on this site."
 msgstr ""
 
 #: wp-admin/update.php:158
