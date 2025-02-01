@@ -7,9 +7,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-01-31T06:06:04+00:00\n"
+"POT-Creation-Date: 2025-02-01T03:22:11+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.10.0\n"
+"X-Generator: WP-CLI 2.11.0\n"
 
 #. translators: Page title of the About Retraceur page in the admin.
 #: wp-admin/about.php:16
@@ -4840,7 +4840,6 @@ msgid "No plugins are currently available."
 msgstr ""
 
 #: wp-admin/includes/class-wp-plugins-list-table.php:499
-#: wp-admin/includes/plugin-install.php:157
 msgid "Plugin"
 msgstr ""
 
@@ -9085,11 +9084,15 @@ msgstr ""
 
 #. Translators: %s: Plugin type.
 #: wp-admin/includes/plugin-install.php:156
-msgid "Retraceur does not provide a %s Install API, yet! It will soon do so, the independant way."
+msgid "Retraceur does not provide a %s, yet! It will soon do so, the independant way."
 msgstr ""
 
 #: wp-admin/includes/plugin-install.php:157
-msgid "Block"
+msgid "Block Install API"
+msgstr ""
+
+#: wp-admin/includes/plugin-install.php:157
+msgid "Plugin Install API"
 msgstr ""
 
 #: wp-admin/includes/plugin-install.php:187
