@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-02-01T03:22:11+00:00\n"
+"POT-Creation-Date: 2025-02-01T03:31:33+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 
@@ -1670,9 +1670,9 @@ msgstr ""
 
 #: wp-admin/includes/ajax-actions.php:3051
 #: wp-admin/theme-install.php:18
-#: wp-admin/update.php:285
-#: wp-admin/update.php:327
-#: wp-admin/update.php:365
+#: wp-admin/update.php:293
+#: wp-admin/update.php:335
+#: wp-admin/update.php:373
 msgid "Sorry, you are not allowed to install themes on this site."
 msgstr ""
 
@@ -1687,8 +1687,8 @@ msgid "Unable to connect to the filesystem. Please confirm your credentials."
 msgstr ""
 
 #: wp-admin/includes/ajax-actions.php:3169
-#: wp-admin/update.php:234
-#: wp-admin/update.php:257
+#: wp-admin/update.php:242
+#: wp-admin/update.php:265
 msgid "Sorry, you are not allowed to update themes for this site."
 msgstr ""
 
@@ -1721,7 +1721,7 @@ msgstr ""
 
 #: wp-admin/includes/ajax-actions.php:3335
 #: wp-admin/update.php:109
-#: wp-admin/update.php:213
+#: wp-admin/update.php:221
 msgid "Sorry, you are not allowed to install plugins on this site."
 msgstr ""
 
@@ -3008,7 +3008,7 @@ msgid "Replace active with uploaded"
 msgstr ""
 
 #: wp-admin/includes/class-theme-upgrader-skin.php:46
-#: wp-admin/update.php:242
+#: wp-admin/update.php:250
 msgid "Update Theme"
 msgstr ""
 
@@ -13514,7 +13514,7 @@ msgstr ""
 #: wp-admin/theme-install.php:61
 #: wp-admin/theme-install.php:151
 #: wp-admin/theme-install.php:153
-#: wp-admin/update.php:339
+#: wp-admin/update.php:347
 msgid "Upload Theme"
 msgstr ""
 
@@ -14195,34 +14195,31 @@ msgid "plugins"
 msgstr ""
 
 #: wp-admin/update.php:166
-#: wp-admin/update.php:333
+#: wp-admin/update.php:341
 msgid "Only .zip archives may be uploaded."
 msgstr ""
 
-#. translators: %1$s: Plugin type. %2$s: File name.
-#: wp-admin/update.php:186
-msgid "Installing %1$s from uploaded file: %2$s"
-msgstr ""
-
+#. translators: %s: File name.
 #: wp-admin/update.php:187
-msgid "block"
+msgid "Installing block from uploaded file: %s"
 msgstr ""
 
-#: wp-admin/update.php:187
-msgid "plugin"
+#. translators: %s: File name.
+#: wp-admin/update.php:193
+msgid "Installing plugin from uploaded file: %s"
 msgstr ""
 
-#: wp-admin/update.php:307
+#: wp-admin/update.php:315
 msgid "Install Themes"
 msgstr ""
 
 #. translators: %s: Theme name and version.
-#: wp-admin/update.php:314
+#: wp-admin/update.php:322
 msgid "Installing Theme: %s"
 msgstr ""
 
 #. translators: %s: File name.
-#: wp-admin/update.php:346
+#: wp-admin/update.php:354
 msgid "Installing theme from uploaded file: %s"
 msgstr ""
 

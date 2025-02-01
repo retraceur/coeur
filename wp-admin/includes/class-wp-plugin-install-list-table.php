@@ -111,8 +111,8 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 			$tabs['beta'] = _x( 'Beta Testing', 'Plugin Installer' );
 		}
 
-		$tabs['all']         = _x( 'All', 'Plugin Installer' );
-		$tabs['featured']    = _x( 'Featured', 'Plugin Installer' );
+		$tabs['all']      = _x( 'All', 'Plugin Installer' );
+		$tabs['featured'] = _x( 'Featured', 'Plugin Installer' );
 
 		if ( current_user_can( 'upload_plugins' ) ) {
 			/*
@@ -373,10 +373,6 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 	 * @param string $which
 	 */
 	protected function display_tablenav( $which ) {
-		if ( 'featured' === $GLOBALS['tab'] ) {
-			return;
-		}
-
 		if ( 'top' === $which ) {
 			wp_referer_field();
 			?>

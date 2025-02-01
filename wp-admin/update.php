@@ -181,12 +181,20 @@ if ( isset( $_GET['action'] ) ) {
 
 		require_once ABSPATH . 'wp-admin/admin-header.php';
 
-		$title = sprintf(
-			/* translators: %1$s: Plugin type. %2$s: File name. */
-			__( 'Installing %1$s from uploaded file: %2$s' ),
-			'upload-block' === $action ? __( 'block' ) : __( 'plugin' ),
-			esc_html( basename( $file_upload->filename ) )
-		);
+		if ( 'upload-block' === $action ) {
+			$title = sprintf(
+				/* translators: %s: File name. */
+				__( 'Installing block from uploaded file: %s' ),
+				esc_html( basename( $file_upload->filename ) )
+			);
+		} else {
+			$title = sprintf(
+				/* translators: %s: File name. */
+				__( 'Installing plugin from uploaded file: %s' ),
+				esc_html( basename( $file_upload->filename ) )
+			);
+		}
+
 		$nonce = 'plugin-upload';
 		$url   = add_query_arg( array( 'package' => $file_upload->id ), "update.php?action={$action}" );
 		$type  = 'upload'; // Install plugin type, From Web or an Upload.

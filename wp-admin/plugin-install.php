@@ -195,27 +195,39 @@ if ( 'upload' !== $tab ) {
 	$wp_list_table->views();
 }
 
-/**
- * Fires after the plugins list table in each tab of the Install Plugins screen.
- *
- * The dynamic portion of the hook name, `$tab`, allows for targeting
- * individual tabs.
- *
- * Possible hook names include:
- *
- *  - `install_plugins_beta`
- *  - `install_plugins_featured`
- *  - `install_plugins_plugin-information`
- *  - `install_plugins_popular`
- *  - `install_plugins_recommended`
- *  - `install_plugins_search`
- *  - `install_plugins_upload`
- *
- * @since WP 2.7.0
- *
- * @param int $paged The current page number of the plugins list table.
- */
-do_action( "install_plugins_{$tab}", $paged );
+if ( 'block' === $plugin_type ) {
+	/**
+	 * Fires after the blocks list table in each tab of the Install Blocks screen.
+	 *
+	 * The dynamic portion of the hook name, `$tab`, allows for targeting
+	 * individual tabs.
+	 *
+	 * @since 1.0.0 Retraceur fork.
+	 */
+	do_action( "install_blocks_{$tab}", $paged );
+} else {
+	/**
+	 * Fires after the plugins list table in each tab of the Install Plugins screen.
+	 *
+	 * The dynamic portion of the hook name, `$tab`, allows for targeting
+	 * individual tabs.
+	 *
+	 * Possible hook names include:
+	 *
+	 *  - `install_plugins_beta`
+	 *  - `install_plugins_featured`
+	 *  - `install_plugins_plugin-information`
+	 *  - `install_plugins_popular`
+	 *  - `install_plugins_recommended`
+	 *  - `install_plugins_search`
+	 *  - `install_plugins_upload`
+	 *
+	 * @since WP 2.7.0
+	 *
+	 * @param int $paged The current page number of the plugins list table.
+	 */
+	do_action( "install_plugins_{$tab}", $paged );
+}
 ?>
 
 	<span class="spinner"></span>

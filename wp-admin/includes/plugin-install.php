@@ -406,11 +406,10 @@ function display_plugins_table() {
 		case 'install_plugins_beta':
 			echo '<p>' . __( 'You are using a development version of Retraceur. These feature plugins are also under development.' ) . '</p>';
 			break;
+
+		case 'install_plugins_all':
 		case 'install_plugins_featured':
 			echo '<p>' . __( 'Plugins extend and expand the functionality of Retraceur. You may upload a plugin in .zip format by clicking the button at the top of this page.' ) . '</p>';
-			break;
-		case 'install_plugins_recommended':
-			echo '<p>' . __( 'These suggestions are based on the plugins you and other users have installed.' ) . '</p>';
 			break;
 	}
 	?>
