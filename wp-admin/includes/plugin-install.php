@@ -153,8 +153,8 @@ function plugins_api( $action, $args = array() ) {
 			'plugins_api_disabled',
 			sprintf(
 				/* Translators: %s: Plugin type. */
-				__( 'Retraceur does not provide a %s Install API, yet! It will soon do so, the independant way.' ),
-				'query_blocks' === $action ? __( 'Block' ) : __( 'Plugin' )
+				__( 'Retraceur does not provide a %s, yet! It will soon do so, the independant way.' ),
+				'query_blocks' === $action ? __( 'Block Install API' ) : __( 'Plugin Install API' )
 			)
 		);
 
