@@ -46,7 +46,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 				printf(
 					/* Translators: %s: GH link to learn how to get involved. */
 					esc_html__( 'You’re welcome to join the party and %s.' ),
-					'<a href="https://github.com/retraceur/coeur/blob/trunk/CONTRIBUTING.md">' . esc_html__( 'contribute' ) . '</a>'
+					'<a href="contribute.php">' . esc_html__( 'contribute' ) . '</a>'
 				);
 				?>
 			</p>
@@ -55,14 +55,14 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 
 	<div class="about__section">
 		<div class="column">
-			<h3><?php esc_html_e( 'Contributor' ) ;?></h3>
+			<h2><?php esc_html_e( 'Contributor' ) ;?></h2>
 			<p><a href="https://github.com/imath">imath</a></p>
 		</div>
 	</div>
 
 	<div class="about__section">
 		<div class="column">
-			<h3><?php esc_html_e( 'Eternal thanks' ) ;?></h3>
+			<h2><?php esc_html_e( 'Eternal thanks' ) ;?></h2>
 			<p>
 				<?php
 				printf(
@@ -77,12 +77,12 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 
 	<div class="about__section">
 		<div class="column">
-			<h3>
+			<h2>
 				<?php
 				/* Translators: %s is the Heart emoji. */
 				printf( esc_html__( '%s GitHub' ), wp_staticize_emoji( '❤️' ) );
 				?>
-			</h3>
+			</h2>
 			<p>
 				<?php
 				printf(
@@ -97,12 +97,12 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 
 	<div class="about__section">
 		<div class="column">
-			<h3>
+			<h2>
 				<?php
 				/* Translators: %s is the Handshake emoji. */
 				printf( esc_html__( 'The other Retraceur best Open Source friends %s' ), wp_staticize_emoji( '🤝' ) );
 				?>
-			</h3>
+			</h2>
 			<ul>
 				<li><a href="https://www.libravatar.org/">Libravatar</a></li>
 				<li><a href="https://openmoji.org/">OpenMoji</a> <?php echo wp_staticize_emoji( '🚀' ) ;?></li>
