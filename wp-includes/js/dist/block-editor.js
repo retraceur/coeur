@@ -8339,6 +8339,7 @@ function moveTo(array, from, to, count = 1) {
 }
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/block-editor/build-module/store/reducer.js
+/* wp:polyfill */
 /**
  * External dependencies
  */
@@ -10536,6 +10537,7 @@ function isPatternFiltered(pattern, sourceFilter, syncFilter) {
 }
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/block-editor/build-module/utils/object.js
+/* wp:polyfill */
 /**
  * Immutably sets a value inside an object. Like `lodash#set`, but returning a
  * new object. Treats nullish initial values as empty objects. Clones any
@@ -11217,6 +11219,7 @@ function isSectionBlock(state, clientId) {
 }
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/block-editor/build-module/store/selectors.js
+/* wp:polyfill */
 /**
  * WP dependencies
  */
@@ -18821,6 +18824,7 @@ const sidesLeft = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)
 /* harmony default export */ const sides_left = (sidesLeft);
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/block-editor/build-module/components/spacing-sizes-control/utils.js
+/* wp:polyfill */
 /**
  * WP dependencies
  */
@@ -25299,6 +25303,7 @@ function addTransforms(result, source, index, results) {
 (0,external_wp_hooks_namespaceObject.addFilter)('blocks.switchToBlockType.transformedBlock', 'core/color/addTransforms', addTransforms);
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/block-editor/build-module/hooks/generated-class-name.js
+/* wp:polyfill */
 /**
  * WP dependencies
  */
@@ -41649,6 +41654,7 @@ ForwardedInnerBlocks.Content = () => useInnerBlocksProps.save().children;
 /* harmony default export */ const inner_blocks = (ForwardedInnerBlocks);
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/block-editor/build-module/components/observe-typing/index.js
+/* wp:polyfill */
 /**
  * WP dependencies
  */
@@ -41989,6 +41995,7 @@ function ZoomOutSeparator({
 }
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/block-editor/build-module/components/block-list/index.js
+/* wp:polyfill */
 /**
  * External dependencies
  */
@@ -44135,6 +44142,7 @@ function Iframe({
     styles = '',
     scripts = ''
   } = resolvedAssets;
+  /** @type {[Document, import('react').Dispatch<Document>]} */
   const [iframeDocument, setIframeDocument] = (0,external_wp_element_namespaceObject.useState)();
   const initialContainerWidth = (0,external_wp_element_namespaceObject.useRef)(0);
   const [bodyClasses, setBodyClasses] = (0,external_wp_element_namespaceObject.useState)([]);
@@ -44146,6 +44154,7 @@ function Iframe({
   const [containerResizeListener, {
     width: containerWidth
   }] = (0,external_wp_compose_namespaceObject.useResizeObserver)();
+  const prefersReducedMotion = (0,external_wp_compose_namespaceObject.useReducedMotion)();
   const setRef = (0,external_wp_compose_namespaceObject.useRefEffect)(node => {
     node._load = () => {
       setIframeDocument(node.contentDocument);
@@ -44224,6 +44233,12 @@ function Iframe({
     }
   }, [containerWidth, isZoomedOut]);
   const scaleContainerWidth = Math.max(initialContainerWidth.current, containerWidth);
+  const frameSizeValue = parseInt(frameSize);
+  const maxWidth = 750;
+  const scaleValue = scale === 'default' ? (Math.min(containerWidth, maxWidth) - frameSizeValue * 2) / scaleContainerWidth : scale;
+  const prevScaleRef = (0,external_wp_element_namespaceObject.useRef)(scaleValue);
+  const prevFrameSizeRef = (0,external_wp_element_namespaceObject.useRef)(frameSizeValue);
+  const prevClientHeightRef = (0,external_wp_element_namespaceObject.useRef)( /* Initialized in the useEffect. */);
   const disabledRef = (0,external_wp_compose_namespaceObject.useDisabled)({
     isDisabled: !readonly
   });
@@ -44268,37 +44283,129 @@ function Iframe({
     return [_src, () => URL.revokeObjectURL(_src)];
   }, [html]);
   (0,external_wp_element_namespaceObject.useEffect)(() => cleanup, [cleanup]);
-  const zoomOutAnimationClassnameRef = (0,external_wp_element_namespaceObject.useRef)(null);
+  (0,external_wp_element_namespaceObject.useEffect)(() => {
+    var _prevClientHeightRef$;
+    if (!iframeDocument ||
+    // HACK: Checking if isZoomedOut differs from prevIsZoomedOut here
+    // instead of the dependency array to appease the linter.
+    scaleValue === 1 === (prevScaleRef.current === 1)) {
+      return;
+    }
+
+    // Unscaled height of the current iframe container.
+    const clientHeight = iframeDocument.documentElement.clientHeight;
+
+    // Scaled height of the current iframe content.
+    const scrollHeight = iframeDocument.documentElement.scrollHeight;
+
+    // Previous scale value.
+    const prevScale = prevScaleRef.current;
+
+    // Unscaled size of the previous padding around the iframe content.
+    const prevFrameSize = prevFrameSizeRef.current;
+
+    // Unscaled height of the previous iframe container.
+    const prevClientHeight = (_prevClientHeightRef$ = prevClientHeightRef.current) !== null && _prevClientHeightRef$ !== void 0 ? _prevClientHeightRef$ : clientHeight;
+
+    // We can't trust the set value from contentHeight, as it was measured
+    // before the zoom out mode was changed. After zoom out mode is changed,
+    // appenders may appear or disappear, so we need to get the height from
+    // the iframe at this point when we're about to animate the zoom out.
+    // The iframe scrollTop, scrollHeight, and clientHeight will all be
+    // accurate. The client height also does change when the zoom out mode
+    // is toggled, as the bottom bar about selecting the template is
+    // added/removed when toggling zoom out mode.
+    const scrollTop = iframeDocument.documentElement.scrollTop;
+
+    // Step 0: Start with the current scrollTop.
+    let scrollTopNext = scrollTop;
+
+    // Step 1: Undo the effects of the previous scale and frame around the
+    // midpoint of the visible area.
+    scrollTopNext = (scrollTopNext + prevClientHeight / 2 - prevFrameSize) / prevScale - prevClientHeight / 2;
+
+    // Step 2: Apply the new scale and frame around the midpoint of the
+    // visible area.
+    scrollTopNext = (scrollTopNext + clientHeight / 2) * scaleValue + frameSizeValue - clientHeight / 2;
+
+    // Step 3: Handle an edge case so that you scroll to the top of the
+    // iframe if the top of the iframe content is visible in the container.
+    // The same edge case for the bottom is skipped because changing content
+    // makes calculating it impossible.
+    scrollTopNext = scrollTop <= prevFrameSize ? 0 : scrollTopNext;
+
+    // This is the scrollTop value if you are scrolled to the bottom of the
+    // iframe. We can't just let the browser handle it because we need to
+    // animate the scaling.
+    const maxScrollTop = scrollHeight * (scaleValue / prevScale) + frameSizeValue * 2 - clientHeight;
+
+    // Step 4: Clamp the scrollTopNext between the minimum and maximum
+    // possible scrollTop positions. Round the value to avoid subpixel
+    // truncation by the browser which sometimes causes a 1px error.
+    scrollTopNext = Math.round(Math.min(Math.max(0, scrollTopNext), Math.max(0, maxScrollTop)));
+    iframeDocument.documentElement.style.setProperty('--wp-block-editor-iframe-zoom-out-scroll-top', `${scrollTop}px`);
+    iframeDocument.documentElement.style.setProperty('--wp-block-editor-iframe-zoom-out-scroll-top-next', `${scrollTopNext}px`);
+    iframeDocument.documentElement.classList.add('zoom-out-animation');
+    function onZoomOutTransitionEnd() {
+      // Remove the position fixed for the animation.
+      iframeDocument.documentElement.classList.remove('zoom-out-animation');
+
+      // Update previous values.
+      prevClientHeightRef.current = clientHeight;
+      prevFrameSizeRef.current = frameSizeValue;
+      prevScaleRef.current = scaleValue;
+
+      // Set the final scroll position that was just animated to.
+      iframeDocument.documentElement.scrollTop = scrollTopNext;
+    }
+    let raf;
+    if (prefersReducedMotion) {
+      // Hack: Wait for the window values to recalculate.
+      raf = iframeDocument.defaultView.requestAnimationFrame(onZoomOutTransitionEnd);
+    } else {
+      iframeDocument.documentElement.addEventListener('transitionend', onZoomOutTransitionEnd, {
+        once: true
+      });
+    }
+    return () => {
+      iframeDocument.documentElement.style.removeProperty('--wp-block-editor-iframe-zoom-out-scroll-top');
+      iframeDocument.documentElement.style.removeProperty('--wp-block-editor-iframe-zoom-out-scroll-top-next');
+      iframeDocument.documentElement.classList.remove('zoom-out-animation');
+      if (prefersReducedMotion) {
+        iframeDocument.defaultView.cancelAnimationFrame(raf);
+      } else {
+        iframeDocument.documentElement.removeEventListener('transitionend', onZoomOutTransitionEnd);
+      }
+    };
+  }, [iframeDocument, scaleValue, frameSizeValue, prefersReducedMotion]);
 
   // Toggle zoom out CSS Classes only when zoom out mode changes. We could add these into the useEffect
   // that controls settings the CSS variables, but then we would need to do more work to ensure we're
   // only toggling these when the zoom out mode changes, as that useEffect is also triggered by a large
   // number of dependencies.
   (0,external_wp_element_namespaceObject.useEffect)(() => {
-    if (!iframeDocument || !isZoomedOut) {
+    if (!iframeDocument) {
       return;
     }
-    const handleZoomOutAnimationClassname = () => {
-      clearTimeout(zoomOutAnimationClassnameRef.current);
-      iframeDocument.documentElement.classList.add('zoom-out-animation');
-      zoomOutAnimationClassnameRef.current = setTimeout(() => {
-        iframeDocument.documentElement.classList.remove('zoom-out-animation');
-      }, 400); // 400ms should match the animation speed used in components/iframe/content.scss
-    };
-    handleZoomOutAnimationClassname();
-    iframeDocument.documentElement.classList.add('is-zoomed-out');
-    return () => {
-      handleZoomOutAnimationClassname();
+    if (isZoomedOut) {
+      iframeDocument.documentElement.classList.add('is-zoomed-out');
+    } else {
+      // HACK: Since we can't remove this in the cleanup, we need to do it here.
       iframeDocument.documentElement.classList.remove('is-zoomed-out');
+    }
+    return () => {
+      // HACK: Skipping cleanup because it causes issues with the zoom out
+      // animation. More refactoring is needed to fix this properly.
+      // iframeDocument.documentElement.classList.remove( 'is-zoomed-out' );
     };
   }, [iframeDocument, isZoomedOut]);
 
   // Calculate the scaling and CSS variables for the zoom out canvas
   (0,external_wp_element_namespaceObject.useEffect)(() => {
-    if (!iframeDocument || !isZoomedOut) {
+    if (!iframeDocument) {
       return;
     }
-    const maxWidth = 750;
+
     // Note: When we initialize the zoom out when the canvas is smaller (sidebars open),
     // initialContainerWidth will be smaller than the full page, and reflow will happen
     // when the canvas area becomes larger due to sidebars closing. This is a known but
@@ -44307,7 +44414,7 @@ function Iframe({
     // This scaling calculation has to happen within the JS because CSS calc() can
     // only divide and multiply by a unitless value. I.e. calc( 100px / 2 ) is valid
     // but calc( 100px / 2px ) is not.
-    iframeDocument.documentElement.style.setProperty('--wp-block-editor-iframe-zoom-out-scale', scale === 'default' ? (Math.min(containerWidth, maxWidth) - parseInt(frameSize) * 2) / scaleContainerWidth : scale);
+    iframeDocument.documentElement.style.setProperty('--wp-block-editor-iframe-zoom-out-scale', scaleValue);
 
     // frameSize has to be a px value for the scaling and frame size to be computed correctly.
     iframeDocument.documentElement.style.setProperty('--wp-block-editor-iframe-zoom-out-frame-size', typeof frameSize === 'number' ? `${frameSize}px` : frameSize);
@@ -44316,14 +44423,28 @@ function Iframe({
     iframeDocument.documentElement.style.setProperty('--wp-block-editor-iframe-zoom-out-container-width', `${containerWidth}px`);
     iframeDocument.documentElement.style.setProperty('--wp-block-editor-iframe-zoom-out-scale-container-width', `${scaleContainerWidth}px`);
     return () => {
-      iframeDocument.documentElement.style.removeProperty('--wp-block-editor-iframe-zoom-out-scale');
-      iframeDocument.documentElement.style.removeProperty('--wp-block-editor-iframe-zoom-out-frame-size');
-      iframeDocument.documentElement.style.removeProperty('--wp-block-editor-iframe-zoom-out-content-height');
-      iframeDocument.documentElement.style.removeProperty('--wp-block-editor-iframe-zoom-out-inner-height');
-      iframeDocument.documentElement.style.removeProperty('--wp-block-editor-iframe-zoom-out-container-width');
-      iframeDocument.documentElement.style.removeProperty('--wp-block-editor-iframe-zoom-out-scale-container-width');
+      // HACK: Skipping cleanup because it causes issues with the zoom out
+      // animation. More refactoring is needed to fix this properly.
+      // iframeDocument.documentElement.style.removeProperty(
+      // 	'--wp-block-editor-iframe-zoom-out-scale'
+      // );
+      // iframeDocument.documentElement.style.removeProperty(
+      // 	'--wp-block-editor-iframe-zoom-out-frame-size'
+      // );
+      // iframeDocument.documentElement.style.removeProperty(
+      // 	'--wp-block-editor-iframe-zoom-out-content-height'
+      // );
+      // iframeDocument.documentElement.style.removeProperty(
+      // 	'--wp-block-editor-iframe-zoom-out-inner-height'
+      // );
+      // iframeDocument.documentElement.style.removeProperty(
+      // 	'--wp-block-editor-iframe-zoom-out-container-width'
+      // );
+      // iframeDocument.documentElement.style.removeProperty(
+      // 	'--wp-block-editor-iframe-zoom-out-scale-container-width'
+      // );
     };
-  }, [scale, frameSize, iframeDocument, iframeWindowInnerHeight, contentHeight, containerWidth, windowInnerWidth, isZoomedOut, scaleContainerWidth]);
+  }, [scaleValue, frameSize, iframeDocument, iframeWindowInnerHeight, contentHeight, containerWidth, windowInnerWidth, isZoomedOut, scaleContainerWidth]);
 
   // Make sure to not render the before and after focusable div elements in view
   // mode. They're only needed to capture focus in edit mode.
@@ -49509,7 +49630,6 @@ class Inserter extends external_wp_element_namespaceObject.Component {
  */
 
 
-
 function button_block_appender_ButtonBlockAppender({
   rootClientId,
   className,
@@ -49517,8 +49637,6 @@ function button_block_appender_ButtonBlockAppender({
   tabIndex,
   onSelect
 }, ref) {
-  const inserterButtonRef = (0,external_wp_element_namespaceObject.useRef)();
-  const mergedInserterButtonRef = (0,external_wp_compose_namespaceObject.useMergeRefs)([inserterButtonRef, ref]);
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(inserter, {
     position: "bottom center",
     rootClientId: rootClientId,
@@ -49527,7 +49645,6 @@ function button_block_appender_ButtonBlockAppender({
       if (onSelect && typeof onSelect === 'function') {
         onSelect(...args);
       }
-      inserterButtonRef.current?.focus();
     },
     renderToggle: ({
       onToggle,
@@ -49542,7 +49659,7 @@ function button_block_appender_ButtonBlockAppender({
       (0,external_wp_i18n_namespaceObject._x)('Add %s', 'directly add the only allowed block'), blockTitle) : (0,external_wp_i18n_namespaceObject._x)('Add block', 'Generic label for block inserter button');
       return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.Button, {
         __next40pxDefaultSize: true,
-        ref: mergedInserterButtonRef,
+        ref: ref,
         onFocus: onFocus,
         tabIndex: tabIndex,
         className: dist_clsx(className, 'block-editor-button-block-appender'),
@@ -54629,6 +54746,7 @@ function BlockStylesMenu({
 }
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/block-editor/build-module/components/block-switcher/utils.js
+/* wp:polyfill */
 /**
  * WP dependencies
  */
@@ -54692,6 +54810,7 @@ const getRetainedBlockAttributes = (name, attributes) => {
 };
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/block-editor/build-module/components/block-switcher/use-transformed-patterns.js
+/* wp:polyfill */
 /**
  * WP dependencies
  */
@@ -54902,6 +55021,7 @@ function pattern_transformations_menu_BlockPattern({
 /* harmony default export */ const pattern_transformations_menu = (PatternTransformationsMenu);
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/block-editor/build-module/components/block-switcher/index.js
+/* wp:polyfill */
 /**
  * WP dependencies
  */
@@ -57840,7 +57960,7 @@ function PrivateBlockToolbar({
             clientIds: blockClientIds,
             disabled: !isDefaultEditingMode,
             isUsingBindings: isUsingBindings
-          }), !isMultiToolbar && showLockButtons && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(BlockLockToolbar, {
+          }), !isMultiToolbar && showLockButtons && isDefaultEditingMode && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(BlockLockToolbar, {
             clientId: blockClientId
           }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(block_mover, {
             clientIds: blockClientIds,
@@ -63081,6 +63201,7 @@ const BlockPatternSetup = ({
 /* harmony default export */ const block_pattern_setup = (BlockPatternSetup);
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/block-editor/build-module/components/block-variation-transforms/index.js
+/* wp:polyfill */
 /**
  * WP dependencies
  */
@@ -63326,6 +63447,7 @@ function ColorPaletteControl({
 ;// CONCATENATED MODULE: external ["wp","date"]
 const external_wp_date_namespaceObject = window["wp"]["date"];
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/block-editor/build-module/components/date-format-picker/index.js
+/* wp:polyfill */
 /**
  * WP dependencies
  */
@@ -64368,10 +64490,19 @@ var __setModuleDefault = Object.create ? (function(o, v) {
   o["default"] = v;
 };
 
+var ownKeys = function(o) {
+  ownKeys = Object.getOwnPropertyNames || function (o) {
+    var ar = [];
+    for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
+    return ar;
+  };
+  return ownKeys(o);
+};
+
 function __importStar(mod) {
   if (mod && mod.__esModule) return mod;
   var result = {};
-  if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+  if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
   __setModuleDefault(result, mod);
   return result;
 }
@@ -64452,12 +64583,25 @@ function __disposeResources(env) {
   return next();
 }
 
+function __rewriteRelativeImportExtension(path, preserveJsx) {
+  if (typeof path === "string" && /^\.\.?\//.test(path)) {
+      return path.replace(/\.(tsx)$|((?:\.d)?)((?:\.[^./]+?)?)\.([cm]?)ts$/i, function (m, tsx, d, ext, cm) {
+          return tsx ? preserveJsx ? ".jsx" : ".js" : d && (!ext || !cm) ? m : (d + ext + "." + cm.toLowerCase() + "js");
+      });
+  }
+  return path;
+}
+
 /* harmony default export */ const tslib_es6 = ({
   __extends,
   __assign,
   __rest,
   __decorate,
   __param,
+  __esDecorate,
+  __runInitializers,
+  __propKey,
+  __setFunctionName,
   __metadata,
   __awaiter,
   __generator,
@@ -64480,6 +64624,7 @@ function __disposeResources(env) {
   __classPrivateFieldIn,
   __addDisposableResource,
   __disposeResources,
+  __rewriteRelativeImportExtension,
 });
 
 // EXTERNAL MODULE: ./node_modules/normalize-wheel/index.js
@@ -66591,6 +66736,7 @@ function useMarkPersistent({
 }
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/block-editor/build-module/components/rich-text/use-format-types.js
+/* wp:polyfill */
 /**
  * WP dependencies
  */
@@ -67743,6 +67889,7 @@ function withDeprecations(Component) {
 }
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/block-editor/build-module/components/rich-text/index.js
+/* wp:polyfill */
 /**
  * External dependencies
  */
@@ -70140,6 +70287,7 @@ function MultiSelectScrollIntoView() {
 }
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/block-editor/build-module/components/typewriter/index.js
+/* wp:polyfill */
 /**
  * WP dependencies
  */
@@ -70360,6 +70508,7 @@ const TypewriterOrIEBypass = isIE ? props => props.children : Typewriter;
 /* harmony default export */ const typewriter = (TypewriterOrIEBypass);
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/block-editor/build-module/components/recursion-provider/index.js
+/* wp:polyfill */
 /**
  * WP dependencies
  */
@@ -71017,6 +71166,7 @@ function memize(fn, options) {
 
 
 ;// CONCATENATED MODULE: ./node_modules/@wordpress/block-editor/build-module/components/global-styles/get-global-styles-changes.js
+/* wp:polyfill */
 /**
  * External dependencies
  */
