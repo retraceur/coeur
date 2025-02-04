@@ -46,7 +46,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 	<div class="about__section is-feature">
 		<div class="column aligncenter">
 			<p class="is-subheading">
-				<?php esc_html_e( 'Retraceur is Free & Open Source. Its license is the GPL.' ); ?>
+				<?php esc_html_e( 'Retraceur is **really** Free & Open Source. Its license is the GPL.' ); ?>
 			</p>
 		</div>
 	</div>
