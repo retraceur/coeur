@@ -57,16 +57,81 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 
 		<div class="about__section has-2-columns">
 			<div class="column is-vertically-aligned-center">
-				<h3><?php esc_html_e( 'Unchained from « MullenWeb »' ); ?></h3>
+				<h3><?php esc_html_e( 'Unchained from «&nbsp;MullenWeb&nbsp;»' ); ?></h3>
 				<p>
-					<strong><?php esc_html_e( 'A WP fork completely disconnected from any personal or professional Websites owned by Mr. Mullenweg.' ); ?></strong><br />
-					<?php esc_html_e( 'Freeing yourself from such a powerful grip requires sacrifices and responsibility. By choosing «&nbsp;Retraceur&nbsp;», you gave up all the free services provided by the personal Website of the WP untrustworthy dictator for life. In concrete terms, your Website is no longer linked to the WP-dot-org remote APIs and you now need to care about keeping up to date this software & all the third party resources you might install to customize or extend it.' ); ?>
+					<strong><?php esc_html_e( 'Retraceur is a WP fork completely disconnected from any personal or professional Websites owned by Mr. Mullenweg.' ); ?></strong><br />
+					<?php esc_html_e( 'Freeing yourself from such a powerful grip requires sacrifices and responsibility. By choosing Retraceur, you gave up all the services freely provided by the WP-dot-org remote APIs.' ); ?><br />
+					<?php esc_html_e( 'As a result, you temporarly need to care about keeping up to date this software & all the third party resources you might install to customize or extend it.' ); ?><br />
+					<?php
+					printf(
+						/* Translators: 1: Retraceur’s Bluesky feed link. 2: Retraceur’s GitHub feed link. */
+						esc_html__( 'Untill Retraceur provides its own Automatic Update API, you can be notified of new versions subscribing to Retraceur’s %1$s or %2$s feeds.' ),
+						'<a href="https://bsky.app/profile/retraceur.bsky.social" target="_blank">Bluesky</a>',
+						'<a href="https://github.com/retraceur/coeur/releases.atom" target="_blank">GitHub</a>'
+					);
+					?><br />
 				</p>
 			</div>
 			<div class="column is-vertically-aligned-center">
 				<div class="about__image svg">
 					<img src="https://wsrv.nl/?url=https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/images/unlock.svg" alt="" />
 				</div>
+			</div>
+		</div>
+
+		<hr class="is-invisible is-large" />
+
+		<div class="about__section has-2-columns">
+			<div class="column is-vertically-aligned-center">
+				<div class="about__image svg">
+					<img src="https://wsrv.nl/?url=https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/images/clean-up.svg" alt="" />
+				</div>
+			</div>
+			<div class="column is-vertically-aligned-center">
+				<h3><?php esc_html_e( 'A streamlined core, free of outdated features' ); ?></h3>
+				<p>
+					<strong><?php esc_html_e( 'Retraceur’s goal is to help individuals build personal Websites up, first and foremost.' ); ?></strong><br />
+					<?php esc_html_e( 'That’s why its core has been considerably lightened, keeping only what’s crucial to achieving this goal.' ); ?><br />
+					<?php esc_html_e( 'While features like Comments or Multisite were removed to be soon available as plugins, others like the Legacy Navigation Menus, the Legacy Widgets, the Legacy Classic Editor code, the Customizer, the Link Manager, the XML-RPC API and Posting by email completely vanished.' ); ?><br />
+				</p>
+			</div>
+		</div>
+
+		<hr class="is-invisible is-large" />
+
+		<div class="about__section">
+			<div class="column">
+				<p class="is-subheading">
+					<?php esc_html_e( 'Retraceur chooses to move forward and promote the Site Editor and using Block Themes.' ); ?>
+				</p>
+			</div>
+			<div class="column is-vertically-aligned-center">
+				<div class="about__image svg">
+					<?php printf( '<img src="https://wsrv.nl/?url=%s" alt="" />', esc_url( __( 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/images/point-en.png' ) ) ); ?>
+				</div>
+			</div>
+		</div>
+
+		<hr class="is-invisible is-large" />
+
+		<div class="about__section has-3-columns">
+			<div class="column">
+				<h3><?php esc_html_e( 'The new features!' ); ?></h3>
+				<p>
+					<?php
+					printf(
+						/* Translators: %s: The link to the Blocks Administration. */
+						esc_html__( 'You can now install & manage your blocks from a %s.' ),
+						'<a href="blocks.php">' . __( 'dedicated Administration screen' ) . '</a>'
+					);
+					?>
+				</p>
+			</div>
+			<div class="column is-vertically-aligned-bottom">
+				<p><?php esc_html_e( 'Registration workflow now only creates users once they activated their account.' ); ?></p>
+			</div>
+			<div class="column is-vertically-aligned-bottom">
+				<p><?php esc_html_e( 'Your subscribers are free to delete their account from their Profile Administration page.' ); ?></p>
 			</div>
 		</div>
 
