@@ -55,6 +55,21 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 			</div>
 		</div>
 
+		<div class="about__section has-2-columns">
+			<div class="column is-vertically-aligned-center">
+				<h3><?php esc_html_e( 'Unchained from « MullenWeb »' ); ?></h3>
+				<p>
+					<strong><?php esc_html_e( 'A WP fork completely disconnected from any personal or professional Websites owned by Mr. Mullenweg.' ); ?></strong><br />
+					<?php esc_html_e( 'Freeing yourself from such a powerful grip requires sacrifices and responsibility. By choosing «&nbsp;Retraceur&nbsp;», you gave up all the free services provided by the personal Website of the WP untrustworthy dictator for life. In concrete terms, your Website is no longer linked to the WP-dot-org remote APIs and you now need to care about keeping up to date this software & all the third party resources you might install to customize or extend it.' ); ?>
+				</p>
+			</div>
+			<div class="column is-vertically-aligned-center">
+				<div class="about__image svg">
+					<img src="https://wsrv.nl/?url=https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/images/unlock.svg" alt="" />
+				</div>
+			</div>
+		</div>
+
 		<hr class="is-large" />
 
 		<div class="return-to-dashboard">

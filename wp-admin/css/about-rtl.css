@@ -489,6 +489,14 @@
 	border-radius: var(--border-radius);
 }
 
+.about__container .about__image.svg {
+	text-align: center;
+}
+
+.about__container .about__image.svg img {
+	width: auto;
+}
+
 .about__container .about__image figcaption {
 	margin-top: 0.5em;
 	text-align: center;
