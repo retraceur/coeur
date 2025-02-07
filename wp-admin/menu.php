@@ -31,7 +31,7 @@ if ( ! is_multisite() || current_user_can( 'update_core' ) ) {
 	$update_data = wp_get_update_data();
 }
 
-if ( ! is_multisite() ) {
+if ( ! is_multisite() && retraceur_is_updater_enabled() ) {
 	if ( current_user_can( 'update_core' ) ) {
 		$cap = 'update_core';
 	} elseif ( current_user_can( 'update_plugins' ) ) {

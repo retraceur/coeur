@@ -266,6 +266,24 @@ class WP_Site_Health {
 			'test'        => 'retraceur_version',
 		);
 
+		if ( ! retraceur_is_updater_enabled() ) {
+			$result['status'] = 'recommended';
+			$result['label']  = __( 'The Retraceur automatic update feature is not available yet' );
+
+			$result['description'] = sprintf(
+				'<p>%s</p>',
+				__( 'In the meantime, please: do often check for updates manually.' )
+			);
+
+			$result['actions'] = sprintf(
+				'<a href="%s" target="_blank">%s</a>',
+				'https://github.com/retraceur/coeur/releases',
+				__( 'Check for updates manually' )
+			);
+
+			return $result;
+		}
+
 		$core_current_version = retraceur_get_version();
 		$core_updates         = get_core_updates();
 
