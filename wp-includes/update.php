@@ -794,6 +794,22 @@ function wp_get_translation_updates() {
 }
 
 /**
+ * Checks whether the Automatic Updater is enabled or not.
+ *
+ * @since 1.0.0 Retraceur fork.
+ *
+ * @return boolean True if the Automatic Updater is enabled. False otherwise.
+ */
+function retraceur_is_updater_enabled() {
+	if ( ! class_exists( 'WP_Automatic_Updater' ) ) {
+		require_once ABSPATH . 'wp-admin/includes/class-wp-automatic-updater.php';
+	}
+
+	$updater = new WP_Automatic_Updater();
+	return ! $updater->is_disabled();
+}
+
+/**
  * Collects counts and UI strings for available updates.
  *
  * @since WP 3.3.0

@@ -269,11 +269,14 @@ function core_update_footer( $msg = '' ) {
 	$is_development_version = preg_match( '/alpha|beta|RC/', retraceur_get_version() );
 
 	if ( $is_development_version ) {
+		$is_updater_enabled = retraceur_is_updater_enabled();
+
 		return sprintf(
-			/* translators: 1: Retraceur version number, 2: URL to Retraceur Updates screen. */
-			__( 'You are using a development version (%1$s). Cool! Please <a href="%2$s">stay updated</a>.' ),
+			/* translators: 1: Retraceur version number, 2: URL to Retraceur Updates screen. 3: Link target attribute. */
+			__( 'You are using a development version (%1$s). Cool! Please <a href="%2$s"%3$s>stay updated</a>.' ),
 			retraceur_get_version(),
-			network_admin_url( 'update-core.php' )
+			$is_updater_enabled ? network_admin_url( 'update-core.php' ) : 'https://github.com/retraceur/coeur/releases',
+			$is_updater_enabled ? '' : ' target="_blank"'
 		);
 	}
 
