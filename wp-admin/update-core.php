@@ -384,11 +384,14 @@ function core_auto_updates_settings() {
 
 	<p class="auto-update-status">
 		<?php
-
+		/*
+		 * Disable this for now.
+		 * @todo Restore when the Retraceur Update API will be ready.
+		 *
 		if ( $updater->is_vcs_checkout( ABSPATH ) ) {
-			_e( 'This site appears to be under version control. Automatic updates are disabled.' );
+			esc_html_e( 'This site appears to be under version control. Automatic updates are disabled.' );
 		} elseif ( $upgrade_major ) {
-			_e( 'This site is automatically kept up to date with each new version of Retraceur.' );
+			esc_html_e( 'This site is automatically kept up to date with each new version of Retraceur.' );
 
 			if ( $can_set_update_option ) {
 				echo '<br />';
@@ -399,7 +402,7 @@ function core_auto_updates_settings() {
 				);
 			}
 		} elseif ( $upgrade_minor ) {
-			_e( 'This site is automatically kept up to date with maintenance and security releases of Retraceur only.' );
+			esc_html_e( 'This site is automatically kept up to date with maintenance and security releases of Retraceur only.' );
 
 			if ( $can_set_update_option ) {
 				echo '<br />';
@@ -410,8 +413,18 @@ function core_auto_updates_settings() {
 				);
 			}
 		} else {
-			_e( 'This site will not receive automatic updates for new versions of Retraceur.' );
+			esc_html_e( 'This site will not receive automatic updates for new versions of Retraceur.' );
 		}
+		*/
+		?>
+		<strong><?php esc_html_e( 'The Retraceur automatic update feature is not available yet' ); ?></strong><br />
+		<?php esc_html_e( 'In the meantime, please: do often check for updates manually.' ); ?><br />
+		<?php
+		printf(
+			'<a href="%s" target="_blank">%s</a>',
+			'https://github.com/retraceur/coeur/releases',
+			esc_html__( 'Check for updates manually' )
+		);
 		?>
 	</p>
 
@@ -914,7 +927,8 @@ if ( ( 'do-theme-upgrade' === $action || ( 'do-plugin-upgrade' === $action && ! 
 $title       = __( 'Retraceur Updates' );
 $parent_file = 'index.php';
 
-$updates_overview  = '<p>' . __( 'On this screen, you can update to the latest version of Retraceur, as well as update your themes, plugins, and translations.' ) . '</p>';
+// @todo Restore when the Retraceur Update API will be ready.
+$updates_overview  = ''; // '<p>' . __( 'On this screen, you can update to the latest version of Retraceur, as well as update your themes, plugins, and translations.' ) . '</p>';
 $updates_overview .= '<p>' . __( 'If an update is available, you&#8127;ll see a notification appear in the Toolbar and navigation menu.' ) . ' ' . __( 'Keeping your site updated is important for security. It also makes the internet a safer place for you and your readers.' ) . '</p>';
 
 get_current_screen()->add_help_tab(
@@ -932,6 +946,10 @@ if ( 'en_US' !== get_locale() ) {
 	$updates_howto .= '<p>' . __( '<strong>Translations</strong> &mdash; The files translating Retraceur into your language are updated for you whenever any other updates occur. But if these files are out of date, you can <strong>click the &#8220;Update Translations&#8221;</strong> button.' ) . '</p>';
 }
 
+/*
+ * Disable this for now.
+ * @todo Restore when the Retraceur Update API will be ready.
+ *
 get_current_screen()->add_help_tab(
 	array(
 		'id'      => 'how-to-update',
@@ -939,6 +957,7 @@ get_current_screen()->add_help_tab(
 		'content' => $updates_howto,
 	)
 );
+*/
 
 if ( 'upgrade-core' === $action ) {
 	// Force an update check when requested.
@@ -948,7 +967,12 @@ if ( 'upgrade-core' === $action ) {
 	require_once ABSPATH . 'wp-admin/admin-header.php';
 	?>
 	<div class="wrap">
-	<h1><?php _e( 'Retraceur Updates' ); ?></h1>
+	<h1><?php esc_html_e( 'Retraceur Updates' ); ?></h1>
+	<?php
+	/*
+	 * Disable this for now.
+	 * @todo Restore when the Retraceur Update API will be ready.
+	 *
 	<p><?php _e( 'Updates may take several minutes to complete. If there is no feedback after 5 minutes, or if there are errors please refer to the Help section above.' ); ?></p>
 
 	<?php
@@ -982,29 +1006,39 @@ if ( 'upgrade-core' === $action ) {
 	if ( $current && isset( $current->last_checked ) ) {
 		$last_update_check = $current->last_checked + (int) ( (float) get_option( 'gmt_offset' ) * HOUR_IN_SECONDS );
 	}
-
+	*/
 	echo '<h2 class="wp-current-version">';
 	/* translators: Current version of Retraceur. */
 	printf( __( 'Current version: %s' ), esc_html( retraceur_get_version() ) );
 	echo '</h2>';
 
+	/*
+	 * Disable this for now.
+	 * @todo Restore when the Retraceur Update API will be ready.
+	 *
 	echo '<p class="update-last-checked">';
 
 	printf(
-		/* translators: 1: Date, 2: Time. */
+		// translators: 1: Date, 2: Time.
 		__( 'Last checked on %1$s at %2$s.' ),
-		/* translators: Default date format, see https://www.php.net/manual/datetime.format.php */
+		// translators: Default date format, see https://www.php.net/manual/datetime.format.php
 		date_i18n( __( 'F j, Y' ), $last_update_check ),
-		/* translators: Last update time format, see https://www.php.net/manual/datetime.format.php */
+		// translators: Last update time format, see https://www.php.net/manual/datetime.format.php
 		date_i18n( __( 'g:i a T' ), $last_update_check )
 	);
 	echo ' <a href="' . esc_url( self_admin_url( 'update-core.php?force-check=1' ) ) . '">' . __( 'Check again.' ) . '</a>';
 	echo '</p>';
+	*/
 
 	if ( current_user_can( 'update_core' ) ) {
 		core_auto_updates_settings();
-		core_upgrade_preamble();
+		//core_upgrade_preamble();
 	}
+
+	/*
+	 * Disable this for now.
+	 * @todo Restore when the Retraceur Update API will be ready.
+	 *
 	if ( current_user_can( 'update_plugins' ) ) {
 		list_plugin_updates();
 	}
@@ -1014,6 +1048,7 @@ if ( 'upgrade-core' === $action ) {
 	if ( current_user_can( 'update_languages' ) ) {
 		list_translation_updates();
 	}
+	*/
 
 	/**
 	 * Fires after the core, plugin, and theme update tables.
