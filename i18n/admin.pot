@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: \n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Project-Id-Version: Retraceur 1.0.0-RC1\n"
+"Report-Msgid-Bugs-To: https://github.com/retraceur/coeur/issues\n"
+"Last-Translator: imath <contact@imathi.eu>\n"
+"Language-Team: Retraceur <retraceur@proton.me>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-02-06T23:19:58+00:00\n"
+"POT-Creation-Date: 2025-02-08T12:54:31+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.10.0\n"
+"X-Generator: WP-CLI 2.11.0\n"
 
 #. translators: Page title of the About Retraceur page in the admin.
 #: wp-admin/about.php:16
@@ -296,7 +296,6 @@ msgstr ""
 #: wp-admin/includes/schema.php:308
 #: wp-admin/options-general.php:414
 #: wp-admin/options-general.php:445
-#: wp-admin/update-core.php:997
 msgid "F j, Y"
 msgstr ""
 
@@ -747,7 +746,7 @@ msgstr ""
 #: wp-admin/site-health.php:82
 #: wp-admin/theme-install.php:116
 #: wp-admin/themes.php:145
-#: wp-admin/update-core.php:923
+#: wp-admin/update-core.php:937
 #: wp-admin/upload.php:180
 #: wp-admin/upload.php:364
 #: wp-admin/user-edit.php:73
@@ -1778,7 +1777,7 @@ msgstr ""
 #: wp-admin/includes/ajax-actions.php:3382
 #: wp-admin/includes/ajax-actions.php:3559
 #: wp-admin/includes/ajax-actions.php:3628
-#: wp-admin/includes/class-wp-site-health.php:1664
+#: wp-admin/includes/class-wp-site-health.php:1682
 msgid "Unable to connect to the filesystem. Please confirm your credentials."
 msgstr ""
 
@@ -1845,7 +1844,7 @@ msgstr ""
 #: wp-admin/includes/class-wp-debug-data.php:1293
 #: wp-admin/includes/class-wp-plugins-list-table.php:1208
 #: wp-admin/includes/update.php:252
-#: wp-admin/includes/update.php:292
+#: wp-admin/includes/update.php:295
 #: wp-admin/index.php:103
 msgid "Version %s"
 msgstr ""
@@ -2756,8 +2755,8 @@ msgid "Return to the Theme Installer"
 msgstr ""
 
 #: wp-admin/includes/class-language-pack-upgrader-skin.php:39
-#: wp-admin/update-core.php:758
-#: wp-admin/update-core.php:1167
+#: wp-admin/update-core.php:771
+#: wp-admin/update-core.php:1202
 msgid "Update Translations"
 msgstr ""
 
@@ -2772,7 +2771,7 @@ msgid "Some of your translations need updating. Sit tight for a few more seconds
 msgstr ""
 
 #: wp-admin/includes/class-language-pack-upgrader.php:116
-#: wp-admin/update-core.php:747
+#: wp-admin/update-core.php:760
 msgid "Your translations are all up to date."
 msgstr ""
 
@@ -2935,8 +2934,8 @@ msgid "Update Plugin"
 msgstr ""
 
 #: wp-admin/includes/class-plugin-upgrader-skin.php:87
-#: wp-admin/update-core.php:1099
-#: wp-admin/update-core.php:1140
+#: wp-admin/update-core.php:1134
+#: wp-admin/update-core.php:1175
 msgid "Update progress"
 msgstr ""
 
@@ -3262,7 +3261,7 @@ msgstr ""
 #: wp-admin/includes/class-wp-application-passwords-list-table.php:260
 #: wp-admin/includes/class-wp-list-table.php:690
 #: wp-admin/includes/class-wp-list-table.php:1707
-#: wp-admin/includes/update.php:909
+#: wp-admin/includes/update.php:912
 msgid "Show more details"
 msgstr ""
 
@@ -3300,12 +3299,12 @@ msgid "Could not access filesystem."
 msgstr ""
 
 #: wp-admin/includes/class-wp-automatic-updater.php:528
-#: wp-admin/update-core.php:840
+#: wp-admin/update-core.php:853
 msgid "Installation failed."
 msgstr ""
 
 #: wp-admin/includes/class-wp-automatic-updater.php:531
-#: wp-admin/update-core.php:846
+#: wp-admin/update-core.php:859
 msgid "Retraceur updated successfully."
 msgstr ""
 
@@ -3391,7 +3390,7 @@ msgid "The Retraceur team is willing to help you. Forward this email to %s and t
 msgstr ""
 
 #: wp-admin/includes/class-wp-automatic-updater.php:1055
-#: wp-admin/update-core.php:918
+#: wp-admin/update-core.php:932
 msgid "Keeping your site updated is important for security. It also makes the internet a safer place for you and your readers."
 msgstr ""
 
@@ -3892,7 +3891,7 @@ msgid "File upload settings"
 msgstr ""
 
 #: wp-admin/includes/class-wp-debug-data.php:568
-#: wp-admin/includes/class-wp-site-health.php:2488
+#: wp-admin/includes/class-wp-site-health.php:2506
 msgid "File uploads"
 msgstr ""
 
@@ -4454,10 +4453,10 @@ msgstr ""
 
 #. translators: Hidden accessibility text.
 #: wp-admin/includes/class-wp-list-table.php:1311
-#: wp-admin/update-core.php:479
-#: wp-admin/update-core.php:592
-#: wp-admin/update-core.php:636
-#: wp-admin/update-core.php:728
+#: wp-admin/update-core.php:492
+#: wp-admin/update-core.php:605
+#: wp-admin/update-core.php:649
+#: wp-admin/update-core.php:741
 msgid "Select All"
 msgstr ""
 
@@ -4820,9 +4819,9 @@ msgstr ""
 #: wp-admin/includes/theme.php:917
 #: wp-admin/includes/theme.php:923
 #: wp-admin/includes/theme.php:934
-#: wp-admin/includes/update.php:768
-#: wp-admin/includes/update.php:774
-#: wp-admin/includes/update.php:787
+#: wp-admin/includes/update.php:771
+#: wp-admin/includes/update.php:777
+#: wp-admin/includes/update.php:790
 #: wp-admin/theme-install.php:303
 #: wp-admin/theme-install.php:314
 #: wp-admin/theme-install.php:477
@@ -4844,9 +4843,9 @@ msgstr ""
 #: wp-admin/themes.php:956
 #: wp-admin/themes.php:962
 #: wp-admin/themes.php:977
-#: wp-admin/update-core.php:662
-#: wp-admin/update-core.php:668
-#: wp-admin/update-core.php:677
+#: wp-admin/update-core.php:675
+#: wp-admin/update-core.php:681
+#: wp-admin/update-core.php:690
 msgid "<a href=\"%s\">Please update Retraceur</a>."
 msgstr ""
 
@@ -5150,7 +5149,7 @@ msgstr ""
 
 #. translators: %s: Plugin name.
 #: wp-admin/includes/class-wp-plugins-list-table.php:1142
-#: wp-admin/update-core.php:557
+#: wp-admin/update-core.php:570
 msgctxt "plugin"
 msgid "Select %s"
 msgstr ""
@@ -6069,956 +6068,968 @@ msgid "Retraceur security and maintenance releases are blocked by the %s filter.
 msgstr ""
 
 #: wp-admin/includes/class-wp-site-health.php:261
-#: wp-admin/includes/class-wp-site-health.php:739
-#: wp-admin/includes/class-wp-site-health.php:879
-#: wp-admin/includes/class-wp-site-health.php:1102
-#: wp-admin/includes/class-wp-site-health.php:1143
-#: wp-admin/includes/class-wp-site-health.php:1193
-#: wp-admin/includes/class-wp-site-health.php:1520
-#: wp-admin/includes/class-wp-site-health.php:1778
-#: wp-admin/includes/class-wp-site-health.php:1821
-#: wp-admin/includes/class-wp-site-health.php:1892
-#: wp-admin/includes/class-wp-site-health.php:2003
-#: wp-admin/includes/class-wp-site-health.php:2151
-#: wp-admin/includes/class-wp-site-health.php:2257
-#: wp-admin/includes/class-wp-site-health.php:2362
+#: wp-admin/includes/class-wp-site-health.php:757
+#: wp-admin/includes/class-wp-site-health.php:897
+#: wp-admin/includes/class-wp-site-health.php:1120
+#: wp-admin/includes/class-wp-site-health.php:1161
+#: wp-admin/includes/class-wp-site-health.php:1211
+#: wp-admin/includes/class-wp-site-health.php:1538
+#: wp-admin/includes/class-wp-site-health.php:1796
+#: wp-admin/includes/class-wp-site-health.php:1839
+#: wp-admin/includes/class-wp-site-health.php:1910
+#: wp-admin/includes/class-wp-site-health.php:2021
+#: wp-admin/includes/class-wp-site-health.php:2169
+#: wp-admin/includes/class-wp-site-health.php:2275
+#: wp-admin/includes/class-wp-site-health.php:2380
 msgid "Performance"
 msgstr ""
 
-#. translators: %s: Your current version of Retraceur.
-#: wp-admin/includes/class-wp-site-health.php:277
-msgid "Retraceur version %s"
+#: wp-admin/includes/class-wp-site-health.php:271
+#: wp-admin/update-core.php:420
+msgid "The Retraceur automatic update feature is not available yet"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:283
-msgid "Unable to check if any new versions of Retraceur are available."
+#: wp-admin/includes/class-wp-site-health.php:275
+#: wp-admin/update-core.php:421
+msgid "In the meantime, please: do often check for updates manually."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:289
+#: wp-admin/includes/class-wp-site-health.php:281
+#: wp-admin/includes/class-wp-site-health.php:307
+#: wp-admin/update-core.php:426
 msgid "Check for updates manually"
 msgstr ""
 
+#. translators: %s: Your current version of Retraceur.
+#: wp-admin/includes/class-wp-site-health.php:295
+msgid "Retraceur version %s"
+msgstr ""
+
+#: wp-admin/includes/class-wp-site-health.php:301
+msgid "Unable to check if any new versions of Retraceur are available."
+msgstr ""
+
 #. translators: %s: The latest version of Retraceur available.
-#: wp-admin/includes/class-wp-site-health.php:302
+#: wp-admin/includes/class-wp-site-health.php:320
 msgid "Retraceur update available (%s)"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:309
+#: wp-admin/includes/class-wp-site-health.php:327
 msgid "Install the latest version of Retraceur"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:317
+#: wp-admin/includes/class-wp-site-health.php:335
 msgid "A new version of Retraceur is available."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:322
-#: wp-admin/includes/class-wp-site-health.php:362
-#: wp-admin/includes/class-wp-site-health.php:496
-#: wp-admin/includes/class-wp-site-health.php:821
-#: wp-admin/includes/class-wp-site-health.php:1226
-#: wp-admin/includes/class-wp-site-health.php:1290
-#: wp-admin/includes/class-wp-site-health.php:1363
-#: wp-admin/includes/class-wp-site-health.php:1474
-#: wp-admin/includes/class-wp-site-health.php:1591
-#: wp-admin/includes/class-wp-site-health.php:1641
-#: wp-admin/includes/class-wp-site-health.php:2095
+#: wp-admin/includes/class-wp-site-health.php:340
+#: wp-admin/includes/class-wp-site-health.php:380
+#: wp-admin/includes/class-wp-site-health.php:514
+#: wp-admin/includes/class-wp-site-health.php:839
+#: wp-admin/includes/class-wp-site-health.php:1244
+#: wp-admin/includes/class-wp-site-health.php:1308
+#: wp-admin/includes/class-wp-site-health.php:1381
+#: wp-admin/includes/class-wp-site-health.php:1492
+#: wp-admin/includes/class-wp-site-health.php:1609
+#: wp-admin/includes/class-wp-site-health.php:1659
+#: wp-admin/includes/class-wp-site-health.php:2113
 msgid "Security"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:325
+#: wp-admin/includes/class-wp-site-health.php:343
 msgid "A new minor update is available for your site. Because minor updates often address security, it&#8217;s important to install them."
 msgstr ""
 
 #. translators: %s: The current version of Retraceur installed on this site.
-#: wp-admin/includes/class-wp-site-health.php:332
+#: wp-admin/includes/class-wp-site-health.php:350
 msgid "Your version of Retraceur (%s) is up to date"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:338
+#: wp-admin/includes/class-wp-site-health.php:356
 msgid "You are currently running the latest version of Retraceur available, keep it up!"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:359
+#: wp-admin/includes/class-wp-site-health.php:377
 msgid "Your plugins are all up to date"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:367
+#: wp-admin/includes/class-wp-site-health.php:385
 msgid "Plugins extend your site&#8217;s functionality with things like contact forms, ecommerce and much more. That means they have deep access to your site, so it&#8217;s vital to keep them up to date."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:372
+#: wp-admin/includes/class-wp-site-health.php:390
 msgid "Manage your plugins"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:401
+#: wp-admin/includes/class-wp-site-health.php:419
 msgid "You have plugins waiting to be updated"
 msgstr ""
 
 #. translators: %d: The number of outdated plugins.
-#: wp-admin/includes/class-wp-site-health.php:407
+#: wp-admin/includes/class-wp-site-health.php:425
 msgid "Your site has %d plugin waiting to be updated."
 msgid_plural "Your site has %d plugins waiting to be updated."
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-admin/includes/class-wp-site-health.php:419
+#: wp-admin/includes/class-wp-site-health.php:437
 msgid "Update your plugins"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:425
+#: wp-admin/includes/class-wp-site-health.php:443
 msgid "Your site has 1 active plugin, and it is up to date."
 msgstr ""
 
 #. translators: %d: The number of active plugins.
-#: wp-admin/includes/class-wp-site-health.php:432
+#: wp-admin/includes/class-wp-site-health.php:450
 msgid "Your site has %d active plugin, and it is up to date."
 msgid_plural "Your site has %d active plugins, and they are all up to date."
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-admin/includes/class-wp-site-health.php:443
+#: wp-admin/includes/class-wp-site-health.php:461
 msgid "Your site does not have any active plugins."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:454
+#: wp-admin/includes/class-wp-site-health.php:472
 msgid "You should remove inactive plugins"
 msgstr ""
 
 #. translators: %d: The number of inactive plugins.
-#: wp-admin/includes/class-wp-site-health.php:460
+#: wp-admin/includes/class-wp-site-health.php:478
 msgid "Your site has %d inactive plugin."
 msgid_plural "Your site has %d inactive plugins."
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-admin/includes/class-wp-site-health.php:467
+#: wp-admin/includes/class-wp-site-health.php:485
 msgid "Inactive plugins are tempting targets for attackers. If you are not going to use a plugin, you should consider removing it."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:473
+#: wp-admin/includes/class-wp-site-health.php:491
 msgid "Manage inactive plugins"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:493
+#: wp-admin/includes/class-wp-site-health.php:511
 msgid "Your themes are all up to date"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:501
+#: wp-admin/includes/class-wp-site-health.php:519
 msgid "Themes add your site&#8217;s look and feel. It&#8217;s important to keep them up to date, to stay consistent with your brand and keep your site secure."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:506
+#: wp-admin/includes/class-wp-site-health.php:524
 msgid "Manage your themes"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:574
+#: wp-admin/includes/class-wp-site-health.php:592
 msgid "You have themes waiting to be updated"
 msgstr ""
 
 #. translators: %d: The number of outdated themes.
-#: wp-admin/includes/class-wp-site-health.php:580
+#: wp-admin/includes/class-wp-site-health.php:598
 msgid "Your site has %d theme waiting to be updated."
 msgid_plural "Your site has %d themes waiting to be updated."
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-admin/includes/class-wp-site-health.php:593
+#: wp-admin/includes/class-wp-site-health.php:611
 msgid "Your site has 1 installed theme, and it is up to date."
 msgstr ""
 
 #. translators: %d: The number of themes.
-#: wp-admin/includes/class-wp-site-health.php:600
+#: wp-admin/includes/class-wp-site-health.php:618
 msgid "Your site has %d installed theme, and it is up to date."
 msgid_plural "Your site has %d installed themes, and they are all up to date."
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-admin/includes/class-wp-site-health.php:611
+#: wp-admin/includes/class-wp-site-health.php:629
 msgid "Your site does not have any installed themes."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:623
-#: wp-admin/includes/class-wp-site-health.php:669
+#: wp-admin/includes/class-wp-site-health.php:641
+#: wp-admin/includes/class-wp-site-health.php:687
 msgid "You should remove inactive themes"
 msgstr ""
 
 #. translators: %d: The number of inactive themes.
-#: wp-admin/includes/class-wp-site-health.php:630
-#: wp-admin/includes/class-wp-site-health.php:649
+#: wp-admin/includes/class-wp-site-health.php:648
+#: wp-admin/includes/class-wp-site-health.php:667
 msgid "Your site has %d inactive theme."
 msgid_plural "Your site has %d inactive themes."
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: 1: The currently active theme. 2: The active theme's parent theme.
-#: wp-admin/includes/class-wp-site-health.php:639
+#: wp-admin/includes/class-wp-site-health.php:657
 msgid "To enhance your site&#8217;s security, you should consider removing any themes you are not using. You should keep your active theme, %1$s, and %2$s, its parent theme."
 msgstr ""
 
 #. translators: 1: The default theme for Retraceur. 2: The currently active theme. 3: The active theme's parent theme.
-#: wp-admin/includes/class-wp-site-health.php:658
+#: wp-admin/includes/class-wp-site-health.php:676
 msgid "To enhance your site&#8217;s security, you should consider removing any themes you are not using. You should keep %1$s, the default Retraceur theme, %2$s, your active theme, and %3$s, its parent theme."
 msgstr ""
 
 #. translators: 1: The amount of inactive themes. 2: The currently active theme.
-#: wp-admin/includes/class-wp-site-health.php:676
+#: wp-admin/includes/class-wp-site-health.php:694
 msgid "Your site has %1$d inactive theme, other than %2$s, your active theme."
 msgid_plural "Your site has %1$d inactive themes, other than %2$s, your active theme."
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-admin/includes/class-wp-site-health.php:684
-#: wp-admin/includes/class-wp-site-health.php:700
+#: wp-admin/includes/class-wp-site-health.php:702
+#: wp-admin/includes/class-wp-site-health.php:718
 msgid "You should consider removing any unused themes to enhance your site&#8217;s security."
 msgstr ""
 
 #. translators: 1: The amount of inactive themes. 2: The default theme for Retraceur. 3: The currently active theme.
-#: wp-admin/includes/class-wp-site-health.php:691
+#: wp-admin/includes/class-wp-site-health.php:709
 msgid "Your site has %1$d inactive theme, other than %2$s, the default Retraceur theme, and %3$s, your active theme."
 msgid_plural "Your site has %1$d inactive themes, other than %2$s, the default Retraceur theme, and %3$s, your active theme."
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-admin/includes/class-wp-site-health.php:710
+#: wp-admin/includes/class-wp-site-health.php:728
 msgid "Have a default theme available"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:714
+#: wp-admin/includes/class-wp-site-health.php:732
 msgid "Your site does not have any default theme. Default themes are used by Retraceur automatically if anything is wrong with your chosen theme."
 msgstr ""
 
 #. translators: %s: The recommended PHP version.
-#: wp-admin/includes/class-wp-site-health.php:734
+#: wp-admin/includes/class-wp-site-health.php:752
 msgid "Your site is running a recommended version of PHP (%s)"
 msgstr ""
 
 #. translators: %s: The minimum recommended PHP version.
-#: wp-admin/includes/class-wp-site-health.php:746
+#: wp-admin/includes/class-wp-site-health.php:764
 msgid "PHP is one of the programming languages used to build Retraceur. Newer versions of PHP receive regular security updates and may increase your site&#8217;s performance. The minimum recommended version of PHP is %s."
 msgstr ""
 
 #. translators: %s: The server PHP version.
-#: wp-admin/includes/class-wp-site-health.php:763
+#: wp-admin/includes/class-wp-site-health.php:781
 msgid "Your site is running on an older version of PHP (%s)"
 msgstr ""
 
 #. translators: %s: The server PHP version.
-#: wp-admin/includes/class-wp-site-health.php:780
+#: wp-admin/includes/class-wp-site-health.php:798
 msgid "Your site is running on an outdated version of PHP (%s), which soon will not be supported by Retraceur."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:785
+#: wp-admin/includes/class-wp-site-health.php:803
 msgid "Requirements"
 msgstr ""
 
 #. translators: %s: The server PHP version.
-#: wp-admin/includes/class-wp-site-health.php:794
+#: wp-admin/includes/class-wp-site-health.php:812
 msgid "Your site is running on an older version of PHP (%s), which should be updated"
 msgstr ""
 
 #. translators: %s: The server PHP version.
-#: wp-admin/includes/class-wp-site-health.php:806
+#: wp-admin/includes/class-wp-site-health.php:824
 msgid "Your site is running on an outdated version of PHP (%s), which does not receive security updates and soon will not be supported by Retraceur."
 msgstr ""
 
 #. translators: %s: The server PHP version.
-#: wp-admin/includes/class-wp-site-health.php:813
+#: wp-admin/includes/class-wp-site-health.php:831
 #: wp-admin/includes/dashboard.php:897
 msgid "Your site is running on an outdated version of PHP (%s), which does not receive security updates. It should be updated."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:876
+#: wp-admin/includes/class-wp-site-health.php:894
 msgid "Required and recommended modules are installed"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:882
+#: wp-admin/includes/class-wp-site-health.php:900
 msgid "PHP modules perform most of the tasks on the server that make your site run. Any changes to these must be made by your server administrator."
 msgstr ""
 
 #. translators: Hidden accessibility text.
-#: wp-admin/includes/class-wp-site-health.php:1038
+#: wp-admin/includes/class-wp-site-health.php:1056
 msgid "Error"
 msgstr ""
 
 #. translators: %s: The module name.
-#: wp-admin/includes/class-wp-site-health.php:1041
+#: wp-admin/includes/class-wp-site-health.php:1059
 msgid "The required module, %s, is not installed, or has been disabled."
 msgstr ""
 
 #. translators: Hidden accessibility text.
-#: wp-admin/includes/class-wp-site-health.php:1047
+#: wp-admin/includes/class-wp-site-health.php:1065
 msgid "Warning"
 msgstr ""
 
 #. translators: %s: The module name.
-#: wp-admin/includes/class-wp-site-health.php:1050
+#: wp-admin/includes/class-wp-site-health.php:1068
 msgid "The optional module, %s, is not installed, or has been disabled."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1078
+#: wp-admin/includes/class-wp-site-health.php:1096
 msgid "One or more recommended modules are missing"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1081
+#: wp-admin/includes/class-wp-site-health.php:1099
 msgid "One or more required modules are missing"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1099
+#: wp-admin/includes/class-wp-site-health.php:1117
 msgid "PHP default timezone is valid"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1107
+#: wp-admin/includes/class-wp-site-health.php:1125
 msgid "PHP default timezone was configured by Retraceur on loading. This is necessary for correct calculations of dates and times."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1116
+#: wp-admin/includes/class-wp-site-health.php:1134
 msgid "PHP default timezone is invalid"
 msgstr ""
 
 #. translators: %s: date_default_timezone_set()
-#: wp-admin/includes/class-wp-site-health.php:1122
+#: wp-admin/includes/class-wp-site-health.php:1140
 msgid "PHP default timezone was changed after Retraceur loading by a %s function call. This interferes with correct calculations of dates and times."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1140
+#: wp-admin/includes/class-wp-site-health.php:1158
 msgid "No PHP sessions detected"
 msgstr ""
 
 #. translators: 1: session_start(), 2: session_write_close()
-#: wp-admin/includes/class-wp-site-health.php:1150
+#: wp-admin/includes/class-wp-site-health.php:1168
 msgid "PHP sessions created by a %1$s function call may interfere with REST API and loopback requests. An active session should be closed by %2$s before making any HTTP requests."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1161
+#: wp-admin/includes/class-wp-site-health.php:1179
 msgid "An active PHP session was detected"
 msgstr ""
 
 #. translators: 1: session_start(), 2: session_write_close()
-#: wp-admin/includes/class-wp-site-health.php:1167
+#: wp-admin/includes/class-wp-site-health.php:1185
 msgid "A PHP session was created by a %1$s function call. This interferes with REST API and loopback requests. The session should be closed by %2$s before making any HTTP requests."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1190
+#: wp-admin/includes/class-wp-site-health.php:1208
 msgid "SQL server is up to date"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1198
+#: wp-admin/includes/class-wp-site-health.php:1216
 msgid "The SQL server is a required piece of software for the database Retraceur uses to store all your site&#8217;s content and settings."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1209
+#: wp-admin/includes/class-wp-site-health.php:1227
 msgid "Outdated SQL server"
 msgstr ""
 
 #. translators: 1: The database engine in use (MySQL or MariaDB). 2: Database server recommended version number.
-#: wp-admin/includes/class-wp-site-health.php:1215
+#: wp-admin/includes/class-wp-site-health.php:1233
 msgid "For optimal performance and security reasons, you should consider running %1$s version %2$s or higher. Contact your web hosting company to correct this."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1225
+#: wp-admin/includes/class-wp-site-health.php:1243
 msgid "Severely outdated SQL server"
 msgstr ""
 
 #. translators: 1: The database engine in use (MySQL or MariaDB). 2: Database server minimum version number.
-#: wp-admin/includes/class-wp-site-health.php:1232
+#: wp-admin/includes/class-wp-site-health.php:1250
 msgid "Retraceur requires %1$s version %2$s or higher. Contact your web hosting company to correct this."
 msgstr ""
 
 #. translators: 1: The name of the drop-in. 2: The name of the database engine.
-#: wp-admin/includes/class-wp-site-health.php:1245
+#: wp-admin/includes/class-wp-site-health.php:1263
 msgid "You are using a %1$s drop-in which might mean that a %2$s database is not being used."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1287
+#: wp-admin/includes/class-wp-site-health.php:1305
 msgid "Your site is not set to output debug information"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1295
+#: wp-admin/includes/class-wp-site-health.php:1313
 msgid "Debug mode is often enabled to gather more details about an error or site failure, but may contain sensitive information which should not be available on a publicly available website."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1303
+#: wp-admin/includes/class-wp-site-health.php:1321
 msgid "Your site is set to log errors to a potentially public file"
 msgstr ""
 
 #. translators: %s: WP_DEBUG_LOG
-#: wp-admin/includes/class-wp-site-health.php:1311
+#: wp-admin/includes/class-wp-site-health.php:1329
 msgid "The value, %s, has been added to this website&#8217;s configuration file. This means any errors on the site will be written to a file which is potentially available to all users."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1318
+#: wp-admin/includes/class-wp-site-health.php:1336
 msgid "Your site is set to display errors to site visitors"
 msgstr ""
 
 #. translators: 1: WP_DEBUG_DISPLAY, 2: WP_DEBUG
-#: wp-admin/includes/class-wp-site-health.php:1331
+#: wp-admin/includes/class-wp-site-health.php:1349
 msgid "The value, %1$s, has either been enabled by %2$s or added to your configuration file. This will make errors display on the front end of your site."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1360
+#: wp-admin/includes/class-wp-site-health.php:1378
 msgid "Your website is using an active HTTPS connection"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1368
+#: wp-admin/includes/class-wp-site-health.php:1386
 msgid "An HTTPS connection is a more secure way of browsing the web. Many services now have HTTPS as a requirement. HTTPS allows you to take advantage of new features that can increase site speed, improve search rankings, and gain the trust of your visitors by helping to protect their online privacy."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1380
+#: wp-admin/includes/class-wp-site-health.php:1398
 msgid "Your website does not use HTTPS"
 msgstr ""
 
 #. translators: %s: URL to Settings > General > Site Address.
-#: wp-admin/includes/class-wp-site-health.php:1388
+#: wp-admin/includes/class-wp-site-health.php:1406
 msgid "You are accessing this website using HTTPS, but your <a href=\"%s\">Site Address</a> is not set up to use HTTPS by default."
 msgstr ""
 
 #. translators: %s: URL to Settings > General > Site Address.
-#: wp-admin/includes/class-wp-site-health.php:1397
+#: wp-admin/includes/class-wp-site-health.php:1415
 msgid "Your <a href=\"%s\">Site Address</a> is not set up to use HTTPS."
 msgstr ""
 
 #. translators: 1: URL to Settings > General > Retraceur Address, 2: URL to Settings > General > Site Address.
-#: wp-admin/includes/class-wp-site-health.php:1408
+#: wp-admin/includes/class-wp-site-health.php:1426
 msgid "You are accessing this website using HTTPS, but your <a href=\"%1$s\">Retraceur Address</a> and <a href=\"%2$s\">Site Address</a> are not set up to use HTTPS by default."
 msgstr ""
 
 #. translators: 1: URL to Settings > General > Retraceur Address, 2: URL to Settings > General > Site Address.
-#: wp-admin/includes/class-wp-site-health.php:1418
+#: wp-admin/includes/class-wp-site-health.php:1436
 msgid "Your <a href=\"%1$s\">Retraceur Address</a> and <a href=\"%2$s\">Site Address</a> are not set up to use HTTPS."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1429
+#: wp-admin/includes/class-wp-site-health.php:1447
 msgid "HTTPS is already supported for your website."
 msgstr ""
 
 #. translators: 1: wp-config.php, 2: WP_HOME, 3: WP_SITEURL
-#: wp-admin/includes/class-wp-site-health.php:1437
+#: wp-admin/includes/class-wp-site-health.php:1455
 msgid "However, your Retraceur Address is currently controlled by a PHP constant and therefore cannot be updated. You need to edit your %1$s and remove or update the definitions of %2$s and %3$s."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1448
+#: wp-admin/includes/class-wp-site-health.php:1466
 msgid "Update your site to use HTTPS"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1454
+#: wp-admin/includes/class-wp-site-health.php:1472
 msgid "Talk to your web host about supporting HTTPS for your website."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1479
+#: wp-admin/includes/class-wp-site-health.php:1497
 msgid "Securely communicating between servers are needed for transactions such as fetching files, conducting sales on store sites, and much more."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1490
+#: wp-admin/includes/class-wp-site-health.php:1508
 msgid "Your site can communicate securely with other services"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1494
+#: wp-admin/includes/class-wp-site-health.php:1512
 msgid "Your site is unable to communicate securely with other services"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1498
+#: wp-admin/includes/class-wp-site-health.php:1516
 msgid "Talk to your web host about OpenSSL support for PHP."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1517
+#: wp-admin/includes/class-wp-site-health.php:1535
 msgid "Scheduled events are running"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1525
+#: wp-admin/includes/class-wp-site-health.php:1543
 msgid "Scheduled events are what periodically looks for updates to plugins, themes and Retraceur itself. It is also what makes sure scheduled posts are published on time. It may also be used by various plugins to make sure that planned actions are executed."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1536
+#: wp-admin/includes/class-wp-site-health.php:1554
 msgid "It was not possible to check your scheduled events"
 msgstr ""
 
 #. translators: %s: The error message returned while from the cron scheduler.
-#: wp-admin/includes/class-wp-site-health.php:1542
+#: wp-admin/includes/class-wp-site-health.php:1560
 msgid "While trying to test your site&#8217;s scheduled events, the following error was returned: %s"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1549
+#: wp-admin/includes/class-wp-site-health.php:1567
 msgid "A scheduled event has failed"
 msgstr ""
 
 #. translators: %s: The name of the failed cron event.
-#: wp-admin/includes/class-wp-site-health.php:1555
+#: wp-admin/includes/class-wp-site-health.php:1573
 msgid "The scheduled event, %s, failed to run. Your site still works, but this may indicate that scheduling posts or automated updates may not work as intended."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1562
+#: wp-admin/includes/class-wp-site-health.php:1580
 msgid "A scheduled event is late"
 msgstr ""
 
 #. translators: %s: The name of the late cron event.
-#: wp-admin/includes/class-wp-site-health.php:1568
+#: wp-admin/includes/class-wp-site-health.php:1586
 msgid "The scheduled event, %s, is late to run. Your site still works, but this may indicate that scheduling posts or automated updates may not work as intended."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1588
+#: wp-admin/includes/class-wp-site-health.php:1606
 msgid "Disk space available to safely perform updates"
 msgstr ""
 
 #. translators: %s: Available disk space in MB or GB.
-#: wp-admin/includes/class-wp-site-health.php:1596
+#: wp-admin/includes/class-wp-site-health.php:1614
 msgid "%s available disk space was detected, update routines can be performed safely."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1604
+#: wp-admin/includes/class-wp-site-health.php:1622
 msgid "Could not determine available disk space for updates."
 msgstr ""
 
 #. translators: %s: Available disk space in MB or GB.
-#: wp-admin/includes/class-wp-site-health.php:1609
+#: wp-admin/includes/class-wp-site-health.php:1627
 msgid "Available disk space is critically low, less than %s available. Proceed with caution, updates may fail."
 msgstr ""
 
 #. translators: %s: Available disk space in MB or GB.
-#: wp-admin/includes/class-wp-site-health.php:1616
+#: wp-admin/includes/class-wp-site-health.php:1634
 msgid "Available disk space is low, less than %s available."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1638
+#: wp-admin/includes/class-wp-site-health.php:1656
 msgid "Plugin and theme temporary backup directory is writable"
 msgstr ""
 
 #. translators: %s: wp-content/upgrade-temp-backup
-#: wp-admin/includes/class-wp-site-health.php:1646
+#: wp-admin/includes/class-wp-site-health.php:1664
 msgid "The %s directory used to improve the stability of plugin and theme updates is writable."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1663
+#: wp-admin/includes/class-wp-site-health.php:1681
 msgid "Could not access filesystem"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1672
+#: wp-admin/includes/class-wp-site-health.php:1690
 msgid "Unable to locate Retraceur content directory"
 msgstr ""
 
 #. translators: %s: wp-content
-#: wp-admin/includes/class-wp-site-health.php:1675
+#: wp-admin/includes/class-wp-site-health.php:1693
 msgid "The %s directory cannot be located."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1693
+#: wp-admin/includes/class-wp-site-health.php:1711
 msgid "Plugin and theme temporary backup directories exist but are not writable"
 msgstr ""
 
 #. translators: 1: wp-content/upgrade-temp-backup/plugins, 2: wp-content/upgrade-temp-backup/themes.
-#: wp-admin/includes/class-wp-site-health.php:1696
+#: wp-admin/includes/class-wp-site-health.php:1714
 msgid "The %1$s and %2$s directories exist but are not writable. These directories are used to improve the stability of plugin updates. Please make sure the server has write permissions to these directories."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1705
+#: wp-admin/includes/class-wp-site-health.php:1723
 msgid "Plugin temporary backup directory exists but is not writable"
 msgstr ""
 
 #. translators: %s: wp-content/upgrade-temp-backup/plugins
-#: wp-admin/includes/class-wp-site-health.php:1708
+#: wp-admin/includes/class-wp-site-health.php:1726
 msgid "The %s directory exists but is not writable. This directory is used to improve the stability of plugin updates. Please make sure the server has write permissions to this directory."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1716
+#: wp-admin/includes/class-wp-site-health.php:1734
 msgid "Theme temporary backup directory exists but is not writable"
 msgstr ""
 
 #. translators: %s: wp-content/upgrade-temp-backup/themes
-#: wp-admin/includes/class-wp-site-health.php:1719
+#: wp-admin/includes/class-wp-site-health.php:1737
 msgid "The %s directory exists but is not writable. This directory is used to improve the stability of theme updates. Please make sure the server has write permissions to this directory."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1727
+#: wp-admin/includes/class-wp-site-health.php:1745
 msgid "The temporary backup directory exists but is not writable"
 msgstr ""
 
 #. translators: %s: wp-content/upgrade-temp-backup
-#: wp-admin/includes/class-wp-site-health.php:1730
+#: wp-admin/includes/class-wp-site-health.php:1748
 msgid "The %s directory exists but is not writable. This directory is used to improve the stability of plugin and theme updates. Please make sure the server has write permissions to this directory."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1738
+#: wp-admin/includes/class-wp-site-health.php:1756
 msgid "The upgrade directory exists but is not writable"
 msgstr ""
 
 #. translators: %s: wp-content/upgrade
-#: wp-admin/includes/class-wp-site-health.php:1741
+#: wp-admin/includes/class-wp-site-health.php:1759
 msgid "The %s directory exists but is not writable. This directory is used for plugin and theme updates. Please make sure the server has write permissions to this directory."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1749
+#: wp-admin/includes/class-wp-site-health.php:1767
 msgid "The upgrade directory cannot be created"
 msgstr ""
 
 #. translators: 1: wp-content/upgrade, 2: wp-content.
-#: wp-admin/includes/class-wp-site-health.php:1752
+#: wp-admin/includes/class-wp-site-health.php:1770
 msgid "The %1$s directory does not exist, and the server does not have write permissions in %2$s to create it. This directory is used for plugin and theme updates. Please make sure the server has write permissions in %2$s."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1775
+#: wp-admin/includes/class-wp-site-health.php:1793
 msgid "Your site can perform loopback requests"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1783
+#: wp-admin/includes/class-wp-site-health.php:1801
 msgid "Loopback requests are used to run scheduled events, and are also used by the built-in editors for themes and plugins to verify code stability."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1794
+#: wp-admin/includes/class-wp-site-health.php:1812
 msgid "Your site could not complete a loopback request"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1818
+#: wp-admin/includes/class-wp-site-health.php:1836
 msgid "HTTP requests seem to be working as expected"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1826
+#: wp-admin/includes/class-wp-site-health.php:1844
 msgid "It is possible for site maintainers to block all, or some, communication to other sites and services. If set up incorrectly, this may prevent plugins and themes from working as intended."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1846
+#: wp-admin/includes/class-wp-site-health.php:1864
 msgid "HTTP requests are blocked"
 msgstr ""
 
 #. translators: %s: Name of the constant used.
-#: wp-admin/includes/class-wp-site-health.php:1852
+#: wp-admin/includes/class-wp-site-health.php:1870
 msgid "HTTP requests have been blocked by the %s constant, with no allowed hosts."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1861
+#: wp-admin/includes/class-wp-site-health.php:1879
 msgid "HTTP requests are partially blocked"
 msgstr ""
 
 #. translators: 1: Name of the constant used. 2: List of allowed hostnames.
-#: wp-admin/includes/class-wp-site-health.php:1867
+#: wp-admin/includes/class-wp-site-health.php:1885
 msgid "HTTP requests have been blocked by the %1$s constant, with some allowed hosts: %2$s."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1889
+#: wp-admin/includes/class-wp-site-health.php:1907
 msgid "The REST API is available"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1897
+#: wp-admin/includes/class-wp-site-health.php:1915
 msgid "The REST API is one way that Retraceur and other applications communicate with the server. For example, the block editor screen relies on the REST API to display and save your posts and pages."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1932
+#: wp-admin/includes/class-wp-site-health.php:1950
 msgid "The REST API encountered an error"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1936
+#: wp-admin/includes/class-wp-site-health.php:1954
 msgid "When testing the REST API, an error was encountered:"
 msgstr ""
 
 #. translators: %s: The REST API URL.
-#: wp-admin/includes/class-wp-site-health.php:1939
-#: wp-admin/includes/class-wp-site-health.php:1959
+#: wp-admin/includes/class-wp-site-health.php:1957
+#: wp-admin/includes/class-wp-site-health.php:1977
 msgid "REST API Endpoint: %s"
 msgstr ""
 
 #. translators: 1: The Retraceur error code. 2: The HTTP status code error message.
-#: wp-admin/includes/class-wp-site-health.php:1944
-#: wp-admin/includes/class-wp-site-health.php:1964
+#: wp-admin/includes/class-wp-site-health.php:1962
+#: wp-admin/includes/class-wp-site-health.php:1982
 msgid "REST API Response: (%1$s) %2$s"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1952
+#: wp-admin/includes/class-wp-site-health.php:1970
 msgid "The REST API encountered an unexpected result"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1956
+#: wp-admin/includes/class-wp-site-health.php:1974
 msgid "When testing the REST API, an unexpected result was returned:"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:1975
+#: wp-admin/includes/class-wp-site-health.php:1993
 msgid "The REST API did not behave correctly"
 msgstr ""
 
 #. translators: %s: The name of the query parameter being tested.
-#: wp-admin/includes/class-wp-site-health.php:1981
+#: wp-admin/includes/class-wp-site-health.php:1999
 msgid "The REST API did not process the %s query parameter correctly."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2000
+#: wp-admin/includes/class-wp-site-health.php:2018
 msgid "Files can be uploaded"
 msgstr ""
 
 #. translators: 1: file_uploads, 2: php.ini
-#: wp-admin/includes/class-wp-site-health.php:2010
+#: wp-admin/includes/class-wp-site-health.php:2028
 msgid "The %1$s directive in %2$s determines if uploading files is allowed on your site."
 msgstr ""
 
 #. translators: %s: ini_get()
-#: wp-admin/includes/class-wp-site-health.php:2023
+#: wp-admin/includes/class-wp-site-health.php:2041
 msgid "The %s function has been disabled, some media settings are unavailable because of this."
 msgstr ""
 
 #. translators: 1: file_uploads, 2: 0
-#: wp-admin/includes/class-wp-site-health.php:2035
+#: wp-admin/includes/class-wp-site-health.php:2053
 msgid "%1$s is set to %2$s. You won't be able to upload files on your site."
 msgstr ""
 
 #. translators: 1: post_max_size, 2: upload_max_filesize
-#: wp-admin/includes/class-wp-site-health.php:2049
+#: wp-admin/includes/class-wp-site-health.php:2067
 msgid "The \"%1$s\" value is smaller than \"%2$s\""
 msgstr ""
 
 #. translators: 1: post_max_size, 2: upload_max_filesize
-#: wp-admin/includes/class-wp-site-health.php:2060
+#: wp-admin/includes/class-wp-site-health.php:2078
 msgid "The setting for %1$s is currently configured as 0, this could cause some problems when trying to upload files through plugin or theme features that rely on various upload methods. It is recommended to configure this setting to a fixed value, ideally matching the value of %2$s, as some upload methods read the value 0 as either unlimited, or disabled."
 msgstr ""
 
 #. translators: 1: post_max_size, 2: upload_max_filesize
-#: wp-admin/includes/class-wp-site-health.php:2070
+#: wp-admin/includes/class-wp-site-health.php:2088
 msgid "The setting for %1$s is smaller than %2$s, this could cause some problems when trying to upload files."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2092
+#: wp-admin/includes/class-wp-site-health.php:2110
 msgid "The Authorization header is working as expected"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2100
+#: wp-admin/includes/class-wp-site-health.php:2118
 msgid "The Authorization header is used by third-party applications you have approved for this site. Without this header, those apps cannot connect to your site."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2107
+#: wp-admin/includes/class-wp-site-health.php:2125
 msgid "The authorization header is missing"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2109
+#: wp-admin/includes/class-wp-site-health.php:2127
 msgid "The authorization header is invalid"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2117
+#: wp-admin/includes/class-wp-site-health.php:2135
 msgid "If you are still seeing this warning after having tried the actions below, you may need to contact your hosting provider for further assistance."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2128
+#: wp-admin/includes/class-wp-site-health.php:2146
 msgid "Flush permalinks"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2145
+#: wp-admin/includes/class-wp-site-health.php:2163
 msgid "Page cache enhances the speed and performance of your site by saving and serving static pages instead of calling for a page every time a user visits."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2146
+#: wp-admin/includes/class-wp-site-health.php:2164
 msgid "Page cache is detected by looking for an active page cache plugin as well as making three requests to the homepage and looking for one or more of the following HTTP client caching response headers:"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2164
+#: wp-admin/includes/class-wp-site-health.php:2182
 msgid "Unable to detect the presence of page cache"
 msgstr ""
 
 #. translators: 1: Error message, 2: Error code.
-#: wp-admin/includes/class-wp-site-health.php:2168
+#: wp-admin/includes/class-wp-site-health.php:2186
 msgid "Unable to detect page cache due to possible loopback request problem. Please verify that the loopback request test is passing. Error: %1$s (Code: %2$s)"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2180
+#: wp-admin/includes/class-wp-site-health.php:2198
 msgid "Page cache is not detected but the server response time is OK"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2183
+#: wp-admin/includes/class-wp-site-health.php:2201
 msgid "Page cache is detected and the server response time is good"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2187
+#: wp-admin/includes/class-wp-site-health.php:2205
 msgid "Page cache is not detected and the server response time is slow"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2189
+#: wp-admin/includes/class-wp-site-health.php:2207
 msgid "Page cache is detected but the server response time is still slow"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2196
+#: wp-admin/includes/class-wp-site-health.php:2214
 msgid "Server response time could not be determined. Verify that loopback requests are working."
 msgstr ""
 
 #. translators: 1: The response time in milliseconds, 2: The recommended threshold in milliseconds.
-#: wp-admin/includes/class-wp-site-health.php:2203
+#: wp-admin/includes/class-wp-site-health.php:2221
 msgid "Median server response time was %1$s milliseconds. This is less than the recommended %2$s milliseconds threshold."
 msgstr ""
 
 #. translators: 1: The response time in milliseconds, 2: The recommended threshold in milliseconds.
-#: wp-admin/includes/class-wp-site-health.php:2210
+#: wp-admin/includes/class-wp-site-health.php:2228
 msgid "Median server response time was %1$s milliseconds. It should be less than the recommended %2$s milliseconds threshold."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2217
+#: wp-admin/includes/class-wp-site-health.php:2235
 msgid "No client caching response headers were detected."
 msgstr ""
 
 #. translators: %d: Number of caching headers.
-#: wp-admin/includes/class-wp-site-health.php:2222
+#: wp-admin/includes/class-wp-site-health.php:2240
 msgid "There was %d client caching response header detected:"
 msgid_plural "There were %d client caching response headers detected:"
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-admin/includes/class-wp-site-health.php:2235
+#: wp-admin/includes/class-wp-site-health.php:2253
 msgid "A page cache plugin was detected."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2238
+#: wp-admin/includes/class-wp-site-health.php:2256
 msgid "A page cache plugin was not detected."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2260
+#: wp-admin/includes/class-wp-site-health.php:2278
 msgid "A persistent object cache is being used"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2263
+#: wp-admin/includes/class-wp-site-health.php:2281
 msgid "A persistent object cache makes your site&#8217;s database more efficient, resulting in faster load times because Retraceur can retrieve your site&#8217;s content and settings much more quickly."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2273
+#: wp-admin/includes/class-wp-site-health.php:2291
 msgid "A persistent object cache is not required"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2280
+#: wp-admin/includes/class-wp-site-health.php:2298
 msgid "Your hosting provider can tell you if a persistent object cache can be enabled on your site."
 msgstr ""
 
 #. translators: Available object caching services.
-#: wp-admin/includes/class-wp-site-health.php:2285
+#: wp-admin/includes/class-wp-site-health.php:2303
 msgid "Your host appears to support the following object caching services: %s."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2306
+#: wp-admin/includes/class-wp-site-health.php:2324
 msgid "You should use a persistent object cache"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2356
+#: wp-admin/includes/class-wp-site-health.php:2374
 msgid "Autoloaded options are configuration settings for plugins and themes that are automatically loaded with every page load in Retraceur. Having too many autoloaded options can slow down your site."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2359
+#: wp-admin/includes/class-wp-site-health.php:2377
 msgid "Autoloaded options are acceptable"
 msgstr ""
 
 #. translators: 1: Number of autoloaded options, 2: Autoloaded options size.
-#: wp-admin/includes/class-wp-site-health.php:2367
+#: wp-admin/includes/class-wp-site-health.php:2385
 msgid "Your site has %1$s autoloaded options (size: %2$s) in the options table, which is acceptable."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2389
+#: wp-admin/includes/class-wp-site-health.php:2407
 msgid "Autoloaded options could affect performance"
 msgstr ""
 
 #. translators: 1: Number of autoloaded options, 2: Autoloaded options size.
-#: wp-admin/includes/class-wp-site-health.php:2392
+#: wp-admin/includes/class-wp-site-health.php:2410
 msgid "Your site has %1$s autoloaded options (size: %2$s) in the options table, which could cause your site to be slow. You can review the options being autoloaded in your database and remove any options that are no longer needed by your site."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2435
+#: wp-admin/includes/class-wp-site-health.php:2453
 msgid "Retraceur Version"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2439
+#: wp-admin/includes/class-wp-site-health.php:2457
 msgid "Plugin Versions"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2443
+#: wp-admin/includes/class-wp-site-health.php:2461
 msgid "Theme Versions"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2447
+#: wp-admin/includes/class-wp-site-health.php:2465
 msgid "PHP Version"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2451
+#: wp-admin/includes/class-wp-site-health.php:2469
 msgid "PHP Extensions"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2455
+#: wp-admin/includes/class-wp-site-health.php:2473
 msgid "PHP Default Timezone"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2459
+#: wp-admin/includes/class-wp-site-health.php:2477
 msgid "PHP Sessions"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2463
+#: wp-admin/includes/class-wp-site-health.php:2481
 msgid "Database Server version"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2467
+#: wp-admin/includes/class-wp-site-health.php:2485
 msgid "Secure communication"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2471
+#: wp-admin/includes/class-wp-site-health.php:2489
 msgid "Scheduled events"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2475
+#: wp-admin/includes/class-wp-site-health.php:2493
 msgid "HTTP Requests"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2479
+#: wp-admin/includes/class-wp-site-health.php:2497
 msgid "REST API availability"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2484
+#: wp-admin/includes/class-wp-site-health.php:2502
 msgid "Debugging enabled"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2492
+#: wp-admin/includes/class-wp-site-health.php:2510
 msgid "Plugin and theme auto-updates"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2496
+#: wp-admin/includes/class-wp-site-health.php:2514
 msgid "Plugin and theme temporary backup directory access"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2500
+#: wp-admin/includes/class-wp-site-health.php:2518
 msgid "Available disk space"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2504
+#: wp-admin/includes/class-wp-site-health.php:2522
 msgid "Autoloaded options"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2510
+#: wp-admin/includes/class-wp-site-health.php:2528
 msgid "Loopback request"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2516
+#: wp-admin/includes/class-wp-site-health.php:2534
 msgid "HTTPS status"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2527
+#: wp-admin/includes/class-wp-site-health.php:2545
 msgid "Authorization header"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2538
+#: wp-admin/includes/class-wp-site-health.php:2556
 msgid "Page cache"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2545
+#: wp-admin/includes/class-wp-site-health.php:2563
 msgid "Persistent object cache"
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2656
+#: wp-admin/includes/class-wp-site-health.php:2674
 msgid "No scheduled events exist on this site."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2780
+#: wp-admin/includes/class-wp-site-health.php:2798
 msgid "The loopback request to your site failed, this means features relying on them are not currently working as expected."
 msgstr ""
 
 #. translators: 1: The Retraceur error message. 2: The Retraceur error code.
-#: wp-admin/includes/class-wp-site-health.php:2783
+#: wp-admin/includes/class-wp-site-health.php:2801
 msgid "Error: %1$s (%2$s)"
 msgstr ""
 
 #. translators: %d: The HTTP response code returned.
-#: wp-admin/includes/class-wp-site-health.php:2796
+#: wp-admin/includes/class-wp-site-health.php:2814
 msgid "The loopback request returned an unexpected http status code, %d, it was not possible to determine if this will prevent features from working as expected."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2804
+#: wp-admin/includes/class-wp-site-health.php:2822
 msgid "The loopback request to your site completed successfully."
 msgstr ""
 
-#: wp-admin/includes/class-wp-site-health.php:2911
+#: wp-admin/includes/class-wp-site-health.php:2929
 msgid "A test is unavailable"
 msgstr ""
 
@@ -9404,7 +9415,7 @@ msgstr ""
 
 #. translators: %s: Plugin name.
 #: wp-admin/includes/plugin-install.php:917
-#: wp-admin/includes/update.php:564
+#: wp-admin/includes/update.php:567
 msgctxt "plugin"
 msgid "Update %s now"
 msgstr ""
@@ -10281,7 +10292,7 @@ msgstr ""
 
 #. translators: 1: Theme name, 2: Theme details URL, 3: Additional link attributes, 4: Version number.
 #: wp-admin/includes/theme.php:231
-#: wp-admin/includes/update.php:715
+#: wp-admin/includes/update.php:718
 msgctxt "theme"
 msgid "There is a new version of %1$s available. <a href=\"%2$s\" %3$s>View version %4$s details</a>."
 msgstr ""
@@ -10290,30 +10301,30 @@ msgstr ""
 #: wp-admin/includes/theme.php:237
 #: wp-admin/includes/theme.php:250
 #: wp-admin/includes/theme.php:263
-#: wp-admin/includes/update.php:721
-#: wp-admin/includes/update.php:734
-#: wp-admin/includes/update.php:747
+#: wp-admin/includes/update.php:724
+#: wp-admin/includes/update.php:737
+#: wp-admin/includes/update.php:750
 msgctxt "theme"
 msgid "View %1$s version %2$s details"
 msgstr ""
 
 #. translators: 1: Theme name, 2: Theme details URL, 3: Additional link attributes, 4: Version number.
 #: wp-admin/includes/theme.php:244
-#: wp-admin/includes/update.php:728
+#: wp-admin/includes/update.php:731
 msgctxt "theme"
 msgid "There is a new version of %1$s available. <a href=\"%2$s\" %3$s>View version %4$s details</a>. <em>Automatic update is unavailable for this theme.</em>"
 msgstr ""
 
 #. translators: 1: Theme name, 2: Theme details URL, 3: Additional link attributes, 4: Version number, 5: Update URL, 6: Additional link attributes.
 #: wp-admin/includes/theme.php:257
-#: wp-admin/includes/update.php:741
+#: wp-admin/includes/update.php:744
 msgctxt "theme"
 msgid "There is a new version of %1$s available. <a href=\"%2$s\" %3$s>View version %4$s details</a> or <a href=\"%5$s\" %6$s>update now</a>."
 msgstr ""
 
 #. translators: %s: Theme name.
 #: wp-admin/includes/theme.php:270
-#: wp-admin/includes/update.php:754
+#: wp-admin/includes/update.php:757
 msgctxt "theme"
 msgid "Update %s now"
 msgstr ""
@@ -10501,7 +10512,7 @@ msgstr ""
 
 #. translators: %s: Theme name.
 #: wp-admin/includes/theme.php:851
-#: wp-admin/includes/update.php:762
+#: wp-admin/includes/update.php:765
 #: wp-admin/themes.php:390
 #: wp-admin/themes.php:717
 #: wp-admin/themes.php:950
@@ -10517,7 +10528,7 @@ msgstr ""
 
 #. translators: %s: Theme name.
 #: wp-admin/includes/theme.php:872
-#: wp-admin/includes/update.php:781
+#: wp-admin/includes/update.php:784
 #: wp-admin/themes.php:409
 #: wp-admin/themes.php:738
 #: wp-admin/themes.php:971
@@ -10526,7 +10537,7 @@ msgstr ""
 
 #. translators: %s: Theme name.
 #: wp-admin/includes/theme.php:887
-#: wp-admin/includes/update.php:794
+#: wp-admin/includes/update.php:797
 #: wp-admin/themes.php:422
 #: wp-admin/themes.php:753
 #: wp-admin/themes.php:986
@@ -10698,115 +10709,115 @@ msgstr ""
 msgid "(Retraceur could not establish a secure connection to Core Update API. Please contact your server administrator.)"
 msgstr ""
 
-#. translators: 1: Retraceur version number, 2: URL to Retraceur Updates screen.
-#: wp-admin/includes/update.php:274
-msgid "You are using a development version (%1$s). Cool! Please <a href=\"%2$s\">stay updated</a>."
+#. translators: 1: Retraceur version number, 2: URL to Retraceur Updates screen. 3: Link target attribute.
+#: wp-admin/includes/update.php:276
+msgid "You are using a development version (%1$s). Cool! Please <a href=\"%2$s\"%3$s>stay updated</a>."
 msgstr ""
 
 #. translators: %s: Retraceur version.
-#: wp-admin/includes/update.php:286
+#: wp-admin/includes/update.php:289
 msgid "Get Version %s"
 msgstr ""
 
 #. translators: 1: New version, 2: URL to network admin, 3: Accessibility text.
-#: wp-admin/includes/update.php:328
+#: wp-admin/includes/update.php:331
 msgid "Retraceur %1$s is available! <a href=\"%2$s\" aria-label=\"%3$s\">Please update now</a>."
 msgstr ""
 
-#: wp-admin/includes/update.php:331
+#: wp-admin/includes/update.php:334
 msgid "Please update Retraceur now"
 msgstr ""
 
 #. translators: %s: New version.
-#: wp-admin/includes/update.php:336
+#: wp-admin/includes/update.php:339
 msgid "Retraceur %s is available! Please notify the site administrator."
 msgstr ""
 
 #. translators: %s: Retraceur version number, or 'Latest' string.
-#: wp-admin/includes/update.php:373
+#: wp-admin/includes/update.php:376
 msgid "Update to %s"
 msgstr ""
 
 #. translators: %s: Retraceur version number, or 'Latest' string.
-#: wp-admin/includes/update.php:373
+#: wp-admin/includes/update.php:376
 msgid "Latest"
 msgstr ""
 
 #. translators: 1: Version number, 2: Theme name.
-#: wp-admin/includes/update.php:379
+#: wp-admin/includes/update.php:382
 msgid "Retraceur %1$s running %2$s theme."
 msgstr ""
 
 #. translators: 1: Plugin name, 2: Plugin details URL, 3: Additional link attributes, 4: Version number.
-#: wp-admin/includes/update.php:524
+#: wp-admin/includes/update.php:527
 msgctxt "plugin"
 msgid "There is a new version of %1$s available. <a href=\"%2$s\" %3$s>View version %4$s details</a>."
 msgstr ""
 
 #. translators: 1: Plugin name, 2: Version number.
-#: wp-admin/includes/update.php:530
-#: wp-admin/includes/update.php:543
-#: wp-admin/includes/update.php:557
-#: wp-admin/includes/update.php:576
-#: wp-admin/update-core.php:542
+#: wp-admin/includes/update.php:533
+#: wp-admin/includes/update.php:546
+#: wp-admin/includes/update.php:560
+#: wp-admin/includes/update.php:579
+#: wp-admin/update-core.php:555
 msgctxt "plugin"
 msgid "View %1$s version %2$s details"
 msgstr ""
 
 #. translators: 1: Plugin name, 2: Plugin details URL, 3: Additional link attributes, 4: Version number.
-#: wp-admin/includes/update.php:537
+#: wp-admin/includes/update.php:540
 msgctxt "plugin"
 msgid "There is a new version of %1$s available. <a href=\"%2$s\" %3$s>View version %4$s details</a>. <em>Automatic update is unavailable for this plugin.</em>"
 msgstr ""
 
 #. translators: 1: Plugin name, 2: Plugin details URL, 3: Additional link attributes, 4: Version number, 5: Update URL, 6: Additional link attributes.
-#: wp-admin/includes/update.php:551
+#: wp-admin/includes/update.php:554
 msgctxt "plugin"
 msgid "There is a new version of %1$s available. <a href=\"%2$s\" %3$s>View version %4$s details</a> or <a href=\"%5$s\" %6$s>update now</a>."
 msgstr ""
 
 #. translators: 1: Plugin name, 2: Details URL, 3: Additional link attributes, 4: Version number.
-#: wp-admin/includes/update.php:570
+#: wp-admin/includes/update.php:573
 msgid "There is a new version of %1$s available, but it does not work with your version of PHP. <a href=\"%2$s\" %3$s>View version %4$s details</a>."
 msgstr ""
 
 #. translators: %s: URL to Retraceur Updates screen.
-#: wp-admin/includes/update.php:859
+#: wp-admin/includes/update.php:862
 msgid "An automated Retraceur update has failed to complete - <a href=\"%s\">please attempt the update again now</a>."
 msgstr ""
 
-#: wp-admin/includes/update.php:863
+#: wp-admin/includes/update.php:866
 msgid "An automated Retraceur update has failed to complete! Please notify the site administrator."
 msgstr ""
 
 #. translators: %s: Plugin name.
-#: wp-admin/includes/update.php:971
+#: wp-admin/includes/update.php:974
 msgctxt "plugin"
 msgid "%s was successfully deleted."
 msgstr ""
 
 #. translators: %s: Theme name.
-#: wp-admin/includes/update.php:979
+#: wp-admin/includes/update.php:982
 msgctxt "theme"
 msgid "%s was successfully deleted."
 msgstr ""
 
 #. translators: %s: Recovery Mode exit link.
-#: wp-admin/includes/update.php:1006
+#: wp-admin/includes/update.php:1009
 msgid "You are in recovery mode. This means there may be an error with a theme or plugin. To exit recovery mode, log out or use the Exit button. <a href=\"%s\">Exit Recovery Mode</a>"
 msgstr ""
 
-#: wp-admin/includes/update.php:1080
+#: wp-admin/includes/update.php:1083
 msgid "Automatic update not scheduled. There may be a problem with WP-Cron."
 msgstr ""
 
 #. translators: %s: Duration that WP-Cron has been overdue.
-#: wp-admin/includes/update.php:1090
+#: wp-admin/includes/update.php:1093
 msgid "Automatic update overdue by %s. There may be a problem with WP-Cron."
 msgstr ""
 
 #. translators: %s: Time until the next update.
-#: wp-admin/includes/update.php:1096
+#: wp-admin/includes/update.php:1099
 msgid "Automatic update scheduled in %s."
 msgstr ""
 
@@ -12694,8 +12705,8 @@ msgid "Browse Plugins"
 msgstr ""
 
 #: wp-admin/plugins.php:21
-#: wp-admin/update-core.php:447
-#: wp-admin/update-core.php:466
+#: wp-admin/update-core.php:460
+#: wp-admin/update-core.php:479
 msgid "Plugins"
 msgstr ""
 
@@ -12727,10 +12738,10 @@ msgid "Sorry, you are not allowed to activate plugins for this site."
 msgstr ""
 
 #: wp-admin/plugins.php:191
-#: wp-admin/update-core.php:474
-#: wp-admin/update-core.php:596
-#: wp-admin/update-core.php:1093
-#: wp-admin/update-core.php:1098
+#: wp-admin/update-core.php:487
+#: wp-admin/update-core.php:609
+#: wp-admin/update-core.php:1128
+#: wp-admin/update-core.php:1133
 msgid "Update Plugins"
 msgstr ""
 
@@ -13780,8 +13791,8 @@ msgstr ""
 
 #: wp-admin/themes.php:129
 #: wp-admin/themes.php:189
-#: wp-admin/update-core.php:609
 #: wp-admin/update-core.php:622
+#: wp-admin/update-core.php:635
 msgid "Themes"
 msgstr ""
 
@@ -13966,11 +13977,11 @@ msgid "Use the Erase Personal Data tool to delete a member’s personal data upo
 msgstr ""
 
 #: wp-admin/update-core.php:25
-#: wp-admin/update-core.php:1039
-#: wp-admin/update-core.php:1075
-#: wp-admin/update-core.php:1116
-#: wp-admin/update-core.php:1157
-#: wp-admin/update-core.php:1186
+#: wp-admin/update-core.php:1074
+#: wp-admin/update-core.php:1110
+#: wp-admin/update-core.php:1151
+#: wp-admin/update-core.php:1192
+#: wp-admin/update-core.php:1221
 msgid "Sorry, you are not allowed to update this site."
 msgstr ""
 
@@ -14070,190 +14081,132 @@ msgstr ""
 msgid "Retraceur will only receive automatic security and maintenance releases from now on."
 msgstr ""
 
-#: wp-admin/update-core.php:389
-msgid "This site appears to be under version control. Automatic updates are disabled."
-msgstr ""
-
-#: wp-admin/update-core.php:391
-msgid "This site is automatically kept up to date with each new version of Retraceur."
-msgstr ""
-
-#: wp-admin/update-core.php:398
-msgid "Switch to automatic updates for maintenance and security releases only."
-msgstr ""
-
-#: wp-admin/update-core.php:402
-msgid "This site is automatically kept up to date with maintenance and security releases of Retraceur only."
-msgstr ""
-
-#: wp-admin/update-core.php:409
-msgid "Enable automatic updates for all new versions of Retraceur."
-msgstr ""
-
-#: wp-admin/update-core.php:413
-msgid "This site will not receive automatic updates for new versions of Retraceur."
-msgstr ""
-
-#: wp-admin/update-core.php:448
+#: wp-admin/update-core.php:461
 msgid "Your plugins are all up to date."
 msgstr ""
 
-#: wp-admin/update-core.php:471
+#: wp-admin/update-core.php:484
 msgid "The following plugins have new versions available. Check the ones you want to update and then click &#8220;Update Plugins&#8221;."
 msgstr ""
 
 #. translators: %s: Retraceur version.
-#: wp-admin/update-core.php:507
-#: wp-admin/update-core.php:516
+#: wp-admin/update-core.php:520
+#: wp-admin/update-core.php:529
 msgid "Compatibility with Retraceur %s: 100%% (according to its author)"
 msgstr ""
 
 #. translators: %s: Retraceur version.
-#: wp-admin/update-core.php:510
-#: wp-admin/update-core.php:519
+#: wp-admin/update-core.php:523
+#: wp-admin/update-core.php:532
 msgid "Compatibility with Retraceur %s: Unknown"
 msgstr ""
 
-#: wp-admin/update-core.php:527
-#: wp-admin/update-core.php:682
+#: wp-admin/update-core.php:540
+#: wp-admin/update-core.php:695
 msgid "This update does not work with your version of PHP."
 msgstr ""
 
 #. translators: %s: Plugin version.
-#: wp-admin/update-core.php:544
+#: wp-admin/update-core.php:557
 msgid "View version %s details."
 msgstr ""
 
 #. translators: 1: Plugin version, 2: New version.
-#: wp-admin/update-core.php:569
+#: wp-admin/update-core.php:582
 msgctxt "plugin"
 msgid "You have version %1$s installed. Update to %2$s."
 msgstr ""
 
-#: wp-admin/update-core.php:610
+#: wp-admin/update-core.php:623
 msgid "Your themes are all up to date."
 msgstr ""
 
-#: wp-admin/update-core.php:627
+#: wp-admin/update-core.php:640
 msgid "The following themes have new versions available. Check the ones you want to update and then click &#8220;Update Themes&#8221;."
 msgstr ""
 
-#: wp-admin/update-core.php:628
+#: wp-admin/update-core.php:641
 msgid "Please Note: Any customizations you have made to theme files will be lost. Please consider using child themes for modifications."
 msgstr ""
 
-#: wp-admin/update-core.php:631
-#: wp-admin/update-core.php:732
-#: wp-admin/update-core.php:1134
-#: wp-admin/update-core.php:1139
+#: wp-admin/update-core.php:644
+#: wp-admin/update-core.php:745
+#: wp-admin/update-core.php:1169
+#: wp-admin/update-core.php:1174
 msgid "Update Themes"
 msgstr ""
 
-#: wp-admin/update-core.php:658
+#: wp-admin/update-core.php:671
 msgid "This update does not work with your versions of Retraceur and PHP."
 msgstr ""
 
-#: wp-admin/update-core.php:673
+#: wp-admin/update-core.php:686
 msgid "This update does not work with your version of Retraceur."
 msgstr ""
 
 #. translators: %s: Theme name.
-#: wp-admin/update-core.php:695
+#: wp-admin/update-core.php:708
 msgctxt "theme"
 msgid "Select %s"
 msgstr ""
 
 #. translators: 1: Theme version, 2: New version.
-#: wp-admin/update-core.php:707
+#: wp-admin/update-core.php:720
 msgctxt "theme"
 msgid "You have version %1$s installed. Update to %2$s."
 msgstr ""
 
-#: wp-admin/update-core.php:746
-#: wp-admin/update-core.php:754
+#: wp-admin/update-core.php:759
+#: wp-admin/update-core.php:767
 msgid "Translations"
 msgstr ""
 
-#: wp-admin/update-core.php:756
+#: wp-admin/update-core.php:769
 msgid "New translations are available."
 msgstr ""
 
-#: wp-admin/update-core.php:799
+#: wp-admin/update-core.php:812
 msgid "Update Retraceur"
 msgstr ""
 
 #. translators: 1: Retraceur version, 2: URL to About screen.
-#: wp-admin/update-core.php:850
+#: wp-admin/update-core.php:863
 msgid "Welcome to Retraceur %1$s. You will be redirected to the About Retraceur screen. If not, click <a href=\"%2$s\">here</a>."
 msgstr ""
 
 #. translators: 1: Retraceur version, 2: URL to About screen.
-#: wp-admin/update-core.php:858
+#: wp-admin/update-core.php:871
 msgid "Welcome to Retraceur %1$s. <a href=\"%2$s\">Learn more</a>."
 msgstr ""
 
-#: wp-admin/update-core.php:914
-#: wp-admin/update-core.php:951
+#: wp-admin/update-core.php:927
+#: wp-admin/update-core.php:970
 msgid "Retraceur Updates"
 msgstr ""
 
-#: wp-admin/update-core.php:917
-msgid "On this screen, you can update to the latest version of Retraceur, as well as update your themes, plugins, and translations."
-msgstr ""
-
-#: wp-admin/update-core.php:918
+#: wp-admin/update-core.php:932
 msgid "If an update is available, you&#8127;ll see a notification appear in the Toolbar and navigation menu."
 msgstr ""
 
-#: wp-admin/update-core.php:928
+#: wp-admin/update-core.php:942
 msgid "<strong>Retraceur</strong> &mdash; Updating your Retraceur installation is a simple one-click procedure: just <strong>click on the &#8220;Update now&#8221; button</strong> when you are notified that a new version is available."
 msgstr ""
 
-#: wp-admin/update-core.php:928
+#: wp-admin/update-core.php:942
 msgid "In most cases, Retraceur will automatically apply maintenance and security updates in the background for you."
 msgstr ""
 
-#: wp-admin/update-core.php:929
+#: wp-admin/update-core.php:943
 msgid "<strong>Themes and Plugins</strong> &mdash; To update individual themes or plugins from this screen, use the checkboxes to make your selection, then <strong>click on the appropriate &#8220;Update&#8221; button</strong>. To update all of your themes or plugins at once, you can check the box at the top of the section to select all before clicking the update button."
 msgstr ""
 
-#: wp-admin/update-core.php:932
+#: wp-admin/update-core.php:946
 msgid "<strong>Translations</strong> &mdash; The files translating Retraceur into your language are updated for you whenever any other updates occur. But if these files are out of date, you can <strong>click the &#8220;Update Translations&#8221;</strong> button."
 msgstr ""
 
-#: wp-admin/update-core.php:938
-msgid "How to Update"
-msgstr ""
-
-#: wp-admin/update-core.php:952
-msgid "Updates may take several minutes to complete. If there is no feedback after 5 minutes, or if there are errors please refer to the Help section above."
-msgstr ""
-
-#: wp-admin/update-core.php:960
-msgid "Please select one or more themes to update."
-msgstr ""
-
-#: wp-admin/update-core.php:970
-msgid "Please select one or more plugins to update."
-msgstr ""
-
 #. translators: Current version of Retraceur.
-#: wp-admin/update-core.php:988
+#: wp-admin/update-core.php:1012
 msgid "Current version: %s"
-msgstr ""
-
-#. translators: 1: Date, 2: Time.
-#: wp-admin/update-core.php:995
-msgid "Last checked on %1$s at %2$s."
-msgstr ""
-
-#. translators: Last update time format, see https://www.php.net/manual/datetime.format.php
-#: wp-admin/update-core.php:999
-msgid "g:i a T"
-msgstr ""
-
-#: wp-admin/update-core.php:1001
-msgid "Check again."
 msgstr ""
 
 #: wp-admin/update.php:92

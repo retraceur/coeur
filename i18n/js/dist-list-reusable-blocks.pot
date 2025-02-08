@@ -1,41 +1,41 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: \n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Project-Id-Version: Retraceur 1.0.0-RC1\n"
+"Report-Msgid-Bugs-To: https://github.com/retraceur/coeur/issues\n"
+"Last-Translator: imath <contact@imathi.eu>\n"
+"Language-Team: Retraceur <retraceur@proton.me>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-01-11T21:16:22+00:00\n"
+"POT-Creation-Date: 2025-02-08T13:03:00+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 
-#: wp-includes/js/dist/list-reusable-blocks.js:699
+#: wp-includes/js/dist/list-reusable-blocks.js:722
 msgid "Invalid JSON file"
 msgstr ""
 
-#: wp-includes/js/dist/list-reusable-blocks.js:702
+#: wp-includes/js/dist/list-reusable-blocks.js:725
 msgid "Invalid pattern JSON file"
 msgstr ""
 
-#: wp-includes/js/dist/list-reusable-blocks.js:705
+#: wp-includes/js/dist/list-reusable-blocks.js:728
 msgid "Unknown error"
 msgstr ""
 
-#: wp-includes/js/dist/list-reusable-blocks.js:725
+#: wp-includes/js/dist/list-reusable-blocks.js:748
 msgid "File"
 msgstr ""
 
-#: wp-includes/js/dist/list-reusable-blocks.js:738
+#: wp-includes/js/dist/list-reusable-blocks.js:761
 msgctxt "button label"
 msgid "Import"
 msgstr ""
 
-#: wp-includes/js/dist/list-reusable-blocks.js:774
+#: wp-includes/js/dist/list-reusable-blocks.js:797
 msgid "Import from JSON"
 msgstr ""
 
-#: wp-includes/js/dist/list-reusable-blocks.js:817
+#: wp-includes/js/dist/list-reusable-blocks.js:840
 msgid "Pattern imported successfully!"
 msgstr ""

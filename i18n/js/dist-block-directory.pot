@@ -1,13 +1,13 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: \n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Project-Id-Version: Retraceur 1.0.0-RC1\n"
+"Report-Msgid-Bugs-To: https://github.com/retraceur/coeur/issues\n"
+"Last-Translator: imath <contact@imathi.eu>\n"
+"Language-Team: Retraceur <retraceur@proton.me>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-01-11T21:16:20+00:00\n"
+"POT-Creation-Date: 2025-02-08T13:02:58+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 
@@ -34,99 +34,99 @@ msgid "Error installing block. You can reload the page and try again."
 msgstr ""
 
 #. translators: %s: number of stars.
-#: wp-includes/js/dist/block-directory.js:1426
+#: wp-includes/js/dist/block-directory.js:1449
 msgid "%s out of 5 stars"
 msgstr ""
 
-#: wp-includes/js/dist/block-directory.js:1512
+#: wp-includes/js/dist/block-directory.js:1535
 msgid "Try reloading the page."
 msgstr ""
 
 #. translators: 1: block title, 2: average rating, 3: total ratings count.
-#: wp-includes/js/dist/block-directory.js:1575
+#: wp-includes/js/dist/block-directory.js:1598
 msgid "Install %1$s. %2$s stars with %3$s review."
 msgid_plural "Install %1$s. %2$s stars with %3$s reviews."
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-includes/js/dist/block-directory.js:1609
+#: wp-includes/js/dist/block-directory.js:1632
 msgid "Installed!"
 msgstr ""
 
-#: wp-includes/js/dist/block-directory.js:1611
+#: wp-includes/js/dist/block-directory.js:1634
 msgid "Installing…"
 msgstr ""
 
 #. translators: 1: block title. 2: author name.
-#: wp-includes/js/dist/block-directory.js:1648
+#: wp-includes/js/dist/block-directory.js:1671
 msgid "%1$s <span>by %2$s</span>"
 msgstr ""
 
-#: wp-includes/js/dist/block-directory.js:1660
+#: wp-includes/js/dist/block-directory.js:1683
 msgid "Install block"
 msgstr ""
 
-#: wp-includes/js/dist/block-directory.js:1699
+#: wp-includes/js/dist/block-directory.js:1722
 msgid "Blocks available for install"
 msgstr ""
 
 #. translators: %d: number of available blocks.
-#: wp-includes/js/dist/block-directory.js:1745
+#: wp-includes/js/dist/block-directory.js:1768
 msgid "%d additional block is available to install."
 msgid_plural "%d additional blocks are available to install."
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-includes/js/dist/block-directory.js:1750
-#: wp-includes/js/dist/block-directory.js:1889
+#: wp-includes/js/dist/block-directory.js:1773
+#: wp-includes/js/dist/block-directory.js:1912
 msgid "No results available from your installed blocks."
 msgstr ""
 
-#: wp-includes/js/dist/block-directory.js:1759
+#: wp-includes/js/dist/block-directory.js:1782
 msgid "Available to install"
 msgstr ""
 
-#: wp-includes/js/dist/block-directory.js:1762
+#: wp-includes/js/dist/block-directory.js:1785
 msgid "Select a block to install and add it to your post."
 msgstr ""
 
-#: wp-includes/js/dist/block-directory.js:1803
+#: wp-includes/js/dist/block-directory.js:1826
 msgid "No results found."
 msgstr ""
 
 #. translators: %s: Name of the block author.
-#: wp-includes/js/dist/block-directory.js:1998
+#: wp-includes/js/dist/block-directory.js:2021
 msgid "By %s"
 msgstr ""
 
 #. translators: %d: number of blocks (number).
-#: wp-includes/js/dist/block-directory.js:2030
+#: wp-includes/js/dist/block-directory.js:2053
 msgid "Added: %d block"
 msgid_plural "Added: %d blocks"
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-includes/js/dist/block-directory.js:2034
+#: wp-includes/js/dist/block-directory.js:2057
 msgid "The following block has been added to your site."
 msgid_plural "The following blocks have been added to your site."
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %s: block name
-#: wp-includes/js/dist/block-directory.js:2084
+#: wp-includes/js/dist/block-directory.js:2107
 msgid "Install %s"
 msgstr ""
 
 #. translators: %s: block name
-#: wp-includes/js/dist/block-directory.js:2166
+#: wp-includes/js/dist/block-directory.js:2189
 msgid "Your site doesn’t include support for the %s block. You can try installing the block or remove it entirely."
 msgstr ""
 
 #. translators: %s: block name
-#: wp-includes/js/dist/block-directory.js:2174
+#: wp-includes/js/dist/block-directory.js:2197
 msgid "Your site doesn’t include support for the %s block. You can try installing the block, convert it to a Custom HTML block, or remove it entirely."
 msgstr ""
 
-#: wp-includes/js/dist/block-directory.js:2179
+#: wp-includes/js/dist/block-directory.js:2202
 msgid "Keep as HTML"
 msgstr ""

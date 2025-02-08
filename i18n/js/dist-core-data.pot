@@ -1,83 +1,83 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: \n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Project-Id-Version: Retraceur 1.0.0-RC1\n"
+"Report-Msgid-Bugs-To: https://github.com/retraceur/coeur/issues\n"
+"Last-Translator: imath <contact@imathi.eu>\n"
+"Language-Team: Retraceur <retraceur@proton.me>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-01-11T21:16:40+00:00\n"
+"POT-Creation-Date: 2025-02-08T13:03:17+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 
-#: wp-includes/js/dist/core-data.js:2782
+#: wp-includes/js/dist/core-data.js:2806
 msgid "Base"
 msgstr ""
 
-#: wp-includes/js/dist/core-data.js:2813
+#: wp-includes/js/dist/core-data.js:2837
 msgid "Post Type"
 msgstr ""
 
-#: wp-includes/js/dist/core-data.js:2850
+#: wp-includes/js/dist/core-data.js:2874
 msgid "Media"
 msgstr ""
 
-#: wp-includes/js/dist/core-data.js:2862
+#: wp-includes/js/dist/core-data.js:2886
 msgid "Taxonomy"
 msgstr ""
 
-#: wp-includes/js/dist/core-data.js:2874
+#: wp-includes/js/dist/core-data.js:2898
 msgid "Widget areas"
 msgstr ""
 
-#: wp-includes/js/dist/core-data.js:2886
+#: wp-includes/js/dist/core-data.js:2910
 msgid "Widgets"
 msgstr ""
 
-#: wp-includes/js/dist/core-data.js:2895
+#: wp-includes/js/dist/core-data.js:2919
 msgid "Widget types"
 msgstr ""
 
-#: wp-includes/js/dist/core-data.js:2897
+#: wp-includes/js/dist/core-data.js:2921
 msgid "User"
 msgstr ""
 
-#: wp-includes/js/dist/core-data.js:2913
+#: wp-includes/js/dist/core-data.js:2937
 msgid "Comment"
 msgstr ""
 
-#: wp-includes/js/dist/core-data.js:2922
+#: wp-includes/js/dist/core-data.js:2946
 msgid "Menu Item"
 msgstr ""
 
-#: wp-includes/js/dist/core-data.js:2932
+#: wp-includes/js/dist/core-data.js:2956
 msgid "Menu Location"
 msgstr ""
 
-#: wp-includes/js/dist/core-data.js:2935
+#: wp-includes/js/dist/core-data.js:2959
 msgid "Global Styles"
 msgstr ""
 
-#: wp-includes/js/dist/core-data.js:2948
+#: wp-includes/js/dist/core-data.js:2972
 msgid "Themes"
 msgstr ""
 
-#: wp-includes/js/dist/core-data.js:2958
+#: wp-includes/js/dist/core-data.js:2982
 msgid "Plugins"
 msgstr ""
 
-#: wp-includes/js/dist/core-data.js:2968
+#: wp-includes/js/dist/core-data.js:2992
 msgid "Status"
 msgstr ""
 
-#: wp-includes/js/dist/core-data.js:3142
+#: wp-includes/js/dist/core-data.js:3166
 msgid "Site"
 msgstr ""
 
-#: wp-includes/js/dist/core-data.js:5699
-#: wp-includes/js/dist/core-data.js:5721
-#: wp-includes/js/dist/core-data.js:5743
-#: wp-includes/js/dist/core-data.js:5763
+#: wp-includes/js/dist/core-data.js:5726
+#: wp-includes/js/dist/core-data.js:5748
+#: wp-includes/js/dist/core-data.js:5770
+#: wp-includes/js/dist/core-data.js:5790
 msgid "(no title)"
 msgstr ""

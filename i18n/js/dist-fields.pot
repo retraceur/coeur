@@ -1,13 +1,13 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: \n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Project-Id-Version: Retraceur 1.0.0-RC1\n"
+"Report-Msgid-Bugs-To: https://github.com/retraceur/coeur/issues\n"
+"Last-Translator: imath <contact@imathi.eu>\n"
+"Language-Team: Retraceur <retraceur@proton.me>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-01-11T21:16:10+00:00\n"
+"POT-Creation-Date: 2025-02-08T13:02:48+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 
@@ -71,8 +71,8 @@ msgstr ""
 
 #: wp-includes/js/dist/fields.js:1033
 #: wp-includes/js/dist/fields.js:1139
-#: wp-includes/js/dist/fields.js:1362
-#: wp-includes/js/dist/fields.js:1376
+#: wp-includes/js/dist/fields.js:1363
+#: wp-includes/js/dist/fields.js:1377
 msgctxt "action label"
 msgid "Duplicate"
 msgstr ""
@@ -97,46 +97,46 @@ msgstr ""
 msgid "View revisions (%s)"
 msgstr ""
 
-#: wp-includes/js/dist/fields.js:1237
+#: wp-includes/js/dist/fields.js:1238
 msgid "Permanently delete"
 msgstr ""
 
 #. translators: The posts's title.
-#: wp-includes/js/dist/fields.js:1275
+#: wp-includes/js/dist/fields.js:1276
 msgid "\"%s\" permanently deleted."
 msgstr ""
 
-#: wp-includes/js/dist/fields.js:1277
+#: wp-includes/js/dist/fields.js:1278
 msgid "The items were permanently deleted."
 msgstr ""
 
-#: wp-includes/js/dist/fields.js:1293
+#: wp-includes/js/dist/fields.js:1294
 msgid "An error occurred while permanently deleting the item."
 msgstr ""
 
-#: wp-includes/js/dist/fields.js:1308
+#: wp-includes/js/dist/fields.js:1309
 msgid "An error occurred while permanently deleting the items."
 msgstr ""
 
 #. translators: %s: an error message
-#: wp-includes/js/dist/fields.js:1311
+#: wp-includes/js/dist/fields.js:1312
 msgid "An error occurred while permanently deleting the items: %s"
 msgstr ""
 
 #. translators: %s: a list of comma separated error messages
-#: wp-includes/js/dist/fields.js:1314
+#: wp-includes/js/dist/fields.js:1315
 msgid "Some errors occurred while permanently deleting the items: %s"
 msgstr ""
 
-#: wp-includes/js/dist/fields.js:1364
+#: wp-includes/js/dist/fields.js:1365
 msgctxt "action label"
 msgid "Duplicate pattern"
 msgstr ""
 
-#: wp-includes/js/dist/fields.js:1908
+#: wp-includes/js/dist/fields.js:1932
 msgid "Export as JSON"
 msgstr ""
 
-#: wp-includes/js/dist/fields.js:1926
+#: wp-includes/js/dist/fields.js:1950
 msgid "patterns-export"
 msgstr ""

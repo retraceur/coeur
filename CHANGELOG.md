@@ -6,17 +6,21 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
-## [Unreleased]
+## [1.0.0-RC1] - 2025-02-08
 
 ### Added
 
 - Add a security policy.
 - Create a distinct Administration area to manage blocks and avoid mixing these with Plugins.
+- Make sure Retraceur code is synchronized with WP 6.7.2-RC2-59782.
 
 ### Changed
 
+- Improve point's theme header and footer display on small screens.
+- Update credits to thank me & Retraceur best friends.
 - Replace explanations about contributing to WP with the Retraceur ones.
 - Replace WP release note with Retraceur one.
+- Disable the `wp-admin/update-core.php` screen as well as all Automatic updates.
 
 ### Deprecated
 
