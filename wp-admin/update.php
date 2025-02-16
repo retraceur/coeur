@@ -216,12 +216,26 @@ if ( isset( $_GET['action'] ) ) {
 
 		require_once ABSPATH . 'wp-admin/admin-footer.php';
 
-	} elseif ( 'upload-plugin-cancel-overwrite' === $action ) {
-		if ( ! current_user_can( 'upload_plugins' ) ) {
-			wp_die( __( 'Sorry, you are not allowed to install plugins on this site.' ) );
+	} elseif ( 'upload-plugin-cancel-overwrite' === $action || 'upload-block-cancel-overwrite' === $action ) {
+		$plugin_type = 'regular';
+		$redirect    = self_admin_url( 'plugin-install.php' );
+
+		if ( 'upload-block-cancel-overwrite' === $action ) {
+			$plugin_type = 'block';
+			$redirect    = self_admin_url( 'block-install.php' );
 		}
 
-		check_admin_referer( 'plugin-upload-cancel-overwrite' );
+		if ( ! current_user_can( 'upload_plugins' ) ) {
+			$overwrite_error = __( 'Sorry, you are not allowed to install plugins on this site.' );
+
+			if ( 'block' === $plugin_type ) {
+				$overwrite_error = __( 'Sorry, you are not allowed to install blocks on this site.' );
+			}
+
+			wp_die( $overwrite_error );
+		}
+
+		check_admin_referer( 'package-upload-cancel-overwrite' );
 
 		// Make sure the attachment still exists, or File_Upload_Upgrader will call wp_die()
 		// that shows a generic "Please select a file" error.
@@ -234,7 +248,7 @@ if ( isset( $_GET['action'] ) ) {
 			}
 		}
 
-		wp_redirect( self_admin_url( 'plugin-install.php' ) );
+		wp_redirect( $redirect );
 		exit;
 	} elseif ( 'upgrade-theme' === $action ) {
 
