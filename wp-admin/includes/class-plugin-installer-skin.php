@@ -229,7 +229,15 @@ class Plugin_Installer_Skin extends WP_Upgrader_Skin {
 			return false;
 		}
 
-		echo '<h2 class="update-from-upload-heading">' . esc_html__( 'This plugin is already installed.' ) . '</h2>';
+		$plugin_type    = 'regular';
+		$upload_heading = __( 'This plugin is already installed.' );
+
+		if ( isset( $new_plugin_data['Type'] ) && 'block' === strtolower( $new_plugin_data['Type'] ) ) {
+			$plugin_type    = 'block';
+			$upload_heading = __( 'This block is already installed.' );
+		}
+
+		echo '<h2 class="update-from-upload-heading">' . esc_html( $upload_heading ) . '</h2>';
 
 		$this->is_downgrading = version_compare( $current_plugin_data['Version'], $new_plugin_data['Version'], '>' );
 
@@ -242,8 +250,15 @@ class Plugin_Installer_Skin extends WP_Upgrader_Skin {
 		);
 
 		$table  = '<table class="update-from-upload-comparison"><tbody>';
-		$table .= '<tr><th></th><th>' . esc_html_x( 'Current', 'plugin' ) . '</th>';
-		$table .= '<th>' . esc_html_x( 'Uploaded', 'plugin' ) . '</th></tr>';
+
+		if ( 'block' === $plugin_type ) {
+			$rows['Name'] = __( 'Block name' );
+			$table .= '<tr><th></th><th>' . esc_html_x( 'Current', 'block' ) . '</th>';
+			$table .= '<th>' . esc_html_x( 'Uploaded', 'block' ) . '</th></tr>';
+		} else {
+			$table .= '<tr><th></th><th>' . esc_html_x( 'Current', 'plugin' ) . '</th>';
+			$table .= '<th>' . esc_html_x( 'Uploaded', 'plugin' ) . '</th></tr>';
+		}
 
 		$is_same_plugin = true; // Let's consider only these rows.
 
@@ -278,30 +293,53 @@ class Plugin_Installer_Skin extends WP_Upgrader_Skin {
 		$can_update      = true;
 
 		$blocked_message  = '<p>' . esc_html__( 'The plugin cannot be updated due to the following:' ) . '</p>';
+
+		if ( 'block' === $plugin_type ) {
+			$blocked_message  = '<p>' . esc_html__( 'The block cannot be updated due to the following:' ) . '</p>';
+		}
+
 		$blocked_message .= '<ul class="ul-disc">';
 
 		$requires_php = isset( $new_plugin_data['RequiresPHP'] ) ? $new_plugin_data['RequiresPHP'] : null;
 		$requires_wp  = isset( $new_plugin_data['RequiresR'] ) ? $new_plugin_data['RequiresR'] : null;
 
 		if ( ! is_php_version_compatible( $requires_php ) ) {
-			$error = sprintf(
-				/* translators: 1: Current PHP version, 2: Version required by the uploaded plugin. */
-				__( 'The PHP version on your server is %1$s, however the uploaded plugin requires %2$s.' ),
-				PHP_VERSION,
-				$requires_php
-			);
+			if ( 'block' === $plugin_type ) {
+				$error = sprintf(
+					/* translators: 1: Current PHP version, 2: Version required by the uploaded block */
+					__( 'The PHP version on your server is %1$s, however the uploaded block requires %2$s.' ),
+					PHP_VERSION,
+					$requires_php
+				);
+			} else {
+				$error = sprintf(
+					/* translators: 1: Current PHP version, 2: Version required by the uploaded plugin. */
+					__( 'The PHP version on your server is %1$s, however the uploaded plugin requires %2$s.' ),
+					PHP_VERSION,
+					$requires_php
+				);
+			}
 
 			$blocked_message .= '<li>' . esc_html( $error ) . '</li>';
 			$can_update       = false;
 		}
 
 		if ( ! is_wp_version_compatible( $requires_wp ) ) {
-			$error = sprintf(
-				/* translators: 1: Current Retraceur version, 2: Version required by the uploaded plugin. */
-				__( 'Your Retraceur version is %1$s, however the uploaded plugin requires %2$s.' ),
-				esc_html( retraceur_get_version() ),
-				$requires_wp
-			);
+			if ( 'block' === $plugin_type ) {
+				$error = sprintf(
+					/* translators: 1: Current Retraceur version, 2: Version required by the uploaded block. */
+					__( 'Your Retraceur version is %1$s, however the uploaded block requires %2$s.' ),
+					esc_html( retraceur_get_version() ),
+					$requires_wp
+				);
+			} else {
+				$error = sprintf(
+					/* translators: 1: Current Retraceur version, 2: Version required by the uploaded plugin. */
+					__( 'Your Retraceur version is %1$s, however the uploaded plugin requires %2$s.' ),
+					esc_html( retraceur_get_version() ),
+					$requires_wp
+				);
+			}
 
 			$blocked_message .= '<li>' . esc_html( $error ) . '</li>';
 			$can_update       = false;
@@ -311,29 +349,46 @@ class Plugin_Installer_Skin extends WP_Upgrader_Skin {
 
 		if ( $can_update ) {
 			if ( $this->is_downgrading ) {
-				$warning = __( 'You are uploading an older version of a current plugin. You can continue to install the older version, but be sure to back up your database and files first.' );
+				if ( 'block' === $plugin_type ) {
+					$warning = __( 'You are uploading an older version of a current block. You can continue to install the older version, but be sure to back up your database and files first.' );
+				} else {
+					$warning = __( 'You are uploading an older version of a current plugin. You can continue to install the older version, but be sure to back up your database and files first.' );
+				}
 			} else {
-				$warning = __( 'You are updating a plugin. Be sure to back up your database and files first.' );
+				if ( 'block' === $plugin_type ) {
+					$warning = __( 'You are updating a block. Be sure to back up your database and files first.' );
+				} else {
+					$warning = __( 'You are updating a plugin. Be sure to back up your database and files first.' );
+				}
 			}
 
 			echo '<p class="update-from-upload-notice">' . $warning . '</p>';
 
-			$overwrite = $this->is_downgrading ? 'downgrade-plugin' : 'update-plugin';
+			$overwrite   = $this->is_downgrading ? 'downgrade-plugin' : 'update-plugin';
+			$action_text = _x( 'Replace current with uploaded', 'plugin' );
+
+			if ( 'block' === $plugin_type ) {
+				$action_text = _x( 'Replace current with uploaded', 'block' );
+			}
 
 			$install_actions['overwrite_plugin'] = sprintf(
 				'<a class="button button-primary update-from-upload-overwrite" href="%s" target="_parent">%s</a>',
 				wp_nonce_url( add_query_arg( 'overwrite', $overwrite, $this->url ), 'plugin-upload' ),
-				_x( 'Replace current with uploaded', 'plugin' )
+				$action_text
 			);
 		} else {
 			echo $blocked_message;
 		}
 
-		$cancel_url = add_query_arg( 'action', 'upload-plugin-cancel-overwrite', $this->url );
+		if ( 'block' === $plugin_type ) {
+			$cancel_url = add_query_arg( 'action', 'upload-block-cancel-overwrite', $this->url );
+		} else {
+			$cancel_url = add_query_arg( 'action', 'upload-plugin-cancel-overwrite', $this->url );
+		}
 
 		$install_actions['plugins_page'] = sprintf(
 			'<a class="button" href="%s">%s</a>',
-			wp_nonce_url( $cancel_url, 'plugin-upload-cancel-overwrite' ),
+			wp_nonce_url( $cancel_url, 'package-upload-cancel-overwrite' ),
 			__( 'Cancel and go back' )
 		);
 
