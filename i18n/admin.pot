@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-02-08T12:54:31+00:00\n"
+"POT-Creation-Date: 2025-02-18T18:19:44+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 
@@ -1765,9 +1765,9 @@ msgstr ""
 
 #: wp-admin/includes/ajax-actions.php:3051
 #: wp-admin/theme-install.php:18
-#: wp-admin/update.php:293
-#: wp-admin/update.php:335
-#: wp-admin/update.php:373
+#: wp-admin/update.php:307
+#: wp-admin/update.php:349
+#: wp-admin/update.php:387
 msgid "Sorry, you are not allowed to install themes on this site."
 msgstr ""
 
@@ -1782,8 +1782,8 @@ msgid "Unable to connect to the filesystem. Please confirm your credentials."
 msgstr ""
 
 #: wp-admin/includes/ajax-actions.php:3169
-#: wp-admin/update.php:242
-#: wp-admin/update.php:265
+#: wp-admin/update.php:256
+#: wp-admin/update.php:279
 msgid "Sorry, you are not allowed to update themes for this site."
 msgstr ""
 
@@ -1816,7 +1816,7 @@ msgstr ""
 
 #: wp-admin/includes/ajax-actions.php:3335
 #: wp-admin/update.php:109
-#: wp-admin/update.php:221
+#: wp-admin/update.php:229
 msgid "Sorry, you are not allowed to install plugins on this site."
 msgstr ""
 
@@ -2837,15 +2837,19 @@ msgstr ""
 msgid "Go to Block Installer"
 msgstr ""
 
-#: wp-admin/includes/class-plugin-installer-skin.php:232
+#: wp-admin/includes/class-plugin-installer-skin.php:233
 msgid "This plugin is already installed."
 msgstr ""
 
 #: wp-admin/includes/class-plugin-installer-skin.php:237
+msgid "This block is already installed."
+msgstr ""
+
+#: wp-admin/includes/class-plugin-installer-skin.php:245
 msgid "Plugin name"
 msgstr ""
 
-#: wp-admin/includes/class-plugin-installer-skin.php:238
+#: wp-admin/includes/class-plugin-installer-skin.php:246
 #: wp-admin/includes/class-theme-installer-skin.php:229
 #: wp-admin/includes/class-wp-debug-data.php:173
 #: wp-admin/includes/class-wp-debug-data.php:1052
@@ -2854,7 +2858,7 @@ msgid "Version"
 msgstr ""
 
 #. translators: Hidden accessibility text.
-#: wp-admin/includes/class-plugin-installer-skin.php:239
+#: wp-admin/includes/class-plugin-installer-skin.php:247
 #: wp-admin/includes/class-theme-installer-skin.php:230
 #: wp-admin/includes/class-wp-debug-data.php:1057
 #: wp-admin/includes/class-wp-debug-data.php:1177
@@ -2869,61 +2873,102 @@ msgstr ""
 msgid "Author"
 msgstr ""
 
-#: wp-admin/includes/class-plugin-installer-skin.php:240
+#: wp-admin/includes/class-plugin-installer-skin.php:248
 #: wp-admin/includes/class-theme-installer-skin.php:231
 msgid "Required Retraceur version"
 msgstr ""
 
-#: wp-admin/includes/class-plugin-installer-skin.php:241
+#: wp-admin/includes/class-plugin-installer-skin.php:249
 #: wp-admin/includes/class-theme-installer-skin.php:232
 msgid "Required PHP version"
 msgstr ""
 
-#: wp-admin/includes/class-plugin-installer-skin.php:245
+#: wp-admin/includes/class-plugin-installer-skin.php:255
+msgid "Block name"
+msgstr ""
+
+#: wp-admin/includes/class-plugin-installer-skin.php:256
+msgctxt "block"
+msgid "Current"
+msgstr ""
+
+#: wp-admin/includes/class-plugin-installer-skin.php:257
+msgctxt "block"
+msgid "Uploaded"
+msgstr ""
+
+#: wp-admin/includes/class-plugin-installer-skin.php:259
 msgctxt "plugin"
 msgid "Current"
 msgstr ""
 
-#: wp-admin/includes/class-plugin-installer-skin.php:246
+#: wp-admin/includes/class-plugin-installer-skin.php:260
 msgctxt "plugin"
 msgid "Uploaded"
 msgstr ""
 
-#: wp-admin/includes/class-plugin-installer-skin.php:280
+#: wp-admin/includes/class-plugin-installer-skin.php:295
 msgid "The plugin cannot be updated due to the following:"
 msgstr ""
 
+#: wp-admin/includes/class-plugin-installer-skin.php:298
+msgid "The block cannot be updated due to the following:"
+msgstr ""
+
+#. translators: 1: Current PHP version, 2: Version required by the uploaded block
+#: wp-admin/includes/class-plugin-installer-skin.php:310
+msgid "The PHP version on your server is %1$s, however the uploaded block requires %2$s."
+msgstr ""
+
 #. translators: 1: Current PHP version, 2: Version required by the uploaded plugin.
-#: wp-admin/includes/class-plugin-installer-skin.php:289
+#: wp-admin/includes/class-plugin-installer-skin.php:317
 #: wp-admin/includes/class-plugin-upgrader.php:501
 msgid "The PHP version on your server is %1$s, however the uploaded plugin requires %2$s."
 msgstr ""
 
+#. translators: 1: Current Retraceur version, 2: Version required by the uploaded block.
+#: wp-admin/includes/class-plugin-installer-skin.php:331
+msgid "Your Retraceur version is %1$s, however the uploaded block requires %2$s."
+msgstr ""
+
 #. translators: 1: Current Retraceur version, 2: Version required by the uploaded plugin.
-#: wp-admin/includes/class-plugin-installer-skin.php:301
+#: wp-admin/includes/class-plugin-installer-skin.php:338
 #: wp-admin/includes/class-plugin-upgrader.php:512
 msgid "Your Retraceur version is %1$s, however the uploaded plugin requires %2$s."
 msgstr ""
 
-#: wp-admin/includes/class-plugin-installer-skin.php:314
+#: wp-admin/includes/class-plugin-installer-skin.php:353
+msgid "You are uploading an older version of a current block. You can continue to install the older version, but be sure to back up your database and files first."
+msgstr ""
+
+#: wp-admin/includes/class-plugin-installer-skin.php:355
 msgid "You are uploading an older version of a current plugin. You can continue to install the older version, but be sure to back up your database and files first."
 msgstr ""
 
-#: wp-admin/includes/class-plugin-installer-skin.php:316
+#: wp-admin/includes/class-plugin-installer-skin.php:359
+msgid "You are updating a block. Be sure to back up your database and files first."
+msgstr ""
+
+#: wp-admin/includes/class-plugin-installer-skin.php:361
 msgid "You are updating a plugin. Be sure to back up your database and files first."
 msgstr ""
 
-#: wp-admin/includes/class-plugin-installer-skin.php:326
+#: wp-admin/includes/class-plugin-installer-skin.php:368
 msgctxt "plugin"
 msgid "Replace current with uploaded"
 msgstr ""
 
-#: wp-admin/includes/class-plugin-installer-skin.php:337
+#: wp-admin/includes/class-plugin-installer-skin.php:371
+msgctxt "block"
+msgid "Replace current with uploaded"
+msgstr ""
+
+#: wp-admin/includes/class-plugin-installer-skin.php:392
 #: wp-admin/includes/class-theme-installer-skin.php:340
 msgid "Cancel and go back"
 msgstr ""
 
-#: wp-admin/includes/class-plugin-installer-skin.php:355
+#: wp-admin/includes/class-plugin-installer-skin.php:410
 #: wp-admin/includes/class-theme-installer-skin.php:358
 msgid "The uploaded file has expired. Please go back and upload it again."
 msgstr ""
@@ -3103,7 +3148,7 @@ msgid "Replace active with uploaded"
 msgstr ""
 
 #: wp-admin/includes/class-theme-upgrader-skin.php:46
-#: wp-admin/update.php:250
+#: wp-admin/update.php:264
 msgid "Update Theme"
 msgstr ""
 
@@ -13617,7 +13662,7 @@ msgstr ""
 #: wp-admin/theme-install.php:61
 #: wp-admin/theme-install.php:151
 #: wp-admin/theme-install.php:153
-#: wp-admin/update.php:347
+#: wp-admin/update.php:361
 msgid "Upload Theme"
 msgstr ""
 
@@ -14240,7 +14285,7 @@ msgid "plugins"
 msgstr ""
 
 #: wp-admin/update.php:166
-#: wp-admin/update.php:341
+#: wp-admin/update.php:355
 msgid "Only .zip archives may be uploaded."
 msgstr ""
 
@@ -14254,17 +14299,21 @@ msgstr ""
 msgid "Installing plugin from uploaded file: %s"
 msgstr ""
 
-#: wp-admin/update.php:315
+#: wp-admin/update.php:232
+msgid "Sorry, you are not allowed to install blocks on this site."
+msgstr ""
+
+#: wp-admin/update.php:329
 msgid "Install Themes"
 msgstr ""
 
 #. translators: %s: Theme name and version.
-#: wp-admin/update.php:322
+#: wp-admin/update.php:336
 msgid "Installing Theme: %s"
 msgstr ""
 
 #. translators: %s: File name.
-#: wp-admin/update.php:354
+#: wp-admin/update.php:368
 msgid "Installing theme from uploaded file: %s"
 msgstr ""
 
