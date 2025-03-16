@@ -6,6 +6,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+## [1.0.0-RC2] - 2025-03-16
+
+### Added
+
+- Make sure Retraceur code is synchronized with WP 6.7.3-alpha-59977.
+
+### Changed
+
+- Make admin messages consistent when upgrading/downgrading a block.
+- Update @wordpress/scripts to version 30.12.0.
+
+
 ## [1.0.0-RC1] - 2025-02-08
 
 ### Added
