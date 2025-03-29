@@ -331,12 +331,12 @@ class WP_REST_Site_Health_Controller extends WP_REST_Controller {
 				),
 				'description' => array(
 					'type'        => 'string',
-					'description' => __( 'A more descriptive explanation of what the test looks for, and why it is important for the user.' ),
+					'description' => __( 'A more descriptive explanation of what the test looks for, and why it is important for the contributor.' ),
 					'readonly'    => true,
 				),
 				'actions'     => array(
 					'type'        => 'string',
-					'description' => __( 'HTML containing an action to direct the user to where they can resolve the issue.' ),
+					'description' => __( 'HTML containing an action to direct the contributor to where they can resolve the issue.' ),
 					'readonly'    => true,
 				),
 			),

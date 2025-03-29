@@ -179,7 +179,7 @@ class WP_Debug_Data {
 				'value' => get_locale(),
 			),
 			'user_language'          => array(
-				'label' => __( 'User Language' ),
+				'label' => __( 'Contributor Language' ),
 				'value' => get_user_locale(),
 			),
 			'timezone'               => array(
@@ -264,7 +264,7 @@ class WP_Debug_Data {
 		}
 
 		$fields['user_count'] = array(
-			'label' => __( 'User count' ),
+			'label' => __( 'Contributor count' ),
 			'value' => get_user_count(),
 		);
 

@@ -36,10 +36,10 @@ get_current_screen()->add_help_tab(
 		'id'      => 'default-data',
 		'title'   => __( 'Default Data' ),
 		'content' =>
-					'<p>' . __( 'Retraceur collects (but <em>never</em> publishes) a limited amount of data from logged-in users but then deletes it or anonymizes it. That data can include:' ) . '</p>' .
-					'<p>' . __( '<strong>Profile Information</strong> &mdash; user email address, username, display name, nickname, first name, last name, description/bio, and registration date.' ) . '</p>' .
-					'<p>' . __( '<strong>Session Tokens</strong> &mdash; User login information, IP Addresses, Expiration Date, User Agent (Browser/OS), and Last Login.' ) . '</p>' .
-					'<p>' . __( '<strong>Media</strong> &mdash; A list of URLs for all media file uploads made by the user.' ) . '</p>',
+					'<p>' . __( 'Retraceur collects (but <em>never</em> publishes) a limited amount of data from logged-in contributors but then deletes it or anonymizes it. That data can include:' ) . '</p>' .
+					'<p>' . __( '<strong>Profile Information</strong> &mdash; contributor email address, username, display name, nickname, first name, last name, description/bio, and registration date.' ) . '</p>' .
+					'<p>' . __( '<strong>Session Tokens</strong> &mdash; Contributor login information, IP Addresses, Expiration Date, User Agent (Browser/OS), and Last Login.' ) . '</p>' .
+					'<p>' . __( '<strong>Media</strong> &mdash; A list of URLs for all media file uploads made by the contributor.' ) . '</p>',
 	)
 );
 
@@ -96,7 +96,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 
 <div class="wrap nosubsub">
 	<h1><?php esc_html_e( 'Erase Personal Data' ); ?></h1>
-	<p><?php _e( 'This tool helps site owners comply with local laws and regulations by deleting or anonymizing known data for a given user.' ); ?></p>
+	<p><?php _e( 'This tool helps site owners comply with local laws and regulations by deleting or anonymizing known data for a given contributor.' ); ?></p>
 	<hr class="wp-header-end" />
 
 	<?php settings_errors(); ?>

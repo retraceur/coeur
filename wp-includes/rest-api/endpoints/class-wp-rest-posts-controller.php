@@ -664,7 +664,7 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 		if ( ! empty( $request['author'] ) && get_current_user_id() !== $request['author'] && ! current_user_can( $post_type->cap->edit_others_posts ) ) {
 			return new WP_Error(
 				'rest_cannot_edit_others',
-				__( 'Sorry, you are not allowed to create posts as this user.' ),
+				__( 'Sorry, you are not allowed to create posts as this contributor.' ),
 				array( 'status' => rest_authorization_required_code() )
 			);
 		}
@@ -680,7 +680,7 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 		if ( ! current_user_can( $post_type->cap->create_posts ) ) {
 			return new WP_Error(
 				'rest_cannot_create',
-				__( 'Sorry, you are not allowed to create posts as this user.' ),
+				__( 'Sorry, you are not allowed to create posts as this contributor.' ),
 				array( 'status' => rest_authorization_required_code() )
 			);
 		}
@@ -875,7 +875,7 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 		if ( ! empty( $request['author'] ) && get_current_user_id() !== $request['author'] && ! current_user_can( $post_type->cap->edit_others_posts ) ) {
 			return new WP_Error(
 				'rest_cannot_edit_others',
-				__( 'Sorry, you are not allowed to update posts as this user.' ),
+				__( 'Sorry, you are not allowed to update posts as this contributor.' ),
 				array( 'status' => rest_authorization_required_code() )
 			);
 		}
@@ -2707,7 +2707,7 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 		if ( 'attachment' !== $this->post_type ) {
 			$links[] = array(
 				'rel'          => 'https://retraceur.github.io/api/action-publish',
-				'title'        => __( 'The current user can publish this post.' ),
+				'title'        => __( 'The current contributor can publish this post.' ),
 				'href'         => $href,
 				'targetSchema' => array(
 					'type'       => 'object',
@@ -2723,7 +2723,7 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 
 		$links[] = array(
 			'rel'          => 'https://retraceur.github.io/api/action-unfiltered-html',
-			'title'        => __( 'The current user can post unfiltered HTML markup and JavaScript.' ),
+			'title'        => __( 'The current contributor can post unfiltered HTML markup and JavaScript.' ),
 			'href'         => $href,
 			'targetSchema' => array(
 				'type'       => 'object',
@@ -2740,7 +2740,7 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 		if ( 'post' === $this->post_type ) {
 			$links[] = array(
 				'rel'          => 'https://retraceur.github.io/api/action-sticky',
-				'title'        => __( 'The current user can sticky this post.' ),
+				'title'        => __( 'The current contributor can sticky this post.' ),
 				'href'         => $href,
 				'targetSchema' => array(
 					'type'       => 'object',
@@ -2756,7 +2756,7 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 		if ( post_type_supports( $this->post_type, 'author' ) ) {
 			$links[] = array(
 				'rel'          => 'https://retraceur.github.io/api/action-assign-author',
-				'title'        => __( 'The current user can change the author on this post.' ),
+				'title'        => __( 'The current contributor can change the author on this post.' ),
 				'href'         => $href,
 				'targetSchema' => array(
 					'type'       => 'object',
@@ -2775,9 +2775,9 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 			$tax_base = ! empty( $tax->rest_base ) ? $tax->rest_base : $tax->name;
 
 			/* translators: %s: Taxonomy name. */
-			$assign_title = sprintf( __( 'The current user can assign terms in the %s taxonomy.' ), $tax->name );
+			$assign_title = sprintf( __( 'The current contributor can assign terms in the %s taxonomy.' ), $tax->name );
 			/* translators: %s: Taxonomy name. */
-			$create_title = sprintf( __( 'The current user can create terms in the %s taxonomy.' ), $tax->name );
+			$create_title = sprintf( __( 'The current contributor can create terms in the %s taxonomy.' ), $tax->name );
 
 			$links[] = array(
 				'rel'          => 'https://retraceur.github.io/api/action-assign-' . $tax_base,

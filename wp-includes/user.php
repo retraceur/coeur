@@ -2125,7 +2125,7 @@ function wp_insert_user( $userdata ) {
 		$old_user_data = get_userdata( $user_id );
 
 		if ( ! $old_user_data ) {
-			return new WP_Error( 'invalid_user_id', __( 'Invalid user ID.' ) );
+			return new WP_Error( 'invalid_user_id', __( 'Invalid contributor ID.' ) );
 		}
 
 		// Slash current user email to compare it later with slashed new user email.
@@ -2157,7 +2157,7 @@ function wp_insert_user( $userdata ) {
 
 	// user_login must be between 0 and 60 characters.
 	if ( empty( $user_login ) ) {
-		return new WP_Error( 'empty_user_login', __( 'Cannot create a user with an empty login name.' ) );
+		return new WP_Error( 'empty_user_login', __( 'Cannot create a contributor with an empty login name.' ) );
 	} elseif ( mb_strlen( $user_login ) > 60 ) {
 		return new WP_Error( 'user_login_too_long', __( 'Username may not be longer than 60 characters.' ) );
 	}
@@ -2253,7 +2253,7 @@ function wp_insert_user( $userdata ) {
 	$user_url = apply_filters( 'pre_user_url', $raw_user_url );
 
 	if ( mb_strlen( $user_url ) > 100 ) {
-		return new WP_Error( 'user_url_too_long', __( 'User URL may not be longer than 100 characters.' ) );
+		return new WP_Error( 'user_url_too_long', __( 'Contributor URL may not be longer than 100 characters.' ) );
 	}
 
 	$user_registered = empty( $userdata['user_registered'] ) ? gmdate( 'Y-m-d H:i:s' ) : $userdata['user_registered'];
@@ -2261,7 +2261,7 @@ function wp_insert_user( $userdata ) {
 	$user_activation_key = empty( $userdata['user_activation_key'] ) ? '' : $userdata['user_activation_key'];
 
 	if ( ! empty( $userdata['spam'] ) && ! is_multisite() ) {
-		return new WP_Error( 'no_spam', __( 'Sorry, marking a user as spam is only supported on Multisite.' ) );
+		return new WP_Error( 'no_spam', __( 'Sorry, marking a contributor as spam is only supported on Multisite.' ) );
 	}
 
 	$spam = empty( $userdata['spam'] ) ? 0 : (bool) $userdata['spam'];
@@ -2567,13 +2567,13 @@ function wp_update_user( $userdata ) {
 
 	$user_id = isset( $userdata['ID'] ) ? (int) $userdata['ID'] : 0;
 	if ( ! $user_id ) {
-		return new WP_Error( 'invalid_user_id', __( 'Invalid user ID.' ) );
+		return new WP_Error( 'invalid_user_id', __( 'Invalid contributor ID.' ) );
 	}
 
 	// First, get all of the original fields.
 	$user_obj = get_userdata( $user_id );
 	if ( ! $user_obj ) {
-		return new WP_Error( 'invalid_user_id', __( 'Invalid user ID.' ) );
+		return new WP_Error( 'invalid_user_id', __( 'Invalid contributor ID.' ) );
 	}
 
 	$user = $user_obj->to_array();
@@ -2947,7 +2947,7 @@ function get_password_reset_key( $user ) {
 
 	$password_reset_allowed = wp_is_password_reset_allowed_for_user( $user );
 	if ( ! $password_reset_allowed ) {
-		return new WP_Error( 'no_password_reset', __( 'Password reset is not allowed for this user' ) );
+		return new WP_Error( 'no_password_reset', __( 'Password reset is not allowed for this contributor' ) );
 	} elseif ( is_wp_error( $password_reset_allowed ) ) {
 		return $password_reset_allowed;
 	}
@@ -3788,7 +3788,7 @@ function retraceur_activate_signup( $key ) {
 	}
 
 	if ( ! $user_id ) {
-		return new WP_Error( 'create_user', __( 'Could not create user' ), $signup );
+		return new WP_Error( 'create_user', __( 'Could not create contributor' ), $signup );
 	}
 
 	/**
@@ -3942,7 +3942,7 @@ function retraceur_send_activation_notification( $user_login, $user_email, $key,
 		apply_filters(
 			'retraceur_activation_notification_subject',
 			/* translators: New user notification email subject. 1: Network title, 2: New user login. */
-			_x( '[%1$s] Activate %2$s', 'New user notification email subject' ),
+			_x( '[%1$s] Activate %2$s', 'New contributor notification email subject' ),
 			$user_login,
 			$user_email,
 			$key,
@@ -4289,7 +4289,7 @@ function _wp_privacy_action_request_types() {
  */
 function wp_register_user_personal_data_exporter( $exporters ) {
 	$exporters['retraceur-user'] = array(
-		'exporter_friendly_name' => __( 'Retraceur User' ),
+		'exporter_friendly_name' => __( 'Retraceur Contributor' ),
 		'callback'               => 'wp_user_personal_data_exporter',
 	);
 
@@ -4328,17 +4328,17 @@ function wp_user_personal_data_exporter( $email_address ) {
 	$user_meta = get_user_meta( $user->ID );
 
 	$user_props_to_export = array(
-		'ID'              => __( 'User ID' ),
-		'user_login'      => __( 'User Login Name' ),
-		'user_nicename'   => __( 'User Nice Name' ),
-		'user_email'      => __( 'User Email' ),
-		'user_url'        => __( 'User URL' ),
-		'user_registered' => __( 'User Registration Date' ),
-		'display_name'    => __( 'User Display Name' ),
-		'nickname'        => __( 'User Nickname' ),
-		'first_name'      => __( 'User First Name' ),
-		'last_name'       => __( 'User Last Name' ),
-		'description'     => __( 'User Description' ),
+		'ID'              => __( 'Contributor ID' ),
+		'user_login'      => __( 'Contributor Login Name' ),
+		'user_nicename'   => __( 'Contributor Nice Name' ),
+		'user_email'      => __( 'Contributor Email' ),
+		'user_url'        => __( 'Contributor URL' ),
+		'user_registered' => __( 'Contributor Registration Date' ),
+		'display_name'    => __( 'Contributor Display Name' ),
+		'nickname'        => __( 'Contributor Nickname' ),
+		'first_name'      => __( 'Contributor First Name' ),
+		'last_name'       => __( 'Contributor Last Name' ),
+		'description'     => __( 'Contributor Description' ),
 	);
 
 	$user_data_to_export = array();
@@ -4420,8 +4420,8 @@ function wp_user_personal_data_exporter( $email_address ) {
 
 	$data_to_export[] = array(
 		'group_id'          => 'user',
-		'group_label'       => __( 'User' ),
-		'group_description' => __( 'User&#8217;s profile data.' ),
+		'group_label'       => __( 'Contributor' ),
+		'group_description' => __( 'Contributor&#8217;s profile data.' ),
 		'item_id'           => "user-{$user->ID}",
 		'data'              => $user_data_to_export,
 	);
@@ -4478,7 +4478,7 @@ function wp_user_personal_data_exporter( $email_address ) {
 			$data_to_export[] = array(
 				'group_id'          => 'session-tokens',
 				'group_label'       => __( 'Session Tokens' ),
-				'group_description' => __( 'User&#8217;s Session Tokens data.' ),
+				'group_description' => __( 'Contributor&#8217;s Session Tokens data.' ),
 				'item_id'           => "session-tokens-{$user->ID}-{$token_key}",
 				'data'              => $session_tokens_data_to_export,
 			);

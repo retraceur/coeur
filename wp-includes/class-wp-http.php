@@ -296,7 +296,7 @@ class WP_Http {
 		}
 
 		if ( $this->block_request( $url ) ) {
-			$response = new WP_Error( 'http_request_not_executed', __( 'User has blocked requests through HTTP.' ) );
+			$response = new WP_Error( 'http_request_not_executed', __( 'Contributor has blocked requests through HTTP.' ) );
 			/** This action is documented in wp-includes/class-wp-http.php */
 			do_action( 'http_api_debug', $response, 'response', 'WpOrg\Requests\Requests', $parsed_args, $url );
 			return $response;

@@ -157,7 +157,7 @@ class WP_Users_List_Table extends WP_List_Table {
 	 * @since WP 3.1.0
 	 */
 	public function no_items() {
-		_e( 'No users found.' );
+		_e( 'No contributors found.' );
 	}
 
 	/**

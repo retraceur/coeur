@@ -337,7 +337,7 @@ function wp_admin_bar_site_menu( $wp_admin_bar ) {
 		$blogname = sprintf( __( 'Network Admin: %s' ), esc_html( get_network()->site_name ) );
 	} elseif ( is_user_admin() ) {
 		/* translators: %s: Site title. */
-		$blogname = sprintf( __( 'User Dashboard: %s' ), esc_html( get_network()->site_name ) );
+		$blogname = sprintf( __( 'Contributor Dashboard: %s' ), esc_html( get_network()->site_name ) );
 	}
 
 	$title = wp_html_excerpt( $blogname, 40, '&hellip;' );
@@ -518,7 +518,7 @@ function wp_admin_bar_my_sites_menu( $wp_admin_bar ) {
 				array(
 					'parent' => 'network-admin',
 					'id'     => 'network-admin-u',
-					'title'  => __( 'Users' ),
+					'title'  => __( 'Contributors' ),
 					'href'   => network_admin_url( 'users.php' ),
 				)
 			);
@@ -767,7 +767,7 @@ function wp_admin_bar_edit_menu( $wp_admin_bar ) {
 				$wp_admin_bar->add_node(
 					array(
 						'id'    => 'view',
-						'title' => __( 'View User' ),
+						'title' => __( 'View Contributor' ),
 						'href'  => $view_link,
 					)
 				);
@@ -813,7 +813,7 @@ function wp_admin_bar_edit_menu( $wp_admin_bar ) {
 				$wp_admin_bar->add_node(
 					array(
 						'id'    => 'edit',
-						'title' => __( 'Edit User' ),
+						'title' => __( 'Edit Contributor' ),
 						'href'  => $edit_user_link,
 					)
 				);
@@ -864,7 +864,7 @@ function wp_admin_bar_new_content_menu( $wp_admin_bar ) {
 	}
 
 	if ( current_user_can( 'create_users' ) || ( is_multisite() && current_user_can( 'promote_users' ) ) ) {
-		$actions['user-new.php'] = array( _x( 'User', 'add new from admin bar' ), 'new-user' );
+		$actions['user-new.php'] = array( _x( 'Contributor', 'add new from admin bar' ), 'new-user' );
 	}
 
 	if ( ! $actions ) {

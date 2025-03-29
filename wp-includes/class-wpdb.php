@@ -1212,7 +1212,7 @@ class wpdb {
 
 				$message .= '<li>' . sprintf(
 					/* translators: 1: Database user, 2: Database name. */
-					__( 'Does the user %1$s have permission to use the %2$s database?' ),
+					__( 'Does the contributor %1$s have permission to use the %2$s database?' ),
 					'<code>' . htmlspecialchars( $this->dbuser, ENT_QUOTES ) . '</code>',
 					'<code>' . htmlspecialchars( $db, ENT_QUOTES ) . '</code>'
 				) . "</li>\n";

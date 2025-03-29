@@ -425,14 +425,14 @@ function wp_network_dashboard_right_now() {
 		$actions['create-site'] = '<a href="' . network_admin_url( 'site-new.php' ) . '">' . __( 'Create a New Site' ) . '</a>';
 	}
 	if ( current_user_can( 'create_users' ) ) {
-		$actions['create-user'] = '<a href="' . network_admin_url( 'user-new.php' ) . '">' . __( 'Create a New User' ) . '</a>';
+		$actions['create-user'] = '<a href="' . network_admin_url( 'user-new.php' ) . '">' . __( 'Create a New Contributor' ) . '</a>';
 	}
 
 	$c_users = get_user_count();
 	$c_blogs = get_blog_count();
 
 	/* translators: %s: Number of users on the network. */
-	$user_text = sprintf( _n( '%s user', '%s users', $c_users ), number_format_i18n( $c_users ) );
+	$user_text = sprintf( _n( '%s contributor', '%s contributors', $c_users ), number_format_i18n( $c_users ) );
 	/* translators: %s: Number of sites on the network. */
 	$blog_text = sprintf( _n( '%s site', '%s sites', $c_blogs ), number_format_i18n( $c_blogs ) );
 
@@ -468,11 +468,11 @@ function wp_network_dashboard_right_now() {
 			<label class="screen-reader-text" for="search-users">
 				<?php
 				/* translators: Hidden accessibility text. */
-				_e( 'Search Users' );
+				_e( 'Search Contributors' );
 				?>
 			</label>
 			<input type="search" name="s" value="" size="30" autocomplete="off" id="search-users" />
-			<?php submit_button( __( 'Search Users' ), '', false, false, array( 'id' => 'submit_users' ) ); ?>
+			<?php submit_button( __( 'Search Contributors' ), '', false, false, array( 'id' => 'submit_users' ) ); ?>
 		</p>
 	</form>
 

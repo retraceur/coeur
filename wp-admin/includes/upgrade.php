@@ -114,7 +114,7 @@ if ( ! function_exists( 'wp_install' ) ) :
 			$user_id      = wp_create_user( $user_name, $user_password, $user_email );
 			$user_created = true;
 		} else {
-			$message = __( 'User already exists. Password inherited.' );
+			$message = __( 'Contributor already exists. Password inherited.' );
 		}
 
 		$user = new WP_User( $user_id );

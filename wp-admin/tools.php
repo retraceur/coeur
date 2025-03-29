@@ -62,7 +62,7 @@ $tool_infos = array(
 	'export.php'               => array(
 		'title' => __( 'Export' ),
 		'desc'  => array(
-			__( 'Exporting your site’s data (posts, pages, custom post types, comments, custom fields, categories, tags, custom taxonomies, and users) is sometimes necessary and useful.' ),
+			__( 'Exporting your site’s data (posts, pages, custom post types, comments, custom fields, categories, tags, custom taxonomies, and contributor accounts) is sometimes necessary and useful.' ),
 			__( 'If you are moving to a new host or just want a backup of your site data, then Exporting your site is the answer.' ),
 		),
 	),
@@ -70,7 +70,7 @@ $tool_infos = array(
 		'title' => __( 'Export Personal Data' ),
 		'desc'  => array(
 			__( 'One of your member asked about getting the personnal data they left on your site?' ),
-			__( 'The Export Personal Data tool can generate a (.zip format) file containing the personal data which exists about a user within your site.' ),
+			__( 'The Export Personal Data tool can generate a (.zip format) file containing the personal data which exists about a contributor within your site.' ),
 		),
 	),
 	'erase-personal-data.php'  => array(

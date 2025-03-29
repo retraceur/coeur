@@ -120,7 +120,7 @@ function display_setup_form( $error = null ) {
 			<td>
 			<?php
 			if ( $user_table ) {
-				_e( 'User(s) already exists.' );
+				_e( 'Contributor(s) already exists.' );
 				echo '<input name="user_name" type="hidden" value="admin" />';
 			} else {
 				?>
