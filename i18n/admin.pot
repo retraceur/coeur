@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-02-18T18:19:44+00:00\n"
+"POT-Creation-Date: 2025-03-29T13:07:11+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 
@@ -154,7 +154,7 @@ msgid "dedicated Administration screen"
 msgstr ""
 
 #: wp-admin/about.php:131
-msgid "Registration workflow now only creates users once they activated their account."
+msgid "Registration workflow now only creates contributors once they activated their account."
 msgstr ""
 
 #: wp-admin/about.php:134
@@ -259,7 +259,7 @@ msgstr ""
 
 #. translators: User dashboard screen title. %s: Network title.
 #: wp-admin/admin-header.php:45
-msgid "User Dashboard: %s"
+msgid "Contributor Dashboard: %s"
 msgstr ""
 
 #. translators: Admin screen title. %s: Admin screen name.
@@ -1274,21 +1274,21 @@ msgid "Default Data"
 msgstr ""
 
 #: wp-admin/erase-personal-data.php:39
-msgid "Retraceur collects (but <em>never</em> publishes) a limited amount of data from logged-in users but then deletes it or anonymizes it. That data can include:"
+msgid "Retraceur collects (but <em>never</em> publishes) a limited amount of data from logged-in contributors but then deletes it or anonymizes it. That data can include:"
 msgstr ""
 
 #: wp-admin/erase-personal-data.php:40
 #: wp-admin/export-personal-data.php:40
-msgid "<strong>Profile Information</strong> &mdash; user email address, username, display name, nickname, first name, last name, description/bio, and registration date."
+msgid "<strong>Profile Information</strong> &mdash; contributor email address, username, display name, nickname, first name, last name, description/bio, and registration date."
 msgstr ""
 
 #: wp-admin/erase-personal-data.php:41
 #: wp-admin/export-personal-data.php:41
-msgid "<strong>Session Tokens</strong> &mdash; User login information, IP Addresses, Expiration Date, User Agent (Browser/OS), and Last Login."
+msgid "<strong>Session Tokens</strong> &mdash; Contributor login information, IP Addresses, Expiration Date, User Agent (Browser/OS), and Last Login."
 msgstr ""
 
 #: wp-admin/erase-personal-data.php:42
-msgid "<strong>Media</strong> &mdash; A list of URLs for all media file uploads made by the user."
+msgid "<strong>Media</strong> &mdash; A list of URLs for all media file uploads made by the contributor."
 msgstr ""
 
 #. translators: %s: URL to Privacy Policy Guide screen.
@@ -1318,7 +1318,7 @@ msgid "Erase personal data list"
 msgstr ""
 
 #: wp-admin/erase-personal-data.php:99
-msgid "This tool helps site owners comply with local laws and regulations by deleting or anonymizing known data for a given user."
+msgid "This tool helps site owners comply with local laws and regulations by deleting or anonymizing known data for a given contributor."
 msgstr ""
 
 #: wp-admin/erase-personal-data.php:105
@@ -1373,11 +1373,11 @@ msgid "Note: Since this tool only gathers data from Retraceur and participating 
 msgstr ""
 
 #: wp-admin/export-personal-data.php:39
-msgid "Retraceur collects (but <em>never</em> publishes) a limited amount of data from registered users who have logged in to the site. Generally, these users are people who contribute to the site in some way -- content, store management, and so on. With rare exceptions, these users do not include occasional visitors. The data Retraceur retains can include:"
+msgid "Retraceur collects (but <em>never</em> publishes) a limited amount of data from registered contributors who have logged in to the site. Generally, these contributors are people who contribute to the site in some way -- content, store management, and so on. With rare exceptions, these contributors do not include occasional visitors. The data Retraceur retains can include:"
 msgstr ""
 
 #: wp-admin/export-personal-data.php:42
-msgid "<strong>Media</strong> &mdash; A list of URLs for media files the user uploads."
+msgid "<strong>Media</strong> &mdash; A list of URLs for media files the contributor uploads."
 msgstr ""
 
 #. translators: %s: URL to Privacy Policy Guide screen.
@@ -1402,7 +1402,7 @@ msgid "Export personal data list"
 msgstr ""
 
 #: wp-admin/export-personal-data.php:99
-msgid "This tool helps site owners comply with local laws and regulations by exporting known data for a given user in a .zip file."
+msgid "This tool helps site owners comply with local laws and regulations by exporting known data for a given contributor in a .zip file."
 msgstr ""
 
 #: wp-admin/export-personal-data.php:105
@@ -1585,7 +1585,7 @@ msgstr ""
 
 #. translators: %s: The new user.
 #: wp-admin/includes/ajax-actions.php:996
-msgid "User %s added"
+msgid "Contributor %s added"
 msgstr ""
 
 #: wp-admin/includes/ajax-actions.php:1196
@@ -1741,7 +1741,7 @@ msgid "This preview is unavailable in the editor."
 msgstr ""
 
 #: wp-admin/includes/ajax-actions.php:2882
-msgid "Could not log out user sessions. Please try again."
+msgid "Could not log out contributor sessions. Please try again."
 msgstr ""
 
 #: wp-admin/includes/ajax-actions.php:2891
@@ -3681,7 +3681,7 @@ msgid "Site Language"
 msgstr ""
 
 #: wp-admin/includes/class-wp-debug-data.php:182
-msgid "User Language"
+msgid "Contributor Language"
 msgstr ""
 
 #: wp-admin/includes/class-wp-debug-data.php:186
@@ -3761,7 +3761,7 @@ msgid "Network count"
 msgstr ""
 
 #: wp-admin/includes/class-wp-debug-data.php:267
-msgid "User count"
+msgid "Contributor count"
 msgstr ""
 
 #: wp-admin/includes/class-wp-debug-data.php:272
@@ -5614,7 +5614,7 @@ msgstr ""
 
 #. translators: Privacy policy tutorial.
 #: wp-admin/includes/class-wp-privacy-policy-content.php:487
-msgid "In this section you should note what personal data you collect from users and site visitors. This may include personal data, such as name, email address, personal account preferences; transactional data, such as purchase information; and technical data, such as information about cookies."
+msgid "In this section you should note what personal data you collect from contributors and site visitors. This may include personal data, such as name, email address, personal account preferences; transactional data, such as purchase information; and technical data, such as information about cookies."
 msgstr ""
 
 #. translators: Privacy policy tutorial.
@@ -5624,22 +5624,22 @@ msgstr ""
 
 #. translators: Privacy policy tutorial.
 #: wp-admin/includes/class-wp-privacy-policy-content.php:491
-msgid "In addition to listing what personal data you collect, you need to note why you collect it. These explanations must note either the legal basis for your data collection and retention or the active consent the user has given."
+msgid "In addition to listing what personal data you collect, you need to note why you collect it. These explanations must note either the legal basis for your data collection and retention or the active consent the contributor has given."
 msgstr ""
 
 #. translators: Privacy policy tutorial.
 #: wp-admin/includes/class-wp-privacy-policy-content.php:493
-msgid "Personal data is not just created by a user&#8217;s interactions with your site. Personal data is also generated from technical processes such as contact forms, cookies, analytics, and third party embeds."
+msgid "Personal data is not just created by a contributor&#8217;s interactions with your site. Personal data is also generated from technical processes such as contact forms, cookies, analytics, and third party embeds."
 msgstr ""
 
 #. translators: Privacy policy tutorial.
 #: wp-admin/includes/class-wp-privacy-policy-content.php:495
-msgid "By default Retraceur does not collect any personal data about visitors, and only collects the data shown on the User Profile screen from registered users. However some of your plugins may collect personal data. You should add the relevant information below."
+msgid "By default Retraceur does not collect any personal data about visitors, and only collects the data shown on the Contributor Profile screen from registered contributors. However some of your plugins may collect personal data. You should add the relevant information below."
 msgstr ""
 
 #. translators: Privacy policy tutorial.
 #: wp-admin/includes/class-wp-privacy-policy-content.php:503
-msgid "In this subsection you should note what information may be disclosed by users who can upload media files. All uploaded files are usually publicly accessible."
+msgid "In this subsection you should note what information may be disclosed by contributors who can upload media files. All uploaded files are usually publicly accessible."
 msgstr ""
 
 #. translators: Default privacy policy text.
@@ -5704,7 +5704,7 @@ msgstr ""
 
 #. translators: Privacy policy tutorial.
 #: wp-admin/includes/class-wp-privacy-policy-content.php:544
-msgid "In this subsection you should note what analytics package you use, how users can opt out of analytics tracking, and a link to your analytics provider&#8217;s privacy policy, if any."
+msgid "In this subsection you should note what analytics package you use, how contributors can opt out of analytics tracking, and a link to your analytics provider&#8217;s privacy policy, if any."
 msgstr ""
 
 #. translators: Privacy policy tutorial.
@@ -5744,7 +5744,7 @@ msgstr ""
 
 #. translators: Default privacy policy text.
 #: wp-admin/includes/class-wp-privacy-policy-content.php:570
-msgid "For users that register on our website (if any), we also store the personal information they provide in their user profile. All users can see, edit, or delete their personal information at any time (except they cannot change their username). Website administrators can also see and edit that information."
+msgid "For contributors that register on our website (if any), we also store the personal information they provide in their contributor profile. All contributors can see, edit, or delete their personal information at any time (except they cannot change their username). Website administrators can also see and edit that information."
 msgstr ""
 
 #. translators: Default privacy policy heading.
@@ -5754,7 +5754,7 @@ msgstr ""
 
 #. translators: Privacy policy tutorial.
 #: wp-admin/includes/class-wp-privacy-policy-content.php:578
-msgid "In this section you should explain what rights your users have over their data and how they can invoke those rights."
+msgid "In this section you should explain what rights your contributors have over their data and how they can invoke those rights."
 msgstr ""
 
 #. translators: Default privacy policy text.
@@ -5804,7 +5804,7 @@ msgstr ""
 
 #. translators: Privacy policy tutorial.
 #: wp-admin/includes/class-wp-privacy-policy-content.php:612
-msgid "In this section you should explain what measures you have taken to protect your users&#8217; data. This could include technical measures such as encryption; security measures such as two factor authentication; and measures such as staff training in data protection. If you have carried out a Privacy Impact Assessment, you can mention it here too."
+msgid "In this section you should explain what measures you have taken to protect your contributors&#8217; data. This could include technical measures such as encryption; security measures such as two factor authentication; and measures such as staff training in data protection. If you have carried out a Privacy Impact Assessment, you can mention it here too."
 msgstr ""
 
 #. translators: Default privacy policy heading.
@@ -5824,17 +5824,17 @@ msgstr ""
 
 #. translators: Privacy policy tutorial.
 #: wp-admin/includes/class-wp-privacy-policy-content.php:626
-msgid "If your website receives data about users from third parties, including advertisers, this information must be included within the section of your privacy policy dealing with third party data."
+msgid "If your website receives data about contributors from third parties, including advertisers, this information must be included within the section of your privacy policy dealing with third party data."
 msgstr ""
 
 #. translators: Default privacy policy heading.
 #: wp-admin/includes/class-wp-privacy-policy-content.php:631
-msgid "What automated decision making and/or profiling we do with user data"
+msgid "What automated decision making and/or profiling we do with contributor data"
 msgstr ""
 
 #. translators: Privacy policy tutorial.
 #: wp-admin/includes/class-wp-privacy-policy-content.php:633
-msgid "If your website provides a service which includes automated decision making - for example, allowing customers to apply for credit, or aggregating their data into an advertising profile - you must note that this is taking place, and include information about how that information is used, what decisions are made with that aggregated data, and what rights users have over decisions made without human intervention."
+msgid "If your website provides a service which includes automated decision making - for example, allowing people to apply for credit, or aggregating their data into an advertising profile - you must note that this is taking place, and include information about how that information is used, what decisions are made with that aggregated data, and what rights contributors have over decisions made without human intervention."
 msgstr ""
 
 #. translators: Default privacy policy heading.
@@ -6499,7 +6499,7 @@ msgstr ""
 
 #. translators: %s: WP_DEBUG_LOG
 #: wp-admin/includes/class-wp-site-health.php:1329
-msgid "The value, %s, has been added to this website&#8217;s configuration file. This means any errors on the site will be written to a file which is potentially available to all users."
+msgid "The value, %s, has been added to this website&#8217;s configuration file. This means any errors on the site will be written to a file which is potentially available to everyone."
 msgstr ""
 
 #: wp-admin/includes/class-wp-site-health.php:1336
@@ -6852,7 +6852,7 @@ msgid "Flush permalinks"
 msgstr ""
 
 #: wp-admin/includes/class-wp-site-health.php:2163
-msgid "Page cache enhances the speed and performance of your site by saving and serving static pages instead of calling for a page every time a user visits."
+msgid "Page cache enhances the speed and performance of your site by saving and serving static pages instead of calling for a page every time someone visits."
 msgstr ""
 
 #: wp-admin/includes/class-wp-site-health.php:2164
@@ -7364,8 +7364,7 @@ msgid "Could not delete the temporary backup directory for %s."
 msgstr ""
 
 #: wp-admin/includes/class-wp-users-list-table.php:160
-#: wp-admin/includes/deprecated.php:581
-msgid "No users found."
+msgid "No contributors found."
 msgstr ""
 
 #. translators: %s: Number of users.
@@ -7558,13 +7557,13 @@ msgid "Create a New Site"
 msgstr ""
 
 #: wp-admin/includes/dashboard.php:428
-msgid "Create a New User"
+msgid "Create a New Contributor"
 msgstr ""
 
 #. translators: %s: Number of users on the network.
 #: wp-admin/includes/dashboard.php:435
-msgid "%s user"
-msgid_plural "%s users"
+msgid "%s contributor"
+msgid_plural "%s contributors"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -7584,7 +7583,7 @@ msgstr ""
 #: wp-admin/includes/dashboard.php:471
 #: wp-admin/includes/dashboard.php:475
 #: wp-admin/users.php:814
-msgid "Search Users"
+msgid "Search Contributors"
 msgstr ""
 
 #. translators: Hidden accessibility text.
@@ -7777,6 +7776,10 @@ msgstr ""
 
 #: wp-admin/includes/dashboard.php:1118
 msgid "There is a new kind of theme, called a block theme, that lets you build the site you&#8217;ve always wanted &#8212; with blocks and styles."
+msgstr ""
+
+#: wp-admin/includes/deprecated.php:581
+msgid "No users found."
 msgstr ""
 
 #. translators: 1: Starting number of users on the current page, 2: Ending number of users, 3: Total number of users.
@@ -9432,6 +9435,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: wp-admin/includes/plugin-install.php:735
+msgctxt "plugin credits"
 msgid "Contributors"
 msgstr ""
 
@@ -9654,24 +9658,24 @@ msgstr ""
 
 #: wp-admin/includes/post.php:37
 #: wp-admin/includes/post.php:78
-msgid "Sorry, you are not allowed to edit pages as this user."
+msgid "Sorry, you are not allowed to edit pages as this contributor."
 msgstr ""
 
 #: wp-admin/includes/post.php:39
 #: wp-admin/includes/post.php:80
-msgid "Sorry, you are not allowed to edit posts as this user."
+msgid "Sorry, you are not allowed to edit posts as this contributor."
 msgstr ""
 
 #: wp-admin/includes/post.php:43
 #: wp-admin/includes/post.php:84
-msgid "Sorry, you are not allowed to create pages as this user."
+msgid "Sorry, you are not allowed to create pages as this contributor."
 msgstr ""
 
 #: wp-admin/includes/post.php:45
 #: wp-admin/includes/post.php:86
 #: wp-admin/post-new.php:63
 #: wp-admin/press-this.php:22
-msgid "Sorry, you are not allowed to create posts as this user."
+msgid "Sorry, you are not allowed to create posts as this contributor."
 msgstr ""
 
 #: wp-admin/includes/post.php:183
@@ -10875,7 +10879,7 @@ msgid "Your chosen password."
 msgstr ""
 
 #: wp-admin/includes/upgrade.php:117
-msgid "User already exists. Password inherited."
+msgid "Contributor already exists. Password inherited."
 msgstr ""
 
 #: wp-admin/includes/upgrade.php:134
@@ -10966,7 +10970,7 @@ msgstr ""
 
 #: wp-admin/includes/user.php:64
 #: wp-admin/users.php:143
-msgid "Sorry, you are not allowed to give users that role."
+msgid "Sorry, you are not allowed to give contributors that role."
 msgstr ""
 
 #: wp-admin/includes/user.php:152
@@ -11150,7 +11154,7 @@ msgid "Site Title"
 msgstr ""
 
 #: wp-admin/install.php:123
-msgid "User(s) already exists."
+msgid "Contributor(s) already exists."
 msgstr ""
 
 #: wp-admin/install.php:128
@@ -11424,7 +11428,7 @@ msgid "Some database problems could not be repaired."
 msgstr ""
 
 #: wp-admin/maint/repair.php:164
-msgid "Repairs complete. Please remove the following line from wp-config.php to prevent this page from being used by unauthorized users."
+msgid "Repairs complete. Please remove the following line from wp-config.php to prevent this page from being used by unauthorized contributors."
 msgstr ""
 
 #. translators: Hidden accessibility text.
@@ -11556,8 +11560,8 @@ msgid "Add New Block"
 msgstr ""
 
 #: wp-admin/menu.php:216
-#: wp-admin/users.php:27
-msgid "Users"
+msgctxt "main admin menu"
+msgid "Contributors"
 msgstr ""
 
 #: wp-admin/menu.php:218
@@ -11569,7 +11573,7 @@ msgid "Profile"
 msgstr ""
 
 #: wp-admin/menu.php:223
-msgid "All Users"
+msgid "All Contributors"
 msgstr ""
 
 #: wp-admin/menu.php:225
@@ -11579,7 +11583,7 @@ msgstr ""
 #: wp-admin/user-new.php:134
 #: wp-admin/user-new.php:326
 #: wp-admin/users.php:787
-msgid "Add New User"
+msgid "Add New Contributor"
 msgstr ""
 
 #: wp-admin/menu.php:262
@@ -11764,7 +11768,7 @@ msgid "Both Retraceur URL and site URL can start with either %1$s or %2$s. A URL
 msgstr ""
 
 #: wp-admin/options-general.php:41
-msgid "If you want site visitors to be able to register themselves, check the membership box. If you want the site administrator to register every new user, leave the box unchecked. In either case, you can set a default user role for all new users."
+msgid "If you want site visitors to be able to register themselves, check the membership box. If you want the site administrator to register every new contributor, leave the box unchecked. In either case, you can set a default contributor role for all new contributors."
 msgstr ""
 
 #: wp-admin/options-general.php:44
@@ -12073,7 +12077,7 @@ msgid "Anyone can register"
 msgstr ""
 
 #: wp-admin/options-membership.php:57
-msgid "New User Default Role"
+msgid "New Contributor Default Role"
 msgstr ""
 
 #: wp-admin/options-membership.php:66
@@ -12081,7 +12085,7 @@ msgid "Avatars"
 msgstr ""
 
 #: wp-admin/options-membership.php:68
-msgid "An avatar is an image that can be associated with a user across multiple websites. In this area, you can choose to display avatars of users who interact with the site."
+msgid "An avatar is an image that can be associated with a contributor across multiple websites. In this area, you can choose to display avatars of contributors who interact with the site."
 msgstr ""
 
 #: wp-admin/options-membership.php:82
@@ -12125,7 +12129,7 @@ msgid "Default Avatar"
 msgstr ""
 
 #: wp-admin/options-membership.php:128
-msgid "For users without a custom avatar of their own, you can either display a generic logo or a generated one based on their email address."
+msgid "For contributors without a custom avatar of their own, you can either display a generic logo or a generated one based on their email address."
 msgstr ""
 
 #: wp-admin/options-membership.php:133
@@ -12944,7 +12948,7 @@ msgid "Plugin Dependencies aims to make the process of installing and activating
 msgstr ""
 
 #: wp-admin/plugins.php:685
-msgid "If a required plugin is deleted, a notice will be displayed on the Plugin administration screen informing the user that there is some missing dependencies to install and/or activate. Additionally, each plugin whose dependencies are not met will have an error notice on their plugin row."
+msgid "If a required plugin is deleted, a notice will be displayed on the Plugin administration screen informing the contributor that there is some missing dependencies to install and/or activate. Additionally, each plugin whose dependencies are not met will have an error notice on their plugin row."
 msgstr ""
 
 #: wp-admin/plugins.php:686
@@ -13201,7 +13205,7 @@ msgid "If you require any more information or have any questions about Retraceur
 msgstr ""
 
 #: wp-admin/privacy.php:60
-msgid "Retraceur considers users privacy to be extremely important, so important it does not collect any personal information. This privacy policy document describes how to be informed about the personal data collected and recorded by the GitHub services Retraceur uses, as well as warns you about the fact third party Retraceur plugins or themes might collect your personal data."
+msgid "Retraceur considers contributors privacy to be extremely important, so important it does not collect any personal information. This privacy policy document describes how to be informed about the personal data collected and recorded by the GitHub services Retraceur uses, as well as warns you about the fact third party Retraceur plugins or themes might collect your personal data."
 msgstr ""
 
 #: wp-admin/privacy.php:66
@@ -13627,7 +13631,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: wp-admin/site-health.php:274
-msgid "Recommended items are considered beneficial to your site, although not as important to prioritize as a critical issue, they may include improvements to things such as; Performance, user experience, and more."
+msgid "Recommended items are considered beneficial to your site, although not as important to prioritize as a critical issue, they may include improvements to things such as; Performance, contributor experience, and more."
 msgstr ""
 
 #: wp-admin/site-health.php:282
@@ -13998,7 +14002,7 @@ msgid "The first one allows you to see critical information about your configura
 msgstr ""
 
 #: wp-admin/tools.php:65
-msgid "Exporting your site’s data (posts, pages, custom post types, comments, custom fields, categories, tags, custom taxonomies, and users) is sometimes necessary and useful."
+msgid "Exporting your site’s data (posts, pages, custom post types, comments, custom fields, categories, tags, custom taxonomies, and contributor accounts) is sometimes necessary and useful."
 msgstr ""
 
 #: wp-admin/tools.php:66
@@ -14010,7 +14014,7 @@ msgid "One of your member asked about getting the personnal data they left on yo
 msgstr ""
 
 #: wp-admin/tools.php:73
-msgid "The Export Personal Data tool can generate a (.zip format) file containing the personal data which exists about a user within your site."
+msgid "The Export Personal Data tool can generate a (.zip format) file containing the personal data which exists about a contributor within your site."
 msgstr ""
 
 #: wp-admin/tools.php:79
@@ -14503,12 +14507,12 @@ msgstr ""
 
 #: wp-admin/user-edit.php:30
 #: wp-admin/user-edit.php:32
-msgid "Invalid user ID."
+msgid "Invalid contributor ID."
 msgstr ""
 
 #. translators: %s: User's display name.
 #: wp-admin/user-edit.php:47
-msgid "Edit User %s"
+msgid "Edit Contributor %s"
 msgstr ""
 
 #: wp-admin/user-edit.php:62
@@ -14545,7 +14549,7 @@ msgstr ""
 #: wp-admin/users.php:126
 #: wp-admin/users.php:155
 #: wp-admin/users.php:261
-msgid "Sorry, you are not allowed to edit this user."
+msgid "Sorry, you are not allowed to edit this contributor."
 msgstr ""
 
 #: wp-admin/user-edit.php:130
@@ -14571,7 +14575,7 @@ msgid "I confirm!"
 msgstr ""
 
 #: wp-admin/user-edit.php:238
-msgid "This user has super admin privileges."
+msgid "This contributor has super admin privileges."
 msgstr ""
 
 #: wp-admin/user-edit.php:249
@@ -14579,11 +14583,11 @@ msgid "Profile updated."
 msgstr ""
 
 #: wp-admin/user-edit.php:251
-msgid "User updated."
+msgid "Contributor updated."
 msgstr ""
 
 #: wp-admin/user-edit.php:257
-msgid "&larr; Go to Users"
+msgid "&larr; Go to Contributors"
 msgstr ""
 
 #: wp-admin/user-edit.php:274
@@ -14593,7 +14597,7 @@ msgstr ""
 #: wp-admin/user-edit.php:303
 #: wp-admin/user-new.php:136
 #: wp-admin/users.php:793
-msgid "Add Existing User"
+msgid "Add Existing Contributor"
 msgstr ""
 
 #: wp-admin/user-edit.php:328
@@ -14635,11 +14639,11 @@ msgid "Usernames cannot be changed."
 msgstr ""
 
 #: wp-admin/user-edit.php:497
-msgid "Grant this user super admin privileges for the Network."
+msgid "Grant this contributor super admin privileges for the Network."
 msgstr ""
 
 #: wp-admin/user-edit.php:499
-msgid "Super admin privileges cannot be removed because this user has the network admin email."
+msgid "Super admin privileges cannot be removed because this contributor has the network admin email."
 msgstr ""
 
 #: wp-admin/user-edit.php:506
@@ -14683,7 +14687,7 @@ msgid "About Yourself"
 msgstr ""
 
 #: wp-admin/user-edit.php:629
-msgid "About the user"
+msgid "About the contributor"
 msgstr ""
 
 #: wp-admin/user-edit.php:633
@@ -14800,7 +14804,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: wp-admin/user-edit.php:839
-msgid "Required to create an Application Password, but not to update the user."
+msgid "Required to create an Application Password, but not to update the contributor."
 msgstr ""
 
 #: wp-admin/user-edit.php:853
@@ -14845,7 +14849,7 @@ msgid "Update Profile"
 msgstr ""
 
 #: wp-admin/user-edit.php:969
-msgid "Update User"
+msgid "Update Contributor"
 msgstr ""
 
 #: wp-admin/user-edit.php:1012
@@ -14858,31 +14862,31 @@ msgid "Dismiss this notice."
 msgstr ""
 
 #: wp-admin/user-new.php:17
-msgid "Sorry, you are not allowed to create users."
+msgid "Sorry, you are not allowed to create contributors."
 msgstr ""
 
 #: wp-admin/user-new.php:91
-msgid "To add a new user to your site, fill in the form on this screen and click the Add New User button at the bottom."
+msgid "To add a new contributor to your site, fill in the form on this screen and click the Add New Contributor button at the bottom."
 msgstr ""
 
 #: wp-admin/user-new.php:92
-msgid "New users are automatically assigned a password, which they can change after logging in. You can view or edit the assigned password by clicking the Show Password button. The username cannot be changed once the user has been added."
+msgid "New contributors are automatically assigned a password, which they can change after logging in. You can view or edit the assigned password by clicking the Show Password button. The username cannot be changed once the contributor has been added."
 msgstr ""
 
 #: wp-admin/user-new.php:93
-msgid "By default, new users will receive an email letting them know they&#8217;ve been added as a user for your site. This email will also contain a password reset link. Uncheck the box if you do not want to send the new user a welcome email."
+msgid "By default, new contributors will receive an email letting them know they&#8217;ve been added as a contributor for your site. This email will also contain a password reset link. Uncheck the box if you do not want to send the new contributor a welcome email."
 msgstr ""
 
 #: wp-admin/user-new.php:94
-msgid "Remember to click the Add New User button at the bottom of this screen when you are finished."
+msgid "Remember to click the Add New Contributor button at the bottom of this screen when you are finished."
 msgstr ""
 
 #: wp-admin/user-new.php:101
-msgid "User Roles"
+msgid "Contributor Roles"
 msgstr ""
 
 #: wp-admin/user-new.php:102
-msgid "Here is a basic overview of the different user roles and the permissions associated with each one:"
+msgid "Here is a basic overview of the different contributor roles and the permissions associated with each one:"
 msgstr ""
 
 #: wp-admin/user-new.php:104
@@ -14906,19 +14910,19 @@ msgid "Administrators have access to all the administration features."
 msgstr ""
 
 #: wp-admin/user-new.php:122
-msgid "User added."
+msgid "Contributor added."
 msgstr ""
 
 #: wp-admin/user-new.php:124
-msgid "Invitation email sent to new user. A confirmation link must be clicked before their account is created."
+msgid "Invitation email sent to new contributor. A confirmation link must be clicked before their account is created."
 msgstr ""
 
 #: wp-admin/user-new.php:126
-msgid "That user could not be added to this site."
+msgid "That contributor could not be added to this site."
 msgstr ""
 
 #: wp-admin/user-new.php:189
-msgid "Create a brand new user and add them to this site."
+msgid "Create a brand new contributor and add them to this site."
 msgstr ""
 
 #: wp-admin/user-new.php:268
@@ -14934,11 +14938,16 @@ msgid "Skip Confirmation Email"
 msgstr ""
 
 #: wp-admin/user-new.php:302
-msgid "Add the user without sending an email that requires their confirmation"
+msgid "Add the contributor without sending an email that requires their confirmation"
 msgstr ""
 
 #: wp-admin/users.php:18
-msgid "Sorry, you are not allowed to list users."
+msgid "Sorry, you are not allowed to list contributors."
+msgstr ""
+
+#: wp-admin/users.php:27
+msgctxt "users admin screen title"
+msgid "Contributors"
 msgstr ""
 
 #. Translators: 1: a comma separated list of first role names. 2: the last role names.
@@ -14948,11 +14957,11 @@ msgstr ""
 
 #. Translators: %s: a comma separated list of role names.
 #: wp-admin/users.php:48
-msgid "This screen lists all the existing users for your site. Each user has one of the defined roles as set by the site admin: %s. Users with roles other than Administrator will see fewer options in the dashboard navigation when they are logged in, based on their role."
+msgid "This screen lists all the existing contributors for your site. Each contributor has one of the defined roles as set by the site admin: %s. Contributors with roles other than Administrator will see fewer options in the dashboard navigation when they are logged in, based on their role."
 msgstr ""
 
 #: wp-admin/users.php:51
-msgid "To add a new user for your site, click the Add New User button at the top of the screen or Add New User in the Users menu section."
+msgid "To add a new contributor for your site, click the Add New Contributor button at the top of the screen or Add New Contributor in the Contributors menu section."
 msgstr ""
 
 #: wp-admin/users.php:59
@@ -14960,78 +14969,78 @@ msgid "You can customize the display of this screen in a number of ways:"
 msgstr ""
 
 #: wp-admin/users.php:61
-msgid "You can hide/display columns based on your needs and decide how many users to list per screen using the Screen Options tab."
+msgid "You can hide/display columns based on your needs and decide how many contributors to list per screen using the Screen Options tab."
 msgstr ""
 
 #. Translators: %s: a comma separated list of role names.
 #: wp-admin/users.php:64
-msgid "You can filter the list of users by User Role using the text links above the users list to show All, %s. The default view is to show all users. Unused User Roles are not listed."
+msgid "You can filter the list of contributors by Contributor Role using the text links above the contributors list to show All, %s. The default view is to show all contributors. Unused Contributor Roles are not listed."
 msgstr ""
 
 #: wp-admin/users.php:67
-msgid "You can view all posts made by a user by clicking on the number under the Posts column."
+msgid "You can view all posts made by a contributor by clicking on the number under the Posts column."
 msgstr ""
 
 #: wp-admin/users.php:72
-msgid "Hovering over a row in the users list will display action links that allow you to manage users. You can perform the following actions:"
+msgid "Hovering over a row in the contributors list will display action links that allow you to manage contributors. You can perform the following actions:"
 msgstr ""
 
 #: wp-admin/users.php:74
-msgid "<strong>Edit</strong> takes you to the editable profile screen for that user. You can also reach that screen by clicking on the username."
+msgid "<strong>Edit</strong> takes you to the editable profile screen for that contributor. You can also reach that screen by clicking on the username."
 msgstr ""
 
 #: wp-admin/users.php:77
-msgid "<strong>Remove</strong> allows you to remove a user from your site. It does not delete their content. You can also remove multiple users at once by using bulk actions."
+msgid "<strong>Remove</strong> allows you to remove a contributor from your site. It does not delete their content. You can also remove multiple contributors at once by using bulk actions."
 msgstr ""
 
 #: wp-admin/users.php:79
-msgid "<strong>Delete</strong> brings you to the Delete Users screen for confirmation, where you can permanently remove a user from your site and delete their content. You can also delete multiple users at once by using bulk actions."
+msgid "<strong>Delete</strong> brings you to the Delete Contributors screen for confirmation, where you can permanently remove a contributor from your site and delete their content. You can also delete multiple contributors at once by using bulk actions."
 msgstr ""
 
 #: wp-admin/users.php:82
-msgid "<strong>View</strong> takes you to a public author archive which lists all the posts published by the user."
+msgid "<strong>View</strong> takes you to a public author archive which lists all the posts published by the contributor."
 msgstr ""
 
 #: wp-admin/users.php:85
-msgid "<strong>Send password reset</strong> sends the user an email with a link to set a new password."
+msgid "<strong>Send password reset</strong> sends the contributor an email with a link to set a new password."
 msgstr ""
 
 #: wp-admin/users.php:101
-msgid "Filter users list"
+msgid "Filter contributors list"
 msgstr ""
 
 #: wp-admin/users.php:102
-msgid "Users list navigation"
+msgid "Contributors list navigation"
 msgstr ""
 
 #: wp-admin/users.php:103
-msgid "Users list"
+msgid "Contributors list"
 msgstr ""
 
 #: wp-admin/users.php:171
-msgid "One of the selected users is not a member of this site."
+msgid "One of the selected contributors is not a member of this site."
 msgstr ""
 
 #: wp-admin/users.php:185
 #: wp-admin/users.php:288
-msgid "User deletion is not allowed from this screen."
+msgid "Contributor deletion is not allowed from this screen."
 msgstr ""
 
 #: wp-admin/users.php:205
 #: wp-admin/users.php:299
-msgid "Sorry, you are not allowed to delete users."
+msgid "Sorry, you are not allowed to delete contributors."
 msgstr ""
 
 #: wp-admin/users.php:213
-msgid "Sorry, you are not allowed to delete that user."
+msgid "Sorry, you are not allowed to delete that contributor."
 msgstr ""
 
 #: wp-admin/users.php:247
-msgid "Sorry, you are not allowed to edit users."
+msgid "Sorry, you are not allowed to edit contributors."
 msgstr ""
 
 #: wp-admin/users.php:346
-msgid "Delete Users"
+msgid "Delete Contributors"
 msgstr ""
 
 #: wp-admin/users.php:351
@@ -15039,16 +15048,16 @@ msgid "Please select an option."
 msgstr ""
 
 #: wp-admin/users.php:360
-msgid "You have specified this user for deletion:"
+msgid "You have specified this contributor for deletion:"
 msgstr ""
 
 #: wp-admin/users.php:362
-msgid "You have specified these users for deletion:"
+msgid "You have specified these contributors for deletion:"
 msgstr ""
 
 #. translators: 1: User ID, 2: User login.
 #: wp-admin/users.php:376
-msgid "ID #%1$s: %2$s <strong>The current user will not be deleted.</strong>"
+msgid "ID #%1$s: %2$s <strong>The current contributor will not be deleted.</strong>"
 msgstr ""
 
 #. translators: 1: User ID, 2: User login.
@@ -15058,11 +15067,11 @@ msgid "ID #%1$s: %2$s"
 msgstr ""
 
 #: wp-admin/users.php:410
-msgid "What should be done with content owned by this user?"
+msgid "What should be done with content owned by this contributor?"
 msgstr ""
 
 #: wp-admin/users.php:412
-msgid "What should be done with content owned by these users?"
+msgid "What should be done with content owned by these contributors?"
 msgstr ""
 
 #: wp-admin/users.php:418
@@ -15078,34 +15087,34 @@ msgid "Confirm Deletion"
 msgstr ""
 
 #: wp-admin/users.php:454
-msgid "There are no valid users selected for deletion."
+msgid "There are no valid contributors selected for deletion."
 msgstr ""
 
 #: wp-admin/users.php:467
 #: wp-admin/users.php:499
-msgid "You cannot remove users."
+msgid "You cannot remove contributors."
 msgstr ""
 
 #: wp-admin/users.php:476
 #: wp-admin/users.php:508
-msgid "Sorry, you are not allowed to remove users."
+msgid "Sorry, you are not allowed to remove contributors."
 msgstr ""
 
 #: wp-admin/users.php:524
-msgid "Remove Users from Site"
+msgid "Remove Contributors from Site"
 msgstr ""
 
 #: wp-admin/users.php:527
-msgid "You have specified this user for removal:"
+msgid "You have specified this contributor for removal:"
 msgstr ""
 
 #: wp-admin/users.php:529
-msgid "You have specified these users for removal:"
+msgid "You have specified these contributors for removal:"
 msgstr ""
 
 #. translators: 1: User ID, 2: User login.
 #: wp-admin/users.php:543
-msgid "ID #%1$s: %2$s <strong>Sorry, you are not allowed to remove this user.</strong>"
+msgid "ID #%1$s: %2$s <strong>Sorry, you are not allowed to remove this contributor.</strong>"
 msgstr ""
 
 #: wp-admin/users.php:571
@@ -15113,26 +15122,26 @@ msgid "Confirm Removal"
 msgstr ""
 
 #: wp-admin/users.php:575
-msgid "There are no valid users selected for removal."
+msgid "There are no valid contributors selected for removal."
 msgstr ""
 
 #: wp-admin/users.php:619
-msgid "User deleted."
+msgid "Contributor deleted."
 msgstr ""
 
 #. translators: %s: Number of users.
 #: wp-admin/users.php:622
-msgid "%s user deleted."
-msgid_plural "%s users deleted."
+msgid "%s contributor deleted."
+msgid_plural "%s contributors deleted."
 msgstr[0] ""
 msgstr[1] ""
 
 #: wp-admin/users.php:635
-msgid "New user created."
+msgid "New contributor created."
 msgstr ""
 
 #: wp-admin/users.php:647
-msgid "Edit user"
+msgid "Edit contributor"
 msgstr ""
 
 #: wp-admin/users.php:663
@@ -15141,8 +15150,8 @@ msgstr ""
 
 #. translators: %s: Number of users.
 #: wp-admin/users.php:666
-msgid "Password reset links sent to %s user."
-msgid_plural "Password reset links sent to %s users."
+msgid "Password reset links sent to %s contributor."
+msgid_plural "Password reset links sent to %s contributors."
 msgstr[0] ""
 msgstr[1] ""
 
@@ -15151,31 +15160,31 @@ msgid "Changed roles."
 msgstr ""
 
 #: wp-admin/users.php:690
-msgid "The current user&#8217;s role must have user editing capabilities."
+msgid "The current contributor&#8217;s role must have contributor editing capabilities."
 msgstr ""
 
 #: wp-admin/users.php:698
-msgid "Other user roles have been changed."
+msgid "Other contributor roles have been changed."
 msgstr ""
 
 #: wp-admin/users.php:708
-msgid "You cannot delete the current user."
+msgid "You cannot delete the current contributor."
 msgstr ""
 
 #: wp-admin/users.php:716
-msgid "Other users have been deleted."
+msgid "Other contributors have been deleted."
 msgstr ""
 
 #: wp-admin/users.php:726
-msgid "User removed from this site."
+msgid "Contributor removed from this site."
 msgstr ""
 
 #: wp-admin/users.php:736
-msgid "You cannot remove the current user."
+msgid "You cannot remove the current contributor."
 msgstr ""
 
 #: wp-admin/users.php:744
-msgid "Other users have been removed."
+msgid "Other contributors have been removed."
 msgstr ""
 
 #: wp-admin/widgets-form-blocks.php:24

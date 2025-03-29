@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-02-08T13:01:54+00:00\n"
+"POT-Creation-Date: 2025-03-29T11:43:28+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 
@@ -200,7 +200,7 @@ msgstr ""
 
 #. translators: %s: Site title.
 #: wp-includes/admin-bar.php:340
-msgid "User Dashboard: %s"
+msgid "Contributor Dashboard: %s"
 msgstr ""
 
 #: wp-includes/admin-bar.php:364
@@ -243,7 +243,7 @@ msgid "Sites"
 msgstr ""
 
 #: wp-includes/admin-bar.php:521
-msgid "Users"
+msgid "Contributors"
 msgstr ""
 
 #: wp-includes/admin-bar.php:532
@@ -262,16 +262,16 @@ msgid "Shortlink"
 msgstr ""
 
 #: wp-includes/admin-bar.php:770
-msgid "View User"
+msgid "View Contributor"
 msgstr ""
 
 #: wp-includes/admin-bar.php:816
-msgid "Edit User"
+msgid "Edit Contributor"
 msgstr ""
 
 #: wp-includes/admin-bar.php:867
 msgctxt "add new from admin bar"
-msgid "User"
+msgid "Contributor"
 msgstr ""
 
 #: wp-includes/admin-bar.php:874
@@ -1219,7 +1219,7 @@ msgstr ""
 
 #. translators: %s: Capability name.
 #: wp-includes/capabilities.php:440
-msgid "When checking for the %s capability, you must always check it against a specific user."
+msgid "When checking for the %s capability, you must always check it against a specific contributor."
 msgstr ""
 
 #. translators: User role for administrators.
@@ -1550,7 +1550,7 @@ msgid "A valid URL was not provided."
 msgstr ""
 
 #: wp-includes/class-wp-http.php:299
-msgid "User has blocked requests through HTTP."
+msgid "Contributor has blocked requests through HTTP."
 msgstr ""
 
 #: wp-includes/class-wp-http.php:316
@@ -3165,7 +3165,7 @@ msgstr ""
 
 #. translators: %s: plugins_loaded
 #: wp-includes/class-wp-user-query.php:792
-msgid "User queries should not be run before the %s hook."
+msgid "Contributor queries should not be run before the %s hook."
 msgstr ""
 
 #. translators: %s: WP_User->ID
@@ -3177,7 +3177,7 @@ msgid "Use %s instead."
 msgstr ""
 
 #: wp-includes/class-wp-user.php:780
-msgid "Usage of user levels is deprecated. Use capabilities instead."
+msgid "Usage of contributor levels is deprecated. Use capabilities instead."
 msgstr ""
 
 #: wp-includes/class-wp.php:330
@@ -3203,7 +3203,7 @@ msgstr ""
 
 #. translators: 1: Database user, 2: Database name.
 #: wp-includes/class-wpdb.php:1215
-msgid "Does the user %1$s have permission to use the %2$s database?"
+msgid "Does the contributor %1$s have permission to use the %2$s database?"
 msgstr ""
 
 #. translators: %s: Database name.
@@ -5711,7 +5711,7 @@ msgid "Retraceur Media"
 msgstr ""
 
 #: wp-includes/media.php:5606
-msgid "User&#8217;s media data."
+msgid "Contributor&#8217;s media data."
 msgstr ""
 
 #: wp-includes/meta.php:1443
@@ -5752,7 +5752,7 @@ msgid "Site URL."
 msgstr ""
 
 #: wp-includes/option.php:2672
-msgid "This address is used for admin purposes, like new user notification."
+msgid "This address is used for admin purposes, like new contributor notification."
 msgstr ""
 
 #: wp-includes/option.php:2685
@@ -5847,7 +5847,7 @@ msgstr ""
 
 #. translators: %s: User name.
 #: wp-includes/pluggable.php:1656
-msgid "Password changed for user: %s"
+msgid "Password changed for contributor: %s"
 msgstr ""
 
 #. translators: Password change notification email subject. %s: Site title.
@@ -5858,7 +5858,7 @@ msgstr ""
 
 #. translators: %s: Site title.
 #: wp-includes/pluggable.php:1758
-msgid "New user registration on your site %s:"
+msgid "New contributor registration on your site %s:"
 msgstr ""
 
 #. translators: %s: User login.
@@ -5875,7 +5875,7 @@ msgstr ""
 
 #. translators: New user registration notification email subject. %s: Site title.
 #: wp-includes/pluggable.php:1767
-msgid "[%s] New User Registration"
+msgid "[%s] New Contributor Registration"
 msgstr ""
 
 #: wp-includes/pluggable.php:1826
@@ -6129,11 +6129,11 @@ msgid "oEmbed Response"
 msgstr ""
 
 #: wp-includes/post.php:230
-msgid "User Requests"
+msgid "Contributor Requests"
 msgstr ""
 
 #: wp-includes/post.php:231
-msgid "User Request"
+msgid "Contributor Request"
 msgstr ""
 
 #: wp-includes/post.php:248
@@ -7144,7 +7144,7 @@ msgid "The handler for the route is invalid"
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-application-passwords-controller.php:124
-msgid "Sorry, you are not allowed to list application passwords for this user."
+msgid "Sorry, you are not allowed to list application passwords for this contributor."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-application-passwords-controller.php:177
@@ -7152,7 +7152,7 @@ msgid "Sorry, you are not allowed to read this application password."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-application-passwords-controller.php:221
-msgid "Sorry, you are not allowed to create application passwords for this user."
+msgid "Sorry, you are not allowed to create application passwords for this contributor."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-application-passwords-controller.php:304
@@ -7160,7 +7160,7 @@ msgid "Sorry, you are not allowed to edit this application password."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-application-passwords-controller.php:378
-msgid "Sorry, you are not allowed to delete application passwords for this user."
+msgid "Sorry, you are not allowed to delete application passwords for this contributor."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-application-passwords-controller.php:433
@@ -7168,7 +7168,7 @@ msgid "Sorry, you are not allowed to delete this application password."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-application-passwords-controller.php:496
-msgid "The authenticated application password can only be introspected for the current user."
+msgid "The authenticated application password can only be introspected for the current contributor."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-application-passwords-controller.php:524
@@ -7181,7 +7181,7 @@ msgid "Application password not found."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-application-passwords-controller.php:563
-msgid "Sorry, you are not allowed to manage application passwords for this user."
+msgid "Sorry, you are not allowed to manage application passwords for this contributor."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-application-passwords-controller.php:687
@@ -7194,7 +7194,7 @@ msgstr ""
 #: wp-includes/user.php:2128
 #: wp-includes/user.php:2570
 #: wp-includes/user.php:2576
-msgid "Invalid user ID."
+msgid "Invalid contributor ID."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-application-passwords-controller.php:704
@@ -7638,7 +7638,7 @@ msgid "Sorry, you are not allowed to read blocks of this post."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-block-renderer-controller.php:134
-msgid "Sorry, you are not allowed to read blocks as this user."
+msgid "Sorry, you are not allowed to read blocks as this contributor."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-block-renderer-controller.php:173
@@ -8211,7 +8211,7 @@ msgid "Unique identifier for the global styles revision."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-global-styles-revisions-controller.php:139
-msgid "Cannot find user global styles revisions."
+msgid "Cannot find contributor global styles revisions."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-global-styles-revisions-controller.php:215
@@ -8220,11 +8220,11 @@ msgid "The offset number requested is larger than or equal to the number of avai
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-navigation-fallback-controller.php:81
-msgid "Sorry, you are not allowed to create Navigation Menus as this user."
+msgid "Sorry, you are not allowed to create Navigation Menus as this contributor."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-navigation-fallback-controller.php:89
-msgid "Sorry, you are not allowed to edit Navigation Menus as this user."
+msgid "Sorry, you are not allowed to edit Navigation Menus as this contributor."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-navigation-fallback-controller.php:109
@@ -8584,7 +8584,7 @@ msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:667
 #: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:683
-msgid "Sorry, you are not allowed to create posts as this user."
+msgid "Sorry, you are not allowed to create posts as this contributor."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:675
@@ -8598,7 +8598,7 @@ msgid "Sorry, you are not allowed to assign the provided terms."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:878
-msgid "Sorry, you are not allowed to update posts as this user."
+msgid "Sorry, you are not allowed to update posts as this contributor."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1040
@@ -8802,29 +8802,29 @@ msgid "Please use %s to add new schema properties."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2710
-msgid "The current user can publish this post."
+msgid "The current contributor can publish this post."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2726
-msgid "The current user can post unfiltered HTML markup and JavaScript."
+msgid "The current contributor can post unfiltered HTML markup and JavaScript."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2743
-msgid "The current user can sticky this post."
+msgid "The current contributor can sticky this post."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2759
-msgid "The current user can change the author on this post."
+msgid "The current contributor can change the author on this post."
 msgstr ""
 
 #. translators: %s: Taxonomy name.
 #: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2778
-msgid "The current user can assign terms in the %s taxonomy."
+msgid "The current contributor can assign terms in the %s taxonomy."
 msgstr ""
 
 #. translators: %s: Taxonomy name.
 #: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2780
-msgid "The current user can create terms in the %s taxonomy."
+msgid "The current contributor can create terms in the %s taxonomy."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2835
@@ -9089,11 +9089,11 @@ msgid "The category this test is grouped in."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-site-health-controller.php:334
-msgid "A more descriptive explanation of what the test looks for, and why it is important for the user."
+msgid "A more descriptive explanation of what the test looks for, and why it is important for the contributor."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-site-health-controller.php:339
-msgid "HTML containing an action to direct the user to where they can resolve the issue."
+msgid "HTML containing an action to direct the contributor to where they can resolve the issue."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-taxonomies-controller.php:60
@@ -9147,7 +9147,7 @@ msgid "The visibility settings for the taxonomy."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-taxonomies-controller.php:404
-msgid "Whether a taxonomy is intended for use publicly either via the admin interface or by front-end users."
+msgid "Whether a taxonomy is intended for use publicly either via the admin interface or by front-end contributors."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-taxonomies-controller.php:408
@@ -9606,64 +9606,67 @@ msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:85
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1357
-msgid "Unique identifier for the user."
+msgid "Unique identifier for the contributor."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:111
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:152
-msgid "Required to be true, as users do not support trashing."
+msgid "Required to be true, as contributors do not support trashing."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:115
+msgid "Reassign the deleted contributo's posts and links to this contributo ID."
+msgstr ""
+
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:156
-msgid "Reassign the deleted user's posts and links to this user ID."
+msgid "Reassign the deleted contributor's posts and links to this contributor ID."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:190
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:571
-msgid "Invalid user parameter(s)."
+msgid "Invalid contributor parameter(s)."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:208
-msgid "Sorry, you are not allowed to filter users by role."
+msgid "Sorry, you are not allowed to filter contributors by role."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:217
-msgid "Sorry, you are not allowed to filter users by capability."
+msgid "Sorry, you are not allowed to filter contributors by capability."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:225
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:455
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:461
-msgid "Sorry, you are not allowed to list users."
+msgid "Sorry, you are not allowed to list contributors."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:233
-msgid "Sorry, you are not allowed to order users by this parameter."
+msgid "Sorry, you are not allowed to order contributors by this parameter."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:250
-msgid "Sorry, you are not allowed to query users by this parameter."
+msgid "Sorry, you are not allowed to query contributors by this parameter."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:528
-msgid "Sorry, you are not allowed to create new users."
+msgid "Sorry, you are not allowed to create new contributors."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:548
-msgid "Cannot create existing user."
+msgid "Cannot create existing contributor."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:596
-msgid "Error creating new user."
+msgid "Error creating new contributor."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:692
-msgid "Sorry, you are not allowed to edit roles of this user."
+msgid "Sorry, you are not allowed to edit roles of this contributor."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:711
-msgid "Sorry, you are not allowed to edit this user."
+msgid "Sorry, you are not allowed to edit this contributor."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:751
@@ -9675,21 +9678,21 @@ msgid "Invalid slug."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:865
-msgid "Sorry, you are not allowed to delete this user."
+msgid "Sorry, you are not allowed to delete this contributor."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:886
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:933
-msgid "The user cannot be deleted."
+msgid "The contributor cannot be deleted."
 msgstr ""
 
 #. translators: %s: force=true
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:906
-msgid "Users do not support trashing. Set '%s' to delete."
+msgid "Contributors do not support trashing. Set '%s' to delete."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:915
-msgid "Invalid user ID for reassignment."
+msgid "Invalid contributor ID for reassignment."
 msgstr ""
 
 #. translators: %s: Role key.
@@ -9699,7 +9702,7 @@ msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1241
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1255
-msgid "Sorry, you are not allowed to give users that role."
+msgid "Sorry, you are not allowed to give contributors that role."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1282
@@ -9723,67 +9726,67 @@ msgid "Passwords cannot contain the \"%s\" character."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1363
-msgid "Login name for the user."
+msgid "Login name for the contributor."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1372
-msgid "Display name for the user."
+msgid "Display name for the contributor."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1380
-msgid "First name for the user."
+msgid "First name for the contributor."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1388
-msgid "Last name for the user."
+msgid "Last name for the contributor."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1396
-msgid "The email address for the user."
+msgid "The email address for the contributor."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1403
-msgid "URL of the user."
+msgid "URL of the contributor."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1409
-msgid "Description of the user."
+msgid "Description of the contributor."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1414
-msgid "Author URL of the user."
+msgid "Author URL of the contributor."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1421
-msgid "Locale for the user."
+msgid "Locale for the contributor."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1427
-msgid "The nickname for the user."
+msgid "The nickname for the contributor."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1435
-msgid "An alphanumeric identifier for the user."
+msgid "An alphanumeric identifier for the contributor."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1443
-msgid "Registration date for the user."
+msgid "Registration date for the contributor."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1450
-msgid "Roles assigned to the user."
+msgid "Roles assigned to the contributor."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1458
-msgid "Password for the user (never included)."
+msgid "Password for the contributor (never included)."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1467
-msgid "All capabilities assigned to the user."
+msgid "All capabilities assigned to the contributor."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1473
-msgid "Any extra capabilities assigned to the user."
+msgid "Any extra capabilities assigned to the contributor."
 msgstr ""
 
 #. translators: %d: Avatar image size in pixels.
@@ -9792,31 +9795,31 @@ msgid "Avatar URL with image size of %d pixels."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1497
-msgid "Avatar URLs for the user."
+msgid "Avatar URLs for the contributor."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1556
-msgid "Sort collection by user attribute."
+msgid "Sort collection by contributor attribute."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1571
-msgid "Limit result set to users with one or more specific slugs."
+msgid "Limit result set to contributors with one or more specific slugs."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1579
-msgid "Limit result set to users matching at least one specific role provided. Accepts csv list or single role."
+msgid "Limit result set to contributors matching at least one specific role provided. Accepts csv list or single role."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1587
-msgid "Limit result set to users matching at least one specific capability provided. Accepts csv list or single capability."
+msgid "Limit result set to contributors matching at least one specific capability provided. Accepts csv list or single capability."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1595
-msgid "Limit result set to users who are considered authors."
+msgid "Limit result set to contributors who are considered authors."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1603
-msgid "Limit result set to users who have published posts."
+msgid "Limit result set to contributors who have published posts."
 msgstr ""
 
 #. translators: %s: Custom field key.
@@ -11197,7 +11200,7 @@ msgid "%1$s (%2$s)"
 msgstr ""
 
 #: wp-includes/user.php:2160
-msgid "Cannot create a user with an empty login name."
+msgid "Cannot create a contributor with an empty login name."
 msgstr ""
 
 #: wp-includes/user.php:2162
@@ -11219,11 +11222,11 @@ msgid "Sorry, that email address is already used!"
 msgstr ""
 
 #: wp-includes/user.php:2256
-msgid "User URL may not be longer than 100 characters."
+msgid "Contributor URL may not be longer than 100 characters."
 msgstr ""
 
 #: wp-includes/user.php:2264
-msgid "Sorry, marking a user as spam is only supported on Multisite."
+msgid "Sorry, marking a contributor as spam is only supported on Multisite."
 msgstr ""
 
 #: wp-includes/user.php:2397
@@ -11292,7 +11295,7 @@ msgid "<strong>Error:</strong> There is no account with that username or email a
 msgstr ""
 
 #: wp-includes/user.php:2950
-msgid "Password reset is not allowed for this user"
+msgid "Password reset is not allowed for this contributor"
 msgstr ""
 
 #: wp-includes/user.php:3012
@@ -11421,7 +11424,7 @@ msgid "This account is already active."
 msgstr ""
 
 #: wp-includes/user.php:3791
-msgid "Could not create user"
+msgid "Could not create contributor"
 msgstr ""
 
 #: wp-includes/user.php:3829
@@ -11440,7 +11443,7 @@ msgstr ""
 
 #. translators: New user notification email subject. 1: Network title, 2: New user login.
 #: wp-includes/user.php:3945
-msgctxt "New user notification email subject"
+msgctxt "New contributor notification email subject"
 msgid "[%1$s] Activate %2$s"
 msgstr ""
 
@@ -11479,51 +11482,51 @@ msgid "Your email address has not been updated yet. Please check your inbox at %
 msgstr ""
 
 #: wp-includes/user.php:4292
-msgid "Retraceur User"
+msgid "Retraceur Contributor"
 msgstr ""
 
 #: wp-includes/user.php:4331
-msgid "User ID"
+msgid "Contributor ID"
 msgstr ""
 
 #: wp-includes/user.php:4332
-msgid "User Login Name"
+msgid "Contributor Login Name"
 msgstr ""
 
 #: wp-includes/user.php:4333
-msgid "User Nice Name"
+msgid "Contributor Nice Name"
 msgstr ""
 
 #: wp-includes/user.php:4334
-msgid "User Email"
+msgid "Contributor Email"
 msgstr ""
 
 #: wp-includes/user.php:4335
-msgid "User URL"
+msgid "Contributor URL"
 msgstr ""
 
 #: wp-includes/user.php:4336
-msgid "User Registration Date"
+msgid "Contributor Registration Date"
 msgstr ""
 
 #: wp-includes/user.php:4337
-msgid "User Display Name"
+msgid "Contributor Display Name"
 msgstr ""
 
 #: wp-includes/user.php:4338
-msgid "User Nickname"
+msgid "Contributor Nickname"
 msgstr ""
 
 #: wp-includes/user.php:4339
-msgid "User First Name"
+msgid "Contributor First Name"
 msgstr ""
 
 #: wp-includes/user.php:4340
-msgid "User Last Name"
+msgid "Contributor Last Name"
 msgstr ""
 
 #: wp-includes/user.php:4341
-msgid "User Description"
+msgid "Contributor Description"
 msgstr ""
 
 #. translators: %s: wp_privacy_additional_user_profile_data
@@ -11532,11 +11535,11 @@ msgid "Filter %s returned items with reserved names."
 msgstr ""
 
 #: wp-includes/user.php:4423
-msgid "User"
+msgid "Contributor"
 msgstr ""
 
 #: wp-includes/user.php:4424
-msgid "User&#8217;s profile data."
+msgid "Contributor&#8217;s profile data."
 msgstr ""
 
 #: wp-includes/user.php:4433
@@ -11577,7 +11580,7 @@ msgid "Session Tokens"
 msgstr ""
 
 #: wp-includes/user.php:4481
-msgid "User&#8217;s Session Tokens data."
+msgid "Contributor&#8217;s Session Tokens data."
 msgstr ""
 
 #. translators: Privacy data request confirmed notification email subject. 1: Site title, 2: Name of the confirmed action.
@@ -11949,7 +11952,7 @@ msgid "Missing confirm key."
 msgstr ""
 
 #: wp-login.php:1274
-msgid "User action confirmed."
+msgid "Contributor action confirmed."
 msgstr ""
 
 #: wp-login.php:1295
@@ -11990,7 +11993,7 @@ msgid "You are now logged out."
 msgstr ""
 
 #: wp-login.php:1491
-msgid "<strong>Error:</strong> User registration is currently not allowed."
+msgid "<strong>Error:</strong> Contributor registration is currently not allowed."
 msgstr ""
 
 #: wp-login.php:1493
