@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-02-08T13:03:01+00:00\n"
+"POT-Creation-Date: 2025-03-29T11:44:26+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 
@@ -1040,7 +1040,7 @@ msgid "<strong>%s</strong> now has editing control of this post (<PreviewLink />
 msgstr ""
 
 #: wp-includes/js/dist/editor.js:15965
-msgid "Another user now has editing control of this post (<PreviewLink />). Don’t worry, your changes up to this moment have been saved."
+msgid "Another contributor now has editing control of this post (<PreviewLink />). Don’t worry, your changes up to this moment have been saved."
 msgstr ""
 
 #: wp-includes/js/dist/editor.js:15969
@@ -1054,11 +1054,11 @@ msgid "<strong>%s</strong> is currently working on this post (<PreviewLink />), 
 msgstr ""
 
 #: wp-includes/js/dist/editor.js:15975
-msgid "Another user is currently working on this post (<PreviewLink />), which means you cannot make changes, unless you take over."
+msgid "Another contributor is currently working on this post (<PreviewLink />), which means you cannot make changes, unless you take over."
 msgstr ""
 
 #: wp-includes/js/dist/editor.js:15983
-msgid "If you take over, the other user will lose editing control to the post, but their changes will be saved."
+msgid "If you take over, the other contributor will lose editing control to the post, but their changes will be saved."
 msgstr ""
 
 #: wp-includes/js/dist/editor.js:15992
@@ -1245,7 +1245,7 @@ msgid "Add tags"
 msgstr ""
 
 #: wp-includes/js/dist/editor.js:17992
-msgid "Tags help users and search engines navigate your site and find your content. Add a few keywords to describe your post."
+msgid "Tags help contributors and search engines navigate your site and find your content. Add a few keywords to describe your post."
 msgstr ""
 
 #: wp-includes/js/dist/editor.js:18090
@@ -1878,7 +1878,7 @@ msgid "Edit the template to move, delete, or make further changes to this block.
 msgstr ""
 
 #: wp-includes/js/dist/editor.js:23980
-msgid "Only users with permissions to edit the template can move or delete this block"
+msgid "Only contributors with permissions to edit the template can move or delete this block"
 msgstr ""
 
 #: wp-includes/js/dist/editor.js:23992
@@ -2376,7 +2376,7 @@ msgid "Optimize the editing experience for enhanced control."
 msgstr ""
 
 #: wp-includes/js/dist/editor.js:29699
-msgid "Keeps the text cursor within the block boundaries, aiding users with screen readers by preventing unintentional cursor movement outside the block."
+msgid "Keeps the text cursor within the block boundaries, aiding contributors with screen readers by preventing unintentional cursor movement outside the block."
 msgstr ""
 
 #: wp-includes/js/dist/editor.js:29700

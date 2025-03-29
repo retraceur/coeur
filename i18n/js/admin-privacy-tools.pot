@@ -7,16 +7,16 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-02-08T13:02:42+00:00\n"
+"POT-Creation-Date: 2025-03-29T11:44:06+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 
 #: wp-admin/js/privacy-tools.js:80
-msgid "This user&#8217;s personal data export link was sent."
+msgid "This contributor&#8217;s personal data export link was sent."
 msgstr ""
 
 #: wp-admin/js/privacy-tools.js:83
-msgid "This user&#8217;s personal data export file was downloaded."
+msgid "This contributor&#8217;s personal data export file was downloaded."
 msgstr ""
 
 #: wp-admin/js/privacy-tools.js:93
@@ -29,19 +29,19 @@ msgstr ""
 
 #: wp-admin/js/privacy-tools.js:185
 #: wp-admin/js/privacy-tools.js:192
-msgid "No personal data was found for this user."
+msgid "No personal data was found for this contributor."
 msgstr ""
 
 #: wp-admin/js/privacy-tools.js:194
-msgid "Personal data was found for this user but was not erased."
+msgid "Personal data was found for this contributor but was not erased."
 msgstr ""
 
 #: wp-admin/js/privacy-tools.js:199
-msgid "All of the personal data found for this user was erased."
+msgid "All of the personal data found for this contributor was erased."
 msgstr ""
 
 #: wp-admin/js/privacy-tools.js:201
-msgid "Personal data was found for this user but some of the personal data found was not erased."
+msgid "Personal data was found for this contributor but some of the personal data found was not erased."
 msgstr ""
 
 #: wp-admin/js/privacy-tools.js:211

@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-02-08T13:03:28+00:00\n"
+"POT-Creation-Date: 2025-03-29T11:44:52+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 
@@ -290,7 +290,7 @@ msgstr ""
 #: wp-includes/js/dist/block-editor.js:17683
 #: wp-includes/js/dist/block-editor.js:17711
 #: wp-includes/js/dist/block-editor.js:25506
-msgctxt "Indicates this palette is created by the user."
+msgctxt "Indicates this palette is created by the contributor."
 msgid "Custom"
 msgstr ""
 
@@ -1672,7 +1672,7 @@ msgid "Theme & Plugins"
 msgstr ""
 
 #: wp-includes/js/dist/block-editor.js:47542
-msgid "User"
+msgid "Contributor"
 msgstr ""
 
 #: wp-includes/js/dist/block-editor.js:47570
