@@ -437,7 +437,7 @@ function map_meta_cap( $cap, $user_id, ...$args ) {
 					$message = __( 'When checking for the %s capability, you must always check it against a specific term.' );
 				} else {
 					/* translators: %s: Capability name. */
-					$message = __( 'When checking for the %s capability, you must always check it against a specific user.' );
+					$message = __( 'When checking for the %s capability, you must always check it against a specific contributor.' );
 				}
 
 				_doing_it_wrong(

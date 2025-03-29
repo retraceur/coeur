@@ -57,7 +57,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 				);
 				?>
 			</p>
-			<p><?php esc_html_e( 'Retraceur considers users privacy to be extremely important, so important it does not collect any personal information. This privacy policy document describes how to be informed about the personal data collected and recorded by the GitHub services Retraceur uses, as well as warns you about the fact third party Retraceur plugins or themes might collect your personal data.' ) ; ?></p>
+			<p><?php esc_html_e( 'Retraceur considers contributors privacy to be extremely important, so important it does not collect any personal information. This privacy policy document describes how to be informed about the personal data collected and recorded by the GitHub services Retraceur uses, as well as warns you about the fact third party Retraceur plugins or themes might collect your personal data.' ) ; ?></p>
 		</div>
 	</div>
 

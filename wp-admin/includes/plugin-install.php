@@ -732,7 +732,7 @@ function install_plugin_information() {
 
 		if ( ! empty( $api->contributors ) ) {
 			?>
-			<h3><?php _e( 'Contributors' ); ?></h3>
+			<h3><?php echo esc_html_x( 'Contributors', 'plugin credits' ); ?></h3>
 			<ul class="contributors">
 				<?php
 				foreach ( (array) $api->contributors as $contrib_username => $contrib_details ) {

@@ -27,9 +27,9 @@ if ( ! defined( 'IS_PROFILE_PAGE' ) ) {
 if ( ! $user_id && IS_PROFILE_PAGE ) {
 	$user_id = $current_user->ID;
 } elseif ( ! $user_id && ! IS_PROFILE_PAGE ) {
-	wp_die( __( 'Invalid user ID.' ) );
+	wp_die( __( 'Invalid contributor ID.' ) );
 } elseif ( ! get_userdata( $user_id ) ) {
-	wp_die( __( 'Invalid user ID.' ) );
+	wp_die( __( 'Invalid contributor ID.' ) );
 }
 
 wp_enqueue_script( 'user-profile' );
@@ -44,7 +44,7 @@ if ( IS_PROFILE_PAGE ) {
 } else {
 	// Used in the HTML title tag.
 	/* translators: %s: User's display name. */
-	$title = __( 'Edit User %s' );
+	$title = __( 'Edit Contributor %s' );
 }
 
 if ( current_user_can( 'edit_users' ) && ! IS_PROFILE_PAGE ) {
@@ -97,7 +97,7 @@ if ( is_multisite()
 	&& $user_id !== $current_user->ID
 	&& ! apply_filters( 'enable_edit_any_user_configuration', true )
 ) {
-	wp_die( __( 'Sorry, you are not allowed to edit this user.' ) );
+	wp_die( __( 'Sorry, you are not allowed to edit this contributor.' ) );
 }
 
 // Execute confirmed email change. See send_confirmation_on_profile_email().
@@ -165,7 +165,7 @@ switch ( $action ) {
 		check_admin_referer( 'update-user_' . $user_id );
 
 		if ( ! current_user_can( 'edit_user', $user_id ) ) {
-			wp_die( __( 'Sorry, you are not allowed to edit this user.' ) );
+			wp_die( __( 'Sorry, you are not allowed to edit this contributor.' ) );
 		}
 
 		if ( IS_PROFILE_PAGE ) {
@@ -224,7 +224,7 @@ switch ( $action ) {
 		$profile_user = get_user_to_edit( $user_id );
 
 		if ( ! current_user_can( 'edit_user', $user_id ) ) {
-			wp_die( __( 'Sorry, you are not allowed to edit this user.' ) );
+			wp_die( __( 'Sorry, you are not allowed to edit this contributor.' ) );
 		}
 
 		$title    = sprintf( $title, $profile_user->display_name );
@@ -235,7 +235,7 @@ switch ( $action ) {
 
 		<?php
 		if ( ! IS_PROFILE_PAGE && is_super_admin( $profile_user->ID ) && current_user_can( 'manage_network_options' ) ) :
-			$message = '<strong>' . __( 'Important:' ) . '</strong> ' . __( 'This user has super admin privileges.' );
+			$message = '<strong>' . __( 'Important:' ) . '</strong> ' . __( 'This contributor has super admin privileges.' );
 			wp_admin_notice(
 				$message,
 				array(
@@ -248,13 +248,13 @@ switch ( $action ) {
 			if ( IS_PROFILE_PAGE ) :
 				$message = '<p><strong>' . __( 'Profile updated.' ) . '</strong></p>';
 			else :
-				$message = '<p><strong>' . __( 'User updated.' ) . '</strong></p>';
+				$message = '<p><strong>' . __( 'Contributor updated.' ) . '</strong></p>';
 			endif;
 			if ( $wp_http_referer && ! str_contains( $wp_http_referer, 'user-new.php' ) && ! IS_PROFILE_PAGE ) :
 				$message .= sprintf(
 					'<p><a href="%1$s">%2$s</a></p>',
 					esc_url( wp_validate_redirect( sanitize_url( $wp_http_referer ), self_admin_url( 'users.php' ) ) ),
-					__( '&larr; Go to Users' )
+					__( '&larr; Go to Contributors' )
 				);
 			endif;
 			wp_admin_notice(
@@ -298,9 +298,9 @@ switch ( $action ) {
 
 			<?php if ( ! IS_PROFILE_PAGE ) : ?>
 				<?php if ( current_user_can( 'create_users' ) ) : ?>
-					<a href="user-new.php" class="page-title-action"><?php echo esc_html__( 'Add New User' ); ?></a>
+					<a href="user-new.php" class="page-title-action"><?php echo esc_html__( 'Add New Contributor' ); ?></a>
 				<?php elseif ( is_multisite() && current_user_can( 'promote_users' ) ) : ?>
-					<a href="user-new.php" class="page-title-action"><?php echo esc_html__( 'Add Existing User' ); ?></a>
+					<a href="user-new.php" class="page-title-action"><?php echo esc_html__( 'Add Existing Contributor' ); ?></a>
 				<?php endif; ?>
 			<?php endif; ?>
 
@@ -494,9 +494,9 @@ switch ( $action ) {
 							<th><?php _e( 'Super Admin' ); ?></th>
 							<td>
 								<?php if ( 0 !== strcasecmp( $profile_user->user_email, get_site_option( 'admin_email' ) ) || ! is_super_admin( $profile_user->ID ) ) : ?>
-									<p><label><input type="checkbox" id="super_admin" name="super_admin"<?php checked( is_super_admin( $profile_user->ID ) ); ?> /> <?php _e( 'Grant this user super admin privileges for the Network.' ); ?></label></p>
+									<p><label><input type="checkbox" id="super_admin" name="super_admin"<?php checked( is_super_admin( $profile_user->ID ) ); ?> /> <?php _e( 'Grant this contributor super admin privileges for the Network.' ); ?></label></p>
 								<?php else : ?>
-									<p><?php _e( 'Super admin privileges cannot be removed because this user has the network admin email.' ); ?></p>
+									<p><?php _e( 'Super admin privileges cannot be removed because this contributor has the network admin email.' ); ?></p>
 								<?php endif; ?>
 							</td>
 						</tr>
@@ -626,7 +626,7 @@ switch ( $action ) {
 					<?php endforeach; ?>
 				</table>
 
-				<h2><?php IS_PROFILE_PAGE ? _e( 'About Yourself' ) : _e( 'About the user' ); ?></h2>
+				<h2><?php IS_PROFILE_PAGE ? _e( 'About Yourself' ) : _e( 'About the contributor' ); ?></h2>
 
 				<table class="form-table" role="presentation">
 					<tr class="user-description-wrap">
@@ -836,7 +836,7 @@ switch ( $action ) {
 										<div class="form-field">
 											<label for="new_application_password_name"><?php _e( 'New Application Password Name' ); ?></label>
 											<input type="text" size="30" id="new_application_password_name" name="new_application_password_name" class="input" aria-required="true" aria-describedby="new_application_password_name_desc" spellcheck="false" />
-											<p class="description" id="new_application_password_name_desc"><?php _e( 'Required to create an Application Password, but not to update the user.' ); ?></p>
+											<p class="description" id="new_application_password_name_desc"><?php _e( 'Required to create an Application Password, but not to update the contributor.' ); ?></p>
 										</div>
 
 										<?php
@@ -966,7 +966,7 @@ switch ( $action ) {
 				<input type="hidden" name="action" value="update" />
 				<input type="hidden" name="user_id" id="user_id" value="<?php echo esc_attr( $user_id ); ?>" />
 
-				<?php submit_button( IS_PROFILE_PAGE ? __( 'Update Profile' ) : __( 'Update User' ) ); ?>
+				<?php submit_button( IS_PROFILE_PAGE ? __( 'Update Profile' ) : __( 'Update Contributor' ) ); ?>
 
 			</form>
 		</div>

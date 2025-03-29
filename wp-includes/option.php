@@ -2669,7 +2669,7 @@ function register_initial_settings() {
 					),
 				),
 				'type'         => 'string',
-				'description'  => __( 'This address is used for admin purposes, like new user notification.' ),
+				'description'  => __( 'This address is used for admin purposes, like new contributor notification.' ),
 			)
 		);
 	}

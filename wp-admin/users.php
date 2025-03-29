@@ -15,7 +15,7 @@ require_once __DIR__ . '/admin.php';
 if ( ! current_user_can( 'list_users' ) ) {
 	wp_die(
 		'<h1>' . __( 'You need a higher level of permission.' ) . '</h1>' .
-		'<p>' . __( 'Sorry, you are not allowed to list users.' ) . '</p>',
+		'<p>' . __( 'Sorry, you are not allowed to list contributors.' ) . '</p>',
 		403
 	);
 }
@@ -24,7 +24,7 @@ $wp_list_table = _get_list_table( 'WP_Users_List_Table' );
 $pagenum       = $wp_list_table->get_pagenum();
 
 // Used in the HTML title tag.
-$title       = __( 'Users' );
+$title       = _x( 'Contributors', 'users admin screen title' );
 $parent_file = 'users.php';
 
 add_screen_option( 'per_page' );
@@ -45,10 +45,10 @@ get_current_screen()->add_help_tab(
 		'title'   => __( 'Overview' ),
 		'content' => '<p>' . sprintf(
 			/* Translators: %s: a comma separated list of role names. */
-			__( 'This screen lists all the existing users for your site. Each user has one of the defined roles as set by the site admin: %s. Users with roles other than Administrator will see fewer options in the dashboard navigation when they are logged in, based on their role.' ),
+			__( 'This screen lists all the existing contributors for your site. Each contributor has one of the defined roles as set by the site admin: %s. Contributors with roles other than Administrator will see fewer options in the dashboard navigation when they are logged in, based on their role.' ),
 			$role_list
 		) . '</p>' .
-		'<p>' . __( 'To add a new user for your site, click the Add New User button at the top of the screen or Add New User in the Users menu section.' ) . '</p>',
+		'<p>' . __( 'To add a new contributor for your site, click the Add New Contributor button at the top of the screen or Add New Contributor in the Contributors menu section.' ) . '</p>',
 	)
 );
 
@@ -58,31 +58,31 @@ get_current_screen()->add_help_tab(
 		'title'   => __( 'Screen Content' ),
 		'content' => '<p>' . __( 'You can customize the display of this screen in a number of ways:' ) . '</p>' .
 						'<ul>' .
-						'<li>' . __( 'You can hide/display columns based on your needs and decide how many users to list per screen using the Screen Options tab.' ) . '</li>' .
+						'<li>' . __( 'You can hide/display columns based on your needs and decide how many contributors to list per screen using the Screen Options tab.' ) . '</li>' .
 						'<li>' . sprintf(
 							/* Translators: %s: a comma separated list of role names. */
-							__( 'You can filter the list of users by User Role using the text links above the users list to show All, %s. The default view is to show all users. Unused User Roles are not listed.' ),
+							__( 'You can filter the list of contributors by Contributor Role using the text links above the contributors list to show All, %s. The default view is to show all contributors. Unused Contributor Roles are not listed.' ),
 							$role_list
 						) . '</li>' .
-						'<li>' . __( 'You can view all posts made by a user by clicking on the number under the Posts column.' ) . '</li>' .
+						'<li>' . __( 'You can view all posts made by a contributor by clicking on the number under the Posts column.' ) . '</li>' .
 						'</ul>',
 	)
 );
 
-$help = '<p>' . __( 'Hovering over a row in the users list will display action links that allow you to manage users. You can perform the following actions:' ) . '</p>' .
+$help = '<p>' . __( 'Hovering over a row in the contributors list will display action links that allow you to manage contributors. You can perform the following actions:' ) . '</p>' .
 	'<ul>' .
-	'<li>' . __( '<strong>Edit</strong> takes you to the editable profile screen for that user. You can also reach that screen by clicking on the username.' ) . '</li>';
+	'<li>' . __( '<strong>Edit</strong> takes you to the editable profile screen for that contributor. You can also reach that screen by clicking on the username.' ) . '</li>';
 
 if ( is_multisite() ) {
-	$help .= '<li>' . __( '<strong>Remove</strong> allows you to remove a user from your site. It does not delete their content. You can also remove multiple users at once by using bulk actions.' ) . '</li>';
+	$help .= '<li>' . __( '<strong>Remove</strong> allows you to remove a contributor from your site. It does not delete their content. You can also remove multiple contributors at once by using bulk actions.' ) . '</li>';
 } else {
-	$help .= '<li>' . __( '<strong>Delete</strong> brings you to the Delete Users screen for confirmation, where you can permanently remove a user from your site and delete their content. You can also delete multiple users at once by using bulk actions.' ) . '</li>';
+	$help .= '<li>' . __( '<strong>Delete</strong> brings you to the Delete Contributors screen for confirmation, where you can permanently remove a contributor from your site and delete their content. You can also delete multiple contributors at once by using bulk actions.' ) . '</li>';
 }
 
-$help .= '<li>' . __( '<strong>View</strong> takes you to a public author archive which lists all the posts published by the user.' ) . '</li>';
+$help .= '<li>' . __( '<strong>View</strong> takes you to a public author archive which lists all the posts published by the contributor.' ) . '</li>';
 
 if ( current_user_can( 'edit_users' ) ) {
-	$help .= '<li>' . __( '<strong>Send password reset</strong> sends the user an email with a link to set a new password.' ) . '</li>';
+	$help .= '<li>' . __( '<strong>Send password reset</strong> sends the contributor an email with a link to set a new password.' ) . '</li>';
 }
 
 $help .= '</ul>';
@@ -98,9 +98,9 @@ unset( $help );
 
 get_current_screen()->set_screen_reader_content(
 	array(
-		'heading_views'      => __( 'Filter users list' ),
-		'heading_pagination' => __( 'Users list navigation' ),
-		'heading_list'       => __( 'Users list' ),
+		'heading_views'      => __( 'Filter contributors list' ),
+		'heading_pagination' => __( 'Contributors list navigation' ),
+		'heading_list'       => __( 'Contributors list' ),
 	)
 );
 
@@ -123,7 +123,7 @@ switch ( $wp_list_table->current_action() ) {
 		check_admin_referer( 'bulk-users' );
 
 		if ( ! current_user_can( 'promote_users' ) ) {
-			wp_die( __( 'Sorry, you are not allowed to edit this user.' ), 403 );
+			wp_die( __( 'Sorry, you are not allowed to edit this contributor.' ), 403 );
 		}
 
 		if ( empty( $_REQUEST['users'] ) ) {
@@ -140,7 +140,7 @@ switch ( $wp_list_table->current_action() ) {
 		);
 
 		if ( ! $role || empty( $editable_roles[ $role ] ) ) {
-			wp_die( __( 'Sorry, you are not allowed to give users that role.' ), 403 );
+			wp_die( __( 'Sorry, you are not allowed to give contributors that role.' ), 403 );
 		}
 
 		if ( 'none' === $role ) {
@@ -152,7 +152,7 @@ switch ( $wp_list_table->current_action() ) {
 
 		foreach ( $user_ids as $id ) {
 			if ( ! current_user_can( 'promote_user', $id ) ) {
-				wp_die( __( 'Sorry, you are not allowed to edit this user.' ), 403 );
+				wp_die( __( 'Sorry, you are not allowed to edit this contributor.' ), 403 );
 			}
 
 			// The new role of the current user must also have the promote_users cap or be a multisite super admin.
@@ -168,7 +168,7 @@ switch ( $wp_list_table->current_action() ) {
 			if ( is_multisite() && ! is_user_member_of_blog( $id ) ) {
 				wp_die(
 					'<h1>' . __( 'Something went wrong.' ) . '</h1>' .
-					'<p>' . __( 'One of the selected users is not a member of this site.' ) . '</p>',
+					'<p>' . __( 'One of the selected contributors is not a member of this site.' ) . '</p>',
 					403
 				);
 			}
@@ -182,7 +182,7 @@ switch ( $wp_list_table->current_action() ) {
 
 	case 'dodelete':
 		if ( is_multisite() ) {
-			wp_die( __( 'User deletion is not allowed from this screen.' ), 400 );
+			wp_die( __( 'Contributor deletion is not allowed from this screen.' ), 400 );
 		}
 
 		check_admin_referer( 'delete-users' );
@@ -202,7 +202,7 @@ switch ( $wp_list_table->current_action() ) {
 		}
 
 		if ( ! current_user_can( 'delete_users' ) ) {
-			wp_die( __( 'Sorry, you are not allowed to delete users.' ), 403 );
+			wp_die( __( 'Sorry, you are not allowed to delete contributors.' ), 403 );
 		}
 
 		$update       = 'del';
@@ -210,7 +210,7 @@ switch ( $wp_list_table->current_action() ) {
 
 		foreach ( $user_ids as $id ) {
 			if ( ! current_user_can( 'delete_user', $id ) ) {
-				wp_die( __( 'Sorry, you are not allowed to delete that user.' ), 403 );
+				wp_die( __( 'Sorry, you are not allowed to delete that contributor.' ), 403 );
 			}
 
 			if ( $id === $current_user->ID ) {
@@ -244,7 +244,7 @@ switch ( $wp_list_table->current_action() ) {
 		check_admin_referer( 'bulk-users' );
 
 		if ( ! current_user_can( 'edit_users' ) ) {
-			$errors = new WP_Error( 'edit_users', __( 'Sorry, you are not allowed to edit users.' ) );
+			$errors = new WP_Error( 'edit_users', __( 'Sorry, you are not allowed to edit contributors.' ) );
 		}
 
 		if ( empty( $_REQUEST['users'] ) ) {
@@ -258,7 +258,7 @@ switch ( $wp_list_table->current_action() ) {
 
 		foreach ( $user_ids as $id ) {
 			if ( ! current_user_can( 'edit_user', $id ) ) {
-				wp_die( __( 'Sorry, you are not allowed to edit this user.' ) );
+				wp_die( __( 'Sorry, you are not allowed to edit this contributor.' ) );
 			}
 
 			if ( $id === $current_user->ID ) {
@@ -285,7 +285,7 @@ switch ( $wp_list_table->current_action() ) {
 
 	case 'delete':
 		if ( is_multisite() ) {
-			wp_die( __( 'User deletion is not allowed from this screen.' ), 400 );
+			wp_die( __( 'Contributor deletion is not allowed from this screen.' ), 400 );
 		}
 
 		check_admin_referer( 'bulk-users' );
@@ -296,7 +296,7 @@ switch ( $wp_list_table->current_action() ) {
 		}
 
 		if ( ! current_user_can( 'delete_users' ) ) {
-			$errors = new WP_Error( 'edit_users', __( 'Sorry, you are not allowed to delete users.' ) );
+			$errors = new WP_Error( 'edit_users', __( 'Sorry, you are not allowed to delete contributors.' ) );
 		}
 
 		if ( empty( $_REQUEST['users'] ) ) {
@@ -343,7 +343,7 @@ switch ( $wp_list_table->current_action() ) {
 		<?php echo $referer; ?>
 
 		<div class="wrap">
-		<h1><?php _e( 'Delete Users' ); ?></h1>
+		<h1><?php _e( 'Delete Contributors' ); ?></h1>
 
 		<?php
 		if ( isset( $_REQUEST['error'] ) ) :
@@ -357,9 +357,9 @@ switch ( $wp_list_table->current_action() ) {
 		?>
 
 		<?php if ( 1 === count( $all_user_ids ) ) : ?>
-			<p><?php _e( 'You have specified this user for deletion:' ); ?></p>
+			<p><?php _e( 'You have specified this contributor for deletion:' ); ?></p>
 		<?php else : ?>
-			<p><?php _e( 'You have specified these users for deletion:' ); ?></p>
+			<p><?php _e( 'You have specified these contributors for deletion:' ); ?></p>
 		<?php endif; ?>
 
 		<ul>
@@ -373,7 +373,7 @@ switch ( $wp_list_table->current_action() ) {
 				echo '<li>';
 				printf(
 					/* translators: 1: User ID, 2: User login. */
-					__( 'ID #%1$s: %2$s <strong>The current user will not be deleted.</strong>' ),
+					__( 'ID #%1$s: %2$s <strong>The current contributor will not be deleted.</strong>' ),
 					$id,
 					$user->user_login
 				);
@@ -407,9 +407,9 @@ switch ( $wp_list_table->current_action() ) {
 			<?php else : ?>
 				<fieldset>
 				<?php if ( 1 === $go_delete ) : ?>
-					<p><legend><?php _e( 'What should be done with content owned by this user?' ); ?></legend></p>
+					<p><legend><?php _e( 'What should be done with content owned by this contributor?' ); ?></legend></p>
 				<?php else : ?>
-					<p><legend><?php _e( 'What should be done with content owned by these users?' ); ?></legend></p>
+					<p><legend><?php _e( 'What should be done with content owned by these contributors?' ); ?></legend></p>
 				<?php endif; ?>
 
 				<ul style="list-style:none;">
@@ -451,7 +451,7 @@ switch ( $wp_list_table->current_action() ) {
 
 		<?php else : ?>
 
-			<p><?php _e( 'There are no valid users selected for deletion.' ); ?></p>
+			<p><?php _e( 'There are no valid contributors selected for deletion.' ); ?></p>
 
 		<?php endif; ?>
 		</div><!-- .wrap -->
@@ -464,7 +464,7 @@ switch ( $wp_list_table->current_action() ) {
 		check_admin_referer( 'remove-users' );
 
 		if ( ! is_multisite() ) {
-			wp_die( __( 'You cannot remove users.' ), 400 );
+			wp_die( __( 'You cannot remove contributors.' ), 400 );
 		}
 
 		if ( empty( $_REQUEST['users'] ) ) {
@@ -473,7 +473,7 @@ switch ( $wp_list_table->current_action() ) {
 		}
 
 		if ( ! current_user_can( 'remove_users' ) ) {
-			wp_die( __( 'Sorry, you are not allowed to remove users.' ), 403 );
+			wp_die( __( 'Sorry, you are not allowed to remove contributors.' ), 403 );
 		}
 
 		$user_ids = array_map( 'intval', (array) $_REQUEST['users'] );
@@ -496,7 +496,7 @@ switch ( $wp_list_table->current_action() ) {
 		check_admin_referer( 'bulk-users' );
 
 		if ( ! is_multisite() ) {
-			wp_die( __( 'You cannot remove users.' ), 400 );
+			wp_die( __( 'You cannot remove contributors.' ), 400 );
 		}
 
 		if ( empty( $_REQUEST['users'] ) && empty( $_REQUEST['user'] ) ) {
@@ -505,7 +505,7 @@ switch ( $wp_list_table->current_action() ) {
 		}
 
 		if ( ! current_user_can( 'remove_users' ) ) {
-			$error = new WP_Error( 'edit_users', __( 'Sorry, you are not allowed to remove users.' ) );
+			$error = new WP_Error( 'edit_users', __( 'Sorry, you are not allowed to remove contributors.' ) );
 		}
 
 		if ( empty( $_REQUEST['users'] ) ) {
@@ -521,12 +521,12 @@ switch ( $wp_list_table->current_action() ) {
 		<?php echo $referer; ?>
 
 		<div class="wrap">
-		<h1><?php _e( 'Remove Users from Site' ); ?></h1>
+		<h1><?php _e( 'Remove Contributors from Site' ); ?></h1>
 
 		<?php if ( 1 === count( $user_ids ) ) : ?>
-			<p><?php _e( 'You have specified this user for removal:' ); ?></p>
+			<p><?php _e( 'You have specified this contributor for removal:' ); ?></p>
 		<?php else : ?>
-			<p><?php _e( 'You have specified these users for removal:' ); ?></p>
+			<p><?php _e( 'You have specified these contributors for removal:' ); ?></p>
 		<?php endif; ?>
 
 		<ul>
@@ -540,7 +540,7 @@ switch ( $wp_list_table->current_action() ) {
 				echo '<li>';
 				printf(
 					/* translators: 1: User ID, 2: User login. */
-					__( 'ID #%1$s: %2$s <strong>Sorry, you are not allowed to remove this user.</strong>' ),
+					__( 'ID #%1$s: %2$s <strong>Sorry, you are not allowed to remove this contributor.</strong>' ),
 					$id,
 					$user->user_login
 				);
@@ -572,7 +572,7 @@ switch ( $wp_list_table->current_action() ) {
 
 		<?php else : ?>
 
-			<p><?php _e( 'There are no valid users selected for removal.' ); ?></p>
+			<p><?php _e( 'There are no valid contributors selected for removal.' ); ?></p>
 
 		<?php endif; ?>
 		</div><!-- .wrap -->
@@ -616,10 +616,10 @@ switch ( $wp_list_table->current_action() ) {
 				case 'del_many':
 					$delete_count = isset( $_GET['delete_count'] ) ? (int) $_GET['delete_count'] : 0;
 					if ( 1 === $delete_count ) {
-						$message = __( 'User deleted.' );
+						$message = __( 'Contributor deleted.' );
 					} else {
 						/* translators: %s: Number of users. */
-						$message = _n( '%s user deleted.', '%s users deleted.', $delete_count );
+						$message = _n( '%s contributor deleted.', '%s contributors deleted.', $delete_count );
 					}
 					$message    = sprintf( $message, number_format_i18n( $delete_count ) );
 					$messages[] = wp_get_admin_notice(
@@ -632,7 +632,7 @@ switch ( $wp_list_table->current_action() ) {
 					);
 					break;
 				case 'add':
-					$message = __( 'New user created.' );
+					$message = __( 'New contributor created.' );
 					$user_id = isset( $_GET['id'] ) ? $_GET['id'] : false;
 					if ( $user_id && current_user_can( 'edit_user', $user_id ) ) {
 						$message .= sprintf(
@@ -644,7 +644,7 @@ switch ( $wp_list_table->current_action() ) {
 									self_admin_url( 'user-edit.php?user_id=' . $user_id )
 								)
 							),
-							__( 'Edit user' )
+							__( 'Edit contributor' )
 						);
 					}
 
@@ -663,7 +663,7 @@ switch ( $wp_list_table->current_action() ) {
 						$message = __( 'Password reset link sent.' );
 					} else {
 						/* translators: %s: Number of users. */
-						$message = _n( 'Password reset links sent to %s user.', 'Password reset links sent to %s users.', $reset_count );
+						$message = _n( 'Password reset links sent to %s contributor.', 'Password reset links sent to %s contributors.', $reset_count );
 					}
 					$message    = sprintf( $message, number_format_i18n( $reset_count ) );
 					$messages[] = wp_get_admin_notice(
@@ -687,7 +687,7 @@ switch ( $wp_list_table->current_action() ) {
 					break;
 				case 'err_admin_role':
 					$messages[] = wp_get_admin_notice(
-						__( 'The current user&#8217;s role must have user editing capabilities.' ),
+						__( 'The current contributor&#8217;s role must have contributor editing capabilities.' ),
 						array(
 							'id'                 => 'message',
 							'additional_classes' => array( 'error' ),
@@ -695,7 +695,7 @@ switch ( $wp_list_table->current_action() ) {
 						)
 					);
 					$messages[] = wp_get_admin_notice(
-						__( 'Other user roles have been changed.' ),
+						__( 'Other contributor roles have been changed.' ),
 						array(
 							'id'                 => 'message',
 							'additional_classes' => array( 'updated' ),
@@ -705,7 +705,7 @@ switch ( $wp_list_table->current_action() ) {
 					break;
 				case 'err_admin_del':
 					$messages[] = wp_get_admin_notice(
-						__( 'You cannot delete the current user.' ),
+						__( 'You cannot delete the current contributor.' ),
 						array(
 							'id'                 => 'message',
 							'additional_classes' => array( 'error' ),
@@ -713,7 +713,7 @@ switch ( $wp_list_table->current_action() ) {
 						)
 					);
 					$messages[] = wp_get_admin_notice(
-						__( 'Other users have been deleted.' ),
+						__( 'Other contributors have been deleted.' ),
 						array(
 							'id'                 => 'message',
 							'additional_classes' => array( 'updated' ),
@@ -723,7 +723,7 @@ switch ( $wp_list_table->current_action() ) {
 					break;
 				case 'remove':
 					$messages[] = wp_get_admin_notice(
-						__( 'User removed from this site.' ),
+						__( 'Contributor removed from this site.' ),
 						array(
 							'id'                 => 'message',
 							'additional_classes' => array( 'updated', 'fade' ),
@@ -733,7 +733,7 @@ switch ( $wp_list_table->current_action() ) {
 					break;
 				case 'err_admin_remove':
 					$messages[] = wp_get_admin_notice(
-						__( 'You cannot remove the current user.' ),
+						__( 'You cannot remove the current contributor.' ),
 						array(
 							'id'                 => 'message',
 							'additional_classes' => array( 'error' ),
@@ -741,7 +741,7 @@ switch ( $wp_list_table->current_action() ) {
 						)
 					);
 					$messages[] = wp_get_admin_notice(
-						__( 'Other users have been removed.' ),
+						__( 'Other contributors have been removed.' ),
 						array(
 							'id'                 => 'message',
 							'additional_classes' => array( 'updated', 'fade' ),
@@ -784,13 +784,13 @@ switch ( $wp_list_table->current_action() ) {
 			printf(
 				'<a href="%1$s" class="page-title-action">%2$s</a>',
 				esc_url( admin_url( 'user-new.php' ) ),
-				esc_html__( 'Add New User' )
+				esc_html__( 'Add New Contributor' )
 			);
 		} elseif ( is_multisite() && current_user_can( 'promote_users' ) ) {
 			printf(
 				'<a href="%1$s" class="page-title-action">%2$s</a>',
 				esc_url( admin_url( 'user-new.php' ) ),
-				esc_html__( 'Add Existing User' )
+				esc_html__( 'Add Existing Contributor' )
 			);
 		}
 
@@ -811,7 +811,7 @@ switch ( $wp_list_table->current_action() ) {
 
 		<form method="get">
 
-		<?php $wp_list_table->search_box( __( 'Search Users' ), 'user' ); ?>
+		<?php $wp_list_table->search_box( __( 'Search Contributors' ), 'user' ); ?>
 
 		<?php if ( ! empty( $_REQUEST['role'] ) ) { ?>
 			<input type="hidden" name="role" value="<?php echo esc_attr( $_REQUEST['role'] ); ?>" />

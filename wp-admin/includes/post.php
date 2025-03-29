@@ -34,15 +34,15 @@ function _wp_translate_postdata( $update = false, $post_data = null ) {
 
 	if ( $update && ! current_user_can( 'edit_post', $post_data['ID'] ) ) {
 		if ( 'page' === $post_data['post_type'] ) {
-			return new WP_Error( 'edit_others_pages', __( 'Sorry, you are not allowed to edit pages as this user.' ) );
+			return new WP_Error( 'edit_others_pages', __( 'Sorry, you are not allowed to edit pages as this contributor.' ) );
 		} else {
-			return new WP_Error( 'edit_others_posts', __( 'Sorry, you are not allowed to edit posts as this user.' ) );
+			return new WP_Error( 'edit_others_posts', __( 'Sorry, you are not allowed to edit posts as this contributor.' ) );
 		}
 	} elseif ( ! $update && ! current_user_can( $ptype->cap->create_posts ) ) {
 		if ( 'page' === $post_data['post_type'] ) {
-			return new WP_Error( 'edit_others_pages', __( 'Sorry, you are not allowed to create pages as this user.' ) );
+			return new WP_Error( 'edit_others_pages', __( 'Sorry, you are not allowed to create pages as this contributor.' ) );
 		} else {
-			return new WP_Error( 'edit_others_posts', __( 'Sorry, you are not allowed to create posts as this user.' ) );
+			return new WP_Error( 'edit_others_posts', __( 'Sorry, you are not allowed to create posts as this contributor.' ) );
 		}
 	}
 
@@ -75,15 +75,15 @@ function _wp_translate_postdata( $update = false, $post_data = null ) {
 
 		if ( $update ) {
 			if ( 'page' === $post_data['post_type'] ) {
-				return new WP_Error( 'edit_others_pages', __( 'Sorry, you are not allowed to edit pages as this user.' ) );
+				return new WP_Error( 'edit_others_pages', __( 'Sorry, you are not allowed to edit pages as this contributor.' ) );
 			} else {
-				return new WP_Error( 'edit_others_posts', __( 'Sorry, you are not allowed to edit posts as this user.' ) );
+				return new WP_Error( 'edit_others_posts', __( 'Sorry, you are not allowed to edit posts as this contributor.' ) );
 			}
 		} else {
 			if ( 'page' === $post_data['post_type'] ) {
-				return new WP_Error( 'edit_others_pages', __( 'Sorry, you are not allowed to create pages as this user.' ) );
+				return new WP_Error( 'edit_others_pages', __( 'Sorry, you are not allowed to create pages as this contributor.' ) );
 			} else {
-				return new WP_Error( 'edit_others_posts', __( 'Sorry, you are not allowed to create posts as this user.' ) );
+				return new WP_Error( 'edit_others_posts', __( 'Sorry, you are not allowed to create posts as this contributor.' ) );
 			}
 		}
 	}

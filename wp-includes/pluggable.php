@@ -1653,7 +1653,7 @@ if ( ! function_exists( 'wp_password_change_notification' ) ) :
 			}
 
 			/* translators: %s: User name. */
-			$message = sprintf( __( 'Password changed for user: %s' ), $user->user_login ) . "\r\n";
+			$message = sprintf( __( 'Password changed for contributor: %s' ), $user->user_login ) . "\r\n";
 			/*
 			 * The blogname option is escaped with esc_html() on the way into the database in sanitize_option().
 			 * We want to reverse this for the plain text arena of emails.
@@ -1755,7 +1755,7 @@ if ( ! function_exists( 'wp_new_user_notification' ) ) :
 			}
 
 			/* translators: %s: Site title. */
-			$message = sprintf( __( 'New user registration on your site %s:' ), $blogname ) . "\r\n\r\n";
+			$message = sprintf( __( 'New contributor registration on your site %s:' ), $blogname ) . "\r\n\r\n";
 			/* translators: %s: User login. */
 			$message .= sprintf( __( 'Username: %s' ), $user->user_login ) . "\r\n\r\n";
 			/* translators: %s: User email address. */
@@ -1764,7 +1764,7 @@ if ( ! function_exists( 'wp_new_user_notification' ) ) :
 			$wp_new_user_notification_email_admin = array(
 				'to'      => get_option( 'admin_email' ),
 				/* translators: New user registration notification email subject. %s: Site title. */
-				'subject' => __( '[%s] New User Registration' ),
+				'subject' => __( '[%s] New Contributor Registration' ),
 				'message' => $message,
 				'headers' => '',
 			);

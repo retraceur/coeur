@@ -136,7 +136,7 @@ class WP_REST_Global_Styles_Revisions_Controller extends WP_REST_Revisions_Contr
 
 		return new WP_Error(
 			'rest_global_styles_not_found',
-			__( 'Cannot find user global styles revisions.' ),
+			__( 'Cannot find contributor global styles revisions.' ),
 			array( 'status' => 404 )
 		);
 	}

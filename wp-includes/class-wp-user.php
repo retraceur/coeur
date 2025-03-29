@@ -777,7 +777,7 @@ class WP_User {
 	 */
 	public function has_cap( $cap, ...$args ) {
 		if ( is_numeric( $cap ) ) {
-			_deprecated_argument( __FUNCTION__, '2.0.0', __( 'Usage of user levels is deprecated. Use capabilities instead.' ) );
+			_deprecated_argument( __FUNCTION__, '2.0.0', __( 'Usage of contributor levels is deprecated. Use capabilities instead.' ) );
 			$cap = $this->translate_level_to_cap( $cap );
 		}
 

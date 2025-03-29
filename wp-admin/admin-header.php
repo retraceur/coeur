@@ -42,7 +42,7 @@ if ( is_network_admin() ) {
 	$admin_title = sprintf( __( 'Network Admin: %s' ), get_network()->site_name );
 } elseif ( is_user_admin() ) {
 	/* translators: User dashboard screen title. %s: Network title. */
-	$admin_title = sprintf( __( 'User Dashboard: %s' ), get_network()->site_name );
+	$admin_title = sprintf( __( 'Contributor Dashboard: %s' ), get_network()->site_name );
 } else {
 	$admin_title = get_bloginfo( 'name' );
 }

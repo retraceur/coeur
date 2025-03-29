@@ -121,7 +121,7 @@ class WP_REST_Application_Passwords_Controller extends WP_REST_Controller {
 		if ( ! current_user_can( 'list_app_passwords', $user->ID ) ) {
 			return new WP_Error(
 				'rest_cannot_list_application_passwords',
-				__( 'Sorry, you are not allowed to list application passwords for this user.' ),
+				__( 'Sorry, you are not allowed to list application passwords for this contributor.' ),
 				array( 'status' => rest_authorization_required_code() )
 			);
 		}
@@ -218,7 +218,7 @@ class WP_REST_Application_Passwords_Controller extends WP_REST_Controller {
 		if ( ! current_user_can( 'create_app_password', $user->ID ) ) {
 			return new WP_Error(
 				'rest_cannot_create_application_passwords',
-				__( 'Sorry, you are not allowed to create application passwords for this user.' ),
+				__( 'Sorry, you are not allowed to create application passwords for this contributor.' ),
 				array( 'status' => rest_authorization_required_code() )
 			);
 		}
@@ -375,7 +375,7 @@ class WP_REST_Application_Passwords_Controller extends WP_REST_Controller {
 		if ( ! current_user_can( 'delete_app_passwords', $user->ID ) ) {
 			return new WP_Error(
 				'rest_cannot_delete_application_passwords',
-				__( 'Sorry, you are not allowed to delete application passwords for this user.' ),
+				__( 'Sorry, you are not allowed to delete application passwords for this contributor.' ),
 				array( 'status' => rest_authorization_required_code() )
 			);
 		}
@@ -493,7 +493,7 @@ class WP_REST_Application_Passwords_Controller extends WP_REST_Controller {
 		if ( get_current_user_id() !== $user->ID ) {
 			return new WP_Error(
 				'rest_cannot_introspect_app_password_for_non_authenticated_user',
-				__( 'The authenticated application password can only be introspected for the current user.' ),
+				__( 'The authenticated application password can only be introspected for the current contributor.' ),
 				array( 'status' => rest_authorization_required_code() )
 			);
 		}
@@ -560,7 +560,7 @@ class WP_REST_Application_Passwords_Controller extends WP_REST_Controller {
 		if ( ! current_user_can( 'edit_user', $user->ID ) ) {
 			return new WP_Error(
 				'rest_cannot_manage_application_passwords',
-				__( 'Sorry, you are not allowed to manage application passwords for this user.' ),
+				__( 'Sorry, you are not allowed to manage application passwords for this contributor.' ),
 				array( 'status' => rest_authorization_required_code() )
 			);
 		}
@@ -691,7 +691,7 @@ class WP_REST_Application_Passwords_Controller extends WP_REST_Controller {
 
 		$error = new WP_Error(
 			'rest_user_invalid_id',
-			__( 'Invalid user ID.' ),
+			__( 'Invalid contributor ID.' ),
 			array( 'status' => 404 )
 		);
 

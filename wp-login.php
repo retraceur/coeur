@@ -1271,7 +1271,7 @@ switch ( $action ) {
 
 		$message = _wp_privacy_account_request_confirmed_message( $request_id );
 
-		login_header( __( 'User action confirmed.' ), $message );
+		login_header( __( 'Contributor action confirmed.' ), $message );
 		login_footer();
 		exit;
 
@@ -1488,7 +1488,7 @@ switch ( $action ) {
 			if ( isset( $_GET['loggedout'] ) && $_GET['loggedout'] ) {
 				$errors->add( 'loggedout', __( 'You are now logged out.' ), 'message' );
 			} elseif ( isset( $_GET['registration'] ) && 'disabled' === $_GET['registration'] ) {
-				$errors->add( 'registerdisabled', __( '<strong>Error:</strong> User registration is currently not allowed.' ) );
+				$errors->add( 'registerdisabled', __( '<strong>Error:</strong> Contributor registration is currently not allowed.' ) );
 			} elseif ( str_contains( $redirect_to, 'about.php?updated' ) ) {
 				$errors->add( 'updated', __( '<strong>You have successfully updated Retraceur!</strong> Please log back in to see what&#8217;s new.' ), 'message' );
 			} elseif ( WP_Recovery_Mode_Link_Service::LOGIN_ACTION_ENTERED === $action ) {

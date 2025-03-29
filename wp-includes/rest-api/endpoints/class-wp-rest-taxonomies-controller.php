@@ -401,7 +401,7 @@ class WP_REST_Taxonomies_Controller extends WP_REST_Controller {
 					'readonly'    => true,
 					'properties'  => array(
 						'public'             => array(
-							'description' => __( 'Whether a taxonomy is intended for use publicly either via the admin interface or by front-end users.' ),
+							'description' => __( 'Whether a taxonomy is intended for use publicly either via the admin interface or by front-end contributors.' ),
 							'type'        => 'boolean',
 						),
 						'publicly_queryable' => array(

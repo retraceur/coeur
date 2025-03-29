@@ -144,7 +144,7 @@ class WP_Importer {
 		}
 
 		if ( ! $user_id || ! wp_set_current_user( $user_id ) ) {
-			fwrite( STDERR, "Error: can not find user\n" );
+			fwrite( STDERR, "Error: can not find contributor\n" );
 			exit;
 		}
 

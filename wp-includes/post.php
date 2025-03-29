@@ -227,8 +227,8 @@ function create_initial_post_types() {
 		'user_request',
 		array(
 			'labels'           => array(
-				'name'          => __( 'User Requests' ),
-				'singular_name' => __( 'User Request' ),
+				'name'          => __( 'Contributor Requests' ),
+				'singular_name' => __( 'Contributor Request' ),
 			),
 			'public'           => false,
 			'_builtin'         => true, /* internal use only. don't use this when registering your own post type. */

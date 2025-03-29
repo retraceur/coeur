@@ -36,10 +36,10 @@ get_current_screen()->add_help_tab(
 		'id'      => 'default-data',
 		'title'   => __( 'Default Data' ),
 		'content' =>
-					'<p>' . __( 'Retraceur collects (but <em>never</em> publishes) a limited amount of data from registered users who have logged in to the site. Generally, these users are people who contribute to the site in some way -- content, store management, and so on. With rare exceptions, these users do not include occasional visitors. The data Retraceur retains can include:' ) . '</p>' .
-					'<p>' . __( '<strong>Profile Information</strong> &mdash; user email address, username, display name, nickname, first name, last name, description/bio, and registration date.' ) . '</p>' .
-					'<p>' . __( '<strong>Session Tokens</strong> &mdash; User login information, IP Addresses, Expiration Date, User Agent (Browser/OS), and Last Login.' ) . '</p>' .
-					'<p>' . __( '<strong>Media</strong> &mdash; A list of URLs for media files the user uploads.' ) . '</p>',
+					'<p>' . __( 'Retraceur collects (but <em>never</em> publishes) a limited amount of data from registered contributors who have logged in to the site. Generally, these contributors are people who contribute to the site in some way -- content, store management, and so on. With rare exceptions, these contributors do not include occasional visitors. The data Retraceur retains can include:' ) . '</p>' .
+					'<p>' . __( '<strong>Profile Information</strong> &mdash; contributor email address, username, display name, nickname, first name, last name, description/bio, and registration date.' ) . '</p>' .
+					'<p>' . __( '<strong>Session Tokens</strong> &mdash; Contributor login information, IP Addresses, Expiration Date, User Agent (Browser/OS), and Last Login.' ) . '</p>' .
+					'<p>' . __( '<strong>Media</strong> &mdash; A list of URLs for media files the contributor uploads.' ) . '</p>',
 	)
 );
 
@@ -96,7 +96,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 
 <div class="wrap nosubsub">
 	<h1><?php esc_html_e( 'Export Personal Data' ); ?></h1>
-	<p><?php _e( 'This tool helps site owners comply with local laws and regulations by exporting known data for a given user in a .zip file.' ); ?></p>
+	<p><?php _e( 'This tool helps site owners comply with local laws and regulations by exporting known data for a given contributor in a .zip file.' ); ?></p>
 	<hr class="wp-header-end" />
 
 	<?php settings_errors(); ?>

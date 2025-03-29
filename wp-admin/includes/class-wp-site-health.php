@@ -1326,7 +1326,7 @@ class WP_Site_Health {
 					'<p>%s</p>',
 					sprintf(
 						/* translators: %s: WP_DEBUG_LOG */
-						__( 'The value, %s, has been added to this website&#8217;s configuration file. This means any errors on the site will be written to a file which is potentially available to all users.' ),
+						__( 'The value, %s, has been added to this website&#8217;s configuration file. This means any errors on the site will be written to a file which is potentially available to everyone.' ),
 						'<code>WP_DEBUG_LOG</code>'
 					)
 				);
@@ -2160,7 +2160,7 @@ class WP_Site_Health {
 	 * @return array The test result.
 	 */
 	public function get_test_page_cache() {
-		$description  = '<p>' . __( 'Page cache enhances the speed and performance of your site by saving and serving static pages instead of calling for a page every time a user visits.' ) . '</p>';
+		$description  = '<p>' . __( 'Page cache enhances the speed and performance of your site by saving and serving static pages instead of calling for a page every time someone visits.' ) . '</p>';
 		$description .= '<p>' . __( 'Page cache is detected by looking for an active page cache plugin as well as making three requests to the homepage and looking for one or more of the following HTTP client caching response headers:' ) . '</p>';
 		$description .= '<code>' . implode( '</code>, <code>', array_keys( $this->get_page_cache_headers() ) ) . '.</code>';
 

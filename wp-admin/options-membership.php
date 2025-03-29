@@ -54,7 +54,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 	</tr>
 
 	<tr>
-	<th scope="row"><label for="default_role"><?php esc_html_e( 'New User Default Role' ); ?></label></th>
+	<th scope="row"><label for="default_role"><?php esc_html_e( 'New Contributor Default Role' ); ?></label></th>
 	<td>
 	<select name="default_role" id="default_role"><?php wp_dropdown_roles( get_option( 'default_role' ) ); ?></select>
 	</td>
@@ -65,7 +65,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 
 <h2 class="title"><?php esc_html_e( 'Avatars' ); ?></h2>
 
-<p><?php esc_html_e( 'An avatar is an image that can be associated with a user across multiple websites. In this area, you can choose to display avatars of users who interact with the site.' ); ?></p>
+<p><?php esc_html_e( 'An avatar is an image that can be associated with a contributor across multiple websites. In this area, you can choose to display avatars of contributors who interact with the site.' ); ?></p>
 
 <?php
 // The above would be a good place to link to the documentation on the Gravatar functions, for putting it in themes. Anything like that?
@@ -125,7 +125,7 @@ endforeach;
 </span></legend>
 
 <p>
-<?php esc_html_e( 'For users without a custom avatar of their own, you can either display a generic logo or a generated one based on their email address.' ); ?><br />
+<?php esc_html_e( 'For contributors without a custom avatar of their own, you can either display a generic logo or a generated one based on their email address.' ); ?><br />
 </p>
 
 <?php

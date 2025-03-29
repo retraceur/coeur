@@ -484,15 +484,15 @@ final class WP_Privacy_Policy_Content {
 			/* translators: Default privacy policy heading. */
 			$strings[] = '<h2>' . __( 'What personal data we collect and why we collect it' ) . '</h2>';
 			/* translators: Privacy policy tutorial. */
-			$strings[] = '<p class="privacy-policy-tutorial">' . __( 'In this section you should note what personal data you collect from users and site visitors. This may include personal data, such as name, email address, personal account preferences; transactional data, such as purchase information; and technical data, such as information about cookies.' ) . '</p>';
+			$strings[] = '<p class="privacy-policy-tutorial">' . __( 'In this section you should note what personal data you collect from contributors and site visitors. This may include personal data, such as name, email address, personal account preferences; transactional data, such as purchase information; and technical data, such as information about cookies.' ) . '</p>';
 			/* translators: Privacy policy tutorial. */
 			$strings[] = '<p class="privacy-policy-tutorial">' . __( 'You should also note any collection and retention of sensitive personal data, such as data concerning health.' ) . '</p>';
 			/* translators: Privacy policy tutorial. */
-			$strings[] = '<p class="privacy-policy-tutorial">' . __( 'In addition to listing what personal data you collect, you need to note why you collect it. These explanations must note either the legal basis for your data collection and retention or the active consent the user has given.' ) . '</p>';
+			$strings[] = '<p class="privacy-policy-tutorial">' . __( 'In addition to listing what personal data you collect, you need to note why you collect it. These explanations must note either the legal basis for your data collection and retention or the active consent the contributor has given.' ) . '</p>';
 			/* translators: Privacy policy tutorial. */
-			$strings[] = '<p class="privacy-policy-tutorial">' . __( 'Personal data is not just created by a user&#8217;s interactions with your site. Personal data is also generated from technical processes such as contact forms, cookies, analytics, and third party embeds.' ) . '</p>';
+			$strings[] = '<p class="privacy-policy-tutorial">' . __( 'Personal data is not just created by a contributor&#8217;s interactions with your site. Personal data is also generated from technical processes such as contact forms, cookies, analytics, and third party embeds.' ) . '</p>';
 			/* translators: Privacy policy tutorial. */
-			$strings[] = '<p class="privacy-policy-tutorial">' . __( 'By default Retraceur does not collect any personal data about visitors, and only collects the data shown on the User Profile screen from registered users. However some of your plugins may collect personal data. You should add the relevant information below.' ) . '</p>';
+			$strings[] = '<p class="privacy-policy-tutorial">' . __( 'By default Retraceur does not collect any personal data about visitors, and only collects the data shown on the Contributor Profile screen from registered contributors. However some of your plugins may collect personal data. You should add the relevant information below.' ) . '</p>';
 		}
 
 		/* translators: Default privacy policy heading. */
@@ -500,7 +500,7 @@ final class WP_Privacy_Policy_Content {
 
 		if ( $description ) {
 			/* translators: Privacy policy tutorial. */
-			$strings[] = '<p class="privacy-policy-tutorial">' . __( 'In this subsection you should note what information may be disclosed by users who can upload media files. All uploaded files are usually publicly accessible.' ) . '</p>';
+			$strings[] = '<p class="privacy-policy-tutorial">' . __( 'In this subsection you should note what information may be disclosed by contributors who can upload media files. All uploaded files are usually publicly accessible.' ) . '</p>';
 		} else {
 			/* translators: Default privacy policy text. */
 			$strings[] = '<p>' . $suggested_text . __( 'If you upload images to the website, you should avoid uploading images with embedded location data (EXIF GPS) included. Visitors to the website can download and extract any location data from images on the website.' ) . '</p>';
@@ -541,7 +541,7 @@ final class WP_Privacy_Policy_Content {
 			/* translators: Default privacy policy heading. */
 			$strings[] = '<h2>' . __( 'Analytics' ) . '</h2>';
 			/* translators: Privacy policy tutorial. */
-			$strings[] = '<p class="privacy-policy-tutorial">' . __( 'In this subsection you should note what analytics package you use, how users can opt out of analytics tracking, and a link to your analytics provider&#8217;s privacy policy, if any.' ) . '</p>';
+			$strings[] = '<p class="privacy-policy-tutorial">' . __( 'In this subsection you should note what analytics package you use, how contributors can opt out of analytics tracking, and a link to your analytics provider&#8217;s privacy policy, if any.' ) . '</p>';
 			/* translators: Privacy policy tutorial. */
 			$strings[] = '<p class="privacy-policy-tutorial">' . __( 'By default Retraceur does not collect any analytics data. However, many web hosting accounts collect some anonymous analytics data. You may also have installed a Retraceur plugin that provides analytics services. In that case, add information from that plugin here.' ) . '</p>';
 		}
@@ -567,7 +567,7 @@ final class WP_Privacy_Policy_Content {
 			$strings[] = '<p class="privacy-policy-tutorial">' . __( 'In this section you should explain how long you retain personal data collected or processed by the website. While it is your responsibility to come up with the schedule of how long you keep each dataset for and why you keep it, that information does need to be listed here. For example, you may want to say that you keep contact form entries for six months, analytics records for a year, and customer purchase records for ten years.' ) . '</p>';
 		} else {
 			/* translators: Default privacy policy text. */
-			$strings[] = '<p>' . $suggested_text . __( 'For users that register on our website (if any), we also store the personal information they provide in their user profile. All users can see, edit, or delete their personal information at any time (except they cannot change their username). Website administrators can also see and edit that information.' ) . '</p>';
+			$strings[] = '<p>' . $suggested_text . __( 'For contributors that register on our website (if any), we also store the personal information they provide in their contributor profile. All contributors can see, edit, or delete their personal information at any time (except they cannot change their username). Website administrators can also see and edit that information.' ) . '</p>';
 		}
 
 		/* translators: Default privacy policy heading. */
@@ -575,7 +575,7 @@ final class WP_Privacy_Policy_Content {
 
 		if ( $description ) {
 			/* translators: Privacy policy tutorial. */
-			$strings[] = '<p class="privacy-policy-tutorial">' . __( 'In this section you should explain what rights your users have over their data and how they can invoke those rights.' ) . '</p>';
+			$strings[] = '<p class="privacy-policy-tutorial">' . __( 'In this section you should explain what rights your contributors have over their data and how they can invoke those rights.' ) . '</p>';
 		} else {
 			/* translators: Default privacy policy text. */
 			$strings[] = '<p>' . $suggested_text . __( 'If you have an account on this site, you can request to receive an exported file of the personal data we hold about you, including any data you have provided to us. You can also request that we erase any personal data we hold about you. This does not include any data we are obliged to keep for administrative, legal, or security purposes.' ) . '</p>';
@@ -609,7 +609,7 @@ final class WP_Privacy_Policy_Content {
 			/* translators: Default privacy policy heading. */
 			$strings[] = '<h2>' . __( 'How we protect your data' ) . '</h2>';
 			/* translators: Privacy policy tutorial. */
-			$strings[] = '<p class="privacy-policy-tutorial">' . __( 'In this section you should explain what measures you have taken to protect your users&#8217; data. This could include technical measures such as encryption; security measures such as two factor authentication; and measures such as staff training in data protection. If you have carried out a Privacy Impact Assessment, you can mention it here too.' ) . '</p>';
+			$strings[] = '<p class="privacy-policy-tutorial">' . __( 'In this section you should explain what measures you have taken to protect your contributors&#8217; data. This could include technical measures such as encryption; security measures such as two factor authentication; and measures such as staff training in data protection. If you have carried out a Privacy Impact Assessment, you can mention it here too.' ) . '</p>';
 		}
 
 		if ( $description ) {
@@ -623,14 +623,14 @@ final class WP_Privacy_Policy_Content {
 			/* translators: Default privacy policy heading. */
 			$strings[] = '<h2>' . __( 'What third parties we receive data from' ) . '</h2>';
 			/* translators: Privacy policy tutorial. */
-			$strings[] = '<p class="privacy-policy-tutorial">' . __( 'If your website receives data about users from third parties, including advertisers, this information must be included within the section of your privacy policy dealing with third party data.' ) . '</p>';
+			$strings[] = '<p class="privacy-policy-tutorial">' . __( 'If your website receives data about contributors from third parties, including advertisers, this information must be included within the section of your privacy policy dealing with third party data.' ) . '</p>';
 		}
 
 		if ( $description ) {
 			/* translators: Default privacy policy heading. */
-			$strings[] = '<h2>' . __( 'What automated decision making and/or profiling we do with user data' ) . '</h2>';
+			$strings[] = '<h2>' . __( 'What automated decision making and/or profiling we do with contributor data' ) . '</h2>';
 			/* translators: Privacy policy tutorial. */
-			$strings[] = '<p class="privacy-policy-tutorial">' . __( 'If your website provides a service which includes automated decision making - for example, allowing customers to apply for credit, or aggregating their data into an advertising profile - you must note that this is taking place, and include information about how that information is used, what decisions are made with that aggregated data, and what rights users have over decisions made without human intervention.' ) . '</p>';
+			$strings[] = '<p class="privacy-policy-tutorial">' . __( 'If your website provides a service which includes automated decision making - for example, allowing people to apply for credit, or aggregating their data into an advertising profile - you must note that this is taking place, and include information about how that information is used, what decisions are made with that aggregated data, and what rights contributors have over decisions made without human intervention.' ) . '</p>';
 		}
 
 		if ( $description ) {

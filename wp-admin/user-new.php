@@ -14,7 +14,7 @@ require_once __DIR__ . '/admin.php';
 if ( ! current_user_can( 'create_users' ) ) {
 	wp_die(
 		'<h1>' . __( 'You need a higher level of permission.' ) . '</h1>' .
-		'<p>' . __( 'Sorry, you are not allowed to create users.' ) . '</p>',
+		'<p>' . __( 'Sorry, you are not allowed to create contributors.' ) . '</p>',
 		403
 	);
 }
@@ -81,25 +81,25 @@ if ( isset( $_REQUEST['action'] ) && 'createuser' === $_REQUEST['action'] ) {
 }
 
 // Used in the HTML title tag.
-$title       = __( 'Add New User' );
+$title       = __( 'Add New Contributor' );
 $parent_file = 'users.php';
 
 get_current_screen()->add_help_tab(
 	array(
 		'id'      => 'overview',
 		'title'   => __( 'Overview' ),
-		'content' => '<p>' . __( 'To add a new user to your site, fill in the form on this screen and click the Add New User button at the bottom.' ) . '</p>' .
-		             '<p>' . __( 'New users are automatically assigned a password, which they can change after logging in. You can view or edit the assigned password by clicking the Show Password button. The username cannot be changed once the user has been added.' ) . '</p>' .
-					 '<p>' . __( 'By default, new users will receive an email letting them know they&#8217;ve been added as a user for your site. This email will also contain a password reset link. Uncheck the box if you do not want to send the new user a welcome email.' ) . '</p>' .
-					 '<p>' . __( 'Remember to click the Add New User button at the bottom of this screen when you are finished.' ) . '</p>',
+		'content' => '<p>' . __( 'To add a new contributor to your site, fill in the form on this screen and click the Add New Contributor button at the bottom.' ) . '</p>' .
+		             '<p>' . __( 'New contributors are automatically assigned a password, which they can change after logging in. You can view or edit the assigned password by clicking the Show Password button. The username cannot be changed once the contributor has been added.' ) . '</p>' .
+					 '<p>' . __( 'By default, new contributors will receive an email letting them know they&#8217;ve been added as a contributor for your site. This email will also contain a password reset link. Uncheck the box if you do not want to send the new contributor a welcome email.' ) . '</p>' .
+					 '<p>' . __( 'Remember to click the Add New Contributor button at the bottom of this screen when you are finished.' ) . '</p>',
 	)
 );
 
 get_current_screen()->add_help_tab(
 	array(
 		'id'      => 'user-roles',
-		'title'   => __( 'User Roles' ),
-		'content' => '<p>' . __( 'Here is a basic overview of the different user roles and the permissions associated with each one:' ) . '</p>' .
+		'title'   => __( 'Contributor Roles' ),
+		'content' => '<p>' . __( 'Here is a basic overview of the different contributor roles and the permissions associated with each one:' ) . '</p>' .
 							'<ul>' .
 							'<li>' . __( 'Subscribers can read regular site content but cannot create it.' ) . '</li>' .
 							'<li>' . __( 'Contributors can write and manage their posts but not publish posts or upload media files.' ) . '</li>' .
@@ -119,11 +119,11 @@ if ( isset( $_GET['update'] ) ) {
 	$messages = array();
 
 	if ( 'add' === $_GET['update'] ) {
-		$messages[] = __( 'User added.' );
+		$messages[] = __( 'Contributor added.' );
 	} elseif ( 'newuserconfirmation' === $_GET['update'] ) {
-		$messages[] = __( 'Invitation email sent to new user. A confirmation link must be clicked before their account is created.' );
+		$messages[] = __( 'Invitation email sent to new contributor. A confirmation link must be clicked before their account is created.' );
 	} elseif ( 'could_not_add' === $_GET['update'] ) {
-		$add_user_errors = new WP_Error( 'could_not_add', __( 'That user could not be added to this site.' ) );
+		$add_user_errors = new WP_Error( 'could_not_add', __( 'That contributor could not be added to this site.' ) );
 	}
 }
 ?>
@@ -131,9 +131,9 @@ if ( isset( $_GET['update'] ) ) {
 <h1 id="add-new-user">
 <?php
 if ( current_user_can( 'create_users' ) ) {
-	_e( 'Add New User' );
+	_e( 'Add New Contributor' );
 } elseif ( current_user_can( 'promote_users' ) ) {
-	_e( 'Add Existing User' );
+	_e( 'Add Existing Contributor' );
 }
 ?>
 </h1>
@@ -186,7 +186,7 @@ endif;
 
 <?php if ( current_user_can( 'create_users' ) ) {
 	?>
-<p><?php _e( 'Create a brand new user and add them to this site.' ); ?></p>
+<p><?php _e( 'Create a brand new contributor and add them to this site.' ); ?></p>
 <form method="post" name="createuser" id="createuser" class="validate" novalidate="novalidate"
 	<?php
 	/** This action is documented in wp-admin/user-new.php */
@@ -299,7 +299,7 @@ endif;
 		<th scope="row"><?php _e( 'Skip Confirmation Email' ); ?></th>
 		<td>
 			<input type="checkbox" name="noconfirmation" id="adduser-noconfirmation" value="1" />
-			<label for="adduser-noconfirmation"><?php _e( 'Add the user without sending an email that requires their confirmation' ); ?></label>
+			<label for="adduser-noconfirmation"><?php _e( 'Add the contributor without sending an email that requires their confirmation' ); ?></label>
 		</td>
 	</tr>
 	<?php if ( current_user_can( 'promote_users' ) ) { ?>
@@ -323,7 +323,7 @@ endif;
 	do_action( 'user_new_form', 'add-new-user' );
 	?>
 
-	<?php submit_button( __( 'Add New User' ), 'primary', 'createuser', true, array( 'id' => 'createusersub' ) ); ?>
+	<?php submit_button( __( 'Add New Contributor' ), 'primary', 'createuser', true, array( 'id' => 'createusersub' ) ); ?>
 
 </form>
 <?php } // End if current_user_can( 'create_users' ). ?>

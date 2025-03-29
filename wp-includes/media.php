@@ -5603,7 +5603,7 @@ function wp_media_personal_data_exporter( $email_address, $page = 1 ) {
 			$data_to_export[] = array(
 				'group_id'          => 'media',
 				'group_label'       => __( 'Media' ),
-				'group_description' => __( 'User&#8217;s media data.' ),
+				'group_description' => __( 'Contributor&#8217;s media data.' ),
 				'item_id'           => "post-{$post->ID}",
 				'data'              => $post_data_to_export,
 			);

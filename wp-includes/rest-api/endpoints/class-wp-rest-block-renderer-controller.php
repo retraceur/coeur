@@ -131,7 +131,7 @@ class WP_REST_Block_Renderer_Controller extends WP_REST_Controller {
 			if ( ! current_user_can( 'edit_posts' ) ) {
 				return new WP_Error(
 					'block_cannot_read',
-					__( 'Sorry, you are not allowed to read blocks as this user.' ),
+					__( 'Sorry, you are not allowed to read blocks as this contributor.' ),
 					array(
 						'status' => rest_authorization_required_code(),
 					)

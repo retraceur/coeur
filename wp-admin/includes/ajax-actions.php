@@ -993,7 +993,7 @@ function wp_ajax_add_user( $action ) {
 			'supplemental' => array(
 				'show-link' => sprintf(
 					/* translators: %s: The new user. */
-					__( 'User %s added' ),
+					__( 'Contributor %s added' ),
 					'<a href="#user-' . $user_id . '">' . $user_object->user_login . '</a>'
 				),
 				'role'      => $role,
@@ -2879,7 +2879,7 @@ function wp_ajax_destroy_sessions() {
 	if ( ! $user ) {
 		wp_send_json_error(
 			array(
-				'message' => __( 'Could not log out user sessions. Please try again.' ),
+				'message' => __( 'Could not log out contributor sessions. Please try again.' ),
 			)
 		);
 	}

@@ -19,7 +19,7 @@ function wp_load_press_this() {
 
 	if ( ! current_user_can( 'edit_posts' ) || ! current_user_can( get_post_type_object( 'post' )->cap->create_posts ) ) {
 		wp_die(
-			__( 'Sorry, you are not allowed to create posts as this user.' ),
+			__( 'Sorry, you are not allowed to create posts as this contributor.' ),
 			__( 'You need a higher level of permission.' ),
 			403
 		);
