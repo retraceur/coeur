@@ -15962,7 +15962,7 @@ function PostLockedModal() {
       }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)("div", {
         children: [!!isTakeover && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("p", {
           children: (0,external_wp_element_namespaceObject.createInterpolateElement)(userDisplayName ? (0,external_wp_i18n_namespaceObject.sprintf)( /* translators: %s: user's display name */
-          (0,external_wp_i18n_namespaceObject.__)('<strong>%s</strong> now has editing control of this post (<PreviewLink />). Don’t worry, your changes up to this moment have been saved.'), userDisplayName) : (0,external_wp_i18n_namespaceObject.__)('Another user now has editing control of this post (<PreviewLink />). Don’t worry, your changes up to this moment have been saved.'), {
+          (0,external_wp_i18n_namespaceObject.__)('<strong>%s</strong> now has editing control of this post (<PreviewLink />). Don’t worry, your changes up to this moment have been saved.'), userDisplayName) : (0,external_wp_i18n_namespaceObject.__)('Another contributor now has editing control of this post (<PreviewLink />). Don’t worry, your changes up to this moment have been saved.'), {
             strong: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("strong", {}),
             PreviewLink: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ExternalLink, {
               href: previewLink,
@@ -15972,7 +15972,7 @@ function PostLockedModal() {
         }), !isTakeover && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_ReactJSXRuntime_namespaceObject.Fragment, {
           children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("p", {
             children: (0,external_wp_element_namespaceObject.createInterpolateElement)(userDisplayName ? (0,external_wp_i18n_namespaceObject.sprintf)( /* translators: %s: user's display name */
-            (0,external_wp_i18n_namespaceObject.__)('<strong>%s</strong> is currently working on this post (<PreviewLink />), which means you cannot make changes, unless you take over.'), userDisplayName) : (0,external_wp_i18n_namespaceObject.__)('Another user is currently working on this post (<PreviewLink />), which means you cannot make changes, unless you take over.'), {
+            (0,external_wp_i18n_namespaceObject.__)('<strong>%s</strong> is currently working on this post (<PreviewLink />), which means you cannot make changes, unless you take over.'), userDisplayName) : (0,external_wp_i18n_namespaceObject.__)('Another contributor is currently working on this post (<PreviewLink />), which means you cannot make changes, unless you take over.'), {
               strong: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("strong", {}),
               PreviewLink: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ExternalLink, {
                 href: previewLink,
@@ -15980,7 +15980,7 @@ function PostLockedModal() {
               })
             })
           }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("p", {
-            children: (0,external_wp_i18n_namespaceObject.__)('If you take over, the other user will lose editing control to the post, but their changes will be saved.')
+            children: (0,external_wp_i18n_namespaceObject.__)('If you take over, the other contributor will lose editing control to the post, but their changes will be saved.')
           })]
         }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_wp_components_namespaceObject.__experimentalHStack, {
           className: "editor-post-locked-modal__buttons",
@@ -17989,7 +17989,7 @@ const TagsPanel = () => {
     initialOpen: false,
     title: panelBodyTitle,
     children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("p", {
-      children: (0,external_wp_i18n_namespaceObject.__)('Tags help users and search engines navigate your site and find your content. Add a few keywords to describe your post.')
+      children: (0,external_wp_i18n_namespaceObject.__)('Tags help contributors and search engines navigate your site and find your content. Add a few keywords to describe your post.')
     }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(flat_term_selector, {
       slug: "post_tag",
       __nextHasNoMarginBottom: true
@@ -23977,7 +23977,7 @@ function ContentOnlySettingsMenuItems({
   const isPattern = entity.type === 'wp_block';
   let helpText = isPattern ? (0,external_wp_i18n_namespaceObject.__)('Edit the pattern to move, delete, or make further changes to this block.') : (0,external_wp_i18n_namespaceObject.__)('Edit the template to move, delete, or make further changes to this block.');
   if (!canEditTemplates) {
-    helpText = (0,external_wp_i18n_namespaceObject.__)('Only users with permissions to edit the template can move or delete this block');
+    helpText = (0,external_wp_i18n_namespaceObject.__)('Only contributors with permissions to edit the template can move or delete this block');
   }
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_ReactJSXRuntime_namespaceObject.Fragment, {
     children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_blockEditor_namespaceObject.__unstableBlockSettingsMenuFirstItem, {
@@ -29696,7 +29696,7 @@ function PreferencesModalContents({
         children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(PreferenceToggleControl, {
           scope: "core",
           featureName: "keepCaretInsideBlock",
-          help: (0,external_wp_i18n_namespaceObject.__)('Keeps the text cursor within the block boundaries, aiding users with screen readers by preventing unintentional cursor movement outside the block.'),
+          help: (0,external_wp_i18n_namespaceObject.__)('Keeps the text cursor within the block boundaries, aiding contributors with screen readers by preventing unintentional cursor movement outside the block.'),
           label: (0,external_wp_i18n_namespaceObject.__)('Contain text cursor inside block')
         })
       }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(PreferencesModalSection, {
