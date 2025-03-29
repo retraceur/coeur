@@ -22997,7 +22997,7 @@ function RevisionsButtons({
       const isUnsaved = 'unsaved' === id;
       // Unsaved changes are created by the current user.
       const revisionAuthor = isUnsaved ? currentUser : author;
-      const authorDisplayName = revisionAuthor?.name || (0,external_wp_i18n_namespaceObject.__)('User');
+      const authorDisplayName = revisionAuthor?.name || (0,external_wp_i18n_namespaceObject.__)('Contributor');
       const authorAvatar = revisionAuthor?.avatar_urls?.['48'];
       const isFirstItem = index === 0;
       const isSelected = selectedRevisionId ? selectedRevisionId === id : isFirstItem;

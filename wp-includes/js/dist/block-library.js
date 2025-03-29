@@ -1859,8 +1859,8 @@ function UserControl({
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ComboboxControl, {
     __next40pxDefaultSize: true,
     __nextHasNoMarginBottom: true,
-    label: (0,external_wp_i18n_namespaceObject.__)('User'),
-    help: (0,external_wp_i18n_namespaceObject.__)('Select the avatar user to display, if it is blank it will use the post/page author.'),
+    label: (0,external_wp_i18n_namespaceObject.__)('Contributor'),
+    help: (0,external_wp_i18n_namespaceObject.__)('Select the contributor avatar to display, if it is blank it will use the post/page author.'),
     value: value,
     onChange: onChange,
     options: filteredAuthorsList || options,
@@ -1912,7 +1912,7 @@ const AvatarInspectorControls = ({
       value: attributes?.size
     }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ToggleControl, {
       __nextHasNoMarginBottom: true,
-      label: (0,external_wp_i18n_namespaceObject.__)('Link to user profile'),
+      label: (0,external_wp_i18n_namespaceObject.__)('Link to contributor profile'),
       onChange: () => setAttributes({
         isLink: !attributes.isLink
       }),
@@ -3125,7 +3125,7 @@ function AudioEdit({
     });
   }
   function getAutoplayHelp(checked) {
-    return checked ? (0,external_wp_i18n_namespaceObject.__)('Autoplay may cause usability issues for some users.') : null;
+    return checked ? (0,external_wp_i18n_namespaceObject.__)('Autoplay may cause usability issues for some contributors.') : null;
   }
   function onSelectAudio(media) {
     if (!media || !media.url) {
@@ -31861,7 +31861,7 @@ function Navigation({
   const overlayMenuPreviewClasses = dist_clsx('wp-block-navigation__overlay-menu-preview', {
     open: overlayMenuPreview
   });
-  const submenuAccessibilityNotice = !showSubmenuIcon && !openSubmenusOnClick ? (0,external_wp_i18n_namespaceObject.__)('The current menu options offer reduced accessibility for users and are not recommended. Enabling either "Open on Click" or "Show arrow" offers enhanced accessibility by allowing keyboard users to browse submenus selectively.') : '';
+  const submenuAccessibilityNotice = !showSubmenuIcon && !openSubmenusOnClick ? (0,external_wp_i18n_namespaceObject.__)('The current menu options offer reduced accessibility for contributors and are not recommended. Enabling either "Open on Click" or "Show arrow" offers enhanced accessibility by allowing keyboard contributors to browse submenus selectively.') : '';
   const isFirstRender = (0,external_wp_element_namespaceObject.useRef)(true); // Don't speak on first render.
   (0,external_wp_element_namespaceObject.useEffect)(() => {
     if (!isFirstRender.current && submenuAccessibilityNotice) {
@@ -58225,7 +58225,7 @@ const VideoSettings = ({
     playsInline,
     preload
   } = attributes;
-  const autoPlayHelpText = (0,external_wp_i18n_namespaceObject.__)('Autoplay may cause usability issues for some users.');
+  const autoPlayHelpText = (0,external_wp_i18n_namespaceObject.__)('Autoplay may cause usability issues for some contributors.');
   const getAutoplayHelp = external_wp_element_namespaceObject.Platform.select({
     web: (0,external_wp_element_namespaceObject.useCallback)(checked => {
       return checked ? autoPlayHelpText : null;
@@ -58335,7 +58335,7 @@ function TrackList({
   if (tracks.length === 0) {
     content = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("p", {
       className: "block-library-video-tracks-editor__tracks-informative-message",
-      children: (0,external_wp_i18n_namespaceObject.__)('Tracks can be subtitles, captions, chapters, or descriptions. They help make your content more accessible to a wider range of users.')
+      children: (0,external_wp_i18n_namespaceObject.__)('Tracks can be subtitles, captions, chapters, or descriptions. They help make your content more accessible to a wider range of contributors.')
     });
   } else {
     content = tracks.map((track, index) => {

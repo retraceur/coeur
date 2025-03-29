@@ -2918,7 +2918,7 @@ const rootEntitiesConfig = [{
   plural: 'widgetTypes',
   label: (0,external_wp_i18n_namespaceObject.__)('Widget types')
 }, {
-  label: (0,external_wp_i18n_namespaceObject.__)('User'),
+  label: (0,external_wp_i18n_namespaceObject.__)('Contributor'),
   name: 'user',
   kind: 'root',
   baseURL: '/wp/v2/users',

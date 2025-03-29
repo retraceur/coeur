@@ -17680,7 +17680,7 @@ function useColorsPerOrigin(settings) {
     }
     if (customColors && customColors.length) {
       result.push({
-        name: (0,external_wp_i18n_namespaceObject._x)('Custom', 'Indicates this palette is created by the user.'),
+        name: (0,external_wp_i18n_namespaceObject._x)('Custom', 'Indicates this palette is created by the contributor.'),
         colors: customColors
       });
     }
@@ -17708,7 +17708,7 @@ function useGradientsPerOrigin(settings) {
     }
     if (customGradients && customGradients.length) {
       result.push({
-        name: (0,external_wp_i18n_namespaceObject._x)('Custom', 'Indicates this palette is created by the user.'),
+        name: (0,external_wp_i18n_namespaceObject._x)('Custom', 'Indicates this palette is created by the contributor.'),
         gradients: customGradients
       });
     }
@@ -25503,7 +25503,7 @@ function useMultipleOriginColorsAndGradients() {
     }
     if (customGradients && customGradients.length) {
       result.push({
-        name: (0,external_wp_i18n_namespaceObject._x)('Custom', 'Indicates this palette is created by the user.'),
+        name: (0,external_wp_i18n_namespaceObject._x)('Custom', 'Indicates this palette is created by the contributor.'),
         gradients: customGradients
       });
     }
@@ -47539,7 +47539,7 @@ const PATTERN_SOURCE_MENU_OPTIONS = [{
   label: (0,external_wp_i18n_namespaceObject.__)('Theme & Plugins')
 }, {
   value: INSERTER_PATTERN_TYPES.user,
-  label: (0,external_wp_i18n_namespaceObject.__)('User')
+  label: (0,external_wp_i18n_namespaceObject.__)('Contributor')
 }];
 function PatternsFilter({
   setPatternSyncFilter,

@@ -77,10 +77,10 @@ jQuery( function( $ ) {
 		setExportProgress( 0 );
 
 		function onExportDoneSuccess( zipUrl ) {
-			var summaryMessage = __( 'This user&#8217;s personal data export link was sent.' );
+			var summaryMessage = __( 'This contributor&#8217;s personal data export link was sent.' );
 
 			if ( 'undefined' !== typeof zipUrl ) {
-				summaryMessage = __( 'This user&#8217;s personal data export file was downloaded.' );
+				summaryMessage = __( 'This contributor&#8217;s personal data export file was downloaded.' );
 			}
 
 			setActionState( $action, 'export-personal-data-success' );
@@ -182,23 +182,23 @@ jQuery( function( $ ) {
 		setErasureProgress( 0 );
 
 		function onErasureDoneSuccess() {
-			var summaryMessage = __( 'No personal data was found for this user.' ),
+			var summaryMessage = __( 'No personal data was found for this contributor.' ),
 				classes = 'notice-success';
 
 			setActionState( $action, 'remove-personal-data-success' );
 
 			if ( false === hasRemoved ) {
 				if ( false === hasRetained ) {
-					summaryMessage = __( 'No personal data was found for this user.' );
+					summaryMessage = __( 'No personal data was found for this contributor.' );
 				} else {
-					summaryMessage = __( 'Personal data was found for this user but was not erased.' );
+					summaryMessage = __( 'Personal data was found for this contributor but was not erased.' );
 					classes = 'notice-warning';
 				}
 			} else {
 				if ( false === hasRetained ) {
-					summaryMessage = __( 'All of the personal data found for this user was erased.' );
+					summaryMessage = __( 'All of the personal data found for this contributor was erased.' );
 				} else {
-					summaryMessage = __( 'Personal data was found for this user but some of the personal data found was not erased.' );
+					summaryMessage = __( 'Personal data was found for this contributor but some of the personal data found was not erased.' );
 					classes = 'notice-warning';
 				}
 			}
