@@ -112,7 +112,7 @@ class WP_REST_Users_Controller extends WP_REST_Controller {
 						),
 						'reassign' => array(
 							'type'              => 'integer',
-							'description'       => __( 'Reassign the deleted contributo\'s posts and links to this contributo ID.' ),
+							'description'       => __( 'Reassign the deleted contributor\'s posts to this contributor ID.' ),
 							'required'          => true,
 							'sanitize_callback' => array( $this, 'check_reassign' ),
 						),
@@ -153,7 +153,7 @@ class WP_REST_Users_Controller extends WP_REST_Controller {
 						),
 						'reassign' => array(
 							'type'              => 'integer',
-							'description'       => __( 'Reassign the deleted contributor\'s posts and links to this contributor ID.' ),
+							'description'       => __( 'Reassign the deleted contributor\'s posts to this contributor ID.' ),
 							'required'          => true,
 							'sanitize_callback' => array( $this, 'check_reassign' ),
 						),
