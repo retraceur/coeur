@@ -126,13 +126,22 @@ if ( IS_PROFILE_PAGE && isset( $_GET['newuseremail'] ) && $current_user->ID ) {
 
 switch ( $action ) {
 	case 'do-account-deletion':
-		if ( ! IS_PROFILE_PAGE || current_user_can( 'edit_posts' ) ) {
+		if ( ! IS_PROFILE_PAGE || current_user_can( 'edit_published_posts' ) ) {
 			wp_die( __( 'Sorry, you are not allowed to delete this account.' ) );
 		}
 
 		check_admin_referer( 'user-deletion-confirmed' );
 
-		if ( wp_delete_user( $user_id ) ) {
+		$reassign = null;
+		if ( current_user_can( 'edit_posts' ) ) {
+			$admin_user = get_user_by( 'email', get_option( 'admin_email' ) );
+
+			if ( $admin_user ) {
+				$reassign = $admin_user->ID;
+			}
+		}
+
+		if ( wp_delete_user( $user_id, $reassign ) ) {
 			wp_safe_redirect( home_url() );
 			exit;
 		} else {
@@ -140,7 +149,7 @@ switch ( $action ) {
 		}
 
 	case 'account-deletion':
-		if ( ! IS_PROFILE_PAGE || current_user_can( 'edit_posts' ) ) {
+		if ( ! IS_PROFILE_PAGE || current_user_can( 'edit_published_posts' ) ) {
 			wp_die( __( 'Sorry, you are not allowed to delete this account.' ) );
 		}
 
@@ -948,7 +957,7 @@ switch ( $action ) {
 					</table>
 				<?php endif; // End Display Additional Capabilities. ?>
 
-				<?php if ( IS_PROFILE_PAGE && ! current_user_can( 'edit_posts' ) ): ?>
+				<?php if ( IS_PROFILE_PAGE && ! current_user_can( 'edit_published_posts' ) ): ?>
 					<h2 class="attention"><?php esc_html_e( 'Danger zone' ); ?></h2>
 
 					<table class="form-table" role="presentation">
