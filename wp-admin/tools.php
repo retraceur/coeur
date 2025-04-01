@@ -53,38 +53,46 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 <?php
 $tool_infos = array(
 	'site-health.php'          => array(
-		'title' => __( 'Site Health' ),
-		'desc'  => array(
+		'title'    => __( 'Site Health' ),
+		'desc'     => array(
 			__( 'Retraceur offers a diagnosis of your site’s health. There are two tabs on the site health screen:' ),
 			__( 'The first one allows you to see critical information about your configuration while the second one gives you a granular view of the most technical aspects of your website' ),
 		),
+		'capacity' => 'view_site_health_checks',
 	),
 	'export.php'               => array(
-		'title' => __( 'Export' ),
-		'desc'  => array(
+		'title'    => __( 'Export' ),
+		'desc'     => array(
 			__( 'Exporting your site’s data (posts, pages, custom post types, comments, custom fields, categories, tags, custom taxonomies, and contributor accounts) is sometimes necessary and useful.' ),
 			__( 'If you are moving to a new host or just want a backup of your site data, then Exporting your site is the answer.' ),
 		),
+		'capacity' => 'export',
 	),
 	'export-personal-data.php' => array(
-		'title' => __( 'Export Personal Data' ),
-		'desc'  => array(
+		'title'    => __( 'Export Personal Data' ),
+		'desc'     => array(
 			__( 'One of your member asked about getting the personnal data they left on your site?' ),
 			__( 'The Export Personal Data tool can generate a (.zip format) file containing the personal data which exists about a contributor within your site.' ),
 		),
+		'capacity' => 'export_others_personal_data',
 	),
 	'erase-personal-data.php'  => array(
-		'title' => __( 'Erase Personal Data' ),
-		'desc'  => array(
+		'title'    => __( 'Erase Personal Data' ),
+		'desc'     => array(
 			__( 'One of your member asked about erasing the personnal data they left on your site?' ),
 			__( 'Use the Erase Personal Data tool to delete a member’s personal data upon verified request.' ),
 		),
+		'capacity' => 'export_others_personal_data',
 	),
 );
 ?>
 
 <div class="flex-row">
 	<?php foreach ( $tool_infos as $page => $tool ) {
+		if ( ! current_user_can( $tool['capacity'] ) ) {
+			continue;
+		}
+
 		printf(
 			'<div class="card">
 				<h2 class="title">%1$s</h2>

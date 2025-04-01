@@ -234,6 +234,12 @@ if ( current_user_can( 'list_users' ) ) {
 	}
 }
 
+// Only display the Tools menu when useful.
+$tools_cap = 'manage_options';
+if ( has_action( 'tool_box' ) ) {
+	$tools_cap = 'edit_posts';
+}
+
 $site_health_count = '';
 if ( ! is_multisite() && current_user_can( 'view_site_health_checks' ) ) {
 	$get_issues = get_transient( 'health-check-site-status-result' );
@@ -259,8 +265,8 @@ if ( ! is_multisite() && current_user_can( 'view_site_health_checks' ) ) {
 	);
 }
 
-$menu[75]                     = array( __( 'Tools' ), 'edit_posts', 'tools.php', '', 'menu-top menu-icon-tools', 'menu-tools', 'dashicons-admin-tools' );
-	$submenu['tools.php'][5]  = array( __( 'Available Tools' ), 'edit_posts', 'tools.php' );
+$menu[75]                     = array( __( 'Tools' ), $tools_cap, 'tools.php', '', 'menu-top menu-icon-tools', 'menu-tools', 'dashicons-admin-tools' );
+	$submenu['tools.php'][5]  = array( __( 'Available Tools' ), $tools_cap, 'tools.php' );
 	/* translators: %s: Number of critical Site Health checks. */
 	$submenu['tools.php'][10] = array( sprintf( __( 'Site Health %s' ), $site_health_count ), 'view_site_health_checks', 'site-health.php' );
 	$submenu['tools.php'][15] = array( __( 'Export' ), 'export', 'export.php' );
