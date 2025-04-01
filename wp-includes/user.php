@@ -2485,7 +2485,7 @@ function wp_insert_user( $userdata ) {
 	if ( isset( $userdata['role'] ) ) {
 		$user->set_role( $userdata['role'] );
 	} elseif ( ! $update ) {
-		$user->set_role( get_option( 'default_role' ) );
+		$user->set_role( retraceur_get_default_role() );
 	}
 
 	clean_user_cache( $user_id );

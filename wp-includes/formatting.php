@@ -4999,8 +4999,9 @@ function sanitize_option( $option, $value ) {
 			break;
 
 		case 'default_role':
-			if ( ! get_role( $value ) && get_role( 'subscriber' ) ) {
-				$value = 'subscriber';
+			$default_role = retraceur_get_default_role( true );
+			if ( ! get_role( $value ) && get_role( $default_role ) ) {
+				$value = $default_role;
 			}
 			break;
 	}

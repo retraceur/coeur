@@ -308,7 +308,7 @@ endif;
 		<td><select name="role" id="role">
 			<?php
 			if ( ! $new_user_role ) {
-				$new_user_role = get_option( 'default_role' );
+				$new_user_role = retraceur_get_default_role();
 			}
 			wp_dropdown_roles( $new_user_role );
 			?>

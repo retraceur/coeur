@@ -194,8 +194,9 @@ class WP_Roles {
 			update_option( $this->role_key, $this->roles );
 		}
 
-		if ( get_option( 'default_role' ) === $role ) {
-			update_option( 'default_role', 'subscriber' );
+		$default_role = retraceur_get_default_role( true );
+		if ( $default_role === $role ) {
+			update_option( 'default_role', $default_role );
 		}
 	}
 

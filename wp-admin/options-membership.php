@@ -56,7 +56,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 	<tr>
 	<th scope="row"><label for="default_role"><?php esc_html_e( 'New Contributor Default Role' ); ?></label></th>
 	<td>
-	<select name="default_role" id="default_role"><?php wp_dropdown_roles( get_option( 'default_role' ) ); ?></select>
+	<select name="default_role" id="default_role"><?php wp_dropdown_roles( retraceur_get_default_role() ); ?></select>
 	</td>
 	</tr>
 	<?php do_settings_fields( 'membership', 'default' ); ?>

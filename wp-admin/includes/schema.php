@@ -326,7 +326,7 @@ function populate_options( array $options = array() ) {
 		'html_type'                       => 'text/html',
 
 		// 2.0.0
-		'default_role'                    => 'subscriber',
+		'default_role'                    => retraceur_get_default_role( true ),
 		'db_version'                      => $wp_db_version,
 
 		// 2.0.1
@@ -533,8 +533,11 @@ function populate_roles() {
 			'level_1',
 			'level_0',
 		),
-		'subscriber'    => array(
+		'contributor' => array(
+			'edit_posts',
+			'delete_posts',
 			'read',
+			'level_1',
 			'level_0',
 		),
 	);
@@ -542,7 +545,7 @@ function populate_roles() {
 	// Retraceur roles.
 	$roles = array(
 		'administrator' => 'Administrator',
-		'subscriber'    => 'Subscriber',
+		'contributor'   => 'Contributor',
 	);
 
 	// Default WP Roles.

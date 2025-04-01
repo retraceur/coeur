@@ -1118,7 +1118,7 @@ switch ( $action ) {
 				} else {
 					$meta   = array(
 						'add_to_blog' => get_current_blog_id(),
-						'new_role'    => get_option( 'default_role' ),
+						'new_role'    => retraceur_get_default_role(),
 					);
 					$errors = retraceur_signup_user( $user_details['user_name'], $user_details['user_email'], $meta );
 				}

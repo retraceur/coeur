@@ -1295,6 +1295,34 @@ function wp_maybe_grant_site_health_caps( $allcaps, $caps, $args, $user ) {
 	return $allcaps;
 }
 
+/**
+ * Gets the Retraceur contributor default role.
+ *
+ * Retraceur uses the contributor role as the default one considering
+ * the subscriber's one as pretty useless when the Comments feature is
+ * not provided which is the case. If you need to change this behavior,
+ * you can set the `USE_DEFAULT_WP_ROLES` contant to `true` in your
+ * wp-config.php file.
+ *
+ * @since 1.0.0
+ *
+ * @param boolean $skip_option True to get the raw default role. False to use the DB one.
+ * @return string $default_role The default role.
+ */
+function retraceur_get_default_role( $skip_option = false ) {
+	$default_role = 'contributor';
+
+	if ( defined( 'USE_DEFAULT_WP_ROLES' ) && USE_DEFAULT_WP_ROLES ) {
+		$default_role = 'subscriber';
+	}
+
+	if ( $skip_option ) {
+		return $default_role;
+	}
+
+	return get_option( 'default_role', $default_role );
+}
+
 return;
 
 // Dummy gettext calls to get strings in the catalog.
