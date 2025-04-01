@@ -131,7 +131,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 				<p><?php esc_html_e( 'Registration workflow now only creates contributors once they activated their account.' ); ?></p>
 			</div>
 			<div class="column is-vertically-aligned-bottom">
-				<p><?php esc_html_e( 'Your subscribers are free to delete their account from their Profile Administration page.' ); ?></p>
+				<p><?php esc_html_e( 'Your contributors are free to delete their account from their Profile Administration page.' ); ?></p>
 			</div>
 		</div>
 
