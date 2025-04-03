@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-03-29T13:07:11+00:00\n"
+"POT-Creation-Date: 2025-04-03T04:00:11+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 
@@ -67,7 +67,7 @@ msgstr ""
 #: wp-admin/contribute.php:36
 #: wp-admin/credits.php:36
 #: wp-admin/freedoms.php:42
-#: wp-admin/menu.php:277
+#: wp-admin/menu.php:283
 #: wp-admin/options-privacy.php:24
 #: wp-admin/options-privacy.php:143
 #: wp-admin/privacy-policy-guide.php:42
@@ -158,7 +158,7 @@ msgid "Registration workflow now only creates contributors once they activated t
 msgstr ""
 
 #: wp-admin/about.php:134
-msgid "Your subscribers are free to delete their account from their Profile Administration page."
+msgid "Your contributors are free to delete their account from their Profile Administration page."
 msgstr ""
 
 #: wp-admin/about.php:146
@@ -361,7 +361,7 @@ msgstr ""
 #: wp-admin/includes/class-wp-privacy-policy-content.php:433
 #: wp-admin/includes/media.php:3346
 #: wp-admin/site-health-info.php:61
-#: wp-admin/user-edit.php:1013
+#: wp-admin/user-edit.php:1022
 msgid "Copied!"
 msgstr ""
 
@@ -435,17 +435,17 @@ msgstr[1] ""
 
 #. translators: %s: Application name.
 #: wp-admin/authorize-application.php:211
-#: wp-admin/user-edit.php:1006
+#: wp-admin/user-edit.php:1015
 msgid "Your new password for %s is:"
 msgstr ""
 
 #: wp-admin/authorize-application.php:217
-#: wp-admin/user-edit.php:1015
+#: wp-admin/user-edit.php:1024
 msgid "Be sure to save this in a safe location. You will not be able to retrieve it."
 msgstr ""
 
 #: wp-admin/authorize-application.php:249
-#: wp-admin/user-edit.php:837
+#: wp-admin/user-edit.php:846
 msgid "New Application Password Name"
 msgstr ""
 
@@ -1246,8 +1246,8 @@ msgstr ""
 
 #: wp-admin/erase-personal-data.php:19
 #: wp-admin/erase-personal-data.php:98
-#: wp-admin/menu.php:268
-#: wp-admin/tools.php:77
+#: wp-admin/menu.php:274
+#: wp-admin/tools.php:80
 msgid "Erase Personal Data"
 msgstr ""
 
@@ -1355,8 +1355,8 @@ msgstr ""
 
 #: wp-admin/export-personal-data.php:19
 #: wp-admin/export-personal-data.php:98
-#: wp-admin/menu.php:267
-#: wp-admin/tools.php:70
+#: wp-admin/menu.php:273
+#: wp-admin/tools.php:72
 msgid "Export Personal Data"
 msgstr ""
 
@@ -1418,8 +1418,8 @@ msgid "Sorry, you are not allowed to export the content of this site."
 msgstr ""
 
 #: wp-admin/export.php:22
-#: wp-admin/menu.php:266
-#: wp-admin/tools.php:63
+#: wp-admin/menu.php:272
+#: wp-admin/tools.php:64
 msgid "Export"
 msgstr ""
 
@@ -1531,7 +1531,7 @@ msgstr ""
 #: wp-admin/includes/class-wp-privacy-policy-content.php:499
 #: wp-admin/includes/media.php:2588
 #: wp-admin/menu.php:64
-#: wp-admin/menu.php:275
+#: wp-admin/menu.php:281
 msgid "Media"
 msgstr ""
 
@@ -3270,7 +3270,7 @@ msgstr ""
 #: wp-admin/includes/class-wp-debug-data.php:1043
 #: wp-admin/includes/class-wp-debug-data.php:1163
 #: wp-admin/includes/class-wp-users-list-table.php:376
-#: wp-admin/user-edit.php:459
+#: wp-admin/user-edit.php:468
 msgid "Name"
 msgstr ""
 
@@ -5377,7 +5377,7 @@ msgstr ""
 #: wp-admin/install.php:138
 #: wp-admin/install.php:418
 #: wp-admin/setup-config.php:233
-#: wp-admin/user-new.php:262
+#: wp-admin/user-new.php:267
 msgid "Password"
 msgstr ""
 
@@ -5444,8 +5444,8 @@ msgstr ""
 #: wp-admin/includes/template.php:543
 #: wp-admin/includes/template.php:671
 #: wp-admin/options-general.php:266
-#: wp-admin/user-edit.php:585
-#: wp-admin/user-edit.php:706
+#: wp-admin/user-edit.php:594
+#: wp-admin/user-edit.php:715
 msgid "Cancel"
 msgstr ""
 
@@ -7402,8 +7402,8 @@ msgid "Change role to&hellip;"
 msgstr ""
 
 #: wp-admin/includes/class-wp-users-list-table.php:317
-#: wp-admin/user-edit.php:482
-#: wp-admin/user-edit.php:484
+#: wp-admin/user-edit.php:491
+#: wp-admin/user-edit.php:493
 #: wp-admin/users.php:139
 msgid "&mdash; No role for this site &mdash;"
 msgstr ""
@@ -7418,20 +7418,20 @@ msgstr ""
 #: wp-admin/install.php:119
 #: wp-admin/install.php:414
 #: wp-admin/setup-config.php:228
-#: wp-admin/user-edit.php:463
-#: wp-admin/user-new.php:213
+#: wp-admin/user-edit.php:472
+#: wp-admin/user-new.php:218
 msgid "Username"
 msgstr ""
 
 #: wp-admin/includes/class-wp-users-list-table.php:377
-#: wp-admin/user-edit.php:564
-#: wp-admin/user-new.php:217
+#: wp-admin/user-edit.php:573
+#: wp-admin/user-new.php:222
 msgid "Email"
 msgstr ""
 
 #: wp-admin/includes/class-wp-users-list-table.php:378
-#: wp-admin/user-edit.php:469
-#: wp-admin/user-new.php:307
+#: wp-admin/user-edit.php:478
+#: wp-admin/user-new.php:312
 msgid "Role"
 msgstr ""
 
@@ -7448,7 +7448,7 @@ msgid "Table ordered by E-mail."
 msgstr ""
 
 #: wp-admin/includes/class-wp-users-list-table.php:457
-#: wp-admin/user-edit.php:494
+#: wp-admin/user-edit.php:503
 msgid "Super Admin"
 msgstr ""
 
@@ -8669,8 +8669,8 @@ msgstr ""
 #: wp-admin/includes/media.php:1623
 #: wp-admin/includes/media.php:2577
 #: wp-admin/install.php:150
-#: wp-admin/user-edit.php:702
-#: wp-admin/user-new.php:277
+#: wp-admin/user-edit.php:711
+#: wp-admin/user-new.php:282
 msgid "Hide"
 msgstr ""
 
@@ -9177,7 +9177,7 @@ msgstr ""
 
 #. translators: Hidden accessibility text.
 #: wp-admin/includes/misc.php:829
-#: wp-admin/user-edit.php:367
+#: wp-admin/user-edit.php:376
 msgid "Admin Color Scheme"
 msgstr ""
 
@@ -11162,13 +11162,13 @@ msgid "Usernames can have only alphanumeric characters, spaces, underscores, hyp
 msgstr ""
 
 #: wp-admin/install.php:148
-#: wp-admin/user-edit.php:700
-#: wp-admin/user-new.php:275
+#: wp-admin/user-edit.php:709
+#: wp-admin/user-new.php:280
 msgid "Hide password"
 msgstr ""
 
 #: wp-admin/install.php:154
-#: wp-admin/user-edit.php:238
+#: wp-admin/user-edit.php:247
 msgid "Important:"
 msgstr ""
 
@@ -11178,29 +11178,29 @@ msgid "You will need this password to log&nbsp;in. Please store it in a secure l
 msgstr ""
 
 #: wp-admin/install.php:161
-#: wp-admin/user-new.php:283
+#: wp-admin/user-new.php:288
 msgid "Repeat Password"
 msgstr ""
 
 #: wp-admin/install.php:162
-#: wp-admin/user-edit.php:516
-#: wp-admin/user-edit.php:564
-#: wp-admin/user-new.php:213
-#: wp-admin/user-new.php:217
-#: wp-admin/user-new.php:263
-#: wp-admin/user-new.php:283
+#: wp-admin/user-edit.php:525
+#: wp-admin/user-edit.php:573
+#: wp-admin/user-new.php:218
+#: wp-admin/user-new.php:222
+#: wp-admin/user-new.php:268
+#: wp-admin/user-new.php:288
 msgid "(required)"
 msgstr ""
 
 #: wp-admin/install.php:170
-#: wp-admin/user-edit.php:723
-#: wp-admin/user-new.php:290
+#: wp-admin/user-edit.php:732
+#: wp-admin/user-new.php:295
 msgid "Confirm Password"
 msgstr ""
 
 #: wp-admin/install.php:174
-#: wp-admin/user-edit.php:727
-#: wp-admin/user-new.php:294
+#: wp-admin/user-edit.php:736
+#: wp-admin/user-new.php:299
 msgid "Confirm use of weak password"
 msgstr ""
 
@@ -11578,51 +11578,51 @@ msgstr ""
 
 #: wp-admin/menu.php:225
 #: wp-admin/menu.php:233
-#: wp-admin/user-edit.php:301
+#: wp-admin/user-edit.php:310
 #: wp-admin/user-new.php:84
-#: wp-admin/user-new.php:134
-#: wp-admin/user-new.php:326
+#: wp-admin/user-new.php:139
+#: wp-admin/user-new.php:331
 #: wp-admin/users.php:787
 msgid "Add New Contributor"
 msgstr ""
 
-#: wp-admin/menu.php:262
+#: wp-admin/menu.php:268
 #: wp-admin/tools.php:45
 msgid "Tools"
 msgstr ""
 
-#: wp-admin/menu.php:263
+#: wp-admin/menu.php:269
 msgid "Available Tools"
 msgstr ""
 
 #. translators: %s: Number of critical Site Health checks.
-#: wp-admin/menu.php:265
+#: wp-admin/menu.php:271
 msgid "Site Health %s"
 msgstr ""
 
-#: wp-admin/menu.php:270
+#: wp-admin/menu.php:276
 #: wp-admin/options.php:24
 msgid "Settings"
 msgstr ""
 
-#: wp-admin/menu.php:271
+#: wp-admin/menu.php:277
 msgctxt "settings screen"
 msgid "General"
 msgstr ""
 
-#: wp-admin/menu.php:272
+#: wp-admin/menu.php:278
 msgid "Writing"
 msgstr ""
 
-#: wp-admin/menu.php:273
+#: wp-admin/menu.php:279
 msgid "Reading"
 msgstr ""
 
-#: wp-admin/menu.php:274
+#: wp-admin/menu.php:280
 msgid "Membership"
 msgstr ""
 
-#: wp-admin/menu.php:276
+#: wp-admin/menu.php:282
 msgid "Permalinks"
 msgstr ""
 
@@ -14001,27 +14001,27 @@ msgstr ""
 msgid "The first one allows you to see critical information about your configuration while the second one gives you a granular view of the most technical aspects of your website"
 msgstr ""
 
-#: wp-admin/tools.php:65
+#: wp-admin/tools.php:66
 msgid "Exporting your site’s data (posts, pages, custom post types, comments, custom fields, categories, tags, custom taxonomies, and contributor accounts) is sometimes necessary and useful."
 msgstr ""
 
-#: wp-admin/tools.php:66
+#: wp-admin/tools.php:67
 msgid "If you are moving to a new host or just want a backup of your site data, then Exporting your site is the answer."
 msgstr ""
 
-#: wp-admin/tools.php:72
+#: wp-admin/tools.php:74
 msgid "One of your member asked about getting the personnal data they left on your site?"
 msgstr ""
 
-#: wp-admin/tools.php:73
+#: wp-admin/tools.php:75
 msgid "The Export Personal Data tool can generate a (.zip format) file containing the personal data which exists about a contributor within your site."
 msgstr ""
 
-#: wp-admin/tools.php:79
+#: wp-admin/tools.php:82
 msgid "One of your member asked about erasing the personnal data they left on your site?"
 msgstr ""
 
-#: wp-admin/tools.php:80
+#: wp-admin/tools.php:83
 msgid "Use the Erase Personal Data tool to delete a member’s personal data upon verified request."
 msgstr ""
 
@@ -14544,8 +14544,8 @@ msgid "Remember to click the Update Profile button when you are finished."
 msgstr ""
 
 #: wp-admin/user-edit.php:100
-#: wp-admin/user-edit.php:168
-#: wp-admin/user-edit.php:227
+#: wp-admin/user-edit.php:177
+#: wp-admin/user-edit.php:236
 #: wp-admin/users.php:126
 #: wp-admin/users.php:155
 #: wp-admin/users.php:261
@@ -14553,311 +14553,311 @@ msgid "Sorry, you are not allowed to edit this contributor."
 msgstr ""
 
 #: wp-admin/user-edit.php:130
-#: wp-admin/user-edit.php:144
+#: wp-admin/user-edit.php:153
 msgid "Sorry, you are not allowed to delete this account."
 msgstr ""
 
-#: wp-admin/user-edit.php:139
+#: wp-admin/user-edit.php:148
 msgid "Sorry, something went wrong. Please contact the administrator."
 msgstr ""
 
-#: wp-admin/user-edit.php:153
-#: wp-admin/user-edit.php:956
+#: wp-admin/user-edit.php:162
+#: wp-admin/user-edit.php:965
 msgid "Account deletion"
 msgstr ""
 
-#: wp-admin/user-edit.php:156
+#: wp-admin/user-edit.php:165
 msgid "All your data will be deleted and this action is irreversible, please confirm your wish to delete your account."
 msgstr ""
 
-#: wp-admin/user-edit.php:157
+#: wp-admin/user-edit.php:166
 msgid "I confirm!"
 msgstr ""
 
-#: wp-admin/user-edit.php:238
+#: wp-admin/user-edit.php:247
 msgid "This contributor has super admin privileges."
 msgstr ""
 
-#: wp-admin/user-edit.php:249
+#: wp-admin/user-edit.php:258
 msgid "Profile updated."
 msgstr ""
 
-#: wp-admin/user-edit.php:251
+#: wp-admin/user-edit.php:260
 msgid "Contributor updated."
 msgstr ""
 
-#: wp-admin/user-edit.php:257
+#: wp-admin/user-edit.php:266
 msgid "&larr; Go to Contributors"
 msgstr ""
 
-#: wp-admin/user-edit.php:274
+#: wp-admin/user-edit.php:283
 msgid "Error while saving the new email address. Please try again."
 msgstr ""
 
-#: wp-admin/user-edit.php:303
-#: wp-admin/user-new.php:136
+#: wp-admin/user-edit.php:312
+#: wp-admin/user-new.php:141
 #: wp-admin/users.php:793
 msgid "Add Existing Contributor"
 msgstr ""
 
-#: wp-admin/user-edit.php:328
+#: wp-admin/user-edit.php:337
 msgid "Personal Options"
 msgstr ""
 
-#: wp-admin/user-edit.php:333
+#: wp-admin/user-edit.php:342
 msgid "Visual Editor"
 msgstr ""
 
-#: wp-admin/user-edit.php:336
+#: wp-admin/user-edit.php:345
 msgid "Disable the visual editor when writing"
 msgstr ""
 
-#: wp-admin/user-edit.php:356
+#: wp-admin/user-edit.php:365
 msgid "Syntax Highlighting"
 msgstr ""
 
-#: wp-admin/user-edit.php:359
+#: wp-admin/user-edit.php:368
 msgid "Disable syntax highlighting when editing code"
 msgstr ""
 
-#: wp-admin/user-edit.php:388
+#: wp-admin/user-edit.php:397
 msgid "Toolbar"
 msgstr ""
 
-#: wp-admin/user-edit.php:392
+#: wp-admin/user-edit.php:401
 msgid "Show Toolbar when viewing site"
 msgstr ""
 
 #. translators: The user language selection field label.
-#: wp-admin/user-edit.php:405
-#: wp-admin/user-new.php:240
+#: wp-admin/user-edit.php:414
+#: wp-admin/user-new.php:245
 msgid "Language"
 msgstr ""
 
-#: wp-admin/user-edit.php:464
+#: wp-admin/user-edit.php:473
 msgid "Usernames cannot be changed."
 msgstr ""
 
-#: wp-admin/user-edit.php:497
+#: wp-admin/user-edit.php:506
 msgid "Grant this contributor super admin privileges for the Network."
 msgstr ""
 
-#: wp-admin/user-edit.php:499
+#: wp-admin/user-edit.php:508
 msgid "Super admin privileges cannot be removed because this contributor has the network admin email."
 msgstr ""
 
-#: wp-admin/user-edit.php:506
-#: wp-admin/user-new.php:221
+#: wp-admin/user-edit.php:515
+#: wp-admin/user-new.php:226
 msgid "First Name"
 msgstr ""
 
-#: wp-admin/user-edit.php:511
-#: wp-admin/user-new.php:225
+#: wp-admin/user-edit.php:520
+#: wp-admin/user-new.php:230
 msgid "Last Name"
 msgstr ""
 
-#: wp-admin/user-edit.php:516
+#: wp-admin/user-edit.php:525
 msgid "Nickname"
 msgstr ""
 
-#: wp-admin/user-edit.php:522
+#: wp-admin/user-edit.php:531
 msgid "Display name publicly as"
 msgstr ""
 
-#: wp-admin/user-edit.php:560
+#: wp-admin/user-edit.php:569
 msgid "Contact Info"
 msgstr ""
 
-#: wp-admin/user-edit.php:569
+#: wp-admin/user-edit.php:578
 msgid "If you change this, an email will be sent at your new address to confirm it. <strong>The new address will not become active until confirmed.</strong>"
 msgstr ""
 
 #. translators: %s: New email.
-#: wp-admin/user-edit.php:579
+#: wp-admin/user-edit.php:588
 msgid "There is a pending change of your email to %s."
 msgstr ""
 
-#: wp-admin/user-edit.php:599
-#: wp-admin/user-new.php:229
+#: wp-admin/user-edit.php:608
+#: wp-admin/user-new.php:234
 msgid "Website"
 msgstr ""
 
-#: wp-admin/user-edit.php:629
+#: wp-admin/user-edit.php:638
 msgid "About Yourself"
 msgstr ""
 
-#: wp-admin/user-edit.php:629
+#: wp-admin/user-edit.php:638
 msgid "About the contributor"
 msgstr ""
 
-#: wp-admin/user-edit.php:633
+#: wp-admin/user-edit.php:642
 msgid "Biographical Info"
 msgstr ""
 
-#: wp-admin/user-edit.php:635
+#: wp-admin/user-edit.php:644
 msgid "Share a little biographical information to fill out your profile. This may be shown publicly."
 msgstr ""
 
-#: wp-admin/user-edit.php:640
+#: wp-admin/user-edit.php:649
 msgid "Profile Picture"
 msgstr ""
 
 #. translators: %s: Gravatar URL.
-#: wp-admin/user-edit.php:648
+#: wp-admin/user-edit.php:657
 msgid "<a href=\"%s\">You can change your profile picture on Libravatar</a>."
 msgstr ""
 
 #. translators: The localized Gravatar URL.
-#: wp-admin/user-edit.php:650
+#: wp-admin/user-edit.php:659
 msgid "https://libravatar.org/"
 msgstr ""
 
-#: wp-admin/user-edit.php:687
+#: wp-admin/user-edit.php:696
 msgid "Account Management"
 msgstr ""
 
-#: wp-admin/user-edit.php:691
+#: wp-admin/user-edit.php:700
 msgid "New Password"
 msgstr ""
 
-#: wp-admin/user-edit.php:694
+#: wp-admin/user-edit.php:703
 msgid "Set New Password"
 msgstr ""
 
-#: wp-admin/user-edit.php:704
+#: wp-admin/user-edit.php:713
 msgid "Cancel password change"
 msgstr ""
 
-#: wp-admin/user-edit.php:712
+#: wp-admin/user-edit.php:721
 msgid "Repeat New Password"
 msgstr ""
 
-#: wp-admin/user-edit.php:716
+#: wp-admin/user-edit.php:725
 msgid "Type your new password again."
 msgstr ""
 
-#: wp-admin/user-edit.php:718
+#: wp-admin/user-edit.php:727
 msgid "Type the new password again."
 msgstr ""
 
-#: wp-admin/user-edit.php:736
+#: wp-admin/user-edit.php:745
 msgid "Password Reset"
 msgstr ""
 
-#: wp-admin/user-edit.php:740
+#: wp-admin/user-edit.php:749
 msgid "Send Reset Link"
 msgstr ""
 
 #. translators: %s: User's display name.
-#: wp-admin/user-edit.php:747
+#: wp-admin/user-edit.php:756
 msgid "Send %s a link to reset their password. This will not change their password, nor will it force a change."
 msgstr ""
 
-#: wp-admin/user-edit.php:758
-#: wp-admin/user-edit.php:768
-#: wp-admin/user-edit.php:778
+#: wp-admin/user-edit.php:767
+#: wp-admin/user-edit.php:777
+#: wp-admin/user-edit.php:787
 msgid "Sessions"
 msgstr ""
 
-#: wp-admin/user-edit.php:760
-#: wp-admin/user-edit.php:770
+#: wp-admin/user-edit.php:769
+#: wp-admin/user-edit.php:779
 msgid "Log Out Everywhere Else"
 msgstr ""
 
-#: wp-admin/user-edit.php:762
+#: wp-admin/user-edit.php:771
 msgid "You are only logged in at this location."
 msgstr ""
 
-#: wp-admin/user-edit.php:772
+#: wp-admin/user-edit.php:781
 msgid "Did you lose your phone or leave your account logged in at a public computer? You can log out everywhere else, and stay logged in here."
 msgstr ""
 
-#: wp-admin/user-edit.php:780
+#: wp-admin/user-edit.php:789
 msgid "Log Out Everywhere"
 msgstr ""
 
 #. translators: %s: User's display name.
-#: wp-admin/user-edit.php:784
+#: wp-admin/user-edit.php:793
 msgid "Log %s out of all locations."
 msgstr ""
 
-#: wp-admin/user-edit.php:794
+#: wp-admin/user-edit.php:803
 msgid "Application Passwords"
 msgstr ""
 
-#: wp-admin/user-edit.php:795
+#: wp-admin/user-edit.php:804
 msgid "Application passwords allow authentication via non-interactive systems, such as the REST API, without providing your actual password. Application passwords can be easily revoked. They cannot be used for traditional logins to your website."
 msgstr ""
 
 #. translators: 1: URL to my-sites.php, 2: Number of sites the user has.
-#: wp-admin/user-edit.php:807
+#: wp-admin/user-edit.php:816
 msgid "Application passwords grant access to <a href=\"%1$s\">the %2$s site in this installation that you have permissions on</a>."
 msgid_plural "Application passwords grant access to <a href=\"%1$s\">all %2$s sites in this installation that you have permissions on</a>."
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: 1: URL to my-sites.php, 2: Number of sites the user has.
-#: wp-admin/user-edit.php:815
+#: wp-admin/user-edit.php:824
 msgid "Application passwords grant access to <a href=\"%1$s\">the %2$s site on the network as you have Super Admin rights</a>."
 msgid_plural "Application passwords grant access to <a href=\"%1$s\">all %2$s sites on the network as you have Super Admin rights</a>."
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-admin/user-edit.php:839
+#: wp-admin/user-edit.php:848
 msgid "Required to create an Application Password, but not to update the contributor."
 msgstr ""
 
-#: wp-admin/user-edit.php:853
+#: wp-admin/user-edit.php:862
 msgid "Add New Application Password"
 msgstr ""
 
-#: wp-admin/user-edit.php:858
+#: wp-admin/user-edit.php:867
 msgid "Your website appears to use Basic Authentication, which is not currently compatible with Application Passwords."
 msgstr ""
 
-#: wp-admin/user-edit.php:875
+#: wp-admin/user-edit.php:884
 msgid "The application password feature requires HTTPS, which is not enabled on this site."
 msgstr ""
 
-#: wp-admin/user-edit.php:876
+#: wp-admin/user-edit.php:885
 msgid "If this is a development website, you can set the environment type accordingly to enable application passwords."
 msgstr ""
 
-#: wp-admin/user-edit.php:922
+#: wp-admin/user-edit.php:931
 msgid "Additional Capabilities"
 msgstr ""
 
-#: wp-admin/user-edit.php:926
+#: wp-admin/user-edit.php:935
 msgid "Capabilities"
 msgstr ""
 
 #. translators: %s: Capability name.
-#: wp-admin/user-edit.php:940
+#: wp-admin/user-edit.php:949
 msgid "Denied: %s"
 msgstr ""
 
-#: wp-admin/user-edit.php:952
+#: wp-admin/user-edit.php:961
 msgid "Danger zone"
 msgstr ""
 
-#: wp-admin/user-edit.php:959
+#: wp-admin/user-edit.php:968
 msgid "I wish to delete my account"
 msgstr ""
 
-#: wp-admin/user-edit.php:969
+#: wp-admin/user-edit.php:978
 msgid "Update Profile"
 msgstr ""
 
-#: wp-admin/user-edit.php:969
+#: wp-admin/user-edit.php:978
 msgid "Update Contributor"
 msgstr ""
 
-#: wp-admin/user-edit.php:1012
+#: wp-admin/user-edit.php:1021
 msgid "Copy"
 msgstr ""
 
 #. translators: Hidden accessibility text.
-#: wp-admin/user-edit.php:1020
+#: wp-admin/user-edit.php:1029
 msgid "Dismiss this notice."
 msgstr ""
 
@@ -14881,63 +14881,63 @@ msgstr ""
 msgid "Remember to click the Add New Contributor button at the bottom of this screen when you are finished."
 msgstr ""
 
-#: wp-admin/user-new.php:101
-msgid "Contributor Roles"
-msgstr ""
-
-#: wp-admin/user-new.php:102
-msgid "Here is a basic overview of the different contributor roles and the permissions associated with each one:"
-msgstr ""
-
-#: wp-admin/user-new.php:104
+#: wp-admin/user-new.php:100
 msgid "Subscribers can read regular site content but cannot create it."
 msgstr ""
 
-#: wp-admin/user-new.php:105
+#: wp-admin/user-new.php:101
 msgid "Contributors can write and manage their posts but not publish posts or upload media files."
 msgstr ""
 
-#: wp-admin/user-new.php:106
+#: wp-admin/user-new.php:102
 msgid "Authors can publish and manage their own posts, and are able to upload files."
 msgstr ""
 
-#: wp-admin/user-new.php:107
+#: wp-admin/user-new.php:103
 msgid "Editors can publish posts, manage posts as well as manage other people&#8217;s posts, etc."
 msgstr ""
 
-#: wp-admin/user-new.php:108
+#: wp-admin/user-new.php:104
 msgid "Administrators have access to all the administration features."
 msgstr ""
 
-#: wp-admin/user-new.php:122
+#: wp-admin/user-new.php:112
+msgid "Contributor Roles"
+msgstr ""
+
+#: wp-admin/user-new.php:113
+msgid "Here is a basic overview of the different contributor roles and the permissions associated with each one:"
+msgstr ""
+
+#: wp-admin/user-new.php:127
 msgid "Contributor added."
 msgstr ""
 
-#: wp-admin/user-new.php:124
+#: wp-admin/user-new.php:129
 msgid "Invitation email sent to new contributor. A confirmation link must be clicked before their account is created."
 msgstr ""
 
-#: wp-admin/user-new.php:126
+#: wp-admin/user-new.php:131
 msgid "That contributor could not be added to this site."
 msgstr ""
 
-#: wp-admin/user-new.php:189
+#: wp-admin/user-new.php:194
 msgid "Create a brand new contributor and add them to this site."
 msgstr ""
 
-#: wp-admin/user-new.php:268
+#: wp-admin/user-new.php:273
 msgid "Generate password"
 msgstr ""
 
-#: wp-admin/user-new.php:286
+#: wp-admin/user-new.php:291
 msgid "Type the password again."
 msgstr ""
 
-#: wp-admin/user-new.php:299
+#: wp-admin/user-new.php:304
 msgid "Skip Confirmation Email"
 msgstr ""
 
-#: wp-admin/user-new.php:302
+#: wp-admin/user-new.php:307
 msgid "Add the contributor without sending an email that requires their confirmation"
 msgstr ""
 

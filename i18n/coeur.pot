@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-03-30T11:04:00+00:00\n"
+"POT-Creation-Date: 2025-04-03T04:00:25+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 
@@ -1223,31 +1223,31 @@ msgid "When checking for the %s capability, you must always check it against a s
 msgstr ""
 
 #. translators: User role for administrators.
-#: wp-includes/capabilities.php:1302
+#: wp-includes/capabilities.php:1330
 msgctxt "User role"
 msgid "Administrator"
 msgstr ""
 
 #. translators: User role for editors.
-#: wp-includes/capabilities.php:1304
+#: wp-includes/capabilities.php:1332
 msgctxt "User role"
 msgid "Editor"
 msgstr ""
 
 #. translators: User role for authors.
-#: wp-includes/capabilities.php:1306
+#: wp-includes/capabilities.php:1334
 msgctxt "User role"
 msgid "Author"
 msgstr ""
 
 #. translators: User role for contributors.
-#: wp-includes/capabilities.php:1308
+#: wp-includes/capabilities.php:1336
 msgctxt "User role"
 msgid "Contributor"
 msgstr ""
 
 #. translators: User role for subscribers.
-#: wp-includes/capabilities.php:1310
+#: wp-includes/capabilities.php:1338
 msgctxt "User role"
 msgid "Subscriber"
 msgstr ""
@@ -3801,27 +3801,27 @@ msgid "A structure tag is required when using custom permalinks."
 msgstr ""
 
 #. translators: 1: Option name, 2: Error code.
-#: wp-includes/formatting.php:5011
+#: wp-includes/formatting.php:5012
 msgid "Could not sanitize the %1$s option. Error code: %2$s"
 msgstr ""
 
 #. translators: Used to join items in a list with more than 2 items.
-#: wp-includes/formatting.php:5254
+#: wp-includes/formatting.php:5255
 msgid "%1$s, %2$s"
 msgstr ""
 
 #. translators: Used to join last two items in a list with more than 2 times.
-#: wp-includes/formatting.php:5256
+#: wp-includes/formatting.php:5257
 msgid "%1$s, and %2$s"
 msgstr ""
 
 #. translators: Used to join items in a list with only 2 items.
-#: wp-includes/formatting.php:5258
+#: wp-includes/formatting.php:5259
 msgid "%1$s and %2$s"
 msgstr ""
 
 #. translators: 1: The function name, 2: The argument number, 3: The argument name, 4: The expected type, 5: The provided type.
-#: wp-includes/formatting.php:5444
+#: wp-includes/formatting.php:5445
 msgid "Warning: %1$s expects parameter %2$s (%3$s) to be a %4$s, %5$s given."
 msgstr ""
 
