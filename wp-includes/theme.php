@@ -926,14 +926,16 @@ function validate_theme_requirements( $stylesheet ) {
 	$theme = wp_get_theme( $stylesheet );
 
 	$requirements = array(
-		'requires'     => ! empty( $theme->get( 'RequiresR' ) ) ? $theme->get( 'RequiresR' ) : '',
+		'requires'     => ! empty( $theme->get( 'RequiresWP' ) ) ? $theme->get( 'RequiresWP' ) : '',
+		'requires_r'   => ! empty( $theme->get( 'RequiresR' ) ) ? $theme->get( 'RequiresR' ) : '',
 		'requires_php' => ! empty( $theme->get( 'RequiresPHP' ) ) ? $theme->get( 'RequiresPHP' ) : '',
 	);
 
 	$compatible_wp  = is_wp_version_compatible( $requirements['requires'] );
+	$compatible_r   = is_retraceur_version_compatible( $requirements['requires_r'] );
 	$compatible_php = is_php_version_compatible( $requirements['requires_php'] );
 
-	if ( ! $compatible_wp && ! $compatible_php ) {
+	if ( ! $compatible_wp && ! $compatible_r && ! $compatible_php ) {
 		return new WP_Error(
 			'theme_wp_php_incompatible',
 			sprintf(
@@ -951,7 +953,7 @@ function validate_theme_requirements( $stylesheet ) {
 				$theme->display( 'Name' )
 			)
 		);
-	} elseif ( ! $compatible_wp ) {
+	} elseif ( ! $compatible_wp || ! $compatible_r ) {
 		return new WP_Error(
 			'theme_wp_incompatible',
 			sprintf(

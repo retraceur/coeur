@@ -68,6 +68,7 @@
  *     @type string $TextDomain      Plugin textdomain.
  *     @type string $DomainPath      Plugin's relative directory path to .mo files.
  *     @type bool   $Network         Whether the plugin can only be activated network-wide.
+ *     @type string $RequiresWP      Minimum required version of WP.
  *     @type string $RequiresR       Minimum required version of Retraceur.
  *     @type string $RequiresPHP     Minimum required version of PHP.
  *     @type string $UpdateURI       ID of the plugin for update purposes, should be a URI.
@@ -89,6 +90,7 @@ function get_plugin_data( $plugin_file, $markup = true, $translate = true ) {
 		'TextDomain'      => 'Text Domain',
 		'DomainPath'      => 'Domain Path',
 		'Network'         => 'Network',
+		'RequiresWP'      => 'Requires at least',
 		'RequiresR'       => 'Requires Retraceur',
 		'RequiresPHP'     => 'Requires PHP',
 		'UpdateURI'       => 'Update URI',
@@ -1138,15 +1140,17 @@ function validate_plugin_requirements( $plugin ) {
 	$plugin_headers = get_plugin_data( WP_PLUGIN_DIR . '/' . $plugin );
 
 	$requirements = array(
-		'requires'         => ! empty( $plugin_headers['RequiresR'] ) ? $plugin_headers['RequiresR'] : '',
+		'requires'         => ! empty( $plugin_headers['RequiresWP'] ) ? $plugin_headers['RequiresWP'] : '',
+		'requires_r'       => ! empty( $plugin_headers['RequiresR'] ) ? $plugin_headers['RequiresR'] : '',
 		'requires_php'     => ! empty( $plugin_headers['RequiresPHP'] ) ? $plugin_headers['RequiresPHP'] : '',
 		'requires_plugins' => ! empty( $plugin_headers['RequiresPlugins'] ) ? $plugin_headers['RequiresPlugins'] : '',
 	);
 
 	$compatible_wp  = is_wp_version_compatible( $requirements['requires'] );
+	$compatible_r   = is_retraceur_version_compatible( $requirements['requires_r'] );
 	$compatible_php = is_php_version_compatible( $requirements['requires_php'] );
 
-	if ( ! $compatible_wp && ! $compatible_php ) {
+	if ( ! $compatible_wp && ! $compatible_r && ! $compatible_php ) {
 		return new WP_Error(
 			'plugin_wp_php_incompatible',
 			'<p>' . sprintf(
@@ -1170,7 +1174,9 @@ function validate_plugin_requirements( $plugin ) {
 				$requirements['requires_php']
 			) . '</p>'
 		);
-	} elseif ( ! $compatible_wp ) {
+	} elseif ( ! $compatible_wp || ! $compatible_r ) {
+		$req = isset( $requirements['requires_r'] ) ? $requirements['requires_r']  : __( 'Unknown' );
+
 		return new WP_Error(
 			'plugin_wp_incompatible',
 			'<p>' . sprintf(
@@ -1178,7 +1184,7 @@ function validate_plugin_requirements( $plugin ) {
 				_x( '<strong>Error:</strong> Current Retraceur version (%1$s) does not meet minimum requirements for %2$s. The plugin requires Retraceur %3$s.', 'plugin' ),
 				get_bloginfo( 'version' ),
 				$plugin_headers['Name'],
-				$requirements['requires']
+				$req
 			) . '</p>'
 		);
 	}
