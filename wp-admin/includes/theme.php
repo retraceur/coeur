@@ -676,6 +676,7 @@ function wp_prepare_themes_for_js( $themes = null ) {
 		}
 
 		$update_requires_wp  = isset( $updates[ $slug ]['requires'] ) ? $updates[ $slug ]['requires'] : null;
+		$update_requires_r   = isset( $updates[ $slug ]['requires_r'] ) ? $updates[ $slug ]['requires_r'] : null;
 		$update_requires_php = isset( $updates[ $slug ]['requires_php'] ) ? $updates[ $slug ]['requires_php'] : null;
 
 		$auto_update        = in_array( $slug, $auto_updates, true );
@@ -703,7 +704,7 @@ function wp_prepare_themes_for_js( $themes = null ) {
 			);
 		}
 
-		$auto_update_forced = wp_is_auto_update_forced_for_item( 'theme', null, $auto_update_filter_payload );
+		$auto_update_forced    = wp_is_auto_update_forced_for_item( 'theme', null, $auto_update_filter_payload );
 
 		$prepared_themes[ $slug ] = array(
 			'id'             => $slug,
@@ -714,10 +715,11 @@ function wp_prepare_themes_for_js( $themes = null ) {
 			'authorAndUri'   => $theme->display( 'Author' ),
 			'tags'           => $theme->display( 'Tags' ),
 			'version'        => $theme->get( 'Version' ),
-			'compatibleWP'   => is_wp_version_compatible( $theme->get( 'RequiresR' ) ),
+			'compatibleWP'   => is_wp_version_compatible( $theme->get( 'RequiresWP' ) ) && is_retraceur_version_compatible( $theme->get( 'RequiresR' ) ),
+			'isRetraceurD'   => ! empty( $theme->get( 'RequiresR' ) ),
 			'compatiblePHP'  => is_php_version_compatible( $theme->get( 'RequiresPHP' ) ),
 			'updateResponse' => array(
-				'compatibleWP'  => is_wp_version_compatible( $update_requires_wp ),
+				'compatibleWP'  => is_wp_version_compatible( $update_requires_wp ) && is_retraceur_version_compatible( $update_requires_r ),
 				'compatiblePHP' => is_php_version_compatible( $update_requires_php ),
 			),
 			'parent'         => $parent,

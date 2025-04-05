@@ -301,7 +301,8 @@ class Plugin_Installer_Skin extends WP_Upgrader_Skin {
 		$blocked_message .= '<ul class="ul-disc">';
 
 		$requires_php = isset( $new_plugin_data['RequiresPHP'] ) ? $new_plugin_data['RequiresPHP'] : null;
-		$requires_wp  = isset( $new_plugin_data['RequiresR'] ) ? $new_plugin_data['RequiresR'] : null;
+		$requires_wp  = isset( $new_plugin_data['RequiresWP'] ) ? $new_plugin_data['RequiresWP'] : null;
+		$requires_r   = isset( $new_plugin_data['RequiresR'] ) ? $new_plugin_data['RequiresR'] : null;
 
 		if ( ! is_php_version_compatible( $requires_php ) ) {
 			if ( 'block' === $plugin_type ) {
@@ -324,20 +325,22 @@ class Plugin_Installer_Skin extends WP_Upgrader_Skin {
 			$can_update       = false;
 		}
 
-		if ( ! is_wp_version_compatible( $requires_wp ) ) {
+		if ( ! is_wp_version_compatible( $requires_wp ) || ! is_retraceur_version_compatible( $requires_r ) ) {
+			$req = isset( $requires_r ) ? $requires_r : __( 'Unknown' );
+
 			if ( 'block' === $plugin_type ) {
 				$error = sprintf(
 					/* translators: 1: Current Retraceur version, 2: Version required by the uploaded block. */
 					__( 'Your Retraceur version is %1$s, however the uploaded block requires %2$s.' ),
 					esc_html( retraceur_get_version() ),
-					$requires_wp
+					$req
 				);
 			} else {
 				$error = sprintf(
 					/* translators: 1: Current Retraceur version, 2: Version required by the uploaded plugin. */
 					__( 'Your Retraceur version is %1$s, however the uploaded plugin requires %2$s.' ),
 					esc_html( retraceur_get_version() ),
-					$requires_wp
+					$req
 				);
 			}
 

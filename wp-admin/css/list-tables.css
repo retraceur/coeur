@@ -1035,7 +1035,7 @@ ul.cat-checklist input[name="post_category[]"]:indeterminate::before {
 }
 
 .plugins .plugin-update-tr .plugin-update {
-	box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+	box-shadow: none;
 	overflow: hidden; /* clearfix */
 	padding: 0;
 }
@@ -1045,7 +1045,8 @@ ul.cat-checklist input[name="post_category[]"]:indeterminate::before {
 	margin: 5px 20px 15px 40px;
 }
 
-.plugins .notice p {
+.plugins .notice p,
+.blocks .notice p {
 	margin: 0.5em 0;
 }
 

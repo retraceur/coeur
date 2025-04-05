@@ -8319,29 +8319,9 @@ function retraceur_get_version() {
 	return $retraceur_version;
 }
 
-/**
- * Checks compatibility with the current Retraceur version.
- *
- * @since WP 5.2.0
- *
- * @global string $_retraceur_tests_version The Retraceur version string. Used only in Core tests.
- *
- * @param string $required Minimum required Retraceur version.
- * @return bool True if required version is compatible or empty, false if not.
- */
-function is_wp_version_compatible( $required ) {
-	if (
-		defined( 'WP_RUN_CORE_TESTS' )
-		&& WP_RUN_CORE_TESTS
-		&& isset( $GLOBALS['_retraceur_tests_version'] )
-	) {
-		$retraceur_version = $GLOBALS['_retraceur_tests_version'];
-	} else {
-		$retraceur_version = retraceur_get_version();
-	}
-
+function is_platform_version_compatible( $required, $current_version ) {
 	// Strip off any -alpha, -RC, -beta, -src suffixes.
-	list( $version ) = explode( '-', $retraceur_version );
+	list( $version ) = explode( '-', $current_version );
 
 	if ( is_string( $required ) ) {
 		$trimmed = trim( $required );
@@ -8352,6 +8332,44 @@ function is_wp_version_compatible( $required ) {
 	}
 
 	return empty( $required ) || version_compare( $version, $required, '>=' );
+}
+
+/**
+ * Checks compatibility with the current Retraceur version.
+ *
+ * @since 1.0.0
+ *
+ * @global string $_retraceur_tests_version The Retraceur version string. Used only in Core tests.
+ *
+ * @param string $required Minimum required Retraceur version.
+ * @return bool True if required version is compatible or empty, false if not.
+ */
+function is_retraceur_version_compatible( $required ) {
+	if (
+		defined( 'WP_RUN_CORE_TESTS' )
+		&& WP_RUN_CORE_TESTS
+		&& isset( $GLOBALS['_retraceur_tests_version'] )
+	) {
+		$retraceur_version = $GLOBALS['_retraceur_tests_version'];
+	} else {
+		$retraceur_version = retraceur_get_version();
+	}
+
+	return is_platform_version_compatible( $required, $retraceur_version );
+}
+
+/**
+ * Checks compatibility with the current WP version.
+ *
+ * @since WP 5.2.0
+ *
+ * @global string $_wp_tests_wp_version The WordPress version string. Used only in Core tests.
+ *
+ * @param string $required Minimum required WordPress version.
+ * @return bool True if required version is compatible or empty, false if not.
+ */
+function is_wp_version_compatible( $required ) {
+	return is_platform_version_compatible( $required, wp_get_wp_version() );
 }
 
 /**

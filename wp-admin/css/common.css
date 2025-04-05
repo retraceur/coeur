@@ -1619,6 +1619,12 @@ div.error {
 	content: "\f147";
 }
 
+/* Warning icon. */
+.update-message.notice-warning p:before {
+	color: #dba617;
+	content: "\f534";
+}
+
 /* Error icon. */
 .update-message.notice-error p:before {
 	color: #d63638;

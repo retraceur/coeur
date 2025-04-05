@@ -2624,6 +2624,7 @@ function wp_ajax_query_themes() {
 		$theme->num_ratings    = number_format_i18n( $theme->num_ratings );
 		$theme->preview_url    = set_url_scheme( $theme->preview_url );
 		$theme->compatible_wp  = is_wp_version_compatible( $theme->requires );
+		$theme->compatible_r   = is_retraceur_version_compatible( $theme->requires_r );
 		$theme->compatible_php = is_php_version_compatible( $theme->requires_php );
 	}
 

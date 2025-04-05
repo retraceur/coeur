@@ -790,9 +790,11 @@ class WP_Plugins_List_Table extends WP_List_Table {
 		$restrict_network_only   = false;
 
 		$requires_php = isset( $plugin_data['RequiresPHP'] ) ? $plugin_data['RequiresPHP'] : null;
-		$requires_wp  = isset( $plugin_data['RequiresR'] ) ? $plugin_data['RequiresR'] : null;
+		$requires_r   = isset( $plugin_data['RequiresR'] ) ? $plugin_data['RequiresR'] : null;
+		$requires_wp  = isset( $plugin_data['RequiresWP'] ) ? $plugin_data['RequiresWP'] : null;
 
 		$compatible_php = is_php_version_compatible( $requires_php );
+		$compatible_r   = is_retraceur_version_compatible( $requires_r );
 		$compatible_wp  = is_wp_version_compatible( $requires_wp );
 
 		$has_dependents          = WP_Plugin_Dependencies::has_dependents( $plugin_file );
@@ -867,7 +869,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 					}
 				} else {
 					if ( current_user_can( 'manage_network_plugins' ) ) {
-						if ( $compatible_php && $compatible_wp ) {
+						if ( $compatible_php && ( $compatible_wp || $compatible_r ) ) {
 							if ( $has_unmet_dependencies ) {
 								$actions['activate'] = _x( 'Network Activate', 'plugin' ) .
 									'<span class="screen-reader-text">' .
@@ -973,7 +975,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 					}
 				} else {
 					if ( current_user_can( 'activate_plugin', $plugin_file ) ) {
-						if ( $compatible_php && $compatible_wp ) {
+						if ( $compatible_php && ( $compatible_wp || $compatible_r ) ) {
 							if ( $has_unmet_dependencies ) {
 								$actions['activate'] = _x( 'Activate', 'plugin' ) .
 									'<span class="screen-reader-text">' .
@@ -1153,7 +1155,9 @@ class WP_Plugins_List_Table extends WP_List_Table {
 			! empty( $totals['upgrade'] ) &&
 			! empty( $plugin_data['update'] ) ||
 			! $compatible_php ||
-			! $compatible_wp
+			! $compatible_wp ||
+			! $compatible_r ||
+			! $requires_r
 		) {
 			$class .= ' update';
 		}
@@ -1445,14 +1449,14 @@ class WP_Plugins_List_Table extends WP_List_Table {
 
 		echo '</tr>';
 
-		if ( ! $compatible_php || ! $compatible_wp ) {
+		if ( ! $compatible_php || ! $compatible_wp || ! $compatible_r ) {
 			printf(
 				'<tr class="plugin-update-tr"><td colspan="%s" class="plugin-update colspanchange">',
 				esc_attr( $this->get_column_count() )
 			);
 
 			$incompatible_message = '';
-			if ( ! $compatible_php && ! $compatible_wp ) {
+			if ( ! $compatible_php && ( ! $compatible_wp || ! $compatible_r ) ) {
 				$incompatible_message .= __( 'This plugin does not work with your versions of Retraceur and PHP.' );
 				if ( current_user_can( 'update_core' ) && current_user_can( 'update_php' ) ) {
 					$incompatible_message .= sprintf(
@@ -1467,7 +1471,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 						self_admin_url( 'update-core.php' )
 					);
 				}
-			} elseif ( ! $compatible_wp ) {
+			} elseif ( ! $compatible_wp || ! $compatible_r ) {
 				$incompatible_message .= __( 'This plugin does not work with your version of Retraceur.' );
 				if ( current_user_can( 'update_core' ) ) {
 					$incompatible_message .= sprintf(
@@ -1484,6 +1488,24 @@ class WP_Plugins_List_Table extends WP_List_Table {
 				$incompatible_message,
 				array(
 					'type'               => 'error',
+					'additional_classes' => array( 'notice-alt', 'inline', 'update-message' ),
+				)
+			);
+
+			echo '</td></tr>';
+		}
+
+		// It's not a plugin the author tested with Retraceur.
+		if ( ! $requires_r ) {
+			printf(
+				'<tr class="plugin-update-tr"><td colspan="%s" class="plugin-update colspanchange">',
+				esc_attr( $this->get_column_count() )
+			);
+
+			wp_admin_notice(
+				__( 'The plugin’s author has not declared any compatibility with Retraceur. Activating it may generate issues.' ),
+				array(
+					'type'               => 'warning',
 					'additional_classes' => array( 'notice-alt', 'inline', 'update-message' ),
 				)
 			);

@@ -445,14 +445,15 @@ class Theme_Upgrader extends WP_Upgrader {
 			// Get the URL to the zip file.
 			$r = $current->response[ $theme ];
 
-			if ( isset( $r['requires'] ) && ! is_wp_version_compatible( $r['requires'] ) ) {
+			if ( ( isset( $r['requires'] ) && ! is_wp_version_compatible( $r['requires'] ) ) || ( isset( $r['requires_r'] ) && ! is_retraceur_version_compatible( $r['requires_r'] ) ) ) {
+				$req    = isset( $r['requires_r'] ) ? $r['requires_r'] : __( 'Unknown' );
 				$result = new WP_Error(
 					'incompatible_wp_required_version',
 					sprintf(
 						/* translators: 1: Current Retraceur version, 2: Retraceur version required by the new theme version. */
 						__( 'Your Retraceur version is %1$s, however the new theme version requires %2$s.' ),
 						$retraceur_version,
-						$r['requires']
+						$req
 					)
 				);
 
@@ -641,7 +642,8 @@ class Theme_Upgrader extends WP_Upgrader {
 		}
 
 		$requires_php = isset( $info['RequiresPHP'] ) ? $info['RequiresPHP'] : null;
-		$requires_wp  = isset( $info['RequiresR'] ) ? $info['RequiresR'] : null;
+		$requires_wp  = isset( $info['RequiresWP'] ) ? $info['RequiresWP'] : null;
+		$requires_r   = isset( $info['RequiresR'] ) ? $info['RequiresR'] : null;
 
 		if ( ! is_php_version_compatible( $requires_php ) ) {
 			$error = sprintf(
@@ -653,12 +655,13 @@ class Theme_Upgrader extends WP_Upgrader {
 
 			return new WP_Error( 'incompatible_php_required_version', $this->strings['incompatible_archive'], $error );
 		}
-		if ( ! is_wp_version_compatible( $requires_wp ) ) {
+		if ( ! is_wp_version_compatible( $requires_wp ) || ! is_retraceur_version_compatible( $requires_r ) ) {
+			$req   = isset( $requires_r ) ? $requires_r : __( 'Unknown' );
 			$error = sprintf(
 				/* translators: 1: Current Retraceur version, 2: Version required by the uploaded theme. */
 				__( 'Your Retraceur version is %1$s, however the uploaded theme requires %2$s.' ),
 				$retraceur_version,
-				$requires_wp
+				$req
 			);
 
 			return new WP_Error( 'incompatible_wp_required_version', $this->strings['incompatible_archive'], $error );

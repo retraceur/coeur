@@ -696,9 +696,11 @@ function wp_theme_update_row( $theme_key, $theme ) {
 	$active = $theme->is_allowed( 'network' ) ? ' active' : '';
 
 	$requires_wp  = isset( $response['requires'] ) ? $response['requires'] : null;
+	$requires_r   = isset( $response['requires_r'] ) ? $response['requires_r'] : null;
 	$requires_php = isset( $response['requires_php'] ) ? $response['requires_php'] : null;
 
 	$compatible_wp  = is_wp_version_compatible( $requires_wp );
+	$compatible_r   = is_retraceur_version_compatible( $requires_r );
 	$compatible_php = is_php_version_compatible( $requires_php );
 
 	printf(
@@ -711,7 +713,7 @@ function wp_theme_update_row( $theme_key, $theme ) {
 		$wp_list_table->get_column_count()
 	);
 
-	if ( $compatible_wp && $compatible_php ) {
+	if ( $compatible_wp && $compatible_r && $compatible_php ) {
 		if ( ! current_user_can( 'update_themes' ) ) {
 			printf(
 				/* translators: 1: Theme name, 2: Theme details URL, 3: Additional link attributes, 4: Version number. */
@@ -759,7 +761,7 @@ function wp_theme_update_row( $theme_key, $theme ) {
 			);
 		}
 	} else {
-		if ( ! $compatible_wp && ! $compatible_php ) {
+		if ( ( ! $compatible_wp || ! $compatible_r ) && ! $compatible_php ) {
 			printf(
 				/* translators: %s: Theme name. */
 				__( 'There is a new version of %s available, but it does not work with your versions of Retraceur and PHP.' ),
@@ -778,7 +780,7 @@ function wp_theme_update_row( $theme_key, $theme ) {
 					self_admin_url( 'update-core.php' )
 				);
 			}
-		} elseif ( ! $compatible_wp ) {
+		} elseif ( ! $compatible_wp || ! $compatible_r ) {
 			printf(
 				/* translators: %s: Theme name. */
 				__( 'There is a new version of %s available, but it does not work with your version of Retraceur.' ),

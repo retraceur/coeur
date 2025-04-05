@@ -470,6 +470,16 @@ foreach ( $themes as $theme ) :
 				'additional_classes' => array( 'inline', 'notice-alt' ),
 			)
 		);
+
+		if ( ! $theme['isRetraceurD'] ) {
+			wp_admin_notice(
+				__( 'The theme’s author has not declared compatibility with Retraceur. Activating it may generate issues.' ),
+				array(
+					'type'               => 'warning',
+					'additional_classes' => array( 'inline', 'notice-alt' ),
+				)
+			);
+		}
 	}
 
 	/* translators: %s: Theme name. */
@@ -797,6 +807,12 @@ function wp_theme_auto_update_setting_template() {
 		</p></div>
 	<# } #>
 
+	<# if ( ! data.isRetraceurD ) { #>
+		<div class="notice notice-warning notice-alt">
+			<p><?php esc_html_e( 'The theme’s author has not declared compatibility with Retraceur. Activating it may generate issues.' ); ?></p>
+		</div>
+	<# } #>
+
 	<?php
 	/* translators: %s: Theme name. */
 	$details_aria_label = sprintf( _x( 'View Theme Details for %s', 'theme' ), '{{ data.name }}' );
@@ -931,6 +947,12 @@ function wp_theme_auto_update_setting_template() {
 							?>
 						<# } #>
 					</p></div>
+				<# } #>
+
+				<# if ( ! data.isRetraceurD ) { #>
+					<div class="notice notice-warning notice-alt notice-large">
+						<p><?php esc_html_e( 'The theme’s author has not declared compatibility with Retraceur. Activating it may generate issues.' ); ?></p>
+					</div>
 				<# } #>
 
 				<# if ( data.hasUpdate ) { #>
