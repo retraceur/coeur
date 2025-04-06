@@ -4,7 +4,7 @@ const path = require( 'path' );
  * WP Dependencies
  */
 const defaultConfig = require( '@wordpress/scripts/config/webpack.config.js' );
-const RtlCssPlugin  = require( 'rtlcss-webpack-plugin' );
+const RtlCssPlugin  = require( '@wordpress/scripts/plugins/rtlcss-webpack-plugin' );
 
 module.exports = {
     ...defaultConfig,
