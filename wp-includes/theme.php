@@ -931,11 +931,10 @@ function validate_theme_requirements( $stylesheet ) {
 		'requires_php' => ! empty( $theme->get( 'RequiresPHP' ) ) ? $theme->get( 'RequiresPHP' ) : '',
 	);
 
-	$compatible_wp  = is_wp_version_compatible( $requirements['requires'] );
-	$compatible_r   = is_retraceur_version_compatible( $requirements['requires_r'] );
+	$is_compatible  = is_wp_version_compatible( $requirements['requires'] ) && is_retraceur_version_compatible( $requirements['requires_r'] );
 	$compatible_php = is_php_version_compatible( $requirements['requires_php'] );
 
-	if ( ! $compatible_wp && ! $compatible_r && ! $compatible_php ) {
+	if ( ! $is_compatible && ! $compatible_php ) {
 		return new WP_Error(
 			'theme_wp_php_incompatible',
 			sprintf(
@@ -953,7 +952,7 @@ function validate_theme_requirements( $stylesheet ) {
 				$theme->display( 'Name' )
 			)
 		);
-	} elseif ( ! $compatible_wp || ! $compatible_r ) {
+	} elseif ( ! $is_compatible ) {
 		return new WP_Error(
 			'theme_wp_incompatible',
 			sprintf(

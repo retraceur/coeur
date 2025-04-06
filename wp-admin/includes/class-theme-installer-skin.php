@@ -283,9 +283,10 @@ class Theme_Installer_Skin extends WP_Upgrader_Skin {
 		$blocked_message  = '<p>' . esc_html__( 'The theme cannot be updated due to the following:' ) . '</p>';
 		$blocked_message .= '<ul class="ul-disc">';
 
-		$requires_php = isset( $new_theme_data['RequiresPHP'] ) ? $new_theme_data['RequiresPHP'] : null;
-		$requires_wp  = isset( $new_theme_data['RequiresWP'] ) ? $new_theme_data['RequiresWP'] : null;
-		$requires_r   = isset( $new_theme_data['RequiresR'] ) ? $new_theme_data['RequiresR'] : null;
+		$requires_php  = isset( $new_theme_data['RequiresPHP'] ) ? $new_theme_data['RequiresPHP'] : null;
+		$requires_wp   = isset( $new_theme_data['RequiresWP'] ) ? $new_theme_data['RequiresWP'] : null;
+		$requires_r    = isset( $new_theme_data['RequiresR'] ) ? $new_theme_data['RequiresR'] : null;
+		$is_compatible = is_wp_version_compatible( $requires_wp ) && is_retraceur_version_compatible( $requires_r );
 
 		if ( ! is_php_version_compatible( $requires_php ) ) {
 			$error = sprintf(
@@ -299,8 +300,8 @@ class Theme_Installer_Skin extends WP_Upgrader_Skin {
 			$can_update       = false;
 		}
 
-		if ( ! is_wp_version_compatible( $requires_wp ) || ! is_retraceur_version_compatible( $requires_r ) ) {
-			$req   = isset( $requires_r ) ? $requires_r : __( 'Unknown' );
+		if ( ! $is_compatible ) {
+			$req   = ! empty( $requires_r ) ? $requires_r : __( 'Unknown' );
 			$error = sprintf(
 				/* translators: 1: Current Retraceur version, 2: Version required by the uploaded theme. */
 				__( 'Your Retraceur version is %1$s, however the uploaded theme requires %2$s.' ),

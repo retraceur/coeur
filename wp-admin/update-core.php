@@ -663,13 +663,12 @@ function list_theme_updates() {
 		$requires_r   = isset( $theme->update['requires_r'] ) ? $theme->update['requires_r'] : null;
 		$requires_php = isset( $theme->update['requires_php'] ) ? $theme->update['requires_php'] : null;
 
-		$compatible_wp  = is_wp_version_compatible( $requires_wp );
-		$compatible_r   = is_retraceur_version_compatible( $requires_r );
+		$is_compatible  = is_wp_version_compatible( $requires_wp ) && is_retraceur_version_compatible( $requires_r );
 		$compatible_php = is_php_version_compatible( $requires_php );
 
 		$compat = '';
 
-		if ( ! $compatible_wp && ! $compatible_r && ! $compatible_php ) {
+		if ( ! $is_compatible && ! $compatible_php ) {
 			$compat .= '<br />' . __( 'This update does not work with your versions of Retraceur and PHP.' ) . '&nbsp;';
 			if ( current_user_can( 'update_core' ) && current_user_can( 'update_php' ) ) {
 				$compat .= sprintf(
@@ -684,7 +683,7 @@ function list_theme_updates() {
 					esc_url( self_admin_url( 'update-core.php' ) )
 				);
 			}
-		} elseif ( ! $compatible_wp || ! $compatible_r ) {
+		} elseif ( ! $is_compatible ) {
 			$compat .= '<br />' . __( 'This update does not work with your version of Retraceur.' ) . '&nbsp;';
 			if ( current_user_can( 'update_core' ) ) {
 				$compat .= sprintf(

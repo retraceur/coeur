@@ -530,15 +530,13 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 			$requires_r   = isset( $plugin['requires_r'] ) ? $plugin['requires_r'] : null;
 
 			$compatible_php = is_php_version_compatible( $requires_php );
-			$compatible_wp  = is_wp_version_compatible( $requires_wp );
-			$compatible_r   = is_retraceur_version_compatible( $requires_r );
+			$is_compatible  = is_wp_version_compatible( $requires_wp ) && is_retraceur_version_compatible( $requires_r );
 			$tested_wp      = ( empty( $plugin['tested'] ) || version_compare( get_bloginfo( 'version' ), $plugin['tested'], '<=' ) );
 			$tested_r       = ( empty( $plugin['tested_r'] ) || version_compare( get_bloginfo( 'version' ), $plugin['tested_r'], '<=' ) );
-			$compatible_p   = ! empty( $compatible_r ) ? $compatible_r : $compatible_wp;
 
 			$action_links = array();
 
-			$action_links[] = wp_get_plugin_action_button( $name, $plugin, $compatible_php, $compatible_p );
+			$action_links[] = wp_get_plugin_action_button( $name, $plugin, $compatible_php, $is_compatible );
 
 			$details_link = self_admin_url(
 				'plugin-install.php?tab=plugin-information&amp;plugin=' . $plugin['slug'] .
@@ -580,9 +578,9 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 			?>
 		<div class="plugin-card plugin-card-<?php echo sanitize_html_class( $plugin['slug'] ); ?>">
 			<?php
-			if ( ! $compatible_php || ! $compatible_wp || ! $compatible_r ) {
+			if ( ! $compatible_php || ! $is_compatible ) {
 				$incompatible_notice_message = '';
-				if ( ! $compatible_php && ( ! $compatible_wp || ! $compatible_r ) ) {
+				if ( ! $compatible_php && ! $is_compatible ) {
 					$incompatible_notice_message .= __( 'This plugin does not work with your versions of Retraceur and PHP.' );
 					if ( current_user_can( 'update_core' ) && current_user_can( 'update_php' ) ) {
 						$incompatible_notice_message .= sprintf(
@@ -597,7 +595,7 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 							self_admin_url( 'update-core.php' )
 						);
 					}
-				} elseif ( ! $compatible_wp || ! $compatible_r) {
+				} elseif ( ! $is_compatible ) {
 					$incompatible_notice_message .= __( 'This plugin does not work with your version of Retraceur.' );
 					if ( current_user_can( 'update_core' ) ) {
 						$incompatible_notice_message .= sprintf(
@@ -688,7 +686,7 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 					<?php
 					if ( ! $tested_wp || ! $tested_r ) {
 						echo '<span class="compatibility-untested">' . __( 'Untested with your version of Retraceur' ) . '</span>';
-					} elseif ( ! $compatible_wp || ! $compatible_r ) {
+					} elseif ( ! $is_compatible ) {
 						echo '<span class="compatibility-incompatible">' . __( '<strong>Incompatible</strong> with your version of Retraceur' ) . '</span>';
 					} else {
 						echo '<span class="compatibility-compatible">' . __( '<strong>Compatible</strong> with your version of Retraceur' ) . '</span>';

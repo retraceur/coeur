@@ -27,7 +27,7 @@ final class WP_Theme implements ArrayAccess {
 	 * @since WP 3.4.0
 	 * @since WP 5.4.0 Added `Requires at least` and `Requires PHP` headers.
 	 * @since WP 6.1.0 Added `Update URI` header.
-	 * @since 1.0.0 Retraceur fork replaced `Requires at least` with `Requires Retraceur`.
+	 * @since 1.0.0 Retraceur fork added `Requires Retraceur`.
 	 * @var string[]
 	 */
 	private static $file_headers = array(
@@ -42,6 +42,7 @@ final class WP_Theme implements ArrayAccess {
 		'Tags'        => 'Tags',
 		'TextDomain'  => 'Text Domain',
 		'DomainPath'  => 'Domain Path',
+		'RequiresWP'  => 'Requires at least',
 		'RequiresR'   => 'Requires Retraceur',
 		'RequiresPHP' => 'Requires PHP',
 		'UpdateURI'   => 'Update URI',

@@ -346,9 +346,12 @@ class Plugin_Upgrader extends WP_Upgrader {
 			$r = $current->response[ $plugin ];
 
 			$this->skin->plugin_active = is_plugin_active( $plugin );
+			$requires_wp   = isset( $r->requires ) ? $r->requires : null;
+			$requires_r    = isset( $r->requires_r ) ? $r->requires_r : null;
+			$is_compatible = is_wp_version_compatible( $requires_wp ) && is_retraceur_version_compatible( $requires_r );
 
-			if ( ( isset( $r->requires ) && ! is_wp_version_compatible( $r->requires ) ) || ( isset( $r->requires_r ) && ! is_retraceur_version_compatible( $r->requires_r ) ) ) {
-				$req    = isset( $r->requires_r ) ? $r->requires_r : __( 'Unknown' );
+			if ( ! $is_compatible ) {
+				$req    = ! empty( $requires_r ) ? $requires_r : __( 'Unknown' );
 				$result = new WP_Error(
 					'incompatible_wp_required_version',
 					sprintf(
@@ -493,9 +496,10 @@ class Plugin_Upgrader extends WP_Upgrader {
 			return new WP_Error( 'incompatible_archive_no_plugins', $this->strings['incompatible_archive'], __( 'No valid plugins were found.' ) );
 		}
 
-		$requires_php = isset( $info['RequiresPHP'] ) ? $info['RequiresPHP'] : null;
-		$requires_wp  = isset( $info['RequiresWP'] ) ? $info['RequiresWP'] : null;
-		$requires_r   = isset( $info['RequiresR'] ) ? $info['RequiresR'] : null;
+		$requires_php  = isset( $info['RequiresPHP'] ) ? $info['RequiresPHP'] : null;
+		$requires_wp   = isset( $info['RequiresWP'] ) ? $info['RequiresWP'] : null;
+		$requires_r    = isset( $info['RequiresR'] ) ? $info['RequiresR'] : null;
+		$is_compatible = is_wp_version_compatible( $requires_wp ) && is_retraceur_version_compatible( $requires_r );
 
 		if ( ! is_php_version_compatible( $requires_php ) ) {
 			$error = sprintf(
@@ -508,8 +512,8 @@ class Plugin_Upgrader extends WP_Upgrader {
 			return new WP_Error( 'incompatible_php_required_version', $this->strings['incompatible_archive'], $error );
 		}
 
-		if ( ! is_wp_version_compatible( $requires_wp ) || ! is_retraceur_version_compatible( $requires_r ) ) {
-			$req   = isset( $requires_r ) ? $requires_r : __( 'Unknown' );
+		if ( ! $is_compatible ) {
+			$req   = ! empty( $requires_r ) ? $requires_r : __( 'Unknown' );
 			$error = sprintf(
 				/* translators: 1: Current Retraceur version, 2: Version required by the uploaded plugin. */
 				__( 'Your Retraceur version is %1$s, however the uploaded plugin requires %2$s.' ),
