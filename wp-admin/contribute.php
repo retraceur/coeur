@@ -54,13 +54,23 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 	<div class="about__section">
 		<div class="column">
 			<p>
-				<?php printf(
+				<?php
+				printf(
 					/* Translators: 1: Retraceur Cœeur GitHub repository URL. 2: Retraceur documentation GitHub repository URL. 3: Retraceur Cœeur GitHub issues URL. 4: Retraceur Cœeur GitHub PR URL. */
 					esc_html__( 'All types of contributions are encouraged and valued: you can contribute with %1$s, %2$s, translations, testing pre-releases, %3$s and %4$s.' ),
 					'<a href="https://github.com/retraceur/coeur">' . __( 'code' ) . '</a>',
 					'<a href="https://github.com/retraceur/retraceur.github.io">' . __( 'documentation' ) . '</a>',
 					'<a href="https://github.com/retraceur/coeur/issues">' . __( 'reporting issues' ) . '</a>',
 					'<a href="https://github.com/retraceur/coeur/pulls">' . __( 'suggesting pull requests' ) . '</a>'
+				);
+				?>
+			</p>
+			<p>
+				<?php
+				printf(
+					/* Translators: %s is the link to the contributing guidelines. */
+					esc_html__( 'To help you get started, you can read these %s to find out more about how to ask for help and write good bug or enhancement reports.' ),
+					'<a href="' . esc_url( _x( 'https://retraceur.github.io/rules/contributing-guidelines/', 'contributing guidelines' ) ) . '">' . __( 'contributing guidelines' ) . '</a>'
 				);
 				?>
 			</p>
