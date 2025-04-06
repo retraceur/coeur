@@ -8305,7 +8305,7 @@ function wp_get_wp_version() {
 /**
  * Returns the current Retraceur version.
  *
- * @since 1.0.0
+ * @since 1.0.0 Retraceur fork.
  *
  * @return string The current Retraceur version.
  */
@@ -8319,6 +8319,15 @@ function retraceur_get_version() {
 	return $retraceur_version;
 }
 
+/**
+ * Performs a version compatibility check.
+ *
+ * @since 1.0.0 Retraceur fork.
+ *
+ * @param string $required        The required version.
+ * @param string $current_version The current version.
+ * @return boolean True when version compatibility check is sucessfull. False otherwise.
+ */
 function is_platform_version_compatible( $required, $current_version ) {
 	// Strip off any -alpha, -RC, -beta, -src suffixes.
 	list( $version ) = explode( '-', $current_version );
@@ -8337,7 +8346,7 @@ function is_platform_version_compatible( $required, $current_version ) {
 /**
  * Checks compatibility with the current Retraceur version.
  *
- * @since 1.0.0
+ * @since 1.0.0 Retraceur fork.
  *
  * @global string $_retraceur_tests_version The Retraceur version string. Used only in Core tests.
  *

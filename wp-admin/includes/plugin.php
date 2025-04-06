@@ -1146,11 +1146,10 @@ function validate_plugin_requirements( $plugin ) {
 		'requires_plugins' => ! empty( $plugin_headers['RequiresPlugins'] ) ? $plugin_headers['RequiresPlugins'] : '',
 	);
 
-	$compatible_wp  = is_wp_version_compatible( $requirements['requires'] );
-	$compatible_r   = is_retraceur_version_compatible( $requirements['requires_r'] );
+	$is_compatible  = is_wp_version_compatible( $requirements['requires'] ) && is_retraceur_version_compatible( $requirements['requires_r'] );
 	$compatible_php = is_php_version_compatible( $requirements['requires_php'] );
 
-	if ( ! $compatible_wp && ! $compatible_r && ! $compatible_php ) {
+	if ( ! $is_compatible && ! $compatible_php ) {
 		return new WP_Error(
 			'plugin_wp_php_incompatible',
 			'<p>' . sprintf(
@@ -1174,8 +1173,8 @@ function validate_plugin_requirements( $plugin ) {
 				$requirements['requires_php']
 			) . '</p>'
 		);
-	} elseif ( ! $compatible_wp || ! $compatible_r ) {
-		$req = isset( $requirements['requires_r'] ) ? $requirements['requires_r']  : __( 'Unknown' );
+	} elseif ( ! $is_compatible ) {
+		$req = ! empty( $requirements['requires_r'] ) ? $requirements['requires_r']  : __( 'Unknown' );
 
 		return new WP_Error(
 			'plugin_wp_incompatible',

@@ -761,12 +761,9 @@ function install_plugin_information() {
 	$requires_r   = isset( $api->requires_r ) ? $api->requires_r : null;
 
 	$compatible_php = is_php_version_compatible( $requires_php );
-	$compatible_wp  = is_wp_version_compatible( $requires_wp );
-	$compatible_r   = is_retraceur_version_compatible( $requires_r );
-	$compatible_p   = ! empty( $compatible_r ) ? $compatible_r : $compatible_wp;
+	$is_compatible  = is_wp_version_compatible( $requires_wp ) && is_retraceur_version_compatible( $requires_r );
 	$tested_wp      = ( empty( $api->tested ) || version_compare( get_bloginfo( 'version' ), $api->tested, '<=' ) );
 	$tested_r       = ( empty( $api->tested_r ) || version_compare( get_bloginfo( 'version' ), $api->tested_r, '<=' ) );
-	$tested_p       = $tested_r || $tested_wp;
 
 	if ( ! $compatible_php ) {
 		$compatible_php_notice_message  = '<p>';
@@ -783,7 +780,7 @@ function install_plugin_information() {
 		);
 	}
 
-	if ( ! $tested_p ) {
+	if ( ! $tested_wp || ! $tested_r ) {
 		wp_admin_notice(
 			__( '<strong>Warning:</strong> This plugin <strong>has not been tested</strong> with your current version of Retraceur.' ),
 			array(
@@ -791,7 +788,7 @@ function install_plugin_information() {
 				'additional_classes' => array( 'notice-alt' ),
 			)
 		);
-	} elseif ( ! $compatible_p ) {
+	} elseif ( ! $is_compatible ) {
 		$compatible_wp_notice_message = __( '<strong>Error:</strong> This plugin <strong>requires a newer version of Retraceur</strong>.' );
 		if ( current_user_can( 'update_core' ) ) {
 			$compatible_wp_notice_message .= sprintf(
@@ -824,7 +821,7 @@ function install_plugin_information() {
 	echo "</div>\n"; // #plugin-information-scrollable
 	echo "<div id='$tab-footer'>\n";
 	if ( ! empty( $api->download_link ) && ( current_user_can( 'install_plugins' ) || current_user_can( 'update_plugins' ) ) ) {
-		$button       = wp_get_plugin_action_button( $api->name, $api, $compatible_php, $compatible_p );
+		$button       = wp_get_plugin_action_button( $api->name, $api, $compatible_php, $is_compatible );
 		$button       = str_replace( 'class="', 'class="right ', $button );
 
 		if ( ! str_contains( $button, _x( 'Activate', 'plugin' ) ) ) {
