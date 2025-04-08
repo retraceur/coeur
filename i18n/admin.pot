@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-04-06T12:34:40+00:00\n"
+"POT-Creation-Date: 2025-04-08T18:10:46+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 
@@ -760,7 +760,7 @@ msgstr ""
 #: wp-admin/site-health.php:82
 #: wp-admin/theme-install.php:116
 #: wp-admin/themes.php:145
-#: wp-admin/update-core.php:937
+#: wp-admin/update-core.php:938
 #: wp-admin/upload.php:180
 #: wp-admin/upload.php:364
 #: wp-admin/user-edit.php:73
@@ -835,7 +835,7 @@ msgstr ""
 #: wp-admin/includes/class-wp-terms-list-table.php:217
 #: wp-admin/includes/media.php:1412
 #: wp-admin/includes/media.php:3260
-#: wp-admin/themes.php:546
+#: wp-admin/themes.php:556
 msgid "Description"
 msgstr ""
 
@@ -855,10 +855,10 @@ msgstr ""
 
 #: wp-admin/edit-tag-form.php:284
 #: wp-admin/includes/class-wp-plugins-list-table.php:655
-#: wp-admin/includes/class-wp-plugins-list-table.php:902
-#: wp-admin/includes/class-wp-plugins-list-table.php:919
-#: wp-admin/includes/class-wp-plugins-list-table.php:1008
-#: wp-admin/includes/class-wp-plugins-list-table.php:1025
+#: wp-admin/includes/class-wp-plugins-list-table.php:903
+#: wp-admin/includes/class-wp-plugins-list-table.php:920
+#: wp-admin/includes/class-wp-plugins-list-table.php:1009
+#: wp-admin/includes/class-wp-plugins-list-table.php:1026
 #: wp-admin/includes/class-wp-terms-list-table.php:171
 #: wp-admin/includes/class-wp-terms-list-table.php:518
 #: wp-admin/includes/class-wp-themes-list-table.php:229
@@ -866,9 +866,9 @@ msgstr ""
 #: wp-admin/includes/class-wp-users-list-table.php:483
 #: wp-admin/includes/media.php:1740
 #: wp-admin/includes/template.php:447
-#: wp-admin/includes/theme.php:988
-#: wp-admin/themes.php:596
-#: wp-admin/themes.php:1052
+#: wp-admin/includes/theme.php:990
+#: wp-admin/themes.php:606
+#: wp-admin/themes.php:1074
 msgid "Delete"
 msgstr ""
 
@@ -1636,7 +1636,7 @@ msgid "Item not updated."
 msgstr ""
 
 #: wp-admin/includes/ajax-actions.php:1375
-#: wp-admin/includes/ajax-actions.php:2827
+#: wp-admin/includes/ajax-actions.php:2828
 #: wp-admin/includes/class-wp-list-table.php:373
 #: wp-admin/includes/class-wp-themes-list-table.php:94
 msgid "No items found."
@@ -1746,38 +1746,38 @@ msgid "Last edited on %1$s at %2$s"
 msgstr ""
 
 #. translators: %s: URL that could not be embedded.
-#: wp-admin/includes/ajax-actions.php:2719
+#: wp-admin/includes/ajax-actions.php:2720
 msgid "%s failed to embed."
 msgstr ""
 
-#: wp-admin/includes/ajax-actions.php:2753
+#: wp-admin/includes/ajax-actions.php:2754
 msgid "This preview is unavailable in the editor."
 msgstr ""
 
-#: wp-admin/includes/ajax-actions.php:2882
+#: wp-admin/includes/ajax-actions.php:2883
 msgid "Could not log out contributor sessions. Please try again."
 msgstr ""
 
-#: wp-admin/includes/ajax-actions.php:2891
+#: wp-admin/includes/ajax-actions.php:2892
 msgid "You are now logged out everywhere else."
 msgstr ""
 
 #. translators: %s: User's display name.
-#: wp-admin/includes/ajax-actions.php:2895
+#: wp-admin/includes/ajax-actions.php:2896
 msgid "%s has been logged out."
 msgstr ""
 
-#: wp-admin/includes/ajax-actions.php:2920
+#: wp-admin/includes/ajax-actions.php:2921
 msgid "Image could not be processed."
 msgstr ""
 
-#: wp-admin/includes/ajax-actions.php:3038
-#: wp-admin/includes/ajax-actions.php:3155
-#: wp-admin/includes/ajax-actions.php:3250
+#: wp-admin/includes/ajax-actions.php:3039
+#: wp-admin/includes/ajax-actions.php:3156
+#: wp-admin/includes/ajax-actions.php:3251
 msgid "No theme specified."
 msgstr ""
 
-#: wp-admin/includes/ajax-actions.php:3051
+#: wp-admin/includes/ajax-actions.php:3052
 #: wp-admin/theme-install.php:18
 #: wp-admin/update.php:307
 #: wp-admin/update.php:349
@@ -1785,65 +1785,65 @@ msgstr ""
 msgid "Sorry, you are not allowed to install themes on this site."
 msgstr ""
 
-#: wp-admin/includes/ajax-actions.php:3094
-#: wp-admin/includes/ajax-actions.php:3218
-#: wp-admin/includes/ajax-actions.php:3282
-#: wp-admin/includes/ajax-actions.php:3382
-#: wp-admin/includes/ajax-actions.php:3559
-#: wp-admin/includes/ajax-actions.php:3628
+#: wp-admin/includes/ajax-actions.php:3095
+#: wp-admin/includes/ajax-actions.php:3219
+#: wp-admin/includes/ajax-actions.php:3283
+#: wp-admin/includes/ajax-actions.php:3383
+#: wp-admin/includes/ajax-actions.php:3560
+#: wp-admin/includes/ajax-actions.php:3629
 #: wp-admin/includes/class-wp-site-health.php:1682
 msgid "Unable to connect to the filesystem. Please confirm your credentials."
 msgstr ""
 
-#: wp-admin/includes/ajax-actions.php:3169
+#: wp-admin/includes/ajax-actions.php:3170
 #: wp-admin/update.php:256
 #: wp-admin/update.php:279
 msgid "Sorry, you are not allowed to update themes for this site."
 msgstr ""
 
-#: wp-admin/includes/ajax-actions.php:3229
+#: wp-admin/includes/ajax-actions.php:3230
 #: wp-admin/includes/class-theme-upgrader.php:65
 #: wp-admin/includes/class-theme-upgrader.php:102
 msgid "Theme update failed."
 msgstr ""
 
-#: wp-admin/includes/ajax-actions.php:3262
+#: wp-admin/includes/ajax-actions.php:3263
 msgid "Sorry, you are not allowed to delete themes on this site."
 msgstr ""
 
-#: wp-admin/includes/ajax-actions.php:3267
+#: wp-admin/includes/ajax-actions.php:3268
 #: wp-admin/themes.php:30
 #: wp-admin/themes.php:73
 msgid "The requested theme does not exist."
 msgstr ""
 
-#: wp-admin/includes/ajax-actions.php:3300
+#: wp-admin/includes/ajax-actions.php:3301
 msgid "Theme could not be deleted."
 msgstr ""
 
-#: wp-admin/includes/ajax-actions.php:3324
-#: wp-admin/includes/ajax-actions.php:3431
-#: wp-admin/includes/ajax-actions.php:3483
-#: wp-admin/includes/ajax-actions.php:3591
+#: wp-admin/includes/ajax-actions.php:3325
+#: wp-admin/includes/ajax-actions.php:3432
+#: wp-admin/includes/ajax-actions.php:3484
+#: wp-admin/includes/ajax-actions.php:3592
 msgid "No plugin specified."
 msgstr ""
 
-#: wp-admin/includes/ajax-actions.php:3335
+#: wp-admin/includes/ajax-actions.php:3336
 #: wp-admin/update.php:109
 #: wp-admin/update.php:229
 msgid "Sorry, you are not allowed to install plugins on this site."
 msgstr ""
 
-#: wp-admin/includes/ajax-actions.php:3444
+#: wp-admin/includes/ajax-actions.php:3445
 msgid "Sorry, you are not allowed to activate plugins on this site."
 msgstr ""
 
 #. translators: %s: Plugin name.
-#: wp-admin/includes/ajax-actions.php:3451
+#: wp-admin/includes/ajax-actions.php:3452
 msgid "%s is already active."
 msgstr ""
 
-#: wp-admin/includes/ajax-actions.php:3498
+#: wp-admin/includes/ajax-actions.php:3499
 #: wp-admin/update.php:31
 #: wp-admin/update.php:59
 #: wp-admin/update.php:82
@@ -1851,243 +1851,243 @@ msgid "Sorry, you are not allowed to update plugins for this site."
 msgstr ""
 
 #. translators: %s: Version number.
-#: wp-admin/includes/ajax-actions.php:3508
-#: wp-admin/includes/ajax-actions.php:3551
+#: wp-admin/includes/ajax-actions.php:3509
+#: wp-admin/includes/ajax-actions.php:3552
 #: wp-admin/includes/class-wp-debug-data.php:730
 #: wp-admin/includes/class-wp-debug-data.php:906
 #: wp-admin/includes/class-wp-debug-data.php:1293
-#: wp-admin/includes/class-wp-plugins-list-table.php:1208
+#: wp-admin/includes/class-wp-plugins-list-table.php:1210
 #: wp-admin/includes/update.php:252
 #: wp-admin/includes/update.php:295
 #: wp-admin/index.php:103
 msgid "Version %s"
 msgstr ""
 
-#: wp-admin/includes/ajax-actions.php:3570
+#: wp-admin/includes/ajax-actions.php:3571
 #: wp-admin/includes/class-plugin-upgrader.php:66
 #: wp-admin/includes/class-plugin-upgrader.php:93
 msgid "Plugin update failed."
 msgstr ""
 
-#: wp-admin/includes/ajax-actions.php:3604
+#: wp-admin/includes/ajax-actions.php:3605
 #: wp-admin/plugins.php:321
 msgid "Sorry, you are not allowed to delete plugins for this site."
 msgstr ""
 
-#: wp-admin/includes/ajax-actions.php:3613
+#: wp-admin/includes/ajax-actions.php:3614
 #: wp-admin/plugins.php:742
 msgid "You cannot delete a plugin while it is active on the main site."
 msgstr ""
 
-#: wp-admin/includes/ajax-actions.php:3644
+#: wp-admin/includes/ajax-actions.php:3645
 msgid "Plugin could not be deleted."
 msgstr ""
 
-#: wp-admin/includes/ajax-actions.php:3684
-#: wp-admin/includes/ajax-actions.php:3740
+#: wp-admin/includes/ajax-actions.php:3685
+#: wp-admin/includes/ajax-actions.php:3741
 #: wp-admin/plugins.php:39
 msgid "Sorry, you are not allowed to manage plugins for this site."
 msgstr ""
 
-#: wp-admin/includes/ajax-actions.php:3789
+#: wp-admin/includes/ajax-actions.php:3790
 msgid "File edited successfully."
 msgstr ""
 
-#: wp-admin/includes/ajax-actions.php:3803
-#: wp-admin/includes/ajax-actions.php:3993
+#: wp-admin/includes/ajax-actions.php:3804
+#: wp-admin/includes/ajax-actions.php:3994
 msgid "Missing request ID."
 msgstr ""
 
-#: wp-admin/includes/ajax-actions.php:3809
-#: wp-admin/includes/ajax-actions.php:3999
+#: wp-admin/includes/ajax-actions.php:3810
+#: wp-admin/includes/ajax-actions.php:4000
 msgid "Invalid request ID."
 msgstr ""
 
-#: wp-admin/includes/ajax-actions.php:3813
-#: wp-admin/includes/ajax-actions.php:4004
+#: wp-admin/includes/ajax-actions.php:3814
+#: wp-admin/includes/ajax-actions.php:4005
 msgid "Sorry, you are not allowed to perform this action."
 msgstr ""
 
-#: wp-admin/includes/ajax-actions.php:3822
-#: wp-admin/includes/ajax-actions.php:4013
+#: wp-admin/includes/ajax-actions.php:3823
+#: wp-admin/includes/ajax-actions.php:4014
 msgid "Invalid request type."
 msgstr ""
 
-#: wp-admin/includes/ajax-actions.php:3827
+#: wp-admin/includes/ajax-actions.php:3828
 msgid "A valid email address must be given."
 msgstr ""
 
-#: wp-admin/includes/ajax-actions.php:3831
+#: wp-admin/includes/ajax-actions.php:3832
 msgid "Missing exporter index."
 msgstr ""
 
-#: wp-admin/includes/ajax-actions.php:3837
-#: wp-admin/includes/ajax-actions.php:4029
+#: wp-admin/includes/ajax-actions.php:3838
+#: wp-admin/includes/ajax-actions.php:4030
 msgid "Missing page index."
 msgstr ""
 
-#: wp-admin/includes/ajax-actions.php:3866
+#: wp-admin/includes/ajax-actions.php:3867
 msgid "An exporter has improperly used the registration filter."
 msgstr ""
 
-#: wp-admin/includes/ajax-actions.php:3872
+#: wp-admin/includes/ajax-actions.php:3873
 msgid "Exporter index cannot be negative."
 msgstr ""
 
-#: wp-admin/includes/ajax-actions.php:3876
+#: wp-admin/includes/ajax-actions.php:3877
 msgid "Exporter index is out of range."
 msgstr ""
 
-#: wp-admin/includes/ajax-actions.php:3880
-#: wp-admin/includes/ajax-actions.php:4068
+#: wp-admin/includes/ajax-actions.php:3881
+#: wp-admin/includes/ajax-actions.php:4069
 msgid "Page index cannot be less than one."
 msgstr ""
 
 #. translators: %s: Exporter array index.
-#: wp-admin/includes/ajax-actions.php:3890
+#: wp-admin/includes/ajax-actions.php:3891
 msgid "Expected an array describing the exporter at index %s."
 msgstr ""
 
 #. translators: %s: Exporter array index.
-#: wp-admin/includes/ajax-actions.php:3897
+#: wp-admin/includes/ajax-actions.php:3898
 msgid "Exporter array at index %s does not include a friendly name."
 msgstr ""
 
 #. translators: %s: Exporter friendly name.
-#: wp-admin/includes/ajax-actions.php:3906
+#: wp-admin/includes/ajax-actions.php:3907
 msgid "Exporter does not include a callback: %s."
 msgstr ""
 
 #. translators: %s: Exporter friendly name.
-#: wp-admin/includes/ajax-actions.php:3913
+#: wp-admin/includes/ajax-actions.php:3914
 msgid "Exporter callback is not a valid callback: %s."
 msgstr ""
 
 #. translators: %s: Exporter friendly name.
-#: wp-admin/includes/ajax-actions.php:3927
+#: wp-admin/includes/ajax-actions.php:3928
 msgid "Expected response as an array from exporter: %s."
 msgstr ""
 
 #. translators: %s: Exporter friendly name.
-#: wp-admin/includes/ajax-actions.php:3934
+#: wp-admin/includes/ajax-actions.php:3935
 msgid "Expected data in response array from exporter: %s."
 msgstr ""
 
 #. translators: %s: Exporter friendly name.
-#: wp-admin/includes/ajax-actions.php:3941
+#: wp-admin/includes/ajax-actions.php:3942
 msgid "Expected data array in response array from exporter: %s."
 msgstr ""
 
 #. translators: %s: Exporter friendly name.
-#: wp-admin/includes/ajax-actions.php:3948
+#: wp-admin/includes/ajax-actions.php:3949
 msgid "Expected done (boolean) in response array from exporter: %s."
 msgstr ""
 
-#: wp-admin/includes/ajax-actions.php:4019
+#: wp-admin/includes/ajax-actions.php:4020
 msgid "Invalid email address in request."
 msgstr ""
 
-#: wp-admin/includes/ajax-actions.php:4023
+#: wp-admin/includes/ajax-actions.php:4024
 msgid "Missing eraser index."
 msgstr ""
 
-#: wp-admin/includes/ajax-actions.php:4060
+#: wp-admin/includes/ajax-actions.php:4061
 msgid "Eraser index cannot be less than one."
 msgstr ""
 
-#: wp-admin/includes/ajax-actions.php:4064
+#: wp-admin/includes/ajax-actions.php:4065
 msgid "Eraser index is out of range."
 msgstr ""
 
 #. translators: %d: Eraser array index.
-#: wp-admin/includes/ajax-actions.php:4077
+#: wp-admin/includes/ajax-actions.php:4078
 msgid "Expected an array describing the eraser at index %d."
 msgstr ""
 
 #. translators: %d: Eraser array index.
-#: wp-admin/includes/ajax-actions.php:4082
+#: wp-admin/includes/ajax-actions.php:4083
 msgid "Eraser array at index %d does not include a friendly name."
 msgstr ""
 
 #. translators: %s: Eraser friendly name.
-#: wp-admin/includes/ajax-actions.php:4091
+#: wp-admin/includes/ajax-actions.php:4092
 msgid "Eraser does not include a callback: %s."
 msgstr ""
 
 #. translators: %s: Eraser friendly name.
-#: wp-admin/includes/ajax-actions.php:4101
+#: wp-admin/includes/ajax-actions.php:4102
 msgid "Eraser callback is not valid: %s."
 msgstr ""
 
 #. translators: 1: Eraser friendly name, 2: Eraser array index.
-#: wp-admin/includes/ajax-actions.php:4118
+#: wp-admin/includes/ajax-actions.php:4119
 msgid "Did not receive array from %1$s eraser (index %2$d)."
 msgstr ""
 
 #. translators: 1: Eraser friendly name, 2: Eraser array index.
-#: wp-admin/includes/ajax-actions.php:4129
+#: wp-admin/includes/ajax-actions.php:4130
 msgid "Expected items_removed key in response array from %1$s eraser (index %2$d)."
 msgstr ""
 
 #. translators: 1: Eraser friendly name, 2: Eraser array index.
-#: wp-admin/includes/ajax-actions.php:4140
+#: wp-admin/includes/ajax-actions.php:4141
 msgid "Expected items_retained key in response array from %1$s eraser (index %2$d)."
 msgstr ""
 
 #. translators: 1: Eraser friendly name, 2: Eraser array index.
-#: wp-admin/includes/ajax-actions.php:4151
+#: wp-admin/includes/ajax-actions.php:4152
 msgid "Expected messages key in response array from %1$s eraser (index %2$d)."
 msgstr ""
 
 #. translators: 1: Eraser friendly name, 2: Eraser array index.
-#: wp-admin/includes/ajax-actions.php:4162
+#: wp-admin/includes/ajax-actions.php:4163
 msgid "Expected messages key to reference an array in response array from %1$s eraser (index %2$d)."
 msgstr ""
 
 #. translators: 1: Eraser friendly name, 2: Eraser array index.
-#: wp-admin/includes/ajax-actions.php:4173
+#: wp-admin/includes/ajax-actions.php:4174
 msgid "Expected done flag in response array from %1$s eraser (index %2$d)."
 msgstr ""
 
 #. translators: 1: The Site Health action that is no longer used by core. 2: The new function that replaces it.
-#: wp-admin/includes/ajax-actions.php:4232
-#: wp-admin/includes/ajax-actions.php:4251
-#: wp-admin/includes/ajax-actions.php:4271
-#: wp-admin/includes/ajax-actions.php:4321
+#: wp-admin/includes/ajax-actions.php:4233
+#: wp-admin/includes/ajax-actions.php:4252
+#: wp-admin/includes/ajax-actions.php:4272
+#: wp-admin/includes/ajax-actions.php:4322
 msgid "The Site Health check for %1$s has been replaced with %2$s."
 msgstr ""
 
-#: wp-admin/includes/ajax-actions.php:4393
+#: wp-admin/includes/ajax-actions.php:4394
 msgid "Invalid data. No selected item."
 msgstr ""
 
-#: wp-admin/includes/ajax-actions.php:4399
+#: wp-admin/includes/ajax-actions.php:4400
 msgid "Invalid data. Unknown state."
 msgstr ""
 
-#: wp-admin/includes/ajax-actions.php:4404
-#: wp-admin/includes/ajax-actions.php:4429
+#: wp-admin/includes/ajax-actions.php:4405
+#: wp-admin/includes/ajax-actions.php:4430
 msgid "Invalid data. Unknown type."
 msgstr ""
 
-#: wp-admin/includes/ajax-actions.php:4411
+#: wp-admin/includes/ajax-actions.php:4412
 msgid "Sorry, you are not allowed to modify plugins."
 msgstr ""
 
-#: wp-admin/includes/ajax-actions.php:4421
+#: wp-admin/includes/ajax-actions.php:4422
 msgid "Sorry, you are not allowed to modify themes."
 msgstr ""
 
-#: wp-admin/includes/ajax-actions.php:4433
+#: wp-admin/includes/ajax-actions.php:4434
 msgid "Invalid data. The item does not exist."
 msgstr ""
 
-#: wp-admin/includes/ajax-actions.php:4467
+#: wp-admin/includes/ajax-actions.php:4468
 msgid "Cannot send password reset, permission denied."
 msgstr ""
 
 #. translators: %s: User's display name.
-#: wp-admin/includes/ajax-actions.php:4477
+#: wp-admin/includes/ajax-actions.php:4478
 msgid "A password reset link was emailed to %s."
 msgstr ""
 
@@ -2769,8 +2769,8 @@ msgid "Return to the Theme Installer"
 msgstr ""
 
 #: wp-admin/includes/class-language-pack-upgrader-skin.php:39
-#: wp-admin/update-core.php:771
-#: wp-admin/update-core.php:1202
+#: wp-admin/update-core.php:772
+#: wp-admin/update-core.php:1203
 msgid "Update Translations"
 msgstr ""
 
@@ -2785,7 +2785,7 @@ msgid "Some of your translations need updating. Sit tight for a few more seconds
 msgstr ""
 
 #: wp-admin/includes/class-language-pack-upgrader.php:116
-#: wp-admin/update-core.php:760
+#: wp-admin/update-core.php:761
 msgid "Your translations are all up to date."
 msgstr ""
 
@@ -2834,10 +2834,10 @@ msgstr ""
 
 #: wp-admin/includes/class-plugin-installer-skin.php:143
 #: wp-admin/includes/class-wp-plugins-list-table.php:642
-#: wp-admin/includes/class-wp-plugins-list-table.php:872
-#: wp-admin/includes/class-wp-plugins-list-table.php:889
-#: wp-admin/includes/plugin-install.php:952
-#: wp-admin/includes/plugin-install.php:970
+#: wp-admin/includes/class-wp-plugins-list-table.php:873
+#: wp-admin/includes/class-wp-plugins-list-table.php:890
+#: wp-admin/includes/plugin-install.php:954
+#: wp-admin/includes/plugin-install.php:972
 msgctxt "plugin"
 msgid "Network Activate"
 msgstr ""
@@ -2930,60 +2930,70 @@ msgid "The block cannot be updated due to the following:"
 msgstr ""
 
 #. translators: 1: Current PHP version, 2: Version required by the uploaded block
-#: wp-admin/includes/class-plugin-installer-skin.php:310
+#: wp-admin/includes/class-plugin-installer-skin.php:312
 msgid "The PHP version on your server is %1$s, however the uploaded block requires %2$s."
 msgstr ""
 
 #. translators: 1: Current PHP version, 2: Version required by the uploaded plugin.
-#: wp-admin/includes/class-plugin-installer-skin.php:317
-#: wp-admin/includes/class-plugin-upgrader.php:501
+#: wp-admin/includes/class-plugin-installer-skin.php:319
+#: wp-admin/includes/class-plugin-upgrader.php:507
 msgid "The PHP version on your server is %1$s, however the uploaded plugin requires %2$s."
 msgstr ""
 
+#: wp-admin/includes/class-plugin-installer-skin.php:330
+#: wp-admin/includes/class-plugin-upgrader.php:354
+#: wp-admin/includes/class-plugin-upgrader.php:516
+#: wp-admin/includes/class-theme-installer-skin.php:304
+#: wp-admin/includes/class-theme-upgrader.php:453
+#: wp-admin/includes/class-theme-upgrader.php:664
+#: wp-admin/includes/plugin.php:1177
+msgid "Unknown"
+msgstr ""
+
 #. translators: 1: Current Retraceur version, 2: Version required by the uploaded block.
-#: wp-admin/includes/class-plugin-installer-skin.php:331
+#: wp-admin/includes/class-plugin-installer-skin.php:335
 msgid "Your Retraceur version is %1$s, however the uploaded block requires %2$s."
 msgstr ""
 
 #. translators: 1: Current Retraceur version, 2: Version required by the uploaded plugin.
-#: wp-admin/includes/class-plugin-installer-skin.php:338
-#: wp-admin/includes/class-plugin-upgrader.php:512
+#: wp-admin/includes/class-plugin-installer-skin.php:342
+#: wp-admin/includes/class-plugin-upgrader.php:519
 msgid "Your Retraceur version is %1$s, however the uploaded plugin requires %2$s."
 msgstr ""
 
-#: wp-admin/includes/class-plugin-installer-skin.php:353
+#: wp-admin/includes/class-plugin-installer-skin.php:357
 msgid "You are uploading an older version of a current block. You can continue to install the older version, but be sure to back up your database and files first."
 msgstr ""
 
-#: wp-admin/includes/class-plugin-installer-skin.php:355
+#: wp-admin/includes/class-plugin-installer-skin.php:359
 msgid "You are uploading an older version of a current plugin. You can continue to install the older version, but be sure to back up your database and files first."
 msgstr ""
 
-#: wp-admin/includes/class-plugin-installer-skin.php:359
+#: wp-admin/includes/class-plugin-installer-skin.php:363
 msgid "You are updating a block. Be sure to back up your database and files first."
 msgstr ""
 
-#: wp-admin/includes/class-plugin-installer-skin.php:361
+#: wp-admin/includes/class-plugin-installer-skin.php:365
 msgid "You are updating a plugin. Be sure to back up your database and files first."
 msgstr ""
 
-#: wp-admin/includes/class-plugin-installer-skin.php:368
+#: wp-admin/includes/class-plugin-installer-skin.php:372
 msgctxt "plugin"
 msgid "Replace current with uploaded"
 msgstr ""
 
-#: wp-admin/includes/class-plugin-installer-skin.php:371
+#: wp-admin/includes/class-plugin-installer-skin.php:375
 msgctxt "block"
 msgid "Replace current with uploaded"
 msgstr ""
 
-#: wp-admin/includes/class-plugin-installer-skin.php:392
-#: wp-admin/includes/class-theme-installer-skin.php:340
+#: wp-admin/includes/class-plugin-installer-skin.php:396
+#: wp-admin/includes/class-theme-installer-skin.php:343
 msgid "Cancel and go back"
 msgstr ""
 
-#: wp-admin/includes/class-plugin-installer-skin.php:410
-#: wp-admin/includes/class-theme-installer-skin.php:358
+#: wp-admin/includes/class-plugin-installer-skin.php:414
+#: wp-admin/includes/class-theme-installer-skin.php:361
 msgid "The uploaded file has expired. Please go back and upload it again."
 msgstr ""
 
@@ -2993,8 +3003,8 @@ msgid "Update Plugin"
 msgstr ""
 
 #: wp-admin/includes/class-plugin-upgrader-skin.php:87
-#: wp-admin/update-core.php:1134
-#: wp-admin/update-core.php:1175
+#: wp-admin/update-core.php:1135
+#: wp-admin/update-core.php:1176
 msgid "Update progress"
 msgstr ""
 
@@ -3069,16 +3079,16 @@ msgid "Plugin downgraded successfully."
 msgstr ""
 
 #. translators: 1: Current Retraceur version, 2: Retraceur version required by the new plugin version.
-#: wp-admin/includes/class-plugin-upgrader.php:355
+#: wp-admin/includes/class-plugin-upgrader.php:359
 msgid "Your Retraceur version is %1$s, however the new plugin version requires %2$s."
 msgstr ""
 
 #. translators: 1: Current PHP version, 2: PHP version required by the new plugin version.
-#: wp-admin/includes/class-plugin-upgrader.php:369
+#: wp-admin/includes/class-plugin-upgrader.php:373
 msgid "The PHP version on your server is %1$s, however the new plugin version requires %2$s."
 msgstr ""
 
-#: wp-admin/includes/class-plugin-upgrader.php:492
+#: wp-admin/includes/class-plugin-upgrader.php:496
 msgid "No valid plugins were found."
 msgstr ""
 
@@ -3137,26 +3147,26 @@ msgid "The theme cannot be updated due to the following:"
 msgstr ""
 
 #. translators: 1: Current PHP version, 2: Version required by the uploaded theme.
-#: wp-admin/includes/class-theme-installer-skin.php:292
-#: wp-admin/includes/class-theme-upgrader.php:649
+#: wp-admin/includes/class-theme-installer-skin.php:294
+#: wp-admin/includes/class-theme-upgrader.php:656
 msgid "The PHP version on your server is %1$s, however the uploaded theme requires %2$s."
 msgstr ""
 
 #. translators: 1: Current Retraceur version, 2: Version required by the uploaded theme.
-#: wp-admin/includes/class-theme-installer-skin.php:304
-#: wp-admin/includes/class-theme-upgrader.php:659
+#: wp-admin/includes/class-theme-installer-skin.php:307
+#: wp-admin/includes/class-theme-upgrader.php:667
 msgid "Your Retraceur version is %1$s, however the uploaded theme requires %2$s."
 msgstr ""
 
-#: wp-admin/includes/class-theme-installer-skin.php:317
+#: wp-admin/includes/class-theme-installer-skin.php:320
 msgid "You are uploading an older version of the active theme. You can continue to install the older version, but be sure to back up your database and files first."
 msgstr ""
 
-#: wp-admin/includes/class-theme-installer-skin.php:319
+#: wp-admin/includes/class-theme-installer-skin.php:322
 msgid "You are updating a theme. Be sure to back up your database and files first."
 msgstr ""
 
-#: wp-admin/includes/class-theme-installer-skin.php:329
+#: wp-admin/includes/class-theme-installer-skin.php:332
 msgctxt "theme"
 msgid "Replace active with uploaded"
 msgstr ""
@@ -3256,27 +3266,27 @@ msgid "Theme downgraded successfully."
 msgstr ""
 
 #. translators: 1: Current Retraceur version, 2: Retraceur version required by the new theme version.
-#: wp-admin/includes/class-theme-upgrader.php:453
+#: wp-admin/includes/class-theme-upgrader.php:458
 msgid "Your Retraceur version is %1$s, however the new theme version requires %2$s."
 msgstr ""
 
 #. translators: 1: Current PHP version, 2: PHP version required by the new theme version.
-#: wp-admin/includes/class-theme-upgrader.php:467
+#: wp-admin/includes/class-theme-upgrader.php:472
 msgid "The PHP version on your server is %1$s, however the new theme version requires %2$s."
 msgstr ""
 
 #. translators: %s: style.css
-#: wp-admin/includes/class-theme-upgrader.php:587
+#: wp-admin/includes/class-theme-upgrader.php:592
 msgid "The theme is missing the %s stylesheet."
 msgstr ""
 
 #. translators: %s: style.css
-#: wp-admin/includes/class-theme-upgrader.php:612
+#: wp-admin/includes/class-theme-upgrader.php:617
 msgid "The %s stylesheet does not contain a valid theme header."
 msgstr ""
 
 #. translators: 1: templates/index.html, 2: index.php, 3: Template, 4: style.css
-#: wp-admin/includes/class-theme-upgrader.php:634
+#: wp-admin/includes/class-theme-upgrader.php:639
 msgid "Template is missing. Standalone themes need to have a %1$s or %2$s template file. Child themes need to have a %3$s header in the %4$s stylesheet."
 msgstr ""
 
@@ -3320,7 +3330,7 @@ msgstr ""
 #: wp-admin/includes/class-wp-application-passwords-list-table.php:260
 #: wp-admin/includes/class-wp-list-table.php:690
 #: wp-admin/includes/class-wp-list-table.php:1707
-#: wp-admin/includes/update.php:912
+#: wp-admin/includes/update.php:913
 msgid "Show more details"
 msgstr ""
 
@@ -3352,18 +3362,18 @@ msgstr ""
 #: wp-admin/includes/class-wp-automatic-updater.php:508
 #: wp-admin/includes/class-wp-upgrader.php:191
 #: wp-admin/includes/file.php:876
-#: wp-admin/includes/plugin.php:946
+#: wp-admin/includes/plugin.php:948
 #: wp-admin/includes/theme.php:64
 msgid "Could not access filesystem."
 msgstr ""
 
 #: wp-admin/includes/class-wp-automatic-updater.php:528
-#: wp-admin/update-core.php:853
+#: wp-admin/update-core.php:854
 msgid "Installation failed."
 msgstr ""
 
 #: wp-admin/includes/class-wp-automatic-updater.php:531
-#: wp-admin/update-core.php:859
+#: wp-admin/update-core.php:860
 msgid "Retraceur updated successfully."
 msgstr ""
 
@@ -3449,7 +3459,7 @@ msgid "The Retraceur team is willing to help you. Forward this email to %s and t
 msgstr ""
 
 #: wp-admin/includes/class-wp-automatic-updater.php:1055
-#: wp-admin/update-core.php:932
+#: wp-admin/update-core.php:933
 msgid "Keeping your site updated is important for security. It also makes the internet a safer place for you and your readers."
 msgstr ""
 
@@ -4048,7 +4058,7 @@ msgstr ""
 #: wp-admin/includes/class-wp-debug-data.php:724
 #: wp-admin/includes/class-wp-debug-data.php:900
 #: wp-admin/includes/class-wp-plugin-install-list-table.php:525
-#: wp-admin/includes/class-wp-plugins-list-table.php:1219
+#: wp-admin/includes/class-wp-plugins-list-table.php:1221
 msgctxt "plugin"
 msgid "By %s"
 msgstr ""
@@ -4125,15 +4135,15 @@ msgstr ""
 
 #: wp-admin/includes/class-wp-debug-data.php:949
 #: wp-admin/includes/class-wp-debug-data.php:1329
-#: wp-admin/includes/class-wp-plugins-list-table.php:1345
-#: wp-admin/themes.php:654
+#: wp-admin/includes/class-wp-plugins-list-table.php:1347
+#: wp-admin/themes.php:664
 msgid "Auto-updates enabled"
 msgstr ""
 
 #: wp-admin/includes/class-wp-debug-data.php:951
 #: wp-admin/includes/class-wp-debug-data.php:1331
-#: wp-admin/includes/class-wp-plugins-list-table.php:1347
-#: wp-admin/themes.php:652
+#: wp-admin/includes/class-wp-plugins-list-table.php:1349
+#: wp-admin/themes.php:662
 msgid "Auto-updates disabled"
 msgstr ""
 
@@ -4177,8 +4187,8 @@ msgid "Auto-updates"
 msgstr ""
 
 #: wp-admin/includes/class-wp-debug-data.php:1121
-#: wp-admin/includes/theme.php:805
-#: wp-admin/themes.php:883
+#: wp-admin/includes/theme.php:807
+#: wp-admin/themes.php:899
 msgid "Active Theme"
 msgstr ""
 
@@ -4195,12 +4205,12 @@ msgstr ""
 #: wp-admin/includes/class-wp-theme-install-list-table.php:375
 #: wp-admin/includes/class-wp-theme-install-list-table.php:507
 #: wp-admin/includes/class-wp-themes-list-table.php:254
-#: wp-admin/includes/theme.php:816
+#: wp-admin/includes/theme.php:818
 #: wp-admin/theme-install.php:331
 #: wp-admin/theme-install.php:433
-#: wp-admin/themes.php:482
-#: wp-admin/themes.php:808
-#: wp-admin/themes.php:894
+#: wp-admin/themes.php:492
+#: wp-admin/themes.php:824
+#: wp-admin/themes.php:910
 msgctxt "theme"
 msgid "By %s"
 msgstr ""
@@ -4515,7 +4525,7 @@ msgstr ""
 #: wp-admin/update-core.php:492
 #: wp-admin/update-core.php:605
 #: wp-admin/update-core.php:649
-#: wp-admin/update-core.php:741
+#: wp-admin/update-core.php:742
 msgid "Select All"
 msgstr ""
 
@@ -4689,7 +4699,7 @@ msgstr ""
 
 #. translators: %s: Human-readable time difference.
 #: wp-admin/includes/class-wp-media-list-table.php:546
-#: wp-admin/includes/class-wp-plugin-install-list-table.php:662
+#: wp-admin/includes/class-wp-plugin-install-list-table.php:664
 #: wp-admin/includes/class-wp-privacy-requests-table.php:483
 #: wp-admin/includes/plugin-install.php:666
 #: wp-admin/includes/revision.php:256
@@ -4849,38 +4859,38 @@ msgid "Tools"
 msgstr ""
 
 #. translators: %s: Plugin name.
-#: wp-admin/includes/class-wp-plugin-install-list-table.php:548
-#: wp-admin/includes/class-wp-plugin-install-list-table.php:783
-#: wp-admin/includes/class-wp-plugins-list-table.php:1233
-#: wp-admin/includes/class-wp-plugins-list-table.php:1675
+#: wp-admin/includes/class-wp-plugin-install-list-table.php:550
+#: wp-admin/includes/class-wp-plugin-install-list-table.php:785
+#: wp-admin/includes/class-wp-plugins-list-table.php:1235
+#: wp-admin/includes/class-wp-plugins-list-table.php:1695
 msgid "More information about %s"
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugin-install-list-table.php:550
-#: wp-admin/includes/class-wp-plugin-install-list-table.php:785
+#: wp-admin/includes/class-wp-plugin-install-list-table.php:552
+#: wp-admin/includes/class-wp-plugin-install-list-table.php:787
 msgid "More Details"
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugin-install-list-table.php:582
-#: wp-admin/includes/class-wp-plugins-list-table.php:1456
+#: wp-admin/includes/class-wp-plugin-install-list-table.php:584
+#: wp-admin/includes/class-wp-plugins-list-table.php:1458
 msgid "This plugin does not work with your versions of Retraceur and PHP."
 msgstr ""
 
 #. translators: %s: URL to Retraceur Updates screen.
-#: wp-admin/includes/class-wp-plugin-install-list-table.php:586
-#: wp-admin/includes/class-wp-plugin-install-list-table.php:592
-#: wp-admin/includes/class-wp-plugin-install-list-table.php:601
-#: wp-admin/includes/class-wp-plugins-list-table.php:1460
-#: wp-admin/includes/class-wp-plugins-list-table.php:1466
-#: wp-admin/includes/class-wp-plugins-list-table.php:1475
-#: wp-admin/includes/theme.php:863
-#: wp-admin/includes/theme.php:878
-#: wp-admin/includes/theme.php:917
-#: wp-admin/includes/theme.php:923
-#: wp-admin/includes/theme.php:934
-#: wp-admin/includes/update.php:771
-#: wp-admin/includes/update.php:777
-#: wp-admin/includes/update.php:790
+#: wp-admin/includes/class-wp-plugin-install-list-table.php:588
+#: wp-admin/includes/class-wp-plugin-install-list-table.php:594
+#: wp-admin/includes/class-wp-plugin-install-list-table.php:603
+#: wp-admin/includes/class-wp-plugins-list-table.php:1462
+#: wp-admin/includes/class-wp-plugins-list-table.php:1468
+#: wp-admin/includes/class-wp-plugins-list-table.php:1477
+#: wp-admin/includes/theme.php:865
+#: wp-admin/includes/theme.php:880
+#: wp-admin/includes/theme.php:919
+#: wp-admin/includes/theme.php:925
+#: wp-admin/includes/theme.php:936
+#: wp-admin/includes/update.php:772
+#: wp-admin/includes/update.php:778
+#: wp-admin/includes/update.php:791
 #: wp-admin/theme-install.php:303
 #: wp-admin/theme-install.php:314
 #: wp-admin/theme-install.php:477
@@ -4890,41 +4900,41 @@ msgstr ""
 #: wp-admin/themes.php:415
 #: wp-admin/themes.php:449
 #: wp-admin/themes.php:458
-#: wp-admin/themes.php:723
-#: wp-admin/themes.php:729
-#: wp-admin/themes.php:744
-#: wp-admin/themes.php:770
-#: wp-admin/themes.php:776
-#: wp-admin/themes.php:787
-#: wp-admin/themes.php:906
-#: wp-admin/themes.php:912
-#: wp-admin/themes.php:923
-#: wp-admin/themes.php:956
-#: wp-admin/themes.php:962
-#: wp-admin/themes.php:977
-#: wp-admin/update-core.php:675
-#: wp-admin/update-core.php:681
-#: wp-admin/update-core.php:690
+#: wp-admin/themes.php:733
+#: wp-admin/themes.php:739
+#: wp-admin/themes.php:754
+#: wp-admin/themes.php:780
+#: wp-admin/themes.php:786
+#: wp-admin/themes.php:797
+#: wp-admin/themes.php:922
+#: wp-admin/themes.php:928
+#: wp-admin/themes.php:939
+#: wp-admin/themes.php:978
+#: wp-admin/themes.php:984
+#: wp-admin/themes.php:999
+#: wp-admin/update-core.php:676
+#: wp-admin/update-core.php:682
+#: wp-admin/update-core.php:691
 msgid "<a href=\"%s\">Please update Retraceur</a>."
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugin-install-list-table.php:597
-#: wp-admin/includes/class-wp-plugins-list-table.php:1471
+#: wp-admin/includes/class-wp-plugin-install-list-table.php:599
+#: wp-admin/includes/class-wp-plugins-list-table.php:1473
 msgid "This plugin does not work with your version of Retraceur."
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugin-install-list-table.php:606
-#: wp-admin/includes/class-wp-plugins-list-table.php:1480
+#: wp-admin/includes/class-wp-plugin-install-list-table.php:608
+#: wp-admin/includes/class-wp-plugins-list-table.php:1482
 msgid "This plugin does not work with your version of PHP."
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugin-install-list-table.php:659
+#: wp-admin/includes/class-wp-plugin-install-list-table.php:661
 #: wp-admin/includes/plugin-install.php:663
 msgid "Last Updated:"
 msgstr ""
 
 #. translators: %s: Number of millions.
-#: wp-admin/includes/class-wp-plugin-install-list-table.php:671
+#: wp-admin/includes/class-wp-plugin-install-list-table.php:673
 #: wp-admin/includes/plugin-install.php:694
 msgctxt "Active plugin installations"
 msgid "%s+ Million"
@@ -4932,30 +4942,30 @@ msgid_plural "%s+ Million"
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-admin/includes/class-wp-plugin-install-list-table.php:675
+#: wp-admin/includes/class-wp-plugin-install-list-table.php:677
 #: wp-admin/includes/plugin-install.php:698
 msgctxt "Active plugin installations"
 msgid "Less Than 10"
 msgstr ""
 
 #. translators: %s: Number of installations.
-#: wp-admin/includes/class-wp-plugin-install-list-table.php:680
+#: wp-admin/includes/class-wp-plugin-install-list-table.php:682
 msgid "%s Active Installations"
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugin-install-list-table.php:686
+#: wp-admin/includes/class-wp-plugin-install-list-table.php:688
 msgid "Untested with your version of Retraceur"
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugin-install-list-table.php:688
+#: wp-admin/includes/class-wp-plugin-install-list-table.php:690
 msgid "<strong>Incompatible</strong> with your version of Retraceur"
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugin-install-list-table.php:690
+#: wp-admin/includes/class-wp-plugin-install-list-table.php:692
 msgid "<strong>Compatible</strong> with your version of Retraceur"
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugin-install-list-table.php:751
+#: wp-admin/includes/class-wp-plugin-install-list-table.php:753
 msgid "Additional plugins are required"
 msgstr ""
 
@@ -5078,17 +5088,17 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: wp-admin/includes/class-wp-plugins-list-table.php:642
-#: wp-admin/includes/class-wp-plugins-list-table.php:978
-#: wp-admin/includes/class-wp-plugins-list-table.php:995
-#: wp-admin/includes/plugin-install.php:825
-#: wp-admin/includes/plugin-install.php:939
-#: wp-admin/includes/plugin-install.php:970
+#: wp-admin/includes/class-wp-plugins-list-table.php:979
+#: wp-admin/includes/class-wp-plugins-list-table.php:996
+#: wp-admin/includes/plugin-install.php:827
+#: wp-admin/includes/plugin-install.php:941
+#: wp-admin/includes/plugin-install.php:972
 msgctxt "plugin"
 msgid "Activate"
 msgstr ""
 
 #: wp-admin/includes/class-wp-plugins-list-table.php:646
-#: wp-admin/includes/class-wp-plugins-list-table.php:864
+#: wp-admin/includes/class-wp-plugins-list-table.php:865
 msgctxt "plugin"
 msgid "Network Deactivate"
 msgstr ""
@@ -5115,150 +5125,154 @@ msgstr ""
 msgid "Files in the %s directory are executed automatically."
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugins-list-table.php:821
+#: wp-admin/includes/class-wp-plugins-list-table.php:822
 msgid "Inactive:"
 msgstr ""
 
 #. translators: 1: Drop-in constant name, 2: wp-config.php
-#: wp-admin/includes/class-wp-plugins-list-table.php:824
+#: wp-admin/includes/class-wp-plugins-list-table.php:825
 msgid "Requires %1$s in %2$s file."
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugins-list-table.php:846
-#: wp-admin/includes/class-wp-plugins-list-table.php:936
-#: wp-admin/includes/class-wp-plugins-list-table.php:953
+#: wp-admin/includes/class-wp-plugins-list-table.php:847
+#: wp-admin/includes/class-wp-plugins-list-table.php:937
+#: wp-admin/includes/class-wp-plugins-list-table.php:954
 msgid "Deactivate"
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugins-list-table.php:848
+#: wp-admin/includes/class-wp-plugins-list-table.php:849
 msgid "You cannot deactivate this plugin as other plugins require it."
 msgstr ""
 
 #. translators: %s: Plugin name.
-#: wp-admin/includes/class-wp-plugins-list-table.php:863
+#: wp-admin/includes/class-wp-plugins-list-table.php:864
 msgctxt "plugin"
 msgid "Network Deactivate %s"
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugins-list-table.php:874
-#: wp-admin/includes/class-wp-plugins-list-table.php:980
+#: wp-admin/includes/class-wp-plugins-list-table.php:875
+#: wp-admin/includes/class-wp-plugins-list-table.php:981
 msgid "You cannot activate this plugin as it has unmet requirements."
 msgstr ""
 
 #. translators: %s: Plugin name.
-#: wp-admin/includes/class-wp-plugins-list-table.php:888
-#: wp-admin/includes/plugin-install.php:954
+#: wp-admin/includes/class-wp-plugins-list-table.php:889
+#: wp-admin/includes/plugin-install.php:956
 msgctxt "plugin"
 msgid "Network Activate %s"
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugins-list-table.php:895
-#: wp-admin/includes/class-wp-plugins-list-table.php:1001
+#: wp-admin/includes/class-wp-plugins-list-table.php:896
+#: wp-admin/includes/class-wp-plugins-list-table.php:1002
 msgctxt "plugin"
 msgid "Cannot Activate"
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugins-list-table.php:904
-#: wp-admin/includes/class-wp-plugins-list-table.php:1010
+#: wp-admin/includes/class-wp-plugins-list-table.php:905
+#: wp-admin/includes/class-wp-plugins-list-table.php:1011
 msgid "You cannot delete this plugin as other plugins require it."
 msgstr ""
 
 #. translators: %s: Plugin name.
-#: wp-admin/includes/class-wp-plugins-list-table.php:918
-#: wp-admin/includes/class-wp-plugins-list-table.php:1024
+#: wp-admin/includes/class-wp-plugins-list-table.php:919
+#: wp-admin/includes/class-wp-plugins-list-table.php:1025
 msgctxt "plugin"
 msgid "Delete %s"
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugins-list-table.php:927
+#: wp-admin/includes/class-wp-plugins-list-table.php:928
 msgid "Network Active"
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugins-list-table.php:931
+#: wp-admin/includes/class-wp-plugins-list-table.php:932
 msgid "Network Only"
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugins-list-table.php:938
+#: wp-admin/includes/class-wp-plugins-list-table.php:939
 msgid "You cannot deactivate this plugin as other plugins depend on it."
 msgstr ""
 
 #. translators: %s: Plugin name.
-#: wp-admin/includes/class-wp-plugins-list-table.php:952
+#: wp-admin/includes/class-wp-plugins-list-table.php:953
 msgctxt "plugin"
 msgid "Deactivate %s"
 msgstr ""
 
 #. translators: %s: Plugin name.
-#: wp-admin/includes/class-wp-plugins-list-table.php:970
+#: wp-admin/includes/class-wp-plugins-list-table.php:971
 msgctxt "plugin"
 msgid "Resume %s"
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugins-list-table.php:971
-#: wp-admin/themes.php:576
+#: wp-admin/includes/class-wp-plugins-list-table.php:972
+#: wp-admin/themes.php:586
 msgid "Resume"
 msgstr ""
 
 #. translators: %s: Plugin name.
-#: wp-admin/includes/class-wp-plugins-list-table.php:994
-#: wp-admin/includes/plugin-install.php:941
+#: wp-admin/includes/class-wp-plugins-list-table.php:995
+#: wp-admin/includes/plugin-install.php:943
 msgctxt "plugin"
 msgid "Activate %s"
 msgstr ""
 
 #. translators: %s: Plugin name.
-#: wp-admin/includes/class-wp-plugins-list-table.php:1142
+#: wp-admin/includes/class-wp-plugins-list-table.php:1143
 #: wp-admin/update-core.php:570
 msgctxt "plugin"
 msgid "Select %s"
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugins-list-table.php:1235
+#: wp-admin/includes/class-wp-plugins-list-table.php:1237
 msgid "View details"
 msgstr ""
 
 #. translators: %s: Plugin name.
-#: wp-admin/includes/class-wp-plugins-list-table.php:1239
+#: wp-admin/includes/class-wp-plugins-list-table.php:1241
 msgid "Visit plugin site for %s"
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugins-list-table.php:1245
+#: wp-admin/includes/class-wp-plugins-list-table.php:1247
 msgid "Visit plugin site"
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugins-list-table.php:1320
+#: wp-admin/includes/class-wp-plugins-list-table.php:1322
 msgid "This plugin failed to load properly and is paused during recovery mode."
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugins-list-table.php:1356
-#: wp-admin/themes.php:657
+#: wp-admin/includes/class-wp-plugins-list-table.php:1358
+#: wp-admin/themes.php:667
 msgid "Disable auto-updates"
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugins-list-table.php:1360
-#: wp-admin/themes.php:661
+#: wp-admin/includes/class-wp-plugins-list-table.php:1362
+#: wp-admin/themes.php:671
 msgid "Enable auto-updates"
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugins-list-table.php:1559
+#: wp-admin/includes/class-wp-plugins-list-table.php:1504
+msgid "The plugin’s author has not declared any compatibility with Retraceur. Activating it may generate issues."
+msgstr ""
+
+#: wp-admin/includes/class-wp-plugins-list-table.php:1579
 msgid "Note: This plugin cannot be deactivated or deleted until the plugins that require it are deactivated or deleted."
 msgstr ""
 
 #. translators: %s: List of dependencies.
-#: wp-admin/includes/class-wp-plugins-list-table.php:1564
+#: wp-admin/includes/class-wp-plugins-list-table.php:1584
 msgid "<strong>Required by:</strong> %s"
 msgstr ""
 
 #. translators: %s: List of dependency names.
-#: wp-admin/includes/class-wp-plugins-list-table.php:1598
+#: wp-admin/includes/class-wp-plugins-list-table.php:1618
 msgid "<strong>Requires:</strong> %s"
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugins-list-table.php:1606
+#: wp-admin/includes/class-wp-plugins-list-table.php:1626
 msgid "This plugin is active but may not function correctly because required plugins are missing or inactive."
 msgstr ""
 
-#: wp-admin/includes/class-wp-plugins-list-table.php:1608
+#: wp-admin/includes/class-wp-plugins-list-table.php:1628
 msgid "This plugin cannot be activated because required plugins are missing or inactive."
 msgstr ""
 
@@ -5569,7 +5583,7 @@ msgstr ""
 #: wp-admin/includes/class-wp-privacy-policy-content.php:363
 #: wp-admin/includes/media.php:3246
 #: wp-admin/includes/meta-boxes.php:82
-#: wp-admin/includes/theme.php:830
+#: wp-admin/includes/theme.php:832
 msgid "(opens in a new tab)"
 msgstr ""
 
@@ -7237,7 +7251,7 @@ msgstr ""
 #. translators: %s: Plugin name.
 #: wp-admin/includes/class-wp-theme-install-list-table.php:498
 #: wp-admin/includes/deprecated.php:1394
-#: wp-admin/includes/theme.php:993
+#: wp-admin/includes/theme.php:995
 #: wp-admin/theme-install.php:369
 #: wp-admin/theme-install.php:421
 msgid "Install"
@@ -7286,7 +7300,7 @@ msgid "Invalid data provided."
 msgstr ""
 
 #: wp-admin/includes/class-wp-upgrader.php:192
-#: wp-admin/includes/plugin.php:950
+#: wp-admin/includes/plugin.php:952
 #: wp-admin/includes/theme.php:68
 msgid "Filesystem error."
 msgstr ""
@@ -7301,7 +7315,7 @@ msgid "Unable to locate Retraceur content directory (%s)."
 msgstr ""
 
 #: wp-admin/includes/class-wp-upgrader.php:196
-#: wp-admin/includes/plugin.php:956
+#: wp-admin/includes/plugin.php:958
 msgid "Unable to locate Retraceur plugin directory."
 msgstr ""
 
@@ -9338,8 +9352,8 @@ msgstr ""
 
 #: wp-admin/includes/plugin-install.php:364
 #: wp-admin/includes/plugin-install.php:388
-#: wp-admin/includes/plugin-install.php:897
-#: wp-admin/includes/plugin-install.php:902
+#: wp-admin/includes/plugin-install.php:899
+#: wp-admin/includes/plugin-install.php:904
 #: wp-admin/press-this.php:65
 msgctxt "plugin"
 msgid "Install Now"
@@ -9453,220 +9467,220 @@ msgctxt "plugin credits"
 msgid "Contributors"
 msgstr ""
 
-#: wp-admin/includes/plugin-install.php:768
+#: wp-admin/includes/plugin-install.php:770
 msgid "<strong>Error:</strong> This plugin <strong>requires a newer version of PHP</strong>."
 msgstr ""
 
-#: wp-admin/includes/plugin-install.php:783
+#: wp-admin/includes/plugin-install.php:785
 msgid "<strong>Warning:</strong> This plugin <strong>has not been tested</strong> with your current version of Retraceur."
 msgstr ""
 
-#: wp-admin/includes/plugin-install.php:790
+#: wp-admin/includes/plugin-install.php:792
 msgid "<strong>Error:</strong> This plugin <strong>requires a newer version of Retraceur</strong>."
 msgstr ""
 
 #. translators: %s: URL to Retraceur Updates screen.
-#: wp-admin/includes/plugin-install.php:794
+#: wp-admin/includes/plugin-install.php:796
 msgid "<a href=\"%s\" target=\"_parent\">Click here to update Retraceur</a>."
 msgstr ""
 
 #. translators: %s: Plugin name.
-#: wp-admin/includes/plugin-install.php:895
+#: wp-admin/includes/plugin-install.php:897
 msgctxt "plugin"
 msgid "Install %s now"
 msgstr ""
 
 #. translators: %s: Plugin name.
-#: wp-admin/includes/plugin-install.php:917
+#: wp-admin/includes/plugin-install.php:919
 #: wp-admin/includes/update.php:567
 msgctxt "plugin"
 msgid "Update %s now"
 msgstr ""
 
-#: wp-admin/includes/plugin-install.php:919
-#: wp-admin/includes/plugin-install.php:924
+#: wp-admin/includes/plugin-install.php:921
+#: wp-admin/includes/plugin-install.php:926
 msgctxt "plugin"
 msgid "Update Now"
 msgstr ""
 
-#: wp-admin/includes/plugin-install.php:935
+#: wp-admin/includes/plugin-install.php:937
 msgctxt "plugin"
 msgid "Active"
 msgstr ""
 
-#: wp-admin/includes/plugin-install.php:976
+#: wp-admin/includes/plugin-install.php:978
 msgctxt "plugin"
 msgid "Installed"
 msgstr ""
 
 #. translators: 1: Site Wide Only: true, 2: Network: true
-#: wp-admin/includes/plugin.php:105
+#: wp-admin/includes/plugin.php:107
 msgid "The %1$s plugin header is deprecated. Use %2$s instead."
 msgstr ""
 
 #. translators: %s: Plugin author.
-#: wp-admin/includes/plugin.php:221
+#: wp-admin/includes/plugin.php:223
 msgid "By %s."
 msgstr ""
 
-#: wp-admin/includes/plugin.php:512
+#: wp-admin/includes/plugin.php:514
 msgid "Advanced caching plugin."
 msgstr ""
 
-#: wp-admin/includes/plugin.php:513
+#: wp-admin/includes/plugin.php:515
 msgid "Custom database class."
 msgstr ""
 
-#: wp-admin/includes/plugin.php:514
+#: wp-admin/includes/plugin.php:516
 msgid "Custom database error message."
 msgstr ""
 
-#: wp-admin/includes/plugin.php:515
+#: wp-admin/includes/plugin.php:517
 msgid "Custom installation script."
 msgstr ""
 
-#: wp-admin/includes/plugin.php:516
+#: wp-admin/includes/plugin.php:518
 msgid "Custom maintenance message."
 msgstr ""
 
-#: wp-admin/includes/plugin.php:517
+#: wp-admin/includes/plugin.php:519
 msgid "External object cache."
 msgstr ""
 
-#: wp-admin/includes/plugin.php:518
+#: wp-admin/includes/plugin.php:520
 msgid "Custom PHP error message."
 msgstr ""
 
-#: wp-admin/includes/plugin.php:519
+#: wp-admin/includes/plugin.php:521
 msgid "Custom PHP fatal error handler."
 msgstr ""
 
-#: wp-admin/includes/plugin.php:523
+#: wp-admin/includes/plugin.php:525
 msgid "Executed before Multisite is loaded."
 msgstr ""
 
-#: wp-admin/includes/plugin.php:524
+#: wp-admin/includes/plugin.php:526
 msgid "Custom site deleted message."
 msgstr ""
 
-#: wp-admin/includes/plugin.php:525
+#: wp-admin/includes/plugin.php:527
 msgid "Custom site inactive message."
 msgstr ""
 
-#: wp-admin/includes/plugin.php:526
+#: wp-admin/includes/plugin.php:528
 msgid "Custom site suspended message."
 msgstr ""
 
-#: wp-admin/includes/plugin.php:733
+#: wp-admin/includes/plugin.php:735
 msgid "The plugin generated unexpected output."
 msgstr ""
 
-#: wp-admin/includes/plugin.php:884
+#: wp-admin/includes/plugin.php:886
 msgid "One of the plugins is invalid."
 msgstr ""
 
 #. translators: %s: Plugin filename.
-#: wp-admin/includes/plugin.php:1046
+#: wp-admin/includes/plugin.php:1048
 msgid "Could not fully remove the plugin %s."
 msgstr ""
 
 #. translators: %s: Comma-separated list of plugin filenames.
-#: wp-admin/includes/plugin.php:1049
+#: wp-admin/includes/plugin.php:1051
 msgid "Could not fully remove the plugins %s."
 msgstr ""
 
-#: wp-admin/includes/plugin.php:1109
+#: wp-admin/includes/plugin.php:1111
 msgid "Invalid plugin path."
 msgstr ""
 
-#: wp-admin/includes/plugin.php:1112
+#: wp-admin/includes/plugin.php:1114
 msgid "Plugin file does not exist."
 msgstr ""
 
-#: wp-admin/includes/plugin.php:1117
+#: wp-admin/includes/plugin.php:1119
 msgid "The plugin does not have a valid header."
 msgstr ""
 
 #. translators: 1: Current Retraceur version, 2: Current PHP version, 3: Plugin name, 4: Required Retraceur version, 5: Required PHP version.
-#: wp-admin/includes/plugin.php:1154
+#: wp-admin/includes/plugin.php:1157
 msgctxt "plugin"
 msgid "<strong>Error:</strong> Current versions of Retraceur (%1$s) and PHP (%2$s) do not meet minimum requirements for %3$s. The plugin requires Retraceur %4$s and PHP %5$s."
 msgstr ""
 
 #. translators: 1: Current PHP version, 2: Plugin name, 3: Required PHP version.
-#: wp-admin/includes/plugin.php:1167
+#: wp-admin/includes/plugin.php:1170
 msgctxt "plugin"
 msgid "<strong>Error:</strong> Current PHP version (%1$s) does not meet minimum requirements for %2$s. The plugin requires PHP %3$s."
 msgstr ""
 
 #. translators: 1: Current Retraceur version, 2: Plugin name, 3: Required Retraceur version.
-#: wp-admin/includes/plugin.php:1178
+#: wp-admin/includes/plugin.php:1183
 msgctxt "plugin"
 msgid "<strong>Error:</strong> Current Retraceur version (%1$s) does not meet minimum requirements for %2$s. The plugin requires Retraceur %3$s."
 msgstr ""
 
 #. translators: 1: Plugin name, 2: Number of plugins, 3: A comma-separated list of plugin names.
-#: wp-admin/includes/plugin.php:1207
+#: wp-admin/includes/plugin.php:1212
 msgid "<strong>Error:</strong> %1$s requires %2$d plugin to be installed and activated: %3$s."
 msgid_plural "<strong>Error:</strong> %1$s requires %2$d plugins to be installed and activated: %3$s."
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %s: Link to the plugins page.
-#: wp-admin/includes/plugin.php:1221
-#: wp-admin/includes/plugin.php:1230
+#: wp-admin/includes/plugin.php:1226
+#: wp-admin/includes/plugin.php:1235
 msgid "<a href=\"%s\">Manage plugins</a>."
 msgstr ""
 
-#: wp-admin/includes/plugin.php:1225
+#: wp-admin/includes/plugin.php:1230
 msgid "Please contact your network administrator."
 msgstr ""
 
 #. translators: %s: Function name.
-#: wp-admin/includes/plugin.php:1392
-#: wp-admin/includes/plugin.php:1496
+#: wp-admin/includes/plugin.php:1397
+#: wp-admin/includes/plugin.php:1501
 msgid "The seventh parameter passed to %s should be numeric representing menu position."
 msgstr ""
 
 #. translators: %s: admin_init
-#: wp-admin/includes/plugin.php:2377
+#: wp-admin/includes/plugin.php:2382
 msgid "The suggested privacy policy content should be added only in wp-admin by using the %s (or later) action."
 msgstr ""
 
 #. translators: %s: admin_init
-#: wp-admin/includes/plugin.php:2388
+#: wp-admin/includes/plugin.php:2393
 msgid "The suggested privacy policy content should be added by using the %s (or later) action. Please see the inline documentation."
 msgstr ""
 
-#: wp-admin/includes/plugin.php:2497
+#: wp-admin/includes/plugin.php:2502
 msgid "Could not resume the plugin."
 msgstr ""
 
-#: wp-admin/includes/plugin.php:2527
+#: wp-admin/includes/plugin.php:2532
 msgid "One or more plugins failed to load properly."
 msgstr ""
 
-#: wp-admin/includes/plugin.php:2528
+#: wp-admin/includes/plugin.php:2533
 msgid "You can find more details and make changes on the Plugins screen."
 msgstr ""
 
-#: wp-admin/includes/plugin.php:2530
-#: wp-admin/includes/plugin.php:2612
+#: wp-admin/includes/plugin.php:2535
+#: wp-admin/includes/plugin.php:2617
 msgid "Go to the Plugins screen"
 msgstr ""
 
 #. translators: 1: Name of deactivated plugin, 2: Plugin version deactivated, 3: Current WP version, 4: Compatible plugin version.
-#: wp-admin/includes/plugin.php:2586
+#: wp-admin/includes/plugin.php:2591
 msgid "%1$s %2$s was deactivated due to incompatibility with Retraceur %3$s, please upgrade to %1$s %4$s or later."
 msgstr ""
 
 #. translators: 1: Name of deactivated plugin, 2: Plugin version deactivated, 3: Current WP version.
-#: wp-admin/includes/plugin.php:2595
+#: wp-admin/includes/plugin.php:2600
 msgid "%1$s %2$s was deactivated due to incompatibility with Retraceur %3$s."
 msgstr ""
 
 #. translators: %s: Name of deactivated plugin.
-#: wp-admin/includes/plugin.php:2607
+#: wp-admin/includes/plugin.php:2612
 msgid "%s plugin deactivated during Retraceur upgrade."
 msgstr ""
 
@@ -10355,7 +10369,7 @@ msgstr ""
 
 #. translators: 1: Theme name, 2: Theme details URL, 3: Additional link attributes, 4: Version number.
 #: wp-admin/includes/theme.php:231
-#: wp-admin/includes/update.php:718
+#: wp-admin/includes/update.php:719
 msgctxt "theme"
 msgid "There is a new version of %1$s available. <a href=\"%2$s\" %3$s>View version %4$s details</a>."
 msgstr ""
@@ -10364,30 +10378,30 @@ msgstr ""
 #: wp-admin/includes/theme.php:237
 #: wp-admin/includes/theme.php:250
 #: wp-admin/includes/theme.php:263
-#: wp-admin/includes/update.php:724
-#: wp-admin/includes/update.php:737
-#: wp-admin/includes/update.php:750
+#: wp-admin/includes/update.php:725
+#: wp-admin/includes/update.php:738
+#: wp-admin/includes/update.php:751
 msgctxt "theme"
 msgid "View %1$s version %2$s details"
 msgstr ""
 
 #. translators: 1: Theme name, 2: Theme details URL, 3: Additional link attributes, 4: Version number.
 #: wp-admin/includes/theme.php:244
-#: wp-admin/includes/update.php:731
+#: wp-admin/includes/update.php:732
 msgctxt "theme"
 msgid "There is a new version of %1$s available. <a href=\"%2$s\" %3$s>View version %4$s details</a>. <em>Automatic update is unavailable for this theme.</em>"
 msgstr ""
 
 #. translators: 1: Theme name, 2: Theme details URL, 3: Additional link attributes, 4: Version number, 5: Update URL, 6: Additional link attributes.
 #: wp-admin/includes/theme.php:257
-#: wp-admin/includes/update.php:744
+#: wp-admin/includes/update.php:745
 msgctxt "theme"
 msgid "There is a new version of %1$s available. <a href=\"%2$s\" %3$s>View version %4$s details</a> or <a href=\"%5$s\" %6$s>update now</a>."
 msgstr ""
 
 #. translators: %s: Theme name.
 #: wp-admin/includes/theme.php:270
-#: wp-admin/includes/update.php:757
+#: wp-admin/includes/update.php:758
 msgctxt "theme"
 msgid "Update %s now"
 msgstr ""
@@ -10533,177 +10547,177 @@ msgid "(Retraceur could not establish a secure connection to Theme Installation 
 msgstr ""
 
 #. translators: Hidden accessibility text.
-#: wp-admin/includes/theme.php:778
-#: wp-admin/themes.php:856
+#: wp-admin/includes/theme.php:780
+#: wp-admin/themes.php:872
 msgid "Show previous theme"
 msgstr ""
 
 #. translators: Hidden accessibility text.
-#: wp-admin/includes/theme.php:784
-#: wp-admin/themes.php:862
+#: wp-admin/includes/theme.php:786
+#: wp-admin/themes.php:878
 msgid "Show next theme"
 msgstr ""
 
 #. translators: Hidden accessibility text.
-#: wp-admin/includes/theme.php:790
-#: wp-admin/themes.php:868
+#: wp-admin/includes/theme.php:792
+#: wp-admin/themes.php:884
 msgid "Close details dialog"
 msgstr ""
 
 #. translators: %s: Theme version.
-#: wp-admin/includes/theme.php:810
+#: wp-admin/includes/theme.php:812
 #: wp-admin/theme-install.php:459
-#: wp-admin/themes.php:888
+#: wp-admin/themes.php:904
 msgid "Version: %s"
 msgstr ""
 
 #. translators: %s: Number of ratings.
-#: wp-admin/includes/theme.php:828
+#: wp-admin/includes/theme.php:830
 #: wp-admin/theme-install.php:448
 msgid "(%s ratings)"
 msgstr ""
 
-#: wp-admin/includes/theme.php:840
-#: wp-admin/themes.php:939
+#: wp-admin/includes/theme.php:842
+#: wp-admin/themes.php:961
 msgid "Update Available"
 msgstr ""
 
-#: wp-admin/includes/theme.php:845
-#: wp-admin/themes.php:944
+#: wp-admin/includes/theme.php:847
+#: wp-admin/themes.php:966
 msgid "Update Incompatible"
 msgstr ""
 
 #. translators: %s: Theme name.
-#: wp-admin/includes/theme.php:851
-#: wp-admin/includes/update.php:765
+#: wp-admin/includes/theme.php:853
+#: wp-admin/includes/update.php:766
 #: wp-admin/themes.php:390
-#: wp-admin/themes.php:717
-#: wp-admin/themes.php:950
+#: wp-admin/themes.php:727
+#: wp-admin/themes.php:972
 msgid "There is a new version of %s available, but it does not work with your versions of Retraceur and PHP."
 msgstr ""
 
 #. translators: %s: URL to Retraceur Updates screen.
-#: wp-admin/includes/theme.php:857
+#: wp-admin/includes/theme.php:859
 #: wp-admin/theme-install.php:297
 #: wp-admin/themes.php:443
 msgid "<a href=\"%1$s\">Please update Retraceur</a>."
 msgstr ""
 
 #. translators: %s: Theme name.
-#: wp-admin/includes/theme.php:872
-#: wp-admin/includes/update.php:784
+#: wp-admin/includes/theme.php:874
+#: wp-admin/includes/update.php:785
 #: wp-admin/themes.php:409
-#: wp-admin/themes.php:738
-#: wp-admin/themes.php:971
+#: wp-admin/themes.php:748
+#: wp-admin/themes.php:993
 msgid "There is a new version of %s available, but it does not work with your version of Retraceur."
 msgstr ""
 
 #. translators: %s: Theme name.
-#: wp-admin/includes/theme.php:887
-#: wp-admin/includes/update.php:797
+#: wp-admin/includes/theme.php:889
+#: wp-admin/includes/update.php:798
 #: wp-admin/themes.php:422
-#: wp-admin/themes.php:753
-#: wp-admin/themes.php:986
+#: wp-admin/themes.php:763
+#: wp-admin/themes.php:1008
 msgid "There is a new version of %s available, but it does not work with your version of PHP."
 msgstr ""
 
 #. translators: %s: Theme name.
-#: wp-admin/includes/theme.php:902
-#: wp-admin/themes.php:1010
+#: wp-admin/includes/theme.php:904
+#: wp-admin/themes.php:1032
 msgid "This is a child theme of %s."
 msgstr ""
 
-#: wp-admin/includes/theme.php:913
+#: wp-admin/includes/theme.php:915
 #: wp-admin/theme-install.php:293
 #: wp-admin/theme-install.php:467
 #: wp-admin/themes.php:439
-#: wp-admin/themes.php:766
-#: wp-admin/themes.php:902
+#: wp-admin/themes.php:776
+#: wp-admin/themes.php:918
 msgid "This theme does not work with your versions of Retraceur and PHP."
 msgstr ""
 
-#: wp-admin/includes/theme.php:930
+#: wp-admin/includes/theme.php:932
 #: wp-admin/theme-install.php:310
 #: wp-admin/theme-install.php:484
 #: wp-admin/themes.php:454
-#: wp-admin/themes.php:783
-#: wp-admin/themes.php:919
+#: wp-admin/themes.php:793
+#: wp-admin/themes.php:935
 msgid "This theme does not work with your version of Retraceur."
 msgstr ""
 
-#: wp-admin/includes/theme.php:941
+#: wp-admin/includes/theme.php:943
 #: wp-admin/theme-install.php:321
 #: wp-admin/theme-install.php:495
 #: wp-admin/themes.php:463
-#: wp-admin/themes.php:794
-#: wp-admin/themes.php:930
+#: wp-admin/themes.php:804
+#: wp-admin/themes.php:946
 msgid "This theme does not work with your version of PHP."
 msgstr ""
 
 #. translators: %s: URL to the themes page (also it activates the theme).
-#: wp-admin/includes/theme.php:950
+#: wp-admin/includes/theme.php:952
 msgid "<a href=\"%s\">Activate this theme</a>, and use the Site Editor to customize it."
 msgstr ""
 
-#: wp-admin/includes/theme.php:960
-#: wp-admin/themes.php:1016
+#: wp-admin/includes/theme.php:962
+#: wp-admin/themes.php:1038
 msgid "Tags:"
 msgstr ""
 
-#: wp-admin/includes/theme.php:967
-#: wp-admin/includes/theme.php:980
+#: wp-admin/includes/theme.php:969
 #: wp-admin/includes/theme.php:982
-#: wp-admin/themes.php:502
-#: wp-admin/themes.php:828
-#: wp-admin/themes.php:1024
+#: wp-admin/includes/theme.php:984
+#: wp-admin/themes.php:512
+#: wp-admin/themes.php:844
+#: wp-admin/themes.php:1046
 msgid "Customize"
 msgstr ""
 
 #. translators: %s: Theme name.
-#: wp-admin/includes/theme.php:973
+#: wp-admin/includes/theme.php:975
 #: wp-admin/theme-install.php:343
 #: wp-admin/theme-install.php:409
-#: wp-admin/themes.php:507
-#: wp-admin/themes.php:834
-#: wp-admin/themes.php:1031
+#: wp-admin/themes.php:517
+#: wp-admin/themes.php:850
+#: wp-admin/themes.php:1053
 msgctxt "theme"
 msgid "Activate %s"
 msgstr ""
 
-#: wp-admin/includes/theme.php:976
+#: wp-admin/includes/theme.php:978
 #: wp-admin/theme-install.php:347
 #: wp-admin/theme-install.php:412
-#: wp-admin/themes.php:509
-#: wp-admin/themes.php:836
-#: wp-admin/themes.php:1034
+#: wp-admin/themes.php:519
+#: wp-admin/themes.php:852
+#: wp-admin/themes.php:1056
 msgid "Activate"
 msgstr ""
 
-#: wp-admin/includes/theme.php:994
-#: wp-admin/includes/theme.php:997
+#: wp-admin/includes/theme.php:996
+#: wp-admin/includes/theme.php:999
 msgid "Install &amp; Activate"
 msgstr ""
 
-#: wp-admin/includes/theme.php:996
+#: wp-admin/includes/theme.php:998
 #: wp-admin/theme-install.php:376
 #: wp-admin/theme-install.php:423
 msgctxt "theme"
 msgid "Cannot Install"
 msgstr ""
 
-#: wp-admin/includes/theme.php:1114
+#: wp-admin/includes/theme.php:1116
 msgid "Could not resume the theme."
 msgstr ""
 
-#: wp-admin/includes/theme.php:1144
+#: wp-admin/includes/theme.php:1146
 msgid "One or more themes failed to load properly."
 msgstr ""
 
-#: wp-admin/includes/theme.php:1145
+#: wp-admin/includes/theme.php:1147
 msgid "You can find more details and make changes on the Themes screen."
 msgstr ""
 
-#: wp-admin/includes/theme.php:1147
+#: wp-admin/includes/theme.php:1149
 msgid "Go to the Themes screen"
 msgstr ""
 
@@ -10845,42 +10859,42 @@ msgid "There is a new version of %1$s available, but it does not work with your 
 msgstr ""
 
 #. translators: %s: URL to Retraceur Updates screen.
-#: wp-admin/includes/update.php:862
+#: wp-admin/includes/update.php:863
 msgid "An automated Retraceur update has failed to complete - <a href=\"%s\">please attempt the update again now</a>."
 msgstr ""
 
-#: wp-admin/includes/update.php:866
+#: wp-admin/includes/update.php:867
 msgid "An automated Retraceur update has failed to complete! Please notify the site administrator."
 msgstr ""
 
 #. translators: %s: Plugin name.
-#: wp-admin/includes/update.php:974
+#: wp-admin/includes/update.php:975
 msgctxt "plugin"
 msgid "%s was successfully deleted."
 msgstr ""
 
 #. translators: %s: Theme name.
-#: wp-admin/includes/update.php:982
+#: wp-admin/includes/update.php:983
 msgctxt "theme"
 msgid "%s was successfully deleted."
 msgstr ""
 
 #. translators: %s: Recovery Mode exit link.
-#: wp-admin/includes/update.php:1009
+#: wp-admin/includes/update.php:1010
 msgid "You are in recovery mode. This means there may be an error with a theme or plugin. To exit recovery mode, log out or use the Exit button. <a href=\"%s\">Exit Recovery Mode</a>"
 msgstr ""
 
-#: wp-admin/includes/update.php:1083
+#: wp-admin/includes/update.php:1084
 msgid "Automatic update not scheduled. There may be a problem with WP-Cron."
 msgstr ""
 
 #. translators: %s: Duration that WP-Cron has been overdue.
-#: wp-admin/includes/update.php:1093
+#: wp-admin/includes/update.php:1094
 msgid "Automatic update overdue by %s. There may be a problem with WP-Cron."
 msgstr ""
 
 #. translators: %s: Time until the next update.
-#: wp-admin/includes/update.php:1099
+#: wp-admin/includes/update.php:1100
 msgid "Automatic update scheduled in %s."
 msgstr ""
 
@@ -12803,8 +12817,8 @@ msgstr ""
 #: wp-admin/plugins.php:191
 #: wp-admin/update-core.php:487
 #: wp-admin/update-core.php:609
-#: wp-admin/update-core.php:1128
-#: wp-admin/update-core.php:1133
+#: wp-admin/update-core.php:1129
+#: wp-admin/update-core.php:1134
 msgid "Update Plugins"
 msgstr ""
 
@@ -13701,7 +13715,7 @@ msgstr ""
 #: wp-admin/theme-install.php:67
 #: wp-admin/theme-install.php:237
 #: wp-admin/themes.php:176
-#: wp-admin/themes.php:526
+#: wp-admin/themes.php:536
 msgid "No themes found. Try a different search."
 msgstr ""
 
@@ -13799,18 +13813,18 @@ msgstr ""
 
 #. translators: %s: Theme name.
 #: wp-admin/theme-install.php:356
-#: wp-admin/themes.php:513
-#: wp-admin/themes.php:840
-#: wp-admin/themes.php:1039
+#: wp-admin/themes.php:523
+#: wp-admin/themes.php:856
+#: wp-admin/themes.php:1061
 msgctxt "theme"
 msgid "Cannot Activate %s"
 msgstr ""
 
 #: wp-admin/theme-install.php:359
 #: wp-admin/theme-install.php:417
-#: wp-admin/themes.php:515
-#: wp-admin/themes.php:842
-#: wp-admin/themes.php:1042
+#: wp-admin/themes.php:525
+#: wp-admin/themes.php:858
+#: wp-admin/themes.php:1064
 msgctxt "theme"
 msgid "Cannot Activate"
 msgstr ""
@@ -13945,64 +13959,70 @@ msgid "Error:"
 msgstr ""
 
 #: wp-admin/themes.php:374
-#: wp-admin/themes.php:706
+#: wp-admin/themes.php:716
 msgid "New version available. <button class=\"button-link\" type=\"button\">Update now</button>"
 msgstr ""
 
 #: wp-admin/themes.php:376
-#: wp-admin/themes.php:708
+#: wp-admin/themes.php:718
 msgid "New version available."
 msgstr ""
 
-#. translators: %s: Theme name.
 #: wp-admin/themes.php:476
-#: wp-admin/themes.php:802
+#: wp-admin/themes.php:812
+#: wp-admin/themes.php:954
+msgid "The theme’s author has not declared compatibility with Retraceur. Activating it may generate issues."
+msgstr ""
+
+#. translators: %s: Theme name.
+#: wp-admin/themes.php:486
+#: wp-admin/themes.php:818
 msgctxt "theme"
 msgid "View Theme Details for %s"
 msgstr ""
 
-#: wp-admin/themes.php:478
-#: wp-admin/themes.php:524
-#: wp-admin/themes.php:804
+#: wp-admin/themes.php:488
+#: wp-admin/themes.php:534
+#: wp-admin/themes.php:820
 msgid "Theme Details"
 msgstr ""
 
-#: wp-admin/themes.php:489
-#: wp-admin/themes.php:815
+#: wp-admin/themes.php:499
+#: wp-admin/themes.php:831
 msgctxt "theme"
 msgid "Active:"
 msgstr ""
 
 #. translators: %s: Theme name.
-#: wp-admin/themes.php:500
-#: wp-admin/themes.php:826
+#: wp-admin/themes.php:510
+#: wp-admin/themes.php:842
 msgctxt "theme"
 msgid "Customize %s"
 msgstr ""
 
-#: wp-admin/themes.php:535
+#: wp-admin/themes.php:545
 msgid "Broken Themes"
 msgstr ""
 
-#: wp-admin/themes.php:536
+#: wp-admin/themes.php:546
 msgid "The following themes are installed but incomplete."
 msgstr ""
 
-#: wp-admin/themes.php:545
+#: wp-admin/themes.php:555
 msgctxt "theme name"
 msgid "Name"
 msgstr ""
 
-#: wp-admin/themes.php:614
+#: wp-admin/themes.php:624
 msgid "Install Parent Theme"
 msgstr ""
 
-#: wp-admin/themes.php:1001
+#: wp-admin/themes.php:1023
 msgid "Built-in default Retraceur Theme. There’s always a point to start retracing."
 msgstr ""
 
 #. translators: %s: Theme name.
-#: wp-admin/themes.php:1050
+#: wp-admin/themes.php:1072
 msgctxt "theme"
 msgid "Delete %s"
 msgstr ""
@@ -14040,11 +14060,11 @@ msgid "Use the Erase Personal Data tool to delete a member’s personal data upo
 msgstr ""
 
 #: wp-admin/update-core.php:25
-#: wp-admin/update-core.php:1074
-#: wp-admin/update-core.php:1110
-#: wp-admin/update-core.php:1151
-#: wp-admin/update-core.php:1192
-#: wp-admin/update-core.php:1221
+#: wp-admin/update-core.php:1075
+#: wp-admin/update-core.php:1111
+#: wp-admin/update-core.php:1152
+#: wp-admin/update-core.php:1193
+#: wp-admin/update-core.php:1222
 msgid "Sorry, you are not allowed to update this site."
 msgstr ""
 
@@ -14165,7 +14185,7 @@ msgid "Compatibility with Retraceur %s: Unknown"
 msgstr ""
 
 #: wp-admin/update-core.php:540
-#: wp-admin/update-core.php:695
+#: wp-admin/update-core.php:696
 msgid "This update does not work with your version of PHP."
 msgstr ""
 
@@ -14193,82 +14213,82 @@ msgid "Please Note: Any customizations you have made to theme files will be lost
 msgstr ""
 
 #: wp-admin/update-core.php:644
-#: wp-admin/update-core.php:745
-#: wp-admin/update-core.php:1169
-#: wp-admin/update-core.php:1174
+#: wp-admin/update-core.php:746
+#: wp-admin/update-core.php:1170
+#: wp-admin/update-core.php:1175
 msgid "Update Themes"
 msgstr ""
 
-#: wp-admin/update-core.php:671
+#: wp-admin/update-core.php:672
 msgid "This update does not work with your versions of Retraceur and PHP."
 msgstr ""
 
-#: wp-admin/update-core.php:686
+#: wp-admin/update-core.php:687
 msgid "This update does not work with your version of Retraceur."
 msgstr ""
 
 #. translators: %s: Theme name.
-#: wp-admin/update-core.php:708
+#: wp-admin/update-core.php:709
 msgctxt "theme"
 msgid "Select %s"
 msgstr ""
 
 #. translators: 1: Theme version, 2: New version.
-#: wp-admin/update-core.php:720
+#: wp-admin/update-core.php:721
 msgctxt "theme"
 msgid "You have version %1$s installed. Update to %2$s."
 msgstr ""
 
-#: wp-admin/update-core.php:759
-#: wp-admin/update-core.php:767
+#: wp-admin/update-core.php:760
+#: wp-admin/update-core.php:768
 msgid "Translations"
 msgstr ""
 
-#: wp-admin/update-core.php:769
+#: wp-admin/update-core.php:770
 msgid "New translations are available."
 msgstr ""
 
-#: wp-admin/update-core.php:812
+#: wp-admin/update-core.php:813
 msgid "Update Retraceur"
 msgstr ""
 
 #. translators: 1: Retraceur version, 2: URL to About screen.
-#: wp-admin/update-core.php:863
+#: wp-admin/update-core.php:864
 msgid "Welcome to Retraceur %1$s. You will be redirected to the About Retraceur screen. If not, click <a href=\"%2$s\">here</a>."
 msgstr ""
 
 #. translators: 1: Retraceur version, 2: URL to About screen.
-#: wp-admin/update-core.php:871
+#: wp-admin/update-core.php:872
 msgid "Welcome to Retraceur %1$s. <a href=\"%2$s\">Learn more</a>."
 msgstr ""
 
-#: wp-admin/update-core.php:927
-#: wp-admin/update-core.php:970
+#: wp-admin/update-core.php:928
+#: wp-admin/update-core.php:971
 msgid "Retraceur Updates"
 msgstr ""
 
-#: wp-admin/update-core.php:932
+#: wp-admin/update-core.php:933
 msgid "If an update is available, you&#8127;ll see a notification appear in the Toolbar and navigation menu."
 msgstr ""
 
-#: wp-admin/update-core.php:942
+#: wp-admin/update-core.php:943
 msgid "<strong>Retraceur</strong> &mdash; Updating your Retraceur installation is a simple one-click procedure: just <strong>click on the &#8220;Update now&#8221; button</strong> when you are notified that a new version is available."
 msgstr ""
 
-#: wp-admin/update-core.php:942
+#: wp-admin/update-core.php:943
 msgid "In most cases, Retraceur will automatically apply maintenance and security updates in the background for you."
 msgstr ""
 
-#: wp-admin/update-core.php:943
+#: wp-admin/update-core.php:944
 msgid "<strong>Themes and Plugins</strong> &mdash; To update individual themes or plugins from this screen, use the checkboxes to make your selection, then <strong>click on the appropriate &#8220;Update&#8221; button</strong>. To update all of your themes or plugins at once, you can check the box at the top of the section to select all before clicking the update button."
 msgstr ""
 
-#: wp-admin/update-core.php:946
+#: wp-admin/update-core.php:947
 msgid "<strong>Translations</strong> &mdash; The files translating Retraceur into your language are updated for you whenever any other updates occur. But if these files are out of date, you can <strong>click the &#8220;Update Translations&#8221;</strong> button."
 msgstr ""
 
 #. translators: Current version of Retraceur.
-#: wp-admin/update-core.php:1012
+#: wp-admin/update-core.php:1013
 msgid "Current version: %s"
 msgstr ""
 
