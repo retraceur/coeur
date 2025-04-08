@@ -77,14 +77,6 @@ class Theme_Upgrader_Skin extends WP_Upgrader_Skin {
 			);
 			$activate_link = wp_nonce_url( $activate_link, 'switch-theme_' . $stylesheet );
 
-			$customize_url = add_query_arg(
-				array(
-					'theme'  => urlencode( $stylesheet ),
-					'return' => urlencode( admin_url( 'themes.php' ) ),
-				),
-				admin_url( 'customize.php' )
-			);
-
 			if ( current_user_can( 'switch_themes' ) ) {
 				$update_actions['activate'] = sprintf(
 					'<a href="%s" class="activatelink">' .

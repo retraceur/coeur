@@ -270,11 +270,7 @@
 		} else if ( $headerEnd.length ) {
 			$headerEnd.after( $adminNotice );
 		} else {
-			if ( 'customize' === pagenow ) {
-				$( '.customize-themes-notifications' ).append( $adminNotice );
-			} else {
-				$( '.wrap' ).find( '> h1' ).after( $adminNotice );
-			}
+			$( '.wrap' ).find( '> h1' ).after( $adminNotice );
 		}
 
 		$document.trigger( 'wp-updates-notice-added' );
@@ -1562,17 +1558,6 @@
 		if ( 'themes-network' === pagenow ) {
 			$notice = $( '[data-slug="' + args.slug + '"]' ).find( '.update-message' ).removeClass( 'notice-error' ).addClass( 'updating-message notice-warning' ).find( 'p' );
 
-		} else if ( 'customize' === pagenow ) {
-
-			// Update the theme details UI.
-			$notice = $( '[data-slug="' + args.slug + '"].notice' ).removeClass( 'notice-large' );
-
-			$notice.find( 'h3' ).remove();
-
-			// Add the top-level UI, and update both.
-			$notice = $notice.add( $( '#customize-control-installed_theme_' + args.slug ).find( '.update-message' ) );
-			$notice = $notice.addClass( 'updating-message' ).find( 'p' );
-
 		} else {
 			$notice = $( '#update-theme' ).closest( '.notice' ).removeClass( 'notice-large' );
 
@@ -1615,18 +1600,7 @@
 			},
 			$notice, newText;
 
-		if ( 'customize' === pagenow ) {
-			$theme = $( '.updating-message' ).siblings( '.theme-name' );
-
-			if ( $theme.length ) {
-
-				// Update the version number in the row.
-				newText = $theme.html().replace( response.oldVersion, response.newVersion );
-				$theme.html( newText );
-			}
-
-			$notice = $( '.theme-info .notice' ).add( wp.customize.control( 'installed_theme_' + response.slug ).container.find( '.theme' ).find( '.update-message' ) );
-		} else if ( 'themes-network' === pagenow ) {
+		if ( 'themes-network' === pagenow ) {
 			$notice = $theme.find( '.update-message' );
 
 			// Update the version number in the row.
@@ -1685,10 +1659,6 @@
 
 		if ( wp.updates.maybeHandleCredentialError( response, 'update-theme' ) ) {
 			return;
-		}
-
-		if ( 'customize' === pagenow ) {
-			$theme = wp.customize.control( 'installed_theme_' + response.slug ).container.find( '.theme' );
 		}
 
 		if ( 'themes-network' === pagenow ) {
@@ -1866,23 +1836,12 @@
 			return;
 		}
 
-		if ( 'customize' === pagenow ) {
-			if ( $document.find( 'body' ).hasClass( 'modal-open' ) ) {
-				$button = $( '.theme-install[data-slug="' + response.slug + '"]' );
-				$card   = $( '.theme-overlay .theme-info' ).prepend( $message );
-			} else {
-				$button = $( '.theme-install[data-slug="' + response.slug + '"]' );
-				$card   = $button.closest( '.theme' ).addClass( 'theme-install-failed' ).append( $message );
-			}
-			wp.customize.notifications.remove( 'theme_installing' );
+		if ( $document.find( 'body' ).hasClass( 'full-overlay-active' ) ) {
+			$button = $( '.theme-install[data-slug="' + response.slug + '"]' );
+			$card   = $( '.install-theme-info' ).prepend( $message );
 		} else {
-			if ( $document.find( 'body' ).hasClass( 'full-overlay-active' ) ) {
-				$button = $( '.theme-install[data-slug="' + response.slug + '"]' );
-				$card   = $( '.install-theme-info' ).prepend( $message );
-			} else {
-				$card   = $( '[data-slug="' + response.slug + '"]' ).removeClass( 'focus' ).addClass( 'theme-install-failed' ).append( $message );
-				$button = $card.find( '.theme-install' );
-			}
+			$card   = $( '[data-slug="' + response.slug + '"]' ).removeClass( 'focus' ).addClass( 'theme-install-failed' ).append( $message );
+			$button = $card.find( '.theme-install' );
 		}
 
 		$button

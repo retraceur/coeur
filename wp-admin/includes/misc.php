@@ -910,20 +910,6 @@ function wp_admin_viewport_meta() {
 }
 
 /**
- * Adds viewport meta for mobile in Customizer.
- *
- * Hooked to the {@see 'admin_viewport_meta'} filter.
- *
- * @since WP 5.5.0
- *
- * @param string $viewport_meta The viewport meta.
- * @return string Filtered viewport meta.
- */
-function _customizer_mobile_viewport_meta( $viewport_meta ) {
-	return trim( $viewport_meta, ',' ) . ',minimum-scale=0.5,maximum-scale=1.2';
-}
-
-/**
  * Checks lock status for posts displayed on the Posts screen.
  *
  * @since WP 3.6.0

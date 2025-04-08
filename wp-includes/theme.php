@@ -752,13 +752,12 @@ function locale_stylesheet() {
  *
  * @since WP 2.5.0
  *
- * @global array                $wp_theme_directories
- * @global WP_Customize_Manager $wp_customize
+ * @global array $wp_theme_directories
  *
  * @param string $stylesheet Stylesheet name.
  */
 function switch_theme( $stylesheet ) {
-	global $wp_theme_directories, $wp_customize;
+	global $wp_theme_directories;
 
 	$requirements = validate_theme_requirements( $stylesheet );
 	if ( is_wp_error( $requirements ) ) {
@@ -3244,11 +3243,6 @@ function check_theme_switched() {
 
 	if ( $stylesheet ) {
 		$old_theme = wp_get_theme( $stylesheet );
-
-		// Prevent widget & menu mapping from running since Customizer already called it up front.
-		if ( get_option( 'theme_switched_via_customizer' ) ) {
-			update_option( 'theme_switched_via_customizer', false );
-		}
 
 		if ( $old_theme->exists() ) {
 			/**

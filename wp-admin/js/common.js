@@ -1272,11 +1272,7 @@ $( function() {
 		} else if ( $headerEnd.length ) {
 			$headerEnd.after( $adminNotice );
 		} else {
-			if ( 'customize' === pagenow ) {
-				$( '.customize-themes-notifications' ).append( $adminNotice );
-			} else {
-				$( '.wrap' ).find( '> h1' ).after( $adminNotice );
-			}
+			$( '.wrap' ).find( '> h1' ).after( $adminNotice );
 		}
 
 		$document.trigger( 'wp-notice-added' );

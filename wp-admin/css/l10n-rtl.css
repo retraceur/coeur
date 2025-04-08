@@ -58,15 +58,6 @@ body.locale-he-il .press-this a.wp-switch-editor {
 /* zh_CN: Enlarge font-size. */
 .locale-zh-cn #sort-buttons { font-size: 1em !important; }
 
-/* de_DE: Text needs more space for translation */
-.locale-de-de #customize-header-actions .button,
-.locale-de-de-formal #customize-header-actions .button {
-	padding: 0 5px 1px; /* default 0 10px 1px */
-}
-.locale-de-de #customize-header-actions .spinner,
-.locale-de-de-formal #customize-header-actions .spinner {
-	margin: 16px 3px 0; /* default 16px 4px 0 5px */
-}
 body[class*="locale-de-"] .inline-edit-row fieldset label span.title,
 body[class*="locale-de-"] .inline-edit-row fieldset.inline-edit-date legend {
 	width: 7em; /* default 6em */
@@ -101,12 +92,6 @@ body[class*="locale-de-"] .inline-edit-row fieldset .timestamp-wrap {
 }
 .locale-ru-ru .press-this-sidebar {
 	width: 265px; /* default 240px + 25px */
-}
-.locale-ru-ru #customize-header-actions .button {
-	padding: 0 5px 1px; /* default 0 10px 1px */
-}
-.locale-ru-ru #customize-header-actions .spinner {
-	margin: 16px 3px 0; /* default 16px 4px 0 5px */
 }
 
 /* lt_LT: QuickEdit */

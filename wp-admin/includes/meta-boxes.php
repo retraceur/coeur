@@ -312,27 +312,6 @@ function post_submit_meta_box( $post, $args = array() ) {
 			<?php
 		endif;
 
-		if ( 'draft' === $post->post_status && get_post_meta( $post_id, '_customize_changeset_uuid', true ) ) :
-			$message = sprintf(
-				/* translators: %s: URL to the Customizer. */
-				__( 'This draft comes from your <a href="%s">unpublished customization changes</a>. You can edit, but there is no need to publish now. It will be published automatically with those changes.' ),
-				esc_url(
-					add_query_arg(
-						'changeset_uuid',
-						rawurlencode( get_post_meta( $post_id, '_customize_changeset_uuid', true ) ),
-						admin_url( 'customize.php' )
-					)
-				)
-			);
-			wp_admin_notice(
-				$message,
-				array(
-					'type'               => 'info',
-					'additional_classes' => array( 'notice-alt', 'inline' ),
-				)
-			);
-		endif;
-
 		/**
 		 * Fires after the post time/date setting in the Publish meta box.
 		 *

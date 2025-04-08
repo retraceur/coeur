@@ -1908,9 +1908,6 @@ body.full-overlay-active {
 		background-size: 15px 123px;
 	}
 
-	#customize-preview.wp-full-overlay-main:before,
-	.customize-loading #customize-container:before,
-	#customize-controls .notice.notification-overlay.notification-loading:before,
 	.theme-install-overlay .wp-full-overlay-main:before {
 		background-image: url(../images/spinner-2x.gif);
 	}

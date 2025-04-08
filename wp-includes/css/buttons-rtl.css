@@ -383,19 +383,7 @@ TABLE OF CONTENTS:
 		margin: 0 10px 0 14px; /* 14px right margin to match all other buttons */
 	}
 
-	/* Reset responsive styles in Press This, Customizer */
-
-	.wp-core-ui.wp-customizer .button {
-		font-size: 13px;
-		line-height: 2.15384615; /* 28px */
-		min-height: 30px;
-		margin: 0;
-		vertical-align: inherit;
-	}
-
-	.wp-customizer .theme-overlay .theme-actions .button {
-		margin-bottom: 5px;
-	}
+	/* Reset responsive styles in Press This */
 
 	.media-modal-content .media-toolbar-primary .media-button {
 		margin-top: 10px;

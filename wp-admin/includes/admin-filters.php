@@ -48,7 +48,6 @@ add_action( 'admin_init', 'send_frame_options_header', 10, 0 );
 add_action( 'admin_head', 'wp_admin_canonical_url' );
 add_action( 'admin_head', 'wp_site_icon' );
 add_action( 'admin_head', 'wp_admin_viewport_meta' );
-add_action( 'customize_controls_head', 'wp_admin_viewport_meta' );
 add_filter( 'admin_print_styles', 'wp_resource_hints', 1 );
 
 add_action( 'admin_print_scripts', 'print_emoji_detection_script' );
@@ -103,9 +102,6 @@ add_action( 'install_plugins_pre_plugin-information', 'install_plugin_informatio
 // Template hooks.
 add_action( 'admin_enqueue_scripts', array( 'WP_Internal_Pointers', 'enqueue_scripts' ) );
 add_action( 'user_register', array( 'WP_Internal_Pointers', 'dismiss_pointers_for_new_users' ) );
-
-// Theme hooks.
-add_action( 'customize_controls_print_footer_scripts', 'customize_themes_print_templates' );
 
 // Theme Install hooks.
 add_action( 'install_themes_pre_theme-information', 'install_theme_information' );
