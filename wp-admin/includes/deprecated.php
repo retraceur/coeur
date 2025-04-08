@@ -2723,6 +2723,31 @@ function get_alloptions_110() {
 }
 
 /**
+ * Adds viewport meta for mobile in Customizer.
+ *
+ * Hooked to the {@see 'admin_viewport_meta'} filter.
+ *
+ * @since WP 5.5.0
+ * @deprecated 1.0.0 Retraceur fork.
+ *
+ * @param string $viewport_meta The viewport meta.
+ * @return string Filtered viewport meta.
+ */
+function _customizer_mobile_viewport_meta( $viewport_meta ) {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
+ * Prints JS templates for the theme-browsing UI in the Customizer.
+ *
+ * @since WP 4.2.0
+ * @deprecated 1.0.0 Retraceur fork.
+ */
+function customize_themes_print_templates() {
+	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
+}
+
+/**
  * Adds custom arguments to some of the meta box object types.
  *
  * @since WP 3.0.0

@@ -63,7 +63,6 @@ class Custom_Image_Header {
 
 		add_action( 'admin_menu', array( $this, 'init' ) );
 
-		add_action( 'customize_save_after', array( $this, 'customize_set_last_used' ) );
 		add_action( 'wp_ajax_custom-header-crop', array( $this, 'ajax_header_crop' ) );
 		add_action( 'wp_ajax_custom-header-add', array( $this, 'ajax_header_add' ) );
 		add_action( 'wp_ajax_custom-header-remove', array( $this, 'ajax_header_remove' ) );
@@ -1485,26 +1484,12 @@ endif;
 	 * Updates the last-used postmeta on a header image attachment after saving a new header image via the Customizer.
 	 *
 	 * @since WP 3.9.0
+	 * @deprecated 1.0.0 Retraceur fork
 	 *
 	 * @param WP_Customize_Manager $wp_customize Customize manager.
 	 */
 	public function customize_set_last_used( $wp_customize ) {
-
-		$header_image_data_setting = $wp_customize->get_setting( 'header_image_data' );
-
-		if ( ! $header_image_data_setting ) {
-			return;
-		}
-
-		$data = $header_image_data_setting->post_value();
-
-		if ( ! isset( $data['attachment_id'] ) ) {
-			return;
-		}
-
-		$attachment_id = $data['attachment_id'];
-		$key           = '_wp_attachment_custom_header_last_used_' . get_stylesheet();
-		update_post_meta( $attachment_id, $key, time() );
+		_deprecated_function( __METHOD__, '1.0.0', '', true );
 	}
 
 	/**

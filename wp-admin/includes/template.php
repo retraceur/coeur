@@ -2034,14 +2034,8 @@ function get_post_states( $post ) {
 		$post_states['private'] = _x( 'Private', 'post status' );
 	}
 
-	if ( 'draft' === $post->post_status ) {
-		if ( get_post_meta( $post->ID, '_customize_changeset_uuid', true ) ) {
-			$post_states[] = __( 'Customization Draft' );
-		} elseif ( 'draft' !== $post_status ) {
-			$post_states['draft'] = _x( 'Draft', 'post status' );
-		}
-	} elseif ( 'trash' === $post->post_status && get_post_meta( $post->ID, '_customize_changeset_uuid', true ) ) {
-		$post_states[] = _x( 'Customization Draft', 'post status' );
+	if ( 'draft' === $post->post_status && 'draft' !== $post_status ) {
+		$post_states['draft'] = _x( 'Draft', 'post status' );
 	}
 
 	if ( 'pending' === $post->post_status && 'pending' !== $post_status ) {

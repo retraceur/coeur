@@ -3569,8 +3569,6 @@ img {
 
 /* @todo: can we use a common class for these? */
 .nav-menus-php .item-edit:before,
-.wp-customizer .control-section .accordion-section-title:after,
-.wp-customizer .accordion-section-title:after,
 .widget-top .widget-action .toggle-indicator:before {
 	content: "\f140";
 	font: normal 20px/1 dashicons;
@@ -3617,7 +3615,6 @@ img {
 	outline: 2px solid transparent;
 }
 
-#customize-info.open .accordion-section-title:after,
 .nav-menus-php .menu-item-edit-active .item-edit:before,
 .widget.open .widget-top .widget-action .toggle-indicator:before,
 .widget.widget-in-question .widget-top .widget-action .toggle-indicator:before {
@@ -3699,8 +3696,7 @@ img {
 	display: none;
 }
 
-.control-section .accordion-section-title,
-.customize-pane-child .accordion-section-title {
+.control-section .accordion-section-title {
 	border-left: none;
 	border-right: none;
 	padding: 10px 10px 11px 14px;
@@ -3708,8 +3704,7 @@ img {
 	background: #fff;
 }
 
-.control-section .accordion-section-title:after,
-.customize-pane-child .accordion-section-title:after {
+.control-section .accordion-section-title:after {
 	top: calc(50% - 10px); /* Arrow height is 20px, so use half of that to vertically center */
 }
 

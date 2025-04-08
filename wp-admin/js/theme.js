@@ -2074,19 +2074,6 @@ $( function() {
 		themes.Run.init();
 	}
 
-	// Update the return param just in time.
-	$( document.body ).on( 'click', '.load-customize', function() {
-		var link = $( this ), urlParser = document.createElement( 'a' );
-		urlParser.href = link.prop( 'href' );
-		urlParser.search = $.param( _.extend(
-			wp.customize.utils.parseQueryString( urlParser.search.substr( 1 ) ),
-			{
-				'return': window.location.href
-			}
-		) );
-		link.prop( 'href', urlParser.href );
-	});
-
 	$( '.broken-themes .delete-theme' ).on( 'click', function() {
 		return confirm( _wpThemeSettings.settings.confirmDelete );
 	});

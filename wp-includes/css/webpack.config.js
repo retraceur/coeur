@@ -11,6 +11,8 @@ module.exports = {
         entry: {
 			'admin-bar.min': './wp-includes/css/admin-bar.js',
 			'admin-bar-rtl.min': './wp-includes/css/admin-bar-rtl.js',
+			'buttons.min': './wp-includes/css/buttons.js',
+			'buttons-rtl.min': './wp-includes/css/buttons-rtl.js',
         },
 		output: {
 			filename: '[name].js',

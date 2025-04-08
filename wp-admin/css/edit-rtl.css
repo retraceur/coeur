@@ -1455,10 +1455,6 @@ p.popular-tags a {
 	background-color: #fff;
 }
 
-.wp-customizer .ac_results {
-	z-index: 500000;
-}
-
 .ac_results li {
 	margin: 0;
 	padding: 5px 10px;
