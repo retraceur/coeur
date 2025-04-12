@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-04-03T04:00:25+00:00\n"
+"POT-Creation-Date: 2025-04-12T06:36:47+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 
@@ -2998,154 +2998,154 @@ msgid "%sX-Large"
 msgstr ""
 
 #. translators: %s: Theme directory name.
-#: wp-includes/class-wp-theme.php:294
+#: wp-includes/class-wp-theme.php:295
 msgid "The theme directory \"%s\" does not exist."
 msgstr ""
 
-#: wp-includes/class-wp-theme.php:299
+#: wp-includes/class-wp-theme.php:300
 msgid "Stylesheet is missing."
 msgstr ""
 
-#: wp-includes/class-wp-theme.php:316
+#: wp-includes/class-wp-theme.php:317
 msgid "<strong>Error:</strong> The themes directory is either empty or does not exist. Please check your installation."
 msgstr ""
 
-#: wp-includes/class-wp-theme.php:321
+#: wp-includes/class-wp-theme.php:322
 msgid "Stylesheet is not readable."
 msgstr ""
 
 #. translators: %s: Template.
-#: wp-includes/class-wp-theme.php:356
+#: wp-includes/class-wp-theme.php:357
 msgid "The theme defines itself as its parent theme. Please check the %s header."
 msgstr ""
 
 #. translators: 1: templates/index.html, 2: index.php, 3: Template, 4: style.css
-#: wp-includes/class-wp-theme.php:386
+#: wp-includes/class-wp-theme.php:387
 msgid "Template is missing. Standalone themes need to have a %1$s or %2$s template file. Child themes need to have a %3$s header in the %4$s stylesheet."
 msgstr ""
 
 #. translators: %s: Theme directory name.
-#: wp-includes/class-wp-theme.php:436
+#: wp-includes/class-wp-theme.php:437
 msgid "The parent theme is missing. Please install the \"%s\" parent theme."
 msgstr ""
 
 #. translators: %s: Theme directory name.
-#: wp-includes/class-wp-theme.php:465
-#: wp-includes/class-wp-theme.php:486
+#: wp-includes/class-wp-theme.php:466
+#: wp-includes/class-wp-theme.php:487
 msgid "The \"%s\" theme is not a valid parent theme."
 msgstr ""
 
-#: wp-includes/class-wp-theme.php:509
+#: wp-includes/class-wp-theme.php:510
 msgid "This theme failed to load properly and was paused within the admin backend."
 msgstr ""
 
-#: wp-includes/class-wp-theme.php:1010
+#: wp-includes/class-wp-theme.php:1011
 msgid "Anonymous"
 msgstr ""
 
-#: wp-includes/class-wp-theme.php:1059
+#: wp-includes/class-wp-theme.php:1060
 msgid "Black"
 msgstr ""
 
-#: wp-includes/class-wp-theme.php:1060
+#: wp-includes/class-wp-theme.php:1061
 msgid "Blue"
 msgstr ""
 
-#: wp-includes/class-wp-theme.php:1061
+#: wp-includes/class-wp-theme.php:1062
 msgid "Brown"
 msgstr ""
 
-#: wp-includes/class-wp-theme.php:1062
+#: wp-includes/class-wp-theme.php:1063
 msgid "Gray"
 msgstr ""
 
-#: wp-includes/class-wp-theme.php:1063
+#: wp-includes/class-wp-theme.php:1064
 msgid "Green"
 msgstr ""
 
-#: wp-includes/class-wp-theme.php:1064
+#: wp-includes/class-wp-theme.php:1065
 msgid "Orange"
 msgstr ""
 
-#: wp-includes/class-wp-theme.php:1065
+#: wp-includes/class-wp-theme.php:1066
 msgid "Pink"
 msgstr ""
 
-#: wp-includes/class-wp-theme.php:1066
+#: wp-includes/class-wp-theme.php:1067
 msgid "Purple"
 msgstr ""
 
-#: wp-includes/class-wp-theme.php:1067
+#: wp-includes/class-wp-theme.php:1068
 msgid "Red"
 msgstr ""
 
-#: wp-includes/class-wp-theme.php:1068
+#: wp-includes/class-wp-theme.php:1069
 msgid "Silver"
 msgstr ""
 
-#: wp-includes/class-wp-theme.php:1069
+#: wp-includes/class-wp-theme.php:1070
 msgid "Tan"
 msgstr ""
 
-#: wp-includes/class-wp-theme.php:1070
+#: wp-includes/class-wp-theme.php:1071
 msgid "White"
 msgstr ""
 
-#: wp-includes/class-wp-theme.php:1071
-msgid "Yellow"
-msgstr ""
-
 #: wp-includes/class-wp-theme.php:1072
-msgctxt "color scheme"
-msgid "Dark"
+msgid "Yellow"
 msgstr ""
 
 #: wp-includes/class-wp-theme.php:1073
 msgctxt "color scheme"
-msgid "Light"
+msgid "Dark"
 msgstr ""
 
 #: wp-includes/class-wp-theme.php:1074
-msgid "Fixed Layout"
+msgctxt "color scheme"
+msgid "Light"
 msgstr ""
 
 #: wp-includes/class-wp-theme.php:1075
-msgid "Fluid Layout"
+msgid "Fixed Layout"
 msgstr ""
 
 #: wp-includes/class-wp-theme.php:1076
-msgid "Responsive Layout"
+msgid "Fluid Layout"
 msgstr ""
 
 #: wp-includes/class-wp-theme.php:1077
-msgid "Blavatar"
+msgid "Responsive Layout"
 msgstr ""
 
 #: wp-includes/class-wp-theme.php:1078
-msgid "Photoblogging"
+msgid "Blavatar"
 msgstr ""
 
 #: wp-includes/class-wp-theme.php:1079
+msgid "Photoblogging"
+msgstr ""
+
+#: wp-includes/class-wp-theme.php:1080
 msgid "Seasonal"
 msgstr ""
 
 #. translators: 1: file name.
-#: wp-includes/class-wp-theme.php:1885
+#: wp-includes/class-wp-theme.php:1886
 msgid "Could not register file \"%s\" as a block pattern (\"Slug\" field missing)"
 msgstr ""
 
 #. translators: 1: file name; 2: slug value found.
-#: wp-includes/class-wp-theme.php:1898
+#: wp-includes/class-wp-theme.php:1899
 msgid "Could not register file \"%1$s\" as a block pattern (invalid slug \"%2$s\")"
 msgstr ""
 
 #. translators: 1: file name.
-#: wp-includes/class-wp-theme.php:1912
+#: wp-includes/class-wp-theme.php:1913
 msgid "Could not register file \"%s\" as a block pattern (\"Title\" field missing)"
 msgstr ""
 
 #. translators: %1$s: The filter name.
-#: wp-includes/class-wp-theme.php:2012
+#: wp-includes/class-wp-theme.php:2013
 msgid "The %1$s filter must return an integer value greater than 0."
 msgstr ""
 
@@ -4111,7 +4111,7 @@ msgid "%1$s only accepts a non-empty path string, received %2$s."
 msgstr ""
 
 #. translators: %s: The "type" key.
-#: wp-includes/functions.php:8446
+#: wp-includes/functions.php:8473
 msgid "The %s key must be a string without spaces."
 msgstr ""
 
@@ -6078,697 +6078,654 @@ msgid "Custom CSS"
 msgstr ""
 
 #: wp-includes/post.php:166
-msgctxt "post type general name"
-msgid "Changesets"
-msgstr ""
-
-#: wp-includes/post.php:167
-msgctxt "post type singular name"
-msgid "Changeset"
-msgstr ""
-
-#: wp-includes/post.php:168
-#: wp-includes/post.php:169
-msgid "Add New Changeset"
-msgstr ""
-
-#: wp-includes/post.php:170
-msgid "New Changeset"
-msgstr ""
-
-#: wp-includes/post.php:171
-msgid "Edit Changeset"
-msgstr ""
-
-#: wp-includes/post.php:172
-msgid "View Changeset"
-msgstr ""
-
-#: wp-includes/post.php:173
-msgid "All Changesets"
-msgstr ""
-
-#: wp-includes/post.php:174
-msgid "Search Changesets"
-msgstr ""
-
-#: wp-includes/post.php:175
-msgid "No changesets found."
-msgstr ""
-
-#: wp-includes/post.php:176
-msgid "No changesets found in Trash."
-msgstr ""
-
-#: wp-includes/post.php:212
 msgid "oEmbed Responses"
 msgstr ""
 
-#: wp-includes/post.php:213
+#: wp-includes/post.php:167
 msgid "oEmbed Response"
 msgstr ""
 
-#: wp-includes/post.php:230
+#: wp-includes/post.php:184
 msgid "Contributor Requests"
 msgstr ""
 
-#: wp-includes/post.php:231
+#: wp-includes/post.php:185
 msgid "Contributor Request"
 msgstr ""
 
-#: wp-includes/post.php:248
+#: wp-includes/post.php:202
 msgctxt "post type general name"
 msgid "Patterns"
 msgstr ""
 
-#: wp-includes/post.php:249
+#: wp-includes/post.php:203
 msgctxt "post type singular name"
 msgid "Pattern"
 msgstr ""
 
-#: wp-includes/post.php:250
-#: wp-includes/post.php:251
+#: wp-includes/post.php:204
+#: wp-includes/post.php:205
 msgid "Add New Pattern"
 msgstr ""
 
-#: wp-includes/post.php:252
+#: wp-includes/post.php:206
 msgid "New Pattern"
 msgstr ""
 
-#: wp-includes/post.php:253
+#: wp-includes/post.php:207
 msgid "Edit Block Pattern"
 msgstr ""
 
-#: wp-includes/post.php:254
+#: wp-includes/post.php:208
 msgid "View Pattern"
 msgstr ""
 
-#: wp-includes/post.php:255
+#: wp-includes/post.php:209
 msgid "View Patterns"
 msgstr ""
 
-#: wp-includes/post.php:256
+#: wp-includes/post.php:210
 msgid "All Patterns"
 msgstr ""
 
-#: wp-includes/post.php:257
+#: wp-includes/post.php:211
 msgid "Search Patterns"
 msgstr ""
 
-#: wp-includes/post.php:258
+#: wp-includes/post.php:212
 msgid "No patterns found."
 msgstr ""
 
-#: wp-includes/post.php:259
+#: wp-includes/post.php:213
 msgid "No patterns found in Trash."
 msgstr ""
 
-#: wp-includes/post.php:260
+#: wp-includes/post.php:214
 msgid "Filter patterns list"
 msgstr ""
 
-#: wp-includes/post.php:261
+#: wp-includes/post.php:215
 msgid "Patterns list navigation"
 msgstr ""
 
-#: wp-includes/post.php:262
+#: wp-includes/post.php:216
 msgid "Patterns list"
 msgstr ""
 
-#: wp-includes/post.php:263
+#: wp-includes/post.php:217
 msgid "Pattern published."
 msgstr ""
 
-#: wp-includes/post.php:264
+#: wp-includes/post.php:218
 msgid "Pattern published privately."
 msgstr ""
 
-#: wp-includes/post.php:265
+#: wp-includes/post.php:219
 msgid "Pattern reverted to draft."
 msgstr ""
 
-#: wp-includes/post.php:266
+#: wp-includes/post.php:220
 msgid "Pattern scheduled."
 msgstr ""
 
-#: wp-includes/post.php:267
+#: wp-includes/post.php:221
 msgid "Pattern updated."
 msgstr ""
 
-#: wp-includes/post.php:314
+#: wp-includes/post.php:268
 msgctxt "post type general name"
 msgid "Templates"
 msgstr ""
 
-#: wp-includes/post.php:315
+#: wp-includes/post.php:269
 msgctxt "post type singular name"
 msgid "Template"
 msgstr ""
 
-#: wp-includes/post.php:316
-#: wp-includes/post.php:317
+#: wp-includes/post.php:270
+#: wp-includes/post.php:271
 msgid "Add New Template"
 msgstr ""
 
-#: wp-includes/post.php:318
+#: wp-includes/post.php:272
 msgid "New Template"
 msgstr ""
 
-#: wp-includes/post.php:319
+#: wp-includes/post.php:273
 msgid "Edit Template"
 msgstr ""
 
-#: wp-includes/post.php:320
+#: wp-includes/post.php:274
 msgid "View Template"
 msgstr ""
 
-#: wp-includes/post.php:321
+#: wp-includes/post.php:275
 msgid "Templates"
 msgstr ""
 
-#: wp-includes/post.php:322
+#: wp-includes/post.php:276
 msgid "Search Templates"
 msgstr ""
 
-#: wp-includes/post.php:323
+#: wp-includes/post.php:277
 msgid "Parent Template:"
 msgstr ""
 
-#: wp-includes/post.php:324
+#: wp-includes/post.php:278
 msgid "No templates found."
 msgstr ""
 
-#: wp-includes/post.php:325
+#: wp-includes/post.php:279
 msgid "No templates found in Trash."
 msgstr ""
 
-#: wp-includes/post.php:326
+#: wp-includes/post.php:280
 msgid "Template archives"
 msgstr ""
 
-#: wp-includes/post.php:327
+#: wp-includes/post.php:281
 msgid "Insert into template"
 msgstr ""
 
-#: wp-includes/post.php:328
+#: wp-includes/post.php:282
 msgid "Uploaded to this template"
 msgstr ""
 
-#: wp-includes/post.php:329
+#: wp-includes/post.php:283
 msgid "Filter templates list"
 msgstr ""
 
-#: wp-includes/post.php:330
+#: wp-includes/post.php:284
 msgid "Templates list navigation"
 msgstr ""
 
-#: wp-includes/post.php:331
+#: wp-includes/post.php:285
 msgid "Templates list"
 msgstr ""
 
-#: wp-includes/post.php:332
+#: wp-includes/post.php:286
 msgid "Template updated."
 msgstr ""
 
-#: wp-includes/post.php:334
+#: wp-includes/post.php:288
 msgid "Templates to include in your theme."
 msgstr ""
 
-#: wp-includes/post.php:379
+#: wp-includes/post.php:333
 msgctxt "post type general name"
 msgid "Template Parts"
 msgstr ""
 
-#: wp-includes/post.php:380
+#: wp-includes/post.php:334
 msgctxt "post type singular name"
 msgid "Template Part"
 msgstr ""
 
-#: wp-includes/post.php:381
-#: wp-includes/post.php:382
+#: wp-includes/post.php:335
+#: wp-includes/post.php:336
 msgid "Add New Template Part"
 msgstr ""
 
-#: wp-includes/post.php:383
+#: wp-includes/post.php:337
 msgid "New Template Part"
 msgstr ""
 
-#: wp-includes/post.php:384
+#: wp-includes/post.php:338
 msgid "Edit Template Part"
 msgstr ""
 
-#: wp-includes/post.php:385
+#: wp-includes/post.php:339
 msgid "View Template Part"
 msgstr ""
 
-#: wp-includes/post.php:386
+#: wp-includes/post.php:340
 msgid "Template Parts"
 msgstr ""
 
-#: wp-includes/post.php:387
+#: wp-includes/post.php:341
 msgid "Search Template Parts"
 msgstr ""
 
-#: wp-includes/post.php:388
+#: wp-includes/post.php:342
 msgid "Parent Template Part:"
 msgstr ""
 
-#: wp-includes/post.php:389
+#: wp-includes/post.php:343
 msgid "No template parts found."
 msgstr ""
 
-#: wp-includes/post.php:390
+#: wp-includes/post.php:344
 msgid "No template parts found in Trash."
 msgstr ""
 
-#: wp-includes/post.php:391
+#: wp-includes/post.php:345
 msgid "Template part archives"
 msgstr ""
 
-#: wp-includes/post.php:392
+#: wp-includes/post.php:346
 msgid "Insert into template part"
 msgstr ""
 
-#: wp-includes/post.php:393
+#: wp-includes/post.php:347
 msgid "Uploaded to this template part"
 msgstr ""
 
-#: wp-includes/post.php:394
+#: wp-includes/post.php:348
 msgid "Filter template parts list"
 msgstr ""
 
-#: wp-includes/post.php:395
+#: wp-includes/post.php:349
 msgid "Template parts list navigation"
 msgstr ""
 
-#: wp-includes/post.php:396
+#: wp-includes/post.php:350
 msgid "Template parts list"
 msgstr ""
 
-#: wp-includes/post.php:397
+#: wp-includes/post.php:351
 msgid "Template part updated."
 msgstr ""
 
-#: wp-includes/post.php:399
+#: wp-includes/post.php:353
 msgid "Template parts to include in your templates."
 msgstr ""
 
-#: wp-includes/post.php:442
+#: wp-includes/post.php:396
 msgctxt "post type general name"
 msgid "Global Styles"
 msgstr ""
 
-#: wp-includes/post.php:443
+#: wp-includes/post.php:397
 msgid "Global styles to include in themes."
 msgstr ""
 
-#: wp-includes/post.php:486
+#: wp-includes/post.php:440
 msgctxt "post type general name"
 msgid "Navigation Menus"
 msgstr ""
 
-#: wp-includes/post.php:487
+#: wp-includes/post.php:441
 msgctxt "post type singular name"
 msgid "Navigation Menu"
 msgstr ""
 
-#: wp-includes/post.php:488
-#: wp-includes/post.php:489
+#: wp-includes/post.php:442
+#: wp-includes/post.php:443
 msgid "Add New Navigation Menu"
 msgstr ""
 
-#: wp-includes/post.php:490
+#: wp-includes/post.php:444
 msgid "New Navigation Menu"
 msgstr ""
 
-#: wp-includes/post.php:491
+#: wp-includes/post.php:445
 msgid "Edit Navigation Menu"
 msgstr ""
 
-#: wp-includes/post.php:492
+#: wp-includes/post.php:446
 msgid "View Navigation Menu"
 msgstr ""
 
-#: wp-includes/post.php:493
+#: wp-includes/post.php:447
 msgid "Navigation Menus"
 msgstr ""
 
-#: wp-includes/post.php:494
+#: wp-includes/post.php:448
 msgid "Search Navigation Menus"
 msgstr ""
 
-#: wp-includes/post.php:495
+#: wp-includes/post.php:449
 msgid "Parent Navigation Menu:"
 msgstr ""
 
-#: wp-includes/post.php:496
+#: wp-includes/post.php:450
 msgid "No Navigation Menu found."
 msgstr ""
 
-#: wp-includes/post.php:497
+#: wp-includes/post.php:451
 msgid "No Navigation Menu found in Trash."
 msgstr ""
 
-#: wp-includes/post.php:498
+#: wp-includes/post.php:452
 msgid "Navigation Menu archives"
 msgstr ""
 
-#: wp-includes/post.php:499
+#: wp-includes/post.php:453
 msgid "Insert into Navigation Menu"
 msgstr ""
 
-#: wp-includes/post.php:500
+#: wp-includes/post.php:454
 msgid "Uploaded to this Navigation Menu"
 msgstr ""
 
-#: wp-includes/post.php:501
+#: wp-includes/post.php:455
 msgid "Filter Navigation Menu list"
 msgstr ""
 
-#: wp-includes/post.php:502
+#: wp-includes/post.php:456
 msgid "Navigation Menus list navigation"
 msgstr ""
 
-#: wp-includes/post.php:503
+#: wp-includes/post.php:457
 msgid "Navigation Menus list"
 msgstr ""
 
-#: wp-includes/post.php:505
+#: wp-includes/post.php:459
 msgid "Navigation menus that can be inserted into your site."
 msgstr ""
 
-#: wp-includes/post.php:543
+#: wp-includes/post.php:497
 msgid "Font Families"
 msgstr ""
 
-#: wp-includes/post.php:544
+#: wp-includes/post.php:498
 msgid "Font Family"
 msgstr ""
 
-#: wp-includes/post.php:575
+#: wp-includes/post.php:529
 msgid "Font Faces"
 msgstr ""
 
-#: wp-includes/post.php:576
+#: wp-includes/post.php:530
 msgid "Font Face"
 msgstr ""
 
-#: wp-includes/post.php:606
+#: wp-includes/post.php:560
 msgctxt "post status"
 msgid "Published"
 msgstr ""
 
 #. translators: %s: Number of published posts.
-#: wp-includes/post.php:610
+#: wp-includes/post.php:564
 msgid "Published <span class=\"count\">(%s)</span>"
 msgid_plural "Published <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-includes/post.php:620
+#: wp-includes/post.php:574
 msgctxt "post status"
 msgid "Scheduled"
 msgstr ""
 
 #. translators: %s: Number of scheduled posts.
-#: wp-includes/post.php:624
+#: wp-includes/post.php:578
 msgid "Scheduled <span class=\"count\">(%s)</span>"
 msgid_plural "Scheduled <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-includes/post.php:634
+#: wp-includes/post.php:588
 msgctxt "post status"
 msgid "Draft"
 msgstr ""
 
 #. translators: %s: Number of draft posts.
-#: wp-includes/post.php:638
+#: wp-includes/post.php:592
 msgid "Draft <span class=\"count\">(%s)</span>"
 msgid_plural "Drafts <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-includes/post.php:649
+#: wp-includes/post.php:603
 msgctxt "post status"
 msgid "Pending"
 msgstr ""
 
 #. translators: %s: Number of pending items.
-#: wp-includes/post.php:653
-#: wp-includes/post.php:717
+#: wp-includes/post.php:607
+#: wp-includes/post.php:671
 msgid "Pending <span class=\"count\">(%s)</span>"
 msgid_plural "Pending <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-includes/post.php:664
+#: wp-includes/post.php:618
 msgctxt "post status"
 msgid "Private"
 msgstr ""
 
 #. translators: %s: Number of private posts.
-#: wp-includes/post.php:668
+#: wp-includes/post.php:622
 msgid "Private <span class=\"count\">(%s)</span>"
 msgid_plural "Private <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-includes/post.php:678
+#: wp-includes/post.php:632
 msgctxt "post status"
 msgid "Trash"
 msgstr ""
 
 #. translators: %s: Number of trashed posts.
-#: wp-includes/post.php:682
+#: wp-includes/post.php:636
 msgid "Trash <span class=\"count\">(%s)</span>"
 msgid_plural "Trash <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-includes/post.php:713
-#: wp-includes/post.php:1300
+#: wp-includes/post.php:667
+#: wp-includes/post.php:1254
 msgctxt "request status"
 msgid "Pending"
 msgstr ""
 
-#: wp-includes/post.php:728
-#: wp-includes/post.php:1301
+#: wp-includes/post.php:682
+#: wp-includes/post.php:1255
 msgctxt "request status"
 msgid "Confirmed"
 msgstr ""
 
 #. translators: %s: Number of confirmed requests.
-#: wp-includes/post.php:732
+#: wp-includes/post.php:686
 msgid "Confirmed <span class=\"count\">(%s)</span>"
 msgid_plural "Confirmed <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-includes/post.php:743
-#: wp-includes/post.php:1302
+#: wp-includes/post.php:697
+#: wp-includes/post.php:1256
 msgctxt "request status"
 msgid "Failed"
 msgstr ""
 
 #. translators: %s: Number of failed requests.
-#: wp-includes/post.php:747
+#: wp-includes/post.php:701
 msgid "Failed <span class=\"count\">(%s)</span>"
 msgid_plural "Failed <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-includes/post.php:758
-#: wp-includes/post.php:1303
+#: wp-includes/post.php:712
+#: wp-includes/post.php:1257
 msgctxt "request status"
 msgid "Completed"
 msgstr ""
 
 #. translators: %s: Number of completed requests.
-#: wp-includes/post.php:762
+#: wp-includes/post.php:716
 msgid "Completed <span class=\"count\">(%s)</span>"
 msgid_plural "Completed <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-includes/post.php:1261
-#: wp-includes/post.php:1282
+#: wp-includes/post.php:1215
+#: wp-includes/post.php:1236
 msgid "Draft"
 msgstr ""
 
-#: wp-includes/post.php:1262
+#: wp-includes/post.php:1216
 msgid "Pending Review"
 msgstr ""
 
-#: wp-includes/post.php:1263
-#: wp-includes/post.php:1283
+#: wp-includes/post.php:1217
+#: wp-includes/post.php:1237
 msgid "Private"
 msgstr ""
 
-#: wp-includes/post.php:1264
-#: wp-includes/post.php:1284
+#: wp-includes/post.php:1218
+#: wp-includes/post.php:1238
 msgid "Published"
 msgstr ""
 
-#: wp-includes/post.php:1759
-#: wp-includes/post.php:1760
+#: wp-includes/post.php:1713
+#: wp-includes/post.php:1714
 msgid "Post type names must be between 1 and 20 characters in length."
 msgstr ""
 
-#: wp-includes/post.php:1820
+#: wp-includes/post.php:1774
 #: wp-includes/rest-api/endpoints/class-wp-rest-post-types-controller.php:143
 msgid "Invalid post type."
 msgstr ""
 
-#: wp-includes/post.php:1827
+#: wp-includes/post.php:1781
 msgid "Unregistering a built-in post type is not allowed"
 msgstr ""
 
 #. translators: %s: Post type name.
-#: wp-includes/post.php:2062
+#: wp-includes/post.php:2016
 msgid "Single item: %s"
 msgstr ""
 
-#: wp-includes/post.php:3356
+#: wp-includes/post.php:3310
 msgid "Images"
 msgstr ""
 
-#: wp-includes/post.php:3357
+#: wp-includes/post.php:3311
 msgid "Manage Images"
 msgstr ""
 
 #. translators: %s: Number of images.
-#: wp-includes/post.php:3359
+#: wp-includes/post.php:3313
 msgid "Image <span class=\"count\">(%s)</span>"
 msgid_plural "Images <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-includes/post.php:3365
+#: wp-includes/post.php:3319
 msgctxt "file type group"
 msgid "Audio"
 msgstr ""
 
-#: wp-includes/post.php:3366
+#: wp-includes/post.php:3320
 msgid "Manage Audio"
 msgstr ""
 
 #. translators: %s: Number of audio files.
-#: wp-includes/post.php:3368
+#: wp-includes/post.php:3322
 msgid "Audio <span class=\"count\">(%s)</span>"
 msgid_plural "Audio <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-includes/post.php:3374
+#: wp-includes/post.php:3328
 msgctxt "file type group"
 msgid "Video"
 msgstr ""
 
-#: wp-includes/post.php:3375
+#: wp-includes/post.php:3329
 msgid "Manage Video"
 msgstr ""
 
 #. translators: %s: Number of video files.
-#: wp-includes/post.php:3377
+#: wp-includes/post.php:3331
 msgid "Video <span class=\"count\">(%s)</span>"
 msgid_plural "Video <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-includes/post.php:3383
+#: wp-includes/post.php:3337
 msgid "Documents"
 msgstr ""
 
-#: wp-includes/post.php:3384
+#: wp-includes/post.php:3338
 msgid "Manage Documents"
 msgstr ""
 
 #. translators: %s: Number of documents.
-#: wp-includes/post.php:3386
+#: wp-includes/post.php:3340
 msgid "Document <span class=\"count\">(%s)</span>"
 msgid_plural "Documents <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-includes/post.php:3392
+#: wp-includes/post.php:3346
 msgid "Spreadsheets"
 msgstr ""
 
-#: wp-includes/post.php:3393
+#: wp-includes/post.php:3347
 msgid "Manage Spreadsheets"
 msgstr ""
 
 #. translators: %s: Number of spreadsheets.
-#: wp-includes/post.php:3395
+#: wp-includes/post.php:3349
 msgid "Spreadsheet <span class=\"count\">(%s)</span>"
 msgid_plural "Spreadsheets <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-includes/post.php:3401
+#: wp-includes/post.php:3355
 msgctxt "file type group"
 msgid "Archives"
 msgstr ""
 
-#: wp-includes/post.php:3402
+#: wp-includes/post.php:3356
 msgid "Manage Archives"
 msgstr ""
 
 #. translators: %s: Number of archives.
-#: wp-includes/post.php:3404
+#: wp-includes/post.php:3358
 msgid "Archive <span class=\"count\">(%s)</span>"
 msgid_plural "Archives <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-includes/post.php:4065
+#: wp-includes/post.php:4019
 msgid "Passing an integer number of posts is deprecated. Pass an array of arguments instead."
 msgstr ""
 
-#: wp-includes/post.php:4206
-#: wp-includes/post.php:4865
+#: wp-includes/post.php:4160
+#: wp-includes/post.php:4819
 #: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:522
 #: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:207
 #: wp-includes/revision.php:374
 msgid "Invalid post ID."
 msgstr ""
 
-#: wp-includes/post.php:4255
+#: wp-includes/post.php:4209
 msgid "Content, title, and excerpt are empty."
 msgstr ""
 
-#: wp-includes/post.php:4331
+#: wp-includes/post.php:4285
 #: wp-includes/rest-api.php:2248
 msgid "Invalid date."
 msgstr ""
 
-#: wp-includes/post.php:4537
+#: wp-includes/post.php:4491
 msgid "Could not update attachment in the database."
 msgstr ""
 
-#: wp-includes/post.php:4539
+#: wp-includes/post.php:4493
 msgid "Could not update post in the database."
 msgstr ""
 
-#: wp-includes/post.php:4560
+#: wp-includes/post.php:4514
 msgid "Could not insert attachment into the database."
 msgstr ""
 
-#: wp-includes/post.php:4562
+#: wp-includes/post.php:4516
 msgid "Could not insert post into the database."
 msgstr ""
 
 #. translators: %s: Taxonomy name.
-#: wp-includes/post.php:4626
+#: wp-includes/post.php:4580
 msgid "Invalid taxonomy: %s."
 msgstr ""
 
-#: wp-includes/post.php:4696
+#: wp-includes/post.php:4650
 msgid "Invalid page template."
 msgstr ""
 
-#: wp-includes/post.php:5345
+#: wp-includes/post.php:5299
 msgctxt "tag delimiter"
 msgid ","
 msgstr ""
@@ -10985,95 +10942,95 @@ msgstr ""
 msgid "The \"%s\" must be a callable function."
 msgstr ""
 
-#: wp-includes/theme.php:3291
+#: wp-includes/theme.php:3286
 msgid "Whether theme opts in to wide alignment CSS class."
 msgstr ""
 
-#: wp-includes/theme.php:3298
+#: wp-includes/theme.php:3293
 msgid "Whether posts RSS feed links are added to head."
 msgstr ""
 
-#: wp-includes/theme.php:3305
+#: wp-includes/theme.php:3300
 msgid "Whether a theme uses block-based templates."
 msgstr ""
 
-#: wp-includes/theme.php:3312
+#: wp-includes/theme.php:3307
 msgid "Whether a theme uses block-based template parts."
 msgstr ""
 
-#: wp-includes/theme.php:3319
+#: wp-includes/theme.php:3314
 msgid "Custom background if defined by the theme."
 msgstr ""
 
-#: wp-includes/theme.php:3389
+#: wp-includes/theme.php:3384
 msgid "Custom header if defined by the theme."
 msgstr ""
 
-#: wp-includes/theme.php:3434
+#: wp-includes/theme.php:3429
 msgid "Custom logo if defined by the theme."
 msgstr ""
 
-#: wp-includes/theme.php:3467
+#: wp-includes/theme.php:3462
 msgid "Whether theme opts in to the dark editor style UI."
 msgstr ""
 
-#: wp-includes/theme.php:3474
+#: wp-includes/theme.php:3469
 msgid "Whether the theme disables custom colors."
 msgstr ""
 
-#: wp-includes/theme.php:3481
+#: wp-includes/theme.php:3476
 msgid "Whether the theme disables custom font sizes."
 msgstr ""
 
-#: wp-includes/theme.php:3488
+#: wp-includes/theme.php:3483
 msgid "Whether the theme disables custom gradients."
 msgstr ""
 
-#: wp-includes/theme.php:3495
+#: wp-includes/theme.php:3490
 msgid "Whether the theme disables generated layout styles."
 msgstr ""
 
-#: wp-includes/theme.php:3503
+#: wp-includes/theme.php:3498
 msgid "Custom color palette if defined by the theme."
 msgstr ""
 
-#: wp-includes/theme.php:3528
+#: wp-includes/theme.php:3523
 msgid "Custom font sizes if defined by the theme."
 msgstr ""
 
-#: wp-includes/theme.php:3553
+#: wp-includes/theme.php:3548
 msgid "Custom gradient presets if defined by the theme."
 msgstr ""
 
-#: wp-includes/theme.php:3578
+#: wp-includes/theme.php:3573
 msgid "Custom spacing sizes if defined by the theme."
 msgstr ""
 
-#: wp-includes/theme.php:3602
+#: wp-includes/theme.php:3597
 msgid "Whether theme opts in to the editor styles CSS wrapper."
 msgstr ""
 
-#: wp-includes/theme.php:3610
+#: wp-includes/theme.php:3605
 msgid "Allows use of HTML5 markup for search forms, gallery, and caption."
 msgstr ""
 
-#: wp-includes/theme.php:3631
+#: wp-includes/theme.php:3626
 msgid "Post formats supported."
 msgstr ""
 
-#: wp-includes/theme.php:3654
+#: wp-includes/theme.php:3649
 msgid "The post types that support thumbnails or true if all post types are supported."
 msgstr ""
 
-#: wp-includes/theme.php:3668
+#: wp-includes/theme.php:3663
 msgid "Whether the theme supports responsive embedded content."
 msgstr ""
 
-#: wp-includes/theme.php:3675
+#: wp-includes/theme.php:3670
 msgid "Whether the theme can manage the document title tag."
 msgstr ""
 
-#: wp-includes/theme.php:3682
+#: wp-includes/theme.php:3677
 msgid "Whether theme opts in to default Retraceur block styles for viewing."
 msgstr ""
 

@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-04-08T18:10:46+00:00\n"
+"POT-Creation-Date: 2025-04-12T06:34:39+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 
@@ -474,9 +474,9 @@ msgstr ""
 #: wp-admin/comment.php:30
 #: wp-admin/edit-form-comment.php:32
 #: wp-admin/edit-form-comment.php:48
-#: wp-admin/includes/deprecated.php:3258
-#: wp-admin/includes/deprecated.php:3296
-#: wp-admin/includes/deprecated.php:3385
+#: wp-admin/includes/deprecated.php:3283
+#: wp-admin/includes/deprecated.php:3321
+#: wp-admin/includes/deprecated.php:3410
 #: wp-admin/options-discussion.php:27
 #: wp-admin/options-writing.php:119
 msgid "WP Comments feature is not supported in Retraceur."
@@ -705,7 +705,7 @@ msgstr ""
 
 #: wp-admin/edit-form-blocks.php:163
 #: wp-admin/includes/class-wp-posts-list-table.php:1872
-#: wp-admin/includes/meta-boxes.php:922
+#: wp-admin/includes/meta-boxes.php:901
 msgid "Default template"
 msgstr ""
 
@@ -744,7 +744,7 @@ msgstr ""
 #: wp-admin/export-personal-data.php:25
 #: wp-admin/export.php:53
 #: wp-admin/includes/class-custom-background.php:101
-#: wp-admin/includes/class-custom-image-header.php:110
+#: wp-admin/includes/class-custom-image-header.php:109
 #: wp-admin/includes/class-wp-screen.php:858
 #: wp-admin/index.php:46
 #: wp-admin/media-new.php:51
@@ -808,8 +808,8 @@ msgstr ""
 #: wp-admin/includes/class-wp-terms-list-table.php:196
 #: wp-admin/includes/class-wp-terms-list-table.php:218
 #: wp-admin/includes/class-wp-terms-list-table.php:698
-#: wp-admin/includes/meta-boxes.php:802
-#: wp-admin/includes/meta-boxes.php:1116
+#: wp-admin/includes/meta-boxes.php:781
+#: wp-admin/includes/meta-boxes.php:1095
 msgid "Slug"
 msgstr ""
 
@@ -845,10 +845,10 @@ msgstr ""
 #: wp-admin/includes/class-wp-posts-list-table.php:2009
 #: wp-admin/includes/class-wp-theme-install-list-table.php:324
 #: wp-admin/includes/class-wp-theme-install-list-table.php:482
-#: wp-admin/includes/meta-boxes.php:401
-#: wp-admin/includes/meta-boxes.php:402
-#: wp-admin/includes/meta-boxes.php:493
-#: wp-admin/includes/meta-boxes.php:494
+#: wp-admin/includes/meta-boxes.php:380
+#: wp-admin/includes/meta-boxes.php:381
+#: wp-admin/includes/meta-boxes.php:472
+#: wp-admin/includes/meta-boxes.php:473
 #: wp-admin/includes/template.php:449
 msgid "Update"
 msgstr ""
@@ -866,7 +866,6 @@ msgstr ""
 #: wp-admin/includes/class-wp-users-list-table.php:483
 #: wp-admin/includes/media.php:1740
 #: wp-admin/includes/template.php:447
-#: wp-admin/includes/theme.php:990
 #: wp-admin/themes.php:606
 #: wp-admin/themes.php:1074
 msgid "Delete"
@@ -1566,7 +1565,7 @@ msgid "Try to find Retraceur plugins instead."
 msgstr ""
 
 #: wp-admin/includes/ajax-actions.php:126
-#: wp-admin/includes/meta-boxes.php:584
+#: wp-admin/includes/meta-boxes.php:563
 #: wp-admin/includes/post.php:564
 #: wp-admin/includes/post.php:2232
 msgctxt "tag delimiter"
@@ -1731,7 +1730,7 @@ msgstr ""
 
 #: wp-admin/includes/ajax-actions.php:1538
 #: wp-admin/includes/class-custom-background.php:523
-#: wp-admin/includes/class-custom-image-header.php:961
+#: wp-admin/includes/class-custom-image-header.php:960
 msgid "The uploaded file is not a valid image. Please try again."
 msgstr ""
 
@@ -2227,7 +2226,7 @@ msgstr ""
 
 #: wp-admin/includes/class-bulk-theme-upgrader-skin.php:80
 #: wp-admin/includes/class-theme-installer-skin.php:153
-#: wp-admin/includes/class-theme-upgrader-skin.php:107
+#: wp-admin/includes/class-theme-upgrader-skin.php:99
 msgid "Go to Themes page"
 msgstr ""
 
@@ -2323,12 +2322,12 @@ msgid "Background updated. <a href=\"%s\">Visit your site</a> to see how it look
 msgstr ""
 
 #: wp-admin/includes/class-custom-background.php:258
-#: wp-admin/includes/template.php:2177
+#: wp-admin/includes/template.php:2171
 msgid "Background Image"
 msgstr ""
 
 #: wp-admin/includes/class-custom-background.php:263
-#: wp-admin/includes/class-custom-image-header.php:534
+#: wp-admin/includes/class-custom-image-header.php:533
 #: wp-admin/includes/class-wp-posts-list-table.php:1532
 #: wp-admin/includes/class-wp-theme-install-list-table.php:352
 #: wp-admin/includes/meta-boxes.php:75
@@ -2342,7 +2341,7 @@ msgid "Preview"
 msgstr ""
 
 #: wp-admin/includes/class-custom-background.php:304
-#: wp-admin/includes/class-custom-image-header.php:710
+#: wp-admin/includes/class-custom-image-header.php:709
 msgid "Remove Image"
 msgstr ""
 
@@ -2364,18 +2363,18 @@ msgid "This will restore the original background image. You will not be able to 
 msgstr ""
 
 #: wp-admin/includes/class-custom-background.php:331
-#: wp-admin/includes/class-custom-image-header.php:574
+#: wp-admin/includes/class-custom-image-header.php:573
 msgid "Select Image"
 msgstr ""
 
 #: wp-admin/includes/class-custom-background.php:334
-#: wp-admin/includes/class-custom-image-header.php:644
+#: wp-admin/includes/class-custom-image-header.php:643
 msgid "Choose an image from your computer:"
 msgstr ""
 
 #. translators: Hidden accessibility text.
 #: wp-admin/includes/class-custom-background.php:338
-#: wp-admin/includes/class-custom-image-header.php:648
+#: wp-admin/includes/class-custom-image-header.php:647
 #: wp-admin/includes/class-wp-theme-install-list-table.php:65
 #: wp-admin/includes/media.php:2278
 #: wp-admin/includes/media.php:2282
@@ -2383,7 +2382,7 @@ msgid "Upload"
 msgstr ""
 
 #: wp-admin/includes/class-custom-background.php:341
-#: wp-admin/includes/class-custom-image-header.php:661
+#: wp-admin/includes/class-custom-image-header.php:660
 msgid "Or choose an image from your media library:"
 msgstr ""
 
@@ -2396,7 +2395,7 @@ msgid "Set as background"
 msgstr ""
 
 #: wp-admin/includes/class-custom-background.php:344
-#: wp-admin/includes/class-custom-image-header.php:665
+#: wp-admin/includes/class-custom-image-header.php:664
 msgid "Choose Image"
 msgstr ""
 
@@ -2520,178 +2519,178 @@ msgstr ""
 msgid "Full Size"
 msgstr ""
 
+#: wp-admin/includes/class-custom-image-header.php:78
 #: wp-admin/includes/class-custom-image-header.php:79
-#: wp-admin/includes/class-custom-image-header.php:80
 msgctxt "custom image header"
 msgid "Header"
 msgstr ""
 
-#: wp-admin/includes/class-custom-image-header.php:112
+#: wp-admin/includes/class-custom-image-header.php:111
 msgid "This screen is used to customize the header section of your theme."
 msgstr ""
 
-#: wp-admin/includes/class-custom-image-header.php:113
+#: wp-admin/includes/class-custom-image-header.php:112
 msgid "You can choose from the theme&#8217;s default header images, or use one of your own. You can also customize how your Site Title and Tagline are displayed."
 msgstr ""
 
-#: wp-admin/includes/class-custom-image-header.php:120
-#: wp-admin/includes/class-custom-image-header.php:527
-#: wp-admin/includes/template.php:2149
-#: wp-admin/includes/template.php:2156
+#: wp-admin/includes/class-custom-image-header.php:119
+#: wp-admin/includes/class-custom-image-header.php:526
+#: wp-admin/includes/template.php:2143
+#: wp-admin/includes/template.php:2150
 msgid "Header Image"
 msgstr ""
 
-#: wp-admin/includes/class-custom-image-header.php:122
+#: wp-admin/includes/class-custom-image-header.php:121
 msgid "You can set a custom image header for your site. Simply upload the image and crop it, and the new header will go live immediately. Alternatively, you can use an image that has already been uploaded to your Media Library by clicking the &#8220;Choose Image&#8221; button."
 msgstr ""
 
-#: wp-admin/includes/class-custom-image-header.php:123
+#: wp-admin/includes/class-custom-image-header.php:122
 msgid "Some themes come with additional header images bundled. If you see multiple images displayed, select the one you would like and click the &#8220;Save Changes&#8221; button."
 msgstr ""
 
-#: wp-admin/includes/class-custom-image-header.php:124
+#: wp-admin/includes/class-custom-image-header.php:123
 msgid "If your theme has more than one default header image, or you have uploaded more than one custom header image, you have the option of having Retraceur display a randomly different image on each page of your site. Click the &#8220;Random&#8221; radio button next to the Uploaded Images or Default Images section to enable this feature."
 msgstr ""
 
-#: wp-admin/includes/class-custom-image-header.php:125
+#: wp-admin/includes/class-custom-image-header.php:124
 msgid "If you do not want a header image to be displayed on your site at all, click the &#8220;Remove Header Image&#8221; button at the bottom of the Header Image section of this page. If you want to re-enable the header image later, you just have to select one of the other image options and click &#8220;Save Changes&#8221;."
 msgstr ""
 
-#: wp-admin/includes/class-custom-image-header.php:132
-#: wp-admin/includes/class-custom-image-header.php:740
-#: wp-admin/includes/class-custom-image-header.php:745
+#: wp-admin/includes/class-custom-image-header.php:131
+#: wp-admin/includes/class-custom-image-header.php:739
+#: wp-admin/includes/class-custom-image-header.php:744
 msgid "Header Text"
 msgstr ""
 
 #. translators: %s: URL to General Settings screen.
-#: wp-admin/includes/class-custom-image-header.php:136
+#: wp-admin/includes/class-custom-image-header.php:135
 msgid "For most themes, the header text is your Site Title and Tagline, as defined in the <a href=\"%s\">General Settings</a> section."
 msgstr ""
 
-#: wp-admin/includes/class-custom-image-header.php:140
+#: wp-admin/includes/class-custom-image-header.php:139
 msgid "In the Header Text section of this page, you can choose whether to display this text or hide it. You can also choose a color for the text by clicking the Select Color button and either typing in a legitimate HTML hex value, e.g. &#8220;#ff0000&#8221; for red, or by choosing a color using the color picker."
 msgstr ""
 
-#: wp-admin/includes/class-custom-image-header.php:141
+#: wp-admin/includes/class-custom-image-header.php:140
 msgid "Do not forget to click &#8220;Save Changes&#8221; when you are done!"
 msgstr ""
 
-#: wp-admin/includes/class-custom-image-header.php:321
+#: wp-admin/includes/class-custom-image-header.php:320
 msgid "<strong>Random:</strong> Show a different image on each page."
 msgstr ""
 
-#: wp-admin/includes/class-custom-image-header.php:508
+#: wp-admin/includes/class-custom-image-header.php:507
 #: wp-admin/includes/theme.php:338
 msgid "Custom Header"
 msgstr ""
 
 #. translators: %s: Home URL.
-#: wp-admin/includes/class-custom-image-header.php:514
+#: wp-admin/includes/class-custom-image-header.php:513
 msgid "Header updated. <a href=\"%s\">Visit your site</a> to see how it looks."
 msgstr ""
 
-#: wp-admin/includes/class-custom-image-header.php:576
+#: wp-admin/includes/class-custom-image-header.php:575
 msgid "You can select an image to be shown at the top of your site by uploading from your computer or choosing from your media library. After selecting an image you will be able to crop it."
 msgstr ""
 
 #. translators: 1: Image width in pixels, 2: Image height in pixels.
-#: wp-admin/includes/class-custom-image-header.php:583
+#: wp-admin/includes/class-custom-image-header.php:582
 msgid "Images of exactly <strong>%1$d &times; %2$d pixels</strong> will be used as-is."
 msgstr ""
 
 #. translators: %s: Size in pixels.
-#: wp-admin/includes/class-custom-image-header.php:591
+#: wp-admin/includes/class-custom-image-header.php:590
 msgid "Images should be at least %s wide."
 msgstr ""
 
 #. translators: %d: Custom header size.
-#: wp-admin/includes/class-custom-image-header.php:594
-#: wp-admin/includes/class-custom-image-header.php:606
-#: wp-admin/includes/class-custom-image-header.php:622
-#: wp-admin/includes/class-custom-image-header.php:634
+#: wp-admin/includes/class-custom-image-header.php:593
+#: wp-admin/includes/class-custom-image-header.php:605
+#: wp-admin/includes/class-custom-image-header.php:621
+#: wp-admin/includes/class-custom-image-header.php:633
 msgid "%d pixels"
 msgstr ""
 
 #. translators: %s: Size in pixels.
-#: wp-admin/includes/class-custom-image-header.php:603
+#: wp-admin/includes/class-custom-image-header.php:602
 msgid "Images should be at least %s tall."
 msgstr ""
 
 #. translators: %s: Size in pixels.
-#: wp-admin/includes/class-custom-image-header.php:619
+#: wp-admin/includes/class-custom-image-header.php:618
 msgid "Suggested width is %s."
 msgstr ""
 
 #. translators: %s: Size in pixels.
-#: wp-admin/includes/class-custom-image-header.php:631
+#: wp-admin/includes/class-custom-image-header.php:630
 msgid "Suggested height is %s."
 msgstr ""
 
-#: wp-admin/includes/class-custom-image-header.php:664
+#: wp-admin/includes/class-custom-image-header.php:663
 msgid "Choose a Custom Header"
 msgstr ""
 
-#: wp-admin/includes/class-custom-image-header.php:665
+#: wp-admin/includes/class-custom-image-header.php:664
 msgid "Set as header"
 msgstr ""
 
-#: wp-admin/includes/class-custom-image-header.php:680
+#: wp-admin/includes/class-custom-image-header.php:679
 msgid "Uploaded Images"
 msgstr ""
 
-#: wp-admin/includes/class-custom-image-header.php:682
+#: wp-admin/includes/class-custom-image-header.php:681
 msgid "You can choose one of your previously uploaded headers, or show a random one."
 msgstr ""
 
-#: wp-admin/includes/class-custom-image-header.php:693
+#: wp-admin/includes/class-custom-image-header.php:692
 msgid "Default Images"
 msgstr ""
 
-#: wp-admin/includes/class-custom-image-header.php:696
+#: wp-admin/includes/class-custom-image-header.php:695
 msgid "If you do not want to upload your own image, you can use one of these cool headers, or show a random one."
 msgstr ""
 
-#: wp-admin/includes/class-custom-image-header.php:698
+#: wp-admin/includes/class-custom-image-header.php:697
 msgid "You can use one of these cool headers or show a random one on each page."
 msgstr ""
 
-#: wp-admin/includes/class-custom-image-header.php:712
+#: wp-admin/includes/class-custom-image-header.php:711
 msgid "This will remove the header image. You will not be able to restore any customizations."
 msgstr ""
 
-#: wp-admin/includes/class-custom-image-header.php:713
+#: wp-admin/includes/class-custom-image-header.php:712
 msgid "Remove Header Image"
 msgstr ""
 
-#: wp-admin/includes/class-custom-image-header.php:728
+#: wp-admin/includes/class-custom-image-header.php:727
 msgid "Reset Image"
 msgstr ""
 
-#: wp-admin/includes/class-custom-image-header.php:730
+#: wp-admin/includes/class-custom-image-header.php:729
 msgid "This will restore the original header image. You will not be able to restore any customizations."
 msgstr ""
 
-#: wp-admin/includes/class-custom-image-header.php:731
+#: wp-admin/includes/class-custom-image-header.php:730
 msgid "Restore Original Header Image"
 msgstr ""
 
-#: wp-admin/includes/class-custom-image-header.php:748
+#: wp-admin/includes/class-custom-image-header.php:747
 msgid "Show header text with your image."
 msgstr ""
 
-#: wp-admin/includes/class-custom-image-header.php:754
+#: wp-admin/includes/class-custom-image-header.php:753
 msgid "Text Color"
 msgstr ""
 
 #. translators: %s: Default text color.
-#: wp-admin/includes/class-custom-image-header.php:776
+#: wp-admin/includes/class-custom-image-header.php:775
 msgctxt "color"
 msgid "Default: %s"
 msgstr ""
 
-#: wp-admin/includes/class-custom-image-header.php:814
-#: wp-admin/includes/class-custom-image-header.php:1002
-#: wp-admin/includes/class-custom-image-header.php:1013
+#: wp-admin/includes/class-custom-image-header.php:813
+#: wp-admin/includes/class-custom-image-header.php:1001
+#: wp-admin/includes/class-custom-image-header.php:1012
 #: wp-admin/media-upload.php:40
 #: wp-admin/themes.php:29
 #: wp-admin/themes.php:72
@@ -2699,51 +2698,51 @@ msgstr ""
 msgid "Something went wrong."
 msgstr ""
 
-#: wp-admin/includes/class-custom-image-header.php:815
-#: wp-admin/includes/class-custom-image-header.php:1003
+#: wp-admin/includes/class-custom-image-header.php:814
+#: wp-admin/includes/class-custom-image-header.php:1002
 msgid "The active theme does not support uploading a custom header image."
 msgstr ""
 
-#: wp-admin/includes/class-custom-image-header.php:896
-#: wp-admin/includes/class-custom-image-header.php:1055
-#: wp-admin/includes/class-custom-image-header.php:1401
+#: wp-admin/includes/class-custom-image-header.php:895
+#: wp-admin/includes/class-custom-image-header.php:1054
+#: wp-admin/includes/class-custom-image-header.php:1400
 msgid "Image could not be processed. Please go back and try again."
 msgstr ""
 
-#: wp-admin/includes/class-custom-image-header.php:896
-#: wp-admin/includes/class-custom-image-header.php:1055
+#: wp-admin/includes/class-custom-image-header.php:895
+#: wp-admin/includes/class-custom-image-header.php:1054
 msgid "Image Processing Error"
 msgstr ""
 
-#: wp-admin/includes/class-custom-image-header.php:911
+#: wp-admin/includes/class-custom-image-header.php:910
 msgid "Crop Header Image"
 msgstr ""
 
-#: wp-admin/includes/class-custom-image-header.php:914
+#: wp-admin/includes/class-custom-image-header.php:913
 msgid "Choose the part of the image you want to use as your header."
 msgstr ""
 
-#: wp-admin/includes/class-custom-image-header.php:915
+#: wp-admin/includes/class-custom-image-header.php:914
 msgid "You need JavaScript to choose a part of the image."
 msgstr ""
 
-#: wp-admin/includes/class-custom-image-header.php:933
+#: wp-admin/includes/class-custom-image-header.php:932
 msgid "Crop and Publish"
 msgstr ""
 
-#: wp-admin/includes/class-custom-image-header.php:939
+#: wp-admin/includes/class-custom-image-header.php:938
 msgid "Skip Cropping, Publish Image as Is"
 msgstr ""
 
-#: wp-admin/includes/class-custom-image-header.php:967
+#: wp-admin/includes/class-custom-image-header.php:966
 msgid "Image Upload Error"
 msgstr ""
 
-#: wp-admin/includes/class-custom-image-header.php:1014
+#: wp-admin/includes/class-custom-image-header.php:1013
 msgid "The active theme does not support a flexible sized header image."
 msgstr ""
 
-#: wp-admin/includes/class-custom-image-header.php:1103
+#: wp-admin/includes/class-custom-image-header.php:1102
 msgid "Sorry, you are not allowed to customize headers."
 msgstr ""
 
@@ -2880,8 +2879,8 @@ msgstr ""
 #: wp-admin/includes/class-wp-media-list-table.php:401
 #: wp-admin/includes/class-wp-posts-list-table.php:671
 #: wp-admin/includes/class-wp-posts-list-table.php:1744
-#: wp-admin/includes/meta-boxes.php:825
-#: wp-admin/includes/meta-boxes.php:1120
+#: wp-admin/includes/meta-boxes.php:804
+#: wp-admin/includes/meta-boxes.php:1099
 #: wp-admin/includes/plugin-install.php:338
 #: wp-admin/includes/theme-install.php:111
 msgid "Author"
@@ -3093,7 +3092,7 @@ msgid "No valid plugins were found."
 msgstr ""
 
 #: wp-admin/includes/class-theme-installer-skin.php:130
-#: wp-admin/includes/class-theme-upgrader-skin.php:93
+#: wp-admin/includes/class-theme-upgrader-skin.php:85
 #: wp-admin/includes/class-wp-themes-list-table.php:220
 msgctxt "theme"
 msgid "Activate"
@@ -3101,7 +3100,7 @@ msgstr ""
 
 #. translators: %s: Theme name.
 #: wp-admin/includes/class-theme-installer-skin.php:132
-#: wp-admin/includes/class-theme-upgrader-skin.php:95
+#: wp-admin/includes/class-theme-upgrader-skin.php:87
 #: wp-admin/includes/class-wp-themes-list-table.php:219
 msgctxt "theme"
 msgid "Activate &#8220;%s&#8221;"
@@ -4187,7 +4186,6 @@ msgid "Auto-updates"
 msgstr ""
 
 #: wp-admin/includes/class-wp-debug-data.php:1121
-#: wp-admin/includes/theme.php:807
 #: wp-admin/themes.php:899
 msgid "Active Theme"
 msgstr ""
@@ -4205,7 +4203,6 @@ msgstr ""
 #: wp-admin/includes/class-wp-theme-install-list-table.php:375
 #: wp-admin/includes/class-wp-theme-install-list-table.php:507
 #: wp-admin/includes/class-wp-themes-list-table.php:254
-#: wp-admin/includes/theme.php:818
 #: wp-admin/theme-install.php:331
 #: wp-admin/theme-install.php:433
 #: wp-admin/themes.php:492
@@ -4586,16 +4583,16 @@ msgstr ""
 #: wp-admin/includes/class-wp-media-list-table.php:190
 #: wp-admin/includes/class-wp-media-list-table.php:195
 #: wp-admin/includes/class-wp-posts-list-table.php:450
-#: wp-admin/includes/meta-boxes.php:366
-#: wp-admin/includes/meta-boxes.php:484
+#: wp-admin/includes/meta-boxes.php:345
+#: wp-admin/includes/meta-boxes.php:463
 msgid "Delete permanently"
 msgstr ""
 
 #: wp-admin/includes/class-wp-media-list-table.php:192
 #: wp-admin/includes/class-wp-posts-list-table.php:452
 #: wp-admin/includes/media.php:1748
-#: wp-admin/includes/meta-boxes.php:368
-#: wp-admin/includes/meta-boxes.php:475
+#: wp-admin/includes/meta-boxes.php:347
+#: wp-admin/includes/meta-boxes.php:454
 msgid "Move to Trash"
 msgstr ""
 
@@ -4883,11 +4880,6 @@ msgstr ""
 #: wp-admin/includes/class-wp-plugins-list-table.php:1462
 #: wp-admin/includes/class-wp-plugins-list-table.php:1468
 #: wp-admin/includes/class-wp-plugins-list-table.php:1477
-#: wp-admin/includes/theme.php:865
-#: wp-admin/includes/theme.php:880
-#: wp-admin/includes/theme.php:919
-#: wp-admin/includes/theme.php:925
-#: wp-admin/includes/theme.php:936
 #: wp-admin/includes/update.php:772
 #: wp-admin/includes/update.php:778
 #: wp-admin/includes/update.php:791
@@ -5337,14 +5329,14 @@ msgstr ""
 
 #. translators: %s: User's display name.
 #: wp-admin/includes/class-wp-posts-list-table.php:1118
-#: wp-admin/includes/misc.php:956
+#: wp-admin/includes/misc.php:942
 msgid "%s is currently editing"
 msgstr ""
 
 #. translators: 1: Date, 2: Time. See https://www.php.net/manual/datetime.format.php
 #: wp-admin/includes/class-wp-posts-list-table.php:1194
 #: wp-admin/includes/meta-boxes.php:234
-#: wp-admin/includes/meta-boxes.php:439
+#: wp-admin/includes/meta-boxes.php:418
 msgid "%1$s at %2$s"
 msgstr ""
 
@@ -5422,7 +5414,7 @@ msgid "Private"
 msgstr ""
 
 #: wp-admin/includes/class-wp-posts-list-table.php:1816
-#: wp-admin/includes/meta-boxes.php:888
+#: wp-admin/includes/meta-boxes.php:867
 msgid "Parent"
 msgstr ""
 
@@ -5433,12 +5425,12 @@ msgstr ""
 #: wp-admin/includes/class-wp-posts-list-table.php:1854
 #: wp-admin/includes/media.php:1423
 #: wp-admin/includes/media.php:2589
-#: wp-admin/includes/meta-boxes.php:929
+#: wp-admin/includes/meta-boxes.php:908
 msgid "Order"
 msgstr ""
 
 #: wp-admin/includes/class-wp-posts-list-table.php:1865
-#: wp-admin/includes/meta-boxes.php:897
+#: wp-admin/includes/meta-boxes.php:876
 msgid "Template"
 msgstr ""
 
@@ -5456,7 +5448,7 @@ msgid "Make this post sticky"
 msgstr ""
 
 #: wp-admin/includes/class-wp-posts-list-table.php:1952
-#: wp-admin/includes/meta-boxes.php:1038
+#: wp-admin/includes/meta-boxes.php:1017
 msgctxt "post format"
 msgid "Format"
 msgstr ""
@@ -5583,7 +5575,6 @@ msgstr ""
 #: wp-admin/includes/class-wp-privacy-policy-content.php:363
 #: wp-admin/includes/media.php:3246
 #: wp-admin/includes/meta-boxes.php:82
-#: wp-admin/includes/theme.php:832
 msgid "(opens in a new tab)"
 msgstr ""
 
@@ -7251,7 +7242,6 @@ msgstr ""
 #. translators: %s: Plugin name.
 #: wp-admin/includes/class-wp-theme-install-list-table.php:498
 #: wp-admin/includes/deprecated.php:1394
-#: wp-admin/includes/theme.php:995
 #: wp-admin/theme-install.php:369
 #: wp-admin/theme-install.php:421
 msgid "Install"
@@ -7557,7 +7547,7 @@ msgid "Configure"
 msgstr ""
 
 #: wp-admin/includes/dashboard.php:246
-#: wp-admin/includes/template.php:2337
+#: wp-admin/includes/template.php:2331
 #: wp-admin/options.php:413
 msgid "Save Changes"
 msgstr ""
@@ -7832,19 +7822,19 @@ msgstr ""
 msgid "The Link/bookmark manager feature is not available in Retraceur."
 msgstr ""
 
-#: wp-admin/includes/deprecated.php:2837
-#: wp-admin/includes/deprecated.php:2975
+#: wp-admin/includes/deprecated.php:2862
+#: wp-admin/includes/deprecated.php:3000
 #: wp-admin/nav-menus.php:29
 #: wp-admin/nav-menus.php:45
 msgid "WP Nav Menus feature is not supported in Retraceur."
 msgstr ""
 
-#: wp-admin/includes/deprecated.php:3081
-#: wp-admin/includes/deprecated.php:3092
-#: wp-admin/includes/deprecated.php:3105
-#: wp-admin/includes/deprecated.php:3123
-#: wp-admin/includes/deprecated.php:3134
-#: wp-admin/includes/deprecated.php:3145
+#: wp-admin/includes/deprecated.php:3106
+#: wp-admin/includes/deprecated.php:3117
+#: wp-admin/includes/deprecated.php:3130
+#: wp-admin/includes/deprecated.php:3148
+#: wp-admin/includes/deprecated.php:3159
+#: wp-admin/includes/deprecated.php:3170
 #: wp-admin/options-discussion.php:31
 msgid "Retraceur does not support WP Comments."
 msgstr ""
@@ -8984,8 +8974,8 @@ msgid "Sorry, you are not allowed to access this page."
 msgstr ""
 
 #: wp-admin/includes/meta-boxes.php:46
-#: wp-admin/includes/meta-boxes.php:429
-#: wp-admin/includes/meta-boxes.php:1027
+#: wp-admin/includes/meta-boxes.php:408
+#: wp-admin/includes/meta-boxes.php:1006
 msgid "Save"
 msgstr ""
 
@@ -9055,14 +9045,14 @@ msgstr ""
 
 #. translators: Publish box date format, see https://www.php.net/manual/datetime.format.php
 #: wp-admin/includes/meta-boxes.php:236
-#: wp-admin/includes/meta-boxes.php:441
+#: wp-admin/includes/meta-boxes.php:420
 msgctxt "publish box date format"
 msgid "M j, Y"
 msgstr ""
 
 #. translators: Publish box time format, see https://www.php.net/manual/datetime.format.php
 #: wp-admin/includes/meta-boxes.php:238
-#: wp-admin/includes/meta-boxes.php:443
+#: wp-admin/includes/meta-boxes.php:422
 msgctxt "publish box time format"
 msgid "H:i"
 msgstr ""
@@ -9117,81 +9107,76 @@ msgstr ""
 msgid "Date and time"
 msgstr ""
 
-#. translators: %s: URL to the Customizer.
-#: wp-admin/includes/meta-boxes.php:318
-msgid "This draft comes from your <a href=\"%s\">unpublished customization changes</a>. You can edit, but there is no need to publish now. It will be published automatically with those changes."
-msgstr ""
-
-#: wp-admin/includes/meta-boxes.php:384
-#: wp-admin/includes/meta-boxes.php:385
+#: wp-admin/includes/meta-boxes.php:363
+#: wp-admin/includes/meta-boxes.php:364
 msgctxt "post action/button label"
 msgid "Schedule"
 msgstr ""
 
-#: wp-admin/includes/meta-boxes.php:389
-#: wp-admin/includes/meta-boxes.php:390
-#: wp-admin/includes/meta-boxes.php:1034
+#: wp-admin/includes/meta-boxes.php:368
+#: wp-admin/includes/meta-boxes.php:369
+#: wp-admin/includes/meta-boxes.php:1013
 msgid "Publish"
 msgstr ""
 
-#: wp-admin/includes/meta-boxes.php:395
-#: wp-admin/includes/meta-boxes.php:396
+#: wp-admin/includes/meta-boxes.php:374
+#: wp-admin/includes/meta-boxes.php:375
 msgid "Submit for Review"
 msgstr ""
 
 #. translators: Attachment information. %s: Date the attachment was uploaded.
-#: wp-admin/includes/meta-boxes.php:446
+#: wp-admin/includes/meta-boxes.php:425
 msgid "Uploaded on: %s"
 msgstr ""
 
 #. translators: Hidden accessibility text.
-#: wp-admin/includes/meta-boxes.php:538
+#: wp-admin/includes/meta-boxes.php:517
 #: wp-admin/includes/theme.php:345
 msgid "Post Formats"
 msgstr ""
 
-#: wp-admin/includes/meta-boxes.php:600
+#: wp-admin/includes/meta-boxes.php:579
 msgid "Add"
 msgstr ""
 
 #. translators: %s: Add New taxonomy label.
-#: wp-admin/includes/meta-boxes.php:682
+#: wp-admin/includes/meta-boxes.php:661
 msgid "+ %s"
 msgstr ""
 
 #. translators: Hidden accessibility text.
-#: wp-admin/includes/meta-boxes.php:751
-#: wp-admin/includes/meta-boxes.php:1079
+#: wp-admin/includes/meta-boxes.php:730
+#: wp-admin/includes/meta-boxes.php:1058
 #: wp-admin/options-reading.php:185
 msgid "Excerpt"
 msgstr ""
 
-#: wp-admin/includes/meta-boxes.php:755
+#: wp-admin/includes/meta-boxes.php:734
 msgid "Excerpts are optional hand-crafted summaries of your content that can be used in your theme."
 msgstr ""
 
-#: wp-admin/includes/meta-boxes.php:783
+#: wp-admin/includes/meta-boxes.php:762
 msgid "Custom fields can be used to add extra metadata to a post that you can use in your theme."
 msgstr ""
 
-#: wp-admin/includes/meta-boxes.php:869
+#: wp-admin/includes/meta-boxes.php:848
 msgid "(no parent)"
 msgstr ""
 
-#: wp-admin/includes/meta-boxes.php:942
+#: wp-admin/includes/meta-boxes.php:921
 msgid "Need help? Use the Help tab above the screen title."
 msgstr ""
 
-#: wp-admin/includes/meta-boxes.php:1020
+#: wp-admin/includes/meta-boxes.php:999
 #: wp-admin/revision.php:116
 msgid "Revisions"
 msgstr ""
 
-#: wp-admin/includes/meta-boxes.php:1031
+#: wp-admin/includes/meta-boxes.php:1010
 msgid "Metadata"
 msgstr ""
 
-#: wp-admin/includes/meta-boxes.php:1085
+#: wp-admin/includes/meta-boxes.php:1064
 msgid "Custom Fields"
 msgstr ""
 
@@ -9210,27 +9195,27 @@ msgid "Admin Color Scheme"
 msgstr ""
 
 #. translators: %s: User's display name.
-#: wp-admin/includes/misc.php:1009
+#: wp-admin/includes/misc.php:995
 msgid "%s has taken over and is currently editing."
 msgstr ""
 
-#: wp-admin/includes/misc.php:1166
+#: wp-admin/includes/misc.php:1152
 #: wp-admin/includes/post.php:2121
 msgid "Error while saving."
 msgstr ""
 
 #. translators: Draft saved date format, see https://www.php.net/manual/datetime.format.php
-#: wp-admin/includes/misc.php:1170
+#: wp-admin/includes/misc.php:1156
 msgid "g:i:s a"
 msgstr ""
 
 #. translators: %s: Date and time.
-#: wp-admin/includes/misc.php:1174
+#: wp-admin/includes/misc.php:1160
 msgid "Draft saved at %s."
 msgstr ""
 
 #. translators: Do not translate USERNAME, ADMIN_URL, EMAIL, SITENAME, SITEURL: those are placeholders.
-#: wp-admin/includes/misc.php:1286
+#: wp-admin/includes/misc.php:1272
 msgid ""
 "Howdy ###USERNAME###,\n"
 "\n"
@@ -9252,12 +9237,12 @@ msgid ""
 msgstr ""
 
 #. translators: New admin email address notification email subject. %s: Site title.
-#: wp-admin/includes/misc.php:1344
+#: wp-admin/includes/misc.php:1330
 msgid "[%s] New Admin Email Address"
 msgstr ""
 
 #. translators: %s: Page title.
-#: wp-admin/includes/misc.php:1378
+#: wp-admin/includes/misc.php:1364
 msgid "%s (Draft)"
 msgstr ""
 
@@ -10207,102 +10192,93 @@ msgctxt "post status"
 msgid "Private"
 msgstr ""
 
-#: wp-admin/includes/template.php:2039
-msgid "Customization Draft"
-msgstr ""
-
-#: wp-admin/includes/template.php:2041
+#: wp-admin/includes/template.php:2038
 msgctxt "post status"
 msgid "Draft"
 msgstr ""
 
-#: wp-admin/includes/template.php:2044
-msgctxt "post status"
-msgid "Customization Draft"
-msgstr ""
-
-#: wp-admin/includes/template.php:2048
+#: wp-admin/includes/template.php:2042
 msgctxt "post status"
 msgid "Pending"
 msgstr ""
 
-#: wp-admin/includes/template.php:2052
+#: wp-admin/includes/template.php:2046
 msgctxt "post status"
 msgid "Sticky"
 msgstr ""
 
-#: wp-admin/includes/template.php:2056
+#: wp-admin/includes/template.php:2050
 msgctxt "post status"
 msgid "Scheduled"
 msgstr ""
 
-#: wp-admin/includes/template.php:2061
+#: wp-admin/includes/template.php:2055
 msgctxt "page label"
 msgid "Front Page"
 msgstr ""
 
-#: wp-admin/includes/template.php:2065
+#: wp-admin/includes/template.php:2059
 msgctxt "page label"
 msgid "Posts Page"
 msgstr ""
 
-#: wp-admin/includes/template.php:2070
+#: wp-admin/includes/template.php:2064
 msgctxt "page label"
 msgid "Privacy Policy Page"
 msgstr ""
 
-#: wp-admin/includes/template.php:2161
+#: wp-admin/includes/template.php:2155
 msgid "Current Header Image"
 msgstr ""
 
-#: wp-admin/includes/template.php:2168
+#: wp-admin/includes/template.php:2162
 msgid "Current Header Video"
 msgstr ""
 
-#: wp-admin/includes/template.php:2181
+#: wp-admin/includes/template.php:2175
 msgid "Current Background Image"
 msgstr ""
 
-#: wp-admin/includes/template.php:2187
+#: wp-admin/includes/template.php:2181
 #: wp-admin/options-general.php:94
 msgid "Site Icon"
 msgstr ""
 
-#: wp-admin/includes/template.php:2191
+#: wp-admin/includes/template.php:2185
 msgid "Logo"
 msgstr ""
 
 #. translators: 1: wp-admin/includes/template.php, 2: add_meta_box(), 3: add_meta_boxes
-#: wp-admin/includes/template.php:2416
+#: wp-admin/includes/template.php:2410
 msgid "Likely direct inclusion of %1$s in order to use %2$s. This is very wrong. Hook the %2$s call into the %3$s action instead."
 msgstr ""
 
-#: wp-admin/includes/template.php:2440
+#: wp-admin/includes/template.php:2434
 msgid "The backup of this post in your browser is different from the version below."
 msgstr ""
 
-#: wp-admin/includes/template.php:2441
+#: wp-admin/includes/template.php:2435
 msgid "Restore the backup"
 msgstr ""
 
-#: wp-admin/includes/template.php:2443
+#: wp-admin/includes/template.php:2437
 msgid "This will replace the current editor content with the last backup version. You can use undo and redo in the editor to get the old content back or to return to the restored version."
 msgstr ""
 
 #. translators: Hidden accessibility text. 1: The rating, 2: The number of ratings.
-#: wp-admin/includes/template.php:2504
+#: wp-admin/includes/template.php:2498
 msgid "%1$s rating based on %2$s rating"
 msgid_plural "%1$s rating based on %2$s ratings"
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: Hidden accessibility text. %s: The rating.
-#: wp-admin/includes/template.php:2508
+#: wp-admin/includes/template.php:2502
 msgid "%s rating"
 msgstr ""
 
-#: wp-admin/includes/template.php:2533
-#: wp-admin/includes/template.php:2552
+#: wp-admin/includes/template.php:2527
+#: wp-admin/includes/template.php:2546
 msgid "You are currently editing the page that shows your latest posts."
 msgstr ""
 
@@ -10546,178 +10522,19 @@ msgstr ""
 msgid "(Retraceur could not establish a secure connection to Theme Installation API. Please contact your server administrator.)"
 msgstr ""
 
-#. translators: Hidden accessibility text.
-#: wp-admin/includes/theme.php:780
-#: wp-admin/themes.php:872
-msgid "Show previous theme"
-msgstr ""
-
-#. translators: Hidden accessibility text.
-#: wp-admin/includes/theme.php:786
-#: wp-admin/themes.php:878
-msgid "Show next theme"
-msgstr ""
-
-#. translators: Hidden accessibility text.
-#: wp-admin/includes/theme.php:792
-#: wp-admin/themes.php:884
-msgid "Close details dialog"
-msgstr ""
-
-#. translators: %s: Theme version.
-#: wp-admin/includes/theme.php:812
-#: wp-admin/theme-install.php:459
-#: wp-admin/themes.php:904
-msgid "Version: %s"
-msgstr ""
-
-#. translators: %s: Number of ratings.
-#: wp-admin/includes/theme.php:830
-#: wp-admin/theme-install.php:448
-msgid "(%s ratings)"
-msgstr ""
-
-#: wp-admin/includes/theme.php:842
-#: wp-admin/themes.php:961
-msgid "Update Available"
-msgstr ""
-
-#: wp-admin/includes/theme.php:847
-#: wp-admin/themes.php:966
-msgid "Update Incompatible"
-msgstr ""
-
-#. translators: %s: Theme name.
-#: wp-admin/includes/theme.php:853
-#: wp-admin/includes/update.php:766
-#: wp-admin/themes.php:390
-#: wp-admin/themes.php:727
-#: wp-admin/themes.php:972
-msgid "There is a new version of %s available, but it does not work with your versions of Retraceur and PHP."
-msgstr ""
-
-#. translators: %s: URL to Retraceur Updates screen.
-#: wp-admin/includes/theme.php:859
-#: wp-admin/theme-install.php:297
-#: wp-admin/themes.php:443
-msgid "<a href=\"%1$s\">Please update Retraceur</a>."
-msgstr ""
-
-#. translators: %s: Theme name.
 #: wp-admin/includes/theme.php:874
-#: wp-admin/includes/update.php:785
-#: wp-admin/themes.php:409
-#: wp-admin/themes.php:748
-#: wp-admin/themes.php:993
-msgid "There is a new version of %s available, but it does not work with your version of Retraceur."
-msgstr ""
-
-#. translators: %s: Theme name.
-#: wp-admin/includes/theme.php:889
-#: wp-admin/includes/update.php:798
-#: wp-admin/themes.php:422
-#: wp-admin/themes.php:763
-#: wp-admin/themes.php:1008
-msgid "There is a new version of %s available, but it does not work with your version of PHP."
-msgstr ""
-
-#. translators: %s: Theme name.
-#: wp-admin/includes/theme.php:904
-#: wp-admin/themes.php:1032
-msgid "This is a child theme of %s."
-msgstr ""
-
-#: wp-admin/includes/theme.php:915
-#: wp-admin/theme-install.php:293
-#: wp-admin/theme-install.php:467
-#: wp-admin/themes.php:439
-#: wp-admin/themes.php:776
-#: wp-admin/themes.php:918
-msgid "This theme does not work with your versions of Retraceur and PHP."
-msgstr ""
-
-#: wp-admin/includes/theme.php:932
-#: wp-admin/theme-install.php:310
-#: wp-admin/theme-install.php:484
-#: wp-admin/themes.php:454
-#: wp-admin/themes.php:793
-#: wp-admin/themes.php:935
-msgid "This theme does not work with your version of Retraceur."
-msgstr ""
-
-#: wp-admin/includes/theme.php:943
-#: wp-admin/theme-install.php:321
-#: wp-admin/theme-install.php:495
-#: wp-admin/themes.php:463
-#: wp-admin/themes.php:804
-#: wp-admin/themes.php:946
-msgid "This theme does not work with your version of PHP."
-msgstr ""
-
-#. translators: %s: URL to the themes page (also it activates the theme).
-#: wp-admin/includes/theme.php:952
-msgid "<a href=\"%s\">Activate this theme</a>, and use the Site Editor to customize it."
-msgstr ""
-
-#: wp-admin/includes/theme.php:962
-#: wp-admin/themes.php:1038
-msgid "Tags:"
-msgstr ""
-
-#: wp-admin/includes/theme.php:969
-#: wp-admin/includes/theme.php:982
-#: wp-admin/includes/theme.php:984
-#: wp-admin/themes.php:512
-#: wp-admin/themes.php:844
-#: wp-admin/themes.php:1046
-msgid "Customize"
-msgstr ""
-
-#. translators: %s: Theme name.
-#: wp-admin/includes/theme.php:975
-#: wp-admin/theme-install.php:343
-#: wp-admin/theme-install.php:409
-#: wp-admin/themes.php:517
-#: wp-admin/themes.php:850
-#: wp-admin/themes.php:1053
-msgctxt "theme"
-msgid "Activate %s"
-msgstr ""
-
-#: wp-admin/includes/theme.php:978
-#: wp-admin/theme-install.php:347
-#: wp-admin/theme-install.php:412
-#: wp-admin/themes.php:519
-#: wp-admin/themes.php:852
-#: wp-admin/themes.php:1056
-msgid "Activate"
-msgstr ""
-
-#: wp-admin/includes/theme.php:996
-#: wp-admin/includes/theme.php:999
-msgid "Install &amp; Activate"
-msgstr ""
-
-#: wp-admin/includes/theme.php:998
-#: wp-admin/theme-install.php:376
-#: wp-admin/theme-install.php:423
-msgctxt "theme"
-msgid "Cannot Install"
-msgstr ""
-
-#: wp-admin/includes/theme.php:1116
 msgid "Could not resume the theme."
 msgstr ""
 
-#: wp-admin/includes/theme.php:1146
+#: wp-admin/includes/theme.php:904
 msgid "One or more themes failed to load properly."
 msgstr ""
 
-#: wp-admin/includes/theme.php:1147
+#: wp-admin/includes/theme.php:905
 msgid "You can find more details and make changes on the Themes screen."
 msgstr ""
 
-#: wp-admin/includes/theme.php:1149
+#: wp-admin/includes/theme.php:907
 msgid "Go to the Themes screen"
 msgstr ""
 
@@ -10856,6 +10673,30 @@ msgstr ""
 #. translators: 1: Plugin name, 2: Details URL, 3: Additional link attributes, 4: Version number.
 #: wp-admin/includes/update.php:573
 msgid "There is a new version of %1$s available, but it does not work with your version of PHP. <a href=\"%2$s\" %3$s>View version %4$s details</a>."
+msgstr ""
+
+#. translators: %s: Theme name.
+#: wp-admin/includes/update.php:766
+#: wp-admin/themes.php:390
+#: wp-admin/themes.php:727
+#: wp-admin/themes.php:972
+msgid "There is a new version of %s available, but it does not work with your versions of Retraceur and PHP."
+msgstr ""
+
+#. translators: %s: Theme name.
+#: wp-admin/includes/update.php:785
+#: wp-admin/themes.php:409
+#: wp-admin/themes.php:748
+#: wp-admin/themes.php:993
+msgid "There is a new version of %s available, but it does not work with your version of Retraceur."
+msgstr ""
+
+#. translators: %s: Theme name.
+#: wp-admin/includes/update.php:798
+#: wp-admin/themes.php:422
+#: wp-admin/themes.php:763
+#: wp-admin/themes.php:1008
+msgid "There is a new version of %s available, but it does not work with your version of PHP."
 msgstr ""
 
 #. translators: %s: URL to Retraceur Updates screen.
@@ -13800,9 +13641,57 @@ msgstr ""
 msgid "Themes list"
 msgstr ""
 
+#: wp-admin/theme-install.php:293
+#: wp-admin/theme-install.php:467
+#: wp-admin/themes.php:439
+#: wp-admin/themes.php:776
+#: wp-admin/themes.php:918
+msgid "This theme does not work with your versions of Retraceur and PHP."
+msgstr ""
+
+#. translators: %s: URL to Retraceur Updates screen.
+#: wp-admin/theme-install.php:297
+#: wp-admin/themes.php:443
+msgid "<a href=\"%1$s\">Please update Retraceur</a>."
+msgstr ""
+
+#: wp-admin/theme-install.php:310
+#: wp-admin/theme-install.php:484
+#: wp-admin/themes.php:454
+#: wp-admin/themes.php:793
+#: wp-admin/themes.php:935
+msgid "This theme does not work with your version of Retraceur."
+msgstr ""
+
+#: wp-admin/theme-install.php:321
+#: wp-admin/theme-install.php:495
+#: wp-admin/themes.php:463
+#: wp-admin/themes.php:804
+#: wp-admin/themes.php:946
+msgid "This theme does not work with your version of PHP."
+msgstr ""
+
 #: wp-admin/theme-install.php:327
 msgctxt "theme"
 msgid "Details &amp; Preview"
+msgstr ""
+
+#. translators: %s: Theme name.
+#: wp-admin/theme-install.php:343
+#: wp-admin/theme-install.php:409
+#: wp-admin/themes.php:517
+#: wp-admin/themes.php:850
+#: wp-admin/themes.php:1053
+msgctxt "theme"
+msgid "Activate %s"
+msgstr ""
+
+#: wp-admin/theme-install.php:347
+#: wp-admin/theme-install.php:412
+#: wp-admin/themes.php:519
+#: wp-admin/themes.php:852
+#: wp-admin/themes.php:1056
+msgid "Activate"
 msgstr ""
 
 #: wp-admin/theme-install.php:349
@@ -13835,6 +13724,12 @@ msgctxt "theme"
 msgid "Cannot Install %s"
 msgstr ""
 
+#: wp-admin/theme-install.php:376
+#: wp-admin/theme-install.php:423
+msgctxt "theme"
+msgid "Cannot Install"
+msgstr ""
+
 #. translators: Hidden accessibility text.
 #: wp-admin/theme-install.php:396
 msgid "Previous theme"
@@ -13845,8 +13740,19 @@ msgstr ""
 msgid "Next theme"
 msgstr ""
 
+#. translators: %s: Number of ratings.
+#: wp-admin/theme-install.php:448
+msgid "(%s ratings)"
+msgstr ""
+
 #: wp-admin/theme-install.php:453
 msgid "This theme has not been rated yet."
+msgstr ""
+
+#. translators: %s: Theme version.
+#: wp-admin/theme-install.php:459
+#: wp-admin/themes.php:904
+msgid "Version: %s"
 msgstr ""
 
 #. translators: %s: URL to Retraceur Updates screen.
@@ -14000,6 +13906,12 @@ msgctxt "theme"
 msgid "Customize %s"
 msgstr ""
 
+#: wp-admin/themes.php:512
+#: wp-admin/themes.php:844
+#: wp-admin/themes.php:1046
+msgid "Customize"
+msgstr ""
+
 #: wp-admin/themes.php:545
 msgid "Broken Themes"
 msgstr ""
@@ -14017,8 +13929,40 @@ msgstr ""
 msgid "Install Parent Theme"
 msgstr ""
 
+#. translators: Hidden accessibility text.
+#: wp-admin/themes.php:872
+msgid "Show previous theme"
+msgstr ""
+
+#. translators: Hidden accessibility text.
+#: wp-admin/themes.php:878
+msgid "Show next theme"
+msgstr ""
+
+#. translators: Hidden accessibility text.
+#: wp-admin/themes.php:884
+msgid "Close details dialog"
+msgstr ""
+
+#: wp-admin/themes.php:961
+msgid "Update Available"
+msgstr ""
+
+#: wp-admin/themes.php:966
+msgid "Update Incompatible"
+msgstr ""
+
 #: wp-admin/themes.php:1023
 msgid "Built-in default Retraceur Theme. There’s always a point to start retracing."
+msgstr ""
+
+#. translators: %s: Theme name.
+#: wp-admin/themes.php:1032
+msgid "This is a child theme of %s."
+msgstr ""
+
+#: wp-admin/themes.php:1038
+msgid "Tags:"
 msgstr ""
 
 #. translators: %s: Theme name.
