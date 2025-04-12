@@ -418,12 +418,17 @@ function core_auto_updates_settings() {
 		*/
 		?>
 		<strong><?php esc_html_e( 'The Retraceur automatic update feature is not available yet' ); ?></strong><br />
-		<?php esc_html_e( 'In the meantime, please: do often check for updates manually.' ); ?><br />
 		<?php
 		printf(
-			'<a href="%s" target="_blank">%s</a>',
-			'https://github.com/retraceur/coeur/releases',
-			esc_html__( 'Check for updates manually' )
+			/* Translators: %s: the Retraceur GitHub releases link. */
+			esc_html__( 'In the meantime, please: do often %s.' ),
+			'<a href="https://github.com/retraceur/coeur/releases" target="_blank">' . esc_html_x( 'check for updates manually', 'update core screen' ) . '</a>'
+		);
+		echo '&nbsp;';
+		printf(
+			/* Translators: %s: the documentation link about manual upgrades. */
+			esc_html__( 'When a new version will be available, you will need to upgrade Retraceur core manually. Please read more about it in this %s.' ),
+			'<a href="' . esc_url( _x( 'https://retraceur.github.io/getting-started/upgrade/', 'documentation URL' ) ) . '" target="_blank">' . esc_html__( 'documentation chapter' ) . '</a>'
 		);
 		?>
 	</p>

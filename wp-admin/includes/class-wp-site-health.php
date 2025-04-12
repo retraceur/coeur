@@ -276,8 +276,8 @@ class WP_Site_Health {
 			);
 
 			$result['actions'] = sprintf(
-				'<a href="%s" target="_blank">%s</a>',
-				'https://github.com/retraceur/coeur/releases',
+				'<a href="%s">%s</a>',
+				esc_url( network_admin_url( 'update-core.php' ) ),
 				__( 'Check for updates manually' )
 			);
 
