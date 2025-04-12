@@ -2,7 +2,7 @@
 #adminmenuwrap,
 #adminmenu,
 #adminmenu .wp-submenu {
-	width: 160px;
+	width: 170px;
 	background-color: #1d2327;
 }
 
@@ -123,7 +123,7 @@
 	list-style: none;
 	position: absolute;
 	top: -1000em;
-	left: 160px;
+	left: 170px;
 	overflow: visible;
 	word-wrap: break-word;
 	padding: 7px 0 8px;
@@ -205,7 +205,7 @@
 
 #adminmenu .wp-not-current-submenu .wp-submenu,
 .folded #adminmenu .wp-has-current-submenu .wp-submenu {
-	min-width: 160px;
+	min-width: 170px;
 	width: auto;
 	border: 1px solid transparent;
 	border-left-width: 5px;
@@ -575,7 +575,7 @@ li#wp-admin-bar-menu-toggle {
 	}
 
 	.auto-fold #adminmenu .wp-has-current-submenu .wp-submenu {
-		min-width: 160px;
+		min-width: 170px;
 		width: auto;
 		border: 1px solid transparent;
 		border-left-width: 5px;
