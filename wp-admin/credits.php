@@ -107,6 +107,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 				<li><a href="https://www.libravatar.org/">Libravatar</a></li>
 				<li><a href="https://openmoji.org/">OpenMoji</a> <?php echo wp_staticize_emoji( '🚀' ) ;?></li>
 				<li><a href="https://wsrv.nl/">wsrv.nl</a></li>
+				<li><a href="https://undraw.co/">unDraw</a></li>
 			</ul>
 		</div>
 	</div>
