@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Retraceur 1.0.0-RC2\n"
+"Project-Id-Version: Retraceur 1.0.0-RC3\n"
 "Report-Msgid-Bugs-To: https://github.com/retraceur/coeur/issues\n"
 "Last-Translator: imath <contact@imathi.eu>\n"
 "Language-Team: Retraceur <retraceur@proton.me>\n"

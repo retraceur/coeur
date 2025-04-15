@@ -6,6 +6,27 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+## [1.0.0-RC3] - 2025-04-15
+
+### Added
+
+- Point theme: add an `author.html` and a `category.html` template.
+
+### Changed
+
+- Improve how plugin/theme version checks are performed.
+- Use WP fork of rtlcss-webpack-plugin.
+- Improve the way main Tools Admin menu/page are loaded.
+- Allow contributor to delete their account.
+- Set the contributor role as the Retraceur default role.
+- Replace all "user" occurrences in translatable string by "contributor".
+- Update @wordpress/scripts to version 30.15.0.
+
+### Removed
+
+- Remove missed customizer code.
+
+
 ## [1.0.0-RC2] - 2025-03-16
 
 ### Added
