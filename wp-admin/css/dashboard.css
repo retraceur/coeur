@@ -43,6 +43,10 @@
 	margin: 0 -8px;
 }
 
+#dashboard-widgets .postbox {
+	border: none;
+}
+
 #dashboard-widgets .postbox .inside {
 	margin-bottom: 0;
 }
@@ -696,11 +700,6 @@ body #dashboard-widgets .postbox form .submit {
 	column-gap: 10px;
 	color: #646970;
 	padding: 4px 12px;
-}
-
-#future-posts li:nth-child(odd),
-#published-posts li:nth-child(odd) {
-	background-color: #f6f7f7;
 }
 
 .activity-block {
