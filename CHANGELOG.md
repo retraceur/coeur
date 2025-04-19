@@ -6,67 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
-## [1.0.0-RC3] - 2025-04-15
-
-### Added
-
-- Point theme: add an `author.html` and a `category.html` template.
-
-### Changed
-
-- Improve how plugin/theme version checks are performed.
-- Use WP fork of rtlcss-webpack-plugin.
-- Improve the way main Tools Admin menu/page are loaded.
-- Allow contributor to delete their account.
-- Set the contributor role as the Retraceur default role.
-- Replace all "user" occurrences in translatable string by "contributor".
-- Update @wordpress/scripts to version 30.15.0.
-
-### Removed
-
-- Remove missed customizer code.
-
-
-## [1.0.0-RC2] - 2025-03-16
-
-### Added
-
-- Make sure Retraceur code is synchronized with WP 6.7.3-alpha-59977.
-
-### Changed
-
-- Make admin messages consistent when upgrading/downgrading a block.
-- Update @wordpress/scripts to version 30.12.0.
-
-
-## [1.0.0-RC1] - 2025-02-08
-
-### Added
-
-- Add a security policy.
-- Create a distinct Administration area to manage blocks and avoid mixing these with Plugins.
-- Make sure Retraceur code is synchronized with WP 6.7.2-RC2-59782.
-
-### Changed
-
-- Improve point's theme header and footer display on small screens.
-- Update credits to thank me & Retraceur best friends.
-- Replace explanations about contributing to WP with the Retraceur ones.
-- Replace WP release note with Retraceur one.
-- Disable the `wp-admin/update-core.php` screen as well as all Automatic updates.
-
-### Deprecated
-
-- `wp-admin/plugin-editor.php`.
-- `wp-admin/theme-editor.php`.
-
-### Removed
-
-- Remove the features to edit Plugin and Theme files.
-- Remove no more used images.
-
-
-## [1.0.0-beta1] - 2025-01-14
+## [1.0.0] - 2025-04-20
 
 ### Added
 
@@ -79,6 +19,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Introduce a new registration workflow based on the `$wpdb-signups` DB table use.
 - Add a way for Subscribers to freely delete their account.
 - Add security policy, a privacy policy as well as contributing guidelines.
+- Create a distinct Administration area to manage blocks and avoid mixing these with Plugins.
+- Make sure Retraceur code is synchronized with WP 6.7.2-RC2-59782.
+- Make sure Retraceur code is synchronized with WP 6.7.3-alpha-59977.
+- Point theme: add an `author.html` and a `category.html` template.
 
 ### Changed
 
@@ -86,7 +30,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - All WP Graphics (logo, images, animations,...) were replaced by Retraceur ones.
 - Replace Gravatar by Libravatar.
 - Replace WP Emojis by OpenMujis.
-- Improve the WP Admin Tools main screen to summarize the available tools. 
+- Improve the WP Admin Tools main screen to summarize the available tools.
+- Improve point's theme header and footer display on small screens.
+- Update credits to thank me & Retraceur best friends.
+- Replace explanations about contributing to WP with the Retraceur ones.
+- Replace WP release note with Retraceur one.
+- Disable the `wp-admin/update-core.php` screen as well as all Automatic updates.
+- Make admin messages consistent when upgrading/downgrading a block.
+- Update @wordpress/scripts to version 30.12.0.
+- Improve how plugin/theme version checks are performed.
+- Use WP fork of rtlcss-webpack-plugin.
+- Improve the way main Tools Admin menu/page are loaded.
+- Allow contributor to delete their account.
+- Set the contributor role as the Retraceur default role.
+- Replace all "user" occurrences in translatable string by "contributor".
+- Update @wordpress/scripts to version 30.15.0.
+
 
 ### Deprecated
 
@@ -122,6 +81,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `wp-admin/edit-comments.php`.
 - `wp-admin/customize.php`.
 - `wp-admin/comment.php`.
+- `wp-admin/plugin-editor.php`.
+- `wp-admin/theme-editor.php`.
 
 ### Removed
 
@@ -140,3 +101,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Remove the WP legacy Classic Editor code.
 - Remove all WP Twenty* default themes.
 - Remove the embed & social link blocks related to WP.
+- Remove the features to edit Plugin and Theme files.
+- Remove no more used images.
+- Remove missed customizer code.
+
+
+## [1.0.0-RC3] - 2025-04-15
+
+
+## [1.0.0-RC2] - 2025-03-16
+
+
+## [1.0.0-RC1] - 2025-02-08
+
+
+## [1.0.0-beta1] - 2025-01-14
