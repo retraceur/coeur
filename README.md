@@ -20,8 +20,8 @@ Retraceur is setting me (and possibly "us"?) free from the WordPress®[^1] trade
 Retraceur Core ("**coeur**" in french, if you're wondering about the meaning of this repository name) only keeps what a **Personal Online Publication Hub** needs:
 
 - The Link/Bookmark manager was removed.
-- The Multisite feature was removed.
-- The WP Comments & Trackbacks feature were removed.
+- The Multisite feature was removed. It will be soon packaged as a [feature as a plugin](https://github.com/retraceur/reseau).
+- The WP Comments & Trackbacks feature were removed. They will be soon packaged as a [feature as a plugin](https://github.com/retraceur/reactions).
 - The legacy WP Editor code (_the one used by the Classic editor_) was removed.
 - Using the **Block Editor** & a **Block Theme** is required:
   - The WP Customizer was removed.
