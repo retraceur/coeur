@@ -85,32 +85,37 @@
 			],
 			"fontSizes": [
 				{
-					"slug": "ultra-small",
+					"slug": "point-ultra-small",
 					"size": "0.857142857rem",
 					"name": "Ultra Small"
 				},
 				{
-					"slug": "small",
+					"slug": "point-small",
 					"size": "0.875rem",
 					"name": "Small"
 				},
 				{
-					"slug": "medium",
+					"slug": "point-regular",
 					"size": "1rem",
+					"name": "Regular"
+				},
+				{
+					"slug": "point-medium",
+					"size": "1.25rem",
 					"name": "Medium"
 				},
 				{
-					"slug": "large",
+					"slug": "point-large",
 					"size": "1.5rem",
 					"name": "Large"
 				},
 				{
-					"slug": "very-large",
+					"slug": "point-very-large",
 					"size": "2rem",
 					"name": "Very Large"
 				},
 				{
-					"slug": "ultra-large",
+					"slug": "point-ultra-large",
 					"size": "2.25rem",
 					"name": "Ultra Large"
 				}
@@ -135,7 +140,7 @@
 			"text": "var(--wp--preset--color--primary)"
 		},
 		"typography": {
-			"fontSize": "var(--wp--preset--font-size--medium)",
+			"fontSize": "var(--wp--preset--font-size--point-regular)",
 			"fontFamily": "var(--wp--preset--font-family--noto-serif)",
 			"lineHeight": "1.5"
 		},
@@ -150,22 +155,32 @@
 			},
 			"h1": {
 				"typography": {
-					"fontSize": "var(--wp--preset--font-size--ultra-large)"
+					"fontSize": "var(--wp--preset--font-size--point-ultra-large)"
 				}
 			},
 			"h2": {
 				"typography": {
-					"fontSize": "var(--wp--preset--font-size--very-large)"
+					"fontSize": "var(--wp--preset--font-size--point-very-large)"
 				}
 			},
 			"h3": {
 				"typography": {
-					"fontSize": "var(--wp--preset--font-size--large)"
+					"fontSize": "var(--wp--preset--font-size--point-large)"
 				}
 			},
 			"h4": {
 				"typography": {
-					"fontSize": "var(--wp--preset--font-size--small)"
+					"fontSize": "var(--wp--preset--font-size--point-medium)"
+				}
+			},
+			"h5": {
+				"typography": {
+					"fontSize": "var(--wp--preset--font-size--point-regular)"
+				}
+			},
+			"h6": {
+				"typography": {
+					"fontSize": "var(--wp--preset--font-size--point-small)"
 				}
 			},
 			"link": {
@@ -228,6 +243,11 @@
 						"top": "1em",
 						"bottom": "1em"
 					}
+				}
+			},
+			"core/navigation": {
+				"typography": {
+					"fontSize": "var(--wp--preset--font-size--point-medium)"
 				}
 			}
 		}
