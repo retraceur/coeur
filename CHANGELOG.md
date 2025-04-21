@@ -45,6 +45,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Set the contributor role as the Retraceur default role.
 - Replace all "user" occurrences in translatable string by "contributor".
 - Update @wordpress/scripts to version 30.15.0.
+- Point theme: make sure to comply with Headings hierarchy.
+- Point theme: improve font size typography.
 
 
 ### Deprecated
