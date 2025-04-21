@@ -1,13 +1,13 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Retraceur 1.0.0-RC3\n"
+"Project-Id-Version: Retraceur 1.0.0\n"
 "Report-Msgid-Bugs-To: https://github.com/retraceur/coeur/issues\n"
 "Last-Translator: imath <contact@imathi.eu>\n"
 "Language-Team: Retraceur <retraceur@proton.me>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-04-12T07:46:50+00:00\n"
+"POT-Creation-Date: 2025-04-21T07:15:08+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 
@@ -636,44 +636,44 @@ msgstr ""
 msgid "The other Retraceur best Open Source friends %s"
 msgstr ""
 
-#: wp-admin/credits.php:121
+#: wp-admin/credits.php:122
 msgid "Project Leaders"
 msgstr ""
 
 #. translators: %s: The current Retraceur version number.
-#: wp-admin/credits.php:123
+#: wp-admin/credits.php:124
 msgid "Core Contributors to Retraceur %s"
 msgstr ""
 
-#: wp-admin/credits.php:124
+#: wp-admin/credits.php:125
 msgid "Noteworthy Contributors"
 msgstr ""
 
-#: wp-admin/credits.php:125
+#: wp-admin/credits.php:126
 msgid "Cofounder, Project Lead"
 msgstr ""
 
-#: wp-admin/credits.php:126
+#: wp-admin/credits.php:127
 msgid "Lead Developer"
 msgstr ""
 
-#: wp-admin/credits.php:127
+#: wp-admin/credits.php:128
 msgid "Release Lead"
 msgstr ""
 
-#: wp-admin/credits.php:128
+#: wp-admin/credits.php:129
 msgid "Release Design Lead"
 msgstr ""
 
-#: wp-admin/credits.php:129
+#: wp-admin/credits.php:130
 msgid "Release Deputy"
 msgstr ""
 
-#: wp-admin/credits.php:130
+#: wp-admin/credits.php:131
 msgid "Core Developer"
 msgstr ""
 
-#: wp-admin/credits.php:131
+#: wp-admin/credits.php:132
 msgid "External Libraries"
 msgstr ""
 
