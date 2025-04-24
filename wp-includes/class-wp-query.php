@@ -3765,8 +3765,9 @@ class WP_Query {
 
 		if ( in_array( $name, $this->deprecated_properties, true ) ) {
 			_deprecated_argument( __METHOD__, '1.0.0', '', true );
-			return false;
 		}
+
+		return false;
 	}
 
 	/**
