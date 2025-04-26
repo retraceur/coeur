@@ -300,7 +300,6 @@ class WP_HTML_Processor extends WP_HTML_Tag_Processor {
 		}
 
 		$processor                             = new static( $html, self::CONSTRUCTOR_UNLOCK_CODE );
-		$processor->state->context_node        = array( 'BODY', array() );
 		$processor->state->insertion_mode      = WP_HTML_Processor_State::INSERTION_MODE_IN_BODY;
 		$processor->state->encoding            = $encoding;
 		$processor->state->encoding_confidence = 'certain';
@@ -319,7 +318,7 @@ class WP_HTML_Processor extends WP_HTML_Tag_Processor {
 
 		$context_node = new WP_HTML_Token(
 			'context-node',
-			$processor->state->context_node[0],
+			'BODY',
 			false
 		);
 
@@ -493,15 +492,6 @@ class WP_HTML_Processor extends WP_HTML_Tag_Processor {
 		$fragment_processor->context_node                = clone $this->state->current_token;
 		$fragment_processor->context_node->bookmark_name = 'context-node';
 		$fragment_processor->context_node->on_destroy    = null;
-
-		$fragment_processor->state->context_node = array( $fragment_processor->context_node->node_name, array() );
-
-		$attribute_names = $this->get_attribute_names_with_prefix( '' );
-		if ( null !== $attribute_names ) {
-			foreach ( $attribute_names as $name ) {
-				$fragment_processor->state->context_node[1][ $name ] = $this->get_attribute( $name );
-			}
-		}
 
 		$fragment_processor->breadcrumbs = array( 'HTML', $fragment_processor->context_node->node_name );
 
