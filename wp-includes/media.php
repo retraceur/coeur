@@ -290,7 +290,7 @@ function image_downsize( $id, $size = 'medium' ) {
  *     If true, image will be cropped to the specified dimensions using center positions.
  *     If an array, the image will be cropped using the array to specify the crop location:
  *
- *     @type string $0 The x crop position. Accepts 'left' 'center', or 'right'.
+ *     @type string $0 The x crop position. Accepts 'left', 'center', or 'right'.
  *     @type string $1 The y crop position. Accepts 'top', 'center', or 'bottom'.
  * }
  */
@@ -352,7 +352,7 @@ function remove_image_size( $name ) {
  *     If true, image will be cropped to the specified dimensions using center positions.
  *     If an array, the image will be cropped using the array to specify the crop location:
  *
- *     @type string $0 The x crop position. Accepts 'left' 'center', or 'right'.
+ *     @type string $0 The x crop position. Accepts 'left', 'center', or 'right'.
  *     @type string $1 The y crop position. Accepts 'top', 'center', or 'bottom'.
  * }
  */
@@ -532,7 +532,7 @@ function wp_constrain_dimensions( $current_width, $current_height, $max_width = 
  *     If true, image will be cropped to the specified dimensions using center positions.
  *     If an array, the image will be cropped using the array to specify the crop location:
  *
- *     @type string $0 The x crop position. Accepts 'left' 'center', or 'right'.
+ *     @type string $0 The x crop position. Accepts 'left', 'center', or 'right'.
  *     @type string $1 The y crop position. Accepts 'top', 'center', or 'bottom'.
  * }
  * @return array|false Returned array matches parameters for `imagecopyresampled()`. False on failure.
@@ -686,7 +686,7 @@ function image_resize_dimensions( $orig_w, $orig_h, $dest_w, $dest_h, $crop = fa
  *     If true, image will be cropped to the specified dimensions using center positions.
  *     If an array, the image will be cropped using the array to specify the crop location:
  *
- *     @type string $0 The x crop position. Accepts 'left' 'center', or 'right'.
+ *     @type string $0 The x crop position. Accepts 'left', 'center', or 'right'.
  *     @type string $1 The y crop position. Accepts 'top', 'center', or 'bottom'.
  * }
  * @return array|false Metadata array on success. False if no image was created.
