@@ -5164,7 +5164,7 @@ function wp_get_duotone_filter_id( $preset ) {
  *
  * @since WP 5.9.0
  * @since WP 6.1.0 Allow unset for preset colors.
- * @deprecated WP 6.3.0
+ * @deprecated WP 6.3.0 Use WP_Duotone::get_filter_svg_from_preset() instead.
  *
  * @access private
  *
@@ -5172,7 +5172,7 @@ function wp_get_duotone_filter_id( $preset ) {
  * @return string Duotone CSS filter property url value.
  */
 function wp_get_duotone_filter_property( $preset ) {
-	_deprecated_function( __FUNCTION__, '6.3.0' );
+	_deprecated_function( __FUNCTION__, '6.3.0', 'WP_Duotone::get_filter_svg_from_preset()' );
 	return WP_Duotone::get_filter_css_property_value_from_preset( $preset );
 }
 

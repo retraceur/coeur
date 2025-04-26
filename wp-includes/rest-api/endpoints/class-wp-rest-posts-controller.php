@@ -1639,6 +1639,8 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 				return $result;
 			}
 		}
+
+		return null;
 	}
 
 	/**
