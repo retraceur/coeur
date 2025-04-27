@@ -3514,7 +3514,7 @@ function retraceur_validate_signup( $user_login, $user_email ) {
 	$orig_username = $user_login;
 	$user_name     = preg_replace( '/\s+/', '', sanitize_user( $user_login, true ) );
 
-	if ( $user_name != $orig_username || preg_match( '/[^a-z0-9]/', $user_name ) ) {
+	if ( $user_name !== $orig_username || preg_match( '/[^a-z0-9]/', $user_name ) ) {
 		$errors->add( 'user_name', __( 'Usernames can only contain lowercase letters (a-z) and numbers.' ) );
 		$user_name = $orig_username;
 	}
