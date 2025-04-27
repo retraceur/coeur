@@ -1,7 +1,7 @@
 <?php
 /**
  * APIs to interact with global settings & styles.
- * 
+ *
  * @since 1.0.0 Retraceur fork.
  *
  * @package Retraceur
@@ -142,7 +142,7 @@ function wp_get_global_styles( $path = array(), $context = array() ) {
  * @since WP 6.6.0 Resolves relative paths in theme.json styles to theme absolute paths.
  *
  * @param array $types Optional. Types of styles to load.
- *                     It accepts as values 'variables', 'presets', 'styles', 'base-layout-styles'.
+ *                     See {@see 'WP_Theme_JSON::get_stylesheet'} for all valid types.
  *                     If empty, it'll load the following:
  *                     - for themes without theme.json: 'variables', 'presets', 'base-layout-styles'.
  *                     - for themes with theme.json: 'variables', 'presets', 'styles'.
