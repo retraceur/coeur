@@ -3526,10 +3526,12 @@ function retraceur_validate_signup( $user_login, $user_email ) {
 	}
 
 	$illegal_names = get_site_option( 'illegal_names' );
+
 	if ( ! is_array( $illegal_names ) ) {
 		$illegal_names = array( 'www', 'web', 'root', 'admin', 'main', 'invite', 'administrator' );
 		add_site_option( 'illegal_names', $illegal_names );
 	}
+
 	if ( in_array( $user_name, $illegal_names, true ) ) {
 		$errors->add( 'user_name', __( 'Sorry, that username is not allowed.' ) );
 	}
