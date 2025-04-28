@@ -309,10 +309,6 @@ add_action( 'start_previewing_theme', 'wp_clean_theme_json_cache' );
 add_action( 'wp_enqueue_scripts', 'wp_enqueue_emoji_styles' );
 add_action( 'wp_print_styles', 'print_emoji_styles' ); // Retained for backwards-compatibility. Unhooked by wp_enqueue_emoji_styles().
 
-if ( isset( $_GET['replytocom'] ) ) {
-	add_filter( 'wp_robots', 'wp_robots_no_robots' );
-}
-
 // Login actions.
 add_action( 'login_head', 'wp_robots', 1 );
 add_filter( 'login_head', 'wp_resource_hints', 8 );
