@@ -33,6 +33,7 @@ if ( isset( $_GET['import'] ) && ! defined( 'WP_LOAD_IMPORTERS' ) ) {
 	define( 'WP_LOAD_IMPORTERS', true );
 }
 
+/** Load Retraceur Bootstrap */
 require_once dirname( __DIR__ ) . '/wp-load.php';
 
 nocache_headers();

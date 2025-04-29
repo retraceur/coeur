@@ -1,14 +1,17 @@
-@use "sass:color";
-
-$scheme-name: "retraceur";
-$base-color: #1e1e1e;
 $highlight-color: #2243b6;
-$menu-submenu-focus-text: #4563c9;
-$notification-color: $highlight-color;
 
-$link: $highlight-color;
-$link-focus: color.adjust($highlight-color, $lightness: -10%);
+@use "../_admin.scss" with (
+	$scheme-name: "retraceur",
+	$base-color: #1e1e1e,
+	$icon-color: #f3f1f1,
+	$link: #2243b6,
+	$highlight-color: $highlight-color,
+	$notification-color: $highlight-color,
 
-$custom-welcome-panel: "false";
+	$menu-submenu-text: #e2ecf1,
+	$menu-submenu-focus-text: #4563c9,
+	$menu-submenu-background: #4796b3,
 
-@import "../_admin.scss";
+	$dashboard-icon-background: $highlight-color,
+	$custom-welcome-panel: "false"
+);
