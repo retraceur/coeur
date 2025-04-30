@@ -12,4 +12,9 @@
  * @subpackage Multisite
  */
 
+// Don't load directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	die( '-1' );
+}
+
 _deprecated_file( basename( __FILE__ ), '1.0.0', '', '', true );

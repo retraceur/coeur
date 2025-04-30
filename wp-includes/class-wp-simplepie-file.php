@@ -9,6 +9,11 @@
  * @subpackage Feed
  */
 
+// Don't load directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	die( '-1' );
+}
+
 /**
  * Core class for fetching remote files and reading local files with SimplePie.
  *

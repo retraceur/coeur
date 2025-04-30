@@ -9,6 +9,11 @@
  * @subpackage Multisite
  */
 
+// Don't load directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	die( '-1' );
+}
+
 if ( ! has_action( 'retraceur_network_admin_menu', 'retraceur_reseau_network_admin_menu' ) ) {
 	wp_die(
 		'<h1>' . __( 'Retraceur does not provide the Multisite feature by default.' ) . '</h1>' .

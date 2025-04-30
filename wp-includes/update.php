@@ -8,6 +8,11 @@
  * @package Retraceur
  */
 
+// Don't load directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	die( '-1' );
+}
+
 /**
  * Checks Retraceur version against the newest version.
  *
