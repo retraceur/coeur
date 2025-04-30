@@ -2510,7 +2510,7 @@ function the_date_xml() {
 }
 
 /**
- * Displays or retrieves the date the current post was written (once per date)
+ * Displays or retrieves the date of the post (once per date).
  *
  * Will only output the date if the current post's date is different from the
  * previous one output.
@@ -2543,7 +2543,7 @@ function the_date( $format = '', $before = '', $after = '', $display = true ) {
 	}
 
 	/**
-	 * Filters the date a post was published for display.
+	 * Filters the date of the post, for display.
 	 *
 	 * @since WP 0.71
 	 *
@@ -2562,7 +2562,7 @@ function the_date( $format = '', $before = '', $after = '', $display = true ) {
 }
 
 /**
- * Retrieves the date on which the post was written.
+ * Retrieves the date of the post.
  *
  * Unlike the_date() this function will always return the date.
  * Modify output with the {@see 'get_the_date'} filter.
@@ -2585,7 +2585,7 @@ function get_the_date( $format = '', $post = null ) {
 	$the_date = get_post_time( $_format, false, $post, true );
 
 	/**
-	 * Filters the date a post was published.
+	 * Filters the date of the post.
 	 *
 	 * @since WP 3.0.0
 	 *
@@ -2611,7 +2611,7 @@ function the_modified_date( $format = '', $before = '', $after = '', $display = 
 	$the_modified_date = $before . get_the_modified_date( $format ) . $after;
 
 	/**
-	 * Filters the date a post was last modified for display.
+	 * Filters the date a post was last modified, for display.
 	 *
 	 * @since WP 2.1.0
 	 *
@@ -2665,7 +2665,7 @@ function get_the_modified_date( $format = '', $post = null ) {
 }
 
 /**
- * Displays the time at which the post was written.
+ * Displays the time of the post.
  *
  * @since WP 0.71
  *
@@ -2675,7 +2675,7 @@ function get_the_modified_date( $format = '', $post = null ) {
  */
 function the_time( $format = '' ) {
 	/**
-	 * Filters the time a post was written for display.
+	 * Filters the time of the post, for display.
 	 *
 	 * @since WP 0.71
 	 *
@@ -2687,7 +2687,7 @@ function the_time( $format = '' ) {
 }
 
 /**
- * Retrieves the time at which the post was written.
+ * Retrieves the time of the post.
  *
  * @since WP 1.5.0
  *
@@ -2710,7 +2710,7 @@ function get_the_time( $format = '', $post = null ) {
 	$the_time = get_post_time( $_format, false, $post, true );
 
 	/**
-	 * Filters the time a post was written.
+	 * Filters the time of the post.
 	 *
 	 * @since WP 1.5.0
 	 *
@@ -2723,7 +2723,7 @@ function get_the_time( $format = '', $post = null ) {
 }
 
 /**
- * Retrieves the time at which the post was written.
+ * Retrieves the localized time of the post.
  *
  * @since WP 2.0.0
  *
@@ -2767,12 +2767,12 @@ function get_post_time( $format = 'U', $gmt = false, $post = null, $translate = 
 	}
 
 	/**
-	 * Filters the localized time a post was written.
+	 * Filters the localized time of the post.
 	 *
 	 * @since WP 2.6.0
 	 *
 	 * @param string|int $time   Formatted date string or Unix timestamp if `$format` is 'U' or 'G'.
-	 * @param string     $format Format to use for retrieving the time the post was written.
+	 * @param string     $format Format to use for retrieving the date of the post.
 	 *                           Accepts 'G', 'U', or PHP date format.
 	 * @param bool       $gmt    Whether to retrieve the GMT time.
 	 */
@@ -2969,7 +2969,7 @@ function get_post_modified_time( $format = 'U', $gmt = false, $post = null, $tra
 }
 
 /**
- * Displays the weekday on which the post was written.
+ * Displays the localized weekday for the post.
  *
  * @since WP 0.71
  *
@@ -2987,7 +2987,7 @@ function the_weekday() {
 	$the_weekday = $wp_locale->get_weekday( get_post_time( 'w', false, $post ) );
 
 	/**
-	 * Filters the weekday on which the post was written, for display.
+	 * Filters the localized weekday of the post, for display.
 	 *
 	 * @since WP 0.71
 	 *
@@ -2997,7 +2997,7 @@ function the_weekday() {
 }
 
 /**
- * Displays the weekday on which the post was written.
+ * Displays the localized weekday for the post.
  *
  * Will only output the weekday if the current post's weekday is different from
  * the previous one output.
@@ -3030,7 +3030,7 @@ function the_weekday_date( $before = '', $after = '' ) {
 	}
 
 	/**
-	 * Filters the localized date on which the post was written, for display.
+	 * Filters the localized weekday of the post, for display.
 	 *
 	 * @since WP 0.71
 	 *
@@ -4245,7 +4245,7 @@ function get_search_query( $escaped = true ) {
  */
 function the_search_query() {
 	/**
-	 * Filters the contents of the search query variable for display.
+	 * Filters the contents of the search query variable, for display.
 	 *
 	 * @since WP 2.3.0
 	 *
@@ -4890,7 +4890,7 @@ function wp_generator() {
  */
 function the_generator( $type ) {
 	/**
-	 * Filters the output of the XHTML generator tag for display.
+	 * Filters the output of the XHTML generator tag, for display.
 	 *
 	 * @since WP 2.5.0
 	 *
