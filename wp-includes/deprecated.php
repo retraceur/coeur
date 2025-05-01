@@ -6952,7 +6952,7 @@ function retrieve_widgets( $theme_changed = false ) {
 }
 
 /**
- * Handle sidebars config after theme change
+ * Handles sidebars config after theme change
  *
  * @since WP 3.3.0
  * @deprecated 1.0.0 Retraceur removed the Widgets feature.
@@ -6964,7 +6964,7 @@ function _wp_sidebars_changed() {
 }
 
 /**
- * Register a widget
+ * Registers a widget
  *
  * Registers a WP_Widget widget
  *
@@ -7111,7 +7111,7 @@ function is_registered_sidebar( $sidebar_id ) {
 }
 
 /**
- * Register an instance of a widget.
+ * Registers an instance of a widget.
  *
  * The default widget option is 'classname' that can be overridden.
  *
@@ -7144,7 +7144,7 @@ function wp_register_sidebar_widget( $id, $name, $output_callback, $options = ar
 }
 
 /**
- * Retrieve description for widget.
+ * Retrieves description for widget.
  *
  * When registering widgets, the options can also include 'description' that
  * describes the widget for display on the widget administration panel or
@@ -7160,7 +7160,7 @@ function wp_widget_description( $id ) {
 }
 
 /**
- * Retrieve description for a sidebar.
+ * Retrieves description for a sidebar.
  *
  * When registering sidebars a 'description' parameter can be included that
  * describes the sidebar for display on the widget administration panel.
@@ -7175,7 +7175,7 @@ function wp_sidebar_description( $id ) {
 }
 
 /**
- * Remove widget from sidebar.
+ * Removes widget from sidebar.
  *
  * @since WP 2.2.0
  * @deprecated 1.0.0 Retraceur removed the Widgets feature.
@@ -7267,7 +7267,7 @@ function _register_widget_form_callback( $id, $name, $form_callback, $options = 
 }
 
 /**
- * Remove control callback for widget.
+ * Removes control callback for widget.
  *
  * @since WP 2.2.0
  * @deprecated 1.0.0 Retraceur removed the Widgets feature.
@@ -7279,7 +7279,7 @@ function wp_unregister_widget_control( $id ) {
 }
 
 /**
- * Display dynamic sidebar.
+ * Displays dynamic sidebar.
  *
  * By default this displays the default sidebar or 'sidebar-1'. If your theme specifies the 'id' or
  * 'name' parameter for its registered sidebars you can pass an ID or name as the $index parameter.
@@ -7435,8 +7435,8 @@ function dynamic_sidebar( $index = 1 ) {
 /**
  * Determines whether a given widget is displayed on the front end.
  *
- * Either $callback or $id_base can be used
- * $id_base is the first argument when extending WP_Widget class
+ * Either $callback or $id_base can be used.
+ * $id_base is the first argument when extending WP_Widget class.
  * Without the optional $widget_id parameter, returns the ID of the first sidebar
  * in which the first instance of the widget with the given callback or $id_base is found.
  * With the $widget_id parameter, returns the ID of the sidebar where
@@ -7506,7 +7506,7 @@ function is_active_sidebar( $index ) {
 }
 
 /**
- * Retrieve full list of sidebars and their widget instance IDs.
+ * Retrieves the full list of sidebars and their widget instance IDs.
  *
  * Will upgrade sidebar widget list, if needed. Will also save updated list, if
  * needed.
@@ -7554,7 +7554,7 @@ function wp_get_sidebar( $id ) {
 }
 
 /**
- * Set the sidebar widget option to update sidebars.
+ * Sets the sidebar widget option to update sidebars.
  *
  * @since WP 2.2.0
  * @deprecated 1.0.0 Retraceur removed the Widgets feature.
@@ -7568,7 +7568,7 @@ function wp_set_sidebars_widgets( $sidebars_widgets ) {
 }
 
 /**
- * Retrieve default registered sidebars list.
+ * Retrieves default registered sidebars list.
  *
  * @since WP 2.2.0
  * @deprecated 1.0.0 Retraceur removed the Widgets feature.
@@ -7598,7 +7598,7 @@ function wp_convert_widget_settings( $base_name, $option_name, $settings ) {
 }
 
 /**
- * Output an arbitrary widget as a template tag.
+ * Outputs an arbitrary widget as a template tag.
  *
  * @since WP 2.8.0
  * @deprecated 1.0.0 Retraceur removed the Widgets feature.
@@ -7680,7 +7680,7 @@ function _wp_remove_unregistered_widgets( $sidebars_widgets, $allowed_widget_ids
 }
 
 /**
- * Display the RSS entries in a list.
+ * Displays the RSS entries in a list.
  *
  * @since WP 2.5.0
  * @deprecated 1.0.0 Retraceur removed the Widgets feature.
@@ -7693,7 +7693,7 @@ function wp_widget_rss_output( $rss, $args = array() ) {
 }
 
 /**
- * Display RSS widget options form.
+ * Displays RSS widget options form.
  *
  * The options for what fields are displayed for the RSS form are all booleans
  * and are as follows: 'url', 'title', 'items', 'show_summary', 'show_author',
@@ -7710,7 +7710,7 @@ function wp_widget_rss_form( $args, $inputs = null ) {
 }
 
 /**
- * Process RSS feed widget data and optionally retrieve feed items.
+ * Processes RSS feed widget data and optionally retrieve feed items.
  *
  * The feed widget can not have more than 20 items or it will reset back to the
  * default, which is 10.
@@ -7757,9 +7757,9 @@ function wp_widgets_init() {
 }
 
 /**
- * Whether or not to use the block editor to manage widgets. Defaults to true
- * unless a theme has removed support for widgets-block-editor or a plugin has
- * filtered the return value of this function.
+ * Determines whether or not to use the block editor to manage widgets.
+ * Defaults to true unless a theme has removed support for widgets-block-editor
+ * or a plugin has filtered the return value of this function.
  *
  * @since WP 5.8.0
  * @deprecated 1.0.0 Retraceur removed the Widgets feature.

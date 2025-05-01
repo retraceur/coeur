@@ -333,11 +333,12 @@ function wp_oembed_register_route() {
  * Adds oEmbed discovery links in the head element of the website.
  *
  * @since WP 4.4.0
+ * @since WP 6.8.0 Output was adjusted to only embed if the post supports it.
  */
 function wp_oembed_add_discovery_links() {
 	$output = '';
 
-	if ( is_singular() ) {
+	if ( is_singular() && is_post_embeddable() ) {
 		$output .= '<link rel="alternate" title="' . _x( 'oEmbed (JSON)', 'oEmbed resource link name' ) . '" type="application/json+oembed" href="' . esc_url( get_oembed_endpoint_url( get_permalink() ) ) . '" />' . "\n";
 
 		if ( class_exists( 'SimpleXMLElement' ) ) {
@@ -540,11 +541,12 @@ function get_post_embed_html( $width, $height, $post = null ) {
  * Retrieves the oEmbed response data for a given post.
  *
  * @since WP 4.4.0
+ * @since WP 6.8.0 Output was adjusted to only embed if the post type supports it.
  *
  * @param WP_Post|int $post  Post ID or post object.
  * @param int         $width The requested width.
- * @return array|false Response data on success, false if post doesn't exist
- *                     or is not publicly viewable.
+ * @return array|false Response data on success, false if post doesn't exist,
+ *                     is not publicly viewable or post type is not embeddable.
  */
 function get_oembed_response_data( $post, $width ) {
 	$post  = get_post( $post );
@@ -555,6 +557,10 @@ function get_oembed_response_data( $post, $width ) {
 	}
 
 	if ( ! is_post_publicly_viewable( $post ) ) {
+		return false;
+	}
+
+	if ( ! is_post_embeddable( $post ) ) {
 		return false;
 	}
 

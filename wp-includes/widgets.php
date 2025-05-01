@@ -3,7 +3,7 @@
  * Core Widgets API
  *
  * This API is used for creating dynamic sidebar without hardcoding functionality into
- * themes
+ * themes.
  *
  * Includes both internal WP routines and theme-use routines.
  *
