@@ -1278,12 +1278,16 @@ $( function() {
 		$document.trigger( 'wp-notice-added' );
 	};
 
+	// Stores initial pagination value for comparison.
+	var initialPagedValue = document.querySelector( '#current-page-selector' ).value;
+
 	$( '.bulkactions' ).parents( 'form' ).on( 'submit', function( event ) {
 		var form = this,
-			submitterName = event.originalEvent && event.originalEvent.submitter ? event.originalEvent.submitter.name : false,
-			currentPageSelector = form.querySelector( '#current-page-selector' );
+			submitterName = event.originalEvent && event.originalEvent.submitter ? event.originalEvent.submitter.name : false;
 
-		if ( currentPageSelector && currentPageSelector.defaultValue !== currentPageSelector.value ) {
+		var currentPagedValue = form.querySelector( '#current-page-selector' ).value;
+
+		if ( initialPagedValue !== currentPagedValue ) {
 			return; // Pagination form submission.
 		}
 

@@ -519,6 +519,15 @@ class WP {
 			}
 		}
 
+		if ( is_singular() ) {
+			$post = isset( $wp_query->post ) ? $wp_query->post : null;
+
+			// Send nocache headers for password protected posts to avoid unwanted caching.
+			if ( ! empty( $post->post_password ) ) {
+				$headers = array_merge( $headers, wp_get_nocache_headers() );
+			}
+		}
+
 		/**
 		 * Filters the HTTP headers before they're sent to the browser.
 		 *
