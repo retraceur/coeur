@@ -884,11 +884,11 @@ echo esc_html( $title );
 if ( ( ! is_multisite() || is_network_admin() ) && current_user_can( 'install_plugins' ) ) {
 	if ( 'block' === $plugins_type ) {
 		?>
-		<a href="<?php echo esc_url( self_admin_url( 'block-install.php' ) ); ?>" class="page-title-action"><?php echo esc_html__( 'Add New Block' ); ?></a>
+		<a href="<?php echo esc_url( self_admin_url( 'block-install.php' ) ); ?>" class="page-title-action"><?php echo esc_html__( 'Add Block' ); ?></a>
 		<?php
 	} else {
 		?>
-		<a href="<?php echo esc_url( self_admin_url( 'plugin-install.php' ) ); ?>" class="page-title-action"><?php echo esc_html__( 'Add New Plugin' ); ?></a>
+		<a href="<?php echo esc_url( self_admin_url( 'plugin-install.php' ) ); ?>" class="page-title-action"><?php echo esc_html__( 'Add Plugin' ); ?></a>
 		<?php
 	}
 }

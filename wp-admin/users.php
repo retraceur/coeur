@@ -48,7 +48,7 @@ get_current_screen()->add_help_tab(
 			__( 'This screen lists all the existing contributors for your site. Each contributor has one of the defined roles as set by the site admin: %s. Contributors with roles other than Administrator will see fewer options in the dashboard navigation when they are logged in, based on their role.' ),
 			$role_list
 		) . '</p>' .
-		'<p>' . __( 'To add a new contributor for your site, click the Add New Contributor button at the top of the screen or Add New Contributor in the Contributors menu section.' ) . '</p>',
+		'<p>' . __( 'To add a contributor for your site, click the Add Contributor button at the top of the screen or Add Contributor in the Contributors menu section.' ) . '</p>',
 	)
 );
 
@@ -784,7 +784,7 @@ switch ( $wp_list_table->current_action() ) {
 			printf(
 				'<a href="%1$s" class="page-title-action">%2$s</a>',
 				esc_url( admin_url( 'user-new.php' ) ),
-				esc_html__( 'Add New Contributor' )
+				esc_html__( 'Add Contributor' )
 			);
 		} elseif ( is_multisite() && current_user_can( 'promote_users' ) ) {
 			printf(

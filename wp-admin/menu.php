@@ -68,7 +68,7 @@ $menu[4] = array( '', 'read', 'separator1', '', 'wp-menu-separator' );
 
 $menu[10]                      = array( __( 'Media' ), 'upload_files', 'upload.php', '', 'menu-top menu-icon-media', 'menu-media', 'dashicons-admin-media' );
 	$submenu['upload.php'][5]  = array( __( 'Library' ), 'upload_files', 'upload.php' );
-	$submenu['upload.php'][10] = array( __( 'Add New Media File' ), 'upload_files', 'media-new.php' );
+	$submenu['upload.php'][10] = array( __( 'Add Media File' ), 'upload_files', 'media-new.php' );
 	$i                         = 15;
 foreach ( get_taxonomies_for_attachments( 'objects' ) as $tax ) {
 	if ( ! $tax->show_ui || ! $tax->show_in_menu ) {
@@ -204,7 +204,7 @@ $menu[65] = array( sprintf( __( 'Plugins %s' ), $count ), 'activate_plugins', 'p
 $submenu['plugins.php'][5] = array( __( 'Installed Plugins' ), 'activate_plugins', 'plugins.php' );
 
 if ( ! is_multisite() ) {
-	$submenu['plugins.php'][10] = array( __( 'Add New Plugin' ), 'install_plugins', 'plugin-install.php' );
+	$submenu['plugins.php'][10] = array( __( 'Add Plugin' ), 'install_plugins', 'plugin-install.php' );
 }
 
 unset( $update_data );
@@ -214,7 +214,7 @@ $menu[67] = array( __( 'Blocks' ), 'activate_plugins', 'blocks.php', '', 'menu-t
 $submenu['blocks.php'][5] = array( __( 'Installed Blocks' ), 'activate_plugins', 'blocks.php' );
 
 if ( ! is_multisite() ) {
-	$submenu['blocks.php'][10] = array( __( 'Add New Block' ), 'install_plugins', 'block-install.php' );
+	$submenu['blocks.php'][10] = array( __( 'Add Block' ), 'install_plugins', 'block-install.php' );
 }
 
 if ( current_user_can( 'list_users' ) ) {
@@ -227,7 +227,7 @@ if ( current_user_can( 'list_users' ) ) {
 	$_wp_real_parent_file['profile.php'] = 'users.php'; // Back-compat for plugins adding submenus to profile.php.
 	$submenu['users.php'][5]             = array( __( 'All Contributors' ), 'list_users', 'users.php' );
 	if ( current_user_can( 'create_users' ) ) {
-		$submenu['users.php'][10] = array( __( 'Add New Contributor' ), 'create_users', 'user-new.php' );
+		$submenu['users.php'][10] = array( __( 'Add Contributor' ), 'create_users', 'user-new.php' );
 	}
 
 	$submenu['users.php'][15] = array( __( 'Profile' ), 'read', 'profile.php' );
@@ -235,7 +235,7 @@ if ( current_user_can( 'list_users' ) ) {
 	$_wp_real_parent_file['users.php'] = 'profile.php';
 	$submenu['profile.php'][5]         = array( __( 'Profile' ), 'read', 'profile.php' );
 	if ( current_user_can( 'create_users' ) ) {
-		$submenu['profile.php'][10] = array( __( 'Add New Contributor' ), 'create_users', 'user-new.php' );
+		$submenu['profile.php'][10] = array( __( 'Add Contributor' ), 'create_users', 'user-new.php' );
 	}
 }
 

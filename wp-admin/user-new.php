@@ -81,17 +81,17 @@ if ( isset( $_REQUEST['action'] ) && 'createuser' === $_REQUEST['action'] ) {
 }
 
 // Used in the HTML title tag.
-$title       = __( 'Add New Contributor' );
+$title       = __( 'Add Contributor' );
 $parent_file = 'users.php';
 
 get_current_screen()->add_help_tab(
 	array(
 		'id'      => 'overview',
 		'title'   => __( 'Overview' ),
-		'content' => '<p>' . __( 'To add a new contributor to your site, fill in the form on this screen and click the Add New Contributor button at the bottom.' ) . '</p>' .
+		'content' => '<p>' . __( 'To add a contributor to your site, fill in the form on this screen and click the Add Contributor button at the bottom.' ) . '</p>' .
 		             '<p>' . __( 'New contributors are automatically assigned a password, which they can change after logging in. You can view or edit the assigned password by clicking the Show Password button. The username cannot be changed once the contributor has been added.' ) . '</p>' .
 					 '<p>' . __( 'By default, new contributors will receive an email letting them know they&#8217;ve been added as a contributor for your site. This email will also contain a password reset link. Uncheck the box if you do not want to send the new contributor a welcome email.' ) . '</p>' .
-					 '<p>' . __( 'Remember to click the Add New Contributor button at the bottom of this screen when you are finished.' ) . '</p>',
+					 '<p>' . __( 'Remember to click the Add Contributor button at the bottom of this screen when you are finished.' ) . '</p>',
 	)
 );
 
@@ -136,7 +136,7 @@ if ( isset( $_GET['update'] ) ) {
 <h1 id="add-new-user">
 <?php
 if ( current_user_can( 'create_users' ) ) {
-	_e( 'Add New Contributor' );
+	_e( 'Add Contributor' );
 } elseif ( current_user_can( 'promote_users' ) ) {
 	_e( 'Add Existing Contributor' );
 }
@@ -328,7 +328,7 @@ endif;
 	do_action( 'user_new_form', 'add-new-user' );
 	?>
 
-	<?php submit_button( __( 'Add New Contributor' ), 'primary', 'createuser', true, array( 'id' => 'createusersub' ) ); ?>
+	<?php submit_button( __( 'Add Contributor' ), 'primary', 'createuser', true, array( 'id' => 'createusersub' ) ); ?>
 
 </form>
 <?php } // End if current_user_can( 'create_users' ). ?>
