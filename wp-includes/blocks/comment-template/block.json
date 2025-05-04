@@ -6,44 +6,5 @@
 	"category": "design",
 	"parent": [ "core/comments" ],
 	"description": "Deprecated block.",
-	"textdomain": "default",
-	"usesContext": [ "postId" ],
-	"supports": {
-		"align": true,
-		"html": false,
-		"reusable": false,
-		"spacing": {
-			"margin": true,
-			"padding": true
-		},
-		"typography": {
-			"fontSize": true,
-			"lineHeight": true,
-			"__experimentalFontFamily": true,
-			"__experimentalFontWeight": true,
-			"__experimentalFontStyle": true,
-			"__experimentalTextTransform": true,
-			"__experimentalTextDecoration": true,
-			"__experimentalLetterSpacing": true,
-			"__experimentalDefaultControls": {
-				"fontSize": true
-			}
-		},
-		"interactivity": {
-			"clientNavigation": true
-		},
-		"__experimentalBorder": {
-			"radius": true,
-			"color": true,
-			"width": true,
-			"style": true,
-			"__experimentalDefaultControls": {
-				"radius": true,
-				"color": true,
-				"width": true,
-				"style": true
-			}
-		}
-	},
-	"style": "wp-block-comment-template"
+	"textdomain": "default"
 }
