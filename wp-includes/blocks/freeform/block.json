@@ -5,17 +5,5 @@
 	"title": "Classic",
 	"category": "text",
 	"description": "Deprecated block.",
-	"textdomain": "default",
-	"attributes": {
-		"content": {
-			"type": "string",
-			"source": "raw"
-		}
-	},
-	"supports": {
-		"className": false,
-		"customClassName": false,
-		"reusable": false
-	},
-	"editorStyle": "wp-block-freeform-editor"
+	"textdomain": "default"
 }

@@ -226,6 +226,7 @@ function get_default_block_editor_settings() {
 		'imageEditing'                     => true,
 		'imageSizes'                       => $available_image_sizes,
 		'maxUploadFileSize'                => $max_upload_size,
+		'__experimentalDashboardLink'      => admin_url( '/' ),
 		// The following flag is required to enable the new Gallery block format on the mobile apps in 5.9.
 		'__unstableGalleryWithImageBlocks' => true,
 		'enableOpenverseMediaCategory'     => false,

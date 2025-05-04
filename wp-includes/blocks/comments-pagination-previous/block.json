@@ -6,38 +6,5 @@
 	"category": "theme",
 	"parent": [ "core/comments-pagination" ],
 	"description": "Deprecated block.",
-	"textdomain": "default",
-	"attributes": {
-		"label": {
-			"type": "string"
-		}
-	},
-	"usesContext": [ "postId", "comments/paginationArrow" ],
-	"supports": {
-		"reusable": false,
-		"html": false,
-		"color": {
-			"gradients": true,
-			"text": false,
-			"__experimentalDefaultControls": {
-				"background": true
-			}
-		},
-		"typography": {
-			"fontSize": true,
-			"lineHeight": true,
-			"__experimentalFontFamily": true,
-			"__experimentalFontWeight": true,
-			"__experimentalFontStyle": true,
-			"__experimentalTextTransform": true,
-			"__experimentalTextDecoration": true,
-			"__experimentalLetterSpacing": true,
-			"__experimentalDefaultControls": {
-				"fontSize": true
-			}
-		},
-		"interactivity": {
-			"clientNavigation": true
-		}
-	}
+	"textdomain": "default"
 }
