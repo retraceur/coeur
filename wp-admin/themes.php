@@ -26,7 +26,7 @@ if ( current_user_can( 'switch_themes' ) && isset( $_GET['action'] ) ) {
 
 		if ( ! $theme->exists() || ! $theme->is_allowed() ) {
 			wp_die(
-				'<h1>' . __( 'Something went wrong.' ) . '</h1>' .
+				'<h1>' . __( 'An error occurred.' ) . '</h1>' .
 				'<p>' . __( 'The requested theme does not exist.' ) . '</p>',
 				403
 			);
@@ -69,7 +69,7 @@ if ( current_user_can( 'switch_themes' ) && isset( $_GET['action'] ) ) {
 
 		if ( ! $theme->exists() ) {
 			wp_die(
-				'<h1>' . __( 'Something went wrong.' ) . '</h1>' .
+				'<h1>' . __( 'An error occurred while deleting the theme.' ) . '</h1>' .
 				'<p>' . __( 'The requested theme does not exist.' ) . '</p>',
 				403
 			);

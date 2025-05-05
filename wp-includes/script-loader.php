@@ -642,7 +642,7 @@ function wp_default_scripts( $scripts ) {
 		'wpAjax',
 		array(
 			'noPerm' => __( 'Sorry, you are not allowed to do that.' ),
-			'broken' => __( 'Something went wrong.' ),
+			'broken' => __( 'An error occurred while processing your request. Please try again later.' ),
 		)
 	);
 
