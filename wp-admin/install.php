@@ -233,12 +233,13 @@ if ( is_blog_installed() ) {
 }
 
 /**
- * @global string $retraceur_version             The Retraceur version string.
- * @global string $required_php_version   The required PHP version string.
- * @global string $required_mysql_version The required MySQL version string.
- * @global wpdb   $wpdb                   Retraceur database abstraction object.
+ * @global string   $retraceur_version       The Retraceur version string.
+ * @global string   $required_php_version    The required PHP version string.
+ * @global string[] $required_php_extensions The names of required PHP extensions.
+ * @global string   $required_mysql_version  The required MySQL version string.
+ * @global wpdb     $wpdb                    Retraceur database abstraction object.
  */
-global $retraceur_version, $required_php_version, $required_mysql_version, $wpdb;
+global $retraceur_version, $required_php_version, $required_php_extensions, $required_mysql_version, $wpdb;
 
 $php_version   = PHP_VERSION;
 $mysql_version = $wpdb->db_version();
@@ -266,7 +267,7 @@ if ( ! $mysql_compat && ! $php_compat ) {
 } elseif ( ! $mysql_compat ) {
 	$compat = sprintf(
 		/* translators: 1: Retraceur version number, 2: Minimum required MySQL version number, 3: Current MySQL version number. */
-		__( 'You cannot install because Retraceur %1$s> requires MySQL version %2$s or higher. You are running version %3$s.' ),
+		__( 'You cannot install because Retraceur %1$s requires MySQL version %2$s or higher. You are running version %3$s.' ),
 		$retraceur_version,
 		$required_mysql_version,
 		$mysql_version
@@ -276,6 +277,28 @@ if ( ! $mysql_compat && ! $php_compat ) {
 if ( ! $mysql_compat || ! $php_compat ) {
 	display_header();
 	die( '<h1>' . __( 'Requirements Not Met' ) . '</h1><p>' . $compat . '</p></body></html>' );
+}
+
+if ( isset( $required_php_extensions ) && is_array( $required_php_extensions ) ) {
+	$missing_extensions = array();
+
+	foreach ( $required_php_extensions as $extension ) {
+		if ( extension_loaded( $extension ) ) {
+			continue;
+		}
+
+		$missing_extensions[] = sprintf(
+			/* translators: 1: Retraceur version number, 2: The PHP extension name needed. */
+			__( 'You cannot install because Retraceur %1$s requires the %2$s PHP extension.' ),
+			$retraceur_version,
+			$extension
+		);
+	}
+
+	if ( count( $missing_extensions ) > 0 ) {
+		display_header();
+		die( '<h1>' . __( 'Requirements Not Met' ) . '</h1><p>' . implode( '</p><p>', $missing_extensions ) . '</p></body></html>' );
+	}
 }
 
 if ( ! is_string( $wpdb->base_prefix ) || '' === $wpdb->base_prefix ) {

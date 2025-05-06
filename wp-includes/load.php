@@ -147,14 +147,15 @@ function wp_populate_basic_auth_from_authorization_header() {
  * Dies if requirements are not met.
  *
  * @since WP 3.0.0
- * @since 1.0.0    Retraceur fork.
+ * @since 1.0.0 Retraceur fork.
  * @access private
  *
- * @global string $required_php_version The required PHP version string.
- * @global string $retraceur_version    The Retraceur version string.
+ * @global string   $required_php_version    The required PHP version string.
+ * @global string[] $required_php_extensions The names of required PHP extensions.
+ * @global string   $retraceur_version       The Retraceur version string.
  */
 function wp_check_php_mysql_versions() {
-	global $required_php_version, $retraceur_version;
+	global $required_php_version, $required_php_extensions, $retraceur_version;
 
 	$php_version = PHP_VERSION;
 
@@ -168,6 +169,30 @@ function wp_check_php_mysql_versions() {
 			$retraceur_version,
 			$required_php_version
 		);
+		exit( 1 );
+	}
+
+	$missing_extensions = array();
+
+	if ( isset( $required_php_extensions ) && is_array( $required_php_extensions ) ) {
+		foreach ( $required_php_extensions as $extension ) {
+			if ( extension_loaded( $extension ) ) {
+				continue;
+			}
+
+			$missing_extensions[] = sprintf(
+				'Retraceur %1$s requires the <code>%2$s</code> PHP extension.',
+				$retraceur_version,
+				$extension
+			);
+		}
+	}
+
+	if ( count( $missing_extensions ) > 0 ) {
+		$protocol = wp_get_server_protocol();
+		header( sprintf( '%s 500 Internal Server Error', $protocol ), true, 500 );
+		header( 'Content-Type: text/html; charset=utf-8' );
+		echo implode( '<br>', $missing_extensions );
 		exit( 1 );
 	}
 

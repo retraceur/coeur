@@ -921,7 +921,7 @@ class WP_Site_Health {
 			),
 			'hash'      => array(
 				'function' => 'hash',
-				'required' => false,
+				'required' => true,
 			),
 			'imagick'   => array(
 				'extension' => 'imagick',
