@@ -3505,7 +3505,7 @@ class WP_Query {
 		$this->in_the_loop = true;
 		$this->before_loop = false;
 
-		if ( -1 == $this->current_post ) { // Loop has just started.
+		if ( -1 === $this->current_post ) { // Loop has just started.
 			/**
 			 * Fires once the loop is started.
 			 *
@@ -3532,7 +3532,7 @@ class WP_Query {
 	public function have_posts() {
 		if ( $this->current_post + 1 < $this->post_count ) {
 			return true;
-		} elseif ( $this->current_post + 1 == $this->post_count && $this->post_count > 0 ) {
+		} elseif ( $this->current_post + 1 === $this->post_count && $this->post_count > 0 ) {
 			/**
 			 * Fires once the loop has ended.
 			 *
@@ -3541,6 +3541,7 @@ class WP_Query {
 			 * @param WP_Query $query The WP_Query instance (passed by reference).
 			 */
 			do_action_ref_array( 'loop_end', array( &$this ) );
+
 			// Do some cleaning up after the loop.
 			$this->rewind_posts();
 		} elseif ( 0 === $this->post_count ) {
