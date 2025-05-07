@@ -39,7 +39,7 @@ final class WP_Post {
 	 * @since WP 3.5.0
 	 * @var string
 	 */
-	public $post_author = 0;
+	public $post_author = '0';
 
 	/**
 	 * The post's local publication time.
