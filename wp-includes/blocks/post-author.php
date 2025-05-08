@@ -28,6 +28,10 @@ function render_block_core_post_author( $attributes, $content, $block ) {
 		return '';
 	}
 
+	if ( ! post_type_supports( $block->context['postType'], 'author' ) ) {
+		return '';
+	}
+
 	$avatar = ! empty( $attributes['avatarSize'] ) ? get_avatar(
 		$author_id,
 		$attributes['avatarSize']
