@@ -1,7 +1,7 @@
 <?php
 /**
  * WP_Application_Passwords class.
- * 
+ *
  * @since WP 5.6.0
  * @since 1.0.0 Retraceur fork.
  *
@@ -62,6 +62,7 @@ class WP_Application_Passwords {
 	 *
 	 * @since WP 5.6.0
 	 * @since WP 5.7.0 Returns WP_Error if application name already exists.
+	 * @since WP 6.8.0 The hashed password value now uses wp_fast_hash() instead of phpass.
 	 *
 	 * @param int   $user_id  User ID.
 	 * @param array $args     {
@@ -97,7 +98,7 @@ class WP_Application_Passwords {
 		}
 
 		$new_password    = wp_generate_password( static::PW_LENGTH, false );
-		$hashed_password = wp_hash_password( $new_password );
+		$hashed_password = self::hash_password( $new_password );
 
 		$new_item = array(
 			'uuid'      => wp_generate_uuid4(),
@@ -126,6 +127,7 @@ class WP_Application_Passwords {
 		 * Fires when an application password is created.
 		 *
 		 * @since WP 5.6.0
+		 * @since WP 6.8.0 The hashed password value now uses wp_fast_hash() instead of phpass.
 		 *
 		 * @param int    $user_id      The user ID.
 		 * @param array  $new_item     {
@@ -251,6 +253,7 @@ class WP_Application_Passwords {
 	 * Updates an application password.
 	 *
 	 * @since WP 5.6.0
+	 * @since WP 6.8.0 The actual password should now be hashed using wp_fast_hash().
 	 *
 	 * @param int    $user_id User ID.
 	 * @param string $uuid    The password's UUID.
@@ -298,6 +301,8 @@ class WP_Application_Passwords {
 			 * Fires when an application password is updated.
 			 *
 			 * @since WP 5.6.0
+			 * @since WP 6.8.0 The password is now hashed using wp_fast_hash() instead of phpass.
+			 *              Existing passwords may still be hashed using phpass.
 			 *
 			 * @param int   $user_id The user ID.
 			 * @param array $item    {
@@ -468,5 +473,38 @@ class WP_Application_Passwords {
 		$raw_password = preg_replace( '/[^a-z\d]/i', '', $raw_password );
 
 		return trim( chunk_split( $raw_password, 4, ' ' ) );
+	}
+
+	/**
+	 * Hashes a plaintext application password.
+	 *
+	 * @since WP 6.8.0
+	 * @since 2.0.0 Retraceur fork.
+	 *
+	 * @param string $password Plaintext password.
+	 * @return string Hashed password.
+	 */
+	public static function hash_password(
+		#[\SensitiveParameter]
+		string $password
+	): string {
+		return wp_fast_hash( $password );
+	}
+
+	/**
+	 * Checks a plaintext application password against a hashed password.
+	 *
+	 * @since WP 6.8.0
+	 *
+	 * @param string $password Plaintext password.
+	 * @param string $hash     Hash of the password to check against.
+	 * @return bool Whether the password matches the hashed password.
+	 */
+	public static function check_password(
+		#[\SensitiveParameter]
+		string $password,
+		string $hash
+	): bool {
+		return wp_verify_fast_hash( $password, $hash );
 	}
 }
