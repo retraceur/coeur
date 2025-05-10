@@ -231,7 +231,7 @@ final class WP_Theme implements ArrayAccess {
 	 *
 	 * @since WP 3.4.0
 	 *
-	 * @global array $wp_theme_directories
+	 * @global string[] $wp_theme_directories
 	 *
 	 * @param string        $theme_dir  Directory of the theme within the theme_root.
 	 * @param string        $theme_root Theme root.

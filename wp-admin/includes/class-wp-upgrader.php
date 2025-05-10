@@ -488,7 +488,7 @@ class WP_Upgrader {
 	 * @since WP 6.2.0 Use move_dir() instead of copy_dir() when possible.
 	 *
 	 * @global WP_Filesystem_Base $wp_filesystem        Retraceur filesystem subclass.
-	 * @global array              $wp_theme_directories
+	 * @global string[]           $wp_theme_directories
 	 *
 	 * @param array|string $args {
 	 *     Optional. Array or string of arguments for installing a package. Default empty array.

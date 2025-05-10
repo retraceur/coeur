@@ -434,6 +434,7 @@ abstract class WP_Image_Editor {
 	 * Builds an output filename based on current file, and adding proper suffix
 	 *
 	 * @since WP 3.5.0
+	 * @since WP 6.8.0 Passing an empty string as $suffix will now omit the suffix from the generated filename.
 	 *
 	 * @param string $suffix
 	 * @param string $dest_path
@@ -441,9 +442,11 @@ abstract class WP_Image_Editor {
 	 * @return string filename
 	 */
 	public function generate_filename( $suffix = null, $dest_path = null, $extension = null ) {
-		// $suffix will be appended to the destination filename, just before the extension.
-		if ( ! $suffix ) {
-			$suffix = $this->get_suffix();
+		// If not empty the $suffix will be appended to the destination filename, just before the extension.
+		if ( $suffix ) {
+			$suffix = '-' . $suffix;
+		} elseif ( '' !== $suffix ) {
+			$suffix = '-' . $this->get_suffix();
 		}
 
 		$dir = pathinfo( $this->file, PATHINFO_DIRNAME );
@@ -463,7 +466,7 @@ abstract class WP_Image_Editor {
 			}
 		}
 
-		return trailingslashit( $dir ) . "{$name}-{$suffix}.{$new_ext}";
+		return trailingslashit( $dir ) . "{$name}{$suffix}.{$new_ext}";
 	}
 
 	/**

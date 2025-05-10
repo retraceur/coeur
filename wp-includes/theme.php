@@ -16,7 +16,7 @@
  *
  * @since WP 3.4.0
  *
- * @global array $wp_theme_directories
+ * @global string[] $wp_theme_directories
  *
  * @param array $args {
  *     Optional. The search arguments.
@@ -107,7 +107,7 @@ function wp_get_themes( $args = array() ) {
  *
  * @since WP 3.4.0
  *
- * @global array $wp_theme_directories
+ * @global string[] $wp_theme_directories
  *
  * @param string $stylesheet Optional. Directory name for the theme. Defaults to active theme.
  * @param string $theme_root Optional. Absolute path of the theme root to look in.
@@ -382,7 +382,7 @@ function get_template_directory_uri() {
  *
  * @since WP 2.9.0
  *
- * @global array $wp_theme_directories
+ * @global string[] $wp_theme_directories
  *
  * @return array|string An array of theme roots keyed by template/stylesheet
  *                      or a single theme root if all themes have the same root.
@@ -407,7 +407,7 @@ function get_theme_roots() {
  *
  * @since WP 2.9.0
  *
- * @global array $wp_theme_directories
+ * @global string[] $wp_theme_directories
  *
  * @param string $directory Either the full filesystem path to a theme folder
  *                          or a folder within WP_CONTENT_DIR.
@@ -443,7 +443,7 @@ function register_theme_directory( $directory ) {
  *
  * @since WP 2.9.0
  *
- * @global array $wp_theme_directories
+ * @global string[] $wp_theme_directories
  *
  * @param bool $force Optional. Whether to force a new directory scan. Default false.
  * @return array|false Valid themes found on success, false on failure.
@@ -593,7 +593,7 @@ function search_theme_directories( $force = false ) {
  *
  * @since WP 1.5.0
  *
- * @global array $wp_theme_directories
+ * @global string[] $wp_theme_directories
  *
  * @param string $stylesheet_or_template Optional. The stylesheet or template name of the theme.
  *                                       Default is to leverage the main theme root.
@@ -638,7 +638,7 @@ function get_theme_root( $stylesheet_or_template = '' ) {
  *
  * @since WP 1.5.0
  *
- * @global array $wp_theme_directories
+ * @global string[] $wp_theme_directories
  *
  * @param string $stylesheet_or_template Optional. The stylesheet or template name of the theme.
  *                                       Default is to leverage the main theme root.
@@ -689,7 +689,7 @@ function get_theme_root_uri( $stylesheet_or_template = '', $theme_root = '' ) {
  *
  * @since WP 3.1.0
  *
- * @global array $wp_theme_directories
+ * @global string[] $wp_theme_directories
  *
  * @param string $stylesheet_or_template The stylesheet or template name of the theme.
  * @param bool   $skip_cache             Optional. Whether to skip the cache.

@@ -20,8 +20,8 @@
  *
  * @since WP 2.7.0
  *
- * @global array $_old_files
- * @var array
+ * @global string[] $_old_files
+ * @var string[]
  * @name $_old_files
  */
 global $_old_files;
@@ -92,8 +92,8 @@ $_old_files = array(
  *
  * @since WP 6.2.0
  *
- * @global array $_old_requests_files
- * @var array
+ * @global string[] $_old_requests_files
+ * @var string[]
  * @name $_old_requests_files
  */
 global $_old_requests_files;
@@ -189,8 +189,8 @@ $_old_requests_files = array(
  *              upgrade. New themes are now installed again. To disable new
  *              themes from being installed on upgrade, explicitly define
  *              CORE_UPGRADE_SKIP_NEW_BUNDLED as true.
- * @global array $_new_bundled_files
- * @var array
+ * @global string[] $_new_bundled_files
+ * @var string[]
  * @name $_new_bundled_files
  */
 global $_new_bundled_files;
@@ -229,13 +229,14 @@ $_new_bundled_files = array(
  *
  * The steps for the upgrader for after the new release is downloaded and
  * unzipped is:
+ *
  *   1. Test unzipped location for select files to ensure that unzipped worked.
  *   2. Create the .maintenance file in current Retraceur base.
  *   3. Copy new Retraceur directory over old Retraceur files.
  *   4. Upgrade Retraceur to new version.
- *     4.1. Copy all files/folders other than wp-content
- *     4.2. Copy any language files to WP_LANG_DIR (which may differ from WP_CONTENT_DIR
- *     4.3. Copy any new bundled themes/plugins to their respective locations
+ *     1. Copy all files/folders other than wp-content
+ *     2. Copy any language files to `WP_LANG_DIR` (which may differ from `WP_CONTENT_DIR`
+ *     3. Copy any new bundled themes/plugins to their respective locations
  *   5. Delete new Retraceur directory path.
  *   6. Delete .maintenance file.
  *   7. Remove old files.
@@ -257,9 +258,9 @@ $_new_bundled_files = array(
  * @since WP 2.7.0
  *
  * @global WP_Filesystem_Base $wp_filesystem          WP filesystem subclass.
- * @global array              $_old_files
- * @global array              $_old_requests_files
- * @global array              $_new_bundled_files
+ * @global string[]           $_old_files
+ * @global string[]           $_old_requests_files
+ * @global string[]           $_new_bundled_files
  * @global wpdb               $wpdb                   WP database abstraction object.
  *
  * @param string $from New release unzipped path.
@@ -824,7 +825,7 @@ function update_core( $from, $to ) {
  *
  * @since WP 6.2.0
  *
- * @global array              $_old_requests_files Requests files to be preloaded.
+ * @global string[]           $_old_requests_files Requests files to be preloaded.
  * @global WP_Filesystem_Base $wp_filesystem       WP filesystem subclass.
  * @global string             $wp_version          The WP version string.
  * @global string             $retraceur_version   The Retraceur version string.
