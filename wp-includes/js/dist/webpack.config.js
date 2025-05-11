@@ -13,6 +13,7 @@ module.exports = {
 			'block-editor.min': './wp-includes/js/dist/block-editor.js',
 			'block-library.min': './wp-includes/js/dist/block-library.js',
 			'blocks.min': './wp-includes/js/dist/blocks.js',
+			'commands.min': './wp-includes/js/dist/commands.js',
 			'components.min': './wp-includes/js/dist/components.js',
 			'core-data.min': './wp-includes/js/dist/core-data.js',
 			'edit-post.min': './wp-includes/js/dist/edit-post.js',
