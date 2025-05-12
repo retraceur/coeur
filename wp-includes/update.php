@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Checks Retraceur version against the newest version.
  *
- * The Retraceur version and locale is sent.
+ * The Retraceur version, PHP version, and locale is sent to remote directory provider.
  *
  * @since WP 2.3.0
  * @since 1.0.0 Retraceur fork.
@@ -222,7 +222,7 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
  *
  * Despite its name this function does not actually perform any updates, it only checks for available updates.
  *
- * A list of all plugins installed is sent to WP, along with the site locale.
+ * A list of all plugins installed is sent to remote directory provider, along with the site locale.
  *
  * @since WP 2.3.0
  * @since 1.0.0 Retraceur fork.
@@ -488,7 +488,7 @@ function wp_update_plugins( $extra_stats = array() ) {
  *
  * Despite its name this function does not actually perform any updates, it only checks for available updates.
  *
- * A list of all themes installed is sent to WP, along with the site locale.
+ * A list of all themes installed is sent to remote directory provider, along with the site locale.
  *
  * @since WP 2.7.0
  * @since 1.0.0 Retraceur fork.

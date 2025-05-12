@@ -1099,7 +1099,7 @@ function add_option( $option, $value = '', $deprecated = '', $autoload = null ) 
 	 *
 	 * The dynamic portion of the hook name, `$option`, refers to the option name.
 	 *
-	 * @since WP 2.5.0 As "add_option_{$name}"
+	 * @since WP 2.5.0 As `add_option_{$name}`
 	 * @since WP 3.0.0
 	 *
 	 * @param string $option Name of the option to add.

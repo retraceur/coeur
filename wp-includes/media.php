@@ -5465,6 +5465,8 @@ function attachment_url_to_postid( $url ) {
 	 * Use the === operator for testing the post ID when developing filters using
 	 * this hook.
 	 *
+	 * @since WP 6.7.0
+	 *
 	 * @param int|null $post_id The result of the post ID lookup. Null to indicate
 	 *                          no lookup has been attempted. Default null.
 	 * @param string   $url     The URL being looked up.
