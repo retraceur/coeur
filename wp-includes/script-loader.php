@@ -1716,7 +1716,7 @@ function wp_style_loader_src( $src, $handle ) {
  *
  * @global bool $concatenate_scripts
  *
- * @return array
+ * @return string[] Handles of the scripts that were printed.
  */
 function print_head_scripts() {
 	global $concatenate_scripts;
@@ -1755,7 +1755,7 @@ function print_head_scripts() {
  * @global WP_Scripts $wp_scripts
  * @global bool       $concatenate_scripts
  *
- * @return array
+ * @return string[] Handles of the scripts that were printed.
  */
 function print_footer_scripts() {
 	global $wp_scripts, $concatenate_scripts;
@@ -1836,7 +1836,7 @@ function _print_scripts() {
  *
  * @global WP_Scripts $wp_scripts
  *
- * @return array
+ * @return string[] Handles of the scripts that were printed.
  */
 function wp_print_head_scripts() {
 	global $wp_scripts;
@@ -1901,7 +1901,7 @@ function wp_enqueue_scripts() {
  *
  * @global bool $concatenate_scripts
  *
- * @return array
+ * @return string[] Handles of the styles that were printed.
  */
 function print_admin_styles() {
 	global $concatenate_scripts;
