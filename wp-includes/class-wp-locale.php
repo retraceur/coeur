@@ -354,6 +354,7 @@ class WP_Locale {
 	 * '0' before the numbers less than 10 for you.
 	 *
 	 * @since WP 6.8.0
+	 * @since 2.0.0 Retraceur fork.
 	 *
 	 * @param string|int $month_number '01' through '12'.
 	 * @return string Translated genitive month name.

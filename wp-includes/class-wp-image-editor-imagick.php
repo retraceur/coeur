@@ -544,6 +544,7 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 				 * Use this to adjust the maximum bit depth of resized images.
 				 *
 				 * @since WP 6.8.0
+				 * @since 2.0.0 Retraceur fork.
 				 *
 				 * @param int $max_depth   The maximum bit depth. Default is the input depth.
 				 * @param int $image_depth The bit depth of the original image.

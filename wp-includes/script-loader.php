@@ -2235,6 +2235,7 @@ function wp_should_load_separate_core_block_assets() {
  * This only affects front end and not the block editor screens.
  *
  * @since WP 6.8.0
+ * @since 2.0.0 Retraceur fork.
  * @see wp_should_load_separate_core_block_assets()
  *
  * @return bool Whether to load block assets only when they are rendered.
@@ -2261,6 +2262,7 @@ function wp_should_load_block_assets_on_demand() {
 	 * stylesheet.
 	 *
 	 * @since WP 6.8.0
+	 * @since 2.0.0 Retraceur fork.
 	 *
 	 * @param bool $load_assets_on_demand Whether to load block assets only when they are rendered.
 	 */

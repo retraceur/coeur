@@ -25,6 +25,7 @@ function _add_template_loader_filters() {
  * Renders a warning screen for empty block templates.
  *
  * @since WP 6.8.0
+ * @since 2.0.0 Retraceur fork.
  *
  * @param WP_Block_Template $block_template The block template object.
  * @return string The warning screen HTML.

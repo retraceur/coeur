@@ -1784,6 +1784,7 @@ function get_the_password_form( $post = 0 ) {
 		 * The filter is only applied if the post is password protected.
 		 *
 		 * @since WP 6.8.0
+		 * @since 2.0.0 Retraceur fork.
 		 *
 		 * @param string  $text The message shown to users when entering an invalid password.
 		 * @param WP_Post $post Post object.

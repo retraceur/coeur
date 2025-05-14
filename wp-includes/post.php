@@ -2419,6 +2419,7 @@ function is_post_embeddable( $post = null ) {
 	 * Filter whether a post is embeddable.
 	 *
 	 * @since WP 6.8.0
+	 * @since 2.0.0 Retraceur fork.
 	 *
 	 * @param bool    $is_embeddable Whether the post is embeddable.
 	 * @param WP_Post $post          Post object.

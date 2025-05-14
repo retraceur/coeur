@@ -164,6 +164,19 @@ class WP_REST_Request implements ArrayAccess {
 	}
 
 	/**
+	 * Determines if the request is the given method.
+	 *
+	 * @since WP 6.8.0
+	 * @since 2.0.0 Retraceur fork.
+	 *
+	 * @param string $method HTTP method.
+	 * @return bool Whether the request is of the given method.
+	 */
+	public function is_method( $method ) {
+		return $this->get_method() === strtoupper( $method );
+	}
+
+	/**
 	 * Canonicalizes the header name.
 	 *
 	 * Ensures that header names are always treated the same regardless of

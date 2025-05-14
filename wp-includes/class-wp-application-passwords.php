@@ -302,7 +302,7 @@ class WP_Application_Passwords {
 			 *
 			 * @since WP 5.6.0
 			 * @since WP 6.8.0 The password is now hashed using wp_fast_hash() instead of phpass.
-			 *              Existing passwords may still be hashed using phpass.
+			 *                 Existing passwords may still be hashed using phpass.
 			 *
 			 * @param int   $user_id The user ID.
 			 * @param array $item    {
@@ -495,6 +495,7 @@ class WP_Application_Passwords {
 	 * Checks a plaintext application password against a hashed password.
 	 *
 	 * @since WP 6.8.0
+	 * @since 2.0.0 Retraceur fork.
 	 *
 	 * @param string $password Plaintext password.
 	 * @param string $hash     Hash of the password to check against.
