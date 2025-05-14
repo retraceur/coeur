@@ -56,6 +56,7 @@ class WP_oEmbed {
 			'#https?://((m|www)\.)?youtube\.com/playlist.*#i'                     => array( 'https://www.youtube.com/oembed', true ),
 			'#https?://((m|www)\.)?youtube\.com/shorts/*#i'                       => array( 'https://www.youtube.com/oembed', true ),
 			'#https?://((m|www)\.)?youtube\.com/live/*#i'                         => array( 'https://www.youtube.com/oembed', true ),
+			'#https?://((m|www)\.)?youtube-nocookie\.com/embed/.*#i'              => array( 'https://www.youtube.com/oembed', true ),
 			'#https?://youtu\.be/.*#i'                                            => array( 'https://www.youtube.com/oembed', true ),
 			'#https?://(.+\.)?vimeo\.com/.*#i'                                    => array( 'https://vimeo.com/api/oembed.{format}', true ),
 			'#https?://(www\.)?dailymotion\.com/.*#i'                             => array( 'https://www.dailymotion.com/services/oembed', true ),
