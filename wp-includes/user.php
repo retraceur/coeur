@@ -2441,7 +2441,7 @@ function wp_insert_user( $userdata ) {
 	 *
 	 * @since WP 4.9.0
 	 * @since WP 5.8.0 The `$userdata` parameter was added.
-	 * @since WP 6.8.0 The user's password is now hashed using bcrypt instead of phpass.
+	 * @since WP 6.8.0 The user's password is now hashed using bcrypt by default instead of phpass.
 	 *
 	 * @param array    $data {
 	 *     Values and keys for the user.

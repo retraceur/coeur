@@ -90,7 +90,8 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
 	 * Please exercise extreme caution.
 	 *
 	 * @since WP 4.9.0
-	 * @since 1.0.0 remove extra statistics.
+	 * @since WP 6.1.0 Added `$extensions`, `$platform_flags`, and `$image_support` to the `$query` parameter.
+	 * @since 1.0.0 Retraceur fork: remove extra statistics.
 	 *
 	 * @param array $query {
 	 *     Version check query arguments.
