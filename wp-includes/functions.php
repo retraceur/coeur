@@ -5720,12 +5720,14 @@ function _deprecated_hook( $hook, $version, $replacement = '', $message = '' ) {
  *
  * @since WP 3.1.0
  * @since WP 5.4.0 This function is no longer marked as "private".
+ * @since 2.0.0    Adds the `$is_retraceur` parameter to inform whether this alert is specific to Retraceur fork.
  *
  * @param string $function_name The function that was called.
  * @param string $message       A message explaining what has been done incorrectly.
  * @param string $version       The version of WP where the message was added.
+ * @param bool   $is_retraceur  Optional. Whether this alert is specific to Retraceur fork.
  */
-function _doing_it_wrong( $function_name, $message, $version ) {
+function _doing_it_wrong( $function_name, $message, $version, $is_retraceur = false ) {
 
 	/**
 	 * Fires when the given function is being used incorrectly.
@@ -5752,19 +5754,38 @@ function _doing_it_wrong( $function_name, $message, $version ) {
 	if ( WP_DEBUG && apply_filters( 'doing_it_wrong_trigger_error', true, $function_name, $message, $version ) ) {
 		if ( function_exists( '__' ) ) {
 			if ( $version ) {
-				/* translators: %s: Version number. */
-				$version = sprintf( __( '(This message was added in version %s.)' ), $version );
+				$version = sprintf(
+					/* translators: 1: Version number. 2: Name of the software. */
+					__( '(This message was added in version %1$s of %2$s)' ),
+					$version,
+					$is_retraceur ? 'Retraceur' : 'WP'
+				);
 			}
 
-			$message = sprintf(
-				/* translators: Developer debugging message. 1: PHP function name, 2: WP version number. */
-				__( 'Function %1$s was called <strong>incorrectly</strong>. %2$s' ),
-				$function_name,
-				$version
-			);
+			if ( $message ) {
+				$message = sprintf(
+					/* translators: custom debugging message. 1: PHP function name, 2: custom message. */
+					__( '%1$s was called <strong>incorrectly</strong>. %2$s' ),
+					$function_name,
+					esc_html( $message )
+				);
+
+				$message .= "\n" . $version;
+			} else {
+				$message = sprintf(
+					/* translators: Developer debugging message. 1: PHP function name, 2: WP version number. */
+					__( 'Function %1$s was called <strong>incorrectly</strong>. %2$s' ),
+					$function_name,
+					$version
+				);
+			}
 		} else {
 			if ( $version ) {
-				$version = sprintf( '(This message was added in version %s.)', $version );
+				$version = sprintf(
+					'(This message was added in version %1$s of %2$s)',
+					$version,
+					$is_retraceur ? 'Retraceur' : 'WP'
+				);
 			}
 
 			$message = sprintf(
