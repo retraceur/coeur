@@ -16414,3 +16414,20 @@ function wp_edit_theme_plugin_file( $args ) {
 function wp_print_file_editor_templates() {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 }
+
+/**
+ * Loads classic theme styles on classic themes in the editor.
+ *
+ * This is needed for backwards compatibility for button blocks specifically.
+ *
+ * @since WP 6.1.0
+ * @deprecated 2.0.0 Retraceur fork.
+ *
+ * @param array $editor_settings The array of editor settings.
+ * @return array A filtered array of editor settings.
+ */
+function wp_add_editor_classic_theme_styles( $editor_settings ) {
+	_deprecated_function( __FUNCTION__, '2.0.0', 'wp_enqueue_classic_theme_styles', true );
+
+	return $editor_settings;
+}
