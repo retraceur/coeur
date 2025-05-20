@@ -455,6 +455,9 @@ add_action( 'delete_attachment', '_delete_attachment_theme_mod' );
 // Block Theme Previews.
 add_action( 'plugins_loaded', 'wp_initialize_theme_preview_hooks', 1 );
 
+// Site preview for Classic Theme.
+add_action( 'init', 'wp_initialize_site_preview_hooks', 1 );
+
 // Calendar cache.
 add_action( 'save_post', 'delete_get_calendar_cache' );
 add_action( 'delete_post', 'delete_get_calendar_cache' );

@@ -806,3 +806,22 @@ function get_classic_theme_supports_block_editor_settings() {
 
 	return $theme_settings;
 }
+
+/**
+ * Initialize site preview.
+ *
+ * This function sets IFRAME_REQUEST to true if the site preview parameter is set.
+ *
+ * @since WP 6.8.0
+ * @since 2.0.0 Retraceur fork
+ */
+function wp_initialize_site_preview_hooks() {
+	if (
+		! defined( 'IFRAME_REQUEST' ) &&
+		isset( $_GET['wp_site_preview'] ) &&
+		1 === (int) $_GET['wp_site_preview'] &&
+		current_user_can( 'edit_theme_options' )
+	) {
+		define( 'IFRAME_REQUEST', true );
+	}
+}
