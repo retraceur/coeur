@@ -1565,6 +1565,11 @@ final class WP_Theme implements ArrayAccess {
 	 * @return bool
 	 */
 	public function is_block_theme() {
+		if ( ! did_action( 'setup_theme' ) ) {
+			_doing_it_wrong( __METHOD__, __( 'This method should not be called before themes are set up.' ), '2.0.0', true );
+			return false;
+		}
+
 		if ( isset( $this->block_theme ) ) {
 			return $this->block_theme;
 		}

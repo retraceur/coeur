@@ -112,7 +112,13 @@ class WP_REST_Pattern_Directory_Controller extends WP_REST_Controller {
 		 * configuration that affects the response, and it's included in the transient key.
 		 */
 		$raw_patterns = get_site_transient( $transient_key );
-		$response     = array();
+
+		if ( $request->is_method( 'HEAD' ) ) {
+			// Return early as this handler doesn't add any response headers.
+			return new WP_REST_Response( array() );
+		}
+
+		$response = array();
 
 		if ( $raw_patterns ) {
 			foreach ( $raw_patterns as $pattern ) {

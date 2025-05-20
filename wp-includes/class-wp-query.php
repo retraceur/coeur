@@ -1868,7 +1868,7 @@ class WP_Query {
 
 		// Set a flag if a 'pre_get_posts' hook changed the query vars.
 		$hash = md5( serialize( $this->query_vars ) );
-		if ( $hash != $this->query_vars_hash ) {
+		if ( $hash !== $this->query_vars_hash ) {
 			$this->query_vars_changed = true;
 			$this->query_vars_hash    = $hash;
 		}
@@ -1964,10 +1964,11 @@ class WP_Query {
 			}
 			$q['nopaging'] = false;
 		}
+
 		$q['posts_per_page'] = (int) $q['posts_per_page'];
 		if ( $q['posts_per_page'] < -1 ) {
 			$q['posts_per_page'] = abs( $q['posts_per_page'] );
-		} elseif ( 0 == $q['posts_per_page'] ) {
+		} elseif ( 0 === $q['posts_per_page'] ) {
 			$q['posts_per_page'] = 1;
 		}
 
@@ -3139,7 +3140,7 @@ class WP_Query {
 			return $post_parents;
 		}
 
-		$is_unfiltered_query = $old_request == $this->request && "{$wpdb->posts}.*" === $fields;
+		$is_unfiltered_query = $old_request === $this->request && "{$wpdb->posts}.*" === $fields;
 
 		if ( null === $this->posts ) {
 			$split_the_query = (

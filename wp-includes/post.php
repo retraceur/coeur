@@ -71,11 +71,6 @@ function create_initial_post_types() {
 		)
 	);
 
-	// Enhance page editor for block themes by rendering template and content blocks.
-	if ( wp_is_block_theme() && current_theme_supports( 'block-templates' ) ) {
-		add_post_type_support( 'page', 'editor', array( 'default-mode' => 'template-locked' ) );
-	}
-
 	register_post_type(
 		'attachment',
 		array(
@@ -8029,4 +8024,16 @@ function wp_create_initial_post_meta() {
 			),
 		)
 	);
+}
+
+/**
+ * Sets the default editor mode based on support for block templates.
+ *
+ * @since WP 6.8.0
+ * @since 2.0.0 Retraceur fork.
+ */
+function wp_set_editor_default_mode() {
+	if ( wp_is_block_theme() && current_theme_supports( 'block-templates' ) ) {
+		add_post_type_support( 'page', 'editor', array( 'default-mode' => 'template-locked' ) );
+	}
 }
