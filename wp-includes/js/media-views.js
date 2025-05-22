@@ -9478,7 +9478,7 @@ Toolbar = View.extend(/** @lends wp.media.view.Toolbar.prototype */{
 
 			var requires = button.options.requires,
 				disabled = false,
-				modelsUploading = ! _.isEmpty( library.findWhere(  { 'uploading': true } ) );
+				modelsUploading = library && ! _.isEmpty( library.findWhere(  { 'uploading': true } ) );
 
 			// Prevent insertion of attachments if any of them are still uploading.
 			if ( selection && selection.models ) {
@@ -10379,7 +10379,7 @@ module.exports = View;
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/ 	
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -10393,14 +10393,14 @@ module.exports = View;
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
-/******/ 	
+/******/
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/ 	
+/******/
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
