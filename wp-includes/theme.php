@@ -3688,6 +3688,11 @@ function create_initial_theme_features() {
  * @return bool Whether the active theme is a block-based theme or not.
  */
 function wp_is_block_theme() {
+	if ( empty( $GLOBALS['wp_theme_directories'] ) ) {
+		_doing_it_wrong( __FUNCTION__, __( 'This function should not be called before the theme directory is registered.' ), '2.0.0', true );
+		return false;
+	}
+
 	return wp_get_theme()->is_block_theme();
 }
 
