@@ -81,42 +81,6 @@ module.exports = function equal(a, b) {
 
 /***/ }),
 
-/***/ 5373:
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-var __webpack_unused_export__;
-/**
- * @license React
- * react-is.production.min.js
- *
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-var b=Symbol.for("react.element"),c=Symbol.for("react.portal"),d=Symbol.for("react.fragment"),e=Symbol.for("react.strict_mode"),f=Symbol.for("react.profiler"),g=Symbol.for("react.provider"),h=Symbol.for("react.context"),k=Symbol.for("react.server_context"),l=Symbol.for("react.forward_ref"),m=Symbol.for("react.suspense"),n=Symbol.for("react.suspense_list"),p=Symbol.for("react.memo"),q=Symbol.for("react.lazy"),t=Symbol.for("react.offscreen"),u;u=Symbol.for("react.module.reference");
-function v(a){if("object"===typeof a&&null!==a){var r=a.$$typeof;switch(r){case b:switch(a=a.type,a){case d:case f:case e:case m:case n:return a;default:switch(a=a&&a.$$typeof,a){case k:case h:case l:case q:case p:case g:return a;default:return r}}case c:return r}}}__webpack_unused_export__=h;__webpack_unused_export__=g;__webpack_unused_export__=b;__webpack_unused_export__=l;__webpack_unused_export__=d;__webpack_unused_export__=q;__webpack_unused_export__=p;__webpack_unused_export__=c;__webpack_unused_export__=f;__webpack_unused_export__=e;__webpack_unused_export__=m;
-__webpack_unused_export__=n;__webpack_unused_export__=function(){return!1};__webpack_unused_export__=function(){return!1};__webpack_unused_export__=function(a){return v(a)===h};__webpack_unused_export__=function(a){return v(a)===g};__webpack_unused_export__=function(a){return"object"===typeof a&&null!==a&&a.$$typeof===b};__webpack_unused_export__=function(a){return v(a)===l};__webpack_unused_export__=function(a){return v(a)===d};__webpack_unused_export__=function(a){return v(a)===q};__webpack_unused_export__=function(a){return v(a)===p};
-__webpack_unused_export__=function(a){return v(a)===c};__webpack_unused_export__=function(a){return v(a)===f};__webpack_unused_export__=function(a){return v(a)===e};__webpack_unused_export__=function(a){return v(a)===m};__webpack_unused_export__=function(a){return v(a)===n};
-exports.isValidElementType=function(a){return"string"===typeof a||"function"===typeof a||a===d||a===f||a===e||a===m||a===n||a===t||"object"===typeof a&&null!==a&&(a.$$typeof===q||a.$$typeof===p||a.$$typeof===g||a.$$typeof===h||a.$$typeof===l||a.$$typeof===u||void 0!==a.getModuleId)?!0:!1};__webpack_unused_export__=v;
-
-
-/***/ }),
-
-/***/ 8529:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-
-if (true) {
-  module.exports = __webpack_require__(5373);
-} else {}
-
-
-/***/ }),
-
 /***/ 9681:
 /***/ ((module) => {
 
@@ -5748,13 +5712,49 @@ if (true) {
 
 
 
+/***/ }),
+
+/***/ 5970:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+var __webpack_unused_export__;
+/**
+ * @license React
+ * react-is.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+var b=Symbol.for("react.element"),c=Symbol.for("react.portal"),d=Symbol.for("react.fragment"),e=Symbol.for("react.strict_mode"),f=Symbol.for("react.profiler"),g=Symbol.for("react.provider"),h=Symbol.for("react.context"),k=Symbol.for("react.server_context"),l=Symbol.for("react.forward_ref"),m=Symbol.for("react.suspense"),n=Symbol.for("react.suspense_list"),p=Symbol.for("react.memo"),q=Symbol.for("react.lazy"),t=Symbol.for("react.offscreen"),u;u=Symbol.for("react.module.reference");
+function v(a){if("object"===typeof a&&null!==a){var r=a.$$typeof;switch(r){case b:switch(a=a.type,a){case d:case f:case e:case m:case n:return a;default:switch(a=a&&a.$$typeof,a){case k:case h:case l:case q:case p:case g:return a;default:return r}}case c:return r}}}__webpack_unused_export__=h;__webpack_unused_export__=g;__webpack_unused_export__=b;__webpack_unused_export__=l;__webpack_unused_export__=d;__webpack_unused_export__=q;__webpack_unused_export__=p;__webpack_unused_export__=c;__webpack_unused_export__=f;__webpack_unused_export__=e;__webpack_unused_export__=m;
+__webpack_unused_export__=n;__webpack_unused_export__=function(){return!1};__webpack_unused_export__=function(){return!1};__webpack_unused_export__=function(a){return v(a)===h};__webpack_unused_export__=function(a){return v(a)===g};__webpack_unused_export__=function(a){return"object"===typeof a&&null!==a&&a.$$typeof===b};__webpack_unused_export__=function(a){return v(a)===l};__webpack_unused_export__=function(a){return v(a)===d};__webpack_unused_export__=function(a){return v(a)===q};__webpack_unused_export__=function(a){return v(a)===p};
+__webpack_unused_export__=function(a){return v(a)===c};__webpack_unused_export__=function(a){return v(a)===f};__webpack_unused_export__=function(a){return v(a)===e};__webpack_unused_export__=function(a){return v(a)===m};__webpack_unused_export__=function(a){return v(a)===n};
+exports.isValidElementType=function(a){return"string"===typeof a||"function"===typeof a||a===d||a===f||a===e||a===m||a===n||a===t||"object"===typeof a&&null!==a&&(a.$$typeof===q||a.$$typeof===p||a.$$typeof===g||a.$$typeof===h||a.$$typeof===l||a.$$typeof===u||void 0!==a.getModuleId)?!0:!1};__webpack_unused_export__=v;
+
+
+/***/ }),
+
+/***/ 4398:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+if (true) {
+  module.exports = __webpack_require__(5970);
+} else {}
+
+
 /***/ })
 
 /******/ 	});
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/
+/******/ 	
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -5768,14 +5768,14 @@ if (true) {
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
-/******/
+/******/ 	
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
+/******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/
+/******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
@@ -5788,7 +5788,7 @@ if (true) {
 /******/ 			return getter;
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -5800,12 +5800,12 @@ if (true) {
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -5816,7 +5816,7 @@ if (true) {
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry needs to be wrapped in an IIFE because it needs to be in strict mode.
@@ -5908,7 +5908,7 @@ __webpack_require__.d(__webpack_exports__, {
   withBlockContentContext: () => (/* reexport */ withBlockContentContext)
 });
 
-// NAMESPACE OBJECT: ./node_modules/@wordpress/blocks/build-module/store/private-selectors.js
+// NAMESPACE OBJECT: ./packages/blocks/build-module/store/private-selectors.js
 var private_selectors_namespaceObject = {};
 __webpack_require__.r(private_selectors_namespaceObject);
 __webpack_require__.d(private_selectors_namespaceObject, {
@@ -5920,7 +5920,7 @@ __webpack_require__.d(private_selectors_namespaceObject, {
   hasContentRoleAttribute: () => (hasContentRoleAttribute)
 });
 
-// NAMESPACE OBJECT: ./node_modules/@wordpress/blocks/build-module/store/selectors.js
+// NAMESPACE OBJECT: ./packages/blocks/build-module/store/selectors.js
 var selectors_namespaceObject = {};
 __webpack_require__.r(selectors_namespaceObject);
 __webpack_require__.d(selectors_namespaceObject, {
@@ -5945,7 +5945,7 @@ __webpack_require__.d(selectors_namespaceObject, {
   isMatchingSearchTerm: () => (isMatchingSearchTerm)
 });
 
-// NAMESPACE OBJECT: ./node_modules/@wordpress/blocks/build-module/store/actions.js
+// NAMESPACE OBJECT: ./packages/blocks/build-module/store/actions.js
 var actions_namespaceObject = {};
 __webpack_require__.r(actions_namespaceObject);
 __webpack_require__.d(actions_namespaceObject, {
@@ -5967,7 +5967,7 @@ __webpack_require__.d(actions_namespaceObject, {
   updateCategory: () => (updateCategory)
 });
 
-// NAMESPACE OBJECT: ./node_modules/@wordpress/blocks/build-module/store/private-actions.js
+// NAMESPACE OBJECT: ./packages/blocks/build-module/store/private-actions.js
 var private_actions_namespaceObject = {};
 __webpack_require__.r(private_actions_namespaceObject);
 __webpack_require__.d(private_actions_namespaceObject, {
@@ -6245,19 +6245,10 @@ var __setModuleDefault = Object.create ? (function(o, v) {
   o["default"] = v;
 };
 
-var ownKeys = function(o) {
-  ownKeys = Object.getOwnPropertyNames || function (o) {
-    var ar = [];
-    for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
-    return ar;
-  };
-  return ownKeys(o);
-};
-
 function __importStar(mod) {
   if (mod && mod.__esModule) return mod;
   var result = {};
-  if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
+  if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
   __setModuleDefault(result, mod);
   return result;
 }
@@ -6520,7 +6511,7 @@ const external_wp_richText_namespaceObject = window["wp"]["richText"];
 ;// external ["wp","deprecated"]
 const external_wp_deprecated_namespaceObject = window["wp"]["deprecated"];
 var external_wp_deprecated_default = /*#__PURE__*/__webpack_require__.n(external_wp_deprecated_namespaceObject);
-;// ./node_modules/@wordpress/blocks/build-module/api/constants.js
+;// ./packages/blocks/build-module/api/constants.js
 const BLOCK_ICON_DEFAULT = 'block-default';
 
 /**
@@ -6813,10 +6804,9 @@ const __EXPERIMENTAL_PATHS_WITH_OVERRIDE = {
 
 ;// external ["wp","warning"]
 const external_wp_warning_namespaceObject = window["wp"]["warning"];
-var external_wp_warning_default = /*#__PURE__*/__webpack_require__.n(external_wp_warning_namespaceObject);
 ;// external ["wp","privateApis"]
 const external_wp_privateApis_namespaceObject = window["wp"]["privateApis"];
-;// ./node_modules/@wordpress/blocks/build-module/lock-unlock.js
+;// ./packages/blocks/build-module/lock-unlock.js
 /**
  * WP dependencies
  */
@@ -6826,8 +6816,7 @@ const {
   unlock
 } = (0,external_wp_privateApis_namespaceObject.__dangerousOptInToUnstableAPIsOnlyForCoreModules)('I acknowledge private features are not for use in themes or plugins and doing so will break in the next version of Retraceur.', '@wordpress/blocks');
 
-;// ./node_modules/@wordpress/blocks/build-module/api/registration.js
-/* wp:polyfill */
+;// ./packages/blocks/build-module/api/registration.js
 /**
  * WP dependencies
  */
@@ -7037,15 +7026,15 @@ function getBlockSettingsFromMetadata({
 function registerBlockType(blockNameOrMetadata, settings) {
   const name = isObject(blockNameOrMetadata) ? blockNameOrMetadata.name : blockNameOrMetadata;
   if (typeof name !== 'string') {
-     true ? external_wp_warning_default()('Block names must be strings.') : 0;
+     false ? 0 : void 0;
     return;
   }
   if (!/^[a-z][a-z0-9-]*\/[a-z][a-z0-9-]*$/.test(name)) {
-     true ? external_wp_warning_default()('Block names must contain a namespace prefix, include only lowercase alphanumeric characters or dashes, and start with a letter. Example: my-plugin/my-custom-block') : 0;
+     false ? 0 : void 0;
     return;
   }
   if ((0,external_wp_data_namespaceObject.select)(store).getBlockType(name)) {
-     true ? external_wp_warning_default()('Block "' + name + '" is already registered.') : 0;
+     false ? 0 : void 0;
     return;
   }
   const {
@@ -7168,7 +7157,7 @@ function unregisterBlockCollection(namespace) {
 function unregisterBlockType(name) {
   const oldBlock = (0,external_wp_data_namespaceObject.select)(store).getBlockType(name);
   if (!oldBlock) {
-     true ? external_wp_warning_default()('Block "' + name + '" is not registered.') : 0;
+     false ? 0 : void 0;
     return;
   }
   (0,external_wp_data_namespaceObject.dispatch)(store).removeBlockTypes(name);
@@ -7497,7 +7486,7 @@ const getBlockVariations = (blockName, scope) => {
  */
 const registerBlockVariation = (blockName, variation) => {
   if (typeof variation.name !== 'string') {
-     true ? external_wp_warning_default()('Variation names must be unique strings.') : 0;
+     false ? 0 : void 0;
   }
   (0,external_wp_data_namespaceObject.dispatch)(store).addBlockVariations(blockName, variation);
 };
@@ -7536,7 +7525,7 @@ const unregisterBlockVariation = (blockName, variationName) => {
  * behavior. Once registered, the source is available to be connected
  * to the supported block attributes.
  *
- * @since WP 6.7.0
+ * @since 6.7.0 Introduced in WP core.
  *
  * @param {Object}   source                    Properties of the source to be registered.
  * @param {string}   source.name               The unique and machine-readable name.
@@ -7580,75 +7569,75 @@ const registerBlockBindingsSource = source => {
   const serverProps = ['label', 'usesContext'];
   for (const prop in existingSource) {
     if (!serverProps.includes(prop) && existingSource[prop]) {
-       true ? external_wp_warning_default()('Block bindings source "' + name + '" is already registered.') : 0;
+       false ? 0 : void 0;
       return;
     }
   }
 
   // Check the `name` property is correct.
   if (!name) {
-     true ? external_wp_warning_default()('Block bindings source must contain a name.') : 0;
+     false ? 0 : void 0;
     return;
   }
   if (typeof name !== 'string') {
-     true ? external_wp_warning_default()('Block bindings source name must be a string.') : 0;
+     false ? 0 : void 0;
     return;
   }
   if (/[A-Z]+/.test(name)) {
-     true ? external_wp_warning_default()('Block bindings source name must not contain uppercase characters.') : 0;
+     false ? 0 : void 0;
     return;
   }
   if (!/^[a-z0-9/-]+$/.test(name)) {
-     true ? external_wp_warning_default()('Block bindings source name must contain only valid characters: lowercase characters, hyphens, or digits. Example: my-plugin/my-custom-source.') : 0;
+     false ? 0 : void 0;
     return;
   }
   if (!/^[a-z0-9-]+\/[a-z0-9-]+$/.test(name)) {
-     true ? external_wp_warning_default()('Block bindings source name must contain a namespace and valid characters. Example: my-plugin/my-custom-source.') : 0;
+     false ? 0 : void 0;
     return;
   }
 
   // Check the `label` property is correct.
 
   if (!label && !existingSource?.label) {
-     true ? external_wp_warning_default()('Block bindings source must contain a label.') : 0;
+     false ? 0 : void 0;
     return;
   }
   if (label && typeof label !== 'string') {
-     true ? external_wp_warning_default()('Block bindings source label must be a string.') : 0;
+     false ? 0 : void 0;
     return;
   }
   if (label && existingSource?.label && label !== existingSource?.label) {
-     true ? external_wp_warning_default()('Block bindings "' + name + '" source label was overridden.') : 0;
+     false ? 0 : void 0;
   }
 
   // Check the `usesContext` property is correct.
   if (usesContext && !Array.isArray(usesContext)) {
-     true ? external_wp_warning_default()('Block bindings source usesContext must be an array.') : 0;
+     false ? 0 : void 0;
     return;
   }
 
   // Check the `getValues` property is correct.
   if (getValues && typeof getValues !== 'function') {
-     true ? external_wp_warning_default()('Block bindings source getValues must be a function.') : 0;
+     false ? 0 : void 0;
     return;
   }
 
   // Check the `setValues` property is correct.
   if (setValues && typeof setValues !== 'function') {
-     true ? external_wp_warning_default()('Block bindings source setValues must be a function.') : 0;
+     false ? 0 : void 0;
     return;
   }
 
   // Check the `canUserEditValue` property is correct.
   if (canUserEditValue && typeof canUserEditValue !== 'function') {
-     true ? external_wp_warning_default()('Block bindings source canUserEditValue must be a function.') : 0;
+     false ? 0 : void 0;
     return;
   }
 
   // Check the `getFieldsList` property is correct.
   if (getFieldsList && typeof getFieldsList !== 'function') {
     // eslint-disable-next-line no-console
-     true ? external_wp_warning_default()('Block bindings source getFieldsList must be a function.') : 0;
+     false ? 0 : void 0;
     return;
   }
   return unlock((0,external_wp_data_namespaceObject.dispatch)(store)).addBlockBindingsSource(source);
@@ -7657,7 +7646,7 @@ const registerBlockBindingsSource = source => {
 /**
  * Unregisters a block bindings source by providing its name.
  *
- * @since WP 6.7.0
+ * @since 6.7.0 Introduced in WP core.
  *
  * @param {string} name The name of the block bindings source to unregister.
  *
@@ -7671,7 +7660,7 @@ const registerBlockBindingsSource = source => {
 function unregisterBlockBindingsSource(name) {
   const oldSource = getBlockBindingsSource(name);
   if (!oldSource) {
-     true ? external_wp_warning_default()('Block bindings source "' + name + '" is not registered.') : 0;
+     false ? 0 : void 0;
     return;
   }
   unlock((0,external_wp_data_namespaceObject.dispatch)(store)).removeBlockBindingsSource(name);
@@ -7680,7 +7669,7 @@ function unregisterBlockBindingsSource(name) {
 /**
  * Returns a registered block bindings source by its name.
  *
- * @since WP 6.7.0
+ * @since 6.7.0 Introduced in WP core.
  *
  * @param {string} name Block bindings source name.
  *
@@ -7693,7 +7682,7 @@ function getBlockBindingsSource(name) {
 /**
  * Returns all registered block bindings sources.
  *
- * @since WP 6.7.0
+ * @since 6.7.0 Introduced in WP core.
  *
  * @return {Array} Block bindings sources.
  */
@@ -7701,8 +7690,7 @@ function getBlockBindingsSources() {
   return unlock((0,external_wp_data_namespaceObject.select)(store)).getAllBlockBindingsSources();
 }
 
-;// ./node_modules/@wordpress/blocks/build-module/api/utils.js
-/* wp:polyfill */
+;// ./packages/blocks/build-module/api/utils.js
 /**
  * External dependencies
  */
@@ -8050,8 +8038,7 @@ function omit(object, keys) {
   return Object.fromEntries(Object.entries(object).filter(([key]) => !keys.includes(key)));
 }
 
-;// ./node_modules/@wordpress/blocks/build-module/store/reducer.js
-/* wp:polyfill */
+;// ./packages/blocks/build-module/store/reducer.js
 /**
  * External dependencies
  */
@@ -8394,9 +8381,9 @@ function blockBindingsSources(state = {}, action) {
     case 'ADD_BLOCK_BINDINGS_SOURCE':
       // Only open this API in Gutenberg and for `core/post-meta` for the moment.
       let getFieldsList;
-      if (false) {} else if (action.name === 'core/post-meta') {
+      if (true) {
         getFieldsList = action.getFieldsList;
-      }
+      } else {}
       return {
         ...state,
         [action.name]: {
@@ -8432,8 +8419,7 @@ function blockBindingsSources(state = {}, action) {
 // EXTERNAL MODULE: ./node_modules/remove-accents/index.js
 var remove_accents = __webpack_require__(9681);
 var remove_accents_default = /*#__PURE__*/__webpack_require__.n(remove_accents);
-;// ./node_modules/@wordpress/blocks/build-module/store/utils.js
-/* wp:polyfill */
+;// ./packages/blocks/build-module/store/utils.js
 /**
  * Helper util to return a value from a certain path of the object.
  * Path is specified as either:
@@ -8477,8 +8463,7 @@ function matchesAttributes(blockAttributes, variationAttributes) {
   return blockAttributes === variationAttributes;
 }
 
-;// ./node_modules/@wordpress/blocks/build-module/store/private-selectors.js
-/* wp:polyfill */
+;// ./packages/blocks/build-module/store/private-selectors.js
 /**
  * WP dependencies
  */
@@ -8655,8 +8640,7 @@ const hasContentRoleAttribute = (state, blockTypeName) => {
   });
 };
 
-;// ./node_modules/@wordpress/blocks/build-module/store/selectors.js
-/* wp:polyfill */
+;// ./packages/blocks/build-module/store/selectors.js
 /**
  * External dependencies
  */
@@ -9476,12 +9460,11 @@ function isPlainObject(o) {
 
 
 
-// EXTERNAL MODULE: ./node_modules/react-is/index.js
-var react_is = __webpack_require__(8529);
+// EXTERNAL MODULE: ./packages/blocks/node_modules/react-is/index.js
+var react_is = __webpack_require__(4398);
 ;// external ["wp","hooks"]
 const external_wp_hooks_namespaceObject = window["wp"]["hooks"];
-;// ./node_modules/@wordpress/blocks/build-module/store/process-block-type.js
-/* wp:polyfill */
+;// ./packages/blocks/build-module/store/process-block-type.js
 /**
  * External dependencies
  */
@@ -9592,15 +9575,15 @@ const processBlockType = (name, blockSettings) => ({
     }, blockType.name, deprecation)).filter(([key]) => DEPRECATED_ENTRY_KEYS.includes(key))));
   }
   if (!isPlainObject(settings)) {
-     true ? external_wp_warning_default()('Block settings must be a valid object.') : 0;
+     false ? 0 : void 0;
     return;
   }
   if (typeof settings.save !== 'function') {
-     true ? external_wp_warning_default()('The "save" property must be a valid function.') : 0;
+     false ? 0 : void 0;
     return;
   }
   if ('edit' in settings && !(0,react_is.isValidElementType)(settings.edit)) {
-     true ? external_wp_warning_default()('The "edit" property must be a valid component.') : 0;
+     false ? 0 : void 0;
     return;
   }
 
@@ -9611,25 +9594,25 @@ const processBlockType = (name, blockSettings) => ({
   if ('category' in settings && !select.getCategories().some(({
     slug
   }) => slug === settings.category)) {
-     true ? external_wp_warning_default()('The block "' + name + '" is registered with an invalid category "' + settings.category + '".') : 0;
+     false ? 0 : void 0;
     delete settings.category;
   }
   if (!('title' in settings) || settings.title === '') {
-     true ? external_wp_warning_default()('The block "' + name + '" must have a title.') : 0;
+     false ? 0 : void 0;
     return;
   }
   if (typeof settings.title !== 'string') {
-     true ? external_wp_warning_default()('Block titles must be strings.') : 0;
+     false ? 0 : void 0;
     return;
   }
   settings.icon = normalizeIconObject(settings.icon);
   if (!isValidIcon(settings.icon.src)) {
-     true ? external_wp_warning_default()('The icon passed is invalid. ' + 'The icon should be a string, an element, a function, or an object.') : 0;
+     false ? 0 : void 0;
     return;
   }
   if (typeof settings?.parent === 'string' || settings?.parent instanceof String) {
     settings.parent = [settings.parent];
-     true ? external_wp_warning_default()('Parent must be undefined or an array of strings (block types), but it is a string.') : 0;
+     false ? 0 : void 0;
     // Intentionally continue:
     //
     // While string values were never supported, they appeared to work with some unintended side-effects
@@ -9638,17 +9621,17 @@ const processBlockType = (name, blockSettings) => ({
     // To be backwards-compatible, this code that automatically migrates strings to arrays.
   }
   if (!Array.isArray(settings?.parent) && settings?.parent !== undefined) {
-     true ? external_wp_warning_default()('Parent must be undefined or an array of block types, but it is ', settings.parent) : 0;
+     false ? 0 : void 0;
     return;
   }
   if (1 === settings?.parent?.length && name === settings.parent[0]) {
-     true ? external_wp_warning_default()('Block "' + name + '" cannot be a parent of itself. Please remove the block name from the parent list.') : 0;
+     false ? 0 : void 0;
     return;
   }
   return settings;
 };
 
-;// ./node_modules/@wordpress/blocks/build-module/store/actions.js
+;// ./packages/blocks/build-module/store/actions.js
 /**
  * WP dependencies
  */
@@ -9961,7 +9944,7 @@ function removeBlockCollection(namespace) {
   };
 }
 
-;// ./node_modules/@wordpress/blocks/build-module/store/private-actions.js
+;// ./packages/blocks/build-module/store/private-actions.js
 /**
  * Internal dependencies
  */
@@ -10039,10 +10022,10 @@ function removeBlockBindingsSource(name) {
   };
 }
 
-;// ./node_modules/@wordpress/blocks/build-module/store/constants.js
+;// ./packages/blocks/build-module/store/constants.js
 const STORE_NAME = 'core/blocks';
 
-;// ./node_modules/@wordpress/blocks/build-module/store/index.js
+;// ./packages/blocks/build-module/store/index.js
 /**
  * WP dependencies
  */
@@ -10075,22 +10058,18 @@ const store = (0,external_wp_data_namespaceObject.createReduxStore)(STORE_NAME, 
 unlock(store).registerPrivateSelectors(private_selectors_namespaceObject);
 unlock(store).registerPrivateActions(private_actions_namespaceObject);
 
-;// ./node_modules/@wordpress/blocks/node_modules/uuid/dist/esm-browser/native.js
-const randomUUID = typeof crypto !== 'undefined' && crypto.randomUUID && crypto.randomUUID.bind(crypto);
-/* harmony default export */ const esm_browser_native = ({
-  randomUUID
-});
-;// ./node_modules/@wordpress/blocks/node_modules/uuid/dist/esm-browser/rng.js
+;// ./packages/blocks/node_modules/uuid/dist/esm-browser/rng.js
 // Unique ID creation requires a high quality random # generator. In the browser we therefore
 // require the crypto API and do not support built-in fallback to lower quality random number
 // generators (like Math.random()).
-let getRandomValues;
-const rnds8 = new Uint8Array(16);
+var getRandomValues;
+var rnds8 = new Uint8Array(16);
 function rng() {
   // lazy load so that environments that need to polyfill have a chance to do so
   if (!getRandomValues) {
-    // getRandomValues needs to be invoked in a context where "this" is a Crypto implementation.
-    getRandomValues = typeof crypto !== 'undefined' && crypto.getRandomValues && crypto.getRandomValues.bind(crypto);
+    // getRandomValues needs to be invoked in a context where "this" is a Crypto implementation. Also,
+    // find the complete implementation of crypto (msCrypto) on IE11.
+    getRandomValues = typeof crypto !== 'undefined' && crypto.getRandomValues && crypto.getRandomValues.bind(crypto) || typeof msCrypto !== 'undefined' && typeof msCrypto.getRandomValues === 'function' && msCrypto.getRandomValues.bind(msCrypto);
 
     if (!getRandomValues) {
       throw new Error('crypto.getRandomValues() not supported. See https://github.com/uuidjs/uuid#getrandomvalues-not-supported');
@@ -10099,52 +10078,54 @@ function rng() {
 
   return getRandomValues(rnds8);
 }
-;// ./node_modules/@wordpress/blocks/node_modules/uuid/dist/esm-browser/stringify.js
+;// ./packages/blocks/node_modules/uuid/dist/esm-browser/regex.js
+/* harmony default export */ const regex = (/^(?:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|00000000-0000-0000-0000-000000000000)$/i);
+;// ./packages/blocks/node_modules/uuid/dist/esm-browser/validate.js
+
+
+function validate(uuid) {
+  return typeof uuid === 'string' && regex.test(uuid);
+}
+
+/* harmony default export */ const esm_browser_validate = (validate);
+;// ./packages/blocks/node_modules/uuid/dist/esm-browser/stringify.js
 
 /**
  * Convert array of 16 byte values to UUID string format of the form:
  * XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
  */
 
-const byteToHex = [];
+var byteToHex = [];
 
-for (let i = 0; i < 256; ++i) {
-  byteToHex.push((i + 0x100).toString(16).slice(1));
+for (var stringify_i = 0; stringify_i < 256; ++stringify_i) {
+  byteToHex.push((stringify_i + 0x100).toString(16).substr(1));
 }
 
-function unsafeStringify(arr, offset = 0) {
+function stringify(arr) {
+  var offset = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
   // Note: Be careful editing this code!  It's been tuned for performance
   // and works in ways you may not expect. See https://github.com/uuidjs/uuid/pull/434
-  return byteToHex[arr[offset + 0]] + byteToHex[arr[offset + 1]] + byteToHex[arr[offset + 2]] + byteToHex[arr[offset + 3]] + '-' + byteToHex[arr[offset + 4]] + byteToHex[arr[offset + 5]] + '-' + byteToHex[arr[offset + 6]] + byteToHex[arr[offset + 7]] + '-' + byteToHex[arr[offset + 8]] + byteToHex[arr[offset + 9]] + '-' + byteToHex[arr[offset + 10]] + byteToHex[arr[offset + 11]] + byteToHex[arr[offset + 12]] + byteToHex[arr[offset + 13]] + byteToHex[arr[offset + 14]] + byteToHex[arr[offset + 15]];
-}
-
-function stringify(arr, offset = 0) {
-  const uuid = unsafeStringify(arr, offset); // Consistency check for valid UUID.  If this throws, it's likely due to one
+  var uuid = (byteToHex[arr[offset + 0]] + byteToHex[arr[offset + 1]] + byteToHex[arr[offset + 2]] + byteToHex[arr[offset + 3]] + '-' + byteToHex[arr[offset + 4]] + byteToHex[arr[offset + 5]] + '-' + byteToHex[arr[offset + 6]] + byteToHex[arr[offset + 7]] + '-' + byteToHex[arr[offset + 8]] + byteToHex[arr[offset + 9]] + '-' + byteToHex[arr[offset + 10]] + byteToHex[arr[offset + 11]] + byteToHex[arr[offset + 12]] + byteToHex[arr[offset + 13]] + byteToHex[arr[offset + 14]] + byteToHex[arr[offset + 15]]).toLowerCase(); // Consistency check for valid UUID.  If this throws, it's likely due to one
   // of the following:
   // - One or more input array values don't map to a hex octet (leading to
   // "undefined" in the uuid)
   // - Invalid input values for the RFC `version` or `variant` fields
 
-  if (!validate(uuid)) {
+  if (!esm_browser_validate(uuid)) {
     throw TypeError('Stringified UUID is invalid');
   }
 
   return uuid;
 }
 
-/* harmony default export */ const esm_browser_stringify = ((/* unused pure expression or super */ null && (stringify)));
-;// ./node_modules/@wordpress/blocks/node_modules/uuid/dist/esm-browser/v4.js
-
+/* harmony default export */ const esm_browser_stringify = (stringify);
+;// ./packages/blocks/node_modules/uuid/dist/esm-browser/v4.js
 
 
 
 function v4(options, buf, offset) {
-  if (esm_browser_native.randomUUID && !buf && !options) {
-    return esm_browser_native.randomUUID();
-  }
-
   options = options || {};
-  const rnds = options.random || (options.rng || rng)(); // Per 4.4, set bits for version and `clock_seq_hi_and_reserved`
+  var rnds = options.random || (options.rng || rng)(); // Per 4.4, set bits for version and `clock_seq_hi_and_reserved`
 
   rnds[6] = rnds[6] & 0x0f | 0x40;
   rnds[8] = rnds[8] & 0x3f | 0x80; // Copy bytes to buffer, if provided
@@ -10152,19 +10133,18 @@ function v4(options, buf, offset) {
   if (buf) {
     offset = offset || 0;
 
-    for (let i = 0; i < 16; ++i) {
+    for (var i = 0; i < 16; ++i) {
       buf[offset + i] = rnds[i];
     }
 
     return buf;
   }
 
-  return unsafeStringify(rnds);
+  return esm_browser_stringify(rnds);
 }
 
 /* harmony default export */ const esm_browser_v4 = (v4);
-;// ./node_modules/@wordpress/blocks/build-module/api/factory.js
-/* wp:polyfill */
+;// ./packages/blocks/build-module/api/factory.js
 /**
  * External dependencies
  */
@@ -10628,8 +10608,7 @@ const external_wp_autop_namespaceObject = window["wp"]["autop"];
 ;// external ["wp","isShallowEqual"]
 const external_wp_isShallowEqual_namespaceObject = window["wp"]["isShallowEqual"];
 var external_wp_isShallowEqual_default = /*#__PURE__*/__webpack_require__.n(external_wp_isShallowEqual_namespaceObject);
-;// ./node_modules/@wordpress/blocks/build-module/api/parser/serialize-raw-block.js
-/* wp:polyfill */
+;// ./packages/blocks/build-module/api/parser/serialize-raw-block.js
 /**
  * Internal dependencies
  */
@@ -10681,8 +10660,7 @@ function serializeRawBlock(rawBlock, options = {}) {
 
 ;// external "ReactJSXRuntime"
 const external_ReactJSXRuntime_namespaceObject = window["ReactJSXRuntime"];
-;// ./node_modules/@wordpress/blocks/build-module/api/serializer.js
-/* wp:polyfill */
+;// ./packages/blocks/build-module/api/serializer.js
 /**
  * WP dependencies
  */
@@ -11089,11 +11067,9 @@ function preprocessInput(input) {
 }
 
 var EventedTokenizer = /** @class */ (function () {
-    function EventedTokenizer(delegate, entityParser, mode) {
-        if (mode === void 0) { mode = 'precompile'; }
+    function EventedTokenizer(delegate, entityParser) {
         this.delegate = delegate;
         this.entityParser = entityParser;
-        this.mode = mode;
         this.state = "beforeData" /* beforeData */;
         this.line = -1;
         this.column = -1;
@@ -11103,13 +11079,13 @@ var EventedTokenizer = /** @class */ (function () {
         this.states = {
             beforeData: function () {
                 var char = this.peek();
-                if (char === '<' && !this.isIgnoredEndTag()) {
+                if (char === '<') {
                     this.transitionTo("tagOpen" /* tagOpen */);
                     this.markTagStart();
                     this.consume();
                 }
                 else {
-                    if (this.mode === 'precompile' && char === '\n') {
+                    if (char === '\n') {
                         var tag = this.tagNameBuffer.toLowerCase();
                         if (tag === 'pre' || tag === 'textarea') {
                             this.consume();
@@ -11121,14 +11097,13 @@ var EventedTokenizer = /** @class */ (function () {
             },
             data: function () {
                 var char = this.peek();
-                var tag = this.tagNameBuffer;
-                if (char === '<' && !this.isIgnoredEndTag()) {
+                if (char === '<') {
                     this.delegate.finishData();
                     this.transitionTo("tagOpen" /* tagOpen */);
                     this.markTagStart();
                     this.consume();
                 }
-                else if (char === '&' && tag !== 'script' && tag !== 'style') {
+                else if (char === '&') {
                     this.consume();
                     this.delegate.appendToData(this.consumeCharRef() || '&');
                 }
@@ -11154,212 +11129,10 @@ var EventedTokenizer = /** @class */ (function () {
             },
             markupDeclarationOpen: function () {
                 var char = this.consume();
-                if (char === '-' && this.peek() === '-') {
+                if (char === '-' && this.input.charAt(this.index) === '-') {
                     this.consume();
                     this.transitionTo("commentStart" /* commentStart */);
                     this.delegate.beginComment();
-                }
-                else {
-                    var maybeDoctype = char.toUpperCase() + this.input.substring(this.index, this.index + 6).toUpperCase();
-                    if (maybeDoctype === 'DOCTYPE') {
-                        this.consume();
-                        this.consume();
-                        this.consume();
-                        this.consume();
-                        this.consume();
-                        this.consume();
-                        this.transitionTo("doctype" /* doctype */);
-                        if (this.delegate.beginDoctype)
-                            this.delegate.beginDoctype();
-                    }
-                }
-            },
-            doctype: function () {
-                var char = this.consume();
-                if (isSpace(char)) {
-                    this.transitionTo("beforeDoctypeName" /* beforeDoctypeName */);
-                }
-            },
-            beforeDoctypeName: function () {
-                var char = this.consume();
-                if (isSpace(char)) {
-                    return;
-                }
-                else {
-                    this.transitionTo("doctypeName" /* doctypeName */);
-                    if (this.delegate.appendToDoctypeName)
-                        this.delegate.appendToDoctypeName(char.toLowerCase());
-                }
-            },
-            doctypeName: function () {
-                var char = this.consume();
-                if (isSpace(char)) {
-                    this.transitionTo("afterDoctypeName" /* afterDoctypeName */);
-                }
-                else if (char === '>') {
-                    if (this.delegate.endDoctype)
-                        this.delegate.endDoctype();
-                    this.transitionTo("beforeData" /* beforeData */);
-                }
-                else {
-                    if (this.delegate.appendToDoctypeName)
-                        this.delegate.appendToDoctypeName(char.toLowerCase());
-                }
-            },
-            afterDoctypeName: function () {
-                var char = this.consume();
-                if (isSpace(char)) {
-                    return;
-                }
-                else if (char === '>') {
-                    if (this.delegate.endDoctype)
-                        this.delegate.endDoctype();
-                    this.transitionTo("beforeData" /* beforeData */);
-                }
-                else {
-                    var nextSixChars = char.toUpperCase() + this.input.substring(this.index, this.index + 5).toUpperCase();
-                    var isPublic = nextSixChars.toUpperCase() === 'PUBLIC';
-                    var isSystem = nextSixChars.toUpperCase() === 'SYSTEM';
-                    if (isPublic || isSystem) {
-                        this.consume();
-                        this.consume();
-                        this.consume();
-                        this.consume();
-                        this.consume();
-                        this.consume();
-                    }
-                    if (isPublic) {
-                        this.transitionTo("afterDoctypePublicKeyword" /* afterDoctypePublicKeyword */);
-                    }
-                    else if (isSystem) {
-                        this.transitionTo("afterDoctypeSystemKeyword" /* afterDoctypeSystemKeyword */);
-                    }
-                }
-            },
-            afterDoctypePublicKeyword: function () {
-                var char = this.peek();
-                if (isSpace(char)) {
-                    this.transitionTo("beforeDoctypePublicIdentifier" /* beforeDoctypePublicIdentifier */);
-                    this.consume();
-                }
-                else if (char === '"') {
-                    this.transitionTo("doctypePublicIdentifierDoubleQuoted" /* doctypePublicIdentifierDoubleQuoted */);
-                    this.consume();
-                }
-                else if (char === "'") {
-                    this.transitionTo("doctypePublicIdentifierSingleQuoted" /* doctypePublicIdentifierSingleQuoted */);
-                    this.consume();
-                }
-                else if (char === '>') {
-                    this.consume();
-                    if (this.delegate.endDoctype)
-                        this.delegate.endDoctype();
-                    this.transitionTo("beforeData" /* beforeData */);
-                }
-            },
-            doctypePublicIdentifierDoubleQuoted: function () {
-                var char = this.consume();
-                if (char === '"') {
-                    this.transitionTo("afterDoctypePublicIdentifier" /* afterDoctypePublicIdentifier */);
-                }
-                else if (char === '>') {
-                    if (this.delegate.endDoctype)
-                        this.delegate.endDoctype();
-                    this.transitionTo("beforeData" /* beforeData */);
-                }
-                else {
-                    if (this.delegate.appendToDoctypePublicIdentifier)
-                        this.delegate.appendToDoctypePublicIdentifier(char);
-                }
-            },
-            doctypePublicIdentifierSingleQuoted: function () {
-                var char = this.consume();
-                if (char === "'") {
-                    this.transitionTo("afterDoctypePublicIdentifier" /* afterDoctypePublicIdentifier */);
-                }
-                else if (char === '>') {
-                    if (this.delegate.endDoctype)
-                        this.delegate.endDoctype();
-                    this.transitionTo("beforeData" /* beforeData */);
-                }
-                else {
-                    if (this.delegate.appendToDoctypePublicIdentifier)
-                        this.delegate.appendToDoctypePublicIdentifier(char);
-                }
-            },
-            afterDoctypePublicIdentifier: function () {
-                var char = this.consume();
-                if (isSpace(char)) {
-                    this.transitionTo("betweenDoctypePublicAndSystemIdentifiers" /* betweenDoctypePublicAndSystemIdentifiers */);
-                }
-                else if (char === '>') {
-                    if (this.delegate.endDoctype)
-                        this.delegate.endDoctype();
-                    this.transitionTo("beforeData" /* beforeData */);
-                }
-                else if (char === '"') {
-                    this.transitionTo("doctypeSystemIdentifierDoubleQuoted" /* doctypeSystemIdentifierDoubleQuoted */);
-                }
-                else if (char === "'") {
-                    this.transitionTo("doctypeSystemIdentifierSingleQuoted" /* doctypeSystemIdentifierSingleQuoted */);
-                }
-            },
-            betweenDoctypePublicAndSystemIdentifiers: function () {
-                var char = this.consume();
-                if (isSpace(char)) {
-                    return;
-                }
-                else if (char === '>') {
-                    if (this.delegate.endDoctype)
-                        this.delegate.endDoctype();
-                    this.transitionTo("beforeData" /* beforeData */);
-                }
-                else if (char === '"') {
-                    this.transitionTo("doctypeSystemIdentifierDoubleQuoted" /* doctypeSystemIdentifierDoubleQuoted */);
-                }
-                else if (char === "'") {
-                    this.transitionTo("doctypeSystemIdentifierSingleQuoted" /* doctypeSystemIdentifierSingleQuoted */);
-                }
-            },
-            doctypeSystemIdentifierDoubleQuoted: function () {
-                var char = this.consume();
-                if (char === '"') {
-                    this.transitionTo("afterDoctypeSystemIdentifier" /* afterDoctypeSystemIdentifier */);
-                }
-                else if (char === '>') {
-                    if (this.delegate.endDoctype)
-                        this.delegate.endDoctype();
-                    this.transitionTo("beforeData" /* beforeData */);
-                }
-                else {
-                    if (this.delegate.appendToDoctypeSystemIdentifier)
-                        this.delegate.appendToDoctypeSystemIdentifier(char);
-                }
-            },
-            doctypeSystemIdentifierSingleQuoted: function () {
-                var char = this.consume();
-                if (char === "'") {
-                    this.transitionTo("afterDoctypeSystemIdentifier" /* afterDoctypeSystemIdentifier */);
-                }
-                else if (char === '>') {
-                    if (this.delegate.endDoctype)
-                        this.delegate.endDoctype();
-                    this.transitionTo("beforeData" /* beforeData */);
-                }
-                else {
-                    if (this.delegate.appendToDoctypeSystemIdentifier)
-                        this.delegate.appendToDoctypeSystemIdentifier(char);
-                }
-            },
-            afterDoctypeSystemIdentifier: function () {
-                var char = this.consume();
-                if (isSpace(char)) {
-                    return;
-                }
-                else if (char === '>') {
-                    if (this.delegate.endDoctype)
-                        this.delegate.endDoctype();
-                    this.transitionTo("beforeData" /* beforeData */);
                 }
             },
             commentStart: function () {
@@ -11431,25 +11204,6 @@ var EventedTokenizer = /** @class */ (function () {
                 else if (char === '>') {
                     this.delegate.finishTag();
                     this.transitionTo("beforeData" /* beforeData */);
-                }
-                else {
-                    this.appendToTagName(char);
-                }
-            },
-            endTagName: function () {
-                var char = this.consume();
-                if (isSpace(char)) {
-                    this.transitionTo("beforeAttributeName" /* beforeAttributeName */);
-                    this.tagNameBuffer = '';
-                }
-                else if (char === '/') {
-                    this.transitionTo("selfClosingStartTag" /* selfClosingStartTag */);
-                    this.tagNameBuffer = '';
-                }
-                else if (char === '>') {
-                    this.delegate.finishTag();
-                    this.transitionTo("beforeData" /* beforeData */);
-                    this.tagNameBuffer = '';
                 }
                 else {
                     this.appendToTagName(char);
@@ -11663,7 +11417,7 @@ var EventedTokenizer = /** @class */ (function () {
             endTagOpen: function () {
                 var char = this.consume();
                 if (char === '@' || char === ':' || isAlpha(char)) {
-                    this.transitionTo("endTagName" /* endTagName */);
+                    this.transitionTo("tagName" /* tagName */);
                     this.tagNameBuffer = '';
                     this.delegate.beginEndTag();
                     this.appendToTagName(char);
@@ -11675,7 +11429,6 @@ var EventedTokenizer = /** @class */ (function () {
     EventedTokenizer.prototype.reset = function () {
         this.transitionTo("beforeData" /* beforeData */);
         this.input = '';
-        this.tagNameBuffer = '';
         this.index = 0;
         this.line = 1;
         this.column = 0;
@@ -11751,12 +11504,6 @@ var EventedTokenizer = /** @class */ (function () {
         this.tagNameBuffer += char;
         this.delegate.appendToTagName(char);
     };
-    EventedTokenizer.prototype.isIgnoredEndTag = function () {
-        var tag = this.tagNameBuffer;
-        return (tag === 'title' && this.input.substring(this.index, this.index + 8) !== '</title>') ||
-            (tag === 'style' && this.input.substring(this.index, this.index + 8) !== '</style>') ||
-            (tag === 'script' && this.input.substring(this.index, this.index + 9) !== '</script>');
-    };
     return EventedTokenizer;
 }());
 
@@ -11768,7 +11515,7 @@ var Tokenizer = /** @class */ (function () {
         this.startLine = 1;
         this.startColumn = 0;
         this.tokens = [];
-        this.tokenizer = new EventedTokenizer(this, entityParser, options.mode);
+        this.tokenizer = new EventedTokenizer(this, entityParser);
         this._currentAttribute = undefined;
     }
     Tokenizer.prototype.tokenize = function (input) {
@@ -11830,36 +11577,6 @@ var Tokenizer = /** @class */ (function () {
         this.startColumn = this.tokenizer.column;
     };
     // Data
-    Tokenizer.prototype.beginDoctype = function () {
-        this.push({
-            type: "Doctype" /* Doctype */,
-            name: '',
-        });
-    };
-    Tokenizer.prototype.appendToDoctypeName = function (char) {
-        this.current("Doctype" /* Doctype */).name += char;
-    };
-    Tokenizer.prototype.appendToDoctypePublicIdentifier = function (char) {
-        var doctype = this.current("Doctype" /* Doctype */);
-        if (doctype.publicIdentifier === undefined) {
-            doctype.publicIdentifier = char;
-        }
-        else {
-            doctype.publicIdentifier += char;
-        }
-    };
-    Tokenizer.prototype.appendToDoctypeSystemIdentifier = function (char) {
-        var doctype = this.current("Doctype" /* Doctype */);
-        if (doctype.systemIdentifier === undefined) {
-            doctype.systemIdentifier = char;
-        }
-        else {
-            doctype.systemIdentifier += char;
-        }
-    };
-    Tokenizer.prototype.endDoctype = function () {
-        this.addLocInfo();
-    };
     Tokenizer.prototype.beginData = function () {
         this.push({
             type: "Chars" /* Chars */,
@@ -11945,7 +11662,7 @@ var es6 = __webpack_require__(7734);
 var es6_default = /*#__PURE__*/__webpack_require__.n(es6);
 ;// external ["wp","htmlEntities"]
 const external_wp_htmlEntities_namespaceObject = window["wp"]["htmlEntities"];
-;// ./node_modules/@wordpress/blocks/build-module/api/validation/logger.js
+;// ./packages/blocks/build-module/api/validation/logger.js
 /**
  * @typedef LoggerItem
  * @property {Function}   log  Which logger recorded the message
@@ -12007,8 +11724,7 @@ function createQueuedLogger() {
   };
 }
 
-;// ./node_modules/@wordpress/blocks/build-module/api/validation/index.js
-/* wp:polyfill */
+;// ./packages/blocks/build-module/api/validation/index.js
 /**
  * External dependencies
  */
@@ -12631,7 +12347,7 @@ function isValidBlockContent(blockTypeOrName, attributes, originalBlockContent) 
   return isValid;
 }
 
-;// ./node_modules/@wordpress/blocks/build-module/api/parser/convert-legacy-block.js
+;// ./packages/blocks/build-module/api/parser/convert-legacy-block.js
 /**
  * Convert legacy blocks to their canonical form. This function is used
  * both in the parser level for previous content and to convert such blocks
@@ -12656,10 +12372,10 @@ function convertLegacyBlockNameAndAttributes(name, attributes) {
     name = 'core/paragraph';
   }
 
-  // Convert derivative blocks such as 'core/social-link-chain' to the
+  // Convert derivative blocks such as 'core/social-link-wordpress' to the
   // canonical form 'core/social-link'.
   if (name && name.indexOf('core/social-link-') === 0) {
-    // Capture `social-link-chain` into `{"service":"chain"}`
+    // Capture `social-link-wordpress` into `{"service":"wordpress"}`
     newAttributes.service = name.substring(17);
     name = 'core/social-link';
   }
@@ -12676,7 +12392,7 @@ function convertLegacyBlockNameAndAttributes(name, attributes) {
     newAttributes.providerNameSlug = providerSlug in deprecated ? deprecated[providerSlug] : providerSlug;
     // This is needed as the `responsive` attribute was passed
     // in a different way before the refactoring to block variations.
-    if (!['amazon-kindle'].includes(providerSlug)) {
+    if (!['amazon-kindle', 'wordpress'].includes(providerSlug)) {
       newAttributes.responsive = true;
     }
     name = 'core/embed';
@@ -12741,7 +12457,35 @@ function convertLegacyBlockNameAndAttributes(name, attributes) {
 
   // The following code is only relevant for the Gutenberg plugin.
   // It's a stand-alone if statement for dead-code elimination.
-  if (false) {}
+  if (true) {
+    // Convert pattern overrides added during experimental phase.
+    // Only four blocks were supported initially.
+    // These checks can be removed in WP 6.6.
+    if (newAttributes.metadata?.bindings && (name === 'core/paragraph' || name === 'core/heading' || name === 'core/image' || name === 'core/button') && newAttributes.metadata.bindings.__default?.source !== 'core/pattern-overrides') {
+      const bindings = ['content', 'url', 'title', 'id', 'alt', 'text', 'linkTarget'];
+      // Delete any existing individual bindings and add a default binding.
+      // It was only possible to add all the default attributes through the UI,
+      // So as soon as we find an attribute, we can assume all default attributes are overridable.
+      let hasPatternOverrides = false;
+      bindings.forEach(binding => {
+        if (newAttributes.metadata.bindings[binding]?.source === 'core/pattern-overrides') {
+          hasPatternOverrides = true;
+          newAttributes.metadata = {
+            ...newAttributes.metadata,
+            bindings: {
+              ...newAttributes.metadata.bindings
+            }
+          };
+          delete newAttributes.metadata.bindings[binding];
+        }
+      });
+      if (hasPatternOverrides) {
+        newAttributes.metadata.bindings.__default = {
+          source: 'core/pattern-overrides'
+        };
+      }
+    }
+  }
   return [name, newAttributes];
 }
 
@@ -13086,7 +12830,7 @@ function memize(fn, options) {
 
 
 
-;// ./node_modules/@wordpress/blocks/build-module/api/matchers.js
+;// ./packages/blocks/build-module/api/matchers.js
 /**
  * External dependencies
  */
@@ -13133,7 +12877,7 @@ const richText = (selector, preserveWhiteSpace) => el => {
   }) : external_wp_richText_namespaceObject.RichTextData.empty();
 };
 
-;// ./node_modules/@wordpress/blocks/build-module/api/node.js
+;// ./packages/blocks/build-module/api/node.js
 /**
  * WP dependencies
  */
@@ -13286,7 +13030,7 @@ function matcher(selector) {
   matcher
 });
 
-;// ./node_modules/@wordpress/blocks/build-module/api/children.js
+;// ./packages/blocks/build-module/api/children.js
 /**
  * WP dependencies
  */
@@ -13457,8 +13201,7 @@ function children_matcher(selector) {
   matcher: children_matcher
 });
 
-;// ./node_modules/@wordpress/blocks/build-module/api/parser/get-block-attributes.js
-/* wp:polyfill */
+;// ./packages/blocks/build-module/api/parser/get-block-attributes.js
 /**
  * External dependencies
  */
@@ -13696,8 +13439,7 @@ function getBlockAttributes(blockTypeOrName, innerHTML, attributes = {}) {
   return (0,external_wp_hooks_namespaceObject.applyFilters)('blocks.getBlockAttributes', blockAttributes, blockType, innerHTML, attributes);
 }
 
-;// ./node_modules/@wordpress/blocks/build-module/api/parser/fix-custom-classname.js
-/* wp:polyfill */
+;// ./packages/blocks/build-module/api/parser/fix-custom-classname.js
 /**
  * Internal dependencies
  */
@@ -13763,10 +13505,62 @@ function fixCustomClassname(blockAttributes, blockType, innerHTML) {
   return modifiedBlockAttributes;
 }
 
-;// ./node_modules/@wordpress/blocks/build-module/api/parser/apply-built-in-validation-fixes.js
+;// ./packages/blocks/build-module/api/parser/fix-aria-label.js
 /**
  * Internal dependencies
  */
+
+
+const ARIA_LABEL_ATTR_SCHEMA = {
+  type: 'string',
+  source: 'attribute',
+  selector: '[data-aria-label] > *',
+  attribute: 'aria-label'
+};
+
+/**
+ * Given an HTML string, returns the aria-label attribute assigned to
+ * the root element in the markup.
+ *
+ * @param {string} innerHTML Markup string from which to extract the aria-label.
+ *
+ * @return {string} The aria-label assigned to the root element.
+ */
+function getHTMLRootElementAriaLabel(innerHTML) {
+  const parsed = parseWithAttributeSchema(`<div data-aria-label>${innerHTML}</div>`, ARIA_LABEL_ATTR_SCHEMA);
+  return parsed;
+}
+
+/**
+ * Given a parsed set of block attributes, if the block supports ariaLabel
+ * and an aria-label attribute is found, the aria-label attribute is assigned
+ * to the block attributes.
+ *
+ * @param {Object} blockAttributes Original block attributes.
+ * @param {Object} blockType       Block type settings.
+ * @param {string} innerHTML       Original block markup.
+ *
+ * @return {Object} Filtered block attributes.
+ */
+function fixAriaLabel(blockAttributes, blockType, innerHTML) {
+  if (!hasBlockSupport(blockType, 'ariaLabel', false)) {
+    return blockAttributes;
+  }
+  const modifiedBlockAttributes = {
+    ...blockAttributes
+  };
+  const ariaLabel = getHTMLRootElementAriaLabel(innerHTML);
+  if (ariaLabel) {
+    modifiedBlockAttributes.ariaLabel = ariaLabel;
+  }
+  return modifiedBlockAttributes;
+}
+
+;// ./packages/blocks/build-module/api/parser/apply-built-in-validation-fixes.js
+/**
+ * Internal dependencies
+ */
+
 
 
 /**
@@ -13781,14 +13575,23 @@ function fixCustomClassname(blockAttributes, blockType, innerHTML) {
  * @return {WPBlock} Fixed block object
  */
 function applyBuiltInValidationFixes(block, blockType) {
-  const updatedBlockAttributes = fixCustomClassname(block.attributes, blockType, block.originalContent);
+  const {
+    attributes,
+    originalContent
+  } = block;
+  let updatedBlockAttributes = attributes;
+
+  // Fix block invalidation for className attribute.
+  updatedBlockAttributes = fixCustomClassname(attributes, blockType, originalContent);
+  // Fix block invalidation for ariaLabel attribute.
+  updatedBlockAttributes = fixAriaLabel(updatedBlockAttributes, blockType, originalContent);
   return {
     ...block,
     attributes: updatedBlockAttributes
   };
 }
 
-;// ./node_modules/@wordpress/blocks/build-module/api/parser/apply-block-deprecated-versions.js
+;// ./packages/blocks/build-module/api/parser/apply-block-deprecated-versions.js
 /**
  * Internal dependencies
  */
@@ -13899,8 +13702,7 @@ function applyBlockDeprecatedVersions(block, rawBlock, blockType) {
   return block;
 }
 
-;// ./node_modules/@wordpress/blocks/build-module/api/parser/index.js
-/* wp:polyfill */
+;// ./packages/blocks/build-module/api/parser/index.js
 /**
  * WP dependencies
  */
@@ -14178,8 +13980,7 @@ function parser_parse(content, options) {
   }, []);
 }
 
-;// ./node_modules/@wordpress/blocks/build-module/api/raw-handling/get-raw-transforms.js
-/* wp:polyfill */
+;// ./packages/blocks/build-module/api/raw-handling/get-raw-transforms.js
 /**
  * Internal dependencies
  */
@@ -14195,8 +13996,7 @@ function getRawTransforms() {
   });
 }
 
-;// ./node_modules/@wordpress/blocks/build-module/api/raw-handling/html-to-blocks.js
-/* wp:polyfill */
+;// ./packages/blocks/build-module/api/raw-handling/html-to-blocks.js
 /**
  * WP dependencies
  */
@@ -14253,7 +14053,7 @@ function htmlToBlocks(html, handler) {
   });
 }
 
-;// ./node_modules/@wordpress/blocks/build-module/api/raw-handling/normalise-blocks.js
+;// ./packages/blocks/build-module/api/raw-handling/normalise-blocks.js
 /**
  * WP dependencies
  */
@@ -14314,8 +14114,7 @@ function normaliseBlocks(HTML, options = {}) {
   return accu.innerHTML;
 }
 
-;// ./node_modules/@wordpress/blocks/build-module/api/raw-handling/special-comment-converter.js
-/* wp:polyfill */
+;// ./packages/blocks/build-module/api/raw-handling/special-comment-converter.js
 /**
  * WP dependencies
  */
@@ -14413,8 +14212,7 @@ function createNextpage(doc) {
   return node;
 }
 
-;// ./node_modules/@wordpress/blocks/build-module/api/raw-handling/list-reducer.js
-/* wp:polyfill */
+;// ./packages/blocks/build-module/api/raw-handling/list-reducer.js
 /**
  * WP dependencies
  */
@@ -14468,7 +14266,7 @@ function listReducer(node) {
   }
 }
 
-;// ./node_modules/@wordpress/blocks/build-module/api/raw-handling/blockquote-normaliser.js
+;// ./packages/blocks/build-module/api/raw-handling/blockquote-normaliser.js
 /**
  * Internal dependencies
  */
@@ -14482,7 +14280,7 @@ function blockquoteNormaliser(options) {
   };
 }
 
-;// ./node_modules/@wordpress/blocks/build-module/api/raw-handling/figure-content-reducer.js
+;// ./packages/blocks/build-module/api/raw-handling/figure-content-reducer.js
 /**
  * WP dependencies
  */
@@ -14576,8 +14374,7 @@ function figureContentReducer(node, doc, schema) {
 
 ;// external ["wp","shortcode"]
 const external_wp_shortcode_namespaceObject = window["wp"]["shortcode"];
-;// ./node_modules/@wordpress/blocks/build-module/api/raw-handling/shortcode-converter.js
-/* wp:polyfill */
+;// ./packages/blocks/build-module/api/raw-handling/shortcode-converter.js
 /**
  * WP dependencies
  */
@@ -14669,8 +14466,7 @@ function segmentHTMLToShortcodeBlock(HTML, lastIndex = 0, excludedBlockNames = [
 }
 /* harmony default export */ const shortcode_converter = (segmentHTMLToShortcodeBlock);
 
-;// ./node_modules/@wordpress/blocks/build-module/api/raw-handling/utils.js
-/* wp:polyfill */
+;// ./packages/blocks/build-module/api/raw-handling/utils.js
 /**
  * WP dependencies
  */
@@ -14855,8 +14651,7 @@ function getSibling(node, which) {
   return getSibling(parentNode, which);
 }
 
-;// ./node_modules/@wordpress/blocks/build-module/api/raw-handling/index.js
-/* wp:polyfill */
+;// ./packages/blocks/build-module/api/raw-handling/index.js
 /**
  * WP dependencies
  */
@@ -14937,7 +14732,7 @@ function rawHandler({
   }).flat().filter(Boolean);
 }
 
-;// ./node_modules/@wordpress/blocks/build-module/api/raw-handling/comment-remover.js
+;// ./packages/blocks/build-module/api/raw-handling/comment-remover.js
 /**
  * WP dependencies
  */
@@ -14955,8 +14750,7 @@ function commentRemover(node) {
   }
 }
 
-;// ./node_modules/@wordpress/blocks/build-module/api/raw-handling/is-inline-content.js
-/* wp:polyfill */
+;// ./packages/blocks/build-module/api/raw-handling/is-inline-content.js
 /**
  * WP dependencies
  */
@@ -14995,7 +14789,7 @@ function isInlineContent(HTML, contextTag) {
   return !nodes.some(isDoubleBR) && deepCheck(nodes, contextTag);
 }
 
-;// ./node_modules/@wordpress/blocks/build-module/api/raw-handling/phrasing-content-reducer.js
+;// ./packages/blocks/build-module/api/raw-handling/phrasing-content-reducer.js
 /**
  * WP dependencies
  */
@@ -15055,7 +14849,7 @@ function phrasingContentReducer(node, doc) {
   }
 }
 
-;// ./node_modules/@wordpress/blocks/build-module/api/raw-handling/head-remover.js
+;// ./packages/blocks/build-module/api/raw-handling/head-remover.js
 function headRemover(node) {
   if (node.nodeName !== 'SCRIPT' && node.nodeName !== 'NOSCRIPT' && node.nodeName !== 'TEMPLATE' && node.nodeName !== 'STYLE') {
     return;
@@ -15063,8 +14857,7 @@ function headRemover(node) {
   node.parentNode.removeChild(node);
 }
 
-;// ./node_modules/@wordpress/blocks/build-module/api/raw-handling/ms-list-ignore.js
-/* wp:polyfill */
+;// ./packages/blocks/build-module/api/raw-handling/ms-list-ignore.js
 /**
  * Looks for comments, and removes them.
  *
@@ -15091,7 +14884,7 @@ function msListIgnore(node) {
   }
 }
 
-;// ./node_modules/@wordpress/blocks/build-module/api/raw-handling/ms-list-converter.js
+;// ./packages/blocks/build-module/api/raw-handling/ms-list-converter.js
 /**
  * Internal dependencies
  */
@@ -15155,7 +14948,7 @@ function msListConverter(node, doc) {
 
 ;// external ["wp","blob"]
 const external_wp_blob_namespaceObject = window["wp"]["blob"];
-;// ./node_modules/@wordpress/blocks/build-module/api/raw-handling/image-corrector.js
+;// ./packages/blocks/build-module/api/raw-handling/image-corrector.js
 /* wp:polyfill */
 /**
  * WP dependencies
@@ -15203,7 +14996,7 @@ function imageCorrector(node) {
   }
 }
 
-;// ./node_modules/@wordpress/blocks/build-module/api/raw-handling/div-normaliser.js
+;// ./packages/blocks/build-module/api/raw-handling/div-normaliser.js
 /**
  * Internal dependencies
  */
@@ -15218,7 +15011,7 @@ function divNormaliser(node) {
 // EXTERNAL MODULE: ./node_modules/showdown/dist/showdown.js
 var showdown = __webpack_require__(1030);
 var showdown_default = /*#__PURE__*/__webpack_require__.n(showdown);
-;// ./node_modules/@wordpress/blocks/build-module/api/raw-handling/markdown-converter.js
+;// ./packages/blocks/build-module/api/raw-handling/markdown-converter.js
 /**
  * External dependencies
  */
@@ -15263,7 +15056,7 @@ function markdownConverter(text) {
   return converter.makeHtml(slackMarkdownVariantCorrector(bulletsToAsterisks(text)));
 }
 
-;// ./node_modules/@wordpress/blocks/build-module/api/raw-handling/iframe-remover.js
+;// ./packages/blocks/build-module/api/raw-handling/iframe-remover.js
 /**
  * Removes iframes.
  *
@@ -15278,7 +15071,7 @@ function iframeRemover(node) {
   }
 }
 
-;// ./node_modules/@wordpress/blocks/build-module/api/raw-handling/google-docs-uid-remover.js
+;// ./packages/blocks/build-module/api/raw-handling/google-docs-uid-remover.js
 /**
  * WP dependencies
  */
@@ -15297,7 +15090,7 @@ function googleDocsUIdRemover(node) {
   }
 }
 
-;// ./node_modules/@wordpress/blocks/build-module/api/raw-handling/html-formatting-remover.js
+;// ./packages/blocks/build-module/api/raw-handling/html-formatting-remover.js
 /**
  * Internal dependencies
  */
@@ -15365,7 +15158,7 @@ function htmlFormattingRemover(node) {
   }
 }
 
-;// ./node_modules/@wordpress/blocks/build-module/api/raw-handling/br-remover.js
+;// ./packages/blocks/build-module/api/raw-handling/br-remover.js
 /**
  * Internal dependencies
  */
@@ -15386,7 +15179,7 @@ function brRemover(node) {
   node.parentNode.removeChild(node);
 }
 
-;// ./node_modules/@wordpress/blocks/build-module/api/raw-handling/empty-paragraph-remover.js
+;// ./packages/blocks/build-module/api/raw-handling/empty-paragraph-remover.js
 /**
  * Removes empty paragraph elements.
  *
@@ -15402,7 +15195,7 @@ function emptyParagraphRemover(node) {
   node.parentNode.removeChild(node);
 }
 
-;// ./node_modules/@wordpress/blocks/build-module/api/raw-handling/slack-paragraph-corrector.js
+;// ./packages/blocks/build-module/api/raw-handling/slack-paragraph-corrector.js
 /**
  * Replaces Slack paragraph markup with a double line break (later converted to
  * a proper paragraph).
@@ -15424,8 +15217,7 @@ function slackParagraphCorrector(node) {
   parentNode.removeChild(node);
 }
 
-;// ./node_modules/@wordpress/blocks/build-module/api/raw-handling/paste-handler.js
-/* wp:polyfill */
+;// ./packages/blocks/build-module/api/raw-handling/paste-handler.js
 /**
  * WP dependencies
  */
@@ -15608,7 +15400,7 @@ function pasteHandler({
   return blocks;
 }
 
-;// ./node_modules/@wordpress/blocks/build-module/api/categories.js
+;// ./packages/blocks/build-module/api/categories.js
 /**
  * WP dependencies
  */
@@ -15702,8 +15494,7 @@ function categories_updateCategory(slug, category) {
   (0,external_wp_data_namespaceObject.dispatch)(store).updateCategory(slug, category);
 }
 
-;// ./node_modules/@wordpress/blocks/build-module/api/templates.js
-/* wp:polyfill */
+;// ./packages/blocks/build-module/api/templates.js
 /**
  * WP dependencies
  */
@@ -15793,7 +15584,7 @@ function synchronizeBlocksWithTemplate(blocks = [], template) {
   });
 }
 
-;// ./node_modules/@wordpress/blocks/build-module/api/index.js
+;// ./packages/blocks/build-module/api/index.js
 /**
  * Internal dependencies
  */
@@ -15901,7 +15692,7 @@ lock(privateApis, {
   isContentBlock: isContentBlock
 });
 
-;// ./node_modules/@wordpress/blocks/build-module/deprecated.js
+;// ./packages/blocks/build-module/deprecated.js
 /**
  * WP dependencies
  */
@@ -15923,7 +15714,7 @@ function withBlockContentContext(OriginalComponent) {
   return OriginalComponent;
 }
 
-;// ./node_modules/@wordpress/blocks/build-module/index.js
+;// ./packages/blocks/build-module/index.js
 // A "block" is the abstract term used to describe units of markup that,
 // when composed together, form the content or layout of a page.
 // The API for blocks is exposed via `wp.blocks`.

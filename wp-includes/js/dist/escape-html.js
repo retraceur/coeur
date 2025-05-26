@@ -2,7 +2,7 @@
 /******/ 	"use strict";
 /******/ 	// The require scope
 /******/ 	var __webpack_require__ = {};
-/******/
+/******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
@@ -15,12 +15,12 @@
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -31,7 +31,7 @@
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
 // ESM COMPAT FLAG
@@ -48,12 +48,14 @@ __webpack_require__.d(__webpack_exports__, {
   isValidAttributeName: () => (/* binding */ isValidAttributeName)
 });
 
-;// CONCATENATED MODULE: ./node_modules/@wordpress/escape-html/build-module/escape-greater.js
+;// ./packages/escape-html/build-module/escape-greater.js
 /**
  * Returns a string with greater-than sign replaced.
  *
  * Note that if a resolution for Trac#45387 comes to fruition, it is no longer
  * necessary for `__unstableEscapeGreaterThan` to exist.
+ *
+ * See: https://core.trac.wordpress.org/ticket/45387
  *
  * @param value Original string.
  *
@@ -63,7 +65,7 @@ function __unstableEscapeGreaterThan(value) {
   return value.replace(/>/g, '&gt;');
 }
 
-;// CONCATENATED MODULE: ./node_modules/@wordpress/escape-html/build-module/index.js
+;// ./packages/escape-html/build-module/index.js
 /**
  * Internal dependencies
  */
@@ -129,10 +131,12 @@ function escapeLessThan(value) {
  * any literal U+0022 QUOTATION MARK characters (")"
  *
  * Note we also escape the greater than symbol, as this is used by wptexturize to
- * split HTML strings. This is a WP specific fix
+ * split HTML strings. This is a WordPress specific fix
  *
  * Note that if a resolution for Trac#45387 comes to fruition, it is no longer
  * necessary for `__unstableEscapeGreaterThan` to be used.
+ *
+ * See: https://core.trac.wordpress.org/ticket/45387
  *
  * @param value Attribute value.
  *

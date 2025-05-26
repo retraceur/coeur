@@ -5,7 +5,7 @@
 /***/ (function(module, exports) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	autosize 4.0.4
+	autosize 4.0.2
 	license: MIT
 	http://www.jacklmoore.com/autosize
 */
@@ -156,7 +156,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 			// Using offsetHeight as a replacement for computed.height in IE, because IE does not account use of border-box
 			var actualHeight = computed.boxSizing === 'content-box' ? Math.round(parseFloat(computed.height)) : ta.offsetHeight;
 
-			// The actual height not matching the style height (set via the resize method) indicates that
+			// The actual height not matching the style height (set via the resize method) indicates that 
 			// the max-height has been exceeded, in which case the overflow should be allowed.
 			if (actualHeight < styleHeight) {
 				if (computed.overflowY === 'hidden') {
@@ -1621,637 +1621,6 @@ function excludeSelector(selector, excludeArr) {
 
 /***/ }),
 
-/***/ 5404:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-const CSSValueParser = __webpack_require__(1544)
-
-/**
- * @type {import('postcss').PluginCreator}
- */
-module.exports = (opts) => {
-
-  const DEFAULTS = {
-    skipHostRelativeUrls: true,
-  }
-  const config = Object.assign(DEFAULTS, opts)
-
-  return {
-    postcssPlugin: 'rebaseUrl',
-
-    Declaration(decl) {
-      // The faster way to find Declaration node
-      const parsedValue = CSSValueParser(decl.value)
-
-      let valueChanged = false
-      parsedValue.walk(node => {
-        if (node.type !== 'function' || node.value !== 'url') {
-          return
-        }
-
-        const urlVal = node.nodes[0].value
-
-        // bases relative URLs with rootUrl
-        const basedUrl = new URL(urlVal, opts.rootUrl)
-
-        // skip host-relative, already normalized URLs (e.g. `/images/image.jpg`, without `..`s)
-        if ((basedUrl.pathname === urlVal) && config.skipHostRelativeUrls) {
-          return false // skip this value
-        }
-
-        node.nodes[0].value = basedUrl.toString()
-        valueChanged = true
-
-        return false // do not walk deeper
-      })
-
-      if (valueChanged) {
-        decl.value = CSSValueParser.stringify(parsedValue)
-      }
-
-    }
-  }
-}
-
-module.exports.postcss = true
-
-
-/***/ }),
-
-/***/ 1544:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-var parse = __webpack_require__(8491);
-var walk = __webpack_require__(3815);
-var stringify = __webpack_require__(4725);
-
-function ValueParser(value) {
-  if (this instanceof ValueParser) {
-    this.nodes = parse(value);
-    return this;
-  }
-  return new ValueParser(value);
-}
-
-ValueParser.prototype.toString = function() {
-  return Array.isArray(this.nodes) ? stringify(this.nodes) : "";
-};
-
-ValueParser.prototype.walk = function(cb, bubble) {
-  walk(this.nodes, cb, bubble);
-  return this;
-};
-
-ValueParser.unit = __webpack_require__(1524);
-
-ValueParser.walk = walk;
-
-ValueParser.stringify = stringify;
-
-module.exports = ValueParser;
-
-
-/***/ }),
-
-/***/ 8491:
-/***/ ((module) => {
-
-var openParentheses = "(".charCodeAt(0);
-var closeParentheses = ")".charCodeAt(0);
-var singleQuote = "'".charCodeAt(0);
-var doubleQuote = '"'.charCodeAt(0);
-var backslash = "\\".charCodeAt(0);
-var slash = "/".charCodeAt(0);
-var comma = ",".charCodeAt(0);
-var colon = ":".charCodeAt(0);
-var star = "*".charCodeAt(0);
-var uLower = "u".charCodeAt(0);
-var uUpper = "U".charCodeAt(0);
-var plus = "+".charCodeAt(0);
-var isUnicodeRange = /^[a-f0-9?-]+$/i;
-
-module.exports = function(input) {
-  var tokens = [];
-  var value = input;
-
-  var next,
-    quote,
-    prev,
-    token,
-    escape,
-    escapePos,
-    whitespacePos,
-    parenthesesOpenPos;
-  var pos = 0;
-  var code = value.charCodeAt(pos);
-  var max = value.length;
-  var stack = [{ nodes: tokens }];
-  var balanced = 0;
-  var parent;
-
-  var name = "";
-  var before = "";
-  var after = "";
-
-  while (pos < max) {
-    // Whitespaces
-    if (code <= 32) {
-      next = pos;
-      do {
-        next += 1;
-        code = value.charCodeAt(next);
-      } while (code <= 32);
-      token = value.slice(pos, next);
-
-      prev = tokens[tokens.length - 1];
-      if (code === closeParentheses && balanced) {
-        after = token;
-      } else if (prev && prev.type === "div") {
-        prev.after = token;
-        prev.sourceEndIndex += token.length;
-      } else if (
-        code === comma ||
-        code === colon ||
-        (code === slash &&
-          value.charCodeAt(next + 1) !== star &&
-          (!parent ||
-            (parent && parent.type === "function" && parent.value !== "calc")))
-      ) {
-        before = token;
-      } else {
-        tokens.push({
-          type: "space",
-          sourceIndex: pos,
-          sourceEndIndex: next,
-          value: token
-        });
-      }
-
-      pos = next;
-
-      // Quotes
-    } else if (code === singleQuote || code === doubleQuote) {
-      next = pos;
-      quote = code === singleQuote ? "'" : '"';
-      token = {
-        type: "string",
-        sourceIndex: pos,
-        quote: quote
-      };
-      do {
-        escape = false;
-        next = value.indexOf(quote, next + 1);
-        if (~next) {
-          escapePos = next;
-          while (value.charCodeAt(escapePos - 1) === backslash) {
-            escapePos -= 1;
-            escape = !escape;
-          }
-        } else {
-          value += quote;
-          next = value.length - 1;
-          token.unclosed = true;
-        }
-      } while (escape);
-      token.value = value.slice(pos + 1, next);
-      token.sourceEndIndex = token.unclosed ? next : next + 1;
-      tokens.push(token);
-      pos = next + 1;
-      code = value.charCodeAt(pos);
-
-      // Comments
-    } else if (code === slash && value.charCodeAt(pos + 1) === star) {
-      next = value.indexOf("*/", pos);
-
-      token = {
-        type: "comment",
-        sourceIndex: pos,
-        sourceEndIndex: next + 2
-      };
-
-      if (next === -1) {
-        token.unclosed = true;
-        next = value.length;
-        token.sourceEndIndex = next;
-      }
-
-      token.value = value.slice(pos + 2, next);
-      tokens.push(token);
-
-      pos = next + 2;
-      code = value.charCodeAt(pos);
-
-      // Operation within calc
-    } else if (
-      (code === slash || code === star) &&
-      parent &&
-      parent.type === "function" &&
-      parent.value === "calc"
-    ) {
-      token = value[pos];
-      tokens.push({
-        type: "word",
-        sourceIndex: pos - before.length,
-        sourceEndIndex: pos + token.length,
-        value: token
-      });
-      pos += 1;
-      code = value.charCodeAt(pos);
-
-      // Dividers
-    } else if (code === slash || code === comma || code === colon) {
-      token = value[pos];
-
-      tokens.push({
-        type: "div",
-        sourceIndex: pos - before.length,
-        sourceEndIndex: pos + token.length,
-        value: token,
-        before: before,
-        after: ""
-      });
-      before = "";
-
-      pos += 1;
-      code = value.charCodeAt(pos);
-
-      // Open parentheses
-    } else if (openParentheses === code) {
-      // Whitespaces after open parentheses
-      next = pos;
-      do {
-        next += 1;
-        code = value.charCodeAt(next);
-      } while (code <= 32);
-      parenthesesOpenPos = pos;
-      token = {
-        type: "function",
-        sourceIndex: pos - name.length,
-        value: name,
-        before: value.slice(parenthesesOpenPos + 1, next)
-      };
-      pos = next;
-
-      if (name === "url" && code !== singleQuote && code !== doubleQuote) {
-        next -= 1;
-        do {
-          escape = false;
-          next = value.indexOf(")", next + 1);
-          if (~next) {
-            escapePos = next;
-            while (value.charCodeAt(escapePos - 1) === backslash) {
-              escapePos -= 1;
-              escape = !escape;
-            }
-          } else {
-            value += ")";
-            next = value.length - 1;
-            token.unclosed = true;
-          }
-        } while (escape);
-        // Whitespaces before closed
-        whitespacePos = next;
-        do {
-          whitespacePos -= 1;
-          code = value.charCodeAt(whitespacePos);
-        } while (code <= 32);
-        if (parenthesesOpenPos < whitespacePos) {
-          if (pos !== whitespacePos + 1) {
-            token.nodes = [
-              {
-                type: "word",
-                sourceIndex: pos,
-                sourceEndIndex: whitespacePos + 1,
-                value: value.slice(pos, whitespacePos + 1)
-              }
-            ];
-          } else {
-            token.nodes = [];
-          }
-          if (token.unclosed && whitespacePos + 1 !== next) {
-            token.after = "";
-            token.nodes.push({
-              type: "space",
-              sourceIndex: whitespacePos + 1,
-              sourceEndIndex: next,
-              value: value.slice(whitespacePos + 1, next)
-            });
-          } else {
-            token.after = value.slice(whitespacePos + 1, next);
-            token.sourceEndIndex = next;
-          }
-        } else {
-          token.after = "";
-          token.nodes = [];
-        }
-        pos = next + 1;
-        token.sourceEndIndex = token.unclosed ? next : pos;
-        code = value.charCodeAt(pos);
-        tokens.push(token);
-      } else {
-        balanced += 1;
-        token.after = "";
-        token.sourceEndIndex = pos + 1;
-        tokens.push(token);
-        stack.push(token);
-        tokens = token.nodes = [];
-        parent = token;
-      }
-      name = "";
-
-      // Close parentheses
-    } else if (closeParentheses === code && balanced) {
-      pos += 1;
-      code = value.charCodeAt(pos);
-
-      parent.after = after;
-      parent.sourceEndIndex += after.length;
-      after = "";
-      balanced -= 1;
-      stack[stack.length - 1].sourceEndIndex = pos;
-      stack.pop();
-      parent = stack[balanced];
-      tokens = parent.nodes;
-
-      // Words
-    } else {
-      next = pos;
-      do {
-        if (code === backslash) {
-          next += 1;
-        }
-        next += 1;
-        code = value.charCodeAt(next);
-      } while (
-        next < max &&
-        !(
-          code <= 32 ||
-          code === singleQuote ||
-          code === doubleQuote ||
-          code === comma ||
-          code === colon ||
-          code === slash ||
-          code === openParentheses ||
-          (code === star &&
-            parent &&
-            parent.type === "function" &&
-            parent.value === "calc") ||
-          (code === slash &&
-            parent.type === "function" &&
-            parent.value === "calc") ||
-          (code === closeParentheses && balanced)
-        )
-      );
-      token = value.slice(pos, next);
-
-      if (openParentheses === code) {
-        name = token;
-      } else if (
-        (uLower === token.charCodeAt(0) || uUpper === token.charCodeAt(0)) &&
-        plus === token.charCodeAt(1) &&
-        isUnicodeRange.test(token.slice(2))
-      ) {
-        tokens.push({
-          type: "unicode-range",
-          sourceIndex: pos,
-          sourceEndIndex: next,
-          value: token
-        });
-      } else {
-        tokens.push({
-          type: "word",
-          sourceIndex: pos,
-          sourceEndIndex: next,
-          value: token
-        });
-      }
-
-      pos = next;
-    }
-  }
-
-  for (pos = stack.length - 1; pos; pos -= 1) {
-    stack[pos].unclosed = true;
-    stack[pos].sourceEndIndex = value.length;
-  }
-
-  return stack[0].nodes;
-};
-
-
-/***/ }),
-
-/***/ 4725:
-/***/ ((module) => {
-
-function stringifyNode(node, custom) {
-  var type = node.type;
-  var value = node.value;
-  var buf;
-  var customResult;
-
-  if (custom && (customResult = custom(node)) !== undefined) {
-    return customResult;
-  } else if (type === "word" || type === "space") {
-    return value;
-  } else if (type === "string") {
-    buf = node.quote || "";
-    return buf + value + (node.unclosed ? "" : buf);
-  } else if (type === "comment") {
-    return "/*" + value + (node.unclosed ? "" : "*/");
-  } else if (type === "div") {
-    return (node.before || "") + value + (node.after || "");
-  } else if (Array.isArray(node.nodes)) {
-    buf = stringify(node.nodes, custom);
-    if (type !== "function") {
-      return buf;
-    }
-    return (
-      value +
-      "(" +
-      (node.before || "") +
-      buf +
-      (node.after || "") +
-      (node.unclosed ? "" : ")")
-    );
-  }
-  return value;
-}
-
-function stringify(nodes, custom) {
-  var result, i;
-
-  if (Array.isArray(nodes)) {
-    result = "";
-    for (i = nodes.length - 1; ~i; i -= 1) {
-      result = stringifyNode(nodes[i], custom) + result;
-    }
-    return result;
-  }
-  return stringifyNode(nodes, custom);
-}
-
-module.exports = stringify;
-
-
-/***/ }),
-
-/***/ 1524:
-/***/ ((module) => {
-
-var minus = "-".charCodeAt(0);
-var plus = "+".charCodeAt(0);
-var dot = ".".charCodeAt(0);
-var exp = "e".charCodeAt(0);
-var EXP = "E".charCodeAt(0);
-
-// Check if three code points would start a number
-// https://www.w3.org/TR/css-syntax-3/#starts-with-a-number
-function likeNumber(value) {
-  var code = value.charCodeAt(0);
-  var nextCode;
-
-  if (code === plus || code === minus) {
-    nextCode = value.charCodeAt(1);
-
-    if (nextCode >= 48 && nextCode <= 57) {
-      return true;
-    }
-
-    var nextNextCode = value.charCodeAt(2);
-
-    if (nextCode === dot && nextNextCode >= 48 && nextNextCode <= 57) {
-      return true;
-    }
-
-    return false;
-  }
-
-  if (code === dot) {
-    nextCode = value.charCodeAt(1);
-
-    if (nextCode >= 48 && nextCode <= 57) {
-      return true;
-    }
-
-    return false;
-  }
-
-  if (code >= 48 && code <= 57) {
-    return true;
-  }
-
-  return false;
-}
-
-// Consume a number
-// https://www.w3.org/TR/css-syntax-3/#consume-number
-module.exports = function(value) {
-  var pos = 0;
-  var length = value.length;
-  var code;
-  var nextCode;
-  var nextNextCode;
-
-  if (length === 0 || !likeNumber(value)) {
-    return false;
-  }
-
-  code = value.charCodeAt(pos);
-
-  if (code === plus || code === minus) {
-    pos++;
-  }
-
-  while (pos < length) {
-    code = value.charCodeAt(pos);
-
-    if (code < 48 || code > 57) {
-      break;
-    }
-
-    pos += 1;
-  }
-
-  code = value.charCodeAt(pos);
-  nextCode = value.charCodeAt(pos + 1);
-
-  if (code === dot && nextCode >= 48 && nextCode <= 57) {
-    pos += 2;
-
-    while (pos < length) {
-      code = value.charCodeAt(pos);
-
-      if (code < 48 || code > 57) {
-        break;
-      }
-
-      pos += 1;
-    }
-  }
-
-  code = value.charCodeAt(pos);
-  nextCode = value.charCodeAt(pos + 1);
-  nextNextCode = value.charCodeAt(pos + 2);
-
-  if (
-    (code === exp || code === EXP) &&
-    ((nextCode >= 48 && nextCode <= 57) ||
-      ((nextCode === plus || nextCode === minus) &&
-        nextNextCode >= 48 &&
-        nextNextCode <= 57))
-  ) {
-    pos += nextCode === plus || nextCode === minus ? 3 : 2;
-
-    while (pos < length) {
-      code = value.charCodeAt(pos);
-
-      if (code < 48 || code > 57) {
-        break;
-      }
-
-      pos += 1;
-    }
-  }
-
-  return {
-    number: value.slice(0, pos),
-    unit: value.slice(pos)
-  };
-};
-
-
-/***/ }),
-
-/***/ 3815:
-/***/ ((module) => {
-
-module.exports = function walk(nodes, cb, bubble) {
-  var i, max, node, result;
-
-  for (i = 0, max = nodes.length; i < max; i += 1) {
-    node = nodes[i];
-    if (!bubble) {
-      result = cb(node, i, nodes);
-    }
-
-    if (
-      result !== false &&
-      node.type === "function" &&
-      Array.isArray(node.nodes)
-    ) {
-      walk(node.nodes, cb, bubble);
-    }
-
-    if (bubble) {
-      cb(node, i, nodes);
-    }
-  }
-};
-
-
-/***/ }),
-
 /***/ 1326:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -2312,12 +1681,12 @@ Comment.default = Comment
 "use strict";
 
 
-let Comment = __webpack_require__(6589)
-let Declaration = __webpack_require__(1516)
-let Node = __webpack_require__(7490)
 let { isClean, my } = __webpack_require__(1381)
+let Declaration = __webpack_require__(1516)
+let Comment = __webpack_require__(6589)
+let Node = __webpack_require__(7490)
 
-let AtRule, parse, Root, Rule
+let parse, Rule, AtRule, Root
 
 function cleanSource(nodes) {
   return nodes.map(i => {
@@ -2327,11 +1696,11 @@ function cleanSource(nodes) {
   })
 }
 
-function markTreeDirty(node) {
+function markDirtyUp(node) {
   node[isClean] = false
   if (node.proxyOf.nodes) {
     for (let i of node.proxyOf.nodes) {
-      markTreeDirty(i)
+      markDirtyUp(i)
     }
   }
 }
@@ -2465,11 +1834,7 @@ class Container extends Node {
   insertBefore(exist, add) {
     let existIndex = this.index(exist)
     let type = existIndex === 0 ? 'prepend' : false
-    let nodes = this.normalize(
-      add,
-      this.proxyOf.nodes[existIndex],
-      type
-    ).reverse()
+    let nodes = this.normalize(add, this.proxyOf.nodes[existIndex], type).reverse()
     existIndex = this.index(exist)
     for (let node of nodes) this.proxyOf.nodes.splice(existIndex, 0, node)
 
@@ -2510,7 +1875,7 @@ class Container extends Node {
         nodes.value = String(nodes.value)
       }
       nodes = [new Declaration(nodes)]
-    } else if (nodes.selector || nodes.selectors) {
+    } else if (nodes.selector) {
       nodes = [new Rule(nodes)]
     } else if (nodes.name) {
       nodes = [new AtRule(nodes)]
@@ -2525,9 +1890,7 @@ class Container extends Node {
       if (!i[my]) Container.rebuild(i)
       i = i.proxyOf
       if (i.parent) i.parent.removeChild(i)
-      if (i[isClean]) markTreeDirty(i)
-
-      if (!i.raws) i.raws = {}
+      if (i[isClean]) markDirtyUp(i)
       if (typeof i.raws.before === 'undefined') {
         if (sample && typeof sample.raws.before !== 'undefined') {
           i.raws.before = sample.raws.before.replace(/\S/g, '')
@@ -2819,23 +2182,24 @@ class CssSyntaxError extends Error {
 
     let css = this.source
     if (color == null) color = pico.isColorSupported
-
-    let aside = text => text
-    let mark = text => text
-    let highlight = text => text
-    if (color) {
-      let { bold, gray, red } = pico.createColors(true)
-      mark = text => bold(red(text))
-      aside = text => gray(text)
-      if (terminalHighlight) {
-        highlight = text => terminalHighlight(text)
-      }
+    if (terminalHighlight) {
+      if (color) css = terminalHighlight(css)
     }
 
     let lines = css.split(/\r?\n/)
     let start = Math.max(this.line - 3, 0)
     let end = Math.min(this.line + 2, lines.length)
+
     let maxWidth = String(end).length
+
+    let mark, aside
+    if (color) {
+      let { bold, gray, red } = pico.createColors(true)
+      mark = text => bold(red(text))
+      aside = text => gray(text)
+    } else {
+      mark = aside = str => str
+    }
 
     return lines
       .slice(start, end)
@@ -2843,46 +2207,12 @@ class CssSyntaxError extends Error {
         let number = start + 1 + index
         let gutter = ' ' + (' ' + number).slice(-maxWidth) + ' | '
         if (number === this.line) {
-          if (line.length > 160) {
-            let padding = 20
-            let subLineStart = Math.max(0, this.column - padding)
-            let subLineEnd = Math.max(
-              this.column + padding,
-              this.endColumn + padding
-            )
-            let subLine = line.slice(subLineStart, subLineEnd)
-
-            let spacing =
-              aside(gutter.replace(/\d/g, ' ')) +
-              line
-                .slice(0, Math.min(this.column - 1, padding - 1))
-                .replace(/[^\t]/g, ' ')
-
-            return (
-              mark('>') +
-              aside(gutter) +
-              highlight(subLine) +
-              '\n ' +
-              spacing +
-              mark('^')
-            )
-          }
-
           let spacing =
             aside(gutter.replace(/\d/g, ' ')) +
             line.slice(0, this.column - 1).replace(/[^\t]/g, ' ')
-
-          return (
-            mark('>') +
-            aside(gutter) +
-            highlight(line) +
-            '\n ' +
-            spacing +
-            mark('^')
-          )
+          return mark('>') + aside(gutter) + line + '\n ' + spacing + mark('^')
         }
-
-        return ' ' + aside(gutter) + highlight(line)
+        return ' ' + aside(gutter) + line
       })
       .join('\n')
   }
@@ -2981,14 +2311,14 @@ Document.default = Document
 "use strict";
 
 
-let { nanoid } = __webpack_require__(5042)
-let { isAbsolute, resolve } = __webpack_require__(197)
 let { SourceMapConsumer, SourceMapGenerator } = __webpack_require__(1866)
 let { fileURLToPath, pathToFileURL } = __webpack_require__(2739)
+let { isAbsolute, resolve } = __webpack_require__(197)
+let { nanoid } = __webpack_require__(5042)
 
+let terminalHighlight = __webpack_require__(9746)
 let CssSyntaxError = __webpack_require__(356)
 let PreviousMap = __webpack_require__(5696)
-let terminalHighlight = __webpack_require__(9746)
 
 let fromOffsetCache = Symbol('fromOffsetCache')
 
@@ -3042,7 +2372,7 @@ class Input {
   }
 
   error(message, line, column, opts = {}) {
-    let endColumn, endLine, result
+    let result, endLine, endColumn
 
     if (line && typeof line === 'object') {
       let start = line
@@ -3237,15 +2567,15 @@ if (terminalHighlight && terminalHighlight.registerInput) {
 "use strict";
 
 
+let { isClean, my } = __webpack_require__(1381)
+let MapGenerator = __webpack_require__(1670)
+let stringify = __webpack_require__(633)
 let Container = __webpack_require__(683)
 let Document = __webpack_require__(271)
-let MapGenerator = __webpack_require__(1670)
-let parse = __webpack_require__(4295)
-let Result = __webpack_require__(9055)
-let Root = __webpack_require__(9434)
-let stringify = __webpack_require__(633)
-let { isClean, my } = __webpack_require__(1381)
 let warnOnce = __webpack_require__(3122)
+let Result = __webpack_require__(9055)
+let parse = __webpack_require__(4295)
+let Root = __webpack_require__(9434)
 
 const TYPE_TO_CLASS_NAME = {
   atrule: 'AtRule',
@@ -3833,8 +3163,8 @@ list.default = list
 "use strict";
 
 
-let { dirname, relative, resolve, sep } = __webpack_require__(197)
 let { SourceMapConsumer, SourceMapGenerator } = __webpack_require__(1866)
+let { dirname, relative, resolve, sep } = __webpack_require__(197)
 let { pathToFileURL } = __webpack_require__(2739)
 
 let Input = __webpack_require__(5380)
@@ -3903,12 +3233,12 @@ class MapGenerator {
       for (let i = this.root.nodes.length - 1; i >= 0; i--) {
         node = this.root.nodes[i]
         if (node.type !== 'comment') continue
-        if (node.text.startsWith('# sourceMappingURL=')) {
+        if (node.text.indexOf('# sourceMappingURL=') === 0) {
           this.root.removeChild(i)
         }
       }
     } else if (this.css) {
-      this.css = this.css.replace(/\n*\/\*#[\S\s]*?\*\/$/gm, '')
+      this.css = this.css.replace(/\n*?\/\*#[\S\s]*?\*\/$/gm, '')
     }
   }
 
@@ -3976,7 +3306,7 @@ class MapGenerator {
       source: ''
     }
 
-    let last, lines
+    let lines, last
     this.stringify(this.root, (str, node, type) => {
       this.css += str
 
@@ -4210,10 +3540,10 @@ module.exports = MapGenerator
 
 
 let MapGenerator = __webpack_require__(1670)
-let parse = __webpack_require__(4295)
-const Result = __webpack_require__(9055)
 let stringify = __webpack_require__(633)
 let warnOnce = __webpack_require__(3122)
+let parse = __webpack_require__(4295)
+const Result = __webpack_require__(9055)
 
 class NoWorkResult {
   constructor(processor, css, opts) {
@@ -4347,10 +3677,10 @@ NoWorkResult.default = NoWorkResult
 "use strict";
 
 
+let { isClean, my } = __webpack_require__(1381)
 let CssSyntaxError = __webpack_require__(356)
 let Stringifier = __webpack_require__(346)
 let stringify = __webpack_require__(633)
-let { isClean, my } = __webpack_require__(1381)
 
 function cloneNode(obj, parent) {
   let cloned = new obj.constructor()
@@ -4377,36 +3707,6 @@ function cloneNode(obj, parent) {
   }
 
   return cloned
-}
-
-function sourceOffset(inputCSS, position) {
-  // Not all custom syntaxes support `offset` in `source.start` and `source.end`
-  if (
-    position &&
-    typeof position.offset !== 'undefined'
-  ) {
-    return position.offset;
-  }
-
-  let column = 1
-  let line = 1
-  let offset = 0
-
-  for (let i = 0; i < inputCSS.length; i++) {
-    if (line === position.line && column === position.column) {
-      offset = i
-      break
-    }
-
-    if (inputCSS[i] === '\n') {
-      column = 1
-      line += 1
-    } else {
-      column += 1
-    }
-  }
-
-  return offset
 }
 
 class Node {
@@ -4530,11 +3830,6 @@ class Node {
     }
   }
 
-  /* c8 ignore next 3 */
-  markClean() {
-    this[isClean] = true
-  }
-
   markDirty() {
     if (this[isClean]) {
       this[isClean] = false
@@ -4551,29 +3846,25 @@ class Node {
     return this.parent.nodes[index + 1]
   }
 
-  positionBy(opts) {
+  positionBy(opts, stringRepresentation) {
     let pos = this.source.start
     if (opts.index) {
-      pos = this.positionInside(opts.index)
+      pos = this.positionInside(opts.index, stringRepresentation)
     } else if (opts.word) {
-      let stringRepresentation = this.source.input.css.slice(
-        sourceOffset(this.source.input.css, this.source.start),
-        sourceOffset(this.source.input.css, this.source.end)
-      )
+      stringRepresentation = this.toString()
       let index = stringRepresentation.indexOf(opts.word)
-      if (index !== -1) pos = this.positionInside(index)
+      if (index !== -1) pos = this.positionInside(index, stringRepresentation)
     }
     return pos
   }
 
-  positionInside(index) {
+  positionInside(index, stringRepresentation) {
+    let string = stringRepresentation || this.toString()
     let column = this.source.start.column
     let line = this.source.start.line
-    let offset = sourceOffset(this.source.input.css, this.source.start)
-    let end = offset + index
 
-    for (let i = offset; i < end; i++) {
-      if (this.source.input.css[i] === '\n') {
+    for (let i = 0; i < index; i++) {
+      if (string[i] === '\n') {
         column = 1
         line += 1
       } else {
@@ -4597,25 +3888,20 @@ class Node {
     }
     let end = this.source.end
       ? {
-          column: this.source.end.column + 1,
-          line: this.source.end.line
-        }
+        column: this.source.end.column + 1,
+        line: this.source.end.line
+      }
       : {
-          column: start.column + 1,
-          line: start.line
-        }
+        column: start.column + 1,
+        line: start.line
+      }
 
     if (opts.word) {
-      let stringRepresentation = this.source.input.css.slice(
-        sourceOffset(this.source.input.css, this.source.start),
-        sourceOffset(this.source.input.css, this.source.end)
-      )
+      let stringRepresentation = this.toString()
       let index = stringRepresentation.indexOf(opts.word)
       if (index !== -1) {
-        start = this.positionInside(index)
-        end = this.positionInside(
-          index + opts.word.length,
-        )
+        start = this.positionInside(index, stringRepresentation)
+        end = this.positionInside(index + opts.word.length, stringRepresentation)
       }
     } else {
       if (opts.start) {
@@ -4781,8 +4067,8 @@ Node.default = Node
 
 
 let Container = __webpack_require__(683)
-let Input = __webpack_require__(5380)
 let Parser = __webpack_require__(3937)
+let Input = __webpack_require__(5380)
 
 function parse(css, opts) {
   let input = new Input(css, opts)
@@ -4811,12 +4097,12 @@ Container.registerParse(parse)
 "use strict";
 
 
-let AtRule = __webpack_require__(1326)
-let Comment = __webpack_require__(6589)
 let Declaration = __webpack_require__(1516)
+let tokenizer = __webpack_require__(2327)
+let Comment = __webpack_require__(6589)
+let AtRule = __webpack_require__(1326)
 let Root = __webpack_require__(9434)
 let Rule = __webpack_require__(4092)
-let tokenizer = __webpack_require__(2327)
 
 const SAFE_COMMENT_NEIGHBOR = {
   empty: true,
@@ -4954,7 +4240,7 @@ class Parser {
 
   colon(tokens) {
     let brackets = 0
-    let prev, token, type
+    let token, type, prev
     for (let [i, element] of tokens.entries()) {
       token = element
       type = token[0]
@@ -5078,12 +4364,12 @@ class Parser {
         let str = ''
         for (let j = i; j > 0; j--) {
           let type = cache[j][0]
-          if (str.trim().startsWith('!') && type !== 'space') {
+          if (str.trim().indexOf('!') === 0 && type !== 'space') {
             break
           }
           str = cache.pop()[1] + str
         }
-        if (str.trim().startsWith('!')) {
+        if (str.trim().indexOf('!') === 0) {
           node.important = true
           node.raws.important = str
           tokens = cache
@@ -5428,9 +4714,9 @@ module.exports = Parser
 "use strict";
 
 
+let { SourceMapConsumer, SourceMapGenerator } = __webpack_require__(1866)
 let { existsSync, readFileSync } = __webpack_require__(9977)
 let { dirname, join } = __webpack_require__(197)
-let { SourceMapConsumer, SourceMapGenerator } = __webpack_require__(1866)
 
 function fromBase64(str) {
   if (Buffer) {
@@ -5469,14 +4755,12 @@ class PreviousMap {
     let charsetUri = /^data:application\/json;charset=utf-?8,/
     let uri = /^data:application\/json,/
 
-    let uriMatch = text.match(charsetUri) || text.match(uri)
-    if (uriMatch) {
-      return decodeURIComponent(text.substr(uriMatch[0].length))
+    if (charsetUri.test(text) || uri.test(text)) {
+      return decodeURIComponent(text.substr(RegExp.lastMatch.length))
     }
 
-    let baseUriMatch = text.match(baseCharsetUri) || text.match(baseUri)
-    if (baseUriMatch) {
-      return fromBase64(text.substr(baseUriMatch[0].length))
+    if (baseCharsetUri.test(text) || baseUri.test(text)) {
+      return fromBase64(text.substr(RegExp.lastMatch.length))
     }
 
     let encoding = text.match(/data:application\/json;([^,]+),/)[1]
@@ -5497,7 +4781,7 @@ class PreviousMap {
   }
 
   loadAnnotation(css) {
-    let comments = css.match(/\/\*\s*# sourceMappingURL=/g)
+    let comments = css.match(/\/\*\s*# sourceMappingURL=/gm)
     if (!comments) return
 
     // sourceMappingURLs from comments, strings, etc.
@@ -5580,14 +4864,14 @@ PreviousMap.default = PreviousMap
 "use strict";
 
 
-let Document = __webpack_require__(271)
-let LazyResult = __webpack_require__(448)
 let NoWorkResult = __webpack_require__(7661)
+let LazyResult = __webpack_require__(448)
+let Document = __webpack_require__(271)
 let Root = __webpack_require__(9434)
 
 class Processor {
   constructor(plugins = []) {
-    this.version = '8.4.49'
+    this.version = '8.4.38'
     this.plugins = this.normalize(plugins)
   }
 
@@ -6225,8 +5509,8 @@ module.exports = function tokenizer(input, options = {}) {
   let css = input.css.valueOf()
   let ignore = options.ignoreErrors
 
-  let code, content, escape, next, quote
-  let currentToken, escaped, escapePos, n, prev
+  let code, next, quote, content, escape
+  let escaped, escapePos, prev, n, currentToken
 
   let length = css.length
   let pos = 0
@@ -7277,6 +6561,637 @@ module.exports.remove = removeAccents;
 
 /***/ }),
 
+/***/ 6020:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+const CSSValueParser = __webpack_require__(4848)
+
+/**
+ * @type {import('postcss').PluginCreator}
+ */
+module.exports = (opts) => {
+
+  const DEFAULTS = {
+    skipHostRelativeUrls: true,
+  }
+  const config = Object.assign(DEFAULTS, opts)
+
+  return {
+    postcssPlugin: 'rebaseUrl',
+
+    Declaration(decl) {
+      // The faster way to find Declaration node
+      const parsedValue = CSSValueParser(decl.value)
+
+      let valueChanged = false
+      parsedValue.walk(node => {
+        if (node.type !== 'function' || node.value !== 'url') {
+          return
+        }
+
+        const urlVal = node.nodes[0].value
+
+        // bases relative URLs with rootUrl
+        const basedUrl = new URL(urlVal, opts.rootUrl)
+
+        // skip host-relative, already normalized URLs (e.g. `/images/image.jpg`, without `..`s)
+        if ((basedUrl.pathname === urlVal) && config.skipHostRelativeUrls) {
+          return false // skip this value
+        }
+
+        node.nodes[0].value = basedUrl.toString()
+        valueChanged = true
+
+        return false // do not walk deeper
+      })
+
+      if (valueChanged) {
+        decl.value = CSSValueParser.stringify(parsedValue)
+      }
+
+    }
+  }
+}
+
+module.exports.postcss = true
+
+
+/***/ }),
+
+/***/ 4848:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parse = __webpack_require__(3715);
+var walk = __webpack_require__(8703);
+var stringify = __webpack_require__(7293);
+
+function ValueParser(value) {
+  if (this instanceof ValueParser) {
+    this.nodes = parse(value);
+    return this;
+  }
+  return new ValueParser(value);
+}
+
+ValueParser.prototype.toString = function() {
+  return Array.isArray(this.nodes) ? stringify(this.nodes) : "";
+};
+
+ValueParser.prototype.walk = function(cb, bubble) {
+  walk(this.nodes, cb, bubble);
+  return this;
+};
+
+ValueParser.unit = __webpack_require__(9356);
+
+ValueParser.walk = walk;
+
+ValueParser.stringify = stringify;
+
+module.exports = ValueParser;
+
+
+/***/ }),
+
+/***/ 3715:
+/***/ ((module) => {
+
+var openParentheses = "(".charCodeAt(0);
+var closeParentheses = ")".charCodeAt(0);
+var singleQuote = "'".charCodeAt(0);
+var doubleQuote = '"'.charCodeAt(0);
+var backslash = "\\".charCodeAt(0);
+var slash = "/".charCodeAt(0);
+var comma = ",".charCodeAt(0);
+var colon = ":".charCodeAt(0);
+var star = "*".charCodeAt(0);
+var uLower = "u".charCodeAt(0);
+var uUpper = "U".charCodeAt(0);
+var plus = "+".charCodeAt(0);
+var isUnicodeRange = /^[a-f0-9?-]+$/i;
+
+module.exports = function(input) {
+  var tokens = [];
+  var value = input;
+
+  var next,
+    quote,
+    prev,
+    token,
+    escape,
+    escapePos,
+    whitespacePos,
+    parenthesesOpenPos;
+  var pos = 0;
+  var code = value.charCodeAt(pos);
+  var max = value.length;
+  var stack = [{ nodes: tokens }];
+  var balanced = 0;
+  var parent;
+
+  var name = "";
+  var before = "";
+  var after = "";
+
+  while (pos < max) {
+    // Whitespaces
+    if (code <= 32) {
+      next = pos;
+      do {
+        next += 1;
+        code = value.charCodeAt(next);
+      } while (code <= 32);
+      token = value.slice(pos, next);
+
+      prev = tokens[tokens.length - 1];
+      if (code === closeParentheses && balanced) {
+        after = token;
+      } else if (prev && prev.type === "div") {
+        prev.after = token;
+        prev.sourceEndIndex += token.length;
+      } else if (
+        code === comma ||
+        code === colon ||
+        (code === slash &&
+          value.charCodeAt(next + 1) !== star &&
+          (!parent ||
+            (parent && parent.type === "function" && parent.value !== "calc")))
+      ) {
+        before = token;
+      } else {
+        tokens.push({
+          type: "space",
+          sourceIndex: pos,
+          sourceEndIndex: next,
+          value: token
+        });
+      }
+
+      pos = next;
+
+      // Quotes
+    } else if (code === singleQuote || code === doubleQuote) {
+      next = pos;
+      quote = code === singleQuote ? "'" : '"';
+      token = {
+        type: "string",
+        sourceIndex: pos,
+        quote: quote
+      };
+      do {
+        escape = false;
+        next = value.indexOf(quote, next + 1);
+        if (~next) {
+          escapePos = next;
+          while (value.charCodeAt(escapePos - 1) === backslash) {
+            escapePos -= 1;
+            escape = !escape;
+          }
+        } else {
+          value += quote;
+          next = value.length - 1;
+          token.unclosed = true;
+        }
+      } while (escape);
+      token.value = value.slice(pos + 1, next);
+      token.sourceEndIndex = token.unclosed ? next : next + 1;
+      tokens.push(token);
+      pos = next + 1;
+      code = value.charCodeAt(pos);
+
+      // Comments
+    } else if (code === slash && value.charCodeAt(pos + 1) === star) {
+      next = value.indexOf("*/", pos);
+
+      token = {
+        type: "comment",
+        sourceIndex: pos,
+        sourceEndIndex: next + 2
+      };
+
+      if (next === -1) {
+        token.unclosed = true;
+        next = value.length;
+        token.sourceEndIndex = next;
+      }
+
+      token.value = value.slice(pos + 2, next);
+      tokens.push(token);
+
+      pos = next + 2;
+      code = value.charCodeAt(pos);
+
+      // Operation within calc
+    } else if (
+      (code === slash || code === star) &&
+      parent &&
+      parent.type === "function" &&
+      parent.value === "calc"
+    ) {
+      token = value[pos];
+      tokens.push({
+        type: "word",
+        sourceIndex: pos - before.length,
+        sourceEndIndex: pos + token.length,
+        value: token
+      });
+      pos += 1;
+      code = value.charCodeAt(pos);
+
+      // Dividers
+    } else if (code === slash || code === comma || code === colon) {
+      token = value[pos];
+
+      tokens.push({
+        type: "div",
+        sourceIndex: pos - before.length,
+        sourceEndIndex: pos + token.length,
+        value: token,
+        before: before,
+        after: ""
+      });
+      before = "";
+
+      pos += 1;
+      code = value.charCodeAt(pos);
+
+      // Open parentheses
+    } else if (openParentheses === code) {
+      // Whitespaces after open parentheses
+      next = pos;
+      do {
+        next += 1;
+        code = value.charCodeAt(next);
+      } while (code <= 32);
+      parenthesesOpenPos = pos;
+      token = {
+        type: "function",
+        sourceIndex: pos - name.length,
+        value: name,
+        before: value.slice(parenthesesOpenPos + 1, next)
+      };
+      pos = next;
+
+      if (name === "url" && code !== singleQuote && code !== doubleQuote) {
+        next -= 1;
+        do {
+          escape = false;
+          next = value.indexOf(")", next + 1);
+          if (~next) {
+            escapePos = next;
+            while (value.charCodeAt(escapePos - 1) === backslash) {
+              escapePos -= 1;
+              escape = !escape;
+            }
+          } else {
+            value += ")";
+            next = value.length - 1;
+            token.unclosed = true;
+          }
+        } while (escape);
+        // Whitespaces before closed
+        whitespacePos = next;
+        do {
+          whitespacePos -= 1;
+          code = value.charCodeAt(whitespacePos);
+        } while (code <= 32);
+        if (parenthesesOpenPos < whitespacePos) {
+          if (pos !== whitespacePos + 1) {
+            token.nodes = [
+              {
+                type: "word",
+                sourceIndex: pos,
+                sourceEndIndex: whitespacePos + 1,
+                value: value.slice(pos, whitespacePos + 1)
+              }
+            ];
+          } else {
+            token.nodes = [];
+          }
+          if (token.unclosed && whitespacePos + 1 !== next) {
+            token.after = "";
+            token.nodes.push({
+              type: "space",
+              sourceIndex: whitespacePos + 1,
+              sourceEndIndex: next,
+              value: value.slice(whitespacePos + 1, next)
+            });
+          } else {
+            token.after = value.slice(whitespacePos + 1, next);
+            token.sourceEndIndex = next;
+          }
+        } else {
+          token.after = "";
+          token.nodes = [];
+        }
+        pos = next + 1;
+        token.sourceEndIndex = token.unclosed ? next : pos;
+        code = value.charCodeAt(pos);
+        tokens.push(token);
+      } else {
+        balanced += 1;
+        token.after = "";
+        token.sourceEndIndex = pos + 1;
+        tokens.push(token);
+        stack.push(token);
+        tokens = token.nodes = [];
+        parent = token;
+      }
+      name = "";
+
+      // Close parentheses
+    } else if (closeParentheses === code && balanced) {
+      pos += 1;
+      code = value.charCodeAt(pos);
+
+      parent.after = after;
+      parent.sourceEndIndex += after.length;
+      after = "";
+      balanced -= 1;
+      stack[stack.length - 1].sourceEndIndex = pos;
+      stack.pop();
+      parent = stack[balanced];
+      tokens = parent.nodes;
+
+      // Words
+    } else {
+      next = pos;
+      do {
+        if (code === backslash) {
+          next += 1;
+        }
+        next += 1;
+        code = value.charCodeAt(next);
+      } while (
+        next < max &&
+        !(
+          code <= 32 ||
+          code === singleQuote ||
+          code === doubleQuote ||
+          code === comma ||
+          code === colon ||
+          code === slash ||
+          code === openParentheses ||
+          (code === star &&
+            parent &&
+            parent.type === "function" &&
+            parent.value === "calc") ||
+          (code === slash &&
+            parent.type === "function" &&
+            parent.value === "calc") ||
+          (code === closeParentheses && balanced)
+        )
+      );
+      token = value.slice(pos, next);
+
+      if (openParentheses === code) {
+        name = token;
+      } else if (
+        (uLower === token.charCodeAt(0) || uUpper === token.charCodeAt(0)) &&
+        plus === token.charCodeAt(1) &&
+        isUnicodeRange.test(token.slice(2))
+      ) {
+        tokens.push({
+          type: "unicode-range",
+          sourceIndex: pos,
+          sourceEndIndex: next,
+          value: token
+        });
+      } else {
+        tokens.push({
+          type: "word",
+          sourceIndex: pos,
+          sourceEndIndex: next,
+          value: token
+        });
+      }
+
+      pos = next;
+    }
+  }
+
+  for (pos = stack.length - 1; pos; pos -= 1) {
+    stack[pos].unclosed = true;
+    stack[pos].sourceEndIndex = value.length;
+  }
+
+  return stack[0].nodes;
+};
+
+
+/***/ }),
+
+/***/ 7293:
+/***/ ((module) => {
+
+function stringifyNode(node, custom) {
+  var type = node.type;
+  var value = node.value;
+  var buf;
+  var customResult;
+
+  if (custom && (customResult = custom(node)) !== undefined) {
+    return customResult;
+  } else if (type === "word" || type === "space") {
+    return value;
+  } else if (type === "string") {
+    buf = node.quote || "";
+    return buf + value + (node.unclosed ? "" : buf);
+  } else if (type === "comment") {
+    return "/*" + value + (node.unclosed ? "" : "*/");
+  } else if (type === "div") {
+    return (node.before || "") + value + (node.after || "");
+  } else if (Array.isArray(node.nodes)) {
+    buf = stringify(node.nodes, custom);
+    if (type !== "function") {
+      return buf;
+    }
+    return (
+      value +
+      "(" +
+      (node.before || "") +
+      buf +
+      (node.after || "") +
+      (node.unclosed ? "" : ")")
+    );
+  }
+  return value;
+}
+
+function stringify(nodes, custom) {
+  var result, i;
+
+  if (Array.isArray(nodes)) {
+    result = "";
+    for (i = nodes.length - 1; ~i; i -= 1) {
+      result = stringifyNode(nodes[i], custom) + result;
+    }
+    return result;
+  }
+  return stringifyNode(nodes, custom);
+}
+
+module.exports = stringify;
+
+
+/***/ }),
+
+/***/ 9356:
+/***/ ((module) => {
+
+var minus = "-".charCodeAt(0);
+var plus = "+".charCodeAt(0);
+var dot = ".".charCodeAt(0);
+var exp = "e".charCodeAt(0);
+var EXP = "E".charCodeAt(0);
+
+// Check if three code points would start a number
+// https://www.w3.org/TR/css-syntax-3/#starts-with-a-number
+function likeNumber(value) {
+  var code = value.charCodeAt(0);
+  var nextCode;
+
+  if (code === plus || code === minus) {
+    nextCode = value.charCodeAt(1);
+
+    if (nextCode >= 48 && nextCode <= 57) {
+      return true;
+    }
+
+    var nextNextCode = value.charCodeAt(2);
+
+    if (nextCode === dot && nextNextCode >= 48 && nextNextCode <= 57) {
+      return true;
+    }
+
+    return false;
+  }
+
+  if (code === dot) {
+    nextCode = value.charCodeAt(1);
+
+    if (nextCode >= 48 && nextCode <= 57) {
+      return true;
+    }
+
+    return false;
+  }
+
+  if (code >= 48 && code <= 57) {
+    return true;
+  }
+
+  return false;
+}
+
+// Consume a number
+// https://www.w3.org/TR/css-syntax-3/#consume-number
+module.exports = function(value) {
+  var pos = 0;
+  var length = value.length;
+  var code;
+  var nextCode;
+  var nextNextCode;
+
+  if (length === 0 || !likeNumber(value)) {
+    return false;
+  }
+
+  code = value.charCodeAt(pos);
+
+  if (code === plus || code === minus) {
+    pos++;
+  }
+
+  while (pos < length) {
+    code = value.charCodeAt(pos);
+
+    if (code < 48 || code > 57) {
+      break;
+    }
+
+    pos += 1;
+  }
+
+  code = value.charCodeAt(pos);
+  nextCode = value.charCodeAt(pos + 1);
+
+  if (code === dot && nextCode >= 48 && nextCode <= 57) {
+    pos += 2;
+
+    while (pos < length) {
+      code = value.charCodeAt(pos);
+
+      if (code < 48 || code > 57) {
+        break;
+      }
+
+      pos += 1;
+    }
+  }
+
+  code = value.charCodeAt(pos);
+  nextCode = value.charCodeAt(pos + 1);
+  nextNextCode = value.charCodeAt(pos + 2);
+
+  if (
+    (code === exp || code === EXP) &&
+    ((nextCode >= 48 && nextCode <= 57) ||
+      ((nextCode === plus || nextCode === minus) &&
+        nextNextCode >= 48 &&
+        nextNextCode <= 57))
+  ) {
+    pos += nextCode === plus || nextCode === minus ? 3 : 2;
+
+    while (pos < length) {
+      code = value.charCodeAt(pos);
+
+      if (code < 48 || code > 57) {
+        break;
+      }
+
+      pos += 1;
+    }
+  }
+
+  return {
+    number: value.slice(0, pos),
+    unit: value.slice(pos)
+  };
+};
+
+
+/***/ }),
+
+/***/ 8703:
+/***/ ((module) => {
+
+module.exports = function walk(nodes, cb, bubble) {
+  var i, max, node, result;
+
+  for (i = 0, max = nodes.length; i < max; i += 1) {
+    node = nodes[i];
+    if (!bubble) {
+      result = cb(node, i, nodes);
+    }
+
+    if (
+      result !== false &&
+      node.type === "function" &&
+      Array.isArray(node.nodes)
+    ) {
+      walk(node.nodes, cb, bubble);
+    }
+
+    if (bubble) {
+      cb(node, i, nodes);
+    }
+  }
+};
+
+
+/***/ }),
+
 /***/ 1609:
 /***/ ((module) => {
 
@@ -7365,7 +7280,7 @@ module.exports = { nanoid, customAlphabet }
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/
+/******/ 	
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -7379,14 +7294,14 @@ module.exports = { nanoid, customAlphabet }
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
-/******/
+/******/ 	
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
+/******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/
+/******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
@@ -7399,7 +7314,7 @@ module.exports = { nanoid, customAlphabet }
 /******/ 			return getter;
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -7411,12 +7326,12 @@ module.exports = { nanoid, customAlphabet }
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -7427,7 +7342,7 @@ module.exports = { nanoid, customAlphabet }
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry needs to be wrapped in an IIFE because it needs to be in strict mode.
@@ -7607,7 +7522,7 @@ __webpack_require__.d(__webpack_exports__, {
   withFontSizes: () => (/* reexport */ with_font_sizes)
 });
 
-// NAMESPACE OBJECT: ./node_modules/@wordpress/block-editor/build-module/store/private-selectors.js
+// NAMESPACE OBJECT: ./packages/block-editor/build-module/store/private-selectors.js
 var private_selectors_namespaceObject = {};
 __webpack_require__.r(private_selectors_namespaceObject);
 __webpack_require__.d(private_selectors_namespaceObject, {
@@ -7645,7 +7560,7 @@ __webpack_require__.d(private_selectors_namespaceObject, {
   isZoomOut: () => (isZoomOut)
 });
 
-// NAMESPACE OBJECT: ./node_modules/@wordpress/block-editor/build-module/store/selectors.js
+// NAMESPACE OBJECT: ./packages/block-editor/build-module/store/selectors.js
 var selectors_namespaceObject = {};
 __webpack_require__.r(selectors_namespaceObject);
 __webpack_require__.d(selectors_namespaceObject, {
@@ -7766,7 +7681,7 @@ __webpack_require__.d(selectors_namespaceObject, {
   wasBlockJustInserted: () => (wasBlockJustInserted)
 });
 
-// NAMESPACE OBJECT: ./node_modules/@wordpress/block-editor/build-module/store/private-actions.js
+// NAMESPACE OBJECT: ./packages/block-editor/build-module/store/private-actions.js
 var private_actions_namespaceObject = {};
 __webpack_require__.r(private_actions_namespaceObject);
 __webpack_require__.d(private_actions_namespaceObject, {
@@ -7791,7 +7706,7 @@ __webpack_require__.d(private_actions_namespaceObject, {
   stopEditingAsBlocks: () => (stopEditingAsBlocks)
 });
 
-// NAMESPACE OBJECT: ./node_modules/@wordpress/block-editor/build-module/store/actions.js
+// NAMESPACE OBJECT: ./packages/block-editor/build-module/store/actions.js
 var actions_namespaceObject = {};
 __webpack_require__.r(actions_namespaceObject);
 __webpack_require__.d(actions_namespaceObject, {
@@ -7860,7 +7775,7 @@ __webpack_require__.d(actions_namespaceObject, {
   validateBlocksToTemplate: () => (validateBlocksToTemplate)
 });
 
-// NAMESPACE OBJECT: ./node_modules/@wordpress/upload-media/build-module/store/selectors.js
+// NAMESPACE OBJECT: ./packages/upload-media/build-module/store/selectors.js
 var store_selectors_namespaceObject = {};
 __webpack_require__.r(store_selectors_namespaceObject);
 __webpack_require__.d(store_selectors_namespaceObject, {
@@ -7871,7 +7786,7 @@ __webpack_require__.d(store_selectors_namespaceObject, {
   isUploadingByUrl: () => (isUploadingByUrl)
 });
 
-// NAMESPACE OBJECT: ./node_modules/@wordpress/upload-media/build-module/store/private-selectors.js
+// NAMESPACE OBJECT: ./packages/upload-media/build-module/store/private-selectors.js
 var store_private_selectors_namespaceObject = {};
 __webpack_require__.r(store_private_selectors_namespaceObject);
 __webpack_require__.d(store_private_selectors_namespaceObject, {
@@ -7884,7 +7799,7 @@ __webpack_require__.d(store_private_selectors_namespaceObject, {
   isUploadingToPost: () => (isUploadingToPost)
 });
 
-// NAMESPACE OBJECT: ./node_modules/@wordpress/upload-media/build-module/store/actions.js
+// NAMESPACE OBJECT: ./packages/upload-media/build-module/store/actions.js
 var store_actions_namespaceObject = {};
 __webpack_require__.r(store_actions_namespaceObject);
 __webpack_require__.d(store_actions_namespaceObject, {
@@ -7892,7 +7807,7 @@ __webpack_require__.d(store_actions_namespaceObject, {
   cancelItem: () => (cancelItem)
 });
 
-// NAMESPACE OBJECT: ./node_modules/@wordpress/upload-media/build-module/store/private-actions.js
+// NAMESPACE OBJECT: ./packages/upload-media/build-module/store/private-actions.js
 var store_private_actions_namespaceObject = {};
 __webpack_require__.r(store_private_actions_namespaceObject);
 __webpack_require__.d(store_private_actions_namespaceObject, {
@@ -7908,7 +7823,7 @@ __webpack_require__.d(store_private_actions_namespaceObject, {
   uploadItem: () => (uploadItem)
 });
 
-// NAMESPACE OBJECT: ./node_modules/@wordpress/block-editor/build-module/components/global-styles/index.js
+// NAMESPACE OBJECT: ./packages/block-editor/build-module/components/global-styles/index.js
 var global_styles_namespaceObject = {};
 __webpack_require__.r(global_styles_namespaceObject);
 __webpack_require__.d(global_styles_namespaceObject, {
@@ -7953,7 +7868,7 @@ const external_wp_data_namespaceObject = window["wp"]["data"];
 const external_wp_compose_namespaceObject = window["wp"]["compose"];
 ;// external ["wp","hooks"]
 const external_wp_hooks_namespaceObject = window["wp"]["hooks"];
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-edit/context.js
+;// ./packages/block-editor/build-module/components/block-edit/context.js
 /**
  * WP dependencies
  */
@@ -7990,7 +7905,7 @@ var es6 = __webpack_require__(7734);
 var es6_default = /*#__PURE__*/__webpack_require__.n(es6);
 ;// external ["wp","i18n"]
 const external_wp_i18n_namespaceObject = window["wp"]["i18n"];
-;// ./node_modules/@wordpress/block-editor/build-module/store/defaults.js
+;// ./packages/block-editor/build-module/store/defaults.js
 /**
  * WP dependencies
  */
@@ -8132,7 +8047,7 @@ const SETTINGS_DEFAULTS = {
   // Allows to disable block locking interface.
   canLockBlocks: true,
   // Allows to disable Openverse media category in the inserter.
-  enableOpenverseMediaCategory: false,
+  enableOpenverseMediaCategory: true,
   clearBlockSelection: true,
   __experimentalCanUserUseUnfilteredHTML: false,
   __experimentalBlockDirectory: false,
@@ -8237,7 +8152,7 @@ const SETTINGS_DEFAULTS = {
   }
 };
 
-;// ./node_modules/@wordpress/block-editor/build-module/store/array.js
+;// ./packages/block-editor/build-module/store/array.js
 /**
  * Insert one or multiple elements into a given position of an array.
  *
@@ -8267,7 +8182,7 @@ function moveTo(array, from, to, count = 1) {
   return insertAt(withoutMovedElements, array.slice(from, from + count), to);
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/store/private-keys.js
+;// ./packages/block-editor/build-module/store/private-keys.js
 const globalStylesDataKey = Symbol('globalStylesDataKey');
 const globalStylesLinksDataKey = Symbol('globalStylesLinks');
 const selectBlockPatternsKey = Symbol('selectBlockPatternsKey');
@@ -8276,7 +8191,7 @@ const sectionRootClientIdKey = Symbol('sectionRootClientIdKey');
 
 ;// external ["wp","privateApis"]
 const external_wp_privateApis_namespaceObject = window["wp"]["privateApis"];
-;// ./node_modules/@wordpress/block-editor/build-module/lock-unlock.js
+;// ./packages/block-editor/build-module/lock-unlock.js
 /**
  * WP dependencies
  */
@@ -8286,8 +8201,7 @@ const {
   unlock
 } = (0,external_wp_privateApis_namespaceObject.__dangerousOptInToUnstableAPIsOnlyForCoreModules)('I acknowledge private features are not for use in themes or plugins and doing so will break in the next version of Retraceur.', '@wordpress/block-editor');
 
-;// ./node_modules/@wordpress/block-editor/build-module/store/reducer.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/store/reducer.js
 /**
  * External dependencies
  */
@@ -10792,7 +10706,7 @@ function withAutomaticChangeReset(reducer) {
 const external_wp_primitives_namespaceObject = window["wp"]["primitives"];
 ;// external "ReactJSXRuntime"
 const external_ReactJSXRuntime_namespaceObject = window["ReactJSXRuntime"];
-;// ./node_modules/@wordpress/icons/build-module/library/symbol.js
+;// ./packages/icons/build-module/library/symbol.js
 /**
  * WP dependencies
  */
@@ -10813,10 +10727,10 @@ const external_wp_richText_namespaceObject = window["wp"]["richText"];
 const external_wp_preferences_namespaceObject = window["wp"]["preferences"];
 ;// external ["wp","blockSerializationDefaultParser"]
 const external_wp_blockSerializationDefaultParser_namespaceObject = window["wp"]["blockSerializationDefaultParser"];
-;// ./node_modules/@wordpress/block-editor/build-module/store/constants.js
+;// ./packages/block-editor/build-module/store/constants.js
 const STORE_NAME = 'core/block-editor';
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inserter/block-patterns-tab/utils.js
+;// ./packages/block-editor/build-module/components/inserter/block-patterns-tab/utils.js
 /**
  * WP dependencies
  */
@@ -10845,8 +10759,15 @@ const starterPatternsCategory = {
 function isPatternFiltered(pattern, sourceFilter, syncFilter) {
   const isUserPattern = pattern.name.startsWith('core/block');
 
-  // If theme source selected, filter out user created patterns.
+  // If theme source selected, filter out user created patterns and those from
+  // the core patterns directory.
   if (sourceFilter === INSERTER_PATTERN_TYPES.theme && isUserPattern) {
+    return true;
+  }
+
+  // If the directory source is selected, filter out user created patterns
+  // and those bundled with the theme.
+  if (sourceFilter === INSERTER_PATTERN_TYPES.directory && isUserPattern) {
     return true;
   }
 
@@ -10865,8 +10786,7 @@ function isPatternFiltered(pattern, sourceFilter, syncFilter) {
   return false;
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/utils/object.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/utils/object.js
 /**
  * Immutably sets a value inside an object. Like `lodash#set`, but returning a
  * new object. Treats nullish initial values as empty objects. Clones any
@@ -10937,8 +10857,7 @@ function uniqByProperty(array, property) {
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/store/get-block-settings.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/store/get-block-settings.js
 /**
  * WP dependencies
  */
@@ -11000,7 +10919,7 @@ const prefixedFlags = {
  * be removed once third party devs have had sufficient time to update themes,
  * plugins, etc.
  *
- * @see https://github.com/WordPress/gutenberg/pull/34485
+ * @see https://github.com/wordpress/gutenberg/pull/34485
  *
  * @param {string} path Path to desired value in settings.
  * @return {string}     The value for defined setting.
@@ -11078,8 +10997,7 @@ function getBlockSettings(state, clientId, ...paths) {
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/store/private-selectors.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/store/private-selectors.js
 /**
  * WP dependencies
  */
@@ -11601,8 +11519,7 @@ function getInsertionPoint(state) {
   return state.insertionPoint;
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/store/utils.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/store/utils.js
 /**
  * WP dependencies
  */
@@ -11696,7 +11613,7 @@ const getInsertBlockTypeDependants = select => (state, rootClientId) => {
   return [state.blockListSettings[rootClientId], state.blocks.byClientId.get(rootClientId), state.settings.allowedBlockTypes, state.settings.templateLock, state.blockEditingModes, select(STORE_NAME).__unstableGetEditorMode(state), getSectionRootClientId(state)];
 };
 
-;// ./node_modules/@wordpress/block-editor/build-module/utils/sorting.js
+;// ./packages/block-editor/build-module/utils/sorting.js
 /**
  * Recursive stable sorting comparator function.
  *
@@ -11748,8 +11665,7 @@ function orderBy(items, field, order = 'asc') {
   return items.concat().sort(comparator(field, items, order));
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/store/selectors.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/store/selectors.js
 /**
  * WP dependencies
  */
@@ -14410,8 +14326,7 @@ function __unstableGetTemporarilyEditingFocusModeToRevert(state) {
 
 ;// external ["wp","a11y"]
 const external_wp_a11y_namespaceObject = window["wp"]["a11y"];
-;// ./node_modules/@wordpress/block-editor/build-module/store/private-actions.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/store/private-actions.js
 /**
  * WP dependencies
  */
@@ -14433,9 +14348,9 @@ const castArray = maybeArray => Array.isArray(maybeArray) ? maybeArray : [maybeA
  * BlockEditorProvider will remove these settings from the
  * settings object it receives.
  *
- * @see https://github.com/WordPress/gutenberg/pull/46131
+ * @see https://github.com/wordpress/gutenberg/pull/46131
  */
-const privateSettings = ['inserterMediaCategories', 'blockInspectorAnimation'];
+const privateSettings = ['inserterMediaCategories', 'blockInspectorAnimation', 'mediaSideload'];
 
 /**
  * Action that updates the block editor settings and
@@ -14543,7 +14458,7 @@ const privateRemoveBlocks = (clientIds, selectPrevious = true, forceRemove = fal
   // prompts to the user. Any instance opting into removal prompts must
   // register using `setBlockRemovalRules()`.
   //
-  // @see https://github.com/WordPress/gutenberg/pull/51145
+  // @see https://github.com/wordpress/gutenberg/pull/51145
   const rules = !forceRemove && select.getBlockRemovalRules();
   if (rules) {
     function flattenBlocks(blocks) {
@@ -14880,8 +14795,7 @@ function resetZoomLevel() {
 
 ;// external ["wp","notices"]
 const external_wp_notices_namespaceObject = window["wp"]["notices"];
-;// ./node_modules/@wordpress/block-editor/build-module/utils/selection.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/utils/selection.js
 /**
  * WP dependencies
  */
@@ -14920,8 +14834,7 @@ function findRichTextAttributeKey(blockType) {
   }
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/store/actions.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/store/actions.js
 /* eslint no-console: [ 'error', { allow: [ 'error', 'warn' ] } ] */
 /**
  * WP dependencies
@@ -16694,7 +16607,7 @@ function unsetBlockEditingMode(clientId = '') {
   };
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/store/index.js
+;// ./packages/block-editor/build-module/store/index.js
 /**
  * WP dependencies
  */
@@ -16714,7 +16627,7 @@ function unsetBlockEditingMode(clientId = '') {
 /**
  * Block editor data store configuration.
  *
- * @see https://github.com/WordPress/gutenberg/blob/HEAD/packages/data/README.md#registerStore
+ * @see https://github.com/wordpress/gutenberg/blob/HEAD/packages/data/README.md#registerStore
  */
 const storeConfig = {
   reducer: reducer,
@@ -16725,7 +16638,7 @@ const storeConfig = {
 /**
  * Store definition for the block editor namespace.
  *
- * @see https://github.com/WordPress/gutenberg/blob/HEAD/packages/data/README.md#createReduxStore
+ * @see https://github.com/wordpress/gutenberg/blob/HEAD/packages/data/README.md#createReduxStore
  */
 const store = (0,external_wp_data_namespaceObject.createReduxStore)(STORE_NAME, {
   ...storeConfig,
@@ -16747,11 +16660,11 @@ unlock(registeredStore).registerPrivateSelectors(private_selectors_namespaceObje
 // `store` descriptor in order to avoid unit tests failing, which could happen
 // when tests create new registries in which they register stores.
 //
-// @see https://github.com/WordPress/gutenberg/pull/51145#discussion_r1239999590
+// @see https://github.com/wordpress/gutenberg/pull/51145#discussion_r1239999590
 unlock(store).registerPrivateActions(private_actions_namespaceObject);
 unlock(store).registerPrivateSelectors(private_selectors_namespaceObject);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/use-settings/index.js
+;// ./packages/block-editor/build-module/components/use-settings/index.js
 /**
  * WP dependencies
  */
@@ -16812,7 +16725,7 @@ function useSetting(path) {
 
 ;// external ["wp","styleEngine"]
 const external_wp_styleEngine_namespaceObject = window["wp"]["styleEngine"];
-;// ./node_modules/@wordpress/block-editor/build-module/components/font-sizes/fluid-utils.js
+;// ./packages/block-editor/build-module/components/font-sizes/fluid-utils.js
 /**
  * The fluid utilities must match the backend equivalent.
  * See: gutenberg_get_typography_font_size_value() in lib/block-supports/typography.php
@@ -17058,7 +16971,7 @@ function roundToPrecision(value, digits = 3) {
   return Number.isFinite(value) ? parseFloat(Math.round(value * base) / base) : undefined;
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/utils/format-font-style.js
+;// ./packages/block-editor/build-module/utils/format-font-style.js
 /**
  * WP dependencies
  */
@@ -17098,7 +17011,7 @@ function formatFontStyle(fontStyle) {
   };
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/utils/format-font-weight.js
+;// ./packages/block-editor/build-module/utils/format-font-weight.js
 /**
  * WP dependencies
  */
@@ -17161,8 +17074,7 @@ function formatFontWeight(fontWeight) {
   };
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/utils/get-font-styles-and-weights.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/utils/get-font-styles-and-weights.js
 /**
  * WP dependencies
  */
@@ -17323,8 +17235,7 @@ function getFontStylesAndWeights(fontFamilyFaces) {
   };
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/global-styles/typography-utils.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/global-styles/typography-utils.js
 /**
  * The fluid utilities must match the backend equivalent.
  * See: gutenberg_get_typography_font_size_value() in lib/block-supports/typography.php
@@ -17555,8 +17466,7 @@ function findNearestStyleAndWeight(fontFamilyFaces, fontStyle, fontWeight) {
   };
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/global-styles/utils.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/global-styles/utils.js
 /**
  * External dependencies
  */
@@ -18044,7 +17954,7 @@ function getResolvedValue(ruleValue, tree) {
   return resolvedValue;
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/global-styles/context.js
+;// ./packages/block-editor/build-module/components/global-styles/context.js
 /**
  * WP dependencies
  */
@@ -18057,7 +17967,7 @@ const DEFAULT_GLOBAL_STYLES_CONTEXT = {
 };
 const GlobalStylesContext = (0,external_wp_element_namespaceObject.createContext)(DEFAULT_GLOBAL_STYLES_CONTEXT);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/global-styles/hooks.js
+;// ./packages/block-editor/build-module/components/global-styles/hooks.js
 /**
  * External dependencies
  */
@@ -18232,7 +18142,7 @@ function useSettingsForBlockElement(parentSettings, blockName, element) {
 
     // The column-count style is named text column to reduce confusion with
     // the columns block and manage expectations from the support.
-    // See: https://github.com/WordPress/gutenberg/pull/33587
+    // See: https://github.com/wordpress/gutenberg/pull/33587
     if (!supportedStyles.includes('columnCount')) {
       updatedSettings.typography = {
         ...updatedSettings.typography,
@@ -18358,8 +18268,7 @@ function useGradientsPerOrigin(settings) {
 
 ;// ./node_modules/clsx/dist/clsx.mjs
 function r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else if("object"==typeof e)if(Array.isArray(e)){var o=e.length;for(t=0;t<o;t++)e[t]&&(f=r(e[t]))&&(n&&(n+=" "),n+=f)}else for(f in e)e[f]&&(n&&(n+=" "),n+=f);return n}function clsx(){for(var e,t,f=0,n="",o=arguments.length;f<o;f++)(e=arguments[f])&&(t=r(e))&&(n&&(n+=" "),n+=t);return n}/* harmony default export */ const dist_clsx = (clsx);
-;// ./node_modules/@wordpress/block-editor/build-module/hooks/utils.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/hooks/utils.js
 /**
  * WP dependencies
  */
@@ -18800,7 +18709,7 @@ function createBlockSaveFilter(features) {
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/hooks/compat.js
+;// ./packages/block-editor/build-module/hooks/compat.js
 /**
  * WP dependencies
  */
@@ -18819,7 +18728,7 @@ function migrateLightBlockWrapper(settings) {
 
 ;// external ["wp","components"]
 const external_wp_components_namespaceObject = window["wp"]["components"];
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-controls/groups.js
+;// ./packages/block-editor/build-module/components/block-controls/groups.js
 /**
  * WP dependencies
  */
@@ -18838,7 +18747,7 @@ const groups = {
 };
 /* harmony default export */ const block_controls_groups = (groups);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-controls/hook.js
+;// ./packages/block-editor/build-module/components/block-controls/hook.js
 /**
  * WP dependencies
  */
@@ -18859,8 +18768,7 @@ function useBlockControlsFill(group, shareWithChildBlocks) {
   return null;
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-controls/fill.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/block-controls/fill.js
 /**
  * WP dependencies
  */
@@ -18906,8 +18814,7 @@ function BlockControlsFill({
 
 ;// external ["wp","warning"]
 const external_wp_warning_namespaceObject = window["wp"]["warning"];
-var external_wp_warning_default = /*#__PURE__*/__webpack_require__.n(external_wp_warning_namespaceObject);
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-controls/slot.js
+;// ./packages/block-editor/build-module/components/block-controls/slot.js
 /**
  * WP dependencies
  */
@@ -18940,7 +18847,7 @@ function BlockControlsSlot({
   const slotFill = block_controls_groups[group];
   const fills = (0,external_wp_components_namespaceObject.__experimentalUseSlotFills)(slotFill.name);
   if (!slotFill) {
-     true ? external_wp_warning_default()(`Unknown BlockControls group "${group}" provided.`) : 0;
+     false ? 0 : void 0;
     return null;
   }
   if (!fills?.length) {
@@ -18962,7 +18869,7 @@ function BlockControlsSlot({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-controls/index.js
+;// ./packages/block-editor/build-module/components/block-controls/index.js
 /**
  * Internal dependencies
  */
@@ -18987,7 +18894,7 @@ BlockFormatControls.Slot = props => {
 };
 /* harmony default export */ const block_controls = (BlockControls);
 
-;// ./node_modules/@wordpress/icons/build-module/library/justify-left.js
+;// ./packages/icons/build-module/library/justify-left.js
 /**
  * WP dependencies
  */
@@ -19002,7 +18909,7 @@ const justifyLeft = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx
 });
 /* harmony default export */ const justify_left = (justifyLeft);
 
-;// ./node_modules/@wordpress/icons/build-module/library/justify-center.js
+;// ./packages/icons/build-module/library/justify-center.js
 /**
  * WP dependencies
  */
@@ -19017,7 +18924,7 @@ const justifyCenter = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.j
 });
 /* harmony default export */ const justify_center = (justifyCenter);
 
-;// ./node_modules/@wordpress/icons/build-module/library/justify-right.js
+;// ./packages/icons/build-module/library/justify-right.js
 /**
  * WP dependencies
  */
@@ -19032,7 +18939,7 @@ const justifyRight = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.js
 });
 /* harmony default export */ const justify_right = (justifyRight);
 
-;// ./node_modules/@wordpress/icons/build-module/library/justify-space-between.js
+;// ./packages/icons/build-module/library/justify-space-between.js
 /**
  * WP dependencies
  */
@@ -19047,7 +18954,7 @@ const justifySpaceBetween = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceOb
 });
 /* harmony default export */ const justify_space_between = (justifySpaceBetween);
 
-;// ./node_modules/@wordpress/icons/build-module/library/justify-stretch.js
+;// ./packages/icons/build-module/library/justify-stretch.js
 /**
  * WP dependencies
  */
@@ -19062,7 +18969,7 @@ const justifyStretch = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.
 });
 /* harmony default export */ const justify_stretch = (justifyStretch);
 
-;// ./node_modules/@wordpress/icons/build-module/library/arrow-right.js
+;// ./packages/icons/build-module/library/arrow-right.js
 /**
  * WP dependencies
  */
@@ -19077,7 +18984,7 @@ const arrowRight = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)
 });
 /* harmony default export */ const arrow_right = (arrowRight);
 
-;// ./node_modules/@wordpress/icons/build-module/library/arrow-down.js
+;// ./packages/icons/build-module/library/arrow-down.js
 /**
  * WP dependencies
  */
@@ -19092,7 +18999,7 @@ const arrowDown = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(
 });
 /* harmony default export */ const arrow_down = (arrowDown);
 
-;// ./node_modules/@wordpress/block-editor/build-module/layouts/definitions.js
+;// ./packages/block-editor/build-module/layouts/definitions.js
 // Layout definitions keyed by layout type.
 // Provides a common definition of slugs, classnames, base styles, and spacing styles for each layout type.
 // If making changes or additions to layout definitions, be sure to update the corresponding PHP definitions in
@@ -19242,8 +19149,7 @@ const LAYOUT_DEFINITIONS = {
   }
 };
 
-;// ./node_modules/@wordpress/block-editor/build-module/layouts/utils.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/layouts/utils.js
 /**
  * WP dependencies
  */
@@ -19298,7 +19204,7 @@ function getBlockGapCSS(selector, layoutDefinitions = LAYOUT_DEFINITIONS, layout
  * are not a `css var`. This needs to change when parsing
  * css variables land.
  *
- * @see https://github.com/WordPress/gutenberg/pull/34710#issuecomment-918000752
+ * @see https://github.com/wordpress/gutenberg/pull/34710#issuecomment-918000752
  *
  * @param {Object} layout The layout object.
  * @return {Object} An object with contextual info per alignment.
@@ -19322,7 +19228,7 @@ function getAlignmentsInfo(layout) {
   return alignmentInfo;
 }
 
-;// ./node_modules/@wordpress/icons/build-module/library/sides-all.js
+;// ./packages/icons/build-module/library/sides-all.js
 /**
  * WP dependencies
  */
@@ -19337,7 +19243,7 @@ const sidesAll = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(e
 });
 /* harmony default export */ const sides_all = (sidesAll);
 
-;// ./node_modules/@wordpress/icons/build-module/library/sides-horizontal.js
+;// ./packages/icons/build-module/library/sides-horizontal.js
 /**
  * WP dependencies
  */
@@ -19359,7 +19265,7 @@ const sidesHorizontal = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject
 });
 /* harmony default export */ const sides_horizontal = (sidesHorizontal);
 
-;// ./node_modules/@wordpress/icons/build-module/library/sides-vertical.js
+;// ./packages/icons/build-module/library/sides-vertical.js
 /**
  * WP dependencies
  */
@@ -19381,7 +19287,7 @@ const sidesVertical = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.j
 });
 /* harmony default export */ const sides_vertical = (sidesVertical);
 
-;// ./node_modules/@wordpress/icons/build-module/library/sides-top.js
+;// ./packages/icons/build-module/library/sides-top.js
 /**
  * WP dependencies
  */
@@ -19401,7 +19307,7 @@ const sidesTop = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(
 });
 /* harmony default export */ const sides_top = (sidesTop);
 
-;// ./node_modules/@wordpress/icons/build-module/library/sides-right.js
+;// ./packages/icons/build-module/library/sides-right.js
 /**
  * WP dependencies
  */
@@ -19421,7 +19327,7 @@ const sidesRight = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs
 });
 /* harmony default export */ const sides_right = (sidesRight);
 
-;// ./node_modules/@wordpress/icons/build-module/library/sides-bottom.js
+;// ./packages/icons/build-module/library/sides-bottom.js
 /**
  * WP dependencies
  */
@@ -19441,7 +19347,7 @@ const sidesBottom = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx
 });
 /* harmony default export */ const sides_bottom = (sidesBottom);
 
-;// ./node_modules/@wordpress/icons/build-module/library/sides-left.js
+;// ./packages/icons/build-module/library/sides-left.js
 /**
  * WP dependencies
  */
@@ -19461,8 +19367,7 @@ const sidesLeft = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)
 });
 /* harmony default export */ const sides_left = (sidesLeft);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/spacing-sizes-control/utils.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/spacing-sizes-control/utils.js
 /**
  * WP dependencies
  */
@@ -19710,7 +19615,7 @@ function getInitialView(values = {}, sides) {
   return VIEWS.custom;
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/hooks/gap.js
+;// ./packages/block-editor/build-module/hooks/gap.js
 /**
  * Internal dependencies
  */
@@ -19752,7 +19657,7 @@ function getGapCSSValue(blockGapValue, defaultValue = '0') {
   return row === column ? row : `${row} ${column}`;
 }
 
-;// ./node_modules/@wordpress/icons/build-module/library/justify-top.js
+;// ./packages/icons/build-module/library/justify-top.js
 /**
  * WP dependencies
  */
@@ -19767,7 +19672,7 @@ const justifyTop = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)
 });
 /* harmony default export */ const justify_top = (justifyTop);
 
-;// ./node_modules/@wordpress/icons/build-module/library/justify-center-vertical.js
+;// ./packages/icons/build-module/library/justify-center-vertical.js
 /**
  * WP dependencies
  */
@@ -19782,7 +19687,7 @@ const justifyCenterVertical = /*#__PURE__*/(0,external_ReactJSXRuntime_namespace
 });
 /* harmony default export */ const justify_center_vertical = (justifyCenterVertical);
 
-;// ./node_modules/@wordpress/icons/build-module/library/justify-bottom.js
+;// ./packages/icons/build-module/library/justify-bottom.js
 /**
  * WP dependencies
  */
@@ -19797,7 +19702,7 @@ const justifyBottom = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.j
 });
 /* harmony default export */ const justify_bottom = (justifyBottom);
 
-;// ./node_modules/@wordpress/icons/build-module/library/justify-stretch-vertical.js
+;// ./packages/icons/build-module/library/justify-stretch-vertical.js
 /**
  * WP dependencies
  */
@@ -19812,7 +19717,7 @@ const justifyStretchVertical = /*#__PURE__*/(0,external_ReactJSXRuntime_namespac
 });
 /* harmony default export */ const justify_stretch_vertical = (justifyStretchVertical);
 
-;// ./node_modules/@wordpress/icons/build-module/library/justify-space-between-vertical.js
+;// ./packages/icons/build-module/library/justify-space-between-vertical.js
 /**
  * WP dependencies
  */
@@ -19827,8 +19732,7 @@ const justifySpaceBetweenVertical = /*#__PURE__*/(0,external_ReactJSXRuntime_nam
 });
 /* harmony default export */ const justify_space_between_vertical = (justifySpaceBetweenVertical);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-vertical-alignment-control/ui.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/block-vertical-alignment-control/ui.js
 /**
  * WP dependencies
  */
@@ -19892,11 +19796,11 @@ function BlockVerticalAlignmentUI({
 }
 
 /**
- * @see https://github.com/WordPress/gutenberg/blob/HEAD/packages/block-editor/src/components/block-vertical-alignment-toolbar/README.md
+ * @see https://github.com/wordpress/gutenberg/blob/HEAD/packages/block-editor/src/components/block-vertical-alignment-toolbar/README.md
  */
 /* harmony default export */ const ui = (BlockVerticalAlignmentUI);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-vertical-alignment-control/index.js
+;// ./packages/block-editor/build-module/components/block-vertical-alignment-control/index.js
 /**
  * Internal dependencies
  */
@@ -19916,12 +19820,11 @@ const BlockVerticalAlignmentToolbar = props => {
 };
 
 /**
- * @see https://github.com/WordPress/gutenberg/blob/HEAD/packages/block-editor/src/components/block-vertical-alignment-control/README.md
+ * @see https://github.com/wordpress/gutenberg/blob/HEAD/packages/block-editor/src/components/block-vertical-alignment-control/README.md
  */
 
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/justify-content-control/ui.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/justify-content-control/ui.js
 /**
  * WP dependencies
  */
@@ -20000,7 +19903,7 @@ function JustifyContentUI({
 }
 /* harmony default export */ const justify_content_control_ui = (JustifyContentUI);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/justify-content-control/index.js
+;// ./packages/block-editor/build-module/components/justify-content-control/index.js
 /**
  * Internal dependencies
  */
@@ -20020,12 +19923,11 @@ const JustifyToolbar = props => {
 };
 
 /**
- * @see https://github.com/WordPress/gutenberg/blob/HEAD/packages/block-editor/src/components/justify-content-control/README.md
+ * @see https://github.com/wordpress/gutenberg/blob/HEAD/packages/block-editor/src/components/justify-content-control/README.md
  */
 
 
-;// ./node_modules/@wordpress/block-editor/build-module/layouts/flex.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/layouts/flex.js
 /**
  * WP dependencies
  */
@@ -20355,8 +20257,7 @@ function OrientationControl({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/layouts/flow.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/layouts/flow.js
 /**
  * WP dependencies
  */
@@ -20454,7 +20355,7 @@ function OrientationControl({
   }
 });
 
-;// ./node_modules/@wordpress/icons/build-module/icon/index.js
+;// ./packages/icons/build-module/icon/index.js
 /**
  * WP dependencies
  */
@@ -20486,7 +20387,7 @@ function Icon({
 }
 /* harmony default export */ const build_module_icon = ((0,external_wp_element_namespaceObject.forwardRef)(Icon));
 
-;// ./node_modules/@wordpress/icons/build-module/library/align-none.js
+;// ./packages/icons/build-module/library/align-none.js
 /**
  * WP dependencies
  */
@@ -20501,7 +20402,7 @@ const alignNone = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(
 });
 /* harmony default export */ const align_none = (alignNone);
 
-;// ./node_modules/@wordpress/icons/build-module/library/stretch-wide.js
+;// ./packages/icons/build-module/library/stretch-wide.js
 /**
  * WP dependencies
  */
@@ -20516,8 +20417,7 @@ const stretchWide = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx
 });
 /* harmony default export */ const stretch_wide = (stretchWide);
 
-;// ./node_modules/@wordpress/block-editor/build-module/layouts/constrained.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/layouts/constrained.js
 /**
  * WP dependencies
  */
@@ -20810,7 +20710,7 @@ function DefaultLayoutJustifyContentControl({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/layouts/grid.js
+;// ./packages/block-editor/build-module/layouts/grid.js
 /**
  * WP dependencies
  */
@@ -21176,8 +21076,7 @@ function GridLayoutTypeControl({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/layouts/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/layouts/index.js
 /**
  * Internal dependencies
  */
@@ -21206,7 +21105,7 @@ function getLayoutTypes() {
   return layoutTypes;
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-list/layout.js
+;// ./packages/block-editor/build-module/components/block-list/layout.js
 /**
  * WP dependencies
  */
@@ -21262,8 +21161,7 @@ function LayoutStyle({
   return null;
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-alignment-control/use-available-alignments.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/block-alignment-control/use-available-alignments.js
 /**
  * WP dependencies
  */
@@ -21336,7 +21234,7 @@ function useAvailableAlignments(controls = use_available_alignments_DEFAULT_CONT
   return alignments;
 }
 
-;// ./node_modules/@wordpress/icons/build-module/library/position-left.js
+;// ./packages/icons/build-module/library/position-left.js
 /**
  * WP dependencies
  */
@@ -21351,7 +21249,7 @@ const positionLeft = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.js
 });
 /* harmony default export */ const position_left = (positionLeft);
 
-;// ./node_modules/@wordpress/icons/build-module/library/position-center.js
+;// ./packages/icons/build-module/library/position-center.js
 /**
  * WP dependencies
  */
@@ -21366,7 +21264,7 @@ const positionCenter = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.
 });
 /* harmony default export */ const position_center = (positionCenter);
 
-;// ./node_modules/@wordpress/icons/build-module/library/position-right.js
+;// ./packages/icons/build-module/library/position-right.js
 /**
  * WP dependencies
  */
@@ -21381,7 +21279,7 @@ const positionRight = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.j
 });
 /* harmony default export */ const position_right = (positionRight);
 
-;// ./node_modules/@wordpress/icons/build-module/library/stretch-full-width.js
+;// ./packages/icons/build-module/library/stretch-full-width.js
 /**
  * WP dependencies
  */
@@ -21396,7 +21294,7 @@ const stretchFullWidth = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObjec
 });
 /* harmony default export */ const stretch_full_width = (stretchFullWidth);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-alignment-control/constants.js
+;// ./packages/block-editor/build-module/components/block-alignment-control/constants.js
 /**
  * WP dependencies
  */
@@ -21430,8 +21328,7 @@ const constants_BLOCK_ALIGNMENTS_CONTROLS = {
 };
 const constants_DEFAULT_CONTROL = 'none';
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-alignment-control/ui.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/block-alignment-control/ui.js
 /**
  * External dependencies
  */
@@ -21530,7 +21427,7 @@ function BlockAlignmentUI({
 }
 /* harmony default export */ const block_alignment_control_ui = (BlockAlignmentUI);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-alignment-control/index.js
+;// ./packages/block-editor/build-module/components/block-alignment-control/index.js
 /**
  * Internal dependencies
  */
@@ -21550,11 +21447,11 @@ const BlockAlignmentToolbar = props => {
 };
 
 /**
- * @see https://github.com/WordPress/gutenberg/blob/HEAD/packages/block-editor/src/components/block-alignment-control/README.md
+ * @see https://github.com/wordpress/gutenberg/blob/HEAD/packages/block-editor/src/components/block-alignment-control/README.md
  */
 
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-editing-mode/index.js
+;// ./packages/block-editor/build-module/components/block-editing-mode/index.js
 /**
  * WP dependencies
  */
@@ -21626,8 +21523,7 @@ function useBlockEditingMode(mode) {
   return clientId ? context[blockEditingModeKey] : globalBlockEditingMode;
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/hooks/align.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/hooks/align.js
 /**
  * External dependencies
  */
@@ -21811,7 +21707,7 @@ function addAssignedAlign(props, blockType, attributes) {
 }
 (0,external_wp_hooks_namespaceObject.addFilter)('blocks.registerBlockType', 'core/editor/align/addAttribute', addAttribute);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inspector-controls/groups.js
+;// ./packages/block-editor/build-module/components/inspector-controls/groups.js
 /**
  * WP dependencies
  */
@@ -21848,8 +21744,7 @@ const groups_groups = {
 };
 /* harmony default export */ const inspector_controls_groups = (groups_groups);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inspector-controls/fill.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/inspector-controls/fill.js
 /**
  * WP dependencies
  */
@@ -21881,7 +21776,7 @@ function InspectorControlsFill({
   const context = useBlockEditContext();
   const Fill = inspector_controls_groups[group]?.Fill;
   if (!Fill) {
-     true ? external_wp_warning_default()(`Unknown InspectorControls group "${group}" provided.`) : 0;
+     false ? 0 : void 0;
     return null;
   }
   if (!context[mayDisplayControlsKey]) {
@@ -21943,8 +21838,7 @@ function ToolsPanelInspectorControl({
   }), innerMarkup);
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inspector-controls/block-support-tools-panel.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/inspector-controls/block-support-tools-panel.js
 /**
  * WP dependencies
  */
@@ -22016,7 +21910,7 @@ function BlockSupportToolsPanel({
   }, panelId);
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inspector-controls/block-support-slot-container.js
+;// ./packages/block-editor/build-module/components/inspector-controls/block-support-slot-container.js
 /**
  * WP dependencies
  */
@@ -22046,7 +21940,7 @@ function BlockSupportSlotContainer({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inspector-controls/slot.js
+;// ./packages/block-editor/build-module/components/inspector-controls/slot.js
 /**
  * WP dependencies
  */
@@ -22079,7 +21973,7 @@ function InspectorControlsSlot({
   const slotFill = inspector_controls_groups[group];
   const fills = (0,external_wp_components_namespaceObject.__experimentalUseSlotFills)(slotFill?.name);
   if (!slotFill) {
-     true ? external_wp_warning_default()(`Unknown InspectorControls group "${group}" provided.`) : 0;
+     false ? 0 : void 0;
     return null;
   }
   if (!fills?.length) {
@@ -22106,7 +22000,7 @@ function InspectorControlsSlot({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inspector-controls/index.js
+;// ./packages/block-editor/build-module/components/inspector-controls/index.js
 /**
  * Internal dependencies
  */
@@ -22132,7 +22026,7 @@ InspectorAdvancedControls.Slot = props => {
 InspectorAdvancedControls.slotName = 'InspectorAdvancedControls';
 
 /**
- * @see https://github.com/WordPress/gutenberg/blob/HEAD/packages/block-editor/src/components/inspector-controls/README.md
+ * @see https://github.com/wordpress/gutenberg/blob/HEAD/packages/block-editor/src/components/inspector-controls/README.md
  */
 /* harmony default export */ const inspector_controls = (InspectorControls);
 
@@ -22144,7 +22038,7 @@ const external_wp_dom_namespaceObject = window["wp"]["dom"];
 const external_wp_blob_namespaceObject = window["wp"]["blob"];
 ;// external ["wp","keycodes"]
 const external_wp_keycodes_namespaceObject = window["wp"]["keycodes"];
-;// ./node_modules/@wordpress/icons/build-module/library/media.js
+;// ./packages/icons/build-module/library/media.js
 /**
  * WP dependencies
  */
@@ -22163,7 +22057,7 @@ const media = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(ext
 });
 /* harmony default export */ const library_media = (media);
 
-;// ./node_modules/@wordpress/icons/build-module/library/upload.js
+;// ./packages/icons/build-module/library/upload.js
 /**
  * WP dependencies
  */
@@ -22178,7 +22072,7 @@ const upload = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ext
 });
 /* harmony default export */ const library_upload = (upload);
 
-;// ./node_modules/@wordpress/icons/build-module/library/post-featured-image.js
+;// ./packages/icons/build-module/library/post-featured-image.js
 /**
  * WP dependencies
  */
@@ -22193,7 +22087,7 @@ const postFeaturedImage = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObje
 });
 /* harmony default export */ const post_featured_image = (postFeaturedImage);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/media-upload/index.js
+;// ./packages/block-editor/build-module/components/media-upload/index.js
 /**
  * WP dependencies
  */
@@ -22209,11 +22103,11 @@ const postFeaturedImage = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObje
 const MediaUpload = () => null;
 
 /**
- * @see https://github.com/WordPress/gutenberg/blob/HEAD/packages/block-editor/src/components/media-upload/README.md
+ * @see https://github.com/wordpress/gutenberg/blob/HEAD/packages/block-editor/src/components/media-upload/README.md
  */
 /* harmony default export */ const media_upload = ((0,external_wp_components_namespaceObject.withFilters)('editor.MediaUpload')(MediaUpload));
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/media-upload/check.js
+;// ./packages/block-editor/build-module/components/media-upload/check.js
 /**
  * WP dependencies
  */
@@ -22237,14 +22131,14 @@ function MediaUploadCheck({
 }
 
 /**
- * @see https://github.com/WordPress/gutenberg/blob/HEAD/packages/block-editor/src/components/media-upload/README.md
+ * @see https://github.com/wordpress/gutenberg/blob/HEAD/packages/block-editor/src/components/media-upload/README.md
  */
 /* harmony default export */ const check = (MediaUploadCheck);
 
 ;// external ["wp","isShallowEqual"]
 const external_wp_isShallowEqual_namespaceObject = window["wp"]["isShallowEqual"];
 var external_wp_isShallowEqual_default = /*#__PURE__*/__webpack_require__.n(external_wp_isShallowEqual_namespaceObject);
-;// ./node_modules/@wordpress/icons/build-module/library/keyboard-return.js
+;// ./packages/icons/build-module/library/keyboard-return.js
 /**
  * WP dependencies
  */
@@ -22252,13 +22146,14 @@ var external_wp_isShallowEqual_default = /*#__PURE__*/__webpack_require__.n(exte
 
 const keyboardReturn = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_primitives_namespaceObject.SVG, {
   xmlns: "http://www.w3.org/2000/svg",
+  viewBox: "0 0 24 24",
   children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_primitives_namespaceObject.Path, {
     d: "m6.734 16.106 2.176-2.38-1.093-1.028-3.846 4.158 3.846 4.158 1.093-1.028-2.176-2.38h2.811c1.125 0 2.25.03 3.374 0 1.428-.001 3.362-.25 4.963-1.277 1.66-1.065 2.868-2.906 2.868-5.859 0-2.479-1.327-4.896-3.65-5.93-1.82-.813-3.044-.8-4.806-.788l-.567.002v1.5c.184 0 .368 0 .553-.002 1.82-.007 2.704-.014 4.21.657 1.854.827 2.76 2.657 2.76 4.561 0 2.472-.973 3.824-2.178 4.596-1.258.807-2.864 1.04-4.163 1.04h-.02c-1.115.03-2.229 0-3.344 0H6.734Z"
   })
 });
 /* harmony default export */ const keyboard_return = (keyboardReturn);
 
-;// ./node_modules/@wordpress/icons/build-module/library/chevron-left-small.js
+;// ./packages/icons/build-module/library/chevron-left-small.js
 /**
  * WP dependencies
  */
@@ -22273,7 +22168,7 @@ const chevronLeftSmall = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObjec
 });
 /* harmony default export */ const chevron_left_small = (chevronLeftSmall);
 
-;// ./node_modules/@wordpress/icons/build-module/library/chevron-right-small.js
+;// ./packages/icons/build-module/library/chevron-right-small.js
 /**
  * WP dependencies
  */
@@ -22288,7 +22183,7 @@ const chevronRightSmall = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObje
 });
 /* harmony default export */ const chevron_right_small = (chevronRightSmall);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/link-control/settings-drawer.js
+;// ./packages/block-editor/build-module/components/link-control/settings-drawer.js
 /**
  * WP dependencies
  */
@@ -22350,8 +22245,7 @@ function LinkSettingsDrawer({
 
 // EXTERNAL MODULE: external "React"
 var external_React_ = __webpack_require__(1609);
-;// ./node_modules/@wordpress/block-editor/build-module/components/url-input/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/url-input/index.js
 /**
  * External dependencies
  */
@@ -22573,7 +22467,7 @@ class URLInput extends external_wp_element_namespaceObject.Component {
       // within an input field like they do for Mac Firefox/Chrome/Safari. This causes
       // a form of focus trapping that is disruptive to the user experience. This disruption
       // only happens if the caret is not in the first or last position in the text input.
-      // See: https://github.com/WordPress/gutenberg/issues/5693#issuecomment-436684747
+      // See: https://github.com/wordpress/gutenberg/issues/5693#issuecomment-436684747
       switch (event.keyCode) {
         // When UP is pressed, if the caret is at the start of the text, move it to the 0
         // position.
@@ -22820,7 +22714,7 @@ class URLInput extends external_wp_element_namespaceObject.Component {
 }
 
 /**
- * @see https://github.com/WordPress/gutenberg/blob/HEAD/packages/block-editor/src/components/url-input/README.md
+ * @see https://github.com/wordpress/gutenberg/blob/HEAD/packages/block-editor/src/components/url-input/README.md
  */
 /* harmony default export */ const url_input = ((0,external_wp_compose_namespaceObject.compose)(external_wp_compose_namespaceObject.withSafeTimeout, external_wp_components_namespaceObject.withSpokenMessages, external_wp_compose_namespaceObject.withInstanceId, (0,external_wp_data_namespaceObject.withSelect)((select, props) => {
   // If a link suggestions handler is already provided then
@@ -22836,7 +22730,7 @@ class URLInput extends external_wp_element_namespaceObject.Component {
   };
 }))(URLInput));
 
-;// ./node_modules/@wordpress/icons/build-module/library/plus.js
+;// ./packages/icons/build-module/library/plus.js
 /**
  * WP dependencies
  */
@@ -22851,7 +22745,7 @@ const plus = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(exter
 });
 /* harmony default export */ const library_plus = (plus);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/link-control/search-create-button.js
+;// ./packages/block-editor/build-module/components/link-control/search-create-button.js
 /**
  * WP dependencies
  */
@@ -22889,7 +22783,7 @@ const LinkControlSearchCreate = ({
 };
 /* harmony default export */ const search_create_button = (LinkControlSearchCreate);
 
-;// ./node_modules/@wordpress/icons/build-module/library/post-list.js
+;// ./packages/icons/build-module/library/post-list.js
 /**
  * WP dependencies
  */
@@ -22904,7 +22798,7 @@ const postList = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(e
 });
 /* harmony default export */ const post_list = (postList);
 
-;// ./node_modules/@wordpress/icons/build-module/library/page.js
+;// ./packages/icons/build-module/library/page.js
 /**
  * WP dependencies
  */
@@ -22921,7 +22815,7 @@ const page = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(exte
 });
 /* harmony default export */ const library_page = (page);
 
-;// ./node_modules/@wordpress/icons/build-module/library/tag.js
+;// ./packages/icons/build-module/library/tag.js
 /**
  * WP dependencies
  */
@@ -22936,7 +22830,7 @@ const tag = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(extern
 });
 /* harmony default export */ const library_tag = (tag);
 
-;// ./node_modules/@wordpress/icons/build-module/library/category.js
+;// ./packages/icons/build-module/library/category.js
 /**
  * WP dependencies
  */
@@ -22953,7 +22847,7 @@ const category = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(e
 });
 /* harmony default export */ const library_category = (category);
 
-;// ./node_modules/@wordpress/icons/build-module/library/file.js
+;// ./packages/icons/build-module/library/file.js
 /**
  * WP dependencies
  */
@@ -22970,7 +22864,7 @@ const file = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(exter
 });
 /* harmony default export */ const library_file = (file);
 
-;// ./node_modules/@wordpress/icons/build-module/library/globe.js
+;// ./packages/icons/build-module/library/globe.js
 /**
  * WP dependencies
  */
@@ -22985,7 +22879,7 @@ const globe = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(exte
 });
 /* harmony default export */ const library_globe = (globe);
 
-;// ./node_modules/@wordpress/icons/build-module/library/home.js
+;// ./packages/icons/build-module/library/home.js
 /**
  * WP dependencies
  */
@@ -23000,7 +22894,7 @@ const home = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(exter
 });
 /* harmony default export */ const library_home = (home);
 
-;// ./node_modules/@wordpress/icons/build-module/library/verse.js
+;// ./packages/icons/build-module/library/verse.js
 /**
  * WP dependencies
  */
@@ -23015,7 +22909,7 @@ const verse = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(exte
 });
 /* harmony default export */ const library_verse = (verse);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/link-control/search-item.js
+;// ./packages/block-editor/build-module/components/link-control/search-item.js
 /**
  * WP dependencies
  */
@@ -23149,7 +23043,7 @@ const __experimentalLinkControlSearchItem = props => {
   });
 };
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/link-control/constants.js
+;// ./packages/block-editor/build-module/components/link-control/constants.js
 /**
  * WP dependencies
  */
@@ -23169,8 +23063,7 @@ const DEFAULT_LINK_SETTINGS = [{
   title: (0,external_wp_i18n_namespaceObject.__)('Open in new tab')
 }];
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/link-control/search-results.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/link-control/search-results.js
 /**
  * WP dependencies
  */
@@ -23269,7 +23162,7 @@ const __experimentalLinkControlSearchResults = props => {
   });
 };
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/link-control/is-url-like.js
+;// ./packages/block-editor/build-module/components/link-control/is-url-like.js
 /**
  * WP dependencies
  */
@@ -23319,8 +23212,7 @@ function hasPossibleTLD(url, maxLength = 6) {
   return regex.test(cleanedURL);
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/link-control/use-search-handler.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/link-control/use-search-handler.js
 /**
  * WP dependencies
  */
@@ -23394,7 +23286,7 @@ const handleEntitySearch = async (val, suggestionsQuery, fetchSearchSuggestions,
   return isURLLike(val) || !withCreateSuggestion ? results : results.concat({
     // the `id` prop is intentionally omitted here because it
     // is never exposed as part of the component's public API.
-    // see: https://github.com/WordPress/gutenberg/pull/19775#discussion_r378931316.
+    // see: https://github.com/wordpress/gutenberg/pull/19775#discussion_r378931316.
     title: val,
     // Must match the existing `<input>`s text value.
     url: val,
@@ -23430,7 +23322,7 @@ function useSearchHandler(suggestionsQuery, allowDirectEntry, withCreateSuggesti
   }, [directEntryHandler, fetchSearchSuggestions, pageOnFront, pageForPosts, suggestionsQuery, withCreateSuggestion]);
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/link-control/search-input.js
+;// ./packages/block-editor/build-module/components/link-control/search-input.js
 /**
  * WP dependencies
  */
@@ -23528,17 +23420,16 @@ const LinkControlSearchInput = (0,external_wp_element_namespaceObject.forwardRef
       }, suggestion);
     }
   };
-  const inputLabel = placeholder !== null && placeholder !== void 0 ? placeholder : (0,external_wp_i18n_namespaceObject.__)('Search or type URL');
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)("div", {
     className: "block-editor-link-control__search-input-container",
     children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(url_input, {
       disableSuggestions: currentLink?.url === value,
-      label: inputLabel,
+      label: (0,external_wp_i18n_namespaceObject.__)('Link'),
       hideLabelFromVision: hideLabelFromVision,
       className: className,
       value: value,
       onChange: onInputChange,
-      placeholder: inputLabel,
+      placeholder: placeholder !== null && placeholder !== void 0 ? placeholder : (0,external_wp_i18n_namespaceObject.__)('Search or type URL'),
       __experimentalRenderSuggestions: showSuggestions ? handleRenderSuggestions : null,
       __experimentalFetchLinkSuggestions: searchHandler,
       __experimentalHandleURLSuggestions: true,
@@ -23571,7 +23462,7 @@ const __experimentalLinkControlSearchInput = props => {
   });
 };
 
-;// ./node_modules/@wordpress/icons/build-module/library/info.js
+;// ./packages/icons/build-module/library/info.js
 /**
  * WP dependencies
  */
@@ -23588,7 +23479,7 @@ const info = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(exter
 });
 /* harmony default export */ const library_info = (info);
 
-;// ./node_modules/@wordpress/icons/build-module/library/pencil.js
+;// ./packages/icons/build-module/library/pencil.js
 /**
  * WP dependencies
  */
@@ -23603,7 +23494,7 @@ const pencil = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ext
 });
 /* harmony default export */ const library_pencil = (pencil);
 
-;// ./node_modules/@wordpress/icons/build-module/library/edit.js
+;// ./packages/icons/build-module/library/edit.js
 /**
  * Internal dependencies
  */
@@ -23611,7 +23502,7 @@ const pencil = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ext
 
 /* harmony default export */ const edit = (library_pencil);
 
-;// ./node_modules/@wordpress/icons/build-module/library/link-off.js
+;// ./packages/icons/build-module/library/link-off.js
 /**
  * WP dependencies
  */
@@ -23626,7 +23517,7 @@ const linkOff = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ex
 });
 /* harmony default export */ const link_off = (linkOff);
 
-;// ./node_modules/@wordpress/icons/build-module/library/copy-small.js
+;// ./packages/icons/build-module/library/copy-small.js
 /**
  * WP dependencies
  */
@@ -23643,7 +23534,7 @@ const copySmall = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(
 });
 /* harmony default export */ const copy_small = (copySmall);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/link-control/viewer-slot.js
+;// ./packages/block-editor/build-module/components/link-control/viewer-slot.js
 /**
  * WP dependencies
  */
@@ -23655,7 +23546,7 @@ const {
 
 /* harmony default export */ const viewer_slot = ((/* unused pure expression or super */ null && (ViewerSlot)));
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/link-control/use-rich-url-data.js
+;// ./packages/block-editor/build-module/components/link-control/use-rich-url-data.js
 /**
  * Internal dependencies
  */
@@ -23739,7 +23630,7 @@ function useRemoteUrlData(url) {
 }
 /* harmony default export */ const use_rich_url_data = (useRemoteUrlData);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/link-control/link-preview.js
+;// ./packages/block-editor/build-module/components/link-control/link-preview.js
 /**
  * External dependencies
  */
@@ -23897,8 +23788,7 @@ function LinkPreview({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/link-control/settings.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/link-control/settings.js
 /**
  * WP dependencies
  */
@@ -23938,7 +23828,7 @@ const LinkControlSettings = ({
 };
 /* harmony default export */ const link_control_settings = (LinkControlSettings);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/link-control/use-create-page.js
+;// ./packages/block-editor/build-module/components/link-control/use-create-page.js
 /**
  * WP dependencies
  */
@@ -24015,8 +23905,7 @@ const makeCancelable = promise => {
 // EXTERNAL MODULE: ./node_modules/fast-deep-equal/index.js
 var fast_deep_equal = __webpack_require__(5215);
 var fast_deep_equal_default = /*#__PURE__*/__webpack_require__.n(fast_deep_equal);
-;// ./node_modules/@wordpress/block-editor/build-module/components/link-control/use-internal-value.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/link-control/use-internal-value.js
 /**
  * WP dependencies
  */
@@ -24032,7 +23921,7 @@ function useInternalValue(value) {
 
   // If the value prop changes, update the internal state.
   // See:
-  // - https://github.com/WordPress/gutenberg/pull/51387#issuecomment-1722927384.
+  // - https://github.com/wordpress/gutenberg/pull/51387#issuecomment-1722927384.
   // - https://react.dev/reference/react/useState#storing-information-from-previous-renders.
   if (!fast_deep_equal_default()(value, previousValue)) {
     setPreviousValue(value);
@@ -24066,8 +23955,7 @@ function useInternalValue(value) {
   return [internalValue, setInternalValue, setInternalURLInputValue, setInternalTextInputValue, createSetInternalSettingValueHandler];
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/link-control/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/link-control/index.js
 /**
  * External dependencies
  */
@@ -24226,7 +24114,7 @@ function LinkControl({
    * Sets the open/closed state of the Advanced Settings Drawer,
    * optionlly persisting the state to the user's preferences.
    *
-   * Note that Block Editor components can be consumed by non-Retraceur
+   * Note that Block Editor components can be consumed by non-WP
    * environments which may not have preferences setup.
    * Therefore a local state is also  used as a fallback.
    *
@@ -24367,7 +24255,7 @@ function LinkControl({
 
   // Only show text control once a URL value has been committed
   // and it isn't just empty whitespace.
-  // See https://github.com/WordPress/gutenberg/pull/33849/#issuecomment-932194927.
+  // See https://github.com/wordpress/gutenberg/pull/33849/#issuecomment-932194927.
   const showTextControl = hasLinkValue && hasTextControl;
   const isEditing = (isEditingLink || !value) && !isCreatingPage;
   const isDisabled = !valueHasChanges || currentInputIsEmpty;
@@ -24480,10 +24368,12 @@ const DeprecatedExperimentalLinkControl = props => {
     ...props
   });
 };
+DeprecatedExperimentalLinkControl.ViewerFill = LinkControl.ViewerFill;
+DeprecatedExperimentalLinkControl.DEFAULT_LINK_SETTINGS = LinkControl.DEFAULT_LINK_SETTINGS;
+
 /* harmony default export */ const link_control = (LinkControl);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/media-replace-flow/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/media-replace-flow/index.js
 /**
  * WP dependencies
  */
@@ -24695,7 +24585,7 @@ const MediaReplaceFlow = ({
 };
 
 /**
- * @see https://github.com/WordPress/gutenberg/blob/HEAD/packages/block-editor/src/components/media-replace-flow/README.md
+ * @see https://github.com/wordpress/gutenberg/blob/HEAD/packages/block-editor/src/components/media-replace-flow/README.md
  */
 /* harmony default export */ const media_replace_flow = ((0,external_wp_compose_namespaceObject.compose)([(0,external_wp_data_namespaceObject.withDispatch)(dispatch => {
   const {
@@ -24708,8 +24598,7 @@ const MediaReplaceFlow = ({
   };
 }), (0,external_wp_components_namespaceObject.withFilters)('editor.MediaReplaceFlow')])(MediaReplaceFlow));
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/background-image-control/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/background-image-control/index.js
 /**
  * External dependencies
  */
@@ -24967,17 +24856,14 @@ function BackgroundImageControls({
 
   // Drag and drop callback, restricting image to one.
   const onFilesDrop = filesList => {
-    if (filesList?.length > 1) {
-      onUploadError((0,external_wp_i18n_namespaceObject.__)('Only one image can be used as a background image.'));
-      return;
-    }
     getSettings().mediaUpload({
       allowedTypes: [IMAGE_BACKGROUND_TYPE],
       filesList,
       onFileChange([image]) {
         onSelectMedia(image);
       },
-      onError: onUploadError
+      onError: onUploadError,
+      multiple: false
     });
   };
   const hasValue = hasBackgroundImageValue(style);
@@ -25268,7 +25154,7 @@ function BackgroundImagePanel({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/global-styles/background-panel.js
+;// ./packages/block-editor/build-module/components/global-styles/background-panel.js
 /**
  * WP dependencies
  */
@@ -25386,7 +25272,7 @@ function background_panel_BackgroundImagePanel({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/hooks/background.js
+;// ./packages/block-editor/build-module/hooks/background.js
 /**
  * WP dependencies
  */
@@ -25554,7 +25440,7 @@ function background_BackgroundImagePanel({
   hasSupport: hasBackgroundSupport
 });
 
-;// ./node_modules/@wordpress/block-editor/build-module/hooks/lock.js
+;// ./packages/block-editor/build-module/hooks/lock.js
 /**
  * WP dependencies
  */
@@ -25584,7 +25470,7 @@ function lock_addAttribute(settings) {
 }
 (0,external_wp_hooks_namespaceObject.addFilter)('blocks.registerBlockType', 'core/lock/addAttribute', lock_addAttribute);
 
-;// ./node_modules/@wordpress/block-editor/build-module/hooks/anchor.js
+;// ./packages/block-editor/build-module/hooks/anchor.js
 /**
  * WP dependencies
  */
@@ -25653,9 +25539,7 @@ function BlockEditAnchorControlPure({
       __next40pxDefaultSize: true,
       className: "html-anchor-control",
       label: (0,external_wp_i18n_namespaceObject.__)('HTML anchor'),
-      help: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_ReactJSXRuntime_namespaceObject.Fragment, {
-        children: [(0,external_wp_i18n_namespaceObject.__)('Enter a word or two — without spaces — to make a unique web address just for this block, called an “anchor”. Then, you’ll be able to link directly to this section of your page.')]
-      }),
+      help: (0,external_wp_i18n_namespaceObject.__)('Enter a word or two — without spaces — to make a unique web address just for this block, called an “anchor”. Then, you’ll be able to link directly to this section of your page.'),
       value: anchor || '',
       placeholder: !isWeb ? (0,external_wp_i18n_namespaceObject.__)('Add an anchor') : null,
       onChange: nextValue => {
@@ -25697,18 +25581,12 @@ function addSaveProps(extraProps, blockType, attributes) {
 }
 (0,external_wp_hooks_namespaceObject.addFilter)('blocks.registerBlockType', 'core/anchor/attribute', anchor_addAttribute);
 
-;// ./node_modules/@wordpress/block-editor/build-module/hooks/aria-label.js
+;// ./packages/block-editor/build-module/hooks/aria-label.js
 /**
  * WP dependencies
  */
 
 
-const ARIA_LABEL_SCHEMA = {
-  type: 'string',
-  source: 'attribute',
-  attribute: 'aria-label',
-  selector: '*'
-};
 
 /**
  * Filters registered block settings, extending attributes with ariaLabel using aria-label
@@ -25727,7 +25605,9 @@ function aria_label_addAttribute(settings) {
     // Gracefully handle if settings.attributes is undefined.
     settings.attributes = {
       ...settings.attributes,
-      ariaLabel: ARIA_LABEL_SCHEMA
+      ariaLabel: {
+        type: 'string'
+      }
     };
   }
   return settings;
@@ -25759,7 +25639,7 @@ function aria_label_addSaveProps(extraProps, blockType, attributes) {
 });
 (0,external_wp_hooks_namespaceObject.addFilter)('blocks.registerBlockType', 'core/ariaLabel/attribute', aria_label_addAttribute);
 
-;// ./node_modules/@wordpress/block-editor/build-module/hooks/custom-class-name.js
+;// ./packages/block-editor/build-module/hooks/custom-class-name.js
 /**
  * External dependencies
  */
@@ -25889,7 +25769,7 @@ function addTransforms(result, source, index, results) {
 (0,external_wp_hooks_namespaceObject.addFilter)('blocks.registerBlockType', 'core/editor/custom-class-name/attribute', custom_class_name_addAttribute);
 (0,external_wp_hooks_namespaceObject.addFilter)('blocks.switchToBlockType.transformedBlock', 'core/color/addTransforms', addTransforms);
 
-;// ./node_modules/@wordpress/block-editor/build-module/hooks/generated-class-name.js
+;// ./packages/block-editor/build-module/hooks/generated-class-name.js
 /**
  * WP dependencies
  */
@@ -25925,7 +25805,7 @@ function addGeneratedClassName(extraProps, blockType) {
 (0,external_wp_hooks_namespaceObject.addFilter)('blocks.getSaveContent.extraProps', 'core/generated-class-name/save-props', addGeneratedClassName);
 
 ;// ./node_modules/colord/index.mjs
-var colord_r={grad:.9,turn:360,rad:360/(2*Math.PI)},t=function(r){return"string"==typeof r?r.length>0:"number"==typeof r},n=function(r,t,n){return void 0===t&&(t=0),void 0===n&&(n=Math.pow(10,t)),Math.round(n*r)/n+0},e=function(r,t,n){return void 0===t&&(t=0),void 0===n&&(n=1),r>n?n:r>t?r:t},u=function(r){return(r=isFinite(r)?r%360:0)>0?r:r+360},a=function(r){return{r:e(r.r,0,255),g:e(r.g,0,255),b:e(r.b,0,255),a:e(r.a)}},o=function(r){return{r:n(r.r),g:n(r.g),b:n(r.b),a:n(r.a,3)}},i=/^#([0-9a-f]{3,8})$/i,s=function(r){var t=r.toString(16);return t.length<2?"0"+t:t},h=function(r){var t=r.r,n=r.g,e=r.b,u=r.a,a=Math.max(t,n,e),o=a-Math.min(t,n,e),i=o?a===t?(n-e)/o:a===n?2+(e-t)/o:4+(t-n)/o:0;return{h:60*(i<0?i+6:i),s:a?o/a*100:0,v:a/255*100,a:u}},b=function(r){var t=r.h,n=r.s,e=r.v,u=r.a;t=t/360*6,n/=100,e/=100;var a=Math.floor(t),o=e*(1-n),i=e*(1-(t-a)*n),s=e*(1-(1-t+a)*n),h=a%6;return{r:255*[e,i,o,o,s,e][h],g:255*[s,e,e,i,o,o][h],b:255*[o,o,s,e,e,i][h],a:u}},g=function(r){return{h:u(r.h),s:e(r.s,0,100),l:e(r.l,0,100),a:e(r.a)}},d=function(r){return{h:n(r.h),s:n(r.s),l:n(r.l),a:n(r.a,3)}},f=function(r){return b((n=(t=r).s,{h:t.h,s:(n*=((e=t.l)<50?e:100-e)/100)>0?2*n/(e+n)*100:0,v:e+n,a:t.a}));var t,n,e},c=function(r){return{h:(t=h(r)).h,s:(u=(200-(n=t.s))*(e=t.v)/100)>0&&u<200?n*e/100/(u<=100?u:200-u)*100:0,l:u/2,a:t.a};var t,n,e,u},l=/^hsla?\(\s*([+-]?\d*\.?\d+)(deg|rad|grad|turn)?\s*,\s*([+-]?\d*\.?\d+)%\s*,\s*([+-]?\d*\.?\d+)%\s*(?:,\s*([+-]?\d*\.?\d+)(%)?\s*)?\)$/i,p=/^hsla?\(\s*([+-]?\d*\.?\d+)(deg|rad|grad|turn)?\s+([+-]?\d*\.?\d+)%\s+([+-]?\d*\.?\d+)%\s*(?:\/\s*([+-]?\d*\.?\d+)(%)?\s*)?\)$/i,v=/^rgba?\(\s*([+-]?\d*\.?\d+)(%)?\s*,\s*([+-]?\d*\.?\d+)(%)?\s*,\s*([+-]?\d*\.?\d+)(%)?\s*(?:,\s*([+-]?\d*\.?\d+)(%)?\s*)?\)$/i,m=/^rgba?\(\s*([+-]?\d*\.?\d+)(%)?\s+([+-]?\d*\.?\d+)(%)?\s+([+-]?\d*\.?\d+)(%)?\s*(?:\/\s*([+-]?\d*\.?\d+)(%)?\s*)?\)$/i,y={string:[[function(r){var t=i.exec(r);return t?(r=t[1]).length<=4?{r:parseInt(r[0]+r[0],16),g:parseInt(r[1]+r[1],16),b:parseInt(r[2]+r[2],16),a:4===r.length?n(parseInt(r[3]+r[3],16)/255,2):1}:6===r.length||8===r.length?{r:parseInt(r.substr(0,2),16),g:parseInt(r.substr(2,2),16),b:parseInt(r.substr(4,2),16),a:8===r.length?n(parseInt(r.substr(6,2),16)/255,2):1}:null:null},"hex"],[function(r){var t=v.exec(r)||m.exec(r);return t?t[2]!==t[4]||t[4]!==t[6]?null:a({r:Number(t[1])/(t[2]?100/255:1),g:Number(t[3])/(t[4]?100/255:1),b:Number(t[5])/(t[6]?100/255:1),a:void 0===t[7]?1:Number(t[7])/(t[8]?100:1)}):null},"rgb"],[function(t){var n=l.exec(t)||p.exec(t);if(!n)return null;var e,u,a=g({h:(e=n[1],u=n[2],void 0===u&&(u="deg"),Number(e)*(colord_r[u]||1)),s:Number(n[3]),l:Number(n[4]),a:void 0===n[5]?1:Number(n[5])/(n[6]?100:1)});return f(a)},"hsl"]],object:[[function(r){var n=r.r,e=r.g,u=r.b,o=r.a,i=void 0===o?1:o;return t(n)&&t(e)&&t(u)?a({r:Number(n),g:Number(e),b:Number(u),a:Number(i)}):null},"rgb"],[function(r){var n=r.h,e=r.s,u=r.l,a=r.a,o=void 0===a?1:a;if(!t(n)||!t(e)||!t(u))return null;var i=g({h:Number(n),s:Number(e),l:Number(u),a:Number(o)});return f(i)},"hsl"],[function(r){var n=r.h,a=r.s,o=r.v,i=r.a,s=void 0===i?1:i;if(!t(n)||!t(a)||!t(o))return null;var h=function(r){return{h:u(r.h),s:e(r.s,0,100),v:e(r.v,0,100),a:e(r.a)}}({h:Number(n),s:Number(a),v:Number(o),a:Number(s)});return b(h)},"hsv"]]},N=function(r,t){for(var n=0;n<t.length;n++){var e=t[n][0](r);if(e)return[e,t[n][1]]}return[null,void 0]},x=function(r){return"string"==typeof r?N(r.trim(),y.string):"object"==typeof r&&null!==r?N(r,y.object):[null,void 0]},I=function(r){return x(r)[1]},M=function(r,t){var n=c(r);return{h:n.h,s:e(n.s+100*t,0,100),l:n.l,a:n.a}},H=function(r){return(299*r.r+587*r.g+114*r.b)/1e3/255},$=function(r,t){var n=c(r);return{h:n.h,s:n.s,l:e(n.l+100*t,0,100),a:n.a}},colord_j=function(){function r(r){this.parsed=x(r)[0],this.rgba=this.parsed||{r:0,g:0,b:0,a:1}}return r.prototype.isValid=function(){return null!==this.parsed},r.prototype.brightness=function(){return n(H(this.rgba),2)},r.prototype.isDark=function(){return H(this.rgba)<.5},r.prototype.isLight=function(){return H(this.rgba)>=.5},r.prototype.toHex=function(){return r=o(this.rgba),t=r.r,e=r.g,u=r.b,i=(a=r.a)<1?s(n(255*a)):"","#"+s(t)+s(e)+s(u)+i;var r,t,e,u,a,i},r.prototype.toRgb=function(){return o(this.rgba)},r.prototype.toRgbString=function(){return r=o(this.rgba),t=r.r,n=r.g,e=r.b,(u=r.a)<1?"rgba("+t+", "+n+", "+e+", "+u+")":"rgb("+t+", "+n+", "+e+")";var r,t,n,e,u},r.prototype.toHsl=function(){return d(c(this.rgba))},r.prototype.toHslString=function(){return r=d(c(this.rgba)),t=r.h,n=r.s,e=r.l,(u=r.a)<1?"hsla("+t+", "+n+"%, "+e+"%, "+u+")":"hsl("+t+", "+n+"%, "+e+"%)";var r,t,n,e,u},r.prototype.toHsv=function(){return r=h(this.rgba),{h:n(r.h),s:n(r.s),v:n(r.v),a:n(r.a,3)};var r},r.prototype.invert=function(){return w({r:255-(r=this.rgba).r,g:255-r.g,b:255-r.b,a:r.a});var r},r.prototype.saturate=function(r){return void 0===r&&(r=.1),w(M(this.rgba,r))},r.prototype.desaturate=function(r){return void 0===r&&(r=.1),w(M(this.rgba,-r))},r.prototype.grayscale=function(){return w(M(this.rgba,-1))},r.prototype.lighten=function(r){return void 0===r&&(r=.1),w($(this.rgba,r))},r.prototype.darken=function(r){return void 0===r&&(r=.1),w($(this.rgba,-r))},r.prototype.rotate=function(r){return void 0===r&&(r=15),this.hue(this.hue()+r)},r.prototype.alpha=function(r){return"number"==typeof r?w({r:(t=this.rgba).r,g:t.g,b:t.b,a:r}):n(this.rgba.a,3);var t},r.prototype.hue=function(r){var t=c(this.rgba);return"number"==typeof r?w({h:r,s:t.s,l:t.l,a:t.a}):n(t.h)},r.prototype.isEqual=function(r){return this.toHex()===w(r).toHex()},r}(),w=function(r){return r instanceof colord_j?r:new colord_j(r)},S=[],k=function(r){r.forEach(function(r){S.indexOf(r)<0&&(r(colord_j,y),S.push(r))})},E=function(){return new colord_j({r:255*Math.random(),g:255*Math.random(),b:255*Math.random()})};
+var colord_r={grad:.9,turn:360,rad:360/(2*Math.PI)},t=function(r){return"string"==typeof r?r.length>0:"number"==typeof r},n=function(r,t,n){return void 0===t&&(t=0),void 0===n&&(n=Math.pow(10,t)),Math.round(n*r)/n+0},e=function(r,t,n){return void 0===t&&(t=0),void 0===n&&(n=1),r>n?n:r>t?r:t},u=function(r){return(r=isFinite(r)?r%360:0)>0?r:r+360},a=function(r){return{r:e(r.r,0,255),g:e(r.g,0,255),b:e(r.b,0,255),a:e(r.a)}},o=function(r){return{r:n(r.r),g:n(r.g),b:n(r.b),a:n(r.a,3)}},i=/^#([0-9a-f]{3,8})$/i,s=function(r){var t=r.toString(16);return t.length<2?"0"+t:t},h=function(r){var t=r.r,n=r.g,e=r.b,u=r.a,a=Math.max(t,n,e),o=a-Math.min(t,n,e),i=o?a===t?(n-e)/o:a===n?2+(e-t)/o:4+(t-n)/o:0;return{h:60*(i<0?i+6:i),s:a?o/a*100:0,v:a/255*100,a:u}},b=function(r){var t=r.h,n=r.s,e=r.v,u=r.a;t=t/360*6,n/=100,e/=100;var a=Math.floor(t),o=e*(1-n),i=e*(1-(t-a)*n),s=e*(1-(1-t+a)*n),h=a%6;return{r:255*[e,i,o,o,s,e][h],g:255*[s,e,e,i,o,o][h],b:255*[o,o,s,e,e,i][h],a:u}},g=function(r){return{h:u(r.h),s:e(r.s,0,100),l:e(r.l,0,100),a:e(r.a)}},d=function(r){return{h:n(r.h),s:n(r.s),l:n(r.l),a:n(r.a,3)}},f=function(r){return b((n=(t=r).s,{h:t.h,s:(n*=((e=t.l)<50?e:100-e)/100)>0?2*n/(e+n)*100:0,v:e+n,a:t.a}));var t,n,e},c=function(r){return{h:(t=h(r)).h,s:(u=(200-(n=t.s))*(e=t.v)/100)>0&&u<200?n*e/100/(u<=100?u:200-u)*100:0,l:u/2,a:t.a};var t,n,e,u},l=/^hsla?\(\s*([+-]?\d*\.?\d+)(deg|rad|grad|turn)?\s*,\s*([+-]?\d*\.?\d+)%\s*,\s*([+-]?\d*\.?\d+)%\s*(?:,\s*([+-]?\d*\.?\d+)(%)?\s*)?\)$/i,p=/^hsla?\(\s*([+-]?\d*\.?\d+)(deg|rad|grad|turn)?\s+([+-]?\d*\.?\d+)%\s+([+-]?\d*\.?\d+)%\s*(?:\/\s*([+-]?\d*\.?\d+)(%)?\s*)?\)$/i,v=/^rgba?\(\s*([+-]?\d*\.?\d+)(%)?\s*,\s*([+-]?\d*\.?\d+)(%)?\s*,\s*([+-]?\d*\.?\d+)(%)?\s*(?:,\s*([+-]?\d*\.?\d+)(%)?\s*)?\)$/i,m=/^rgba?\(\s*([+-]?\d*\.?\d+)(%)?\s+([+-]?\d*\.?\d+)(%)?\s+([+-]?\d*\.?\d+)(%)?\s*(?:\/\s*([+-]?\d*\.?\d+)(%)?\s*)?\)$/i,y={string:[[function(r){var t=i.exec(r);return t?(r=t[1]).length<=4?{r:parseInt(r[0]+r[0],16),g:parseInt(r[1]+r[1],16),b:parseInt(r[2]+r[2],16),a:4===r.length?n(parseInt(r[3]+r[3],16)/255,2):1}:6===r.length||8===r.length?{r:parseInt(r.substr(0,2),16),g:parseInt(r.substr(2,2),16),b:parseInt(r.substr(4,2),16),a:8===r.length?n(parseInt(r.substr(6,2),16)/255,2):1}:null:null},"hex"],[function(r){var t=v.exec(r)||m.exec(r);return t?t[2]!==t[4]||t[4]!==t[6]?null:a({r:Number(t[1])/(t[2]?100/255:1),g:Number(t[3])/(t[4]?100/255:1),b:Number(t[5])/(t[6]?100/255:1),a:void 0===t[7]?1:Number(t[7])/(t[8]?100:1)}):null},"rgb"],[function(t){var n=l.exec(t)||p.exec(t);if(!n)return null;var e,u,a=g({h:(e=n[1],u=n[2],void 0===u&&(u="deg"),Number(e)*(colord_r[u]||1)),s:Number(n[3]),l:Number(n[4]),a:void 0===n[5]?1:Number(n[5])/(n[6]?100:1)});return f(a)},"hsl"]],object:[[function(r){var n=r.r,e=r.g,u=r.b,o=r.a,i=void 0===o?1:o;return t(n)&&t(e)&&t(u)?a({r:Number(n),g:Number(e),b:Number(u),a:Number(i)}):null},"rgb"],[function(r){var n=r.h,e=r.s,u=r.l,a=r.a,o=void 0===a?1:a;if(!t(n)||!t(e)||!t(u))return null;var i=g({h:Number(n),s:Number(e),l:Number(u),a:Number(o)});return f(i)},"hsl"],[function(r){var n=r.h,a=r.s,o=r.v,i=r.a,s=void 0===i?1:i;if(!t(n)||!t(a)||!t(o))return null;var h=function(r){return{h:u(r.h),s:e(r.s,0,100),v:e(r.v,0,100),a:e(r.a)}}({h:Number(n),s:Number(a),v:Number(o),a:Number(s)});return b(h)},"hsv"]]},N=function(r,t){for(var n=0;n<t.length;n++){var e=t[n][0](r);if(e)return[e,t[n][1]]}return[null,void 0]},x=function(r){return"string"==typeof r?N(r.trim(),y.string):"object"==typeof r&&null!==r?N(r,y.object):[null,void 0]},I=function(r){return x(r)[1]},M=function(r,t){var n=c(r);return{h:n.h,s:e(n.s+100*t,0,100),l:n.l,a:n.a}},H=function(r){return(299*r.r+587*r.g+114*r.b)/1e3/255},$=function(r,t){var n=c(r);return{h:n.h,s:n.s,l:e(n.l+100*t,0,100),a:n.a}},j=function(){function r(r){this.parsed=x(r)[0],this.rgba=this.parsed||{r:0,g:0,b:0,a:1}}return r.prototype.isValid=function(){return null!==this.parsed},r.prototype.brightness=function(){return n(H(this.rgba),2)},r.prototype.isDark=function(){return H(this.rgba)<.5},r.prototype.isLight=function(){return H(this.rgba)>=.5},r.prototype.toHex=function(){return r=o(this.rgba),t=r.r,e=r.g,u=r.b,i=(a=r.a)<1?s(n(255*a)):"","#"+s(t)+s(e)+s(u)+i;var r,t,e,u,a,i},r.prototype.toRgb=function(){return o(this.rgba)},r.prototype.toRgbString=function(){return r=o(this.rgba),t=r.r,n=r.g,e=r.b,(u=r.a)<1?"rgba("+t+", "+n+", "+e+", "+u+")":"rgb("+t+", "+n+", "+e+")";var r,t,n,e,u},r.prototype.toHsl=function(){return d(c(this.rgba))},r.prototype.toHslString=function(){return r=d(c(this.rgba)),t=r.h,n=r.s,e=r.l,(u=r.a)<1?"hsla("+t+", "+n+"%, "+e+"%, "+u+")":"hsl("+t+", "+n+"%, "+e+"%)";var r,t,n,e,u},r.prototype.toHsv=function(){return r=h(this.rgba),{h:n(r.h),s:n(r.s),v:n(r.v),a:n(r.a,3)};var r},r.prototype.invert=function(){return w({r:255-(r=this.rgba).r,g:255-r.g,b:255-r.b,a:r.a});var r},r.prototype.saturate=function(r){return void 0===r&&(r=.1),w(M(this.rgba,r))},r.prototype.desaturate=function(r){return void 0===r&&(r=.1),w(M(this.rgba,-r))},r.prototype.grayscale=function(){return w(M(this.rgba,-1))},r.prototype.lighten=function(r){return void 0===r&&(r=.1),w($(this.rgba,r))},r.prototype.darken=function(r){return void 0===r&&(r=.1),w($(this.rgba,-r))},r.prototype.rotate=function(r){return void 0===r&&(r=15),this.hue(this.hue()+r)},r.prototype.alpha=function(r){return"number"==typeof r?w({r:(t=this.rgba).r,g:t.g,b:t.b,a:r}):n(this.rgba.a,3);var t},r.prototype.hue=function(r){var t=c(this.rgba);return"number"==typeof r?w({h:r,s:t.s,l:t.l,a:t.a}):n(t.h)},r.prototype.isEqual=function(r){return this.toHex()===w(r).toHex()},r}(),w=function(r){return r instanceof j?r:new j(r)},S=[],k=function(r){r.forEach(function(r){S.indexOf(r)<0&&(r(j,y),S.push(r))})},E=function(){return new j({r:255*Math.random(),g:255*Math.random(),b:255*Math.random()})};
 
 ;// ./node_modules/colord/plugins/names.mjs
 /* harmony default export */ function names(e,f){var a={white:"#ffffff",bisque:"#ffe4c4",blue:"#0000ff",cadetblue:"#5f9ea0",chartreuse:"#7fff00",chocolate:"#d2691e",coral:"#ff7f50",antiquewhite:"#faebd7",aqua:"#00ffff",azure:"#f0ffff",whitesmoke:"#f5f5f5",papayawhip:"#ffefd5",plum:"#dda0dd",blanchedalmond:"#ffebcd",black:"#000000",gold:"#ffd700",goldenrod:"#daa520",gainsboro:"#dcdcdc",cornsilk:"#fff8dc",cornflowerblue:"#6495ed",burlywood:"#deb887",aquamarine:"#7fffd4",beige:"#f5f5dc",crimson:"#dc143c",cyan:"#00ffff",darkblue:"#00008b",darkcyan:"#008b8b",darkgoldenrod:"#b8860b",darkkhaki:"#bdb76b",darkgray:"#a9a9a9",darkgreen:"#006400",darkgrey:"#a9a9a9",peachpuff:"#ffdab9",darkmagenta:"#8b008b",darkred:"#8b0000",darkorchid:"#9932cc",darkorange:"#ff8c00",darkslateblue:"#483d8b",gray:"#808080",darkslategray:"#2f4f4f",darkslategrey:"#2f4f4f",deeppink:"#ff1493",deepskyblue:"#00bfff",wheat:"#f5deb3",firebrick:"#b22222",floralwhite:"#fffaf0",ghostwhite:"#f8f8ff",darkviolet:"#9400d3",magenta:"#ff00ff",green:"#008000",dodgerblue:"#1e90ff",grey:"#808080",honeydew:"#f0fff0",hotpink:"#ff69b4",blueviolet:"#8a2be2",forestgreen:"#228b22",lawngreen:"#7cfc00",indianred:"#cd5c5c",indigo:"#4b0082",fuchsia:"#ff00ff",brown:"#a52a2a",maroon:"#800000",mediumblue:"#0000cd",lightcoral:"#f08080",darkturquoise:"#00ced1",lightcyan:"#e0ffff",ivory:"#fffff0",lightyellow:"#ffffe0",lightsalmon:"#ffa07a",lightseagreen:"#20b2aa",linen:"#faf0e6",mediumaquamarine:"#66cdaa",lemonchiffon:"#fffacd",lime:"#00ff00",khaki:"#f0e68c",mediumseagreen:"#3cb371",limegreen:"#32cd32",mediumspringgreen:"#00fa9a",lightskyblue:"#87cefa",lightblue:"#add8e6",midnightblue:"#191970",lightpink:"#ffb6c1",mistyrose:"#ffe4e1",moccasin:"#ffe4b5",mintcream:"#f5fffa",lightslategray:"#778899",lightslategrey:"#778899",navajowhite:"#ffdead",navy:"#000080",mediumvioletred:"#c71585",powderblue:"#b0e0e6",palegoldenrod:"#eee8aa",oldlace:"#fdf5e6",paleturquoise:"#afeeee",mediumturquoise:"#48d1cc",mediumorchid:"#ba55d3",rebeccapurple:"#663399",lightsteelblue:"#b0c4de",mediumslateblue:"#7b68ee",thistle:"#d8bfd8",tan:"#d2b48c",orchid:"#da70d6",mediumpurple:"#9370db",purple:"#800080",pink:"#ffc0cb",skyblue:"#87ceeb",springgreen:"#00ff7f",palegreen:"#98fb98",red:"#ff0000",yellow:"#ffff00",slateblue:"#6a5acd",lavenderblush:"#fff0f5",peru:"#cd853f",palevioletred:"#db7093",violet:"#ee82ee",teal:"#008080",slategray:"#708090",slategrey:"#708090",aliceblue:"#f0f8ff",darkseagreen:"#8fbc8f",darkolivegreen:"#556b2f",greenyellow:"#adff2f",seagreen:"#2e8b57",seashell:"#fff5ee",tomato:"#ff6347",silver:"#c0c0c0",sienna:"#a0522d",lavender:"#e6e6fa",lightgreen:"#90ee90",orange:"#ffa500",orangered:"#ff4500",steelblue:"#4682b4",royalblue:"#4169e1",turquoise:"#40e0d0",yellowgreen:"#9acd32",salmon:"#fa8072",saddlebrown:"#8b4513",sandybrown:"#f4a460",rosybrown:"#bc8f8f",darksalmon:"#e9967a",lightgoldenrodyellow:"#fafad2",snow:"#fffafa",lightgrey:"#d3d3d3",lightgray:"#d3d3d3",dimgray:"#696969",dimgrey:"#696969",olivedrab:"#6b8e23",olive:"#808000"},r={};for(var d in a)r[a[d]]=d;var l={};e.prototype.toName=function(f){if(!(this.rgba.a||this.rgba.r||this.rgba.g||this.rgba.b))return"transparent";var d,i,n=r[this.toHex()];if(n)return n;if(null==f?void 0:f.closest){var o=this.toRgb(),t=1/0,b="black";if(!l.length)for(var c in a)l[c]=new e(a[c]).toRgb();for(var g in a){var u=(d=o,i=l[g],Math.pow(d.r-i.r,2)+Math.pow(d.g-i.g,2)+Math.pow(d.b-i.b,2));u<t&&(t=u,b=g)}return b}};f.string.push([function(f){var r=f.toLowerCase(),d="transparent"===r?"#0000":a[r];return d?new e(d).toRgb():null},"name"])}
@@ -25933,8 +25813,7 @@ var colord_r={grad:.9,turn:360,rad:360/(2*Math.PI)},t=function(r){return"string"
 ;// ./node_modules/colord/plugins/a11y.mjs
 var a11y_o=function(o){var t=o/255;return t<.04045?t/12.92:Math.pow((t+.055)/1.055,2.4)},a11y_t=function(t){return.2126*a11y_o(t.r)+.7152*a11y_o(t.g)+.0722*a11y_o(t.b)};/* harmony default export */ function a11y(o){o.prototype.luminance=function(){return o=a11y_t(this.rgba),void 0===(r=2)&&(r=0),void 0===n&&(n=Math.pow(10,r)),Math.round(n*o)/n+0;var o,r,n},o.prototype.contrast=function(r){void 0===r&&(r="#FFF");var n,a,i,e,v,u,d,c=r instanceof o?r:new o(r);return e=this.rgba,v=c.toRgb(),u=a11y_t(e),d=a11y_t(v),n=u>d?(u+.05)/(d+.05):(d+.05)/(u+.05),void 0===(a=2)&&(a=0),void 0===i&&(i=Math.pow(10,a)),Math.floor(i*n)/i+0},o.prototype.isReadable=function(o,t){return void 0===o&&(o="#FFF"),void 0===t&&(t={}),this.contrast(o)>=(e=void 0===(i=(r=t).size)?"normal":i,"AAA"===(a=void 0===(n=r.level)?"AA":n)&&"normal"===e?7:"AA"===a&&"large"===e?3:4.5);var r,n,a,i,e}}
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/colors/utils.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/colors/utils.js
 /**
  * External dependencies
  */
@@ -26026,7 +25905,7 @@ function getMostReadableColor(colors, colorValue) {
   return colors.find(color => getColorContrast(color) === maxContrast).color;
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/colors-gradients/use-multiple-origin-colors-and-gradients.js
+;// ./packages/block-editor/build-module/components/colors-gradients/use-multiple-origin-colors-and-gradients.js
 /**
  * WP dependencies
  */
@@ -26106,8 +25985,7 @@ function useMultipleOriginColorsAndGradients() {
   return colorGradientSettings;
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/border-radius-control/utils.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/border-radius-control/utils.js
 /**
  * WP dependencies
  */
@@ -26212,7 +26090,7 @@ function hasDefinedValues(values) {
   return !!filteredValues.length;
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/border-radius-control/all-input-control.js
+;// ./packages/block-editor/build-module/components/border-radius-control/all-input-control.js
 /**
  * WP dependencies
  */
@@ -26271,8 +26149,7 @@ function AllInputControl({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/border-radius-control/input-controls.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/border-radius-control/input-controls.js
 /**
  * WP dependencies
  */
@@ -26323,7 +26200,7 @@ function BoxInputControls({
 
   // Controls are wrapped in tooltips as visible labels aren't desired here.
   // Tooltip rendering also requires the UnitControl to be wrapped. See:
-  // https://github.com/WordPress/gutenberg/pull/24966#issuecomment-685875026
+  // https://github.com/wordpress/gutenberg/pull/24966#issuecomment-685875026
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("div", {
     className: "components-border-radius-control__input-controls-wrapper",
     children: Object.entries(CORNERS).map(([corner, label]) => {
@@ -26348,7 +26225,7 @@ function BoxInputControls({
   });
 }
 
-;// ./node_modules/@wordpress/icons/build-module/library/link.js
+;// ./packages/icons/build-module/library/link.js
 /**
  * WP dependencies
  */
@@ -26363,7 +26240,7 @@ const link_link = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(
 });
 /* harmony default export */ const library_link = (link_link);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/border-radius-control/linked-button.js
+;// ./packages/block-editor/build-module/components/border-radius-control/linked-button.js
 /**
  * WP dependencies
  */
@@ -26386,8 +26263,7 @@ function LinkedButton({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/border-radius-control/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/border-radius-control/index.js
 /**
  * WP dependencies
  */
@@ -26499,7 +26375,7 @@ function BorderRadiusControl({
   });
 }
 
-;// ./node_modules/@wordpress/icons/build-module/library/check.js
+;// ./packages/icons/build-module/library/check.js
 /**
  * WP dependencies
  */
@@ -26514,7 +26390,7 @@ const check_check = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx
 });
 /* harmony default export */ const library_check = (check_check);
 
-;// ./node_modules/@wordpress/icons/build-module/library/shadow.js
+;// ./packages/icons/build-module/library/shadow.js
 /**
  * WP dependencies
  */
@@ -26529,8 +26405,22 @@ const shadow = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ext
 });
 /* harmony default export */ const library_shadow = (shadow);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/global-styles/shadow-panel-components.js
-/* wp:polyfill */
+;// ./packages/icons/build-module/library/reset.js
+/**
+ * WP dependencies
+ */
+
+
+const reset_reset = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_primitives_namespaceObject.SVG, {
+  xmlns: "http://www.w3.org/2000/svg",
+  viewBox: "0 0 24 24",
+  children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_primitives_namespaceObject.Path, {
+    d: "M7 11.5h10V13H7z"
+  })
+});
+/* harmony default export */ const library_reset = (reset_reset);
+
+;// ./packages/block-editor/build-module/components/global-styles/shadow-panel-components.js
 /**
  * WP dependencies
  */
@@ -26575,6 +26465,8 @@ function ShadowPopoverContainer({
           __next40pxDefaultSize: true,
           variant: "tertiary",
           onClick: () => onShadowChange(undefined),
+          disabled: !shadow,
+          accessibleWhenDisabled: true,
           children: (0,external_wp_i18n_namespaceObject.__)('Clear')
         })
       })]
@@ -26648,7 +26540,7 @@ function ShadowPopover({
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.Dropdown, {
     popoverProps: popoverProps,
     className: "block-editor-global-styles__shadow-dropdown",
-    renderToggle: renderShadowToggle(),
+    renderToggle: renderShadowToggle(shadow, onShadowChange),
     renderContent: () => /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.__experimentalDropdownContentWrapper, {
       paddingSize: "medium",
       children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ShadowPopoverContainer, {
@@ -26659,31 +26551,54 @@ function ShadowPopover({
     })
   });
 }
-function renderShadowToggle() {
+function renderShadowToggle(shadow, onShadowChange) {
   return ({
     onToggle,
     isOpen
   }) => {
+    const shadowButtonRef = (0,external_wp_element_namespaceObject.useRef)(undefined);
     const toggleProps = {
       onClick: onToggle,
       className: dist_clsx({
         'is-open': isOpen
       }),
-      'aria-expanded': isOpen
+      'aria-expanded': isOpen,
+      ref: shadowButtonRef
     };
-    return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.Button, {
-      __next40pxDefaultSize: true,
-      ...toggleProps,
-      children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_wp_components_namespaceObject.__experimentalHStack, {
-        justify: "flex-start",
-        children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(build_module_icon, {
-          className: "block-editor-global-styles__toggle-icon",
-          icon: library_shadow,
-          size: 24
-        }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.FlexItem, {
-          children: (0,external_wp_i18n_namespaceObject.__)('Drop shadow')
-        })]
-      })
+    const removeButtonProps = {
+      onClick: () => {
+        if (isOpen) {
+          onToggle();
+        }
+        onShadowChange(undefined);
+        // Return focus to parent button.
+        shadowButtonRef.current?.focus();
+      },
+      className: dist_clsx('block-editor-global-styles__shadow-editor__remove-button', {
+        'is-open': isOpen
+      }),
+      label: (0,external_wp_i18n_namespaceObject.__)('Remove')
+    };
+    return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_ReactJSXRuntime_namespaceObject.Fragment, {
+      children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.Button, {
+        __next40pxDefaultSize: true,
+        ...toggleProps,
+        children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_wp_components_namespaceObject.__experimentalHStack, {
+          justify: "flex-start",
+          children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(build_module_icon, {
+            className: "block-editor-global-styles__toggle-icon",
+            icon: library_shadow,
+            size: 24
+          }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.FlexItem, {
+            children: (0,external_wp_i18n_namespaceObject.__)('Drop shadow')
+          })]
+        })
+      }), !!shadow && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.Button, {
+        __next40pxDefaultSize: true,
+        size: "small",
+        icon: library_reset,
+        ...removeButtonProps
+      })]
     });
   };
 }
@@ -26712,8 +26627,7 @@ function useShadowPresets(settings) {
   }, [settings]);
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/global-styles/border-panel.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/global-styles/border-panel.js
 /**
  * WP dependencies
  */
@@ -26974,8 +26888,7 @@ function BorderPanel({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/hooks/border.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/hooks/border.js
 /**
  * External dependencies
  */
@@ -27353,7 +27266,7 @@ function border_useBlockProps({
 });
 (0,external_wp_hooks_namespaceObject.addFilter)('blocks.registerBlockType', 'core/border/addAttributes', addAttributes);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/gradients/use-gradient.js
+;// ./packages/block-editor/build-module/components/gradients/use-gradient.js
 /**
  * WP dependencies
  */
@@ -27454,7 +27367,7 @@ function __experimentalUseGradient({
   };
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/colors-gradients/control.js
+;// ./packages/block-editor/build-module/components/colors-gradients/control.js
 /**
  * External dependencies
  */
@@ -27597,23 +27510,7 @@ function ColorGradientControl(props) {
 }
 /* harmony default export */ const control = (ColorGradientControl);
 
-;// ./node_modules/@wordpress/icons/build-module/library/reset.js
-/**
- * WP dependencies
- */
-
-
-const reset_reset = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_primitives_namespaceObject.SVG, {
-  xmlns: "http://www.w3.org/2000/svg",
-  viewBox: "0 0 24 24",
-  children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_primitives_namespaceObject.Path, {
-    d: "M7 11.5h10V13H7z"
-  })
-});
-/* harmony default export */ const library_reset = (reset_reset);
-
-;// ./node_modules/@wordpress/block-editor/build-module/components/global-styles/color-panel.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/global-styles/color-panel.js
 /**
  * External dependencies
  */
@@ -28157,7 +28054,7 @@ function ColorPanel({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/contrast-checker/index.js
+;// ./packages/block-editor/build-module/components/contrast-checker/index.js
 /**
  * External dependencies
  */
@@ -28268,11 +28165,11 @@ function ContrastChecker({
 }
 
 /**
- * @see https://github.com/WordPress/gutenberg/blob/HEAD/packages/block-editor/src/components/contrast-checker/README.md
+ * @see https://github.com/wordpress/gutenberg/blob/HEAD/packages/block-editor/src/components/contrast-checker/README.md
  */
 /* harmony default export */ const contrast_checker = (ContrastChecker);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/provider/block-refs-provider.js
+;// ./packages/block-editor/build-module/components/provider/block-refs-provider.js
 /**
  * WP dependencies
  */
@@ -28294,7 +28191,7 @@ function BlockRefsProvider({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-list/use-block-props/use-block-refs.js
+;// ./packages/block-editor/build-module/components/block-list/use-block-props/use-block-refs.js
 /**
  * WP dependencies
  */
@@ -28368,8 +28265,7 @@ function useBlockElement(clientId) {
   return blockElement;
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/hooks/contrast-checker.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/hooks/contrast-checker.js
 /**
  * WP dependencies
  */
@@ -28437,7 +28333,7 @@ function BlockColorContrastChecker({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/hooks/color.js
+;// ./packages/block-editor/build-module/hooks/color.js
 /**
  * External dependencies
  */
@@ -28741,8 +28637,7 @@ function color_addTransforms(result, source, index, results) {
 (0,external_wp_hooks_namespaceObject.addFilter)('blocks.registerBlockType', 'core/color/addAttribute', color_addAttributes);
 (0,external_wp_hooks_namespaceObject.addFilter)('blocks.switchToBlockType.transformedBlock', 'core/color/addTransforms', color_addTransforms);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/font-family/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/font-family/index.js
 /**
  * External dependencies
  */
@@ -28823,8 +28718,7 @@ function FontFamilyControl({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/font-appearance-control/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/font-appearance-control/index.js
 /**
  * WP dependencies
  */
@@ -28997,7 +28891,7 @@ function FontAppearanceControl(props) {
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/line-height-control/utils.js
+;// ./packages/block-editor/build-module/components/line-height-control/utils.js
 const BASE_DEFAULT_VALUE = 1.5;
 const STEP = 0.01;
 /**
@@ -29028,7 +28922,7 @@ function isLineHeightDefined(lineHeight) {
   return lineHeight !== undefined && lineHeight !== RESET_VALUE;
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/line-height-control/index.js
+;// ./packages/block-editor/build-module/components/line-height-control/index.js
 /**
  * WP dependencies
  */
@@ -29140,11 +29034,11 @@ const line_height_control_LineHeightControl = ({
 };
 
 /**
- * @see https://github.com/WordPress/gutenberg/blob/HEAD/packages/block-editor/src/components/line-height-control/README.md
+ * @see https://github.com/wordpress/gutenberg/blob/HEAD/packages/block-editor/src/components/line-height-control/README.md
  */
 /* harmony default export */ const line_height_control = (line_height_control_LineHeightControl);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/letter-spacing-control/index.js
+;// ./packages/block-editor/build-module/components/letter-spacing-control/index.js
 /**
  * WP dependencies
  */
@@ -29204,7 +29098,7 @@ function LetterSpacingControl({
   });
 }
 
-;// ./node_modules/@wordpress/icons/build-module/library/align-left.js
+;// ./packages/icons/build-module/library/align-left.js
 /**
  * WP dependencies
  */
@@ -29219,7 +29113,7 @@ const alignLeft = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(
 });
 /* harmony default export */ const align_left = (alignLeft);
 
-;// ./node_modules/@wordpress/icons/build-module/library/align-center.js
+;// ./packages/icons/build-module/library/align-center.js
 /**
  * WP dependencies
  */
@@ -29234,7 +29128,7 @@ const alignCenter = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx
 });
 /* harmony default export */ const align_center = (alignCenter);
 
-;// ./node_modules/@wordpress/icons/build-module/library/align-right.js
+;// ./packages/icons/build-module/library/align-right.js
 /**
  * WP dependencies
  */
@@ -29249,7 +29143,7 @@ const alignRight = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)
 });
 /* harmony default export */ const align_right = (alignRight);
 
-;// ./node_modules/@wordpress/icons/build-module/library/align-justify.js
+;// ./packages/icons/build-module/library/align-justify.js
 /**
  * WP dependencies
  */
@@ -29264,8 +29158,7 @@ const alignJustify = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.js
 });
 /* harmony default export */ const align_justify = (alignJustify);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/text-alignment-control/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/text-alignment-control/index.js
 /**
  * External dependencies
  */
@@ -29339,7 +29232,7 @@ function TextAlignmentControl({
   });
 }
 
-;// ./node_modules/@wordpress/icons/build-module/library/format-uppercase.js
+;// ./packages/icons/build-module/library/format-uppercase.js
 /**
  * WP dependencies
  */
@@ -29354,7 +29247,7 @@ const formatUppercase = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject
 });
 /* harmony default export */ const format_uppercase = (formatUppercase);
 
-;// ./node_modules/@wordpress/icons/build-module/library/format-lowercase.js
+;// ./packages/icons/build-module/library/format-lowercase.js
 /**
  * WP dependencies
  */
@@ -29369,7 +29262,7 @@ const formatLowercase = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject
 });
 /* harmony default export */ const format_lowercase = (formatLowercase);
 
-;// ./node_modules/@wordpress/icons/build-module/library/format-capitalize.js
+;// ./packages/icons/build-module/library/format-capitalize.js
 /**
  * WP dependencies
  */
@@ -29384,8 +29277,7 @@ const formatCapitalize = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObjec
 });
 /* harmony default export */ const format_capitalize = (formatCapitalize);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/text-transform-control/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/text-transform-control/index.js
 /**
  * External dependencies
  */
@@ -29451,7 +29343,7 @@ function TextTransformControl({
   });
 }
 
-;// ./node_modules/@wordpress/icons/build-module/library/format-underline.js
+;// ./packages/icons/build-module/library/format-underline.js
 /**
  * WP dependencies
  */
@@ -29466,7 +29358,7 @@ const formatUnderline = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject
 });
 /* harmony default export */ const format_underline = (formatUnderline);
 
-;// ./node_modules/@wordpress/icons/build-module/library/format-strikethrough.js
+;// ./packages/icons/build-module/library/format-strikethrough.js
 /**
  * WP dependencies
  */
@@ -29481,8 +29373,7 @@ const formatStrikethrough = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceOb
 });
 /* harmony default export */ const format_strikethrough = (formatStrikethrough);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/text-decoration-control/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/text-decoration-control/index.js
 /**
  * External dependencies
  */
@@ -29544,7 +29435,7 @@ function TextDecorationControl({
   });
 }
 
-;// ./node_modules/@wordpress/icons/build-module/library/text-horizontal.js
+;// ./packages/icons/build-module/library/text-horizontal.js
 /**
  * WP dependencies
  */
@@ -29559,7 +29450,7 @@ const textHorizontal = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.
 });
 /* harmony default export */ const text_horizontal = (textHorizontal);
 
-;// ./node_modules/@wordpress/icons/build-module/library/text-vertical.js
+;// ./packages/icons/build-module/library/text-vertical.js
 /**
  * WP dependencies
  */
@@ -29574,8 +29465,7 @@ const textVertical = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.js
 });
 /* harmony default export */ const text_vertical = (textVertical);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/writing-mode-control/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/writing-mode-control/index.js
 /**
  * External dependencies
  */
@@ -29633,7 +29523,7 @@ function WritingModeControl({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/global-styles/typography-panel.js
+;// ./packages/block-editor/build-module/components/global-styles/typography-panel.js
 /**
  * WP dependencies
  */
@@ -30062,7 +29952,7 @@ function TypographyPanel({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/hooks/line-height.js
+;// ./packages/block-editor/build-module/hooks/line-height.js
 /**
  * WP dependencies
  */
@@ -30127,7 +30017,7 @@ function useIsLineHeightDisabled({
 ;// external ["wp","tokenList"]
 const external_wp_tokenList_namespaceObject = window["wp"]["tokenList"];
 var external_wp_tokenList_default = /*#__PURE__*/__webpack_require__.n(external_wp_tokenList_namespaceObject);
-;// ./node_modules/@wordpress/block-editor/build-module/hooks/font-family.js
+;// ./packages/block-editor/build-module/hooks/font-family.js
 /**
  * WP dependencies
  */
@@ -30230,7 +30120,7 @@ function resetFontFamily({
 }
 (0,external_wp_hooks_namespaceObject.addFilter)('blocks.registerBlockType', 'core/fontFamily/addAttribute', font_family_addAttributes);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/font-sizes/utils.js
+;// ./packages/block-editor/build-module/components/font-sizes/utils.js
 /**
  * WP dependencies
  */
@@ -30304,7 +30194,7 @@ function getFontSizeClass(fontSizeSlug) {
   return `has-${utils_kebabCase(fontSizeSlug)}-font-size`;
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/hooks/font-size.js
+;// ./packages/block-editor/build-module/hooks/font-size.js
 /**
  * WP dependencies
  */
@@ -30490,8 +30380,7 @@ function font_size_addTransforms(result, source, index, results) {
 (0,external_wp_hooks_namespaceObject.addFilter)('blocks.registerBlockType', 'core/font/addAttribute', font_size_addAttributes);
 (0,external_wp_hooks_namespaceObject.addFilter)('blocks.switchToBlockType.transformedBlock', 'core/font-size/addTransforms', font_size_addTransforms);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/alignment-control/ui.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/alignment-control/ui.js
 /**
  * WP dependencies
  */
@@ -30563,7 +30452,7 @@ function AlignmentUI({
 }
 /* harmony default export */ const alignment_control_ui = (AlignmentUI);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/alignment-control/index.js
+;// ./packages/block-editor/build-module/components/alignment-control/index.js
 /**
  * Internal dependencies
  */
@@ -30583,12 +30472,11 @@ const AlignmentToolbar = props => {
 };
 
 /**
- * @see https://github.com/WordPress/gutenberg/blob/HEAD/packages/block-editor/src/components/alignment-control/README.md
+ * @see https://github.com/wordpress/gutenberg/blob/HEAD/packages/block-editor/src/components/alignment-control/README.md
  */
 
 
-;// ./node_modules/@wordpress/block-editor/build-module/hooks/text-align.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/hooks/text-align.js
 /**
  * External dependencies
  */
@@ -30735,8 +30623,7 @@ function addAssignedTextAlign(props, blockType, attributes) {
   return props;
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/hooks/typography.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/hooks/typography.js
 /**
  * WP dependencies
  */
@@ -30863,8 +30750,7 @@ const hasTypographySupport = blockName => {
   return TYPOGRAPHY_SUPPORT_KEYS.some(key => hasBlockSupport(blockName, key));
 };
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/spacing-sizes-control/hooks/use-spacing-sizes.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/spacing-sizes-control/hooks/use-spacing-sizes.js
 /**
  * WP dependencies
  */
@@ -30906,7 +30792,7 @@ function useSpacingSizes() {
   }, [customSizes, themeSizes, defaultSizes]);
 }
 
-;// ./node_modules/@wordpress/icons/build-module/library/settings.js
+;// ./packages/icons/build-module/library/settings.js
 /**
  * WP dependencies
  */
@@ -30923,8 +30809,7 @@ const settings_settings = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObje
 });
 /* harmony default export */ const library_settings = (settings_settings);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/spacing-sizes-control/input-controls/spacing-input-control.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/spacing-sizes-control/input-controls/spacing-input-control.js
 /**
  * WP dependencies
  */
@@ -31255,8 +31140,7 @@ function SpacingInputControl({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/spacing-sizes-control/input-controls/axial.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/spacing-sizes-control/input-controls/axial.js
 /**
  * Internal dependencies
  */
@@ -31319,8 +31203,7 @@ function AxialInputControls({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/spacing-sizes-control/input-controls/separated.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/spacing-sizes-control/input-controls/separated.js
 /**
  * Internal dependencies
  */
@@ -31369,8 +31252,7 @@ function SeparatedInputControls({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/spacing-sizes-control/input-controls/single.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/spacing-sizes-control/input-controls/single.js
 /**
  * Internal dependencies
  */
@@ -31414,7 +31296,7 @@ function SingleInputControl({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/spacing-sizes-control/linked-button.js
+;// ./packages/block-editor/build-module/components/spacing-sizes-control/linked-button.js
 /**
  * WP dependencies
  */
@@ -31436,7 +31318,7 @@ function linked_button_LinkedButton({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/spacing-sizes-control/index.js
+;// ./packages/block-editor/build-module/components/spacing-sizes-control/index.js
 /**
  * WP dependencies
  */
@@ -31459,7 +31341,7 @@ function linked_button_LinkedButton({
  * and separated input controls for different spacing configurations with automatic view selection
  * based on current values and available sides.
  *
- * @see https://github.com/WordPress/gutenberg/blob/HEAD/packages/block-editor/src/components/spacing-sizes-control/README.md
+ * @see https://github.com/wordpress/gutenberg/blob/HEAD/packages/block-editor/src/components/spacing-sizes-control/README.md
  *
  * @example
  * ```jsx
@@ -31578,7 +31460,7 @@ function SpacingSizesControl({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/height-control/index.js
+;// ./packages/block-editor/build-module/components/height-control/index.js
 /**
  * WP dependencies
  */
@@ -31709,7 +31591,7 @@ const RANGE_CONTROL_CUSTOM_SETTINGS = {
 /**
  * HeightControl renders a linked unit control and range control for adjusting the height of a block.
  *
- * @see https://github.com/WordPress/gutenberg/blob/HEAD/packages/block-editor/src/components/height-control/README.md
+ * @see https://github.com/wordpress/gutenberg/blob/HEAD/packages/block-editor/src/components/height-control/README.md
  *
  * @param {Object}                     props
  * @param {?string}                    props.label    A label for the control.
@@ -31789,7 +31671,7 @@ function HeightControl({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/grid/use-get-number-of-blocks-before-cell.js
+;// ./packages/block-editor/build-module/components/grid/use-get-number-of-blocks-before-cell.js
 /**
  * WP dependencies
  */
@@ -31823,7 +31705,7 @@ function useGetNumberOfBlocksBeforeCell(gridClientId, numColumns) {
   return getNumberOfBlocksBeforeCell;
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/child-layout-control/index.js
+;// ./packages/block-editor/build-module/components/child-layout-control/index.js
 /**
  * WP dependencies
  */
@@ -32129,7 +32011,7 @@ function GridControls({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/dimensions-tool/aspect-ratio-tool.js
+;// ./packages/block-editor/build-module/components/dimensions-tool/aspect-ratio-tool.js
 /**
  * WP dependencies
  */
@@ -32212,8 +32094,7 @@ function AspectRatioTool({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/global-styles/dimensions-panel.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/global-styles/dimensions-panel.js
 /**
  * External dependencies
  */
@@ -32755,30 +32636,35 @@ function DimensionsPanel({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-popover/use-popover-scroll.js
+;// ./packages/block-editor/build-module/components/block-popover/use-popover-scroll.js
 /**
  * WP dependencies
  */
 
+
+const scrollContainerCache = new WeakMap();
 
 /**
  * Allow scrolling "through" popovers over the canvas. This is only called for
  * as long as the pointer is over a popover. Do not use React events because it
  * will bubble through portals.
  *
- * @param {Object} scrollableRef
+ * @param {Object} contentRef
  */
-function usePopoverScroll(scrollableRef) {
-  return (0,external_wp_compose_namespaceObject.useRefEffect)(node => {
-    if (!scrollableRef) {
-      return;
-    }
+function usePopoverScroll(contentRef) {
+  const effect = (0,external_wp_compose_namespaceObject.useRefEffect)(node => {
     function onWheel(event) {
       const {
         deltaX,
         deltaY
       } = event;
-      scrollableRef.current.scrollBy(deltaX, deltaY);
+      const contentEl = contentRef.current;
+      let scrollContainer = scrollContainerCache.get(contentEl);
+      if (!scrollContainer) {
+        scrollContainer = (0,external_wp_dom_namespaceObject.getScrollContainer)(contentEl);
+        scrollContainerCache.set(contentEl, scrollContainer);
+      }
+      scrollContainer.scrollBy(deltaX, deltaY);
     }
     // Tell the browser that we do not call event.preventDefault
     // See https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#improving_scrolling_performance_with_passive_listeners
@@ -32789,11 +32675,12 @@ function usePopoverScroll(scrollableRef) {
     return () => {
       node.removeEventListener('wheel', onWheel, options);
     };
-  }, [scrollableRef]);
+  }, [contentRef]);
+  return contentRef ? effect : null;
 }
 /* harmony default export */ const use_popover_scroll = (usePopoverScroll);
 
-;// ./node_modules/@wordpress/block-editor/build-module/utils/dom.js
+;// ./packages/block-editor/build-module/utils/dom.js
 const BLOCK_SELECTOR = '.block-editor-block-list__block';
 const APPENDER_SELECTOR = '.block-list-appender';
 const BLOCK_APPENDER_CLASS = '.block-editor-button-block-appender';
@@ -32966,7 +32853,7 @@ function getElementBounds(element) {
   return bounds;
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-popover/index.js
+;// ./packages/block-editor/build-module/components/block-popover/index.js
 /**
  * External dependencies
  */
@@ -33077,11 +32964,11 @@ const PublicBlockPopover = ({
 });
 
 /**
- * @see https://github.com/WordPress/gutenberg/blob/HEAD/packages/block-editor/src/components/block-popover/README.md
+ * @see https://github.com/wordpress/gutenberg/blob/HEAD/packages/block-editor/src/components/block-popover/README.md
  */
 /* harmony default export */ const block_popover = ((0,external_wp_element_namespaceObject.forwardRef)(PublicBlockPopover));
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-popover/cover.js
+;// ./packages/block-editor/build-module/components/block-popover/cover.js
 /**
  * WP dependencies
  */
@@ -33149,7 +33036,7 @@ function CoverContainer({
 }
 /* harmony default export */ const cover = ((0,external_wp_element_namespaceObject.forwardRef)(BlockPopoverCover));
 
-;// ./node_modules/@wordpress/block-editor/build-module/hooks/spacing-visualizer.js
+;// ./packages/block-editor/build-module/hooks/spacing-visualizer.js
 /**
  * WP dependencies
  */
@@ -33178,7 +33065,7 @@ function SpacingVisualizer({
     // useEffect may run before the browser recomputes CSS. We therefore combine
     // useLayoutEffect and two rAF calls to ensure that we read the spacing after the current
     // paint but before the next paint.
-    // See https://github.com/WordPress/gutenberg/pull/59227.
+    // See https://github.com/wordpress/gutenberg/pull/59227.
     window.requestAnimationFrame(() => window.requestAnimationFrame(updateStyle));
   }, [blockElement, value]);
   const previousValueRef = (0,external_wp_element_namespaceObject.useRef)(value);
@@ -33257,7 +33144,7 @@ function PaddingVisualizer({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/hooks/dimensions.js
+;// ./packages/block-editor/build-module/hooks/dimensions.js
 /**
  * External dependencies
  */
@@ -33435,8 +33322,7 @@ function useCustomSides() {
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/hooks/style.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/hooks/style.js
 /**
  * WP dependencies
  */
@@ -33833,7 +33719,7 @@ function style_useBlockProps({
 }
 (0,external_wp_hooks_namespaceObject.addFilter)('blocks.registerBlockType', 'core/style/addAttribute', style_addAttribute);
 
-;// ./node_modules/@wordpress/block-editor/build-module/hooks/settings.js
+;// ./packages/block-editor/build-module/hooks/settings.js
 /**
  * WP dependencies
  */
@@ -33858,7 +33744,7 @@ function settings_addAttribute(settings) {
 }
 (0,external_wp_hooks_namespaceObject.addFilter)('blocks.registerBlockType', 'core/settings/addAttribute', settings_addAttribute);
 
-;// ./node_modules/@wordpress/icons/build-module/library/filter.js
+;// ./packages/icons/build-module/library/filter.js
 /**
  * WP dependencies
  */
@@ -33873,7 +33759,7 @@ const filter = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ext
 });
 /* harmony default export */ const library_filter = (filter);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/duotone-control/index.js
+;// ./packages/block-editor/build-module/components/duotone-control/index.js
 /**
  * WP dependencies
  */
@@ -33953,8 +33839,7 @@ function DuotoneControl({
 }
 /* harmony default export */ const duotone_control = (DuotoneControl);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/duotone/utils.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/duotone/utils.js
 /**
  * External dependencies
  */
@@ -34049,7 +33934,7 @@ function getDuotoneFilter(id, colors) {
 </svg>`;
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/global-styles/get-block-css-selector.js
+;// ./packages/block-editor/build-module/components/global-styles/get-block-css-selector.js
 /**
  * Internal dependencies
  */
@@ -34157,8 +34042,7 @@ function getBlockCSSSelector(blockType, target = 'root', options = {}) {
   return null;
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/global-styles/filters-panel.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/global-styles/filters-panel.js
 /**
  * External dependencies
  */
@@ -34167,6 +34051,7 @@ function getBlockCSSSelector(blockType, target = 'root', options = {}) {
 /**
  * WP dependencies
  */
+
 
 
 
@@ -34245,6 +34130,46 @@ const LabeledColorIndicator = ({
     children: label
   })]
 });
+const renderToggle = (duotone, resetDuotone) => ({
+  onToggle,
+  isOpen
+}) => {
+  const duotoneButtonRef = (0,external_wp_element_namespaceObject.useRef)(undefined);
+  const toggleProps = {
+    onClick: onToggle,
+    className: dist_clsx({
+      'is-open': isOpen
+    }),
+    'aria-expanded': isOpen,
+    ref: duotoneButtonRef
+  };
+  const removeButtonProps = {
+    onClick: () => {
+      if (isOpen) {
+        onToggle();
+      }
+      resetDuotone();
+      // Return focus to parent button.
+      duotoneButtonRef.current?.focus();
+    },
+    className: 'block-editor-panel-duotone-settings__reset',
+    label: (0,external_wp_i18n_namespaceObject.__)('Reset')
+  };
+  return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_ReactJSXRuntime_namespaceObject.Fragment, {
+    children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.Button, {
+      __next40pxDefaultSize: true,
+      ...toggleProps,
+      children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(LabeledColorIndicator, {
+        indicator: duotone,
+        label: (0,external_wp_i18n_namespaceObject.__)('Duotone')
+      })
+    }), duotone && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.Button, {
+      size: "small",
+      icon: library_reset,
+      ...removeButtonProps
+    })]
+  });
+};
 function FiltersPanel({
   as: Wrapper = FiltersToolsPanel,
   value,
@@ -34303,30 +34228,7 @@ function FiltersPanel({
       children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.Dropdown, {
         popoverProps: filters_panel_popoverProps,
         className: "block-editor-global-styles-filters-panel__dropdown",
-        renderToggle: ({
-          onToggle,
-          isOpen
-        }) => {
-          const toggleProps = {
-            onClick: onToggle,
-            className: dist_clsx({
-              'is-open': isOpen
-            }),
-            'aria-expanded': isOpen
-          };
-          return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.__experimentalItemGroup, {
-            isBordered: true,
-            isSeparated: true,
-            children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.__experimentalItem, {
-              as: "button",
-              ...toggleProps,
-              children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(LabeledColorIndicator, {
-                indicator: duotone,
-                label: (0,external_wp_i18n_namespaceObject.__)('Duotone')
-              })
-            })
-          });
-        },
+        renderToggle: renderToggle(duotone, resetDuotone),
         renderContent: () => /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.__experimentalDropdownContentWrapper, {
           paddingSize: "small",
           children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_wp_components_namespaceObject.MenuGroup, {
@@ -34350,8 +34252,7 @@ function FiltersPanel({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/hooks/duotone.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/hooks/duotone.js
 /**
  * External dependencies
  */
@@ -34654,7 +34555,7 @@ function duotone_useBlockProps({
 }
 (0,external_wp_hooks_namespaceObject.addFilter)('blocks.registerBlockType', 'core/editor/duotone/add-attributes', addDuotoneAttributes);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/use-block-display-information/index.js
+;// ./packages/block-editor/build-module/components/use-block-display-information/index.js
 /**
  * WP dependencies
  */
@@ -34764,8 +34665,7 @@ function useBlockDisplayInformation(clientId) {
   }, [clientId]);
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/hooks/position.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/hooks/position.js
 /**
  * External dependencies
  */
@@ -35093,8 +34993,7 @@ function position_useBlockProps({
   };
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/global-styles/use-global-styles-output.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/global-styles/use-global-styles-output.js
 /**
  * WP dependencies
  */
@@ -35349,7 +35248,7 @@ function getStylesDeclarations(blockStyles = {}, selector = '', useRootPaddingAl
     const styleValue = getValueFromObjectPath(blockStyles, pathToValue);
 
     // Root-level padding styles don't currently support strings with CSS shorthand values.
-    // This may change: https://github.com/WordPress/gutenberg/issues/40132.
+    // This may change: https://github.com/wordpress/gutenberg/issues/40132.
     if (key === '--wp--style--root--padding' && (typeof styleValue === 'string' || !useRootPaddingAlign)) {
       return declarations;
     }
@@ -35757,14 +35656,14 @@ const toStyles = (tree, blockSelectors, hasBlockGapSupport, hasFallbackGapSuppor
      * from the `theme.json`. This is to ensure that if the `theme.json` declares
      * `margin` in its `spacing` declaration for the `body` element then these
      * user-generated values take precedence in the CSS cascade.
-     * @link https://github.com/WordPress/gutenberg/issues/36147.
+     * @link https://github.com/wordpress/gutenberg/issues/36147.
      */
     ruleset += ':where(body) {margin: 0;';
 
     // Root padding styles should be output for full templates, patterns and template parts.
     if (options.rootPadding && useRootPaddingAlign) {
       /*
-       * These rules reproduce the ones from https://github.com/WordPress/gutenberg/blob/79103f124925d1f457f627e154f52a56228ed5ad/lib/class-wp-theme-json-gutenberg.php#L2508
+       * These rules reproduce the ones from https://github.com/wordpress/gutenberg/blob/79103f124925d1f457f627e154f52a56228ed5ad/lib/class-wp-theme-json-gutenberg.php#L2508
        * almost exactly, but for the selectors that target block wrappers in the front end. This code only runs in the editor, so it doesn't need those selectors.
        */
       ruleset += `padding-right: 0; padding-left: 0; padding-top: var(--wp--style--root--padding-top); padding-bottom: var(--wp--style--root--padding-bottom) }
@@ -36140,8 +36039,7 @@ function useGlobalStylesOutput(disableRootPadding = false) {
   return useGlobalStylesOutputWithConfig(mergedConfig, disableRootPadding);
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/hooks/block-style-variation.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/hooks/block-style-variation.js
 /**
  * WP dependencies
  */
@@ -36459,8 +36357,7 @@ function block_style_variation_useBlockProps({
   useBlockProps: block_style_variation_useBlockProps
 });
 
-;// ./node_modules/@wordpress/block-editor/build-module/hooks/layout.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/hooks/layout.js
 /**
  * External dependencies
  */
@@ -36671,7 +36568,7 @@ function LayoutPanelPure({
                 type: layoutType?.name === 'constrained' || hasContentSizeOrLegacySettings ? 'default' : 'constrained'
               }
             }),
-            help: layoutType?.name === 'constrained' || hasContentSizeOrLegacySettings ? (0,external_wp_i18n_namespaceObject.__)('Nested blocks use content width with options for full and wide widths.') : (0,external_wp_i18n_namespaceObject.__)('Nested blocks will fill the width of this container. Toggle to constrain.')
+            help: layoutType?.name === 'constrained' || hasContentSizeOrLegacySettings ? (0,external_wp_i18n_namespaceObject.__)('Nested blocks use content width with options for full and wide widths.') : (0,external_wp_i18n_namespaceObject.__)('Nested blocks will fill the width of this container.')
           })
         }), !inherit && allowSwitching && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(LayoutTypeSwitcher, {
           type: blockLayoutType,
@@ -36855,8 +36752,7 @@ const withLayoutStyles = (0,external_wp_compose_namespaceObject.createHigherOrde
 (0,external_wp_hooks_namespaceObject.addFilter)('blocks.registerBlockType', 'core/layout/addAttribute', layout_addAttribute);
 (0,external_wp_hooks_namespaceObject.addFilter)('editor.BlockListBlock', 'core/editor/layout/with-layout-styles', withLayoutStyles);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/grid/utils.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/grid/utils.js
 function range(start, length) {
   return Array.from({
     length
@@ -37001,7 +36897,7 @@ function getGridInfo(gridElement) {
   };
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inserter/tips.js
+;// ./packages/block-editor/build-module/components/inserter/tips.js
 /**
  * WP dependencies
  */
@@ -37027,7 +36923,7 @@ function Tips() {
 }
 /* harmony default export */ const tips = (Tips);
 
-;// ./node_modules/@wordpress/icons/build-module/library/chevron-right.js
+;// ./packages/icons/build-module/library/chevron-right.js
 /**
  * WP dependencies
  */
@@ -37042,7 +36938,7 @@ const chevronRight = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.js
 });
 /* harmony default export */ const chevron_right = (chevronRight);
 
-;// ./node_modules/@wordpress/icons/build-module/library/chevron-left.js
+;// ./packages/icons/build-module/library/chevron-left.js
 /**
  * WP dependencies
  */
@@ -37057,7 +36953,7 @@ const chevronLeft = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx
 });
 /* harmony default export */ const chevron_left = (chevronLeft);
 
-;// ./node_modules/@wordpress/icons/build-module/library/block-default.js
+;// ./packages/icons/build-module/library/block-default.js
 /**
  * WP dependencies
  */
@@ -37072,7 +36968,7 @@ const blockDefault = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.js
 });
 /* harmony default export */ const block_default = (blockDefault);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-icon/index.js
+;// ./packages/block-editor/build-module/components/block-icon/index.js
 /**
  * External dependencies
  */
@@ -37114,11 +37010,11 @@ function BlockIcon({
 }
 
 /**
- * @see https://github.com/WordPress/gutenberg/blob/HEAD/packages/block-editor/src/components/block-icon/README.md
+ * @see https://github.com/wordpress/gutenberg/blob/HEAD/packages/block-editor/src/components/block-icon/README.md
  */
 /* harmony default export */ const block_icon = ((0,external_wp_element_namespaceObject.memo)(BlockIcon));
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-card/index.js
+;// ./packages/block-editor/build-module/components/block-card/index.js
 /**
  * External dependencies
  */
@@ -37148,7 +37044,7 @@ const {
  * A card component that displays block information including title, icon, and description.
  * Can be used to show block metadata and navigation controls for parent blocks.
  *
- * @see https://github.com/WordPress/gutenberg/blob/HEAD/packages/block-editor/src/components/block-card/README.md
+ * @see https://github.com/wordpress/gutenberg/blob/HEAD/packages/block-editor/src/components/block-card/README.md
  *
  * @example
  * ```jsx
@@ -37166,7 +37062,7 @@ const {
  *
  * @param {Object}        props             Component props.
  * @param {string}        props.title       The title of the block.
- * @param {string|Object} props.icon        The icon of the block. This can be any of WP' Dashicons, or a custom `svg` element.
+ * @param {string|Object} props.icon        The icon of the block. This can be any of Dashicons, or a custom `svg` element.
  * @param {string}        props.description The description of the block.
  * @param {Object}        [props.blockType] Deprecated: Object containing block type data.
  * @param {string}        [props.className] Additional classes to apply to the card.
@@ -37246,7 +37142,7 @@ function BlockCard({
 }
 /* harmony default export */ const block_card = (BlockCard);
 
-;// ./node_modules/@wordpress/upload-media/build-module/store/types.js
+;// ./packages/upload-media/build-module/store/types.js
 let Type = /*#__PURE__*/function (Type) {
   Type["Unknown"] = "REDUX_UNKNOWN";
   Type["Add"] = "ADD_ITEM";
@@ -37279,8 +37175,7 @@ let OperationType = /*#__PURE__*/function (OperationType) {
   return OperationType;
 }({});
 
-;// ./node_modules/@wordpress/upload-media/build-module/store/reducer.js
-/* wp:polyfill */
+;// ./packages/upload-media/build-module/store/reducer.js
 /**
  * Internal dependencies
  */
@@ -37417,8 +37312,7 @@ function reducer_reducer(state = DEFAULT_STATE, action = {
 }
 /* harmony default export */ const store_reducer = (reducer_reducer);
 
-;// ./node_modules/@wordpress/upload-media/build-module/store/selectors.js
-/* wp:polyfill */
+;// ./packages/upload-media/build-module/store/selectors.js
 /**
  * Internal dependencies
  */
@@ -37480,8 +37374,7 @@ function selectors_getSettings(state) {
   return state.settings;
 }
 
-;// ./node_modules/@wordpress/upload-media/build-module/store/private-selectors.js
-/* wp:polyfill */
+;// ./packages/upload-media/build-module/store/private-selectors.js
 /**
  * Internal dependencies
  */
@@ -37570,12 +37463,12 @@ function getBlobUrls(state, id) {
   return state.blobUrls[id] || [];
 }
 
-;// ./node_modules/@wordpress/upload-media/node_modules/uuid/dist/esm-browser/native.js
+;// ./node_modules/uuid/dist/esm-browser/native.js
 const randomUUID = typeof crypto !== 'undefined' && crypto.randomUUID && crypto.randomUUID.bind(crypto);
 /* harmony default export */ const esm_browser_native = ({
   randomUUID
 });
-;// ./node_modules/@wordpress/upload-media/node_modules/uuid/dist/esm-browser/rng.js
+;// ./node_modules/uuid/dist/esm-browser/rng.js
 // Unique ID creation requires a high quality random # generator. In the browser we therefore
 // require the crypto API and do not support built-in fallback to lower quality random number
 // generators (like Math.random()).
@@ -37594,7 +37487,7 @@ function rng() {
 
   return getRandomValues(rnds8);
 }
-;// ./node_modules/@wordpress/upload-media/node_modules/uuid/dist/esm-browser/stringify.js
+;// ./node_modules/uuid/dist/esm-browser/stringify.js
 
 /**
  * Convert array of 16 byte values to UUID string format of the form:
@@ -37628,7 +37521,7 @@ function stringify(arr, offset = 0) {
 }
 
 /* harmony default export */ const esm_browser_stringify = ((/* unused pure expression or super */ null && (stringify)));
-;// ./node_modules/@wordpress/upload-media/node_modules/uuid/dist/esm-browser/v4.js
+;// ./node_modules/uuid/dist/esm-browser/v4.js
 
 
 
@@ -37658,7 +37551,7 @@ function v4(options, buf, offset) {
 }
 
 /* harmony default export */ const esm_browser_v4 = (v4);
-;// ./node_modules/@wordpress/upload-media/build-module/upload-error.js
+;// ./packages/upload-media/build-module/upload-error.js
 /**
  * MediaError class.
  *
@@ -37681,8 +37574,7 @@ class UploadError extends Error {
   }
 }
 
-;// ./node_modules/@wordpress/upload-media/build-module/validate-mime-type.js
-/* wp:polyfill */
+;// ./packages/upload-media/build-module/validate-mime-type.js
 /**
  * WP dependencies
  */
@@ -37724,8 +37616,7 @@ function validateMimeType(file, allowedTypes) {
   }
 }
 
-;// ./node_modules/@wordpress/upload-media/build-module/get-mime-types-array.js
-/* wp:polyfill */
+;// ./packages/upload-media/build-module/get-mime-types-array.js
 /**
  * Browsers may use unexpected mime types, and they differ from browser to browser.
  * This function computes a flexible array of mime types from the mime type structured provided by the server.
@@ -37747,7 +37638,7 @@ function getMimeTypesArray(wpMimeTypesObject) {
   });
 }
 
-;// ./node_modules/@wordpress/upload-media/build-module/validate-mime-type-for-user.js
+;// ./packages/upload-media/build-module/validate-mime-type-for-user.js
 /**
  * WP dependencies
  */
@@ -37783,7 +37674,7 @@ function validateMimeTypeForUser(file, wpAllowedMimeTypes) {
   }
 }
 
-;// ./node_modules/@wordpress/upload-media/build-module/validate-file-size.js
+;// ./packages/upload-media/build-module/validate-file-size.js
 /**
  * WP dependencies
  */
@@ -37822,7 +37713,7 @@ function validateFileSize(file, maxUploadFileSize) {
   }
 }
 
-;// ./node_modules/@wordpress/upload-media/build-module/store/actions.js
+;// ./packages/upload-media/build-module/store/actions.js
 /**
  * External dependencies
  */
@@ -37949,7 +37840,7 @@ function cancelItem(id, error, silent = false) {
   };
 }
 
-;// ./node_modules/@wordpress/upload-media/build-module/utils.js
+;// ./packages/upload-media/build-module/utils.js
 /**
  * WP dependencies
  */
@@ -38036,14 +37927,14 @@ function getFileNameFromUrl(url) {
   return getFilename(url) || _x('unnamed', 'file name');
 }
 
-;// ./node_modules/@wordpress/upload-media/build-module/stub-file.js
+;// ./packages/upload-media/build-module/stub-file.js
 class StubFile extends File {
   constructor(fileName = 'stub-file') {
     super([], fileName);
   }
 }
 
-;// ./node_modules/@wordpress/upload-media/build-module/store/private-actions.js
+;// ./packages/upload-media/build-module/store/private-actions.js
 /**
  * External dependencies
  */
@@ -38094,7 +37985,7 @@ function addItem({
     const itemId = esm_browser_v4();
 
     // Hardening in case a Blob is passed instead of a File.
-    // See https://github.com/WordPress/gutenberg/pull/65693 for an example.
+    // See https://github.com/wordpress/gutenberg/pull/65693 for an example.
     const file = convertBlobToFile(fileOrBlob);
     let blobUrl;
 
@@ -38379,7 +38270,7 @@ function private_actions_updateSettings(settings) {
   };
 }
 
-;// ./node_modules/@wordpress/upload-media/build-module/lock-unlock.js
+;// ./packages/upload-media/build-module/lock-unlock.js
 /**
  * WP dependencies
  */
@@ -38387,12 +38278,12 @@ function private_actions_updateSettings(settings) {
 const {
   lock: lock_unlock_lock,
   unlock: lock_unlock_unlock
-} = (0,external_wp_privateApis_namespaceObject.__dangerousOptInToUnstableAPIsOnlyForCoreModules)('I acknowledge private features are not for use in themes or plugins and doing so will break in the next version of Retraceur.', '@wordpress/upload-media');
+} = (0,external_wp_privateApis_namespaceObject.__dangerousOptInToUnstableAPIsOnlyForCoreModules)('I acknowledge private features are not for use in themes or plugins and doing so will break in the next version of WordPress.', '@wordpress/upload-media');
 
-;// ./node_modules/@wordpress/upload-media/build-module/store/constants.js
+;// ./packages/upload-media/build-module/store/constants.js
 const constants_STORE_NAME = 'core/upload-media';
 
-;// ./node_modules/@wordpress/upload-media/build-module/store/index.js
+;// ./packages/upload-media/build-module/store/index.js
 /**
  * WP dependencies
  */
@@ -38412,7 +38303,7 @@ const constants_STORE_NAME = 'core/upload-media';
 /**
  * Media upload data store configuration.
  *
- * @see https://github.com/WordPress/gutenberg/blob/HEAD/packages/data/README.md#registerStore
+ * @see https://github.com/wordpress/gutenberg/blob/HEAD/packages/data/README.md#registerStore
  */
 const store_storeConfig = {
   reducer: store_reducer,
@@ -38423,7 +38314,7 @@ const store_storeConfig = {
 /**
  * Store definition for the media upload namespace.
  *
- * @see https://github.com/WordPress/gutenberg/blob/HEAD/packages/data/README.md#createReduxStore
+ * @see https://github.com/wordpress/gutenberg/blob/HEAD/packages/data/README.md#createReduxStore
  */
 const store_store = (0,external_wp_data_namespaceObject.createReduxStore)(constants_STORE_NAME, {
   reducer: store_reducer,
@@ -38436,7 +38327,7 @@ lock_unlock_unlock(store_store).registerPrivateActions(store_private_actions_nam
 // @ts-ignore
 lock_unlock_unlock(store_store).registerPrivateSelectors(store_private_selectors_namespaceObject);
 
-;// ./node_modules/@wordpress/upload-media/build-module/components/provider/with-registry-provider.js
+;// ./packages/upload-media/build-module/components/provider/with-registry-provider.js
 /**
  * WP dependencies
  */
@@ -38485,7 +38376,7 @@ const withRegistryProvider = (0,external_wp_compose_namespaceObject.createHigher
 }, 'withRegistryProvider');
 /* harmony default export */ const with_registry_provider = (withRegistryProvider);
 
-;// ./node_modules/@wordpress/upload-media/build-module/components/provider/index.js
+;// ./packages/upload-media/build-module/components/provider/index.js
 /**
  * WP dependencies
  */
@@ -38516,7 +38407,7 @@ const MediaUploadProvider = with_registry_provider(props => {
 });
 /* harmony default export */ const provider = (MediaUploadProvider);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/provider/with-registry-provider.js
+;// ./packages/block-editor/build-module/components/provider/with-registry-provider.js
 /**
  * WP dependencies
  */
@@ -38565,8 +38456,7 @@ const with_registry_provider_withRegistryProvider = (0,external_wp_compose_names
 }, 'withRegistryProvider');
 /* harmony default export */ const provider_with_registry_provider = (with_registry_provider_withRegistryProvider);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/provider/use-block-sync.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/provider/use-block-sync.js
 /**
  * WP dependencies
  */
@@ -38834,7 +38724,7 @@ function useBlockSync({
 
 ;// external ["wp","keyboardShortcuts"]
 const external_wp_keyboardShortcuts_namespaceObject = window["wp"]["keyboardShortcuts"];
-;// ./node_modules/@wordpress/block-editor/build-module/components/keyboard-shortcuts/index.js
+;// ./packages/block-editor/build-module/components/keyboard-shortcuts/index.js
 /**
  * WP dependencies
  */
@@ -38852,6 +38742,33 @@ function KeyboardShortcutsRegister() {
   } = (0,external_wp_data_namespaceObject.useDispatch)(external_wp_keyboardShortcuts_namespaceObject.store);
   (0,external_wp_element_namespaceObject.useEffect)(() => {
     registerShortcut({
+      name: 'core/block-editor/copy',
+      category: 'block',
+      description: (0,external_wp_i18n_namespaceObject.__)('Copy the selected block(s).'),
+      keyCombination: {
+        modifier: 'primary',
+        character: 'c'
+      }
+    });
+    registerShortcut({
+      name: 'core/block-editor/cut',
+      category: 'block',
+      description: (0,external_wp_i18n_namespaceObject.__)('Cut the selected block(s).'),
+      keyCombination: {
+        modifier: 'primary',
+        character: 'x'
+      }
+    });
+    registerShortcut({
+      name: 'core/block-editor/paste',
+      category: 'block',
+      description: (0,external_wp_i18n_namespaceObject.__)('Paste the selected block(s).'),
+      keyCombination: {
+        modifier: 'primary',
+        character: 'v'
+      }
+    });
+    registerShortcut({
       name: 'core/block-editor/duplicate',
       category: 'block',
       description: (0,external_wp_i18n_namespaceObject.__)('Duplicate the selected block(s).'),
@@ -38865,8 +38782,8 @@ function KeyboardShortcutsRegister() {
       category: 'block',
       description: (0,external_wp_i18n_namespaceObject.__)('Remove the selected block(s).'),
       keyCombination: {
-        modifier: 'shift',
-        character: 'backspace'
+        modifier: 'access',
+        character: 'z'
       }
     });
     registerShortcut({
@@ -38977,7 +38894,7 @@ function KeyboardShortcutsRegister() {
 KeyboardShortcuts.Register = KeyboardShortcutsRegister;
 /* harmony default export */ const keyboard_shortcuts = (KeyboardShortcuts);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/provider/use-media-upload-settings.js
+;// ./packages/block-editor/build-module/components/provider/use-media-upload-settings.js
 /**
  * WP dependencies
  */
@@ -39000,7 +38917,7 @@ function useMediaUploadSettings(settings = {}) {
 }
 /* harmony default export */ const use_media_upload_settings = (useMediaUploadSettings);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/provider/index.js
+;// ./packages/block-editor/build-module/components/provider/index.js
 /**
  * WP dependencies
  */
@@ -39113,7 +39030,7 @@ const BlockEditorProvider = props => {
 };
 /* harmony default export */ const components_provider = (BlockEditorProvider);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-context/index.js
+;// ./packages/block-editor/build-module/components/block-context/index.js
 /**
  * WP dependencies
  */
@@ -39136,7 +39053,7 @@ const block_context_Context = (0,external_wp_element_namespaceObject.createConte
 /**
  * Component which merges passed value with current consumed block context.
  *
- * @see https://github.com/WordPress/gutenberg/blob/HEAD/packages/block-editor/src/components/block-context/README.md
+ * @see https://github.com/wordpress/gutenberg/blob/HEAD/packages/block-editor/src/components/block-context/README.md
  *
  * @param {BlockContextProviderProps} props
  */
@@ -39156,8 +39073,7 @@ function BlockContextProvider({
 }
 /* harmony default export */ const block_context = (block_context_Context);
 
-;// ./node_modules/@wordpress/block-editor/build-module/utils/block-bindings.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/utils/block-bindings.js
 /**
  * WP dependencies
  */
@@ -39279,7 +39195,7 @@ function replacePatternOverridesDefaultBinding(blockName, bindings) {
  * - `updateBlockBindings`: Updates the value of the bindings connected to block attributes. It can be used to remove a specific binding by setting the value to `undefined`.
  * - `removeAllBlockBindings`: Removes the bindings property of the `metadata` attribute.
  *
- * @since WP 6.7.0 Introduced in core.
+ * @since 6.7.0 Introduced in WP core.
  *
  * @param {?string} clientId Optional block client ID. If not set, it will use the current block client ID from the context.
  *
@@ -39411,8 +39327,7 @@ function useBlockBindingsUtils(clientId) {
   };
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-edit/edit.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/block-edit/edit.js
 /**
  * External dependencies
  */
@@ -39628,7 +39543,7 @@ const EditWithGeneratedProps = props => {
 };
 /* harmony default export */ const block_edit_edit = (EditWithGeneratedProps);
 
-;// ./node_modules/@wordpress/icons/build-module/library/more-vertical.js
+;// ./packages/icons/build-module/library/more-vertical.js
 /**
  * WP dependencies
  */
@@ -39643,8 +39558,7 @@ const moreVertical = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.js
 });
 /* harmony default export */ const more_vertical = (moreVertical);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/warning/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/warning/index.js
 /**
  * External dependencies
  */
@@ -39703,11 +39617,11 @@ function Warning({
 }
 
 /**
- * @see https://github.com/WordPress/gutenberg/blob/HEAD/packages/block-editor/src/components/warning/README.md
+ * @see https://github.com/wordpress/gutenberg/blob/HEAD/packages/block-editor/src/components/warning/README.md
  */
 /* harmony default export */ const warning = (Warning);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-edit/multiple-usage-warning.js
+;// ./packages/block-editor/build-module/components/block-edit/multiple-usage-warning.js
 /**
  * WP dependencies
  */
@@ -39749,14 +39663,14 @@ function MultipleUsageWarning({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-list/private-block-context.js
+;// ./packages/block-editor/build-module/components/block-list/private-block-context.js
 /**
  * WP dependencies
  */
 
 const PrivateBlockContext = (0,external_wp_element_namespaceObject.createContext)({});
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-edit/index.js
+;// ./packages/block-editor/build-module/components/block-edit/index.js
 /**
  * WP dependencies
  */
@@ -39839,7 +39753,7 @@ function BlockEdit({
 
 // EXTERNAL MODULE: ./node_modules/diff/lib/diff/character.js
 var character = __webpack_require__(8021);
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-compare/block-view.js
+;// ./packages/block-editor/build-module/components/block-compare/block-view.js
 /**
  * WP dependencies
  */
@@ -39884,8 +39798,7 @@ function BlockView({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-compare/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/block-compare/index.js
 /**
  * External dependencies
  */
@@ -39956,8 +39869,7 @@ function BlockCompare({
 }
 /* harmony default export */ const block_compare = (BlockCompare);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-list/block-invalid-warning.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/block-list/block-invalid-warning.js
 /**
  * WP dependencies
  */
@@ -40004,7 +39916,10 @@ function BlockInvalidWarning({
   const onCompareClose = (0,external_wp_element_namespaceObject.useCallback)(() => setCompare(false), []);
   const convert = (0,external_wp_element_namespaceObject.useMemo)(() => ({
     toClassic() {
-			return toHTML();
+      const htmlBlock = (0,external_wp_blocks_namespaceObject.createBlock)('core/html', {
+        content: block.originalContent
+      });
+      return replaceBlock(block.clientId, htmlBlock);
     },
     toHTML() {
       const htmlBlock = (0,external_wp_blocks_namespaceObject.createBlock)('core/html', {
@@ -40059,7 +39974,7 @@ function BlockInvalidWarning({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-list/block-crash-warning.js
+;// ./packages/block-editor/build-module/components/block-list/block-crash-warning.js
 /**
  * WP dependencies
  */
@@ -40076,7 +39991,7 @@ const block_crash_warning_warning = /*#__PURE__*/(0,external_ReactJSXRuntime_nam
 });
 /* harmony default export */ const block_crash_warning = (() => block_crash_warning_warning);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-list/block-crash-boundary.js
+;// ./packages/block-editor/build-module/components/block-list/block-crash-boundary.js
 /**
  * WP dependencies
  */
@@ -40104,7 +40019,7 @@ class BlockCrashBoundary extends external_wp_element_namespaceObject.Component {
 
 // EXTERNAL MODULE: ./node_modules/react-autosize-textarea/lib/index.js
 var lib = __webpack_require__(4132);
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-list/block-html.js
+;// ./packages/block-editor/build-module/components/block-list/block-html.js
 /**
  * External dependencies
  */
@@ -40167,24 +40082,4227 @@ function BlockHTML({
 }
 /* harmony default export */ const block_html = (BlockHTML);
 
-;// ./node_modules/@react-spring/rafz/dist/esm/index.js
-var esm_f=esm_l(),esm_n=e=>esm_c(e,esm_f),esm_m=esm_l();esm_n.write=e=>esm_c(e,esm_m);var esm_d=esm_l();esm_n.onStart=e=>esm_c(e,esm_d);var esm_h=esm_l();esm_n.onFrame=e=>esm_c(e,esm_h);var esm_p=esm_l();esm_n.onFinish=e=>esm_c(e,esm_p);var esm_i=[];esm_n.setTimeout=(e,t)=>{let a=esm_n.now()+t,o=()=>{let F=esm_i.findIndex(z=>z.cancel==o);~F&&esm_i.splice(F,1),esm_u-=~F?1:0},s={time:a,handler:e,cancel:o};return esm_i.splice(esm_w(a),0,s),esm_u+=1,esm_v(),s};var esm_w=e=>~(~esm_i.findIndex(t=>t.time>e)||~esm_i.length);esm_n.cancel=e=>{esm_d.delete(e),esm_h.delete(e),esm_p.delete(e),esm_f.delete(e),esm_m.delete(e)};esm_n.sync=e=>{T=!0,esm_n.batchedUpdates(e),T=!1};esm_n.throttle=e=>{let t;function a(){try{e(...t)}finally{t=null}}function o(...s){t=s,esm_n.onStart(a)}return o.handler=e,o.cancel=()=>{esm_d.delete(a),t=null},o};var esm_y=typeof window<"u"?window.requestAnimationFrame:()=>{};esm_n.use=e=>esm_y=e;esm_n.now=typeof performance<"u"?()=>performance.now():Date.now;esm_n.batchedUpdates=e=>e();esm_n.catch=console.error;esm_n.frameLoop="always";esm_n.advance=()=>{esm_n.frameLoop!=="demand"?console.warn("Cannot call the manual advancement of rafz whilst frameLoop is not set as demand"):esm_x()};var esm_r=-1,esm_u=0,T=!1;function esm_c(e,t){T?(t.delete(e),e(0)):(t.add(e),esm_v())}function esm_v(){esm_r<0&&(esm_r=0,esm_n.frameLoop!=="demand"&&esm_y(esm_b))}function esm_R(){esm_r=-1}function esm_b(){~esm_r&&(esm_y(esm_b),esm_n.batchedUpdates(esm_x))}function esm_x(){let e=esm_r;esm_r=esm_n.now();let t=esm_w(esm_r);if(t&&(Q(esm_i.splice(0,t),a=>a.handler()),esm_u-=t),!esm_u){esm_R();return}esm_d.flush(),esm_f.flush(e?Math.min(64,esm_r-e):16.667),esm_h.flush(),esm_m.flush(),esm_p.flush()}function esm_l(){let e=new Set,t=e;return{add(a){esm_u+=t==e&&!e.has(a)?1:0,e.add(a)},delete(a){return esm_u-=t==e&&e.has(a)?1:0,e.delete(a)},flush(a){t.size&&(e=new Set,esm_u-=t.size,Q(t,o=>o(a)&&e.add(o)),esm_u+=e.size,t=e)}}}function Q(e,t){e.forEach(a=>{try{t(a)}catch(o){esm_n.catch(o)}})}var esm_S={count(){return esm_u},isRunning(){return esm_r>=0},clear(){esm_r=-1,esm_i=[],esm_d=esm_l(),esm_f=esm_l(),esm_h=esm_l(),esm_m=esm_l(),esm_p=esm_l(),esm_u=0}};
+;// ./node_modules/@react-spring/rafz/dist/react-spring-rafz.esm.js
+let updateQueue = makeQueue();
+const raf = fn => schedule(fn, updateQueue);
+let writeQueue = makeQueue();
 
-;// ./node_modules/@react-spring/shared/dist/esm/index.js
-var ze=Object.defineProperty;var Le=(e,t)=>{for(var r in t)ze(e,r,{get:t[r],enumerable:!0})};var dist_esm_p={};Le(dist_esm_p,{assign:()=>U,colors:()=>dist_esm_c,createStringInterpolator:()=>esm_k,skipAnimation:()=>ee,to:()=>J,willAdvance:()=>dist_esm_S});function Y(){}var mt=(e,t,r)=>Object.defineProperty(e,t,{value:r,writable:!0,configurable:!0}),dist_esm_l={arr:Array.isArray,obj:e=>!!e&&e.constructor.name==="Object",fun:e=>typeof e=="function",str:e=>typeof e=="string",num:e=>typeof e=="number",und:e=>e===void 0};function bt(e,t){if(dist_esm_l.arr(e)){if(!dist_esm_l.arr(t)||e.length!==t.length)return!1;for(let r=0;r<e.length;r++)if(e[r]!==t[r])return!1;return!0}return e===t}var esm_Ve=(e,t)=>e.forEach(t);function xt(e,t,r){if(dist_esm_l.arr(e)){for(let n=0;n<e.length;n++)t.call(r,e[n],`${n}`);return}for(let n in e)e.hasOwnProperty(n)&&t.call(r,e[n],n)}var ht=e=>dist_esm_l.und(e)?[]:dist_esm_l.arr(e)?e:[e];function Pe(e,t){if(e.size){let r=Array.from(e);e.clear(),esm_Ve(r,t)}}var yt=(e,...t)=>Pe(e,r=>r(...t)),dist_esm_h=()=>typeof window>"u"||!window.navigator||/ServerSideRendering|^Deno\//.test(window.navigator.userAgent);var esm_k,J,dist_esm_c=null,ee=!1,dist_esm_S=Y,U=e=>{e.to&&(J=e.to),e.now&&(esm_n.now=e.now),e.colors!==void 0&&(dist_esm_c=e.colors),e.skipAnimation!=null&&(ee=e.skipAnimation),e.createStringInterpolator&&(esm_k=e.createStringInterpolator),e.requestAnimationFrame&&esm_n.use(e.requestAnimationFrame),e.batchedUpdates&&(esm_n.batchedUpdates=e.batchedUpdates),e.willAdvance&&(dist_esm_S=e.willAdvance),e.frameLoop&&(esm_n.frameLoop=e.frameLoop)};var esm_E=new Set,dist_esm_u=[],esm_H=[],A=0,qe={get idle(){return!esm_E.size&&!dist_esm_u.length},start(e){A>e.priority?(esm_E.add(e),esm_n.onStart($e)):(te(e),esm_n(B))},advance:B,sort(e){if(A)esm_n.onFrame(()=>qe.sort(e));else{let t=dist_esm_u.indexOf(e);~t&&(dist_esm_u.splice(t,1),re(e))}},clear(){dist_esm_u=[],esm_E.clear()}};function $e(){esm_E.forEach(te),esm_E.clear(),esm_n(B)}function te(e){dist_esm_u.includes(e)||re(e)}function re(e){dist_esm_u.splice(Ge(dist_esm_u,t=>t.priority>e.priority),0,e)}function B(e){let t=esm_H;for(let r=0;r<dist_esm_u.length;r++){let n=dist_esm_u[r];A=n.priority,n.idle||(dist_esm_S(n),n.advance(e),n.idle||t.push(n))}return A=0,esm_H=dist_esm_u,esm_H.length=0,dist_esm_u=t,dist_esm_u.length>0}function Ge(e,t){let r=e.findIndex(t);return r<0?e.length:r}var ne=(e,t,r)=>Math.min(Math.max(r,e),t);var It={transparent:0,aliceblue:4042850303,antiquewhite:4209760255,aqua:16777215,aquamarine:2147472639,azure:4043309055,beige:4126530815,bisque:4293182719,black:255,blanchedalmond:4293643775,blue:65535,blueviolet:2318131967,brown:2771004159,burlywood:3736635391,burntsienna:3934150143,cadetblue:1604231423,chartreuse:2147418367,chocolate:3530104575,coral:4286533887,cornflowerblue:1687547391,cornsilk:4294499583,crimson:3692313855,cyan:16777215,darkblue:35839,darkcyan:9145343,darkgoldenrod:3095792639,darkgray:2846468607,darkgreen:6553855,darkgrey:2846468607,darkkhaki:3182914559,darkmagenta:2332068863,darkolivegreen:1433087999,darkorange:4287365375,darkorchid:2570243327,darkred:2332033279,darksalmon:3918953215,darkseagreen:2411499519,darkslateblue:1211993087,darkslategray:793726975,darkslategrey:793726975,darkturquoise:13554175,darkviolet:2483082239,deeppink:4279538687,deepskyblue:12582911,dimgray:1768516095,dimgrey:1768516095,dodgerblue:512819199,firebrick:2988581631,floralwhite:4294635775,forestgreen:579543807,fuchsia:4278255615,gainsboro:3705462015,ghostwhite:4177068031,gold:4292280575,goldenrod:3668254975,gray:2155905279,green:8388863,greenyellow:2919182335,grey:2155905279,honeydew:4043305215,hotpink:4285117695,indianred:3445382399,indigo:1258324735,ivory:4294963455,khaki:4041641215,lavender:3873897215,lavenderblush:4293981695,lawngreen:2096890111,lemonchiffon:4294626815,lightblue:2916673279,lightcoral:4034953471,lightcyan:3774873599,lightgoldenrodyellow:4210742015,lightgray:3553874943,lightgreen:2431553791,lightgrey:3553874943,lightpink:4290167295,lightsalmon:4288707327,lightseagreen:548580095,lightskyblue:2278488831,lightslategray:2005441023,lightslategrey:2005441023,lightsteelblue:2965692159,lightyellow:4294959359,lime:16711935,limegreen:852308735,linen:4210091775,magenta:4278255615,maroon:2147483903,mediumaquamarine:1724754687,mediumblue:52735,mediumorchid:3126187007,mediumpurple:2473647103,mediumseagreen:1018393087,mediumslateblue:2070474495,mediumspringgreen:16423679,mediumturquoise:1221709055,mediumvioletred:3340076543,midnightblue:421097727,mintcream:4127193855,mistyrose:4293190143,moccasin:4293178879,navajowhite:4292783615,navy:33023,oldlace:4260751103,olive:2155872511,olivedrab:1804477439,orange:4289003775,orangered:4282712319,orchid:3664828159,palegoldenrod:4008225535,palegreen:2566625535,paleturquoise:2951671551,palevioletred:3681588223,papayawhip:4293907967,peachpuff:4292524543,peru:3448061951,pink:4290825215,plum:3718307327,powderblue:2967529215,purple:2147516671,rebeccapurple:1714657791,red:4278190335,rosybrown:3163525119,royalblue:1097458175,saddlebrown:2336560127,salmon:4202722047,sandybrown:4104413439,seagreen:780883967,seashell:4294307583,sienna:2689740287,silver:3233857791,skyblue:2278484991,slateblue:1784335871,slategray:1887473919,slategrey:1887473919,snow:4294638335,springgreen:16744447,steelblue:1182971135,tan:3535047935,teal:8421631,thistle:3636451583,tomato:4284696575,turquoise:1088475391,violet:4001558271,wheat:4125012991,white:4294967295,whitesmoke:4126537215,yellow:4294902015,yellowgreen:2597139199};var dist_esm_d="[-+]?\\d*\\.?\\d+",esm_M=dist_esm_d+"%";function C(...e){return"\\(\\s*("+e.join(")\\s*,\\s*(")+")\\s*\\)"}var oe=new RegExp("rgb"+C(dist_esm_d,dist_esm_d,dist_esm_d)),fe=new RegExp("rgba"+C(dist_esm_d,dist_esm_d,dist_esm_d,dist_esm_d)),ae=new RegExp("hsl"+C(dist_esm_d,esm_M,esm_M)),ie=new RegExp("hsla"+C(dist_esm_d,esm_M,esm_M,dist_esm_d)),se=/^#([0-9a-fA-F]{1})([0-9a-fA-F]{1})([0-9a-fA-F]{1})$/,ue=/^#([0-9a-fA-F]{1})([0-9a-fA-F]{1})([0-9a-fA-F]{1})([0-9a-fA-F]{1})$/,le=/^#([0-9a-fA-F]{6})$/,esm_ce=/^#([0-9a-fA-F]{8})$/;function be(e){let t;return typeof e=="number"?e>>>0===e&&e>=0&&e<=4294967295?e:null:(t=le.exec(e))?parseInt(t[1]+"ff",16)>>>0:dist_esm_c&&dist_esm_c[e]!==void 0?dist_esm_c[e]:(t=oe.exec(e))?(dist_esm_y(t[1])<<24|dist_esm_y(t[2])<<16|dist_esm_y(t[3])<<8|255)>>>0:(t=fe.exec(e))?(dist_esm_y(t[1])<<24|dist_esm_y(t[2])<<16|dist_esm_y(t[3])<<8|me(t[4]))>>>0:(t=se.exec(e))?parseInt(t[1]+t[1]+t[2]+t[2]+t[3]+t[3]+"ff",16)>>>0:(t=esm_ce.exec(e))?parseInt(t[1],16)>>>0:(t=ue.exec(e))?parseInt(t[1]+t[1]+t[2]+t[2]+t[3]+t[3]+t[4]+t[4],16)>>>0:(t=ae.exec(e))?(de(esm_pe(t[1]),esm_z(t[2]),esm_z(t[3]))|255)>>>0:(t=ie.exec(e))?(de(esm_pe(t[1]),esm_z(t[2]),esm_z(t[3]))|me(t[4]))>>>0:null}function esm_j(e,t,r){return r<0&&(r+=1),r>1&&(r-=1),r<1/6?e+(t-e)*6*r:r<1/2?t:r<2/3?e+(t-e)*(2/3-r)*6:e}function de(e,t,r){let n=r<.5?r*(1+t):r+t-r*t,f=2*r-n,o=esm_j(f,n,e+1/3),i=esm_j(f,n,e),s=esm_j(f,n,e-1/3);return Math.round(o*255)<<24|Math.round(i*255)<<16|Math.round(s*255)<<8}function dist_esm_y(e){let t=parseInt(e,10);return t<0?0:t>255?255:t}function esm_pe(e){return(parseFloat(e)%360+360)%360/360}function me(e){let t=parseFloat(e);return t<0?0:t>1?255:Math.round(t*255)}function esm_z(e){let t=parseFloat(e);return t<0?0:t>100?1:t/100}function D(e){let t=be(e);if(t===null)return e;t=t||0;let r=(t&4278190080)>>>24,n=(t&16711680)>>>16,f=(t&65280)>>>8,o=(t&255)/255;return`rgba(${r}, ${n}, ${f}, ${o})`}var W=(e,t,r)=>{if(dist_esm_l.fun(e))return e;if(dist_esm_l.arr(e))return W({range:e,output:t,extrapolate:r});if(dist_esm_l.str(e.output[0]))return esm_k(e);let n=e,f=n.output,o=n.range||[0,1],i=n.extrapolateLeft||n.extrapolate||"extend",s=n.extrapolateRight||n.extrapolate||"extend",x=n.easing||(a=>a);return a=>{let F=He(a,o);return Ue(a,o[F],o[F+1],f[F],f[F+1],x,i,s,n.map)}};function Ue(e,t,r,n,f,o,i,s,x){let a=x?x(e):e;if(a<t){if(i==="identity")return a;i==="clamp"&&(a=t)}if(a>r){if(s==="identity")return a;s==="clamp"&&(a=r)}return n===f?n:t===r?e<=t?n:f:(t===-1/0?a=-a:r===1/0?a=a-t:a=(a-t)/(r-t),a=o(a),n===-1/0?a=-a:f===1/0?a=a+n:a=a*(f-n)+n,a)}function He(e,t){for(var r=1;r<t.length-1&&!(t[r]>=e);++r);return r-1}var Be=(e,t="end")=>r=>{r=t==="end"?Math.min(r,.999):Math.max(r,.001);let n=r*e,f=t==="end"?Math.floor(n):Math.ceil(n);return ne(0,1,f/e)},P=1.70158,L=P*1.525,xe=P+1,he=2*Math.PI/3,ye=2*Math.PI/4.5,V=e=>e<1/2.75?7.5625*e*e:e<2/2.75?7.5625*(e-=1.5/2.75)*e+.75:e<2.5/2.75?7.5625*(e-=2.25/2.75)*e+.9375:7.5625*(e-=2.625/2.75)*e+.984375,Lt={linear:e=>e,easeInQuad:e=>e*e,easeOutQuad:e=>1-(1-e)*(1-e),easeInOutQuad:e=>e<.5?2*e*e:1-Math.pow(-2*e+2,2)/2,easeInCubic:e=>e*e*e,easeOutCubic:e=>1-Math.pow(1-e,3),easeInOutCubic:e=>e<.5?4*e*e*e:1-Math.pow(-2*e+2,3)/2,easeInQuart:e=>e*e*e*e,easeOutQuart:e=>1-Math.pow(1-e,4),easeInOutQuart:e=>e<.5?8*e*e*e*e:1-Math.pow(-2*e+2,4)/2,easeInQuint:e=>e*e*e*e*e,easeOutQuint:e=>1-Math.pow(1-e,5),easeInOutQuint:e=>e<.5?16*e*e*e*e*e:1-Math.pow(-2*e+2,5)/2,easeInSine:e=>1-Math.cos(e*Math.PI/2),easeOutSine:e=>Math.sin(e*Math.PI/2),easeInOutSine:e=>-(Math.cos(Math.PI*e)-1)/2,easeInExpo:e=>e===0?0:Math.pow(2,10*e-10),easeOutExpo:e=>e===1?1:1-Math.pow(2,-10*e),easeInOutExpo:e=>e===0?0:e===1?1:e<.5?Math.pow(2,20*e-10)/2:(2-Math.pow(2,-20*e+10))/2,easeInCirc:e=>1-Math.sqrt(1-Math.pow(e,2)),easeOutCirc:e=>Math.sqrt(1-Math.pow(e-1,2)),easeInOutCirc:e=>e<.5?(1-Math.sqrt(1-Math.pow(2*e,2)))/2:(Math.sqrt(1-Math.pow(-2*e+2,2))+1)/2,easeInBack:e=>xe*e*e*e-P*e*e,easeOutBack:e=>1+xe*Math.pow(e-1,3)+P*Math.pow(e-1,2),easeInOutBack:e=>e<.5?Math.pow(2*e,2)*((L+1)*2*e-L)/2:(Math.pow(2*e-2,2)*((L+1)*(e*2-2)+L)+2)/2,easeInElastic:e=>e===0?0:e===1?1:-Math.pow(2,10*e-10)*Math.sin((e*10-10.75)*he),easeOutElastic:e=>e===0?0:e===1?1:Math.pow(2,-10*e)*Math.sin((e*10-.75)*he)+1,easeInOutElastic:e=>e===0?0:e===1?1:e<.5?-(Math.pow(2,20*e-10)*Math.sin((20*e-11.125)*ye))/2:Math.pow(2,-20*e+10)*Math.sin((20*e-11.125)*ye)/2+1,easeInBounce:e=>1-V(1-e),easeOutBounce:V,easeInOutBounce:e=>e<.5?(1-V(1-2*e))/2:(1+V(2*e-1))/2,steps:Be};var esm_g=Symbol.for("FluidValue.get"),dist_esm_m=Symbol.for("FluidValue.observers");var Pt=e=>Boolean(e&&e[esm_g]),ve=e=>e&&e[esm_g]?e[esm_g]():e,esm_qt=e=>e[dist_esm_m]||null;function je(e,t){e.eventObserved?e.eventObserved(t):e(t)}function $t(e,t){let r=e[dist_esm_m];r&&r.forEach(n=>{je(n,t)})}var esm_ge=class{[esm_g];[dist_esm_m];constructor(t){if(!t&&!(t=this.get))throw Error("Unknown getter");De(this,t)}},De=(e,t)=>Ee(e,esm_g,t);function Gt(e,t){if(e[esm_g]){let r=e[dist_esm_m];r||Ee(e,dist_esm_m,r=new Set),r.has(t)||(r.add(t),e.observerAdded&&e.observerAdded(r.size,t))}return t}function Qt(e,t){let r=e[dist_esm_m];if(r&&r.has(t)){let n=r.size-1;n?r.delete(t):e[dist_esm_m]=null,e.observerRemoved&&e.observerRemoved(n,t)}}var Ee=(e,t,r)=>Object.defineProperty(e,t,{value:r,writable:!0,configurable:!0});var O=/[+\-]?(?:0|[1-9]\d*)(?:\.\d*)?(?:[eE][+\-]?\d+)?/g,esm_Oe=/(#(?:[0-9a-f]{2}){2,4}|(#[0-9a-f]{3})|(rgb|hsl)a?\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\))/gi,K=new RegExp(`(${O.source})(%|[a-z]+)`,"i"),we=/rgba\(([0-9\.-]+), ([0-9\.-]+), ([0-9\.-]+), ([0-9\.-]+)\)/gi,dist_esm_b=/var\((--[a-zA-Z0-9-_]+),? ?([a-zA-Z0-9 ()%#.,-]+)?\)/;var esm_N=e=>{let[t,r]=We(e);if(!t||dist_esm_h())return e;let n=window.getComputedStyle(document.documentElement).getPropertyValue(t);if(n)return n.trim();if(r&&r.startsWith("--")){let f=window.getComputedStyle(document.documentElement).getPropertyValue(r);return f||e}else{if(r&&dist_esm_b.test(r))return esm_N(r);if(r)return r}return e},We=e=>{let t=dist_esm_b.exec(e);if(!t)return[,];let[,r,n]=t;return[r,n]};var _,esm_Ke=(e,t,r,n,f)=>`rgba(${Math.round(t)}, ${Math.round(r)}, ${Math.round(n)}, ${f})`,Xt=e=>{_||(_=dist_esm_c?new RegExp(`(${Object.keys(dist_esm_c).join("|")})(?!\\w)`,"g"):/^\b$/);let t=e.output.map(o=>ve(o).replace(dist_esm_b,esm_N).replace(esm_Oe,D).replace(_,D)),r=t.map(o=>o.match(O).map(Number)),f=r[0].map((o,i)=>r.map(s=>{if(!(i in s))throw Error('The arity of each "output" value must be equal');return s[i]})).map(o=>W({...e,output:o}));return o=>{let i=!K.test(t[0])&&t.find(x=>K.test(x))?.replace(O,""),s=0;return t[0].replace(O,()=>`${f[s++](o)}${i||""}`).replace(we,esm_Ke)}};var Z="react-spring: ",Te=e=>{let t=e,r=!1;if(typeof t!="function")throw new TypeError(`${Z}once requires a function parameter`);return(...n)=>{r||(t(...n),r=!0)}},Ne=Te(console.warn);function Jt(){Ne(`${Z}The "interpolate" function is deprecated in v9 (use "to" instead)`)}var _e=Te(console.warn);function er(){_e(`${Z}Directly calling start instead of using the api object is deprecated in v9 (use ".start" instead), this will be removed in later 0.X.0 versions`)}function esm_or(e){return dist_esm_l.str(e)&&(e[0]=="#"||/\d/.test(e)||!dist_esm_h()&&dist_esm_b.test(e)||e in(dist_esm_c||{}))}var dist_esm_v,q=new WeakMap,Ze=e=>e.forEach(({target:t,contentRect:r})=>q.get(t)?.forEach(n=>n(r)));function Fe(e,t){dist_esm_v||typeof ResizeObserver<"u"&&(dist_esm_v=new ResizeObserver(Ze));let r=q.get(t);return r||(r=new Set,q.set(t,r)),r.add(e),dist_esm_v&&dist_esm_v.observe(t),()=>{let n=q.get(t);!n||(n.delete(e),!n.size&&dist_esm_v&&dist_esm_v.unobserve(t))}}var esm_$=new Set,dist_esm_w,esm_Xe=()=>{let e=()=>{esm_$.forEach(t=>t({width:window.innerWidth,height:window.innerHeight}))};return window.addEventListener("resize",e),()=>{window.removeEventListener("resize",e)}},Ie=e=>(esm_$.add(e),dist_esm_w||(dist_esm_w=esm_Xe()),()=>{esm_$.delete(e),!esm_$.size&&dist_esm_w&&(dist_esm_w(),dist_esm_w=void 0)});var ke=(e,{container:t=document.documentElement}={})=>t===document.documentElement?Ie(e):Fe(e,t);var Se=(e,t,r)=>t-e===0?1:(r-e)/(t-e);var esm_Ye={x:{length:"Width",position:"Left"},y:{length:"Height",position:"Top"}},esm_G=class{callback;container;info;constructor(t,r){this.callback=t,this.container=r,this.info={time:0,x:this.createAxis(),y:this.createAxis()}}createAxis=()=>({current:0,progress:0,scrollLength:0});updateAxis=t=>{let r=this.info[t],{length:n,position:f}=esm_Ye[t];r.current=this.container[`scroll${f}`],r.scrollLength=this.container["scroll"+n]-this.container["client"+n],r.progress=Se(0,r.scrollLength,r.current)};update=()=>{this.updateAxis("x"),this.updateAxis("y")};sendEvent=()=>{this.callback(this.info)};advance=()=>{this.update(),this.sendEvent()}};var esm_T=new WeakMap,Ae=new WeakMap,X=new WeakMap,Me=e=>e===document.documentElement?window:e,yr=(e,{container:t=document.documentElement}={})=>{let r=X.get(t);r||(r=new Set,X.set(t,r));let n=new esm_G(e,t);if(r.add(n),!esm_T.has(t)){let o=()=>(r?.forEach(s=>s.advance()),!0);esm_T.set(t,o);let i=Me(t);window.addEventListener("resize",o,{passive:!0}),t!==document.documentElement&&Ae.set(t,ke(o,{container:t})),i.addEventListener("scroll",o,{passive:!0})}let f=esm_T.get(t);return Re(f),()=>{Re.cancel(f);let o=X.get(t);if(!o||(o.delete(n),o.size))return;let i=esm_T.get(t);esm_T.delete(t),i&&(Me(t).removeEventListener("scroll",i),window.removeEventListener("resize",i),Ae.get(t)?.())}};function Er(e){let t=Je(null);return t.current===null&&(t.current=e()),t.current}var esm_Q=dist_esm_h()?external_React_.useEffect:external_React_.useLayoutEffect;var Ce=()=>{let e=(0,external_React_.useRef)(!1);return esm_Q(()=>(e.current=!0,()=>{e.current=!1}),[]),e};function Mr(){let e=(0,external_React_.useState)()[1],t=Ce();return()=>{t.current&&e(Math.random())}}function Lr(e,t){let[r]=(0,external_React_.useState)(()=>({inputs:t,result:e()})),n=(0,external_React_.useRef)(),f=n.current,o=f;return o?Boolean(t&&o.inputs&&it(t,o.inputs))||(o={inputs:t,result:e()}):o=r,(0,external_React_.useEffect)(()=>{n.current=o,f==r&&(r.inputs=r.result=void 0)},[o]),o.result}function it(e,t){if(e.length!==t.length)return!1;for(let r=0;r<e.length;r++)if(e[r]!==t[r])return!1;return!0}var $r=e=>(0,external_React_.useEffect)(e,ut),ut=[];function Ur(e){let t=ct();return lt(()=>{t.current=e}),t.current}var Wr=()=>{let[e,t]=dt(null);return esm_Q(()=>{let r=window.matchMedia("(prefers-reduced-motion)"),n=f=>{t(f.matches),U({skipAnimation:f.matches})};return n(r),r.addEventListener("change",n),()=>{r.removeEventListener("change",n)}},[]),e};
+raf.write = fn => schedule(fn, writeQueue);
 
-;// ./node_modules/@react-spring/animated/dist/esm/index.js
-var animated_dist_esm_h=Symbol.for("Animated:node"),animated_dist_esm_v=e=>!!e&&e[animated_dist_esm_h]===e,dist_esm_k=e=>e&&e[animated_dist_esm_h],esm_D=(e,t)=>mt(e,animated_dist_esm_h,t),F=e=>e&&e[animated_dist_esm_h]&&e[animated_dist_esm_h].getPayload(),animated_dist_esm_c=class{payload;constructor(){esm_D(this,this)}getPayload(){return this.payload||[]}};var animated_dist_esm_l=class extends animated_dist_esm_c{constructor(r){super();this._value=r;dist_esm_l.num(this._value)&&(this.lastPosition=this._value)}done=!0;elapsedTime;lastPosition;lastVelocity;v0;durationProgress=0;static create(r){return new animated_dist_esm_l(r)}getPayload(){return[this]}getValue(){return this._value}setValue(r,n){return dist_esm_l.num(r)&&(this.lastPosition=r,n&&(r=Math.round(r/n)*n,this.done&&(this.lastPosition=r))),this._value===r?!1:(this._value=r,!0)}reset(){let{done:r}=this;this.done=!1,dist_esm_l.num(this._value)&&(this.elapsedTime=0,this.durationProgress=0,this.lastPosition=this._value,r&&(this.lastVelocity=null),this.v0=null)}};var animated_dist_esm_d=class extends animated_dist_esm_l{_string=null;_toString;constructor(t){super(0),this._toString=W({output:[t,t]})}static create(t){return new animated_dist_esm_d(t)}getValue(){let t=this._string;return t??(this._string=this._toString(this._value))}setValue(t){if(dist_esm_l.str(t)){if(t==this._string)return!1;this._string=t,this._value=1}else if(super.setValue(t))this._string=null;else return!1;return!0}reset(t){t&&(this._toString=W({output:[this.getValue(),t]})),this._value=0,super.reset()}};var dist_esm_f={dependencies:null};var animated_dist_esm_u=class extends animated_dist_esm_c{constructor(r){super();this.source=r;this.setValue(r)}getValue(r){let n={};return xt(this.source,(a,i)=>{animated_dist_esm_v(a)?n[i]=a.getValue(r):Pt(a)?n[i]=ve(a):r||(n[i]=a)}),n}setValue(r){this.source=r,this.payload=this._makePayload(r)}reset(){this.payload&&esm_Ve(this.payload,r=>r.reset())}_makePayload(r){if(r){let n=new Set;return xt(r,this._addToPayload,n),Array.from(n)}}_addToPayload(r){dist_esm_f.dependencies&&Pt(r)&&dist_esm_f.dependencies.add(r);let n=F(r);n&&esm_Ve(n,a=>this.add(a))}};var animated_dist_esm_y=class extends animated_dist_esm_u{constructor(t){super(t)}static create(t){return new animated_dist_esm_y(t)}getValue(){return this.source.map(t=>t.getValue())}setValue(t){let r=this.getPayload();return t.length==r.length?r.map((n,a)=>n.setValue(t[a])).some(Boolean):(super.setValue(t.map(dist_esm_z)),!0)}};function dist_esm_z(e){return(esm_or(e)?animated_dist_esm_d:animated_dist_esm_l).create(e)}function esm_Le(e){let t=dist_esm_k(e);return t?t.constructor:dist_esm_l.arr(e)?animated_dist_esm_y:esm_or(e)?animated_dist_esm_d:animated_dist_esm_l}var dist_esm_x=(e,t)=>{let r=!dist_esm_l.fun(e)||e.prototype&&e.prototype.isReactComponent;return (0,external_React_.forwardRef)((n,a)=>{let i=(0,external_React_.useRef)(null),o=r&&(0,external_React_.useCallback)(s=>{i.current=esm_ae(a,s)},[a]),[m,T]=esm_ne(n,t),W=Mr(),P=()=>{let s=i.current;if(r&&!s)return;(s?t.applyAnimatedValues(s,m.getValue(!0)):!1)===!1&&W()},_=new animated_dist_esm_b(P,T),p=(0,external_React_.useRef)();esm_Q(()=>(p.current=_,esm_Ve(T,s=>Gt(s,_)),()=>{p.current&&(esm_Ve(p.current.deps,s=>Qt(s,p.current)),esm_n.cancel(p.current.update))})),(0,external_React_.useEffect)(P,[]),$r(()=>()=>{let s=p.current;esm_Ve(s.deps,S=>Qt(S,s))});let $=t.getComponentProps(m.getValue());return external_React_.createElement(e,{...$,ref:o})})},animated_dist_esm_b=class{constructor(t,r){this.update=t;this.deps=r}eventObserved(t){t.type=="change"&&esm_n.write(this.update)}};function esm_ne(e,t){let r=new Set;return dist_esm_f.dependencies=r,e.style&&(e={...e,style:t.createAnimatedStyle(e.style)}),e=new animated_dist_esm_u(e),dist_esm_f.dependencies=null,[e,r]}function esm_ae(e,t){return e&&(dist_esm_l.fun(e)?e(t):e.current=t),t}var dist_esm_j=Symbol.for("AnimatedComponent"),dist_esm_Ke=(e,{applyAnimatedValues:t=()=>!1,createAnimatedStyle:r=a=>new animated_dist_esm_u(a),getComponentProps:n=a=>a}={})=>{let a={applyAnimatedValues:t,createAnimatedStyle:r,getComponentProps:n},i=o=>{let m=esm_I(o)||"Anonymous";return dist_esm_l.str(o)?o=i[o]||(i[o]=dist_esm_x(o,a)):o=o[dist_esm_j]||(o[dist_esm_j]=dist_esm_x(o,a)),o.displayName=`Animated(${m})`,o};return xt(e,(o,m)=>{dist_esm_l.arr(e)&&(m=esm_I(o)),i[m]=i(o)}),{animated:i}},esm_I=e=>dist_esm_l.str(e)?e:e&&dist_esm_l.str(e.displayName)?e.displayName:dist_esm_l.fun(e)&&e.name||null;
+let onStartQueue = makeQueue();
 
-;// ./node_modules/@react-spring/core/dist/esm/index.js
-function dist_esm_I(t,...e){return dist_esm_l.fun(t)?t(...e):t}var esm_te=(t,e)=>t===!0||!!(e&&t&&(dist_esm_l.fun(t)?t(e):ht(t).includes(e))),et=(t,e)=>dist_esm_l.obj(t)?e&&t[e]:t;var esm_ke=(t,e)=>t.default===!0?t[e]:t.default?t.default[e]:void 0,nn=t=>t,dist_esm_ne=(t,e=nn)=>{let n=rn;t.default&&t.default!==!0&&(t=t.default,n=Object.keys(t));let r={};for(let o of n){let s=e(t[o],o);dist_esm_l.und(s)||(r[o]=s)}return r},rn=["config","onProps","onStart","onChange","onPause","onResume","onRest"],on={config:1,from:1,to:1,ref:1,loop:1,reset:1,pause:1,cancel:1,reverse:1,immediate:1,default:1,delay:1,onProps:1,onStart:1,onChange:1,onPause:1,onResume:1,onRest:1,onResolve:1,items:1,trail:1,sort:1,expires:1,initial:1,enter:1,update:1,leave:1,children:1,onDestroyed:1,keys:1,callId:1,parentId:1};function sn(t){let e={},n=0;if(xt(t,(r,o)=>{on[o]||(e[o]=r,n++)}),n)return e}function esm_de(t){let e=sn(t);if(e){let n={to:e};return xt(t,(r,o)=>o in e||(n[o]=r)),n}return{...t}}function esm_me(t){return t=ve(t),dist_esm_l.arr(t)?t.map(esm_me):esm_or(t)?dist_esm_p.createStringInterpolator({range:[0,1],output:[t,t]})(1):t}function esm_Ue(t){for(let e in t)return!0;return!1}function esm_Ee(t){return dist_esm_l.fun(t)||dist_esm_l.arr(t)&&dist_esm_l.obj(t[0])}function esm_xe(t,e){t.ref?.delete(t),e?.delete(t)}function esm_he(t,e){e&&t.ref!==e&&(t.ref?.delete(t),e.add(t),t.ref=e)}function wr(t,e,n=1e3){an(()=>{if(e){let r=0;ge(t,(o,s)=>{let a=o.current;if(a.length){let i=n*e[s];isNaN(i)?i=r:r=i,ge(a,u=>{ge(u.queue,p=>{let f=p.delay;p.delay=d=>i+dist_esm_I(f||0,d)})}),o.start()}})}else{let r=Promise.resolve();ge(t,o=>{let s=o.current;if(s.length){let a=s.map(i=>{let u=i.queue;return i.queue=[],u});r=r.then(()=>(ge(s,(i,u)=>ge(a[u]||[],p=>i.queue.push(p))),Promise.all(o.start())))}})}})}var esm_mt={default:{tension:170,friction:26},gentle:{tension:120,friction:14},wobbly:{tension:180,friction:12},stiff:{tension:210,friction:20},slow:{tension:280,friction:60},molasses:{tension:280,friction:120}};var tt={...esm_mt.default,mass:1,damping:1,easing:Lt.linear,clamp:!1},esm_we=class{tension;friction;frequency;damping;mass;velocity=0;restVelocity;precision;progress;duration;easing;clamp;bounce;decay;round;constructor(){Object.assign(this,tt)}};function gt(t,e,n){n&&(n={...n},esm_ht(n,e),e={...n,...e}),esm_ht(t,e),Object.assign(t,e);for(let a in tt)t[a]==null&&(t[a]=tt[a]);let{mass:r,frequency:o,damping:s}=t;return dist_esm_l.und(o)||(o<.01&&(o=.01),s<0&&(s=0),t.tension=Math.pow(2*Math.PI/o,2)*r,t.friction=4*Math.PI*s*r/o),t}function esm_ht(t,e){if(!dist_esm_l.und(e.decay))t.duration=void 0;else{let n=!dist_esm_l.und(e.tension)||!dist_esm_l.und(e.friction);(n||!dist_esm_l.und(e.frequency)||!dist_esm_l.und(e.damping)||!dist_esm_l.und(e.mass))&&(t.duration=void 0,t.decay=void 0),n&&(t.frequency=void 0)}}var esm_yt=[],dist_esm_Le=class{changed=!1;values=esm_yt;toValues=null;fromValues=esm_yt;to;from;config=new esm_we;immediate=!1};function esm_Me(t,{key:e,props:n,defaultProps:r,state:o,actions:s}){return new Promise((a,i)=>{let u,p,f=esm_te(n.cancel??r?.cancel,e);if(f)b();else{dist_esm_l.und(n.pause)||(o.paused=esm_te(n.pause,e));let c=r?.pause;c!==!0&&(c=o.paused||esm_te(c,e)),u=dist_esm_I(n.delay||0,e),c?(o.resumeQueue.add(m),s.pause()):(s.resume(),m())}function d(){o.resumeQueue.add(m),o.timeouts.delete(p),p.cancel(),u=p.time-esm_n.now()}function m(){u>0&&!dist_esm_p.skipAnimation?(o.delayed=!0,p=esm_n.setTimeout(b,u),o.pauseQueue.add(d),o.timeouts.add(p)):b()}function b(){o.delayed&&(o.delayed=!1),o.pauseQueue.delete(d),o.timeouts.delete(p),t<=(o.cancelId||0)&&(f=!0);try{s.start({...n,callId:t,cancel:f},a)}catch(c){i(c)}}})}var esm_be=(t,e)=>e.length==1?e[0]:e.some(n=>n.cancelled)?esm_q(t.get()):e.every(n=>n.noop)?nt(t.get()):dist_esm_E(t.get(),e.every(n=>n.finished)),nt=t=>({value:t,noop:!0,finished:!0,cancelled:!1}),dist_esm_E=(t,e,n=!1)=>({value:t,finished:e,cancelled:n}),esm_q=t=>({value:t,cancelled:!0,finished:!1});function esm_De(t,e,n,r){let{callId:o,parentId:s,onRest:a}=e,{asyncTo:i,promise:u}=n;return!s&&t===i&&!e.reset?u:n.promise=(async()=>{n.asyncId=o,n.asyncTo=t;let p=dist_esm_ne(e,(l,h)=>h==="onRest"?void 0:l),f,d,m=new Promise((l,h)=>(f=l,d=h)),b=l=>{let h=o<=(n.cancelId||0)&&esm_q(r)||o!==n.asyncId&&dist_esm_E(r,!1);if(h)throw l.result=h,d(l),l},c=(l,h)=>{let g=new esm_Ae,x=new esm_Ne;return(async()=>{if(dist_esm_p.skipAnimation)throw esm_oe(n),x.result=dist_esm_E(r,!1),d(x),x;b(g);let S=dist_esm_l.obj(l)?{...l}:{...h,to:l};S.parentId=o,xt(p,(V,_)=>{dist_esm_l.und(S[_])&&(S[_]=V)});let A=await r.start(S);return b(g),n.paused&&await new Promise(V=>{n.resumeQueue.add(V)}),A})()},P;if(dist_esm_p.skipAnimation)return esm_oe(n),dist_esm_E(r,!1);try{let l;dist_esm_l.arr(t)?l=(async h=>{for(let g of h)await c(g)})(t):l=Promise.resolve(t(c,r.stop.bind(r))),await Promise.all([l.then(f),m]),P=dist_esm_E(r.get(),!0,!1)}catch(l){if(l instanceof esm_Ae)P=l.result;else if(l instanceof esm_Ne)P=l.result;else throw l}finally{o==n.asyncId&&(n.asyncId=s,n.asyncTo=s?i:void 0,n.promise=s?u:void 0)}return dist_esm_l.fun(a)&&esm_n.batchedUpdates(()=>{a(P,r,r.item)}),P})()}function esm_oe(t,e){Pe(t.timeouts,n=>n.cancel()),t.pauseQueue.clear(),t.resumeQueue.clear(),t.asyncId=t.asyncTo=t.promise=void 0,e&&(t.cancelId=e)}var esm_Ae=class extends Error{result;constructor(){super("An async animation has been interrupted. You see this error because you forgot to use `await` or `.catch(...)` on its returned promise.")}},esm_Ne=class extends Error{result;constructor(){super("SkipAnimationSignal")}};var esm_Re=t=>t instanceof esm_X,Sn=1,esm_X=class extends esm_ge{id=Sn++;_priority=0;get priority(){return this._priority}set priority(e){this._priority!=e&&(this._priority=e,this._onPriorityChange(e))}get(){let e=dist_esm_k(this);return e&&e.getValue()}to(...e){return dist_esm_p.to(this,e)}interpolate(...e){return Jt(),dist_esm_p.to(this,e)}toJSON(){return this.get()}observerAdded(e){e==1&&this._attach()}observerRemoved(e){e==0&&this._detach()}_attach(){}_detach(){}_onChange(e,n=!1){$t(this,{type:"change",parent:this,value:e,idle:n})}_onPriorityChange(e){this.idle||qe.sort(this),$t(this,{type:"priority",parent:this,priority:e})}};var esm_se=Symbol.for("SpringPhase"),esm_bt=1,rt=2,ot=4,esm_qe=t=>(t[esm_se]&esm_bt)>0,dist_esm_Q=t=>(t[esm_se]&rt)>0,esm_ye=t=>(t[esm_se]&ot)>0,st=(t,e)=>e?t[esm_se]|=rt|esm_bt:t[esm_se]&=~rt,esm_it=(t,e)=>e?t[esm_se]|=ot:t[esm_se]&=~ot;var esm_ue=class extends esm_X{key;animation=new dist_esm_Le;queue;defaultProps={};_state={paused:!1,delayed:!1,pauseQueue:new Set,resumeQueue:new Set,timeouts:new Set};_pendingCalls=new Set;_lastCallId=0;_lastToId=0;_memoizedDuration=0;constructor(e,n){if(super(),!dist_esm_l.und(e)||!dist_esm_l.und(n)){let r=dist_esm_l.obj(e)?{...e}:{...n,from:e};dist_esm_l.und(r.default)&&(r.default=!0),this.start(r)}}get idle(){return!(dist_esm_Q(this)||this._state.asyncTo)||esm_ye(this)}get goal(){return ve(this.animation.to)}get velocity(){let e=dist_esm_k(this);return e instanceof animated_dist_esm_l?e.lastVelocity||0:e.getPayload().map(n=>n.lastVelocity||0)}get hasAnimated(){return esm_qe(this)}get isAnimating(){return dist_esm_Q(this)}get isPaused(){return esm_ye(this)}get isDelayed(){return this._state.delayed}advance(e){let n=!0,r=!1,o=this.animation,{config:s,toValues:a}=o,i=F(o.to);!i&&Pt(o.to)&&(a=ht(ve(o.to))),o.values.forEach((f,d)=>{if(f.done)return;let m=f.constructor==animated_dist_esm_d?1:i?i[d].lastPosition:a[d],b=o.immediate,c=m;if(!b){if(c=f.lastPosition,s.tension<=0){f.done=!0;return}let P=f.elapsedTime+=e,l=o.fromValues[d],h=f.v0!=null?f.v0:f.v0=dist_esm_l.arr(s.velocity)?s.velocity[d]:s.velocity,g,x=s.precision||(l==m?.005:Math.min(1,Math.abs(m-l)*.001));if(dist_esm_l.und(s.duration))if(s.decay){let S=s.decay===!0?.998:s.decay,A=Math.exp(-(1-S)*P);c=l+h/(1-S)*(1-A),b=Math.abs(f.lastPosition-c)<=x,g=h*A}else{g=f.lastVelocity==null?h:f.lastVelocity;let S=s.restVelocity||x/10,A=s.clamp?0:s.bounce,V=!dist_esm_l.und(A),_=l==m?f.v0>0:l<m,v,w=!1,C=1,$=Math.ceil(e/C);for(let L=0;L<$&&(v=Math.abs(g)>S,!(!v&&(b=Math.abs(m-c)<=x,b)));++L){V&&(w=c==m||c>m==_,w&&(g=-g*A,c=m));let N=-s.tension*1e-6*(c-m),y=-s.friction*.001*g,T=(N+y)/s.mass;g=g+T*C,c=c+g*C}}else{let S=1;s.duration>0&&(this._memoizedDuration!==s.duration&&(this._memoizedDuration=s.duration,f.durationProgress>0&&(f.elapsedTime=s.duration*f.durationProgress,P=f.elapsedTime+=e)),S=(s.progress||0)+P/this._memoizedDuration,S=S>1?1:S<0?0:S,f.durationProgress=S),c=l+s.easing(S)*(m-l),g=(c-f.lastPosition)/e,b=S==1}f.lastVelocity=g,Number.isNaN(c)&&(console.warn("Got NaN while animating:",this),b=!0)}i&&!i[d].done&&(b=!1),b?f.done=!0:n=!1,f.setValue(c,s.round)&&(r=!0)});let u=dist_esm_k(this),p=u.getValue();if(n){let f=ve(o.to);(p!==f||r)&&!s.decay?(u.setValue(f),this._onChange(f)):r&&s.decay&&this._onChange(p),this._stop()}else r&&this._onChange(p)}set(e){return esm_n.batchedUpdates(()=>{this._stop(),this._focus(e),this._set(e)}),this}pause(){this._update({pause:!0})}resume(){this._update({pause:!1})}finish(){if(dist_esm_Q(this)){let{to:e,config:n}=this.animation;esm_n.batchedUpdates(()=>{this._onStart(),n.decay||this._set(e,!1),this._stop()})}return this}update(e){return(this.queue||(this.queue=[])).push(e),this}start(e,n){let r;return dist_esm_l.und(e)?(r=this.queue||[],this.queue=[]):r=[dist_esm_l.obj(e)?e:{...n,to:e}],Promise.all(r.map(o=>this._update(o))).then(o=>esm_be(this,o))}stop(e){let{to:n}=this.animation;return this._focus(this.get()),esm_oe(this._state,e&&this._lastCallId),esm_n.batchedUpdates(()=>this._stop(n,e)),this}reset(){this._update({reset:!0})}eventObserved(e){e.type=="change"?this._start():e.type=="priority"&&(this.priority=e.priority+1)}_prepareNode(e){let n=this.key||"",{to:r,from:o}=e;r=dist_esm_l.obj(r)?r[n]:r,(r==null||esm_Ee(r))&&(r=void 0),o=dist_esm_l.obj(o)?o[n]:o,o==null&&(o=void 0);let s={to:r,from:o};return esm_qe(this)||(e.reverse&&([r,o]=[o,r]),o=ve(o),dist_esm_l.und(o)?dist_esm_k(this)||this._set(r):this._set(o)),s}_update({...e},n){let{key:r,defaultProps:o}=this;e.default&&Object.assign(o,dist_esm_ne(e,(i,u)=>/^on/.test(u)?et(i,r):i)),_t(this,e,"onProps"),esm_Ie(this,"onProps",e,this);let s=this._prepareNode(e);if(Object.isFrozen(this))throw Error("Cannot animate a `SpringValue` object that is frozen. Did you forget to pass your component to `animated(...)` before animating its props?");let a=this._state;return esm_Me(++this._lastCallId,{key:r,props:e,defaultProps:o,state:a,actions:{pause:()=>{esm_ye(this)||(esm_it(this,!0),yt(a.pauseQueue),esm_Ie(this,"onPause",dist_esm_E(this,esm_Ce(this,this.animation.to)),this))},resume:()=>{esm_ye(this)&&(esm_it(this,!1),dist_esm_Q(this)&&this._resume(),yt(a.resumeQueue),esm_Ie(this,"onResume",dist_esm_E(this,esm_Ce(this,this.animation.to)),this))},start:this._merge.bind(this,s)}}).then(i=>{if(e.loop&&i.finished&&!(n&&i.noop)){let u=at(e);if(u)return this._update(u,!0)}return i})}_merge(e,n,r){if(n.cancel)return this.stop(!0),r(esm_q(this));let o=!dist_esm_l.und(e.to),s=!dist_esm_l.und(e.from);if(o||s)if(n.callId>this._lastToId)this._lastToId=n.callId;else return r(esm_q(this));let{key:a,defaultProps:i,animation:u}=this,{to:p,from:f}=u,{to:d=p,from:m=f}=e;s&&!o&&(!n.default||dist_esm_l.und(d))&&(d=m),n.reverse&&([d,m]=[m,d]);let b=!bt(m,f);b&&(u.from=m),m=ve(m);let c=!bt(d,p);c&&this._focus(d);let P=esm_Ee(n.to),{config:l}=u,{decay:h,velocity:g}=l;(o||s)&&(l.velocity=0),n.config&&!P&&gt(l,dist_esm_I(n.config,a),n.config!==i.config?dist_esm_I(i.config,a):void 0);let x=dist_esm_k(this);if(!x||dist_esm_l.und(d))return r(dist_esm_E(this,!0));let S=dist_esm_l.und(n.reset)?s&&!n.default:!dist_esm_l.und(m)&&esm_te(n.reset,a),A=S?m:this.get(),V=esm_me(d),_=dist_esm_l.num(V)||dist_esm_l.arr(V)||esm_or(V),v=!P&&(!_||esm_te(i.immediate||n.immediate,a));if(c){let L=esm_Le(d);if(L!==x.constructor)if(v)x=this._set(V);else throw Error(`Cannot animate between ${x.constructor.name} and ${L.name}, as the "to" prop suggests`)}let w=x.constructor,C=Pt(d),$=!1;if(!C){let L=S||!esm_qe(this)&&b;(c||L)&&($=bt(esm_me(A),V),C=!$),(!bt(u.immediate,v)&&!v||!bt(l.decay,h)||!bt(l.velocity,g))&&(C=!0)}if($&&dist_esm_Q(this)&&(u.changed&&!S?C=!0:C||this._stop(p)),!P&&((C||Pt(p))&&(u.values=x.getPayload(),u.toValues=Pt(d)?null:w==animated_dist_esm_d?[1]:ht(V)),u.immediate!=v&&(u.immediate=v,!v&&!S&&this._set(p)),C)){let{onRest:L}=u;esm_Ve(_n,y=>_t(this,n,y));let N=dist_esm_E(this,esm_Ce(this,p));yt(this._pendingCalls,N),this._pendingCalls.add(r),u.changed&&esm_n.batchedUpdates(()=>{u.changed=!S,L?.(N,this),S?dist_esm_I(i.onRest,N):u.onStart?.(N,this)})}S&&this._set(A),P?r(esm_De(n.to,n,this._state,this)):C?this._start():dist_esm_Q(this)&&!c?this._pendingCalls.add(r):r(nt(A))}_focus(e){let n=this.animation;e!==n.to&&(esm_qt(this)&&this._detach(),n.to=e,esm_qt(this)&&this._attach())}_attach(){let e=0,{to:n}=this.animation;Pt(n)&&(Gt(n,this),esm_Re(n)&&(e=n.priority+1)),this.priority=e}_detach(){let{to:e}=this.animation;Pt(e)&&Qt(e,this)}_set(e,n=!0){let r=ve(e);if(!dist_esm_l.und(r)){let o=dist_esm_k(this);if(!o||!bt(r,o.getValue())){let s=esm_Le(r);!o||o.constructor!=s?esm_D(this,s.create(r)):o.setValue(r),o&&esm_n.batchedUpdates(()=>{this._onChange(r,n)})}}return dist_esm_k(this)}_onStart(){let e=this.animation;e.changed||(e.changed=!0,esm_Ie(this,"onStart",dist_esm_E(this,esm_Ce(this,e.to)),this))}_onChange(e,n){n||(this._onStart(),dist_esm_I(this.animation.onChange,e,this)),dist_esm_I(this.defaultProps.onChange,e,this),super._onChange(e,n)}_start(){let e=this.animation;dist_esm_k(this).reset(ve(e.to)),e.immediate||(e.fromValues=e.values.map(n=>n.lastPosition)),dist_esm_Q(this)||(st(this,!0),esm_ye(this)||this._resume())}_resume(){dist_esm_p.skipAnimation?this.finish():qe.start(this)}_stop(e,n){if(dist_esm_Q(this)){st(this,!1);let r=this.animation;esm_Ve(r.values,s=>{s.done=!0}),r.toValues&&(r.onChange=r.onPause=r.onResume=void 0),$t(this,{type:"idle",parent:this});let o=n?esm_q(this.get()):dist_esm_E(this.get(),esm_Ce(this,e??r.to));yt(this._pendingCalls,o),r.changed&&(r.changed=!1,esm_Ie(this,"onRest",o,this))}}};function esm_Ce(t,e){let n=esm_me(e),r=esm_me(t.get());return bt(r,n)}function at(t,e=t.loop,n=t.to){let r=dist_esm_I(e);if(r){let o=r!==!0&&esm_de(r),s=(o||t).reverse,a=!o||o.reset;return esm_Pe({...t,loop:e,default:!1,pause:void 0,to:!s||esm_Ee(n)?n:void 0,from:a?t.from:void 0,reset:a,...o})}}function esm_Pe(t){let{to:e,from:n}=t=esm_de(t),r=new Set;return dist_esm_l.obj(e)&&Vt(e,r),dist_esm_l.obj(n)&&Vt(n,r),t.keys=r.size?Array.from(r):null,t}function Ot(t){let e=esm_Pe(t);return R.und(e.default)&&(e.default=dist_esm_ne(e)),e}function Vt(t,e){xt(t,(n,r)=>n!=null&&e.add(r))}var _n=["onStart","onRest","onChange","onPause","onResume"];function _t(t,e,n){t.animation[n]=e[n]!==esm_ke(e,n)?et(e[n],t.key):void 0}function esm_Ie(t,e,...n){t.animation[e]?.(...n),t.defaultProps[e]?.(...n)}var Fn=["onStart","onChange","onRest"],kn=1,esm_le=class{id=kn++;springs={};queue=[];ref;_flush;_initialProps;_lastAsyncId=0;_active=new Set;_changed=new Set;_started=!1;_item;_state={paused:!1,pauseQueue:new Set,resumeQueue:new Set,timeouts:new Set};_events={onStart:new Map,onChange:new Map,onRest:new Map};constructor(e,n){this._onFrame=this._onFrame.bind(this),n&&(this._flush=n),e&&this.start({default:!0,...e})}get idle(){return!this._state.asyncTo&&Object.values(this.springs).every(e=>e.idle&&!e.isDelayed&&!e.isPaused)}get item(){return this._item}set item(e){this._item=e}get(){let e={};return this.each((n,r)=>e[r]=n.get()),e}set(e){for(let n in e){let r=e[n];dist_esm_l.und(r)||this.springs[n].set(r)}}update(e){return e&&this.queue.push(esm_Pe(e)),this}start(e){let{queue:n}=this;return e?n=ht(e).map(esm_Pe):this.queue=[],this._flush?this._flush(this,n):(jt(this,n),esm_ze(this,n))}stop(e,n){if(e!==!!e&&(n=e),n){let r=this.springs;esm_Ve(ht(n),o=>r[o].stop(!!e))}else esm_oe(this._state,this._lastAsyncId),this.each(r=>r.stop(!!e));return this}pause(e){if(dist_esm_l.und(e))this.start({pause:!0});else{let n=this.springs;esm_Ve(ht(e),r=>n[r].pause())}return this}resume(e){if(dist_esm_l.und(e))this.start({pause:!1});else{let n=this.springs;esm_Ve(ht(e),r=>n[r].resume())}return this}each(e){xt(this.springs,e)}_onFrame(){let{onStart:e,onChange:n,onRest:r}=this._events,o=this._active.size>0,s=this._changed.size>0;(o&&!this._started||s&&!this._started)&&(this._started=!0,Pe(e,([u,p])=>{p.value=this.get(),u(p,this,this._item)}));let a=!o&&this._started,i=s||a&&r.size?this.get():null;s&&n.size&&Pe(n,([u,p])=>{p.value=i,u(p,this,this._item)}),a&&(this._started=!1,Pe(r,([u,p])=>{p.value=i,u(p,this,this._item)}))}eventObserved(e){if(e.type=="change")this._changed.add(e.parent),e.idle||this._active.add(e.parent);else if(e.type=="idle")this._active.delete(e.parent);else return;esm_n.onFrame(this._onFrame)}};function esm_ze(t,e){return Promise.all(e.map(n=>wt(t,n))).then(n=>esm_be(t,n))}async function wt(t,e,n){let{keys:r,to:o,from:s,loop:a,onRest:i,onResolve:u}=e,p=dist_esm_l.obj(e.default)&&e.default;a&&(e.loop=!1),o===!1&&(e.to=null),s===!1&&(e.from=null);let f=dist_esm_l.arr(o)||dist_esm_l.fun(o)?o:void 0;f?(e.to=void 0,e.onRest=void 0,p&&(p.onRest=void 0)):esm_Ve(Fn,P=>{let l=e[P];if(dist_esm_l.fun(l)){let h=t._events[P];e[P]=({finished:g,cancelled:x})=>{let S=h.get(l);S?(g||(S.finished=!1),x&&(S.cancelled=!0)):h.set(l,{value:null,finished:g||!1,cancelled:x||!1})},p&&(p[P]=e[P])}});let d=t._state;e.pause===!d.paused?(d.paused=e.pause,yt(e.pause?d.pauseQueue:d.resumeQueue)):d.paused&&(e.pause=!0);let m=(r||Object.keys(t.springs)).map(P=>t.springs[P].start(e)),b=e.cancel===!0||esm_ke(e,"cancel")===!0;(f||b&&d.asyncId)&&m.push(esm_Me(++t._lastAsyncId,{props:e,state:d,actions:{pause:Y,resume:Y,start(P,l){b?(esm_oe(d,t._lastAsyncId),l(esm_q(t))):(P.onRest=i,l(esm_De(f,P,d,t)))}}})),d.paused&&await new Promise(P=>{d.resumeQueue.add(P)});let c=esm_be(t,await Promise.all(m));if(a&&c.finished&&!(n&&c.noop)){let P=at(e,a,o);if(P)return jt(t,[P]),wt(t,P,!0)}return u&&esm_n.batchedUpdates(()=>u(c,t,t.item)),c}function esm_e(t,e){let n={...t.springs};return e&&pe(Ve(e),r=>{z.und(r.keys)&&(r=esm_Pe(r)),z.obj(r.to)||(r={...r,to:void 0}),Mt(n,r,o=>esm_Lt(o))}),pt(t,n),n}function pt(t,e){Ut(e,(n,r)=>{t.springs[r]||(t.springs[r]=n,Et(n,t))})}function esm_Lt(t,e){let n=new esm_ue;return n.key=t,e&&Gt(n,e),n}function Mt(t,e,n){e.keys&&esm_Ve(e.keys,r=>{(t[r]||(t[r]=n(r)))._prepareNode(e)})}function jt(t,e){esm_Ve(e,n=>{Mt(t.springs,n,r=>esm_Lt(r,t))})}var dist_esm_H=({children:t,...e})=>{let n=(0,external_React_.useContext)(esm_Ge),r=e.pause||!!n.pause,o=e.immediate||!!n.immediate;e=Lr(()=>({pause:r,immediate:o}),[r,o]);let{Provider:s}=esm_Ge;return external_React_.createElement(s,{value:e},t)},esm_Ge=wn(dist_esm_H,{});dist_esm_H.Provider=esm_Ge.Provider;dist_esm_H.Consumer=esm_Ge.Consumer;function wn(t,e){return Object.assign(t,external_React_.createContext(e)),t.Provider._context=t,t.Consumer._context=t,t}var esm_fe=()=>{let t=[],e=function(r){Ln();let o=[];return ce(t,(s,a)=>{if(Ke.und(r))o.push(s.start());else{let i=n(r,s,a);i&&o.push(s.start(i))}}),o};e.current=t,e.add=function(r){t.includes(r)||t.push(r)},e.delete=function(r){let o=t.indexOf(r);~o&&t.splice(o,1)},e.pause=function(){return ce(t,r=>r.pause(...arguments)),this},e.resume=function(){return ce(t,r=>r.resume(...arguments)),this},e.set=function(r){ce(t,(o,s)=>{let a=Ke.fun(r)?r(s,o):r;a&&o.set(a)})},e.start=function(r){let o=[];return ce(t,(s,a)=>{if(Ke.und(r))o.push(s.start());else{let i=this._getProps(r,s,a);i&&o.push(s.start(i))}}),o},e.stop=function(){return ce(t,r=>r.stop(...arguments)),this},e.update=function(r){return ce(t,(o,s)=>o.update(this._getProps(r,o,s))),this};let n=function(r,o,s){return Ke.fun(r)?r(s,o):r};return e._getProps=n,e};function esm_He(t,e,n){let r=jn.fun(e)&&e;r&&!n&&(n=[]);let o=Xe(()=>r||arguments.length==3?esm_fe():void 0,[]),s=Nt(0),a=Dn(),i=Xe(()=>({ctrls:[],queue:[],flush(h,g){let x=esm_e(h,g);return s.current>0&&!i.queue.length&&!Object.keys(x).some(A=>!h.springs[A])?esm_ze(h,g):new Promise(A=>{pt(h,x),i.queue.push(()=>{A(esm_ze(h,g))}),a()})}}),[]),u=Nt([...i.ctrls]),p=[],f=Dt(t)||0;Xe(()=>{Ye(u.current.slice(t,f),h=>{esm_xe(h,o),h.stop(!0)}),u.current.length=t,d(f,t)},[t]),Xe(()=>{d(0,Math.min(f,t))},n);function d(h,g){for(let x=h;x<g;x++){let S=u.current[x]||(u.current[x]=new esm_le(null,i.flush)),A=r?r(x,S):e[x];A&&(p[x]=Ot(A))}}let m=u.current.map((h,g)=>esm_e(h,p[g])),b=Mn(dist_esm_H),c=Dt(b),P=b!==c&&esm_Ue(b);qn(()=>{s.current++,i.ctrls=u.current;let{queue:h}=i;h.length&&(i.queue=[],Ye(h,g=>g())),Ye(u.current,(g,x)=>{o?.add(g),P&&g.start({default:b});let S=p[x];S&&(esm_he(g,S.ref),g.ref?g.queue.push(S):g.start(S))})}),Nn(()=>()=>{Ye(i.ctrls,h=>h.stop(!0))});let l=m.map(h=>({...h}));return o?[l,o]:l}function esm_J(t,e){let n=Qn.fun(t),[[r],o]=esm_He(1,n?t:[t],n?e||[]:e);return n||arguments.length==2?[r,o]:r}var Gn=()=>esm_fe(),Xo=()=>zn(Gn)[0];var Wo=(t,e)=>{let n=Bn(()=>new esm_ue(t,e));return Kn(()=>()=>{n.stop()}),n};function esm_Qt(t,e,n){let r=qt.fun(e)&&e;r&&!n&&(n=[]);let o=!0,s,a=esm_He(t,(i,u)=>{let p=r?r(i,u):e;return s=p.ref,o=o&&p.reverse,p},n||[{}]);if(Yn(()=>{Xn(a[1].current,(i,u)=>{let p=a[1].current[u+(o?1:-1)];if(esm_he(i,s),i.ref){p&&i.update({to:p.springs});return}p?i.start({to:p.springs}):i.start()})},n),r||arguments.length==3){let i=s??a[1];return i._getProps=(u,p,f)=>{let d=qt.fun(u)?u(f,p):u;if(d){let m=i.current[f+(d.reverse?1:-1)];return m&&(d.to=m.springs),d}},a}return a[0]}function esm_Gt(t,e,n){let r=G.fun(e)&&e,{reset:o,sort:s,trail:a=0,expires:i=!0,exitBeforeEnter:u=!1,onDestroyed:p,ref:f,config:d}=r?r():e,m=Jn(()=>r||arguments.length==3?esm_fe():void 0,[]),b=zt(t),c=[],P=lt(null),l=o?null:P.current;Je(()=>{P.current=c}),$n(()=>(j(c,y=>{m?.add(y.ctrl),y.ctrl.ref=m}),()=>{j(P.current,y=>{y.expired&&clearTimeout(y.expirationId),esm_xe(y.ctrl,m),y.ctrl.stop(!0)})}));let h=tr(b,r?r():e,l),g=o&&P.current||[];Je(()=>j(g,({ctrl:y,item:T,key:F})=>{esm_xe(y,m),dist_esm_I(p,T,F)}));let x=[];if(l&&j(l,(y,T)=>{y.expired?(clearTimeout(y.expirationId),g.push(y)):(T=x[T]=h.indexOf(y.key),~T&&(c[T]=y))}),j(b,(y,T)=>{c[T]||(c[T]={key:h[T],item:y,phase:"mount",ctrl:new esm_le},c[T].ctrl.item=y)}),x.length){let y=-1,{leave:T}=r?r():e;j(x,(F,k)=>{let O=l[k];~F?(y=c.indexOf(O),c[y]={...O,item:b[F]}):T&&c.splice(++y,0,O)})}G.fun(s)&&c.sort((y,T)=>s(y.item,T.item));let S=-a,A=Wn(),V=dist_esm_ne(e),_=new Map,v=lt(new Map),w=lt(!1);j(c,(y,T)=>{let F=y.key,k=y.phase,O=r?r():e,U,D,Jt=dist_esm_I(O.delay||0,F);if(k=="mount")U=O.enter,D="enter";else{let M=h.indexOf(F)<0;if(k!="leave")if(M)U=O.leave,D="leave";else if(U=O.update)D="update";else return;else if(!M)U=O.enter,D="enter";else return}if(U=dist_esm_I(U,y.item,T),U=G.obj(U)?esm_de(U):{to:U},!U.config){let M=d||V.config;U.config=dist_esm_I(M,y.item,T,D)}S+=a;let Z={...V,delay:Jt+S,ref:f,immediate:O.immediate,reset:!1,...U};if(D=="enter"&&G.und(Z.from)){let M=r?r():e,Te=G.und(M.initial)||l?M.from:M.initial;Z.from=dist_esm_I(Te,y.item,T)}let{onResolve:Wt}=Z;Z.onResolve=M=>{dist_esm_I(Wt,M);let Te=P.current,B=Te.find(Fe=>Fe.key===F);if(!!B&&!(M.cancelled&&B.phase!="update")&&B.ctrl.idle){let Fe=Te.every(ee=>ee.ctrl.idle);if(B.phase=="leave"){let ee=dist_esm_I(i,B.item);if(ee!==!1){let Ze=ee===!0?0:ee;if(B.expired=!0,!Fe&&Ze>0){Ze<=2147483647&&(B.expirationId=setTimeout(A,Ze));return}}}Fe&&Te.some(ee=>ee.expired)&&(v.current.delete(B),u&&(w.current=!0),A())}};let ft=esm_e(y.ctrl,Z);D==="leave"&&u?v.current.set(y,{phase:D,springs:ft,payload:Z}):_.set(y,{phase:D,springs:ft,payload:Z})});let C=Hn(dist_esm_H),$=Zn(C),L=C!==$&&esm_Ue(C);Je(()=>{L&&j(c,y=>{y.ctrl.start({default:C})})},[C]),j(_,(y,T)=>{if(v.current.size){let F=c.findIndex(k=>k.key===T.key);c.splice(F,1)}}),Je(()=>{j(v.current.size?v.current:_,({phase:y,payload:T},F)=>{let{ctrl:k}=F;F.phase=y,m?.add(k),L&&y=="enter"&&k.start({default:C}),T&&(esm_he(k,T.ref),(k.ref||m)&&!w.current?k.update(T):(k.start(T),w.current&&(w.current=!1)))})},o?void 0:n);let N=y=>Oe.createElement(Oe.Fragment,null,c.map((T,F)=>{let{springs:k}=_.get(T)||T.ctrl,O=y({...k},T.item,T,F);return O&&O.type?Oe.createElement(O.type,{...O.props,key:G.str(T.key)||G.num(T.key)?T.key:T.ctrl.id,ref:O.ref}):O}));return m?[N,m]:N}var esm_er=1;function tr(t,{key:e,keys:n=e},r){if(n===null){let o=new Set;return t.map(s=>{let a=r&&r.find(i=>i.item===s&&i.phase!=="leave"&&!o.has(i));return a?(o.add(a),a.key):esm_er++})}return G.und(n)?t:G.fun(n)?t.map(n):zt(n)}var hs=({container:t,...e}={})=>{let[n,r]=esm_J(()=>({scrollX:0,scrollY:0,scrollXProgress:0,scrollYProgress:0,...e}),[]);return or(()=>{let o=rr(({x:s,y:a})=>{r.start({scrollX:s.current,scrollXProgress:s.progress,scrollY:a.current,scrollYProgress:a.progress})},{container:t?.current||void 0});return()=>{nr(Object.values(n),s=>s.stop()),o()}},[]),n};var Ps=({container:t,...e})=>{let[n,r]=esm_J(()=>({width:0,height:0,...e}),[]);return ar(()=>{let o=sr(({width:s,height:a})=>{r.start({width:s,height:a,immediate:n.width.get()===0||n.height.get()===0})},{container:t?.current||void 0});return()=>{ir(Object.values(n),s=>s.stop()),o()}},[]),n};var cr={any:0,all:1};function Cs(t,e){let[n,r]=pr(!1),o=ur(),s=Bt.fun(t)&&t,a=s?s():{},{to:i={},from:u={},...p}=a,f=s?e:t,[d,m]=esm_J(()=>({from:u,...p}),[]);return lr(()=>{let b=o.current,{root:c,once:P,amount:l="any",...h}=f??{};if(!b||P&&n||typeof IntersectionObserver>"u")return;let g=new WeakMap,x=()=>(i&&m.start(i),r(!0),P?void 0:()=>{u&&m.start(u),r(!1)}),S=V=>{V.forEach(_=>{let v=g.get(_.target);if(_.isIntersecting!==Boolean(v))if(_.isIntersecting){let w=x();Bt.fun(w)?g.set(_.target,w):A.unobserve(_.target)}else v&&(v(),g.delete(_.target))})},A=new IntersectionObserver(S,{root:c&&c.current||void 0,threshold:typeof l=="number"||Array.isArray(l)?l:cr[l],...h});return A.observe(b),()=>A.unobserve(b)},[f]),s?[o,d]:[o,n]}function qs({children:t,...e}){return t(esm_J(e))}function Bs({items:t,children:e,...n}){let r=esm_Qt(t.length,n);return t.map((o,s)=>{let a=e(o,s);return fr.fun(a)?a(r[s]):a})}function Ys({items:t,children:e,...n}){return esm_Gt(t,n)(e)}var esm_W=class extends esm_X{constructor(n,r){super();this.source=n;this.calc=W(...r);let o=this._get(),s=esm_Le(o);esm_D(this,s.create(o))}key;idle=!0;calc;_active=new Set;advance(n){let r=this._get(),o=this.get();bt(r,o)||(dist_esm_k(this).setValue(r),this._onChange(r,this.idle)),!this.idle&&Yt(this._active)&&esm_ct(this)}_get(){let n=dist_esm_l.arr(this.source)?this.source.map(ve):ht(ve(this.source));return this.calc(...n)}_start(){this.idle&&!Yt(this._active)&&(this.idle=!1,esm_Ve(F(this),n=>{n.done=!1}),dist_esm_p.skipAnimation?(esm_n.batchedUpdates(()=>this.advance()),esm_ct(this)):qe.start(this))}_attach(){let n=1;esm_Ve(ht(this.source),r=>{Pt(r)&&Gt(r,this),esm_Re(r)&&(r.idle||this._active.add(r),n=Math.max(n,r.priority+1))}),this.priority=n,this._start()}_detach(){esm_Ve(ht(this.source),n=>{Pt(n)&&Qt(n,this)}),this._active.clear(),esm_ct(this)}eventObserved(n){n.type=="change"?n.idle?this.advance():(this._active.add(n.parent),this._start()):n.type=="idle"?this._active.delete(n.parent):n.type=="priority"&&(this.priority=ht(this.source).reduce((r,o)=>Math.max(r,(esm_Re(o)?o.priority:0)+1),0))}};function vr(t){return t.idle!==!1}function Yt(t){return!t.size||Array.from(t).every(vr)}function esm_ct(t){t.idle||(t.idle=!0,esm_Ve(F(t),e=>{e.done=!0}),$t(t,{type:"idle",parent:t}))}var esm_ui=(t,...e)=>new esm_W(t,e),pi=(t,...e)=>(Cr(),new esm_W(t,e));dist_esm_p.assign({createStringInterpolator:Xt,to:(t,e)=>new esm_W(t,e)});var di=qe.advance;
+raf.onStart = fn => schedule(fn, onStartQueue);
+
+let onFrameQueue = makeQueue();
+
+raf.onFrame = fn => schedule(fn, onFrameQueue);
+
+let onFinishQueue = makeQueue();
+
+raf.onFinish = fn => schedule(fn, onFinishQueue);
+
+let timeouts = [];
+
+raf.setTimeout = (handler, ms) => {
+  let time = raf.now() + ms;
+
+  let cancel = () => {
+    let i = timeouts.findIndex(t => t.cancel == cancel);
+    if (~i) timeouts.splice(i, 1);
+    pendingCount -= ~i ? 1 : 0;
+  };
+
+  let timeout = {
+    time,
+    handler,
+    cancel
+  };
+  timeouts.splice(findTimeout(time), 0, timeout);
+  pendingCount += 1;
+  start();
+  return timeout;
+};
+
+let findTimeout = time => ~(~timeouts.findIndex(t => t.time > time) || ~timeouts.length);
+
+raf.cancel = fn => {
+  onStartQueue.delete(fn);
+  onFrameQueue.delete(fn);
+  onFinishQueue.delete(fn);
+  updateQueue.delete(fn);
+  writeQueue.delete(fn);
+};
+
+raf.sync = fn => {
+  sync = true;
+  raf.batchedUpdates(fn);
+  sync = false;
+};
+
+raf.throttle = fn => {
+  let lastArgs;
+
+  function queuedFn() {
+    try {
+      fn(...lastArgs);
+    } finally {
+      lastArgs = null;
+    }
+  }
+
+  function throttled(...args) {
+    lastArgs = args;
+    raf.onStart(queuedFn);
+  }
+
+  throttled.handler = fn;
+
+  throttled.cancel = () => {
+    onStartQueue.delete(queuedFn);
+    lastArgs = null;
+  };
+
+  return throttled;
+};
+
+let nativeRaf = typeof window != 'undefined' ? window.requestAnimationFrame : () => {};
+
+raf.use = impl => nativeRaf = impl;
+
+raf.now = typeof performance != 'undefined' ? () => performance.now() : Date.now;
+
+raf.batchedUpdates = fn => fn();
+
+raf.catch = console.error;
+raf.frameLoop = 'always';
+
+raf.advance = () => {
+  if (raf.frameLoop !== 'demand') {
+    console.warn('Cannot call the manual advancement of rafz whilst frameLoop is not set as demand');
+  } else {
+    update();
+  }
+};
+
+let ts = -1;
+let pendingCount = 0;
+let sync = false;
+
+function schedule(fn, queue) {
+  if (sync) {
+    queue.delete(fn);
+    fn(0);
+  } else {
+    queue.add(fn);
+    start();
+  }
+}
+
+function start() {
+  if (ts < 0) {
+    ts = 0;
+
+    if (raf.frameLoop !== 'demand') {
+      nativeRaf(loop);
+    }
+  }
+}
+
+function stop() {
+  ts = -1;
+}
+
+function loop() {
+  if (~ts) {
+    nativeRaf(loop);
+    raf.batchedUpdates(update);
+  }
+}
+
+function update() {
+  let prevTs = ts;
+  ts = raf.now();
+  let count = findTimeout(ts);
+
+  if (count) {
+    eachSafely(timeouts.splice(0, count), t => t.handler());
+    pendingCount -= count;
+  }
+
+  if (!pendingCount) {
+    stop();
+    return;
+  }
+
+  onStartQueue.flush();
+  updateQueue.flush(prevTs ? Math.min(64, ts - prevTs) : 16.667);
+  onFrameQueue.flush();
+  writeQueue.flush();
+  onFinishQueue.flush();
+}
+
+function makeQueue() {
+  let next = new Set();
+  let current = next;
+  return {
+    add(fn) {
+      pendingCount += current == next && !next.has(fn) ? 1 : 0;
+      next.add(fn);
+    },
+
+    delete(fn) {
+      pendingCount -= current == next && next.has(fn) ? 1 : 0;
+      return next.delete(fn);
+    },
+
+    flush(arg) {
+      if (current.size) {
+        next = new Set();
+        pendingCount -= current.size;
+        eachSafely(current, fn => fn(arg) && next.add(fn));
+        pendingCount += next.size;
+        current = next;
+      }
+    }
+
+  };
+}
+
+function eachSafely(values, each) {
+  values.forEach(value => {
+    try {
+      each(value);
+    } catch (e) {
+      raf.catch(e);
+    }
+  });
+}
+
+const __raf = {
+  count() {
+    return pendingCount;
+  },
+
+  isRunning() {
+    return ts >= 0;
+  },
+
+  clear() {
+    ts = -1;
+    timeouts = [];
+    onStartQueue = makeQueue();
+    updateQueue = makeQueue();
+    onFrameQueue = makeQueue();
+    writeQueue = makeQueue();
+    onFinishQueue = makeQueue();
+    pendingCount = 0;
+  }
+
+};
+
+
+
+;// ./node_modules/@react-spring/shared/dist/react-spring-shared.esm.js
+
+
+
+
+function react_spring_shared_esm_noop() {}
+const defineHidden = (obj, key, value) => Object.defineProperty(obj, key, {
+  value,
+  writable: true,
+  configurable: true
+});
+const react_spring_shared_esm_is = {
+  arr: Array.isArray,
+  obj: a => !!a && a.constructor.name === 'Object',
+  fun: a => typeof a === 'function',
+  str: a => typeof a === 'string',
+  num: a => typeof a === 'number',
+  und: a => a === undefined
+};
+function isEqual(a, b) {
+  if (react_spring_shared_esm_is.arr(a)) {
+    if (!react_spring_shared_esm_is.arr(b) || a.length !== b.length) return false;
+
+    for (let i = 0; i < a.length; i++) {
+      if (a[i] !== b[i]) return false;
+    }
+
+    return true;
+  }
+
+  return a === b;
+}
+const react_spring_shared_esm_each = (obj, fn) => obj.forEach(fn);
+function react_spring_shared_esm_eachProp(obj, fn, ctx) {
+  if (react_spring_shared_esm_is.arr(obj)) {
+    for (let i = 0; i < obj.length; i++) {
+      fn.call(ctx, obj[i], `${i}`);
+    }
+
+    return;
+  }
+
+  for (const key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      fn.call(ctx, obj[key], key);
+    }
+  }
+}
+const react_spring_shared_esm_toArray = a => react_spring_shared_esm_is.und(a) ? [] : react_spring_shared_esm_is.arr(a) ? a : [a];
+function flush(queue, iterator) {
+  if (queue.size) {
+    const items = Array.from(queue);
+    queue.clear();
+    react_spring_shared_esm_each(items, iterator);
+  }
+}
+const flushCalls = (queue, ...args) => flush(queue, fn => fn(...args));
+const isSSR = () => typeof window === 'undefined' || !window.navigator || /ServerSideRendering|^Deno\//.test(window.navigator.userAgent);
+
+let createStringInterpolator$1;
+let to;
+let colors$1 = null;
+let skipAnimation = false;
+let willAdvance = react_spring_shared_esm_noop;
+const react_spring_shared_esm_assign = globals => {
+  if (globals.to) to = globals.to;
+  if (globals.now) raf.now = globals.now;
+  if (globals.colors !== undefined) colors$1 = globals.colors;
+  if (globals.skipAnimation != null) skipAnimation = globals.skipAnimation;
+  if (globals.createStringInterpolator) createStringInterpolator$1 = globals.createStringInterpolator;
+  if (globals.requestAnimationFrame) raf.use(globals.requestAnimationFrame);
+  if (globals.batchedUpdates) raf.batchedUpdates = globals.batchedUpdates;
+  if (globals.willAdvance) willAdvance = globals.willAdvance;
+  if (globals.frameLoop) raf.frameLoop = globals.frameLoop;
+};
+
+var globals = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  get createStringInterpolator () { return createStringInterpolator$1; },
+  get to () { return to; },
+  get colors () { return colors$1; },
+  get skipAnimation () { return skipAnimation; },
+  get willAdvance () { return willAdvance; },
+  assign: react_spring_shared_esm_assign
+});
+
+const startQueue = new Set();
+let currentFrame = [];
+let prevFrame = [];
+let priority = 0;
+const frameLoop = {
+  get idle() {
+    return !startQueue.size && !currentFrame.length;
+  },
+
+  start(animation) {
+    if (priority > animation.priority) {
+      startQueue.add(animation);
+      raf.onStart(flushStartQueue);
+    } else {
+      startSafely(animation);
+      raf(advance);
+    }
+  },
+
+  advance,
+
+  sort(animation) {
+    if (priority) {
+      raf.onFrame(() => frameLoop.sort(animation));
+    } else {
+      const prevIndex = currentFrame.indexOf(animation);
+
+      if (~prevIndex) {
+        currentFrame.splice(prevIndex, 1);
+        startUnsafely(animation);
+      }
+    }
+  },
+
+  clear() {
+    currentFrame = [];
+    startQueue.clear();
+  }
+
+};
+
+function flushStartQueue() {
+  startQueue.forEach(startSafely);
+  startQueue.clear();
+  raf(advance);
+}
+
+function startSafely(animation) {
+  if (!currentFrame.includes(animation)) startUnsafely(animation);
+}
+
+function startUnsafely(animation) {
+  currentFrame.splice(findIndex(currentFrame, other => other.priority > animation.priority), 0, animation);
+}
+
+function advance(dt) {
+  const nextFrame = prevFrame;
+
+  for (let i = 0; i < currentFrame.length; i++) {
+    const animation = currentFrame[i];
+    priority = animation.priority;
+
+    if (!animation.idle) {
+      willAdvance(animation);
+      animation.advance(dt);
+
+      if (!animation.idle) {
+        nextFrame.push(animation);
+      }
+    }
+  }
+
+  priority = 0;
+  prevFrame = currentFrame;
+  prevFrame.length = 0;
+  currentFrame = nextFrame;
+  return currentFrame.length > 0;
+}
+
+function findIndex(arr, test) {
+  const index = arr.findIndex(test);
+  return index < 0 ? arr.length : index;
+}
+
+const colors = {
+  transparent: 0x00000000,
+  aliceblue: 0xf0f8ffff,
+  antiquewhite: 0xfaebd7ff,
+  aqua: 0x00ffffff,
+  aquamarine: 0x7fffd4ff,
+  azure: 0xf0ffffff,
+  beige: 0xf5f5dcff,
+  bisque: 0xffe4c4ff,
+  black: 0x000000ff,
+  blanchedalmond: 0xffebcdff,
+  blue: 0x0000ffff,
+  blueviolet: 0x8a2be2ff,
+  brown: 0xa52a2aff,
+  burlywood: 0xdeb887ff,
+  burntsienna: 0xea7e5dff,
+  cadetblue: 0x5f9ea0ff,
+  chartreuse: 0x7fff00ff,
+  chocolate: 0xd2691eff,
+  coral: 0xff7f50ff,
+  cornflowerblue: 0x6495edff,
+  cornsilk: 0xfff8dcff,
+  crimson: 0xdc143cff,
+  cyan: 0x00ffffff,
+  darkblue: 0x00008bff,
+  darkcyan: 0x008b8bff,
+  darkgoldenrod: 0xb8860bff,
+  darkgray: 0xa9a9a9ff,
+  darkgreen: 0x006400ff,
+  darkgrey: 0xa9a9a9ff,
+  darkkhaki: 0xbdb76bff,
+  darkmagenta: 0x8b008bff,
+  darkolivegreen: 0x556b2fff,
+  darkorange: 0xff8c00ff,
+  darkorchid: 0x9932ccff,
+  darkred: 0x8b0000ff,
+  darksalmon: 0xe9967aff,
+  darkseagreen: 0x8fbc8fff,
+  darkslateblue: 0x483d8bff,
+  darkslategray: 0x2f4f4fff,
+  darkslategrey: 0x2f4f4fff,
+  darkturquoise: 0x00ced1ff,
+  darkviolet: 0x9400d3ff,
+  deeppink: 0xff1493ff,
+  deepskyblue: 0x00bfffff,
+  dimgray: 0x696969ff,
+  dimgrey: 0x696969ff,
+  dodgerblue: 0x1e90ffff,
+  firebrick: 0xb22222ff,
+  floralwhite: 0xfffaf0ff,
+  forestgreen: 0x228b22ff,
+  fuchsia: 0xff00ffff,
+  gainsboro: 0xdcdcdcff,
+  ghostwhite: 0xf8f8ffff,
+  gold: 0xffd700ff,
+  goldenrod: 0xdaa520ff,
+  gray: 0x808080ff,
+  green: 0x008000ff,
+  greenyellow: 0xadff2fff,
+  grey: 0x808080ff,
+  honeydew: 0xf0fff0ff,
+  hotpink: 0xff69b4ff,
+  indianred: 0xcd5c5cff,
+  indigo: 0x4b0082ff,
+  ivory: 0xfffff0ff,
+  khaki: 0xf0e68cff,
+  lavender: 0xe6e6faff,
+  lavenderblush: 0xfff0f5ff,
+  lawngreen: 0x7cfc00ff,
+  lemonchiffon: 0xfffacdff,
+  lightblue: 0xadd8e6ff,
+  lightcoral: 0xf08080ff,
+  lightcyan: 0xe0ffffff,
+  lightgoldenrodyellow: 0xfafad2ff,
+  lightgray: 0xd3d3d3ff,
+  lightgreen: 0x90ee90ff,
+  lightgrey: 0xd3d3d3ff,
+  lightpink: 0xffb6c1ff,
+  lightsalmon: 0xffa07aff,
+  lightseagreen: 0x20b2aaff,
+  lightskyblue: 0x87cefaff,
+  lightslategray: 0x778899ff,
+  lightslategrey: 0x778899ff,
+  lightsteelblue: 0xb0c4deff,
+  lightyellow: 0xffffe0ff,
+  lime: 0x00ff00ff,
+  limegreen: 0x32cd32ff,
+  linen: 0xfaf0e6ff,
+  magenta: 0xff00ffff,
+  maroon: 0x800000ff,
+  mediumaquamarine: 0x66cdaaff,
+  mediumblue: 0x0000cdff,
+  mediumorchid: 0xba55d3ff,
+  mediumpurple: 0x9370dbff,
+  mediumseagreen: 0x3cb371ff,
+  mediumslateblue: 0x7b68eeff,
+  mediumspringgreen: 0x00fa9aff,
+  mediumturquoise: 0x48d1ccff,
+  mediumvioletred: 0xc71585ff,
+  midnightblue: 0x191970ff,
+  mintcream: 0xf5fffaff,
+  mistyrose: 0xffe4e1ff,
+  moccasin: 0xffe4b5ff,
+  navajowhite: 0xffdeadff,
+  navy: 0x000080ff,
+  oldlace: 0xfdf5e6ff,
+  olive: 0x808000ff,
+  olivedrab: 0x6b8e23ff,
+  orange: 0xffa500ff,
+  orangered: 0xff4500ff,
+  orchid: 0xda70d6ff,
+  palegoldenrod: 0xeee8aaff,
+  palegreen: 0x98fb98ff,
+  paleturquoise: 0xafeeeeff,
+  palevioletred: 0xdb7093ff,
+  papayawhip: 0xffefd5ff,
+  peachpuff: 0xffdab9ff,
+  peru: 0xcd853fff,
+  pink: 0xffc0cbff,
+  plum: 0xdda0ddff,
+  powderblue: 0xb0e0e6ff,
+  purple: 0x800080ff,
+  rebeccapurple: 0x663399ff,
+  red: 0xff0000ff,
+  rosybrown: 0xbc8f8fff,
+  royalblue: 0x4169e1ff,
+  saddlebrown: 0x8b4513ff,
+  salmon: 0xfa8072ff,
+  sandybrown: 0xf4a460ff,
+  seagreen: 0x2e8b57ff,
+  seashell: 0xfff5eeff,
+  sienna: 0xa0522dff,
+  silver: 0xc0c0c0ff,
+  skyblue: 0x87ceebff,
+  slateblue: 0x6a5acdff,
+  slategray: 0x708090ff,
+  slategrey: 0x708090ff,
+  snow: 0xfffafaff,
+  springgreen: 0x00ff7fff,
+  steelblue: 0x4682b4ff,
+  tan: 0xd2b48cff,
+  teal: 0x008080ff,
+  thistle: 0xd8bfd8ff,
+  tomato: 0xff6347ff,
+  turquoise: 0x40e0d0ff,
+  violet: 0xee82eeff,
+  wheat: 0xf5deb3ff,
+  white: 0xffffffff,
+  whitesmoke: 0xf5f5f5ff,
+  yellow: 0xffff00ff,
+  yellowgreen: 0x9acd32ff
+};
+
+const NUMBER = '[-+]?\\d*\\.?\\d+';
+const PERCENTAGE = NUMBER + '%';
+
+function call(...parts) {
+  return '\\(\\s*(' + parts.join(')\\s*,\\s*(') + ')\\s*\\)';
+}
+
+const rgb = new RegExp('rgb' + call(NUMBER, NUMBER, NUMBER));
+const rgba = new RegExp('rgba' + call(NUMBER, NUMBER, NUMBER, NUMBER));
+const hsl = new RegExp('hsl' + call(NUMBER, PERCENTAGE, PERCENTAGE));
+const hsla = new RegExp('hsla' + call(NUMBER, PERCENTAGE, PERCENTAGE, NUMBER));
+const hex3 = /^#([0-9a-fA-F]{1})([0-9a-fA-F]{1})([0-9a-fA-F]{1})$/;
+const hex4 = /^#([0-9a-fA-F]{1})([0-9a-fA-F]{1})([0-9a-fA-F]{1})([0-9a-fA-F]{1})$/;
+const hex6 = /^#([0-9a-fA-F]{6})$/;
+const hex8 = /^#([0-9a-fA-F]{8})$/;
+
+function normalizeColor(color) {
+  let match;
+
+  if (typeof color === 'number') {
+    return color >>> 0 === color && color >= 0 && color <= 0xffffffff ? color : null;
+  }
+
+  if (match = hex6.exec(color)) return parseInt(match[1] + 'ff', 16) >>> 0;
+
+  if (colors$1 && colors$1[color] !== undefined) {
+    return colors$1[color];
+  }
+
+  if (match = rgb.exec(color)) {
+    return (parse255(match[1]) << 24 | parse255(match[2]) << 16 | parse255(match[3]) << 8 | 0x000000ff) >>> 0;
+  }
+
+  if (match = rgba.exec(color)) {
+    return (parse255(match[1]) << 24 | parse255(match[2]) << 16 | parse255(match[3]) << 8 | parse1(match[4])) >>> 0;
+  }
+
+  if (match = hex3.exec(color)) {
+    return parseInt(match[1] + match[1] + match[2] + match[2] + match[3] + match[3] + 'ff', 16) >>> 0;
+  }
+
+  if (match = hex8.exec(color)) return parseInt(match[1], 16) >>> 0;
+
+  if (match = hex4.exec(color)) {
+    return parseInt(match[1] + match[1] + match[2] + match[2] + match[3] + match[3] + match[4] + match[4], 16) >>> 0;
+  }
+
+  if (match = hsl.exec(color)) {
+    return (hslToRgb(parse360(match[1]), parsePercentage(match[2]), parsePercentage(match[3])) | 0x000000ff) >>> 0;
+  }
+
+  if (match = hsla.exec(color)) {
+    return (hslToRgb(parse360(match[1]), parsePercentage(match[2]), parsePercentage(match[3])) | parse1(match[4])) >>> 0;
+  }
+
+  return null;
+}
+
+function hue2rgb(p, q, t) {
+  if (t < 0) t += 1;
+  if (t > 1) t -= 1;
+  if (t < 1 / 6) return p + (q - p) * 6 * t;
+  if (t < 1 / 2) return q;
+  if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
+  return p;
+}
+
+function hslToRgb(h, s, l) {
+  const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+  const p = 2 * l - q;
+  const r = hue2rgb(p, q, h + 1 / 3);
+  const g = hue2rgb(p, q, h);
+  const b = hue2rgb(p, q, h - 1 / 3);
+  return Math.round(r * 255) << 24 | Math.round(g * 255) << 16 | Math.round(b * 255) << 8;
+}
+
+function parse255(str) {
+  const int = parseInt(str, 10);
+  if (int < 0) return 0;
+  if (int > 255) return 255;
+  return int;
+}
+
+function parse360(str) {
+  const int = parseFloat(str);
+  return (int % 360 + 360) % 360 / 360;
+}
+
+function parse1(str) {
+  const num = parseFloat(str);
+  if (num < 0) return 0;
+  if (num > 1) return 255;
+  return Math.round(num * 255);
+}
+
+function parsePercentage(str) {
+  const int = parseFloat(str);
+  if (int < 0) return 0;
+  if (int > 100) return 1;
+  return int / 100;
+}
+
+function colorToRgba(input) {
+  let int32Color = normalizeColor(input);
+  if (int32Color === null) return input;
+  int32Color = int32Color || 0;
+  let r = (int32Color & 0xff000000) >>> 24;
+  let g = (int32Color & 0x00ff0000) >>> 16;
+  let b = (int32Color & 0x0000ff00) >>> 8;
+  let a = (int32Color & 0x000000ff) / 255;
+  return `rgba(${r}, ${g}, ${b}, ${a})`;
+}
+
+const createInterpolator = (range, output, extrapolate) => {
+  if (react_spring_shared_esm_is.fun(range)) {
+    return range;
+  }
+
+  if (react_spring_shared_esm_is.arr(range)) {
+    return createInterpolator({
+      range,
+      output: output,
+      extrapolate
+    });
+  }
+
+  if (react_spring_shared_esm_is.str(range.output[0])) {
+    return createStringInterpolator$1(range);
+  }
+
+  const config = range;
+  const outputRange = config.output;
+  const inputRange = config.range || [0, 1];
+  const extrapolateLeft = config.extrapolateLeft || config.extrapolate || 'extend';
+  const extrapolateRight = config.extrapolateRight || config.extrapolate || 'extend';
+
+  const easing = config.easing || (t => t);
+
+  return input => {
+    const range = findRange(input, inputRange);
+    return interpolate(input, inputRange[range], inputRange[range + 1], outputRange[range], outputRange[range + 1], easing, extrapolateLeft, extrapolateRight, config.map);
+  };
+};
+
+function interpolate(input, inputMin, inputMax, outputMin, outputMax, easing, extrapolateLeft, extrapolateRight, map) {
+  let result = map ? map(input) : input;
+
+  if (result < inputMin) {
+    if (extrapolateLeft === 'identity') return result;else if (extrapolateLeft === 'clamp') result = inputMin;
+  }
+
+  if (result > inputMax) {
+    if (extrapolateRight === 'identity') return result;else if (extrapolateRight === 'clamp') result = inputMax;
+  }
+
+  if (outputMin === outputMax) return outputMin;
+  if (inputMin === inputMax) return input <= inputMin ? outputMin : outputMax;
+  if (inputMin === -Infinity) result = -result;else if (inputMax === Infinity) result = result - inputMin;else result = (result - inputMin) / (inputMax - inputMin);
+  result = easing(result);
+  if (outputMin === -Infinity) result = -result;else if (outputMax === Infinity) result = result + outputMin;else result = result * (outputMax - outputMin) + outputMin;
+  return result;
+}
+
+function findRange(input, inputRange) {
+  for (var i = 1; i < inputRange.length - 1; ++i) if (inputRange[i] >= input) break;
+
+  return i - 1;
+}
+
+function react_spring_shared_esm_extends() {
+  react_spring_shared_esm_extends = Object.assign ? Object.assign.bind() : function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+  return react_spring_shared_esm_extends.apply(this, arguments);
+}
+
+const $get = Symbol.for('FluidValue.get');
+const $observers = Symbol.for('FluidValue.observers');
+
+const hasFluidValue = arg => Boolean(arg && arg[$get]);
+
+const getFluidValue = arg => arg && arg[$get] ? arg[$get]() : arg;
+
+const getFluidObservers = target => target[$observers] || null;
+
+function callFluidObserver(observer, event) {
+  if (observer.eventObserved) {
+    observer.eventObserved(event);
+  } else {
+    observer(event);
+  }
+}
+
+function callFluidObservers(target, event) {
+  let observers = target[$observers];
+
+  if (observers) {
+    observers.forEach(observer => {
+      callFluidObserver(observer, event);
+    });
+  }
+}
+
+class FluidValue {
+  constructor(get) {
+    this[$get] = void 0;
+    this[$observers] = void 0;
+
+    if (!get && !(get = this.get)) {
+      throw Error('Unknown getter');
+    }
+
+    setFluidGetter(this, get);
+  }
+
+}
+
+const setFluidGetter = (target, get) => setHidden(target, $get, get);
+
+function react_spring_shared_esm_addFluidObserver(target, observer) {
+  if (target[$get]) {
+    let observers = target[$observers];
+
+    if (!observers) {
+      setHidden(target, $observers, observers = new Set());
+    }
+
+    if (!observers.has(observer)) {
+      observers.add(observer);
+
+      if (target.observerAdded) {
+        target.observerAdded(observers.size, observer);
+      }
+    }
+  }
+
+  return observer;
+}
+
+function removeFluidObserver(target, observer) {
+  let observers = target[$observers];
+
+  if (observers && observers.has(observer)) {
+    const count = observers.size - 1;
+
+    if (count) {
+      observers.delete(observer);
+    } else {
+      target[$observers] = null;
+    }
+
+    if (target.observerRemoved) {
+      target.observerRemoved(count, observer);
+    }
+  }
+}
+
+const setHidden = (target, key, value) => Object.defineProperty(target, key, {
+  value,
+  writable: true,
+  configurable: true
+});
+
+const numberRegex = /[+\-]?(?:0|[1-9]\d*)(?:\.\d*)?(?:[eE][+\-]?\d+)?/g;
+const colorRegex = /(#(?:[0-9a-f]{2}){2,4}|(#[0-9a-f]{3})|(rgb|hsl)a?\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\))/gi;
+const unitRegex = new RegExp(`(${numberRegex.source})(%|[a-z]+)`, 'i');
+const rgbaRegex = /rgba\(([0-9\.-]+), ([0-9\.-]+), ([0-9\.-]+), ([0-9\.-]+)\)/gi;
+const cssVariableRegex = /var\((--[a-zA-Z0-9-_]+),? ?([a-zA-Z0-9 ()%#.,-]+)?\)/;
+
+const variableToRgba = input => {
+  const [token, fallback] = parseCSSVariable(input);
+
+  if (!token || isSSR()) {
+    return input;
+  }
+
+  const value = window.getComputedStyle(document.documentElement).getPropertyValue(token);
+
+  if (value) {
+    return value.trim();
+  } else if (fallback && fallback.startsWith('--')) {
+    const _value = window.getComputedStyle(document.documentElement).getPropertyValue(fallback);
+
+    if (_value) {
+      return _value;
+    } else {
+      return input;
+    }
+  } else if (fallback && cssVariableRegex.test(fallback)) {
+    return variableToRgba(fallback);
+  } else if (fallback) {
+    return fallback;
+  }
+
+  return input;
+};
+
+const parseCSSVariable = current => {
+  const match = cssVariableRegex.exec(current);
+  if (!match) return [,];
+  const [, token, fallback] = match;
+  return [token, fallback];
+};
+
+let namedColorRegex;
+
+const rgbaRound = (_, p1, p2, p3, p4) => `rgba(${Math.round(p1)}, ${Math.round(p2)}, ${Math.round(p3)}, ${p4})`;
+
+const createStringInterpolator = config => {
+  if (!namedColorRegex) namedColorRegex = colors$1 ? new RegExp(`(${Object.keys(colors$1).join('|')})(?!\\w)`, 'g') : /^\b$/;
+  const output = config.output.map(value => {
+    return getFluidValue(value).replace(cssVariableRegex, variableToRgba).replace(colorRegex, colorToRgba).replace(namedColorRegex, colorToRgba);
+  });
+  const keyframes = output.map(value => value.match(numberRegex).map(Number));
+  const outputRanges = keyframes[0].map((_, i) => keyframes.map(values => {
+    if (!(i in values)) {
+      throw Error('The arity of each "output" value must be equal');
+    }
+
+    return values[i];
+  }));
+  const interpolators = outputRanges.map(output => createInterpolator(react_spring_shared_esm_extends({}, config, {
+    output
+  })));
+  return input => {
+    var _output$find;
+
+    const missingUnit = !unitRegex.test(output[0]) && ((_output$find = output.find(value => unitRegex.test(value))) == null ? void 0 : _output$find.replace(numberRegex, ''));
+    let i = 0;
+    return output[0].replace(numberRegex, () => `${interpolators[i++](input)}${missingUnit || ''}`).replace(rgbaRegex, rgbaRound);
+  };
+};
+
+const prefix = 'react-spring: ';
+
+const once = fn => {
+  const func = fn;
+  let called = false;
+
+  if (typeof func != 'function') {
+    throw new TypeError(`${prefix}once requires a function parameter`);
+  }
+
+  return (...args) => {
+    if (!called) {
+      func(...args);
+      called = true;
+    }
+  };
+};
+
+const warnInterpolate = once(console.warn);
+function react_spring_shared_esm_deprecateInterpolate() {
+  warnInterpolate(`${prefix}The "interpolate" function is deprecated in v9 (use "to" instead)`);
+}
+const warnDirectCall = once(console.warn);
+function react_spring_shared_esm_deprecateDirectCall() {
+  warnDirectCall(`${prefix}Directly calling start instead of using the api object is deprecated in v9 (use ".start" instead), this will be removed in later 0.X.0 versions`);
+}
+
+function isAnimatedString(value) {
+  return react_spring_shared_esm_is.str(value) && (value[0] == '#' || /\d/.test(value) || !isSSR() && cssVariableRegex.test(value) || value in (colors$1 || {}));
+}
+
+const react_spring_shared_esm_useIsomorphicLayoutEffect = isSSR() ? external_React_.useEffect : external_React_.useLayoutEffect;
+
+const useIsMounted = () => {
+  const isMounted = (0,external_React_.useRef)(false);
+  react_spring_shared_esm_useIsomorphicLayoutEffect(() => {
+    isMounted.current = true;
+    return () => {
+      isMounted.current = false;
+    };
+  }, []);
+  return isMounted;
+};
+
+function react_spring_shared_esm_useForceUpdate() {
+  const update = (0,external_React_.useState)()[1];
+  const isMounted = useIsMounted();
+  return () => {
+    if (isMounted.current) {
+      update(Math.random());
+    }
+  };
+}
+
+function useMemoOne(getResult, inputs) {
+  const [initial] = (0,external_React_.useState)(() => ({
+    inputs,
+    result: getResult()
+  }));
+  const committed = (0,external_React_.useRef)();
+  const prevCache = committed.current;
+  let cache = prevCache;
+
+  if (cache) {
+    const useCache = Boolean(inputs && cache.inputs && areInputsEqual(inputs, cache.inputs));
+
+    if (!useCache) {
+      cache = {
+        inputs,
+        result: getResult()
+      };
+    }
+  } else {
+    cache = initial;
+  }
+
+  (0,external_React_.useEffect)(() => {
+    committed.current = cache;
+
+    if (prevCache == initial) {
+      initial.inputs = initial.result = undefined;
+    }
+  }, [cache]);
+  return cache.result;
+}
+
+function areInputsEqual(next, prev) {
+  if (next.length !== prev.length) {
+    return false;
+  }
+
+  for (let i = 0; i < next.length; i++) {
+    if (next[i] !== prev[i]) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+const react_spring_shared_esm_useOnce = effect => (0,external_React_.useEffect)(effect, emptyDeps);
+const emptyDeps = [];
+
+function react_spring_shared_esm_usePrev(value) {
+  const prevRef = useRef();
+  useEffect(() => {
+    prevRef.current = value;
+  });
+  return prevRef.current;
+}
+
+const useReducedMotion = () => {
+  const [reducedMotion, setReducedMotion] = useState(null);
+  react_spring_shared_esm_useIsomorphicLayoutEffect(() => {
+    const mql = window.matchMedia('(prefers-reduced-motion)');
+
+    const handleMediaChange = e => {
+      setReducedMotion(e.matches);
+      react_spring_shared_esm_assign({
+        skipAnimation: e.matches
+      });
+    };
+
+    handleMediaChange(mql);
+    mql.addEventListener('change', handleMediaChange);
+    return () => {
+      mql.removeEventListener('change', handleMediaChange);
+    };
+  }, []);
+  return reducedMotion;
+};
+
+
+
+;// ./node_modules/@react-spring/animated/dist/react-spring-animated.esm.js
+
+
+
+
+const $node = Symbol.for('Animated:node');
+const isAnimated = value => !!value && value[$node] === value;
+const getAnimated = owner => owner && owner[$node];
+const setAnimated = (owner, node) => defineHidden(owner, $node, node);
+const getPayload = owner => owner && owner[$node] && owner[$node].getPayload();
+class Animated {
+  constructor() {
+    this.payload = void 0;
+    setAnimated(this, this);
+  }
+
+  getPayload() {
+    return this.payload || [];
+  }
+
+}
+
+class AnimatedValue extends Animated {
+  constructor(_value) {
+    super();
+    this.done = true;
+    this.elapsedTime = void 0;
+    this.lastPosition = void 0;
+    this.lastVelocity = void 0;
+    this.v0 = void 0;
+    this.durationProgress = 0;
+    this._value = _value;
+
+    if (react_spring_shared_esm_is.num(this._value)) {
+      this.lastPosition = this._value;
+    }
+  }
+
+  static create(value) {
+    return new AnimatedValue(value);
+  }
+
+  getPayload() {
+    return [this];
+  }
+
+  getValue() {
+    return this._value;
+  }
+
+  setValue(value, step) {
+    if (react_spring_shared_esm_is.num(value)) {
+      this.lastPosition = value;
+
+      if (step) {
+        value = Math.round(value / step) * step;
+
+        if (this.done) {
+          this.lastPosition = value;
+        }
+      }
+    }
+
+    if (this._value === value) {
+      return false;
+    }
+
+    this._value = value;
+    return true;
+  }
+
+  reset() {
+    const {
+      done
+    } = this;
+    this.done = false;
+
+    if (react_spring_shared_esm_is.num(this._value)) {
+      this.elapsedTime = 0;
+      this.durationProgress = 0;
+      this.lastPosition = this._value;
+      if (done) this.lastVelocity = null;
+      this.v0 = null;
+    }
+  }
+
+}
+
+class AnimatedString extends AnimatedValue {
+  constructor(value) {
+    super(0);
+    this._string = null;
+    this._toString = void 0;
+    this._toString = createInterpolator({
+      output: [value, value]
+    });
+  }
+
+  static create(value) {
+    return new AnimatedString(value);
+  }
+
+  getValue() {
+    let value = this._string;
+    return value == null ? this._string = this._toString(this._value) : value;
+  }
+
+  setValue(value) {
+    if (react_spring_shared_esm_is.str(value)) {
+      if (value == this._string) {
+        return false;
+      }
+
+      this._string = value;
+      this._value = 1;
+    } else if (super.setValue(value)) {
+      this._string = null;
+    } else {
+      return false;
+    }
+
+    return true;
+  }
+
+  reset(goal) {
+    if (goal) {
+      this._toString = createInterpolator({
+        output: [this.getValue(), goal]
+      });
+    }
+
+    this._value = 0;
+    super.reset();
+  }
+
+}
+
+const TreeContext = {
+  dependencies: null
+};
+
+class AnimatedObject extends Animated {
+  constructor(source) {
+    super();
+    this.source = source;
+    this.setValue(source);
+  }
+
+  getValue(animated) {
+    const values = {};
+    react_spring_shared_esm_eachProp(this.source, (source, key) => {
+      if (isAnimated(source)) {
+        values[key] = source.getValue(animated);
+      } else if (hasFluidValue(source)) {
+        values[key] = getFluidValue(source);
+      } else if (!animated) {
+        values[key] = source;
+      }
+    });
+    return values;
+  }
+
+  setValue(source) {
+    this.source = source;
+    this.payload = this._makePayload(source);
+  }
+
+  reset() {
+    if (this.payload) {
+      react_spring_shared_esm_each(this.payload, node => node.reset());
+    }
+  }
+
+  _makePayload(source) {
+    if (source) {
+      const payload = new Set();
+      react_spring_shared_esm_eachProp(source, this._addToPayload, payload);
+      return Array.from(payload);
+    }
+  }
+
+  _addToPayload(source) {
+    if (TreeContext.dependencies && hasFluidValue(source)) {
+      TreeContext.dependencies.add(source);
+    }
+
+    const payload = getPayload(source);
+
+    if (payload) {
+      react_spring_shared_esm_each(payload, node => this.add(node));
+    }
+  }
+
+}
+
+class AnimatedArray extends AnimatedObject {
+  constructor(source) {
+    super(source);
+  }
+
+  static create(source) {
+    return new AnimatedArray(source);
+  }
+
+  getValue() {
+    return this.source.map(node => node.getValue());
+  }
+
+  setValue(source) {
+    const payload = this.getPayload();
+
+    if (source.length == payload.length) {
+      return payload.map((node, i) => node.setValue(source[i])).some(Boolean);
+    }
+
+    super.setValue(source.map(makeAnimated));
+    return true;
+  }
+
+}
+
+function makeAnimated(value) {
+  const nodeType = isAnimatedString(value) ? AnimatedString : AnimatedValue;
+  return nodeType.create(value);
+}
+
+function getAnimatedType(value) {
+  const parentNode = getAnimated(value);
+  return parentNode ? parentNode.constructor : react_spring_shared_esm_is.arr(value) ? AnimatedArray : isAnimatedString(value) ? AnimatedString : AnimatedValue;
+}
+
+function react_spring_animated_esm_extends() {
+  react_spring_animated_esm_extends = Object.assign ? Object.assign.bind() : function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+  return react_spring_animated_esm_extends.apply(this, arguments);
+}
+
+const withAnimated = (Component, host) => {
+  const hasInstance = !react_spring_shared_esm_is.fun(Component) || Component.prototype && Component.prototype.isReactComponent;
+  return (0,external_React_.forwardRef)((givenProps, givenRef) => {
+    const instanceRef = (0,external_React_.useRef)(null);
+    const ref = hasInstance && (0,external_React_.useCallback)(value => {
+      instanceRef.current = updateRef(givenRef, value);
+    }, [givenRef]);
+    const [props, deps] = getAnimatedState(givenProps, host);
+    const forceUpdate = react_spring_shared_esm_useForceUpdate();
+
+    const callback = () => {
+      const instance = instanceRef.current;
+
+      if (hasInstance && !instance) {
+        return;
+      }
+
+      const didUpdate = instance ? host.applyAnimatedValues(instance, props.getValue(true)) : false;
+
+      if (didUpdate === false) {
+        forceUpdate();
+      }
+    };
+
+    const observer = new PropsObserver(callback, deps);
+    const observerRef = (0,external_React_.useRef)();
+    react_spring_shared_esm_useIsomorphicLayoutEffect(() => {
+      observerRef.current = observer;
+      react_spring_shared_esm_each(deps, dep => react_spring_shared_esm_addFluidObserver(dep, observer));
+      return () => {
+        if (observerRef.current) {
+          react_spring_shared_esm_each(observerRef.current.deps, dep => removeFluidObserver(dep, observerRef.current));
+          raf.cancel(observerRef.current.update);
+        }
+      };
+    });
+    (0,external_React_.useEffect)(callback, []);
+    react_spring_shared_esm_useOnce(() => () => {
+      const observer = observerRef.current;
+      react_spring_shared_esm_each(observer.deps, dep => removeFluidObserver(dep, observer));
+    });
+    const usedProps = host.getComponentProps(props.getValue());
+    return external_React_.createElement(Component, react_spring_animated_esm_extends({}, usedProps, {
+      ref: ref
+    }));
+  });
+};
+
+class PropsObserver {
+  constructor(update, deps) {
+    this.update = update;
+    this.deps = deps;
+  }
+
+  eventObserved(event) {
+    if (event.type == 'change') {
+      raf.write(this.update);
+    }
+  }
+
+}
+
+function getAnimatedState(props, host) {
+  const dependencies = new Set();
+  TreeContext.dependencies = dependencies;
+  if (props.style) props = react_spring_animated_esm_extends({}, props, {
+    style: host.createAnimatedStyle(props.style)
+  });
+  props = new AnimatedObject(props);
+  TreeContext.dependencies = null;
+  return [props, dependencies];
+}
+
+function updateRef(ref, value) {
+  if (ref) {
+    if (react_spring_shared_esm_is.fun(ref)) ref(value);else ref.current = value;
+  }
+
+  return value;
+}
+
+const cacheKey = Symbol.for('AnimatedComponent');
+const createHost = (components, {
+  applyAnimatedValues: _applyAnimatedValues = () => false,
+  createAnimatedStyle: _createAnimatedStyle = style => new AnimatedObject(style),
+  getComponentProps: _getComponentProps = props => props
+} = {}) => {
+  const hostConfig = {
+    applyAnimatedValues: _applyAnimatedValues,
+    createAnimatedStyle: _createAnimatedStyle,
+    getComponentProps: _getComponentProps
+  };
+
+  const animated = Component => {
+    const displayName = getDisplayName(Component) || 'Anonymous';
+
+    if (react_spring_shared_esm_is.str(Component)) {
+      Component = animated[Component] || (animated[Component] = withAnimated(Component, hostConfig));
+    } else {
+      Component = Component[cacheKey] || (Component[cacheKey] = withAnimated(Component, hostConfig));
+    }
+
+    Component.displayName = `Animated(${displayName})`;
+    return Component;
+  };
+
+  react_spring_shared_esm_eachProp(components, (Component, key) => {
+    if (react_spring_shared_esm_is.arr(components)) {
+      key = getDisplayName(Component);
+    }
+
+    animated[key] = animated(Component);
+  });
+  return {
+    animated
+  };
+};
+
+const getDisplayName = arg => react_spring_shared_esm_is.str(arg) ? arg : arg && react_spring_shared_esm_is.str(arg.displayName) ? arg.displayName : react_spring_shared_esm_is.fun(arg) && arg.name || null;
+
+
+
+;// ./node_modules/@react-spring/core/dist/react-spring-core.esm.js
+
+
+
+
+
+
+
+
+function react_spring_core_esm_extends() {
+  react_spring_core_esm_extends = Object.assign ? Object.assign.bind() : function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+  return react_spring_core_esm_extends.apply(this, arguments);
+}
+
+function callProp(value, ...args) {
+  return react_spring_shared_esm_is.fun(value) ? value(...args) : value;
+}
+const matchProp = (value, key) => value === true || !!(key && value && (react_spring_shared_esm_is.fun(value) ? value(key) : react_spring_shared_esm_toArray(value).includes(key)));
+const resolveProp = (prop, key) => react_spring_shared_esm_is.obj(prop) ? key && prop[key] : prop;
+const getDefaultProp = (props, key) => props.default === true ? props[key] : props.default ? props.default[key] : undefined;
+
+const noopTransform = value => value;
+
+const getDefaultProps = (props, transform = noopTransform) => {
+  let keys = DEFAULT_PROPS;
+
+  if (props.default && props.default !== true) {
+    props = props.default;
+    keys = Object.keys(props);
+  }
+
+  const defaults = {};
+
+  for (const key of keys) {
+    const value = transform(props[key], key);
+
+    if (!react_spring_shared_esm_is.und(value)) {
+      defaults[key] = value;
+    }
+  }
+
+  return defaults;
+};
+const DEFAULT_PROPS = ['config', 'onProps', 'onStart', 'onChange', 'onPause', 'onResume', 'onRest'];
+const RESERVED_PROPS = {
+  config: 1,
+  from: 1,
+  to: 1,
+  ref: 1,
+  loop: 1,
+  reset: 1,
+  pause: 1,
+  cancel: 1,
+  reverse: 1,
+  immediate: 1,
+  default: 1,
+  delay: 1,
+  onProps: 1,
+  onStart: 1,
+  onChange: 1,
+  onPause: 1,
+  onResume: 1,
+  onRest: 1,
+  onResolve: 1,
+  items: 1,
+  trail: 1,
+  sort: 1,
+  expires: 1,
+  initial: 1,
+  enter: 1,
+  update: 1,
+  leave: 1,
+  children: 1,
+  onDestroyed: 1,
+  keys: 1,
+  callId: 1,
+  parentId: 1
+};
+
+function getForwardProps(props) {
+  const forward = {};
+  let count = 0;
+  react_spring_shared_esm_eachProp(props, (value, prop) => {
+    if (!RESERVED_PROPS[prop]) {
+      forward[prop] = value;
+      count++;
+    }
+  });
+
+  if (count) {
+    return forward;
+  }
+}
+
+function inferTo(props) {
+  const to = getForwardProps(props);
+
+  if (to) {
+    const out = {
+      to
+    };
+    react_spring_shared_esm_eachProp(props, (val, key) => key in to || (out[key] = val));
+    return out;
+  }
+
+  return react_spring_core_esm_extends({}, props);
+}
+function computeGoal(value) {
+  value = getFluidValue(value);
+  return react_spring_shared_esm_is.arr(value) ? value.map(computeGoal) : isAnimatedString(value) ? globals.createStringInterpolator({
+    range: [0, 1],
+    output: [value, value]
+  })(1) : value;
+}
+function hasProps(props) {
+  for (const _ in props) return true;
+
+  return false;
+}
+function isAsyncTo(to) {
+  return react_spring_shared_esm_is.fun(to) || react_spring_shared_esm_is.arr(to) && react_spring_shared_esm_is.obj(to[0]);
+}
+function detachRefs(ctrl, ref) {
+  var _ctrl$ref;
+
+  (_ctrl$ref = ctrl.ref) == null ? void 0 : _ctrl$ref.delete(ctrl);
+  ref == null ? void 0 : ref.delete(ctrl);
+}
+function replaceRef(ctrl, ref) {
+  if (ref && ctrl.ref !== ref) {
+    var _ctrl$ref2;
+
+    (_ctrl$ref2 = ctrl.ref) == null ? void 0 : _ctrl$ref2.delete(ctrl);
+    ref.add(ctrl);
+    ctrl.ref = ref;
+  }
+}
+
+function useChain(refs, timeSteps, timeFrame = 1000) {
+  useIsomorphicLayoutEffect(() => {
+    if (timeSteps) {
+      let prevDelay = 0;
+      each(refs, (ref, i) => {
+        const controllers = ref.current;
+
+        if (controllers.length) {
+          let delay = timeFrame * timeSteps[i];
+          if (isNaN(delay)) delay = prevDelay;else prevDelay = delay;
+          each(controllers, ctrl => {
+            each(ctrl.queue, props => {
+              const memoizedDelayProp = props.delay;
+
+              props.delay = key => delay + callProp(memoizedDelayProp || 0, key);
+            });
+          });
+          ref.start();
+        }
+      });
+    } else {
+      let p = Promise.resolve();
+      each(refs, ref => {
+        const controllers = ref.current;
+
+        if (controllers.length) {
+          const queues = controllers.map(ctrl => {
+            const q = ctrl.queue;
+            ctrl.queue = [];
+            return q;
+          });
+          p = p.then(() => {
+            each(controllers, (ctrl, i) => each(queues[i] || [], update => ctrl.queue.push(update)));
+            return Promise.all(ref.start());
+          });
+        }
+      });
+    }
+  });
+}
+
+const config = {
+  default: {
+    tension: 170,
+    friction: 26
+  },
+  gentle: {
+    tension: 120,
+    friction: 14
+  },
+  wobbly: {
+    tension: 180,
+    friction: 12
+  },
+  stiff: {
+    tension: 210,
+    friction: 20
+  },
+  slow: {
+    tension: 280,
+    friction: 60
+  },
+  molasses: {
+    tension: 280,
+    friction: 120
+  }
+};
+const c1 = 1.70158;
+const c2 = c1 * 1.525;
+const c3 = c1 + 1;
+const c4 = 2 * Math.PI / 3;
+const c5 = 2 * Math.PI / 4.5;
+
+const bounceOut = x => {
+  const n1 = 7.5625;
+  const d1 = 2.75;
+
+  if (x < 1 / d1) {
+    return n1 * x * x;
+  } else if (x < 2 / d1) {
+    return n1 * (x -= 1.5 / d1) * x + 0.75;
+  } else if (x < 2.5 / d1) {
+    return n1 * (x -= 2.25 / d1) * x + 0.9375;
+  } else {
+    return n1 * (x -= 2.625 / d1) * x + 0.984375;
+  }
+};
+
+const easings = {
+  linear: x => x,
+  easeInQuad: x => x * x,
+  easeOutQuad: x => 1 - (1 - x) * (1 - x),
+  easeInOutQuad: x => x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2,
+  easeInCubic: x => x * x * x,
+  easeOutCubic: x => 1 - Math.pow(1 - x, 3),
+  easeInOutCubic: x => x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2,
+  easeInQuart: x => x * x * x * x,
+  easeOutQuart: x => 1 - Math.pow(1 - x, 4),
+  easeInOutQuart: x => x < 0.5 ? 8 * x * x * x * x : 1 - Math.pow(-2 * x + 2, 4) / 2,
+  easeInQuint: x => x * x * x * x * x,
+  easeOutQuint: x => 1 - Math.pow(1 - x, 5),
+  easeInOutQuint: x => x < 0.5 ? 16 * x * x * x * x * x : 1 - Math.pow(-2 * x + 2, 5) / 2,
+  easeInSine: x => 1 - Math.cos(x * Math.PI / 2),
+  easeOutSine: x => Math.sin(x * Math.PI / 2),
+  easeInOutSine: x => -(Math.cos(Math.PI * x) - 1) / 2,
+  easeInExpo: x => x === 0 ? 0 : Math.pow(2, 10 * x - 10),
+  easeOutExpo: x => x === 1 ? 1 : 1 - Math.pow(2, -10 * x),
+  easeInOutExpo: x => x === 0 ? 0 : x === 1 ? 1 : x < 0.5 ? Math.pow(2, 20 * x - 10) / 2 : (2 - Math.pow(2, -20 * x + 10)) / 2,
+  easeInCirc: x => 1 - Math.sqrt(1 - Math.pow(x, 2)),
+  easeOutCirc: x => Math.sqrt(1 - Math.pow(x - 1, 2)),
+  easeInOutCirc: x => x < 0.5 ? (1 - Math.sqrt(1 - Math.pow(2 * x, 2))) / 2 : (Math.sqrt(1 - Math.pow(-2 * x + 2, 2)) + 1) / 2,
+  easeInBack: x => c3 * x * x * x - c1 * x * x,
+  easeOutBack: x => 1 + c3 * Math.pow(x - 1, 3) + c1 * Math.pow(x - 1, 2),
+  easeInOutBack: x => x < 0.5 ? Math.pow(2 * x, 2) * ((c2 + 1) * 2 * x - c2) / 2 : (Math.pow(2 * x - 2, 2) * ((c2 + 1) * (x * 2 - 2) + c2) + 2) / 2,
+  easeInElastic: x => x === 0 ? 0 : x === 1 ? 1 : -Math.pow(2, 10 * x - 10) * Math.sin((x * 10 - 10.75) * c4),
+  easeOutElastic: x => x === 0 ? 0 : x === 1 ? 1 : Math.pow(2, -10 * x) * Math.sin((x * 10 - 0.75) * c4) + 1,
+  easeInOutElastic: x => x === 0 ? 0 : x === 1 ? 1 : x < 0.5 ? -(Math.pow(2, 20 * x - 10) * Math.sin((20 * x - 11.125) * c5)) / 2 : Math.pow(2, -20 * x + 10) * Math.sin((20 * x - 11.125) * c5) / 2 + 1,
+  easeInBounce: x => 1 - bounceOut(1 - x),
+  easeOutBounce: bounceOut,
+  easeInOutBounce: x => x < 0.5 ? (1 - bounceOut(1 - 2 * x)) / 2 : (1 + bounceOut(2 * x - 1)) / 2
+};
+
+const defaults = react_spring_core_esm_extends({}, config.default, {
+  mass: 1,
+  damping: 1,
+  easing: easings.linear,
+  clamp: false
+});
+
+class AnimationConfig {
+  constructor() {
+    this.tension = void 0;
+    this.friction = void 0;
+    this.frequency = void 0;
+    this.damping = void 0;
+    this.mass = void 0;
+    this.velocity = 0;
+    this.restVelocity = void 0;
+    this.precision = void 0;
+    this.progress = void 0;
+    this.duration = void 0;
+    this.easing = void 0;
+    this.clamp = void 0;
+    this.bounce = void 0;
+    this.decay = void 0;
+    this.round = void 0;
+    Object.assign(this, defaults);
+  }
+
+}
+function mergeConfig(config, newConfig, defaultConfig) {
+  if (defaultConfig) {
+    defaultConfig = react_spring_core_esm_extends({}, defaultConfig);
+    sanitizeConfig(defaultConfig, newConfig);
+    newConfig = react_spring_core_esm_extends({}, defaultConfig, newConfig);
+  }
+
+  sanitizeConfig(config, newConfig);
+  Object.assign(config, newConfig);
+
+  for (const key in defaults) {
+    if (config[key] == null) {
+      config[key] = defaults[key];
+    }
+  }
+
+  let {
+    mass,
+    frequency,
+    damping
+  } = config;
+
+  if (!react_spring_shared_esm_is.und(frequency)) {
+    if (frequency < 0.01) frequency = 0.01;
+    if (damping < 0) damping = 0;
+    config.tension = Math.pow(2 * Math.PI / frequency, 2) * mass;
+    config.friction = 4 * Math.PI * damping * mass / frequency;
+  }
+
+  return config;
+}
+
+function sanitizeConfig(config, props) {
+  if (!react_spring_shared_esm_is.und(props.decay)) {
+    config.duration = undefined;
+  } else {
+    const isTensionConfig = !react_spring_shared_esm_is.und(props.tension) || !react_spring_shared_esm_is.und(props.friction);
+
+    if (isTensionConfig || !react_spring_shared_esm_is.und(props.frequency) || !react_spring_shared_esm_is.und(props.damping) || !react_spring_shared_esm_is.und(props.mass)) {
+      config.duration = undefined;
+      config.decay = undefined;
+    }
+
+    if (isTensionConfig) {
+      config.frequency = undefined;
+    }
+  }
+}
+
+const emptyArray = [];
+class Animation {
+  constructor() {
+    this.changed = false;
+    this.values = emptyArray;
+    this.toValues = null;
+    this.fromValues = emptyArray;
+    this.to = void 0;
+    this.from = void 0;
+    this.config = new AnimationConfig();
+    this.immediate = false;
+  }
+
+}
+
+function scheduleProps(callId, {
+  key,
+  props,
+  defaultProps,
+  state,
+  actions
+}) {
+  return new Promise((resolve, reject) => {
+    var _props$cancel;
+
+    let delay;
+    let timeout;
+    let cancel = matchProp((_props$cancel = props.cancel) != null ? _props$cancel : defaultProps == null ? void 0 : defaultProps.cancel, key);
+
+    if (cancel) {
+      onStart();
+    } else {
+      if (!react_spring_shared_esm_is.und(props.pause)) {
+        state.paused = matchProp(props.pause, key);
+      }
+
+      let pause = defaultProps == null ? void 0 : defaultProps.pause;
+
+      if (pause !== true) {
+        pause = state.paused || matchProp(pause, key);
+      }
+
+      delay = callProp(props.delay || 0, key);
+
+      if (pause) {
+        state.resumeQueue.add(onResume);
+        actions.pause();
+      } else {
+        actions.resume();
+        onResume();
+      }
+    }
+
+    function onPause() {
+      state.resumeQueue.add(onResume);
+      state.timeouts.delete(timeout);
+      timeout.cancel();
+      delay = timeout.time - raf.now();
+    }
+
+    function onResume() {
+      if (delay > 0 && !globals.skipAnimation) {
+        state.delayed = true;
+        timeout = raf.setTimeout(onStart, delay);
+        state.pauseQueue.add(onPause);
+        state.timeouts.add(timeout);
+      } else {
+        onStart();
+      }
+    }
+
+    function onStart() {
+      if (state.delayed) {
+        state.delayed = false;
+      }
+
+      state.pauseQueue.delete(onPause);
+      state.timeouts.delete(timeout);
+
+      if (callId <= (state.cancelId || 0)) {
+        cancel = true;
+      }
+
+      try {
+        actions.start(react_spring_core_esm_extends({}, props, {
+          callId,
+          cancel
+        }), resolve);
+      } catch (err) {
+        reject(err);
+      }
+    }
+  });
+}
+
+const getCombinedResult = (target, results) => results.length == 1 ? results[0] : results.some(result => result.cancelled) ? getCancelledResult(target.get()) : results.every(result => result.noop) ? getNoopResult(target.get()) : getFinishedResult(target.get(), results.every(result => result.finished));
+const getNoopResult = value => ({
+  value,
+  noop: true,
+  finished: true,
+  cancelled: false
+});
+const getFinishedResult = (value, finished, cancelled = false) => ({
+  value,
+  finished,
+  cancelled
+});
+const getCancelledResult = value => ({
+  value,
+  cancelled: true,
+  finished: false
+});
+
+function runAsync(to, props, state, target) {
+  const {
+    callId,
+    parentId,
+    onRest
+  } = props;
+  const {
+    asyncTo: prevTo,
+    promise: prevPromise
+  } = state;
+
+  if (!parentId && to === prevTo && !props.reset) {
+    return prevPromise;
+  }
+
+  return state.promise = (async () => {
+    state.asyncId = callId;
+    state.asyncTo = to;
+    const defaultProps = getDefaultProps(props, (value, key) => key === 'onRest' ? undefined : value);
+    let preventBail;
+    let bail;
+    const bailPromise = new Promise((resolve, reject) => (preventBail = resolve, bail = reject));
+
+    const bailIfEnded = bailSignal => {
+      const bailResult = callId <= (state.cancelId || 0) && getCancelledResult(target) || callId !== state.asyncId && getFinishedResult(target, false);
+
+      if (bailResult) {
+        bailSignal.result = bailResult;
+        bail(bailSignal);
+        throw bailSignal;
+      }
+    };
+
+    const animate = (arg1, arg2) => {
+      const bailSignal = new BailSignal();
+      const skipAnimationSignal = new SkipAniamtionSignal();
+      return (async () => {
+        if (globals.skipAnimation) {
+          stopAsync(state);
+          skipAnimationSignal.result = getFinishedResult(target, false);
+          bail(skipAnimationSignal);
+          throw skipAnimationSignal;
+        }
+
+        bailIfEnded(bailSignal);
+        const props = react_spring_shared_esm_is.obj(arg1) ? react_spring_core_esm_extends({}, arg1) : react_spring_core_esm_extends({}, arg2, {
+          to: arg1
+        });
+        props.parentId = callId;
+        react_spring_shared_esm_eachProp(defaultProps, (value, key) => {
+          if (react_spring_shared_esm_is.und(props[key])) {
+            props[key] = value;
+          }
+        });
+        const result = await target.start(props);
+        bailIfEnded(bailSignal);
+
+        if (state.paused) {
+          await new Promise(resume => {
+            state.resumeQueue.add(resume);
+          });
+        }
+
+        return result;
+      })();
+    };
+
+    let result;
+
+    if (globals.skipAnimation) {
+      stopAsync(state);
+      return getFinishedResult(target, false);
+    }
+
+    try {
+      let animating;
+
+      if (react_spring_shared_esm_is.arr(to)) {
+        animating = (async queue => {
+          for (const props of queue) {
+            await animate(props);
+          }
+        })(to);
+      } else {
+        animating = Promise.resolve(to(animate, target.stop.bind(target)));
+      }
+
+      await Promise.all([animating.then(preventBail), bailPromise]);
+      result = getFinishedResult(target.get(), true, false);
+    } catch (err) {
+      if (err instanceof BailSignal) {
+        result = err.result;
+      } else if (err instanceof SkipAniamtionSignal) {
+        result = err.result;
+      } else {
+        throw err;
+      }
+    } finally {
+      if (callId == state.asyncId) {
+        state.asyncId = parentId;
+        state.asyncTo = parentId ? prevTo : undefined;
+        state.promise = parentId ? prevPromise : undefined;
+      }
+    }
+
+    if (react_spring_shared_esm_is.fun(onRest)) {
+      raf.batchedUpdates(() => {
+        onRest(result, target, target.item);
+      });
+    }
+
+    return result;
+  })();
+}
+function stopAsync(state, cancelId) {
+  flush(state.timeouts, t => t.cancel());
+  state.pauseQueue.clear();
+  state.resumeQueue.clear();
+  state.asyncId = state.asyncTo = state.promise = undefined;
+  if (cancelId) state.cancelId = cancelId;
+}
+class BailSignal extends Error {
+  constructor() {
+    super('An async animation has been interrupted. You see this error because you ' + 'forgot to use `await` or `.catch(...)` on its returned promise.');
+    this.result = void 0;
+  }
+
+}
+class SkipAniamtionSignal extends Error {
+  constructor() {
+    super('SkipAnimationSignal');
+    this.result = void 0;
+  }
+
+}
+
+const isFrameValue = value => value instanceof FrameValue;
+let nextId$1 = 1;
+class FrameValue extends FluidValue {
+  constructor(...args) {
+    super(...args);
+    this.id = nextId$1++;
+    this.key = void 0;
+    this._priority = 0;
+  }
+
+  get priority() {
+    return this._priority;
+  }
+
+  set priority(priority) {
+    if (this._priority != priority) {
+      this._priority = priority;
+
+      this._onPriorityChange(priority);
+    }
+  }
+
+  get() {
+    const node = getAnimated(this);
+    return node && node.getValue();
+  }
+
+  to(...args) {
+    return globals.to(this, args);
+  }
+
+  interpolate(...args) {
+    react_spring_shared_esm_deprecateInterpolate();
+    return globals.to(this, args);
+  }
+
+  toJSON() {
+    return this.get();
+  }
+
+  observerAdded(count) {
+    if (count == 1) this._attach();
+  }
+
+  observerRemoved(count) {
+    if (count == 0) this._detach();
+  }
+
+  _attach() {}
+
+  _detach() {}
+
+  _onChange(value, idle = false) {
+    callFluidObservers(this, {
+      type: 'change',
+      parent: this,
+      value,
+      idle
+    });
+  }
+
+  _onPriorityChange(priority) {
+    if (!this.idle) {
+      frameLoop.sort(this);
+    }
+
+    callFluidObservers(this, {
+      type: 'priority',
+      parent: this,
+      priority
+    });
+  }
+
+}
+
+const $P = Symbol.for('SpringPhase');
+const HAS_ANIMATED = 1;
+const IS_ANIMATING = 2;
+const IS_PAUSED = 4;
+const hasAnimated = target => (target[$P] & HAS_ANIMATED) > 0;
+const isAnimating = target => (target[$P] & IS_ANIMATING) > 0;
+const react_spring_core_esm_isPaused = target => (target[$P] & IS_PAUSED) > 0;
+const setActiveBit = (target, active) => active ? target[$P] |= IS_ANIMATING | HAS_ANIMATED : target[$P] &= ~IS_ANIMATING;
+const setPausedBit = (target, paused) => paused ? target[$P] |= IS_PAUSED : target[$P] &= ~IS_PAUSED;
+
+class SpringValue extends FrameValue {
+  constructor(arg1, arg2) {
+    super();
+    this.key = void 0;
+    this.animation = new Animation();
+    this.queue = void 0;
+    this.defaultProps = {};
+    this._state = {
+      paused: false,
+      delayed: false,
+      pauseQueue: new Set(),
+      resumeQueue: new Set(),
+      timeouts: new Set()
+    };
+    this._pendingCalls = new Set();
+    this._lastCallId = 0;
+    this._lastToId = 0;
+    this._memoizedDuration = 0;
+
+    if (!react_spring_shared_esm_is.und(arg1) || !react_spring_shared_esm_is.und(arg2)) {
+      const props = react_spring_shared_esm_is.obj(arg1) ? react_spring_core_esm_extends({}, arg1) : react_spring_core_esm_extends({}, arg2, {
+        from: arg1
+      });
+
+      if (react_spring_shared_esm_is.und(props.default)) {
+        props.default = true;
+      }
+
+      this.start(props);
+    }
+  }
+
+  get idle() {
+    return !(isAnimating(this) || this._state.asyncTo) || react_spring_core_esm_isPaused(this);
+  }
+
+  get goal() {
+    return getFluidValue(this.animation.to);
+  }
+
+  get velocity() {
+    const node = getAnimated(this);
+    return node instanceof AnimatedValue ? node.lastVelocity || 0 : node.getPayload().map(node => node.lastVelocity || 0);
+  }
+
+  get hasAnimated() {
+    return hasAnimated(this);
+  }
+
+  get isAnimating() {
+    return isAnimating(this);
+  }
+
+  get isPaused() {
+    return react_spring_core_esm_isPaused(this);
+  }
+
+  get isDelayed() {
+    return this._state.delayed;
+  }
+
+  advance(dt) {
+    let idle = true;
+    let changed = false;
+    const anim = this.animation;
+    let {
+      config,
+      toValues
+    } = anim;
+    const payload = getPayload(anim.to);
+
+    if (!payload && hasFluidValue(anim.to)) {
+      toValues = react_spring_shared_esm_toArray(getFluidValue(anim.to));
+    }
+
+    anim.values.forEach((node, i) => {
+      if (node.done) return;
+      const to = node.constructor == AnimatedString ? 1 : payload ? payload[i].lastPosition : toValues[i];
+      let finished = anim.immediate;
+      let position = to;
+
+      if (!finished) {
+        position = node.lastPosition;
+
+        if (config.tension <= 0) {
+          node.done = true;
+          return;
+        }
+
+        let elapsed = node.elapsedTime += dt;
+        const from = anim.fromValues[i];
+        const v0 = node.v0 != null ? node.v0 : node.v0 = react_spring_shared_esm_is.arr(config.velocity) ? config.velocity[i] : config.velocity;
+        let velocity;
+        const precision = config.precision || (from == to ? 0.005 : Math.min(1, Math.abs(to - from) * 0.001));
+
+        if (!react_spring_shared_esm_is.und(config.duration)) {
+          let p = 1;
+
+          if (config.duration > 0) {
+            if (this._memoizedDuration !== config.duration) {
+              this._memoizedDuration = config.duration;
+
+              if (node.durationProgress > 0) {
+                node.elapsedTime = config.duration * node.durationProgress;
+                elapsed = node.elapsedTime += dt;
+              }
+            }
+
+            p = (config.progress || 0) + elapsed / this._memoizedDuration;
+            p = p > 1 ? 1 : p < 0 ? 0 : p;
+            node.durationProgress = p;
+          }
+
+          position = from + config.easing(p) * (to - from);
+          velocity = (position - node.lastPosition) / dt;
+          finished = p == 1;
+        } else if (config.decay) {
+          const decay = config.decay === true ? 0.998 : config.decay;
+          const e = Math.exp(-(1 - decay) * elapsed);
+          position = from + v0 / (1 - decay) * (1 - e);
+          finished = Math.abs(node.lastPosition - position) <= precision;
+          velocity = v0 * e;
+        } else {
+          velocity = node.lastVelocity == null ? v0 : node.lastVelocity;
+          const restVelocity = config.restVelocity || precision / 10;
+          const bounceFactor = config.clamp ? 0 : config.bounce;
+          const canBounce = !react_spring_shared_esm_is.und(bounceFactor);
+          const isGrowing = from == to ? node.v0 > 0 : from < to;
+          let isMoving;
+          let isBouncing = false;
+          const step = 1;
+          const numSteps = Math.ceil(dt / step);
+
+          for (let n = 0; n < numSteps; ++n) {
+            isMoving = Math.abs(velocity) > restVelocity;
+
+            if (!isMoving) {
+              finished = Math.abs(to - position) <= precision;
+
+              if (finished) {
+                break;
+              }
+            }
+
+            if (canBounce) {
+              isBouncing = position == to || position > to == isGrowing;
+
+              if (isBouncing) {
+                velocity = -velocity * bounceFactor;
+                position = to;
+              }
+            }
+
+            const springForce = -config.tension * 0.000001 * (position - to);
+            const dampingForce = -config.friction * 0.001 * velocity;
+            const acceleration = (springForce + dampingForce) / config.mass;
+            velocity = velocity + acceleration * step;
+            position = position + velocity * step;
+          }
+        }
+
+        node.lastVelocity = velocity;
+
+        if (Number.isNaN(position)) {
+          console.warn(`Got NaN while animating:`, this);
+          finished = true;
+        }
+      }
+
+      if (payload && !payload[i].done) {
+        finished = false;
+      }
+
+      if (finished) {
+        node.done = true;
+      } else {
+        idle = false;
+      }
+
+      if (node.setValue(position, config.round)) {
+        changed = true;
+      }
+    });
+    const node = getAnimated(this);
+    const currVal = node.getValue();
+
+    if (idle) {
+      const finalVal = getFluidValue(anim.to);
+
+      if ((currVal !== finalVal || changed) && !config.decay) {
+        node.setValue(finalVal);
+
+        this._onChange(finalVal);
+      } else if (changed && config.decay) {
+        this._onChange(currVal);
+      }
+
+      this._stop();
+    } else if (changed) {
+      this._onChange(currVal);
+    }
+  }
+
+  set(value) {
+    raf.batchedUpdates(() => {
+      this._stop();
+
+      this._focus(value);
+
+      this._set(value);
+    });
+    return this;
+  }
+
+  pause() {
+    this._update({
+      pause: true
+    });
+  }
+
+  resume() {
+    this._update({
+      pause: false
+    });
+  }
+
+  finish() {
+    if (isAnimating(this)) {
+      const {
+        to,
+        config
+      } = this.animation;
+      raf.batchedUpdates(() => {
+        this._onStart();
+
+        if (!config.decay) {
+          this._set(to, false);
+        }
+
+        this._stop();
+      });
+    }
+
+    return this;
+  }
+
+  update(props) {
+    const queue = this.queue || (this.queue = []);
+    queue.push(props);
+    return this;
+  }
+
+  start(to, arg2) {
+    let queue;
+
+    if (!react_spring_shared_esm_is.und(to)) {
+      queue = [react_spring_shared_esm_is.obj(to) ? to : react_spring_core_esm_extends({}, arg2, {
+        to
+      })];
+    } else {
+      queue = this.queue || [];
+      this.queue = [];
+    }
+
+    return Promise.all(queue.map(props => {
+      const up = this._update(props);
+
+      return up;
+    })).then(results => getCombinedResult(this, results));
+  }
+
+  stop(cancel) {
+    const {
+      to
+    } = this.animation;
+
+    this._focus(this.get());
+
+    stopAsync(this._state, cancel && this._lastCallId);
+    raf.batchedUpdates(() => this._stop(to, cancel));
+    return this;
+  }
+
+  reset() {
+    this._update({
+      reset: true
+    });
+  }
+
+  eventObserved(event) {
+    if (event.type == 'change') {
+      this._start();
+    } else if (event.type == 'priority') {
+      this.priority = event.priority + 1;
+    }
+  }
+
+  _prepareNode(props) {
+    const key = this.key || '';
+    let {
+      to,
+      from
+    } = props;
+    to = react_spring_shared_esm_is.obj(to) ? to[key] : to;
+
+    if (to == null || isAsyncTo(to)) {
+      to = undefined;
+    }
+
+    from = react_spring_shared_esm_is.obj(from) ? from[key] : from;
+
+    if (from == null) {
+      from = undefined;
+    }
+
+    const range = {
+      to,
+      from
+    };
+
+    if (!hasAnimated(this)) {
+      if (props.reverse) [to, from] = [from, to];
+      from = getFluidValue(from);
+
+      if (!react_spring_shared_esm_is.und(from)) {
+        this._set(from);
+      } else if (!getAnimated(this)) {
+        this._set(to);
+      }
+    }
+
+    return range;
+  }
+
+  _update(_ref, isLoop) {
+    let props = react_spring_core_esm_extends({}, _ref);
+
+    const {
+      key,
+      defaultProps
+    } = this;
+    if (props.default) Object.assign(defaultProps, getDefaultProps(props, (value, prop) => /^on/.test(prop) ? resolveProp(value, key) : value));
+    mergeActiveFn(this, props, 'onProps');
+    sendEvent(this, 'onProps', props, this);
+
+    const range = this._prepareNode(props);
+
+    if (Object.isFrozen(this)) {
+      throw Error('Cannot animate a `SpringValue` object that is frozen. ' + 'Did you forget to pass your component to `animated(...)` before animating its props?');
+    }
+
+    const state = this._state;
+    return scheduleProps(++this._lastCallId, {
+      key,
+      props,
+      defaultProps,
+      state,
+      actions: {
+        pause: () => {
+          if (!react_spring_core_esm_isPaused(this)) {
+            setPausedBit(this, true);
+            flushCalls(state.pauseQueue);
+            sendEvent(this, 'onPause', getFinishedResult(this, checkFinished(this, this.animation.to)), this);
+          }
+        },
+        resume: () => {
+          if (react_spring_core_esm_isPaused(this)) {
+            setPausedBit(this, false);
+
+            if (isAnimating(this)) {
+              this._resume();
+            }
+
+            flushCalls(state.resumeQueue);
+            sendEvent(this, 'onResume', getFinishedResult(this, checkFinished(this, this.animation.to)), this);
+          }
+        },
+        start: this._merge.bind(this, range)
+      }
+    }).then(result => {
+      if (props.loop && result.finished && !(isLoop && result.noop)) {
+        const nextProps = createLoopUpdate(props);
+
+        if (nextProps) {
+          return this._update(nextProps, true);
+        }
+      }
+
+      return result;
+    });
+  }
+
+  _merge(range, props, resolve) {
+    if (props.cancel) {
+      this.stop(true);
+      return resolve(getCancelledResult(this));
+    }
+
+    const hasToProp = !react_spring_shared_esm_is.und(range.to);
+    const hasFromProp = !react_spring_shared_esm_is.und(range.from);
+
+    if (hasToProp || hasFromProp) {
+      if (props.callId > this._lastToId) {
+        this._lastToId = props.callId;
+      } else {
+        return resolve(getCancelledResult(this));
+      }
+    }
+
+    const {
+      key,
+      defaultProps,
+      animation: anim
+    } = this;
+    const {
+      to: prevTo,
+      from: prevFrom
+    } = anim;
+    let {
+      to = prevTo,
+      from = prevFrom
+    } = range;
+
+    if (hasFromProp && !hasToProp && (!props.default || react_spring_shared_esm_is.und(to))) {
+      to = from;
+    }
+
+    if (props.reverse) [to, from] = [from, to];
+    const hasFromChanged = !isEqual(from, prevFrom);
+
+    if (hasFromChanged) {
+      anim.from = from;
+    }
+
+    from = getFluidValue(from);
+    const hasToChanged = !isEqual(to, prevTo);
+
+    if (hasToChanged) {
+      this._focus(to);
+    }
+
+    const hasAsyncTo = isAsyncTo(props.to);
+    const {
+      config
+    } = anim;
+    const {
+      decay,
+      velocity
+    } = config;
+
+    if (hasToProp || hasFromProp) {
+      config.velocity = 0;
+    }
+
+    if (props.config && !hasAsyncTo) {
+      mergeConfig(config, callProp(props.config, key), props.config !== defaultProps.config ? callProp(defaultProps.config, key) : void 0);
+    }
+
+    let node = getAnimated(this);
+
+    if (!node || react_spring_shared_esm_is.und(to)) {
+      return resolve(getFinishedResult(this, true));
+    }
+
+    const reset = react_spring_shared_esm_is.und(props.reset) ? hasFromProp && !props.default : !react_spring_shared_esm_is.und(from) && matchProp(props.reset, key);
+    const value = reset ? from : this.get();
+    const goal = computeGoal(to);
+    const isAnimatable = react_spring_shared_esm_is.num(goal) || react_spring_shared_esm_is.arr(goal) || isAnimatedString(goal);
+    const immediate = !hasAsyncTo && (!isAnimatable || matchProp(defaultProps.immediate || props.immediate, key));
+
+    if (hasToChanged) {
+      const nodeType = getAnimatedType(to);
+
+      if (nodeType !== node.constructor) {
+        if (immediate) {
+          node = this._set(goal);
+        } else throw Error(`Cannot animate between ${node.constructor.name} and ${nodeType.name}, as the "to" prop suggests`);
+      }
+    }
+
+    const goalType = node.constructor;
+    let started = hasFluidValue(to);
+    let finished = false;
+
+    if (!started) {
+      const hasValueChanged = reset || !hasAnimated(this) && hasFromChanged;
+
+      if (hasToChanged || hasValueChanged) {
+        finished = isEqual(computeGoal(value), goal);
+        started = !finished;
+      }
+
+      if (!isEqual(anim.immediate, immediate) && !immediate || !isEqual(config.decay, decay) || !isEqual(config.velocity, velocity)) {
+        started = true;
+      }
+    }
+
+    if (finished && isAnimating(this)) {
+      if (anim.changed && !reset) {
+        started = true;
+      } else if (!started) {
+        this._stop(prevTo);
+      }
+    }
+
+    if (!hasAsyncTo) {
+      if (started || hasFluidValue(prevTo)) {
+        anim.values = node.getPayload();
+        anim.toValues = hasFluidValue(to) ? null : goalType == AnimatedString ? [1] : react_spring_shared_esm_toArray(goal);
+      }
+
+      if (anim.immediate != immediate) {
+        anim.immediate = immediate;
+
+        if (!immediate && !reset) {
+          this._set(prevTo);
+        }
+      }
+
+      if (started) {
+        const {
+          onRest
+        } = anim;
+        react_spring_shared_esm_each(ACTIVE_EVENTS, type => mergeActiveFn(this, props, type));
+        const result = getFinishedResult(this, checkFinished(this, prevTo));
+        flushCalls(this._pendingCalls, result);
+
+        this._pendingCalls.add(resolve);
+
+        if (anim.changed) raf.batchedUpdates(() => {
+          anim.changed = !reset;
+          onRest == null ? void 0 : onRest(result, this);
+
+          if (reset) {
+            callProp(defaultProps.onRest, result);
+          } else {
+            anim.onStart == null ? void 0 : anim.onStart(result, this);
+          }
+        });
+      }
+    }
+
+    if (reset) {
+      this._set(value);
+    }
+
+    if (hasAsyncTo) {
+      resolve(runAsync(props.to, props, this._state, this));
+    } else if (started) {
+      this._start();
+    } else if (isAnimating(this) && !hasToChanged) {
+      this._pendingCalls.add(resolve);
+    } else {
+      resolve(getNoopResult(value));
+    }
+  }
+
+  _focus(value) {
+    const anim = this.animation;
+
+    if (value !== anim.to) {
+      if (getFluidObservers(this)) {
+        this._detach();
+      }
+
+      anim.to = value;
+
+      if (getFluidObservers(this)) {
+        this._attach();
+      }
+    }
+  }
+
+  _attach() {
+    let priority = 0;
+    const {
+      to
+    } = this.animation;
+
+    if (hasFluidValue(to)) {
+      react_spring_shared_esm_addFluidObserver(to, this);
+
+      if (isFrameValue(to)) {
+        priority = to.priority + 1;
+      }
+    }
+
+    this.priority = priority;
+  }
+
+  _detach() {
+    const {
+      to
+    } = this.animation;
+
+    if (hasFluidValue(to)) {
+      removeFluidObserver(to, this);
+    }
+  }
+
+  _set(arg, idle = true) {
+    const value = getFluidValue(arg);
+
+    if (!react_spring_shared_esm_is.und(value)) {
+      const oldNode = getAnimated(this);
+
+      if (!oldNode || !isEqual(value, oldNode.getValue())) {
+        const nodeType = getAnimatedType(value);
+
+        if (!oldNode || oldNode.constructor != nodeType) {
+          setAnimated(this, nodeType.create(value));
+        } else {
+          oldNode.setValue(value);
+        }
+
+        if (oldNode) {
+          raf.batchedUpdates(() => {
+            this._onChange(value, idle);
+          });
+        }
+      }
+    }
+
+    return getAnimated(this);
+  }
+
+  _onStart() {
+    const anim = this.animation;
+
+    if (!anim.changed) {
+      anim.changed = true;
+      sendEvent(this, 'onStart', getFinishedResult(this, checkFinished(this, anim.to)), this);
+    }
+  }
+
+  _onChange(value, idle) {
+    if (!idle) {
+      this._onStart();
+
+      callProp(this.animation.onChange, value, this);
+    }
+
+    callProp(this.defaultProps.onChange, value, this);
+
+    super._onChange(value, idle);
+  }
+
+  _start() {
+    const anim = this.animation;
+    getAnimated(this).reset(getFluidValue(anim.to));
+
+    if (!anim.immediate) {
+      anim.fromValues = anim.values.map(node => node.lastPosition);
+    }
+
+    if (!isAnimating(this)) {
+      setActiveBit(this, true);
+
+      if (!react_spring_core_esm_isPaused(this)) {
+        this._resume();
+      }
+    }
+  }
+
+  _resume() {
+    if (globals.skipAnimation) {
+      this.finish();
+    } else {
+      frameLoop.start(this);
+    }
+  }
+
+  _stop(goal, cancel) {
+    if (isAnimating(this)) {
+      setActiveBit(this, false);
+      const anim = this.animation;
+      react_spring_shared_esm_each(anim.values, node => {
+        node.done = true;
+      });
+
+      if (anim.toValues) {
+        anim.onChange = anim.onPause = anim.onResume = undefined;
+      }
+
+      callFluidObservers(this, {
+        type: 'idle',
+        parent: this
+      });
+      const result = cancel ? getCancelledResult(this.get()) : getFinishedResult(this.get(), checkFinished(this, goal != null ? goal : anim.to));
+      flushCalls(this._pendingCalls, result);
+
+      if (anim.changed) {
+        anim.changed = false;
+        sendEvent(this, 'onRest', result, this);
+      }
+    }
+  }
+
+}
+
+function checkFinished(target, to) {
+  const goal = computeGoal(to);
+  const value = computeGoal(target.get());
+  return isEqual(value, goal);
+}
+
+function createLoopUpdate(props, loop = props.loop, to = props.to) {
+  let loopRet = callProp(loop);
+
+  if (loopRet) {
+    const overrides = loopRet !== true && inferTo(loopRet);
+    const reverse = (overrides || props).reverse;
+    const reset = !overrides || overrides.reset;
+    return createUpdate(react_spring_core_esm_extends({}, props, {
+      loop,
+      default: false,
+      pause: undefined,
+      to: !reverse || isAsyncTo(to) ? to : undefined,
+      from: reset ? props.from : undefined,
+      reset
+    }, overrides));
+  }
+}
+function createUpdate(props) {
+  const {
+    to,
+    from
+  } = props = inferTo(props);
+  const keys = new Set();
+  if (react_spring_shared_esm_is.obj(to)) findDefined(to, keys);
+  if (react_spring_shared_esm_is.obj(from)) findDefined(from, keys);
+  props.keys = keys.size ? Array.from(keys) : null;
+  return props;
+}
+function declareUpdate(props) {
+  const update = createUpdate(props);
+
+  if (is.und(update.default)) {
+    update.default = getDefaultProps(update);
+  }
+
+  return update;
+}
+
+function findDefined(values, keys) {
+  react_spring_shared_esm_eachProp(values, (value, key) => value != null && keys.add(key));
+}
+
+const ACTIVE_EVENTS = ['onStart', 'onRest', 'onChange', 'onPause', 'onResume'];
+
+function mergeActiveFn(target, props, type) {
+  target.animation[type] = props[type] !== getDefaultProp(props, type) ? resolveProp(props[type], target.key) : undefined;
+}
+
+function sendEvent(target, type, ...args) {
+  var _target$animation$typ, _target$animation, _target$defaultProps$, _target$defaultProps;
+
+  (_target$animation$typ = (_target$animation = target.animation)[type]) == null ? void 0 : _target$animation$typ.call(_target$animation, ...args);
+  (_target$defaultProps$ = (_target$defaultProps = target.defaultProps)[type]) == null ? void 0 : _target$defaultProps$.call(_target$defaultProps, ...args);
+}
+
+const BATCHED_EVENTS = ['onStart', 'onChange', 'onRest'];
+let nextId = 1;
+class Controller {
+  constructor(props, flush) {
+    this.id = nextId++;
+    this.springs = {};
+    this.queue = [];
+    this.ref = void 0;
+    this._flush = void 0;
+    this._initialProps = void 0;
+    this._lastAsyncId = 0;
+    this._active = new Set();
+    this._changed = new Set();
+    this._started = false;
+    this._item = void 0;
+    this._state = {
+      paused: false,
+      pauseQueue: new Set(),
+      resumeQueue: new Set(),
+      timeouts: new Set()
+    };
+    this._events = {
+      onStart: new Map(),
+      onChange: new Map(),
+      onRest: new Map()
+    };
+    this._onFrame = this._onFrame.bind(this);
+
+    if (flush) {
+      this._flush = flush;
+    }
+
+    if (props) {
+      this.start(react_spring_core_esm_extends({
+        default: true
+      }, props));
+    }
+  }
+
+  get idle() {
+    return !this._state.asyncTo && Object.values(this.springs).every(spring => {
+      return spring.idle && !spring.isDelayed && !spring.isPaused;
+    });
+  }
+
+  get item() {
+    return this._item;
+  }
+
+  set item(item) {
+    this._item = item;
+  }
+
+  get() {
+    const values = {};
+    this.each((spring, key) => values[key] = spring.get());
+    return values;
+  }
+
+  set(values) {
+    for (const key in values) {
+      const value = values[key];
+
+      if (!react_spring_shared_esm_is.und(value)) {
+        this.springs[key].set(value);
+      }
+    }
+  }
+
+  update(props) {
+    if (props) {
+      this.queue.push(createUpdate(props));
+    }
+
+    return this;
+  }
+
+  start(props) {
+    let {
+      queue
+    } = this;
+
+    if (props) {
+      queue = react_spring_shared_esm_toArray(props).map(createUpdate);
+    } else {
+      this.queue = [];
+    }
+
+    if (this._flush) {
+      return this._flush(this, queue);
+    }
+
+    prepareKeys(this, queue);
+    return flushUpdateQueue(this, queue);
+  }
+
+  stop(arg, keys) {
+    if (arg !== !!arg) {
+      keys = arg;
+    }
+
+    if (keys) {
+      const springs = this.springs;
+      react_spring_shared_esm_each(react_spring_shared_esm_toArray(keys), key => springs[key].stop(!!arg));
+    } else {
+      stopAsync(this._state, this._lastAsyncId);
+      this.each(spring => spring.stop(!!arg));
+    }
+
+    return this;
+  }
+
+  pause(keys) {
+    if (react_spring_shared_esm_is.und(keys)) {
+      this.start({
+        pause: true
+      });
+    } else {
+      const springs = this.springs;
+      react_spring_shared_esm_each(react_spring_shared_esm_toArray(keys), key => springs[key].pause());
+    }
+
+    return this;
+  }
+
+  resume(keys) {
+    if (react_spring_shared_esm_is.und(keys)) {
+      this.start({
+        pause: false
+      });
+    } else {
+      const springs = this.springs;
+      react_spring_shared_esm_each(react_spring_shared_esm_toArray(keys), key => springs[key].resume());
+    }
+
+    return this;
+  }
+
+  each(iterator) {
+    react_spring_shared_esm_eachProp(this.springs, iterator);
+  }
+
+  _onFrame() {
+    const {
+      onStart,
+      onChange,
+      onRest
+    } = this._events;
+    const active = this._active.size > 0;
+    const changed = this._changed.size > 0;
+
+    if (active && !this._started || changed && !this._started) {
+      this._started = true;
+      flush(onStart, ([onStart, result]) => {
+        result.value = this.get();
+        onStart(result, this, this._item);
+      });
+    }
+
+    const idle = !active && this._started;
+    const values = changed || idle && onRest.size ? this.get() : null;
+
+    if (changed && onChange.size) {
+      flush(onChange, ([onChange, result]) => {
+        result.value = values;
+        onChange(result, this, this._item);
+      });
+    }
+
+    if (idle) {
+      this._started = false;
+      flush(onRest, ([onRest, result]) => {
+        result.value = values;
+        onRest(result, this, this._item);
+      });
+    }
+  }
+
+  eventObserved(event) {
+    if (event.type == 'change') {
+      this._changed.add(event.parent);
+
+      if (!event.idle) {
+        this._active.add(event.parent);
+      }
+    } else if (event.type == 'idle') {
+      this._active.delete(event.parent);
+    } else return;
+
+    raf.onFrame(this._onFrame);
+  }
+
+}
+function flushUpdateQueue(ctrl, queue) {
+  return Promise.all(queue.map(props => flushUpdate(ctrl, props))).then(results => getCombinedResult(ctrl, results));
+}
+async function flushUpdate(ctrl, props, isLoop) {
+  const {
+    keys,
+    to,
+    from,
+    loop,
+    onRest,
+    onResolve
+  } = props;
+  const defaults = react_spring_shared_esm_is.obj(props.default) && props.default;
+
+  if (loop) {
+    props.loop = false;
+  }
+
+  if (to === false) props.to = null;
+  if (from === false) props.from = null;
+  const asyncTo = react_spring_shared_esm_is.arr(to) || react_spring_shared_esm_is.fun(to) ? to : undefined;
+
+  if (asyncTo) {
+    props.to = undefined;
+    props.onRest = undefined;
+
+    if (defaults) {
+      defaults.onRest = undefined;
+    }
+  } else {
+    react_spring_shared_esm_each(BATCHED_EVENTS, key => {
+      const handler = props[key];
+
+      if (react_spring_shared_esm_is.fun(handler)) {
+        const queue = ctrl['_events'][key];
+
+        props[key] = ({
+          finished,
+          cancelled
+        }) => {
+          const result = queue.get(handler);
+
+          if (result) {
+            if (!finished) result.finished = false;
+            if (cancelled) result.cancelled = true;
+          } else {
+            queue.set(handler, {
+              value: null,
+              finished: finished || false,
+              cancelled: cancelled || false
+            });
+          }
+        };
+
+        if (defaults) {
+          defaults[key] = props[key];
+        }
+      }
+    });
+  }
+
+  const state = ctrl['_state'];
+
+  if (props.pause === !state.paused) {
+    state.paused = props.pause;
+    flushCalls(props.pause ? state.pauseQueue : state.resumeQueue);
+  } else if (state.paused) {
+    props.pause = true;
+  }
+
+  const promises = (keys || Object.keys(ctrl.springs)).map(key => ctrl.springs[key].start(props));
+  const cancel = props.cancel === true || getDefaultProp(props, 'cancel') === true;
+
+  if (asyncTo || cancel && state.asyncId) {
+    promises.push(scheduleProps(++ctrl['_lastAsyncId'], {
+      props,
+      state,
+      actions: {
+        pause: react_spring_shared_esm_noop,
+        resume: react_spring_shared_esm_noop,
+
+        start(props, resolve) {
+          if (cancel) {
+            stopAsync(state, ctrl['_lastAsyncId']);
+            resolve(getCancelledResult(ctrl));
+          } else {
+            props.onRest = onRest;
+            resolve(runAsync(asyncTo, props, state, ctrl));
+          }
+        }
+
+      }
+    }));
+  }
+
+  if (state.paused) {
+    await new Promise(resume => {
+      state.resumeQueue.add(resume);
+    });
+  }
+
+  const result = getCombinedResult(ctrl, await Promise.all(promises));
+
+  if (loop && result.finished && !(isLoop && result.noop)) {
+    const nextProps = createLoopUpdate(props, loop, to);
+
+    if (nextProps) {
+      prepareKeys(ctrl, [nextProps]);
+      return flushUpdate(ctrl, nextProps, true);
+    }
+  }
+
+  if (onResolve) {
+    raf.batchedUpdates(() => onResolve(result, ctrl, ctrl.item));
+  }
+
+  return result;
+}
+function getSprings(ctrl, props) {
+  const springs = react_spring_core_esm_extends({}, ctrl.springs);
+
+  if (props) {
+    each(toArray(props), props => {
+      if (is.und(props.keys)) {
+        props = createUpdate(props);
+      }
+
+      if (!is.obj(props.to)) {
+        props = react_spring_core_esm_extends({}, props, {
+          to: undefined
+        });
+      }
+
+      prepareSprings(springs, props, key => {
+        return createSpring(key);
+      });
+    });
+  }
+
+  setSprings(ctrl, springs);
+  return springs;
+}
+function setSprings(ctrl, springs) {
+  eachProp(springs, (spring, key) => {
+    if (!ctrl.springs[key]) {
+      ctrl.springs[key] = spring;
+      addFluidObserver(spring, ctrl);
+    }
+  });
+}
+
+function createSpring(key, observer) {
+  const spring = new SpringValue();
+  spring.key = key;
+
+  if (observer) {
+    react_spring_shared_esm_addFluidObserver(spring, observer);
+  }
+
+  return spring;
+}
+
+function prepareSprings(springs, props, create) {
+  if (props.keys) {
+    react_spring_shared_esm_each(props.keys, key => {
+      const spring = springs[key] || (springs[key] = create(key));
+      spring['_prepareNode'](props);
+    });
+  }
+}
+
+function prepareKeys(ctrl, queue) {
+  react_spring_shared_esm_each(queue, props => {
+    prepareSprings(ctrl.springs, props, key => {
+      return createSpring(key, ctrl);
+    });
+  });
+}
+
+function _objectWithoutPropertiesLoose(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
+  }
+
+  return target;
+}
+
+const _excluded$3 = ["children"];
+const SpringContext = _ref => {
+  let {
+    children
+  } = _ref,
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$3);
+
+  const inherited = (0,external_React_.useContext)(ctx);
+  const pause = props.pause || !!inherited.pause,
+        immediate = props.immediate || !!inherited.immediate;
+  props = useMemoOne(() => ({
+    pause,
+    immediate
+  }), [pause, immediate]);
+  const {
+    Provider
+  } = ctx;
+  return external_React_.createElement(Provider, {
+    value: props
+  }, children);
+};
+const ctx = makeContext(SpringContext, {});
+SpringContext.Provider = ctx.Provider;
+SpringContext.Consumer = ctx.Consumer;
+
+function makeContext(target, init) {
+  Object.assign(target, external_React_.createContext(init));
+  target.Provider._context = target;
+  target.Consumer._context = target;
+  return target;
+}
+
+const SpringRef = () => {
+  const current = [];
+
+  const SpringRef = function SpringRef(props) {
+    deprecateDirectCall();
+    const results = [];
+    each(current, (ctrl, i) => {
+      if (is.und(props)) {
+        results.push(ctrl.start());
+      } else {
+        const update = _getProps(props, ctrl, i);
+
+        if (update) {
+          results.push(ctrl.start(update));
+        }
+      }
+    });
+    return results;
+  };
+
+  SpringRef.current = current;
+
+  SpringRef.add = function (ctrl) {
+    if (!current.includes(ctrl)) {
+      current.push(ctrl);
+    }
+  };
+
+  SpringRef.delete = function (ctrl) {
+    const i = current.indexOf(ctrl);
+    if (~i) current.splice(i, 1);
+  };
+
+  SpringRef.pause = function () {
+    each(current, ctrl => ctrl.pause(...arguments));
+    return this;
+  };
+
+  SpringRef.resume = function () {
+    each(current, ctrl => ctrl.resume(...arguments));
+    return this;
+  };
+
+  SpringRef.set = function (values) {
+    each(current, ctrl => ctrl.set(values));
+  };
+
+  SpringRef.start = function (props) {
+    const results = [];
+    each(current, (ctrl, i) => {
+      if (is.und(props)) {
+        results.push(ctrl.start());
+      } else {
+        const update = this._getProps(props, ctrl, i);
+
+        if (update) {
+          results.push(ctrl.start(update));
+        }
+      }
+    });
+    return results;
+  };
+
+  SpringRef.stop = function () {
+    each(current, ctrl => ctrl.stop(...arguments));
+    return this;
+  };
+
+  SpringRef.update = function (props) {
+    each(current, (ctrl, i) => ctrl.update(this._getProps(props, ctrl, i)));
+    return this;
+  };
+
+  const _getProps = function _getProps(arg, ctrl, index) {
+    return is.fun(arg) ? arg(index, ctrl) : arg;
+  };
+
+  SpringRef._getProps = _getProps;
+  return SpringRef;
+};
+
+function useSprings(length, props, deps) {
+  const propsFn = is.fun(props) && props;
+  if (propsFn && !deps) deps = [];
+  const ref = useMemo(() => propsFn || arguments.length == 3 ? SpringRef() : void 0, []);
+  const layoutId = useRef(0);
+  const forceUpdate = useForceUpdate();
+  const state = useMemo(() => ({
+    ctrls: [],
+    queue: [],
+
+    flush(ctrl, updates) {
+      const springs = getSprings(ctrl, updates);
+      const canFlushSync = layoutId.current > 0 && !state.queue.length && !Object.keys(springs).some(key => !ctrl.springs[key]);
+      return canFlushSync ? flushUpdateQueue(ctrl, updates) : new Promise(resolve => {
+        setSprings(ctrl, springs);
+        state.queue.push(() => {
+          resolve(flushUpdateQueue(ctrl, updates));
+        });
+        forceUpdate();
+      });
+    }
+
+  }), []);
+  const ctrls = useRef([...state.ctrls]);
+  const updates = [];
+  const prevLength = usePrev(length) || 0;
+  useMemo(() => {
+    each(ctrls.current.slice(length, prevLength), ctrl => {
+      detachRefs(ctrl, ref);
+      ctrl.stop(true);
+    });
+    ctrls.current.length = length;
+    declareUpdates(prevLength, length);
+  }, [length]);
+  useMemo(() => {
+    declareUpdates(0, Math.min(prevLength, length));
+  }, deps);
+
+  function declareUpdates(startIndex, endIndex) {
+    for (let i = startIndex; i < endIndex; i++) {
+      const ctrl = ctrls.current[i] || (ctrls.current[i] = new Controller(null, state.flush));
+      const update = propsFn ? propsFn(i, ctrl) : props[i];
+
+      if (update) {
+        updates[i] = declareUpdate(update);
+      }
+    }
+  }
+
+  const springs = ctrls.current.map((ctrl, i) => getSprings(ctrl, updates[i]));
+  const context = useContext(SpringContext);
+  const prevContext = usePrev(context);
+  const hasContext = context !== prevContext && hasProps(context);
+  useIsomorphicLayoutEffect(() => {
+    layoutId.current++;
+    state.ctrls = ctrls.current;
+    const {
+      queue
+    } = state;
+
+    if (queue.length) {
+      state.queue = [];
+      each(queue, cb => cb());
+    }
+
+    each(ctrls.current, (ctrl, i) => {
+      ref == null ? void 0 : ref.add(ctrl);
+
+      if (hasContext) {
+        ctrl.start({
+          default: context
+        });
+      }
+
+      const update = updates[i];
+
+      if (update) {
+        replaceRef(ctrl, update.ref);
+
+        if (ctrl.ref) {
+          ctrl.queue.push(update);
+        } else {
+          ctrl.start(update);
+        }
+      }
+    });
+  });
+  useOnce(() => () => {
+    each(state.ctrls, ctrl => ctrl.stop(true));
+  });
+  const values = springs.map(x => react_spring_core_esm_extends({}, x));
+  return ref ? [values, ref] : values;
+}
+
+function useSpring(props, deps) {
+  const isFn = is.fun(props);
+  const [[values], ref] = useSprings(1, isFn ? props : [props], isFn ? deps || [] : deps);
+  return isFn || arguments.length == 2 ? [values, ref] : values;
+}
+
+const initSpringRef = () => SpringRef();
+
+const useSpringRef = () => useState(initSpringRef)[0];
+
+function useTrail(length, propsArg, deps) {
+  var _passedRef;
+
+  const propsFn = is.fun(propsArg) && propsArg;
+  if (propsFn && !deps) deps = [];
+  let reverse = true;
+  let passedRef = undefined;
+  const result = useSprings(length, (i, ctrl) => {
+    const props = propsFn ? propsFn(i, ctrl) : propsArg;
+    passedRef = props.ref;
+    reverse = reverse && props.reverse;
+    return props;
+  }, deps || [{}]);
+  const ref = (_passedRef = passedRef) != null ? _passedRef : result[1];
+  useIsomorphicLayoutEffect(() => {
+    each(ref.current, (ctrl, i) => {
+      const parent = ref.current[i + (reverse ? 1 : -1)];
+
+      if (parent) {
+        ctrl.start({
+          to: parent.springs
+        });
+      } else {
+        ctrl.start();
+      }
+    });
+  }, deps);
+
+  if (propsFn || arguments.length == 3) {
+    ref['_getProps'] = (propsArg, ctrl, i) => {
+      const props = is.fun(propsArg) ? propsArg(i, ctrl) : propsArg;
+
+      if (props) {
+        const parent = ref.current[i + (props.reverse ? 1 : -1)];
+        if (parent) props.to = parent.springs;
+        return props;
+      }
+    };
+
+    return result;
+  }
+
+  ref['start'] = propsArg => {
+    const results = [];
+    each(ref.current, (ctrl, i) => {
+      const props = is.fun(propsArg) ? propsArg(i, ctrl) : propsArg;
+      const parent = ref.current[i + (reverse ? 1 : -1)];
+
+      if (parent) {
+        results.push(ctrl.start(react_spring_core_esm_extends({}, props, {
+          to: parent.springs
+        })));
+      } else {
+        results.push(ctrl.start(react_spring_core_esm_extends({}, props)));
+      }
+    });
+    return results;
+  };
+
+  return result[0];
+}
+
+let TransitionPhase;
+
+(function (TransitionPhase) {
+  TransitionPhase["MOUNT"] = "mount";
+  TransitionPhase["ENTER"] = "enter";
+  TransitionPhase["UPDATE"] = "update";
+  TransitionPhase["LEAVE"] = "leave";
+})(TransitionPhase || (TransitionPhase = {}));
+
+function useTransition(data, props, deps) {
+  const propsFn = is.fun(props) && props;
+  const {
+    reset,
+    sort,
+    trail = 0,
+    expires = true,
+    exitBeforeEnter = false,
+    onDestroyed,
+    ref: propsRef,
+    config: propsConfig
+  } = propsFn ? propsFn() : props;
+  const ref = useMemo(() => propsFn || arguments.length == 3 ? SpringRef() : void 0, []);
+  const items = toArray(data);
+  const transitions = [];
+  const usedTransitions = useRef(null);
+  const prevTransitions = reset ? null : usedTransitions.current;
+  useIsomorphicLayoutEffect(() => {
+    usedTransitions.current = transitions;
+  });
+  useOnce(() => {
+    each(transitions, t => {
+      ref == null ? void 0 : ref.add(t.ctrl);
+      t.ctrl.ref = ref;
+    });
+    return () => {
+      each(usedTransitions.current, t => {
+        if (t.expired) {
+          clearTimeout(t.expirationId);
+        }
+
+        detachRefs(t.ctrl, ref);
+        t.ctrl.stop(true);
+      });
+    };
+  });
+  const keys = getKeys(items, propsFn ? propsFn() : props, prevTransitions);
+  const expired = reset && usedTransitions.current || [];
+  useIsomorphicLayoutEffect(() => each(expired, ({
+    ctrl,
+    item,
+    key
+  }) => {
+    detachRefs(ctrl, ref);
+    callProp(onDestroyed, item, key);
+  }));
+  const reused = [];
+  if (prevTransitions) each(prevTransitions, (t, i) => {
+    if (t.expired) {
+      clearTimeout(t.expirationId);
+      expired.push(t);
+    } else {
+      i = reused[i] = keys.indexOf(t.key);
+      if (~i) transitions[i] = t;
+    }
+  });
+  each(items, (item, i) => {
+    if (!transitions[i]) {
+      transitions[i] = {
+        key: keys[i],
+        item,
+        phase: TransitionPhase.MOUNT,
+        ctrl: new Controller()
+      };
+      transitions[i].ctrl.item = item;
+    }
+  });
+
+  if (reused.length) {
+    let i = -1;
+    const {
+      leave
+    } = propsFn ? propsFn() : props;
+    each(reused, (keyIndex, prevIndex) => {
+      const t = prevTransitions[prevIndex];
+
+      if (~keyIndex) {
+        i = transitions.indexOf(t);
+        transitions[i] = react_spring_core_esm_extends({}, t, {
+          item: items[keyIndex]
+        });
+      } else if (leave) {
+        transitions.splice(++i, 0, t);
+      }
+    });
+  }
+
+  if (is.fun(sort)) {
+    transitions.sort((a, b) => sort(a.item, b.item));
+  }
+
+  let delay = -trail;
+  const forceUpdate = useForceUpdate();
+  const defaultProps = getDefaultProps(props);
+  const changes = new Map();
+  const exitingTransitions = useRef(new Map());
+  const forceChange = useRef(false);
+  each(transitions, (t, i) => {
+    const key = t.key;
+    const prevPhase = t.phase;
+    const p = propsFn ? propsFn() : props;
+    let to;
+    let phase;
+    let propsDelay = callProp(p.delay || 0, key);
+
+    if (prevPhase == TransitionPhase.MOUNT) {
+      to = p.enter;
+      phase = TransitionPhase.ENTER;
+    } else {
+      const isLeave = keys.indexOf(key) < 0;
+
+      if (prevPhase != TransitionPhase.LEAVE) {
+        if (isLeave) {
+          to = p.leave;
+          phase = TransitionPhase.LEAVE;
+        } else if (to = p.update) {
+          phase = TransitionPhase.UPDATE;
+        } else return;
+      } else if (!isLeave) {
+        to = p.enter;
+        phase = TransitionPhase.ENTER;
+      } else return;
+    }
+
+    to = callProp(to, t.item, i);
+    to = is.obj(to) ? inferTo(to) : {
+      to
+    };
+
+    if (!to.config) {
+      const config = propsConfig || defaultProps.config;
+      to.config = callProp(config, t.item, i, phase);
+    }
+
+    delay += trail;
+
+    const payload = react_spring_core_esm_extends({}, defaultProps, {
+      delay: propsDelay + delay,
+      ref: propsRef,
+      immediate: p.immediate,
+      reset: false
+    }, to);
+
+    if (phase == TransitionPhase.ENTER && is.und(payload.from)) {
+      const _p = propsFn ? propsFn() : props;
+
+      const from = is.und(_p.initial) || prevTransitions ? _p.from : _p.initial;
+      payload.from = callProp(from, t.item, i);
+    }
+
+    const {
+      onResolve
+    } = payload;
+
+    payload.onResolve = result => {
+      callProp(onResolve, result);
+      const transitions = usedTransitions.current;
+      const t = transitions.find(t => t.key === key);
+      if (!t) return;
+
+      if (result.cancelled && t.phase != TransitionPhase.UPDATE) {
+        return;
+      }
+
+      if (t.ctrl.idle) {
+        const idle = transitions.every(t => t.ctrl.idle);
+
+        if (t.phase == TransitionPhase.LEAVE) {
+          const expiry = callProp(expires, t.item);
+
+          if (expiry !== false) {
+            const expiryMs = expiry === true ? 0 : expiry;
+            t.expired = true;
+
+            if (!idle && expiryMs > 0) {
+              if (expiryMs <= 0x7fffffff) t.expirationId = setTimeout(forceUpdate, expiryMs);
+              return;
+            }
+          }
+        }
+
+        if (idle && transitions.some(t => t.expired)) {
+          exitingTransitions.current.delete(t);
+
+          if (exitBeforeEnter) {
+            forceChange.current = true;
+          }
+
+          forceUpdate();
+        }
+      }
+    };
+
+    const springs = getSprings(t.ctrl, payload);
+
+    if (phase === TransitionPhase.LEAVE && exitBeforeEnter) {
+      exitingTransitions.current.set(t, {
+        phase,
+        springs,
+        payload
+      });
+    } else {
+      changes.set(t, {
+        phase,
+        springs,
+        payload
+      });
+    }
+  });
+  const context = useContext(SpringContext);
+  const prevContext = usePrev(context);
+  const hasContext = context !== prevContext && hasProps(context);
+  useIsomorphicLayoutEffect(() => {
+    if (hasContext) {
+      each(transitions, t => {
+        t.ctrl.start({
+          default: context
+        });
+      });
+    }
+  }, [context]);
+  each(changes, (_, t) => {
+    if (exitingTransitions.current.size) {
+      const ind = transitions.findIndex(state => state.key === t.key);
+      transitions.splice(ind, 1);
+    }
+  });
+  useIsomorphicLayoutEffect(() => {
+    each(exitingTransitions.current.size ? exitingTransitions.current : changes, ({
+      phase,
+      payload
+    }, t) => {
+      const {
+        ctrl
+      } = t;
+      t.phase = phase;
+      ref == null ? void 0 : ref.add(ctrl);
+
+      if (hasContext && phase == TransitionPhase.ENTER) {
+        ctrl.start({
+          default: context
+        });
+      }
+
+      if (payload) {
+        replaceRef(ctrl, payload.ref);
+
+        if ((ctrl.ref || ref) && !forceChange.current) {
+          ctrl.update(payload);
+        } else {
+          ctrl.start(payload);
+
+          if (forceChange.current) {
+            forceChange.current = false;
+          }
+        }
+      }
+    });
+  }, reset ? void 0 : deps);
+
+  const renderTransitions = render => React.createElement(React.Fragment, null, transitions.map((t, i) => {
+    const {
+      springs
+    } = changes.get(t) || t.ctrl;
+    const elem = render(react_spring_core_esm_extends({}, springs), t.item, t, i);
+    return elem && elem.type ? React.createElement(elem.type, react_spring_core_esm_extends({}, elem.props, {
+      key: is.str(t.key) || is.num(t.key) ? t.key : t.ctrl.id,
+      ref: elem.ref
+    })) : elem;
+  }));
+
+  return ref ? [renderTransitions, ref] : renderTransitions;
+}
+let nextKey = 1;
+
+function getKeys(items, {
+  key,
+  keys = key
+}, prevTransitions) {
+  if (keys === null) {
+    const reused = new Set();
+    return items.map(item => {
+      const t = prevTransitions && prevTransitions.find(t => t.item === item && t.phase !== TransitionPhase.LEAVE && !reused.has(t));
+
+      if (t) {
+        reused.add(t);
+        return t.key;
+      }
+
+      return nextKey++;
+    });
+  }
+
+  return is.und(keys) ? items : is.fun(keys) ? items.map(keys) : toArray(keys);
+}
+
+const _excluded$2 = (/* unused pure expression or super */ null && (["children"]));
+function Spring(_ref) {
+  let {
+    children
+  } = _ref,
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$2);
+
+  return children(useSpring(props));
+}
+
+const _excluded$1 = (/* unused pure expression or super */ null && (["items", "children"]));
+function Trail(_ref) {
+  let {
+    items,
+    children
+  } = _ref,
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$1);
+
+  const trails = useTrail(items.length, props);
+  return items.map((item, index) => {
+    const result = children(item, index);
+    return is.fun(result) ? result(trails[index]) : result;
+  });
+}
+
+const _excluded = (/* unused pure expression or super */ null && (["items", "children"]));
+function Transition(_ref) {
+  let {
+    items,
+    children
+  } = _ref,
+      props = _objectWithoutPropertiesLoose(_ref, _excluded);
+
+  return useTransition(items, props)(children);
+}
+
+class Interpolation extends FrameValue {
+  constructor(source, args) {
+    super();
+    this.key = void 0;
+    this.idle = true;
+    this.calc = void 0;
+    this._active = new Set();
+    this.source = source;
+    this.calc = createInterpolator(...args);
+
+    const value = this._get();
+
+    const nodeType = getAnimatedType(value);
+    setAnimated(this, nodeType.create(value));
+  }
+
+  advance(_dt) {
+    const value = this._get();
+
+    const oldValue = this.get();
+
+    if (!isEqual(value, oldValue)) {
+      getAnimated(this).setValue(value);
+
+      this._onChange(value, this.idle);
+    }
+
+    if (!this.idle && checkIdle(this._active)) {
+      becomeIdle(this);
+    }
+  }
+
+  _get() {
+    const inputs = react_spring_shared_esm_is.arr(this.source) ? this.source.map(getFluidValue) : react_spring_shared_esm_toArray(getFluidValue(this.source));
+    return this.calc(...inputs);
+  }
+
+  _start() {
+    if (this.idle && !checkIdle(this._active)) {
+      this.idle = false;
+      react_spring_shared_esm_each(getPayload(this), node => {
+        node.done = false;
+      });
+
+      if (globals.skipAnimation) {
+        raf.batchedUpdates(() => this.advance());
+        becomeIdle(this);
+      } else {
+        frameLoop.start(this);
+      }
+    }
+  }
+
+  _attach() {
+    let priority = 1;
+    react_spring_shared_esm_each(react_spring_shared_esm_toArray(this.source), source => {
+      if (hasFluidValue(source)) {
+        react_spring_shared_esm_addFluidObserver(source, this);
+      }
+
+      if (isFrameValue(source)) {
+        if (!source.idle) {
+          this._active.add(source);
+        }
+
+        priority = Math.max(priority, source.priority + 1);
+      }
+    });
+    this.priority = priority;
+
+    this._start();
+  }
+
+  _detach() {
+    react_spring_shared_esm_each(react_spring_shared_esm_toArray(this.source), source => {
+      if (hasFluidValue(source)) {
+        removeFluidObserver(source, this);
+      }
+    });
+
+    this._active.clear();
+
+    becomeIdle(this);
+  }
+
+  eventObserved(event) {
+    if (event.type == 'change') {
+      if (event.idle) {
+        this.advance();
+      } else {
+        this._active.add(event.parent);
+
+        this._start();
+      }
+    } else if (event.type == 'idle') {
+      this._active.delete(event.parent);
+    } else if (event.type == 'priority') {
+      this.priority = react_spring_shared_esm_toArray(this.source).reduce((highest, parent) => Math.max(highest, (isFrameValue(parent) ? parent.priority : 0) + 1), 0);
+    }
+  }
+
+}
+
+function isIdle(source) {
+  return source.idle !== false;
+}
+
+function checkIdle(active) {
+  return !active.size || Array.from(active).every(isIdle);
+}
+
+function becomeIdle(self) {
+  if (!self.idle) {
+    self.idle = true;
+    react_spring_shared_esm_each(getPayload(self), node => {
+      node.done = true;
+    });
+    callFluidObservers(self, {
+      type: 'idle',
+      parent: self
+    });
+  }
+}
+
+const react_spring_core_esm_to = (source, ...args) => new Interpolation(source, args);
+const react_spring_core_esm_interpolate = (source, ...args) => (deprecateInterpolate(), new Interpolation(source, args));
+
+globals.assign({
+  createStringInterpolator: createStringInterpolator,
+  to: (source, args) => new Interpolation(source, args)
+});
+const react_spring_core_esm_update = frameLoop.advance;
+
+
 
 ;// external "ReactDOM"
 const external_ReactDOM_namespaceObject = window["ReactDOM"];
-;// ./node_modules/@react-spring/web/dist/esm/index.js
-var web_dist_esm_k=/^--/;function web_dist_esm_I(t,e){return e==null||typeof e=="boolean"||e===""?"":typeof e=="number"&&e!==0&&!web_dist_esm_k.test(t)&&!(web_dist_esm_c.hasOwnProperty(t)&&web_dist_esm_c[t])?e+"px":(""+e).trim()}var web_dist_esm_v={};function esm_V(t,e){if(!t.nodeType||!t.setAttribute)return!1;let r=t.nodeName==="filter"||t.parentNode&&t.parentNode.nodeName==="filter",{style:i,children:s,scrollTop:u,scrollLeft:l,viewBox:a,...n}=e,d=Object.values(n),m=Object.keys(n).map(o=>r||t.hasAttribute(o)?o:web_dist_esm_v[o]||(web_dist_esm_v[o]=o.replace(/([A-Z])/g,p=>"-"+p.toLowerCase())));s!==void 0&&(t.textContent=s);for(let o in i)if(i.hasOwnProperty(o)){let p=web_dist_esm_I(o,i[o]);web_dist_esm_k.test(o)?t.style.setProperty(o,p):t.style[o]=p}m.forEach((o,p)=>{t.setAttribute(o,d[p])}),u!==void 0&&(t.scrollTop=u),l!==void 0&&(t.scrollLeft=l),a!==void 0&&t.setAttribute("viewBox",a)}var web_dist_esm_c={animationIterationCount:!0,borderImageOutset:!0,borderImageSlice:!0,borderImageWidth:!0,boxFlex:!0,boxFlexGroup:!0,boxOrdinalGroup:!0,columnCount:!0,columns:!0,flex:!0,flexGrow:!0,flexPositive:!0,flexShrink:!0,flexNegative:!0,flexOrder:!0,gridRow:!0,gridRowEnd:!0,gridRowSpan:!0,gridRowStart:!0,gridColumn:!0,gridColumnEnd:!0,gridColumnSpan:!0,gridColumnStart:!0,fontWeight:!0,lineClamp:!0,lineHeight:!0,opacity:!0,order:!0,orphans:!0,tabSize:!0,widows:!0,zIndex:!0,zoom:!0,fillOpacity:!0,floodOpacity:!0,stopOpacity:!0,strokeDasharray:!0,strokeDashoffset:!0,strokeMiterlimit:!0,strokeOpacity:!0,strokeWidth:!0},esm_F=(t,e)=>t+e.charAt(0).toUpperCase()+e.substring(1),esm_L=["Webkit","Ms","Moz","O"];web_dist_esm_c=Object.keys(web_dist_esm_c).reduce((t,e)=>(esm_L.forEach(r=>t[esm_F(r,e)]=t[e]),t),web_dist_esm_c);var esm_=/^(matrix|translate|scale|rotate|skew)/,dist_esm_$=/^(translate)/,dist_esm_G=/^(rotate|skew)/,web_dist_esm_y=(t,e)=>dist_esm_l.num(t)&&t!==0?t+e:t,web_dist_esm_h=(t,e)=>dist_esm_l.arr(t)?t.every(r=>web_dist_esm_h(r,e)):dist_esm_l.num(t)?t===e:parseFloat(t)===e,dist_esm_g=class extends animated_dist_esm_u{constructor({x:e,y:r,z:i,...s}){let u=[],l=[];(e||r||i)&&(u.push([e||0,r||0,i||0]),l.push(a=>[`translate3d(${a.map(n=>web_dist_esm_y(n,"px")).join(",")})`,web_dist_esm_h(a,0)])),xt(s,(a,n)=>{if(n==="transform")u.push([a||""]),l.push(d=>[d,d===""]);else if(esm_.test(n)){if(delete s[n],dist_esm_l.und(a))return;let d=dist_esm_$.test(n)?"px":dist_esm_G.test(n)?"deg":"";u.push(ht(a)),l.push(n==="rotate3d"?([m,o,p,O])=>[`rotate3d(${m},${o},${p},${web_dist_esm_y(O,d)})`,web_dist_esm_h(O,0)]:m=>[`${n}(${m.map(o=>web_dist_esm_y(o,d)).join(",")})`,web_dist_esm_h(m,n.startsWith("scale")?1:0)])}}),u.length&&(s.transform=new web_dist_esm_x(u,l)),super(s)}},web_dist_esm_x=class extends esm_ge{constructor(r,i){super();this.inputs=r;this.transforms=i}_value=null;get(){return this._value||(this._value=this._get())}_get(){let r="",i=!0;return esm_Ve(this.inputs,(s,u)=>{let l=ve(s[0]),[a,n]=this.transforms[u](dist_esm_l.arr(l)?l:s.map(ve));r+=" "+a,i=i&&n}),i?"none":r}observerAdded(r){r==1&&esm_Ve(this.inputs,i=>esm_Ve(i,s=>Pt(s)&&Gt(s,this)))}observerRemoved(r){r==0&&esm_Ve(this.inputs,i=>esm_Ve(i,s=>Pt(s)&&Qt(s,this)))}eventObserved(r){r.type=="change"&&(this._value=null),$t(this,r)}};var esm_C=["a","abbr","address","area","article","aside","audio","b","base","bdi","bdo","big","blockquote","body","br","button","canvas","caption","cite","code","col","colgroup","data","datalist","dd","del","details","dfn","dialog","div","dl","dt","em","embed","fieldset","figcaption","figure","footer","form","h1","h2","h3","h4","h5","h6","head","header","hgroup","hr","html","i","iframe","img","input","ins","kbd","keygen","label","legend","li","link","main","map","mark","menu","menuitem","meta","meter","nav","noscript","object","ol","optgroup","option","output","p","param","picture","pre","progress","q","rp","rt","ruby","s","samp","script","section","select","small","source","span","strong","style","sub","summary","sup","table","tbody","td","textarea","tfoot","th","thead","time","title","tr","track","u","ul","var","video","wbr","circle","clipPath","defs","ellipse","foreignObject","g","image","line","linearGradient","mask","path","pattern","polygon","polyline","radialGradient","rect","stop","svg","text","tspan"];dist_esm_p.assign({batchedUpdates:external_ReactDOM_namespaceObject.unstable_batchedUpdates,createStringInterpolator:Xt,colors:It});var dist_esm_q=dist_esm_Ke(esm_C,{applyAnimatedValues:esm_V,createAnimatedStyle:t=>new dist_esm_g(t),getComponentProps:({scrollTop:t,scrollLeft:e,...r})=>r}),dist_esm_it=dist_esm_q.animated;
+;// ./node_modules/@react-spring/web/dist/react-spring-web.esm.js
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/use-moving-animation/index.js
+
+
+
+
+
+function react_spring_web_esm_objectWithoutPropertiesLoose(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
+  }
+
+  return target;
+}
+
+const react_spring_web_esm_excluded$2 = ["style", "children", "scrollTop", "scrollLeft"];
+const isCustomPropRE = /^--/;
+
+function dangerousStyleValue(name, value) {
+  if (value == null || typeof value === 'boolean' || value === '') return '';
+  if (typeof value === 'number' && value !== 0 && !isCustomPropRE.test(name) && !(isUnitlessNumber.hasOwnProperty(name) && isUnitlessNumber[name])) return value + 'px';
+  return ('' + value).trim();
+}
+
+const attributeCache = {};
+function applyAnimatedValues(instance, props) {
+  if (!instance.nodeType || !instance.setAttribute) {
+    return false;
+  }
+
+  const isFilterElement = instance.nodeName === 'filter' || instance.parentNode && instance.parentNode.nodeName === 'filter';
+
+  const _ref = props,
+        {
+    style,
+    children,
+    scrollTop,
+    scrollLeft
+  } = _ref,
+        attributes = react_spring_web_esm_objectWithoutPropertiesLoose(_ref, react_spring_web_esm_excluded$2);
+
+  const values = Object.values(attributes);
+  const names = Object.keys(attributes).map(name => isFilterElement || instance.hasAttribute(name) ? name : attributeCache[name] || (attributeCache[name] = name.replace(/([A-Z])/g, n => '-' + n.toLowerCase())));
+
+  if (children !== void 0) {
+    instance.textContent = children;
+  }
+
+  for (let name in style) {
+    if (style.hasOwnProperty(name)) {
+      const value = dangerousStyleValue(name, style[name]);
+
+      if (isCustomPropRE.test(name)) {
+        instance.style.setProperty(name, value);
+      } else {
+        instance.style[name] = value;
+      }
+    }
+  }
+
+  names.forEach((name, i) => {
+    instance.setAttribute(name, values[i]);
+  });
+
+  if (scrollTop !== void 0) {
+    instance.scrollTop = scrollTop;
+  }
+
+  if (scrollLeft !== void 0) {
+    instance.scrollLeft = scrollLeft;
+  }
+}
+let isUnitlessNumber = {
+  animationIterationCount: true,
+  borderImageOutset: true,
+  borderImageSlice: true,
+  borderImageWidth: true,
+  boxFlex: true,
+  boxFlexGroup: true,
+  boxOrdinalGroup: true,
+  columnCount: true,
+  columns: true,
+  flex: true,
+  flexGrow: true,
+  flexPositive: true,
+  flexShrink: true,
+  flexNegative: true,
+  flexOrder: true,
+  gridRow: true,
+  gridRowEnd: true,
+  gridRowSpan: true,
+  gridRowStart: true,
+  gridColumn: true,
+  gridColumnEnd: true,
+  gridColumnSpan: true,
+  gridColumnStart: true,
+  fontWeight: true,
+  lineClamp: true,
+  lineHeight: true,
+  opacity: true,
+  order: true,
+  orphans: true,
+  tabSize: true,
+  widows: true,
+  zIndex: true,
+  zoom: true,
+  fillOpacity: true,
+  floodOpacity: true,
+  stopOpacity: true,
+  strokeDasharray: true,
+  strokeDashoffset: true,
+  strokeMiterlimit: true,
+  strokeOpacity: true,
+  strokeWidth: true
+};
+
+const prefixKey = (prefix, key) => prefix + key.charAt(0).toUpperCase() + key.substring(1);
+
+const prefixes = ['Webkit', 'Ms', 'Moz', 'O'];
+isUnitlessNumber = Object.keys(isUnitlessNumber).reduce((acc, prop) => {
+  prefixes.forEach(prefix => acc[prefixKey(prefix, prop)] = acc[prop]);
+  return acc;
+}, isUnitlessNumber);
+
+const react_spring_web_esm_excluded$1 = ["x", "y", "z"];
+const domTransforms = /^(matrix|translate|scale|rotate|skew)/;
+const pxTransforms = /^(translate)/;
+const degTransforms = /^(rotate|skew)/;
+
+const addUnit = (value, unit) => react_spring_shared_esm_is.num(value) && value !== 0 ? value + unit : value;
+
+const isValueIdentity = (value, id) => react_spring_shared_esm_is.arr(value) ? value.every(v => isValueIdentity(v, id)) : react_spring_shared_esm_is.num(value) ? value === id : parseFloat(value) === id;
+
+class AnimatedStyle extends AnimatedObject {
+  constructor(_ref) {
+    let {
+      x,
+      y,
+      z
+    } = _ref,
+        style = react_spring_web_esm_objectWithoutPropertiesLoose(_ref, react_spring_web_esm_excluded$1);
+
+    const inputs = [];
+    const transforms = [];
+
+    if (x || y || z) {
+      inputs.push([x || 0, y || 0, z || 0]);
+      transforms.push(xyz => [`translate3d(${xyz.map(v => addUnit(v, 'px')).join(',')})`, isValueIdentity(xyz, 0)]);
+    }
+
+    react_spring_shared_esm_eachProp(style, (value, key) => {
+      if (key === 'transform') {
+        inputs.push([value || '']);
+        transforms.push(transform => [transform, transform === '']);
+      } else if (domTransforms.test(key)) {
+        delete style[key];
+        if (react_spring_shared_esm_is.und(value)) return;
+        const unit = pxTransforms.test(key) ? 'px' : degTransforms.test(key) ? 'deg' : '';
+        inputs.push(react_spring_shared_esm_toArray(value));
+        transforms.push(key === 'rotate3d' ? ([x, y, z, deg]) => [`rotate3d(${x},${y},${z},${addUnit(deg, unit)})`, isValueIdentity(deg, 0)] : input => [`${key}(${input.map(v => addUnit(v, unit)).join(',')})`, isValueIdentity(input, key.startsWith('scale') ? 1 : 0)]);
+      }
+    });
+
+    if (inputs.length) {
+      style.transform = new FluidTransform(inputs, transforms);
+    }
+
+    super(style);
+  }
+
+}
+
+class FluidTransform extends FluidValue {
+  constructor(inputs, transforms) {
+    super();
+    this._value = null;
+    this.inputs = inputs;
+    this.transforms = transforms;
+  }
+
+  get() {
+    return this._value || (this._value = this._get());
+  }
+
+  _get() {
+    let transform = '';
+    let identity = true;
+    react_spring_shared_esm_each(this.inputs, (input, i) => {
+      const arg1 = getFluidValue(input[0]);
+      const [t, id] = this.transforms[i](react_spring_shared_esm_is.arr(arg1) ? arg1 : input.map(getFluidValue));
+      transform += ' ' + t;
+      identity = identity && id;
+    });
+    return identity ? 'none' : transform;
+  }
+
+  observerAdded(count) {
+    if (count == 1) react_spring_shared_esm_each(this.inputs, input => react_spring_shared_esm_each(input, value => hasFluidValue(value) && react_spring_shared_esm_addFluidObserver(value, this)));
+  }
+
+  observerRemoved(count) {
+    if (count == 0) react_spring_shared_esm_each(this.inputs, input => react_spring_shared_esm_each(input, value => hasFluidValue(value) && removeFluidObserver(value, this)));
+  }
+
+  eventObserved(event) {
+    if (event.type == 'change') {
+      this._value = null;
+    }
+
+    callFluidObservers(this, event);
+  }
+
+}
+
+const primitives = ['a', 'abbr', 'address', 'area', 'article', 'aside', 'audio', 'b', 'base', 'bdi', 'bdo', 'big', 'blockquote', 'body', 'br', 'button', 'canvas', 'caption', 'cite', 'code', 'col', 'colgroup', 'data', 'datalist', 'dd', 'del', 'details', 'dfn', 'dialog', 'div', 'dl', 'dt', 'em', 'embed', 'fieldset', 'figcaption', 'figure', 'footer', 'form', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'head', 'header', 'hgroup', 'hr', 'html', 'i', 'iframe', 'img', 'input', 'ins', 'kbd', 'keygen', 'label', 'legend', 'li', 'link', 'main', 'map', 'mark', 'menu', 'menuitem', 'meta', 'meter', 'nav', 'noscript', 'object', 'ol', 'optgroup', 'option', 'output', 'p', 'param', 'picture', 'pre', 'progress', 'q', 'rp', 'rt', 'ruby', 's', 'samp', 'script', 'section', 'select', 'small', 'source', 'span', 'strong', 'style', 'sub', 'summary', 'sup', 'table', 'tbody', 'td', 'textarea', 'tfoot', 'th', 'thead', 'time', 'title', 'tr', 'track', 'u', 'ul', 'var', 'video', 'wbr', 'circle', 'clipPath', 'defs', 'ellipse', 'foreignObject', 'g', 'image', 'line', 'linearGradient', 'mask', 'path', 'pattern', 'polygon', 'polyline', 'radialGradient', 'rect', 'stop', 'svg', 'text', 'tspan'];
+
+const react_spring_web_esm_excluded = ["scrollTop", "scrollLeft"];
+globals.assign({
+  batchedUpdates: external_ReactDOM_namespaceObject.unstable_batchedUpdates,
+  createStringInterpolator: createStringInterpolator,
+  colors: colors
+});
+const host = createHost(primitives, {
+  applyAnimatedValues,
+  createAnimatedStyle: style => new AnimatedStyle(style),
+  getComponentProps: _ref => {
+    let props = react_spring_web_esm_objectWithoutPropertiesLoose(_ref, react_spring_web_esm_excluded);
+
+    return props;
+  }
+});
+const animated = host.animated;
+
+
+
+;// ./packages/block-editor/build-module/components/use-moving-animation/index.js
 /**
  * External dependencies
  */
@@ -40298,7 +44416,7 @@ function useMovingAnimation({
 
     // Make sure the other blocks move under the selected block(s).
     const zIndex = isPartOfSelection ? '1' : '';
-    const controller = new esm_le({
+    const controller = new Controller({
       x: 0,
       y: 0,
       config: {
@@ -40350,8 +44468,7 @@ function useMovingAnimation({
 }
 /* harmony default export */ const use_moving_animation = (useMovingAnimation);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-list/use-block-props/use-focus-first-element.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/block-list/use-block-props/use-focus-first-element.js
 /**
  * WP dependencies
  */
@@ -40432,7 +44549,7 @@ function useFocusFirstElement({
   return ref;
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-list/use-block-props/use-is-hovered.js
+;// ./packages/block-editor/build-module/components/block-list/use-block-props/use-is-hovered.js
 /**
  * WP dependencies
  */
@@ -40481,7 +44598,7 @@ function useIsHovered({
   }, []);
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-list/use-block-props/use-focus-handler.js
+;// ./packages/block-editor/build-module/components/block-list/use-block-props/use-focus-handler.js
 /**
  * WP dependencies
  */
@@ -40547,7 +44664,7 @@ function useFocusHandler(clientId) {
   }, [isBlockSelected, selectBlock]);
 }
 
-;// ./node_modules/@wordpress/icons/build-module/library/drag-handle.js
+;// ./packages/icons/build-module/library/drag-handle.js
 /**
  * WP dependencies
  */
@@ -40564,7 +44681,7 @@ const dragHandle = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)
 });
 /* harmony default export */ const drag_handle = (dragHandle);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-draggable/draggable-chip.js
+;// ./packages/block-editor/build-module/components/block-draggable/draggable-chip.js
 /**
  * WP dependencies
  */
@@ -40612,7 +44729,7 @@ function BlockDraggableChip({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-list/use-block-props/use-selected-block-event-handlers.js
+;// ./packages/block-editor/build-module/components/block-list/use-block-props/use-selected-block-event-handlers.js
 /**
  * WP dependencies
  */
@@ -40794,7 +44911,7 @@ function useEventHandlers({
   }, [clientId, isSelected, getBlockRootClientId, insertAfterBlock, removeBlock, isZoomOut, resetZoomLevel, hasMultiSelection, startDraggingBlocks, stopDraggingBlocks]);
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-list/use-block-props/use-intersection-observer.js
+;// ./packages/block-editor/build-module/components/block-list/use-block-props/use-intersection-observer.js
 /**
  * WP dependencies
  */
@@ -40806,7 +44923,7 @@ function useEventHandlers({
  */
 
 function useIntersectionObserver() {
-  const observer = (0,external_wp_element_namespaceObject.useContext)(block_list_IntersectionObserver);
+  const observer = (0,external_wp_element_namespaceObject.useContext)(IntersectionObserver);
   return (0,external_wp_compose_namespaceObject.useRefEffect)(node => {
     if (observer) {
       observer.observe(node);
@@ -40817,7 +44934,7 @@ function useIntersectionObserver() {
   }, [observer]);
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-list/use-block-props/use-scroll-into-view.js
+;// ./packages/block-editor/build-module/components/block-list/use-block-props/use-scroll-into-view.js
 /**
  * WP dependencies
  */
@@ -40855,8 +44972,7 @@ function useScrollIntoView({
   }, [isSelected]);
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/use-flash-editable-blocks/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/use-flash-editable-blocks/index.js
 /**
  * WP dependencies
  */
@@ -40910,7 +45026,7 @@ function useFlashEditableBlocks({
   }, [isEnabled]);
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-list/use-block-props/use-firefox-draggable-compatibility.js
+;// ./packages/block-editor/build-module/components/block-list/use-block-props/use-firefox-draggable-compatibility.js
 /**
  * WP dependencies
  */
@@ -40953,12 +45069,15 @@ function down(event) {
   } = event;
   const {
     ownerDocument,
-    isContentEditable
+    isContentEditable,
+    tagName
   } = target;
+  const isInputOrTextArea = ['INPUT', 'TEXTAREA'].includes(tagName);
   const nodes = nodesByDocument.get(ownerDocument);
-  if (isContentEditable) {
-    // Whenever an editable element is clicked, check which draggable
-    // blocks contain this element, and temporarily disable draggability.
+  if (isContentEditable || isInputOrTextArea) {
+    // Whenever an editable element or an input or textarea is clicked,
+    // check which draggable blocks contain this element, and temporarily
+    // disable draggability.
     for (const node of nodes) {
       if (node.getAttribute('draggable') === 'true' && node.contains(target)) {
         node.removeAttribute('draggable');
@@ -40966,8 +45085,8 @@ function down(event) {
       }
     }
   } else {
-    // Whenever a non-editable element is clicked, re-enable draggability
-    // for any blocks that were previously disabled.
+    // Whenever a non-editable element or an input or textarea is clicked,
+    // re-enable draggability for any blocks that were previously disabled.
     for (const node of nodes) {
       restore(node);
     }
@@ -40975,11 +45094,11 @@ function down(event) {
 }
 
 /**
- * In Firefox, the `draggable` and `contenteditable` attributes don't play well
- * together. When `contenteditable` is within a `draggable` element, selection
- * doesn't get set in the right place. The only solution is to temporarily
- * remove the `draggable` attribute clicking inside `contenteditable` elements.
- *
+ * In Firefox, the `draggable` and `contenteditable` or `input` or `textarea`
+ * elements don't play well together. When these elements are within a
+ * `draggable` element, selection doesn't get set in the right place. The only
+ * solution is to temporarily remove the `draggable` attribute clicking inside
+ * these elements.
  * @return {Function} Cleanup function.
  */
 function useFirefoxDraggableCompatibility() {
@@ -40991,7 +45110,7 @@ function useFirefoxDraggableCompatibility() {
   }, []);
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-list/use-block-props/index.js
+;// ./packages/block-editor/build-module/components/block-list/use-block-props/index.js
 /**
  * External dependencies
  */
@@ -41129,7 +45248,7 @@ function use_block_props_useBlockProps(props = {}, {
 
   // Ensures it warns only inside the `edit` implementation for the block.
   if (blockApiVersion < 2 && clientId === blockEditContext.clientId) {
-     true ? external_wp_warning_default()(`Block type "${name}" must support API version 2 or higher to work correctly with "useBlockProps" method.`) : 0;
+     false ? 0 : void 0;
   }
   let hasNegativeMargin = false;
   if (wrapperProps?.style?.marginTop?.charAt(0) === '-' || wrapperProps?.style?.marginBottom?.charAt(0) === '-' || wrapperProps?.style?.marginLeft?.charAt(0) === '-' || wrapperProps?.style?.marginRight?.charAt(0) === '-') {
@@ -41179,8 +45298,7 @@ function use_block_props_useBlockProps(props = {}, {
  */
 use_block_props_useBlockProps.save = external_wp_blocks_namespaceObject.__unstableGetBlockProps;
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-list/block.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/block-list/block.js
 /**
  * External dependencies
  */
@@ -41777,7 +45895,7 @@ function BlockListBlockProvider(props) {
 
   // Block is sometimes not mounted at the right time, causing it be
   // undefined see issue for more info
-  // https://github.com/WordPress/gutenberg/issues/17013
+  // https://github.com/wordpress/gutenberg/issues/17013
   if (!selectedProps) {
     return null;
   }
@@ -41847,7 +45965,7 @@ function BlockListBlockProvider(props) {
 
 ;// external ["wp","htmlEntities"]
 const external_wp_htmlEntities_namespaceObject = window["wp"]["htmlEntities"];
-;// ./node_modules/@wordpress/block-editor/build-module/components/default-block-appender/index.js
+;// ./packages/block-editor/build-module/components/default-block-appender/index.js
 /**
  * External dependencies
  */
@@ -41947,7 +46065,7 @@ function DefaultBlockAppender({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-list-appender/index.js
+;// ./packages/block-editor/build-module/components/block-list-appender/index.js
 /**
  * External dependencies
  */
@@ -42037,7 +46155,7 @@ function BlockListAppender({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-popover/inbetween.js
+;// ./packages/block-editor/build-module/components/block-popover/inbetween.js
 /**
  * External dependencies
  */
@@ -42235,7 +46353,7 @@ function BlockPopoverInbetween({
 }
 /* harmony default export */ const inbetween = (BlockPopoverInbetween);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-popover/drop-zone.js
+;// ./packages/block-editor/build-module/components/block-popover/drop-zone.js
 /**
  * WP dependencies
  */
@@ -42300,7 +46418,7 @@ function BlockDropZonePopover({
 }
 /* harmony default export */ const drop_zone = (BlockDropZonePopover);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-tools/insertion-point.js
+;// ./packages/block-editor/build-module/components/block-tools/insertion-point.js
 /**
  * External dependencies
  */
@@ -42537,8 +46655,7 @@ function InsertionPoint(props) {
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-list/use-in-between-inserter.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/block-list/use-in-between-inserter.js
 /**
  * WP dependencies
  */
@@ -42629,7 +46746,7 @@ function useInBetweenInserter() {
       }
 
       // Don't show the insertion point if a parent block has an "overlay"
-      // See https://github.com/WordPress/gutenberg/pull/34012#pullrequestreview-727762337
+      // See https://github.com/wordpress/gutenberg/pull/34012#pullrequestreview-727762337
       const clientId = element.id.slice('block-'.length);
       if (!clientId || __unstableIsWithinBlockOverlay(clientId) || !!getParentSectionBlock(clientId)) {
         return;
@@ -42668,7 +46785,7 @@ function useInBetweenInserter() {
   }, [openRef, getBlockListSettings, getBlockIndex, isMultiSelecting, showInsertionPoint, hideInsertionPoint, getSelectedBlockClientIds, isInBetweenInserterDisabled]);
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-selection-clearer/index.js
+;// ./packages/block-editor/build-module/components/block-selection-clearer/index.js
 /**
  * WP dependencies
  */
@@ -42728,7 +46845,7 @@ function BlockSelectionClearer(props) {
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inner-blocks/button-block-appender.js
+;// ./packages/block-editor/build-module/components/inner-blocks/button-block-appender.js
 /**
  * External dependencies
  */
@@ -42760,7 +46877,7 @@ function ButtonBlockAppender({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inner-blocks/default-block-appender.js
+;// ./packages/block-editor/build-module/components/inner-blocks/default-block-appender.js
 /**
  * Internal dependencies
  */
@@ -42776,7 +46893,7 @@ function default_block_appender_DefaultBlockAppender() {
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inner-blocks/use-nested-settings-update.js
+;// ./packages/block-editor/build-module/components/inner-blocks/use-nested-settings-update.js
 /**
  * WP dependencies
  */
@@ -42926,7 +47043,7 @@ function useNestedSettingsUpdate(clientId, parentLock, allowedBlocks, prioritize
   }, [clientId, _allowedBlocks, _prioritizedInserterBlocks, _templateLock, defaultBlock, directInsert, __experimentalDefaultBlock, __experimentalDirectInsert, captureToolbars, orientation, layout, registry]);
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inner-blocks/use-inner-block-template-sync.js
+;// ./packages/block-editor/build-module/components/inner-blocks/use-inner-block-template-sync.js
 /**
  * External dependencies
  */
@@ -43017,8 +47134,7 @@ function useInnerBlockTemplateSync(clientId, template, templateLock, templateIns
   }, [template, templateLock, clientId, registry, templateInsertUpdatesSelection]);
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inner-blocks/use-block-context.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/inner-blocks/use-block-context.js
 /**
  * WP dependencies
  */
@@ -43054,8 +47170,7 @@ function useBlockContext(clientId) {
   }, [clientId]);
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/use-on-block-drop/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/use-on-block-drop/index.js
 /**
  * WP dependencies
  */
@@ -43313,8 +47428,7 @@ function useOnBlockDrop(targetRootClientId, targetBlockIndex, options = {}) {
   };
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/utils/math.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/utils/math.js
 /**
  * A string representing the name of an edge.
  *
@@ -43420,8 +47534,7 @@ function isPointWithinTopAndBottomBoundariesOfRect(point, rect) {
   return rect.top <= point.y && rect.bottom >= point.y;
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/use-block-drop-zone/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/use-block-drop-zone/index.js
 /**
  * WP dependencies
  */
@@ -43808,7 +47921,7 @@ function useBlockDropZone({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inner-blocks/index.js
+;// ./packages/block-editor/build-module/components/inner-blocks/index.js
 /**
  * External dependencies
  */
@@ -43954,11 +48067,11 @@ const ForwardedInnerBlocks = (0,external_wp_element_namespaceObject.forwardRef)(
  * returns. Optionally, you can also pass any other props through this hook, and
  * they will be merged and returned.
  *
+ * @see https://github.com/wordpress/gutenberg/blob/HEAD/packages/block-editor/src/components/inner-blocks/README.md
+ *
  * @param {Object} props   Optional. Props to pass to the element. Must contain
  *                         the ref if one is defined.
  * @param {Object} options Optional. Inner blocks options.
- *
- * @see https://github.com/WordPress/gutenberg/blob/HEAD/packages/block-editor/src/components/inner-blocks/README.md
  */
 function useInnerBlocksProps(props = {}, options = {}) {
   const {
@@ -44062,11 +48175,11 @@ ForwardedInnerBlocks.ButtonBlockAppender = ButtonBlockAppender;
 ForwardedInnerBlocks.Content = () => useInnerBlocksProps.save().children;
 
 /**
- * @see https://github.com/WordPress/gutenberg/blob/HEAD/packages/block-editor/src/components/inner-blocks/README.md
+ * @see https://github.com/wordpress/gutenberg/blob/HEAD/packages/block-editor/src/components/inner-blocks/README.md
  */
 /* harmony default export */ const inner_blocks = (ForwardedInnerBlocks);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/observe-typing/index.js
+;// ./packages/block-editor/build-module/components/observe-typing/index.js
 /**
  * WP dependencies
  */
@@ -44291,11 +48404,11 @@ function ObserveTyping({
 }
 
 /**
- * @see https://github.com/WordPress/gutenberg/blob/HEAD/packages/block-editor/src/components/observe-typing/README.md
+ * @see https://github.com/wordpress/gutenberg/blob/HEAD/packages/block-editor/src/components/observe-typing/README.md
  */
 /* harmony default export */ const observe_typing = (ObserveTyping);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-list/zoom-out-separator.js
+;// ./packages/block-editor/build-module/components/block-list/zoom-out-separator.js
 /**
  * External dependencies
  */
@@ -44431,8 +48544,7 @@ function ZoomOutSeparator({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-list/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/block-list/index.js
 /**
  * External dependencies
  */
@@ -44441,6 +48553,7 @@ function ZoomOutSeparator({
 /**
  * WP dependencies
  */
+
 
 
 
@@ -44460,7 +48573,7 @@ function ZoomOutSeparator({
 
 
 
-const block_list_IntersectionObserver = (0,external_wp_element_namespaceObject.createContext)();
+const IntersectionObserver = (0,external_wp_element_namespaceObject.createContext)();
 const pendingBlockVisibilityUpdatesPerRegistry = new WeakMap();
 function Root({
   className,
@@ -44524,7 +48637,7 @@ function Root({
       'is-focus-mode': isFocusMode
     })
   }, settings);
-  return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(block_list_IntersectionObserver.Provider, {
+  return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(IntersectionObserver.Provider, {
     value: intersectionObserver,
     children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("div", {
       ...innerBlocksProps
@@ -44584,13 +48697,13 @@ function Items({
     const {
       getSettings,
       getBlockOrder,
-      getSelectedBlockClientId,
       getSelectedBlockClientIds,
       __unstableGetVisibleBlocks,
       getTemplateLock,
       getBlockEditingMode,
       isSectionBlock,
-      isZoomOut: _isZoomOut
+      isZoomOut: _isZoomOut,
+      canInsertBlockType
     } = unlock(select(store));
     const _order = getBlockOrder(rootClientId);
     if (getSettings().isPreviewMode) {
@@ -44600,13 +48713,16 @@ function Items({
         visibleBlocks: block_list_EMPTY_SET
       };
     }
-    const selectedBlockClientId = getSelectedBlockClientId();
+    const selectedBlockClientIds = getSelectedBlockClientIds();
+    const selectedBlockClientId = selectedBlockClientIds[0];
+    const showRootAppender = !rootClientId && !selectedBlockClientId && (!_order.length || !canInsertBlockType((0,external_wp_blocks_namespaceObject.getDefaultBlockName)(), rootClientId));
+    const hasSelectedRoot = !!(rootClientId && selectedBlockClientId && rootClientId === selectedBlockClientId);
     return {
       order: _order,
-      selectedBlocks: getSelectedBlockClientIds(),
+      selectedBlocks: selectedBlockClientIds,
       visibleBlocks: __unstableGetVisibleBlocks(),
       isZoomOut: _isZoomOut(),
-      shouldRenderAppender: !isSectionBlock(rootClientId) && getBlockEditingMode(rootClientId) !== 'disabled' && !getTemplateLock(rootClientId) && hasAppender && !_isZoomOut() && (hasCustomAppender || rootClientId === selectedBlockClientId || !rootClientId && !selectedBlockClientId && !_order.length)
+      shouldRenderAppender: !isSectionBlock(rootClientId) && getBlockEditingMode(rootClientId) !== 'disabled' && !getTemplateLock(rootClientId) && hasAppender && !_isZoomOut() && (hasCustomAppender || hasSelectedRoot || showRootAppender)
     };
   }, [rootClientId, hasAppender, hasCustomAppender]);
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(LayoutProvider, {
@@ -44646,7 +48762,7 @@ function BlockListItems(props) {
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/writing-flow/use-multi-selection.js
+;// ./packages/block-editor/build-module/components/writing-flow/use-multi-selection.js
 /**
  * WP dependencies
  */
@@ -44729,8 +48845,7 @@ function useMultiSelection() {
   }, [hasMultiSelection, isMultiSelecting, multiSelectedBlockClientIds, selectedBlockClientId, initialPosition, isFullSelection]);
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/writing-flow/use-tab-nav.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/writing-flow/use-tab-nav.js
 /**
  * WP dependencies
  */
@@ -44748,7 +48863,7 @@ function useMultiSelection() {
 
 
 function useTabNav() {
-  const container = (0,external_wp_element_namespaceObject.useRef)();
+  const containerRef = /** @type {typeof useRef<HTMLElement>} */(0,external_wp_element_namespaceObject.useRef)();
   const focusCaptureBeforeRef = (0,external_wp_element_namespaceObject.useRef)();
   const focusCaptureAfterRef = (0,external_wp_element_namespaceObject.useRef)();
   const {
@@ -44768,19 +48883,19 @@ function useTabNav() {
   // capturing on the focus capture elements.
   const noCaptureRef = (0,external_wp_element_namespaceObject.useRef)();
   function onFocusCapture(event) {
-    const canvasElement = container.current.ownerDocument === event.target.ownerDocument ? container.current : container.current.ownerDocument.defaultView.frameElement;
+    const canvasElement = containerRef.current.ownerDocument === event.target.ownerDocument ? containerRef.current : containerRef.current.ownerDocument.defaultView.frameElement;
 
     // Do not capture incoming focus if set by us in WritingFlow.
     if (noCaptureRef.current) {
       noCaptureRef.current = null;
     } else if (hasMultiSelection()) {
-      container.current.focus();
+      containerRef.current.focus();
     } else if (getSelectedBlockClientId()) {
       if (getLastFocus()?.current) {
         getLastFocus().current.focus();
       } else {
         // Handles when the last focus has not been set yet, or has been cleared by new blocks being added via the inserter.
-        container.current.querySelector(`[data-block="${getSelectedBlockClientId()}"]`).focus();
+        containerRef.current.querySelector(`[data-block="${getSelectedBlockClientId()}"]`).focus();
       }
     }
     // In "compose" mode without a selected ID, we want to place focus on the section root when tabbing to the canvas.
@@ -44790,11 +48905,11 @@ function useTabNav() {
 
       // If we have section within the section root, focus the first one.
       if (sectionBlocks.length) {
-        container.current.querySelector(`[data-block="${sectionBlocks[0]}"]`).focus();
+        containerRef.current.querySelector(`[data-block="${sectionBlocks[0]}"]`).focus();
       }
       // If we don't have any section blocks, focus the section root.
       else if (sectionRootClientId) {
-        container.current.querySelector(`[data-block="${sectionRootClientId}"]`).focus();
+        containerRef.current.querySelector(`[data-block="${sectionRootClientId}"]`).focus();
       } else {
         // If we don't have any section root, focus the canvas.
         canvasElement.focus();
@@ -44803,7 +48918,7 @@ function useTabNav() {
       const isBefore =
       // eslint-disable-next-line no-bitwise
       event.target.compareDocumentPosition(canvasElement) & event.target.DOCUMENT_POSITION_FOLLOWING;
-      const tabbables = external_wp_dom_namespaceObject.focus.tabbable.find(container.current);
+      const tabbables = external_wp_dom_namespaceObject.focus.tabbable.find(containerRef.current);
       if (tabbables.length) {
         const next = isBefore ? tabbables[0] : tabbables[tabbables.length - 1];
         next.focus();
@@ -44835,16 +48950,26 @@ function useTabNav() {
       if (event.keyCode !== external_wp_keycodes_namespaceObject.TAB) {
         return;
       }
-      const isShift = event.shiftKey;
+      if (
+      // Bails in case the focus capture elements aren’t present. They
+      // may be omitted to avoid silent tab stops in preview mode.
+      // See: https://github.com/wordpress/gutenberg/pull/59317
+      !focusCaptureAfterRef.current || !focusCaptureBeforeRef.current) {
+        return;
+      }
+      const {
+        target,
+        shiftKey: isShift
+      } = event;
       const direction = isShift ? 'findPrevious' : 'findNext';
-      const nextTabbable = external_wp_dom_namespaceObject.focus.tabbable[direction](event.target);
+      const nextTabbable = external_wp_dom_namespaceObject.focus.tabbable[direction](target);
 
       // We want to constrain the tabbing to the block and its child blocks.
       // If the preceding form element is within a different block,
       // such as two sibling image blocks in the placeholder state,
       // we want shift + tab from the first form element to move to the image
       // block toolbar and not the previous image block's form element.
-      const currentBlock = event.target.closest('[data-block]');
+      const currentBlock = target.closest('[data-block]');
       const isElementPartOfSelectedBlock = currentBlock && nextTabbable && (isInSameBlock(currentBlock, nextTabbable) || isInsideRootBlock(currentBlock, nextTabbable));
 
       // Allow tabbing from the block wrapper to a form element,
@@ -44881,7 +49006,7 @@ function useTabNav() {
 
       // If focus disappears due to there being no blocks, move focus to
       // the writing flow wrapper.
-      if (!event.relatedTarget && ownerDocument.activeElement === ownerDocument.body && getBlockCount() === 0) {
+      if (!event.relatedTarget && event.target.hasAttribute('data-block') && ownerDocument.activeElement === ownerDocument.body && getBlockCount() === 0) {
         node.focus();
       }
     }
@@ -44901,7 +49026,7 @@ function useTabNav() {
       if (event.target?.getAttribute('role') === 'region') {
         return;
       }
-      if (container.current === event.target) {
+      if (containerRef.current === event.target) {
         return;
       }
       const isShift = event.shiftKey;
@@ -44930,12 +49055,11 @@ function useTabNav() {
       node.removeEventListener('focusout', onFocusOut);
     };
   }, []);
-  const mergedRefs = (0,external_wp_compose_namespaceObject.useMergeRefs)([container, ref]);
+  const mergedRefs = (0,external_wp_compose_namespaceObject.useMergeRefs)([containerRef, ref]);
   return [before, mergedRefs, after];
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/writing-flow/use-arrow-nav.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/writing-flow/use-arrow-nav.js
 /**
  * WP dependencies
  */
@@ -45182,7 +49306,7 @@ function useArrowNav() {
   }, []);
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/writing-flow/use-select-all.js
+;// ./packages/block-editor/build-module/components/writing-flow/use-select-all.js
 /**
  * WP dependencies
  */
@@ -45221,7 +49345,7 @@ function useSelectAll() {
       const blockClientIds = getBlockOrder(rootClientId);
 
       // If we have selected all sibling nested blocks, try selecting up a
-      // level. See: https://github.com/WordPress/gutenberg/pull/31859/
+      // level. See: https://github.com/wordpress/gutenberg/pull/31859/
       if (selectedClientIds.length === blockClientIds.length) {
         if (rootClientId) {
           node.ownerDocument.defaultView.getSelection().removeAllRanges();
@@ -45238,7 +49362,7 @@ function useSelectAll() {
   }, []);
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/writing-flow/use-drag-selection.js
+;// ./packages/block-editor/build-module/components/writing-flow/use-drag-selection.js
 /**
  * WP dependencies
  */
@@ -45376,7 +49500,7 @@ function useDragSelection() {
 
       // Do not rely on the active element because it may change after
       // the mouse leaves for the first time. See
-      // https://github.com/WordPress/gutenberg/issues/48747.
+      // https://github.com/wordpress/gutenberg/issues/48747.
       anchorElement = target;
       startMultiSelect();
 
@@ -45401,7 +49525,7 @@ function useDragSelection() {
   }, [startMultiSelect, stopMultiSelect, isSelectionEnabled, hasSelectedBlock]);
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/writing-flow/use-selection-observer.js
+;// ./packages/block-editor/build-module/components/writing-flow/use-selection-observer.js
 /**
  * WP dependencies
  */
@@ -45634,7 +49758,7 @@ function useSelectionObserver() {
   }, [multiSelect, selectBlock, selectionChange, getBlockParents]);
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/writing-flow/use-click-selection.js
+;// ./packages/block-editor/build-module/components/writing-flow/use-click-selection.js
 /**
  * WP dependencies
  */
@@ -45687,8 +49811,7 @@ function useClickSelection() {
   }, [selectBlock, isSelectionEnabled, getBlockSelectionStart, hasMultiSelection]);
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/writing-flow/use-input.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/writing-flow/use-input.js
 /**
  * WP dependencies
  */
@@ -45837,7 +49960,7 @@ function useInput() {
   }, []);
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/utils/use-notify-copy.js
+;// ./packages/block-editor/build-module/utils/use-notify-copy.js
 /**
  * WP dependencies
  */
@@ -45892,7 +50015,7 @@ function useNotifyCopy() {
   }, [createSuccessNotice, getBlockName, getBlockType]);
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/utils/pasting.js
+;// ./packages/block-editor/build-module/utils/pasting.js
 /**
  * WP dependencies
  */
@@ -45925,7 +50048,7 @@ function removeWindowsFragments(html) {
 /**
  * Removes the charset meta tag inserted by Chromium.
  * See:
- * - https://github.com/WordPress/gutenberg/issues/33585
+ * - https://github.com/wordpress/gutenberg/issues/33585
  * - https://bugs.chromium.org/p/chromium/issues/detail?id=1264616#c4
  *
  * @param {string} html the html to be stripped of the meta tag.
@@ -46013,8 +50136,7 @@ function shouldDismissPastedFiles(files, html /*, plainText */) {
   return false;
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/writing-flow/utils.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/writing-flow/utils.js
 /**
  * WP dependencies
  */
@@ -46109,8 +50231,7 @@ function toPlainText(html) {
   return plainText.replace(/\n\n+/g, '\n\n');
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/writing-flow/use-clipboard-handler.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/writing-flow/use-clipboard-handler.js
 /**
  * WP dependencies
  */
@@ -46308,7 +50429,7 @@ function useClipboardHandler() {
   }, []);
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/writing-flow/index.js
+;// ./packages/block-editor/build-module/components/writing-flow/index.js
 /**
  * External dependencies
  */
@@ -46378,8 +50499,7 @@ function WritingFlow({
  */
 /* harmony default export */ const writing_flow = ((0,external_wp_element_namespaceObject.forwardRef)(WritingFlow));
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/iframe/get-compatibility-styles.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/iframe/get-compatibility-styles.js
 let compatibilityStyles = null;
 
 /**
@@ -46473,7 +50593,7 @@ function getCompatibilityStyles() {
   return compatibilityStyles;
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/iframe/use-scale-canvas.js
+;// ./packages/block-editor/build-module/components/iframe/use-scale-canvas.js
 /**
  * WP dependencies
  */
@@ -46866,7 +50986,7 @@ function useScaleCanvas({
   };
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/iframe/index.js
+;// ./packages/block-editor/build-module/components/iframe/index.js
 /* wp:polyfill */
 /**
  * External dependencies
@@ -47001,10 +51121,17 @@ function Iframe({
     function preventFileDropDefault(event) {
       event.preventDefault();
     }
+    const {
+      ownerDocument
+    } = node;
+
+    // Ideally ALL classes that are added through get_body_class should
+    // be added in the editor too, which we'll somehow have to get from
+    // the server in the future (which will run the PHP filters).
+    setBodyClasses(Array.from(ownerDocument.body.classList).filter(name => name.startsWith('admin-color-') || name.startsWith('post-type-') || name === 'wp-embed-responsive'));
     function onLoad() {
       const {
-        contentDocument,
-        ownerDocument
+        contentDocument
       } = node;
       const {
         documentElement
@@ -47012,11 +51139,6 @@ function Iframe({
       iFrameDocument = contentDocument;
       documentElement.classList.add('block-editor-iframe__html');
       clearerRef(documentElement);
-
-      // Ideally ALL classes that are added through get_body_class should
-      // be added in the editor too, which we'll somehow have to get from
-      // the server in the future (which will run the PHP filters).
-      setBodyClasses(Array.from(ownerDocument.body.classList).filter(name => name.startsWith('admin-color-') || name.startsWith('post-type-') || name === 'wp-embed-responsive'));
       contentDocument.dir = ownerDocument.dir;
       for (const compatStyle of getCompatibilityStyles()) {
         if (contentDocument.getElementById(compatStyle.id)) {
@@ -47426,7 +51548,7 @@ function nestTokens(tokens, { list = true } = {}) {
 /**
  * Traverse an AST in depth-first order
  */
-function* flatten(node,
+function* flatten(node, 
 /**
  * @internal
  */
@@ -47451,7 +51573,7 @@ parent) {
 /**
  * Traverse an AST (or part thereof), in depth-first order
  */
-function walk(node, visit,
+function walk(node, visit, 
 /**
  * @internal
  */
@@ -47597,11 +51719,10 @@ var css_syntax_error_default = /*#__PURE__*/__webpack_require__.n(css_syntax_err
 // EXTERNAL MODULE: ./node_modules/postcss-prefix-selector/index.js
 var postcss_prefix_selector = __webpack_require__(1443);
 var postcss_prefix_selector_default = /*#__PURE__*/__webpack_require__.n(postcss_prefix_selector);
-// EXTERNAL MODULE: ./node_modules/postcss-urlrebase/index.js
-var postcss_urlrebase = __webpack_require__(5404);
+// EXTERNAL MODULE: ./packages/block-editor/node_modules/postcss-urlrebase/index.js
+var postcss_urlrebase = __webpack_require__(6020);
 var postcss_urlrebase_default = /*#__PURE__*/__webpack_require__.n(postcss_urlrebase);
-;// ./node_modules/@wordpress/block-editor/build-module/utils/transform-styles/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/utils/transform-styles/index.js
 /**
  * External dependencies
  */
@@ -47774,8 +51895,7 @@ const transform_styles_transformStyles = (styles, wrapperSelector = '', transfor
 };
 /* harmony default export */ const transform_styles = (transform_styles_transformStyles);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/editor-styles/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/editor-styles/index.js
 /**
  * External dependencies
  */
@@ -47882,7 +52002,7 @@ function EditorStyles({
 }
 /* harmony default export */ const editor_styles = ((0,external_wp_element_namespaceObject.memo)(EditorStyles));
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-preview/auto.js
+;// ./packages/block-editor/build-module/components/block-preview/auto.js
 /**
  * WP dependencies
  */
@@ -47943,8 +52063,8 @@ function ScaledBlockPreview({
       transform: `scale(${scale})`,
       // Using width + aspect-ratio instead of height here triggers browsers' native
       // handling of scrollbar's visibility. It prevents the flickering issue seen
-      // in https://github.com/WordPress/gutenberg/issues/52027.
-      // See https://github.com/WordPress/gutenberg/pull/52921 for more info.
+      // in https://github.com/wordpress/gutenberg/issues/52027.
+      // See https://github.com/wordpress/gutenberg/pull/52921 for more info.
       aspectRatio,
       maxHeight: contentHeight > MAX_HEIGHT ? MAX_HEIGHT * scale : undefined,
       minHeight
@@ -47973,7 +52093,7 @@ function ScaledBlockPreview({
         height: contentHeight,
         pointerEvents: 'none',
         // This is a catch-all max-height for patterns.
-        // See: https://github.com/WordPress/gutenberg/pull/38175.
+        // See: https://github.com/wordpress/gutenberg/pull/38175.
         maxHeight: MAX_HEIGHT,
         minHeight: scale !== 0 && scale < 1 && minHeight ? minHeight / scale : minHeight
       },
@@ -48009,7 +52129,7 @@ function AutoBlockPreview(props) {
 
 ;// external ["wp","priorityQueue"]
 const external_wp_priorityQueue_namespaceObject = window["wp"]["priorityQueue"];
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-preview/async.js
+;// ./packages/block-editor/build-module/components/block-preview/async.js
 /**
  * WP dependencies
  */
@@ -48039,7 +52159,7 @@ function Async({
     const context = {};
     blockPreviewQueue.add(context, () => {
       // Synchronously run all renders so it consumes timeRemaining.
-      // See https://github.com/WordPress/gutenberg/pull/48238
+      // See https://github.com/wordpress/gutenberg/pull/48238
       (0,external_wp_element_namespaceObject.flushSync)(() => {
         setShouldRender(true);
       });
@@ -48054,7 +52174,7 @@ function Async({
   return children;
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-preview/index.js
+;// ./packages/block-editor/build-module/components/block-preview/index.js
 /**
  * External dependencies
  */
@@ -48133,7 +52253,7 @@ MemoizedBlockPreview.Async = Async;
 /**
  * BlockPreview renders a preview of a block or array of blocks.
  *
- * @see https://github.com/WordPress/gutenberg/blob/HEAD/packages/block-editor/src/components/block-preview/README.md
+ * @see https://github.com/wordpress/gutenberg/blob/HEAD/packages/block-editor/src/components/block-preview/README.md
  *
  * @param {Object}       preview               options for how the preview should be shown
  * @param {Array|Object} preview.blocks        A block instance (object) or an array of blocks to be previewed.
@@ -48191,7 +52311,7 @@ function useBlockPreview({
   };
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inserter/preview-panel.js
+;// ./packages/block-editor/build-module/components/inserter/preview-panel.js
 /**
  * WP dependencies
  */
@@ -48250,7 +52370,7 @@ function InserterPreviewPanel({
           //We want this CSS to be in sync with the one in BlockPreviewPanel.
           [{
             css: `
-										body {
+										body { 
 											padding: 24px;
 											min-height:${Math.round(minHeight)}px;
 											display:flex;
@@ -48273,7 +52393,7 @@ function InserterPreviewPanel({
 }
 /* harmony default export */ const preview_panel = (InserterPreviewPanel);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inserter-listbox/item.js
+;// ./packages/block-editor/build-module/components/inserter-listbox/item.js
 /**
  * WP dependencies
  */
@@ -48319,7 +52439,7 @@ function InserterListboxItem({
 }
 /* harmony default export */ const inserter_listbox_item = ((0,external_wp_element_namespaceObject.forwardRef)(InserterListboxItem));
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inserter-draggable-blocks/index.js
+;// ./packages/block-editor/build-module/components/inserter-draggable-blocks/index.js
 /**
  * WP dependencies
  */
@@ -48405,7 +52525,7 @@ const InserterDraggableBlocks = ({
 };
 /* harmony default export */ const inserter_draggable_blocks = (InserterDraggableBlocks);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inserter-list-item/index.js
+;// ./packages/block-editor/build-module/components/inserter-list-item/index.js
 /**
  * External dependencies
  */
@@ -48515,7 +52635,7 @@ function InserterListItem({
 }
 /* harmony default export */ const inserter_list_item = ((0,external_wp_element_namespaceObject.memo)(InserterListItem));
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inserter-listbox/group.js
+;// ./packages/block-editor/build-module/components/inserter-listbox/group.js
 /**
  * WP dependencies
  */
@@ -48548,7 +52668,7 @@ function InserterListboxGroup(props, ref) {
 }
 /* harmony default export */ const group = ((0,external_wp_element_namespaceObject.forwardRef)(InserterListboxGroup));
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inserter-listbox/row.js
+;// ./packages/block-editor/build-module/components/inserter-listbox/row.js
 /**
  * WP dependencies
  */
@@ -48564,8 +52684,7 @@ function InserterListboxRow(props, ref) {
 }
 /* harmony default export */ const inserter_listbox_row = ((0,external_wp_element_namespaceObject.forwardRef)(InserterListboxRow));
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-types-list/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/block-types-list/index.js
 /**
  * WP dependencies
  */
@@ -48613,7 +52732,7 @@ function BlockTypesList({
 }
 /* harmony default export */ const block_types_list = (BlockTypesList);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inserter/panel.js
+;// ./packages/block-editor/build-module/components/inserter/panel.js
 /**
  * WP dependencies
  */
@@ -48641,7 +52760,7 @@ function InserterPanel({
 }
 /* harmony default export */ const panel = (InserterPanel);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inserter/hooks/use-block-types-state.js
+;// ./packages/block-editor/build-module/components/inserter/hooks/use-block-types-state.js
 /**
  * WP dependencies
  */
@@ -48711,7 +52830,7 @@ const useBlockTypesState = (rootClientId, onInsert, isQuick) => {
 };
 /* harmony default export */ const use_block_types_state = (useBlockTypesState);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inserter-listbox/index.js
+;// ./packages/block-editor/build-module/components/inserter-listbox/index.js
 /**
  * WP dependencies
  */
@@ -48736,28 +52855,23 @@ function InserterListbox({
 }
 /* harmony default export */ const inserter_listbox = (InserterListbox);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inserter/no-results.js
+;// ./packages/block-editor/build-module/components/inserter/no-results.js
 /**
  * WP dependencies
  */
 
 
-
 function InserterNoResults() {
-  return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)("div", {
+  return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("div", {
     className: "block-editor-inserter__no-results",
-    children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(build_module_icon, {
-      className: "block-editor-inserter__no-results-icon",
-      icon: block_default
-    }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("p", {
+    children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("p", {
       children: (0,external_wp_i18n_namespaceObject.__)('No results found.')
-    })]
+    })
   });
 }
 /* harmony default export */ const no_results = (InserterNoResults);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inserter/block-types-tab.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/inserter/block-types-tab.js
 /**
  * WP dependencies
  */
@@ -48936,8 +53050,7 @@ function BlockTypesTab({
 }
 /* harmony default export */ const block_types_tab = ((0,external_wp_element_namespaceObject.forwardRef)(BlockTypesTab));
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inserter/block-patterns-explorer/pattern-explorer-sidebar.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/inserter/block-patterns-explorer/pattern-explorer-sidebar.js
 /**
  * WP dependencies
  */
@@ -49007,7 +53120,7 @@ function PatternExplorerSidebar({
 }
 /* harmony default export */ const pattern_explorer_sidebar = (PatternExplorerSidebar);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-patterns-paging/index.js
+;// ./packages/block-editor/build-module/components/block-patterns-paging/index.js
 /**
  * WP dependencies
  */
@@ -49096,8 +53209,7 @@ function Pagination({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-patterns-list/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/block-patterns-list/index.js
 /**
  * External dependencies
  */
@@ -49302,7 +53414,7 @@ function BlockPatternsList({
 }
 /* harmony default export */ const block_patterns_list = ((0,external_wp_element_namespaceObject.forwardRef)(BlockPatternsList));
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inserter/hooks/use-insertion-point.js
+;// ./packages/block-editor/build-module/components/inserter/hooks/use-insertion-point.js
 /**
  * WP dependencies
  */
@@ -49459,8 +53571,7 @@ function useInsertionPoint({
 }
 /* harmony default export */ const use_insertion_point = (useInsertionPoint);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inserter/hooks/use-patterns-state.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/inserter/hooks/use-patterns-state.js
 /**
  * WP dependencies
  */
@@ -49615,7 +53726,7 @@ var DEFAULT_STRIP_REGEXP = /[^A-Z0-9]+/gi;
 function noCase(input, options) {
     if (options === void 0) { options = {}; }
     var _a = options.splitRegexp, splitRegexp = _a === void 0 ? DEFAULT_SPLIT_REGEXP : _a, _b = options.stripRegexp, stripRegexp = _b === void 0 ? DEFAULT_STRIP_REGEXP : _b, _c = options.transform, transform = _c === void 0 ? lowerCase : _c, _d = options.delimiter, delimiter = _d === void 0 ? " " : _d;
-    var result = dist_es2015_replace(dist_es2015_replace(input, splitRegexp, "$1\0$2"), stripRegexp, "\0");
+    var result = replace(replace(input, splitRegexp, "$1\0$2"), stripRegexp, "\0");
     var start = 0;
     var end = result.length;
     // Trim the delimiter from around the output string.
@@ -49629,14 +53740,13 @@ function noCase(input, options) {
 /**
  * Replace `re` in the input string with the replacement value.
  */
-function dist_es2015_replace(input, re, value) {
+function replace(input, re, value) {
     if (re instanceof RegExp)
         return input.replace(re, value);
     return re.reduce(function (input, re) { return input.replace(re, value); }, input);
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inserter/search-items.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/inserter/search-items.js
 /**
  * External dependencies
  */
@@ -49811,7 +53921,7 @@ function getItemSearchRank(item, searchTerm, config = {}) {
   return rank;
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inserter/hooks/use-patterns-paging.js
+;// ./packages/block-editor/build-module/components/inserter/hooks/use-patterns-paging.js
 /**
  * WP dependencies
  */
@@ -49861,8 +53971,7 @@ function usePatternsPaging(currentCategoryPatterns, currentCategory, scrollConta
   };
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inserter/block-patterns-explorer/pattern-list.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/inserter/block-patterns-explorer/pattern-list.js
 /**
  * WP dependencies
  */
@@ -49903,7 +54012,8 @@ function PatternList({
   searchValue,
   selectedCategory,
   patternCategories,
-  rootClientId
+  rootClientId,
+  onModalClose
 }) {
   const container = (0,external_wp_element_namespaceObject.useRef)();
   const debouncedSpeak = (0,external_wp_compose_namespaceObject.useDebounce)(external_wp_a11y_namespaceObject.speak, 500);
@@ -49919,6 +54029,9 @@ function PatternList({
         return true;
       }
       if (selectedCategory === myPatternsCategory.name && pattern.type === INSERTER_PATTERN_TYPES.user) {
+        return true;
+      }
+      if (selectedCategory === starterPatternsCategory.name && pattern.blockTypes?.includes('core/post-content')) {
         return true;
       }
       if (selectedCategory === 'uncategorized') {
@@ -49963,7 +54076,10 @@ function PatternList({
       children: hasItems && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_ReactJSXRuntime_namespaceObject.Fragment, {
         children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(block_patterns_list, {
           blockPatterns: pagingProps.categoryPatterns,
-          onClickPattern: onClickPattern,
+          onClickPattern: (pattern, blocks) => {
+            onClickPattern(pattern, blocks);
+            onModalClose();
+          },
           isDraggable: false
         }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(Pagination, {
           ...pagingProps
@@ -49974,8 +54090,7 @@ function PatternList({
 }
 /* harmony default export */ const pattern_list = (PatternList);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inserter/block-patterns-tab/use-pattern-categories.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/inserter/block-patterns-tab/use-pattern-categories.js
 /**
  * WP dependencies
  */
@@ -50026,7 +54141,7 @@ function usePatternCategories(rootClientId, sourceFilter = 'all') {
   return populatedCategories;
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inserter/block-patterns-explorer/index.js
+;// ./packages/block-editor/build-module/components/inserter/block-patterns-explorer/index.js
 /**
  * WP dependencies
  */
@@ -50043,10 +54158,11 @@ function usePatternCategories(rootClientId, sourceFilter = 'all') {
 
 function PatternsExplorer({
   initialCategory,
-  rootClientId
+  rootClientId,
+  onModalClose
 }) {
   const [searchValue, setSearchValue] = (0,external_wp_element_namespaceObject.useState)('');
-  const [selectedCategory, setSelectedCategory] = (0,external_wp_element_namespaceObject.useState)(initialCategory);
+  const [selectedCategory, setSelectedCategory] = (0,external_wp_element_namespaceObject.useState)(initialCategory?.name);
   const patternCategories = usePatternCategories(rootClientId);
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)("div", {
     className: "block-editor-block-patterns-explorer",
@@ -50060,7 +54176,8 @@ function PatternsExplorer({
       searchValue: searchValue,
       selectedCategory: selectedCategory,
       patternCategories: patternCategories,
-      rootClientId: rootClientId
+      rootClientId: rootClientId,
+      onModalClose: onModalClose
     })]
   });
 }
@@ -50073,14 +54190,14 @@ function PatternsExplorerModal({
     onRequestClose: onModalClose,
     isFullScreen: true,
     children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(PatternsExplorer, {
+      onModalClose: onModalClose,
       ...restProps
     })
   });
 }
 /* harmony default export */ const block_patterns_explorer = (PatternsExplorerModal);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inserter/mobile-tab-navigation.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/inserter/mobile-tab-navigation.js
 /**
  * WP dependencies
  */
@@ -50154,7 +54271,7 @@ function MobileTabNavigation({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inserter/block-patterns-tab/patterns-filter.js
+;// ./packages/block-editor/build-module/components/inserter/block-patterns-tab/patterns-filter.js
 /**
  * WP dependencies
  */
@@ -50170,7 +54287,7 @@ function MobileTabNavigation({
 
 const getShouldDisableSyncFilter = sourceFilter => sourceFilter !== 'all' && sourceFilter !== 'user';
 const getShouldHideSourcesFilter = category => {
-  return category?.name === myPatternsCategory.name;
+  return category.name === myPatternsCategory.name;
 };
 const PATTERN_SOURCE_MENU_OPTIONS = [{
   value: 'all',
@@ -50194,7 +54311,7 @@ function PatternsFilter({
   // we do this by deriving from props rather than calling setPatternSourceFilter otherwise
   // the user may be confused when switching to another category if the haven't explicitly set
   // this filter themselves.
-  const currentPatternSourceFilter = category?.name === myPatternsCategory.name ? INSERTER_PATTERN_TYPES.user : patternSourceFilter;
+  const currentPatternSourceFilter = category.name === myPatternsCategory.name ? INSERTER_PATTERN_TYPES.user : patternSourceFilter;
 
   // We need to disable the sync filter option if the source filter is not 'all' or 'user'
   // otherwise applying them will just result in no patterns being shown.
@@ -50270,8 +54387,7 @@ function PatternsFilter({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inserter/block-patterns-tab/pattern-category-previews.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/inserter/block-patterns-tab/pattern-category-previews.js
 /**
  * WP dependencies
  */
@@ -50306,13 +54422,13 @@ function PatternCategoryPreviews({
     if (isPatternFiltered(pattern, patternSourceFilter, patternSyncFilter)) {
       return false;
     }
-    if (category.name === allPatternsCategory?.name) {
+    if (category.name === allPatternsCategory.name) {
       return true;
     }
-    if (category.name === myPatternsCategory?.name && pattern.type === INSERTER_PATTERN_TYPES.user) {
+    if (category.name === myPatternsCategory.name && pattern.type === INSERTER_PATTERN_TYPES.user) {
       return true;
     }
-    if (category.name === starterPatternsCategory?.name && pattern.blockTypes?.includes('core/post-content')) {
+    if (category.name === starterPatternsCategory.name && pattern.blockTypes?.includes('core/post-content')) {
       return true;
     }
     if (category.name === 'uncategorized') {
@@ -50352,7 +54468,7 @@ function PatternCategoryPreviews({
             size: 13,
             level: 4,
             as: "div",
-            children: category?.label
+            children: category.label
           })
         }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(PatternsFilter, {
           patternSyncFilter: patternSyncFilter,
@@ -50390,8 +54506,7 @@ function PatternCategoryPreviews({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inserter/category-tabs/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/inserter/category-tabs/index.js
 /**
  * WP dependencies
  */
@@ -50446,7 +54561,7 @@ function CategoryTabs({
       className: "block-editor-inserter__category-tablist",
       children: categories.map(category => /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(category_tabs_Tabs.Tab, {
         tabId: category.name,
-        "aria-current": category.name === selectedCategory?.name ? 'true' : undefined,
+        "aria-current": category === selectedCategory ? 'true' : undefined,
         children: category.label
       }, category.name))
     }), categories.map(category => /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(category_tabs_Tabs.TabPanel, {
@@ -50476,7 +54591,7 @@ function CategoryTabs({
 }
 /* harmony default export */ const category_tabs = (CategoryTabs);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inserter/block-patterns-tab/index.js
+;// ./packages/block-editor/build-module/components/inserter/block-patterns-tab/index.js
 /**
  * WP dependencies
  */
@@ -50534,7 +54649,7 @@ function BlockPatternsTab({
         }, category.name)
       })
     }), showPatternsExplorer && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(block_patterns_explorer, {
-      initialCategory: selectedCategory?.name || categories[0]?.name,
+      initialCategory: selectedCategory || categories[0],
       patternCategories: categories,
       onModalClose: () => setShowPatternsExplorer(false),
       rootClientId: rootClientId
@@ -50543,7 +54658,7 @@ function BlockPatternsTab({
 }
 /* harmony default export */ const block_patterns_tab = (BlockPatternsTab);
 
-;// ./node_modules/@wordpress/icons/build-module/library/external.js
+;// ./packages/icons/build-module/library/external.js
 /**
  * WP dependencies
  */
@@ -50558,7 +54673,7 @@ const external = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(e
 });
 /* harmony default export */ const library_external = (external);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inserter/media-tab/utils.js
+;// ./packages/block-editor/build-module/components/inserter/media-tab/utils.js
 /**
  * WP dependencies
  */
@@ -50611,7 +54726,7 @@ function getBlockAndPreviewFromMedia(media, mediaType) {
   return [(0,external_wp_blocks_namespaceObject.createBlock)(`core/${mediaType}`, attributes), preview];
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inserter/media-tab/media-preview.js
+;// ./packages/block-editor/build-module/components/inserter/media-tab/media-preview.js
 /**
  * External dependencies
  */
@@ -50868,8 +54983,7 @@ function MediaPreview({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inserter/media-tab/media-list.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/inserter/media-tab/media-list.js
 /**
  * WP dependencies
  */
@@ -50900,8 +55014,7 @@ function MediaList({
 }
 /* harmony default export */ const media_list = (MediaList);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inserter/media-tab/hooks.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/inserter/media-tab/hooks.js
 /**
  * WP dependencies
  */
@@ -51020,7 +55133,7 @@ function useMediaCategories(rootClientId) {
   return categories;
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inserter/media-tab/media-panel.js
+;// ./packages/block-editor/build-module/components/inserter/media-tab/media-panel.js
 /**
  * WP dependencies
  */
@@ -51072,8 +55185,7 @@ function MediaCategoryPanel({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inserter/media-tab/media-tab.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/inserter/media-tab/media-tab.js
 /**
  * WP dependencies
  */
@@ -51165,7 +55277,7 @@ function MediaTab({
 }
 /* harmony default export */ const media_tab = (MediaTab);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inserter-menu-extension/index.js
+;// ./packages/block-editor/build-module/components/inserter-menu-extension/index.js
 /**
  * WP dependencies
  */
@@ -51177,7 +55289,7 @@ const {
 __unstableInserterMenuExtension.Slot = Slot;
 /* harmony default export */ const inserter_menu_extension = (__unstableInserterMenuExtension);
 
-;// ./node_modules/@wordpress/block-editor/build-module/utils/order-inserter-block-items.js
+;// ./packages/block-editor/build-module/utils/order-inserter-block-items.js
 /** @typedef {import('../store/selectors').WPEditorInserterItem} WPEditorInserterItem */
 
 /**
@@ -51211,8 +55323,7 @@ const orderInserterBlockItems = (items, priority) => {
   return items;
 };
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inserter/search-results.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/inserter/search-results.js
 /**
  * WP dependencies
  */
@@ -51285,7 +55396,7 @@ function InserterSearchResults({
     selectBlockOnInsert
   });
   const [blockTypes, blockTypeCategories, blockTypeCollections, onSelectBlockType] = use_block_types_state(destinationRootClientId, onInsertBlocks, isQuick);
-  const [patterns,, onClickPattern] = use_patterns_state(onInsertBlocks, destinationRootClientId);
+  const [patterns,, onClickPattern] = use_patterns_state(onInsertBlocks, destinationRootClientId, undefined, isQuick);
   const filteredBlockPatterns = (0,external_wp_element_namespaceObject.useMemo)(() => {
     if (maxBlockPatterns === 0) {
       return [];
@@ -51375,7 +55486,7 @@ function InserterSearchResults({
 }
 /* harmony default export */ const inserter_search_results = (InserterSearchResults);
 
-;// ./node_modules/@wordpress/icons/build-module/library/close-small.js
+;// ./packages/icons/build-module/library/close-small.js
 /**
  * WP dependencies
  */
@@ -51390,8 +55501,7 @@ const closeSmall = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)
 });
 /* harmony default export */ const close_small = (closeSmall);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/tabbed-sidebar/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/tabbed-sidebar/index.js
 /**
  * WP dependencies
  */
@@ -51411,7 +55521,7 @@ const {
 /**
  * A component that creates a tabbed sidebar with a close button.
  *
- * @see https://github.com/WordPress/gutenberg/blob/HEAD/packages/block-editor/src/components/tabbed-sidebar/README.md
+ * @see https://github.com/wordpress/gutenberg/blob/HEAD/packages/block-editor/src/components/tabbed-sidebar/README.md
  *
  * @example
  * ```jsx
@@ -51490,7 +55600,7 @@ function TabbedSidebar({
 }
 /* harmony default export */ const tabbed_sidebar = ((0,external_wp_element_namespaceObject.forwardRef)(TabbedSidebar));
 
-;// ./node_modules/@wordpress/block-editor/build-module/hooks/use-zoom-out.js
+;// ./packages/block-editor/build-module/hooks/use-zoom-out.js
 /**
  * WP dependencies
  */
@@ -51503,7 +55613,6 @@ function TabbedSidebar({
 
 
 
-
 /**
  * A hook used to set the editor mode to zoomed out mode, invoking the hook sets the mode.
  * Concepts:
@@ -51513,9 +55622,6 @@ function TabbedSidebar({
  * @param {boolean} enabled If we should enter into zoomOut mode or not
  */
 function useZoomOut(enabled = true) {
-  const {
-    postId
-  } = (0,external_wp_element_namespaceObject.useContext)(block_context);
   const {
     setZoomLevel,
     resetZoomLevel
@@ -51539,7 +55645,6 @@ function useZoomOut(enabled = true) {
   }, []);
   const controlZoomLevelRef = (0,external_wp_element_namespaceObject.useRef)(false);
   const isEnabledRef = (0,external_wp_element_namespaceObject.useRef)(enabled);
-  const postIdRef = (0,external_wp_element_namespaceObject.useRef)(postId);
 
   /**
    * This hook tracks if the zoom state was changed manually by the user via clicking
@@ -51556,11 +55661,6 @@ function useZoomOut(enabled = true) {
   }, [isZoomedOut]);
   (0,external_wp_element_namespaceObject.useEffect)(() => {
     isEnabledRef.current = enabled;
-
-    // If the user created a new post/page, we should take control of the zoom level.
-    if (postIdRef.current !== postId) {
-      controlZoomLevelRef.current = true;
-    }
     if (enabled !== isZoomOut()) {
       controlZoomLevelRef.current = true;
       if (enabled) {
@@ -51575,10 +55675,10 @@ function useZoomOut(enabled = true) {
         resetZoomLevel();
       }
     };
-  }, [enabled, isZoomOut, postId, resetZoomLevel, setZoomLevel]);
+  }, [enabled, isZoomOut, resetZoomLevel, setZoomLevel]);
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inserter/menu.js
+;// ./packages/block-editor/build-module/components/inserter/menu.js
 /**
  * External dependencies
  */
@@ -51846,7 +55946,7 @@ function PublicInserterMenu(props, ref) {
 }
 /* harmony default export */ const menu = ((0,external_wp_element_namespaceObject.forwardRef)(PublicInserterMenu));
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inserter/quick-inserter.js
+;// ./packages/block-editor/build-module/components/inserter/quick-inserter.js
 /**
  * External dependencies
  */
@@ -51870,6 +55970,7 @@ function PublicInserterMenu(props, ref) {
 
 const SEARCH_THRESHOLD = 6;
 const SHOWN_BLOCK_TYPES = 6;
+const SHOWN_BLOCK_PATTERNS = 2;
 function QuickInserter({
   onSelect,
   rootClientId,
@@ -51943,7 +56044,7 @@ function QuickInserter({
         rootClientId: rootClientId,
         clientId: clientId,
         isAppender: isAppender,
-        maxBlockPatterns: 0,
+        maxBlockPatterns: !!filterValue ? SHOWN_BLOCK_PATTERNS : 0,
         maxBlockTypes: SHOWN_BLOCK_TYPES,
         isDraggable: false,
         selectBlockOnInsert: selectBlockOnInsert,
@@ -51959,8 +56060,7 @@ function QuickInserter({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inserter/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/inserter/index.js
 /**
  * External dependencies
  */
@@ -52278,7 +56378,7 @@ class Inserter extends external_wp_element_namespaceObject.Component {
 
       // Attempt to augment the directInsertBlock with attributes from an adjacent block.
       // This ensures styling from nearby blocks is preserved in the newly inserted block.
-      // See: https://github.com/WordPress/gutenberg/issues/37904
+      // See: https://github.com/wordpress/gutenberg/issues/37904
       if (directInsertBlock) {
         const newAttributes = getAdjacentBlockAttributes(directInsertBlock.attributesToCopy);
         blockToInsert = (0,external_wp_blocks_namespaceObject.createBlock)(directInsertBlock.name, {
@@ -52310,7 +56410,7 @@ class Inserter extends external_wp_element_namespaceObject.Component {
   clientId
 }) => hasItems || !isAppender && !rootClientId && !clientId)])(Inserter));
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/button-block-appender/index.js
+;// ./packages/block-editor/build-module/components/button-block-appender/index.js
 /**
  * External dependencies
  */
@@ -52395,12 +56495,11 @@ const ButtonBlockerAppender = (0,external_wp_element_namespaceObject.forwardRef)
 });
 
 /**
- * @see https://github.com/WordPress/gutenberg/blob/HEAD/packages/block-editor/src/components/button-block-appender/README.md
+ * @see https://github.com/wordpress/gutenberg/blob/HEAD/packages/block-editor/src/components/button-block-appender/README.md
  */
 /* harmony default export */ const button_block_appender = ((0,external_wp_element_namespaceObject.forwardRef)(button_block_appender_ButtonBlockAppender));
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/grid/grid-visualizer.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/grid/grid-visualizer.js
 /**
  * External dependencies
  */
@@ -52714,7 +56813,7 @@ function useDropZoneWithValidation({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/grid/grid-item-resizer.js
+;// ./packages/block-editor/build-module/components/grid/grid-item-resizer.js
 /**
  * WP dependencies
  */
@@ -52863,7 +56962,7 @@ function GridItemResizerInner({
   });
 }
 
-;// ./node_modules/@wordpress/icons/build-module/library/chevron-up.js
+;// ./packages/icons/build-module/library/chevron-up.js
 /**
  * WP dependencies
  */
@@ -52878,7 +56977,7 @@ const chevronUp = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(
 });
 /* harmony default export */ const chevron_up = (chevronUp);
 
-;// ./node_modules/@wordpress/icons/build-module/library/chevron-down.js
+;// ./packages/icons/build-module/library/chevron-down.js
 /**
  * WP dependencies
  */
@@ -52893,7 +56992,7 @@ const chevronDown = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx
 });
 /* harmony default export */ const chevron_down = (chevronDown);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/grid/grid-item-movers.js
+;// ./packages/block-editor/build-module/components/grid/grid-item-movers.js
 /**
  * External dependencies
  */
@@ -53029,7 +57128,7 @@ function GridItemMover({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/hooks/layout-child.js
+;// ./packages/block-editor/build-module/hooks/layout-child.js
 /**
  * WP dependencies
  */
@@ -53270,7 +57369,7 @@ function GridTools({
   }
 });
 
-;// ./node_modules/@wordpress/block-editor/build-module/hooks/content-lock-ui.js
+;// ./packages/block-editor/build-module/hooks/content-lock-ui.js
 /**
  * WP dependencies
  */
@@ -53337,7 +57436,7 @@ function ContentLockControlsPure({
   }
 });
 
-;// ./node_modules/@wordpress/block-editor/build-module/hooks/metadata.js
+;// ./packages/block-editor/build-module/hooks/metadata.js
 /**
  * WP dependencies
  */
@@ -53347,7 +57446,7 @@ const META_ATTRIBUTE_NAME = 'metadata';
 /**
  * Filters registered block settings, extending attributes to include `metadata`.
  *
- * see: https://github.com/WordPress/gutenberg/pull/40393/files#r864632012
+ * see: https://github.com/wordpress/gutenberg/pull/40393/files#r864632012
  *
  * @param {Object} blockTypeSettings Original block settings.
  * @return {Object} Filtered block settings.
@@ -53367,8 +57466,7 @@ function addMetaAttribute(blockTypeSettings) {
 }
 (0,external_wp_hooks_namespaceObject.addFilter)('blocks.registerBlockType', 'core/metadata/addMetaAttribute', addMetaAttribute);
 
-;// ./node_modules/@wordpress/block-editor/build-module/hooks/block-hooks.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/hooks/block-hooks.js
 /**
  * WP dependencies
  */
@@ -53554,8 +57652,7 @@ function BlockHooksControlPure({
   }
 });
 
-;// ./node_modules/@wordpress/block-editor/build-module/hooks/block-bindings.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/hooks/block-bindings.js
 /**
  * WP dependencies
  */
@@ -53830,7 +57927,7 @@ const BlockBindingsPanel = ({
   }
 });
 
-;// ./node_modules/@wordpress/block-editor/build-module/hooks/block-renaming.js
+;// ./packages/block-editor/build-module/hooks/block-renaming.js
 /**
  * WP dependencies
  */
@@ -53871,8 +57968,7 @@ function addLabelCallback(settings) {
 }
 (0,external_wp_hooks_namespaceObject.addFilter)('blocks.registerBlockType', 'core/metadata/addLabelCallback', addLabelCallback);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/grid/use-grid-layout-sync.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/grid/use-grid-layout-sync.js
 /**
  * WP dependencies
  */
@@ -54083,7 +58179,7 @@ function placeBlock(occupiedRects, gridColumnCount, blockColumnSpan, blockRowSpa
   }
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/hooks/grid-visualizer.js
+;// ./packages/block-editor/build-module/hooks/grid-visualizer.js
 /**
  * WP dependencies
  */
@@ -54145,7 +58241,7 @@ const addGridVisualizerToBlockEdit = (0,external_wp_compose_namespaceObject.crea
 }, 'addGridVisualizerToBlockEdit');
 (0,external_wp_hooks_namespaceObject.addFilter)('editor.BlockEdit', 'core/editor/grid-visualizer', addGridVisualizerToBlockEdit);
 
-;// ./node_modules/@wordpress/block-editor/build-module/hooks/use-border-props.js
+;// ./packages/block-editor/build-module/hooks/use-border-props.js
 /**
  * Internal dependencies
  */
@@ -54207,7 +58303,7 @@ function useBorderProps(attributes) {
   return borderProps;
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/hooks/use-shadow-props.js
+;// ./packages/block-editor/build-module/hooks/use-shadow-props.js
 /**
  * Internal dependencies
  */
@@ -54233,7 +58329,7 @@ function getShadowClassesAndStyles(attributes) {
   };
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/hooks/use-color-props.js
+;// ./packages/block-editor/build-module/hooks/use-color-props.js
 /**
  * External dependencies
  */
@@ -54339,7 +58435,7 @@ function useColorProps(attributes) {
   return colorProps;
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/hooks/use-spacing-props.js
+;// ./packages/block-editor/build-module/hooks/use-spacing-props.js
 /**
  * Internal dependencies
  */
@@ -54372,7 +58468,7 @@ function getSpacingClassesAndStyles(attributes) {
   };
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/hooks/use-typography-props.js
+;// ./packages/block-editor/build-module/hooks/use-typography-props.js
 /**
  * External dependencies
  */
@@ -54428,7 +58524,7 @@ function getTypographyClassesAndStyles(attributes, settings) {
   };
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/hooks/use-cached-truthy.js
+;// ./packages/block-editor/build-module/hooks/use-cached-truthy.js
 /**
  * WP dependencies
  */
@@ -54450,8 +58546,7 @@ function useCachedTruthy(value) {
   return cachedValue;
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/hooks/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/hooks/index.js
 /**
  * Internal dependencies
  */
@@ -54500,8 +58595,7 @@ createBlockSaveFilter([align, text_align, hooks_anchor, aria_label, custom_class
 
 
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/colors/with-colors.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/colors/with-colors.js
 /**
  * WP dependencies
  */
@@ -54703,14 +58797,14 @@ function withColors(...colorTypes) {
   return (0,external_wp_compose_namespaceObject.createHigherOrderComponent)(createColorHOC(colorTypes, withColorPalette), 'withColors');
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/colors/index.js
+;// ./packages/block-editor/build-module/components/colors/index.js
 
 
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/gradients/index.js
+;// ./packages/block-editor/build-module/components/gradients/index.js
 
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/font-sizes/font-size-picker.js
+;// ./packages/block-editor/build-module/components/font-sizes/font-size-picker.js
 /**
  * WP dependencies
  */
@@ -54731,12 +58825,11 @@ function font_size_picker_FontSizePicker(props) {
 }
 
 /**
- * @see https://github.com/WordPress/gutenberg/blob/HEAD/packages/block-editor/src/components/font-sizes/README.md
+ * @see https://github.com/wordpress/gutenberg/blob/HEAD/packages/block-editor/src/components/font-sizes/README.md
  */
 /* harmony default export */ const font_size_picker = (font_size_picker_FontSizePicker);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/font-sizes/with-font-sizes.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/font-sizes/with-font-sizes.js
 /**
  * WP dependencies
  */
@@ -54856,14 +58949,13 @@ const with_font_sizes_upperFirst = ([firstLetter, ...rest]) => firstLetter.toUpp
   }]), 'withFontSizes');
 });
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/font-sizes/index.js
+;// ./packages/block-editor/build-module/components/font-sizes/index.js
 
 
 
 
 
-;// ./node_modules/@wordpress/block-editor/build-module/autocompleters/block.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/autocompleters/block.js
 /**
  * WP dependencies
  */
@@ -54978,7 +59070,7 @@ function createBlockCompleter() {
 ;// external ["wp","apiFetch"]
 const external_wp_apiFetch_namespaceObject = window["wp"]["apiFetch"];
 var external_wp_apiFetch_default = /*#__PURE__*/__webpack_require__.n(external_wp_apiFetch_namespaceObject);
-;// ./node_modules/@wordpress/icons/build-module/library/post.js
+;// ./packages/icons/build-module/library/post.js
 /**
  * WP dependencies
  */
@@ -54993,8 +59085,7 @@ const post = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(exter
 });
 /* harmony default export */ const library_post = (post);
 
-;// ./node_modules/@wordpress/block-editor/build-module/autocompleters/link.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/autocompleters/link.js
 /**
  * WP dependencies
  */
@@ -55056,8 +59147,7 @@ function createLinkCompleter() {
  */
 /* harmony default export */ const autocompleters_link = (createLinkCompleter());
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/autocomplete/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/autocomplete/index.js
 /**
  * WP dependencies
  */
@@ -55125,11 +59215,11 @@ function BlockEditorAutocomplete(props) {
 }
 
 /**
- * @see https://github.com/WordPress/gutenberg/blob/HEAD/packages/block-editor/src/components/autocomplete/README.md
+ * @see https://github.com/wordpress/gutenberg/blob/HEAD/packages/block-editor/src/components/autocomplete/README.md
  */
 /* harmony default export */ const autocomplete = (BlockEditorAutocomplete);
 
-;// ./node_modules/@wordpress/icons/build-module/library/fullscreen.js
+;// ./packages/icons/build-module/library/fullscreen.js
 /**
  * WP dependencies
  */
@@ -55144,7 +59234,7 @@ const fullscreen = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)
 });
 /* harmony default export */ const library_fullscreen = (fullscreen);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-full-height-alignment-control/index.js
+;// ./packages/block-editor/build-module/components/block-full-height-alignment-control/index.js
 /**
  * WP dependencies
  */
@@ -55168,7 +59258,7 @@ function BlockFullHeightAlignmentControl({
 }
 /* harmony default export */ const block_full_height_alignment_control = (BlockFullHeightAlignmentControl);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-alignment-matrix-control/index.js
+;// ./packages/block-editor/build-module/components/block-alignment-matrix-control/index.js
 /**
  * WP dependencies
  */
@@ -55181,7 +59271,7 @@ const block_alignment_matrix_control_noop = () => {};
 /**
  * The alignment matrix control allows users to quickly adjust inner block alignment.
  *
- * @see https://github.com/WordPress/gutenberg/blob/HEAD/packages/block-editor/src/components/block-alignment-matrix-control/README.md
+ * @see https://github.com/wordpress/gutenberg/blob/HEAD/packages/block-editor/src/components/block-alignment-matrix-control/README.md
  *
  * @example
  * ```jsx
@@ -55253,7 +59343,7 @@ function BlockAlignmentMatrixControl(props) {
 }
 /* harmony default export */ const block_alignment_matrix_control = (BlockAlignmentMatrixControl);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-title/use-block-display-title.js
+;// ./packages/block-editor/build-module/components/block-title/use-block-display-title.js
 /**
  * WP dependencies
  */
@@ -55323,7 +59413,7 @@ function useBlockDisplayTitle({
   return blockTitle;
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-title/index.js
+;// ./packages/block-editor/build-module/components/block-title/index.js
 /**
  * Internal dependencies
  */
@@ -55359,8 +59449,7 @@ function BlockTitle({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/utils/get-editor-region.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/utils/get-editor-region.js
 /**
  * Gets the editor region for a given editor canvas element or
  * returns the passed element if no region is found
@@ -55389,8 +59478,7 @@ function getEditorRegion(editor) {
   return (_editorCanvas$closest = editorCanvas?.closest('[role="region"]')) !== null && _editorCanvas$closest !== void 0 ? _editorCanvas$closest : editorCanvas;
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-breadcrumb/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/block-breadcrumb/index.js
 /**
  * WP dependencies
  */
@@ -55500,7 +59588,7 @@ function BlockBreadcrumb({
 }
 /* harmony default export */ const block_breadcrumb = (BlockBreadcrumb);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-content-overlay/index.js
+;// ./packages/block-editor/build-module/components/block-content-overlay/index.js
 /**
  * WP dependencies
  */
@@ -55519,7 +59607,7 @@ function useBlockOverlayActive(clientId) {
   }, [clientId]);
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-tools/use-block-toolbar-popover-props.js
+;// ./packages/block-editor/build-module/components/block-tools/use-block-toolbar-popover-props.js
 /**
  * WP dependencies
  */
@@ -55542,7 +59630,7 @@ const COMMON_PROPS = {
 // By default the toolbar sets the `shift` prop. If the user scrolls the page
 // down the toolbar will stay on screen by adopting a sticky position at the
 // top of the viewport.
-const DEFAULT_PROPS = {
+const use_block_toolbar_popover_props_DEFAULT_PROPS = {
   ...COMMON_PROPS,
   flip: false,
   shift: true
@@ -55572,7 +59660,7 @@ const RESTRICTED_HEIGHT_PROPS = {
  */
 function getProps(contentElement, selectedBlockElement, scrollContainer, toolbarHeight, isSticky) {
   if (!contentElement || !selectedBlockElement) {
-    return DEFAULT_PROPS;
+    return use_block_toolbar_popover_props_DEFAULT_PROPS;
   }
 
   // Get how far the content area has been scrolled.
@@ -55595,7 +59683,7 @@ function getProps(contentElement, selectedBlockElement, scrollContainer, toolbar
 
   // Sticky blocks are treated as if they will never have enough space for the toolbar above.
   if (!isSticky && (hasSpaceForToolbarAbove || isBlockTallerThanViewport)) {
-    return DEFAULT_PROPS;
+    return use_block_toolbar_popover_props_DEFAULT_PROPS;
   }
   return RESTRICTED_HEIGHT_PROPS;
 }
@@ -55675,8 +59763,7 @@ function useBlockToolbarPopoverProps({
   };
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-tools/use-selected-block-tool-props.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/block-tools/use-selected-block-tool-props.js
 /**
  * WP dependencies
  */
@@ -55727,7 +59814,7 @@ function useSelectedBlockToolProps(clientId) {
   return selectedBlockProps;
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-tools/empty-block-inserter.js
+;// ./packages/block-editor/build-module/components/block-tools/empty-block-inserter.js
 /**
  * External dependencies
  */
@@ -55775,7 +59862,7 @@ function EmptyBlockInserter({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-draggable/use-scroll-when-dragging.js
+;// ./packages/block-editor/build-module/components/block-draggable/use-scroll-when-dragging.js
 /**
  * WP dependencies
  */
@@ -55857,7 +59944,7 @@ function useScrollWhenDragging() {
   return [startScrolling, scrollOnDragOver, stopScrolling];
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-draggable/index.js
+;// ./packages/block-editor/build-module/components/block-draggable/index.js
 /**
  * WP dependencies
  */
@@ -56050,7 +60137,7 @@ const BlockDraggable = ({
 };
 /* harmony default export */ const block_draggable = (BlockDraggable);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-mover/mover-description.js
+;// ./packages/block-editor/build-module/components/block-mover/mover-description.js
 /**
  * WP dependencies
  */
@@ -56260,7 +60347,7 @@ function getMultiBlockMoverDescription(selectedCount, firstIndex, isFirst, isLas
   }
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-mover/button.js
+;// ./packages/block-editor/build-module/components/block-mover/button.js
 /**
  * External dependencies
  */
@@ -56405,7 +60492,7 @@ const BlockMoverDownButton = (0,external_wp_element_namespaceObject.forwardRef)(
   });
 });
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-mover/index.js
+;// ./packages/block-editor/build-module/components/block-mover/index.js
 /**
  * External dependencies
  */
@@ -56509,11 +60596,11 @@ function BlockMover({
 }
 
 /**
- * @see https://github.com/WordPress/gutenberg/blob/HEAD/packages/block-editor/src/components/block-mover/README.md
+ * @see https://github.com/wordpress/gutenberg/blob/HEAD/packages/block-editor/src/components/block-mover/README.md
  */
 /* harmony default export */ const block_mover = (BlockMover);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-toolbar/utils.js
+;// ./packages/block-editor/build-module/components/block-toolbar/utils.js
 /**
  * WP dependencies
  */
@@ -56673,7 +60760,7 @@ function useShowHoveredOrFocusedGestures({
   };
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-parent-selector/index.js
+;// ./packages/block-editor/build-module/components/block-parent-selector/index.js
 /**
  * WP dependencies
  */
@@ -56744,13 +60831,13 @@ function BlockParentSelector() {
   }, parentClientId);
 }
 
-;// ./node_modules/@wordpress/icons/build-module/library/copy.js
+;// ./packages/icons/build-module/library/copy.js
 /**
  * WP dependencies
  */
 
 
-const copy_copy = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_primitives_namespaceObject.SVG, {
+const copy = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_primitives_namespaceObject.SVG, {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 24 24",
   children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_primitives_namespaceObject.Path, {
@@ -56759,9 +60846,9 @@ const copy_copy = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(
     d: "M5 4.5h11a.5.5 0 0 1 .5.5v11a.5.5 0 0 1-.5.5H5a.5.5 0 0 1-.5-.5V5a.5.5 0 0 1 .5-.5ZM3 5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5Zm17 3v10.75c0 .69-.56 1.25-1.25 1.25H6v1.5h12.75a2.75 2.75 0 0 0 2.75-2.75V8H20Z"
   })
 });
-/* harmony default export */ const library_copy = (copy_copy);
+/* harmony default export */ const library_copy = (copy);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-switcher/preview-block-popover.js
+;// ./packages/block-editor/build-module/components/block-switcher/preview-block-popover.js
 /**
  * WP dependencies
  */
@@ -56802,8 +60889,7 @@ function PreviewBlockPopover({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-switcher/block-variation-transformations.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/block-switcher/block-variation-transformations.js
 /**
  * WP dependencies
  */
@@ -56898,8 +60984,7 @@ function BlockVariationTransformationItem({
 }
 /* harmony default export */ const block_variation_transformations = (BlockVariationTransformations);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-switcher/block-transformations-menu.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/block-switcher/block-transformations-menu.js
 /**
  * WP dependencies
  */
@@ -57053,7 +61138,7 @@ function BlockTransformationItem({
 }
 /* harmony default export */ const block_transformations_menu = (BlockTransformationsMenu);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-styles/utils.js
+;// ./packages/block-editor/build-module/components/block-styles/utils.js
 /**
  * WP dependencies
  */
@@ -57134,7 +61219,7 @@ function getDefaultStyle(styles) {
   return styles?.find(style => style.isDefault);
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-styles/use-styles-for-block.js
+;// ./packages/block-editor/build-module/components/block-styles/use-styles-for-block.js
 /**
  * WP dependencies
  */
@@ -57232,8 +61317,7 @@ function useStylesForBlocks({
   };
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-styles/menu-items.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/block-styles/menu-items.js
 /**
  * WP dependencies
  */
@@ -57279,7 +61363,7 @@ function BlockStylesMenuItems({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-switcher/block-styles-menu.js
+;// ./packages/block-editor/build-module/components/block-switcher/block-styles-menu.js
 /**
  * WP dependencies
  */
@@ -57308,8 +61392,7 @@ function BlockStylesMenu({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-switcher/utils.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/block-switcher/utils.js
 /**
  * WP dependencies
  */
@@ -57372,8 +61455,7 @@ const getRetainedBlockAttributes = (name, attributes) => {
   }, {});
 };
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-switcher/use-transformed-patterns.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/block-switcher/use-transformed-patterns.js
 /**
  * WP dependencies
  */
@@ -57474,8 +61556,7 @@ const useTransformedPatterns = (patterns, selectedBlocks) => {
 };
 /* harmony default export */ const use_transformed_patterns = (useTransformedPatterns);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-switcher/pattern-transformations-menu.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/block-switcher/pattern-transformations-menu.js
 /**
  * WP dependencies
  */
@@ -57583,8 +61664,7 @@ function pattern_transformations_menu_BlockPattern({
 }
 /* harmony default export */ const pattern_transformations_menu = (PatternTransformationsMenu);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-switcher/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/block-switcher/index.js
 /**
  * WP dependencies
  */
@@ -57846,7 +61926,7 @@ const BlockSwitcher = ({
 };
 /* harmony default export */ const block_switcher = (BlockSwitcher);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-toolbar/block-toolbar-last-item.js
+;// ./packages/block-editor/build-module/components/block-toolbar/block-toolbar-last-item.js
 /**
  * WP dependencies
  */
@@ -57858,8 +61938,7 @@ const {
 __unstableBlockToolbarLastItem.Slot = block_toolbar_last_item_Slot;
 /* harmony default export */ const block_toolbar_last_item = (__unstableBlockToolbarLastItem);
 
-;// ./node_modules/@wordpress/block-editor/build-module/hooks/supports.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/hooks/supports.js
 /**
  * WP dependencies
  */
@@ -58138,8 +62217,7 @@ const getLayoutSupport = nameOrType => getBlockSupport(nameOrType, LAYOUT_SUPPOR
  */
 const supports_hasStyleSupport = nameOrType => supports_styleSupportKeys.some(key => (0,external_wp_blocks_namespaceObject.hasBlockSupport)(nameOrType, key));
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/use-paste-styles/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/use-paste-styles/index.js
 /**
  * WP dependencies
  */
@@ -58302,8 +62380,7 @@ function usePasteStyles() {
   }, [registry.batch, updateBlockAttributes, createSuccessNotice, createWarningNotice, createErrorNotice]);
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-actions/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/block-actions/index.js
 /**
  * WP dependencies
  */
@@ -58417,7 +62494,7 @@ function BlockActions({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-settings-menu/block-html-convert-button.js
+;// ./packages/block-editor/build-module/components/block-settings-menu/block-html-convert-button.js
 /**
  * WP dependencies
  */
@@ -58450,7 +62527,7 @@ function BlockHTMLConvertButton({
 }
 /* harmony default export */ const block_html_convert_button = (BlockHTMLConvertButton);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-settings-menu/block-settings-menu-first-item.js
+;// ./packages/block-editor/build-module/components/block-settings-menu/block-settings-menu-first-item.js
 /**
  * WP dependencies
  */
@@ -58462,7 +62539,7 @@ const {
 __unstableBlockSettingsMenuFirstItem.Slot = block_settings_menu_first_item_Slot;
 /* harmony default export */ const block_settings_menu_first_item = (__unstableBlockSettingsMenuFirstItem);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/convert-to-group-buttons/use-convert-to-group-button-props.js
+;// ./packages/block-editor/build-module/components/convert-to-group-buttons/use-convert-to-group-button-props.js
 /**
  * WP dependencies
  */
@@ -58522,7 +62599,7 @@ function useConvertToGroupButtonProps(selectedClientIds) {
   }, [selectedClientIds]);
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/convert-to-group-buttons/index.js
+;// ./packages/block-editor/build-module/components/convert-to-group-buttons/index.js
 /**
  * WP dependencies
  */
@@ -58594,7 +62671,7 @@ function ConvertToGroupButton({
 }
 
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-lock/use-block-lock.js
+;// ./packages/block-editor/build-module/components/block-lock/use-block-lock.js
 /**
  * WP dependencies
  */
@@ -58636,7 +62713,7 @@ function useBlockLock(clientId) {
   }, [clientId]);
 }
 
-;// ./node_modules/@wordpress/icons/build-module/library/unlock.js
+;// ./packages/icons/build-module/library/unlock.js
 /**
  * WP dependencies
  */
@@ -58651,7 +62728,7 @@ const unlock_unlock = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.j
 });
 /* harmony default export */ const library_unlock = (unlock_unlock);
 
-;// ./node_modules/@wordpress/icons/build-module/library/lock-outline.js
+;// ./packages/icons/build-module/library/lock-outline.js
 /**
  * WP dependencies
  */
@@ -58666,7 +62743,7 @@ const lockOutline = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx
 });
 /* harmony default export */ const lock_outline = (lockOutline);
 
-;// ./node_modules/@wordpress/icons/build-module/library/lock.js
+;// ./packages/icons/build-module/library/lock.js
 /**
  * WP dependencies
  */
@@ -58681,8 +62758,7 @@ const lock_lock = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(
 });
 /* harmony default export */ const library_lock = (lock_lock);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-lock/modal.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/block-lock/modal.js
 /**
  * WP dependencies
  */
@@ -58876,7 +62952,7 @@ function BlockLockModal({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-lock/menu-item.js
+;// ./packages/block-editor/build-module/components/block-lock/menu-item.js
 /**
  * WP dependencies
  */
@@ -58917,7 +62993,7 @@ function BlockLockMenuItem({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-settings-menu/block-mode-toggle.js
+;// ./packages/block-editor/build-module/components/block-settings-menu/block-mode-toggle.js
 /**
  * WP dependencies
  */
@@ -58969,7 +63045,7 @@ function BlockModeToggle({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/content-lock/modify-content-lock-menu-item.js
+;// ./packages/block-editor/build-module/components/content-lock/modify-content-lock-menu-item.js
 /**
  * WP dependencies
  */
@@ -59027,7 +63103,7 @@ function ModifyContentLockMenuItem({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-rename/use-block-rename.js
+;// ./packages/block-editor/build-module/components/block-rename/use-block-rename.js
 /**
  * WP dependencies
  */
@@ -59038,13 +63114,12 @@ function useBlockRename(name) {
   };
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-rename/is-empty-string.js
+;// ./packages/block-editor/build-module/components/block-rename/is-empty-string.js
 function isEmptyString(testString) {
   return testString?.trim()?.length === 0;
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-rename/modal.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/block-rename/modal.js
 /**
  * WP dependencies
  */
@@ -59154,7 +63229,7 @@ function BlockRenameModal({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-rename/rename-control.js
+;// ./packages/block-editor/build-module/components/block-rename/rename-control.js
 /**
  * WP dependencies
  */
@@ -59186,7 +63261,7 @@ function BlockRenameControl({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-settings-menu-controls/index.js
+;// ./packages/block-editor/build-module/components/block-settings-menu-controls/index.js
 /**
  * WP dependencies
  */
@@ -59276,7 +63351,7 @@ const BlockSettingsMenuControlsSlot = ({
 };
 
 /**
- * @see https://github.com/WordPress/gutenberg/blob/HEAD/packages/block-editor/src/components/block-settings-menu-controls/README.md
+ * @see https://github.com/wordpress/gutenberg/blob/HEAD/packages/block-editor/src/components/block-settings-menu-controls/README.md
  *
  * @param {Object} props Fill props.
  * @return {Element} Element.
@@ -59294,7 +63369,7 @@ function BlockSettingsMenuControls({
 BlockSettingsMenuControls.Slot = BlockSettingsMenuControlsSlot;
 /* harmony default export */ const block_settings_menu_controls = (BlockSettingsMenuControls);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-settings-menu/block-parent-selector-menu-item.js
+;// ./packages/block-editor/build-module/components/block-settings-menu/block-parent-selector-menu-item.js
 /**
  * WP dependencies
  */
@@ -59342,12 +63417,10 @@ function BlockParentSelectorMenuItem({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-settings-menu/block-settings-dropdown.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/block-settings-menu/block-settings-dropdown.js
 /**
  * WP dependencies
  */
-
 
 
 
@@ -59369,7 +63442,6 @@ function BlockParentSelectorMenuItem({
 
 
 
-
 const block_settings_dropdown_POPOVER_PROPS = {
   className: 'block-editor-block-settings-menu__popover',
   placement: 'bottom-start'
@@ -59379,17 +63451,30 @@ function CopyMenuItem({
   onCopy,
   label,
   shortcut,
-  eventType = 'copy'
+  eventType = 'copy',
+  __experimentalUpdateSelection: updateSelection = false
 }) {
   const {
     getBlocksByClientId
   } = (0,external_wp_data_namespaceObject.useSelect)(store);
+  const {
+    removeBlocks
+  } = (0,external_wp_data_namespaceObject.useDispatch)(store);
   const notifyCopy = useNotifyCopy();
   const ref = (0,external_wp_compose_namespaceObject.useCopyToClipboard)(() => (0,external_wp_blocks_namespaceObject.serialize)(getBlocksByClientId(clientIds)), () => {
-    if (onCopy && eventType === 'copy') {
-      onCopy();
+    switch (eventType) {
+      case 'copy':
+      case 'copyStyles':
+        onCopy();
+        notifyCopy(eventType, clientIds);
+        break;
+      case 'cut':
+        notifyCopy(eventType, clientIds);
+        removeBlocks(clientIds, updateSelection);
+        break;
+      default:
+        break;
     }
-    notifyCopy(eventType, clientIds);
   });
   const copyMenuItemLabel = label ? label : (0,external_wp_i18n_namespaceObject.__)('Copy');
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.MenuItem, {
@@ -59452,6 +63537,8 @@ function BlockSettingsDropdown({
       getShortcutRepresentation
     } = select(external_wp_keyboardShortcuts_namespaceObject.store);
     return {
+      copy: getShortcutRepresentation('core/block-editor/copy'),
+      cut: getShortcutRepresentation('core/block-editor/cut'),
       duplicate: getShortcutRepresentation('core/block-editor/duplicate'),
       remove: getShortcutRepresentation('core/block-editor/remove'),
       insertAfter: getShortcutRepresentation('core/block-editor/insert-after'),
@@ -59494,7 +63581,7 @@ function BlockSettingsDropdown({
   // where it does not allow a dropdown to be closed if focus was never within
   // the dropdown to begin with. Examples include a user either CMD+Clicking or
   // right clicking into an inactive window.
-  // See: https://github.com/WordPress/gutenberg/pull/54083
+  // See: https://github.com/wordpress/gutenberg/pull/54083
   const open = !currentClientId ? undefined : openedBlockSettingsMenu === currentClientId || false;
   function onToggle(localOpen) {
     if (localOpen && openedBlockSettingsMenu !== currentClientId) {
@@ -59552,7 +63639,13 @@ function BlockSettingsDropdown({
             }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(CopyMenuItem, {
               clientIds: clientIds,
               onCopy: onCopy,
-              shortcut: external_wp_keycodes_namespaceObject.displayShortcut.primary('c')
+              shortcut: shortcuts.copy
+            }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(CopyMenuItem, {
+              clientIds: clientIds,
+              label: (0,external_wp_i18n_namespaceObject.__)('Cut'),
+              eventType: "cut",
+              shortcut: shortcuts.cut,
+              __experimentalUpdateSelection: !__experimentalSelectBlock
             }), canDuplicate && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.MenuItem, {
               onClick: (0,external_wp_compose_namespaceObject.pipe)(onClose, onDuplicate, updateSelectionAfterDuplicate),
               shortcut: shortcuts.duplicate,
@@ -59567,10 +63660,6 @@ function BlockSettingsDropdown({
                 shortcut: shortcuts.insertAfter,
                 children: (0,external_wp_i18n_namespaceObject.__)('Add after')
               })]
-            }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(block_comment_icon_slot.Slot, {
-              fillProps: {
-                onClose
-              }
             })]
           }), canCopyStyles && !isContentOnly && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_wp_components_namespaceObject.MenuGroup, {
             children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(CopyMenuItem, {
@@ -59607,7 +63696,7 @@ function BlockSettingsDropdown({
 }
 /* harmony default export */ const block_settings_dropdown = (BlockSettingsDropdown);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-settings-menu/index.js
+;// ./packages/block-editor/build-module/components/block-settings-menu/index.js
 /**
  * WP dependencies
  */
@@ -59618,24 +63707,23 @@ function BlockSettingsDropdown({
  */
 
 
-
 function BlockSettingsMenu({
   clientIds,
   ...props
 }) {
-  return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_wp_components_namespaceObject.ToolbarGroup, {
-    children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(block_comment_icon_toolbar_slot.Slot, {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ToolbarItem, {
+  return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ToolbarGroup, {
+    children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ToolbarItem, {
       children: toggleProps => /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(block_settings_dropdown, {
         clientIds: clientIds,
         toggleProps: toggleProps,
         ...props
       })
-    })]
+    })
   });
 }
 /* harmony default export */ const block_settings_menu = (BlockSettingsMenu);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-lock/toolbar.js
+;// ./packages/block-editor/build-module/components/block-lock/toolbar.js
 /**
  * WP dependencies
  */
@@ -59695,7 +63783,7 @@ function BlockLockToolbar({
   });
 }
 
-;// ./node_modules/@wordpress/icons/build-module/library/group.js
+;// ./packages/icons/build-module/library/group.js
 /**
  * WP dependencies
  */
@@ -59710,7 +63798,7 @@ const group_group = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx
 });
 /* harmony default export */ const library_group = (group_group);
 
-;// ./node_modules/@wordpress/icons/build-module/library/row.js
+;// ./packages/icons/build-module/library/row.js
 /**
  * WP dependencies
  */
@@ -59725,7 +63813,7 @@ const row = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(extern
 });
 /* harmony default export */ const library_row = (row);
 
-;// ./node_modules/@wordpress/icons/build-module/library/stack.js
+;// ./packages/icons/build-module/library/stack.js
 /**
  * WP dependencies
  */
@@ -59740,7 +63828,7 @@ const stack = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(exte
 });
 /* harmony default export */ const library_stack = (stack);
 
-;// ./node_modules/@wordpress/icons/build-module/library/grid.js
+;// ./packages/icons/build-module/library/grid.js
 /**
  * WP dependencies
  */
@@ -59757,8 +63845,7 @@ const grid_grid = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(
 });
 /* harmony default export */ const library_grid = (grid_grid);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/convert-to-group-buttons/toolbar.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/convert-to-group-buttons/toolbar.js
 /**
  * WP dependencies
  */
@@ -59869,7 +63956,7 @@ function BlockGroupToolbar() {
 }
 /* harmony default export */ const toolbar = (BlockGroupToolbar);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-edit-visually-button/index.js
+;// ./packages/block-editor/build-module/components/block-edit-visually-button/index.js
 /**
  * WP dependencies
  */
@@ -59904,7 +63991,7 @@ function BlockEditVisuallyButton({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-toolbar/block-name-context.js
+;// ./packages/block-editor/build-module/components/block-toolbar/block-name-context.js
 /**
  * WP dependencies
  */
@@ -59912,8 +63999,7 @@ function BlockEditVisuallyButton({
 const __unstableBlockNameContext = (0,external_wp_element_namespaceObject.createContext)('');
 /* harmony default export */ const block_name_context = (__unstableBlockNameContext);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/navigable-toolbar/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/navigable-toolbar/index.js
 /**
  * WP dependencies
  */
@@ -59963,7 +64049,7 @@ function useIsAccessibleToolbar(toolbarRef) {
    * E2E tests.
    *
    * This was initial discovered in this pull-request:
-   * https://github.com/WordPress/gutenberg/pull/23425
+   * https://github.com/wordpress/gutenberg/pull/23425
    */
   const initialAccessibleToolbarState = true;
 
@@ -59975,6 +64061,12 @@ function useIsAccessibleToolbar(toolbarRef) {
   const determineIsAccessibleToolbar = (0,external_wp_element_namespaceObject.useCallback)(() => {
     const tabbables = external_wp_dom_namespaceObject.focus.tabbable.find(toolbarRef.current);
     const onlyToolbarItem = hasOnlyToolbarItem(tabbables);
+    if (!onlyToolbarItem) {
+      external_wp_deprecated_default()('Using custom components as toolbar controls', {
+        since: '5.6',
+        alternative: 'ToolbarItem, ToolbarButton or ToolbarDropdownMenu components'
+      });
+    }
     setIsAccessibleToolbar(onlyToolbarItem);
   }, [toolbarRef]);
   (0,external_wp_element_namespaceObject.useLayoutEffect)(() => {
@@ -60027,7 +64119,7 @@ function useToolbarFocus({
     let raf = 0;
 
     // If the toolbar already had focus before the render, we don't want to move it.
-    // https://github.com/WordPress/gutenberg/issues/58511
+    // https://github.com/wordpress/gutenberg/issues/58511
     if (!initialFocusOnMount && !hasFocusWithin(navigableToolbarRef)) {
       raf = window.requestAnimationFrame(() => {
         const items = getAllFocusableToolbarItemsIn(navigableToolbarRef);
@@ -60117,7 +64209,7 @@ function NavigableToolbar({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-toolbar/use-has-block-toolbar.js
+;// ./packages/block-editor/build-module/components/block-toolbar/use-has-block-toolbar.js
 /**
  * WP dependencies
  */
@@ -60160,8 +64252,7 @@ function useHasBlockToolbar() {
   return true;
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-toolbar/change-design.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/block-toolbar/change-design.js
 /**
  * WP dependencies
  */
@@ -60201,7 +64292,7 @@ function ChangeDesign({
 
     // Calling `__experimentalGetAllowedPatterns` is expensive.
     // Checking if the block can be changed prevents unnecessary selector calls.
-    // See: https://github.com/WordPress/gutenberg/pull/64736.
+    // See: https://github.com/wordpress/gutenberg/pull/64736.
     const _patterns = _categories.length > 0 ? __experimentalGetAllowedPatterns(rootBlock) : change_design_EMPTY_ARRAY;
     return {
       categories: _categories,
@@ -60273,7 +64364,7 @@ function ChangeDesign({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-toolbar/switch-section-style.js
+;// ./packages/block-editor/build-module/components/block-toolbar/switch-section-style.js
 /**
  * WP dependencies
  */
@@ -60371,8 +64462,7 @@ function SwitchSectionStyle({
 }
 /* harmony default export */ const switch_section_style = (SwitchSectionStyle);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-toolbar/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/block-toolbar/index.js
 /**
  * External dependencies
  */
@@ -60412,7 +64502,7 @@ function SwitchSectionStyle({
 /**
  * Renders the block toolbar.
  *
- * @see https://github.com/WordPress/gutenberg/blob/HEAD/packages/block-editor/src/components/block-toolbar/README.md
+ * @see https://github.com/wordpress/gutenberg/blob/HEAD/packages/block-editor/src/components/block-toolbar/README.md
  *
  * @param {Object}   props                             Components props.
  * @param {boolean}  props.hideDragHandle              Show or hide the Drag Handle for drag and drop functionality.
@@ -60538,7 +64628,7 @@ function PrivateBlockToolbar({
     __experimentalInitialIndex: __experimentalInitialIndex,
     __experimentalOnIndexChange: __experimentalOnIndexChange
     // Resets the index whenever the active block changes so
-    // this is not persisted. See https://github.com/WordPress/gutenberg/pull/25760#issuecomment-717906169
+    // this is not persisted. See https://github.com/wordpress/gutenberg/pull/25760#issuecomment-717906169
     ,
     children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)("div", {
       ref: toolbarWrapperRef,
@@ -60592,7 +64682,7 @@ function PrivateBlockToolbar({
 /**
  * Renders the block toolbar.
  *
- * @see https://github.com/WordPress/gutenberg/blob/HEAD/packages/block-editor/src/components/block-toolbar/README.md
+ * @see https://github.com/wordpress/gutenberg/blob/HEAD/packages/block-editor/src/components/block-toolbar/README.md
  *
  * @param {Object}  props                Components props.
  * @param {boolean} props.hideDragHandle Show or hide the Drag Handle for drag and drop functionality.
@@ -60611,7 +64701,7 @@ function BlockToolbar({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-tools/block-toolbar-popover.js
+;// ./packages/block-editor/build-module/components/block-tools/block-toolbar-popover.js
 /**
  * External dependencies
  */
@@ -60647,7 +64737,7 @@ function BlockToolbarPopover({
   const initialToolbarItemIndexRef = (0,external_wp_element_namespaceObject.useRef)();
   (0,external_wp_element_namespaceObject.useEffect)(() => {
     // Resets the index whenever the active block changes so this is not
-    // persisted. See https://github.com/WordPress/gutenberg/pull/25760#issuecomment-717906169
+    // persisted. See https://github.com/wordpress/gutenberg/pull/25760#issuecomment-717906169
     initialToolbarItemIndexRef.current = undefined;
   }, [clientId]);
   const {
@@ -60669,7 +64759,7 @@ function BlockToolbarPopover({
     contentElement: __unstableContentRef?.current,
     clientId: clientIdToPositionOver
   });
-  return !isTyping && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(block_popover, {
+  return !isTyping && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(PrivateBlockPopover, {
     clientId: clientIdToPositionOver,
     bottomClientId: lastClientId,
     className: dist_clsx('block-editor-block-list__block-popover', {
@@ -60677,6 +64767,7 @@ function BlockToolbarPopover({
     }),
     resize: false,
     ...popoverProps,
+    __unstableContentRef: __unstableContentRef,
     children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(PrivateBlockToolbar
     // If the toolbar is being shown because of being forced
     // it should focus the toolbar right after the mount.
@@ -60691,7 +64782,7 @@ function BlockToolbarPopover({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-tools/zoom-out-mode-inserter-button.js
+;// ./packages/block-editor/build-module/components/block-tools/zoom-out-mode-inserter-button.js
 /**
  * External dependencies
  */
@@ -60718,7 +64809,7 @@ function ZoomOutModeInserterButton({
 }
 /* harmony default export */ const zoom_out_mode_inserter_button = (ZoomOutModeInserterButton);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-tools/zoom-out-mode-inserters.js
+;// ./packages/block-editor/build-module/components/block-tools/zoom-out-mode-inserters.js
 /**
  * WP dependencies
  */
@@ -60803,7 +64894,7 @@ function ZoomOutModeInserters() {
           tab: 'patterns',
           category: 'all'
         });
-        showInsertionPoint(sectionRootClientId, index + 1, {
+        showInsertionPoint(sectionRootClientId, insertionIndex, {
           operation: 'insert'
         });
       }
@@ -60812,7 +64903,7 @@ function ZoomOutModeInserters() {
 }
 /* harmony default export */ const zoom_out_mode_inserters = (ZoomOutModeInserters);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-tools/use-show-block-tools.js
+;// ./packages/block-editor/build-module/components/block-tools/use-show-block-tools.js
 /**
  * WP dependencies
  */
@@ -60848,7 +64939,7 @@ function useShowBlockTools() {
     const isEmptyDefaultBlock = hasSelectedBlock && (0,external_wp_blocks_namespaceObject.isUnmodifiedDefaultBlock)(block) && getBlockMode(clientId) !== 'html';
     const _showEmptyBlockSideInserter = clientId && !isTyping() &&
     // Hide the block inserter on the navigation mode.
-    // See https://github.com/WordPress/gutenberg/pull/66636#discussion_r1824728483.
+    // See https://github.com/wordpress/gutenberg/pull/66636#discussion_r1824728483.
     editorMode !== 'navigation' && isEmptyDefaultBlock;
     const _showBlockToolbarPopover = !getSettings().hasFixedToolbar && !_showEmptyBlockSideInserter && hasSelectedBlock && !isEmptyDefaultBlock;
     return {
@@ -60858,7 +64949,7 @@ function useShowBlockTools() {
   }, []);
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-tools/index.js
+;// ./packages/block-editor/build-module/components/block-tools/index.js
 /**
  * WP dependencies
  */
@@ -61066,7 +65157,7 @@ function BlockTools({
 
 ;// external ["wp","commands"]
 const external_wp_commands_namespaceObject = window["wp"]["commands"];
-;// ./node_modules/@wordpress/icons/build-module/library/ungroup.js
+;// ./packages/icons/build-module/library/ungroup.js
 /**
  * WP dependencies
  */
@@ -61081,7 +65172,7 @@ const ungroup = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ex
 });
 /* harmony default export */ const library_ungroup = (ungroup);
 
-;// ./node_modules/@wordpress/icons/build-module/library/trash.js
+;// ./packages/icons/build-module/library/trash.js
 /**
  * WP dependencies
  */
@@ -61098,8 +65189,7 @@ const trash = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(exte
 });
 /* harmony default export */ const library_trash = (trash);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/use-block-commands/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/use-block-commands/index.js
 /**
  * WP dependencies
  */
@@ -61140,7 +65230,7 @@ const getTransformCommands = () => function useTransformCommands() {
     // selectedBlocks can have `null`s when something tries to call `selectBlock` with an inexistent clientId.
     // These nulls will cause fatal errors down the line.
     // In order to prevent discrepancies between selectedBlockClientIds and selectedBlocks, we effectively treat the entire selection as invalid.
-    // @see https://github.com/WordPress/gutenberg/pull/59410#issuecomment-2006304536
+    // @see https://github.com/wordpress/gutenberg/pull/59410#issuecomment-2006304536
     if (selectedBlocks.filter(block => !block).length > 0) {
       return {
         invalidSelection: true
@@ -61362,7 +65452,7 @@ const useBlockCommands = () => {
   });
 };
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-canvas/index.js
+;// ./packages/block-editor/build-module/components/block-canvas/index.js
 /**
  * WP dependencies
  */
@@ -61413,9 +65503,9 @@ function ExperimentalBlockCanvas({
   if (!shouldIframe) {
     return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(BlockTools, {
       __unstableContentRef: localRef,
-      className: "block-editor-block-canvas",
       style: {
-        height
+        height,
+        display: 'flex'
       },
       children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(editor_styles, {
         styles: styles,
@@ -61425,13 +65515,16 @@ function ExperimentalBlockCanvas({
         ref: contentRef,
         className: "editor-styles-wrapper",
         tabIndex: -1,
+        style: {
+          height: '100%',
+          width: '100%'
+        },
         children: children
       })]
     });
   }
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(BlockTools, {
     __unstableContentRef: localRef,
-    className: "block-editor-block-canvas",
     style: {
       height,
       display: 'flex'
@@ -61494,7 +65587,7 @@ function BlockCanvas({
 }
 /* harmony default export */ const block_canvas = (BlockCanvas);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/color-style-selector/index.js
+;// ./packages/block-editor/build-module/components/color-style-selector/index.js
 /**
  * WP dependencies
  */
@@ -61591,7 +65684,7 @@ const BlockColorsStyleSelector = ({
 };
 /* harmony default export */ const color_style_selector = (BlockColorsStyleSelector);
 
-;// ./node_modules/@wordpress/icons/build-module/library/list-view.js
+;// ./packages/icons/build-module/library/list-view.js
 /**
  * WP dependencies
  */
@@ -61606,7 +65699,7 @@ const listView = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(e
 });
 /* harmony default export */ const list_view = (listView);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/list-view/context.js
+;// ./packages/block-editor/build-module/components/list-view/context.js
 /**
  * WP dependencies
  */
@@ -61614,7 +65707,7 @@ const listView = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(e
 const ListViewContext = (0,external_wp_element_namespaceObject.createContext)({});
 const useListViewContext = () => (0,external_wp_element_namespaceObject.useContext)(ListViewContext);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/list-view/aria-referenced-text.js
+;// ./packages/block-editor/build-module/components/list-view/aria-referenced-text.js
 /**
  * WP dependencies
  */
@@ -61637,7 +65730,7 @@ function AriaReferencedText({
     if (ref.current) {
       // This seems like a no-op, but it fixes a bug in Firefox where
       // it fails to recompute the text when only the text node changes.
-      // @see https://github.com/WordPress/gutenberg/pull/51035
+      // @see https://github.com/wordpress/gutenberg/pull/51035
       ref.current.textContent = ref.current.textContent;
     }
   }, [children]);
@@ -61649,7 +65742,7 @@ function AriaReferencedText({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/list-view/appender.js
+;// ./packages/block-editor/build-module/components/list-view/appender.js
 /**
  * WP dependencies
  */
@@ -61735,7 +65828,7 @@ const Appender = (0,external_wp_element_namespaceObject.forwardRef)(({
   });
 });
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/list-view/leaf.js
+;// ./packages/block-editor/build-module/components/list-view/leaf.js
 /**
  * External dependencies
  */
@@ -61754,7 +65847,7 @@ const Appender = (0,external_wp_element_namespaceObject.forwardRef)(({
  */
 
 
-const AnimatedTreeGridRow = dist_esm_it(external_wp_components_namespaceObject.__experimentalTreeGridRow);
+const AnimatedTreeGridRow = animated(external_wp_components_namespaceObject.__experimentalTreeGridRow);
 const ListViewLeaf = (0,external_wp_element_namespaceObject.forwardRef)(({
   isDragged,
   isSelected,
@@ -61785,7 +65878,7 @@ const ListViewLeaf = (0,external_wp_element_namespaceObject.forwardRef)(({
 });
 /* harmony default export */ const leaf = (ListViewLeaf);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/list-view/use-list-view-scroll-into-view.js
+;// ./packages/block-editor/build-module/components/list-view/use-list-view-scroll-into-view.js
 /**
  * WP dependencies
  */
@@ -61827,7 +65920,7 @@ function useListViewScrollIntoView({
   }, [isSelected, isSingleSelection, rowItemRef]);
 }
 
-;// ./node_modules/@wordpress/icons/build-module/library/pin-small.js
+;// ./packages/icons/build-module/library/pin-small.js
 /**
  * WP dependencies
  */
@@ -61844,7 +65937,7 @@ const pinSmall = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(e
 });
 /* harmony default export */ const pin_small = (pinSmall);
 
-;// ./node_modules/@wordpress/icons/build-module/library/lock-small.js
+;// ./packages/icons/build-module/library/lock-small.js
 /**
  * WP dependencies
  */
@@ -61861,7 +65954,7 @@ const lockSmall = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(
 });
 /* harmony default export */ const lock_small = (lockSmall);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/list-view/expander.js
+;// ./packages/block-editor/build-module/components/list-view/expander.js
 /**
  * WP dependencies
  */
@@ -61896,7 +65989,7 @@ function ListViewExpander({
   );
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/list-view/use-list-view-images.js
+;// ./packages/block-editor/build-module/components/list-view/use-list-view-images.js
 /**
  * WP dependencies
  */
@@ -61976,8 +66069,7 @@ function useListViewImages({
   return images;
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/list-view/block-select-button.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/list-view/block-select-button.js
 /**
  * External dependencies
  */
@@ -62125,7 +66217,7 @@ function ListViewBlockSelectButton({
 }
 /* harmony default export */ const block_select_button = ((0,external_wp_element_namespaceObject.forwardRef)(ListViewBlockSelectButton));
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/list-view/block-contents.js
+;// ./packages/block-editor/build-module/components/list-view/block-contents.js
 /**
  * WP dependencies
  */
@@ -62198,8 +66290,7 @@ const ListViewBlockContents = (0,external_wp_element_namespaceObject.forwardRef)
 });
 /* harmony default export */ const block_contents = (ListViewBlockContents);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/list-view/utils.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/list-view/utils.js
 /**
  * WP dependencies
  */
@@ -62373,8 +66464,7 @@ function getDragDisplacementValues({
   };
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/list-view/block.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/list-view/block.js
 /**
  * External dependencies
  */
@@ -62903,8 +66993,7 @@ function ListViewBlock({
 }
 /* harmony default export */ const list_view_block = ((0,external_wp_element_namespaceObject.memo)(ListViewBlock));
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/list-view/branch.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/list-view/branch.js
 /**
  * WP dependencies
  */
@@ -63114,7 +67203,7 @@ function ListViewBranch(props) {
 }
 /* harmony default export */ const branch = ((0,external_wp_element_namespaceObject.memo)(ListViewBranch));
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/list-view/drop-indicator.js
+;// ./packages/block-editor/build-module/components/list-view/drop-indicator.js
 /**
  * External dependencies
  */
@@ -63366,8 +67455,7 @@ function ListViewDropIndicatorPreview({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/list-view/use-block-selection.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/list-view/use-block-selection.js
 /**
  * WP dependencies
  */
@@ -63487,8 +67575,7 @@ function useBlockSelection() {
   };
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/list-view/use-list-view-block-indexes.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/list-view/use-list-view-block-indexes.js
 /**
  * WP dependencies
  */
@@ -63512,7 +67599,7 @@ function useListViewBlockIndexes(blocks) {
   return blockIndexes;
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/list-view/use-list-view-client-ids.js
+;// ./packages/block-editor/build-module/components/list-view/use-list-view-client-ids.js
 /**
  * WP dependencies
  */
@@ -63542,7 +67629,7 @@ function useListViewClientIds({
   }, [blocks, rootClientId]);
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/list-view/use-list-view-collapse-items.js
+;// ./packages/block-editor/build-module/components/list-view/use-list-view-collapse-items.js
 /**
  * WP dependencies
  */
@@ -63583,8 +67670,7 @@ function useListViewCollapseItems({
   }, [collapseAll, expand, expandedBlock, getBlockParents]);
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/list-view/use-list-view-drop-zone.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/list-view/use-list-view-drop-zone.js
 /**
  * WP dependencies
  */
@@ -64023,7 +68109,7 @@ function useListViewDropZone({
   };
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/list-view/use-list-view-expand-selected-item.js
+;// ./packages/block-editor/build-module/components/list-view/use-list-view-expand-selected-item.js
 /**
  * WP dependencies
  */
@@ -64073,8 +68159,7 @@ function useListViewExpandSelectedItem({
   };
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/list-view/use-clipboard-handler.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/list-view/use-clipboard-handler.js
 /**
  * WP dependencies
  */
@@ -64229,8 +68314,7 @@ function use_clipboard_handler_useClipboardHandler({
   }, []);
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/list-view/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/list-view/index.js
 /**
  * External dependencies
  */
@@ -64481,7 +68565,7 @@ function ListViewComponent({
 
   // List View renders a fixed number of items and relies on each having a fixed item height of 36px.
   // If this value changes, we should also change the itemHeight value set in useFixedWindowList.
-  // See: https://github.com/WordPress/gutenberg/pull/35230 for additional context.
+  // See: https://github.com/wordpress/gutenberg/pull/35230 for additional context.
   const [fixedListWindow] = (0,external_wp_compose_namespaceObject.__experimentalUseFixedWindowList)(elementRef, BLOCK_LIST_ITEM_HEIGHT, visibleBlockCount, {
     // Ensure that the windowing logic is recalculated when the expanded state changes.
     // This is necessary because expanding a collapsed block in a short list view can
@@ -64557,7 +68641,7 @@ const PrivateListView = (0,external_wp_element_namespaceObject.forwardRef)(ListV
   });
 }));
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-navigation/dropdown.js
+;// ./packages/block-editor/build-module/components/block-navigation/dropdown.js
 /**
  * WP dependencies
  */
@@ -64635,7 +68719,7 @@ function BlockNavigationDropdown({
 }
 /* harmony default export */ const dropdown = ((0,external_wp_element_namespaceObject.forwardRef)(BlockNavigationDropdown));
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-styles/preview-panel.js
+;// ./packages/block-editor/build-module/components/block-styles/preview-panel.js
 /**
  * WP dependencies
  */
@@ -64673,8 +68757,7 @@ function BlockStylesPreviewPanel({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-styles/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/block-styles/index.js
 /**
  * External dependencies
  */
@@ -64777,7 +68860,7 @@ function BlockStyles({
 }
 /* harmony default export */ const block_styles = (BlockStyles);
 
-;// ./node_modules/@wordpress/icons/build-module/library/paragraph.js
+;// ./packages/icons/build-module/library/paragraph.js
 /**
  * WP dependencies
  */
@@ -64792,7 +68875,7 @@ const paragraph = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(
 });
 /* harmony default export */ const library_paragraph = (paragraph);
 
-;// ./node_modules/@wordpress/icons/build-module/library/heading-level-1.js
+;// ./packages/icons/build-module/library/heading-level-1.js
 /**
  * WP dependencies
  */
@@ -64807,7 +68890,7 @@ const headingLevel1 = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.j
 });
 /* harmony default export */ const heading_level_1 = (headingLevel1);
 
-;// ./node_modules/@wordpress/icons/build-module/library/heading-level-2.js
+;// ./packages/icons/build-module/library/heading-level-2.js
 /**
  * WP dependencies
  */
@@ -64822,7 +68905,7 @@ const headingLevel2 = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.j
 });
 /* harmony default export */ const heading_level_2 = (headingLevel2);
 
-;// ./node_modules/@wordpress/icons/build-module/library/heading-level-3.js
+;// ./packages/icons/build-module/library/heading-level-3.js
 /**
  * WP dependencies
  */
@@ -64837,7 +68920,7 @@ const headingLevel3 = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.j
 });
 /* harmony default export */ const heading_level_3 = (headingLevel3);
 
-;// ./node_modules/@wordpress/icons/build-module/library/heading-level-4.js
+;// ./packages/icons/build-module/library/heading-level-4.js
 /**
  * WP dependencies
  */
@@ -64852,7 +68935,7 @@ const headingLevel4 = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.j
 });
 /* harmony default export */ const heading_level_4 = (headingLevel4);
 
-;// ./node_modules/@wordpress/icons/build-module/library/heading-level-5.js
+;// ./packages/icons/build-module/library/heading-level-5.js
 /**
  * WP dependencies
  */
@@ -64867,7 +68950,7 @@ const headingLevel5 = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.j
 });
 /* harmony default export */ const heading_level_5 = (headingLevel5);
 
-;// ./node_modules/@wordpress/icons/build-module/library/heading-level-6.js
+;// ./packages/icons/build-module/library/heading-level-6.js
 /**
  * WP dependencies
  */
@@ -64882,7 +68965,7 @@ const headingLevel6 = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.j
 });
 /* harmony default export */ const heading_level_6 = (headingLevel6);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-heading-level-dropdown/heading-level-icon.js
+;// ./packages/block-editor/build-module/components/block-heading-level-dropdown/heading-level-icon.js
 /**
  * WP dependencies
  */
@@ -64927,8 +69010,7 @@ function HeadingLevelIcon({
   return null;
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-heading-level-dropdown/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/block-heading-level-dropdown/index.js
 /**
  * WP dependencies
  */
@@ -64997,7 +69079,7 @@ function HeadingLevelDropdown({
   });
 }
 
-;// ./node_modules/@wordpress/icons/build-module/library/layout.js
+;// ./packages/icons/build-module/library/layout.js
 /**
  * WP dependencies
  */
@@ -65012,8 +69094,7 @@ const layout_layout = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.j
 });
 /* harmony default export */ const library_layout = (layout_layout);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-variation-picker/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/block-variation-picker/index.js
 /**
  * External dependencies
  */
@@ -65073,13 +69154,13 @@ function BlockVariationPicker({
 }
 /* harmony default export */ const block_variation_picker = (BlockVariationPicker);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-pattern-setup/constants.js
+;// ./packages/block-editor/build-module/components/block-pattern-setup/constants.js
 const VIEWMODES = {
   carousel: 'carousel',
   grid: 'grid'
 };
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-pattern-setup/setup-toolbar.js
+;// ./packages/block-editor/build-module/components/block-pattern-setup/setup-toolbar.js
 /**
  * WP dependencies
  */
@@ -65166,8 +69247,7 @@ const SetupToolbar = ({
 };
 /* harmony default export */ const setup_toolbar = (SetupToolbar);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-pattern-setup/use-patterns-setup.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/block-pattern-setup/use-patterns-setup.js
 /**
  * WP dependencies
  */
@@ -65193,8 +69273,7 @@ function usePatternsSetup(clientId, blockName, filterPatternsFn) {
 }
 /* harmony default export */ const use_patterns_setup = (usePatternsSetup);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-pattern-setup/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/block-pattern-setup/index.js
 /**
  * WP dependencies
  */
@@ -65367,8 +69446,7 @@ const BlockPatternSetup = ({
 };
 /* harmony default export */ const block_pattern_setup = (BlockPatternSetup);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-variation-transforms/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/block-variation-transforms/index.js
 /**
  * WP dependencies
  */
@@ -65550,7 +69628,7 @@ function __experimentalBlockVariationTransforms({
 }
 /* harmony default export */ const block_variation_transforms = (__experimentalBlockVariationTransforms);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/color-palette/with-color-context.js
+;// ./packages/block-editor/build-module/components/color-palette/with-color-context.js
 /**
  * WP dependencies
  */
@@ -65580,7 +69658,7 @@ function __experimentalBlockVariationTransforms({
   };
 }, 'withColorContext'));
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/color-palette/index.js
+;// ./packages/block-editor/build-module/components/color-palette/index.js
 /**
  * WP dependencies
  */
@@ -65592,7 +69670,7 @@ function __experimentalBlockVariationTransforms({
 
 /* harmony default export */ const color_palette = (with_color_context(external_wp_components_namespaceObject.ColorPalette));
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/color-palette/control.js
+;// ./packages/block-editor/build-module/components/color-palette/control.js
 /**
  * Internal dependencies
  */
@@ -65614,8 +69692,7 @@ function ColorPaletteControl({
 
 ;// external ["wp","date"]
 const external_wp_date_namespaceObject = window["wp"]["date"];
-;// ./node_modules/@wordpress/block-editor/build-module/components/date-format-picker/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/date-format-picker/index.js
 /**
  * WP dependencies
  */
@@ -65639,7 +69716,7 @@ if (exampleDate.getMonth() === 4) {
  * The `DateFormatPicker` component renders controls that let the user choose a
  * _date format_. That is, how they want their dates to be formatted.
  *
- * @see https://github.com/WordPress/gutenberg/blob/HEAD/packages/block-editor/src/components/date-format-picker/README.md
+ * @see https://github.com/wordpress/gutenberg/blob/HEAD/packages/block-editor/src/components/date-format-picker/README.md
  *
  * @param {Object}      props
  * @param {string|null} props.format        The selected date format. If `null`, _Default_ is selected.
@@ -65734,8 +69811,7 @@ function NonDefaultControls({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/colors-gradients/dropdown.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/colors-gradients/dropdown.js
 /**
  * External dependencies
  */
@@ -65809,7 +69885,7 @@ const dropdown_LabeledColorIndicator = ({
 // Renders a color dropdown's toggle as an `Item` if it is within an `ItemGroup`
 // or as a `Button` if it isn't e.g. the controls are being rendered in
 // a `ToolsPanel`.
-const renderToggle = settings => ({
+const dropdown_renderToggle = settings => ({
   onToggle,
   isOpen
 }) => {
@@ -65870,7 +69946,7 @@ const renderToggle = settings => ({
 // the may be individually wrapped in a `ToolsPanelItem` with the toggle as
 // a regular `Button`.
 //
-// For more context see: https://github.com/WordPress/gutenberg/pull/40084
+// For more context see: https://github.com/wordpress/gutenberg/pull/40084
 function ColorGradientSettingsDropdown({
   colors,
   disableCustomColors,
@@ -65925,7 +70001,7 @@ function ColorGradientSettingsDropdown({
         children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.Dropdown, {
           popoverProps: popoverProps,
           className: "block-editor-tools-panel-color-gradient-settings__dropdown",
-          renderToggle: renderToggle(toggleSettings),
+          renderToggle: dropdown_renderToggle(toggleSettings),
           renderContent: () => /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.__experimentalDropdownContentWrapper, {
             paddingSize: "none",
             children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("div", {
@@ -65941,8 +70017,7 @@ function ColorGradientSettingsDropdown({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/colors-gradients/panel-color-gradient-settings.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/colors-gradients/panel-color-gradient-settings.js
 /**
  * External dependencies
  */
@@ -66039,7 +70114,7 @@ const PanelColorGradientSettings = props => {
 };
 /* harmony default export */ const panel_color_gradient_settings = (PanelColorGradientSettings);
 
-;// ./node_modules/@wordpress/icons/build-module/library/aspect-ratio.js
+;// ./packages/icons/build-module/library/aspect-ratio.js
 /**
  * WP dependencies
  */
@@ -66054,14 +70129,14 @@ const aspectRatio = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx
 });
 /* harmony default export */ const aspect_ratio = (aspectRatio);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/image-editor/constants.js
+;// ./packages/block-editor/build-module/components/image-editor/constants.js
 const MIN_ZOOM = 100;
 const MAX_ZOOM = 300;
 const constants_POPOVER_PROPS = {
   placement: 'bottom-start'
 };
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/image-editor/use-save-image.js
+;// ./packages/block-editor/build-module/components/image-editor/use-save-image.js
 /**
  * WP dependencies
  */
@@ -66169,7 +70244,7 @@ function useSaveImage({
   }), [isInProgress, apply, cancel]);
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/image-editor/use-transform-image.js
+;// ./packages/block-editor/build-module/components/image-editor/use-transform-image.js
 /* wp:polyfill */
 /**
  * WP dependencies
@@ -66264,7 +70339,7 @@ function useTransformImage({
   }), [editedUrl, crop, position, zoom, rotation, rotateClockwise, aspect, defaultAspect]);
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/image-editor/context.js
+;// ./packages/block-editor/build-module/components/image-editor/context.js
 /**
  * WP dependencies
  */
@@ -66309,8 +70384,7 @@ function ImageEditingProvider({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/image-editor/aspect-ratio-dropdown.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/image-editor/aspect-ratio-dropdown.js
 /**
  * WP dependencies
  */
@@ -66398,7 +70472,7 @@ function AspectRatioDropdown({
         {
           slug: 'original',
           name: (0,external_wp_i18n_namespaceObject.__)('Original'),
-          aspect: defaultAspect
+          ratio: defaultAspect
         }, ...(showDefaultRatios ? defaultRatios.map(presetRatioAsNumber).filter(({
           ratio
         }) => ratio === 1) : [])]
@@ -66438,8 +70512,8 @@ function AspectRatioDropdown({
   });
 }
 
-;// ./node_modules/tslib/tslib.es6.mjs
-/******************************************************************************
+;// ./packages/block-editor/node_modules/tslib/tslib.es6.js
+/*! *****************************************************************************
 Copyright (c) Microsoft Corporation.
 
 Permission to use, copy, modify, and/or distribute this software for any
@@ -66453,398 +70527,224 @@ LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
 OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 PERFORMANCE OF THIS SOFTWARE.
 ***************************************************************************** */
-/* global Reflect, Promise, SuppressedError, Symbol, Iterator */
+/* global Reflect, Promise */
 
 var extendStatics = function(d, b) {
-  extendStatics = Object.setPrototypeOf ||
-      ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-      function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-  return extendStatics(d, b);
+    extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+    return extendStatics(d, b);
 };
 
 function __extends(d, b) {
-  if (typeof b !== "function" && b !== null)
-      throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-  extendStatics(d, b);
-  function __() { this.constructor = d; }
-  d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    extendStatics(d, b);
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 }
 
 var __assign = function() {
-  __assign = Object.assign || function __assign(t) {
-      for (var s, i = 1, n = arguments.length; i < n; i++) {
-          s = arguments[i];
-          for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
-      }
-      return t;
-  }
-  return __assign.apply(this, arguments);
+    __assign = Object.assign || function __assign(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+        }
+        return t;
+    }
+    return __assign.apply(this, arguments);
 }
 
 function __rest(s, e) {
-  var t = {};
-  for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
-      t[p] = s[p];
-  if (s != null && typeof Object.getOwnPropertySymbols === "function")
-      for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
-          if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
-              t[p[i]] = s[p[i]];
-      }
-  return t;
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
 }
 
 function __decorate(decorators, target, key, desc) {
-  var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-  if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-  else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-  return c > 3 && r && Object.defineProperty(target, key, r), r;
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
 }
 
 function __param(paramIndex, decorator) {
-  return function (target, key) { decorator(target, key, paramIndex); }
+    return function (target, key) { decorator(target, key, paramIndex); }
 }
 
-function __esDecorate(ctor, descriptorIn, decorators, contextIn, initializers, extraInitializers) {
-  function accept(f) { if (f !== void 0 && typeof f !== "function") throw new TypeError("Function expected"); return f; }
-  var kind = contextIn.kind, key = kind === "getter" ? "get" : kind === "setter" ? "set" : "value";
-  var target = !descriptorIn && ctor ? contextIn["static"] ? ctor : ctor.prototype : null;
-  var descriptor = descriptorIn || (target ? Object.getOwnPropertyDescriptor(target, contextIn.name) : {});
-  var _, done = false;
-  for (var i = decorators.length - 1; i >= 0; i--) {
-      var context = {};
-      for (var p in contextIn) context[p] = p === "access" ? {} : contextIn[p];
-      for (var p in contextIn.access) context.access[p] = contextIn.access[p];
-      context.addInitializer = function (f) { if (done) throw new TypeError("Cannot add initializers after decoration has completed"); extraInitializers.push(accept(f || null)); };
-      var result = (0, decorators[i])(kind === "accessor" ? { get: descriptor.get, set: descriptor.set } : descriptor[key], context);
-      if (kind === "accessor") {
-          if (result === void 0) continue;
-          if (result === null || typeof result !== "object") throw new TypeError("Object expected");
-          if (_ = accept(result.get)) descriptor.get = _;
-          if (_ = accept(result.set)) descriptor.set = _;
-          if (_ = accept(result.init)) initializers.unshift(_);
-      }
-      else if (_ = accept(result)) {
-          if (kind === "field") initializers.unshift(_);
-          else descriptor[key] = _;
-      }
-  }
-  if (target) Object.defineProperty(target, contextIn.name, descriptor);
-  done = true;
-};
-
-function __runInitializers(thisArg, initializers, value) {
-  var useValue = arguments.length > 2;
-  for (var i = 0; i < initializers.length; i++) {
-      value = useValue ? initializers[i].call(thisArg, value) : initializers[i].call(thisArg);
-  }
-  return useValue ? value : void 0;
-};
-
-function __propKey(x) {
-  return typeof x === "symbol" ? x : "".concat(x);
-};
-
-function __setFunctionName(f, name, prefix) {
-  if (typeof name === "symbol") name = name.description ? "[".concat(name.description, "]") : "";
-  return Object.defineProperty(f, "name", { configurable: true, value: prefix ? "".concat(prefix, " ", name) : name });
-};
-
 function __metadata(metadataKey, metadataValue) {
-  if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(metadataKey, metadataValue);
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(metadataKey, metadataValue);
 }
 
 function __awaiter(thisArg, _arguments, P, generator) {
-  function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-  return new (P || (P = Promise))(function (resolve, reject) {
-      function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-      function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-      function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-      step((generator = generator.apply(thisArg, _arguments || [])).next());
-  });
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
 }
 
 function __generator(thisArg, body) {
-  var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g = Object.create((typeof Iterator === "function" ? Iterator : Object).prototype);
-  return g.next = verb(0), g["throw"] = verb(1), g["return"] = verb(2), typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-  function verb(n) { return function (v) { return step([n, v]); }; }
-  function step(op) {
-      if (f) throw new TypeError("Generator is already executing.");
-      while (g && (g = 0, op[0] && (_ = 0)), _) try {
-          if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-          if (y = 0, t) op = [op[0] & 2, t.value];
-          switch (op[0]) {
-              case 0: case 1: t = op; break;
-              case 4: _.label++; return { value: op[1], done: false };
-              case 5: _.label++; y = op[1]; op = [0]; continue;
-              case 7: op = _.ops.pop(); _.trys.pop(); continue;
-              default:
-                  if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                  if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                  if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                  if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                  if (t[2]) _.ops.pop();
-                  _.trys.pop(); continue;
-          }
-          op = body.call(thisArg, _);
-      } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-      if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-  }
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
 }
 
 var __createBinding = Object.create ? (function(o, m, k, k2) {
-  if (k2 === undefined) k2 = k;
-  var desc = Object.getOwnPropertyDescriptor(m, k);
-  if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-  }
-  Object.defineProperty(o, k2, desc);
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
 }) : (function(o, m, k, k2) {
-  if (k2 === undefined) k2 = k;
-  o[k2] = m[k];
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
 });
 
 function __exportStar(m, o) {
-  for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(o, p)) __createBinding(o, m, p);
+    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(o, p)) __createBinding(o, m, p);
 }
 
 function __values(o) {
-  var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
-  if (m) return m.call(o);
-  if (o && typeof o.length === "number") return {
-      next: function () {
-          if (o && i >= o.length) o = void 0;
-          return { value: o && o[i++], done: !o };
-      }
-  };
-  throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
+    var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
+    if (m) return m.call(o);
+    if (o && typeof o.length === "number") return {
+        next: function () {
+            if (o && i >= o.length) o = void 0;
+            return { value: o && o[i++], done: !o };
+        }
+    };
+    throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
 }
 
 function __read(o, n) {
-  var m = typeof Symbol === "function" && o[Symbol.iterator];
-  if (!m) return o;
-  var i = m.call(o), r, ar = [], e;
-  try {
-      while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
-  }
-  catch (error) { e = { error: error }; }
-  finally {
-      try {
-          if (r && !r.done && (m = i["return"])) m.call(i);
-      }
-      finally { if (e) throw e.error; }
-  }
-  return ar;
+    var m = typeof Symbol === "function" && o[Symbol.iterator];
+    if (!m) return o;
+    var i = m.call(o), r, ar = [], e;
+    try {
+        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+    }
+    catch (error) { e = { error: error }; }
+    finally {
+        try {
+            if (r && !r.done && (m = i["return"])) m.call(i);
+        }
+        finally { if (e) throw e.error; }
+    }
+    return ar;
 }
 
-/** @deprecated */
 function __spread() {
-  for (var ar = [], i = 0; i < arguments.length; i++)
-      ar = ar.concat(__read(arguments[i]));
-  return ar;
+    for (var ar = [], i = 0; i < arguments.length; i++)
+        ar = ar.concat(__read(arguments[i]));
+    return ar;
 }
 
-/** @deprecated */
 function __spreadArrays() {
-  for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
-  for (var r = Array(s), k = 0, i = 0; i < il; i++)
-      for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
-          r[k] = a[j];
-  return r;
-}
-
-function __spreadArray(to, from, pack) {
-  if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-      if (ar || !(i in from)) {
-          if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-          ar[i] = from[i];
-      }
-  }
-  return to.concat(ar || Array.prototype.slice.call(from));
-}
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+};
 
 function __await(v) {
-  return this instanceof __await ? (this.v = v, this) : new __await(v);
+    return this instanceof __await ? (this.v = v, this) : new __await(v);
 }
 
 function __asyncGenerator(thisArg, _arguments, generator) {
-  if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
-  var g = generator.apply(thisArg, _arguments || []), i, q = [];
-  return i = Object.create((typeof AsyncIterator === "function" ? AsyncIterator : Object).prototype), verb("next"), verb("throw"), verb("return", awaitReturn), i[Symbol.asyncIterator] = function () { return this; }, i;
-  function awaitReturn(f) { return function (v) { return Promise.resolve(v).then(f, reject); }; }
-  function verb(n, f) { if (g[n]) { i[n] = function (v) { return new Promise(function (a, b) { q.push([n, v, a, b]) > 1 || resume(n, v); }); }; if (f) i[n] = f(i[n]); } }
-  function resume(n, v) { try { step(g[n](v)); } catch (e) { settle(q[0][3], e); } }
-  function step(r) { r.value instanceof __await ? Promise.resolve(r.value.v).then(fulfill, reject) : settle(q[0][2], r); }
-  function fulfill(value) { resume("next", value); }
-  function reject(value) { resume("throw", value); }
-  function settle(f, v) { if (f(v), q.shift(), q.length) resume(q[0][0], q[0][1]); }
+    if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
+    var g = generator.apply(thisArg, _arguments || []), i, q = [];
+    return i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i;
+    function verb(n) { if (g[n]) i[n] = function (v) { return new Promise(function (a, b) { q.push([n, v, a, b]) > 1 || resume(n, v); }); }; }
+    function resume(n, v) { try { step(g[n](v)); } catch (e) { settle(q[0][3], e); } }
+    function step(r) { r.value instanceof __await ? Promise.resolve(r.value.v).then(fulfill, reject) : settle(q[0][2], r); }
+    function fulfill(value) { resume("next", value); }
+    function reject(value) { resume("throw", value); }
+    function settle(f, v) { if (f(v), q.shift(), q.length) resume(q[0][0], q[0][1]); }
 }
 
 function __asyncDelegator(o) {
-  var i, p;
-  return i = {}, verb("next"), verb("throw", function (e) { throw e; }), verb("return"), i[Symbol.iterator] = function () { return this; }, i;
-  function verb(n, f) { i[n] = o[n] ? function (v) { return (p = !p) ? { value: __await(o[n](v)), done: false } : f ? f(v) : v; } : f; }
+    var i, p;
+    return i = {}, verb("next"), verb("throw", function (e) { throw e; }), verb("return"), i[Symbol.iterator] = function () { return this; }, i;
+    function verb(n, f) { i[n] = o[n] ? function (v) { return (p = !p) ? { value: __await(o[n](v)), done: n === "return" } : f ? f(v) : v; } : f; }
 }
 
 function __asyncValues(o) {
-  if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
-  var m = o[Symbol.asyncIterator], i;
-  return m ? m.call(o) : (o = typeof __values === "function" ? __values(o) : o[Symbol.iterator](), i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i);
-  function verb(n) { i[n] = o[n] && function (v) { return new Promise(function (resolve, reject) { v = o[n](v), settle(resolve, reject, v.done, v.value); }); }; }
-  function settle(resolve, reject, d, v) { Promise.resolve(v).then(function(v) { resolve({ value: v, done: d }); }, reject); }
+    if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
+    var m = o[Symbol.asyncIterator], i;
+    return m ? m.call(o) : (o = typeof __values === "function" ? __values(o) : o[Symbol.iterator](), i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i);
+    function verb(n) { i[n] = o[n] && function (v) { return new Promise(function (resolve, reject) { v = o[n](v), settle(resolve, reject, v.done, v.value); }); }; }
+    function settle(resolve, reject, d, v) { Promise.resolve(v).then(function(v) { resolve({ value: v, done: d }); }, reject); }
 }
 
 function __makeTemplateObject(cooked, raw) {
-  if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
-  return cooked;
+    if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
+    return cooked;
 };
 
 var __setModuleDefault = Object.create ? (function(o, v) {
-  Object.defineProperty(o, "default", { enumerable: true, value: v });
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
 }) : function(o, v) {
-  o["default"] = v;
-};
-
-var ownKeys = function(o) {
-  ownKeys = Object.getOwnPropertyNames || function (o) {
-    var ar = [];
-    for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
-    return ar;
-  };
-  return ownKeys(o);
+    o["default"] = v;
 };
 
 function __importStar(mod) {
-  if (mod && mod.__esModule) return mod;
-  var result = {};
-  if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
-  __setModuleDefault(result, mod);
-  return result;
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
 }
 
 function __importDefault(mod) {
-  return (mod && mod.__esModule) ? mod : { default: mod };
+    return (mod && mod.__esModule) ? mod : { default: mod };
 }
 
-function __classPrivateFieldGet(receiver, state, kind, f) {
-  if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
-  if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
-  return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
-}
-
-function __classPrivateFieldSet(receiver, state, value, kind, f) {
-  if (kind === "m") throw new TypeError("Private method is not writable");
-  if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a setter");
-  if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot write private member to an object whose class did not declare it");
-  return (kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value)), value;
-}
-
-function __classPrivateFieldIn(state, receiver) {
-  if (receiver === null || (typeof receiver !== "object" && typeof receiver !== "function")) throw new TypeError("Cannot use 'in' operator on non-object");
-  return typeof state === "function" ? receiver === state : state.has(receiver);
-}
-
-function __addDisposableResource(env, value, async) {
-  if (value !== null && value !== void 0) {
-    if (typeof value !== "object" && typeof value !== "function") throw new TypeError("Object expected.");
-    var dispose, inner;
-    if (async) {
-      if (!Symbol.asyncDispose) throw new TypeError("Symbol.asyncDispose is not defined.");
-      dispose = value[Symbol.asyncDispose];
+function __classPrivateFieldGet(receiver, privateMap) {
+    if (!privateMap.has(receiver)) {
+        throw new TypeError("attempted to get private field on non-instance");
     }
-    if (dispose === void 0) {
-      if (!Symbol.dispose) throw new TypeError("Symbol.dispose is not defined.");
-      dispose = value[Symbol.dispose];
-      if (async) inner = dispose;
+    return privateMap.get(receiver);
+}
+
+function __classPrivateFieldSet(receiver, privateMap, value) {
+    if (!privateMap.has(receiver)) {
+        throw new TypeError("attempted to set private field on non-instance");
     }
-    if (typeof dispose !== "function") throw new TypeError("Object not disposable.");
-    if (inner) dispose = function() { try { inner.call(this); } catch (e) { return Promise.reject(e); } };
-    env.stack.push({ value: value, dispose: dispose, async: async });
-  }
-  else if (async) {
-    env.stack.push({ async: true });
-  }
-  return value;
+    privateMap.set(receiver, value);
+    return value;
 }
-
-var _SuppressedError = typeof SuppressedError === "function" ? SuppressedError : function (error, suppressed, message) {
-  var e = new Error(message);
-  return e.name = "SuppressedError", e.error = error, e.suppressed = suppressed, e;
-};
-
-function __disposeResources(env) {
-  function fail(e) {
-    env.error = env.hasError ? new _SuppressedError(e, env.error, "An error was suppressed during disposal.") : e;
-    env.hasError = true;
-  }
-  var r, s = 0;
-  function next() {
-    while (r = env.stack.pop()) {
-      try {
-        if (!r.async && s === 1) return s = 0, env.stack.push(r), Promise.resolve().then(next);
-        if (r.dispose) {
-          var result = r.dispose.call(r.value);
-          if (r.async) return s |= 2, Promise.resolve(result).then(next, function(e) { fail(e); return next(); });
-        }
-        else s |= 1;
-      }
-      catch (e) {
-        fail(e);
-      }
-    }
-    if (s === 1) return env.hasError ? Promise.reject(env.error) : Promise.resolve();
-    if (env.hasError) throw env.error;
-  }
-  return next();
-}
-
-function __rewriteRelativeImportExtension(path, preserveJsx) {
-  if (typeof path === "string" && /^\.\.?\//.test(path)) {
-      return path.replace(/\.(tsx)$|((?:\.d)?)((?:\.[^./]+?)?)\.([cm]?)ts$/i, function (m, tsx, d, ext, cm) {
-          return tsx ? preserveJsx ? ".jsx" : ".js" : d && (!ext || !cm) ? m : (d + ext + "." + cm.toLowerCase() + "js");
-      });
-  }
-  return path;
-}
-
-/* harmony default export */ const tslib_es6 = ({
-  __extends,
-  __assign,
-  __rest,
-  __decorate,
-  __param,
-  __esDecorate,
-  __runInitializers,
-  __propKey,
-  __setFunctionName,
-  __metadata,
-  __awaiter,
-  __generator,
-  __createBinding,
-  __exportStar,
-  __values,
-  __read,
-  __spread,
-  __spreadArrays,
-  __spreadArray,
-  __await,
-  __asyncGenerator,
-  __asyncDelegator,
-  __asyncValues,
-  __makeTemplateObject,
-  __importStar,
-  __importDefault,
-  __classPrivateFieldGet,
-  __classPrivateFieldSet,
-  __classPrivateFieldIn,
-  __addDisposableResource,
-  __disposeResources,
-  __rewriteRelativeImportExtension,
-});
 
 // EXTERNAL MODULE: ./node_modules/normalize-wheel/index.js
 var normalize_wheel = __webpack_require__(7520);
 var normalize_wheel_default = /*#__PURE__*/__webpack_require__.n(normalize_wheel);
-;// ./node_modules/react-easy-crop/index.module.js
+;// ./packages/block-editor/node_modules/react-easy-crop/index.module.js
 
 
 
@@ -67692,7 +71592,7 @@ var Cropper = /** @class */function (_super) {
 
 
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/image-editor/cropper.js
+;// ./packages/block-editor/build-module/components/image-editor/cropper.js
 /**
  * External dependencies
  */
@@ -67770,7 +71670,7 @@ function ImageCropper({
   });
 }
 
-;// ./node_modules/@wordpress/icons/build-module/library/search.js
+;// ./packages/icons/build-module/library/search.js
 /**
  * WP dependencies
  */
@@ -67785,7 +71685,7 @@ const search = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ext
 });
 /* harmony default export */ const library_search = (search);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/image-editor/zoom-dropdown.js
+;// ./packages/block-editor/build-module/components/image-editor/zoom-dropdown.js
 /**
  * WP dependencies
  */
@@ -67833,7 +71733,7 @@ function ZoomDropdown() {
   });
 }
 
-;// ./node_modules/@wordpress/icons/build-module/library/rotate-right.js
+;// ./packages/icons/build-module/library/rotate-right.js
 /**
  * WP dependencies
  */
@@ -67848,7 +71748,7 @@ const rotateRight = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx
 });
 /* harmony default export */ const rotate_right = (rotateRight);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/image-editor/rotation-button.js
+;// ./packages/block-editor/build-module/components/image-editor/rotation-button.js
 /**
  * WP dependencies
  */
@@ -67875,7 +71775,7 @@ function RotationButton() {
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/image-editor/form-controls.js
+;// ./packages/block-editor/build-module/components/image-editor/form-controls.js
 /**
  * WP dependencies
  */
@@ -67905,7 +71805,7 @@ function FormControls() {
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/image-editor/index.js
+;// ./packages/block-editor/build-module/components/image-editor/index.js
 /**
  * WP dependencies
  */
@@ -67961,7 +71861,7 @@ function ImageEditor({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/image-size-control/use-dimension-handler.js
+;// ./packages/block-editor/build-module/components/image-size-control/use-dimension-handler.js
 /**
  * WP dependencies
  */
@@ -68020,7 +71920,7 @@ function useDimensionHandler(customHeight, customWidth, defaultHeight, defaultWi
   };
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/image-size-control/index.js
+;// ./packages/block-editor/build-module/components/image-size-control/index.js
 /**
  * WP dependencies
  */
@@ -68148,7 +72048,7 @@ function ImageSizeControl({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/url-popover/link-viewer-url.js
+;// ./packages/block-editor/build-module/components/url-popover/link-viewer-url.js
 /**
  * External dependencies
  */
@@ -68178,7 +72078,7 @@ function LinkViewerURL({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/url-popover/link-viewer.js
+;// ./packages/block-editor/build-module/components/url-popover/link-viewer.js
 /**
  * External dependencies
  */
@@ -68220,7 +72120,7 @@ function LinkViewer({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/url-popover/link-editor.js
+;// ./packages/block-editor/build-module/components/url-popover/link-editor.js
 /**
  * External dependencies
  */
@@ -68261,7 +72161,7 @@ function LinkEditor({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/url-popover/index.js
+;// ./packages/block-editor/build-module/components/url-popover/index.js
 /**
  * WP dependencies
  */
@@ -68354,12 +72254,11 @@ URLPopover.LinkEditor = LinkEditor;
 URLPopover.LinkViewer = LinkViewer;
 
 /**
- * @see https://github.com/WordPress/gutenberg/blob/HEAD/packages/block-editor/src/components/url-popover/README.md
+ * @see https://github.com/wordpress/gutenberg/blob/HEAD/packages/block-editor/src/components/url-popover/README.md
  */
 /* harmony default export */ const url_popover = (URLPopover);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/media-placeholder/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/media-placeholder/index.js
 /**
  * External dependencies
  */
@@ -68567,7 +72466,8 @@ function MediaPlaceholder({
       allowedTypes,
       filesList: files,
       onFileChange: setMedia,
-      onError
+      onError,
+      multiple
     });
   };
   async function handleBlocksDrop(event) {
@@ -68793,12 +72693,11 @@ function MediaPlaceholder({
 }
 
 /**
- * @see https://github.com/WordPress/gutenberg/blob/HEAD/packages/block-editor/src/components/media-placeholder/README.md
+ * @see https://github.com/wordpress/gutenberg/blob/HEAD/packages/block-editor/src/components/media-placeholder/README.md
  */
 /* harmony default export */ const media_placeholder = ((0,external_wp_components_namespaceObject.withFilters)('editor.MediaPlaceholder')(MediaPlaceholder));
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/panel-color-settings/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/panel-color-settings/index.js
 /**
  * Internal dependencies
  */
@@ -68832,8 +72731,7 @@ const PanelColorSettings = ({
 };
 /* harmony default export */ const panel_color_settings = (PanelColorSettings);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/rich-text/format-toolbar/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/rich-text/format-toolbar/index.js
 /**
  * External dependencies
  */
@@ -68894,7 +72792,7 @@ const FormatToolbar = () => {
 };
 /* harmony default export */ const format_toolbar = (FormatToolbar);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/rich-text/format-toolbar-container.js
+;// ./packages/block-editor/build-module/components/rich-text/format-toolbar-container.js
 /**
  * WP dependencies
  */
@@ -68945,7 +72843,7 @@ const FormatToolbarContainer = ({
 };
 /* harmony default export */ const format_toolbar_container = (FormatToolbarContainer);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/rich-text/use-mark-persistent.js
+;// ./packages/block-editor/build-module/components/rich-text/use-mark-persistent.js
 /**
  * WP dependencies
  */
@@ -68989,8 +72887,7 @@ function useMarkPersistent({
   }, [html, hasActiveFormats]);
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/rich-text/use-format-types.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/rich-text/use-format-types.js
 /**
  * WP dependencies
  */
@@ -69116,8 +73013,7 @@ function useFormatTypes({
   };
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/rich-text/event-listeners/before-input-rules.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/rich-text/event-listeners/before-input-rules.js
 /**
  * WP dependencies
  */
@@ -69204,7 +73100,7 @@ const wrapSelectionSettings = ['`', '"', "'", '“”', '‘’'];
   };
 });
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/rich-text/prevent-event-discovery.js
+;// ./packages/block-editor/build-module/components/rich-text/prevent-event-discovery.js
 /**
  * WP dependencies
  */
@@ -69226,8 +73122,7 @@ function preventEventDiscovery(value) {
   return (0,external_wp_richText_namespaceObject.insert)(value, addText);
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/rich-text/event-listeners/input-rules.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/rich-text/event-listeners/input-rules.js
 /**
  * WP dependencies
  */
@@ -69355,7 +73250,7 @@ function findSelection(blocks) {
   };
 });
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/rich-text/event-listeners/insert-replacement-text.js
+;// ./packages/block-editor/build-module/components/rich-text/event-listeners/insert-replacement-text.js
 /**
  * Internal dependencies
  */
@@ -69383,7 +73278,7 @@ function findSelection(blocks) {
   };
 });
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/rich-text/event-listeners/remove-browser-shortcuts.js
+;// ./packages/block-editor/build-module/components/rich-text/event-listeners/remove-browser-shortcuts.js
 /**
  * WP dependencies
  */
@@ -69405,7 +73300,7 @@ function findSelection(blocks) {
   };
 });
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/rich-text/event-listeners/shortcuts.js
+;// ./packages/block-editor/build-module/components/rich-text/event-listeners/shortcuts.js
 /* harmony default export */ const shortcuts = (props => element => {
   const {
     keyboardShortcuts
@@ -69421,7 +73316,7 @@ function findSelection(blocks) {
   };
 });
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/rich-text/event-listeners/input-events.js
+;// ./packages/block-editor/build-module/components/rich-text/event-listeners/input-events.js
 /* harmony default export */ const input_events = (props => element => {
   const {
     inputEvents
@@ -69437,7 +73332,7 @@ function findSelection(blocks) {
   };
 });
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/rich-text/event-listeners/undo-automatic-change.js
+;// ./packages/block-editor/build-module/components/rich-text/event-listeners/undo-automatic-change.js
 /**
  * WP dependencies
  */
@@ -69483,7 +73378,7 @@ function findSelection(blocks) {
   };
 });
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/rich-text/utils.js
+;// ./packages/block-editor/build-module/components/rich-text/utils.js
 /**
  * WP dependencies
  */
@@ -69540,8 +73435,7 @@ function createLinkInParagraph(url, onReplace) {
   }));
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/rich-text/event-listeners/paste-handler.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/rich-text/event-listeners/paste-handler.js
 /**
  * WP dependencies
  */
@@ -69664,7 +73558,7 @@ function createLinkInParagraph(url, onReplace) {
   };
 });
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/rich-text/event-listeners/delete.js
+;// ./packages/block-editor/build-module/components/rich-text/event-listeners/delete.js
 /**
  * WP dependencies
  */
@@ -69673,8 +73567,7 @@ function createLinkInParagraph(url, onReplace) {
 /* harmony default export */ const event_listeners_delete = (props => element => {
   function onKeyDown(event) {
     const {
-      keyCode,
-      shiftKey
+      keyCode
     } = event;
     if (event.defaultPrevented) {
       return;
@@ -69697,11 +73590,6 @@ function createLinkInParagraph(url, onReplace) {
       if (!(0,external_wp_richText_namespaceObject.isCollapsed)(value) || hasActiveFormats || isReverse && start !== 0 || !isReverse && end !== text.length) {
         return;
       }
-
-      // Exclude shift+backspace as they are shortcuts for deleting blocks.
-      if (shiftKey) {
-        return;
-      }
       if (onMerge) {
         onMerge(!isReverse);
       }
@@ -69722,7 +73610,7 @@ function createLinkInParagraph(url, onReplace) {
   };
 });
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/rich-text/event-listeners/enter.js
+;// ./packages/block-editor/build-module/components/rich-text/event-listeners/enter.js
 /**
  * WP dependencies
  */
@@ -69805,7 +73693,7 @@ function createLinkInParagraph(url, onReplace) {
   };
 });
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/rich-text/event-listeners/firefox-compat.js
+;// ./packages/block-editor/build-module/components/rich-text/event-listeners/firefox-compat.js
 /**
  * Internal dependencies
  */
@@ -69835,8 +73723,7 @@ function createLinkInParagraph(url, onReplace) {
   };
 });
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/rich-text/event-listeners/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/rich-text/event-listeners/index.js
 /**
  * WP dependencies
  */
@@ -69875,8 +73762,7 @@ function useEventListeners(props) {
   }, [refEffects, props.isSelected]);
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/rich-text/format-edit.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/rich-text/format-edit.js
 /**
  * WP dependencies
  */
@@ -69939,7 +73825,7 @@ function FormatEdit({
   }));
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/rich-text/content.js
+;// ./packages/block-editor/build-module/components/rich-text/content.js
 /**
  * WP dependencies
  */
@@ -69978,7 +73864,7 @@ function valueToHTMLString(value, multiline) {
 
   // To do: create a toReactComponent method on RichTextData, which we
   // might in the future also use for the editable tree. See
-  // https://github.com/WordPress/gutenberg/pull/41655.
+  // https://github.com/wordpress/gutenberg/pull/41655.
   return value.toHTMLString();
 }
 function Content({
@@ -69997,8 +73883,7 @@ function Content({
   }) : value;
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/rich-text/multiline.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/rich-text/multiline.js
 /**
  * WP dependencies
  */
@@ -70117,7 +74002,7 @@ function RichTextMultiline({
 }
 /* harmony default export */ const multiline = ((0,external_wp_element_namespaceObject.forwardRef)(RichTextMultiline));
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/rich-text/with-deprecations.js
+;// ./packages/block-editor/build-module/components/rich-text/with-deprecations.js
 /**
  * WP dependencies
  */
@@ -70156,8 +74041,7 @@ function withDeprecations(Component) {
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/rich-text/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/rich-text/index.js
 /**
  * External dependencies
  */
@@ -70563,7 +74447,7 @@ PrivateRichText.isEmpty = value => {
 // This is the public API for the RichText component.
 // We wrap the PrivateRichText component to hide some props from the public API.
 /**
- * @see https://github.com/WordPress/gutenberg/blob/HEAD/packages/block-editor/src/components/rich-text/README.md
+ * @see https://github.com/wordpress/gutenberg/blob/HEAD/packages/block-editor/src/components/rich-text/README.md
  */
 const PublicForwardedRichTextContainer = (0,external_wp_element_namespaceObject.forwardRef)((props, ref) => {
   const context = useBlockEditContext();
@@ -70621,7 +74505,7 @@ PublicForwardedRichTextContainer.isEmpty = value => {
 
 
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/editable-text/index.js
+;// ./packages/block-editor/build-module/components/editable-text/index.js
 /**
  * WP dependencies
  */
@@ -70655,7 +74539,7 @@ EditableText.Content = ({
  */
 /* harmony default export */ const editable_text = (EditableText);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/plain-text/index.js
+;// ./packages/block-editor/build-module/components/plain-text/index.js
 /**
  * External dependencies
  */
@@ -70675,7 +74559,7 @@ EditableText.Content = ({
 /**
  * Render an auto-growing textarea allow users to fill any textual content.
  *
- * @see https://github.com/WordPress/gutenberg/blob/HEAD/packages/block-editor/src/components/plain-text/README.md
+ * @see https://github.com/wordpress/gutenberg/blob/HEAD/packages/block-editor/src/components/plain-text/README.md
  *
  * @example
  * ```jsx
@@ -70734,7 +74618,7 @@ const PlainText = (0,external_wp_element_namespaceObject.forwardRef)(({
 });
 /* harmony default export */ const plain_text = (PlainText);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/responsive-block-control/label.js
+;// ./packages/block-editor/build-module/components/responsive-block-control/label.js
 /**
  * WP dependencies
  */
@@ -70762,8 +74646,7 @@ function ResponsiveBlockControlLabel({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/responsive-block-control/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/responsive-block-control/index.js
 /**
  * External dependencies
  */
@@ -70848,7 +74731,7 @@ function ResponsiveBlockControl(props) {
 }
 /* harmony default export */ const responsive_block_control = (ResponsiveBlockControl);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/rich-text/shortcut.js
+;// ./packages/block-editor/build-module/components/rich-text/shortcut.js
 /**
  * WP dependencies
  */
@@ -70882,7 +74765,7 @@ function RichTextShortcut({
   return null;
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/rich-text/toolbar-button.js
+;// ./packages/block-editor/build-module/components/rich-text/toolbar-button.js
 /**
  * WP dependencies
  */
@@ -70912,7 +74795,7 @@ function RichTextToolbarButton({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/rich-text/input-event.js
+;// ./packages/block-editor/build-module/components/rich-text/input-event.js
 /**
  * WP dependencies
  */
@@ -70944,7 +74827,7 @@ function __unstableRichTextInputEvent({
   return null;
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/tool-selector/index.js
+;// ./packages/block-editor/build-module/components/tool-selector/index.js
 /**
  * WP dependencies
  */
@@ -71021,14 +74904,14 @@ function ToolSelector(props, ref) {
         })
       }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("div", {
         className: "block-editor-tool-selector__help",
-        children: (0,external_wp_i18n_namespaceObject.__)('Tools provide different sets of interactions for blocks. Toggle between simplified content tools (Write) and advanced visual editing tools (Design).')
+        children: (0,external_wp_i18n_namespaceObject.__)('Tools provide different sets of interactions for blocks. Choose between simplified content tools (Write) and advanced visual editing tools (Design).')
       })]
     })
   });
 }
 /* harmony default export */ const tool_selector = ((0,external_wp_element_namespaceObject.forwardRef)(ToolSelector));
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/unit-control/index.js
+;// ./packages/block-editor/build-module/components/unit-control/index.js
 /**
  * WP dependencies
  */
@@ -71054,7 +74937,7 @@ function UnitControl({
   });
 }
 
-;// ./node_modules/@wordpress/icons/build-module/library/arrow-left.js
+;// ./packages/icons/build-module/library/arrow-left.js
 /**
  * WP dependencies
  */
@@ -71069,7 +74952,7 @@ const arrowLeft = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(
 });
 /* harmony default export */ const arrow_left = (arrowLeft);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/url-input/button.js
+;// ./packages/block-editor/build-module/components/url-input/button.js
 /**
  * WP dependencies
  */
@@ -71150,11 +75033,11 @@ class URLInputButton extends external_wp_element_namespaceObject.Component {
 }
 
 /**
- * @see https://github.com/WordPress/gutenberg/blob/HEAD/packages/block-editor/src/components/url-input/README.md
+ * @see https://github.com/wordpress/gutenberg/blob/HEAD/packages/block-editor/src/components/url-input/README.md
  */
 /* harmony default export */ const url_input_button = (URLInputButton);
 
-;// ./node_modules/@wordpress/icons/build-module/library/image.js
+;// ./packages/icons/build-module/library/image.js
 /**
  * WP dependencies
  */
@@ -71169,8 +75052,7 @@ const image_image = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx
 });
 /* harmony default export */ const library_image = (image_image);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/url-popover/image-url-input-ui.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/url-popover/image-url-input-ui.js
 /**
  * WP dependencies
  */
@@ -71469,7 +75351,7 @@ const ImageURLInputUI = ({
 };
 
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/preview-options/index.js
+;// ./packages/block-editor/build-module/components/preview-options/index.js
 /**
  * WP dependencies
  */
@@ -71481,7 +75363,7 @@ function PreviewOptions() {
   return null;
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/use-resize-canvas/index.js
+;// ./packages/block-editor/build-module/components/use-resize-canvas/index.js
 /**
  * WP dependencies
  */
@@ -71536,7 +75418,7 @@ function useResizeCanvas(deviceType) {
           marginLeft: marginHorizontal,
           marginRight: marginHorizontal,
           height,
-          maxWidth: '100%'
+          overflowY: 'auto'
         };
       default:
         return {
@@ -71548,7 +75430,7 @@ function useResizeCanvas(deviceType) {
   return contentInlineStyles(deviceType);
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/skip-to-selected-block/index.js
+;// ./packages/block-editor/build-module/components/skip-to-selected-block/index.js
 /**
  * WP dependencies
  */
@@ -71564,7 +75446,7 @@ function useResizeCanvas(deviceType) {
 
 
 /**
- * @see https://github.com/WordPress/gutenberg/blob/HEAD/packages/block-editor/src/components/skip-to-selected-block/README.md
+ * @see https://github.com/wordpress/gutenberg/blob/HEAD/packages/block-editor/src/components/skip-to-selected-block/README.md
  */
 
 function SkipToSelectedBlock() {
@@ -71583,7 +75465,7 @@ function SkipToSelectedBlock() {
   }) : null;
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/multi-selection-inspector/index.js
+;// ./packages/block-editor/build-module/components/multi-selection-inspector/index.js
 /**
  * WP dependencies
  */
@@ -71615,7 +75497,7 @@ function MultiSelectionInspector() {
   });
 }
 
-;// ./node_modules/@wordpress/icons/build-module/library/cog.js
+;// ./packages/icons/build-module/library/cog.js
 /**
  * WP dependencies
  */
@@ -71632,7 +75514,7 @@ const cog = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(extern
 });
 /* harmony default export */ const library_cog = (cog);
 
-;// ./node_modules/@wordpress/icons/build-module/library/styles.js
+;// ./packages/icons/build-module/library/styles.js
 /**
  * WP dependencies
  */
@@ -71649,7 +75531,7 @@ const styles = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ext
 });
 /* harmony default export */ const library_styles = (styles);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inspector-controls-tabs/utils.js
+;// ./packages/block-editor/build-module/components/inspector-controls-tabs/utils.js
 /**
  * WP dependencies
  */
@@ -71674,7 +75556,7 @@ const TAB_LIST_VIEW = {
   icon: list_view
 };
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inspector-controls-tabs/advanced-controls-panel.js
+;// ./packages/block-editor/build-module/components/inspector-controls-tabs/advanced-controls-panel.js
 /**
  * WP dependencies
  */
@@ -71703,7 +75585,7 @@ const AdvancedControls = () => {
 };
 /* harmony default export */ const advanced_controls_panel = (AdvancedControls);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inspector-controls-tabs/position-controls-panel.js
+;// ./packages/block-editor/build-module/components/inspector-controls-tabs/position-controls-panel.js
 /**
  * WP dependencies
  */
@@ -71792,7 +75674,7 @@ const PositionControls = () => {
 };
 /* harmony default export */ const position_controls_panel = (PositionControls);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inspector-controls-tabs/settings-tab.js
+;// ./packages/block-editor/build-module/components/inspector-controls-tabs/settings-tab.js
 /**
  * Internal dependencies
  */
@@ -71811,7 +75693,7 @@ const SettingsTab = ({
 });
 /* harmony default export */ const settings_tab = (SettingsTab);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inspector-controls-tabs/styles-tab.js
+;// ./packages/block-editor/build-module/components/inspector-controls-tabs/styles-tab.js
 /**
  * WP dependencies
  */
@@ -71866,7 +75748,7 @@ const StylesTab = ({
 };
 /* harmony default export */ const styles_tab = (StylesTab);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inspector-controls-tabs/use-is-list-view-tab-disabled.js
+;// ./packages/block-editor/build-module/components/inspector-controls-tabs/use-is-list-view-tab-disabled.js
 // List view tab restricts the blocks that may render to it via the
 // allowlist below.
 const allowlist = ['core/navigation'];
@@ -71875,8 +75757,7 @@ const useIsListViewTabDisabled = blockName => {
 };
 /* harmony default export */ const use_is_list_view_tab_disabled = (useIsListViewTabDisabled);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inspector-controls-tabs/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/inspector-controls-tabs/index.js
 /**
  * WP dependencies
  */
@@ -71956,7 +75837,7 @@ function InspectorControlsTabs({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inspector-controls-tabs/use-inspector-controls-tabs.js
+;// ./packages/block-editor/build-module/components/inspector-controls-tabs/use-inspector-controls-tabs.js
 /**
  * WP dependencies
  */
@@ -72034,7 +75915,7 @@ function useInspectorControlsTabs(blockName) {
   return showTabs ? tabs : use_inspector_controls_tabs_EMPTY_ARRAY;
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-inspector/useBlockInspectorAnimationSettings.js
+;// ./packages/block-editor/build-module/components/block-inspector/useBlockInspectorAnimationSettings.js
 /**
  * WP dependencies
  */
@@ -72071,8 +75952,7 @@ function useBlockInspectorAnimationSettings(blockType) {
   }, [blockType]);
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-quick-navigation/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/block-quick-navigation/index.js
 /**
  * WP dependencies
  */
@@ -72151,8 +76031,7 @@ function BlockQuickNavigationItem({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-inspector/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/block-inspector/index.js
 /**
  * WP dependencies
  */
@@ -72396,11 +76275,11 @@ const BlockInspectorSingleBlock = ({
 };
 
 /**
- * @see https://github.com/WordPress/gutenberg/blob/HEAD/packages/block-editor/src/components/block-inspector/README.md
+ * @see https://github.com/wordpress/gutenberg/blob/HEAD/packages/block-editor/src/components/block-inspector/README.md
  */
 /* harmony default export */ const block_inspector = (BlockInspector);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/copy-handler/index.js
+;// ./packages/block-editor/build-module/components/copy-handler/index.js
 /**
  * WP dependencies
  */
@@ -72440,7 +76319,7 @@ function CopyHandler(props) {
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inserter/library.js
+;// ./packages/block-editor/build-module/components/inserter/library.js
 /**
  * WP dependencies
  */
@@ -72507,7 +76386,7 @@ function PublicInserterLibrary(props, ref) {
 }
 /* harmony default export */ const library = ((0,external_wp_element_namespaceObject.forwardRef)(PublicInserterLibrary));
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/selection-scroll-into-view/index.js
+;// ./packages/block-editor/build-module/components/selection-scroll-into-view/index.js
 /**
  * WP dependencies
  */
@@ -72527,7 +76406,7 @@ function MultiSelectScrollIntoView() {
   return null;
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/typewriter/index.js
+;// ./packages/block-editor/build-module/components/typewriter/index.js
 /**
  * WP dependencies
  */
@@ -72747,7 +76626,7 @@ const TypewriterOrIEBypass = isIE ? props => props.children : Typewriter;
  */
 /* harmony default export */ const typewriter = (TypewriterOrIEBypass);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/recursion-provider/index.js
+;// ./packages/block-editor/build-module/components/recursion-provider/index.js
 /**
  * WP dependencies
  */
@@ -72848,8 +76727,7 @@ const DeprecatedExperimentalUseHasRecursion = (...args) => {
   return useHasRecursion(...args);
 };
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/inspector-popover-header/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/inspector-popover-header/index.js
 /**
  * WP dependencies
  */
@@ -72898,7 +76776,7 @@ function InspectorPopoverHeader({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/publish-date-time-picker/index.js
+;// ./packages/block-editor/build-module/components/publish-date-time-picker/index.js
 /**
  * WP dependencies
  */
@@ -72954,7 +76832,7 @@ function PublicPublishDateTimePicker(props, ref) {
 }
 /* harmony default export */ const publish_date_time_picker = ((0,external_wp_element_namespaceObject.forwardRef)(PublicPublishDateTimePicker));
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/index.js
+;// ./packages/block-editor/build-module/components/index.js
 /*
  * Block Creation Components
  */
@@ -73079,7 +76957,7 @@ function PublicPublishDateTimePicker(props, ref) {
 
 
 
-;// ./node_modules/@wordpress/block-editor/build-module/elements/index.js
+;// ./packages/block-editor/build-module/elements/index.js
 const elements_ELEMENT_CLASS_NAMES = {
   button: 'wp-element-button',
   caption: 'wp-element-caption'
@@ -73088,7 +76966,7 @@ const __experimentalGetElementClassName = element => {
   return elements_ELEMENT_CLASS_NAMES[element] ? elements_ELEMENT_CLASS_NAMES[element] : '';
 };
 
-;// ./node_modules/@wordpress/block-editor/build-module/utils/get-px-from-css-unit.js
+;// ./packages/block-editor/build-module/utils/get-px-from-css-unit.js
 /**
  * This function was accidentally exposed for mobile/native usage.
  *
@@ -73098,12 +76976,12 @@ const __experimentalGetElementClassName = element => {
  */
 /* harmony default export */ const get_px_from_css_unit = (() => '');
 
-;// ./node_modules/@wordpress/block-editor/build-module/utils/index.js
+;// ./packages/block-editor/build-module/utils/index.js
 
 
 
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/global-styles/image-settings-panel.js
+;// ./packages/block-editor/build-module/components/global-styles/image-settings-panel.js
 /**
  * WP dependencies
  */
@@ -73169,7 +77047,7 @@ function ImageSettingsPanel({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/global-styles/advanced-panel.js
+;// ./packages/block-editor/build-module/components/global-styles/advanced-panel.js
 /**
  * WP dependencies
  */
@@ -73401,8 +77279,7 @@ function memize(fn, options) {
 
 
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/global-styles/get-global-styles-changes.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/global-styles/get-global-styles-changes.js
 /**
  * External dependencies
  */
@@ -73626,7 +77503,7 @@ function getGlobalStylesChanges(next, previous, options = {}) {
   return get_global_styles_changes_EMPTY_ARRAY;
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/global-styles/index.js
+;// ./packages/block-editor/build-module/components/global-styles/index.js
 
 
 
@@ -73642,7 +77519,7 @@ function getGlobalStylesChanges(next, previous, options = {}) {
 
 
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/rich-text/get-rich-text-values.js
+;// ./packages/block-editor/build-module/components/rich-text/get-rich-text-values.js
 /**
  * WP dependencies
  */
@@ -73731,7 +77608,7 @@ function getRichTextValues(blocks = []) {
   return values.map(value => value instanceof external_wp_richText_namespaceObject.RichTextData ? value : external_wp_richText_namespaceObject.RichTextData.fromHTMLString(value));
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/resizable-box-popover/index.js
+;// ./packages/block-editor/build-module/components/resizable-box-popover/index.js
 /**
  * WP dependencies
  */
@@ -73757,8 +77634,7 @@ function ResizableBoxPopover({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-manager/checklist.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/block-manager/checklist.js
 /**
  * WP dependencies
  */
@@ -73791,8 +77667,7 @@ function BlockTypesChecklist({
 }
 /* harmony default export */ const checklist = (BlockTypesChecklist);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-manager/category.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/block-manager/category.js
 /**
  * WP dependencies
  */
@@ -73864,8 +77739,7 @@ function BlockManagerCategory({
 }
 /* harmony default export */ const block_manager_category = (BlockManagerCategory);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-manager/index.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/block-manager/index.js
 /**
  * WP dependencies
  */
@@ -73968,7 +77842,7 @@ function BlockManager({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/block-removal-warning-modal/index.js
+;// ./packages/block-editor/build-module/components/block-removal-warning-modal/index.js
 /**
  * WP dependencies
  */
@@ -74035,8 +77909,7 @@ function BlockRemovalWarningModal({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/dimensions-tool/scale-tool.js
-/* wp:polyfill */
+;// ./packages/block-editor/build-module/components/dimensions-tool/scale-tool.js
 /**
  * WP dependencies
  */
@@ -74152,7 +78025,7 @@ function extends_extends() {
   }, extends_extends.apply(null, arguments);
 }
 
-;// ./node_modules/@emotion/memoize/dist/emotion-memoize.esm.js
+;// ./node_modules/@emotion/is-prop-valid/node_modules/@emotion/memoize/dist/emotion-memoize.esm.js
 function memoize(fn) {
   var cache = Object.create(null);
   return function (arg) {
@@ -74163,10 +78036,10 @@ function memoize(fn) {
 
 
 
-;// ./node_modules/@emotion/styled/node_modules/@emotion/is-prop-valid/dist/emotion-is-prop-valid.esm.js
+;// ./node_modules/@emotion/is-prop-valid/dist/emotion-is-prop-valid.esm.js
 
 
-var reactPropsRegex = /^((children|dangerouslySetInnerHTML|key|ref|autoFocus|defaultValue|defaultChecked|innerHTML|suppressContentEditableWarning|suppressHydrationWarning|valueLink|abbr|accept|acceptCharset|accessKey|action|allow|allowUserMedia|allowPaymentRequest|allowFullScreen|allowTransparency|alt|async|autoComplete|autoPlay|capture|cellPadding|cellSpacing|challenge|charSet|checked|cite|classID|className|cols|colSpan|content|contentEditable|contextMenu|controls|controlsList|coords|crossOrigin|data|dateTime|decoding|default|defer|dir|disabled|disablePictureInPicture|download|draggable|encType|enterKeyHint|form|formAction|formEncType|formMethod|formNoValidate|formTarget|frameBorder|headers|height|hidden|high|href|hrefLang|htmlFor|httpEquiv|id|inputMode|integrity|is|keyParams|keyType|kind|label|lang|list|loading|loop|low|marginHeight|marginWidth|max|maxLength|media|mediaGroup|method|min|minLength|multiple|muted|name|nonce|noValidate|open|optimum|pattern|placeholder|playsInline|poster|preload|profile|radioGroup|readOnly|referrerPolicy|rel|required|reversed|role|rows|rowSpan|sandbox|scope|scoped|scrolling|seamless|selected|shape|size|sizes|slot|span|spellCheck|src|srcDoc|srcLang|srcSet|start|step|style|summary|tabIndex|target|title|translate|type|useMap|value|width|wmode|wrap|about|datatype|inlist|prefix|property|resource|typeof|vocab|autoCapitalize|autoCorrect|autoSave|color|incremental|fallback|inert|itemProp|itemScope|itemType|itemID|itemRef|on|option|results|security|unselectable|accentHeight|accumulate|additive|alignmentBaseline|allowReorder|alphabetic|amplitude|arabicForm|ascent|attributeName|attributeType|autoReverse|azimuth|baseFrequency|baselineShift|baseProfile|bbox|begin|bias|by|calcMode|capHeight|clip|clipPathUnits|clipPath|clipRule|colorInterpolation|colorInterpolationFilters|colorProfile|colorRendering|contentScriptType|contentStyleType|cursor|cx|cy|d|decelerate|descent|diffuseConstant|direction|display|divisor|dominantBaseline|dur|dx|dy|edgeMode|elevation|enableBackground|end|exponent|externalResourcesRequired|fill|fillOpacity|fillRule|filter|filterRes|filterUnits|floodColor|floodOpacity|focusable|fontFamily|fontSize|fontSizeAdjust|fontStretch|fontStyle|fontVariant|fontWeight|format|from|fr|fx|fy|g1|g2|glyphName|glyphOrientationHorizontal|glyphOrientationVertical|glyphRef|gradientTransform|gradientUnits|hanging|horizAdvX|horizOriginX|ideographic|imageRendering|in|in2|intercept|k|k1|k2|k3|k4|kernelMatrix|kernelUnitLength|kerning|keyPoints|keySplines|keyTimes|lengthAdjust|letterSpacing|lightingColor|limitingConeAngle|local|markerEnd|markerMid|markerStart|markerHeight|markerUnits|markerWidth|mask|maskContentUnits|maskUnits|mathematical|mode|numOctaves|offset|opacity|operator|order|orient|orientation|origin|overflow|overlinePosition|overlineThickness|panose1|paintOrder|pathLength|patternContentUnits|patternTransform|patternUnits|pointerEvents|points|pointsAtX|pointsAtY|pointsAtZ|preserveAlpha|preserveAspectRatio|primitiveUnits|r|radius|refX|refY|renderingIntent|repeatCount|repeatDur|requiredExtensions|requiredFeatures|restart|result|rotate|rx|ry|scale|seed|shapeRendering|slope|spacing|specularConstant|specularExponent|speed|spreadMethod|startOffset|stdDeviation|stemh|stemv|stitchTiles|stopColor|stopOpacity|strikethroughPosition|strikethroughThickness|string|stroke|strokeDasharray|strokeDashoffset|strokeLinecap|strokeLinejoin|strokeMiterlimit|strokeOpacity|strokeWidth|surfaceScale|systemLanguage|tableValues|targetX|targetY|textAnchor|textDecoration|textRendering|textLength|to|transform|u1|u2|underlinePosition|underlineThickness|unicode|unicodeBidi|unicodeRange|unitsPerEm|vAlphabetic|vHanging|vIdeographic|vMathematical|values|vectorEffect|version|vertAdvY|vertOriginX|vertOriginY|viewBox|viewTarget|visibility|widths|wordSpacing|writingMode|x|xHeight|x1|x2|xChannelSelector|xlinkActuate|xlinkArcrole|xlinkHref|xlinkRole|xlinkShow|xlinkTitle|xlinkType|xmlBase|xmlns|xmlnsXlink|xmlLang|xmlSpace|y|y1|y2|yChannelSelector|z|zoomAndPan|for|class|autofocus)|(([Dd][Aa][Tt][Aa]|[Aa][Rr][Ii][Aa]|x)-.*))$/; // https://esbench.com/bench/5bfee68a4cd7e6009ef61d23
+var reactPropsRegex = /^((children|dangerouslySetInnerHTML|key|ref|autoFocus|defaultValue|defaultChecked|innerHTML|suppressContentEditableWarning|suppressHydrationWarning|valueLink|abbr|accept|acceptCharset|accessKey|action|allow|allowUserMedia|allowPaymentRequest|allowFullScreen|allowTransparency|alt|async|autoComplete|autoPlay|capture|cellPadding|cellSpacing|challenge|charSet|checked|cite|classID|className|cols|colSpan|content|contentEditable|contextMenu|controls|controlsList|coords|crossOrigin|data|dateTime|decoding|default|defer|dir|disabled|disablePictureInPicture|disableRemotePlayback|download|draggable|encType|enterKeyHint|form|formAction|formEncType|formMethod|formNoValidate|formTarget|frameBorder|headers|height|hidden|high|href|hrefLang|htmlFor|httpEquiv|id|inputMode|integrity|is|keyParams|keyType|kind|label|lang|list|loading|loop|low|marginHeight|marginWidth|max|maxLength|media|mediaGroup|method|min|minLength|multiple|muted|name|nonce|noValidate|open|optimum|pattern|placeholder|playsInline|poster|preload|profile|radioGroup|readOnly|referrerPolicy|rel|required|reversed|role|rows|rowSpan|sandbox|scope|scoped|scrolling|seamless|selected|shape|size|sizes|slot|span|spellCheck|src|srcDoc|srcLang|srcSet|start|step|style|summary|tabIndex|target|title|translate|type|useMap|value|width|wmode|wrap|about|datatype|inlist|prefix|property|resource|typeof|vocab|autoCapitalize|autoCorrect|autoSave|color|incremental|fallback|inert|itemProp|itemScope|itemType|itemID|itemRef|on|option|results|security|unselectable|accentHeight|accumulate|additive|alignmentBaseline|allowReorder|alphabetic|amplitude|arabicForm|ascent|attributeName|attributeType|autoReverse|azimuth|baseFrequency|baselineShift|baseProfile|bbox|begin|bias|by|calcMode|capHeight|clip|clipPathUnits|clipPath|clipRule|colorInterpolation|colorInterpolationFilters|colorProfile|colorRendering|contentScriptType|contentStyleType|cursor|cx|cy|d|decelerate|descent|diffuseConstant|direction|display|divisor|dominantBaseline|dur|dx|dy|edgeMode|elevation|enableBackground|end|exponent|externalResourcesRequired|fill|fillOpacity|fillRule|filter|filterRes|filterUnits|floodColor|floodOpacity|focusable|fontFamily|fontSize|fontSizeAdjust|fontStretch|fontStyle|fontVariant|fontWeight|format|from|fr|fx|fy|g1|g2|glyphName|glyphOrientationHorizontal|glyphOrientationVertical|glyphRef|gradientTransform|gradientUnits|hanging|horizAdvX|horizOriginX|ideographic|imageRendering|in|in2|intercept|k|k1|k2|k3|k4|kernelMatrix|kernelUnitLength|kerning|keyPoints|keySplines|keyTimes|lengthAdjust|letterSpacing|lightingColor|limitingConeAngle|local|markerEnd|markerMid|markerStart|markerHeight|markerUnits|markerWidth|mask|maskContentUnits|maskUnits|mathematical|mode|numOctaves|offset|opacity|operator|order|orient|orientation|origin|overflow|overlinePosition|overlineThickness|panose1|paintOrder|pathLength|patternContentUnits|patternTransform|patternUnits|pointerEvents|points|pointsAtX|pointsAtY|pointsAtZ|preserveAlpha|preserveAspectRatio|primitiveUnits|r|radius|refX|refY|renderingIntent|repeatCount|repeatDur|requiredExtensions|requiredFeatures|restart|result|rotate|rx|ry|scale|seed|shapeRendering|slope|spacing|specularConstant|specularExponent|speed|spreadMethod|startOffset|stdDeviation|stemh|stemv|stitchTiles|stopColor|stopOpacity|strikethroughPosition|strikethroughThickness|string|stroke|strokeDasharray|strokeDashoffset|strokeLinecap|strokeLinejoin|strokeMiterlimit|strokeOpacity|strokeWidth|surfaceScale|systemLanguage|tableValues|targetX|targetY|textAnchor|textDecoration|textRendering|textLength|to|transform|u1|u2|underlinePosition|underlineThickness|unicode|unicodeBidi|unicodeRange|unitsPerEm|vAlphabetic|vHanging|vIdeographic|vMathematical|values|vectorEffect|version|vertAdvY|vertOriginX|vertOriginY|viewBox|viewTarget|visibility|widths|wordSpacing|writingMode|x|xHeight|x1|x2|xChannelSelector|xlinkActuate|xlinkArcrole|xlinkHref|xlinkRole|xlinkShow|xlinkTitle|xlinkType|xmlBase|xmlns|xmlnsXlink|xmlLang|xmlSpace|y|y1|y2|yChannelSelector|z|zoomAndPan|for|class|autofocus)|(([Dd][Aa][Tt][Aa]|[Aa][Rr][Ii][Aa]|x)-.*))$/; // https://esbench.com/bench/5bfee68a4cd7e6009ef61d23
 
 var isPropValid = /* #__PURE__ */memoize(function (prop) {
   return reactPropsRegex.test(prop) || prop.charCodeAt(0) === 111
@@ -74235,7 +78108,6 @@ function createStyleElement(options) {
 }
 
 var StyleSheet = /*#__PURE__*/function () {
-  // Using Node instead of HTMLElement since container may be a ShadowRoot
   function StyleSheet(options) {
     var _this = this;
 
@@ -74347,7 +78219,7 @@ var Utility_assign = Object.assign
  * @return {number}
  */
 function hash (value, length) {
-	return Utility_charat(value, 0) ^ 45 ? (((((((length << 2) ^ Utility_charat(value, 0)) << 2) ^ Utility_charat(value, 1)) << 2) ^ Utility_charat(value, 2)) << 2) ^ Utility_charat(value, 3) : 0
+	return (((((((length << 2) ^ Utility_charat(value, 0)) << 2) ^ Utility_charat(value, 1)) << 2) ^ Utility_charat(value, 2)) << 2) ^ Utility_charat(value, 3)
 }
 
 /**
@@ -74363,7 +78235,7 @@ function trim (value) {
  * @param {RegExp} pattern
  * @return {string?}
  */
-function Utility_match (value, pattern) {
+function match (value, pattern) {
 	return (value = pattern.exec(value)) ? value[0] : value
 }
 
@@ -74688,13 +78560,13 @@ function identifier (index) {
 }
 
 ;// ./node_modules/stylis/src/Enum.js
-var Enum_MS = '-ms-'
-var Enum_MOZ = '-moz-'
-var Enum_WEBKIT = '-webkit-'
+var MS = '-ms-'
+var MOZ = '-moz-'
+var WEBKIT = '-webkit-'
 
 var COMMENT = 'comm'
 var Enum_RULESET = 'rule'
-var Enum_DECLARATION = 'decl'
+var DECLARATION = 'decl'
 
 var PAGE = '@page'
 var MEDIA = '@media'
@@ -74704,7 +78576,7 @@ var VIEWPORT = '@viewport'
 var SUPPORTS = '@supports'
 var DOCUMENT = '@document'
 var NAMESPACE = '@namespace'
-var Enum_KEYFRAMES = '@keyframes'
+var KEYFRAMES = '@keyframes'
 var FONT_FACE = '@font-face'
 var COUNTER_STYLE = '@counter-style'
 var FONT_FEATURE_VALUES = '@font-feature-values'
@@ -74718,7 +78590,7 @@ var FONT_FEATURE_VALUES = '@font-feature-values'
  * @param {function} callback
  * @return {string}
  */
-function Serializer_serialize (children, callback) {
+function serialize (children, callback) {
 	var output = ''
 	var length = Utility_sizeof(children)
 
@@ -74737,13 +78609,134 @@ function Serializer_serialize (children, callback) {
  */
 function Serializer_stringify (element, index, children, callback) {
 	switch (element.type) {
-		case IMPORT: case Enum_DECLARATION: return element.return = element.return || element.value
+		case IMPORT: case DECLARATION: return element.return = element.return || element.value
 		case COMMENT: return ''
-		case Enum_KEYFRAMES: return element.return = element.value + '{' + Serializer_serialize(element.children, callback) + '}'
+		case KEYFRAMES: return element.return = element.value + '{' + serialize(element.children, callback) + '}'
 		case Enum_RULESET: element.value = element.props.join(',')
 	}
 
-	return Utility_strlen(children = Serializer_serialize(element.children, callback)) ? element.return = element.value + '{' + children + '}' : ''
+	return Utility_strlen(children = serialize(element.children, callback)) ? element.return = element.value + '{' + children + '}' : ''
+}
+
+;// ./node_modules/stylis/src/Prefixer.js
+
+
+
+/**
+ * @param {string} value
+ * @param {number} length
+ * @return {string}
+ */
+function Prefixer_prefix (value, length) {
+	switch (hash(value, length)) {
+		// color-adjust
+		case 5103:
+			return WEBKIT + 'print-' + value + value
+		// animation, animation-(delay|direction|duration|fill-mode|iteration-count|name|play-state|timing-function)
+		case 5737: case 4201: case 3177: case 3433: case 1641: case 4457: case 2921:
+		// text-decoration, filter, clip-path, backface-visibility, column, box-decoration-break
+		case 5572: case 6356: case 5844: case 3191: case 6645: case 3005:
+		// mask, mask-image, mask-(mode|clip|size), mask-(repeat|origin), mask-position, mask-composite,
+		case 6391: case 5879: case 5623: case 6135: case 4599: case 4855:
+		// background-clip, columns, column-(count|fill|gap|rule|rule-color|rule-style|rule-width|span|width)
+		case 4215: case 6389: case 5109: case 5365: case 5621: case 3829:
+			return WEBKIT + value + value
+		// appearance, user-select, transform, hyphens, text-size-adjust
+		case 5349: case 4246: case 4810: case 6968: case 2756:
+			return WEBKIT + value + MOZ + value + MS + value + value
+		// flex, flex-direction
+		case 6828: case 4268:
+			return WEBKIT + value + MS + value + value
+		// order
+		case 6165:
+			return WEBKIT + value + MS + 'flex-' + value + value
+		// align-items
+		case 5187:
+			return WEBKIT + value + Utility_replace(value, /(\w+).+(:[^]+)/, WEBKIT + 'box-$1$2' + MS + 'flex-$1$2') + value
+		// align-self
+		case 5443:
+			return WEBKIT + value + MS + 'flex-item-' + Utility_replace(value, /flex-|-self/, '') + value
+		// align-content
+		case 4675:
+			return WEBKIT + value + MS + 'flex-line-pack' + Utility_replace(value, /align-content|flex-|-self/, '') + value
+		// flex-shrink
+		case 5548:
+			return WEBKIT + value + MS + Utility_replace(value, 'shrink', 'negative') + value
+		// flex-basis
+		case 5292:
+			return WEBKIT + value + MS + Utility_replace(value, 'basis', 'preferred-size') + value
+		// flex-grow
+		case 6060:
+			return WEBKIT + 'box-' + Utility_replace(value, '-grow', '') + WEBKIT + value + MS + Utility_replace(value, 'grow', 'positive') + value
+		// transition
+		case 4554:
+			return WEBKIT + Utility_replace(value, /([^-])(transform)/g, '$1' + WEBKIT + '$2') + value
+		// cursor
+		case 6187:
+			return Utility_replace(Utility_replace(Utility_replace(value, /(zoom-|grab)/, WEBKIT + '$1'), /(image-set)/, WEBKIT + '$1'), value, '') + value
+		// background, background-image
+		case 5495: case 3959:
+			return Utility_replace(value, /(image-set\([^]*)/, WEBKIT + '$1' + '$`$1')
+		// justify-content
+		case 4968:
+			return Utility_replace(Utility_replace(value, /(.+:)(flex-)?(.*)/, WEBKIT + 'box-pack:$3' + MS + 'flex-pack:$3'), /s.+-b[^;]+/, 'justify') + WEBKIT + value + value
+		// (margin|padding)-inline-(start|end)
+		case 4095: case 3583: case 4068: case 2532:
+			return Utility_replace(value, /(.+)-inline(.+)/, WEBKIT + '$1$2') + value
+		// (min|max)?(width|height|inline-size|block-size)
+		case 8116: case 7059: case 5753: case 5535:
+		case 5445: case 5701: case 4933: case 4677:
+		case 5533: case 5789: case 5021: case 4765:
+			// stretch, max-content, min-content, fill-available
+			if (Utility_strlen(value) - 1 - length > 6)
+				switch (Utility_charat(value, length + 1)) {
+					// (m)ax-content, (m)in-content
+					case 109:
+						// -
+						if (Utility_charat(value, length + 4) !== 45)
+							break
+					// (f)ill-available, (f)it-content
+					case 102:
+						return Utility_replace(value, /(.+:)(.+)-([^]+)/, '$1' + WEBKIT + '$2-$3' + '$1' + MOZ + (Utility_charat(value, length + 3) == 108 ? '$3' : '$2-$3')) + value
+					// (s)tretch
+					case 115:
+						return ~indexof(value, 'stretch') ? Prefixer_prefix(Utility_replace(value, 'stretch', 'fill-available'), length) + value : value
+				}
+			break
+		// position: sticky
+		case 4949:
+			// (s)ticky?
+			if (Utility_charat(value, length + 1) !== 115)
+				break
+		// display: (flex|inline-flex)
+		case 6444:
+			switch (Utility_charat(value, Utility_strlen(value) - 3 - (~indexof(value, '!important') && 10))) {
+				// stic(k)y
+				case 107:
+					return Utility_replace(value, ':', ':' + WEBKIT) + value
+				// (inline-)?fl(e)x
+				case 101:
+					return Utility_replace(value, /(.+:)([^;!]+)(;|!.+)?/, '$1' + WEBKIT + (Utility_charat(value, 14) === 45 ? 'inline-' : '') + 'box$3' + '$1' + WEBKIT + '$2$3' + '$1' + MS + '$2box$3') + value
+			}
+			break
+		// writing-mode
+		case 5936:
+			switch (Utility_charat(value, length + 11)) {
+				// vertical-l(r)
+				case 114:
+					return WEBKIT + value + MS + Utility_replace(value, /[svh]\w+-[tblr]{2}/, 'tb') + value
+				// vertical-r(l)
+				case 108:
+					return WEBKIT + value + MS + Utility_replace(value, /[svh]\w+-[tblr]{2}/, 'tb-rl') + value
+				// horizontal(-)tb
+				case 45:
+					return WEBKIT + value + MS + Utility_replace(value, /[svh]\w+-[tblr]{2}/, 'lr') + value
+			}
+
+			return WEBKIT + value + MS + value + value
+	}
+
+	return value
 }
 
 ;// ./node_modules/stylis/src/Middleware.js
@@ -74792,23 +78785,23 @@ function prefixer (element, index, children, callback) {
 	if (element.length > -1)
 		if (!element.return)
 			switch (element.type) {
-				case DECLARATION: element.return = prefix(element.value, element.length, children)
-					return
+				case DECLARATION: element.return = Prefixer_prefix(element.value, element.length)
+					break
 				case KEYFRAMES:
-					return serialize([copy(element, {value: replace(element.value, '@', '@' + WEBKIT)})], callback)
-				case RULESET:
+					return serialize([Tokenizer_copy(element, {value: Utility_replace(element.value, '@', '@' + WEBKIT)})], callback)
+				case Enum_RULESET:
 					if (element.length)
-						return combine(element.props, function (value) {
+						return Utility_combine(element.props, function (value) {
 							switch (match(value, /(::plac\w+|:read-\w+)/)) {
 								// :read-(only|write)
 								case ':read-only': case ':read-write':
-									return serialize([copy(element, {props: [replace(value, /:(read-\w+)/, ':' + MOZ + '$1')]})], callback)
+									return serialize([Tokenizer_copy(element, {props: [Utility_replace(value, /:(read-\w+)/, ':' + MOZ + '$1')]})], callback)
 								// :placeholder
 								case '::placeholder':
 									return serialize([
-										copy(element, {props: [replace(value, /:(plac\w+)/, ':' + WEBKIT + 'input-$1')]}),
-										copy(element, {props: [replace(value, /:(plac\w+)/, ':' + MOZ + '$1')]}),
-										copy(element, {props: [replace(value, /:(plac\w+)/, MS + 'input-$1')]})
+										Tokenizer_copy(element, {props: [Utility_replace(value, /:(plac\w+)/, ':' + WEBKIT + 'input-$1')]}),
+										Tokenizer_copy(element, {props: [Utility_replace(value, /:(plac\w+)/, ':' + MOZ + '$1')]}),
+										Tokenizer_copy(element, {props: [Utility_replace(value, /:(plac\w+)/, MS + 'input-$1')]})
 									], callback)
 							}
 
@@ -74902,7 +78895,7 @@ function Parser_parse (value, root, parent, rule, rules, rulesets, pseudo, point
 		switch (previous = character, character = next()) {
 			// (
 			case 40:
-				if (previous != 108 && Utility_charat(characters, length - 1) == 58) {
+				if (previous != 108 && characters.charCodeAt(length - 1) == 58) {
 					if (indexof(characters += Utility_replace(delimit(character), '&', '&\f'), '&\f') != -1)
 						ampersand = -1
 					break
@@ -74952,7 +78945,7 @@ function Parser_parse (value, root, parent, rule, rules, rulesets, pseudo, point
 							if (offset === 0)
 								Parser_parse(characters, root, reference, reference, props, rulesets, length, points, children)
 							else
-								switch (atrule === 99 && Utility_charat(characters, 3) === 110 ? 100 : atrule) {
+								switch (atrule) {
 									// d m s
 									case 100: case 109: case 115:
 										Parser_parse(value, reference, reference, rule && Utility_append(ruleset(value, reference, reference, 0, 0, rules, points, type, rules, props = [], length), children), rules, children, length, points, rule ? props : children)
@@ -75046,13 +79039,18 @@ function comment (value, root, parent) {
  * @return {object}
  */
 function declaration (value, root, parent, length) {
-	return node(value, root, parent, Enum_DECLARATION, Utility_substr(value, 0, length), Utility_substr(value, length + 1, -1), length)
+	return node(value, root, parent, DECLARATION, Utility_substr(value, 0, length), Utility_substr(value, length + 1, -1), length)
 }
 
 ;// ./node_modules/@emotion/cache/dist/emotion-cache.browser.esm.js
 
 
 
+
+
+var last = function last(arr) {
+  return arr.length ? arr[arr.length - 1] : null;
+}; // based on https://github.com/thysultan/stylis.js/blob/e6843c373ebcbbfade25ebcc23f540ed8508da0a/src/Tokenizer.js#L239-L244
 
 
 var identifierWithPointTracking = function identifierWithPointTracking(begin, points, index) {
@@ -75182,64 +79180,19 @@ var removeLabel = function removeLabel(element) {
 var ignoreFlag = 'emotion-disable-server-rendering-unsafe-selector-warning-please-do-not-use-this-the-warning-exists-for-a-reason';
 
 var isIgnoringComment = function isIgnoringComment(element) {
-  return element.type === 'comm' && element.children.indexOf(ignoreFlag) > -1;
+  return !!element && element.type === 'comm' && element.children.indexOf(ignoreFlag) > -1;
 };
 
 var createUnsafeSelectorsAlarm = function createUnsafeSelectorsAlarm(cache) {
   return function (element, index, children) {
-    if (element.type !== 'rule' || cache.compat) return;
+    if (element.type !== 'rule') return;
     var unsafePseudoClasses = element.value.match(/(:first|:nth|:nth-last)-child/g);
 
-    if (unsafePseudoClasses) {
-      var isNested = element.parent === children[0]; // in nested rules comments become children of the "auto-inserted" rule
-      //
-      // considering this input:
-      // .a {
-      //   .b /* comm */ {}
-      //   color: hotpink;
-      // }
-      // we get output corresponding to this:
-      // .a {
-      //   & {
-      //     /* comm */
-      //     color: hotpink;
-      //   }
-      //   .b {}
-      // }
+    if (unsafePseudoClasses && cache.compat !== true) {
+      var prevElement = index > 0 ? children[index - 1] : null;
 
-      var commentContainer = isNested ? children[0].children : // global rule at the root level
-      children;
-
-      for (var i = commentContainer.length - 1; i >= 0; i--) {
-        var node = commentContainer[i];
-
-        if (node.line < element.line) {
-          break;
-        } // it is quite weird but comments are *usually* put at `column: element.column - 1`
-        // so we seek *from the end* for the node that is earlier than the rule's `element` and check that
-        // this will also match inputs like this:
-        // .a {
-        //   /* comm */
-        //   .b {}
-        // }
-        //
-        // but that is fine
-        //
-        // it would be the easiest to change the placement of the comment to be the first child of the rule:
-        // .a {
-        //   .b { /* comm */ }
-        // }
-        // with such inputs we wouldn't have to search for the comment at all
-        // TODO: consider changing this comment placement in the next major version
-
-
-        if (node.column < element.column) {
-          if (isIgnoringComment(node)) {
-            return;
-          }
-
-          break;
-        }
+      if (prevElement && isIgnoringComment(last(prevElement.children))) {
+        return;
       }
 
       unsafePseudoClasses.forEach(function (unsafePseudoClass) {
@@ -75288,219 +79241,7 @@ var incorrectImportAlarm = function incorrectImportAlarm(element, index, childre
   }
 };
 
-/* eslint-disable no-fallthrough */
-
-function emotion_cache_browser_esm_prefix(value, length) {
-  switch (hash(value, length)) {
-    // color-adjust
-    case 5103:
-      return Enum_WEBKIT + 'print-' + value + value;
-    // animation, animation-(delay|direction|duration|fill-mode|iteration-count|name|play-state|timing-function)
-
-    case 5737:
-    case 4201:
-    case 3177:
-    case 3433:
-    case 1641:
-    case 4457:
-    case 2921: // text-decoration, filter, clip-path, backface-visibility, column, box-decoration-break
-
-    case 5572:
-    case 6356:
-    case 5844:
-    case 3191:
-    case 6645:
-    case 3005: // mask, mask-image, mask-(mode|clip|size), mask-(repeat|origin), mask-position, mask-composite,
-
-    case 6391:
-    case 5879:
-    case 5623:
-    case 6135:
-    case 4599:
-    case 4855: // background-clip, columns, column-(count|fill|gap|rule|rule-color|rule-style|rule-width|span|width)
-
-    case 4215:
-    case 6389:
-    case 5109:
-    case 5365:
-    case 5621:
-    case 3829:
-      return Enum_WEBKIT + value + value;
-    // appearance, user-select, transform, hyphens, text-size-adjust
-
-    case 5349:
-    case 4246:
-    case 4810:
-    case 6968:
-    case 2756:
-      return Enum_WEBKIT + value + Enum_MOZ + value + Enum_MS + value + value;
-    // flex, flex-direction
-
-    case 6828:
-    case 4268:
-      return Enum_WEBKIT + value + Enum_MS + value + value;
-    // order
-
-    case 6165:
-      return Enum_WEBKIT + value + Enum_MS + 'flex-' + value + value;
-    // align-items
-
-    case 5187:
-      return Enum_WEBKIT + value + Utility_replace(value, /(\w+).+(:[^]+)/, Enum_WEBKIT + 'box-$1$2' + Enum_MS + 'flex-$1$2') + value;
-    // align-self
-
-    case 5443:
-      return Enum_WEBKIT + value + Enum_MS + 'flex-item-' + Utility_replace(value, /flex-|-self/, '') + value;
-    // align-content
-
-    case 4675:
-      return Enum_WEBKIT + value + Enum_MS + 'flex-line-pack' + Utility_replace(value, /align-content|flex-|-self/, '') + value;
-    // flex-shrink
-
-    case 5548:
-      return Enum_WEBKIT + value + Enum_MS + Utility_replace(value, 'shrink', 'negative') + value;
-    // flex-basis
-
-    case 5292:
-      return Enum_WEBKIT + value + Enum_MS + Utility_replace(value, 'basis', 'preferred-size') + value;
-    // flex-grow
-
-    case 6060:
-      return Enum_WEBKIT + 'box-' + Utility_replace(value, '-grow', '') + Enum_WEBKIT + value + Enum_MS + Utility_replace(value, 'grow', 'positive') + value;
-    // transition
-
-    case 4554:
-      return Enum_WEBKIT + Utility_replace(value, /([^-])(transform)/g, '$1' + Enum_WEBKIT + '$2') + value;
-    // cursor
-
-    case 6187:
-      return Utility_replace(Utility_replace(Utility_replace(value, /(zoom-|grab)/, Enum_WEBKIT + '$1'), /(image-set)/, Enum_WEBKIT + '$1'), value, '') + value;
-    // background, background-image
-
-    case 5495:
-    case 3959:
-      return Utility_replace(value, /(image-set\([^]*)/, Enum_WEBKIT + '$1' + '$`$1');
-    // justify-content
-
-    case 4968:
-      return Utility_replace(Utility_replace(value, /(.+:)(flex-)?(.*)/, Enum_WEBKIT + 'box-pack:$3' + Enum_MS + 'flex-pack:$3'), /s.+-b[^;]+/, 'justify') + Enum_WEBKIT + value + value;
-    // (margin|padding)-inline-(start|end)
-
-    case 4095:
-    case 3583:
-    case 4068:
-    case 2532:
-      return Utility_replace(value, /(.+)-inline(.+)/, Enum_WEBKIT + '$1$2') + value;
-    // (min|max)?(width|height|inline-size|block-size)
-
-    case 8116:
-    case 7059:
-    case 5753:
-    case 5535:
-    case 5445:
-    case 5701:
-    case 4933:
-    case 4677:
-    case 5533:
-    case 5789:
-    case 5021:
-    case 4765:
-      // stretch, max-content, min-content, fill-available
-      if (Utility_strlen(value) - 1 - length > 6) switch (Utility_charat(value, length + 1)) {
-        // (m)ax-content, (m)in-content
-        case 109:
-          // -
-          if (Utility_charat(value, length + 4) !== 45) break;
-        // (f)ill-available, (f)it-content
-
-        case 102:
-          return Utility_replace(value, /(.+:)(.+)-([^]+)/, '$1' + Enum_WEBKIT + '$2-$3' + '$1' + Enum_MOZ + (Utility_charat(value, length + 3) == 108 ? '$3' : '$2-$3')) + value;
-        // (s)tretch
-
-        case 115:
-          return ~indexof(value, 'stretch') ? emotion_cache_browser_esm_prefix(Utility_replace(value, 'stretch', 'fill-available'), length) + value : value;
-      }
-      break;
-    // position: sticky
-
-    case 4949:
-      // (s)ticky?
-      if (Utility_charat(value, length + 1) !== 115) break;
-    // display: (flex|inline-flex)
-
-    case 6444:
-      switch (Utility_charat(value, Utility_strlen(value) - 3 - (~indexof(value, '!important') && 10))) {
-        // stic(k)y
-        case 107:
-          return Utility_replace(value, ':', ':' + Enum_WEBKIT) + value;
-        // (inline-)?fl(e)x
-
-        case 101:
-          return Utility_replace(value, /(.+:)([^;!]+)(;|!.+)?/, '$1' + Enum_WEBKIT + (Utility_charat(value, 14) === 45 ? 'inline-' : '') + 'box$3' + '$1' + Enum_WEBKIT + '$2$3' + '$1' + Enum_MS + '$2box$3') + value;
-      }
-
-      break;
-    // writing-mode
-
-    case 5936:
-      switch (Utility_charat(value, length + 11)) {
-        // vertical-l(r)
-        case 114:
-          return Enum_WEBKIT + value + Enum_MS + Utility_replace(value, /[svh]\w+-[tblr]{2}/, 'tb') + value;
-        // vertical-r(l)
-
-        case 108:
-          return Enum_WEBKIT + value + Enum_MS + Utility_replace(value, /[svh]\w+-[tblr]{2}/, 'tb-rl') + value;
-        // horizontal(-)tb
-
-        case 45:
-          return Enum_WEBKIT + value + Enum_MS + Utility_replace(value, /[svh]\w+-[tblr]{2}/, 'lr') + value;
-      }
-
-      return Enum_WEBKIT + value + Enum_MS + value + value;
-  }
-
-  return value;
-}
-
-var emotion_cache_browser_esm_prefixer = function prefixer(element, index, children, callback) {
-  if (element.length > -1) if (!element["return"]) switch (element.type) {
-    case Enum_DECLARATION:
-      element["return"] = emotion_cache_browser_esm_prefix(element.value, element.length);
-      break;
-
-    case Enum_KEYFRAMES:
-      return Serializer_serialize([Tokenizer_copy(element, {
-        value: Utility_replace(element.value, '@', '@' + Enum_WEBKIT)
-      })], callback);
-
-    case Enum_RULESET:
-      if (element.length) return Utility_combine(element.props, function (value) {
-        switch (Utility_match(value, /(::plac\w+|:read-\w+)/)) {
-          // :read-(only|write)
-          case ':read-only':
-          case ':read-write':
-            return Serializer_serialize([Tokenizer_copy(element, {
-              props: [Utility_replace(value, /:(read-\w+)/, ':' + Enum_MOZ + '$1')]
-            })], callback);
-          // :placeholder
-
-          case '::placeholder':
-            return Serializer_serialize([Tokenizer_copy(element, {
-              props: [Utility_replace(value, /:(plac\w+)/, ':' + Enum_WEBKIT + 'input-$1')]
-            }), Tokenizer_copy(element, {
-              props: [Utility_replace(value, /:(plac\w+)/, ':' + Enum_MOZ + '$1')]
-            }), Tokenizer_copy(element, {
-              props: [Utility_replace(value, /:(plac\w+)/, Enum_MS + 'input-$1')]
-            })], callback);
-        }
-
-        return '';
-      });
-  }
-};
-
-var defaultStylisPlugins = [emotion_cache_browser_esm_prefixer];
+var defaultStylisPlugins = [prefixer];
 
 var createCache = function createCache(options) {
   var key = options.key;
@@ -75534,7 +79275,8 @@ var createCache = function createCache(options) {
 
   if (false) {}
 
-  var inserted = {};
+  var inserted = {}; // $FlowFixMe
+
   var container;
   var nodesToHydrate = [];
 
@@ -75567,7 +79309,7 @@ var createCache = function createCache(options) {
     var serializer = middleware(omnipresentPlugins.concat(stylisPlugins, finalizingPlugins));
 
     var stylis = function stylis(styles) {
-      return Serializer_serialize(compile(styles), serializer);
+      return serialize(compile(styles), serializer);
     };
 
     _insert = function insert(selector, serialized, sheet, shouldCache) {
@@ -75659,11 +79401,12 @@ function murmur2(str) {
   return ((h ^ h >>> 15) >>> 0).toString(36);
 }
 
-/* harmony default export */ const emotion_hash_esm = (murmur2);
+
 
 ;// ./node_modules/@emotion/unitless/dist/emotion-unitless.esm.js
 var unitlessKeys = {
   animationIterationCount: 1,
+  aspectRatio: 1,
   borderImageOutset: 1,
   borderImageSlice: 1,
   borderImageWidth: 1,
@@ -75711,7 +79454,18 @@ var unitlessKeys = {
   strokeWidth: 1
 };
 
-/* harmony default export */ const emotion_unitless_esm = (unitlessKeys);
+
+
+;// ./node_modules/@emotion/serialize/node_modules/@emotion/memoize/dist/emotion-memoize.esm.js
+function emotion_memoize_esm_memoize(fn) {
+  var cache = Object.create(null);
+  return function (arg) {
+    if (cache[arg] === undefined) cache[arg] = fn(arg);
+    return cache[arg];
+  };
+}
+
+
 
 ;// ./node_modules/@emotion/serialize/dist/emotion-serialize.browser.esm.js
 
@@ -75731,7 +79485,7 @@ var isProcessableValue = function isProcessableValue(value) {
   return value != null && typeof value !== 'boolean';
 };
 
-var processStyleName = /* #__PURE__ */memoize(function (styleName) {
+var processStyleName = /* #__PURE__ */emotion_memoize_esm_memoize(function (styleName) {
   return isCustomProperty(styleName) ? styleName : styleName.replace(hyphenateRegex, '-$&').toLowerCase();
 });
 
@@ -75753,7 +79507,7 @@ var processStyleValue = function processStyleValue(key, value) {
       }
   }
 
-  if (emotion_unitless_esm[key] !== 1 && !isCustomProperty(key) && typeof value === 'number' && value !== 0) {
+  if (unitlessKeys[key] !== 1 && !isCustomProperty(key) && typeof value === 'number' && value !== 0) {
     return value + 'px';
   }
 
@@ -75949,7 +79703,7 @@ var emotion_serialize_browser_esm_serializeStyles = function serializeStyles(arg
     match[1];
   }
 
-  var name = emotion_hash_esm(styles) + identifierName;
+  var name = murmur2(styles) + identifierName;
 
   if (false) {}
 
@@ -75962,21 +79716,7 @@ var emotion_serialize_browser_esm_serializeStyles = function serializeStyles(arg
 
 
 
-;// ./node_modules/@emotion/use-insertion-effect-with-fallbacks/dist/emotion-use-insertion-effect-with-fallbacks.browser.esm.js
-
-
-
-var syncFallback = function syncFallback(create) {
-  return create();
-};
-
-var useInsertionEffect = external_React_['useInsertion' + 'Effect'] ? external_React_['useInsertion' + 'Effect'] : false;
-var emotion_use_insertion_effect_with_fallbacks_browser_esm_useInsertionEffectAlwaysWithSyncFallback =  useInsertionEffect || syncFallback;
-var useInsertionEffectWithLayoutFallback = (/* unused pure expression or super */ null && (useInsertionEffect || useLayoutEffect));
-
-
-
-;// ./node_modules/@emotion/react/dist/emotion-element-6a883da9.browser.esm.js
+;// ./node_modules/@emotion/react/dist/emotion-element-699e6908.browser.esm.js
 
 
 
@@ -75985,8 +79725,7 @@ var useInsertionEffectWithLayoutFallback = (/* unused pure expression or super *
 
 
 
-
-var emotion_element_6a883da9_browser_esm_hasOwnProperty = {}.hasOwnProperty;
+var emotion_element_699e6908_browser_esm_hasOwnProperty = {}.hasOwnProperty;
 
 var EmotionCacheContext = /* #__PURE__ */(0,external_React_.createContext)( // we're doing this to avoid preconstruct's dead code elimination in this one case
 // because this module is primarily intended for the browser and node
@@ -76069,20 +79808,19 @@ function withTheme(Component) {
   return hoistNonReactStatics(WithTheme, Component);
 }
 
-var getLastPart = function getLastPart(functionName) {
-  // The match may be something like 'Object.createEmotionProps' or
-  // 'Loader.prototype.render'
-  var parts = functionName.split('.');
-  return parts[parts.length - 1];
-};
-
 var getFunctionNameFromStackTraceLine = function getFunctionNameFromStackTraceLine(line) {
   // V8
   var match = /^\s+at\s+([A-Za-z0-9$.]+)\s/.exec(line);
-  if (match) return getLastPart(match[1]); // Safari / Firefox
+
+  if (match) {
+    // The match may be something like 'Object.createEmotionProps'
+    var parts = match[1].split('.');
+    return parts[parts.length - 1];
+  } // Safari / Firefox
+
 
   match = /^([A-Za-z0-9$.]+)@/.exec(line);
-  if (match) return getLastPart(match[1]);
+  if (match) return match[1];
   return undefined;
 };
 
@@ -76120,7 +79858,7 @@ var createEmotionProps = function createEmotionProps(type, props) {
   var newProps = {};
 
   for (var key in props) {
-    if (emotion_element_6a883da9_browser_esm_hasOwnProperty.call(props, key)) {
+    if (emotion_element_699e6908_browser_esm_hasOwnProperty.call(props, key)) {
       newProps[key] = props[key];
     }
   }
@@ -76133,15 +79871,7 @@ var createEmotionProps = function createEmotionProps(type, props) {
   return newProps;
 };
 
-var Insertion = function Insertion(_ref) {
-  var cache = _ref.cache,
-      serialized = _ref.serialized,
-      isStringTag = _ref.isStringTag;
-  registerStyles(cache, serialized, isStringTag);
-  var rules = useInsertionEffectAlwaysWithSyncFallback(function () {
-    return insertStyles(cache, serialized, isStringTag);
-  });
-
+var Noop = function Noop() {
   return null;
 };
 
@@ -76154,7 +79884,7 @@ var Emotion = /* #__PURE__ */(/* unused pure expression or super */ null && (wit
     cssProp = cache.registered[cssProp];
   }
 
-  var WrappedComponent = props[typePropName];
+  var type = props[typePropName];
   var registeredStyles = [cssProp];
   var className = '';
 
@@ -76168,22 +79898,23 @@ var Emotion = /* #__PURE__ */(/* unused pure expression or super */ null && (wit
 
   if (false) { var labelFromStack; }
 
+  var rules = insertStyles(cache, serialized, typeof type === 'string');
   className += cache.key + "-" + serialized.name;
   var newProps = {};
 
   for (var key in props) {
-    if (emotion_element_6a883da9_browser_esm_hasOwnProperty.call(props, key) && key !== 'css' && key !== typePropName && ( true || 0)) {
+    if (emotion_element_699e6908_browser_esm_hasOwnProperty.call(props, key) && key !== 'css' && key !== typePropName && ( true || 0)) {
       newProps[key] = props[key];
     }
   }
 
   newProps.ref = ref;
   newProps.className = className;
-  return /*#__PURE__*/createElement(Fragment, null, /*#__PURE__*/createElement(Insertion, {
-    cache: cache,
-    serialized: serialized,
-    isStringTag: typeof WrappedComponent === 'string'
-  }), /*#__PURE__*/createElement(WrappedComponent, newProps));
+  var ele = /*#__PURE__*/createElement(type, newProps);
+  var possiblyStyleElement = /*#__PURE__*/createElement(Noop, null);
+
+
+  return /*#__PURE__*/createElement(Fragment, null, possiblyStyleElement, ele);
 })));
 
 if (false) {}
@@ -76203,7 +79934,7 @@ function emotion_utils_browser_esm_getRegisteredStyles(registered, registeredSty
   });
   return rawClassName;
 }
-var emotion_utils_browser_esm_registerStyles = function registerStyles(cache, serialized, isStringTag) {
+var registerStyles = function registerStyles(cache, serialized, isStringTag) {
   var className = cache.key + "-" + serialized.name;
 
   if ( // we only need to add the styles to the registered cache if the
@@ -76220,14 +79951,14 @@ var emotion_utils_browser_esm_registerStyles = function registerStyles(cache, se
   }
 };
 var emotion_utils_browser_esm_insertStyles = function insertStyles(cache, serialized, isStringTag) {
-  emotion_utils_browser_esm_registerStyles(cache, serialized, isStringTag);
+  registerStyles(cache, serialized, isStringTag);
   var className = cache.key + "-" + serialized.name;
 
   if (cache.inserted[serialized.name] === undefined) {
     var current = serialized;
 
     do {
-      var maybeStyles = cache.insert(serialized === current ? "." + className : '', current, cache.sheet, true);
+      cache.insert(serialized === current ? "." + className : '', current, cache.sheet, true);
 
       current = current.next;
     } while (current !== undefined);
@@ -76237,7 +79968,6 @@ var emotion_utils_browser_esm_insertStyles = function insertStyles(cache, serial
 
 
 ;// ./node_modules/@emotion/styled/base/dist/emotion-styled-base.browser.esm.js
-
 
 
 
@@ -76276,15 +80006,7 @@ var composeShouldForwardProps = function composeShouldForwardProps(tag, options,
 
 var emotion_styled_base_browser_esm_ILLEGAL_ESCAPE_SEQUENCE_ERROR = "You have illegal escape sequence in your template literal, most likely inside content's property value.\nBecause you write your CSS inside a JavaScript string you actually have to do double escaping, so for example \"content: '\\00d7';\" should become \"content: '\\\\00d7';\".\nYou can read more about this here:\nhttps://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#ES2018_revision_of_illegal_escape_sequences";
 
-var emotion_styled_base_browser_esm_Insertion = function Insertion(_ref) {
-  var cache = _ref.cache,
-      serialized = _ref.serialized,
-      isStringTag = _ref.isStringTag;
-  emotion_utils_browser_esm_registerStyles(cache, serialized, isStringTag);
-  var rules = emotion_use_insertion_effect_with_fallbacks_browser_esm_useInsertionEffectAlwaysWithSyncFallback(function () {
-    return emotion_utils_browser_esm_insertStyles(cache, serialized, isStringTag);
-  });
-
+var emotion_styled_base_browser_esm_Noop = function Noop() {
   return null;
 };
 
@@ -76330,7 +80052,7 @@ var createStyled = function createStyled(tag, options) {
 
 
     var Styled = withEmotionCache(function (props, cache, ref) {
-      var FinalTag = shouldUseAs && props.as || baseTag;
+      var finalTag = shouldUseAs && props.as || baseTag;
       var className = '';
       var classInterpolations = [];
       var mergedProps = props;
@@ -76352,13 +80074,14 @@ var createStyled = function createStyled(tag, options) {
       }
 
       var serialized = emotion_serialize_browser_esm_serializeStyles(styles.concat(classInterpolations), cache.registered, mergedProps);
+      var rules = emotion_utils_browser_esm_insertStyles(cache, serialized, typeof finalTag === 'string');
       className += cache.key + "-" + serialized.name;
 
       if (targetClassName !== undefined) {
         className += " " + targetClassName;
       }
 
-      var finalShouldForwardProp = shouldUseAs && shouldForwardProp === undefined ? getDefaultShouldForwardProp(FinalTag) : defaultShouldForwardProp;
+      var finalShouldForwardProp = shouldUseAs && shouldForwardProp === undefined ? getDefaultShouldForwardProp(finalTag) : defaultShouldForwardProp;
       var newProps = {};
 
       for (var _key in props) {
@@ -76372,11 +80095,11 @@ var createStyled = function createStyled(tag, options) {
 
       newProps.className = className;
       newProps.ref = ref;
-      return /*#__PURE__*/(0,external_React_.createElement)(external_React_.Fragment, null, /*#__PURE__*/(0,external_React_.createElement)(emotion_styled_base_browser_esm_Insertion, {
-        cache: cache,
-        serialized: serialized,
-        isStringTag: typeof FinalTag === 'string'
-      }), /*#__PURE__*/(0,external_React_.createElement)(FinalTag, newProps));
+      var ele = /*#__PURE__*/(0,external_React_.createElement)(finalTag, newProps);
+      var possiblyStyleElement = /*#__PURE__*/(0,external_React_.createElement)(emotion_styled_base_browser_esm_Noop, null);
+
+
+      return /*#__PURE__*/(0,external_React_.createElement)(external_React_.Fragment, null, possiblyStyleElement, ele);
     });
     Styled.displayName = identifierName !== undefined ? identifierName : "Styled(" + (typeof baseTag === 'string' ? baseTag : baseTag.displayName || baseTag.name || 'Component') + ")";
     Styled.defaultProps = tag.defaultProps;
@@ -76405,7 +80128,7 @@ var createStyled = function createStyled(tag, options) {
 
 /* harmony default export */ const emotion_styled_base_browser_esm = (createStyled);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/dimensions-tool/width-height-tool.js
+;// ./packages/block-editor/build-module/components/dimensions-tool/width-height-tool.js
 
 function _EMOTION_STRINGIFIED_CSS_ERROR__() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
 /**
@@ -76517,7 +80240,7 @@ function WidthHeightTool({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/dimensions-tool/index.js
+;// ./packages/block-editor/build-module/components/dimensions-tool/index.js
 /**
  * WP dependencies
  */
@@ -76723,7 +80446,7 @@ function DimensionsTool({
 }
 /* harmony default export */ const dimensions_tool = (DimensionsTool);
 
-;// ./node_modules/@wordpress/block-editor/build-module/components/resolution-tool/index.js
+;// ./packages/block-editor/build-module/components/resolution-tool/index.js
 /**
  * WP dependencies
  */
@@ -76772,12 +80495,10 @@ function ResolutionTool({
   });
 }
 
-;// ./node_modules/@wordpress/block-editor/build-module/private-apis.js
+;// ./packages/block-editor/build-module/private-apis.js
 /**
  * Internal dependencies
  */
-
-
 
 
 
@@ -76856,7 +80577,7 @@ lock(privateApis, {
   sectionRootClientIdKey: sectionRootClientIdKey
 });
 
-;// ./node_modules/@wordpress/block-editor/build-module/index.js
+;// ./packages/block-editor/build-module/index.js
 /**
  * Internal dependencies
  */

@@ -2,7 +2,7 @@
 /******/ 	"use strict";
 /******/ 	// The require scope
 /******/ 	var __webpack_require__ = {};
-/******/
+/******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
@@ -15,12 +15,12 @@
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -31,7 +31,7 @@
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
 // ESM COMPAT FLAG
@@ -42,7 +42,7 @@ __webpack_require__.d(__webpack_exports__, {
   store: () => (/* reexport */ store)
 });
 
-// NAMESPACE OBJECT: ./node_modules/@wordpress/notices/build-module/store/actions.js
+// NAMESPACE OBJECT: ./packages/notices/build-module/store/actions.js
 var actions_namespaceObject = {};
 __webpack_require__.r(actions_namespaceObject);
 __webpack_require__.d(actions_namespaceObject, {
@@ -56,16 +56,16 @@ __webpack_require__.d(actions_namespaceObject, {
   removeNotices: () => (removeNotices)
 });
 
-// NAMESPACE OBJECT: ./node_modules/@wordpress/notices/build-module/store/selectors.js
+// NAMESPACE OBJECT: ./packages/notices/build-module/store/selectors.js
 var selectors_namespaceObject = {};
 __webpack_require__.r(selectors_namespaceObject);
 __webpack_require__.d(selectors_namespaceObject, {
   getNotices: () => (getNotices)
 });
 
-;// CONCATENATED MODULE: external ["wp","data"]
+;// external ["wp","data"]
 const external_wp_data_namespaceObject = window["wp"]["data"];
-;// CONCATENATED MODULE: ./node_modules/@wordpress/notices/build-module/store/utils/on-sub-key.js
+;// ./packages/notices/build-module/store/utils/on-sub-key.js
 /**
  * Higher-order reducer creator which creates a combined reducer object, keyed
  * by a property on the action object.
@@ -95,7 +95,7 @@ const onSubKey = actionProperty => reducer => (state = {}, action) => {
 };
 /* harmony default export */ const on_sub_key = (onSubKey);
 
-;// CONCATENATED MODULE: ./node_modules/@wordpress/notices/build-module/store/reducer.js
+;// ./packages/notices/build-module/store/reducer.js
 /**
  * Internal dependencies
  */
@@ -134,7 +134,7 @@ const notices = on_sub_key('context')((state = [], action) => {
 });
 /* harmony default export */ const reducer = (notices);
 
-;// CONCATENATED MODULE: ./node_modules/@wordpress/notices/build-module/store/constants.js
+;// ./packages/notices/build-module/store/constants.js
 /**
  * Default context to use for notice grouping when not otherwise specified. Its
  * specific value doesn't hold much meaning, but it must be reasonably unique
@@ -151,7 +151,7 @@ const DEFAULT_CONTEXT = 'global';
  */
 const DEFAULT_STATUS = 'info';
 
-;// CONCATENATED MODULE: ./node_modules/@wordpress/notices/build-module/store/actions.js
+;// ./packages/notices/build-module/store/actions.js
 /**
  * Internal dependencies
  */
@@ -566,7 +566,7 @@ function removeNotices(ids, context = DEFAULT_CONTEXT) {
   };
 }
 
-;// CONCATENATED MODULE: ./node_modules/@wordpress/notices/build-module/store/selectors.js
+;// ./packages/notices/build-module/store/selectors.js
 /**
  * Internal dependencies
  */
@@ -641,7 +641,7 @@ function getNotices(state, context = DEFAULT_CONTEXT) {
   return state[context] || DEFAULT_NOTICES;
 }
 
-;// CONCATENATED MODULE: ./node_modules/@wordpress/notices/build-module/store/index.js
+;// ./packages/notices/build-module/store/index.js
 /**
  * WP dependencies
  */
@@ -657,7 +657,7 @@ function getNotices(state, context = DEFAULT_CONTEXT) {
 /**
  * Store definition for the notices namespace.
  *
- * @see https://github.com/WordPress/gutenberg/blob/HEAD/packages/data/README.md#createReduxStore
+ * @see https://github.com/wordpress/gutenberg/blob/HEAD/packages/data/README.md#createReduxStore
  */
 const store = (0,external_wp_data_namespaceObject.createReduxStore)('core/notices', {
   reducer: reducer,
@@ -666,7 +666,7 @@ const store = (0,external_wp_data_namespaceObject.createReduxStore)('core/notice
 });
 (0,external_wp_data_namespaceObject.register)(store);
 
-;// CONCATENATED MODULE: ./node_modules/@wordpress/notices/build-module/index.js
+;// ./packages/notices/build-module/index.js
 
 
 (window.wp = window.wp || {}).notices = __webpack_exports__;

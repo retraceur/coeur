@@ -29,21 +29,21 @@ __webpack_require__.d(__webpack_exports__, {
   "default": () => (/* binding */ warning)
 });
 
-;// CONCATENATED MODULE: ./node_modules/@wordpress/warning/build-module/utils.js
+;// ./packages/warning/build-module/utils.js
 /**
  * Object map tracking messages which have been logged, for use in ensuring a
  * message is only logged once.
  */
 const logged = new Set();
 
-;// CONCATENATED MODULE: ./node_modules/@wordpress/warning/build-module/index.js
+;// ./packages/warning/build-module/index.js
 /**
  * Internal dependencies
  */
 
 function isDev() {
   // eslint-disable-next-line @wordpress/wp-global-usage
-  return true === true;
+  return false === true;
 }
 
 /**

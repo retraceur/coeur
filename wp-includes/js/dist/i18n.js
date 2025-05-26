@@ -20,11 +20,11 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/* global window, exports, define */
         not_json: /[^j]/,
         text: /^[^\x25]+/,
         modulo: /^\x25{2}/,
-        placeholder: /^\x25(?:([1-9]\d*)\$|\(([^)]+)\))?(\+)?(0|'[^$])?(-)?(\d+)?(?:\.(\d+))?([b-gijostTuvxX])/,
+        placeholder: /^\x25(?:([1-9]\d*)\$|\(([^\)]+)\))?(\+)?(0|'[^$])?(-)?(\d+)?(?:\.(\d+))?([b-gijostTuvxX])/,
         key: /^([a-z_][a-z_\d]*)/i,
         key_access: /^\.([a-z_][a-z_\d]*)/i,
         index_access: /^\[(\d+)\]/,
-        sign: /^[+-]/
+        sign: /^[\+\-]/
     }
 
     function sprintf(key) {
@@ -37,42 +37,42 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/* global window, exports, define */
     }
 
     function sprintf_format(parse_tree, argv) {
-        var cursor = 1, tree_length = parse_tree.length, arg, output = '', i, k, ph, pad, pad_character, pad_length, is_positive, sign
+        var cursor = 1, tree_length = parse_tree.length, arg, output = '', i, k, match, pad, pad_character, pad_length, is_positive, sign
         for (i = 0; i < tree_length; i++) {
             if (typeof parse_tree[i] === 'string') {
                 output += parse_tree[i]
             }
-            else if (typeof parse_tree[i] === 'object') {
-                ph = parse_tree[i] // convenience purposes only
-                if (ph.keys) { // keyword argument
+            else if (Array.isArray(parse_tree[i])) {
+                match = parse_tree[i] // convenience purposes only
+                if (match[2]) { // keyword argument
                     arg = argv[cursor]
-                    for (k = 0; k < ph.keys.length; k++) {
-                        if (arg == undefined) {
-                            throw new Error(sprintf('[sprintf] Cannot access property "%s" of undefined value "%s"', ph.keys[k], ph.keys[k-1]))
+                    for (k = 0; k < match[2].length; k++) {
+                        if (!arg.hasOwnProperty(match[2][k])) {
+                            throw new Error(sprintf('[sprintf] property "%s" does not exist', match[2][k]))
                         }
-                        arg = arg[ph.keys[k]]
+                        arg = arg[match[2][k]]
                     }
                 }
-                else if (ph.param_no) { // positional argument (explicit)
-                    arg = argv[ph.param_no]
+                else if (match[1]) { // positional argument (explicit)
+                    arg = argv[match[1]]
                 }
                 else { // positional argument (implicit)
                     arg = argv[cursor++]
                 }
 
-                if (re.not_type.test(ph.type) && re.not_primitive.test(ph.type) && arg instanceof Function) {
+                if (re.not_type.test(match[8]) && re.not_primitive.test(match[8]) && arg instanceof Function) {
                     arg = arg()
                 }
 
-                if (re.numeric_arg.test(ph.type) && (typeof arg !== 'number' && isNaN(arg))) {
+                if (re.numeric_arg.test(match[8]) && (typeof arg !== 'number' && isNaN(arg))) {
                     throw new TypeError(sprintf('[sprintf] expecting number but found %T', arg))
                 }
 
-                if (re.number.test(ph.type)) {
+                if (re.number.test(match[8])) {
                     is_positive = arg >= 0
                 }
 
-                switch (ph.type) {
+                switch (match[8]) {
                     case 'b':
                         arg = parseInt(arg, 10).toString(2)
                         break
@@ -84,38 +84,38 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/* global window, exports, define */
                         arg = parseInt(arg, 10)
                         break
                     case 'j':
-                        arg = JSON.stringify(arg, null, ph.width ? parseInt(ph.width) : 0)
+                        arg = JSON.stringify(arg, null, match[6] ? parseInt(match[6]) : 0)
                         break
                     case 'e':
-                        arg = ph.precision ? parseFloat(arg).toExponential(ph.precision) : parseFloat(arg).toExponential()
+                        arg = match[7] ? parseFloat(arg).toExponential(match[7]) : parseFloat(arg).toExponential()
                         break
                     case 'f':
-                        arg = ph.precision ? parseFloat(arg).toFixed(ph.precision) : parseFloat(arg)
+                        arg = match[7] ? parseFloat(arg).toFixed(match[7]) : parseFloat(arg)
                         break
                     case 'g':
-                        arg = ph.precision ? String(Number(arg.toPrecision(ph.precision))) : parseFloat(arg)
+                        arg = match[7] ? String(Number(arg.toPrecision(match[7]))) : parseFloat(arg)
                         break
                     case 'o':
                         arg = (parseInt(arg, 10) >>> 0).toString(8)
                         break
                     case 's':
                         arg = String(arg)
-                        arg = (ph.precision ? arg.substring(0, ph.precision) : arg)
+                        arg = (match[7] ? arg.substring(0, match[7]) : arg)
                         break
                     case 't':
                         arg = String(!!arg)
-                        arg = (ph.precision ? arg.substring(0, ph.precision) : arg)
+                        arg = (match[7] ? arg.substring(0, match[7]) : arg)
                         break
                     case 'T':
                         arg = Object.prototype.toString.call(arg).slice(8, -1).toLowerCase()
-                        arg = (ph.precision ? arg.substring(0, ph.precision) : arg)
+                        arg = (match[7] ? arg.substring(0, match[7]) : arg)
                         break
                     case 'u':
                         arg = parseInt(arg, 10) >>> 0
                         break
                     case 'v':
                         arg = arg.valueOf()
-                        arg = (ph.precision ? arg.substring(0, ph.precision) : arg)
+                        arg = (match[7] ? arg.substring(0, match[7]) : arg)
                         break
                     case 'x':
                         arg = (parseInt(arg, 10) >>> 0).toString(16)
@@ -124,21 +124,21 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/* global window, exports, define */
                         arg = (parseInt(arg, 10) >>> 0).toString(16).toUpperCase()
                         break
                 }
-                if (re.json.test(ph.type)) {
+                if (re.json.test(match[8])) {
                     output += arg
                 }
                 else {
-                    if (re.number.test(ph.type) && (!is_positive || ph.sign)) {
+                    if (re.number.test(match[8]) && (!is_positive || match[3])) {
                         sign = is_positive ? '+' : '-'
                         arg = arg.toString().replace(re.sign, '')
                     }
                     else {
                         sign = ''
                     }
-                    pad_character = ph.pad_char ? ph.pad_char === '0' ? '0' : ph.pad_char.charAt(1) : ' '
-                    pad_length = ph.width - (sign + arg).length
-                    pad = ph.width ? (pad_length > 0 ? pad_character.repeat(pad_length) : '') : ''
-                    output += ph.align ? sign + arg + pad : (pad_character === '0' ? sign + pad + arg : pad + sign + arg)
+                    pad_character = match[4] ? match[4] === '0' ? '0' : match[4].charAt(1) : ' '
+                    pad_length = match[6] - (sign + arg).length
+                    pad = match[6] ? (pad_length > 0 ? pad_character.repeat(pad_length) : '') : ''
+                    output += match[5] ? sign + arg + pad : (pad_character === '0' ? sign + pad + arg : pad + sign + arg)
                 }
             }
         }
@@ -189,20 +189,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/* global window, exports, define */
                 if (arg_names === 3) {
                     throw new Error('[sprintf] mixing positional and named placeholders is not (yet) supported')
                 }
-
-                parse_tree.push(
-                    {
-                        placeholder: match[0],
-                        param_no:    match[1],
-                        keys:        match[2],
-                        sign:        match[3],
-                        pad_char:    match[4],
-                        align:       match[5],
-                        width:       match[6],
-                        precision:   match[7],
-                        type:        match[8]
-                    }
-                )
+                parse_tree.push(match)
             }
             else {
                 throw new SyntaxError('[sprintf] unexpected placeholder')
@@ -235,7 +222,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/* global window, exports, define */
         }
     }
     /* eslint-enable quote-props */
-}(); // eslint-disable-line
+}()
 
 
 /***/ })
@@ -244,7 +231,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/* global window, exports, define */
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/
+/******/ 	
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -258,14 +245,14 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/* global window, exports, define */
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
-/******/
+/******/ 	
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/
+/******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/
+/******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
@@ -278,7 +265,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/* global window, exports, define */
 /******/ 			return getter;
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -290,12 +277,12 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/* global window, exports, define */
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -306,10 +293,10 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/* global window, exports, define */
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+// This entry needs to be wrapped in an IIFE because it needs to be in strict mode.
 (() => {
 "use strict";
 // ESM COMPAT FLAG
@@ -332,7 +319,7 @@ __webpack_require__.d(__webpack_exports__, {
   subscribe: () => (/* reexport */ subscribe)
 });
 
-;// CONCATENATED MODULE: ./node_modules/memize/dist/index.js
+;// ./node_modules/memize/dist/index.js
 /**
  * Memize options object.
  *
@@ -497,7 +484,7 @@ function memize(fn, options) {
 // EXTERNAL MODULE: ./node_modules/sprintf-js/src/sprintf.js
 var sprintf = __webpack_require__(2058);
 var sprintf_default = /*#__PURE__*/__webpack_require__.n(sprintf);
-;// CONCATENATED MODULE: ./node_modules/@wordpress/i18n/build-module/sprintf.js
+;// ./packages/i18n/build-module/sprintf.js
 /**
  * External dependencies
  */
@@ -535,7 +522,7 @@ function sprintf_sprintf(format, ...args) {
   }
 }
 
-;// CONCATENATED MODULE: ./node_modules/@tannin/postfix/index.js
+;// ./node_modules/@tannin/postfix/index.js
 var PRECEDENCE, OPENERS, TERMINATORS, PATTERN;
 
 /**
@@ -661,7 +648,7 @@ function postfix( expression ) {
 	return terms.concat( stack.reverse() );
 }
 
-;// CONCATENATED MODULE: ./node_modules/@tannin/evaluate/index.js
+;// ./node_modules/@tannin/evaluate/index.js
 /**
  * Operator callback functions.
  *
@@ -773,7 +760,7 @@ function evaluate( postfix, variables ) {
 	return stack[ 0 ];
 }
 
-;// CONCATENATED MODULE: ./node_modules/@tannin/compile/index.js
+;// ./node_modules/@tannin/compile/index.js
 
 
 
@@ -804,7 +791,7 @@ function compile( expression ) {
 	};
 }
 
-;// CONCATENATED MODULE: ./node_modules/@tannin/plural-forms/index.js
+;// ./node_modules/@tannin/plural-forms/index.js
 
 
 /**
@@ -824,7 +811,7 @@ function pluralForms( expression ) {
 	};
 }
 
-;// CONCATENATED MODULE: ./node_modules/tannin/index.js
+;// ./node_modules/tannin/index.js
 
 
 /**
@@ -1039,7 +1026,7 @@ Tannin.prototype.dcnpgettext = function( domain, context, singular, plural, n ) 
 	return index === 0 ? singular : plural;
 };
 
-;// CONCATENATED MODULE: ./node_modules/@wordpress/i18n/build-module/create-i18n.js
+;// ./packages/i18n/build-module/create-i18n.js
 /**
  * External dependencies
  */
@@ -1119,23 +1106,31 @@ const I18N_HOOK_REGEXP = /^i18n\.(n?gettext|has_translation)(_|$)/;
  * @typedef {(text: string, domain?: string) => string} __
  *
  * Retrieve the translation of text.
+ *
+ * @see https://developer.wordpress.org/reference/functions/__/
  */
 /**
  * @typedef {(text: string, context: string, domain?: string) => string} _x
  *
  * Retrieve translated string with gettext context.
+ *
+ * @see https://developer.wordpress.org/reference/functions/_x/
  */
 /**
  * @typedef {(single: string, plural: string, number: number, domain?: string) => string} _n
  *
  * Translates and retrieves the singular or plural form based on the supplied
  * number.
+ *
+ * @see https://developer.wordpress.org/reference/functions/_n/
  */
 /**
  * @typedef {(single: string, plural: string, number: number, context: string, domain?: string) => string} _nx
  *
  * Translates and retrieves the singular or plural form based on the supplied
  * number, with gettext context.
+ *
+ * @see https://developer.wordpress.org/reference/functions/_nx/
  */
 /**
  * @typedef {() => boolean} IsRtl
@@ -1311,9 +1306,7 @@ const createI18n = (initialData, initialDomain, hooks) => {
      */
     translation = /** @type {string} */
     /** @type {*} */hooks.applyFilters('i18n.gettext', translation, text, domain);
-    return /** @type {string} */(
-      /** @type {*} */hooks.applyFilters('i18n.gettext_' + getFilterDomain(domain), translation, text, domain)
-    );
+    return /** @type {string} */ /** @type {*} */hooks.applyFilters('i18n.gettext_' + getFilterDomain(domain), translation, text, domain);
   };
 
   /** @type {_x} */
@@ -1333,9 +1326,7 @@ const createI18n = (initialData, initialDomain, hooks) => {
      */
     translation = /** @type {string} */
     /** @type {*} */hooks.applyFilters('i18n.gettext_with_context', translation, text, context, domain);
-    return /** @type {string} */(
-      /** @type {*} */hooks.applyFilters('i18n.gettext_with_context_' + getFilterDomain(domain), translation, text, context, domain)
-    );
+    return /** @type {string} */ /** @type {*} */hooks.applyFilters('i18n.gettext_with_context_' + getFilterDomain(domain), translation, text, context, domain);
   };
 
   /** @type {_n} */
@@ -1356,9 +1347,7 @@ const createI18n = (initialData, initialDomain, hooks) => {
      */
     translation = /** @type {string} */
     /** @type {*} */hooks.applyFilters('i18n.ngettext', translation, single, plural, number, domain);
-    return /** @type {string} */(
-      /** @type {*} */hooks.applyFilters('i18n.ngettext_' + getFilterDomain(domain), translation, single, plural, number, domain)
-    );
+    return /** @type {string} */ /** @type {*} */hooks.applyFilters('i18n.ngettext_' + getFilterDomain(domain), translation, single, plural, number, domain);
   };
 
   /** @type {_nx} */
@@ -1380,9 +1369,7 @@ const createI18n = (initialData, initialDomain, hooks) => {
      */
     translation = /** @type {string} */
     /** @type {*} */hooks.applyFilters('i18n.ngettext_with_context', translation, single, plural, number, context, domain);
-    return /** @type {string} */(
-      /** @type {*} */hooks.applyFilters('i18n.ngettext_with_context_' + getFilterDomain(domain), translation, single, plural, number, context, domain)
-    );
+    return /** @type {string} */ /** @type {*} */hooks.applyFilters('i18n.ngettext_with_context_' + getFilterDomain(domain), translation, single, plural, number, context, domain);
   };
 
   /** @type {IsRtl} */
@@ -1440,9 +1427,9 @@ const createI18n = (initialData, initialDomain, hooks) => {
   };
 };
 
-;// CONCATENATED MODULE: external ["wp","hooks"]
+;// external ["wp","hooks"]
 const external_wp_hooks_namespaceObject = window["wp"]["hooks"];
-;// CONCATENATED MODULE: ./node_modules/@wordpress/i18n/build-module/default-i18n.js
+;// ./packages/i18n/build-module/default-i18n.js
 /**
  * Internal dependencies
  */
@@ -1461,7 +1448,7 @@ const i18n = createI18n(undefined, undefined, external_wp_hooks_namespaceObject.
 
 /*
  * Comments in this file are duplicated from ./i18n due to
- * https://github.com/WordPress/gutenberg/pull/20318#issuecomment-590837722
+ * https://github.com/wordpress/gutenberg/pull/20318#issuecomment-590837722
  */
 
 /**
@@ -1513,6 +1500,8 @@ const subscribe = i18n.subscribe.bind(i18n);
 /**
  * Retrieve the translation of text.
  *
+ * @see https://developer.wordpress.org/reference/functions/__/
+ *
  * @param {string} text     Text to translate.
  * @param {string} [domain] Domain to retrieve the translated text.
  *
@@ -1522,6 +1511,8 @@ const __ = i18n.__.bind(i18n);
 
 /**
  * Retrieve translated string with gettext context.
+ *
+ * @see https://developer.wordpress.org/reference/functions/_x/
  *
  * @param {string} text     Text to translate.
  * @param {string} context  Context information for the translators.
@@ -1534,6 +1525,8 @@ const _x = i18n._x.bind(i18n);
 /**
  * Translates and retrieves the singular or plural form based on the supplied
  * number.
+ *
+ * @see https://developer.wordpress.org/reference/functions/_n/
  *
  * @param {string} single   The text to be used if the number is singular.
  * @param {string} plural   The text to be used if the number is plural.
@@ -1548,6 +1541,8 @@ const _n = i18n._n.bind(i18n);
 /**
  * Translates and retrieves the singular or plural form based on the supplied
  * number, with gettext context.
+ *
+ * @see https://developer.wordpress.org/reference/functions/_nx/
  *
  * @param {string} single   The text to be used if the number is singular.
  * @param {string} plural   The text to be used if the number is plural.
@@ -1582,7 +1577,7 @@ const isRTL = i18n.isRTL.bind(i18n);
  */
 const hasTranslation = i18n.hasTranslation.bind(i18n);
 
-;// CONCATENATED MODULE: ./node_modules/@wordpress/i18n/build-module/index.js
+;// ./packages/i18n/build-module/index.js
 
 
 
