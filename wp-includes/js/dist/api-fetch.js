@@ -2,7 +2,7 @@
 /******/ 	"use strict";
 /******/ 	// The require scope
 /******/ 	var __webpack_require__ = {};
-/******/
+/******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
@@ -15,12 +15,12 @@
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/
+/******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
 
@@ -31,7 +31,7 @@ __webpack_require__.d(__webpack_exports__, {
 
 ;// external ["wp","i18n"]
 const external_wp_i18n_namespaceObject = window["wp"]["i18n"];
-;// ./node_modules/@wordpress/api-fetch/build-module/middlewares/nonce.js
+;// ./packages/api-fetch/build-module/middlewares/nonce.js
 /**
  * @param {string} nonce
  * @return {import('../types').APIFetchMiddleware & { nonce: string }} A middleware to enhance a request with a nonce.
@@ -65,7 +65,7 @@ function createNonceMiddleware(nonce) {
 }
 /* harmony default export */ const nonce = (createNonceMiddleware);
 
-;// ./node_modules/@wordpress/api-fetch/build-module/middlewares/namespace-endpoint.js
+;// ./packages/api-fetch/build-module/middlewares/namespace-endpoint.js
 /**
  * @type {import('../types').APIFetchMiddleware}
  */
@@ -90,7 +90,7 @@ const namespaceAndEndpointMiddleware = (options, next) => {
 };
 /* harmony default export */ const namespace_endpoint = (namespaceAndEndpointMiddleware);
 
-;// ./node_modules/@wordpress/api-fetch/build-module/middlewares/root-url.js
+;// ./packages/api-fetch/build-module/middlewares/root-url.js
 /**
  * Internal dependencies
  */
@@ -129,8 +129,7 @@ const createRootURLMiddleware = rootURL => (options, next) => {
 
 ;// external ["wp","url"]
 const external_wp_url_namespaceObject = window["wp"]["url"];
-;// ./node_modules/@wordpress/api-fetch/build-module/middlewares/preloading.js
-/* wp:polyfill */
+;// ./packages/api-fetch/build-module/middlewares/preloading.js
 /**
  * WP dependencies
  */
@@ -187,15 +186,32 @@ function createPreloadingMiddleware(preloadedData) {
  * @return {Promise<any>} Promise with the response.
  */
 function prepareResponse(responseData, parse) {
-  return Promise.resolve(parse ? responseData.body : new window.Response(JSON.stringify(responseData.body), {
-    status: 200,
-    statusText: 'OK',
-    headers: responseData.headers
-  }));
+  if (parse) {
+    return Promise.resolve(responseData.body);
+  }
+  try {
+    return Promise.resolve(new window.Response(JSON.stringify(responseData.body), {
+      status: 200,
+      statusText: 'OK',
+      headers: responseData.headers
+    }));
+  } catch {
+    // See: https://github.com/wordpress/gutenberg/issues/67358#issuecomment-2621163926.
+    Object.entries(responseData.headers).forEach(([key, value]) => {
+      if (key.toLowerCase() === 'link') {
+        responseData.headers[key] = value.replace(/<([^>]+)>/, (/** @type {any} */_, /** @type {string} */url) => `<${encodeURI(url)}>`);
+      }
+    });
+    return Promise.resolve(parse ? responseData.body : new window.Response(JSON.stringify(responseData.body), {
+      status: 200,
+      statusText: 'OK',
+      headers: responseData.headers
+    }));
+  }
 }
 /* harmony default export */ const preloading = (createPreloadingMiddleware);
 
-;// ./node_modules/@wordpress/api-fetch/build-module/middlewares/fetch-all-middleware.js
+;// ./packages/api-fetch/build-module/middlewares/fetch-all-middleware.js
 /**
  * WP dependencies
  */
@@ -321,7 +337,7 @@ const fetchAllMiddleware = async (options, next) => {
 };
 /* harmony default export */ const fetch_all_middleware = (fetchAllMiddleware);
 
-;// ./node_modules/@wordpress/api-fetch/build-module/middlewares/http-v1.js
+;// ./packages/api-fetch/build-module/middlewares/http-v1.js
 /**
  * Set of HTTP methods which are eligible to be overridden.
  *
@@ -366,7 +382,7 @@ const httpV1Middleware = (options, next) => {
 };
 /* harmony default export */ const http_v1 = (httpV1Middleware);
 
-;// ./node_modules/@wordpress/api-fetch/build-module/middlewares/user-locale.js
+;// ./packages/api-fetch/build-module/middlewares/user-locale.js
 /**
  * WP dependencies
  */
@@ -390,7 +406,7 @@ const userLocaleMiddleware = (options, next) => {
 };
 /* harmony default export */ const user_locale = (userLocaleMiddleware);
 
-;// ./node_modules/@wordpress/api-fetch/build-module/utils/response.js
+;// ./packages/api-fetch/build-module/utils/response.js
 /**
  * WP dependencies
  */
@@ -466,7 +482,7 @@ function parseAndThrowError(response, shouldParseResponse = true) {
   });
 }
 
-;// ./node_modules/@wordpress/api-fetch/build-module/middlewares/media-upload.js
+;// ./packages/api-fetch/build-module/middlewares/media-upload.js
 /**
  * WP dependencies
  */
@@ -548,7 +564,7 @@ const mediaUploadMiddleware = (options, next) => {
 };
 /* harmony default export */ const media_upload = (mediaUploadMiddleware);
 
-;// ./node_modules/@wordpress/api-fetch/build-module/middlewares/theme-preview.js
+;// ./packages/api-fetch/build-module/middlewares/theme-preview.js
 /**
  * WP dependencies
  */
@@ -589,7 +605,7 @@ const createThemePreviewMiddleware = themePath => (options, next) => {
 };
 /* harmony default export */ const theme_preview = (createThemePreviewMiddleware);
 
-;// ./node_modules/@wordpress/api-fetch/build-module/index.js
+;// ./packages/api-fetch/build-module/index.js
 /**
  * WP dependencies
  */
