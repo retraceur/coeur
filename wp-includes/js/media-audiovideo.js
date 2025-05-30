@@ -1,180 +1,6 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 1206:
-/***/ ((module) => {
-
-var State = wp.media.controller.State,
-	l10n = wp.media.view.l10n,
-	AudioDetails;
-
-/**
- * wp.media.controller.AudioDetails
- *
- * The controller for the Audio Details state
- *
- * @memberOf wp.media.controller
- *
- * @class
- * @augments wp.media.controller.State
- * @augments Backbone.Model
- */
-AudioDetails = State.extend(/** @lends wp.media.controller.AudioDetails.prototype */{
-	defaults: {
-		id: 'audio-details',
-		toolbar: 'audio-details',
-		title: l10n.audioDetailsTitle,
-		content: 'audio-details',
-		menu: 'audio-details',
-		router: false,
-		priority: 60
-	},
-
-	initialize: function( options ) {
-		this.media = options.media;
-		State.prototype.initialize.apply( this, arguments );
-	}
-});
-
-module.exports = AudioDetails;
-
-
-/***/ }),
-
-/***/ 5039:
-/***/ ((module) => {
-
-/**
- * wp.media.controller.VideoDetails
- *
- * The controller for the Video Details state
- *
- * @memberOf wp.media.controller
- *
- * @class
- * @augments wp.media.controller.State
- * @augments Backbone.Model
- */
-var State = wp.media.controller.State,
-	l10n = wp.media.view.l10n,
-	VideoDetails;
-
-VideoDetails = State.extend(/** @lends wp.media.controller.VideoDetails.prototype */{
-	defaults: {
-		id: 'video-details',
-		toolbar: 'video-details',
-		title: l10n.videoDetailsTitle,
-		content: 'video-details',
-		menu: 'video-details',
-		router: false,
-		priority: 60
-	},
-
-	initialize: function( options ) {
-		this.media = options.media;
-		State.prototype.initialize.apply( this, arguments );
-	}
-});
-
-module.exports = VideoDetails;
-
-
-/***/ }),
-
-/***/ 241:
-/***/ ((module) => {
-
-/**
- * wp.media.model.PostMedia
- *
- * Shared model class for audio and video. Updates the model after
- *   "Add Audio|Video Source" and "Replace Audio|Video" states return
- *
- * @memberOf wp.media.model
- *
- * @class
- * @augments Backbone.Model
- */
-var PostMedia = Backbone.Model.extend(/** @lends wp.media.model.PostMedia.prototype */{
-	initialize: function() {
-		this.attachment = false;
-	},
-
-	setSource: function( attachment ) {
-		this.attachment = attachment;
-		this.extension = attachment.get( 'filename' ).split('.').pop();
-
-		if ( this.get( 'src' ) && this.extension === this.get( 'src' ).split('.').pop() ) {
-			this.unset( 'src' );
-		}
-
-		if ( _.contains( wp.media.view.settings.embedExts, this.extension ) ) {
-			this.set( this.extension, this.attachment.get( 'url' ) );
-		} else {
-			this.unset( this.extension );
-		}
-	},
-
-	changeAttachment: function( attachment ) {
-		this.setSource( attachment );
-
-		this.unset( 'src' );
-		_.each( _.without( wp.media.view.settings.embedExts, this.extension ), function( ext ) {
-			this.unset( ext );
-		}, this );
-	}
-});
-
-module.exports = PostMedia;
-
-
-/***/ }),
-
-/***/ 3713:
-/***/ ((module) => {
-
-var MediaDetails = wp.media.view.MediaDetails,
-	AudioDetails;
-
-/**
- * wp.media.view.AudioDetails
- *
- * @memberOf wp.media.view
- *
- * @class
- * @augments wp.media.view.MediaDetails
- * @augments wp.media.view.Settings.AttachmentDisplay
- * @augments wp.media.view.Settings
- * @augments wp.media.View
- * @augments wp.Backbone.View
- * @augments Backbone.View
- */
-AudioDetails = MediaDetails.extend(/** @lends wp.media.view.AudioDetails.prototype */{
-	className: 'audio-details',
-	template:  wp.template('audio-details'),
-
-	setMedia: function() {
-		var audio = this.$('.wp-audio-shortcode');
-
-		if ( audio.find( 'source' ).length ) {
-			if ( audio.is(':hidden') ) {
-				audio.show();
-			}
-			this.media = MediaDetails.prepareSrc( audio.get(0) );
-		} else {
-			audio.hide();
-			this.media = false;
-		}
-
-		return this;
-	}
-});
-
-module.exports = AudioDetails;
-
-
-/***/ }),
-
 /***/ 175:
 /***/ ((module) => {
 
@@ -254,6 +80,55 @@ AudioDetails = MediaDetails.extend(/** @lends wp.media.view.MediaFrame.AudioDeta
 });
 
 module.exports = AudioDetails;
+
+
+/***/ }),
+
+/***/ 241:
+/***/ ((module) => {
+
+/**
+ * wp.media.model.PostMedia
+ *
+ * Shared model class for audio and video. Updates the model after
+ *   "Add Audio|Video Source" and "Replace Audio|Video" states return
+ *
+ * @memberOf wp.media.model
+ *
+ * @class
+ * @augments Backbone.Model
+ */
+var PostMedia = Backbone.Model.extend(/** @lends wp.media.model.PostMedia.prototype */{
+	initialize: function() {
+		this.attachment = false;
+	},
+
+	setSource: function( attachment ) {
+		this.attachment = attachment;
+		this.extension = attachment.get( 'filename' ).split('.').pop();
+
+		if ( this.get( 'src' ) && this.extension === this.get( 'src' ).split('.').pop() ) {
+			this.unset( 'src' );
+		}
+
+		if ( _.contains( wp.media.view.settings.embedExts, this.extension ) ) {
+			this.set( this.extension, this.attachment.get( 'url' ) );
+		} else {
+			this.unset( this.extension );
+		}
+	},
+
+	changeAttachment: function( attachment ) {
+		this.setSource( attachment );
+
+		this.unset( 'src' );
+		_.each( _.without( wp.media.view.settings.embedExts, this.extension ), function( ext ) {
+			this.unset( ext );
+		}, this );
+	}
+});
+
+module.exports = PostMedia;
 
 
 /***/ }),
@@ -391,6 +266,181 @@ MediaDetails = Select.extend(/** @lends wp.media.view.MediaFrame.MediaDetails.pr
 });
 
 module.exports = MediaDetails;
+
+
+/***/ }),
+
+/***/ 1206:
+/***/ ((module) => {
+
+var State = wp.media.controller.State,
+	l10n = wp.media.view.l10n,
+	AudioDetails;
+
+/**
+ * wp.media.controller.AudioDetails
+ *
+ * The controller for the Audio Details state
+ *
+ * @memberOf wp.media.controller
+ *
+ * @class
+ * @augments wp.media.controller.State
+ * @augments Backbone.Model
+ */
+AudioDetails = State.extend(/** @lends wp.media.controller.AudioDetails.prototype */{
+	defaults: {
+		id: 'audio-details',
+		toolbar: 'audio-details',
+		title: l10n.audioDetailsTitle,
+		content: 'audio-details',
+		menu: 'audio-details',
+		router: false,
+		priority: 60
+	},
+
+	initialize: function( options ) {
+		this.media = options.media;
+		State.prototype.initialize.apply( this, arguments );
+	}
+});
+
+module.exports = AudioDetails;
+
+
+/***/ }),
+
+/***/ 3713:
+/***/ ((module) => {
+
+var MediaDetails = wp.media.view.MediaDetails,
+	AudioDetails;
+
+/**
+ * wp.media.view.AudioDetails
+ *
+ * @memberOf wp.media.view
+ *
+ * @class
+ * @augments wp.media.view.MediaDetails
+ * @augments wp.media.view.Settings.AttachmentDisplay
+ * @augments wp.media.view.Settings
+ * @augments wp.media.View
+ * @augments wp.Backbone.View
+ * @augments Backbone.View
+ */
+AudioDetails = MediaDetails.extend(/** @lends wp.media.view.AudioDetails.prototype */{
+	className: 'audio-details',
+	template:  wp.template('audio-details'),
+
+	setMedia: function() {
+		var audio = this.$('.wp-audio-shortcode');
+
+		if ( audio.find( 'source' ).length ) {
+			if ( audio.is(':hidden') ) {
+				audio.show();
+			}
+			this.media = MediaDetails.prepareSrc( audio.get(0) );
+		} else {
+			audio.hide();
+			this.media = false;
+		}
+
+		return this;
+	}
+});
+
+module.exports = AudioDetails;
+
+
+/***/ }),
+
+/***/ 5039:
+/***/ ((module) => {
+
+/**
+ * wp.media.controller.VideoDetails
+ *
+ * The controller for the Video Details state
+ *
+ * @memberOf wp.media.controller
+ *
+ * @class
+ * @augments wp.media.controller.State
+ * @augments Backbone.Model
+ */
+var State = wp.media.controller.State,
+	l10n = wp.media.view.l10n,
+	VideoDetails;
+
+VideoDetails = State.extend(/** @lends wp.media.controller.VideoDetails.prototype */{
+	defaults: {
+		id: 'video-details',
+		toolbar: 'video-details',
+		title: l10n.videoDetailsTitle,
+		content: 'video-details',
+		menu: 'video-details',
+		router: false,
+		priority: 60
+	},
+
+	initialize: function( options ) {
+		this.media = options.media;
+		State.prototype.initialize.apply( this, arguments );
+	}
+});
+
+module.exports = VideoDetails;
+
+
+/***/ }),
+
+/***/ 5836:
+/***/ ((module) => {
+
+var MediaDetails = wp.media.view.MediaDetails,
+	VideoDetails;
+
+/**
+ * wp.media.view.VideoDetails
+ *
+ * @memberOf wp.media.view
+ *
+ * @class
+ * @augments wp.media.view.MediaDetails
+ * @augments wp.media.view.Settings.AttachmentDisplay
+ * @augments wp.media.view.Settings
+ * @augments wp.media.View
+ * @augments wp.Backbone.View
+ * @augments Backbone.View
+ */
+VideoDetails = MediaDetails.extend(/** @lends wp.media.view.VideoDetails.prototype */{
+	className: 'video-details',
+	template:  wp.template('video-details'),
+
+	setMedia: function() {
+		var video = this.$('.wp-video-shortcode');
+
+		if ( video.find( 'source' ).length ) {
+			if ( video.is(':hidden') ) {
+				video.show();
+			}
+
+			if ( ! video.hasClass( 'youtube-video' ) && ! video.hasClass( 'vimeo-video' ) ) {
+				this.media = MediaDetails.prepareSrc( video.get(0) );
+			} else {
+				this.media = video.get(0);
+			}
+		} else {
+			video.hide();
+			this.media = false;
+		}
+
+		return this;
+	}
+});
+
+module.exports = VideoDetails;
 
 
 /***/ }),
@@ -711,56 +761,6 @@ MediaDetails = AttachmentDisplay.extend(/** @lends wp.media.view.MediaDetails.pr
 module.exports = MediaDetails;
 
 
-/***/ }),
-
-/***/ 5836:
-/***/ ((module) => {
-
-var MediaDetails = wp.media.view.MediaDetails,
-	VideoDetails;
-
-/**
- * wp.media.view.VideoDetails
- *
- * @memberOf wp.media.view
- *
- * @class
- * @augments wp.media.view.MediaDetails
- * @augments wp.media.view.Settings.AttachmentDisplay
- * @augments wp.media.view.Settings
- * @augments wp.media.View
- * @augments wp.Backbone.View
- * @augments Backbone.View
- */
-VideoDetails = MediaDetails.extend(/** @lends wp.media.view.VideoDetails.prototype */{
-	className: 'video-details',
-	template:  wp.template('video-details'),
-
-	setMedia: function() {
-		var video = this.$('.wp-video-shortcode');
-
-		if ( video.find( 'source' ).length ) {
-			if ( video.is(':hidden') ) {
-				video.show();
-			}
-
-			if ( ! video.hasClass( 'youtube-video' ) && ! video.hasClass( 'vimeo-video' ) ) {
-				this.media = MediaDetails.prepareSrc( video.get(0) );
-			} else {
-				this.media = video.get(0);
-			}
-		} else {
-			video.hide();
-			this.media = false;
-		}
-
-		return this;
-	}
-});
-
-module.exports = VideoDetails;
-
-
 /***/ })
 
 /******/ 	});
@@ -790,9 +790,6 @@ module.exports = VideoDetails;
 /******/ 	}
 /******/ 	
 /************************************************************************/
-var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
-(() => {
 /**
  * @output wp-includes/js/media-audiovideo.js
  */
@@ -807,7 +804,7 @@ var media = wp.media,
  *
  * @mixin
  *
- * @since WP 4.2.0
+ * @since 4.2.0
  */
 wp.media.mixin = {
 	mejsSettings: baseSettings,
@@ -815,7 +812,7 @@ wp.media.mixin = {
 	/**
 	 * Pauses and removes all players.
 	 *
-	 * @since WP 4.2.0
+	 * @since 4.2.0
 	 *
 	 * @return {void}
 	 */
@@ -837,7 +834,7 @@ wp.media.mixin = {
 	 * MediaElement tries to pull the audio/video tag out of
 	 * its container and re-add it to the DOM.
 	 *
-	 * @since WP 4.2.0
+	 * @since 4.2.0
 	 *
 	 * @return {void}
 	 */
@@ -884,7 +881,7 @@ wp.media.mixin = {
 	 *
 	 * Examples: modal closes, shortcode properties are removed, etc.
 	 *
-	 * @since WP 4.2.0
+	 * @since 4.2.0
 	 */
 	unsetPlayers : function() {
 		if ( this.players && this.players.length ) {
@@ -900,7 +897,7 @@ wp.media.mixin = {
 /**
  * Shortcode modeling for playlists.
  *
- * @since WP 4.2.0
+ * @since 4.2.0
  */
 wp.media.playlist = new wp.media.collection({
 	tag: 'playlist',
@@ -924,7 +921,7 @@ wp.media.playlist = new wp.media.collection({
  *
  * @namespace
  *
- * @since WP 4.2.0
+ * @since 4.2.0
  */
 wp.media.audio = {
 	coerce : wp.media.coerce,
@@ -941,7 +938,7 @@ wp.media.audio = {
 	/**
 	 * Instantiates a new media object with the next matching shortcode.
 	 *
-	 * @since WP 4.2.0
+	 * @since 4.2.0
 	 *
 	 * @param {string} data The text to apply the shortcode on.
 	 * @return {wp.media} The media object.
@@ -961,7 +958,7 @@ wp.media.audio = {
 	/**
 	 * Generates an audio shortcode.
 	 *
-	 * @since WP 4.2.0
+	 * @since 4.2.0
 	 *
 	 * @param {Array} model Array with attributes for the shortcode.
 	 * @return {wp.shortcode} The audio shortcode object.
@@ -994,7 +991,7 @@ wp.media.audio = {
  *  `edit()` prepares the shortcode for the media modal.
  *  `shortcode()` builds the new shortcode after update.
  *
- * @since WP 4.2.0
+ * @since 4.2.0
  *
  * @namespace
  */
@@ -1016,7 +1013,7 @@ wp.media.video = {
 	/**
 	 * Instantiates a new media object with the next matching shortcode.
 	 *
-	 * @since WP 4.2.0
+	 * @since 4.2.0
 	 *
 	 * @param {string} data The text to apply the shortcode on.
 	 * @return {wp.media} The media object.
@@ -1041,7 +1038,7 @@ wp.media.video = {
 	/**
 	 * Generates an video shortcode.
 	 *
-	 * @since WP 4.2.0
+	 * @since 4.2.0
 	 *
 	 * @param {Array} model Array with attributes for the shortcode.
 	 * @return {wp.shortcode} The video shortcode object.
@@ -1077,8 +1074,6 @@ media.view.MediaFrame.VideoDetails = __webpack_require__( 8646 );
 media.view.MediaDetails = __webpack_require__( 9467 );
 media.view.AudioDetails = __webpack_require__( 3713 );
 media.view.VideoDetails = __webpack_require__( 5836 );
-
-})();
 
 /******/ })()
 ;

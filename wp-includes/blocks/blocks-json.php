@@ -55,6 +55,15 @@
           'fontSize' => true
         )
       ),
+      'color' => array(
+        'gradients' => true,
+        'link' => true,
+        '__experimentalDefaultControls' => array(
+          'background' => true,
+          'text' => true,
+          'link' => true
+        )
+      ),
       'interactivity' => array(
         'clientNavigation' => true
       )
@@ -607,6 +616,15 @@
         '__experimentalLetterSpacing' => true,
         '__experimentalDefaultControls' => array(
           'fontSize' => true
+        )
+      ),
+      'color' => array(
+        'gradients' => true,
+        'link' => true,
+        '__experimentalDefaultControls' => array(
+          'background' => true,
+          'text' => true,
+          'link' => true
         )
       ),
       'interactivity' => array(
@@ -3223,7 +3241,7 @@
     '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
     'name' => 'core/pattern',
-    'title' => 'Pattern placeholder',
+    'title' => 'Pattern Placeholder',
     'category' => 'theme',
     'description' => 'Show a block pattern.',
     'supports' => array(
@@ -3269,11 +3287,13 @@
       ),
       'isLink' => array(
         'type' => 'boolean',
-        'default' => false
+        'default' => false,
+        'role' => 'content'
       ),
       'linkTarget' => array(
         'type' => 'string',
-        'default' => '_self'
+        'default' => '_self',
+        'role' => 'content'
       )
     ),
     'usesContext' => array(
@@ -4756,9 +4776,9 @@
       ),
       'color' => array(
         'gradients' => true,
-        'text' => true,
         '__experimentalDefaultControls' => array(
-          'background' => true
+          'background' => true,
+          'text' => true
         )
       ),
       'typography' => array(
@@ -4785,6 +4805,9 @@
           'width' => true,
           'style' => true
         )
+      ),
+      'interactivity' => array(
+        'clientNavigation' => true
       )
     ),
     'style' => 'wp-block-query-total'
@@ -5019,6 +5042,20 @@
       'html' => false,
       'interactivity' => array(
         'clientNavigation' => true
+      ),
+      '__experimentalBorder' => array(
+        'radius' => true,
+        'color' => true,
+        'width' => true,
+        'style' => true
+      ),
+      'spacing' => array(
+        'margin' => true,
+        'padding' => true,
+        '__experimentalDefaultControls' => array(
+          'padding' => false,
+          'margin' => false
+        )
       ),
       'color' => array(
         'background' => true,
@@ -5895,7 +5932,6 @@
           'width' => true
         )
       ),
-      '__experimentalSelector' => '.wp-block-table > table',
       'interactivity' => array(
         'clientNavigation' => true
       )
