@@ -8,11 +8,9 @@
 		"pot:coeur": "wp i18n make-pot . i18n/coeur.pot --include=\"wp-activate.php,wp-cron.php,wp-links-opml.php,wp-load.php,wp-login.php,wp-mail.php,wp-settings.php,wp-signups.php,wp-trackback.php,xmlrpc.php,wp-content/themes/point,wp-includes\" --skip-js --ignore-domain --headers='{\"Project-Id-Version\": \"Retraceur 2.0.0-alpha\", \"Report-Msgid-Bugs-To\": \"https://github.com/retraceur/coeur/issues\", \"Last-Translator\": \"imath <contact@imathi.eu>\", \"Language-Team\": \"Retraceur <retraceur@proton.me>\"}'",
 		"pot:js": "./tools/makepot.sh",
 		"build:admin:js": "wp-scripts build --webpack-src-dir=wp-admin/js/ --config wp-admin/js/webpack.config.js && ./tools/update-admin-js.sh",
-		"build:inc:js:dist": "wp-scripts build --webpack-src-dir=wp-includes/js/dist/ --config wp-includes/js/dist/webpack.config.js && ./tools/update-build.sh",
 		"build:admin:css": "wp-scripts build --webpack-src-dir=wp-admin/css/ --config wp-admin/css/webpack.config.js && ./tools/update-admin-css.sh",
 		"build:admin:css:colors": "wp-scripts build --webpack-src-dir=wp-admin/css/colors/retraceur --config wp-admin/css/colors/retraceur/webpack.config.js && ./tools/update-css-colors.sh",
-		"build:inc:css": "wp-scripts build --webpack-src-dir=wp-includes/css/ --config wp-includes/css/webpack.config.js && ./tools/update-inc-css.sh",
-		"build:inc:css:dist": "wp-scripts build --webpack-src-dir=wp-includes/css/dist/ --config wp-includes/css/dist/webpack.config.js && ./tools/update-inc-dist-css.sh"
+		"build:inc:css": "wp-scripts build --webpack-src-dir=wp-includes/css/ --config wp-includes/css/webpack.config.js && ./tools/update-inc-css.sh"
 	},
 	"repository": {
 		"type": "git",
