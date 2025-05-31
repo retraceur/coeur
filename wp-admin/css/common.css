@@ -22,6 +22,10 @@
 	margin-left: 36px;
 }
 
+#wpbody {
+	position: relative;
+}
+
 #wpbody-content {
 	padding-bottom: 65px;
 	float: left;
