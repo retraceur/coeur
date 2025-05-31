@@ -20,8 +20,6 @@ module.exports = {
 			'edit-site/style-rtl.min': './wp-includes/css/dist/edit-site-style-rtl.js',
 			'edit-site/posts.min': './wp-includes/css/dist/edit-site-posts.js',
 			'edit-site/posts-rtl.min': './wp-includes/css/dist/edit-site-posts-rtl.js',
-			'edit-widgets/ltr.min': './wp-includes/css/dist/edit-widgets-style.js',
-			'edit-widgets/style-rtl.min': './wp-includes/css/dist/edit-widgets-style-rtl.js',
 			'list-reusable-blocks/ltr.min': './wp-includes/css/dist/list-reusable-blocks-style.js',
 			'list-reusable-blocks/style-rtl.min': './wp-includes/css/dist/list-reusable-blocks-style-rtl.js',
         },
