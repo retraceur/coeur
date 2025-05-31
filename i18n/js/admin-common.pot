@@ -1,13 +1,13 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Retraceur 1.0.0\n"
+"Project-Id-Version: Retraceur 2.0.0-alpha\n"
 "Report-Msgid-Bugs-To: https://github.com/retraceur/coeur/issues\n"
 "Last-Translator: imath <contact@imathi.eu>\n"
 "Language-Team: Retraceur <retraceur@proton.me>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-04-21T07:16:39+00:00\n"
+"POT-Creation-Date: 2025-05-31T09:09:21+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 
@@ -21,25 +21,29 @@ msgstr ""
 msgid "%1$s is deprecated since version %2$s with no alternative available."
 msgstr ""
 
-#: wp-admin/js/common.js:514
+#: wp-admin/js/common.js:403
+msgid "Screen Options updated."
+msgstr ""
+
+#: wp-admin/js/common.js:520
 msgid ""
 "You are about to permanently delete these items from your site.\n"
 "This action cannot be undone.\n"
 "'Cancel' to stop, 'OK' to delete."
 msgstr ""
 
-#: wp-admin/js/common.js:1075
+#: wp-admin/js/common.js:1081
 msgid "Dismiss this notice."
 msgstr ""
 
-#: wp-admin/js/common.js:1315
+#: wp-admin/js/common.js:1321
 msgid "Please select at least one item to perform this action on."
 msgstr ""
 
-#: wp-admin/js/common.js:2078
+#: wp-admin/js/common.js:2084
 msgid "Expand Main menu"
 msgstr ""
 
-#: wp-admin/js/common.js:2081
+#: wp-admin/js/common.js:2087
 msgid "Collapse Main menu"
 msgstr ""

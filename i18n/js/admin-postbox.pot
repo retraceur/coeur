@@ -1,13 +1,13 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Retraceur 1.0.0\n"
+"Project-Id-Version: Retraceur 2.0.0-alpha\n"
 "Report-Msgid-Bugs-To: https://github.com/retraceur/coeur/issues\n"
 "Last-Translator: imath <contact@imathi.eu>\n"
 "Language-Team: Retraceur <retraceur@proton.me>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-04-21T07:16:30+00:00\n"
+"POT-Creation-Date: 2025-05-31T09:09:13+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 
@@ -19,14 +19,18 @@ msgstr ""
 msgid "The box is on the last position"
 msgstr ""
 
-#: wp-admin/js/postbox.js:506
+#: wp-admin/js/postbox.js:476
+msgid "Screen Options updated."
+msgstr ""
+
+#: wp-admin/js/postbox.js:512
 msgid "The boxes order has been saved."
 msgstr ""
 
-#: wp-admin/js/postbox.js:558
+#: wp-admin/js/postbox.js:564
 msgid "Add boxes from the Screen Options menu"
 msgstr ""
 
-#: wp-admin/js/postbox.js:558
+#: wp-admin/js/postbox.js:564
 msgid "Drag boxes here"
 msgstr ""

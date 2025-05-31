@@ -1,32 +1,32 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Retraceur 1.0.0\n"
+"Project-Id-Version: Retraceur 2.0.0-alpha\n"
 "Report-Msgid-Bugs-To: https://github.com/retraceur/coeur/issues\n"
 "Last-Translator: imath <contact@imathi.eu>\n"
 "Language-Team: Retraceur <retraceur@proton.me>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-04-21T07:17:34+00:00\n"
+"POT-Creation-Date: 2025-05-31T09:10:19+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 
-#: wp-includes/js/dist/commands.js:3558
+#: wp-includes/js/dist/commands.js:3588
 msgid "Search commands and settings"
 msgstr ""
 
-#: wp-includes/js/dist/commands.js:3731
+#: wp-includes/js/dist/commands.js:3761
 msgid "Open the command palette."
 msgstr ""
 
-#: wp-includes/js/dist/commands.js:3781
+#: wp-includes/js/dist/commands.js:3811
 msgid "Command palette"
 msgstr ""
 
-#: wp-includes/js/dist/commands.js:3797
+#: wp-includes/js/dist/commands.js:3827
 msgid "Command suggestions"
 msgstr ""
 
-#: wp-includes/js/dist/commands.js:3799
+#: wp-includes/js/dist/commands.js:3829
 msgid "No results found."
 msgstr ""
