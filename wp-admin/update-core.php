@@ -968,7 +968,7 @@ get_current_screen()->add_help_tab(
 if ( 'upgrade-core' === $action ) {
 	// Force an update check when requested.
 	$force_check = ! empty( $_GET['force-check'] );
-	wp_version_check( array(), $force_check );
+	retraceur_version_check( $force_check );
 
 	require_once ABSPATH . 'wp-admin/admin-header.php';
 	?>

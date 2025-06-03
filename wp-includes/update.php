@@ -14,6 +14,113 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * Checks if a Retraceur update is available.
+ *
+ * @since 2.0.0 Retraceur fork.
+ *
+ * @param bool $force_check Whether to bypass the transient cache and force a fresh update check.
+ *                          Defaults to false, true if $extra_stats is set.
+ * @return object The available updates.
+ */
+function retraceur_version_check( $force_check = false ) {
+	if ( wp_installing() ) {
+		return;
+	}
+
+	$current = get_site_transient( 'retraceur_coeur' );
+
+	// Invalidate the transient when $retraceur_version changes.
+	if ( is_object( $current ) && retraceur_get_version() !== $current->version_checked ) {
+		$current = false;
+	}
+
+	if ( ! is_object( $current ) ) {
+		$current                  = new stdClass();
+		$current->updates         = array();
+		$current->version_checked = retraceur_get_version();
+	}
+
+	// Wait 1 minute between multiple version check requests.
+	$timeout          = MINUTE_IN_SECONDS;
+	$time_not_changed = isset( $current->last_checked ) && $timeout > ( time() - $current->last_checked );
+
+	if ( ! $force_check && $time_not_changed ) {
+		return;
+	}
+
+	$current->last_checked = time();
+	set_site_transient( 'retraceur_coeur', $current );
+
+	if ( ! class_exists( 'SimplePie\SimplePie', false ) ) {
+		require_once ABSPATH . WPINC . '/class-simplepie.php';
+	}
+
+	require_once ABSPATH . WPINC . '/class-wp-simplepie-file.php';
+	require_once ABSPATH . WPINC . '/class-wp-feed-cache-version-check.php';
+	require_once ABSPATH . WPINC . '/class-wp-simplepie-sanitize-kses.php';
+
+	$feed = new SimplePie\SimplePie();
+	$url  = 'https://github.com/retraceur/coeur/releases.atom';
+
+	$feed->set_sanitize_class( 'WP_SimplePie_Sanitize_KSES' );
+	/*
+	 * We must manually overwrite $feed->sanitize because SimplePie's constructor
+	 * sets it before we have a chance to set the sanitization class.
+	 */
+	$feed->sanitize = new WP_SimplePie_Sanitize_KSES();
+
+	// Register the cache handler using the recommended method for SimplePie 1.3 or later.
+	if ( method_exists( 'SimplePie_Cache', 'register' ) ) {
+		SimplePie_Cache::register( 'retraceur_coeur_update', 'WP_Feed_Cache_Version_Check' );
+		$feed->set_cache_location( 'retraceur_coeur_update' );
+	}
+
+	$feed->set_file_class( 'WP_SimplePie_File' );
+
+	$feed->set_feed_url( $url );
+	$feed->init();
+	$feed->set_output_encoding( get_bloginfo( 'charset' ) );
+
+	if ( $feed->error() ) {
+		return new WP_Error( 'simplepie-error', $feed->error() );
+	}
+
+	$releases = $feed->get_items();
+	$offers   = array();
+
+	foreach ( $releases as $release ) {
+		$version    = '';
+		$release_id = explode( '/', rtrim( $release->get_id(), '/' ) );
+		$version    = end( $release_id );
+		$url        = $release->get_link();
+
+		if ( ! $version ) {
+			$url_data = explode( '/', rtrim( wp_parse_url( $url, PHP_URL_PATH ) ) );
+			$version  = end( $url_data );
+		}
+
+		if ( ! $version ) {
+			continue;
+		}
+
+		$offers[] = array(
+			'version' => $version,
+			'url'     => $url,
+			'date'    => $release->get_date( 'U' ),
+		);
+	}
+
+	$updates                  = new stdClass();
+	$updates->updates         = $offers;
+	$updates->last_checked    = time();
+	$updates->version_checked = retraceur_get_version();
+
+	set_site_transient( 'retraceur_coeur', $updates );
+
+	return $updates;
+}
+
+/**
  * Checks Retraceur version against the newest version.
  *
  * The Retraceur version, PHP version, and locale is sent to remote directory provider.
