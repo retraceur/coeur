@@ -40,8 +40,8 @@ function retraceur_version_check( $force_check = false ) {
 		$current->version_checked = retraceur_get_version();
 	}
 
-	// Wait 1 minute between multiple version check requests.
-	$timeout          = MINUTE_IN_SECONDS;
+	// Wait 1 day between multiple version check requests.
+	$timeout          = DAY_IN_SECONDS;
 	$time_not_changed = isset( $current->last_checked ) && $timeout > ( time() - $current->last_checked );
 
 	if ( ! $force_check && $time_not_changed ) {
@@ -99,14 +99,17 @@ function retraceur_version_check( $force_check = false ) {
 			$version  = end( $url_data );
 		}
 
-		if ( ! $version ) {
+		if ( ! $version || version_compare( $version, retraceur_get_version(), '<=' ) ) {
 			continue;
 		}
+
+		$is_stable = is_numeric( str_replace( '.', '', $version ) );
 
 		$offers[] = array(
 			'version' => $version,
 			'url'     => $url,
 			'date'    => $release->get_date( 'U' ),
+			'stable'  => $is_stable,
 		);
 	}
 
@@ -114,6 +117,7 @@ function retraceur_version_check( $force_check = false ) {
 	$updates->updates         = $offers;
 	$updates->last_checked    = time();
 	$updates->version_checked = retraceur_get_version();
+	$updates->locale          = get_locale();
 
 	set_site_transient( 'retraceur_coeur', $updates );
 

@@ -1005,23 +1005,20 @@ if ( 'upgrade-core' === $action ) {
 			}
 		}
 	}
+	*/
 
 	$last_update_check = false;
-	$current           = get_site_transient( 'update_core' );
+	$current           = get_site_transient( 'retraceur_coeur' );
 
 	if ( $current && isset( $current->last_checked ) ) {
 		$last_update_check = $current->last_checked + (int) ( (float) get_option( 'gmt_offset' ) * HOUR_IN_SECONDS );
 	}
-	*/
+
 	echo '<h2 class="wp-current-version">';
 	/* translators: Current version of Retraceur. */
 	printf( __( 'Current version: %s' ), esc_html( retraceur_get_version() ) );
 	echo '</h2>';
 
-	/*
-	 * Disable this for now.
-	 * @todo Restore when the Retraceur Update API will be ready.
-	 *
 	echo '<p class="update-last-checked">';
 
 	printf(
@@ -1034,7 +1031,6 @@ if ( 'upgrade-core' === $action ) {
 	);
 	echo ' <a href="' . esc_url( self_admin_url( 'update-core.php?force-check=1' ) ) . '">' . __( 'Check again.' ) . '</a>';
 	echo '</p>';
-	*/
 
 	if ( current_user_can( 'update_core' ) ) {
 		core_auto_updates_settings();
