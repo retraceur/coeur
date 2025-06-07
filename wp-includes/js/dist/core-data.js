@@ -4347,7 +4347,10 @@ const getTemplateId = (0,external_wp_data_namespaceObject.createRegistrySelector
   // post type templates slug(ex page, single-post, single-product etc..).
   // Pages do not need the `single` prefix in the slug to be prioritized
   // through template hierarchy.
-  if (editedEntity.slug) {
+  if (postType === 'post' && editedEntity.format && 'standard' !== editedEntity.format) {
+    // Post format uses a specific templateId.
+    slugToCheck = `single-post-format-${editedEntity.format}`;
+  } else if (editedEntity.slug) {
     slugToCheck = postType === 'page' ? `${postType}-${editedEntity.slug}` : `single-${postType}-${editedEntity.slug}`;
   } else {
     slugToCheck = postType === 'page' ? 'page' : `single-${postType}`;
