@@ -17,6 +17,9 @@ if ( ! function_exists( 'retraceur_point_setup' ) ) {
 	function retraceur_point_setup() {
 		add_theme_support( 'wp-block-styles' );
 
+		// Use specific post formats.
+		add_theme_support( 'post-formats', array( 'link', 'status', 'image', 'quote' ) );
+
 		// Use specific thumbnail size.
 		set_post_thumbnail_size( 800, 400, true );
 	}
