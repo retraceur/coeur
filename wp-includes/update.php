@@ -14,6 +14,36 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * Look for Retraceur requirements parsing its release note content.
+ *
+ * @since 2.0.0 Retraceur fork.
+ *
+ * @param string $html HTML content of the release note.
+ * @param string $type 'PHP' or 'MySQL'.
+ * @return string The required version number.
+ */
+function retraceur_get_requirement( $html, $type = 'PHP' ) {
+	$tags    = new WP_HTML_Tag_Processor( $html );
+	$tag     = 'MySQL' === $type ? 'td' : 'th';
+	$skip    = $type . ' >=';
+	$version = '';
+	$i       = 2;
+
+	while ( $i > 0 && $tags->next_tag( $tag ) ) {
+		$tags->next_token();
+
+		$version = $tags->get_modifiable_text();
+		if ( $skip === $version ) {
+			$version ='';
+		}
+
+		$i--;
+	}
+
+	return $version;
+}
+
+/**
  * Checks if a Retraceur update is available.
  *
  * @since 2.0.0 Retraceur fork.
@@ -27,17 +57,18 @@ function retraceur_version_check( $force_check = false ) {
 		return;
 	}
 
-	$current = get_site_transient( 'retraceur_coeur' );
+	$current         = get_site_transient( 'retraceur_coeur' );
+	$version_checked = retraceur_get_version();
 
 	// Invalidate the transient when $retraceur_version changes.
-	if ( is_object( $current ) && retraceur_get_version() !== $current->version_checked ) {
+	if ( is_object( $current ) && $version_checked !== $current->version_checked ) {
 		$current = false;
 	}
 
 	if ( ! is_object( $current ) ) {
 		$current                  = new stdClass();
 		$current->updates         = array();
-		$current->version_checked = retraceur_get_version();
+		$current->version_checked = $version_checked;
 	}
 
 	// Wait 1 day between multiple version check requests.
@@ -99,24 +130,30 @@ function retraceur_version_check( $force_check = false ) {
 			$version  = end( $url_data );
 		}
 
-		if ( ! $version || version_compare( $version, retraceur_get_version(), '<=' ) ) {
+		if ( ! $version || version_compare( $version, $version_checked, '<=' ) ) {
 			continue;
 		}
 
-		$is_stable = is_numeric( str_replace( '.', '', $version ) );
+		$is_stable   = is_numeric( str_replace( '.', '', $version ) );
+		$needs_php   = retraceur_get_requirement( $release->get_description() );
+		$needs_mysql = retraceur_get_requirement( $release->get_description(), 'MySQL' );
 
 		$offers[] = array(
-			'version' => $version,
-			'url'     => $url,
-			'date'    => $release->get_date( 'U' ),
-			'stable'  => $is_stable,
+			'version'      => $version,
+			'url'          => $url,
+			'requirements' => array(
+				'php'   => strip_tags( $needs_php ),
+				'mysql' => strip_tags( $needs_mysql ),
+			),
+			'date'         => $release->get_date( 'U' ),
+			'stable'       => $is_stable,
 		);
 	}
 
 	$updates                  = new stdClass();
 	$updates->updates         = $offers;
 	$updates->last_checked    = time();
-	$updates->version_checked = retraceur_get_version();
+	$updates->version_checked = $version_checked;
 	$updates->locale          = get_locale();
 
 	set_site_transient( 'retraceur_coeur', $updates );
@@ -131,6 +168,7 @@ function retraceur_version_check( $force_check = false ) {
  *
  * @since WP 2.3.0
  * @since 1.0.0 Retraceur fork.
+ * @todo deprecate
  *
  * @global string $retraceur_version       Used to check against the newest Retraceur version.
  * @global wpdb   $wpdb             WP database abstraction object.

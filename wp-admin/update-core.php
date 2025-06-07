@@ -26,9 +26,120 @@ if ( ! current_user_can( 'update_core' ) && ! current_user_can( 'update_themes' 
 }
 
 /**
+ * Lists available coeur updates.
+ *
+ * @since 2.0.0 Retraceur fork.
+ *
+ * @global wpdb $wpdb Retraceur database abstraction object.
+ *
+ * @param array $update
+ */
+function retraceur_list_update( $update ) {
+	global $wpdb;
+	static $first_pass = true;
+
+	$retraceur_version  = retraceur_get_version();
+	$version_string     = $update['version'];
+	$current            = $retraceur_version === $update['version'];
+
+	$message       = '';
+	$form_action   = 'update-core.php?action=do-core-upgrade';
+	$php_version   = PHP_VERSION;
+	$mysql_version = $wpdb->db_version();
+	$show_buttons  = true;
+	$submit        = sprintf( __( 'Update to version %s' ), $version_string );
+
+	if ( $current ) {
+		/* translators: %s: Version number. */
+		$submit      = sprintf( __( 'Re-install version %s' ), $version_string );
+		$form_action = 'update-core.php?action=do-core-reinstall';
+	} else {
+		$needs_php  = ! empty( $update['requirements']['php'] ) ? $update['requirements']['php'] : '';
+		$php_compat = true;
+
+		if ( $needs_php ) {
+			$php_compat = version_compare( $php_version, $needs_php, '>=' );
+		}
+
+		$needs_mysql  = ! empty( $update['requirements']['mysql'] ) ? $update['requirements']['mysql'] : '';
+		$mysql_compat = true;
+		if ( ! file_exists( WP_CONTENT_DIR . '/db.php' ) || empty( $wpdb->is_mysql ) && $needs_mysql ) {
+			$mysql_compat = version_compare( $mysql_version, $needs_mysql, '>=' );
+		}
+
+		if ( ! $mysql_compat && ! $php_compat ) {
+			$message = sprintf(
+				/* translators: 1: Retraceur version number, 2: Minimum required PHP version number, 3: Minimum required MySQL version number, 4: Current PHP version number, 5: Current MySQL version number. */
+				__( 'You cannot update because Retraceur %1$s requires PHP version %2$s or higher and MySQL version %3$s or higher. You are running PHP version %4$s and MySQL version %5$s.' ),
+				$update['version'],
+				$needs_php,
+				$needs_mysql,
+				$php_version,
+				$mysql_version
+			);
+		} elseif ( ! $php_compat ) {
+			$message = sprintf(
+				/* translators: 1: Retraceur version number, 2: Minimum required PHP version number, 3: Current PHP version number. */
+				__( 'You cannot update because Retraceur %1$s requires PHP version %2$s or higher. You are running version %3$s.' ),
+				$update['version'],
+				$needs_php,
+				$php_version
+			);
+		} elseif ( ! $mysql_compat ) {
+			$message = sprintf(
+				/* translators: 1: Retraceur version number, 2: Minimum required MySQL version number, 3: Current MySQL version number. */
+				__( 'You cannot update because Retraceur %1$s requires MySQL version %2$s or higher. You are running version %3$s.' ),
+				$update['version'],
+				$needs_mysql,
+				$mysql_version
+			);
+		} else {
+			$message = sprintf(
+				/* translators: 1: Installed Retraceur version number, 2: New Retraceur version number, including locale if necessary. */
+				__( 'You can update from Retraceur %1$s to Retraceur %2$s manually:' ),
+				$retraceur_version,
+				$version_string
+			);
+		}
+
+		if ( ! $mysql_compat || ! $php_compat ) {
+			$show_buttons = false;
+		}
+	}
+
+	echo '<p>';
+	echo $message;
+	echo '</p>';
+
+	echo '<form method="post" action="' . esc_url( $form_action ) . '" name="upgrade" class="upgrade">';
+	wp_nonce_field( 'upgrade-core' );
+
+	echo '<p>';
+	echo '<input name="version" value="' . esc_attr( $update['version'] ) . '" type="hidden" />';
+	if ( $show_buttons ) {
+		if ( $first_pass ) {
+			submit_button( $submit, $current ? '' : 'primary regular', 'upgrade', false );
+			$first_pass = false;
+		} else {
+			submit_button( $submit, '', 'upgrade', false );
+		}
+	}
+
+	if ( ! isset( $update['dismissed'] ) || ! $update['dismissed'] ) {
+		submit_button( __( 'Hide this update' ), '', 'dismiss', false );
+	} else {
+		submit_button( __( 'Bring back this update' ), '', 'undismiss', false );
+	}
+
+	echo '</p>';
+	echo '</form>';
+}
+
+/**
  * Lists available core updates.
  *
  * @since WP 2.7.0
+ * @todo deprecate
  *
  * @global string $wp_local_package Locale code of the package.
  * @global wpdb   $wpdb             Retraceur database abstraction object.
@@ -210,7 +321,7 @@ function dismissed_updates() {
 		echo '<ul id="dismissed-updates" class="core-updates dismissed">';
 		foreach ( (array) $dismissed as $update ) {
 			echo '<li>';
-			list_core_update( $update );
+			retraceur_list_update( $update );
 			echo '</li>';
 		}
 		echo '</ul>';
@@ -223,9 +334,16 @@ function dismissed_updates() {
  * @since WP 2.7.0
  */
 function core_upgrade_preamble() {
-	$updates = get_core_updates();
+	$updates = retraceur_get_updates();
 
 	if ( ! $updates ) {
+		wp_admin_notice(
+			__( 'No Retraceur core updates were found for now.' ),
+			array(
+				'type'               => 'info',
+				'additional_classes' => array( 'inline' ),
+			)
+		);
 		return;
 	}
 
@@ -234,9 +352,9 @@ function core_upgrade_preamble() {
 
 	$is_development_version = preg_match( '/alpha|beta|RC/', $retraceur_version );
 
-	if ( isset( $updates[0]->version ) && version_compare( $updates[0]->version, $retraceur_version, '>' ) ) {
+	if ( isset( $updates[0]['version'] ) && version_compare( $updates[0]['version'], $retraceur_version, '>' ) ) {
 		echo '<h2 class="response">';
-		_e( 'An updated version of Retraceur is available.' );
+		esc_html_e( 'An updated version of Retraceur is available.' );
 		echo '</h2>';
 
 		wp_admin_notice(
@@ -254,14 +372,19 @@ function core_upgrade_preamble() {
 
 	echo '<ul class="core-updates">';
 	foreach ( (array) $updates as $update ) {
+		// Disable older stable version than current.
+		if ( version_compare( $update['version'], $retraceur_version, '<=' ) ) {
+			continue;
+		}
+
 		echo '<li>';
-		list_core_update( $update );
+		retraceur_list_update( $update );
 		echo '</li>';
 	}
 	echo '</ul>';
 
 	// Don't show the maintenance mode notice when we are only showing a single re-install option.
-	if ( $updates && ( count( $updates ) > 1 || 'latest' !== $updates[0]->response ) ) {
+	if ( $updates && count( $updates ) > 1 ) {
 		echo '<p>' . __( 'While your site is being updated, it will be in maintenance mode. As soon as your updates are complete, this mode will be deactivated.' ) . '</p>';
 	} elseif ( ! $updates ) {
 		list( $normalized_version ) = explode( '-', $retraceur_version );
@@ -280,6 +403,7 @@ function core_upgrade_preamble() {
  * Display Retraceur auto-updates settings.
  *
  * @since WP 5.6.0
+ * @todo deprecate as Retraceur won't use auto-updates.
  */
 function core_auto_updates_settings() {
 	if ( isset( $_GET['core-major-auto-updates-saved'] ) ) {
@@ -1033,8 +1157,7 @@ if ( 'upgrade-core' === $action ) {
 	echo '</p>';
 
 	if ( current_user_can( 'update_core' ) ) {
-		core_auto_updates_settings();
-		//core_upgrade_preamble();
+		core_upgrade_preamble();
 	}
 
 	/*

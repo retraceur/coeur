@@ -30,9 +30,68 @@ function get_preferred_from_update_core() {
 }
 
 /**
+ * Gets available coeur updates.
+ *
+ * @since 2.0.0 Retraceur fork.
+ *
+ * @param array $options Set $options['dismissed'] to true to show dismissed upgrades too,
+ *                       set $options['available'] to false to skip not-dismissed updates.
+ * @return array|false Array of the update arrays on success, false on failure.
+ */
+function retraceur_get_updates( $options = array() ) {
+	$options = array_merge(
+		array(
+			'available' => true,
+			'dismissed' => false,
+		),
+		$options
+	);
+
+	$dismissed = get_site_option( 'dismissed_update_coeur' );
+
+	if ( ! is_array( $dismissed ) ) {
+		$dismissed = array();
+	}
+
+	$from_api = get_site_transient( 'retraceur_coeur' );
+
+	if ( ! isset( $from_api->updates ) || ! is_array( $from_api->updates ) ) {
+		return false;
+	}
+
+	$updates = wp_list_sort( $from_api->updates, 'date', 'DESC' );
+	$result  = array();
+
+	foreach ( $updates as $update ) {
+		if ( true !== $update['stable'] ) {
+			continue;
+		}
+
+		if ( current( $updates ) === count( $updates ) - 1 ) {
+			$update['latest'] = true;
+		}
+
+		if ( array_key_exists( $update['version'], $dismissed ) ) {
+			if ( $options['dismissed'] ) {
+				$update['dismissed'] = true;
+				$result[]            = $update;
+			}
+		} else {
+			if ( $options['available'] ) {
+				$update['dismissed'] = false;
+				$result[]            = $update;
+			}
+		}
+	}
+
+	return $result;
+}
+
+/**
  * Gets available core updates.
  *
  * @since WP 2.7.0
+ * @todo deprecate
  *
  * @param array $options Set $options['dismissed'] to true to show dismissed upgrades too,
  *                       set $options['available'] to false to skip not-dismissed updates.
