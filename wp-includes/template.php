@@ -541,8 +541,9 @@ function get_search_template() {
  * @since WP 1.5.0
  * @since WP 4.4.0 `single-{post_type}-{post_name}.php` was added to the top of the template hierarchy.
  * @since WP 4.7.0 The decoded form of `single-{post_type}-{post_name}.php` was added to the top of the
- *              template hierarchy when the post name contains multibyte characters.
+ *                 template hierarchy when the post name contains multibyte characters.
  * @since WP 4.7.0 `{Post Type Template}.php` was added to the top of the template hierarchy.
+ * @since 2.0.0    Retraceur fork added the post format template.
  *
  * @see get_query_template()
  *
@@ -557,6 +558,11 @@ function get_single_template() {
 		$template = get_page_template_slug( $object );
 		if ( $template && 0 === validate_file( $template ) ) {
 			$templates[] = $template;
+		}
+
+		$post_format = get_post_format( $object );
+		if ( $post_format ) {
+			$templates[] = "single-post-format-{$post_format}.php";
 		}
 
 		$name_decoded = urldecode( $object->post_name );
