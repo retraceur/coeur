@@ -55,7 +55,16 @@ $rest_path = rest_get_route_for_post( $post );
 $active_theme                   = get_stylesheet();
 $global_styles_endpoint_context = current_user_can( 'edit_theme_options' ) ? 'edit' : 'view';
 $template_lookup_slug           = 'page' === $post->post_type ? 'page' : 'single-' . $post->post_type;
-if ( ! empty( $post->post_name ) ) {
+$has_post_format                = false;
+if ( 'post' === $post->post_type ) {
+	$post_format = get_post_format( $post );
+
+	if ( $post_format ) {
+		$has_post_format       = true;
+		$template_lookup_slug .= '-format-' . $post_format;
+	}
+}
+if ( ! $has_post_format && ! empty( $post->post_name ) ) {
 	$template_lookup_slug .= '-' . $post->post_name;
 }
 // Preload common data.
