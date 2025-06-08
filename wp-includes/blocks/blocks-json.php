@@ -3928,6 +3928,9 @@
       'enhancedPagination',
       'postType'
     ),
+    'providesContext' => array(
+	    'postFormat' => 'postFormat'
+    ),
     'supports' => array(
       'reusable' => false,
       'html' => false,
@@ -3981,6 +3984,39 @@
     ),
     'style' => 'wp-block-post-template',
     'editorStyle' => 'wp-block-post-template-editor'
+  ),
+  'post-format-part' => array(
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
+    'apiVersion' => 3,
+    'name' => 'core/post-format-part',
+    'title' => 'Post Format Part',
+    'category' => 'theme',
+    'ancestor' => array(
+      'core/post-template'
+    ),
+	  'description' => 'Displays Post Formats according to the one(s) specified within the include or exclude attributes.',
+    'textdomain' => 'default',
+    'attributes' => array(
+      'exclude' => array(
+        'type' => 'string',
+			),
+      'include' => array(
+        'type' => 'string'
+      )
+		),
+    'usesContext' => array(
+      'postFormat'
+    ),
+    'supports' => array(
+      'reusable' => false,
+		  'html' => false,
+      'align' => array(
+        'wide',
+        'full'
+			),
+      'layout' => true,
+      'interactivity' => true
+		)
   ),
   'post-terms' => array(
     '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',

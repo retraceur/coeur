@@ -1,0 +1,26 @@
+{
+	"$schema": "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
+	"apiVersion": 3,
+	"name": "core/post-format-part",
+	"title": "Post Format Part",
+	"category": "theme",
+	"ancestor": [ "core/post-template" ],
+	"description": "Displays Post Formats according to the one(s) specified within the include or exclude attributes.",
+	"textdomain": "default",
+	"attributes": {
+		"exclude": {
+			"type": "string"
+		},
+		"include": {
+			"type": "string"
+		}
+	},
+	"usesContext": [ "postFormat" ],
+	"supports": {
+		"reusable": false,
+		"html": false,
+		"align": [ "wide", "full" ],
+		"layout": true,
+		"interactivity": true
+	}
+}

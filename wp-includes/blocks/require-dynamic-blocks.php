@@ -34,6 +34,7 @@ require_once ABSPATH . WPINC . '/blocks/post-excerpt.php';
 require_once ABSPATH . WPINC . '/blocks/post-featured-image.php';
 require_once ABSPATH . WPINC . '/blocks/post-navigation-link.php';
 require_once ABSPATH . WPINC . '/blocks/post-template.php';
+require_once ABSPATH . WPINC . '/blocks/post-format-part.php';
 require_once ABSPATH . WPINC . '/blocks/post-terms.php';
 require_once ABSPATH . WPINC . '/blocks/post-title.php';
 require_once ABSPATH . WPINC . '/blocks/query.php';
