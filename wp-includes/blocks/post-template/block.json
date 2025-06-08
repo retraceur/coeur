@@ -16,6 +16,9 @@
 		"enhancedPagination",
 		"postType"
 	],
+	"providesContext": {
+		"postFormat": "postFormat"
+	},
 	"supports": {
 		"reusable": false,
 		"html": false,
