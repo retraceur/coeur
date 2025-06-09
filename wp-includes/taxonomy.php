@@ -123,6 +123,7 @@ function create_initial_taxonomies() {
 			'show_ui'           => false,
 			'_builtin'          => true,
 			'show_in_nav_menus' => current_theme_supports( 'post-formats' ),
+			'show_in_rest'      => true,
 		)
 	);
 

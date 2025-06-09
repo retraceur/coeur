@@ -12,8 +12,6 @@
  *
  * @since 2.0.0 Retraceur fork.
  *
- * @global WP_Query $wp_query WP Query object.
- *
  * @param array    $attributes Block attributes.
  * @param string   $content    Block default content.
  * @param WP_Block $block      Block instance.
@@ -27,7 +25,8 @@ function render_block_core_post_format_part( $attributes, $content, $block ) {
 	$exclude_post_format = isset( $attributes['exclude'] ) ? $attributes['exclude'] : '';
 
 	if ( $exclude_post_format && ! $include_post_format ) {
-		$include_post_format = get_post_format_slugs();
+		$supported_theme_formats = get_theme_support( 'post-formats' );
+		$include_post_format     = is_array( $supported_theme_formats ) ? reset( $supported_theme_formats ) : array();
 	}
 
 	$include_post_format = wp_parse_slug_list( $include_post_format );
