@@ -40579,26 +40579,9 @@ const post_navigation_link_init = () => initBlock({
 
 
 
-const post_template_edit_TEMPLATE = [['core/post-title'], ['core/post-date'], ['core/post-excerpt']];
-function PostTemplateInnerBlocks({
-  classList
-}) {
-  const innerBlocksProps = (0,external_wp_blockEditor_namespaceObject.useInnerBlocksProps)({
-    className: dist_clsx('wp-block-post', classList)
-  }, {
-    template: post_template_edit_TEMPLATE,
-    __unstableDisableLayoutClassNames: true
-  });
-  return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("li", {
-    ...innerBlocksProps
-  });
-}
 function PostTemplateBlockPreview({
   blocks,
-  blockContextId,
-  classList,
-  isHidden,
-  setActiveBlockContextId
+  classList
 }) {
   const blockPreviewProps = (0,external_wp_blockEditor_namespaceObject.__experimentalUseBlockPreview)({
     blocks,
@@ -40606,21 +40589,12 @@ function PostTemplateBlockPreview({
       className: dist_clsx('wp-block-post', classList)
     }
   });
-  const handleOnClick = () => {
-    setActiveBlockContextId(blockContextId);
-  };
-  const style = {
-    display: isHidden ? 'none' : undefined
-  };
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("li", {
     ...blockPreviewProps,
     tabIndex: 0
     // eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role
     ,
-    role: "button",
-    onClick: handleOnClick,
-    onKeyPress: handleOnClick,
-    style: style
+    role: "button"
   });
 }
 const MemoizedPostTemplateBlockPreview = (0,external_wp_element_namespaceObject.memo)(PostTemplateBlockPreview);
@@ -40662,7 +40636,6 @@ function PostTemplateEdit({
     type: layoutType,
     columnCount = 3
   } = layout || {};
-  const [activeBlockContextId, setActiveBlockContextId] = (0,external_wp_element_namespaceObject.useState)();
   const {
     posts,
     blocks
@@ -40832,17 +40805,12 @@ function PostTemplateEdit({
       })
     }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("ul", {
       ...blockProps,
-      children: blockContexts && blockContexts.map(blockContext => /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_wp_blockEditor_namespaceObject.BlockContextProvider, {
+      children: blockContexts && blockContexts.map(blockContext => /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_blockEditor_namespaceObject.BlockContextProvider, {
         value: blockContext,
-        children: [blockContext.postId === (activeBlockContextId || blockContexts[0]?.postId) ? /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(PostTemplateInnerBlocks, {
-          classList: blockContext.classList
-        }) : null, /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(MemoizedPostTemplateBlockPreview, {
+        children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(MemoizedPostTemplateBlockPreview, {
           blocks: blocks,
-          blockContextId: blockContext.postId,
-          classList: blockContext.classList,
-          setActiveBlockContextId: setActiveBlockContextId,
-          isHidden: blockContext.postId === (activeBlockContextId || blockContexts[0]?.postId)
-        })]
+          classList: blockContext.classList
+        })
       }, blockContext.postId))
     })]
   });
