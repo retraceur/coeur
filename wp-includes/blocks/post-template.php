@@ -112,9 +112,7 @@ function render_block_core_post_template( $attributes, $content, $block ) {
 
 		$post_id              = get_the_ID();
 		$post_type            = get_post_type();
-		$post_format          = get_post_format( $post_id );
-		$filter_block_context = static function ( $context ) use ( $post_id, $post_type, $post_format ) {
-			$context['postFormat'] = $post_format ? $post_format : 'standard';
+		$filter_block_context = static function ( $context ) use ( $post_id, $post_type ) {
 			$context['postType']   = $post_type;
 			$context['postId']     = $post_id;
 			return $context;
