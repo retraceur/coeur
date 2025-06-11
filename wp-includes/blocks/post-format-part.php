@@ -20,7 +20,17 @@
  *                and according the specified include/exclude attributes.
  */
 function render_block_core_post_format_part( $attributes, $content, $block ) {
-	$current_post_format = isset( $block->context['postFormat'] ) ? $block->context['postFormat'] : 'standard';
+	if ( ! isset( $block->context['postId'] ) ) {
+		return '';
+	}
+
+	$post_id             =  (int) $block->context['postId'];
+	$current_post_format = get_post_format( $post_id );
+
+	if ( ! $current_post_format ) {
+		$current_post_format = 'standard';
+	}
+
 	$include_post_format = isset( $attributes['include'] ) ? $attributes['include'] : '';
 	$exclude_post_format = isset( $attributes['exclude'] ) ? $attributes['exclude'] : '';
 

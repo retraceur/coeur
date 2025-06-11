@@ -3928,9 +3928,6 @@
       'enhancedPagination',
       'postType'
     ),
-    'providesContext' => array(
-	    'postFormat' => 'postFormat'
-    ),
     'supports' => array(
       'reusable' => false,
       'html' => false,
@@ -4005,7 +4002,8 @@
       )
 		),
     'usesContext' => array(
-      'postFormat'
+      'postType',
+			'postId',
     ),
     'supports' => array(
       'reusable' => false,
