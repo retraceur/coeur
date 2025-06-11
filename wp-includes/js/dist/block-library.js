@@ -1144,6 +1144,16 @@ __webpack_require__.d(post_format_part_namespaceObject, {
   settings: () => (post_format_part_settings)
 });
 
+// NAMESPACE OBJECT: ./packages/block-library/build-module/post-format-name/index.js
+var post_format_name_namespaceObject = {};
+__webpack_require__.r(post_format_name_namespaceObject);
+__webpack_require__.d(post_format_name_namespaceObject, {
+  init: () => (post_format_name_init),
+  metadata: () => (post_format_name_metadata),
+  name: () => (post_format_name_name),
+  settings: () => (post_format_name_settings)
+});
+
 // NAMESPACE OBJECT: ./packages/block-library/build-module/post-navigation-link/index.js
 var post_navigation_link_namespaceObject = {};
 __webpack_require__.r(post_navigation_link_namespaceObject);
@@ -40220,6 +40230,297 @@ const post_format_part_init = () => initBlock({
   settings: post_format_part_settings
 });
 
+;// ./packages/icons/build-module/library/post-format.js
+/**
+ * WP dependencies
+ */
+
+
+const postFormat = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_primitives_namespaceObject.SVG, {
+  xmlns: "http://www.w3.org/2000/svg",
+  viewBox: "0 0 24 24",
+  children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_primitives_namespaceObject.Path, {
+    d: "M 20 16 L 4 16 L 4 14.5 L 20 14.5 Z M 13 20 L 4 20 L 4 18.5 L 13 18.5 Z M 8.24 7.551 L 8.24 8.695 L 5.338 8.695 L 5.338 12.512 L 4.103 12.512 L 4.103 3.99 L 9.015 3.99 L 9.015 5.134 L 5.338 5.134 L 5.338 7.551 Z"
+  })
+});
+/* harmony default export */ const post_format = (postFormat);
+
+;// ./packages/block-library/build-module/post-format-name/edit.js
+/**
+ * External dependencies
+ */
+
+
+/**
+ * WP dependencies
+ */
+
+
+
+
+
+
+// All WP post formats.
+
+const POST_FORMATS = [{
+  id: 'aside',
+  caption: (0,external_wp_i18n_namespaceObject.__)('Aside')
+}, {
+  id: 'audio',
+  caption: (0,external_wp_i18n_namespaceObject.__)('Audio')
+}, {
+  id: 'chat',
+  caption: (0,external_wp_i18n_namespaceObject.__)('Chat')
+}, {
+  id: 'gallery',
+  caption: (0,external_wp_i18n_namespaceObject.__)('Gallery')
+}, {
+  id: 'image',
+  caption: (0,external_wp_i18n_namespaceObject.__)('Image')
+}, {
+  id: 'link',
+  caption: (0,external_wp_i18n_namespaceObject.__)('Link')
+}, {
+  id: 'quote',
+  caption: (0,external_wp_i18n_namespaceObject.__)('Quote')
+}, {
+  id: 'standard',
+  caption: (0,external_wp_i18n_namespaceObject.__)('Standard')
+}, {
+  id: 'status',
+  caption: (0,external_wp_i18n_namespaceObject.__)('Status')
+}, {
+  id: 'video',
+  caption: (0,external_wp_i18n_namespaceObject.__)('Video')
+}];
+const PostFormatNameEdit = ({
+  attributes: {
+    level,
+    levelOptions,
+    textAlign,
+    isLink,
+    rel,
+    linkTarget
+  },
+  setAttributes,
+  context: {
+    postType,
+    postId
+  }
+}) => {
+  const TagName = level === 0 ? 'p' : `h${level}`;
+  const supportedFormats = (0,external_wp_data_namespaceObject.useSelect)(select => {
+    const themeSupports = select(external_wp_coreData_namespaceObject.store).getThemeSupports();
+    return themeSupports.formats;
+  }, []);
+  const [postFormat] = (0,external_wp_coreData_namespaceObject.useEntityProp)('postType', postType, 'format', postId);
+  const formats = POST_FORMATS.filter(format => {
+    // Ensure current format is always in the set.
+    // The current format may not be a format supported by the theme.
+    return supportedFormats?.includes(format.id) || postFormat === format.id;
+  });
+  const currentFormat = formats.find(format => format.id === postFormat);
+  const postFormatName = postFormat ? (0,external_wp_i18n_namespaceObject.sprintf)(
+  // translators: 1: Post Format name, 2: Post ID
+  (0,external_wp_i18n_namespaceObject.__)('%1$s #%2$d'), currentFormat?.caption, postId) : '';
+  const [link] = (0,external_wp_coreData_namespaceObject.useEntityProp)('postType', postType, 'link', postId);
+  const blockProps = (0,external_wp_blockEditor_namespaceObject.useBlockProps)({
+    className: dist_clsx({
+      [`has-text-align-${textAlign}`]: textAlign
+    })
+  });
+  const blockEditingMode = (0,external_wp_blockEditor_namespaceObject.useBlockEditingMode)();
+  let postFormatNameElement = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(TagName, {
+    ...blockProps,
+    children: (0,external_wp_i18n_namespaceObject.__)('Post Format Name #ID')
+  });
+  if (postFormat && postType && postId) {
+    postFormatNameElement = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(TagName, {
+      ...blockProps,
+      dangerouslySetInnerHTML: {
+        __html: postFormatName
+      }
+    });
+  }
+  if (postFormat && isLink && postType && postId) {
+    postFormatNameElement = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(TagName, {
+      ...blockProps,
+      children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("a", {
+        href: link,
+        target: linkTarget,
+        rel: rel,
+        onClick: event => event.preventDefault(),
+        dangerouslySetInnerHTML: {
+          __html: postFormatName
+        }
+      })
+    });
+  }
+  return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_ReactJSXRuntime_namespaceObject.Fragment, {
+    children: [blockEditingMode === 'default' && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_ReactJSXRuntime_namespaceObject.Fragment, {
+      children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_wp_blockEditor_namespaceObject.BlockControls, {
+        group: "block",
+        children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_blockEditor_namespaceObject.HeadingLevelDropdown, {
+          value: level,
+          options: levelOptions,
+          onChange: newLevel => setAttributes({
+            level: newLevel
+          })
+        }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_blockEditor_namespaceObject.AlignmentControl, {
+          value: textAlign,
+          onChange: nextAlign => {
+            setAttributes({
+              textAlign: nextAlign
+            });
+          }
+        })]
+      }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_blockEditor_namespaceObject.InspectorControls, {
+        children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_wp_components_namespaceObject.PanelBody, {
+          title: (0,external_wp_i18n_namespaceObject.__)('Settings'),
+          children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ToggleControl, {
+            __nextHasNoMarginBottom: true,
+            label: (0,external_wp_i18n_namespaceObject.__)('Make Post Format name a link'),
+            onChange: () => setAttributes({
+              isLink: !isLink
+            }),
+            checked: isLink
+          }), isLink && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_ReactJSXRuntime_namespaceObject.Fragment, {
+            children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ToggleControl, {
+              __nextHasNoMarginBottom: true,
+              label: (0,external_wp_i18n_namespaceObject.__)('Open in new tab'),
+              onChange: value => setAttributes({
+                linkTarget: value ? '_blank' : '_self'
+              }),
+              checked: linkTarget === '_blank'
+            }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.TextControl, {
+              __next40pxDefaultSize: true,
+              __nextHasNoMarginBottom: true,
+              label: (0,external_wp_i18n_namespaceObject.__)('Link rel'),
+              value: rel,
+              onChange: newRel => setAttributes({
+                rel: newRel
+              })
+            })]
+          })]
+        })
+      })]
+    }), postFormatNameElement]
+  });
+};
+/* harmony default export */ const post_format_name_edit = (PostFormatNameEdit);
+
+;// ./packages/block-library/build-module/post-format-name/index.js
+/**
+ * WP dependencies
+ */
+
+
+/**
+ * Internal dependencies
+ */
+
+const post_format_name_metadata = {
+  $schema: "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
+  apiVersion: 3,
+  name: "core/post-format-name",
+  title: "Post Format name",
+  category: "theme",
+  description: "Displays the name of a post format.",
+  textdomain: "default",
+  usesContext: ["postType", "postId"],
+  attributes: {
+    textAlign: {
+      type: "string"
+    },
+    level: {
+      type: "number",
+      "default": 2
+    },
+    levelOptions: {
+      type: "array"
+    },
+    isLink: {
+      type: "boolean",
+      "default": false,
+      role: "content"
+    },
+    rel: {
+      type: "string",
+      attribute: "rel",
+      "default": "",
+      role: "content"
+    },
+    linkTarget: {
+      type: "string",
+      "default": "_self",
+      role: "content"
+    }
+  },
+  example: {
+    viewportWidth: 350
+  },
+  supports: {
+    align: ["wide", "full"],
+    html: false,
+    color: {
+      gradients: true,
+      link: true,
+      __experimentalDefaultControls: {
+        background: true,
+        text: true,
+        link: true
+      }
+    },
+    spacing: {
+      margin: true,
+      padding: true
+    },
+    typography: {
+      fontSize: true,
+      lineHeight: true,
+      __experimentalFontFamily: true,
+      __experimentalFontWeight: true,
+      __experimentalFontStyle: true,
+      __experimentalTextTransform: true,
+      __experimentalTextDecoration: true,
+      __experimentalLetterSpacing: true,
+      __experimentalDefaultControls: {
+        fontSize: true
+      }
+    },
+    interactivity: {
+      clientNavigation: true
+    },
+    __experimentalBorder: {
+      radius: true,
+      color: true,
+      width: true,
+      style: true,
+      __experimentalDefaultControls: {
+        radius: true,
+        color: true,
+        width: true,
+        style: true
+      }
+    }
+  },
+  style: "wp-block-post-format-name"
+};
+
+const {
+  name: post_format_name_name
+} = post_format_name_metadata;
+
+const post_format_name_settings = {
+  icon: post_format,
+  edit: post_format_name_edit
+};
+const post_format_name_init = () => initBlock({
+  name: post_format_name_name,
+  metadata: post_format_name_metadata,
+  settings: post_format_name_settings
+});
+
 ;// ./packages/block-library/build-module/post-navigation-link/edit.js
 /**
  * External dependencies
@@ -43998,7 +44299,7 @@ function TaxonomyItem({
 // All WP post formats, sorted alphabetically by translated name.
 // Value is the post format slug. Label is the name.
 
-const POST_FORMATS = [{
+const format_controls_POST_FORMATS = [{
   value: 'aside',
   label: (0,external_wp_i18n_namespaceObject.__)('Aside')
 }, {
@@ -44064,7 +44365,7 @@ function FormatControls({
       supportedFormats: themeSupports.formats
     };
   }, []);
-  const formats = POST_FORMATS.filter(item => supportedFormats.includes(item.value));
+  const formats = format_controls_POST_FORMATS.filter(item => supportedFormats.includes(item.value));
   const values = normalizedFormats.map(name => formats.find(item => item.value === name)?.label).filter(Boolean);
   const suggestions = formats.filter(item => !normalizedFormats.includes(item.value)).map(item => item.label);
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.FormTokenField, {
@@ -61825,6 +62126,7 @@ lock(privateApis, {
 
 
 
+
 /**
  * Function to get all the block-library blocks in an array
  */
@@ -61836,7 +62138,7 @@ const getAllBlocks = () => {
   // Register all remaining core blocks.
   archives_namespaceObject, build_module_audio_namespaceObject, build_module_button_namespaceObject, build_module_buttons_namespaceObject, build_module_calendar_namespaceObject, categories_namespaceObject, build_module_code_namespaceObject, build_module_column_namespaceObject, build_module_columns_namespaceObject, build_module_cover_namespaceObject, build_module_details_namespaceObject, embed_namespaceObject, build_module_file_namespaceObject, build_module_group_namespaceObject, build_module_html_namespaceObject, latest_posts_namespaceObject, media_text_namespaceObject, missing_namespaceObject, build_module_more_namespaceObject, nextpage_namespaceObject, page_list_namespaceObject, page_list_item_namespaceObject, pattern_namespaceObject, build_module_preformatted_namespaceObject, build_module_pullquote_namespaceObject, block_namespaceObject, build_module_rss_namespaceObject, build_module_search_namespaceObject, build_module_separator_namespaceObject, build_module_shortcode_namespaceObject, social_link_namespaceObject, social_links_namespaceObject, spacer_namespaceObject, build_module_table_namespaceObject, tag_cloud_namespaceObject, text_columns_namespaceObject, build_module_verse_namespaceObject, build_module_video_namespaceObject, footnotes_namespaceObject,
   // theme blocks
-  build_module_navigation_namespaceObject, navigation_link_namespaceObject, navigation_submenu_namespaceObject, build_module_site_logo_namespaceObject, site_title_namespaceObject, site_tagline_namespaceObject, query_namespaceObject, template_part_namespaceObject, avatar_namespaceObject, post_title_namespaceObject, build_module_post_excerpt_namespaceObject, build_module_post_featured_image_namespaceObject, build_module_post_content_namespaceObject, build_module_post_author_namespaceObject, post_author_name_namespaceObject, build_module_post_date_namespaceObject, build_module_post_terms_namespaceObject, post_navigation_link_namespaceObject, post_template_namespaceObject, post_format_part_namespaceObject, post_time_to_read_namespaceObject, build_module_query_pagination_namespaceObject, build_module_query_pagination_next_namespaceObject, build_module_query_pagination_numbers_namespaceObject, build_module_query_pagination_previous_namespaceObject, query_no_results_namespaceObject, query_total_namespaceObject, read_more_namespaceObject, build_module_table_of_contents_namespaceObject, home_link_namespaceObject, loginout_namespaceObject, build_module_term_description_namespaceObject, query_title_namespaceObject, post_author_biography_namespaceObject];
+  build_module_navigation_namespaceObject, navigation_link_namespaceObject, navigation_submenu_namespaceObject, build_module_site_logo_namespaceObject, site_title_namespaceObject, site_tagline_namespaceObject, query_namespaceObject, template_part_namespaceObject, avatar_namespaceObject, post_title_namespaceObject, build_module_post_excerpt_namespaceObject, build_module_post_featured_image_namespaceObject, build_module_post_content_namespaceObject, build_module_post_author_namespaceObject, post_author_name_namespaceObject, build_module_post_date_namespaceObject, build_module_post_terms_namespaceObject, post_navigation_link_namespaceObject, post_template_namespaceObject, post_format_part_namespaceObject, post_format_name_namespaceObject, post_time_to_read_namespaceObject, build_module_query_pagination_namespaceObject, build_module_query_pagination_next_namespaceObject, build_module_query_pagination_numbers_namespaceObject, build_module_query_pagination_previous_namespaceObject, query_no_results_namespaceObject, query_total_namespaceObject, read_more_namespaceObject, build_module_table_of_contents_namespaceObject, home_link_namespaceObject, loginout_namespaceObject, build_module_term_description_namespaceObject, query_title_namespaceObject, post_author_biography_namespaceObject];
   if (window?.__experimentalEnableFormBlocks) {
     blocks.push(form_namespaceObject);
     blocks.push(form_input_namespaceObject);

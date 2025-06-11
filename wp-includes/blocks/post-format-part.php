@@ -8,7 +8,7 @@
  */
 
 /**
- * Renders the `core/post-format` block on the server.
+ * Renders the `core/post-format-part` block on the server.
  *
  * @since 2.0.0 Retraceur fork.
  *
