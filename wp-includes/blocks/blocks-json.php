@@ -3857,7 +3857,7 @@
     ),
     'attributes' => array(
       'textAlign' => array(
-	      'type' => 'string'
+        'type' => 'string'
       ),
       'level' => array(
         'type' => 'number',
