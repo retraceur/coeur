@@ -3843,6 +3843,99 @@
     'editorStyle' => 'wp-block-post-featured-image-editor',
     'style' => 'wp-block-post-featured-image'
   ),
+  'post-format-name' => array(
+    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
+    'apiVersion' => 3,
+    'name' => 'core/post-format-name',
+    'title' => 'Post Format name',
+    'category' => 'theme',
+    'description' => 'Displays the name of a post format.',
+    'textdomain' => 'default',
+    'usesContext' => array(
+      'postType',
+      'postId'
+    ),
+    'attributes' => array(
+      'textAlign' => array(
+	      'type' => 'string'
+	    ),
+      'level' => array(
+        'type' => 'number',
+        'default' => 2
+      ),
+      'levelOptions' => array(
+        'type' => 'array'
+      ),
+      'isLink' => array(
+        'type' => 'boolean',
+        'default' => false,
+        'role' => 'content'
+      ),
+      'rel' => array(
+        'type' => 'string',
+        'attribute' => 'rel',
+        'default' => '',
+        'role' => 'content'
+      ),
+      'linkTarget' => array(
+        'type' => 'string',
+        'default' => '_self',
+        'role' => 'content'
+      )
+    ),
+    'example' => array(
+      'viewportWidth' => 350
+    ),
+    'supports' => array(
+      'align' => array(
+        'wide',
+        'full'
+      ),
+      'html' => false,
+      'color' => array(
+        'gradients' => true,
+        'link' => true,
+        '__experimentalDefaultControls' => array(
+          'background' => true,
+          'text' => true,
+          'link' => true
+        )
+      ),
+      'spacing' => array(
+        'margin' => true,
+        'padding' => true
+      ),
+      'typography' => array(
+        'fontSize' => true,
+        'lineHeight' => true,
+        '__experimentalFontFamily' => true,
+        '__experimentalFontWeight' => true,
+        '__experimentalFontStyle' => true,
+        '__experimentalTextTransform' => true,
+        '__experimentalTextDecoration' => true,
+        '__experimentalLetterSpacing' => true,
+        '__experimentalDefaultControls' => array(
+          'fontSize' => true
+        )
+      ),
+      'interactivity' => array(
+        'clientNavigation' => true
+      ),
+      '__experimentalBorder' => array(
+        'radius' => true,
+        'color' => true,
+        'width' => true,
+        'style' => true,
+        '__experimentalDefaultControls' => array(
+          'radius' => true,
+          'color' => true,
+          'width' => true,
+          'style' => true
+        )
+      )
+    ),
+    'style' => 'wp-block-post-format-name'
+  ),
   'post-navigation-link' => array(
     '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
     'apiVersion' => 3,
@@ -3996,25 +4089,25 @@
     'attributes' => array(
       'exclude' => array(
         'type' => 'string',
-			),
+      ),
       'include' => array(
         'type' => 'string'
       )
-		),
+    ),
     'usesContext' => array(
       'postType',
-			'postId',
+      'postId',
     ),
     'supports' => array(
       'reusable' => false,
-		  'html' => false,
+      'html' => false,
       'align' => array(
         'wide',
         'full'
-			),
+      ),
       'layout' => true,
       'interactivity' => true
-		)
+    )
   ),
   'post-terms' => array(
     '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
