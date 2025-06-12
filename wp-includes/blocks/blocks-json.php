@@ -3858,7 +3858,7 @@
     'attributes' => array(
       'textAlign' => array(
 	      'type' => 'string'
-	    ),
+      ),
       'level' => array(
         'type' => 'number',
         'default' => 2
@@ -4084,7 +4084,7 @@
     'ancestor' => array(
       'core/post-template'
     ),
-	  'description' => 'Displays Post Formats according to the one(s) specified within the include or exclude attributes.',
+    'description' => 'Displays Post Formats according to the one(s) specified within the include or exclude attributes.',
     'textdomain' => 'default',
     'attributes' => array(
       'exclude' => array(
