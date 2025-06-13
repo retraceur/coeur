@@ -156,7 +156,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 			// Using offsetHeight as a replacement for computed.height in IE, because IE does not account use of border-box
 			var actualHeight = computed.boxSizing === 'content-box' ? Math.round(parseFloat(computed.height)) : ta.offsetHeight;
 
-			// The actual height not matching the style height (set via the resize method) indicates that
+			// The actual height not matching the style height (set via the resize method) indicates that 
 			// the max-height has been exceeded, in which case the overflow should be allowed.
 			if (actualHeight < styleHeight) {
 				if (computed.overflowY === 'hidden') {
@@ -7280,7 +7280,7 @@ module.exports = { nanoid, customAlphabet }
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/
+/******/ 	
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -7294,14 +7294,14 @@ module.exports = { nanoid, customAlphabet }
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
-/******/
+/******/ 	
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
+/******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/
+/******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
@@ -7314,7 +7314,7 @@ module.exports = { nanoid, customAlphabet }
 /******/ 			return getter;
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -7326,12 +7326,12 @@ module.exports = { nanoid, customAlphabet }
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -7342,7 +7342,7 @@ module.exports = { nanoid, customAlphabet }
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry needs to be wrapped in an IIFE because it needs to be in strict mode.
@@ -7934,7 +7934,6 @@ const PREFERENCES_DEFAULTS = {
  * @property {boolean}       canLockBlocks                          Whether the user can manage Block Lock state
  * @property {boolean}       codeEditingEnabled                     Whether or not the user can switch to the code editor
  * @property {boolean}       generateAnchors                        Enable/Disable auto anchor generation for Heading blocks
- * @property {boolean}       enableOpenverseMediaCategory           Enable/Disable the Openverse media category in the inserter.
  * @property {boolean}       clearBlockSelection                    Whether the block editor should clear selection on mousedown when a block is not clicked.
  * @property {boolean}       __experimentalCanUserUseUnfilteredHTML Whether the user should be able to use unfiltered HTML or the HTML should be filtered e.g., to remove elements considered insecure like iframes.
  * @property {boolean}       __experimentalBlockDirectory           Whether the user has enabled the Block Directory
@@ -8046,8 +8045,6 @@ const SETTINGS_DEFAULTS = {
   allowedMimeTypes: null,
   // Allows to disable block locking interface.
   canLockBlocks: true,
-  // Allows to disable Openverse media category in the inserter.
-  enableOpenverseMediaCategory: true,
   clearBlockSelection: true,
   __experimentalCanUserUseUnfilteredHTML: false,
   __experimentalBlockDirectory: false,
@@ -11188,8 +11185,7 @@ const getInserterMediaCategories = (0,external_wp_data_namespaceObject.createSel
   const {
     settings: {
       inserterMediaCategories,
-      allowedMimeTypes,
-      enableOpenverseMediaCategory
+      allowedMimeTypes
     },
     registeredInserterMediaCategories
   } = state;
@@ -11206,13 +11202,9 @@ const getInserterMediaCategories = (0,external_wp_data_namespaceObject.createSel
     name
   }) => !coreInserterMediaCategoriesNames.includes(name))];
   return mergedCategories.filter(category => {
-    // Check if Openverse category is enabled.
-    if (!enableOpenverseMediaCategory && category.name === 'openverse') {
-      return false;
-    }
     return Object.values(allowedMimeTypes).some(mimeType => mimeType.startsWith(`${category.mediaType}/`));
   });
-}, state => [state.settings.inserterMediaCategories, state.settings.allowedMimeTypes, state.settings.enableOpenverseMediaCategory, state.registeredInserterMediaCategories]);
+}, state => [state.settings.inserterMediaCategories, state.settings.allowedMimeTypes, state.registeredInserterMediaCategories]);
 
 /**
  * Returns whether there is at least one allowed pattern for inner blocks children.
@@ -51548,7 +51540,7 @@ function nestTokens(tokens, { list = true } = {}) {
 /**
  * Traverse an AST in depth-first order
  */
-function* flatten(node,
+function* flatten(node, 
 /**
  * @internal
  */
@@ -51573,7 +51565,7 @@ parent) {
 /**
  * Traverse an AST (or part thereof), in depth-first order
  */
-function walk(node, visit,
+function walk(node, visit, 
 /**
  * @internal
  */
@@ -52370,7 +52362,7 @@ function InserterPreviewPanel({
           //We want this CSS to be in sync with the one in BlockPreviewPanel.
           [{
             css: `
-										body {
+										body { 
 											padding: 24px;
 											min-height:${Math.round(minHeight)}px;
 											display:flex;
