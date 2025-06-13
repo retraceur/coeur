@@ -10538,7 +10538,6 @@ const withRegistryProvider = (0,external_wp_compose_namespaceObject.createHigher
 /* harmony default export */ const with_registry_provider = (withRegistryProvider);
 
 ;// ./packages/editor/build-module/components/media-categories/index.js
-/* wp:polyfill */
 /**
  * The `editor` settings here need to be in sync with the corresponding ones in `editor` package.
  * See `packages/editor/src/components/media-categories/index.js`.
@@ -10553,7 +10552,6 @@ const withRegistryProvider = (0,external_wp_compose_namespaceObject.createHigher
 
 
 
-
 /**
  * Internal dependencies
  */
@@ -10563,54 +10561,6 @@ const withRegistryProvider = (0,external_wp_compose_namespaceObject.createHigher
 /** @typedef {import('@wordpress/block-editor').InserterMediaItem} InserterMediaItem */
 /** @typedef {import('@wordpress/block-editor').InserterMediaCategory} InserterMediaCategory */
 
-const getExternalLink = (url, text) => `<a ${getExternalLinkAttributes(url)}>${text}</a>`;
-const getExternalLinkAttributes = url => `href="${url}" target="_blank" rel="noreferrer noopener"`;
-const getOpenverseLicense = (license, licenseVersion) => {
-  let licenseName = license.trim();
-  // PDM has no abbreviation
-  if (license !== 'pdm') {
-    licenseName = license.toUpperCase().replace('SAMPLING', 'Sampling');
-  }
-  // If version is known, append version to the name.
-  // The license has to have a version to be valid. Only
-  // PDM (public domain mark) doesn't have a version.
-  if (licenseVersion) {
-    licenseName += ` ${licenseVersion}`;
-  }
-  // For licenses other than public-domain marks, prepend 'CC' to the name.
-  if (!['pdm', 'cc0'].includes(license)) {
-    licenseName = `CC ${licenseName}`;
-  }
-  return licenseName;
-};
-const getOpenverseCaption = item => {
-  const {
-    title,
-    foreign_landing_url: foreignLandingUrl,
-    creator,
-    creator_url: creatorUrl,
-    license,
-    license_version: licenseVersion,
-    license_url: licenseUrl
-  } = item;
-  const fullLicense = getOpenverseLicense(license, licenseVersion);
-  const _creator = (0,external_wp_htmlEntities_namespaceObject.decodeEntities)(creator);
-  let _caption;
-  if (_creator) {
-    _caption = title ? (0,external_wp_i18n_namespaceObject.sprintf)(
-    // translators: %1s: Title of a media work from Openverse; %2s: Name of the work's creator; %3s: Work's licence e.g: "CC0 1.0".
-    (0,external_wp_i18n_namespaceObject._x)('"%1$s" by %2$s/ %3$s', 'caption'), getExternalLink(foreignLandingUrl, (0,external_wp_htmlEntities_namespaceObject.decodeEntities)(title)), creatorUrl ? getExternalLink(creatorUrl, _creator) : _creator, licenseUrl ? getExternalLink(`${licenseUrl}?ref=openverse`, fullLicense) : fullLicense) : (0,external_wp_i18n_namespaceObject.sprintf)(
-    // translators: %1s: Link attributes for a given Openverse media work; %2s: Name of the work's creator; %3s: Works's licence e.g: "CC0 1.0".
-    (0,external_wp_i18n_namespaceObject._x)('<a %1$s>Work</a> by %2$s/ %3$s', 'caption'), getExternalLinkAttributes(foreignLandingUrl), creatorUrl ? getExternalLink(creatorUrl, _creator) : _creator, licenseUrl ? getExternalLink(`${licenseUrl}?ref=openverse`, fullLicense) : fullLicense);
-  } else {
-    _caption = title ? (0,external_wp_i18n_namespaceObject.sprintf)(
-    // translators: %1s: Title of a media work from Openverse; %2s: Work's licence e.g: "CC0 1.0".
-    (0,external_wp_i18n_namespaceObject._x)('"%1$s"/ %2$s', 'caption'), getExternalLink(foreignLandingUrl, (0,external_wp_htmlEntities_namespaceObject.decodeEntities)(title)), licenseUrl ? getExternalLink(`${licenseUrl}?ref=openverse`, fullLicense) : fullLicense) : (0,external_wp_i18n_namespaceObject.sprintf)(
-    // translators: %1s: Link attributes for a given Openverse media work; %2s: Works's licence e.g: "CC0 1.0".
-    (0,external_wp_i18n_namespaceObject._x)('<a %1$s>Work</a>/ %2$s', 'caption'), getExternalLinkAttributes(foreignLandingUrl), licenseUrl ? getExternalLink(`${licenseUrl}?ref=openverse`, fullLicense) : fullLicense);
-  }
-  return _caption.replace(/\s{2}/g, ' ');
-};
 const coreMediaFetch = async (query = {}) => {
   const mediaItems = await (0,external_wp_data_namespaceObject.resolveSelect)(external_wp_coreData_namespaceObject.store).getMediaItems({
     ...query,
@@ -10665,54 +10615,6 @@ const inserterMediaCategories = [{
       media_type: 'audio'
     });
   }
-}, {
-  name: 'openverse',
-  labels: {
-    name: (0,external_wp_i18n_namespaceObject.__)('Openverse'),
-    search_items: (0,external_wp_i18n_namespaceObject.__)('Search Openverse')
-  },
-  mediaType: 'image',
-  async fetch(query = {}) {
-    const defaultArgs = {
-      mature: false,
-      excluded_source: 'flickr,inaturalist,wikimedia',
-      license: 'pdm,cc0'
-    };
-    const finalQuery = {
-      ...query,
-      ...defaultArgs
-    };
-    const mapFromInserterMediaRequest = {
-      per_page: 'page_size',
-      search: 'q'
-    };
-    const url = new URL('https://api.openverse.org/v1/images/');
-    Object.entries(finalQuery).forEach(([key, value]) => {
-      const queryKey = mapFromInserterMediaRequest[key] || key;
-      url.searchParams.set(queryKey, value);
-    });
-    const response = await window.fetch(url, {
-      headers: {
-        'User-Agent': 'Retraceur/inserter-media-fetch'
-      }
-    });
-    const jsonResponse = await response.json();
-    const results = jsonResponse.results;
-    return results.map(result => ({
-      ...result,
-      // This is a temp solution for better titles, until Openverse API
-      // completes the cleaning up of some titles of their upstream data.
-      title: result.title?.toLowerCase().startsWith('file:') ? result.title.slice(5) : result.title,
-      sourceId: result.id,
-      id: undefined,
-      caption: getOpenverseCaption(result),
-      previewUrl: result.thumbnail
-    }));
-  },
-  getReportUrl: ({
-    sourceId
-  }) => `https://wordpress.org/openverse/image/${sourceId}/report/`,
-  isExternalResource: true
 }];
 /* harmony default export */ const media_categories = (inserterMediaCategories);
 
@@ -29785,17 +29687,7 @@ function MoreMenu() {
             onClick: () => openModal('editor/keyboard-shortcut-help'),
             shortcut: external_wp_keycodes_namespaceObject.displayShortcut.access('h'),
             children: (0,external_wp_i18n_namespaceObject.__)('Keyboard shortcuts')
-          }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(CopyContentMenuItem, {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_wp_components_namespaceObject.MenuItem, {
-            icon: library_external,
-            href: (0,external_wp_i18n_namespaceObject.__)('https://wordpress.org/documentation/article/wordpress-block-editor/'),
-            target: "_blank",
-            rel: "noopener noreferrer",
-            children: [(0,external_wp_i18n_namespaceObject.__)('Help'), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.VisuallyHidden, {
-              as: "span",
-              children: /* translators: accessibility text */
-              (0,external_wp_i18n_namespaceObject.__)('(opens in a new tab)')
-            })]
-          }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(tools_more_menu_group.Slot, {
+          }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(CopyContentMenuItem, {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(tools_more_menu_group.Slot, {
             fillProps: {
               onClose
             }
@@ -29864,7 +29756,7 @@ function PostPublishButtonOrToggle({
    * Conditions to show a BUTTON (publish directly) or a TOGGLE (open publish sidebar):
    *
    * 1) We want to show a BUTTON when the post status is at the _final stage_
-   * for a particular role (see https://wordpress.org/documentation/article/post-status/):
+   * for a particular role:
    *
    * - is published
    * - post status has changed explicitly to something different than 'future' or 'publish'

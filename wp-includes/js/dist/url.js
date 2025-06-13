@@ -605,7 +605,7 @@ __webpack_require__.d(__webpack_exports__, {
  *
  * @example
  * ```js
- * const isURL = isURL( 'https://wordpress.org' ); // true
+ * const isURL = isURL( 'https://retraceur.github.io' ); // true
  * ```
  *
  * @see https://url.spec.whatwg.org/
@@ -634,7 +634,7 @@ const EMAIL_REGEXP = /^(mailto:)?[a-z0-9._%+-]+@[a-z0-9][a-z0-9.-]*\.[a-z]{2,63}
  *
  * @example
  * ```js
- * const isEmail = isEmail( 'hello@wordpress.org' ); // true
+ * const isEmail = isEmail( 'hello@retraceur.github.io' ); // true
  * ```
  *
  * @return {boolean} Whether or not it looks like an email.
@@ -673,7 +673,7 @@ function isPhoneNumber(phoneNumber) {
  * @example
  * ```js
  * const protocol1 = getProtocol( 'tel:012345678' ); // 'tel:'
- * const protocol2 = getProtocol( 'https://wordpress.org' ); // 'https:'
+ * const protocol2 = getProtocol( 'https://retraceur.github.io/' ); // 'https:'
  * ```
  *
  * @return {string|void} The protocol part of the URL.
@@ -714,7 +714,7 @@ function isValidProtocol(protocol) {
  *
  * @example
  * ```js
- * const authority1 = getAuthority( 'https://wordpress.org/help/' ); // 'wordpress.org'
+ * const authority1 = getAuthority( 'https://retraceur.github.io/about/' ); // 'retraceur.github.io'
  * const authority2 = getAuthority( 'https://localhost:8080/test/' ); // 'localhost:8080'
  * ```
  *
@@ -735,8 +735,8 @@ function getAuthority(url) {
  *
  * @example
  * ```js
- * const isValid = isValidAuthority( 'wordpress.org' ); // true
- * const isNotValid = isValidAuthority( 'wordpress#org' ); // false
+ * const isValid = isValidAuthority( 'retraceur.github.io' ); // true
+ * const isNotValid = isValidAuthority( 'retraceur.github#io' ); // false
  * ```
  *
  * @return {boolean} True if the argument contains a valid authority.
@@ -757,7 +757,7 @@ function isValidAuthority(authority) {
  * @example
  * ```js
  * const path1 = getPath( 'http://localhost:8080/this/is/a/test?query=true' ); // 'this/is/a/test'
- * const path2 = getPath( 'https://wordpress.org/help/faq/' ); // 'help/faq'
+ * const path2 = getPath( 'https://retraceur.github.io/getting-started/install/' ); // 'getting-started/install'
  * ```
  *
  * @return {string|void} The path part of the URL.
@@ -906,7 +906,7 @@ function isValidQueryString(queryString) {
  * @example
  * ```js
  * const pathAndQueryString1 = getPathAndQueryString( 'http://localhost:8080/this/is/a/test?query=true' ); // '/this/is/a/test?query=true'
- * const pathAndQueryString2 = getPathAndQueryString( 'https://wordpress.org/help/faq/' ); // '/help/faq'
+ * const pathAndQueryString2 = getPathAndQueryString( 'https://retraceur.github.io/getting-started/install/' ); // '/getting-started/install'
  * ```
  *
  * @return {string} The path part and query string part of the URL.
@@ -933,7 +933,7 @@ function getPathAndQueryString(url) {
  * @example
  * ```js
  * const fragment1 = getFragment( 'http://localhost:8080/this/is/a/test?query=true#fragment' ); // '#fragment'
- * const fragment2 = getFragment( 'https://wordpress.org#another-fragment?query=true' ); // '#another-fragment'
+ * const fragment2 = getFragment( 'https://retraceur.github.io#another-fragment?query=true' ); // '#another-fragment'
  * ```
  *
  * @return {string|void} The fragment part of the URL.
@@ -1046,7 +1046,7 @@ function setPath(object, path, value) {
  *
  * @example
  * ```js
- * const foo = getQueryArgs( 'https://wordpress.org?foo=bar&bar=baz' );
+ * const foo = getQueryArgs( 'https://retraceur.github.io?foo=bar&bar=baz' );
  * // { "foo": "bar", "bar": "baz" }
  * ```
  *
@@ -1137,7 +1137,7 @@ function addQueryArgs(url = '', args) {
  *
  * @example
  * ```js
- * const foo = getQueryArg( 'https://wordpress.org?foo=bar&bar=baz', 'foo' ); // bar
+ * const foo = getQueryArg( 'https://retraceur.github.io?foo=bar&bar=baz', 'foo' ); // bar
  * ```
  *
  * @return {QueryArgParsed|void} Query arg value.
@@ -1160,7 +1160,7 @@ function getQueryArg(url, arg) {
  *
  * @example
  * ```js
- * const hasBar = hasQueryArg( 'https://wordpress.org?foo=bar&bar=baz', 'bar' ); // true
+ * const hasBar = hasQueryArg( 'https://retraceur.github.io?foo=bar&bar=baz', 'bar' ); // true
  * ```
  *
  * @return {boolean} Whether or not the URL contains the query arg.
@@ -1184,7 +1184,7 @@ function hasQueryArg(url, arg) {
  *
  * @example
  * ```js
- * const newUrl = removeQueryArgs( 'https://wordpress.org?foo=bar&bar=baz&baz=foobar', 'foo', 'bar' ); // https://wordpress.org?baz=foobar
+ * const newUrl = removeQueryArgs( 'https://retraceur.github.io?foo=bar&bar=baz&baz=foobar', 'foo', 'bar' ); // https://retraceur.github.io?baz=foobar
  * ```
  *
  * @return {string} Updated URL.
@@ -1218,7 +1218,7 @@ const USABLE_HREF_REGEXP = /^(?:[a-z]+:|#|\?|\.|\/)/i;
  *
  * @example
  * ```js
- * const actualURL = prependHTTP( 'wordpress.org' ); // http://wordpress.org
+ * const actualURL = prependHTTP( 'retraceur.github.io' ); // http://retraceur.github.io
  * ```
  *
  * @return {string} The updated URL.
@@ -1265,8 +1265,7 @@ function safeDecodeURI(uri) {
  *
  * @example
  * ```js
- * const displayUrl = filterURLForDisplay( 'https://www.wordpress.org/gutenberg/' ); // wordpress.org/gutenberg
- * const imageUrl = filterURLForDisplay( 'https://www.wordpress.org/wp-content/uploads/img.png', 20 ); // …ent/uploads/img.png
+ * const displayUrl = filterURLForDisplay( 'https://retraceur.github.io/about/' ); // retraceur.github.io/about
  * ```
  *
  * @return {string} Displayed URL.
@@ -1426,7 +1425,7 @@ function normalizePath(path) {
  *
  * @example
  * ```js
- * const actualURL = prependHTTPS( 'wordpress.org' ); // https://wordpress.org
+ * const actualURL = prependHTTPS( 'retraceur.github.io' ); // https://retraceur.github.io
  * ```
  *
  * @return {string} The updated URL.
