@@ -16,7 +16,7 @@
  * @param string   $content    Block default content.
  * @param WP_Block $block      Block instance.
  *
- * @return string Returns the output of the post, structured using the layout defined by the block's inner blocks
+ * @return string Returns the output of the content, structured using the layout defined by the block's inner blocks
  *                and according the specified include/exclude attributes.
  */
 function render_block_core_post_format_part( $attributes, $content, $block ) {
