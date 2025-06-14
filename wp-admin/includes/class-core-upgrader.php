@@ -73,7 +73,7 @@ class Core_Upgrader extends WP_Upgrader {
 		$start_time = time();
 
 		$defaults    = array(
-			'pre_check_md5'                => true,
+			'pre_check_md5'                => false,
 			'attempt_rollback'             => false,
 			'do_rollback'                  => false,
 			'allow_relaxed_file_ownership' => false,
@@ -95,12 +95,12 @@ class Core_Upgrader extends WP_Upgrader {
 
 		$wp_dir = trailingslashit( $wp_filesystem->abspath() );
 
-		$partial = true;
+		/*$partial = true;
 		if ( $parsed_args['do_rollback'] ) {
 			$partial = false;
 		} elseif ( $parsed_args['pre_check_md5'] && ! $this->check_files() ) {
 			$partial = false;
-		}
+		}*/
 
 		/*
 		 * If partial update is returned from the API, use that, unless we're doing
@@ -108,7 +108,7 @@ class Core_Upgrader extends WP_Upgrader {
 		 * the new_bundled zip. Don't though if the constant is set to skip bundled items.
 		 * If the API returns a no_content zip, go with it. Finally, default to the full zip.
 		 */
-		if ( $parsed_args['do_rollback'] && $current->packages->rollback ) {
+		/*if ( $parsed_args['do_rollback'] && $current->packages->rollback ) {
 			$to_download = 'rollback';
 		} elseif ( $current->packages->partial && 'reinstall' !== $current->response && $retraceur_version === $current->partial_version && $partial ) {
 			$to_download = 'partial';
@@ -119,7 +119,7 @@ class Core_Upgrader extends WP_Upgrader {
 			$to_download = 'no_content';
 		} else {
 			$to_download = 'full';
-		}
+		}*/
 
 		// Lock to prevent multiple Core Updates occurring.
 		$lock = WP_Upgrader::create_lock( 'core_updater', 15 * MINUTE_IN_SECONDS );
@@ -127,7 +127,7 @@ class Core_Upgrader extends WP_Upgrader {
 			return new WP_Error( 'locked', $this->strings['locked'] );
 		}
 
-		$download = $this->download_package( $current->packages->$to_download, false );
+		$download = $this->download_package( $current->download, false );
 
 		/*
 		 * Allow for signature soft-fail.
@@ -153,7 +153,7 @@ class Core_Upgrader extends WP_Upgrader {
 			return $working_dir;
 		}
 
-		// Copy update-core.php from the new version into place.
+		/* Copy update-core.php from the new version into place.
 		if ( ! $wp_filesystem->copy( $working_dir . '/retraceur/wp-admin/includes/update-core.php', $wp_dir . 'wp-admin/includes/update-core.php', true ) ) {
 			$wp_filesystem->delete( $working_dir, true );
 			WP_Upgrader::release_lock( 'core_updater' );
@@ -181,7 +181,7 @@ class Core_Upgrader extends WP_Upgrader {
 				 * mkdir_failed__copy_dir, copy_failed__copy_dir_retry, and disk_full.
 				 * do_rollback allows for update_core() to trigger a rollback if needed.
 				 */
-				if ( str_contains( $error_code, 'do_rollback' ) ) {
+				/*if ( str_contains( $error_code, 'do_rollback' ) ) {
 					$try_rollback = true;
 				} elseif ( str_contains( $error_code, '__copy_dir' ) ) {
 					$try_rollback = true;
@@ -192,10 +192,10 @@ class Core_Upgrader extends WP_Upgrader {
 
 			if ( $try_rollback ) {
 				/** This filter is documented in wp-admin/includes/update-core.php */
-				apply_filters( 'update_feedback', $result );
+				/*apply_filters( 'update_feedback', $result );
 
 				/** This filter is documented in wp-admin/includes/update-core.php */
-				apply_filters( 'update_feedback', $this->strings['start_rollback'] );
+				/*apply_filters( 'update_feedback', $this->strings['start_rollback'] );
 
 				$rollback_result = $this->upgrade( $current, array_merge( $parsed_args, array( 'do_rollback' => true ) ) );
 
@@ -212,7 +212,7 @@ class Core_Upgrader extends WP_Upgrader {
 		}
 
 		/** This action is documented in wp-admin/includes/class-wp-upgrader.php */
-		do_action(
+		/*do_action(
 			'upgrader_process_complete',
 			$this,
 			array(
@@ -255,11 +255,11 @@ class Core_Upgrader extends WP_Upgrader {
 			}
 
 			wp_version_check( $stats );
-		}
+		}*/
 
 		WP_Upgrader::release_lock( 'core_updater' );
 
-		return $result;
+		return $working_dir; //$result;
 	}
 
 	/**

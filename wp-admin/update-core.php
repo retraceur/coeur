@@ -32,7 +32,7 @@ if ( ! current_user_can( 'update_core' ) && ! current_user_can( 'update_themes' 
  *
  * @global wpdb $wpdb Retraceur database abstraction object.
  *
- * @param array $update
+ * @param array $update The retraceur update informations.
  */
 function retraceur_list_update( $update ) {
 	global $wpdb;
@@ -116,6 +116,7 @@ function retraceur_list_update( $update ) {
 
 	echo '<p>';
 	echo '<input name="version" value="' . esc_attr( $update['version'] ) . '" type="hidden" />';
+	echo '<input name="locale" value="' . esc_attr( $update['locale'] ) . '" type="hidden" />';
 	if ( $show_buttons ) {
 		if ( $first_pass ) {
 			submit_button( $submit, $current ? '' : 'primary regular', 'upgrade', false );
@@ -371,8 +372,13 @@ function core_upgrade_preamble() {
 	}
 
 	echo '<ul class="core-updates">';
+
 	foreach ( (array) $updates as $update ) {
-		// Disable older stable version than current.
+		if ( true !== $update['stable'] && ! $is_development_version ) {
+			continue;
+		}
+
+		// Disable older version than current.
 		if ( version_compare( $update['version'], $retraceur_version, '<=' ) ) {
 			continue;
 		}
@@ -926,9 +932,15 @@ function do_core_upgrade( $reinstall = false ) {
 
 	$version = isset( $_POST['version'] ) ? $_POST['version'] : false;
 	$locale  = isset( $_POST['locale'] ) ? $_POST['locale'] : 'en_US';
-	$update  = find_core_update( $version, $locale );
+	$update  = retraceur_find_coeur_update( $version, $locale );
 	if ( ! $update ) {
 		return;
+	} else {
+		$update           = (object) $update;
+		$update->response = 'upgrade';
+
+		// For now consider each update contains new files.
+		$update->new_files = true;
 	}
 
 	/*
@@ -939,7 +951,7 @@ function do_core_upgrade( $reinstall = false ) {
 
 	?>
 	<div class="wrap">
-	<h1><?php _e( 'Update Retraceur' ); ?></h1>
+	<h1><?php esc_html_e( 'Update Retraceur' ); ?></h1>
 	<?php
 
 	$credentials = request_filesystem_credentials( $url, '', false, ABSPATH, array( 'version', 'locale' ), $allow_relaxed_file_ownership );

@@ -118,6 +118,16 @@ function retraceur_version_check( $force_check = false ) {
 
 	$releases = $feed->get_items();
 	$offers   = array();
+	$locale   = get_locale();
+	$package  = 'retraceur.zip';
+
+	if ( ! $locale ) {
+		$locale = 'en_US';
+	}
+
+	if ( 'fr_FR' === $locale ) {
+		$package  = 'retraceur-fr_FR.zip';
+	}
 
 	foreach ( $releases as $release ) {
 		$version    = '';
@@ -141,12 +151,14 @@ function retraceur_version_check( $force_check = false ) {
 		$offers[] = array(
 			'version'      => $version,
 			'url'          => $url,
+			'download'     => trailingslashit( str_replace( 'tag', 'download', $url ) ) . $package,
 			'requirements' => array(
 				'php'   => strip_tags( $needs_php ),
 				'mysql' => strip_tags( $needs_mysql ),
 			),
 			'date'         => $release->get_date( 'U' ),
 			'stable'       => $is_stable,
+			'locale'       => $locale,
 		);
 	}
 
@@ -154,7 +166,6 @@ function retraceur_version_check( $force_check = false ) {
 	$updates->updates         = $offers;
 	$updates->last_checked    = time();
 	$updates->version_checked = $version_checked;
-	$updates->locale          = get_locale();
 
 	set_site_transient( 'retraceur_coeur', $updates );
 
