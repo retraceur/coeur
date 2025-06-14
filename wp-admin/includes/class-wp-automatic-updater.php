@@ -58,7 +58,7 @@ class WP_Automatic_Updater {
 		 *
 		 * @param bool $disabled Whether the updater should be disabled.
 		 */
-		return apply_filters( 'automatic_updater_disabled', true );
+		return apply_filters( 'automatic_updater_disabled', $disabled );
 	}
 
 	/**
