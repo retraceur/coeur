@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-05-31T09:09:56+00:00\n"
+"POT-Creation-Date: 2025-06-14T07:04:37+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 
@@ -59,9 +59,9 @@ msgstr ""
 msgid "Site"
 msgstr ""
 
-#: wp-includes/js/dist/core-data.js:22500
-#: wp-includes/js/dist/core-data.js:22522
-#: wp-includes/js/dist/core-data.js:22544
-#: wp-includes/js/dist/core-data.js:22564
+#: wp-includes/js/dist/core-data.js:22503
+#: wp-includes/js/dist/core-data.js:22525
+#: wp-includes/js/dist/core-data.js:22547
+#: wp-includes/js/dist/core-data.js:22567
 msgid "(no title)"
 msgstr ""

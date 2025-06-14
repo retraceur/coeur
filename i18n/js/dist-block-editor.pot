@@ -7,2895 +7,2895 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-05-31T09:10:09+00:00\n"
+"POT-Creation-Date: 2025-06-14T07:04:50+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 
-#: wp-includes/js/dist/block-editor.js:7950
+#: wp-includes/js/dist/block-editor.js:7949
 msgid "Black"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:7954
+#: wp-includes/js/dist/block-editor.js:7953
 msgid "Cyan bluish gray"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:7958
+#: wp-includes/js/dist/block-editor.js:7957
 msgid "White"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:7962
+#: wp-includes/js/dist/block-editor.js:7961
 msgid "Pale pink"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:7966
+#: wp-includes/js/dist/block-editor.js:7965
 msgid "Vivid red"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:7970
+#: wp-includes/js/dist/block-editor.js:7969
 msgid "Luminous vivid orange"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:7974
+#: wp-includes/js/dist/block-editor.js:7973
 msgid "Luminous vivid amber"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:7978
+#: wp-includes/js/dist/block-editor.js:7977
 msgid "Light green cyan"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:7982
+#: wp-includes/js/dist/block-editor.js:7981
 msgid "Vivid green cyan"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:7986
+#: wp-includes/js/dist/block-editor.js:7985
 msgid "Pale cyan blue"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:7990
+#: wp-includes/js/dist/block-editor.js:7989
 msgid "Vivid cyan blue"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:7994
+#: wp-includes/js/dist/block-editor.js:7993
 msgid "Vivid purple"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:8001
+#: wp-includes/js/dist/block-editor.js:8000
 msgctxt "font size name"
 msgid "Small"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:8005
+#: wp-includes/js/dist/block-editor.js:8004
 msgctxt "font size name"
 msgid "Normal"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:8009
+#: wp-includes/js/dist/block-editor.js:8008
 msgctxt "font size name"
 msgid "Medium"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:8013
+#: wp-includes/js/dist/block-editor.js:8012
 msgctxt "font size name"
 msgid "Large"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:8017
+#: wp-includes/js/dist/block-editor.js:8016
 msgctxt "font size name"
 msgid "Huge"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:8025
+#: wp-includes/js/dist/block-editor.js:8024
 msgid "Thumbnail"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:8028
+#: wp-includes/js/dist/block-editor.js:8027
 msgid "Medium"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:8031
+#: wp-includes/js/dist/block-editor.js:8030
 msgid "Large"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:8034
+#: wp-includes/js/dist/block-editor.js:8033
 msgid "Full Size"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:8101
+#: wp-includes/js/dist/block-editor.js:8098
 msgid "Vivid cyan blue to vivid purple"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:8105
+#: wp-includes/js/dist/block-editor.js:8102
 msgid "Light green cyan to vivid green cyan"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:8109
+#: wp-includes/js/dist/block-editor.js:8106
 msgid "Luminous vivid amber to luminous vivid orange"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:8113
+#: wp-includes/js/dist/block-editor.js:8110
 msgid "Luminous vivid orange to vivid red"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:8117
+#: wp-includes/js/dist/block-editor.js:8114
 msgid "Very light gray to cyan bluish gray"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:8121
+#: wp-includes/js/dist/block-editor.js:8118
 msgid "Cool to warm spectrum"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:8125
+#: wp-includes/js/dist/block-editor.js:8122
 msgid "Blush light purple"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:8129
+#: wp-includes/js/dist/block-editor.js:8126
 msgid "Blush bordeaux"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:8133
+#: wp-includes/js/dist/block-editor.js:8130
 msgid "Luminous dusk"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:8137
+#: wp-includes/js/dist/block-editor.js:8134
 msgid "Pale ocean"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:8141
+#: wp-includes/js/dist/block-editor.js:8138
 msgid "Electric grass"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:8145
+#: wp-includes/js/dist/block-editor.js:8142
 msgid "Midnight"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:10749
-#: wp-includes/js/dist/block-editor.js:54294
-#: wp-includes/js/dist/block-editor.js:54325
+#: wp-includes/js/dist/block-editor.js:10746
+#: wp-includes/js/dist/block-editor.js:54286
+#: wp-includes/js/dist/block-editor.js:54317
 msgctxt "patterns"
 msgid "All"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:10753
+#: wp-includes/js/dist/block-editor.js:10750
 msgid "My patterns"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:10757
+#: wp-includes/js/dist/block-editor.js:10754
 msgid "Starter content"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:14777
+#: wp-includes/js/dist/block-editor.js:14769
 msgid "You are currently in zoom-out mode."
 msgstr ""
 
 #. translators: %s: number of selected blocks
-#: wp-includes/js/dist/block-editor.js:15124
+#: wp-includes/js/dist/block-editor.js:15116
 msgid "%s block selected."
 msgid_plural "%s blocks selected."
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-includes/js/dist/block-editor.js:15607
+#: wp-includes/js/dist/block-editor.js:15599
 msgid "Blocks can't be inserted into other blocks with bindings"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:16245
+#: wp-includes/js/dist/block-editor.js:16237
 msgid "You are currently in Write mode."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:16247
+#: wp-includes/js/dist/block-editor.js:16239
 msgid "You are currently in Design mode."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:16996
-#: wp-includes/js/dist/block-editor.js:17089
+#: wp-includes/js/dist/block-editor.js:16988
+#: wp-includes/js/dist/block-editor.js:17081
 msgctxt "font style"
 msgid "Regular"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:16999
-#: wp-includes/js/dist/block-editor.js:17092
-#: wp-includes/js/dist/block-editor.js:17193
+#: wp-includes/js/dist/block-editor.js:16991
+#: wp-includes/js/dist/block-editor.js:17084
+#: wp-includes/js/dist/block-editor.js:17185
 msgctxt "font style"
 msgid "Italic"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:17002
+#: wp-includes/js/dist/block-editor.js:16994
 msgctxt "font style"
 msgid "Oblique"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:17037
-#: wp-includes/js/dist/block-editor.js:17105
+#: wp-includes/js/dist/block-editor.js:17029
+#: wp-includes/js/dist/block-editor.js:17097
 msgctxt "font weight"
 msgid "Regular"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:17041
-#: wp-includes/js/dist/block-editor.js:17114
-#: wp-includes/js/dist/block-editor.js:17185
+#: wp-includes/js/dist/block-editor.js:17033
+#: wp-includes/js/dist/block-editor.js:17106
+#: wp-includes/js/dist/block-editor.js:17177
 msgctxt "font weight"
 msgid "Bold"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:17044
-#: wp-includes/js/dist/block-editor.js:17096
+#: wp-includes/js/dist/block-editor.js:17036
+#: wp-includes/js/dist/block-editor.js:17088
 msgctxt "font weight"
 msgid "Thin"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:17047
-#: wp-includes/js/dist/block-editor.js:17099
+#: wp-includes/js/dist/block-editor.js:17039
+#: wp-includes/js/dist/block-editor.js:17091
 msgctxt "font weight"
 msgid "Extra Light"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:17050
-#: wp-includes/js/dist/block-editor.js:17102
+#: wp-includes/js/dist/block-editor.js:17042
+#: wp-includes/js/dist/block-editor.js:17094
 msgctxt "font weight"
 msgid "Light"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:17053
-#: wp-includes/js/dist/block-editor.js:17108
+#: wp-includes/js/dist/block-editor.js:17045
+#: wp-includes/js/dist/block-editor.js:17100
 msgctxt "font weight"
 msgid "Medium"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:17056
-#: wp-includes/js/dist/block-editor.js:17111
+#: wp-includes/js/dist/block-editor.js:17048
+#: wp-includes/js/dist/block-editor.js:17103
 msgctxt "font weight"
 msgid "Semi Bold"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:17059
-#: wp-includes/js/dist/block-editor.js:17117
+#: wp-includes/js/dist/block-editor.js:17051
+#: wp-includes/js/dist/block-editor.js:17109
 msgctxt "font weight"
 msgid "Extra Bold"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:17062
-#: wp-includes/js/dist/block-editor.js:17120
+#: wp-includes/js/dist/block-editor.js:17054
+#: wp-includes/js/dist/block-editor.js:17112
 msgctxt "font weight"
 msgid "Black"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:17065
-#: wp-includes/js/dist/block-editor.js:17123
+#: wp-includes/js/dist/block-editor.js:17057
+#: wp-includes/js/dist/block-editor.js:17115
 msgctxt "font weight"
 msgid "Extra Black"
 msgstr ""
 
 #. translators: 1: Font weight name. 2: Font style name.
-#: wp-includes/js/dist/block-editor.js:17218
+#: wp-includes/js/dist/block-editor.js:17210
 msgctxt "font"
 msgid "%1$s %2$s"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:18221
-#: wp-includes/js/dist/block-editor.js:18249
-#: wp-includes/js/dist/block-editor.js:25938
-#: wp-includes/js/dist/block-editor.js:25963
+#: wp-includes/js/dist/block-editor.js:18213
+#: wp-includes/js/dist/block-editor.js:18241
+#: wp-includes/js/dist/block-editor.js:25930
+#: wp-includes/js/dist/block-editor.js:25955
 msgctxt "Indicates this palette comes from the theme."
 msgid "Theme"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:18227
-#: wp-includes/js/dist/block-editor.js:18255
-#: wp-includes/js/dist/block-editor.js:25945
-#: wp-includes/js/dist/block-editor.js:25970
+#: wp-includes/js/dist/block-editor.js:18219
+#: wp-includes/js/dist/block-editor.js:18247
+#: wp-includes/js/dist/block-editor.js:25937
+#: wp-includes/js/dist/block-editor.js:25962
 msgctxt "Indicates this palette comes from Retraceur."
 msgid "Default"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:18233
-#: wp-includes/js/dist/block-editor.js:18261
-#: wp-includes/js/dist/block-editor.js:25952
-#: wp-includes/js/dist/block-editor.js:25977
+#: wp-includes/js/dist/block-editor.js:18225
+#: wp-includes/js/dist/block-editor.js:18253
+#: wp-includes/js/dist/block-editor.js:25944
+#: wp-includes/js/dist/block-editor.js:25969
 msgctxt "Indicates this palette is created by the contributor."
 msgid "Custom"
 msgstr ""
 
 #. translators: %s: container size (i.e. 600px etc)
-#: wp-includes/js/dist/block-editor.js:19222
-#: wp-includes/js/dist/block-editor.js:19226
+#: wp-includes/js/dist/block-editor.js:19214
+#: wp-includes/js/dist/block-editor.js:19218
 msgid "Max %s wide"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:19395
+#: wp-includes/js/dist/block-editor.js:19387
 msgid "Spacing control"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:19396
+#: wp-includes/js/dist/block-editor.js:19388
 msgid "Top"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:19397
+#: wp-includes/js/dist/block-editor.js:19389
 msgid "Bottom"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:19398
+#: wp-includes/js/dist/block-editor.js:19390
 msgid "Left"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:19399
+#: wp-includes/js/dist/block-editor.js:19391
 msgid "Right"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:19400
-#: wp-includes/js/dist/block-editor.js:26120
-#: wp-includes/js/dist/block-editor.js:30982
-#: wp-includes/js/dist/block-editor.js:31020
+#: wp-includes/js/dist/block-editor.js:19392
+#: wp-includes/js/dist/block-editor.js:26112
+#: wp-includes/js/dist/block-editor.js:30974
+#: wp-includes/js/dist/block-editor.js:31012
 msgid "Mixed"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:19401
-#: wp-includes/js/dist/block-editor.js:20255
-#: wp-includes/js/dist/block-editor.js:29486
+#: wp-includes/js/dist/block-editor.js:19393
+#: wp-includes/js/dist/block-editor.js:20247
+#: wp-includes/js/dist/block-editor.js:29478
 msgid "Vertical"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:19402
-#: wp-includes/js/dist/block-editor.js:20251
-#: wp-includes/js/dist/block-editor.js:29482
+#: wp-includes/js/dist/block-editor.js:19394
+#: wp-includes/js/dist/block-editor.js:20243
+#: wp-includes/js/dist/block-editor.js:29474
 msgid "Horizontal"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:19403
+#: wp-includes/js/dist/block-editor.js:19395
 msgid "Horizontal & vertical"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:19404
-#: wp-includes/js/dist/block-editor.js:69781
+#: wp-includes/js/dist/block-editor.js:19396
+#: wp-includes/js/dist/block-editor.js:69773
 msgid "Custom"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:19746
+#: wp-includes/js/dist/block-editor.js:19738
 msgctxt "Block vertical alignment setting"
 msgid "Align top"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:19750
+#: wp-includes/js/dist/block-editor.js:19742
 msgctxt "Block vertical alignment setting"
 msgid "Align middle"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:19754
+#: wp-includes/js/dist/block-editor.js:19746
 msgctxt "Block vertical alignment setting"
 msgid "Align bottom"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:19758
+#: wp-includes/js/dist/block-editor.js:19750
 msgctxt "Block vertical alignment setting"
 msgid "Stretch to fill"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:19762
+#: wp-includes/js/dist/block-editor.js:19754
 msgctxt "Block vertical alignment setting"
 msgid "Space between"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:19785
+#: wp-includes/js/dist/block-editor.js:19777
 msgctxt "Block vertical alignment setting label"
 msgid "Change vertical alignment"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:19864
-#: wp-includes/js/dist/block-editor.js:20145
-#: wp-includes/js/dist/block-editor.js:20465
+#: wp-includes/js/dist/block-editor.js:19856
+#: wp-includes/js/dist/block-editor.js:20137
+#: wp-includes/js/dist/block-editor.js:20457
 msgid "Justify items left"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:19870
-#: wp-includes/js/dist/block-editor.js:20149
-#: wp-includes/js/dist/block-editor.js:20469
+#: wp-includes/js/dist/block-editor.js:19862
+#: wp-includes/js/dist/block-editor.js:20141
+#: wp-includes/js/dist/block-editor.js:20461
 msgid "Justify items center"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:19876
-#: wp-includes/js/dist/block-editor.js:20153
-#: wp-includes/js/dist/block-editor.js:20473
+#: wp-includes/js/dist/block-editor.js:19868
+#: wp-includes/js/dist/block-editor.js:20145
+#: wp-includes/js/dist/block-editor.js:20465
 msgid "Justify items right"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:19882
-#: wp-includes/js/dist/block-editor.js:20159
+#: wp-includes/js/dist/block-editor.js:19874
+#: wp-includes/js/dist/block-editor.js:20151
 msgid "Space between items"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:19888
-#: wp-includes/js/dist/block-editor.js:20165
+#: wp-includes/js/dist/block-editor.js:19880
+#: wp-includes/js/dist/block-editor.js:20157
 msgid "Stretch items"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:19899
+#: wp-includes/js/dist/block-editor.js:19891
 msgid "Change items justification"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:19973
+#: wp-includes/js/dist/block-editor.js:19965
 msgid "Flex"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:20171
-#: wp-includes/js/dist/block-editor.js:20528
+#: wp-includes/js/dist/block-editor.js:20163
+#: wp-includes/js/dist/block-editor.js:20520
 msgid "Justification"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:20197
+#: wp-includes/js/dist/block-editor.js:20189
 msgid "Allow to wrap to multiple lines"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:20220
-#: wp-includes/js/dist/block-editor.js:29510
-#: wp-includes/js/dist/block-editor.js:29914
+#: wp-includes/js/dist/block-editor.js:20212
+#: wp-includes/js/dist/block-editor.js:29502
+#: wp-includes/js/dist/block-editor.js:29906
 msgid "Orientation"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:20275
+#: wp-includes/js/dist/block-editor.js:20267
 msgid "Flow"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:20441
+#: wp-includes/js/dist/block-editor.js:20433
 msgid "Constrained"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:20485
-#: wp-includes/js/dist/block-editor.js:32457
-#: wp-includes/js/dist/block-editor.js:32464
+#: wp-includes/js/dist/block-editor.js:20477
+#: wp-includes/js/dist/block-editor.js:32449
+#: wp-includes/js/dist/block-editor.js:32456
 msgid "Content width"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:20504
-#: wp-includes/js/dist/block-editor.js:21322
-#: wp-includes/js/dist/block-editor.js:32479
-#: wp-includes/js/dist/block-editor.js:32486
+#: wp-includes/js/dist/block-editor.js:20496
+#: wp-includes/js/dist/block-editor.js:21314
+#: wp-includes/js/dist/block-editor.js:32471
+#: wp-includes/js/dist/block-editor.js:32478
 msgid "Wide width"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:20523
+#: wp-includes/js/dist/block-editor.js:20515
 msgid "Customize the width for all elements that are assigned to the center or wide columns."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:20774
+#: wp-includes/js/dist/block-editor.js:20766
 msgid "Grid"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:20905
-#: wp-includes/js/dist/block-editor.js:20922
-#: wp-includes/js/dist/block-editor.js:20935
+#: wp-includes/js/dist/block-editor.js:20897
+#: wp-includes/js/dist/block-editor.js:20914
+#: wp-includes/js/dist/block-editor.js:20927
 msgid "Minimum column width"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:20960
-#: wp-includes/js/dist/block-editor.js:20987
-#: wp-includes/js/dist/block-editor.js:21016
-#: wp-includes/js/dist/block-editor.js:29884
-#: wp-includes/js/dist/block-editor.js:29890
+#: wp-includes/js/dist/block-editor.js:20952
+#: wp-includes/js/dist/block-editor.js:20979
+#: wp-includes/js/dist/block-editor.js:21008
+#: wp-includes/js/dist/block-editor.js:29876
+#: wp-includes/js/dist/block-editor.js:29882
 msgid "Columns"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:21004
+#: wp-includes/js/dist/block-editor.js:20996
 msgid "Rows"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:21060
+#: wp-includes/js/dist/block-editor.js:21052
 msgid "Grid items can be manually placed in any position on the grid."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:21060
+#: wp-includes/js/dist/block-editor.js:21052
 msgid "Grid items are placed automatically depending on their order."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:21064
+#: wp-includes/js/dist/block-editor.js:21056
 msgid "Grid item position"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:21071
-#: wp-includes/js/dist/block-editor.js:25048
-#: wp-includes/js/dist/block-editor.js:80215
-#: wp-includes/js/dist/block-editor.js:80231
+#: wp-includes/js/dist/block-editor.js:21063
+#: wp-includes/js/dist/block-editor.js:25040
+#: wp-includes/js/dist/block-editor.js:80207
+#: wp-includes/js/dist/block-editor.js:80223
 msgid "Auto"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:21074
+#: wp-includes/js/dist/block-editor.js:21066
 msgid "Manual"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:21306
+#: wp-includes/js/dist/block-editor.js:21298
 msgctxt "Alignment option"
 msgid "None"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:21310
+#: wp-includes/js/dist/block-editor.js:21302
 msgid "Align left"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:21314
+#: wp-includes/js/dist/block-editor.js:21306
 msgid "Align center"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:21318
+#: wp-includes/js/dist/block-editor.js:21310
 msgid "Align right"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:21326
+#: wp-includes/js/dist/block-editor.js:21318
 msgid "Full width"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:21369
+#: wp-includes/js/dist/block-editor.js:21361
 msgid "Align"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:21385
+#: wp-includes/js/dist/block-editor.js:21377
 msgid "Change alignment"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:22214
+#: wp-includes/js/dist/block-editor.js:22206
 msgctxt "Additional link settings"
 msgid "Advanced"
 msgstr ""
 
 #. translators: %d: number of results.
-#: wp-includes/js/dist/block-editor.js:22411
+#: wp-includes/js/dist/block-editor.js:22403
 msgid "%d result found, use up and down arrow keys to navigate."
 msgid_plural "%d results found, use up and down arrow keys to navigate."
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-includes/js/dist/block-editor.js:22413
+#: wp-includes/js/dist/block-editor.js:22405
 msgid "No results."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:22534
+#: wp-includes/js/dist/block-editor.js:22526
 msgid "Link selected."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:22598
+#: wp-includes/js/dist/block-editor.js:22590
 msgid "Paste URL or type to search"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:22630
-#: wp-includes/js/dist/block-editor.js:72301
+#: wp-includes/js/dist/block-editor.js:22622
+#: wp-includes/js/dist/block-editor.js:72293
 msgid "URL"
 msgstr ""
 
 #. translators: %s: search term.
-#: wp-includes/js/dist/block-editor.js:22771
+#: wp-includes/js/dist/block-editor.js:22763
 msgid "Create: <mark>%s</mark>"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:23005
+#: wp-includes/js/dist/block-editor.js:22997
 msgid "Press ENTER to add this link"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:23063
-#: wp-includes/js/dist/block-editor.js:75234
+#: wp-includes/js/dist/block-editor.js:23055
+#: wp-includes/js/dist/block-editor.js:75226
 msgid "Open in new tab"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:23106
+#: wp-includes/js/dist/block-editor.js:23098
 msgid "Suggestions"
 msgstr ""
 
 #. translators: %s: search term.
-#: wp-includes/js/dist/block-editor.js:23107
+#: wp-includes/js/dist/block-editor.js:23099
 msgid "Search results for \"%s\""
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:23427
-#: wp-includes/js/dist/block-editor.js:27947
-#: wp-includes/js/dist/block-editor.js:75309
-#: wp-includes/js/dist/block-editor.js:77297
+#: wp-includes/js/dist/block-editor.js:23419
+#: wp-includes/js/dist/block-editor.js:27939
+#: wp-includes/js/dist/block-editor.js:75301
+#: wp-includes/js/dist/block-editor.js:77289
 msgid "Link"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:23432
+#: wp-includes/js/dist/block-editor.js:23424
 msgid "Search or type URL"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:23714
+#: wp-includes/js/dist/block-editor.js:23706
 msgid "Link copied to clipboard."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:23721
+#: wp-includes/js/dist/block-editor.js:23713
 msgid "Manage link"
 msgstr ""
 
 #. translators: Accessibility text for the link preview when editing a link.
-#: wp-includes/js/dist/block-editor.js:23736
+#: wp-includes/js/dist/block-editor.js:23728
 msgid "Link information"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:23761
+#: wp-includes/js/dist/block-editor.js:23753
 msgid "Link is empty"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:23766
-#: wp-includes/js/dist/block-editor.js:74995
+#: wp-includes/js/dist/block-editor.js:23758
+#: wp-includes/js/dist/block-editor.js:74987
 msgid "Edit link"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:23772
-#: wp-includes/js/dist/block-editor.js:75295
+#: wp-includes/js/dist/block-editor.js:23764
+#: wp-includes/js/dist/block-editor.js:75287
 msgid "Remove link"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:23778
+#: wp-includes/js/dist/block-editor.js:23770
 msgid "Copy link"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:23825
+#: wp-includes/js/dist/block-editor.js:23817
 msgid "Currently selected link settings"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:23856
+#: wp-includes/js/dist/block-editor.js:23848
 msgid "An unknown error occurred during creation. Please try again."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:24269
+#: wp-includes/js/dist/block-editor.js:24261
 msgid "Creating"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:24281
-#: wp-includes/js/dist/block-editor.js:27912
-#: wp-includes/js/dist/block-editor.js:27919
-#: wp-includes/js/dist/block-editor.js:28013
+#: wp-includes/js/dist/block-editor.js:24273
+#: wp-includes/js/dist/block-editor.js:27904
+#: wp-includes/js/dist/block-editor.js:27911
+#: wp-includes/js/dist/block-editor.js:28005
 msgid "Text"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:24306
-#: wp-includes/js/dist/block-editor.js:75024
+#: wp-includes/js/dist/block-editor.js:24298
+#: wp-includes/js/dist/block-editor.js:75016
 msgid "Submit"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:24348
-#: wp-includes/js/dist/block-editor.js:54808
-#: wp-includes/js/dist/block-editor.js:62940
-#: wp-includes/js/dist/block-editor.js:63217
-#: wp-includes/js/dist/block-editor.js:71803
-#: wp-includes/js/dist/block-editor.js:72589
-#: wp-includes/js/dist/block-editor.js:72592
-#: wp-includes/js/dist/block-editor.js:77901
+#: wp-includes/js/dist/block-editor.js:24340
+#: wp-includes/js/dist/block-editor.js:54800
+#: wp-includes/js/dist/block-editor.js:62932
+#: wp-includes/js/dist/block-editor.js:63209
+#: wp-includes/js/dist/block-editor.js:71795
+#: wp-includes/js/dist/block-editor.js:72581
+#: wp-includes/js/dist/block-editor.js:72584
+#: wp-includes/js/dist/block-editor.js:77893
 msgid "Cancel"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:24355
-#: wp-includes/js/dist/block-editor.js:63224
+#: wp-includes/js/dist/block-editor.js:24347
+#: wp-includes/js/dist/block-editor.js:63216
 msgid "Save"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:24413
+#: wp-includes/js/dist/block-editor.js:24405
 msgid "Replace"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:24454
+#: wp-includes/js/dist/block-editor.js:24446
 msgid "The media file has been replaced"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:24528
-#: wp-includes/js/dist/block-editor.js:55264
+#: wp-includes/js/dist/block-editor.js:24520
+#: wp-includes/js/dist/block-editor.js:55256
 msgid "Open Media Library"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:24544
-#: wp-includes/js/dist/block-editor.js:72655
-#: wp-includes/js/dist/block-editor.js:72673
+#: wp-includes/js/dist/block-editor.js:24536
+#: wp-includes/js/dist/block-editor.js:72647
+#: wp-includes/js/dist/block-editor.js:72665
 msgctxt "verb"
 msgid "Upload"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:24552
-#: wp-includes/js/dist/block-editor.js:72610
+#: wp-includes/js/dist/block-editor.js:24544
+#: wp-includes/js/dist/block-editor.js:72602
 msgid "Use featured image"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:24558
-#: wp-includes/js/dist/block-editor.js:27704
-#: wp-includes/js/dist/block-editor.js:34156
-#: wp-includes/js/dist/block-editor.js:69927
-#: wp-includes/js/dist/block-editor.js:77811
+#: wp-includes/js/dist/block-editor.js:24550
+#: wp-includes/js/dist/block-editor.js:27696
+#: wp-includes/js/dist/block-editor.js:34148
+#: wp-includes/js/dist/block-editor.js:69919
+#: wp-includes/js/dist/block-editor.js:77803
 msgid "Reset"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:24569
+#: wp-includes/js/dist/block-editor.js:24561
 msgid "Current media URL:"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:24646
+#: wp-includes/js/dist/block-editor.js:24638
 msgid "Image covers the space evenly."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:24649
+#: wp-includes/js/dist/block-editor.js:24641
 msgid "Image is contained without distortion."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:24651
+#: wp-includes/js/dist/block-editor.js:24643
 msgid "Image has a fixed width."
 msgstr ""
 
 #. translators: %s: file name
-#: wp-includes/js/dist/block-editor.js:24734
+#: wp-includes/js/dist/block-editor.js:24726
 msgid "Background image: %s"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:24734
+#: wp-includes/js/dist/block-editor.js:24726
 msgid "No background image selected"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:24751
-#: wp-includes/js/dist/block-editor.js:24882
+#: wp-includes/js/dist/block-editor.js:24743
+#: wp-includes/js/dist/block-editor.js:24874
 msgid "Add background image"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:24762
+#: wp-includes/js/dist/block-editor.js:24754
 msgid "Background size, position and repeat options."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:24831
+#: wp-includes/js/dist/block-editor.js:24823
 msgid "Only images can be used as a background image."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:24918
-#: wp-includes/js/dist/block-editor.js:26580
-#: wp-includes/js/dist/block-editor.js:39658
+#: wp-includes/js/dist/block-editor.js:24910
+#: wp-includes/js/dist/block-editor.js:26572
+#: wp-includes/js/dist/block-editor.js:39650
 msgid "Remove"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:24922
+#: wp-includes/js/dist/block-editor.js:24914
 msgid "Drop to upload"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:25010
+#: wp-includes/js/dist/block-editor.js:25002
 msgid "Focal point"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:25016
+#: wp-includes/js/dist/block-editor.js:25008
 msgid "Fixed background"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:25022
-#: wp-includes/js/dist/block-editor.js:29824
+#: wp-includes/js/dist/block-editor.js:25014
+#: wp-includes/js/dist/block-editor.js:29816
 msgid "Size"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:25029
+#: wp-includes/js/dist/block-editor.js:25021
 msgctxt "Size option for background image control"
 msgid "Cover"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:25032
+#: wp-includes/js/dist/block-editor.js:25024
 msgctxt "Size option for background image control"
 msgid "Contain"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:25035
+#: wp-includes/js/dist/block-editor.js:25027
 msgctxt "Size option for background image control"
 msgid "Tile"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:25042
+#: wp-includes/js/dist/block-editor.js:25034
 msgid "Background image width"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:25052
+#: wp-includes/js/dist/block-editor.js:25044
 msgid "Repeat"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:25241
-#: wp-includes/js/dist/block-editor.js:75732
-#: wp-includes/js/dist/block-editor.js:76125
-#: wp-includes/js/dist/block-editor.js:76255
+#: wp-includes/js/dist/block-editor.js:25233
+#: wp-includes/js/dist/block-editor.js:75724
+#: wp-includes/js/dist/block-editor.js:76117
+#: wp-includes/js/dist/block-editor.js:76247
 msgid "Background image"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:25259
-#: wp-includes/js/dist/block-editor.js:72544
+#: wp-includes/js/dist/block-editor.js:25251
+#: wp-includes/js/dist/block-editor.js:72536
 msgid "Image"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:25541
+#: wp-includes/js/dist/block-editor.js:25533
 msgid "HTML anchor"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:25542
+#: wp-includes/js/dist/block-editor.js:25534
 msgid "Enter a word or two — without spaces — to make a unique web address just for this block, called an “anchor”. Then, you’ll be able to link directly to this section of your page."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:25544
+#: wp-includes/js/dist/block-editor.js:25536
 msgid "Add an anchor"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:25696
+#: wp-includes/js/dist/block-editor.js:25688
 msgid "Additional CSS class(es)"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:25703
+#: wp-includes/js/dist/block-editor.js:25695
 msgid "Separate multiple classes with spaces."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:26141
-#: wp-includes/js/dist/block-editor.js:26351
+#: wp-includes/js/dist/block-editor.js:26133
+#: wp-includes/js/dist/block-editor.js:26343
 msgid "Border radius"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:26160
+#: wp-includes/js/dist/block-editor.js:26152
 msgid "Top left"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:26161
+#: wp-includes/js/dist/block-editor.js:26153
 msgid "Top right"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:26162
+#: wp-includes/js/dist/block-editor.js:26154
 msgid "Bottom left"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:26163
+#: wp-includes/js/dist/block-editor.js:26155
 msgid "Bottom right"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:26255
+#: wp-includes/js/dist/block-editor.js:26247
 msgid "Unlink radii"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:26255
+#: wp-includes/js/dist/block-editor.js:26247
 msgid "Link radii"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:26337
-#: wp-includes/js/dist/block-editor.js:26859
+#: wp-includes/js/dist/block-editor.js:26329
+#: wp-includes/js/dist/block-editor.js:26851
 msgid "Radius"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:26457
-#: wp-includes/js/dist/block-editor.js:26593
+#: wp-includes/js/dist/block-editor.js:26449
+#: wp-includes/js/dist/block-editor.js:26585
 msgid "Drop shadow"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:26470
+#: wp-includes/js/dist/block-editor.js:26462
 msgid "Clear"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:26484
+#: wp-includes/js/dist/block-editor.js:26476
 msgid "Drop shadows"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:26618
+#: wp-includes/js/dist/block-editor.js:26610
 msgid "Unset"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:26840
-#: wp-includes/js/dist/block-editor.js:26855
-#: wp-includes/js/dist/block-editor.js:27112
+#: wp-includes/js/dist/block-editor.js:26832
+#: wp-includes/js/dist/block-editor.js:26847
+#: wp-includes/js/dist/block-editor.js:27104
 msgid "Border"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:26870
-#: wp-includes/js/dist/block-editor.js:26877
-#: wp-includes/js/dist/block-editor.js:27110
+#: wp-includes/js/dist/block-editor.js:26862
+#: wp-includes/js/dist/block-editor.js:26869
+#: wp-includes/js/dist/block-editor.js:27102
 msgid "Shadow"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:27107
+#: wp-includes/js/dist/block-editor.js:27099
 msgid "Border & Shadow"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:27469
-#: wp-includes/js/dist/block-editor.js:27933
-#: wp-includes/js/dist/block-editor.js:75728
-#: wp-includes/js/dist/block-editor.js:76121
-#: wp-includes/js/dist/block-editor.js:76251
-#: wp-includes/js/dist/block-editor.js:77306
+#: wp-includes/js/dist/block-editor.js:27461
+#: wp-includes/js/dist/block-editor.js:27925
+#: wp-includes/js/dist/block-editor.js:75720
+#: wp-includes/js/dist/block-editor.js:76113
+#: wp-includes/js/dist/block-editor.js:76243
+#: wp-includes/js/dist/block-editor.js:77298
 msgid "Color"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:27472
-#: wp-includes/js/dist/block-editor.js:27939
-#: wp-includes/js/dist/block-editor.js:28025
+#: wp-includes/js/dist/block-editor.js:27464
+#: wp-includes/js/dist/block-editor.js:27931
+#: wp-includes/js/dist/block-editor.js:28017
 msgid "Gradient"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:27585
+#: wp-includes/js/dist/block-editor.js:27577
 msgid "Elements"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:27850
+#: wp-includes/js/dist/block-editor.js:27842
 msgid "Captions"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:27854
-#: wp-includes/js/dist/block-editor.js:77298
+#: wp-includes/js/dist/block-editor.js:27846
+#: wp-includes/js/dist/block-editor.js:77290
 msgid "Button"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:27858
-#: wp-includes/js/dist/block-editor.js:77299
+#: wp-includes/js/dist/block-editor.js:27850
+#: wp-includes/js/dist/block-editor.js:77291
 msgid "Heading"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:27862
-#: wp-includes/js/dist/block-editor.js:77300
+#: wp-includes/js/dist/block-editor.js:27854
+#: wp-includes/js/dist/block-editor.js:77292
 msgid "H1"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:27866
-#: wp-includes/js/dist/block-editor.js:77301
+#: wp-includes/js/dist/block-editor.js:27858
+#: wp-includes/js/dist/block-editor.js:77293
 msgid "H2"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:27870
-#: wp-includes/js/dist/block-editor.js:77302
+#: wp-includes/js/dist/block-editor.js:27862
+#: wp-includes/js/dist/block-editor.js:77294
 msgid "H3"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:27874
-#: wp-includes/js/dist/block-editor.js:77303
+#: wp-includes/js/dist/block-editor.js:27866
+#: wp-includes/js/dist/block-editor.js:77295
 msgid "H4"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:27878
-#: wp-includes/js/dist/block-editor.js:77304
+#: wp-includes/js/dist/block-editor.js:27870
+#: wp-includes/js/dist/block-editor.js:77296
 msgid "H5"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:27882
-#: wp-includes/js/dist/block-editor.js:77305
+#: wp-includes/js/dist/block-editor.js:27874
+#: wp-includes/js/dist/block-editor.js:77297
 msgid "H6"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:27926
-#: wp-includes/js/dist/block-editor.js:28019
-#: wp-includes/js/dist/block-editor.js:77310
+#: wp-includes/js/dist/block-editor.js:27918
+#: wp-includes/js/dist/block-editor.js:28011
+#: wp-includes/js/dist/block-editor.js:77302
 msgid "Background"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:27954
-#: wp-includes/js/dist/block-editor.js:28679
-#: wp-includes/js/dist/block-editor.js:28779
-#: wp-includes/js/dist/block-editor.js:30788
-#: wp-includes/js/dist/block-editor.js:34697
+#: wp-includes/js/dist/block-editor.js:27946
+#: wp-includes/js/dist/block-editor.js:28671
+#: wp-includes/js/dist/block-editor.js:28771
+#: wp-includes/js/dist/block-editor.js:30780
+#: wp-includes/js/dist/block-editor.js:34689
 msgid "Default"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:27960
+#: wp-includes/js/dist/block-editor.js:27952
 msgid "Hover"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:28100
+#: wp-includes/js/dist/block-editor.js:28092
 msgid "text color"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:28103
+#: wp-includes/js/dist/block-editor.js:28095
 msgid "link color"
 msgstr ""
 
 #. translators: %s is a type of text color, e.g., "text color" or "link color".
-#: wp-includes/js/dist/block-editor.js:28131
+#: wp-includes/js/dist/block-editor.js:28123
 msgid "This color combination may be hard for people to read. Try using a darker background color and/or a brighter %s."
 msgstr ""
 
 #. translators: %s is a type of text color, e.g., "text color" or "link color".
-#: wp-includes/js/dist/block-editor.js:28133
+#: wp-includes/js/dist/block-editor.js:28125
 msgid "This color combination may be hard for people to read. Try using a brighter background color and/or a darker %s."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:28134
+#: wp-includes/js/dist/block-editor.js:28126
 msgid "This color combination may be hard for people to read."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:28143
-#: wp-includes/js/dist/block-editor.js:28144
+#: wp-includes/js/dist/block-editor.js:28135
+#: wp-includes/js/dist/block-editor.js:28136
 msgid "Transparent text may be hard for people to read."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:28708
-#: wp-includes/js/dist/block-editor.js:29811
+#: wp-includes/js/dist/block-editor.js:28700
+#: wp-includes/js/dist/block-editor.js:29803
 msgid "Font"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:28746
-#: wp-includes/js/dist/block-editor.js:29578
+#: wp-includes/js/dist/block-editor.js:28738
+#: wp-includes/js/dist/block-editor.js:29570
 msgid "Font weight"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:28749
-#: wp-includes/js/dist/block-editor.js:29581
+#: wp-includes/js/dist/block-editor.js:28741
+#: wp-includes/js/dist/block-editor.js:29573
 msgid "Font style"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:28751
-#: wp-includes/js/dist/block-editor.js:29583
+#: wp-includes/js/dist/block-editor.js:28743
+#: wp-includes/js/dist/block-editor.js:29575
 msgid "Appearance"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:28856
+#: wp-includes/js/dist/block-editor.js:28848
 msgid "No selected font appearance"
 msgstr ""
 
 #. translators: %s: Currently selected font weight.
-#: wp-includes/js/dist/block-editor.js:28861
+#: wp-includes/js/dist/block-editor.js:28853
 msgid "Currently selected font weight: %s"
 msgstr ""
 
 #. translators: %s: Currently selected font style.
-#: wp-includes/js/dist/block-editor.js:28866
+#: wp-includes/js/dist/block-editor.js:28858
 msgid "Currently selected font style: %s"
 msgstr ""
 
 #. translators: %s: Currently selected font appearance.
-#: wp-includes/js/dist/block-editor.js:28870
+#: wp-includes/js/dist/block-editor.js:28862
 msgid "Currently selected font appearance: %s"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:29025
-#: wp-includes/js/dist/block-editor.js:29858
+#: wp-includes/js/dist/block-editor.js:29017
+#: wp-includes/js/dist/block-editor.js:29850
 msgid "Line height"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:29093
-#: wp-includes/js/dist/block-editor.js:29871
+#: wp-includes/js/dist/block-editor.js:29085
+#: wp-includes/js/dist/block-editor.js:29863
 msgid "Letter spacing"
+msgstr ""
+
+#: wp-includes/js/dist/block-editor.js:29168
+#: wp-includes/js/dist/block-editor.js:30385
+#: wp-includes/js/dist/block-editor.js:30495
+msgid "Align text left"
+msgstr ""
+
+#: wp-includes/js/dist/block-editor.js:29172
+#: wp-includes/js/dist/block-editor.js:30389
+#: wp-includes/js/dist/block-editor.js:30499
+msgid "Align text center"
 msgstr ""
 
 #: wp-includes/js/dist/block-editor.js:29176
 #: wp-includes/js/dist/block-editor.js:30393
 #: wp-includes/js/dist/block-editor.js:30503
-msgid "Align text left"
-msgstr ""
-
-#: wp-includes/js/dist/block-editor.js:29180
-#: wp-includes/js/dist/block-editor.js:30397
-#: wp-includes/js/dist/block-editor.js:30507
-msgid "Align text center"
-msgstr ""
-
-#: wp-includes/js/dist/block-editor.js:29184
-#: wp-includes/js/dist/block-editor.js:30401
-#: wp-includes/js/dist/block-editor.js:30511
 msgid "Align text right"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:29188
+#: wp-includes/js/dist/block-editor.js:29180
 msgid "Justify text"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:29219
-#: wp-includes/js/dist/block-editor.js:29940
+#: wp-includes/js/dist/block-editor.js:29211
+#: wp-includes/js/dist/block-editor.js:29932
 msgid "Text alignment"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:29294
-#: wp-includes/js/dist/block-editor.js:29390
-#: wp-includes/js/dist/block-editor.js:30776
+#: wp-includes/js/dist/block-editor.js:29286
+#: wp-includes/js/dist/block-editor.js:29382
+#: wp-includes/js/dist/block-editor.js:30768
 msgid "None"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:29298
+#: wp-includes/js/dist/block-editor.js:29290
 msgid "Uppercase"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:29302
+#: wp-includes/js/dist/block-editor.js:29294
 msgid "Lowercase"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:29306
+#: wp-includes/js/dist/block-editor.js:29298
 msgid "Capitalize"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:29330
-#: wp-includes/js/dist/block-editor.js:29926
+#: wp-includes/js/dist/block-editor.js:29322
+#: wp-includes/js/dist/block-editor.js:29918
 msgid "Letter case"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:29394
+#: wp-includes/js/dist/block-editor.js:29386
 msgid "Underline"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:29398
+#: wp-includes/js/dist/block-editor.js:29390
 msgid "Strikethrough"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:29422
-#: wp-includes/js/dist/block-editor.js:29901
+#: wp-includes/js/dist/block-editor.js:29414
+#: wp-includes/js/dist/block-editor.js:29893
 msgid "Decoration"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:29630
-#: wp-includes/js/dist/block-editor.js:75737
-#: wp-includes/js/dist/block-editor.js:76128
-#: wp-includes/js/dist/block-editor.js:76258
-#: wp-includes/js/dist/block-editor.js:77307
-#: wp-includes/js/dist/block-editor.js:77311
+#: wp-includes/js/dist/block-editor.js:29622
+#: wp-includes/js/dist/block-editor.js:75729
+#: wp-includes/js/dist/block-editor.js:76120
+#: wp-includes/js/dist/block-editor.js:76250
+#: wp-includes/js/dist/block-editor.js:77299
+#: wp-includes/js/dist/block-editor.js:77303
 msgid "Typography"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:30411
+#: wp-includes/js/dist/block-editor.js:30403
 msgid "Align text"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:30412
+#: wp-includes/js/dist/block-editor.js:30404
 msgid "Change text alignment"
 msgstr ""
 
 #. translators: %s: A custom measurement, e.g. a number followed by a unit like 12px.
-#: wp-includes/js/dist/block-editor.js:30982
+#: wp-includes/js/dist/block-editor.js:30974
 msgid "Custom (%s)"
 msgstr ""
 
 #. translators: 1: The side of the block being modified (top, bottom, left etc.). 2. Type of spacing being modified (padding, margin, etc).
-#: wp-includes/js/dist/block-editor.js:31033
-#: wp-includes/js/dist/block-editor.js:31442
+#: wp-includes/js/dist/block-editor.js:31025
+#: wp-includes/js/dist/block-editor.js:31434
 msgctxt "spacing"
 msgid "%1$s %2$s"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:31130
+#: wp-includes/js/dist/block-editor.js:31122
 msgid "Use size preset"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:31130
+#: wp-includes/js/dist/block-editor.js:31122
 msgid "Set custom size"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:31311
+#: wp-includes/js/dist/block-editor.js:31303
 msgid "Unlink sides"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:31311
+#: wp-includes/js/dist/block-editor.js:31303
 msgid "Link sides"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:31604
-#: wp-includes/js/dist/block-editor.js:31799
-#: wp-includes/js/dist/block-editor.js:31869
-#: wp-includes/js/dist/block-editor.js:72025
-#: wp-includes/js/dist/block-editor.js:80224
-#: wp-includes/js/dist/block-editor.js:80230
+#: wp-includes/js/dist/block-editor.js:31596
+#: wp-includes/js/dist/block-editor.js:31791
+#: wp-includes/js/dist/block-editor.js:31861
+#: wp-includes/js/dist/block-editor.js:72017
+#: wp-includes/js/dist/block-editor.js:80216
+#: wp-includes/js/dist/block-editor.js:80222
 msgid "Height"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:31729
+#: wp-includes/js/dist/block-editor.js:31721
 msgid "Stretch to fill available space."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:31732
+#: wp-includes/js/dist/block-editor.js:31724
 msgid "Specify a fixed width."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:31734
+#: wp-includes/js/dist/block-editor.js:31726
 msgid "Specify a fixed height."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:31736
+#: wp-includes/js/dist/block-editor.js:31728
 msgid "Fit contents."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:31799
-#: wp-includes/js/dist/block-editor.js:31869
-#: wp-includes/js/dist/block-editor.js:72018
-#: wp-includes/js/dist/block-editor.js:80208
-#: wp-includes/js/dist/block-editor.js:80214
+#: wp-includes/js/dist/block-editor.js:31791
+#: wp-includes/js/dist/block-editor.js:31861
+#: wp-includes/js/dist/block-editor.js:72010
+#: wp-includes/js/dist/block-editor.js:80200
+#: wp-includes/js/dist/block-editor.js:80206
 msgid "Width"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:31842
+#: wp-includes/js/dist/block-editor.js:31834
 msgctxt "Intrinsic block width in flex layout"
 msgid "Fit"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:31845
+#: wp-includes/js/dist/block-editor.js:31837
 msgctxt "Block with expanding width in flex layout"
 msgid "Grow"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:31848
+#: wp-includes/js/dist/block-editor.js:31840
 msgctxt "Block with fixed width in flex layout"
 msgid "Fixed"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:31912
+#: wp-includes/js/dist/block-editor.js:31904
 msgid "Grid span"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:31918
+#: wp-includes/js/dist/block-editor.js:31910
 msgid "Column span"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:31934
+#: wp-includes/js/dist/block-editor.js:31926
 msgid "Row span"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:31957
+#: wp-includes/js/dist/block-editor.js:31949
 msgid "Grid placement"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:31967
+#: wp-includes/js/dist/block-editor.js:31959
 msgid "Column"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:31991
+#: wp-includes/js/dist/block-editor.js:31983
 msgid "Row"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:32072
+#: wp-includes/js/dist/block-editor.js:32064
 msgctxt "Aspect ratio option for dimensions control"
 msgid "Original"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:32075
+#: wp-includes/js/dist/block-editor.js:32067
 msgctxt "Aspect ratio option for dimensions control"
 msgid "Custom"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:32082
-#: wp-includes/js/dist/block-editor.js:32087
+#: wp-includes/js/dist/block-editor.js:32074
+#: wp-includes/js/dist/block-editor.js:32079
 msgid "Aspect ratio"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:32251
-#: wp-includes/js/dist/block-editor.js:75740
-#: wp-includes/js/dist/block-editor.js:76131
-#: wp-includes/js/dist/block-editor.js:76261
+#: wp-includes/js/dist/block-editor.js:32243
+#: wp-includes/js/dist/block-editor.js:75732
+#: wp-includes/js/dist/block-editor.js:76123
+#: wp-includes/js/dist/block-editor.js:76253
 msgid "Dimensions"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:32455
+#: wp-includes/js/dist/block-editor.js:32447
 msgid "Set the width of the main content area."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:32502
-#: wp-includes/js/dist/block-editor.js:32513
-#: wp-includes/js/dist/block-editor.js:32525
+#: wp-includes/js/dist/block-editor.js:32494
+#: wp-includes/js/dist/block-editor.js:32505
+#: wp-includes/js/dist/block-editor.js:32517
 msgid "Padding"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:32534
-#: wp-includes/js/dist/block-editor.js:32557
-#: wp-includes/js/dist/block-editor.js:32566
+#: wp-includes/js/dist/block-editor.js:32526
+#: wp-includes/js/dist/block-editor.js:32549
+#: wp-includes/js/dist/block-editor.js:32558
 msgid "Margin"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:32575
-#: wp-includes/js/dist/block-editor.js:32587
-#: wp-includes/js/dist/block-editor.js:32597
-#: wp-includes/js/dist/block-editor.js:32603
+#: wp-includes/js/dist/block-editor.js:32567
+#: wp-includes/js/dist/block-editor.js:32579
+#: wp-includes/js/dist/block-editor.js:32589
+#: wp-includes/js/dist/block-editor.js:32595
 msgid "Block spacing"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:32620
-#: wp-includes/js/dist/block-editor.js:32625
+#: wp-includes/js/dist/block-editor.js:32612
+#: wp-includes/js/dist/block-editor.js:32617
 msgid "Minimum height"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:33795
+#: wp-includes/js/dist/block-editor.js:33787
 msgid "Apply duotone filter"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:33801
-#: wp-includes/js/dist/block-editor.js:33824
-#: wp-includes/js/dist/block-editor.js:34110
-#: wp-includes/js/dist/block-editor.js:34164
-#: wp-includes/js/dist/block-editor.js:34223
-#: wp-includes/js/dist/block-editor.js:34235
+#: wp-includes/js/dist/block-editor.js:33793
+#: wp-includes/js/dist/block-editor.js:33816
+#: wp-includes/js/dist/block-editor.js:34102
+#: wp-includes/js/dist/block-editor.js:34156
+#: wp-includes/js/dist/block-editor.js:34215
+#: wp-includes/js/dist/block-editor.js:34227
 msgid "Duotone"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:33826
-#: wp-includes/js/dist/block-editor.js:34237
+#: wp-includes/js/dist/block-editor.js:33818
+#: wp-includes/js/dist/block-editor.js:34229
 msgid "Create a two-tone color effect without losing your original image."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:34095
+#: wp-includes/js/dist/block-editor.js:34087
 msgctxt "Name for applying graphical effects"
 msgid "Filters"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:34595
+#: wp-includes/js/dist/block-editor.js:34587
 msgid "Sticky"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:34598
+#: wp-includes/js/dist/block-editor.js:34590
 msgid "Fixed"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:34702
+#: wp-includes/js/dist/block-editor.js:34694
 msgctxt "Name for the value of the CSS position property"
 msgid "Sticky"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:34703
+#: wp-includes/js/dist/block-editor.js:34695
 msgid "The block will stick to the top of the window instead of scrolling."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:34708
+#: wp-includes/js/dist/block-editor.js:34700
 msgctxt "Name for the value of the CSS position property"
 msgid "Fixed"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:34709
+#: wp-includes/js/dist/block-editor.js:34701
 msgid "The block will not move when the page is scrolled."
 msgstr ""
 
 #. translators: %s: the name of the parent block.
-#: wp-includes/js/dist/block-editor.js:34880
+#: wp-includes/js/dist/block-editor.js:34872
 msgid "The block will stick to the scrollable area of the parent %s block."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:34921
-#: wp-includes/js/dist/block-editor.js:75653
-#: wp-includes/js/dist/block-editor.js:75658
+#: wp-includes/js/dist/block-editor.js:34913
+#: wp-includes/js/dist/block-editor.js:75645
+#: wp-includes/js/dist/block-editor.js:75650
 msgid "Position"
 msgstr ""
 
 #. translators: %s: Currently selected position.
-#: wp-includes/js/dist/block-editor.js:34925
+#: wp-includes/js/dist/block-editor.js:34917
 msgid "Currently selected position: %s"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:36560
+#: wp-includes/js/dist/block-editor.js:36552
 msgid "Layout"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:36564
+#: wp-includes/js/dist/block-editor.js:36556
 msgid "Inner blocks use content width"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:36571
+#: wp-includes/js/dist/block-editor.js:36563
 msgid "Nested blocks use content width with options for full and wide widths."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:36571
+#: wp-includes/js/dist/block-editor.js:36563
 msgid "Nested blocks will fill the width of this container."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:36614
+#: wp-includes/js/dist/block-editor.js:36606
 msgid "Layout type"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:36908
+#: wp-includes/js/dist/block-editor.js:36900
 msgid "While writing, you can press <kbd>/</kbd> to quickly insert new blocks."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:36910
+#: wp-includes/js/dist/block-editor.js:36902
 msgid "Indent a list by pressing <kbd>space</kbd> at the beginning of a line."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:36912
+#: wp-includes/js/dist/block-editor.js:36904
 msgid "Outdent a list by pressing <kbd>backspace</kbd> at the beginning of a line."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:36914
+#: wp-includes/js/dist/block-editor.js:36906
 msgid "Drag files into the editor to automatically insert media blocks."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:36914
+#: wp-includes/js/dist/block-editor.js:36906
 msgid "Change a block's type by pressing the block icon on the toolbar."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:37113
+#: wp-includes/js/dist/block-editor.js:37105
 msgid "Go to parent Navigation block"
 msgstr ""
 
 #. translators: %s: file name.
-#: wp-includes/js/dist/block-editor.js:37613
+#: wp-includes/js/dist/block-editor.js:37605
 msgid "%s: Sorry, this file type is not supported here."
 msgstr ""
 
 #. translators: %s: file name.
-#: wp-includes/js/dist/block-editor.js:37671
+#: wp-includes/js/dist/block-editor.js:37663
 msgid "%s: Sorry, you are not allowed to upload this file type."
 msgstr ""
 
 #. translators: %s: file name.
-#: wp-includes/js/dist/block-editor.js:37701
+#: wp-includes/js/dist/block-editor.js:37693
 msgid "%s: This file is empty."
 msgstr ""
 
 #. translators: %s: file name.
-#: wp-includes/js/dist/block-editor.js:37710
+#: wp-includes/js/dist/block-editor.js:37702
 msgid "%s: This file exceeds the maximum upload size for this site."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:37927
+#: wp-includes/js/dist/block-editor.js:37919
 msgctxt "file name"
 msgid "unnamed"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:38747
+#: wp-includes/js/dist/block-editor.js:38739
 msgid "Copy the selected block(s)."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:38756
+#: wp-includes/js/dist/block-editor.js:38748
 msgid "Cut the selected block(s)."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:38765
+#: wp-includes/js/dist/block-editor.js:38757
 msgid "Paste the selected block(s)."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:38774
+#: wp-includes/js/dist/block-editor.js:38766
 msgid "Duplicate the selected block(s)."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:38783
+#: wp-includes/js/dist/block-editor.js:38775
 msgid "Remove the selected block(s)."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:38792
+#: wp-includes/js/dist/block-editor.js:38784
 msgid "Insert a new block before the selected block(s)."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:38801
+#: wp-includes/js/dist/block-editor.js:38793
 msgid "Insert a new block after the selected block(s)."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:38810
+#: wp-includes/js/dist/block-editor.js:38802
 msgid "Delete selection."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:38821
+#: wp-includes/js/dist/block-editor.js:38813
 msgid "Select all text when typing. Press again to select all blocks."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:38830
+#: wp-includes/js/dist/block-editor.js:38822
 msgid "Clear selection."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:38838
+#: wp-includes/js/dist/block-editor.js:38830
 msgid "Select text across multiple blocks."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:38847
+#: wp-includes/js/dist/block-editor.js:38839
 msgid "Navigate to the nearest toolbar."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:38856
+#: wp-includes/js/dist/block-editor.js:38848
 msgid "Move the selected block(s) up."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:38865
+#: wp-includes/js/dist/block-editor.js:38857
 msgid "Move the selected block(s) down."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:38876
+#: wp-includes/js/dist/block-editor.js:38868
 msgid "Collapse all other items."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:38885
+#: wp-includes/js/dist/block-editor.js:38877
 msgid "Create a group block from the selected multiple blocks."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:39600
+#: wp-includes/js/dist/block-editor.js:39592
 msgid "More options"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:39653
+#: wp-includes/js/dist/block-editor.js:39645
 msgid "Find original"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:39662
+#: wp-includes/js/dist/block-editor.js:39654
 msgid "This block can only be used once."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:39854
+#: wp-includes/js/dist/block-editor.js:39846
 msgid "Current"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:39857
-#: wp-includes/js/dist/block-editor.js:39944
+#: wp-includes/js/dist/block-editor.js:39849
+#: wp-includes/js/dist/block-editor.js:39936
 msgid "Convert to HTML"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:39861
+#: wp-includes/js/dist/block-editor.js:39853
 msgid "After Conversion"
 msgstr ""
 
 #. translators: Button to fix block content
-#: wp-includes/js/dist/block-editor.js:39941
+#: wp-includes/js/dist/block-editor.js:39933
 msgctxt "imperative verb"
 msgid "Resolve"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:39947
+#: wp-includes/js/dist/block-editor.js:39939
 msgid "Convert to Classic Block"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:39956
+#: wp-includes/js/dist/block-editor.js:39948
 msgid "Attempt recovery"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:39959
+#: wp-includes/js/dist/block-editor.js:39951
 msgid "Block contains unexpected or invalid content."
 msgstr ""
 
 #. translators: Dialog title to fix block content
-#: wp-includes/js/dist/block-editor.js:39963
+#: wp-includes/js/dist/block-editor.js:39955
 msgid "Resolve Block"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:39971
-#: wp-includes/js/dist/block-editor.js:62525
+#: wp-includes/js/dist/block-editor.js:39963
+#: wp-includes/js/dist/block-editor.js:62517
 msgid "Convert to Blocks"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:39990
+#: wp-includes/js/dist/block-editor.js:39982
 msgid "This block has encountered an error and cannot be previewed."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:44703
+#: wp-includes/js/dist/block-editor.js:44695
 msgid "Pattern"
 msgstr ""
 
 #. translators: %d: Number of blocks.
-#: wp-includes/js/dist/block-editor.js:44716
+#: wp-includes/js/dist/block-editor.js:44708
 msgid "%d block"
 msgid_plural "%d blocks"
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %s: Type of block (i.e. Text, Image etc)
-#: wp-includes/js/dist/block-editor.js:45220
+#: wp-includes/js/dist/block-editor.js:45212
 msgid "Block: %s"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:46027
+#: wp-includes/js/dist/block-editor.js:46019
 msgid "Type / to choose a block"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:46043
+#: wp-includes/js/dist/block-editor.js:46035
 msgid "Add default block"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:48541
+#: wp-includes/js/dist/block-editor.js:48533
 msgid "Drop pattern."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:49990
+#: wp-includes/js/dist/block-editor.js:49982
 msgid "Styles copied to clipboard."
 msgstr ""
 
 #. Translators: Name of the block being copied, e.g. "Paragraph".
-#: wp-includes/js/dist/block-editor.js:49997
+#: wp-includes/js/dist/block-editor.js:49989
 msgid "Copied \"%s\" to clipboard."
 msgstr ""
 
 #. Translators: Name of the block being cut, e.g. "Paragraph".
-#: wp-includes/js/dist/block-editor.js:50001
+#: wp-includes/js/dist/block-editor.js:49993
 msgid "Moved \"%s\" to clipboard."
 msgstr ""
 
 #. Translators: %d: Number of blocks being copied.
-#: wp-includes/js/dist/block-editor.js:50006
+#: wp-includes/js/dist/block-editor.js:49998
 msgid "Copied %d block to clipboard."
 msgid_plural "Copied %d blocks to clipboard."
 msgstr[0] ""
 msgstr[1] ""
 
 #. Translators: %d: Number of blocks being moved.
-#: wp-includes/js/dist/block-editor.js:50010
+#: wp-includes/js/dist/block-editor.js:50002
 msgid "Moved %d block to clipboard."
 msgid_plural "Moved %d blocks to clipboard."
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-includes/js/dist/block-editor.js:50471
+#: wp-includes/js/dist/block-editor.js:50463
 msgid "Multiple selected blocks"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:51090
+#: wp-includes/js/dist/block-editor.js:51082
 msgid "Editor canvas"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:52385
+#: wp-includes/js/dist/block-editor.js:52377
 msgid "No preview available."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:52650
+#: wp-includes/js/dist/block-editor.js:52642
 msgid "Use left and right arrow keys to move through blocks"
 msgstr ""
 
 #. translators: %s: block pattern title.
-#: wp-includes/js/dist/block-editor.js:52818
+#: wp-includes/js/dist/block-editor.js:52810
 msgid "Block \"%s\" can't be inserted."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:52868
+#: wp-includes/js/dist/block-editor.js:52860
 msgid "No results found."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:52954
-#: wp-includes/js/dist/block-editor.js:52959
+#: wp-includes/js/dist/block-editor.js:52946
+#: wp-includes/js/dist/block-editor.js:52951
 msgctxt "blocks"
 msgid "Most used"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:52978
-#: wp-includes/js/dist/block-editor.js:52983
-#: wp-includes/js/dist/block-editor.js:54122
-#: wp-includes/js/dist/block-editor.js:77834
+#: wp-includes/js/dist/block-editor.js:52970
+#: wp-includes/js/dist/block-editor.js:52975
+#: wp-includes/js/dist/block-editor.js:54114
+#: wp-includes/js/dist/block-editor.js:77826
 msgid "Uncategorized"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:53096
-#: wp-includes/js/dist/block-editor.js:53097
-#: wp-includes/js/dist/block-editor.js:55166
-#: wp-includes/js/dist/block-editor.js:55812
-#: wp-includes/js/dist/block-editor.js:55813
-#: wp-includes/js/dist/block-editor.js:56037
-#: wp-includes/js/dist/block-editor.js:56038
+#: wp-includes/js/dist/block-editor.js:53088
+#: wp-includes/js/dist/block-editor.js:53089
+#: wp-includes/js/dist/block-editor.js:55158
+#: wp-includes/js/dist/block-editor.js:55804
+#: wp-includes/js/dist/block-editor.js:55805
+#: wp-includes/js/dist/block-editor.js:56029
+#: wp-includes/js/dist/block-editor.js:56030
 msgid "Search"
 msgstr ""
 
 #. translators: %s: Total number of patterns.
-#: wp-includes/js/dist/block-editor.js:53142
+#: wp-includes/js/dist/block-editor.js:53134
 msgid "%s item"
 msgid_plural "%s items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-includes/js/dist/block-editor.js:53156
+#: wp-includes/js/dist/block-editor.js:53148
 msgid "First page"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:53167
+#: wp-includes/js/dist/block-editor.js:53159
 msgid "Previous page"
 msgstr ""
 
 #. translators: 1: Current page number. 2: Total number of pages.
-#: wp-includes/js/dist/block-editor.js:53179
+#: wp-includes/js/dist/block-editor.js:53171
 msgctxt "paging"
 msgid "%1$s of %2$s"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:53188
+#: wp-includes/js/dist/block-editor.js:53180
 msgid "Next page"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:53199
+#: wp-includes/js/dist/block-editor.js:53191
 msgid "Last page"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:53374
-#: wp-includes/js/dist/block-editor.js:55452
+#: wp-includes/js/dist/block-editor.js:53366
+#: wp-includes/js/dist/block-editor.js:55444
 msgid "Block patterns"
 msgstr ""
 
 #. translators: %d: the name of the block that has been added
-#: wp-includes/js/dist/block-editor.js:53549
+#: wp-includes/js/dist/block-editor.js:53541
 msgid "%d block added."
 msgid_plural "%d blocks added."
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %s: block pattern title.
-#: wp-includes/js/dist/block-editor.js:53656
+#: wp-includes/js/dist/block-editor.js:53648
 msgid "Block pattern \"%s\" inserted."
 msgstr ""
 
 #. translators: %d: number of patterns.
-#: wp-includes/js/dist/block-editor.js:54008
+#: wp-includes/js/dist/block-editor.js:54000
 msgid "%d pattern found"
 msgid_plural "%d patterns found"
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %d: number of results.
-#: wp-includes/js/dist/block-editor.js:54057
-#: wp-includes/js/dist/block-editor.js:55431
-#: wp-includes/js/dist/block-editor.js:77799
+#: wp-includes/js/dist/block-editor.js:54049
+#: wp-includes/js/dist/block-editor.js:55423
+#: wp-includes/js/dist/block-editor.js:77791
 msgid "%d result found."
 msgid_plural "%d results found."
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %d: number of categories .
-#: wp-includes/js/dist/block-editor.js:54138
+#: wp-includes/js/dist/block-editor.js:54130
 msgid "%d category button displayed."
 msgid_plural "%d category buttons displayed."
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-includes/js/dist/block-editor.js:54189
-#: wp-includes/js/dist/block-editor.js:55915
-#: wp-includes/js/dist/block-editor.js:61596
+#: wp-includes/js/dist/block-editor.js:54181
+#: wp-includes/js/dist/block-editor.js:55907
+#: wp-includes/js/dist/block-editor.js:61588
 msgid "Patterns"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:54230
-#: wp-includes/js/dist/block-editor.js:54268
+#: wp-includes/js/dist/block-editor.js:54222
+#: wp-includes/js/dist/block-editor.js:54260
 msgid "Back"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:54297
+#: wp-includes/js/dist/block-editor.js:54289
 msgid "Theme & Plugins"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:54300
+#: wp-includes/js/dist/block-editor.js:54292
 msgid "Contributor"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:54328
+#: wp-includes/js/dist/block-editor.js:54320
 msgctxt "patterns"
 msgid "Synced"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:54332
+#: wp-includes/js/dist/block-editor.js:54324
 msgctxt "patterns"
 msgid "Not synced"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:54346
+#: wp-includes/js/dist/block-editor.js:54338
 msgid "Filter patterns"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:54365
+#: wp-includes/js/dist/block-editor.js:54357
 msgid "Source"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:54375
+#: wp-includes/js/dist/block-editor.js:54367
 msgid "Type"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:54484
+#: wp-includes/js/dist/block-editor.js:54476
 msgid "No results found"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:54491
+#: wp-includes/js/dist/block-editor.js:54483
 msgid "Drag and drop patterns into the canvas."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:54639
+#: wp-includes/js/dist/block-editor.js:54631
 msgid "Explore all patterns"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:54771
-#: wp-includes/js/dist/block-editor.js:63619
-#: wp-includes/js/dist/block-editor.js:66974
+#: wp-includes/js/dist/block-editor.js:54763
+#: wp-includes/js/dist/block-editor.js:63611
+#: wp-includes/js/dist/block-editor.js:66966
 msgid "Options"
 msgstr ""
 
 #. translators: %s: The media type to report e.g: "image", "video", "audio"
-#: wp-includes/js/dist/block-editor.js:54779
+#: wp-includes/js/dist/block-editor.js:54771
 msgid "Report %s"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:54789
+#: wp-includes/js/dist/block-editor.js:54781
 msgid "Insert external image"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:54795
+#: wp-includes/js/dist/block-editor.js:54787
 msgid "This image cannot be uploaded to your Media Library, but it can still be inserted as an external image."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:54797
+#: wp-includes/js/dist/block-editor.js:54789
 msgid "External images can be removed by the external provider without warning and could even have legal compliance issues related to privacy legislation."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:54815
+#: wp-includes/js/dist/block-editor.js:54807
 msgid "Insert"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:54895
+#: wp-includes/js/dist/block-editor.js:54887
 msgid "Image uploaded and inserted."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:54923
+#: wp-includes/js/dist/block-editor.js:54915
 msgid "no title"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:54976
+#: wp-includes/js/dist/block-editor.js:54968
 msgid "Image inserted."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:55002
+#: wp-includes/js/dist/block-editor.js:54994
 msgid "Media List"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:55440
-#: wp-includes/js/dist/block-editor.js:55446
-#: wp-includes/js/dist/block-editor.js:55909
+#: wp-includes/js/dist/block-editor.js:55432
+#: wp-includes/js/dist/block-editor.js:55438
+#: wp-includes/js/dist/block-editor.js:55901
 msgid "Blocks"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:55843
+#: wp-includes/js/dist/block-editor.js:55835
 msgid "A tip for using the block editor"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:55906
+#: wp-includes/js/dist/block-editor.js:55898
 msgid "Close Block Inserter"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:55921
-#: wp-includes/js/dist/block-editor.js:72540
+#: wp-includes/js/dist/block-editor.js:55913
+#: wp-includes/js/dist/block-editor.js:72532
 msgid "Media"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:56057
+#: wp-includes/js/dist/block-editor.js:56049
 msgid "Browse all. This will open the main inserter panel in the editor toolbar."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:56058
+#: wp-includes/js/dist/block-editor.js:56050
 msgid "Browse all"
 msgstr ""
 
 #. translators: %s: the name of the block when there is only one
-#: wp-includes/js/dist/block-editor.js:56106
-#: wp-includes/js/dist/block-editor.js:56459
+#: wp-includes/js/dist/block-editor.js:56098
+#: wp-includes/js/dist/block-editor.js:56451
 msgctxt "directly add the only allowed block"
 msgid "Add %s"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:56108
-#: wp-includes/js/dist/block-editor.js:56459
+#: wp-includes/js/dist/block-editor.js:56100
+#: wp-includes/js/dist/block-editor.js:56451
 msgctxt "Generic label for block inserter button"
 msgid "Add block"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:56258
+#: wp-includes/js/dist/block-editor.js:56250
 msgid "Add a block"
 msgstr ""
 
 #. translators: %s: the name of the block that has been added
-#: wp-includes/js/dist/block-editor.js:56399
+#: wp-includes/js/dist/block-editor.js:56391
 msgid "%s block added"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:57046
-#: wp-includes/js/dist/block-editor.js:57047
-#: wp-includes/js/dist/block-editor.js:60390
-#: wp-includes/js/dist/block-editor.js:60395
+#: wp-includes/js/dist/block-editor.js:57038
+#: wp-includes/js/dist/block-editor.js:57039
+#: wp-includes/js/dist/block-editor.js:60382
+#: wp-includes/js/dist/block-editor.js:60387
 msgid "Move left"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:57062
-#: wp-includes/js/dist/block-editor.js:57063
-#: wp-includes/js/dist/block-editor.js:60392
+#: wp-includes/js/dist/block-editor.js:57054
+#: wp-includes/js/dist/block-editor.js:57055
+#: wp-includes/js/dist/block-editor.js:60384
 msgid "Move up"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:57075
-#: wp-includes/js/dist/block-editor.js:57076
-#: wp-includes/js/dist/block-editor.js:60397
+#: wp-includes/js/dist/block-editor.js:57067
+#: wp-includes/js/dist/block-editor.js:57068
+#: wp-includes/js/dist/block-editor.js:60389
 msgid "Move down"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:57090
-#: wp-includes/js/dist/block-editor.js:57091
-#: wp-includes/js/dist/block-editor.js:60390
-#: wp-includes/js/dist/block-editor.js:60395
+#: wp-includes/js/dist/block-editor.js:57082
+#: wp-includes/js/dist/block-editor.js:57083
+#: wp-includes/js/dist/block-editor.js:60382
+#: wp-includes/js/dist/block-editor.js:60387
 msgid "Move right"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:57428
+#: wp-includes/js/dist/block-editor.js:57420
 msgid "Done"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:57614
+#: wp-includes/js/dist/block-editor.js:57606
 msgid "Plugins"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:57618
+#: wp-includes/js/dist/block-editor.js:57610
 msgid "Manage the inclusion of blocks added automatically by plugins."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:57758
+#: wp-includes/js/dist/block-editor.js:57750
 msgid "Invalid source"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:57895
+#: wp-includes/js/dist/block-editor.js:57887
 msgid "Attributes"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:57916
+#: wp-includes/js/dist/block-editor.js:57908
 msgid "Attributes connected to custom fields or other dynamic data."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:59247
+#: wp-includes/js/dist/block-editor.js:59239
 msgid "Full height"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:59304
+#: wp-includes/js/dist/block-editor.js:59296
 msgid "Change matrix alignment"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:59532
+#: wp-includes/js/dist/block-editor.js:59524
 msgid "Document"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:59547
+#: wp-includes/js/dist/block-editor.js:59539
 msgid "Block breadcrumb"
 msgstr ""
 
 #. translators: %s: Type of block (i.e. Text, Image etc)
-#: wp-includes/js/dist/block-editor.js:60184
+#: wp-includes/js/dist/block-editor.js:60176
 msgid "Block %s is the only block, and cannot be moved"
 msgstr ""
 
 #. translators: 1: Type of block (i.e. Text, Image etc), 2: Position of selected block, 3: New position
-#: wp-includes/js/dist/block-editor.js:60192
+#: wp-includes/js/dist/block-editor.js:60184
 msgid "Move %1$s block from position %2$d down to position %3$d"
 msgstr ""
 
 #. translators: 1: Type of block (i.e. Text, Image etc), 2: Position of selected block, 3: New position
-#: wp-includes/js/dist/block-editor.js:60197
-#: wp-includes/js/dist/block-editor.js:60235
+#: wp-includes/js/dist/block-editor.js:60189
+#: wp-includes/js/dist/block-editor.js:60227
 msgid "Move %1$s block from position %2$d left to position %3$d"
 msgstr ""
 
 #. translators: 1: Type of block (i.e. Text, Image etc), 2: Position of selected block, 3: New position
-#: wp-includes/js/dist/block-editor.js:60202
-#: wp-includes/js/dist/block-editor.js:60240
+#: wp-includes/js/dist/block-editor.js:60194
+#: wp-includes/js/dist/block-editor.js:60232
 msgid "Move %1$s block from position %2$d right to position %3$d"
 msgstr ""
 
 #. translators: 1: Type of block (i.e. Text, Image etc)
-#: wp-includes/js/dist/block-editor.js:60211
+#: wp-includes/js/dist/block-editor.js:60203
 msgid "Block %1$s is at the end of the content and can’t be moved down"
 msgstr ""
 
 #. translators: 1: Type of block (i.e. Text, Image etc)
-#: wp-includes/js/dist/block-editor.js:60216
+#: wp-includes/js/dist/block-editor.js:60208
 msgid "Block %1$s is at the end of the content and can’t be moved left"
 msgstr ""
 
 #. translators: 1: Type of block (i.e. Text, Image etc)
-#: wp-includes/js/dist/block-editor.js:60221
+#: wp-includes/js/dist/block-editor.js:60213
 msgid "Block %1$s is at the end of the content and can’t be moved right"
 msgstr ""
 
 #. translators: 1: Type of block (i.e. Text, Image etc), 2: Position of selected block, 3: New position
-#: wp-includes/js/dist/block-editor.js:60230
+#: wp-includes/js/dist/block-editor.js:60222
 msgid "Move %1$s block from position %2$d up to position %3$d"
 msgstr ""
 
 #. translators: 1: Type of block (i.e. Text, Image etc)
-#: wp-includes/js/dist/block-editor.js:60249
+#: wp-includes/js/dist/block-editor.js:60241
 msgid "Block %1$s is at the beginning of the content and can’t be moved up"
 msgstr ""
 
 #. translators: 1: Type of block (i.e. Text, Image etc)
-#: wp-includes/js/dist/block-editor.js:60254
+#: wp-includes/js/dist/block-editor.js:60246
 msgid "Block %1$s is at the beginning of the content and can’t be moved left"
 msgstr ""
 
 #. translators: 1: Type of block (i.e. Text, Image etc)
-#: wp-includes/js/dist/block-editor.js:60259
+#: wp-includes/js/dist/block-editor.js:60251
 msgid "Block %1$s is at the beginning of the content and can’t be moved right"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:60282
+#: wp-includes/js/dist/block-editor.js:60274
 msgid "All blocks are selected, and cannot be moved"
 msgstr ""
 
 #. translators: 1: Number of selected blocks, 2: Position of selected blocks
-#: wp-includes/js/dist/block-editor.js:60290
+#: wp-includes/js/dist/block-editor.js:60282
 msgid "Move %1$d blocks from position %2$d down by one place"
 msgstr ""
 
 #. translators: 1: Number of selected blocks, 2: Position of selected blocks
-#: wp-includes/js/dist/block-editor.js:60295
-#: wp-includes/js/dist/block-editor.js:60327
+#: wp-includes/js/dist/block-editor.js:60287
+#: wp-includes/js/dist/block-editor.js:60319
 msgid "Move %1$d blocks from position %2$d left by one place"
 msgstr ""
 
 #. translators: 1: Number of selected blocks, 2: Position of selected blocks
-#: wp-includes/js/dist/block-editor.js:60300
-#: wp-includes/js/dist/block-editor.js:60332
+#: wp-includes/js/dist/block-editor.js:60292
+#: wp-includes/js/dist/block-editor.js:60324
 msgid "Move %1$d blocks from position %2$d right by one place"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:60307
+#: wp-includes/js/dist/block-editor.js:60299
 msgid "Blocks cannot be moved down as they are already at the bottom"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:60310
-#: wp-includes/js/dist/block-editor.js:60342
+#: wp-includes/js/dist/block-editor.js:60302
+#: wp-includes/js/dist/block-editor.js:60334
 msgid "Blocks cannot be moved left as they are already are at the leftmost position"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:60313
-#: wp-includes/js/dist/block-editor.js:60345
+#: wp-includes/js/dist/block-editor.js:60305
+#: wp-includes/js/dist/block-editor.js:60337
 msgid "Blocks cannot be moved right as they are already are at the rightmost position"
 msgstr ""
 
 #. translators: 1: Number of selected blocks, 2: Position of selected blocks
-#: wp-includes/js/dist/block-editor.js:60322
+#: wp-includes/js/dist/block-editor.js:60314
 msgid "Move %1$d blocks from position %2$d up by one place"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:60339
+#: wp-includes/js/dist/block-editor.js:60331
 msgid "Blocks cannot be moved up as they are already at the top"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:60572
+#: wp-includes/js/dist/block-editor.js:60564
 msgid "Drag"
 msgstr ""
 
 #. translators: %s: Name of the block's parent.
-#: wp-includes/js/dist/block-editor.js:60825
+#: wp-includes/js/dist/block-editor.js:60817
 msgid "Select parent block: %s"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:60882
+#: wp-includes/js/dist/block-editor.js:60874
 msgid "Preview"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:61083
+#: wp-includes/js/dist/block-editor.js:61075
 msgid "Transform to"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:61206
+#: wp-includes/js/dist/block-editor.js:61198
 msgctxt "block style"
 msgid "Default"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:61386
-#: wp-includes/js/dist/block-editor.js:75548
-#: wp-includes/js/dist/block-editor.js:75721
-#: wp-includes/js/dist/block-editor.js:76067
+#: wp-includes/js/dist/block-editor.js:61378
+#: wp-includes/js/dist/block-editor.js:75540
+#: wp-includes/js/dist/block-editor.js:75713
+#: wp-includes/js/dist/block-editor.js:76059
 msgid "Styles"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:61628
-#: wp-includes/js/dist/block-editor.js:69326
+#: wp-includes/js/dist/block-editor.js:61620
+#: wp-includes/js/dist/block-editor.js:69318
 msgid "Patterns list"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:61764
+#: wp-includes/js/dist/block-editor.js:61756
 msgid "No transforms."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:61767
+#: wp-includes/js/dist/block-editor.js:61759
 msgctxt "block toolbar button label and description"
 msgid "This block is connected."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:61767
+#: wp-includes/js/dist/block-editor.js:61759
 msgctxt "block toolbar button label and description"
 msgid "These blocks are connected."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:61873
+#: wp-includes/js/dist/block-editor.js:61865
 msgid "Multiple blocks selected"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:61891
+#: wp-includes/js/dist/block-editor.js:61883
 msgid "Change block type or style"
 msgstr ""
 
 #. translators: %d: number of blocks.
-#: wp-includes/js/dist/block-editor.js:61892
+#: wp-includes/js/dist/block-editor.js:61884
 msgid "Change type of %d block"
 msgid_plural "Change type of %d blocks"
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-includes/js/dist/block-editor.js:62334
+#: wp-includes/js/dist/block-editor.js:62326
 msgid "Unable to paste styles. This feature is only available on secure (https) sites in supporting browsers."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:62342
+#: wp-includes/js/dist/block-editor.js:62334
 msgid "Unable to paste styles. Please allow browser clipboard permissions before continuing."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:62350
+#: wp-includes/js/dist/block-editor.js:62342
 msgid "Unable to paste styles. Block styles couldn't be found within the copied content."
 msgstr ""
 
 #. Translators: Name of the block being pasted, e.g. "Paragraph".
-#: wp-includes/js/dist/block-editor.js:62370
+#: wp-includes/js/dist/block-editor.js:62362
 msgid "Pasted styles to %s."
 msgstr ""
 
 #. Translators: The number of the blocks.
-#: wp-includes/js/dist/block-editor.js:62376
+#: wp-includes/js/dist/block-editor.js:62368
 msgid "Pasted styles to %d blocks."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:62662
+#: wp-includes/js/dist/block-editor.js:62654
 msgctxt "verb"
 msgid "Group"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:62668
+#: wp-includes/js/dist/block-editor.js:62660
 msgctxt "Ungrouping blocks from within a grouping block back into individual blocks within the Editor"
 msgid "Ungroup"
 msgstr ""
 
 #. translators: %s: Name of the block.
-#: wp-includes/js/dist/block-editor.js:62842
+#: wp-includes/js/dist/block-editor.js:62834
 msgid "Lock %s"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:62857
+#: wp-includes/js/dist/block-editor.js:62849
 msgid "Select the features you want to lock"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:62865
+#: wp-includes/js/dist/block-editor.js:62857
 msgid "Lock all"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:62882
+#: wp-includes/js/dist/block-editor.js:62874
 msgid "Lock editing"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:62896
+#: wp-includes/js/dist/block-editor.js:62888
 msgid "Lock movement"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:62910
+#: wp-includes/js/dist/block-editor.js:62902
 msgid "Lock removal"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:62926
+#: wp-includes/js/dist/block-editor.js:62918
 msgid "Apply to all blocks inside"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:62947
-#: wp-includes/js/dist/block-editor.js:71800
-#: wp-includes/js/dist/block-editor.js:72157
-#: wp-includes/js/dist/block-editor.js:72312
+#: wp-includes/js/dist/block-editor.js:62939
+#: wp-includes/js/dist/block-editor.js:71792
+#: wp-includes/js/dist/block-editor.js:72149
+#: wp-includes/js/dist/block-editor.js:72304
 msgid "Apply"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:62981
-#: wp-includes/js/dist/block-editor.js:63764
+#: wp-includes/js/dist/block-editor.js:62973
+#: wp-includes/js/dist/block-editor.js:63756
 msgid "Unlock"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:62981
-#: wp-includes/js/dist/block-editor.js:63764
+#: wp-includes/js/dist/block-editor.js:62973
+#: wp-includes/js/dist/block-editor.js:63756
 msgid "Lock"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:63038
+#: wp-includes/js/dist/block-editor.js:63030
 msgid "Edit as HTML"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:63038
-#: wp-includes/js/dist/block-editor.js:63989
+#: wp-includes/js/dist/block-editor.js:63030
+#: wp-includes/js/dist/block-editor.js:63981
 msgid "Edit visually"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:63102
+#: wp-includes/js/dist/block-editor.js:63094
 msgctxt "Unlock content locked blocks"
 msgid "Modify"
 msgstr ""
 
 #. translators: %s: new name/label for the block
-#: wp-includes/js/dist/block-editor.js:63171
+#: wp-includes/js/dist/block-editor.js:63163
 msgid "Block name reset to: \"%s\"."
 msgstr ""
 
 #. translators: %s: new name/label for the block
-#: wp-includes/js/dist/block-editor.js:63172
+#: wp-includes/js/dist/block-editor.js:63164
 msgid "Block name changed to: \"%s\"."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:63187
-#: wp-includes/js/dist/block-editor.js:63256
+#: wp-includes/js/dist/block-editor.js:63179
+#: wp-includes/js/dist/block-editor.js:63248
 msgid "Rename"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:63206
+#: wp-includes/js/dist/block-editor.js:63198
 msgid "Name"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:63207
+#: wp-includes/js/dist/block-editor.js:63199
 msgid "This block allows overrides. Changing the name can cause problems with content entered into instances of this pattern."
 msgstr ""
 
 #. translators: %s: Name of the block's parent.
-#: wp-includes/js/dist/block-editor.js:63416
+#: wp-includes/js/dist/block-editor.js:63408
 msgid "Select parent block (%s)"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:63479
+#: wp-includes/js/dist/block-editor.js:63471
 msgid "Copy"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:63645
+#: wp-includes/js/dist/block-editor.js:63637
 msgid "Cut"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:63652
-#: wp-includes/js/dist/block-editor.js:65381
+#: wp-includes/js/dist/block-editor.js:63644
+#: wp-includes/js/dist/block-editor.js:65373
 msgid "Duplicate"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:63657
-#: wp-includes/js/dist/block-editor.js:65389
+#: wp-includes/js/dist/block-editor.js:63649
+#: wp-includes/js/dist/block-editor.js:65381
 msgid "Add before"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:63661
-#: wp-includes/js/dist/block-editor.js:65397
+#: wp-includes/js/dist/block-editor.js:63653
+#: wp-includes/js/dist/block-editor.js:65389
 msgid "Add after"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:63668
+#: wp-includes/js/dist/block-editor.js:63660
 msgid "Copy styles"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:63672
+#: wp-includes/js/dist/block-editor.js:63664
 msgid "Paste styles"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:63689
-#: wp-includes/js/dist/block-editor.js:65424
-#: wp-includes/js/dist/block-editor.js:77906
+#: wp-includes/js/dist/block-editor.js:63681
+#: wp-includes/js/dist/block-editor.js:65416
+#: wp-includes/js/dist/block-editor.js:77898
 msgid "Delete"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:63766
+#: wp-includes/js/dist/block-editor.js:63758
 msgid "Locked"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:63940
+#: wp-includes/js/dist/block-editor.js:63932
 msgctxt "action: convert blocks to group"
 msgid "Group"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:63944
+#: wp-includes/js/dist/block-editor.js:63936
 msgctxt "action: convert blocks to row"
 msgid "Row"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:63948
+#: wp-includes/js/dist/block-editor.js:63940
 msgctxt "action: convert blocks to stack"
 msgid "Stack"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:63952
+#: wp-includes/js/dist/block-editor.js:63944
 msgctxt "action: convert blocks to grid"
 msgid "Grid"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:64351
+#: wp-includes/js/dist/block-editor.js:64343
 msgid "Change design"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:64453
+#: wp-includes/js/dist/block-editor.js:64445
 msgid "Shuffle styles"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:64623
+#: wp-includes/js/dist/block-editor.js:64615
 msgid "Block tools"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:64807
+#: wp-includes/js/dist/block-editor.js:64799
 msgctxt "Generic label for pattern inserter button"
 msgid "Add pattern"
 msgstr ""
 
 #. translators: %d: the name of the block that has been moved
-#: wp-includes/js/dist/block-editor.js:65060
+#: wp-includes/js/dist/block-editor.js:65052
 msgid "%d block moved."
 msgid_plural "%d blocks moved."
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-includes/js/dist/block-editor.js:65121
-#: wp-includes/js/dist/block-editor.js:66750
+#: wp-includes/js/dist/block-editor.js:65113
+#: wp-includes/js/dist/block-editor.js:66742
 msgid "Selected blocks are grouped."
 msgstr ""
 
 #. translators: %s: Block or block variation name.
-#: wp-includes/js/dist/block-editor.js:65289
-#: wp-includes/js/dist/block-editor.js:69487
-#: wp-includes/js/dist/block-editor.js:69555
+#: wp-includes/js/dist/block-editor.js:65281
+#: wp-includes/js/dist/block-editor.js:69479
+#: wp-includes/js/dist/block-editor.js:69547
 msgid "Transform to %s"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:65408
+#: wp-includes/js/dist/block-editor.js:65400
 msgid "Group"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:65416
+#: wp-includes/js/dist/block-editor.js:65408
 msgid "Ungroup"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:65655
+#: wp-includes/js/dist/block-editor.js:65647
 msgid "Open Colors Selector"
 msgstr ""
 
 #. translators: %s: name of block being inserted (i.e. Paragraph, Image, Group etc)
-#: wp-includes/js/dist/block-editor.js:65797
+#: wp-includes/js/dist/block-editor.js:65789
 msgid "%s block inserted"
 msgstr ""
 
 #. translators: 1: The name of the block. 2: The numerical position of the block. 3: The level of nesting for the block.
-#: wp-includes/js/dist/block-editor.js:65804
+#: wp-includes/js/dist/block-editor.js:65796
 msgid "Append to %1$s block at position %2$d, Level %3$d"
 msgstr ""
 
 #. translators: 1: The numerical position of the block. 2: The total number of blocks. 3. The level of nesting for the block.
-#: wp-includes/js/dist/block-editor.js:66300
+#: wp-includes/js/dist/block-editor.js:66292
 msgid "Block %1$d of %2$d, Level %3$d."
 msgstr ""
 
 #. translators: %s: Position of selected block, e.g. "Sticky" or "Fixed".
-#: wp-includes/js/dist/block-editor.js:66303
+#: wp-includes/js/dist/block-editor.js:66295
 msgid "Position: %s"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:66303
+#: wp-includes/js/dist/block-editor.js:66295
 msgid "This block is locked."
 msgstr ""
 
 #. translators: %s: block name
-#: wp-includes/js/dist/block-editor.js:67563
+#: wp-includes/js/dist/block-editor.js:67555
 msgid "%s deselected."
 msgstr ""
 
 #. translators: %s: number of deselected blocks
-#: wp-includes/js/dist/block-editor.js:67567
+#: wp-includes/js/dist/block-editor.js:67559
 msgid "%s blocks deselected."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:68599
-#: wp-includes/js/dist/block-editor.js:68604
+#: wp-includes/js/dist/block-editor.js:68591
+#: wp-includes/js/dist/block-editor.js:68596
 msgid "Block navigation structure"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:68681
-#: wp-includes/js/dist/block-editor.js:68715
+#: wp-includes/js/dist/block-editor.js:68673
+#: wp-includes/js/dist/block-editor.js:68707
 msgid "List view"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:69062
+#: wp-includes/js/dist/block-editor.js:69054
 msgid "Change level"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:69069
+#: wp-includes/js/dist/block-editor.js:69061
 msgid "Paragraph"
 msgstr ""
 
 #. translators: %d: heading level e.g: "1", "2", "3"
-#: wp-includes/js/dist/block-editor.js:69071
+#: wp-includes/js/dist/block-editor.js:69063
 msgid "Heading %d"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:69112
+#: wp-includes/js/dist/block-editor.js:69104
 msgid "Choose variation"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:69113
+#: wp-includes/js/dist/block-editor.js:69105
 msgid "Select a variation to start with:"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:69129
+#: wp-includes/js/dist/block-editor.js:69121
 msgid "Block variations"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:69150
+#: wp-includes/js/dist/block-editor.js:69142
 msgid "Skip"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:69184
+#: wp-includes/js/dist/block-editor.js:69176
 msgid "Choose"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:69197
+#: wp-includes/js/dist/block-editor.js:69189
 msgid "Previous pattern"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:69204
+#: wp-includes/js/dist/block-editor.js:69196
 msgid "Next pattern"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:69225
+#: wp-includes/js/dist/block-editor.js:69217
 msgid "Carousel view"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:69231
+#: wp-includes/js/dist/block-editor.js:69223
 msgid "Grid view"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:69477
-#: wp-includes/js/dist/block-editor.js:69511
-#: wp-includes/js/dist/block-editor.js:69512
-#: wp-includes/js/dist/block-editor.js:69542
+#: wp-includes/js/dist/block-editor.js:69469
+#: wp-includes/js/dist/block-editor.js:69503
+#: wp-includes/js/dist/block-editor.js:69504
+#: wp-includes/js/dist/block-editor.js:69534
 msgid "Transform to variation"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:69737
+#: wp-includes/js/dist/block-editor.js:69729
 msgid "Date format"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:69740
+#: wp-includes/js/dist/block-editor.js:69732
 msgid "Default format"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:69741
+#: wp-includes/js/dist/block-editor.js:69733
 msgid "Example:"
 msgstr ""
 
 #. translators: See https://www.php.net/manual/datetime.format.php
-#: wp-includes/js/dist/block-editor.js:69764
+#: wp-includes/js/dist/block-editor.js:69756
 msgctxt "short date format"
 msgid "n/j/Y"
 msgstr ""
 
 #. translators: See https://www.php.net/manual/datetime.format.php
-#: wp-includes/js/dist/block-editor.js:69765
+#: wp-includes/js/dist/block-editor.js:69757
 msgctxt "short date format with time"
 msgid "n/j/Y g:i A"
 msgstr ""
 
 #. translators: See https://www.php.net/manual/datetime.format.php
-#: wp-includes/js/dist/block-editor.js:69766
+#: wp-includes/js/dist/block-editor.js:69758
 msgctxt "medium date format"
 msgid "M j, Y"
 msgstr ""
 
 #. translators: See https://www.php.net/manual/datetime.format.php
-#: wp-includes/js/dist/block-editor.js:69767
+#: wp-includes/js/dist/block-editor.js:69759
 msgctxt "medium date format with time"
 msgid "M j, Y g:i A"
 msgstr ""
 
 #. translators: See https://www.php.net/manual/datetime.format.php
-#: wp-includes/js/dist/block-editor.js:69768
+#: wp-includes/js/dist/block-editor.js:69760
 msgctxt "long date format"
 msgid "F j, Y"
 msgstr ""
 
 #. translators: See https://www.php.net/manual/datetime.format.php
-#: wp-includes/js/dist/block-editor.js:69769
+#: wp-includes/js/dist/block-editor.js:69761
 msgctxt "short date format without the year"
 msgid "M j"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:69783
+#: wp-includes/js/dist/block-editor.js:69775
 msgid "Enter your own date format"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:69789
+#: wp-includes/js/dist/block-editor.js:69781
 msgid "Choose a format"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:69805
+#: wp-includes/js/dist/block-editor.js:69797
 msgid "Custom format"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:69807
+#: wp-includes/js/dist/block-editor.js:69799
 msgid "Enter a date or time format string."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:70152
+#: wp-includes/js/dist/block-editor.js:70144
 msgid "Image cropped."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:70153
+#: wp-includes/js/dist/block-editor.js:70145
 msgid "Image rotated."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:70154
+#: wp-includes/js/dist/block-editor.js:70146
 msgid "Image cropped and rotated."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:70220
+#: wp-includes/js/dist/block-editor.js:70212
 msgid "Undo"
 msgstr ""
 
 #. translators: %s: Error message.
-#: wp-includes/js/dist/block-editor.js:70231
+#: wp-includes/js/dist/block-editor.js:70223
 msgid "Could not edit image. %s"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:70457
+#: wp-includes/js/dist/block-editor.js:70449
 msgid "Aspect Ratio"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:70474
+#: wp-includes/js/dist/block-editor.js:70466
 msgid "Original"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:70480
+#: wp-includes/js/dist/block-editor.js:70472
 msgid "Theme"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:70489
+#: wp-includes/js/dist/block-editor.js:70481
 msgid "Landscape"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:70500
+#: wp-includes/js/dist/block-editor.js:70492
 msgid "Portrait"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:71716
-#: wp-includes/js/dist/block-editor.js:71726
+#: wp-includes/js/dist/block-editor.js:71708
+#: wp-includes/js/dist/block-editor.js:71718
 msgid "Zoom"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:71772
+#: wp-includes/js/dist/block-editor.js:71764
 msgid "Rotate"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:72005
-#: wp-includes/js/dist/block-editor.js:80481
-#: wp-includes/js/dist/block-editor.js:80488
+#: wp-includes/js/dist/block-editor.js:71997
+#: wp-includes/js/dist/block-editor.js:80473
+#: wp-includes/js/dist/block-editor.js:80480
 msgid "Resolution"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:72032
+#: wp-includes/js/dist/block-editor.js:72024
 msgid "Image size presets"
 msgstr ""
 
 #. translators: Percentage value.
-#: wp-includes/js/dist/block-editor.js:72043
+#: wp-includes/js/dist/block-editor.js:72035
 msgid "%d%%"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:72116
+#: wp-includes/js/dist/block-editor.js:72108
 msgid "Edit"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:72224
+#: wp-includes/js/dist/block-editor.js:72216
 msgid "Edit URL"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:72238
+#: wp-includes/js/dist/block-editor.js:72230
 msgid "Link settings"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:72304
+#: wp-includes/js/dist/block-editor.js:72296
 msgid "Paste or type URL"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:72352
+#: wp-includes/js/dist/block-editor.js:72344
 msgid "Insert from URL"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:72520
+#: wp-includes/js/dist/block-editor.js:72512
 msgid "To edit this block, you need permission to upload media."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:72530
+#: wp-includes/js/dist/block-editor.js:72522
 msgid "Drag and drop an image or video, upload, or choose from your library."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:72532
+#: wp-includes/js/dist/block-editor.js:72524
 msgid "Drag and drop an audio file, upload, or choose from your library."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:72534
+#: wp-includes/js/dist/block-editor.js:72526
 msgid "Drag and drop an image, upload, or choose from your library."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:72536
+#: wp-includes/js/dist/block-editor.js:72528
 msgid "Drag and drop a video, upload, or choose from your library."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:72542
+#: wp-includes/js/dist/block-editor.js:72534
 msgid "Audio"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:72546
+#: wp-includes/js/dist/block-editor.js:72538
 msgid "Video"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:72624
+#: wp-includes/js/dist/block-editor.js:72616
 msgid "Media Library"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:72775
+#: wp-includes/js/dist/block-editor.js:72767
 msgid "More"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:72781
+#: wp-includes/js/dist/block-editor.js:72773
 msgid "Displays more block tools"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:72821
+#: wp-includes/js/dist/block-editor.js:72813
 msgid "Format tools"
 msgstr ""
 
 #. translators: %s: connected field label or source label
-#: wp-includes/js/dist/block-editor.js:74233
+#: wp-includes/js/dist/block-editor.js:74225
 msgid "Add %s"
 msgstr ""
 
 #. translators: %s: source label or key
-#: wp-includes/js/dist/block-editor.js:74235
+#: wp-includes/js/dist/block-editor.js:74227
 msgid "Empty %s; start writing to edit its value"
 msgstr ""
 
 #. translators: 1: property name. 2: viewport name.
-#: wp-includes/js/dist/block-editor.js:74636
+#: wp-includes/js/dist/block-editor.js:74628
 msgctxt "Text labelling a interface as controlling a given layout property (eg: margin) for a given screen size."
 msgid "Controls the %1$s property for %2$s viewports."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:74678
+#: wp-includes/js/dist/block-editor.js:74670
 msgctxt "screen sizes"
 msgid "All"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:74682
+#: wp-includes/js/dist/block-editor.js:74674
 msgid "Small screens"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:74685
+#: wp-includes/js/dist/block-editor.js:74677
 msgid "Medium screens"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:74688
+#: wp-includes/js/dist/block-editor.js:74680
 msgid "Large screens"
 msgstr ""
 
 #. translators: %s: Property value for the control (eg: margin, padding, etc.).
-#: wp-includes/js/dist/block-editor.js:74695
+#: wp-includes/js/dist/block-editor.js:74687
 msgid "Use the same %s on all screen sizes."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:74696
+#: wp-includes/js/dist/block-editor.js:74688
 msgid "Choose whether to use the same value for all screen sizes or a unique value for each screen size."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:74872
-#: wp-includes/js/dist/block-editor.js:74881
+#: wp-includes/js/dist/block-editor.js:74864
+#: wp-includes/js/dist/block-editor.js:74873
 msgid "Tools"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:74892
-#: wp-includes/js/dist/block-editor.js:74895
+#: wp-includes/js/dist/block-editor.js:74884
+#: wp-includes/js/dist/block-editor.js:74887
 msgid "Write"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:74894
+#: wp-includes/js/dist/block-editor.js:74886
 msgid "Focus on content."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:74899
-#: wp-includes/js/dist/block-editor.js:74902
+#: wp-includes/js/dist/block-editor.js:74891
+#: wp-includes/js/dist/block-editor.js:74894
 msgid "Design"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:74901
+#: wp-includes/js/dist/block-editor.js:74893
 msgid "Edit layout and styles."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:74907
+#: wp-includes/js/dist/block-editor.js:74899
 msgid "Tools provide different sets of interactions for blocks. Choose between simplified content tools (Write) and advanced visual editing tools (Design)."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:74995
+#: wp-includes/js/dist/block-editor.js:74987
 msgid "Insert link"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:75014
-#: wp-includes/js/dist/block-editor.js:76769
+#: wp-includes/js/dist/block-editor.js:75006
+#: wp-includes/js/dist/block-editor.js:76761
 msgid "Close"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:75185
+#: wp-includes/js/dist/block-editor.js:75177
 msgid "Link to image file"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:75192
+#: wp-includes/js/dist/block-editor.js:75184
 msgid "Link to attachment page"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:75240
+#: wp-includes/js/dist/block-editor.js:75232
 msgid "Link rel"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:75246
+#: wp-includes/js/dist/block-editor.js:75238
 msgid "Link CSS class"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:75264
-#: wp-includes/js/dist/block-editor.js:75344
-#: wp-includes/js/dist/block-editor.js:77035
-#: wp-includes/js/dist/block-editor.js:77041
+#: wp-includes/js/dist/block-editor.js:75256
+#: wp-includes/js/dist/block-editor.js:75336
+#: wp-includes/js/dist/block-editor.js:77027
+#: wp-includes/js/dist/block-editor.js:77033
 msgid "Enlarge on click"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:75267
+#: wp-includes/js/dist/block-editor.js:75259
 msgid "Scales the image with a lightbox effect"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:75271
+#: wp-includes/js/dist/block-editor.js:75263
 msgid "Disable enlarge on click"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:75333
+#: wp-includes/js/dist/block-editor.js:75325
 msgid "Scale the image with a lightbox effect."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:75464
+#: wp-includes/js/dist/block-editor.js:75456
 msgid "Skip to the selected block"
 msgstr ""
 
 #. translators: %d: number of blocks
-#: wp-includes/js/dist/block-editor.js:75495
+#: wp-includes/js/dist/block-editor.js:75487
 msgid "%d Block"
 msgid_plural "%d Blocks"
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-includes/js/dist/block-editor.js:75542
+#: wp-includes/js/dist/block-editor.js:75534
 msgid "Settings"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:75554
+#: wp-includes/js/dist/block-editor.js:75546
 msgid "List View"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:75579
+#: wp-includes/js/dist/block-editor.js:75571
 msgid "Advanced"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:76150
+#: wp-includes/js/dist/block-editor.js:76142
 msgid "No block selected."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:76242
+#: wp-includes/js/dist/block-editor.js:76234
 msgid "Content"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:76813
+#: wp-includes/js/dist/block-editor.js:76805
 msgid "Publish"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:76815
+#: wp-includes/js/dist/block-editor.js:76807
 msgid "Now"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:77024
+#: wp-includes/js/dist/block-editor.js:77016
 msgctxt "Image settings"
 msgid "Settings"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:77100
+#: wp-includes/js/dist/block-editor.js:77092
 msgid "There is an error with your CSS structure."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:77109
+#: wp-includes/js/dist/block-editor.js:77101
 msgid "Additional CSS"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:77296
+#: wp-includes/js/dist/block-editor.js:77288
 msgid "Caption"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:77308
+#: wp-includes/js/dist/block-editor.js:77300
 msgid "Colors"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:77309
+#: wp-includes/js/dist/block-editor.js:77301
 msgid "Spacing"
 msgstr ""
 
 #. translators: Used between list items, there is a space after the comma.
-#: wp-includes/js/dist/block-editor.js:77467
+#: wp-includes/js/dist/block-editor.js:77459
 msgid ", "
 msgstr ""
 
 #. translators: %s: a list of block names separated by a comma.
-#: wp-includes/js/dist/block-editor.js:77474
+#: wp-includes/js/dist/block-editor.js:77466
 msgid "%s block."
 msgid_plural "%s blocks."
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %s: a list of element names separated by a comma.
-#: wp-includes/js/dist/block-editor.js:77480
+#: wp-includes/js/dist/block-editor.js:77472
 msgid "%s element."
 msgid_plural "%s elements."
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %s: a list of theme.json setting labels separated by a comma.
-#: wp-includes/js/dist/block-editor.js:77486
+#: wp-includes/js/dist/block-editor.js:77478
 msgid "%s settings."
 msgstr ""
 
 #. translators: %s: a list of theme.json top-level styles labels separated by a comma.
-#: wp-includes/js/dist/block-editor.js:77492
+#: wp-includes/js/dist/block-editor.js:77484
 msgid "%s styles."
 msgstr ""
 
 #. translators: %s: a list of global styles changes separated by a comma.
-#: wp-includes/js/dist/block-editor.js:77498
+#: wp-includes/js/dist/block-editor.js:77490
 msgid "%s."
 msgstr ""
 
 #. translators: %d: number of blocks.
-#: wp-includes/js/dist/block-editor.js:77807
+#: wp-includes/js/dist/block-editor.js:77799
 msgid "%d block is hidden."
 msgid_plural "%d blocks are hidden."
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-includes/js/dist/block-editor.js:77815
-#: wp-includes/js/dist/block-editor.js:77816
+#: wp-includes/js/dist/block-editor.js:77807
+#: wp-includes/js/dist/block-editor.js:77808
 msgid "Search for a block"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:77823
+#: wp-includes/js/dist/block-editor.js:77815
 msgid "Available block types"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:77827
+#: wp-includes/js/dist/block-editor.js:77819
 msgid "No blocks found."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:77890
+#: wp-includes/js/dist/block-editor.js:77882
 msgid "Be careful!"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:77936
+#: wp-includes/js/dist/block-editor.js:77928
 msgctxt "Scale option for dimensions control"
 msgid "Fill"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:77937
+#: wp-includes/js/dist/block-editor.js:77929
 msgid "Fill the space by stretching the content."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:77940
+#: wp-includes/js/dist/block-editor.js:77932
 msgctxt "Scale option for dimensions control"
 msgid "Contain"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:77941
+#: wp-includes/js/dist/block-editor.js:77933
 msgid "Fit the content to the space without clipping."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:77944
+#: wp-includes/js/dist/block-editor.js:77936
 msgctxt "Scale option for dimensions control"
 msgid "Cover"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:77945
+#: wp-includes/js/dist/block-editor.js:77937
 msgid "Fill the space by clipping what doesn't fit."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:77948
+#: wp-includes/js/dist/block-editor.js:77940
 msgctxt "Scale option for dimensions control"
 msgid "None"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:77949
+#: wp-includes/js/dist/block-editor.js:77941
 msgid "Do not adjust the sizing of the content. Content that is too large will be clipped, and content that is too small will have additional padding."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:77952
+#: wp-includes/js/dist/block-editor.js:77944
 msgctxt "Scale option for dimensions control"
 msgid "Scale down"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:77953
+#: wp-includes/js/dist/block-editor.js:77945
 msgid "Scale down the content to fit the space if it is too big. Content that is too small will have additional padding."
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:77997
-#: wp-includes/js/dist/block-editor.js:78004
+#: wp-includes/js/dist/block-editor.js:77989
+#: wp-includes/js/dist/block-editor.js:77996
 msgid "Scale"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:80457
+#: wp-includes/js/dist/block-editor.js:80449
 msgctxt "Image size option for resolution control"
 msgid "Thumbnail"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:80460
+#: wp-includes/js/dist/block-editor.js:80452
 msgctxt "Image size option for resolution control"
 msgid "Medium"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:80463
+#: wp-includes/js/dist/block-editor.js:80455
 msgctxt "Image size option for resolution control"
 msgid "Large"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:80466
+#: wp-includes/js/dist/block-editor.js:80458
 msgctxt "Image size option for resolution control"
 msgid "Full Size"
 msgstr ""
 
-#: wp-includes/js/dist/block-editor.js:80492
+#: wp-includes/js/dist/block-editor.js:80484
 msgid "Select the size of the source image."
 msgstr ""
