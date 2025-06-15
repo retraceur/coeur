@@ -702,14 +702,17 @@ function map_meta_cap( $cap, $user_id, ...$args ) {
 
 			break;
 		case 'manage_post_tags':
+		case 'manage_post_formats':
 		case 'edit_categories':
 		case 'edit_post_tags':
+		case 'edit_post_formats':
 		case 'delete_categories':
 		case 'delete_post_tags':
 			$caps[] = 'manage_categories';
 			break;
 		case 'assign_categories':
 		case 'assign_post_tags':
+		case 'assign_post_formats':
 			$caps[] = 'edit_posts';
 			break;
 		case 'create_sites':
