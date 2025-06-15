@@ -146,6 +146,11 @@ if ( isset( $tag->name ) ) {
 		<tr class="form-field term-slug-wrap">
 			<th scope="row"><label for="slug"><?php _e( 'Slug' ); ?></label></th>
 			<?php
+			$slug = isset( $tag->slug ) ? $tag->slug : '';
+			if ( 'post_format' === $taxonomy ) {
+				$slug = get_post_format_slug( $tag->term_id, $slug );
+			}
+
 			/**
 			 * Filters the editable slug for a post or term.
 			 *
@@ -159,7 +164,7 @@ if ( isset( $tag->name ) ) {
 			 *                              upon the context in which it is evaluated.
 			 * @param WP_Term|WP_Post $tag  Term or post object.
 			 */
-			$slug = isset( $tag->slug ) ? apply_filters( 'editable_slug', $tag->slug, $tag ) : '';
+			$slug = apply_filters( 'editable_slug', $slug, $tag );
 			?>
 			<td><input name="slug" id="slug" type="text" value="<?php echo esc_attr( $slug ); ?>" size="40" aria-describedby="slug-description" />
 			<p class="description" id="slug-description"><?php echo $tax->labels->slug_field_description; ?></p></td>
