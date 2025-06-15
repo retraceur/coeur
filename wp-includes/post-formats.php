@@ -267,3 +267,117 @@ function _post_format_wp_get_object_terms( $terms ) {
 	}
 	return $terms;
 }
+
+/**
+ * Gets a Post Format's term object.
+ *
+ * @since 2.0.0 Retraceur fork.
+ *
+ * @param string $format The Post format slug.
+ * @return false|WP_Term False if no terms match required format. The corresponding term object otherwise.
+ */
+function get_post_format_object( $format ) {
+	$term = get_term_by( 'slug', 'post-format-' . $format, 'post_format' );
+
+	if ( ! $term || is_wp_error( $term ) ) {
+		return false;
+	}
+
+	return $term;
+}
+
+/**
+ * Gets a Post Format's term ID.
+ *
+ * @since 2.0.0 Retraceur fork.
+ *
+ * @param string $format The Post format slug.
+ * @return integer The Post Format term ID.
+ */
+function get_post_format_id( $format ) {
+	$term      = get_post_format_object( $format );
+	$format_id = 0;
+
+	if ( isset( $term->term_id ) ) {
+		$format_id = (int) $term->term_id;
+	}
+
+	return $format_id;
+}
+
+/**
+ * Gets the Post Format's slug (possibly customized).
+ *
+ * @since 2.0.0 Retraceur fork.
+ *
+ * @param string|integer $format The Post format slug or ID.
+ * @param string         $default The default slug to fallback on.
+ * @return false|string  False if no terms match required format. The Post format slug otherwise.
+ */
+function get_post_format_slug( $format, $default = '' ) {
+	if ( is_numeric( $format ) ) {
+		$format_id = $format;
+	} else {
+		$format_id = get_post_format_id( $format );
+	}
+
+	if ( ! $format_id ) {
+		return false;
+	}
+
+	$slug = get_term_meta( $format_id, 'post_format_slug', true );
+
+	if ( ! $slug ) {
+		$slug = str_replace( 'post-format-', '', $default );
+	}
+
+	return $slug;
+}
+
+/**
+ * Gets the Post Format's slug (possibly customized).
+ *
+ * @since 2.0.0 Retraceur fork.
+ *
+ * @param string|integer $format The Post format slug or ID.
+ * @param string         $slug   The customized slug to use.
+ * @return int|bool|WP_Error Meta ID if the key didn't exist. true on successful update,
+ *                           false on failure or if the value passed to the function
+ *                           is the same as the one that is already in the database.
+ *                           WP_Error when term_id is ambiguous between taxonomies.
+ */
+function set_post_format_slug( $format, $slug ) {
+	if ( is_numeric( $format ) ) {
+		$format_id = $format;
+	} else {
+		$format_id = get_post_format_id( $format );
+	}
+
+	if ( ! $format_id ) {
+		return false;
+	}
+
+	return update_term_meta( $format_id, 'post_format_slug', $slug );
+}
+
+/**
+ * Removes the customized slug and fallback to default one.
+ *
+ * @since 2.0.0 Retraceur fork.
+ *
+ * @param string|integer $format The Post format slug or ID.
+ * @return bool True on success, false on failure.
+ */
+function reset_post_format_slug( $format ) {
+	if ( is_numeric( $format ) ) {
+		$format_id = $format;
+	} else {
+		$format_id = get_post_format_id( $format );
+	}
+
+	if ( ! $format_id ) {
+		return false;
+	}
+
+	return delete_term_meta( $format_id, 'post_format_slug' );
+}
