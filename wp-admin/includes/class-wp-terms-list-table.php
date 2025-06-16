@@ -131,19 +131,6 @@ class WP_Terms_List_Table extends WP_List_Table {
 
 		$args['offset'] = ( $args['page'] - 1 ) * $args['number'];
 
-		if ( 'post_format' === $taxonomy ) {
-			$supported_theme_formats = get_theme_support( 'post-formats' );
-
-			if ( is_array( $supported_theme_formats ) ) {
-				$args['slug'] = array();
-				$includes     = reset( $supported_theme_formats );
-
-				foreach ( $includes as $include ) {
-					$args['slug'][] = 'post-format-'. $include;
-				}
-			}
-		}
-
 		// Save the values because 'number' and 'offset' can be subsequently overridden.
 		$this->callback_args = $args;
 
@@ -151,6 +138,10 @@ class WP_Terms_List_Table extends WP_List_Table {
 			// We'll need the full set of terms then.
 			$args['number'] = 0;
 			$args['offset'] = $args['number'];
+		}
+
+		if ( 'post_format' === $taxonomy ) {
+			$args['slug'] = post_format_list_terms_args();
 		}
 
 		$this->items = get_terms( $args );

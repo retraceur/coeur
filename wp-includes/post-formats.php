@@ -112,6 +112,30 @@ function get_post_format_strings() {
 }
 
 /**
+ * Builds a Term Query slug's argument to get all supported Post Format terms.
+ *
+ * @since 2.0.0 Retraceur fork.
+ *
+ * @return array The list of supported post format slugs.
+ */
+function post_format_list_terms_args() {
+	$supported_formats = get_theme_support( 'post-formats' );
+	$args              = array( 'post-format-standard' );
+
+	if ( is_array( $supported_formats ) && count( $supported_formats ) > 0 ) {
+		$includes = reset( $supported_formats );
+
+		foreach ( $includes as $include ) {
+			$args[] = 'post-format-'. $include;
+		}
+	} else {
+		return array();
+	}
+
+	return $args;
+}
+
+/**
  * Retrieves the array of post format slugs.
  *
  * @since WP 3.1.0
@@ -266,6 +290,44 @@ function _post_format_wp_get_object_terms( $terms ) {
 		}
 	}
 	return $terms;
+}
+
+/**
+ * Populate the DB with supported Post Formats.
+ *
+ * This allowes Admins to use the Term API to customize slugs, names and descriptions.
+ *
+ * @since 2.0.0 Retraceur fork.
+ */
+function _post_format_populate_terms() {
+	$current_screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
+	$taxonomy       = 'post_format';
+
+	if ( ! isset( $current_screen->taxonomy ) || $taxonomy !== $current_screen->taxonomy || ! current_theme_supports( 'post-formats' ) ) {
+		return;
+	}
+
+	// @todo use cache to avoid querying multiple times.
+	$post_formats = post_format_list_terms_args();
+	$terms        = get_terms(
+		array(
+			'taxonomy'   => $taxonomy,
+			'hide_empty' => 0,
+			'slugs'      => $post_formats,
+		)
+	);
+
+	if ( ! $terms || count( $terms ) !== count( $post_formats ) ) {
+		$existing_terms = wp_list_pluck( $terms, 'slug' );
+
+		foreach ( $post_formats as $post_format ) {
+			if ( in_array( $post_format, $existing_terms, true ) ) {
+				continue;
+			}
+
+			wp_insert_term( $post_format, $taxonomy );
+		}
+	}
 }
 
 /**
