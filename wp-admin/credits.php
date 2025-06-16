@@ -68,7 +68,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 				printf(
 					/* translators: %s: GH link listing contributors */
 					__( 'As a fork of WP, Retraceur doesn’t forget where it comes from: the passion of the %s.' ),
-					'<a href="https://github.com/WordPress/wordpress-develop/graphs/contributors">' . esc_html__( 'WP Core Contributors' ) . '</a>'
+					'<a href="https://github.com/wordpress/wordpress-develop/graphs/contributors">' . esc_html__( 'WP Core Contributors' ) . '</a>'
 				);
 				?>
 			</p>

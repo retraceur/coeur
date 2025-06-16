@@ -357,7 +357,7 @@ class WP_Theme_JSON_Resolver {
 			 * Shadow presets are explicitly disabled for classic themes until a
 			 * decision is made for whether the default presets should match the
 			 * other presets or if they should be disabled by default in classic
-			 * themes. See https://github.com/WordPress/gutenberg/issues/59989.
+			 * themes. See https://github.com/wordpress/gutenberg/issues/59989.
 			 */
 			$theme_support_data['settings']['shadow']['defaultPresets'] = false;
 

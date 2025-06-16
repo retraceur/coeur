@@ -4032,7 +4032,7 @@ function wp_get_code_editor_settings( $args ) {
 			'outline-none'              => true,
 		),
 		'jshint'     => array(
-			// The following are copied from <https://github.com/WordPress/wordpress-develop/blob/4.8.1/.jshintrc>.
+			// The following are copied from <https://github.com/wordpress/wordpress-develop/blob/4.8.1/.jshintrc>.
 			'boss'     => true,
 			'curly'    => true,
 			'eqeqeq'   => true,

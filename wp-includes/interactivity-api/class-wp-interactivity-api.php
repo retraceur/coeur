@@ -456,7 +456,7 @@ final class WP_Interactivity_API {
 						if ( ! preg_match(
 							/*
 							 * This must align with the client-side regex used by the interactivity API.
-							 * @see https://github.com/WordPress/gutenberg/bloca616014255efbb61f34c10917d52a2d86c1c660/packages/interactivity/src/vdom.ts#L20-L32
+							 * @see https://github.com/wordpress/gutenberg/bloca616014255efbb61f34c10917d52a2d86c1c660/packages/interactivity/src/vdom.ts#L20-L32
 							 */
 							'/' .
 							'^data-wp-' .

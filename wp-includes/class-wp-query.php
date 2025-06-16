@@ -2972,7 +2972,7 @@ class WP_Query {
 		 * improves caching of the query by ensuring the same cache key is
 		 * generated for the same database queries functionally.
 		 *
-		 * See https://github.com/WordPress/wordpress-develop/pull/6393#issuecomment-2088217429
+		 * See https://github.com/wordpress/wordpress-develop/pull/6393#issuecomment-2088217429
 		 */
 		$old_request =
 			"SELECT $found_rows $distinct $fields

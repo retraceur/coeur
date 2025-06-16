@@ -5398,7 +5398,7 @@ function block_core_navigation_submenu_build_css_colors( $context, $attributes, 
  *       the Webfonts API is introduced in Core.
  *    b. To make `fontFace` declarations in `theme.json` work.
  *
- * @link  https://github.com/WordPress/gutenberg/issues/40472
+ * @link  https://github.com/wordpress/gutenberg/issues/40472
  *
  * @since WP 6.0.0
  * @deprecated WP 6.4.0 Use wp_print_font_faces() instead.
@@ -6331,7 +6331,7 @@ function wp_get_global_styles_custom_css() {
 	 * A different alternative considered was to invalidate the cache upon certain
 	 * events such as options add/update/delete, user meta, etc.
 	 * It was judged not enough, hence this approach.
-	 * @see https://github.com/WordPress/gutenberg/pull/45372
+	 * @see https://github.com/wordpress/gutenberg/pull/45372
 	 */
 	$cache_key   = 'wp_get_global_styles_custom_css';
 	$cache_group = 'theme_json';
@@ -9975,8 +9975,8 @@ function enqueue_legacy_post_comments_block_styles( $block_name ) {
  * @since WP 6.1.0
  * @deprecated 1.0.0 Retraceur fork.
  *
- * @see https://github.com/WordPress/gutenberg/pull/41807
- * @see https://github.com/WordPress/gutenberg/pull/32514
+ * @see https://github.com/wordpress/gutenberg/pull/41807
+ * @see https://github.com/wordpress/gutenberg/pull/32514
  */
 function register_legacy_post_comments_block() {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );

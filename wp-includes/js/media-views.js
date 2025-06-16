@@ -9635,7 +9635,6 @@ UploaderWindow = wp.media.View.extend(/** @lends wp.media.view.UploaderWindow.pr
 			}
 		});
 
-		// https://core.trac.wordpress.org/ticket/27341
 		_.delay( function() {
 			if ( '0' === $el.css('opacity') && $el.is(':visible') ) {
 				$el.hide();
@@ -10380,7 +10379,7 @@ module.exports = Region;
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/ 	
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -10394,14 +10393,14 @@ module.exports = Region;
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
-/******/ 	
+/******/
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/ 	
+/******/
 /************************************************************************/
 /**
  * @output wp-includes/js/media-views.js

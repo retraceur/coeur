@@ -56,7 +56,7 @@ function render_block_core_button( $attributes, $content ) {
 
 	/*
 	 * When there's no text, render nothing for the block.
-	 * See https://github.com/WordPress/gutenberg/issues/17221 for the
+	 * See https://github.com/wordpress/gutenberg/issues/17221 for the
 	 * reasoning behind this.
 	 */
 	if ( $is_empty ) {
