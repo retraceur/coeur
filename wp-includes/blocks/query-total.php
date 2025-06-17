@@ -2,7 +2,9 @@
 /**
  * Server-side rendering of the `core/query-total` block.
  *
- * @package WordPress
+ * @since 2.0.0 Retraceur fork.
+ *
+ * @package Retraceur
  */
 
 /**

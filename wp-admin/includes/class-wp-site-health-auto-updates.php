@@ -323,8 +323,8 @@ class WP_Site_Health_Auto_Updates {
 	 *
 	 * @global WP_Filesystem_Base $wp_filesystem Retraceur filesystem subclass.
 	 *
-	 * @return array|false The test results if at least some of WordPress core files are writeable,
-	 *                     or if a list of the checksums could not be retrieved from WordPress.org.
+	 * @return array|false The test results if at least some of WP core files are writeable,
+	 *                     or if a list of the checksums could not be retrieved.
 	 *                     False if the core files are not writeable.
 	 */
 	public function test_all_files_writable() {

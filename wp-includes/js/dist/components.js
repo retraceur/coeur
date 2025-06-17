@@ -57641,7 +57641,7 @@ function FormFileUpload({
     children: children
   });
   // @todo: Temporary fix a bug that prevents Chromium browsers from selecting ".heic" files
-  // from the file upload. See https://core.trac.wordpress.org/ticket/62268#comment:4.
+  // from the file upload.
   // This can be removed once the Chromium fix is in the stable channel.
   // Prevent Safari from adding "image/heic" and "image/heif" to the accept attribute.
   const isSafari = globalThis.window?.navigator.userAgent.includes('Safari') && !globalThis.window?.navigator.userAgent.includes('Chrome') && !globalThis.window?.navigator.userAgent.includes('Chromium');
@@ -64657,7 +64657,7 @@ const observeAndResizeJS = function () {
   window.addEventListener('resize', sendResize, true);
 };
 
-// TODO: These styles shouldn't be coupled with WordPress.
+// TODO: These styles shouldn't be coupled with WP.
 const style = `
 	body {
 		margin: 0;
