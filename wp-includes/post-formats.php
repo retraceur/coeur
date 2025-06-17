@@ -240,7 +240,7 @@ function _post_format_link( $link, $term, $taxonomy ) {
  * @return object
  */
 function _post_format_get_term( $term ) {
-	if ( isset( $term->slug ) ) {
+	if ( isset( $term->slug, $term->name ) && $term->name === $term->slug ) {
 		$term->name = get_post_format_string( str_replace( 'post-format-', '', $term->slug ) );
 	}
 	return $term;
@@ -265,7 +265,7 @@ function _post_format_get_terms( $terms, $taxonomies, $args ) {
 			}
 		} else {
 			foreach ( (array) $terms as $order => $term ) {
-				if ( isset( $term->taxonomy ) && 'post_format' === $term->taxonomy ) {
+				if ( isset( $term->taxonomy ) && 'post_format' === $term->taxonomy && $terms[ $order ]->name === $terms[ $order ]->slug ) {
 					$terms[ $order ]->name = get_post_format_string( str_replace( 'post-format-', '', $term->slug ) );
 				}
 			}
@@ -303,7 +303,7 @@ function _post_format_populate_terms() {
 	$current_screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
 	$taxonomy       = 'post_format';
 
-	if ( ! isset( $current_screen->taxonomy ) || $taxonomy !== $current_screen->taxonomy || ! current_theme_supports( 'post-formats' ) ) {
+	if ( ! isset( $current_screen->taxonomy ) || $taxonomy !== $current_screen->taxonomy || ! current_theme_supports( 'post-formats' ) || count( $_REQUEST ) !== 1 ) {
 		return;
 	}
 
@@ -368,6 +368,47 @@ function get_post_format_id( $format ) {
 }
 
 /**
+ * Gets the Post Format's plural name (possibly customized).
+ *
+ * @since 2.0.0 Retraceur fork.
+ *
+ * @param string|integer $format The Post format slug or ID.
+ * @return false|string  False if no terms match required format. The Post format plural name otherwise.
+ */
+function get_post_format_plural_name( $format ) {
+	if ( is_numeric( $format ) ) {
+		$format_id = $format;
+	} else {
+		$format    = str_replace( 'post-format-', '', $format );
+		$format_id = get_post_format_id( $format );
+	}
+
+	if ( ! $format_id ) {
+		return false;
+	}
+
+	$default_plural_names = array(
+		'standard' => _x( 'Posts', 'post format archive title' ),
+		'aside'    => _x( 'Asides', 'post format archive title' ),
+		'chat'     => _x( 'Chats', 'post format archive title' ),
+		'gallery'  => _x( 'Galleries', 'post format archive title' ),
+		'link'     => _x( 'Links', 'post format archive title' ),
+		'image'    => _x( 'Images', 'post format archive title' ),
+		'quote'    => _x( 'Quotes', 'post format archive title' ),
+		'status'   => _x( 'Statuses', 'post format archive title' ),
+		'video'    => _x( 'Videos', 'post format archive title' ),
+		'audio'    => _x( 'Audio', 'post format archive title' ),
+	);
+
+	$plural_name = get_term_meta( $format_id, 'post_format_plural_name', true );
+	if ( ! $plural_name && isset( $default_plural_names[ $format ] ) ) {
+		$plural_name = $default_plural_names[ $format ];
+	}
+
+	return $plural_name;
+}
+
+/**
  * Gets the Post Format's slug (possibly customized).
  *
  * @since 2.0.0 Retraceur fork.
@@ -402,44 +443,50 @@ function get_post_format_slug( $format, $default = '' ) {
  * @since 2.0.0 Retraceur fork.
  *
  * @param string|integer $format The Post format slug or ID.
- * @param string         $slug   The customized slug to use.
+ * @param string         $key    The Post format meta key suffix.
+ * @param string         $value  The customized value to use for the given key.
  * @return int|bool|WP_Error Meta ID if the key didn't exist. true on successful update,
  *                           false on failure or if the value passed to the function
  *                           is the same as the one that is already in the database.
  *                           WP_Error when term_id is ambiguous between taxonomies.
  */
-function set_post_format_slug( $format, $slug ) {
+function set_post_format_meta( $format, $key, $value ) {
 	if ( is_numeric( $format ) ) {
 		$format_id = $format;
 	} else {
 		$format_id = get_post_format_id( $format );
 	}
 
-	if ( ! $format_id ) {
+	$meta_key = 'post_format_' . $key;
+
+	if ( ! $format_id || ! registered_meta_key_exists( 'term', $meta_key, 'post_format' ) ) {
 		return false;
 	}
 
-	return update_term_meta( $format_id, 'post_format_slug', $slug );
+	return update_term_meta( $format_id, $meta_key, $value );
 }
 
 /**
- * Removes the customized slug and fallback to default one.
+ * Removes the Post Format meta.
  *
  * @since 2.0.0 Retraceur fork.
  *
  * @param string|integer $format The Post format slug or ID.
+ * @param string         $key    The Post format meta key suffix.
  * @return bool True on success, false on failure.
  */
-function reset_post_format_slug( $format ) {
+function reset_post_format_meta( $format, $key ) {
 	if ( is_numeric( $format ) ) {
 		$format_id = $format;
 	} else {
 		$format_id = get_post_format_id( $format );
 	}
 
-	if ( ! $format_id ) {
+	$meta_key = 'post_format_' . $key;
+
+	if ( ! $format_id || ! registered_meta_key_exists( 'term', $meta_key, 'post_format' ) ) {
 		return false;
 	}
 
-	return delete_term_meta( $format_id, 'post_format_slug' );
+	return delete_term_meta( $format_id, $meta_key );
 }

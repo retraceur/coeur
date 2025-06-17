@@ -181,7 +181,7 @@ switch ( $wp_list_table->current_action() ) {
 
 		if ( 'post_format' === $taxonomy ) {
 			$post_format_args = array_intersect_key( $_POST, get_object_vars( $tag ) );
-			$post_format_slug = ! empty( $post_format_args['slug'] ) ? $post_format_args['slug'] : $tag->slug;
+			$post_format_slug = ! empty( $post_format_args['slug'] ) ? wp_unslash( $post_format_args['slug'] ) : $tag->slug;
 
 			// Keep the real slug unchanged as it's used to identify Post formats.
 			$post_format_args['slug'] = $tag->slug;
@@ -189,7 +189,14 @@ switch ( $wp_list_table->current_action() ) {
 			$ret = wp_update_term( $tag_ID, $taxonomy, $post_format_args );
 
 			// Set the custom slug.
-			set_post_format_slug( $tag_ID, $post_format_slug );
+			set_post_format_meta( $tag_ID, 'slug', $post_format_slug );
+
+			if ( ! empty( $_POST['plural_name'] ) ) {
+				$plural_name = wp_unslash( $_POST['plural_name'] );
+
+				// Set the custom plural name.
+				set_post_format_meta( $tag_ID, 'plural_name', $plural_name );
+			}
 		} else {
 			$ret = wp_update_term( $tag_ID, $taxonomy, $_POST );
 		}

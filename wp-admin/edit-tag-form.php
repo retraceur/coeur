@@ -143,6 +143,13 @@ if ( isset( $tag->name ) ) {
 			<td><input name="name" id="name" type="text" value="<?php echo $tag_name_value; ?>" size="40" aria-required="true" aria-describedby="name-description" />
 			<p class="description" id="name-description"><?php echo $tax->labels->name_field_description; ?></p></td>
 		</tr>
+		<?php if ( 'post_format' === $taxonomy ) : ?>
+			<tr class="form-field form-required term-plural-name-wrap">
+				<th scope="row"><label for="plural-name"><?php _ex( 'Plural Name', 'Post Format plural name' ); ?></label></th>
+				<td><input name="plural_name" id="plural-name" type="text" value="<?php echo get_post_format_plural_name( $tag->slug ); ?>" size="40" aria-required="true" aria-describedby="plural-name-description" />
+				<p class="description" id="plural-name-description"><?php esc_html_e( 'The plural name is how it appears when displaying the Post Format archives on your site.'); ?></p></td>
+			</tr>
+		<?php endif ; ?>
 		<tr class="form-field term-slug-wrap">
 			<th scope="row"><label for="slug"><?php _e( 'Slug' ); ?></label></th>
 			<?php

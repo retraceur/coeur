@@ -152,7 +152,11 @@ function create_initial_taxonomies() {
 		)
 	);
 
-	// The Post Format feature is using the term slug as an ID.
+	/*
+	 * As the Post Format feature is using the term slug as an ID, using a term meta
+	 * will help Site Admins customize the Post Format slugs to match their native
+	 * language.
+	 */
 	register_term_meta(
 		'post_format',
 		'post_format_slug',
@@ -162,6 +166,29 @@ function create_initial_taxonomies() {
 			'single'            => true,
 			'default'           => '',
 			'sanitize_callback' => 'sanitize_title',
+			'show_in_rest'      => array(
+				'schema' => array(
+					'type'    => 'string',
+					'default' => '',
+				)
+			)
+		)
+	);
+
+	/*
+	 * As the Term API does not include a Plural Name field, using a term meta
+	 * will help Site Admins customize the Post Format Archive title to match
+	 * their native language.
+	 */
+	register_term_meta(
+		'post_format',
+		'post_format_plural_name',
+		array(
+			'type'              => 'string',
+			'description'       => __( 'Used to allow Post Format customizable Archive title.' ),
+			'single'            => true,
+			'default'           => '',
+			'sanitize_callback' => 'sanitize_text_field',
 			'show_in_rest'      => array(
 				'schema' => array(
 					'type'    => 'string',
