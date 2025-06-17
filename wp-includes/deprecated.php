@@ -8007,7 +8007,7 @@ function note_sidebar_being_rendered( $index ) {
 }
 
 /**
- * Clear whatever we set in note_sidebar_being_rendered() after WordPress
+ * Clear whatever we set in note_sidebar_being_rendered() after WP
  * finishes rendering a sidebar.
  *
  * @since WP 5.9.0
@@ -12728,7 +12728,7 @@ function wp_throttle_comment_flood( $block, $time_lastcomment, $time_newcomment 
  *
  * Filters new comment to ensure that the fields are sanitized and valid before
  * inserting comment into database. Calls {@see 'comment_post'} action with comment ID
- * and whether comment is approved by WordPress. Also has {@see 'preprocess_comment'}
+ * and whether comment is approved by WP. Also has {@see 'preprocess_comment'}
  * filter for processing the comment data before the function handles it.
  *
  * We use `REMOTE_ADDR` here directly. If you are behind a proxy, you should ensure
@@ -16297,7 +16297,7 @@ function signup_get_available_languages() {
 }
 
 /**
- * Forever eliminate "Wordpress" from the planet (or at least the little bit we can influence).
+ * Forever eliminate "WP" from the planet (or at least the little bit we can influence).
  *
  * Violating our coding standards for a good function name.
  *

@@ -27410,7 +27410,7 @@ function useMultiOriginPalettes() {
     }
     if (shouldDisplayDefaultDuotones && defaultDuotones && defaultDuotones.length) {
       result.duotones.push({
-        name: (0,external_wp_i18n_namespaceObject._x)('Default', 'Indicates these duotone filters come from WordPress.'),
+        name: (0,external_wp_i18n_namespaceObject._x)('Default', 'Indicates these duotone filters come from Retraceur.'),
         slug: 'default',
         duotones: defaultDuotones
       });
@@ -30278,9 +30278,6 @@ const MAX_PAGE_COUNT = 100;
 const PAGES_QUERY = ['postType', 'page', {
   per_page: MAX_PAGE_COUNT,
   _fields: ['id', 'link', 'menu_order', 'parent', 'title', 'type'],
-  // TODO: When https://core.trac.wordpress.org/ticket/39037 REST API support for multiple orderby
-  // values is resolved, update 'orderby' to [ 'menu_order', 'post_title' ] to provide a consistent
-  // sort.
   orderby: 'menu_order',
   order: 'asc'
 }];

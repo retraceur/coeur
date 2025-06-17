@@ -8423,9 +8423,9 @@ function is_retraceur_version_compatible( $required ) {
  *
  * @since WP 5.2.0
  *
- * @global string $_wp_tests_wp_version The WordPress version string. Used only in Core tests.
+ * @global string $_wp_tests_wp_version The WP version string. Used only in Core tests.
  *
- * @param string $required Minimum required WordPress version.
+ * @param string $required Minimum required WP version.
  * @return bool True if required version is compatible or empty, false if not.
  */
 function is_wp_version_compatible( $required ) {
@@ -8661,7 +8661,7 @@ function wp_fast_hash(
  *
  * The function uses Sodium to hash the message and compare it to the hashed value. If the hash is not a generic hash,
  * the hash is treated as a phpass portable hash in order to provide backward compatibility for passwords and security
- * keys which were hashed using phpass prior to WordPress 6.8.0.
+ * keys which were hashed using phpass prior to WP 6.8.0.
  *
  * @since WP 6.8.0
  * @since 2.0.0 Retraceur fork.
