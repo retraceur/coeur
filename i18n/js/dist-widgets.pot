@@ -1,0 +1,75 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Retraceur 2.0.0-alpha\n"
+"Report-Msgid-Bugs-To: https://github.com/retraceur/coeur/issues\n"
+"Last-Translator: imath <contact@imathi.eu>\n"
+"Language-Team: Retraceur <retraceur@proton.me>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-06-18T19:10:37+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.11.0\n"
+
+#: wp-includes/js/dist/widgets.js:155
+msgid "There are no widgets available."
+msgstr ""
+
+#: wp-includes/js/dist/widgets.js:160
+msgid "Legacy widget"
+msgstr ""
+
+#: wp-includes/js/dist/widgets.js:164
+msgid "Select widget"
+msgstr ""
+
+#: wp-includes/js/dist/widgets.js:328
+msgid "Save"
+msgstr ""
+
+#. translators: %s: the name of the affected block.
+#: wp-includes/js/dist/widgets.js:679
+msgid "The \"%s\" block was affected by errors and may not function properly. Check the developer tools for more details."
+msgstr ""
+
+#: wp-includes/js/dist/widgets.js:825
+msgid "Legacy Widget Preview"
+msgstr ""
+
+#: wp-includes/js/dist/widgets.js:856
+msgid "No preview available."
+msgstr ""
+
+#: wp-includes/js/dist/widgets.js:892
+msgid "Convert to blocks"
+msgstr ""
+
+#: wp-includes/js/dist/widgets.js:955
+#: wp-includes/js/dist/widgets.js:1016
+msgid "Legacy Widget"
+msgstr ""
+
+#: wp-includes/js/dist/widgets.js:1017
+msgid "Widget is missing."
+msgstr ""
+
+#: wp-includes/js/dist/widgets.js:1375
+#: wp-includes/js/dist/widgets.js:1496
+msgid "Widget Group"
+msgstr ""
+
+#: wp-includes/js/dist/widgets.js:1395
+msgid "Title"
+msgstr ""
+
+#: wp-includes/js/dist/widgets.js:1497
+msgid "Create a classic widget layout with a title that’s styled by your theme for your widget areas."
+msgstr ""
+
+#: wp-includes/js/dist/widgets.js:1569
+msgid "Move to widget area"
+msgstr ""
+
+#: wp-includes/js/dist/widgets.js:1574
+msgid "Move to"
+msgstr ""
