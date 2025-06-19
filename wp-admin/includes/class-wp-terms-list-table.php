@@ -140,11 +140,19 @@ class WP_Terms_List_Table extends WP_List_Table {
 			$args['offset'] = $args['number'];
 		}
 
+		$post_formats_cache = false;
 		if ( 'post_format' === $taxonomy ) {
-			$args['slug'] = post_format_list_terms_args();
+			$args['slug'] = get_supported_post_format_slugs();
+
+			$cache_key          = 'post_formats:' . wp_get_theme()->stylesheet;
+			$post_formats_cache = wp_cache_get( $cache_key, 'post-formats' );
 		}
 
-		$this->items = get_terms( $args );
+		if ( $post_formats_cache && count( $_REQUEST ) === 1 ) {
+			$this->items = $post_formats_cache;
+		} else {
+			$this->items = get_terms( $args );
+		}
 
 		$this->set_pagination_args(
 			array(

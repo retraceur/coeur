@@ -9,6 +9,69 @@
  */
 
 /**
+ * Builds a Term Query slug's argument to get all supported Post Format terms.
+ *
+ * @since 2.0.0 Retraceur fork.
+ *
+ * @return array The list of supported post format slugs.
+ */
+function get_supported_post_format_slugs() {
+	$supported_formats = get_theme_support( 'post-formats' );
+	$args              = array( 'post-format-standard' );
+
+	if ( is_array( $supported_formats ) && count( $supported_formats ) > 0 ) {
+		$includes = reset( $supported_formats );
+
+		foreach ( $includes as $include ) {
+			$args[] = 'post-format-'. $include;
+		}
+	} else {
+		return array();
+	}
+
+	return $args;
+}
+
+/**
+ * Get Post Format terms.
+ *
+ * @since 2.0.0 Retraceur fork.
+ *
+ * @return WP_Term[]|array The list of Post Format terms. An empty array if none were found.
+ */
+function get_post_formats() {
+	$slugs        = get_supported_post_format_slugs();
+	$post_formats = array();
+
+	if ( ! $slugs ) {
+		return $post_formats;
+	}
+
+	$cache_key = 'post_formats:' . wp_get_theme()->stylesheet;
+	$cache     = wp_cache_get( $cache_key, 'post-formats' );
+
+	if ( false === $cache ) {
+		$post_formats = get_terms(
+			array(
+				'taxonomy'   => 'post_format',
+				'hide_empty' => 0,
+				'slugs'      => $slugs,
+			)
+		);
+
+		if ( ! $post_formats || count( $post_formats ) !== count( $slugs ) ) {
+			return $post_formats;
+		}
+
+		wp_cache_set( $cache_key, $post_formats, 'post-formats' );
+	} else {
+		$post_formats = $cache;
+	}
+
+	return $post_formats;
+}
+
+/**
  * Retrieve the format slug for a post
  *
  * @since WP 3.1.0
@@ -112,30 +175,6 @@ function get_post_format_strings() {
 }
 
 /**
- * Builds a Term Query slug's argument to get all supported Post Format terms.
- *
- * @since 2.0.0 Retraceur fork.
- *
- * @return array The list of supported post format slugs.
- */
-function post_format_list_terms_args() {
-	$supported_formats = get_theme_support( 'post-formats' );
-	$args              = array( 'post-format-standard' );
-
-	if ( is_array( $supported_formats ) && count( $supported_formats ) > 0 ) {
-		$includes = reset( $supported_formats );
-
-		foreach ( $includes as $include ) {
-			$args[] = 'post-format-'. $include;
-		}
-	} else {
-		return array();
-	}
-
-	return $args;
-}
-
-/**
  * Retrieves the array of post format slugs.
  *
  * @since WP 3.1.0
@@ -145,6 +184,25 @@ function post_format_list_terms_args() {
 function get_post_format_slugs() {
 	$slugs = array_keys( get_post_format_strings() );
 	return array_combine( $slugs, $slugs );
+}
+
+/**
+ * Retrieves the array of post format custom slugs.
+ *
+ * @since 2.0.0 Retraceur fork.
+ *
+ * @return string[] The array of real post format slugs keyed by custom ones.
+ */
+function get_post_format_custom_slugs() {
+	$post_formats = get_post_formats();
+	$slugs        = array();
+
+	foreach ( $post_formats as $post_format ) {
+		$slug           = get_post_format_slug( $post_format, $post_format->slug );
+		$slugs[ $slug ] = str_replace( 'post_format_', '', $post_format->slug );
+	}
+
+	return $slugs;
 }
 
 /**
@@ -193,9 +251,9 @@ function _post_format_request( $qvs ) {
 	if ( ! isset( $qvs['post_format'] ) ) {
 		return $qvs;
 	}
-	$slugs = get_post_format_slugs();
+	$slugs = get_post_format_custom_slugs();
 	if ( isset( $slugs[ $qvs['post_format'] ] ) ) {
-		$qvs['post_format'] = 'post-format-' . $slugs[ $qvs['post_format'] ];
+		$qvs['post_format'] = $slugs[ $qvs['post_format'] ];
 	}
 	$tax = get_taxonomy( 'post_format' );
 	if ( ! is_admin() ) {
@@ -223,10 +281,10 @@ function _post_format_link( $link, $term, $taxonomy ) {
 		return $link;
 	}
 	if ( $wp_rewrite->get_extra_permastruct( $taxonomy ) ) {
-		return str_replace( "/{$term->slug}", '/' . str_replace( 'post-format-', '', $term->slug ), $link );
+		return str_replace( "/{$term->slug}", '/' . get_post_format_slug( $term, $term->slug ), $link );
 	} else {
 		$link = remove_query_arg( 'post_format', $link );
-		return add_query_arg( 'post_format', str_replace( 'post-format-', '', $term->slug ), $link );
+		return add_query_arg( 'post_format', get_post_format_slug( $term, $term->slug ), $link );
 	}
 }
 
@@ -308,14 +366,8 @@ function _post_format_populate_terms() {
 	}
 
 	// @todo use cache to avoid querying multiple times.
-	$post_formats = post_format_list_terms_args();
-	$terms        = get_terms(
-		array(
-			'taxonomy'   => $taxonomy,
-			'hide_empty' => 0,
-			'slugs'      => $post_formats,
-		)
-	);
+	$post_formats = get_supported_post_format_slugs();
+	$terms        = get_post_formats();
 
 	if ( ! $terms || count( $terms ) !== count( $post_formats ) ) {
 		$existing_terms = wp_list_pluck( $terms, 'slug' );
@@ -372,12 +424,14 @@ function get_post_format_id( $format ) {
  *
  * @since 2.0.0 Retraceur fork.
  *
- * @param string|integer $format The Post format slug or ID.
- * @return false|string  False if no terms match required format. The Post format plural name otherwise.
+ * @param integer|WP_Term|string $format The Post Format ID, Object or slug.
+ * @return false|string False if no terms match required Format. The Post Format plural name otherwise.
  */
 function get_post_format_plural_name( $format ) {
 	if ( is_numeric( $format ) ) {
 		$format_id = $format;
+	} elseif ( $format instanceof WP_Term ) {
+		$format_id = $format->term_id;
 	} else {
 		$format    = str_replace( 'post-format-', '', $format );
 		$format_id = get_post_format_id( $format );
@@ -413,13 +467,15 @@ function get_post_format_plural_name( $format ) {
  *
  * @since 2.0.0 Retraceur fork.
  *
- * @param string|integer $format The Post format slug or ID.
- * @param string         $default The default slug to fallback on.
- * @return false|string  False if no terms match required format. The Post format slug otherwise.
+ * @param integer|WP_Term|string $format  The Post Format ID, Object or slug.
+ * @param string                 $default The default slug to fallback on.
+ * @return false|string False if no terms match required format. The Post format slug otherwise.
  */
 function get_post_format_slug( $format, $default = '' ) {
 	if ( is_numeric( $format ) ) {
 		$format_id = $format;
+	} elseif ( $format instanceof WP_Term ) {
+		$format_id = $format->term_id;
 	} else {
 		$format_id = get_post_format_id( $format );
 	}
