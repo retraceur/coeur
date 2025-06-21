@@ -199,7 +199,7 @@ function get_post_format_custom_slugs() {
 
 	foreach ( $post_formats as $post_format ) {
 		$slug           = get_post_format_slug( $post_format, $post_format->slug );
-		$slugs[ $slug ] = str_replace( 'post_format_', '', $post_format->slug );
+		$slugs[ $slug ] = $post_format->slug;
 	}
 
 	return $slugs;
