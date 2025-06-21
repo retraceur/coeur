@@ -239,30 +239,6 @@ function get_post_format_link( $format ) {
 }
 
 /**
- * Filters the request to allow for the format prefix.
- *
- * @access private
- * @since WP 3.1.0
- *
- * @param array $qvs
- * @return array
- */
-function _post_format_request( $qvs ) {
-	if ( ! isset( $qvs['post_format'] ) ) {
-		return $qvs;
-	}
-	$slugs = get_post_format_custom_slugs();
-	if ( isset( $slugs[ $qvs['post_format'] ] ) ) {
-		$qvs['post_format'] = $slugs[ $qvs['post_format'] ];
-	}
-	$tax = get_taxonomy( 'post_format' );
-	if ( ! is_admin() ) {
-		$qvs['post_type'] = $tax->object_type;
-	}
-	return $qvs;
-}
-
-/**
  * Filters the post format term link to remove the format prefix.
  *
  * @access private

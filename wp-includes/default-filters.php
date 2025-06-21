@@ -475,7 +475,6 @@ add_action( 'wp_trash_post', '_reset_front_page_settings_for_post' );
 add_action( 'change_locale', 'create_initial_post_types' );
 
 // Post Formats.
-add_filter( 'request', '_post_format_request' );
 add_filter( 'term_link', '_post_format_link', 10, 3 );
 add_filter( 'get_post_format', '_post_format_get_term' );
 add_filter( 'get_terms', '_post_format_get_terms', 10, 3 );
