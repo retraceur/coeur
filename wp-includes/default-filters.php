@@ -479,7 +479,6 @@ add_filter( 'term_link', '_post_format_link', 10, 3 );
 add_filter( 'get_post_format', '_post_format_get_term' );
 add_filter( 'get_terms', '_post_format_get_terms', 10, 3 );
 add_filter( 'wp_get_object_terms', '_post_format_wp_get_object_terms' );
-add_action( 'load-edit-tags.php', '_post_format_populate_terms' );
 
 // KSES.
 add_action( 'init', 'kses_init' );

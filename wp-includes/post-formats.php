@@ -152,6 +152,78 @@ function set_post_format( $post, $format ) {
 }
 
 /**
+ * Returns all Post Format labels (keyed by slugs).
+ *
+ * @since 2.0.0 Retraceur fork.
+ *
+ * @return array The list of Post Format labels.
+ */
+function get_post_format_default_labels() {
+	return array(
+		'post-format-standard' => array(
+			'name'          => 'standard',
+			'singular_name' => _x( 'Post', 'Post format' ),
+			'plural_name'   => _x( 'Posts', 'Post format' ),
+		),
+		'post-format-aside'    => array(
+			'name'          => 'aside',
+			'singular_name' => _x( 'Aside', 'Post format' ),
+			'plural_name'   => _x( 'Asides', 'Post format' ),
+		),
+		'post-format-chat'     => array(
+			'name'          => 'chat',
+			'singular_name' => _x( 'Chat', 'Post format' ),
+			'plural_name'   => _x( 'Chats', 'Post format' ),
+		),
+		'post-format-code'     => array(
+			'name'          => 'code',
+			'singular_name' => _x( 'Code', 'Post format' ),
+			'plural_name'   => _x( 'Codes', 'Post format' ),
+		),
+		'post-format-gallery'  => array(
+			'name'          => 'gallery',
+			'singular_name' => _x( 'Gallery', 'Post format' ),
+			'plural_name'   => _x( 'Galleries', 'Post format' ),
+		),
+		'post-format-gallery'  => array(
+			'name'          => 'gallery',
+			'singular_name' => _x( 'Gallery', 'Post format' ),
+			'plural_name'   => _x( 'Galleries', 'Post format' ),
+		),
+		'post-format-link'     => array(
+			'name'          => 'link',
+			'singular_name' => _x( 'Link', 'Post format' ),
+			'plural_name'   => _x( 'Links', 'Post format' ),
+		),
+		'post-format-image'    => array(
+			'name'          => 'image',
+			'singular_name' => _x( 'Image', 'Post format' ),
+			'plural_name'   => _x( 'Images', 'Post format' ),
+		),
+		'post-format-quote'    => array(
+			'name'          => 'quote',
+			'singular_name' => _x( 'Quote', 'Post format' ),
+			'plural_name'   => _x( 'Quotes', 'Post format' ),
+		),
+		'post-format-status'   => array(
+			'name'          => 'status',
+			'singular_name' => _x( 'Status', 'Post format' ),
+			'plural_name'   => _x( 'Statuses', 'Post format' ),
+		),
+		'post-format-video'    => array(
+			'name'          => 'video',
+			'singular_name' => _x( 'Video', 'Post format' ),
+			'plural_name'   => _x( 'Videos', 'Post format' ),
+		),
+		'post-format-audio'    => array(
+			'name'          => 'audio',
+			'singular_name' => _x( 'Audio', 'Post format' ),
+			'plural_name'   => _x( 'Audios', 'Post format' ),
+		),
+	);
+}
+
+/**
  * Returns an array of post format slugs to their translated and pretty display versions
  *
  * @since WP 3.1.0
@@ -172,6 +244,10 @@ function get_post_format_strings() {
 		'audio'    => _x( 'Audio', 'Post format' ),
 	);
 	return $strings;
+}
+
+function get_post_format_default_slugs() {
+	return array_keys( get_post_format_default_labels() );
 }
 
 /**
@@ -324,38 +400,6 @@ function _post_format_wp_get_object_terms( $terms ) {
 		}
 	}
 	return $terms;
-}
-
-/**
- * Populate the DB with supported Post Formats.
- *
- * This allowes Admins to use the Term API to customize slugs, names and descriptions.
- *
- * @since 2.0.0 Retraceur fork.
- */
-function _post_format_populate_terms() {
-	$current_screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
-	$taxonomy       = 'post_format';
-
-	if ( ! isset( $current_screen->taxonomy ) || $taxonomy !== $current_screen->taxonomy || ! current_theme_supports( 'post-formats' ) || count( $_REQUEST ) !== 1 ) {
-		return;
-	}
-
-	// @todo use cache to avoid querying multiple times.
-	$post_formats = get_supported_post_format_slugs();
-	$terms        = get_post_formats();
-
-	if ( ! $terms || count( $terms ) !== count( $post_formats ) ) {
-		$existing_terms = wp_list_pluck( $terms, 'slug' );
-
-		foreach ( $post_formats as $post_format ) {
-			if ( in_array( $post_format, $existing_terms, true ) ) {
-				continue;
-			}
-
-			wp_insert_term( $post_format, $taxonomy );
-		}
-	}
 }
 
 /**
