@@ -566,3 +566,19 @@ function reset_post_format_meta( $format, $key ) {
 
 	return delete_term_meta( $format_id, $meta_key );
 }
+
+/**
+ * Cleans the Post Formats cache on term update.
+ *
+ * @since 2.0.0 Retraceur fork.
+ *
+ * @param array  $ids      An array of term IDs.
+ * @param string $taxonomy Taxonomy slug.
+ */
+function clean_post_formats_cache( $ids = array(), $taxonomy ='' ) {
+	if ( 'post_format' === $taxonomy ) {
+		$cache_key = 'post_formats:' . wp_get_theme()->stylesheet;
+
+		wp_delete_cache( $cache_key, 'post-formats' );
+	}
+}
