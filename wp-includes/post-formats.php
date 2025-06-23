@@ -579,6 +579,6 @@ function clean_post_formats_cache( $ids = array(), $taxonomy ='' ) {
 	if ( 'post_format' === $taxonomy ) {
 		$cache_key = 'post_formats:' . wp_get_theme()->stylesheet;
 
-		wp_delete_cache( $cache_key, 'post-formats' );
+		wp_cache_delete( $cache_key, 'post-formats' );
 	}
 }
