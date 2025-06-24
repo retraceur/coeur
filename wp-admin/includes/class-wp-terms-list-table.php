@@ -590,7 +590,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 		$slug = $tag->slug;
 
 		if ( 'post_format' === $this->screen->taxonomy ) {
-			$slug = get_post_format_slug( $tag->term_id, $tag->slug );
+			$slug = get_post_format_slug( $tag );
 		}
 
 		/** This filter is documented in wp-admin/edit-tag-form.php */

@@ -59,8 +59,22 @@ function get_post_formats() {
 			)
 		);
 
-		if ( ! $post_formats || count( $post_formats ) !== count( $slugs ) ) {
-			return $post_formats;
+		if ( ! $post_formats ) {
+			return array();
+		}
+
+		// Fetch all registered metadata at once for each Post Format.
+		foreach ( $post_formats as $term_index => $term ) {
+			$metas = get_term_meta( $term->term_id );
+
+			foreach ( $metas as $meta_key => $meta_value ) {
+				if ( ! registered_meta_key_exists( 'term', $meta_key, 'post_format' ) ) {
+					continue;
+				}
+
+				$metakey                                 = str_replace( 'post_format_', '', $meta_key );
+				$post_formats[ $term_index ]->{$metakey} = is_array( $meta_value ) ? reset( $meta_value ) : $meta_value;
+			}
 		}
 
 		wp_cache_set( $cache_key, $post_formats, 'post-formats' );
@@ -99,6 +113,36 @@ function get_post_format( $post = null ) {
 	$format = reset( $_format );
 
 	return str_replace( 'post-format-', '', $format->slug );
+}
+
+/**
+ * Gets a Post Format's object.
+ *
+ * @since 2.0.0 Retraceur fork.
+ *
+ * @param integer|WP_Term|string $format The Post Format ID, Object or slug.
+ * @return false|WP_Term False if no terms match required format. The corresponding term object otherwise.
+ */
+function get_post_format_object( $format ) {
+	$post_formats = get_post_formats();
+	$args         = array();
+
+	if ( is_numeric( $format ) ) {
+		$args['term_id'] = $format;
+	} elseif ( $format instanceof WP_Term ) {
+		$args['term_id'] = $format->term_id;
+	} else {
+		$args['slug'] = $format;
+	}
+
+	$post_format = wp_filter_object_list( $post_formats, $args );
+	if ( ! $post_format ) {
+		return null;
+	}
+
+	$post_format = reset( $post_format );
+
+	return $post_format;
 }
 
 /**
@@ -162,63 +206,69 @@ function get_post_format_default_labels() {
 	return array(
 		'post-format-standard' => array(
 			'name'          => 'standard',
-			'singular_name' => _x( 'Post', 'Post format' ),
-			'plural_name'   => _x( 'Posts', 'Post format' ),
+			'label'         => _x( 'Standard', 'Post format label' ),
+			'singular_name' => _x( 'Post', 'Post format singular name' ),
+			'plural_name'   => _x( 'Posts', 'Post format plural name' ),
 		),
 		'post-format-aside'    => array(
 			'name'          => 'aside',
-			'singular_name' => _x( 'Aside', 'Post format' ),
-			'plural_name'   => _x( 'Asides', 'Post format' ),
+			'label'         => _x( 'Aside', 'Post format label' ),
+			'singular_name' => _x( 'Aside', 'Post format singular name' ),
+			'plural_name'   => _x( 'Asides', 'Post format plural name' ),
 		),
 		'post-format-chat'     => array(
 			'name'          => 'chat',
-			'singular_name' => _x( 'Chat', 'Post format' ),
-			'plural_name'   => _x( 'Chats', 'Post format' ),
+			'label'         => _x( 'Chat', 'Post format label' ),
+			'singular_name' => _x( 'Chat', 'Post format singular name' ),
+			'plural_name'   => _x( 'Chats', 'Post format plural name' ),
 		),
 		'post-format-code'     => array(
 			'name'          => 'code',
-			'singular_name' => _x( 'Code', 'Post format' ),
-			'plural_name'   => _x( 'Codes', 'Post format' ),
+			'label'         => _x( 'Code', 'Post format label' ),
+			'singular_name' => _x( 'Code', 'Post format singular name' ),
+			'plural_name'   => _x( 'Codes', 'Post format plural name' ),
 		),
 		'post-format-gallery'  => array(
 			'name'          => 'gallery',
-			'singular_name' => _x( 'Gallery', 'Post format' ),
-			'plural_name'   => _x( 'Galleries', 'Post format' ),
-		),
-		'post-format-gallery'  => array(
-			'name'          => 'gallery',
-			'singular_name' => _x( 'Gallery', 'Post format' ),
-			'plural_name'   => _x( 'Galleries', 'Post format' ),
+			'label'         => _x( 'Gallery', 'Post format label' ),
+			'singular_name' => _x( 'Gallery', 'Post format singular name' ),
+			'plural_name'   => _x( 'Galleries', 'Post format plural name' ),
 		),
 		'post-format-link'     => array(
 			'name'          => 'link',
-			'singular_name' => _x( 'Link', 'Post format' ),
-			'plural_name'   => _x( 'Links', 'Post format' ),
+			'label'         => _x( 'Link', 'Post format label' ),
+			'singular_name' => _x( 'Link', 'Post format singular name' ),
+			'plural_name'   => _x( 'Links', 'Post format plural name' ),
 		),
 		'post-format-image'    => array(
 			'name'          => 'image',
-			'singular_name' => _x( 'Image', 'Post format' ),
-			'plural_name'   => _x( 'Images', 'Post format' ),
+			'label'         => _x( 'Image', 'Post format label' ),
+			'singular_name' => _x( 'Image', 'Post format singular name' ),
+			'plural_name'   => _x( 'Images', 'Post format plural name' ),
 		),
 		'post-format-quote'    => array(
 			'name'          => 'quote',
-			'singular_name' => _x( 'Quote', 'Post format' ),
-			'plural_name'   => _x( 'Quotes', 'Post format' ),
+			'label'         => _x( 'Quote', 'Post format label' ),
+			'singular_name' => _x( 'Quote', 'Post format singular name' ),
+			'plural_name'   => _x( 'Quotes', 'Post format plural name' ),
 		),
 		'post-format-status'   => array(
 			'name'          => 'status',
-			'singular_name' => _x( 'Status', 'Post format' ),
-			'plural_name'   => _x( 'Statuses', 'Post format' ),
+			'label'         => _x( 'Status', 'Post format label' ),
+			'singular_name' => _x( 'Status', 'Post format singular name' ),
+			'plural_name'   => _x( 'Statuses', 'Post format plural name' ),
 		),
 		'post-format-video'    => array(
 			'name'          => 'video',
-			'singular_name' => _x( 'Video', 'Post format' ),
-			'plural_name'   => _x( 'Videos', 'Post format' ),
+			'label'         => _x( 'Video', 'Post format label' ),
+			'singular_name' => _x( 'Video', 'Post format singular name' ),
+			'plural_name'   => _x( 'Videos', 'Post format plural name' ),
 		),
 		'post-format-audio'    => array(
 			'name'          => 'audio',
-			'singular_name' => _x( 'Audio', 'Post format' ),
-			'plural_name'   => _x( 'Audios', 'Post format' ),
+			'label'         => _x( 'Audio', 'Post format label' ),
+			'singular_name' => _x( 'Audio', 'Post format singular name' ),
+			'plural_name'   => _x( 'Audios', 'Post format plural name' ),
 		),
 	);
 }
@@ -231,18 +281,7 @@ function get_post_format_default_labels() {
  * @return string[] Array of post format labels keyed by format slug.
  */
 function get_post_format_strings() {
-	$strings = array(
-		'standard' => _x( 'Standard', 'Post format' ), // Special case. Any value that evals to false will be considered standard.
-		'aside'    => _x( 'Aside', 'Post format' ),
-		'chat'     => _x( 'Chat', 'Post format' ),
-		'gallery'  => _x( 'Gallery', 'Post format' ),
-		'link'     => _x( 'Link', 'Post format' ),
-		'image'    => _x( 'Image', 'Post format' ),
-		'quote'    => _x( 'Quote', 'Post format' ),
-		'status'   => _x( 'Status', 'Post format' ),
-		'video'    => _x( 'Video', 'Post format' ),
-		'audio'    => _x( 'Audio', 'Post format' ),
-	);
+	$strings = wp_list_pluck( get_post_format_default_labels(), 'label', 'name' );
 	return $strings;
 }
 
@@ -274,7 +313,12 @@ function get_post_format_custom_slugs() {
 	$slugs        = array();
 
 	foreach ( $post_formats as $post_format ) {
-		$slug           = get_post_format_slug( $post_format, $post_format->slug );
+		if ( isset( $post_format->custom_slug ) ) {
+			$slug = $post_format->custom_slug;
+		} else {
+			$slug = $post_format->name;
+		}
+
 		$slugs[ $slug ] = $post_format->slug;
 	}
 
@@ -333,10 +377,10 @@ function _post_format_link( $link, $term, $taxonomy ) {
 		return $link;
 	}
 	if ( $wp_rewrite->get_extra_permastruct( $taxonomy ) ) {
-		return str_replace( "/{$term->slug}", '/' . get_post_format_slug( $term, $term->slug ), $link );
+		return str_replace( "/{$term->slug}", '/' . get_post_format_slug( $term ), $link );
 	} else {
 		$link = remove_query_arg( 'post_format', $link );
-		return add_query_arg( 'post_format', get_post_format_slug( $term, $term->slug ), $link );
+		return add_query_arg( 'post_format', get_post_format_slug( $term ), $link );
 	}
 }
 
@@ -403,24 +447,6 @@ function _post_format_wp_get_object_terms( $terms ) {
 }
 
 /**
- * Gets a Post Format's term object.
- *
- * @since 2.0.0 Retraceur fork.
- *
- * @param string $format The Post format slug.
- * @return false|WP_Term False if no terms match required format. The corresponding term object otherwise.
- */
-function get_post_format_object( $format ) {
-	$term = get_term_by( 'slug', 'post-format-' . $format, 'post_format' );
-
-	if ( ! $term || is_wp_error( $term ) ) {
-		return false;
-	}
-
-	return $term;
-}
-
-/**
  * Gets a Post Format's term ID.
  *
  * @since 2.0.0 Retraceur fork.
@@ -429,14 +455,33 @@ function get_post_format_object( $format ) {
  * @return integer The Post Format term ID.
  */
 function get_post_format_id( $format ) {
-	$term      = get_post_format_object( $format );
-	$format_id = 0;
+	$post_format = get_post_format_object( $format );
+	$format_id   = 0;
 
-	if ( isset( $term->term_id ) ) {
-		$format_id = (int) $term->term_id;
+	if ( isset( $post_format->term_id ) ) {
+		$format_id = (int) $post_format->term_id;
 	}
 
 	return $format_id;
+}
+
+/**
+ * Gets the Post Format's singular name (possibly customized).
+ *
+ * @since 2.0.0 Retraceur fork.
+ *
+ * @param integer|WP_Term|string $format The Post Format ID, Object or slug.
+ * @return string An empty string if no terms match required Format. The Post Format plural name otherwise.
+ */
+function get_post_format_singular_name( $format ) {
+	$post_format   = get_post_format_object( $format );
+	$singular_name = '';
+
+	if ( isset( $post_format->singular_name ) ) {
+		$singular_name = $post_format->singular_name;
+	}
+
+	return $singular_name;
 }
 
 /**
@@ -445,38 +490,14 @@ function get_post_format_id( $format ) {
  * @since 2.0.0 Retraceur fork.
  *
  * @param integer|WP_Term|string $format The Post Format ID, Object or slug.
- * @return false|string False if no terms match required Format. The Post Format plural name otherwise.
+ * @return string An empty string if no terms match required Format. The Post Format plural name otherwise.
  */
 function get_post_format_plural_name( $format ) {
-	if ( is_numeric( $format ) ) {
-		$format_id = $format;
-	} elseif ( $format instanceof WP_Term ) {
-		$format_id = $format->term_id;
-	} else {
-		$format    = str_replace( 'post-format-', '', $format );
-		$format_id = get_post_format_id( $format );
-	}
+	$post_format   = get_post_format_object( $format );
+	$plural_name   = '';
 
-	if ( ! $format_id ) {
-		return false;
-	}
-
-	$default_plural_names = array(
-		'standard' => _x( 'Posts', 'post format archive title' ),
-		'aside'    => _x( 'Asides', 'post format archive title' ),
-		'chat'     => _x( 'Chats', 'post format archive title' ),
-		'gallery'  => _x( 'Galleries', 'post format archive title' ),
-		'link'     => _x( 'Links', 'post format archive title' ),
-		'image'    => _x( 'Images', 'post format archive title' ),
-		'quote'    => _x( 'Quotes', 'post format archive title' ),
-		'status'   => _x( 'Statuses', 'post format archive title' ),
-		'video'    => _x( 'Videos', 'post format archive title' ),
-		'audio'    => _x( 'Audio', 'post format archive title' ),
-	);
-
-	$plural_name = get_term_meta( $format_id, 'post_format_plural_name', true );
-	if ( ! $plural_name && isset( $default_plural_names[ $format ] ) ) {
-		$plural_name = $default_plural_names[ $format ];
+	if ( isset( $post_format->plural_name ) ) {
+		$plural_name = $post_format->plural_name;
 	}
 
 	return $plural_name;
@@ -488,26 +509,19 @@ function get_post_format_plural_name( $format ) {
  * @since 2.0.0 Retraceur fork.
  *
  * @param integer|WP_Term|string $format  The Post Format ID, Object or slug.
- * @param string                 $default The default slug to fallback on.
- * @return false|string False if no terms match required format. The Post format slug otherwise.
+ * @return string An empty string if no terms match required format. The Post format slug otherwise.
  */
-function get_post_format_slug( $format, $default = '' ) {
-	if ( is_numeric( $format ) ) {
-		$format_id = $format;
-	} elseif ( $format instanceof WP_Term ) {
-		$format_id = $format->term_id;
-	} else {
-		$format_id = get_post_format_id( $format );
+function get_post_format_slug( $format ) {
+	$post_format = get_post_format_object( $format );
+
+	if ( ! isset( $post_format->slug ) ) {
+		return '';
 	}
 
-	if ( ! $format_id ) {
-		return false;
-	}
+	$slug = str_replace( 'post-format-', '', $post_format->slug );
 
-	$slug = get_term_meta( $format_id, 'post_format_slug', true );
-
-	if ( ! $slug ) {
-		$slug = str_replace( 'post-format-', '', $default );
+	if ( isset( $post_format->custom_slug ) ) {
+		$slug = $post_format->custom_slug;
 	}
 
 	return $slug;
