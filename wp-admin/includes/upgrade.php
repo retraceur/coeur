@@ -200,6 +200,24 @@ function create_post_formats() {
 				'count'       => 0,
 			)
 		);
+
+		$wpdb->insert(
+			$wpdb->termmeta,
+			array(
+				'term_id'    => $post_format_id,
+				'meta_key'   => 'post_format_singular_name',
+				'meta_value' => $labels['singular_name'],
+			)
+		);
+
+		$wpdb->insert(
+			$wpdb->termmeta,
+			array(
+				'term_id'    => $post_format_id,
+				'meta_key'   => 'post_format_plural_name',
+				'meta_value' => $labels['plural_name'],
+			)
+		);
 	}
 }
 
