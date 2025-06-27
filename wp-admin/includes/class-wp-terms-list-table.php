@@ -384,7 +384,11 @@ class WP_Terms_List_Table extends WP_List_Table {
 	public function column_name( $tag ) {
 		$taxonomy = $this->screen->taxonomy;
 
-		$pad = str_repeat( '&#8212; ', max( 0, $this->level ) );
+		$pad      = str_repeat( '&#8212; ', max( 0, $this->level ) );
+		$tag_name = $tag->name;
+		if ( 'post_format' === $taxonomy ) {
+			$tag_name = get_post_format_singular_name( $tag );
+		}
 
 		/**
 		 * Filters display of the term name in the terms list table.
@@ -399,7 +403,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 		 * @param string $pad_tag_name The term name, padded if not top-level.
 		 * @param WP_Term $tag         Term object.
 		 */
-		$name = apply_filters( 'term_name', $pad . ' ' . $tag->name, $tag );
+		$name = apply_filters( 'term_name', $pad . ' ' . $tag_name, $tag );
 
 		$qe_data = get_term( $tag->term_id, $taxonomy, OBJECT, 'edit' );
 
@@ -422,9 +426,16 @@ class WP_Terms_List_Table extends WP_List_Table {
 			);
 		}
 
+		$term_state = '';
+		if ( 'post_format' === $taxonomy ) {
+			$post_format_name = str_replace( 'post-format-', '', $tag->slug );
+			$term_state       = ' &#8212; <span class="post-state">' . get_post_format_string( $post_format_name ) . '</span>';
+		}
+
 		$output = sprintf(
-			'<strong>%s</strong><br />',
-			$name
+			'<strong>%1$s%2$s</strong><br />',
+			$name,
+			$term_state
 		);
 
 		/** This filter is documented in wp-admin/includes/class-wp-terms-list-table.php */

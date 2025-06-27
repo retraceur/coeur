@@ -2063,6 +2063,11 @@ function get_post_states( $post ) {
 		$post_states['page_for_privacy_policy'] = _x( 'Privacy Policy Page', 'page label' );
 	}
 
+	if ( has_post_format( get_supported_post_format_slugs(), $post ) ) {
+		$post_format                = get_post_format( $post );
+		$post_states['post_format'] = get_post_format_string( $post_format );
+	}
+
 	/**
 	 * Filters the default post display states used in the posts list table.
 	 *

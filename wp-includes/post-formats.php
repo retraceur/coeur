@@ -33,6 +33,30 @@ function get_supported_post_format_slugs() {
 }
 
 /**
+ * Returns the list of a Post Format additional props (stored in term metas).
+ *
+ * @since 2.0.0 Retraceur fork.
+ *
+ * @param integer $term_id The Post Format term ID.
+ * @return array The list of a Post Format additional props.
+ */
+function get_post_format_additional_props( $term_id = 0 ) {
+	$props = array();
+	$metas = get_term_meta( $term_id );
+
+	foreach ( $metas as $meta_key => $meta_value ) {
+		if ( ! registered_meta_key_exists( 'term', $meta_key, 'post_format' ) ) {
+			continue;
+		}
+
+		$metakey           = str_replace( 'post_format_', '', $meta_key );
+		$props[ $metakey ] = is_array( $meta_value ) ? reset( $meta_value ) : $meta_value;
+	}
+
+	return $props;
+}
+
+/**
  * Get Post Format terms.
  *
  * @since 2.0.0 Retraceur fork.
@@ -65,15 +89,10 @@ function get_post_formats() {
 
 		// Fetch all registered metadata at once for each Post Format.
 		foreach ( $post_formats as $term_index => $term ) {
-			$metas = get_term_meta( $term->term_id );
+			$props = get_post_format_additional_props( $term->term_id );
 
-			foreach ( $metas as $meta_key => $meta_value ) {
-				if ( ! registered_meta_key_exists( 'term', $meta_key, 'post_format' ) ) {
-					continue;
-				}
-
-				$metakey                                 = str_replace( 'post_format_', '', $meta_key );
-				$post_formats[ $term_index ]->{$metakey} = is_array( $meta_value ) ? reset( $meta_value ) : $meta_value;
+			foreach ( $props as $meta_key => $meta_value ) {
+				$post_formats[ $term_index ]->{$meta_key} = $meta_value;
 			}
 		}
 
@@ -124,23 +143,32 @@ function get_post_format( $post = null ) {
  * @return false|WP_Term False if no terms match required format. The corresponding term object otherwise.
  */
 function get_post_format_object( $format ) {
-	$post_formats = get_post_formats();
-	$args         = array();
+	$args = array();
 
-	if ( is_numeric( $format ) ) {
-		$args['term_id'] = $format;
-	} elseif ( $format instanceof WP_Term ) {
-		$args['term_id'] = $format->term_id;
+	if ( is_numeric( $format ) || $format instanceof WP_Term ) {
+		$args['term'] = $format;
 	} else {
-		$args['slug'] = $format;
+		$args['slug'] = 'post-format-' . str_replace( 'post-format-', '', $format );
 	}
 
-	$post_format = wp_filter_object_list( $post_formats, $args );
+	if ( isset( $args['slug'] ) && $args['slug'] ) {
+		$post_format = wp_filter_object_list( get_post_formats(), $args );
+		$post_format = reset( $post_format );
+	} else {
+		$post_format = get_term( $args['term'] );
+
+		if ( ! empty( $post_format->term_id ) ) {
+			$props = get_post_format_additional_props( $post_format->term_id );
+
+			foreach ( $props as $meta_key => $meta_value ) {
+				$post_format->{$meta_key} = $meta_value;
+			}
+		}
+	}
+
 	if ( ! $post_format ) {
 		return null;
 	}
-
-	$post_format = reset( $post_format );
 
 	return $post_format;
 }
@@ -160,7 +188,7 @@ function has_post_format( $format = array(), $post = null ) {
 
 	if ( $format ) {
 		foreach ( (array) $format as $single ) {
-			$prefixed[] = 'post-format-' . sanitize_key( $single );
+			$prefixed[] = 'post-format-' . str_replace( 'post-format-', '', sanitize_key( $single ) );
 		}
 	}
 
