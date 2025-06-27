@@ -179,7 +179,35 @@ switch ( $wp_list_table->current_action() ) {
 			wp_die( __( 'You attempted to edit an item that does not exist. Perhaps it was deleted?' ) );
 		}
 
-		$ret = wp_update_term( $tag_ID, $taxonomy, $_POST );
+		if ( 'post_format' === $taxonomy ) {
+			$post_format_args = array_intersect_key( $_POST, get_object_vars( $tag ) );
+			$post_format_slug = ! empty( $post_format_args['slug'] ) ? wp_unslash( $post_format_args['slug'] ) : $tag->slug;
+
+			// Keep the real name & slug unchanged as it's used to identify Post formats.
+			$post_format_args['name'] = $tag->name;
+			$post_format_args['slug'] = $tag->slug;
+
+			$ret = wp_update_term( $tag_ID, $taxonomy, $post_format_args );
+
+			// Set the custom slug.
+			set_post_format_meta( $tag_ID, 'custom_slug', $post_format_slug );
+
+			if ( ! empty( $_POST['plural_name'] ) ) {
+				$plural_name = wp_unslash( $_POST['plural_name'] );
+
+				// Set the custom plural name.
+				set_post_format_meta( $tag_ID, 'plural_name', $plural_name );
+			}
+
+			if ( ! empty( $_POST['singular_name'] ) ) {
+				$singular_name = wp_unslash( $_POST['singular_name'] );
+
+				// Set the custom plural name.
+				set_post_format_meta( $tag_ID, 'singular_name', $singular_name );
+			}
+		} else {
+			$ret = wp_update_term( $tag_ID, $taxonomy, $_POST );
+		}
 
 		if ( $ret && ! is_wp_error( $ret ) ) {
 			$location = add_query_arg( 'message', 3, $referer );
@@ -348,9 +376,10 @@ if ( $message ) {
 </form>
 
 <?php
-$can_edit_terms = current_user_can( $tax->cap->edit_terms );
+$can_edit_terms   = current_user_can( $tax->cap->edit_terms );
+$can_create_terms = current_user_can( $tax->cap->create_terms );
 
-if ( $can_edit_terms ) {
+if ( $can_create_terms ) {
 	?>
 <div id="col-container" class="wp-clearfix">
 
@@ -563,9 +592,11 @@ if ( $can_edit_terms ) {
 
 <div id="col-right">
 <div class="col-wrap">
-<?php } ?>
+<?php }
 
-<?php $wp_list_table->views(); ?>
+if ( $can_edit_terms ) {
+	$wp_list_table->views();
+	?>
 
 <form id="posts-filter" method="post">
 <input type="hidden" name="taxonomy" value="<?php echo esc_attr( $taxonomy ); ?>" />
@@ -605,8 +636,9 @@ if ( $can_edit_terms ) {
  * @param string $taxonomy The taxonomy name.
  */
 do_action( "after-{$taxonomy}-table", $taxonomy );  // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
+}
 
-if ( $can_edit_terms ) {
+if ( $can_create_terms ) {
 	?>
 </div>
 </div><!-- /col-right -->

@@ -921,16 +921,20 @@ class WP_Query {
 					continue;
 				}
 
-				if ( isset( $tax_query['operator'] ) && 'NOT IN' !== $tax_query['operator'] ) {
+				if ( isset( $tax_query['operator'] ) ) {
+					$is_tax_true = 'NOT IN' !== $tax_query['operator'];
 					switch ( $tax_query['taxonomy'] ) {
 						case 'category':
-							$this->is_category = true;
+							$this->is_category = $is_tax_true;
 							break;
 						case 'post_tag':
-							$this->is_tag = true;
+							$this->is_tag = $is_tax_true;
+							break;
+						case 'post_format':
+							$this->is_tax = $is_tax_true || 'post-format-standard' === $qv['post_format'];
 							break;
 						default:
-							$this->is_tax = true;
+							$this->is_tax = $is_tax_true;
 					}
 				}
 			}
@@ -1132,6 +1136,18 @@ class WP_Query {
 					$q[ $t->query_var ] = wp_basename( $q[ $t->query_var ] );
 				}
 
+				if ( 'post_format' === $t->query_var ) {
+					$post_format_slugs = get_post_format_custom_slugs();
+
+					if ( isset( $post_format_slugs[ $q['post_format'] ] ) ) {
+						$q['post_format'] = $post_format_slugs[ $q['post_format'] ];
+
+						if ( ! $this->is_admin ) {
+							$q['post_type'] = 'post';
+						}
+					}
+				}
+
 				$term = $q[ $t->query_var ];
 
 				if ( ! is_array( $term ) ) {
@@ -1151,6 +1167,14 @@ class WP_Query {
 							)
 						);
 					}
+				} elseif ( 'post-format-standard' === $term ) {
+					$tax_query[] = array_merge(
+						$tax_query_defaults,
+						array(
+							'terms'    => array_diff( get_supported_post_format_slugs(), array( 'post-format-standard' ) ),
+							'operator' => 'NOT IN',
+						)
+					);
 				} else {
 					$tax_query[] = array_merge(
 						$tax_query_defaults,
@@ -1338,6 +1362,21 @@ class WP_Query {
 		}
 
 		$this->tax_query = new WP_Tax_Query( $tax_query );
+
+		/*
+		 * When the `standard` Post Format is requested, the 'NOT IN' operator is used
+		 * to get regular post. Using this operator prevents the `WP_Tax_Query` to set
+		 * the queried terms of the tax query. For this particular case we need to set
+		 * it now.
+		 */
+		if ( isset( $q['post_format'] ) && 'post-format-standard' === $q['post_format'] ) {
+			$this->tax_query->queried_terms = array(
+				'post_format' => array(
+					'terms' => array( 'post-format-standard' ),
+					'field' => 'slug',
+				),
+			);
+		}
 
 		/**
 		 * Fires after taxonomy-related query vars have been parsed.

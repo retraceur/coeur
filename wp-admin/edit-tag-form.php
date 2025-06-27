@@ -42,6 +42,12 @@ $wp_http_referer = remove_query_arg( array( 'action', 'message', 'tag_ID' ), $wp
 // Also used by Edit Tags.
 require_once ABSPATH . 'wp-admin/includes/edit-tag-messages.php';
 
+$title = $tax->labels->edit_item;
+if ( 'post_format' === $taxonomy ) {
+	/* Translators: %s is the Post Format label */
+	$title = sprintf( __( 'Edit %s Format' ), get_post_format_string( $tag->name ) );
+}
+
 /**
  * Fires before the Edit Term form for all taxonomies.
  *
@@ -61,7 +67,7 @@ require_once ABSPATH . 'wp-admin/includes/edit-tag-messages.php';
 do_action( "{$taxonomy}_pre_edit_form", $tag, $taxonomy ); ?>
 
 <div class="wrap">
-<h1><?php echo $tax->labels->edit_item; ?></h1>
+<h1><?php echo esc_html( $title ); ?></h1>
 
 <?php
 $class = ( isset( $_REQUEST['error'] ) ) ? 'error' : 'success';
@@ -138,14 +144,32 @@ if ( isset( $tag->name ) ) {
 }
 ?>
 	<table class="form-table" role="presentation">
+		<?php if ( 'post_format' === $taxonomy ) : ?>
+			<tr class="form-field form-required term-name-wrap">
+				<th scope="row"><label for="name"><?php _ex( 'Singular Name', 'Post Format singular name' ); ?></label></th>
+				<td><input name="name" id="name" type="text" value="<?php echo esc_attr( get_post_format_singular_name( $tag ) ); ?>" size="40" aria-required="true" aria-describedby="name-description" />
+				<p class="description" id="name-description"><?php esc_html_e( 'The singular name is used as the title of your Post Formats.'); ?></p></td>
+			</tr>
+			<tr class="form-field form-required term-plural-name-wrap">
+				<th scope="row"><label for="plural-name"><?php _ex( 'Plural Name', 'Post Format plural name' ); ?></label></th>
+				<td><input name="plural_name" id="plural-name" type="text" value="<?php echo esc_attr( get_post_format_plural_name( $tag->slug ) ); ?>" size="40" aria-required="true" aria-describedby="plural-name-description" />
+				<p class="description" id="plural-name-description"><?php esc_html_e( 'The plural name is how it appears when displaying the Post Format archives on your site.'); ?></p></td>
+			</tr>
+		<?php else : ?>
 		<tr class="form-field form-required term-name-wrap">
 			<th scope="row"><label for="name"><?php _ex( 'Name', 'term name' ); ?></label></th>
 			<td><input name="name" id="name" type="text" value="<?php echo $tag_name_value; ?>" size="40" aria-required="true" aria-describedby="name-description" />
 			<p class="description" id="name-description"><?php echo $tax->labels->name_field_description; ?></p></td>
 		</tr>
+		<?php endif ; ?>
 		<tr class="form-field term-slug-wrap">
 			<th scope="row"><label for="slug"><?php _e( 'Slug' ); ?></label></th>
 			<?php
+			$slug = isset( $tag->slug ) ? $tag->slug : '';
+			if ( 'post_format' === $taxonomy ) {
+				$slug = get_post_format_slug( $tag );
+			}
+
 			/**
 			 * Filters the editable slug for a post or term.
 			 *
@@ -159,7 +183,7 @@ if ( isset( $tag->name ) ) {
 			 *                              upon the context in which it is evaluated.
 			 * @param WP_Term|WP_Post $tag  Term or post object.
 			 */
-			$slug = isset( $tag->slug ) ? apply_filters( 'editable_slug', $tag->slug, $tag ) : '';
+			$slug = apply_filters( 'editable_slug', $slug, $tag );
 			?>
 			<td><input name="slug" id="slug" type="text" value="<?php echo esc_attr( $slug ); ?>" size="40" aria-describedby="slug-description" />
 			<p class="description" id="slug-description"><?php echo $tax->labels->slug_field_description; ?></p></td>

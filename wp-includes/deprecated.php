@@ -16431,3 +16431,18 @@ function wp_add_editor_classic_theme_styles( $editor_settings ) {
 
 	return $editor_settings;
 }
+
+/**
+ * Filters the request to allow for the format prefix.
+ *
+ * @access private
+ * @since WP 3.1.0
+ * @deprecated 2.0.0 Retraceur fork.
+ *
+ * @param array $qvs
+ * @return array
+ */
+function _post_format_request( $qvs ) {
+	_deprecated_function( __FUNCTION__, '2.0.0', '', true );
+	return $qvs;
+}

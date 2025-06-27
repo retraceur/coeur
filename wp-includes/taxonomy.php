@@ -21,6 +21,8 @@
  *
  * @since WP 2.8.0
  * @since WP 5.9.0 Added `'wp_template_part_area'` taxonomy.
+ * @since 2.0.0 Retraceur fork added a Post Format UI to allow slug customization.
+ *              using a term meta.
  *
  * @global WP_Rewrite $wp_rewrite WP rewrite component.
  */
@@ -74,6 +76,7 @@ function create_initial_taxonomies() {
 			'show_admin_column'     => true,
 			'_builtin'              => true,
 			'capabilities'          => array(
+				'create_terms' => 'edit_categories',
 				'manage_terms' => 'manage_categories',
 				'edit_terms'   => 'edit_categories',
 				'delete_terms' => 'delete_categories',
@@ -97,6 +100,7 @@ function create_initial_taxonomies() {
 			'show_admin_column'     => true,
 			'_builtin'              => true,
 			'capabilities'          => array(
+				'create_terms' => 'edit_post_tags',
 				'manage_terms' => 'manage_post_tags',
 				'edit_terms'   => 'edit_post_tags',
 				'delete_terms' => 'delete_post_tags',
@@ -108,6 +112,9 @@ function create_initial_taxonomies() {
 		)
 	);
 
+	// Check the current theme supports Post Formats.
+	$post_format_support = current_theme_supports( 'post-formats' );
+
 	register_taxonomy(
 		'post_format',
 		'post',
@@ -115,15 +122,96 @@ function create_initial_taxonomies() {
 			'public'            => true,
 			'hierarchical'      => false,
 			'labels'            => array(
-				'name'          => _x( 'Formats', 'post format' ),
-				'singular_name' => _x( 'Format', 'post format' ),
+				'name'                  => _x( 'Formats', 'post format' ),
+				'singular_name'         => _x( 'Format', 'post format' ),
+				'back_to_items'         => _x( '&larr; Go to Formats', 'post format' ),
+				'edit_item'             => _x( 'Edit Format', 'post format' ),
+				'item_link'             => _x( 'Format Link', 'post format' ),
+				'item_link_description' => _x( 'A link to a post format.', 'post format' ),
+				'items_list'            => _x( 'Formats list', 'post format' ),
+				'items_list_navigation' => _x( 'Formats list navigation', 'post format' ),
+				'no_terms'              => _x( 'No formats', 'post format' ),
+				'not_found'             => _x( 'No formats found.', 'post format' ),
+				'search_items'          => _x( 'Search Formats', 'post format' ),
+				'update_item'           => _x( 'Update Format', 'post format' ),
+				'view_item'             => _x( 'View Format', 'post format' ),
 			),
 			'query_var'         => true,
 			'rewrite'           => $rewrite['post_format'],
-			'show_ui'           => false,
+			'show_ui'           => $post_format_support,
 			'_builtin'          => true,
-			'show_in_nav_menus' => current_theme_supports( 'post-formats' ),
+			'capabilities'      => array(
+				'create_terms' => 'do_not_allow',
+				'manage_terms' => 'manage_post_formats',
+				'edit_terms'   => 'edit_post_formats',
+				'delete_terms' => 'do_not_allow',
+				'assign_terms' => 'assign_post_formats',
+			),
+			'show_in_nav_menus' => $post_format_support,
 			'show_in_rest'      => true,
+		)
+	);
+
+	/*
+	 * As the Post Format Feature is using the term slug as an ID, using a term meta
+	 * will help Site Admins customize the Post Format slugs to match their native
+	 * language.
+	 */
+	register_term_meta(
+		'post_format',
+		'post_format_custom_slug',
+		array(
+			'type'              => 'string',
+			'description'       => __( 'Used to allow Post Format customizable slugs.' ),
+			'single'            => true,
+			'default'           => '',
+			'sanitize_callback' => 'sanitize_title',
+			'show_in_rest'      => array(
+				'schema' => array(
+					'type'    => 'string',
+					'default' => '',
+				)
+			)
+		)
+	);
+
+	/*
+	 * To distinguish the `name` term's property from the Post Format translatable
+	 * Singular & Plural Name field, the feature is now using 2 additional term metas.
+	 */
+	register_term_meta(
+		'post_format',
+		'post_format_singular_name',
+		array(
+			'type'              => 'string',
+			'description'       => __( 'Used to allow Post Format customizable single title.' ),
+			'single'            => true,
+			'default'           => '',
+			'sanitize_callback' => 'sanitize_text_field',
+			'show_in_rest'      => array(
+				'schema' => array(
+					'type'    => 'string',
+					'default' => '',
+				)
+			)
+		)
+	);
+
+	register_term_meta(
+		'post_format',
+		'post_format_plural_name',
+		array(
+			'type'              => 'string',
+			'description'       => __( 'Used to allow Post Format customizable Archive title.' ),
+			'single'            => true,
+			'default'           => '',
+			'sanitize_callback' => 'sanitize_text_field',
+			'show_in_rest'      => array(
+				'schema' => array(
+					'type'    => 'string',
+					'default' => '',
+				)
+			)
 		)
 	);
 

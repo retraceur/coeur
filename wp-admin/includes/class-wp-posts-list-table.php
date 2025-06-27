@@ -1127,7 +1127,14 @@ class WP_Posts_List_Table extends WP_List_Table {
 		$pad = str_repeat( '&#8212; ', $this->current_level );
 		echo '<strong>';
 
-		$title = _draft_or_post_title();
+		if ( has_post_format( get_supported_post_format_slugs(), $post ) ) {
+			$title = sprintf(
+				/* Translators: %s is the Post ID */
+				esc_html__( '#%s' ), $post->ID
+			);
+		} else {
+			$title = _draft_or_post_title();
+		}
 
 		if ( $can_edit_post && 'trash' !== $post->post_status ) {
 			printf(

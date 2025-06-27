@@ -41,16 +41,18 @@ function render_block_core_post_format_name( $attributes, $content, $block ) {
 		return sprintf( __( 'The %s post format is not supported by this Theme.' ), esc_html( $post_format ) );
 	}
 
-	$format_titles     = get_post_format_strings();
-	$post_format_title = '';
-	if ( isset( $format_titles[ $post_format ] ) ) {
-		$post_format_title = sprintf(
-			// translators: 1: Post Format name, 2: Post ID.
-			__( '%1$s #%2$d' ),
-			esc_html( $format_titles[ $post_format ] ),
-			$post_id
-		);
+	$post_format_title = get_post_format_singular_name( $post_format );
+	if ( ! $post_format_title ) {
+		$format_titles     = get_post_format_strings();
+		$post_format_title = isset( $format_titles[ $post_format ] ) ? $format_titles[ $post_format ] : '';
 	}
+
+	$post_format_title = sprintf(
+		// translators: 1: Post Format name, 2: Post ID.
+		__( '%1$s #%2$d' ),
+		esc_html( $post_format_title ),
+		$post_id
+	);
 
 	$tag_name = 'h2';
 	if ( isset( $attributes['level'] ) ) {

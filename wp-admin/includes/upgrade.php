@@ -162,6 +162,65 @@ if ( ! function_exists( 'wp_install' ) ) :
 	}
 endif;
 
+/**
+ * Create Post Formats.
+ *
+ * @since 2.0.0 Retraceur fork.
+ */
+function create_post_formats() {
+	global $wpdb;
+
+	$post_formats = get_post_format_default_labels();
+	$in_clause    = "'" . implode( "', '", esc_sql( get_post_format_default_slugs() ) ) . "'";
+	$existing     = $wpdb->get_col( "SELECT slug FROM {$wpdb->terms} WHERE slug IN ({$in_clause})" );
+
+	foreach ( $post_formats as $slug => $labels ) {
+		if ( in_array( $slug, $existing, true ) ) {
+			continue;
+		}
+
+		$wpdb->insert(
+			$wpdb->terms,
+			array(
+				'name'       => $labels['name'],
+				'slug'       => $slug,
+				'term_group' => 0,
+			)
+		);
+
+		$post_format_id = $wpdb->insert_id;
+
+		$wpdb->insert(
+			$wpdb->term_taxonomy,
+			array(
+				'term_id'     => $post_format_id,
+				'taxonomy'    => 'post_format',
+				'description' => '',
+				'parent'      => 0,
+				'count'       => 0,
+			)
+		);
+
+		$wpdb->insert(
+			$wpdb->termmeta,
+			array(
+				'term_id'    => $post_format_id,
+				'meta_key'   => 'post_format_singular_name',
+				'meta_value' => $labels['singular_name'],
+			)
+		);
+
+		$wpdb->insert(
+			$wpdb->termmeta,
+			array(
+				'term_id'    => $post_format_id,
+				'meta_key'   => 'post_format_plural_name',
+				'meta_value' => $labels['plural_name'],
+			)
+		);
+	}
+}
+
 if ( ! function_exists( 'wp_install_defaults' ) ) :
 	/**
 	 * Creates the initial content for a newly-installed site.
@@ -364,6 +423,8 @@ if ( ! function_exists( 'wp_install_defaults' ) ) :
 		} elseif ( ! is_super_admin( $user_id ) && ! metadata_exists( 'user', $user_id, 'show_welcome_panel' ) ) {
 			update_user_meta( $user_id, 'show_welcome_panel', 2 );
 		}
+
+		create_post_formats();
 
 		/**
 		 * Fire once default content has been created.
@@ -618,6 +679,10 @@ function upgrade_all() {
 	}
 
 	populate_options();
+
+	if ( 20250621 > $wp_current_db_version ) {
+		create_post_formats();
+	}
 
 	update_option( 'db_version', $wp_db_version );
 	update_option( 'db_upgraded', true );

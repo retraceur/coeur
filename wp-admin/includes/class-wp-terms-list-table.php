@@ -71,7 +71,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 	 * @return bool
 	 */
 	public function ajax_user_can() {
-		return current_user_can( get_taxonomy( $this->screen->taxonomy )->cap->manage_terms );
+		return current_user_can( get_taxonomy( $this->screen->taxonomy )->cap->manage_terms ) && 'post_format' !== $this->screen->taxonomy;
 	}
 
 	/**
@@ -138,6 +138,10 @@ class WP_Terms_List_Table extends WP_List_Table {
 			// We'll need the full set of terms then.
 			$args['number'] = 0;
 			$args['offset'] = $args['number'];
+		}
+
+		if ( 'post_format' === $taxonomy && empty( $args['slug'] ) ) {
+			$args['slug'] = get_supported_post_format_slugs();
 		}
 
 		$this->items = get_terms( $args );
@@ -380,7 +384,11 @@ class WP_Terms_List_Table extends WP_List_Table {
 	public function column_name( $tag ) {
 		$taxonomy = $this->screen->taxonomy;
 
-		$pad = str_repeat( '&#8212; ', max( 0, $this->level ) );
+		$pad      = str_repeat( '&#8212; ', max( 0, $this->level ) );
+		$tag_name = $tag->name;
+		if ( 'post_format' === $taxonomy ) {
+			$tag_name = get_post_format_singular_name( $tag );
+		}
 
 		/**
 		 * Filters display of the term name in the terms list table.
@@ -395,7 +403,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 		 * @param string $pad_tag_name The term name, padded if not top-level.
 		 * @param WP_Term $tag         Term object.
 		 */
-		$name = apply_filters( 'term_name', $pad . ' ' . $tag->name, $tag );
+		$name = apply_filters( 'term_name', $pad . ' ' . $tag_name, $tag );
 
 		$qe_data = get_term( $tag->term_id, $taxonomy, OBJECT, 'edit' );
 
@@ -418,15 +426,22 @@ class WP_Terms_List_Table extends WP_List_Table {
 			);
 		}
 
+		$term_state = '';
+		if ( 'post_format' === $taxonomy ) {
+			$post_format_name = str_replace( 'post-format-', '', $tag->slug );
+			$term_state       = ' &#8212; <span class="post-state">' . get_post_format_string( $post_format_name ) . '</span>';
+		}
+
 		$output = sprintf(
-			'<strong>%s</strong><br />',
-			$name
+			'<strong>%1$s%2$s</strong><br />',
+			$name,
+			$term_state
 		);
 
 		/** This filter is documented in wp-admin/includes/class-wp-terms-list-table.php */
 		$quick_edit_enabled = apply_filters( 'quick_edit_enabled_for_taxonomy', true, $taxonomy );
 
-		if ( $quick_edit_enabled ) {
+		if ( $quick_edit_enabled && 'post_format' !== $taxonomy ) {
 			$output .= '<div class="hidden" id="inline_' . $qe_data->term_id . '">';
 			$output .= '<div class="name">' . $qe_data->name . '</div>';
 
@@ -499,7 +514,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 			 */
 			$quick_edit_enabled = apply_filters( 'quick_edit_enabled_for_taxonomy', true, $taxonomy );
 
-			if ( $quick_edit_enabled ) {
+			if ( $quick_edit_enabled && 'post_format' !== $taxonomy ) {
 				$actions['inline hide-if-no-js'] = sprintf(
 					'<button type="button" class="button-link editinline" aria-label="%s" aria-expanded="false">%s</button>',
 					/* translators: %s: Object title. */
@@ -583,8 +598,14 @@ class WP_Terms_List_Table extends WP_List_Table {
 	 * @return string
 	 */
 	public function column_slug( $tag ) {
+		$slug = $tag->slug;
+
+		if ( 'post_format' === $this->screen->taxonomy ) {
+			$slug = get_post_format_slug( $tag );
+		}
+
 		/** This filter is documented in wp-admin/edit-tag-form.php */
-		return apply_filters( 'editable_slug', $tag->slug, $tag );
+		return apply_filters( 'editable_slug', $slug, $tag );
 	}
 
 	/**
@@ -674,7 +695,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 	public function inline_edit() {
 		$tax = get_taxonomy( $this->screen->taxonomy );
 
-		if ( ! current_user_can( $tax->cap->edit_terms ) ) {
+		if ( ! current_user_can( $tax->cap->edit_terms ) && 'post_format' === $this->screen->taxonomy ) {
 			return;
 		}
 		?>
