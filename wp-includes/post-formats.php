@@ -333,6 +333,13 @@ function get_post_format_strings() {
 	return $strings;
 }
 
+/**
+ * Gets all default Post Format slugs.
+ *
+ * @since 2.0.0 Retraceur fork.
+ *
+ * @return array The list of default Post Format slugs.
+ */
 function get_post_format_default_slugs() {
 	return array_keys( get_post_format_default_labels() );
 }
