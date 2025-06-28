@@ -1482,6 +1482,19 @@ function single_post_title( $prefix = '', $display = true ) {
 		return;
 	}
 
+	if ( has_post_format( get_supported_post_format_slugs(), $_post ) ) {
+		$post_format = get_post_format( $_post );
+
+		if ( $post_format ) {
+			$_post->post_title = sprintf(
+				// Translators: 1: Post Format title. 2: Post ID.
+				__( '%1$s #%2$d' ),
+				esc_html( get_post_format_singular_name( $post_format ) ),
+				intval( $_post->ID )
+			);
+		}
+	}
+
 	/**
 	 * Filters the page title for a single post.
 	 *
@@ -1611,6 +1624,15 @@ function single_term_title( $prefix = '', $display = true ) {
 		 * @param string $term_name Tag name for archive being displayed.
 		 */
 		$term_name = apply_filters( 'single_tag_title', $term->name );
+	} elseif ( is_tax( 'post_format' ) ) {
+		/**
+		 * Filters the Post Format archive page title.
+		 *
+		 * @since 2.0.0 Retraceur fork.
+		 *
+		 * @param string $term_name Post Format item plural name for archive being displayed.
+		 */
+		$term_name = apply_filters( 'archive_post_format_title', get_post_format_plural_name( $term ) );
 	} elseif ( is_tax() ) {
 		/**
 		 * Filters the custom taxonomy archive page title.
