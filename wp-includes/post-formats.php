@@ -302,6 +302,26 @@ function get_post_format_default_labels() {
 }
 
 /**
+ * Returns a Post Format default label for the requested real slug.
+ *
+ * @since 2.0.0
+ *
+ * @param string $slug The Post Format real slug (eg: `post-format-standard`).
+ * @param string $prop The property name of the needed default label.
+ * @return string The default label value.
+ */
+function get_post_format_default_label( $slug, $prop ) {
+	$default_singular_names = get_post_format_default_labels();
+	$retval                 = '';
+
+	if ( isset( $default_singular_names[ $slug ][ $prop ] ) ) {
+		$retval = $default_singular_names[ $slug ][ $prop ];
+	}
+
+	return $retval;
+}
+
+/**
  * Returns an array of post format slugs to their translated and pretty display versions
  *
  * @since WP 3.1.0
@@ -507,6 +527,8 @@ function get_post_format_singular_name( $format ) {
 
 	if ( isset( $post_format->singular_name ) ) {
 		$singular_name = $post_format->singular_name;
+	} else {
+		$singular_name = get_post_format_default_label( $post_format->slug, 'singular_name' );
 	}
 
 	return $singular_name;
@@ -526,6 +548,8 @@ function get_post_format_plural_name( $format ) {
 
 	if ( isset( $post_format->plural_name ) ) {
 		$plural_name = $post_format->plural_name;
+	} else {
+		$plural_name = get_post_format_default_label( $post_format->slug, 'plural_name' );
 	}
 
 	return $plural_name;
