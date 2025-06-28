@@ -146,8 +146,8 @@ if ( isset( $tag->name ) ) {
 	<table class="form-table" role="presentation">
 		<?php if ( 'post_format' === $taxonomy ) : ?>
 			<tr class="form-field form-required term-name-wrap">
-				<th scope="row"><label for="name"><?php _ex( 'Singular Name', 'Post Format singular name' ); ?></label></th>
-				<td><input name="name" id="name" type="text" value="<?php echo esc_attr( get_post_format_singular_name( $tag ) ); ?>" size="40" aria-required="true" aria-describedby="name-description" />
+				<th scope="row"><label for="singular-name"><?php _ex( 'Singular Name', 'Post Format singular name' ); ?></label></th>
+				<td><input name="singular_name" id="singular-name" type="text" value="<?php echo esc_attr( get_post_format_singular_name( $tag ) ); ?>" size="40" aria-required="true" aria-describedby="name-description" />
 				<p class="description" id="name-description"><?php esc_html_e( 'The singular name is used as the title of your Post Formats.'); ?></p></td>
 			</tr>
 			<tr class="form-field form-required term-plural-name-wrap">
