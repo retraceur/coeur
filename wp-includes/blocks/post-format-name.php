@@ -38,6 +38,7 @@ function render_block_core_post_format_name( $attributes, $content, $block ) {
 	}
 
 	if ( ! in_array( $post_format, $formats, true ) ) {
+		// Translators: %s: Post Format name.
 		return sprintf( __( 'The %s post format is not supported by this Theme.' ), esc_html( $post_format ) );
 	}
 
