@@ -118,7 +118,7 @@ function retraceur_version_check( $force_check = false ) {
 
 	$releases = $feed->get_items();
 	$offers   = array();
-	$locale   = get_locale();
+	$locale   = get_option( 'WPLANG' );
 	$package  = 'retraceur.zip';
 
 	if ( ! $locale ) {

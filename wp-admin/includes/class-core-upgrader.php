@@ -153,7 +153,7 @@ class Core_Upgrader extends WP_Upgrader {
 			return $working_dir;
 		}
 
-		/* Copy update-core.php from the new version into place.
+		// Copy update-core.php from the new version into place.
 		if ( ! $wp_filesystem->copy( $working_dir . '/retraceur/wp-admin/includes/update-core.php', $wp_dir . 'wp-admin/includes/update-core.php', true ) ) {
 			$wp_filesystem->delete( $working_dir, true );
 			WP_Upgrader::release_lock( 'core_updater' );
@@ -181,7 +181,7 @@ class Core_Upgrader extends WP_Upgrader {
 				 * mkdir_failed__copy_dir, copy_failed__copy_dir_retry, and disk_full.
 				 * do_rollback allows for update_core() to trigger a rollback if needed.
 				 */
-				/*if ( str_contains( $error_code, 'do_rollback' ) ) {
+				if ( str_contains( $error_code, 'do_rollback' ) ) {
 					$try_rollback = true;
 				} elseif ( str_contains( $error_code, '__copy_dir' ) ) {
 					$try_rollback = true;
@@ -192,10 +192,10 @@ class Core_Upgrader extends WP_Upgrader {
 
 			if ( $try_rollback ) {
 				/** This filter is documented in wp-admin/includes/update-core.php */
-				/*apply_filters( 'update_feedback', $result );
+				apply_filters( 'update_feedback', $result );
 
 				/** This filter is documented in wp-admin/includes/update-core.php */
-				/*apply_filters( 'update_feedback', $this->strings['start_rollback'] );
+				apply_filters( 'update_feedback', $this->strings['start_rollback'] );
 
 				$rollback_result = $this->upgrade( $current, array_merge( $parsed_args, array( 'do_rollback' => true ) ) );
 
@@ -212,7 +212,7 @@ class Core_Upgrader extends WP_Upgrader {
 		}
 
 		/** This action is documented in wp-admin/includes/class-wp-upgrader.php */
-		/*do_action(
+		do_action(
 			'upgrader_process_complete',
 			$this,
 			array(
@@ -255,11 +255,11 @@ class Core_Upgrader extends WP_Upgrader {
 			}
 
 			wp_version_check( $stats );
-		}*/
+		}
 
 		WP_Upgrader::release_lock( 'core_updater' );
 
-		return $working_dir; //$result;
+		return $result;
 	}
 
 	/**
