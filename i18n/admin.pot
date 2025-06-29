@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-05-31T09:07:01+00:00\n"
+"POT-Creation-Date: 2025-06-29T01:35:05+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 
@@ -304,7 +304,7 @@ msgstr ""
 #: wp-admin/includes/ajax-actions.php:857
 #: wp-admin/includes/ajax-actions.php:1805
 #: wp-admin/includes/ajax-actions.php:1808
-#: wp-admin/includes/class-wp-posts-list-table.php:1198
+#: wp-admin/includes/class-wp-posts-list-table.php:1205
 #: wp-admin/includes/schema.php:310
 #: wp-admin/options-general.php:413
 #: wp-admin/options-general.php:493
@@ -703,22 +703,22 @@ msgstr ""
 msgid "WP Classic Editor feature is not supported in Retraceur."
 msgstr ""
 
-#: wp-admin/edit-form-blocks.php:200
-#: wp-admin/includes/class-wp-posts-list-table.php:1879
+#: wp-admin/edit-form-blocks.php:209
+#: wp-admin/includes/class-wp-posts-list-table.php:1886
 #: wp-admin/includes/meta-boxes.php:901
 msgid "Default template"
 msgstr ""
 
-#: wp-admin/edit-form-blocks.php:253
+#: wp-admin/edit-form-blocks.php:262
 msgid "Type / to choose a block"
 msgstr ""
 
-#: wp-admin/edit-form-blocks.php:259
+#: wp-admin/edit-form-blocks.php:268
 #: wp-admin/edit-media-form.php:184
 msgid "Add title"
 msgstr ""
 
-#: wp-admin/edit-form-blocks.php:384
+#: wp-admin/edit-form-blocks.php:393
 msgid "The block editor requires JavaScript. Please enable JavaScript in your browser settings."
 msgstr ""
 
@@ -737,7 +737,7 @@ msgid "Media file updated."
 msgstr ""
 
 #: wp-admin/edit-media-form.php:89
-#: wp-admin/edit-tags.php:264
+#: wp-admin/edit-tags.php:292
 #: wp-admin/edit.php:245
 #: wp-admin/edit.php:296
 #: wp-admin/erase-personal-data.php:25
@@ -789,29 +789,52 @@ msgstr ""
 msgid "Add New Media File"
 msgstr ""
 
-#: wp-admin/edit-tag-form.php:142
-#: wp-admin/edit-tags.php:426
-#: wp-admin/includes/class-wp-terms-list-table.php:194
-#: wp-admin/includes/class-wp-terms-list-table.php:216
-#: wp-admin/includes/class-wp-terms-list-table.php:693
+#. Translators: %s is the Post Format label
+#: wp-admin/edit-tag-form.php:48
+msgid "Edit %s Format"
+msgstr ""
+
+#: wp-admin/edit-tag-form.php:149
+msgctxt "Post Format singular name"
+msgid "Singular Name"
+msgstr ""
+
+#: wp-admin/edit-tag-form.php:151
+msgid "The singular name is used as the title of your Post Formats."
+msgstr ""
+
+#: wp-admin/edit-tag-form.php:154
+msgctxt "Post Format plural name"
+msgid "Plural Name"
+msgstr ""
+
+#: wp-admin/edit-tag-form.php:156
+msgid "The plural name is how it appears when displaying the Post Format archives on your site."
+msgstr ""
+
+#: wp-admin/edit-tag-form.php:160
+#: wp-admin/edit-tags.php:455
+#: wp-admin/includes/class-wp-terms-list-table.php:198
+#: wp-admin/includes/class-wp-terms-list-table.php:220
+#: wp-admin/includes/class-wp-terms-list-table.php:714
 msgctxt "term name"
 msgid "Name"
 msgstr ""
 
 #. translators: Hidden accessibility text.
-#: wp-admin/edit-tag-form.php:147
-#: wp-admin/edit-tags.php:431
-#: wp-admin/includes/class-wp-posts-list-table.php:1693
-#: wp-admin/includes/class-wp-terms-list-table.php:196
-#: wp-admin/includes/class-wp-terms-list-table.php:218
-#: wp-admin/includes/class-wp-terms-list-table.php:698
+#: wp-admin/edit-tag-form.php:166
+#: wp-admin/edit-tags.php:460
+#: wp-admin/includes/class-wp-posts-list-table.php:1700
+#: wp-admin/includes/class-wp-terms-list-table.php:200
+#: wp-admin/includes/class-wp-terms-list-table.php:222
+#: wp-admin/includes/class-wp-terms-list-table.php:719
 #: wp-admin/includes/meta-boxes.php:781
 #: wp-admin/includes/meta-boxes.php:1095
 msgid "Slug"
 msgstr ""
 
-#: wp-admin/edit-tag-form.php:181
-#: wp-admin/edit-tags.php:446
+#: wp-admin/edit-tag-form.php:205
+#: wp-admin/edit-tags.php:475
 #: wp-admin/includes/class-wp-debug-data.php:1064
 #: wp-admin/includes/media.php:1162
 #: wp-admin/includes/media.php:1290
@@ -820,26 +843,26 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: wp-admin/edit-tag-form.php:190
-#: wp-admin/edit-tags.php:477
+#: wp-admin/edit-tag-form.php:214
+#: wp-admin/edit-tags.php:506
 msgid "Categories, unlike tags, can have a hierarchy. You might have a Jazz category, and under that have children categories for Bebop and Big Band. Totally optional."
 msgstr ""
 
-#: wp-admin/edit-tag-form.php:198
-#: wp-admin/edit-tags.php:484
+#: wp-admin/edit-tag-form.php:222
+#: wp-admin/edit-tags.php:513
 #: wp-admin/includes/class-wp-plugins-list-table.php:500
-#: wp-admin/includes/class-wp-terms-list-table.php:195
-#: wp-admin/includes/class-wp-terms-list-table.php:217
+#: wp-admin/includes/class-wp-terms-list-table.php:199
+#: wp-admin/includes/class-wp-terms-list-table.php:221
 #: wp-admin/includes/media.php:1412
 #: wp-admin/includes/media.php:3264
 #: wp-admin/themes.php:567
 msgid "Description"
 msgstr ""
 
-#: wp-admin/edit-tag-form.php:280
+#: wp-admin/edit-tag-form.php:304
 #: wp-admin/includes/class-wp-plugins-list-table.php:651
-#: wp-admin/includes/class-wp-posts-list-table.php:2014
-#: wp-admin/includes/class-wp-posts-list-table.php:2016
+#: wp-admin/includes/class-wp-posts-list-table.php:2021
+#: wp-admin/includes/class-wp-posts-list-table.php:2023
 #: wp-admin/includes/class-wp-theme-install-list-table.php:324
 #: wp-admin/includes/class-wp-theme-install-list-table.php:480
 #: wp-admin/includes/meta-boxes.php:380
@@ -850,14 +873,14 @@ msgstr ""
 msgid "Update"
 msgstr ""
 
-#: wp-admin/edit-tag-form.php:284
+#: wp-admin/edit-tag-form.php:308
 #: wp-admin/includes/class-wp-plugins-list-table.php:655
 #: wp-admin/includes/class-wp-plugins-list-table.php:903
 #: wp-admin/includes/class-wp-plugins-list-table.php:920
 #: wp-admin/includes/class-wp-plugins-list-table.php:1009
 #: wp-admin/includes/class-wp-plugins-list-table.php:1026
-#: wp-admin/includes/class-wp-terms-list-table.php:171
-#: wp-admin/includes/class-wp-terms-list-table.php:518
+#: wp-admin/includes/class-wp-terms-list-table.php:175
+#: wp-admin/includes/class-wp-terms-list-table.php:533
 #: wp-admin/includes/class-wp-themes-list-table.php:229
 #: wp-admin/includes/class-wp-users-list-table.php:282
 #: wp-admin/includes/class-wp-users-list-table.php:483
@@ -937,56 +960,56 @@ msgid "Sorry, you are not allowed to edit this item."
 msgstr ""
 
 #. translators: %s: URL to Writing Settings screen.
-#: wp-admin/edit-tags.php:252
+#: wp-admin/edit-tags.php:280
 msgid "You can use categories to define sections of your site and group related posts. The default category is &#8220;Uncategorized&#8221; until you change it in your <a href=\"%s\">writing settings</a>."
 msgstr ""
 
-#: wp-admin/edit-tags.php:256
+#: wp-admin/edit-tags.php:284
 msgid "You can assign keywords to your posts using <strong>tags</strong>. Unlike categories, tags have no hierarchy, meaning there is no relationship from one tag to another."
 msgstr ""
 
-#: wp-admin/edit-tags.php:259
+#: wp-admin/edit-tags.php:287
 msgid "What&#8217;s the difference between categories and tags? Normally, tags are ad-hoc keywords that identify important information in your post (names, subjects, etc) that may or may not recur in other posts, while categories are pre-determined sections. If you think of your site like a book, the categories are like the Table of Contents and the tags are like the terms in the index."
 msgstr ""
 
-#: wp-admin/edit-tags.php:271
+#: wp-admin/edit-tags.php:299
 msgid "When adding a new category on this screen, you&#8217;ll fill in the following fields:"
 msgstr ""
 
-#: wp-admin/edit-tags.php:273
+#: wp-admin/edit-tags.php:301
 msgid "When adding a new tag on this screen, you&#8217;ll fill in the following fields:"
 msgstr ""
 
-#: wp-admin/edit-tags.php:277
+#: wp-admin/edit-tags.php:305
 msgid "<strong>Name</strong> &mdash; The name is how it appears on your site."
 msgstr ""
 
-#: wp-admin/edit-tags.php:279
+#: wp-admin/edit-tags.php:307
 msgid "<strong>Slug</strong> &mdash; The &#8220;slug&#8221; is the URL-friendly version of the name. It is usually all lowercase and contains only letters, numbers, and hyphens."
 msgstr ""
 
-#: wp-admin/edit-tags.php:282
+#: wp-admin/edit-tags.php:310
 msgid "<strong>Parent</strong> &mdash; Categories, unlike tags, can have a hierarchy. You might have a Jazz category, and under that have child categories for Bebop and Big Band. Totally optional. To create a subcategory, just choose another category from the Parent dropdown."
 msgstr ""
 
-#: wp-admin/edit-tags.php:285
+#: wp-admin/edit-tags.php:313
 msgid "<strong>Description</strong> &mdash; The description is not prominent by default; however, some themes may display it."
 msgstr ""
 
-#: wp-admin/edit-tags.php:287
+#: wp-admin/edit-tags.php:315
 msgid "You can change the display of this screen using the Screen Options tab to set how many items are displayed per screen and to display/hide columns in the table."
 msgstr ""
 
-#: wp-admin/edit-tags.php:292
+#: wp-admin/edit-tags.php:320
 msgid "Adding Categories"
 msgstr ""
 
-#: wp-admin/edit-tags.php:292
+#: wp-admin/edit-tags.php:320
 msgid "Adding Tags"
 msgstr ""
 
 #. translators: %s: Search query.
-#: wp-admin/edit-tags.php:315
+#: wp-admin/edit-tags.php:343
 #: wp-admin/edit.php:409
 #: wp-admin/plugins.php:900
 #: wp-admin/upload.php:420
@@ -995,7 +1018,7 @@ msgid "Search results for: %s"
 msgstr ""
 
 #. translators: %s: Default category.
-#: wp-admin/edit-tags.php:584
+#: wp-admin/edit-tags.php:615
 msgid "Deleting a category does not delete the posts in that category. Instead, posts that were only assigned to the deleted category are set to the default category %s. The default category cannot be deleted."
 msgstr ""
 
@@ -1641,7 +1664,7 @@ msgstr ""
 #: wp-admin/includes/ajax-actions.php:1378
 #: wp-admin/includes/class-wp-posts-list-table.php:771
 #: wp-admin/includes/class-wp-posts-list-table.php:777
-#: wp-admin/includes/class-wp-posts-list-table.php:1686
+#: wp-admin/includes/class-wp-posts-list-table.php:1693
 #: wp-admin/includes/media.php:1402
 #: wp-admin/includes/media.php:2648
 #: wp-admin/includes/media.php:2971
@@ -1657,12 +1680,12 @@ msgstr ""
 #: wp-admin/includes/class-wp-posts-list-table.php:710
 #: wp-admin/includes/class-wp-posts-list-table.php:773
 #: wp-admin/includes/class-wp-posts-list-table.php:779
-#: wp-admin/includes/class-wp-posts-list-table.php:1705
+#: wp-admin/includes/class-wp-posts-list-table.php:1712
 msgid "Date"
 msgstr ""
 
 #: wp-admin/includes/ajax-actions.php:1378
-#: wp-admin/includes/class-wp-posts-list-table.php:1910
+#: wp-admin/includes/class-wp-posts-list-table.php:1917
 #: wp-admin/includes/class-wp-privacy-requests-table.php:46
 msgid "Status"
 msgstr ""
@@ -1676,30 +1699,30 @@ msgid "(no title)"
 msgstr ""
 
 #: wp-admin/includes/ajax-actions.php:1387
-#: wp-admin/includes/class-wp-posts-list-table.php:1206
-#: wp-admin/includes/class-wp-posts-list-table.php:1917
+#: wp-admin/includes/class-wp-posts-list-table.php:1213
+#: wp-admin/includes/class-wp-posts-list-table.php:1924
 #: wp-admin/includes/meta-boxes.php:114
 #: wp-admin/includes/meta-boxes.php:154
 msgid "Published"
 msgstr ""
 
 #: wp-admin/includes/ajax-actions.php:1390
-#: wp-admin/includes/class-wp-posts-list-table.php:1211
-#: wp-admin/includes/class-wp-posts-list-table.php:1918
+#: wp-admin/includes/class-wp-posts-list-table.php:1218
+#: wp-admin/includes/class-wp-posts-list-table.php:1925
 #: wp-admin/includes/meta-boxes.php:117
 #: wp-admin/includes/meta-boxes.php:158
 msgid "Scheduled"
 msgstr ""
 
 #: wp-admin/includes/ajax-actions.php:1393
-#: wp-admin/includes/class-wp-posts-list-table.php:1924
+#: wp-admin/includes/class-wp-posts-list-table.php:1931
 #: wp-admin/includes/meta-boxes.php:120
 #: wp-admin/includes/meta-boxes.php:160
 msgid "Pending Review"
 msgstr ""
 
 #: wp-admin/includes/ajax-actions.php:1396
-#: wp-admin/includes/class-wp-posts-list-table.php:1925
+#: wp-admin/includes/class-wp-posts-list-table.php:1932
 #: wp-admin/includes/meta-boxes.php:124
 #: wp-admin/includes/meta-boxes.php:162
 #: wp-admin/includes/meta-boxes.php:164
@@ -1709,7 +1732,7 @@ msgstr ""
 #. translators: Post date format. See https://www.php.net/manual/datetime.format.php
 #: wp-admin/includes/ajax-actions.php:1404
 #: wp-admin/includes/class-wp-media-list-table.php:555
-#: wp-admin/includes/class-wp-posts-list-table.php:1196
+#: wp-admin/includes/class-wp-posts-list-table.php:1203
 msgid "Y/m/d"
 msgstr ""
 
@@ -2319,13 +2342,13 @@ msgid "Background updated. <a href=\"%s\">Visit your site</a> to see how it look
 msgstr ""
 
 #: wp-admin/includes/class-custom-background.php:258
-#: wp-admin/includes/template.php:2170
+#: wp-admin/includes/template.php:2175
 msgid "Background Image"
 msgstr ""
 
 #: wp-admin/includes/class-custom-background.php:263
 #: wp-admin/includes/class-custom-image-header.php:533
-#: wp-admin/includes/class-wp-posts-list-table.php:1539
+#: wp-admin/includes/class-wp-posts-list-table.php:1546
 #: wp-admin/includes/class-wp-theme-install-list-table.php:350
 #: wp-admin/includes/meta-boxes.php:75
 #: wp-admin/includes/post.php:1881
@@ -2532,8 +2555,8 @@ msgstr ""
 
 #: wp-admin/includes/class-custom-image-header.php:119
 #: wp-admin/includes/class-custom-image-header.php:526
-#: wp-admin/includes/template.php:2142
-#: wp-admin/includes/template.php:2149
+#: wp-admin/includes/template.php:2147
+#: wp-admin/includes/template.php:2154
 msgid "Header Image"
 msgstr ""
 
@@ -2871,7 +2894,7 @@ msgstr ""
 #: wp-admin/includes/class-wp-media-list-table.php:343
 #: wp-admin/includes/class-wp-media-list-table.php:401
 #: wp-admin/includes/class-wp-posts-list-table.php:671
-#: wp-admin/includes/class-wp-posts-list-table.php:1751
+#: wp-admin/includes/class-wp-posts-list-table.php:1758
 #: wp-admin/includes/meta-boxes.php:804
 #: wp-admin/includes/meta-boxes.php:1099
 #: wp-admin/includes/plugin-install.php:338
@@ -4597,7 +4620,7 @@ msgstr ""
 #: wp-admin/includes/class-wp-media-list-table.php:189
 #: wp-admin/includes/class-wp-media-list-table.php:777
 #: wp-admin/includes/class-wp-posts-list-table.php:442
-#: wp-admin/includes/class-wp-posts-list-table.php:1507
+#: wp-admin/includes/class-wp-posts-list-table.php:1514
 msgid "Restore"
 msgstr ""
 
@@ -4698,8 +4721,8 @@ msgstr ""
 
 #. translators: %s: Object title.
 #: wp-admin/includes/class-wp-media-list-table.php:464
-#: wp-admin/includes/class-wp-posts-list-table.php:1137
-#: wp-admin/includes/class-wp-terms-list-table.php:416
+#: wp-admin/includes/class-wp-posts-list-table.php:1144
+#: wp-admin/includes/class-wp-terms-list-table.php:424
 msgid "&#8220;%s&#8221; (Edit)"
 msgstr ""
 
@@ -4711,13 +4734,13 @@ msgid "File name:"
 msgstr ""
 
 #: wp-admin/includes/class-wp-media-list-table.php:519
-#: wp-admin/includes/class-wp-posts-list-table.php:1279
+#: wp-admin/includes/class-wp-posts-list-table.php:1286
 #: wp-admin/includes/media.php:3310
 msgid "(no author)"
 msgstr ""
 
 #: wp-admin/includes/class-wp-media-list-table.php:546
-#: wp-admin/includes/class-wp-posts-list-table.php:1189
+#: wp-admin/includes/class-wp-posts-list-table.php:1196
 msgid "Unpublished"
 msgstr ""
 
@@ -4756,16 +4779,16 @@ msgstr ""
 
 #. translators: %s: Object title.
 #: wp-admin/includes/class-wp-media-list-table.php:765
-#: wp-admin/includes/class-wp-posts-list-table.php:1476
-#: wp-admin/includes/class-wp-terms-list-table.php:488
+#: wp-admin/includes/class-wp-posts-list-table.php:1483
+#: wp-admin/includes/class-wp-terms-list-table.php:503
 #: wp-admin/includes/dashboard.php:624
 msgid "Edit &#8220;%s&#8221;"
 msgstr ""
 
 #: wp-admin/includes/class-wp-media-list-table.php:766
 #: wp-admin/includes/class-wp-posts-list-table.php:444
-#: wp-admin/includes/class-wp-posts-list-table.php:1477
-#: wp-admin/includes/class-wp-terms-list-table.php:489
+#: wp-admin/includes/class-wp-posts-list-table.php:1484
+#: wp-admin/includes/class-wp-terms-list-table.php:504
 #: wp-admin/includes/class-wp-users-list-table.php:474
 #: wp-admin/includes/meta-boxes.php:137
 #: wp-admin/includes/meta-boxes.php:199
@@ -4776,43 +4799,43 @@ msgstr ""
 
 #. translators: %s: Object title.
 #: wp-admin/includes/class-wp-media-list-table.php:776
-#: wp-admin/includes/class-wp-posts-list-table.php:1506
+#: wp-admin/includes/class-wp-posts-list-table.php:1513
 msgid "Restore &#8220;%s&#8221; from the Trash"
 msgstr ""
 
 #. translators: %s: Object title.
 #: wp-admin/includes/class-wp-media-list-table.php:784
-#: wp-admin/includes/class-wp-posts-list-table.php:1514
+#: wp-admin/includes/class-wp-posts-list-table.php:1521
 msgid "Move &#8220;%s&#8221; to the Trash"
 msgstr ""
 
 #: wp-admin/includes/class-wp-media-list-table.php:785
-#: wp-admin/includes/class-wp-posts-list-table.php:1515
+#: wp-admin/includes/class-wp-posts-list-table.php:1522
 msgctxt "verb"
 msgid "Trash"
 msgstr ""
 
 #. translators: %s: Object title.
 #: wp-admin/includes/class-wp-media-list-table.php:797
-#: wp-admin/includes/class-wp-posts-list-table.php:1524
+#: wp-admin/includes/class-wp-posts-list-table.php:1531
 msgid "Delete &#8220;%s&#8221; permanently"
 msgstr ""
 
 #: wp-admin/includes/class-wp-media-list-table.php:798
-#: wp-admin/includes/class-wp-posts-list-table.php:1525
+#: wp-admin/includes/class-wp-posts-list-table.php:1532
 #: wp-admin/includes/media.php:1738
 msgid "Delete Permanently"
 msgstr ""
 
 #. translators: %s: Object title.
 #: wp-admin/includes/class-wp-media-list-table.php:813
-#: wp-admin/includes/class-wp-posts-list-table.php:1547
+#: wp-admin/includes/class-wp-posts-list-table.php:1554
 msgid "View &#8220;%s&#8221;"
 msgstr ""
 
 #: wp-admin/includes/class-wp-media-list-table.php:814
-#: wp-admin/includes/class-wp-posts-list-table.php:1548
-#: wp-admin/includes/class-wp-terms-list-table.php:528
+#: wp-admin/includes/class-wp-posts-list-table.php:1555
+#: wp-admin/includes/class-wp-terms-list-table.php:543
 #: wp-admin/includes/class-wp-users-list-table.php:500
 msgid "View"
 msgstr ""
@@ -5360,66 +5383,71 @@ msgstr ""
 msgid "%s is currently editing"
 msgstr ""
 
+#. Translators: %s is the Post ID
+#: wp-admin/includes/class-wp-posts-list-table.php:1133
+msgid "#%s"
+msgstr ""
+
 #. translators: 1: Date, 2: Time. See https://www.php.net/manual/datetime.format.php
-#: wp-admin/includes/class-wp-posts-list-table.php:1194
+#: wp-admin/includes/class-wp-posts-list-table.php:1201
 #: wp-admin/includes/meta-boxes.php:234
 #: wp-admin/includes/meta-boxes.php:418
 msgid "%1$s at %2$s"
 msgstr ""
 
-#: wp-admin/includes/class-wp-posts-list-table.php:1209
+#: wp-admin/includes/class-wp-posts-list-table.php:1216
 msgid "Missed schedule"
 msgstr ""
 
-#: wp-admin/includes/class-wp-posts-list-table.php:1214
+#: wp-admin/includes/class-wp-posts-list-table.php:1221
 msgid "Last Modified"
 msgstr ""
 
 #. translators: %s: Object title.
-#: wp-admin/includes/class-wp-posts-list-table.php:1494
-#: wp-admin/includes/class-wp-terms-list-table.php:506
+#: wp-admin/includes/class-wp-posts-list-table.php:1501
+#: wp-admin/includes/class-wp-terms-list-table.php:521
 msgid "Quick edit &#8220;%s&#8221; inline"
 msgstr ""
 
-#: wp-admin/includes/class-wp-posts-list-table.php:1495
-#: wp-admin/includes/class-wp-terms-list-table.php:507
+#: wp-admin/includes/class-wp-posts-list-table.php:1502
+#: wp-admin/includes/class-wp-terms-list-table.php:522
 msgid "Quick&nbsp;Edit"
 msgstr ""
 
 #. translators: %s: Object title.
-#: wp-admin/includes/class-wp-posts-list-table.php:1538
+#: wp-admin/includes/class-wp-posts-list-table.php:1545
 #: wp-admin/includes/class-wp-theme-install-list-table.php:288
 msgid "Preview &#8220;%s&#8221;"
 msgstr ""
 
 #. translators: %s: Post title.
-#: wp-admin/includes/class-wp-posts-list-table.php:1558
+#: wp-admin/includes/class-wp-posts-list-table.php:1565
 msgid "Export &#8220;%s&#8221; as JSON"
 msgstr ""
 
-#: wp-admin/includes/class-wp-posts-list-table.php:1559
+#: wp-admin/includes/class-wp-posts-list-table.php:1566
 msgid "Export as JSON"
 msgstr ""
 
-#: wp-admin/includes/class-wp-posts-list-table.php:1672
+#: wp-admin/includes/class-wp-posts-list-table.php:1679
 msgid "Bulk Edit"
 msgstr ""
 
-#: wp-admin/includes/class-wp-posts-list-table.php:1672
-#: wp-admin/includes/class-wp-terms-list-table.php:690
+#: wp-admin/includes/class-wp-posts-list-table.php:1679
+#: wp-admin/includes/class-wp-terms-list-table.php:711
 msgid "Quick Edit"
 msgstr ""
 
-#: wp-admin/includes/class-wp-posts-list-table.php:1732
-#: wp-admin/includes/class-wp-posts-list-table.php:1835
-#: wp-admin/includes/class-wp-posts-list-table.php:1875
-#: wp-admin/includes/class-wp-posts-list-table.php:1913
-#: wp-admin/includes/class-wp-posts-list-table.php:1936
-#: wp-admin/includes/class-wp-posts-list-table.php:1961
+#: wp-admin/includes/class-wp-posts-list-table.php:1739
+#: wp-admin/includes/class-wp-posts-list-table.php:1842
+#: wp-admin/includes/class-wp-posts-list-table.php:1882
+#: wp-admin/includes/class-wp-posts-list-table.php:1920
+#: wp-admin/includes/class-wp-posts-list-table.php:1943
+#: wp-admin/includes/class-wp-posts-list-table.php:1968
 msgid "&mdash; No Change &mdash;"
 msgstr ""
 
-#: wp-admin/includes/class-wp-posts-list-table.php:1768
+#: wp-admin/includes/class-wp-posts-list-table.php:1775
 #: wp-admin/includes/file.php:1838
 #: wp-admin/install.php:138
 #: wp-admin/install.php:441
@@ -5429,59 +5457,59 @@ msgid "Password"
 msgstr ""
 
 #. translators: Between password field and private checkbox on post quick edit interface.
-#: wp-admin/includes/class-wp-posts-list-table.php:1775
+#: wp-admin/includes/class-wp-posts-list-table.php:1782
 msgid "&ndash;OR&ndash;"
 msgstr ""
 
-#: wp-admin/includes/class-wp-posts-list-table.php:1780
-#: wp-admin/includes/class-wp-posts-list-table.php:1920
+#: wp-admin/includes/class-wp-posts-list-table.php:1787
+#: wp-admin/includes/class-wp-posts-list-table.php:1927
 #: wp-admin/includes/meta-boxes.php:182
 #: wp-admin/includes/meta-boxes.php:222
 msgid "Private"
 msgstr ""
 
-#: wp-admin/includes/class-wp-posts-list-table.php:1823
+#: wp-admin/includes/class-wp-posts-list-table.php:1830
 #: wp-admin/includes/meta-boxes.php:867
 msgid "Parent"
 msgstr ""
 
-#: wp-admin/includes/class-wp-posts-list-table.php:1829
+#: wp-admin/includes/class-wp-posts-list-table.php:1836
 msgid "Main Page (no parent)"
 msgstr ""
 
-#: wp-admin/includes/class-wp-posts-list-table.php:1861
+#: wp-admin/includes/class-wp-posts-list-table.php:1868
 #: wp-admin/includes/media.php:1423
 #: wp-admin/includes/media.php:2594
 #: wp-admin/includes/meta-boxes.php:908
 msgid "Order"
 msgstr ""
 
-#: wp-admin/includes/class-wp-posts-list-table.php:1872
+#: wp-admin/includes/class-wp-posts-list-table.php:1879
 #: wp-admin/includes/meta-boxes.php:876
 msgid "Template"
 msgstr ""
 
-#: wp-admin/includes/class-wp-posts-list-table.php:1934
-#: wp-admin/includes/class-wp-posts-list-table.php:1937
+#: wp-admin/includes/class-wp-posts-list-table.php:1941
+#: wp-admin/includes/class-wp-posts-list-table.php:1944
 msgid "Sticky"
 msgstr ""
 
-#: wp-admin/includes/class-wp-posts-list-table.php:1938
+#: wp-admin/includes/class-wp-posts-list-table.php:1945
 msgid "Not Sticky"
 msgstr ""
 
-#: wp-admin/includes/class-wp-posts-list-table.php:1946
+#: wp-admin/includes/class-wp-posts-list-table.php:1953
 msgid "Make this post sticky"
 msgstr ""
 
-#: wp-admin/includes/class-wp-posts-list-table.php:1959
+#: wp-admin/includes/class-wp-posts-list-table.php:1966
 #: wp-admin/includes/meta-boxes.php:1017
 msgctxt "post format"
 msgid "Format"
 msgstr ""
 
-#: wp-admin/includes/class-wp-posts-list-table.php:2019
-#: wp-admin/includes/class-wp-terms-list-table.php:727
+#: wp-admin/includes/class-wp-posts-list-table.php:2026
+#: wp-admin/includes/class-wp-terms-list-table.php:748
 #: wp-admin/includes/dashboard.php:201
 #: wp-admin/includes/file.php:1939
 #: wp-admin/includes/media.php:1745
@@ -7122,58 +7150,58 @@ msgstr ""
 msgid "A test is unavailable"
 msgstr ""
 
-#: wp-admin/includes/class-wp-terms-list-table.php:197
-#: wp-admin/includes/class-wp-terms-list-table.php:219
+#: wp-admin/includes/class-wp-terms-list-table.php:201
+#: wp-admin/includes/class-wp-terms-list-table.php:223
 msgctxt "Number/count of items"
 msgid "Count"
 msgstr ""
 
-#: wp-admin/includes/class-wp-terms-list-table.php:210
+#: wp-admin/includes/class-wp-terms-list-table.php:214
 msgid "Table ordered hierarchically."
 msgstr ""
 
-#: wp-admin/includes/class-wp-terms-list-table.php:212
+#: wp-admin/includes/class-wp-terms-list-table.php:216
 msgid "Table ordered by Name."
 msgstr ""
 
-#: wp-admin/includes/class-wp-terms-list-table.php:217
+#: wp-admin/includes/class-wp-terms-list-table.php:221
 msgid "Table ordered by Description."
 msgstr ""
 
-#: wp-admin/includes/class-wp-terms-list-table.php:218
+#: wp-admin/includes/class-wp-terms-list-table.php:222
 msgid "Table ordered by Slug."
 msgstr ""
 
-#: wp-admin/includes/class-wp-terms-list-table.php:219
+#: wp-admin/includes/class-wp-terms-list-table.php:223
 msgid "Table ordered by Posts Count."
 msgstr ""
 
-#: wp-admin/includes/class-wp-terms-list-table.php:220
+#: wp-admin/includes/class-wp-terms-list-table.php:224
 msgid "Links"
 msgstr ""
 
-#: wp-admin/includes/class-wp-terms-list-table.php:220
+#: wp-admin/includes/class-wp-terms-list-table.php:224
 msgid "Table ordered by Links."
 msgstr ""
 
 #. translators: %s: Taxonomy term name.
-#: wp-admin/includes/class-wp-terms-list-table.php:369
+#: wp-admin/includes/class-wp-terms-list-table.php:373
 msgctxt "taxonomy"
 msgid "Select %s"
 msgstr ""
 
 #. translators: %s: Taxonomy term name.
-#: wp-admin/includes/class-wp-terms-list-table.php:517
+#: wp-admin/includes/class-wp-terms-list-table.php:532
 msgid "Delete &#8220;%s&#8221;"
 msgstr ""
 
 #. translators: %s: Object title.
-#: wp-admin/includes/class-wp-terms-list-table.php:527
+#: wp-admin/includes/class-wp-terms-list-table.php:542
 msgid "View &#8220;%s&#8221; archive"
 msgstr ""
 
 #. translators: Hidden accessibility text.
-#: wp-admin/includes/class-wp-terms-list-table.php:576
+#: wp-admin/includes/class-wp-terms-list-table.php:591
 msgid "No description"
 msgstr ""
 
@@ -7560,7 +7588,7 @@ msgid "Configure"
 msgstr ""
 
 #: wp-admin/includes/dashboard.php:246
-#: wp-admin/includes/template.php:2330
+#: wp-admin/includes/template.php:2335
 #: wp-admin/options.php:413
 msgid "Save Changes"
 msgstr ""
@@ -10236,58 +10264,58 @@ msgctxt "page label"
 msgid "Privacy Policy Page"
 msgstr ""
 
-#: wp-admin/includes/template.php:2154
+#: wp-admin/includes/template.php:2159
 msgid "Current Header Image"
 msgstr ""
 
-#: wp-admin/includes/template.php:2161
+#: wp-admin/includes/template.php:2166
 msgid "Current Header Video"
 msgstr ""
 
-#: wp-admin/includes/template.php:2174
+#: wp-admin/includes/template.php:2179
 msgid "Current Background Image"
 msgstr ""
 
-#: wp-admin/includes/template.php:2180
+#: wp-admin/includes/template.php:2185
 #: wp-admin/options-general.php:94
 msgid "Site Icon"
 msgstr ""
 
-#: wp-admin/includes/template.php:2184
+#: wp-admin/includes/template.php:2189
 msgid "Logo"
 msgstr ""
 
 #. translators: 1: wp-admin/includes/template.php, 2: add_meta_box(), 3: add_meta_boxes
-#: wp-admin/includes/template.php:2409
+#: wp-admin/includes/template.php:2414
 msgid "Likely direct inclusion of %1$s in order to use %2$s. This is very wrong. Hook the %2$s call into the %3$s action instead."
 msgstr ""
 
-#: wp-admin/includes/template.php:2433
+#: wp-admin/includes/template.php:2438
 msgid "The backup of this post in your browser is different from the version below."
 msgstr ""
 
-#: wp-admin/includes/template.php:2434
+#: wp-admin/includes/template.php:2439
 msgid "Restore the backup"
 msgstr ""
 
-#: wp-admin/includes/template.php:2436
+#: wp-admin/includes/template.php:2441
 msgid "This will replace the current editor content with the last backup version. You can use undo and redo in the editor to get the old content back or to return to the restored version."
 msgstr ""
 
 #. translators: Hidden accessibility text. 1: The rating, 2: The number of ratings.
-#: wp-admin/includes/template.php:2497
+#: wp-admin/includes/template.php:2502
 msgid "%1$s rating based on %2$s rating"
 msgid_plural "%1$s rating based on %2$s ratings"
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: Hidden accessibility text. %s: The rating.
-#: wp-admin/includes/template.php:2501
+#: wp-admin/includes/template.php:2506
 msgid "%s rating"
 msgstr ""
 
-#: wp-admin/includes/template.php:2526
-#: wp-admin/includes/template.php:2545
+#: wp-admin/includes/template.php:2531
+#: wp-admin/includes/template.php:2550
 msgid "You are currently editing the page that shows your latest posts."
 msgstr ""
 
@@ -10764,69 +10792,69 @@ msgstr ""
 msgid "The password you chose during installation."
 msgstr ""
 
-#: wp-admin/includes/upgrade.php:183
+#: wp-admin/includes/upgrade.php:242
 msgid "Uncategorized"
 msgstr ""
 
 #. translators: Default category slug.
-#: wp-admin/includes/upgrade.php:185
+#: wp-admin/includes/upgrade.php:244
 msgctxt "Default category slug"
 msgid "Uncategorized"
 msgstr ""
 
 #. translators: First post content.
-#: wp-admin/includes/upgrade.php:216
+#: wp-admin/includes/upgrade.php:275
 msgid "This a post. Posts appear chronologically in your news feed and are a great way to retrace stories about you, your interests or what you accomplished."
 msgstr ""
 
-#: wp-admin/includes/upgrade.php:238
+#: wp-admin/includes/upgrade.php:297
 msgid "Thanks for making Retraceur your very own Personal Online Publication Hub ♡"
 msgstr ""
 
 #. translators: Default post slug.
-#: wp-admin/includes/upgrade.php:240
-#: wp-admin/includes/upgrade.php:423
+#: wp-admin/includes/upgrade.php:299
+#: wp-admin/includes/upgrade.php:484
 msgctxt "Default post slug"
 msgid "thank-you"
 msgstr ""
 
 #. translators: First page content.
-#: wp-admin/includes/upgrade.php:262
+#: wp-admin/includes/upgrade.php:321
 msgid "This is a page, unlike posts, which appear chronologically in your news feed, pages are hierarchical content that can be used to introduce yourself or share lasting information about you. As most people start with an About page, here is an example of what you might say to your visitors:"
 msgstr ""
 
 #. translators: First page content.
-#: wp-admin/includes/upgrade.php:267
+#: wp-admin/includes/upgrade.php:326
 msgid "Hi there! This is my personal website. I use it to retrace great stories and share my thoughts."
 msgstr ""
 
 #. translators: First page content. %s: Site admin URL.
-#: wp-admin/includes/upgrade.php:273
+#: wp-admin/includes/upgrade.php:332
 msgid "As a new Retraceur writer, you should go to <a href=\"%s\">your dashboard</a> to edit or delete this page and create new pages for your content. Be inspired!"
 msgstr ""
 
-#: wp-admin/includes/upgrade.php:298
+#: wp-admin/includes/upgrade.php:357
 msgid "About"
 msgstr ""
 
 #. translators: Default page slug.
-#: wp-admin/includes/upgrade.php:300
+#: wp-admin/includes/upgrade.php:359
 msgctxt "Default post slug"
 msgid "about"
 msgstr ""
 
-#: wp-admin/includes/upgrade.php:340
+#: wp-admin/includes/upgrade.php:399
 #: wp-admin/options-privacy.php:76
 msgid "Privacy Policy"
 msgstr ""
 
 #. translators: Privacy Policy page slug.
-#: wp-admin/includes/upgrade.php:342
+#: wp-admin/includes/upgrade.php:401
 msgid "privacy-policy"
 msgstr ""
 
 #. translators: New site notification email. 1: New site URL, 2: User login, 3: User password or password reset link, 4: Login URL.
-#: wp-admin/includes/upgrade.php:483
+#: wp-admin/includes/upgrade.php:544
 msgid ""
 "Your new Retraceur site has been successfully set up at:\n"
 "\n"
@@ -10842,7 +10870,7 @@ msgid ""
 ""
 msgstr ""
 
-#: wp-admin/includes/upgrade.php:505
+#: wp-admin/includes/upgrade.php:566
 msgid "New Retraceur Site"
 msgstr ""
 

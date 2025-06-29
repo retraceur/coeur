@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-05-31T09:08:42+00:00\n"
+"POT-Creation-Date: 2025-06-29T01:37:34+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 
@@ -35,7 +35,7 @@ msgid "Please download and install the « Retraceur Réseau » add-on."
 msgstr ""
 
 #. translators: %s: Name of current post. Only visible to screen readers
-#: wp-content/themes/point/functions.php:68
+#: wp-content/themes/point/functions.php:71
 msgid "Read more<span class=\"screen-reader-text\"> about \"%s\"</span>"
 msgstr ""
 
@@ -59,20 +59,22 @@ msgctxt "\"Tagged\" tag separator"
 msgid "Tagged"
 msgstr ""
 
+#: wp-content/themes/point/patterns/entry-header-single-post-format.php:16
 #: wp-content/themes/point/patterns/entry-header-single.php:16
 #: wp-content/themes/point/patterns/entry-header.php:16
 msgctxt "\"Published on\" date separator"
 msgid "Published on"
 msgstr ""
 
-#: wp-content/themes/point/patterns/entry-header-single.php:20
-msgctxt "\"in\" category"
-msgid "in"
-msgstr ""
-
+#: wp-content/themes/point/patterns/entry-header-single-post-format.php:20
 #: wp-content/themes/point/patterns/entry-header.php:20
 msgctxt "\"by\" Author separator"
 msgid "by"
+msgstr ""
+
+#: wp-content/themes/point/patterns/entry-header-single.php:20
+msgctxt "\"in\" category"
+msgid "in"
 msgstr ""
 
 #. Translators: %s: Retraceur link.
@@ -193,7 +195,7 @@ msgstr ""
 
 #: wp-includes/admin-bar.php:532
 #: wp-includes/admin-bar.php:932
-#: wp-includes/taxonomy.php:136
+#: wp-includes/taxonomy.php:225
 msgid "Themes"
 msgstr ""
 
@@ -773,65 +775,76 @@ msgstr ""
 #. translators: %s: Post format name.
 #: wp-includes/block-template-utils.php:218
 msgctxt "Template name"
-msgid "Post Format: %s"
+msgid "Single Post Format entries: %s"
 msgstr ""
 
 #. translators: %s: Post format name.
 #: wp-includes/block-template-utils.php:223
+msgid "Displays the %s post format single entry."
+msgstr ""
+
+#. translators: %s: Post format name.
+#: wp-includes/block-template-utils.php:230
+msgctxt "Template name"
+msgid "Post Format: %s"
+msgstr ""
+
+#. translators: %s: Post format name.
+#: wp-includes/block-template-utils.php:235
 msgid "Displays the %s post format archive."
 msgstr ""
 
 #. translators: %1$s: Template area type, %2$s: the uncategorized template area value.
-#: wp-includes/block-template-utils.php:271
+#: wp-includes/block-template-utils.php:283
 msgid "\"%1$s\" is not a supported wp_template_part area value and has been added as \"%2$s\"."
 msgstr ""
 
 #. translators: 1: Object singular name, 2: Object slug.
-#: wp-includes/block-template-utils.php:701
-#: wp-includes/block-template-utils.php:778
+#: wp-includes/block-template-utils.php:713
+#: wp-includes/block-template-utils.php:790
 msgid "Not found: %1$s (%2$s)"
 msgstr ""
 
 #. translators: 1: Object singular name, 2: Object title.
-#: wp-includes/block-template-utils.php:713
-#: wp-includes/block-template-utils.php:789
+#: wp-includes/block-template-utils.php:725
+#: wp-includes/block-template-utils.php:801
 msgid "%1$s: %2$s"
 msgstr ""
 
 #. translators: %s: Object title or name.
-#: wp-includes/block-template-utils.php:720
-#: wp-includes/block-template-utils.php:796
-#: wp-includes/block-template-utils.php:970
+#: wp-includes/block-template-utils.php:732
+#: wp-includes/block-template-utils.php:808
+#: wp-includes/block-template-utils.php:982
 msgid "Template for %s"
 msgstr ""
 
 #. translators: 1: Template title, 2: Template slug.
-#: wp-includes/block-template-utils.php:734
-#: wp-includes/block-template-utils.php:813
-#: wp-includes/block-template-utils.php:986
+#: wp-includes/block-template-utils.php:746
+#: wp-includes/block-template-utils.php:825
+#: wp-includes/block-template-utils.php:998
 msgid "%1$s (%2$s)"
 msgstr ""
 
-#: wp-includes/block-template-utils.php:839
-#: wp-includes/block-template-utils.php:907
+#: wp-includes/block-template-utils.php:851
+#: wp-includes/block-template-utils.php:919
 msgid "No theme is defined for this template."
 msgstr ""
 
 #. translators: Custom template title in the Site Editor, referencing a deleted author. %s: Author nicename.
-#: wp-includes/block-template-utils.php:956
+#: wp-includes/block-template-utils.php:968
 msgid "Deleted author: %s"
 msgstr ""
 
 #. translators: Custom template title in the Site Editor. %s: Author name.
-#: wp-includes/block-template-utils.php:964
+#: wp-includes/block-template-utils.php:976
 msgid "Author: %s"
 msgstr ""
 
-#: wp-includes/block-template-utils.php:1460
+#: wp-includes/block-template-utils.php:1472
 msgid "Zip Export not supported."
 msgstr ""
 
-#: wp-includes/block-template-utils.php:1469
+#: wp-includes/block-template-utils.php:1481
 msgid "Unable to open export file (archive) for writing."
 msgstr ""
 
@@ -861,7 +874,7 @@ msgid "Block \"%1$s\" is declaring %2$s support in %3$s file under %4$s. %2$s su
 msgstr ""
 
 #: wp-includes/blocks/archives.php:32
-#: wp-includes/general-template.php:1708
+#: wp-includes/general-template.php:1730
 #: wp-includes/theme-compat/sidebar.php:121
 msgid "Archives"
 msgstr ""
@@ -1025,6 +1038,17 @@ msgstr ""
 msgid "Untitled post %d"
 msgstr ""
 
+#. Translators: %s: Post Format name.
+#: wp-includes/blocks/post-format-name.php:42
+msgid "The %s post format is not supported by this Theme."
+msgstr ""
+
+#. Translators: 1: Post Format title. 2: Post ID.
+#: wp-includes/blocks/post-format-name.php:47
+#: wp-includes/general-template.php:1491
+msgid "%1$s #%2$d"
+msgstr ""
+
 #: wp-includes/blocks/post-navigation-link.php:42
 msgctxt "label for next post link"
 msgid "Next"
@@ -1072,17 +1096,17 @@ msgid "Search results for: \"%s\""
 msgstr ""
 
 #. translators: 1: Start index of posts, 2: Total number of posts
-#: wp-includes/blocks/query-total.php:47
+#: wp-includes/blocks/query-total.php:49
 msgid "Displaying %1$s of %2$s"
 msgstr ""
 
 #. translators: 1: Start index of posts, 2: End index of posts, 3: Total number of posts
-#: wp-includes/blocks/query-total.php:54
+#: wp-includes/blocks/query-total.php:56
 msgid "Displaying %1$s – %2$s of %3$s"
 msgstr ""
 
 #. translators: %d: number of results.
-#: wp-includes/blocks/query-total.php:66
+#: wp-includes/blocks/query-total.php:68
 msgid "%d result found"
 msgid_plural "%d results found"
 msgstr[0] ""
@@ -1202,31 +1226,31 @@ msgid "When checking for the %s capability, you must always check it against a s
 msgstr ""
 
 #. translators: User role for administrators.
-#: wp-includes/capabilities.php:1330
+#: wp-includes/capabilities.php:1333
 msgctxt "User role"
 msgid "Administrator"
 msgstr ""
 
 #. translators: User role for editors.
-#: wp-includes/capabilities.php:1332
+#: wp-includes/capabilities.php:1335
 msgctxt "User role"
 msgid "Editor"
 msgstr ""
 
 #. translators: User role for authors.
-#: wp-includes/capabilities.php:1334
+#: wp-includes/capabilities.php:1337
 msgctxt "User role"
 msgid "Author"
 msgstr ""
 
 #. translators: User role for contributors.
-#: wp-includes/capabilities.php:1336
+#: wp-includes/capabilities.php:1339
 msgctxt "User role"
 msgid "Contributor"
 msgstr ""
 
 #. translators: User role for subscribers.
-#: wp-includes/capabilities.php:1338
+#: wp-includes/capabilities.php:1341
 msgctxt "User role"
 msgid "Subscriber"
 msgstr ""
@@ -2511,18 +2535,18 @@ msgstr ""
 msgid "The \"update_menu_item_cache\" argument has been removed. Retraceur does not support WP Nav Menus."
 msgstr ""
 
-#: wp-includes/class-wp-query.php:1533
+#: wp-includes/class-wp-query.php:1572
 msgctxt "Comma-separated list of search stopwords in your language"
 msgid "about,an,are,as,at,be,by,com,for,from,how,in,is,it,of,on,or,that,the,this,to,was,what,when,where,who,will,with,www"
 msgstr ""
 
 #. translators: 1: Deprecated argument key, 2: Valid argument key.
-#: wp-includes/class-wp-query.php:1895
+#: wp-includes/class-wp-query.php:1934
 #: wp-includes/class-wp-user-query.php:407
 msgid "%1$s is deprecated. Use %2$s instead."
 msgstr ""
 
-#: wp-includes/class-wp-query.php:3653
+#: wp-includes/class-wp-query.php:3692
 #: wp-includes/class-wp-rewrite.php:1298
 #: wp-includes/deprecated.php:10028
 #: wp-includes/deprecated.php:10049
@@ -2677,7 +2701,7 @@ msgstr ""
 #: wp-includes/deprecated.php:15668
 #: wp-includes/deprecated.php:15698
 #: wp-includes/deprecated.php:15755
-#: wp-includes/general-template.php:3285
+#: wp-includes/general-template.php:3287
 msgid "WP Comments feature is not supported in Retraceur."
 msgstr ""
 
@@ -2893,16 +2917,16 @@ msgstr ""
 #: wp-includes/class-wp-tax-query.php:558
 #: wp-includes/class-wp-term.php:175
 #: wp-includes/rest-api/endpoints/class-wp-rest-taxonomies-controller.php:195
-#: wp-includes/taxonomy.php:542
-#: wp-includes/taxonomy.php:815
-#: wp-includes/taxonomy.php:916
-#: wp-includes/taxonomy.php:1111
-#: wp-includes/taxonomy.php:1281
-#: wp-includes/taxonomy.php:2205
-#: wp-includes/taxonomy.php:2351
-#: wp-includes/taxonomy.php:2745
-#: wp-includes/taxonomy.php:2932
-#: wp-includes/taxonomy.php:3143
+#: wp-includes/taxonomy.php:631
+#: wp-includes/taxonomy.php:904
+#: wp-includes/taxonomy.php:1005
+#: wp-includes/taxonomy.php:1200
+#: wp-includes/taxonomy.php:1370
+#: wp-includes/taxonomy.php:2294
+#: wp-includes/taxonomy.php:2440
+#: wp-includes/taxonomy.php:2834
+#: wp-includes/taxonomy.php:3021
+#: wp-includes/taxonomy.php:3232
 msgid "Invalid taxonomy."
 msgstr ""
 
@@ -3003,7 +3027,7 @@ msgid "Add Tag"
 msgstr ""
 
 #: wp-includes/class-wp-taxonomy.php:629
-#: wp-includes/taxonomy.php:177
+#: wp-includes/taxonomy.php:266
 msgid "Add Category"
 msgstr ""
 
@@ -3927,7 +3951,7 @@ msgid "55"
 msgstr ""
 
 #: wp-includes/formatting.php:4039
-#: wp-includes/general-template.php:4658
+#: wp-includes/general-template.php:4660
 msgid "&hellip;"
 msgstr ""
 
@@ -4393,14 +4417,14 @@ msgstr ""
 
 #. translators: See https://www.php.net/manual/datetime.format.php
 #: wp-includes/general-template.php:1232
-#: wp-includes/general-template.php:1722
+#: wp-includes/general-template.php:1745
 msgctxt "yearly archives date format"
 msgid "Y"
 msgstr ""
 
 #. translators: See https://www.php.net/manual/datetime.format.php
 #: wp-includes/general-template.php:1235
-#: wp-includes/general-template.php:1726
+#: wp-includes/general-template.php:1749
 msgctxt "monthly archives date format"
 msgid "F Y"
 msgstr ""
@@ -4415,233 +4439,188 @@ msgstr ""
 msgid "Search Results %1$s %2$s"
 msgstr ""
 
-#: wp-includes/general-template.php:1713
+#: wp-includes/general-template.php:1736
 msgctxt "category archive title prefix"
 msgid "Category:"
 msgstr ""
 
-#: wp-includes/general-template.php:1716
+#: wp-includes/general-template.php:1739
 msgctxt "tag archive title prefix"
 msgid "Tag:"
 msgstr ""
 
-#: wp-includes/general-template.php:1719
+#: wp-includes/general-template.php:1742
 msgctxt "author archive title prefix"
 msgid "Author:"
 msgstr ""
 
-#: wp-includes/general-template.php:1723
+#: wp-includes/general-template.php:1746
 msgctxt "date archive title prefix"
 msgid "Year:"
 msgstr ""
 
-#: wp-includes/general-template.php:1727
+#: wp-includes/general-template.php:1750
 msgctxt "date archive title prefix"
 msgid "Month:"
 msgstr ""
 
 #. translators: See https://www.php.net/manual/datetime.format.php
-#: wp-includes/general-template.php:1730
-#: wp-includes/general-template.php:2514
+#: wp-includes/general-template.php:1753
+#: wp-includes/general-template.php:2516
 msgctxt "daily archives date format"
 msgid "F j, Y"
 msgstr ""
 
-#: wp-includes/general-template.php:1731
+#: wp-includes/general-template.php:1754
 msgctxt "date archive title prefix"
 msgid "Day:"
 msgstr ""
 
-#: wp-includes/general-template.php:1734
-msgctxt "post format archive title"
-msgid "Asides"
-msgstr ""
-
-#: wp-includes/general-template.php:1736
-msgctxt "post format archive title"
-msgid "Galleries"
-msgstr ""
-
-#: wp-includes/general-template.php:1738
-msgctxt "post format archive title"
-msgid "Images"
-msgstr ""
-
-#: wp-includes/general-template.php:1740
-msgctxt "post format archive title"
-msgid "Videos"
-msgstr ""
-
-#: wp-includes/general-template.php:1742
-msgctxt "post format archive title"
-msgid "Quotes"
-msgstr ""
-
-#: wp-includes/general-template.php:1744
-msgctxt "post format archive title"
-msgid "Links"
-msgstr ""
-
-#: wp-includes/general-template.php:1746
-msgctxt "post format archive title"
-msgid "Statuses"
-msgstr ""
-
-#: wp-includes/general-template.php:1748
-msgctxt "post format archive title"
-msgid "Audio"
-msgstr ""
-
-#: wp-includes/general-template.php:1750
-msgctxt "post format archive title"
-msgid "Chats"
-msgstr ""
-
-#: wp-includes/general-template.php:1754
+#: wp-includes/general-template.php:1759
 msgctxt "post type archive title prefix"
 msgid "Archives:"
 msgstr ""
 
 #. translators: %s: Taxonomy singular name.
-#: wp-includes/general-template.php:1762
+#: wp-includes/general-template.php:1765
 msgctxt "taxonomy term archive title prefix"
 msgid "%s:"
 msgstr ""
 
 #. translators: 1: Title prefix. 2: Title.
-#: wp-includes/general-template.php:1781
+#: wp-includes/general-template.php:1783
 msgctxt "archive title"
 msgid "%1$s %2$s"
 msgstr ""
 
 #. translators: 1: Month, 2: Year.
-#: wp-includes/general-template.php:2080
+#: wp-includes/general-template.php:2082
 #: wp-includes/media.php:4878
 msgid "%1$s %2$d"
 msgstr ""
 
 #. translators: Calendar caption: 1: Month name, 2: 4-digit year.
-#: wp-includes/general-template.php:2435
+#: wp-includes/general-template.php:2437
 msgctxt "calendar caption"
 msgid "%1$s %2$s"
 msgstr ""
 
 #. translators: Post calendar label. %s: Date.
-#: wp-includes/general-template.php:2516
+#: wp-includes/general-template.php:2518
 msgid "Posts published on %s"
 msgstr ""
 
-#: wp-includes/general-template.php:2543
+#: wp-includes/general-template.php:2545
 msgid "Previous and next months"
 msgstr ""
 
 #. translators: Separator between site name and feed type in feed links.
-#: wp-includes/general-template.php:3240
-#: wp-includes/general-template.php:3300
+#: wp-includes/general-template.php:3242
+#: wp-includes/general-template.php:3302
 msgctxt "feed link"
 msgid "&raquo;"
 msgstr ""
 
 #. translators: 1: Site title, 2: Separator (raquo).
-#: wp-includes/general-template.php:3242
+#: wp-includes/general-template.php:3244
 msgid "%1$s %2$s Feed"
 msgstr ""
 
 #. translators: 1: Site name, 2: Separator (raquo), 3: Category name.
-#: wp-includes/general-template.php:3302
+#: wp-includes/general-template.php:3304
 msgid "%1$s %2$s %3$s Category Feed"
 msgstr ""
 
 #. translators: 1: Site name, 2: Separator (raquo), 3: Tag name.
-#: wp-includes/general-template.php:3304
+#: wp-includes/general-template.php:3306
 msgid "%1$s %2$s %3$s Tag Feed"
 msgstr ""
 
 #. translators: 1: Site name, 2: Separator (raquo), 3: Term name, 4: Taxonomy singular name.
-#: wp-includes/general-template.php:3306
+#: wp-includes/general-template.php:3308
 msgid "%1$s %2$s %3$s %4$s Feed"
 msgstr ""
 
 #. translators: 1: Site name, 2: Separator (raquo), 3: Author name.
-#: wp-includes/general-template.php:3308
+#: wp-includes/general-template.php:3310
 msgid "%1$s %2$s Posts by %3$s Feed"
 msgstr ""
 
 #. translators: 1: Site name, 2: Separator (raquo), 3: Search query.
-#: wp-includes/general-template.php:3310
+#: wp-includes/general-template.php:3312
 msgid "%1$s %2$s Search Results for &#8220;%3$s&#8221; Feed"
 msgstr ""
 
 #. translators: 1: Site name, 2: Separator (raquo), 3: Post type name.
-#: wp-includes/general-template.php:3312
+#: wp-includes/general-template.php:3314
 msgid "%1$s %2$s %3$s Feed"
 msgstr ""
 
-#: wp-includes/general-template.php:4554
+#: wp-includes/general-template.php:4556
 msgid "&laquo; Previous"
 msgstr ""
 
-#: wp-includes/general-template.php:4555
+#: wp-includes/general-template.php:4557
 msgid "Next &raquo;"
 msgstr ""
 
-#: wp-includes/general-template.php:4767
+#: wp-includes/general-template.php:4769
 msgctxt "admin color scheme"
 msgid "Retraceur"
 msgstr ""
 
-#: wp-includes/general-template.php:4779
+#: wp-includes/general-template.php:4781
 msgctxt "admin color scheme"
 msgid "Fresh"
 msgstr ""
 
-#: wp-includes/general-template.php:4791
+#: wp-includes/general-template.php:4793
 msgctxt "admin color scheme"
 msgid "Light"
 msgstr ""
 
-#: wp-includes/general-template.php:4803
+#: wp-includes/general-template.php:4805
 msgctxt "admin color scheme"
 msgid "Modern"
 msgstr ""
 
-#: wp-includes/general-template.php:4815
+#: wp-includes/general-template.php:4817
 msgctxt "admin color scheme"
 msgid "Blue"
 msgstr ""
 
-#: wp-includes/general-template.php:4827
+#: wp-includes/general-template.php:4829
 msgctxt "admin color scheme"
 msgid "Midnight"
 msgstr ""
 
-#: wp-includes/general-template.php:4839
+#: wp-includes/general-template.php:4841
 msgctxt "admin color scheme"
 msgid "Sunrise"
 msgstr ""
 
-#: wp-includes/general-template.php:4851
+#: wp-includes/general-template.php:4853
 msgctxt "admin color scheme"
 msgid "Ectoplasm"
 msgstr ""
 
-#: wp-includes/general-template.php:4863
+#: wp-includes/general-template.php:4865
 msgctxt "admin color scheme"
 msgid "Ocean"
 msgstr ""
 
-#: wp-includes/general-template.php:4875
+#: wp-includes/general-template.php:4877
 msgctxt "admin color scheme"
 msgid "Coffee"
 msgstr ""
 
 #. translators: Character to identify required form fields.
-#: wp-includes/general-template.php:5242
+#: wp-includes/general-template.php:5244
 msgid "*"
 msgstr ""
 
 #. translators: %s: Asterisk symbol (*).
-#: wp-includes/general-template.php:5266
+#: wp-includes/general-template.php:5268
 msgid "Required fields are marked %s"
 msgstr ""
 
@@ -6077,59 +6056,174 @@ msgstr ""
 msgid "Only a static class method or function can be used in an uninstall hook."
 msgstr ""
 
-#: wp-includes/post-formats.php:76
+#: wp-includes/post-formats.php:211
 #: wp-includes/revision.php:710
 msgid "Invalid post."
 msgstr ""
 
-#: wp-includes/post-formats.php:100
-msgctxt "Post format"
+#: wp-includes/post-formats.php:237
+msgctxt "Post format label"
 msgid "Standard"
 msgstr ""
 
-#: wp-includes/post-formats.php:101
-msgctxt "Post format"
+#: wp-includes/post-formats.php:238
+msgctxt "Post format singular name"
+msgid "Post"
+msgstr ""
+
+#: wp-includes/post-formats.php:239
+msgctxt "Post format plural name"
+msgid "Posts"
+msgstr ""
+
+#: wp-includes/post-formats.php:243
+msgctxt "Post format label"
 msgid "Aside"
 msgstr ""
 
-#: wp-includes/post-formats.php:102
-msgctxt "Post format"
+#: wp-includes/post-formats.php:244
+msgctxt "Post format singular name"
+msgid "Aside"
+msgstr ""
+
+#: wp-includes/post-formats.php:245
+msgctxt "Post format plural name"
+msgid "Asides"
+msgstr ""
+
+#: wp-includes/post-formats.php:249
+msgctxt "Post format label"
 msgid "Chat"
 msgstr ""
 
-#: wp-includes/post-formats.php:103
-msgctxt "Post format"
+#: wp-includes/post-formats.php:250
+msgctxt "Post format singular name"
+msgid "Chat"
+msgstr ""
+
+#: wp-includes/post-formats.php:251
+msgctxt "Post format plural name"
+msgid "Chats"
+msgstr ""
+
+#: wp-includes/post-formats.php:255
+msgctxt "Post format label"
+msgid "Code"
+msgstr ""
+
+#: wp-includes/post-formats.php:256
+msgctxt "Post format singular name"
+msgid "Code"
+msgstr ""
+
+#: wp-includes/post-formats.php:257
+msgctxt "Post format plural name"
+msgid "Codes"
+msgstr ""
+
+#: wp-includes/post-formats.php:261
+msgctxt "Post format label"
 msgid "Gallery"
 msgstr ""
 
-#: wp-includes/post-formats.php:104
-msgctxt "Post format"
+#: wp-includes/post-formats.php:262
+msgctxt "Post format singular name"
+msgid "Gallery"
+msgstr ""
+
+#: wp-includes/post-formats.php:263
+msgctxt "Post format plural name"
+msgid "Galleries"
+msgstr ""
+
+#: wp-includes/post-formats.php:267
+msgctxt "Post format label"
 msgid "Link"
 msgstr ""
 
-#: wp-includes/post-formats.php:105
-msgctxt "Post format"
+#: wp-includes/post-formats.php:268
+msgctxt "Post format singular name"
+msgid "Link"
+msgstr ""
+
+#: wp-includes/post-formats.php:269
+msgctxt "Post format plural name"
+msgid "Links"
+msgstr ""
+
+#: wp-includes/post-formats.php:273
+msgctxt "Post format label"
 msgid "Image"
 msgstr ""
 
-#: wp-includes/post-formats.php:106
-msgctxt "Post format"
+#: wp-includes/post-formats.php:274
+msgctxt "Post format singular name"
+msgid "Image"
+msgstr ""
+
+#: wp-includes/post-formats.php:275
+msgctxt "Post format plural name"
+msgid "Images"
+msgstr ""
+
+#: wp-includes/post-formats.php:279
+msgctxt "Post format label"
 msgid "Quote"
 msgstr ""
 
-#: wp-includes/post-formats.php:107
-msgctxt "Post format"
+#: wp-includes/post-formats.php:280
+msgctxt "Post format singular name"
+msgid "Quote"
+msgstr ""
+
+#: wp-includes/post-formats.php:281
+msgctxt "Post format plural name"
+msgid "Quotes"
+msgstr ""
+
+#: wp-includes/post-formats.php:285
+msgctxt "Post format label"
 msgid "Status"
 msgstr ""
 
-#: wp-includes/post-formats.php:108
-msgctxt "Post format"
+#: wp-includes/post-formats.php:286
+msgctxt "Post format singular name"
+msgid "Status"
+msgstr ""
+
+#: wp-includes/post-formats.php:287
+msgctxt "Post format plural name"
+msgid "Statuses"
+msgstr ""
+
+#: wp-includes/post-formats.php:291
+msgctxt "Post format label"
 msgid "Video"
 msgstr ""
 
-#: wp-includes/post-formats.php:109
-msgctxt "Post format"
+#: wp-includes/post-formats.php:292
+msgctxt "Post format singular name"
+msgid "Video"
+msgstr ""
+
+#: wp-includes/post-formats.php:293
+msgctxt "Post format plural name"
+msgid "Videos"
+msgstr ""
+
+#: wp-includes/post-formats.php:297
+msgctxt "Post format label"
 msgid "Audio"
+msgstr ""
+
+#: wp-includes/post-formats.php:298
+msgctxt "Post format singular name"
+msgid "Audio"
+msgstr ""
+
+#: wp-includes/post-formats.php:299
+msgctxt "Post format plural name"
+msgid "Audios"
 msgstr ""
 
 #. translators: %s: Protected post title.
@@ -9533,8 +9627,8 @@ msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:538
 #: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:685
-#: wp-includes/taxonomy.php:2387
-#: wp-includes/taxonomy.php:3189
+#: wp-includes/taxonomy.php:2476
+#: wp-includes/taxonomy.php:3278
 msgid "Parent term does not exist."
 msgstr ""
 
@@ -10804,176 +10898,243 @@ msgstr ""
 msgid "$store must be an instance of WP_Style_Engine_CSS_Rules_Store"
 msgstr ""
 
-#: wp-includes/taxonomy.php:118
+#: wp-includes/taxonomy.php:125
 msgctxt "post format"
 msgid "Formats"
 msgstr ""
 
-#: wp-includes/taxonomy.php:119
+#: wp-includes/taxonomy.php:126
 msgctxt "post format"
 msgid "Format"
 msgstr ""
 
+#: wp-includes/taxonomy.php:127
+msgctxt "post format"
+msgid "&larr; Go to Formats"
+msgstr ""
+
+#: wp-includes/taxonomy.php:128
+msgctxt "post format"
+msgid "Edit Format"
+msgstr ""
+
+#: wp-includes/taxonomy.php:129
+msgctxt "post format"
+msgid "Format Link"
+msgstr ""
+
+#: wp-includes/taxonomy.php:130
+msgctxt "post format"
+msgid "A link to a post format."
+msgstr ""
+
+#: wp-includes/taxonomy.php:131
+msgctxt "post format"
+msgid "Formats list"
+msgstr ""
+
+#: wp-includes/taxonomy.php:132
+msgctxt "post format"
+msgid "Formats list navigation"
+msgstr ""
+
+#: wp-includes/taxonomy.php:133
+msgctxt "post format"
+msgid "No formats"
+msgstr ""
+
+#: wp-includes/taxonomy.php:134
+msgctxt "post format"
+msgid "No formats found."
+msgstr ""
+
+#: wp-includes/taxonomy.php:135
+msgctxt "post format"
+msgid "Search Formats"
+msgstr ""
+
+#: wp-includes/taxonomy.php:136
+msgctxt "post format"
+msgid "Update Format"
+msgstr ""
+
 #: wp-includes/taxonomy.php:137
+msgctxt "post format"
+msgid "View Format"
+msgstr ""
+
+#: wp-includes/taxonomy.php:165
+msgid "Used to allow Post Format customizable slugs."
+msgstr ""
+
+#: wp-includes/taxonomy.php:187
+msgid "Used to allow Post Format customizable single title."
+msgstr ""
+
+#: wp-includes/taxonomy.php:205
+msgid "Used to allow Post Format customizable Archive title."
+msgstr ""
+
+#: wp-includes/taxonomy.php:226
 msgid "Theme"
 msgstr ""
 
-#: wp-includes/taxonomy.php:155
+#: wp-includes/taxonomy.php:244
 msgid "Template Part Areas"
 msgstr ""
 
-#: wp-includes/taxonomy.php:156
+#: wp-includes/taxonomy.php:245
 msgid "Template Part Area"
 msgstr ""
 
-#: wp-includes/taxonomy.php:175
+#: wp-includes/taxonomy.php:264
 msgctxt "taxonomy general name"
 msgid "Pattern Categories"
 msgstr ""
 
-#: wp-includes/taxonomy.php:176
+#: wp-includes/taxonomy.php:265
 msgctxt "taxonomy singular name"
 msgid "Pattern Category"
 msgstr ""
 
-#: wp-includes/taxonomy.php:178
+#: wp-includes/taxonomy.php:267
 msgid "Add or remove pattern categories"
 msgstr ""
 
-#: wp-includes/taxonomy.php:179
+#: wp-includes/taxonomy.php:268
 msgid "&larr; Go to Pattern Categories"
 msgstr ""
 
-#: wp-includes/taxonomy.php:180
+#: wp-includes/taxonomy.php:269
 msgid "Choose from the most used pattern categories"
 msgstr ""
 
-#: wp-includes/taxonomy.php:181
+#: wp-includes/taxonomy.php:270
 msgid "Edit Pattern Category"
 msgstr ""
 
-#: wp-includes/taxonomy.php:182
+#: wp-includes/taxonomy.php:271
 msgid "Pattern Category Link"
 msgstr ""
 
-#: wp-includes/taxonomy.php:183
+#: wp-includes/taxonomy.php:272
 msgid "A link to a pattern category."
 msgstr ""
 
-#: wp-includes/taxonomy.php:184
+#: wp-includes/taxonomy.php:273
 msgid "Pattern Categories list"
 msgstr ""
 
-#: wp-includes/taxonomy.php:185
+#: wp-includes/taxonomy.php:274
 msgid "Pattern Categories list navigation"
 msgstr ""
 
-#: wp-includes/taxonomy.php:186
+#: wp-includes/taxonomy.php:275
 msgid "New Pattern Category Name"
 msgstr ""
 
-#: wp-includes/taxonomy.php:187
+#: wp-includes/taxonomy.php:276
 msgid "No pattern categories"
 msgstr ""
 
-#: wp-includes/taxonomy.php:188
+#: wp-includes/taxonomy.php:277
 msgid "No pattern categories found."
 msgstr ""
 
-#: wp-includes/taxonomy.php:189
+#: wp-includes/taxonomy.php:278
 msgid "Popular Pattern Categories"
 msgstr ""
 
-#: wp-includes/taxonomy.php:190
+#: wp-includes/taxonomy.php:279
 msgid "Search Pattern Categories"
 msgstr ""
 
-#: wp-includes/taxonomy.php:191
+#: wp-includes/taxonomy.php:280
 msgid "Separate pattern categories with commas"
 msgstr ""
 
-#: wp-includes/taxonomy.php:192
+#: wp-includes/taxonomy.php:281
 msgid "Update Pattern Category"
 msgstr ""
 
-#: wp-includes/taxonomy.php:193
+#: wp-includes/taxonomy.php:282
 msgid "View Pattern Category"
 msgstr ""
 
-#: wp-includes/taxonomy.php:461
-#: wp-includes/taxonomy.php:462
+#: wp-includes/taxonomy.php:550
+#: wp-includes/taxonomy.php:551
 msgid "Taxonomy names must be between 1 and 32 characters in length."
 msgstr ""
 
-#: wp-includes/taxonomy.php:549
+#: wp-includes/taxonomy.php:638
 msgid "Unregistering a built-in taxonomy is not allowed."
 msgstr ""
 
 #. translators: %s: Taxonomy name.
-#: wp-includes/taxonomy.php:659
+#: wp-includes/taxonomy.php:748
 msgctxt "taxonomy template name"
 msgid "%s Archives"
 msgstr ""
 
-#: wp-includes/taxonomy.php:912
-#: wp-includes/taxonomy.php:3156
-#: wp-includes/taxonomy.php:4557
+#: wp-includes/taxonomy.php:1001
+#: wp-includes/taxonomy.php:3245
+#: wp-includes/taxonomy.php:4646
 msgid "Empty Term."
 msgstr ""
 
-#: wp-includes/taxonomy.php:1336
-#: wp-includes/taxonomy.php:1406
+#: wp-includes/taxonomy.php:1425
+#: wp-includes/taxonomy.php:1495
 msgid "Term meta cannot be added to terms that are shared between taxonomies."
 msgstr ""
 
-#: wp-includes/taxonomy.php:2371
+#: wp-includes/taxonomy.php:2460
 msgid "Invalid term ID."
 msgstr ""
 
-#: wp-includes/taxonomy.php:2375
-#: wp-includes/taxonomy.php:3185
+#: wp-includes/taxonomy.php:2464
+#: wp-includes/taxonomy.php:3274
 msgid "A name is required for this term."
 msgstr ""
 
-#: wp-includes/taxonomy.php:2405
+#: wp-includes/taxonomy.php:2494
 msgid "Invalid term name."
 msgstr ""
 
-#: wp-includes/taxonomy.php:2490
+#: wp-includes/taxonomy.php:2579
 msgid "A term with the name provided already exists with this parent."
 msgstr ""
 
-#: wp-includes/taxonomy.php:2493
+#: wp-includes/taxonomy.php:2582
 msgid "A term with the name provided already exists in this taxonomy."
 msgstr ""
 
-#: wp-includes/taxonomy.php:2514
+#: wp-includes/taxonomy.php:2603
 msgid "Could not insert term into the database."
 msgstr ""
 
-#: wp-includes/taxonomy.php:2541
+#: wp-includes/taxonomy.php:2630
 msgid "Could not insert term taxonomy into the database."
 msgstr ""
 
-#: wp-includes/taxonomy.php:2875
+#: wp-includes/taxonomy.php:2964
 msgid "Could not insert term relationship into the database."
 msgstr ""
 
 #. translators: %s: Taxonomy term slug.
-#: wp-includes/taxonomy.php:3253
+#: wp-includes/taxonomy.php:3342
 msgid "The slug &#8220;%s&#8221; is already in use by another term."
 msgstr ""
 
-#: wp-includes/taxonomy.php:4213
+#: wp-includes/taxonomy.php:4302
 msgid "Could not split shared term."
 msgstr ""
 
 #. translators: %s: Taxonomy label, %l: List of terms formatted as per $term_template.
-#: wp-includes/taxonomy.php:4706
+#: wp-includes/taxonomy.php:4795
 msgid "%s: %l."
 msgstr ""
 
-#: wp-includes/taxonomy.php:4780
+#: wp-includes/taxonomy.php:4869
 msgid "Invalid object ID."
 msgstr ""
 
@@ -13035,6 +13196,26 @@ msgstr ""
 #: wp-includes/blocks/post-featured-image/block.json
 msgctxt "block description"
 msgid "Display a post's featured image."
+msgstr ""
+
+#: wp-includes/blocks/post-format-name/block.json
+msgctxt "block title"
+msgid "Post Format name"
+msgstr ""
+
+#: wp-includes/blocks/post-format-name/block.json
+msgctxt "block description"
+msgid "Displays the name of a post format."
+msgstr ""
+
+#: wp-includes/blocks/post-format-part/block.json
+msgctxt "block title"
+msgid "Post Format Part"
+msgstr ""
+
+#: wp-includes/blocks/post-format-part/block.json
+msgctxt "block description"
+msgid "Displays Post Formats according to the one(s) specified within the include or exclude attributes."
 msgstr ""
 
 #: wp-includes/blocks/post-navigation-link/block.json
