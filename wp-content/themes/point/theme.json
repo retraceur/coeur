@@ -134,7 +134,7 @@
 		}
 	},
 	"styles": {
-		"css": ".wp-site-blocks { margin: 0 auto; padding-left: 1em; padding-right: 1em; } @media screen and (max-width: 600px) { .site-header .search-form-container, .site-header .navigation-container, .site-footer .navigation-container { display: block; margin: 0 auto; } .site-header .search-form-container, .site-footer .navigation-container ul { width: fit-content; margin: 0 auto } .site-footer .navigation-container p { text-align: center; padding-top: 1em } .site-header .navigation-top { justify-content: space-between; } }",
+		"css": ".wp-site-blocks { margin: 0 auto; padding-left: 1em; padding-right: 1em; } @media screen and (max-width: 600px) { .site-header .search-form-container, .site-header .navigation-container, .site-footer .navigation-container { display: block; margin: 0 auto; } .site-header .search-form-container, .site-footer .navigation-container ul { width: fit-content; margin: 0 auto } .site-footer .navigation-container p { text-align: center; padding-top: 1em } .site-header .navigation-top { justify-content: space-between; } } .term-post-format-image .wp-block-post-template-is-layout-grid li { max-height: 250px; overflow: hidden; }",
 		"color": {
 			"background": "var(--wp--preset--color--tertiary)",
 			"text": "var(--wp--preset--color--primary)"
@@ -249,6 +249,9 @@
 				"typography": {
 					"fontSize": "var(--wp--preset--font-size--point-medium)"
 				}
+			},
+			"core/post-format-name": {
+				"css": "&.inline-image-format { font-size: var(--wp--preset--font-size--point-regular); }"
 			}
 		}
 	},
