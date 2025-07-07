@@ -17,9 +17,11 @@
 	<p><?php echo esc_html_x( ': published on', 'Image post format "Published on" date separator' ); ?></p>
 	<!-- /wp:paragraph -->
 	<!-- wp:post-date /-->
-	<!-- wp:paragraph -->
-	<p><?php echo esc_html_x( 'by', '"by" Author separator' ); ?></p>
-	<!-- /wp:paragraph -->
-	<!-- wp:post-author {"showAvatar":false} /-->
+	<?php if ( ! is_author() ) : ?>
+		<!-- wp:paragraph -->
+		<p><?php echo esc_html_x( 'by', '"by" Author separator' ); ?></p>
+		<!-- /wp:paragraph -->
+		<!-- wp:post-author {"showAvatar":false} /-->
+	<?php endif ; ?>
 </div>
 <!-- /wp:group -->

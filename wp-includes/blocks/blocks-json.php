@@ -4105,7 +4105,6 @@
         'wide',
         'full'
       ),
-      'layout' => true,
       'interactivity' => true
     )
   ),

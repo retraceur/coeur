@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Point’s Single Post Format entry header
- * Slug: point/entry-header-single-post-format
+ * Slug: point/entry-header-post-format
  * Inserter: no
  *
  * @package Retraceur
@@ -16,9 +16,11 @@
 	<p><?php echo esc_html_x( 'Published on', '"Published on" date separator' ); ?></p>
 	<!-- /wp:paragraph -->
 	<!-- wp:post-date /-->
-	<!-- wp:paragraph -->
-	<p><?php echo esc_html_x( 'by', '"by" Author separator' ); ?></p>
-	<!-- /wp:paragraph -->
-	<!-- wp:post-author {"showAvatar":false} /-->
+	<?php if( ! is_author() ) : ?>
+		<!-- wp:paragraph -->
+		<p><?php echo esc_html_x( 'by', '"by" Author separator' ); ?></p>
+		<!-- /wp:paragraph -->
+		<!-- wp:post-author {"showAvatar":false} /-->
+	<?php endif; ?>
 </div>
 <!-- /wp:group -->

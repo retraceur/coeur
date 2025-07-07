@@ -20,7 +20,6 @@
 		"reusable": false,
 		"html": false,
 		"align": [ "wide", "full" ],
-		"layout": true,
 		"interactivity": true
 	}
 }
