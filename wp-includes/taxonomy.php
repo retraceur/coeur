@@ -119,9 +119,9 @@ function create_initial_taxonomies() {
 		'post_format',
 		'post',
 		array(
-			'public'            => true,
-			'hierarchical'      => false,
-			'labels'            => array(
+			'public'             => true,
+			'hierarchical'       => false,
+			'labels'             => array(
 				'name'                  => _x( 'Formats', 'post format' ),
 				'singular_name'         => _x( 'Format', 'post format' ),
 				'back_to_items'         => _x( '&larr; Go to Formats', 'post format' ),
@@ -136,19 +136,20 @@ function create_initial_taxonomies() {
 				'update_item'           => _x( 'Update Format', 'post format' ),
 				'view_item'             => _x( 'View Format', 'post format' ),
 			),
-			'query_var'         => true,
-			'rewrite'           => $rewrite['post_format'],
-			'show_ui'           => $post_format_support,
-			'_builtin'          => true,
-			'capabilities'      => array(
+			'query_var'          => true,
+			'rewrite'            => $rewrite['post_format'],
+			'show_ui'            => $post_format_support,
+			'show_in_quick_edit' => false,
+			'_builtin'           => true,
+			'capabilities'       => array(
 				'create_terms' => 'do_not_allow',
 				'manage_terms' => 'manage_post_formats',
 				'edit_terms'   => 'edit_post_formats',
 				'delete_terms' => 'do_not_allow',
 				'assign_terms' => 'assign_post_formats',
 			),
-			'show_in_nav_menus' => $post_format_support,
-			'show_in_rest'      => true,
+			'show_in_nav_menus'  => $post_format_support,
+			'show_in_rest'       => true,
 		)
 	);
 

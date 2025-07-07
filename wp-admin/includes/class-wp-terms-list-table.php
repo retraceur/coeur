@@ -382,7 +382,8 @@ class WP_Terms_List_Table extends WP_List_Table {
 	 * @return string
 	 */
 	public function column_name( $tag ) {
-		$taxonomy = $this->screen->taxonomy;
+		$taxonomy        = $this->screen->taxonomy;
+		$taxonomy_object = get_taxonomy( $taxonomy );
 
 		$pad      = str_repeat( '&#8212; ', max( 0, $this->level ) );
 		$tag_name = $tag->name;
@@ -439,9 +440,9 @@ class WP_Terms_List_Table extends WP_List_Table {
 		);
 
 		/** This filter is documented in wp-admin/includes/class-wp-terms-list-table.php */
-		$quick_edit_enabled = apply_filters( 'quick_edit_enabled_for_taxonomy', true, $taxonomy );
+		$quick_edit_enabled = apply_filters( 'quick_edit_enabled_for_taxonomy', $taxonomy_object->show_in_quick_edit, $taxonomy );
 
-		if ( $quick_edit_enabled && 'post_format' !== $taxonomy ) {
+		if ( $quick_edit_enabled ) {
 			$output .= '<div class="hidden" id="inline_' . $qe_data->term_id . '">';
 			$output .= '<div class="name">' . $qe_data->name . '</div>';
 
@@ -484,8 +485,9 @@ class WP_Terms_List_Table extends WP_List_Table {
 		// Restores the more descriptive, specific name for use within this method.
 		$tag = $item;
 
-		$taxonomy = $this->screen->taxonomy;
-		$uri      = wp_doing_ajax() ? wp_get_referer() : $_SERVER['REQUEST_URI'];
+		$taxonomy        = $this->screen->taxonomy;
+		$taxonomy_object = get_taxonomy( $taxonomy );
+		$uri             = wp_doing_ajax() ? wp_get_referer() : $_SERVER['REQUEST_URI'];
 
 		$actions = array();
 
@@ -508,13 +510,14 @@ class WP_Terms_List_Table extends WP_List_Table {
 			 * Filters whether Quick Edit should be enabled for the given taxonomy.
 			 *
 			 * @since WP 6.4.0
+			 * @since 2.0.0 Retraceur fork. Now uses the `$show_in_quick_edit` taxonomy object property.
 			 *
-			 * @param bool   $enable   Whether to enable the Quick Edit functionality. Default true.
+			 * @param bool   $show_in_quick_edit Whether the taxonomy supports the Quick Edit functionality. Default true.
 			 * @param string $taxonomy Taxonomy name.
 			 */
-			$quick_edit_enabled = apply_filters( 'quick_edit_enabled_for_taxonomy', true, $taxonomy );
+			$quick_edit_enabled = apply_filters( 'quick_edit_enabled_for_taxonomy', $taxonomy_object->show_in_quick_edit, $taxonomy );
 
-			if ( $quick_edit_enabled && 'post_format' !== $taxonomy ) {
+			if ( $quick_edit_enabled ) {
 				$actions['inline hide-if-no-js'] = sprintf(
 					'<button type="button" class="button-link editinline" aria-label="%s" aria-expanded="false">%s</button>',
 					/* translators: %s: Object title. */
