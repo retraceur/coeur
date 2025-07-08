@@ -595,7 +595,7 @@ module.exports = function isBlockMetadataExperimental(metadata) {
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/
+/******/ 	
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -609,14 +609,14 @@ module.exports = function isBlockMetadataExperimental(metadata) {
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
-/******/
+/******/ 	
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/
+/******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/
+/******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
@@ -629,7 +629,7 @@ module.exports = function isBlockMetadataExperimental(metadata) {
 /******/ 			return getter;
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -641,12 +641,12 @@ module.exports = function isBlockMetadataExperimental(metadata) {
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -657,7 +657,7 @@ module.exports = function isBlockMetadataExperimental(metadata) {
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry needs to be wrapped in an IIFE because it needs to be in strict mode.
@@ -40291,6 +40291,9 @@ const POST_FORMATS = [{
 }, {
   id: 'video',
   caption: (0,external_wp_i18n_namespaceObject.__)('Video')
+}, {
+  id: 'code',
+  caption: (0,external_wp_i18n_namespaceObject.__)('Code')
 }];
 const PostFormatNameEdit = ({
   attributes: {
@@ -40312,6 +40315,14 @@ const PostFormatNameEdit = ({
     const themeSupports = select(external_wp_coreData_namespaceObject.store).getThemeSupports();
     return themeSupports.formats;
   }, []);
+  const {
+    records: availablePostFormats,
+    isResolving
+  } = (0,external_wp_coreData_namespaceObject.useEntityRecords)('taxonomy', 'post_format', {
+    per_page: -1,
+    hide_empty: false,
+    context: 'view'
+  });
   const [postFormat] = (0,external_wp_coreData_namespaceObject.useEntityProp)('postType', postType, 'format', postId);
   const formats = POST_FORMATS.filter(format => {
     // Ensure current format is always in the set.
@@ -40319,9 +40330,18 @@ const PostFormatNameEdit = ({
     return supportedFormats?.includes(format.id) || postFormat === format.id;
   });
   const currentFormat = formats.find(format => format.id === postFormat);
+  let postFormatSingularName = currentFormat?.caption;
+  if (!isResolving && availablePostFormats?.length > 0) {
+    const availablePostFormat = availablePostFormats.find(term => term.slug === 'post-format-' + postFormat);
+
+    // Use the Post Format Singular Name if set.
+    if (availablePostFormat?.meta?.post_format_singular_name) {
+      postFormatSingularName = availablePostFormat?.meta?.post_format_singular_name;
+    }
+  }
   const postFormatName = postFormat ? (0,external_wp_i18n_namespaceObject.sprintf)(
   // translators: 1: Post Format name, 2: Post ID
-  (0,external_wp_i18n_namespaceObject.__)('%1$s #%2$d'), currentFormat?.caption, postId) : '';
+  (0,external_wp_i18n_namespaceObject.__)('%1$s #%2$d'), postFormatSingularName, postId) : '';
   const [link] = (0,external_wp_coreData_namespaceObject.useEntityProp)('postType', postType, 'link', postId);
   const blockProps = (0,external_wp_blockEditor_namespaceObject.useBlockProps)({
     className: dist_clsx({
