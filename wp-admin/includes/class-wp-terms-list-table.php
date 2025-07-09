@@ -152,6 +152,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 					array(
 						'taxonomy' => $taxonomy,
 						'search'   => $search,
+						'slug'     => ! empty( $args['slug'] ) && 'post_format' === $taxonomy ? $args['slug'] : '',
 					)
 				),
 				'per_page'    => $tags_per_page,
@@ -616,14 +617,20 @@ class WP_Terms_List_Table extends WP_List_Table {
 	 * @return string
 	 */
 	public function column_posts( $tag ) {
-		$count = number_format_i18n( $tag->count );
-
 		$tax = get_taxonomy( $this->screen->taxonomy );
 
 		$ptype_object = get_post_type_object( $this->screen->post_type );
 		if ( ! $ptype_object->show_ui ) {
-			return $count;
+			return $tag->count;
 		}
+
+		if ( 'post_format' === $tax->name && 'post-format-standard' === $tag->slug ) {
+			$count = get_standard_post_format_count();
+		} else {
+			$count = $tag->count;
+		}
+
+		$count = number_format_i18n( $count );
 
 		if ( $tax->query_var ) {
 			$args = array( $tax->query_var => $tag->slug );

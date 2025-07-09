@@ -653,5 +653,45 @@ function clean_post_formats_cache( $ids = array(), $taxonomy ='' ) {
 		$cache_key = 'post_formats:' . wp_get_theme()->stylesheet;
 
 		wp_cache_delete( $cache_key, 'post-formats' );
+		wp_cache_delete( 'standard', 'post-format-count' );
 	}
+}
+
+/**
+ * Count the number of standard posts.
+ *
+ * @since 2.0.0 Retraceur fork.
+ *
+ * @return integer The standard posts count.
+ */
+function get_standard_post_format_count() {
+	$cache = wp_cache_get( 'standard', 'post-format-count' );
+	$count = 0;
+
+	if ( false === $cache ) {
+		$posts = new WP_Query();
+		$count = count(
+			$posts->query(
+				array(
+					'post_type'   => 'post',
+					'post_status' => 'publish',
+					'fields'      => 'ids',
+					'tax_query'   => array(
+						array(
+							'taxonomy'  => 'post_format',
+							'field'     => 'slug',
+							'terms'     => get_post_format_default_slugs(),
+							'operator'  => 'NOT EXISTS',
+						)
+					)
+				)
+			)
+		);
+
+		wp_cache_set( 'standard', $count, 'post-format-count' );
+	} else {
+		$count = (int) $cache;
+	}
+
+	return $count;
 }
