@@ -18,7 +18,7 @@
  *
  * @global string $wp_version
  */
-$wp_version = '6.8.2-alpha-60412';
+$wp_version = '6.8.2-alpha-60436';
 
 /**
  * The Retraceur version string.
@@ -41,7 +41,7 @@ $wp_db_version = 20250621;
  *
  * @global string $tinymce_version
  */
-$tinymce_version = '49110-20201110';
+$tinymce_version = '49110-20250317';
 
 /**
  * Holds the required PHP version.
