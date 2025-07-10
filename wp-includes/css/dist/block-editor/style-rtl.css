@@ -3338,6 +3338,10 @@ iframe[name=editor-canvas] {
 	}
 }
 
+.block-editor-media-placeholder__url-input-form input {
+	direction: ltr
+}
+
 .modal-open .block-editor-media-replace-flow__options {
 	display: none
 }
