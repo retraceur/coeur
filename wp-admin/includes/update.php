@@ -16,14 +16,10 @@
  * @return object|array|false The response from the API on success, false on failure.
  */
 function get_preferred_from_update_core() {
-	$updates = get_core_updates();
+	$updates = retraceur_get_updates();
 
-	if ( ! is_array( $updates ) ) {
+	if ( empty( $updates ) || ! is_array( $updates ) ) {
 		return false;
-	}
-
-	if ( empty( $updates ) ) {
-		return (object) array( 'response' => 'latest' );
 	}
 
 	return $updates[0];
@@ -53,7 +49,7 @@ function retraceur_get_updates( $options = array() ) {
 		$dismissed = array();
 	}
 
-	$from_api = get_site_transient( 'retraceur_coeur' );
+	$from_api = get_site_transient( 'update_coeur' );
 
 	if ( ! isset( $from_api->updates ) || ! is_array( $from_api->updates ) ) {
 		return false;
@@ -81,99 +77,6 @@ function retraceur_get_updates( $options = array() ) {
 	}
 
 	return $result;
-}
-
-/**
- * Gets available core updates.
- *
- * @since WP 2.7.0
- * @todo deprecate
- *
- * @param array $options Set $options['dismissed'] to true to show dismissed upgrades too,
- *                       set $options['available'] to false to skip not-dismissed updates.
- * @return array|false Array of the update objects on success, false on failure.
- */
-function get_core_updates( $options = array() ) {
-	$options = array_merge(
-		array(
-			'available' => true,
-			'dismissed' => false,
-		),
-		$options
-	);
-
-	$dismissed = get_site_option( 'dismissed_update_core' );
-
-	if ( ! is_array( $dismissed ) ) {
-		$dismissed = array();
-	}
-
-	$from_api = get_site_transient( 'update_core' );
-
-	if ( ! isset( $from_api->updates ) || ! is_array( $from_api->updates ) ) {
-		return false;
-	}
-
-	$updates = $from_api->updates;
-	$result  = array();
-
-	foreach ( $updates as $update ) {
-		if ( 'autoupdate' === $update->response ) {
-			continue;
-		}
-
-		if ( array_key_exists( $update->current . '|' . $update->locale, $dismissed ) ) {
-			if ( $options['dismissed'] ) {
-				$update->dismissed = true;
-				$result[]          = $update;
-			}
-		} else {
-			if ( $options['available'] ) {
-				$update->dismissed = false;
-				$result[]          = $update;
-			}
-		}
-	}
-
-	return $result;
-}
-
-/**
- * Gets the best available (and enabled) Auto-Update for Retraceur core.
- *
- * If there's 1.2.3 and 1.3 on offer, it'll choose 1.3 if the installation allows it, else, 1.2.3.
- *
- * @since WP 3.7.0
- *
- * @return object|false The core update offering on success, false on failure.
- */
-function find_core_auto_update() {
-	$updates = get_site_transient( 'update_core' );
-
-	if ( ! $updates || empty( $updates->updates ) ) {
-		return false;
-	}
-
-	require_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
-
-	$auto_update = false;
-	$upgrader    = new WP_Automatic_Updater();
-
-	foreach ( $updates->updates as $update ) {
-		if ( 'autoupdate' !== $update->response ) {
-			continue;
-		}
-
-		if ( ! $upgrader->should_update( 'core', $update, ABSPATH ) ) {
-			continue;
-		}
-
-		if ( ! $auto_update || version_compare( $update->current, $auto_update->current, '>' ) ) {
-			$auto_update = $update;
-		}
-	}
-
-	return $auto_update;
 }
 
 /**
@@ -230,22 +133,6 @@ function get_core_checksums( $version, $locale ) {
 }
 
 /**
- * Dismisses core update.
- *
- * @since WP 2.7.0
- * @todo deprecate
- *
- * @param object $update
- * @return bool
- */
-function dismiss_core_update( $update ) {
-	$dismissed = get_site_option( 'dismissed_update_core' );
-	$dismissed[ $update->current . '|' . $update->locale ] = true;
-
-	return update_site_option( 'dismissed_update_core', $dismissed );
-}
-
-/**
  * Marks a Retraceur coeur update as dismissed.
  *
  * @since 2.0.0 Retraceur fork.
@@ -261,29 +148,6 @@ function dismiss_coeur_update( $update ) {
 	$dismissed[ $version ] = true;
 
 	return update_site_option( 'dismissed_update_coeur', $dismissed );
-}
-
-/**
- * Undismisses core update.
- *
- * @since WP 2.7.0
- * @todo deprecate
- *
- * @param string $version
- * @param string $locale
- * @return bool
- */
-function undismiss_core_update( $version, $locale ) {
-	$dismissed = get_site_option( 'dismissed_update_core' );
-	$key       = $version . '|' . $locale;
-
-	if ( ! isset( $dismissed[ $key ] ) ) {
-		return false;
-	}
-
-	unset( $dismissed[ $key ] );
-
-	return update_site_option( 'dismissed_update_core', $dismissed );
 }
 
 /**
@@ -326,34 +190,6 @@ function retraceur_find_coeur_update( $version, $locale, $options = array() ) {
 	}
 
 	return $update;
-}
-
-/**
- * Finds the available update for Retraceur core.
- *
- * @since WP 2.7.0
- * @todo deprecate.
- *
- * @param string $version Version string to find the update for.
- * @param string $locale  Locale to find the update for.
- * @return object|false The core update offering on success, false on failure.
- */
-function find_core_update( $version, $locale ) {
-	$from_api = get_site_transient( 'update_core' );
-
-	if ( ! isset( $from_api->updates ) || ! is_array( $from_api->updates ) ) {
-		return false;
-	}
-
-	$updates = $from_api->updates;
-
-	foreach ( $updates as $update ) {
-		if ( $update->current === $version && $update->locale === $locale ) {
-			return $update;
-		}
-	}
-
-	return false;
 }
 
 /**
@@ -1195,7 +1031,7 @@ function wp_is_auto_update_forced_for_item( $type, $update, $item ) {
  * @return string The update message to be shown.
  */
 function wp_get_auto_update_message() {
-	$next_update_time = wp_next_scheduled( 'wp_version_check' );
+	$next_update_time = wp_next_scheduled( 'retraceur_version_check' );
 
 	// Check if the event exists.
 	if ( false === $next_update_time ) {

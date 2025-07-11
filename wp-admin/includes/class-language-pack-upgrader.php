@@ -274,7 +274,7 @@ class Language_Pack_Upgrader extends WP_Upgrader {
 
 		// Remove upgrade hooks which are not required for translation updates.
 		remove_action( 'upgrader_process_complete', array( 'Language_Pack_Upgrader', 'async_upgrade' ), 20 );
-		remove_action( 'upgrader_process_complete', 'wp_version_check' );
+		remove_action( 'upgrader_process_complete', 'retraceur_version_check' );
 		remove_action( 'upgrader_process_complete', 'wp_update_plugins' );
 		remove_action( 'upgrader_process_complete', 'wp_update_themes' );
 
@@ -292,7 +292,7 @@ class Language_Pack_Upgrader extends WP_Upgrader {
 
 		// Re-add upgrade hooks.
 		add_action( 'upgrader_process_complete', array( 'Language_Pack_Upgrader', 'async_upgrade' ), 20 );
-		add_action( 'upgrader_process_complete', 'wp_version_check', 10, 0 );
+		add_action( 'upgrader_process_complete', 'retraceur_version_check', 10, 0 );
 		add_action( 'upgrader_process_complete', 'wp_update_plugins', 10, 0 );
 		add_action( 'upgrader_process_complete', 'wp_update_themes', 10, 0 );
 

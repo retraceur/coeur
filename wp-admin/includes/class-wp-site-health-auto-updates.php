@@ -30,16 +30,16 @@ class WP_Site_Health_Auto_Updates {
 	 */
 	public function run_tests() {
 		$tests = array(
-			$this->test_constants( 'WP_AUTO_UPDATE_CORE', array( true, 'beta', 'rc', 'development', 'branch-development', 'minor' ) ),
+			//$this->test_constants( 'WP_AUTO_UPDATE_CORE', array( true, 'beta', 'rc', 'development', 'branch-development', 'minor' ) ),
 			$this->test_wp_version_check_attached(),
-			$this->test_filters_automatic_updater_disabled(),
-			$this->test_wp_automatic_updates_disabled(),
-			$this->test_if_failed_update(),
+			//$this->test_filters_automatic_updater_disabled(),
+			//$this->test_wp_automatic_updates_disabled(),
+			//$this->test_if_failed_update(),
 			$this->test_vcs_abspath(),
 			$this->test_check_wp_filesystem_method(),
 			$this->test_all_files_writable(),
-			$this->test_accepts_dev_updates(),
-			$this->test_accepts_minor_updates(),
+			//$this->test_accepts_dev_updates(),
+			//$this->test_accepts_minor_updates(),
 		);
 
 		$tests = array_filter( $tests );
@@ -94,18 +94,18 @@ class WP_Site_Health_Auto_Updates {
 	 *
 	 * @since WP 5.2.0
 	 *
-	 * @return array|null The test results if wp_version_check() is disabled,
+	 * @return array|null The test results if `retraceur_version_check()` is disabled,
 	 *                    or null if the test passed.
 	 */
 	public function test_wp_version_check_attached() {
 		if ( ( ! is_multisite() || is_main_site() && is_network_admin() )
-			&& ! has_filter( 'wp_version_check', 'wp_version_check' )
+			&& ! has_filter( 'retraceur_version_check', 'retraceur_version_check' )
 		) {
 			return array(
 				'description' => sprintf(
 					/* translators: %s: Name of the filter used. */
 					__( 'A plugin has prevented updates by disabling %s.' ),
-					'<code>wp_version_check()</code>'
+					'<code>retraceur_version_check()</code>'
 				),
 				'severity'    => 'fail',
 			);
@@ -425,18 +425,6 @@ class WP_Site_Health_Auto_Updates {
 					/* translators: %s: Name of the constant used. */
 					__( 'Retraceur development updates are blocked by the %s constant.' ),
 					'<code>WP_AUTO_UPDATE_CORE</code>'
-				),
-				'severity'    => 'fail',
-			);
-		}
-
-		/** This filter is documented in wp-admin/includes/class-core-upgrader.php */
-		if ( ! apply_filters( 'allow_dev_auto_core_updates', $retraceur_version ) ) {
-			return array(
-				'description' => sprintf(
-					/* translators: %s: Name of the filter used. */
-					__( 'Retraceur development updates are blocked by the %s filter.' ),
-					'<code>allow_dev_auto_core_updates</code>'
 				),
 				'severity'    => 'fail',
 			);

@@ -130,7 +130,7 @@ add_filter( 'update_footer', 'core_update_footer' );
 
 // Upgrade hooks.
 add_action( 'upgrader_process_complete', array( 'Language_Pack_Upgrader', 'async_upgrade' ), 20 );
-add_action( 'upgrader_process_complete', 'wp_version_check', 10, 0 );
+add_action( 'upgrader_process_complete', 'retraceur_version_check', 10, 0 );
 add_action( 'upgrader_process_complete', 'wp_update_plugins', 10, 0 );
 add_action( 'upgrader_process_complete', 'wp_update_themes', 10, 0 );
 

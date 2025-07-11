@@ -222,39 +222,10 @@ class Core_Upgrader extends WP_Upgrader {
 		);
 
 		// Clear the current updates.
-		delete_site_transient( 'update_core' );
+		delete_site_transient( 'update_coeur' );
 
 		if ( ! $parsed_args['do_rollback'] ) {
-			$stats = array(
-				'update_type'      => $current->response,
-				'success'          => true,
-				'fs_method'        => $wp_filesystem->method,
-				'fs_method_forced' => defined( 'FS_METHOD' ) || has_filter( 'filesystem_method' ),
-				'fs_method_direct' => ! empty( $GLOBALS['_wp_filesystem_direct_method'] ) ? $GLOBALS['_wp_filesystem_direct_method'] : '',
-				'time_taken'       => time() - $start_time,
-				'reported'         => $retraceur_version,
-				'attempted'        => $current->version,
-			);
-
-			if ( is_wp_error( $result ) ) {
-				$stats['success'] = false;
-				// Did a rollback occur?
-				if ( ! empty( $try_rollback ) ) {
-					$stats['error_code'] = $original_result->get_error_code();
-					$stats['error_data'] = $original_result->get_error_data();
-					// Was the rollback successful? If not, collect its error too.
-					$stats['rollback'] = ! is_wp_error( $rollback_result );
-					if ( is_wp_error( $rollback_result ) ) {
-						$stats['rollback_code'] = $rollback_result->get_error_code();
-						$stats['rollback_data'] = $rollback_result->get_error_data();
-					}
-				} else {
-					$stats['error_code'] = $result->get_error_code();
-					$stats['error_data'] = $result->get_error_data();
-				}
-			}
-
-			wp_version_check( $stats );
+			retraceur_version_check();
 		}
 
 		WP_Upgrader::release_lock( 'core_updater' );
@@ -266,121 +237,65 @@ class Core_Upgrader extends WP_Upgrader {
 	 * Determines if this Retraceur Core version should update to an offered version or not.
 	 *
 	 * @since WP 3.7.0
+	 * @deprecated 2.0.0 Retraceur fork.
 	 *
 	 * @param string $offered_ver The offered version, of the format x.y.z.
 	 * @return bool True if we should update to the offered version, otherwise false.
 	 */
 	public static function should_update_to_version( $offered_ver ) {
-		require ABSPATH . WPINC . '/version.php'; // $retraceur_version; // x.y.z
+		_deprecated_function( __METHOD__, '2.0.0', '', true );
 
-		$current_branch = implode( '.', array_slice( preg_split( '/[.-]/', $retraceur_version ), 0, 2 ) ); // x.y
-		$new_branch     = implode( '.', array_slice( preg_split( '/[.-]/', $offered_ver ), 0, 2 ) ); // x.y
+		$not_supported = __( 'The WP Auto Updates feature is not used by Retraceur fork.' );
 
-		$current_is_development_version = (bool) strpos( $retraceur_version, '-' );
+		/**
+		 * Filters whether to enable automatic core updates for development versions.
+		 *
+		 * @since WP 3.7.0
+		 * @deprecated 2.0.0 Retraceur fork.
+		 *
+		 * @param bool $upgrade_dev Whether to enable automatic updates for
+		 *                          development versions.
+		 */
+		apply_filters_deprecated(
+			'allow_dev_auto_core_updates',
+			array( false ),
+			'2.0.0',
+			'',
+			$not_supported
+		);
 
-		// Defaults:
-		$upgrade_dev   = get_site_option( 'auto_update_core_dev', 'enabled' ) === 'enabled';
-		$upgrade_minor = get_site_option( 'auto_update_core_minor', 'enabled' ) === 'enabled';
-		$upgrade_major = get_site_option( 'auto_update_core_major', 'unset' ) === 'enabled';
+		/**
+		 * Filters whether to enable minor automatic core updates.
+		 *
+		 * @since WP 3.7.0
+		 * @deprecated 2.0.0 Retraceur fork.
+		 *
+		 * @param bool $upgrade_minor Whether to enable minor automatic core updates.
+		 */
+		apply_filters_deprecated(
+			'allow_minor_auto_core_updates',
+			array( false ),
+			'2.0.0',
+			'',
+			$not_supported
+		);
 
-		// WP_AUTO_UPDATE_CORE = true (all), 'beta', 'rc', 'development', 'branch-development', 'minor', false.
-		if ( defined( 'WP_AUTO_UPDATE_CORE' ) ) {
-			if ( false === WP_AUTO_UPDATE_CORE ) {
-				// Defaults to turned off, unless a filter allows it.
-				$upgrade_dev   = false;
-				$upgrade_minor = false;
-				$upgrade_major = false;
-			} elseif ( true === WP_AUTO_UPDATE_CORE
-				|| in_array( WP_AUTO_UPDATE_CORE, array( 'beta', 'rc', 'development', 'branch-development' ), true )
-			) {
-				// ALL updates for core.
-				$upgrade_dev   = true;
-				$upgrade_minor = true;
-				$upgrade_major = true;
-			} elseif ( 'minor' === WP_AUTO_UPDATE_CORE ) {
-				// Only minor updates for core.
-				$upgrade_dev   = false;
-				$upgrade_minor = true;
-				$upgrade_major = false;
-			}
-		}
+		/**
+		 * Filters whether to enable major automatic core updates.
+		 *
+		 * @since WP 3.7.0
+		 *
+		 * @param bool $upgrade_major Whether to enable major automatic core updates.
+		 */
+		apply_filters_deprecated(
+			'allow_major_auto_core_updates',
+			array( false ),
+			'2.0.0',
+			'',
+			$not_supported
+		);
 
-		// 1: If we're already on that version, not much point in updating?
-		if ( $offered_ver === $retraceur_version ) {
-			return false;
-		}
-
-		// 2: If we're running a newer version, that's a nope.
-		if ( version_compare( $retraceur_version, $offered_ver, '>' ) ) {
-			return false;
-		}
-
-		$failure_data = get_site_option( 'auto_core_update_failed' );
-		if ( $failure_data ) {
-			// If this was a critical update failure, cannot update.
-			if ( ! empty( $failure_data['critical'] ) ) {
-				return false;
-			}
-
-			// Don't claim we can update on update-core.php if we have a non-critical failure logged.
-			if ( $retraceur_version === $failure_data['current'] && str_contains( $offered_ver, '.1.next.minor' ) ) {
-				return false;
-			}
-
-			/*
-			 * Cannot update if we're retrying the same A to B update that caused a non-critical failure.
-			 * Some non-critical failures do allow retries, like download_failed.
-			 * 3.7.1 => 3.7.2 resulted in files_not_writable, if we are still on 3.7.1 and still trying to update to 3.7.2.
-			 */
-			if ( empty( $failure_data['retry'] ) && $retraceur_version === $failure_data['current'] && $offered_ver === $failure_data['attempted'] ) {
-				return false;
-			}
-		}
-
-		// 3: 3.7-alpha-25000 -> 3.7-alpha-25678 -> 3.7-beta1 -> 3.7-beta2.
-		if ( $current_is_development_version ) {
-
-			/**
-			 * Filters whether to enable automatic core updates for development versions.
-			 *
-			 * @since WP 3.7.0
-			 *
-			 * @param bool $upgrade_dev Whether to enable automatic updates for
-			 *                          development versions.
-			 */
-			if ( ! apply_filters( 'allow_dev_auto_core_updates', $upgrade_dev ) ) {
-				return false;
-			}
-			// Else fall through to minor + major branches below.
-		}
-
-		// 4: Minor in-branch updates (3.7.0 -> 3.7.1 -> 3.7.2 -> 3.7.4).
-		if ( $current_branch === $new_branch ) {
-
-			/**
-			 * Filters whether to enable minor automatic core updates.
-			 *
-			 * @since WP 3.7.0
-			 *
-			 * @param bool $upgrade_minor Whether to enable minor automatic core updates.
-			 */
-			return apply_filters( 'allow_minor_auto_core_updates', $upgrade_minor );
-		}
-
-		// 5: Major version updates (3.7.0 -> 3.8.0 -> 3.9.1).
-		if ( version_compare( $new_branch, $current_branch, '>' ) ) {
-
-			/**
-			 * Filters whether to enable major automatic core updates.
-			 *
-			 * @since WP 3.7.0
-			 *
-			 * @param bool $upgrade_major Whether to enable major automatic core updates.
-			 */
-			return apply_filters( 'allow_major_auto_core_updates', $upgrade_major );
-		}
-
-		// If we're not sure, we don't want it.
+		// The WP Auto Updates is not used by Retraceur fork.
 		return false;
 	}
 

@@ -23,7 +23,7 @@ nocache_headers();
 
 require_once ABSPATH . 'wp-admin/includes/upgrade.php';
 
-delete_site_transient( 'update_core' );
+delete_site_transient( 'update_coeur' );
 
 if ( isset( $_GET['step'] ) ) {
 	$step = $_GET['step'];

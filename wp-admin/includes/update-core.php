@@ -104,7 +104,7 @@ $_old_files = array(
  * All other files/directories should not have a key.
  *
  * @since WP 6.2.0
- * @todo deprecate: Retraceur fork was introduced during 6.7 development cycle.
+ * @deprecated 2.0.0 Retraceur fork was introduced during 6.7 development cycle.
  *
  * @global string[] $_old_requests_files
  * @var string[]
@@ -165,12 +165,12 @@ $_new_bundled_files = array(
  *   5. Delete new Retraceur directory path.
  *   6. Delete .maintenance file.
  *   7. Remove old files.
- *   8. Delete 'update_core' option.
+ *   8. Delete 'update_coeur' option.
  *
  * There are several areas of failure. For instance if PHP times out before step
  * 6, then you will not be able to access any portion of your site. Also, since
  * the upgrade will not continue where it left off, you will not be able to
- * automatically remove old files and remove the 'update_core' option. This
+ * automatically remove old files and remove the 'update_coeur' option. This
  * isn't that bad.
  *
  * If the copy of the new Retraceur over the old fails, then the worse is that
@@ -184,7 +184,6 @@ $_new_bundled_files = array(
  *
  * @global WP_Filesystem_Base $wp_filesystem          WP filesystem subclass.
  * @global string[]           $_old_files
- * @global string[]           $_old_requests_files
  * @global string[]           $_new_bundled_files
  * @global wpdb               $wpdb                   WP database abstraction object.
  *
@@ -705,9 +704,9 @@ function update_core( $from, $to ) {
 
 	// Force refresh of update information.
 	if ( function_exists( 'delete_site_transient' ) ) {
-		delete_site_transient( 'update_core' );
+		delete_site_transient( 'update_coeur' );
 	} else {
-		delete_option( 'update_core' );
+		delete_option( 'update_coeur' );
 	}
 
 	/**
@@ -726,63 +725,4 @@ function update_core( $from, $to ) {
 	}
 
 	return $retraceur_version;
-}
-
-/**
- * Preloads old Requests classes and interfaces.
- *
- * This function preloads the old Requests code into memory before the
- * upgrade process deletes the files. Why? Requests code is loaded into
- * memory via an autoloader, meaning when a class or interface is needed
- * If a request is in process, Requests could attempt to access code. If
- * the file is not there, a fatal error could occur. If the file was
- * replaced, the new code is not compatible with the old, resulting in
- * a fatal error. Preloading ensures the code is in memory before the
- * code is updated.
- *
- * @since WP 6.2.0
- * @todo deprecate Retraceur fork started from WP 6.7. Not needed.
- *
- * @global string[]           $_old_requests_files Requests files to be preloaded.
- * @global WP_Filesystem_Base $wp_filesystem       WP filesystem subclass.
- * @global string             $wp_version          The WP version string.
- * @global string             $retraceur_version   The Retraceur version string.
- *
- * @param string $to Path to old Retraceur installation.
- */
-function _preload_old_requests_classes_and_interfaces( $to ) {
-	global $_old_requests_files, $wp_filesystem, $wp_version, $retraceur_version;
-
-	/*
-	 * Requests was introduced in WP 4.6.
-	 *
-	 * Skip preloading if the website was previously using
-	 * an earlier version of Retraceur.
-	 */
-	if ( version_compare( $wp_version, '4.6', '<' ) ) {
-		return;
-	}
-
-	if ( ! defined( 'REQUESTS_SILENCE_PSR0_DEPRECATIONS' ) ) {
-		define( 'REQUESTS_SILENCE_PSR0_DEPRECATIONS', true );
-	}
-
-	foreach ( $_old_requests_files as $name => $file ) {
-		// Skip files that aren't interfaces or classes.
-		if ( is_int( $name ) ) {
-			continue;
-		}
-
-		// Skip if it's already loaded.
-		if ( class_exists( $name ) || interface_exists( $name ) ) {
-			continue;
-		}
-
-		// Skip if the file is missing.
-		if ( ! $wp_filesystem->is_file( $to . $file ) ) {
-			continue;
-		}
-
-		require_once $to . $file;
-	}
 }

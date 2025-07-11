@@ -662,7 +662,7 @@ class WP_Automatic_Updater {
 
 		// Don't automatically run these things, as we'll handle it ourselves.
 		remove_action( 'upgrader_process_complete', array( 'Language_Pack_Upgrader', 'async_upgrade' ), 20 );
-		remove_action( 'upgrader_process_complete', 'wp_version_check' );
+		remove_action( 'upgrader_process_complete', 'retraceur_version_check' );
 		remove_action( 'upgrader_process_complete', 'wp_update_plugins' );
 		remove_action( 'upgrader_process_complete', 'wp_update_themes' );
 
@@ -710,12 +710,7 @@ class WP_Automatic_Updater {
 		}
 
 		// Next, process any core update.
-		wp_version_check(); // Check for core updates.
-		$core_update = find_core_auto_update();
-
-		if ( $core_update ) {
-			$this->update( 'core', $core_update );
-		}
+		retraceur_version_check(); // Check for core updates.
 
 		/*
 		 * Clean up, and check for any pending translations.
@@ -747,7 +742,7 @@ class WP_Automatic_Updater {
 			// Clear existing caches.
 			wp_clean_update_cache();
 
-			wp_version_check();  // Check for core updates.
+			retraceur_version_check();  // Check for core updates.
 			wp_update_themes();  // Check for theme updates.
 			wp_update_plugins(); // Check for plugin updates.
 		}

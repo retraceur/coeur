@@ -57,7 +57,7 @@ function retraceur_version_check( $force_check = false ) {
 		return;
 	}
 
-	$current         = get_site_transient( 'retraceur_coeur' );
+	$current         = get_site_transient( 'update_coeur' );
 	$version_checked = retraceur_get_version();
 
 	// Invalidate the transient when $retraceur_version changes.
@@ -80,7 +80,7 @@ function retraceur_version_check( $force_check = false ) {
 	}
 
 	$current->last_checked = time();
-	set_site_transient( 'retraceur_coeur', $current );
+	set_site_transient( 'update_coeur', $current );
 
 	if ( ! class_exists( 'SimplePie\SimplePie', false ) ) {
 		require_once ABSPATH . WPINC . '/class-simplepie.php';
@@ -163,215 +163,9 @@ function retraceur_version_check( $force_check = false ) {
 	$updates->last_checked    = time();
 	$updates->version_checked = $version_checked;
 
-	set_site_transient( 'retraceur_coeur', $updates );
+	set_site_transient( 'update_coeur', $updates );
 
 	return $updates;
-}
-
-/**
- * Checks Retraceur version against the newest version.
- *
- * The Retraceur version, PHP version, and locale is sent to remote directory provider.
- *
- * @since WP 2.3.0
- * @since 1.0.0 Retraceur fork.
- * @todo deprecate
- *
- * @global string $retraceur_version       Used to check against the newest Retraceur version.
- * @global wpdb   $wpdb             WP database abstraction object.
- * @global string $wp_local_package Locale code of the package.
- *
- * @param array $extra_stats Extra statistics.
- * @param bool  $force_check Whether to bypass the transient cache and force a fresh update check.
- *                           Defaults to false, true if $extra_stats is set.
- */
-function wp_version_check( $extra_stats = array(), $force_check = false ) {
-	global $wpdb, $wp_local_package;
-
-	// Disable version checks for now.
-	return;
-
-	if ( wp_installing() ) {
-		return;
-	}
-
-	$current      = get_site_transient( 'update_core' );
-	$translations = wp_get_installed_translations( 'core' );
-
-	// Invalidate the transient when $retraceur_version changes.
-	if ( is_object( $current ) && retraceur_get_version() !== $current->version_checked ) {
-		$current = false;
-	}
-
-	if ( ! is_object( $current ) ) {
-		$current                  = new stdClass();
-		$current->updates         = array();
-		$current->version_checked = retraceur_get_version();
-	}
-
-	if ( ! empty( $extra_stats ) ) {
-		$force_check = true;
-	}
-
-	// Wait 1 minute between multiple version check requests.
-	$timeout          = MINUTE_IN_SECONDS;
-	$time_not_changed = isset( $current->last_checked ) && $timeout > ( time() - $current->last_checked );
-
-	if ( ! $force_check && $time_not_changed ) {
-		return;
-	}
-
-	/**
-	 * Filters the locale requested for WP core translations.
-	 *
-	 * @since WP 2.8.0
-	 *
-	 * @param string $locale Current locale.
-	 */
-	$locale = apply_filters( 'core_version_check_locale', get_locale() );
-
-	// Update last_checked for current to prevent multiple blocking requests if request hangs.
-	$current->last_checked = time();
-	set_site_transient( 'update_core', $current );
-
-	$query = array(
-		'version' => retraceur_get_version(),
-		'locale'  => $locale,
-	);
-
-	/**
-	 * Filters the query arguments sent as part of the core version check.
-	 *
-	 * WARNING: Changing this data may result in your site not receiving security updates.
-	 * Please exercise extreme caution.
-	 *
-	 * @since WP 4.9.0
-	 * @since WP 6.1.0 Added `$extensions`, `$platform_flags`, and `$image_support` to the `$query` parameter.
-	 * @since 1.0.0 Retraceur fork: remove extra statistics.
-	 *
-	 * @param array $query {
-	 *     Version check query arguments.
-	 *
-	 *     @type string $version Retraceur version number.
-	 *     @type string $locale  The locale to retrieve updates for.
-	 * }
-	 */
-	$query = apply_filters( 'core_version_check_query_args', $query );
-
-	$post_body = array(
-		'translations' => wp_json_encode( $translations ),
-	);
-
-	// @todo See what's doable using GitHub.
-	$url      = '';
-	$http_url = $url;
-	$ssl      = wp_http_supports( array( 'ssl' ) );
-
-	if ( $ssl ) {
-		$url = set_url_scheme( $url, 'https' );
-	}
-
-	$doing_cron = wp_doing_cron();
-
-	$options = array(
-		'timeout'    => $doing_cron ? 30 : 3,
-		'user-agent' => 'Retraceur/' . retraceur_get_version() . '; ' . home_url( '/' ),
-		'headers'    => array(
-			'wp_install' => $wp_install,
-			'wp_blog'    => home_url( '/' ),
-		),
-		'body'       => $post_body,
-	);
-
-	$response = wp_remote_post( $url, $options );
-
-	if ( $ssl && is_wp_error( $response ) ) {
-		wp_trigger_error(
-			__FUNCTION__,
-			__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ) . ' ' . __( '(Retraceur could not establish a secure connection to Core Updater. Please contact your server administrator.)' ),
-			headers_sent() || WP_DEBUG ? E_USER_WARNING : E_USER_NOTICE
-		);
-		$response = wp_remote_post( $http_url, $options );
-	}
-
-	if ( is_wp_error( $response ) || 200 !== wp_remote_retrieve_response_code( $response ) ) {
-		return;
-	}
-
-	$body = trim( wp_remote_retrieve_body( $response ) );
-	$body = json_decode( $body, true );
-
-	if ( ! is_array( $body ) || ! isset( $body['offers'] ) ) {
-		return;
-	}
-
-	$offers = $body['offers'];
-
-	foreach ( $offers as &$offer ) {
-		foreach ( $offer as $offer_key => $value ) {
-			if ( 'packages' === $offer_key ) {
-				$offer['packages'] = (object) array_intersect_key(
-					array_map( 'esc_url', $offer['packages'] ),
-					array_fill_keys( array( 'full', 'no_content', 'new_bundled', 'partial', 'rollback' ), '' )
-				);
-			} elseif ( 'download' === $offer_key ) {
-				$offer['download'] = esc_url( $value );
-			} else {
-				$offer[ $offer_key ] = esc_html( $value );
-			}
-		}
-		$offer = (object) array_intersect_key(
-			$offer,
-			array_fill_keys(
-				array(
-					'response',
-					'download',
-					'locale',
-					'packages',
-					'current',
-					'version',
-					'php_version',
-					'mysql_version',
-					'new_bundled',
-					'partial_version',
-					'notify_email',
-					'support_email',
-					'new_files',
-				),
-				''
-			)
-		);
-	}
-
-	$updates                  = new stdClass();
-	$updates->updates         = $offers;
-	$updates->last_checked    = time();
-	$updates->version_checked = retraceur_get_version();
-
-	if ( isset( $body['translations'] ) ) {
-		$updates->translations = $body['translations'];
-	}
-
-	set_site_transient( 'update_core', $updates );
-
-	if ( ! empty( $body['ttl'] ) ) {
-		$ttl = (int) $body['ttl'];
-
-		if ( $ttl && ( time() + $ttl < wp_next_scheduled( 'wp_version_check' ) ) ) {
-			// Queue an event to re-run the update check in $ttl seconds.
-			wp_schedule_single_event( time() + $ttl, 'wp_version_check' );
-		}
-	}
-
-	// Trigger background updates if running non-interactively, and we weren't called from the update handler.
-	if ( $doing_cron && ! doing_action( 'wp_maybe_auto_update' ) ) {
-		/**
-		 * Fires during wp_cron, starting the auto-update process.
-		 *
-		 * @since WP 3.9.0
-		 */
-		do_action( 'wp_maybe_auto_update' );
-	}
 }
 
 /**
@@ -936,7 +730,7 @@ function wp_get_translation_updates() {
 
 	$updates    = array();
 	$transients = array(
-		'update_core'    => 'core',
+		'update_coeur'    => 'core',
 		'update_plugins' => 'plugin',
 		'update_themes'  => 'theme',
 	);
@@ -1014,11 +808,11 @@ function wp_get_update_data() {
 
 	$core = current_user_can( 'update_core' );
 
-	if ( $core && function_exists( 'get_core_updates' ) ) {
-		$update_retraceur = get_core_updates( array( 'dismissed' => false ) );
+	if ( $core && function_exists( 'retraceur_get_updates' ) ) {
+		$update_retraceur = retraceur_get_updates( array( 'dismissed' => false ) );
 
 		if ( ! empty( $update_retraceur )
-			&& ! in_array( $update_retraceur[0]->response, array( 'development', 'latest' ), true )
+			&& true === $update_retraceur[0]['stable']
 			&& current_user_can( 'update_core' )
 		) {
 			$counts['retraceur'] = 1;
@@ -1079,7 +873,7 @@ function wp_get_update_data() {
  * @since WP 2.8.0
  */
 function _maybe_update_core() {
-	$current = get_site_transient( 'update_core' );
+	$current = get_site_transient( 'update_coeur' );
 
 	if ( isset( $current->last_checked, $current->version_checked )
 		&& 12 * HOUR_IN_SECONDS > ( time() - $current->last_checked )
@@ -1088,7 +882,7 @@ function _maybe_update_core() {
 		return;
 	}
 
-	wp_version_check();
+	retraceur_version_check();
 }
 /**
  * Checks the last time plugins were run before checking plugin versions.
@@ -1139,8 +933,8 @@ function _maybe_update_themes() {
  * @since WP 3.1.0
  */
 function wp_schedule_update_checks() {
-	if ( ! wp_next_scheduled( 'wp_version_check' ) && ! wp_installing() ) {
-		wp_schedule_event( time(), 'twicedaily', 'wp_version_check' );
+	if ( ! wp_next_scheduled( 'retraceur_version_check' ) && ! wp_installing() ) {
+		wp_schedule_event( time(), 'twicedaily', 'retraceur_version_check' );
 	}
 
 	if ( ! wp_next_scheduled( 'wp_update_plugins' ) && ! wp_installing() ) {
@@ -1166,7 +960,7 @@ function wp_clean_update_cache() {
 
 	wp_clean_themes_cache();
 
-	delete_site_transient( 'update_core' );
+	delete_site_transient( 'update_coeur' );
 }
 
 /**
@@ -1245,10 +1039,11 @@ if ( ( ! is_main_site() && ! is_network_admin() ) || wp_doing_ajax() ) {
  *
  * @since 1.0.0 Retraceur fork.
  */
-/*add_action( 'admin_init', '_maybe_update_core' );
-add_action( 'wp_version_check', 'wp_version_check' );
+//add_action( 'admin_init', '_maybe_update_core' );
+add_action( 'retraceur_version_check', 'retraceur_version_check' );
+add_action( 'init', 'wp_schedule_update_checks' );
 
-add_action( 'load-plugins.php', 'wp_update_plugins' );
+/*add_action( 'load-plugins.php', 'wp_update_plugins' );
 add_action( 'load-update.php', 'wp_update_plugins' );
 add_action( 'load-update-core.php', 'wp_update_plugins' );
 add_action( 'admin_init', '_maybe_update_plugins' );
@@ -1263,7 +1058,5 @@ add_action( 'wp_update_themes', 'wp_update_themes' );
 add_action( 'update_option_WPLANG', 'wp_clean_update_cache', 10, 0 );
 
 add_action( 'wp_maybe_auto_update', 'wp_maybe_auto_update' );
-
-add_action( 'init', 'wp_schedule_update_checks' );
 
 add_action( 'wp_delete_temp_updater_backups', 'wp_delete_all_temp_backups' );*/

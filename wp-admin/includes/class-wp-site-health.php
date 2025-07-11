@@ -223,9 +223,9 @@ class WP_Site_Health {
 	}
 
 	/**
-	 * Tests whether `wp_version_check` is blocked.
+	 * Tests whether `retraceur_version_check()` is blocked.
 	 *
-	 * It's possible to block updates with the `wp_version_check` filter, but this can't be checked
+	 * It's possible to block updates with the `retraceur_version_check` filter, but this can't be checked
 	 * during an Ajax call, as the filter is never introduced then.
 	 *
 	 * This filter overrides a standard page request if it's made by an admin through the Ajax call
@@ -238,7 +238,7 @@ class WP_Site_Health {
 			return;
 		}
 
-		echo ( has_filter( 'wp_version_check', 'wp_version_check' ) ? 'yes' : 'no' );
+		echo ( has_filter( 'retraceur_version_check', 'retraceur_version_check' ) ? 'yes' : 'no' );
 
 		die();
 	}
@@ -285,7 +285,7 @@ class WP_Site_Health {
 		}
 
 		$core_current_version = retraceur_get_version();
-		$core_updates         = get_core_updates();
+		$core_updates         = retraceur_get_updates();
 
 		if ( ! is_array( $core_updates ) ) {
 			$result['status'] = 'recommended';
@@ -308,9 +308,9 @@ class WP_Site_Health {
 			);
 		} else {
 			foreach ( $core_updates as $core => $update ) {
-				if ( 'upgrade' === $update->response ) {
+				if ( true === $update['stable'] ) {
 					$current_version = explode( '.', $core_current_version );
-					$new_version     = explode( '.', $update->version );
+					$new_version     = explode( '.', $update['version'] );
 
 					$current_major = $current_version[0] . '.' . $current_version[1];
 					$new_major     = $new_version[0] . '.' . $new_version[1];
@@ -318,7 +318,7 @@ class WP_Site_Health {
 					$result['label'] = sprintf(
 						/* translators: %s: The latest version of Retraceur available. */
 						__( 'Retraceur update available (%s)' ),
-						$update->version
+						$update['version']
 					);
 
 					$result['actions'] = sprintf(
@@ -1593,6 +1593,86 @@ class WP_Site_Health {
 	}
 
 	/**
+	 * Tests if Retraceur can run automated background updates.
+	 *
+	 * Background updates in WordPress are primarily used for minor releases and security updates.
+	 * It's important to either have these working, or be aware that they are intentionally disabled
+	 * for whatever reason.
+	 *
+	 * @since 5.2.0
+	 * @since 2.0.0 Retraceur fork
+	 *
+	 * @return array The test results.
+	 */
+	public function get_test_background_updates() {
+		$result = array(
+			'label'       => __( 'Background updates are working' ),
+			'status'      => 'good',
+			'badge'       => array(
+				'label' => __( 'Security' ),
+				'color' => 'blue',
+			),
+			'description' => sprintf(
+				'<p>%s</p>',
+				__( 'Retraceur update checks help you be aware when a security update is released for the version you are currently using.' )
+			),
+			'actions'     => '',
+			'test'        => 'background_updates',
+		);
+
+		if ( ! class_exists( 'WP_Site_Health_Auto_Updates' ) ) {
+			require_once ABSPATH . 'wp-admin/includes/class-wp-site-health-auto-updates.php';
+		}
+
+		/*
+		 * Run the auto-update tests in a separate class,
+		 * as there are many considerations to be made.
+		 */
+		$automatic_updates = new WP_Site_Health_Auto_Updates();
+		$tests             = $automatic_updates->run_tests();
+
+		$output = '<ul>';
+
+		foreach ( $tests as $test ) {
+			/* translators: Hidden accessibility text. */
+			$severity_string = __( 'Passed' );
+
+			if ( 'fail' === $test->severity ) {
+				$result['label'] = __( 'Retraceur updates are not working as expected' );
+
+				$result['status'] = 'critical';
+
+				/* translators: Hidden accessibility text. */
+				$severity_string = __( 'Error' );
+			}
+
+			if ( 'warning' === $test->severity && 'good' === $result['status'] ) {
+				$result['label'] = __( 'Retraceur updates may not be working properly' );
+
+				$result['status'] = 'recommended';
+
+				/* translators: Hidden accessibility text. */
+				$severity_string = __( 'Warning' );
+			}
+
+			$output .= sprintf(
+				'<li><span class="dashicons %s"><span class="screen-reader-text">%s</span></span> %s</li>',
+				esc_attr( $test->severity ),
+				$severity_string,
+				$test->description
+			);
+		}
+
+		$output .= '</ul>';
+
+		if ( 'good' !== $result['status'] ) {
+			$result['description'] .= $output;
+		}
+
+		return $result;
+	}
+
+	/**
 	 * Tests available disk space for updates.
 	 *
 	 * @since WP 6.3.0
@@ -2489,6 +2569,10 @@ class WP_Site_Health {
 					'label' => __( 'Scheduled events' ),
 					'test'  => 'scheduled_events',
 				),
+				'background_updates'           => array(
+					'label' => __( 'Retraceur updates' ),
+					'test'  => 'background_updates',
+				),
 				'http_requests'                => array(
 					'label' => __( 'HTTP Requests' ),
 					'test'  => 'http_requests',
@@ -2505,10 +2589,6 @@ class WP_Site_Health {
 				'file_uploads'                 => array(
 					'label' => __( 'File uploads' ),
 					'test'  => 'file_uploads',
-				),
-				'plugin_theme_auto_updates'    => array(
-					'label' => __( 'Plugin and theme auto-updates' ),
-					'test'  => 'plugin_theme_auto_updates',
 				),
 				'update_temp_backup_writable'  => array(
 					'label' => __( 'Plugin and theme temporary backup directory access' ),
