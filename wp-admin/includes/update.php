@@ -233,6 +233,7 @@ function get_core_checksums( $version, $locale ) {
  * Dismisses core update.
  *
  * @since WP 2.7.0
+ * @todo deprecate
  *
  * @param object $update
  * @return bool
@@ -245,9 +246,28 @@ function dismiss_core_update( $update ) {
 }
 
 /**
+ * Marks a Retraceur coeur update as dismissed.
+ *
+ * @since 2.0.0 Retraceur fork.
+ *
+ * @param object array
+ * @return bool
+ */
+function dismiss_coeur_update( $update ) {
+	$dismissed = get_site_option( 'dismissed_update_coeur' );
+	$version   = $update['version'];
+
+	// Mark the version as dismissed.
+	$dismissed[ $version ] = true;
+
+	return update_site_option( 'dismissed_update_coeur', $dismissed );
+}
+
+/**
  * Undismisses core update.
  *
  * @since WP 2.7.0
+ * @todo deprecate
  *
  * @param string $version
  * @param string $locale
@@ -267,16 +287,38 @@ function undismiss_core_update( $version, $locale ) {
 }
 
 /**
+ * Remove a coeur update from dissmissed ones.
+ *
+ * @since 2.0.0 Retraceur fork.
+ *
+ * @param string $version The version number.
+ * @return bool
+ */
+function undismiss_coeur_update( $version ) {
+	$dismissed = get_site_option( 'dismissed_update_coeur' );
+
+	if ( ! isset( $dismissed[ $version ] ) ) {
+		return false;
+	}
+
+	unset( $dismissed[ $version ] );
+
+	return update_site_option( 'dismissed_update_coeur', $dismissed );
+}
+
+/**
  * Finds the available update for Retraceur core.
  *
  * @since 2.0.0 Retraceur fork.
  *
  * @param string $version Version string to find the update for.
  * @param string $locale  Locale to find the update for.
+ * @param array  $options Set $options['dismissed'] to true to show dismissed upgrades too,
+ *                        set $options['available'] to false to skip not-dismissed updates.
  * @return array|false The core update offering on success, false on failure.
  */
-function retraceur_find_coeur_update( $version, $locale ) {
-	$updates = wp_list_filter( retraceur_get_updates(), array( 'version' => $version, 'locale' => $locale ) );
+function retraceur_find_coeur_update( $version, $locale, $options = array() ) {
+	$updates = wp_list_filter( retraceur_get_updates( $options ), array( 'version' => $version, 'locale' => $locale ) );
 	$update  = reset( $updates );
 
 	if ( ! $update ) {

@@ -289,9 +289,10 @@ function list_core_update( $update ) {
  * Display dismissed updates.
  *
  * @since WP 2.7.0
+ * @since 2.0.0 Retraceur fork. Now uses `retraceur_get_updates()`.
  */
 function dismissed_updates() {
-	$dismissed = get_core_updates(
+	$dismissed = retraceur_get_updates(
 		array(
 			'dismissed' => true,
 			'available' => false,
@@ -1027,6 +1028,8 @@ function do_core_upgrade( $reinstall = false ) {
  * Dismiss a core update.
  *
  * @since WP 2.7.0
+ *
+ * @todo deprecate
  */
 function do_dismiss_core_update() {
 	$version = isset( $_POST['version'] ) ? $_POST['version'] : false;
@@ -1041,9 +1044,38 @@ function do_dismiss_core_update() {
 }
 
 /**
+ * Dismiss a core update.
+ *
+ * @since 2.0.0 Retraceur fork.
+ */
+function do_dismiss_coeur_update() {
+	$version = isset( $_POST['version'] ) ? $_POST['version'] : false;
+	$locale  = isset( $_POST['locale'] ) ? $_POST['locale'] : 'en_US';
+	$update  = retraceur_find_coeur_update(
+		$version,
+		$locale,
+		array(
+			'available' => true,
+			'dismissed' => false,
+		),
+	);
+
+	if ( ! $update ) {
+		return;
+	}
+
+	dismiss_coeur_update( $update );
+
+	wp_safe_redirect( wp_nonce_url( 'update-core.php?action=upgrade-core', 'upgrade-core' ) );
+	exit;
+}
+
+/**
  * Undismiss a core update.
  *
  * @since WP 2.7.0
+ *
+ * @todo deprecate
  */
 function do_undismiss_core_update() {
 	$version = isset( $_POST['version'] ) ? $_POST['version'] : false;
@@ -1054,6 +1086,33 @@ function do_undismiss_core_update() {
 	}
 	undismiss_core_update( $version, $locale );
 	wp_redirect( wp_nonce_url( 'update-core.php?action=upgrade-core', 'upgrade-core' ) );
+	exit;
+}
+
+/**
+ * Undismiss a coeur update.
+ *
+ * @since 2.0.0 Retraceur fork.
+ */
+function do_undismiss_coeur_update() {
+	$version = isset( $_POST['version'] ) ? $_POST['version'] : false;
+	$locale  = isset( $_POST['locale'] ) ? $_POST['locale'] : 'en_US';
+	$update  = retraceur_find_coeur_update(
+		$version,
+		$locale,
+		array(
+			'available' => false,
+			'dismissed' => true,
+		),
+	);
+
+	if ( ! $update ) {
+		return;
+	}
+
+	undismiss_coeur_update( $version );
+
+	wp_safe_redirect( wp_nonce_url( 'update-core.php?action=upgrade-core', 'upgrade-core' ) );
 	exit;
 }
 
@@ -1215,9 +1274,9 @@ if ( 'upgrade-core' === $action ) {
 
 	// Do the (un)dismiss actions before headers, so that they can redirect.
 	if ( isset( $_POST['dismiss'] ) ) {
-		do_dismiss_core_update();
+		do_dismiss_coeur_update();
 	} elseif ( isset( $_POST['undismiss'] ) ) {
-		do_undismiss_core_update();
+		do_undismiss_coeur_update();
 	}
 
 	require_once ABSPATH . 'wp-admin/admin-header.php';
