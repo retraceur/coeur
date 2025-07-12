@@ -18073,18 +18073,29 @@ function PostTypeSupportCheck({
   children,
   supportKeys
 }) {
-  const postType = (0,external_wp_data_namespaceObject.useSelect)(select => {
+  const {
+    postType,
+    postFormat
+  } = (0,external_wp_data_namespaceObject.useSelect)(select => {
     const {
       getEditedPostAttribute
     } = select(store_store);
     const {
       getPostType
     } = select(external_wp_coreData_namespaceObject.store);
-    return getPostType(getEditedPostAttribute('type'));
+    return {
+      postType: getPostType(getEditedPostAttribute('type')),
+      postFormat: getEditedPostAttribute('format')
+    };
   }, []);
   let isSupported = !!postType;
   if (postType) {
     isSupported = (Array.isArray(supportKeys) ? supportKeys : [supportKeys]).some(key => !!postType.supports[key]);
+
+    // Post Formats do not need titles.
+    if ('title' === supportKeys && 'post' === postType.slug && postFormat) {
+      isSupported = 'standard' === postFormat;
+    }
   }
   if (!isSupported) {
     return null;
