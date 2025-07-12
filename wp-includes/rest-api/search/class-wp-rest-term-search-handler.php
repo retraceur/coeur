@@ -26,14 +26,18 @@ class WP_REST_Term_Search_Handler extends WP_REST_Search_Handler {
 	public function __construct() {
 		$this->type = 'term';
 
-		$this->subtypes = array_values(
-			get_taxonomies(
-				array(
-					'public'       => true,
-					'show_in_rest' => true,
-				),
-				'names'
-			)
+		// All Public taxonomies but the Post Format one.
+		$this->subtypes = array_diff(
+			array_values(
+				get_taxonomies(
+					array(
+						'public'       => true,
+						'show_in_rest' => true,
+					),
+					'names'
+				)
+			),
+			array( 'post_format' )
 		);
 	}
 
