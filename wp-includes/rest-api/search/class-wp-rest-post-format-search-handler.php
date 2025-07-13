@@ -31,6 +31,7 @@ class WP_REST_Post_Format_Search_Handler extends WP_REST_Search_Handler {
 	 * Searches the post formats for a given search request.
 	 *
 	 * @since WP 5.6.0
+	 * @since 2.0.0 Retraceur fork uses `get_post_formats()`.
 	 *
 	 * @param WP_REST_Request $request Full REST request.
 	 * @return array {
@@ -41,10 +42,8 @@ class WP_REST_Post_Format_Search_Handler extends WP_REST_Search_Handler {
 	 * }
 	 */
 	public function search_items( WP_REST_Request $request ) {
-		$format_strings = get_post_format_strings();
-		$format_slugs   = array_keys( $format_strings );
-
-		$query_args = array();
+		$post_formats = get_post_formats();
+		$query_args   = array();
 
 		if ( ! empty( $request['search'] ) ) {
 			$query_args['search'] = $request['search'];
@@ -63,9 +62,10 @@ class WP_REST_Post_Format_Search_Handler extends WP_REST_Search_Handler {
 		$query_args = apply_filters( 'rest_post_format_search_query', $query_args, $request );
 
 		$found_ids = array();
-		foreach ( $format_slugs as $format_slug ) {
+		foreach ( $post_formats as $post_format ) {
 			if ( ! empty( $query_args['search'] ) ) {
-				$format_string       = get_post_format_string( $format_slug );
+				$format_string       = get_post_format_plural_name( $post_format->slug );
+				$format_slug         = get_post_format_slug( $post_format->slug );
 				$format_slug_match   = stripos( $format_slug, $query_args['search'] ) !== false;
 				$format_string_match = stripos( $format_string, $query_args['search'] ) !== false;
 				if ( ! $format_slug_match && ! $format_string_match ) {
@@ -73,9 +73,14 @@ class WP_REST_Post_Format_Search_Handler extends WP_REST_Search_Handler {
 				}
 			}
 
-			$format_link = get_post_format_link( $format_slug );
+			// Make sure only Post Formats supported by the theme will be included.
+			if ( ! in_array( $post_format->slug, get_supported_post_format_slugs(), true ) ) {
+				continue;
+			}
+
+			$format_link = get_post_format_link( $post_format->slug );
 			if ( $format_link ) {
-				$found_ids[] = $format_slug;
+				$found_ids[] = $post_format->slug;
 			}
 		}
 
@@ -112,7 +117,7 @@ class WP_REST_Post_Format_Search_Handler extends WP_REST_Search_Handler {
 		}
 
 		if ( in_array( WP_REST_Search_Controller::PROP_TITLE, $fields, true ) ) {
-			$data[ WP_REST_Search_Controller::PROP_TITLE ] = get_post_format_string( $id );
+			$data[ WP_REST_Search_Controller::PROP_TITLE ] = get_post_format_plural_name( $id );
 		}
 
 		if ( in_array( WP_REST_Search_Controller::PROP_URL, $fields, true ) ) {
