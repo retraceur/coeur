@@ -406,7 +406,8 @@ function get_post_format_string( $slug ) {
  * @return string|WP_Error|false The post format term link.
  */
 function get_post_format_link( $format ) {
-	$term = get_term_by( 'slug', 'post-format-' . $format, 'post_format' );
+	$slug = 'post-format-' . str_replace( 'post-format-', '', $format );
+	$term = get_term_by( 'slug', $slug, 'post_format' );
 	if ( ! $term || is_wp_error( $term ) ) {
 		return false;
 	}
