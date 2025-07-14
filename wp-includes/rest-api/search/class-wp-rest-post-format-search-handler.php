@@ -73,11 +73,6 @@ class WP_REST_Post_Format_Search_Handler extends WP_REST_Search_Handler {
 				}
 			}
 
-			// Make sure only Post Formats supported by the theme will be included.
-			if ( ! in_array( $post_format->slug, get_supported_post_format_slugs(), true ) ) {
-				continue;
-			}
-
 			$format_link = get_post_format_link( $post_format->slug );
 			if ( $format_link ) {
 				$found_ids[] = $post_format->slug;

@@ -79,7 +79,7 @@ function get_post_formats() {
 			array(
 				'taxonomy'   => 'post_format',
 				'hide_empty' => 0,
-				'slugs'      => $slugs,
+				'slug'       => $slugs,
 			)
 		);
 
