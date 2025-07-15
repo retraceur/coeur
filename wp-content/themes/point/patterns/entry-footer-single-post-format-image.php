@@ -12,7 +12,7 @@
 ?>
 <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|20","margin":{"top":"var:preset|spacing|40"}},"typography":{"fontSize":"16px"}},"layout":{"type":"flex"}} -->
 <div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--40);font-size:16px">
-	<!-- wp:post-format-name {"isLink":false,"level":1,"className":"inline-post-format"} /-->
+	<!-- wp:post-format-name {"isLink":false,"level":1,"className":"post-format-image"} /-->
 	<!-- wp:paragraph -->
 	<p><?php echo esc_html_x( ': published on', 'Image post format "Published on" date separator' ); ?></p>
 	<!-- /wp:paragraph -->

@@ -251,10 +251,16 @@
 				}
 			},
 			"core/post-format-name": {
-				"css": "&.inline-post-format { font-size: var(--wp--preset--font-size--point-regular); }"
+				"css": "&.post-format-image { font-size: var(--wp--preset--font-size--point-regular); } &.post-format-status { position: absolute; z-index: -1; top: -10px; width: 0; height: 0; color: transparent; border-left: 25px solid transparent; border-right: 25px solid transparent; border-bottom: 30px solid #f2f4fc; }"
 			},
 			"core/post-author": {
-				"css": "&.inline-post-format { align-items: center; }"
+				"css": "&.post-format-status { align-items: center; }"
+			},
+			"core/post-content": {
+				"css": "&.post-format-status { background-color: #f2f4fc; padding: 12px; }"
+			},
+			"core/post-group": {
+				"css": "&.post-format-status { position: relative; margin: -12px; }"
 			}
 		}
 	},

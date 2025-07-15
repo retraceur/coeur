@@ -41,7 +41,21 @@
 			<!-- /wp:group -->
 			<!-- wp:group {"tagName":"section","className":"entry-excerpt","layout":{"inherit":true}} -->
 			<section class="wp-block-group entry-excerpt">
-				<!-- wp:post-content {"style":{"spacing":{"blockGap":"var:preset|spacing|40"}}} /-->
+				<!-- wp:post-format-part {"include":"standard,image,quote","exclude":"status"} -->
+					<!-- wp:post-content {"style":{"spacing":{"blockGap":"var:preset|spacing|40"}}} /-->
+				<!-- /wp:post-format-part -->
+				<!-- wp:post-format-part {"include":"status"} -->
+					<!-- wp:group {"className":"post-format-status","layout":{"inherit":true,"type":"constrained"}} -->
+					<div class="wp-block-group post-format-status">
+						<!-- wp:group {"layout":{"type":"constrained","justifyContent":"left"}} -->
+						<div class="wp-block-group">
+							<!-- wp:post-format-name {"isLink":false,"level":2,"className":"post-format-status"} /-->
+						</div>
+						<!-- /wp:group -->
+						<!-- wp:post-content {"layout":{"inherit":true},"className":"post-format-status"} /-->
+					</div>
+					<!-- /wp:group -->
+				<!-- /wp:post-format-part -->
 			</section>
 			<!-- /wp:group -->
 			<!-- wp:group {"tagName":"section","className":"entry-footer","layout":{"inherit":true}} -->
