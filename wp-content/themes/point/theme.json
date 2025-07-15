@@ -251,7 +251,10 @@
 				}
 			},
 			"core/post-format-name": {
-				"css": "&.inline-image-format { font-size: var(--wp--preset--font-size--point-regular); }"
+				"css": "&.inline-post-format { font-size: var(--wp--preset--font-size--point-regular); }"
+			},
+			"core/post-author": {
+				"css": "&.inline-post-format { align-items: center; }"
 			}
 		}
 	},

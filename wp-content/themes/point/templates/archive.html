@@ -29,9 +29,12 @@
 					<!-- wp:pattern {"slug":"point/entry-header"} /-->
 					<!-- wp:post-featured-image {"isLink":true} /-->
 				<!-- /wp:post-format-part -->
-				<!-- wp:post-format-part {"exclude":"standard,image"} -->
+				<!-- wp:post-format-part {"exclude":"standard,image,status"} -->
 					<!-- wp:post-format-name {"isLink":true,"level":2} /-->
 					<!-- wp:pattern {"slug":"point/entry-header-post-format"} /-->
+				<!-- /wp:post-format-part -->
+				<!-- wp:post-format-part {"include":"status"} -->
+					<!-- wp:pattern {"slug":"point/entry-header-archive-post-format-status"} /-->
 				<!-- /wp:post-format-part -->
 			</section>
 			<!-- /wp:group -->
