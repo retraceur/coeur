@@ -4061,6 +4061,11 @@ ul.wp-block-rss.is-grid li {
 	color: #fff
 }
 
+:where(.wp-block-social-links:not(.is-style-logos-only)) .wp-social-link-paypal {
+	background-color: #fff;
+	color: #fff
+}
+
 :where(.wp-block-social-links:not(.is-style-logos-only)) .wp-social-link-pinterest {
 	background-color: #e60122;
 	color: #fff
@@ -4269,6 +4274,10 @@ ul.wp-block-rss.is-grid li {
 
 :where(.wp-block-social-links.is-style-logos-only) .wp-social-link-patreon {
 	color: #000
+}
+
+:where(.wp-block-social-links.is-style-logos-only) .wp-social-link-paypal {
+	color: #fff
 }
 
 :where(.wp-block-social-links.is-style-logos-only) .wp-social-link-pinterest {

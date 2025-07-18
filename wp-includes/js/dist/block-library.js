@@ -52521,6 +52521,31 @@ const PatreonIcon = () => /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObje
   })
 });
 
+;// ./packages/block-library/build-module/social-link/icons/paypal.js
+/**
+ * WP dependencies
+ */
+
+
+const PaypalIcon = () => /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_primitives_namespaceObject.SVG, {
+  width: "24",
+  height: "24",
+  viewBox: "0 0 24 24",
+  version: "1.1",
+  children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_wp_primitives_namespaceObject.G, {
+    children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_primitives_namespaceObject.Path, {
+      fill: "#001C64",
+      d: "M 17.989 6.369 C 18.04 3.7 15.838 1.651 12.808 1.651 L 6.544 1.651 C 6.242 1.651 5.987 1.87 5.94 2.167 L 3.428 17.852 C 3.381 18.154 3.615 18.428 3.92 18.428 L 7.632 18.428 L 7.051 22.06 C 7.003 22.363 7.237 22.636 7.544 22.636 L 10.567 22.636 C 10.713 22.636 10.844 22.583 10.954 22.488 C 11.064 22.393 11.083 22.262 11.105 22.118 L 11.992 16.898 C 12.015 16.752 12.088 16.565 12.2 16.47 C 12.311 16.375 12.408 16.324 12.553 16.322 L 14.404 16.322 C 17.37 16.322 19.887 14.215 20.347 11.283 C 20.673 9.202 19.78 7.308 17.989 6.369 Z"
+    }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_primitives_namespaceObject.Path, {
+      fill: "#0070E0",
+      d: "M 8.435 12.644 L 7.51 18.505 L 6.93 22.182 C 6.882 22.484 7.116 22.757 7.422 22.757 L 10.622 22.757 C 10.922 22.757 11.18 22.537 11.227 22.24 L 12.07 16.896 C 12.117 16.598 12.373 16.38 12.675 16.38 L 14.559 16.38 C 17.525 16.38 20.04 14.215 20.5 11.283 C 20.827 9.202 19.78 7.308 17.989 6.369 C 17.983 6.591 17.964 6.812 17.93 7.031 C 17.47 9.962 14.953 12.126 11.987 12.126 L 9.04 12.126 C 8.739 12.126 8.482 12.346 8.435 12.644 Z"
+    }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_primitives_namespaceObject.Path, {
+      fill: "#003087",
+      d: "M 7.51 18.505 L 3.788 18.505 C 3.481 18.506 3.248 18.232 3.296 17.93 L 5.806 2.013 C 5.853 1.715 6.109 1.496 6.411 1.496 L 12.808 1.496 C 15.838 1.496 18.04 3.7 17.989 6.369 C 17.234 5.975 16.349 5.749 15.379 5.749 L 10.046 5.749 C 9.744 5.749 9.488 5.968 9.44 6.265 L 8.435 12.644 L 7.509 18.505 L 7.51 18.505 Z"
+    })]
+  })
+});
+
 ;// ./packages/block-library/build-module/social-link/icons/pinterest.js
 /**
  * WP dependencies
@@ -53005,6 +53030,13 @@ const social_link_variations_variations = [{
   },
   title: 'Patreon',
   icon: PatreonIcon
+}, {
+  name: 'paypal',
+  attributes: {
+    service: 'paypal'
+  },
+  title: 'PayPal',
+  icon: PaypalIcon
 }, {
   name: 'pinterest',
   attributes: {
