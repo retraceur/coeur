@@ -46,8 +46,17 @@ function retraceur_list_update( $update ) {
 	$form_action   = 'update-core.php?action=do-core-upgrade';
 	$php_version   = PHP_VERSION;
 	$mysql_version = $wpdb->db_version();
-	$show_buttons  = true;
-	$submit        = sprintf( __( 'Update to version %s' ), $version_string );
+
+	/**
+	 * Filter to opt-in for Coeur "direct" updates (still in beta).
+	 *
+	 * @since 2.0.0 Retraceur fork.
+	 *
+	 * @param boolean $test True to test "direct" updates. False otherwise.
+	 */
+	$show_buttons = apply_filters( 'retraceur_betatest_direct_updates', false );
+	$submit       = sprintf( __( 'Update to version %s' ), $version_string );
+	$link_text    = sprintf( __( 'Download & upgrade to version %s' ), $version_string );
 
 	if ( $current ) {
 		/* translators: %s: Version number. */
@@ -124,6 +133,20 @@ function retraceur_list_update( $update ) {
 		} else {
 			submit_button( $submit, '', 'upgrade', false );
 		}
+	}
+
+	// Provide a simple download link to people wishing to manually update.
+	if ( isset( $update['download'] ) ) {
+		$link_class = ! $show_buttons && $first_pass ? 'button-primary' : 'button-secondary';
+		$first_pass = false;
+		$package    = $update['download'];
+
+		if ( 'fr_FR' === $update['locale'] ) {
+			$package = str_replace( 'retraceur.zip', 'retraceur-fr_FR.zip', $package );
+		}
+		?>
+		<a class="button<?php echo ' ' . $link_class; ?> download-package" href="<?php echo esc_url( $package ); ?>" aria-label="<?php echo esc_attr( $link_text ); ?>"><?php echo esc_html( $link_text ); ?></a>
+		<?php
 	}
 
 	if ( ! isset( $update['dismissed'] ) || ! $update['dismissed'] ) {
@@ -778,17 +801,13 @@ get_current_screen()->add_help_tab(
 	)
 );
 
-$updates_howto  = '<p>' . __( '<strong>Retraceur</strong> &mdash; Updating your Retraceur installation is a simple one-click procedure: just <strong>click on the &#8220;Update now&#8221; button</strong> when you are notified that a new version is available.' ) . ' ' . __( 'In most cases, Retraceur will automatically apply maintenance and security updates in the background for you.' ) . '</p>';
-$updates_howto .= '<p>' . __( '<strong>Themes and Plugins</strong> &mdash; To update individual themes or plugins from this screen, use the checkboxes to make your selection, then <strong>click on the appropriate &#8220;Update&#8221; button</strong>. To update all of your themes or plugins at once, you can check the box at the top of the section to select all before clicking the update button.' ) . '</p>';
+$updates_howto  = '<p>' . __( '<strong>Retraceur</strong> &mdash; Updating your Retraceur installation is a simple one-click procedure: just <strong>click on the &#8220;Update to version X.Y.Z&#8221; button</strong> when you are notified that a new version is available.' ) . ' ' . __( 'Alternatively, you can perform a manual upgrade using the &#8220;Download & upgrade to version X.Y.Z&#8221; button.' ) . '</p>';
+/*$updates_howto .= '<p>' . __( '<strong>Themes and Plugins</strong> &mdash; To update individual themes or plugins from this screen, use the checkboxes to make your selection, then <strong>click on the appropriate &#8220;Update&#8221; button</strong>. To update all of your themes or plugins at once, you can check the box at the top of the section to select all before clicking the update button.' ) . '</p>';
 
 if ( 'en_US' !== get_locale() ) {
 	$updates_howto .= '<p>' . __( '<strong>Translations</strong> &mdash; The files translating Retraceur into your language are updated for you whenever any other updates occur. But if these files are out of date, you can <strong>click the &#8220;Update Translations&#8221;</strong> button.' ) . '</p>';
-}
+}*/
 
-/*
- * Disable this for now.
- * @todo Restore when the Retraceur Update API will be ready.
- *
 get_current_screen()->add_help_tab(
 	array(
 		'id'      => 'how-to-update',
@@ -796,7 +815,11 @@ get_current_screen()->add_help_tab(
 		'content' => $updates_howto,
 	)
 );
-*/
+
+get_current_screen()->set_help_sidebar(
+	'<p><strong>' . __( 'For more information:' ) . '</strong></p>' .
+	'<p>' . sprintf( __( '<a href="%s">Documentation on manual upgrades</a>' ), esc_url( _x( 'https://retraceur.github.io/getting-started/upgrade/', 'Documentation site link' ) ) ) . '</p>'
+);
 
 if ( 'upgrade-core' === $action ) {
 	// Force an update check when requested.
