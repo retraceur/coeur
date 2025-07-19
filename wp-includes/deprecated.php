@@ -16495,3 +16495,17 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
 
 	return;
 }
+
+/**
+ * Performs WP automatic background updates.
+ *
+ * Updates WP core plus any plugins and themes that have automatic updates enabled.
+ *
+ * @since WP 3.7.0
+ * @since 1.0.0 Retraceur fork.
+ * @deprecated 2.0.0 Retraceur fork.
+ */
+function wp_maybe_auto_update() {
+	_deprecated_function( __FUNCTION__, '2.0.0', '', true );
+	return;
+}

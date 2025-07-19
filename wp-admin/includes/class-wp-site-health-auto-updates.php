@@ -30,16 +30,11 @@ class WP_Site_Health_Auto_Updates {
 	 */
 	public function run_tests() {
 		$tests = array(
-			//$this->test_constants( 'WP_AUTO_UPDATE_CORE', array( true, 'beta', 'rc', 'development', 'branch-development', 'minor' ) ),
 			$this->test_wp_version_check_attached(),
-			//$this->test_filters_automatic_updater_disabled(),
-			//$this->test_wp_automatic_updates_disabled(),
-			//$this->test_if_failed_update(),
+			$this->test_filters_automatic_updater_disabled(),
 			$this->test_vcs_abspath(),
 			$this->test_check_wp_filesystem_method(),
 			$this->test_all_files_writable(),
-			//$this->test_accepts_dev_updates(),
-			//$this->test_accepts_minor_updates(),
 		);
 
 		$tests = array_filter( $tests );
@@ -64,6 +59,7 @@ class WP_Site_Health_Auto_Updates {
 	 *
 	 * @since WP 5.2.0
 	 * @since WP 5.5.1 The `$value` parameter can accept an array.
+	 * @deprecated 2.0.0 Retraceur fork.
 	 *
 	 * @param string $constant         The name of the constant to check.
 	 * @param bool|string|array $value The value that the constant should be, if set,
@@ -72,20 +68,7 @@ class WP_Site_Health_Auto_Updates {
 	 *                    or null if the test passed.
 	 */
 	public function test_constants( $constant, $value ) {
-		$acceptable_values = (array) $value;
-
-		if ( defined( $constant ) && ! in_array( constant( $constant ), $acceptable_values, true ) ) {
-			return array(
-				'description' => sprintf(
-					/* translators: 1: Name of the constant used. 2: Value of the constant used. */
-					__( 'The %1$s constant is defined as %2$s' ),
-					"<code>$constant</code>",
-					'<code>' . esc_html( var_export( constant( $constant ), true ) ) . '</code>'
-				),
-				'severity'    => 'fail',
-			);
-		}
-
+		_deprecated_function( __METHOD__, '2.0.0', '', true );
 		return null;
 	}
 
@@ -119,17 +102,17 @@ class WP_Site_Health_Auto_Updates {
 	 *
 	 * @since WP 5.2.0
 	 *
-	 * @return array|null The test results if the {@see 'automatic_updater_disabled'} filter is set,
+	 * @return array|null The test results if the {@see 'retraceur_is_updater_enabled'} filter is set,
 	 *                    or null if the test passed.
 	 */
 	public function test_filters_automatic_updater_disabled() {
 		/** This filter is documented in wp-admin/includes/class-wp-automatic-updater.php */
-		if ( apply_filters( 'automatic_updater_disabled', false ) ) {
+		if ( ! apply_filters( 'retraceur_is_updater_enabled', true ) ) {
 			return array(
 				'description' => sprintf(
 					/* translators: %s: Name of the filter used. */
-					__( 'The %s filter is enabled.' ),
-					'<code>automatic_updater_disabled</code>'
+					__( 'The %s filter is disabled.' ),
+					'<code>retraceur_is_updater_enabled</code>'
 				),
 				'severity'    => 'fail',
 			);
@@ -142,70 +125,26 @@ class WP_Site_Health_Auto_Updates {
 	 * Checks if automatic updates are disabled.
 	 *
 	 * @since WP 5.3.0
+	 * @deprecated 2.0.0 Retraceur fork.
 	 *
 	 * @return array|false The test results if auto-updates are disabled, false otherwise.
 	 */
 	public function test_wp_automatic_updates_disabled() {
-		if ( ! class_exists( 'WP_Automatic_Updater' ) ) {
-			require_once ABSPATH . 'wp-admin/includes/class-wp-automatic-updater.php';
-		}
-
-		$auto_updates = new WP_Automatic_Updater();
-
-		if ( ! $auto_updates->is_disabled() ) {
-			return false;
-		}
-
-		return array(
-			'description' => __( 'All automatic updates are disabled.' ),
-			'severity'    => 'fail',
-		);
+		_deprecated_function( __METHOD__, '2.0.0', '', true );
+		return false;
 	}
 
 	/**
 	 * Checks if automatic updates have tried to run, but failed, previously.
 	 *
 	 * @since WP 5.2.0
+	 * @deprecated 2.0.0 Retraceur fork.
 	 *
 	 * @return array|false The test results if auto-updates previously failed, false otherwise.
 	 */
 	public function test_if_failed_update() {
-		$failed = get_site_option( 'auto_core_update_failed' );
-
-		if ( ! $failed ) {
-			return false;
-		}
-
-		if ( ! empty( $failed['critical'] ) ) {
-			$description  = __( 'A previous automatic background update ended with a critical failure, so updates are now disabled.' );
-			$description .= ' ' . __( 'You would have received an email because of this.' );
-			$description .= ' ' . __( "When you've been able to update using the \"Update now\" button on Dashboard > Updates, this error will be cleared for future update attempts." );
-			$description .= ' ' . sprintf(
-				/* translators: %s: Code of error shown. */
-				__( 'The error code was %s.' ),
-				'<code>' . $failed['error_code'] . '</code>'
-			);
-			return array(
-				'description' => $description,
-				'severity'    => 'warning',
-			);
-		}
-
-		$description = __( 'A previous automatic background update could not occur.' );
-		if ( empty( $failed['retry'] ) ) {
-			$description .= ' ' . __( 'You would have received an email because of this.' );
-		}
-
-		$description .= ' ' . __( 'Another attempt will be made with the next release.' );
-		$description .= ' ' . sprintf(
-			/* translators: %s: Code of error shown. */
-			__( 'The error code was %s.' ),
-			'<code>' . $failed['error_code'] . '</code>'
-		);
-		return array(
-			'description' => $description,
-			'severity'    => 'warning',
-		);
+		_deprecated_function( __METHOD__, '2.0.0', '', true );
+		return false;
 	}
 
 	/**
@@ -408,63 +347,27 @@ class WP_Site_Health_Auto_Updates {
 	 * Checks if the install is using a development branch and can use nightly packages.
 	 *
 	 * @since WP 5.2.0
+	 * @deprecated 1.0.0 Retraceur fork.
 	 *
 	 * @return array|false|null The test results if development updates are blocked.
 	 *                          False if it isn't a development version. Null if the test passed.
 	 */
 	public function test_accepts_dev_updates() {
-		require ABSPATH . WPINC . '/version.php'; // $retraceur_version; // x.y.z
-		// Only for dev versions.
-		if ( ! str_contains( $retraceur_version, '-' ) ) {
-			return false;
-		}
-
-		if ( defined( 'WP_AUTO_UPDATE_CORE' ) && ( 'minor' === WP_AUTO_UPDATE_CORE || false === WP_AUTO_UPDATE_CORE ) ) {
-			return array(
-				'description' => sprintf(
-					/* translators: %s: Name of the constant used. */
-					__( 'Retraceur development updates are blocked by the %s constant.' ),
-					'<code>WP_AUTO_UPDATE_CORE</code>'
-				),
-				'severity'    => 'fail',
-			);
-		}
-
-		return null;
+		_deprecated_function( __METHOD__, '2.0.0', '', true );
+		return false;
 	}
 
 	/**
 	 * Checks if the site supports automatic minor updates.
 	 *
 	 * @since WP 5.2.0
+	 * @deprecated 1.0.0 Retraceur fork.
 	 *
 	 * @return array|null The test results if minor updates are blocked,
 	 *                    or null if the test passed.
 	 */
 	public function test_accepts_minor_updates() {
-		if ( defined( 'WP_AUTO_UPDATE_CORE' ) && false === WP_AUTO_UPDATE_CORE ) {
-			return array(
-				'description' => sprintf(
-					/* translators: %s: Name of the constant used. */
-					__( 'Retraceur security and maintenance releases are blocked by %s.' ),
-					"<code>define( 'WP_AUTO_UPDATE_CORE', false );</code>"
-				),
-				'severity'    => 'fail',
-			);
-		}
-
-		/** This filter is documented in wp-admin/includes/class-core-upgrader.php */
-		if ( ! apply_filters( 'allow_minor_auto_core_updates', true ) ) {
-			return array(
-				'description' => sprintf(
-					/* translators: %s: Name of the filter used. */
-					__( 'Retraceur security and maintenance releases are blocked by the %s filter.' ),
-					'<code>allow_minor_auto_core_updates</code>'
-				),
-				'severity'    => 'fail',
-			);
-		}
-
+		_deprecated_function( __METHOD__, '2.0.0', '', true );
 		return null;
 	}
 }

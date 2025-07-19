@@ -971,17 +971,13 @@ function wp_recovery_mode_nag() {
  * Checks whether auto-updates are enabled.
  *
  * @since WP 5.5.0
+ * @since 2.0.0 Retraceur fork excluded "background' updates.
  *
  * @param string $type The type of update being checked: Either 'theme' or 'plugin'.
- * @return bool True if auto-updates are enabled for `$type`, false otherwise.
+ * @return bool True if updates are enabled for `$type`, false otherwise.
  */
 function wp_is_auto_update_enabled_for_type( $type ) {
-	if ( ! class_exists( 'WP_Automatic_Updater' ) ) {
-		require_once ABSPATH . 'wp-admin/includes/class-wp-automatic-updater.php';
-	}
-
-	$updater = new WP_Automatic_Updater();
-	$enabled = ! $updater->is_disabled();
+	$enabled = retraceur_is_updater_enabled();
 
 	switch ( $type ) {
 		case 'plugin':

@@ -698,25 +698,6 @@ function wp_update_themes( $extra_stats = array() ) {
 }
 
 /**
- * Performs WP automatic background updates.
- *
- * Updates WP core plus any plugins and themes that have automatic updates enabled.
- *
- * @since WP 3.7.0
- * @since 1.0.0 Retraceur fork.
- */
-function wp_maybe_auto_update() {
-	// Disable auto updates for now.
-	return;
-
-	require_once ABSPATH . 'wp-admin/includes/admin.php';
-	require_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
-
-	$upgrader = new WP_Automatic_Updater();
-	$upgrader->run();
-}
-
-/**
  * Retrieves a list of all language updates available.
  *
  * @since WP 3.7.0
@@ -758,12 +739,20 @@ function wp_get_translation_updates() {
  * @return boolean True if the Automatic Updater is enabled. False otherwise.
  */
 function retraceur_is_updater_enabled() {
-	if ( ! class_exists( 'WP_Automatic_Updater' ) ) {
-		require_once ABSPATH . 'wp-admin/includes/class-wp-automatic-updater.php';
+	$enabled = true;
+
+	if ( ! wp_is_file_mod_allowed( 'retraceur_updater' ) || wp_installing() ) {
+		$enabled = false;
 	}
 
-	$updater = new WP_Automatic_Updater();
-	return ! $updater->is_disabled();
+	/**
+	 * Filters whether to entirely disable the Retraceur updater.
+	 *
+	 * @since 2.0.0 Retraceur fork.
+	 *
+	 * @param boolean $enabled True if enabled. False otherwise.
+	 */
+	return apply_filters( 'retraceur_is_updater_enabled', $enabled );
 }
 
 /**
@@ -1056,7 +1045,5 @@ add_action( 'admin_init', '_maybe_update_themes' );
 add_action( 'wp_update_themes', 'wp_update_themes' );
 
 add_action( 'update_option_WPLANG', 'wp_clean_update_cache', 10, 0 );
-
-add_action( 'wp_maybe_auto_update', 'wp_maybe_auto_update' );
 
 add_action( 'wp_delete_temp_updater_backups', 'wp_delete_all_temp_backups' );*/
