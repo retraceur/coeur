@@ -7704,8 +7704,8 @@ AttachmentsBrowser = View.extend(/** @lends wp.media.view.AttachmentsBrowser.pro
 
 		if ( this.collection.length ) {
 			this.loadMoreCount.$el.text(
-				/* translators: 1: Number of displayed attachments, 2: Number of total attachments. */
 				sprintf(
+					/* translators: 1: Number of displayed attachments, 2: Number of total attachments. */
 					__( 'Showing %1$s of %2$s media items' ),
 					this.collection.length,
 					this.collection.getTotalAttachments()

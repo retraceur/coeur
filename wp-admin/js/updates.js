@@ -2683,13 +2683,13 @@
 
 			if ( $pluginRow.hasClass( 'is-uninstallable' ) ) {
 				confirmMessage = sprintf(
-					/* translators: %s: Plugin name. */
+					/* translators: %s: Plugin/Theme name. */
 					__( 'Are you sure you want to delete %s and its data?' ),
 					$pluginRow.find( '.plugin-title strong' ).text()
 				);
 			} else {
 				confirmMessage = sprintf(
-					/* translators: %s: Plugin name. */
+					/* translators: %s: Plugin/Theme name. */
 					__( 'Are you sure you want to delete %s?' ),
 					$pluginRow.find( '.plugin-title strong' ).text()
 				);
@@ -2746,7 +2746,7 @@
 		$document.on( 'click', '.themes-php.network-admin a.delete', function( event ) {
 			var $themeRow = $( event.target ).parents( 'tr' ),
 				confirmMessage = sprintf(
-					/* translators: %s: Theme name. */
+					/* translators: %s: Plugin/Theme name. */
 					__( 'Are you sure you want to delete %s?' ),
 					$themeRow.find( '.theme-title strong' ).text()
 				);

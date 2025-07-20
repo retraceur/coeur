@@ -145,16 +145,19 @@ jQuery( function( $ ) {
 
 		if ( 'critical' === issue.status ) {
 			heading = sprintf(
+				/* Translators: %s. Amount of critical issues. */
 				_n( '%s critical issue', '%s critical issues', count ),
 				'<span class="issue-count">' + count + '</span>'
 			);
 		} else if ( 'recommended' === issue.status ) {
 			heading = sprintf(
+				/* Translators: %s. Amount of improvements. */
 				_n( '%s recommended improvement', '%s recommended improvements', count ),
 				'<span class="issue-count">' + count + '</span>'
 			);
 		} else if ( 'good' === issue.status ) {
 			heading = sprintf(
+				/* Translators: %s. Amount of items without issues. */
 				_n( '%s item with no issues detected', '%s items with no issues detected', count ),
 				'<span class="issue-count">' + count + '</span>'
 			);
