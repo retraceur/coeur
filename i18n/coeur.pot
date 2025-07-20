@@ -7,9 +7,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-06-29T01:37:34+00:00\n"
+"POT-Creation-Date: 2025-07-19T18:48:51+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.11.0\n"
+"X-Generator: WP-CLI 2.10.0\n"
 
 #: wp-activate.php:26
 #: wp-includes/deprecated.php:15849
@@ -49,27 +49,41 @@ msgctxt "Message to convey that a webpage could not be found"
 msgid "The page you are looking for does not exist, or it has been moved."
 msgstr ""
 
-#: wp-content/themes/point/patterns/entry-footer.php:16
+#: wp-content/themes/point/patterns/entry-footer-archive-post-format-image.php:17
+#: wp-content/themes/point/patterns/entry-footer-single-post-format-image.php:17
+msgctxt "Image post format \"Published on\" date separator"
+msgid ": published on"
+msgstr ""
+
+#: wp-content/themes/point/patterns/entry-footer-archive-post-format-image.php:22
+#: wp-content/themes/point/patterns/entry-footer-single-post-format-image.php:21
+#: wp-content/themes/point/patterns/entry-header-post-format.php:21
+#: wp-content/themes/point/patterns/entry-header.php:21
+msgctxt "\"by\" Author separator"
+msgid "by"
+msgstr ""
+
+#: wp-content/themes/point/patterns/entry-footer.php:17
 msgctxt "\"Published in\" category separator"
 msgid "Categorized in"
 msgstr ""
 
-#: wp-content/themes/point/patterns/entry-footer.php:17
+#: wp-content/themes/point/patterns/entry-footer.php:20
 msgctxt "\"Tagged\" tag separator"
 msgid "Tagged"
 msgstr ""
 
-#: wp-content/themes/point/patterns/entry-header-single-post-format.php:16
+#: wp-content/themes/point/patterns/entry-header-archive-post-format-status.php:17
+#: wp-content/themes/point/patterns/entry-header-single-post-format-status.php:17
+msgctxt "Status post format \"Published on\" date separator"
+msgid "on"
+msgstr ""
+
+#: wp-content/themes/point/patterns/entry-header-post-format.php:16
 #: wp-content/themes/point/patterns/entry-header-single.php:16
 #: wp-content/themes/point/patterns/entry-header.php:16
 msgctxt "\"Published on\" date separator"
 msgid "Published on"
-msgstr ""
-
-#: wp-content/themes/point/patterns/entry-header-single-post-format.php:20
-#: wp-content/themes/point/patterns/entry-header.php:20
-msgctxt "\"by\" Author separator"
-msgid "by"
 msgstr ""
 
 #: wp-content/themes/point/patterns/entry-header-single.php:20
@@ -86,6 +100,10 @@ msgstr ""
 #: wp-content/themes/point/patterns/footer.php:35
 #: wp-includes/theme-compat/footer.php:26
 msgid "https://retraceur.github.io/"
+msgstr ""
+
+#: wp-content/themes/point/patterns/home-header.php:16
+msgid "All publications"
 msgstr ""
 
 #: wp-content/themes/point/patterns/posts-no-results.php:9
@@ -195,7 +213,7 @@ msgstr ""
 
 #: wp-includes/admin-bar.php:532
 #: wp-includes/admin-bar.php:932
-#: wp-includes/taxonomy.php:225
+#: wp-includes/taxonomy.php:226
 msgid "Themes"
 msgstr ""
 
@@ -255,7 +273,7 @@ msgstr[1] ""
 #: wp-includes/blocks/search.php:29
 #: wp-includes/blocks/search.php:30
 #: wp-includes/blocks/search.php:54
-#: wp-includes/media.php:4954
+#: wp-includes/media.php:4960
 msgid "Search"
 msgstr ""
 
@@ -347,7 +365,7 @@ msgstr ""
 #: wp-includes/media-template.php:910
 #: wp-includes/media-template.php:990
 #: wp-includes/media-template.php:1181
-#: wp-includes/media.php:4597
+#: wp-includes/media.php:4603
 msgid "Thumbnail"
 msgstr ""
 
@@ -356,7 +374,7 @@ msgstr ""
 #: wp-includes/media-template.php:911
 #: wp-includes/media-template.php:991
 #: wp-includes/media-template.php:1182
-#: wp-includes/media.php:4598
+#: wp-includes/media.php:4604
 msgid "Medium"
 msgstr ""
 
@@ -366,7 +384,7 @@ msgstr ""
 #: wp-includes/media-template.php:912
 #: wp-includes/media-template.php:992
 #: wp-includes/media-template.php:1183
-#: wp-includes/media.php:4599
+#: wp-includes/media.php:4605
 msgid "Large"
 msgstr ""
 
@@ -374,7 +392,7 @@ msgstr ""
 #: wp-includes/media-template.php:913
 #: wp-includes/media-template.php:993
 #: wp-includes/media-template.php:1184
-#: wp-includes/media.php:4600
+#: wp-includes/media.php:4606
 msgid "Full Size"
 msgstr ""
 
@@ -864,12 +882,12 @@ msgstr ""
 msgid "No matching template found"
 msgstr ""
 
-#: wp-includes/blocks.php:715
+#: wp-includes/blocks.php:716
 msgid "Cannot hook block to itself."
 msgstr ""
 
 #. translators: 1: Block type, 2: Typography supports key, e.g: fontSize, lineHeight, etc. 3: block.json, 4: Old metadata key, 5: New metadata key.
-#: wp-includes/blocks.php:2551
+#: wp-includes/blocks.php:2573
 msgid "Block \"%1$s\" is declaring %2$s support in %3$s file under %4$s. %2$s support is now declared under %5$s."
 msgstr ""
 
@@ -971,7 +989,7 @@ msgstr ""
 #: wp-includes/blocks/latest-posts.php:78
 #: wp-includes/blocks/page-list.php:198
 #: wp-includes/blocks/rss.php:39
-#: wp-includes/media.php:4557
+#: wp-includes/media.php:4563
 #: wp-includes/script-loader.php:1095
 msgid "(no title)"
 msgstr ""
@@ -2013,7 +2031,7 @@ msgstr ""
 
 #. translators: Date format, see https://www.php.net/manual/datetime.format.php
 #: wp-includes/class-wp-locale.php:423
-#: wp-includes/media.php:4534
+#: wp-includes/media.php:4540
 #: wp-includes/script-loader.php:160
 #: wp-includes/script-loader.php:467
 msgid "F j, Y"
@@ -2443,7 +2461,7 @@ msgid "Filter pages list"
 msgstr ""
 
 #: wp-includes/class-wp-post-type.php:1011
-#: wp-includes/media.php:4997
+#: wp-includes/media.php:5003
 msgid "Filter by date"
 msgstr ""
 
@@ -2917,16 +2935,16 @@ msgstr ""
 #: wp-includes/class-wp-tax-query.php:558
 #: wp-includes/class-wp-term.php:175
 #: wp-includes/rest-api/endpoints/class-wp-rest-taxonomies-controller.php:195
-#: wp-includes/taxonomy.php:631
-#: wp-includes/taxonomy.php:904
-#: wp-includes/taxonomy.php:1005
-#: wp-includes/taxonomy.php:1200
-#: wp-includes/taxonomy.php:1370
-#: wp-includes/taxonomy.php:2294
-#: wp-includes/taxonomy.php:2440
-#: wp-includes/taxonomy.php:2834
-#: wp-includes/taxonomy.php:3021
-#: wp-includes/taxonomy.php:3232
+#: wp-includes/taxonomy.php:632
+#: wp-includes/taxonomy.php:905
+#: wp-includes/taxonomy.php:1006
+#: wp-includes/taxonomy.php:1201
+#: wp-includes/taxonomy.php:1371
+#: wp-includes/taxonomy.php:2295
+#: wp-includes/taxonomy.php:2441
+#: wp-includes/taxonomy.php:2835
+#: wp-includes/taxonomy.php:3022
+#: wp-includes/taxonomy.php:3233
 msgid "Invalid taxonomy."
 msgstr ""
 
@@ -3027,7 +3045,7 @@ msgid "Add Tag"
 msgstr ""
 
 #: wp-includes/class-wp-taxonomy.php:629
-#: wp-includes/taxonomy.php:266
+#: wp-includes/taxonomy.php:267
 msgid "Add Category"
 msgstr ""
 
@@ -3740,8 +3758,8 @@ msgstr ""
 #: wp-includes/media-template.php:1242
 #: wp-includes/media-template.php:1316
 #: wp-includes/media-template.php:1407
-#: wp-includes/media.php:4952
-#: wp-includes/media.php:5632
+#: wp-includes/media.php:4958
+#: wp-includes/media.php:5638
 #: wp-includes/sitemaps/class-wp-sitemaps-stylesheet.php:64
 #: wp-includes/sitemaps/class-wp-sitemaps-stylesheet.php:178
 msgid "URL"
@@ -3893,7 +3911,7 @@ msgid "&#8217;tain&#8217;t,&#8217;twere,&#8217;twas,&#8217;tis,&#8217;twill,&#82
 msgstr ""
 
 #. translators: %s: Time duration in second or seconds.
-#: wp-includes/formatting.php:3872
+#: wp-includes/formatting.php:3882
 #: wp-includes/functions.php:570
 msgid "%s second"
 msgid_plural "%s seconds"
@@ -3901,7 +3919,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %s: Time duration in minute or minutes.
-#: wp-includes/formatting.php:3879
+#: wp-includes/formatting.php:3889
 #: wp-includes/functions.php:564
 msgid "%s minute"
 msgid_plural "%s minutes"
@@ -3909,7 +3927,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %s: Time duration in hour or hours.
-#: wp-includes/formatting.php:3886
+#: wp-includes/formatting.php:3896
 #: wp-includes/functions.php:558
 msgid "%s hour"
 msgid_plural "%s hours"
@@ -3917,86 +3935,86 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: Time difference between two dates, in days. %s: Number of days.
-#: wp-includes/formatting.php:3893
+#: wp-includes/formatting.php:3903
 msgid "%s day"
 msgid_plural "%s days"
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: Time difference between two dates, in weeks. %s: Number of weeks.
-#: wp-includes/formatting.php:3900
+#: wp-includes/formatting.php:3910
 msgid "%s week"
 msgid_plural "%s weeks"
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: Time difference between two dates, in months. %s: Number of months.
-#: wp-includes/formatting.php:3907
+#: wp-includes/formatting.php:3917
 msgid "%s month"
 msgid_plural "%s months"
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: Time difference between two dates, in years. %s: Number of years.
-#: wp-includes/formatting.php:3914
+#: wp-includes/formatting.php:3924
 msgid "%s year"
 msgid_plural "%s years"
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: Maximum number of words used in a post excerpt.
-#: wp-includes/formatting.php:3989
+#: wp-includes/formatting.php:3999
 msgctxt "excerpt_length"
 msgid "55"
 msgstr ""
 
-#: wp-includes/formatting.php:4039
+#: wp-includes/formatting.php:4049
 #: wp-includes/general-template.php:4660
 msgid "&hellip;"
 msgstr ""
 
-#: wp-includes/formatting.php:4845
+#: wp-includes/formatting.php:4855
 msgid "The email address entered did not appear to be a valid email address. Please enter a valid email address."
 msgstr ""
 
-#: wp-includes/formatting.php:4940
+#: wp-includes/formatting.php:4950
 msgid "The website address you entered did not appear to be a valid URL. Please enter a valid URL."
 msgstr ""
 
-#: wp-includes/formatting.php:4953
+#: wp-includes/formatting.php:4963
 msgid "The Site address you entered did not appear to be a valid URL. Please enter a valid URL."
 msgstr ""
 
-#: wp-includes/formatting.php:4988
+#: wp-includes/formatting.php:4998
 msgid "The timezone you have entered is not valid. Please select a valid timezone."
 msgstr ""
 
-#: wp-includes/formatting.php:5006
+#: wp-includes/formatting.php:5016
 msgid "A structure tag is required when using custom permalinks."
 msgstr ""
 
 #. translators: 1: Option name, 2: Error code.
-#: wp-includes/formatting.php:5021
+#: wp-includes/formatting.php:5031
 msgid "Could not sanitize the %1$s option. Error code: %2$s"
 msgstr ""
 
 #. translators: Used to join items in a list with more than 2 items.
-#: wp-includes/formatting.php:5264
+#: wp-includes/formatting.php:5274
 msgid "%1$s, %2$s"
 msgstr ""
 
 #. translators: Used to join last two items in a list with more than 2 times.
-#: wp-includes/formatting.php:5266
+#: wp-includes/formatting.php:5276
 msgid "%1$s, and %2$s"
 msgstr ""
 
 #. translators: Used to join items in a list with only 2 items.
-#: wp-includes/formatting.php:5268
+#: wp-includes/formatting.php:5278
 msgid "%1$s and %2$s"
 msgstr ""
 
 #. translators: 1: The function name, 2: The argument number, 3: The argument name, 4: The expected type, 5: The provided type.
-#: wp-includes/formatting.php:5454
+#: wp-includes/formatting.php:5464
 msgid "Warning: %1$s expects parameter %2$s (%3$s) to be a %4$s, %5$s given."
 msgstr ""
 
@@ -4495,7 +4513,7 @@ msgstr ""
 
 #. translators: 1: Month, 2: Year.
 #: wp-includes/general-template.php:2082
-#: wp-includes/media.php:4878
+#: wp-includes/media.php:4884
 msgid "%1$s %2$d"
 msgstr ""
 
@@ -4950,7 +4968,7 @@ msgstr ""
 
 #. translators: 1: Suggested width number, 2: Suggested height number.
 #: wp-includes/media-template.php:301
-#: wp-includes/media.php:5041
+#: wp-includes/media.php:5047
 msgid "Suggested image dimensions: %1$s by %2$s pixels."
 msgstr ""
 
@@ -5078,13 +5096,13 @@ msgstr ""
 
 #: wp-includes/media-template.php:524
 #: wp-includes/media-template.php:776
-#: wp-includes/media.php:3318
+#: wp-includes/media.php:3324
 msgid "Artist"
 msgstr ""
 
 #: wp-includes/media-template.php:525
 #: wp-includes/media-template.php:777
-#: wp-includes/media.php:3319
+#: wp-includes/media.php:3325
 msgid "Album"
 msgstr ""
 
@@ -5134,25 +5152,25 @@ msgstr ""
 
 #: wp-includes/media-template.php:576
 #: wp-includes/media-template.php:743
-#: wp-includes/media.php:4993
+#: wp-includes/media.php:4999
 msgid "Restore from Trash"
 msgstr ""
 
 #: wp-includes/media-template.php:578
 #: wp-includes/media-template.php:745
-#: wp-includes/media.php:4992
+#: wp-includes/media.php:4998
 msgid "Move to Trash"
 msgstr ""
 
 #: wp-includes/media-template.php:581
 #: wp-includes/media-template.php:748
-#: wp-includes/media.php:4994
+#: wp-includes/media.php:5000
 msgid "Delete permanently"
 msgstr ""
 
 #. translators: Hidden accessibility text.
 #: wp-includes/media-template.php:621
-#: wp-includes/media.php:4959
+#: wp-includes/media.php:4965
 msgid "Remove"
 msgstr ""
 
@@ -5388,7 +5406,7 @@ msgid "Edit Original"
 msgstr ""
 
 #: wp-includes/media-template.php:1282
-#: wp-includes/media.php:4958
+#: wp-includes/media.php:4964
 msgid "Replace"
 msgstr ""
 
@@ -5467,7 +5485,7 @@ msgid "There are no associated subtitles."
 msgstr ""
 
 #: wp-includes/media-template.php:1531
-#: wp-includes/media.php:4982
+#: wp-includes/media.php:4988
 msgid "No items found."
 msgstr ""
 
@@ -5492,385 +5510,385 @@ msgstr ""
 msgid "Preview as a browser icon"
 msgstr ""
 
-#: wp-includes/media.php:2209
-#: wp-includes/media.php:6054
+#: wp-includes/media.php:2215
+#: wp-includes/media.php:6060
 msgid "An image should not be lazy-loaded and marked as high priority at the same time."
 msgstr ""
 
 #. translators: %s: Playlist item title.
-#: wp-includes/media.php:2948
-#: wp-includes/media.php:2969
+#: wp-includes/media.php:2954
+#: wp-includes/media.php:2975
 msgctxt "playlist item title"
 msgid "&#8220;%s&#8221;"
 msgstr ""
 
-#: wp-includes/media.php:3323
+#: wp-includes/media.php:3329
 msgid "Genre"
 msgstr ""
 
-#: wp-includes/media.php:3324
+#: wp-includes/media.php:3330
 msgid "Year"
 msgstr ""
 
-#: wp-includes/media.php:3325
+#: wp-includes/media.php:3331
 msgctxt "video or audio"
 msgid "Length"
 msgstr ""
 
-#: wp-includes/media.php:3327
+#: wp-includes/media.php:3333
 msgid "Bitrate"
 msgstr ""
 
-#: wp-includes/media.php:3328
+#: wp-includes/media.php:3334
 msgid "Bitrate Mode"
 msgstr ""
 
-#: wp-includes/media.php:4236
+#: wp-includes/media.php:4242
 msgid "No editor could be selected."
 msgstr ""
 
-#: wp-includes/media.php:4551
+#: wp-includes/media.php:4557
 msgid "(no author)"
 msgstr ""
 
-#: wp-includes/media.php:4951
-#: wp-includes/media.php:5639
+#: wp-includes/media.php:4957
+#: wp-includes/media.php:5645
 msgid "Media"
 msgstr ""
 
-#: wp-includes/media.php:4953
-#: wp-includes/media.php:4975
+#: wp-includes/media.php:4959
+#: wp-includes/media.php:4981
 msgid "Add media"
 msgstr ""
 
-#: wp-includes/media.php:4955
+#: wp-includes/media.php:4961
 msgid "Select"
 msgstr ""
 
-#: wp-includes/media.php:4956
+#: wp-includes/media.php:4962
 msgid "Cancel"
 msgstr ""
 
-#: wp-includes/media.php:4957
+#: wp-includes/media.php:4963
 #: wp-includes/script-loader.php:1093
 #: wp-login.php:721
 msgid "Update"
 msgstr ""
 
-#: wp-includes/media.php:4960
+#: wp-includes/media.php:4966
 msgid "Back"
 msgstr ""
 
 #. translators: This is a would-be plural string used in the media manager. If there is not a word you can use in your language to avoid issues with the lack of plural support here, turn it into "selected: %d" then translate it.
-#: wp-includes/media.php:4966
+#: wp-includes/media.php:4972
 msgid "%d selected"
 msgstr ""
 
-#: wp-includes/media.php:4967
+#: wp-includes/media.php:4973
 msgid "Drag and drop to reorder media files."
 msgstr ""
 
-#: wp-includes/media.php:4970
+#: wp-includes/media.php:4976
 msgid "Upload files"
 msgstr ""
 
-#: wp-includes/media.php:4971
+#: wp-includes/media.php:4977
 msgid "Upload images"
 msgstr ""
 
-#: wp-includes/media.php:4974
+#: wp-includes/media.php:4980
 msgid "Media Library"
 msgstr ""
 
-#: wp-includes/media.php:4976
+#: wp-includes/media.php:4982
 msgid "Create a new gallery"
 msgstr ""
 
-#: wp-includes/media.php:4977
+#: wp-includes/media.php:4983
 msgid "Create a new playlist"
 msgstr ""
 
-#: wp-includes/media.php:4978
+#: wp-includes/media.php:4984
 msgid "Create a new video playlist"
 msgstr ""
 
-#: wp-includes/media.php:4979
+#: wp-includes/media.php:4985
 msgid "&#8592; Go to library"
 msgstr ""
 
-#: wp-includes/media.php:4980
+#: wp-includes/media.php:4986
 msgid "All media items"
 msgstr ""
 
-#: wp-includes/media.php:4981
+#: wp-includes/media.php:4987
 msgid "All dates"
 msgstr ""
 
-#: wp-includes/media.php:4984
+#: wp-includes/media.php:4990
 msgctxt "media items"
 msgid "Unattached"
 msgstr ""
 
-#: wp-includes/media.php:4985
+#: wp-includes/media.php:4991
 msgctxt "media items"
 msgid "Mine"
 msgstr ""
 
-#: wp-includes/media.php:4986
+#: wp-includes/media.php:4992
 msgctxt "noun"
 msgid "Trash"
 msgstr ""
 
-#: wp-includes/media.php:4988
+#: wp-includes/media.php:4994
 msgid ""
 "You are about to permanently delete this item from your site.\n"
 "This action cannot be undone.\n"
 " 'Cancel' to stop, 'OK' to delete."
 msgstr ""
 
-#: wp-includes/media.php:4989
+#: wp-includes/media.php:4995
 msgid ""
 "You are about to permanently delete these items from your site.\n"
 "This action cannot be undone.\n"
 " 'Cancel' to stop, 'OK' to delete."
 msgstr ""
 
-#: wp-includes/media.php:4990
+#: wp-includes/media.php:4996
 msgid ""
 "You are about to trash these items.\n"
 "  'Cancel' to stop, 'OK' to delete."
 msgstr ""
 
-#: wp-includes/media.php:4991
+#: wp-includes/media.php:4997
 msgid "Bulk select"
 msgstr ""
 
-#: wp-includes/media.php:4995
+#: wp-includes/media.php:5001
 msgid "Error in deleting the attachment."
 msgstr ""
 
-#: wp-includes/media.php:4996
+#: wp-includes/media.php:5002
 msgid "Apply"
 msgstr ""
 
-#: wp-includes/media.php:4998
+#: wp-includes/media.php:5004
 msgid "Filter by type"
 msgstr ""
 
-#: wp-includes/media.php:4999
-#: wp-includes/media.php:5000
+#: wp-includes/media.php:5005
+#: wp-includes/media.php:5006
 msgid "Search media"
 msgstr ""
 
-#: wp-includes/media.php:5001
+#: wp-includes/media.php:5007
 msgid "Search media items..."
 msgstr ""
 
 #. translators: %d: Number of attachments found in a search.
-#: wp-includes/media.php:5003
+#: wp-includes/media.php:5009
 msgid "Number of media items found: %d"
 msgstr ""
 
-#: wp-includes/media.php:5004
+#: wp-includes/media.php:5010
 msgid "No media items found."
 msgstr ""
 
-#: wp-includes/media.php:5005
+#: wp-includes/media.php:5011
 msgid "No media items found. Try a different search."
 msgstr ""
 
-#: wp-includes/media.php:5008
+#: wp-includes/media.php:5014
 msgid "Attachment details"
 msgstr ""
 
-#: wp-includes/media.php:5011
+#: wp-includes/media.php:5017
 msgid "Insert from URL"
 msgstr ""
 
-#: wp-includes/media.php:5018
+#: wp-includes/media.php:5024
 msgid "Create gallery"
 msgstr ""
 
-#: wp-includes/media.php:5019
+#: wp-includes/media.php:5025
 msgid "Edit gallery"
 msgstr ""
 
-#: wp-includes/media.php:5020
+#: wp-includes/media.php:5026
 msgid "&#8592; Cancel gallery"
 msgstr ""
 
-#: wp-includes/media.php:5021
+#: wp-includes/media.php:5027
 msgid "Insert gallery"
 msgstr ""
 
-#: wp-includes/media.php:5022
+#: wp-includes/media.php:5028
 msgid "Update gallery"
 msgstr ""
 
-#: wp-includes/media.php:5023
-#: wp-includes/media.php:5024
+#: wp-includes/media.php:5029
+#: wp-includes/media.php:5030
 msgid "Add to gallery"
 msgstr ""
 
-#: wp-includes/media.php:5025
+#: wp-includes/media.php:5031
 msgid "Reverse order"
 msgstr ""
 
-#: wp-includes/media.php:5028
+#: wp-includes/media.php:5034
 msgid "Image details"
 msgstr ""
 
-#: wp-includes/media.php:5029
+#: wp-includes/media.php:5035
 msgid "Replace image"
 msgstr ""
 
-#: wp-includes/media.php:5030
-#: wp-includes/media.php:5048
+#: wp-includes/media.php:5036
 #: wp-includes/media.php:5054
+#: wp-includes/media.php:5060
 msgid "Cancel edit"
 msgstr ""
 
-#: wp-includes/media.php:5031
+#: wp-includes/media.php:5037
 msgid "Edit image"
 msgstr ""
 
-#: wp-includes/media.php:5034
+#: wp-includes/media.php:5040
 msgid "Choose image"
 msgstr ""
 
-#: wp-includes/media.php:5035
+#: wp-includes/media.php:5041
 msgid "Select and crop"
 msgstr ""
 
-#: wp-includes/media.php:5036
+#: wp-includes/media.php:5042
 msgid "Skip cropping"
 msgstr ""
 
-#: wp-includes/media.php:5037
+#: wp-includes/media.php:5043
 msgid "Crop image"
 msgstr ""
 
-#: wp-includes/media.php:5038
+#: wp-includes/media.php:5044
 msgid "Crop your image"
 msgstr ""
 
-#: wp-includes/media.php:5039
+#: wp-includes/media.php:5045
 msgid "Cropping&hellip;"
 msgstr ""
 
-#: wp-includes/media.php:5042
+#: wp-includes/media.php:5048
 msgid "There has been an error cropping your image."
 msgstr ""
 
-#: wp-includes/media.php:5045
+#: wp-includes/media.php:5051
 msgid "Audio details"
 msgstr ""
 
-#: wp-includes/media.php:5046
+#: wp-includes/media.php:5052
 msgid "Replace audio"
 msgstr ""
 
-#: wp-includes/media.php:5047
+#: wp-includes/media.php:5053
 msgid "Add audio source"
 msgstr ""
 
-#: wp-includes/media.php:5051
+#: wp-includes/media.php:5057
 msgid "Video details"
 msgstr ""
 
-#: wp-includes/media.php:5052
+#: wp-includes/media.php:5058
 msgid "Replace video"
 msgstr ""
 
-#: wp-includes/media.php:5053
+#: wp-includes/media.php:5059
 msgid "Add video source"
 msgstr ""
 
-#: wp-includes/media.php:5055
+#: wp-includes/media.php:5061
 msgid "Select poster image"
 msgstr ""
 
-#: wp-includes/media.php:5056
+#: wp-includes/media.php:5062
 msgid "Add subtitles"
 msgstr ""
 
-#: wp-includes/media.php:5059
+#: wp-includes/media.php:5065
 msgid "Drag and drop to reorder tracks."
 msgstr ""
 
-#: wp-includes/media.php:5060
+#: wp-includes/media.php:5066
 msgid "Create audio playlist"
 msgstr ""
 
-#: wp-includes/media.php:5061
+#: wp-includes/media.php:5067
 msgid "Edit audio playlist"
 msgstr ""
 
-#: wp-includes/media.php:5062
+#: wp-includes/media.php:5068
 msgid "&#8592; Cancel audio playlist"
 msgstr ""
 
-#: wp-includes/media.php:5063
+#: wp-includes/media.php:5069
 msgid "Insert audio playlist"
 msgstr ""
 
-#: wp-includes/media.php:5064
+#: wp-includes/media.php:5070
 msgid "Update audio playlist"
 msgstr ""
 
-#: wp-includes/media.php:5065
+#: wp-includes/media.php:5071
 msgid "Add to audio playlist"
 msgstr ""
 
-#: wp-includes/media.php:5066
+#: wp-includes/media.php:5072
 msgid "Add to Audio Playlist"
 msgstr ""
 
-#: wp-includes/media.php:5069
+#: wp-includes/media.php:5075
 msgid "Drag and drop to reorder videos."
 msgstr ""
 
-#: wp-includes/media.php:5070
+#: wp-includes/media.php:5076
 msgid "Create video playlist"
 msgstr ""
 
-#: wp-includes/media.php:5071
+#: wp-includes/media.php:5077
 msgid "Edit video playlist"
 msgstr ""
 
-#: wp-includes/media.php:5072
+#: wp-includes/media.php:5078
 msgid "&#8592; Cancel video playlist"
 msgstr ""
 
-#: wp-includes/media.php:5073
+#: wp-includes/media.php:5079
 msgid "Insert video playlist"
 msgstr ""
 
-#: wp-includes/media.php:5074
+#: wp-includes/media.php:5080
 msgid "Update video playlist"
 msgstr ""
 
-#: wp-includes/media.php:5075
+#: wp-includes/media.php:5081
 msgid "Add to video playlist"
 msgstr ""
 
-#: wp-includes/media.php:5076
+#: wp-includes/media.php:5082
 msgid "Add to video Playlist"
 msgstr ""
 
-#: wp-includes/media.php:5079
+#: wp-includes/media.php:5085
 msgid "Filter media"
 msgstr ""
 
-#: wp-includes/media.php:5080
+#: wp-includes/media.php:5086
 msgid "Media list"
 msgstr ""
 
-#: wp-includes/media.php:5578
+#: wp-includes/media.php:5584
 msgid "Retraceur Media"
 msgstr ""
 
-#: wp-includes/media.php:5640
+#: wp-includes/media.php:5646
 msgid "Contributor&#8217;s media data."
 msgstr ""
 
@@ -9627,8 +9645,8 @@ msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:538
 #: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:685
-#: wp-includes/taxonomy.php:2476
-#: wp-includes/taxonomy.php:3278
+#: wp-includes/taxonomy.php:2477
+#: wp-includes/taxonomy.php:3279
 msgid "Parent term does not exist."
 msgstr ""
 
@@ -10963,178 +10981,178 @@ msgctxt "post format"
 msgid "View Format"
 msgstr ""
 
-#: wp-includes/taxonomy.php:165
+#: wp-includes/taxonomy.php:166
 msgid "Used to allow Post Format customizable slugs."
 msgstr ""
 
-#: wp-includes/taxonomy.php:187
+#: wp-includes/taxonomy.php:188
 msgid "Used to allow Post Format customizable single title."
 msgstr ""
 
-#: wp-includes/taxonomy.php:205
+#: wp-includes/taxonomy.php:206
 msgid "Used to allow Post Format customizable Archive title."
 msgstr ""
 
-#: wp-includes/taxonomy.php:226
+#: wp-includes/taxonomy.php:227
 msgid "Theme"
 msgstr ""
 
-#: wp-includes/taxonomy.php:244
+#: wp-includes/taxonomy.php:245
 msgid "Template Part Areas"
 msgstr ""
 
-#: wp-includes/taxonomy.php:245
+#: wp-includes/taxonomy.php:246
 msgid "Template Part Area"
 msgstr ""
 
-#: wp-includes/taxonomy.php:264
+#: wp-includes/taxonomy.php:265
 msgctxt "taxonomy general name"
 msgid "Pattern Categories"
 msgstr ""
 
-#: wp-includes/taxonomy.php:265
+#: wp-includes/taxonomy.php:266
 msgctxt "taxonomy singular name"
 msgid "Pattern Category"
 msgstr ""
 
-#: wp-includes/taxonomy.php:267
+#: wp-includes/taxonomy.php:268
 msgid "Add or remove pattern categories"
 msgstr ""
 
-#: wp-includes/taxonomy.php:268
+#: wp-includes/taxonomy.php:269
 msgid "&larr; Go to Pattern Categories"
 msgstr ""
 
-#: wp-includes/taxonomy.php:269
+#: wp-includes/taxonomy.php:270
 msgid "Choose from the most used pattern categories"
 msgstr ""
 
-#: wp-includes/taxonomy.php:270
+#: wp-includes/taxonomy.php:271
 msgid "Edit Pattern Category"
 msgstr ""
 
-#: wp-includes/taxonomy.php:271
+#: wp-includes/taxonomy.php:272
 msgid "Pattern Category Link"
 msgstr ""
 
-#: wp-includes/taxonomy.php:272
+#: wp-includes/taxonomy.php:273
 msgid "A link to a pattern category."
 msgstr ""
 
-#: wp-includes/taxonomy.php:273
+#: wp-includes/taxonomy.php:274
 msgid "Pattern Categories list"
 msgstr ""
 
-#: wp-includes/taxonomy.php:274
+#: wp-includes/taxonomy.php:275
 msgid "Pattern Categories list navigation"
 msgstr ""
 
-#: wp-includes/taxonomy.php:275
+#: wp-includes/taxonomy.php:276
 msgid "New Pattern Category Name"
 msgstr ""
 
-#: wp-includes/taxonomy.php:276
+#: wp-includes/taxonomy.php:277
 msgid "No pattern categories"
 msgstr ""
 
-#: wp-includes/taxonomy.php:277
+#: wp-includes/taxonomy.php:278
 msgid "No pattern categories found."
 msgstr ""
 
-#: wp-includes/taxonomy.php:278
+#: wp-includes/taxonomy.php:279
 msgid "Popular Pattern Categories"
 msgstr ""
 
-#: wp-includes/taxonomy.php:279
+#: wp-includes/taxonomy.php:280
 msgid "Search Pattern Categories"
 msgstr ""
 
-#: wp-includes/taxonomy.php:280
+#: wp-includes/taxonomy.php:281
 msgid "Separate pattern categories with commas"
 msgstr ""
 
-#: wp-includes/taxonomy.php:281
+#: wp-includes/taxonomy.php:282
 msgid "Update Pattern Category"
 msgstr ""
 
-#: wp-includes/taxonomy.php:282
+#: wp-includes/taxonomy.php:283
 msgid "View Pattern Category"
 msgstr ""
 
-#: wp-includes/taxonomy.php:550
 #: wp-includes/taxonomy.php:551
+#: wp-includes/taxonomy.php:552
 msgid "Taxonomy names must be between 1 and 32 characters in length."
 msgstr ""
 
-#: wp-includes/taxonomy.php:638
+#: wp-includes/taxonomy.php:639
 msgid "Unregistering a built-in taxonomy is not allowed."
 msgstr ""
 
 #. translators: %s: Taxonomy name.
-#: wp-includes/taxonomy.php:748
+#: wp-includes/taxonomy.php:749
 msgctxt "taxonomy template name"
 msgid "%s Archives"
 msgstr ""
 
-#: wp-includes/taxonomy.php:1001
-#: wp-includes/taxonomy.php:3245
-#: wp-includes/taxonomy.php:4646
+#: wp-includes/taxonomy.php:1002
+#: wp-includes/taxonomy.php:3246
+#: wp-includes/taxonomy.php:4647
 msgid "Empty Term."
 msgstr ""
 
-#: wp-includes/taxonomy.php:1425
-#: wp-includes/taxonomy.php:1495
+#: wp-includes/taxonomy.php:1426
+#: wp-includes/taxonomy.php:1496
 msgid "Term meta cannot be added to terms that are shared between taxonomies."
 msgstr ""
 
-#: wp-includes/taxonomy.php:2460
+#: wp-includes/taxonomy.php:2461
 msgid "Invalid term ID."
 msgstr ""
 
-#: wp-includes/taxonomy.php:2464
-#: wp-includes/taxonomy.php:3274
+#: wp-includes/taxonomy.php:2465
+#: wp-includes/taxonomy.php:3275
 msgid "A name is required for this term."
 msgstr ""
 
-#: wp-includes/taxonomy.php:2494
+#: wp-includes/taxonomy.php:2495
 msgid "Invalid term name."
 msgstr ""
 
-#: wp-includes/taxonomy.php:2579
+#: wp-includes/taxonomy.php:2580
 msgid "A term with the name provided already exists with this parent."
 msgstr ""
 
-#: wp-includes/taxonomy.php:2582
+#: wp-includes/taxonomy.php:2583
 msgid "A term with the name provided already exists in this taxonomy."
 msgstr ""
 
-#: wp-includes/taxonomy.php:2603
+#: wp-includes/taxonomy.php:2604
 msgid "Could not insert term into the database."
 msgstr ""
 
-#: wp-includes/taxonomy.php:2630
+#: wp-includes/taxonomy.php:2631
 msgid "Could not insert term taxonomy into the database."
 msgstr ""
 
-#: wp-includes/taxonomy.php:2964
+#: wp-includes/taxonomy.php:2965
 msgid "Could not insert term relationship into the database."
 msgstr ""
 
 #. translators: %s: Taxonomy term slug.
-#: wp-includes/taxonomy.php:3342
+#: wp-includes/taxonomy.php:3343
 msgid "The slug &#8220;%s&#8221; is already in use by another term."
 msgstr ""
 
-#: wp-includes/taxonomy.php:4302
+#: wp-includes/taxonomy.php:4303
 msgid "Could not split shared term."
 msgstr ""
 
 #. translators: %s: Taxonomy label, %l: List of terms formatted as per $term_template.
-#: wp-includes/taxonomy.php:4795
+#: wp-includes/taxonomy.php:4796
 msgid "%s: %l."
 msgstr ""
 
-#: wp-includes/taxonomy.php:4869
+#: wp-includes/taxonomy.php:4870
 msgid "Invalid object ID."
 msgstr ""
 
