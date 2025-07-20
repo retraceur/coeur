@@ -7,61 +7,64 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-06-14T07:03:49+00:00\n"
+"POT-Creation-Date: 2025-07-20T04:15:17+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.11.0\n"
+"X-Generator: WP-CLI 2.10.0\n"
 
 #: wp-admin/js/site-health.js:40
 msgid "Site information has been copied to your clipboard."
 msgstr ""
 
-#: wp-admin/js/site-health.js:148
+#. Translators: %s. Amount of critical issues.
+#: wp-admin/js/site-health.js:149
 msgid "%s critical issue"
 msgid_plural "%s critical issues"
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-admin/js/site-health.js:153
+#. Translators: %s. Amount of improvements.
+#: wp-admin/js/site-health.js:155
 msgid "%s recommended improvement"
 msgid_plural "%s recommended improvements"
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-admin/js/site-health.js:158
+#. Translators: %s. Amount of items without issues.
+#: wp-admin/js/site-health.js:161
 msgid "%s item with no issues detected"
 msgid_plural "%s items with no issues detected"
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-admin/js/site-health.js:225
+#: wp-admin/js/site-health.js:228
 msgid "Good"
 msgstr ""
 
-#: wp-admin/js/site-health.js:230
+#: wp-admin/js/site-health.js:233
 msgid "Should be improved"
 msgstr ""
 
-#: wp-admin/js/site-health.js:289
-#: wp-admin/js/site-health.js:310
+#: wp-admin/js/site-health.js:292
+#: wp-admin/js/site-health.js:313
 msgid "No details available"
 msgstr ""
 
-#: wp-admin/js/site-health.js:338
+#: wp-admin/js/site-health.js:341
 msgid "A test is unavailable"
 msgstr ""
 
-#: wp-admin/js/site-health.js:341
+#: wp-admin/js/site-health.js:344
 msgid "Unavailable"
 msgstr ""
 
-#: wp-admin/js/site-health.js:470
+#: wp-admin/js/site-health.js:473
 msgid "All site health tests have finished running. Your site is looking good."
 msgstr ""
 
-#: wp-admin/js/site-health.js:473
+#: wp-admin/js/site-health.js:476
 msgid "All site health tests have finished running. There are items that should be addressed."
 msgstr ""
 
-#: wp-admin/js/site-health.js:476
+#: wp-admin/js/site-health.js:479
 msgid "Running additional tests... please wait."
 msgstr ""

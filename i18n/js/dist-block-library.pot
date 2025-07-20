@@ -7,9 +7,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-06-14T07:04:08+00:00\n"
+"POT-Creation-Date: 2025-07-20T04:20:30+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.11.0\n"
+"X-Generator: WP-CLI 2.10.0\n"
 
 #: wp-includes/js/dist/block-library.js:1723
 #: wp-includes/js/dist/block-library.js:2107
@@ -19,44 +19,44 @@ msgstr ""
 #: wp-includes/js/dist/block-library.js:7105
 #: wp-includes/js/dist/block-library.js:7853
 #: wp-includes/js/dist/block-library.js:10296
-#: wp-includes/js/dist/block-library.js:12480
-#: wp-includes/js/dist/block-library.js:14642
-#: wp-includes/js/dist/block-library.js:15441
-#: wp-includes/js/dist/block-library.js:16005
-#: wp-includes/js/dist/block-library.js:18482
-#: wp-includes/js/dist/block-library.js:22972
-#: wp-includes/js/dist/block-library.js:23100
-#: wp-includes/js/dist/block-library.js:25739
-#: wp-includes/js/dist/block-library.js:27002
-#: wp-includes/js/dist/block-library.js:28638
-#: wp-includes/js/dist/block-library.js:29548
-#: wp-includes/js/dist/block-library.js:33871
-#: wp-includes/js/dist/block-library.js:35023
-#: wp-includes/js/dist/block-library.js:36231
-#: wp-includes/js/dist/block-library.js:37624
-#: wp-includes/js/dist/block-library.js:37926
-#: wp-includes/js/dist/block-library.js:38662
-#: wp-includes/js/dist/block-library.js:39106
-#: wp-includes/js/dist/block-library.js:39800
-#: wp-includes/js/dist/block-library.js:40379
-#: wp-includes/js/dist/block-library.js:41931
-#: wp-includes/js/dist/block-library.js:44648
-#: wp-includes/js/dist/block-library.js:46428
-#: wp-includes/js/dist/block-library.js:46792
-#: wp-includes/js/dist/block-library.js:47189
-#: wp-includes/js/dist/block-library.js:47221
-#: wp-includes/js/dist/block-library.js:48961
-#: wp-includes/js/dist/block-library.js:49223
-#: wp-includes/js/dist/block-library.js:49836
-#: wp-includes/js/dist/block-library.js:50910
-#: wp-includes/js/dist/block-library.js:51764
-#: wp-includes/js/dist/block-library.js:53305
-#: wp-includes/js/dist/block-library.js:53752
-#: wp-includes/js/dist/block-library.js:54166
-#: wp-includes/js/dist/block-library.js:56258
-#: wp-includes/js/dist/block-library.js:57211
-#: wp-includes/js/dist/block-library.js:57556
-#: wp-includes/js/dist/block-library.js:61148
+#: wp-includes/js/dist/block-library.js:12502
+#: wp-includes/js/dist/block-library.js:14652
+#: wp-includes/js/dist/block-library.js:15451
+#: wp-includes/js/dist/block-library.js:16015
+#: wp-includes/js/dist/block-library.js:18492
+#: wp-includes/js/dist/block-library.js:22982
+#: wp-includes/js/dist/block-library.js:23110
+#: wp-includes/js/dist/block-library.js:25743
+#: wp-includes/js/dist/block-library.js:27006
+#: wp-includes/js/dist/block-library.js:28642
+#: wp-includes/js/dist/block-library.js:29552
+#: wp-includes/js/dist/block-library.js:33884
+#: wp-includes/js/dist/block-library.js:35046
+#: wp-includes/js/dist/block-library.js:36254
+#: wp-includes/js/dist/block-library.js:37647
+#: wp-includes/js/dist/block-library.js:37949
+#: wp-includes/js/dist/block-library.js:38685
+#: wp-includes/js/dist/block-library.js:39129
+#: wp-includes/js/dist/block-library.js:39823
+#: wp-includes/js/dist/block-library.js:40421
+#: wp-includes/js/dist/block-library.js:41975
+#: wp-includes/js/dist/block-library.js:44696
+#: wp-includes/js/dist/block-library.js:46478
+#: wp-includes/js/dist/block-library.js:46842
+#: wp-includes/js/dist/block-library.js:47239
+#: wp-includes/js/dist/block-library.js:47271
+#: wp-includes/js/dist/block-library.js:49011
+#: wp-includes/js/dist/block-library.js:49273
+#: wp-includes/js/dist/block-library.js:49886
+#: wp-includes/js/dist/block-library.js:50960
+#: wp-includes/js/dist/block-library.js:51814
+#: wp-includes/js/dist/block-library.js:53387
+#: wp-includes/js/dist/block-library.js:53834
+#: wp-includes/js/dist/block-library.js:54248
+#: wp-includes/js/dist/block-library.js:56340
+#: wp-includes/js/dist/block-library.js:57293
+#: wp-includes/js/dist/block-library.js:57638
+#: wp-includes/js/dist/block-library.js:61230
 msgid "Settings"
 msgstr ""
 
@@ -130,19 +130,19 @@ msgid "Link to contributor profile"
 msgstr ""
 
 #: wp-includes/js/dist/block-library.js:2128
-#: wp-includes/js/dist/block-library.js:14652
-#: wp-includes/js/dist/block-library.js:37677
-#: wp-includes/js/dist/block-library.js:37950
-#: wp-includes/js/dist/block-library.js:37958
-#: wp-includes/js/dist/block-library.js:39829
-#: wp-includes/js/dist/block-library.js:39837
-#: wp-includes/js/dist/block-library.js:40390
-#: wp-includes/js/dist/block-library.js:41942
-#: wp-includes/js/dist/block-library.js:48967
-#: wp-includes/js/dist/block-library.js:48975
-#: wp-includes/js/dist/block-library.js:50933
-#: wp-includes/js/dist/block-library.js:51789
-#: wp-includes/js/dist/block-library.js:51796
+#: wp-includes/js/dist/block-library.js:14662
+#: wp-includes/js/dist/block-library.js:37700
+#: wp-includes/js/dist/block-library.js:37973
+#: wp-includes/js/dist/block-library.js:37981
+#: wp-includes/js/dist/block-library.js:39852
+#: wp-includes/js/dist/block-library.js:39860
+#: wp-includes/js/dist/block-library.js:40432
+#: wp-includes/js/dist/block-library.js:41986
+#: wp-includes/js/dist/block-library.js:49017
+#: wp-includes/js/dist/block-library.js:49025
+#: wp-includes/js/dist/block-library.js:50983
+#: wp-includes/js/dist/block-library.js:51839
+#: wp-includes/js/dist/block-library.js:51846
 msgid "Open in new tab"
 msgstr ""
 
@@ -160,19 +160,19 @@ msgid "Remove caption"
 msgstr ""
 
 #: wp-includes/js/dist/block-library.js:3219
-#: wp-includes/js/dist/block-library.js:60533
+#: wp-includes/js/dist/block-library.js:60615
 msgid "Autoplay may cause usability issues for some contributors."
 msgstr ""
 
 #: wp-includes/js/dist/block-library.js:3289
-#: wp-includes/js/dist/block-library.js:60567
-#: wp-includes/js/dist/block-library.js:60578
+#: wp-includes/js/dist/block-library.js:60649
+#: wp-includes/js/dist/block-library.js:60660
 msgid "Autoplay"
 msgstr ""
 
 #: wp-includes/js/dist/block-library.js:3295
-#: wp-includes/js/dist/block-library.js:60584
-#: wp-includes/js/dist/block-library.js:60594
+#: wp-includes/js/dist/block-library.js:60666
+#: wp-includes/js/dist/block-library.js:60676
 msgid "Loop"
 msgstr ""
 
@@ -186,18 +186,18 @@ msgid "Browser default"
 msgstr ""
 
 #: wp-includes/js/dist/block-library.js:3313
-#: wp-includes/js/dist/block-library.js:60513
+#: wp-includes/js/dist/block-library.js:60595
 msgid "Auto"
 msgstr ""
 
 #: wp-includes/js/dist/block-library.js:3316
-#: wp-includes/js/dist/block-library.js:60516
-#: wp-includes/js/dist/block-library.js:60697
+#: wp-includes/js/dist/block-library.js:60598
+#: wp-includes/js/dist/block-library.js:60779
 msgid "Metadata"
 msgstr ""
 
 #: wp-includes/js/dist/block-library.js:3319
-#: wp-includes/js/dist/block-library.js:60519
+#: wp-includes/js/dist/block-library.js:60601
 msgctxt "Preload value"
 msgid "None"
 msgstr ""
@@ -214,43 +214,43 @@ msgstr ""
 #: wp-includes/js/dist/block-library.js:5066
 #: wp-includes/js/dist/block-library.js:7114
 #: wp-includes/js/dist/block-library.js:7120
-#: wp-includes/js/dist/block-library.js:39417
-#: wp-includes/js/dist/block-library.js:39428
-#: wp-includes/js/dist/block-library.js:49846
-#: wp-includes/js/dist/block-library.js:49857
-#: wp-includes/js/dist/block-library.js:54175
-#: wp-includes/js/dist/block-library.js:54182
+#: wp-includes/js/dist/block-library.js:39440
+#: wp-includes/js/dist/block-library.js:39451
+#: wp-includes/js/dist/block-library.js:49896
+#: wp-includes/js/dist/block-library.js:49907
+#: wp-includes/js/dist/block-library.js:54257
+#: wp-includes/js/dist/block-library.js:54264
 msgid "Width"
 msgstr ""
 
 #. translators: Percentage value.
 #: wp-includes/js/dist/block-library.js:5078
-#: wp-includes/js/dist/block-library.js:49895
+#: wp-includes/js/dist/block-library.js:49945
 msgid "%d%%"
 msgstr ""
 
 #: wp-includes/js/dist/block-library.js:5199
-#: wp-includes/js/dist/block-library.js:49795
+#: wp-includes/js/dist/block-library.js:49845
 msgid "Button text"
 msgstr ""
 
 #: wp-includes/js/dist/block-library.js:5200
-#: wp-includes/js/dist/block-library.js:14999
-#: wp-includes/js/dist/block-library.js:34841
+#: wp-includes/js/dist/block-library.js:15009
+#: wp-includes/js/dist/block-library.js:34864
 msgid "Add text…"
 msgstr ""
 
 #: wp-includes/js/dist/block-library.js:5237
-#: wp-includes/js/dist/block-library.js:18504
-#: wp-includes/js/dist/block-library.js:18540
-#: wp-includes/js/dist/block-library.js:33895
-#: wp-includes/js/dist/block-library.js:33903
-#: wp-includes/js/dist/block-library.js:34176
-#: wp-includes/js/dist/block-library.js:35006
-#: wp-includes/js/dist/block-library.js:35054
-#: wp-includes/js/dist/block-library.js:35069
-#: wp-includes/js/dist/block-library.js:40282
-#: wp-includes/js/dist/block-library.js:44319
+#: wp-includes/js/dist/block-library.js:18514
+#: wp-includes/js/dist/block-library.js:18550
+#: wp-includes/js/dist/block-library.js:33908
+#: wp-includes/js/dist/block-library.js:33916
+#: wp-includes/js/dist/block-library.js:34199
+#: wp-includes/js/dist/block-library.js:35029
+#: wp-includes/js/dist/block-library.js:35077
+#: wp-includes/js/dist/block-library.js:35092
+#: wp-includes/js/dist/block-library.js:40304
+#: wp-includes/js/dist/block-library.js:44363
 msgid "Link"
 msgstr ""
 
@@ -259,11 +259,11 @@ msgid "Unlink"
 msgstr ""
 
 #: wp-includes/js/dist/block-library.js:5287
-#: wp-includes/js/dist/block-library.js:39844
-#: wp-includes/js/dist/block-library.js:39853
-#: wp-includes/js/dist/block-library.js:40398
-#: wp-includes/js/dist/block-library.js:41950
-#: wp-includes/js/dist/block-library.js:53339
+#: wp-includes/js/dist/block-library.js:39867
+#: wp-includes/js/dist/block-library.js:39876
+#: wp-includes/js/dist/block-library.js:40440
+#: wp-includes/js/dist/block-library.js:41994
+#: wp-includes/js/dist/block-library.js:53421
 msgid "Link rel"
 msgstr ""
 
@@ -292,7 +292,7 @@ msgid "(Untitled)"
 msgstr ""
 
 #: wp-includes/js/dist/block-library.js:6358
-#: wp-includes/js/dist/block-library.js:49960
+#: wp-includes/js/dist/block-library.js:50010
 msgid "Label text"
 msgstr ""
 
@@ -303,8 +303,8 @@ msgstr ""
 
 #: wp-includes/js/dist/block-library.js:6422
 #: wp-includes/js/dist/block-library.js:6432
-#: wp-includes/js/dist/block-library.js:57569
-#: wp-includes/js/dist/block-library.js:57577
+#: wp-includes/js/dist/block-library.js:57651
+#: wp-includes/js/dist/block-library.js:57659
 msgid "Taxonomy"
 msgstr ""
 
@@ -344,6 +344,7 @@ msgid "Write code…"
 msgstr ""
 
 #: wp-includes/js/dist/block-library.js:6737
+#: wp-includes/js/dist/block-library.js:40319
 msgid "Code"
 msgstr ""
 
@@ -364,24 +365,24 @@ msgstr ""
 
 #: wp-includes/js/dist/block-library.js:7862
 #: wp-includes/js/dist/block-library.js:7871
-#: wp-includes/js/dist/block-library.js:18485
-#: wp-includes/js/dist/block-library.js:24885
-#: wp-includes/js/dist/block-library.js:44714
-#: wp-includes/js/dist/block-library.js:44723
-#: wp-includes/js/dist/block-library.js:49264
-#: wp-includes/js/dist/block-library.js:59726
+#: wp-includes/js/dist/block-library.js:18495
+#: wp-includes/js/dist/block-library.js:24889
+#: wp-includes/js/dist/block-library.js:44769
+#: wp-includes/js/dist/block-library.js:44778
+#: wp-includes/js/dist/block-library.js:49314
+#: wp-includes/js/dist/block-library.js:59808
 msgid "Columns"
 msgstr ""
 
 #: wp-includes/js/dist/block-library.js:7879
-#: wp-includes/js/dist/block-library.js:44733
+#: wp-includes/js/dist/block-library.js:44788
 msgid "This column count exceeds the recommended amount and may cause visual breakage."
 msgstr ""
 
 #: wp-includes/js/dist/block-library.js:7883
 #: wp-includes/js/dist/block-library.js:7891
-#: wp-includes/js/dist/block-library.js:28667
-#: wp-includes/js/dist/block-library.js:28675
+#: wp-includes/js/dist/block-library.js:28671
+#: wp-includes/js/dist/block-library.js:28679
 msgid "Stack on mobile"
 msgstr ""
 
@@ -513,66 +514,66 @@ msgstr ""
 
 #: wp-includes/js/dist/block-library.js:10337
 #: wp-includes/js/dist/block-library.js:10345
-#: wp-includes/js/dist/block-library.js:28697
-#: wp-includes/js/dist/block-library.js:28705
+#: wp-includes/js/dist/block-library.js:28701
+#: wp-includes/js/dist/block-library.js:28709
 msgid "Focal point"
 msgstr ""
 
 #: wp-includes/js/dist/block-library.js:10355
 #: wp-includes/js/dist/block-library.js:10363
-#: wp-includes/js/dist/block-library.js:22594
-#: wp-includes/js/dist/block-library.js:23104
-#: wp-includes/js/dist/block-library.js:23111
-#: wp-includes/js/dist/block-library.js:28715
-#: wp-includes/js/dist/block-library.js:28723
+#: wp-includes/js/dist/block-library.js:22604
+#: wp-includes/js/dist/block-library.js:23114
+#: wp-includes/js/dist/block-library.js:23121
+#: wp-includes/js/dist/block-library.js:28719
+#: wp-includes/js/dist/block-library.js:28727
 msgid "Alternative text"
 msgstr ""
 
 #. translators: Localized tutorial, if one exists. W3C Web Accessibility Initiative link has list of existing translations.
 #: wp-includes/js/dist/block-library.js:10372
-#: wp-includes/js/dist/block-library.js:22606
-#: wp-includes/js/dist/block-library.js:23121
-#: wp-includes/js/dist/block-library.js:28730
+#: wp-includes/js/dist/block-library.js:22616
+#: wp-includes/js/dist/block-library.js:23131
+#: wp-includes/js/dist/block-library.js:28734
 msgid "https://www.w3.org/WAI/tutorials/images/decision-tree/"
 msgstr ""
 
 #: wp-includes/js/dist/block-library.js:10373
-#: wp-includes/js/dist/block-library.js:22607
-#: wp-includes/js/dist/block-library.js:23122
-#: wp-includes/js/dist/block-library.js:28731
+#: wp-includes/js/dist/block-library.js:22617
+#: wp-includes/js/dist/block-library.js:23132
+#: wp-includes/js/dist/block-library.js:28735
 msgid "Describe the purpose of the image."
 msgstr ""
 
 #: wp-includes/js/dist/block-library.js:10374
-#: wp-includes/js/dist/block-library.js:22608
-#: wp-includes/js/dist/block-library.js:23123
-#: wp-includes/js/dist/block-library.js:28732
+#: wp-includes/js/dist/block-library.js:22618
+#: wp-includes/js/dist/block-library.js:23133
+#: wp-includes/js/dist/block-library.js:28736
 msgid "Leave empty if decorative."
 msgstr ""
 
 #: wp-includes/js/dist/block-library.js:10391
-#: wp-includes/js/dist/block-library.js:39496
+#: wp-includes/js/dist/block-library.js:39519
 msgid "Overlay"
 msgstr ""
 
 #: wp-includes/js/dist/block-library.js:10411
 #: wp-includes/js/dist/block-library.js:10420
-#: wp-includes/js/dist/block-library.js:39512
-#: wp-includes/js/dist/block-library.js:39523
+#: wp-includes/js/dist/block-library.js:39535
+#: wp-includes/js/dist/block-library.js:39546
 msgid "Overlay opacity"
 msgstr ""
 
 #: wp-includes/js/dist/block-library.js:10469
-#: wp-includes/js/dist/block-library.js:19553
-#: wp-includes/js/dist/block-library.js:45304
-#: wp-includes/js/dist/block-library.js:50245
-#: wp-includes/js/dist/block-library.js:58937
+#: wp-includes/js/dist/block-library.js:19563
+#: wp-includes/js/dist/block-library.js:45354
+#: wp-includes/js/dist/block-library.js:50295
+#: wp-includes/js/dist/block-library.js:59019
 msgid "HTML element"
 msgstr ""
 
 #: wp-includes/js/dist/block-library.js:10471
-#: wp-includes/js/dist/block-library.js:19555
-#: wp-includes/js/dist/block-library.js:45306
+#: wp-includes/js/dist/block-library.js:19565
+#: wp-includes/js/dist/block-library.js:45356
 msgid "Default (<div>)"
 msgstr ""
 
@@ -581,15 +582,15 @@ msgid "Change content position"
 msgstr ""
 
 #: wp-includes/js/dist/block-library.js:10598
-#: wp-includes/js/dist/block-library.js:18154
+#: wp-includes/js/dist/block-library.js:18164
 msgid "Add media"
 msgstr ""
 
 #: wp-includes/js/dist/block-library.js:10598
-#: wp-includes/js/dist/block-library.js:23046
-#: wp-includes/js/dist/block-library.js:51141
-#: wp-includes/js/dist/block-library.js:59172
-#: wp-includes/js/dist/block-library.js:60484
+#: wp-includes/js/dist/block-library.js:23056
+#: wp-includes/js/dist/block-library.js:51191
+#: wp-includes/js/dist/block-library.js:59254
+#: wp-includes/js/dist/block-library.js:60566
 msgid "Replace"
 msgstr ""
 
@@ -610,3186 +611,3186 @@ msgstr ""
 msgid "<strong>Snow Patrol</strong>"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:12456
+#: wp-includes/js/dist/block-library.js:12461
 msgid "Type / to add a hidden block"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:12489
-#: wp-includes/js/dist/block-library.js:12498
+#: wp-includes/js/dist/block-library.js:12511
+#: wp-includes/js/dist/block-library.js:12520
 msgid "Open by default"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:12511
+#: wp-includes/js/dist/block-library.js:12533
 msgid "Name attribute"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:12516
+#: wp-includes/js/dist/block-library.js:12538
 msgid "Enables multiple Details blocks with the same name attribute to be connected, with only one open at a time."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:12528
-msgid "Write summary"
+#: wp-includes/js/dist/block-library.js:12549
+msgid "Write summary. Press Enter to expand or collapse the details."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:12529
+#: wp-includes/js/dist/block-library.js:12550
 msgid "Write summary…"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:12699
-#: wp-includes/js/dist/block-library.js:20036
-#: wp-includes/js/dist/block-library.js:37466
+#: wp-includes/js/dist/block-library.js:12719
+#: wp-includes/js/dist/block-library.js:20046
+#: wp-includes/js/dist/block-library.js:37489
 msgid "In a village of La Mancha, the name of which I have no desire to call to mind, there lived not long since one of those gentlemen that keep a lance in the lance-rack, an old buckler, a lean hack, and a greyhound for coursing."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:12718
+#: wp-includes/js/dist/block-library.js:12738
 msgid "Details. Empty."
 msgstr ""
 
 #. translators: accessibility text; summary title.
-#: wp-includes/js/dist/block-library.js:12719
+#: wp-includes/js/dist/block-library.js:12739
 msgid "Details. %s"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:12765
+#: wp-includes/js/dist/block-library.js:12785
 msgid "This embed will preserve its aspect ratio when the browser is resized."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:12765
+#: wp-includes/js/dist/block-library.js:12785
 msgid "This embed may not preserve its aspect ratio when the browser is resized."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:12779
+#: wp-includes/js/dist/block-library.js:12799
 msgid "Edit URL"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:12786
+#: wp-includes/js/dist/block-library.js:12806
 msgid "Media settings"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:12790
+#: wp-includes/js/dist/block-library.js:12810
 msgid "Resize for smaller devices"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:13033
+#: wp-includes/js/dist/block-library.js:13053
 msgid "Paste a link to the content you want to display on your site."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:13043
+#: wp-includes/js/dist/block-library.js:13063
 msgid "Enter URL to embed here…"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:13049
+#: wp-includes/js/dist/block-library.js:13069
 msgctxt "button label"
 msgid "Embed"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:13056
+#: wp-includes/js/dist/block-library.js:13076
 msgid "Sorry, this content could not be embedded."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:13065
+#: wp-includes/js/dist/block-library.js:13085
 msgctxt "button label"
 msgid "Try again"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:13070
+#: wp-includes/js/dist/block-library.js:13090
 msgctxt "button label"
 msgid "Convert to link"
 msgstr ""
 
 #. translators: %s: host providing embed content e.g: www.youtube.com
-#: wp-includes/js/dist/block-library.js:13218
+#: wp-includes/js/dist/block-library.js:13238
 msgid "Embedded content from %s"
 msgstr ""
 
 #. translators: %s: host providing embed content e.g: www.youtube.com
-#: wp-includes/js/dist/block-library.js:13258
+#: wp-includes/js/dist/block-library.js:13278
 msgid "Embedded content from %s can't be previewed in the editor."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:13309
+#: wp-includes/js/dist/block-library.js:13329
 msgctxt "block title"
 msgid "Embed"
 msgstr ""
 
 #. translators: %s: type of embed e.g: "YouTube", "Twitter", etc. "Embed" is used when no specific type exists
-#: wp-includes/js/dist/block-library.js:13435
+#: wp-includes/js/dist/block-library.js:13455
 msgid "%s URL"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:13522
+#: wp-includes/js/dist/block-library.js:13542
 msgid "Embed caption text"
 msgstr ""
 
 #. translators: %s: provider name
-#: wp-includes/js/dist/block-library.js:13693
+#: wp-includes/js/dist/block-library.js:13713
 msgid "%s Embed"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:13705
-#: wp-includes/js/dist/block-library.js:13729
-#: wp-includes/js/dist/block-library.js:13744
-#: wp-includes/js/dist/block-library.js:13977
+#: wp-includes/js/dist/block-library.js:13725
+#: wp-includes/js/dist/block-library.js:13749
+#: wp-includes/js/dist/block-library.js:13764
+#: wp-includes/js/dist/block-library.js:13987
 msgid "social"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:13706
+#: wp-includes/js/dist/block-library.js:13726
 msgid "Embed a tweet."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:13716
-#: wp-includes/js/dist/block-library.js:13756
-#: wp-includes/js/dist/block-library.js:13767
-#: wp-includes/js/dist/block-library.js:13863
+#: wp-includes/js/dist/block-library.js:13736
+#: wp-includes/js/dist/block-library.js:13776
+#: wp-includes/js/dist/block-library.js:13787
+#: wp-includes/js/dist/block-library.js:13883
 msgid "music"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:13716
-#: wp-includes/js/dist/block-library.js:13789
-#: wp-includes/js/dist/block-library.js:13822
-#: wp-includes/js/dist/block-library.js:13946
+#: wp-includes/js/dist/block-library.js:13736
+#: wp-includes/js/dist/block-library.js:13809
+#: wp-includes/js/dist/block-library.js:13842
+#: wp-includes/js/dist/block-library.js:13956
 msgid "video"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:13717
+#: wp-includes/js/dist/block-library.js:13737
 msgid "Embed a YouTube video."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:13730
+#: wp-includes/js/dist/block-library.js:13750
 msgid "Embed a Facebook post."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:13744
-#: wp-includes/js/dist/block-library.js:13778
+#: wp-includes/js/dist/block-library.js:13764
+#: wp-includes/js/dist/block-library.js:13798
 msgid "image"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:13745
+#: wp-includes/js/dist/block-library.js:13765
 msgid "Embed an Instagram post."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:13756
-#: wp-includes/js/dist/block-library.js:13767
-#: wp-includes/js/dist/block-library.js:13863
-#: wp-includes/js/dist/block-library.js:13874
+#: wp-includes/js/dist/block-library.js:13776
+#: wp-includes/js/dist/block-library.js:13787
+#: wp-includes/js/dist/block-library.js:13883
+#: wp-includes/js/dist/block-library.js:13894
 msgid "audio"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:13757
+#: wp-includes/js/dist/block-library.js:13777
 msgid "Embed SoundCloud content."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:13768
+#: wp-includes/js/dist/block-library.js:13788
 msgid "Embed Spotify content."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:13779
+#: wp-includes/js/dist/block-library.js:13799
 msgid "Embed Flickr content."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:13790
+#: wp-includes/js/dist/block-library.js:13810
 msgid "Embed a Vimeo video."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:13800
+#: wp-includes/js/dist/block-library.js:13820
 msgid "Embed an Animoto video."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:13811
+#: wp-includes/js/dist/block-library.js:13831
 msgid "Embed CollegeHumor content."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:13823
+#: wp-includes/js/dist/block-library.js:13843
 msgid "Embed a Dailymotion video."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:13833
+#: wp-includes/js/dist/block-library.js:13853
 msgid "Embed Imgur content."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:13843
+#: wp-includes/js/dist/block-library.js:13863
 msgid "Embed Issuu content."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:13853
+#: wp-includes/js/dist/block-library.js:13873
 msgid "Embed Kickstarter content."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:13864
+#: wp-includes/js/dist/block-library.js:13884
 msgid "Embed Mixcloud content."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:13874
+#: wp-includes/js/dist/block-library.js:13894
 msgid "podcast"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:13875
+#: wp-includes/js/dist/block-library.js:13895
 msgid "Embed a podcast player from Pocket Casts."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:13885
+#: wp-includes/js/dist/block-library.js:13905
 msgid "Embed a Reddit thread."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:13895
+#: wp-includes/js/dist/block-library.js:13915
 msgid "Embed ReverbNation content."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:13905
-msgid "Embed Screencast content."
-msgstr ""
-
-#: wp-includes/js/dist/block-library.js:13915
+#: wp-includes/js/dist/block-library.js:13925
 msgid "Embed Scribd content."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:13925
+#: wp-includes/js/dist/block-library.js:13935
 msgid "Embed SmugMug content."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:13936
+#: wp-includes/js/dist/block-library.js:13946
 msgid "Embed Speaker Deck content."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:13947
+#: wp-includes/js/dist/block-library.js:13957
 msgid "Embed a TikTok video."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:13957
+#: wp-includes/js/dist/block-library.js:13967
 msgid "Embed a TED video."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:13967
+#: wp-includes/js/dist/block-library.js:13977
 msgid "ebook"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:13968
+#: wp-includes/js/dist/block-library.js:13978
 msgid "Embed Amazon Kindle content."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:13977
+#: wp-includes/js/dist/block-library.js:13987
 msgid "bookmark"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:13978
+#: wp-includes/js/dist/block-library.js:13988
 msgid "Embed Pinterest pins, boards, and profiles."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:13987
+#: wp-includes/js/dist/block-library.js:13997
 msgid "Embed Wolfram notebook content."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:13997
+#: wp-includes/js/dist/block-library.js:14007
 msgid "Embed a Bluesky post."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:14333
-#: wp-includes/js/dist/block-library.js:14442
-#: wp-includes/js/dist/block-library.js:14543
+#: wp-includes/js/dist/block-library.js:14343
+#: wp-includes/js/dist/block-library.js:14452
+#: wp-includes/js/dist/block-library.js:14553
 msgid "PDF embed"
 msgstr ""
 
 #. translators: %s: filename.
-#: wp-includes/js/dist/block-library.js:14334
-#: wp-includes/js/dist/block-library.js:14443
-#: wp-includes/js/dist/block-library.js:14544
+#: wp-includes/js/dist/block-library.js:14344
+#: wp-includes/js/dist/block-library.js:14453
+#: wp-includes/js/dist/block-library.js:14554
 msgid "Embed of %s."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:14611
+#: wp-includes/js/dist/block-library.js:14621
 msgid "URL"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:14616
+#: wp-includes/js/dist/block-library.js:14626
 msgid "Media file"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:14619
+#: wp-includes/js/dist/block-library.js:14629
 msgid "Attachment page"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:14625
+#: wp-includes/js/dist/block-library.js:14635
 msgid "PDF settings"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:14628
+#: wp-includes/js/dist/block-library.js:14638
 msgid "Show inline embed"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:14629
+#: wp-includes/js/dist/block-library.js:14639
 msgid "Note: Most phone and tablet browsers won't display embedded PDFs."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:14635
+#: wp-includes/js/dist/block-library.js:14645
 msgid "Height in pixels"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:14646
+#: wp-includes/js/dist/block-library.js:14656
 msgid "Link to"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:14657
+#: wp-includes/js/dist/block-library.js:14667
 msgid "Show download button"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:14751
+#: wp-includes/js/dist/block-library.js:14761
 msgid "Copied URL to clipboard."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:14760
+#: wp-includes/js/dist/block-library.js:14770
 msgid "Copy URL"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:14805
+#: wp-includes/js/dist/block-library.js:14815
 msgctxt "button label"
 msgid "Download"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:14905
-#: wp-includes/js/dist/block-library.js:60745
+#: wp-includes/js/dist/block-library.js:14915
+#: wp-includes/js/dist/block-library.js:60827
 msgid "File"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:14906
+#: wp-includes/js/dist/block-library.js:14916
 msgid "Drag and drop a file, upload, or choose from your library."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:14973
+#: wp-includes/js/dist/block-library.js:14983
 msgid "Embed of the selected PDF file."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:14983
+#: wp-includes/js/dist/block-library.js:14993
 msgid "Write file name…"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:14995
+#: wp-includes/js/dist/block-library.js:15005
 msgid "Download button text"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:15354
+#: wp-includes/js/dist/block-library.js:15364
 msgctxt "Name of the file"
 msgid "Armstrong_Small_Step"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:15376
+#: wp-includes/js/dist/block-library.js:15386
 msgid "Your form has been submitted successfully"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:15381
-#: wp-includes/js/dist/block-library.js:16577
+#: wp-includes/js/dist/block-library.js:15391
+#: wp-includes/js/dist/block-library.js:16587
 msgid "There was an error submitting your form."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:15400
-#: wp-includes/js/dist/block-library.js:16032
-#: wp-includes/js/dist/block-library.js:58446
+#: wp-includes/js/dist/block-library.js:15410
+#: wp-includes/js/dist/block-library.js:16042
+#: wp-includes/js/dist/block-library.js:58528
 msgid "Name"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:15404
+#: wp-includes/js/dist/block-library.js:15414
 msgid "Email"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:15408
+#: wp-includes/js/dist/block-library.js:15418
 msgid "Comment"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:15445
+#: wp-includes/js/dist/block-library.js:15455
 msgid "Submissions method"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:15449
+#: wp-includes/js/dist/block-library.js:15459
 msgid "Send email"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:15452
+#: wp-includes/js/dist/block-library.js:15462
 msgid "- Custom -"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:15459
+#: wp-includes/js/dist/block-library.js:15469
 msgid "Select the method to use for form submissions. Additional options for the \"custom\" mode can be found in the \"Advanced\" section."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:15459
-#: wp-includes/js/dist/block-library.js:15499
+#: wp-includes/js/dist/block-library.js:15469
+#: wp-includes/js/dist/block-library.js:15509
 msgid "Select the method to use for form submissions."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:15464
+#: wp-includes/js/dist/block-library.js:15474
 msgid "Email for form submissions"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:15478
+#: wp-includes/js/dist/block-library.js:15488
 msgid "The email address where form submissions will be sent. Separate multiple email addresses with a comma."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:15487
+#: wp-includes/js/dist/block-library.js:15497
 msgid "Method"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:15504
+#: wp-includes/js/dist/block-library.js:15514
 msgid "Form action"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:15511
+#: wp-includes/js/dist/block-library.js:15521
 msgid "The URL where the form should be submitted."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:15555
+#: wp-includes/js/dist/block-library.js:15565
 msgid "Experimental Privacy Request Form"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:15557
+#: wp-includes/js/dist/block-library.js:15567
 msgid "A form to request data exports and/or deletion."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:15566
+#: wp-includes/js/dist/block-library.js:15576
 msgid "To request an export or deletion of your personal data on this site, please fill-in the form below. You can define the type of request you wish to perform, and your email address. Once the form is submitted, you will receive a confirmation email with instructions on the next steps."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:15570
+#: wp-includes/js/dist/block-library.js:15580
 msgid "Enter your email address."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:15576
+#: wp-includes/js/dist/block-library.js:15586
 msgid "Request data export"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:15582
+#: wp-includes/js/dist/block-library.js:15592
 msgid "Request data deletion"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:16008
+#: wp-includes/js/dist/block-library.js:16018
 msgid "Inline label"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:16017
+#: wp-includes/js/dist/block-library.js:16027
 msgid "Required"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:16039
+#: wp-includes/js/dist/block-library.js:16049
 msgid "Affects the \"name\" attribute of the input element, and is used as a name for the form submission results."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:16050
-#: wp-includes/js/dist/block-library.js:60758
+#: wp-includes/js/dist/block-library.js:16060
+#: wp-includes/js/dist/block-library.js:60840
 msgid "Label"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:16050
+#: wp-includes/js/dist/block-library.js:16060
 msgid "Empty label"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:16052
+#: wp-includes/js/dist/block-library.js:16062
 msgid "Type the label for this input"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:16059
+#: wp-includes/js/dist/block-library.js:16069
 msgid "Value"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:16076
-#: wp-includes/js/dist/block-library.js:49750
+#: wp-includes/js/dist/block-library.js:16086
+#: wp-includes/js/dist/block-library.js:49800
 msgid "Optional placeholder text"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:16081
-#: wp-includes/js/dist/block-library.js:49755
+#: wp-includes/js/dist/block-library.js:16091
+#: wp-includes/js/dist/block-library.js:49805
 msgid "Optional placeholder…"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:16194
+#: wp-includes/js/dist/block-library.js:16204
 msgid "Text Input"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:16196
+#: wp-includes/js/dist/block-library.js:16206
 msgid "A generic text input."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:16205
+#: wp-includes/js/dist/block-library.js:16215
 msgid "Textarea Input"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:16207
+#: wp-includes/js/dist/block-library.js:16217
 msgid "A textarea input to allow entering multiple lines of text."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:16216
+#: wp-includes/js/dist/block-library.js:16226
 msgid "Checkbox Input"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:16217
+#: wp-includes/js/dist/block-library.js:16227
 msgid "A simple checkbox input."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:16228
+#: wp-includes/js/dist/block-library.js:16238
 msgid "Email Input"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:16230
+#: wp-includes/js/dist/block-library.js:16240
 msgid "Used for email addresses."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:16239
+#: wp-includes/js/dist/block-library.js:16249
 msgid "URL Input"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:16241
+#: wp-includes/js/dist/block-library.js:16251
 msgid "Used for URLs."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:16250
+#: wp-includes/js/dist/block-library.js:16260
 msgid "Telephone Input"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:16252
+#: wp-includes/js/dist/block-library.js:16262
 msgid "Used for phone numbers."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:16261
+#: wp-includes/js/dist/block-library.js:16271
 msgid "Number Input"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:16263
+#: wp-includes/js/dist/block-library.js:16273
 msgid "A numeric input."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:16379
+#: wp-includes/js/dist/block-library.js:16389
 msgid "Submit"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:16476
+#: wp-includes/js/dist/block-library.js:16486
 msgid "Enter the message you wish displayed for form submission error/success, and select the type of the message (success/error) from the block's options."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:16507
+#: wp-includes/js/dist/block-library.js:16517
 msgid "Submission success notification"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:16508
+#: wp-includes/js/dist/block-library.js:16518
 msgid "Submission error notification"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:16546
+#: wp-includes/js/dist/block-library.js:16556
 msgid "Form Submission Success"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:16547
+#: wp-includes/js/dist/block-library.js:16557
 msgid "Success message for form submissions."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:16553
+#: wp-includes/js/dist/block-library.js:16563
 msgid "Your form has been submitted successfully."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:16570
+#: wp-includes/js/dist/block-library.js:16580
 msgid "Form Submission Error"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:16571
+#: wp-includes/js/dist/block-library.js:16581
 msgid "Error/failure message for form submissions."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:17918
+#: wp-includes/js/dist/block-library.js:17928
 msgid "Gallery caption text"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:17919
+#: wp-includes/js/dist/block-library.js:17929
 msgid "Add gallery caption"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:18133
+#: wp-includes/js/dist/block-library.js:18143
 msgid "Link images to attachment pages"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:18135
+#: wp-includes/js/dist/block-library.js:18145
 msgid "Attachment Pages"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:18138
+#: wp-includes/js/dist/block-library.js:18148
 msgid "Link images to media files"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:18140
+#: wp-includes/js/dist/block-library.js:18150
 msgid "Media Files"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:18143
+#: wp-includes/js/dist/block-library.js:18153
 msgid "Enlarge on click"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:18145
+#: wp-includes/js/dist/block-library.js:18155
 msgid "Lightbox effect"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:18146
+#: wp-includes/js/dist/block-library.js:18156
 msgid "Scale images with a lightbox effect"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:18149
+#: wp-includes/js/dist/block-library.js:18159
 msgctxt "Media item link option"
 msgid "None"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:18151
-#: wp-includes/js/dist/block-library.js:24680
+#: wp-includes/js/dist/block-library.js:18161
+#: wp-includes/js/dist/block-library.js:24684
 msgid "None"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:18154
+#: wp-includes/js/dist/block-library.js:18164
 msgid "Drag and drop images, upload, or choose from your library."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:18299
-#: wp-includes/js/dist/block-library.js:23553
+#: wp-includes/js/dist/block-library.js:18309
+#: wp-includes/js/dist/block-library.js:23563
 msgid "If uploading to a gallery all files need to be image formats"
 msgstr ""
 
 #. translators: %s: image size settings
-#: wp-includes/js/dist/block-library.js:18356
+#: wp-includes/js/dist/block-library.js:18366
 msgid "All gallery image links updated to: %s"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:18388
+#: wp-includes/js/dist/block-library.js:18398
 msgid "All gallery images updated to open in new tab"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:18388
+#: wp-includes/js/dist/block-library.js:18398
 msgid "All gallery images updated to not open in new tab"
 msgstr ""
 
 #. translators: %s: image size settings
-#: wp-includes/js/dist/block-library.js:18410
+#: wp-includes/js/dist/block-library.js:18420
 msgid "All gallery image sizes updated to: %s"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:18448
-#: wp-includes/js/dist/block-library.js:40276
-#: wp-includes/js/dist/block-library.js:44313
+#: wp-includes/js/dist/block-library.js:18458
+#: wp-includes/js/dist/block-library.js:40298
+#: wp-includes/js/dist/block-library.js:44357
 msgid "Gallery"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:18495
-#: wp-includes/js/dist/block-library.js:18529
+#: wp-includes/js/dist/block-library.js:18505
+#: wp-includes/js/dist/block-library.js:18539
 msgid "Resolution"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:18496
+#: wp-includes/js/dist/block-library.js:18506
 msgid "Select the size of the source images."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:18512
+#: wp-includes/js/dist/block-library.js:18522
 msgid "Crop images to fit"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:18517
+#: wp-includes/js/dist/block-library.js:18527
 msgid "Randomize order"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:18522
+#: wp-includes/js/dist/block-library.js:18532
 msgid "Open images in new tab"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:18532
+#: wp-includes/js/dist/block-library.js:18542
 msgid "Loading options…"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:18572
+#: wp-includes/js/dist/block-library.js:18582
 msgid "Add"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:19495
+#: wp-includes/js/dist/block-library.js:19505
 msgid "Group blocks together. Select a layout:"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:19499
+#: wp-includes/js/dist/block-library.js:19509
 msgid "Block variations"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:19793
+#: wp-includes/js/dist/block-library.js:19803
 msgid "One."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:19800
+#: wp-includes/js/dist/block-library.js:19810
 msgid "Two."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:19807
+#: wp-includes/js/dist/block-library.js:19817
 msgid "Three."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:19814
+#: wp-includes/js/dist/block-library.js:19824
 msgid "Four."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:19821
+#: wp-includes/js/dist/block-library.js:19831
 msgid "Five."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:19828
+#: wp-includes/js/dist/block-library.js:19838
 msgid "Six."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:19834
+#: wp-includes/js/dist/block-library.js:19844
 msgid "Group"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:19835
+#: wp-includes/js/dist/block-library.js:19845
 msgid "Gather blocks in a container."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:19847
+#: wp-includes/js/dist/block-library.js:19857
 msgctxt "single horizontal line"
 msgid "Row"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:19848
+#: wp-includes/js/dist/block-library.js:19858
 msgid "Arrange blocks horizontally."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:19861
+#: wp-includes/js/dist/block-library.js:19871
 msgid "Stack"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:19862
+#: wp-includes/js/dist/block-library.js:19872
 msgid "Arrange blocks vertically."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:19875
+#: wp-includes/js/dist/block-library.js:19885
 msgid "Grid"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:19876
+#: wp-includes/js/dist/block-library.js:19886
 msgid "Arrange blocks in a grid."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:20029
+#: wp-includes/js/dist/block-library.js:20039
 msgid "La Mancha"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:20046
-#: wp-includes/js/dist/block-library.js:29516
-#: wp-includes/js/dist/block-library.js:48987
-#: wp-includes/js/dist/block-library.js:49079
+#: wp-includes/js/dist/block-library.js:20056
+#: wp-includes/js/dist/block-library.js:29520
+#: wp-includes/js/dist/block-library.js:49037
+#: wp-includes/js/dist/block-library.js:49129
 msgid "Read more"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:20577
-#: wp-includes/js/dist/block-library.js:57391
-#: wp-includes/js/dist/block-library.js:57403
-#: wp-includes/js/dist/block-library.js:57414
-#: wp-includes/js/dist/block-library.js:57420
+#: wp-includes/js/dist/block-library.js:20587
+#: wp-includes/js/dist/block-library.js:57473
+#: wp-includes/js/dist/block-library.js:57485
+#: wp-includes/js/dist/block-library.js:57496
+#: wp-includes/js/dist/block-library.js:57502
 msgid "Heading"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:20835
+#: wp-includes/js/dist/block-library.js:20845
 msgid "Code is Poetry"
 msgstr ""
 
 #. translators: accessibility text. %s: heading level.
-#: wp-includes/js/dist/block-library.js:20857
+#: wp-includes/js/dist/block-library.js:20867
 msgid "Level %s. Empty."
 msgstr ""
 
 #. translators: accessibility text. 1: heading level. 2: heading content.
-#: wp-includes/js/dist/block-library.js:20858
+#: wp-includes/js/dist/block-library.js:20868
 msgid "Level %1$s. %2$s"
 msgstr ""
 
 #. translators: 'Home' as in a website's home page.
-#: wp-includes/js/dist/block-library.js:20943
-#: wp-includes/js/dist/block-library.js:33680
+#: wp-includes/js/dist/block-library.js:20953
+#: wp-includes/js/dist/block-library.js:33684
 msgid "Home"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:20949
+#: wp-includes/js/dist/block-library.js:20959
 msgid "Home link text"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:20950
+#: wp-includes/js/dist/block-library.js:20960
 msgid "Add home link"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:21028
+#: wp-includes/js/dist/block-library.js:21038
 msgctxt "block example"
 msgid "Home Link"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:21084
+#: wp-includes/js/dist/block-library.js:21094
 msgid "Custom HTML Preview"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:21140
+#: wp-includes/js/dist/block-library.js:21150
 msgid "Preview"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:21149
+#: wp-includes/js/dist/block-library.js:21159
 msgid "HTML preview is not yet fully accessible. Please switch screen reader to virtualized mode to navigate the below iFrame."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:21156
+#: wp-includes/js/dist/block-library.js:21166
 msgid "Write HTML…"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:21157
+#: wp-includes/js/dist/block-library.js:21167
 msgid "HTML"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:21248
+#: wp-includes/js/dist/block-library.js:21258
 msgid "Welcome to the wonderful world of blocks…"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:22504
+#: wp-includes/js/dist/block-library.js:22514
 msgctxt "Scale option for dimensions control"
 msgid "Cover"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:22505
+#: wp-includes/js/dist/block-library.js:22515
 msgid "Image covers the space evenly."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:22508
+#: wp-includes/js/dist/block-library.js:22518
 msgctxt "Scale option for dimensions control"
 msgid "Contain"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:22509
+#: wp-includes/js/dist/block-library.js:22519
 msgid "Image is contained without distortion."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:22558
+#: wp-includes/js/dist/block-library.js:22568
 msgid "More"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:22561
+#: wp-includes/js/dist/block-library.js:22571
 msgid "Displays more controls."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:22573
+#: wp-includes/js/dist/block-library.js:22583
 msgctxt "Alternative text for an image. Block toolbar label, a low character count is preferred."
 msgid "Alternative text"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:22580
+#: wp-includes/js/dist/block-library.js:22590
 msgid "Title text"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:22625
-#: wp-includes/js/dist/block-library.js:23138
-#: wp-includes/js/dist/block-library.js:33933
-#: wp-includes/js/dist/block-library.js:33941
-#: wp-includes/js/dist/block-library.js:35092
-#: wp-includes/js/dist/block-library.js:35107
+#: wp-includes/js/dist/block-library.js:22635
+#: wp-includes/js/dist/block-library.js:23148
+#: wp-includes/js/dist/block-library.js:33946
+#: wp-includes/js/dist/block-library.js:33954
+#: wp-includes/js/dist/block-library.js:35115
+#: wp-includes/js/dist/block-library.js:35130
 msgid "Title attribute"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:22634
-#: wp-includes/js/dist/block-library.js:23145
+#: wp-includes/js/dist/block-library.js:22644
+#: wp-includes/js/dist/block-library.js:23155
 msgid "Describe the role of this image on the page."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:22636
-#: wp-includes/js/dist/block-library.js:23147
+#: wp-includes/js/dist/block-library.js:22646
+#: wp-includes/js/dist/block-library.js:23157
 msgid "(Note: many devices and browsers do not display this text.)"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:22877
+#: wp-includes/js/dist/block-library.js:22887
 msgid "Image uploaded."
 msgstr ""
 
 #. translators: %s: Label of the bindings source.
-#: wp-includes/js/dist/block-library.js:23020
-#: wp-includes/js/dist/block-library.js:23027
-#: wp-includes/js/dist/block-library.js:23724
+#: wp-includes/js/dist/block-library.js:23030
+#: wp-includes/js/dist/block-library.js:23037
+#: wp-includes/js/dist/block-library.js:23728
 msgid "Connected to %s"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:23020
-#: wp-includes/js/dist/block-library.js:23027
-#: wp-includes/js/dist/block-library.js:23724
+#: wp-includes/js/dist/block-library.js:23030
+#: wp-includes/js/dist/block-library.js:23037
+#: wp-includes/js/dist/block-library.js:23728
 msgid "Connected to dynamic data"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:23046
+#: wp-includes/js/dist/block-library.js:23056
 msgid "Add image"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:23069
-#: wp-includes/js/dist/block-library.js:50959
+#: wp-includes/js/dist/block-library.js:23079
+#: wp-includes/js/dist/block-library.js:51009
 msgid "Crop"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:23072
+#: wp-includes/js/dist/block-library.js:23082
 msgid "Add text over image"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:23080
+#: wp-includes/js/dist/block-library.js:23090
 msgid "Upload to Media Library"
 msgstr ""
 
 #. translators: %s: file name
-#: wp-includes/js/dist/block-library.js:23159
+#: wp-includes/js/dist/block-library.js:23169
 msgid "This image has an empty alt attribute; its file name is %s"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:23161
+#: wp-includes/js/dist/block-library.js:23171
 msgid "This image has an empty alt attribute"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:23348
+#: wp-includes/js/dist/block-library.js:23358
 msgid "Post featured image updated."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:23357
+#: wp-includes/js/dist/block-library.js:23367
 msgid "Set as featured image"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:23366
+#: wp-includes/js/dist/block-library.js:23376
 msgid "Image caption text"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:23690
-#: wp-includes/js/dist/block-library.js:23691
+#: wp-includes/js/dist/block-library.js:23694
+#: wp-includes/js/dist/block-library.js:23695
 msgid "Edit image"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:23734
-#: wp-includes/js/dist/block-library.js:40279
-#: wp-includes/js/dist/block-library.js:44316
+#: wp-includes/js/dist/block-library.js:23738
+#: wp-includes/js/dist/block-library.js:40301
+#: wp-includes/js/dist/block-library.js:44360
 msgid "Image"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:23735
+#: wp-includes/js/dist/block-library.js:23739
 msgid "Drag and drop an image, upload, or choose from your library."
 msgstr ""
 
 #. translators: Caption accompanying an image of the Mont Blanc, which serves as an example for the Image block.
-#: wp-includes/js/dist/block-library.js:24219
+#: wp-includes/js/dist/block-library.js:24223
 msgid "Mont Blanc appears—still, snowy, and serene."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:24236
-#: wp-includes/js/dist/block-library.js:37483
+#: wp-includes/js/dist/block-library.js:24240
+#: wp-includes/js/dist/block-library.js:37506
 msgid "Empty"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:24640
-#: wp-includes/js/dist/block-library.js:57178
+#: wp-includes/js/dist/block-library.js:24644
+#: wp-includes/js/dist/block-library.js:57260
 msgid "Links are disabled in the editor."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:24684
+#: wp-includes/js/dist/block-library.js:24688
 msgid "Left"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:24688
+#: wp-includes/js/dist/block-library.js:24692
 msgid "Center"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:24692
+#: wp-includes/js/dist/block-library.js:24696
 msgid "Right"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:24697
-#: wp-includes/js/dist/block-library.js:24706
-#: wp-includes/js/dist/block-library.js:24713
+#: wp-includes/js/dist/block-library.js:24701
+#: wp-includes/js/dist/block-library.js:24710
+#: wp-includes/js/dist/block-library.js:24717
 msgid "Post content"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:24721
-#: wp-includes/js/dist/block-library.js:24727
+#: wp-includes/js/dist/block-library.js:24725
+#: wp-includes/js/dist/block-library.js:24731
 msgid "Show"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:24730
+#: wp-includes/js/dist/block-library.js:24734
 msgid "Excerpt"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:24733
+#: wp-includes/js/dist/block-library.js:24737
 msgid "Full post"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:24742
-#: wp-includes/js/dist/block-library.js:24750
-#: wp-includes/js/dist/block-library.js:39131
-#: wp-includes/js/dist/block-library.js:39139
+#: wp-includes/js/dist/block-library.js:24746
+#: wp-includes/js/dist/block-library.js:24754
+#: wp-includes/js/dist/block-library.js:39154
+#: wp-includes/js/dist/block-library.js:39162
 msgid "Max number of words"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:24760
+#: wp-includes/js/dist/block-library.js:24764
 msgid "Post meta"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:24768
-#: wp-includes/js/dist/block-library.js:24775
+#: wp-includes/js/dist/block-library.js:24772
+#: wp-includes/js/dist/block-library.js:24779
 msgid "Display author name"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:24783
-#: wp-includes/js/dist/block-library.js:24790
+#: wp-includes/js/dist/block-library.js:24787
+#: wp-includes/js/dist/block-library.js:24794
 msgid "Display post date"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:24798
-#: wp-includes/js/dist/block-library.js:39944
+#: wp-includes/js/dist/block-library.js:24802
+#: wp-includes/js/dist/block-library.js:39967
 msgid "Featured image"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:24801
+#: wp-includes/js/dist/block-library.js:24805
 msgid "Display featured image"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:24824
+#: wp-includes/js/dist/block-library.js:24828
 msgid "Select the size of the source image."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:24834
+#: wp-includes/js/dist/block-library.js:24838
 msgid "Image alignment"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:24852
+#: wp-includes/js/dist/block-library.js:24856
 msgid "Add link to featured image"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:24860
+#: wp-includes/js/dist/block-library.js:24864
 msgid "Sorting and filtering"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:24910
+#: wp-includes/js/dist/block-library.js:24914
 msgid "Latest Posts"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:24911
+#: wp-includes/js/dist/block-library.js:24915
 msgid "No posts found."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:24920
+#: wp-includes/js/dist/block-library.js:24924
 msgctxt "Latest posts block display setting"
 msgid "List view"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:24927
+#: wp-includes/js/dist/block-library.js:24931
 msgctxt "Latest posts block display setting"
 msgid "Grid view"
 msgstr ""
 
 #. translators: 1: Hidden accessibility text: Post title
-#: wp-includes/js/dist/block-library.js:24968
+#: wp-includes/js/dist/block-library.js:24972
 msgid "… <a>Read more<span>: %1$s</span></a>"
 msgstr ""
 
 #. translators: displayed when a page has an empty title.
-#: wp-includes/js/dist/block-library.js:24968
-#: wp-includes/js/dist/block-library.js:25000
-#: wp-includes/js/dist/block-library.js:36164
-#: wp-includes/js/dist/block-library.js:36167
+#: wp-includes/js/dist/block-library.js:24972
+#: wp-includes/js/dist/block-library.js:25004
+#: wp-includes/js/dist/block-library.js:36187
+#: wp-includes/js/dist/block-library.js:36190
 msgid "(no title)"
 msgstr ""
 
 #. translators: byline. %s: author.
-#: wp-includes/js/dist/block-library.js:25004
+#: wp-includes/js/dist/block-library.js:25008
 msgid "by %s"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:25743
+#: wp-includes/js/dist/block-library.js:25747
 msgid "List style"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:25745
+#: wp-includes/js/dist/block-library.js:25749
 msgid "Numbers"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:25748
+#: wp-includes/js/dist/block-library.js:25752
 msgid "Uppercase letters"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:25751
+#: wp-includes/js/dist/block-library.js:25755
 msgid "Lowercase letters"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:25754
+#: wp-includes/js/dist/block-library.js:25758
 msgid "Uppercase Roman numerals"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:25757
+#: wp-includes/js/dist/block-library.js:25761
 msgid "Lowercase Roman numerals"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:25767
+#: wp-includes/js/dist/block-library.js:25771
 msgid "Start value"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:25781
+#: wp-includes/js/dist/block-library.js:25785
 msgid "Reverse order"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:25910
-#: wp-includes/js/dist/block-library.js:26767
+#: wp-includes/js/dist/block-library.js:25914
+#: wp-includes/js/dist/block-library.js:26771
 msgid "Outdent"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:25911
-#: wp-includes/js/dist/block-library.js:26768
+#: wp-includes/js/dist/block-library.js:25915
+#: wp-includes/js/dist/block-library.js:26772
 msgid "Outdent list item"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:25953
+#: wp-includes/js/dist/block-library.js:25957
 msgid "Unordered"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:25954
+#: wp-includes/js/dist/block-library.js:25958
 msgid "Convert to unordered list"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:25963
+#: wp-includes/js/dist/block-library.js:25967
 msgid "Ordered"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:25964
+#: wp-includes/js/dist/block-library.js:25968
 msgid "Convert to ordered list"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:26248
+#: wp-includes/js/dist/block-library.js:26252
 msgid "Alice."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:26253
+#: wp-includes/js/dist/block-library.js:26257
 msgid "The White Rabbit."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:26258
+#: wp-includes/js/dist/block-library.js:26262
 msgid "The Cheshire Cat."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:26263
+#: wp-includes/js/dist/block-library.js:26267
 msgid "The Mad Hatter."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:26268
+#: wp-includes/js/dist/block-library.js:26272
 msgid "The Queen of Hearts."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:26773
+#: wp-includes/js/dist/block-library.js:26777
 msgid "Indent"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:26774
+#: wp-includes/js/dist/block-library.js:26778
 msgid "Indent list item"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:26812
+#: wp-includes/js/dist/block-library.js:26816
 msgid "List text"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:26813
+#: wp-includes/js/dist/block-library.js:26817
 msgid "List"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:27011
-#: wp-includes/js/dist/block-library.js:27019
+#: wp-includes/js/dist/block-library.js:27015
+#: wp-includes/js/dist/block-library.js:27023
 msgid "Display login as form"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:27026
-#: wp-includes/js/dist/block-library.js:27034
+#: wp-includes/js/dist/block-library.js:27030
+#: wp-includes/js/dist/block-library.js:27038
 msgid "Redirect to current URL"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:27048
+#: wp-includes/js/dist/block-library.js:27052
 msgid "Log out"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:27167
+#: wp-includes/js/dist/block-library.js:27171
 msgctxt "content placeholder"
 msgid "Content…"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:28261
+#: wp-includes/js/dist/block-library.js:28265
 msgid "Media area"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:28651
-#: wp-includes/js/dist/block-library.js:28660
+#: wp-includes/js/dist/block-library.js:28655
+#: wp-includes/js/dist/block-library.js:28664
 msgid "Media width"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:28682
-#: wp-includes/js/dist/block-library.js:28690
+#: wp-includes/js/dist/block-library.js:28686
+#: wp-includes/js/dist/block-library.js:28694
 msgid "Crop image to fill"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:28763
+#: wp-includes/js/dist/block-library.js:28767
 msgid "Show media on left"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:28770
+#: wp-includes/js/dist/block-library.js:28774
 msgid "Show media on right"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:29302
+#: wp-includes/js/dist/block-library.js:29306
 msgid "The wren<br>Earns his living<br>Noiselessly."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:29307
+#: wp-includes/js/dist/block-library.js:29311
 msgid "— Kobayashi Issa (一茶)"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:29370
+#: wp-includes/js/dist/block-library.js:29374
 msgid "Keep as HTML"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:29374
+#: wp-includes/js/dist/block-library.js:29378
 msgid "It appears you are trying to use the deprecated Classic block. You can leave this block intact, convert its content to a Custom HTML block, or remove it entirely. Alternatively, you can refresh the page to use the Classic block."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:29377
+#: wp-includes/js/dist/block-library.js:29381
 msgid "It appears you are trying to use the deprecated Classic block. You can leave this block intact, or remove it entirely. Alternatively, you can refresh the page to use the Classic block."
 msgstr ""
 
 #. translators: %s: block name
-#: wp-includes/js/dist/block-library.js:29381
+#: wp-includes/js/dist/block-library.js:29385
 msgid "Your site doesn’t include support for the \"%s\" block. You can leave it as-is, convert it to custom HTML, or remove it."
 msgstr ""
 
 #. translators: %s: block name
-#: wp-includes/js/dist/block-library.js:29385
+#: wp-includes/js/dist/block-library.js:29389
 msgid "Your site doesn’t include support for the \"%s\" block. You can leave it as-is or remove it."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:29537
+#: wp-includes/js/dist/block-library.js:29541
 msgid "The excerpt is hidden."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:29537
+#: wp-includes/js/dist/block-library.js:29541
 msgid "The excerpt is visible."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:29556
+#: wp-includes/js/dist/block-library.js:29560
 msgid "Hide excerpt"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:29564
+#: wp-includes/js/dist/block-library.js:29568
 msgid "Hide the excerpt on the full content page"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:29574
-#: wp-includes/js/dist/block-library.js:39050
-#: wp-includes/js/dist/block-library.js:48986
+#: wp-includes/js/dist/block-library.js:29578
+#: wp-includes/js/dist/block-library.js:39073
+#: wp-includes/js/dist/block-library.js:49036
 msgid "“Read more” link text"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:29968
-#: wp-includes/js/dist/block-library.js:30192
+#: wp-includes/js/dist/block-library.js:29972
+#: wp-includes/js/dist/block-library.js:30196
 msgid "Navigation"
 msgstr ""
 
 #. translators: %s: the index of the menu in the list of menus.
-#: wp-includes/js/dist/block-library.js:30009
+#: wp-includes/js/dist/block-library.js:30013
 msgid "(no title %s)"
 msgstr ""
 
 #. translators: 1: title of the menu. 2: status of the menu (draft, pending, etc.).
-#: wp-includes/js/dist/block-library.js:30016
+#: wp-includes/js/dist/block-library.js:30020
 msgid "%1$s (%2$s)"
 msgstr ""
 
 #. translators: %s: The name of a menu.
-#: wp-includes/js/dist/block-library.js:30028
+#: wp-includes/js/dist/block-library.js:30032
 msgid "Create from '%s'"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:30068
+#: wp-includes/js/dist/block-library.js:30072
 msgid "Loading…"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:30071
+#: wp-includes/js/dist/block-library.js:30075
 msgid "Choose or create a Navigation Menu"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:30091
+#: wp-includes/js/dist/block-library.js:30095
 msgid "Menus"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:30101
+#: wp-includes/js/dist/block-library.js:30105
 msgid "Import Classic Menus"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:30117
+#: wp-includes/js/dist/block-library.js:30121
 msgid "Tools"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:30126
+#: wp-includes/js/dist/block-library.js:30130
 msgid "Create new Menu"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:30171
+#: wp-includes/js/dist/block-library.js:30175
 msgid "Loading navigation block setup options…"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:30174
+#: wp-includes/js/dist/block-library.js:30178
 msgid "Navigation block setup options ready."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:30202
+#: wp-includes/js/dist/block-library.js:30206
 msgid "Start empty"
 msgstr ""
 
 #. translators: 'menu' as in website navigation menu.
-#: wp-includes/js/dist/block-library.js:30316
-#: wp-includes/js/dist/block-library.js:30328
-#: wp-includes/js/dist/block-library.js:31252
-#: wp-includes/js/dist/block-library.js:32238
-#: wp-includes/js/dist/block-library.js:32698
+#: wp-includes/js/dist/block-library.js:30320
+#: wp-includes/js/dist/block-library.js:30332
+#: wp-includes/js/dist/block-library.js:31256
+#: wp-includes/js/dist/block-library.js:32242
+#: wp-includes/js/dist/block-library.js:32702
 msgid "Menu"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:30323
+#: wp-includes/js/dist/block-library.js:30327
 msgid "Open menu"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:30341
+#: wp-includes/js/dist/block-library.js:30345
 msgid "Close menu"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:30345
-#: wp-includes/js/dist/block-library.js:32700
+#: wp-includes/js/dist/block-library.js:30349
+#: wp-includes/js/dist/block-library.js:32704
 msgid "Close"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:30452
+#: wp-includes/js/dist/block-library.js:30456
 msgid "Menu name"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:30624
+#: wp-includes/js/dist/block-library.js:30628
 msgid "Delete menu"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:30636
+#: wp-includes/js/dist/block-library.js:30640
 msgid "Delete"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:30638
+#: wp-includes/js/dist/block-library.js:30642
 msgid "Are you sure you want to delete this Navigation Menu?"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:30700
+#: wp-includes/js/dist/block-library.js:30704
 msgid "Show icon button"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:30701
+#: wp-includes/js/dist/block-library.js:30705
 msgid "Configure the visual appearance of the button that toggles the overlay menu."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:30710
+#: wp-includes/js/dist/block-library.js:30714
 msgid "Icon"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:30718
+#: wp-includes/js/dist/block-library.js:30722
 msgid "handle"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:30724
+#: wp-includes/js/dist/block-library.js:30728
 msgid "menu"
 msgstr ""
 
 #. translators: %s: The name of a menu (e.g. Header menu).
-#: wp-includes/js/dist/block-library.js:30967
-#: wp-includes/js/dist/block-library.js:30976
+#: wp-includes/js/dist/block-library.js:30971
+#: wp-includes/js/dist/block-library.js:30980
 msgid "Unable to fetch classic menu \"%s\" from API."
 msgstr ""
 
 #. translators: %s: The name of a menu (e.g. Header menu).
-#: wp-includes/js/dist/block-library.js:31003
-#: wp-includes/js/dist/block-library.js:31041
+#: wp-includes/js/dist/block-library.js:31007
+#: wp-includes/js/dist/block-library.js:31045
 msgid "Unable to create Navigation Menu \"%s\"."
 msgstr ""
 
 #. translators: %s: the name of a menu (e.g. Header menu).
-#: wp-includes/js/dist/block-library.js:31250
+#: wp-includes/js/dist/block-library.js:31254
 msgid "%s menu"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:31496
+#: wp-includes/js/dist/block-library.js:31500
 msgid "Manage menus"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:31519
+#: wp-includes/js/dist/block-library.js:31523
 msgid "Navigation Menu has been deleted or is unavailable. <button>Create a new Menu?</button>"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:31629
+#: wp-includes/js/dist/block-library.js:31633
 msgid "Add submenu link"
 msgstr ""
 
 #. translators: %s: block name
-#: wp-includes/js/dist/block-library.js:31645
+#: wp-includes/js/dist/block-library.js:31649
 msgid "Remove %s"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:31657
+#: wp-includes/js/dist/block-library.js:31661
 msgid "Options"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:31672
+#: wp-includes/js/dist/block-library.js:31676
 msgid "Move up"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:31679
+#: wp-includes/js/dist/block-library.js:31683
 msgid "Move down"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:31952
-#: wp-includes/js/dist/block-library.js:32113
+#: wp-includes/js/dist/block-library.js:31956
+#: wp-includes/js/dist/block-library.js:32117
 msgid "Add block"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:31955
+#: wp-includes/js/dist/block-library.js:31959
 msgid "Choose a block to add to your Navigation."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:31965
+#: wp-includes/js/dist/block-library.js:31969
 msgid "Back"
 msgstr ""
 
 #. translators: label for missing values in navigation link block
-#: wp-includes/js/dist/block-library.js:32040
-#: wp-includes/js/dist/block-library.js:33848
+#: wp-includes/js/dist/block-library.js:32044
+#: wp-includes/js/dist/block-library.js:33861
 msgid "Add link"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:32043
+#: wp-includes/js/dist/block-library.js:32047
 msgid "Search for and add a link to your Navigation."
 msgstr ""
 
 #. translators: %s: search term.
-#: wp-includes/js/dist/block-library.js:32056
+#: wp-includes/js/dist/block-library.js:32060
 msgid "Create draft post: <mark>%s</mark>"
 msgstr ""
 
 #. translators: %s: search term.
-#: wp-includes/js/dist/block-library.js:32059
+#: wp-includes/js/dist/block-library.js:32063
 msgid "Create draft page: <mark>%s</mark>"
 msgstr ""
 
 #. translators: %s: The name of a menu.
-#: wp-includes/js/dist/block-library.js:32139
+#: wp-includes/js/dist/block-library.js:32143
 msgid "Switch to '%s'"
 msgstr ""
 
 #. translators: %s: The name of a menu.
-#: wp-includes/js/dist/block-library.js:32202
+#: wp-includes/js/dist/block-library.js:32206
 msgid "Structure for Navigation Menu: %s"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:32202
+#: wp-includes/js/dist/block-library.js:32206
 msgid "Untitled menu"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:32202
+#: wp-includes/js/dist/block-library.js:32206
 msgid "You have not yet created any menus. Displaying a list of your Pages"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:32207
+#: wp-includes/js/dist/block-library.js:32211
 msgid "This Navigation Menu is empty."
 msgstr ""
 
 #. translators: %s: Title of a Navigation Menu post.
-#: wp-includes/js/dist/block-library.js:32293
+#: wp-includes/js/dist/block-library.js:32297
 msgid "Navigation Menu: \"%s\""
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:32388
-#: wp-includes/js/dist/block-library.js:33874
-#: wp-includes/js/dist/block-library.js:33882
-#: wp-includes/js/dist/block-library.js:35035
-#: wp-includes/js/dist/block-library.js:35050
-#: wp-includes/js/dist/block-library.js:53288
-#: wp-includes/js/dist/block-library.js:53294
-#: wp-includes/js/dist/block-library.js:53314
-#: wp-includes/js/dist/block-library.js:53324
+#: wp-includes/js/dist/block-library.js:32392
+#: wp-includes/js/dist/block-library.js:33887
+#: wp-includes/js/dist/block-library.js:33895
+#: wp-includes/js/dist/block-library.js:35058
+#: wp-includes/js/dist/block-library.js:35073
+#: wp-includes/js/dist/block-library.js:53370
+#: wp-includes/js/dist/block-library.js:53376
+#: wp-includes/js/dist/block-library.js:53396
+#: wp-includes/js/dist/block-library.js:53406
 msgid "Text"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:32394
+#: wp-includes/js/dist/block-library.js:32398
 msgid "Background"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:32400
+#: wp-includes/js/dist/block-library.js:32404
 msgid "Submenu & overlay text"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:32406
+#: wp-includes/js/dist/block-library.js:32410
 msgid "Submenu & overlay background"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:32623
+#: wp-includes/js/dist/block-library.js:32627
 msgid "Creating Navigation Menu."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:32629
+#: wp-includes/js/dist/block-library.js:32633
 msgid "Navigation Menu successfully created."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:32632
+#: wp-includes/js/dist/block-library.js:32636
 msgid "Failed to create Navigation Menu."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:32638
+#: wp-includes/js/dist/block-library.js:32642
 msgid "Classic menu importing."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:32641
+#: wp-includes/js/dist/block-library.js:32645
 msgid "Classic menu imported successfully."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:32647
+#: wp-includes/js/dist/block-library.js:32651
 msgid "Classic menu import failed."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:32656
+#: wp-includes/js/dist/block-library.js:32660
 msgid "You do not have permission to edit this Menu. Any changes made will not be saved."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:32659
+#: wp-includes/js/dist/block-library.js:32663
 msgid "You do not have permission to create Navigation Menus."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:32667
+#: wp-includes/js/dist/block-library.js:32671
 msgid "The current menu options offer reduced accessibility for users and are not recommended. Enabling either \"Open on Click\" or \"Show arrow\" offers enhanced accessibility by allowing keyboard users to browse submenus selectively."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:32679
-#: wp-includes/js/dist/block-library.js:44766
+#: wp-includes/js/dist/block-library.js:32683
+#: wp-includes/js/dist/block-library.js:44821
 msgid "Display"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:32687
+#: wp-includes/js/dist/block-library.js:32691
 msgid "Overlay menu controls"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:32715
+#: wp-includes/js/dist/block-library.js:32719
 msgid "Overlay Menu"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:32716
+#: wp-includes/js/dist/block-library.js:32720
 msgid "Configure overlay menu"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:32718
+#: wp-includes/js/dist/block-library.js:32722
 msgid "Collapses the navigation options in a menu icon opening an overlay."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:32725
+#: wp-includes/js/dist/block-library.js:32729
 msgid "Off"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:32728
+#: wp-includes/js/dist/block-library.js:32732
 msgid "Mobile"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:32731
+#: wp-includes/js/dist/block-library.js:32735
 msgid "Always"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:32735
+#: wp-includes/js/dist/block-library.js:32739
 msgid "Submenus"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:32747
+#: wp-includes/js/dist/block-library.js:32751
 msgid "Open on click"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:32757
+#: wp-includes/js/dist/block-library.js:32761
 msgid "Show arrow"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:32793
+#: wp-includes/js/dist/block-library.js:32797
 msgid "Unsaved Navigation Menu."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:32851
-#: wp-includes/js/dist/block-library.js:38401
-#: wp-includes/js/dist/block-library.js:48591
-#: wp-includes/js/dist/block-library.js:59286
+#: wp-includes/js/dist/block-library.js:32855
+#: wp-includes/js/dist/block-library.js:38424
+#: wp-includes/js/dist/block-library.js:48641
+#: wp-includes/js/dist/block-library.js:59368
 msgid "Block cannot be rendered inside itself."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:32905
+#: wp-includes/js/dist/block-library.js:32909
 msgid "Navigation Menu successfully deleted."
 msgstr ""
 
 #. translators: 'About' as in a website's about page.
-#: wp-includes/js/dist/block-library.js:33687
+#: wp-includes/js/dist/block-library.js:33691
 msgid "About"
 msgstr ""
 
 #. translators: 'Contact' as in a website's contact page.
-#: wp-includes/js/dist/block-library.js:33694
+#: wp-includes/js/dist/block-library.js:33698
 msgid "Contact"
 msgstr ""
 
 #. translators: label for missing post in navigation link block
-#: wp-includes/js/dist/block-library.js:33832
+#: wp-includes/js/dist/block-library.js:33845
 msgid "Select post"
 msgstr ""
 
 #. translators: label for missing page in navigation link block
-#: wp-includes/js/dist/block-library.js:33836
+#: wp-includes/js/dist/block-library.js:33849
 msgid "Select page"
 msgstr ""
 
 #. translators: label for missing category in navigation link block
-#: wp-includes/js/dist/block-library.js:33840
+#: wp-includes/js/dist/block-library.js:33853
 msgid "Select category"
 msgstr ""
 
 #. translators: label for missing tag in navigation link block
-#: wp-includes/js/dist/block-library.js:33844
+#: wp-includes/js/dist/block-library.js:33857
 msgid "Select tag"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:33915
-#: wp-includes/js/dist/block-library.js:33922
-#: wp-includes/js/dist/block-library.js:35074
-#: wp-includes/js/dist/block-library.js:35088
+#: wp-includes/js/dist/block-library.js:33928
+#: wp-includes/js/dist/block-library.js:33935
+#: wp-includes/js/dist/block-library.js:35097
+#: wp-includes/js/dist/block-library.js:35111
 msgid "Description"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:33929
-#: wp-includes/js/dist/block-library.js:35089
+#: wp-includes/js/dist/block-library.js:33942
+#: wp-includes/js/dist/block-library.js:35112
 msgid "The description will be displayed in the menu if the current theme supports it."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:33949
-#: wp-includes/js/dist/block-library.js:35109
+#: wp-includes/js/dist/block-library.js:33962
+#: wp-includes/js/dist/block-library.js:35132
 msgid "Additional information to help clarify the purpose of the link."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:33953
-#: wp-includes/js/dist/block-library.js:33961
-#: wp-includes/js/dist/block-library.js:35112
-#: wp-includes/js/dist/block-library.js:35127
+#: wp-includes/js/dist/block-library.js:33966
+#: wp-includes/js/dist/block-library.js:33974
+#: wp-includes/js/dist/block-library.js:35135
+#: wp-includes/js/dist/block-library.js:35150
 msgid "Rel attribute"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:33969
-#: wp-includes/js/dist/block-library.js:35129
+#: wp-includes/js/dist/block-library.js:33982
+#: wp-includes/js/dist/block-library.js:35152
 msgid "The relationship of the linked URL as space-separated link types."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:34011
-#: wp-includes/js/dist/block-library.js:49961
+#: wp-includes/js/dist/block-library.js:34023
+#: wp-includes/js/dist/block-library.js:50011
 msgid "Add label…"
 msgstr ""
 
 #. translators: Whether the navigation link is Invalid or a Draft.
-#: wp-includes/js/dist/block-library.js:34169
+#: wp-includes/js/dist/block-library.js:34192
 msgid "Invalid"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:34169
+#: wp-includes/js/dist/block-library.js:34192
 msgid "Draft"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:34185
+#: wp-includes/js/dist/block-library.js:34208
 msgid "Add submenu"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:34217
-#: wp-includes/js/dist/block-library.js:35147
+#: wp-includes/js/dist/block-library.js:34240
+#: wp-includes/js/dist/block-library.js:35170
 msgid "Navigation link text"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:34614
+#: wp-includes/js/dist/block-library.js:34637
 msgctxt "navigation link preview example"
 msgid "Example Link"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:35015
+#: wp-includes/js/dist/block-library.js:35038
 msgid "Convert to Link"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:35176
+#: wp-includes/js/dist/block-library.js:35199
 msgid "Link removed."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:35363
+#: wp-includes/js/dist/block-library.js:35386
 msgctxt "Example link text for Navigation Submenu"
 msgid "About"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:35402
+#: wp-includes/js/dist/block-library.js:35425
 msgid "Page break"
 msgstr ""
 
 #. translators: A warning in which %s is the name of a pattern.
-#: wp-includes/js/dist/block-library.js:35739
+#: wp-includes/js/dist/block-library.js:35762
 msgid "Pattern \"%s\" cannot be rendered inside itself."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:35945
+#: wp-includes/js/dist/block-library.js:35968
 msgid "This Navigation Menu displays your website's pages. Editing it will enable you to add, delete, or reorder pages. However, new pages will no longer be added automatically."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:35953
+#: wp-includes/js/dist/block-library.js:35976
 msgid "Edit Page List"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:35967
-#: wp-includes/js/dist/block-library.js:58461
+#: wp-includes/js/dist/block-library.js:35990
+#: wp-includes/js/dist/block-library.js:58543
 msgid "Cancel"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:35974
-#: wp-includes/js/dist/block-library.js:36269
-#: wp-includes/js/dist/block-library.js:36277
-#: wp-includes/js/dist/block-library.js:36279
-#: wp-includes/js/dist/block-library.js:59300
-#: wp-includes/js/dist/block-library.js:60715
+#: wp-includes/js/dist/block-library.js:35997
+#: wp-includes/js/dist/block-library.js:36292
+#: wp-includes/js/dist/block-library.js:36300
+#: wp-includes/js/dist/block-library.js:36302
+#: wp-includes/js/dist/block-library.js:59382
+#: wp-includes/js/dist/block-library.js:60797
 msgid "Edit"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:36034
-#: wp-includes/js/dist/block-library.js:36044
-#: wp-includes/js/dist/block-library.js:36065
+#: wp-includes/js/dist/block-library.js:36057
+#: wp-includes/js/dist/block-library.js:36067
+#: wp-includes/js/dist/block-library.js:36088
 msgid "Page List: Cannot retrieve Pages."
 msgstr ""
 
 #. translators: %s: Page title.
-#: wp-includes/js/dist/block-library.js:36056
+#: wp-includes/js/dist/block-library.js:36079
 msgid "Page List: \"%s\" page has no children."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:36239
+#: wp-includes/js/dist/block-library.js:36262
 msgid "Parent Page"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:36249
+#: wp-includes/js/dist/block-library.js:36272
 msgid "Parent"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:36255
+#: wp-includes/js/dist/block-library.js:36278
 msgid "Choose a page to show only its subpages."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:37071
+#: wp-includes/js/dist/block-library.js:37094
 msgctxt "editor button"
 msgid "Left to right"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:37101
+#: wp-includes/js/dist/block-library.js:37124
 msgid "Not available for aligned text."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:37103
+#: wp-includes/js/dist/block-library.js:37126
 msgid "Showing large initial letter."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:37105
+#: wp-includes/js/dist/block-library.js:37128
 msgid "Show a large initial letter."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:37112
-#: wp-includes/js/dist/block-library.js:37123
+#: wp-includes/js/dist/block-library.js:37135
+#: wp-includes/js/dist/block-library.js:37146
 msgid "Drop cap"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:37196
+#: wp-includes/js/dist/block-library.js:37219
 msgid "Empty block; start writing or type forward slash to choose a block"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:37196
+#: wp-includes/js/dist/block-library.js:37219
 msgid "Block: Paragraph"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:37198
+#: wp-includes/js/dist/block-library.js:37221
 msgid "Type / to choose a block"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:37583
+#: wp-includes/js/dist/block-library.js:37606
 msgid "Post Author"
 msgstr ""
 
 #. translators: %s: Name of the post type e.g: "post".
-#: wp-includes/js/dist/block-library.js:37618
-#: wp-includes/js/dist/block-library.js:37970
+#: wp-includes/js/dist/block-library.js:37641
+#: wp-includes/js/dist/block-library.js:37993
 msgid "This post type (%s) does not support the author."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:37631
-#: wp-includes/js/dist/block-library.js:37639
+#: wp-includes/js/dist/block-library.js:37654
+#: wp-includes/js/dist/block-library.js:37662
 msgid "Author"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:37645
+#: wp-includes/js/dist/block-library.js:37668
 msgid "Show avatar"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:37653
+#: wp-includes/js/dist/block-library.js:37676
 msgid "Avatar size"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:37663
+#: wp-includes/js/dist/block-library.js:37686
 msgid "Show bio"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:37670
+#: wp-includes/js/dist/block-library.js:37693
 msgid "Link author name to author page"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:37709
+#: wp-includes/js/dist/block-library.js:37732
 msgid "Post author byline text"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:37710
+#: wp-includes/js/dist/block-library.js:37733
 msgid "Write byline…"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:37841
+#: wp-includes/js/dist/block-library.js:37864
 msgid "Posted by"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:37905
+#: wp-includes/js/dist/block-library.js:37928
 msgid "Author Name"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:37935
-#: wp-includes/js/dist/block-library.js:37943
+#: wp-includes/js/dist/block-library.js:37958
+#: wp-includes/js/dist/block-library.js:37966
 msgid "Link to author archive"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:38144
+#: wp-includes/js/dist/block-library.js:38167
 msgid "Author Biography"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:38318
+#: wp-includes/js/dist/block-library.js:38341
 msgid "This content is password protected."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:38388
+#: wp-includes/js/dist/block-library.js:38411
 msgid "This is the Content block, it will display all the blocks in any single post or page."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:38390
+#: wp-includes/js/dist/block-library.js:38413
 msgid "That might be a simple arrangement like consecutive paragraphs in a blog post, or a more elaborate composition that includes image galleries, videos, tables, columns, and any other block types."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:38392
+#: wp-includes/js/dist/block-library.js:38415
 msgid "If there are any Custom Post Types registered at your site, the Content block can display the contents of those entries as well."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:38604
+#: wp-includes/js/dist/block-library.js:38627
 msgid "Post Date"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:38604
+#: wp-includes/js/dist/block-library.js:38627
 msgid "Post Modified Date"
 msgstr ""
 
 #. translators: Order of day, month, and year. Available formats are 'dmy', 'mdy', and 'ymd'.
-#: wp-includes/js/dist/block-library.js:38638
+#: wp-includes/js/dist/block-library.js:38661
 msgctxt "date order"
 msgid "dmy"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:38653
+#: wp-includes/js/dist/block-library.js:38676
 msgid "Change Date"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:38673
+#: wp-includes/js/dist/block-library.js:38696
 msgid "Date Format"
 msgstr ""
 
 #. translators: %s: Name of the post type e.g: "post".
-#: wp-includes/js/dist/block-library.js:38689
-#: wp-includes/js/dist/block-library.js:38698
-#: wp-includes/js/dist/block-library.js:39812
-#: wp-includes/js/dist/block-library.js:39822
+#: wp-includes/js/dist/block-library.js:38712
+#: wp-includes/js/dist/block-library.js:38721
+#: wp-includes/js/dist/block-library.js:39835
+#: wp-includes/js/dist/block-library.js:39845
 msgid "Link to %s"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:38689
-#: wp-includes/js/dist/block-library.js:38698
-#: wp-includes/js/dist/block-library.js:39812
-#: wp-includes/js/dist/block-library.js:39822
+#: wp-includes/js/dist/block-library.js:38712
+#: wp-includes/js/dist/block-library.js:38721
+#: wp-includes/js/dist/block-library.js:39835
+#: wp-includes/js/dist/block-library.js:39845
 msgid "Link to post"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:38706
-#: wp-includes/js/dist/block-library.js:38713
+#: wp-includes/js/dist/block-library.js:38729
+#: wp-includes/js/dist/block-library.js:38736
 msgid "Display last modified date"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:38718
+#: wp-includes/js/dist/block-library.js:38741
 msgid "Only shows if the post has been modified"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:38800
+#: wp-includes/js/dist/block-library.js:38823
 msgid "Modified Date"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:38801
+#: wp-includes/js/dist/block-library.js:38824
 msgid "Display a post's last updated date."
 msgstr ""
 
 #. translators: If your word count is based on single characters (e.g. East Asian characters), enter 'characters_excluding_spaces' or 'characters_including_spaces'. Otherwise, enter 'words'. Do not translate into your own language.
-#: wp-includes/js/dist/block-library.js:39007
-#: wp-includes/js/dist/block-library.js:41662
+#: wp-includes/js/dist/block-library.js:39030
+#: wp-includes/js/dist/block-library.js:41706
 msgctxt "Word count type. Do not translate!"
 msgid "words"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:39033
+#: wp-includes/js/dist/block-library.js:39056
 msgid "This block will display the excerpt."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:39042
+#: wp-includes/js/dist/block-library.js:39065
 msgid "The content is currently protected and does not have the available excerpt."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:39051
+#: wp-includes/js/dist/block-library.js:39074
 msgid "Add \"read more\" link text"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:39088
+#: wp-includes/js/dist/block-library.js:39111
 msgid "Excerpt text"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:39089
-#: wp-includes/js/dist/block-library.js:39094
+#: wp-includes/js/dist/block-library.js:39112
+#: wp-includes/js/dist/block-library.js:39117
 msgid "No excerpt found"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:39116
-#: wp-includes/js/dist/block-library.js:39123
+#: wp-includes/js/dist/block-library.js:39139
+#: wp-includes/js/dist/block-library.js:39146
 msgid "Show link on new line"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:39308
+#: wp-includes/js/dist/block-library.js:39331
 msgctxt "Scale option for Image dimension control"
 msgid "Cover"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:39311
+#: wp-includes/js/dist/block-library.js:39334
 msgctxt "Scale option for Image dimension control"
 msgid "Contain"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:39314
+#: wp-includes/js/dist/block-library.js:39337
 msgctxt "Scale option for Image dimension control"
 msgid "Fill"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:39319
+#: wp-includes/js/dist/block-library.js:39342
 msgid "Image is scaled and cropped to fill the entire space without being distorted."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:39320
+#: wp-includes/js/dist/block-library.js:39343
 msgid "Image is scaled to fill the space without clipping nor distorting."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:39321
+#: wp-includes/js/dist/block-library.js:39344
 msgid "Image will be stretched and distorted to completely fill the space."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:39351
+#: wp-includes/js/dist/block-library.js:39374
 msgctxt "Image scaling options"
 msgid "Scale"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:39368
+#: wp-includes/js/dist/block-library.js:39391
 msgctxt "Aspect ratio option for dimensions control"
 msgid "Original"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:39374
-#: wp-includes/js/dist/block-library.js:39386
+#: wp-includes/js/dist/block-library.js:39397
+#: wp-includes/js/dist/block-library.js:39409
 msgid "Aspect ratio"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:39396
-#: wp-includes/js/dist/block-library.js:39407
-#: wp-includes/js/dist/block-library.js:54190
-#: wp-includes/js/dist/block-library.js:54197
+#: wp-includes/js/dist/block-library.js:39419
+#: wp-includes/js/dist/block-library.js:39430
+#: wp-includes/js/dist/block-library.js:54272
+#: wp-includes/js/dist/block-library.js:54279
 msgid "Height"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:39896
+#: wp-includes/js/dist/block-library.js:39919
 msgid "Add a featured image"
 msgstr ""
 
 #. translators: %s: The image's alt text.
-#: wp-includes/js/dist/block-library.js:39944
+#: wp-includes/js/dist/block-library.js:39967
 msgid "Featured image: %s"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:40267
-#: wp-includes/js/dist/block-library.js:44304
+#: wp-includes/js/dist/block-library.js:40289
+#: wp-includes/js/dist/block-library.js:44348
 msgid "Aside"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:40270
-#: wp-includes/js/dist/block-library.js:44307
+#: wp-includes/js/dist/block-library.js:40292
+#: wp-includes/js/dist/block-library.js:44351
 msgid "Audio"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:40273
-#: wp-includes/js/dist/block-library.js:44310
+#: wp-includes/js/dist/block-library.js:40295
+#: wp-includes/js/dist/block-library.js:44354
 msgid "Chat"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:40285
-#: wp-includes/js/dist/block-library.js:44322
+#: wp-includes/js/dist/block-library.js:40307
+#: wp-includes/js/dist/block-library.js:44366
 msgid "Quote"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:40288
-#: wp-includes/js/dist/block-library.js:44325
+#: wp-includes/js/dist/block-library.js:40310
+#: wp-includes/js/dist/block-library.js:44369
 msgid "Standard"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:40291
-#: wp-includes/js/dist/block-library.js:44328
+#: wp-includes/js/dist/block-library.js:40313
+#: wp-includes/js/dist/block-library.js:44372
 msgid "Status"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:40294
-#: wp-includes/js/dist/block-library.js:44331
-#: wp-includes/js/dist/block-library.js:61094
+#: wp-includes/js/dist/block-library.js:40316
+#: wp-includes/js/dist/block-library.js:44375
+#: wp-includes/js/dist/block-library.js:61176
 msgid "Video"
 msgstr ""
 
 #. translators: 1: Post Format name, 2: Post ID
-#: wp-includes/js/dist/block-library.js:40325
+#: wp-includes/js/dist/block-library.js:40367
 msgid "%1$s #%2$d"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:40335
+#: wp-includes/js/dist/block-library.js:40377
 msgid "Post Format Name #ID"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:40382
+#: wp-includes/js/dist/block-library.js:40424
 msgid "Make Post Format name a link"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:40555
+#: wp-includes/js/dist/block-library.js:40597
 msgid "Next"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:40555
+#: wp-includes/js/dist/block-library.js:40597
 msgid "Previous"
 msgstr ""
 
 #. translators: Label before for next and previous post. There is a space after the colon.
-#: wp-includes/js/dist/block-library.js:40564
+#: wp-includes/js/dist/block-library.js:40606
 msgid "Next: "
 msgstr ""
 
 #. translators: Label before for next and previous post. There is a space after the colon.
-#: wp-includes/js/dist/block-library.js:40566
+#: wp-includes/js/dist/block-library.js:40608
 msgid "Previous: "
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:40568
-#: wp-includes/js/dist/block-library.js:40739
-#: wp-includes/js/dist/block-library.js:40857
+#: wp-includes/js/dist/block-library.js:40610
+#: wp-includes/js/dist/block-library.js:40781
+#: wp-includes/js/dist/block-library.js:40899
 msgid "Next post"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:40568
-#: wp-includes/js/dist/block-library.js:40754
+#: wp-includes/js/dist/block-library.js:40610
+#: wp-includes/js/dist/block-library.js:40796
 msgid "Previous post"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:40586
+#: wp-includes/js/dist/block-library.js:40628
 msgid "Unfiltered"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:40604
+#: wp-includes/js/dist/block-library.js:40646
 msgid "Display the title as a link"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:40605
+#: wp-includes/js/dist/block-library.js:40647
 msgid "If you have entered a custom label, it will be prepended before the title."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:40612
+#: wp-includes/js/dist/block-library.js:40654
 msgid "Include the label as part of the link"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:40620
-#: wp-includes/js/dist/block-library.js:46330
+#: wp-includes/js/dist/block-library.js:40662
+#: wp-includes/js/dist/block-library.js:46380
 msgid "Arrow"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:40627
+#: wp-includes/js/dist/block-library.js:40669
 msgid "A decorative arrow for the next and previous link."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:40631
+#: wp-includes/js/dist/block-library.js:40673
 msgctxt "Arrow option for Next/Previous link"
 msgid "None"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:40634
+#: wp-includes/js/dist/block-library.js:40676
 msgctxt "Arrow option for Next/Previous link"
 msgid "Arrow"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:40637
+#: wp-includes/js/dist/block-library.js:40679
 msgctxt "Arrow option for Next/Previous link"
 msgid "Chevron"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:40646
+#: wp-includes/js/dist/block-library.js:40688
 msgid "Filter by taxonomy"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:40652
+#: wp-includes/js/dist/block-library.js:40694
 msgid "Only link to posts that have the same taxonomy terms as the current post. For example the same tags or categories."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:40681
+#: wp-includes/js/dist/block-library.js:40723
 msgid "An example title"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:40730
+#: wp-includes/js/dist/block-library.js:40772
 msgid "Next Post"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:40731
+#: wp-includes/js/dist/block-library.js:40773
 msgid "Displays the post link that follows the current post."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:40745
+#: wp-includes/js/dist/block-library.js:40787
 msgid "Previous Post"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:40746
+#: wp-includes/js/dist/block-library.js:40788
 msgid "Displays the post link that precedes the current post."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:41100
-#: wp-includes/js/dist/block-library.js:58657
+#: wp-includes/js/dist/block-library.js:41144
+#: wp-includes/js/dist/block-library.js:58739
 msgid "No results found."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:41111
+#: wp-includes/js/dist/block-library.js:41155
 msgctxt "Post template block display setting"
 msgid "List view"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:41118
+#: wp-includes/js/dist/block-library.js:41162
 msgctxt "Post template block display setting"
 msgid "Grid view"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:41395
+#: wp-includes/js/dist/block-library.js:41439
 msgid "Separator"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:41402
+#: wp-includes/js/dist/block-library.js:41446
 msgid "Enter character(s) used to separate terms."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:41410
-#: wp-includes/js/dist/block-library.js:41411
+#: wp-includes/js/dist/block-library.js:41454
+#: wp-includes/js/dist/block-library.js:41455
 msgid "Prefix"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:41429
+#: wp-includes/js/dist/block-library.js:41473
 msgid "Term items not found."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:41433
-#: wp-includes/js/dist/block-library.js:41434
+#: wp-includes/js/dist/block-library.js:41477
+#: wp-includes/js/dist/block-library.js:41478
 msgid "Suffix"
 msgstr ""
 
 #. translators: %s: the number of minutes to read the post.
-#: wp-includes/js/dist/block-library.js:41665
+#: wp-includes/js/dist/block-library.js:41709
 msgid "%s minute"
 msgid_plural "%s minutes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-includes/js/dist/block-library.js:41866
-#: wp-includes/js/dist/block-library.js:58919
+#: wp-includes/js/dist/block-library.js:41910
+#: wp-includes/js/dist/block-library.js:59001
 msgid "Title"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:41871
-#: wp-includes/js/dist/block-library.js:41892
+#: wp-includes/js/dist/block-library.js:41915
+#: wp-includes/js/dist/block-library.js:41936
 msgid "No title"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:41934
+#: wp-includes/js/dist/block-library.js:41978
 msgid "Make title a link"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:42193
+#: wp-includes/js/dist/block-library.js:42237
 msgid "Preformatted text"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:42194
+#: wp-includes/js/dist/block-library.js:42238
 msgid "Write preformatted text…"
 msgstr ""
 
 #. translators: Sample content for the Preformatted block. Can be replaced with a more locale-adequate work.
-#: wp-includes/js/dist/block-library.js:42346
+#: wp-includes/js/dist/block-library.js:42390
 msgid ""
 "EXT. XANADU - FAINT DAWN - 1940 (MINIATURE)\n"
 "Window, very small in the distance, illuminated.\n"
 "All around this is an almost totally black screen. Now, as the camera moves slowly towards the window which is almost a postage stamp in the frame, other forms appear;"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:43007
+#: wp-includes/js/dist/block-library.js:43051
 msgid "Pullquote text"
 msgstr ""
 
 #. translators: placeholder text used for the quote
-#: wp-includes/js/dist/block-library.js:43010
+#: wp-includes/js/dist/block-library.js:43054
 msgid "Add quote"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:43019
+#: wp-includes/js/dist/block-library.js:43063
 msgid "Pullquote citation text"
 msgstr ""
 
 #. translators: placeholder text used for the citation
-#: wp-includes/js/dist/block-library.js:43022
-#: wp-includes/js/dist/block-library.js:48197
-#: wp-includes/js/dist/block-library.js:48198
+#: wp-includes/js/dist/block-library.js:43066
+#: wp-includes/js/dist/block-library.js:48247
+#: wp-includes/js/dist/block-library.js:48248
 msgid "Add citation"
 msgstr ""
 
 #. translators: Quote serving as example for the Pullquote block. Attributed to Matt Mullenweg.
-#: wp-includes/js/dist/block-library.js:43282
+#: wp-includes/js/dist/block-library.js:43326
 msgid "One of the hardest things to do in technology is disrupt yourself."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:43283
+#: wp-includes/js/dist/block-library.js:43327
 msgid "Matt Mullenweg"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:43516
-#: wp-includes/js/dist/block-library.js:43839
+#: wp-includes/js/dist/block-library.js:43560
+#: wp-includes/js/dist/block-library.js:43883
 msgid "Newest to oldest"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:43519
-#: wp-includes/js/dist/block-library.js:43842
+#: wp-includes/js/dist/block-library.js:43563
+#: wp-includes/js/dist/block-library.js:43886
 msgid "Oldest to newest"
 msgstr ""
 
 #. translators: Label for ordering posts by title in ascending order.
-#: wp-includes/js/dist/block-library.js:43523
-#: wp-includes/js/dist/block-library.js:43846
+#: wp-includes/js/dist/block-library.js:43567
+#: wp-includes/js/dist/block-library.js:43890
 msgid "A → Z"
 msgstr ""
 
 #. translators: Label for ordering posts by title in descending order.
-#: wp-includes/js/dist/block-library.js:43527
-#: wp-includes/js/dist/block-library.js:43850
+#: wp-includes/js/dist/block-library.js:43571
+#: wp-includes/js/dist/block-library.js:43894
 msgid "Z → A"
 msgstr ""
 
 #. translators: Label for ordering posts by ascending menu order.
-#: wp-includes/js/dist/block-library.js:43533
+#: wp-includes/js/dist/block-library.js:43577
 msgid "Ascending by order"
 msgstr ""
 
 #. translators: Label for ordering posts by descending menu order.
-#: wp-includes/js/dist/block-library.js:43537
+#: wp-includes/js/dist/block-library.js:43581
 msgid "Descending by order"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:43809
+#: wp-includes/js/dist/block-library.js:43853
 msgid "Reload the full page—instead of just the posts list—when visitors navigate between pages."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:43811
+#: wp-includes/js/dist/block-library.js:43855
 msgid "Experimental full-page client-side navigation setting enabled."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:43813
+#: wp-includes/js/dist/block-library.js:43857
 msgid "Enhancement disabled because there are non-compatible blocks inside the Query block."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:43818
+#: wp-includes/js/dist/block-library.js:43862
 msgid "Reload full page"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:43862
-#: wp-includes/js/dist/block-library.js:44738
+#: wp-includes/js/dist/block-library.js:43906
+#: wp-includes/js/dist/block-library.js:44793
 msgid "Order by"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:43948
-#: wp-includes/js/dist/block-library.js:44830
+#: wp-includes/js/dist/block-library.js:43992
+#: wp-includes/js/dist/block-library.js:44885
 msgid "Authors"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:44088
-#: wp-includes/js/dist/block-library.js:44851
+#: wp-includes/js/dist/block-library.js:44132
+#: wp-includes/js/dist/block-library.js:44906
 msgid "Parents"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:44372
-#: wp-includes/js/dist/block-library.js:44862
+#: wp-includes/js/dist/block-library.js:44416
+#: wp-includes/js/dist/block-library.js:44917
 msgid "Formats"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:44395
+#: wp-includes/js/dist/block-library.js:44439
 msgid "Include"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:44398
+#: wp-includes/js/dist/block-library.js:44442
 msgid "Ignore"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:44401
+#: wp-includes/js/dist/block-library.js:44445
 msgid "Exclude"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:44404
+#: wp-includes/js/dist/block-library.js:44448
 msgid "Only"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:44414
-#: wp-includes/js/dist/block-library.js:44752
+#: wp-includes/js/dist/block-library.js:44458
+#: wp-includes/js/dist/block-library.js:44807
 msgid "Sticky posts"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:44418
+#: wp-includes/js/dist/block-library.js:44462
 msgid "Sticky posts always appear first, regardless of their publish date."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:44439
-#: wp-includes/js/dist/block-library.js:44775
+#: wp-includes/js/dist/block-library.js:44483
+#: wp-includes/js/dist/block-library.js:44830
 msgid "Items per page"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:44471
-#: wp-includes/js/dist/block-library.js:44783
+#: wp-includes/js/dist/block-library.js:44515
+#: wp-includes/js/dist/block-library.js:44838
 msgid "Offset"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:44499
-#: wp-includes/js/dist/block-library.js:44793
+#: wp-includes/js/dist/block-library.js:44543
+#: wp-includes/js/dist/block-library.js:44848
 msgid "Max pages to show"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:44510
+#: wp-includes/js/dist/block-library.js:44554
 msgid "Limit the pages you want to show, even if the query has more results. To show all pages use 0 (zero)."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:44618
+#: wp-includes/js/dist/block-library.js:44662
 msgid "Post type"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:44619
+#: wp-includes/js/dist/block-library.js:44663
 msgid "Select the type of content to display: posts, pages, or custom post types."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:44661
-#: wp-includes/js/dist/block-library.js:44669
+#: wp-includes/js/dist/block-library.js:44709
+#: wp-includes/js/dist/block-library.js:44719
 msgid "Query type"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:44676
+#: wp-includes/js/dist/block-library.js:44726
 msgid "Display a list of posts or custom post types based on the current template."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:44676
+#: wp-includes/js/dist/block-library.js:44726
 msgid "Display a list of posts or custom post types based on specific criteria."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:44680
+#: wp-includes/js/dist/block-library.js:44730
 msgid "Default"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:44683
+#: wp-includes/js/dist/block-library.js:44733
 msgid "Custom"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:44806
+#: wp-includes/js/dist/block-library.js:44738
+msgid "Cannot inherit the current template query when placed inside the singular content (e.g., post, page, 404, blank)."
+msgstr ""
+
+#: wp-includes/js/dist/block-library.js:44861
 msgid "Filters"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:44819
+#: wp-includes/js/dist/block-library.js:44874
 msgid "Taxonomies"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:44840
-#: wp-includes/js/dist/block-library.js:44845
+#: wp-includes/js/dist/block-library.js:44895
+#: wp-includes/js/dist/block-library.js:44900
 msgid "Keyword"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:44913
+#: wp-includes/js/dist/block-library.js:44968
 msgid "If you still want to prevent full page reloads, remove that block, then disable \"Reload full page\" again in the Query Block settings."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:44915
+#: wp-includes/js/dist/block-library.js:44970
 msgid "Currently, avoiding full page reloads is not possible when non-interactive or non-client Navigation compatible blocks from plugins are present inside the Query block."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:44917
+#: wp-includes/js/dist/block-library.js:44972
 msgid "Currently, avoiding full page reloads is not possible when a Content block is present inside the Query block."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:44920
+#: wp-includes/js/dist/block-library.js:44975
 msgid "Query block: Reload full page enabled"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:44939
+#: wp-includes/js/dist/block-library.js:44994
 msgid "OK"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:45036
+#: wp-includes/js/dist/block-library.js:45091
 msgid "Choose a pattern"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:45089
-#: wp-includes/js/dist/block-library.js:45090
-#: wp-includes/js/dist/block-library.js:49785
-#: wp-includes/js/dist/block-library.js:50007
-#: wp-includes/js/dist/block-library.js:50008
-#: wp-includes/js/dist/block-library.js:50129
-#: wp-includes/js/dist/block-library.js:50130
-#: wp-includes/js/dist/block-library.js:58642
-#: wp-includes/js/dist/block-library.js:58643
+#: wp-includes/js/dist/block-library.js:45144
+#: wp-includes/js/dist/block-library.js:45145
+#: wp-includes/js/dist/block-library.js:49835
+#: wp-includes/js/dist/block-library.js:50057
+#: wp-includes/js/dist/block-library.js:50058
+#: wp-includes/js/dist/block-library.js:50179
+#: wp-includes/js/dist/block-library.js:50180
+#: wp-includes/js/dist/block-library.js:58724
+#: wp-includes/js/dist/block-library.js:58725
 msgid "Search"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:45137
+#: wp-includes/js/dist/block-library.js:45192
 msgid "Change design"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:45388
+#: wp-includes/js/dist/block-library.js:45438
 msgid "Choose a pattern for the query loop or start blank."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:45393
-#: wp-includes/js/dist/block-library.js:58535
+#: wp-includes/js/dist/block-library.js:45443
+#: wp-includes/js/dist/block-library.js:58617
 msgid "Choose"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:45400
-#: wp-includes/js/dist/block-library.js:58542
+#: wp-includes/js/dist/block-library.js:45450
+#: wp-includes/js/dist/block-library.js:58624
 msgid "Start blank"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:45532
+#: wp-includes/js/dist/block-library.js:45582
 msgid "Title & Date"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:45539
+#: wp-includes/js/dist/block-library.js:45589
 msgid "Title & Excerpt"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:45546
+#: wp-includes/js/dist/block-library.js:45596
 msgid "Title, Date, & Excerpt"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:45553
+#: wp-includes/js/dist/block-library.js:45603
 msgid "Image, Date, & Title"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:46207
+#: wp-includes/js/dist/block-library.js:46257
 msgid "Add text or blocks that will display when a query returns no results."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:46290
+#: wp-includes/js/dist/block-library.js:46340
 msgid "No posts were found."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:46333
+#: wp-includes/js/dist/block-library.js:46383
 msgid "A decorative arrow appended to the next and previous page link."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:46337
+#: wp-includes/js/dist/block-library.js:46387
 msgctxt "Arrow option for Query Pagination Next/Previous blocks"
 msgid "None"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:46340
+#: wp-includes/js/dist/block-library.js:46390
 msgctxt "Arrow option for Query Pagination Next/Previous blocks"
 msgid "Arrow"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:46343
+#: wp-includes/js/dist/block-library.js:46393
 msgctxt "Arrow option for Query Pagination Next/Previous blocks"
 msgid "Chevron"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:46361
+#: wp-includes/js/dist/block-library.js:46411
 msgid "Show label text"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:46362
+#: wp-includes/js/dist/block-library.js:46412
 msgid "Make label text visible, e.g. \"Next Page\"."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:46438
+#: wp-includes/js/dist/block-library.js:46488
 msgid "Pagination arrow"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:46453
-#: wp-includes/js/dist/block-library.js:53777
-#: wp-includes/js/dist/block-library.js:53784
+#: wp-includes/js/dist/block-library.js:46503
+#: wp-includes/js/dist/block-library.js:53859
+#: wp-includes/js/dist/block-library.js:53866
 msgid "Show text"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:46641
+#: wp-includes/js/dist/block-library.js:46691
 msgid "Next page link"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:46642
+#: wp-includes/js/dist/block-library.js:46692
 msgid "Next Page"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:46798
-#: wp-includes/js/dist/block-library.js:46807
+#: wp-includes/js/dist/block-library.js:46848
+#: wp-includes/js/dist/block-library.js:46857
 msgid "Number of links"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:46808
+#: wp-includes/js/dist/block-library.js:46858
 msgid "Specify how many links can appear before and after the current page number. Links to the first, current and last page are always visible."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:46948
+#: wp-includes/js/dist/block-library.js:46998
 msgid "Previous page link"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:46949
+#: wp-includes/js/dist/block-library.js:46999
 msgid "Previous Page"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:47161
+#: wp-includes/js/dist/block-library.js:47211
 msgid "Provided type is not supported."
 msgstr ""
 
 #. translators: 1: Archive type title e.g: "Category", 2: Label of the archive e.g: "Shoes"
-#: wp-includes/js/dist/block-library.js:47172
+#: wp-includes/js/dist/block-library.js:47222
 msgctxt "archive label"
 msgid "%1$s: %2$s"
 msgstr ""
 
 #. translators: %s: Archive type title e.g: "Category", "Tag"...
-#: wp-includes/js/dist/block-library.js:47175
+#: wp-includes/js/dist/block-library.js:47225
 msgid "%s: Name"
 msgstr ""
 
 #. translators: %s: Archive type title e.g: "Category", "Tag"...
-#: wp-includes/js/dist/block-library.js:47181
+#: wp-includes/js/dist/block-library.js:47231
 msgid "%s name"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:47184
+#: wp-includes/js/dist/block-library.js:47234
 msgid "Archive type: Name"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:47184
+#: wp-includes/js/dist/block-library.js:47234
 msgid "Archive title"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:47196
-#: wp-includes/js/dist/block-library.js:47203
+#: wp-includes/js/dist/block-library.js:47246
+#: wp-includes/js/dist/block-library.js:47253
 msgid "Show archive type in title"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:47228
-#: wp-includes/js/dist/block-library.js:47235
+#: wp-includes/js/dist/block-library.js:47278
+#: wp-includes/js/dist/block-library.js:47285
 msgid "Show search term in title"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:47245
+#: wp-includes/js/dist/block-library.js:47295
 msgid "Search results for: “search term”"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:47245
+#: wp-includes/js/dist/block-library.js:47295
 msgid "Search results"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:47279
+#: wp-includes/js/dist/block-library.js:47329
 msgid "Archive Title"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:47280
+#: wp-includes/js/dist/block-library.js:47330
 msgid "Display the archive title based on the queried object."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:47289
+#: wp-includes/js/dist/block-library.js:47339
 msgid "Search Results Title"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:47290
+#: wp-includes/js/dist/block-library.js:47340
 msgid "Display the search results title based on the queried object."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:47548
+#: wp-includes/js/dist/block-library.js:47598
 msgid "Total results"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:47558
+#: wp-includes/js/dist/block-library.js:47608
 msgid "Range display"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:47573
+#: wp-includes/js/dist/block-library.js:47623
 msgid "Change display type"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:47583
+#: wp-includes/js/dist/block-library.js:47633
 msgid "12 results found"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:47588
+#: wp-includes/js/dist/block-library.js:47638
 msgid "Displaying 1 – 10 of 12"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:48193
+#: wp-includes/js/dist/block-library.js:48243
 msgid "Quote citation"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:48199
+#: wp-includes/js/dist/block-library.js:48249
 msgid "Remove citation"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:48500
+#: wp-includes/js/dist/block-library.js:48550
 msgid "In quoting others, we cite ourselves."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:48632
+#: wp-includes/js/dist/block-library.js:48682
 msgid "Edit original"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:48640
+#: wp-includes/js/dist/block-library.js:48690
 msgid "Reset"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:48717
+#: wp-includes/js/dist/block-library.js:48767
 msgid "Block has been deleted or is unavailable."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:49151
+#: wp-includes/js/dist/block-library.js:49201
 msgid "RSS URL"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:49158
+#: wp-includes/js/dist/block-library.js:49208
 msgid "Display entries from any RSS or Atom feed."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:49167
+#: wp-includes/js/dist/block-library.js:49217
 msgid "Enter URL here…"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:49177
-#: wp-includes/js/dist/block-library.js:53205
-#: wp-includes/js/dist/block-library.js:60821
+#: wp-includes/js/dist/block-library.js:49227
+#: wp-includes/js/dist/block-library.js:53287
+#: wp-includes/js/dist/block-library.js:60903
 msgid "Apply"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:49185
+#: wp-includes/js/dist/block-library.js:49235
 msgid "Edit RSS URL"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:49189
+#: wp-includes/js/dist/block-library.js:49239
 msgctxt "RSS block display setting"
 msgid "List view"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:49196
+#: wp-includes/js/dist/block-library.js:49246
 msgctxt "RSS block display setting"
 msgid "Grid view"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:49227
+#: wp-includes/js/dist/block-library.js:49277
 msgid "Number of items"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:49237
+#: wp-includes/js/dist/block-library.js:49287
 msgid "Display author"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:49242
+#: wp-includes/js/dist/block-library.js:49292
 msgid "Display date"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:49247
+#: wp-includes/js/dist/block-library.js:49297
 msgid "Display excerpt"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:49253
+#: wp-includes/js/dist/block-library.js:49303
 msgid "Max number of words in excerpt"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:49672
+#: wp-includes/js/dist/block-library.js:49722
 msgid "Button outside"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:49683
+#: wp-includes/js/dist/block-library.js:49733
 msgid "Button inside"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:49694
+#: wp-includes/js/dist/block-library.js:49744
 msgid "No button"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:49705
+#: wp-includes/js/dist/block-library.js:49755
 msgid "Button only"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:49796
+#: wp-includes/js/dist/block-library.js:49846
 msgid "Add button text…"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:49811
+#: wp-includes/js/dist/block-library.js:49861
 msgid "Show search label"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:49821
+#: wp-includes/js/dist/block-library.js:49871
 msgid "Change button position"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:49824
+#: wp-includes/js/dist/block-library.js:49874
 msgid "Use button with icon"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:49879
+#: wp-includes/js/dist/block-library.js:49929
 msgid "Percentage Width"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:50247
+#: wp-includes/js/dist/block-library.js:50297
 msgid "Default (<hr>)"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:50543
+#: wp-includes/js/dist/block-library.js:50593
 msgid "Shortcode"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:50548
+#: wp-includes/js/dist/block-library.js:50598
 msgid "Shortcode text"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:50549
+#: wp-includes/js/dist/block-library.js:50599
 msgid "Write shortcode here…"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:50897
+#: wp-includes/js/dist/block-library.js:50947
 msgid "Site Icons are what you see in browser tabs, bookmark bars. To use a custom icon that is different from your site logo, use the <a>Site Icon settings</a>."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:50914
+#: wp-includes/js/dist/block-library.js:50964
 msgid "Image width"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:50925
+#: wp-includes/js/dist/block-library.js:50975
 msgid "Link image to home"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:50942
+#: wp-includes/js/dist/block-library.js:50992
 msgid "Use as Site Icon"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:51141
-#: wp-includes/js/dist/block-library.js:51219
-#: wp-includes/js/dist/block-library.js:51254
+#: wp-includes/js/dist/block-library.js:51191
+#: wp-includes/js/dist/block-library.js:51269
+#: wp-includes/js/dist/block-library.js:51304
 msgid "Choose logo"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:51205
+#: wp-includes/js/dist/block-library.js:51255
 msgid "Media"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:51444
+#: wp-includes/js/dist/block-library.js:51494
 msgid "Site tagline text"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:51445
+#: wp-includes/js/dist/block-library.js:51495
 msgid "Write site tagline…"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:51453
+#: wp-includes/js/dist/block-library.js:51503
 msgid "Site Tagline placeholder"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:51727
+#: wp-includes/js/dist/block-library.js:51777
 msgid "Site title text"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:51728
+#: wp-includes/js/dist/block-library.js:51778
 msgid "Write site title…"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:51740
-#: wp-includes/js/dist/block-library.js:51742
+#: wp-includes/js/dist/block-library.js:51790
+#: wp-includes/js/dist/block-library.js:51792
 msgid "Site Title placeholder"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:51774
-#: wp-includes/js/dist/block-library.js:51781
+#: wp-includes/js/dist/block-library.js:51824
+#: wp-includes/js/dist/block-library.js:51831
 msgid "Make title link to home"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:53133
+#: wp-includes/js/dist/block-library.js:53215
 msgid "Social Icon"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:53172
+#: wp-includes/js/dist/block-library.js:53254
 msgid "Edit social link"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:53191
-#: wp-includes/js/dist/block-library.js:53192
+#: wp-includes/js/dist/block-library.js:53273
+#: wp-includes/js/dist/block-library.js:53274
 msgid "Enter social link"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:53295
+#: wp-includes/js/dist/block-library.js:53377
 msgid "Provide a text label or use the default."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:53325
+#: wp-includes/js/dist/block-library.js:53407
 msgid "The text is visible when enabled from the parent Social Icons block."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:53592
+#: wp-includes/js/dist/block-library.js:53674
 msgid "Small"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:53595
+#: wp-includes/js/dist/block-library.js:53677
 msgid "Normal"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:53598
+#: wp-includes/js/dist/block-library.js:53680
 msgid "Large"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:53601
+#: wp-includes/js/dist/block-library.js:53683
 msgid "Huge"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:53694
+#: wp-includes/js/dist/block-library.js:53776
 msgid "Icon color"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:53713
+#: wp-includes/js/dist/block-library.js:53795
 msgid "Icon background"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:53727
-#: wp-includes/js/dist/block-library.js:53728
+#: wp-includes/js/dist/block-library.js:53809
+#: wp-includes/js/dist/block-library.js:53810
 msgid "Size"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:53762
-#: wp-includes/js/dist/block-library.js:53769
+#: wp-includes/js/dist/block-library.js:53844
+#: wp-includes/js/dist/block-library.js:53851
 msgid "Open links in new tab"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:55887
+#: wp-includes/js/dist/block-library.js:55969
 msgid "Align column left"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:55891
+#: wp-includes/js/dist/block-library.js:55973
 msgid "Align column center"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:55895
+#: wp-includes/js/dist/block-library.js:55977
 msgid "Align column right"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:55899
+#: wp-includes/js/dist/block-library.js:55981
 msgid "Header cell text"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:55900
+#: wp-includes/js/dist/block-library.js:55982
 msgid "Body cell text"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:55901
+#: wp-includes/js/dist/block-library.js:55983
 msgid "Footer cell text"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:55904
+#: wp-includes/js/dist/block-library.js:55986
 msgid "Header label"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:55905
+#: wp-includes/js/dist/block-library.js:55987
 msgid "Footer label"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:56169
+#: wp-includes/js/dist/block-library.js:56251
 msgid "Insert row before"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:56174
+#: wp-includes/js/dist/block-library.js:56256
 msgid "Insert row after"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:56179
+#: wp-includes/js/dist/block-library.js:56261
 msgid "Delete row"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:56184
+#: wp-includes/js/dist/block-library.js:56266
 msgid "Insert column before"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:56189
+#: wp-includes/js/dist/block-library.js:56271
 msgid "Insert column after"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:56194
+#: wp-includes/js/dist/block-library.js:56276
 msgid "Delete column"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:56243
+#: wp-includes/js/dist/block-library.js:56325
 msgid "Change column alignment"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:56252
+#: wp-includes/js/dist/block-library.js:56334
 msgid "Edit table"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:56269
-#: wp-includes/js/dist/block-library.js:56276
+#: wp-includes/js/dist/block-library.js:56351
+#: wp-includes/js/dist/block-library.js:56358
 msgid "Fixed width table cells"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:56283
-#: wp-includes/js/dist/block-library.js:56290
+#: wp-includes/js/dist/block-library.js:56365
+#: wp-includes/js/dist/block-library.js:56372
 msgid "Header section"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:56296
-#: wp-includes/js/dist/block-library.js:56303
+#: wp-includes/js/dist/block-library.js:56378
+#: wp-includes/js/dist/block-library.js:56385
 msgid "Footer section"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:56324
+#: wp-includes/js/dist/block-library.js:56406
 msgid "Table"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:56329
+#: wp-includes/js/dist/block-library.js:56411
 msgid "Insert a table for sharing data."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:56337
+#: wp-includes/js/dist/block-library.js:56419
 msgid "Column count"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:56346
+#: wp-includes/js/dist/block-library.js:56428
 msgid "Row count"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:56355
+#: wp-includes/js/dist/block-library.js:56437
 msgid "Create Table"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:56363
+#: wp-includes/js/dist/block-library.js:56445
 msgid "Table caption text"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:56809
+#: wp-includes/js/dist/block-library.js:56891
 msgid "Version"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:56812
+#: wp-includes/js/dist/block-library.js:56894
 msgid "Jazz Musician"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:56815
+#: wp-includes/js/dist/block-library.js:56897
 msgid "Release Date"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:56827
+#: wp-includes/js/dist/block-library.js:56909
 msgid "May 7, 2019"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:56838
+#: wp-includes/js/dist/block-library.js:56920
 msgid "February 21, 2019"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:56849
+#: wp-includes/js/dist/block-library.js:56931
 msgid "December 6, 2018"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:57205
+#: wp-includes/js/dist/block-library.js:57287
 msgid "Convert to static list"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:57220
-#: wp-includes/js/dist/block-library.js:57227
+#: wp-includes/js/dist/block-library.js:57302
+#: wp-includes/js/dist/block-library.js:57309
 msgid "Only include current page"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:57232
+#: wp-includes/js/dist/block-library.js:57314
 msgid "Only including headings from the current page (if the post is paginated)."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:57232
+#: wp-includes/js/dist/block-library.js:57314
 msgid "Include headings from all pages (if the post is paginated)."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:57249
+#: wp-includes/js/dist/block-library.js:57331
 msgid "Table of Contents"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:57250
+#: wp-includes/js/dist/block-library.js:57332
 msgid "Start adding Heading blocks to create a table of contents. Headings with HTML anchors will be linked here."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:57397
-#: wp-includes/js/dist/block-library.js:57409
-#: wp-includes/js/dist/block-library.js:57417
-#: wp-includes/js/dist/block-library.js:57423
+#: wp-includes/js/dist/block-library.js:57479
+#: wp-includes/js/dist/block-library.js:57491
+#: wp-includes/js/dist/block-library.js:57499
+#: wp-includes/js/dist/block-library.js:57505
 msgid "Subheading"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:57510
+#: wp-includes/js/dist/block-library.js:57592
 msgid "- Select -"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:57586
+#: wp-includes/js/dist/block-library.js:57668
 msgid "Font size"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:57597
+#: wp-includes/js/dist/block-library.js:57679
 msgid "Smallest size"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:57610
+#: wp-includes/js/dist/block-library.js:57692
 msgid "Largest size"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:57624
-#: wp-includes/js/dist/block-library.js:57632
+#: wp-includes/js/dist/block-library.js:57706
+#: wp-includes/js/dist/block-library.js:57714
 msgid "Number of tags"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:57643
-#: wp-includes/js/dist/block-library.js:57650
+#: wp-includes/js/dist/block-library.js:57725
+#: wp-includes/js/dist/block-library.js:57732
 msgid "Show tag counts"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:58367
+#: wp-includes/js/dist/block-library.js:58449
 msgid "Untitled Template Part"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:58408
+#: wp-includes/js/dist/block-library.js:58490
 msgid "Template Part"
 msgstr ""
 
 #. Translators: %s as template part area title ("Header", "Footer", etc.).
-#: wp-includes/js/dist/block-library.js:58437
+#: wp-includes/js/dist/block-library.js:58519
 msgid "Create new %s"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:58449
+#: wp-includes/js/dist/block-library.js:58531
 msgid "Custom Template Part"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:58468
+#: wp-includes/js/dist/block-library.js:58550
 msgid "Create"
 msgstr ""
 
 #. Translators: %s as template part area title ("Header", "Footer", etc.).
-#: wp-includes/js/dist/block-library.js:58528
+#: wp-includes/js/dist/block-library.js:58610
 msgid "Choose an existing %s or create a new one."
 msgstr ""
 
 #. Translators: %s as template part area title ("Header", "Footer", etc.).
-#: wp-includes/js/dist/block-library.js:58530
+#: wp-includes/js/dist/block-library.js:58612
 msgid "Choose an existing %s."
 msgstr ""
 
 #. translators: %s: template part title.
-#: wp-includes/js/dist/block-library.js:58627
+#: wp-includes/js/dist/block-library.js:58709
 msgid "Template Part \"%s\" inserted."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:58647
+#: wp-includes/js/dist/block-library.js:58729
 msgid "Existing template parts"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:58795
+#: wp-includes/js/dist/block-library.js:58877
 msgid "Select widget area"
 msgstr ""
 
 #. translators: %s: name of the widget area
-#: wp-includes/js/dist/block-library.js:58839
+#: wp-includes/js/dist/block-library.js:58921
 msgid "Widget area: %s"
 msgstr ""
 
 #. translators: %s: the list of widgets
-#: wp-includes/js/dist/block-library.js:58842
+#: wp-includes/js/dist/block-library.js:58924
 msgid "Unable to import the following widgets: %s."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:58855
+#: wp-includes/js/dist/block-library.js:58937
 msgid "Import widget area"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:58874
+#: wp-includes/js/dist/block-library.js:58956
 msgctxt "button label"
 msgid "Import"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:58928
+#: wp-includes/js/dist/block-library.js:59010
 msgid "Area"
 msgstr ""
 
 #. translators: %s: HTML tag based on area.
-#: wp-includes/js/dist/block-library.js:58940
+#: wp-includes/js/dist/block-library.js:59022
 msgid "Default based on area (%s)"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:59189
+#: wp-includes/js/dist/block-library.js:59271
 msgid "Design"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:59191
+#: wp-includes/js/dist/block-library.js:59273
 msgid "Templates"
 msgstr ""
 
 #. translators: %s: template part title.
-#: wp-includes/js/dist/block-library.js:59266
+#: wp-includes/js/dist/block-library.js:59348
 msgid "Template Part \"%s\" updated."
 msgstr ""
 
 #. translators: %s: Template part slug.
-#: wp-includes/js/dist/block-library.js:59278
+#: wp-includes/js/dist/block-library.js:59360
 msgid "Template part has been deleted or is unavailable: %s"
 msgstr ""
 
 #. Translators: %s as template part area title ("Header", "Footer", etc.).
-#: wp-includes/js/dist/block-library.js:59360
+#: wp-includes/js/dist/block-library.js:59442
 msgid "Choose a %s"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:59600
+#: wp-includes/js/dist/block-library.js:59682
 msgid "Term Description"
 msgstr ""
 
 #. translators: %d: column index (starting with 1)
-#: wp-includes/js/dist/block-library.js:59757
+#: wp-includes/js/dist/block-library.js:59839
 msgid "Column %d text"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:59758
+#: wp-includes/js/dist/block-library.js:59840
 msgid "New Column"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:60055
+#: wp-includes/js/dist/block-library.js:60137
 msgid "Verse text"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:60056
+#: wp-includes/js/dist/block-library.js:60138
 msgid "Write verse…"
 msgstr ""
 
 #. translators: Sample content for the Verse block. Can be replaced with a more locale-adequate work.
-#: wp-includes/js/dist/block-library.js:60221
+#: wp-includes/js/dist/block-library.js:60303
 msgid ""
 "WHAT was he doing, the great god Pan,\n"
 "\tDown in the reeds by the river?\n"
@@ -3799,168 +3800,168 @@ msgid ""
 "    With the dragon-fly on the river."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:60459
-#: wp-includes/js/dist/block-library.js:60471
+#: wp-includes/js/dist/block-library.js:60541
+#: wp-includes/js/dist/block-library.js:60553
 msgid "Poster image"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:60473
+#: wp-includes/js/dist/block-library.js:60555
 msgid "Select poster image"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:60484
+#: wp-includes/js/dist/block-library.js:60566
 msgid "Select"
 msgstr ""
 
 #. translators: %s: poster image URL.
-#: wp-includes/js/dist/block-library.js:60490
+#: wp-includes/js/dist/block-library.js:60572
 msgid "The current poster image url is %s"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:60490
+#: wp-includes/js/dist/block-library.js:60572
 msgid "There is no poster image currently selected"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:60495
+#: wp-includes/js/dist/block-library.js:60577
 msgid "Remove"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:60599
-#: wp-includes/js/dist/block-library.js:60609
+#: wp-includes/js/dist/block-library.js:60681
+#: wp-includes/js/dist/block-library.js:60691
 msgid "Muted"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:60613
+#: wp-includes/js/dist/block-library.js:60695
 msgid "Muted because of Autoplay."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:60616
-#: wp-includes/js/dist/block-library.js:60626
+#: wp-includes/js/dist/block-library.js:60698
+#: wp-includes/js/dist/block-library.js:60708
 msgid "Playback controls"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:60631
-#: wp-includes/js/dist/block-library.js:60642
+#: wp-includes/js/dist/block-library.js:60713
+#: wp-includes/js/dist/block-library.js:60724
 msgid "Play inline"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:60645
+#: wp-includes/js/dist/block-library.js:60727
 msgid "When enabled, videos will play directly within the webpage on mobile browsers, instead of opening in a fullscreen player."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:60648
-#: wp-includes/js/dist/block-library.js:60659
+#: wp-includes/js/dist/block-library.js:60730
+#: wp-includes/js/dist/block-library.js:60741
 msgid "Preload"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:60685
+#: wp-includes/js/dist/block-library.js:60767
 msgid "Subtitles"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:60688
+#: wp-includes/js/dist/block-library.js:60770
 msgid "Captions"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:60691
+#: wp-includes/js/dist/block-library.js:60773
 msgid "Descriptions"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:60694
+#: wp-includes/js/dist/block-library.js:60776
 msgid "Chapters"
 msgstr ""
 
 #. translators: %s: Label of the video text track e.g: "French subtitles".
-#: wp-includes/js/dist/block-library.js:60714
+#: wp-includes/js/dist/block-library.js:60796
 msgctxt "text tracks"
 msgid "Edit %s"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:60720
-#: wp-includes/js/dist/block-library.js:60865
-#: wp-includes/js/dist/block-library.js:60890
+#: wp-includes/js/dist/block-library.js:60802
+#: wp-includes/js/dist/block-library.js:60947
+#: wp-includes/js/dist/block-library.js:60972
 msgid "Text tracks"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:60743
+#: wp-includes/js/dist/block-library.js:60825
 msgid "Edit track"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:60760
+#: wp-includes/js/dist/block-library.js:60842
 msgid "Title of track"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:60768
+#: wp-includes/js/dist/block-library.js:60850
 msgid "Source language"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:60770
+#: wp-includes/js/dist/block-library.js:60852
 msgid "Language tag (en, fr, etc.)"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:60780
+#: wp-includes/js/dist/block-library.js:60862
 msgid "Kind"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:60794
+#: wp-includes/js/dist/block-library.js:60876
 msgid "Remove track"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:60802
+#: wp-includes/js/dist/block-library.js:60884
 msgid "English"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:60893
+#: wp-includes/js/dist/block-library.js:60975
 msgid "Tracks can be subtitles, captions, chapters, or descriptions. They help make your content more accessible to a wider range of users."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:60901
+#: wp-includes/js/dist/block-library.js:60983
 msgid "Add tracks"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:60918
+#: wp-includes/js/dist/block-library.js:61000
 msgid "Open Media Library"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:60953
+#: wp-includes/js/dist/block-library.js:61035
 msgctxt "verb"
 msgid "Upload"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:61095
+#: wp-includes/js/dist/block-library.js:61177
 msgid "Drag and drop a video, upload, or choose from your library."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:61188
+#: wp-includes/js/dist/block-library.js:61270
 msgid "Video caption text"
 msgstr ""
 
 #. translators: Caption accompanying a video of the wood thrush singing, which serves as an example for the Video block.
-#: wp-includes/js/dist/block-library.js:61478
+#: wp-includes/js/dist/block-library.js:61560
 msgid "Wood thrush singing in Central Park, NYC."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:61519
-#: wp-includes/js/dist/block-library.js:61531
+#: wp-includes/js/dist/block-library.js:61601
+#: wp-includes/js/dist/block-library.js:61613
 msgid "Footnotes"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:61520
+#: wp-includes/js/dist/block-library.js:61602
 msgid "Footnotes are not supported here. Add this block to post or page content."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:61532
+#: wp-includes/js/dist/block-library.js:61614
 msgid "Footnotes found in blocks within this document will be displayed here."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:61701
-#: wp-includes/js/dist/block-library.js:61815
+#: wp-includes/js/dist/block-library.js:61783
+#: wp-includes/js/dist/block-library.js:61897
 msgid "Footnote"
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:61977
+#: wp-includes/js/dist/block-library.js:62059
 msgid "Transform heading to paragraph."
 msgstr ""
 
-#: wp-includes/js/dist/block-library.js:61991
+#: wp-includes/js/dist/block-library.js:62073
 msgid "Transform paragraph to heading."
 msgstr ""

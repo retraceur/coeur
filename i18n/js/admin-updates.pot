@@ -7,9 +7,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-06-14T07:03:54+00:00\n"
+"POT-Creation-Date: 2025-07-20T04:16:53+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.11.0\n"
+"X-Generator: WP-CLI 2.10.0\n"
 
 #. translators: %s: Total number of updates available.
 #: wp-admin/js/updates.js:368
@@ -368,13 +368,12 @@ msgstr ""
 msgid "Update canceled."
 msgstr ""
 
-#. translators: %s: Plugin name.
+#. translators: %s: Plugin/Theme name.
 #: wp-admin/js/updates.js:2687
 msgid "Are you sure you want to delete %s and its data?"
 msgstr ""
 
-#. translators: %s: Plugin name.
-#. translators: %s: Theme name.
+#. translators: %s: Plugin/Theme name.
 #: wp-admin/js/updates.js:2693
 #: wp-admin/js/updates.js:2750
 msgid "Are you sure you want to delete %s?"
