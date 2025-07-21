@@ -711,7 +711,7 @@ function wp_get_translation_updates() {
 
 	$updates    = array();
 	$transients = array(
-		'update_coeur'    => 'core',
+		'update_coeur'   => 'core',
 		'update_plugins' => 'plugin',
 		'update_themes'  => 'theme',
 	);
@@ -926,13 +926,18 @@ function wp_schedule_update_checks() {
 		wp_schedule_event( time(), 'twicedaily', 'retraceur_version_check' );
 	}
 
-	if ( ! wp_next_scheduled( 'wp_update_plugins' ) && ! wp_installing() ) {
+	/**
+	 * Disable Plugin and Theme new update checks for now.
+	 *
+	 * @todo Restore it once adaptations to Retraceur fork are put in place.
+	 */
+	/*if ( ! wp_next_scheduled( 'wp_update_plugins' ) && ! wp_installing() ) {
 		wp_schedule_event( time(), 'twicedaily', 'wp_update_plugins' );
 	}
 
 	if ( ! wp_next_scheduled( 'wp_update_themes' ) && ! wp_installing() ) {
 		wp_schedule_event( time(), 'twicedaily', 'wp_update_themes' );
-	}
+	}*/
 }
 
 /**
@@ -1028,7 +1033,7 @@ if ( ( ! is_main_site() && ! is_network_admin() ) || wp_doing_ajax() ) {
  *
  * @since 1.0.0 Retraceur fork.
  */
-//add_action( 'admin_init', '_maybe_update_core' );
+add_action( 'admin_init', '_maybe_update_core' );
 add_action( 'retraceur_version_check', 'retraceur_version_check' );
 add_action( 'init', 'wp_schedule_update_checks' );
 
@@ -1045,5 +1050,6 @@ add_action( 'admin_init', '_maybe_update_themes' );
 add_action( 'wp_update_themes', 'wp_update_themes' );
 
 add_action( 'update_option_WPLANG', 'wp_clean_update_cache', 10, 0 );
+*/
 
-add_action( 'wp_delete_temp_updater_backups', 'wp_delete_all_temp_backups' );*/
+add_action( 'wp_delete_temp_updater_backups', 'wp_delete_all_temp_backups' );

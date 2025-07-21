@@ -355,10 +355,14 @@ function update_right_now_message() {
  * Retrieves plugins with updates available.
  *
  * @since WP 2.9.0
+ * @since 2.0.0 Retraceur fork disabled Plugin updates.
  *
  * @return object[]
  */
 function get_plugin_updates() {
+	// Disable Plugin updates for now.
+	return array();
+
 	$all_plugins     = get_plugins();
 	$upgrade_plugins = array();
 	$current         = get_site_transient( 'update_plugins' );
@@ -576,10 +580,14 @@ function wp_plugin_update_row( $file, $plugin_data ) {
  * Retrieves themes with updates available.
  *
  * @since WP 2.9.0
+ * @since 2.0.0 Retraceur fork disabled Theme updates.
  *
  * @return WP_Theme[]
  */
 function get_theme_updates() {
+	// Disable Theme updates for now.
+	return array();
+
 	$current = get_site_transient( 'update_themes' );
 
 	if ( ! isset( $current->response ) ) {

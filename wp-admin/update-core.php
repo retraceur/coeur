@@ -284,8 +284,12 @@ function core_upgrade_preamble() {
  * Display the upgrade plugins form.
  *
  * @since WP 2.9.0
+ * @since 2.0.0 Retraceur fork disabled the Plugin updates.
  */
 function list_plugin_updates() {
+	// Disable Plugin updates for now.
+	return '';
+
 	$retraceur_version = retraceur_get_version();
 	$cur_r_version     = preg_replace( '/-.*$/', '', $retraceur_version );
 
@@ -450,8 +454,12 @@ function list_plugin_updates() {
  * Display the upgrade themes form.
  *
  * @since WP 2.9.0
+ * @since 2.0.0 Retraceur fork disabled the Theme updates.
  */
 function list_theme_updates() {
+	// Disable Theme updates for now.
+	return '';
+
 	$themes = get_theme_updates();
 	if ( empty( $themes ) ) {
 		echo '<h2>' . __( 'Themes' ) . '</h2>';
@@ -587,8 +595,12 @@ function list_theme_updates() {
  * Display the update translations form.
  *
  * @since WP 3.7.0
+ * @since 2.0.0 Retraceur fork disabled the Translation updates.
  */
 function list_translation_updates() {
+	// Disable Translation updates for now.
+	return '';
+
 	$updates = wp_get_translation_updates();
 	if ( ! $updates ) {
 		if ( 'en_US' !== get_locale() ) {
@@ -962,6 +974,11 @@ if ( 'upgrade-core' === $action ) {
 	require_once ABSPATH . 'wp-admin/admin-footer.php';
 
 } elseif ( 'do-plugin-upgrade' === $action ) {
+	wp_die(
+		'<h1>' . __( 'Retraceur does not provide an API to update plugins yet.' ) . '</h1>' .
+		'<p>' . __( 'You can always go to the Plugin’s "Add new" screen to upload and replace outdated packages.' ) . '</p>',
+		500
+	);
 
 	if ( ! current_user_can( 'update_plugins' ) ) {
 		wp_die( __( 'Sorry, you are not allowed to update this site.' ) );
@@ -1003,6 +1020,11 @@ if ( 'upgrade-core' === $action ) {
 	require_once ABSPATH . 'wp-admin/admin-footer.php';
 
 } elseif ( 'do-theme-upgrade' === $action ) {
+	wp_die(
+		'<h1>' . __( 'Retraceur does not provide an API to update themes yet.' ) . '</h1>' .
+		'<p>' . __( 'You can always go to the Theme’s "Add new" screen to upload and replace outdated packages.' ) . '</p>',
+		500
+	);
 
 	if ( ! current_user_can( 'update_themes' ) ) {
 		wp_die( __( 'Sorry, you are not allowed to update this site.' ) );
@@ -1044,6 +1066,7 @@ if ( 'upgrade-core' === $action ) {
 	require_once ABSPATH . 'wp-admin/admin-footer.php';
 
 } elseif ( 'do-translation-upgrade' === $action ) {
+	wp_die( __( 'Retraceur does not provide an API to update languages yet.' ), 500 );
 
 	if ( ! current_user_can( 'update_languages' ) ) {
 		wp_die( __( 'Sorry, you are not allowed to update this site.' ) );

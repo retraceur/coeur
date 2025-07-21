@@ -347,7 +347,7 @@ class WP_Site_Health_Auto_Updates {
 	 * Checks if the install is using a development branch and can use nightly packages.
 	 *
 	 * @since WP 5.2.0
-	 * @deprecated 1.0.0 Retraceur fork.
+	 * @deprecated 2.0.0 Retraceur fork.
 	 *
 	 * @return array|false|null The test results if development updates are blocked.
 	 *                          False if it isn't a development version. Null if the test passed.
@@ -361,7 +361,7 @@ class WP_Site_Health_Auto_Updates {
 	 * Checks if the site supports automatic minor updates.
 	 *
 	 * @since WP 5.2.0
-	 * @deprecated 1.0.0 Retraceur fork.
+	 * @deprecated 2.0.0 Retraceur fork.
 	 *
 	 * @return array|null The test results if minor updates are blocked,
 	 *                    or null if the test passed.

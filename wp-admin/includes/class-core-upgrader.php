@@ -21,6 +21,7 @@
  *
  * @since WP 2.8.0
  * @since WP 4.6.0 Moved to its own file from wp-admin/includes/class-wp-upgrader.php.
+ * @since 1.0.0 Retraceur fork.
  *
  * @see WP_Upgrader
  */
@@ -48,6 +49,7 @@ class Core_Upgrader extends WP_Upgrader {
 	 * Upgrades Retraceur core.
 	 *
 	 * @since WP 2.8.0
+	 * @since 2.0.0 Retraceur fork. Adaptations were made compared to how WP handles an upgrade.
 	 *
 	 * @global WP_Filesystem_Base $wp_filesystem                Retraceur filesystem subclass.
 	 * @global callable           $_wp_filesystem_direct_method
@@ -70,8 +72,7 @@ class Core_Upgrader extends WP_Upgrader {
 
 		require ABSPATH . WPINC . '/version.php'; // $retraceur_version;
 
-		$start_time = time();
-
+		$start_time  = time();
 		$defaults    = array(
 			'pre_check_md5'                => false,
 			'attempt_rollback'             => false,
@@ -94,32 +95,6 @@ class Core_Upgrader extends WP_Upgrader {
 		}
 
 		$wp_dir = trailingslashit( $wp_filesystem->abspath() );
-
-		/*$partial = true;
-		if ( $parsed_args['do_rollback'] ) {
-			$partial = false;
-		} elseif ( $parsed_args['pre_check_md5'] && ! $this->check_files() ) {
-			$partial = false;
-		}*/
-
-		/*
-		 * If partial update is returned from the API, use that, unless we're doing
-		 * a reinstallation. If we cross the new_bundled version number, then use
-		 * the new_bundled zip. Don't though if the constant is set to skip bundled items.
-		 * If the API returns a no_content zip, go with it. Finally, default to the full zip.
-		 */
-		/*if ( $parsed_args['do_rollback'] && $current->packages->rollback ) {
-			$to_download = 'rollback';
-		} elseif ( $current->packages->partial && 'reinstall' !== $current->response && $retraceur_version === $current->partial_version && $partial ) {
-			$to_download = 'partial';
-		} elseif ( $current->packages->new_bundled && version_compare( $retraceur_version, $current->new_bundled, '<' )
-			&& ( ! defined( 'CORE_UPGRADE_SKIP_NEW_BUNDLED' ) || ! CORE_UPGRADE_SKIP_NEW_BUNDLED ) ) {
-			$to_download = 'new_bundled';
-		} elseif ( $current->packages->no_content ) {
-			$to_download = 'no_content';
-		} else {
-			$to_download = 'full';
-		}*/
 
 		// Lock to prevent multiple Core Updates occurring.
 		$lock = WP_Upgrader::create_lock( 'core_updater', 15 * MINUTE_IN_SECONDS );
@@ -284,6 +259,7 @@ class Core_Upgrader extends WP_Upgrader {
 		 * Filters whether to enable major automatic core updates.
 		 *
 		 * @since WP 3.7.0
+		 * @deprecated 2.0.0 Retraceur fork.
 		 *
 		 * @param bool $upgrade_major Whether to enable major automatic core updates.
 		 */
