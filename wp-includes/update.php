@@ -125,6 +125,14 @@ function retraceur_version_check( $force_check = false ) {
 		$locale = 'en_US';
 	}
 
+	/**
+	 * When building the `retraceur-fr_FR.zip` package, it's required that a "retraceur" named folder
+	 * is first compressed to `retraceur.zip` and then renamed as `retraceur-fr_FR.zip`.
+	 */
+	if ( 'fr_FR' === $locale ) {
+		$package = 'retraceur-fr_FR.zip';
+	}
+
 	foreach ( $releases as $release ) {
 		$version    = '';
 		$release_id = explode( '/', rtrim( $release->get_id(), '/' ) );

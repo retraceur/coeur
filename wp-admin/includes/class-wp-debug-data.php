@@ -18,8 +18,16 @@ class WP_Debug_Data {
 	 */
 	public static function check_for_updates() {
 		retraceur_version_check();
-		wp_update_plugins();
-		wp_update_themes();
+
+		/**
+		 * @todo Restore when Retraceur adpated its API to handle it.
+		 */
+		// wp_update_plugins();
+
+		/**
+		 * @todo Restore when Retraceur adpated its API to handle it.
+		 */
+		// wp_update_themes();
 	}
 
 	/**

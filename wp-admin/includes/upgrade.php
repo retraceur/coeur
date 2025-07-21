@@ -71,12 +71,28 @@ if ( ! function_exists( 'wp_install' ) ) :
 		 * immediately after installation.
 		 */
 		wp_unschedule_hook( 'retraceur_version_check' );
-		wp_unschedule_hook( 'wp_update_plugins' );
-		wp_unschedule_hook( 'wp_update_themes' );
+
+		/**
+		 * @todo Restore when Retraceur adpated its API to handle it.
+		 */
+		// wp_unschedule_hook( 'wp_update_plugins' );
+
+		/**
+		 * @todo Restore when Retraceur adpated its API to handle it.
+		 */
+		// wp_unschedule_hook( 'wp_update_themes' );
 
 		wp_schedule_event( time() + HOUR_IN_SECONDS, 'twicedaily', 'retraceur_version_check' );
-		wp_schedule_event( time() + ( 1.5 * HOUR_IN_SECONDS ), 'twicedaily', 'wp_update_plugins' );
-		wp_schedule_event( time() + ( 2 * HOUR_IN_SECONDS ), 'twicedaily', 'wp_update_themes' );
+
+		/**
+		 * @todo Restore when Retraceur adpated its API to handle it.
+		 */
+		// wp_schedule_event( time() + ( 1.5 * HOUR_IN_SECONDS ), 'twicedaily', 'wp_update_plugins' );
+
+		/**
+		 * @todo Restore when Retraceur adpated its API to handle it.
+		 */
+		// wp_schedule_event( time() + ( 2 * HOUR_IN_SECONDS ), 'twicedaily', 'wp_update_themes' );
 
 		populate_options();
 		populate_roles();

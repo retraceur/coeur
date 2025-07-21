@@ -129,10 +129,24 @@ add_action( 'admin_notices', 'wp_recovery_mode_nag', 1 );
 add_filter( 'update_footer', 'core_update_footer' );
 
 // Upgrade hooks.
-add_action( 'upgrader_process_complete', array( 'Language_Pack_Upgrader', 'async_upgrade' ), 20 );
+
+/**
+ * @todo Restore when Retraceur adpated its API to handle it.
+ */
+// add_action( 'upgrader_process_complete', array( 'Language_Pack_Upgrader', 'async_upgrade' ), 20 );
+
+// Only keep Coeur upgrade checks.
 add_action( 'upgrader_process_complete', 'retraceur_version_check', 10, 0 );
-add_action( 'upgrader_process_complete', 'wp_update_plugins', 10, 0 );
-add_action( 'upgrader_process_complete', 'wp_update_themes', 10, 0 );
+
+/**
+ * @todo Restore when Retraceur adpated its API to handle it.
+ */
+// add_action( 'upgrader_process_complete', 'wp_update_plugins', 10, 0 );
+
+/**
+ * @todo Restore when Retraceur adpated its API to handle it.
+ */
+// add_action( 'upgrader_process_complete', 'wp_update_themes', 10, 0 );
 
 // Privacy hooks.
 add_filter( 'wp_privacy_personal_data_erasure_page', 'wp_privacy_process_personal_data_erasure_page', 10, 5 );
