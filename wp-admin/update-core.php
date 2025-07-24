@@ -214,7 +214,7 @@ function core_upgrade_preamble() {
 
 	if ( ! $updates ) {
 		wp_admin_notice(
-			__( 'No Retraceur core updates were found for now.' ),
+			__( 'No Retraceur Coeur updates were found for now.' ),
 			array(
 				'type'               => 'info',
 				'additional_classes' => array( 'inline' ),
