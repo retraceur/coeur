@@ -55,7 +55,7 @@ class WP_Automatic_Updater {
 			array( false ),
 			'2.0.0',
 			'',
-			__( 'The WP Auto Updates feature is not used by Retraceur fork.' )
+			__( 'The WP Background Updates feature is not used by Retraceur fork.' )
 		);
 
 		return false;
@@ -234,7 +234,7 @@ class WP_Automatic_Updater {
 			array( $update, $item ),
 			'2.0.0',
 			'',
-			__( 'The WP Auto Updates feature is not used by Retraceur fork.' )
+			__( 'The WP Background Updates feature is not used by Retraceur fork.' )
 		);
 
 		return false;
@@ -293,7 +293,7 @@ class WP_Automatic_Updater {
 			array( $notify, $item ),
 			'2.0.0',
 			'',
-			__( 'The WP Auto Updates feature is not used by Retraceur fork.' )
+			__( 'The WP Background Updates feature is not used by Retraceur fork.' )
 		);
 
 		return false;
@@ -329,7 +329,7 @@ class WP_Automatic_Updater {
 			array( '', $item, '' ),
 			'2.0.0',
 			'',
-			__( 'The WP Auto Updates feature is not used by Retraceur fork.' )
+			__( 'The WP Background Updates feature is not used by Retraceur fork.' )
 		);
 
 		return null;
@@ -343,7 +343,7 @@ class WP_Automatic_Updater {
 	 */
 	public function run() {
 		_deprecated_function( __METHOD__, '2.0.0', '', true );
-		$not_supported = __( 'The WP Auto Updates feature is not used by Retraceur fork.' );
+		$not_supported = __( 'The WP Background Updates feature is not used by Retraceur fork.' );
 
 		/**
 		 * Filters whether to send a debugging email for each automatic background update.
@@ -415,7 +415,7 @@ class WP_Automatic_Updater {
 	protected function send_email( $type, $core_update, $result = null ) {
 		_deprecated_function( __METHOD__, '2.0.0', '', true );
 		$core_update   = new stdClass();
-		$not_supported = __( 'The WP Auto Updates feature is not used by Retraceur fork.' );
+		$not_supported = __( 'The WP Background Updates feature is not used by Retraceur fork.' );
 
 		/**
 		 * Filters whether to send an email following an automatic background core update.
@@ -479,7 +479,7 @@ class WP_Automatic_Updater {
 	 */
 	protected function after_plugin_theme_update( $update_results ) {
 		_deprecated_function( __METHOD__, '2.0.0', '', true );
-		$not_supported = __( 'The WP Auto Updates feature is not used by Retraceur fork.' );
+		$not_supported = __( 'The WP Background Updates feature is not used by Retraceur fork.' );
 
 		/**
 		 * Filters whether to send an email following an automatic background plugin update.
@@ -560,7 +560,7 @@ class WP_Automatic_Updater {
 			array( array(), '', array(), array() ),
 			'2.0.0',
 			'',
-			__( 'The WP Auto Updates feature is not used by Retraceur fork.' )
+			__( 'The WP Background Updates feature is not used by Retraceur fork.' )
 		);
 	}
 
@@ -597,7 +597,7 @@ class WP_Automatic_Updater {
 			array( array(), 0, null ),
 			'2.0.0',
 			'',
-			__( 'The WP Auto Updates feature is not used by Retraceur fork.' )
+			__( 'The WP Background Updates feature is not used by Retraceur fork.' )
 		);
 	}
 

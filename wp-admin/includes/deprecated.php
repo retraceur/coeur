@@ -3646,7 +3646,7 @@ function list_core_update( $update ) {
 function core_auto_updates_settings() {
 	_deprecated_function( __FUNCTION__, '2.0.0', '', true );
 
-	$not_supported = __( 'The WP Auto Updates feature is not used by Retraceur fork.' );
+	$not_supported = __( 'The WP Background Updates feature is not used by Retraceur fork.' );
 
 	/** This filter is documented in wp-admin/includes/class-core-upgrader.php */
 	apply_filters_deprecated(

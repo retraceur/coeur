@@ -220,7 +220,7 @@ class Core_Upgrader extends WP_Upgrader {
 	public static function should_update_to_version( $offered_ver ) {
 		_deprecated_function( __METHOD__, '2.0.0', '', true );
 
-		$not_supported = __( 'The WP Auto Updates feature is not used by Retraceur fork.' );
+		$not_supported = __( 'The WP Background Updates feature is not used by Retraceur fork.' );
 
 		/**
 		 * Filters whether to enable automatic core updates for development versions.
@@ -271,7 +271,7 @@ class Core_Upgrader extends WP_Upgrader {
 			$not_supported
 		);
 
-		// The WP Auto Updates is not used by Retraceur fork.
+		// The WP Background Updates feature is not used by Retraceur fork.
 		return false;
 	}
 

@@ -16490,7 +16490,7 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
 		array( array() ),
 		'2.0.0',
 		'',
-		__( 'The WP Auto Updates feature is not used by Retraceur fork.' )
+		__( 'The WP Background Updates feature is not used by Retraceur fork.' )
 	);
 
 	return;
