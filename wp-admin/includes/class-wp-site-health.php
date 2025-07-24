@@ -1606,7 +1606,7 @@ class WP_Site_Health {
 	 */
 	public function get_test_background_updates() {
 		$result = array(
-			'label'       => __( 'Background updates are working' ),
+			'label'       => __( 'Coeur updates are working' ),
 			'status'      => 'good',
 			'badge'       => array(
 				'label' => __( 'Security' ),
@@ -1614,7 +1614,7 @@ class WP_Site_Health {
 			),
 			'description' => sprintf(
 				'<p>%s</p>',
-				__( 'Retraceur update checks help you be aware when a security update is released for the version you are currently using.' )
+				__( 'Retraceur Coeur update checks help you be aware when a security update is released for the version you are currently using.' )
 			),
 			'actions'     => '',
 			'test'        => 'background_updates',
@@ -1638,7 +1638,7 @@ class WP_Site_Health {
 			$severity_string = __( 'Passed' );
 
 			if ( 'fail' === $test->severity ) {
-				$result['label'] = __( 'Retraceur updates are not working as expected' );
+				$result['label'] = __( 'Retraceur Coeur updates are not working as expected' );
 
 				$result['status'] = 'critical';
 
@@ -1647,7 +1647,7 @@ class WP_Site_Health {
 			}
 
 			if ( 'warning' === $test->severity && 'good' === $result['status'] ) {
-				$result['label'] = __( 'Retraceur updates may not be working properly' );
+				$result['label'] = __( 'Retraceur Coeur updates may not be working properly' );
 
 				$result['status'] = 'recommended';
 
@@ -2570,7 +2570,7 @@ class WP_Site_Health {
 					'test'  => 'scheduled_events',
 				),
 				'background_updates'           => array(
-					'label' => __( 'Retraceur updates' ),
+					'label' => __( 'Retraceur Coeur updates' ),
 					'test'  => 'background_updates',
 				),
 				'http_requests'                => array(
