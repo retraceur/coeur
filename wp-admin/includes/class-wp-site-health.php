@@ -1278,7 +1278,7 @@ class WP_Site_Health {
 	 * Tests if the site can communicate with WP (org site).
 	 *
 	 * @since WP 5.2.0
-	 * @since 1.0.0
+	 * @deprecated 1.0.0 Retraceur fork.
 	 *
 	 * @return array The test results.
 	 */
@@ -1600,11 +1600,23 @@ class WP_Site_Health {
 	 * for whatever reason.
 	 *
 	 * @since 5.2.0
-	 * @since 2.0.0 Retraceur fork
+	 * @deprecated 2.0.0 Retraceur fork.
 	 *
 	 * @return array The test results.
 	 */
 	public function get_test_background_updates() {
+		_deprecated_function( __METHOD__, '2.0.0', '', true );
+		return array();
+	}
+
+	/**
+	 * Tests if Retraceur can run automated coeur updates.
+	 *
+	 * @since 2.0.0 Retraceur fork
+	 *
+	 * @return array The test results.
+	 */
+	public function get_test_coeur_updates() {
 		$result = array(
 			'label'       => __( 'Coeur updates are working' ),
 			'status'      => 'good',
@@ -1617,7 +1629,7 @@ class WP_Site_Health {
 				__( 'Retraceur Coeur update checks help you be aware when a security update is released for the version you are currently using.' )
 			),
 			'actions'     => '',
-			'test'        => 'background_updates',
+			'test'        => 'coeur_updates',
 		);
 
 		if ( ! class_exists( 'WP_Site_Health_Auto_Updates' ) ) {
@@ -2569,9 +2581,9 @@ class WP_Site_Health {
 					'label' => __( 'Scheduled events' ),
 					'test'  => 'scheduled_events',
 				),
-				'background_updates'           => array(
+				'coeur_updates'                => array(
 					'label' => __( 'Retraceur Coeur updates' ),
-					'test'  => 'background_updates',
+					'test'  => 'coeur_updates',
 				),
 				'http_requests'                => array(
 					'label' => __( 'HTTP Requests' ),
