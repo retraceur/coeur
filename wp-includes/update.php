@@ -34,7 +34,7 @@ function retraceur_get_requirement( $html, $type = 'PHP' ) {
 
 		$version = $tags->get_modifiable_text();
 		if ( $skip === $version ) {
-			$version ='';
+			$version = '';
 		}
 
 		$i--;
