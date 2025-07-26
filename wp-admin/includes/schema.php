@@ -387,9 +387,6 @@ function populate_options( array $options = array() ) {
 		// 5.3.0
 		'admin_email_lifespan'            => ( time() + 6 * MONTH_IN_SECONDS ),
 
-		// 5.5.0
-		'auto_plugin_theme_update_emails' => array(),
-
 		// 5.8.0
 		'wp_force_deactivated_plugins'    => array(),
 
@@ -414,7 +411,6 @@ function populate_options( array $options = array() ) {
 	$fat_options = array(
 		'recently_edited',
 		'uninstall_plugins',
-		'auto_plugin_theme_update_emails',
 	);
 
 	$keys             = "'" . implode( "', '", array_keys( $options ) ) . "'";

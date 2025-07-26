@@ -522,11 +522,6 @@ class WP_Automatic_Updater {
 		_deprecated_function( __METHOD__, '2.0.0', '', true );
 
 		/**
-		 * @todo Check occurences of this option and adapt code.
-		 */
-		get_option( 'auto_plugin_theme_update_emails', array() );
-
-		/**
 		 * Filters the email sent following an automatic background update for plugins and themes.
 		 *
 		 * @since WP 5.5.0
