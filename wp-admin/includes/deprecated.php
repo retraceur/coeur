@@ -3819,3 +3819,16 @@ function find_core_update( $version, $locale ) {
 	_deprecated_function( __FUNCTION__, '2.0.0', '', true );
 	return false;
 }
+
+/**
+ * Displays maintenance nag HTML message.
+ *
+ * @since WP 2.7.0
+ * @deprecated 2.0.0 Retraceur fork.
+ *
+ * @return void|false
+ */
+function maintenance_nag() {
+	_deprecated_function( __FUNCTION__, '2.0.0', '', true );
+	return false;
+}

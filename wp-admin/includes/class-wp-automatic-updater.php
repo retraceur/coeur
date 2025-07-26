@@ -389,12 +389,6 @@ class WP_Automatic_Updater {
 	 */
 	protected function after_core_update( $update_result ) {
 		_deprecated_function( __METHOD__, '2.0.0', '', true );
-
-		/**
-		 * @todo Check occurences of this option and adapt code.
-		 */
-		get_site_option( 'auto_core_update_failed' );
-
 		return;
 	}
 

@@ -784,62 +784,6 @@ function wp_theme_update_row( $theme_key, $theme ) {
 }
 
 /**
- * Displays maintenance nag HTML message.
- *
- * @since WP 2.7.0
- *
- * @global int $upgrading
- *
- * @return void|false
- */
-function maintenance_nag() {
-	global $upgrading;
-
-	$nag = isset( $upgrading );
-
-	if ( ! $nag ) {
-		$failed = get_site_option( 'auto_core_update_failed' );
-		/*
-		 * If an update failed critically, we may have copied over version.php but not other files.
-		 * In that case, if the installation claims we're running the version we attempted, nag.
-		 * This is serious enough to err on the side of nagging.
-		 *
-		 * If we simply failed to update before we tried to copy any files, then assume things are
-		 * OK if they are now running the latest.
-		 *
-		 * This flag is cleared whenever a successful update occurs using Core_Upgrader.
-		 */
-		$comparison = ! empty( $failed['critical'] ) ? '>=' : '>';
-		if ( isset( $failed['attempted'] ) && version_compare( $failed['attempted'], retraceur_get_version(), $comparison ) ) {
-			$nag = true;
-		}
-	}
-
-	if ( ! $nag ) {
-		return false;
-	}
-
-	if ( current_user_can( 'update_core' ) ) {
-		$msg = sprintf(
-			/* translators: %s: URL to Retraceur Updates screen. */
-			__( 'An automated Retraceur update has failed to complete - <a href="%s">please attempt the update again now</a>.' ),
-			'update-core.php'
-		);
-	} else {
-		$msg = __( 'An automated Retraceur update has failed to complete! Please notify the site administrator.' );
-	}
-
-	wp_admin_notice(
-		$msg,
-		array(
-			'type'               => 'warning',
-			'additional_classes' => array( 'update-nag', 'inline' ),
-			'paragraph_wrap'     => false,
-		)
-	);
-}
-
-/**
  * Prints the JavaScript templates for update admin notices.
  *
  * @since WP 4.6.0
