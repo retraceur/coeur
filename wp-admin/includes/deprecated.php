@@ -3621,3 +3621,214 @@ function wp_make_plugin_file_tree( $plugin_editable_files ) {
 function wp_print_plugin_file_tree( $tree, $label = '', $level = 2, $size = 1, $index = 1 ) {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 }
+
+/**
+ * Lists available core updates.
+ *
+ * @since WP 2.7.0
+ * @deprecated 2.0.0 Retraceur fork.
+ *
+ * @global string $wp_local_package Locale code of the package.
+ * @global wpdb   $wpdb             Retraceur database abstraction object.
+ *
+ * @param object $update
+ */
+function list_core_update( $update ) {
+	_deprecated_function( __FUNCTION__, '2.0.0', '', true );
+}
+
+/**
+ * Display Retraceur auto-updates settings.
+ *
+ * @since WP 5.6.0
+ * @deprecated 2.0.0 Retraceur fork.
+ */
+function core_auto_updates_settings() {
+	_deprecated_function( __FUNCTION__, '2.0.0', '', true );
+
+	$not_supported = __( 'The WP Background Updates feature is not used by Retraceur fork.' );
+
+	/** This filter is documented in wp-admin/includes/class-core-upgrader.php */
+	apply_filters_deprecated(
+		'allow_dev_auto_core_updates',
+		array( false ),
+		'2.0.0',
+		'',
+		$not_supported
+	);
+
+	/** This filter is documented in wp-admin/includes/class-core-upgrader.php */
+	apply_filters_deprecated(
+		'allow_minor_auto_core_updates',
+		array( false ),
+		'2.0.0',
+		'',
+		$not_supported
+	);
+
+	/** This filter is documented in wp-admin/includes/class-core-upgrader.php */
+	apply_filters_deprecated(
+		'allow_major_auto_core_updates',
+		array( false ),
+		'2.0.0',
+		'',
+		$not_supported
+	);
+
+	/**
+	 * Fires after the major core auto-update settings.
+	 *
+	 * @since WP 5.6.0
+	 * @deprecated 2.0.0 Retraceur fork.
+	 *
+	 * @param array $auto_update_settings {
+	 *     Array of core auto-update settings.
+	 *
+	 *     @type bool $dev   Whether to enable automatic updates for development versions.
+	 *     @type bool $minor Whether to enable minor automatic core updates.
+	 *     @type bool $major Whether to enable major automatic core updates.
+	 * }
+	 */
+	do_action_deprecated(
+		'after_core_auto_updates_settings',
+		array( array() ),
+		'2.0.0',
+		'',
+		$not_supported
+	);
+}
+
+/**
+ * Dismiss a core update.
+ *
+ * @since WP 2.7.0
+ * @deprecated 2.0.0 Retraceur fork.
+ */
+function do_dismiss_core_update() {
+	_deprecated_function( __FUNCTION__, '2.0.0', '', true );
+	exit;
+}
+
+/**
+ * Undismiss a core update.
+ *
+ * @since WP 2.7.0
+ * @deprecated 2.0.0 Retraceur fork.
+ */
+function do_undismiss_core_update() {
+	_deprecated_function( __FUNCTION__, '2.0.0', '', true );
+	exit;
+}
+
+/**
+ * Preloads old Requests classes and interfaces.
+ *
+ * This function preloads the old Requests code into memory before the
+ * upgrade process deletes the files. Why? Requests code is loaded into
+ * memory via an autoloader, meaning when a class or interface is needed
+ * If a request is in process, Requests could attempt to access code. If
+ * the file is not there, a fatal error could occur. If the file was
+ * replaced, the new code is not compatible with the old, resulting in
+ * a fatal error. Preloading ensures the code is in memory before the
+ * code is updated.
+ *
+ * @since WP 6.2.0
+ * @deprecated 2.0.0 Retraceur fork.
+ *
+ * @global string[]           $_old_requests_files Requests files to be preloaded.
+ * @global WP_Filesystem_Base $wp_filesystem       WP filesystem subclass.
+ * @global string             $wp_version          The WP version string.
+ * @global string             $retraceur_version   The Retraceur version string.
+ *
+ * @param string $to Path to old Retraceur installation.
+ */
+function _preload_old_requests_classes_and_interfaces( $to ) {
+	_deprecated_function( __FUNCTION__, '2.0.0', '', true );
+}
+
+/**
+ * Gets available core updates.
+ *
+ * @since WP 2.7.0
+ * @deprecated 2.0.0 Retraceur fork.
+ *
+ * @param array $options Set $options['dismissed'] to true to show dismissed upgrades too,
+ *                       set $options['available'] to false to skip not-dismissed updates.
+ * @return array|false Array of the update objects on success, false on failure.
+ */
+function get_core_updates( $options = array() ) {
+	_deprecated_function( __FUNCTION__, '2.0.0', '', true );
+	return array();
+}
+
+/**
+ * Gets the best available (and enabled) Auto-Update for Retraceur core.
+ *
+ * If there's 1.2.3 and 1.3 on offer, it'll choose 1.3 if the installation allows it, else, 1.2.3.
+ *
+ * @since WP 3.7.0
+ * @deprecated 2.0.0 Retraceur fork.
+ *
+ * @return object|false The core update offering on success, false on failure.
+ */
+function find_core_auto_update() {
+	_deprecated_function( __FUNCTION__, '2.0.0', '', true );
+	return false;
+}
+
+/**
+ * Dismisses core update.
+ *
+ * @since WP 2.7.0
+ * @deprecated 2.0.0 Retraceur fork.
+ *
+ * @param object $update
+ * @return bool
+ */
+function dismiss_core_update( $update ) {
+	_deprecated_function( __FUNCTION__, '2.0.0', '', true );
+	return false;
+}
+
+/**
+ * Undismisses core update.
+ *
+ * @since WP 2.7.0
+ * @deprecated 2.0.0 Retraceur fork.
+ *
+ * @param string $version
+ * @param string $locale
+ * @return bool
+ */
+function undismiss_core_update( $version, $locale ) {
+	_deprecated_function( __FUNCTION__, '2.0.0', '', true );
+	return false;
+}
+
+/**
+ * Finds the available update for Retraceur core.
+ *
+ * @since WP 2.7.0
+ * @deprecated 2.0.0 Retraceur fork.
+ *
+ * @param string $version Version string to find the update for.
+ * @param string $locale  Locale to find the update for.
+ * @return object|false The core update offering on success, false on failure.
+ */
+function find_core_update( $version, $locale ) {
+	_deprecated_function( __FUNCTION__, '2.0.0', '', true );
+	return false;
+}
+
+/**
+ * Displays maintenance nag HTML message.
+ *
+ * @since WP 2.7.0
+ * @deprecated 2.0.0 Retraceur fork.
+ *
+ * @return void|false
+ */
+function maintenance_nag() {
+	_deprecated_function( __FUNCTION__, '2.0.0', '', true );
+	return false;
+}

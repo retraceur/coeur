@@ -26,109 +26,93 @@ if ( ! current_user_can( 'update_core' ) && ! current_user_can( 'update_themes' 
 }
 
 /**
- * Lists available core updates.
+ * Lists available coeur updates.
  *
- * @since WP 2.7.0
+ * @since 2.0.0 Retraceur fork.
  *
- * @global string $wp_local_package Locale code of the package.
- * @global wpdb   $wpdb             Retraceur database abstraction object.
+ * @global wpdb $wpdb Retraceur database abstraction object.
  *
- * @param object $update
+ * @param array $update The retraceur update informations.
  */
-function list_core_update( $update ) {
-	global $wp_local_package, $wpdb;
+function retraceur_list_update( $update ) {
+	global $wpdb;
 	static $first_pass = true;
 
 	$retraceur_version  = retraceur_get_version();
-	$version_string     = sprintf( '%s&ndash;%s', $update->current, get_locale() );
-
-	if ( 'en_US' === $update->locale && 'en_US' === get_locale() ) {
-		$version_string = $update->current;
-	} elseif ( 'en_US' === $update->locale && $update->packages->partial && $retraceur_version === $update->partial_version ) {
-		$updates = get_core_updates();
-		if ( $updates && 1 === count( $updates ) ) {
-			// If the only available update is a partial builds, it doesn't need a language-specific version string.
-			$version_string = $update->current;
-		}
-	} elseif ( 'en_US' === $update->locale && 'en_US' !== get_locale() ) {
-		$version_string = sprintf( '%s&ndash;%s', $update->current, $update->locale );
-	}
-
-	$current = false;
-	if ( ! isset( $update->response ) || 'latest' === $update->response ) {
-		$current = true;
-	}
+	$version_string     = $update['version'];
+	$current            = $retraceur_version === $update['version'];
 
 	$message       = '';
 	$form_action   = 'update-core.php?action=do-core-upgrade';
 	$php_version   = PHP_VERSION;
 	$mysql_version = $wpdb->db_version();
-	$show_buttons  = true;
 
-	// Nightly build versions have two hyphens and a commit number.
-	if ( preg_match( '/-\w+-\d+/', $update->current ) ) {
-		// Retrieve the major version number.
-		preg_match( '/^\d+.\d+/', $update->current, $update_major );
-		/* translators: %s: Version number. */
-		$submit = sprintf( __( 'Update to latest %s nightly' ), $update_major[0] );
-	} else {
-		/* translators: %s: Version number. */
-		$submit = sprintf( __( 'Update to version %s' ), $version_string );
-	}
+	/**
+	 * Filter to opt-in for Coeur "direct" updates (still in beta).
+	 *
+	 * @since 2.0.0 Retraceur fork.
+	 *
+	 * @param boolean $test True to test "direct" updates. False otherwise.
+	 */
+	$show_buttons = apply_filters( 'retraceur_betatest_direct_updates', false );
+	$submit       = sprintf( __( 'Update to version %s' ), $version_string );
+	$link_text    = sprintf( __( 'Download & upgrade to version %s' ), $version_string );
 
-	if ( 'development' === $update->response ) {
-		$message = __( 'You can update to the latest nightly build manually:' );
+	if ( $current ) {
+		/* translators: %s: Version number. */
+		$submit      = sprintf( __( 'Re-install version %s' ), $version_string );
+		$form_action = 'update-core.php?action=do-core-reinstall';
 	} else {
-		if ( $current ) {
-			/* translators: %s: Version number. */
-			$submit      = sprintf( __( 'Re-install version %s' ), $version_string );
-			$form_action = 'update-core.php?action=do-core-reinstall';
+		$needs_php  = ! empty( $update['requirements']['php'] ) ? $update['requirements']['php'] : '';
+		$php_compat = true;
+
+		if ( $needs_php ) {
+			$php_compat = version_compare( $php_version, $needs_php, '>=' );
+		}
+
+		$needs_mysql  = ! empty( $update['requirements']['mysql'] ) ? $update['requirements']['mysql'] : '';
+		$mysql_compat = true;
+		if ( ! file_exists( WP_CONTENT_DIR . '/db.php' ) || empty( $wpdb->is_mysql ) && $needs_mysql ) {
+			$mysql_compat = version_compare( $mysql_version, $needs_mysql, '>=' );
+		}
+
+		if ( ! $mysql_compat && ! $php_compat ) {
+			$message = sprintf(
+				/* translators: 1: Retraceur version number, 2: Minimum required PHP version number, 3: Minimum required MySQL version number, 4: Current PHP version number, 5: Current MySQL version number. */
+				__( 'You cannot update because Retraceur %1$s requires PHP version %2$s or higher and MySQL version %3$s or higher. You are running PHP version %4$s and MySQL version %5$s.' ),
+				$update['version'],
+				$needs_php,
+				$needs_mysql,
+				$php_version,
+				$mysql_version
+			);
+		} elseif ( ! $php_compat ) {
+			$message = sprintf(
+				/* translators: 1: Retraceur version number, 2: Minimum required PHP version number, 3: Current PHP version number. */
+				__( 'You cannot update because Retraceur %1$s requires PHP version %2$s or higher. You are running version %3$s.' ),
+				$update['version'],
+				$needs_php,
+				$php_version
+			);
+		} elseif ( ! $mysql_compat ) {
+			$message = sprintf(
+				/* translators: 1: Retraceur version number, 2: Minimum required MySQL version number, 3: Current MySQL version number. */
+				__( 'You cannot update because Retraceur %1$s requires MySQL version %2$s or higher. You are running version %3$s.' ),
+				$update['version'],
+				$needs_mysql,
+				$mysql_version
+			);
 		} else {
-			$php_compat = version_compare( $php_version, $update->php_version, '>=' );
-			if ( file_exists( WP_CONTENT_DIR . '/db.php' ) && empty( $wpdb->is_mysql ) ) {
-				$mysql_compat = true;
-			} else {
-				$mysql_compat = version_compare( $mysql_version, $update->mysql_version, '>=' );
-			}
+			$message = sprintf(
+				/* translators: 1: Installed Retraceur version number, 2: New Retraceur version number, including locale if necessary. */
+				__( 'You can update from Retraceur %1$s to Retraceur %2$s manually:' ),
+				$retraceur_version,
+				$version_string
+			);
+		}
 
-			if ( ! $mysql_compat && ! $php_compat ) {
-				$message = sprintf(
-					/* translators: 1: Retraceur version number, 2: Minimum required PHP version number, 3: Minimum required MySQL version number, 4: Current PHP version number, 5: Current MySQL version number. */
-					__( 'You cannot update because Retraceur %1$s requires PHP version %2$s or higher and MySQL version %3$s or higher. You are running PHP version %4$s and MySQL version %5$s.' ),
-					$update->current,
-					$update->php_version,
-					$update->mysql_version,
-					$php_version,
-					$mysql_version
-				);
-			} elseif ( ! $php_compat ) {
-				$message = sprintf(
-					/* translators: 1: Retraceur version number, 2: Minimum required PHP version number, 3: Current PHP version number. */
-					__( 'You cannot update because Retraceur %1$s requires PHP version %2$s or higher. You are running version %3$s.' ),
-					$update->current,
-					$update->php_version,
-					$php_version
-				);
-			} elseif ( ! $mysql_compat ) {
-				$message = sprintf(
-					/* translators: 1: Retraceur version number, 2: Minimum required MySQL version number, 3: Current MySQL version number. */
-					__( 'You cannot update because Retraceur %1$s requires MySQL version %2$s or higher. You are running version %3$s.' ),
-					$update->current,
-					$update->mysql_version,
-					$mysql_version
-				);
-			} else {
-				$message = sprintf(
-					/* translators: 1: Installed Retraceur version number, 2: New Retraceur version number, including locale if necessary. */
-					__( 'You can update from Retraceur %1$s to Retraceur %2$s manually:' ),
-					$retraceur_version,
-					$version_string
-				);
-			}
-
-			if ( ! $mysql_compat || ! $php_compat ) {
-				$show_buttons = false;
-			}
+		if ( ! $mysql_compat || ! $php_compat ) {
+			$show_buttons = false;
 		}
 	}
 
@@ -140,8 +124,8 @@ function list_core_update( $update ) {
 	wp_nonce_field( 'upgrade-core' );
 
 	echo '<p>';
-	echo '<input name="version" value="' . esc_attr( $update->current ) . '" type="hidden" />';
-	echo '<input name="locale" value="' . esc_attr( $update->locale ) . '" type="hidden" />';
+	echo '<input name="version" value="' . esc_attr( $update['version'] ) . '" type="hidden" />';
+	echo '<input name="locale" value="' . esc_attr( $update['locale'] ) . '" type="hidden" />';
 	if ( $show_buttons ) {
 		if ( $first_pass ) {
 			submit_button( $submit, $current ? '' : 'primary regular', 'upgrade', false );
@@ -150,26 +134,28 @@ function list_core_update( $update ) {
 			submit_button( $submit, '', 'upgrade', false );
 		}
 	}
-	if ( 'en_US' !== $update->locale ) {
-		if ( ! isset( $update->dismissed ) || ! $update->dismissed ) {
-			submit_button( __( 'Hide this update' ), '', 'dismiss', false );
-		} else {
-			submit_button( __( 'Bring back this update' ), '', 'undismiss', false );
+
+	// Provide a simple download link to people wishing to manually update.
+	if ( isset( $update['download'] ) ) {
+		$link_class = ! $show_buttons && $first_pass ? 'button-primary' : 'button-secondary';
+		$first_pass = false;
+		$package    = $update['download'];
+
+		if ( 'fr_FR' === $update['locale'] ) {
+			$package = str_replace( 'retraceur.zip', 'retraceur-fr_FR.zip', $package );
 		}
+		?>
+		<a class="button<?php echo ' ' . $link_class; ?> download-package" href="<?php echo esc_url( $package ); ?>" aria-label="<?php echo esc_attr( $link_text ); ?>"><?php echo esc_html( $link_text ); ?></a>
+		<?php
 	}
+
+	if ( ! isset( $update['dismissed'] ) || ! $update['dismissed'] ) {
+		submit_button( __( 'Hide this update' ), '', 'dismiss', false );
+	} else {
+		submit_button( __( 'Bring back this update' ), '', 'undismiss', false );
+	}
+
 	echo '</p>';
-
-	if ( 'en_US' !== $update->locale && ( ! isset( $wp_local_package ) || $wp_local_package !== $update->locale ) ) {
-		echo '<p class="hint">' . __( 'This localized version contains both the translation and various other localization fixes.' ) . '</p>';
-	} elseif ( 'en_US' === $update->locale && 'en_US' !== get_locale() && ( ! $update->packages->partial && $retraceur_version === $update->partial_version ) ) {
-		// Partial builds don't need language-specific warnings.
-		echo '<p class="hint">' . sprintf(
-			/* translators: %s: Retraceur version. */
-			__( 'You are about to install Retraceur %s <strong>in English (US)</strong>. There is a chance this update will break your translation. You may prefer to wait for the localized version to be released.' ),
-			'development' !== $update->response ? $update->current : ''
-		) . '</p>';
-	}
-
 	echo '</form>';
 }
 
@@ -177,9 +163,10 @@ function list_core_update( $update ) {
  * Display dismissed updates.
  *
  * @since WP 2.7.0
+ * @since 2.0.0 Retraceur fork. Now uses `retraceur_get_updates()`.
  */
 function dismissed_updates() {
-	$dismissed = get_core_updates(
+	$dismissed = retraceur_get_updates(
 		array(
 			'dismissed' => true,
 			'available' => false,
@@ -210,7 +197,7 @@ function dismissed_updates() {
 		echo '<ul id="dismissed-updates" class="core-updates dismissed">';
 		foreach ( (array) $dismissed as $update ) {
 			echo '<li>';
-			list_core_update( $update );
+			retraceur_list_update( $update );
 			echo '</li>';
 		}
 		echo '</ul>';
@@ -223,9 +210,16 @@ function dismissed_updates() {
  * @since WP 2.7.0
  */
 function core_upgrade_preamble() {
-	$updates = get_core_updates();
+	$updates = retraceur_get_updates();
 
 	if ( ! $updates ) {
+		wp_admin_notice(
+			__( 'No Retraceur Coeur updates were found for now.' ),
+			array(
+				'type'               => 'info',
+				'additional_classes' => array( 'inline' ),
+			)
+		);
 		return;
 	}
 
@@ -234,9 +228,9 @@ function core_upgrade_preamble() {
 
 	$is_development_version = preg_match( '/alpha|beta|RC/', $retraceur_version );
 
-	if ( isset( $updates[0]->version ) && version_compare( $updates[0]->version, $retraceur_version, '>' ) ) {
+	if ( isset( $updates[0]['version'] ) && version_compare( $updates[0]['version'], $retraceur_version, '>' ) ) {
 		echo '<h2 class="response">';
-		_e( 'An updated version of Retraceur is available.' );
+		esc_html_e( 'An updated version of Retraceur is available.' );
 		echo '</h2>';
 
 		wp_admin_notice(
@@ -253,15 +247,25 @@ function core_upgrade_preamble() {
 	}
 
 	echo '<ul class="core-updates">';
+
 	foreach ( (array) $updates as $update ) {
+		if ( true !== $update['stable'] && ! $is_development_version ) {
+			continue;
+		}
+
+		// Disable older version than current.
+		if ( version_compare( $update['version'], $retraceur_version, '<=' ) ) {
+			continue;
+		}
+
 		echo '<li>';
-		list_core_update( $update );
+		retraceur_list_update( $update );
 		echo '</li>';
 	}
 	echo '</ul>';
 
 	// Don't show the maintenance mode notice when we are only showing a single re-install option.
-	if ( $updates && ( count( $updates ) > 1 || 'latest' !== $updates[0]->response ) ) {
+	if ( $updates && count( $updates ) > 1 ) {
 		echo '<p>' . __( 'While your site is being updated, it will be in maintenance mode. As soon as your updates are complete, this mode will be deactivated.' ) . '</p>';
 	} elseif ( ! $updates ) {
 		list( $normalized_version ) = explode( '-', $retraceur_version );
@@ -277,187 +281,17 @@ function core_upgrade_preamble() {
 }
 
 /**
- * Display Retraceur auto-updates settings.
- *
- * @since WP 5.6.0
- */
-function core_auto_updates_settings() {
-	if ( isset( $_GET['core-major-auto-updates-saved'] ) ) {
-		if ( 'enabled' === $_GET['core-major-auto-updates-saved'] ) {
-			$notice_text = __( 'Automatic updates for all Retraceur versions have been enabled. Thank you!' );
-			wp_admin_notice(
-				$notice_text,
-				array(
-					'type'        => 'success',
-					'dismissible' => true,
-				)
-			);
-		} elseif ( 'disabled' === $_GET['core-major-auto-updates-saved'] ) {
-			$notice_text = __( 'Retraceur will only receive automatic security and maintenance releases from now on.' );
-			wp_admin_notice(
-				$notice_text,
-				array(
-					'type'        => 'success',
-					'dismissible' => true,
-				)
-			);
-		}
-	}
-
-	require_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
-	$updater = new WP_Automatic_Updater();
-
-	// Defaults:
-	$upgrade_dev   = get_site_option( 'auto_update_core_dev', 'enabled' ) === 'enabled';
-	$upgrade_minor = get_site_option( 'auto_update_core_minor', 'enabled' ) === 'enabled';
-	$upgrade_major = get_site_option( 'auto_update_core_major', 'unset' ) === 'enabled';
-
-	$can_set_update_option = true;
-	// WP_AUTO_UPDATE_CORE = true (all), 'beta', 'rc', 'development', 'branch-development', 'minor', false.
-	if ( defined( 'WP_AUTO_UPDATE_CORE' ) ) {
-		if ( false === WP_AUTO_UPDATE_CORE ) {
-			// Defaults to turned off, unless a filter allows it.
-			$upgrade_dev   = false;
-			$upgrade_minor = false;
-			$upgrade_major = false;
-		} elseif ( true === WP_AUTO_UPDATE_CORE
-			|| in_array( WP_AUTO_UPDATE_CORE, array( 'beta', 'rc', 'development', 'branch-development' ), true )
-		) {
-			// ALL updates for core.
-			$upgrade_dev   = true;
-			$upgrade_minor = true;
-			$upgrade_major = true;
-		} elseif ( 'minor' === WP_AUTO_UPDATE_CORE ) {
-			// Only minor updates for core.
-			$upgrade_dev   = false;
-			$upgrade_minor = true;
-			$upgrade_major = false;
-		}
-
-		// The UI is overridden by the `WP_AUTO_UPDATE_CORE` constant.
-		$can_set_update_option = false;
-	}
-
-	if ( $updater->is_disabled() ) {
-		$upgrade_dev   = false;
-		$upgrade_minor = false;
-		$upgrade_major = false;
-
-		/*
-		 * The UI is overridden by the `AUTOMATIC_UPDATER_DISABLED` constant
-		 * or the `automatic_updater_disabled` filter,
-		 * or by `wp_is_file_mod_allowed( 'automatic_updater' )`.
-		 * See `WP_Automatic_Updater::is_disabled()`.
-		 */
-		$can_set_update_option = false;
-	}
-
-	// Is the UI overridden by a plugin using the `allow_major_auto_core_updates` filter?
-	if ( has_filter( 'allow_major_auto_core_updates' ) ) {
-		$can_set_update_option = false;
-	}
-
-	/** This filter is documented in wp-admin/includes/class-core-upgrader.php */
-	$upgrade_dev = apply_filters( 'allow_dev_auto_core_updates', $upgrade_dev );
-	/** This filter is documented in wp-admin/includes/class-core-upgrader.php */
-	$upgrade_minor = apply_filters( 'allow_minor_auto_core_updates', $upgrade_minor );
-	/** This filter is documented in wp-admin/includes/class-core-upgrader.php */
-	$upgrade_major = apply_filters( 'allow_major_auto_core_updates', $upgrade_major );
-
-	$auto_update_settings = array(
-		'dev'   => $upgrade_dev,
-		'minor' => $upgrade_minor,
-		'major' => $upgrade_major,
-	);
-
-	if ( $upgrade_major ) {
-		$retraceur_version = retraceur_get_version();
-		$updates           = get_core_updates();
-
-		if ( isset( $updates[0]->version ) && version_compare( $updates[0]->version, $retraceur_version, '>' ) ) {
-			echo '<p>' . wp_get_auto_update_message() . '</p>';
-		}
-	}
-
-	$action_url = self_admin_url( 'update-core.php?action=core-major-auto-updates-settings' );
-	?>
-
-	<p class="auto-update-status">
-		<?php
-		/*
-		 * Disable this for now.
-		 * @todo Restore when the Retraceur Update API will be ready.
-		 *
-		if ( $updater->is_vcs_checkout( ABSPATH ) ) {
-			esc_html_e( 'This site appears to be under version control. Automatic updates are disabled.' );
-		} elseif ( $upgrade_major ) {
-			esc_html_e( 'This site is automatically kept up to date with each new version of Retraceur.' );
-
-			if ( $can_set_update_option ) {
-				echo '<br />';
-				printf(
-					'<a href="%s" class="core-auto-update-settings-link core-auto-update-settings-link-disable">%s</a>',
-					wp_nonce_url( add_query_arg( 'value', 'disable', $action_url ), 'core-major-auto-updates-nonce' ),
-					__( 'Switch to automatic updates for maintenance and security releases only.' )
-				);
-			}
-		} elseif ( $upgrade_minor ) {
-			esc_html_e( 'This site is automatically kept up to date with maintenance and security releases of Retraceur only.' );
-
-			if ( $can_set_update_option ) {
-				echo '<br />';
-				printf(
-					'<a href="%s" class="core-auto-update-settings-link core-auto-update-settings-link-enable">%s</a>',
-					wp_nonce_url( add_query_arg( 'value', 'enable', $action_url ), 'core-major-auto-updates-nonce' ),
-					__( 'Enable automatic updates for all new versions of Retraceur.' )
-				);
-			}
-		} else {
-			esc_html_e( 'This site will not receive automatic updates for new versions of Retraceur.' );
-		}
-		*/
-		?>
-		<strong><?php esc_html_e( 'The Retraceur automatic update feature is not available yet' ); ?></strong><br />
-		<?php
-		printf(
-			/* Translators: %s: the Retraceur GitHub releases link. */
-			esc_html__( 'In the meantime, please: do often %s.' ),
-			'<a href="https://github.com/retraceur/coeur/releases" target="_blank">' . esc_html_x( 'check for updates manually', 'update core screen' ) . '</a>'
-		);
-		echo '&nbsp;';
-		printf(
-			/* Translators: %s: the documentation link about manual upgrades. */
-			esc_html__( 'When a new version will be available, you will need to upgrade Retraceur core manually. Please read more about it in this %s.' ),
-			'<a href="' . esc_url( _x( 'https://retraceur.github.io/getting-started/upgrade/', 'documentation URL' ) ) . '" target="_blank">' . esc_html__( 'documentation chapter' ) . '</a>'
-		);
-		?>
-	</p>
-
-	<?php
-	/**
-	 * Fires after the major core auto-update settings.
-	 *
-	 * @since WP 5.6.0
-	 *
-	 * @param array $auto_update_settings {
-	 *     Array of core auto-update settings.
-	 *
-	 *     @type bool $dev   Whether to enable automatic updates for development versions.
-	 *     @type bool $minor Whether to enable minor automatic core updates.
-	 *     @type bool $major Whether to enable major automatic core updates.
-	 * }
-	 */
-	do_action( 'after_core_auto_updates_settings', $auto_update_settings );
-}
-
-/**
  * Display the upgrade plugins form.
  *
  * @since WP 2.9.0
+ * @since 2.0.0 Retraceur fork disabled the Plugin updates.
  */
 function list_plugin_updates() {
+	// Disable Plugin updates for now.
+	return '';
+
 	$retraceur_version = retraceur_get_version();
-	$cur_wp_version    = preg_replace( '/-.*$/', '', $retraceur_version );
+	$cur_r_version     = preg_replace( '/-.*$/', '', $retraceur_version );
 
 	require_once ABSPATH . 'wp-admin/includes/plugin-install.php';
 	$plugins = get_plugin_updates();
@@ -468,11 +302,11 @@ function list_plugin_updates() {
 	}
 	$form_action = 'update-core.php?action=do-plugin-upgrade';
 
-	$core_updates = get_core_updates();
-	if ( ! isset( $core_updates[0]->response ) || 'latest' === $core_updates[0]->response || 'development' === $core_updates[0]->response || version_compare( $core_updates[0]->current, $cur_wp_version, '=' ) ) {
+	$core_updates = retraceur_get_updates();
+	if ( ! isset( $core_updates[0]['stable'] ) || false === $core_updates[0]['stable'] || version_compare( $core_updates[0]['version'], $cur_r_version, '=' ) ) {
 		$core_update_version = false;
 	} else {
-		$core_update_version = $core_updates[0]->current;
+		$core_update_version = $core_updates[0]['version'];
 	}
 
 	$plugins_count = count( $plugins );
@@ -520,12 +354,12 @@ function list_plugin_updates() {
 		}
 
 		// Get plugin compat for running version of Retraceur.
-		if ( isset( $plugin_data->update->tested ) && version_compare( $plugin_data->update->tested, $cur_wp_version, '>=' ) ) {
+		if ( isset( $plugin_data->update->tested ) && version_compare( $plugin_data->update->tested, $cur_r_version, '>=' ) ) {
 			/* translators: %s: Retraceur version. */
-			$compat = '<br />' . sprintf( __( 'Compatibility with Retraceur %s: 100%% (according to its author)' ), $cur_wp_version );
+			$compat = '<br />' . sprintf( __( 'Compatibility with Retraceur %s: 100%% (according to its author)' ), $cur_r_version );
 		} else {
 			/* translators: %s: Retraceur version. */
-			$compat = '<br />' . sprintf( __( 'Compatibility with Retraceur %s: Unknown' ), $cur_wp_version );
+			$compat = '<br />' . sprintf( __( 'Compatibility with Retraceur %s: Unknown' ), $cur_r_version );
 		}
 		// Get plugin compat for updated version of Retraceur.
 		if ( $core_update_version ) {
@@ -620,8 +454,12 @@ function list_plugin_updates() {
  * Display the upgrade themes form.
  *
  * @since WP 2.9.0
+ * @since 2.0.0 Retraceur fork disabled the Theme updates.
  */
 function list_theme_updates() {
+	// Disable Theme updates for now.
+	return '';
+
 	$themes = get_theme_updates();
 	if ( empty( $themes ) ) {
 		echo '<h2>' . __( 'Themes' ) . '</h2>';
@@ -757,8 +595,12 @@ function list_theme_updates() {
  * Display the update translations form.
  *
  * @since WP 3.7.0
+ * @since 2.0.0 Retraceur fork disabled the Translation updates.
  */
 function list_translation_updates() {
+	// Disable Translation updates for now.
+	return '';
+
 	$updates = wp_get_translation_updates();
 	if ( ! $updates ) {
 		if ( 'en_US' !== get_locale() ) {
@@ -802,9 +644,15 @@ function do_core_upgrade( $reinstall = false ) {
 
 	$version = isset( $_POST['version'] ) ? $_POST['version'] : false;
 	$locale  = isset( $_POST['locale'] ) ? $_POST['locale'] : 'en_US';
-	$update  = find_core_update( $version, $locale );
+	$update  = retraceur_find_coeur_update( $version, $locale );
 	if ( ! $update ) {
 		return;
+	} else {
+		$update           = (object) $update;
+		$update->response = 'upgrade';
+
+		// For now consider each update contains new files.
+		$update->new_files = true;
 	}
 
 	/*
@@ -815,7 +663,7 @@ function do_core_upgrade( $reinstall = false ) {
 
 	?>
 	<div class="wrap">
-	<h1><?php _e( 'Update Retraceur' ); ?></h1>
+	<h1><?php esc_html_e( 'Update Retraceur' ); ?></h1>
 	<?php
 
 	$credentials = request_filesystem_credentials( $url, '', false, ABSPATH, array( 'version', 'locale' ), $allow_relaxed_file_ownership );
@@ -890,34 +738,54 @@ function do_core_upgrade( $reinstall = false ) {
 /**
  * Dismiss a core update.
  *
- * @since WP 2.7.0
+ * @since 2.0.0 Retraceur fork.
  */
-function do_dismiss_core_update() {
+function do_dismiss_coeur_update() {
 	$version = isset( $_POST['version'] ) ? $_POST['version'] : false;
 	$locale  = isset( $_POST['locale'] ) ? $_POST['locale'] : 'en_US';
-	$update  = find_core_update( $version, $locale );
+	$update  = retraceur_find_coeur_update(
+		$version,
+		$locale,
+		array(
+			'available' => true,
+			'dismissed' => false,
+		),
+	);
+
 	if ( ! $update ) {
 		return;
 	}
-	dismiss_core_update( $update );
-	wp_redirect( wp_nonce_url( 'update-core.php?action=upgrade-core', 'upgrade-core' ) );
+
+	dismiss_coeur_update( $update );
+
+	wp_safe_redirect( wp_nonce_url( 'update-core.php?action=upgrade-core', 'upgrade-core' ) );
 	exit;
 }
 
 /**
- * Undismiss a core update.
+ * Undismiss a coeur update.
  *
- * @since WP 2.7.0
+ * @since 2.0.0 Retraceur fork.
  */
-function do_undismiss_core_update() {
+function do_undismiss_coeur_update() {
 	$version = isset( $_POST['version'] ) ? $_POST['version'] : false;
 	$locale  = isset( $_POST['locale'] ) ? $_POST['locale'] : 'en_US';
-	$update  = find_core_update( $version, $locale );
+	$update  = retraceur_find_coeur_update(
+		$version,
+		$locale,
+		array(
+			'available' => false,
+			'dismissed' => true,
+		),
+	);
+
 	if ( ! $update ) {
 		return;
 	}
-	undismiss_core_update( $version, $locale );
-	wp_redirect( wp_nonce_url( 'update-core.php?action=upgrade-core', 'upgrade-core' ) );
+
+	undismiss_coeur_update( $version );
+
+	wp_safe_redirect( wp_nonce_url( 'update-core.php?action=upgrade-core', 'upgrade-core' ) );
 	exit;
 }
 
@@ -945,17 +813,13 @@ get_current_screen()->add_help_tab(
 	)
 );
 
-$updates_howto  = '<p>' . __( '<strong>Retraceur</strong> &mdash; Updating your Retraceur installation is a simple one-click procedure: just <strong>click on the &#8220;Update now&#8221; button</strong> when you are notified that a new version is available.' ) . ' ' . __( 'In most cases, Retraceur will automatically apply maintenance and security updates in the background for you.' ) . '</p>';
-$updates_howto .= '<p>' . __( '<strong>Themes and Plugins</strong> &mdash; To update individual themes or plugins from this screen, use the checkboxes to make your selection, then <strong>click on the appropriate &#8220;Update&#8221; button</strong>. To update all of your themes or plugins at once, you can check the box at the top of the section to select all before clicking the update button.' ) . '</p>';
+$updates_howto  = '<p>' . __( '<strong>Retraceur</strong> &mdash; Updating your Retraceur installation is a simple one-click procedure: just <strong>click on the &#8220;Update to version X.Y.Z&#8221; button</strong> when you are notified that a new version is available.' ) . ' ' . __( 'Alternatively, you can perform a manual upgrade using the &#8220;Download & upgrade to version X.Y.Z&#8221; button.' ) . '</p>';
+/*$updates_howto .= '<p>' . __( '<strong>Themes and Plugins</strong> &mdash; To update individual themes or plugins from this screen, use the checkboxes to make your selection, then <strong>click on the appropriate &#8220;Update&#8221; button</strong>. To update all of your themes or plugins at once, you can check the box at the top of the section to select all before clicking the update button.' ) . '</p>';
 
 if ( 'en_US' !== get_locale() ) {
 	$updates_howto .= '<p>' . __( '<strong>Translations</strong> &mdash; The files translating Retraceur into your language are updated for you whenever any other updates occur. But if these files are out of date, you can <strong>click the &#8220;Update Translations&#8221;</strong> button.' ) . '</p>';
-}
+}*/
 
-/*
- * Disable this for now.
- * @todo Restore when the Retraceur Update API will be ready.
- *
 get_current_screen()->add_help_tab(
 	array(
 		'id'      => 'how-to-update',
@@ -963,12 +827,16 @@ get_current_screen()->add_help_tab(
 		'content' => $updates_howto,
 	)
 );
-*/
+
+get_current_screen()->set_help_sidebar(
+	'<p><strong>' . __( 'For more information:' ) . '</strong></p>' .
+	'<p>' . sprintf( __( '<a href="%s">Documentation on manual upgrades</a>' ), esc_url( _x( 'https://retraceur.github.io/getting-started/upgrade/', 'Documentation site link' ) ) ) . '</p>'
+);
 
 if ( 'upgrade-core' === $action ) {
 	// Force an update check when requested.
 	$force_check = ! empty( $_GET['force-check'] );
-	wp_version_check( array(), $force_check );
+	retraceur_version_check( $force_check );
 
 	require_once ABSPATH . 'wp-admin/admin-header.php';
 	?>
@@ -1005,23 +873,20 @@ if ( 'upgrade-core' === $action ) {
 			}
 		}
 	}
+	*/
 
 	$last_update_check = false;
-	$current           = get_site_transient( 'update_core' );
+	$current           = get_site_transient( 'update_coeur' );
 
 	if ( $current && isset( $current->last_checked ) ) {
 		$last_update_check = $current->last_checked + (int) ( (float) get_option( 'gmt_offset' ) * HOUR_IN_SECONDS );
 	}
-	*/
+
 	echo '<h2 class="wp-current-version">';
 	/* translators: Current version of Retraceur. */
 	printf( __( 'Current version: %s' ), esc_html( retraceur_get_version() ) );
 	echo '</h2>';
 
-	/*
-	 * Disable this for now.
-	 * @todo Restore when the Retraceur Update API will be ready.
-	 *
 	echo '<p class="update-last-checked">';
 
 	printf(
@@ -1034,11 +899,9 @@ if ( 'upgrade-core' === $action ) {
 	);
 	echo ' <a href="' . esc_url( self_admin_url( 'update-core.php?force-check=1' ) ) . '">' . __( 'Check again.' ) . '</a>';
 	echo '</p>';
-	*/
 
 	if ( current_user_can( 'update_core' ) ) {
-		core_auto_updates_settings();
-		//core_upgrade_preamble();
+		core_upgrade_preamble();
 	}
 
 	/*
@@ -1084,9 +947,9 @@ if ( 'upgrade-core' === $action ) {
 
 	// Do the (un)dismiss actions before headers, so that they can redirect.
 	if ( isset( $_POST['dismiss'] ) ) {
-		do_dismiss_core_update();
+		do_dismiss_coeur_update();
 	} elseif ( isset( $_POST['undismiss'] ) ) {
-		do_undismiss_core_update();
+		do_undismiss_coeur_update();
 	}
 
 	require_once ABSPATH . 'wp-admin/admin-header.php';
@@ -1111,6 +974,11 @@ if ( 'upgrade-core' === $action ) {
 	require_once ABSPATH . 'wp-admin/admin-footer.php';
 
 } elseif ( 'do-plugin-upgrade' === $action ) {
+	wp_die(
+		'<h1>' . __( 'Retraceur does not provide an API to update plugins yet.' ) . '</h1>' .
+		'<p>' . __( 'You can always go to the Plugin’s "Add new" screen to upload and replace outdated packages.' ) . '</p>',
+		500
+	);
 
 	if ( ! current_user_can( 'update_plugins' ) ) {
 		wp_die( __( 'Sorry, you are not allowed to update this site.' ) );
@@ -1152,6 +1020,11 @@ if ( 'upgrade-core' === $action ) {
 	require_once ABSPATH . 'wp-admin/admin-footer.php';
 
 } elseif ( 'do-theme-upgrade' === $action ) {
+	wp_die(
+		'<h1>' . __( 'Retraceur does not provide an API to update themes yet.' ) . '</h1>' .
+		'<p>' . __( 'You can always go to the Theme’s "Add new" screen to upload and replace outdated packages.' ) . '</p>',
+		500
+	);
 
 	if ( ! current_user_can( 'update_themes' ) ) {
 		wp_die( __( 'Sorry, you are not allowed to update this site.' ) );
@@ -1193,6 +1066,7 @@ if ( 'upgrade-core' === $action ) {
 	require_once ABSPATH . 'wp-admin/admin-footer.php';
 
 } elseif ( 'do-translation-upgrade' === $action ) {
+	wp_die( __( 'Retraceur does not provide an API to update languages yet.' ), 500 );
 
 	if ( ! current_user_can( 'update_languages' ) ) {
 		wp_die( __( 'Sorry, you are not allowed to update this site.' ) );
@@ -1221,28 +1095,6 @@ if ( 'upgrade-core' === $action ) {
 
 	require_once ABSPATH . 'wp-admin/admin-footer.php';
 
-} elseif ( 'core-major-auto-updates-settings' === $action ) {
-
-	if ( ! current_user_can( 'update_core' ) ) {
-		wp_die( __( 'Sorry, you are not allowed to update this site.' ) );
-	}
-
-	$redirect_url = self_admin_url( 'update-core.php' );
-
-	if ( isset( $_GET['value'] ) ) {
-		check_admin_referer( 'core-major-auto-updates-nonce' );
-
-		if ( 'enable' === $_GET['value'] ) {
-			update_site_option( 'auto_update_core_major', 'enabled' );
-			$redirect_url = add_query_arg( 'core-major-auto-updates-saved', 'enabled', $redirect_url );
-		} elseif ( 'disable' === $_GET['value'] ) {
-			update_site_option( 'auto_update_core_major', 'disabled' );
-			$redirect_url = add_query_arg( 'core-major-auto-updates-saved', 'disabled', $redirect_url );
-		}
-	}
-
-	wp_redirect( $redirect_url );
-	exit;
 } else {
 	/**
 	 * Fires for each custom update action on the Retraceur Updates screen.

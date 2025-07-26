@@ -70,13 +70,29 @@ if ( ! function_exists( 'wp_install' ) ) :
 		 * This prevents users being presented with a maintenance mode screen
 		 * immediately after installation.
 		 */
-		wp_unschedule_hook( 'wp_version_check' );
-		wp_unschedule_hook( 'wp_update_plugins' );
-		wp_unschedule_hook( 'wp_update_themes' );
+		wp_unschedule_hook( 'retraceur_version_check' );
 
-		wp_schedule_event( time() + HOUR_IN_SECONDS, 'twicedaily', 'wp_version_check' );
-		wp_schedule_event( time() + ( 1.5 * HOUR_IN_SECONDS ), 'twicedaily', 'wp_update_plugins' );
-		wp_schedule_event( time() + ( 2 * HOUR_IN_SECONDS ), 'twicedaily', 'wp_update_themes' );
+		/**
+		 * @todo Restore when Retraceur adpated its API to handle it.
+		 */
+		// wp_unschedule_hook( 'wp_update_plugins' );
+
+		/**
+		 * @todo Restore when Retraceur adpated its API to handle it.
+		 */
+		// wp_unschedule_hook( 'wp_update_themes' );
+
+		wp_schedule_event( time() + HOUR_IN_SECONDS, 'twicedaily', 'retraceur_version_check' );
+
+		/**
+		 * @todo Restore when Retraceur adpated its API to handle it.
+		 */
+		// wp_schedule_event( time() + ( 1.5 * HOUR_IN_SECONDS ), 'twicedaily', 'wp_update_plugins' );
+
+		/**
+		 * @todo Restore when Retraceur adpated its API to handle it.
+		 */
+		// wp_schedule_event( time() + ( 2 * HOUR_IN_SECONDS ), 'twicedaily', 'wp_update_themes' );
 
 		populate_options();
 		populate_roles();
@@ -680,7 +696,7 @@ function upgrade_all() {
 
 	populate_options();
 
-	if ( 20250621 > $wp_current_db_version ) {
+	if ( 20250711 > $wp_current_db_version ) {
 		create_post_formats();
 	}
 

@@ -16446,3 +16446,66 @@ function _post_format_request( $qvs ) {
 	_deprecated_function( __FUNCTION__, '2.0.0', '', true );
 	return $qvs;
 }
+
+/**
+ * Checks Retraceur version against the newest version.
+ *
+ * The Retraceur version, PHP version, and locale is sent to remote directory provider.
+ *
+ * @since WP 2.3.0
+ * @since 1.0.0 Retraceur fork.
+ * @deprecated 2.0.0 Retraceur fork.
+ *
+ * @global string $retraceur_version       Used to check against the newest Retraceur version.
+ * @global wpdb   $wpdb             WP database abstraction object.
+ * @global string $wp_local_package Locale code of the package.
+ *
+ * @param array $extra_stats Extra statistics.
+ * @param bool  $force_check Whether to bypass the transient cache and force a fresh update check.
+ *                           Defaults to false, true if $extra_stats is set.
+ */
+function wp_version_check( $extra_stats = array(), $force_check = false ) {
+	_deprecated_function( __FUNCTION__, '2.0.0', '', true );
+
+	/**
+	 * Filters the query arguments sent as part of the core version check.
+	 *
+	 * WARNING: Changing this data may result in your site not receiving security updates.
+	 * Please exercise extreme caution.
+	 *
+	 * @since WP 4.9.0
+	 * @since WP 6.1.0 Added `$extensions`, `$platform_flags`, and `$image_support` to the `$query` parameter.
+	 * @since 1.0.0 Retraceur fork: remove extra statistics.
+	 * @deprecated 2.0.0 Retraceur fork.
+	 *
+	 * @param array $query {
+	 *     Version check query arguments.
+	 *
+	 *     @type string $version Retraceur version number.
+	 *     @type string $locale  The locale to retrieve updates for.
+	 * }
+	 */
+	apply_filters_deprecated(
+		'core_version_check_query_args',
+		array( array() ),
+		'2.0.0',
+		'',
+		__( 'The WP Background Updates feature is not used by Retraceur fork.' )
+	);
+
+	return;
+}
+
+/**
+ * Performs WP automatic background updates.
+ *
+ * Updates WP core plus any plugins and themes that have automatic updates enabled.
+ *
+ * @since WP 3.7.0
+ * @since 1.0.0 Retraceur fork.
+ * @deprecated 2.0.0 Retraceur fork.
+ */
+function wp_maybe_auto_update() {
+	_deprecated_function( __FUNCTION__, '2.0.0', '', true );
+	return;
+}

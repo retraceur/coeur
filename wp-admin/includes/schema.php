@@ -387,14 +387,6 @@ function populate_options( array $options = array() ) {
 		// 5.3.0
 		'admin_email_lifespan'            => ( time() + 6 * MONTH_IN_SECONDS ),
 
-		// 5.5.0
-		'auto_plugin_theme_update_emails' => array(),
-
-		// 5.6.0
-		'auto_update_core_dev'            => 'enabled',
-		'auto_update_core_minor'          => 'enabled',
-		'auto_update_core_major'          => 'enabled',
-
 		// 5.8.0
 		'wp_force_deactivated_plugins'    => array(),
 
@@ -419,7 +411,6 @@ function populate_options( array $options = array() ) {
 	$fat_options = array(
 		'recently_edited',
 		'uninstall_plugins',
-		'auto_plugin_theme_update_emails',
 	);
 
 	$keys             = "'" . implode( "', '", array_keys( $options ) ) . "'";
@@ -458,6 +449,9 @@ function populate_options( array $options = array() ) {
 
 	// Delete obsolete magpie stuff.
 	$wpdb->query( "DELETE FROM $wpdb->options WHERE option_name REGEXP '^rss_[0-9a-f]{32}(_ts)?$'" );
+
+	// Delete no more used autoupdate stuff.
+	$wpdb->query( "DELETE FROM $wpdb->options WHERE option_name LIKE 'auto_update_core_%'" );
 
 	// Clear expired transients.
 	delete_expired_transients( true );

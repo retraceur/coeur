@@ -17,9 +17,17 @@ class WP_Debug_Data {
 	 * @since WP 5.2.0
 	 */
 	public static function check_for_updates() {
-		wp_version_check();
-		wp_update_plugins();
-		wp_update_themes();
+		retraceur_version_check();
+
+		/**
+		 * @todo Restore when Retraceur adpated its API to handle it.
+		 */
+		// wp_update_plugins();
+
+		/**
+		 * @todo Restore when Retraceur adpated its API to handle it.
+		 */
+		// wp_update_themes();
 	}
 
 	/**
@@ -154,14 +162,14 @@ class WP_Debug_Data {
 		$blog_public            = get_option( 'blog_public' );
 		$environment_type       = wp_get_environment_type();
 		$core_version           = retraceur_get_version();
-		$core_updates           = get_core_updates();
+		$core_updates           = retraceur_get_updates();
 		$core_update_needed     = '';
 
 		if ( is_array( $core_updates ) ) {
 			foreach ( $core_updates as $core => $update ) {
-				if ( 'upgrade' === $update->response ) {
+				if ( true === $update['stable'] ) {
 					/* translators: %s: Latest version number. */
-					$core_update_needed = ' ' . sprintf( __( '(Latest version: %s)' ), $update->version );
+					$core_update_needed = ' ' . sprintf( __( '(Latest version: %s)' ), $update['version'] );
 				} else {
 					$core_update_needed = '';
 				}

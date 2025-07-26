@@ -104,86 +104,13 @@ $_old_files = array(
  * All other files/directories should not have a key.
  *
  * @since WP 6.2.0
+ * @deprecated 2.0.0 Retraceur fork was introduced during 6.7 development cycle.
  *
  * @global string[] $_old_requests_files
  * @var string[]
  * @name $_old_requests_files
  */
 global $_old_requests_files;
-
-$_old_requests_files = array(
-	// Interfaces.
-	'Requests_Auth'                              => 'wp-includes/Requests/Auth.php',
-	'Requests_Hooker'                            => 'wp-includes/Requests/Hooker.php',
-	'Requests_Proxy'                             => 'wp-includes/Requests/Proxy.php',
-	'Requests_Transport'                         => 'wp-includes/Requests/Transport.php',
-
-	// Classes.
-	'Requests_Auth_Basic'                        => 'wp-includes/Requests/Auth/Basic.php',
-	'Requests_Cookie_Jar'                        => 'wp-includes/Requests/Cookie/Jar.php',
-	'Requests_Exception_HTTP'                    => 'wp-includes/Requests/Exception/HTTP.php',
-	'Requests_Exception_Transport'               => 'wp-includes/Requests/Exception/Transport.php',
-	'Requests_Exception_HTTP_304'                => 'wp-includes/Requests/Exception/HTTP/304.php',
-	'Requests_Exception_HTTP_305'                => 'wp-includes/Requests/Exception/HTTP/305.php',
-	'Requests_Exception_HTTP_306'                => 'wp-includes/Requests/Exception/HTTP/306.php',
-	'Requests_Exception_HTTP_400'                => 'wp-includes/Requests/Exception/HTTP/400.php',
-	'Requests_Exception_HTTP_401'                => 'wp-includes/Requests/Exception/HTTP/401.php',
-	'Requests_Exception_HTTP_402'                => 'wp-includes/Requests/Exception/HTTP/402.php',
-	'Requests_Exception_HTTP_403'                => 'wp-includes/Requests/Exception/HTTP/403.php',
-	'Requests_Exception_HTTP_404'                => 'wp-includes/Requests/Exception/HTTP/404.php',
-	'Requests_Exception_HTTP_405'                => 'wp-includes/Requests/Exception/HTTP/405.php',
-	'Requests_Exception_HTTP_406'                => 'wp-includes/Requests/Exception/HTTP/406.php',
-	'Requests_Exception_HTTP_407'                => 'wp-includes/Requests/Exception/HTTP/407.php',
-	'Requests_Exception_HTTP_408'                => 'wp-includes/Requests/Exception/HTTP/408.php',
-	'Requests_Exception_HTTP_409'                => 'wp-includes/Requests/Exception/HTTP/409.php',
-	'Requests_Exception_HTTP_410'                => 'wp-includes/Requests/Exception/HTTP/410.php',
-	'Requests_Exception_HTTP_411'                => 'wp-includes/Requests/Exception/HTTP/411.php',
-	'Requests_Exception_HTTP_412'                => 'wp-includes/Requests/Exception/HTTP/412.php',
-	'Requests_Exception_HTTP_413'                => 'wp-includes/Requests/Exception/HTTP/413.php',
-	'Requests_Exception_HTTP_414'                => 'wp-includes/Requests/Exception/HTTP/414.php',
-	'Requests_Exception_HTTP_415'                => 'wp-includes/Requests/Exception/HTTP/415.php',
-	'Requests_Exception_HTTP_416'                => 'wp-includes/Requests/Exception/HTTP/416.php',
-	'Requests_Exception_HTTP_417'                => 'wp-includes/Requests/Exception/HTTP/417.php',
-	'Requests_Exception_HTTP_418'                => 'wp-includes/Requests/Exception/HTTP/418.php',
-	'Requests_Exception_HTTP_428'                => 'wp-includes/Requests/Exception/HTTP/428.php',
-	'Requests_Exception_HTTP_429'                => 'wp-includes/Requests/Exception/HTTP/429.php',
-	'Requests_Exception_HTTP_431'                => 'wp-includes/Requests/Exception/HTTP/431.php',
-	'Requests_Exception_HTTP_500'                => 'wp-includes/Requests/Exception/HTTP/500.php',
-	'Requests_Exception_HTTP_501'                => 'wp-includes/Requests/Exception/HTTP/501.php',
-	'Requests_Exception_HTTP_502'                => 'wp-includes/Requests/Exception/HTTP/502.php',
-	'Requests_Exception_HTTP_503'                => 'wp-includes/Requests/Exception/HTTP/503.php',
-	'Requests_Exception_HTTP_504'                => 'wp-includes/Requests/Exception/HTTP/504.php',
-	'Requests_Exception_HTTP_505'                => 'wp-includes/Requests/Exception/HTTP/505.php',
-	'Requests_Exception_HTTP_511'                => 'wp-includes/Requests/Exception/HTTP/511.php',
-	'Requests_Exception_HTTP_Unknown'            => 'wp-includes/Requests/Exception/HTTP/Unknown.php',
-	'Requests_Exception_Transport_cURL'          => 'wp-includes/Requests/Exception/Transport/cURL.php',
-	'Requests_Proxy_HTTP'                        => 'wp-includes/Requests/Proxy/HTTP.php',
-	'Requests_Response_Headers'                  => 'wp-includes/Requests/Response/Headers.php',
-	'Requests_Transport_cURL'                    => 'wp-includes/Requests/Transport/cURL.php',
-	'Requests_Transport_fsockopen'               => 'wp-includes/Requests/Transport/fsockopen.php',
-	'Requests_Utility_CaseInsensitiveDictionary' => 'wp-includes/Requests/Utility/CaseInsensitiveDictionary.php',
-	'Requests_Utility_FilteredIterator'          => 'wp-includes/Requests/Utility/FilteredIterator.php',
-	'Requests_Cookie'                            => 'wp-includes/Requests/Cookie.php',
-	'Requests_Exception'                         => 'wp-includes/Requests/Exception.php',
-	'Requests_Hooks'                             => 'wp-includes/Requests/Hooks.php',
-	'Requests_IDNAEncoder'                       => 'wp-includes/Requests/IDNAEncoder.php',
-	'Requests_IPv6'                              => 'wp-includes/Requests/IPv6.php',
-	'Requests_IRI'                               => 'wp-includes/Requests/IRI.php',
-	'Requests_Response'                          => 'wp-includes/Requests/Response.php',
-	'Requests_SSL'                               => 'wp-includes/Requests/SSL.php',
-	'Requests_Session'                           => 'wp-includes/Requests/Session.php',
-
-	// Directories.
-	'wp-includes/Requests/Auth/',
-	'wp-includes/Requests/Cookie/',
-	'wp-includes/Requests/Exception/HTTP/',
-	'wp-includes/Requests/Exception/Transport/',
-	'wp-includes/Requests/Exception/',
-	'wp-includes/Requests/Proxy/',
-	'wp-includes/Requests/Response/',
-	'wp-includes/Requests/Transport/',
-	'wp-includes/Requests/Utility/',
-);
 
 /**
  * Stores new files in wp-content to copy
@@ -209,22 +136,7 @@ $_old_requests_files = array(
 global $_new_bundled_files;
 
 $_new_bundled_files = array(
-	'plugins/akismet/'          => '2.0',
-	'themes/twentyten/'         => '3.0',
-	'themes/twentyeleven/'      => '3.2',
-	'themes/twentytwelve/'      => '3.5',
-	'themes/twentythirteen/'    => '3.6',
-	'themes/twentyfourteen/'    => '3.8',
-	'themes/twentyfifteen/'     => '4.1',
-	'themes/twentysixteen/'     => '4.4',
-	'themes/twentyseventeen/'   => '4.7',
-	'themes/twentynineteen/'    => '5.0',
-	'themes/twentytwenty/'      => '5.3',
-	'themes/twentytwentyone/'   => '5.6',
-	'themes/twentytwentytwo/'   => '5.9',
-	'themes/twentytwentythree/' => '6.1',
-	'themes/twentytwentyfour/'  => '6.4',
-	'themes/twentytwentyfive/'  => '6.7',
+	'themes/point/' => '1.0.0',
 );
 
 /**
@@ -253,12 +165,12 @@ $_new_bundled_files = array(
  *   5. Delete new Retraceur directory path.
  *   6. Delete .maintenance file.
  *   7. Remove old files.
- *   8. Delete 'update_core' option.
+ *   8. Delete 'update_coeur' option.
  *
  * There are several areas of failure. For instance if PHP times out before step
  * 6, then you will not be able to access any portion of your site. Also, since
  * the upgrade will not continue where it left off, you will not be able to
- * automatically remove old files and remove the 'update_core' option. This
+ * automatically remove old files and remove the 'update_coeur' option. This
  * isn't that bad.
  *
  * If the copy of the new Retraceur over the old fails, then the worse is that
@@ -272,7 +184,6 @@ $_new_bundled_files = array(
  *
  * @global WP_Filesystem_Base $wp_filesystem          WP filesystem subclass.
  * @global string[]           $_old_files
- * @global string[]           $_old_requests_files
  * @global string[]           $_new_bundled_files
  * @global wpdb               $wpdb                   WP database abstraction object.
  *
@@ -281,7 +192,7 @@ $_new_bundled_files = array(
  * @return string|WP_Error New Retraceur version on success, WP_Error on failure.
  */
 function update_core( $from, $to ) {
-	global $wp_filesystem, $_old_files, $_old_requests_files, $_new_bundled_files, $wpdb;
+	global $wp_filesystem, $_old_files, $_new_bundled_files, $wpdb;
 
 	/*
  	 * Give core update script an additional 300 seconds (5 minutes)
@@ -290,14 +201,6 @@ function update_core( $from, $to ) {
 	if ( function_exists( 'set_time_limit' ) ) {
 		set_time_limit( 300 );
 	}
-
-	/*
-	 * Merge the old Requests files and directories into the `$_old_files`.
-	 * Then preload these Requests files first, before the files are deleted
-	 * and replaced to ensure the code is in memory if needed.
-	 */
-	$_old_files = array_merge( $_old_files, array_values( $_old_requests_files ) );
-	_preload_old_requests_classes_and_interfaces( $to );
 
 	/**
 	 * Filters feedback messages displayed during the core update process.
@@ -322,7 +225,7 @@ function update_core( $from, $to ) {
 	$distro = '';
 	$root   = '/retraceur/';
 
-	if ( $wp_filesystem->exists( $from . $root . 'readme.html' ) && $wp_filesystem->exists( $from . $root . 'wp-includes/version.php' ) ) {
+	if ( $wp_filesystem->exists( $from . $root . 'README.md' ) && $wp_filesystem->exists( $from . $root . 'wp-includes/version.php' ) ) {
 		$distro = $root;
 	}
 
@@ -686,18 +589,6 @@ function update_core( $from, $to ) {
 	$wp_filesystem->delete( $maintenance_file );
 
 	/*
-	 * 3.5 -> 3.5+ - an empty twentytwelve directory was created upon upgrade to 3.5 for some users,
-	 * preventing installation of Twenty Twelve.
-	 */
-	if ( '3.5' === $old_wp_version ) {
-		if ( is_dir( WP_CONTENT_DIR . '/themes/twentytwelve' )
-			&& ! file_exists( WP_CONTENT_DIR . '/themes/twentytwelve/style.css' )
-		) {
-			$wp_filesystem->delete( $wp_filesystem->wp_themes_dir() . 'twentytwelve/' );
-		}
-	}
-
-	/*
 	 * Copy new bundled plugins & themes.
 	 * This gives us the ability to install new plugins & themes bundled with
 	 * future versions of Retraceur whilst avoiding the re-install upon upgrade issue.
@@ -801,9 +692,9 @@ function update_core( $from, $to ) {
 
 	// Force refresh of update information.
 	if ( function_exists( 'delete_site_transient' ) ) {
-		delete_site_transient( 'update_core' );
+		delete_site_transient( 'update_coeur' );
 	} else {
-		delete_option( 'update_core' );
+		delete_option( 'update_coeur' );
 	}
 
 	/**
@@ -816,68 +707,5 @@ function update_core( $from, $to ) {
 	 */
 	do_action( '_core_updated_successfully', $wp_version, $retraceur_version );
 
-	// Clear the option that blocks auto-updates after failures, now that we've been successful.
-	if ( function_exists( 'delete_site_option' ) ) {
-		delete_site_option( 'auto_core_update_failed' );
-	}
-
 	return $retraceur_version;
-}
-
-/**
- * Preloads old Requests classes and interfaces.
- *
- * This function preloads the old Requests code into memory before the
- * upgrade process deletes the files. Why? Requests code is loaded into
- * memory via an autoloader, meaning when a class or interface is needed
- * If a request is in process, Requests could attempt to access code. If
- * the file is not there, a fatal error could occur. If the file was
- * replaced, the new code is not compatible with the old, resulting in
- * a fatal error. Preloading ensures the code is in memory before the
- * code is updated.
- *
- * @since WP 6.2.0
- *
- * @global string[]           $_old_requests_files Requests files to be preloaded.
- * @global WP_Filesystem_Base $wp_filesystem       WP filesystem subclass.
- * @global string             $wp_version          The WP version string.
- * @global string             $retraceur_version   The Retraceur version string.
- *
- * @param string $to Path to old Retraceur installation.
- */
-function _preload_old_requests_classes_and_interfaces( $to ) {
-	global $_old_requests_files, $wp_filesystem, $wp_version, $retraceur_version;
-
-	/*
-	 * Requests was introduced in WP 4.6.
-	 *
-	 * Skip preloading if the website was previously using
-	 * an earlier version of Retraceur.
-	 */
-	if ( version_compare( $wp_version, '4.6', '<' ) ) {
-		return;
-	}
-
-	if ( ! defined( 'REQUESTS_SILENCE_PSR0_DEPRECATIONS' ) ) {
-		define( 'REQUESTS_SILENCE_PSR0_DEPRECATIONS', true );
-	}
-
-	foreach ( $_old_requests_files as $name => $file ) {
-		// Skip files that aren't interfaces or classes.
-		if ( is_int( $name ) ) {
-			continue;
-		}
-
-		// Skip if it's already loaded.
-		if ( class_exists( $name ) || interface_exists( $name ) ) {
-			continue;
-		}
-
-		// Skip if the file is missing.
-		if ( ! $wp_filesystem->is_file( $to . $file ) ) {
-			continue;
-		}
-
-		require_once $to . $file;
-	}
 }
