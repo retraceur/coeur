@@ -55,8 +55,16 @@ function retraceur_list_update( $update ) {
 	 * @param boolean $test True to test "direct" updates. False otherwise.
 	 */
 	$show_buttons = apply_filters( 'retraceur_betatest_direct_updates', false );
-	$submit       = sprintf( __( 'Update to version %s' ), $version_string );
-	$link_text    = sprintf( __( 'Download & upgrade to version %s' ), $version_string );
+	$submit       = sprintf(
+		/* translators: %s: Version number. */
+		__( 'Update to version %s' ),
+		$version_string
+	);
+	$link_text    = sprintf(
+		/* translators: %s: Version number. */
+		__( 'Download & upgrade to version %s' ),
+		$version_string
+	);
 
 	if ( $current ) {
 		/* translators: %s: Version number. */
@@ -830,7 +838,11 @@ get_current_screen()->add_help_tab(
 
 get_current_screen()->set_help_sidebar(
 	'<p><strong>' . __( 'For more information:' ) . '</strong></p>' .
-	'<p>' . sprintf( __( '<a href="%s">Documentation on manual upgrades</a>' ), esc_url( _x( 'https://retraceur.github.io/getting-started/upgrade/', 'Documentation site link' ) ) ) . '</p>'
+	'<p>' . sprintf(
+		/* translators: %s: Link to the documentation site. */
+		__( '<a href="%s">Documentation on manual upgrades</a>' ),
+		esc_url( _x( 'https://retraceur.github.io/getting-started/upgrade/', 'Documentation site link' ) )
+	) . '</p>'
 );
 
 if ( 'upgrade-core' === $action ) {
