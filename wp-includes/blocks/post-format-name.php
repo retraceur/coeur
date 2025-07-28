@@ -38,15 +38,29 @@ function render_block_core_post_format_name( $attributes, $content, $block ) {
 	}
 
 	if ( ! in_array( $post_format, $formats, true ) ) {
-		// Translators: %s: Post Format name.
+		/* Translators: %s: Post Format name. */
 		return sprintf( __( 'The %s post format is not supported by this Theme.' ), esc_html( $post_format ) );
 	}
 
+	$output_id = '';
+	if ( isset( $attributes['outputId'] ) && true === $attributes['outputId'] ) {
+		$output_id = sprintf(
+			/* Translators: %d: Post ID. */
+			__( ' #%d' ),
+			intval( $post_id )
+		);
+	}
+
+	$singular_name = get_post_format_singular_name( $post_format );
+	if ( isset( $attributes['useUpperCase'] ) && false === $attributes['useUpperCase'] ) {
+		$singular_name = strtolower( $singular_name );
+	}
+
 	$post_format_title = sprintf(
-		// Translators: 1: Post Format title. 2: Post ID.
-		__( '%1$s #%2$d' ),
-		esc_html( get_post_format_singular_name( $post_format ) ),
-		intval( $post_id )
+		// Translators: 1: Post Format title. 2: Post ID to output.
+		__( '%1$s%2$s' ),
+		esc_html( $singular_name ),
+		$output_id
 	);
 
 	$tag_name = 'h2';

@@ -3866,6 +3866,14 @@
       'levelOptions' => array(
         'type' => 'array'
       ),
+      'outputId' => array(
+        'type' => 'boolean',
+        'default' => true
+      ),
+      'useUpperCase' => array(
+        'type' => 'boolean',
+        'default' => true
+      ),
       'isLink' => array(
         'type' => 'boolean',
         'default' => false,

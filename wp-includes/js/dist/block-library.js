@@ -40322,6 +40322,8 @@ const PostFormatNameEdit = ({
   attributes: {
     level,
     levelOptions,
+    outputId,
+    useUpperCase,
     textAlign,
     isLink,
     rel,
@@ -40362,9 +40364,15 @@ const PostFormatNameEdit = ({
       postFormatSingularName = availablePostFormat?.meta?.post_format_singular_name;
     }
   }
-  const postFormatName = postFormat ? (0,external_wp_i18n_namespaceObject.sprintf)(
-  // translators: 1: Post Format name, 2: Post ID
-  (0,external_wp_i18n_namespaceObject.__)('%1$s #%2$d'), postFormatSingularName, postId) : '';
+  if (!useUpperCase) {
+    postFormatSingularName = postFormatSingularName.toLowerCase();
+  }
+  if (outputId && postId) {
+    postFormatSingularName = (0,external_wp_i18n_namespaceObject.sprintf)(
+    // translators: 1: Post Format name, 2: Post ID
+    (0,external_wp_i18n_namespaceObject.__)('%1$s #%2$d'), postFormatSingularName, postId);
+  }
+  const postFormatName = postFormat ? postFormatSingularName : '';
   const [link] = (0,external_wp_coreData_namespaceObject.useEntityProp)('postType', postType, 'link', postId);
   const blockProps = (0,external_wp_blockEditor_namespaceObject.useBlockProps)({
     className: dist_clsx({
@@ -40374,7 +40382,9 @@ const PostFormatNameEdit = ({
   const blockEditingMode = (0,external_wp_blockEditor_namespaceObject.useBlockEditingMode)();
   let postFormatNameElement = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(TagName, {
     ...blockProps,
-    children: (0,external_wp_i18n_namespaceObject.__)('Post Format Name #ID')
+    children:
+    // translators: 1: Post ID info.
+    (0,external_wp_i18n_namespaceObject.sprintf)((0,external_wp_i18n_namespaceObject.__)('Post Format Name%s'), outputId ? ' #ID' : '')
   });
   if (postFormat && postType && postId) {
     postFormatNameElement = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(TagName, {
@@ -40420,6 +40430,20 @@ const PostFormatNameEdit = ({
         children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_wp_components_namespaceObject.PanelBody, {
           title: (0,external_wp_i18n_namespaceObject.__)('Settings'),
           children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ToggleControl, {
+            __nextHasNoMarginBottom: true,
+            label: (0,external_wp_i18n_namespaceObject.__)('Output the Post ID'),
+            onChange: () => setAttributes({
+              outputId: !outputId
+            }),
+            checked: outputId
+          }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ToggleControl, {
+            __nextHasNoMarginBottom: true,
+            label: (0,external_wp_i18n_namespaceObject.__)('Use upper cases for the Post Format name'),
+            onChange: () => setAttributes({
+              useUpperCase: !useUpperCase
+            }),
+            checked: useUpperCase
+          }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ToggleControl, {
             __nextHasNoMarginBottom: true,
             label: (0,external_wp_i18n_namespaceObject.__)('Make Post Format name a link'),
             onChange: () => setAttributes({
@@ -40480,6 +40504,14 @@ const post_format_name_metadata = {
     },
     levelOptions: {
       type: "array"
+    },
+    outputId: {
+      type: "boolean",
+      "default": true
+    },
+    useUpperCase: {
+      type: "boolean",
+      "default": true
     },
     isLink: {
       type: "boolean",
