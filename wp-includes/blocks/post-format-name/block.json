@@ -18,6 +18,14 @@
 		"levelOptions": {
 			"type": "array"
 		},
+		"outputId": {
+			"type": "boolean",
+			"default": true
+		},
+		"useUpperCase": {
+			"type": "boolean",
+			"default": true
+		},
 		"isLink": {
 			"type": "boolean",
 			"default": false,
