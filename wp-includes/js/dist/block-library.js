@@ -40172,6 +40172,23 @@ const PostFormatPartEdit = ({
     exclude
   } = attributes;
   const [postFormat] = (0,external_wp_coreData_namespaceObject.useEntityProp)('postType', postType, 'format', postId);
+  const currentTemplateSlug = (0,external_wp_data_namespaceObject.useSelect)(select => {
+    // eslint-disable-next-line @wordpress/data-no-store-string-literals
+    const {
+      getCurrentPostId,
+      getCurrentPostType,
+      getCurrentTemplateId
+    } = select('core/editor');
+    const currentPostType = getCurrentPostType();
+    const templateId = getCurrentTemplateId() || (currentPostType === 'wp_template' ? getCurrentPostId() : null);
+    return templateId ? select(external_wp_coreData_namespaceObject.store).getEditedEntityRecord('postType', 'wp_template', templateId)?.slug : null;
+  }, []);
+  let currentPostFormat = postFormat;
+
+  // When previewing a single template, the Post ID is not set.
+  if (!currentPostFormat) {
+    currentPostFormat = currentTemplateSlug && 'single' !== currentTemplateSlug ? currentTemplateSlug.replace('single-post-format-', '') : 'standard';
+  }
   const supportedFormats = (0,external_wp_data_namespaceObject.useSelect)(select => {
     const themeSupports = select(external_wp_coreData_namespaceObject.store).getThemeSupports();
     return themeSupports.formats;
@@ -40179,7 +40196,7 @@ const PostFormatPartEdit = ({
   const postFormatToExclude = exclude ? exclude.split(',').map(excludedFormat => excludedFormat.trim()) : [];
   const postFormatToInclude = include ? include.split(',').map(includedFormat => includedFormat.trim()) : [];
   const postFormatToShow = postFormatToInclude.length ? postFormatToInclude.filter(format => -1 === postFormatToExclude.indexOf(format)) : supportedFormats.filter(format => -1 === postFormatToExclude.indexOf(format));
-  if (postFormatToShow.includes(postFormat)) {
+  if (postFormatToShow.includes(currentPostFormat)) {
     return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("div", {
       ...blockProps,
       children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_blockEditor_namespaceObject.InnerBlocks, {})
