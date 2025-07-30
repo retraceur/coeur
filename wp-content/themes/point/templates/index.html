@@ -18,25 +18,10 @@
 		<!-- /wp:query-no-results -->
 
 		<!-- wp:post-template -->
-			<!-- wp:group {"tagName":"section","className":"entry-header","style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"inherit":true,"type":"constrained"}} -->
-			<section class="wp-block-group entry-header">
-				<!-- wp:post-format-part {"include":"standard"} -->
-					<!-- wp:post-title {"isLink":true,"level":2} /-->
-					<!-- wp:pattern {"slug":"point/entry-header"} /-->
-					<!-- wp:post-featured-image {"isLink":true} /-->
-				<!-- /wp:post-format-part -->
-				<!-- wp:post-format-part {"exclude":"standard,image,status"} -->
-					<!-- wp:post-format-name {"isLink":true,"level":2} /-->
-					<!-- wp:pattern {"slug":"point/entry-header-post-format"} /-->
-				<!-- /wp:post-format-part -->
-				<!-- wp:post-format-part {"include":"status"} -->
-					<!-- wp:pattern {"slug":"point/entry-header-archive-post-format-status"} /-->
-				<!-- /wp:post-format-part -->
-			</section>
-			<!-- /wp:group -->
+			<!-- wp:pattern {"slug":"point/entry-header"} /-->
 			<!-- wp:group {"tagName":"section","className":"entry-excerpt","layout":{"inherit":true}} -->
 			<section class="wp-block-group entry-excerpt">
-				<!-- wp:post-format-part {"include":"standard,image,quote","exclude":"status"} -->
+				<!-- wp:post-format-part {"include":"standard,link,quote,image"} -->
 					<!-- wp:post-content {"style":{"spacing":{"blockGap":"var:preset|spacing|40"}}} /-->
 				<!-- /wp:post-format-part -->
 				<!-- wp:post-format-part {"include":"status"} -->
@@ -53,17 +38,8 @@
 				<!-- /wp:post-format-part -->
 			</section>
 			<!-- /wp:group -->
-			<!-- wp:post-format-part {"include":"standard,image"} -->
-				<!-- wp:group {"tagName":"section","className":"entry-footer","layout":{"inherit":true}} -->
-				<section class="wp-block-group entry-footer">
-					<!-- wp:post-format-part {"include":"standard"} -->
-						<!-- wp:pattern {"slug":"point/entry-footer"} /-->
-					<!-- /wp:post-format-part -->
-					<!-- wp:post-format-part {"include":"image"} -->
-						<!-- wp:pattern {"slug":"point/entry-footer-archive-post-format-image"} /-->
-					<!-- /wp:post-format-part -->
-				</section>
-				<!-- /wp:group -->
+			<!-- wp:post-format-part {"include":"standard"} -->
+				<!-- wp:pattern {"slug":"point/entry-footer"} /-->
 			<!-- /wp:post-format-part -->
 			<!-- wp:spacer {"height":"20px"} -->
 			<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
