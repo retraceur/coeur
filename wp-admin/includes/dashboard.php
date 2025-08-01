@@ -614,15 +614,26 @@ function wp_dashboard_recent_posts( $args ) {
 			// Use the post edit link for those who can edit, the permalink otherwise.
 			$recent_post_link = current_user_can( 'edit_post', get_the_ID() ) ? get_edit_post_link() : get_permalink();
 
-			$draft_or_post_title = _draft_or_post_title();
+			$post = get_post();
+			if ( has_post_format( get_supported_post_format_slugs(), $post ) ) {
+				$post_title = sprintf(
+					/* Translators: 1: is the Post ID. 2: the Post Format */
+					esc_html__( '#%1$s %2$s' ),
+					$post->ID,
+					_post_states( $post, false )
+				);
+			} else {
+				$post_title = _draft_or_post_title();
+			}
+
 			printf(
 				'<li><span>%1$s</span> <a href="%2$s" aria-label="%3$s">%4$s</a></li>',
 				/* translators: 1: Relative date, 2: Time. */
 				sprintf( _x( '%1$s, %2$s', 'dashboard' ), $relative, get_the_time() ),
 				$recent_post_link,
 				/* translators: %s: Object title. */
-				esc_attr( sprintf( __( 'Edit &#8220;%s&#8221;' ), $draft_or_post_title ) ),
-				$draft_or_post_title
+				esc_attr( sprintf( __( 'Edit &#8220;%s&#8221;' ), $post_title ) ),
+				$post_title
 			);
 		}
 
