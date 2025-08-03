@@ -338,9 +338,9 @@ if ( 'category' === $taxonomy || 'post_tag' === $taxonomy ) {
 
 	unset( $overview_help );
 
-	$actions_help  = '<p>' . esc_html__( 'Hovering over a row in the post formats list will display action links that allow you to manage the corresponding post format. You can perform the following actions:' ) . '</p>';
-	$actions_help .= '<ul><li>' . esc_html__( 'Edit: takes you to the editing screen for that post format. You can also reach that screen by clicking on the post format name.' ) . '</li>';
-	$actions_help .= '<li>' . esc_html__( 'View: will show you the current list of published posts using the corresponding post format on your live site.' ) . '</li></ul>';
+	$actions_help  = '<p>' . esc_html__( 'Hovering over a row in the Post Formats list will display action links that allow you to manage the corresponding Post Format. You can perform the following actions:' ) . '</p>';
+	$actions_help .= '<ul><li>' . esc_html__( 'Edit: takes you to the editing screen for that Post Format. You can also reach that screen by clicking on the Post Format name.' ) . '</li>';
+	$actions_help .= '<li>' . esc_html__( 'View: will show you the current list of published posts using the corresponding Post Format on your live site.' ) . '</li></ul>';
 
 	get_current_screen()->add_help_tab(
 		array(
