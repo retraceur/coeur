@@ -324,6 +324,33 @@ if ( 'category' === $taxonomy || 'post_tag' === $taxonomy ) {
 	}
 
 	unset( $help );
+} elseif ( 'post_format' === $taxonomy ) {
+	$overview_help  = '<p>' . esc_html__( 'Post Formats are used by themes for presenting posts in a certain format and style. The Post Formats feature provides a standardized list of formats available to all themes that support the feature.' ) . '</p>';
+	$overview_help .= '<p>' . esc_html__( 'A theme may not support every format on the list; for instance, your current theme supports all the ones that are listed into the table below.' ) . '</p>';
+
+	get_current_screen()->add_help_tab(
+		array(
+			'id'      => 'overview',
+			'title'   => __( 'Overview' ),
+			'content' => $overview_help,
+		)
+	);
+
+	unset( $overview_help );
+
+	$actions_help  = '<p>' . esc_html__( 'Hovering over a row in the Post Formats list will display action links that allow you to manage the corresponding Post Format. You can perform the following actions:' ) . '</p>';
+	$actions_help .= '<ul><li>' . esc_html__( 'Edit: takes you to the editing screen for that Post Format. You can also reach that screen by clicking on the Post Format name.' ) . '</li>';
+	$actions_help .= '<li>' . esc_html__( 'View: will show you the current list of published posts using the corresponding Post Format on your live site.' ) . '</li></ul>';
+
+	get_current_screen()->add_help_tab(
+		array(
+			'id'      => 'action-links',
+			'title'   => __( 'Available Actions' ),
+			'content' => $actions_help,
+		)
+	);
+
+	unset( $actions_help );
 }
 
 require_once ABSPATH . 'wp-admin/admin-header.php';
