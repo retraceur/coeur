@@ -7,9 +7,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-07-28T07:41:36+00:00\n"
+"POT-Creation-Date: 2025-08-07T01:45:11+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.11.0\n"
+"X-Generator: WP-CLI 2.10.0\n"
 
 #: wp-activate.php:26
 #: wp-includes/deprecated.php:15849
@@ -49,46 +49,54 @@ msgctxt "Message to convey that a webpage could not be found"
 msgid "The page you are looking for does not exist, or it has been moved."
 msgstr ""
 
-#: wp-content/themes/point/patterns/entry-footer-archive-post-format-image.php:17
-#: wp-content/themes/point/patterns/entry-footer-single-post-format-image.php:17
-msgctxt "Image post format \"Published on\" date separator"
-msgid ": published on"
-msgstr ""
-
-#: wp-content/themes/point/patterns/entry-footer-archive-post-format-image.php:22
-#: wp-content/themes/point/patterns/entry-footer-single-post-format-image.php:21
-#: wp-content/themes/point/patterns/entry-header-post-format.php:21
-#: wp-content/themes/point/patterns/entry-header.php:21
-msgctxt "\"by\" Author separator"
-msgid "by"
-msgstr ""
-
-#: wp-content/themes/point/patterns/entry-footer.php:17
+#: wp-content/themes/point/patterns/entry-footer.php:19
 msgctxt "\"Published in\" category separator"
 msgid "Categorized in"
 msgstr ""
 
-#: wp-content/themes/point/patterns/entry-footer.php:20
+#: wp-content/themes/point/patterns/entry-footer.php:22
 msgctxt "\"Tagged\" tag separator"
 msgid "Tagged"
 msgstr ""
 
-#: wp-content/themes/point/patterns/entry-header-archive-post-format-status.php:17
-#: wp-content/themes/point/patterns/entry-header-single-post-format-status.php:17
-msgctxt "Status post format \"Published on\" date separator"
-msgid "on"
-msgstr ""
-
-#: wp-content/themes/point/patterns/entry-header-post-format.php:16
-#: wp-content/themes/point/patterns/entry-header-single.php:16
-#: wp-content/themes/point/patterns/entry-header.php:16
+#: wp-content/themes/point/patterns/entry-header-single.php:20
+#: wp-content/themes/point/patterns/entry-header.php:20
 msgctxt "\"Published on\" date separator"
 msgid "Published on"
 msgstr ""
 
-#: wp-content/themes/point/patterns/entry-header-single.php:20
+#: wp-content/themes/point/patterns/entry-header-single.php:24
 msgctxt "\"in\" category"
 msgid "in"
+msgstr ""
+
+#: wp-content/themes/point/patterns/entry-header-single.php:40
+#: wp-content/themes/point/patterns/entry-header.php:42
+msgctxt "Link post format \"Published on\" date separator"
+msgid "shared this link on"
+msgstr ""
+
+#: wp-content/themes/point/patterns/entry-header-single.php:45
+#: wp-content/themes/point/patterns/entry-header.php:47
+msgctxt "Status post format \"Published on\" date separator"
+msgid "published this status update on"
+msgstr ""
+
+#: wp-content/themes/point/patterns/entry-header-single.php:50
+#: wp-content/themes/point/patterns/entry-header.php:52
+msgctxt "Image post format \"Published on\" date separator"
+msgid "shared this photo on"
+msgstr ""
+
+#: wp-content/themes/point/patterns/entry-header-single.php:55
+#: wp-content/themes/point/patterns/entry-header.php:57
+msgctxt "Quote post format \"Published on\" date separator"
+msgid "referred to this quote on"
+msgstr ""
+
+#: wp-content/themes/point/patterns/entry-header.php:25
+msgctxt "\"by\" Author separator"
+msgid "by"
 msgstr ""
 
 #. Translators: %s: Retraceur link.
@@ -1061,10 +1069,9 @@ msgstr ""
 msgid "The %s post format is not supported by this Theme."
 msgstr ""
 
-#. Translators: 1: Post Format title. 2: Post ID.
-#: wp-includes/blocks/post-format-name.php:47
-#: wp-includes/general-template.php:1491
-msgid "%1$s #%2$d"
+#. Translators: %d: Post ID.
+#: wp-includes/blocks/post-format-name.php:49
+msgid " #%d"
 msgstr ""
 
 #: wp-includes/blocks/post-navigation-link.php:42
@@ -4459,6 +4466,11 @@ msgstr ""
 #. translators: 1: Separator, 2: Search query.
 #: wp-includes/general-template.php:1413
 msgid "Search Results %1$s %2$s"
+msgstr ""
+
+#. Translators: 1: Post Format title. 2: Post ID.
+#: wp-includes/general-template.php:1491
+msgid "%1$s #%2$d"
 msgstr ""
 
 #: wp-includes/general-template.php:1736

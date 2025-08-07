@@ -7,9 +7,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-07-28T07:40:58+00:00\n"
+"POT-Creation-Date: 2025-08-07T01:41:03+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.11.0\n"
+"X-Generator: WP-CLI 2.10.0\n"
 
 #. translators: Page title of the About Retraceur page in the admin.
 #: wp-admin/about.php:16
@@ -738,6 +738,7 @@ msgstr ""
 
 #: wp-admin/edit-media-form.php:89
 #: wp-admin/edit-tags.php:292
+#: wp-admin/edit-tags.php:334
 #: wp-admin/edit.php:245
 #: wp-admin/edit.php:296
 #: wp-admin/erase-personal-data.php:25
@@ -813,7 +814,7 @@ msgid "The plural name is how it appears when displaying the Post Format archive
 msgstr ""
 
 #: wp-admin/edit-tag-form.php:160
-#: wp-admin/edit-tags.php:455
+#: wp-admin/edit-tags.php:482
 #: wp-admin/includes/class-wp-terms-list-table.php:199
 #: wp-admin/includes/class-wp-terms-list-table.php:221
 #: wp-admin/includes/class-wp-terms-list-table.php:724
@@ -823,7 +824,7 @@ msgstr ""
 
 #. translators: Hidden accessibility text.
 #: wp-admin/edit-tag-form.php:166
-#: wp-admin/edit-tags.php:460
+#: wp-admin/edit-tags.php:487
 #: wp-admin/includes/class-wp-posts-list-table.php:1700
 #: wp-admin/includes/class-wp-terms-list-table.php:201
 #: wp-admin/includes/class-wp-terms-list-table.php:223
@@ -834,7 +835,7 @@ msgid "Slug"
 msgstr ""
 
 #: wp-admin/edit-tag-form.php:205
-#: wp-admin/edit-tags.php:475
+#: wp-admin/edit-tags.php:502
 #: wp-admin/includes/class-wp-debug-data.php:1072
 #: wp-admin/includes/media.php:1162
 #: wp-admin/includes/media.php:1290
@@ -844,12 +845,12 @@ msgid "None"
 msgstr ""
 
 #: wp-admin/edit-tag-form.php:214
-#: wp-admin/edit-tags.php:506
+#: wp-admin/edit-tags.php:533
 msgid "Categories, unlike tags, can have a hierarchy. You might have a Jazz category, and under that have children categories for Bebop and Big Band. Totally optional."
 msgstr ""
 
 #: wp-admin/edit-tag-form.php:222
-#: wp-admin/edit-tags.php:513
+#: wp-admin/edit-tags.php:540
 #: wp-admin/includes/class-wp-plugins-list-table.php:500
 #: wp-admin/includes/class-wp-terms-list-table.php:200
 #: wp-admin/includes/class-wp-terms-list-table.php:222
@@ -1008,8 +1009,35 @@ msgstr ""
 msgid "Adding Tags"
 msgstr ""
 
-#. translators: %s: Search query.
+#: wp-admin/edit-tags.php:328
+msgid "Post Formats are used by themes for presenting posts in a certain format and style. The Post Formats feature provides a standardized list of formats available to all themes that support the feature."
+msgstr ""
+
+#: wp-admin/edit-tags.php:329
+msgid "A theme may not support every format on the list; for instance, your current theme supports all the ones that are listed into the table below."
+msgstr ""
+
+#: wp-admin/edit-tags.php:341
+msgid "Hovering over a row in the Post Formats list will display action links that allow you to manage the corresponding Post Format. You can perform the following actions:"
+msgstr ""
+
+#: wp-admin/edit-tags.php:342
+msgid "Edit: takes you to the editing screen for that Post Format. You can also reach that screen by clicking on the Post Format name."
+msgstr ""
+
 #: wp-admin/edit-tags.php:343
+msgid "View: will show you the current list of published posts using the corresponding Post Format on your live site."
+msgstr ""
+
+#: wp-admin/edit-tags.php:348
+#: wp-admin/edit.php:267
+#: wp-admin/upload.php:374
+#: wp-admin/users.php:93
+msgid "Available Actions"
+msgstr ""
+
+#. translators: %s: Search query.
+#: wp-admin/edit-tags.php:370
 #: wp-admin/edit.php:409
 #: wp-admin/plugins.php:900
 #: wp-admin/upload.php:420
@@ -1018,7 +1046,7 @@ msgid "Search results for: %s"
 msgstr ""
 
 #. translators: %s: Default category.
-#: wp-admin/edit-tags.php:615
+#: wp-admin/edit-tags.php:642
 msgid "Deleting a category does not delete the posts in that category. Instead, posts that were only assigned to the deleted category are set to the default category %s. The default category cannot be deleted."
 msgstr ""
 
@@ -1090,12 +1118,6 @@ msgstr ""
 
 #: wp-admin/edit.php:260
 msgid "You can refine the list to show only posts in a specific category or from a specific month by using the dropdown menus above the posts list. Click the Filter button after making your selection. You also can refine the list by clicking on the post author, category or tag in the posts list."
-msgstr ""
-
-#: wp-admin/edit.php:267
-#: wp-admin/upload.php:374
-#: wp-admin/users.php:93
-msgid "Available Actions"
 msgstr ""
 
 #: wp-admin/edit.php:269
@@ -3767,7 +3789,7 @@ msgid "Must Use Plugins"
 msgstr ""
 
 #: wp-admin/includes/class-wp-debug-data.php:797
-#: wp-admin/includes/dashboard.php:675
+#: wp-admin/includes/dashboard.php:686
 msgid "Loading&hellip;"
 msgstr ""
 
@@ -4442,7 +4464,7 @@ msgstr ""
 #: wp-admin/includes/class-wp-media-list-table.php:765
 #: wp-admin/includes/class-wp-posts-list-table.php:1483
 #: wp-admin/includes/class-wp-terms-list-table.php:506
-#: wp-admin/includes/dashboard.php:624
+#: wp-admin/includes/dashboard.php:635
 msgid "Edit &#8220;%s&#8221;"
 msgstr ""
 
@@ -6056,7 +6078,7 @@ msgstr ""
 
 #. translators: %s: The server PHP version.
 #: wp-admin/includes/class-wp-site-health.php:831
-#: wp-admin/includes/dashboard.php:897
+#: wp-admin/includes/dashboard.php:908
 msgid "Your site is running on an outdated version of PHP (%s), which does not receive security updates. It should be updated."
 msgstr ""
 
@@ -7317,159 +7339,164 @@ msgstr ""
 msgid "M jS"
 msgstr ""
 
-#. translators: 1: Relative date, 2: Time.
+#. Translators: 1: is the Post ID. 2: the Post Format
 #: wp-admin/includes/dashboard.php:621
+msgid "#%1$s %2$s"
+msgstr ""
+
+#. translators: 1: Relative date, 2: Time.
+#: wp-admin/includes/dashboard.php:632
 msgctxt "dashboard"
 msgid "%1$s, %2$s"
 msgstr ""
 
-#: wp-admin/includes/dashboard.php:677
+#: wp-admin/includes/dashboard.php:688
 msgid "This widget requires JavaScript."
 msgstr ""
 
-#: wp-admin/includes/dashboard.php:785
+#: wp-admin/includes/dashboard.php:796
 msgid "Unknown Feed"
 msgstr ""
 
-#: wp-admin/includes/dashboard.php:833
+#: wp-admin/includes/dashboard.php:844
 msgid "Storage Space"
 msgstr ""
 
 #. translators: %s: Number of megabytes.
-#: wp-admin/includes/dashboard.php:840
+#: wp-admin/includes/dashboard.php:851
 msgid "%s MB Space Allowed"
 msgstr ""
 
 #. translators: Hidden accessibility text.
-#: wp-admin/includes/dashboard.php:848
-#: wp-admin/includes/dashboard.php:864
+#: wp-admin/includes/dashboard.php:859
+#: wp-admin/includes/dashboard.php:875
 msgid "Manage Uploads"
 msgstr ""
 
 #. translators: 1: Number of megabytes, 2: Percentage.
-#: wp-admin/includes/dashboard.php:855
+#: wp-admin/includes/dashboard.php:866
 msgid "%1$s MB (%2$s%%) Space Used"
 msgstr ""
 
 #. translators: %s: The server PHP version.
-#: wp-admin/includes/dashboard.php:891
+#: wp-admin/includes/dashboard.php:902
 msgid "Your site is running on an outdated version of PHP (%s), which does not receive security updates and soon will not be supported by Retraceur. Ensure that PHP is updated on your server as soon as possible. Otherwise you will not be able to upgrade Retraceur."
 msgstr ""
 
 #. translators: %s: The server PHP version.
-#: wp-admin/includes/dashboard.php:904
+#: wp-admin/includes/dashboard.php:915
 msgid "Your site is running on an outdated version of PHP (%s), which soon will not be supported by Retraceur. Ensure that PHP is updated on your server as soon as possible. Otherwise you will not be able to upgrade Retraceur."
 msgstr ""
 
 #. translators: %s: The server PHP version.
-#: wp-admin/includes/dashboard.php:910
+#: wp-admin/includes/dashboard.php:921
 msgid "Your site is running on an outdated version of PHP (%s), which should be updated."
 msgstr ""
 
-#: wp-admin/includes/dashboard.php:917
+#: wp-admin/includes/dashboard.php:928
 msgid "What is PHP and how does it affect my site?"
 msgstr ""
 
-#: wp-admin/includes/dashboard.php:919
+#: wp-admin/includes/dashboard.php:930
 msgid "PHP is one of the programming languages used to build Retraceur. Newer versions of PHP receive regular security updates and may increase your site&#8217;s performance."
 msgstr ""
 
 #. translators: %s: The minimum recommended PHP version.
-#: wp-admin/includes/dashboard.php:924
+#: wp-admin/includes/dashboard.php:935
 msgid "The minimum recommended version of PHP is %s."
 msgstr ""
 
-#: wp-admin/includes/dashboard.php:991
+#: wp-admin/includes/dashboard.php:1002
 msgid "No information yet&hellip;"
 msgstr ""
 
-#: wp-admin/includes/dashboard.php:993
+#: wp-admin/includes/dashboard.php:1004
 #: wp-admin/site-health.php:134
 msgid "Results are still loading&hellip;"
 msgstr ""
 
 #. translators: %s: URL to Site Health screen.
-#: wp-admin/includes/dashboard.php:1004
+#: wp-admin/includes/dashboard.php:1015
 msgid "Site health checks will automatically run periodically to gather information about your site. You can also <a href=\"%s\">visit the Site Health screen</a> to gather information about your site now."
 msgstr ""
 
-#: wp-admin/includes/dashboard.php:1012
+#: wp-admin/includes/dashboard.php:1023
 msgid "Great job! Your site currently passes all site health checks."
 msgstr ""
 
-#: wp-admin/includes/dashboard.php:1014
+#: wp-admin/includes/dashboard.php:1025
 msgid "Your site has a critical issue that should be addressed as soon as possible to improve its performance and security."
 msgstr ""
 
-#: wp-admin/includes/dashboard.php:1016
+#: wp-admin/includes/dashboard.php:1027
 msgid "Your site has critical issues that should be addressed as soon as possible to improve its performance and security."
 msgstr ""
 
-#: wp-admin/includes/dashboard.php:1018
+#: wp-admin/includes/dashboard.php:1029
 msgid "Your site&#8217;s health is looking good, but there is still one thing you can do to improve its performance and security."
 msgstr ""
 
-#: wp-admin/includes/dashboard.php:1020
+#: wp-admin/includes/dashboard.php:1031
 msgid "Your site&#8217;s health is looking good, but there are still some things you can do to improve its performance and security."
 msgstr ""
 
 #. translators: 1: Number of issues. 2: URL to Site Health screen.
-#: wp-admin/includes/dashboard.php:1030
+#: wp-admin/includes/dashboard.php:1041
 msgid "Take a look at the <strong>%1$d item</strong> on the <a href=\"%2$s\">Site Health screen</a>."
 msgid_plural "Take a look at the <strong>%1$d items</strong> on the <a href=\"%2$s\">Site Health screen</a>."
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-admin/includes/dashboard.php:1071
+#: wp-admin/includes/dashboard.php:1082
 msgid "Thanks for making Retraceur your very own Personal Online Publication Hub"
 msgstr ""
 
 #. translators: %s: Current Retraceur version.
-#: wp-admin/includes/dashboard.php:1076
+#: wp-admin/includes/dashboard.php:1087
 msgid "Learn more about the %s version."
 msgstr ""
 
-#: wp-admin/includes/dashboard.php:1088
+#: wp-admin/includes/dashboard.php:1099
 msgid "Author rich content with blocks and patterns"
 msgstr ""
 
-#: wp-admin/includes/dashboard.php:1089
+#: wp-admin/includes/dashboard.php:1100
 msgid "Block patterns are pre-configured block layouts. Use them to get inspired or create new pages in a flash."
 msgstr ""
 
-#: wp-admin/includes/dashboard.php:1090
+#: wp-admin/includes/dashboard.php:1101
 msgid "Add a new page"
 msgstr ""
 
-#: wp-admin/includes/dashboard.php:1100
+#: wp-admin/includes/dashboard.php:1111
 msgid "Customize your entire site with block themes"
 msgstr ""
 
-#: wp-admin/includes/dashboard.php:1101
+#: wp-admin/includes/dashboard.php:1112
 msgid "Design everything on your site &#8212; from the header down to the footer, all using blocks and patterns."
 msgstr ""
 
-#: wp-admin/includes/dashboard.php:1102
+#: wp-admin/includes/dashboard.php:1113
 msgid "Open site editor"
 msgstr ""
 
-#: wp-admin/includes/dashboard.php:1113
+#: wp-admin/includes/dashboard.php:1124
 msgid "Switch up your site&#8217;s look & feel with Styles"
 msgstr ""
 
-#: wp-admin/includes/dashboard.php:1114
+#: wp-admin/includes/dashboard.php:1125
 msgid "Tweak your site, or give it a whole new look! Get creative &#8212; how about a new color palette or font?"
 msgstr ""
 
-#: wp-admin/includes/dashboard.php:1115
+#: wp-admin/includes/dashboard.php:1126
 msgid "Edit styles"
 msgstr ""
 
-#: wp-admin/includes/dashboard.php:1117
+#: wp-admin/includes/dashboard.php:1128
 msgid "Discover a new way to build your site."
 msgstr ""
 
-#: wp-admin/includes/dashboard.php:1118
+#: wp-admin/includes/dashboard.php:1129
 msgid "There is a new kind of theme, called a block theme, that lets you build the site you&#8217;ve always wanted &#8212; with blocks and styles."
 msgstr ""
 

@@ -56,12 +56,7 @@ function render_block_core_post_format_name( $attributes, $content, $block ) {
 		$singular_name = strtolower( $singular_name );
 	}
 
-	$post_format_title = sprintf(
-		// Translators: 1: Post Format title. 2: Post ID to output.
-		__( '%1$s%2$s' ),
-		esc_html( $singular_name ),
-		$output_id
-	);
+	$post_format_title = sprintf( '%1$s%2$s', esc_html( $singular_name ), $output_id );
 
 	$tag_name = 'h2';
 	if ( isset( $attributes['level'] ) ) {
