@@ -6,6 +6,54 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+## [2.0.0-beta1] - 2025-TBD
+
+### Added
+
+- Cherry picked 346 commits from the WP 6.8-branch.
+- Introduce a new Post Format Part block to manage contained blocks rendering, see [#1](https://github.com/retraceur/coeur/issues/1).
+- Introduce a new Post Format Name block to replace post titles and inform about the post format, see [#1](https://github.com/retraceur/coeur/issues/1).
+- Introduce a new Admin screen to let Administrators easily customize Post Format names, description and slugs, see [#1](https://github.com/retraceur/coeur/issues/1).
+- Add PayPal to the social links block, see [#87](https://github.com/retraceur/coeur/issues/87).
+- Build the Retraceur Coeur update API, see [9201dc8](https://github.com/retraceur/coeur/commit/9201dc8543f431177dc12be286752911ef2e3c96)
+
+### Changed
+
+- Improved the `_doing_it_wrong()` function making sure the custom message if specified is actually used, see [#62](https://github.com/retraceur/coeur/issues/62).
+- Now uses a WP Gutenberg fork to build modern editors, see [#61](https://github.com/retraceur/coeur/issues/61).
+- The Post Format feature has been completely revamped, see [#1](https://github.com/retraceur/coeur/issues/1).
+- Improve the way the Theme detail overlay is appearing, see [#65](https://github.com/retraceur/coeur/issues/65).
+- Exclude the Post Format taxonomy from the `WP_REST_Term_Search_Handler` controller, see [#1](https://github.com/retraceur/coeur/issues/1).
+- Disable the Editor's Post Title when creating/editing a Post Format, see [#1](https://github.com/retraceur/coeur/issues/1).
+- `@wordpress/scripts` dependency is updated to v30.20.0.
+
+### Deprecated
+
+- `wp_add_editor_classic_theme_styles()`.
+- `_post_format_request()`.
+- `wp_version_check()`.
+- `wp_maybe_auto_update()`.
+- `list_core_update()`.
+- `core_auto_updates_settings()`.
+- `do_dismiss_core_update()`.
+- `do_undismiss_core_update()`.
+- `_preload_old_requests_classes_and_interfaces()`.
+- `get_core_updates()`.
+- `find_core_auto_update()`.
+- `dismiss_core_update()`.
+- `undismiss_core_update()`.
+- `find_core_update()`.
+- `maintenance_nag()`.
+
+### Removed
+
+- The SiteDiscussion panel from the Site Editor, see [#64](https://github.com/retraceur/coeur/issues/64).
+- Missed occurences of WP Trademark included in localized strings were removed.
+- Missed occurences of WP Trademark included in inline comments were removed, see [#72](https://github.com/retraceur/coeur/issues/72).
+- Missed occurences of WP trademarks (including Openverse) were removed, see [#69](https://github.com/retraceur/coeur/issues/69).
+- Missed occurences of WP site's URL were removed, see [#68](https://github.com/retraceur/coeur/issues/68).
+
+
 ## [1.0.0] - 2025-04-21
 
 ### Added
@@ -47,7 +95,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update @wordpress/scripts to version 30.15.0.
 - Point theme: make sure to comply with Headings hierarchy.
 - Point theme: improve font size typography.
-
 
 ### Deprecated
 
