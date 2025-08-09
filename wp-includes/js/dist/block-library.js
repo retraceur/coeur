@@ -40159,12 +40159,51 @@ const layout = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(ext
 
 
 
+
+
+// All Post Formats.
+
+const POST_FORMATS = [{
+  id: 'aside',
+  caption: (0,external_wp_i18n_namespaceObject.__)('Aside')
+}, {
+  id: 'audio',
+  caption: (0,external_wp_i18n_namespaceObject.__)('Audio')
+}, {
+  id: 'chat',
+  caption: (0,external_wp_i18n_namespaceObject.__)('Chat')
+}, {
+  id: 'gallery',
+  caption: (0,external_wp_i18n_namespaceObject.__)('Gallery')
+}, {
+  id: 'image',
+  caption: (0,external_wp_i18n_namespaceObject.__)('Image')
+}, {
+  id: 'link',
+  caption: (0,external_wp_i18n_namespaceObject.__)('Link')
+}, {
+  id: 'quote',
+  caption: (0,external_wp_i18n_namespaceObject.__)('Quote')
+}, {
+  id: 'standard',
+  caption: (0,external_wp_i18n_namespaceObject.__)('Standard')
+}, {
+  id: 'status',
+  caption: (0,external_wp_i18n_namespaceObject.__)('Status')
+}, {
+  id: 'video',
+  caption: (0,external_wp_i18n_namespaceObject.__)('Video')
+}, {
+  id: 'code',
+  caption: (0,external_wp_i18n_namespaceObject.__)('Code')
+}];
 const PostFormatPartEdit = ({
   context: {
     postType,
     postId
   },
-  attributes
+  attributes,
+  setAttributes
 }) => {
   const blockProps = (0,external_wp_blockEditor_namespaceObject.useBlockProps)();
   const {
@@ -40196,13 +40235,38 @@ const PostFormatPartEdit = ({
   const postFormatToExclude = exclude ? exclude.split(',').map(excludedFormat => excludedFormat.trim()) : [];
   const postFormatToInclude = include ? include.split(',').map(includedFormat => includedFormat.trim()) : [];
   const postFormatToShow = postFormatToInclude.length ? postFormatToInclude.filter(format => -1 === postFormatToExclude.indexOf(format)) : supportedFormats.filter(format => -1 === postFormatToExclude.indexOf(format));
-  if (postFormatToShow.includes(currentPostFormat)) {
-    return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("div", {
-      ...blockProps,
-      children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_blockEditor_namespaceObject.InnerBlocks, {})
+  const updateIncludeAttributes = (format, isChecked) => {
+    let newInclude = [...postFormatToShow];
+    if (!isChecked) {
+      newInclude = newInclude.filter(item => item !== format);
+    }
+    if (isChecked) {
+      newInclude = [...newInclude, [format]];
+    }
+    setAttributes({
+      include: newInclude.join(','),
+      exclude: ''
     });
-  }
-  return null;
+  };
+  const postFormatsSettings = supportedFormats.map((format, key) => {
+    const pf = POST_FORMATS.find(f => f.id === format);
+    const isChecked = postFormatToShow.includes(format);
+    return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.CheckboxControl, {
+      __nextHasNoMarginBottom: true,
+      label: pf.caption,
+      checked: isChecked,
+      onChange: () => updateIncludeAttributes(format, !isChecked)
+    }, key);
+  });
+  return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)("div", {
+    ...blockProps,
+    children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_blockEditor_namespaceObject.InspectorControls, {
+      children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.PanelBody, {
+        title: (0,external_wp_i18n_namespaceObject.__)('Settings'),
+        children: postFormatsSettings
+      })
+    }), postFormatToShow.includes(currentPostFormat) && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_blockEditor_namespaceObject.InnerBlocks, {})]
+  });
 };
 /* harmony default export */ const post_format_part_edit = (PostFormatPartEdit);
 
@@ -40234,7 +40298,7 @@ const post_format_part_metadata = {
   title: "Post Format Part",
   category: "theme",
   ancestor: ["core/post-template"],
-  description: "Displays Post Formats according to the one(s) specified within the include or exclude attributes.",
+  description: "Only Displays contained block(s) when the current Post Format matches one of the Post Formats specified in settings.",
   textdomain: "default",
   attributes: {
     exclude: {
@@ -40299,9 +40363,9 @@ const postFormat = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)
 
 
 
-// All WP post formats.
+// All Post Formats.
 
-const POST_FORMATS = [{
+const edit_POST_FORMATS = [{
   id: 'aside',
   caption: (0,external_wp_i18n_namespaceObject.__)('Aside')
 }, {
@@ -40366,7 +40430,7 @@ const PostFormatNameEdit = ({
     context: 'view'
   });
   const [postFormat] = (0,external_wp_coreData_namespaceObject.useEntityProp)('postType', postType, 'format', postId);
-  const formats = POST_FORMATS.filter(format => {
+  const formats = edit_POST_FORMATS.filter(format => {
     // Ensure current format is always in the set.
     // The current format may not be a format supported by the theme.
     return supportedFormats?.includes(format.id) || postFormat === format.id;

@@ -1820,6 +1820,10 @@ body.editor-styles-wrapper .wp-block-navigation__responsive-container.is-menu-op
 	display: inline
 }
 
+.wp-block-post-format-part:empty {
+	display: none
+}
+
 .wp-block-pullquote.is-style-solid-color blockquote p {
 	font-size: 32px
 }
