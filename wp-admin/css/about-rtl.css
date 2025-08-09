@@ -1098,13 +1098,15 @@
 
 /* Go to Dashboard Home link */
 
-.about-wrap .return-to-dashboard {
+.about__container .return-to-dashboard {
 	margin: 30px -5px 0 0;
 	font-size: 14px;
 	font-weight: 600;
+	display: flex;
+	justify-content: space-between;
 }
 
-.about-wrap .return-to-dashboard a {
+.about__container .return-to-dashboard a {
 	text-decoration: none;
 	padding: 0 5px;
 }

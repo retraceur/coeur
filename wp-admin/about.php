@@ -57,24 +57,23 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 
 		<div class="about__section has-2-columns">
 			<div class="column is-vertically-aligned-center">
-				<h3><?php esc_html_e( 'Unchained from «&nbsp;MullenWeb&nbsp;»' ); ?></h3>
+				<h3><?php esc_html_e( 'The Post Formats theme feature has been completely revamped' ); ?></h3>
 				<p>
-					<strong><?php esc_html_e( 'Retraceur is a WP fork completely disconnected from any personal or professional Websites owned by Mr. Mullenweg.' ); ?></strong><br />
-					<?php esc_html_e( 'Freeing yourself from such a powerful grip requires sacrifices and responsibility. By choosing Retraceur, you gave up all the services freely provided by the WP-dot-org remote APIs.' ); ?><br />
-					<?php esc_html_e( 'As a result, you temporarly need to care about keeping up to date this software & all the third party resources you might install to customize or extend it.' ); ?><br />
-					<?php
-					printf(
-						/* Translators: 1: Retraceur’s Bluesky feed link. 2: Retraceur’s GitHub feed link. */
-						esc_html__( 'Untill Retraceur provides its own Automatic Update API, you can be notified of new versions subscribing to Retraceur’s %1$s or %2$s feeds.' ),
-						'<a href="https://bsky.app/profile/retraceur.bsky.social" target="_blank">Bluesky</a>',
-						'<a href="https://github.com/retraceur/coeur/releases.atom" target="_blank">GitHub</a>'
-					);
-					?><br />
+					<strong>
+						<?php printf(
+							/* Translators: %s: Retraceur’s name & version number. */
+							esc_html__( 'While Mr. Mullenweg’s WP has neglected this theme feature since its introduction in 2011, %s brings it back to the forefront by completely rewriting it.' ),
+							'Retraceur&nbsp;2.0.0'
+						);
+						?>
+					</strong><br />
+					<?php esc_html_e( 'It’s obvious: your very own online publication hub needs a fancy way — in line with your active theme capabilities — to let you potentially share code, status updates, photos, asides, links, chat transcripts, image galleries, quotes, movies, sounds and regular posts into your publication stream using a dedicated output for each format.' ); ?><br />
+					<?php esc_html_e( 'If, like "Point" — the bundled default Retraceur theme — your active theme is supporting one of more Post Formats, you’ll be able to select the best format for your content within the Post Editor as well as customize Post Format templates from the Site Editor.' ); ?><br />
 				</p>
 			</div>
 			<div class="column is-vertically-aligned-center">
 				<div class="about__image svg">
-					<img src="https://wsrv.nl/?url=https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/images/unlock.svg" alt="" />
+					<img src="https://wsrv.nl/?url=https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/images/revamped-post-format.svg" alt="" />
 				</div>
 			</div>
 		</div>
@@ -84,16 +83,18 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 		<div class="about__section has-2-columns">
 			<div class="column is-vertically-aligned-center">
 				<div class="about__image svg">
-					<img src="https://wsrv.nl/?url=https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/images/clean-up.svg" alt="" />
+					<img src="https://wsrv.nl/?url=https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/images/1-click-upgrade.svg" alt="" />
 				</div>
 			</div>
 			<div class="column is-vertically-aligned-center">
-				<h3><?php esc_html_e( 'A streamlined core, free of outdated features' ); ?></h3>
+				<h3><?php esc_html_e( '1 click Retraceur Coeur Upgrade' ); ?></h3>
 				<p>
-					<strong><?php esc_html_e( 'Retraceur’s goal is to help individuals build personal Websites up, first and foremost.' ); ?></strong><br />
-					<?php esc_html_e( 'That’s why its core has been considerably lightened, keeping only what’s crucial to achieving this goal.' ); ?><br />
-					<?php esc_html_e( 'While features like Comments or Multisite were removed to be soon available as plugins, others like the Legacy Navigation Menus, the Legacy Widgets, the Legacy Classic Editor code, the Customizer, the Link Manager, the XML-RPC API and Posting by email completely vanished.' ); ?><br />
+					<strong><?php esc_html_e( 'Updating a software is too sensitive to let it run in the background.' ); ?></strong><br />
+					<?php esc_html_e( 'Here comes the first iteration of the Retraceur Updates API, it’s primarily focusing on the core software.' ); ?><br />
+					<?php esc_html_e( 'As soon as a new Retraceur release is available, the next time you’ll visit your dashboard, an update notification inside your main menu will inform you about it.' ); ?>
+					<?php esc_html_e( 'Head over to your Retraceur Updates administration screen & choose whether to directly launch the 1 click process or download the release package to perform a manual upgrade.' ); ?><br />
 				</p>
+				<p><strong><?php esc_html_e( 'Retraceur Coeur updates stay under your control.' ); ?></strong><br /></p>
 			</div>
 		</div>
 
@@ -107,7 +108,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 			</div>
 			<div class="column is-vertically-aligned-center">
 				<div class="about__image svg">
-					<?php printf( '<img src="https://wsrv.nl/?url=%s" alt="" />', esc_url( __( 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/images/point-en.png' ) ) ); ?>
+					<?php printf( '<img src="https://wsrv.nl/?url=%s" alt="" />', esc_url( __( 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/images/point-en-2-0.webp' ) ) ); ?>
 				</div>
 			</div>
 		</div>
@@ -116,22 +117,22 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 
 		<div class="about__section has-3-columns">
 			<div class="column">
-				<h3><?php esc_html_e( 'The new features!' ); ?></h3>
+				<h3><?php esc_html_e( 'Three more things!' ); ?></h3>
 				<p>
 					<?php
 					printf(
 						/* Translators: %s: The link to the Blocks Administration. */
-						esc_html__( 'You can now install & manage your blocks from a %s.' ),
-						'<a href="blocks.php">' . __( 'dedicated Administration screen' ) . '</a>'
+						esc_html__( 'You can now customize Post Format names, descriptions & URLs from a %s.' ),
+						'<a href="edit-tags.php?taxonomy=post_format">' . __( 'dedicated Administration screen' ) . '</a>'
 					);
 					?>
 				</p>
 			</div>
 			<div class="column is-vertically-aligned-bottom">
-				<p><?php esc_html_e( 'Registration workflow now only creates contributors once they activated their account.' ); ?></p>
+				<p><?php esc_html_e( 'Share your Paypal profile thanks to the new Paypal item added to the social links block.' ); ?></p>
 			</div>
 			<div class="column is-vertically-aligned-bottom">
-				<p><?php esc_html_e( 'Your contributors are free to delete their account from their Profile Administration page.' ); ?></p>
+				<p><?php esc_html_e( 'Password security has been strengthened thanks to bcrypt encryption.' ); ?></p>
 			</div>
 		</div>
 
@@ -153,7 +154,15 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 				is_blog_admin() ? __( 'Go to Dashboard &rarr; Home' ) : __( 'Go to Dashboard' )
 			);
 			?>
-		</div>
+			<a href="https://bsky.app/profile/retraceur.bsky.social" target="_blank">Bluesky</a>
+			<a href="https://github.com/retraceur/coeur" target="_blank">GitHub</a>
+			<?php
+			printf(
+				'<a href="%1$s" target="_blank">%2$s</a>',
+				esc_url( _x( 'https://retraceur.github.io/', 'Retraceur Documentation site' ) ),
+				esc_html__( 'Documentation', 'Retraceur About page' )
+			);
+			?>
 	</div>
 
 <?php require_once ABSPATH . 'wp-admin/admin-footer.php'; ?>
