@@ -7,9 +7,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-08-07T01:41:03+00:00\n"
+"POT-Creation-Date: 2025-08-09T07:24:16+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.10.0\n"
+"X-Generator: WP-CLI 2.11.0\n"
 
 #. translators: Page title of the About Retraceur page in the admin.
 #: wp-admin/about.php:16
@@ -95,159 +95,172 @@ msgid "Thanks for making Retraceur your very own Personal Online Publication Hub
 msgstr ""
 
 #: wp-admin/about.php:60
-msgid "Unchained from «&nbsp;MullenWeb&nbsp;»"
+msgid "The Post Formats theme feature has been completely revamped"
 msgstr ""
 
-#: wp-admin/about.php:62
-msgid "Retraceur is a WP fork completely disconnected from any personal or professional Websites owned by Mr. Mullenweg."
+#. Translators: %s: Retraceur’s name & version number.
+#: wp-admin/about.php:65
+msgid "While Mr. Mullenweg’s WP has neglected this theme feature since its introduction in 2011, %s brings it back to the forefront by completely rewriting it."
 msgstr ""
 
-#: wp-admin/about.php:63
-msgid "Freeing yourself from such a powerful grip requires sacrifices and responsibility. By choosing Retraceur, you gave up all the services freely provided by the WP-dot-org remote APIs."
+#: wp-admin/about.php:70
+msgid "It’s obvious: your very own online publication hub needs a fancy way — in line with your active theme capabilities — to let you potentially share code, status updates, photos, asides, links, chat transcripts, image galleries, quotes, movies, sounds and regular posts into your publication stream using a dedicated output for each format."
 msgstr ""
 
-#: wp-admin/about.php:64
-msgid "As a result, you temporarly need to care about keeping up to date this software & all the third party resources you might install to customize or extend it."
+#: wp-admin/about.php:71
+msgid "If, like \"Point\" — the bundled default Retraceur theme — your active theme is supporting one of more Post Formats, you’ll be able to select the best format for your content within the Post Editor as well as customize Post Format templates from the Site Editor."
 msgstr ""
 
-#. Translators: 1: Retraceur’s Bluesky feed link. 2: Retraceur’s GitHub feed link.
-#: wp-admin/about.php:68
-msgid "Untill Retraceur provides its own Automatic Update API, you can be notified of new versions subscribing to Retraceur’s %1$s or %2$s feeds."
+#: wp-admin/about.php:90
+msgid "1 click Retraceur Coeur Upgrade"
 msgstr ""
 
-#: wp-admin/about.php:91
-msgid "A streamlined core, free of outdated features"
+#: wp-admin/about.php:92
+msgid "Updating a software is too sensitive to let it run in the background."
 msgstr ""
 
 #: wp-admin/about.php:93
-msgid "Retraceur’s goal is to help individuals build personal Websites up, first and foremost."
+msgid "Here comes the first iteration of the Retraceur Updates API, it’s primarily focusing on the core software."
 msgstr ""
 
 #: wp-admin/about.php:94
-msgid "That’s why its core has been considerably lightened, keeping only what’s crucial to achieving this goal."
+msgid "As soon as a new Retraceur release is available, the next time you’ll visit your dashboard, an update notification inside your main menu will inform you about it."
 msgstr ""
 
 #: wp-admin/about.php:95
-msgid "While features like Comments or Multisite were removed to be soon available as plugins, others like the Legacy Navigation Menus, the Legacy Widgets, the Legacy Classic Editor code, the Customizer, the Link Manager, the XML-RPC API and Posting by email completely vanished."
+msgid "Head over to your Retraceur Updates administration screen & choose whether to directly launch the 1 click process or download the release package to perform a manual upgrade."
 msgstr ""
 
-#: wp-admin/about.php:105
+#: wp-admin/about.php:97
+msgid "Retraceur Coeur updates stay under your control."
+msgstr ""
+
+#: wp-admin/about.php:106
 msgid "Retraceur chooses to move forward and promote the Site Editor and using Block Themes."
 msgstr ""
 
-#: wp-admin/about.php:110
-msgid "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/images/point-en.png"
+#: wp-admin/about.php:111
+msgid "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/images/point-en-2-0.webp"
 msgstr ""
 
-#: wp-admin/about.php:119
-msgid "The new features!"
+#: wp-admin/about.php:120
+msgid "Three more things!"
 msgstr ""
 
 #. Translators: %s: The link to the Blocks Administration.
-#: wp-admin/about.php:124
-msgid "You can now install & manage your blocks from a %s."
+#: wp-admin/about.php:125
+msgid "You can now customize Post Format names, descriptions & URLs from a %s."
 msgstr ""
 
-#: wp-admin/about.php:125
+#: wp-admin/about.php:126
 msgid "dedicated Administration screen"
 msgstr ""
 
-#: wp-admin/about.php:131
-msgid "Registration workflow now only creates contributors once they activated their account."
+#: wp-admin/about.php:132
+msgid "Share your Paypal profile thanks to the new Paypal item added to the social links block."
 msgstr ""
 
-#: wp-admin/about.php:134
-msgid "Your contributors are free to delete their account from their Profile Administration page."
+#: wp-admin/about.php:135
+msgid "Password security has been strengthened thanks to bcrypt encryption."
 msgstr ""
 
-#: wp-admin/about.php:146
+#: wp-admin/about.php:147
 msgid "Go to Updates"
 msgstr ""
 
-#: wp-admin/about.php:146
+#: wp-admin/about.php:147
 msgid "Go to Dashboard &rarr; Updates"
 msgstr ""
 
-#: wp-admin/about.php:153
+#: wp-admin/about.php:154
 msgid "Go to Dashboard &rarr; Home"
 msgstr ""
 
-#: wp-admin/about.php:153
+#: wp-admin/about.php:154
 msgid "Go to Dashboard"
 msgstr ""
 
-#: wp-admin/about.php:166
+#: wp-admin/about.php:162
+msgctxt "Retraceur Documentation site"
+msgid "https://retraceur.github.io/"
+msgstr ""
+
+#: wp-admin/about.php:163
+msgid "Documentation"
+msgstr ""
+
+#: wp-admin/about.php:175
 msgid "Maintenance Release"
 msgstr ""
 
-#: wp-admin/about.php:167
+#: wp-admin/about.php:176
 msgid "Maintenance Releases"
 msgstr ""
 
-#: wp-admin/about.php:169
+#: wp-admin/about.php:178
 msgid "Security Release"
 msgstr ""
 
-#: wp-admin/about.php:170
+#: wp-admin/about.php:179
 msgid "Security Releases"
 msgstr ""
 
-#: wp-admin/about.php:172
+#: wp-admin/about.php:181
 msgid "Maintenance and Security Release"
 msgstr ""
 
-#: wp-admin/about.php:173
+#: wp-admin/about.php:182
 msgid "Maintenance and Security Releases"
 msgstr ""
 
 #. translators: %s: Retraceur version number.
-#: wp-admin/about.php:176
+#: wp-admin/about.php:185
 msgid "<strong>Version %s</strong> addressed one security issue."
 msgstr ""
 
 #. translators: %s: Retraceur version number.
-#: wp-admin/about.php:178
+#: wp-admin/about.php:187
 msgid "<strong>Version %s</strong> addressed some security issues."
 msgstr ""
 
 #. translators: 1: Retraceur version number, 2: Plural number of bugs.
-#: wp-admin/about.php:181
+#: wp-admin/about.php:190
 msgid "<strong>Version %1$s</strong> addressed %2$s bug."
 msgid_plural "<strong>Version %1$s</strong> addressed %2$s bugs."
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: 1: Retraceur version number, 2: Plural number of bugs. Singular security issue.
-#: wp-admin/about.php:187
+#: wp-admin/about.php:196
 msgid "<strong>Version %1$s</strong> addressed a security issue and fixed %2$s bug."
 msgid_plural "<strong>Version %1$s</strong> addressed a security issue and fixed %2$s bugs."
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: 1: Retraceur version number, 2: Plural number of bugs. More than one security issue.
-#: wp-admin/about.php:193
+#: wp-admin/about.php:202
 msgid "<strong>Version %1$s</strong> addressed some security issues and fixed %2$s bug."
 msgid_plural "<strong>Version %1$s</strong> addressed some security issues and fixed %2$s bugs."
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %s: Documentation URL.
-#: wp-admin/about.php:199
+#: wp-admin/about.php:208
 msgid "For more information, see <a href=\"%s\">the release notes</a>."
 msgstr ""
 
 #. translators: 1: Retraceur version number, 2: Link to update Retraceur
-#: wp-admin/about.php:202
+#: wp-admin/about.php:211
 msgid "Important! Your version of Retraceur (%1$s) is no longer supported, you will not receive any security updates for your website. To keep your site secure, please <a href=\"%2$s\">update to the latest version of Retraceur</a>."
 msgstr ""
 
 #. translators: 1: Retraceur version number, 2: Link to update Retraceur
-#: wp-admin/about.php:205
+#: wp-admin/about.php:214
 msgid "Important! Your version of Retraceur (%1$s) will stop receiving security updates in the near future. To keep your site secure, please <a href=\"%2$s\">update to the latest version of Retraceur</a>."
 msgstr ""
 
 #. translators: %s: The major version of Retraceur for this branch.
-#: wp-admin/about.php:208
+#: wp-admin/about.php:217
 msgid "This is the final release of Retraceur %s"
 msgstr ""
 
