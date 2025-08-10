@@ -4092,7 +4092,7 @@
     'ancestor' => array(
       'core/post-template'
     ),
-    'description' => 'Displays Post Formats according to the one(s) specified within the include or exclude attributes.',
+    'description' => 'Only Displays contained block(s) when the current Post Format matches one of the Post Formats specified in settings.',
     'textdomain' => 'default',
     'attributes' => array(
       'exclude' => array(
