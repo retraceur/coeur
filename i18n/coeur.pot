@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Retraceur 2.0.0-alpha\n"
+"Project-Id-Version: Retraceur 2.0.0-beta1\n"
 "Report-Msgid-Bugs-To: https://github.com/retraceur/coeur/issues\n"
 "Last-Translator: imath <contact@imathi.eu>\n"
 "Language-Team: Retraceur <retraceur@proton.me>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-08-07T01:45:11+00:00\n"
+"POT-Creation-Date: 2025-08-10T16:44:40+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.10.0\n"
+"X-Generator: WP-CLI 2.11.0\n"
 
 #: wp-activate.php:26
 #: wp-includes/deprecated.php:15849
@@ -13244,7 +13244,7 @@ msgstr ""
 
 #: wp-includes/blocks/post-format-part/block.json
 msgctxt "block description"
-msgid "Displays Post Formats according to the one(s) specified within the include or exclude attributes."
+msgid "Only Displays contained block(s) when the current Post Format matches one of the Post Formats specified in settings."
 msgstr ""
 
 #: wp-includes/blocks/post-navigation-link/block.json

@@ -35,7 +35,7 @@ Everyone is free to make Retraceur their very own **Personal Online Publication 
 Retraceur is cherry picking attractive WP Core commits to benefit from potential security fixes and interesting improvements brought by the great WP Core contributors team.
 
 Next Retraceur steps are:
-- [ ] Improve the post format API (see [#1](https://github.com/retraceur/coeur/issues/1)).
+- [x] Improve the post format API (see [#1](https://github.com/retraceur/coeur/issues/1)).
 - [ ] Build an automatic & distributed update system based on GitHub services replacing the WP distant plugin, block, theme and translation APIs (see [#30](https://github.com/retraceur/coeur/issues/30)).
 - [ ] Include a Post Status API to allow custom Post Status (see [#44](https://github.com/retraceur/coeur/issues/44))
 

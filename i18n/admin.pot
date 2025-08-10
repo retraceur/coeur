@@ -1,13 +1,13 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Retraceur 2.0.0-alpha\n"
+"Project-Id-Version: Retraceur 2.0.0-beta1\n"
 "Report-Msgid-Bugs-To: https://github.com/retraceur/coeur/issues\n"
 "Last-Translator: imath <contact@imathi.eu>\n"
 "Language-Team: Retraceur <retraceur@proton.me>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-08-09T07:24:16+00:00\n"
+"POT-Creation-Date: 2025-08-10T16:31:17+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 
@@ -108,7 +108,7 @@ msgid "It’s obvious: your very own online publication hub needs a fancy way �
 msgstr ""
 
 #: wp-admin/about.php:71
-msgid "If, like \"Point\" — the bundled default Retraceur theme — your active theme is supporting one of more Post Formats, you’ll be able to select the best format for your content within the Post Editor as well as customize Post Format templates from the Site Editor."
+msgid "If, like \"Point\" — the bundled default Retraceur theme — your active theme is supporting one or more Post Formats, you’ll be able to select the best format to structure your content front-end layout within the Post Editor as well as to customize Post Format templates from the Site Editor."
 msgstr ""
 
 #: wp-admin/about.php:90
