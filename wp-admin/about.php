@@ -68,7 +68,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 						?>
 					</strong><br />
 					<?php esc_html_e( 'It’s obvious: your very own online publication hub needs a fancy way — in line with your active theme capabilities — to let you potentially share code, status updates, photos, asides, links, chat transcripts, image galleries, quotes, movies, sounds and regular posts into your publication stream using a dedicated output for each format.' ); ?><br />
-					<?php esc_html_e( 'If, like "Point" — the bundled default Retraceur theme — your active theme is supporting one of more Post Formats, you’ll be able to select the best format for your content within the Post Editor as well as customize Post Format templates from the Site Editor.' ); ?><br />
+					<?php esc_html_e( 'If, like "Point" — the bundled default Retraceur theme — your active theme is supporting one or more Post Formats, you’ll be able to select the best format to structure your content front-end layout within the Post Editor as well as to customize Post Format templates from the Site Editor.' ); ?><br />
 				</p>
 			</div>
 			<div class="column is-vertically-aligned-center">
