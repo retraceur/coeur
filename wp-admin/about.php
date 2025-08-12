@@ -129,7 +129,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 				</p>
 			</div>
 			<div class="column is-vertically-aligned-bottom">
-				<p><?php esc_html_e( 'Share your Paypal profile thanks to the new Paypal item added to the social links block.' ); ?></p>
+				<p><?php esc_html_e( 'Share your PayPal profile thanks to the new PayPal item added to the social links block.' ); ?></p>
 			</div>
 			<div class="column is-vertically-aligned-bottom">
 				<p><?php esc_html_e( 'Password security has been strengthened thanks to bcrypt encryption.' ); ?></p>
