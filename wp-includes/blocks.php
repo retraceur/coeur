@@ -1478,6 +1478,47 @@ function insert_hooked_blocks_into_rest_response( $response, $post ) {
 }
 
 /**
+ * Honour Post content's "read-more" mechanism in Site Editor's edited archive templates.
+ *
+ * @since 2.0.0 Retraceur fork.
+ *
+ * @param WP_REST_Response $response The response object.
+ * @param WP_Post          $post     Post object.
+ * @param WP_REST_Request  $request  Request object.
+ * @return WP_REST_Response The response object.
+ */
+function truncate_raw_content_into_rest_response( $response, $post, $request ) {
+	if ( $request instanceof WP_REST_Request ) {
+		$referer_path = wp_parse_url( $request->get_header( 'referer'), PHP_URL_PATH );
+
+		if ( '/wp-admin/site-editor.php' === $referer_path && ! empty( $response->data['content']['raw'] ) && has_block( 'more', $response->data['content']['raw'] ) ) {
+			$more_block    = get_comment_delimited_block_content( 'more', array(), "\n<!--more-->\n" );
+			$content_parts = explode( $more_block, $response->data['content']['raw'] );
+
+			if ( ! empty( $content_parts[0] ) ) {
+				$_post          = clone $post;
+				$_post->content = '<!--more-->';
+				$more_content   = wp_kses(
+					get_the_content( null, false, $_post ),
+					array(
+						'a'    => array(
+							'class' => true,
+						),
+						'span' => array(
+							'class' => true,
+						),
+					)
+				);
+
+				$response->data['content']['raw'] = $content_parts[0] . get_comment_delimited_block_content( 'paragraph', array(), $more_content );
+			}
+		}
+	}
+
+	return $response;
+}
+
+/**
  * Returns a function that injects the theme attribute into, and hooked blocks before, a given block.
  *
  * The returned function can be used as `$pre_callback` argument to `traverse_and_serialize_block(s)`,

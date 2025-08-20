@@ -61,7 +61,7 @@ add_filter( 'render_block_core/site-logo', 'retraceur_render_default_logo' );
  */
 function retraceur_point_more_link() {
 	return sprintf(
-		'<p class="ensemble-more-link">
+		'<p class="more-link">
 			<a href="%1$s" class="more-link">%2$s &rarr;</a>
 		</p>',
 		esc_url( get_the_permalink() ),
