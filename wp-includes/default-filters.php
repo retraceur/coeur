@@ -674,4 +674,7 @@ add_filter( 'rest_prepare_post', 'insert_hooked_blocks_into_rest_response', 10, 
 add_filter( 'rest_prepare_wp_block', 'insert_hooked_blocks_into_rest_response', 10, 2 );
 add_filter( 'rest_prepare_wp_navigation', 'insert_hooked_blocks_into_rest_response', 10, 2 );
 
+// Honour Post content's "read-more" mechanism in Site Editor's edited archive templates.
+add_filter( 'rest_prepare_post', 'truncate_raw_content_into_rest_response', 9, 3 );
+
 unset( $filter, $action );
