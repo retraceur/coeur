@@ -1492,16 +1492,23 @@ function truncate_raw_content_into_rest_response( $response, $post, $request ) {
 		$referer_path = wp_parse_url( $request->get_header( 'referer'), PHP_URL_PATH );
 
 		if ( '/wp-admin/site-editor.php' === $referer_path && ! empty( $response->data['content']['raw'] ) && has_block( 'more', $response->data['content']['raw'] ) ) {
-			$more_block    = get_comment_delimited_block_content( 'more', array(), "\n<!--more-->\n" );
-			$content_parts = explode( $more_block, $response->data['content']['raw'] );
+			$more_block = get_comment_delimited_block_content(
+				'core/more',
+				array(),
+				"\n<!--more-->\n"
+			);
 
+			$content_parts = explode( $more_block, $response->data['content']['raw'] );
 			if ( ! empty( $content_parts[0] ) ) {
-				$_post          = clone $post;
-				$_post->content = '<!--more-->';
-				$more_content   = wp_kses(
+				$_post               = clone $post;
+				$_post->post_content = '<!--more-->';
+
+				// Generate the "more link" making sure the 'the_content_more_link' filter is fired.
+				$more_content = wp_kses(
 					get_the_content( null, false, $_post ),
 					array(
 						'a'    => array(
+							'href'  => true,
 							'class' => true,
 						),
 						'span' => array(
@@ -1510,7 +1517,14 @@ function truncate_raw_content_into_rest_response( $response, $post, $request ) {
 					)
 				);
 
-				$response->data['content']['raw'] = $content_parts[0] . get_comment_delimited_block_content( 'paragraph', array(), $more_content );
+				// Wrap the "more link" inside a paragraph.
+				$more_paragraph = get_comment_delimited_block_content(
+					'core/paragraph',
+					array(),
+					$more_content
+				);
+
+				$response->data['content']['raw'] = $content_parts[0] . $more_paragraph;
 			}
 		}
 	}
