@@ -79,7 +79,7 @@ const registeredPrivateApis = [];
 const requiredConsent = 'I acknowledge private features are not for use in themes or plugins and doing so will break in the next version of Retraceur.';
 
 // The safety measure is meant for WP core where IS_WORDPRESS_CORE is set to true.
-const allowReRegistration =  false ? 0 : true;
+const allowReRegistration =  true ? false : 0;
 
 /**
  * Called by a @wordpress package wishing to opt-in to accessing or exposing

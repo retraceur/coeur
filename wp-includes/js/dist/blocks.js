@@ -8381,9 +8381,9 @@ function blockBindingsSources(state = {}, action) {
     case 'ADD_BLOCK_BINDINGS_SOURCE':
       // Only open this API in Gutenberg and for `core/post-meta` for the moment.
       let getFieldsList;
-      if (true) {
+      if (false) {} else if (action.name === 'core/post-meta') {
         getFieldsList = action.getFieldsList;
-      } else {}
+      }
       return {
         ...state,
         [action.name]: {
@@ -12457,35 +12457,7 @@ function convertLegacyBlockNameAndAttributes(name, attributes) {
 
   // The following code is only relevant for the Gutenberg plugin.
   // It's a stand-alone if statement for dead-code elimination.
-  if (true) {
-    // Convert pattern overrides added during experimental phase.
-    // Only four blocks were supported initially.
-    // These checks can be removed in WP 6.6.
-    if (newAttributes.metadata?.bindings && (name === 'core/paragraph' || name === 'core/heading' || name === 'core/image' || name === 'core/button') && newAttributes.metadata.bindings.__default?.source !== 'core/pattern-overrides') {
-      const bindings = ['content', 'url', 'title', 'id', 'alt', 'text', 'linkTarget'];
-      // Delete any existing individual bindings and add a default binding.
-      // It was only possible to add all the default attributes through the UI,
-      // So as soon as we find an attribute, we can assume all default attributes are overridable.
-      let hasPatternOverrides = false;
-      bindings.forEach(binding => {
-        if (newAttributes.metadata.bindings[binding]?.source === 'core/pattern-overrides') {
-          hasPatternOverrides = true;
-          newAttributes.metadata = {
-            ...newAttributes.metadata,
-            bindings: {
-              ...newAttributes.metadata.bindings
-            }
-          };
-          delete newAttributes.metadata.bindings[binding];
-        }
-      });
-      if (hasPatternOverrides) {
-        newAttributes.metadata.bindings.__default = {
-          source: 'core/pattern-overrides'
-        };
-      }
-    }
-  }
+  if (false) {}
   return [name, newAttributes];
 }
 
