@@ -46905,7 +46905,9 @@ function PostsApp() {
  */
 
 function initializePostsDashboard(id, settings) {
-  if (false) {}
+  if (true) {
+    return;
+  }
   const target = document.getElementById(id);
   const root = (0,external_wp_element_namespaceObject.createRoot)(target);
   (0,external_wp_data_namespaceObject.dispatch)(external_wp_blocks_namespaceObject.store).reapplyBlockTypeFilters();
@@ -46920,11 +46922,7 @@ function initializePostsDashboard(id, settings) {
   (0,external_wp_widgets_namespaceObject.registerWidgetGroupBlock)({
     inserter: false
   });
-  if (true) {
-    (0,external_wp_blockLibrary_namespaceObject.__experimentalRegisterExperimentalCoreBlocks)({
-      enableFSEBlocks: true
-    });
-  }
+  if (false) {}
 
   // We dispatch actions and update the store synchronously before rendering
   // so that we won't trigger unnecessary re-renders with useEffect.
@@ -47006,11 +47004,7 @@ function initializeEditor(id, settings) {
   (0,external_wp_widgets_namespaceObject.registerWidgetGroupBlock)({
     inserter: false
   });
-  if (true) {
-    (0,external_wp_blockLibrary_namespaceObject.__experimentalRegisterExperimentalCoreBlocks)({
-      enableFSEBlocks: true
-    });
-  }
+  if (false) {}
 
   // We dispatch actions and update the store synchronously before rendering
   // so that we won't trigger unnecessary re-renders with useEffect.

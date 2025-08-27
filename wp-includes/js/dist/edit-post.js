@@ -2555,7 +2555,7 @@ function usePaddingAppender(enabled) {
  * Internal dependencies
  */
 
-const isGutenbergPlugin =  true ? true : 0;
+const isGutenbergPlugin =  false ? 0 : false;
 function useShouldIframe() {
   return (0,external_wp_data_namespaceObject.useSelect)(select => {
     const {
@@ -3436,11 +3436,7 @@ function initializeEditor(id, postType, postId, settings, initialEdits) {
   (0,external_wp_widgets_namespaceObject.registerWidgetGroupBlock)({
     inserter: false
   });
-  if (true) {
-    (0,external_wp_blockLibrary_namespaceObject.__experimentalRegisterExperimentalCoreBlocks)({
-      enableFSEBlocks: settings.__unstableEnableFullSiteEditingBlocks
-    });
-  }
+  if (false) {}
 
   // Show a console log warning if the browser is not in Standards rendering mode.
   const documentMode = document.compatMode === 'CSS1Compat' ? 'Standards' : 'Quirks';
