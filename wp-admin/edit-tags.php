@@ -272,6 +272,9 @@ if ( current_user_can( $tax->cap->edit_terms ) ) {
 	wp_enqueue_script( 'inline-edit-tax' );
 }
 
+// Initialize the sidebar help tab documentation links array.
+$help_sidebar = array();
+
 if ( 'category' === $taxonomy || 'post_tag' === $taxonomy ) {
 	$help = '';
 	if ( 'category' === $taxonomy ) {
@@ -351,6 +354,15 @@ if ( 'category' === $taxonomy || 'post_tag' === $taxonomy ) {
 	);
 
 	unset( $actions_help );
+
+	$help_sidebar = array(
+		_x( 'https://retraceur.github.io/administration/manage-post-formats/', 'Post Formats documentation URL' ) => __( 'Documentation on managing Post Formats' ),
+	);
+}
+
+if ( $help_sidebar ) {
+	get_current_screen()->set_help_sidebar( $help_sidebar );
+	unset( $help_sidebar );
 }
 
 require_once ABSPATH . 'wp-admin/admin-header.php';

@@ -692,11 +692,31 @@ final class WP_Screen {
 	 * to add a sidebar to the contextual help.
 	 *
 	 * @since WP 3.3.0
+	 * @since 2.0.0 Retraceur fork is now using an array as parameter to have more control on the output.
 	 *
-	 * @param string $content Sidebar content in plain text or HTML.
+	 * @param array|string $content The list of documentation link texts keyed by their URLs.
+	 *                              Or Sidebar content in plain text or HTML (deprecated in Retraceur fork).
 	 */
 	public function set_help_sidebar( $content ) {
-		$this->_help_sidebar = $content;
+		if ( is_array( $content ) && 0 !== count( $content ) ) {
+			$this->_help_sidebar = sprintf( '<p><strong>%s</strong></p>', esc_html__( 'For more information:' ) );
+
+			foreach ( $content as $url => $link_text ) {
+				$this->_help_sidebar .= sprintf(
+					'<p><a href="%1$s">%2$s</a></p>',
+					esc_url( $url ),
+					esc_html( $link_text )
+				);
+			}
+		} else {
+			_doing_it_wrong(
+				__METHOD__,
+				__( 'This method parameter should be an array using documentation URLs as keys and link text as values.' ),
+				'2.0.0',
+				true
+			);
+			$this->_help_sidebar = $content;
+		}
 	}
 
 	/**
