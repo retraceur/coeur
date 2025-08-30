@@ -654,7 +654,7 @@ add_screen_option( 'per_page', array( 'default' => 999 ) );
 
 $help = '<p>';
 if ( 'block' === $plugins_type ) {
-	$help .= esc_html__( 'Blocks are pieces of content of a post, page or template part of your site. Once a block is installed, you may activate it or deactivate it here.' );
+	$help .= esc_html__( 'Blocks are pieces of content of a post, page or template of your site. Once a block is installed, you may activate it or deactivate it here.' );
 } else {
 	$help .= esc_html__( 'Plugins extend and expand the functionality of Retraceur. Once a plugin is installed, you may activate it or deactivate it here.' );
 }
