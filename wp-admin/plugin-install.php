@@ -162,6 +162,15 @@ get_current_screen()->add_help_tab(
 
 unset( $help );
 
+if ( 'block' === $plugin_type ) {
+	$help_sidebar = array(
+		_x( 'https://retraceur.github.io/administration/manage-blocks/', 'Block installation docs link' ) => __( 'Documentation on installing/updating a block' ),
+	);
+
+	get_current_screen()->set_help_sidebar( $help_sidebar );
+	unset( $help_sidebar );
+}
+
 get_current_screen()->set_screen_reader_content(
 	array(
 		'heading_views'      => __( 'Filter plugins list' ),
