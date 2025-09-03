@@ -6,6 +6,21 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+## [2.0.0-beta2] - 2025-09-06
+
+### Changed
+
+- Make sure the "core/more" block is honored by the Site Editor, see [#103](https://github.com/retraceur/coeur/issues/103)
+- Improve the `WP_Screen->set_help_sidebar()` method to better control its output, see [#107](https://github.com/retraceur/coeur/issues/107)
+- Improve Blocks Admin screen help tabs content, see [#108](https://github.com/retraceur/coeur/issues/108)
+- Improve the "Add Block" Admin screen help tab, see [#111](https://github.com/retraceur/coeur/issues/111)
+- Add a link to docs for the "Add block" Admin screen, see [#113](https://github.com/retraceur/coeur/issues/113)
+
+### Removed
+
+- Disable experimental Blocks, see [#105](https://github.com/retraceur/coeur/issues/105)
+
+
 ## [2.0.0-beta1] - 2025-08-14
 
 ### Added
