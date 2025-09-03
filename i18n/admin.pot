@@ -1,13 +1,13 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Retraceur 2.0.0-beta1\n"
+"Project-Id-Version: Retraceur 2.0.0-beta2\n"
 "Report-Msgid-Bugs-To: https://github.com/retraceur/coeur/issues\n"
 "Last-Translator: imath <contact@imathi.eu>\n"
 "Language-Team: Retraceur <retraceur@proton.me>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-08-12T17:21:08+00:00\n"
+"POT-Creation-Date: 2025-09-03T20:06:33+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 
@@ -750,8 +750,8 @@ msgid "Media file updated."
 msgstr ""
 
 #: wp-admin/edit-media-form.php:89
-#: wp-admin/edit-tags.php:292
-#: wp-admin/edit-tags.php:334
+#: wp-admin/edit-tags.php:295
+#: wp-admin/edit-tags.php:337
 #: wp-admin/edit.php:245
 #: wp-admin/edit.php:296
 #: wp-admin/erase-personal-data.php:25
@@ -759,7 +759,7 @@ msgstr ""
 #: wp-admin/export.php:53
 #: wp-admin/includes/class-custom-background.php:101
 #: wp-admin/includes/class-custom-image-header.php:109
-#: wp-admin/includes/class-wp-screen.php:858
+#: wp-admin/includes/class-wp-screen.php:878
 #: wp-admin/index.php:46
 #: wp-admin/media-new.php:51
 #: wp-admin/options-general.php:51
@@ -768,8 +768,8 @@ msgstr ""
 #: wp-admin/options-permalink.php:25
 #: wp-admin/options-privacy.php:40
 #: wp-admin/options-reading.php:27
-#: wp-admin/plugin-install.php:119
-#: wp-admin/plugins.php:658
+#: wp-admin/plugin-install.php:141
+#: wp-admin/plugins.php:672
 #: wp-admin/revision.php:155
 #: wp-admin/site-health.php:82
 #: wp-admin/theme-install.php:116
@@ -827,7 +827,7 @@ msgid "The plural name is how it appears when displaying the Post Format archive
 msgstr ""
 
 #: wp-admin/edit-tag-form.php:160
-#: wp-admin/edit-tags.php:482
+#: wp-admin/edit-tags.php:494
 #: wp-admin/includes/class-wp-terms-list-table.php:199
 #: wp-admin/includes/class-wp-terms-list-table.php:221
 #: wp-admin/includes/class-wp-terms-list-table.php:724
@@ -837,7 +837,7 @@ msgstr ""
 
 #. translators: Hidden accessibility text.
 #: wp-admin/edit-tag-form.php:166
-#: wp-admin/edit-tags.php:487
+#: wp-admin/edit-tags.php:499
 #: wp-admin/includes/class-wp-posts-list-table.php:1700
 #: wp-admin/includes/class-wp-terms-list-table.php:201
 #: wp-admin/includes/class-wp-terms-list-table.php:223
@@ -848,7 +848,7 @@ msgid "Slug"
 msgstr ""
 
 #: wp-admin/edit-tag-form.php:205
-#: wp-admin/edit-tags.php:502
+#: wp-admin/edit-tags.php:514
 #: wp-admin/includes/class-wp-debug-data.php:1072
 #: wp-admin/includes/media.php:1162
 #: wp-admin/includes/media.php:1290
@@ -858,12 +858,12 @@ msgid "None"
 msgstr ""
 
 #: wp-admin/edit-tag-form.php:214
-#: wp-admin/edit-tags.php:533
+#: wp-admin/edit-tags.php:545
 msgid "Categories, unlike tags, can have a hierarchy. You might have a Jazz category, and under that have children categories for Bebop and Big Band. Totally optional."
 msgstr ""
 
 #: wp-admin/edit-tag-form.php:222
-#: wp-admin/edit-tags.php:540
+#: wp-admin/edit-tags.php:552
 #: wp-admin/includes/class-wp-plugins-list-table.php:500
 #: wp-admin/includes/class-wp-terms-list-table.php:200
 #: wp-admin/includes/class-wp-terms-list-table.php:222
@@ -974,92 +974,101 @@ msgid "Sorry, you are not allowed to edit this item."
 msgstr ""
 
 #. translators: %s: URL to Writing Settings screen.
-#: wp-admin/edit-tags.php:280
+#: wp-admin/edit-tags.php:283
 msgid "You can use categories to define sections of your site and group related posts. The default category is &#8220;Uncategorized&#8221; until you change it in your <a href=\"%s\">writing settings</a>."
 msgstr ""
 
-#: wp-admin/edit-tags.php:284
+#: wp-admin/edit-tags.php:287
 msgid "You can assign keywords to your posts using <strong>tags</strong>. Unlike categories, tags have no hierarchy, meaning there is no relationship from one tag to another."
 msgstr ""
 
-#: wp-admin/edit-tags.php:287
+#: wp-admin/edit-tags.php:290
 msgid "What&#8217;s the difference between categories and tags? Normally, tags are ad-hoc keywords that identify important information in your post (names, subjects, etc) that may or may not recur in other posts, while categories are pre-determined sections. If you think of your site like a book, the categories are like the Table of Contents and the tags are like the terms in the index."
 msgstr ""
 
-#: wp-admin/edit-tags.php:299
+#: wp-admin/edit-tags.php:302
 msgid "When adding a new category on this screen, you&#8217;ll fill in the following fields:"
 msgstr ""
 
-#: wp-admin/edit-tags.php:301
+#: wp-admin/edit-tags.php:304
 msgid "When adding a new tag on this screen, you&#8217;ll fill in the following fields:"
 msgstr ""
 
-#: wp-admin/edit-tags.php:305
+#: wp-admin/edit-tags.php:308
 msgid "<strong>Name</strong> &mdash; The name is how it appears on your site."
 msgstr ""
 
-#: wp-admin/edit-tags.php:307
+#: wp-admin/edit-tags.php:310
 msgid "<strong>Slug</strong> &mdash; The &#8220;slug&#8221; is the URL-friendly version of the name. It is usually all lowercase and contains only letters, numbers, and hyphens."
 msgstr ""
 
-#: wp-admin/edit-tags.php:310
+#: wp-admin/edit-tags.php:313
 msgid "<strong>Parent</strong> &mdash; Categories, unlike tags, can have a hierarchy. You might have a Jazz category, and under that have child categories for Bebop and Big Band. Totally optional. To create a subcategory, just choose another category from the Parent dropdown."
 msgstr ""
 
-#: wp-admin/edit-tags.php:313
+#: wp-admin/edit-tags.php:316
 msgid "<strong>Description</strong> &mdash; The description is not prominent by default; however, some themes may display it."
 msgstr ""
 
-#: wp-admin/edit-tags.php:315
+#: wp-admin/edit-tags.php:318
 msgid "You can change the display of this screen using the Screen Options tab to set how many items are displayed per screen and to display/hide columns in the table."
 msgstr ""
 
-#: wp-admin/edit-tags.php:320
+#: wp-admin/edit-tags.php:323
 msgid "Adding Categories"
 msgstr ""
 
-#: wp-admin/edit-tags.php:320
+#: wp-admin/edit-tags.php:323
 msgid "Adding Tags"
 msgstr ""
 
-#: wp-admin/edit-tags.php:328
+#: wp-admin/edit-tags.php:331
 msgid "Post Formats are used by themes for presenting posts in a certain format and style. The Post Formats feature provides a standardized list of formats available to all themes that support the feature."
 msgstr ""
 
-#: wp-admin/edit-tags.php:329
+#: wp-admin/edit-tags.php:332
 msgid "A theme may not support every format on the list; for instance, your current theme supports all the ones that are listed into the table below."
 msgstr ""
 
-#: wp-admin/edit-tags.php:341
+#: wp-admin/edit-tags.php:344
 msgid "Hovering over a row in the Post Formats list will display action links that allow you to manage the corresponding Post Format. You can perform the following actions:"
 msgstr ""
 
-#: wp-admin/edit-tags.php:342
+#: wp-admin/edit-tags.php:345
 msgid "Edit: takes you to the editing screen for that Post Format. You can also reach that screen by clicking on the Post Format name."
 msgstr ""
 
-#: wp-admin/edit-tags.php:343
+#: wp-admin/edit-tags.php:346
 msgid "View: will show you the current list of published posts using the corresponding Post Format on your live site."
 msgstr ""
 
-#: wp-admin/edit-tags.php:348
+#: wp-admin/edit-tags.php:351
 #: wp-admin/edit.php:267
 #: wp-admin/upload.php:374
 #: wp-admin/users.php:93
 msgid "Available Actions"
 msgstr ""
 
+#: wp-admin/edit-tags.php:359
+msgctxt "Post Formats documentation URL"
+msgid "https://retraceur.github.io/administration/manage-post-formats/"
+msgstr ""
+
+#: wp-admin/edit-tags.php:359
+msgid "Documentation on managing Post Formats"
+msgstr ""
+
 #. translators: %s: Search query.
-#: wp-admin/edit-tags.php:370
+#: wp-admin/edit-tags.php:382
 #: wp-admin/edit.php:409
-#: wp-admin/plugins.php:900
+#: wp-admin/plugins.php:932
 #: wp-admin/upload.php:420
 #: wp-admin/users.php:801
 msgid "Search results for: %s"
 msgstr ""
 
 #. translators: %s: Default category.
-#: wp-admin/edit-tags.php:642
+#: wp-admin/edit-tags.php:654
 msgid "Deleting a category does not delete the posts in that category. Instead, posts that were only assigned to the deleted category are set to the default category %s. The default category cannot be deleted."
 msgstr ""
 
@@ -1929,7 +1938,7 @@ msgid "Sorry, you are not allowed to delete plugins for this site."
 msgstr ""
 
 #: wp-admin/includes/ajax-actions.php:3614
-#: wp-admin/plugins.php:742
+#: wp-admin/plugins.php:774
 msgid "You cannot delete a plugin while it is active on the main site."
 msgstr ""
 
@@ -4176,12 +4185,12 @@ msgid "Unable to perform command: %s"
 msgstr ""
 
 #: wp-admin/includes/class-wp-list-table.php:170
-#: wp-admin/includes/class-wp-screen.php:1321
+#: wp-admin/includes/class-wp-screen.php:1341
 msgid "Compact view"
 msgstr ""
 
 #: wp-admin/includes/class-wp-list-table.php:171
-#: wp-admin/includes/class-wp-screen.php:1325
+#: wp-admin/includes/class-wp-screen.php:1345
 msgid "Extended view"
 msgstr ""
 
@@ -4202,7 +4211,7 @@ msgid "Select bulk action"
 msgstr ""
 
 #: wp-admin/includes/class-wp-list-table.php:629
-#: wp-admin/includes/class-wp-screen.php:1091
+#: wp-admin/includes/class-wp-screen.php:1111
 msgid "Apply"
 msgstr ""
 
@@ -4577,7 +4586,8 @@ msgid "Featured"
 msgstr ""
 
 #: wp-admin/includes/class-wp-plugin-install-list-table.php:122
-#: wp-admin/plugin-install.php:164
+#: wp-admin/plugin-install.php:150
+#: wp-admin/plugin-install.php:203
 #: wp-admin/update.php:172
 msgid "Upload Plugin"
 msgstr ""
@@ -5695,85 +5705,94 @@ msgstr ""
 msgid "A post ID mismatch has been detected."
 msgstr ""
 
-#: wp-admin/includes/class-wp-screen.php:765
+#: wp-admin/includes/class-wp-screen.php:702
+#: wp-admin/update-core.php:840
+msgid "For more information:"
+msgstr ""
+
+#: wp-admin/includes/class-wp-screen.php:714
+msgid "This method parameter should be an array using documentation URLs as keys and link text as values."
+msgstr ""
+
+#: wp-admin/includes/class-wp-screen.php:785
 msgid "Filter items list"
 msgstr ""
 
-#: wp-admin/includes/class-wp-screen.php:766
+#: wp-admin/includes/class-wp-screen.php:786
 msgid "Items list navigation"
 msgstr ""
 
-#: wp-admin/includes/class-wp-screen.php:767
+#: wp-admin/includes/class-wp-screen.php:787
 msgid "Items list"
 msgstr ""
 
-#: wp-admin/includes/class-wp-screen.php:875
+#: wp-admin/includes/class-wp-screen.php:895
 msgid "Contextual Help Tab"
 msgstr ""
 
-#: wp-admin/includes/class-wp-screen.php:974
+#: wp-admin/includes/class-wp-screen.php:994
 msgid "Screen Options"
 msgstr ""
 
-#: wp-admin/includes/class-wp-screen.php:981
+#: wp-admin/includes/class-wp-screen.php:1001
 msgid "Help"
 msgstr ""
 
-#: wp-admin/includes/class-wp-screen.php:1007
+#: wp-admin/includes/class-wp-screen.php:1027
 msgid "Additional settings"
 msgstr ""
 
-#: wp-admin/includes/class-wp-screen.php:1009
+#: wp-admin/includes/class-wp-screen.php:1029
 msgid "Enable full-height editor and distraction-free functionality."
 msgstr ""
 
-#: wp-admin/includes/class-wp-screen.php:1066
+#: wp-admin/includes/class-wp-screen.php:1086
 msgid "Screen Options Tab"
 msgstr ""
 
-#: wp-admin/includes/class-wp-screen.php:1112
+#: wp-admin/includes/class-wp-screen.php:1132
 msgid "Screen elements"
 msgstr ""
 
-#: wp-admin/includes/class-wp-screen.php:1114
+#: wp-admin/includes/class-wp-screen.php:1134
 msgid "Some screen elements can be shown or hidden by using the checkboxes."
 msgstr ""
 
-#: wp-admin/includes/class-wp-screen.php:1115
+#: wp-admin/includes/class-wp-screen.php:1135
 msgid "Expand or collapse the elements by clicking on their headings, and arrange them by dragging their headings or by clicking on the up and down arrows."
 msgstr ""
 
-#: wp-admin/includes/class-wp-screen.php:1134
+#: wp-admin/includes/class-wp-screen.php:1154
 msgctxt "Welcome panel"
 msgid "Welcome"
 msgstr ""
 
-#: wp-admin/includes/class-wp-screen.php:1156
+#: wp-admin/includes/class-wp-screen.php:1176
 msgid "Columns"
 msgstr ""
 
-#: wp-admin/includes/class-wp-screen.php:1201
+#: wp-admin/includes/class-wp-screen.php:1221
 #: wp-admin/includes/theme.php:352
 #: wp-admin/index.php:72
 msgid "Layout"
 msgstr ""
 
 #. translators: %s: Number of columns on the page.
-#: wp-admin/includes/class-wp-screen.php:1208
+#: wp-admin/includes/class-wp-screen.php:1228
 msgid "%s column"
 msgid_plural "%s columns"
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-admin/includes/class-wp-screen.php:1230
+#: wp-admin/includes/class-wp-screen.php:1250
 msgid "Number of items per page:"
 msgstr ""
 
-#: wp-admin/includes/class-wp-screen.php:1265
+#: wp-admin/includes/class-wp-screen.php:1285
 msgid "Pagination"
 msgstr ""
 
-#: wp-admin/includes/class-wp-screen.php:1318
+#: wp-admin/includes/class-wp-screen.php:1338
 msgid "View mode"
 msgstr ""
 
@@ -11131,11 +11150,13 @@ msgid "Installed Plugins"
 msgstr ""
 
 #: wp-admin/menu.php:207
-#: wp-admin/plugins.php:891
+#: wp-admin/plugins.php:923
 msgid "Add Plugin"
 msgstr ""
 
 #: wp-admin/menu.php:212
+#: wp-admin/plugin-install.php:126
+#: wp-admin/plugin-install.php:133
 msgid "Blocks"
 msgstr ""
 
@@ -11144,7 +11165,7 @@ msgid "Installed Blocks"
 msgstr ""
 
 #: wp-admin/menu.php:217
-#: wp-admin/plugins.php:887
+#: wp-admin/plugins.php:919
 msgid "Add Block"
 msgstr ""
 
@@ -12291,61 +12312,114 @@ msgctxt "block install page title"
 msgid "Add Blocks"
 msgstr ""
 
-#: wp-admin/plugin-install.php:121
-msgid "Plugins hook into Retraceur to extend its functionality with custom features. Plugins are developed independently from the core Retraceur application by thousands of developers all over the world."
+#: wp-admin/plugin-install.php:118
+msgid "Blocks are pieces of content of a post, page or template of your site."
 msgstr ""
 
-#: wp-admin/plugin-install.php:122
-msgid "You can find new plugins to install by searching or browsing the directory right here in your own Plugins section."
+#: wp-admin/plugin-install.php:120
+msgid "Plugins hook into Retraceur to extend its functionality with custom features."
 msgstr ""
 
-#: wp-admin/plugin-install.php:122
-#: wp-admin/plugins.php:661
+#. Translators: %s is the capitalized plural form of the plugin type (Blocks or Plugins).
+#: wp-admin/plugin-install.php:125
+msgid "%s are developed independently from the core Retraceur application by thousands of developers all over the world."
+msgstr ""
+
+#: wp-admin/plugin-install.php:126
+#: wp-admin/plugin-install.php:133
+#: wp-admin/plugins.php:21
+#: wp-admin/update-core.php:307
+#: wp-admin/update-core.php:326
+msgid "Plugins"
+msgstr ""
+
+#. Translators: 1: is the plural form of the plugin type (blocks or plugins). 2: is the same form but capitalized (Blocks or Plugins).
+#: wp-admin/plugin-install.php:131
+msgid "You can find new %1$s to install by searching or browsing the directory right here in your own %2$s section."
+msgstr ""
+
+#: wp-admin/plugin-install.php:132
+#: wp-admin/plugin-install.php:151
+#: wp-admin/plugins.php:665
+#: wp-admin/update.php:158
+msgid "blocks"
+msgstr ""
+
+#: wp-admin/plugin-install.php:132
+#: wp-admin/plugin-install.php:151
+#: wp-admin/plugins.php:665
+#: wp-admin/update.php:158
+msgid "plugins"
+msgstr ""
+
+#: wp-admin/plugin-install.php:136
+#: wp-admin/plugins.php:667
 #: wp-admin/theme-install.php:105
 #: wp-admin/themes.php:140
 msgid "The search results will be updated as you type."
 msgstr ""
 
-#: wp-admin/plugin-install.php:129
-msgid "Adding Plugins"
+#. Translators: 1. is the singular form of the plugin type (block or plugin). 2. is the text of the Upload Plugin/Block button. 3. is the plural form of the plugin type (blocks or plugins).
+#: wp-admin/plugin-install.php:148
+msgid "If you want to install a %1$s that you’ve downloaded elsewhere, click the \"%2$s\" button above the %3$s list. You will be prompted to upload the .zip package, and once uploaded, you can activate the new %1$s."
 msgstr ""
 
-#: wp-admin/plugin-install.php:131
-msgid "If you want to install a plugin that you&#8217;ve downloaded elsewhere, click the Upload Plugin button above the plugins list. You will be prompted to upload the .zip package, and once uploaded, you can activate the new plugin."
-msgstr ""
-
-#: wp-admin/plugin-install.php:137
-#: wp-admin/plugins.php:693
-msgid "Filter plugins list"
-msgstr ""
-
-#: wp-admin/plugin-install.php:138
-#: wp-admin/plugins.php:694
-msgid "Plugins list navigation"
-msgstr ""
-
-#: wp-admin/plugin-install.php:139
+#: wp-admin/plugin-install.php:149
+#: wp-admin/plugins.php:681
 #: wp-admin/plugins.php:695
-msgid "Plugins list"
+msgid "block"
 msgstr ""
 
-#: wp-admin/plugin-install.php:164
+#: wp-admin/plugin-install.php:149
+#: wp-admin/plugins.php:681
+#: wp-admin/plugins.php:695
+msgid "plugin"
+msgstr ""
+
+#: wp-admin/plugin-install.php:150
+#: wp-admin/plugin-install.php:203
 #: wp-admin/update.php:177
 msgid "Upload Block"
 msgstr ""
 
-#: wp-admin/plugin-install.php:165
+#: wp-admin/plugin-install.php:158
+msgid "Adding Blocks"
+msgstr ""
+
+#: wp-admin/plugin-install.php:158
+msgid "Adding Plugins"
+msgstr ""
+
+#: wp-admin/plugin-install.php:167
+msgctxt "Block installation docs link"
+msgid "https://retraceur.github.io/administration/manage-blocks/"
+msgstr ""
+
+#: wp-admin/plugin-install.php:167
+msgid "Documentation on installing/updating a block"
+msgstr ""
+
+#: wp-admin/plugin-install.php:176
+#: wp-admin/plugins.php:725
+msgid "Filter plugins list"
+msgstr ""
+
+#: wp-admin/plugin-install.php:177
+#: wp-admin/plugins.php:726
+msgid "Plugins list navigation"
+msgstr ""
+
+#: wp-admin/plugin-install.php:178
+#: wp-admin/plugins.php:727
+msgid "Plugins list"
+msgstr ""
+
+#: wp-admin/plugin-install.php:204
 msgid "Browse Blocks"
 msgstr ""
 
-#: wp-admin/plugin-install.php:165
+#: wp-admin/plugin-install.php:204
 msgid "Browse Plugins"
-msgstr ""
-
-#: wp-admin/plugins.php:21
-#: wp-admin/update-core.php:307
-#: wp-admin/update-core.php:326
-msgid "Plugins"
 msgstr ""
 
 #: wp-admin/plugins.php:31
@@ -12507,199 +12581,206 @@ msgstr ""
 msgid "Please connect to your network admin to manage plugins automatic updates."
 msgstr ""
 
-#: wp-admin/plugins.php:660
+#: wp-admin/plugins.php:657
+msgid "Blocks are pieces of content of a post, page or template of your site. Once a block is installed, you may activate it or deactivate it here."
+msgstr ""
+
+#: wp-admin/plugins.php:659
 msgid "Plugins extend and expand the functionality of Retraceur. Once a plugin is installed, you may activate it or deactivate it here."
 msgstr ""
 
-#: wp-admin/plugins.php:661
-msgid "The search for installed plugins will search for terms in their name, description, or author."
+#. Translators: %s is the plural form of the plugin type (blocks or plugins).
+#: wp-admin/plugins.php:664
+msgid "The search for installed %s will search for terms in their name, description, or author."
 msgstr ""
 
-#: wp-admin/plugins.php:667
+#: wp-admin/plugins.php:677
+msgid "Most of the time, plugins and blocks play nicely with the core of Retraceur and with other plugins and blocks. Sometimes, though, a plugin or block’s code will get in the way of another plugin or block, causing compatibility issues. If your site starts doing strange things, this may be the problem. Try deactivating all your plugins and blocks and re-activating them in various combinations until you isolate which one(s) caused the issue."
+msgstr ""
+
+#. Translators: 1: is the singular form of the plugin type (block or plugin). 2: WP_PLUGIN_DIR constant value.
+#: wp-admin/plugins.php:680
+msgid "If something goes wrong with a %1$s and you cannot use Retraceur, delete or rename that file in the %2$s directory and it will be automatically deactivated."
+msgstr ""
+
+#: wp-admin/plugins.php:689
 msgid "Troubleshooting"
 msgstr ""
 
-#: wp-admin/plugins.php:669
-msgid "Most of the time, plugins play nicely with the core of Retraceur and with other plugins. Sometimes, though, a plugin&#8217;s code will get in the way of another plugin, causing compatibility issues. If your site starts doing strange things, this may be the problem. Try deactivating all your plugins and re-activating them in various combinations until you isolate which one(s) caused the issue."
+#: wp-admin/plugins.php:697
+msgid "Plugin or Block Dependencies aims to make the process of installing and activating add-ons (dependents) and the plugins or blocks they rely on (dependencies) consistent and easy."
 msgstr ""
 
-#. translators: %s: WP_PLUGIN_DIR constant value.
-#: wp-admin/plugins.php:672
-msgid "If something goes wrong with a plugin and you cannot use Retraceur, delete or rename that file in the %s directory and it will be automatically deactivated."
+#. Translators: 1: is the singular form of the plugin type (block or plugin). 2: is the capitalised singular form of the plugin type (Block or Plugin).
+#: wp-admin/plugins.php:700
+msgid "If a required %1$s is deleted, a notice will be displayed on the %2$s administration screen informing the contributor that there is some missing dependencies to install and/or activate. Additionally, each %1$s whose dependencies are not met will have an error notice on their %1$s row."
 msgstr ""
 
-#: wp-admin/plugins.php:682
+#. Translators: %s: is the singular form of the plugin type (block or plugin).
+#: wp-admin/plugins.php:707
+msgid "If a dependent %s is missing some dependencies, its activation button will be disabled until the required dependencies are activated."
+msgstr ""
+
+#: wp-admin/plugins.php:715
 msgid "Dependencies"
 msgstr ""
 
-#: wp-admin/plugins.php:684
-msgid "Plugin Dependencies aims to make the process of installing and activating add-ons (dependents) and the plugins they rely on (dependencies) consistent and easy."
-msgstr ""
-
-#: wp-admin/plugins.php:685
-msgid "If a required plugin is deleted, a notice will be displayed on the Plugin administration screen informing the contributor that there is some missing dependencies to install and/or activate. Additionally, each plugin whose dependencies are not met will have an error notice on their plugin row."
-msgstr ""
-
-#: wp-admin/plugins.php:686
-msgid "If a dependent plugin is missing some dependencies, its activation button will be disabled until the required dependencies are activated."
-msgstr ""
-
 #. translators: 1: Plugin file, 2: Error message.
-#: wp-admin/plugins.php:707
+#: wp-admin/plugins.php:739
 msgid "The block %1$s has been deactivated due to an error: %2$s"
 msgstr ""
 
 #. translators: 1: Plugin file, 2: Error message.
-#: wp-admin/plugins.php:714
+#: wp-admin/plugins.php:746
 msgid "The plugin %1$s has been deactivated due to an error: %2$s"
 msgstr ""
 
-#: wp-admin/plugins.php:740
+#: wp-admin/plugins.php:772
 msgid "You cannot delete a block while it is active on the main site."
 msgstr ""
 
 #. translators: %d: Number of characters.
-#: wp-admin/plugins.php:748
+#: wp-admin/plugins.php:780
 msgid "The block generated %d character of <strong>unexpected output</strong> during activation."
 msgid_plural "The block generated %d characters of <strong>unexpected output</strong> during activation."
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-admin/plugins.php:756
-#: wp-admin/plugins.php:768
+#: wp-admin/plugins.php:788
+#: wp-admin/plugins.php:800
 msgid "If you notice &#8220;headers already sent&#8221; messages, problems with syndication feeds or other issues, try deactivating or removing this plugin."
 msgstr ""
 
 #. translators: %d: Number of characters.
-#: wp-admin/plugins.php:760
+#: wp-admin/plugins.php:792
 msgid "The plugin generated %d character of <strong>unexpected output</strong> during activation."
 msgid_plural "The plugin generated %d characters of <strong>unexpected output</strong> during activation."
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-admin/plugins.php:772
+#: wp-admin/plugins.php:804
 msgid "Block could not be resumed because it triggered a <strong>fatal error</strong>."
 msgstr ""
 
-#: wp-admin/plugins.php:774
+#: wp-admin/plugins.php:806
 msgid "Plugin could not be resumed because it triggered a <strong>fatal error</strong>."
 msgstr ""
 
-#: wp-admin/plugins.php:778
+#: wp-admin/plugins.php:810
 msgid "Block could not be activated because it triggered a <strong>fatal error</strong>."
 msgstr ""
 
-#: wp-admin/plugins.php:780
+#: wp-admin/plugins.php:812
 msgid "Plugin could not be activated because it triggered a <strong>fatal error</strong>."
 msgstr ""
 
 #. translators: %s: Error message.
-#: wp-admin/plugins.php:816
+#: wp-admin/plugins.php:848
 msgid "Block could not be deleted due to an error: %s"
 msgstr ""
 
 #. translators: %s: Error message.
-#: wp-admin/plugins.php:822
+#: wp-admin/plugins.php:854
 msgid "Plugin could not be deleted due to an error: %s"
 msgstr ""
 
-#: wp-admin/plugins.php:838
+#: wp-admin/plugins.php:870
 msgid "The selected block has been deleted."
 msgstr ""
 
-#: wp-admin/plugins.php:840
+#: wp-admin/plugins.php:872
 msgid "The selected plugin has been deleted."
 msgstr ""
 
-#: wp-admin/plugins.php:844
+#: wp-admin/plugins.php:876
 msgid "The selected blocks has been deleted."
 msgstr ""
 
-#: wp-admin/plugins.php:846
+#: wp-admin/plugins.php:878
 msgid "The selected plugins has been deleted."
 msgstr ""
 
-#: wp-admin/plugins.php:852
+#: wp-admin/plugins.php:884
 msgid "Block activated."
 msgstr ""
 
-#: wp-admin/plugins.php:852
+#: wp-admin/plugins.php:884
 msgid "Plugin activated."
 msgstr ""
 
-#: wp-admin/plugins.php:854
+#: wp-admin/plugins.php:886
 msgid "Selected blocks activated."
 msgstr ""
 
-#: wp-admin/plugins.php:854
+#: wp-admin/plugins.php:886
 msgid "Selected plugins activated."
 msgstr ""
 
-#: wp-admin/plugins.php:856
+#: wp-admin/plugins.php:888
 msgid "Block deactivated."
 msgstr ""
 
-#: wp-admin/plugins.php:856
+#: wp-admin/plugins.php:888
 msgid "Plugin deactivated."
 msgstr ""
 
-#: wp-admin/plugins.php:858
+#: wp-admin/plugins.php:890
 msgid "Selected blocks deactivated."
 msgstr ""
 
-#: wp-admin/plugins.php:858
+#: wp-admin/plugins.php:890
 msgid "Selected plugins deactivated."
 msgstr ""
 
-#: wp-admin/plugins.php:860
+#: wp-admin/plugins.php:892
 msgid "All selected blocks are up to date."
 msgstr ""
 
-#: wp-admin/plugins.php:860
+#: wp-admin/plugins.php:892
 msgid "All selected plugins are up to date."
 msgstr ""
 
-#: wp-admin/plugins.php:862
+#: wp-admin/plugins.php:894
 msgid "Block resumed."
 msgstr ""
 
-#: wp-admin/plugins.php:862
+#: wp-admin/plugins.php:894
 msgid "Plugin resumed."
 msgstr ""
 
-#: wp-admin/plugins.php:864
+#: wp-admin/plugins.php:896
 msgid "Block will be auto-updated."
 msgstr ""
 
-#: wp-admin/plugins.php:864
+#: wp-admin/plugins.php:896
 msgid "Plugin will be auto-updated."
 msgstr ""
 
-#: wp-admin/plugins.php:866
+#: wp-admin/plugins.php:898
 msgid "Block will no longer be auto-updated."
 msgstr ""
 
-#: wp-admin/plugins.php:866
+#: wp-admin/plugins.php:898
 msgid "Plugin will no longer be auto-updated."
 msgstr ""
 
-#: wp-admin/plugins.php:868
+#: wp-admin/plugins.php:900
 msgid "Selected blocks will be auto-updated."
 msgstr ""
 
-#: wp-admin/plugins.php:868
+#: wp-admin/plugins.php:900
 msgid "Selected plugins will be auto-updated."
 msgstr ""
 
-#: wp-admin/plugins.php:870
+#: wp-admin/plugins.php:902
 msgid "Selected blocks will no longer be auto-updated."
 msgstr ""
 
-#: wp-admin/plugins.php:929
+#: wp-admin/plugins.php:961
 msgid "Search installed blocks"
 msgstr ""
 
-#: wp-admin/plugins.php:929
+#: wp-admin/plugins.php:961
 msgid "Search installed plugins"
 msgstr ""
 
@@ -13945,10 +14026,6 @@ msgstr ""
 msgid "How to Update"
 msgstr ""
 
-#: wp-admin/update-core.php:840
-msgid "For more information:"
-msgstr ""
-
 #. translators: %s: Link to the documentation site.
 #: wp-admin/update-core.php:843
 msgid "<a href=\"%s\">Documentation on manual upgrades</a>"
@@ -14018,14 +14095,6 @@ msgstr ""
 #. Translators: %s: The plugin type's plural name.
 #: wp-admin/update.php:157
 msgid "Sorry, you are not allowed to install %s on this site."
-msgstr ""
-
-#: wp-admin/update.php:158
-msgid "blocks"
-msgstr ""
-
-#: wp-admin/update.php:158
-msgid "plugins"
 msgstr ""
 
 #: wp-admin/update.php:166
