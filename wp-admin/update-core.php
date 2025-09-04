@@ -836,14 +836,11 @@ get_current_screen()->add_help_tab(
 	)
 );
 
-get_current_screen()->set_help_sidebar(
-	'<p><strong>' . __( 'For more information:' ) . '</strong></p>' .
-	'<p>' . sprintf(
-		/* translators: %s: Link to the documentation site. */
-		__( '<a href="%s">Documentation on manual upgrades</a>' ),
-		esc_url( _x( 'https://retraceur.github.io/getting-started/upgrade/', 'Documentation site link' ) )
-	) . '</p>'
+$help_sidebar = array(
+	_x( 'https://retraceur.github.io/getting-started/upgrade/', 'Documentation site URL' ) => __( 'Documentation on manual upgrades' ),
 );
+
+get_current_screen()->set_help_sidebar( $help_sidebar );
 
 if ( 'upgrade-core' === $action ) {
 	// Force an update check when requested.
