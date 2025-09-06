@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-09-03T20:06:33+00:00\n"
+"POT-Creation-Date: 2025-09-06T07:54:08+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 
@@ -308,7 +308,7 @@ msgstr ""
 #: wp-admin/includes/schema.php:308
 #: wp-admin/options-general.php:413
 #: wp-admin/options-general.php:445
-#: wp-admin/update-core.php:908
+#: wp-admin/update-core.php:905
 msgid "F j, Y"
 msgstr ""
 
@@ -2843,7 +2843,7 @@ msgstr ""
 
 #: wp-admin/includes/class-language-pack-upgrader-skin.php:39
 #: wp-admin/update-core.php:627
-#: wp-admin/update-core.php:1094
+#: wp-admin/update-core.php:1091
 msgid "Update Translations"
 msgstr ""
 
@@ -3075,8 +3075,8 @@ msgid "Update Plugin"
 msgstr ""
 
 #: wp-admin/includes/class-plugin-upgrader-skin.php:87
-#: wp-admin/update-core.php:1020
-#: wp-admin/update-core.php:1066
+#: wp-admin/update-core.php:1017
+#: wp-admin/update-core.php:1063
 msgid "Update progress"
 msgstr ""
 
@@ -5706,7 +5706,6 @@ msgid "A post ID mismatch has been detected."
 msgstr ""
 
 #: wp-admin/includes/class-wp-screen.php:702
-#: wp-admin/update-core.php:840
 msgid "For more information:"
 msgstr ""
 
@@ -12452,8 +12451,8 @@ msgstr ""
 #: wp-admin/plugins.php:191
 #: wp-admin/update-core.php:334
 #: wp-admin/update-core.php:456
-#: wp-admin/update-core.php:1014
-#: wp-admin/update-core.php:1019
+#: wp-admin/update-core.php:1011
+#: wp-admin/update-core.php:1016
 msgid "Update Plugins"
 msgstr ""
 
@@ -13809,10 +13808,10 @@ msgid "Use the Erase Personal Data tool to delete a member’s personal data upo
 msgstr ""
 
 #: wp-admin/update-core.php:25
-#: wp-admin/update-core.php:955
-#: wp-admin/update-core.php:996
-#: wp-admin/update-core.php:1042
-#: wp-admin/update-core.php:1084
+#: wp-admin/update-core.php:952
+#: wp-admin/update-core.php:993
+#: wp-admin/update-core.php:1039
+#: wp-admin/update-core.php:1081
 msgid "Sorry, you are not allowed to update this site."
 msgstr ""
 
@@ -13945,8 +13944,8 @@ msgstr ""
 
 #: wp-admin/update-core.php:495
 #: wp-admin/update-core.php:597
-#: wp-admin/update-core.php:1060
-#: wp-admin/update-core.php:1065
+#: wp-admin/update-core.php:1057
+#: wp-admin/update-core.php:1062
 msgid "Update Themes"
 msgstr ""
 
@@ -14002,7 +14001,7 @@ msgid "Welcome to Retraceur %1$s. <a href=\"%2$s\">Learn more</a>."
 msgstr ""
 
 #: wp-admin/update-core.php:809
-#: wp-admin/update-core.php:856
+#: wp-admin/update-core.php:853
 msgid "Retraceur Updates"
 msgstr ""
 
@@ -14026,52 +14025,51 @@ msgstr ""
 msgid "How to Update"
 msgstr ""
 
-#. translators: %s: Link to the documentation site.
-#: wp-admin/update-core.php:843
-msgid "<a href=\"%s\">Documentation on manual upgrades</a>"
+#: wp-admin/update-core.php:840
+msgctxt "Documentation site URL"
+msgid "https://retraceur.github.io/administration/manage-updates/"
 msgstr ""
 
-#: wp-admin/update-core.php:844
-msgctxt "Documentation site link"
-msgid "https://retraceur.github.io/getting-started/upgrade/"
+#: wp-admin/update-core.php:840
+msgid "Documentation on managing updates"
 msgstr ""
 
 #. translators: Current version of Retraceur.
-#: wp-admin/update-core.php:899
+#: wp-admin/update-core.php:896
 msgid "Current version: %s"
 msgstr ""
 
 #. translators: 1: Date, 2: Time.
-#: wp-admin/update-core.php:906
+#: wp-admin/update-core.php:903
 msgid "Last checked on %1$s at %2$s."
 msgstr ""
 
 #. translators: Last update time format, see https://www.php.net/manual/datetime.format.php
-#: wp-admin/update-core.php:910
+#: wp-admin/update-core.php:907
 msgid "g:i a T"
 msgstr ""
 
-#: wp-admin/update-core.php:912
+#: wp-admin/update-core.php:909
 msgid "Check again."
 msgstr ""
 
-#: wp-admin/update-core.php:990
+#: wp-admin/update-core.php:987
 msgid "Retraceur does not provide an API to update plugins yet."
 msgstr ""
 
-#: wp-admin/update-core.php:991
+#: wp-admin/update-core.php:988
 msgid "You can always go to the Plugin’s \"Add new\" screen to upload and replace outdated packages."
 msgstr ""
 
-#: wp-admin/update-core.php:1036
+#: wp-admin/update-core.php:1033
 msgid "Retraceur does not provide an API to update themes yet."
 msgstr ""
 
-#: wp-admin/update-core.php:1037
+#: wp-admin/update-core.php:1034
 msgid "You can always go to the Theme’s \"Add new\" screen to upload and replace outdated packages."
 msgstr ""
 
-#: wp-admin/update-core.php:1081
+#: wp-admin/update-core.php:1078
 msgid "Retraceur does not provide an API to update languages yet."
 msgstr ""
 
