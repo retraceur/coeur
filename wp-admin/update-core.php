@@ -837,7 +837,7 @@ get_current_screen()->add_help_tab(
 );
 
 $help_sidebar = array(
-	_x( 'https://retraceur.github.io/getting-started/upgrade/', 'Documentation site URL' ) => __( 'Documentation on manual upgrades' ),
+	_x( 'https://retraceur.github.io/administration/manage-updates/', 'Documentation site URL' ) => __( 'Documentation on managing updates' ),
 );
 
 get_current_screen()->set_help_sidebar( $help_sidebar );
