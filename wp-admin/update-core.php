@@ -46,21 +46,13 @@ function retraceur_list_update( $update ) {
 	$form_action   = 'update-core.php?action=do-core-upgrade';
 	$php_version   = PHP_VERSION;
 	$mysql_version = $wpdb->db_version();
-
-	/**
-	 * Filter to opt-in for Coeur "direct" updates (still in beta).
-	 *
-	 * @since 2.0.0 Retraceur fork.
-	 *
-	 * @param boolean $test True to test "direct" updates. False otherwise.
-	 */
-	$show_buttons = apply_filters( 'retraceur_betatest_direct_updates', false );
-	$submit       = sprintf(
+	$show_buttons  = true;
+	$submit        = sprintf(
 		/* translators: %s: Version number. */
 		__( 'Update to version %s' ),
 		$version_string
 	);
-	$link_text    = sprintf(
+	$link_text     = sprintf(
 		/* translators: %s: Version number. */
 		__( 'Download & upgrade to version %s' ),
 		$version_string
