@@ -113,25 +113,13 @@ if ( 'upload' !== $tab ) {
 	do_action( 'install_plugins_pre_upload' );
 }
 
-$help = '<p>';
 if ( 'block' === $plugin_type ) {
-	$help .= esc_html__( 'Blocks are pieces of content of a post, page or template of your site.' );
+	$help  = '<p>' . esc_html__( 'Blocks are pieces of content of a post, page or template of your site. Blocks are developed independently from the core Retraceur application by thousands of developers all over the world.' ) . '</p>';
+	$help .= '<p>' . esc_html__( 'You can find new blocks to install by searching or browsing the directory right here in your own blocks section.' );
 } else {
-	$help .= esc_html__( 'Plugins hook into Retraceur to extend its functionality with custom features.' );
+	$help  = '<p>' . esc_html__( 'Plugins hook into Retraceur to extend its functionality with custom features. Plugins are developed independently from the core Retraceur application by thousands of developers all over the world.' ) . '</p>';
+	$help .= '<p>' . esc_html__( 'You can find new plugins to install by searching or browsing the directory right here in your own plugins section.' );
 }
-
-$help .= ' ' . sprintf(
-	/* Translators: %s is the capitalized plural form of the plugin type (Blocks or Plugins). */
-	esc_html__( '%s are developed independently from the core Retraceur application by thousands of developers all over the world.' ),
-	'block' === $plugin_type ? esc_html__( 'Blocks' ) : esc_html__( 'Plugins' )
-);
-
-$help .= '</p><p>' . sprintf(
-	/* Translators: 1: is the plural form of the plugin type (blocks or plugins). 2: is the same form but capitalized (Blocks or Plugins). */
-	esc_html__( 'You can find new %1$s to install by searching or browsing the directory right here in your own %2$s section.' ),
-	'block' === $plugin_type ? esc_html__( 'blocks' ) : esc_html__( 'plugins' ),
-	'block' === $plugin_type ? esc_html__( 'Blocks' ) : esc_html__( 'Plugins' ),
-);
 
 $help .= ' <span id="live-search-desc" class="hide-if-no-js">' . __( 'The search results will be updated as you type.' ) . '</span></p>';
 
@@ -143,24 +131,23 @@ get_current_screen()->add_help_tab(
 	)
 );
 
-$help  = '<p>' . sprintf(
-	/* Translators: 1. is the singular form of the plugin type (block or plugin). 2. is the text of the Upload Plugin/Block button. 3. is the plural form of the plugin type (blocks or plugins). */
-	esc_html__( 'If you want to install a %1$s that you’ve downloaded elsewhere, click the "%2$s" button above the %3$s list. You will be prompted to upload the .zip package, and once uploaded, you can activate the new %1$s.' ),
-	'block' === $plugin_type ? esc_html__( 'block' ) : esc_html__( 'plugin' ),
-	'block' === $plugin_type ? esc_html__( 'Upload Block' ) : esc_html__( 'Upload Plugin' ),
-	'block' === $plugin_type ? esc_html__( 'blocks' ) : esc_html__( 'plugins' )
-);
-$help .= '</p>';
+if ( 'block' === $plugin_type ) {
+	$tab_title = esc_html__( 'Adding Blocks' );
+	$help      = '<p>' . esc_html__( 'If you want to install a block that you’ve downloaded elsewhere, click the "Upload Block" button above the blocks list. You will be prompted to upload the .zip package, and once uploaded, you can activate the new block.' ) . '</p>';
+} else {
+	$tab_title = esc_html__( 'Adding Plugins' );
+	$help      = '<p>' . esc_html__( 'If you want to install a plugin that you’ve downloaded elsewhere, click the "Upload Plugin" button above the %3$s list. You will be prompted to upload the .zip package, and once uploaded, you can activate the new plugins.' ) . '</p>';
+}
 
 get_current_screen()->add_help_tab(
 	array(
 		'id'      => 'adding-plugins',
-		'title'   => 'block' === $plugin_type ? esc_html__( 'Adding Blocks' ) : esc_html__( 'Adding Plugins' ),
+		'title'   => $tab_title,
 		'content' => $help,
 	)
 );
 
-unset( $help );
+unset( $tab_title, $help );
 
 if ( 'block' === $plugin_type ) {
 	$help_sidebar = array(

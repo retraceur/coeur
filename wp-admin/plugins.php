@@ -652,18 +652,14 @@ add_thickbox();
 
 add_screen_option( 'per_page', array( 'default' => 999 ) );
 
-$help = '<p>';
 if ( 'block' === $plugins_type ) {
-	$help .= esc_html__( 'Blocks are pieces of content of a post, page or template of your site. Once a block is installed, you may activate it or deactivate it here.' );
+	$help  = '<p>' . esc_html__( 'Blocks are pieces of content of a post, page or template of your site. Once a block is installed, you may activate it or deactivate it here.' ) . '</p>';
+	$help .= '<p>' . esc_html__( 'The search for installed blocks will search for terms in their name, description, or author.' );
 } else {
-	$help .= esc_html__( 'Plugins extend and expand the functionality of Retraceur. Once a plugin is installed, you may activate it or deactivate it here.' );
+	$help  = '<p>' . esc_html__( 'Plugins extend and expand the functionality of Retraceur. Once a plugin is installed, you may activate it or deactivate it here.' );
+	$help .= '<p>' . esc_html__( 'The search for installed plugins will search for terms in their name, description, or author.' );
 }
 
-$help .= '</p><p>' . sprintf(
-	/* Translators: %s is the plural form of the plugin type (blocks or plugins). */
-	esc_html__( 'The search for installed %s will search for terms in their name, description, or author.' ),
-	'block' === $plugins_type ? esc_html__( 'blocks' ) : esc_html__( 'plugins' )
-);
 $help .= ' <span id="live-search-desc" class="hide-if-no-js">' . __( 'The search results will be updated as you type.' ) . '</span></p>';
 
 get_current_screen()->add_help_tab(
@@ -674,11 +670,17 @@ get_current_screen()->add_help_tab(
 	)
 );
 
-$help  = '<p>' . esc_html__( 'Most of the time, plugins and blocks play nicely with the core of Retraceur and with other plugins and blocks. Sometimes, though, a plugin or block’s code will get in the way of another plugin or block, causing compatibility issues. If your site starts doing strange things, this may be the problem. Try deactivating all your plugins and blocks and re-activating them in various combinations until you isolate which one(s) caused the issue.' ) . '</p>';
-$help .= '<p>' . sprintf(
-	/* Translators: 1: is the singular form of the plugin type (block or plugin). 2: WP_PLUGIN_DIR constant value. */
-	esc_html__( 'If something goes wrong with a %1$s and you cannot use Retraceur, delete or rename that file in the %2$s directory and it will be automatically deactivated.' ),
-	'block' === $plugins_type ? esc_html__( 'block' ) : esc_html__( 'plugin' ),
+$help  = '<p>' . esc_html__( 'Most of the time, plugins and blocks play nicely with the core of Retraceur and with other plugins and blocks. Sometimes, though, the code of a plugin or a block will get in the way the code of another plugin or block, causing compatibility issues. If your site starts doing strange things, this may be the problem. Try deactivating all your plugins and blocks and re-activating them in various combinations until you isolate which one(s) caused the issue.' ) . '</p>';
+
+if ( 'block' === $plugins_type ) {
+	$help .= '<p>' . esc_html__( 'If something goes wrong with a block and you cannot use Retraceur:' );
+} else {
+	$help .= '<p>' . esc_html__( 'If something goes wrong with a plugin and you cannot use Retraceur:' );
+}
+
+$help .= ' ' . sprintf(
+	/* Translators: %s: WP_PLUGIN_DIR constant value. */
+	esc_html__( 'delete or rename that file in the %s directory and it will be automatically deactivated.' ),
 	'<code>' . WP_PLUGIN_DIR . '</code>'
 );
 $help .= '</p>';
@@ -692,22 +694,15 @@ get_current_screen()->add_help_tab(
 );
 
 if ( current_user_can( 'install_plugins' ) ) {
-	$deps_type = 'block' === $plugins_type ? esc_html__( 'block' ) : esc_html__( 'plugin' );
-
 	$help  = '<p>' . esc_html__( 'Plugin or Block Dependencies aims to make the process of installing and activating add-ons (dependents) and the plugins or blocks they rely on (dependencies) consistent and easy.' ) . '</p>';
-	$help .= '<p>' . sprintf(
-		/* Translators: 1: is the singular form of the plugin type (block or plugin). 2: is the capitalised singular form of the plugin type (Block or Plugin). */
-		esc_html__( 'If a required %1$s is deleted, a notice will be displayed on the %2$s administration screen informing the contributor that there is some missing dependencies to install and/or activate. Additionally, each %1$s whose dependencies are not met will have an error notice on their %1$s row.' ),
-		$deps_type,
-		ucfirst( $deps_type )
-	);
-	$help .= '</p>';
-	$help .= '<p>' . sprintf(
-		/* Translators: %s: is the singular form of the plugin type (block or plugin). */
-		esc_html__( 'If a dependent %s is missing some dependencies, its activation button will be disabled until the required dependencies are activated.' ),
-		$deps_type
-	);
-	$help .= '</p>';
+
+	if ( 'block' === $plugins_type ) {
+		$help .= '<p>' . esc_html__( 'If a required block is deleted, a notice will be displayed on the Block administration screen informing the contributor that there is some missing dependencies to install and/or activate. Additionally, each block whose dependencies are not met will have an error notice on their block row.' ) . '</p>';
+		$help .= '<p>' . esc_html__( 'If a dependent block is missing some dependencies, its activation button will be disabled until the required dependencies are activated.' ) . '</p>';
+	} else {
+		$help .= '<p>' . esc_html__( 'If a required plugin is deleted, a notice will be displayed on the Plugin administration screen informing the contributor that there is some missing dependencies to install and/or activate. Additionally, each plugin whose dependencies are not met will have an error notice on their plugin row.' ) . '</p>';
+		$help .= '<p>' . esc_html__( 'If a dependent plugin is missing some dependencies, its activation button will be disabled until the required dependencies are activated.' ) . '</p>';
+	}
 
 	get_current_screen()->add_help_tab(
 		array(
