@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-09-06T07:54:08+00:00\n"
+"POT-Creation-Date: 2025-09-13T01:48:23+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 
@@ -308,7 +308,7 @@ msgstr ""
 #: wp-admin/includes/schema.php:308
 #: wp-admin/options-general.php:413
 #: wp-admin/options-general.php:445
-#: wp-admin/update-core.php:905
+#: wp-admin/update-core.php:897
 msgid "F j, Y"
 msgstr ""
 
@@ -768,13 +768,13 @@ msgstr ""
 #: wp-admin/options-permalink.php:25
 #: wp-admin/options-privacy.php:40
 #: wp-admin/options-reading.php:27
-#: wp-admin/plugin-install.php:141
-#: wp-admin/plugins.php:672
+#: wp-admin/plugin-install.php:129
+#: wp-admin/plugins.php:668
 #: wp-admin/revision.php:155
 #: wp-admin/site-health.php:82
 #: wp-admin/theme-install.php:116
 #: wp-admin/themes.php:145
-#: wp-admin/update-core.php:819
+#: wp-admin/update-core.php:811
 #: wp-admin/upload.php:180
 #: wp-admin/upload.php:364
 #: wp-admin/user-edit.php:73
@@ -1061,7 +1061,7 @@ msgstr ""
 #. translators: %s: Search query.
 #: wp-admin/edit-tags.php:382
 #: wp-admin/edit.php:409
-#: wp-admin/plugins.php:932
+#: wp-admin/plugins.php:927
 #: wp-admin/upload.php:420
 #: wp-admin/users.php:801
 msgid "Search results for: %s"
@@ -1938,7 +1938,7 @@ msgid "Sorry, you are not allowed to delete plugins for this site."
 msgstr ""
 
 #: wp-admin/includes/ajax-actions.php:3614
-#: wp-admin/plugins.php:774
+#: wp-admin/plugins.php:769
 msgid "You cannot delete a plugin while it is active on the main site."
 msgstr ""
 
@@ -2842,8 +2842,8 @@ msgid "Return to the Theme Installer"
 msgstr ""
 
 #: wp-admin/includes/class-language-pack-upgrader-skin.php:39
-#: wp-admin/update-core.php:627
-#: wp-admin/update-core.php:1091
+#: wp-admin/update-core.php:619
+#: wp-admin/update-core.php:1083
 msgid "Update Translations"
 msgstr ""
 
@@ -2857,7 +2857,7 @@ msgid "Some of your translations need updating. Sit tight for a few more seconds
 msgstr ""
 
 #: wp-admin/includes/class-language-pack-upgrader.php:116
-#: wp-admin/update-core.php:616
+#: wp-admin/update-core.php:608
 msgid "Your translations are all up to date."
 msgstr ""
 
@@ -3075,8 +3075,8 @@ msgid "Update Plugin"
 msgstr ""
 
 #: wp-admin/includes/class-plugin-upgrader-skin.php:87
-#: wp-admin/update-core.php:1017
-#: wp-admin/update-core.php:1063
+#: wp-admin/update-core.php:1009
+#: wp-admin/update-core.php:1055
 msgid "Update progress"
 msgstr ""
 
@@ -4268,10 +4268,10 @@ msgstr ""
 
 #. translators: Hidden accessibility text.
 #: wp-admin/includes/class-wp-list-table.php:1311
-#: wp-admin/update-core.php:339
-#: wp-admin/update-core.php:452
-#: wp-admin/update-core.php:500
-#: wp-admin/update-core.php:593
+#: wp-admin/update-core.php:331
+#: wp-admin/update-core.php:444
+#: wp-admin/update-core.php:492
+#: wp-admin/update-core.php:585
 msgid "Select All"
 msgstr ""
 
@@ -4586,8 +4586,7 @@ msgid "Featured"
 msgstr ""
 
 #: wp-admin/includes/class-wp-plugin-install-list-table.php:122
-#: wp-admin/plugin-install.php:150
-#: wp-admin/plugin-install.php:203
+#: wp-admin/plugin-install.php:190
 #: wp-admin/update.php:172
 msgid "Upload Plugin"
 msgstr ""
@@ -4660,9 +4659,9 @@ msgstr ""
 #: wp-admin/themes.php:999
 #: wp-admin/themes.php:1005
 #: wp-admin/themes.php:1020
-#: wp-admin/update-core.php:527
-#: wp-admin/update-core.php:533
-#: wp-admin/update-core.php:542
+#: wp-admin/update-core.php:519
+#: wp-admin/update-core.php:525
+#: wp-admin/update-core.php:534
 msgid "<a href=\"%s\">Please update Retraceur</a>."
 msgstr ""
 
@@ -4966,7 +4965,7 @@ msgstr ""
 
 #. translators: %s: Plugin name.
 #: wp-admin/includes/class-wp-plugins-list-table.php:1143
-#: wp-admin/update-core.php:417
+#: wp-admin/update-core.php:409
 msgctxt "plugin"
 msgid "Select %s"
 msgstr ""
@@ -6922,7 +6921,7 @@ msgstr ""
 #. translators: %s: Version number.
 #: wp-admin/includes/class-wp-theme-install-list-table.php:323
 #: wp-admin/includes/class-wp-theme-install-list-table.php:479
-#: wp-admin/update-core.php:60
+#: wp-admin/update-core.php:52
 msgid "Update to version %s"
 msgstr ""
 
@@ -10384,7 +10383,7 @@ msgstr ""
 #: wp-admin/includes/update.php:504
 #: wp-admin/includes/update.php:518
 #: wp-admin/includes/update.php:537
-#: wp-admin/update-core.php:402
+#: wp-admin/update-core.php:394
 msgctxt "plugin"
 msgid "View %1$s version %2$s details"
 msgstr ""
@@ -11149,13 +11148,11 @@ msgid "Installed Plugins"
 msgstr ""
 
 #: wp-admin/menu.php:207
-#: wp-admin/plugins.php:923
+#: wp-admin/plugins.php:918
 msgid "Add Plugin"
 msgstr ""
 
 #: wp-admin/menu.php:212
-#: wp-admin/plugin-install.php:126
-#: wp-admin/plugin-install.php:133
 msgid "Blocks"
 msgstr ""
 
@@ -11164,7 +11161,7 @@ msgid "Installed Blocks"
 msgstr ""
 
 #: wp-admin/menu.php:217
-#: wp-admin/plugins.php:919
+#: wp-admin/plugins.php:914
 msgid "Add Block"
 msgstr ""
 
@@ -12311,114 +12308,86 @@ msgctxt "block install page title"
 msgid "Add Blocks"
 msgstr ""
 
+#: wp-admin/plugin-install.php:117
+msgid "Blocks are pieces of content of a post, page or template of your site. Blocks are developed independently from the Retraceur software by thousands of developers all over the world."
+msgstr ""
+
 #: wp-admin/plugin-install.php:118
-msgid "Blocks are pieces of content of a post, page or template of your site."
+msgid "You can find new blocks to install by searching or browsing the directory right here in your own blocks section."
 msgstr ""
 
 #: wp-admin/plugin-install.php:120
-msgid "Plugins hook into Retraceur to extend its functionality with custom features."
+msgid "Plugins hook into Retraceur to extend its functionality with custom features. Plugins are developed independently from the Retraceur software by thousands of developers all over the world."
 msgstr ""
 
-#. Translators: %s is the capitalized plural form of the plugin type (Blocks or Plugins).
-#: wp-admin/plugin-install.php:125
-msgid "%s are developed independently from the core Retraceur application by thousands of developers all over the world."
+#: wp-admin/plugin-install.php:121
+msgid "You can find new plugins to install by searching or browsing the directory right here in your own plugins section."
 msgstr ""
 
-#: wp-admin/plugin-install.php:126
-#: wp-admin/plugin-install.php:133
-#: wp-admin/plugins.php:21
-#: wp-admin/update-core.php:307
-#: wp-admin/update-core.php:326
-msgid "Plugins"
-msgstr ""
-
-#. Translators: 1: is the plural form of the plugin type (blocks or plugins). 2: is the same form but capitalized (Blocks or Plugins).
-#: wp-admin/plugin-install.php:131
-msgid "You can find new %1$s to install by searching or browsing the directory right here in your own %2$s section."
-msgstr ""
-
-#: wp-admin/plugin-install.php:132
-#: wp-admin/plugin-install.php:151
-#: wp-admin/plugins.php:665
-#: wp-admin/update.php:158
-msgid "blocks"
-msgstr ""
-
-#: wp-admin/plugin-install.php:132
-#: wp-admin/plugin-install.php:151
-#: wp-admin/plugins.php:665
-#: wp-admin/update.php:158
-msgid "plugins"
-msgstr ""
-
-#: wp-admin/plugin-install.php:136
-#: wp-admin/plugins.php:667
+#: wp-admin/plugin-install.php:124
+#: wp-admin/plugins.php:663
 #: wp-admin/theme-install.php:105
 #: wp-admin/themes.php:140
 msgid "The search results will be updated as you type."
 msgstr ""
 
-#. Translators: 1. is the singular form of the plugin type (block or plugin). 2. is the text of the Upload Plugin/Block button. 3. is the plural form of the plugin type (blocks or plugins).
-#: wp-admin/plugin-install.php:148
-msgid "If you want to install a %1$s that you’ve downloaded elsewhere, click the \"%2$s\" button above the %3$s list. You will be prompted to upload the .zip package, and once uploaded, you can activate the new %1$s."
-msgstr ""
-
-#: wp-admin/plugin-install.php:149
-#: wp-admin/plugins.php:681
-#: wp-admin/plugins.php:695
-msgid "block"
-msgstr ""
-
-#: wp-admin/plugin-install.php:149
-#: wp-admin/plugins.php:681
-#: wp-admin/plugins.php:695
-msgid "plugin"
-msgstr ""
-
-#: wp-admin/plugin-install.php:150
-#: wp-admin/plugin-install.php:203
-#: wp-admin/update.php:177
-msgid "Upload Block"
-msgstr ""
-
-#: wp-admin/plugin-install.php:158
+#: wp-admin/plugin-install.php:135
 msgid "Adding Blocks"
 msgstr ""
 
-#: wp-admin/plugin-install.php:158
+#: wp-admin/plugin-install.php:136
+msgid "If you want to install a block that you’ve downloaded elsewhere, click the \"Upload Block\" button above the blocks list. You will be prompted to upload the .zip package, and once uploaded, you can activate the new block."
+msgstr ""
+
+#: wp-admin/plugin-install.php:138
 msgid "Adding Plugins"
 msgstr ""
 
-#: wp-admin/plugin-install.php:167
+#: wp-admin/plugin-install.php:139
+msgid "If you want to install a plugin that you’ve downloaded elsewhere, click the \"Upload Plugin\" button above the plugins list. You will be prompted to upload the .zip package, and once uploaded, you can activate the new plugin."
+msgstr ""
+
+#: wp-admin/plugin-install.php:154
 msgctxt "Block installation docs link"
 msgid "https://retraceur.github.io/administration/manage-blocks/"
 msgstr ""
 
-#: wp-admin/plugin-install.php:167
+#: wp-admin/plugin-install.php:154
 msgid "Documentation on installing/updating a block"
 msgstr ""
 
-#: wp-admin/plugin-install.php:176
-#: wp-admin/plugins.php:725
+#: wp-admin/plugin-install.php:163
+#: wp-admin/plugins.php:720
 msgid "Filter plugins list"
 msgstr ""
 
-#: wp-admin/plugin-install.php:177
-#: wp-admin/plugins.php:726
+#: wp-admin/plugin-install.php:164
+#: wp-admin/plugins.php:721
 msgid "Plugins list navigation"
 msgstr ""
 
-#: wp-admin/plugin-install.php:178
-#: wp-admin/plugins.php:727
+#: wp-admin/plugin-install.php:165
+#: wp-admin/plugins.php:722
 msgid "Plugins list"
 msgstr ""
 
-#: wp-admin/plugin-install.php:204
+#: wp-admin/plugin-install.php:190
+#: wp-admin/update.php:177
+msgid "Upload Block"
+msgstr ""
+
+#: wp-admin/plugin-install.php:191
 msgid "Browse Blocks"
 msgstr ""
 
-#: wp-admin/plugin-install.php:204
+#: wp-admin/plugin-install.php:191
 msgid "Browse Plugins"
+msgstr ""
+
+#: wp-admin/plugins.php:21
+#: wp-admin/update-core.php:299
+#: wp-admin/update-core.php:318
+msgid "Plugins"
 msgstr ""
 
 #: wp-admin/plugins.php:31
@@ -12449,10 +12418,10 @@ msgid "Sorry, you are not allowed to activate plugins for this site."
 msgstr ""
 
 #: wp-admin/plugins.php:191
-#: wp-admin/update-core.php:334
-#: wp-admin/update-core.php:456
-#: wp-admin/update-core.php:1011
-#: wp-admin/update-core.php:1016
+#: wp-admin/update-core.php:326
+#: wp-admin/update-core.php:448
+#: wp-admin/update-core.php:1003
+#: wp-admin/update-core.php:1008
 msgid "Update Plugins"
 msgstr ""
 
@@ -12580,29 +12549,40 @@ msgstr ""
 msgid "Please connect to your network admin to manage plugins automatic updates."
 msgstr ""
 
-#: wp-admin/plugins.php:657
+#: wp-admin/plugins.php:656
 msgid "Blocks are pieces of content of a post, page or template of your site. Once a block is installed, you may activate it or deactivate it here."
+msgstr ""
+
+#: wp-admin/plugins.php:657
+msgid "The search for installed blocks will search for terms in their name, description, or author."
 msgstr ""
 
 #: wp-admin/plugins.php:659
 msgid "Plugins extend and expand the functionality of Retraceur. Once a plugin is installed, you may activate it or deactivate it here."
 msgstr ""
 
-#. Translators: %s is the plural form of the plugin type (blocks or plugins).
-#: wp-admin/plugins.php:664
-msgid "The search for installed %s will search for terms in their name, description, or author."
+#: wp-admin/plugins.php:660
+msgid "The search for installed plugins will search for terms in their name, description, or author."
 msgstr ""
 
-#: wp-admin/plugins.php:677
-msgid "Most of the time, plugins and blocks play nicely with the core of Retraceur and with other plugins and blocks. Sometimes, though, a plugin or block’s code will get in the way of another plugin or block, causing compatibility issues. If your site starts doing strange things, this may be the problem. Try deactivating all your plugins and blocks and re-activating them in various combinations until you isolate which one(s) caused the issue."
+#: wp-admin/plugins.php:673
+msgid "Most of the time, plugins and blocks play nicely with the core of Retraceur and with other plugins and blocks. Sometimes, though, the code of a plugin or a block will get in the way of the code of another plugin or block, causing compatibility issues. If your site starts doing strange things, this may be the problem. Try deactivating all your plugins and blocks and re-activating them in various combinations until you isolate which one(s) caused the issue."
 msgstr ""
 
-#. Translators: 1: is the singular form of the plugin type (block or plugin). 2: WP_PLUGIN_DIR constant value.
-#: wp-admin/plugins.php:680
-msgid "If something goes wrong with a %1$s and you cannot use Retraceur, delete or rename that file in the %2$s directory and it will be automatically deactivated."
+#: wp-admin/plugins.php:676
+msgid "If something goes wrong with a block and you cannot use Retraceur:"
 msgstr ""
 
-#: wp-admin/plugins.php:689
+#: wp-admin/plugins.php:678
+msgid "If something goes wrong with a plugin and you cannot use Retraceur:"
+msgstr ""
+
+#. Translators: %s: WP_PLUGIN_DIR constant value.
+#: wp-admin/plugins.php:683
+msgid "delete or rename that file in the %s directory and it will be automatically deactivated."
+msgstr ""
+
+#: wp-admin/plugins.php:691
 msgid "Troubleshooting"
 msgstr ""
 
@@ -12610,176 +12590,182 @@ msgstr ""
 msgid "Plugin or Block Dependencies aims to make the process of installing and activating add-ons (dependents) and the plugins or blocks they rely on (dependencies) consistent and easy."
 msgstr ""
 
-#. Translators: 1: is the singular form of the plugin type (block or plugin). 2: is the capitalised singular form of the plugin type (Block or Plugin).
 #: wp-admin/plugins.php:700
-msgid "If a required %1$s is deleted, a notice will be displayed on the %2$s administration screen informing the contributor that there is some missing dependencies to install and/or activate. Additionally, each %1$s whose dependencies are not met will have an error notice on their %1$s row."
+msgid "If a required block is deleted, a notice will be displayed on the Block administration screen informing the contributor that there is some missing dependencies to install and/or activate. Additionally, each block whose dependencies are not met will have an error notice on their block row."
 msgstr ""
 
-#. Translators: %s: is the singular form of the plugin type (block or plugin).
-#: wp-admin/plugins.php:707
-msgid "If a dependent %s is missing some dependencies, its activation button will be disabled until the required dependencies are activated."
+#: wp-admin/plugins.php:701
+msgid "If a dependent block is missing some dependencies, its activation button will be disabled until the required dependencies are activated."
 msgstr ""
 
-#: wp-admin/plugins.php:715
+#: wp-admin/plugins.php:703
+msgid "If a required plugin is deleted, a notice will be displayed on the Plugin administration screen informing the contributor that there is some missing dependencies to install and/or activate. Additionally, each plugin whose dependencies are not met will have an error notice on their plugin row."
+msgstr ""
+
+#: wp-admin/plugins.php:704
+msgid "If a dependent plugin is missing some dependencies, its activation button will be disabled until the required dependencies are activated."
+msgstr ""
+
+#: wp-admin/plugins.php:710
 msgid "Dependencies"
 msgstr ""
 
 #. translators: 1: Plugin file, 2: Error message.
-#: wp-admin/plugins.php:739
+#: wp-admin/plugins.php:734
 msgid "The block %1$s has been deactivated due to an error: %2$s"
 msgstr ""
 
 #. translators: 1: Plugin file, 2: Error message.
-#: wp-admin/plugins.php:746
+#: wp-admin/plugins.php:741
 msgid "The plugin %1$s has been deactivated due to an error: %2$s"
 msgstr ""
 
-#: wp-admin/plugins.php:772
+#: wp-admin/plugins.php:767
 msgid "You cannot delete a block while it is active on the main site."
 msgstr ""
 
 #. translators: %d: Number of characters.
-#: wp-admin/plugins.php:780
+#: wp-admin/plugins.php:775
 msgid "The block generated %d character of <strong>unexpected output</strong> during activation."
 msgid_plural "The block generated %d characters of <strong>unexpected output</strong> during activation."
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-admin/plugins.php:788
-#: wp-admin/plugins.php:800
+#: wp-admin/plugins.php:783
+#: wp-admin/plugins.php:795
 msgid "If you notice &#8220;headers already sent&#8221; messages, problems with syndication feeds or other issues, try deactivating or removing this plugin."
 msgstr ""
 
 #. translators: %d: Number of characters.
-#: wp-admin/plugins.php:792
+#: wp-admin/plugins.php:787
 msgid "The plugin generated %d character of <strong>unexpected output</strong> during activation."
 msgid_plural "The plugin generated %d characters of <strong>unexpected output</strong> during activation."
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-admin/plugins.php:804
+#: wp-admin/plugins.php:799
 msgid "Block could not be resumed because it triggered a <strong>fatal error</strong>."
 msgstr ""
 
-#: wp-admin/plugins.php:806
+#: wp-admin/plugins.php:801
 msgid "Plugin could not be resumed because it triggered a <strong>fatal error</strong>."
 msgstr ""
 
-#: wp-admin/plugins.php:810
+#: wp-admin/plugins.php:805
 msgid "Block could not be activated because it triggered a <strong>fatal error</strong>."
 msgstr ""
 
-#: wp-admin/plugins.php:812
+#: wp-admin/plugins.php:807
 msgid "Plugin could not be activated because it triggered a <strong>fatal error</strong>."
 msgstr ""
 
 #. translators: %s: Error message.
-#: wp-admin/plugins.php:848
+#: wp-admin/plugins.php:843
 msgid "Block could not be deleted due to an error: %s"
 msgstr ""
 
 #. translators: %s: Error message.
-#: wp-admin/plugins.php:854
+#: wp-admin/plugins.php:849
 msgid "Plugin could not be deleted due to an error: %s"
 msgstr ""
 
-#: wp-admin/plugins.php:870
+#: wp-admin/plugins.php:865
 msgid "The selected block has been deleted."
 msgstr ""
 
-#: wp-admin/plugins.php:872
+#: wp-admin/plugins.php:867
 msgid "The selected plugin has been deleted."
 msgstr ""
 
-#: wp-admin/plugins.php:876
+#: wp-admin/plugins.php:871
 msgid "The selected blocks has been deleted."
 msgstr ""
 
-#: wp-admin/plugins.php:878
+#: wp-admin/plugins.php:873
 msgid "The selected plugins has been deleted."
 msgstr ""
 
-#: wp-admin/plugins.php:884
+#: wp-admin/plugins.php:879
 msgid "Block activated."
 msgstr ""
 
-#: wp-admin/plugins.php:884
+#: wp-admin/plugins.php:879
 msgid "Plugin activated."
 msgstr ""
 
-#: wp-admin/plugins.php:886
+#: wp-admin/plugins.php:881
 msgid "Selected blocks activated."
 msgstr ""
 
-#: wp-admin/plugins.php:886
+#: wp-admin/plugins.php:881
 msgid "Selected plugins activated."
 msgstr ""
 
-#: wp-admin/plugins.php:888
+#: wp-admin/plugins.php:883
 msgid "Block deactivated."
 msgstr ""
 
-#: wp-admin/plugins.php:888
+#: wp-admin/plugins.php:883
 msgid "Plugin deactivated."
 msgstr ""
 
-#: wp-admin/plugins.php:890
+#: wp-admin/plugins.php:885
 msgid "Selected blocks deactivated."
 msgstr ""
 
-#: wp-admin/plugins.php:890
+#: wp-admin/plugins.php:885
 msgid "Selected plugins deactivated."
 msgstr ""
 
-#: wp-admin/plugins.php:892
+#: wp-admin/plugins.php:887
 msgid "All selected blocks are up to date."
 msgstr ""
 
-#: wp-admin/plugins.php:892
+#: wp-admin/plugins.php:887
 msgid "All selected plugins are up to date."
 msgstr ""
 
-#: wp-admin/plugins.php:894
+#: wp-admin/plugins.php:889
 msgid "Block resumed."
 msgstr ""
 
-#: wp-admin/plugins.php:894
+#: wp-admin/plugins.php:889
 msgid "Plugin resumed."
 msgstr ""
 
-#: wp-admin/plugins.php:896
+#: wp-admin/plugins.php:891
 msgid "Block will be auto-updated."
 msgstr ""
 
-#: wp-admin/plugins.php:896
+#: wp-admin/plugins.php:891
 msgid "Plugin will be auto-updated."
 msgstr ""
 
-#: wp-admin/plugins.php:898
+#: wp-admin/plugins.php:893
 msgid "Block will no longer be auto-updated."
 msgstr ""
 
-#: wp-admin/plugins.php:898
+#: wp-admin/plugins.php:893
 msgid "Plugin will no longer be auto-updated."
 msgstr ""
 
-#: wp-admin/plugins.php:900
+#: wp-admin/plugins.php:895
 msgid "Selected blocks will be auto-updated."
 msgstr ""
 
-#: wp-admin/plugins.php:900
+#: wp-admin/plugins.php:895
 msgid "Selected plugins will be auto-updated."
 msgstr ""
 
-#: wp-admin/plugins.php:902
+#: wp-admin/plugins.php:897
 msgid "Selected blocks will no longer be auto-updated."
 msgstr ""
 
-#: wp-admin/plugins.php:961
+#: wp-admin/plugins.php:956
 msgid "Search installed blocks"
 msgstr ""
 
-#: wp-admin/plugins.php:961
+#: wp-admin/plugins.php:956
 msgid "Search installed plugins"
 msgstr ""
 
@@ -13578,8 +13564,8 @@ msgstr ""
 
 #: wp-admin/themes.php:129
 #: wp-admin/themes.php:189
-#: wp-admin/update-core.php:473
-#: wp-admin/update-core.php:486
+#: wp-admin/update-core.php:465
+#: wp-admin/update-core.php:478
 msgid "Themes"
 msgstr ""
 
@@ -13808,268 +13794,268 @@ msgid "Use the Erase Personal Data tool to delete a member’s personal data upo
 msgstr ""
 
 #: wp-admin/update-core.php:25
-#: wp-admin/update-core.php:952
-#: wp-admin/update-core.php:993
-#: wp-admin/update-core.php:1039
-#: wp-admin/update-core.php:1081
+#: wp-admin/update-core.php:944
+#: wp-admin/update-core.php:985
+#: wp-admin/update-core.php:1031
+#: wp-admin/update-core.php:1073
 msgid "Sorry, you are not allowed to update this site."
 msgstr ""
 
 #. translators: %s: Version number.
-#: wp-admin/update-core.php:65
+#: wp-admin/update-core.php:57
 msgid "Download & upgrade to version %s"
 msgstr ""
 
 #. translators: %s: Version number.
-#: wp-admin/update-core.php:71
+#: wp-admin/update-core.php:63
 msgid "Re-install version %s"
 msgstr ""
 
 #. translators: 1: Retraceur version number, 2: Minimum required PHP version number, 3: Minimum required MySQL version number, 4: Current PHP version number, 5: Current MySQL version number.
-#: wp-admin/update-core.php:90
+#: wp-admin/update-core.php:82
 #: wp-admin/upgrade.php:103
 msgid "You cannot update because Retraceur %1$s requires PHP version %2$s or higher and MySQL version %3$s or higher. You are running PHP version %4$s and MySQL version %5$s."
 msgstr ""
 
 #. translators: 1: Retraceur version number, 2: Minimum required PHP version number, 3: Current PHP version number.
-#: wp-admin/update-core.php:100
+#: wp-admin/update-core.php:92
 #: wp-admin/upgrade.php:113
 msgid "You cannot update because Retraceur %1$s requires PHP version %2$s or higher. You are running version %3$s."
 msgstr ""
 
 #. translators: 1: Retraceur version number, 2: Minimum required MySQL version number, 3: Current MySQL version number.
-#: wp-admin/update-core.php:108
+#: wp-admin/update-core.php:100
 #: wp-admin/upgrade.php:121
 msgid "You cannot update because Retraceur %1$s requires MySQL version %2$s or higher. You are running version %3$s."
 msgstr ""
 
 #. translators: 1: Installed Retraceur version number, 2: New Retraceur version number, including locale if necessary.
-#: wp-admin/update-core.php:116
+#: wp-admin/update-core.php:108
 msgid "You can update from Retraceur %1$s to Retraceur %2$s manually:"
 msgstr ""
 
-#: wp-admin/update-core.php:161
+#: wp-admin/update-core.php:153
 msgid "Hide this update"
 msgstr ""
 
-#: wp-admin/update-core.php:163
+#: wp-admin/update-core.php:155
 msgid "Bring back this update"
 msgstr ""
 
-#: wp-admin/update-core.php:185
-#: wp-admin/update-core.php:204
+#: wp-admin/update-core.php:177
+#: wp-admin/update-core.php:196
 msgid "Show hidden updates"
 msgstr ""
 
-#: wp-admin/update-core.php:186
+#: wp-admin/update-core.php:178
 msgid "Hide hidden updates"
 msgstr ""
 
-#: wp-admin/update-core.php:225
+#: wp-admin/update-core.php:217
 msgid "No Retraceur Coeur updates were found for now."
 msgstr ""
 
-#: wp-admin/update-core.php:241
+#: wp-admin/update-core.php:233
 msgid "An updated version of Retraceur is available."
 msgstr ""
 
-#: wp-admin/update-core.php:245
+#: wp-admin/update-core.php:237
 msgid "<strong>Important:</strong> Before updating, please back up your database and files."
 msgstr ""
 
-#: wp-admin/update-core.php:252
+#: wp-admin/update-core.php:244
 msgid "You are using a development version of Retraceur."
 msgstr ""
 
-#: wp-admin/update-core.php:254
+#: wp-admin/update-core.php:246
 msgid "You have the latest version of Retraceur."
 msgstr ""
 
-#: wp-admin/update-core.php:277
+#: wp-admin/update-core.php:269
 msgid "While your site is being updated, it will be in maintenance mode. As soon as your updates are complete, this mode will be deactivated."
 msgstr ""
 
 #. translators: 1: URL to About screen, 2: Retraceur version.
-#: wp-admin/update-core.php:282
+#: wp-admin/update-core.php:274
 msgid "<a href=\"%1$s\">Learn more about Retraceur %2$s</a>."
 msgstr ""
 
-#: wp-admin/update-core.php:308
+#: wp-admin/update-core.php:300
 msgid "Your plugins are all up to date."
 msgstr ""
 
-#: wp-admin/update-core.php:331
+#: wp-admin/update-core.php:323
 msgid "The following plugins have new versions available. Check the ones you want to update and then click &#8220;Update Plugins&#8221;."
 msgstr ""
 
 #. translators: %s: Retraceur version.
-#: wp-admin/update-core.php:367
-#: wp-admin/update-core.php:376
+#: wp-admin/update-core.php:359
+#: wp-admin/update-core.php:368
 msgid "Compatibility with Retraceur %s: 100%% (according to its author)"
 msgstr ""
 
 #. translators: %s: Retraceur version.
-#: wp-admin/update-core.php:370
-#: wp-admin/update-core.php:379
+#: wp-admin/update-core.php:362
+#: wp-admin/update-core.php:371
 msgid "Compatibility with Retraceur %s: Unknown"
 msgstr ""
 
-#: wp-admin/update-core.php:387
-#: wp-admin/update-core.php:547
+#: wp-admin/update-core.php:379
+#: wp-admin/update-core.php:539
 msgid "This update does not work with your version of PHP."
 msgstr ""
 
 #. translators: %s: Plugin version.
-#: wp-admin/update-core.php:404
+#: wp-admin/update-core.php:396
 msgid "View version %s details."
 msgstr ""
 
 #. translators: 1: Plugin version, 2: New version.
-#: wp-admin/update-core.php:429
+#: wp-admin/update-core.php:421
 msgctxt "plugin"
 msgid "You have version %1$s installed. Update to %2$s."
 msgstr ""
 
-#: wp-admin/update-core.php:474
+#: wp-admin/update-core.php:466
 msgid "Your themes are all up to date."
 msgstr ""
 
-#: wp-admin/update-core.php:491
+#: wp-admin/update-core.php:483
 msgid "The following themes have new versions available. Check the ones you want to update and then click &#8220;Update Themes&#8221;."
 msgstr ""
 
-#: wp-admin/update-core.php:492
+#: wp-admin/update-core.php:484
 msgid "Please Note: Any customizations you have made to theme files will be lost. Please consider using child themes for modifications."
 msgstr ""
 
-#: wp-admin/update-core.php:495
-#: wp-admin/update-core.php:597
-#: wp-admin/update-core.php:1057
-#: wp-admin/update-core.php:1062
+#: wp-admin/update-core.php:487
+#: wp-admin/update-core.php:589
+#: wp-admin/update-core.php:1049
+#: wp-admin/update-core.php:1054
 msgid "Update Themes"
 msgstr ""
 
-#: wp-admin/update-core.php:523
+#: wp-admin/update-core.php:515
 msgid "This update does not work with your versions of Retraceur and PHP."
 msgstr ""
 
-#: wp-admin/update-core.php:538
+#: wp-admin/update-core.php:530
 msgid "This update does not work with your version of Retraceur."
 msgstr ""
 
 #. translators: %s: Theme name.
-#: wp-admin/update-core.php:560
+#: wp-admin/update-core.php:552
 msgctxt "theme"
 msgid "Select %s"
 msgstr ""
 
 #. translators: 1: Theme version, 2: New version.
-#: wp-admin/update-core.php:572
+#: wp-admin/update-core.php:564
 msgctxt "theme"
 msgid "You have version %1$s installed. Update to %2$s."
 msgstr ""
 
+#: wp-admin/update-core.php:607
 #: wp-admin/update-core.php:615
-#: wp-admin/update-core.php:623
 msgid "Translations"
 msgstr ""
 
-#: wp-admin/update-core.php:625
+#: wp-admin/update-core.php:617
 msgid "New translations are available."
 msgstr ""
 
-#: wp-admin/update-core.php:674
+#: wp-admin/update-core.php:666
 msgid "Update Retraceur"
 msgstr ""
 
-#: wp-admin/update-core.php:715
+#: wp-admin/update-core.php:707
 msgid "Installation failed."
 msgstr ""
 
-#: wp-admin/update-core.php:721
+#: wp-admin/update-core.php:713
 msgid "Retraceur updated successfully."
 msgstr ""
 
 #. translators: 1: Retraceur version, 2: URL to About screen.
-#: wp-admin/update-core.php:725
+#: wp-admin/update-core.php:717
 msgid "Welcome to Retraceur %1$s. You will be redirected to the About Retraceur screen. If not, click <a href=\"%2$s\">here</a>."
 msgstr ""
 
 #. translators: 1: Retraceur version, 2: URL to About screen.
-#: wp-admin/update-core.php:733
+#: wp-admin/update-core.php:725
 msgid "Welcome to Retraceur %1$s. <a href=\"%2$s\">Learn more</a>."
 msgstr ""
 
-#: wp-admin/update-core.php:809
-#: wp-admin/update-core.php:853
+#: wp-admin/update-core.php:801
+#: wp-admin/update-core.php:845
 msgid "Retraceur Updates"
 msgstr ""
 
-#: wp-admin/update-core.php:814
+#: wp-admin/update-core.php:806
 msgid "If an update is available, you&#8127;ll see a notification appear in the Toolbar and navigation menu."
 msgstr ""
 
-#: wp-admin/update-core.php:814
+#: wp-admin/update-core.php:806
 msgid "Keeping your site updated is important for security. It also makes the internet a safer place for you and your readers."
 msgstr ""
 
-#: wp-admin/update-core.php:824
+#: wp-admin/update-core.php:816
 msgid "<strong>Retraceur</strong> &mdash; Updating your Retraceur installation is a simple one-click procedure: just <strong>click on the &#8220;Update to version X.Y.Z&#8221; button</strong> when you are notified that a new version is available."
 msgstr ""
 
-#: wp-admin/update-core.php:824
+#: wp-admin/update-core.php:816
 msgid "Alternatively, you can perform a manual upgrade using the &#8220;Download & upgrade to version X.Y.Z&#8221; button."
 msgstr ""
 
-#: wp-admin/update-core.php:834
+#: wp-admin/update-core.php:826
 msgid "How to Update"
 msgstr ""
 
-#: wp-admin/update-core.php:840
+#: wp-admin/update-core.php:832
 msgctxt "Documentation site URL"
 msgid "https://retraceur.github.io/administration/manage-updates/"
 msgstr ""
 
-#: wp-admin/update-core.php:840
+#: wp-admin/update-core.php:832
 msgid "Documentation on managing updates"
 msgstr ""
 
 #. translators: Current version of Retraceur.
-#: wp-admin/update-core.php:896
+#: wp-admin/update-core.php:888
 msgid "Current version: %s"
 msgstr ""
 
 #. translators: 1: Date, 2: Time.
-#: wp-admin/update-core.php:903
+#: wp-admin/update-core.php:895
 msgid "Last checked on %1$s at %2$s."
 msgstr ""
 
 #. translators: Last update time format, see https://www.php.net/manual/datetime.format.php
-#: wp-admin/update-core.php:907
+#: wp-admin/update-core.php:899
 msgid "g:i a T"
 msgstr ""
 
-#: wp-admin/update-core.php:909
+#: wp-admin/update-core.php:901
 msgid "Check again."
 msgstr ""
 
-#: wp-admin/update-core.php:987
+#: wp-admin/update-core.php:979
 msgid "Retraceur does not provide an API to update plugins yet."
 msgstr ""
 
-#: wp-admin/update-core.php:988
+#: wp-admin/update-core.php:980
 msgid "You can always go to the Plugin’s \"Add new\" screen to upload and replace outdated packages."
 msgstr ""
 
-#: wp-admin/update-core.php:1033
+#: wp-admin/update-core.php:1025
 msgid "Retraceur does not provide an API to update themes yet."
 msgstr ""
 
-#: wp-admin/update-core.php:1034
+#: wp-admin/update-core.php:1026
 msgid "You can always go to the Theme’s \"Add new\" screen to upload and replace outdated packages."
 msgstr ""
 
-#: wp-admin/update-core.php:1078
+#: wp-admin/update-core.php:1070
 msgid "Retraceur does not provide an API to update languages yet."
 msgstr ""
 
@@ -14093,6 +14079,14 @@ msgstr ""
 #. Translators: %s: The plugin type's plural name.
 #: wp-admin/update.php:157
 msgid "Sorry, you are not allowed to install %s on this site."
+msgstr ""
+
+#: wp-admin/update.php:158
+msgid "blocks"
+msgstr ""
+
+#: wp-admin/update.php:158
+msgid "plugins"
 msgstr ""
 
 #: wp-admin/update.php:166
