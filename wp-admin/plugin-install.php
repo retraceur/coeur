@@ -114,10 +114,10 @@ if ( 'upload' !== $tab ) {
 }
 
 if ( 'block' === $plugin_type ) {
-	$help  = '<p>' . esc_html__( 'Blocks are pieces of content of a post, page or template of your site. Blocks are developed independently from the core Retraceur application by thousands of developers all over the world.' ) . '</p>';
+	$help  = '<p>' . esc_html__( 'Blocks are pieces of content of a post, page or template of your site. Blocks are developed independently from the Retraceur software by thousands of developers all over the world.' ) . '</p>';
 	$help .= '<p>' . esc_html__( 'You can find new blocks to install by searching or browsing the directory right here in your own blocks section.' );
 } else {
-	$help  = '<p>' . esc_html__( 'Plugins hook into Retraceur to extend its functionality with custom features. Plugins are developed independently from the core Retraceur application by thousands of developers all over the world.' ) . '</p>';
+	$help  = '<p>' . esc_html__( 'Plugins hook into Retraceur to extend its functionality with custom features. Plugins are developed independently from the Retraceur software by thousands of developers all over the world.' ) . '</p>';
 	$help .= '<p>' . esc_html__( 'You can find new plugins to install by searching or browsing the directory right here in your own plugins section.' );
 }
 
@@ -136,7 +136,7 @@ if ( 'block' === $plugin_type ) {
 	$help      = '<p>' . esc_html__( 'If you want to install a block that you’ve downloaded elsewhere, click the "Upload Block" button above the blocks list. You will be prompted to upload the .zip package, and once uploaded, you can activate the new block.' ) . '</p>';
 } else {
 	$tab_title = esc_html__( 'Adding Plugins' );
-	$help      = '<p>' . esc_html__( 'If you want to install a plugin that you’ve downloaded elsewhere, click the "Upload Plugin" button above the %3$s list. You will be prompted to upload the .zip package, and once uploaded, you can activate the new plugins.' ) . '</p>';
+	$help      = '<p>' . esc_html__( 'If you want to install a plugin that you’ve downloaded elsewhere, click the "Upload Plugin" button above the plugins list. You will be prompted to upload the .zip package, and once uploaded, you can activate the new plugin.' ) . '</p>';
 }
 
 get_current_screen()->add_help_tab(

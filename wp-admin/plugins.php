@@ -670,7 +670,7 @@ get_current_screen()->add_help_tab(
 	)
 );
 
-$help  = '<p>' . esc_html__( 'Most of the time, plugins and blocks play nicely with the core of Retraceur and with other plugins and blocks. Sometimes, though, the code of a plugin or a block will get in the way the code of another plugin or block, causing compatibility issues. If your site starts doing strange things, this may be the problem. Try deactivating all your plugins and blocks and re-activating them in various combinations until you isolate which one(s) caused the issue.' ) . '</p>';
+$help  = '<p>' . esc_html__( 'Most of the time, plugins and blocks play nicely with the core of Retraceur and with other plugins and blocks. Sometimes, though, the code of a plugin or a block will get in the way of the code of another plugin or block, causing compatibility issues. If your site starts doing strange things, this may be the problem. Try deactivating all your plugins and blocks and re-activating them in various combinations until you isolate which one(s) caused the issue.' ) . '</p>';
 
 if ( 'block' === $plugins_type ) {
 	$help .= '<p>' . esc_html__( 'If something goes wrong with a block and you cannot use Retraceur:' );
