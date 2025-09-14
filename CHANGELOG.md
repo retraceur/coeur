@@ -6,6 +6,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+## [2.0.0-RC1] - 2025-09-14
+
+### Changed
+
+- Avoid using placeholders in Block/Plugin screen help tabs l10n, see [#118](https://github.com/retraceur/coeur/issues/118)
+
+### Removed
+
+- Remove the 1 click upgrade opt-in filter, see [#117](https://github.com/retraceur/coeur/issues/117)
+
+
 ## [2.0.0-beta2] - 2025-09-06
 
 ### Changed
