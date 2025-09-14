@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Retraceur 2.0.0-beta2\n"
+"Project-Id-Version: Retraceur 2.0.0-RC1\n"
 "Report-Msgid-Bugs-To: https://github.com/retraceur/coeur/issues\n"
 "Last-Translator: imath <contact@imathi.eu>\n"
 "Language-Team: Retraceur <retraceur@proton.me>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-09-03T20:08:00+00:00\n"
+"POT-Creation-Date: 2025-09-14T10:20:09+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.11.0\n"
+"X-Generator: WP-CLI 2.12.0\n"
 
 #: wp-includes/js/dist/patterns.js:372
 #: wp-includes/js/dist/patterns.js:1451
@@ -54,12 +54,14 @@ msgstr ""
 
 #. translators: %s: Existing pattern title
 #: wp-includes/js/dist/patterns.js:715
+#, js-format
 msgctxt "pattern"
 msgid "%s (Copy)"
 msgstr ""
 
 #. translators: %s: The new pattern's title e.g. 'Call to action (copy)'.
 #: wp-includes/js/dist/patterns.js:721
+#, js-format
 msgctxt "pattern"
 msgid "\"%s\" duplicated."
 msgstr ""
@@ -92,11 +94,13 @@ msgstr ""
 
 #. translators: %s: the name the user has given to the pattern.
 #: wp-includes/js/dist/patterns.js:980
+#, js-format
 msgid "Unsynced pattern created: %s"
 msgstr ""
 
 #. translators: %s: the name the user has given to the pattern.
 #: wp-includes/js/dist/patterns.js:982
+#, js-format
 msgid "Synced pattern created: %s"
 msgstr ""
 
@@ -126,6 +130,7 @@ msgstr ""
 
 #. translators: %s: new name/label for the block
 #: wp-includes/js/dist/patterns.js:1293
+#, js-format
 msgid "Block name changed to: \"%s\"."
 msgstr ""
 
@@ -173,6 +178,7 @@ msgstr ""
 
 #. translators: 1: The block type's name. 2: The block's user-provided name (the same as the override name).
 #: wp-includes/js/dist/patterns.js:1633
+#, js-format
 msgid "This %1$s is editable using the \"%2$s\" override."
 msgstr ""
 

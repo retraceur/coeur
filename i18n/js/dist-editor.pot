@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Retraceur 2.0.0-beta2\n"
+"Project-Id-Version: Retraceur 2.0.0-RC1\n"
 "Report-Msgid-Bugs-To: https://github.com/retraceur/coeur/issues\n"
 "Last-Translator: imath <contact@imathi.eu>\n"
 "Language-Team: Retraceur <retraceur@proton.me>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-09-03T20:07:47+00:00\n"
+"POT-Creation-Date: 2025-09-14T10:19:56+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.11.0\n"
+"X-Generator: WP-CLI 2.12.0\n"
 
 #: wp-includes/js/dist/editor.js:4251
 msgid "Draft saved."
@@ -94,6 +94,7 @@ msgstr ""
 
 #. translators: %s: number of revisions.
 #: wp-includes/js/dist/editor.js:5508
+#, js-format
 msgid "View revisions (%s)"
 msgstr ""
 
@@ -147,12 +148,14 @@ msgstr ""
 
 #. translators: %s: The new template part's title e.g. 'Call to action (copy)'.
 #: wp-includes/js/dist/editor.js:6390
+#, js-format
 msgctxt "template part"
 msgid "\"%s\" duplicated."
 msgstr ""
 
 #. translators: %s: Existing template part title
 #: wp-includes/js/dist/editor.js:6400
+#, js-format
 msgctxt "template part"
 msgid "%s (Copy)"
 msgstr ""
@@ -196,6 +199,7 @@ msgstr ""
 
 #. translators: %s: Field name.
 #: wp-includes/js/dist/editor.js:7318
+#, js-format
 msgctxt "field"
 msgid "Edit %s"
 msgstr ""
@@ -236,16 +240,19 @@ msgstr ""
 
 #. translators: The number of posts.
 #: wp-includes/js/dist/editor.js:7844
+#, js-format
 msgid "\"%s\" has been restored."
 msgstr ""
 
 #. translators: The number of posts.
 #: wp-includes/js/dist/editor.js:7847
+#, js-format
 msgid "%d pages have been restored."
 msgstr ""
 
 #. translators: The number of posts.
 #: wp-includes/js/dist/editor.js:7850
+#, js-format
 msgid "%d posts have been restored."
 msgstr ""
 
@@ -259,11 +266,13 @@ msgstr ""
 
 #. translators: %s: an error message
 #: wp-includes/js/dist/editor.js:7886
+#, js-format
 msgid "An error occurred while restoring the posts: %s"
 msgstr ""
 
 #. translators: %s: a list of comma separated error messages
 #: wp-includes/js/dist/editor.js:7889
+#, js-format
 msgid "Some errors occurred while restoring the posts: %s"
 msgstr ""
 
@@ -297,6 +306,7 @@ msgstr ""
 
 #. translators: The number of items.
 #: wp-includes/js/dist/editor.js:8049
+#, js-format
 msgid "%s items reset."
 msgstr ""
 
@@ -304,6 +314,7 @@ msgstr ""
 #: wp-includes/js/dist/editor.js:8050
 #: wp-includes/js/dist/editor.js:8328
 #: wp-includes/js/dist/editor.js:15389
+#, js-format
 msgid "\"%s\" reset."
 msgstr ""
 
@@ -334,6 +345,7 @@ msgstr ""
 
 #. translators: %d: number of items to delete.
 #: wp-includes/js/dist/editor.js:8307
+#, js-format
 msgid "Delete %d item?"
 msgid_plural "Delete %d items?"
 msgstr[0] ""
@@ -341,6 +353,7 @@ msgstr[1] ""
 
 #. translators: %s: The template or template part's title
 #: wp-includes/js/dist/editor.js:8309
+#, js-format
 msgctxt "template part"
 msgid "Delete \"%s\"?"
 msgstr ""
@@ -348,6 +361,7 @@ msgstr ""
 #. translators: %s: The template/part's name.
 #: wp-includes/js/dist/editor.js:8329
 #: wp-includes/js/dist/editor.js:15390
+#, js-format
 msgctxt "template part"
 msgid "\"%s\" deleted."
 msgstr ""
@@ -384,24 +398,28 @@ msgstr ""
 #. translators: %s: an error message
 #: wp-includes/js/dist/editor.js:8350
 #: wp-includes/js/dist/editor.js:15423
+#, js-format
 msgid "An error occurred while reverting the items: %s"
 msgstr ""
 
 #. translators: %s: an error message
 #: wp-includes/js/dist/editor.js:8351
 #: wp-includes/js/dist/editor.js:15424
+#, js-format
 msgid "An error occurred while deleting the items: %s"
 msgstr ""
 
 #. translators: %s: a list of comma separated error messages
 #: wp-includes/js/dist/editor.js:8354
 #: wp-includes/js/dist/editor.js:15427
+#, js-format
 msgid "Some errors occurred while reverting the items: %s"
 msgstr ""
 
 #. translators: %s: a list of comma separated error messages
 #: wp-includes/js/dist/editor.js:8355
 #: wp-includes/js/dist/editor.js:15428
+#, js-format
 msgid "Some errors occurred while deleting the items: %s"
 msgstr ""
 
@@ -414,11 +432,13 @@ msgstr ""
 #. translators: %s: The item's title.
 #: wp-includes/js/dist/editor.js:8429
 #: wp-includes/js/dist/editor.js:26873
+#, js-format
 msgid "Are you sure you want to move \"%s\" to the trash?"
 msgstr ""
 
 #. translators: %d: The number of items (2 or more).
 #: wp-includes/js/dist/editor.js:8431
+#, js-format
 msgid "Are you sure you want to move %d item to the trash ?"
 msgid_plural "Are you sure you want to move %d items to the trash ?"
 msgstr[0] ""
@@ -426,11 +446,13 @@ msgstr[1] ""
 
 #. translators: The item's title.
 #: wp-includes/js/dist/editor.js:8456
+#, js-format
 msgid "\"%s\" moved to the trash."
 msgstr ""
 
 #. translators: The number of items.
 #: wp-includes/js/dist/editor.js:8459
+#, js-format
 msgid "%s item moved to the trash."
 msgid_plural "%s items moved to the trash."
 msgstr[0] ""
@@ -446,11 +468,13 @@ msgstr ""
 
 #. translators: %s: an error message
 #: wp-includes/js/dist/editor.js:8492
+#, js-format
 msgid "An error occurred while moving the item to the trash: %s"
 msgstr ""
 
 #. translators: %s: a list of comma separated error messages
 #: wp-includes/js/dist/editor.js:8495
+#, js-format
 msgid "Some errors occurred while moving the items to the trash: %s"
 msgstr ""
 
@@ -465,6 +489,7 @@ msgstr ""
 
 #. translators: %d: number of items to delete.
 #: wp-includes/js/dist/editor.js:8575
+#, js-format
 msgid "Are you sure you want to permanently delete %d item?"
 msgid_plural "Are you sure you want to permanently delete %d items?"
 msgstr[0] ""
@@ -472,11 +497,13 @@ msgstr[1] ""
 
 #. translators: %s: The post's title
 #: wp-includes/js/dist/editor.js:8577
+#, js-format
 msgid "Are you sure you want to permanently delete \"%s\"?"
 msgstr ""
 
 #. translators: The posts's title.
 #: wp-includes/js/dist/editor.js:8604
+#, js-format
 msgid "\"%s\" permanently deleted."
 msgstr ""
 
@@ -494,11 +521,13 @@ msgstr ""
 
 #. translators: %s: an error message
 #: wp-includes/js/dist/editor.js:8640
+#, js-format
 msgid "An error occurred while permanently deleting the items: %s"
 msgstr ""
 
 #. translators: %s: a list of comma separated error messages
 #: wp-includes/js/dist/editor.js:8643
+#, js-format
 msgid "Some errors occurred while permanently deleting the items: %s"
 msgstr ""
 
@@ -597,16 +626,19 @@ msgstr ""
 #. translators: %s: page creation or modification date.
 #: wp-includes/js/dist/editor.js:9180
 #: wp-includes/js/dist/editor.js:9209
+#, js-format
 msgid "<span>Modified: <time>%s</time></span>"
 msgstr ""
 
 #. translators: %s: page creation date
 #: wp-includes/js/dist/editor.js:9189
+#, js-format
 msgid "<span>Scheduled: <time>%s</time></span>"
 msgstr ""
 
 #. translators: %s: page creation time
 #: wp-includes/js/dist/editor.js:9198
+#, js-format
 msgid "<span>Published: <time>%s</time></span>"
 msgstr ""
 
@@ -667,6 +699,7 @@ msgstr ""
 
 #. translators: %1$s The home URL of the WP installation without the scheme.
 #: wp-includes/js/dist/editor.js:9685
+#, js-format
 msgid "Child pages inherit characteristics from their parent, such as URL structure. For instance, if \"Pricing\" is a child of \"Services\", its URL would be %1$s<wbr />/services<wbr />/pricing."
 msgstr ""
 
@@ -987,6 +1020,7 @@ msgstr ""
 
 #. translators: %s: template title
 #: wp-includes/js/dist/editor.js:13315
+#, js-format
 msgid "Edit template: %s"
 msgstr ""
 
@@ -999,11 +1033,13 @@ msgstr ""
 
 #. translators: %s: template title
 #: wp-includes/js/dist/editor.js:13377
+#, js-format
 msgid "Reset template: %s"
 msgstr ""
 
 #. translators: %s: template part title
 #: wp-includes/js/dist/editor.js:13378
+#, js-format
 msgid "Reset template part: %s"
 msgstr ""
 
@@ -1319,6 +1355,7 @@ msgstr ""
 
 #. translators: %d: number of site changes waiting to be saved.
 #: wp-includes/js/dist/editor.js:17550
+#, js-format
 msgid "There is <strong>%d site change</strong> waiting to be saved."
 msgid_plural "There are <strong>%d site changes</strong> waiting to be saved."
 msgstr[0] ""
@@ -1350,11 +1387,13 @@ msgstr ""
 
 #. translators: %s: Current post parent.
 #: wp-includes/js/dist/editor.js:18337
+#, js-format
 msgid "Change parent: %s"
 msgstr ""
 
 #. translators: %s: The home URL of the Retraceur installation without the scheme.
 #: wp-includes/js/dist/editor.js:18383
+#, js-format
 msgid "Child pages inherit characteristics from their parent, such as URL structure. For instance, if \"Pricing\" is a child of \"Services\", its URL would be %s<wbr />/services<wbr />/pricing."
 msgstr ""
 
@@ -1416,6 +1455,7 @@ msgstr ""
 
 #. translators: %s: Author name.
 #: wp-includes/js/dist/editor.js:20358
+#, js-format
 msgid "Change author: %s"
 msgstr ""
 
@@ -1509,11 +1549,13 @@ msgstr ""
 
 #. Translators: %s: The selected image alt text.
 #: wp-includes/js/dist/editor.js:21208
+#, js-format
 msgid "Current image: %s"
 msgstr ""
 
 #. Translators: %s: The selected image filename.
 #: wp-includes/js/dist/editor.js:21212
+#, js-format
 msgid "The current image has no alternative text. The file name is: %s"
 msgstr ""
 
@@ -1567,11 +1609,13 @@ msgstr ""
 
 #. translators: %s: post format
 #: wp-includes/js/dist/editor.js:21601
+#, js-format
 msgid "Apply suggested format: %s"
 msgstr ""
 
 #. translators: %s: number of revisions.
 #: wp-includes/js/dist/editor.js:21705
+#, js-format
 msgid "Revisions (%s)"
 msgstr ""
 
@@ -1597,6 +1641,7 @@ msgstr ""
 
 #. translators: %s: user's display name
 #: wp-includes/js/dist/editor.js:21942
+#, js-format
 msgid "<strong>%s</strong> now has editing control of this post (<PreviewLink />). Don’t worry, your changes up to this moment have been saved."
 msgstr ""
 
@@ -1611,6 +1656,7 @@ msgstr ""
 
 #. translators: %s: user's display name
 #: wp-includes/js/dist/editor.js:21952
+#, js-format
 msgid "<strong>%s</strong> is currently working on this post (<PreviewLink />), which means you cannot make changes, unless you take over."
 msgstr ""
 
@@ -1708,6 +1754,7 @@ msgstr ""
 
 #. translators: %s: Time of day the post is scheduled for.
 #: wp-includes/js/dist/editor.js:23588
+#, js-format
 msgid "Today at %s"
 msgstr ""
 
@@ -1720,6 +1767,7 @@ msgstr ""
 
 #. translators: %s: Time of day the post is scheduled for.
 #: wp-includes/js/dist/editor.js:23597
+#, js-format
 msgid "Tomorrow at %s"
 msgstr ""
 
@@ -1744,6 +1792,7 @@ msgstr ""
 #: wp-includes/js/dist/editor.js:23909
 #: wp-includes/js/dist/editor.js:23916
 #: wp-includes/js/dist/editor.js:24358
+#, js-format
 msgctxt "term"
 msgid "%s added"
 msgstr ""
@@ -1758,12 +1807,14 @@ msgstr ""
 
 #. translators: %s: term name.
 #: wp-includes/js/dist/editor.js:23918
+#, js-format
 msgctxt "term"
 msgid "%s removed"
 msgstr ""
 
 #. translators: %s: term name.
 #: wp-includes/js/dist/editor.js:23920
+#, js-format
 msgctxt "term"
 msgid "Remove %s"
 msgstr ""
@@ -1793,6 +1844,7 @@ msgstr ""
 
 #. translators: %s: post format
 #: wp-includes/js/dist/editor.js:24082
+#, js-format
 msgid "Apply the \"%1$s\" format."
 msgstr ""
 
@@ -1802,6 +1854,7 @@ msgstr ""
 
 #. translators: %d: number of results.
 #: wp-includes/js/dist/editor.js:24381
+#, js-format
 msgid "%d result found."
 msgid_plural "%d results found."
 msgstr[0] ""
@@ -1920,6 +1973,7 @@ msgstr ""
 
 #. translators: %s: post type singular name
 #: wp-includes/js/dist/editor.js:25120
+#, js-format
 msgid "%s address"
 msgstr ""
 
@@ -1952,6 +2006,7 @@ msgstr ""
 
 #. translators: %s: Current post status.
 #: wp-includes/js/dist/editor.js:25610
+#, js-format
 msgid "Change status: %s"
 msgstr ""
 
@@ -1982,6 +2037,7 @@ msgstr ""
 
 #. translators: %s: Current post date.
 #: wp-includes/js/dist/editor.js:25936
+#, js-format
 msgid "Change date: %s"
 msgstr ""
 
@@ -2034,6 +2090,7 @@ msgstr ""
 
 #. translators: %s: Current post link.
 #: wp-includes/js/dist/editor.js:27223
+#, js-format
 msgid "Change link: %s"
 msgstr ""
 
@@ -2051,6 +2108,7 @@ msgstr ""
 
 #. translators: %s: the number of minutes to read the post.
 #: wp-includes/js/dist/editor.js:27376
+#, js-format
 msgid "<span>%s</span> minute"
 msgid_plural "<span>%s</span> minutes"
 msgstr[0] ""
@@ -2113,6 +2171,7 @@ msgstr ""
 
 #. translators: 1: number of replies.
 #: wp-includes/js/dist/editor.js:28392
+#, js-format
 msgctxt "Show replies button"
 msgid "%s more replies.."
 msgstr ""
@@ -2426,11 +2485,13 @@ msgstr ""
 
 #. translators: %s: title of the current home page.
 #: wp-includes/js/dist/editor.js:31684
+#, js-format
 msgid "This will replace the current homepage: \"%s\""
 msgstr ""
 
 #. translators: %1$s: title of the page to be set as the homepage, %2$s: homepage replacement warning message.
 #: wp-includes/js/dist/editor.js:31688
+#, js-format
 msgid "Set \"%1$s\" as the site homepage? %2$s"
 msgstr ""
 
@@ -2453,6 +2514,7 @@ msgstr ""
 
 #. translators: %s: title of the current posts page.
 #: wp-includes/js/dist/editor.js:31832
+#, js-format
 msgid "This will replace the current posts page: \"%s\""
 msgstr ""
 
@@ -2462,6 +2524,7 @@ msgstr ""
 
 #. translators: %1$s: title of the page to be set as the posts page, %2$s: posts page replacement warning message.
 #: wp-includes/js/dist/editor.js:31835
+#, js-format
 msgid "Set \"%1$s\" as the posts page? %2$s"
 msgstr ""
 
@@ -2480,16 +2543,19 @@ msgstr ""
 
 #. translators: %i number of selected items %s: Name of the plural post type e.g: "Posts".
 #: wp-includes/js/dist/editor.js:32256
+#, js-format
 msgid "%i %s"
 msgstr ""
 
 #. translators: %s: Name of the plural post type e.g: "Posts".
 #: wp-includes/js/dist/editor.js:32290
+#, js-format
 msgid "Changes will be applied to all selected %s."
 msgstr ""
 
 #. translators: %s: the number of words in the post.
 #: wp-includes/js/dist/editor.js:32358
+#, js-format
 msgid "%s word"
 msgid_plural "%s words"
 msgstr[0] ""
@@ -2501,6 +2567,7 @@ msgstr ""
 
 #. translators: %s: the number of minutes to read the post.
 #: wp-includes/js/dist/editor.js:32360
+#, js-format
 msgid "%s minute"
 msgid_plural "%s minutes"
 msgstr[0] ""
@@ -2508,6 +2575,7 @@ msgstr[1] ""
 
 #. translators: 1: How many words a post has. 2: the number of minutes to read the post (e.g. 130 words, 2 minutes read time.)
 #: wp-includes/js/dist/editor.js:32365
+#, js-format
 msgid "%1$s, %2$s read time."
 msgstr ""
 
@@ -2518,11 +2586,13 @@ msgstr ""
 
 #. translators: %s: Current post format.
 #: wp-includes/js/dist/editor.js:32437
+#, js-format
 msgid "Change format: %s"
 msgstr ""
 
 #. translators: %s: Human-readable time difference, e.g. "2 days ago".
 #: wp-includes/js/dist/editor.js:32474
+#, js-format
 msgid "Last edited %s."
 msgstr ""
 
@@ -2534,6 +2604,7 @@ msgstr ""
 
 #. translators: %s: Current post link.
 #: wp-includes/js/dist/editor.js:32597
+#, js-format
 msgid "Change blog title: %s"
 msgstr ""
 

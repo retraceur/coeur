@@ -1,18 +1,19 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Retraceur 2.0.0-beta2\n"
+"Project-Id-Version: Retraceur 2.0.0-RC1\n"
 "Report-Msgid-Bugs-To: https://github.com/retraceur/coeur/issues\n"
 "Last-Translator: imath <contact@imathi.eu>\n"
 "Language-Team: Retraceur <retraceur@proton.me>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-09-03T20:07:21+00:00\n"
+"POT-Creation-Date: 2025-09-14T10:19:31+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.11.0\n"
+"X-Generator: WP-CLI 2.12.0\n"
 
 #. translators: %s: Total number of updates available.
 #: wp-admin/js/updates.js:368
+#, js-format
 msgid "%s update available"
 msgid_plural "%s updates available"
 msgstr[0] ""
@@ -28,6 +29,7 @@ msgstr ""
 #. translators: %s: Plugin name and version.
 #: wp-admin/js/updates.js:501
 #: wp-admin/js/updates.js:509
+#, js-format
 msgctxt "plugin"
 msgid "Updating %s..."
 msgstr ""
@@ -39,6 +41,7 @@ msgstr ""
 
 #. translators: %s: Plugin name and version.
 #: wp-admin/js/updates.js:564
+#, js-format
 msgctxt "plugin"
 msgid "%s updated!"
 msgstr ""
@@ -52,12 +55,14 @@ msgstr ""
 #: wp-admin/js/updates.js:641
 #: wp-admin/js/updates.js:1651
 #: wp-admin/js/updates.js:2325
+#, js-format
 msgid "Update failed: %s"
 msgstr ""
 
 #. translators: %s: Plugin name and version.
 #: wp-admin/js/updates.js:661
 #: wp-admin/js/updates.js:688
+#, js-format
 msgctxt "plugin"
 msgid "%s update failed."
 msgstr ""
@@ -80,6 +85,7 @@ msgstr ""
 
 #. translators: %s: Plugin name and version.
 #: wp-admin/js/updates.js:765
+#, js-format
 msgctxt "plugin"
 msgid "Installing %s..."
 msgstr ""
@@ -96,6 +102,7 @@ msgstr ""
 
 #. translators: %s: Plugin name and version.
 #: wp-admin/js/updates.js:811
+#, js-format
 msgctxt "plugin"
 msgid "%s installed!"
 msgstr ""
@@ -113,6 +120,7 @@ msgstr ""
 
 #. translators: %s: Plugin name and version.
 #: wp-admin/js/updates.js:864
+#, js-format
 msgctxt "plugin"
 msgid "%s installation failed"
 msgstr ""
@@ -122,6 +130,7 @@ msgstr ""
 #: wp-admin/js/updates.js:1280
 #: wp-admin/js/updates.js:1823
 #: wp-admin/js/updates.js:2330
+#, js-format
 msgid "Installation failed: %s"
 msgstr ""
 
@@ -140,6 +149,7 @@ msgstr ""
 
 #. translators: %s: Plugin name.
 #: wp-admin/js/updates.js:970
+#, js-format
 msgctxt "plugin"
 msgid "Network Activate %s"
 msgstr ""
@@ -152,12 +162,14 @@ msgstr ""
 
 #. translators: %s: Plugin name.
 #: wp-admin/js/updates.js:981
+#, js-format
 msgctxt "plugin"
 msgid "Activate %s"
 msgstr ""
 
 #. translators: 1: Plugin name, 2. The reason the plugin cannot be activated.
 #: wp-admin/js/updates.js:1026
+#, js-format
 msgctxt "plugin"
 msgid "Cannot activate %1$s. %2$s"
 msgstr ""
@@ -166,6 +178,7 @@ msgstr ""
 #: wp-admin/js/updates.js:1038
 #: wp-admin/js/updates.js:1200
 #: wp-admin/js/updates.js:2340
+#, js-format
 msgid "Activation failed: %s"
 msgstr ""
 
@@ -179,6 +192,7 @@ msgstr ""
 
 #. translators: %s: Plugin name.
 #: wp-admin/js/updates.js:1100
+#, js-format
 msgctxt "plugin"
 msgid "Activating %s"
 msgstr ""
@@ -204,17 +218,20 @@ msgstr ""
 
 #. translators: %s: Plugin name.
 #: wp-admin/js/updates.js:1189
+#, js-format
 msgctxt "plugin"
 msgid "%s activation failed"
 msgstr ""
 
 #. translators: %s: Activation URL.
 #: wp-admin/js/updates.js:1243
+#, js-format
 msgid "Importer installed successfully. <a href=\"%s\">Run importer</a>"
 msgstr ""
 
 #. translators: %s: Importer name.
 #: wp-admin/js/updates.js:1255
+#, js-format
 msgid "Run %s"
 msgstr ""
 
@@ -226,6 +243,7 @@ msgstr ""
 #: wp-admin/js/updates.js:1306
 #: wp-admin/js/updates.js:2519
 #: wp-admin/js/updates.js:2655
+#, js-format
 msgctxt "plugin"
 msgid "Install %s now"
 msgstr ""
@@ -256,6 +274,7 @@ msgstr ""
 
 #. translators: %s: The remaining number of plugins.
 #: wp-admin/js/updates.js:1469
+#, js-format
 msgctxt "plugin/plugins"
 msgid "%s item"
 msgid_plural "%s items"
@@ -278,12 +297,14 @@ msgstr ""
 
 #. translators: %s: Theme name and version.
 #: wp-admin/js/updates.js:1714
+#, js-format
 msgctxt "theme"
 msgid "Installing %s..."
 msgstr ""
 
 #. translators: %s: Theme name and version.
 #: wp-admin/js/updates.js:1753
+#, js-format
 msgctxt "theme"
 msgid "%s installed!"
 msgstr ""
@@ -295,6 +316,7 @@ msgstr ""
 
 #. translators: %s: Theme name.
 #: wp-admin/js/updates.js:1777
+#, js-format
 msgctxt "theme"
 msgid "Network Activate %s"
 msgstr ""
@@ -305,6 +327,7 @@ msgstr ""
 
 #. translators: %s: Theme name.
 #: wp-admin/js/updates.js:1788
+#, js-format
 msgctxt "theme"
 msgid "Activate %s"
 msgstr ""
@@ -320,6 +343,7 @@ msgstr ""
 
 #. translators: %s: Theme name and version.
 #: wp-admin/js/updates.js:1853
+#, js-format
 msgctxt "theme"
 msgid "%s installation failed"
 msgstr ""
@@ -332,6 +356,7 @@ msgstr ""
 #. translators: %s: Error string for a failed deletion.
 #: wp-admin/js/updates.js:2009
 #: wp-admin/js/updates.js:2345
+#, js-format
 msgid "Deletion failed: %s"
 msgstr ""
 
@@ -349,6 +374,7 @@ msgstr ""
 
 #. translators: %s: Error string for a failed dependencies check.
 #: wp-admin/js/updates.js:2335
+#, js-format
 msgid "Dependencies check failed: %s"
 msgstr ""
 
@@ -358,6 +384,7 @@ msgstr ""
 
 #. translators: %s: Plugin name and version.
 #: wp-admin/js/updates.js:2510
+#, js-format
 msgctxt "plugin"
 msgid "Update %s now"
 msgstr ""
@@ -370,12 +397,14 @@ msgstr ""
 
 #. translators: %s: Plugin/Theme name.
 #: wp-admin/js/updates.js:2687
+#, js-format
 msgid "Are you sure you want to delete %s and its data?"
 msgstr ""
 
 #. translators: %s: Plugin/Theme name.
 #: wp-admin/js/updates.js:2693
 #: wp-admin/js/updates.js:2750
+#, js-format
 msgid "Are you sure you want to delete %s?"
 msgstr ""
 
@@ -389,6 +418,7 @@ msgstr ""
 
 #. translators: %s: Number of plugins.
 #: wp-admin/js/updates.js:2890
+#, js-format
 msgid "%s plugin successfully updated."
 msgid_plural "%s plugins successfully updated."
 msgstr[0] ""
@@ -396,6 +426,7 @@ msgstr[1] ""
 
 #. translators: %s: Number of themes.
 #: wp-admin/js/updates.js:2896
+#, js-format
 msgid "%s theme successfully updated."
 msgid_plural "%s themes successfully updated."
 msgstr[0] ""
@@ -403,6 +434,7 @@ msgstr[1] ""
 
 #. translators: %s: Number of failed updates.
 #: wp-admin/js/updates.js:2907
+#, js-format
 msgid "%s update failed."
 msgid_plural "%s updates failed."
 msgstr[0] ""
@@ -419,11 +451,13 @@ msgstr ""
 #. translators: %s: Number of plugins.
 #: wp-admin/js/updates.js:3033
 #: wp-admin/js/updates.js:3129
+#, js-format
 msgid "Number of plugins found: %d"
 msgstr ""
 
 #. translators: %s: Search query.
 #: wp-admin/js/updates.js:3105
+#, js-format
 msgid "Search results for: %s"
 msgstr ""
 

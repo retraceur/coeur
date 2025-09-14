@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Retraceur 2.0.0-beta2\n"
+"Project-Id-Version: Retraceur 2.0.0-RC1\n"
 "Report-Msgid-Bugs-To: https://github.com/retraceur/coeur/issues\n"
 "Last-Translator: imath <contact@imathi.eu>\n"
 "Language-Team: Retraceur <retraceur@proton.me>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-09-03T20:08:15+00:00\n"
+"POT-Creation-Date: 2025-09-14T10:20:23+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.11.0\n"
+"X-Generator: WP-CLI 2.12.0\n"
 
 #: wp-includes/js/dist/block-editor.js:7949
 msgid "Black"
@@ -169,6 +169,7 @@ msgstr ""
 
 #. translators: %s: number of selected blocks
 #: wp-includes/js/dist/block-editor.js:15116
+#, js-format
 msgid "%s block selected."
 msgid_plural "%s blocks selected."
 msgstr[0] ""
@@ -267,6 +268,7 @@ msgstr ""
 
 #. translators: 1: Font weight name. 2: Font style name.
 #: wp-includes/js/dist/block-editor.js:17210
+#, js-format
 msgctxt "font"
 msgid "%1$s %2$s"
 msgstr ""
@@ -298,6 +300,7 @@ msgstr ""
 #. translators: %s: container size (i.e. 600px etc)
 #: wp-includes/js/dist/block-editor.js:19214
 #: wp-includes/js/dist/block-editor.js:19218
+#, js-format
 msgid "Max %s wide"
 msgstr ""
 
@@ -536,6 +539,7 @@ msgstr ""
 
 #. translators: %d: number of results.
 #: wp-includes/js/dist/block-editor.js:22403
+#, js-format
 msgid "%d result found, use up and down arrow keys to navigate."
 msgid_plural "%d results found, use up and down arrow keys to navigate."
 msgstr[0] ""
@@ -560,6 +564,7 @@ msgstr ""
 
 #. translators: %s: search term.
 #: wp-includes/js/dist/block-editor.js:22763
+#, js-format
 msgid "Create: <mark>%s</mark>"
 msgstr ""
 
@@ -578,6 +583,7 @@ msgstr ""
 
 #. translators: %s: search term.
 #: wp-includes/js/dist/block-editor.js:23099
+#, js-format
 msgid "Search results for \"%s\""
 msgstr ""
 
@@ -714,6 +720,7 @@ msgstr ""
 
 #. translators: %s: file name
 #: wp-includes/js/dist/block-editor.js:24726
+#, js-format
 msgid "Background image: %s"
 msgstr ""
 
@@ -970,11 +977,13 @@ msgstr ""
 
 #. translators: %s is a type of text color, e.g., "text color" or "link color".
 #: wp-includes/js/dist/block-editor.js:28123
+#, js-format
 msgid "This color combination may be hard for people to read. Try using a darker background color and/or a brighter %s."
 msgstr ""
 
 #. translators: %s is a type of text color, e.g., "text color" or "link color".
 #: wp-includes/js/dist/block-editor.js:28125
+#, js-format
 msgid "This color combination may be hard for people to read. Try using a brighter background color and/or a darker %s."
 msgstr ""
 
@@ -1013,16 +1022,19 @@ msgstr ""
 
 #. translators: %s: Currently selected font weight.
 #: wp-includes/js/dist/block-editor.js:28853
+#, js-format
 msgid "Currently selected font weight: %s"
 msgstr ""
 
 #. translators: %s: Currently selected font style.
 #: wp-includes/js/dist/block-editor.js:28858
+#, js-format
 msgid "Currently selected font style: %s"
 msgstr ""
 
 #. translators: %s: Currently selected font appearance.
 #: wp-includes/js/dist/block-editor.js:28862
+#, js-format
 msgid "Currently selected font appearance: %s"
 msgstr ""
 
@@ -1118,12 +1130,14 @@ msgstr ""
 
 #. translators: %s: A custom measurement, e.g. a number followed by a unit like 12px.
 #: wp-includes/js/dist/block-editor.js:30974
+#, js-format
 msgid "Custom (%s)"
 msgstr ""
 
 #. translators: 1: The side of the block being modified (top, bottom, left etc.). 2. Type of spacing being modified (padding, margin, etc).
 #: wp-includes/js/dist/block-editor.js:31025
 #: wp-includes/js/dist/block-editor.js:31434
+#, js-format
 msgctxt "spacing"
 msgid "%1$s %2$s"
 msgstr ""
@@ -1317,6 +1331,7 @@ msgstr ""
 
 #. translators: %s: the name of the parent block.
 #: wp-includes/js/dist/block-editor.js:34872
+#, js-format
 msgid "The block will stick to the scrollable area of the parent %s block."
 msgstr ""
 
@@ -1328,6 +1343,7 @@ msgstr ""
 
 #. translators: %s: Currently selected position.
 #: wp-includes/js/dist/block-editor.js:34917
+#, js-format
 msgid "Currently selected position: %s"
 msgstr ""
 
@@ -1377,21 +1393,25 @@ msgstr ""
 
 #. translators: %s: file name.
 #: wp-includes/js/dist/block-editor.js:37605
+#, js-format
 msgid "%s: Sorry, this file type is not supported here."
 msgstr ""
 
 #. translators: %s: file name.
 #: wp-includes/js/dist/block-editor.js:37663
+#, js-format
 msgid "%s: Sorry, you are not allowed to upload this file type."
 msgstr ""
 
 #. translators: %s: file name.
 #: wp-includes/js/dist/block-editor.js:37693
+#, js-format
 msgid "%s: This file is empty."
 msgstr ""
 
 #. translators: %s: file name.
 #: wp-includes/js/dist/block-editor.js:37702
+#, js-format
 msgid "%s: This file exceeds the maximum upload size for this site."
 msgstr ""
 
@@ -1527,6 +1547,7 @@ msgstr ""
 
 #. translators: %d: Number of blocks.
 #: wp-includes/js/dist/block-editor.js:44708
+#, js-format
 msgid "%d block"
 msgid_plural "%d blocks"
 msgstr[0] ""
@@ -1534,6 +1555,7 @@ msgstr[1] ""
 
 #. translators: %s: Type of block (i.e. Text, Image etc)
 #: wp-includes/js/dist/block-editor.js:45212
+#, js-format
 msgid "Block: %s"
 msgstr ""
 
@@ -1555,16 +1577,19 @@ msgstr ""
 
 #. Translators: Name of the block being copied, e.g. "Paragraph".
 #: wp-includes/js/dist/block-editor.js:49989
+#, js-format
 msgid "Copied \"%s\" to clipboard."
 msgstr ""
 
 #. Translators: Name of the block being cut, e.g. "Paragraph".
 #: wp-includes/js/dist/block-editor.js:49993
+#, js-format
 msgid "Moved \"%s\" to clipboard."
 msgstr ""
 
 #. Translators: %d: Number of blocks being copied.
 #: wp-includes/js/dist/block-editor.js:49998
+#, js-format
 msgid "Copied %d block to clipboard."
 msgid_plural "Copied %d blocks to clipboard."
 msgstr[0] ""
@@ -1572,6 +1597,7 @@ msgstr[1] ""
 
 #. Translators: %d: Number of blocks being moved.
 #: wp-includes/js/dist/block-editor.js:50002
+#, js-format
 msgid "Moved %d block to clipboard."
 msgid_plural "Moved %d blocks to clipboard."
 msgstr[0] ""
@@ -1595,6 +1621,7 @@ msgstr ""
 
 #. translators: %s: block pattern title.
 #: wp-includes/js/dist/block-editor.js:52810
+#, js-format
 msgid "Block \"%s\" can't be inserted."
 msgstr ""
 
@@ -1627,6 +1654,7 @@ msgstr ""
 
 #. translators: %s: Total number of patterns.
 #: wp-includes/js/dist/block-editor.js:53134
+#, js-format
 msgid "%s item"
 msgid_plural "%s items"
 msgstr[0] ""
@@ -1642,6 +1670,7 @@ msgstr ""
 
 #. translators: 1: Current page number. 2: Total number of pages.
 #: wp-includes/js/dist/block-editor.js:53171
+#, js-format
 msgctxt "paging"
 msgid "%1$s of %2$s"
 msgstr ""
@@ -1661,6 +1690,7 @@ msgstr ""
 
 #. translators: %d: the name of the block that has been added
 #: wp-includes/js/dist/block-editor.js:53541
+#, js-format
 msgid "%d block added."
 msgid_plural "%d blocks added."
 msgstr[0] ""
@@ -1668,11 +1698,13 @@ msgstr[1] ""
 
 #. translators: %s: block pattern title.
 #: wp-includes/js/dist/block-editor.js:53648
+#, js-format
 msgid "Block pattern \"%s\" inserted."
 msgstr ""
 
 #. translators: %d: number of patterns.
 #: wp-includes/js/dist/block-editor.js:54000
+#, js-format
 msgid "%d pattern found"
 msgid_plural "%d patterns found"
 msgstr[0] ""
@@ -1682,6 +1714,7 @@ msgstr[1] ""
 #: wp-includes/js/dist/block-editor.js:54049
 #: wp-includes/js/dist/block-editor.js:55417
 #: wp-includes/js/dist/block-editor.js:77786
+#, js-format
 msgid "%d result found."
 msgid_plural "%d results found."
 msgstr[0] ""
@@ -1689,6 +1722,7 @@ msgstr[1] ""
 
 #. translators: %d: number of categories .
 #: wp-includes/js/dist/block-editor.js:54130
+#, js-format
 msgid "%d category button displayed."
 msgid_plural "%d category buttons displayed."
 msgstr[0] ""
@@ -1755,6 +1789,7 @@ msgstr ""
 
 #. translators: %s: The media type to report e.g: "image", "video", "audio"
 #: wp-includes/js/dist/block-editor.js:54770
+#, js-format
 msgid "Report %s"
 msgstr ""
 
@@ -1820,6 +1855,7 @@ msgstr ""
 #. translators: %s: the name of the block when there is only one
 #: wp-includes/js/dist/block-editor.js:56092
 #: wp-includes/js/dist/block-editor.js:56445
+#, js-format
 msgctxt "directly add the only allowed block"
 msgid "Add %s"
 msgstr ""
@@ -1836,6 +1872,7 @@ msgstr ""
 
 #. translators: %s: the name of the block that has been added
 #: wp-includes/js/dist/block-editor.js:56385
+#, js-format
 msgid "%s block added"
 msgstr ""
 
@@ -1907,58 +1944,69 @@ msgstr ""
 
 #. translators: %s: Type of block (i.e. Text, Image etc)
 #: wp-includes/js/dist/block-editor.js:60170
+#, js-format
 msgid "Block %s is the only block, and cannot be moved"
 msgstr ""
 
 #. translators: 1: Type of block (i.e. Text, Image etc), 2: Position of selected block, 3: New position
 #: wp-includes/js/dist/block-editor.js:60178
+#, js-format
 msgid "Move %1$s block from position %2$d down to position %3$d"
 msgstr ""
 
 #. translators: 1: Type of block (i.e. Text, Image etc), 2: Position of selected block, 3: New position
 #: wp-includes/js/dist/block-editor.js:60183
 #: wp-includes/js/dist/block-editor.js:60221
+#, js-format
 msgid "Move %1$s block from position %2$d left to position %3$d"
 msgstr ""
 
 #. translators: 1: Type of block (i.e. Text, Image etc), 2: Position of selected block, 3: New position
 #: wp-includes/js/dist/block-editor.js:60188
 #: wp-includes/js/dist/block-editor.js:60226
+#, js-format
 msgid "Move %1$s block from position %2$d right to position %3$d"
 msgstr ""
 
 #. translators: 1: Type of block (i.e. Text, Image etc)
 #: wp-includes/js/dist/block-editor.js:60197
+#, js-format
 msgid "Block %1$s is at the end of the content and can’t be moved down"
 msgstr ""
 
 #. translators: 1: Type of block (i.e. Text, Image etc)
 #: wp-includes/js/dist/block-editor.js:60202
+#, js-format
 msgid "Block %1$s is at the end of the content and can’t be moved left"
 msgstr ""
 
 #. translators: 1: Type of block (i.e. Text, Image etc)
 #: wp-includes/js/dist/block-editor.js:60207
+#, js-format
 msgid "Block %1$s is at the end of the content and can’t be moved right"
 msgstr ""
 
 #. translators: 1: Type of block (i.e. Text, Image etc), 2: Position of selected block, 3: New position
 #: wp-includes/js/dist/block-editor.js:60216
+#, js-format
 msgid "Move %1$s block from position %2$d up to position %3$d"
 msgstr ""
 
 #. translators: 1: Type of block (i.e. Text, Image etc)
 #: wp-includes/js/dist/block-editor.js:60235
+#, js-format
 msgid "Block %1$s is at the beginning of the content and can’t be moved up"
 msgstr ""
 
 #. translators: 1: Type of block (i.e. Text, Image etc)
 #: wp-includes/js/dist/block-editor.js:60240
+#, js-format
 msgid "Block %1$s is at the beginning of the content and can’t be moved left"
 msgstr ""
 
 #. translators: 1: Type of block (i.e. Text, Image etc)
 #: wp-includes/js/dist/block-editor.js:60245
+#, js-format
 msgid "Block %1$s is at the beginning of the content and can’t be moved right"
 msgstr ""
 
@@ -1968,18 +2016,21 @@ msgstr ""
 
 #. translators: 1: Number of selected blocks, 2: Position of selected blocks
 #: wp-includes/js/dist/block-editor.js:60276
+#, js-format
 msgid "Move %1$d blocks from position %2$d down by one place"
 msgstr ""
 
 #. translators: 1: Number of selected blocks, 2: Position of selected blocks
 #: wp-includes/js/dist/block-editor.js:60281
 #: wp-includes/js/dist/block-editor.js:60313
+#, js-format
 msgid "Move %1$d blocks from position %2$d left by one place"
 msgstr ""
 
 #. translators: 1: Number of selected blocks, 2: Position of selected blocks
 #: wp-includes/js/dist/block-editor.js:60286
 #: wp-includes/js/dist/block-editor.js:60318
+#, js-format
 msgid "Move %1$d blocks from position %2$d right by one place"
 msgstr ""
 
@@ -1999,6 +2050,7 @@ msgstr ""
 
 #. translators: 1: Number of selected blocks, 2: Position of selected blocks
 #: wp-includes/js/dist/block-editor.js:60308
+#, js-format
 msgid "Move %1$d blocks from position %2$d up by one place"
 msgstr ""
 
@@ -2012,6 +2064,7 @@ msgstr ""
 
 #. translators: %s: Name of the block's parent.
 #: wp-includes/js/dist/block-editor.js:60811
+#, js-format
 msgid "Select parent block: %s"
 msgstr ""
 
@@ -2064,6 +2117,7 @@ msgstr ""
 
 #. translators: %d: number of blocks.
 #: wp-includes/js/dist/block-editor.js:61878
+#, js-format
 msgid "Change type of %d block"
 msgid_plural "Change type of %d blocks"
 msgstr[0] ""
@@ -2083,11 +2137,13 @@ msgstr ""
 
 #. Translators: Name of the block being pasted, e.g. "Paragraph".
 #: wp-includes/js/dist/block-editor.js:62356
+#, js-format
 msgid "Pasted styles to %s."
 msgstr ""
 
 #. Translators: The number of the blocks.
 #: wp-includes/js/dist/block-editor.js:62362
+#, js-format
 msgid "Pasted styles to %d blocks."
 msgstr ""
 
@@ -2103,6 +2159,7 @@ msgstr ""
 
 #. translators: %s: Name of the block.
 #: wp-includes/js/dist/block-editor.js:62828
+#, js-format
 msgid "Lock %s"
 msgstr ""
 
@@ -2163,11 +2220,13 @@ msgstr ""
 
 #. translators: %s: new name/label for the block
 #: wp-includes/js/dist/block-editor.js:63157
+#, js-format
 msgid "Block name reset to: \"%s\"."
 msgstr ""
 
 #. translators: %s: new name/label for the block
 #: wp-includes/js/dist/block-editor.js:63158
+#, js-format
 msgid "Block name changed to: \"%s\"."
 msgstr ""
 
@@ -2186,6 +2245,7 @@ msgstr ""
 
 #. translators: %s: Name of the block's parent.
 #: wp-includes/js/dist/block-editor.js:63402
+#, js-format
 msgid "Select parent block (%s)"
 msgstr ""
 
@@ -2269,6 +2329,7 @@ msgstr ""
 
 #. translators: %d: the name of the block that has been moved
 #: wp-includes/js/dist/block-editor.js:65046
+#, js-format
 msgid "%d block moved."
 msgid_plural "%d blocks moved."
 msgstr[0] ""
@@ -2283,6 +2344,7 @@ msgstr ""
 #: wp-includes/js/dist/block-editor.js:65275
 #: wp-includes/js/dist/block-editor.js:69473
 #: wp-includes/js/dist/block-editor.js:69541
+#, js-format
 msgid "Transform to %s"
 msgstr ""
 
@@ -2300,21 +2362,25 @@ msgstr ""
 
 #. translators: %s: name of block being inserted (i.e. Paragraph, Image, Group etc)
 #: wp-includes/js/dist/block-editor.js:65783
+#, js-format
 msgid "%s block inserted"
 msgstr ""
 
 #. translators: 1: The name of the block. 2: The numerical position of the block. 3: The level of nesting for the block.
 #: wp-includes/js/dist/block-editor.js:65790
+#, js-format
 msgid "Append to %1$s block at position %2$d, Level %3$d"
 msgstr ""
 
 #. translators: 1: The numerical position of the block. 2: The total number of blocks. 3. The level of nesting for the block.
 #: wp-includes/js/dist/block-editor.js:66286
+#, js-format
 msgid "Block %1$d of %2$d, Level %3$d."
 msgstr ""
 
 #. translators: %s: Position of selected block, e.g. "Sticky" or "Fixed".
 #: wp-includes/js/dist/block-editor.js:66289
+#, js-format
 msgid "Position: %s"
 msgstr ""
 
@@ -2324,11 +2390,13 @@ msgstr ""
 
 #. translators: %s: block name
 #: wp-includes/js/dist/block-editor.js:67549
+#, js-format
 msgid "%s deselected."
 msgstr ""
 
 #. translators: %s: number of deselected blocks
 #: wp-includes/js/dist/block-editor.js:67553
+#, js-format
 msgid "%s blocks deselected."
 msgstr ""
 
@@ -2352,6 +2420,7 @@ msgstr ""
 
 #. translators: %d: heading level e.g: "1", "2", "3"
 #: wp-includes/js/dist/block-editor.js:69057
+#, js-format
 msgid "Heading %d"
 msgstr ""
 
@@ -2480,6 +2549,7 @@ msgstr ""
 
 #. translators: %s: Error message.
 #: wp-includes/js/dist/block-editor.js:70217
+#, js-format
 msgid "Could not edit image. %s"
 msgstr ""
 
@@ -2524,6 +2594,7 @@ msgstr ""
 
 #. translators: Percentage value.
 #: wp-includes/js/dist/block-editor.js:72029
+#, js-format
 msgid "%d%%"
 msgstr ""
 
@@ -2593,16 +2664,19 @@ msgstr ""
 
 #. translators: %s: connected field label or source label
 #: wp-includes/js/dist/block-editor.js:74220
+#, js-format
 msgid "Add %s"
 msgstr ""
 
 #. translators: %s: source label or key
 #: wp-includes/js/dist/block-editor.js:74222
+#, js-format
 msgid "Empty %s; start writing to edit its value"
 msgstr ""
 
 #. translators: 1: property name. 2: viewport name.
 #: wp-includes/js/dist/block-editor.js:74623
+#, js-format
 msgctxt "Text labelling a interface as controlling a given layout property (eg: margin) for a given screen size."
 msgid "Controls the %1$s property for %2$s viewports."
 msgstr ""
@@ -2626,6 +2700,7 @@ msgstr ""
 
 #. translators: %s: Property value for the control (eg: margin, padding, etc.).
 #: wp-includes/js/dist/block-editor.js:74682
+#, js-format
 msgid "Use the same %s on all screen sizes."
 msgstr ""
 
@@ -2710,6 +2785,7 @@ msgstr ""
 
 #. translators: %d: number of blocks
 #: wp-includes/js/dist/block-editor.js:75482
+#, js-format
 msgid "%d Block"
 msgid_plural "%d Blocks"
 msgstr[0] ""
@@ -2775,6 +2851,7 @@ msgstr ""
 
 #. translators: %s: a list of block names separated by a comma.
 #: wp-includes/js/dist/block-editor.js:77461
+#, js-format
 msgid "%s block."
 msgid_plural "%s blocks."
 msgstr[0] ""
@@ -2782,6 +2859,7 @@ msgstr[1] ""
 
 #. translators: %s: a list of element names separated by a comma.
 #: wp-includes/js/dist/block-editor.js:77467
+#, js-format
 msgid "%s element."
 msgid_plural "%s elements."
 msgstr[0] ""
@@ -2789,21 +2867,25 @@ msgstr[1] ""
 
 #. translators: %s: a list of theme.json setting labels separated by a comma.
 #: wp-includes/js/dist/block-editor.js:77473
+#, js-format
 msgid "%s settings."
 msgstr ""
 
 #. translators: %s: a list of theme.json top-level styles labels separated by a comma.
 #: wp-includes/js/dist/block-editor.js:77479
+#, js-format
 msgid "%s styles."
 msgstr ""
 
 #. translators: %s: a list of global styles changes separated by a comma.
 #: wp-includes/js/dist/block-editor.js:77485
+#, js-format
 msgid "%s."
 msgstr ""
 
 #. translators: %d: number of blocks.
 #: wp-includes/js/dist/block-editor.js:77794
+#, js-format
 msgid "%d block is hidden."
 msgid_plural "%d blocks are hidden."
 msgstr[0] ""

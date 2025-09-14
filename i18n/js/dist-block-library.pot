@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Retraceur 2.0.0-beta2\n"
+"Project-Id-Version: Retraceur 2.0.0-RC1\n"
 "Report-Msgid-Bugs-To: https://github.com/retraceur/coeur/issues\n"
 "Last-Translator: imath <contact@imathi.eu>\n"
 "Language-Team: Retraceur <retraceur@proton.me>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-09-03T20:07:34+00:00\n"
+"POT-Creation-Date: 2025-09-14T10:19:44+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.11.0\n"
+"X-Generator: WP-CLI 2.12.0\n"
 
 #: wp-includes/js/dist/block-library.js:1583
 #: wp-includes/js/dist/block-library.js:1967
@@ -103,6 +103,7 @@ msgstr ""
 #. translators: %s: Author name.
 #: wp-includes/js/dist/block-library.js:1849
 #: wp-includes/js/dist/block-library.js:1887
+#, js-format
 msgid "%s Avatar"
 msgstr ""
 
@@ -224,6 +225,7 @@ msgstr ""
 #. translators: Percentage value.
 #: wp-includes/js/dist/block-library.js:4938
 #: wp-includes/js/dist/block-library.js:48478
+#, js-format
 msgid "%d%%"
 msgstr ""
 
@@ -297,6 +299,7 @@ msgstr ""
 
 #. translators: %s: taxonomy's singular name
 #: wp-includes/js/dist/block-library.js:6233
+#, js-format
 msgid "Select %s"
 msgstr ""
 
@@ -360,6 +363,7 @@ msgstr ""
 
 #. translators: 1: Block label (i.e. "Block: Column"), 2: Position of the selected block, 3: Total number of sibling blocks of the same type
 #: wp-includes/js/dist/block-library.js:7047
+#, js-format
 msgid "%1$s (%2$d of %3$d)"
 msgstr ""
 
@@ -648,6 +652,7 @@ msgstr ""
 
 #. translators: accessibility text; summary title.
 #: wp-includes/js/dist/block-library.js:12599
+#, js-format
 msgid "Details. %s"
 msgstr ""
 
@@ -700,11 +705,13 @@ msgstr ""
 
 #. translators: %s: host providing embed content e.g: www.youtube.com
 #: wp-includes/js/dist/block-library.js:13098
+#, js-format
 msgid "Embedded content from %s"
 msgstr ""
 
 #. translators: %s: host providing embed content e.g: www.youtube.com
 #: wp-includes/js/dist/block-library.js:13138
+#, js-format
 msgid "Embedded content from %s can't be previewed in the editor."
 msgstr ""
 
@@ -715,6 +722,7 @@ msgstr ""
 
 #. translators: %s: type of embed e.g: "YouTube", "Twitter", etc. "Embed" is used when no specific type exists
 #: wp-includes/js/dist/block-library.js:13315
+#, js-format
 msgid "%s URL"
 msgstr ""
 
@@ -724,6 +732,7 @@ msgstr ""
 
 #. translators: %s: provider name
 #: wp-includes/js/dist/block-library.js:13573
+#, js-format
 msgid "%s Embed"
 msgstr ""
 
@@ -890,6 +899,7 @@ msgstr ""
 #: wp-includes/js/dist/block-library.js:14204
 #: wp-includes/js/dist/block-library.js:14313
 #: wp-includes/js/dist/block-library.js:14414
+#, js-format
 msgid "Embed of %s."
 msgstr ""
 
@@ -1025,6 +1035,7 @@ msgstr ""
 
 #. translators: %s: image size settings
 #: wp-includes/js/dist/block-library.js:16951
+#, js-format
 msgid "All gallery image links updated to: %s"
 msgstr ""
 
@@ -1038,6 +1049,7 @@ msgstr ""
 
 #. translators: %s: image size settings
 #: wp-includes/js/dist/block-library.js:17005
+#, js-format
 msgid "All gallery image sizes updated to: %s"
 msgstr ""
 
@@ -1163,11 +1175,13 @@ msgstr ""
 
 #. translators: accessibility text. %s: heading level.
 #: wp-includes/js/dist/block-library.js:19470
+#, js-format
 msgid "Level %s. Empty."
 msgstr ""
 
 #. translators: accessibility text. 1: heading level. 2: heading content.
 #: wp-includes/js/dist/block-library.js:19471
+#, js-format
 msgid "Level %1$s. %2$s"
 msgstr ""
 
@@ -1276,6 +1290,7 @@ msgstr ""
 #: wp-includes/js/dist/block-library.js:21633
 #: wp-includes/js/dist/block-library.js:21640
 #: wp-includes/js/dist/block-library.js:22331
+#, js-format
 msgid "Connected to %s"
 msgstr ""
 
@@ -1304,6 +1319,7 @@ msgstr ""
 
 #. translators: %s: file name
 #: wp-includes/js/dist/block-library.js:21772
+#, js-format
 msgid "This image has an empty alt attribute; its file name is %s"
 msgstr ""
 
@@ -1450,6 +1466,7 @@ msgstr ""
 
 #. translators: 1: Hidden accessibility text: Post title
 #: wp-includes/js/dist/block-library.js:23575
+#, js-format
 msgid "… <a>Read more<span>: %1$s</span></a>"
 msgstr ""
 
@@ -1463,6 +1480,7 @@ msgstr ""
 
 #. translators: byline. %s: author.
 #: wp-includes/js/dist/block-library.js:23611
+#, js-format
 msgid "by %s"
 msgstr ""
 
@@ -1623,11 +1641,13 @@ msgstr ""
 
 #. translators: %s: block name
 #: wp-includes/js/dist/block-library.js:27990
+#, js-format
 msgid "Your site doesn’t include support for the \"%s\" block. You can leave it as-is, convert it to custom HTML, or remove it."
 msgstr ""
 
 #. translators: %s: block name
 #: wp-includes/js/dist/block-library.js:27994
+#, js-format
 msgid "Your site doesn’t include support for the \"%s\" block. You can leave it as-is or remove it."
 msgstr ""
 
@@ -1660,16 +1680,19 @@ msgstr ""
 
 #. translators: %s: the index of the menu in the list of menus.
 #: wp-includes/js/dist/block-library.js:28618
+#, js-format
 msgid "(no title %s)"
 msgstr ""
 
 #. translators: 1: title of the menu. 2: status of the menu (draft, pending, etc.).
 #: wp-includes/js/dist/block-library.js:28625
+#, js-format
 msgid "%1$s (%2$s)"
 msgstr ""
 
 #. translators: %s: The name of a menu.
 #: wp-includes/js/dist/block-library.js:28637
+#, js-format
 msgid "Create from '%s'"
 msgstr ""
 
@@ -1770,17 +1793,20 @@ msgstr ""
 #. translators: %s: The name of a menu (e.g. Header menu).
 #: wp-includes/js/dist/block-library.js:29576
 #: wp-includes/js/dist/block-library.js:29585
+#, js-format
 msgid "Unable to fetch classic menu \"%s\" from API."
 msgstr ""
 
 #. translators: %s: The name of a menu (e.g. Header menu).
 #: wp-includes/js/dist/block-library.js:29612
 #: wp-includes/js/dist/block-library.js:29650
+#, js-format
 msgid "Unable to create Navigation Menu \"%s\"."
 msgstr ""
 
 #. translators: %s: the name of a menu (e.g. Header menu).
 #: wp-includes/js/dist/block-library.js:29859
+#, js-format
 msgid "%s menu"
 msgstr ""
 
@@ -1798,6 +1824,7 @@ msgstr ""
 
 #. translators: %s: block name
 #: wp-includes/js/dist/block-library.js:30254
+#, js-format
 msgid "Remove %s"
 msgstr ""
 
@@ -1838,21 +1865,25 @@ msgstr ""
 
 #. translators: %s: search term.
 #: wp-includes/js/dist/block-library.js:30665
+#, js-format
 msgid "Create draft post: <mark>%s</mark>"
 msgstr ""
 
 #. translators: %s: search term.
 #: wp-includes/js/dist/block-library.js:30668
+#, js-format
 msgid "Create draft page: <mark>%s</mark>"
 msgstr ""
 
 #. translators: %s: The name of a menu.
 #: wp-includes/js/dist/block-library.js:30748
+#, js-format
 msgid "Switch to '%s'"
 msgstr ""
 
 #. translators: %s: The name of a menu.
 #: wp-includes/js/dist/block-library.js:30811
+#, js-format
 msgid "Structure for Navigation Menu: %s"
 msgstr ""
 
@@ -1870,6 +1901,7 @@ msgstr ""
 
 #. translators: %s: Title of a Navigation Menu post.
 #: wp-includes/js/dist/block-library.js:30902
+#, js-format
 msgid "Navigation Menu: \"%s\""
 msgstr ""
 
@@ -2099,6 +2131,7 @@ msgstr ""
 
 #. translators: A warning in which %s is the name of a pattern.
 #: wp-includes/js/dist/block-library.js:34367
+#, js-format
 msgid "Pattern \"%s\" cannot be rendered inside itself."
 msgstr ""
 
@@ -2132,6 +2165,7 @@ msgstr ""
 
 #. translators: %s: Page title.
 #: wp-includes/js/dist/block-library.js:34684
+#, js-format
 msgid "Page List: \"%s\" page has no children."
 msgstr ""
 
@@ -2188,6 +2222,7 @@ msgstr ""
 #. translators: %s: Name of the post type e.g: "post".
 #: wp-includes/js/dist/block-library.js:36246
 #: wp-includes/js/dist/block-library.js:36598
+#, js-format
 msgid "This post type (%s) does not support the author."
 msgstr ""
 
@@ -2280,6 +2315,7 @@ msgstr ""
 #: wp-includes/js/dist/block-library.js:37326
 #: wp-includes/js/dist/block-library.js:38440
 #: wp-includes/js/dist/block-library.js:38450
+#, js-format
 msgid "Link to %s"
 msgstr ""
 
@@ -2394,6 +2430,7 @@ msgstr ""
 
 #. translators: %s: The image's alt text.
 #: wp-includes/js/dist/block-library.js:38572
+#, js-format
 msgid "Featured image: %s"
 msgstr ""
 
@@ -2442,11 +2479,13 @@ msgstr ""
 
 #. translators: 1: Post Format name, 2: Post ID
 #: wp-includes/js/dist/block-library.js:39059
+#, js-format
 msgid "%1$s #%2$d"
 msgstr ""
 
 #. translators: 1: Post ID info.
 #: wp-includes/js/dist/block-library.js:39073
+#, js-format
 msgid "Post Format Name%s"
 msgstr ""
 
@@ -2959,17 +2998,20 @@ msgstr ""
 
 #. translators: 1: Archive type title e.g: "Category", 2: Label of the archive e.g: "Shoes"
 #: wp-includes/js/dist/block-library.js:45755
+#, js-format
 msgctxt "archive label"
 msgid "%1$s: %2$s"
 msgstr ""
 
 #. translators: %s: Archive type title e.g: "Category", "Tag"...
 #: wp-includes/js/dist/block-library.js:45758
+#, js-format
 msgid "%s: Name"
 msgstr ""
 
 #. translators: %s: Archive type title e.g: "Category", "Tag"...
 #: wp-includes/js/dist/block-library.js:45764
+#, js-format
 msgid "%s name"
 msgstr ""
 
@@ -3445,6 +3487,7 @@ msgstr ""
 
 #. Translators: %s as template part area title ("Header", "Footer", etc.).
 #: wp-includes/js/dist/block-library.js:56484
+#, js-format
 msgid "Create new %s"
 msgstr ""
 
@@ -3462,16 +3505,19 @@ msgstr ""
 
 #. Translators: %s as template part area title ("Header", "Footer", etc.).
 #: wp-includes/js/dist/block-library.js:56575
+#, js-format
 msgid "Choose an existing %s or create a new one."
 msgstr ""
 
 #. Translators: %s as template part area title ("Header", "Footer", etc.).
 #: wp-includes/js/dist/block-library.js:56577
+#, js-format
 msgid "Choose an existing %s."
 msgstr ""
 
 #. translators: %s: template part title.
 #: wp-includes/js/dist/block-library.js:56674
+#, js-format
 msgid "Template Part \"%s\" inserted."
 msgstr ""
 
@@ -3485,11 +3531,13 @@ msgstr ""
 
 #. translators: %s: name of the widget area
 #: wp-includes/js/dist/block-library.js:56886
+#, js-format
 msgid "Widget area: %s"
 msgstr ""
 
 #. translators: %s: the list of widgets
 #: wp-includes/js/dist/block-library.js:56889
+#, js-format
 msgid "Unable to import the following widgets: %s."
 msgstr ""
 
@@ -3508,6 +3556,7 @@ msgstr ""
 
 #. translators: %s: HTML tag based on area.
 #: wp-includes/js/dist/block-library.js:56987
+#, js-format
 msgid "Default based on area (%s)"
 msgstr ""
 
@@ -3521,16 +3570,19 @@ msgstr ""
 
 #. translators: %s: template part title.
 #: wp-includes/js/dist/block-library.js:57313
+#, js-format
 msgid "Template Part \"%s\" updated."
 msgstr ""
 
 #. translators: %s: Template part slug.
 #: wp-includes/js/dist/block-library.js:57325
+#, js-format
 msgid "Template part has been deleted or is unavailable: %s"
 msgstr ""
 
 #. Translators: %s as template part area title ("Header", "Footer", etc.).
 #: wp-includes/js/dist/block-library.js:57407
+#, js-format
 msgid "Choose a %s"
 msgstr ""
 
@@ -3540,6 +3592,7 @@ msgstr ""
 
 #. translators: %d: column index (starting with 1)
 #: wp-includes/js/dist/block-library.js:57804
+#, js-format
 msgid "Column %d text"
 msgstr ""
 
@@ -3581,6 +3634,7 @@ msgstr ""
 
 #. translators: %s: poster image URL.
 #: wp-includes/js/dist/block-library.js:58537
+#, js-format
 msgid "The current poster image url is %s"
 msgstr ""
 
@@ -3638,6 +3692,7 @@ msgstr ""
 
 #. translators: %s: Label of the video text track e.g: "French subtitles".
 #: wp-includes/js/dist/block-library.js:58761
+#, js-format
 msgctxt "text tracks"
 msgid "Edit %s"
 msgstr ""

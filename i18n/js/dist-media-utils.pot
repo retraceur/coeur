@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Retraceur 2.0.0-beta2\n"
+"Project-Id-Version: Retraceur 2.0.0-RC1\n"
 "Report-Msgid-Bugs-To: https://github.com/retraceur/coeur/issues\n"
 "Last-Translator: imath <contact@imathi.eu>\n"
 "Language-Team: Retraceur <retraceur@proton.me>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-09-03T20:07:51+00:00\n"
+"POT-Creation-Date: 2025-09-14T10:20:00+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.11.0\n"
+"X-Generator: WP-CLI 2.12.0\n"
 
 #: wp-includes/js/dist/media-utils.js:413
 msgid "Select or Upload Media"
@@ -17,21 +17,25 @@ msgstr ""
 
 #. translators: %s: file name.
 #: wp-includes/js/dist/media-utils.js:711
+#, js-format
 msgid "%s: Sorry, this file type is not supported here."
 msgstr ""
 
 #. translators: %s: file name.
 #: wp-includes/js/dist/media-utils.js:769
+#, js-format
 msgid "%s: Sorry, you are not allowed to upload this file type."
 msgstr ""
 
 #. translators: %s: file name.
 #: wp-includes/js/dist/media-utils.js:799
+#, js-format
 msgid "%s: This file is empty."
 msgstr ""
 
 #. translators: %s: file name.
 #: wp-includes/js/dist/media-utils.js:808
+#, js-format
 msgid "%s: This file exceeds the maximum upload size for this site."
 msgstr ""
 
@@ -41,10 +45,12 @@ msgstr ""
 
 #. translators: %s: file name
 #: wp-includes/js/dist/media-utils.js:925
+#, js-format
 msgid "Error while uploading file %s to the media library."
 msgstr ""
 
 #. translators: %s: file name
 #: wp-includes/js/dist/media-utils.js:1017
+#, js-format
 msgid "Error while sideloading file %s to the server."
 msgstr ""

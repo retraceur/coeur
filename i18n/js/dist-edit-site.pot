@@ -1,18 +1,19 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Retraceur 2.0.0-beta2\n"
+"Project-Id-Version: Retraceur 2.0.0-RC1\n"
 "Report-Msgid-Bugs-To: https://github.com/retraceur/coeur/issues\n"
 "Last-Translator: imath <contact@imathi.eu>\n"
 "Language-Team: Retraceur <retraceur@proton.me>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-09-03T20:08:07+00:00\n"
+"POT-Creation-Date: 2025-09-14T10:20:16+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.11.0\n"
+"X-Generator: WP-CLI 2.12.0\n"
 
 #. translators: %s: Title of the block e.g. 'Heading'.
 #: wp-includes/js/dist/edit-site.js:6557
+#, js-format
 msgid "%s styles applied."
 msgstr ""
 
@@ -22,6 +23,7 @@ msgstr ""
 
 #. translators: %s: Title of the block e.g. 'Heading'.
 #: wp-includes/js/dist/edit-site.js:6577
+#, js-format
 msgid "Apply this block’s typography, spacing, dimensions, and color styles to all %s blocks."
 msgstr ""
 
@@ -102,6 +104,7 @@ msgstr ""
 
 #. translators: %s: The name of theme to be activated.
 #: wp-includes/js/dist/edit-site.js:12994
+#, js-format
 msgid "Activating %s"
 msgstr ""
 
@@ -112,11 +115,13 @@ msgstr ""
 
 #. translators: %s: The name of theme to be activated.
 #: wp-includes/js/dist/edit-site.js:12999
+#, js-format
 msgid "Activate %s & Save"
 msgstr ""
 
 #. translators: %s: The name of theme to be activated.
 #: wp-includes/js/dist/edit-site.js:13002
+#, js-format
 msgid "Activate %s"
 msgstr ""
 
@@ -126,6 +131,7 @@ msgstr ""
 
 #. translators: %d: number of unsaved changes (number).
 #: wp-includes/js/dist/edit-site.js:13013
+#, js-format
 msgid "Review %d change…"
 msgid_plural "Review %d changes…"
 msgstr[0] ""
@@ -149,6 +155,7 @@ msgstr ""
 
 #. translators: 1: The name of active theme, 2: The name of theme to be activated.
 #: wp-includes/js/dist/edit-site.js:13220
+#, js-format
 msgid "Saving your changes will change your active theme from %1$s to %2$s."
 msgstr ""
 
@@ -166,6 +173,7 @@ msgstr ""
 
 #. translators: %s: plugin name
 #: wp-includes/js/dist/edit-site.js:13535
+#, js-format
 msgid "The \"%s\" plugin has encountered an error and cannot be rendered."
 msgstr ""
 
@@ -219,11 +227,13 @@ msgstr ""
 
 #. translators: 1: theme name. 2: title
 #: wp-includes/js/dist/edit-site.js:14326
+#, js-format
 msgid "Previewing %1$s: %2$s"
 msgstr ""
 
 #. translators: %d: Number of Styles revisions.
 #: wp-includes/js/dist/edit-site.js:14669
+#, js-format
 msgid "%d Revision"
 msgid_plural "%d Revisions"
 msgstr[0] ""
@@ -415,6 +425,7 @@ msgstr ""
 
 #. translators: %d: number of results.
 #: wp-includes/js/dist/edit-site.js:16605
+#, js-format
 msgid "%d result found."
 msgid_plural "%d results found."
 msgstr[0] ""
@@ -446,6 +457,7 @@ msgstr ""
 
 #. translators: %s: is the name of a block e.g., 'Image' or 'Table'.
 #: wp-includes/js/dist/edit-site.js:17034
+#, js-format
 msgid "Add your own CSS to customize the appearance of the %s block. You do not need to include a CSS selector, just add the property and value."
 msgstr ""
 
@@ -498,6 +510,7 @@ msgstr ""
 
 #. translators: 1: variation title. 2: variation description.
 #: wp-includes/js/dist/edit-site.js:17392
+#, js-format
 msgctxt "variation label"
 msgid "%1$s (%2$s)"
 msgstr ""
@@ -573,6 +586,7 @@ msgstr ""
 #. translators: %d: Number of font variants.
 #: wp-includes/js/dist/edit-site.js:18538
 #: wp-includes/js/dist/edit-site.js:23806
+#, js-format
 msgid "%d variant"
 msgid_plural "%d variants"
 msgstr[0] ""
@@ -584,11 +598,13 @@ msgstr ""
 
 #. translators: %s: error message
 #: wp-includes/js/dist/edit-site.js:18726
+#, js-format
 msgid "There was an error updating the font family. %s"
 msgstr ""
 
 #. translators: 1: Active font variants, 2: Total font variants.
 #: wp-includes/js/dist/edit-site.js:18747
+#, js-format
 msgid "%1$s/%2$s variants active"
 msgstr ""
 
@@ -662,6 +678,7 @@ msgstr ""
 
 #. translators: %s: Name of the font.
 #: wp-includes/js/dist/edit-site.js:18971
+#, js-format
 msgid "Are you sure you want to delete \"%s\" font and all its variants and assets?"
 msgstr ""
 
@@ -732,6 +749,7 @@ msgstr ""
 #. translators: 1: Current page number, 2: Total number of pages.
 #: wp-includes/js/dist/edit-site.js:19513
 #: wp-includes/js/dist/edit-site.js:40112
+#, js-format
 msgctxt "paging"
 msgid "<div>Page</div>%1$s<div>of %2$s</div>"
 msgstr ""
@@ -892,6 +910,7 @@ msgstr ""
 
 #. translators: %s: Name of the font size preset.
 #: wp-includes/js/dist/edit-site.js:24222
+#, js-format
 msgid "Are you sure you want to delete \"%s\" font size preset?"
 msgstr ""
 
@@ -922,6 +941,7 @@ msgstr ""
 
 #. translators: %s: font size preset name.
 #: wp-includes/js/dist/edit-site.js:24512
+#, js-format
 msgid "Manage the font size %s."
 msgstr ""
 
@@ -996,6 +1016,7 @@ msgstr ""
 
 #. translators: %d: font size index
 #: wp-includes/js/dist/edit-site.js:24742
+#, js-format
 msgid "New Font Size %d"
 msgstr ""
 
@@ -1074,6 +1095,7 @@ msgstr ""
 
 #. translators: %s: is an index for a preset
 #: wp-includes/js/dist/edit-site.js:25471
+#, js-format
 msgid "Shadow %s"
 msgstr ""
 
@@ -1096,6 +1118,7 @@ msgstr ""
 
 #. translators: %s: Name of the shadow preset.
 #: wp-includes/js/dist/edit-site.js:25939
+#, js-format
 msgid "Are you sure you want to delete \"%s\" shadow preset?"
 msgstr ""
 
@@ -1223,6 +1246,7 @@ msgstr ""
 
 #. translators: %d: heading level e.g: "1", "2", "3"
 #: wp-includes/js/dist/edit-site.js:27116
+#, js-format
 msgid "Heading %d"
 msgstr ""
 
@@ -1243,6 +1267,7 @@ msgstr ""
 
 #. translators: %s: Category of blocks, e.g. Text.
 #: wp-includes/js/dist/edit-site.js:27714
+#, js-format
 msgid "Examples of blocks in the %s category"
 msgstr ""
 
@@ -1252,6 +1277,7 @@ msgstr ""
 
 #. translators: %s: Title of a block, e.g. Heading.
 #: wp-includes/js/dist/edit-site.js:27803
+#, js-format
 msgid "Open %s styles in Styles panel"
 msgstr ""
 
@@ -1275,16 +1301,19 @@ msgstr ""
 
 #. translators: %s: author display name
 #: wp-includes/js/dist/edit-site.js:28019
+#, js-format
 msgid "Unsaved changes by %s"
 msgstr ""
 
 #. translators: 1: author display name. 2: revision creation date.
 #: wp-includes/js/dist/edit-site.js:28023
+#, js-format
 msgid "Changes saved by %1$s on %2$s. This revision matches current editor styles."
 msgstr ""
 
 #. translators: 1: author display name. 2: revision creation date.
 #: wp-includes/js/dist/edit-site.js:28025
+#, js-format
 msgid "Changes saved by %1$s on %2$s"
 msgstr ""
 
@@ -1327,6 +1356,7 @@ msgstr ""
 
 #. translators: %s: Total number of patterns.
 #: wp-includes/js/dist/edit-site.js:28188
+#, js-format
 msgid "%s item"
 msgid_plural "%s items"
 msgstr[0] ""
@@ -1338,6 +1368,7 @@ msgstr ""
 
 #. translators: 1: Current page number. 2: Total number of pages.
 #: wp-includes/js/dist/edit-site.js:28213
+#, js-format
 msgctxt "paging"
 msgid "%1$s of %2$s"
 msgstr ""
@@ -1348,6 +1379,7 @@ msgstr ""
 
 #. translators: %s: number of revisions.
 #: wp-includes/js/dist/edit-site.js:28338
+#, js-format
 msgid "Revisions (%s)"
 msgstr ""
 
@@ -1398,11 +1430,13 @@ msgstr ""
 
 #. translators: Admin document title. 1: Admin screen name, 2: Network or site name.
 #: wp-includes/js/dist/edit-site.js:29222
+#, js-format
 msgid "%1$s ‹ %2$s ‹ Editor — Retraceur"
 msgstr ""
 
 #. translators: A breadcrumb trail for the Admin document title. 1: title of template being edited, 2: type of template (Template or Template Part).
 #: wp-includes/js/dist/edit-site.js:29285
+#, js-format
 msgctxt "breadcrumb trail"
 msgid "%1$s ‹ %2$s"
 msgstr ""
@@ -1415,6 +1449,7 @@ msgstr ""
 #: wp-includes/js/dist/edit-site.js:29708
 #: wp-includes/js/dist/edit-site.js:43925
 #: wp-includes/js/dist/edit-site.js:45235
+#, js-format
 msgid "\"%s\" successfully created."
 msgstr ""
 
@@ -1436,11 +1471,13 @@ msgstr ""
 
 #. translators: %s: block name
 #: wp-includes/js/dist/edit-site.js:30176
+#, js-format
 msgid "Remove %s"
 msgstr ""
 
 #. translators: %s: block name
 #: wp-includes/js/dist/edit-site.js:30181
+#, js-format
 msgid "Go to %s"
 msgstr ""
 
@@ -1459,12 +1496,14 @@ msgstr ""
 #. translators: %s: the index of the menu in the list of menus.
 #: wp-includes/js/dist/edit-site.js:30403
 #: wp-includes/js/dist/edit-site.js:30721
+#, js-format
 msgid "(no title %s)"
 msgstr ""
 
 #. translators: 1: title of the menu. 2: status of the menu (draft, pending, etc.).
 #: wp-includes/js/dist/edit-site.js:30410
 #: wp-includes/js/dist/edit-site.js:30728
+#, js-format
 msgctxt "menu label"
 msgid "%1$s (%2$s)"
 msgstr ""
@@ -1488,6 +1527,7 @@ msgstr ""
 
 #. translators: %s: error message describing why the navigation menu could not be deleted.
 #: wp-includes/js/dist/edit-site.js:30594
+#, js-format
 msgid "Unable to delete Navigation Menu (%s)."
 msgstr ""
 
@@ -1497,11 +1537,13 @@ msgstr ""
 
 #. translators: %s: error message describing why the navigation menu could not be renamed.
 #: wp-includes/js/dist/edit-site.js:30644
+#, js-format
 msgid "Unable to rename Navigation Menu (%s)."
 msgstr ""
 
 #. translators: %s: Navigation menu title
 #: wp-includes/js/dist/edit-site.js:30665
+#, js-format
 msgctxt "navigation menu"
 msgid "%s (Copy)"
 msgstr ""
@@ -1512,6 +1554,7 @@ msgstr ""
 
 #. translators: %s: error message describing why the navigation menu could not be deleted.
 #: wp-includes/js/dist/edit-site.js:30679
+#, js-format
 msgid "Unable to duplicate Navigation Menu (%s)."
 msgstr ""
 
@@ -1593,6 +1636,7 @@ msgstr ""
 
 #. translators: List of items for a filter. 1: Filter name. e.g.: "List of: Author".
 #: wp-includes/js/dist/edit-site.js:37318
+#, js-format
 msgid "List of: %1$s"
 msgstr ""
 
@@ -1607,36 +1651,43 @@ msgstr ""
 
 #. translators: 1: Filter name. 3: Filter value. e.g.: "Author is any: Admin, Editor".
 #: wp-includes/js/dist/edit-site.js:37506
+#, js-format
 msgid "<Name>%1$s is any: </Name><Value>%2$s</Value>"
 msgstr ""
 
 #. translators: 1: Filter name. 3: Filter value. e.g.: "Author is none: Admin, Editor".
 #: wp-includes/js/dist/edit-site.js:37510
+#, js-format
 msgid "<Name>%1$s is none: </Name><Value>%2$s</Value>"
 msgstr ""
 
 #. translators: 1: Filter name. 3: Filter value. e.g.: "Author is all: Admin, Editor".
 #: wp-includes/js/dist/edit-site.js:37514
+#, js-format
 msgid "<Name>%1$s is all: </Name><Value>%2$s</Value>"
 msgstr ""
 
 #. translators: 1: Filter name. 3: Filter value. e.g.: "Author is not all: Admin, Editor".
 #: wp-includes/js/dist/edit-site.js:37518
+#, js-format
 msgid "<Name>%1$s is not all: </Name><Value>%2$s</Value>"
 msgstr ""
 
 #. translators: 1: Filter name. 3: Filter value. e.g.: "Author is: Admin".
 #: wp-includes/js/dist/edit-site.js:37522
+#, js-format
 msgid "<Name>%1$s is: </Name><Value>%2$s</Value>"
 msgstr ""
 
 #. translators: 1: Filter name. 3: Filter value. e.g.: "Author is not: Admin".
 #: wp-includes/js/dist/edit-site.js:37526
+#, js-format
 msgid "<Name>%1$s is not: </Name><Value>%2$s</Value>"
 msgstr ""
 
 #. translators: 1: Filter name e.g.: "Unknown status for Author".
 #: wp-includes/js/dist/edit-site.js:37529
+#, js-format
 msgid "Unknown status for %1$s"
 msgstr ""
 
@@ -1646,6 +1697,7 @@ msgstr ""
 
 #. translators: 1: Filter name.
 #: wp-includes/js/dist/edit-site.js:37619
+#, js-format
 msgid "Filter by: %1$s"
 msgstr ""
 
@@ -1670,6 +1722,7 @@ msgstr ""
 
 #. translators: %d: number of items.
 #: wp-includes/js/dist/edit-site.js:38476
+#, js-format
 msgid "%d Item selected"
 msgid_plural "%d Items selected"
 msgstr[0] ""
@@ -1677,6 +1730,7 @@ msgstr[1] ""
 
 #. translators: %d: number of items.
 #: wp-includes/js/dist/edit-site.js:38477
+#, js-format
 msgid "%d Item"
 msgid_plural "%d Items"
 msgstr[0] ""
@@ -1741,6 +1795,7 @@ msgstr ""
 
 #. translators: Current page number in total number of pages
 #: wp-includes/js/dist/edit-site.js:40097
+#, js-format
 msgid "Page %1$s of %2$s"
 msgstr ""
 
@@ -1769,6 +1824,7 @@ msgstr ""
 
 #. translators: %s: field label
 #: wp-includes/js/dist/edit-site.js:40605
+#, js-format
 msgid "Move %s up"
 msgstr ""
 
@@ -1778,17 +1834,20 @@ msgstr ""
 
 #. translators: %s: field label
 #: wp-includes/js/dist/edit-site.js:40613
+#, js-format
 msgid "Move %s down"
 msgstr ""
 
 #. translators: %s: field label
 #: wp-includes/js/dist/edit-site.js:40626
+#, js-format
 msgctxt "field"
 msgid "Hide %s"
 msgstr ""
 
 #. translators: %s: field label
 #: wp-includes/js/dist/edit-site.js:40627
+#, js-format
 msgctxt "field"
 msgid "Show %s"
 msgstr ""
@@ -1816,11 +1875,13 @@ msgstr ""
 
 #. translators: %s: The imported pattern's title.
 #: wp-includes/js/dist/edit-site.js:41286
+#, js-format
 msgid "Imported \"%s\" from JSON."
 msgstr ""
 
 #. translators: %s: The pattern category's name
 #: wp-includes/js/dist/edit-site.js:41418
+#, js-format
 msgctxt "pattern category"
 msgid "\"%s\" deleted."
 msgstr ""
@@ -1831,12 +1892,14 @@ msgstr ""
 
 #. translators: %s: The pattern category's name.
 #: wp-includes/js/dist/edit-site.js:41445
+#, js-format
 msgctxt "pattern category"
 msgid "Delete \"%s\"?"
 msgstr ""
 
 #. translators: %s: The pattern category's name.
 #: wp-includes/js/dist/edit-site.js:41450
+#, js-format
 msgid "Are you sure you want to delete the category \"%s\"? The patterns will not be deleted."
 msgstr ""
 
@@ -1850,6 +1913,7 @@ msgstr ""
 
 #. translators: %s: pattern category name
 #: wp-includes/js/dist/edit-site.js:41518
+#, js-format
 msgid "Action menu for %s pattern category"
 msgstr ""
 
@@ -1903,55 +1967,65 @@ msgstr ""
 
 #. translators: %1s: Name of the post type e.g: "Post"; %2s: Slug of the post type e.g: "book".
 #: wp-includes/js/dist/edit-site.js:42539
+#, js-format
 msgid "Archive: %1$s (%2$s)"
 msgstr ""
 
 #. translators: %s: Name of the post type e.g: "Post".
 #: wp-includes/js/dist/edit-site.js:42543
+#, js-format
 msgid "Archive: %s"
 msgstr ""
 
 #. translators: %s: Name of the post type e.g: "Post".
 #: wp-includes/js/dist/edit-site.js:42549
+#, js-format
 msgid "Displays an archive with the latest posts of type: %s."
 msgstr ""
 
 #. translators: %s: Name of the post type e.g: "Post".
 #: wp-includes/js/dist/edit-site.js:42612
+#, js-format
 msgid "Single item: %s"
 msgstr ""
 
 #. translators: 1: Name of the template e.g: "Single Item: Post". 2: Slug of the post type e.g: "book".
 #: wp-includes/js/dist/edit-site.js:42616
+#, js-format
 msgctxt "post type menu label"
 msgid "%1$s (%2$s)"
 msgstr ""
 
 #. translators: 1: Name of the post type e.g: "Post". 2: Slug of the post type e.g: "book".
 #: wp-includes/js/dist/edit-site.js:42618
+#, js-format
 msgctxt "post type menu label"
 msgid "Single item: %1$s (%2$s)"
 msgstr ""
 
 #. translators: %s: Name of the post type e.g: "Post".
 #: wp-includes/js/dist/edit-site.js:42628
+#, js-format
 msgid "Displays a single item: %s."
 msgstr ""
 
 #. translators: 1: Name of the template e.g: "Products by Category". 2s: Slug of the taxonomy e.g: "product_cat".
 #: wp-includes/js/dist/edit-site.js:42749
+#, js-format
 msgctxt "taxonomy template menu label"
 msgid "%1$s (%2$s)"
 msgstr ""
 
 #. translators: 1: Name of the taxonomy e.g: "Category". 2: Slug of the taxonomy e.g: "product_cat".
 #: wp-includes/js/dist/edit-site.js:42751
+#, js-format
 msgctxt "taxonomy menu label"
 msgid "%1$s (%2$s)"
 msgstr ""
 
 #. translators: %s: Name of the taxonomy e.g: "Product Categories".
 #: wp-includes/js/dist/edit-site.js:42761
+#, js-format
 msgid "Displays taxonomy: %s."
 msgstr ""
 
@@ -2008,6 +2082,7 @@ msgstr ""
 
 #. translators: %s: The homepage url.
 #: wp-includes/js/dist/edit-site.js:43896
+#, js-format
 msgid "E.g. %s"
 msgstr ""
 
@@ -2021,6 +2096,7 @@ msgstr ""
 
 #. translators: %s: Name of the post type e.g: "Post".
 #: wp-includes/js/dist/edit-site.js:43945
+#, js-format
 msgid "Add template: %s"
 msgstr ""
 
@@ -2099,6 +2175,7 @@ msgstr ""
 
 #. translators: %s: post type singular_name label e.g: "Page".
 #: wp-includes/js/dist/edit-site.js:45250
+#, js-format
 msgid "Draft new: %s"
 msgstr ""
 
@@ -2120,6 +2197,7 @@ msgstr ""
 
 #. translators: %s: Field name.
 #: wp-includes/js/dist/edit-site.js:45904
+#, js-format
 msgctxt "field"
 msgid "Edit %s"
 msgstr ""
