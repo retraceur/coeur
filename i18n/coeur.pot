@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Retraceur 2.0.0-beta2\n"
+"Project-Id-Version: Retraceur 2.0.0-RC1\n"
 "Report-Msgid-Bugs-To: https://github.com/retraceur/coeur/issues\n"
 "Last-Translator: imath <contact@imathi.eu>\n"
 "Language-Team: Retraceur <retraceur@proton.me>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-09-03T20:06:55+00:00\n"
+"POT-Creation-Date: 2025-09-14T05:36:06+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.11.0\n"
+"X-Generator: WP-CLI 2.12.0\n"
 
 #: wp-activate.php:26
 #: wp-includes/deprecated.php:15849
@@ -36,6 +36,7 @@ msgstr ""
 
 #. translators: %s: Name of current post. Only visible to screen readers
 #: wp-content/themes/point/functions.php:71
+#, php-format
 msgid "Read more<span class=\"screen-reader-text\"> about \"%s\"</span>"
 msgstr ""
 
@@ -102,6 +103,7 @@ msgstr ""
 #. Translators: %s: Retraceur link.
 #: wp-content/themes/point/patterns/footer.php:34
 #: wp-includes/theme-compat/footer.php:25
+#, php-format
 msgid "♡ %s"
 msgstr ""
 
@@ -126,11 +128,13 @@ msgstr ""
 
 #. translators: 1: Hook name, 2: Error code, 3: Error message, 4: Event data.
 #: wp-cron.php:135
+#, php-format
 msgid "Cron reschedule event error for hook: %1$s, Error code: %2$s, Error message: %3$s, Data: %4$s"
 msgstr ""
 
 #. translators: 1: Hook name, 2: Error code, 3: Error message, 4: Event data.
 #: wp-cron.php:162
+#, php-format
 msgid "Cron unschedule event error for hook: %1$s, Error code: %2$s, Error message: %3$s, Data: %4$s"
 msgstr ""
 
@@ -155,6 +159,7 @@ msgstr ""
 #. translators: %s: Current user's display name.
 #: wp-includes/admin-bar.php:232
 #: wp-includes/admin-bar.php:244
+#, php-format
 msgid "Howdy, %s"
 msgstr ""
 
@@ -168,11 +173,13 @@ msgstr ""
 
 #. translators: %s: Site title.
 #: wp-includes/admin-bar.php:337
+#, php-format
 msgid "Network Admin: %s"
 msgstr ""
 
 #. translators: %s: Site title.
 #: wp-includes/admin-bar.php:340
+#, php-format
 msgid "Contributor Dashboard: %s"
 msgstr ""
 
@@ -270,6 +277,7 @@ msgstr ""
 
 #. translators: Hidden accessibility text. %s: Total number of updates available.
 #: wp-includes/admin-bar.php:982
+#, php-format
 msgid "%s update available"
 msgid_plural "%s updates available"
 msgstr[0] ""
@@ -297,22 +305,26 @@ msgstr ""
 
 #. translators: 1: Error message, 2: Line number.
 #: wp-includes/atomlib.php:181
+#, php-format
 msgid "XML Error: %1$s at line %2$s"
 msgstr ""
 
 #. translators: %s: get_the_author()
 #: wp-includes/author-template.php:71
+#, php-format
 msgid "Use %s instead if you do not want the value echoed."
 msgstr ""
 
 #. translators: %s: Author's display name.
 #: wp-includes/author-template.php:242
+#, php-format
 msgid "Visit %s&#8217;s website"
 msgstr ""
 
 #. translators: %s: Author's display name.
 #: wp-includes/author-template.php:319
 #: wp-includes/author-template.php:530
+#, php-format
 msgid "Posts by %s"
 msgstr ""
 
@@ -320,6 +332,7 @@ msgstr ""
 #: wp-includes/author-template.php:508
 #: wp-includes/user.php:945
 #: wp-includes/user.php:2378
+#, php-format
 msgctxt "Display name based on first name and last name"
 msgid "%1$s %2$s"
 msgstr ""
@@ -579,6 +592,7 @@ msgstr ""
 
 #. translators: %s: file name.
 #: wp-includes/block-patterns.php:234
+#, php-format
 msgid "Could not register file \"%s\" as a block pattern as the file does not exist."
 msgstr ""
 
@@ -800,40 +814,47 @@ msgstr ""
 
 #. translators: %s: Post format name.
 #: wp-includes/block-template-utils.php:218
+#, php-format
 msgctxt "Template name"
 msgid "Single Post Format entries: %s"
 msgstr ""
 
 #. translators: %s: Post format name.
 #: wp-includes/block-template-utils.php:223
+#, php-format
 msgid "Displays the %s post format single entry."
 msgstr ""
 
 #. translators: %s: Post format name.
 #: wp-includes/block-template-utils.php:230
+#, php-format
 msgctxt "Template name"
 msgid "Post Format: %s"
 msgstr ""
 
 #. translators: %s: Post format name.
 #: wp-includes/block-template-utils.php:235
+#, php-format
 msgid "Displays the %s post format archive."
 msgstr ""
 
 #. translators: %1$s: Template area type, %2$s: the uncategorized template area value.
 #: wp-includes/block-template-utils.php:283
+#, php-format
 msgid "\"%1$s\" is not a supported wp_template_part area value and has been added as \"%2$s\"."
 msgstr ""
 
 #. translators: 1: Object singular name, 2: Object slug.
 #: wp-includes/block-template-utils.php:713
 #: wp-includes/block-template-utils.php:790
+#, php-format
 msgid "Not found: %1$s (%2$s)"
 msgstr ""
 
 #. translators: 1: Object singular name, 2: Object title.
 #: wp-includes/block-template-utils.php:725
 #: wp-includes/block-template-utils.php:801
+#, php-format
 msgid "%1$s: %2$s"
 msgstr ""
 
@@ -841,6 +862,7 @@ msgstr ""
 #: wp-includes/block-template-utils.php:732
 #: wp-includes/block-template-utils.php:808
 #: wp-includes/block-template-utils.php:982
+#, php-format
 msgid "Template for %s"
 msgstr ""
 
@@ -848,6 +870,7 @@ msgstr ""
 #: wp-includes/block-template-utils.php:746
 #: wp-includes/block-template-utils.php:825
 #: wp-includes/block-template-utils.php:998
+#, php-format
 msgid "%1$s (%2$s)"
 msgstr ""
 
@@ -858,11 +881,13 @@ msgstr ""
 
 #. translators: Custom template title in the Site Editor, referencing a deleted author. %s: Author nicename.
 #: wp-includes/block-template-utils.php:968
+#, php-format
 msgid "Deleted author: %s"
 msgstr ""
 
 #. translators: Custom template title in the Site Editor. %s: Author name.
 #: wp-includes/block-template-utils.php:976
+#, php-format
 msgid "Author: %s"
 msgstr ""
 
@@ -896,6 +921,7 @@ msgstr ""
 
 #. translators: 1: Block type, 2: Typography supports key, e.g: fontSize, lineHeight, etc. 3: block.json, 4: Old metadata key, 5: New metadata key.
 #: wp-includes/blocks.php:2628
+#, php-format
 msgid "Block \"%1$s\" is declaring %2$s support in %3$s file under %4$s. %2$s support is now declared under %5$s."
 msgstr ""
 
@@ -931,11 +957,13 @@ msgstr ""
 
 #. translators: %s: Author name.
 #: wp-includes/blocks/avatar.php:51
+#, php-format
 msgid "%s Avatar"
 msgstr ""
 
 #. translators: %s is the Author name.
 #: wp-includes/blocks/avatar.php:66
+#, php-format
 msgid "(%s author archive, opens in a new tab)"
 msgstr ""
 
@@ -952,12 +980,14 @@ msgstr ""
 
 #. translators: %s: Taxonomy term name
 #: wp-includes/blocks/categories.php:48
+#, php-format
 msgctxt "taxonomy"
 msgid "Select %s"
 msgstr ""
 
 #. translators: %s: filename.
 #: wp-includes/blocks/file.php:37
+#, php-format
 msgid "Embed of %s."
 msgstr ""
 
@@ -967,6 +997,7 @@ msgstr ""
 
 #. Translators: %d: Integer representing the number of return links on the page.
 #: wp-includes/blocks/footnotes.php:50
+#, php-format
 msgid "Jump to footnote reference %1$d"
 msgstr ""
 
@@ -1005,11 +1036,13 @@ msgstr ""
 #. translators: byline. %s: author.
 #: wp-includes/blocks/latest-posts.php:129
 #: wp-includes/blocks/rss.php:69
+#, php-format
 msgid "by %s"
 msgstr ""
 
 #. translators: 1: A URL to a post, 2: Hidden accessibility text: Post title
 #: wp-includes/blocks/latest-posts.php:163
+#, php-format
 msgid "… <a class=\"wp-block-latest-posts__read-more\" href=\"%1$s\" rel=\"noopener noreferrer\">Read more<span class=\"screen-reader-text\">: %2$s</span></a>"
 msgstr ""
 
@@ -1029,6 +1062,7 @@ msgstr ""
 #. translators: Accessibility text. %s: Parent page title.
 #: wp-includes/blocks/navigation-submenu.php:138
 #: wp-includes/blocks/page-list.php:202
+#, php-format
 msgid "%s submenu"
 msgstr ""
 
@@ -1042,12 +1076,14 @@ msgstr ""
 
 #. translators: Visible only in the front end, this warning takes the place of a faulty block. %s represents a pattern's slug.
 #: wp-includes/blocks/pattern.php:56
+#, php-format
 msgid "[block rendering halted for pattern \"%s\"]"
 msgstr ""
 
 #. translators: %s: Human-readable time difference.
 #: wp-includes/blocks/post-date.php:31
 #: wp-includes/script-loader.php:433
+#, php-format
 msgid "%s from now"
 msgstr ""
 
@@ -1056,21 +1092,25 @@ msgstr ""
 #: wp-includes/blocks/post-date.php:57
 #: wp-includes/rest-api/endpoints/class-wp-rest-block-directory-controller.php:145
 #: wp-includes/script-loader.php:435
+#, php-format
 msgid "%s ago"
 msgstr ""
 
 #. translators: %d is the post ID.
 #: wp-includes/blocks/post-featured-image.php:37
+#, php-format
 msgid "Untitled post %d"
 msgstr ""
 
 #. Translators: %s: Post Format name.
 #: wp-includes/blocks/post-format-name.php:42
+#, php-format
 msgid "The %s post format is not supported by this Theme."
 msgstr ""
 
 #. Translators: %d: Post ID.
 #: wp-includes/blocks/post-format-name.php:49
+#, php-format
 msgid " #%d"
 msgstr ""
 
@@ -1096,6 +1136,7 @@ msgstr ""
 
 #. translators: %s: taxonomy's label
 #: wp-includes/blocks/post-terms.php:95
+#, php-format
 msgid "Display a list of assigned terms from the taxonomy: %s"
 msgstr ""
 
@@ -1117,21 +1158,25 @@ msgstr ""
 
 #. translators: %s is the search term.
 #: wp-includes/blocks/query-title.php:48
+#, php-format
 msgid "Search results for: \"%s\""
 msgstr ""
 
 #. translators: 1: Start index of posts, 2: Total number of posts
 #: wp-includes/blocks/query-total.php:49
+#, php-format
 msgid "Displaying %1$s of %2$s"
 msgstr ""
 
 #. translators: 1: Start index of posts, 2: End index of posts, 3: Total number of posts
 #: wp-includes/blocks/query-total.php:56
+#, php-format
 msgid "Displaying %1$s – %2$s of %3$s"
 msgstr ""
 
 #. translators: %d: number of results.
 #: wp-includes/blocks/query-total.php:68
+#, php-format
 msgid "%d result found"
 msgid_plural "%d results found"
 msgstr[0] ""
@@ -1139,11 +1184,13 @@ msgstr[1] ""
 
 #. translators: %s is post ID to describe the link for screen readers.
 #: wp-includes/blocks/read-more.php:30
+#, php-format
 msgid "untitled post %s"
 msgstr ""
 
 #. translators: %s is either the post title or post ID to describe the link for screen readers.
 #: wp-includes/blocks/read-more.php:36
+#, php-format
 msgid ": %s"
 msgstr ""
 
@@ -1199,6 +1246,7 @@ msgstr ""
 
 #. translators: %s: Template part slug.
 #: wp-includes/blocks/template-part.php:124
+#, php-format
 msgid "Template part has been deleted or is unavailable: %s"
 msgstr ""
 
@@ -1216,6 +1264,7 @@ msgstr ""
 #: wp-includes/capabilities.php:288
 #: wp-includes/capabilities.php:381
 #: wp-includes/capabilities.php:434
+#, php-format
 msgid "When checking for the %s capability, you must always check it against a specific post."
 msgstr ""
 
@@ -1223,6 +1272,7 @@ msgstr ""
 #: wp-includes/capabilities.php:85
 #: wp-includes/capabilities.php:192
 #: wp-includes/capabilities.php:291
+#, php-format
 msgid "When checking for the %s capability, you must always check it against a specific page."
 msgstr ""
 
@@ -1231,22 +1281,26 @@ msgstr ""
 #: wp-includes/capabilities.php:222
 #: wp-includes/capabilities.php:321
 #: wp-includes/capabilities.php:402
+#, php-format
 msgid "The post type %1$s is not registered, so it may not be reliable to check the capability %2$s against a post of that type."
 msgstr ""
 
 #. translators: 1: Post status, 2: Capability name.
 #: wp-includes/capabilities.php:349
+#, php-format
 msgid "The post status %1$s is not registered, so it may not be reliable to check the capability %2$s against a post with that status."
 msgstr ""
 
 #. translators: %s: Capability name.
 #: wp-includes/capabilities.php:437
 #: wp-includes/capabilities.php:666
+#, php-format
 msgid "When checking for the %s capability, you must always check it against a specific term."
 msgstr ""
 
 #. translators: %s: Capability name.
 #: wp-includes/capabilities.php:440
+#, php-format
 msgid "When checking for the %s capability, you must always check it against a specific contributor."
 msgstr ""
 
@@ -1297,6 +1351,7 @@ msgstr ""
 #. translators: %s: Number of items (tags).
 #: wp-includes/category-template.php:861
 #: wp-includes/category-template.php:872
+#, php-format
 msgid "%s item"
 msgid_plural "%s items"
 msgstr[0] ""
@@ -1316,12 +1371,14 @@ msgstr ""
 
 #. translators: %s: Category name.
 #: wp-includes/class-walker-category.php:173
+#, php-format
 msgid "Feed for all posts filed under %s"
 msgstr ""
 
 #. translators: %d: ID of a post.
 #: wp-includes/class-walker-page-dropdown.php:83
 #: wp-includes/class-walker-page.php:166
+#, php-format
 msgid "#%d (no title)"
 msgstr ""
 
@@ -1375,6 +1432,7 @@ msgstr ""
 
 #. translators: %s: Block bindings source name.
 #: wp-includes/class-wp-block-bindings-registry.php:132
+#, php-format
 msgid "Block bindings source \"%s\" already registered."
 msgstr ""
 
@@ -1400,11 +1458,13 @@ msgstr ""
 
 #. translators: %s: Block bindings source name.
 #: wp-includes/class-wp-block-bindings-registry.php:210
+#, php-format
 msgid "Block binding \"%s\" not found."
 msgstr ""
 
 #. translators: %s: list of allowed collection roots
 #: wp-includes/class-wp-block-metadata-registry.php:129
+#, php-format
 msgid "Block metadata collections cannot be registered as one of the following directories or their parent directories: %s"
 msgstr ""
 
@@ -1422,6 +1482,7 @@ msgstr ""
 
 #. translators: %s: Block pattern name.
 #: wp-includes/class-wp-block-pattern-categories-registry.php:94
+#, php-format
 msgid "Block pattern category \"%s\" not found."
 msgstr ""
 
@@ -1439,6 +1500,7 @@ msgstr ""
 
 #. translators: %s: Pattern name.
 #: wp-includes/class-wp-block-patterns-registry.php:151
+#, php-format
 msgid "Pattern \"%s\" not found."
 msgstr ""
 
@@ -1456,6 +1518,7 @@ msgstr ""
 
 #. translators: 1: Block name, 2: Block style name.
 #: wp-includes/class-wp-block-styles-registry.php:125
+#, php-format
 msgid "Block \"%1$s\" does not contain a style named \"%2$s\"."
 msgstr ""
 
@@ -1473,12 +1536,14 @@ msgstr ""
 
 #. translators: %s: Template name.
 #: wp-includes/class-wp-block-templates-registry.php:60
+#, php-format
 msgid "Template \"%s\" is already registered."
 msgstr ""
 
 #. translators: %s: Template name.
 #: wp-includes/class-wp-block-templates-registry.php:229
 #: wp-includes/class-wp-block-templates-registry.php:233
+#, php-format
 msgid "Template \"%s\" is not registered."
 msgstr ""
 
@@ -1496,41 +1561,49 @@ msgstr ""
 
 #. translators: %s: Block name.
 #: wp-includes/class-wp-block-type-registry.php:89
+#, php-format
 msgid "Block type \"%s\" is already registered."
 msgstr ""
 
 #. translators: %s: Block name.
 #: wp-includes/class-wp-block-type-registry.php:122
+#, php-format
 msgid "Block type \"%s\" is not registered."
 msgstr ""
 
 #. translators: %s: The '$value' argument.
 #: wp-includes/class-wp-block-type.php:441
+#, php-format
 msgid "The %s argument must be a string or a string array."
 msgstr ""
 
 #. translators: Date query invalid date message. 1: Invalid value, 2: Type of value, 3: Minimum valid value, 4: Maximum valid value.
 #: wp-includes/class-wp-date-query.php:405
+#, php-format
 msgid "Invalid value %1$s for %2$s. Expected value should be between %3$s and %4$s."
 msgstr ""
 
 #. translators: 1: Year, 2: Month, 3: Day of month.
 #: wp-includes/class-wp-date-query.php:435
+#, php-format
 msgid "The following values do not describe a valid date: year %1$s, month %2$s, day %3$s."
 msgstr ""
 
 #. translators: 1: Month, 2: Day of month.
 #: wp-includes/class-wp-date-query.php:451
+#, php-format
 msgid "The following values do not describe a valid date: month %1$s, day %2$s."
 msgstr ""
 
 #. translators: 1: Duotone colors, 2: theme.json, 3: settings.color.duotone
 #: wp-includes/class-wp-duotone.php:676
+#, php-format
 msgid "\"%1$s\" in %2$s %3$s is not a hex or rgb string."
 msgstr ""
 
 #. translators: 1: Duotone filter ID, 2: theme.json
 #: wp-includes/class-wp-duotone.php:906
+#, php-format
 msgid "The duotone id \"%1$s\" is not registered in %2$s settings"
 msgstr ""
 
@@ -1557,6 +1630,7 @@ msgstr ""
 #. translators: 1: fopen(), 2: File name.
 #: wp-includes/class-wp-http-curl.php:201
 #: wp-includes/class-wp-http-streams.php:302
+#, php-format
 msgid "Could not open handle for %1$s to %2$s."
 msgstr ""
 
@@ -1656,6 +1730,7 @@ msgstr ""
 
 #. translators: %s: PHP function name.
 #: wp-includes/class-wp-image-editor-imagick.php:953
+#, php-format
 msgid "%s failed while writing image to stream."
 msgstr ""
 
@@ -1663,12 +1738,14 @@ msgstr ""
 #: wp-includes/class-wp-image-editor-imagick.php:969
 #: wp-includes/functions.php:2219
 #: wp-includes/functions.php:2753
+#, php-format
 msgid "Unable to create directory %s. Is its parent directory writable by the server?"
 msgstr ""
 
 #. translators: %s: ImageMagick method name.
 #: wp-includes/class-wp-image-editor-imagick.php:1025
 #: wp-includes/class-wp-image-editor-imagick.php:1036
+#, php-format
 msgid "%s is required to strip image meta."
 msgstr ""
 
@@ -2084,6 +2161,7 @@ msgstr ""
 
 #. translators: %s: The type of the given cache key.
 #: wp-includes/class-wp-object-cache.php:160
+#, php-format
 msgid "Cache key must be an integer or a non-empty string, %s given."
 msgstr ""
 
@@ -2122,6 +2200,7 @@ msgstr ""
 
 #. translators: 1: mail.add_x_header. 2: php.ini
 #: wp-includes/class-wp-phpmailer.php:47
+#, php-format
 msgid "Your version of PHP is affected by a bug that may result in corrupted messages. To fix it, switch to sending using SMTP, disable the %1$s option in your %2$s, or switch to MacOS or Linux, or upgrade your PHP version."
 msgstr ""
 
@@ -2245,6 +2324,7 @@ msgstr ""
 #. translators: %s: Link to the plugins page.
 #: wp-includes/class-wp-plugin-dependencies.php:380
 #: wp-includes/class-wp-plugin-dependencies.php:389
+#, php-format
 msgid "<a href=\"%s\">Manage plugins</a>."
 msgstr ""
 
@@ -2254,6 +2334,7 @@ msgstr ""
 
 #. translators: 1: First plugin name, 2: Second plugin name.
 #: wp-includes/class-wp-plugin-dependencies.php:422
+#, php-format
 msgctxt "The first plugin requires the second plugin."
 msgid "%1$s requires %2$s"
 msgstr ""
@@ -2280,6 +2361,7 @@ msgstr ""
 
 #. translators: %s: A list of inactive dependency plugin names.
 #: wp-includes/class-wp-plugin-dependencies.php:525
+#, php-format
 msgid "The following plugins must be activated first: %s."
 msgstr ""
 
@@ -2568,6 +2650,7 @@ msgstr ""
 #. translators: 1: Deprecated argument key, 2: Valid argument key.
 #: wp-includes/class-wp-query.php:1934
 #: wp-includes/class-wp-user-query.php:407
+#, php-format
 msgid "%1$s is deprecated. Use %2$s instead."
 msgstr ""
 
@@ -2760,11 +2843,13 @@ msgstr ""
 
 #. translators: %s: mail()
 #: wp-includes/class-wp-recovery-mode-email-service.php:74
+#, php-format
 msgid "The email could not be sent. Possible reason: your host may have disabled the %s function."
 msgstr ""
 
 #. translators: 1: Last sent as a human time diff, 2: Wait time as a human time diff.
 #: wp-includes/class-wp-recovery-mode-email-service.php:82
+#, php-format
 msgid "A recovery link was already sent %1$s ago. Please wait another %2$s before requesting a new email."
 msgstr ""
 
@@ -2801,36 +2886,43 @@ msgstr ""
 
 #. translators: %s: Site title.
 #: wp-includes/class-wp-recovery-mode-email-service.php:202
+#, php-format
 msgid "[%s] Your Site is Experiencing a Technical Issue"
 msgstr ""
 
 #. translators: %s: Plugin name.
 #: wp-includes/class-wp-recovery-mode-email-service.php:282
+#, php-format
 msgid "In this case, Retraceur caught an error with one of your plugins, %s."
 msgstr ""
 
 #. translators: %s: Theme name.
 #: wp-includes/class-wp-recovery-mode-email-service.php:288
+#, php-format
 msgid "In this case, Retraceur caught an error with your theme, %s."
 msgstr ""
 
 #. translators: %s: Current Retraceur version number.
 #: wp-includes/class-wp-recovery-mode-email-service.php:354
+#, php-format
 msgid "Retraceur version %s"
 msgstr ""
 
 #. translators: 1: Current active theme name. 2: Current active theme version.
 #: wp-includes/class-wp-recovery-mode-email-service.php:359
+#, php-format
 msgid "Active theme: %1$s (version %2$s)"
 msgstr ""
 
 #. translators: 1: The failing plugins name. 2: The failing plugins version.
 #: wp-includes/class-wp-recovery-mode-email-service.php:368
+#, php-format
 msgid "Current plugin: %1$s (version %2$s)"
 msgstr ""
 
 #. translators: %s: The currently used PHP version.
 #: wp-includes/class-wp-recovery-mode-email-service.php:376
+#, php-format
 msgid "PHP version %s"
 msgstr ""
 
@@ -2884,57 +2976,68 @@ msgstr ""
 
 #. translators: 1: $l10n, 2: wp_add_inline_script()
 #: wp-includes/class-wp-scripts.php:575
+#, php-format
 msgid "The %1$s parameter must be an array. To pass arbitrary data to scripts, use the %2$s function instead."
 msgstr ""
 
 #. translators: 1: $strategy, 2: $handle
 #: wp-includes/class-wp-scripts.php:815
+#, php-format
 msgid "Invalid strategy `%1$s` defined for `%2$s` during script registration."
 msgstr ""
 
 #. translators: 1: $strategy, 2: $handle
 #: wp-includes/class-wp-scripts.php:827
+#, php-format
 msgid "Cannot supply a strategy `%1$s` for script `%2$s` because it is an alias (it lacks a `src` value)."
 msgstr ""
 
 #. translators: %s: invalid mode value
 #: wp-includes/class-wp-speculation-rules.php:86
+#, php-format
 msgid "The value \"%s\" is not a valid speculation rules mode."
 msgstr ""
 
 #. translators: %s: invalid ID value
 #: wp-includes/class-wp-speculation-rules.php:99
+#, php-format
 msgid "The value \"%s\" is not a valid ID for a speculation rule."
 msgstr ""
 
 #. translators: %s: invalid ID value
 #: wp-includes/class-wp-speculation-rules.php:112
+#, php-format
 msgid "A speculation rule with ID \"%s\" already exists."
 msgstr ""
 
 #. translators: 1: allowed key, 2: alternative allowed key
 #: wp-includes/class-wp-speculation-rules.php:134
+#, php-format
 msgid "A speculation rule must include either a \"%1$s\" key or a \"%2$s\" key, but not both."
 msgstr ""
 
 #. translators: %s: invalid source value
 #: wp-includes/class-wp-speculation-rules.php:148
+#, php-format
 msgid "The value \"%s\" is not a valid source for a speculation rule."
 msgstr ""
 
 #. translators: 1: source value, 2: forbidden key
 #: wp-includes/class-wp-speculation-rules.php:161
 #: wp-includes/class-wp-speculation-rules.php:175
+#, php-format
 msgid "A speculation rule of source \"%1$s\" must not include a \"%2$s\" key."
 msgstr ""
 
 #. translators: %s: invalid eagerness value
 #: wp-includes/class-wp-speculation-rules.php:192
+#, php-format
 msgid "The value \"%s\" is not a valid eagerness for a speculation rule."
 msgstr ""
 
 #. translators: %s: forbidden eagerness value
 #: wp-includes/class-wp-speculation-rules.php:205
+#, php-format
 msgid "The eagerness value \"%s\" is forbidden for document-level speculation rules."
 msgstr ""
 
@@ -3169,11 +3272,13 @@ msgstr ""
 
 #. translators: 1: theme.json, 2: Value name, 3: Value path, 4: Another value name.
 #: wp-includes/class-wp-theme-json.php:2487
+#, php-format
 msgid "Your %1$s file uses a dynamic value (%2$s) for the path at %3$s. However, the value at %3$s is also a dynamic value (pointing to %4$s) and pointing to another dynamic value is not supported. Please update %3$s to point directly to %4$s."
 msgstr ""
 
 #. translators: 1: theme.json, 2: settings.spacing.spacingScale
 #: wp-includes/class-wp-theme-json.php:4076
+#, php-format
 msgid "Some of the %1$s %2$s values are invalid"
 msgstr ""
 
@@ -3184,16 +3289,19 @@ msgstr ""
 
 #. translators: %s: Digit to indicate multiple of sizing, eg. 2X-Small.
 #: wp-includes/class-wp-theme-json.php:4208
+#, php-format
 msgid "%sX-Small"
 msgstr ""
 
 #. translators: %s: Digit to indicate multiple of sizing, eg. 2X-Large.
 #: wp-includes/class-wp-theme-json.php:4245
+#, php-format
 msgid "%sX-Large"
 msgstr ""
 
 #. translators: %s: Theme directory name.
 #: wp-includes/class-wp-theme.php:295
+#, php-format
 msgid "The theme directory \"%s\" does not exist."
 msgstr ""
 
@@ -3211,22 +3319,26 @@ msgstr ""
 
 #. translators: %s: Template.
 #: wp-includes/class-wp-theme.php:357
+#, php-format
 msgid "The theme defines itself as its parent theme. Please check the %s header."
 msgstr ""
 
 #. translators: 1: templates/index.html, 2: index.php, 3: Template, 4: style.css
 #: wp-includes/class-wp-theme.php:387
+#, php-format
 msgid "Template is missing. Standalone themes need to have a %1$s or %2$s template file. Child themes need to have a %3$s header in the %4$s stylesheet."
 msgstr ""
 
 #. translators: %s: Theme directory name.
 #: wp-includes/class-wp-theme.php:437
+#, php-format
 msgid "The parent theme is missing. Please install the \"%s\" parent theme."
 msgstr ""
 
 #. translators: %s: Theme directory name.
 #: wp-includes/class-wp-theme.php:466
 #: wp-includes/class-wp-theme.php:487
+#, php-format
 msgid "The \"%s\" theme is not a valid parent theme."
 msgstr ""
 
@@ -3326,26 +3438,31 @@ msgstr ""
 
 #. translators: 1: file name.
 #: wp-includes/class-wp-theme.php:1901
+#, php-format
 msgid "Could not register file \"%s\" as a block pattern (\"Slug\" field missing)"
 msgstr ""
 
 #. translators: 1: file name; 2: slug value found.
 #: wp-includes/class-wp-theme.php:1914
+#, php-format
 msgid "Could not register file \"%1$s\" as a block pattern (invalid slug \"%2$s\")"
 msgstr ""
 
 #. translators: 1: file name.
 #: wp-includes/class-wp-theme.php:1928
+#, php-format
 msgid "Could not register file \"%s\" as a block pattern (\"Title\" field missing)"
 msgstr ""
 
 #. translators: %1$s: The filter name.
 #: wp-includes/class-wp-theme.php:2028
+#, php-format
 msgid "The %1$s filter must return an integer value greater than 0."
 msgstr ""
 
 #. translators: 1: maximum byte length (a count)
 #: wp-includes/class-wp-token-map.php:302
+#, php-format
 msgid "Token Map tokens and substitutions must all be shorter than %1$d bytes."
 msgstr ""
 
@@ -3355,16 +3472,19 @@ msgstr ""
 
 #. translators: 1: version string, 2: version string.
 #: wp-includes/class-wp-token-map.php:413
+#, php-format
 msgid "Loaded version '%1$s' incompatible with expected version '%2$s'."
 msgstr ""
 
 #. translators: %s: context string
 #: wp-includes/class-wp-url-pattern-prefixer.php:77
+#, php-format
 msgid "Invalid URL pattern context %s."
 msgstr ""
 
 #. translators: %s: plugins_loaded
 #: wp-includes/class-wp-user-query.php:792
+#, php-format
 msgid "Contributor queries should not be run before the %s hook."
 msgstr ""
 
@@ -3373,6 +3493,7 @@ msgstr ""
 #: wp-includes/class-wp-user.php:319
 #: wp-includes/class-wp-user.php:360
 #: wp-includes/class-wp-user.php:385
+#, php-format
 msgid "Use %s instead."
 msgstr ""
 
@@ -3394,6 +3515,7 @@ msgstr ""
 
 #. translators: %s: Database name.
 #: wp-includes/class-wpdb.php:1212
+#, php-format
 msgid "The database server could be connected to (which means your username and password is okay) but the %s database could not be selected."
 msgstr ""
 
@@ -3403,11 +3525,13 @@ msgstr ""
 
 #. translators: 1: Database user, 2: Database name.
 #: wp-includes/class-wpdb.php:1221
+#, php-format
 msgid "Does the contributor %1$s have permission to use the %2$s database?"
 msgstr ""
 
 #. translators: %s: Database name.
 #: wp-includes/class-wpdb.php:1228
+#, php-format
 msgid "On some systems the name of your database is prefixed with your username, so it would be like <code>username_%1$s</code>. Could that be the problem?"
 msgstr ""
 
@@ -3417,16 +3541,19 @@ msgstr ""
 
 #. translators: %s: Database access abstraction class, usually wpdb or a class extending wpdb.
 #: wp-includes/class-wpdb.php:1283
+#, php-format
 msgid "%s must set a database connection for use with escaping."
 msgstr ""
 
 #. translators: %s: wpdb::prepare()
 #: wp-includes/class-wpdb.php:1469
+#, php-format
 msgid "The query argument of %s must have a placeholder."
 msgstr ""
 
 #. translators: %s: A list of placeholders found to be a problem.
 #: wp-includes/class-wpdb.php:1656
+#, php-format
 msgid "Arguments cannot be prepared as both an Identifier and Value. Found the following conflicts: %s"
 msgstr ""
 
@@ -3436,11 +3563,13 @@ msgstr ""
 
 #. translators: 1: Number of placeholders, 2: Number of arguments passed.
 #: wp-includes/class-wpdb.php:1692
+#, php-format
 msgid "The query does not contain the correct number of placeholders (%1$d) for the number of arguments passed (%2$d)."
 msgstr ""
 
 #. translators: %s: Value type.
 #: wp-includes/class-wpdb.php:1736
+#, php-format
 msgid "Unsupported value type (%s)."
 msgstr ""
 
@@ -3456,6 +3585,7 @@ msgstr ""
 
 #. translators: 1: wp-config.php, 2: Database host.
 #: wp-includes/class-wpdb.php:2004
+#, php-format
 msgid "This either means that the username and password information in your %1$s file is incorrect or that contact with the database server at %2$s could not be established. This could mean your host&#8217;s database server is down."
 msgstr ""
 
@@ -3483,6 +3613,7 @@ msgstr ""
 
 #. translators: %s: Database host.
 #: wp-includes/class-wpdb.php:2163
+#, php-format
 msgid "This means that the contact with the database server at %s was lost. This could mean your host&#8217;s database server is down."
 msgstr ""
 
@@ -3500,11 +3631,13 @@ msgstr ""
 
 #. translators: %s: Database field where the error occurred.
 #: wp-includes/class-wpdb.php:2825
+#, php-format
 msgid "Retraceur database error: Processing the value for the following field failed: %s. The supplied value may be too long or contains invalid data."
 msgstr ""
 
 #. translators: %s: Database fields where the error occurred.
 #: wp-includes/class-wpdb.php:2831
+#, php-format
 msgid "Retraceur database error: Processing the values for the following fields failed: %s. The supplied values may be too long or contain invalid data."
 msgstr ""
 
@@ -3518,6 +3651,7 @@ msgstr ""
 
 #. translators: 1: Retraceur version number, 2: Minimum required MySQL version number.
 #: wp-includes/class-wpdb.php:3983
+#, php-format
 msgid "<strong>Error:</strong> Retraceur %1$s requires MySQL %2$s or higher"
 msgstr ""
 
@@ -3616,6 +3750,7 @@ msgstr ""
 
 #. translators: %s: File name.
 #: wp-includes/deprecated.php:3199
+#, php-format
 msgid "File &#8220;%s&#8221; does not exist?"
 msgstr ""
 
@@ -3625,6 +3760,7 @@ msgstr ""
 
 #. translators: %s: File name.
 #: wp-includes/deprecated.php:3212
+#, php-format
 msgid "File &#8220;%s&#8221; is not an image."
 msgstr ""
 
@@ -3738,12 +3874,14 @@ msgstr ""
 
 #. translators: 1: Post title, 2: Site title.
 #: wp-includes/embed.php:508
+#, php-format
 msgid "&#8220;%1$s&#8221; &#8212; %2$s"
 msgstr ""
 
 #. translators: %s: Post title.
 #: wp-includes/embed.php:1006
 #: wp-includes/post-template.php:305
+#, php-format
 msgid "Continue reading %s"
 msgstr ""
 
@@ -3794,17 +3932,20 @@ msgstr ""
 
 #. translators: 1: Error type, 2: Error line number, 3: Error file name, 4: Error message.
 #: wp-includes/error-protection.php:65
+#, php-format
 msgid "An error of type %1$s was caused in line %2$s of the file %3$s. Error message: %4$s"
 msgstr ""
 
 #. translators: %s: 'document_title_separator' filter name.
 #: wp-includes/feed.php:108
 #: wp-includes/feed.php:134
+#, php-format
 msgid "Use the %s filter instead."
 msgstr ""
 
 #. translators: %s: Font collection slug.
 #: wp-includes/fonts/class-wp-font-collection.php:61
+#, php-format
 msgid "Font collection slug \"%s\" is not valid. Slugs must use only alphanumeric characters, dashes, and underscores."
 msgstr ""
 
@@ -3819,6 +3960,7 @@ msgstr ""
 
 #. translators: %s: Font collection URL.
 #: wp-includes/fonts/class-wp-font-collection.php:190
+#, php-format
 msgid "Error fetching the font collection data from \"%s\"."
 msgstr ""
 
@@ -3828,6 +3970,7 @@ msgstr ""
 
 #. translators: 1: Font collection slug, 2: Missing property name, e.g. "font_families".
 #: wp-includes/fonts/class-wp-font-collection.php:230
+#, php-format
 msgid "Font collection \"%1$s\" has missing or empty property: \"%2$s\"."
 msgstr ""
 
@@ -3849,11 +3992,13 @@ msgstr ""
 
 #. translators: %s: Font collection slug.
 #: wp-includes/fonts/class-wp-font-library.php:54
+#, php-format
 msgid "Font collection with slug: \"%s\" is already registered."
 msgstr ""
 
 #. translators: %s: Font collection slug.
 #: wp-includes/fonts/class-wp-font-library.php:81
+#, php-format
 msgid "Font collection \"%s\" not found."
 msgstr ""
 
@@ -3924,6 +4069,7 @@ msgstr ""
 #. translators: %s: Time duration in second or seconds.
 #: wp-includes/formatting.php:3882
 #: wp-includes/functions.php:570
+#, php-format
 msgid "%s second"
 msgid_plural "%s seconds"
 msgstr[0] ""
@@ -3932,6 +4078,7 @@ msgstr[1] ""
 #. translators: %s: Time duration in minute or minutes.
 #: wp-includes/formatting.php:3889
 #: wp-includes/functions.php:564
+#, php-format
 msgid "%s minute"
 msgid_plural "%s minutes"
 msgstr[0] ""
@@ -3940,6 +4087,7 @@ msgstr[1] ""
 #. translators: %s: Time duration in hour or hours.
 #: wp-includes/formatting.php:3896
 #: wp-includes/functions.php:558
+#, php-format
 msgid "%s hour"
 msgid_plural "%s hours"
 msgstr[0] ""
@@ -3947,6 +4095,7 @@ msgstr[1] ""
 
 #. translators: Time difference between two dates, in days. %s: Number of days.
 #: wp-includes/formatting.php:3903
+#, php-format
 msgid "%s day"
 msgid_plural "%s days"
 msgstr[0] ""
@@ -3954,6 +4103,7 @@ msgstr[1] ""
 
 #. translators: Time difference between two dates, in weeks. %s: Number of weeks.
 #: wp-includes/formatting.php:3910
+#, php-format
 msgid "%s week"
 msgid_plural "%s weeks"
 msgstr[0] ""
@@ -3961,6 +4111,7 @@ msgstr[1] ""
 
 #. translators: Time difference between two dates, in months. %s: Number of months.
 #: wp-includes/formatting.php:3917
+#, php-format
 msgid "%s month"
 msgid_plural "%s months"
 msgstr[0] ""
@@ -3968,6 +4119,7 @@ msgstr[1] ""
 
 #. translators: Time difference between two dates, in years. %s: Number of years.
 #: wp-includes/formatting.php:3924
+#, php-format
 msgid "%s year"
 msgid_plural "%s years"
 msgstr[0] ""
@@ -4006,26 +4158,31 @@ msgstr ""
 
 #. translators: 1: Option name, 2: Error code.
 #: wp-includes/formatting.php:5031
+#, php-format
 msgid "Could not sanitize the %1$s option. Error code: %2$s"
 msgstr ""
 
 #. translators: Used to join items in a list with more than 2 items.
 #: wp-includes/formatting.php:5274
+#, php-format
 msgid "%1$s, %2$s"
 msgstr ""
 
 #. translators: Used to join last two items in a list with more than 2 times.
 #: wp-includes/formatting.php:5276
+#, php-format
 msgid "%1$s, and %2$s"
 msgstr ""
 
 #. translators: Used to join items in a list with only 2 items.
 #: wp-includes/formatting.php:5278
+#, php-format
 msgid "%1$s and %2$s"
 msgstr ""
 
 #. translators: 1: The function name, 2: The argument number, 3: The argument name, 4: The expected type, 5: The provided type.
 #: wp-includes/formatting.php:5464
+#, php-format
 msgid "Warning: %1$s expects parameter %2$s (%3$s) to be a %4$s, %5$s given."
 msgstr ""
 
@@ -4096,6 +4253,7 @@ msgstr ""
 
 #. translators: %s: Database repair URL.
 #: wp-includes/functions.php:1652
+#, php-format
 msgid "One or more database tables are unavailable. The database may need to be <a href=\"%s\">repaired</a>."
 msgstr ""
 
@@ -4110,6 +4268,7 @@ msgstr ""
 
 #. translators: %s: File name.
 #: wp-includes/functions.php:2763
+#, php-format
 msgid "Could not write file %s"
 msgstr ""
 
@@ -4119,11 +4278,13 @@ msgstr ""
 
 #. translators: %s: Site title.
 #: wp-includes/functions.php:3486
+#, php-format
 msgid "You are attempting to log out of %s"
 msgstr ""
 
 #. translators: %s: Logout URL.
 #: wp-includes/functions.php:3496
+#, php-format
 msgid "Do you really want to <a href=\"%s\">log out</a>?"
 msgstr ""
 
@@ -4147,16 +4308,19 @@ msgstr ""
 
 #. translators: 1: WP_REST_Response, 2: WP_Error
 #: wp-includes/functions.php:4286
+#, php-format
 msgid "Return a %1$s or %2$s object from your callback when using the REST API."
 msgstr ""
 
 #. translators: %s: Path to the JSON file.
 #: wp-includes/functions.php:4425
+#, php-format
 msgid "File %s doesn't exist!"
 msgstr ""
 
 #. translators: 1: Path to the JSON file, 2: Error message.
 #: wp-includes/functions.php:4440
+#, php-format
 msgid "Error when decoding a JSON file at path %1$s: %2$s"
 msgstr ""
 
@@ -4166,76 +4330,91 @@ msgstr ""
 
 #. translators: 1: PHP function name, 2: Project name, 3: Version number, 4: Alternative function name.
 #: wp-includes/functions.php:5264
+#, php-format
 msgid "Function %1$s is <strong>deprecated</strong> since %2$s version %3$s! Use %4$s instead."
 msgstr ""
 
 #. translators: 1: PHP function name, 2: Project name, 3: Version number.
 #: wp-includes/functions.php:5273
+#, php-format
 msgid "Function %1$s is <strong>deprecated</strong> since %2$s version %3$s with no alternative available."
 msgstr ""
 
 #. translators: 1: PHP class name, 2: PHP parent class name, 3: Version number, 4: __construct() method.
 #: wp-includes/functions.php:5350
+#, php-format
 msgid "The called constructor method for %1$s class in %2$s is <strong>deprecated</strong> since version %3$s! Use %4$s instead."
 msgstr ""
 
 #. translators: 1: PHP class name, 2: Version number, 3: __construct() method.
 #: wp-includes/functions.php:5359
+#, php-format
 msgid "The called constructor method for %1$s class is <strong>deprecated</strong> since version %2$s! Use %3$s instead."
 msgstr ""
 
 #. translators: 1: PHP class name, 2: Project name, 3: Version number, 4: Alternative class or function name.
 #: wp-includes/functions.php:5433
+#, php-format
 msgid "Class %1$s is <strong>deprecated</strong> since %2$s version %3$s! Use %4$s instead."
 msgstr ""
 
 #. translators: 1: PHP class name, 2: Project name, 3: Version number.
 #: wp-includes/functions.php:5442
+#, php-format
 msgid "Class %1$s is <strong>deprecated</strong> since %2$s version %3$s with no alternative available."
 msgstr ""
 
 #. translators: 1: PHP file name, 2: Project name, 3: Version number, 4: Alternative file name.
 #: wp-includes/functions.php:5521
+#, php-format
 msgid "File %1$s is <strong>deprecated</strong> since %2$s version %3$s! Use %4$s instead."
 msgstr ""
 
 #. translators: 1: PHP file name, 2: Project name, 3: Version number.
 #: wp-includes/functions.php:5530
+#, php-format
 msgid "File %1$s is <strong>deprecated</strong> since %2$s version %3$s with no alternative available."
 msgstr ""
 
 #. translators: 1: PHP function name, 2: Software name, 3: Version number, 4: Optional message regarding the change.
 #: wp-includes/functions.php:5610
+#, php-format
 msgid "Function %1$s was called with an argument that is <strong>deprecated</strong> since %2$s version %3$s! %4$s"
 msgstr ""
 
 #. translators: 1: PHP function name, 2: Software name, 3: Version number.
 #: wp-includes/functions.php:5619
+#, php-format
 msgid "Function %1$s was called with an argument that is <strong>deprecated</strong> since %2$s version %3$s with no alternative available."
 msgstr ""
 
 #. translators: 1: WP hook name, 2: Version number, 3: Alternative hook name.
 #: wp-includes/functions.php:5695
+#, php-format
 msgid "Hook %1$s is <strong>deprecated</strong> since version %2$s! Use %3$s instead."
 msgstr ""
 
 #. translators: 1: WP hook name, 2: Version number.
 #: wp-includes/functions.php:5703
+#, php-format
 msgid "Hook %1$s is <strong>deprecated</strong> since version %2$s with no alternative available."
 msgstr ""
 
 #. translators: 1: Version number. 2: Name of the software.
 #: wp-includes/functions.php:5759
+#, php-format
 msgid "(This message was added in version %1$s of %2$s)"
 msgstr ""
 
 #. translators: custom debugging message. 1: PHP function name, 2: custom message.
 #: wp-includes/functions.php:5768
+#, php-format
 msgid "%1$s was called <strong>incorrectly</strong>. %2$s"
 msgstr ""
 
 #. translators: Developer debugging message. 1: PHP function name, 2: WP version number.
 #: wp-includes/functions.php:5777
+#, php-format
 msgid "Function %1$s was called <strong>incorrectly</strong>. %2$s"
 msgstr ""
 
@@ -4254,6 +4433,7 @@ msgstr ""
 
 #. translators: %s: The type of the given object ID.
 #: wp-includes/functions.php:7040
+#, php-format
 msgid "Object ID must be an integer, %s given."
 msgstr ""
 
@@ -4299,6 +4479,7 @@ msgstr ""
 
 #. translators: Site admin email change notification email subject. %s: Site title.
 #: wp-includes/functions.php:7849
+#, php-format
 msgid "[%s] Admin Email Changed"
 msgstr ""
 
@@ -4314,37 +4495,44 @@ msgstr ""
 
 #. translators: 1: Function name, 2: A variable type, like "boolean" or "integer".
 #: wp-includes/functions.php:8293
+#, php-format
 msgid "%1$s only accepts a non-empty path string, received %2$s."
 msgstr ""
 
 #. translators: %s: The "type" key.
 #: wp-includes/functions.php:8524
+#, php-format
 msgid "The %s key must be a string without spaces."
 msgstr ""
 
 #. translators: %s: parameter name.
 #: wp-includes/functions.php:8710
+#, php-format
 msgid "The %s argument must not be empty."
 msgstr ""
 
 #. translators: 1: wp_enqueue_scripts, 2: admin_enqueue_scripts, 3: login_enqueue_scripts
 #: wp-includes/functions.wp-scripts.php:51
+#, php-format
 msgid "Scripts and styles should not be registered or enqueued until the %1$s, %2$s, or %3$s hooks."
 msgstr ""
 
 #. translators: %s: Name of the script or stylesheet.
 #: wp-includes/functions.wp-scripts.php:60
+#, php-format
 msgid "This notice was triggered by the %s handle."
 msgstr ""
 
 #. translators: 1: HTML tag, 2: Functions name.
 #: wp-includes/functions.wp-scripts.php:139
 #: wp-includes/functions.wp-styles.php:96
+#, php-format
 msgid "Do not pass %1$s tags to %2$s."
 msgstr ""
 
 #. translators: 1: Script name, 2: wp_enqueue_scripts
 #: wp-includes/functions.wp-scripts.php:318
+#, php-format
 msgid "Do not deregister the %1$s script in the administration area. To target the front-end theme, use the %2$s hook."
 msgstr ""
 
@@ -4416,11 +4604,13 @@ msgstr ""
 
 #. translators: 1: 'siteurl'/'home' argument, 2: bloginfo() function name, 3: 'url' argument.
 #: wp-includes/general-template.php:814
+#, php-format
 msgid "The %1$s option is deprecated for the family of %2$s functions. Use the %3$s option instead."
 msgstr ""
 
 #. translators: 1: 'siteurl'/'home' argument, 2: bloginfo() function name.
 #: wp-includes/general-template.php:850
+#, php-format
 msgid "The %1$s option is deprecated for the family of %2$s functions."
 msgstr ""
 
@@ -4431,6 +4621,7 @@ msgstr ""
 
 #. translators: 1: 'text_direction' argument, 2: bloginfo() function name, 3: is_rtl() function name.
 #: wp-includes/general-template.php:902
+#, php-format
 msgid "The %1$s option is deprecated for the family of %2$s functions. Use the %3$s function instead."
 msgstr ""
 
@@ -4441,6 +4632,7 @@ msgstr ""
 
 #. translators: %s: Search query.
 #: wp-includes/general-template.php:1200
+#, php-format
 msgid "Search Results for &#8220;%s&#8221;"
 msgstr ""
 
@@ -4460,16 +4652,19 @@ msgstr ""
 
 #. translators: %s: Page number.
 #: wp-includes/general-template.php:1244
+#, php-format
 msgid "Page %s"
 msgstr ""
 
 #. translators: 1: Separator, 2: Search query.
 #: wp-includes/general-template.php:1413
+#, php-format
 msgid "Search Results %1$s %2$s"
 msgstr ""
 
 #. Translators: 1: Post Format title. 2: Post ID.
 #: wp-includes/general-template.php:1491
+#, php-format
 msgid "%1$s #%2$d"
 msgstr ""
 
@@ -4517,12 +4712,14 @@ msgstr ""
 
 #. translators: %s: Taxonomy singular name.
 #: wp-includes/general-template.php:1765
+#, php-format
 msgctxt "taxonomy term archive title prefix"
 msgid "%s:"
 msgstr ""
 
 #. translators: 1: Title prefix. 2: Title.
 #: wp-includes/general-template.php:1783
+#, php-format
 msgctxt "archive title"
 msgid "%1$s %2$s"
 msgstr ""
@@ -4530,17 +4727,20 @@ msgstr ""
 #. translators: 1: Month, 2: Year.
 #: wp-includes/general-template.php:2082
 #: wp-includes/media.php:4884
+#, php-format
 msgid "%1$s %2$d"
 msgstr ""
 
 #. translators: Calendar caption: 1: Month name, 2: 4-digit year.
 #: wp-includes/general-template.php:2437
+#, php-format
 msgctxt "calendar caption"
 msgid "%1$s %2$s"
 msgstr ""
 
 #. translators: Post calendar label. %s: Date.
 #: wp-includes/general-template.php:2518
+#, php-format
 msgid "Posts published on %s"
 msgstr ""
 
@@ -4557,36 +4757,43 @@ msgstr ""
 
 #. translators: 1: Site title, 2: Separator (raquo).
 #: wp-includes/general-template.php:3244
+#, php-format
 msgid "%1$s %2$s Feed"
 msgstr ""
 
 #. translators: 1: Site name, 2: Separator (raquo), 3: Category name.
 #: wp-includes/general-template.php:3304
+#, php-format
 msgid "%1$s %2$s %3$s Category Feed"
 msgstr ""
 
 #. translators: 1: Site name, 2: Separator (raquo), 3: Tag name.
 #: wp-includes/general-template.php:3306
+#, php-format
 msgid "%1$s %2$s %3$s Tag Feed"
 msgstr ""
 
 #. translators: 1: Site name, 2: Separator (raquo), 3: Term name, 4: Taxonomy singular name.
 #: wp-includes/general-template.php:3308
+#, php-format
 msgid "%1$s %2$s %3$s %4$s Feed"
 msgstr ""
 
 #. translators: 1: Site name, 2: Separator (raquo), 3: Author name.
 #: wp-includes/general-template.php:3310
+#, php-format
 msgid "%1$s %2$s Posts by %3$s Feed"
 msgstr ""
 
 #. translators: 1: Site name, 2: Separator (raquo), 3: Search query.
 #: wp-includes/general-template.php:3312
+#, php-format
 msgid "%1$s %2$s Search Results for &#8220;%3$s&#8221; Feed"
 msgstr ""
 
 #. translators: 1: Site name, 2: Separator (raquo), 3: Post type name.
 #: wp-includes/general-template.php:3314
+#, php-format
 msgid "%1$s %2$s %3$s Feed"
 msgstr ""
 
@@ -4655,6 +4862,7 @@ msgstr ""
 
 #. translators: %s: Asterisk symbol (*).
 #: wp-includes/general-template.php:5268
+#, php-format
 msgid "Required fields are marked %s"
 msgstr ""
 
@@ -4664,6 +4872,7 @@ msgstr ""
 
 #. translators: %s: WP_HTML_Processor::create_fragment().
 #: wp-includes/html-api/class-wp-html-processor.php:374
+#, php-format
 msgid "Call %s to create an HTML Processor instead of calling the constructor directly."
 msgstr ""
 
@@ -4673,11 +4882,13 @@ msgstr ""
 
 #. translators: %s: A tag name like INPUT or BR.
 #: wp-includes/html-api/class-wp-html-processor.php:480
+#, php-format
 msgid "The context element cannot be a void element, found \"%s\"."
 msgstr ""
 
 #. translators: %s: A tag name like IFRAME or TEXTAREA.
 #: wp-includes/html-api/class-wp-html-processor.php:500
+#, php-format
 msgid "The context element \"%s\" is not supported."
 msgstr ""
 
@@ -4723,6 +4934,7 @@ msgstr ""
 
 #. translators: 1: SVG or MATH HTML tag.
 #: wp-includes/interactivity-api/class-wp-interactivity-api-directives-processor.php:207
+#, php-format
 msgid "Interactivity directives were detected inside an incompatible %1$s tag. These directives will be ignored in the server side render."
 msgstr ""
 
@@ -4757,31 +4969,37 @@ msgstr ""
 
 #. translators: 1: SVG or MATH HTML tag, 2: Namespace of the interactive block.
 #: wp-includes/interactivity-api/class-wp-interactivity-api.php:420
+#, php-format
 msgid "Interactivity directives were detected on an incompatible %1$s tag when processing \"%2$s\". These directives will be ignored in the server side render."
 msgstr ""
 
 #. translators: %1s: Namespace processed, %2s: The tag that caused the error; could be any HTML tag.
 #: wp-includes/interactivity-api/class-wp-interactivity-api.php:559
+#, php-format
 msgid "Interactivity directives failed to process in \"%1$s\" due to a missing \"%2$s\" end tag."
 msgstr ""
 
 #. translators: %s: The directive value referenced.
 #: wp-includes/interactivity-api/class-wp-interactivity-api.php:586
+#, php-format
 msgid "Namespace or reference path cannot be empty. Directive value referenced: %s"
 msgstr ""
 
 #. translators: 1: Path pointing to an Interactivity API state property, 2: Namespace for an Interactivity API store.
 #: wp-includes/interactivity-api/class-wp-interactivity-api.php:658
+#, php-format
 msgid "Uncaught error executing a derived state callback with path \"%1$s\" and namespace \"%2$s\"."
 msgstr ""
 
 #. translators: 1: CUSTOM_TAGS, 2: Global variable names.
 #: wp-includes/kses.php:714
+#, php-format
 msgid "When using the %1$s constant, make sure to set these globals to an array: %2$s."
 msgstr ""
 
 #. translators: 1: The text domain. 2: 'init'.
 #: wp-includes/l10n.php:1376
+#, php-format
 msgid "Translation loading for the %1$s domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the %2$s action or later."
 msgstr ""
 
@@ -4807,6 +5025,7 @@ msgstr ""
 
 #. translators: %s: The word 'and'.
 #: wp-includes/link-template.php:1552
+#, php-format
 msgid "Use commas instead of %s to separate excluded terms."
 msgstr ""
 
@@ -4882,6 +5101,7 @@ msgstr ""
 
 #. translators: %s: mysqli.
 #: wp-includes/load.php:212
+#, php-format
 msgid "Please check that the %s PHP extension is installed and enabled."
 msgstr ""
 
@@ -4891,6 +5111,7 @@ msgstr ""
 
 #. translators: %s: WP_ENVIRONMENT_TYPES
 #: wp-includes/load.php:262
+#, php-format
 msgid "The %s constant is no longer supported."
 msgstr ""
 
@@ -4904,6 +5125,7 @@ msgstr ""
 
 #. translators: 1: $table_prefix, 2: wp-config.php
 #: wp-includes/load.php:779
+#, php-format
 msgid "<strong>Error:</strong> %1$s in %2$s can only contain numbers, letters, and underscores."
 msgstr ""
 
@@ -4917,6 +5139,7 @@ msgstr ""
 
 #. translators: 1: Link to tutorial, 2: Additional link attributes, 3: Accessibility text.
 #: wp-includes/media-template.php:163
+#, php-format
 msgid "<a href=\"%1$s\" %2$s>Learn how to describe the purpose of the image%3$s</a>. Leave empty if the image is purely decorative."
 msgstr ""
 
@@ -4979,12 +5202,14 @@ msgstr ""
 
 #. translators: %s: Maximum allowed file size.
 #: wp-includes/media-template.php:291
+#, php-format
 msgid "Maximum upload file size: %s."
 msgstr ""
 
 #. translators: 1: Suggested width number, 2: Suggested height number.
 #: wp-includes/media-template.php:301
 #: wp-includes/media.php:5047
+#, php-format
 msgid "Suggested image dimensions: %1$s by %2$s pixels."
 msgstr ""
 
@@ -5075,6 +5300,7 @@ msgstr ""
 #. translators: 1: A number of pixels wide, 2: A number of pixels tall.
 #: wp-includes/media-template.php:466
 #: wp-includes/media-template.php:712
+#, php-format
 msgid "%1$s by %2$s pixels"
 msgstr ""
 
@@ -5488,6 +5714,7 @@ msgstr ""
 
 #. translators: 1: "srclang" HTML attribute, 2: "label" HTML attribute, 3: "kind" HTML attribute.
 #: wp-includes/media-template.php:1486
+#, php-format
 msgid "The %1$s, %2$s, and %3$s values can be edited to set the video track language and kind."
 msgstr ""
 
@@ -5534,6 +5761,7 @@ msgstr ""
 #. translators: %s: Playlist item title.
 #: wp-includes/media.php:2954
 #: wp-includes/media.php:2975
+#, php-format
 msgctxt "playlist item title"
 msgid "&#8220;%s&#8221;"
 msgstr ""
@@ -5597,6 +5825,7 @@ msgstr ""
 
 #. translators: This is a would-be plural string used in the media manager. If there is not a word you can use in your language to avoid issues with the lack of plural support here, turn it into "selected: %d" then translate it.
 #: wp-includes/media.php:4972
+#, php-format
 msgid "%d selected"
 msgstr ""
 
@@ -5702,6 +5931,7 @@ msgstr ""
 
 #. translators: %d: Number of attachments found in a search.
 #: wp-includes/media.php:5009
+#, php-format
 msgid "Number of media items found: %d"
 msgstr ""
 
@@ -5926,6 +6156,7 @@ msgstr ""
 
 #. translators: %s: Option name.
 #: wp-includes/option.php:550
+#, php-format
 msgid "%s is a protected WP option and may not be modified"
 msgstr ""
 
@@ -6018,11 +6249,13 @@ msgstr ""
 #: wp-includes/option.php:2946
 #: wp-includes/option.php:3006
 #: wp-includes/option.php:3019
+#, php-format
 msgid "The \"%s\" options group has been removed. Use another settings group."
 msgstr ""
 
 #. translators: 1: $sanitize_callback, 2: register_setting()
 #: wp-includes/option.php:3041
+#, php-format
 msgid "%1$s is deprecated. The callback from %2$s is used instead."
 msgstr ""
 
@@ -6041,17 +6274,20 @@ msgstr ""
 
 #. translators: %s: User name.
 #: wp-includes/pluggable.php:1671
+#, php-format
 msgid "Password changed for contributor: %s"
 msgstr ""
 
 #. translators: Password change notification email subject. %s: Site title.
 #: wp-includes/pluggable.php:1681
 #: wp-includes/user.php:2728
+#, php-format
 msgid "[%s] Password Changed"
 msgstr ""
 
 #. translators: %s: Site title.
 #: wp-includes/pluggable.php:1773
+#, php-format
 msgid "New contributor registration on your site %s:"
 msgstr ""
 
@@ -6059,16 +6295,19 @@ msgstr ""
 #: wp-includes/pluggable.php:1775
 #: wp-includes/pluggable.php:1840
 #: wp-includes/user.php:3278
+#, php-format
 msgid "Username: %s"
 msgstr ""
 
 #. translators: %s: User email address.
 #: wp-includes/pluggable.php:1777
+#, php-format
 msgid "Email: %s"
 msgstr ""
 
 #. translators: New user registration notification email subject. %s: Site title.
 #: wp-includes/pluggable.php:1782
+#, php-format
 msgid "[%s] New Contributor Registration"
 msgstr ""
 
@@ -6078,11 +6317,13 @@ msgstr ""
 
 #. translators: Login details notification email subject. %s: Site title.
 #: wp-includes/pluggable.php:1855
+#, php-format
 msgid "[%s] Login Details"
 msgstr ""
 
 #. translators: 1: Name of a cryptographic hash algorithm. 2: List of supported algorithms.
 #: wp-includes/pluggable.php:2179
+#, php-format
 msgid "Unsupported hashing algorithm: %1$s. Supported algorithms are: %2$s"
 msgstr ""
 
@@ -6262,11 +6503,13 @@ msgstr ""
 
 #. translators: %s: Protected post title.
 #: wp-includes/post-template.php:130
+#, php-format
 msgid "Protected: %s"
 msgstr ""
 
 #. translators: %s: Private post title.
 #: wp-includes/post-template.php:149
+#, php-format
 msgid "Private: %s"
 msgstr ""
 
@@ -6292,6 +6535,7 @@ msgstr ""
 
 #. translators: %s: Post custom field name.
 #: wp-includes/post-template.php:1139
+#, php-format
 msgctxt "Post custom field name"
 msgid "%s:"
 msgstr ""
@@ -6328,17 +6572,20 @@ msgstr ""
 #. translators: %s: Revision date with author avatar.
 #: wp-includes/post-template.php:1918
 #: wp-includes/post-template.php:1979
+#, php-format
 msgid "%s [Autosave]"
 msgstr ""
 
 #. translators: %s: Revision date with author avatar.
 #: wp-includes/post-template.php:1920
 #: wp-includes/post-template.php:1981
+#, php-format
 msgid "%s [Current Revision]"
 msgstr ""
 
 #. translators: Post revision title. 1: Author avatar, 2: Author name, 3: Time ago, 4: Date.
 #: wp-includes/post-template.php:1971
+#, php-format
 msgid "%1$s %2$s, %3$s ago (%4$s)"
 msgstr ""
 
@@ -6759,6 +7006,7 @@ msgstr ""
 
 #. translators: %s: Number of published posts.
 #: wp-includes/post.php:564
+#, php-format
 msgid "Published <span class=\"count\">(%s)</span>"
 msgid_plural "Published <span class=\"count\">(%s)</span>"
 msgstr[0] ""
@@ -6771,6 +7019,7 @@ msgstr ""
 
 #. translators: %s: Number of scheduled posts.
 #: wp-includes/post.php:578
+#, php-format
 msgid "Scheduled <span class=\"count\">(%s)</span>"
 msgid_plural "Scheduled <span class=\"count\">(%s)</span>"
 msgstr[0] ""
@@ -6783,6 +7032,7 @@ msgstr ""
 
 #. translators: %s: Number of draft posts.
 #: wp-includes/post.php:592
+#, php-format
 msgid "Draft <span class=\"count\">(%s)</span>"
 msgid_plural "Drafts <span class=\"count\">(%s)</span>"
 msgstr[0] ""
@@ -6796,6 +7046,7 @@ msgstr ""
 #. translators: %s: Number of pending items.
 #: wp-includes/post.php:607
 #: wp-includes/post.php:671
+#, php-format
 msgid "Pending <span class=\"count\">(%s)</span>"
 msgid_plural "Pending <span class=\"count\">(%s)</span>"
 msgstr[0] ""
@@ -6808,6 +7059,7 @@ msgstr ""
 
 #. translators: %s: Number of private posts.
 #: wp-includes/post.php:622
+#, php-format
 msgid "Private <span class=\"count\">(%s)</span>"
 msgid_plural "Private <span class=\"count\">(%s)</span>"
 msgstr[0] ""
@@ -6820,6 +7072,7 @@ msgstr ""
 
 #. translators: %s: Number of trashed posts.
 #: wp-includes/post.php:636
+#, php-format
 msgid "Trash <span class=\"count\">(%s)</span>"
 msgid_plural "Trash <span class=\"count\">(%s)</span>"
 msgstr[0] ""
@@ -6839,6 +7092,7 @@ msgstr ""
 
 #. translators: %s: Number of confirmed requests.
 #: wp-includes/post.php:686
+#, php-format
 msgid "Confirmed <span class=\"count\">(%s)</span>"
 msgid_plural "Confirmed <span class=\"count\">(%s)</span>"
 msgstr[0] ""
@@ -6852,6 +7106,7 @@ msgstr ""
 
 #. translators: %s: Number of failed requests.
 #: wp-includes/post.php:701
+#, php-format
 msgid "Failed <span class=\"count\">(%s)</span>"
 msgid_plural "Failed <span class=\"count\">(%s)</span>"
 msgstr[0] ""
@@ -6865,6 +7120,7 @@ msgstr ""
 
 #. translators: %s: Number of completed requests.
 #: wp-includes/post.php:716
+#, php-format
 msgid "Completed <span class=\"count\">(%s)</span>"
 msgid_plural "Completed <span class=\"count\">(%s)</span>"
 msgstr[0] ""
@@ -6905,6 +7161,7 @@ msgstr ""
 
 #. translators: %s: Post type name.
 #: wp-includes/post.php:2020
+#, php-format
 msgid "Single item: %s"
 msgstr ""
 
@@ -6918,6 +7175,7 @@ msgstr ""
 
 #. translators: %s: Number of images.
 #: wp-includes/post.php:3365
+#, php-format
 msgid "Image <span class=\"count\">(%s)</span>"
 msgid_plural "Images <span class=\"count\">(%s)</span>"
 msgstr[0] ""
@@ -6934,6 +7192,7 @@ msgstr ""
 
 #. translators: %s: Number of audio files.
 #: wp-includes/post.php:3374
+#, php-format
 msgid "Audio <span class=\"count\">(%s)</span>"
 msgid_plural "Audio <span class=\"count\">(%s)</span>"
 msgstr[0] ""
@@ -6950,6 +7209,7 @@ msgstr ""
 
 #. translators: %s: Number of video files.
 #: wp-includes/post.php:3383
+#, php-format
 msgid "Video <span class=\"count\">(%s)</span>"
 msgid_plural "Video <span class=\"count\">(%s)</span>"
 msgstr[0] ""
@@ -6965,6 +7225,7 @@ msgstr ""
 
 #. translators: %s: Number of documents.
 #: wp-includes/post.php:3392
+#, php-format
 msgid "Document <span class=\"count\">(%s)</span>"
 msgid_plural "Documents <span class=\"count\">(%s)</span>"
 msgstr[0] ""
@@ -6980,6 +7241,7 @@ msgstr ""
 
 #. translators: %s: Number of spreadsheets.
 #: wp-includes/post.php:3401
+#, php-format
 msgid "Spreadsheet <span class=\"count\">(%s)</span>"
 msgid_plural "Spreadsheets <span class=\"count\">(%s)</span>"
 msgstr[0] ""
@@ -6996,6 +7258,7 @@ msgstr ""
 
 #. translators: %s: Number of archives.
 #: wp-includes/post.php:3410
+#, php-format
 msgid "Archive <span class=\"count\">(%s)</span>"
 msgid_plural "Archives <span class=\"count\">(%s)</span>"
 msgstr[0] ""
@@ -7040,6 +7303,7 @@ msgstr ""
 
 #. translators: %s: Taxonomy name.
 #: wp-includes/post.php:4632
+#, php-format
 msgid "Invalid taxonomy: %s."
 msgstr ""
 
@@ -7084,6 +7348,7 @@ msgstr ""
 
 #. translators: 1: pre_get_posts, 2: WP_Query->is_main_query(), 3: is_main_query().
 #: wp-includes/query.php:775
+#, php-format
 msgid "In %1$s, use the %2$s method, not the %3$s function."
 msgstr ""
 
@@ -7094,31 +7359,37 @@ msgstr ""
 
 #. translators: 1: string value of the namespace, 2: string value of the route.
 #: wp-includes/rest-api.php:47
+#, php-format
 msgid "Routes must be namespaced with plugin or theme name and version. Instead there seems to be an empty namespace '%1$s' for route '%2$s'."
 msgstr ""
 
 #. translators: 1: string value of the namespace, 2: string value of the route.
 #: wp-includes/rest-api.php:59
+#, php-format
 msgid "Route must be specified. Instead within the namespace '%1$s', there seems to be an empty route '%2$s'."
 msgstr ""
 
 #. translators: 1: string value of the namespace, 2: string value of the route.
 #: wp-includes/rest-api.php:75
+#, php-format
 msgid "Namespace must not start or end with a slash. Instead namespace '%1$s' for route '%2$s' seems to contain a slash."
 msgstr ""
 
 #. translators: 1: rest_api_init, 2: string value of the route, 3: string value of the namespace.
 #: wp-includes/rest-api.php:88
+#, php-format
 msgid "REST API routes must be registered on the %1$s action. Instead route '%2$s' with namespace '%3$s' was not registered on this action."
 msgstr ""
 
 #. translators: 1: The REST API route being registered, 2: The argument name, 3: The suggested function name.
 #: wp-includes/rest-api.php:129
+#, php-format
 msgid "The REST API route definition for %1$s is missing the required %2$s argument. For REST API routes that are intended to be public, use %3$s as the permission callback."
 msgstr ""
 
 #. translators: 1: $args, 2: The REST API route being registered.
 #: wp-includes/rest-api.php:144
+#, php-format
 msgid "REST API %1$s should be an array of arrays. Non-array value detected for %2$s."
 msgstr ""
 
@@ -7128,23 +7399,27 @@ msgstr ""
 
 #. translators: 1: Function name, 2: WP version number, 3: New function name.
 #: wp-includes/rest-api.php:690
+#, php-format
 msgid "%1$s (since %2$s; use %3$s instead)"
 msgstr ""
 
 #. translators: 1: Function name, 2: WP version number.
 #: wp-includes/rest-api.php:693
 #: wp-includes/rest-api.php:717
+#, php-format
 msgid "%1$s (since %2$s; no alternative available)"
 msgstr ""
 
 #. translators: 1: Function name, 2: Version number, 3: Error message.
 #: wp-includes/rest-api.php:714
 #: wp-includes/rest-api.php:739
+#, php-format
 msgid "%1$s (since %2$s; %3$s)"
 msgstr ""
 
 #. translators: Developer debugging message. 1: PHP function name, 2: Explanatory message.
 #: wp-includes/rest-api.php:743
+#, php-format
 msgctxt "rest-api"
 msgid "%1$s (%2$s)"
 msgstr ""
@@ -7161,6 +7436,7 @@ msgstr ""
 
 #. translators: 1: Parameter, 2: List of allowed types.
 #: wp-includes/rest-api.php:1693
+#, php-format
 msgid "The \"type\" schema keyword for %1$s can only contain the built-in types: %2$l."
 msgstr ""
 
@@ -7170,47 +7446,56 @@ msgstr ""
 
 #. translators: 1: Parameter, 2: Schema title, 3: Reason.
 #: wp-includes/rest-api.php:1824
+#, php-format
 msgid "%1$s is not a valid %2$s. Reason: %3$s"
 msgstr ""
 
 #. translators: 1: Parameter, 2: Reason.
 #: wp-includes/rest-api.php:1832
+#, php-format
 msgid "%1$s does not match the expected format. Reason: %2$s"
 msgstr ""
 
 #. translators: 1: Parameter, 2: Schema titles.
 #: wp-includes/rest-api.php:1899
+#, php-format
 msgid "%1$s is not a valid %2$l."
 msgstr ""
 
 #. translators: %s: Parameter.
 #: wp-includes/rest-api.php:1903
+#, php-format
 msgid "%s does not match any of the expected formats."
 msgstr ""
 
 #. translators: 1: Parameter, 2: Schema titles.
 #: wp-includes/rest-api.php:1999
+#, php-format
 msgid "%1$s matches %2$l, but should match only one."
 msgstr ""
 
 #. translators: %s: Parameter.
 #: wp-includes/rest-api.php:2007
+#, php-format
 msgid "%s matches more than one of the expected formats."
 msgstr ""
 
 #. translators: 1: Parameter, 2: Valid values.
 #: wp-includes/rest-api.php:2081
+#, php-format
 msgid "%1$s is not %2$s."
 msgstr ""
 
 #. translators: 1: Parameter, 2: List of valid values.
 #: wp-includes/rest-api.php:2085
+#, php-format
 msgid "%1$s is not one of %2$l."
 msgstr ""
 
 #. translators: %s: Parameter.
 #: wp-includes/rest-api.php:2174
 #: wp-includes/rest-api.php:2776
+#, php-format
 msgid "The \"type\" schema keyword for %s is required."
 msgstr ""
 
@@ -7223,12 +7508,14 @@ msgstr ""
 #: wp-includes/rest-api.php:2527
 #: wp-includes/rest-api.php:2656
 #: wp-includes/rest-api.php:2724
+#, php-format
 msgid "%1$s is not of type %2$s."
 msgstr ""
 
 #. translators: 1: Parameter, 2: The list of allowed types.
 #: wp-includes/rest-api.php:2196
 #: wp-includes/rest-api.php:2793
+#, php-format
 msgid "The \"type\" schema keyword for %1$s can only be one of the built-in types: %2$l."
 msgstr ""
 
@@ -7244,27 +7531,32 @@ msgstr ""
 
 #. translators: %s: IP address.
 #: wp-includes/rest-api.php:2267
+#, php-format
 msgid "%s is not a valid IP address."
 msgstr ""
 
 #. translators: %s: The name of a JSON field expecting a valid UUID.
 #: wp-includes/rest-api.php:2273
+#, php-format
 msgid "%s is not a valid UUID."
 msgstr ""
 
 #. translators: 1: Property of an object, 2: Parameter.
 #: wp-includes/rest-api.php:2354
 #: wp-includes/rest-api.php:2364
+#, php-format
 msgid "%1$s is a required property of %2$s."
 msgstr ""
 
 #. translators: %s: Property of an object.
 #: wp-includes/rest-api.php:2393
+#, php-format
 msgid "%1$s is not a valid property of Object."
 msgstr ""
 
 #. translators: 1: Parameter, 2: Number.
 #: wp-includes/rest-api.php:2411
+#, php-format
 msgid "%1$s must contain at least %2$s property."
 msgid_plural "%1$s must contain at least %2$s properties."
 msgstr[0] ""
@@ -7272,6 +7564,7 @@ msgstr[1] ""
 
 #. translators: 1: Parameter, 2: Number.
 #: wp-includes/rest-api.php:2427
+#, php-format
 msgid "%1$s must contain at most %2$s property."
 msgid_plural "%1$s must contain at most %2$s properties."
 msgstr[0] ""
@@ -7279,6 +7572,7 @@ msgstr[1] ""
 
 #. translators: 1: Parameter, 2: Number.
 #: wp-includes/rest-api.php:2477
+#, php-format
 msgid "%1$s must contain at least %2$s item."
 msgid_plural "%1$s must contain at least %2$s items."
 msgstr[0] ""
@@ -7286,6 +7580,7 @@ msgstr[1] ""
 
 #. translators: 1: Parameter, 2: Number.
 #: wp-includes/rest-api.php:2493
+#, php-format
 msgid "%1$s must contain at most %2$s item."
 msgid_plural "%1$s must contain at most %2$s items."
 msgstr[0] ""
@@ -7294,56 +7589,67 @@ msgstr[1] ""
 #. translators: %s: Parameter.
 #: wp-includes/rest-api.php:2506
 #: wp-includes/rest-api.php:2809
+#, php-format
 msgid "%s has duplicate items."
 msgstr ""
 
 #. translators: 1: Parameter, 2: Multiplier.
 #: wp-includes/rest-api.php:2536
+#, php-format
 msgid "%1$s must be a multiple of %2$s."
 msgstr ""
 
 #. translators: 1: Parameter, 2: Minimum number.
 #: wp-includes/rest-api.php:2545
+#, php-format
 msgid "%1$s must be greater than %2$d"
 msgstr ""
 
 #. translators: 1: Parameter, 2: Minimum number.
 #: wp-includes/rest-api.php:2553
+#, php-format
 msgid "%1$s must be greater than or equal to %2$d"
 msgstr ""
 
 #. translators: 1: Parameter, 2: Maximum number.
 #: wp-includes/rest-api.php:2563
+#, php-format
 msgid "%1$s must be less than %2$d"
 msgstr ""
 
 #. translators: 1: Parameter, 2: Maximum number.
 #: wp-includes/rest-api.php:2571
+#, php-format
 msgid "%1$s must be less than or equal to %2$d"
 msgstr ""
 
 #. translators: 1: Parameter, 2: Minimum number, 3: Maximum number.
 #: wp-includes/rest-api.php:2583
+#, php-format
 msgid "%1$s must be between %2$d (exclusive) and %3$d (exclusive)"
 msgstr ""
 
 #. translators: 1: Parameter, 2: Minimum number, 3: Maximum number.
 #: wp-includes/rest-api.php:2598
+#, php-format
 msgid "%1$s must be between %2$d (exclusive) and %3$d (inclusive)"
 msgstr ""
 
 #. translators: 1: Parameter, 2: Minimum number, 3: Maximum number.
 #: wp-includes/rest-api.php:2613
+#, php-format
 msgid "%1$s must be between %2$d (inclusive) and %3$d (exclusive)"
 msgstr ""
 
 #. translators: 1: Parameter, 2: Minimum number, 3: Maximum number.
 #: wp-includes/rest-api.php:2628
+#, php-format
 msgid "%1$s must be between %2$d (inclusive) and %3$d (inclusive)"
 msgstr ""
 
 #. translators: 1: Parameter, 2: Number of characters.
 #: wp-includes/rest-api.php:2666
+#, php-format
 msgid "%1$s must be at least %2$s character long."
 msgid_plural "%1$s must be at least %2$s characters long."
 msgstr[0] ""
@@ -7351,6 +7657,7 @@ msgstr[1] ""
 
 #. translators: 1: Parameter, 2: Number of characters.
 #: wp-includes/rest-api.php:2682
+#, php-format
 msgid "%1$s must be at most %2$s character long."
 msgid_plural "%1$s must be at most %2$s characters long."
 msgstr[0] ""
@@ -7358,6 +7665,7 @@ msgstr[1] ""
 
 #. translators: 1: Parameter, 2: Pattern.
 #: wp-includes/rest-api.php:2697
+#, php-format
 msgid "%1$s does not match pattern %2$s."
 msgstr ""
 
@@ -7368,11 +7676,13 @@ msgstr ""
 #. translators: %s: List of invalid parameters.
 #: wp-includes/rest-api/class-wp-rest-request.php:868
 #: wp-includes/rest-api/class-wp-rest-request.php:950
+#, php-format
 msgid "Invalid parameter(s): %s"
 msgstr ""
 
 #. translators: %s: List of required parameters.
 #: wp-includes/rest-api/class-wp-rest-request.php:911
+#, php-format
 msgid "Missing parameter(s): %s"
 msgstr ""
 
@@ -7386,6 +7696,7 @@ msgstr ""
 
 #. translators: %s: rest_authentication_errors
 #: wp-includes/rest-api/class-wp-rest-server.php:351
+#, php-format
 msgid "The REST API can no longer be completely disabled, the %s filter can be used to restrict access to the API, instead."
 msgstr ""
 
@@ -7543,6 +7854,7 @@ msgstr ""
 
 #. translators: %s: attachment mime type
 #: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:425
+#, php-format
 msgid "This site does not support post thumbnails on attachments with MIME type %s."
 msgstr ""
 
@@ -7658,11 +7970,13 @@ msgstr ""
 
 #. translators: %s: Required disk space in kilobytes.
 #: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:1427
+#, php-format
 msgid "Not enough space to upload. %s KB needed."
 msgstr ""
 
 #. translators: %s: Maximum allowed file size in kilobytes.
 #: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:1436
+#, php-format
 msgid "This file is too big. Files must be less than %s KB in size."
 msgstr ""
 
@@ -8148,6 +8462,7 @@ msgstr ""
 
 #. translators: %s: register_routes()
 #: wp-includes/rest-api/endpoints/class-wp-rest-controller.php:55
+#, php-format
 msgid "Method '%s' must be overridden."
 msgstr ""
 
@@ -8164,6 +8479,7 @@ msgstr ""
 #: wp-includes/rest-api/endpoints/class-wp-rest-controller.php:225
 #: wp-includes/rest-api/endpoints/class-wp-rest-controller.php:242
 #: wp-includes/rest-api/endpoints/class-wp-rest-controller.php:260
+#, php-format
 msgid "Method '%s' not implemented. Must be overridden in subclass."
 msgstr ""
 
@@ -8254,27 +8570,32 @@ msgstr ""
 #. translators: %s: Name of the missing key.
 #: wp-includes/rest-api/endpoints/class-wp-rest-font-faces-controller.php:193
 #: wp-includes/rest-api/endpoints/class-wp-rest-font-families-controller.php:136
+#, php-format
 msgid "%s cannot be empty."
 msgstr ""
 
 #. translators: %s: Font face source parameter name: "font_face_settings[src]".
 #: wp-includes/rest-api/endpoints/class-wp-rest-font-faces-controller.php:209
+#, php-format
 msgid "%s values must be non-empty strings."
 msgstr ""
 
 #. translators: 1: Font face source parameter name: "font_face_settings[src]", 2: The invalid src value.
 #: wp-includes/rest-api/endpoints/class-wp-rest-font-faces-controller.php:219
+#, php-format
 msgid "%1$s value \"%2$s\" must be a valid URL or file reference."
 msgstr ""
 
 #. translators: 1: File key (e.g. "file-0") in the request data, 2: Font face source parameter name: "font_face_settings[src]".
 #: wp-includes/rest-api/endpoints/class-wp-rest-font-faces-controller.php:231
+#, php-format
 msgid "File %1$s must be used in %2$s."
 msgstr ""
 
 #. translators: %d: A post id.
 #: wp-includes/rest-api/endpoints/class-wp-rest-font-faces-controller.php:303
 #: wp-includes/rest-api/endpoints/class-wp-rest-font-faces-controller.php:417
+#, php-format
 msgid "The font face does not belong to the specified font family with id of \"%d\"."
 msgstr ""
 
@@ -8285,6 +8606,7 @@ msgstr ""
 #. translators: %s: force=true
 #: wp-includes/rest-api/endpoints/class-wp-rest-font-faces-controller.php:429
 #: wp-includes/rest-api/endpoints/class-wp-rest-font-families-controller.php:216
+#, php-format
 msgid "Font faces do not support trashing. Set \"%s\" to delete."
 msgstr ""
 
@@ -8379,16 +8701,19 @@ msgstr ""
 
 #. translators: %s: Parameter name: "font_family_settings".
 #: wp-includes/rest-api/endpoints/class-wp-rest-font-families-controller.php:99
+#, php-format
 msgid "%s parameter must be a valid JSON string."
 msgstr ""
 
 #. translators: %s: Name of parameter being updated: font_family_settings[slug]".
 #: wp-includes/rest-api/endpoints/class-wp-rest-font-families-controller.php:116
+#, php-format
 msgid "%s cannot be updated."
 msgstr ""
 
 #. translators: %s: Font family slug.
 #: wp-includes/rest-api/endpoints/class-wp-rest-font-families-controller.php:192
+#, php-format
 msgid "A font family with slug \"%s\" already exists."
 msgstr ""
 
@@ -8896,6 +9221,7 @@ msgstr ""
 
 #. translators: %s: force=true
 #: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1138
+#, php-format
 msgid "The post does not support trashing. Set '%s' to delete."
 msgstr ""
 
@@ -8939,6 +9265,7 @@ msgstr ""
 
 #. translators: 1: Parameter, 2: List of valid values.
 #: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1614
+#, php-format
 msgid "%1$s is not one of %2$s."
 msgstr ""
 
@@ -9076,16 +9403,19 @@ msgstr ""
 
 #. translators: 1: The taxonomy name, 2: The property name, either 'rest_base' or 'name', 3: The conflicting value.
 #: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2656
+#, php-format
 msgid "The \"%1$s\" taxonomy \"%2$s\" property (%3$s) conflicts with an existing property on the REST API Posts Controller. Specify a custom \"rest_base\" when registering the taxonomy to avoid this error."
 msgstr ""
 
 #. translators: %s: Taxonomy name.
 #: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2667
+#, php-format
 msgid "The terms assigned to the post in the %s taxonomy."
 msgstr ""
 
 #. translators: %s: register_rest_field
 #: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2710
+#, php-format
 msgid "Please use %s to add new schema properties."
 msgstr ""
 
@@ -9107,11 +9437,13 @@ msgstr ""
 
 #. translators: %s: Taxonomy name.
 #: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2806
+#, php-format
 msgid "The current contributor can assign terms in the %s taxonomy."
 msgstr ""
 
 #. translators: %s: Taxonomy name.
 #: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2808
+#, php-format
 msgid "The current contributor can create terms in the %s taxonomy."
 msgstr ""
 
@@ -9230,6 +9562,7 @@ msgstr ""
 
 #. translators: %s: Taxonomy name.
 #: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3246
+#, php-format
 msgid "Limit result set to items with specific terms assigned in the %s taxonomy."
 msgstr ""
 
@@ -9239,6 +9572,7 @@ msgstr ""
 
 #. translators: %s: Taxonomy name.
 #: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3261
+#, php-format
 msgid "Limit result set to items except those with specific terms assigned in the %s taxonomy."
 msgstr ""
 
@@ -9263,6 +9597,7 @@ msgstr ""
 
 #. translators: %d: A post id.
 #: wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php:426
+#, php-format
 msgid "The revision does not belong to the specified parent with id of \"%d\""
 msgstr ""
 
@@ -9278,6 +9613,7 @@ msgstr ""
 
 #. translators: %s: force=true
 #: wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php:499
+#, php-format
 msgid "Revisions do not support trashing. Set '%s' to delete."
 msgstr ""
 
@@ -9315,6 +9651,7 @@ msgstr ""
 
 #. translators: %s: PHP class name.
 #: wp-includes/rest-api/endpoints/class-wp-rest-search-controller.php:76
+#, php-format
 msgid "REST search handlers must extend the %s class."
 msgstr ""
 
@@ -9358,6 +9695,7 @@ msgstr ""
 #: wp-includes/rest-api/endpoints/class-wp-rest-settings-controller.php:198
 #: wp-includes/rest-api/fields/class-wp-rest-meta-fields.php:172
 #: wp-includes/rest-api/fields/class-wp-rest-meta-fields.php:190
+#, php-format
 msgid "The %s property has an invalid stored value, and cannot be updated to null."
 msgstr ""
 
@@ -9672,6 +10010,7 @@ msgstr ""
 
 #. translators: %s: force=true
 #: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:779
+#, php-format
 msgid "Terms do not support trashing. Set '%s' to delete."
 msgstr ""
 
@@ -9875,21 +10214,25 @@ msgstr ""
 
 #. translators: %s: HTML title tag.
 #: wp-includes/rest-api/endpoints/class-wp-rest-url-details-controller.php:82
+#, php-format
 msgid "The contents of the %s element from the URL."
 msgstr ""
 
 #. translators: %s: HTML link tag.
 #: wp-includes/rest-api/endpoints/class-wp-rest-url-details-controller.php:92
+#, php-format
 msgid "The favicon image link of the %s element from the URL."
 msgstr ""
 
 #. translators: %s: HTML meta tag.
 #: wp-includes/rest-api/endpoints/class-wp-rest-url-details-controller.php:103
+#, php-format
 msgid "The content of the %s element from the URL."
 msgstr ""
 
 #. translators: 1: HTML meta tag, 2: HTML meta tag.
 #: wp-includes/rest-api/endpoints/class-wp-rest-url-details-controller.php:113
+#, php-format
 msgid "The Open Graph image link of the %1$s or %2$s element from the URL."
 msgstr ""
 
@@ -9990,6 +10333,7 @@ msgstr ""
 
 #. translators: %s: force=true
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:936
+#, php-format
 msgid "Contributors do not support trashing. Set '%s' to delete."
 msgstr ""
 
@@ -9999,6 +10343,7 @@ msgstr ""
 
 #. translators: %s: Role key.
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1259
+#, php-format
 msgid "The role %s does not exist."
 msgstr ""
 
@@ -10024,6 +10369,7 @@ msgstr ""
 
 #. translators: %s: The '\' character.
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1370
+#, php-format
 msgid "Passwords cannot contain the \"%s\" character."
 msgstr ""
 
@@ -10093,6 +10439,7 @@ msgstr ""
 
 #. translators: %d: Avatar image size in pixels.
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1530
+#, php-format
 msgid "Avatar URL with image size of %d pixels."
 msgstr ""
 
@@ -10128,6 +10475,7 @@ msgstr ""
 #: wp-includes/rest-api/fields/class-wp-rest-meta-fields.php:241
 #: wp-includes/rest-api/fields/class-wp-rest-meta-fields.php:288
 #: wp-includes/rest-api/fields/class-wp-rest-meta-fields.php:398
+#, php-format
 msgid "Sorry, you are not allowed to edit the %s custom field."
 msgstr ""
 
@@ -10139,6 +10487,7 @@ msgstr ""
 #: wp-includes/rest-api/fields/class-wp-rest-meta-fields.php:343
 #: wp-includes/rest-api/fields/class-wp-rest-meta-fields.php:357
 #: wp-includes/rest-api/fields/class-wp-rest-meta-fields.php:410
+#, php-format
 msgid "Could not update the meta value of %s in database."
 msgstr ""
 
@@ -10173,6 +10522,7 @@ msgstr ""
 
 #. translators: %d: Duration in seconds from or to a particular datetime, e.g., "4 seconds ago" or "4 seconds from now".
 #: wp-includes/script-loader.php:439
+#, php-format
 msgid "%d seconds"
 msgstr ""
 
@@ -10183,6 +10533,7 @@ msgstr ""
 
 #. translators: %d: Duration in minutes from or to a particular datetime, e.g., "4 minutes ago" or "4 minutes from now".
 #: wp-includes/script-loader.php:443
+#, php-format
 msgid "%d minutes"
 msgstr ""
 
@@ -10193,6 +10544,7 @@ msgstr ""
 
 #. translators: %d: Duration in hours from or to a particular datetime, e.g., "4 hours ago" or "4 hours from now".
 #: wp-includes/script-loader.php:447
+#, php-format
 msgid "%d hours"
 msgstr ""
 
@@ -10203,6 +10555,7 @@ msgstr ""
 
 #. translators: %d: Duration in days from or to a particular datetime, e.g., "4 days ago" or "4 days from now".
 #: wp-includes/script-loader.php:451
+#, php-format
 msgid "%d days"
 msgstr ""
 
@@ -10213,6 +10566,7 @@ msgstr ""
 
 #. translators: %d: Duration in months from or to a particular datetime, e.g., "4 months ago" or "4 months from now".
 #: wp-includes/script-loader.php:455
+#, php-format
 msgid "%d months"
 msgstr ""
 
@@ -10223,6 +10577,7 @@ msgstr ""
 
 #. translators: %d: Duration in years from or to a particular datetime, e.g., "4 years ago" or "4 years from now".
 #: wp-includes/script-loader.php:459
+#, php-format
 msgid "%d years"
 msgstr ""
 
@@ -10377,6 +10732,7 @@ msgstr ""
 
 #. translators: %s: File name.
 #: wp-includes/script-loader.php:837
+#, php-format
 msgid "%s exceeds the maximum upload size for this site."
 msgstr ""
 
@@ -10426,11 +10782,13 @@ msgstr ""
 
 #. translators: 1: Opening link tag, 2: Closing link tag.
 #: wp-includes/script-loader.php:850
+#, php-format
 msgid "Please try uploading this file with the %1$sbrowser uploader%2$s."
 msgstr ""
 
 #. translators: %s: File name.
 #: wp-includes/script-loader.php:852
+#, php-format
 msgid "%s exceeds the maximum upload size for the multi-file uploader when used in your browser."
 msgstr ""
 
@@ -10464,6 +10822,7 @@ msgstr ""
 
 #. translators: %s: File name.
 #: wp-includes/script-loader.php:861
+#, php-format
 msgid "&#8220;%s&#8221; has failed to upload."
 msgstr ""
 
@@ -10857,6 +11216,7 @@ msgstr ""
 
 #. translators: %s: wp_remove_surrounding_empty_script_tags()
 #: wp-includes/script-loader.php:3047
+#, php-format
 msgid "Function %s used incorrectly in PHP."
 msgstr ""
 
@@ -10866,26 +11226,31 @@ msgstr ""
 
 #. translators: 1: Shortcode name, 2: Space-separated list of reserved characters.
 #: wp-includes/shortcodes.php:80
+#, php-format
 msgid "Invalid shortcode name: %1$s. Do not use spaces or reserved characters: %2$s"
 msgstr ""
 
 #. translators: %s: Shortcode tag.
 #: wp-includes/shortcodes.php:407
+#, php-format
 msgid "Attempting to parse a shortcode without a valid callback: %s"
 msgstr ""
 
 #. translators: %s: List of element names.
 #: wp-includes/sitemaps/class-wp-sitemaps-renderer.php:172
+#, php-format
 msgid "Fields other than %s are not currently supported for the sitemap index."
 msgstr ""
 
 #. translators: %s: List of element names.
 #: wp-includes/sitemaps/class-wp-sitemaps-renderer.php:236
+#, php-format
 msgid "Fields other than %s are not currently supported for sitemaps."
 msgstr ""
 
 #. translators: %s: SimpleXML
 #: wp-includes/sitemaps/class-wp-sitemaps-renderer.php:265
+#, php-format
 msgid "Could not generate XML sitemap due to missing %s extension"
 msgstr ""
 
@@ -10912,6 +11277,7 @@ msgstr ""
 #. translators: %s: Number of URLs.
 #: wp-includes/sitemaps/class-wp-sitemaps-stylesheet.php:59
 #: wp-includes/sitemaps/class-wp-sitemaps-stylesheet.php:173
+#, php-format
 msgid "Number of URLs in this XML Sitemap: %s."
 msgstr ""
 
@@ -11106,6 +11472,7 @@ msgstr ""
 
 #. translators: %s: Taxonomy name.
 #: wp-includes/taxonomy.php:749
+#, php-format
 msgctxt "taxonomy template name"
 msgid "%s Archives"
 msgstr ""
@@ -11156,6 +11523,7 @@ msgstr ""
 
 #. translators: %s: Taxonomy term slug.
 #: wp-includes/taxonomy.php:3343
+#, php-format
 msgid "The slug &#8220;%s&#8221; is already in use by another term."
 msgstr ""
 
@@ -11165,6 +11533,7 @@ msgstr ""
 
 #. translators: %s: Taxonomy label, %l: List of terms formatted as per $term_template.
 #: wp-includes/taxonomy.php:4796
+#, php-format
 msgid "%s: %l."
 msgstr ""
 
@@ -11178,6 +11547,7 @@ msgstr ""
 
 #. translators: %s: A link to the embedded site.
 #: wp-includes/theme-compat/embed-404.php:23
+#, php-format
 msgid "It looks like nothing was found at this location. Maybe try visiting %s directly?"
 msgstr ""
 
@@ -11185,6 +11555,7 @@ msgstr ""
 #: wp-includes/theme-compat/footer.php:11
 #: wp-includes/theme-compat/header.php:11
 #: wp-includes/theme-compat/sidebar.php:11
+#, php-format
 msgid "Theme without %s"
 msgstr ""
 
@@ -11192,6 +11563,7 @@ msgstr ""
 #: wp-includes/theme-compat/footer.php:15
 #: wp-includes/theme-compat/header.php:15
 #: wp-includes/theme-compat/sidebar.php:15
+#, php-format
 msgid "Please include a %s template in your theme."
 msgstr ""
 
@@ -11201,11 +11573,13 @@ msgstr ""
 
 #. translators: %s: Category name.
 #: wp-includes/theme-compat/sidebar.php:46
+#, php-format
 msgid "You are currently browsing the archives for the %s category."
 msgstr ""
 
 #. translators: 1: Site link, 2: Archive date.
 #: wp-includes/theme-compat/sidebar.php:57
+#, php-format
 msgid "You are currently browsing the %1$s blog archives for the day %2$s."
 msgstr ""
 
@@ -11216,6 +11590,7 @@ msgstr ""
 
 #. translators: 1: Site link, 2: Archive month.
 #: wp-includes/theme-compat/sidebar.php:70
+#, php-format
 msgid "You are currently browsing the %1$s blog archives for %2$s."
 msgstr ""
 
@@ -11226,16 +11601,19 @@ msgstr ""
 
 #. translators: 1: Site link, 2: Archive year.
 #: wp-includes/theme-compat/sidebar.php:83
+#, php-format
 msgid "You are currently browsing the %1$s blog archives for the year %2$s."
 msgstr ""
 
 #. translators: 1: Site link, 2: Search query.
 #: wp-includes/theme-compat/sidebar.php:95
+#, php-format
 msgid "You have searched the %1$s blog archives for <strong>&#8216;%2$s&#8217;</strong>. If you are unable to find anything in these search results, you can try one of these links."
 msgstr ""
 
 #. translators: %s: Site link.
 #: wp-includes/theme-compat/sidebar.php:107
+#, php-format
 msgid "You are currently browsing the %s blog archives."
 msgstr ""
 
@@ -11245,18 +11623,21 @@ msgstr ""
 
 #. translators: %s: Theme name.
 #: wp-includes/theme.php:941
+#, php-format
 msgctxt "theme"
 msgid "<strong>Error:</strong> Current Retraceur and PHP versions do not meet minimum requirements for %s."
 msgstr ""
 
 #. translators: %s: Theme name.
 #: wp-includes/theme.php:950
+#, php-format
 msgctxt "theme"
 msgid "<strong>Error:</strong> Current PHP version does not meet minimum requirements for %s."
 msgstr ""
 
 #. translators: %s: Theme name.
 #: wp-includes/theme.php:959
+#, php-format
 msgctxt "theme"
 msgid "<strong>Error:</strong> Current Retraceur version does not meet minimum requirements for %s."
 msgstr ""
@@ -11333,6 +11714,7 @@ msgstr ""
 
 #. translators: 1: title-tag, 2: wp_loaded
 #: wp-includes/theme.php:2693
+#, php-format
 msgid "Theme support for %1$s should be registered before the %2$s hook."
 msgstr ""
 
@@ -11358,6 +11740,7 @@ msgstr ""
 
 #. translators: %s: prepare_callback
 #: wp-includes/theme.php:3123
+#, php-format
 msgid "The \"%s\" must be a callable function."
 msgstr ""
 
@@ -11472,11 +11855,13 @@ msgstr ""
 
 #. translators: %d: Number of available Retraceur updates.
 #: wp-includes/update.php:828
+#, php-format
 msgid "%d Retraceur Update"
 msgstr ""
 
 #. translators: %d: Number of available plugin updates.
 #: wp-includes/update.php:833
+#, php-format
 msgid "%d Plugin Update"
 msgid_plural "%d Plugin Updates"
 msgstr[0] ""
@@ -11484,6 +11869,7 @@ msgstr[1] ""
 
 #. translators: %d: Number of available theme updates.
 #: wp-includes/update.php:838
+#, php-format
 msgid "%d Theme Update"
 msgid_plural "%d Theme Updates"
 msgstr[0] ""
@@ -11499,6 +11885,7 @@ msgstr ""
 
 #. translators: %s: Directory name.
 #: wp-includes/update.php:1017
+#, php-format
 msgid "Unable to locate Retraceur content directory (%s)."
 msgstr ""
 
@@ -11513,11 +11900,13 @@ msgstr ""
 
 #. translators: %s: User name.
 #: wp-includes/user.php:190
+#, php-format
 msgid "<strong>Error:</strong> The username <strong>%s</strong> is not registered on this site. If you are unsure of your username, try your email address instead."
 msgstr ""
 
 #. translators: %s: User name.
 #: wp-includes/user.php:217
+#, php-format
 msgid "<strong>Error:</strong> The password you entered for the username %s is incorrect."
 msgstr ""
 
@@ -11538,6 +11927,7 @@ msgstr ""
 
 #. translators: %s: Email address.
 #: wp-includes/user.php:300
+#, php-format
 msgid "<strong>Error:</strong> The password you entered for the email address %s is incorrect."
 msgstr ""
 
@@ -11562,11 +11952,13 @@ msgstr ""
 #: wp-includes/user.php:1475
 #: wp-includes/user.php:1508
 #: wp-includes/user.php:1556
+#, php-format
 msgid "Unable to pass %s if not using multisite."
 msgstr ""
 
 #. translators: 1: User's display name, 2: User login.
 #: wp-includes/user.php:1821
+#, php-format
 msgctxt "user dropdown"
 msgid "%1$s (%2$s)"
 msgstr ""
@@ -11641,6 +12033,7 @@ msgstr ""
 
 #. translators: Email change notification email subject. %s: Site title.
 #: wp-includes/user.php:2786
+#, php-format
 msgid "[%s] Email Changed"
 msgstr ""
 
@@ -11690,6 +12083,7 @@ msgstr ""
 
 #. translators: %s: Site name.
 #: wp-includes/user.php:3276
+#, php-format
 msgid "Site Name: %s"
 msgstr ""
 
@@ -11703,11 +12097,13 @@ msgstr ""
 
 #. translators: %s: IP address of password reset requester.
 #: wp-includes/user.php:3294
+#, php-format
 msgid "This password reset request originated from the IP address %s."
 msgstr ""
 
 #. translators: Password reset notification email subject. %s: Site title.
 #: wp-includes/user.php:3301
+#, php-format
 msgid "[%s] Password Reset"
 msgstr ""
 
@@ -11743,11 +12139,13 @@ msgstr ""
 #. translators: %s: Link to the login page.
 #: wp-includes/user.php:3477
 #: wp-includes/user.php:3640
+#, php-format
 msgid "<strong>Error:</strong> This email address is already registered. <a href=\"%s\">Log in</a> with this address or choose another one."
 msgstr ""
 
 #. translators: %s: Admin email address.
 #: wp-includes/user.php:3525
+#, php-format
 msgid "<strong>Error:</strong> Could not register you&hellip; please contact the <a href=\"mailto:%s\">site admin</a>!"
 msgstr ""
 
@@ -11805,6 +12203,7 @@ msgstr ""
 
 #. translators: New user notification email. %s: Activation URL.
 #: wp-includes/user.php:3989
+#, php-format
 msgid ""
 "To activate & confirm your registration, please click the following link:\n"
 "\n"
@@ -11815,6 +12214,7 @@ msgstr ""
 
 #. translators: New user notification email subject. 1: Network title, 2: New user login.
 #: wp-includes/user.php:4013
+#, php-format
 msgctxt "New contributor notification email subject"
 msgid "[%1$s] Activate %2$s"
 msgstr ""
@@ -11845,11 +12245,13 @@ msgstr ""
 
 #. translators: New email address notification email subject. %s: Site title.
 #: wp-includes/user.php:4304
+#, php-format
 msgid "[%s] Email Change Request"
 msgstr ""
 
 #. translators: %s: New email address.
 #: wp-includes/user.php:4327
+#, php-format
 msgid "Your email address has not been updated yet. Please check your inbox at %s for a confirmation email."
 msgstr ""
 
@@ -11903,6 +12305,7 @@ msgstr ""
 
 #. translators: %s: wp_privacy_additional_user_profile_data
 #: wp-includes/user.php:4477
+#, php-format
 msgid "Filter %s returned items with reserved names."
 msgstr ""
 
@@ -11957,6 +12360,7 @@ msgstr ""
 
 #. translators: Privacy data request confirmed notification email subject. 1: Site title, 2: Name of the confirmed action.
 #: wp-includes/user.php:4648
+#, php-format
 msgid "[%1$s] Action Confirmed: %2$s"
 msgstr ""
 
@@ -11982,11 +12386,13 @@ msgstr ""
 #. translators: 1 & 2: Deprecation replacement options.
 #: wp-includes/user.php:4730
 #: wp-includes/user.php:4970
+#, php-format
 msgid "%1$s or %2$s"
 msgstr ""
 
 #. translators: Erasure request fulfilled notification email subject. %s: Site title.
 #: wp-includes/user.php:4852
+#, php-format
 msgid "[%s] Erasure Request Fulfilled"
 msgstr ""
 
@@ -12066,6 +12472,7 @@ msgstr ""
 
 #. translators: %s: Action name.
 #: wp-includes/user.php:5201
+#, php-format
 msgid "Confirm the \"%s\" action"
 msgstr ""
 
@@ -12076,6 +12483,7 @@ msgstr ""
 
 #. translators: Confirm privacy data request notification email subject. 1: Site title, 2: Name of the action.
 #: wp-includes/user.php:5258
+#, php-format
 msgid "[%1$s] Confirm Action: %2$s"
 msgstr ""
 
@@ -12134,11 +12542,13 @@ msgstr ""
 
 #. translators: %s: wp-config.php
 #: wp-load.php:88
+#, php-format
 msgid "There doesn't seem to be a %s file. It is needed before the installation can continue."
 msgstr ""
 
 #. translators: %s: wp-config.php
 #: wp-load.php:93
+#, php-format
 msgid "You can create a %s file through a web interface, but this doesn't work for all server setups. The safest way is to manually create the file."
 msgstr ""
 
@@ -12148,11 +12558,13 @@ msgstr ""
 
 #. translators: Login screen title. 1: Login screen name, 2: Network or site name.
 #: wp-login.php:76
+#, php-format
 msgid "%1$s &lsaquo; %2$s &#8212; Retraceur"
 msgstr ""
 
 #. translators: %s: Login screen title.
 #: wp-login.php:80
+#, php-format
 msgid "Recovery Mode &#8212; %s"
 msgstr ""
 
@@ -12166,6 +12578,7 @@ msgstr ""
 
 #. translators: %s: Site title.
 #: wp-login.php:338
+#, php-format
 msgctxt "site"
 msgid "&larr; Go to %s"
 msgstr ""
@@ -12193,6 +12606,7 @@ msgstr ""
 
 #. translators: %s: Admin email address.
 #: wp-login.php:703
+#, php-format
 msgid "Current administration email: %s"
 msgstr ""
 
@@ -12302,11 +12716,13 @@ msgstr ""
 
 #. translators: %s: Link to the login page.
 #: wp-login.php:1217
+#, php-format
 msgid "Check your email for the confirmation link, then visit the <a href=\"%s\">login page</a>."
 msgstr ""
 
 #. translators: %s: Link to the login page.
 #: wp-login.php:1227
+#, php-format
 msgid "Registration complete. Please check your email, then visit the <a href=\"%s\">login page</a>."
 msgstr ""
 
@@ -12337,6 +12753,7 @@ msgstr ""
 
 #. Translators: 1: The user login. 2: The user password.
 #: wp-login.php:1323
+#, php-format
 msgid "<p>Your account is now active. Please log in using the following information:<br><br><strong>Login:</strong> %1$s<br><strong>Password:</strong> %2$s<br><br></p>"
 msgstr ""
 
@@ -13690,4 +14107,312 @@ msgstr ""
 #: wp-includes/blocks/widget-group/block.json
 msgctxt "block title"
 msgid "Widget Group"
+msgstr ""
+
+#: wp-content/themes/point/theme.json
+msgctxt "Color name"
+msgid "Primary"
+msgstr ""
+
+#: wp-content/themes/point/theme.json
+msgctxt "Color name"
+msgid "Secondary"
+msgstr ""
+
+#: wp-content/themes/point/theme.json
+msgctxt "Color name"
+msgid "Tertiary"
+msgstr ""
+
+#: wp-content/themes/point/theme.json
+msgctxt "Color name"
+msgid "Retraceur blue"
+msgstr ""
+
+#: wp-content/themes/point/theme.json
+msgctxt "Color name"
+msgid "Retraceur blue hover"
+msgstr ""
+
+#: wp-content/themes/point/theme.json
+msgctxt "Color name"
+msgid "Very dark grey"
+msgstr ""
+
+#: wp-content/themes/point/theme.json
+msgctxt "Font family name"
+msgid "Noto Serif"
+msgstr ""
+
+#: wp-content/themes/point/theme.json
+msgctxt "Font size name"
+msgid "Ultra Small"
+msgstr ""
+
+#: wp-content/themes/point/theme.json
+#: wp-includes/theme.json
+msgctxt "Font size name"
+msgid "Small"
+msgstr ""
+
+#: wp-content/themes/point/theme.json
+msgctxt "Font size name"
+msgid "Regular"
+msgstr ""
+
+#: wp-content/themes/point/theme.json
+#: wp-includes/theme.json
+msgctxt "Font size name"
+msgid "Medium"
+msgstr ""
+
+#: wp-content/themes/point/theme.json
+#: wp-includes/theme.json
+msgctxt "Font size name"
+msgid "Large"
+msgstr ""
+
+#: wp-content/themes/point/theme.json
+msgctxt "Font size name"
+msgid "Very Large"
+msgstr ""
+
+#: wp-content/themes/point/theme.json
+msgctxt "Font size name"
+msgid "Ultra Large"
+msgstr ""
+
+#: wp-content/themes/point/theme.json
+msgctxt "Template part name"
+msgid "Header"
+msgstr ""
+
+#: wp-content/themes/point/theme.json
+msgctxt "Template part name"
+msgid "Footer"
+msgstr ""
+
+#: wp-includes/theme.json
+msgctxt "Duotone name"
+msgid "Dark grayscale"
+msgstr ""
+
+#: wp-includes/theme.json
+msgctxt "Duotone name"
+msgid "Grayscale"
+msgstr ""
+
+#: wp-includes/theme.json
+msgctxt "Duotone name"
+msgid "Purple and yellow"
+msgstr ""
+
+#: wp-includes/theme.json
+msgctxt "Duotone name"
+msgid "Blue and red"
+msgstr ""
+
+#: wp-includes/theme.json
+msgctxt "Duotone name"
+msgid "Midnight"
+msgstr ""
+
+#: wp-includes/theme.json
+msgctxt "Duotone name"
+msgid "Magenta and yellow"
+msgstr ""
+
+#: wp-includes/theme.json
+msgctxt "Duotone name"
+msgid "Purple and green"
+msgstr ""
+
+#: wp-includes/theme.json
+msgctxt "Duotone name"
+msgid "Blue and orange"
+msgstr ""
+
+#: wp-includes/theme.json
+msgctxt "Gradient name"
+msgid "Vivid cyan blue to vivid purple"
+msgstr ""
+
+#: wp-includes/theme.json
+msgctxt "Gradient name"
+msgid "Light green cyan to vivid green cyan"
+msgstr ""
+
+#: wp-includes/theme.json
+msgctxt "Gradient name"
+msgid "Luminous vivid amber to luminous vivid orange"
+msgstr ""
+
+#: wp-includes/theme.json
+msgctxt "Gradient name"
+msgid "Luminous vivid orange to vivid red"
+msgstr ""
+
+#: wp-includes/theme.json
+msgctxt "Gradient name"
+msgid "Very light gray to cyan bluish gray"
+msgstr ""
+
+#: wp-includes/theme.json
+msgctxt "Gradient name"
+msgid "Cool to warm spectrum"
+msgstr ""
+
+#: wp-includes/theme.json
+msgctxt "Gradient name"
+msgid "Blush light purple"
+msgstr ""
+
+#: wp-includes/theme.json
+msgctxt "Gradient name"
+msgid "Blush bordeaux"
+msgstr ""
+
+#: wp-includes/theme.json
+msgctxt "Gradient name"
+msgid "Luminous dusk"
+msgstr ""
+
+#: wp-includes/theme.json
+msgctxt "Gradient name"
+msgid "Pale ocean"
+msgstr ""
+
+#: wp-includes/theme.json
+msgctxt "Gradient name"
+msgid "Electric grass"
+msgstr ""
+
+#: wp-includes/theme.json
+msgctxt "Gradient name"
+msgid "Midnight"
+msgstr ""
+
+#: wp-includes/theme.json
+msgctxt "Color name"
+msgid "Black"
+msgstr ""
+
+#: wp-includes/theme.json
+msgctxt "Color name"
+msgid "Cyan bluish gray"
+msgstr ""
+
+#: wp-includes/theme.json
+msgctxt "Color name"
+msgid "White"
+msgstr ""
+
+#: wp-includes/theme.json
+msgctxt "Color name"
+msgid "Pale pink"
+msgstr ""
+
+#: wp-includes/theme.json
+msgctxt "Color name"
+msgid "Vivid red"
+msgstr ""
+
+#: wp-includes/theme.json
+msgctxt "Color name"
+msgid "Luminous vivid orange"
+msgstr ""
+
+#: wp-includes/theme.json
+msgctxt "Color name"
+msgid "Luminous vivid amber"
+msgstr ""
+
+#: wp-includes/theme.json
+msgctxt "Color name"
+msgid "Light green cyan"
+msgstr ""
+
+#: wp-includes/theme.json
+msgctxt "Color name"
+msgid "Vivid green cyan"
+msgstr ""
+
+#: wp-includes/theme.json
+msgctxt "Color name"
+msgid "Pale cyan blue"
+msgstr ""
+
+#: wp-includes/theme.json
+msgctxt "Color name"
+msgid "Vivid cyan blue"
+msgstr ""
+
+#: wp-includes/theme.json
+msgctxt "Color name"
+msgid "Vivid purple"
+msgstr ""
+
+#: wp-includes/theme.json
+msgctxt "Aspect ratio name"
+msgid "Square - 1:1"
+msgstr ""
+
+#: wp-includes/theme.json
+msgctxt "Aspect ratio name"
+msgid "Standard - 4:3"
+msgstr ""
+
+#: wp-includes/theme.json
+msgctxt "Aspect ratio name"
+msgid "Portrait - 3:4"
+msgstr ""
+
+#: wp-includes/theme.json
+msgctxt "Aspect ratio name"
+msgid "Classic - 3:2"
+msgstr ""
+
+#: wp-includes/theme.json
+msgctxt "Aspect ratio name"
+msgid "Classic Portrait - 2:3"
+msgstr ""
+
+#: wp-includes/theme.json
+msgctxt "Aspect ratio name"
+msgid "Wide - 16:9"
+msgstr ""
+
+#: wp-includes/theme.json
+msgctxt "Aspect ratio name"
+msgid "Tall - 9:16"
+msgstr ""
+
+#: wp-includes/theme.json
+msgctxt "Shadow name"
+msgid "Natural"
+msgstr ""
+
+#: wp-includes/theme.json
+msgctxt "Shadow name"
+msgid "Deep"
+msgstr ""
+
+#: wp-includes/theme.json
+msgctxt "Shadow name"
+msgid "Sharp"
+msgstr ""
+
+#: wp-includes/theme.json
+msgctxt "Shadow name"
+msgid "Outlined"
+msgstr ""
+
+#: wp-includes/theme.json
+msgctxt "Shadow name"
+msgid "Crisp"
+msgstr ""
+
+#: wp-includes/theme.json
+msgctxt "Font size name"
+msgid "Extra Large"
 msgstr ""
