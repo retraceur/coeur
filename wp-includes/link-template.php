@@ -3404,7 +3404,7 @@ function wp_get_canonical_url( $post = null ) {
 		return false;
 	}
 
-	if ( 'publish' !== $post->post_status ) {
+	if ( 'publish' !== get_post_status( $post ) ) {
 		return false;
 	}
 

@@ -34,8 +34,14 @@ class WP_Importer {
 		// Grab all posts in chunks.
 		do {
 			$meta_key = $importer_name . '_' . $blog_id . '_permalink';
-			$sql      = $wpdb->prepare( "SELECT post_id, meta_value FROM $wpdb->postmeta WHERE meta_key = %s LIMIT %d,%d", $meta_key, $offset, $limit );
-			$results  = $wpdb->get_results( $sql );
+			$results  = $wpdb->get_results(
+				$wpdb->prepare(
+					"SELECT post_id, meta_value FROM $wpdb->postmeta WHERE meta_key = %s LIMIT %d,%d",
+					$meta_key,
+					$offset,
+					$limit
+				)
+			);
 
 			// Increment offset.
 			$offset = ( $limit + $offset );
@@ -67,9 +73,12 @@ class WP_Importer {
 
 		// Get count of permalinks.
 		$meta_key = $importer_name . '_' . $blog_id . '_permalink';
-		$sql      = $wpdb->prepare( "SELECT COUNT( post_id ) AS cnt FROM $wpdb->postmeta WHERE meta_key = %s", $meta_key );
-
-		$result = $wpdb->get_results( $sql );
+		$result   = $wpdb->get_results(
+			$wpdb->prepare(
+				"SELECT COUNT( post_id ) AS cnt FROM $wpdb->postmeta WHERE meta_key = %s",
+				$meta_key
+			)
+		);
 
 		if ( ! empty( $result ) ) {
 			$count = (int) $result[0]->cnt;
