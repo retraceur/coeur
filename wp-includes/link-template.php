@@ -390,7 +390,7 @@ function get_post_permalink( $post = 0, $leavename = false, $sample = false ) {
  *                               Default false.
  * @return string The page permalink.
  */
-function get_page_link( $post = false, $leavename = false, $sample = false ) {
+function get_page_link( $post = 0, $leavename = false, $sample = false ) {
 	$post = get_post( $post );
 
 	if ( 'page' === get_option( 'show_on_front' ) && (int) get_option( 'page_on_front' ) === $post->ID ) {
@@ -427,7 +427,7 @@ function get_page_link( $post = false, $leavename = false, $sample = false ) {
  *                               Default false.
  * @return string The page permalink.
  */
-function _get_page_link( $post = false, $leavename = false, $sample = false ) {
+function _get_page_link( $post = 0, $leavename = false, $sample = false ) {
 	global $wp_rewrite;
 
 	$post = get_post( $post );
