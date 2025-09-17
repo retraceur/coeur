@@ -68,7 +68,6 @@ abstract class WP_Image_Editor {
 	 * Loads image from $this->file into editor.
 	 *
 	 * @since WP 3.5.0
-	 * @abstract
 	 *
 	 * @return true|WP_Error True if loaded; WP_Error on failure.
 	 */
@@ -79,7 +78,6 @@ abstract class WP_Image_Editor {
 	 *
 	 * @since WP 3.5.0
 	 * @since WP 6.0.0 The `$filesize` value was added to the returned array.
-	 * @abstract
 	 *
 	 * @param string $destfilename Optional. Destination filename. Default null.
 	 * @param string $mime_type    Optional. The mime-type. Default null.
@@ -104,7 +102,6 @@ abstract class WP_Image_Editor {
 	 * maintain aspect ratio according to the provided dimension.
 	 *
 	 * @since WP 3.5.0
-	 * @abstract
 	 *
 	 * @param int|null   $max_w Image width.
 	 * @param int|null   $max_h Image height.
@@ -124,7 +121,6 @@ abstract class WP_Image_Editor {
 	 * Resize multiple images from a single source.
 	 *
 	 * @since WP 3.5.0
-	 * @abstract
 	 *
 	 * @param array $sizes {
 	 *     An array of image size arrays. Default sizes are 'small', 'medium', 'large'.
@@ -143,7 +139,6 @@ abstract class WP_Image_Editor {
 	 * Crops Image.
 	 *
 	 * @since WP 3.5.0
-	 * @abstract
 	 *
 	 * @param int  $src_x   The start x position to crop from.
 	 * @param int  $src_y   The start y position to crop from.
@@ -160,7 +155,6 @@ abstract class WP_Image_Editor {
 	 * Rotates current image counter-clockwise by $angle.
 	 *
 	 * @since WP 3.5.0
-	 * @abstract
 	 *
 	 * @param float $angle
 	 * @return true|WP_Error
@@ -171,7 +165,6 @@ abstract class WP_Image_Editor {
 	 * Flips current image.
 	 *
 	 * @since WP 3.5.0
-	 * @abstract
 	 *
 	 * @param bool $horz Flip along Horizontal Axis
 	 * @param bool $vert Flip along Vertical Axis
@@ -183,7 +176,6 @@ abstract class WP_Image_Editor {
 	 * Streams current image to browser.
 	 *
 	 * @since WP 3.5.0
-	 * @abstract
 	 *
 	 * @param string $mime_type The mime type of the image.
 	 * @return true|WP_Error True on success, WP_Error object on failure.
