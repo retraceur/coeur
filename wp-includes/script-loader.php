@@ -2304,8 +2304,6 @@ function wp_should_load_block_assets_on_demand() {
  * @global WP_Screen $current_screen WP current screen object.
  */
 function wp_enqueue_registered_block_scripts_and_styles() {
-	global $current_screen;
-
 	if ( wp_should_load_block_assets_on_demand() ) {
 		return;
 	}

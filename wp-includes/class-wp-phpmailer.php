@@ -28,7 +28,7 @@ class WP_PHPMailer extends PHPMailer\PHPMailer\PHPMailer {
 	 */
 	public function __construct( $exceptions = false ) {
 		parent::__construct( $exceptions );
-		$this->SetLanguage();
+		$this->setLanguage();
 	}
 
 	/**
@@ -37,10 +37,13 @@ class WP_PHPMailer extends PHPMailer\PHPMailer\PHPMailer {
 	 * @since WP 6.8.0
 	 * @since 2.0.0 Retraceur fork.
 	 *
+	 * @param string $langcode  Optional. Unused. ISO 639-1 2-character language code. Default 'en'.
+	 * @param string $lang_path Optional. Unused. Path to the language file directory. Default empty string.
+	 *
 	 * @return true Always returns true.
 	 */
-	public function SetLanguage( $langcode = 'en', $lang_path = '' ) {
-		$error_strings  = array(
+	public function setLanguage( $langcode = 'en', $lang_path = '' ) {
+		$this->language = array(
 			'authenticate'         => __( 'SMTP Error: Could not authenticate.' ),
 			'buggy_php'            => sprintf(
 				/* translators: 1: mail.add_x_header. 2: php.ini */
@@ -92,7 +95,7 @@ class WP_PHPMailer extends PHPMailer\PHPMailer\PHPMailer {
 			/* translators: There is a space after the colon. */
 			'variable_set'         => __( 'Cannot set or reset variable: ' ),
 		);
-		$this->language = $error_strings;
+
 		return true;
 	}
 }
