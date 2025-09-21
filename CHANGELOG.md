@@ -6,33 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
-## [2.0.0-RC1] - 2025-09-14
-
-### Changed
-
-- Avoid using placeholders in Block/Plugin screen help tabs l10n, see [#118](https://github.com/retraceur/coeur/issues/118)
-
-### Removed
-
-- Remove the 1 click upgrade opt-in filter, see [#117](https://github.com/retraceur/coeur/issues/117)
-
-
-## [2.0.0-beta2] - 2025-09-06
-
-### Changed
-
-- Make sure the "core/more" block is honored by the Site Editor, see [#103](https://github.com/retraceur/coeur/issues/103)
-- Improve the `WP_Screen->set_help_sidebar()` method to better control its output, see [#107](https://github.com/retraceur/coeur/issues/107)
-- Improve Blocks Admin screen help tabs content, see [#108](https://github.com/retraceur/coeur/issues/108)
-- Improve the "Add Block" Admin screen help tab, see [#111](https://github.com/retraceur/coeur/issues/111)
-- Add a link to docs for the "Add block" Admin screen, see [#113](https://github.com/retraceur/coeur/issues/113)
-
-### Removed
-
-- Disable experimental Blocks, see [#105](https://github.com/retraceur/coeur/issues/105)
-
-
-## [2.0.0-beta1] - 2025-08-14
+## [2.0.0] - 2025-09-21
 
 ### Added
 
@@ -52,6 +26,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Exclude the Post Format taxonomy from the `WP_REST_Term_Search_Handler` controller, see [#1](https://github.com/retraceur/coeur/issues/1).
 - Disable the Editor's Post Title when creating/editing a Post Format, see [#1](https://github.com/retraceur/coeur/issues/1).
 - Update `@wordpress/scripts` dependency to v30.20.0.
+- Make sure the "core/more" block is honored by the Site Editor, see [#103](https://github.com/retraceur/coeur/issues/103)
+- Improve the `WP_Screen->set_help_sidebar()` method to better control its output, see [#107](https://github.com/retraceur/coeur/issues/107)
+- Improve Blocks Admin screen help tabs content, see [#108](https://github.com/retraceur/coeur/issues/108)
+- Improve the "Add Block" Admin screen help tab, see [#111](https://github.com/retraceur/coeur/issues/111)
+- Add a link to docs for the "Add block" Admin screen, see [#113](https://github.com/retraceur/coeur/issues/113)
+- Avoid using placeholders in Block/Plugin screen help tabs l10n, see [#118](https://github.com/retraceur/coeur/issues/118)
+- Do not include the "cb" column in the Post Formats list table, see [#122](https://github.com/retraceur/coeur/issues/122)
 
 ### Deprecated
 
@@ -78,6 +59,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Take care of missed WP Trademark occurrences included in inline comments, see [#72](https://github.com/retraceur/coeur/issues/72).
 - Take care of missed WP Trademark (including Openverse) occurrences in Editor code, see [#69](https://github.com/retraceur/coeur/issues/69).
 - Remove missed WP site's URL occurrences, see [#68](https://github.com/retraceur/coeur/issues/68).
+- Disable experimental Blocks, see [#105](https://github.com/retraceur/coeur/issues/105)
+- Remove the 1 click upgrade opt-in filter, see [#117](https://github.com/retraceur/coeur/issues/117)
+
+
+## [2.0.0-RC1] - 2025-09-14
+
+
+## [2.0.0-beta2] - 2025-09-06
+
+
+## [2.0.0-beta1] - 2025-08-14
 
 
 ## [1.0.0] - 2025-04-21
