@@ -202,6 +202,10 @@ class WP_Terms_List_Table extends WP_List_Table {
 			'posts'       => _x( 'Count', 'Number/count of items' ),
 		);
 
+		if ( 'post_format' === $this->screen->taxonomy ) {
+			unset( $columns['cb'] );
+		}
+
 		return $columns;
 	}
 
