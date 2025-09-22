@@ -385,8 +385,6 @@ foreach ( (array) $options as $option ) :
 		$disabled = true;
 	}
 
-	$class = 'all-options';
-
 	if ( is_serialized( $option->option_value ) ) {
 		if ( is_serialized_string( $option->option_value ) ) {
 			// This is a serialized string, so we should display it.
@@ -400,6 +398,8 @@ foreach ( (array) $options as $option ) :
 		$value               = $option->option_value;
 		$options_to_update[] = $option->option_name;
 	}
+
+	$class = 'all-options';
 
 	if ( $disabled ) {
 		$class .= ' disabled';
