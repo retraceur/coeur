@@ -186,6 +186,7 @@ $_new_bundled_files = array(
  * @global string[]           $_old_files
  * @global string[]           $_new_bundled_files
  * @global wpdb               $wpdb                   WP database abstraction object.
+ * @global string             $retraceur_version      The Retraceur version string.
  *
  * @param string $from New release unzipped path.
  * @param string $to   Path to old Retraceur installation.

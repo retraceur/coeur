@@ -2517,6 +2517,8 @@ function get_posts( $args = null ) {
  *
  * Post meta data is called "Custom Fields" on the Administration Screen.
  *
+ * For historical reasons both the meta key and the meta value are expected to be "slashed" (slashes escaped) on input.
+ *
  * @since WP 1.5.0
  *
  * @param int    $post_id    Post ID.
@@ -2548,6 +2550,8 @@ function add_post_meta( $post_id, $meta_key, $meta_value, $unique = false ) {
  * You can match based on the key, or key and value. Removing based on key and
  * value, will keep from removing duplicate metadata with the same key. It also
  * allows removing all metadata matching the key, if needed.
+ *
+ * For historical reasons both the meta key and the meta value are expected to be "slashed" (slashes escaped) on input.
  *
  * @since WP 1.5.0
  *
@@ -2603,6 +2607,8 @@ function get_post_meta( $post_id, $key = '', $single = false ) {
  * If the meta field for the post does not exist, it will be added and its ID returned.
  *
  * Can be used in place of add_post_meta().
+ *
+ * For historical reasons both the meta key and the meta value are expected to be "slashed" (slashes escaped) on input.
  *
  * @since WP 1.5.0
  *

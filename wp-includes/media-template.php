@@ -437,7 +437,7 @@ function wp_print_media_templates() {
 					?>
 				</h2>
 				<div class="uploaded"><strong><?php _e( 'Uploaded on:' ); ?></strong> {{ data.dateFormatted }}</div>
-				<div class="uploaded-by">
+				<div class="uploaded-by word-wrap-break-word">
 					<strong><?php _e( 'Uploaded by:' ); ?></strong>
 						<# if ( data.authorLink ) { #>
 							<a href="{{ data.authorLink }}">{{ data.authorName }}</a>
