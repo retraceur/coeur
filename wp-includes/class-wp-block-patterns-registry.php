@@ -190,7 +190,7 @@ final class WP_Block_Patterns_Registry {
 	 * @since WP 5.5.0
 	 *
 	 * @param string $pattern_name Block pattern name including namespace.
-	 * @return array Registered pattern properties.
+	 * @return array|null Registered pattern properties or `null` if the pattern is not registered.
 	 */
 	public function get_registered( $pattern_name ) {
 		if ( ! $this->is_registered( $pattern_name ) ) {
