@@ -789,7 +789,7 @@ function saveDomDocument( $doc, $filename ) { // phpcs:ignore WordPress.NamingCo
 }
 
 /**
- * Displays the default admin color scheme picker (Used in user-edit.php).
+ * Displays the default administration color scheme picker (Used in user-edit.php).
  *
  * @since WP 3.0.0
  *
@@ -826,7 +826,7 @@ function admin_color_scheme_picker( $user_id ) {
 		<legend class="screen-reader-text"><span>
 			<?php
 			/* translators: Hidden accessibility text. */
-			_e( 'Admin Color Scheme' );
+			esc_html_e( 'Administration Color Scheme' );
 			?>
 		</span></legend>
 		<?php
