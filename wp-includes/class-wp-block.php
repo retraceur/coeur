@@ -56,7 +56,6 @@ class WP_Block {
 	 *
 	 * @since WP 5.5.0
 	 * @var array
-	 * @access protected
 	 */
 	protected $available_context = array();
 
@@ -65,7 +64,6 @@ class WP_Block {
 	 *
 	 * @since WP 5.9.0
 	 * @var WP_Block_Type_Registry
-	 * @access protected
 	 */
 	protected $registry;
 
