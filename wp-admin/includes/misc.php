@@ -265,7 +265,7 @@ function save_mod_rewrite_rules() {
 	global $wp_rewrite;
 
 	if ( is_multisite() ) {
-		return;
+		return null;
 	}
 
 	// Ensure get_home_path() is declared.
@@ -305,7 +305,7 @@ function iis7_save_url_rewrite_rules() {
 	global $wp_rewrite;
 
 	if ( is_multisite() ) {
-		return;
+		return null;
 	}
 
 	// Ensure get_home_path() is declared.
