@@ -1812,7 +1812,7 @@ function wp_set_all_user_settings( $user_settings ) {
 	}
 
 	if ( ! is_user_member_of_blog() ) {
-		return;
+		return null;
 	}
 
 	$settings = '';

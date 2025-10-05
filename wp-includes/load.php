@@ -141,16 +141,17 @@ function wp_populate_basic_auth_from_authorization_header() {
 }
 
 /**
- * Checks for the required PHP version, and the mysqli extension or
- * a database drop-in.
+ * Checks the server requirements.
  *
- * Dies if requirements are not met.
+ *   - PHP version
+ *   - PHP extensions
+ *   - MySQL or MariaDB version (unless a database drop-in is present)
  *
  * @since WP 3.0.0
  * @since 1.0.0 Retraceur fork.
  * @access private
  *
- * @global string   $required_php_version    The required PHP version string.
+ * @global string   $required_php_version    The minimum required PHP version string.
  * @global string[] $required_php_extensions The names of required PHP extensions.
  * @global string   $retraceur_version       The Retraceur version string.
  */

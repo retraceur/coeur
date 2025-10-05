@@ -40,9 +40,9 @@ if ( 'upgrade_db' === $step ) {
 /**
  * @global string   $wp_version              The WP version string.
  * @global string   $retraceur_version       The Retraceur version string.
- * @global string   $required_php_version    The required PHP version string.
+ * @global string   $required_php_version    The minimum required PHP version string.
  * @global string[] $required_php_extensions The names of required PHP extensions.
- * @global string   $required_mysql_version  The required MySQL version string.
+ * @global string   $required_mysql_version  The minimum required MySQL version string.
  * @global wpdb     $wpdb                    WP database abstraction object.
  */
 global $wp_version, $retraceur_version, $required_php_version, $required_php_extensions, $required_mysql_version, $wpdb;

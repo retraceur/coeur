@@ -18,7 +18,7 @@
  *
  * @global string $wp_version
  */
-$wp_version = '6.9-alpha-60360';
+$wp_version = '6.9-alpha-60365';
 
 /**
  * The Retraceur version string.
@@ -44,7 +44,7 @@ $wp_db_version = 20250711;
 $tinymce_version = '49110-20250317';
 
 /**
- * Holds the required PHP version.
+ * Holds the minimum required PHP version.
  *
  * @global string $required_php_version
  */
@@ -68,7 +68,7 @@ $required_php_extensions = array(
 $recommended_php_version = '7.4';
 
 /**
- * Holds the required MySQL version.
+ * Holds the minimum required MySQL version.
  *
  * @global string $required_mysql_version
  */
