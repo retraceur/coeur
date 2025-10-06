@@ -747,6 +747,8 @@ final class WP_Interactivity_API {
 	/**
 	 * Transforms a kebab-case string to camelCase.
 	 *
+	 * @since WP 6.5.0
+	 *
 	 * @param string $str The kebab-case string to transform to camelCase.
 	 * @return string The transformed camelCase string.
 	 */

@@ -1803,6 +1803,8 @@ function print_footer_scripts() {
 /**
  * Prints scripts (internal use only)
  *
+ * @since WP 2.8.0
+ *
  * @ignore
  *
  * @global WP_Scripts $wp_scripts

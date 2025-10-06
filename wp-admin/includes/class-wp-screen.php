@@ -1008,6 +1008,8 @@ final class WP_Screen {
 	/**
 	 * @global array $wp_meta_boxes Global meta box state.
 	 *
+	 * @since WP 3.3.0
+	 *
 	 * @return bool
 	 */
 	public function show_screen_options() {
