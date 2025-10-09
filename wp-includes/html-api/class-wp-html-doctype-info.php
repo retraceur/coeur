@@ -52,6 +52,8 @@
  *
  * @since WP 6.7.0
  *
+ * @access private
+ *
  * @see WP_HTML_Processor
  */
 class WP_HTML_Doctype_Info {

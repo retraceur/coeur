@@ -678,9 +678,10 @@ endif;
  *
  * @global int $wp_current_db_version The old (current) database version.
  * @global int $wp_db_version         The new database version.
+ * @global wpdb $wpdb                 Retraceur database abstraction object.
  */
 function upgrade_all() {
-	global $wp_current_db_version, $wp_db_version;
+	global $wp_current_db_version, $wp_db_version, $wpdb;
 
 	$wp_current_db_version = (int) __get_option( 'db_version' );
 
@@ -698,6 +699,10 @@ function upgrade_all() {
 
 	if ( 20250711 > $wp_current_db_version ) {
 		create_post_formats();
+	}
+
+	if ( 20250910 > $wp_current_db_version ) {
+		$wpdb->query( "ALTER TABLE $wpdb->signups MODIFY signup_id bigint(20) unsigned NOT NULL auto_increment" );
 	}
 
 	update_option( 'db_version', $wp_db_version );

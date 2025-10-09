@@ -18,7 +18,7 @@
  *
  * @global string $wp_version
  */
-$wp_version = '6.9-alpha-60492';
+$wp_version = '6.9-alpha-60501';
 
 /**
  * The Retraceur version string.
@@ -34,7 +34,7 @@ $retraceur_version = '3.0.0-alpha';
  *
  * @global int $wp_db_version
  */
-$wp_db_version = 20250711;
+$wp_db_version = 20250910;
 
 /**
  * Holds the TinyMCE version.

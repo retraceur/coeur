@@ -164,7 +164,7 @@ CREATE TABLE $wpdb->posts (
 	KEY meta_key (meta_key($max_index_length))
 ) $charset_collate;
 CREATE TABLE $wpdb->signups (
-	signup_id bigint(20) NOT NULL auto_increment,
+	signup_id bigint(20) unsigned NOT NULL auto_increment,
 	domain varchar(200) NOT NULL default '',
 	path varchar(100) NOT NULL default '',
 	title longtext NOT NULL,
