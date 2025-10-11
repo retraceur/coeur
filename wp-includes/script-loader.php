@@ -2160,8 +2160,15 @@ function wp_enqueue_global_styles() {
 		 * and add it before the global styles custom CSS.
 		 */
 		remove_action( 'wp_head', 'wp_custom_css_cb', 101 );
-		// Get the custom CSS from the Customizer and add it to the global stylesheet.
-		$custom_css  = wp_get_custom_css();
+
+		/*
+		 * Get the custom CSS from the Customizer and add it to the global stylesheet.
+		 * Always do this in Customizer preview for the sake of live preview since it be empty.
+		 */
+		$custom_css = trim( wp_get_custom_css() );
+		if ( $custom_css ) {
+			$custom_css = "\n" . $custom_css;
+		}
 		$stylesheet .= $custom_css;
 
 		// Add the global styles custom CSS at the end.
