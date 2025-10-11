@@ -310,6 +310,12 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 		$views = apply_filters( "views_{$this->screen->id}", $views );
 
 		$this->screen->render_screen_reader_content( 'heading_views' );
+
+		if ( 'block-install' === $this->screen->id ) {
+			echo '<p>' . esc_html__( 'Blocks are pieces of content of a post, page or template of your site. You may upload a block in .zip format by clicking the button at the top of this page.' ) . '</p>';
+		} else {
+			echo '<p>' . esc_html__( 'Plugins extend and expand the functionality of Retraceur. You may upload a plugin in .zip format by clicking the button at the top of this page.' ) . '</p>';
+		}
 		?>
 <div class="wp-filter">
 	<ul class="filter-links">

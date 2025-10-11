@@ -409,8 +409,11 @@ function display_plugins_table() {
 
 		case 'install_plugins_all':
 		case 'install_plugins_featured':
-			echo '<p>' . __( 'Plugins extend and expand the functionality of Retraceur. You may upload a plugin in .zip format by clicking the button at the top of this page.' ) . '</p>';
 			break;
+	}
+
+	if ( isset( $_GET['tab'] ) && 'featured' === $_GET['tab'] ) {
+		echo '<br />';
 	}
 	?>
 	<form id="plugin-filter" method="post">
