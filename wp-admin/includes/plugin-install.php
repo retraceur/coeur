@@ -231,6 +231,129 @@ function plugins_api( $action, $args = array() ) {
 	return apply_filters( 'plugins_api_result', $res, $action, $args );
 }
 
+function retraceur_discovery_api( $action, $args = array() ) {
+	if ( is_array( $args ) ) {
+		$args = (object) $args;
+	}
+
+	if ( 'retraceur-plugin' === $action || 'retraceur-block' === $action ) {
+		if ( ! isset( $args->per_page ) ) {
+			$args->per_page = 24;
+		}
+	}
+
+	if ( ! isset( $args->locale ) ) {
+		$args->locale = get_user_locale();
+	}
+
+	if ( ! isset( $args->wp_version ) ) {
+		$args->wp_version = substr( wp_get_wp_version(), 0, 3 ); // x.y
+	}
+
+	if ( ! isset( $args->retraceur_version ) ) {
+		$args->retraceur_version = substr( retraceur_get_version(), 0, 5 ); // x.y
+	}
+
+	/**
+	 * Filters the Discovery API arguments.
+	 *
+	 * Important: An object MUST be returned to this filter.
+	 *
+	 * @since 3.0.0 Retraceur fork.
+	 *
+	 * @param object $args   Discovery API arguments.
+	 * @param string $action The type of information being requested from the Discovery API.
+	 */
+	$args = apply_filters( 'retraceur_discovery_api_args', $args, $action );
+
+	/**
+	 * Filters the response for the current Discovery API request.
+	 *
+	 * Returning a non-false value will effectively short-circuit the API request.
+	 *
+	 * If `$action` is 'query_plugins' or 'plugin_information', an object MUST be passed.
+	 * If `$action` is 'hot_tags', an array should be passed.
+	 *
+	 * @since 3.0.0 Retraceur fork.
+	 *
+	 * @param false|object|array $result The result object or array. Default false.
+	 * @param string             $action The type of information being requested from the Discovery API.
+	 * @param object             $args   Discovery API arguments.
+	 */
+	$res = apply_filters( 'retraceur_discovery_api', false, $action, $args );
+
+	if ( false === $res ) {
+		// Use the GitHub REST API to list repositories using Retraceur tags.
+		$url = 'https://api.github.com/search/repositories';
+		$url = add_query_arg(
+			array(
+				'q'  => 'topic:' . $action,
+			),
+			$url
+		);
+
+		$http_url = $url;
+		$ssl      = wp_http_supports( array( 'ssl' ) );
+		if ( $ssl ) {
+			$url = set_url_scheme( $url, 'https' );
+		}
+
+		$http_args = array(
+			'X-GitHub-Api-Version' => '2022-11-28',
+			'Accept'               => 'application/vnd.github+json',
+			'User-Agent'           => 'Retraceur/' . retraceur_get_version() . '; ' . home_url( '/' ),
+		);
+
+		$request = wp_remote_get( $url, $http_args );
+
+		if ( $ssl && is_wp_error( $request ) ) {
+			if ( ! wp_is_json_request() ) {
+				wp_trigger_error(
+					__FUNCTION__,
+					__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ) . ' ' . __( '(Retraceur could not establish a secure connection to Discovery API. Please contact your server administrator.)' ),
+					headers_sent() || WP_DEBUG ? E_USER_WARNING : E_USER_NOTICE
+				);
+			}
+
+			$request = wp_remote_get( $http_url, $http_args );
+		}
+
+		if ( is_wp_error( $request ) ) {
+			$res = new WP_Error(
+				'retraceur_discovery_api_failed',
+				__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ),
+				$request->get_error_message()
+			);
+		} else {
+			$res = json_decode( wp_remote_retrieve_body( $request ), true );
+			if ( null === $res ) {
+				$res = new WP_Error(
+					'retraceur_discovery_failed',
+					__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ),
+					wp_remote_retrieve_body( $request )
+				);
+			}
+
+			if ( isset( $res->error ) ) {
+				$res = new WP_Error( 'retraceur_discovery_api_failed', $res->error );
+			}
+		}
+	} elseif ( ! is_wp_error( $res ) ) {
+		$res->external = true;
+	}
+
+	/**
+	 * Filters the Plugin Installation API response results.
+	 *
+	 * @since 3.0.0 Retraceur fork.
+	 *
+	 * @param object|WP_Error $res    Response object or WP_Error.
+	 * @param string          $action The type of information being requested from the Plugin Installation API.
+	 * @param object          $args   Plugin API arguments.
+	 */
+	return apply_filters( 'retraceur_discovery_api_result', $res, $action, $args );
+}
+
 /**
  * Retrieves popular Retraceur plugin tags.
  *
