@@ -232,26 +232,10 @@ function plugins_api( $action, $args = array() ) {
 }
 
 function retraceur_discovery_api( $action, $args = array() ) {
-	if ( is_array( $args ) ) {
-		$args = (object) $args;
-	}
-
 	if ( 'retraceur-plugin' === $action || 'retraceur-block' === $action ) {
-		if ( ! isset( $args->per_page ) ) {
-			$args->per_page = 24;
+		if ( ! isset( $args['per_page'] ) ) {
+			$args['per_page'] = 10;
 		}
-	}
-
-	if ( ! isset( $args->locale ) ) {
-		$args->locale = get_user_locale();
-	}
-
-	if ( ! isset( $args->wp_version ) ) {
-		$args->wp_version = substr( wp_get_wp_version(), 0, 3 ); // x.y
-	}
-
-	if ( ! isset( $args->retraceur_version ) ) {
-		$args->retraceur_version = substr( retraceur_get_version(), 0, 5 ); // x.y
 	}
 
 	/**
@@ -261,7 +245,7 @@ function retraceur_discovery_api( $action, $args = array() ) {
 	 *
 	 * @since 3.0.0 Retraceur fork.
 	 *
-	 * @param object $args   Discovery API arguments.
+	 * @param array  $args   Discovery API arguments.
 	 * @param string $action The type of information being requested from the Discovery API.
 	 */
 	$args = apply_filters( 'retraceur_discovery_api_args', $args, $action );
@@ -271,26 +255,24 @@ function retraceur_discovery_api( $action, $args = array() ) {
 	 *
 	 * Returning a non-false value will effectively short-circuit the API request.
 	 *
-	 * If `$action` is 'query_plugins' or 'plugin_information', an object MUST be passed.
-	 * If `$action` is 'hot_tags', an array should be passed.
-	 *
 	 * @since 3.0.0 Retraceur fork.
 	 *
-	 * @param false|object|array $result The result object or array. Default false.
-	 * @param string             $action The type of information being requested from the Discovery API.
-	 * @param object             $args   Discovery API arguments.
+	 * @param false|array $result The result object or array. Default false.
+	 * @param string      $action The type of information being requested from the Discovery API.
+	 * @param array       $args   Discovery API arguments.
 	 */
 	$res = apply_filters( 'retraceur_discovery_api', false, $action, $args );
 
 	if ( false === $res ) {
+		$api_args      = $args;
+		$api_args['q'] = 'topic:' . $action;
+
+		// Remove unused argument.
+		unset( $api_args['browse'] );
+
 		// Use the GitHub REST API to list repositories using Retraceur tags.
 		$url = 'https://api.github.com/search/repositories';
-		$url = add_query_arg(
-			array(
-				'q'  => 'topic:' . $action,
-			),
-			$url
-		);
+		$url = add_query_arg( $api_args, $url );
 
 		$http_url = $url;
 		$ssl      = wp_http_supports( array( 'ssl' ) );
@@ -299,58 +281,67 @@ function retraceur_discovery_api( $action, $args = array() ) {
 		}
 
 		$http_args = array(
-			'X-GitHub-Api-Version' => '2022-11-28',
-			'Accept'               => 'application/vnd.github+json',
-			'User-Agent'           => 'Retraceur/' . retraceur_get_version() . '; ' . home_url( '/' ),
+			'timeout' => 15,
+			'headers' => array(
+				'X-GitHub-Api-Version' => '2022-11-28',
+				'Accept'               => 'application/vnd.github+json',
+				'User-Agent'           => 'Retraceur/' . retraceur_get_version() . '; ' . home_url( '/' ),
+			),
 		);
 
 		if ( defined( 'RETRACEUR_GHT' ) && RETRACEUR_GHT ) {
-			$http_args['Authorization'] = 'Bearer ' . RETRACEUR_GHT;
+			$http_args['headers']['Authorization'] = 'Bearer ' . RETRACEUR_GHT;
 		}
 
-		$request = wp_remote_get( $url, $http_args );
+		$cache_key       = 'retraceur_discovery_api_' . md5( serialize( $api_args ) );
+		$cached_response = get_transient( $cache_key );
 
-		if ( $ssl && is_wp_error( $request ) ) {
-			if ( ! wp_is_json_request() ) {
-				wp_trigger_error(
-					__FUNCTION__,
-					__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ) . ' ' . __( '(Retraceur could not establish a secure connection to Discovery API. Please contact your server administrator.)' ),
-					headers_sent() || WP_DEBUG ? E_USER_WARNING : E_USER_NOTICE
-				);
-			}
+		if ( false === $cached_response ) {
+			$request = wp_remote_get( $url, $http_args );
 
-			$request = wp_remote_get( $http_url, $http_args );
-		}
-
-		if ( is_wp_error( $request ) ) {
-			$res = new WP_Error(
-				'retraceur_discovery_api_failed',
-				__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ),
-				$request->get_error_message()
-			);
-		} else {
-			/*
-			 * @todo Cache results using a transient.
-			 */
-			$res = json_decode( wp_remote_retrieve_body( $request ), true );
-			if ( null === $res ) {
-				$res = new WP_Error(
-					'retraceur_discovery_failed',
-					__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ),
-					wp_remote_retrieve_body( $request )
-				);
-			}
-
-			if ( 200 !== (int) wp_remote_retrieve_response_code( $request ) ) {
-				if ( empty( $res['message'] ) ) {
-					$res['message'] = __( 'An error occurred. Something may be wrong with the Retraceur Discovery API. Please try again later.' );
+			if ( $ssl && is_wp_error( $request ) ) {
+				if ( ! wp_is_json_request() ) {
+					wp_trigger_error(
+						__FUNCTION__,
+						__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ) . ' ' . __( '(Retraceur could not establish a secure connection to Discovery API. Please contact your server administrator.)' ),
+						headers_sent() || WP_DEBUG ? E_USER_WARNING : E_USER_NOTICE
+					);
 				}
 
-				$res = new WP_Error( 'retraceur_discovery_api_failed', $res['message'] );
+				$request = wp_remote_get( $http_url, $http_args );
 			}
+
+			if ( is_wp_error( $request ) ) {
+				$res = new WP_Error(
+					'retraceur_discovery_api_failed',
+					__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ),
+					$request->get_error_message()
+				);
+			} else {
+				$res = json_decode( wp_remote_retrieve_body( $request ), true );
+				if ( null === $res ) {
+					$res = new WP_Error(
+						'retraceur_discovery_failed',
+						__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ),
+						wp_remote_retrieve_body( $request )
+					);
+				}
+
+				if ( 200 !== (int) wp_remote_retrieve_response_code( $request ) ) {
+					if ( empty( $res['message'] ) ) {
+						$res['message'] = __( 'An error occurred. Something may be wrong with the Retraceur Discovery API. Please try again later.' );
+					}
+
+					$res = new WP_Error( 'retraceur_discovery_api_failed', $res['message'] );
+				} else {
+					set_transient( $cache_key, $res, DAY_IN_SECONDS );
+				}
+			}
+		} else {
+			$res = $cached_response;
 		}
 	} elseif ( ! is_wp_error( $res ) ) {
-		$res->external = true;
+		$res['external'] = true;
 	}
 
 	/**
@@ -358,9 +349,9 @@ function retraceur_discovery_api( $action, $args = array() ) {
 	 *
 	 * @since 3.0.0 Retraceur fork.
 	 *
-	 * @param object|WP_Error $res    Response object or WP_Error.
-	 * @param string          $action The type of information being requested from the Plugin Installation API.
-	 * @param object          $args   Plugin API arguments.
+	 * @param array|WP_Error $res    Response object or WP_Error.
+	 * @param string         $action The type of information being requested from the Plugin Installation API.
+	 * @param array          $args   Plugin API arguments.
 	 */
 	return apply_filters( 'retraceur_discovery_api_result', $res, $action, $args );
 }

@@ -147,8 +147,6 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 		$args = array(
 			'page'     => $paged,
 			'per_page' => $per_page,
-			// Send the locale to the API so it can provide context-sensitive results.
-			'locale'   => get_user_locale(),
 		);
 
 		switch ( $tab ) {
