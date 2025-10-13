@@ -464,6 +464,12 @@ function populate_options( array $options = array() ) {
  * @since 1.0.0 Retraceur fork grouped all populate functions into one.
  */
 function populate_roles() {
+	$wp_roles = wp_roles();
+
+	// Disable role updates to the database while populating roles.
+	$original_use_db  = $wp_roles->use_db;
+	$wp_roles->use_db = false;
+
 	// Retraceur capabilities.
 	$caps  = array(
 		'administrator' => array(
@@ -621,4 +627,12 @@ function populate_roles() {
 			$role->add_cap( $cap );
 		}
 	}
+
+	// Save the updated roles to the database.
+	if ( $original_use_db ) {
+		update_option( $wp_roles->role_key, $wp_roles->roles, true );
+	}
+
+	// Restore original value for writing to database.
+	$wp_roles->use_db = $original_use_db;
 }
