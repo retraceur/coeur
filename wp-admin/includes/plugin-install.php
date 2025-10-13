@@ -304,6 +304,10 @@ function retraceur_discovery_api( $action, $args = array() ) {
 			'User-Agent'           => 'Retraceur/' . retraceur_get_version() . '; ' . home_url( '/' ),
 		);
 
+		if ( defined( 'RETRACEUR_GHT' ) && RETRACEUR_GHT ) {
+			$http_args['Authorization'] = 'Bearer ' . RETRACEUR_GHT;
+		}
+
 		$request = wp_remote_get( $url, $http_args );
 
 		if ( $ssl && is_wp_error( $request ) ) {
@@ -325,6 +329,9 @@ function retraceur_discovery_api( $action, $args = array() ) {
 				$request->get_error_message()
 			);
 		} else {
+			/*
+			 * @todo Cache results using a transient.
+			 */
 			$res = json_decode( wp_remote_retrieve_body( $request ), true );
 			if ( null === $res ) {
 				$res = new WP_Error(
@@ -334,8 +341,12 @@ function retraceur_discovery_api( $action, $args = array() ) {
 				);
 			}
 
-			if ( isset( $res->error ) ) {
-				$res = new WP_Error( 'retraceur_discovery_api_failed', $res->error );
+			if ( 200 !== (int) wp_remote_retrieve_response_code( $request ) ) {
+				if ( empty( $res['message'] ) ) {
+					$res['message'] = __( 'An error occurred. Something may be wrong with the Retraceur Discovery API. Please try again later.' );
+				}
+
+				$res = new WP_Error( 'retraceur_discovery_api_failed', $res['message'] );
 			}
 		}
 	} elseif ( ! is_wp_error( $res ) ) {
