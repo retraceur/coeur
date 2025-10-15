@@ -268,7 +268,21 @@ function retraceur_discovery_api( $action, $args = array() ) {
 		$api_args['q'] = 'topic:' . $action;
 
 		// Remove unused argument.
-		unset( $api_args['browse'] );
+		unset( $api_args['browse'], $api_args['context'] );
+
+		// Sanitize search inputs.
+		if ( isset( $api_args['search'] ) && $api_args['search'] ) {
+			$api_args['q'] .= ' ' . sanitize_text_field( $api_args['search'] ) . ' in:name,description';
+		} else {
+			unset( $api_args['search'] );
+		}
+
+		// Sanitize sort & order.
+		if ( isset( $api_args['sort'] ) && isset( $api_args['order'] ) ) {
+			if ( ! in_array( $api_args['sort'], array( 'updated', 'stars' ), true ) || ! in_array( $api_args['sort'], array( 'desc', 'asc' ), true ) ) {
+				unset( $api_args['sort'], $api_args['order'] );
+			}
+		}
 
 		// Use the GitHub REST API to list repositories using Retraceur tags.
 		$url = 'https://api.github.com/search/repositories';
