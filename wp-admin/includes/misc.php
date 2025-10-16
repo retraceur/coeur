@@ -859,9 +859,9 @@ function admin_color_scheme_picker( $user_id ) {
 
 /**
  *
- * @global array $_wp_admin_css_colors
- *
  * @since WP 3.8.0
+ *
+ * @global array $_wp_admin_css_colors
  */
 function wp_color_scheme_settings() {
 	global $_wp_admin_css_colors;
