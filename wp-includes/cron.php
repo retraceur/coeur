@@ -939,7 +939,7 @@ function spawn_cron( $gmt_time = 0 ) {
 	 *     An array of cron request URL arguments.
 	 *
 	 *     @type string $url  The cron request URL.
-	 *     @type int    $key  The 22 digit GMT microtime.
+	 *     @type string $key  The Unix timestamp (UTC) of the cron lock with microseconds.
 	 *     @type array  $args {
 	 *         An array of cron request arguments.
 	 *
@@ -948,7 +948,7 @@ function spawn_cron( $gmt_time = 0 ) {
 	 *         @type bool $sslverify Whether SSL should be verified for the request. Default false.
 	 *     }
 	 * }
-	 * @param string $doing_wp_cron The Unix timestamp (UTC) of the cron lock.
+	 * @param string $doing_wp_cron The Unix timestamp (UTC) of the cron lock with microseconds.
 	 */
 	$cron_request = apply_filters(
 		'cron_request',
