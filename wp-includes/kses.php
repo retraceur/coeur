@@ -2409,6 +2409,7 @@ function kses_init() {
  * @since WP 6.4.0 Added support for `writing-mode`.
  * @since WP 6.5.0 Added support for `background-repeat`.
  * @since WP 6.6.0 Added support for `grid-column`, `grid-row`, and `container-type`.
+ * @since WP 6.9.0 Added support for `white-space`.
  *
  * @param string $css        A string of CSS rules.
  * @param string $deprecated Not used.
@@ -2501,6 +2502,7 @@ function safecss_filter_attr( $css, $deprecated = '' ) {
 			'text-decoration',
 			'text-indent',
 			'text-transform',
+			'white-space',
 
 			'height',
 			'min-height',
