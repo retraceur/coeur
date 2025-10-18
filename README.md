@@ -1,8 +1,8 @@
 # Retraceur
 
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
-[![Governance](https://img.shields.io/badge/governance-transparency-blue)](GOVERNANCE.md)
-[![Conflict of interest](https://img.shields.io/badge/politicy-conflict%20of%20interest-orange.svg)](CONFLICT_OF_INTEREST.md)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](https://github.com/retraceur/.github/blob/trunk/CODE_OF_CONDUCT.md)
+[![Governance](https://img.shields.io/badge/governance-transparency-blue)](https://github.com/retraceur/.github/blob/trunk/GOVERNANCE.md)
+[![Conflict of interest](https://img.shields.io/badge/politicy-conflict%20of%20interest-orange.svg)](https://github.com/retraceur/.github/blob/trunk/CONFLICT_OF_INTEREST.md)
 
 This **Personal Online Publication Hub** is a WordPress®[^1] **fork** I decided to build & maintain for [my use](https://imathi.eu) in reaction to the "Web" that Mr. Mullenweg has woven for 20 years and which has lately become untrustworthy.
 
