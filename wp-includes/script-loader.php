@@ -161,7 +161,8 @@ function wp_default_packages_vendor( $scripts ) {
 						'LLL'  => __( 'F j, Y g:i a' ),
 						'LLLL' => null,
 					),
-				)
+				),
+				JSON_HEX_TAG | JSON_UNESCAPED_SLASHES
 			)
 		),
 		'after'
@@ -383,7 +384,7 @@ function wp_default_packages_inline_scripts( $scripts ) {
 				var preferencesStore = wp.preferences.store;
 				wp.data.dispatch( preferencesStore ).setPersistenceLayer( persistenceLayer );
 			} ) ();',
-			wp_json_encode( $preload_data ),
+			wp_json_encode( $preload_data, JSON_HEX_TAG | JSON_UNESCAPED_SLASHES ),
 			$user_id
 		)
 	);
@@ -476,7 +477,8 @@ function wp_default_packages_inline_scripts( $scripts ) {
 						'string'          => $timezone_string,
 						'abbr'            => $timezone_abbr,
 					),
-				)
+				),
+				JSON_HEX_TAG | JSON_UNESCAPED_SLASHES
 			)
 		),
 		'after'
@@ -983,7 +985,8 @@ function wp_default_scripts( $scripts ) {
 						'mejs.welsh'               => __( 'Welsh' ),
 						'mejs.yiddish'             => __( 'Yiddish' ),
 					),
-				)
+				),
+				JSON_HEX_TAG | JSON_UNESCAPED_SLASHES
 			)
 		),
 		'before'
@@ -1662,7 +1665,8 @@ function wp_localize_jquery_ui_datepicker() {
 			'dateFormat'      => $datepicker_date_format,
 			'firstDay'        => absint( get_option( 'start_of_week' ) ),
 			'isRTL'           => $wp_locale->is_rtl(),
-		)
+		),
+		JSON_HEX_TAG | JSON_UNESCAPED_SLASHES
 	);
 
 	wp_add_inline_script( 'jquery-ui-datepicker', "jQuery(function(jQuery){jQuery.datepicker.setDefaults({$datepicker_defaults});});" );
@@ -2420,7 +2424,7 @@ function enqueue_editor_block_styles_assets() {
 			$register_script_lines[] = sprintf(
 				'	wp.blocks.registerBlockStyle( \'%s\', %s );',
 				$block_name,
-				wp_json_encode( $block_style )
+				wp_json_encode( $block_style, JSON_HEX_TAG | JSON_UNESCAPED_SLASHES )
 			);
 		}
 	}
