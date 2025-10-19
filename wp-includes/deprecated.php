@@ -8383,7 +8383,7 @@ function _wp_register_default_font_collections() {
 /**
  * Kills WP execution and displays XML response with an error message.
  *
- * This is the handler for wp_die() when processing XMLRPC requests.
+ * This is the handler for wp_die() when processing XML-RPC requests.
  *
  * @since WP 3.2.0
  * @deprecated 1.0.0 Retraceur removed the XML-RPC API.
@@ -8399,50 +8399,51 @@ function _xmlrpc_wp_die_handler( $message, $title = '', $args = array() ) {
 }
 
 /**
- * Retrieves post title from XMLRPC XML.
+ * Retrieves post title from XML-RPC XML.
  *
- * If the title element is not part of the XML, then the default post title from
- * the $post_default_title will be used instead.
+ * If the `title` element is not found in the XML, the default post title
+ * from the `$post_default_title` global will be used instead.
  *
  * @since WP 0.71
  * @deprecated 1.0.0 Retraceur removed the XML-RPC API.
  *
  * @global string $post_default_title Default XML-RPC post title.
  *
- * @param string $content XMLRPC XML Request content
- * @return string Post title
+ * @param string $content XML-RPC XML Request content.
+ * @return string Post title.
  */
 function xmlrpc_getposttitle( $content ) {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 }
 
 /**
- * Retrieves the post category or categories from XMLRPC XML.
+ * Retrieves the post category or categories from XML-RPC XML.
  *
- * If the category element is not found, then the default post category will be
- * used. The return type then would be what $post_default_category. If the
- * category is found, then it will always be an array.
+ * If the `category` element is not found in the XML, the default post category
+ * from the `$post_default_category` global will be used instead.
+ * The return type will then be a string.
+ * If the `category` element is found, the return type will be an array.
  *
  * @since WP 0.71
  * @deprecated 1.0.0 Retraceur removed the XML-RPC API.
  *
  * @global string $post_default_category Default XML-RPC post category.
  *
- * @param string $content XMLRPC XML Request content
- * @return string|array List of categories or category name.
+ * @param string $content XML-RPC XML Request content.
+ * @return string[]|string An array of category names or default category name.
  */
 function xmlrpc_getpostcategory( $content ) {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 }
 
 /**
- * XMLRPC XML content without title and category elements.
+ * XML-RPC XML content without title and category elements.
  *
  * @since WP 0.71
  * @deprecated 1.0.0 Retraceur removed the XML-RPC API.
  *
  * @param string $content XML-RPC XML Request content.
- * @return string XMLRPC XML Request content without title and category elements.
+ * @return string XML-RPC XML Request content without title and category elements.
  */
 function xmlrpc_removepostdata( $content ) {
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
