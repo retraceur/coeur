@@ -44,6 +44,11 @@ if ( is_multisite() && ! is_network_admin() ) {
 	exit;
 }
 
+/**
+ *
+ * @todo The list table shouldn't be needed anymore.
+ *
+ */
 $wp_list_table = _get_list_table( 'WP_Plugin_Install_List_Table', $plugins_args );
 $pagenum       = $wp_list_table->get_pagenum();
 
@@ -77,6 +82,7 @@ if ( 'block' === $plugin_type ) {
 }
 
 wp_enqueue_script( 'plugin-install' );
+wp_enqueue_script( 'retraceur-discovery' );
 if ( 'plugin-information' !== $tab ) {
 	add_thickbox();
 }
@@ -215,9 +221,19 @@ if ( 'upload' !== $tab ) {
 		?>
 	</div>
 	<?php
+	/**
+	 *
+	 * @todo The list table shouldn't be needed anymore.
+	 *
+	 */
 	$wp_list_table->views();
 }
 
+/**
+ *
+ * @todo The list table shouldn't be needed anymore.
+ *
+ */
 if ( 'block' === $plugin_type ) {
 	/**
 	 * Fires after the blocks list table in each tab of the Install Blocks screen.
@@ -237,11 +253,7 @@ if ( 'block' === $plugin_type ) {
 	 *
 	 * Possible hook names include:
 	 *
-	 *  - `install_plugins_beta`
-	 *  - `install_plugins_featured`
 	 *  - `install_plugins_plugin-information`
-	 *  - `install_plugins_popular`
-	 *  - `install_plugins_recommended`
 	 *  - `install_plugins_search`
 	 *  - `install_plugins_upload`
 	 *
@@ -254,6 +266,7 @@ if ( 'block' === $plugin_type ) {
 ?>
 
 	<span class="spinner"></span>
+	<div id="retraceur-discovery"></div>
 </div>
 
 <?php

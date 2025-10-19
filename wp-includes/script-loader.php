@@ -286,14 +286,19 @@ function wp_default_packages_scripts( $scripts ) {
 	$assets_file = ABSPATH . WPINC . '/assets/script-loader-packages.php';
 	$assets      = file_exists( $assets_file ) ? include $assets_file : array();
 
-	$retraceur_assets = include ABSPATH . WPINC . "/assets/global-media.asset.php";
-	$assets           = array_merge( $assets, array( 'retraceur-global-media' => $retraceur_assets ) );
+	$retraceur_assets = array(
+		'retraceur-discovery'    => include ABSPATH . WPINC . "/assets/discovery.asset.php",
+		'retraceur-global-media' => include ABSPATH . WPINC . "/assets/global-media.asset.php",
+	);
+
+	// Merge WP and Retraceur specific assets.
+	$assets = array_merge( $assets, $retraceur_assets );
 
 	foreach ( $assets as $file_name => $package_data ) {
 		$basename = str_replace( '.js', '', basename( $file_name ) );
 
 		// @todo improve this once there are more assets!
-		if ( 'retraceur-global-media' === $basename ) {
+		if ( 'retraceur-global-media' === $basename || 'retraceur-discovery' === $basename ) {
 			$handle   = $basename;
 			$filename = str_replace( 'retraceur-', '', $basename );
 			$path     = "/wp-admin/js/{$filename}.js";
