@@ -3077,15 +3077,21 @@ class WP_Query {
 			$id_query_is_cacheable = false;
 		}
 
+		$last_changed = (array) wp_cache_get_last_changed( 'posts' );
+		if ( ! empty( $this->tax_query->queries ) ) {
+			$last_changed[] = wp_cache_get_last_changed( 'terms' );
+		}
+
 		if ( $q['cache_results'] && $id_query_is_cacheable ) {
 			$new_request = str_replace( $fields, "{$wpdb->posts}.*", $this->request );
 			$cache_key   = $this->generate_cache_key( $q, $new_request );
 
 			$cache_found = false;
 			if ( null === $this->posts ) {
-				$cached_results = wp_cache_get( $cache_key, 'post-queries', false, $cache_found );
+				$cached_results = wp_cache_get_salted( $cache_key, 'post-queries', $last_changed );
 
 				if ( $cached_results ) {
+					$cache_found = true;
 					/** @var int[] */
 					$post_ids = array_map( 'intval', $cached_results['posts'] );
 
@@ -3143,7 +3149,7 @@ class WP_Query {
 					'max_num_pages' => $this->max_num_pages,
 				);
 
-				wp_cache_set( $cache_key, $cache_value, 'post-queries' );
+				wp_cache_set_salted( $cache_key, $cache_value, 'post-queries', $last_changed );
 			}
 
 			return $this->posts;
@@ -3182,7 +3188,7 @@ class WP_Query {
 					'max_num_pages' => $this->max_num_pages,
 				);
 
-				wp_cache_set( $cache_key, $cache_value, 'post-queries' );
+				wp_cache_set_salted( $cache_key, $cache_value, 'post-queries', $last_changed );
 			}
 
 			return $post_parents;
@@ -3281,7 +3287,7 @@ class WP_Query {
 				'max_num_pages' => $this->max_num_pages,
 			);
 
-			wp_cache_set( $cache_key, $cache_value, 'post-queries' );
+			wp_cache_set_salted( $cache_key, $cache_value, 'post-queries', $last_changed );
 		}
 
 		if ( ! $q['suppress_filters'] ) {
@@ -4877,12 +4883,7 @@ class WP_Query {
 		$sql = $wpdb->remove_placeholder_escape( $sql );
 		$key = md5( serialize( $args ) . $sql );
 
-		$last_changed = wp_cache_get_last_changed( 'posts' );
-		if ( ! empty( $this->tax_query->queries ) ) {
-			$last_changed .= wp_cache_get_last_changed( 'terms' );
-		}
-
-		$this->query_cache_key = "wp_query:$key:$last_changed";
+		$this->query_cache_key = "wp_query:$key";
 		return $this->query_cache_key;
 	}
 
