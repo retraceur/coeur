@@ -12,18 +12,10 @@ if ( ! defined( 'IFRAME_REQUEST' ) && isset( $_GET['tab'] ) && ( 'plugin-informa
 	define( 'IFRAME_REQUEST', true );
 }
 
-$plugin_type  = 'regular';
-$plugins_args = array(
-	'singular' => 'plugin',
-	'plural'   => 'plugins',
-);
+$plugin_type = 'regular';
 
 if ( defined( 'IS_BLOCKS_ADMIN' ) && IS_BLOCKS_ADMIN ) {
 	$plugin_type  = 'block';
-	$plugins_args = array(
-		'singular' => 'block',
-		'plural'   => 'blocks',
-	);
 }
 
 /**
@@ -44,14 +36,6 @@ if ( is_multisite() && ! is_network_admin() ) {
 	exit;
 }
 
-/**
- *
- * @todo The list table shouldn't be needed anymore.
- *
- */
-$wp_list_table = _get_list_table( 'WP_Plugin_Install_List_Table', $plugins_args );
-$pagenum       = $wp_list_table->get_pagenum();
-
 if ( ! empty( $_REQUEST['_wp_http_referer'] ) ) {
 	$location = remove_query_arg( '_wp_http_referer', wp_unslash( $_SERVER['REQUEST_URI'] ) );
 
@@ -63,18 +47,19 @@ if ( ! empty( $_REQUEST['_wp_http_referer'] ) ) {
 	exit;
 }
 
-$wp_list_table->prepare_items();
-
-$total_pages = $wp_list_table->get_pagination_arg( 'total_pages' );
-
-if ( $pagenum > $total_pages && $total_pages > 0 ) {
-	wp_redirect( add_query_arg( 'paged', $total_pages ) );
-	exit;
-}
-
 // Used in the HTML title tag.
 $title       = __( 'Add Plugins' );
 $parent_file = 'plugins.php';
+
+/**
+ *
+ * @todo remove once no more needed.
+ *
+ */
+$tab  = 'all';
+$tabs = array(
+	'all' => _x( 'All', 'Plugin Installer' ),
+);
 
 if ( 'block' === $plugin_type ) {
 	$title       = _x( 'Add Blocks', 'block install page title' );
@@ -186,7 +171,12 @@ echo esc_html( $title );
 </h1>
 
 <?php
-if ( ! empty( $tabs['upload'] ) && current_user_can( 'upload_plugins' ) ) {
+if ( current_user_can( 'upload_plugins' ) ) {
+	/**
+	 *
+	 * @todo Check why this is needed!
+	 */
+	require_once ABSPATH . 'wp-admin/includes/plugin-install.php';
 	printf(
 		' <a href="%s" class="upload-view-toggle page-title-action"><span class="upload">%s</span><span class="browse">%s</span></a>',
 		( 'upload' === $tab ) ? self_admin_url( 'plugin-install.php' ) : self_admin_url( 'plugin-install.php?tab=upload' ),
@@ -220,13 +210,8 @@ if ( 'upload' !== $tab ) {
 		}
 		?>
 	</div>
+	<div id="retraceur-discovery"></div>
 	<?php
-	/**
-	 *
-	 * @todo The list table shouldn't be needed anymore.
-	 *
-	 */
-	$wp_list_table->views();
 }
 
 /**
@@ -243,7 +228,7 @@ if ( 'block' === $plugin_type ) {
 	 *
 	 * @since 1.0.0 Retraceur fork.
 	 */
-	do_action( "install_blocks_{$tab}", $paged );
+	//do_action( "install_blocks_{$tab}", $paged );
 } else {
 	/**
 	 * Fires after the plugins list table in each tab of the Install Plugins screen.
@@ -261,12 +246,11 @@ if ( 'block' === $plugin_type ) {
 	 *
 	 * @param int $paged The current page number of the plugins list table.
 	 */
-	do_action( "install_plugins_{$tab}", $paged );
+	//do_action( "install_plugins_{$tab}", $paged );
 }
 ?>
 
 	<span class="spinner"></span>
-	<div id="retraceur-discovery"></div>
 </div>
 
 <?php
