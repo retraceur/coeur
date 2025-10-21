@@ -159,6 +159,7 @@ function wp_add_inline_script( $handle, $data, $position = 'after' ) {
  * @since WP 2.1.0
  * @since WP 4.3.0 A return value was added.
  * @since WP 6.3.0 The $in_footer parameter of type boolean was overloaded to be an $args parameter of type array.
+ * @since WP 6.9.0 The $fetchpriority parameter of type string was added to the $args parameter of type array.
  *
  * @param string           $handle    Name of the script. Should be unique.
  * @param string|false     $src       Full URL of the script, or path of the script relative to the Retraceur root directory.
@@ -172,8 +173,9 @@ function wp_add_inline_script( $handle, $data, $position = 'after' ) {
  *     Optional. An array of additional script loading strategies. Default empty array.
  *     Otherwise, it may be a boolean in which case it determines whether the script is printed in the footer. Default false.
  *
- *     @type string    $strategy     Optional. If provided, may be either 'defer' or 'async'.
- *     @type bool      $in_footer    Optional. Whether to print the script in the footer. Default 'false'.
+ *     @type string    $strategy      Optional. If provided, may be either 'defer' or 'async'.
+ *     @type bool      $in_footer     Optional. Whether to print the script in the footer. Default 'false'.
+ *     @type string    $fetchpriority Optional. The fetch priority for the script. Default 'auto'.
  * }
  * @return bool Whether the script has been registered. True on success, false on failure.
  */
@@ -193,6 +195,9 @@ function wp_register_script( $handle, $src, $deps = array(), $ver = false, $args
 	}
 	if ( ! empty( $args['strategy'] ) ) {
 		$wp_scripts->add_data( $handle, 'strategy', $args['strategy'] );
+	}
+	if ( ! empty( $args['fetchpriority'] ) ) {
+		$wp_scripts->add_data( $handle, 'fetchpriority', $args['fetchpriority'] );
 	}
 	return $registered;
 }
@@ -339,6 +344,7 @@ function wp_deregister_script( $handle ) {
  *
  * @since WP 2.1.0
  * @since WP 6.3.0 The $in_footer parameter of type boolean was overloaded to be an $args parameter of type array.
+ * @since WP 6.9.0 The $fetchpriority parameter of type string was added to the $args parameter of type array.
  *
  * @param string           $handle    Name of the script. Should be unique.
  * @param string           $src       Full URL of the script, or path of the script relative to the Retraceur root directory.
@@ -352,8 +358,9 @@ function wp_deregister_script( $handle ) {
  *     Optional. An array of additional script loading strategies. Default empty array.
  *     Otherwise, it may be a boolean in which case it determines whether the script is printed in the footer. Default false.
  *
- *     @type string    $strategy     Optional. If provided, may be either 'defer' or 'async'.
- *     @type bool      $in_footer    Optional. Whether to print the script in the footer. Default 'false'.
+ *     @type string    $strategy      Optional. If provided, may be either 'defer' or 'async'.
+ *     @type bool      $in_footer     Optional. Whether to print the script in the footer. Default 'false'.
+ *     @type string    $fetchpriority Optional. The fetch priority for the script. Default 'auto'.
  * }
  */
 function wp_enqueue_script( $handle, $src = '', $deps = array(), $ver = false, $args = array() ) {
@@ -377,6 +384,9 @@ function wp_enqueue_script( $handle, $src = '', $deps = array(), $ver = false, $
 		}
 		if ( ! empty( $args['strategy'] ) ) {
 			$wp_scripts->add_data( $_handle[0], 'strategy', $args['strategy'] );
+		}
+		if ( ! empty( $args['fetchpriority'] ) ) {
+			$wp_scripts->add_data( $_handle[0], 'fetchpriority', $args['fetchpriority'] );
 		}
 	}
 

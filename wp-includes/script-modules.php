@@ -36,6 +36,7 @@ function wp_script_modules(): WP_Script_Modules {
  * identifier has already been registered.
  *
  * @since WP 6.5.0
+ * @since WP 6.9.0 Added the $args parameter.
  *
  * @param string            $id      The identifier of the script module. Should be unique. It will be used in the
  *                                   final import map.
@@ -61,9 +62,14 @@ function wp_script_modules(): WP_Script_Modules {
  *                                   It is added to the URL as a query string for cache busting purposes. If $version
  *                                   is set to false, the version number is the currently installed Retraceur version.
  *                                   If $version is set to null, no version is added.
+ * @param array             $args    {
+ *     Optional. An array of additional args. Default empty array.
+ *
+ *     @type 'auto'|'low'|'high' $fetchpriority Fetch priority. Default 'auto'. Optional.
+ * }
  */
-function wp_register_script_module( string $id, string $src, array $deps = array(), $version = false ) {
-	wp_script_modules()->register( $id, $src, $deps, $version );
+function wp_register_script_module( string $id, string $src, array $deps = array(), $version = false, array $args = array() ) {
+	wp_script_modules()->register( $id, $src, $deps, $version, $args );
 }
 
 /**
@@ -73,6 +79,7 @@ function wp_register_script_module( string $id, string $src, array $deps = array
  * will be registered.
  *
  * @since WP 6.5.0
+ * @since WP 6.9.0 Added the $args parameter.
  *
  * @param string            $id      The identifier of the script module. Should be unique. It will be used in the
  *                                   final import map.
@@ -98,9 +105,14 @@ function wp_register_script_module( string $id, string $src, array $deps = array
  *                                   It is added to the URL as a query string for cache busting purposes. If $version
  *                                   is set to false, the version number is the currently installed Retraceur version.
  *                                   If $version is set to null, no version is added.
+ * @param array             $args    {
+ *     Optional. An array of additional args. Default empty array.
+ *
+ *     @type 'auto'|'low'|'high' $fetchpriority Fetch priority. Default 'auto'. Optional.
+ * }
  */
-function wp_enqueue_script_module( string $id, string $src = '', array $deps = array(), $version = false ) {
-	wp_script_modules()->enqueue( $id, $src, $deps, $version );
+function wp_enqueue_script_module( string $id, string $src = '', array $deps = array(), $version = false, array $args = array() ) {
+	wp_script_modules()->enqueue( $id, $src, $deps, $version, $args );
 }
 
 /**
@@ -170,7 +182,13 @@ function wp_default_script_modules() {
 				break;
 		}
 
+		// The Interactivity API is designed with server-side rendering as its primary goal, so all of its script modules should be loaded with low fetch priority since they should not be needed in the critical rendering path.
+		$args = array();
+		if ( str_starts_with( $script_module_id, '@wordpress/interactivity' ) || str_starts_with( $script_module_id, '@wordpress/block-library' ) ) {
+			$args['fetchpriority'] = 'low';
+		}
+
 		$path = includes_url( "js/dist/script-modules/{$file_name}" );
-		wp_register_script_module( $script_module_id, $path, $script_module_data['dependencies'], $script_module_data['version'] );
+		wp_register_script_module( $script_module_id, $path, $script_module_data['dependencies'], $script_module_data['version'], $args );
 	}
 }
