@@ -705,6 +705,10 @@ function upgrade_all() {
 		$wpdb->query( "ALTER TABLE $wpdb->signups MODIFY signup_id bigint(20) unsigned NOT NULL auto_increment" );
 	}
 
+	if ( 20251023 > $wp_current_db_version ) {
+		$wpdb->query( "ALTER TABLE $wpdb->posts ADD INDEX type_status_author (post_type,post_status,post_author)" );
+	}
+
 	update_option( 'db_version', $wp_db_version );
 	update_option( 'db_upgraded', true );
 }

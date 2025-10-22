@@ -6281,8 +6281,9 @@ function sanitize_hex_color( $color ) {
  *
  * @since WP 3.4.0
  *
- * @param string $color
- * @return string|null
+ * @param string $color The color value to sanitize. Can be with or without a #.
+ * @return string|null The sanitized hex color without the hash prefix,
+ *                     empty string if input is empty, or null if invalid.
  */
 function sanitize_hex_color_no_hash( $color ) {
 	$color = ltrim( $color, '#' );
