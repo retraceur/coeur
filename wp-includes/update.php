@@ -93,7 +93,7 @@ function retraceur_version_check( $force_check = false ) {
 	$feed = new SimplePie\SimplePie();
 	$url  = 'https://github.com/retraceur/coeur/releases.atom';
 
-	$feed->set_sanitize_class( 'WP_SimplePie_Sanitize_KSES' );
+	$feed->get_registry()->register( SimplePie\Sanitize::class, 'WP_SimplePie_Sanitize_KSES', true );
 	/*
 	 * We must manually overwrite $feed->sanitize because SimplePie's constructor
 	 * sets it before we have a chance to set the sanitization class.
@@ -106,7 +106,7 @@ function retraceur_version_check( $force_check = false ) {
 		$feed->set_cache_location( 'retraceur_coeur_update' );
 	}
 
-	$feed->set_file_class( 'WP_SimplePie_File' );
+	$feed->get_registry()->register( SimplePie\File::class, 'WP_SimplePie_File', true );
 
 	$feed->set_feed_url( $url );
 	$feed->init();
