@@ -34,6 +34,7 @@ define( 'WPINC', 'wp-includes' );
  */
 global $wp_version, $retraceur_version, $wp_db_version, $tinymce_version, $required_php_version, $required_php_extensions, $required_mysql_version, $wp_local_package;
 require ABSPATH . WPINC . '/version.php';
+require ABSPATH . WPINC . '/compat-utf8.php';
 require ABSPATH . WPINC . '/compat.php';
 require ABSPATH . WPINC . '/load.php';
 
