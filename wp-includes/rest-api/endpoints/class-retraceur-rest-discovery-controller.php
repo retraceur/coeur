@@ -120,16 +120,21 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 	public function prepare_item_for_response( $item, $request ) {
 		$fields = $this->get_fields_for_response( $request );
 
+		$full_name      = wp_strip_all_tags( $item['full_name'] );
+		$default_branch = wp_strip_all_tags( $item['default_branch'] );
+
 		// A data array containing the properties we'll return.
 		$repository = array(
 			'id'                  => (int) $item['id'],
 			'name'                => wp_strip_all_tags( $item['name'] ),
-			'full_name'           => wp_strip_all_tags( $item['full_name'] ),
+			'full_name'           => $full_name,
 			'description'         => wp_strip_all_tags( $item['description'] ),
 			'author'              => ! empty( $item['owner']['login'] ) ? wp_strip_all_tags( $item['owner']['login'] ) : __( 'Unknown author.' ),
+			'image'               => 'https://raw.githubusercontent.com/' . $full_name . '/refs/heads/' . $default_branch . '/retraceur/og-image.png',
 			'last_updated'        => gmdate( 'Y-m-d\TH:i:s', strtotime( $item['updated_at'] ) ),
 			'stargazers_count'    => (int) $item['stargazers_count'],
 			'open_issues_count'   => (int) $item['open_issues_count'],
+			'default_branch'      => $default_branch,
 		);
 
 		$this->add_additional_fields_to_object( $repository, $request );
@@ -181,6 +186,13 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 					'type'        => 'string',
 					'context'     => array( 'view' ),
 				),
+				'image'             => array(
+					'description' => __( 'URL to the open graph image representing the repository.' ),
+					'type'        => 'string',
+					'format'      => 'uri',
+					'context'     => array( 'view' ),
+					'readonly'    => true,
+				),
 				'last_updated'      => array(
 					'description' => __( 'The date when the repository was last updated.' ),
 					'type'        => 'string',
@@ -195,6 +207,11 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 				'open_issues_count' => array(
 					'description' => __( 'The number of opened issues for the repository.' ),
 					'type'        => 'integer',
+					'context'     => array( 'view' ),
+				),
+				'default_branch' => array(
+					'description' => __( 'The default branch name.' ),
+					'type'        => 'string',
 					'context'     => array( 'view' ),
 				),
 			),

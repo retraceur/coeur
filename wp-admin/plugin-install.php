@@ -68,6 +68,7 @@ if ( 'block' === $plugin_type ) {
 
 wp_enqueue_script( 'plugin-install' );
 wp_enqueue_script( 'retraceur-discovery' );
+wp_enqueue_style( 'retraceur-discovery' );
 if ( 'plugin-information' !== $tab ) {
 	add_thickbox();
 }
