@@ -20,8 +20,5 @@
 	},
 	"scripts": {
 		"build": "wp-scripts build --config webpack.config.js && ./../../tools/update-admin-assets.sh"
-	},
-	"dependencies": {
-		"@wordpress/dataviews": "^4.15.4"
 	}
 }

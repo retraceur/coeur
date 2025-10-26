@@ -6,12 +6,14 @@ const defaultLayouts = {
 		layout: {
 			primaryField,
 		},
+		showMedia: false,
 	},
 	grid: {
 		layout: {
 			primaryField,
 			mediaField,
 		},
+		showMedia: true,
 	},
 };
 

@@ -1447,6 +1447,7 @@ function wp_default_styles( $styles ) {
 		'base-styles'          => array(),
 		'components'           => array(),
 		'commands'             => array( 'wp-components' ),
+		'dataviews'            => array( 'wp-components' ),
 		'edit-post'            => array(
 			'wp-components',
 			'wp-block-editor',
@@ -1538,6 +1539,7 @@ function wp_default_styles( $styles ) {
 		'wp-block-directory',
 		'wp-commands',
 		'wp-components',
+		'wp-dataviews',
 		'wp-edit-post',
 		'wp-edit-site',
 		'wp-editor',

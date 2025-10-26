@@ -14,23 +14,19 @@ import discoveryStore from './store';
 import fields from './definitions/fields';
 import defaultLayouts from './definitions/layouts';
 import actions from './definitions/actions';
-import './style.scss';
 
 const Discovery = ( { settings } ) => {
 	const repositories = useSelect( ( select ) => {
 		return select( discoveryStore ).getRepositories();
 	}, [] );
 	const [ view, setView ] = useState( {
-		type: 'table',
+		type: 'grid',
 		perPage: 10,
 		layout: defaultLayouts.grid.layout,
-		fields: [
-			'image',
-			'full_name',
-			'name',
-			'description',
-			'author',
-		],
+		titleField: 'name',
+		descriptionField: 'description',
+		mediaField: 'image',
+		fields: ['author'],
 	} );
 	const { data: processedData, paginationInfo } = useMemo( () => {
 		return filterSortAndPaginate( repositories, view, fields );
