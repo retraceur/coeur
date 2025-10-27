@@ -844,11 +844,22 @@ class WP_HTML_Open_Elements {
 	}
 
 	/**
+	 * Unserialize magic method.
+	 *
+	 * @since WP 6.9.0
+	 *
+	 * @param array $data Data to unserialize.
+	 */
+	public function __unserialize( $data ) { // phpcs:ignore PHPCompatibility.FunctionNameRestrictions.NewMagicMethods.__unserializeFound
+		throw new \LogicException( __CLASS__ . ' should never be unserialized' );
+	}
+
+	/**
 	 * Wakeup magic method.
 	 *
 	 * @since WP 6.6.0
 	 */
 	public function __wakeup() {
-		throw new \LogicException( __CLASS__ . ' should never be unserialized' );
+		$this->__unserialize( array() );
 	}
 }
