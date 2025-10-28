@@ -170,14 +170,7 @@ final class WP_Block_Type_Registry {
 		return isset( $this->registered_block_types[ $name ] );
 	}
 
-	/**
-	 * Unserialize magic method.
-	 *
-	 * @since WP 6.9.0
-	 *
-	 * @param array $data Data to unserialize.
-	 */
-	public function __unserialize( $data ) { // phpcs:ignore PHPCompatibility.FunctionNameRestrictions.NewMagicMethods.__unserializeFound
+	public function __wakeup() {
 		if ( ! $this->registered_block_types ) {
 			return;
 		}
@@ -189,15 +182,6 @@ final class WP_Block_Type_Registry {
 				throw new UnexpectedValueException();
 			}
 		}
-	}
-
-	/**
-	 * Wakeup magic method.
-	 *
-	 * @since WP 6.4.0
-	 */
-	public function __wakeup() {
-		$this->__unserialize( array() );
 	}
 
 	/**

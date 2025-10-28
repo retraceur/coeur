@@ -38,16 +38,14 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 <form method="post" action="options.php">
 <?php settings_fields( 'membership' ); ?>
 
-<?php if ( ! is_multisite() ) : ?>
+<?php
+if ( ! is_multisite() ) {
+	$membership_title = __( 'Registration' );
+	?>
 	<table class="form-table indent-children" role="presentation">
 	<tr>
-	<th scope="row"><?php esc_html_e( 'Registration' ); ?></th>
-	<td> <fieldset><legend class="screen-reader-text"><span>
-		<?php
-		/* translators: Hidden accessibility text. */
-		esc_html_e( 'Registration' );
-		?>
-	</span></legend><label for="users_can_register">
+	<th scope="row"><?php echo esc_html( $membership_title ); ?></th>
+	<td><fieldset><legend class="screen-reader-text"><span><?php echo esc_html( $membership_title ); ?></span></legend><label for="users_can_register">
 	<input name="users_can_register" type="checkbox" id="users_can_register" value="1" <?php checked( '1', get_option( 'users_can_register' ) ); ?> />
 		<?php esc_html_e( 'Anyone can register' ); ?></label>
 	</fieldset></td>
@@ -61,7 +59,9 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 	</tr>
 	<?php do_settings_fields( 'membership', 'default' ); ?>
 	</table>
-<?php endif; ?>
+<?php
+}
+?>
 
 <h2 class="title"><?php esc_html_e( 'Avatars' ); ?></h2>
 

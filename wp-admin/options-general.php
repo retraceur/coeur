@@ -421,17 +421,13 @@ if ( empty( $tzstring ) ) { // Create a UTC+- zone if no timezone string exists.
 </p>
 <?php endif; ?>
 </td>
-
 </tr>
+
+<?php $date_format_title = __( 'Date Format' ); ?>
 <tr>
-<th scope="row"><?php _e( 'Date Format' ); ?></th>
+<th scope="row"><?php echo $date_format_title; ?></th>
 <td>
-	<fieldset><legend class="screen-reader-text"><span>
-		<?php
-		/* translators: Hidden accessibility text. */
-		_e( 'Date Format' );
-		?>
-	</span></legend>
+	<fieldset><legend class="screen-reader-text"><span><?php echo $date_format_title; ?></span></legend>
 <?php
 	/**
 	 * Filters the default date formats.
@@ -473,15 +469,12 @@ foreach ( $date_formats as $format ) {
 	</fieldset>
 </td>
 </tr>
+
+<?php $time_format_title = __( 'Time Format' ); ?>
 <tr>
-<th scope="row"><?php _e( 'Time Format' ); ?></th>
+<th scope="row"><?php echo $time_format_title; ?></th>
 <td>
-	<fieldset><legend class="screen-reader-text"><span>
-		<?php
-		/* translators: Hidden accessibility text. */
-		_e( 'Time Format' );
-		?>
-	</span></legend>
+	<fieldset><legend class="screen-reader-text"><span><?php echo $time_format_title; ?></span></legend>
 <?php
 	/**
 	 * Filters the default time formats.
