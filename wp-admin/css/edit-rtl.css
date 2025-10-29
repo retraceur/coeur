@@ -472,7 +472,6 @@ form#tags-filter {
 #post-body .misc-pub-revisions:before,
 #post-body .misc-pub-response-to:before {
 	font: normal 20px/1 dashicons;
-	speak: never;
 	display: inline-block;
 	margin-right: -1px;
 	padding-left: 3px;
@@ -1180,7 +1179,6 @@ form#tags-filter {
 	margin-left: 7px;
 	color: #dcdcde;
 	font: normal 20px/1 dashicons;
-	speak: never;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
