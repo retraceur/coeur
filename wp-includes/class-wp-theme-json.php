@@ -128,6 +128,7 @@ class WP_Theme_JSON {
 	 * @since WP 6.6.0 Added the `dimensions.aspectRatios` and `dimensions.defaultAspectRatios` presets.
 	 *              Updated the 'prevent_override' value for font size presets to use 'typography.defaultFontSizes'
 	 *              and spacing size presets to use `spacing.defaultSpacingSizes`.
+	 * @since WP 6.9.0 Added `border.radiusSizes`.
 	 * @var array
 	 */
 	const PRESETS_METADATA = array(
@@ -206,6 +207,15 @@ class WP_Theme_JSON {
 			'css_vars'          => '--wp--preset--shadow--$slug',
 			'classes'           => array(),
 			'properties'        => array( 'box-shadow' ),
+		),
+		array(
+			'path'              => array( 'border', 'radiusSizes' ),
+			'prevent_override'  => false,
+			'use_default_names' => false,
+			'value_key'         => 'size',
+			'css_vars'          => '--wp--preset--border-radius--$slug',
+			'classes'           => array(),
+			'properties'        => array( 'border-radius' ),
 		),
 	);
 
@@ -386,6 +396,7 @@ class WP_Theme_JSON {
 	 *              `background.backgroundSize` and `dimensions.aspectRatio`.
 	 * @since WP 6.6.0 Added support for 'dimensions.aspectRatios', 'dimensions.defaultAspectRatios',
 	 *              'typography.defaultFontSizes', and 'spacing.defaultSpacingSizes'.
+	 * @since WP 6.9.0 Added support for `border.radiusSizes`.
 	 * @var array
 	 */
 	const VALID_SETTINGS = array(
@@ -396,10 +407,11 @@ class WP_Theme_JSON {
 			'backgroundSize'  => null,
 		),
 		'border'                        => array(
-			'color'  => null,
-			'radius' => null,
-			'style'  => null,
-			'width'  => null,
+			'color'       => null,
+			'radius'      => null,
+			'radiusSizes' => null,
+			'style'       => null,
+			'width'       => null,
 		),
 		'color'                         => array(
 			'background'       => null,
