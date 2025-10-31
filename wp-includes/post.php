@@ -3628,13 +3628,19 @@ function wp_post_mime_type_where( $post_mime_types, $table_alias = '' ) {
  * @see wp_delete_attachment()
  * @see wp_trash_post()
  *
- * @param int  $post_id      Optional. Post ID. Default 0.
+ * @param int  $post_id      Post ID. (The default of 0 is for historical reasons; providing it is incorrect.)
  * @param bool $force_delete Optional. Whether to bypass Trash and force deletion.
  *                           Default false.
  * @return WP_Post|false|null Post data on success, false or null on failure.
  */
 function wp_delete_post( $post_id = 0, $force_delete = false ) {
 	global $wpdb;
+
+	$post_id = (int) $post_id;
+	if ( $post_id <= 0 ) {
+		_doing_it_wrong( __FUNCTION__, __( 'The post ID must be greater than 0.' ), '6.9.0' );
+		return false;
+	}
 
 	$post = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM $wpdb->posts WHERE ID = %d", $post_id ) );
 
@@ -3660,7 +3666,7 @@ function wp_delete_post( $post_id = 0, $force_delete = false ) {
 	 *
 	 * @since WP 4.4.0
 	 *
-	 * @param WP_Post|false|null $delete       Whether to go forward with deletion.
+	 * @param WP_Post|false|null $check        Whether to go forward with deletion. Anything other than null will short-circuit deletion.
 	 * @param WP_Post            $post         Post object.
 	 * @param bool               $force_delete Whether to bypass the Trash.
 	 */
