@@ -16510,3 +16510,29 @@ function wp_maybe_auto_update() {
 	_deprecated_function( __FUNCTION__, '2.0.0', '', true );
 	return;
 }
+
+/**
+ * Prints a CSS rule to fix potential visual issues with images using `sizes=auto`.
+ *
+ * This rule overrides the similar rule in the default user agent stylesheet, to avoid images that use e.g.
+ * `width: auto` or `width: fit-content` to appear smaller.
+ *
+ * @since WP 6.7.1
+ * @deprecated WP 6.9.0 Use wp_enqueue_img_auto_sizes_contain_css_fix() instead.
+ * @see wp_enqueue_img_auto_sizes_contain_css_fix()
+ *
+ * @see https://html.spec.whatwg.org/multipage/rendering.html#img-contain-size
+ */
+function wp_print_auto_sizes_contain_css_fix() {
+	_deprecated_function( __FUNCTION__, '6.9.0', 'wp_enqueue_img_auto_sizes_contain_css_fix' );
+
+	/** This filter is documented in wp-includes/media.php */
+	$add_auto_sizes = apply_filters( 'wp_img_tag_add_auto_sizes', true );
+	if ( ! $add_auto_sizes ) {
+		return;
+	}
+
+	?>
+	<style>img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }</style>
+	<?php
+}
