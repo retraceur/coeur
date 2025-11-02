@@ -526,7 +526,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 		$used_post_formats = get_terms(
 			array(
 				'taxonomy'   => 'post_format',
-				'hide_empty' => true,
+				'hide_empty' => false,
 			)
 		);
 
@@ -540,11 +540,11 @@ class WP_Posts_List_Table extends WP_List_Table {
 		<label for="filter-by-format" class="screen-reader-text">
 			<?php
 			/* translators: Hidden accessibility text. */
-			_e( 'Filter by post format' );
+			esc_html_e( 'Filter by post format' );
 			?>
 		</label>
 		<select name="post_format" id="filter-by-format">
-			<option<?php selected( $displayed_post_format, '' ); ?> value=""><?php _e( 'All formats' ); ?></option>
+			<option<?php selected( $displayed_post_format, '' ); ?> value=""><?php esc_html_e( 'All formats' ); ?></option>
 			<?php
 			foreach ( $used_post_formats as $used_post_format ) {
 				// Post format slug.
@@ -553,11 +553,11 @@ class WP_Posts_List_Table extends WP_List_Table {
 				$pretty_name = get_post_format_string( $slug );
 
 				// Skip the standard post format.
-				if ( 'standard' === $slug ) {
+				if ( 0 === (int) $used_post_format->count && 'standard' !== $slug ) {
 					continue;
 				}
 				?>
-				<option<?php selected( $displayed_post_format, $slug ); ?> value="<?php echo esc_attr( $slug ); ?>"><?php echo esc_html( $pretty_name ); ?></option>
+				<option<?php selected( $displayed_post_format, $used_post_format->slug ); ?> value="<?php echo esc_attr( $used_post_format->slug ); ?>"><?php echo esc_html( $pretty_name ); ?></option>
 				<?php
 			}
 			?>
