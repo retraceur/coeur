@@ -239,7 +239,7 @@ textarea[readonly] {
 }
 
 .form-table .form-required.form-invalid td:after {
-	content: "\f534" / '';
+	content: "\f534";
 	font: normal 20px/1 dashicons;
 	color: #d63638;
 	margin-left: -25px;
@@ -252,7 +252,7 @@ textarea[readonly] {
 }
 
 .form-table .form-required.user-pass1-wrap.form-invalid .password-input-wrapper:after {
-	content: "\f534" / '';
+	content: "\f534";
 	font: normal 20px/1 dashicons;
 	color: #d63638;
 	margin: 0 6px 0 -29px;
@@ -1043,7 +1043,7 @@ table.form-table td .updated p {
 .pressthis-bookmarklet span:before {
 	color: #787c82;
 	font: normal 20px/1 dashicons;
-	content: "\f157" / '';
+	content: "\f157";
 	position: relative;
 	display: inline-block;
 	top: 4px;
