@@ -350,6 +350,7 @@ add_action( 'do_feed_rss2', 'do_feed_rss2', 10, 1 );
 add_action( 'do_feed_atom', 'do_feed_atom', 10, 1 );
 add_action( 'do_robots', 'do_robots' );
 add_action( 'do_favicon', 'do_favicon' );
+add_action( 'wp_before_include_template', 'wp_start_template_enhancement_output_buffer' );
 add_action( 'init', 'smilies_init', 5 );
 add_action( 'plugins_loaded', 'wp_maybe_load_embeds', 0 );
 add_action( 'shutdown', 'wp_ob_end_flush_all', 1 );

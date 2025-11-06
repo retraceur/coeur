@@ -51,7 +51,7 @@ class _WP_Dependency {
 	 * Used for cache-busting.
 	 *
 	 * @since WP 2.6.0
-	 * @var bool|string
+	 * @var string|false|null
 	 */
 	public $ver = false;
 
