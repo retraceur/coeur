@@ -40,28 +40,55 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 				array(
 					'methods'             => WP_REST_Server::READABLE,
 					'callback'            => array( $this, 'get_blocks' ),
-					'permission_callback' => array( $this, 'get_blocks_permissions_check' ),
+					'permission_callback' => array( $this, 'get_items_permissions_check' ),
 					'args'                => $this->get_collection_params(),
 				),
 				'schema' => array( $this, 'get_public_item_schema' ),
 			)
 		);
+
+		register_rest_route(
+			$this->namespace,
+			'/' . $this->rest_base . '/releases',
+			array(
+				array(
+					'methods'             => WP_REST_Server::READABLE,
+					'callback'            => array( $this, 'get_releases' ),
+					'permission_callback' => array( $this, 'get_items_permissions_check' ),
+					'args'                => array(
+						'context'    => array(
+							'description'       => __( 'Scope under which the request is made; determines fields present in response.' ),
+							'type'              => 'string',
+							'sanitize_callback' => 'sanitize_key',
+							'validate_callback' => 'rest_validate_request_arg',
+							'default'           => 'view',
+						),
+						'repository' => array(
+							'description' => __( 'The repository full name.' ),
+							'type'        => 'string',
+							'required'    => true,
+							'minLength'   => 1,
+						),
+					),
+				),
+				'schema' => array( $this, 'get_release_schema' ),
+			)
+		);
 	}
 
 	/**
-	 * Checks whether a given request has permission to install and activate plugins.
+	 * Checks whether a given request has permission to list items.
 	 *
 	 * @since 3.0.0 Retraceur fork.
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has permission, WP_Error object otherwise.
 	 */
-	public function get_blocks_permissions_check( $request ) {
-		return true;
+	public function get_items_permissions_check( $request ) {
 		if ( ! current_user_can( 'install_plugins' ) || ! current_user_can( 'activate_plugins' ) ) {
 			return new WP_Error(
-				'rest_block_directory_cannot_view',
-				__( 'Sorry, you are not allowed to discover external blocks.' ),
+				'rest_retraceur_discovery_cannot_view',
+				__( 'Sorry, you are not allowed to discover external items.' ),
 				array( 'status' => rest_authorization_required_code() )
 			);
 		}
@@ -81,7 +108,7 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 		require_once ABSPATH . 'wp-admin/includes/plugin-install.php';
 		require_once ABSPATH . 'wp-admin/includes/plugin.php';
 
-		$response = retraceur_discovery_api(
+		$result = retraceur_discovery_api(
 			'retraceur-block',
 			array(
 				'search'   => $request['search'],
@@ -92,20 +119,50 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 			)
 		);
 
-		if ( is_wp_error( $response ) ) {
-			$response->add_data( array( 'status' => 500 ) );
+		if ( is_wp_error( $result ) ) {
+			$result->add_data( array( 'status' => 500 ) );
 
-			return $response;
+			return $result;
 		}
 
-		$result = array();
-
-		foreach ( $response['items'] as $repository ) {
-			$data     = $this->prepare_item_for_response( $repository, $request );
-			$result[] = $this->prepare_response_for_collection( $data );
+		$response = array();
+		foreach ( $result['items'] as $repository ) {
+			$data       = $this->prepare_item_for_response( $repository, $request );
+			$response[] = $this->prepare_response_for_collection( $data );
 		}
 
-		return rest_ensure_response( $result );
+		return rest_ensure_response( $response );
+	}
+
+	/**
+	 * Retrieve a given repository releases.
+	 *
+	 * @since 3.0.0 Retraceur fork.
+	 *
+	 * @param WP_REST_Request $request Full details about the request.
+	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
+	 */
+	public function get_releases( $request ) {
+		if ( ! $request['repository'] ) {
+			return new WP_Error(
+				'rest_retraceur_discovery_required_param',
+				__( 'Please provide the repository fullname.' ),
+				array( 'status' => 400 )
+			);
+		}
+
+		// Needs sanitization.
+		$releases_url  = 'https://github.com/' . wp_unslash( $request['repository'] ) . '/releases.atom';
+		$releases_feed = fetch_feed( $releases_url );
+		$releases      = $releases_feed->get_items();
+		$response      = array();
+
+		foreach ( $releases as $release ) {
+			$data       = $this->prepare_release_for_response( $release, $request );
+			$response[] = $this->prepare_response_for_collection( $data );
+		}
+
+		return rest_ensure_response( $response );
 	}
 
 	/**
@@ -118,8 +175,6 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
 	 */
 	public function prepare_item_for_response( $item, $request ) {
-		$fields = $this->get_fields_for_response( $request );
-
 		$full_name      = wp_strip_all_tags( $item['full_name'] );
 		$default_branch = wp_strip_all_tags( $item['default_branch'] );
 
@@ -139,9 +194,39 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 			'default_branch'      => $default_branch,
 		);
 
-		$this->add_additional_fields_to_object( $repository, $request );
-
 		$response = new WP_REST_Response( $repository );
+
+		return $response;
+	}
+
+	/**
+	 * Parse release data and prepare it for an API response.
+	 *
+	 * @since 3.0.0 Retraceur fork.
+	 *
+	 * @param SimplePie\SimplePie $release The release data.
+	 * @param WP_REST_Request     $request Request object.
+	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
+	 */
+	public function prepare_release_for_response( $release, $request ) {
+		$version    = '';
+		$release_id = explode( '/', rtrim( $release->get_id(), '/' ) );
+		$version    = end( $release_id );
+		$url        = $release->get_link();
+
+		if ( ! $version ) {
+			$url_data = explode( '/', rtrim( wp_parse_url( $url, PHP_URL_PATH ) ) );
+			$version  = end( $url_data );
+		}
+
+		// A data array containing the properties we'll return.
+		$data = array(
+			'title'   => wp_strip_all_tags( $release->get_title() ),
+			'version' => wp_strip_all_tags( $version ),
+			'note'    => wp_strip_all_tags( $release->get_description() ),
+		);
+
+		$response = new WP_REST_Response( $data );
 
 		return $response;
 	}
@@ -270,5 +355,37 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 		 * @param array $query_params JSON Schema-formatted collection parameters.
 		 */
 		return apply_filters( 'rest_retraceur_discovery_collection_params', $query_params );
+	}
+
+	/**
+	 * Retrieves the release's schema, conforming to JSON Schema.
+	 *
+	 * @since 3.0.0 Retraceur fork.
+	 *
+	 * @return array Release schema data.
+	 */
+	public function get_release_schema() {
+		return array(
+			'$schema'    => 'http://json-schema.org/draft-04/schema#',
+			'title'      => 'retraceur-repository-release',
+			'type'       => 'object',
+			'properties' => array(
+				'title'   => array(
+					'description' => __( 'The release title.' ),
+					'type'        => 'string',
+					'context'     => array( 'view' ),
+				),
+				'version' => array(
+					'description' => __( 'The repository release version number.' ),
+					'type'        => 'string',
+					'context'     => array( 'view' ),
+				),
+				'note'    => array(
+					'description' => __( 'The repository release note.' ),
+					'type'        => 'string',
+					'context'     => array( 'view' ),
+				),
+			),
+		);
 	}
 }
