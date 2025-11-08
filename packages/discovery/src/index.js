@@ -15,6 +15,11 @@ import fields from './definitions/fields';
 import defaultLayouts from './definitions/layouts';
 import actions from './definitions/actions';
 
+/**
+ * Style dependency
+ */
+import './discovery.scss';
+
 const Discovery = ( { settings } ) => {
 	const repositories = useSelect( ( select ) => {
 		return select( discoveryStore ).getRepositories();

@@ -2,6 +2,7 @@
  * WP dependencies
  */
 import { __, sprintf } from '@wordpress/i18n';
+import { ExternalLink } from '@wordpress/components';
 
 const fields = [
 	{
@@ -39,6 +40,21 @@ const fields = [
 		label: __( 'Author' ),
 		getValue: ( { item } ) =>
 			`${ item.author }`,
+		render: ( { item } ) => (
+			<ExternalLink
+				href={ item.author_url }
+				className="repo-author-link"
+			>
+				<img
+					alt={
+						/* Translators: %s is the author name */
+						sprintf( __( 'Profile image of %s'), item.author )
+					}
+					src={ item.author_avatar }
+				/>
+				{ item.author }
+			</ExternalLink>
+		),
 		enableGlobalSearch: false,
 	},
 ];

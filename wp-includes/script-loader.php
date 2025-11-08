@@ -1520,6 +1520,7 @@ function wp_default_styles( $styles ) {
 		'login',
 		'site-health',
 		'retraceur-global-media',
+		'discovery',
 		'wp-empty-template-alert',
 		// Includes CSS.
 		'buttons',

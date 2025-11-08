@@ -68,7 +68,7 @@ if ( 'block' === $plugin_type ) {
 
 wp_enqueue_script( 'plugin-install' );
 wp_enqueue_script( 'retraceur-discovery' );
-wp_enqueue_style( 'wp-dataviews' );
+wp_enqueue_style( 'discovery' );
 if ( 'plugin-information' !== $tab ) {
 	add_thickbox();
 }
@@ -211,9 +211,10 @@ if ( 'upload' !== $tab ) {
 		}
 		?>
 	</div>
-	<div id="retraceur-discovery"></div>
 	<?php
 }
+
+$context_settings = array( 'name' => 'retraceur/discovery' );
 
 /**
  *
@@ -221,6 +222,8 @@ if ( 'upload' !== $tab ) {
  *
  */
 if ( 'block' === $plugin_type ) {
+	$context_settings['repositoryType'] = 'block';
+
 	/**
 	 * Fires after the blocks list table in each tab of the Install Blocks screen.
 	 *
@@ -231,6 +234,8 @@ if ( 'block' === $plugin_type ) {
 	 */
 	//do_action( "install_blocks_{$tab}", $paged );
 } else {
+	$context_settings['repositoryType'] = 'plugin';
+
 	/**
 	 * Fires after the plugins list table in each tab of the Install Plugins screen.
 	 *
@@ -249,8 +254,15 @@ if ( 'block' === $plugin_type ) {
 	 */
 	//do_action( "install_plugins_{$tab}", $paged );
 }
-?>
 
+$discovery_context = new WP_Block_Editor_Context( $context_settings );
+$preload_paths     = array(
+	'/wp/v2/discover/blocks',
+);
+
+block_editor_rest_api_preload( $preload_paths, $discovery_context );
+?>
+	<div id="retraceur-discovery"></div>
 	<span class="spinner"></span>
 </div>
 

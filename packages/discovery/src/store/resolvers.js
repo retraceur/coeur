@@ -15,7 +15,7 @@ export const getRepositories = () => async ( { dispatch } ) => {
 	try {
 		dispatch( fetchRepositories() );
 		const repositories = await apiFetch( {
-			path: 'wp/v2/discover/blocks',
+			path: '/wp/v2/discover/blocks',
 		} );
 
 		dispatch( receiveRepositories( repositories ) );
