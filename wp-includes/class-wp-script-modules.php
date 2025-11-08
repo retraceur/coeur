@@ -30,7 +30,7 @@ class WP_Script_Modules {
 	 * @since WP 6.9.0
 	 * @var string[]
 	 */
-	public $queue = array();
+	private $queue = array();
 
 	/**
 	 * Tracks whether the @wordpress/a11y script module is available.
@@ -140,6 +140,17 @@ class WP_Script_Modules {
 	}
 
 	/**
+	 * Gets IDs for queued script modules.
+	 *
+	 * @since WP 6.9.0
+	 *
+	 * @return string[] Script module IDs.
+	 */
+	public function get_queue(): array {
+		return $this->queue;
+	}
+
+	/**
 	 * Checks if the provided fetchpriority is valid.
 	 *
 	 * @since WP 6.9.0
@@ -239,7 +250,7 @@ class WP_Script_Modules {
 	 * @param string $id The identifier of the script module.
 	 */
 	public function dequeue( string $id ) {
-		$this->queue = array_diff( $this->queue, array( $id ) );
+		$this->queue = array_values( array_diff( $this->queue, array( $id ) ) );
 	}
 
 	/**
