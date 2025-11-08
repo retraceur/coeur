@@ -531,6 +531,7 @@ function set_screen_options() {
 		case 'upload_per_page':
 		case 'edit_tags_per_page':
 		case 'plugins_per_page':
+		case 'blocks_per_page':
 		case 'export_personal_data_requests_per_page':
 		case 'remove_personal_data_requests_per_page':
 			// Network admin.
