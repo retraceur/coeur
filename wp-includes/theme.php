@@ -1460,7 +1460,6 @@ function header_image() {
 function get_uploaded_header_images() {
 	$header_images = array();
 
-	// @todo Caching.
 	$headers = get_posts(
 		array(
 			'post_type'  => 'attachment',
