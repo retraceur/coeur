@@ -2,9 +2,10 @@
 /**
  * Aria label block support flag.
  *
- * @package Retraceur
  * @since WP 6.8.0
  * @since 2.0.0 Retraceur fork.
+ *
+ * @package Retraceur
  */
 
 /**
