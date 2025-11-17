@@ -22,3 +22,35 @@ export function receiveRepositories( repositories ) {
 		repositories,
 	};
 }
+
+/**
+ * Returns an action object used in signalling that releases
+ * for a repository have been requested and are loading.
+ *
+ * @param {String} repository The repository full name.
+ *
+ * @return {Object} Action object.
+ */
+export function fetchReleases( repository ) {
+	return {
+		type: 'FETCH_RELEASES',
+		repository
+	};
+}
+
+/**
+ * Returns an action object used in signalling that releases
+ * for a repository have been fetched.
+ *
+ * @param {Array} releases Releases.
+ * @param {String} repository The repository full name.
+ *
+ * @return {Object} Action object.
+ */
+export function receiveReleases( releases, repository ) {
+	return {
+		type: 'RECEIVE_RELEASES',
+		releases,
+		repository,
+	};
+}

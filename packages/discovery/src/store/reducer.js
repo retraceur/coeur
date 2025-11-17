@@ -19,6 +19,23 @@ const reducer = ( state = {}, action ) => {
 				results: action.repositories,
 				isRequesting: false,
 			};
+		case 'FETCH_RELEASES':
+			return {
+				...state,
+				isRequesting: true,
+			};
+		case 'RECEIVE_RELEASES':
+			const repository = state.results.find( ( repository ) => repository.full_name === action.repository );
+			repository.releases = action.releases;
+
+			return {
+				...state,
+				results: [
+					...state.results,
+					repository,
+				],
+				isRequesting: false,
+			};
 	}
 	return state;
 };

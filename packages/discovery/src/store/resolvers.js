@@ -9,6 +9,8 @@ import apiFetch from '@wordpress/api-fetch';
 import {
 	fetchRepositories,
 	receiveRepositories,
+	fetchReleases,
+	receiveReleases,
 } from './actions';
 
 export const getRepositories = () => async ( { dispatch } ) => {
@@ -19,5 +21,20 @@ export const getRepositories = () => async ( { dispatch } ) => {
 		} );
 
 		dispatch( receiveRepositories( repositories ) );
+	} catch {}
+};
+
+export const getReleases = ( repository ) => async ( { dispatch } ) => {
+	if ( ! repository ) {
+		return;
+	}
+
+	try {
+		dispatch( fetchReleases( repository ) );
+		const releases = await apiFetch( {
+			path: `/wp/v2/discover/releases?repository=${ repository }`,
+		} );
+
+		dispatch( receiveReleases( releases, repository ) );
 	} catch {}
 };
