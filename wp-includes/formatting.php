@@ -448,7 +448,7 @@ function _wptexturize_pushpop_element( $text, &$stack, $disabled_elements ) {
 function wpautop( $text, $br = true ) {
 	$pre_tags = array();
 
-	if ( trim( $text ) === '' ) {
+	if ( '' === trim( $text ) ) {
 		return '';
 	}
 
@@ -1183,7 +1183,7 @@ function utf8_uri_encode( $utf8_string, $length = 0, $encode_ascii_characters = 
 			$unicode        .= $encoded_char;
 			$unicode_length += $encoded_char_length;
 		} else {
-			if ( count( $values ) === 0 ) {
+			if ( 0 === count( $values ) ) {
 				if ( $value < 224 ) {
 					$num_octets = 2;
 				} elseif ( $value < 240 ) {
@@ -2560,7 +2560,7 @@ function convert_invalid_entities( $content ) {
  * @return string Balanced text.
  */
 function balanceTags( $text, $force = false ) {  // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid
-	if ( $force || (int) get_option( 'use_balanceTags' ) === 1 ) {
+	if ( $force || 1 === (int) get_option( 'use_balanceTags' ) ) {
 		return force_balance_tags( $text );
 	} else {
 		return $text;
@@ -3001,7 +3001,7 @@ function _make_web_ftp_clickable_cb( $matches ) {
 
 	// Removed trailing [.,;:)] from URL.
 	$last_char = substr( $dest, -1 );
-	if ( in_array( $last_char, array( '.', ',', ';', ':', ')' ), true ) === true ) {
+	if ( in_array( $last_char, array( '.', ',', ';', ':', ')' ), true ) ) {
 		$ret  = $last_char;
 		$dest = substr( $dest, 0, strlen( $dest ) - 1 );
 	}
@@ -3323,7 +3323,7 @@ function wp_targeted_link_rel( $text ) {
 	_deprecated_function( __FUNCTION__, '6.7.0' );
 
 	// Don't run (more expensive) regex if no links with targets.
-	if ( stripos( $text, 'target' ) === false || stripos( $text, '<a ' ) === false || is_serialized( $text ) ) {
+	if ( false === stripos( $text, 'target' ) || false === stripos( $text, '<a ' ) || is_serialized( $text ) ) {
 		return $text;
 	}
 
@@ -3443,7 +3443,7 @@ function wp_remove_targeted_link_rel_filters() {
 function translate_smiley( $matches ) {
 	global $wpsmiliestrans;
 
-	if ( count( $matches ) === 0 ) {
+	if ( 0 === count( $matches ) ) {
 		return '';
 	}
 
@@ -3569,7 +3569,7 @@ function is_email( $email, $deprecated = false ) {
 	}
 
 	// Test for an @ character after the first position.
-	if ( strpos( $email, '@', 1 ) === false ) {
+	if ( false === strpos( $email, '@', 1 ) ) {
 		/** This filter is documented in wp-includes/formatting.php */
 		return apply_filters( 'is_email', false, $email, 'email_no_at' );
 	}
@@ -3783,7 +3783,7 @@ function sanitize_email( $email ) {
 	}
 
 	// Test for an @ character after the first position.
-	if ( strpos( $email, '@', 1 ) === false ) {
+	if ( false === strpos( $email, '@', 1 ) ) {
 		/** This filter is documented in wp-includes/formatting.php */
 		return apply_filters( 'sanitize_email', '', $email, 'email_no_at' );
 	}
@@ -5293,7 +5293,7 @@ function wp_sprintf_l( $pattern, $args ) {
 
 	$args   = (array) $args;
 	$result = array_shift( $args );
-	if ( count( $args ) === 1 ) {
+	if ( 1 === count( $args ) ) {
 		$result .= $l['between_only_two'] . array_shift( $args );
 	}
 
