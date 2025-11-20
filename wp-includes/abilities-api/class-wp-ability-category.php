@@ -77,7 +77,7 @@ final class WP_Ability_Category {
 	public function __construct( string $slug, array $args ) {
 		if ( empty( $slug ) ) {
 			throw new InvalidArgumentException(
-				esc_html__( 'The ability category slug cannot be empty.' )
+				__( 'The ability category slug cannot be empty.' )
 			);
 		}
 
@@ -213,6 +213,6 @@ final class WP_Ability_Category {
 	 *                        This is a security hardening measure to prevent serialization of the ability category.
 	 */
 	public function __sleep(): array {
-		throw new LogicException( __CLASS__ . ' should never be serialized' );
+		throw new LogicException( __CLASS__ . ' should never be serialized.' );
 	}
 }
