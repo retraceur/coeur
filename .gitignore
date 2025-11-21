@@ -43,3 +43,6 @@ wp-config.php
 /wp-content/themes/twentytwentyone
 /wp-content/themes/twentytwentythree
 /wp-content/themes/twentytwentytwo
+
+# Editor settings
+.zed
