@@ -5655,7 +5655,7 @@ function sanitize_mime_type( $mime_type ) {
  */
 function wp_slash( $value ) {
 	if ( is_array( $value ) ) {
-		$value = array_map( 'wp_slash', $value );
+		return array_map( 'wp_slash', $value );
 	}
 
 	if ( is_string( $value ) ) {

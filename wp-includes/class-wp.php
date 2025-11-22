@@ -564,6 +564,9 @@ class WP {
 		/**
 		 * Fires once the requested HTTP headers for caching, content type, etc. have been sent.
 		 *
+		 * The {@see 'wp_send_late_headers'} action may be used to send headers after rendering the template into an
+		 * output buffer.
+		 *
 		 * @since WP 2.1.0
 		 *
 		 * @param WP $wp Current Retraceur environment instance (passed by reference).
