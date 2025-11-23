@@ -78,9 +78,9 @@ class WP_REST_Response extends WP_HTTP_Response {
 	 *
 	 * @since WP 4.4.0
 	 *
-	 * @param string $rel  Link relation. Either an IANA registered type, or an absolute URL.
-	 * @param string $href Optional. Only remove links for the relation matching the given href.
-	 *                     Default null.
+	 * @param string      $rel  Link relation. Either an IANA registered type, or an absolute URL.
+	 * @param string|null $href Optional. Only remove links for the relation matching the given href.
+	 *                          Default null.
 	 */
 	public function remove_link( $rel, $href = null ) {
 		if ( ! isset( $this->links[ $rel ] ) ) {
