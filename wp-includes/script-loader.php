@@ -3035,9 +3035,12 @@ function wp_enqueue_command_palette_assets() {
 			}
 
 			// Remove all HTML tags and their contents.
-			$menu_label = $menu_item[0];
-			while ( preg_match( '/<[^>]*>/', $menu_label ) ) {
-				$menu_label = preg_replace( '/<[^>]*>.*?<\/[^>]*>|<[^>]*\/>|<[^>]*>/s', '', $menu_label );
+			$processor  = new WP_HTML_Tag_Processor( $menu_item[0] );
+			$menu_label = '';
+			while ( $processor->next_token() ) {
+				if ( '#text' === $processor->get_token_name() ) {
+					$menu_label .= $processor->get_modifiable_text();
+				}
 			}
 			$menu_label = trim( $menu_label );
 			$menu_url   = '';
@@ -3046,7 +3049,7 @@ function wp_enqueue_command_palette_assets() {
 			if ( preg_match( '/\.php($|\?)/', $menu_slug ) || wp_http_validate_url( $menu_slug ) ) {
 				$menu_url = $menu_slug;
 			} elseif ( ! empty( menu_page_url( $menu_slug, false ) ) ) {
-				$menu_url = menu_page_url( $menu_slug, false );
+				$menu_url = html_entity_decode( menu_page_url( $menu_slug, false ), ENT_QUOTES, get_bloginfo( 'charset' ) );
 			}
 
 			if ( $menu_url ) {
@@ -3064,9 +3067,12 @@ function wp_enqueue_command_palette_assets() {
 					}
 
 					// Remove all HTML tags and their contents.
-					$submenu_label = $submenu_item[0];
-					while ( preg_match( '/<[^>]*>/', $submenu_label ) ) {
-						$submenu_label = preg_replace( '/<[^>]*>.*?<\/[^>]*>|<[^>]*\/>|<[^>]*>/s', '', $submenu_label );
+					$processor     = new WP_HTML_Tag_Processor( $submenu_item[0] );
+					$submenu_label = '';
+					while ( $processor->next_token() ) {
+						if ( '#text' === $processor->get_token_name() ) {
+							$submenu_label .= $processor->get_modifiable_text();
+						}
 					}
 					$submenu_label = trim( $submenu_label );
 					$submenu_url   = '';
@@ -3075,7 +3081,7 @@ function wp_enqueue_command_palette_assets() {
 					if ( preg_match( '/\.php($|\?)/', $submenu_slug ) || wp_http_validate_url( $submenu_slug ) ) {
 						$submenu_url = $submenu_slug;
 					} elseif ( ! empty( menu_page_url( $submenu_slug, false ) ) ) {
-						$submenu_url = menu_page_url( $submenu_slug, false );
+						$submenu_url = html_entity_decode( menu_page_url( $submenu_slug, false ), ENT_QUOTES, get_bloginfo( 'charset' ) );
 					}
 
 					if ( $submenu_url ) {
@@ -3170,8 +3176,11 @@ function wp_remove_surrounding_empty_script_tags( $contents ) {
  * Adds hooks to load block styles on demand in classic themes.
  *
  * @since WP 6.9.0
+ *
+ * @see _add_default_theme_supports()
  */
 function wp_load_classic_theme_block_styles_on_demand() {
+	// This is not relevant to block themes, as they are opted in to loading separate styles on demand via _add_default_theme_supports().
 	if ( wp_is_block_theme() ) {
 		return;
 	}
@@ -3183,25 +3192,29 @@ function wp_load_classic_theme_block_styles_on_demand() {
 	 */
 	add_filter( 'wp_should_output_buffer_template_for_enhancement', '__return_true', 0 );
 
+	// If a site has opted out of the template enhancement output buffer, then bail.
 	if ( ! wp_should_output_buffer_template_for_enhancement() ) {
 		return;
 	}
 
-	/*
-	 * If the theme supports block styles, add filters to ensure they are loaded separately and on demand. Without this,
-	 * if a theme does not want or support block styles, then enabling these filters can result in undesired separate
-	 * block-specific styles being enqueued, though a theme may also be trying to nullify the wp-block-library
-	 * stylesheet.
-	 */
-	if ( current_theme_supports( 'wp-block-styles' ) ) {
-		/*
-		 * Load separate block styles so that the large block-library stylesheet is not enqueued unconditionally,
-		 * and so that block-specific styles will only be enqueued when they are used on the page.
-		 */
-		add_filter( 'should_load_separate_core_block_assets', '__return_true', 0 );
+	// The following two filters are added by default for block themes in _add_default_theme_supports().
 
-		// Also ensure that block assets are loaded on demand (although the default value is from should_load_separate_core_block_assets).
-		add_filter( 'should_load_block_assets_on_demand', '__return_true', 0 );
+	/*
+	 * Load separate block styles so that the large block-library stylesheet is not enqueued unconditionally,
+	 * and so that block-specific styles will only be enqueued when they are used on the page.
+	 * A priority of zero allows for this to be easily overridden by themes which wish to opt out.
+	 */
+	add_filter( 'should_load_separate_core_block_assets', '__return_true', 0 );
+
+	/*
+	 * Also ensure that block assets are loaded on demand (although the default value is from should_load_separate_core_block_assets).
+	 * As above, a priority of zero allows for this to be easily overridden by themes which wish to opt out.
+	 */
+	add_filter( 'should_load_block_assets_on_demand', '__return_true', 0 );
+
+	// If a site has explicitly opted out of loading block styles on demand via filters with priorities higher than above, then abort.
+	if ( ! wp_should_load_separate_core_block_assets() || ! wp_should_load_block_assets_on_demand() ) {
+		return;
 	}
 
 	// Add hooks which require the presence of the output buffer. Ideally the above two filters could be added here, but they run too early.
