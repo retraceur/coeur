@@ -5272,6 +5272,12 @@ function wp_send_user_request( $request_id ) {
 		$switched_locale = switch_to_locale( get_locale() );
 	}
 
+	/*
+	 * Generate the new user request key first, as it is used by both the $request
+	 * object and the confirm_url array.
+	 */
+	$request->confirm_key = wp_generate_user_request_key( $request_id );
+
 	$email_data = array(
 		'request'     => $request,
 		'email'       => $request->email,
@@ -5280,7 +5286,7 @@ function wp_send_user_request( $request_id ) {
 			array(
 				'action'      => 'confirmaction',
 				'request_id'  => $request_id,
-				'confirm_key' => wp_generate_user_request_key( $request_id ),
+				'confirm_key' => $request->confirm_key,
 			),
 			wp_login_url()
 		),

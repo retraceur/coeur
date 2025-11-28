@@ -79,17 +79,17 @@ function redirect_canonical( $requested_url = null, $do_redirect = true ) {
 		return;
 	}
 
+	// Notice fixing.
+	$original += array(
+		'host'   => '',
+		'path'   => '',
+		'query'  => '',
+		'scheme' => '',
+	);
+
 	$redirect     = $original;
 	$redirect_url = false;
 	$redirect_obj = false;
-
-	// Notice fixing.
-	if ( ! isset( $redirect['path'] ) ) {
-		$redirect['path'] = '';
-	}
-	if ( ! isset( $redirect['query'] ) ) {
-		$redirect['query'] = '';
-	}
 
 	/*
 	 * If the original URL ended with non-breaking spaces, they were almost
@@ -578,12 +578,12 @@ function redirect_canonical( $requested_url = null, $do_redirect = true ) {
 	}
 
 	// Notice prevention after new parse_url( $redirect_url ) calls
-	if ( ! isset( $redirect['path'] ) ) {
-		$redirect['path'] = '';
-	}
-	if ( ! isset( $redirect['query'] ) ) {
-		$redirect['query'] = '';
-	}
+	$redirect += array(
+		'host'   => '',
+		'path'   => '',
+		'query'  => '',
+		'scheme' => '',
+	);
 
 	// Trailing /index.php.
 	$redirect['path'] = preg_replace( '|/' . preg_quote( $wp_rewrite->index, '|' ) . '/*?$|', '/', $redirect['path'] );
