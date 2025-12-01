@@ -438,7 +438,7 @@ class wpdb {
 	 *
 	 * @since WP 3.0.0
 	 *
-	 * @var string
+	 * @var string|null
 	 */
 	public $blogs;
 
@@ -447,7 +447,7 @@ class wpdb {
 	 *
 	 * @since WP 5.1.0
 	 *
-	 * @var string
+	 * @var string|null
 	 */
 	public $blogmeta;
 
@@ -456,7 +456,7 @@ class wpdb {
 	 *
 	 * @since WP 3.0.0
 	 *
-	 * @var string
+	 * @var string|null
 	 */
 	public $registration_log;
 
@@ -465,7 +465,7 @@ class wpdb {
 	 *
 	 * @since WP 3.0.0
 	 *
-	 * @var string
+	 * @var string|null
 	 */
 	public $signups;
 
@@ -474,7 +474,7 @@ class wpdb {
 	 *
 	 * @since WP 3.0.0
 	 *
-	 * @var string
+	 * @var string|null
 	 */
 	public $site;
 
@@ -483,7 +483,7 @@ class wpdb {
 	 *
 	 * @since WP 3.0.0
 	 *
-	 * @var string
+	 * @var string|null
 	 */
 	public $sitecategories;
 
@@ -492,7 +492,7 @@ class wpdb {
 	 *
 	 * @since WP 3.0.0
 	 *
-	 * @var string
+	 * @var string|null
 	 */
 	public $sitemeta;
 
