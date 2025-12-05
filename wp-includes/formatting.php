@@ -4589,6 +4589,8 @@ function esc_url( $url, $protocols = null, $_context = 'display' ) {
  *
  * @since WP 2.8.0
  * @since WP 6.1.0 Turned into an alias for sanitize_url().
+ * @since WP 6.9.0 Prepends `https://` to the URL if it does not already contain a scheme
+ *              and the first item in `$protocols` is 'https'.
  *
  * @see sanitize_url()
  *
@@ -4607,6 +4609,8 @@ function esc_url_raw( $url, $protocols = null ) {
  * @since WP 2.3.1
  * @since WP 2.8.0 Deprecated in favor of esc_url_raw().
  * @since WP 5.9.0 Restored (un-deprecated).
+ * @since WP 6.9.0 Prepends `https://` to the URL if it does not already contain a scheme
+ *              and the first item in `$protocols` is 'https'.
  *
  * @see esc_url()
  *
