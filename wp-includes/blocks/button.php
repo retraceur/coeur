@@ -12,9 +12,8 @@
  *
  * @since WP 6.6.0
  *
- * @param array    $attributes The block attributes.
- * @param string   $content    The block content.
- * @param WP_Block $block      The block object.
+ * @param array  $attributes The block attributes.
+ * @param string $content    The block content.
  *
  * @return string The block content.
  */
