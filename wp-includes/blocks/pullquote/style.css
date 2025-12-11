@@ -7,7 +7,6 @@
 }
 
 .wp-block-pullquote blockquote,
-.wp-block-pullquote cite,
 .wp-block-pullquote p {
 	color: inherit
 }
@@ -71,7 +70,7 @@
 	text-transform: none
 }
 
-.wp-block-pullquote cite {
+.wp-block-pullquote :where(cite) {
 	color: inherit;
 	display: block
 }

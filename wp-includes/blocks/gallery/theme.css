@@ -1,8 +1,9 @@
-.blocks-gallery-caption{
-  color:#555;
-  font-size:13px;
-  text-align:center;
+.blocks-gallery-caption {
+	color: #555;
+	font-size: 13px;
+	text-align: center
 }
-.is-dark-theme .blocks-gallery-caption{
-  color:#ffffffa6;
+
+.is-dark-theme .blocks-gallery-caption {
+	color: #ffffffa6
 }
