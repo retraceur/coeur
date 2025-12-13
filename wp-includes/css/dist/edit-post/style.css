@@ -127,7 +127,9 @@
 
 .edit-post-fullscreen-mode-close-site-icon__icon {
 	fill: currentColor;
+	height: 100%;
 	padding: 12px;
+	width: 100%
 }
 
 .edit-post-fullscreen-mode-close-site-icon__image {
