@@ -79,13 +79,13 @@
 		},
 		"sizeSlug": {
 			"type": "string"
- 		},
+		},
 		"poster": {
 			"type": "string",
 			"source": "attribute",
 			"selector": "video",
 			"attribute": "poster"
- 		}
+		}
 	},
 	"usesContext": [ "postId", "postType" ],
 	"supports": {

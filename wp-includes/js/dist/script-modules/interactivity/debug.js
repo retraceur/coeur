@@ -69,6 +69,7 @@ const resetNamespace = () => {
 ;// ./node_modules/@wordpress/interactivity/build-module/scopes.js
 
 
+
 const scopeStack = [];
 const getScope = () => scopeStack.slice(-1)[0];
 const setScope = (scope) => {
@@ -108,6 +109,7 @@ const getElement = () => {
     attributes: deepReadOnly(attributes, deepReadOnlyOptions)
   });
 };
+const navigationContextSignal = signals_core_module_d(0);
 function getServerContext(namespace) {
   const scope = getScope();
   if (true) {
@@ -115,8 +117,8 @@ function getServerContext(namespace) {
       throwNotInScope("getServerContext");
     }
   }
-  getServerContext.subscribe = navigationSignal.value;
-  return scope.serverContext[namespace || getNamespace()];
+  getServerContext.subscribe = navigationContextSignal.value;
+  return deepClone(scope.serverContext[namespace || getNamespace()]);
 }
 getServerContext.subscribe = 0;
 
@@ -323,6 +325,20 @@ function deepReadOnly(obj, options) {
   return readOnlyMap.get(obj);
 }
 const navigationSignal = signals_core_module_d(0);
+function deepClone(source) {
+  if (isPlainObject(source)) {
+    return Object.fromEntries(
+      Object.entries(source).map(([key, value]) => [
+        key,
+        deepClone(value)
+      ])
+    );
+  }
+  if (Array.isArray(source)) {
+    return source.map((i) => deepClone(i));
+  }
+  return source;
+}
 
 
 ;// ./node_modules/@wordpress/interactivity/build-module/proxies/registry.js
@@ -768,10 +784,10 @@ const getConfig = (namespace) => storeConfigs.get(namespace || getNamespace()) |
 function getServerState(namespace) {
   const ns = namespace || getNamespace();
   if (!serverStates.has(ns)) {
-    serverStates.set(ns, deepReadOnly({}));
+    serverStates.set(ns, {});
   }
   getServerState.subscribe = navigationSignal.value;
-  return serverStates.get(ns);
+  return deepClone(serverStates.get(ns));
 }
 getServerState.subscribe = 0;
 const universalUnlock = "I acknowledge that using a private store means my plugin will inevitably break on the next store release.";
@@ -835,7 +851,7 @@ const populateServerData = (data2) => {
     Object.entries(data2.state).forEach(([namespace, state]) => {
       const st = store(namespace, {}, { lock: universalUnlock });
       deepMerge(st.state, state, false);
-      serverStates.set(namespace, deepReadOnly(state));
+      serverStates.set(namespace, state);
     });
   }
   if (isPlainObject(data2?.config)) {
@@ -869,7 +885,6 @@ const populateServerData = (data2) => {
       }
     );
   }
-  navigationSignal.value += 1;
 };
 const data = parseServerData();
 populateServerData(data);
@@ -938,7 +953,7 @@ const getEvaluate = ({ scope }) => (
     if (typeof value === "function") {
       if (hasNegationOperator) {
         warn(
-          "Using a function with a negation operator is deprecated and will stop working in WP 6.9. Please use derived state instead."
+          "Using a function with a negation operator is deprecated and will stop working in WordPress 6.9. Please use derived state instead."
         );
         const functionResult = !value(...args);
         resetScope();
@@ -1052,7 +1067,7 @@ preact_module/* options */.fF.vnode = (vnode) => {
 const warnUniqueIdWithTwoHyphens = (prefix, suffix, uniqueId) => {
   if (true) {
     warn(
-      `The usage of data-wp-${prefix}--${suffix}${uniqueId ? `--${uniqueId}` : ""} (two hyphens for unique ID) is deprecated and will stop working in WP 7.0. Please use data-wp-${prefix}${uniqueId ? `--${suffix}---${uniqueId}` : `---${suffix}`} (three hyphens for unique ID) from now on.`
+      `The usage of data-wp-${prefix}--${suffix}${uniqueId ? `--${uniqueId}` : ""} (two hyphens for unique ID) is deprecated and will stop working in WordPress 7.0. Please use data-wp-${prefix}${uniqueId ? `--${suffix}---${uniqueId}` : `---${suffix}`} (three hyphens for unique ID) from now on.`
     );
   }
 };
@@ -1066,24 +1081,10 @@ const warnUniqueIdNotSupported = (prefix, uniqueId) => {
 const warnWithSyncEvent = (wrongPrefix, rightPrefix) => {
   if (true) {
     warn(
-      `The usage of data-wp-${wrongPrefix} is deprecated and will stop working in WP 7.0. Please, use data-wp-${rightPrefix} with the withSyncEvent() helper from now on.`
+      `The usage of data-wp-${wrongPrefix} is deprecated and will stop working in WordPress 7.0. Please, use data-wp-${rightPrefix} with the withSyncEvent() helper from now on.`
     );
   }
 };
-function deepClone(source) {
-  if (isPlainObject(source)) {
-    return Object.fromEntries(
-      Object.entries(source).map(([key, value]) => [
-        key,
-        deepClone(value)
-      ])
-    );
-  }
-  if (Array.isArray(source)) {
-    return source.map((i) => deepClone(i));
-  }
-  return source;
-}
 function wrapEventAsync(event) {
   const handler = {
     get(target, prop, receiver) {
@@ -1092,7 +1093,7 @@ function wrapEventAsync(event) {
         case "currentTarget":
           if (true) {
             warn(
-              `Accessing the synchronous event.${prop} property in a store action without wrapping it in withSyncEvent() is deprecated and will stop working in WP 7.0. Please wrap the store action in withSyncEvent().`
+              `Accessing the synchronous event.${prop} property in a store action without wrapping it in withSyncEvent() is deprecated and will stop working in WordPress 7.0. Please wrap the store action in withSyncEvent().`
             );
           }
           break;
@@ -1101,7 +1102,7 @@ function wrapEventAsync(event) {
         case "stopPropagation":
           if (true) {
             warn(
-              `Using the synchronous event.${prop}() function in a store action without wrapping it in withSyncEvent() is deprecated and will stop working in WP 7.0. Please wrap the store action in withSyncEvent().`
+              `Using the synchronous event.${prop}() function in a store action without wrapping it in withSyncEvent() is deprecated and will stop working in WordPress 7.0. Please wrap the store action in withSyncEvent().`
             );
           }
           break;
@@ -1279,7 +1280,7 @@ var directives_default = () => {
           deepClone(value),
           false
         );
-        server[namespace] = deepReadOnly(value);
+        server[namespace] = value;
         namespaces.add(namespace);
       });
       namespaces.forEach((namespace) => {
@@ -1704,6 +1705,11 @@ var directives_default = () => {
         routerRegions.set(regionId, signals_core_module_d());
       }
       const vdom = routerRegions.get(regionId).value;
+      _(() => {
+        if (vdom && typeof vdom.type !== "string") {
+          navigationContextSignal.value = navigationContextSignal.peek() + 1;
+        }
+      }, [vdom]);
       if (vdom && typeof vdom.type !== "string") {
         const previousScope = getScope();
         return (0,preact_module/* cloneElement */.Ob)(vdom, { previousScope });
@@ -1949,7 +1955,7 @@ const init = async () => {
 
 
 
-const requiredConsent = "I acknowledge that using private APIs means my theme or plugin will inevitably break in the next version of WP.";
+const requiredConsent = "I acknowledge that using private APIs means my theme or plugin will inevitably break in the next version of WordPress.";
 const privateApis = (lock) => {
   if (lock === requiredConsent) {
     return {
@@ -1983,7 +1989,7 @@ init();
 /************************************************************************/
 /******/ // The module cache
 /******/ var __webpack_module_cache__ = {};
-/******/
+/******/ 
 /******/ // The require function
 /******/ function __webpack_require__(moduleId) {
 /******/ 	// Check if module is in cache
@@ -1997,14 +2003,14 @@ init();
 /******/ 		// no module.loaded needed
 /******/ 		exports: {}
 /******/ 	};
-/******/
+/******/ 
 /******/ 	// Execute the module function
 /******/ 	__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/
+/******/ 
 /******/ 	// Return the exports of the module
 /******/ 	return module.exports;
 /******/ }
-/******/
+/******/ 
 /************************************************************************/
 /******/ /* webpack/runtime/define property getters */
 /******/ (() => {
@@ -2017,12 +2023,12 @@ init();
 /******/ 		}
 /******/ 	};
 /******/ })();
-/******/
+/******/ 
 /******/ /* webpack/runtime/hasOwnProperty shorthand */
 /******/ (() => {
 /******/ 	__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ })();
-/******/
+/******/ 
 /************************************************************************/
 var __webpack_exports__ = {};
 
