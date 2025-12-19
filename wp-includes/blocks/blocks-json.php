@@ -7,7 +7,7 @@
     'category' => 'design',
     'description' => 'Displays a foldable layout that groups content in collapsible sections.',
     'example' => array(
-      
+
     ),
     'supports' => array(
       'anchor' => true,
@@ -583,7 +583,7 @@
       'content' => array(
         'type' => 'object',
         'default' => array(
-          
+
         )
       )
     ),
@@ -1776,7 +1776,7 @@
       'images' => array(
         'type' => 'array',
         'default' => array(
-          
+
         ),
         'source' => 'query',
         'selector' => '.blocks-gallery-item',
@@ -1825,7 +1825,7 @@
           'type' => 'number'
         ),
         'default' => array(
-          
+
         )
       ),
       'shortCodeTransforms' => array(
@@ -1834,7 +1834,7 @@
           'type' => 'object'
         ),
         'default' => array(
-          
+
         )
       ),
       'columns' => array(
@@ -2784,35 +2784,6 @@
       )
     ),
     'style' => 'wp-block-loginout'
-  ),
-  'math' => array(
-    '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
-    'apiVersion' => 3,
-    'name' => 'core/math',
-    'title' => 'Math',
-    'category' => 'text',
-    'description' => 'Display mathematical notation using LaTeX.',
-    'keywords' => array(
-      'equation',
-      'formula',
-      'latex',
-      'mathematics'
-    ),
-    'textdomain' => 'default',
-    'supports' => array(
-      'html' => false
-    ),
-    'attributes' => array(
-      'latex' => array(
-        'type' => 'string',
-        'role' => 'content'
-      ),
-      'mathML' => array(
-        'type' => 'string',
-        'source' => 'html',
-        'selector' => 'math'
-      )
-    )
   ),
   'media-text' => array(
     '$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
@@ -4976,16 +4947,16 @@
           'author' => '',
           'search' => '',
           'exclude' => array(
-            
+
           ),
           'sticky' => '',
           'inherit' => true,
           'taxQuery' => null,
           'parents' => array(
-            
+
           ),
           'format' => array(
-            
+
           )
         )
       ),
@@ -5757,7 +5728,7 @@
       'query' => array(
         'type' => 'object',
         'default' => array(
-          
+
         )
       ),
       'isSearchFieldHidden' => array(
@@ -6400,7 +6371,7 @@
       'head' => array(
         'type' => 'array',
         'default' => array(
-          
+
         ),
         'source' => 'query',
         'selector' => 'thead tr',
@@ -6408,7 +6379,7 @@
           'cells' => array(
             'type' => 'array',
             'default' => array(
-              
+
             ),
             'source' => 'query',
             'selector' => 'td,th',
@@ -6450,7 +6421,7 @@
       'body' => array(
         'type' => 'array',
         'default' => array(
-          
+
         ),
         'source' => 'query',
         'selector' => 'tbody tr',
@@ -6458,7 +6429,7 @@
           'cells' => array(
             'type' => 'array',
             'default' => array(
-              
+
             ),
             'source' => 'query',
             'selector' => 'td,th',
@@ -6500,7 +6471,7 @@
       'foot' => array(
         'type' => 'array',
         'default' => array(
-          
+
         ),
         'source' => 'query',
         'selector' => 'tfoot tr',
@@ -6508,7 +6479,7 @@
           'cells' => array(
             'type' => 'array',
             'default' => array(
-              
+
             ),
             'source' => 'query',
             'selector' => 'td,th',
@@ -7021,7 +6992,7 @@
           'order' => 'asc',
           'orderBy' => 'name',
           'include' => array(
-            
+
           ),
           'hideEmpty' => true,
           'showNested' => false,
@@ -7071,10 +7042,10 @@
         ),
         'default' => array(
           array(
-            
+
           ),
           array(
-            
+
           )
         )
       ),
@@ -7261,7 +7232,7 @@
           'type' => 'object'
         ),
         'default' => array(
-          
+
         )
       )
     ),

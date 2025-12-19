@@ -16,7 +16,6 @@ return array(
 	'group',
 	'html',
 	'list-item',
-	'math',
 	'missing',
 	'more',
 	'nextpage',
