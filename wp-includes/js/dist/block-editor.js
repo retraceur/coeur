@@ -10837,9 +10837,6 @@ var wp;
     if (sourceFilter === INSERTER_PATTERN_TYPES.theme && isUserPattern) {
       return true;
     }
-    if (sourceFilter === INSERTER_PATTERN_TYPES.directory && isUserPattern) {
-      return true;
-    }
     if (sourceFilter === INSERTER_PATTERN_TYPES.user && pattern.type !== INSERTER_PATTERN_TYPES.user) {
       return true;
     }
@@ -26057,7 +26054,7 @@ var wp;
             [
               {
                 css: `
-										body { 
+										body {
 											padding: 24px;
 											min-height:${Math.round(minHeight)}px;
 											display:flex;
