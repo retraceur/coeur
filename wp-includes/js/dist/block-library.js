@@ -24579,6 +24579,7 @@ ${url}
             orderby: orderBy,
             per_page: postsToShow,
             _embed: "author,wp:featuredmedia",
+						format: 'standard',
             ignore_sticky: true
           }).filter(([, value]) => typeof value !== "undefined")
         );
