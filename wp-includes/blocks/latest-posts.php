@@ -48,6 +48,7 @@ function render_block_core_latest_posts( $attributes ) {
 	$args = array(
 		'posts_per_page'      => $attributes['postsToShow'],
 		'post_status'         => 'publish',
+		'post_format'         => 'post-format-standard',
 		'order'               => $attributes['order'],
 		'orderby'             => $attributes['orderBy'],
 		'ignore_sticky_posts' => true,

@@ -3425,6 +3425,22 @@ p.has-text-align-right[style*="writing-mode:vertical-rl"] {
 	width: 100%
 }
 
+.wp-block-post-format-name {
+	box-sizing: border-box;
+	word-break: break-word
+}
+
+.wp-block-post-format-name :where(a) {
+	display: inline-block;
+	font-family: inherit;
+	font-size: inherit;
+	font-style: inherit;
+	font-weight: inherit;
+	letter-spacing: inherit;
+	line-height: inherit;
+	text-decoration: inherit
+}
+
 .wp-block-post-navigation-link .wp-block-post-navigation-link__arrow-previous {
 	display: inline-block;
 	margin-right: 1ch

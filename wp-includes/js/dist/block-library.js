@@ -3268,7 +3268,7 @@ var wp;
           /* @__PURE__ */ (0, import_jsx_runtime142.jsx)(
             import_components5.__experimentalToolsPanelItem,
             {
-              label: (0, import_i18n8.__)("Link to user profile"),
+              label: (0, import_i18n8.__)("Link to contributor profile"),
               isShownByDefault: true,
               hasValue: () => attributes2?.isLink,
               onDeselect: () => setAttributes({ isLink: false }),
@@ -3276,7 +3276,7 @@ var wp;
                 import_components5.ToggleControl,
                 {
                   __nextHasNoMarginBottom: true,
-                  label: (0, import_i18n8.__)("Link to user profile"),
+                  label: (0, import_i18n8.__)("Link to contributor profile"),
                   onChange: () => setAttributes({ isLink: !attributes2.isLink }),
                   checked: attributes2.isLink
                 }
@@ -3773,8 +3773,8 @@ var wp;
       // By now we have the preview, but when the new block first renders, it
       // won't have had all the attributes set, and so won't get the correct
       // type and it won't render correctly. So, we pass through the current attributes
-      // here so that the initial render works when we switch to the WP
-      // block. This only affects the WP block because it can't be
+      // here so that the initial render works when we switch to the Retraceur
+      // block. This only affects the Retraceur block because it can't be
       // rendered in the usual Sandbox (it has a sandbox of its own) and it
       // relies on the preview to set the correct render type.
       ...attributesFromPreview
@@ -4015,7 +4015,7 @@ var wp;
       createErrorNotice(message, { type: "snackbar" });
     }
     function getAutoplayHelp(checked) {
-      return checked ? (0, import_i18n10.__)("Autoplay may cause usability issues for some users.") : null;
+      return checked ? (0, import_i18n10.__)("Autoplay may cause usability issues for some contributors.") : null;
     }
     function onSelectAudio(media) {
       if (!media || !media.url) {
@@ -24579,6 +24579,7 @@ ${url}
             orderby: orderBy,
             per_page: postsToShow,
             _embed: "author,wp:featuredmedia",
+            format: "standard",
             ignore_sticky: true
           }).filter(([, value]) => typeof value !== "undefined")
         );
@@ -33079,7 +33080,7 @@ ${url}
           attributes: {
             // translators: 'Home' as in a website's home page.
             label: (0, import_i18n100.__)("Home"),
-            url: "https://github.com/retraceur/"
+            url: "https://retraceur.github.io/"
           }
         },
         {
@@ -33087,7 +33088,7 @@ ${url}
           attributes: {
             // translators: 'About' as in a website's about page.
             label: (0, import_i18n100.__)("About"),
-            url: "https://github.com/retraceur/"
+            url: "https://retraceur.github.io/about/"
           }
         },
         {
@@ -33095,7 +33096,7 @@ ${url}
           attributes: {
             // translators: 'Contact' as in a website's contact page.
             label: (0, import_i18n100.__)("Contact"),
-            url: "https://github.com/retraceur/"
+            url: "https://retraceur.github.io/"
           }
         }
       ]
@@ -34976,6 +34977,9 @@ ${url}
       {
         per_page: MAX_PAGE_COUNT,
         _fields: ["id", "link", "menu_order", "parent", "title", "type"],
+        // TODO: When REST API support for multiple orderby
+        // values is resolved, update 'orderby' to [ 'menu_order', 'post_title' ] to provide a consistent
+        // sort.
         orderby: "menu_order",
         order: "asc"
       }
@@ -39272,7 +39276,7 @@ ${url}
     const blockEditingMode = (0, import_block_editor147.useBlockEditingMode)();
     let postFormatNameElement = /* @__PURE__ */ (0, import_jsx_runtime292.jsx)(TagName2, {
       ...blockProps,
-      // translators: 1: Post ID info.
+      // translators: %s: Post ID info.
       children: (0, import_i18n126.sprintf)((0, import_i18n126.__)("Post Format Name%s"), outputId ? " #ID" : "")
     });
     if (postFormat && postType && postId) {
@@ -48793,7 +48797,7 @@ ${url}
     const siteIconSettingsUrl = shouldUseNewUrl ? siteUrl + "/wp-admin/options-general.php" : siteUrl + "/wp-admin/customize.php?autofocus[section]=title_tagline";
     const syncSiteIconHelpText = (0, import_element93.createInterpolateElement)(
       (0, import_i18n178.__)(
-        "Site Icons are what you see in browser tabs, bookmark bars. To use a custom icon that is different from your site logo, use the <a>Site Icon settings</a>."
+        "Site Icons are what you see in browser tabs, bookmark bars, and within the WP mobile apps. To use a custom icon that is different from your site logo, use the <a>Site Icon settings</a>."
       ),
       {
         a: (
@@ -50529,7 +50533,9 @@ ${url}
       name: "skype",
       attributes: { service: "skype" },
       title: (0, import_i18n183._x)("Skype", "social link block variation name"),
-      icon: SkypeIcon
+      icon: SkypeIcon,
+      // Deprecated: Skype service is no longer available.
+      scope: []
     },
     {
       name: "snapchat",
@@ -59364,7 +59370,7 @@ ${url}
     (0, import_blocks98.setUnregisteredTypeHandlerName)(name35);
     (0, import_blocks98.setGroupingBlockName)(name25);
   };
-  var __experimentalRegisterExperimentalCoreBlocks = false ? ({ enableFSEBlocks } = {}) => {
+  var __experimentalRegisterExperimentalCoreBlocks = true ? ({ enableFSEBlocks } = {}) => {
     const enabledExperiments = [enableFSEBlocks ? "fse" : null];
     getAllBlocks().filter(
       ({ metadata }) => is_block_metadata_experimental_default(metadata)
