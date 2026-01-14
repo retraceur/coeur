@@ -6440,8 +6440,7 @@ var wp;
     if (settings.apiVersion <= 2) {
       (0, import_warning2.default)(
         `The block "${name}" is registered with API version 2 or lower. This means that the post editor may work as a non-iframe editor.
-Since all editors are planned to work as iframes in the future, set the \`apiVersion\` field to 3 and test the block inside the iframe editor.
-`
+Since all editors are planned to work as iframes in the future, set the \`apiVersion\` field to 3 and test the block inside the iframe editor.`
       );
     }
     if (settings.description && typeof settings.description !== "string") {

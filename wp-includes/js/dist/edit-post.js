@@ -1693,7 +1693,7 @@ var wp;
       import_components7.Guide,
       {
         className: "edit-post-welcome-guide",
-        contentLabel: (0, import_i18n11.__)("Welcome to the editor"),
+        contentLabel: (0, import_i18n11.__)("Welcome to the Block Editor"),
         finishButtonText: (0, import_i18n11.__)("Get started"),
         onFinish: () => toggleFeature2("welcomeGuide"),
         pages: [
@@ -1708,7 +1708,7 @@ var wp;
             content: /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)(import_jsx_runtime20.Fragment, { children: [
               /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("h1", { className: "edit-post-welcome-guide__heading", children: (0, import_i18n11.__)("Welcome to the Block Editor") }),
               /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("p", { className: "edit-post-welcome-guide__text", children: (0, import_i18n11.__)(
-                "In the Retraceur editor, each paragraph, image, or video is presented as a distinct \u201Cblock\u201D of content."
+                "In this Editor, each paragraph, image, or video is presented as a distinct \u201Cblock\u201D of content."
               ) })
             ] })
           },
@@ -1921,7 +1921,7 @@ var wp;
   var import_data22 = __toESM(require_data());
   var import_blocks2 = __toESM(require_blocks());
   var import_block_editor2 = __toESM(require_block_editor());
-  var isGutenbergPlugin = false ? true : false;
+  var isGutenbergPlugin = true ? true : false;
   function useShouldIframe() {
     return (0, import_data22.useSelect)((select2) => {
       const { getEditorSettings, getCurrentPostType, getDeviceType } = select2(import_editor15.store);
@@ -2625,7 +2625,7 @@ var wp;
     registerCoreBlockBindingsSources();
     (0, import_widgets.registerLegacyWidgetBlock)({ inserter: false });
     (0, import_widgets.registerWidgetGroupBlock)({ inserter: false });
-    if (false) {
+    if (true) {
       (0, import_block_library2.__experimentalRegisterExperimentalCoreBlocks)({
         enableFSEBlocks: settings.__unstableEnableFullSiteEditingBlocks
       });
