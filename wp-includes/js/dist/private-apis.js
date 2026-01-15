@@ -54,7 +54,7 @@ var wp;
   ];
   var registeredPrivateApis = [];
   var requiredConsent = "I acknowledge private features are not for use in themes or plugins and doing so will break in the next version of Retraceur.";
-  var allowReRegistration = true ? false : true;
+  var allowReRegistration = false ? false : true;
   var __dangerousOptInToUnstableAPIsOnlyForCoreModules = (consent, moduleName) => {
     if (!CORE_MODULES_USING_PRIVATE_APIS.includes(moduleName)) {
       throw new Error(
