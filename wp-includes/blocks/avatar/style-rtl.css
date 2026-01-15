@@ -1,9 +1,12 @@
-.wp-block-avatar{
-  line-height:0;
+.wp-block-avatar {
+	line-height: 0
 }
-.wp-block-avatar,.wp-block-avatar img{
-  box-sizing:border-box;
+
+.wp-block-avatar,
+.wp-block-avatar img {
+	box-sizing: border-box
 }
-.wp-block-avatar.aligncenter{
-  text-align:center;
+
+.wp-block-avatar.aligncenter {
+	text-align: center
 }
