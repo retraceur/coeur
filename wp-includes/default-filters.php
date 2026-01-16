@@ -447,6 +447,9 @@ add_action( 'wp_abilities_api_init', 'wp_register_core_abilities' );
 // Sitemaps actions.
 add_action( 'init', 'wp_sitemaps_get_server' );
 
+// Opengraph actions.
+add_action( 'init', 'retraceur_init_opengraph' );
+
 /**
  * Filters formerly mixed into wp-includes.
  */
