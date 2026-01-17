@@ -1,7 +1,7 @@
 <?php
 /**
  * Opengraph: Retraceur_Opengraph_Resolver class.
- * 
+ *
  * @since 3.0.0 Retraceur fork.
  *
  * @package Retraceur

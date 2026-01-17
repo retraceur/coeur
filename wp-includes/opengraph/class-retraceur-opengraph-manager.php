@@ -1,7 +1,7 @@
 <?php
 /**
  * Opengraph: Retraceur_Opengraph_Manager class.
- * 
+ *
  * @since 3.0.0 Retraceur fork.
  *
  * @package Retraceur
@@ -17,7 +17,7 @@ class Retraceur_Opengraph_Manager {
 
 	/**
 	 * Hooks to `wp_head` to render the Opengraph meta tags.
-	 * 
+	 *
 	 * @since 3.0.0 Retraceur fork.
 	 */
 	public function register() {
@@ -26,9 +26,9 @@ class Retraceur_Opengraph_Manager {
 
 	/**
 	 * Renders the Opengraph meta tags.
-	 * 
+	 *
 	 * @since 3.0.0 Retraceur fork.
-	 * 
+	 *
 	 * @return void
 	 */
 	public function render() {

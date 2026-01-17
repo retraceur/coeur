@@ -4,7 +4,7 @@
  *
  * This file contains a variety of public functions developers can use to interact with
  * the Retraceur Opengraph API.
- * 
+ *
  * @since 3.0.0 Retraceur fork.
  *
  * @package Retraceur
@@ -19,9 +19,9 @@
 function retraceur_init_opengraph() {
 	/**
 	 * Filter here to completely disable the Retraceur Opengraph API.
-	 * 
+	 *
 	 * @since 3.0.0 Retraceur fork.
-	 * 
+	 *
 	 * @param boolean $value False to disable. True otherwise.
 	 */
 	if ( ! apply_filters( 'retraceur_opengraph_enabled', true ) ) {

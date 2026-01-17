@@ -3,7 +3,7 @@
  * Opengraph: Retraceur_Opengraph_Context class.
  *
  * Responsible of the Opengraph context structure definition.
- * 
+ *
  * @since 3.0.0 Retraceur fork.
  *
  * @package Retraceur
