@@ -25,7 +25,7 @@ class Retraceur_Opengraph_Manager {
 	private Retraceur_Opengraph_Resolver $resolver;
 
 	/**
-	 * Retraceur Opengraph context renderer object.
+	 * Retraceur Opengraph meta tags renderer object.
 	 *
 	 * @since 3.0.0 Retraceur fork.
 	 *

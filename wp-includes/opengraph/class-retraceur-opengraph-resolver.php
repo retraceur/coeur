@@ -144,6 +144,7 @@ class Retraceur_Opengraph_Resolver {
 
 		if ( empty( $description) ) {
 			$description = sprintf(
+				/* Translators: %s is the Website name. */
 				_x( 'A %s website’s page.', 'Default Opengraph description' ),
 				get_bloginfo( 'name' )
 			);
