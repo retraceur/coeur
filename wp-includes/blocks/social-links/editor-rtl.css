@@ -8,7 +8,7 @@
 }
 
 :root :where(.wp-block-social-links) {
-	padding: 0;
+	padding: 0
 }
 
 .wp-block.wp-block-social-links.aligncenter,
