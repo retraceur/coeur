@@ -28,7 +28,9 @@ function retraceur_init_opengraph() {
 		return;
 	}
 
-	// Load required classes.
+	/**
+	 * Load required classes.
+	 */
 	require ABSPATH . WPINC . '/opengraph/class-retraceur-opengraph-context.php';
 	require ABSPATH . WPINC . '/opengraph/class-retraceur-opengraph-resolver.php';
 	require ABSPATH . WPINC . '/opengraph/class-retraceur-opengraph-renderer.php';
