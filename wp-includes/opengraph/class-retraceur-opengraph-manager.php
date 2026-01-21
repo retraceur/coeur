@@ -87,7 +87,7 @@ class Retraceur_Opengraph_Manager {
 	}
 
 	/**
-	 * Registers needed Hooks to render the Opengraph meta tags.
+	 * Registers needed hooks to render the Opengraph meta tags.
 	 *
 	 * @since 3.0.0 Retraceur fork.
 	 */
