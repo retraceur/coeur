@@ -140,7 +140,16 @@ class Retraceur_Opengraph_Resolver {
 				$description = $post->post_content;
 			}
 		} else {
-			$description = get_bloginfo( 'description', 'display' );
+			// Defaults to site's tagline.
+			$description    = get_bloginfo( 'description', 'display' );
+			$queried_object = get_queried_object();
+
+			if ( $queried_object instanceof WP_User ) {
+				$description = get_the_author_meta( 'description' );
+
+			} elseif ( $queried_object instanceof WP_Term ) {
+				$description = term_description();
+			}
 		}
 
 		if ( empty( $description) ) {
@@ -227,7 +236,26 @@ class Retraceur_Opengraph_Resolver {
 	 * @param Retraceur_Opengraph_Context $context The Opengraph context object.
 	 */
 	private function resolve_article_properties( Retraceur_Opengraph_Context $context ) {
-		return;
+
+		if ( ! is_singular() ) {
+			return;
+		}
+
+		$post                    = get_post();
+		$context->published_time = wp_date( DATE_W3C, strtotime( $post->post_date_gmt ) );
+		$context->modified_time  = wp_date( DATE_W3C, strtotime( $post->post_modified_gmt ) );
+		$context->author_url     = get_author_posts_url( $post->post_author );
+
+		$categories = get_the_category();
+		if ( ! empty( $categories ) ) {
+			$category         = reset( $categories );
+			$context->section = $category->name;
+		}
+
+		$tags = get_the_tags();
+		if ( $tags ) {
+			$context->tags = wp_list_pluck( $tags, 'name' );
+		}
 	}
 
 	/**
@@ -256,7 +284,7 @@ class Retraceur_Opengraph_Resolver {
 
 		$this->resolve_site_properties( $context, $title_parts );
 
-		if ( $context->type === 'article' ) {
+		if ( 'article' === $context->type ) {
 			$this->resolve_article_properties( $context );
 		}
 

@@ -148,7 +148,7 @@ class Retraceur_Opengraph_Context {
 	 *
 	 * @since 3.0.0 Retraceur fork.
 	 *
-	 * @var string
+	 * @var array
 	 */
 	public array $alternate_locales = array();
 }
