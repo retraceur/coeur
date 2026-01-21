@@ -1276,6 +1276,22 @@ function wp_get_document_title() {
 	 */
 	$title = apply_filters( 'document_title_parts', $title );
 
+	/**
+	 * Fires once the document title parts are fully set.
+	 *
+	 * @since 3.0.0 Retraceur fork.
+	 *
+	 * @param array $title {
+	 *     The document title parts.
+	 *
+	 *     @type string $title   Title of the viewed page.
+	 *     @type string $page    Optional. Page number if paginated.
+	 *     @type string $tagline Optional. Site description when on home page.
+	 *     @type string $site    Optional. Site title when not on home page.
+	 * }
+	 */
+	do_action( 'defined_title_parts', $title );
+
 	$title = implode( " $sep ", array_filter( $title ) );
 
 	/**

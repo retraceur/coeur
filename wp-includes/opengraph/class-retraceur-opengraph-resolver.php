@@ -95,17 +95,18 @@ class Retraceur_Opengraph_Resolver {
 	 *
 	 * @since 3.0.0 Retraceur fork.
 	 *
+	 * @param string $title Optional. The document title if available.
 	 * @return string The `title` property of the Retraceur Opengraph context.
 	 */
-	public function resolve_title() {
-		$title = '';
+	public function resolve_title( $title = '' ) {
 
-		if ( is_singular() ) {
-			$title = get_the_title();
-		}
-
+		// Only resolve the title if it wasn't resolved by `wp_get_document_title()`.
 		if ( empty( $title ) ) {
-			$title = get_bloginfo( 'name' );
+			if ( is_singular() ) {
+				$title = get_the_title();
+			} else {
+				$title = get_bloginfo( 'name', 'display' );
+			}
 		}
 
 		/**
@@ -139,14 +140,14 @@ class Retraceur_Opengraph_Resolver {
 				$description = $post->post_content;
 			}
 		} else {
-			$description = get_bloginfo( 'description' );
+			$description = get_bloginfo( 'description', 'display' );
 		}
 
 		if ( empty( $description) ) {
 			$description = sprintf(
 				/* Translators: %s is the Website name. */
 				_x( 'A %s website’s page.', 'Default Opengraph description' ),
-				get_bloginfo( 'name' )
+				get_bloginfo( 'name', 'display' )
 			);
 		}
 
@@ -194,24 +195,32 @@ class Retraceur_Opengraph_Resolver {
 	}
 
 	/**
-	 * Resolves the basic part of the Retraceur Opengraph context.
+	 * Resolves the site properties of the Retraceur Opengraph context.
 	 *
 	 * @since 3.0.0 Retraceur fork.
 	 *
-	 * @param Retraceur_Opengraph_Context $context The Opengraph context object.
+	 * @param Retraceur_Opengraph_Context $context     The Opengraph context object.
+	 * @param array                       $title_parts Optional. The document title parts.
 	 */
-	private function resolve_basic_properties( Retraceur_Opengraph_Context $context ) {
+	private function resolve_site_properties( Retraceur_Opengraph_Context $context, $title_parts = array() ) {
+		$title = '';
+
+		// Use the title's document title part if available.
+		if ( ! empty( $title_parts['title'] ) ) {
+			$title = $title_parts['title'];
+		}
+
 		$context->type        = $this->resolve_type();
 		$context->url         = $this->resolve_url();
-		$context->site_name   = get_bloginfo( 'name' );
-		$context->title       = $this->resolve_title();
+		$context->site_name   = ! empty( $title_parts['site'] ) ? $title_parts['site'] : get_bloginfo( 'name', 'display' );
+		$context->title       = $this->resolve_title( $title );
 		$context->description = $this->resolve_description();
 		$context->image       = $this->resolve_image();
 		$context->locale      = get_locale();
 	}
 
 	/**
-	 * Resolves the detailed part of the Retraceur Opengraph context.
+	 * Resolves the article properties of the Retraceur Opengraph context.
 	 *
 	 * @since 3.0.0 Retraceur fork.
 	 *
@@ -226,9 +235,10 @@ class Retraceur_Opengraph_Resolver {
 	 *
 	 * @since 3.0.0 Retraceur fork.
 	 *
+	 * @param array $title_parts Optional. The document title parts.
 	 * @return Retraceur_Opengraph_Context|null The valid Opengraph context object. `null` when it is invalid.
 	 */
-	public function resolve() {
+	public function resolve( $title_parts = array() ) {
 		$skip = $this->should_skip();
 
 		/**
@@ -244,7 +254,7 @@ class Retraceur_Opengraph_Resolver {
 
 		$context = new Retraceur_Opengraph_Context();
 
-		$this->resolve_basic_properties( $context );
+		$this->resolve_site_properties( $context, $title_parts );
 
 		if ( $context->type === 'article' ) {
 			$this->resolve_article_properties( $context );
