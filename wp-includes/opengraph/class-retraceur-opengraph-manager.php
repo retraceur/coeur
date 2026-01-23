@@ -82,8 +82,13 @@ class Retraceur_Opengraph_Manager {
 	 * @return void
 	 */
 	public function render() {
-		$opengraph = $this->resolver->resolve( $this->title_parts );
-		return;
+		$context = $this->resolver->resolve( $this->title_parts );
+
+		if ( ! $context ) {
+			return;
+		}
+
+		$this->renderer->render( $context );
 	}
 
 	/**
