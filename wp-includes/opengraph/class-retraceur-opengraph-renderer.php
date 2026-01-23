@@ -18,7 +18,7 @@ class Retraceur_Opengraph_Renderer {
 	/**
 	 * Builds the Retraceur Opengraph meta tag.
 	 *
-	 * @since
+	 * @since 3.0.0 Retraceur fork.
 	 *
 	 * @param string $property Required. The name of the Opengraph property.
 	 * @param string $content  Optional. The Opengraph content value.

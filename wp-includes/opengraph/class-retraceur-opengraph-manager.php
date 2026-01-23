@@ -88,7 +88,7 @@ class Retraceur_Opengraph_Manager {
 			return;
 		}
 
-		$opengraph = $this->renderer->render( $context );
+		$this->renderer->render( $context );
 	}
 
 	/**
