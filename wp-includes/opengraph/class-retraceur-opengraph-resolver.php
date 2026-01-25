@@ -57,7 +57,9 @@ class Retraceur_Opengraph_Resolver {
 	public function resolve_type() {
 		$type = 'website';
 
-		if ( ! is_front_page() && ! is_home() && is_singular() ) {
+		if ( is_author() ) {
+			$type = 'profile';
+		} elseif ( ! is_front_page() && ! is_home() && is_singular() ) {
 			$type = 'article';
 		}
 
@@ -146,6 +148,15 @@ class Retraceur_Opengraph_Resolver {
 
 			if ( $queried_object instanceof WP_User ) {
 				$description = get_the_author_meta( 'description' );
+
+				if ( empty( $description ) ) {
+					$description = sprintf(
+						/* Translators: %1$s is the Author name. %2$s is the Site name. */
+						_x( '%1$s’s profile page on the %2$s website.', 'Default Opengraph profile description' ),
+						$queried_object->display_name,
+						get_bloginfo( 'name', 'display' )
+					);
+				}
 
 			} elseif ( $queried_object instanceof WP_Term ) {
 				$description = term_description();
