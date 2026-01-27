@@ -94,7 +94,33 @@ class Retraceur_Opengraph_Renderer {
 	 * @return string The article's Retraceur Opengraph meta tags.
 	 */
 	private function render_article_properties( Retraceur_Opengraph_Context $context ) {
-		return '';
+		if ( $context->type !== 'article' ) {
+			return '';
+		}
+
+		$html = array();
+
+		if ( $context->published_time ) {
+			$html[] = $this->meta( 'article:published_time', $context->published_time );
+		}
+
+		if ( $context->modified_time ) {
+			$html[] = $this->meta( 'article:modified_time', $context->modified_time );
+		}
+
+		if ( $context->author_url ) {
+			$html[] = $this->meta( 'article:author', $context->author_url );
+		}
+
+		if ( $context->section ) {
+			$html[] = $this->meta( 'article:section', $context->section );
+		}
+
+		foreach ( $context->tags as $tag ) {
+			$html[] = $this->meta( 'article:tag', $tag );
+		}
+
+		return "\n" . implode( "\n", array_filter( $html ) );
 	}
 
 	/**
