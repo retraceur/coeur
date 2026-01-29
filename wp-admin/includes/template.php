@@ -2204,6 +2204,10 @@ function get_media_states( $post ) {
 		$media_states[] = __( 'Logo' );
 	}
 
+	if ( (int) get_option( 'default_ogengraph_image' ) === $post->ID ) {
+		$media_states[] = __( 'Default Opengraph image' );
+	}
+
 	/**
 	 * Filters the default media display states for items in the Media list table.
 	 *

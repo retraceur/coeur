@@ -4890,6 +4890,7 @@ function sanitize_option( $option, $value ) {
 		case 'start_of_week':
 		case 'site_icon':
 		case 'fileupload_maxk':
+		case 'default_ogengraph_image':
 			$value = absint( $value );
 			break;
 
