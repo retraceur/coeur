@@ -5997,7 +5997,7 @@ var wp;
   var import_element11 = __toESM(require_element());
   var import_components12 = __toESM(require_components());
   function isItemValid(item) {
-    return typeof item.menu_order === "number" && Number.isInteger(item.menu_order) && item.menu_order > 0;
+    return typeof item.menu_order === "number" && Number.isInteger(item.menu_order);
   }
   function ReorderModal({
     items,

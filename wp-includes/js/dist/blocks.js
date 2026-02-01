@@ -5495,12 +5495,13 @@ var wp;
   var ICON_COLORS = ["#191e23", "#f8f9f9"];
   function isUnmodifiedBlock(block, role) {
     const blockAttributes = getBlockType(block.name)?.attributes ?? {};
-    const attributesToCheck = role ? Object.entries(blockAttributes).filter(([key, definition]) => {
+    const attributesByRole = role ? Object.entries(blockAttributes).filter(([key, definition]) => {
       if (role === "content" && key === "metadata") {
-        return true;
+        return Object.keys(block.attributes[key]?.bindings ?? {}).length > 0;
       }
       return definition.role === role || definition.__experimentalRole === role;
-    }) : Object.entries(blockAttributes);
+    }) : [];
+    const attributesToCheck = !!attributesByRole.length ? attributesByRole : Object.entries(blockAttributes);
     return attributesToCheck.every(([key, definition]) => {
       const value = block.attributes[key];
       if (definition.hasOwnProperty("default")) {
@@ -6438,10 +6439,10 @@ var wp;
       null
     );
     if (settings.apiVersion <= 2) {
-      (0, import_warning2.default)(
-        `The block "${name}" is registered with API version 2 or lower. This means that the post editor may work as a non-iframe editor.
-Since all editors are planned to work as iframes in the future, set the \`apiVersion\` field to 3 and test the block inside the iframe editor.`
-      );
+      (0, import_deprecated4.default)("Block with API version 2 or lower", {
+        since: "6.9",
+        hint: `The block "${name}" is registered with API version ${settings.apiVersion}. This means that the post editor may work as a non-iframe editor. Since all editors are planned to work as iframes in the future, set the \`apiVersion\` field to 3 and test the block inside the iframe editor.`
+      });
     }
     if (settings.description && typeof settings.description !== "string") {
       (0, import_deprecated4.default)("Declaring non-string block descriptions", {

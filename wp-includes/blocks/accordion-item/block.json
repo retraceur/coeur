@@ -1,5 +1,5 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"$schema": "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
 	"apiVersion": 3,
 	"name": "core/accordion-item",
 	"title": "Accordion Item",
@@ -33,7 +33,7 @@
 		"shadow": true,
 		"layout": {
 			"allowEditing": false
-			},
+		},
 		"typography": {
 			"fontSize": true,
 			"lineHeight": true,

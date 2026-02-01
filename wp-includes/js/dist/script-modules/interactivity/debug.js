@@ -1242,6 +1242,14 @@ var splitTask = typeof window.scheduler?.yield === "function" ? window.scheduler
     setTimeout(resolve2, 0);
   });
 };
+var onDOMReady = (callback) => {
+  const [navigation] = performance.getEntriesByType("navigation");
+  if (navigation.domContentLoadedEventStart > 0) {
+    callback();
+  } else {
+    document.addEventListener("DOMContentLoaded", callback);
+  }
+};
 function createFlusher(compute, notify) {
   let flush = () => void 0;
   const dispose = E2(function() {
@@ -1909,23 +1917,23 @@ var parseServerData = (dom = document) => {
   }
   return {};
 };
-var populateServerData = (data2) => {
+var populateServerData = (data) => {
   serverStates.clear();
   storeConfigs.clear();
-  if (isPlainObject(data2?.state)) {
-    Object.entries(data2.state).forEach(([namespace, state]) => {
+  if (isPlainObject(data?.state)) {
+    Object.entries(data.state).forEach(([namespace, state]) => {
       const st = store(namespace, {}, { lock: universalUnlock });
       deepMerge(st.state, state, false);
       serverStates.set(namespace, state);
     });
   }
-  if (isPlainObject(data2?.config)) {
-    Object.entries(data2.config).forEach(([namespace, config]) => {
+  if (isPlainObject(data?.config)) {
+    Object.entries(data.config).forEach(([namespace, config]) => {
       storeConfigs.set(namespace, config);
     });
   }
-  if (isPlainObject(data2?.derivedStateClosures)) {
-    Object.entries(data2.derivedStateClosures).forEach(
+  if (isPlainObject(data?.derivedStateClosures)) {
+    Object.entries(data.derivedStateClosures).forEach(
       ([namespace, paths]) => {
         const st = store(
           namespace,
@@ -1951,8 +1959,6 @@ var populateServerData = (data2) => {
     );
   }
 };
-var data = parseServerData();
-populateServerData(data);
 
 // packages/interactivity/build-module/hooks.js
 function isNonDefaultDirectiveSuffix(entry) {
@@ -2363,8 +2369,8 @@ var directives_default = () => {
       });
     });
   });
-  directive("init", ({ directives: { init: init2 }, evaluate }) => {
-    init2.forEach((entry) => {
+  directive("init", ({ directives: { init }, evaluate }) => {
+    init.forEach((entry) => {
       if (false) {
         if (entry.suffix) {
           warnUniqueIdWithTwoHyphens("init", entry.suffix);
@@ -2986,7 +2992,7 @@ function toVdom(root) {
   return vdom;
 }
 
-// packages/interactivity/build-module/init.js
+// packages/interactivity/build-module/hydration.js
 var regionRootFragments = /* @__PURE__ */ new WeakMap();
 var getRegionRootFragment = (regions) => {
   const region = Array.isArray(regions) ? regions[0] : regions;
@@ -3002,11 +3008,8 @@ var getRegionRootFragment = (regions) => {
   return regionRootFragments.get(region);
 };
 var initialVdom = /* @__PURE__ */ new WeakMap();
-var init = async () => {
+var hydrateRegions = async () => {
   const nodes = document.querySelectorAll(`[data-wp-interactive]`);
-  await new Promise((resolve2) => {
-    setTimeout(resolve2, 0);
-  });
   for (const node of nodes) {
     if (!hydratedIslands.has(node)) {
       await splitTask();
@@ -3043,8 +3046,9 @@ var privateApis = (lock) => {
   }
   throw new Error("Forbidden access.");
 };
+populateServerData(parseServerData());
 directives_default();
-init();
+onDOMReady(hydrateRegions);
 export {
   getConfig,
   getContext,

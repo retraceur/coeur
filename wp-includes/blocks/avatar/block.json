@@ -23,7 +23,7 @@
 			"default": "_self"
 		}
 	},
-	"usesContext": [ "postType", "postId" ],
+	"usesContext": [ "postType", "postId", "commentId" ],
 	"supports": {
 		"html": false,
 		"align": true,

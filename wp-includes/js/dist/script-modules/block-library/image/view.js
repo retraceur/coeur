@@ -1,39 +1,13 @@
-import * as __WEBPACK_EXTERNAL_MODULE__wordpress_interactivity_8e89b257__ from "@wordpress/interactivity";
-/******/ // The require scope
-/******/ var __webpack_require__ = {};
-/******/ 
-/************************************************************************/
-/******/ /* webpack/runtime/define property getters */
-/******/ (() => {
-/******/ 	// define getter functions for harmony exports
-/******/ 	__webpack_require__.d = (exports, definition) => {
-/******/ 		for(var key in definition) {
-/******/ 			if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
-/******/ 				Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
-/******/ 			}
-/******/ 		}
-/******/ 	};
-/******/ })();
-/******/ 
-/******/ /* webpack/runtime/hasOwnProperty shorthand */
-/******/ (() => {
-/******/ 	__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
-/******/ })();
-/******/ 
-/************************************************************************/
-var __webpack_exports__ = {};
-
-;// external "@wordpress/interactivity"
-var x = (y) => {
-	var x = {}; __webpack_require__.d(x, y); return x
-} 
-var y = (x) => (() => (x))
-const interactivity_namespaceObject = x({ ["getContext"]: () => (__WEBPACK_EXTERNAL_MODULE__wordpress_interactivity_8e89b257__.getContext), ["getElement"]: () => (__WEBPACK_EXTERNAL_MODULE__wordpress_interactivity_8e89b257__.getElement), ["store"]: () => (__WEBPACK_EXTERNAL_MODULE__wordpress_interactivity_8e89b257__.store), ["withSyncEvent"]: () => (__WEBPACK_EXTERNAL_MODULE__wordpress_interactivity_8e89b257__.withSyncEvent) });
-;// ./node_modules/@wordpress/block-library/build-module/image/view.js
-
-let isTouching = false;
-let lastTouchTime = 0;
-const { state, actions, callbacks } = (0,interactivity_namespaceObject.store)(
+// packages/block-library/build-module/image/view.js
+import {
+  store,
+  getContext,
+  getElement,
+  withSyncEvent
+} from "@wordpress/interactivity";
+var isTouching = false;
+var lastTouchTime = 0;
+var { state, actions, callbacks } = store(
   "core/image",
   {
     state: {
@@ -66,25 +40,25 @@ const { state, actions, callbacks } = (0,interactivity_namespaceObject.store)(
         )}; object-fit:cover;`;
       },
       get imageButtonRight() {
-        const { imageId } = (0,interactivity_namespaceObject.getContext)();
+        const { imageId } = getContext();
         return state.metadata[imageId].imageButtonRight;
       },
       get imageButtonTop() {
-        const { imageId } = (0,interactivity_namespaceObject.getContext)();
+        const { imageId } = getContext();
         return state.metadata[imageId].imageButtonTop;
       },
       get isContentHidden() {
-        const ctx = (0,interactivity_namespaceObject.getContext)();
+        const ctx = getContext();
         return state.overlayEnabled && state.currentImageId === ctx.imageId;
       },
       get isContentVisible() {
-        const ctx = (0,interactivity_namespaceObject.getContext)();
+        const ctx = getContext();
         return !state.overlayEnabled && state.currentImageId === ctx.imageId;
       }
     },
     actions: {
       showLightbox() {
-        const { imageId } = (0,interactivity_namespaceObject.getContext)();
+        const { imageId } = getContext();
         if (!state.metadata[imageId].imageRef?.complete) {
           return;
         }
@@ -105,11 +79,11 @@ const { state, actions, callbacks } = (0,interactivity_namespaceObject.store)(
           }, 450);
         }
       },
-      handleKeydown: (0,interactivity_namespaceObject.withSyncEvent)((event) => {
+      handleKeydown: withSyncEvent((event) => {
         if (state.overlayEnabled) {
           if (event.key === "Tab") {
             event.preventDefault();
-            const { ref } = (0,interactivity_namespaceObject.getElement)();
+            const { ref } = getElement();
             ref.querySelector("button").focus();
           }
           if (event.key === "Escape") {
@@ -117,7 +91,7 @@ const { state, actions, callbacks } = (0,interactivity_namespaceObject.store)(
           }
         }
       }),
-      handleTouchMove: (0,interactivity_namespaceObject.withSyncEvent)((event) => {
+      handleTouchMove: withSyncEvent((event) => {
         if (state.overlayEnabled) {
           event.preventDefault();
         }
@@ -248,11 +222,11 @@ const { state, actions, callbacks } = (0,interactivity_namespaceObject.store)(
 				`;
       },
       setButtonStyles() {
-        const { ref } = (0,interactivity_namespaceObject.getElement)();
+        const { ref } = getElement();
         if (!ref) {
           return;
         }
-        const { imageId } = (0,interactivity_namespaceObject.getContext)();
+        const { imageId } = getContext();
         state.metadata[imageId].imageRef = ref;
         state.metadata[imageId].currentSrc = ref.currentSrc;
         const {
@@ -298,17 +272,17 @@ const { state, actions, callbacks } = (0,interactivity_namespaceObject.store)(
       },
       setOverlayFocus() {
         if (state.overlayEnabled) {
-          const { ref } = (0,interactivity_namespaceObject.getElement)();
+          const { ref } = getElement();
           ref.focus();
         }
       },
       initTriggerButton() {
-        const { imageId } = (0,interactivity_namespaceObject.getContext)();
-        const { ref } = (0,interactivity_namespaceObject.getElement)();
+        const { imageId } = getContext();
+        const { ref } = getElement();
         state.metadata[imageId].buttonRef = ref;
       }
     }
   },
   { lock: true }
 );
-
+//# sourceMappingURL=view.js.map

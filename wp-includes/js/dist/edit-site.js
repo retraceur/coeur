@@ -28121,6 +28121,8 @@ var wp;
 
   // packages/edit-site/build-module/components/page-patterns/index.js
   var import_data75 = __toESM(require_data());
+  var import_url12 = __toESM(require_url());
+  var import_components103 = __toESM(require_components());
 
   // packages/edit-site/build-module/components/page-patterns/use-pattern-settings.js
   var import_core_data45 = __toESM(require_core_data());
@@ -28718,8 +28720,6 @@ var wp;
   };
 
   // packages/edit-site/build-module/components/page-patterns/index.js
-  var import_url12 = __toESM(require_url());
-  var import_components103 = __toESM(require_components());
   var { ExperimentalBlockEditorProvider: ExperimentalBlockEditorProvider3 } = unlock(import_block_editor56.privateApis);
   var { usePostActions, patternTitleField } = unlock(import_editor31.privateApis);
   var { useLocation: useLocation25, useHistory: useHistory19 } = unlock(import_router31.privateApis);
@@ -28874,7 +28874,13 @@ var wp;
               children: (0, import_i18n98.__)("Reset view")
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime189.jsx)(PatternsActions, {})
+          /* @__PURE__ */ (0, import_jsx_runtime189.jsx)(
+            PatternsActions,
+            {
+              categoryId,
+              postType: postType2
+            }
+          )
         ] }),
         children: /* @__PURE__ */ (0, import_jsx_runtime189.jsx)(
           import_dataviews.DataViews,
