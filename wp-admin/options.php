@@ -85,7 +85,6 @@ $allowed_options            = array(
 	'general'    => array(
 		'blogname',
 		'blogdescription',
-		'site_icon',
 		'gmt_offset',
 		'date_format',
 		'time_format',
@@ -110,6 +109,8 @@ $allowed_options            = array(
 		'image_default_size',
 		'image_default_align',
 		'image_default_link_type',
+		'site_icon',
+		'default_ogengraph_image',
 	),
 	'reading'    => array(
 		'posts_per_page',
