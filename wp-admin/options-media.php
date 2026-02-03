@@ -175,6 +175,13 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 
 			</td>
 		</tr>
+		<tr>
+			<th scope="row"><?php esc_html_e( 'Site’s default Open Graph image' ); ?></th>
+			<td>
+				<?php wp_enqueue_script( 'retraceur-global-media' ); ?>
+				<div id="opengraph-image"></div>
+			</td>
+		</tr>
 
 		<?php do_settings_fields( 'media', 'global' ); ?>
 	</table>
