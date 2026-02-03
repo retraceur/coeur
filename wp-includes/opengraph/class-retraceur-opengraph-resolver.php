@@ -201,7 +201,7 @@ class Retraceur_Opengraph_Resolver {
 		}
 
 		if ( empty( $image ) ) {
-			$image = get_option( 'retraceur_default_ogengraph_image', '' );
+			$image = get_option( 'default_ogengraph_image', '' );
 		}
 
 		/**
