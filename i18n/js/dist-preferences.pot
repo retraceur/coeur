@@ -1,32 +1,32 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Retraceur 2.0.0-RC1\n"
+"Project-Id-Version: Retraceur 3.0.0-alpha\n"
 "Report-Msgid-Bugs-To: https://github.com/retraceur/coeur/issues\n"
 "Last-Translator: imath <contact@imathi.eu>\n"
 "Language-Team: Retraceur <retraceur@proton.me>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-09-14T10:20:35+00:00\n"
+"POT-Creation-Date: 2026-02-05T02:04:56+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 
 #. translators: %s: preference name, e.g. 'Fullscreen mode'
-#: wp-includes/js/dist/preferences.js:390
+#: wp-includes/js/dist/preferences.js:313
 #, js-format
 msgid "Preference deactivated - %s"
 msgstr ""
 
 #. translators: %s: preference name, e.g. 'Fullscreen mode'
-#: wp-includes/js/dist/preferences.js:394
+#: wp-includes/js/dist/preferences.js:320
 #, js-format
 msgid "Preference activated - %s"
 msgstr ""
 
-#: wp-includes/js/dist/preferences.js:493
+#: wp-includes/js/dist/preferences.js:407
 msgid "Preferences"
 msgstr ""
 
-#: wp-includes/js/dist/preferences.js:730
+#: wp-includes/js/dist/preferences.js:533
 msgid "Back"
 msgstr ""

@@ -1,67 +1,71 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Retraceur 2.0.0-RC1\n"
+"Project-Id-Version: Retraceur 3.0.0-alpha\n"
 "Report-Msgid-Bugs-To: https://github.com/retraceur/coeur/issues\n"
 "Last-Translator: imath <contact@imathi.eu>\n"
 "Language-Team: Retraceur <retraceur@proton.me>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-09-14T10:20:13+00:00\n"
+"POT-Creation-Date: 2026-02-05T02:04:39+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 
-#: wp-includes/js/dist/core-data.js:1464
+#: wp-includes/js/dist/core-data.js:14452
 msgid "Base"
 msgstr ""
 
-#: wp-includes/js/dist/core-data.js:1497
+#: wp-includes/js/dist/core-data.js:14480
 msgid "Post Type"
 msgstr ""
 
-#: wp-includes/js/dist/core-data.js:1534
+#: wp-includes/js/dist/core-data.js:14494
 msgid "Media"
 msgstr ""
 
-#: wp-includes/js/dist/core-data.js:1546
+#: wp-includes/js/dist/core-data.js:14505
 msgid "Taxonomy"
 msgstr ""
 
-#: wp-includes/js/dist/core-data.js:1558
+#: wp-includes/js/dist/core-data.js:14514
 msgid "Widgets"
 msgstr ""
 
-#: wp-includes/js/dist/core-data.js:1567
+#: wp-includes/js/dist/core-data.js:14522
 msgid "Widget types"
 msgstr ""
 
-#: wp-includes/js/dist/core-data.js:1569
+#: wp-includes/js/dist/core-data.js:14525
 msgid "Contributor"
 msgstr ""
 
-#: wp-includes/js/dist/core-data.js:1578
+#: wp-includes/js/dist/core-data.js:14535
 msgid "Global Styles"
 msgstr ""
 
-#: wp-includes/js/dist/core-data.js:1591
+#: wp-includes/js/dist/core-data.js:14542
+msgid "Custom Styles"
+msgstr ""
+
+#: wp-includes/js/dist/core-data.js:14547
 msgid "Themes"
 msgstr ""
 
-#: wp-includes/js/dist/core-data.js:1601
+#: wp-includes/js/dist/core-data.js:14556
 msgid "Plugins"
 msgstr ""
 
-#: wp-includes/js/dist/core-data.js:1611
+#: wp-includes/js/dist/core-data.js:14565
 msgid "Status"
 msgstr ""
 
-#: wp-includes/js/dist/core-data.js:1785
+#: wp-includes/js/dist/core-data.js:14691
 msgid "Site"
 msgstr ""
 
-#: wp-includes/js/dist/core-data.js:5706
-#: wp-includes/js/dist/core-data.js:5728
-#: wp-includes/js/dist/core-data.js:5750
-#: wp-includes/js/dist/core-data.js:5770
+#: wp-includes/js/dist/core-data.js:16997
+#: wp-includes/js/dist/core-data.js:17021
+#: wp-includes/js/dist/core-data.js:17045
+#: wp-includes/js/dist/core-data.js:17067
 msgid "(no title)"
 msgstr ""

@@ -1,53 +1,51 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Retraceur 2.0.0-RC1\n"
+"Project-Id-Version: Retraceur 3.0.0-alpha\n"
 "Report-Msgid-Bugs-To: https://github.com/retraceur/coeur/issues\n"
 "Last-Translator: imath <contact@imathi.eu>\n"
 "Language-Team: Retraceur <retraceur@proton.me>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-09-14T10:19:51+00:00\n"
+"POT-Creation-Date: 2026-02-05T02:04:38+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 
-#: wp-includes/js/dist/core-commands.js:138
-msgid "An error occurred while creating the item."
+#: wp-includes/js/dist/core-commands.js:206
+msgid "View site"
 msgstr ""
 
-#: wp-includes/js/dist/core-commands.js:150
-msgid "Add new page"
+#. translators: %s: menu label
+#: wp-includes/js/dist/core-commands.js:225
+#, js-format
+msgid "Go to: %s"
 msgstr ""
 
-#: wp-includes/js/dist/core-commands.js:163
-msgid "Add new post"
-msgstr ""
-
-#: wp-includes/js/dist/core-commands.js:389
-#: wp-includes/js/dist/core-commands.js:482
+#: wp-includes/js/dist/core-commands.js:355
+#: wp-includes/js/dist/core-commands.js:442
 msgid "(no title)"
 msgstr ""
 
-#: wp-includes/js/dist/core-commands.js:502
-msgid "Template parts"
+#: wp-includes/js/dist/core-commands.js:466
+msgid "Go to: Template parts"
 msgstr ""
 
-#: wp-includes/js/dist/core-commands.js:547
-msgid "Navigation"
+#: wp-includes/js/dist/core-commands.js:517
+msgid "Go to: Styles"
 msgstr ""
 
-#: wp-includes/js/dist/core-commands.js:564
-msgid "Styles"
+#: wp-includes/js/dist/core-commands.js:535
+msgid "Go to: Navigation"
 msgstr ""
 
-#: wp-includes/js/dist/core-commands.js:581
-msgid "Pages"
+#: wp-includes/js/dist/core-commands.js:553
+msgid "Go to: Templates"
 msgstr ""
 
-#: wp-includes/js/dist/core-commands.js:598
-msgid "Templates"
+#: wp-includes/js/dist/core-commands.js:573
+msgid "Go to: Patterns"
 msgstr ""
 
-#: wp-includes/js/dist/core-commands.js:616
-msgid "Patterns"
+#: wp-includes/js/dist/core-commands.js:627
+msgid "Open custom CSS"
 msgstr ""
