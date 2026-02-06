@@ -7,38 +7,61 @@ import { createRoot, useState } from '@wordpress/element';
 import { MediaUpload } from '@wordpress/media-utils';
 import { __ } from '@wordpress/i18n';
 
-const GlobalMedia = () => {
-	const [ image, setImage ] = useState( {} );
+/**
+ * Style dependency
+ */
+import './opengraph.scss';
 
-	if ( ! image.id ) {
-		return (
-			<MediaUpload
-				mode="browse"
-				onSelect={ ( media ) =>
-					setImage( media )
-				}
-				multiple={ false }
-				allowedTypes={ ['image'] }
-				render={ ( { open } ) => (
-					<Button variant="secondary" onClick={ open }>{ __( 'Choose an Image' ) }</Button>
-				) }
-			/>
-		);
+const GlobalMedia = ( { settings } ) => {
+	const { id, url, siteName, siteDescription } = settings;
+	const [ image, setImage ] = useState( { id: id, url: url } );
+
+	const reset = () => {
+		setImage( { id: 0, url: '' } );
 	}
 
 	return (
-		<input
-			type="text"
-			name="default_ogengraph_image" id="default_ogengraph_image_hidden_field"
-			value={ image.id }
-			readOnly
-		/>
-	)
+		<>
+			{ image.url &&
+				<div className="__opengraph_preview">
+					<img src={ image.url } alt="Site title" />
+					<div className="__opengraph_description">
+						<div>{ siteName }</div>
+						<p>{ siteDescription }</p>
+					</div>
+				</div>
+			}
+			<div className="__opengraph-action-buttons">
+				<MediaUpload
+					mode="browse"
+					onSelect={ ( media ) =>
+						setImage( media )
+					}
+					multiple={ false }
+					allowedTypes={ ['image'] }
+					render={ ( { open } ) => (
+						<Button variant="secondary" onClick={ open }>{ image.id ? __( 'Change Image' ) : __( 'Choose an Image' ) }</Button>
+					) }
+				/>
+
+				{ image.url &&
+					<Button variant="tertiary" className="__opengraph-remove-image" onClick={ reset }>{ __( 'Remove the Image' ) }</Button>
+				}
+			</div>
+			<input
+				type="hidden"
+				name="default_ogengraph_image" id="default_ogengraph_image_hidden_field"
+				value={ image.id }
+				readOnly
+			/>
+		</>
+	);
 }
 
 domReady( function() {
 	const target = document.querySelector( '#opengraph-image' );
 	const root = createRoot( target );
+	const settings = window.retraceurOpengraphSettings || {};
 
-	root.render( <GlobalMedia /> );
+	root.render( <GlobalMedia settings={ settings }/> );
 } );

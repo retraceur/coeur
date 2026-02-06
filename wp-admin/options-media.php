@@ -175,13 +175,28 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 
 			</td>
 		</tr>
-		<tr>
-			<th scope="row"><?php esc_html_e( 'Site’s default Open Graph image' ); ?></th>
-			<td>
-				<?php wp_enqueue_script( 'retraceur-global-media' ); ?>
-				<div id="opengraph-image"></div>
-			</td>
-		</tr>
+		<?php if ( retraceur_is_opengraph_enabled() ) : ?>
+			<tr>
+				<th scope="row"><?php esc_html_e( 'Site’s default Open Graph image' ); ?></th>
+				<td>
+					<?php
+					wp_enqueue_style( 'retraceur-global-media' );
+					wp_enqueue_script( 'retraceur-global-media' );
+
+					$opengraph_settings = array(
+						'id'              => (int) get_option( 'default_ogengraph_image' ),
+						'url'             => esc_url_raw( retraceur_get_opengraph_url() ),
+						'siteName'        => esc_html( get_bloginfo( 'name', 'display' ) ),
+						'siteDescription' => wp_strip_all_tags( get_bloginfo( 'description', 'display' ) ),
+					);
+					$opengraph_script   = sprintf( 'window.retraceurOpengraphSettings = %s;', wp_json_encode( $opengraph_settings, JSON_HEX_TAG | JSON_UNESCAPED_SLASHES ) );
+
+					wp_add_inline_script( 'retraceur-global-media', $opengraph_script );
+					?>
+					<div id="opengraph-image"></div>
+				</td>
+			</tr>
+		<?php endif; ?>
 
 		<?php do_settings_fields( 'media', 'global' ); ?>
 	</table>

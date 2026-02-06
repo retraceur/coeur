@@ -1326,6 +1326,7 @@ function wp_default_styles( $styles ) {
 	$styles->add( 'l10n', "/wp-admin/css/l10n$suffix.css" );
 	$styles->add( 'code-editor', "/wp-admin/css/code-editor$suffix.css", array( 'wp-codemirror' ) );
 	$styles->add( 'site-health', "/wp-admin/css/site-health$suffix.css" );
+	$styles->add( 'retraceur-global-media', '/wp-admin/css/global-media.css' );
 
 	$styles->add( 'wp-admin', false, array( 'dashicons', 'common', 'forms', 'admin-menu', 'dashboard', 'list-tables', 'edit', 'revisions', 'media', 'themes', 'about', 'site-icon', 'l10n' ) );
 
@@ -1507,6 +1508,7 @@ function wp_default_styles( $styles ) {
 		'wp-color-picker',
 		'login',
 		'site-health',
+		'retraceur-global-media',
 		'wp-empty-template-alert',
 		// Includes CSS.
 		'buttons',
