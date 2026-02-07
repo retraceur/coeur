@@ -1,0 +1,24 @@
+{
+	"name": "@retraceur/global-media",
+	"version": "1.0.0-alpha",
+	"description": "Provides the Admin UI to upload and set Global Media.",
+	"author": "imath",
+	"license": "GPL-2.0+",
+	"keywords": [
+		"retraceur",
+		"admin",
+		"media"
+	],
+	"homepage": "https://github.com/retraceur/coeur/tree/HEAD/packages/global-media/README.md",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/retraceur/coeur.git",
+		"directory": "packages/global-media"
+	},
+	"bugs": {
+		"url": "https://github.com/retraceur/coeur/issues"
+	},
+	"scripts": {
+		"build": "wp-scripts build --config webpack.config.js && ./../../tools/update-admin-assets.sh"
+	}
+}

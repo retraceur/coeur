@@ -1,0 +1,48 @@
+#opengraph-image {
+
+	.__opengraph_preview {
+		max-width: 100%;
+		width: 350px;
+		background: #f0f0f1;
+		background: rgba(0, 0, 0, 0.07);
+		margin: 0 0 16px 0;
+
+		img {
+			object-fit: cover;
+			max-width: 100%;
+			height: auto;
+		}
+
+		.__opengraph_description {
+			padding: 3px 5px 2px;
+			margin: 0 1px;
+
+			> div {
+				font-weight: 600;
+				line-height: 1.3;
+				color: #1d2327;
+			}
+		}
+	}
+
+	.__opengraph-action-buttons {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+
+		.__opengraph-remove-image {
+			color: #b32d2e;
+			text-decoration: none;
+			border-color: transparent;
+			box-shadow: none;
+			background: transparent;
+
+			&:hover {
+				background: #b32d2e;
+				color: #fff;
+				border-color: #b32d2e;
+				box-shadow: 0 0 0 1px #b32d2e;
+			}
+		}
+	}
+}
