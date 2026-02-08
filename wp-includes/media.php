@@ -5682,9 +5682,12 @@ function wp_media_personal_data_exporter( $email_address, $page = 1 ) {
  * The size "names" reflect the image dimensions, so changing the sizes would be quite misleading.
  *
  * @since WP 5.3.0
+ * @since 3.0.0 Retraceur fork Adds the Open Graph image size.
  * @access private
  */
 function _wp_add_additional_image_sizes() {
+	// Open Graph image size.
+	add_image_size( 'opengraph', 1200, 630, true );
 	// 2x medium_large size.
 	add_image_size( '1536x1536', 1536, 1536 );
 	// 2x large size.

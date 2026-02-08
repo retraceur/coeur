@@ -197,7 +197,7 @@ class Retraceur_Opengraph_Resolver {
 		$image = '';
 
 		if ( is_singular() && has_post_thumbnail() ) {
-			$image = get_the_post_thumbnail_url( null, 'full' );
+			$image = get_the_post_thumbnail_url( null, 'opengraph' );
 		}
 
 		if ( empty( $image ) ) {
