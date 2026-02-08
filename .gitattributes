@@ -1,4 +1,5 @@
 /i18n export-ignore
+/packages export-ignore
 /tools export-ignore
 /wp-admin/css/colors/retraceur/*.js export-ignore
 /wp-admin/css/*.js export-ignore
