@@ -1196,11 +1196,11 @@ class WP_Posts_List_Table extends WP_List_Table {
 			$time_diff = 0;
 		} else {
 			$t_time = sprintf(
-				/* translators: 1: Date, 2: Time. See https://www.php.net/manual/datetime.format.php */
+				/* translators: 1: date, 2: time. */
 				__( '%1$s at %2$s' ),
-				/* translators: Post date format. See https://www.php.net/manual/datetime.format.php */
+				/* translators: date format. See https://www.php.net/manual/datetime.format.php */
 				get_the_time( __( 'Y/m/d' ), $post ),
-				/* translators: Default time format, see https://www.php.net/manual/datetime.format.php */
+				/* translators: time format, see https://www.php.net/manual/datetime.format.php */
 				get_the_time( __( 'g:i a' ), $post )
 			);
 

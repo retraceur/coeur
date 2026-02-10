@@ -857,6 +857,7 @@ function wp_ajax_add_meta() {
 				/* translators: 1: Post creation date, 2: Post creation time. */
 				__( 'Draft created on %1$s at %2$s' ),
 				gmdate( __( 'F j, Y' ), $now ),
+				/* translators: time format, see https://www.php.net/manual/datetime.format.php */
 				gmdate( __( 'g:i a' ), $now )
 			);
 
@@ -1403,7 +1404,7 @@ function wp_ajax_find_posts() {
 		if ( '0000-00-00 00:00:00' === $post->post_date ) {
 			$time = '';
 		} else {
-			/* translators: Post date format. See https://www.php.net/manual/datetime.format.php */
+			/* translators: date format. See https://www.php.net/manual/datetime.format.php */
 			$time = mysql2date( __( 'Y/m/d' ), $post->post_date );
 		}
 
@@ -1805,9 +1806,11 @@ function wp_ajax_wp_fullscreen_save_post() {
 
 	if ( $post ) {
 		$last_date = mysql2date( __( 'F j, Y' ), $post->post_modified );
+		/* translators: time format, see https://www.php.net/manual/datetime.format.php */
 		$last_time = mysql2date( __( 'g:i a' ), $post->post_modified );
 	} else {
 		$last_date = date_i18n( __( 'F j, Y' ) );
+		/* translators: time format, see https://www.php.net/manual/datetime.format.php */
 		$last_time = date_i18n( __( 'g:i a' ) );
 	}
 
