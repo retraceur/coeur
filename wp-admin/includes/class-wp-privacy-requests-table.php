@@ -490,11 +490,11 @@ abstract class WP_Privacy_Requests_Table extends WP_List_Table {
 		}
 
 		return sprintf(
-			/* translators: 1: privacy request date format, 2: privacy request time format. */
+			/* translators: 1: date, 2: time. */
 			__( '%1$s at %2$s' ),
-			/* translators: privacy request date format. See https://www.php.net/manual/en/datetime.format.php */
+			/* translators: date format. See https://www.php.net/manual/datetime.format.php */
 			date_i18n( __( 'Y/m/d' ), $timestamp ),
-			/* translators: privacy request time format. See https://www.php.net/manual/en/datetime.format.php */
+			/* translators: time format, see https://www.php.net/manual/datetime.format.php */
 			date_i18n( __( 'g:i a' ), $timestamp )
 		);
 	}

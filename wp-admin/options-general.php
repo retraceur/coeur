@@ -281,7 +281,7 @@ if ( empty( $tzstring ) ) { // Create a UTC+- zone if no timezone string exists.
 				__( 'Standard time begins on: %s.' );
 			printf(
 				$message,
-				/* translators: Localized date and time format, see https://www.php.net/manual/datetime.format.php */
+				/* translators: date and time format, see https://www.php.net/manual/datetime.format.php */
 				'<code>' . wp_date( __( 'F j, Y g:i a' ), $transitions[1]['ts'] ) . '</code>'
 			);
 		} else {
@@ -355,7 +355,17 @@ foreach ( $date_formats as $format ) {
 	 *
 	 * @param string[] $default_time_formats Array of default time formats.
 	 */
-	$time_formats = array_unique( apply_filters( 'time_formats', array( __( 'g:i a' ), 'g:i A', 'H:i' ) ) );
+	$time_formats = array_unique(
+		apply_filters(
+			'time_formats',
+			array(
+				/* translators: time format, see https://www.php.net/manual/datetime.format.php */
+				__( 'g:i a' ),
+				'g:i A',
+				'H:i'
+			)
+		)
+	);
 
 	$custom = true;
 

@@ -307,9 +307,9 @@ function populate_options( array $options = array() ) {
 		'posts_per_page'                  => 10,
 		/* translators: Default date format, see https://www.php.net/manual/datetime.format.php */
 		'date_format'                     => __( 'F j, Y' ),
-		/* translators: Default time format, see https://www.php.net/manual/datetime.format.php */
+		/* translators: time format, see https://www.php.net/manual/datetime.format.php */
 		'time_format'                     => __( 'g:i a' ),
-		/* translators: Links last updated date format, see https://www.php.net/manual/datetime.format.php */
+		/* translators: date and time format, see https://www.php.net/manual/datetime.format.php */
 		'links_updated_date_format'       => __( 'F j, Y g:i a' ),
 		'permalink_structure'             => '',
 		'rewrite_rules'                   => '',
