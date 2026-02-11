@@ -16,6 +16,10 @@ built
 # Config file
 wp-config.php
 
+# Sqlite dropin & database folder.
+/wp-content/db.php
+/wp-content/database/
+
 # Uploads
 /wp-content/uploads/
 
