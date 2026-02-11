@@ -1069,7 +1069,7 @@ function wp_finalize_template_enhancement_output_buffer( string $output, int $ph
 		$did_just_catch = true;
 		trigger_error(
 			sprintf(
-				/* translators: %s is the class name */
+				/* translators: %s is the throwable class name */
 				__( 'Uncaught "%s" thrown:' ),
 				get_class( $throwable )
 			) . ' ' . $throwable->getMessage(),
