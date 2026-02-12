@@ -159,7 +159,7 @@ class WP_Script_Modules {
 					_doing_it_wrong(
 						__METHOD__,
 						sprintf(
-							/* translators: 1: $fetchpriority, 2: $id */
+							/* translators: 1: $fetchpriority, 2: $handle */
 							__( 'Invalid fetchpriority `%1$s` defined for `%2$s` during script registration.' ),
 							is_string( $args['fetchpriority'] ) ? $args['fetchpriority'] : gettype( $args['fetchpriority'] ),
 							$id
