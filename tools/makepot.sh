@@ -70,7 +70,6 @@ wp i18n make-pot . i18n/js/dist-server-side-render.pot --include="wp-includes/js
 wp i18n make-pot . i18n/js/dist-widgets.pot --include="wp-includes/js/dist/widgets.js" --ignore-domain --headers='{"Project-Id-Version": "Retraceur 3.0.0-alpha", "Report-Msgid-Bugs-To": "https://github.com/retraceur/coeur/issues", "Last-Translator": "imath <contact@imathi.eu>", "Language-Team": "Retraceur <retraceur@proton.me>"}'
 
 # inc/js/dist
-wp i18n make-pot . i18n/js/tinymce-wp-tinymce.pot --include="wp-includes/js/tinymce/wp-tinymce.js" --ignore-domain --headers='{"Project-Id-Version": "Retraceur 3.0.0-alpha", "Report-Msgid-Bugs-To": "https://github.com/retraceur/coeur/issues", "Last-Translator": "imath <contact@imathi.eu>", "Language-Team": "Retraceur <retraceur@proton.me>"}'
 wp i18n make-pot . i18n/js/tinymce-wplink.pot --include="wp-includes/js/tinymce/plugins/wplink/plugin.js" --ignore-domain --headers='{"Project-Id-Version": "Retraceur 3.0.0-alpha", "Report-Msgid-Bugs-To": "https://github.com/retraceur/coeur/issues", "Last-Translator": "imath <contact@imathi.eu>", "Language-Team": "Retraceur <retraceur@proton.me>"}'
 
 status "Done."
