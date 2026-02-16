@@ -13103,21 +13103,10 @@ var wp;
         pages: [
           {
             image: /* @__PURE__ */ (0, import_jsx_runtime84.jsx)(
-              "video",
+              WelcomeGuideImage,
               {
-                className: "edit-site-welcome-guide__video",
-                autoPlay: true,
-                loop: true,
-                muted: true,
-                width: "312",
-                height: "240",
-                children: /* @__PURE__ */ (0, import_jsx_runtime84.jsx)(
-                  "source",
-                  {
-                    src: "https://s.w.org/images/block-editor/editing-your-page.mp4",
-                    type: "video/mp4"
-                  }
-                )
+                nonAnimatedSrc: "https://wsrv.nl/?url=https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/images/edit-your-site.svg",
+                animatedSrc: "https://wsrv.nl/?url=https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/images/edit-your-site.svg"
               }
             ),
             content: /* @__PURE__ */ (0, import_jsx_runtime84.jsxs)(import_jsx_runtime84.Fragment, { children: [
@@ -23730,7 +23719,7 @@ var wp;
               "img",
               {
                 alt: `Duotone example: ${duotone.slug}`,
-                src: "https://s.w.org/images/core/5.3/MtBlanc1.jpg",
+                src: "https://wsrv.nl/?url=https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/images/MtBlanc1.jpg",
                 style: {
                   filter: `url(#wp-duotone-${duotone.slug})`
                 }

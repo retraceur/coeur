@@ -1614,9 +1614,7 @@ class WP_Site_Health {
 	/**
 	 * Tests if Retraceur can run automated background updates.
 	 *
-	 * Background updates in WordPress are primarily used for minor releases and security updates.
-	 * It's important to either have these working, or be aware that they are intentionally disabled
-	 * for whatever reason.
+	 * Background updates are not available in Retraceur.
 	 *
 	 * @since 5.2.0
 	 * @deprecated 2.0.0 Retraceur fork.

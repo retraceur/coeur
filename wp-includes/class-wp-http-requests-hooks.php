@@ -66,7 +66,7 @@ class WP_HTTP_Requests_Hooks extends WpOrg\Requests\Hooks {
 		 *
 		 * This action maps Requests internal hook to a native Retraceur action.
 		 *
-		 * @see https://github.com/WordPress/Requests/blob/master/docs/hooks.md
+		 * @see https://github.com/wordpress/Requests/blob/master/docs/hooks.md
 		 *
 		 * @since WP 4.7.0
 		 *

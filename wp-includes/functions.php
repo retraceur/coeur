@@ -8683,7 +8683,7 @@ function wp_is_heic_image_mime_type( $mime_type ) {
  *
  * This function does not salt the value prior to being hashed, therefore input to this function must originate from
  * a random generator with sufficiently high entropy, preferably greater than 128 bits. This function is used internally
- * in WordPress to hash security keys and application passwords which are generated with high entropy.
+ * in Retraceur to hash security keys and application passwords which are generated with high entropy.
  *
  * Important:
  *
