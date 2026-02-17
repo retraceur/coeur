@@ -11,7 +11,7 @@
 /**
  * WP PHPMailer class.
  *
- * Overrides the internationalization method in order to use WordPress' instead.
+ * Overrides the internationalization method in order to use Retraceur' instead.
  *
  * @since WP 6.8.0
  * @since 2.0.0 Retraceur fork.
@@ -32,7 +32,7 @@ class WP_PHPMailer extends PHPMailer\PHPMailer\PHPMailer {
 	}
 
 	/**
-	 * Defines the error messages using WordPress' internationalization method.
+	 * Defines the error messages using Retraceur' internationalization method.
 	 *
 	 * @since WP 6.8.0
 	 * @since 2.0.0 Retraceur fork.
