@@ -6,6 +6,22 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+## [3.0.0-beta1] - TBD
+
+### Added
+
+- Cherry pick 548 commits from the WP 6.9-branch, see [#121](https://github.com/retraceur/coeur/issues/121).
+- Introduce a Core Open Graph API for Retraceur, see [#144](https://github.com/retraceur/coeur/issues/144).
+- Define a “Global Media Assets” section in Media settings, see [#149](https://github.com/retraceur/coeur/issues/149).
+
+
+### Changed
+
+- Make sure latest posts widget only lists standard post formats, see [#133](https://github.com/retraceur/coeur/issues/133).
+- Make sure `per_page` user setting is saved in Blocks Admin page, see [#127](https://github.com/retraceur/coeur/issues/127).
+- Make sure the Edit posts Screen's post format dropdown uses the right slug, see [#123](https://github.com/retraceur/coeur/issues/123).
+
+
 ## [2.0.1] - 2025-10-01
 
 ### Changed
