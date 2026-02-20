@@ -57,82 +57,51 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 
 		<div class="about__section has-2-columns">
 			<div class="column is-vertically-aligned-center">
-				<h3><?php esc_html_e( 'The Post Formats theme feature has been completely revamped' ); ?></h3>
-				<p>
-					<strong>
-						<?php printf(
-							/* Translators: %s: Retraceur’s name & version number. */
-							esc_html__( 'While Mr. Mullenweg’s WP has neglected this theme feature since its introduction in 2011, %s brings it back to the forefront by completely rewriting it.' ),
-							'Retraceur&nbsp;2.0.0'
-						);
-						?>
-					</strong><br />
-					<?php esc_html_e( 'It’s obvious: your very own online publication hub needs a fancy way — in line with your active theme capabilities — to let you potentially share code, status updates, photos, asides, links, chat transcripts, image galleries, quotes, movies, sounds and regular posts into your publication stream using a dedicated output for each format.' ); ?><br />
-					<?php esc_html_e( 'If, like "Point" — the bundled default Retraceur theme — your active theme is supporting one or more Post Formats, you’ll be able to select the best format to structure your content front-end layout within the Post Editor as well as to customize Post Format templates from the Site Editor.' ); ?><br />
-				</p>
+				<div class="about__image svg">
+					<img src="https://wsrv.nl/?url=https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/images/opengraph.webp" alt="" />
+				</div>
 			</div>
 			<div class="column is-vertically-aligned-center">
-				<div class="about__image svg">
-					<img src="https://wsrv.nl/?url=https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/images/revamped-post-format.svg" alt="" />
-				</div>
+				<h3><?php esc_html_e( 'Open Graph is part of your identity' ); ?></h3>
+				<p>
+					<strong>
+						<?php esc_html__( 'A website is no longer just a destination. It is a personal crossroads — a place where your ideas, your work, and your identity converge and radiate outward.' );
+						?>
+					</strong><br />
+					<?php esc_html_e( 'Every time a link to your site is shared, it becomes a representation of you. With built-in Open Graph support, Retraceur ensures that representation is intentional.' ); ?><br />
+					<br /><?php esc_html_e( 'Your pages and posts automatically expose structured metadata designed for modern sharing. Titles, descriptions, publication data, and images are generated natively by the core — consistently, predictably, without plugins or fragile theme logic.' ); ?><br />
+					<br /><?php esc_html_e( 'Because how your content appears outside your site matters as much as how it appears within it.' ); ?><br />
+					<?php
+					printf(
+						/* Translators: 1: The settings Admin menu name. 2: The Media Admin sub menu name. */
+						esc_html__( 'You can also define a global fallback image in %1$s → %2$s, guaranteeing a coherent visual presence whenever your content travels beyond your domain.' ),
+						'<strong>' . esc_html_x( 'Settings', 'about 3.0 page' ),
+						esc_html_x( 'Media', 'about 3.0 page' ) . '</strong>'
+					);
+					?>
+					<br/>
+					<br /><?php esc_html_e( 'Retraceur treats social metadata not as decoration, but as part of your site’s identity. Open Graph is not an add-on. It is infrastructure.' ); ?>
+				</p>
 			</div>
 		</div>
 
 		<hr class="is-invisible is-large" />
 
 		<div class="about__section has-2-columns">
-			<div class="column is-vertically-aligned-center">
-				<div class="about__image svg">
-					<img src="https://wsrv.nl/?url=https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/images/1-click-upgrade.svg" alt="" />
-				</div>
-			</div>
-			<div class="column is-vertically-aligned-center">
-				<h3><?php esc_html_e( '1 click Retraceur Coeur Upgrade' ); ?></h3>
-				<p>
-					<strong><?php esc_html_e( 'Updating a software is too sensitive to let it run in the background.' ); ?></strong><br />
-					<?php esc_html_e( 'Here comes the first iteration of the Retraceur Updates API, it’s primarily focusing on the core software.' ); ?><br />
-					<?php esc_html_e( 'As soon as a new Retraceur release is available, the next time you’ll visit your dashboard, an update notification inside your main menu will inform you about it.' ); ?>
-					<?php esc_html_e( 'Head over to your Retraceur Updates administration screen & choose whether to directly launch the 1 click process or download the release package to perform a manual upgrade.' ); ?><br />
-				</p>
-				<p><strong><?php esc_html_e( 'Retraceur Coeur updates stay under your control.' ); ?></strong><br /></p>
-			</div>
-		</div>
-
-		<hr class="is-invisible is-large" />
-
-		<div class="about__section">
 			<div class="column">
-				<p class="is-subheading">
-					<?php esc_html_e( 'Retraceur chooses to move forward and promote the Site Editor and using Block Themes.' ); ?>
-				</p>
-			</div>
-			<div class="column is-vertically-aligned-center">
-				<div class="about__image svg">
-					<?php printf( '<img src="https://wsrv.nl/?url=%s" alt="" />', esc_url( __( 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/images/point-en-2-0.webp' ) ) ); ?>
-				</div>
-			</div>
-		</div>
-
-		<hr class="is-invisible is-large" />
-
-		<div class="about__section has-3-columns">
-			<div class="column">
-				<h3><?php esc_html_e( 'Three more things!' ); ?></h3>
+				<h3><?php esc_html_e( 'Two other sweets!' ); ?></h3>
 				<p>
 					<?php
 					printf(
-						/* Translators: %s: The link to the Blocks Administration. */
-						esc_html__( 'You can now customize Post Format names, descriptions & URLs from a %s.' ),
-						'<a href="edit-tags.php?taxonomy=post_format">' . __( 'dedicated Administration screen' ) . '</a>'
+						/* Translators: %s: keyboard combination keys to launch the palette. */
+						esc_html__( 'Hit the %s keys to launch the command palette from any part of your site’s Administration.' ),
+						str_contains( $_SERVER['HTTP_USER_AGENT'], 'Mac' ) ? '<code>Cmd + k</code>' : '<code>Ctrl + k</code>'
 					);
 					?>
 				</p>
 			</div>
 			<div class="column is-vertically-aligned-bottom">
-				<p><?php esc_html_e( 'Share your PayPal profile thanks to the new PayPal item added to the social links block.' ); ?></p>
-			</div>
-			<div class="column is-vertically-aligned-bottom">
-				<p><?php esc_html_e( 'Password security has been strengthened thanks to bcrypt encryption.' ); ?></p>
+				<p><?php esc_html_e( 'Use the new Accordion block for your FAQs, menus, or long content you want to keep easy to explore.' ); ?></p>
 			</div>
 		</div>
 
