@@ -13764,7 +13764,11 @@ var wp;
     if (fetching) {
       return /* @__PURE__ */ (0, import_jsx_runtime179.jsx)(import_primitives129.View, { ...blockProps, children: /* @__PURE__ */ (0, import_jsx_runtime179.jsx)(embed_loading_default, {}) });
     }
-    const label = (0, import_i18n36.sprintf)((0, import_i18n36.__)("%s URL"), title);
+    const label = (0, import_i18n36.sprintf)(
+      // translators: %s: type of embed e.g: "YouTube", "Twitter", etc. "Embed" is used when no specific type exists.
+      (0, import_i18n36.__)("%s URL"),
+      title
+    );
     const showEmbedPlaceholder = !preview || cannotEmbed || isEditingURL;
     if (showEmbedPlaceholder) {
       return /* @__PURE__ */ (0, import_jsx_runtime179.jsx)(import_primitives129.View, { ...blockProps, children: /* @__PURE__ */ (0, import_jsx_runtime179.jsx)(
@@ -27513,7 +27517,11 @@ ${url}
   var import_core_data18 = __toESM(require_core_data());
   function buildMenuLabel(title, id, status) {
     if (!title) {
-      return (0, import_i18n72.sprintf)((0, import_i18n72.__)("(no title %s)"), id);
+      return (0, import_i18n72.sprintf)(
+        // translators: %s: the index of the menu in the list of menus.
+        (0, import_i18n72.__)("(no title %s)"),
+        id
+      );
     }
     if (status === "publish") {
       return (0, import_html_entities3.decodeEntities)(title);
@@ -27534,9 +27542,7 @@ ${url}
     createNavigationMenuIsSuccess,
     createNavigationMenuIsError
   }) {
-    const createActionLabel = (0, import_i18n72.__)("Create from '%s'");
     const [isUpdatingMenuRef, setIsUpdatingMenuRef] = (0, import_element44.useState)(false);
-    actionLabel2 = actionLabel2 || createActionLabel;
     const { menus: classicMenus } = useNavigationEntities();
     const {
       navigationMenus,
@@ -27558,10 +27564,15 @@ ${url}
           index + 1,
           status
         );
+        const ariaLabel = actionLabel2 ? (0, import_i18n72.sprintf)(actionLabel2, label) : (0, import_i18n72.sprintf)(
+          // translators: %s: The name of a menu.
+          (0, import_i18n72.__)("Create from '%s'"),
+          label
+        );
         return {
           value: id,
           label,
-          ariaLabel: (0, import_i18n72.sprintf)(actionLabel2, label),
+          ariaLabel,
           disabled: isUpdatingMenuRef || isResolvingNavigationMenus || !hasResolvedNavigationMenus
         };
       }) || [];
@@ -27632,7 +27643,8 @@ ${url}
                   onClose();
                 },
                 "aria-label": (0, import_i18n72.sprintf)(
-                  createActionLabel,
+                  // translators: %s: The name of a menu.
+                  (0, import_i18n72.__)("Create from '%s'"),
                   label
                 ),
                 disabled: isUpdatingMenuRef || isResolvingNavigationMenus || !hasResolvedNavigationMenus,
@@ -30073,7 +30085,11 @@ ${url}
   var import_i18n89 = __toESM(require_i18n());
   function AccessibleMenuDescription({ id }) {
     const [menuTitle] = (0, import_core_data30.useEntityProp)("postType", "wp_navigation", "title");
-    const description = (0, import_i18n89.sprintf)((0, import_i18n89.__)(`Navigation Menu: "%s"`), menuTitle);
+    const description = (0, import_i18n89.sprintf)(
+      // translators: %s: Title of a Navigation Menu post.
+      (0, import_i18n89.__)(`Navigation Menu: "%s"`),
+      menuTitle
+    );
     return /* @__PURE__ */ (0, import_jsx_runtime246.jsx)(AccessibleDescription, { id, children: description });
   }
 
@@ -38951,11 +38967,12 @@ ${url}
           if (minMinutes === maxMinutes) {
             maxMinutes = maxMinutes + 1;
           }
-          const rangeLabel = (0, import_i18n123._x)(
-            "%1$s\u2013%2$s minutes",
-            "Range of minutes to read"
+          return (0, import_i18n123.sprintf)(
+            // translators: 1: minimum minutes, 2: maximum minutes to read the post.
+            (0, import_i18n123._x)("%1$s\u2013%2$s minutes", "Range of minutes to read"),
+            minMinutes,
+            maxMinutes
           );
-          return (0, import_i18n123.sprintf)(rangeLabel, minMinutes, maxMinutes);
         }
         const minutesToRead = Math.max(
           1,

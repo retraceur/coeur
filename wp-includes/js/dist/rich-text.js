@@ -1684,12 +1684,26 @@ var wp;
   function toggleFormat(value, format) {
     if (getActiveFormat(value, format.type)) {
       if (format.title) {
-        (0, import_a11y.speak)((0, import_i18n.sprintf)((0, import_i18n.__)("%s removed."), format.title), "assertive");
+        (0, import_a11y.speak)(
+          (0, import_i18n.sprintf)(
+            // translators: %s: title of the formatting control.
+            (0, import_i18n.__)("%s removed."),
+            format.title
+          ),
+          "assertive"
+        );
       }
       return removeFormat(value, format.type);
     }
     if (format.title) {
-      (0, import_a11y.speak)((0, import_i18n.sprintf)((0, import_i18n.__)("%s applied."), format.title), "assertive");
+      (0, import_a11y.speak)(
+        (0, import_i18n.sprintf)(
+          // translators: %s: title of the formatting control.
+          (0, import_i18n.__)("%s applied."),
+          format.title
+        ),
+        "assertive"
+      );
     }
     return applyFormat(value, format);
   }

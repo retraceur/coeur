@@ -15789,10 +15789,18 @@ var wp;
     const alignmentInfo = {};
     const sizeRegex = /^(?!0)\d+(px|em|rem|vw|vh|%|svw|lvw|dvw|svh|lvh|dvh|vi|svi|lvi|dvi|vb|svb|lvb|dvb|vmin|svmin|lvmin|dvmin|vmax|svmax|lvmax|dvmax)?$/i;
     if (sizeRegex.test(contentSize) && type === "constrained") {
-      alignmentInfo.none = (0, import_i18n9.sprintf)((0, import_i18n9.__)("Max %s wide"), contentSize);
+      alignmentInfo.none = (0, import_i18n9.sprintf)(
+        // translators: %s: container size (i.e. 600px etc).
+        (0, import_i18n9.__)("Max %s wide"),
+        contentSize
+      );
     }
     if (sizeRegex.test(wideSize)) {
-      alignmentInfo.wide = (0, import_i18n9.sprintf)((0, import_i18n9.__)("Max %s wide"), wideSize);
+      alignmentInfo.wide = (0, import_i18n9.sprintf)(
+        // translators: %s: container size (i.e. 600px etc).
+        (0, import_i18n9.__)("Max %s wide"),
+        wideSize
+      );
     }
     return alignmentInfo;
   }
@@ -21387,7 +21395,11 @@ var wp;
       canMove,
       isBlockHidden: isBlockHidden2
     } = (0, import_element28.useContext)(PrivateBlockContext);
-    const blockLabel = (0, import_i18n23.sprintf)((0, import_i18n23.__)("Block: %s"), blockTitle);
+    const blockLabel = (0, import_i18n23.sprintf)(
+      // translators: %s: Type of block (i.e. Text, Image etc).
+      (0, import_i18n23.__)("Block: %s"),
+      blockTitle
+    );
     const htmlSuffix = mode2 === "html" && !__unstableIsHtml ? "-visual" : "";
     const ffDragRef = useFirefoxDraggableCompatibility();
     const mergedRefs = (0, import_compose13.useMergeRefs)([

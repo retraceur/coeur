@@ -40081,7 +40081,11 @@ This message will only show in development mode. It won't appear in production. 
     if (describedBy) {
       return describedBy;
     }
-    return (0, import_i18n41.sprintf)((0, import_i18n41.__)("Currently selected: %s"), currentValue);
+    return (0, import_i18n41.sprintf)(
+      // translators: %s: The selected option.
+      (0, import_i18n41.__)("Currently selected: %s"),
+      currentValue
+    );
   }
   function CustomSelectControl(props) {
     const {
@@ -46571,7 +46575,11 @@ This message will only show in development mode. It won't appear in production. 
       }, SEARCH_FOCUS_DELAY);
     };
     const menuTitleId = `components-navigation__menu-title-${menu2}`;
-    const searchButtonLabel = (0, import_i18n68.sprintf)((0, import_i18n68.__)("Search in %s"), title);
+    const searchButtonLabel = (0, import_i18n68.sprintf)(
+      // translators: %s: menu title, search button label for menu search box.
+      (0, import_i18n68.__)("Search in %s"),
+      title
+    );
     return /* @__PURE__ */ (0, import_jsx_runtime240.jsxs)(MenuTitleUI, {
       className: "components-navigation__menu-title",
       children: [!isSearching && /* @__PURE__ */ (0, import_jsx_runtime240.jsxs)(GroupTitleUI, {

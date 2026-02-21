@@ -8966,7 +8966,7 @@ If there's a particular need for this, please submit a feature request at https:
     if (filterInView?.operator === OPERATOR_IS) {
       return (0, import_element19.createInterpolateElement)(
         (0, import_i18n18.sprintf)(
-          /* translators: 1: Filter name. 2: Filter value. e.g.: "Author is: Admin". */
+          // translators: 1: Filter name. 2: Filter value.
           (0, import_i18n18.__)("<Name>%1$s is: </Name><Value>%2$s</Value>"),
           filter.name,
           activeElements[0].label
@@ -8977,7 +8977,7 @@ If there's a particular need for this, please submit a feature request at https:
     if (filterInView?.operator === OPERATOR_IS_NOT) {
       return (0, import_element19.createInterpolateElement)(
         (0, import_i18n18.sprintf)(
-          /* translators: 1: Filter name. 2: Filter value. e.g.: "Author is not: Admin". */
+          // translators: 1: Filter name. 2: Filter value.
           (0, import_i18n18.__)("<Name>%1$s is not: </Name><Value>%2$s</Value>"),
           filter.name,
           activeElements[0].label
@@ -9128,7 +9128,7 @@ If there's a particular need for this, please submit a feature request at https:
     if (filterInView?.operator === OPERATOR_ON) {
       return (0, import_element19.createInterpolateElement)(
         (0, import_i18n18.sprintf)(
-          /* translators: 1: Filter name. 2: Filter value. e.g.: "Date is: 2024-01-01". */
+          // translators: 1: Filter name. 2: Filter value.
           (0, import_i18n18.__)("<Name>%1$s is: </Name><Value>%2$s</Value>"),
           filter.name,
           activeElements[0].label
@@ -9139,7 +9139,7 @@ If there's a particular need for this, please submit a feature request at https:
     if (filterInView?.operator === OPERATOR_NOT_ON) {
       return (0, import_element19.createInterpolateElement)(
         (0, import_i18n18.sprintf)(
-          /* translators: 1: Filter name. 2: Filter value. e.g.: "Date is not: 2024-01-01". */
+          // translators: 1: Filter name. 2: Filter value.
           (0, import_i18n18.__)("<Name>%1$s is not: </Name><Value>%2$s</Value>"),
           filter.name,
           activeElements[0].label

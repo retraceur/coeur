@@ -26822,7 +26822,11 @@ var wp;
   var import_html_entities5 = __toESM(require_html_entities());
   function buildNavigationLabel(title, id, status) {
     if (!title?.rendered) {
-      return (0, import_i18n85.sprintf)((0, import_i18n85.__)("(no title %s)"), id);
+      return (0, import_i18n85.sprintf)(
+        // translators: %s: the index of the menu in the list of menus.
+        (0, import_i18n85.__)("(no title %s)"),
+        id
+      );
     }
     if (status === "publish") {
       return (0, import_html_entities5.decodeEntities)(title?.rendered);

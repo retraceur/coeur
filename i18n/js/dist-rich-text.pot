@@ -7,16 +7,18 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-02-05T02:04:57+00:00\n"
+"POT-Creation-Date: 2026-02-21T11:19:26+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 
-#: wp-includes/js/dist/rich-text.js:1687
+#. translators: %s: title of the formatting control.
+#: wp-includes/js/dist/rich-text.js:1690
 #, js-format
 msgid "%s removed."
 msgstr ""
 
-#: wp-includes/js/dist/rich-text.js:1692
+#. translators: %s: title of the formatting control.
+#: wp-includes/js/dist/rich-text.js:1702
 #, js-format
 msgid "%s applied."
 msgstr ""
