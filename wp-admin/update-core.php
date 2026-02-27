@@ -232,7 +232,7 @@ function core_upgrade_preamble() {
 	/**
 	 * Filter here to allow prerelease downloads.
 	 *
-	 * @since 3.0.0
+	 * @since 3.0.0 Retraceur fork.
 	 *
 	 * @param boolean $value True to allow prerelease downloads. False otherwise.
 	 */
