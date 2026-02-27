@@ -227,8 +227,18 @@ function core_upgrade_preamble() {
 	require ABSPATH . WPINC . '/version.php';
 
 	$is_development_version = preg_match( '/alpha|beta|RC/', $retraceur_version );
+	$is_stable_update       = isset( $updates[0]['version'] ) && ! empty( $updates[0]['stable'] );
 
-	if ( isset( $updates[0]['version'] ) && version_compare( $updates[0]['version'], $retraceur_version, '>' ) ) {
+	/**
+	 * Filter here to allow prerelease downloads.
+	 *
+	 * @since 3.0.0 Retraceur fork.
+	 *
+	 * @param boolean $value True to allow prerelease downloads. False otherwise.
+	 */
+	$prerelease_testing_enabled = isset( $updates[0]['version'] ) && apply_filters( 'retraceur_enable_prerelease_testing', false );
+
+	if ( ( $is_stable_update || $prerelease_testing_enabled ) && version_compare( $updates[0]['version'], $retraceur_version, '>' ) ) {
 		echo '<h2 class="response">';
 		esc_html_e( 'An updated version of Retraceur is available.' );
 		echo '</h2>';
@@ -249,7 +259,7 @@ function core_upgrade_preamble() {
 	echo '<ul class="core-updates">';
 
 	foreach ( (array) $updates as $update ) {
-		if ( true !== $update['stable'] && ! $is_development_version ) {
+		if ( true !== $update['stable'] && ! $is_development_version && ! $prerelease_testing_enabled ) {
 			continue;
 		}
 
