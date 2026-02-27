@@ -139,7 +139,8 @@ class Retraceur_Opengraph_Resolver {
 			if ( ! empty( $post->post_excerpt ) ) {
 				$description = $post->post_excerpt;
 			} else {
-				$description = $post->post_content;
+				/** This filter is documented in wp-includes/post-template.php */
+				$description = apply_filters( 'the_content', $post->post_content );
 			}
 		} else {
 			// Defaults to site's tagline.
