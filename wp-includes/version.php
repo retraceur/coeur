@@ -27,7 +27,7 @@ $wp_version = '6.9.2-alpha-61583';
  *
  * @global string $retraceur_version
  */
-$retraceur_version = '3.0.0-beta1';
+$retraceur_version = '3.0.0-RC1';
 
 /**
  * Holds the WP DB revision, increments when changes are made to the WP DB schema.
