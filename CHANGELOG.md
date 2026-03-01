@@ -6,16 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
-## [3.0.0-RC1] - 2026-02-28
-
-### Changed
-
-- Make sure `undo-manager` package is not deleted during upgrade process, see [#160](https://github.com/retraceur/coeur/issues/160).
-- Improve the "1 click update" logic, see [#161](https://github.com/retraceur/coeur/issues/161).
-- Open Graph API: improve `og:description` prop when a single post/page is displayed, see [#164](https://github.com/retraceur/coeur/issues/164).
-
-
-## [3.0.0-beta1] - 2026-02-24
+## [3.0.0] - 2026-03-01
 
 ### Added
 
@@ -23,12 +14,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Introduce a Core Open Graph API for Retraceur, see [#144](https://github.com/retraceur/coeur/issues/144).
 - Define a “Global Media Assets” section in Media settings, see [#149](https://github.com/retraceur/coeur/issues/149).
 
-
 ### Changed
 
+- Make sure `undo-manager` package is not deleted during upgrade process, see [#160](https://github.com/retraceur/coeur/issues/160).
+- Improve the "1 click update" logic, see [#161](https://github.com/retraceur/coeur/issues/161).
+- Open Graph API: improve `og:description` prop when a single post/page is displayed, see [#164](https://github.com/retraceur/coeur/issues/164).
 - Make sure latest posts widget only lists standard post formats, see [#133](https://github.com/retraceur/coeur/issues/133).
 - Make sure `per_page` user setting is saved in Blocks Admin page, see [#127](https://github.com/retraceur/coeur/issues/127).
 - Make sure the Edit posts Screen's post format dropdown uses the right slug, see [#123](https://github.com/retraceur/coeur/issues/123).
+
+## [3.0.0-RC1] - 2026-02-28
+
+
+## [3.0.0-beta1] - 2026-02-24
 
 
 ## [2.0.1] - 2025-10-01
