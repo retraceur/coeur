@@ -1,13 +1,13 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Retraceur 3.0.0-alpha\n"
+"Project-Id-Version: Retraceur 3.0.0\n"
 "Report-Msgid-Bugs-To: https://github.com/retraceur/coeur/issues\n"
 "Last-Translator: imath <contact@imathi.eu>\n"
 "Language-Team: Retraceur <retraceur@proton.me>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-02-16T20:37:10+00:00\n"
+"POT-Creation-Date: 2026-03-01T12:53:34+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 
@@ -6787,14 +6787,14 @@ msgid "When registering a default meta value the data must match the type provid
 msgstr ""
 
 #. Translators: %1$s is the Author name. %2$s is the Site name.
-#: wp-includes/opengraph/class-retraceur-opengraph-resolver.php:155
+#: wp-includes/opengraph/class-retraceur-opengraph-resolver.php:156
 #, php-format
 msgctxt "Default Opengraph profile description"
 msgid "%1$s’s profile page on the %2$s website."
 msgstr ""
 
 #. Translators: %s is the Website name.
-#: wp-includes/opengraph/class-retraceur-opengraph-resolver.php:169
+#: wp-includes/opengraph/class-retraceur-opengraph-resolver.php:170
 #, php-format
 msgctxt "Default Opengraph description"
 msgid "A %s website’s page."
