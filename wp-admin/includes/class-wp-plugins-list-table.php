@@ -626,6 +626,11 @@ class WP_Plugins_List_Table extends WP_List_Table {
 			}
 		}
 
+		// Don't show the "Must-Use" and "Drop-ins" views when on the blocks list table, as they are not applicable.
+		if ( 'block' === $this->_args['singular'] ) {
+			unset( $status_links['mustuse'], $status_links['dropins'] );
+		}
+
 		return $this->get_views_links( $status_links );
 	}
 
