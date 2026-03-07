@@ -1104,8 +1104,9 @@ function register_and_do_post_meta_boxes( $post ) {
 	 *
 	 * @since WP 3.0.0
 	 *
-	 * @param string  $post_type Post type.
-	 * @param WP_Post $post      Post object.
+	 * @param string         $object_type The type of the current object that meta boxes were added to.
+	 *                                    Can be 'post', 'page', custom post types.
+	 * @param WP_Post|object $object      The post object.
 	 */
 	do_action( 'add_meta_boxes', $post_type, $post );
 
@@ -1122,7 +1123,7 @@ function register_and_do_post_meta_boxes( $post ) {
 	 *
 	 * @since WP 3.0.0
 	 *
-	 * @param WP_Post $post Post object.
+	 * @param WP_Post|object $object The post object. Type varies depending on the hook name.
 	 */
 	do_action( "add_meta_boxes_{$post_type}", $post );
 
@@ -1133,9 +1134,9 @@ function register_and_do_post_meta_boxes( $post ) {
 	 *
 	 * @since WP 3.0.0
 	 *
-	 * @param string                $post_type Post type of the post on Edit Post screen, 'dashboard' on Dashboard screen.
-	 * @param string                $context   Meta box context. Possible values include 'normal', 'advanced', 'side'.
-	 * @param WP_Post|object|string $post      Post object on Edit Post screen, an empty string on Dashboard screen.
+	 * @param string                $object_type Post type of the post on Edit Post screen, 'dashboard' on Dashboard screen.
+	 * @param string                $context     Meta box context. Possible values include 'normal', 'advanced', 'side'.
+	 * @param WP_Post|object|string $object      Post object on Edit Post screen, an empty string on Dashboard screen.
 	 */
 	do_action( 'do_meta_boxes', $post_type, 'normal', $post );
 	/** This action is documented in wp-admin/includes/meta-boxes.php */
