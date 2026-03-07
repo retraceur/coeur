@@ -22,7 +22,7 @@ class WP_Query {
 	 * Query vars set by the user.
 	 *
 	 * @since WP 1.5.0
-	 * @var array
+	 * @var ?array
 	 */
 	public $query;
 
@@ -72,7 +72,7 @@ class WP_Query {
 	 * The ID of the queried object.
 	 *
 	 * @since WP 1.5.0
-	 * @var int
+	 * @var ?int
 	 */
 	public $queried_object_id;
 
@@ -80,7 +80,7 @@ class WP_Query {
 	 * SQL for the database query.
 	 *
 	 * @since WP 2.0.1
-	 * @var string
+	 * @var ?string
 	 */
 	public $request;
 
@@ -88,7 +88,7 @@ class WP_Query {
 	 * Array of post objects or post IDs.
 	 *
 	 * @since WP 1.5.0
-	 * @var WP_Post[]|int[]
+	 * @var WP_Post[]|int[]|null
 	 */
 	public $posts;
 
@@ -410,7 +410,7 @@ class WP_Query {
 	 * Cached list of search stopwords.
 	 *
 	 * @since WP 3.7.0
-	 * @var array
+	 * @var ?array
 	 */
 	private $stopwords;
 

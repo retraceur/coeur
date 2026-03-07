@@ -311,7 +311,7 @@ class WP_Filesystem_ftpsockets extends WP_Filesystem_Base {
 	public function owner( $file ) {
 		$dir = $this->dirlist( $file );
 
-		return $dir[ $file ]['owner'];
+		return $dir[ $file ]['owner'] ?? '';
 	}
 
 	/**
@@ -325,7 +325,7 @@ class WP_Filesystem_ftpsockets extends WP_Filesystem_Base {
 	public function getchmod( $file ) {
 		$dir = $this->dirlist( $file );
 
-		return $dir[ $file ]['permsn'];
+		return $dir[ $file ]['permsn'] ?? '';
 	}
 
 	/**
@@ -339,7 +339,7 @@ class WP_Filesystem_ftpsockets extends WP_Filesystem_Base {
 	public function group( $file ) {
 		$dir = $this->dirlist( $file );
 
-		return $dir[ $file ]['group'];
+		return $dir[ $file ]['group'] ?? '';
 	}
 
 	/**

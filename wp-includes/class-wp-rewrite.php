@@ -54,7 +54,7 @@ class WP_Rewrite {
 	 * Permalink structure for author archives.
 	 *
 	 * @since WP 1.5.0
-	 * @var string
+	 * @var ?string
 	 */
 	public $author_structure;
 
@@ -62,7 +62,7 @@ class WP_Rewrite {
 	 * Permalink structure for date archives.
 	 *
 	 * @since WP 1.5.0
-	 * @var string
+	 * @var ?string
 	 */
 	public $date_structure;
 
@@ -70,7 +70,7 @@ class WP_Rewrite {
 	 * Permalink structure for pages.
 	 *
 	 * @since WP 1.5.0
-	 * @var string
+	 * @var ?string
 	 */
 	public $page_structure;
 
@@ -86,7 +86,7 @@ class WP_Rewrite {
 	 * Permalink structure for searches.
 	 *
 	 * @since WP 1.5.0
-	 * @var string
+	 * @var ?string
 	 */
 	public $search_structure;
 
@@ -110,7 +110,7 @@ class WP_Rewrite {
 	 * Feed request permalink structure.
 	 *
 	 * @since WP 1.5.0
-	 * @var string
+	 * @var ?string
 	 */
 	public $feed_structure;
 
@@ -147,7 +147,7 @@ class WP_Rewrite {
 	 * The name of the index file which is the entry point to all requests.
 	 *
 	 * @since WP 1.5.0
-	 * @var string
+	 * @var ?string
 	 */
 	public $index = 'index.php';
 

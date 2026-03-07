@@ -25,6 +25,7 @@ wp-config.php
 
 # My plugins
 /wp-content/plugins/
+/wp-content/mu-plugins/
 
 # Languages
 /wp-content/languages

@@ -4,7 +4,7 @@
  * HTML API: WP_HTML_Decoder class
  *
  * Decodes spans of raw text found inside HTML content.
- * 
+ *
  * @since WP 6.6.0
  * @since 1.0.0 Retraceur fork.
  *
@@ -205,7 +205,7 @@ class WP_HTML_Decoder {
 	 * @param int    $at                 Optional. Byte offset into text where span begins, defaults to the beginning (0).
 	 * @param int    &$match_byte_length Optional. Set to byte-length of character reference if provided and if a match
 	 *                                   is found, otherwise not set. Default null.
-	 * @return string|false Decoded character reference in UTF-8 if found, otherwise `false`.
+	 * @return ?string Decoded character reference in UTF-8 if found, otherwise null.
 	 */
 	public static function read_character_reference( $context, $text, $at = 0, &$match_byte_length = null ) {
 		/**
