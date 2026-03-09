@@ -166,7 +166,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 					<?php
 						printf(
 							/* translators: 1: pixel value for icon size. 2: pixel value for icon size. */
-							__( 'The Site Icon is what you see in browser tabs, and within tbe bookmark bars. It should be square and at least <code>%1$s by %2$s</code> pixels.' ),
+							__( 'The Site Icon is what you see in browser tabs, and within the bookmark bars. It should be square and at least <code>%1$s by %2$s</code> pixels.' ),
 							512,
 							512
 						);
@@ -194,6 +194,15 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 					wp_add_inline_script( 'retraceur-global-media', $opengraph_script );
 					?>
 					<div id="opengraph-image"></div>
+					<p class="description">
+						<?php
+							printf(
+								/* translators: %s: html `<code>` markup containing recommended size. */
+								esc_html__( 'For optimal display on most platforms, it is recommended to use a landscape image around %s pixels.' ),
+								'<code>1200 × 630</code>'
+							);
+						?>
+					</p>
 				</td>
 			</tr>
 		<?php endif; ?>
