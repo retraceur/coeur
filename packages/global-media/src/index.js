@@ -40,7 +40,7 @@ const GlobalMedia = ( { settings } ) => {
 					multiple={ false }
 					allowedTypes={ ['image'] }
 					render={ ( { open } ) => (
-						<Button variant="secondary" onClick={ open }>{ image.id ? __( 'Change Image' ) : __( 'Choose an Image' ) }</Button>
+						<Button className={ image.id ? "button-secondary" : "button button-hero" } onClick={ open }>{ image.id ? __( 'Change Image' ) : __( 'Choose an Image' ) }</Button>
 					) }
 				/>
 
