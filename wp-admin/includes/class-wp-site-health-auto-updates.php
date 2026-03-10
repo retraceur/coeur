@@ -286,7 +286,7 @@ class WP_Site_Health_Auto_Updates {
 
 		/*
 		 * @todo Use GitHub assets generated checksums.
-		 * 
+		 *
 		 * Make sure the `get_core_checksums()` function is available during our REST API call.
 		if ( ! function_exists( 'get_core_checksums' ) ) {
 			require_once ABSPATH . 'wp-admin/includes/update.php';
@@ -319,7 +319,7 @@ class WP_Site_Health_Auto_Updates {
 		$unwritable_files = array();
 		/*
 		 * @todo Use GitHub assets generated checksums.
-		 * 
+		 *
 		 * foreach ( array_keys( $checksums ) as $file ) {
 			if ( str_starts_with( $file, 'wp-content' ) ) {
 				continue;
