@@ -284,7 +284,10 @@ class WP_Site_Health_Auto_Updates {
 			return false;
 		}
 
-		// Make sure the `get_core_checksums()` function is available during our REST API call.
+		/*
+		 * @todo Use GitHub assets generated checksums.
+		 *
+		 * Make sure the `get_core_checksums()` function is available during our REST API call.
 		if ( ! function_exists( 'get_core_checksums' ) ) {
 			require_once ABSPATH . 'wp-admin/includes/update.php';
 		}
@@ -303,7 +306,7 @@ class WP_Site_Health_Auto_Updates {
 
 		if ( ! $checksums ) {
 			$description = sprintf(
-				/* translators: %s: Retraceur version. */
+				// translators: %s: Retraceur version.
 				__( "Couldn't retrieve a list of the checksums for Retraceur %s." ),
 				$retraceur_version
 			);
@@ -311,10 +314,13 @@ class WP_Site_Health_Auto_Updates {
 				'description' => $description,
 				'severity'    => 'warning',
 			);
-		}
+		}*/
 
 		$unwritable_files = array();
-		foreach ( array_keys( $checksums ) as $file ) {
+		/*
+		 * @todo Use GitHub assets generated checksums.
+		 *
+		 * foreach ( array_keys( $checksums ) as $file ) {
 			if ( str_starts_with( $file, 'wp-content' ) ) {
 				continue;
 			}
@@ -324,7 +330,7 @@ class WP_Site_Health_Auto_Updates {
 			if ( ! is_writable( ABSPATH . $file ) ) {
 				$unwritable_files[] = $file;
 			}
-		}
+		}*/
 
 		if ( $unwritable_files ) {
 			if ( count( $unwritable_files ) > 20 ) {
