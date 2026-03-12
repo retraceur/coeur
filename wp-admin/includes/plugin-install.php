@@ -407,13 +407,9 @@ function display_plugins_table() {
 			echo '<p>' . __( 'You are using a development version of Retraceur. These feature plugins are also under development.' ) . '</p>';
 			break;
 
-		case 'install_plugins_all':
 		case 'install_plugins_featured':
+			echo '<br>';
 			break;
-	}
-
-	if ( isset( $_GET['tab'] ) && 'featured' === $_GET['tab'] ) {
-		echo '<br />';
 	}
 	?>
 	<form id="plugin-filter" method="post">
