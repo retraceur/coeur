@@ -67,7 +67,7 @@ class _WP_Dependency {
 	 * Extra data to supply to the handle.
 	 *
 	 * @since WP 2.6.0
-	 * @var array
+	 * @var array<string, mixed>
 	 */
 	public $extra = array();
 
@@ -83,7 +83,7 @@ class _WP_Dependency {
 	 * Translation path set for this dependency.
 	 *
 	 * @since WP 5.0.0
-	 * @var string
+	 * @var string|null
 	 */
 	public $translations_path;
 

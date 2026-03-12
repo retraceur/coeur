@@ -57,11 +57,12 @@ class WP_Dependencies {
 	/**
 	 * An array of additional arguments passed when a handle is registered.
 	 *
-	 * Arguments are appended to the item query string.
+	 * The keys are dependency handles and the values are query strings which are appended to the item URL's query
+	 * string, after the `ver` if provided.
 	 *
 	 * @since WP 2.6.0
 	 *
-	 * @var array
+	 * @var array<string, string>
 	 */
 	public $args = array();
 
@@ -101,7 +102,7 @@ class WP_Dependencies {
 	 *
 	 * @since WP 5.9.0
 	 *
-	 * @var array
+	 * @var array<string, string|null>
 	 */
 	private $queued_before_register = array();
 

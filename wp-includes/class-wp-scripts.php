@@ -47,7 +47,7 @@ class WP_Scripts extends WP_Dependencies {
 	 * Holds handles of scripts which are enqueued in footer.
 	 *
 	 * @since WP 2.8.0
-	 * @var array
+	 * @var string[]
 	 */
 	public $in_footer = array();
 
@@ -119,7 +119,7 @@ class WP_Scripts extends WP_Dependencies {
 	 * List of default directories.
 	 *
 	 * @since WP 2.8.0
-	 * @var array
+	 * @var string[]|null
 	 */
 	public $default_dirs;
 
@@ -375,7 +375,8 @@ class WP_Scripts extends WP_Dependencies {
 			$filtered_src = apply_filters( 'script_loader_src', $src, $handle );
 
 			if (
-				$this->in_default_dir( $filtered_src )
+				is_string( $filtered_src )
+				&& $this->in_default_dir( $filtered_src )
 				&& ( $before_script || $after_script || $translations_stop_concat || $this->is_delayed_strategy( $strategy ) )
 			) {
 				$this->do_concat = false;
@@ -590,9 +591,9 @@ class WP_Scripts extends WP_Dependencies {
 	 *
 	 * @since WP 2.1.0
 	 *
-	 * @param string $handle      Name of the script to attach data to.
-	 * @param string $object_name Name of the variable that will contain the data.
-	 * @param array  $l10n        Array of data to localize.
+	 * @param string               $handle      Name of the script to attach data to.
+	 * @param string               $object_name Name of the variable that will contain the data.
+	 * @param array<string, mixed> $l10n        Array of data to localize.
 	 * @return bool True on success, false on failure.
 	 */
 	public function localize( $handle, $object_name, $l10n ) {
