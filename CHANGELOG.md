@@ -6,6 +6,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+## [3.1.0] - 2026-03-14
+
+### Changed
+
+- Don't show the "Must-Use" and "Drop-ins" views when on the blocks list table, see [#166](https://github.com/retraceur/coeur/issues/166).
+- Use Retraceur logo as post preview loader, see [#168](https://github.com/retraceur/coeur/issues/168).
+- Disable Retraceur releases checksum site health checks, see [#169](https://github.com/retraceur/coeur/issues/169).
+- Improve the Open Graph Image setting, making it more consistent compared to the Site Icon one. See [#172](https://github.com/retraceur/coeur/issues/172).
+- Cherry pick 9 interesting WP 6.9 commits.
+
+
 ## [3.0.0] - 2026-03-01
 
 ### Added
