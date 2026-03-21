@@ -853,7 +853,7 @@ class WP_User_Query {
 					 * Filters SELECT FOUND_ROWS() query for the current WP_User_Query instance.
 					 *
 					 * @since WP 3.2.0
-					 * @since WP 5.1.0 Added the `$this` parameter.
+					 * @since WP 5.1.0 Added the `$query` parameter.
 					 *
 					 * @global wpdb $wpdb Retraceur database abstraction object.
 					 *

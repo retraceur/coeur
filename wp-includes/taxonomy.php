@@ -1036,7 +1036,7 @@ function get_term( $term, $taxonomy = '', $output = OBJECT, $filter = 'raw' ) {
 	 * taxonomy.
 	 *
 	 * @since WP 2.3.0
-	 * @since WP 4.4.0 `$_term` is now a `WP_Term` object.
+	 * @since WP 4.4.0 `$_term` is now a WP_Term object.
 	 *
 	 * @param WP_Term $_term    Term object.
 	 * @param string  $taxonomy The taxonomy slug.
@@ -1055,7 +1055,7 @@ function get_term( $term, $taxonomy = '', $output = OBJECT, $filter = 'raw' ) {
 	 *  - `get_post_tag`
 	 *
 	 * @since WP 2.3.0
-	 * @since WP 4.4.0 `$_term` is now a `WP_Term` object.
+	 * @since WP 4.4.0 `$_term` is now a WP_Term object.
 	 *
 	 * @param WP_Term $_term    Term object.
 	 * @param string  $taxonomy The taxonomy slug.

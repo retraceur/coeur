@@ -383,7 +383,7 @@ function _wp_put_post_revision( $post = null, $autosave = false ) {
 		 * Fires once a revision has been saved.
 		 *
 		 * @since WP 2.6.0
-		 * @since WP 6.4.0 The post_id parameter was added.
+		 * @since WP 6.4.0 The `$post_id` parameter was added.
 		 *
 		 * @param int $revision_id Post revision ID.
 		 * @param int $post_id     Post ID.

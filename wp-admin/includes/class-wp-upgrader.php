@@ -592,7 +592,7 @@ class WP_Upgrader {
 		 * Filters the source file location for the upgrade package.
 		 *
 		 * @since WP 2.8.0
-		 * @since WP 4.4.0 The $hook_extra parameter became available.
+		 * @since WP 4.4.0 The `$hook_extra` parameter became available.
 		 *
 		 * @param string      $source        File source location.
 		 * @param string      $remote_source Remote file source location.

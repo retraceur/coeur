@@ -3104,7 +3104,7 @@ function wp_check_filetype_and_ext( $file, $filename, $mimes = null ) {
 	 * Filters the "real" file type of the given file.
 	 *
 	 * @since WP 3.0.0
-	 * @since WP 5.1.0 The $real_mime parameter was added.
+	 * @since WP 5.1.0 The `$real_mime` parameter was added.
 	 *
 	 * @param array         $wp_check_filetype_and_ext {
 	 *     Values for the extension, mime type, and corrected filename.
@@ -3413,7 +3413,7 @@ function wp_get_ext_types() {
  */
 function wp_filesize( $path ) {
 	/**
-	 * Filters the result of wp_filesize before the PHP function is run.
+	 * Filters the result of wp_filesize() before the file_exists() PHP function is run.
 	 *
 	 * @since WP 6.0.0
 	 *
@@ -5752,7 +5752,7 @@ function _doing_it_wrong( $function_name, $message, $version, $is_retraceur = fa
 	 * Filters whether to trigger an error for _doing_it_wrong() calls.
 	 *
 	 * @since WP 3.1.0
-	 * @since WP 5.1.0 Added the $function_name, $message and $version parameters.
+	 * @since WP 5.1.0 Added the `$function_name`, `$message`, and `$version` parameters.
 	 *
 	 * @param bool   $trigger       Whether to trigger the error for _doing_it_wrong() calls. Default true.
 	 * @param string $function_name The function that was called.

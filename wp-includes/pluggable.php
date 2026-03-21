@@ -175,7 +175,7 @@ if ( ! function_exists( 'wp_mail' ) ) :
 	 * @since WP 1.2.1
 	 * @since WP 5.5.0 is_email() is used for email validation,
 	 *              instead of PHPMailer's default validator.
-	 * @since WP 6.9.0 Added $embeds parameter.
+	 * @since WP 6.9.0 The `$embeds` parameter was added.
 	 * @since WP 6.9.0 Improved Content-Type header handling for multipart messages.
 	 *
 	 * @global PHPMailer\PHPMailer\PHPMailer $phpmailer
@@ -195,6 +195,7 @@ if ( ! function_exists( 'wp_mail' ) ) :
 		 * Filters the wp_mail() arguments.
 		 *
 		 * @since WP 2.2.0
+		 * @since WP 6.9.0 The `$embeds` element was added to the `$args` array.
 		 *
 		 * @param array $args {
 		 *     Array of the `wp_mail()` arguments.
@@ -217,6 +218,7 @@ if ( ! function_exists( 'wp_mail' ) ) :
 		 * the email was successfully sent.
 		 *
 		 * @since WP 5.7.0
+		 * @since WP 6.9.0 The `$embeds` element was added to the `$atts` array.
 		 *
 		 * @param null|bool $return Short-circuit return value.
 		 * @param array     $atts {
@@ -572,7 +574,8 @@ if ( ! function_exists( 'wp_mail' ) ) :
 				 * @since WP 6.9.0
 				 *
 				 * @param array $args {
-				 *     An array of arguments for `addEmbeddedImage()`.
+				 *     An array of arguments for PHPMailer's addEmbeddedImage() method.
+				 *
 				 *     @type string $path        The path to the file.
 				 *     @type string $cid         The Content-ID of the image. Default: The key in the embeds array.
 				 *     @type string $name        The filename of the image.
@@ -631,9 +634,10 @@ if ( ! function_exists( 'wp_mail' ) ) :
 			 * process the request without any errors.
 			 *
 			 * @since WP 5.9.0
+			 * @since WP 6.9.0 The `$embeds` element was added to the `$mail_data` array.
 			 *
 			 * @param array $mail_data {
-			 *     An array containing the email recipient(s), subject, message, headers, and attachments.
+			 *     An array containing the email recipient(s), subject, message, headers, attachments, and embeds.
 			 *
 			 *     @type string[] $to          Email addresses to send message.
 			 *     @type string   $subject     Email subject.
@@ -650,12 +654,12 @@ if ( ! function_exists( 'wp_mail' ) ) :
 			$mail_data['phpmailer_exception_code'] = $e->getCode();
 
 			/**
-			 * Fires after a PHPMailer\PHPMailer\Exception is caught.
+			 * Fires after a PHPMailer exception is caught.
 			 *
 			 * @since WP 4.4.0
 			 *
 			 * @param WP_Error $error A WP_Error object with the PHPMailer\PHPMailer\Exception message, and an array
-			 *                        containing the mail recipient, subject, message, headers, and attachments.
+			 *                        containing the mail recipient, subject, message, headers, attachments, and embeds.
 			 */
 			do_action( 'wp_mail_failed', new WP_Error( 'wp_mail_failed', $e->getMessage(), $mail_data ) );
 
@@ -1511,7 +1515,7 @@ if ( ! function_exists( 'wp_redirect' ) ) :
 		}
 
 		/**
-		 * Filters the X-Redirect-By header.
+		 * Filters the value of the `X-Redirect-By` HTTP header.
 		 *
 		 * Allows applications to identify themselves when they're doing a redirect.
 		 *
