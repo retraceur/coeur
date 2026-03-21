@@ -1988,6 +1988,7 @@ function _post_states( $post, $display = true ) {
 
 	if ( ! empty( $post_states ) ) {
 		$state_count = count( $post_states );
+		$separator   = wp_get_list_item_separator();
 
 		$i = 0;
 
@@ -1996,9 +1997,9 @@ function _post_states( $post, $display = true ) {
 		foreach ( $post_states as $state ) {
 			++$i;
 
-			$separator = ( $i < $state_count ) ? ', ' : '';
+			$suffix = ( $i < $state_count ) ? $separator : '';
 
-			$post_states_html .= "<span class='post-state'>{$state}{$separator}</span>";
+			$post_states_html .= "<span class='post-state'>{$state}{$suffix}</span>";
 		}
 	}
 
@@ -2115,6 +2116,7 @@ function _media_states( $post, $display = true ) {
 
 	if ( ! empty( $media_states ) ) {
 		$state_count = count( $media_states );
+		$separator   = wp_get_list_item_separator();
 
 		$i = 0;
 
@@ -2123,9 +2125,9 @@ function _media_states( $post, $display = true ) {
 		foreach ( $media_states as $state ) {
 			++$i;
 
-			$separator = ( $i < $state_count ) ? ', ' : '';
+			$suffix = ( $i < $state_count ) ? $separator : '';
 
-			$media_states_string .= "<span class='post-state'>{$state}{$separator}</span>";
+			$media_states_string .= "<span class='post-state'>{$state}{$suffix}</span>";
 		}
 	}
 
