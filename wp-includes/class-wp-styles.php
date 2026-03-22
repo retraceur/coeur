@@ -23,7 +23,8 @@ class WP_Styles extends WP_Dependencies {
 	 * Full URL with trailing slash.
 	 *
 	 * @since WP 2.6.0
-	 * @var string
+	 * @see wp_default_styles()
+	 * @var string|null
 	 */
 	public $base_url;
 
@@ -31,7 +32,8 @@ class WP_Styles extends WP_Dependencies {
 	 * URL of the content directory.
 	 *
 	 * @since WP 2.8.0
-	 * @var string
+	 * @see wp_default_styles()
+	 * @var string|null
 	 */
 	public $content_url;
 
@@ -39,7 +41,8 @@ class WP_Styles extends WP_Dependencies {
 	 * Default version string for stylesheets.
 	 *
 	 * @since WP 2.6.0
-	 * @var string
+	 * @see wp_default_styles()
+	 * @var string|null
 	 */
 	public $default_version;
 
@@ -47,6 +50,7 @@ class WP_Styles extends WP_Dependencies {
 	 * The current text direction.
 	 *
 	 * @since WP 2.6.0
+	 * @see wp_default_styles()
 	 * @var string
 	 */
 	public $text_direction = 'ltr';
@@ -97,6 +101,7 @@ class WP_Styles extends WP_Dependencies {
 	 * List of default directories.
 	 *
 	 * @since WP 2.8.0
+	 * @see wp_default_styles()
 	 * @var string[]|null
 	 */
 	public $default_dirs;
@@ -119,9 +124,15 @@ class WP_Styles extends WP_Dependencies {
 	 */
 	public function __construct() {
 		if (
-			function_exists( 'is_admin' ) && ! is_admin()
-		&&
-			function_exists( 'current_theme_supports' ) && ! current_theme_supports( 'html5', 'style' )
+			(
+				function_exists( 'is_admin' ) &&
+				! is_admin()
+			)
+			&&
+			(
+				function_exists( 'current_theme_supports' ) &&
+				! current_theme_supports( 'html5', 'style' )
+			)
 		) {
 			$this->type_attr = " type='text/css'";
 		}
@@ -213,7 +224,7 @@ class WP_Styles extends WP_Dependencies {
 			return true;
 		}
 
-		$href = $this->_css_href( $src, $ver, $handle );
+		$href = $this->_css_href( $src, $obj->ver, $handle );
 		if ( ! $href ) {
 			return true;
 		}
@@ -420,9 +431,9 @@ class WP_Styles extends WP_Dependencies {
 	 *
 	 * @since WP 2.6.0
 	 *
-	 * @param string $src    The source of the enqueued style.
-	 * @param string $ver    The version of the enqueued style.
-	 * @param string $handle The style's registered handle.
+	 * @param string            $src    The source of the enqueued style.
+	 * @param string|false|null $ver    The version of the enqueued style.
+	 * @param string            $handle The style's registered handle.
 	 * @return string Style's fully-qualified URL.
 	 */
 	public function _css_href( $src, $ver, $handle ) {
@@ -430,9 +441,19 @@ class WP_Styles extends WP_Dependencies {
 			$src = $this->base_url . $src;
 		}
 
-		if ( ! empty( $ver ) ) {
-			$src = add_query_arg( 'ver', $ver, $src );
+		$query_args = array();
+		if ( empty( $ver ) && null !== $ver && is_string( $this->default_version ) ) {
+			$query_args['ver'] = $this->default_version;
+		} elseif ( is_scalar( $ver ) ) {
+			$query_args['ver'] = (string) $ver;
 		}
+		if ( isset( $this->args[ $handle ] ) ) {
+			parse_str( $this->args[ $handle ], $parsed_args );
+			if ( $parsed_args ) {
+				$query_args = array_merge( $query_args, $parsed_args );
+			}
+		}
+		$src = add_query_arg( rawurlencode_deep( $query_args ), $src );
 
 		/**
 		 * Filters an enqueued style's fully-qualified URL.
