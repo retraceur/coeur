@@ -366,19 +366,19 @@ function list_plugin_updates() {
 		// Get plugin compat for running version of Retraceur.
 		if ( isset( $plugin_data->update->tested ) && version_compare( $plugin_data->update->tested, $cur_r_version, '>=' ) ) {
 			/* translators: %s: Retraceur version. */
-			$compat = '<br />' . sprintf( __( 'Compatibility with Retraceur %s: 100%% (according to its author)' ), $cur_r_version );
+			$compat = '<br />' . sprintf( __( 'Compatibility with Retraceur %s: Yes (according to its author)' ), $cur_r_version );
 		} else {
 			/* translators: %s: Retraceur version. */
-			$compat = '<br />' . sprintf( __( 'Compatibility with Retraceur %s: Unknown' ), $cur_r_version );
+			$compat = '<br />' . sprintf( __( 'Compatibility with Retraceur %s: Not tested' ), $cur_r_version );
 		}
 		// Get plugin compat for updated version of Retraceur.
 		if ( $core_update_version ) {
 			if ( isset( $plugin_data->update->tested ) && version_compare( $plugin_data->update->tested, $core_update_version, '>=' ) ) {
 				/* translators: %s: Retraceur version. */
-				$compat .= '<br />' . sprintf( __( 'Compatibility with Retraceur %s: 100%% (according to its author)' ), $core_update_version );
+				$compat .= '<br />' . sprintf( __( 'Compatibility with Retraceur %s: Yes (according to its author)' ), $core_update_version );
 			} else {
 				/* translators: %s: Retraceur version. */
-				$compat .= '<br />' . sprintf( __( 'Compatibility with Retraceur %s: Unknown' ), $core_update_version );
+				$compat .= '<br />' . sprintf( __( 'Compatibility with Retraceur %s: Not tested' ), $core_update_version );
 			}
 		}
 
