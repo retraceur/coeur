@@ -361,7 +361,7 @@ GNU Lesser General Public License instead of this License.
 
 Retraceur - Personal Online Publication Hub
 
-Copyright 2024-2025 by the contributors
+Copyright 2024-2026 by the contributors
 
 I, [@imath](https://github.com/imath) (Mathieu Viet), dedicate all my
 [work about Retraceur](https://github.com/retraceur/coeur/commits?author=imath) (including the "Retraceur" name or [logo](https://github.com/retraceur/coeur/blob/trunk/wp-admin/images/retraceur-64x64.svg)) to the public domain [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/).

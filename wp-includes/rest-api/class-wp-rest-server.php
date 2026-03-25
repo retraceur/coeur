@@ -508,8 +508,7 @@ class WP_REST_Server {
 		 *
 		 * @since WP 4.4.0
 		 *
-		 * @param bool             $served  Whether the request has already been served.
-		 *                                           Default false.
+		 * @param bool             $served  Whether the request has already been served. Default false.
 		 * @param WP_HTTP_Response $result  Result to send to the client. Usually a `WP_REST_Response`.
 		 * @param WP_REST_Request  $request Request used to generate the response.
 		 * @param WP_REST_Server   $server  Server instance.
