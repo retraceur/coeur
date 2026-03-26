@@ -62,7 +62,7 @@ function wp_apply_dimensions_support( $block_type, $block_attributes ) {
 	// Width support to be added in near future.
 
 	$has_min_height_support = block_has_support( $block_type, array( 'dimensions', 'minHeight' ), false );
-	$block_styles           = isset( $block_attributes['style'] ) ? $block_attributes['style'] : null;
+	$block_styles           = $block_attributes['style'] ?? null;
 
 	if ( ! $block_styles ) {
 		return $attributes;
@@ -72,9 +72,7 @@ function wp_apply_dimensions_support( $block_type, $block_attributes ) {
 	$dimensions_block_styles              = array();
 	$dimensions_block_styles['minHeight'] = null;
 	if ( $has_min_height_support && ! $skip_min_height ) {
-		$dimensions_block_styles['minHeight'] = isset( $block_styles['dimensions']['minHeight'] )
-			? $block_styles['dimensions']['minHeight']
-			: null;
+		$dimensions_block_styles['minHeight'] = $block_styles['dimensions']['minHeight'] ?? null;
 	}
 	$styles = wp_style_engine_get_styles( array( 'dimensions' => $dimensions_block_styles ) );
 
