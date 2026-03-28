@@ -38,7 +38,7 @@ $wrapper_classes = array(
 	'tab-count-' . count( $tabs ),
 );
 
-$current_tab = ( isset( $_GET['tab'] ) ? $_GET['tab'] : '' );
+$current_tab = $_GET['tab'] ?? '';
 
 $title = sprintf(
 	// translators: %s: The currently displayed tab.

@@ -247,7 +247,7 @@ class WP_Upgrader_Skin {
 		}
 
 		if ( defined( 'IFRAME_REQUEST' ) ) {
-			echo '<script type="text/javascript">
+			echo '<script>
 					if ( window.postMessage && JSON ) {
 						window.parent.postMessage(
 							JSON.stringify( {
@@ -260,7 +260,7 @@ class WP_Upgrader_Skin {
 					}
 				</script>';
 		} else {
-			echo '<script type="text/javascript">
+			echo '<script>
 					(function( wp ) {
 						if ( wp && wp.updates && wp.updates.decrementCount ) {
 							wp.updates.decrementCount( "' . $type . '" );

@@ -28,7 +28,7 @@ $title = __( 'Export' );
  */
 function export_add_js() {
 	?>
-<script type="text/javascript">
+<script>
 	jQuery( function($) {
 		var form = $('#export-filters'),
 			filters = form.find('.export-filters');

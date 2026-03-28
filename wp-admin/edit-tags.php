@@ -688,7 +688,7 @@ if ( $can_create_terms ) {
 </div><!-- /wrap -->
 
 <?php if ( ! wp_is_mobile() ) : ?>
-<script type="text/javascript">
+<script>
 try{document.forms.addtag['tag-name'].focus();}catch(e){}
 </script>
 	<?php
