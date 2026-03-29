@@ -2093,10 +2093,7 @@ function _get_custom_object_labels( $data_object, $nohier_vs_hier_defaults ) {
 	}
 
 	if ( ! isset( $data_object->labels['name_admin_bar'] ) ) {
-		$data_object->labels['name_admin_bar'] =
-			isset( $data_object->labels['singular_name'] )
-			? $data_object->labels['singular_name']
-			: $data_object->name;
+		$data_object->labels['name_admin_bar'] = $data_object->labels['singular_name'] ?? $data_object->name;
 	}
 
 	if ( ! isset( $data_object->labels['menu_name'] ) && isset( $data_object->labels['name'] ) ) {
@@ -2746,7 +2743,7 @@ function get_post_custom_values( $key = '', $post_id = 0 ) {
 
 	$custom = get_post_custom( $post_id );
 
-	return isset( $custom[ $key ] ) ? $custom[ $key ] : null;
+	return $custom[ $key ] ?? null;
 }
 
 /**
@@ -4430,8 +4427,8 @@ function wp_insert_post( $postarr, $wp_error = false, $fire_after_hooks = true )
 
 	// These variables are needed by compact() later.
 	$post_content_filtered = $postarr['post_content_filtered'];
-	$post_author           = isset( $postarr['post_author'] ) ? $postarr['post_author'] : $user_id;
-	$import_id             = isset( $postarr['import_id'] ) ? $postarr['import_id'] : 0;
+	$post_author           = $postarr['post_author'] ?? $user_id;
+	$import_id             = $postarr['import_id'] ?? 0;
 
 	/*
 	 * The 'wp_insert_post_parent' filter expects all variables to be present.
@@ -4443,7 +4440,7 @@ function wp_insert_post( $postarr, $wp_error = false, $fire_after_hooks = true )
 		$menu_order = 0;
 	}
 
-	$post_password = isset( $postarr['post_password'] ) ? $postarr['post_password'] : '';
+	$post_password = $postarr['post_password'] ?? '';
 	if ( 'private' === $post_status ) {
 		$post_password = '';
 	}
@@ -4512,7 +4509,7 @@ function wp_insert_post( $postarr, $wp_error = false, $fire_after_hooks = true )
 	$post_name = wp_unique_post_slug( $post_name, $post_id, $post_status, $post_type, $post_parent );
 
 	// Don't unslash.
-	$post_mime_type = isset( $postarr['post_mime_type'] ) ? $postarr['post_mime_type'] : '';
+	$post_mime_type = $postarr['post_mime_type'] ?? '';
 
 	// Expected_slashed (everything!).
 	$data = compact(

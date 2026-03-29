@@ -80,7 +80,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 		parent::__construct(
 			array(
 				'plural' => 'posts',
-				'screen' => isset( $args['screen'] ) ? $args['screen'] : null,
+				'screen' => $args['screen'] ?? null,
 			)
 		);
 
@@ -535,7 +535,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 			return;
 		}
 
-		$displayed_post_format = isset( $_GET['post_format'] ) ? $_GET['post_format'] : '';
+		$displayed_post_format = $_GET['post_format'] ?? '';
 		?>
 		<label for="filter-by-format" class="screen-reader-text">
 			<?php
