@@ -530,9 +530,9 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 				$author = ' <cite>' . sprintf( _x( 'By %s', 'plugin' ), $author ) . '</cite>';
 			}
 
-			$requires_php = isset( $plugin['requires_php'] ) ? $plugin['requires_php'] : null;
-			$requires_wp  = isset( $plugin['requires'] ) ? $plugin['requires'] : null;
-			$requires_r   = isset( $plugin['requires_r'] ) ? $plugin['requires_r'] : null;
+			$requires_php = $plugin['requires_php'] ?? null;
+			$requires_wp  = $plugin['requires'] ?? null;
+			$requires_r   = $plugin['requires_r'] ?? null;
 
 			$compatible_php = is_php_version_compatible( $requires_php );
 			$is_compatible  = is_wp_version_compatible( $requires_wp ) && is_retraceur_version_compatible( $requires_r );

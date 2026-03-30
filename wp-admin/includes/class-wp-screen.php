@@ -830,7 +830,7 @@ final class WP_Screen {
 			'get_current_screen()->add_help_tab(), get_current_screen()->remove_help_tab()'
 		);
 
-		$old_help = isset( self::$_old_compat_help[ $this->id ] ) ? self::$_old_compat_help[ $this->id ] : '';
+		$old_help = self::$_old_compat_help[ $this->id ] ?? '';
 
 		/**
 		 * Filters the legacy contextual help text.

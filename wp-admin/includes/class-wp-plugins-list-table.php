@@ -43,9 +43,9 @@ class WP_Plugins_List_Table extends WP_List_Table {
 
 		parent::__construct(
 			array(
-				'singular' => isset( $args['singular'] ) ? $args['singular'] : 'plugin',
-				'plural'   => isset( $args['plural'] ) ? $args['plural'] : 'plugins',
-				'screen'   => isset( $args['screen'] ) ? $args['screen'] : null,
+				'singular' => $args['singular'] ?? 'plugin',
+				'plural'   => $args['plural'] ?? 'plugins',
+				'screen' => $args['screen'] ?? null,
 			)
 		);
 
@@ -767,7 +767,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 
 		list( $plugin_file, $plugin_data ) = $item;
 
-		$plugin_slug    = isset( $plugin_data['slug'] ) ? $plugin_data['slug'] : sanitize_title( $plugin_data['Name'] );
+		$plugin_slug    = $plugin_data['slug'] ?? sanitize_title( $plugin_data['Name'] );
 		$plugin_id_attr = $plugin_slug;
 
 		// Ensure the ID attribute is unique.
@@ -794,9 +794,9 @@ class WP_Plugins_List_Table extends WP_List_Table {
 		$restrict_network_active = false;
 		$restrict_network_only   = false;
 
-		$requires_php = isset( $plugin_data['RequiresPHP'] ) ? $plugin_data['RequiresPHP'] : null;
-		$requires_wp  = isset( $plugin_data['RequiresWP'] ) ? $plugin_data['RequiresWP'] : null;
-		$requires_r   = isset( $plugin_data['RequiresR'] ) ? $plugin_data['RequiresR'] : null;
+		$requires_php = $plugin_data['RequiresPHP'] ?? null;
+		$requires_wp  = $plugin_data['RequiresWP'] ?? null;
+		$requires_r   = $plugin_data['RequiresR'] ?? null;
 
 		$compatible_php = is_php_version_compatible( $requires_php );
 		$is_compatible  = is_wp_version_compatible( $requires_wp ) && is_retraceur_version_compatible( $requires_r );

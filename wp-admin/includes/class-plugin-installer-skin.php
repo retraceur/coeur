@@ -47,7 +47,7 @@ class Plugin_Installer_Skin extends WP_Upgrader_Skin {
 
 		$this->type      = $args['type'];
 		$this->url       = $args['url'];
-		$this->api       = isset( $args['api'] ) ? $args['api'] : array();
+		$this->api       = $args['api'] ?? array();
 		$this->overwrite = $args['overwrite'];
 
 		parent::__construct( $args );
@@ -300,9 +300,9 @@ class Plugin_Installer_Skin extends WP_Upgrader_Skin {
 
 		$blocked_message .= '<ul class="ul-disc">';
 
-		$requires_php  = isset( $new_plugin_data['RequiresPHP'] ) ? $new_plugin_data['RequiresPHP'] : null;
-		$requires_wp   = isset( $new_plugin_data['RequiresWP'] ) ? $new_plugin_data['RequiresWP'] : null;
-		$requires_r    = isset( $new_plugin_data['RequiresR'] ) ? $new_plugin_data['RequiresR'] : null;
+		$requires_php  = $new_plugin_data['RequiresPHP'] ?? null;
+		$requires_wp   = $new_plugin_data['RequiresWP'] ?? null;
+		$requires_r    = $new_plugin_data['RequiresR'] ?? null;
 		$is_compatible = is_wp_version_compatible( $requires_wp ) && is_retraceur_version_compatible( $requires_r );
 
 		if ( ! is_php_version_compatible( $requires_php ) ) {

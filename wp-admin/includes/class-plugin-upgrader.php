@@ -335,8 +335,8 @@ class Plugin_Upgrader extends WP_Upgrader {
 			$r = $current->response[ $plugin ];
 
 			$this->skin->plugin_active = is_plugin_active( $plugin );
-			$requires_wp   = isset( $r->requires ) ? $r->requires : null;
-			$requires_r    = isset( $r->requires_r ) ? $r->requires_r : null;
+			$requires_wp   = $r->requires ?? null;
+			$requires_r    = $r->requires_r ?? null;
 			$is_compatible = is_wp_version_compatible( $requires_wp ) && is_retraceur_version_compatible( $requires_r );
 
 			if ( ! $is_compatible ) {
@@ -551,7 +551,7 @@ class Plugin_Upgrader extends WP_Upgrader {
 			return $response;
 		}
 
-		$plugin = isset( $plugin['plugin'] ) ? $plugin['plugin'] : '';
+		$plugin = $plugin['plugin'] ?? '';
 		if ( empty( $plugin ) ) {
 			return new WP_Error( 'bad_request', $this->strings['bad_request'] );
 		}
@@ -585,7 +585,7 @@ class Plugin_Upgrader extends WP_Upgrader {
 			return $response;
 		}
 
-		$plugin = isset( $plugin['plugin'] ) ? $plugin['plugin'] : '';
+		$plugin = $plugin['plugin'] ?? '';
 
 		// Only run if plugin is active.
 		if ( ! is_plugin_active( $plugin ) ) {
@@ -621,7 +621,7 @@ class Plugin_Upgrader extends WP_Upgrader {
 			return $response;
 		}
 
-		$plugin = isset( $plugin['plugin'] ) ? $plugin['plugin'] : '';
+		$plugin = $plugin['plugin'] ?? '';
 
 		// Only run if plugin is active.
 		if ( ! is_plugin_active( $plugin ) ) {
@@ -660,7 +660,7 @@ class Plugin_Upgrader extends WP_Upgrader {
 			return $removed; // Pass errors through.
 		}
 
-		$plugin = isset( $plugin['plugin'] ) ? $plugin['plugin'] : '';
+		$plugin = $plugin['plugin'] ?? '';
 		if ( empty( $plugin ) ) {
 			return new WP_Error( 'bad_request', $this->strings['bad_request'] );
 		}
