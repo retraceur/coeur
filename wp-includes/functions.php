@@ -3155,7 +3155,7 @@ function wp_get_image_mime( $file ) {
 				$imagesize = @getimagesize( $file );
 			}
 
-			$mime = ( isset( $imagesize['mime'] ) ) ? $imagesize['mime'] : false;
+			$mime = $imagesize['mime'] ?? false;
 		} else {
 			$mime = false;
 		}
