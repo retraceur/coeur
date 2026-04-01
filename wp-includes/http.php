@@ -268,11 +268,7 @@ function wp_remote_retrieve_header( $response, $header ) {
 		return '';
 	}
 
-	if ( isset( $response['headers'][ $header ] ) ) {
-		return $response['headers'][ $header ];
-	}
-
-	return '';
+	return $response['headers'][ $header ] ?? '';
 }
 
 /**

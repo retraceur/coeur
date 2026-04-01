@@ -2184,26 +2184,18 @@ function wp_enqueue_global_styles() {
 
 	$stylesheet = wp_get_global_stylesheet();
 
-	if ( $is_block_theme ) {
-		/*
-		 * Dequeue the Customizer's custom CSS
-		 * and add it before the global styles custom CSS.
-		 */
-		remove_action( 'wp_head', 'wp_custom_css_cb', 101 );
-
-		/*
-		 * Get the custom CSS from the Customizer and add it to the global stylesheet.
-		 * Always do this in Customizer preview for the sake of live preview since it be empty.
-		 */
-		$custom_css = trim( wp_get_custom_css() );
-		if ( $custom_css ) {
-			$custom_css = "\n" . $custom_css;
-		}
-		$stylesheet .= $custom_css;
-
-		// Add the global styles custom CSS at the end.
-		$stylesheet .= wp_get_global_stylesheet( array( 'custom-css' ) );
+	/*
+	 * Get the custom CSS from the Customizer and add it to the global stylesheet.
+	 * Always do this in Customizer preview for the sake of live preview since it be empty.
+	 */
+	$custom_css = trim( wp_get_custom_css() );
+	if ( $custom_css ) {
+		$custom_css = "\n" . $custom_css;
 	}
+	$stylesheet .= $custom_css;
+
+	// Add the global styles custom CSS at the end.
+	$stylesheet .= wp_get_global_stylesheet( array( 'custom-css' ) );
 
 	if ( empty( $stylesheet ) ) {
 		return;
@@ -2653,7 +2645,7 @@ function wp_maybe_inline_styles() {
 		usort(
 			$styles,
 			static function ( $a, $b ) {
-				return ( $a['size'] <= $b['size'] ) ? -1 : 1;
+				return $a['size'] <=> $b['size'];
 			}
 		);
 

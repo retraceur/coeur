@@ -1912,24 +1912,6 @@ function _custom_background_cb() {
 }
 
 /**
- * Renders the Custom CSS style element.
- *
- * @since WP 4.7.0
- */
-function wp_custom_css_cb() {
-	$styles = wp_get_custom_css();
-	if ( ! $styles ) {
-		return;
-	}
-
-	$processor = new WP_HTML_Tag_Processor( '<style></style>' );
-	$processor->next_tag();
-	$processor->set_attribute( 'id', 'wp-custom-css' );
-	$processor->set_modifiable_text( "\n{$styles}\n" );
-	echo "{$processor->get_updated_html()}\n";
-}
-
-/**
  * Fetches the `custom_css` post for a given theme.
  *
  * @since WP 4.7.0
@@ -2809,10 +2791,7 @@ function get_theme_support( $feature, ...$args ) {
 		case 'custom-logo':
 		case 'custom-header':
 		case 'custom-background':
-			if ( isset( $_wp_theme_features[ $feature ][0][ $args[0] ] ) ) {
-				return $_wp_theme_features[ $feature ][0][ $args[0] ];
-			}
-			return false;
+			return $_wp_theme_features[ $feature ][0][ $args[0] ] ?? false;
 
 		default:
 			return $_wp_theme_features[ $feature ];

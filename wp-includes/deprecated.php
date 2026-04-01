@@ -6354,15 +6354,22 @@ function wp_enqueue_global_styles_custom_css() {
 		return;
 	}
 
-	// Don't enqueue Customizer's custom CSS separately.
-	remove_action( 'wp_head', 'wp_custom_css_cb', 101 );
-
 	$custom_css  = wp_get_custom_css();
 	$custom_css .= wp_get_global_styles_custom_css();
 
 	if ( ! empty( $custom_css ) ) {
 		wp_add_inline_style( 'global-styles', $custom_css );
 	}
+}
+
+/**
+ * Renders the Custom CSS style element.
+ *
+ * @since WP 4.7.0
+ * @deprecated 4.0.0 Retraceur fork.
+ */
+function wp_custom_css_cb() {
+	_deprecated_function( __FUNCTION__, '4.0.0', '', true );
 }
 
 /**
