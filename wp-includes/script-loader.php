@@ -283,7 +283,8 @@ function wp_default_packages_scripts( $scripts ) {
 	 *     'annotations.js' => array('dependencies' => array(...), 'version' => '...'),
 	 *     'api-fetch.js' => array(...
 	 */
-	$assets = include ABSPATH . WPINC . "/assets/script-loader-packages{$suffix}.php";
+	$assets_file = ABSPATH . WPINC . "/assets/script-loader-packages{$suffix}.php";
+	$assets      = file_exists( $assets_file ) ? include $assets_file : array();
 
 	$retraceur_assets = include ABSPATH . WPINC . "/assets/global-media.asset.php";
 	$assets           = array_merge( $assets, array( 'retraceur-global-media' => $retraceur_assets ) );
@@ -1440,6 +1441,9 @@ function wp_default_styles( $styles ) {
 		"/wp-includes/css/dist/block-library/editor$suffix.css",
 		$wp_edit_blocks_dependencies
 	);
+
+	$styles->add( 'wp-view-transitions-admin', false );
+	did_action( 'init' ) && $styles->add_inline_style( 'wp-view-transitions-admin', wp_get_view_transitions_admin_css() );
 
 	$package_styles = array(
 		'block-editor'         => array( 'wp-components', 'wp-preferences' ),

@@ -43,6 +43,10 @@ function register_core_block_style_handles() {
 
 	static $core_blocks_meta;
 	if ( ! $core_blocks_meta ) {
+		if ( ! file_exists( BLOCKS_PATH . 'blocks-json.php' ) ) {
+			return;
+		}
+
 		$core_blocks_meta = require BLOCKS_PATH . 'blocks-json.php';
 	}
 
@@ -150,6 +154,9 @@ add_action( 'init', 'register_core_block_style_handles', 9 );
  * @since WP 5.5.0
  */
 function register_core_block_types_from_metadata() {
+	if ( ! file_exists( BLOCKS_PATH . 'require-static-blocks.php' ) ) {
+		return;
+	}
 	$block_folders = require BLOCKS_PATH . 'require-static-blocks.php';
 	foreach ( $block_folders as $block_folder ) {
 		register_block_type_from_metadata(
@@ -169,6 +176,9 @@ add_action( 'init', 'register_core_block_types_from_metadata' );
  * @since WP 6.7.0
  */
 function wp_register_core_block_metadata_collection() {
+	if ( ! file_exists( BLOCKS_PATH . 'blocks-json.php' ) ) {
+		return;
+	}
 	wp_register_block_metadata_collection(
 		BLOCKS_PATH,
 		BLOCKS_PATH . 'blocks-json.php'

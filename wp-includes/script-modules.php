@@ -154,7 +154,8 @@ function wp_default_script_modules() {
 	 *     'interactivity/debug.min.js' => array('dependencies' => array(…), 'version' => '…'),
 	 *     'interactivity-router/index.min.js' => …
 	 */
-	$assets = include ABSPATH . WPINC . "/assets/script-modules-packages{$suffix}.php";
+	$assets_file = ABSPATH . WPINC . "/assets/script-modules-packages{$suffix}.php";
+	$assets      = file_exists( $assets_file ) ? include $assets_file : array();
 
 	foreach ( $assets as $file_name => $script_module_data ) {
 		/*
