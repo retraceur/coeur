@@ -3924,7 +3924,7 @@ function wp_default_editor() {
  * @since WP 4.9.0
  *
  * @see wp_enqueue_editor()
- * @see wp_get_code_editor_settings();
+ * @see wp_get_code_editor_settings()
  * @see _WP_Editors::parse_settings()
  *
  * @param array $args {
