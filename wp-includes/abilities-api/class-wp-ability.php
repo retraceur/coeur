@@ -105,7 +105,7 @@ class WP_Ability {
 	 * The ability execute callback.
 	 *
 	 * @since WP 6.9.0
-	 * @var callable( mixed $input= ): (mixed|WP_Error)
+	 * @var callable(mixed): (mixed|WP_Error)
 	 */
 	protected $execute_callback;
 
@@ -113,7 +113,7 @@ class WP_Ability {
 	 * The optional ability permission callback.
 	 *
 	 * @since WP 6.9.0
-	 * @var callable( mixed $input= ): (bool|WP_Error)
+	 * @var callable(mixed): (bool|WP_Error)
 	 */
 	protected $permission_callback;
 
