@@ -466,7 +466,7 @@ function wp_revoke_user( $id ) {
 /**
  * @since WP 2.8.0
  *
- * @global int $user_ID
+ * @global int $user_ID Current user ID.
  *
  * @param false $errors Deprecated.
  */
@@ -489,8 +489,8 @@ function default_password_nag_handler( $errors = false ) {
 /**
  * @since WP 2.8.0
  *
- * @param int     $user_ID
- * @param WP_User $old_data
+ * @param int     $user_ID  User ID.
+ * @param WP_User $old_data The user object before the update.
  */
 function default_password_nag_edit_user( $user_ID, $old_data ) {
 	// Short-circuit it.
@@ -586,7 +586,7 @@ function use_ssl_preference( $user ) {
 /**
  * @since WP MU (3.0.0)
  *
- * @param string $text
+ * @param string $text The email body text.
  * @return string User site invitation email message.
  */
 function admin_created_user_email( $text ) {
