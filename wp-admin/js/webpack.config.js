@@ -12,7 +12,6 @@ module.exports = {
 			'accordion.min': './wp-admin/js/accordion.js',
 			'application-passwords.min': './wp-admin/js/application-passwords.js',
 			'auth-app.min': './wp-admin/js/auth-app.js',
-			'code-editor.min': './wp-admin/js/code-editor.js',
 			'color-picker.min': './wp-admin/js/color-picker.js',
 			'common.min': './wp-admin/js/common.js',
 			'custom-background.min': './wp-admin/js/custom-background.js',

@@ -16562,3 +16562,104 @@ function wp_sanitize_script_attributes( $attributes ) {
 	}
 	return $attributes_string;
 }
+
+/**
+ * Enqueues assets needed by the code editor for the given settings.
+ *
+ * @since WP 4.9.0
+ * @deprecated 4.0.0 Retraceur fork.
+ *
+ * @see wp_enqueue_editor()
+ * @see wp_get_code_editor_settings()
+ * @see _WP_Editors::parse_settings()
+ *
+ * @param array $args {
+ *     Args.
+ *
+ *     @type string   $type       The MIME type of the file to be edited.
+ *     @type string   $file       Filename to be edited. Extension is used to sniff the type. Can be supplied as alternative to `$type` param.
+ *     @type WP_Theme $theme      Theme being edited when on the theme file editor.
+ *     @type string   $plugin     Plugin being edited when on the plugin file editor.
+ *     @type array    $codemirror Additional CodeMirror setting overrides.
+ *     @type array    $csslint    CSSLint rule overrides.
+ *     @type array    $jshint     JSHint rule overrides.
+ *     @type array    $htmlhint   HTMLHint rule overrides.
+ * }
+ * @return array|false Settings for the enqueued code editor, or false if the editor was not enqueued.
+ */
+function wp_enqueue_code_editor( $args ) {
+	_deprecated_function( __FUNCTION__, '4.0.0', '', true );
+
+	/**
+	 * Fires when scripts and styles are enqueued for the code editor.
+	 *
+	 * @since WP 4.9.0
+	 * @deprecated 4.0.0 Retraceur fork.
+	 *
+	 * @param array $settings Settings for the enqueued code editor.
+	 */
+	do_action_deprecated(
+		'wp_enqueue_code_editor',
+		array( array() ),
+		'4.0.0',
+		'',
+		__( 'The code editor feature is not supported in Retraceur.' )
+	);
+}
+
+/**
+ * Generates and returns code editor settings.
+ *
+ * @since WP 5.0.0
+ * @deprecated 4.0.0 Retraceur fork.
+ *
+ * @see wp_enqueue_code_editor()
+ *
+ * @param array $args {
+ *     Args.
+ *
+ *     @type string   $type       The MIME type of the file to be edited.
+ *     @type string   $file       Filename to be edited. Extension is used to sniff the type. Can be supplied as alternative to `$type` param.
+ *     @type WP_Theme $theme      Theme being edited when on the theme file editor.
+ *     @type string   $plugin     Plugin being edited when on the plugin file editor.
+ *     @type array    $codemirror Additional CodeMirror setting overrides.
+ *     @type array    $csslint    CSSLint rule overrides.
+ *     @type array    $jshint     JSHint rule overrides.
+ *     @type array    $htmlhint   HTMLHint rule overrides.
+ * }
+ * @return array|false Settings for the code editor.
+ */
+function wp_get_code_editor_settings( $args ) {
+	_deprecated_function( __FUNCTION__, '4.0.0', '', true );
+
+	/**
+	 * Filters settings that are passed into the code editor.
+	 *
+	 * Returning a falsey value will disable the syntax-highlighting code editor.
+	 *
+	 * @since WP 4.9.0
+	 * @deprecated 4.0.0 Retraceur fork.
+	 *
+	 * @param array $settings The array of settings passed to the code editor.
+	 *                        A falsey value disables the editor.
+	 * @param array $args {
+	 *     Args passed when calling `get_code_editor_settings()`.
+	 *
+	 *     @type string   $type       The MIME type of the file to be edited.
+	 *     @type string   $file       Filename being edited.
+	 *     @type WP_Theme $theme      Theme being edited when on the theme file editor.
+	 *     @type string   $plugin     Plugin being edited when on the plugin file editor.
+	 *     @type array    $codemirror Additional CodeMirror setting overrides.
+	 *     @type array    $csslint    CSSLint rule overrides.
+	 *     @type array    $jshint     JSHint rule overrides.
+	 *     @type array    $htmlhint   HTMLHint rule overrides.
+	 * }
+	 */
+	apply_filters_deprecated(
+		'wp_code_editor_settings',
+		array( array(), $args ),
+		'4.0.0',
+		'',
+		__( 'The code editor feature is not supported in Retraceur.' )
+	);
+}
