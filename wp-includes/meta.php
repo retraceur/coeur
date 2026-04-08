@@ -1381,6 +1381,8 @@ function sanitize_meta( $meta_key, $meta_value, $object_type, $object_subtype = 
  * @since WP 6.4.0 The `$revisions_enabled` argument was added to the arguments array.
  * @since WP 6.7.0 The `label` argument was added to the arguments array.
  *
+ * @global array $wp_meta_keys Global registry for meta keys.
+ *
  * @param string       $object_type Type of object metadata is for. Accepts 'blog', 'post', 'term',
  *                                  'user', or any other object type with an associated meta table.
  * @param string       $meta_key    Meta key to register.
@@ -1551,6 +1553,8 @@ function register_meta( $object_type, $meta_key, $args, $deprecated = null ) {
  *
  * @since WP 5.5.0
  *
+ * @global array $wp_meta_keys Global registry for meta keys.
+ *
  * @param mixed  $value     Current value passed to filter.
  * @param int    $object_id ID of the object metadata is for.
  * @param string $meta_key  Metadata key.
@@ -1611,6 +1615,8 @@ function filter_default_metadata( $value, $object_id, $meta_key, $single, $meta_
  * @since WP 4.6.0
  * @since WP 4.9.8 The `$object_subtype` parameter was added.
  *
+ * @global array $wp_meta_keys Global registry for meta keys.
+ *
  * @param string $object_type    Type of object metadata is for. Accepts 'blog', 'post', 'term',
  *                               'user', or any other object type with an associated meta table.
  * @param string $meta_key       Metadata key.
@@ -1629,6 +1635,8 @@ function registered_meta_key_exists( $object_type, $meta_key, $object_subtype = 
  *
  * @since WP 4.6.0
  * @since WP 4.9.8 The `$object_subtype` parameter was added.
+ *
+ * @global array $wp_meta_keys Global registry for meta keys.
  *
  * @param string $object_type    Type of object metadata is for. Accepts 'blog', 'post', 'term',
  *                               'user', or any other object type with an associated meta table.
