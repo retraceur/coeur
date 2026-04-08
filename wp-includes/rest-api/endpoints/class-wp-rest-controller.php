@@ -670,7 +670,7 @@ abstract class WP_REST_Controller {
 	 *
 	 * @since WP 4.7.0
 	 *
-	 * @see https://github.com/WP-API/WP-API/issues/1585
+	 * @link https://github.com/WP-API/WP-API/issues/1585
 	 *
 	 * @param string $slug Slug value passed in request.
 	 * @return string Sanitized value for the slug.

@@ -115,7 +115,7 @@ $preload_paths = array(
 	),
 	$paths[] = add_query_arg(
 		'slug',
-		// @see https://github.com/wordpress/gutenberg/bloe093fefd041eb6cc4a4e7f67b92ab54fd75c8858/packages/core-datsrc/private-selectors.ts#L244-L254
+		// @link https://github.com/wordpress/gutenberg/blob/e093fefd041eb6cc4a4e7f67b92ab54fd75c8858/packages/core-data/src/private-selectors.ts#L244-L254
 		$template_lookup_slug,
 		'/wp/v2/templates/lookup'
 	),
