@@ -15,8 +15,6 @@ declare( strict_types = 1 );
  * Registers the core ability categories.
  *
  * @since WP 6.9.0
- *
- * @return void
  */
 function wp_register_core_ability_categories(): void {
 	wp_register_ability_category(
@@ -41,7 +39,7 @@ function wp_register_core_ability_categories(): void {
  *
  * @since WP 6.9.0
  *
- * @return void
+ * @global wpdb $wpdb Retraceur database abstraction object.
  */
 function wp_register_core_abilities(): void {
 	$category_site = 'site';
