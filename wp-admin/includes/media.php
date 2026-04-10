@@ -870,7 +870,7 @@ function media_upload_form_handler() {
  *
  * @since WP 2.5.0
  *
- * @return null|string
+ * @return null|string The form handler result or null.
  */
 function wp_media_upload_handler() {
 	$errors = array();
@@ -1098,7 +1098,7 @@ function media_sideload_image( $file, $post_id = 0, $desc = null, $return_type =
  *
  * @since WP 2.5.0
  *
- * @return string|null
+ * @return string|null The form handler result or null.
  */
 function media_upload_gallery() {
 	$errors = array();
@@ -1124,7 +1124,7 @@ function media_upload_gallery() {
  *
  * @since WP 2.5.0
  *
- * @return string|null
+ * @return string|null The form handler result or null.
  */
 function media_upload_library() {
 	$errors = array();
@@ -1150,7 +1150,7 @@ function media_upload_library() {
  *
  * @param WP_Post $post
  * @param string  $checked
- * @return string
+ * @return string HTML for the image alignment radio buttons.
  */
 function image_align_input_fields( $post, $checked = '' ) {
 
@@ -1188,7 +1188,7 @@ function image_align_input_fields( $post, $checked = '' ) {
  *
  * @param WP_Post     $post
  * @param bool|string $check
- * @return array
+ * @return array<string, string> An array of data for the image size input fields.
  */
 function image_size_input_fields( $post, $check = '' ) {
 	/**
@@ -1266,7 +1266,7 @@ function image_size_input_fields( $post, $check = '' ) {
  *
  * @param WP_Post $post
  * @param string  $url_type
- * @return string
+ * @return string HTML markup for the link URL buttons.
  */
 function image_link_input_fields( $post, $url_type = '' ) {
 
@@ -1315,7 +1315,7 @@ function wp_caption_input_textarea( $edit_post ) {
  *
  * @param array  $form_fields
  * @param object $post
- * @return array
+ * @return array<string, array<string, mixed>> The attachment form fields.
  */
 function image_attachment_fields_to_edit( $form_fields, $post ) {
 	return $form_fields;
@@ -1357,7 +1357,7 @@ function media_post_single_attachment_fields_to_edit( $form_fields, $post ) {
  * @param string  $html
  * @param int     $attachment_id
  * @param array   $attachment
- * @return string
+ * @return string HTML markup for the media element.
  */
 function image_media_send_to_editor( $html, $attachment_id, $attachment ) {
 	$post = get_post( $attachment_id );
@@ -1382,7 +1382,7 @@ function image_media_send_to_editor( $html, $attachment_id, $attachment ) {
  *
  * @param WP_Post $post
  * @param array   $errors
- * @return array
+ * @return array<string, array<string, mixed>> The attachment fields.
  */
 function get_attachment_fields_to_edit( $post, $errors = null ) {
 	if ( is_int( $post ) ) {
@@ -1867,11 +1867,13 @@ function get_media_item( $attachment_id, $args = null ) {
 }
 
 /**
+ * Retrieves the media markup for an attachment.
+ *
  * @since WP 3.5.0
  *
  * @param int   $attachment_id
  * @param array $args
- * @return array
+ * @return array<string, string> An array containing the media item and its metadata.
  */
 function get_compat_media_markup( $attachment_id, $args = null ) {
 	$post = get_post( $attachment_id );

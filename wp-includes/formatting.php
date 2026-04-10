@@ -2840,18 +2840,6 @@ function untrailingslashit( $value ) {
 }
 
 /**
- * Adds slashes to a string or recursively adds slashes to strings within an array.
- *
- * @since WP 0.71
- *
- * @param string|array $gpc String or array of data to slash.
- * @return string|array Slashed `$gpc`.
- */
-function addslashes_gpc( $gpc ) {
-	return wp_slash( $gpc );
-}
-
-/**
  * Navigates through an array, object, or scalar, and removes slashes from the values.
  *
  * @since WP 2.0.0
