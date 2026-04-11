@@ -355,8 +355,8 @@ class WP_Debug_Data {
 		);
 		$fields['httpd_software']      = array(
 			'label' => __( 'Web server' ),
-			'value' => $_SERVER['SERVER_SOFTWARE'] ?? __( 'Unable to determine what web server software is used' ),
-			'debug' => $_SERVER['SERVER_SOFTWARE'] ?? 'unknown',
+			'value' => ! empty( $_SERVER['SERVER_SOFTWARE'] ) ? wp_unslash( $_SERVER['SERVER_SOFTWARE'] ) : __( 'Unable to determine what web server software is used' ),
+			'debug' => ! empty( $_SERVER['SERVER_SOFTWARE'] ) ? wp_unslash( $_SERVER['SERVER_SOFTWARE'] ) : 'unknown',
 		);
 		$fields['php_version']         = array(
 			'label' => __( 'PHP version' ),
@@ -526,7 +526,7 @@ class WP_Debug_Data {
 		);
 		$fields['server-time'] = array(
 			'label' => __( 'Current Server time' ),
-			'value' => wp_date( 'c', $_SERVER['REQUEST_TIME'] ),
+			'value' => isset( $_SERVER['REQUEST_TIME'] ) ? wp_date( 'c', (int) $_SERVER['REQUEST_TIME'] ) : __( 'Unable to determine server time' ),
 		);
 
 		return array(

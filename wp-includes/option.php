@@ -2674,12 +2674,13 @@ function register_initial_settings() {
 		'general',
 		'blogname',
 		array(
-			'show_in_rest' => array(
+			'show_in_rest'      => array(
 				'name' => 'title',
 			),
-			'type'         => 'string',
-			'label'        => __( 'Title' ),
-			'description'  => __( 'Site title.' ),
+			'show_in_abilities' => true,
+			'type'              => 'string',
+			'label'             => __( 'Title' ),
+			'description'       => __( 'Site title.' ),
 		)
 	);
 
@@ -2687,12 +2688,13 @@ function register_initial_settings() {
 		'general',
 		'blogdescription',
 		array(
-			'show_in_rest' => array(
+			'show_in_rest'      => array(
 				'name' => 'description',
 			),
-			'type'         => 'string',
-			'label'        => __( 'Tagline' ),
-			'description'  => __( 'Site tagline.' ),
+			'show_in_abilities' => true,
+			'type'              => 'string',
+			'label'             => __( 'Tagline' ),
+			'description'       => __( 'Site tagline.' ),
 		)
 	);
 
@@ -2701,14 +2703,15 @@ function register_initial_settings() {
 			'general',
 			'siteurl',
 			array(
-				'show_in_rest' => array(
+				'show_in_rest'      => array(
 					'name'   => 'url',
 					'schema' => array(
 						'format' => 'uri',
 					),
 				),
-				'type'         => 'string',
-				'description'  => __( 'Site URL.' ),
+				'show_in_abilities' => true,
+				'type'              => 'string',
+				'description'       => __( 'Site URL.' ),
 			)
 		);
 	}
@@ -2718,14 +2721,15 @@ function register_initial_settings() {
 			'general',
 			'admin_email',
 			array(
-				'show_in_rest' => array(
+				'show_in_rest'      => array(
 					'name'   => 'email',
 					'schema' => array(
 						'format' => 'email',
 					),
 				),
-				'type'         => 'string',
-				'description'  => __( 'This address is used for admin purposes, like new contributor notification.' ),
+				'show_in_abilities' => true,
+				'type'              => 'string',
+				'description'       => __( 'This address is used for admin purposes, like new user notification.' ),
 			)
 		);
 	}
@@ -2734,11 +2738,12 @@ function register_initial_settings() {
 		'general',
 		'timezone_string',
 		array(
-			'show_in_rest' => array(
+			'show_in_rest'      => array(
 				'name' => 'timezone',
 			),
-			'type'         => 'string',
-			'description'  => __( 'A city in the same timezone as you.' ),
+			'show_in_abilities' => true,
+			'type'              => 'string',
+			'description'       => __( 'A city in the same timezone as you.' ),
 		)
 	);
 
@@ -2746,9 +2751,10 @@ function register_initial_settings() {
 		'general',
 		'date_format',
 		array(
-			'show_in_rest' => true,
-			'type'         => 'string',
-			'description'  => __( 'A date format for all date strings.' ),
+			'show_in_rest'      => true,
+			'show_in_abilities' => true,
+			'type'              => 'string',
+			'description'       => __( 'A date format for all date strings.' ),
 		)
 	);
 
@@ -2756,9 +2762,10 @@ function register_initial_settings() {
 		'general',
 		'time_format',
 		array(
-			'show_in_rest' => true,
-			'type'         => 'string',
-			'description'  => __( 'A time format for all time strings.' ),
+			'show_in_rest'      => true,
+			'show_in_abilities' => true,
+			'type'              => 'string',
+			'description'       => __( 'A time format for all time strings.' ),
 		)
 	);
 
@@ -2766,9 +2773,10 @@ function register_initial_settings() {
 		'general',
 		'start_of_week',
 		array(
-			'show_in_rest' => true,
-			'type'         => 'integer',
-			'description'  => __( 'A day number of the week that the week should start on.' ),
+			'show_in_rest'      => true,
+			'show_in_abilities' => true,
+			'type'              => 'integer',
+			'description'       => __( 'A day number of the week that the week should start on.' ),
 		)
 	);
 
@@ -2776,12 +2784,13 @@ function register_initial_settings() {
 		'general',
 		'WPLANG',
 		array(
-			'show_in_rest' => array(
+			'show_in_rest'      => array(
 				'name' => 'language',
 			),
-			'type'         => 'string',
-			'description'  => __( 'Retraceur locale code.' ),
-			'default'      => 'en_US',
+			'show_in_abilities' => true,
+			'type'              => 'string',
+			'description'       => __( 'Retraceur locale code.' ),
+			'default'           => 'en_US',
 		)
 	);
 
@@ -2789,10 +2798,11 @@ function register_initial_settings() {
 		'writing',
 		'use_smilies',
 		array(
-			'show_in_rest' => true,
-			'type'         => 'boolean',
-			'description'  => __( 'Convert emoticons like :-) and :-P to graphics on display.' ),
-			'default'      => true,
+			'show_in_rest'      => true,
+			'show_in_abilities' => true,
+			'type'              => 'boolean',
+			'description'       => __( 'Convert emoticons like :-) and :-P to graphics on display.' ),
+			'default'           => true,
 		)
 	);
 
@@ -2800,9 +2810,10 @@ function register_initial_settings() {
 		'writing',
 		'default_category',
 		array(
-			'show_in_rest' => true,
-			'type'         => 'integer',
-			'description'  => __( 'Default post category.' ),
+			'show_in_rest'      => true,
+			'show_in_abilities' => true,
+			'type'              => 'integer',
+			'description'       => __( 'Default post category.' ),
 		)
 	);
 
@@ -2810,9 +2821,10 @@ function register_initial_settings() {
 		'writing',
 		'default_post_format',
 		array(
-			'show_in_rest' => true,
-			'type'         => 'string',
-			'description'  => __( 'Default post format.' ),
+			'show_in_rest'      => true,
+			'show_in_abilities' => true,
+			'type'              => 'string',
+			'description'       => __( 'Default post format.' ),
 		)
 	);
 
@@ -2820,11 +2832,12 @@ function register_initial_settings() {
 		'reading',
 		'posts_per_page',
 		array(
-			'show_in_rest' => true,
-			'type'         => 'integer',
-			'label'        => __( 'Maximum posts per page' ),
-			'description'  => __( 'Blog pages show at most.' ),
-			'default'      => 10,
+			'show_in_rest'      => true,
+			'show_in_abilities' => true,
+			'type'              => 'integer',
+			'label'             => __( 'Maximum posts per page' ),
+			'description'       => __( 'Blog pages show at most.' ),
+			'default'           => 10,
 		)
 	);
 
@@ -2832,10 +2845,11 @@ function register_initial_settings() {
 		'reading',
 		'show_on_front',
 		array(
-			'show_in_rest' => true,
-			'type'         => 'string',
-			'label'        => __( 'Show on front' ),
-			'description'  => __( 'What to show on the front page' ),
+			'show_in_rest'      => true,
+			'show_in_abilities' => true,
+			'type'              => 'string',
+			'label'             => __( 'Show on front' ),
+			'description'       => __( 'What to show on the front page' ),
 		)
 	);
 
@@ -2843,10 +2857,11 @@ function register_initial_settings() {
 		'reading',
 		'page_on_front',
 		array(
-			'show_in_rest' => true,
-			'type'         => 'integer',
-			'label'        => __( 'Page on front' ),
-			'description'  => __( 'The ID of the page that should be displayed on the front page' ),
+			'show_in_rest'      => true,
+			'show_in_abilities' => true,
+			'type'              => 'integer',
+			'label'             => __( 'Page on front' ),
+			'description'       => __( 'The ID of the page that should be displayed on the front page' ),
 		)
 	);
 
@@ -2854,9 +2869,10 @@ function register_initial_settings() {
 		'reading',
 		'page_for_posts',
 		array(
-			'show_in_rest' => true,
-			'type'         => 'integer',
-			'description'  => __( 'The ID of the page that should display the latest posts' ),
+			'show_in_rest'      => true,
+			'show_in_abilities' => true,
+			'type'              => 'integer',
+			'description'       => __( 'The ID of the page that should display the latest posts' ),
 		)
 	);
 }
@@ -2887,10 +2903,12 @@ function register_initial_settings() {
  *     @type string     $label             A label of the data attached to this setting.
  *     @type string     $description       A description of the data attached to this setting.
  *     @type callable   $sanitize_callback A callback function that sanitizes the option's value.
- *     @type bool|array $show_in_rest      Whether data associated with this setting should be included in the REST API.
- *                                         When registering complex settings, this argument may optionally be an
- *                                         array with a 'schema' key.
- *     @type mixed      $default           Default value when calling `get_option()`.
+ *     @type bool|array $show_in_rest        Whether data associated with this setting should be included in the REST API.
+ *                                           When registering complex settings, this argument may optionally be an
+ *                                           array with a 'schema' key.
+ *     @type bool       $show_in_abilities  Whether this setting should be exposed through the Abilities API.
+ *                                           Default false.
+ *     @type mixed      $default            Default value when calling `get_option()`.
  * }
  */
 function register_setting( $option_group, $option_name, $args = array() ) {
@@ -2903,12 +2921,13 @@ function register_setting( $option_group, $option_name, $args = array() ) {
 	$GLOBALS['new_whitelist_options'] = &$new_allowed_options;
 
 	$defaults = array(
-		'type'              => 'string',
-		'group'             => $option_group,
-		'label'             => '',
-		'description'       => '',
-		'sanitize_callback' => null,
-		'show_in_rest'      => false,
+		'type'               => 'string',
+		'group'              => $option_group,
+		'label'              => '',
+		'description'        => '',
+		'sanitize_callback'  => null,
+		'show_in_rest'       => false,
+		'show_in_abilities'  => false,
 	);
 
 	// Back-compat: old sanitize callback is added.
