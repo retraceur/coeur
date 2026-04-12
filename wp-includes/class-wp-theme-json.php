@@ -239,6 +239,7 @@ class WP_Theme_JSON {
 	 * @since WP 6.5.0 Added `aspect-ratio` property.
 	 * @since WP 6.6.0 Added `background-[image|position|repeat|size]` properties.
 	 * @since WP 6.7.0 Added `background-attachment` property.
+	 * @since WP 7.0.0 Added `dimensions.width`.
 	 * @var array
 	 */
 	const PROPERTIES_METADATA = array(
@@ -303,6 +304,7 @@ class WP_Theme_JSON {
 		'text-transform'                    => array( 'typography', 'textTransform' ),
 		'filter'                            => array( 'filter', 'duotone' ),
 		'box-shadow'                        => array( 'shadow' ),
+		'width'                             => array( 'dimensions', 'width' ),
 		'writing-mode'                      => array( 'typography', 'writingMode' ),
 	);
 
@@ -397,6 +399,8 @@ class WP_Theme_JSON {
 	 * @since WP 6.6.0 Added support for 'dimensions.aspectRatios', 'dimensions.defaultAspectRatios',
 	 *              'typography.defaultFontSizes', and 'spacing.defaultSpacingSizes'.
 	 * @since WP 6.9.0 Added support for `border.radiusSizes`.
+	 * @since WP 7.0.0 Added type markers to the schema for boolean values.
+	 *              Added support for `dimensions.width`.
 	 * @var array
 	 */
 	const VALID_SETTINGS = array(
@@ -436,6 +440,7 @@ class WP_Theme_JSON {
 			'aspectRatios'        => null,
 			'defaultAspectRatios' => null,
 			'minHeight'           => null,
+			'width'               => null,
 		),
 		'layout'                        => array(
 			'contentSize'                   => null,
@@ -444,8 +449,8 @@ class WP_Theme_JSON {
 			'allowCustomContentAndWideSize' => null,
 		),
 		'lightbox'                      => array(
-			'enabled'      => null,
-			'allowEditing' => null,
+			'enabled'      => true,
+			'allowEditing' => true,
 		),
 		'position'                      => array(
 			'fixed'  => null,
@@ -529,6 +534,7 @@ class WP_Theme_JSON {
 	 * @since WP 6.3.0 Added support for `typography.textColumns`.
 	 * @since WP 6.5.0 Added support for `dimensions.aspectRatio`.
 	 * @since WP 6.6.0 Added `background` sub properties to top-level only.
+	 * @since WP 7.0.0 Added support for `dimensions.width`.
 	 * @var array
 	 */
 	const VALID_STYLES = array(
@@ -557,6 +563,7 @@ class WP_Theme_JSON {
 		'dimensions' => array(
 			'aspectRatio' => null,
 			'minHeight'   => null,
+			'width'       => null,
 		),
 		'filter'     => array(
 			'duotone' => null,
@@ -655,11 +662,13 @@ class WP_Theme_JSON {
 	 * generated under their own feature level selector rather than the block's.
 	 *
 	 * @since WP 6.1.0
+	 * @since WP 7.0.0 Added support for `dimensions`.
 	 * @var string[]
 	 */
 	const BLOCK_SUPPORT_FEATURE_LEVEL_SELECTORS = array(
 		'__experimentalBorder' => 'border',
 		'color'                => 'color',
+		'dimensions'           => 'dimensions',
 		'spacing'              => 'spacing',
 		'typography'           => 'typography',
 	);
@@ -764,6 +773,7 @@ class WP_Theme_JSON {
 	 * @since WP 6.2.0 Added `dimensions.minHeight` and `position.sticky`.
 	 * @since WP 6.4.0 Added `background.backgroundImage`.
 	 * @since WP 6.5.0 Added `background.backgroundSize` and `dimensions.aspectRatio`.
+	 * @since WP 7.0.0 Added `dimensions.width`.
 	 * @var array
 	 */
 	const APPEARANCE_TOOLS_OPT_INS = array(
@@ -779,6 +789,7 @@ class WP_Theme_JSON {
 		array( 'color', 'caption' ),
 		array( 'dimensions', 'aspectRatio' ),
 		array( 'dimensions', 'minHeight' ),
+		array( 'dimensions', 'width' ),
 		array( 'position', 'sticky' ),
 		array( 'spacing', 'blockGap' ),
 		array( 'spacing', 'margin' ),
@@ -1303,6 +1314,7 @@ class WP_Theme_JSON {
 	 * It is recursive and modifies the input in-place.
 	 *
 	 * @since WP 5.8.0
+	 * @since WP 7.0.0 Added type validation for boolean values.
 	 *
 	 * @param array $tree   Input to process.
 	 * @param array $schema Schema to adhere to.
@@ -1317,6 +1329,17 @@ class WP_Theme_JSON {
 			// Remove keys not in the schema or with null/empty values.
 			if ( ! array_key_exists( $key, $schema ) ) {
 				unset( $tree[ $key ] );
+				continue;
+			}
+
+			// Validate type if schema specifies a boolean marker.
+			if ( is_bool( $schema[ $key ] ) ) {
+				// Schema expects a boolean value - validate the input matches.
+				if ( ! is_bool( $value ) ) {
+					unset( $tree[ $key ] );
+					continue;
+				}
+				// Type matches, keep the value and continue to next key.
 				continue;
 			}
 
@@ -3756,6 +3779,35 @@ class WP_Theme_JSON {
 	}
 
 	/**
+	 * Preserves valid typed settings from input to output based on type markers in schema.
+	 *
+	 * Recursively iterates through the schema and validates/preserves settings
+	 * that have type markers (e.g., boolean) in VALID_SETTINGS.
+	 *
+	 * @since WP 7.0.0
+	 *
+	 * @param array             $input  Input settings to process.
+	 * @param array             $output Output settings array (passed by reference).
+	 * @param array             $schema Schema to validate against (typically VALID_SETTINGS).
+	 * @param array<string|int> $path   Current path in the schema (for recursive calls).
+	 */
+	private static function preserve_valid_typed_settings( $input, &$output, $schema, $path = array() ) {
+		foreach ( $schema as $key => $schema_value ) {
+			$current_path = array_merge( $path, array( $key ) );
+
+			// Validate boolean type markers.
+			if ( is_bool( $schema_value ) ) {
+				$value = _wp_array_get( $input, $current_path, null );
+				if ( is_bool( $value ) ) {
+					_wp_array_set( $output, $current_path, $value ); // Preserve boolean value.
+				}
+			} elseif ( is_array( $schema_value ) ) {
+				self::preserve_valid_typed_settings( $input, $output, $schema_value, $current_path ); // Recurse into nested structure.
+			}
+		}
+	}
+
+	/**
 	 * Processes a setting node and returns the same node
 	 * without the insecure settings.
 	 *
@@ -3813,6 +3865,9 @@ class WP_Theme_JSON {
 
 		// Ensure indirect properties not included in any `PRESETS_METADATA` value are allowed.
 		static::remove_indirect_properties( $input, $output );
+
+		// Preserve all valid settings that have type markers in VALID_SETTINGS.
+		self::preserve_valid_typed_settings( $input, $output, static::VALID_SETTINGS );
 
 		return $output;
 	}
