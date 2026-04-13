@@ -239,7 +239,7 @@ class WP_Theme_JSON {
 	 * @since WP 6.5.0 Added `aspect-ratio` property.
 	 * @since WP 6.6.0 Added `background-[image|position|repeat|size]` properties.
 	 * @since WP 6.7.0 Added `background-attachment` property.
-	 * @since WP 7.0.0 Added `dimensions.width`.
+	 * @since WP 7.0.0 Added `dimensions.width` and `dimensions.height`.
 	 * @var array
 	 */
 	const PROPERTIES_METADATA = array(
@@ -304,6 +304,7 @@ class WP_Theme_JSON {
 		'text-transform'                    => array( 'typography', 'textTransform' ),
 		'filter'                            => array( 'filter', 'duotone' ),
 		'box-shadow'                        => array( 'shadow' ),
+		'height'                            => array( 'dimensions', 'height' ),
 		'width'                             => array( 'dimensions', 'width' ),
 		'writing-mode'                      => array( 'typography', 'writingMode' ),
 	);
@@ -400,7 +401,7 @@ class WP_Theme_JSON {
 	 *              'typography.defaultFontSizes', and 'spacing.defaultSpacingSizes'.
 	 * @since WP 6.9.0 Added support for `border.radiusSizes`.
 	 * @since WP 7.0.0 Added type markers to the schema for boolean values.
-	 *              Added support for `dimensions.width`.
+	 *              Added support for `dimensions.width` and `dimensions.height`.
 	 * @var array
 	 */
 	const VALID_SETTINGS = array(
@@ -439,6 +440,7 @@ class WP_Theme_JSON {
 			'aspectRatio'         => null,
 			'aspectRatios'        => null,
 			'defaultAspectRatios' => null,
+			'height'              => null,
 			'minHeight'           => null,
 			'width'               => null,
 		),
@@ -534,7 +536,7 @@ class WP_Theme_JSON {
 	 * @since WP 6.3.0 Added support for `typography.textColumns`.
 	 * @since WP 6.5.0 Added support for `dimensions.aspectRatio`.
 	 * @since WP 6.6.0 Added `background` sub properties to top-level only.
-	 * @since WP 7.0.0 Added support for `dimensions.width`.
+	 * @since WP 7.0.0 Added support for `dimensions.width` and `dimensions.height`.
 	 * @var array
 	 */
 	const VALID_STYLES = array(
@@ -562,6 +564,7 @@ class WP_Theme_JSON {
 		),
 		'dimensions' => array(
 			'aspectRatio' => null,
+			'height'      => null,
 			'minHeight'   => null,
 			'width'       => null,
 		),
@@ -773,7 +776,7 @@ class WP_Theme_JSON {
 	 * @since WP 6.2.0 Added `dimensions.minHeight` and `position.sticky`.
 	 * @since WP 6.4.0 Added `background.backgroundImage`.
 	 * @since WP 6.5.0 Added `background.backgroundSize` and `dimensions.aspectRatio`.
-	 * @since WP 7.0.0 Added `dimensions.width`.
+	 * @since WP 7.0.0 Added `dimensions.width` and `dimensions.height`.
 	 * @var array
 	 */
 	const APPEARANCE_TOOLS_OPT_INS = array(
@@ -788,6 +791,7 @@ class WP_Theme_JSON {
 		array( 'color', 'button' ),
 		array( 'color', 'caption' ),
 		array( 'dimensions', 'aspectRatio' ),
+		array( 'dimensions', 'height' ),
 		array( 'dimensions', 'minHeight' ),
 		array( 'dimensions', 'width' ),
 		array( 'position', 'sticky' ),
@@ -2938,7 +2942,13 @@ class WP_Theme_JSON {
 				$style_variation_declarations[ $style_variation['selector'] ] = static::compute_style_properties( $style_variation_node, $settings, null, $this->theme_json );
 
 				// Process pseudo-selectors for this variation (e.g., :hover, :focus)
-				$block_name                    = isset( $block_metadata['name'] ) ? $block_metadata['name'] : ( in_array( 'blocks', $block_metadata['path'], true ) && count( $block_metadata['path'] ) >= 3 ? $block_metadata['path'][2] : null );
+				if ( isset( $block_metadata['name'] ) ) {
+					$block_name = $block_metadata['name'];
+				} elseif ( in_array( 'blocks', $block_metadata['path'], true ) && count( $block_metadata['path'] ) >= 3 ) {
+					$block_name = $block_metadata['path'][2];
+				} else {
+					$block_name = null;
+				}
 				$variation_pseudo_declarations = static::process_pseudo_selectors( $style_variation_node, $style_variation['selector'], $settings, $block_name );
 				$style_variation_declarations  = array_merge( $style_variation_declarations, $variation_pseudo_declarations );
 
@@ -3027,7 +3037,7 @@ class WP_Theme_JSON {
 			// For block pseudo-selectors, we need to get the block data first, then access the pseudo-selector
 			$block_name  = $block_metadata['path'][2]; // 'core/button'
 			$block_data  = _wp_array_get( $this->theme_json, array( 'styles', 'blocks', $block_name ), array() );
-			$pseudo_data = isset( $block_data[ $block_pseudo_selector ] ) ? $block_data[ $block_pseudo_selector ] : array();
+			$pseudo_data = $block_data[ $block_pseudo_selector ] ?? array();
 
 			$declarations = static::compute_style_properties( $pseudo_data, $settings, null, $this->theme_json, $selector, $use_root_padding );
 		} else {
