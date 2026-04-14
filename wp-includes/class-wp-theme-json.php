@@ -217,6 +217,15 @@ class WP_Theme_JSON {
 			'classes'           => array(),
 			'properties'        => array( 'border-radius' ),
 		),
+		array(
+			'path'              => array( 'dimensions', 'dimensionSizes' ),
+			'prevent_override'  => false,
+			'use_default_names' => false,
+			'value_key'         => 'size',
+			'css_vars'          => '--wp--preset--dimension--$slug',
+			'classes'           => array(),
+			'properties'        => array( 'width', 'height', 'min-height' ),
+		),
 	);
 
 	/**
@@ -240,6 +249,7 @@ class WP_Theme_JSON {
 	 * @since WP 6.6.0 Added `background-[image|position|repeat|size]` properties.
 	 * @since WP 6.7.0 Added `background-attachment` property.
 	 * @since WP 7.0.0 Added `dimensions.width` and `dimensions.height`.
+	 *              Added `text-indent` property.
 	 * @var array
 	 */
 	const PROPERTIES_METADATA = array(
@@ -302,6 +312,7 @@ class WP_Theme_JSON {
 		'--wp--style--root--padding-left'   => array( 'spacing', 'padding', 'left' ),
 		'text-decoration'                   => array( 'typography', 'textDecoration' ),
 		'text-transform'                    => array( 'typography', 'textTransform' ),
+		'text-indent'                       => array( 'typography', 'textIndent' ),
 		'filter'                            => array( 'filter', 'duotone' ),
 		'box-shadow'                        => array( 'shadow' ),
 		'height'                            => array( 'dimensions', 'height' ),
@@ -402,6 +413,7 @@ class WP_Theme_JSON {
 	 * @since WP 6.9.0 Added support for `border.radiusSizes`.
 	 * @since WP 7.0.0 Added type markers to the schema for boolean values.
 	 *              Added support for `dimensions.width` and `dimensions.height`.
+	 *              Added support for `typography.textIndent`.
 	 * @var array
 	 */
 	const VALID_SETTINGS = array(
@@ -440,6 +452,7 @@ class WP_Theme_JSON {
 			'aspectRatio'         => null,
 			'aspectRatios'        => null,
 			'defaultAspectRatios' => null,
+			'dimensionSizes'      => null,
 			'height'              => null,
 			'minHeight'           => null,
 			'width'               => null,
@@ -486,6 +499,7 @@ class WP_Theme_JSON {
 			'textAlign'        => null,
 			'textColumns'      => null,
 			'textDecoration'   => null,
+			'textIndent'       => null,
 			'textTransform'    => null,
 			'writingMode'      => null,
 		),
@@ -593,6 +607,7 @@ class WP_Theme_JSON {
 			'textAlign'      => null,
 			'textColumns'    => null,
 			'textDecoration' => null,
+			'textIndent'     => null,
 			'textTransform'  => null,
 			'writingMode'    => null,
 		),
@@ -2741,6 +2756,48 @@ class WP_Theme_JSON {
 	}
 
 	/**
+	 * Updates the text indent selector for paragraph blocks based on the textIndent setting.
+	 *
+	 * The textIndent setting can be 'subsequent' (default), 'all', or false.
+	 * When set to 'all', the selector should be '.wp-block-paragraph' instead of
+	 * '.wp-block-paragraph + .wp-block-paragraph' to apply indent to all paragraphs.
+	 *
+	 * @since WP 7.0.0
+	 *
+	 * @param array  $feature_declarations The feature declarations keyed by selector.
+	 * @param array  $settings             The theme.json settings.
+	 * @param string $block_name           The block name being processed.
+	 * @return array The updated feature declarations.
+	 */
+	private static function update_paragraph_text_indent_selector( $feature_declarations, $settings, $block_name ) {
+		if ( 'core/paragraph' !== $block_name ) {
+			return $feature_declarations;
+		}
+
+		// Check block-level settings first, then fall back to global settings.
+		$block_settings      = $settings['blocks']['core/paragraph'] ?? null;
+		$text_indent_setting = $block_settings['typography']['textIndent']
+			?? $settings['typography']['textIndent']
+			?? 'subsequent';
+
+		if ( 'all' !== $text_indent_setting ) {
+			return $feature_declarations;
+		}
+
+		// Look for the text indent selector and replace it.
+		$old_selector = '.wp-block-paragraph + .wp-block-paragraph';
+		$new_selector = '.wp-block-paragraph';
+
+		if ( isset( $feature_declarations[ $old_selector ] ) ) {
+			$declarations = $feature_declarations[ $old_selector ];
+			unset( $feature_declarations[ $old_selector ] );
+			$feature_declarations[ $new_selector ] = $declarations;
+		}
+
+		return $feature_declarations;
+	}
+
+	/**
 	 * An internal method to get the block nodes from a theme.json file.
 	 *
 	 * @since WP 6.1.0
@@ -2901,6 +2958,10 @@ class WP_Theme_JSON {
 		$feature_declarations = static::get_feature_declarations_for_node( $block_metadata, $node );
 		$is_root_selector     = static::ROOT_BLOCK_SELECTOR === $selector;
 
+		// Update text indent selector for paragraph blocks based on the textIndent setting.
+		$block_name           = $block_metadata['name'] ?? null;
+		$feature_declarations = static::update_paragraph_text_indent_selector( $feature_declarations, $settings, $block_name );
+
 		// If there are style variations, generate the declarations for them, including any feature selectors the block may have.
 		$style_variation_declarations    = array();
 		$style_variation_custom_css      = array();
@@ -2912,6 +2973,9 @@ class WP_Theme_JSON {
 
 				// Generate any feature/subfeature style declarations for the current style variation.
 				$variation_declarations = static::get_feature_declarations_for_node( $block_metadata, $style_variation_node );
+
+				// Update text indent selector for paragraph blocks based on the textIndent setting.
+				$variation_declarations = static::update_paragraph_text_indent_selector( $variation_declarations, $settings, $block_name );
 
 				// Combine selectors with style variation's selector and add to overall style variation declarations.
 				foreach ( $variation_declarations as $current_selector => $new_declarations ) {

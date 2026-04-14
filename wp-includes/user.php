@@ -731,7 +731,7 @@ function get_current_user_id() {
 		return 0;
 	}
 	$user = wp_get_current_user();
-	return ( isset( $user->ID ) ? (int) $user->ID : 0 );
+	return (int) ( $user->ID ?? 0 );
 }
 
 /**
@@ -2666,7 +2666,7 @@ function wp_update_user( $userdata ) {
 
 	$userdata_raw = $userdata;
 
-	$user_id = isset( $userdata['ID'] ) ? (int) $userdata['ID'] : 0;
+	$user_id = (int) ( $userdata['ID'] ?? 0 );
 	if ( ! $user_id ) {
 		return new WP_Error( 'invalid_user_id', __( 'Invalid contributor ID.' ) );
 	}
