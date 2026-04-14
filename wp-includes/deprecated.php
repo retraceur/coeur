@@ -1818,7 +1818,7 @@ function _nc( $single, $plural, $number, $domain = 'default' ) {
  * @deprecated WP 2.8.0 Use _n()
  * @see _n()
  */
-function __ngettext( ...$args ) { // phpcs:ignore PHPCompatibility.FunctionNameRestrictions.ReservedFunctionNames.FunctionDoubleUnderscore
+function __ngettext( ...$args ) {
 	_deprecated_function( __FUNCTION__, '2.8.0', '_n()' );
 	return _n( ...$args );
 }
@@ -1830,7 +1830,7 @@ function __ngettext( ...$args ) { // phpcs:ignore PHPCompatibility.FunctionNameR
  * @deprecated WP 2.8.0 Use _n_noop()
  * @see _n_noop()
  */
-function __ngettext_noop( ...$args ) { // phpcs:ignore PHPCompatibility.FunctionNameRestrictions.ReservedFunctionNames.FunctionDoubleUnderscore
+function __ngettext_noop( ...$args ) {
 	_deprecated_function( __FUNCTION__, '2.8.0', '_n_noop()' );
 	return _n_noop( ...$args );
 

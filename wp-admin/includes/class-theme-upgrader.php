@@ -727,7 +727,7 @@ class Theme_Upgrader extends WP_Upgrader {
 	 *
 	 * @since WP 2.8.0
 	 *
-	 * @global WP_Filesystem_Base $wp_filesystem Subclass
+	 * @global WP_Filesystem_Base $wp_filesystem Filesystem subclass.
 	 *
 	 * @param bool   $removed
 	 * @param string $local_destination

@@ -263,7 +263,7 @@ class Custom_Image_Header {
 	 *
 	 * @since WP 3.0.0
 	 *
-	 * @global array $_wp_default_headers
+	 * @global array $_wp_default_headers Default headers registered for themes.
 	 */
 	public function process_default_headers() {
 		global $_wp_default_headers;

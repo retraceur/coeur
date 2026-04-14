@@ -2504,7 +2504,7 @@ function wp_ajax_get_revision_diffs() {
  *
  * @since WP 3.8.0
  *
- * @global array $_wp_admin_css_colors
+ * @global array $_wp_admin_css_colors Registered admin CSS color schemes.
  */
 function wp_ajax_save_user_color_scheme() {
 	global $_wp_admin_css_colors;
@@ -2533,8 +2533,8 @@ function wp_ajax_save_user_color_scheme() {
  *
  * @since WP 3.9.0
  *
- * @global array $themes_allowedtags
- * @global array $theme_field_defaults
+ * @global array $themes_allowedtags   Allowed HTML tags for theme descriptions.
+ * @global array $theme_field_defaults Default theme fields.
  */
 function wp_ajax_query_themes() {
 	global $themes_allowedtags, $theme_field_defaults;
@@ -2648,8 +2648,8 @@ function wp_ajax_query_themes() {
  *
  * @global WP_Post    $post          Global post object.
  * @global WP_Embed   $wp_embed      Retraceur Embed object.
- * @global WP_Scripts $wp_scripts
- * @global int        $content_width
+ * @global WP_Scripts $wp_scripts    Script dependencies object.
+ * @global int        $content_width Shared post content width.
  */
 function wp_ajax_parse_embed() {
 	global $post, $wp_embed, $content_width;
@@ -2789,7 +2789,7 @@ function wp_ajax_parse_embed() {
  * @since WP 4.0.0
  *
  * @global WP_Post    $post       Global post object.
- * @global WP_Scripts $wp_scripts
+ * @global WP_Scripts $wp_scripts Script dependencies object.
  */
 function wp_ajax_parse_media_shortcode() {
 	global $post, $wp_scripts;

@@ -52,7 +52,7 @@ class Core_Upgrader extends WP_Upgrader {
 	 * @since 2.0.0 Retraceur fork. Adaptations were made compared to how WP handles an upgrade.
 	 *
 	 * @global WP_Filesystem_Base $wp_filesystem                Retraceur filesystem subclass.
-	 * @global callable           $_wp_filesystem_direct_method
+	 * @global callable           $_wp_filesystem_direct_method Filesystem direct method callback.
 	 *
 	 * @param object $current Response object for whether Retraceur is current.
 	 * @param array  $args {
