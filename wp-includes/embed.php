@@ -415,7 +415,7 @@ function wp_maybe_enqueue_oembed_host_js( $html ) {
  *
  * @since WP 4.4.0
  *
- * @param int|WP_Post $post Optional. Post ID or object. Defaults to the current post.
+ * @param int|WP_Post|null $post Optional. Post ID or object. Defaults to the current post.
  * @return string|false The post embed URL on success, false if the post doesn't exist.
  */
 function get_post_embed_url( $post = null ) {
@@ -484,9 +484,9 @@ function get_oembed_endpoint_url( $permalink = '', $format = 'json' ) {
  *
  * @since WP 4.4.0
  *
- * @param int         $width  The width for the response.
- * @param int         $height The height for the response.
- * @param int|WP_Post $post   Optional. Post ID or object. Default is global `$post`.
+ * @param int              $width  The width for the response.
+ * @param int              $height The height for the response.
+ * @param int|WP_Post|null $post   Optional. Post ID or object. Default is global `$post`.
  * @return string|false Embed code on success, false if post doesn't exist.
  */
 function get_post_embed_html( $width, $height, $post = null ) {
