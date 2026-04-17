@@ -45,7 +45,8 @@
 }
 
 .media-frame a:focus {
-	box-shadow: 0 0 0 2px #2271b1;
+	border-radius: 2px;
+	box-shadow: 0 0 0 var(--wp-admin-border-width-focus, 1.5px) #5d76cb;
 	color: #043959;
 	/* Only visible in Windows High Contrast mode */
 	outline: 2px solid transparent;
@@ -687,7 +688,7 @@
 }
 
 .media-menu .media-menu-item:focus {
-	box-shadow: 0 0 0 2px #2271b1;
+	box-shadow: 0 0 0 var(--wp-admin-border-width-focus, 1.5px) #5d76cb;
 	color: #043959;
 	/* Only visible in Windows High Contrast mode */
 	outline: 2px solid transparent;
@@ -740,7 +741,7 @@
 }
 
 .media-router .media-menu-item:focus {
-	box-shadow: 0 0 0 2px #2271b1;
+	box-shadow: 0 0 0 var(--wp-admin-border-width-focus, 1.5px) #5d76cb;
 	color: #043959;
 	/* Only visible in Windows High Contrast mode */
 	outline: 2px solid transparent;
@@ -998,7 +999,7 @@
 .wp-core-ui .attachment.details:focus {
 	box-shadow:
 		inset 0 0 2px 3px #fff,
-		inset 0 0 0 7px #4f94d4;
+		inset 0 0 0 7px #5d76cb;
 	/* Only visible in Windows High Contrast mode */
 	outline: 2px solid transparent;
 	outline-offset: -6px;
@@ -1013,7 +1014,7 @@
 .wp-core-ui .attachment.details {
 	box-shadow:
 		inset 0 0 0 3px #fff,
-		inset 0 0 0 7px #2271b1;
+		inset 0 0 0 7px #191970;
 }
 
 .wp-core-ui .attachment-preview {
@@ -1172,10 +1173,10 @@
 .wp-core-ui .attachment.details .check,
 .wp-core-ui .attachment.selected .check:focus,
 .wp-core-ui .media-frame.mode-grid .attachment.selected .check {
-	background-color: #2271b1;
+	background-color: #5d76cb;
 	box-shadow:
 		0 0 0 1px #fff,
-		0 0 0 2px #2271b1;
+		0 0 0 2px #5d76cb;
 }
 
 .wp-core-ui .attachment.selected .check:focus {
@@ -2145,8 +2146,8 @@
 }
 
 .mejs-container:focus {
-	outline: 1px solid #2271b1;
-	box-shadow: 0 0 0 2px #2271b1;
+	outline: 1px solid #5d76cb;
+	box-shadow: 0 0 0 var(--wp-admin-border-width-focus, 1.5px) #5d76cb;
 }
 
 .image-details .media-modal {

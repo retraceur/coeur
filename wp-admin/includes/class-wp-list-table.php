@@ -1576,7 +1576,7 @@ class WP_List_Table {
 	 *
 	 * @since WP 3.1.0
 	 *
-	 * @param string $which
+	 * @param string $which The location: 'top' or 'bottom'.
 	 */
 	protected function extra_tablenav( $which ) {}
 

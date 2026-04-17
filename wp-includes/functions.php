@@ -3760,7 +3760,7 @@ function _default_wp_die_handler( $message, $title = '', $args = array() ) {
 		}
 		a:focus {
 			color: #043959;
-			box-shadow: 0 0 0 2px #2271b1;
+			box-shadow: 0 0 0 var(--wp-admin-border-width-focus, 1.5px) #5d76cb;
 			outline: 2px solid transparent;
 		}
 		.button {

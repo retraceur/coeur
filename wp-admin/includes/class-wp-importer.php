@@ -245,7 +245,7 @@ class WP_Importer {
 	 * @since WP 3.0.0
 	 *
 	 * @global wpdb  $wpdb       Retraceur database abstraction object.
-	 * @global int[] $wp_actions
+	 * @global int[] $wp_actions Stores the number of times each action was triggered.
 	 */
 	public function stop_the_insanity() {
 		global $wpdb, $wp_actions;

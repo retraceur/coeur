@@ -32,7 +32,7 @@ a:active {
 
 a:focus {
 	color: #4563c9;
-	box-shadow: 0 0 0 2px #2243b6;
+	box-shadow: 0 0 0 var(--wp-admin-border-width-focus, 1.5px) #5d76cb;
 	/* Only visible in Windows High Contrast mode */
 	outline: 2px solid transparent;
 }
