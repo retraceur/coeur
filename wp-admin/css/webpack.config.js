@@ -34,6 +34,8 @@ module.exports = {
 			'login-rtl.min': './wp-admin/css/login-rtl.js',
 			'themes.min': './wp-admin/css/themes.js',
 			'themes-rtl.min': './wp-admin/css/themes-rtl.js',
+			'media.min': './wp-admin/css/media.js',
+			'media-rtl.min': './wp-admin/css/media-rtl.js',
         },
 		output: {
 			filename: '[name].js',
