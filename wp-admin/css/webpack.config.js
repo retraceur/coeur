@@ -32,6 +32,8 @@ module.exports = {
 			'list-tables-rtl.min': './wp-admin/css/list-tables-rtl.js',
 			'login.min': './wp-admin/css/login.js',
 			'login-rtl.min': './wp-admin/css/login-rtl.js',
+			'revisions.min': './wp-admin/css/revisions.js',
+			'revisions-rtl.min': './wp-admin/css/revisions-rtl.js',
 			'themes.min': './wp-admin/css/themes.js',
 			'themes-rtl.min': './wp-admin/css/themes-rtl.js',
 			'media.min': './wp-admin/css/media.js',
