@@ -82,7 +82,7 @@ header( 'Content-Type: ' . get_option( 'html_type' ) . '; charset=' . get_option
 	<title><?php _e( 'Retraceur &rsaquo; Update' ); ?></title>
 	<?php wp_admin_css( 'install', true ); ?>
 </head>
-<body class="wp-core-ui">
+<body class="wp-core-ui admin-color-retraceur">
 <p id="logo"><?php esc_html_e( 'Retraceur' ); ?></a></p>
 
 <?php if ( (int) get_option( 'db_version' ) === $wp_db_version || ! is_blog_installed() ) : ?>

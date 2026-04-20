@@ -45,21 +45,33 @@ p {
 .login .notice,
 .login .success {
 	border-left: 4px solid #273c86;
-	padding: 12px;
+	padding: 8px 12px;
+	margin-top: 0;
 	margin-left: 0;
 	margin-bottom: 20px;
 	background-color: #fff;
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+	background-color: transparent;
 	word-wrap: break-word;
 }
 
+.login .message p,
+.login .notice p,
+.login .success p {
+	font-size: 13px;
+	line-height: 1.54;
+	margin: 0.5em 0;
+}
+
 .login .success {
-	border-left-color: #00a32a;
+	border-left-color: #4ab866;
+	background-color: #eff9f1;
 }
 
 /* Match border color from common.css */
 .login .notice-error {
-	border-left-color: #d63638;
+	border-left-color: #cc1818;
+	background-color: #fcf0f0;
 }
 
 .login .login-error-list {
@@ -356,12 +368,6 @@ p {
 /* rtl:ignore */
 .js.login input.password-input {
 	padding-right: 2.5rem;
-}
-
-.login form .input,
-.login input[type="text"],
-.login form input[type="checkbox"] {
-	background: #fff;
 }
 
 .js.login-action-resetpass input[type="text"],

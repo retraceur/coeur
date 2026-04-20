@@ -160,8 +160,8 @@
 	font-weight: 600;
 	padding: 15px 23px 14px;
 	/* Background and color set to prevent false positives in automated accessibility tests. */
-	background: #f0f0f1;
-	color: #2271b1;
+	background: #ffffff;
+	color: #5d76cb;
 	z-index: 100000;
 	line-height: normal;
 }
@@ -169,8 +169,8 @@
 .screen-reader-shortcut:focus {
 	top: -25px;
 	/* Overrides a:focus in the admin. See ticket #56789. */
-	color: #2271b1;
-	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	color: #5d76cb;
+	box-shadow: 0 0 0 var(--wp-admin-border-width-focus, 1.5px) #5d76cb;
 	text-decoration: none;
 	/* Only visible in Windows High Contrast mode */
 	outline: 2px solid transparent;
@@ -1890,8 +1890,8 @@ p.auto-update-status {
 }
 
 #screen-meta-links .show-settings:focus {
-	border-color: #2271b1;
-	box-shadow: 0 0 0 1px #2271b1;
+	border-color: #5d76cb;
+	box-shadow: 0 0 0 var(--wp-admin-border-width-focus, 1.5px) #5d76cb;
 	/* Only visible in Windows High Contrast mode */
 	outline: 2px solid transparent;
 }
@@ -3427,7 +3427,7 @@ img {
 	/* Reset default focus style. */
 	box-shadow: none;
 	/* Use an inset outline instead, so it's visible also over the current file item. */
-	outline: 2px solid #2271b1;
+	outline: 2px solid #5d76cb;
 	outline-offset: -2px;
 }
 

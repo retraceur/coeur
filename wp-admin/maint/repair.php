@@ -22,7 +22,7 @@ header( 'Content-Type: text/html; charset=utf-8' );
 	<title><?php _e( 'Retraceur &rsaquo; Database Repair' ); ?></title>
 	<?php wp_admin_css( 'install', true ); ?>
 </head>
-<body class="wp-core-ui">
+<body class="wp-core-ui admin-color-retraceur">
 <p id="logo"><?php _e( 'Retraceur' ); ?></p>
 
 <?php

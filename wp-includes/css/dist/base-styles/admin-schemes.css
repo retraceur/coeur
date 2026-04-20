@@ -18,10 +18,6 @@
  * Typography
  */
 /**
- * Grid System.
- * https://make.wordpress.org/design/2019/10/31/proposal-a-consistent-spacing-system-for-wordpress/
- */
-/**
  * Radius scale.
  */
 /**
@@ -82,10 +78,6 @@
  */
 /**
  * Reset the WP Admin page styles for Gutenberg-like pages.
- */
-/**
- * Creates a checkerboard pattern background to indicate transparency.
- * @param {String} $size - The size of the squares in the checkerboard pattern. Default is 12px.
  */
 body.admin-color-light {
   --wp-admin-theme-color: #0085ba;
@@ -203,6 +195,22 @@ body.admin-color-sunrise {
 }
 @media (min-resolution: 192dpi) {
   body.admin-color-sunrise {
+    --wp-admin-border-width-focus: 1.5px;
+  }
+}
+
+body.admin-color-retraceur {
+  --wp-admin-theme-color: #5d76cb;
+  --wp-admin-theme-color--rgb: 93, 118, 203;
+  --wp-admin-theme-color-darker-10: #002395;
+  --wp-admin-theme-color-darker-10--rgb: 0, 35, 149;
+  --wp-admin-theme-color-darker-20: #191970;
+  --wp-admin-theme-color-darker-20--rgb: 25, 25, 112;
+  --wp-admin-border-width-focus: 2px;
+}
+
+@media (min-resolution: 192dpi) {
+  body.admin-color-retraceur {
     --wp-admin-border-width-focus: 1.5px;
   }
 }
