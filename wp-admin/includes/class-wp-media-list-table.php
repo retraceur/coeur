@@ -18,8 +18,20 @@
  */
 class WP_Media_List_Table extends WP_List_Table {
 
+	/**
+	 * Whether the list table is for detached media.
+	 *
+	 * @since WP 3.1.0
+	 * @var bool
+	 */
 	private $detached;
 
+	/**
+	 * Whether the list table is for trash.
+	 *
+	 * @since WP 3.1.0
+	 * @var bool
+	 */
 	private $is_trash;
 
 	/**
@@ -58,6 +70,10 @@ class WP_Media_List_Table extends WP_List_Table {
 	}
 
 	/**
+	 * Checks if the current user has permissions to upload files.
+	 *
+	 * @since WP 3.1.0
+	 *
 	 * @return bool Whether the user can upload files.
 	 */
 	public function ajax_user_can() {
@@ -65,10 +81,14 @@ class WP_Media_List_Table extends WP_List_Table {
 	}
 
 	/**
+	 * Prepares the list of items for displaying.
+	 *
+	 * @since WP 3.1.0
+	 *
 	 * @global string   $mode                  List table view mode.
 	 * @global WP_Query $wp_query              Retraceur Query object.
-	 * @global array    $post_mime_types
-	 * @global array    $avail_post_mime_types
+	 * @global array    $post_mime_types       An array of post mime types.
+	 * @global array    $avail_post_mime_types An array of available post mime types.
 	 */
 	public function prepare_items() {
 		global $mode, $wp_query, $post_mime_types, $avail_post_mime_types;
@@ -122,8 +142,12 @@ class WP_Media_List_Table extends WP_List_Table {
 	}
 
 	/**
-	 * @global array $post_mime_types
-	 * @global array $avail_post_mime_types
+	 * Gets an array of links for the available views on this table.
+	 *
+	 * @since WP 3.1.0
+	 *
+	 * @global array $post_mime_types       An array of post mime types.
+	 * @global array $avail_post_mime_types An array of available post mime types.
 	 * @return array<string, string> An array of links for the available views.
 	 */
 	protected function get_views() {
@@ -203,7 +227,11 @@ class WP_Media_List_Table extends WP_List_Table {
 	}
 
 	/**
-	 * @param string $which
+	 * Displays extra controls between bulk actions and pagination.
+	 *
+	 * @since WP 3.1.0
+	 *
+	 * @param string $which The location of the extra table nav: 'top' or 'bottom'.
 	 */
 	protected function extra_tablenav( $which ) {
 		if ( 'bar' !== $which ) {
@@ -258,6 +286,9 @@ class WP_Media_List_Table extends WP_List_Table {
 	}
 
 	/**
+	 * Displays a message when no media items are found.
+	 *
+	 * @since WP 3.1.0
 	 */
 	public function no_items() {
 		if ( $this->is_trash ) {
@@ -751,8 +782,12 @@ class WP_Media_List_Table extends WP_List_Table {
 	}
 
 	/**
-	 * @param WP_Post $post
-	 * @param string  $att_title
+	 * Gets the row actions for a media item.
+	 *
+	 * @since WP 3.1.0
+	 *
+	 * @param WP_Post $post      The current WP_Post object.
+	 * @param string  $att_title The attachment title.
 	 * @return array<string, string> An array of row actions.
 	 */
 	private function _get_row_actions( $post, $att_title ) {

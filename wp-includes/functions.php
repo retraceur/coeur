@@ -5824,6 +5824,32 @@ function _doing_it_wrong( $function_name, $message, $version, $is_retraceur = fa
  *                              Only works with E_USER family of constants. Default E_USER_NOTICE.
  */
 function wp_trigger_error( $function_name, $message, $error_level = E_USER_NOTICE ) {
+	/**
+	 * Always fires when the given function triggers a user-level error/warning/notice/deprecation message.
+	 *
+	 * Can be used to attach custom error handlers even if WP_DEBUG is not truthy.
+	 *
+	 * @since WP 7.0.0
+	 *
+	 * @param string $function_name The function that triggered the error.
+	 * @param string $message       The message explaining the error.
+	 * @param int    $error_level   The designated error type for this error.
+	 */
+	do_action( 'wp_trigger_error_always_run', $function_name, $message, $error_level );
+
+	/**
+	 * Filters whether to trigger an error.
+	 *
+	 * @since WP 7.0.0
+	 *
+	 * @param bool   $trigger       Whether to trigger the error. Default true.
+	 * @param string $function_name The function that triggered the error.
+	 * @param string $message       The message explaining the error.
+	 * @param int    $error_level   The designated error type for this error.
+	 */
+	if ( ! apply_filters( 'wp_trigger_error_trigger_error', true, $function_name, $message, $error_level ) ) {
+		return;
+	}
 
 	// Bail out if WP_DEBUG is not turned on.
 	if ( ! WP_DEBUG ) {
@@ -5837,8 +5863,8 @@ function wp_trigger_error( $function_name, $message, $error_level = E_USER_NOTIC
 	 *
 	 * @since WP 6.4.0
 	 *
-	 * @param string $function_name The function that was called.
-	 * @param string $message       A message explaining what has been done incorrectly.
+	 * @param string $function_name The function that triggered the error.
+	 * @param string $message       The message explaining the error.
 	 * @param int    $error_level   The designated error type for this error.
 	 */
 	do_action( 'wp_trigger_error_run', $function_name, $message, $error_level );

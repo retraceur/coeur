@@ -54,7 +54,28 @@ if ( ! is_multisite() ) {
 	<tr>
 	<th scope="row"><label for="default_role"><?php esc_html_e( 'New Contributor Default Role' ); ?></label></th>
 	<td>
-	<select name="default_role" id="default_role"><?php wp_dropdown_roles( retraceur_get_default_role() ); ?></select>
+		<?php
+		/**
+		 * Filters the roles to be excluded from the default_role option.
+		 *
+		 * @since WP 7.0.0
+		 *
+		 * @param string[] $roles_to_exclude Array of roles to exclude from the dropdown.
+		 *                                   Defaults to administrator and editor.
+		 */
+		$excluded_roles = (array) apply_filters( 'default_role_dropdown_excluded_roles', array( 'administrator', 'editor' ) );
+
+		$editable_roles = array_reverse( get_editable_roles() );
+
+		$selected = retraceur_get_default_role();
+
+		foreach ( $editable_roles as $role => $details ) {
+			if ( in_array( $role, $excluded_roles, true ) && $role !== $selected ) {
+				unset( $editable_roles[ $role ] );
+			}
+		}
+		?>
+		<select name="default_role" id="default_role"><?php wp_dropdown_roles( $selected, $editable_roles ); ?></select>
 	</td>
 	</tr>
 	<?php do_settings_fields( 'membership', 'default' ); ?>
