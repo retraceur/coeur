@@ -11,8 +11,6 @@
 
 declare( strict_types = 1 );
 
-require_once __DIR__ . '/abilities/class-wp-settings-abilities.php';
-
 /**
  * Registers the core ability categories.
  *
@@ -261,6 +259,4 @@ function wp_register_core_abilities(): void {
 			),
 		)
 	);
-
-	WP_Settings_Abilities::register();
 }
