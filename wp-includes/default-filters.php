@@ -675,18 +675,6 @@ add_action( 'before_delete_post', '_wp_before_delete_font_face', 10, 2 );
 add_filter( 'rest_pre_insert_wp_template', 'inject_ignored_hooked_blocks_metadata_attributes' );
 add_filter( 'rest_pre_insert_wp_template_part', 'inject_ignored_hooked_blocks_metadata_attributes' );
 
-// Update ignoredHookedBlocks postmeta for some post types.
-add_filter( 'rest_pre_insert_page', 'update_ignored_hooked_blocks_postmeta' );
-add_filter( 'rest_pre_insert_post', 'update_ignored_hooked_blocks_postmeta' );
-add_filter( 'rest_pre_insert_wp_block', 'update_ignored_hooked_blocks_postmeta' );
-add_filter( 'rest_pre_insert_wp_navigation', 'update_ignored_hooked_blocks_postmeta' );
-
-// Inject hooked blocks into the Posts endpoint REST response for some given post types.
-add_filter( 'rest_prepare_page', 'insert_hooked_blocks_into_rest_response', 10, 2 );
-add_filter( 'rest_prepare_post', 'insert_hooked_blocks_into_rest_response', 10, 2 );
-add_filter( 'rest_prepare_wp_block', 'insert_hooked_blocks_into_rest_response', 10, 2 );
-add_filter( 'rest_prepare_wp_navigation', 'insert_hooked_blocks_into_rest_response', 10, 2 );
-
 // Honour Post content's "read-more" mechanism in Site Editor's edited archive templates.
 add_filter( 'rest_prepare_post', 'truncate_raw_content_into_rest_response', 9, 3 );
 
