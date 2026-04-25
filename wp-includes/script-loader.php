@@ -1325,7 +1325,7 @@ function wp_default_styles( $styles ) {
 	$styles->add( 'l10n', "/wp-admin/css/l10n$suffix.css" );
 	$styles->add( 'site-health', "/wp-admin/css/site-health$suffix.css" );
 	$styles->add( 'retraceur-global-media', '/wp-admin/css/global-media.css' );
-	$styles->add( 'retraceur-discovery', '/wp-admin/css/discovery.css' );
+	$styles->add( 'retraceur-discovery', '/wp-admin/css/discovery.css', array( 'wp-dataviews' ) );
 
 	$styles->add( 'wp-admin', false, array( 'dashicons', 'common', 'forms', 'admin-menu', 'dashboard', 'list-tables', 'edit', 'revisions', 'media', 'themes', 'about', 'site-icon', 'l10n', 'wp-base-styles' ) );
 
