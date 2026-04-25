@@ -37,32 +37,19 @@
  *
  * @since WP 1.5.0
  * @since 1.0.0 Retraceur fork.
+ * @deprecated 4.0.0 Retraceur fork.
  *
  * @package Retraceur
  * @subpackage IXR
  */
 
- // Don't load directly.
-if ( ! defined( 'ABSPATH' ) ) {
-	die( '-1' );
-}
+/** Include the bootstrap for setting up Retraceur environment */
+require_once '../wp-load.php';
 
-require_once ABSPATH . WPINC . '/IXR/class-IXR-server.php';
+_deprecated_file( basename( __FILE__ ), '4.0.0', '', '', true );
 
-require_once ABSPATH . WPINC . '/IXR/class-IXR-base64.php';
-
-require_once ABSPATH . WPINC . '/IXR/class-IXR-client.php';
-
-require_once ABSPATH . WPINC . '/IXR/class-IXR-clientmulticall.php';
-
-require_once ABSPATH . WPINC . '/IXR/class-IXR-date.php';
-
-require_once ABSPATH . WPINC . '/IXR/class-IXR-error.php';
-
-require_once ABSPATH . WPINC . '/IXR/class-IXR-introspectionserver.php';
-
-require_once ABSPATH . WPINC . '/IXR/class-IXR-message.php';
-
-require_once ABSPATH . WPINC . '/IXR/class-IXR-request.php';
-
-require_once ABSPATH . WPINC . '/IXR/class-IXR-value.php';
+wp_die(
+	'<h1>' . __( 'Retraceur does not provide a XML-RPC API.' ) . '</h1>' .
+	'<p>' . __( 'Use the REST API instead.' ) . '</p>',
+	500
+);

@@ -23,7 +23,7 @@ _deprecated_file( basename( __FILE__ ), '1.0.0', '', '', true );
  * @see IXR_Server
  */
 #[AllowDynamicProperties]
-class wp_xmlrpc_server extends IXR_Server {
+class wp_xmlrpc_server {
 	/**
 	 * Methods.
 	 *
