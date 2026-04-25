@@ -2,7 +2,7 @@
 /**
  * REST API: Retraceur_REST_Discovery_Controller class
  *
- * @since 3.0.0 Retraceur fork.
+ * @since 4.0.0 Retraceur fork.
  *
  * @package Retraceur
  * @subpackage REST_API
@@ -11,7 +11,7 @@
 /**
  * Controller which provides REST endpoint to discover blocks, plugins & themes.
  *
- * @since 3.0.0 Retraceur fork.
+ * @since 4.0.0 Retraceur fork.
  *
  * @see WP_REST_Controller
  */
@@ -20,7 +20,7 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 	/**
 	 * Constructs the controller.
 	 *
-	 * @since 3.0.0 Retraceur fork.
+	 * @since 4.0.0 Retraceur fork.
 	 */
 	public function __construct() {
 		$this->namespace = 'wp/v2';
@@ -30,7 +30,7 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 	/**
 	 * Registers the necessary REST API routes.
 	 *
-	 * @since 3.0.0 Retraceur fork.
+	 * @since 4.0.0 Retraceur fork.
 	 */
 	public function register_routes() {
 		register_rest_route(
@@ -79,7 +79,7 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 	/**
 	 * Checks whether a given request has permission to list items.
 	 *
-	 * @since 3.0.0 Retraceur fork.
+	 * @since 4.0.0 Retraceur fork.
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has permission, WP_Error object otherwise.
@@ -99,7 +99,7 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 	/**
 	 * Search and retrieve blocks metadata
 	 *
-	 * @since 3.0.0 Retraceur fork.
+	 * @since 4.0.0 Retraceur fork.
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
@@ -137,7 +137,7 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 	/**
 	 * Retrieve a given repository releases.
 	 *
-	 * @since 3.0.0 Retraceur fork.
+	 * @since 4.0.0 Retraceur fork.
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
@@ -168,7 +168,7 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 	/**
 	 * Parse repository data and prepare it for an API response.
 	 *
-	 * @since 3.0.0 Retraceur fork.
+	 * @since 4.0.0 Retraceur fork.
 	 *
 	 * @param array           $item    The repository data.
 	 * @param WP_REST_Request $request Request object.
@@ -202,7 +202,7 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 	/**
 	 * Parse release data and prepare it for an API response.
 	 *
-	 * @since 3.0.0 Retraceur fork.
+	 * @since 4.0.0 Retraceur fork.
 	 *
 	 * @param SimplePie\SimplePie $release The release data.
 	 * @param WP_REST_Request     $request Request object.
@@ -234,7 +234,7 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 	/**
 	 * Retrieves the repository's schema, conforming to JSON Schema.
 	 *
-	 * @since 3.0.0 Retraceur fork.
+	 * @since 4.0.0 Retraceur fork.
 	 *
 	 * @return array Repository schema data.
 	 */
@@ -324,7 +324,7 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 	/**
 	 * Retrieves repository collection parameters.
 	 *
-	 * @since 3.0.0 Retraceur fork.
+	 * @since 4.0.0 Retraceur fork.
 	 *
 	 * @return array Collection parameters.
 	 */
@@ -350,7 +350,7 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 		/**
 		 * Filters REST API collection parameters for the block directory controller.
 		 *
-		 * @since 3.0.0 Retraceur fork.
+		 * @since 4.0.0 Retraceur fork.
 		 *
 		 * @param array $query_params JSON Schema-formatted collection parameters.
 		 */
@@ -360,7 +360,7 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 	/**
 	 * Retrieves the release's schema, conforming to JSON Schema.
 	 *
-	 * @since 3.0.0 Retraceur fork.
+	 * @since 4.0.0 Retraceur fork.
 	 *
 	 * @return array Release schema data.
 	 */

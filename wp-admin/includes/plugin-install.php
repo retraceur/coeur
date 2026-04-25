@@ -243,7 +243,7 @@ function retraceur_discovery_api( $action, $args = array() ) {
 	 *
 	 * Important: An object MUST be returned to this filter.
 	 *
-	 * @since 3.0.0 Retraceur fork.
+	 * @since 4.0.0 Retraceur fork.
 	 *
 	 * @param array  $args   Discovery API arguments.
 	 * @param string $action The type of information being requested from the Discovery API.
@@ -255,7 +255,7 @@ function retraceur_discovery_api( $action, $args = array() ) {
 	 *
 	 * Returning a non-false value will effectively short-circuit the API request.
 	 *
-	 * @since 3.0.0 Retraceur fork.
+	 * @since 4.0.0 Retraceur fork.
 	 *
 	 * @param false|array $result The result object or array. Default false.
 	 * @param string      $action The type of information being requested from the Discovery API.
