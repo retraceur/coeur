@@ -52,7 +52,7 @@ p {
 	margin-bottom: 20px;
 	background-color: #fff;
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
-	background-color: transparent;
+	background-color: #fff;
 	word-wrap: break-word;
 }
 
@@ -67,10 +67,6 @@ p {
 .login .success {
 	border-right-color: #4ab866;
 	background-color: #eff9f1;
-}
-
-.login .notice {
-	background-color: #fff;
 }
 
 /* Match border color from common.css */

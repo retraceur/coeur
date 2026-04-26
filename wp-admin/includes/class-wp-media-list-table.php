@@ -489,10 +489,8 @@ class WP_Media_List_Table extends WP_List_Table {
 
 		if ( current_user_can( 'edit_post', $post->ID ) && ! $this->is_trash ) {
 			$link_start = sprintf(
-				'<a href="%s" aria-label="%s">',
-				get_edit_post_link( $post->ID ),
-				/* translators: %s: Object title. */
-				esc_attr( sprintf( __( '&#8220;%s&#8221; (Edit)' ), $title ) )
+				'<a href="%s">',
+				get_edit_post_link( $post->ID )
 			);
 			$link_end = '</a>';
 		}
