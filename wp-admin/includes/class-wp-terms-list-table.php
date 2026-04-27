@@ -424,10 +424,8 @@ class WP_Terms_List_Table extends WP_List_Table {
 				$edit_link
 			);
 			$name      = sprintf(
-				'<a class="row-title" href="%s" aria-label="%s">%s</a>',
+				'<a class="row-title" href="%s">%s</a>',
 				esc_url( $edit_link ),
-				/* translators: %s: Object title. */
-				esc_attr( sprintf( __( '&#8220;%s&#8221; (Edit)' ), $tag->name ) ),
 				$name
 			);
 		}
