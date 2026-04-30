@@ -408,7 +408,7 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 	 * @return array
 	 */
 	protected function get_table_classes() {
-		return array( 'widefat', $this->_args['plural'] );
+		return array( 'widefat', 'plugins' );
 	}
 
 	/**
