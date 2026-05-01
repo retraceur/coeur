@@ -194,7 +194,7 @@ final class WP_Term {
 	 *
 	 * @since WP 4.4.0
 	 *
-	 * @param WP_Term|object $term Term object.
+	 * @param object $term Term object.
 	 */
 	public function __construct( $term ) {
 		foreach ( get_object_vars( $term ) as $key => $value ) {
