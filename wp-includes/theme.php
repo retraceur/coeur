@@ -2395,6 +2395,7 @@ function get_theme_starter_content() {
  * @since WP 6.5.0 The `appearance-tools` feature enables a few design tools for blocks,
  *              see `WP_Theme_JSON::APPEARANCE_TOOLS_OPT_INS` for a complete list.
  * @since WP 6.6.0 The `editor-spacing-sizes` feature was added.
+ * @since WP 7.0.0 The `html5` feature's 'script' and 'style' arguments are deprecated and unused.
  *
  * @global array $_wp_theme_features
  *

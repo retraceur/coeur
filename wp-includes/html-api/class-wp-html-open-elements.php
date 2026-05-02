@@ -25,6 +25,7 @@
  * @since WP 6.4.0
  *
  * @access private
+ * @ignore
  *
  * @see https://html.spec.whatwg.org/#stack-of-open-elements
  * @see WP_HTML_Processor

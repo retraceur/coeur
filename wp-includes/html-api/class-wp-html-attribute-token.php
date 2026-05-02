@@ -16,6 +16,8 @@
  * This class is for internal usage of the WP_HTML_Tag_Processor class.
  *
  * @access private
+ * @ignore
+ *
  * @since WP 6.2.0
  * @since WP 6.5.0 Replaced `end` with `length` to more closely match `substr()`.
  *
