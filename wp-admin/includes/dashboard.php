@@ -1085,19 +1085,21 @@ function wp_welcome_panel() {
 	$is_block_theme          = wp_is_block_theme();
 	?>
 	<div class="welcome-panel-content">
-	<div class="welcome-panel-header">
-		<div class="welcome-panel-header-image">
-			<?php echo file_get_contents( dirname( __DIR__ ) . '/images/dashboard-background.svg' ); ?>
+	<div class="welcome-panel-header-wrap">
+		<div class="welcome-panel-header">
+			<div class="welcome-panel-header-image">
+				<?php echo file_get_contents( dirname( __DIR__ ) . '/images/dashboard-background.svg' ); ?>
+			</div>
+			<h2><?php esc_html_e( 'Thanks for making Retraceur your very own Personal Online Publication Hub' ); ?></h2>
+			<p>
+				<a href="<?php echo esc_url( admin_url( 'about.php' ) ); ?>">
+				<?php
+					/* translators: %s: Current WordPress version. */
+					printf( __( 'Learn more about the %s version.' ), esc_html( $display_version ) );
+				?>
+				</a>
+			</p>
 		</div>
-		<h2><?php esc_html_e( 'Thanks for making Retraceur your very own Personal Online Publication Hub' ); ?></h2>
-		<p>
-			<a href="<?php echo esc_url( admin_url( 'about.php' ) ); ?>">
-			<?php
-				/* translators: %s: Current Retraceur version. */
-				printf( __( 'Learn more about the %s version.' ), esc_html( $display_version ) );
-			?>
-			</a>
-		</p>
 	</div>
 	<div class="welcome-panel-column-container">
 		<div class="welcome-panel-column">

@@ -356,13 +356,7 @@ class WP_oEmbed {
 			return false;
 		}
 
-		$data = $this->fetch( $provider, $url, $args );
-
-		if ( false === $data ) {
-			return false;
-		}
-
-		return $data;
+		return $this->fetch( $provider, $url, $args );
 	}
 
 	/**
