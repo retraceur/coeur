@@ -689,7 +689,7 @@ switch ( $wp_list_table->current_action() ) {
 					break;
 				case 'err_admin_role':
 					$messages[] = wp_get_admin_notice(
-						__( 'The current contributor&#8217;s role must have contributor editing capabilities.' ),
+						__( 'You cannot change your own role to one that does not allow managing other contributors. Your role was not changed.' ),
 						array(
 							'id'                 => 'message',
 							'additional_classes' => array( 'error' ),

@@ -583,8 +583,8 @@ tr.inline-edit-row td {
 }
 
 .inline-edit-wrapper:focus {
-	border-color: #2271b1;
-	box-shadow: 0 0 0 1px #2271b1;
+	border-color: #2243b6;
+	box-shadow: 0 0 0 var(--wp-admin-border-width-focus, 1.5px) #2243b6;
 	/* Only visible in Windows High Contrast mode */
 	outline: 2px solid transparent;
 }
