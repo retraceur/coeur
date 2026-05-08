@@ -983,7 +983,7 @@ ul.cat-checklist input[name="post_category[]"]:indeterminate::before {
 
 .plugins .active th.check-column,
 .plugin-update-tr.active td {
-	border-right: 4px solid #2243b6;
+	border-left: 4px solid #2243b6;
 }
 
 .wp-list-table.plugins .plugin-title,
@@ -1917,7 +1917,7 @@ div.action-links,
 	.plugins .active.update + .plugin-update-tr:before,
 	.plugins .active.updated + .plugin-update-tr:before {
 		background-color: rgba(93, 118, 203, 0.08);
-		border-right: 4px solid #2243b6;
+		border-left: 4px solid #2243b6;
 	}
 
 	.plugins .plugin-update-tr .update-message {
