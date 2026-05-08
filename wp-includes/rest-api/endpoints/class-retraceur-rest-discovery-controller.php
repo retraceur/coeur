@@ -9,7 +9,7 @@
  */
 
 /**
- * Controller which provides REST endpoint to discover blocks, plugins & themes.
+ * Controller which provides REST endpoint to discover blocks & plugins.
  *
  * @since 4.0.0 Retraceur fork.
  *
@@ -35,11 +35,11 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 	public function register_routes() {
 		register_rest_route(
 			$this->namespace,
-			'/' . $this->rest_base . '/blocks',
+			'/' . $this->rest_base . '/repositories',
 			array(
 				array(
 					'methods'             => WP_REST_Server::READABLE,
-					'callback'            => array( $this, 'get_blocks' ),
+					'callback'            => array( $this, 'get_repositories' ),
 					'permission_callback' => array( $this, 'get_items_permissions_check' ),
 					'args'                => $this->get_collection_params(),
 				),
@@ -97,19 +97,21 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 	}
 
 	/**
-	 * Search and retrieve blocks metadata
+	 * Search and retrieve Repositories metadata
 	 *
 	 * @since 4.0.0 Retraceur fork.
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
 	 */
-	public function get_blocks( $request ) {
+	public function get_repositories( $request ) {
 		require_once ABSPATH . 'wp-admin/includes/plugin-install.php';
 		require_once ABSPATH . 'wp-admin/includes/plugin.php';
 
+		$repositories_tag = sprintf( 'retraceur-%s', $request['type'] );
+
 		$result = retraceur_discovery_api(
-			'retraceur-block',
+			$repositories_tag,
 			array(
 				'search'   => $request['search'],
 				'sort'     => $request['sort'],
@@ -333,6 +335,13 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 
 		$query_params['context']['default'] = 'view';
 
+		$query_params['type'] = array(
+			'default'     => 'plugin',
+			'description' => __( 'The type of Retraceur repositories to fetch.' ),
+			'type'        => 'string',
+			'enum'        => array( 'plugin', 'block' ),
+		);
+
 		$query_params['sort'] = array(
 			'default'     => 'updated',
 			'description' => __( 'Sorts the results of your query by how recently the items were updated or number of stars.' ),
@@ -348,7 +357,7 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 		);
 
 		/**
-		 * Filters REST API collection parameters for the block directory controller.
+		 * Filters REST API collection parameters for the repositories discovery controller.
 		 *
 		 * @since 4.0.0 Retraceur fork.
 		 *

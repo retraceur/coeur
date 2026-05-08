@@ -21,8 +21,9 @@ import actions from './definitions/actions';
 import './discovery.scss';
 
 const Discovery = ( { settings } ) => {
+	const { pluginType } = settings;
 	const repositories = useSelect( ( select ) => {
-		return select( discoveryStore ).getRepositories();
+		return select( discoveryStore ).getRepositories( pluginType );
 	}, [] );
 	const [ view, setView ] = useState( {
 		type: 'grid',

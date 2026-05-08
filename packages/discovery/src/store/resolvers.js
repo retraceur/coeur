@@ -13,11 +13,11 @@ import {
 	receiveReleases,
 } from './actions';
 
-export const getRepositories = () => async ( { dispatch } ) => {
+export const getRepositories = ( pluginType ) => async ( { dispatch } ) => {
 	try {
 		dispatch( fetchRepositories() );
 		const repositories = await apiFetch( {
-			path: '/wp/v2/discover/blocks',
+			path: '/wp/v2/discover/repositories?type=' + pluginType,
 		} );
 
 		dispatch( receiveRepositories( repositories ) );

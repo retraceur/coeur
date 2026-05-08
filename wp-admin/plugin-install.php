@@ -12,11 +12,14 @@ if ( ! defined( 'IFRAME_REQUEST' ) && isset( $_GET['tab'] ) && ( 'plugin-informa
 	define( 'IFRAME_REQUEST', true );
 }
 
-$plugin_type = 'regular';
+$plugin_type = 'plugin';
 
 if ( defined( 'IS_BLOCKS_ADMIN' ) && IS_BLOCKS_ADMIN ) {
 	$plugin_type  = 'block';
 }
+
+// Init discovery settings.
+$discovery_settings = array( 'pluginType' =>  $plugin_type );
 
 /**
  * Retraceur Administration Bootstrap.
@@ -68,6 +71,14 @@ if ( 'block' === $plugin_type ) {
 
 wp_enqueue_script( 'plugin-install' );
 wp_enqueue_script( 'retraceur-discovery' );
+wp_add_inline_script(
+	'retraceur-discovery',
+	sprintf(
+		'retraceurDiscoverySettings = %s;',
+		wp_json_encode( $discovery_settings, JSON_HEX_TAG | JSON_UNESCAPED_SLASHES )
+	)
+);
+
 wp_enqueue_style( 'retraceur-discovery' );
 if ( 'plugin-information' !== $tab ) {
 	add_thickbox();
@@ -257,7 +268,7 @@ if ( 'block' === $plugin_type ) {
 
 $discovery_context = new WP_Block_Editor_Context( $context_settings );
 $preload_paths     = array(
-	'/wp/v2/discover/blocks',
+	'/wp/v2/discover/repositories?type=' . $plugin_type,
 );
 
 block_editor_rest_api_preload( $preload_paths, $discovery_context );
