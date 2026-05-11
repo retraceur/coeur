@@ -2693,7 +2693,7 @@ function _wp_check_existing_file_names( $filename, $files ) {
  * @since WP 2.0.0
  *
  * @param string      $name       Filename.
- * @param null|string $deprecated Never used. Set to null.
+ * @param null|string $deprecated Not used. Set to null.
  * @param string      $bits       File content
  * @param string|null $time       Optional. Time formatted in 'yyyy/mm'. Default null.
  * @return array {
@@ -5575,6 +5575,7 @@ function _deprecated_file( $file, $version, $replacement = '', $message = '', $i
 		wp_trigger_error( '', $message, E_USER_DEPRECATED );
 	}
 }
+
 /**
  * Marks a function argument as deprecated and inform when it has been used.
  *

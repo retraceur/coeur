@@ -2266,7 +2266,7 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 
 		// If we have a featured media, add that.
 		$featured_media = get_post_thumbnail_id( $post->ID );
-		if ( $featured_media ) {
+		if ( $featured_media && ( 'publish' === get_post_status( $featured_media ) || current_user_can( 'read_post', $featured_media ) ) ) {
 			$image_url = rest_url( rest_get_route_for_post( $featured_media ) );
 
 			$links['https://retraceur.github.io/api/featuredmedia'] = array(
