@@ -1000,6 +1000,59 @@ class WP_REST_Attachments_Controller extends WP_REST_Posts_Controller {
 		if ( in_array( 'missing_image_sizes', $fields, true ) ) {
 			require_once ABSPATH . 'wp-admin/includes/image.php';
 			$data['missing_image_sizes'] = array_keys( wp_get_missing_image_subsizes( $post->ID ) );
+
+			// Handle PDFs which don't use wp_get_missing_image_subsizes().
+			if ( empty( $data['missing_image_sizes'] ) && 'application/pdf' === get_post_mime_type( $post ) ) {
+				$metadata = wp_get_attachment_metadata( $post->ID, true );
+
+				if ( ! is_array( $metadata ) ) {
+					$metadata = array();
+				}
+
+				$metadata['sizes'] = $metadata['sizes'] ?? array();
+
+				$fallback_sizes = array(
+					'thumbnail',
+					'medium',
+					'large',
+				);
+
+				// The filter might have been added by ::create_item().
+				remove_filter( 'fallback_intermediate_image_sizes', '__return_empty_array', 100 );
+
+				/** This filter is documented in wp-admin/includes/image.php */
+				$fallback_sizes = apply_filters( 'fallback_intermediate_image_sizes', $fallback_sizes, $metadata );
+
+				$registered_sizes = wp_get_registered_image_subsizes();
+				$merged_sizes     = array_keys( array_intersect_key( $registered_sizes, array_flip( $fallback_sizes ) ) );
+
+				$data['missing_image_sizes'] = array_values( array_diff( $merged_sizes, array_keys( $metadata['sizes'] ) ) );
+			}
+		}
+
+		if ( in_array( 'filename', $fields, true ) ) {
+			$data['filename'] = $this->get_attachment_filename( $post->ID );
+		}
+
+		if ( in_array( 'filesize', $fields, true ) ) {
+			$data['filesize'] = $this->get_attachment_filesize( $post->ID );
+		}
+
+		if ( in_array( 'exif_orientation', $fields, true ) && wp_attachment_is_image( $post ) ) {
+			$metadata = wp_get_attachment_metadata( $post->ID, true );
+
+			// Default to 1 (no rotation needed) if orientation not set.
+			$orientation = 1;
+
+			if (
+				is_array( $metadata ) &&
+				isset( $metadata['image_meta']['orientation'] ) &&
+				(int) $metadata['image_meta']['orientation'] > 0
+			) {
+				$orientation = (int) $metadata['image_meta']['orientation'];
+			}
+
+			$data['exif_orientation'] = $orientation;
 		}
 
 		$context = ! empty( $request['context'] ) ? $request['context'] : 'view';
@@ -1167,6 +1220,27 @@ class WP_REST_Attachments_Controller extends WP_REST_Posts_Controller {
 			'description' => __( 'List of the missing image sizes of the attachment.' ),
 			'type'        => 'array',
 			'items'       => array( 'type' => 'string' ),
+			'context'     => array( 'edit' ),
+			'readonly'    => true,
+		);
+
+		$schema['properties']['filename'] = array(
+			'description' => __( 'Original attachment file name.' ),
+			'type'        => 'string',
+			'context'     => array( 'view', 'edit' ),
+			'readonly'    => true,
+		);
+
+		$schema['properties']['filesize'] = array(
+			'description' => __( 'Attachment file size in bytes.' ),
+			'type'        => 'integer',
+			'context'     => array( 'view', 'edit' ),
+			'readonly'    => true,
+		);
+
+		$schema['properties']['exif_orientation'] = array(
+			'description' => __( 'EXIF orientation value. Values 1-8 follow the EXIF specification, where 1 means no rotation needed.' ),
+			'type'        => 'integer',
 			'context'     => array( 'edit' ),
 			'readonly'    => true,
 		);
@@ -1735,5 +1809,54 @@ class WP_REST_Attachments_Controller extends WP_REST_Posts_Controller {
 		}
 
 		return $args;
+	}
+
+	/**
+	 * Gets the attachment's original file name.
+	 *
+	 * @since 7.0.0
+	 *
+	 * @param int $attachment_id Attachment ID.
+	 * @return string|null Attachment file name, or null if not found.
+	 */
+	protected function get_attachment_filename( int $attachment_id ): ?string {
+		$path = wp_get_original_image_path( $attachment_id );
+
+		if ( $path ) {
+			return wp_basename( $path );
+		}
+
+		$path = get_attached_file( $attachment_id );
+
+		if ( $path ) {
+			return wp_basename( $path );
+		}
+
+		return null;
+	}
+
+	/**
+	 * Gets the attachment's file size in bytes.
+	 *
+	 * @since 7.0.0
+	 *
+	 * @param int $attachment_id Attachment ID.
+	 * @return int|null Attachment file size in bytes, or null if not available.
+	 */
+	protected function get_attachment_filesize( int $attachment_id ): ?int {
+		$meta = wp_get_attachment_metadata( $attachment_id );
+
+		if ( isset( $meta['filesize'] ) ) {
+			return $meta['filesize'];
+		}
+
+		$original_path = wp_get_original_image_path( $attachment_id );
+		$attached_file = $original_path ? $original_path : get_attached_file( $attachment_id );
+
+		if ( is_string( $attached_file ) && is_readable( $attached_file ) ) {
+			return wp_filesize( $attached_file );
+		}
+
+		return null;
 	}
 }
