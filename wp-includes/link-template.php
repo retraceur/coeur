@@ -1015,7 +1015,6 @@ function edit_term_link( $link = '', $before = '', $after = '', $term = null, $d
 		return null;
 	}
 
-	$tax = get_taxonomy( $term->taxonomy );
 	if ( ! current_user_can( 'edit_term', $term->term_id ) ) {
 		return null;
 	}
