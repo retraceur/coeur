@@ -154,7 +154,7 @@ function wp_default_script_modules() {
 	 *     'interactivity/debug.min.js' => array('dependencies' => array(…), 'version' => '…'),
 	 *     'interactivity-router/index.min.js' => …
 	 */
-	$assets_file = ABSPATH . WPINC . "/assets/script-modules-packages{$suffix}.php";
+	$assets_file = ABSPATH . WPINC . '/assets/script-modules-packages.php';
 	$assets      = file_exists( $assets_file ) ? include $assets_file : array();
 
 	foreach ( $assets as $file_name => $script_module_data ) {
@@ -209,7 +209,12 @@ function wp_default_script_modules() {
 			wp_interactivity()->add_client_navigation_support_to_script_module( $script_module_id );
 		}
 
-		$path = includes_url( "js/dist/script-modules/{$file_name}" );
-		wp_register_script_module( $script_module_id, $path, $script_module_data['dependencies'], $script_module_data['version'], $args );
+		if ( '' !== $suffix ) {
+			$file_name = str_replace( '.js', $suffix . '.js', $file_name );
+		}
+
+		$path        = includes_url( "js/dist/script-modules/{$file_name}" );
+		$module_deps = $script_module_data['module_dependencies'] ?? array();
+		wp_register_script_module( $script_module_id, $path, $module_deps, $script_module_data['version'], $args );
 	}
 }

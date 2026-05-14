@@ -1029,7 +1029,7 @@ final class WP_Interactivity_API {
 			$entries = $this->get_directive_entries( $p, 'bind' );
 			foreach ( $entries as $entry ) {
 				if ( empty( $entry['suffix'] ) || null !== $entry['unique_id'] ) {
-						return;
+					continue;
 				}
 
 				// Skip if the suffix is an event handler.

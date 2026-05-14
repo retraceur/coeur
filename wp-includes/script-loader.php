@@ -283,14 +283,14 @@ function wp_default_packages_scripts( $scripts ) {
 	 *     'annotations.js' => array('dependencies' => array(...), 'version' => '...'),
 	 *     'api-fetch.js' => array(...
 	 */
-	$assets_file = ABSPATH . WPINC . "/assets/script-loader-packages{$suffix}.php";
+	$assets_file = ABSPATH . WPINC . '/assets/script-loader-packages.php';
 	$assets      = file_exists( $assets_file ) ? include $assets_file : array();
 
 	$retraceur_assets = include ABSPATH . WPINC . "/assets/global-media.asset.php";
 	$assets           = array_merge( $assets, array( 'retraceur-global-media' => $retraceur_assets ) );
 
 	foreach ( $assets as $file_name => $package_data ) {
-		$basename = str_replace( $suffix . '.js', '', basename( $file_name ) );
+		$basename = str_replace( '.js', '', basename( $file_name ) );
 
 		// @todo improve this once there are more assets!
 		if ( 'retraceur-global-media' === $basename ) {
