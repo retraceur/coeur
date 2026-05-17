@@ -334,7 +334,7 @@ p {
 .login #nav a:hover,
 .login #backtoblog a:hover,
 .login h1 a:hover {
-	color: rgb(39, 60, 134);
+	color: var(--wp-admin-theme-color-darker-20, #191970);
 }
 
 .login #nav a:focus,
