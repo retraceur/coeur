@@ -3764,15 +3764,15 @@ function _default_wp_die_handler( $message, $title = '', $args = array() ) {
 			font-size: 14px ;
 		}
 		a {
-			color: #2271b1;
+			color: var(--wp-admin-theme-color, #2243b6);
 		}
 		a:hover,
 		a:active {
-			color: #135e96;
+			color: var(--wp-admin-theme-color-darker-20, #191970);
 		}
 		a:focus {
-			color: #043959;
-			box-shadow: 0 0 0 var(--wp-admin-border-width-focus, 1.5px) #5d76cb;
+			color: var(--wp-admin-theme-color-darker-20, #191970);
+			box-shadow: 0 0 0 var(--wp-admin-border-width-focus, 1.5px) var(--wp-admin-theme-color, #2243b6);
 			outline: 2px solid transparent;
 		}
 		.button {

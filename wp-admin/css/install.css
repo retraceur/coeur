@@ -19,13 +19,13 @@ a {
 
 a:hover,
 a:active {
-	color: rgb(34, 67, 182);
+	color: var(--wp-admin-theme-color-darker-20, #191970);
 }
 
 a:focus {
-	color: #4563c9;
+	color: var(--wp-admin-theme-color-darker-20, #191970);
 	border-radius: 2px;
-	box-shadow: 0 0 0 var(--wp-admin-border-width-focus, 1.5px) #5d76cb;
+	box-shadow: 0 0 0 var(--wp-admin-border-width-focus, 1.5px) var(--wp-admin-theme-color, #2243b6);
 	/* Only visible in Windows High Contrast mode */
 	outline: 2px solid transparent;
 }
