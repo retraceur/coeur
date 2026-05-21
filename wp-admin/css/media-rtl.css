@@ -403,12 +403,12 @@
 
 .drag-drop #drag-drop-area {
 	border: 4px dashed #c3c4c7;
-	height: 200px;
+	height: auto;
 }
 
 .drag-drop .drag-drop-inside {
-	margin: 60px auto 0;
-	width: 250px;
+	margin: 2em auto 0;
+	width: auto;
 }
 
 .drag-drop-inside p {
@@ -423,6 +423,7 @@
 
 .drag-drop-inside p.drag-drop-info {
 	font-size: 20px;
+	font-weight: 400;
 }
 
 .drag-drop .drag-drop-inside p,
@@ -430,11 +431,12 @@
 	display: block;
 }
 
-/*
-#drag-drop-area:-moz-drag-over {
-	border-color: #83b4d8;
+.drag-drop-inside p.max-upload-size {
+	font-size: 12px;
+	margin: 2em 0;
 }
-border color while dragging a file over the uploader drop area */
+
+/* Border color while dragging a file over the uploader drop area. */
 .drag-drop.drag-over #drag-drop-area {
 	border-color: #9ec2e6;
 }
