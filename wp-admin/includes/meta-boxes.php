@@ -72,7 +72,7 @@ function post_submit_meta_box( $post, $args = array() ) {
 				if ( 'publish' === $post->post_status ) {
 					$preview_button_text = __( 'Preview Changes' );
 				} else {
-					$preview_button_text = __( 'Preview' );
+					$preview_button_text = _x( 'Preview', 'verb' );
 				}
 
 				$preview_button = sprintf(
