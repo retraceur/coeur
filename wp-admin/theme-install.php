@@ -344,9 +344,9 @@ if ( $tab ) {
 					?>
 					<# if ( data.activate_url ) { #>
 						<# if ( ! data.active ) { #>
-							<a class="button button-primary activate" href="{{ data.activate_url }}" aria-label="<?php echo esc_attr( $aria_label ); ?>"><?php _e( 'Activate' ); ?></a>
+							<a class="button button-primary button-compact activate" href="{{ data.activate_url }}" aria-label="<?php echo esc_attr( $aria_label ); ?>"><?php _e( 'Activate' ); ?></a>
 						<# } else { #>
-							<button class="button button-primary disabled"><?php _ex( 'Activated', 'theme' ); ?></button>
+							<button class="button button-primary button-compact disabled"><?php _ex( 'Activated', 'theme' ); ?></button>
 						<# } #>
 					<# } #>
 					<button class="button preview install-theme-preview"><?php echo esc_html_x( 'Preview', 'verb' ); ?></button>
@@ -414,13 +414,13 @@ if ( $tab ) {
 						<button class="button button-primary disabled"><?php _ex( 'Activated', 'theme' ); ?></button>
 					<# } #>
 				<# } else { #>
-					<a class="button button-primary disabled" ><?php _ex( 'Cannot Activate', 'theme' ); ?></a>
+					<a class="button button-primary button-compact disabled" ><?php _ex( 'Cannot Activate', 'theme' ); ?></a>
 				<# } #>
 			<# } else { #>
 				<# if ( data.compatible_wp && data.compatible_php ) { #>
-					<a href="{{ data.install_url }}" class="button button-primary theme-install" data-name="{{ data.name }}" data-slug="{{ data.id }}"><?php _e( 'Install' ); ?></a>
+					<a href="{{ data.install_url }}" class="button button-primary button-compact theme-install" data-name="{{ data.name }}" data-slug="{{ data.id }}"><?php _e( 'Install' ); ?></a>
 				<# } else { #>
-					<a class="button button-primary disabled" ><?php _ex( 'Cannot Install', 'theme' ); ?></a>
+					<a class="button button-primary button-compact disabled" ><?php _ex( 'Cannot Install', 'theme' ); ?></a>
 				<# } #>
 			<# } #>
 		</div>
