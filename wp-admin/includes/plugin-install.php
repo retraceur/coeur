@@ -279,7 +279,7 @@ function retraceur_discovery_api( $action, $args = array() ) {
 
 		// Sanitize sort & order.
 		if ( isset( $api_args['sort'] ) && isset( $api_args['order'] ) ) {
-			if ( ! in_array( $api_args['sort'], array( 'updated', 'stars' ), true ) || ! in_array( $api_args['sort'], array( 'desc', 'asc' ), true ) ) {
+			if ( ! in_array( $api_args['sort'], array( 'updated', 'stars' ), true ) || ! in_array( $api_args['order'], array( 'desc', 'asc' ), true ) ) {
 				unset( $api_args['sort'], $api_args['order'] );
 			}
 		}

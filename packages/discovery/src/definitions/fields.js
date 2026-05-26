@@ -26,6 +26,14 @@ const fields = [
 		label: __( 'Name' ),
 		getValue: ( { item } ) =>
 			`${ item.name }`,
+		render: ( { item } ) => (
+			<ExternalLink
+				href={ item.html_url }
+				className="repo-home-link"
+			>
+				{ item.name }
+			</ExternalLink>
+		),
 		enableGlobalSearch: true,
 	},
 	{

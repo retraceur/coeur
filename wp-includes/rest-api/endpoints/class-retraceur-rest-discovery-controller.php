@@ -185,6 +185,7 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 			'id'                  => (int) $item['id'],
 			'name'                => wp_strip_all_tags( $item['name'] ),
 			'full_name'           => $full_name,
+			'html_url'            => esc_url_raw( $item['html_url'] ),
 			'description'         => wp_strip_all_tags( $item['description'] ),
 			'author'              => ! empty( $item['owner']['login'] ) ? wp_strip_all_tags( $item['owner']['login'] ) : __( 'Unknown author.' ),
 			'author_avatar'       => ! empty( $item['owner']['avatar_url'] ) ? esc_url_raw( $item['owner']['avatar_url'] ) : '',
@@ -264,6 +265,13 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 					'description' => __( 'The repository full name.' ),
 					'type'        => 'string',
 					'context'     => array( 'view' ),
+				),
+				'html_url'         => array(
+					'description' => __( 'The repository GitHub URL.' ),
+					'type'        => 'string',
+					'format'      => 'uri',
+					'context'     => array( 'view' ),
+					'readonly'    => true,
 				),
 				'description'       => array(
 					'description' => __( 'The repository description.' ),
