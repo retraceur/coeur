@@ -3,6 +3,8 @@
  */
 import { useSelect } from '@wordpress/data';
 import { __, sprintf } from '@wordpress/i18n';
+import { ExternalLink } from '@wordpress/components';
+import { Button } from '@wordpress/components';
 
 /**
  * Internal dependencies
@@ -21,8 +23,22 @@ const actions = [
 			const releasesList = releases.map( ( release, id ) => {
 				return (
 					<li key={ id }>
-						<span>{ release.title } : </span>
-						<strong>{ release.version }</strong>
+						<div>
+							<strong>{ release.title }</strong>
+							<span>
+								&nbsp;(
+								<ExternalLink href={ release.release_url }>
+									{ __( 'Release note' ) }
+								</ExternalLink>
+								)&nbsp;
+								<Button
+									href={ release.download_url }
+									variant="primary"
+								>
+									{ __( 'Download' ) }
+								</Button>
+							</span>
+						</div>
 					</li>
 				);
 			} );

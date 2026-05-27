@@ -215,6 +215,8 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 		$version    = '';
 		$release_id = explode( '/', rtrim( $release->get_id(), '/' ) );
 		$version    = end( $release_id );
+		$repo_parts = explode( '/', $request['repository'] );
+		$repo_slug  = end( $repo_parts );
 		$url        = $release->get_link();
 
 		if ( ! $version ) {
@@ -224,9 +226,13 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 
 		// A data array containing the properties we'll return.
 		$data = array(
-			'title'   => wp_strip_all_tags( $release->get_title() ),
-			'version' => wp_strip_all_tags( $version ),
-			'note'    => wp_strip_all_tags( $release->get_description() ),
+			'title'        => wp_strip_all_tags( $release->get_title() ),
+			'version'      => wp_strip_all_tags( $version ),
+			'note'         => wp_strip_all_tags( $release->get_description() ),
+			'release_url'  => esc_url_raw( $url ),
+			'download_url' => esc_url_raw(
+				"https://github.com/{$request['repository']}/releases/download/{$version}/{$repo_slug}.zip"
+			),
 		);
 
 		$response = new WP_REST_Response( $data );
@@ -400,6 +406,18 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 				'note'    => array(
 					'description' => __( 'The repository release note.' ),
 					'type'        => 'string',
+					'context'     => array( 'view' ),
+				),
+				'release_url' => array(
+					'description' => __( 'The URL to the release page.' ),
+					'type'        => 'string',
+					'format'      => 'uri',
+					'context'     => array( 'view' ),
+				),
+				'download_url' => array(
+					'description' => __( 'The URL to download the release zip asset.' ),
+					'type'        => 'string',
+					'format'      => 'uri',
 					'context'     => array( 'view' ),
 				),
 			),
