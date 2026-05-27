@@ -9,8 +9,17 @@ const fields = [
 		id: 'image',
 		label: __( 'Preview image' ),
 		render: ( { item } ) => (
-			/* Translators: %s is the repository name */
-			<img alt={ sprintf( __( 'Preview image of the %s repository'), item.name ) } src={ item.image } />
+			<img
+				alt={
+					/* Translators: %s is the repository name */
+					sprintf( __( 'Preview image of the %s repository'), item.name )
+				}
+				src={ item.image }
+				onError={ ( e ) => {
+					e.target.onerror = null;
+					e.target.src = `https://opengraph.github.com/repo/${ item.full_name }`;
+				} }
+			/>
 		),
 		enableSorting: false,
 	},
