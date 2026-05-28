@@ -11,30 +11,38 @@ const reducer = ( state = {}, action ) => {
 		case 'FETCH_REPOS':
 			return {
 				...state,
-				isRequesting: true,
+				isRequestingRepositories: true,
 			};
 		case 'RECEIVE_REPOS':
 			return {
 				...state,
 				results: action.repositories,
-				isRequesting: false,
+				isRequestingRepositories: false,
 			};
 		case 'FETCH_RELEASES':
 			return {
 				...state,
-				isRequesting: true,
+				loadingReleases: {
+					...state.loadingReleases,
+					[ action.repository ]: true,
+				},
 			};
 		case 'RECEIVE_RELEASES':
-			const repository = state.results.find( ( repository ) => repository.full_name === action.repository );
-			repository.releases = action.releases;
-
 			return {
 				...state,
-				results: [
-					...state.results,
-					repository,
-				],
-				isRequesting: false,
+				loadingReleases: {
+					...state.loadingReleases,
+					[ action.repository ]: false,
+				},
+				results: state.results.map( ( repository ) => {
+					if ( repository.full_name !== action.repository ) {
+						return repository;
+					}
+					return {
+						...repository,
+						releases: action.releases,
+					};
+				} ),
 			};
 	}
 	return state;

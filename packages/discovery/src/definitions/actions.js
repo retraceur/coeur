@@ -3,8 +3,11 @@
  */
 import { useSelect } from '@wordpress/data';
 import { __, sprintf } from '@wordpress/i18n';
-import { ExternalLink } from '@wordpress/components';
-import { Button } from '@wordpress/components';
+import {
+	Button,
+	ExternalLink,
+	Spinner,
+} from '@wordpress/components';
 
 /**
  * Internal dependencies
@@ -17,12 +20,32 @@ const actions = [
 		label: __( 'View releases' ),
 		RenderModal: ( { items } ) => {
 			const [repository] = items;
-			const releases = useSelect( ( select ) => {
-				return select( discoveryStore ).getReleases( repository.full_name );
+			const { releases, isRequesting } = useSelect( ( select ) => {
+				return {
+					releases:     select( discoveryStore ).getReleases( repository.full_name ),
+					isRequesting: select( discoveryStore ).isRequestingReleases( repository.full_name ),
+				};
 			}, [] );
+
+			if ( isRequesting ) {
+				return <Spinner />;
+			}
+
+			if ( ! releases.length ) {
+				return (
+					<p>
+						{ sprintf(
+							/* Translators: %s is the repository name. */
+							__( 'No releases found for %s.' ),
+							repository.name
+						) }
+					</p>
+				);
+			}
+
 			const releasesList = releases.map( ( release, id ) => {
 				return (
-					<li key={ id }>
+					<li key={ release.version }>
 						<div>
 							<strong>{ release.title }</strong>
 							<span>
