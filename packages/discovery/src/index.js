@@ -4,7 +4,11 @@
 import { useSelect } from '@wordpress/data';
 import { DataViews, filterSortAndPaginate } from '@wordpress/dataviews';
 import domReady from '@wordpress/dom-ready';
-import { createRoot, useMemo, useState } from '@wordpress/element';
+import {
+	createRoot,
+	useMemo,
+	useState,
+} from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
 /**
