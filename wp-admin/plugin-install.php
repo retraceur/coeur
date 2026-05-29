@@ -12,19 +12,14 @@ if ( ! defined( 'IFRAME_REQUEST' ) && isset( $_GET['tab'] ) && ( 'plugin-informa
 	define( 'IFRAME_REQUEST', true );
 }
 
-$plugin_type  = 'regular';
-$plugins_args = array(
-	'singular' => 'plugin',
-	'plural'   => 'plugins',
-);
+$plugin_type = 'plugin';
 
 if ( defined( 'IS_BLOCKS_ADMIN' ) && IS_BLOCKS_ADMIN ) {
 	$plugin_type  = 'block';
-	$plugins_args = array(
-		'singular' => 'block',
-		'plural'   => 'blocks',
-	);
 }
+
+// Init discovery settings.
+$discovery_settings = array( 'pluginType' =>  $plugin_type );
 
 /**
  * Retraceur Administration Bootstrap.
@@ -44,9 +39,6 @@ if ( is_multisite() && ! is_network_admin() ) {
 	exit;
 }
 
-$wp_list_table = _get_list_table( 'WP_Plugin_Install_List_Table', $plugins_args );
-$pagenum       = $wp_list_table->get_pagenum();
-
 if ( ! empty( $_REQUEST['_wp_http_referer'] ) ) {
 	$location = remove_query_arg( '_wp_http_referer', wp_unslash( $_SERVER['REQUEST_URI'] ) );
 
@@ -58,18 +50,19 @@ if ( ! empty( $_REQUEST['_wp_http_referer'] ) ) {
 	exit;
 }
 
-$wp_list_table->prepare_items();
-
-$total_pages = $wp_list_table->get_pagination_arg( 'total_pages' );
-
-if ( $pagenum > $total_pages && $total_pages > 0 ) {
-	wp_redirect( add_query_arg( 'paged', $total_pages ) );
-	exit;
-}
-
 // Used in the HTML title tag.
 $title       = __( 'Add Plugins' );
 $parent_file = 'plugins.php';
+
+/**
+ *
+ * @todo remove once no more needed.
+ *
+ */
+$tab  = 'all';
+$tabs = array(
+	'all' => _x( 'All', 'Plugin Installer' ),
+);
 
 if ( 'block' === $plugin_type ) {
 	$title       = _x( 'Add Blocks', 'block install page title' );
@@ -77,6 +70,16 @@ if ( 'block' === $plugin_type ) {
 }
 
 wp_enqueue_script( 'plugin-install' );
+wp_enqueue_script( 'retraceur-discovery' );
+wp_add_inline_script(
+	'retraceur-discovery',
+	sprintf(
+		'retraceurDiscoverySettings = %s;',
+		wp_json_encode( $discovery_settings, JSON_HEX_TAG | JSON_UNESCAPED_SLASHES )
+	)
+);
+
+wp_enqueue_style( 'retraceur-discovery' );
 if ( 'plugin-information' !== $tab ) {
 	add_thickbox();
 }
@@ -93,9 +96,6 @@ wp_enqueue_script( 'updates' );
  *
  * Possible hook names include:
  *
- *  - `install_plugins_pre_beta`
- *  - `install_plugins_pre_featured`
- *  - `install_plugins_pre_plugin-information`
  *  - `install_plugins_pre_all`
  *  - `install_plugins_pre_search`
  *  - `install_plugins_pre_upload`
@@ -183,7 +183,12 @@ echo esc_html( $title );
 </h1>
 
 <?php
-if ( ! empty( $tabs['upload'] ) && current_user_can( 'upload_plugins' ) ) {
+if ( current_user_can( 'upload_plugins' ) ) {
+	/**
+	 *
+	 * @todo Check why this is needed!
+	 */
+	require_once ABSPATH . 'wp-admin/includes/plugin-install.php';
 	printf(
 		' <a href="%s" class="upload-view-toggle page-title-action"><span class="upload">%s</span><span class="browse">%s</span></a>',
 		( 'upload' === $tab ) ? self_admin_url( 'plugin-install.php' ) : self_admin_url( 'plugin-install.php?tab=upload' ),
@@ -218,10 +223,18 @@ if ( 'upload' !== $tab ) {
 		?>
 	</div>
 	<?php
-	$wp_list_table->views();
 }
 
+$context_settings = array( 'name' => 'retraceur/discovery' );
+
+/**
+ *
+ * @todo The list table shouldn't be needed anymore.
+ *
+ */
 if ( 'block' === $plugin_type ) {
+	$context_settings['repositoryType'] = 'block';
+
 	/**
 	 * Fires after the blocks list table in each tab of the Install Blocks screen.
 	 *
@@ -230,8 +243,10 @@ if ( 'block' === $plugin_type ) {
 	 *
 	 * @since 1.0.0 Retraceur fork.
 	 */
-	do_action( "install_blocks_{$tab}", $paged );
+	//do_action( "install_blocks_{$tab}", $paged );
 } else {
+	$context_settings['repositoryType'] = 'plugin';
+
 	/**
 	 * Fires after the plugins list table in each tab of the Install Plugins screen.
 	 *
@@ -240,11 +255,7 @@ if ( 'block' === $plugin_type ) {
 	 *
 	 * Possible hook names include:
 	 *
-	 *  - `install_plugins_beta`
-	 *  - `install_plugins_featured`
 	 *  - `install_plugins_plugin-information`
-	 *  - `install_plugins_popular`
-	 *  - `install_plugins_recommended`
 	 *  - `install_plugins_search`
 	 *  - `install_plugins_upload`
 	 *
@@ -252,10 +263,17 @@ if ( 'block' === $plugin_type ) {
 	 *
 	 * @param int $paged The current page number of the plugins list table.
 	 */
-	do_action( "install_plugins_{$tab}", $paged );
+	//do_action( "install_plugins_{$tab}", $paged );
 }
-?>
 
+$discovery_context = new WP_Block_Editor_Context( $context_settings );
+$preload_paths     = array(
+	'/wp/v2/discover/repositories?type=' . $plugin_type,
+);
+
+block_editor_rest_api_preload( $preload_paths, $discovery_context );
+?>
+	<div id="retraceur-discovery"></div>
 	<span class="spinner"></span>
 </div>
 

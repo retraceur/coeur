@@ -1,0 +1,35 @@
+#retraceur-discovery {
+
+	.dataviews-view-grid {
+
+		.dataviews-view-grid__media {
+			height: 130px;
+			min-height: 130px;
+
+			img {
+				object-fit: contain;
+			}
+		}
+
+		.repo-author-link {
+
+			img {
+				width: 20px;
+				vertical-align: bottom;
+				margin-right: 2px;
+			}
+		}
+	}
+
+	.dataviews-view-table {
+
+		.repo-author-link {
+
+			img {
+				width: 20px;
+				vertical-align: bottom;
+				margin-right: 2px;
+			}
+		}
+	}
+}

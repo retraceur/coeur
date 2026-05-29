@@ -286,14 +286,19 @@ function wp_default_packages_scripts( $scripts ) {
 	$assets_file = ABSPATH . WPINC . '/assets/script-loader-packages.php';
 	$assets      = file_exists( $assets_file ) ? include $assets_file : array();
 
-	$retraceur_assets = include ABSPATH . WPINC . "/assets/global-media.asset.php";
-	$assets           = array_merge( $assets, array( 'retraceur-global-media' => $retraceur_assets ) );
+	$retraceur_assets = array(
+		'retraceur-discovery'    => include ABSPATH . WPINC . "/assets/discovery.asset.php",
+		'retraceur-global-media' => include ABSPATH . WPINC . "/assets/global-media.asset.php",
+	);
+
+	// Merge WP and Retraceur specific assets.
+	$assets = array_merge( $assets, $retraceur_assets );
 
 	foreach ( $assets as $file_name => $package_data ) {
 		$basename = str_replace( '.js', '', basename( $file_name ) );
 
 		// @todo improve this once there are more assets!
-		if ( 'retraceur-global-media' === $basename ) {
+		if ( 'retraceur-global-media' === $basename || 'retraceur-discovery' === $basename ) {
 			$handle   = $basename;
 			$filename = str_replace( 'retraceur-', '', $basename );
 			$path     = "/wp-admin/js/{$filename}.js";
@@ -1320,6 +1325,7 @@ function wp_default_styles( $styles ) {
 	$styles->add( 'l10n', "/wp-admin/css/l10n$suffix.css" );
 	$styles->add( 'site-health', "/wp-admin/css/site-health$suffix.css" );
 	$styles->add( 'retraceur-global-media', '/wp-admin/css/global-media.css' );
+	$styles->add( 'retraceur-discovery', '/wp-admin/css/discovery.css', array( 'wp-dataviews' ) );
 
 	$styles->add( 'wp-admin', false, array( 'dashicons', 'common', 'forms', 'admin-menu', 'dashboard', 'list-tables', 'edit', 'revisions', 'media', 'themes', 'about', 'site-icon', 'l10n', 'wp-base-styles' ) );
 
@@ -1441,6 +1447,7 @@ function wp_default_styles( $styles ) {
 		'base-styles'          => array(),
 		'components'           => array(),
 		'commands'             => array( 'wp-components' ),
+		'dataviews'            => array( 'wp-components' ),
 		'edit-post'            => array(
 			'wp-components',
 			'wp-block-editor',
@@ -1513,6 +1520,7 @@ function wp_default_styles( $styles ) {
 		'login',
 		'site-health',
 		'retraceur-global-media',
+		'retraceur-discovery',
 		'wp-empty-template-alert',
 		// Includes CSS.
 		'buttons',
@@ -1532,6 +1540,7 @@ function wp_default_styles( $styles ) {
 		'wp-block-directory',
 		'wp-commands',
 		'wp-components',
+		'wp-dataviews',
 		'wp-edit-post',
 		'wp-edit-site',
 		'wp-editor',

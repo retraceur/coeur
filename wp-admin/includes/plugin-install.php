@@ -231,6 +231,145 @@ function plugins_api( $action, $args = array() ) {
 	return apply_filters( 'plugins_api_result', $res, $action, $args );
 }
 
+function retraceur_discovery_api( $action, $args = array() ) {
+	if ( 'retraceur-plugin' === $action || 'retraceur-block' === $action ) {
+		if ( ! isset( $args['per_page'] ) ) {
+			$args['per_page'] = 10;
+		}
+	}
+
+	/**
+	 * Filters the Discovery API arguments.
+	 *
+	 * Important: An object MUST be returned to this filter.
+	 *
+	 * @since 4.0.0 Retraceur fork.
+	 *
+	 * @param array  $args   Discovery API arguments.
+	 * @param string $action The type of information being requested from the Discovery API.
+	 */
+	$args = apply_filters( 'retraceur_discovery_api_args', $args, $action );
+
+	/**
+	 * Filters the response for the current Discovery API request.
+	 *
+	 * Returning a non-false value will effectively short-circuit the API request.
+	 *
+	 * @since 4.0.0 Retraceur fork.
+	 *
+	 * @param false|array $result The result object or array. Default false.
+	 * @param string      $action The type of information being requested from the Discovery API.
+	 * @param array       $args   Discovery API arguments.
+	 */
+	$res = apply_filters( 'retraceur_discovery_api', false, $action, $args );
+
+	if ( false === $res ) {
+		$api_args      = $args;
+		$api_args['q'] = 'topic:' . $action;
+
+		// Remove unused argument.
+		unset( $api_args['browse'], $api_args['context'] );
+
+		// Sanitize search inputs.
+		if ( isset( $api_args['search'] ) && $api_args['search'] ) {
+			$api_args['q'] .= ' ' . sanitize_text_field( $api_args['search'] ) . ' in:name,description';
+		} else {
+			unset( $api_args['search'] );
+		}
+
+		// Sanitize sort & order.
+		if ( isset( $api_args['sort'] ) && isset( $api_args['order'] ) ) {
+			if ( ! in_array( $api_args['sort'], array( 'updated', 'stars' ), true ) || ! in_array( $api_args['order'], array( 'desc', 'asc' ), true ) ) {
+				unset( $api_args['sort'], $api_args['order'] );
+			}
+		}
+
+		// Use the GitHub REST API to list repositories using Retraceur tags.
+		$url = 'https://api.github.com/search/repositories';
+		$url = add_query_arg( $api_args, $url );
+
+		$http_url = $url;
+		$ssl      = wp_http_supports( array( 'ssl' ) );
+		if ( $ssl ) {
+			$url = set_url_scheme( $url, 'https' );
+		}
+
+		$http_args = array(
+			'timeout' => 15,
+			'headers' => array(
+				'X-GitHub-Api-Version' => '2022-11-28',
+				'Accept'               => 'application/vnd.github+json',
+				'User-Agent'           => 'Retraceur/' . retraceur_get_version() . '; ' . home_url( '/' ),
+			),
+		);
+
+		if ( defined( 'RETRACEUR_GHT' ) && RETRACEUR_GHT ) {
+			$http_args['headers']['Authorization'] = 'Bearer ' . RETRACEUR_GHT;
+		}
+
+		$cache_key       = 'retraceur_discovery_api_' . md5( serialize( $api_args ) );
+		$cached_response = get_transient( $cache_key );
+
+		if ( false === $cached_response ) {
+			$request = wp_remote_get( $url, $http_args );
+
+			if ( $ssl && is_wp_error( $request ) ) {
+				if ( ! wp_is_json_request() ) {
+					wp_trigger_error(
+						__FUNCTION__,
+						__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ) . ' ' . __( '(Retraceur could not establish a secure connection to Discovery API. Please contact your server administrator.)' ),
+						headers_sent() || WP_DEBUG ? E_USER_WARNING : E_USER_NOTICE
+					);
+				}
+
+				$request = wp_remote_get( $http_url, $http_args );
+			}
+
+			if ( is_wp_error( $request ) ) {
+				$res = new WP_Error(
+					'retraceur_discovery_api_failed',
+					__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ),
+					$request->get_error_message()
+				);
+			} else {
+				$res = json_decode( wp_remote_retrieve_body( $request ), true );
+				if ( null === $res ) {
+					$res = new WP_Error(
+						'retraceur_discovery_failed',
+						__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ),
+						wp_remote_retrieve_body( $request )
+					);
+				}
+
+				if ( 200 !== (int) wp_remote_retrieve_response_code( $request ) ) {
+					if ( empty( $res['message'] ) ) {
+						$res['message'] = __( 'An error occurred. Something may be wrong with the Retraceur Discovery API. Please try again later.' );
+					}
+
+					$res = new WP_Error( 'retraceur_discovery_api_failed', $res['message'] );
+				} else {
+					set_transient( $cache_key, $res, DAY_IN_SECONDS );
+				}
+			}
+		} else {
+			$res = $cached_response;
+		}
+	} elseif ( ! is_wp_error( $res ) ) {
+		$res['external'] = true;
+	}
+
+	/**
+	 * Filters the Plugin Installation API response results.
+	 *
+	 * @since 3.0.0 Retraceur fork.
+	 *
+	 * @param array|WP_Error $res    Response object or WP_Error.
+	 * @param string         $action The type of information being requested from the Plugin Installation API.
+	 * @param array          $args   Plugin API arguments.
+	 */
+	return apply_filters( 'retraceur_discovery_api_result', $res, $action, $args );
+}
+
 /**
  * Retrieves popular Retraceur plugin tags.
  *
