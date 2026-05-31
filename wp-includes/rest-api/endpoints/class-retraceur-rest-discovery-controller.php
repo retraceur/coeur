@@ -156,8 +156,15 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 		// Needs sanitization.
 		$releases_url  = 'https://github.com/' . wp_unslash( $request['repository'] ) . '/releases.atom';
 		$releases_feed = fetch_feed( $releases_url );
-		$releases      = $releases_feed->get_items();
-		$response      = array();
+
+		if ( is_wp_error( $releases_feed ) ) {
+			$releases_feed->add_data( array( 'status' => 500 ) );
+
+			return $releases_feed;
+		}
+
+		$releases = $releases_feed->get_items();
+		$response = array();
 
 		foreach ( $releases as $release ) {
 			$data       = $this->prepare_release_for_response( $release, $request );
