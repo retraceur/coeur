@@ -231,6 +231,88 @@ function plugins_api( $action, $args = array() ) {
 	return apply_filters( 'plugins_api_result', $res, $action, $args );
 }
 
+/**
+ * Performs a GET request to a discovery provider API.
+ *
+ * @since 4.0.0 Retraceur fork.
+ *
+ * @param string $endpoint The API endpoint path (e.g. '/repos/owner/repo').
+ * @param array  $args     Optional. Additional arguments to merge into the request args.
+ * @return array|WP_Error Decoded JSON response or WP_Error on failure.
+ */
+function retraceur_discovery_request( $endpoint, $args = array() ) {
+	/**
+	 * Filters the discovery provider base URL.
+	 *
+	 * Can be used to replace GitHub with an alternative provider
+	 * such as Forgejo or Gitea.
+	 *
+	 * @since 4.0.0 Retraceur fork.
+	 *
+	 * @param string $base_url The base URL of the discovery provider API.
+	 */
+	$base_url = apply_filters( 'retraceur_discovery_provider_url', 'https://api.github.com' );
+
+	$token     = defined( 'RETRACEUR_GHT' ) && RETRACEUR_GHT ? RETRACEUR_GHT : get_option( 'retraceur_github_token', '' );
+	$http_args = array(
+		'timeout' => 15,
+		'headers' => array(
+			'X-GitHub-Api-Version' => '2026-03-10',
+			'Accept'               => 'application/vnd.github+json',
+			'User-Agent'           => 'Retraceur/' . retraceur_get_version() . '; ' . home_url( '/' ),
+		),
+	);
+
+	if ( $token ) {
+		$http_args['headers']['Authorization'] = 'Bearer ' . $token;
+	}
+
+	$http_args = wp_parse_args( $args, $http_args );
+
+	$url      = $base_url . $endpoint;
+	$ssl      = wp_http_supports( array( 'ssl' ) );
+	$http_url = $url;
+
+	if ( $ssl ) {
+		$url = set_url_scheme( $url, 'https' );
+	}
+
+	$request = wp_remote_get( $url, $http_args );
+
+	if ( $ssl && is_wp_error( $request ) ) {
+		if ( ! wp_is_json_request() ) {
+			wp_trigger_error(
+				__FUNCTION__,
+				__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ) . ' ' . __( '(Retraceur could not establish a secure connection to the GitHub API. Please contact your server administrator.)' ),
+				headers_sent() || WP_DEBUG ? E_USER_WARNING : E_USER_NOTICE
+			);
+		}
+
+		$request = wp_remote_get( $http_url, $http_args );
+	}
+
+	if ( is_wp_error( $request ) ) {
+		return new WP_Error(
+			'retraceur_discovery_request_failed',
+			__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ),
+			$request->get_error_message()
+		);
+	}
+
+	$code = (int) wp_remote_retrieve_response_code( $request );
+	$body = json_decode( wp_remote_retrieve_body( $request ), true );
+
+	if ( $code !== 200 ) {
+		return new WP_Error(
+			'retraceur_discovery_api_error',
+			$body['message'] ?? __( 'An error occurred. Please try again later.' ),
+			array( 'status' => $code )
+		);
+	}
+
+	return $body;
+}
+
 function retraceur_discovery_api( $action, $args = array() ) {
 	if ( 'retraceur-plugin' === $action || 'retraceur-block' === $action ) {
 		if ( ! isset( $args['per_page'] ) ) {
@@ -284,72 +366,14 @@ function retraceur_discovery_api( $action, $args = array() ) {
 			}
 		}
 
-		// Use the GitHub REST API to list repositories using Retraceur tags.
-		$url = 'https://api.github.com/search/repositories';
-		$url = add_query_arg( $api_args, $url );
-
-		$http_url = $url;
-		$ssl      = wp_http_supports( array( 'ssl' ) );
-		if ( $ssl ) {
-			$url = set_url_scheme( $url, 'https' );
-		}
-
-		$http_args = array(
-			'timeout' => 15,
-			'headers' => array(
-				'X-GitHub-Api-Version' => '2022-11-28',
-				'Accept'               => 'application/vnd.github+json',
-				'User-Agent'           => 'Retraceur/' . retraceur_get_version() . '; ' . home_url( '/' ),
-			),
-		);
-
-		if ( defined( 'RETRACEUR_GHT' ) && RETRACEUR_GHT ) {
-			$http_args['headers']['Authorization'] = 'Bearer ' . RETRACEUR_GHT;
-		}
-
 		$cache_key       = 'retraceur_discovery_api_' . md5( serialize( $api_args ) );
 		$cached_response = get_transient( $cache_key );
 
 		if ( false === $cached_response ) {
-			$request = wp_remote_get( $url, $http_args );
+			$res = retraceur_discovery_request( '/search/repositories?' . http_build_query( $api_args ) );
 
-			if ( $ssl && is_wp_error( $request ) ) {
-				if ( ! wp_is_json_request() ) {
-					wp_trigger_error(
-						__FUNCTION__,
-						__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ) . ' ' . __( '(Retraceur could not establish a secure connection to Discovery API. Please contact your server administrator.)' ),
-						headers_sent() || WP_DEBUG ? E_USER_WARNING : E_USER_NOTICE
-					);
-				}
-
-				$request = wp_remote_get( $http_url, $http_args );
-			}
-
-			if ( is_wp_error( $request ) ) {
-				$res = new WP_Error(
-					'retraceur_discovery_api_failed',
-					__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ),
-					$request->get_error_message()
-				);
-			} else {
-				$res = json_decode( wp_remote_retrieve_body( $request ), true );
-				if ( null === $res ) {
-					$res = new WP_Error(
-						'retraceur_discovery_failed',
-						__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ),
-						wp_remote_retrieve_body( $request )
-					);
-				}
-
-				if ( 200 !== (int) wp_remote_retrieve_response_code( $request ) ) {
-					if ( empty( $res['message'] ) ) {
-						$res['message'] = __( 'An error occurred. Something may be wrong with the Retraceur Discovery API. Please try again later.' );
-					}
-
-					$res = new WP_Error( 'retraceur_discovery_api_failed', $res['message'] );
-				} else {
-					set_transient( $cache_key, $res, DAY_IN_SECONDS );
-				}
+			if ( ! is_wp_error( $res ) ) {
+				set_transient( $cache_key, $res, DAY_IN_SECONDS );
 			}
 		} else {
 			$res = $cached_response;
