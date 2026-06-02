@@ -313,6 +313,54 @@ function retraceur_discovery_request( $endpoint, $args = array() ) {
 	return $body;
 }
 
+/**
+ * Retrieves repository information from the discovery provider.
+ *
+ * It is possible for a plugin to override the Discovery API result with three
+ * filters. Assume this is for plugins, which can extend on the Discovery Info
+ * to offer more choices. This is very powerful and must be used with care when
+ * overriding the filters.
+ *
+ * The first filter, {@see 'retraceur_discovery_api_args'}, is for the args and
+ * gives the action as the second parameter. The hook for
+ * {@see 'retraceur_discovery_api_args'} must ensure that an array is returned.
+ *
+ * The second filter, {@see 'retraceur_discovery_api'}, allows a plugin to
+ * override the built-in Discovery API entirely. If `$action` is
+ * 'retraceur-plugin', 'retraceur-block' or 'retraceur-theme', an array MUST
+ * be passed.
+ *
+ * Finally, the third filter, {@see 'retraceur_discovery_api_result'}, makes it
+ * possible to filter the response array, depending on the `$action` type.
+ *
+ * Supported arguments per action:
+ *
+ * | Argument Name | retraceur-plugin | retraceur-block | retraceur-theme |
+ * | ------------- | :--------------: | :-------------: | :-------------: |
+ * | `$search`     | Yes              | Yes             | Yes             |
+ * | `$sort`       | Yes              | Yes             | Yes             |
+ * | `$order`      | Yes              | Yes             | Yes             |
+ * | `$per_page`   | Yes              | Yes             | Yes             |
+ * | `$page`       | Yes              | Yes             | Yes             |
+ *
+ * @since 4.0.0 Retraceur fork.
+ *
+ * @param string $action The type of information being requested from the
+ *                       Discovery API. Accepts 'retraceur-plugin',
+ *                       'retraceur-block' or 'retraceur-theme'.
+ * @param array  $args {
+ *     Optional. Array of arguments to pass to the Discovery API.
+ *
+ *     @type string $search   A search term. Default empty.
+ *     @type string $sort     Sort results by. Accepts 'updated', 'stars'.
+ *                            Default 'updated'.
+ *     @type string $order    Order of results. Accepts 'asc', 'desc'.
+ *                            Default 'desc'.
+ *     @type int    $per_page Number of repositories per page. Default 10.
+ *     @type int    $page     Current page number. Default 1.
+ * }
+ * @return array|WP_Error Response array on success, WP_Error on failure.
+ */
 function retraceur_discovery_api( $action, $args = array() ) {
 	if ( 'retraceur-plugin' === $action || 'retraceur-block' === $action ) {
 		if ( ! isset( $args['per_page'] ) ) {
