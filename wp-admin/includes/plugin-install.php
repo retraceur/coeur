@@ -394,37 +394,83 @@ function retraceur_discovery_api( $action, $args = array() ) {
 	$res = apply_filters( 'retraceur_discovery_api', false, $action, $args );
 
 	if ( false === $res ) {
-		$api_args      = $args;
-		$api_args['q'] = 'topic:' . $action;
-
-		// Remove unused argument.
-		unset( $api_args['browse'], $api_args['context'] );
-
-		// Sanitize search inputs.
-		if ( isset( $api_args['search'] ) && $api_args['search'] ) {
-			$api_args['q'] .= ' ' . sanitize_text_field( $api_args['search'] ) . ' in:name,description';
-		} else {
-			unset( $api_args['search'] );
-		}
-
-		// Sanitize sort & order.
-		if ( isset( $api_args['sort'] ) && isset( $api_args['order'] ) ) {
-			if ( ! in_array( $api_args['sort'], array( 'updated', 'stars' ), true ) || ! in_array( $api_args['order'], array( 'desc', 'asc' ), true ) ) {
-				unset( $api_args['sort'], $api_args['order'] );
+		if ( 'retraceur-repository' === $action ) {
+			if ( empty( $args['repository'] ) ) {
+				return new WP_Error(
+					'retraceur_discovery_missing_repository',
+					__( 'Please provide the repository full name.' )
+				);
 			}
-		}
 
-		$cache_key       = 'retraceur_discovery_api_' . md5( serialize( $api_args ) );
-		$cached_response = get_transient( $cache_key );
+			$repository = sanitize_text_field( $args['repository'] );
+			$cache_key  = 'retraceur_discovery_repo_' . md5( $repository );
+			$cached     = get_transient( $cache_key );
 
-		if ( false === $cached_response ) {
-			$res = retraceur_discovery_request( '/search/repositories?' . http_build_query( $api_args ) );
+			if ( false === $cached ) {
+				// 1. Repository metadata.
+				$repo_data = retraceur_discovery_request( '/repos/' . $repository );
+				if ( is_wp_error( $repo_data ) ) {
+					return $repo_data;
+				}
 
-			if ( ! is_wp_error( $res ) ) {
+				// 2. Manifest (retraceur/manifest.json).
+				$manifest      = array();
+				$manifest_data = retraceur_discovery_request( '/repos/' . $repository . '/contents/retraceur/manifest.json' );
+				if ( ! is_wp_error( $manifest_data ) && isset( $manifest_data['content'] ) ) {
+					$decoded  = base64_decode( str_replace( "\n", '', $manifest_data['content'] ) );
+					$manifest = json_decode( $decoded, true ) ?? array();
+				}
+
+				// 3. Latest release.
+				$release      = array();
+				$release_data = retraceur_discovery_request( '/repos/' . $repository . '/releases/latest' );
+				if ( ! is_wp_error( $release_data ) ) {
+					$release = $release_data;
+				}
+
+				$res = array(
+					'repository' => $repo_data,
+					'manifest'   => $manifest,
+					'release'    => $release,
+				);
+
 				set_transient( $cache_key, $res, DAY_IN_SECONDS );
+			} else {
+				$res = $cached;
 			}
 		} else {
-			$res = $cached_response;
+			$api_args      = $args;
+			$api_args['q'] = 'topic:' . $action;
+
+			// Remove unused argument.
+			unset( $api_args['browse'], $api_args['context'] );
+
+			// Sanitize search inputs.
+			if ( isset( $api_args['search'] ) && $api_args['search'] ) {
+				$api_args['q'] .= ' ' . sanitize_text_field( $api_args['search'] ) . ' in:name,description';
+			} else {
+				unset( $api_args['search'] );
+			}
+
+			// Sanitize sort & order.
+			if ( isset( $api_args['sort'] ) && isset( $api_args['order'] ) ) {
+				if ( ! in_array( $api_args['sort'], array( 'updated', 'stars' ), true ) || ! in_array( $api_args['order'], array( 'desc', 'asc' ), true ) ) {
+					unset( $api_args['sort'], $api_args['order'] );
+				}
+			}
+
+			$cache_key       = 'retraceur_discovery_api_' . md5( serialize( $api_args ) );
+			$cached_response = get_transient( $cache_key );
+
+			if ( false === $cached_response ) {
+				$res = retraceur_discovery_request( '/search/repositories?' . http_build_query( $api_args ) );
+
+				if ( ! is_wp_error( $res ) ) {
+					set_transient( $cache_key, $res, DAY_IN_SECONDS );
+				}
+			} else {
+				$res = $cached_response;
+			}
 		}
 	} elseif ( ! is_wp_error( $res ) ) {
 		$res['external'] = true;
