@@ -49,6 +49,33 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 
 		register_rest_route(
 			$this->namespace,
+			'/' . $this->rest_base . '/repository',
+			array(
+				array(
+					'methods'             => WP_REST_Server::READABLE,
+					'callback'            => array( $this, 'get_repository' ),
+					'permission_callback' => array( $this, 'get_items_permissions_check' ),
+					'args'                => array(
+						'context'    => array(
+							'description' => __( 'Scope under which the request is made.' ),
+							'type'        => 'string',
+							'default'     => 'view',
+						),
+						'name'       => array(
+							'description' => __( 'The repository full name (owner/repo).' ),
+							'type'        => 'string',
+							'required'    => true,
+							'minLength'   => 1,
+							'pattern'     => '^[a-zA-Z0-9_.-]+/[a-zA-Z0-9_.-]+$',
+						),
+					),
+				),
+				'schema' => array( $this, 'get_single_repository_schema' ),
+			)
+		);
+
+		register_rest_route(
+			$this->namespace,
 			'/' . $this->rest_base . '/releases',
 			array(
 				array(
@@ -68,6 +95,7 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 							'type'        => 'string',
 							'required'    => true,
 							'minLength'   => 1,
+							'pattern'     => '^[a-zA-Z0-9_.-]+/[a-zA-Z0-9_.-]+$',
 						),
 					),
 				),
@@ -97,7 +125,7 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 	}
 
 	/**
-	 * Search and retrieve Repositories metadata
+	 * Search and retrieve Repositories metadata.
 	 *
 	 * @since 4.0.0 Retraceur fork.
 	 *
@@ -137,6 +165,46 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 	}
 
 	/**
+	 * Gets all needed information about a specific repository.
+	 *
+	 * @since 4.0.0 Retraceur fork.
+	 *
+	 * @param WP_REST_Request $request Full details about the request.
+	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
+	 */
+	public function get_repository( $request ) {
+		require_once ABSPATH . 'wp-admin/includes/plugin-install.php';
+		require_once ABSPATH . 'wp-admin/includes/plugin.php';
+
+		$full_name = sanitize_text_field( $request['name'] );
+		$parts     = explode( '/', $full_name );
+
+		if ( count( $parts ) !== 2 ) {
+			return new WP_Error(
+				'rest_retraceur_discovery_invalid_repository',
+				__( 'Invalid repository name. Expected format: owner/repo.' ),
+				array( 'status' => 400 )
+			);
+		}
+
+		$result = retraceur_discovery_api(
+			'retraceur-repository',
+			array(
+				'repository' => $full_name,
+			)
+		);
+
+		if ( is_wp_error( $result ) ) {
+			$result->add_data( array( 'status' => 500 ) );
+			return $result;
+		}
+
+		return rest_ensure_response(
+			$this->prepare_single_repository_for_response( $result, $request )
+		);
+	}
+
+	/**
 	 * Retrieve a given repository releases.
 	 *
 	 * @since 4.0.0 Retraceur fork.
@@ -167,7 +235,24 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 		$response = array();
 
 		foreach ( $releases as $release ) {
-			$data       = $this->prepare_release_for_response( $release, $request );
+			$release_id = explode( '/', rtrim( $release->get_id(), '/' ) );
+			$version    = end( $release_id );
+			$url        = $release->get_link();
+
+			if ( ! $version ) {
+				$url_data = explode( '/', rtrim( wp_parse_url( $url, PHP_URL_PATH ) ) );
+				$version  = end( $url_data );
+			}
+
+			$data       = $this->prepare_release_for_response(
+				array(
+					'title'       => $release->get_title(),
+					'version'     => $version,
+					'note'        => $release->get_description(),
+					'release_url' => $url,
+				),
+				$request
+			);
 			$response[] = $this->prepare_response_for_collection( $data );
 		}
 
@@ -214,37 +299,80 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 	 *
 	 * @since 4.0.0 Retraceur fork.
 	 *
-	 * @param SimplePie\SimplePie $release The release data.
-	 * @param WP_REST_Request     $request Request object.
+	 * @param array           $release The release data.
+	 * @param WP_REST_Request $request Request object.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
 	 */
 	public function prepare_release_for_response( $release, $request ) {
-		$version    = '';
-		$release_id = explode( '/', rtrim( $release->get_id(), '/' ) );
-		$version    = end( $release_id );
-		$repo_parts = explode( '/', $request['repository'] );
-		$repo_slug  = end( $repo_parts );
-		$url        = $release->get_link();
+		$full_name = ! empty( $request['name'] ) ? $request['name'] : $request['repository'];
+		$version   = $release['version'];
+		$repo_name = explode( '/', $full_name )[1];
 
-		if ( ! $version ) {
-			$url_data = explode( '/', rtrim( wp_parse_url( $url, PHP_URL_PATH ) ) );
-			$version  = end( $url_data );
-		}
-
-		// A data array containing the properties we'll return.
 		$data = array(
-			'title'        => wp_strip_all_tags( $release->get_title() ),
+			'title'        => wp_strip_all_tags( $release['title'] ),
 			'version'      => wp_strip_all_tags( $version ),
-			'note'         => wp_strip_all_tags( $release->get_description() ),
-			'release_url'  => esc_url_raw( $url ),
+			'note'         => wp_strip_all_tags( $release['note'] ),
+			'release_url'  => esc_url_raw( $release['release_url'] ),
 			'download_url' => esc_url_raw(
-				"https://github.com/{$request['repository']}/releases/download/{$version}/{$repo_slug}.zip"
+				"https://github.com/{$full_name}/releases/download/{$version}/{$repo_name}.zip"
 			),
 		);
 
-		$response = new WP_REST_Response( $data );
+		return rest_ensure_response( $data );
+	}
 
-		return $response;
+	/**
+	 * Parse single repository data and prepare it for an API response.
+	 *
+	 * @since 4.0.0 Retraceur fork.
+	 *
+	 * @param array           $item    The repository data.
+	 * @param WP_REST_Request $request Request object.
+	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
+	 */
+	public function prepare_single_repository_for_response( $item, $request ) {
+		// Uses existing repository iteam method to build the first part of the response.
+		$repository = $this->prepare_item_for_response( $item['repository'], $request );
+		$data       = $repository->get_data();
+
+		// Set up Retraceur meta data.
+		$manifest     = $item['manifest'] ?? array();
+		$data['type'] = '';
+		if ( isset( $manifest['type'] ) && in_array( $manifest['type'], array( 'plugin', 'block' ), true ) ) {
+			$data['type'] = $manifest['type'];
+		}
+
+		$data['requires_retraceur'] = '';
+		if ( isset( $manifest['requires']['retraceur'] ) ) {
+			$data['requires_retraceur'] = sanitize_text_field( $manifest['requires']['retraceur'] );
+		}
+
+		$data['requires_php'] = '';
+		if ( isset( $manifest['requires']['php'] ) ) {
+			$data['requires_php'] = sanitize_text_field( $manifest['requires']['php'] );
+		}
+
+		$data['dependencies'] = array();
+		if ( isset( $manifest['requires']['dependencies'] ) && is_array( $manifest['requires']['dependencies'] ) && $manifest['requires']['dependencies'] ) {
+			$data['dependencies'] = array_map( 'sanitize_text_field',  $manifest['requires']['dependencies'] );
+		}
+
+		// Enrich the response with latest release data.
+		$release      = $item['release'] ?? array();
+		$release_data = array();
+		if ( $release ) {
+			$release_data = $this->prepare_release_for_response(
+				array(
+					'title'       => $release['name']     ?? '',
+					'version'     => $release['tag_name'] ?? '',
+					'note'        => $release['body']     ?? '',
+					'release_url' => $release['html_url'] ?? '',
+				),
+				$request
+			)->get_data();
+		}
+
+		return rest_ensure_response( array_merge( $data, $release_data ) );
 	}
 
 	/**
@@ -428,6 +556,54 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 					'context'     => array( 'view' ),
 				),
 			),
+		);
+	}
+
+	/**
+	 * Retrieves the repository's schema, conforming to JSON Schema.
+	 *
+	 * @since 4.0.0 Retraceur fork.
+	 *
+	 * @return array Repository schema data.
+	 */
+	public function get_single_repository_schema() {
+		$base_schema    = $this->get_item_schema();
+		$release_schema = $this->get_release_schema();
+
+		// Build from `retraceur/manifest.json`.
+		$extra_properties = array(
+			'type'               => array(
+				'description' => __( 'The type of Retraceur repository.' ),
+				'type'        => 'string',
+				'enum'        => array( 'plugin', 'block' ),
+				'context'     => array( 'view' ),
+			),
+			'requires_retraceur' => array(
+				'description' => __( 'The minimum required version of Retraceur.' ),
+				'type'        => 'string',
+				'context'     => array( 'view' ),
+			),
+			'requires_php'       => array(
+				'description' => __( 'The minimum required version of PHP.' ),
+				'type'        => 'string',
+				'context'     => array( 'view' ),
+			),
+			'dependencies'        => array(
+				'description' => __( 'The list of repository dependencies.' ),
+				'type'        => 'array',
+				'items'       => array(
+					'type' => 'string',
+				),
+				'context'     => array( 'view' ),
+			),
+		);
+
+		return array_merge(
+			$base_schema,
+			array(
+				'title'      => 'retraceur-single-repository',
+				'properties' => array_merge( $base_schema['properties'], $extra_properties, $release_schema['properties'] ),
+			)
 		);
 	}
 }
