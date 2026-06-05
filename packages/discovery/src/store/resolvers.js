@@ -11,6 +11,8 @@ import {
 	receiveRepositories,
 	fetchReleases,
 	receiveReleases,
+	fetchRepository,
+    receiveRepository,
 } from './actions';
 
 export const getRepositories = ( pluginType ) => async ( { dispatch } ) => {
@@ -36,5 +38,20 @@ export const getReleases = ( repository ) => async ( { dispatch } ) => {
 		} );
 
 		dispatch( receiveReleases( releases, repository ) );
+	} catch {}
+};
+
+export const getRepository = ( repository ) => async ( { dispatch } ) => {
+	if ( ! repository ) {
+		return;
+	}
+
+	try {
+		dispatch( fetchRepository( repository ) );
+		const repositoryDetails = await apiFetch( {
+			path: `/wp/v2/discover/repository?name=${ repository }`,
+		} );
+
+		dispatch( receiveRepository( repositoryDetails, repository ) );
 	} catch {}
 };

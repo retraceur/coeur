@@ -44,6 +44,27 @@ const reducer = ( state = {}, action ) => {
 					};
 				} ),
 			};
+		case 'FETCH_REPOSITORY':
+			return {
+				...state,
+				loadingDetails: {
+					...state.loadingDetails,
+					[ action.repository ]: true,
+				},
+			};
+
+		case 'RECEIVE_REPOSITORY':
+			return {
+				...state,
+				loadingDetails: {
+					...state.loadingDetails,
+					[ action.repository ]: false,
+				},
+				details: {
+					...state.details,
+					[ action.repository ]: action.repositoryDetails,
+				},
+			};
 	}
 	return state;
 };

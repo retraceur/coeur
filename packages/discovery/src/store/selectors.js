@@ -46,3 +46,29 @@ export function getReleases( state, repository ) {
 	);
 	return currentRepository?.releases ?? [];
 }
+
+/**
+ * Returns whether the details for a given repository are being requested.
+ *
+ * @param {Object} state      Global application state.
+ * @param {string} repository The repository full name.
+ *
+ * @return {boolean} Whether the details are being requested.
+ */
+export function isRequestingRepository( state, repository ) {
+	return state?.loadingDetails?.[ repository ] ?? false;
+}
+
+/**
+ * Returns a repository with its complementary details merged in.
+ *
+ * @param {Object} state      Global application state.
+ * @param {string} repository The repository full name.
+ *
+ * @return {Object} Repository with details.
+ */
+export function getRepository( state, repository ) {
+	const base    = state?.results?.find( ( r ) => r.full_name === repository ) ?? {};
+	const details = state?.details?.[ repository ] ?? {};
+	return { ...base, ...details };
+}

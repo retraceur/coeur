@@ -54,3 +54,35 @@ export function receiveReleases( releases, repository ) {
 		repository,
 	};
 }
+
+/**
+ * Returns an action object used in signalling that details
+ * for a repository are being requested.
+ *
+ * @param {string} repository The repository full name.
+ *
+ * @return {Object} Action object.
+ */
+export function fetchRepository( repository ) {
+	return {
+		type: 'FETCH_REPOSITORY',
+		repository,
+	};
+}
+
+/**
+ * Returns an action object used in signalling that details
+ * for a repository have been fetched.
+ *
+ * @param {Object} repositoryDetails The repository details.
+ * @param {string} repository        The repository full name.
+ *
+ * @return {Object} Action object.
+ */
+export function receiveRepository( repositoryDetails, repository ) {
+	return {
+		type: 'RECEIVE_REPOSITORY',
+		repositoryDetails,
+		repository,
+	};
+}

@@ -16,6 +16,81 @@ import discoveryStore from './../store';
 
 const actions = [
 	{
+		id: 'view-repository',
+		label: __( 'View details' ),
+		RenderModal: ( { items } ) => {
+			const [ item ] = items;
+			const { repository, isRequesting } = useSelect( ( select ) => {
+				return {
+					repository:   select( discoveryStore ).getRepository( item.full_name ),
+					isRequesting: select( discoveryStore ).isRequestingRepository( item.full_name ),
+				};
+			}, [] );
+
+			if ( isRequesting ) {
+				return <Spinner />;
+			}
+
+			return (
+				<div>
+					<img
+						alt={ sprintf(
+							/* Translators: %s is the repository name. */
+							__( 'Preview image of %s' ),
+							repository.name
+						) }
+						src={ repository.image }
+						onError={ ( e ) => {
+							e.target.onerror = null;
+							e.target.src = `https://opengraph.github.com/repo/${ repository.full_name }`;
+						} }
+					/>
+					<p>{ repository.description }</p>
+					{ repository.requires_retraceur && (
+						<p>
+							{ sprintf(
+								/* Translators: %s is the version number. */
+								__( 'Requires Retraceur %s or higher.' ),
+								repository.requires_retraceur
+							) }
+						</p>
+					) }
+					{ repository.requires_php && (
+						<p>
+							{ sprintf(
+								/* Translators: %s is the version number. */
+								__( 'Requires PHP %s or higher.' ),
+								repository.requires_php
+							) }
+						</p>
+					) }
+					{ repository.version && (
+						<p>
+							{ sprintf(
+								/* Translators: %s is the version number. */
+								__( 'Latest version: %s' ),
+								repository.version
+							) }
+							&nbsp;
+							<Button
+								href={ repository.download_url }
+								variant="primary"
+							>
+								{ __( 'Download' ) }
+							</Button>
+						</p>
+					) }
+					{ repository.homepage && (
+						<ExternalLink href={ repository.homepage }>
+							{ __( 'Visit homepage' ) }
+						</ExternalLink>
+					) }
+				</div>
+			);
+		},
+		modalHeader: __( 'Repository details' ),
+	},
+	{
 		id: 'view-releases',
 		label: __( 'View releases' ),
 		RenderModal: ( { items } ) => {
