@@ -94,7 +94,7 @@ const actions = [
 		id: 'view-releases',
 		label: __( 'View releases' ),
 		RenderModal: ( { items } ) => {
-			const [repository] = items;
+			const [ repository ] = items;
 			const { releases, isRequesting } = useSelect( ( select ) => {
 				return {
 					releases:     select( discoveryStore ).getReleases( repository.full_name ),
