@@ -1,13 +1,15 @@
 /**
  * WP dependencies
  */
-import { useSelect } from '@wordpress/data';
-import { __, sprintf } from '@wordpress/i18n';
+import apiFetch from '@wordpress/api-fetch';
 import {
 	Button,
 	ExternalLink,
 	Spinner,
 } from '@wordpress/components';
+import { useSelect } from '@wordpress/data';
+import { useState, useCallback } from '@wordpress/element';
+import { __, sprintf } from '@wordpress/i18n';
 
 /**
  * Internal dependencies
@@ -15,6 +17,94 @@ import {
 import discoveryStore from './../store';
 
 const actions = [
+	{
+		id: 'install-repository',
+		label: __( 'Install latest' ),
+		RenderModal: ( { items, closeModal } ) => {
+			const [ item ]                      = items;
+			const { repository, isRequesting } = useSelect( ( select ) => {
+				return {
+					repository:   select( discoveryStore ).getRepository( item.full_name ),
+					isRequesting: select( discoveryStore ).isRequestingRepository( item.full_name ),
+				};
+			}, [] );
+			const [ isInstalling, setInstalling ] = useState( false );
+			const [ success, setSuccess ]         = useState( null );
+			const [ error, setError ]             = useState( null );
+
+			const onInstall = useCallback( async () => {
+				setInstalling( true );
+				setError( null );
+
+				try {
+					await apiFetch( {
+						path:   '/wp/v2/discover/install',
+						method: 'POST',
+						data:   {
+							full_name:    repository.full_name,
+							version:      repository.version,
+							download_url: repository.download_url,
+							digest:       repository.digest ?? '',
+						},
+					} );
+					setSuccess( true );
+				} catch ( e ) {
+					setError( e?.message ?? __( 'Unknown error.' ) );
+				} finally {
+					setInstalling( false );
+				}
+			}, [ repository ] );
+
+			if ( isInstalling || isRequesting ) {
+				return <Spinner />;
+			}
+
+			if ( success ) {
+				return (
+					<>
+						<p>
+							{ sprintf(
+								/* Translators: %s is the repository name. */
+								__( '%s was successfully installed.' ),
+								item.name
+							) }
+						</p>
+						<Button variant="primary" onClick={ closeModal }>
+							{ __( 'Close' ) }
+						</Button>
+					</>
+				);
+			}
+
+			return (
+				<>
+					<p>
+						{ sprintf(
+							/* Translators: %s is the repository name. */
+							__( 'Are you sure you want to install %1$s %2$s?' ),
+							item.name,
+							repository.version
+						) }
+					</p>
+					{ error && (
+						<p className="retraceur-install-error">
+							{ error }
+						</p>
+					) }
+					<Button
+						variant="primary"
+						onClick={ onInstall }
+					>
+						{ __( 'Install' ) }
+					</Button>
+					<Button variant="tertiary" onClick={ closeModal }>
+						{ __( 'Cancel' ) }
+					</Button>
+				</>
+			);
+		},
+		modalHeader: __( 'Install repository’s latest release' ),
+	},
 	{
 		id: 'view-repository',
 		label: __( 'View details' ),

@@ -259,7 +259,6 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 		$download_url = esc_url_raw( $request['download_url'] );
 		$digest       = sanitize_text_field( $request['digest'] ?? '' );
 
-		// @todo Request the digest from GitHub API.
 		if ( ! $digest ) {
 			return new WP_Error(
 				'rest_retraceur_discovery_required_param',
@@ -435,11 +434,8 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 			'version'      => wp_strip_all_tags( $version ),
 			'note'         => wp_strip_all_tags( $release['note'] ),
 			'release_url'  => esc_url_raw( $release['release_url'] ),
+			'download_url' => empty( $release['download_url'] ) ? esc_url_raw( "https://github.com/{$full_name}/releases/download/{$version}/{$repo_name}.zip" ) : $release['download_url'],
 		);
-
-		if ( empty( $release['download_url'] ) ) {
-			$data['download_url'] = esc_url_raw( "https://github.com/{$full_name}/releases/download/{$version}/{$repo_name}.zip" );
-		}
 
 		if ( ! empty( $release['digest'] ) ) {
 			$data['digest'] = sanitize_text_field( $release['digest'] );
@@ -500,7 +496,7 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 					'version'      => $release['tag_name'] ?? '',
 					'note'         => $release['body']     ?? '',
 					'release_url'  => $release['html_url'] ?? '',
-					'download_url' => isset( $asset['download_url'] ) ? esc_url_raw( $asset['download_url'] ) : '',
+					'download_url' => isset( $asset['browser_download_url'] ) ? esc_url_raw( $asset['browser_download_url'] ) : '',
 					'digest'       => isset( $asset['digest'] ) ? sanitize_text_field( $asset['digest'] ) : '',
 				),
 				$request
