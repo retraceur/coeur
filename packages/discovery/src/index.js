@@ -40,23 +40,27 @@ const Discovery = ( { settings } ) => {
 		mediaField: 'image',
 		fields: ['author'],
 	} );
-	// Used to set the active repository.
-    const [ activeRepository, setActiveRepository ] = useState( null );
 	const { data: processedData, paginationInfo } = useMemo( () => {
 		return filterSortAndPaginate( repositories, view, fields );
 	}, [ view ] );
 
+	// Used to manage the modal to display.
+    const [ openRepository, SetOpenRepository ] = useState( null );
+	const [ openInstallation, setOpenInstallation ] = useState( null );
+
 	// Fires the `view-repository` action.
     const onClickItem = useCallback( ( repository ) => {
-        setActiveRepository( repository );
+        SetOpenRepository( repository );
     }, [] );
 
     // All items can be clicked.
     const isItemClickable = useCallback( () => true, [] );
 
-    // Find the `view-repository` action to reuse its RenderModal.
+    // Find the action to reuse its RenderModal.
     const viewRepositoryAction = actions.find( ( a ) => a.id === 'view-repository' );
-    const RenderModal = viewRepositoryAction?.RenderModal;
+	const installRepositoryAction = actions.find( ( a ) => a.id === 'install-repository' );
+	const RenderModal = viewRepositoryAction?.RenderModal;
+	const InstallRepositoryModal = installRepositoryAction?.RenderModal;
 
 	return (
 		<>
@@ -71,19 +75,36 @@ const Discovery = ( { settings } ) => {
 				onClickItem={ onClickItem }
 				isItemClickable={ isItemClickable }
 			/>
-			{ activeRepository && RenderModal && (
+			{ openRepository && RenderModal && (
 				<Modal
 					title={ viewRepositoryAction.modalHeader }
 					size='medium'
-					onRequestClose={ () => setActiveRepository( null ) }
+					onRequestClose={ () => SetOpenRepository( null ) }
 					className='dataviews-action-modal dataviews-action-modal__view-repository'
 				>
 					<RenderModal
-						items={ [ activeRepository ] }
-						closeModal={ () => setActiveRepository( null ) }
+						items={ [ openRepository ] }
+						closeModal={ () => SetOpenRepository( null ) }
+						onInstall={ ( item ) => {
+                            SetOpenRepository( null );
+                            setOpenInstallation( item );
+                        } }
 					/>
 				</Modal>
 			) }
+			{ openInstallation && InstallRepositoryModal && (
+                <Modal
+                    title={ installRepositoryAction.modalHeader }
+                    size="medium"
+                    onRequestClose={ () => setOpenInstallation( null ) }
+                    className="dataviews-action-modal dataviews-action-modal__install-repository"
+                >
+                    <InstallRepositoryModal
+                        items={ [ openInstallation ] }
+                        closeModal={ () => setOpenInstallation( null ) }
+                    />
+                </Modal>
+            ) }
 		</>
     );
 }

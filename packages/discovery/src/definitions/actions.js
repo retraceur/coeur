@@ -59,6 +59,18 @@ const actions = [
 				return <Spinner />;
 			}
 
+			if ( ! repository.version ) {
+				return (
+					<p>
+						{ sprintf(
+							/* Translators: %s is the repository name. */
+							__( 'No releases found for %s.' ),
+							repository.name
+						) }
+					</p>
+				);
+			}
+
 			if ( success ) {
 				return (
 					<>
@@ -108,7 +120,7 @@ const actions = [
 	{
 		id: 'view-repository',
 		label: __( 'View details' ),
-		RenderModal: ( { items } ) => {
+		RenderModal: ( { items, closeModal, onInstall } ) => {
 			const [ item ] = items;
 			const { repository, isRequesting } = useSelect( ( select ) => {
 				return {
@@ -163,8 +175,15 @@ const actions = [
 							) }
 							&nbsp;
 							<Button
-								href={ repository.download_url }
 								variant="primary"
+								onClick={ () => onInstall( repository ) }
+							>
+								{ __( 'Install' ) }
+							</Button>
+							&nbsp;
+							<Button
+								href={ repository.download_url }
+								variant="secondary"
 							>
 								{ __( 'Download' ) }
 							</Button>
