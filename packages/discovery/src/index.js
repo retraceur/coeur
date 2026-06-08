@@ -1,6 +1,7 @@
 /**
  * WP dependencies
  */
+import { Modal } from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
 import { DataViews, filterSortAndPaginate } from '@wordpress/dataviews';
 import domReady from '@wordpress/dom-ready';
@@ -8,6 +9,7 @@ import {
 	createRoot,
 	useMemo,
 	useState,
+	useCallback,
 } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
@@ -42,16 +44,68 @@ const Discovery = ( { settings } ) => {
 		return filterSortAndPaginate( repositories, view, fields );
 	}, [ view ] );
 
+	// Used to manage the modal to display.
+    const [ openRepository, SetOpenRepository ] = useState( null );
+	const [ openInstallation, setOpenInstallation ] = useState( null );
+
+	// Fires the `view-repository` action.
+    const onClickItem = useCallback( ( repository ) => {
+        SetOpenRepository( repository );
+    }, [] );
+
+    // All items can be clicked.
+    const isItemClickable = useCallback( () => true, [] );
+
+    // Find the action to reuse its RenderModal.
+    const viewRepositoryAction = actions.find( ( a ) => a.id === 'view-repository' );
+	const installRepositoryAction = actions.find( ( a ) => a.id === 'install-repository' );
+	const RenderModal = viewRepositoryAction?.RenderModal;
+	const InstallRepositoryModal = installRepositoryAction?.RenderModal;
+
 	return (
-        <DataViews
-            data={ processedData }
-            fields={ fields }
-            view={ view }
-            onChangeView={ setView }
-            defaultLayouts={ defaultLayouts }
-			actions={ actions }
-			paginationInfo={ paginationInfo }
-        />
+		<>
+			 <DataViews
+				data={ processedData }
+				fields={ fields }
+				view={ view }
+				onChangeView={ setView }
+				defaultLayouts={ defaultLayouts }
+				actions={ actions }
+				paginationInfo={ paginationInfo }
+				onClickItem={ onClickItem }
+				isItemClickable={ isItemClickable }
+			/>
+			{ openRepository && RenderModal && (
+				<Modal
+					title={ viewRepositoryAction.modalHeader }
+					size='medium'
+					onRequestClose={ () => SetOpenRepository( null ) }
+					className='dataviews-action-modal dataviews-action-modal__view-repository'
+				>
+					<RenderModal
+						items={ [ openRepository ] }
+						closeModal={ () => SetOpenRepository( null ) }
+						onInstall={ ( item ) => {
+                            SetOpenRepository( null );
+                            setOpenInstallation( item );
+                        } }
+					/>
+				</Modal>
+			) }
+			{ openInstallation && InstallRepositoryModal && (
+                <Modal
+                    title={ installRepositoryAction.modalHeader }
+                    size="medium"
+                    onRequestClose={ () => setOpenInstallation( null ) }
+                    className="dataviews-action-modal dataviews-action-modal__install-repository"
+                >
+                    <InstallRepositoryModal
+                        items={ [ openInstallation ] }
+                        closeModal={ () => setOpenInstallation( null ) }
+                    />
+                </Modal>
+            ) }
+		</>
     );
 }
 

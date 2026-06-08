@@ -102,6 +102,42 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 				'schema' => array( $this, 'get_release_schema' ),
 			)
 		);
+
+		register_rest_route(
+			$this->namespace,
+			'/' . $this->rest_base . '/install',
+			array(
+				array(
+					'methods'             => WP_REST_Server::CREATABLE,
+					'callback'            => array( $this, 'install_repository' ),
+					'permission_callback' => array( $this, 'get_items_permissions_check' ),
+					'args'                => array(
+						'full_name'    => array(
+							'description' => __( 'The repository full name (owner/repo).' ),
+							'type'        => 'string',
+							'required'    => true,
+							'pattern'     => '^[a-zA-Z0-9_.-]+/[a-zA-Z0-9_.-]+$',
+						),
+						'version'      => array(
+							'description' => __( 'The version tag to install.' ),
+							'type'        => 'string',
+							'required'    => true,
+						),
+						'download_url' => array(
+							'description' => __( 'The asset download URL.' ),
+							'type'        => 'string',
+							'format'      => 'uri',
+							'required'    => true,
+						),
+						'digest'       => array(
+							'description' => __( 'The SHA256 digest of the asset (sha256:abc123...).' ),
+							'type'        => 'string',
+						),
+					),
+				),
+				'schema' => array( $this, 'get_install_repository_schema' ),
+			)
+		);
 	}
 
 	/**
@@ -202,6 +238,91 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 		return rest_ensure_response(
 			$this->prepare_single_repository_for_response( $result, $request )
 		);
+	}
+
+	/**
+	 * Installs the requested repository.
+	 *
+	 * @since 4.0.0 Retraceur fork.
+	 *
+	 * @param WP_REST_Request $request Full details about the request.
+	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
+	 */
+	public function install_repository( $request ) {
+		require_once ABSPATH . 'wp-admin/includes/file.php';
+		require_once ABSPATH . 'wp-admin/includes/plugin-install.php';
+		require_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
+		require_once ABSPATH . 'wp-admin/includes/plugin.php';
+
+		$full_name    = sanitize_text_field( $request['full_name'] );
+		$version      = sanitize_text_field( $request['version'] );
+		$download_url = esc_url_raw( $request['download_url'] );
+		$digest       = sanitize_text_field( $request['digest'] ?? '' );
+
+		if ( ! $digest ) {
+			return new WP_Error(
+				'rest_retraceur_discovery_required_param',
+				__( 'Please provide the repository’s asset digest.' ),
+				array( 'status' => 400 )
+			);
+		}
+
+		// Validate the GitHub hash format "sha256:abc123..."
+		if ( ! str_starts_with( $digest, 'sha256:' ) ) {
+			return new WP_Error(
+				'retraceur_install_invalid_digest',
+				__( 'Invalid digest format. Expected sha256:...' ),
+				array( 'status' => 422 )
+			);
+		}
+
+		// Set the hash to check against.
+		$expected_hash = substr( $digest, strlen( 'sha256:' ) );
+
+		// Download the repository asset.
+		$temp_file = download_url( $download_url );
+
+		if ( is_wp_error( $temp_file ) ) {
+			$temp_file->add_data( array( 'status' => 500 ) );
+			return $temp_file;
+		}
+
+		// Checks package's integrity.
+		$actual_hash = hash_file( 'sha256', $temp_file );
+
+		if ( ! hash_equals( $expected_hash, $actual_hash ) ) {
+			@unlink( $temp_file );
+			return new WP_Error(
+				'retraceur_install_digest_mismatch',
+				__( 'The downloaded file digest does not match. Installation aborted.' ),
+				array( 'status' => 422 )
+			);
+		}
+
+		// Use WP_Upgrader to install the repository.
+		WP_Filesystem( array(), '', true );
+		$upgrader = new Plugin_Upgrader( new WP_Ajax_Upgrader_Skin() );
+		$result   = $upgrader->install( $temp_file );
+
+		@unlink( $temp_file );
+
+		if ( is_wp_error( $result ) ) {
+			$result->add_data( array( 'status' => 500 ) );
+			return $result;
+		}
+
+		if ( ! $result ) {
+			return new WP_Error(
+				'retraceur_install_failed',
+				__( 'Installation failed.' ),
+				array( 'status' => 500 )
+			);
+		}
+
+		return rest_ensure_response( array(
+			'success' => true,
+			'message' => __( 'Installation successful.' ),
+		) );
 	}
 
 	/**
@@ -313,10 +434,12 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 			'version'      => wp_strip_all_tags( $version ),
 			'note'         => wp_strip_all_tags( $release['note'] ),
 			'release_url'  => esc_url_raw( $release['release_url'] ),
-			'download_url' => esc_url_raw(
-				"https://github.com/{$full_name}/releases/download/{$version}/{$repo_name}.zip"
-			),
+			'download_url' => empty( $release['download_url'] ) ? esc_url_raw( "https://github.com/{$full_name}/releases/download/{$version}/{$repo_name}.zip" ) : $release['download_url'],
 		);
+
+		if ( ! empty( $release['digest'] ) ) {
+			$data['digest'] = sanitize_text_field( $release['digest'] );
+		}
 
 		return rest_ensure_response( $data );
 	}
@@ -331,7 +454,7 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
 	 */
 	public function prepare_single_repository_for_response( $item, $request ) {
-		// Uses existing repository iteam method to build the first part of the response.
+		// Uses existing repository item method to build the first part of the response.
 		$repository = $this->prepare_item_for_response( $item['repository'], $request );
 		$data       = $repository->get_data();
 
@@ -361,12 +484,20 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 		$release      = $item['release'] ?? array();
 		$release_data = array();
 		if ( $release ) {
+			$slug  = explode( '/', $data['full_name'] )[1];
+			$asset = array_values( array_filter(
+				$release['assets'] ?? array(),
+				fn( $a ) => $a['name'] === $slug . '.zip'
+			) )[0] ?? null;
+
 			$release_data = $this->prepare_release_for_response(
 				array(
-					'title'       => $release['name']     ?? '',
-					'version'     => $release['tag_name'] ?? '',
-					'note'        => $release['body']     ?? '',
-					'release_url' => $release['html_url'] ?? '',
+					'title'        => $release['name']     ?? '',
+					'version'      => $release['tag_name'] ?? '',
+					'note'         => $release['body']     ?? '',
+					'release_url'  => $release['html_url'] ?? '',
+					'download_url' => isset( $asset['browser_download_url'] ) ? esc_url_raw( $asset['browser_download_url'] ) : '',
+					'digest'       => isset( $asset['digest'] ) ? sanitize_text_field( $asset['digest'] ) : '',
 				),
 				$request
 			)->get_data();
@@ -528,17 +659,17 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 			'title'      => 'retraceur-repository-release',
 			'type'       => 'object',
 			'properties' => array(
-				'title'   => array(
+				'title'        => array(
 					'description' => __( 'The release title.' ),
 					'type'        => 'string',
 					'context'     => array( 'view' ),
 				),
-				'version' => array(
+				'version'     => array(
 					'description' => __( 'The repository release version number.' ),
 					'type'        => 'string',
 					'context'     => array( 'view' ),
 				),
-				'note'    => array(
+				'note'        => array(
 					'description' => __( 'The repository release note.' ),
 					'type'        => 'string',
 					'context'     => array( 'view' ),
@@ -554,6 +685,12 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 					'type'        => 'string',
 					'format'      => 'uri',
 					'context'     => array( 'view' ),
+				),
+				'digest'       => array(
+					'description' => __( 'The SHA256 digest of the asset (sha256:abc123...).' ),
+					'type'        => 'string',
+					'context'     => array( 'view' ),
+					'readonly'    => true,
 				),
 			),
 		);
