@@ -6,6 +6,7 @@ import {
 	Button,
 	ExternalLink,
 	Spinner,
+	privateApis as componentsPrivateApis,
 } from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
 import { useState, useCallback } from '@wordpress/element';
@@ -15,6 +16,9 @@ import { __, sprintf } from '@wordpress/i18n';
  * Internal dependencies
  */
 import discoveryStore from './../store';
+import { unlock } from '../lock-unlock';
+
+const { Tabs } = unlock( componentsPrivateApis );
 
 const actions = [
 	{
@@ -121,6 +125,7 @@ const actions = [
 		id: 'view-repository',
 		label: __( 'View details' ),
 		RenderModal: ( { items, closeModal, onInstall } ) => {
+			const [ activeTab, setActiveTab ] = useState( 'details' );
 			const [ item ] = items;
 			const { repository, isRequesting } = useSelect( ( select ) => {
 				return {
@@ -128,6 +133,17 @@ const actions = [
 					isRequesting: select( discoveryStore ).isRequestingRepository( item.full_name ),
 				};
 			}, [] );
+
+			// Releases are only fetched if the corresponding tab is active.
+			const { releases, isRequestingReleases } = useSelect( ( select ) => {
+				if ( activeTab !== 'releases' ) {
+					return { releases: [], isRequestingReleases: false };
+				}
+				return {
+					releases:             select( discoveryStore ).getReleases( item.full_name ),
+					isRequestingReleases: select( discoveryStore ).isRequestingReleases( item.full_name ),
+				};
+			}, [ activeTab ] );
 
 			if ( isRequesting ) {
 				return <Spinner />;
@@ -147,124 +163,99 @@ const actions = [
 							e.target.src = `https://opengraph.github.com/repo/${ repository.full_name }`;
 						} }
 					/>
-					<p>{ repository.description }</p>
-					{ repository.requires_retraceur && (
-						<p>
-							{ sprintf(
-								/* Translators: %s is the version number. */
-								__( 'Requires Retraceur %s or higher.' ),
-								repository.requires_retraceur
+					<Tabs
+						defaultTabId="details"
+						onSelect={ ( tabId ) => setActiveTab( tabId ) }
+					>
+						<Tabs.TabList>
+							<Tabs.Tab tabId="details">
+								{ __( 'Details' ) }
+							</Tabs.Tab>
+							<Tabs.Tab tabId="releases">
+								{ __( 'Releases' ) }
+							</Tabs.Tab>
+						</Tabs.TabList>
+
+						<Tabs.TabPanel tabId="details">
+							<p>{ repository.description }</p>
+							{ repository.requires_retraceur && (
+								<p>
+									{ sprintf(
+										/* Translators: %s is the version number. */
+										__( 'Requires Retraceur %s or higher.' ),
+										repository.requires_retraceur
+									) }
+								</p>
 							) }
-						</p>
-					) }
-					{ repository.requires_php && (
-						<p>
-							{ sprintf(
-								/* Translators: %s is the version number. */
-								__( 'Requires PHP %s or higher.' ),
-								repository.requires_php
+							{ repository.requires_php && (
+								<p>
+									{ sprintf(
+										/* Translators: %s is the version number. */
+										__( 'Requires PHP %s or higher.' ),
+										repository.requires_php
+									) }
+								</p>
 							) }
-						</p>
-					) }
-					{ repository.version && (
-						<p>
-							{ sprintf(
-								/* Translators: %s is the version number. */
-								__( 'Latest version: %s' ),
-								repository.version
+							{ repository.version && (
+								<p>
+									{ sprintf(
+										/* Translators: %s is the version number. */
+										__( 'Latest version: %s' ),
+										repository.version
+									) }
+									&nbsp;
+									<Button
+										variant="primary"
+										onClick={ () => onInstall( repository ) }
+									>
+										{ __( 'Install' ) }
+									</Button>
+									&nbsp;
+									<Button
+										href={ repository.download_url }
+										variant="secondary"
+									>
+										{ __( 'Download' ) }
+									</Button>
+								</p>
 							) }
-							&nbsp;
-							<Button
-								variant="primary"
-								onClick={ () => onInstall( repository ) }
-							>
-								{ __( 'Install' ) }
-							</Button>
-							&nbsp;
-							<Button
-								href={ repository.download_url }
-								variant="secondary"
-							>
-								{ __( 'Download' ) }
-							</Button>
-						</p>
-					) }
-					{ repository.homepage && (
-						<ExternalLink href={ repository.homepage }>
-							{ __( 'Visit homepage' ) }
-						</ExternalLink>
-					) }
+							{ repository.homepage && (
+								<ExternalLink href={ repository.homepage }>
+									{ __( 'Visit homepage' ) }
+								</ExternalLink>
+							) }
+						</Tabs.TabPanel>
+						<Tabs.TabPanel tabId="releases">
+							{ isRequestingReleases && <Spinner /> }
+							{ ! isRequestingReleases && ! releases.length && (
+								<p>{ sprintf( __( 'No releases found for %s.' ), repository.name ) }</p>
+							) }
+							{ ! isRequestingReleases && !! releases.length && (
+								<ul className="retraceur-repository-modal__releases">
+									{ releases.map( ( release ) => (
+										<li key={ release.version }>
+											<strong>{ release.title }</strong>
+											<span>
+												<ExternalLink href={ release.release_url }>
+													{ __( 'Release note' ) }
+												</ExternalLink>
+												<Button
+													href={ release.download_url }
+													variant="secondary"
+												>
+													{ __( 'Download' ) }
+												</Button>
+											</span>
+										</li>
+									) ) }
+								</ul>
+							) }
+						</Tabs.TabPanel>
+					</Tabs>
 				</div>
 			);
 		},
 		modalHeader: __( 'Repository details' ),
-	},
-	{
-		id: 'view-releases',
-		label: __( 'View releases' ),
-		RenderModal: ( { items } ) => {
-			const [ repository ] = items;
-			const { releases, isRequesting } = useSelect( ( select ) => {
-				return {
-					releases:     select( discoveryStore ).getReleases( repository.full_name ),
-					isRequesting: select( discoveryStore ).isRequestingReleases( repository.full_name ),
-				};
-			}, [] );
-
-			if ( isRequesting ) {
-				return <Spinner />;
-			}
-
-			if ( ! releases.length ) {
-				return (
-					<p>
-						{ sprintf(
-							/* Translators: %s is the repository name. */
-							__( 'No releases found for %s.' ),
-							repository.name
-						) }
-					</p>
-				);
-			}
-
-			const releasesList = releases.map( ( release, id ) => {
-				return (
-					<li key={ release.version }>
-						<div>
-							<strong>{ release.title }</strong>
-							<span>
-								&nbsp;(
-								<ExternalLink href={ release.release_url }>
-									{ __( 'Release note' ) }
-								</ExternalLink>
-								)&nbsp;
-								<Button
-									href={ release.download_url }
-									variant="primary"
-								>
-									{ __( 'Download' ) }
-								</Button>
-							</span>
-						</div>
-					</li>
-				);
-			} );
-
-			return (
-				<div>
-					<h2>
-						{
-							/* Translators: %s is the repository name. */
-							sprintf( __( '%s’s releases' ), repository.name )
-						}
-					</h2>
-					<ul>
-						{ releasesList }
-					</ul>
-				</div>
-			);
-		},
-		modalHeader: __( 'Available releases' )
 	},
 ]
 

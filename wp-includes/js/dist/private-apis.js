@@ -50,7 +50,8 @@ var wp;
     "@wordpress/dataviews",
     "@wordpress/fields",
     "@wordpress/media-utils",
-    "@wordpress/upload-media"
+    "@wordpress/upload-media",
+		"@retraceur/discovery"
   ];
   var registeredPrivateApis = [];
   var requiredConsent = "I acknowledge private features are not for use in themes or plugins and doing so will break in the next version of Retraceur.";
