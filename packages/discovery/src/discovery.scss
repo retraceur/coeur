@@ -39,4 +39,135 @@
 	.components-modal__content img {
 		max-width: 100%;
 	}
+
+	.components-modal__content {
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.retraceur-repository-modal__spinner {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 40px 0;
+	}
+
+	.retraceur-repository-modal__header {
+		display: flex;
+		flex-direction: column;
+		border-bottom: 1px solid #e0e0e0;
+
+		img {
+			width: 100%;
+			display: block;
+			flex-shrink: 0;
+		}
+	}
+
+	.retraceur-repository-modal__header-meta {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 16px;
+		padding: 16px 24px;
+		min-width: 0;
+		border-top: 1px solid #e0e0e0;
+		background: #f9f9f9;
+	}
+
+	.retraceur-repository-modal__title {
+		margin: 0;
+		font-size: 1.1rem;
+		font-weight: 600;
+		color: #1e1e1e;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.retraceur-repository-modal__actions {
+		display: flex;
+		gap: 8px;
+		align-items: center;
+		flex-shrink: 0;
+	}
+
+	.components-tabs__tablist {
+		padding: 0 24px;
+		border-bottom: 1px solid #e0e0e0;
+	}
+
+	.components-tabs__tab-panel {
+		padding: 20px 24px;
+	}
+
+	.retraceur-repository-modal__details {
+		margin: 1em;
+	}
+
+	.retraceur-repository-modal__description {
+		margin: 0 0 16px;
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		gap: 12px;
+		color: #3c434a;
+		font-size: 0.9rem;
+
+		span:first-child {
+			flex: 1;
+			min-width: 0;
+		}
+	}
+
+	.retraceur-repository-modal__details-meta {
+		display: grid;
+		grid-template-columns: max-content 1fr;
+		gap: 6px 16px;
+		margin: 0;
+		font-size: 0.875rem;
+
+		dt {
+			color: #757575;
+			font-weight: 500;
+		}
+
+		dd {
+			margin: 0;
+			color: #1e1e1e;
+		}
+	}
+
+	.retraceur-repository-modal__releases {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 2px;
+
+		li {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 10px 12px;
+			border-radius: 4px;
+			transition: background 0.1s ease;
+
+			&:hover {
+				background: #f0f0f0;
+			}
+
+			span {
+				display: flex;
+				align-items: center;
+				gap: 8px;
+			}
+		}
+	}
+
+	.components-notice {
+		margin: 1em 0;
+	}
 }

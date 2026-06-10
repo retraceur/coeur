@@ -5,6 +5,7 @@ import apiFetch from '@wordpress/api-fetch';
 import {
 	Button,
 	ExternalLink,
+	Notice,
 	Spinner,
 	privateApis as componentsPrivateApis,
 } from '@wordpress/components';
@@ -60,7 +61,11 @@ const actions = [
 			}, [ repository ] );
 
 			if ( isInstalling || isRequesting ) {
-				return <Spinner />;
+				return (
+					<div className="retraceur-repository-modal__spinner">
+						<Spinner />
+					</div>
+				);
 			}
 
 			if ( ! repository.version ) {
@@ -146,23 +151,64 @@ const actions = [
 			}, [ activeTab ] );
 
 			if ( isRequesting ) {
-				return <Spinner />;
+				return (
+					<div className="retraceur-repository-modal__spinner">
+						<Spinner />
+					</div>
+				);
 			}
 
+			const hasRelease = !! repository.version;
+			const hasAsset   = !! repository.download_url;
+
 			return (
-				<div>
-					<img
-						alt={ sprintf(
-							/* Translators: %s is the repository name. */
-							__( 'Preview image of %s' ),
-							repository.name
-						) }
-						src={ repository.image }
-						onError={ ( e ) => {
-							e.target.onerror = null;
-							e.target.src = `https://opengraph.github.com/repo/${ repository.full_name }`;
-						} }
-					/>
+				<div className="retraceur-repository-modal">
+					<div className="retraceur-repository-modal__header">
+						<img
+							alt={ sprintf(
+								/* Translators: %s is the repository name. */
+								__( 'Preview image of %s' ),
+								repository.name
+							) }
+							src={ repository.image }
+							onError={ ( e ) => {
+								e.target.onerror = null;
+								e.target.src = `https://opengraph.github.com/repo/${ repository.full_name }`;
+							} }
+						/>
+						<div className="retraceur-repository-modal__header-meta">
+							<h2 className="retraceur-repository-modal__title">
+								{ repository.name }
+							</h2>
+							<div className="retraceur-repository-modal__actions">
+								{ hasAsset && (
+									<>
+										<Button
+											variant="primary"
+											onClick={ () => onInstall( repository ) }
+										>
+											{ sprintf(
+												/* Translators: %s is the version number. */
+												__( 'Install %s' ),
+												repository.version
+											) }
+										</Button>
+										<Button
+											href={ repository.download_url }
+											variant="secondary"
+										>
+											{ sprintf(
+												/* Translators: %s is the version number. */
+												__( 'Download %s' ),
+												repository.version
+											) }
+										</Button>
+									</>
+								) }
+							</div>
+						</div>
+					</div>
+
 					<Tabs
 						defaultTabId="details"
 						onSelect={ ( tabId ) => setActiveTab( tabId ) }
@@ -177,56 +223,63 @@ const actions = [
 						</Tabs.TabList>
 
 						<Tabs.TabPanel tabId="details">
-							<p>{ repository.description }</p>
-							{ repository.requires_retraceur && (
-								<p>
-									{ sprintf(
-										/* Translators: %s is the version number. */
-										__( 'Requires Retraceur %s or higher.' ),
-										repository.requires_retraceur
-									) }
+							{ ! hasRelease && (
+								<Notice
+									status="warning"
+									isDismissible={ false }
+								>
+									<p>{ __( 'No release available yet.' ) }</p>
+								</Notice>
+							) }
+							{ hasRelease && ! hasAsset && (
+								<Notice
+									status="warning"
+									isDismissible={ false }
+								>
+									<p>{ __( 'No installable asset found for this release.' ) }</p>
+								</Notice>
+							) }
+							<div className="retraceur-repository-modal__details">
+								<p className="retraceur-repository-modal__description">
+									<span>{ repository.description }</span>
+									<span>
+										<ExternalLink href={ repository.html_url }>
+											{ __( 'Discover more' ) }
+										</ExternalLink>
+									</span>
 								</p>
-							) }
-							{ repository.requires_php && (
-								<p>
-									{ sprintf(
-										/* Translators: %s is the version number. */
-										__( 'Requires PHP %s or higher.' ),
-										repository.requires_php
+								<dl className="retraceur-repository-modal__details-meta">
+									{ repository.requires_retraceur && (
+										<>
+											<dt>{ __( 'Requires Retraceur' ) }</dt>
+											<dd>{ repository.requires_retraceur }</dd>
+										</>
 									) }
-								</p>
-							) }
-							{ repository.version && (
-								<p>
-									{ sprintf(
-										/* Translators: %s is the version number. */
-										__( 'Latest version: %s' ),
-										repository.version
+									{ repository.requires_php && (
+										<>
+											<dt>{ __( 'Requires PHP' ) }</dt>
+											<dd>{ repository.requires_php }</dd>
+										</>
 									) }
-									&nbsp;
-									<Button
-										variant="primary"
-										onClick={ () => onInstall( repository ) }
-									>
-										{ __( 'Install' ) }
-									</Button>
-									&nbsp;
-									<Button
-										href={ repository.download_url }
-										variant="secondary"
-									>
-										{ __( 'Download' ) }
-									</Button>
-								</p>
-							) }
-							{ repository.homepage && (
-								<ExternalLink href={ repository.homepage }>
-									{ __( 'Visit homepage' ) }
-								</ExternalLink>
-							) }
+									{ repository.last_updated && (
+										<>
+											<dt>{ __( 'Last updated' ) }</dt>
+											<dd>{ repository.last_updated }</dd>
+										</>
+									) }
+									<dt>{ __( 'Stars' ) }</dt>
+									<dd>{ repository.stargazers_count }</dd>
+									<dt>{ __( 'Open issues' ) }</dt>
+									<dd>{ repository.open_issues_count }</dd>
+								</dl>
+							</div>
 						</Tabs.TabPanel>
 						<Tabs.TabPanel tabId="releases">
-							{ isRequestingReleases && <Spinner /> }
+							{ isRequestingReleases && (
+								<div className="retraceur-repository-modal__spinner">
+									<Spinner />
+								</div>
+							) }
 							{ ! isRequestingReleases && ! releases.length && (
 								<p>{ sprintf( __( 'No releases found for %s.' ), repository.name ) }</p>
 							) }
