@@ -10,6 +10,7 @@ import {
 	privateApis as componentsPrivateApis,
 } from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
+import { dateI18n } from '@wordpress/date';
 import { useState, useCallback } from '@wordpress/element';
 import { __, sprintf } from '@wordpress/i18n';
 
@@ -131,6 +132,9 @@ const actions = [
 		label: __( 'View details' ),
 		RenderModal: ( { items, closeModal, onInstall } ) => {
 			const [ activeTab, setActiveTab ] = useState( 'details' );
+			const discoverySettings = useSelect( ( select ) => {
+				return select( discoveryStore ).getSettings();
+			}, [] );
 			const [ item ] = items;
 			const { repository, isRequesting } = useSelect( ( select ) => {
 				return {
@@ -264,7 +268,7 @@ const actions = [
 									{ repository.last_updated && (
 										<>
 											<dt>{ __( 'Last updated' ) }</dt>
-											<dd>{ repository.last_updated }</dd>
+											<dd>{ dateI18n( discoverySettings.dateFormat, repository.last_updated ) }</dd>
 										</>
 									) }
 									<dt>{ __( 'Stars' ) }</dt>

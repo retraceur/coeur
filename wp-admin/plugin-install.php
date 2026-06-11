@@ -18,13 +18,20 @@ if ( defined( 'IS_BLOCKS_ADMIN' ) && IS_BLOCKS_ADMIN ) {
 	$plugin_type  = 'block';
 }
 
-// Init discovery settings.
-$discovery_settings = array( 'pluginType' =>  $plugin_type );
-
 /**
  * Retraceur Administration Bootstrap.
  */
 require_once __DIR__ . '/admin.php';
+
+// Init discovery settings.
+$discovery_settings = array(
+	'pluginType' => $plugin_type,
+	'versions'   => array(
+		'retraceur' => retraceur_get_version(),
+		'php'       => PHP_VERSION,
+	),
+	'dateFormat' => get_option( 'date_format' ),
+);
 
 if ( ! current_user_can( 'install_plugins' ) ) {
 	if ( 'block' === $plugin_type ) {

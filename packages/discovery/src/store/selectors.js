@@ -1,4 +1,14 @@
 /**
+ * Returns the discovery settings.
+ *
+ * @param {Object} state Global application state.
+ * @return {Object} The discovery settings.
+ */
+export const getSettings = ( state ) => {
+	return state.settings || {};
+};
+
+/**
  * Returns whether the repositories are being requested.
  *
  * @param {Object} state Global application state.

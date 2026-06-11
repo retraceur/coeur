@@ -8,6 +8,12 @@
  */
 const reducer = ( state = {}, action ) => {
 	switch ( action.type ) {
+		case 'SET_DISCOVERY_SETTINGS':
+			return {
+				...state,
+				settings: action.settings,
+			};
+
 		case 'FETCH_REPOS':
 			return {
 				...state,

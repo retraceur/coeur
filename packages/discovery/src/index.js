@@ -2,7 +2,7 @@
  * WP dependencies
  */
 import { Modal } from '@wordpress/components';
-import { useSelect } from '@wordpress/data';
+import { useSelect, useDispatch } from '@wordpress/data';
 import { DataViews, filterSortAndPaginate } from '@wordpress/dataviews';
 import domReady from '@wordpress/dom-ready';
 import {
@@ -28,6 +28,15 @@ import './discovery.scss';
 
 const Discovery = ( { settings } ) => {
 	const { pluginType } = settings;
+	const { setSettings } = useDispatch( discoveryStore );
+	const discoverySettings = useSelect( ( select ) => {
+		return select( discoveryStore ).getSettings();
+	}, [] );
+
+	// Set discovery settings.
+	if ( ! discoverySettings.pluginType ) {
+		setSettings( settings );
+	}
 	const repositories = useSelect( ( select ) => {
 		return select( discoveryStore ).getRepositories( pluginType );
 	}, [] );

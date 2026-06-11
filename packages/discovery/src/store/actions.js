@@ -1,4 +1,17 @@
 /**
+ * Returns an action object used to set discovery settings.
+ *
+ * @param {array} settings The discovery settings.
+ * @return {Object} Object for action.
+ */
+export function setSettings( settings ) {
+	return {
+		type: 'SET_DISCOVERY_SETTINGS',
+		settings,
+	};
+}
+
+/**
  * Returns an action object used in signalling that the repositories
  * have been requested and are loading.
  *
