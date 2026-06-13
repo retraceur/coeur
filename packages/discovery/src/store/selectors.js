@@ -82,3 +82,27 @@ export function getRepository( state, repository ) {
 	const details = state?.details?.[ repository ] ?? {};
 	return { ...base, ...details };
 }
+
+/**
+ * Returns whether the changelog for a given repository is being requested.
+ *
+ * @param {Object} state      Global application state.
+ * @param {string} repository The repository full name.
+ *
+ * @return {boolean} Whether the changelog is being requested.
+ */
+export function isRequestingChangelog( state, repository ) {
+	return state?.loadingChangelogs?.[ repository ] ?? false;
+}
+
+/**
+ * Returns the changelog for a given repository.
+ *
+ * @param {Object} state      Global application state.
+ * @param {string} repository The repository full name.
+ *
+ * @return {string|null} The changelog HTML content, or null if not yet fetched.
+ */
+export function getChangelog( state, repository ) {
+	return state?.changelogs?.[ repository ] ?? null;
+}

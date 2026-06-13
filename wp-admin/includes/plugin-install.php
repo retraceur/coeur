@@ -253,22 +253,34 @@ function retraceur_discovery_request( $endpoint, $args = array() ) {
 	 */
 	$base_url = apply_filters( 'retraceur_discovery_provider_url', 'https://api.github.com' );
 
-	$token     = defined( 'RETRACEUR_GHT' ) && RETRACEUR_GHT ? RETRACEUR_GHT : get_option( 'retraceur_github_token', '' );
-	$http_args = array(
-		'timeout' => 15,
-		'headers' => array(
-			'X-GitHub-Api-Version' => '2026-03-10',
-			'Accept'               => 'application/vnd.github+json',
-			'User-Agent'           => 'Retraceur/' . retraceur_get_version() . '; ' . home_url( '/' ),
-		),
+	$default_headers = array(
+		'X-GitHub-Api-Version' => '2026-03-10',
+		'Accept'               => 'application/vnd.github+json',
+		'User-Agent'           => 'Retraceur/' . retraceur_get_version() . '; ' . home_url( '/' ),
 	);
 
+	$token = defined( 'RETRACEUR_GHT' ) && RETRACEUR_GHT ? RETRACEUR_GHT : get_option( 'retraceur_github_token', '' );
 	if ( $token ) {
-		$http_args['headers']['Authorization'] = 'Bearer ' . $token;
+		$default_headers['Authorization'] = 'Bearer ' . $token;
 	}
 
+	// Should the response be returned as raw?
+	$get_raw = isset( $args['raw'] ) && true === $args['raw'];
+	unset( $args['raw'] );
+
+	// Deeply merge headers.
+	$merged_headers = array_merge( $default_headers, $args['headers'] ?? array() );
+
+	$http_args = array(
+		'timeout' => 15,
+		'headers' => $merged_headers,
+	);
+
+	// Remove passed headers before parsing args.
+	unset( $args['headers'] );
 	$http_args = wp_parse_args( $args, $http_args );
 
+	// Set URL to request.
 	$url      = $base_url . $endpoint;
 	$ssl      = wp_http_supports( array( 'ssl' ) );
 	$http_url = $url;
@@ -300,14 +312,17 @@ function retraceur_discovery_request( $endpoint, $args = array() ) {
 	}
 
 	$code = (int) wp_remote_retrieve_response_code( $request );
-	$body = json_decode( wp_remote_retrieve_body( $request ), true );
-
 	if ( $code !== 200 ) {
 		return new WP_Error(
 			'retraceur_discovery_api_error',
 			$body['message'] ?? __( 'An error occurred. Please try again later.' ),
 			array( 'status' => $code )
 		);
+	}
+
+	$body = wp_remote_retrieve_body( $request );
+	if ( ! $get_raw ) {
+		$body = json_decode( wp_remote_retrieve_body( $request ), true );
 	}
 
 	return $body;
@@ -438,6 +453,68 @@ function retraceur_discovery_api( $action, $args = array() ) {
 			} else {
 				$res = $cached;
 			}
+		} elseif ( 'retraceur-changelog' === $action ) {
+			if ( empty( $args['repository'] ) ) {
+				return new WP_Error(
+					'retraceur_discovery_missing_repository',
+					__( 'Please provide the repository full name.' ),
+					array( 'status' => 400 )
+				);
+			}
+
+			$repository = sanitize_text_field( $args['repository'] );
+			$cache_key  = 'retraceur_discovery_changelog_' . md5( $repository );
+			$cached     = get_transient( $cache_key );
+
+			if ( false !== $cached ) {
+				return $cached;
+			}
+
+			$changelog = retraceur_discovery_request(
+				'/repos/' . $repository . '/contents/CHANGELOG.md',
+				array(
+					'raw'     => true,
+					'headers' => array(
+						'Accept' => 'application/vnd.github.html+json',
+					),
+				)
+			);
+
+			$empty_changelog = new WP_Error(
+				'retraceur_discovery_empty_changelog',
+				__( 'The repository changelog is not available or empty.' ),
+				array( 'status' => 404 )
+			);
+
+			if ( is_wp_error( $changelog ) ) {
+				// 404 = pas de CHANGELOG.md, ce n'est pas une erreur fatale.
+				if ( 404 === ( $changelog->get_error_data()['status'] ?? 0 ) ) {
+					return $empty_changelog;
+				}
+
+				return $changelog;
+			}
+
+			if ( empty( $changelog ) ) {
+				return $empty_changelog;
+			}
+
+			// No need to parse block attributes.
+			remove_filter( 'pre_kses', 'wp_pre_kses_block_attributes', 10 );
+
+			$allowed_tags = wp_kses_allowed_html( 'post' );
+			unset( $allowed_tags['a'] );
+			$changelog = wp_kses( $changelog, $allowed_tags );
+
+			// Remove potential changelog title.
+			$changelog = preg_replace( '/<h1[^>]*>.*?<\/h1>/is', '', $changelog, 1 );
+
+			// Resume the block attributes filter.
+			add_filter( 'pre_kses', 'wp_pre_kses_block_attributes', 10, 3 );
+
+			set_transient( $cache_key, $changelog, DAY_IN_SECONDS );
+
+			return $changelog;
 		} else {
 			$api_args      = $args;
 			$api_args['q'] = 'topic:' . $action;
