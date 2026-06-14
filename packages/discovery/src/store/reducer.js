@@ -71,6 +71,28 @@ const reducer = ( state = {}, action ) => {
 					[ action.repository ]: action.repositoryDetails,
 				},
 			};
+
+		case 'FETCH_CHANGELOG':
+			return {
+				...state,
+				loadingChangelogs: {
+					...state.loadingChangelogs,
+					[ action.repository ]: true,
+				},
+			};
+
+		case 'RECEIVE_CHANGELOG':
+			return {
+				...state,
+				loadingChangelogs: {
+					...state.loadingChangelogs,
+					[ action.repository ]: false,
+				},
+				changelogs: {
+					...state.changelogs,
+					[ action.repository ]: action.changelog,
+				},
+			};
 	}
 	return state;
 };

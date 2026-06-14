@@ -99,3 +99,35 @@ export function receiveRepository( repositoryDetails, repository ) {
 		repository,
 	};
 }
+
+/**
+ * Returns an action object used in signalling that the changelog
+ * for a repository is being requested.
+ *
+ * @param {string} repository The repository full name.
+ *
+ * @return {Object} Action object.
+ */
+export function fetchChangelog( repository ) {
+	return {
+		type: 'FETCH_CHANGELOG',
+		repository,
+	};
+}
+
+/**
+ * Returns an action object used in signalling that the changelog
+ * for a repository has been fetched.
+ *
+ * @param {string} changelog  The repository changelog HTML content.
+ * @param {string} repository The repository full name.
+ *
+ * @return {Object} Action object.
+ */
+export function receiveChangelog( changelog, repository ) {
+	return {
+		type: 'RECEIVE_CHANGELOG',
+		changelog,
+		repository,
+	};
+}

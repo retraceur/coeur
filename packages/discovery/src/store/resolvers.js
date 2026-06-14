@@ -13,6 +13,8 @@ import {
 	receiveReleases,
 	fetchRepository,
     receiveRepository,
+	fetchChangelog,
+	receiveChangelog,
 } from './actions';
 
 export const getRepositories = ( pluginType ) => async ( { dispatch } ) => {
@@ -53,5 +55,27 @@ export const getRepository = ( repository ) => async ( { dispatch } ) => {
 		} );
 
 		dispatch( receiveRepository( repositoryDetails, repository ) );
+	} catch {}
+};
+
+/**
+ * Fetches the changelog for a given repository from the discovery API.
+ * Only triggered when getChangelog() is called from a component —
+ * i.e. when the Changelog tab is active.
+ *
+ * @param {string} repository The repository full name.
+ */
+export const getChangelog = ( repository ) => async ( { dispatch } ) => {
+	if ( ! repository ) {
+		return;
+	}
+
+	try {
+		dispatch( fetchChangelog( repository ) );
+		const result = await apiFetch( {
+			path: `/wp/v2/discover/changelog?repository=${ repository }`,
+		} );
+
+		dispatch( receiveChangelog( result.content, repository ) );
 	} catch {}
 };

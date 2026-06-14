@@ -11,7 +11,11 @@ import {
 } from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
 import { dateI18n } from '@wordpress/date';
-import { useState, useCallback } from '@wordpress/element';
+import {
+	useState,
+	useCallback,
+	RawHTML,
+} from '@wordpress/element';
 import { __, sprintf } from '@wordpress/i18n';
 
 /**
@@ -30,7 +34,7 @@ const actions = [
 			const [ item ]                      = items;
 			const { repository, isRequesting } = useSelect( ( select ) => {
 				return {
-					repository:   select( discoveryStore ).getRepository( item.full_name ),
+					repository: select( discoveryStore ).getRepository( item.full_name ),
 					isRequesting: select( discoveryStore ).isRequestingRepository( item.full_name ),
 				};
 			}, [] );
@@ -138,7 +142,7 @@ const actions = [
 			const [ item ] = items;
 			const { repository, isRequesting } = useSelect( ( select ) => {
 				return {
-					repository:   select( discoveryStore ).getRepository( item.full_name ),
+					repository: select( discoveryStore ).getRepository( item.full_name ),
 					isRequesting: select( discoveryStore ).isRequestingRepository( item.full_name ),
 				};
 			}, [] );
@@ -149,8 +153,19 @@ const actions = [
 					return { releases: [], isRequestingReleases: false };
 				}
 				return {
-					releases:             select( discoveryStore ).getReleases( item.full_name ),
+					releases: select( discoveryStore ).getReleases( item.full_name ),
 					isRequestingReleases: select( discoveryStore ).isRequestingReleases( item.full_name ),
+				};
+			}, [ activeTab ] );
+
+			// Changelog is only fetched if the corresponding tab is active.
+			const { changelog, isRequestingChangelog } = useSelect( ( select ) => {
+				if ( activeTab !== 'changelog' ) {
+					return { changelog: null, isRequestingChangelog: false };
+				}
+				return {
+					changelog: select( discoveryStore ).getChangelog( item.full_name ),
+					isRequestingChangelog: select( discoveryStore ).isRequestingChangelog( item.full_name ),
 				};
 			}, [ activeTab ] );
 
@@ -224,6 +239,9 @@ const actions = [
 							<Tabs.Tab tabId="releases">
 								{ __( 'Releases' ) }
 							</Tabs.Tab>
+							<Tabs.Tab tabId="changelog">
+								{ __( 'Changelog' ) }
+							</Tabs.Tab>
 						</Tabs.TabList>
 
 						<Tabs.TabPanel tabId="details">
@@ -285,7 +303,12 @@ const actions = [
 								</div>
 							) }
 							{ ! isRequestingReleases && ! releases.length && (
-								<p>{ sprintf( __( 'No releases found for %s.' ), repository.name ) }</p>
+								<Notice
+									status="warning"
+									isDismissible={ false }
+								>
+									<p>{ sprintf( __( 'No releases found for %s.' ), repository.name ) }</p>
+								</Notice>
 							) }
 							{ ! isRequestingReleases && !! releases.length && (
 								<ul className="retraceur-repository-modal__releases">
@@ -306,6 +329,26 @@ const actions = [
 										</li>
 									) ) }
 								</ul>
+							) }
+						</Tabs.TabPanel>
+						<Tabs.TabPanel tabId="changelog">
+							{ isRequestingChangelog && (
+								<div className="retraceur-repository-modal__spinner">
+									<Spinner />
+								</div>
+							) }
+							{ ! isRequestingChangelog && ! changelog && (
+								<Notice
+									status="warning"
+									isDismissible={ false }
+								>
+									<p>{ __( 'No changelog available.' ) }</p>
+								</Notice>
+							) }
+							{ ! isRequestingChangelog && !! changelog && (
+								<RawHTML className="retraceur-repository-modal__changelog">
+									{ changelog }
+								</RawHTML>
 							) }
 						</Tabs.TabPanel>
 					</Tabs>

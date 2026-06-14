@@ -105,6 +105,32 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 
 		register_rest_route(
 			$this->namespace,
+			'/' . $this->rest_base . '/changelog',
+			array(
+				array(
+					'methods'             => WP_REST_Server::READABLE,
+					'callback'            => array( $this, 'get_changelog' ),
+					'permission_callback' => array( $this, 'get_items_permissions_check' ),
+					'args'                => array(
+						'context'    => array(
+							'description' => __( 'Scope under which the request is made.' ),
+							'type'        => 'string',
+							'default'     => 'view',
+						),
+						'repository' => array(
+							'description' => __( 'The repository full name (owner/repo).' ),
+							'type'        => 'string',
+							'required'    => true,
+							'pattern'     => '^[a-zA-Z0-9_.-]+/[a-zA-Z0-9_.-]+$',
+						),
+					),
+				),
+				'schema' => array( $this, 'get_changelog_schema' ),
+			)
+		);
+
+		register_rest_route(
+			$this->namespace,
 			'/' . $this->rest_base . '/install',
 			array(
 				array(
@@ -378,6 +404,34 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 		}
 
 		return rest_ensure_response( $response );
+	}
+
+	/**
+	 * Retrieves the changelog of a given repository.
+	 *
+	 * @since 4.0.0 Retraceur fork.
+	 *
+	 * @param WP_REST_Request $request Full details about the request.
+	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
+	 */
+	public function get_changelog( $request ) {
+		require_once ABSPATH . 'wp-admin/includes/plugin-install.php';
+		require_once ABSPATH . 'wp-admin/includes/plugin.php';
+
+		$repository = sanitize_text_field( $request['repository'] );
+
+		$result = retraceur_discovery_api(
+			'retraceur-changelog',
+			array( 'repository' => $repository )
+		);
+
+		if ( is_wp_error( $result ) ) {
+			$result = '';
+		}
+
+		return rest_ensure_response(
+			array( 'content' => $result )
+		);
 	}
 
 	/**
@@ -741,6 +795,29 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 				'title'      => 'retraceur-single-repository',
 				'properties' => array_merge( $base_schema['properties'], $extra_properties, $release_schema['properties'] ),
 			)
+		);
+	}
+
+	/**
+	 * Retrieves the changelog schema, conforming to JSON Schema.
+	 *
+	 * @since 4.0.0 Retraceur fork.
+	 *
+	 * @return array Changelog schema data.
+	 */
+	public function get_changelog_schema() {
+		return array(
+			'$schema'    => 'http://json-schema.org/draft-04/schema#',
+			'title'      => 'retraceur-repository-changelog',
+			'type'       => 'object',
+			'properties' => array(
+				'content' => array(
+					'description' => __( 'The repository changelog rendered as HTML.' ),
+					'type'        => 'string',
+					'context'     => array( 'view' ),
+					'readonly'    => true,
+				),
+			),
 		);
 	}
 }
