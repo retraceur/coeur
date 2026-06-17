@@ -1,4 +1,14 @@
 /**
+ * WP dependencies.
+ */
+import { __, sprintf } from '@wordpress/i18n';
+
+/**
+ * Internal dependencies.
+ */
+import { isVersionSatisfied } from './utils/version';
+
+/**
  * Returns the discovery settings.
  *
  * @param {Object} state Global application state.
@@ -7,6 +17,52 @@
 export const getSettings = ( state ) => {
 	return state.settings || {};
 };
+
+/**
+ * Returns whether a repository is compatible with the current
+ * Retraceur and PHP versions.
+ *
+ * @param {Object} state      Global application state.
+ * @param {string} repository The repository full name.
+ *
+ * @return {{ compatible: boolean, reasons: string[] }} Compatibility result.
+ */
+export function getRepositoryCompatibility( state, repository ) {
+	const details  = state?.details?.[ repository ] ?? {};
+	const versions = state?.settings?.versions ?? {};
+	const reasons  = [];
+
+	if ( details.requires_retraceur && versions.retraceur ) {
+		if ( ! isVersionSatisfied( versions.retraceur, details.requires_retraceur ) ) {
+			reasons.push(
+				sprintf(
+					/* Translators: 1: required version, 2: installed version. */
+					__( 'Requires Retraceur %1$s or higher. You are running %2$s.' ),
+					details.requires_retraceur,
+					versions.retraceur
+				)
+			);
+		}
+	}
+
+	if ( details.requires_php && versions.php ) {
+		if ( ! isVersionSatisfied( versions.php, details.requires_php ) ) {
+			reasons.push(
+				sprintf(
+					/* Translators: 1: required version, 2: installed version. */
+					__( 'Requires PHP %1$s or higher. You are running %2$s.' ),
+					details.requires_php,
+					versions.php
+				)
+			);
+		}
+	}
+
+	return {
+		compatible: reasons.length === 0,
+		reasons,
+	};
+}
 
 /**
  * Returns whether the repositories are being requested.

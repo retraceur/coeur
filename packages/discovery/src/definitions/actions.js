@@ -32,10 +32,11 @@ const actions = [
 		label: __( 'Install latest' ),
 		RenderModal: ( { items, closeModal } ) => {
 			const [ item ]                      = items;
-			const { repository, isRequesting } = useSelect( ( select ) => {
+			const { repository, isRequesting, compatibility } = useSelect( ( select ) => {
 				return {
 					repository: select( discoveryStore ).getRepository( item.full_name ),
 					isRequesting: select( discoveryStore ).isRequestingRepository( item.full_name ),
+					compatibility: select( discoveryStore ).getRepositoryCompatibility( item.full_name ),
 				};
 			}, [] );
 			const [ isInstalling, setInstalling ] = useState( false );
@@ -82,6 +83,24 @@ const actions = [
 							repository.name
 						) }
 					</p>
+				);
+			}
+
+			if ( ! compatibility.compatible ) {
+				return (
+					<>
+						<Notice status="warning" isDismissible={ false }>
+							<p>{ __( 'This repository is not compatible with your installation:' ) }</p>
+							<ul>
+								{ compatibility.reasons.map( ( reason, i ) => (
+									<li key={ i }>{ reason }</li>
+								) ) }
+							</ul>
+						</Notice>
+						<Button variant="tertiary" onClick={ closeModal }>
+							{ __( 'Cancel' ) }
+						</Button>
+					</>
 				);
 			}
 
@@ -140,10 +159,11 @@ const actions = [
 				return select( discoveryStore ).getSettings();
 			}, [] );
 			const [ item ] = items;
-			const { repository, isRequesting } = useSelect( ( select ) => {
+			const { repository, isRequesting, compatibility } = useSelect( ( select ) => {
 				return {
 					repository: select( discoveryStore ).getRepository( item.full_name ),
 					isRequesting: select( discoveryStore ).isRequestingRepository( item.full_name ),
+					compatibility: select( discoveryStore ).getRepositoryCompatibility( item.full_name ),
 				};
 			}, [] );
 
@@ -200,7 +220,7 @@ const actions = [
 								{ repository.name }
 							</h2>
 							<div className="retraceur-repository-modal__actions">
-								{ hasAsset && (
+								{ hasAsset && compatibility.compatible && (
 									<>
 										<Button
 											variant="primary"
@@ -245,6 +265,19 @@ const actions = [
 						</Tabs.TabList>
 
 						<Tabs.TabPanel tabId="details">
+							{ ! compatibility.compatible && (
+								<Notice
+									status="warning"
+									isDismissible={ false }
+								>
+									<p>{ __( 'This repository may not be compatible with your installation:' ) }</p>
+									<ul>
+										{ compatibility.reasons.map( ( reason, i ) => (
+											<li key={ i }>{ reason }</li>
+										) ) }
+									</ul>
+								</Notice>
+							) }
 							{ ! hasRelease && (
 								<Notice
 									status="warning"
