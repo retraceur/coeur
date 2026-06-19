@@ -83,6 +83,7 @@ function get_plugin_data( $plugin_file, $markup = true, $translate = true ) {
 		'Name'            => 'Plugin Name',
 		'Type'            => 'Plugin Type',
 		'PluginURI'       => 'Plugin URI',
+		'GitHubPluginURI' => 'GitHub Plugin URI',
 		'Version'         => 'Version',
 		'Description'     => 'Description',
 		'Author'          => 'Author',
