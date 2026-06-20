@@ -464,6 +464,10 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 			'default_branch'      => $default_branch,
 		);
 
+		// Check already installed repositories.
+		$installed_map              = retraceur_discovery_get_installed_map();
+		$repository['is_installed'] = isset( $installed_map[ strtolower( $full_name ) ] );
+
 		$response = new WP_REST_Response( $repository );
 
 		return $response;
@@ -650,6 +654,12 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 					'description' => __( 'The default branch name.' ),
 					'type'        => 'string',
 					'context'     => array( 'view' ),
+				),
+				'is_installed' => array(
+					'description' => __( 'Whether the repository is already installed.' ),
+					'type'        => 'boolean',
+					'context'     => array( 'view' ),
+					'readonly'    => true,
 				),
 			),
 		);

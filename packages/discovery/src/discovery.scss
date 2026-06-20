@@ -1,5 +1,30 @@
 #retraceur-discovery {
 
+	.retraceur-repository-thumbnail {
+		position: relative;
+		width: 100%;
+		height: 100%;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	}
+
+	.retraceur-repository-thumbnail__badge {
+		position: absolute;
+		top: 6px;
+		right: 6px;
+		padding: 3px 8px;
+		border-radius: 10px;
+		background-color: rgba(93, 118, 203, 0.08);
+		color: #2243b6;
+		font-size: 0.575rem;
+		font-weight: 600;
+		box-shadow: 0 1px 2px rgba( 0, 0, 0, 0.15 );
+	}
+
 	.dataviews-view-grid {
 
 		.dataviews-view-grid__media {
@@ -22,6 +47,11 @@
 	}
 
 	.dataviews-view-table {
+
+		tr:has( .retraceur-repository-name--installed ) {
+			background-color: rgba(93, 118, 203, 0.08);
+			border-left: 4px solid #2243b6;
+		}
 
 		.repo-author-link {
 
@@ -91,6 +121,17 @@
 		gap: 8px;
 		align-items: center;
 		flex-shrink: 0;
+	}
+
+	.retraceur-repository-modal__installed-badge {
+		display: inline-flex;
+		align-items: center;
+		padding: 4px 10px;
+		border-radius: 12px;
+		background-color: rgba(93, 118, 203, 0.08);
+		color: #2243b6;
+		font-size: 0.8125rem;
+		font-weight: 500;
 	}
 
 	.components-tabs__tablist {

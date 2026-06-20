@@ -30,6 +30,7 @@ const actions = [
 	{
 		id: 'install-repository',
 		label: __( 'Install latest' ),
+		isEligible: ( item ) => ! item.is_installed,
 		RenderModal: ( { items, closeModal } ) => {
 			const [ item ]                      = items;
 			const { repository, isRequesting, compatibility } = useSelect( ( select ) => {
@@ -197,8 +198,9 @@ const actions = [
 				);
 			}
 
-			const hasRelease = !! repository.version;
-			const hasAsset   = !! repository.download_url;
+			const hasRelease  = !! repository.version;
+			const hasAsset    = !! repository.download_url;
+			const isInstalled = !! repository.is_installed;
 
 			return (
 				<div className="retraceur-repository-modal">
@@ -220,7 +222,12 @@ const actions = [
 								{ repository.name }
 							</h2>
 							<div className="retraceur-repository-modal__actions">
-								{ hasAsset && compatibility.compatible && (
+								{ isInstalled && (
+									<span className="retraceur-repository-modal__installed-badge">
+										{ __( 'Installed' ) }
+									</span>
+								) }
+								{ ! isInstalled && hasAsset && compatibility.compatible && (
 									<>
 										<Button
 											variant="primary"

@@ -9,17 +9,24 @@ const fields = [
 		id: 'image',
 		label: __( 'Preview image' ),
 		render: ( { item } ) => (
-			<img
-				alt={
-					/* Translators: %s is the repository name */
-					sprintf( __( 'Preview image of the %s repository'), item.name )
-				}
-				src={ item.image }
-				onError={ ( e ) => {
-					e.target.onerror = null;
-					e.target.src = `https://opengraph.github.com/repo/${ item.full_name }`;
-				} }
-			/>
+			<div className="retraceur-repository-thumbnail">
+				<img
+					alt={
+						/* Translators: %s is the repository name */
+						sprintf( __( 'Preview image of the %s repository'), item.name )
+					}
+					src={ item.image }
+					onError={ ( e ) => {
+						e.target.onerror = null;
+						e.target.src = `https://opengraph.github.com/repo/${ item.full_name }`;
+					} }
+				/>
+				{ item.is_installed && (
+					<span className="retraceur-repository-thumbnail__badge">
+						{ __( 'Installed' ) }
+					</span>
+				) }
+			</div>
 		),
 		enableSorting: false,
 	},
@@ -36,7 +43,13 @@ const fields = [
 		getValue: ( { item } ) =>
 			`${ item.name }`,
 		render: ( { item } ) => (
-			<strong>
+			<strong
+				className={
+					item.is_installed
+						? 'retraceur-repository-name retraceur-repository-name--installed'
+						: 'retraceur-repository-name'
+				}
+			>
 				{ item.name }
 			</strong>
 		),
