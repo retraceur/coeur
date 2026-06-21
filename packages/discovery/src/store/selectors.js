@@ -87,6 +87,20 @@ export function getRepositories( state ) {
 }
 
 /**
+ * Returns the amount of repositories and remaining pages.
+ *
+ * @param {Object} state Global application state.
+ *
+ * @return {Object} The amount of repositories and remaining pages.
+ */
+export function getRepositoriesPaginationInfo( state ) {
+	return {
+		totalItems: state?.totalItems ?? 0,
+		totalPages: state?.totalPages ?? 0,
+	};
+}
+
+/**
  * Returns whether the releases for a given repository are being requested.
  *
  * @param {Object} state      Global application state.

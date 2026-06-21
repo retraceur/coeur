@@ -275,7 +275,7 @@ if ( 'block' === $plugin_type ) {
 
 $discovery_context = new WP_Block_Editor_Context( $context_settings );
 $preload_paths     = array(
-	'/wp/v2/discover/repositories?type=' . $plugin_type,
+	'/wp/v2/discover/repositories?type=' . $plugin_type . '&page=1&per_page=10',
 );
 
 block_editor_rest_api_preload( $preload_paths, $discovery_context );

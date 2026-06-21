@@ -3,7 +3,7 @@
  */
 import { Modal } from '@wordpress/components';
 import { useSelect, useDispatch } from '@wordpress/data';
-import { DataViews, filterSortAndPaginate } from '@wordpress/dataviews';
+import { DataViews } from '@wordpress/dataviews';
 import domReady from '@wordpress/dom-ready';
 import {
 	createRoot,
@@ -37,11 +37,9 @@ const Discovery = ( { settings } ) => {
 	if ( ! discoverySettings.pluginType ) {
 		setSettings( settings );
 	}
-	const repositories = useSelect( ( select ) => {
-		return select( discoveryStore ).getRepositories( pluginType );
-	}, [] );
 	const [ view, setView ] = useState( {
 		type: 'grid',
+		page: 1,
 		perPage: 10,
 		layout: defaultLayouts.grid.layout,
 		titleField: 'name',
@@ -49,9 +47,12 @@ const Discovery = ( { settings } ) => {
 		mediaField: 'image',
 		fields: ['author'],
 	} );
-	const { data: processedData, paginationInfo } = useMemo( () => {
-		return filterSortAndPaginate( repositories, view, fields );
-	}, [ view ] );
+	const { repositories, paginationInfo } = useSelect( ( select ) => {
+		return {
+			repositories:   select( discoveryStore ).getRepositories( pluginType, view.page, view.perPage ),
+			paginationInfo: select( discoveryStore ).getRepositoriesPaginationInfo(),
+		};
+	}, [ view.page, view.perPage ] );
 
 	// Used to manage the modal to display.
     const [ openRepository, SetOpenRepository ] = useState( null );
@@ -74,7 +75,7 @@ const Discovery = ( { settings } ) => {
 	return (
 		<>
 			 <DataViews
-				data={ processedData }
+				data={ repositories }
 				fields={ fields }
 				view={ view }
 				onChangeView={ setView }
