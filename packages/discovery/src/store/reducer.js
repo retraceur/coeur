@@ -22,7 +22,9 @@ const reducer = ( state = {}, action ) => {
 		case 'RECEIVE_REPOS':
 			return {
 				...state,
-				results: action.repositories,
+				results: action.repositories.items,
+				totalItems: action.repositories.total_items,
+				totalPages: action.repositories.total_pages,
 				isRequestingRepositories: false,
 			};
 		case 'FETCH_RELEASES':

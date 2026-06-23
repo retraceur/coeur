@@ -3,7 +3,7 @@
  */
 import { Modal } from '@wordpress/components';
 import { useSelect, useDispatch } from '@wordpress/data';
-import { DataViews, filterSortAndPaginate } from '@wordpress/dataviews';
+import { DataViews } from '@wordpress/dataviews';
 import domReady from '@wordpress/dom-ready';
 import {
 	createRoot,
@@ -37,11 +37,9 @@ const Discovery = ( { settings } ) => {
 	if ( ! discoverySettings.pluginType ) {
 		setSettings( settings );
 	}
-	const repositories = useSelect( ( select ) => {
-		return select( discoveryStore ).getRepositories( pluginType );
-	}, [] );
 	const [ view, setView ] = useState( {
 		type: 'grid',
+		page: 1,
 		perPage: 10,
 		layout: defaultLayouts.grid.layout,
 		titleField: 'name',
@@ -49,24 +47,27 @@ const Discovery = ( { settings } ) => {
 		mediaField: 'image',
 		fields: ['author'],
 	} );
-	const { data: processedData, paginationInfo } = useMemo( () => {
-		return filterSortAndPaginate( repositories, view, fields );
-	}, [ view ] );
+	const { repositories, paginationInfo } = useSelect( ( select ) => {
+		return {
+			repositories:   select( discoveryStore ).getRepositories( pluginType, view.page, view.perPage ),
+			paginationInfo: select( discoveryStore ).getRepositoriesPaginationInfo(),
+		};
+	}, [ view.page, view.perPage ] );
 
 	// Used to manage the modal to display.
-    const [ openRepository, SetOpenRepository ] = useState( null );
+	const [ openRepository, SetOpenRepository ] = useState( null );
 	const [ openInstallation, setOpenInstallation ] = useState( null );
 
 	// Fires the `view-repository` action.
-    const onClickItem = useCallback( ( repository ) => {
-        SetOpenRepository( repository );
-    }, [] );
+	const onClickItem = useCallback( ( repository ) => {
+		SetOpenRepository( repository );
+	}, [] );
 
-    // All items can be clicked.
-    const isItemClickable = useCallback( () => true, [] );
+	// All items can be clicked.
+	const isItemClickable = useCallback( () => true, [] );
 
-    // Find the action to reuse its RenderModal.
-    const viewRepositoryAction = actions.find( ( a ) => a.id === 'view-repository' );
+	// Find the action to reuse its RenderModal.
+	const viewRepositoryAction = actions.find( ( a ) => a.id === 'view-repository' );
 	const installRepositoryAction = actions.find( ( a ) => a.id === 'install-repository' );
 	const RenderModal = viewRepositoryAction?.RenderModal;
 	const InstallRepositoryModal = installRepositoryAction?.RenderModal;
@@ -74,7 +75,7 @@ const Discovery = ( { settings } ) => {
 	return (
 		<>
 			 <DataViews
-				data={ processedData }
+				data={ repositories }
 				fields={ fields }
 				view={ view }
 				onChangeView={ setView }
@@ -95,25 +96,25 @@ const Discovery = ( { settings } ) => {
 						items={ [ openRepository ] }
 						closeModal={ () => SetOpenRepository( null ) }
 						onInstall={ ( item ) => {
-                            SetOpenRepository( null );
-                            setOpenInstallation( item );
-                        } }
+							SetOpenRepository( null );
+							setOpenInstallation( item );
+						} }
 					/>
 				</Modal>
 			) }
 			{ openInstallation && InstallRepositoryModal && (
-                <Modal
-                    title={ installRepositoryAction.modalHeader }
-                    size="medium"
-                    onRequestClose={ () => setOpenInstallation( null ) }
-                    className="dataviews-action-modal dataviews-action-modal__install-repository"
-                >
-                    <InstallRepositoryModal
-                        items={ [ openInstallation ] }
-                        closeModal={ () => setOpenInstallation( null ) }
-                    />
-                </Modal>
-            ) }
+				<Modal
+					title={ installRepositoryAction.modalHeader }
+					size="medium"
+					onRequestClose={ () => setOpenInstallation( null ) }
+					className="dataviews-action-modal dataviews-action-modal__install-repository"
+				>
+					<InstallRepositoryModal
+						items={ [ openInstallation ] }
+						closeModal={ () => setOpenInstallation( null ) }
+					/>
+				</Modal>
+			) }
 		</>
     );
 }

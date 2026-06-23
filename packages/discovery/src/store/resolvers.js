@@ -17,11 +17,11 @@ import {
 	receiveChangelog,
 } from './actions';
 
-export const getRepositories = ( pluginType ) => async ( { dispatch } ) => {
+export const getRepositories = ( pluginType, page = 1, perPage = 10 ) => async ( { dispatch } ) => {
 	try {
 		dispatch( fetchRepositories() );
 		const repositories = await apiFetch( {
-			path: '/wp/v2/discover/repositories?type=' + pluginType,
+			path: `/wp/v2/discover/repositories?type=${ pluginType }&page=${ page }&per_page=${ perPage }`,
 		} );
 
 		dispatch( receiveRepositories( repositories ) );

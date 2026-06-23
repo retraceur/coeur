@@ -43,7 +43,7 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 					'permission_callback' => array( $this, 'get_items_permissions_check' ),
 					'args'                => $this->get_collection_params(),
 				),
-				'schema' => array( $this, 'get_public_item_schema' ),
+				'schema' => array( $this, 'get_repositories_collection_schema' ),
 			)
 		);
 
@@ -217,13 +217,22 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 			return $result;
 		}
 
-		$response = array();
+		$items = array();
 		foreach ( $result['items'] as $repository ) {
-			$data       = $this->prepare_item_for_response( $repository, $request );
-			$response[] = $this->prepare_response_for_collection( $data );
+			$data    = $this->prepare_item_for_response( $repository, $request );
+			$items[] = $this->prepare_response_for_collection( $data );
 		}
 
-		return rest_ensure_response( $response );
+		$total_count = (int) ( $result['total_count'] ?? count( $items ) );
+		$per_page    = (int) $request['per_page'];
+
+		return rest_ensure_response(
+			array(
+				'items'       => $items,
+				'total_items' => $total_count,
+				'total_pages' => $per_page > 0 ? (int) ceil( $total_count / $per_page ) : 0,
+			)
+		);
 	}
 
 	/**
@@ -665,6 +674,41 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 		);
 
 		return $this->add_additional_fields_schema( $this->schema );
+	}
+
+	/**
+	 * Retrieves the repositories collection schema, conforming to JSON Schema.
+	 *
+	 * @since 4.0.0 Retraceur fork.
+	 *
+	 * @return array Collection schema data.
+	 */
+	public function get_repositories_collection_schema() {
+		return array(
+			'$schema'    => 'http://json-schema.org/draft-04/schema#',
+			'title'      => 'retraceur-repositories-collection',
+			'type'       => 'object',
+			'properties' => array(
+				'items'       => array(
+					'description' => __( 'The list of repositories.' ),
+					'type'        => 'array',
+					'items'       => $this->get_item_schema(),
+					'context'     => array( 'view' ),
+				),
+				'total_items' => array(
+					'description' => __( 'The total number of matching repositories.' ),
+					'type'        => 'integer',
+					'context'     => array( 'view' ),
+					'readonly'    => true,
+				),
+				'total_pages' => array(
+					'description' => __( 'The total number of pages available.' ),
+					'type'        => 'integer',
+					'context'     => array( 'view' ),
+					'readonly'    => true,
+				),
+			),
+		);
 	}
 
 	/**
