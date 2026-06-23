@@ -22,9 +22,18 @@ const reducer = ( state = {}, action ) => {
 		case 'RECEIVE_REPOS':
 			return {
 				...state,
-				results: action.repositories.items,
-				totalItems: action.repositories.total_items,
-				totalPages: action.repositories.total_pages,
+				resultsByPage: {
+					...state.resultsByPage,
+					[ action.page ]: action.repositories,
+				},
+				repositoriesByFullName: {
+					...state.repositoriesByFullName,
+					...Object.fromEntries(
+						action.repositories.map( ( r ) => [ r.full_name, r ] )
+					),
+				},
+				totalItems: action.totalItems,
+				totalPages: action.totalPages,
 				isRequestingRepositories: false,
 			};
 		case 'FETCH_RELEASES':
@@ -42,15 +51,10 @@ const reducer = ( state = {}, action ) => {
 					...state.loadingReleases,
 					[ action.repository ]: false,
 				},
-				results: state.results.map( ( repository ) => {
-					if ( repository.full_name !== action.repository ) {
-						return repository;
-					}
-					return {
-						...repository,
-						releases: action.releases,
-					};
-				} ),
+				releases: {
+					...state.releases,
+					[ action.repository ]: action.releases,
+				},
 			};
 		case 'FETCH_REPOSITORY':
 			return {

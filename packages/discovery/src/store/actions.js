@@ -26,13 +26,19 @@ export function fetchRepositories() {
  * have been fetched.
  *
  * @param {Array} repositories Repositories.
+ * @param {number} totalItems The total amount of repositories.
+ * @param {number} totalPages The total amount of pages.
+ * @param {number} page The current loaded page.
  *
  * @return {Object} Action object.
  */
-export function receiveRepositories( repositories ) {
+export function receiveRepositories( repositories, totalItems, totalPages, page ) {
 	return {
 		type: 'RECEIVE_REPOS',
 		repositories,
+		totalItems,
+		totalPages,
+		page,
 	};
 }
 
