@@ -27,7 +27,7 @@ export const getRepositories = ( pluginType, page = 1, perPage = 10 ) => async (
 		const { repositories, total_items, total_pages } = items;
 
 		const totalItems = parseInt( total_items, 10 ) || 0;
-        const totalPages = parseInt( total_pages, 10 ) || 0;
+		const totalPages = parseInt( total_pages, 10 ) || 0;
 
 		dispatch( receiveRepositories( repositories, totalItems, totalPages, page ) );
 	} catch {}
