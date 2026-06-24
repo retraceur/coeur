@@ -84,6 +84,7 @@ const Discovery = ( { settings } ) => {
 				paginationInfo={ paginationInfo }
 				onClickItem={ onClickItem }
 				isItemClickable={ isItemClickable }
+				search={ false }
 			/>
 			{ openRepository && RenderModal && (
 				<Modal

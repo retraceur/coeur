@@ -20,11 +20,16 @@ import {
 export const getRepositories = ( pluginType, page = 1, perPage = 10 ) => async ( { dispatch } ) => {
 	try {
 		dispatch( fetchRepositories() );
-		const repositories = await apiFetch( {
+		const items = await apiFetch( {
 			path: `/wp/v2/discover/repositories?type=${ pluginType }&page=${ page }&per_page=${ perPage }`,
 		} );
 
-		dispatch( receiveRepositories( repositories ) );
+		const { repositories, total_items, total_pages } = items;
+
+		const totalItems = parseInt( total_items, 10 ) || 0;
+		const totalPages = parseInt( total_pages, 10 ) || 0;
+
+		dispatch( receiveRepositories( repositories, totalItems, totalPages, page ) );
 	} catch {}
 };
 

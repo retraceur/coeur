@@ -79,11 +79,14 @@ export function isRequestingRepositories( state ) {
  * Returns the repositories.
  *
  * @param {Object} state Global application state.
+ * @param {string} pluginType The type of plugin (block or regular).
+ * @param {number} page The current loaded page.
+ * @param {number} perPage The number of items to include in a page.
  *
  * @return {Array} Repositories.
  */
-export function getRepositories( state ) {
-	return state?.results ?? [];
+export function getRepositories( state, pluginType, page = 1, perPage = 10 ) {
+	return state?.resultsByPage?.[ page ] ?? [];
 }
 
 /**
@@ -121,10 +124,7 @@ export function isRequestingReleases( state, repository ) {
  * @return {Array} Releases.
  */
 export function getReleases( state, repository ) {
-	const currentRepository = state?.results.find(
-		( result ) => result.full_name === repository
-	);
-	return currentRepository?.releases ?? [];
+	return state?.releases?.[ repository ] ?? [];
 }
 
 /**
@@ -148,7 +148,7 @@ export function isRequestingRepository( state, repository ) {
  * @return {Object} Repository with details.
  */
 export function getRepository( state, repository ) {
-	const base    = state?.results?.find( ( r ) => r.full_name === repository ) ?? {};
+	const base    = state?.repositoriesByFullName?.[ repository ] ?? {};
 	const details = state?.details?.[ repository ] ?? {};
 	return { ...base, ...details };
 }

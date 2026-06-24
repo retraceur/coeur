@@ -29,12 +29,14 @@ const fields = [
 			</div>
 		),
 		enableSorting: false,
+		enableGlobalSearch: false,
 	},
 	{
 		id: 'full_name',
 		label: __( 'Full name' ),
 		getValue: ( { item } ) =>
 			`${ item.full_name }`,
+		enableSorting: false,
 		enableGlobalSearch: false,
 	},
 	{
@@ -53,14 +55,16 @@ const fields = [
 				{ item.name }
 			</strong>
 		),
-		enableGlobalSearch: true,
+		enableSorting: false,
+		enableGlobalSearch: false,
 	},
 	{
 		id: 'description',
 		label: __( 'Description' ),
 		getValue: ( { item } ) =>
 			`${ item.description }`,
-		enableGlobalSearch: true,
+		enableSorting: false,
+		enableGlobalSearch: false,
 	},
 	{
 		id: 'author',
@@ -82,6 +86,7 @@ const fields = [
 				{ item.author }
 			</ExternalLink>
 		),
+		enableSorting: false,
 		enableGlobalSearch: false,
 	},
 ];

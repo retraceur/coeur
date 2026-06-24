@@ -46,6 +46,10 @@
 		}
 	}
 
+	.components-select-control {
+		margin-top: -4px;
+	}
+
 	.dataviews-view-table {
 
 		tr:has( .retraceur-repository-name--installed ) {
@@ -201,7 +205,7 @@
 			}
 
 			span {
-				display: flex;
+				display: inline-flex;
 				align-items: center;
 				gap: 8px;
 			}

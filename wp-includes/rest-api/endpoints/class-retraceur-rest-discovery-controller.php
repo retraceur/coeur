@@ -228,9 +228,9 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 
 		return rest_ensure_response(
 			array(
-				'items'       => $items,
-				'total_items' => $total_count,
-				'total_pages' => $per_page > 0 ? (int) ceil( $total_count / $per_page ) : 0,
+				'repositories' => $items,
+				'total_items'  => $total_count,
+				'total_pages'  => $per_page > 0 ? (int) ceil( $total_count / $per_page ) : 0,
 			)
 		);
 	}
