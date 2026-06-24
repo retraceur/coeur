@@ -64,7 +64,7 @@ const fields = [
 		getValue: ( { item } ) =>
 			`${ item.description }`,
 		enableSorting: false,
-		enableGlobalSearch: false
+		enableGlobalSearch: false,
 	},
 	{
 		id: 'author',
