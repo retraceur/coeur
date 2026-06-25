@@ -2614,3 +2614,14 @@ function deactivated_plugins_notice() {
 		update_site_option( 'wp_force_deactivated_plugins', array() );
 	}
 }
+
+/**
+ * Invalidates the discovery installed map cache.
+ *
+ * @since 4.0.0 Retraceur fork.
+ */
+function retraceur_discovery_flush_installed_map() {
+	delete_transient( 'retraceur_discovery_installed_map' );
+}
+add_action( 'deleted_plugin', 'retraceur_discovery_flush_installed_map' );
+add_action( 'upgrader_process_complete', 'retraceur_discovery_flush_installed_map' );

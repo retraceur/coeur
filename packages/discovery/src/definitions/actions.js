@@ -9,7 +9,7 @@ import {
 	Spinner,
 	privateApis as componentsPrivateApis,
 } from '@wordpress/components';
-import { useSelect } from '@wordpress/data';
+import { useSelect, useDispatch } from '@wordpress/data';
 import { dateI18n } from '@wordpress/date';
 import {
 	useState,
@@ -41,8 +41,9 @@ const actions = [
 				};
 			}, [] );
 			const [ isInstalling, setInstalling ] = useState( false );
-			const [ success, setSuccess ]         = useState( null );
-			const [ error, setError ]             = useState( null );
+			const [ success, setSuccess ] = useState( null );
+			const [ error, setError ] = useState( null );
+			const { markAsInstalled } = useDispatch( discoveryStore );
 
 			const onInstall = useCallback( async () => {
 				setInstalling( true );
@@ -60,6 +61,9 @@ const actions = [
 						},
 					} );
 					setSuccess( true );
+
+					// Update installation status.
+					markAsInstalled( item.full_name );
 				} catch ( e ) {
 					setError( e?.message ?? __( 'Unknown error.' ) );
 				} finally {
