@@ -288,26 +288,11 @@ class WP_REST_Plugins_Controller extends WP_REST_Controller {
 			return $filesystem_available;
 		}
 
-		$api = plugins_api(
-			'plugin_information',
-			array(
-				'slug'   => $slug,
-				'fields' => array(
-					'sections'       => false,
-					'language_packs' => true,
-				),
-			)
+		return new WP_Error(
+			'plugins_api_disabled',
+			__( 'Retraceur does not use the WP Plugin Install API.' ),
+			array( 'status' => 500 )
 		);
-
-		if ( is_wp_error( $api ) ) {
-			if ( str_contains( $api->get_error_message(), 'Plugin not found.' ) ) {
-				$api->add_data( array( 'status' => 404 ) );
-			} else {
-				$api->add_data( array( 'status' => 500 ) );
-			}
-
-			return $api;
-		}
 
 		$skin     = new WP_Ajax_Upgrader_Skin();
 		$upgrader = new Plugin_Upgrader( $skin );

@@ -685,24 +685,10 @@ class WP_Plugin_Dependencies {
 				}
 			}
 
-			if ( ! function_exists( 'plugins_api' ) ) {
-				require_once ABSPATH . 'wp-admin/includes/plugin-install.php';
-			}
-
-			$information = plugins_api(
-				'plugin_information',
-				array(
-					'slug'   => $slug,
-					'fields' => array(
-						'short_description' => true,
-						'icons'             => true,
-					),
-				)
+			$information = new WP_Error(
+				'plugins_api_disabled',
+				__( 'Retraceur does not use the WP Plugin Install API.' )
 			);
-
-			if ( is_wp_error( $information ) ) {
-				continue;
-			}
 
 			self::$dependency_api_data[ $slug ] = (array) $information;
 			// plugins_api() returns 'name' not 'Name'.

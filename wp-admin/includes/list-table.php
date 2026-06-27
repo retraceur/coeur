@@ -29,7 +29,6 @@ function _get_list_table( $class_name, $args = array() ) {
 		'WP_Terms_List_Table'                         => 'terms',
 		'WP_Users_List_Table'                         => 'users',
 		'WP_Links_List_Table'                         => 'links',
-		'WP_Plugin_Install_List_Table'                => 'plugin-install',
 		'WP_Themes_List_Table'                        => 'themes',
 		'WP_Theme_Install_List_Table'                 => array( 'themes', 'theme-install' ),
 		'WP_Plugins_List_Table'                       => 'plugins',
