@@ -137,3 +137,18 @@ export function receiveChangelog( changelog, repository ) {
 		repository,
 	};
 }
+
+/**
+ * Returns an action object used in signalling that the repository
+ * has been installed.
+ *
+ * @param {string} repository The repository full name.
+ *
+ * @return {Object} Action object.
+ */
+export function markAsInstalled( repository ) {
+	return {
+		type: 'MARK_AS_INSTALLED',
+		repository,
+	};
+}

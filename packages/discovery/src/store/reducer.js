@@ -99,6 +99,35 @@ const reducer = ( state = {}, action ) => {
 					[ action.repository ]: action.changelog,
 				},
 			};
+
+		case 'MARK_AS_INSTALLED':
+			return {
+				...state,
+				details: {
+					...state.details,
+					[ action.repository ]: {
+						...state.details[ action.repository ],
+						is_installed: true,
+					},
+				},
+				repositoriesByFullName: {
+					...state.repositoriesByFullName,
+					[ action.repository ]: {
+						...state.repositoriesByFullName[ action.repository ],
+						is_installed: true,
+					},
+				},
+				resultsByPage: Object.fromEntries(
+					Object.entries( state.resultsByPage ?? {} ).map( ( [ page, repos ] ) => [
+						page,
+						repos.map( ( r ) =>
+							r.full_name === action.repository
+								? { ...r, is_installed: true }
+								: r
+						),
+					] )
+				),
+			};
 	}
 	return state;
 };
