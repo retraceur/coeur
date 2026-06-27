@@ -465,6 +465,7 @@ body.is-fullscreen-mode .interface-interface-skeleton {
 
 .editor-autocompleters__user .editor-autocompleters__no-avatar:before {
 	content: "\f110";
+	content: "\f110" / '';
 	font: normal 20px/1 dashicons;
 	margin-right: 5px;
 	vertical-align: middle

@@ -355,6 +355,7 @@ body.js .theme-browser.search-loading {
 	border-radius: 50%;
 	display: inline-block;
 	content: "\f132";
+	content: "\f132" / '';
 	-webkit-font-smoothing: antialiased;
 	font: normal 74px/115px dashicons;
 	width: 100px;
@@ -459,6 +460,7 @@ body.js .theme-browser.search-loading {
 	color: #787c82;
 	display: inline-block;
 	content: "\f335";
+	content: "\f335" / '';
 	font-weight: 300;
 }
 
@@ -518,10 +520,12 @@ body.js .theme-browser.search-loading {
 
 .theme-overlay .theme-header .left:before {
 	content: "\f341";
+	content: "\f341" / '';
 }
 
 .theme-overlay .theme-header .right:before {
 	content: "\f345";
+	content: "\f345" / '';
 }
 
 .theme-overlay .theme-wrap {
@@ -1067,6 +1071,7 @@ body.folded .theme-browser ~ .theme-overlay .theme-wrap {
 .theme-browser .theme .notice-success p:before {
 	color: #68de7c;
 	content: "\f147";
+	content: "\f147" / '';
 	display: inline-block;
 	font: normal 20px/1 'dashicons';
 	-webkit-font-smoothing: antialiased;
@@ -1565,6 +1570,7 @@ body.full-overlay-active {
 .theme-install-overlay .close-full-overlay:before {
 	font: normal 22px/1 dashicons;
 	content: "\f335";
+	content: "\f335" / '';
 	position: relative;
 	top: 7px;
 	right: 13px;
@@ -1573,6 +1579,7 @@ body.full-overlay-active {
 .theme-install-overlay .previous-theme:before {
 	font: normal 20px/1 dashicons;
 	content: "\f341";
+	content: "\f341" / '';
 	position: relative;
 	top: 6px;
 	right: 14px;
@@ -1581,6 +1588,7 @@ body.full-overlay-active {
 .theme-install-overlay .next-theme:before {
 	font: normal 20px/1 dashicons;
 	content: "\f345";
+	content: "\f345" / '';
 	position: relative;
 	top: 6px;
 	right: 13px;
@@ -1667,6 +1675,7 @@ body.full-overlay-active {
 .wp-full-overlay .collapse-sidebar-arrow:before {
 	display: block;
 	content: "\f148";
+	content: "\f148" / '';
 	background: #f0f0f1;
 	font: normal 20px/1 dashicons;
 	padding: 0;
@@ -1788,14 +1797,17 @@ body.full-overlay-active {
 
 .wp-full-overlay-footer .devices .preview-desktop:before {
 	content: "\f472";
+	content: "\f472" / '';
 }
 
 .wp-full-overlay-footer .devices .preview-tablet:before {
 	content: "\f471";
+	content: "\f471" / '';
 }
 
 .wp-full-overlay-footer .devices .preview-mobile:before {
 	content: "\f470";
+	content: "\f470" / '';
 }
 
 @media screen and (max-width: 1024px) {

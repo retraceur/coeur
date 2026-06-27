@@ -565,6 +565,7 @@ code {
 
 .js-update-details-toggle[aria-expanded="true"] .dashicons::before {
 	content: "\f142";
+	content: "\f142" / '';
 }
 
 .no-js .widefat thead .check-column input,
@@ -929,6 +930,7 @@ a#remove-post-thumbnail:hover,
 	border-top: 1px solid #dcdcde;
 	background: #f6f7f7;
 	display: flex;
+	flex-wrap: wrap;
 	align-items: center;
 	justify-content: space-between;
 }
@@ -1146,6 +1148,7 @@ th.action-links {
 
 .wp-filter .drawer-toggle:before {
 	content: "\f111";
+	content: "\f111" / '';
 	margin: 0 0 0 5px;
 	color: #646970;
 	font: normal 16px/1 dashicons;
@@ -1578,6 +1581,7 @@ div.error.notice-alt {
 #plugin-information-footer .update-now:not(.button-disabled):before {
 	color: #d63638;
 	content: "\f463";
+	content: "\f463" / '';
 	display: inline-block;
 	font: normal 20px/1 dashicons;
 	margin: -3px -2px 0 5px;
@@ -1640,6 +1644,7 @@ div.error.notice-alt {
 .button.activating-message:before {
 	color: #d63638;
 	content: "\f463";
+	content: "\f463" / '';
 }
 
 /* Spins the update icon. */
@@ -1676,18 +1681,21 @@ div.error.notice-alt {
 .button.activated-message:before {
 	color: #68de7c;
 	content: "\f147";
+	content: "\f147" / '';
 }
 
 /* Warning icon. */
 .update-message.notice-warning p:before {
 	color: #dba617;
 	content: "\f534";
+	content: "\f534" / '';
 }
 
 /* Error icon. */
 .update-message.notice-error p:before {
 	color: #d63638;
 	content: "\f534";
+	content: "\f534" / '';
 }
 
 .wrap .notice p:before,
@@ -1902,6 +1910,7 @@ p.auto-update-status {
 #screen-meta-links .show-settings:after {
 	left: 0;
 	content: "\f140";
+	content: "\f140" / '';
 	font: normal 20px/1.5 dashicons; /* line-height 1.5 = 30px to match compact button */
 	display: inline-block;
 	padding: 0 0 0 5px;
@@ -1913,6 +1922,7 @@ p.auto-update-status {
 
 #screen-meta-links .screen-meta-active:after {
 	content: "\f142";
+	content: "\f142" / '';
 }
 
 /* end screen options and help tabs */
@@ -2734,10 +2744,12 @@ div.star-holder .star-rating {
 
 .star-rating .star-full:before {
 	content: "\f155";
+	content: "\f155" / '';
 }
 
 .star-rating .star-half:before {
 	content: "\f459";
+	content: "\f459" / '';
 }
 
 .rtl .star-rating .star-half {
@@ -2746,6 +2758,7 @@ div.star-holder .star-rating {
 
 .star-rating .star-empty:before {
 	content: "\f154";
+	content: "\f154" / '';
 }
 
 div.action-links {
@@ -3237,6 +3250,7 @@ div.action-links {
 
 .plugin-details-modal #TB_closeWindowButton:after {
 	content: "\f335";
+	content: "\f335" / '';
 	font: normal 32px/29px 'dashicons';
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -3263,6 +3277,7 @@ img {
 .bulk-action-notice .toggle-indicator::before,
 .privacy-text-box .toggle-indicator::before {
 	content: "\f142";
+	content: "\f142" / '';
 	display: inline-block;
 	font: normal 20px/1 dashicons;
 	-webkit-font-smoothing: antialiased;
@@ -3275,15 +3290,18 @@ img {
 .bulk-action-notice .bulk-action-errors-collapsed .toggle-indicator::before,
 .privacy-text-box.closed .toggle-indicator::before {
 	content: "\f140";
+	content: "\f140" / '';
 }
 
 .postbox .handle-order-higher .order-higher-indicator::before {
 	content: "\f343";
+	content: "\f343" / '';
 	color: inherit;
 }
 
 .postbox .handle-order-lower .order-lower-indicator::before {
 	content: "\f347";
+	content: "\f347" / '';
 	color: inherit;
 }
 
@@ -3407,9 +3425,11 @@ img {
 }
 [role="treeitem"][aria-expanded="false"] > .folder-label .icon:after {
 	content: "\f139";
+	content: "\f139" / '';
 }
 [role="treeitem"][aria-expanded="true"] > .folder-label .icon:after {
 	content: "\f140";
+	content: "\f140" / '';
 }
 [role="treeitem"] .folder-label {
 	display: block;
@@ -3670,6 +3690,7 @@ img {
 .widget.open .widget-top .widget-action .toggle-indicator:before,
 .widget.widget-in-question .widget-top .widget-action .toggle-indicator:before {
 	content: "\f142";
+	content: "\f142" / '';
 }
 
 /*!

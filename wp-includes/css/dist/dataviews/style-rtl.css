@@ -583,6 +583,7 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	content: "\f460";
+	content: "\f460" / '';
 	display: inline-block;
 	float: right;
 	font: normal 30px/1 dashicons;
