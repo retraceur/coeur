@@ -13,6 +13,53 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die( '-1' );
 }
 
+function retraceur_fetch_repository_releases( $url, $cache_key = '' ) {
+	if ( 'update_coeur' === $cache_key ) {
+		if ( ! class_exists( 'SimplePie\SimplePie', false ) ) {
+			require_once ABSPATH . WPINC . '/class-simplepie.php';
+		}
+
+		require_once ABSPATH . WPINC . '/class-wp-simplepie-file.php';
+		require_once ABSPATH . WPINC . '/class-wp-feed-cache-version-check.php';
+		require_once ABSPATH . WPINC . '/class-wp-simplepie-sanitize-kses.php';
+
+		$feed = new SimplePie\SimplePie();
+
+		$feed->get_registry()->register( SimplePie\Sanitize::class, 'WP_SimplePie_Sanitize_KSES', true );
+		/*
+		 * We must manually overwrite $feed->sanitize because SimplePie's constructor
+		 * sets it before we have a chance to set the sanitization class.
+		 */
+		$feed->sanitize = new WP_SimplePie_Sanitize_KSES();
+
+		// Register the cache handler using the recommended method for SimplePie 1.3 or later.
+		if ( method_exists( 'SimplePie_Cache', 'register' ) ) {
+			SimplePie_Cache::register( 'retraceur_coeur_update', 'WP_Feed_Cache_Version_Check' );
+			$feed->set_cache_location( 'retraceur_coeur_update' );
+		}
+
+		$feed->get_registry()->register( SimplePie\File::class, 'WP_SimplePie_File', true );
+
+		$feed->set_feed_url( $url );
+		$feed->init();
+		$feed->set_output_encoding( get_bloginfo( 'charset' ) );
+
+		if ( $feed->error() ) {
+			return new WP_Error( 'simplepie-error', $feed->error() );
+		}
+
+		// Plugins, blocks or themes use regular SimplePie implementation to enjoy feed caching.
+	} else {
+		$feed = fetch_feed( $url );
+
+		if ( is_wp_error( $feed ) ) {
+			return $feed;
+		}
+	}
+
+	return $feed->get_items();
+}
+
 /**
  * Look for Retraceur requirements parsing its release note content.
  *
@@ -49,7 +96,7 @@ function retraceur_get_requirement( $html, $type = 'PHP' ) {
  * @since 2.0.0 Retraceur fork.
  *
  * @param bool $force_check Whether to bypass the transient cache and force a fresh update check.
- *                          Defaults to false, true if $extra_stats is set.
+ *                          Defaults to false.
  * @return object The available updates.
  */
 function retraceur_version_check( $force_check = false ) {
@@ -82,41 +129,11 @@ function retraceur_version_check( $force_check = false ) {
 	$current->last_checked = time();
 	set_site_transient( 'update_coeur', $current );
 
-	if ( ! class_exists( 'SimplePie\SimplePie', false ) ) {
-		require_once ABSPATH . WPINC . '/class-simplepie.php';
+	$releases = retraceur_fetch_repository_releases( 'https://github.com/retraceur/coeur/releases.atom', 'update_coeur' );
+	if ( is_wp_error( $releases ) ) {
+		return $releases;
 	}
 
-	require_once ABSPATH . WPINC . '/class-wp-simplepie-file.php';
-	require_once ABSPATH . WPINC . '/class-wp-feed-cache-version-check.php';
-	require_once ABSPATH . WPINC . '/class-wp-simplepie-sanitize-kses.php';
-
-	$feed = new SimplePie\SimplePie();
-	$url  = 'https://github.com/retraceur/coeur/releases.atom';
-
-	$feed->get_registry()->register( SimplePie\Sanitize::class, 'WP_SimplePie_Sanitize_KSES', true );
-	/*
-	 * We must manually overwrite $feed->sanitize because SimplePie's constructor
-	 * sets it before we have a chance to set the sanitization class.
-	 */
-	$feed->sanitize = new WP_SimplePie_Sanitize_KSES();
-
-	// Register the cache handler using the recommended method for SimplePie 1.3 or later.
-	if ( method_exists( 'SimplePie_Cache', 'register' ) ) {
-		SimplePie_Cache::register( 'retraceur_coeur_update', 'WP_Feed_Cache_Version_Check' );
-		$feed->set_cache_location( 'retraceur_coeur_update' );
-	}
-
-	$feed->get_registry()->register( SimplePie\File::class, 'WP_SimplePie_File', true );
-
-	$feed->set_feed_url( $url );
-	$feed->init();
-	$feed->set_output_encoding( get_bloginfo( 'charset' ) );
-
-	if ( $feed->error() ) {
-		return new WP_Error( 'simplepie-error', $feed->error() );
-	}
-
-	$releases = $feed->get_items();
 	$offers   = array();
 	$locale   = get_option( 'WPLANG' );
 	$package  = 'retraceur.zip';
@@ -176,6 +193,36 @@ function retraceur_version_check( $force_check = false ) {
 	return $updates;
 }
 
+function retraceur_get_plugin_update( $owner_repo, $plugin_data, $plugin_file, $locales ) {
+	$items = retraceur_fetch_repository_releases( "https://github.com/{$owner_repo}/releases.atom" );
+
+	if ( ! is_wp_error( $items ) && $items ) {
+		foreach ( $items as $release ) {
+			$id      = explode( '/', rtrim( $release->get_id(), '/' ) );
+			$version = end( $id );
+
+			if ( ! $version || ! is_numeric( str_replace( '.', '', $version ) ) ) {
+				continue;
+			}
+
+			$slug = dirname( $plugin_file );
+
+			return array(
+				'id'           => $owner_repo,
+				'slug'         => $slug,
+				'plugin'       => $plugin_file,
+				'version'      => $version,
+				'package'      => "https://github.com/{$owner_repo}/releases/download/{$version}/{$slug}.zip",
+				'url'          => $release->get_link(),
+				'requires_php' => $plugin_data['RequiresPHP'],
+				'requires'     => $plugin_data['RequiresR'],
+			);
+		}
+	}
+
+	return false;
+}
+
 /**
  * Checks for available updates to plugins.
  *
@@ -187,13 +234,8 @@ function retraceur_version_check( $force_check = false ) {
  * @since 1.0.0 Retraceur fork.
  *
  * @global string $retraceur_version The Retraceur version string.
- *
- * @param array $extra_stats Extra statistics.
  */
-function wp_update_plugins( $extra_stats = array() ) {
-	// Disable plugin updates for now.
-	return;
-
+function wp_update_plugins() {
 	if ( wp_installing() ) {
 		return;
 	}
@@ -237,7 +279,7 @@ function wp_update_plugins( $extra_stats = array() ) {
 
 	$time_not_changed = isset( $current->last_checked ) && $timeout > ( time() - $current->last_checked );
 
-	if ( $time_not_changed && ! $extra_stats ) {
+	if ( $time_not_changed ) {
 		$plugin_changed = false;
 
 		foreach ( $plugins as $file => $p ) {
@@ -265,8 +307,6 @@ function wp_update_plugins( $extra_stats = array() ) {
 	$current->last_checked = time();
 	set_site_transient( 'update_plugins', $current );
 
-	$to_send = compact( 'plugins', 'active' );
-
 	$locales = array_values( get_available_languages() );
 
 	/**
@@ -287,41 +327,6 @@ function wp_update_plugins( $extra_stats = array() ) {
 		$timeout = 3 + (int) ( count( $plugins ) / 10 );
 	}
 
-	$options = array(
-		'timeout'    => $timeout,
-		'body'       => array(
-			'plugins'      => wp_json_encode( $to_send ),
-			'translations' => wp_json_encode( $translations ),
-			'locale'       => wp_json_encode( $locales ),
-			'all'          => wp_json_encode( true ),
-		),
-		'user-agent' => 'Retraceur/' . retraceur_get_version() . '; ' . home_url( '/' ),
-	);
-
-	// @todo See what's doable using GitHub.
-	$url      = '';
-	$http_url = $url;
-	$ssl      = wp_http_supports( array( 'ssl' ) );
-
-	if ( $ssl ) {
-		$url = set_url_scheme( $url, 'https' );
-	}
-
-	$raw_response = wp_remote_post( $url, $options );
-
-	if ( $ssl && is_wp_error( $raw_response ) ) {
-		wp_trigger_error(
-			__FUNCTION__,
-			__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ) . ' ' . __( '(Retraceur could not establish a secure connection to Plugins updater. Please contact your server administrator.)' ),
-			headers_sent() || WP_DEBUG ? E_USER_WARNING : E_USER_NOTICE
-		);
-		$raw_response = wp_remote_post( $http_url, $options );
-	}
-
-	if ( is_wp_error( $raw_response ) || 200 !== wp_remote_retrieve_response_code( $raw_response ) ) {
-		return;
-	}
-
 	$updates               = new stdClass();
 	$updates->last_checked = time();
 	$updates->response     = array();
@@ -331,62 +336,61 @@ function wp_update_plugins( $extra_stats = array() ) {
 		$updates->checked[ $file ] = $p['Version'];
 	}
 
-	$response = json_decode( wp_remote_retrieve_body( $raw_response ), true );
-
-	if ( $response && is_array( $response ) ) {
-		$updates->response     = $response['plugins'];
-		$updates->translations = $response['translations'];
-		$updates->no_update    = $response['no_update'];
-	}
+	$installed_map = array_flip( retraceur_discovery_get_installed_map() );
 
 	// Support updates for any plugins using the `Update URI` header field.
 	foreach ( $plugins as $plugin_file => $plugin_data ) {
-		if ( ! $plugin_data['UpdateURI'] || isset( $updates->response[ $plugin_file ] ) ) {
-			continue;
+		$update = array();
+
+		if ( isset( $installed_map[ $plugin_file ] ) ) {
+			// Géré par Retraceur : source de vérité = la map de découverte
+			$update = retraceur_get_plugin_update( $installed_map[ $plugin_file ], $plugin_data, $plugin_file, $locales );
+
+		} elseif ( $plugin_data['UpdateURI'] ) {
+			// Tiers qui n'utilise pas l'API de Retraceur
+			$hostname = wp_parse_url( sanitize_url( $plugin_data['UpdateURI'] ), PHP_URL_HOST );
+
+			/**
+			 * Filters the update response for a given plugin hostname.
+			 *
+			 * The dynamic portion of the hook name, `$hostname`, refers to the hostname
+			 * of the URI specified in the `Update URI` header field.
+			 *
+			 * @since WP 5.8.0
+			 *
+			 * @param array|false $update {
+			 *     The plugin update data with the latest details. Default false.
+			 *
+			 *     @type string    $id           Optional. ID of the plugin for update purposes, should be a URI
+			 *                                   specified in the `Update URI` header field.
+			 *     @type string    $slug         Slug of the plugin.
+			 *     @type string    $version      The version of the plugin.
+			 *     @type string    $url          The URL for details of the plugin.
+			 *     @type string    $package      Optional. The update ZIP for the plugin.
+			 *     @type string    $tested       Optional. The version of WP the plugin is tested against.
+			 *     @type string    $requires_php Optional. The version of PHP which the plugin requires.
+			 *     @type bool      $autoupdate   Optional. Whether the plugin should automatically update.
+			 *     @type string[]  $icons        Optional. Array of plugin icons.
+			 *     @type string[]  $banners      Optional. Array of plugin banners.
+			 *     @type string[]  $banners_rtl  Optional. Array of plugin RTL banners.
+			 *     @type array     $translations {
+			 *         Optional. List of translation updates for the plugin.
+			 *
+			 *         @type string $language   The language the translation update is for.
+			 *         @type string $version    The version of the plugin this translation is for.
+			 *                                  This is not the version of the language file.
+			 *         @type string $updated    The update timestamp of the translation file.
+			 *                                  Should be a date in the `YYYY-MM-DD HH:MM:SS` format.
+			 *         @type string $package    The ZIP location containing the translation update.
+			 *         @type string $autoupdate Whether the translation should be automatically installed.
+			 *     }
+			 * }
+			 * @param array       $plugin_data      Plugin headers.
+			 * @param string      $plugin_file      Plugin filename.
+			 * @param string[]    $locales          Installed locales to look up translations for.
+			 */
+			$update = apply_filters( "update_plugins_{$hostname}", false, $plugin_data, $plugin_file, $locales );
 		}
-
-		$hostname = wp_parse_url( sanitize_url( $plugin_data['UpdateURI'] ), PHP_URL_HOST );
-
-		/**
-		 * Filters the update response for a given plugin hostname.
-		 *
-		 * The dynamic portion of the hook name, `$hostname`, refers to the hostname
-		 * of the URI specified in the `Update URI` header field.
-		 *
-		 * @since WP 5.8.0
-		 *
-		 * @param array|false $update {
-		 *     The plugin update data with the latest details. Default false.
-		 *
-		 *     @type string    $id           Optional. ID of the plugin for update purposes, should be a URI
-		 *                                   specified in the `Update URI` header field.
-		 *     @type string    $slug         Slug of the plugin.
-		 *     @type string    $version      The version of the plugin.
-		 *     @type string    $url          The URL for details of the plugin.
-		 *     @type string    $package      Optional. The update ZIP for the plugin.
-		 *     @type string    $tested       Optional. The version of WP the plugin is tested against.
-		 *     @type string    $requires_php Optional. The version of PHP which the plugin requires.
-		 *     @type bool      $autoupdate   Optional. Whether the plugin should automatically update.
-		 *     @type string[]  $icons        Optional. Array of plugin icons.
-		 *     @type string[]  $banners      Optional. Array of plugin banners.
-		 *     @type string[]  $banners_rtl  Optional. Array of plugin RTL banners.
-		 *     @type array     $translations {
-		 *         Optional. List of translation updates for the plugin.
-		 *
-		 *         @type string $language   The language the translation update is for.
-		 *         @type string $version    The version of the plugin this translation is for.
-		 *                                  This is not the version of the language file.
-		 *         @type string $updated    The update timestamp of the translation file.
-		 *                                  Should be a date in the `YYYY-MM-DD HH:MM:SS` format.
-		 *         @type string $package    The ZIP location containing the translation update.
-		 *         @type string $autoupdate Whether the translation should be automatically installed.
-		 *     }
-		 * }
-		 * @param array       $plugin_data      Plugin headers.
-		 * @param string      $plugin_file      Plugin filename.
-		 * @param string[]    $locales          Installed locales to look up translations for.
-		 */
-		$update = apply_filters( "update_plugins_{$hostname}", false, $plugin_data, $plugin_file, $locales );
 
 		if ( ! $update ) {
 			continue;
@@ -400,8 +404,13 @@ function wp_update_plugins( $extra_stats = array() ) {
 		}
 
 		// These should remain constant.
-		$update->id     = $plugin_data['UpdateURI'];
-		$update->plugin = $plugin_file;
+		if ( ! isset( $update->id )  ) {
+			$update->id = $plugin_data['UpdateURI'];
+		}
+
+		if ( ! isset( $update->plugin )  ) {
+			$update->plugin = $plugin_file;
+		}
 
 		// WP needs the version field specified as 'new_version'.
 		if ( ! isset( $update->new_version ) ) {

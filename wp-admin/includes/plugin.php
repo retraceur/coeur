@@ -229,6 +229,84 @@ function _get_plugin_data_markup_translate( $plugin_file, $plugin_data, $markup 
 }
 
 /**
+ * Attempts to resolve a plugin's GitHub full name (owner/repo) from
+ * its main file headers.
+ *
+ * Headers are checked in this order of reliability:
+ * 1. `GitHub Plugin URI` — explicit, authoritative.
+ * 2. `Plugin URI` — used if it points to github.com.
+ * 3. `Author` + `Text Domain` — fallback assuming a naming convention.
+ *
+ * @since 4.0.0 Retraceur fork.
+ *
+ * @param array $plugin_data Plugin data as returned by get_plugin_data().
+ * @return string The GitHub full name (owner/repo), or empty string if unresolved.
+ */
+function retraceur_discovery_resolve_full_name( $plugin_data ) {
+	$parse_github_url = function( $url ) {
+		if ( ! $url || ! str_contains( $url, 'github.com' ) ) {
+			return '';
+		}
+
+		$path  = trim( wp_parse_url( $url, PHP_URL_PATH ) ?? '', '/' );
+		$parts = explode( '/', $path );
+
+		return count( $parts ) >= 2 ? $parts[0] . '/' . $parts[1] : '';
+	};
+
+	if ( ! empty( $plugin_data['GitHubPluginURI'] ) ) {
+		$full_name = $parse_github_url( $plugin_data['GitHubPluginURI'] );
+		if ( $full_name ) {
+			return $full_name;
+		}
+	}
+
+	if ( ! empty( $plugin_data['PluginURI'] ) ) {
+		$full_name = $parse_github_url( $plugin_data['PluginURI'] );
+		if ( $full_name ) {
+			return $full_name;
+		}
+	}
+
+	if ( ! empty( $plugin_data['Author'] ) && ! empty( $plugin_data['TextDomain'] ) ) {
+		return sanitize_title( $plugin_data['Author'] ) . '/' . sanitize_title( $plugin_data['TextDomain'] );
+	}
+
+	return '';
+}
+
+/**
+ * Builds a map of GitHub full names to installed plugin files,
+ * based on resolved headers from all installed plugins.
+ *
+ * @since 4.0.0 Retraceur fork.
+ *
+ * @return array Map of full_name => plugin_file.
+ */
+function retraceur_discovery_get_installed_map() {
+    $cache_key = 'retraceur_discovery_installed_map';
+    $cached    = get_transient( $cache_key );
+
+    if ( false !== $cached ) {
+        return $cached;
+    }
+
+    $map = array();
+
+    foreach ( get_plugins() as $plugin_file => $plugin_data ) {
+        $full_name = retraceur_discovery_resolve_full_name( $plugin_data );
+
+        if ( $full_name ) {
+            $map[ strtolower( $full_name ) ] = $plugin_file;
+        }
+    }
+
+    set_transient( $cache_key, $map, 5 * MINUTE_IN_SECONDS );
+
+    return $map;
+}
+
+/**
  * Gets a list of a plugin's files.
  *
  * @since WP 2.8.0
