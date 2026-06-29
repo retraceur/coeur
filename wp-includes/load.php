@@ -1217,10 +1217,8 @@ function is_protected_ajax_action() {
 	$actions_to_protect = array(
 		'edit-theme-plugin-file', // Saving changes in the core code editor.
 		'heartbeat',              // Keep the heart beating.
-		'install-plugin',         // Installing a new plugin.
 		'install-theme',          // Installing a new theme.
 		'search-plugins',         // Searching in the list of plugins.
-		'search-install-plugins', // Searching for a plugin in the plugin install screen.
 		'update-plugin',          // Update an existing plugin.
 		'update-theme',           // Update an existing theme.
 		'activate-plugin',        // Activating an existing plugin.

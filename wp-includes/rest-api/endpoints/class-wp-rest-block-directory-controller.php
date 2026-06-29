@@ -74,37 +74,11 @@ class WP_REST_Block_Directory_Controller extends WP_REST_Controller {
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
 	 */
 	public function get_items( $request ) {
-		require_once ABSPATH . 'wp-admin/includes/plugin-install.php';
-		require_once ABSPATH . 'wp-admin/includes/plugin.php';
-
-		$response = plugins_api(
-			'query_plugins',
-			array(
-				'block'    => $request['term'],
-				'per_page' => $request['per_page'],
-				'page'     => $request['page'],
-			)
+		return new WP_Error(
+			'plugins_api_disabled',
+			__( 'Retraceur does not use the WP Plugin Install API.' ),
+			array( 'status' => 500 )
 		);
-
-		if ( is_wp_error( $response ) ) {
-			$response->add_data( array( 'status' => 500 ) );
-
-			return $response;
-		}
-
-		$result = array();
-
-		foreach ( $response->plugins as $plugin ) {
-			// If the API returned a plugin with empty data for 'blocks', skip it.
-			if ( empty( $plugin['blocks'] ) ) {
-				continue;
-			}
-
-			$data     = $this->prepare_item_for_response( $plugin, $request );
-			$result[] = $this->prepare_response_for_collection( $data );
-		}
-
-		return rest_ensure_response( $result );
 	}
 
 	/**

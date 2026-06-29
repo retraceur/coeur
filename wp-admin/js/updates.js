@@ -742,55 +742,7 @@
 	 *                     decorated with an abort() method.
 	 */
 	wp.updates.installPlugin = function( args ) {
-		var $card    = $( '.plugin-card-' + args.slug + ', #plugin-information-footer' ),
-			$message = $card.find( '.install-now' ),
-			buttonText = __( 'Installing...' ),
-			ariaLabel;
-
-		args = _.extend( {
-			success: wp.updates.installPluginSuccess,
-			error: wp.updates.installPluginError
-		}, args );
-
-		if ( 'import' === pagenow ) {
-			$message = $( '[data-slug="' + args.slug + '"]' );
-		}
-
-		if ( $message.html() !== __( 'Installing...' ) ) {
-			$message.data( 'originaltext', $message.html() );
-		}
-
-		ariaLabel = sprintf(
-			/* translators: %s: Plugin name and version. */
-			_x( 'Installing %s...', 'plugin' ),
-			$message.data( 'name' )
-		);
-
-		$message
-			.addClass( 'updating-message' )
-			.attr( 'aria-label', ariaLabel )
-			.text( buttonText );
-
-		wp.a11y.speak( __( 'Installing... please wait.' ) );
-
-		// Remove previous error messages, if any.
-		$card.removeClass( 'plugin-card-install-failed' ).find( '.notice.notice-error' ).remove();
-
-		$document.trigger( 'wp-plugin-installing', args );
-
-		if ( 'plugin-information-footer' === $message.parent().attr( 'id' ) ) {
-			wp.updates.setCardButtonStatus(
-				{
-					status: 'installing-plugin',
-					slug: args.slug,
-					addClasses: 'updating-message',
-					text: buttonText,
-					ariaLabel: ariaLabel
-				}
-			);
-		}
-
-		return wp.updates.ajax( 'install-plugin', args );
+		console.log( 'Installing Plugins using Ajax is deprecated since Retraceur 4.0.0.');
 	};
 
 	/**
@@ -804,44 +756,7 @@
 	 * @param {string} response.activateUrl URL to activate the just installed plugin.
 	 */
 	wp.updates.installPluginSuccess = function( response ) {
-		var $message = $( '.plugin-card-' + response.slug + ', #plugin-information-footer' ).find( '.install-now' ),
-			buttonText = _x( 'Installed!', 'plugin' ),
-			ariaLabel = sprintf(
-				/* translators: %s: Plugin name and version. */
-				_x( '%s installed!', 'plugin' ),
-				response.pluginName
-			);
-
-		$message
-			.removeClass( 'updating-message' )
-			.addClass( 'updated-message installed button-disabled' )
-			.attr( 'aria-label', ariaLabel )
-			.text( buttonText );
-
-		wp.a11y.speak( __( 'Installation completed successfully.' ) );
-
-		$document.trigger( 'wp-plugin-install-success', response );
-
-		if ( response.activateUrl ) {
-			setTimeout( function() {
-				wp.updates.checkPluginDependencies( {
-					slug: response.slug
-				} );
-			}, 1000 );
-		}
-
-		if ( 'plugin-information-footer' === $message.parent().attr( 'id' ) ) {
-			wp.updates.setCardButtonStatus(
-				{
-					status: 'installed-plugin',
-					slug: response.slug,
-					removeClasses: 'updating-message',
-					addClasses: 'updated-message installed button-disabled',
-					text: buttonText,
-					ariaLabel: ariaLabel
-				}
-			);
-		}
+		console.log( 'Installing Plugins using Ajax is deprecated since Retraceur 4.0.0.');
 	};
 
 	/**
@@ -856,63 +771,7 @@
 	 * @param {string}  response.errorMessage The error that occurred.
 	 */
 	wp.updates.installPluginError = function( response ) {
-		var $card   = $( '.plugin-card-' + response.slug + ', #plugin-information-footer' ),
-			$button = $card.find( '.install-now' ),
-			buttonText = __( 'Installation failed.' ),
-			ariaLabel = sprintf(
-				/* translators: %s: Plugin name and version. */
-				_x( '%s installation failed', 'plugin' ),
-				$button.data( 'name' )
-			),
-			errorMessage;
-
-		if ( ! wp.updates.isValidResponse( response, 'install' ) ) {
-			return;
-		}
-
-		if ( wp.updates.maybeHandleCredentialError( response, 'install-plugin' ) ) {
-			return;
-		}
-
-		errorMessage = sprintf(
-			/* translators: %s: Error string for a failed installation. */
-			__( 'Installation failed: %s' ),
-			response.errorMessage
-		);
-
-		$card
-			.addClass( 'plugin-card-update-failed' )
-			.append( '<div class="notice notice-error notice-alt is-dismissible" role="alert"><p>' + errorMessage + '</p></div>' );
-
-		$card.on( 'click', '.notice.is-dismissible .notice-dismiss', function() {
-
-			// Use same delay as the total duration of the notice fadeTo + slideUp animation.
-			setTimeout( function() {
-				$card
-					.removeClass( 'plugin-card-update-failed' )
-					.find( '.column-name a' ).trigger( 'focus' );
-			}, 200 );
-		} );
-
-		$button
-			.removeClass( 'updating-message' ).addClass( 'button-disabled' )
-			.attr( 'aria-label', ariaLabel )
-			.text( buttonText );
-
-		wp.a11y.speak( errorMessage, 'assertive' );
-
-		wp.updates.setCardButtonStatus(
-			{
-				status: 'plugin-install-failed',
-				slug: response.slug,
-				removeClasses: 'updating-message',
-				addClasses: 'button-disabled',
-				text: buttonText,
-				ariaLabel: ariaLabel
-			}
-		);
-
-		$document.trigger( 'wp-plugin-install-error', response );
+		console.log( 'Installing Plugins using Ajax is deprecated since Retraceur 4.0.0.');
 	};
 
 	/**
@@ -1275,43 +1134,7 @@
 	 * @param {string}  response.errorMessage The error that occurred.
 	 */
 	wp.updates.installImporterError = function( response ) {
-		var errorMessage = sprintf(
-				/* translators: %s: Error string for a failed installation. */
-				__( 'Installation failed: %s' ),
-				response.errorMessage
-			),
-			$installLink = $( '[data-slug="' + response.slug + '"]' ),
-			pluginName = $installLink.data( 'name' );
-
-		if ( ! wp.updates.isValidResponse( response, 'install' ) ) {
-			return;
-		}
-
-		if ( wp.updates.maybeHandleCredentialError( response, 'install-plugin' ) ) {
-			return;
-		}
-
-		wp.updates.addAdminNotice( {
-			id:        response.errorCode,
-			className: 'notice-error is-dismissible',
-			message:   errorMessage
-		} );
-
-		$installLink
-			.removeClass( 'updating-message' )
-			.attr(
-				'aria-label',
-				sprintf(
-					/* translators: %s: Plugin name. */
-					_x( 'Install %s now', 'plugin' ),
-					pluginName
-				)
-			)
-			.text( _x( 'Install Now', 'plugin' ) );
-
-		wp.a11y.speak( errorMessage, 'assertive' );
-
-		$document.trigger( 'wp-importer-install-error', response );
+		console.log( 'Installing Plugins using Ajax is deprecated since Retraceur 4.0.0.');
 	};
 
 	/**
@@ -2055,8 +1878,7 @@
 	 */
 	wp.updates._addCallbacks = function( data, action ) {
 		if ( 'import' === pagenow && 'install-plugin' === action ) {
-			data.success = wp.updates.installImporterSuccess;
-			data.error   = wp.updates.installImporterError;
+			console.log( 'Installing Plugins using Ajax is deprecated since Retraceur 4.0.0.');
 		}
 
 		return data;
@@ -2079,10 +1901,6 @@
 
 		// Handle a queue job.
 		switch ( job.action ) {
-			case 'install-plugin':
-				wp.updates.installPlugin( job.data );
-				break;
-
 			case 'update-plugin':
 				wp.updates.updatePlugin( job.data );
 				break;
@@ -2508,15 +2326,6 @@
 							sprintf(
 								/* translators: %s: Plugin name and version. */
 								_x( 'Update %s now', 'plugin' ),
-								$message.data( 'name' )
-							)
-						);
-					} else if ( 'install-plugin' === job.action ) {
-						$message.attr(
-							'aria-label',
-							sprintf(
-								/* translators: %s: Plugin name. */
-								_x( 'Install %s now', 'plugin' ),
 								$message.data( 'name' )
 							)
 						);
@@ -3271,7 +3080,6 @@
 					wp.updates.decrementCount( message.upgradeType );
 					break;
 
-				case 'install-plugin':
 				case 'update-plugin':
 					if ( 'undefined' === typeof message.data || 'undefined' === typeof message.data.slug ) {
 						return;

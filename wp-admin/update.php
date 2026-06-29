@@ -103,51 +103,6 @@ if ( isset( $_GET['action'] ) ) {
 			include WP_PLUGIN_DIR . '/' . $plugin;
 		}
 		iframe_footer();
-	} elseif ( 'install-plugin' === $action ) {
-
-		if ( ! current_user_can( 'install_plugins' ) ) {
-			wp_die( __( 'Sorry, you are not allowed to install plugins on this site.' ) );
-		}
-
-		require_once ABSPATH . 'wp-admin/includes/plugin-install.php'; // For plugins_api().
-
-		check_admin_referer( 'install-plugin_' . $plugin );
-		$api = plugins_api(
-			'plugin_information',
-			array(
-				'slug'   => $plugin,
-				'fields' => array(
-					'sections' => false,
-				),
-			)
-		);
-
-		if ( is_wp_error( $api ) ) {
-			wp_die( $api );
-		}
-
-		// Used in the HTML title tag.
-		$title        = __( 'Plugin Installation' );
-		$parent_file  = 'plugins.php';
-		$submenu_file = 'plugin-install.php';
-
-		require_once ABSPATH . 'wp-admin/admin-header.php';
-
-		/* translators: %s: Plugin name and version. */
-		$title = sprintf( __( 'Installing Plugin: %s' ), $api->name . ' ' . $api->version );
-		$nonce = 'install-plugin_' . $plugin;
-		$url   = 'update.php?action=install-plugin&plugin=' . urlencode( $plugin );
-		if ( isset( $_GET['from'] ) ) {
-			$url .= '&from=' . urlencode( stripslashes( $_GET['from'] ) );
-		}
-
-		$type = 'web'; // Install plugin type, From Web or an Upload.
-
-		$upgrader = new Plugin_Upgrader( new Plugin_Installer_Skin( compact( 'title', 'url', 'nonce', 'plugin', 'api' ) ) );
-		$upgrader->install( $api->download_link );
-
-		require_once ABSPATH . 'wp-admin/admin-footer.php';
-
 	} elseif ( 'upload-plugin' === $action || 'upload-block' === $action ) {
 
 		if ( ! current_user_can( 'upload_plugins' ) ) {
