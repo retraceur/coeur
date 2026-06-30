@@ -1190,7 +1190,7 @@
 	margin: -1px -1px 0 0;
 	padding: 0;
 	background: transparent;
-	color: #2271b1;
+	color: var(--wp-admin-theme-color, #2243b6);
 	font-size: 20px;
 	line-height: 1;
 	cursor: pointer;
@@ -1199,9 +1199,9 @@
 }
 
 .image-editor .imgedit-settings .imgedit-help-toggle:focus {
-	color: #2271b1;
-	border-color: #2271b1;
-	box-shadow: 0 0 0 1px #2271b1;
+	color: var(--wp-admin-theme-color, #2243b6);
+	border-color: var(--wp-admin-theme-color, #2243b6);
+	box-shadow: 0 0 0 1px var(--wp-admin-theme-color, #2243b6);
 	/* Only visible in Windows High Contrast mode */
 	outline: 2px solid transparent;
 }
