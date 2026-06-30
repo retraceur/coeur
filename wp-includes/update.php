@@ -13,6 +13,26 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die( '-1' );
 }
 
+/**
+ * Fetches a repository's releases from its GitHub Atom feed.
+ *
+ * Reads the `releases.atom` feed of a GitHub repository and returns its entries.
+ * Two strategies are available:
+ *
+ * - When `$use_core_feed_cache` is true, the feed is parsed with a dedicated
+ *   SimplePie setup relying on the `WP_Feed_Cache_Version_Check` cache handler
+ *   and the KSES sanitizer. This is used to check for Retraceur core updates.
+ * - Otherwise the feed is retrieved with {@see fetch_feed()}, benefiting from the
+ *   standard feed caching used for plugins, blocks and themes.
+ *
+ * @since 4.0.0 Retraceur fork.
+ *
+ * @param string $url                 URL of the repository `releases.atom` feed.
+ * @param bool   $use_core_feed_cache Optional. Whether to use the dedicated core update
+ *                                    feed cache instead of the standard `fetch_feed()`
+ *                                    cache. Default false.
+ * @return SimplePie\Item[]|WP_Error List of release items on success, WP_Error on failure.
+ */
 function retraceur_fetch_repository_releases( $url, $use_core_feed_cache = false ) {
 	if ( $use_core_feed_cache ) {
 		if ( ! class_exists( 'SimplePie\SimplePie', false ) ) {
@@ -193,6 +213,40 @@ function retraceur_version_check( $force_check = false ) {
 	return $updates;
 }
 
+/**
+ * Builds the update offer for a GitHub-hosted plugin or block.
+ *
+ * Reads the repository's `releases.atom` feed, selects the latest stable release
+ * (pre-releases such as `v1.2.0-beta1` are skipped), and assembles the data
+ * expected in the `update_plugins` site transient. The download package is derived
+ * by convention from the release tag and the plugin slug:
+ * `https://github.com/{owner}/{repo}/releases/download/{tag}/{slug}.zip`.
+ *
+ * The result is intentionally returned as an array: {@see wp_update_plugins()} casts
+ * it to an object, compares its version and sorts it into the transient's `response`
+ * or `no_update` list.
+ *
+ * @since 4.0.0 Retraceur fork.
+ *
+ * @param string   $owner_repo  GitHub full name of the repository, as `owner/repo`.
+ * @param array    $plugin_data Plugin headers, as returned by {@see get_plugin_data()}.
+ * @param string   $plugin_file Path to the plugin file, relative to the plugins directory.
+ * @param string[] $locales     Installed locales to look up translations for.
+ * @return array|false {
+ *     Update data for the plugin, or false when no stable release was found or the feed
+ *     could not be read.
+ *
+ *     @type string $id           GitHub full name of the repository (`owner/repo`).
+ *     @type string $slug         Plugin slug (the plugin directory name).
+ *     @type string $plugin       Path to the plugin file, relative to the plugins directory.
+ *     @type string $version      Latest stable version available (tag without a leading `v`).
+ *     @type string $package      URL of the release ZIP asset to install.
+ *     @type string $url          URL of the release details on GitHub.
+ *     @type string $requires_php Minimum PHP version required, from the `Requires PHP` header.
+ *     @type string $requires_r   Minimum Retraceur version required, from the `Requires Retraceur` header.
+ *     @type string $requires     Minimum WordPress version required, from the `Requires at least` header.
+ * }
+ */
 function retraceur_get_plugin_update( $owner_repo, $plugin_data, $plugin_file, $locales ) {
 	$items = retraceur_fetch_repository_releases( "https://github.com/{$owner_repo}/releases.atom" );
 

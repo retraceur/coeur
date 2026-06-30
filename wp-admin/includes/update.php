@@ -356,13 +356,11 @@ function update_right_now_message() {
  *
  * @since WP 2.9.0
  * @since 2.0.0 Retraceur fork disabled Plugin updates.
+ * @since 4.0.0 Retraceur fork brought back Plugin updates.
  *
  * @return array<string, object> Array of plugin objects with available updates.
  */
 function get_plugin_updates() {
-	// Disable Plugin updates for now.
-	return array();
-
 	$all_plugins     = get_plugins();
 	$upgrade_plugins = array();
 	$current         = get_site_transient( 'update_plugins' );
@@ -375,205 +373,6 @@ function get_plugin_updates() {
 	}
 
 	return $upgrade_plugins;
-}
-
-/**
- * Adds a callback to display update information for plugins with updates available.
- *
- * @since WP 2.9.0
- */
-function wp_plugin_update_rows() {
-	if ( ! current_user_can( 'update_plugins' ) ) {
-		return;
-	}
-
-	$plugins = get_site_transient( 'update_plugins' );
-
-	if ( isset( $plugins->response ) && is_array( $plugins->response ) ) {
-		$plugins = array_keys( $plugins->response );
-
-		foreach ( $plugins as $plugin_file ) {
-			add_action( "after_plugin_row_{$plugin_file}", 'wp_plugin_update_row', 10, 2 );
-		}
-	}
-}
-
-/**
- * Displays update information for a plugin.
- *
- * @since WP 2.3.0
- *
- * @param string $file        Plugin basename.
- * @param array  $plugin_data Plugin information.
- * @return void|false Void on success, false if the plugin update is not available.
- */
-function wp_plugin_update_row( $file, $plugin_data ) {
-	$current = get_site_transient( 'update_plugins' );
-
-	if ( ! isset( $current->response[ $file ] ) ) {
-		return false;
-	}
-
-	$response = $current->response[ $file ];
-
-	$plugins_allowedtags = array(
-		'a'       => array(
-			'href'  => array(),
-			'title' => array(),
-		),
-		'abbr'    => array( 'title' => array() ),
-		'acronym' => array( 'title' => array() ),
-		'code'    => array(),
-		'em'      => array(),
-		'strong'  => array(),
-	);
-
-	$plugin_name = wp_kses( $plugin_data['Name'], $plugins_allowedtags );
-	$plugin_slug = $response->slug ?? $response->id;
-
-	if ( isset( $response->slug ) ) {
-		$details_url = self_admin_url( 'plugin-install.php?tab=plugin-information&plugin=' . $plugin_slug . '&section=changelog' );
-	} elseif ( isset( $response->url ) ) {
-		$details_url = $response->url;
-	} else {
-		$details_url = $plugin_data['PluginURI'];
-	}
-
-	$details_url = add_query_arg(
-		array(
-			'TB_iframe' => 'true',
-			'width'     => 600,
-			'height'    => 800,
-		),
-		$details_url
-	);
-
-	/** @var WP_Plugins_List_Table $wp_list_table */
-	$wp_list_table = _get_list_table(
-		'WP_Plugins_List_Table',
-		array(
-			'screen' => get_current_screen(),
-		)
-	);
-
-	if ( is_network_admin() || ! is_multisite() ) {
-		if ( is_network_admin() ) {
-			$active_class = is_plugin_active_for_network( $file ) ? ' active' : '';
-		} else {
-			$active_class = is_plugin_active( $file ) ? ' active' : '';
-		}
-
-		$requires_php   = $response->requires_php ?? null;
-		$compatible_php = is_php_version_compatible( $requires_php );
-		$notice_type    = $compatible_php ? 'notice-warning' : 'notice-error';
-
-		printf(
-			'<tr class="plugin-update-tr%s" id="%s" data-slug="%s" data-plugin="%s">' .
-			'<td colspan="%s" class="plugin-update colspanchange">' .
-			'<div class="update-message notice inline %s notice-alt"><p>',
-			$active_class,
-			esc_attr( $plugin_slug . '-update' ),
-			esc_attr( $plugin_slug ),
-			esc_attr( $file ),
-			esc_attr( $wp_list_table->get_column_count() ),
-			$notice_type
-		);
-
-		if ( ! current_user_can( 'update_plugins' ) ) {
-			printf(
-				/* translators: 1: Plugin name, 2: Plugin details URL, 3: Additional link attributes, 4: Version number. */
-				_x( 'There is a new version of %1$s available. <a href="%2$s" %3$s>View version %4$s details</a>.', 'plugin' ),
-				$plugin_name,
-				esc_url( $details_url ),
-				sprintf(
-					'class="thickbox open-plugin-details-modal" aria-label="%s"',
-					/* translators: 1: Plugin name, 2: Version number. */
-					esc_attr( sprintf( _x( 'View %1$s version %2$s details', 'plugin' ), $plugin_name, $response->new_version ) )
-				),
-				esc_attr( $response->new_version )
-			);
-		} elseif ( empty( $response->package ) ) {
-			printf(
-				/* translators: 1: Plugin name, 2: Plugin details URL, 3: Additional link attributes, 4: Version number. */
-				_x( 'There is a new version of %1$s available. <a href="%2$s" %3$s>View version %4$s details</a>. <em>Automatic update is unavailable for this plugin.</em>', 'plugin' ),
-				$plugin_name,
-				esc_url( $details_url ),
-				sprintf(
-					'class="thickbox open-plugin-details-modal" aria-label="%s"',
-					/* translators: 1: Plugin name, 2: Version number. */
-					esc_attr( sprintf( _x( 'View %1$s version %2$s details', 'plugin' ), $plugin_name, $response->new_version ) )
-				),
-				esc_attr( $response->new_version )
-			);
-		} else {
-			if ( $compatible_php ) {
-				printf(
-					/* translators: 1: Plugin name, 2: Plugin details URL, 3: Additional link attributes, 4: Version number, 5: Update URL, 6: Additional link attributes. */
-					_x( 'There is a new version of %1$s available. <a href="%2$s" %3$s>View version %4$s details</a> or <a href="%5$s" %6$s>update now</a>.', 'plugin' ),
-					$plugin_name,
-					esc_url( $details_url ),
-					sprintf(
-						'class="thickbox open-plugin-details-modal" aria-label="%s"',
-						/* translators: 1: Plugin name, 2: Version number. */
-						esc_attr( sprintf( _x( 'View %1$s version %2$s details', 'plugin' ), $plugin_name, $response->new_version ) )
-					),
-					esc_attr( $response->new_version ),
-					wp_nonce_url( self_admin_url( 'update.php?action=upgrade-plugin&plugin=' ) . $file, 'upgrade-plugin_' . $file ),
-					sprintf(
-						'class="update-link" aria-label="%s"',
-						/* translators: %s: Plugin name. */
-						esc_attr( sprintf( _x( 'Update %s now', 'plugin' ), $plugin_name ) )
-					)
-				);
-			} else {
-				printf(
-					/* translators: 1: Plugin name, 2: Details URL, 3: Additional link attributes, 4: Version number. */
-					__( 'There is a new version of %1$s available, but it does not work with your version of PHP. <a href="%2$s" %3$s>View version %4$s details</a>.' ),
-					$plugin_name,
-					esc_url( $details_url ),
-					sprintf(
-						'class="thickbox open-plugin-details-modal" aria-label="%s"',
-						/* translators: 1: Plugin name, 2: Version number. */
-						esc_attr( sprintf( _x( 'View %1$s version %2$s details', 'plugin' ), $plugin_name, $response->new_version ) )
-					),
-					esc_attr( $response->new_version )
-				);
-			}
-		}
-
-		/**
-		 * Fires at the end of the update message container in each
-		 * row of the plugins list table.
-		 *
-		 * The dynamic portion of the hook name, `$file`, refers to the path
-		 * of the plugin's primary file relative to the plugins directory.
-		 *
-		 * @since WP 2.8.0
-		 *
-		 * @param array  $plugin_data An array of plugin metadata. See get_plugin_data()
-		 *                            and the {@see 'plugin_row_meta'} filter for the list
-		 *                            of possible values.
-		 * @param object $response {
-		 *     An object of metadata about the available plugin update.
-		 *
-		 *     @type string   $id           Plugin ID, e.g. `github.com/Retraceur/[plugin-name]`.
-		 *     @type string   $slug         Plugin slug.
-		 *     @type string   $plugin       Plugin basename.
-		 *     @type string   $new_version  New plugin version.
-		 *     @type string   $url          Plugin URL.
-		 *     @type string   $package      Plugin update package URL.
-		 *     @type string[] $icons        An array of plugin icon URLs.
-		 *     @type string[] $banners      An array of plugin banner URLs.
-		 *     @type string[] $banners_rtl  An array of plugin RTL banner URLs.
-		 *     @type string   $requires     The version of Retraceur which the plugin requires.
-		 *     @type string   $tested       The version of Retraceur the plugin is tested against.
-		 *     @type string   $requires_php The version of PHP which the plugin requires.
-		 * }
-		 */
-		do_action( "in_plugin_update_message-{$file}", $plugin_data, $response ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
-
-		echo '</p></div></td></tr>';
-	}
 }
 
 /**
@@ -929,7 +728,7 @@ function wp_recovery_mode_nag() {
  * @return bool True if updates are enabled for `$type`, false otherwise.
  */
 function wp_is_auto_update_enabled_for_type( $type ) {
-	$enabled = retraceur_is_updater_enabled();
+	$enabled = false;
 
 	switch ( $type ) {
 		case 'plugin':
@@ -952,7 +751,7 @@ function wp_is_auto_update_enabled_for_type( $type ) {
 			return apply_filters( 'themes_auto_update_enabled', $enabled );
 	}
 
-	return false;
+	return $enabled;
 }
 
 /**
