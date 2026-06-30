@@ -268,10 +268,6 @@ function retraceur_discovery_resolve_full_name( $plugin_data ) {
 		}
 	}
 
-	if ( ! empty( $plugin_data['Author'] ) && ! empty( $plugin_data['TextDomain'] ) ) {
-		return sanitize_title( $plugin_data['Author'] ) . '/' . sanitize_title( $plugin_data['TextDomain'] );
-	}
-
 	return '';
 }
 

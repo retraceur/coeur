@@ -13,8 +13,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die( '-1' );
 }
 
-function retraceur_fetch_repository_releases( $url, $cache_key = '' ) {
-	if ( 'update_coeur' === $cache_key ) {
+function retraceur_fetch_repository_releases( $url, $use_core_feed_cache = false ) {
+	if ( $use_core_feed_cache ) {
 		if ( ! class_exists( 'SimplePie\SimplePie', false ) ) {
 			require_once ABSPATH . WPINC . '/class-simplepie.php';
 		}
@@ -129,7 +129,7 @@ function retraceur_version_check( $force_check = false ) {
 	$current->last_checked = time();
 	set_site_transient( 'update_coeur', $current );
 
-	$releases = retraceur_fetch_repository_releases( 'https://github.com/retraceur/coeur/releases.atom', 'update_coeur' );
+	$releases = retraceur_fetch_repository_releases( 'https://github.com/retraceur/coeur/releases.atom', true );
 	if ( is_wp_error( $releases ) ) {
 		return $releases;
 	}
@@ -198,10 +198,11 @@ function retraceur_get_plugin_update( $owner_repo, $plugin_data, $plugin_file, $
 
 	if ( ! is_wp_error( $items ) && $items ) {
 		foreach ( $items as $release ) {
-			$id      = explode( '/', rtrim( $release->get_id(), '/' ) );
-			$version = end( $id );
+			$id           = explode( '/', rtrim( $release->get_id(), '/' ) );
+			$version      = end( $id );
+			$stable_probe = ltrim( $version, 'vV' );
 
-			if ( ! $version || ! is_numeric( str_replace( '.', '', $version ) ) ) {
+			if ( ! $version || ! is_numeric( str_replace( '.', '', $stable_probe ) ) ) {
 				continue;
 			}
 
@@ -211,11 +212,12 @@ function retraceur_get_plugin_update( $owner_repo, $plugin_data, $plugin_file, $
 				'id'           => $owner_repo,
 				'slug'         => $slug,
 				'plugin'       => $plugin_file,
-				'version'      => $version,
+				'version'      => $stable_probe,
 				'package'      => "https://github.com/{$owner_repo}/releases/download/{$version}/{$slug}.zip",
 				'url'          => $release->get_link(),
 				'requires_php' => $plugin_data['RequiresPHP'],
-				'requires'     => $plugin_data['RequiresR'],
+				'requires_r'   => $plugin_data['RequiresR'],
+				'requires'     => $plugin_data['RequiresWP'],
 			);
 		}
 	}
@@ -228,10 +230,9 @@ function retraceur_get_plugin_update( $owner_repo, $plugin_data, $plugin_file, $
  *
  * Despite its name this function does not actually perform any updates, it only checks for available updates.
  *
- * A list of all plugins installed is sent to remote directory provider, along with the site locale.
- *
  * @since WP 2.3.0
  * @since 1.0.0 Retraceur fork.
+ * @since 4.0.0 Retraceur fork: use the Retraceur Update API (plugins need to be hosted on GitHub).
  *
  * @global string $retraceur_version The Retraceur version string.
  */
@@ -342,11 +343,8 @@ function wp_update_plugins() {
 	foreach ( $plugins as $plugin_file => $plugin_data ) {
 		$update = array();
 
-		if ( isset( $installed_map[ $plugin_file ] ) ) {
-			// Géré par Retraceur : source de vérité = la map de découverte
-			$update = retraceur_get_plugin_update( $installed_map[ $plugin_file ], $plugin_data, $plugin_file, $locales );
-
-		} elseif ( $plugin_data['UpdateURI'] ) {
+		// Let plugins use their own updater first.
+		if ( $plugin_data['UpdateURI'] ) {
 			// Tiers qui n'utilise pas l'API de Retraceur
 			$hostname = wp_parse_url( sanitize_url( $plugin_data['UpdateURI'] ), PHP_URL_HOST );
 
@@ -390,6 +388,29 @@ function wp_update_plugins() {
 			 * @param string[]    $locales          Installed locales to look up translations for.
 			 */
 			$update = apply_filters( "update_plugins_{$hostname}", false, $plugin_data, $plugin_file, $locales );
+
+			if ( ! $update ) {
+				if ( 'github.com' === $hostname && ! isset( $installed_map[ $plugin_file ] ) ) {
+					_doing_it_wrong(
+						__FUNCTION__,
+						sprintf(
+							/* translators: 1: Plugin file. 2: The update_plugins_{hostname} filter name. */
+							esc_html__( '%1$s defines the `Update URI` plugin header but does not filter `%2$s`. To use the Retraceur built-in updater, please use the `GitHub Plugin URI` header tag instead.' ),
+							$plugin_file,
+							"update_plugins_{$hostname}"
+						),
+						'4.0.0',
+						true
+					);
+
+					continue;
+				}
+			}
+		}
+
+		// Default to the Retraceur updater if none was given.
+		if ( ! $update && isset( $installed_map[ $plugin_file ] ) ) {
+			$update = retraceur_get_plugin_update( $installed_map[ $plugin_file ], $plugin_data, $plugin_file, $locales );
 		}
 
 		if ( ! $update ) {
@@ -943,16 +964,16 @@ function wp_schedule_update_checks() {
 		wp_schedule_event( time(), 'twicedaily', 'retraceur_version_check' );
 	}
 
-	/**
-	 * Disable Plugin and Theme new update checks for now.
-	 *
-	 * @todo Restore it once adaptations to Retraceur fork are put in place.
-	 */
-	/*if ( ! wp_next_scheduled( 'wp_update_plugins' ) && ! wp_installing() ) {
+	if ( ! wp_next_scheduled( 'wp_update_plugins' ) && ! wp_installing() ) {
 		wp_schedule_event( time(), 'twicedaily', 'wp_update_plugins' );
 	}
 
-	if ( ! wp_next_scheduled( 'wp_update_themes' ) && ! wp_installing() ) {
+	/**
+	 * Disable Theme new update checks for now.
+	 *
+	 * @todo Restore it once adaptations to Retraceur fork are put in place.
+	 */
+	/*if ( ! wp_next_scheduled( 'wp_update_themes' ) && ! wp_installing() ) {
 		wp_schedule_event( time(), 'twicedaily', 'wp_update_themes' );
 	}*/
 }
@@ -1054,12 +1075,13 @@ add_action( 'admin_init', '_maybe_update_core' );
 add_action( 'retraceur_version_check', 'retraceur_version_check' );
 add_action( 'init', 'wp_schedule_update_checks' );
 
-/*add_action( 'load-plugins.php', 'wp_update_plugins' );
+add_action( 'load-plugins.php', 'wp_update_plugins' );
 add_action( 'load-update.php', 'wp_update_plugins' );
 add_action( 'load-update-core.php', 'wp_update_plugins' );
 add_action( 'admin_init', '_maybe_update_plugins' );
 add_action( 'wp_update_plugins', 'wp_update_plugins' );
 
+/*
 add_action( 'load-themes.php', 'wp_update_themes' );
 add_action( 'load-update.php', 'wp_update_themes' );
 add_action( 'load-update-core.php', 'wp_update_themes' );
