@@ -196,20 +196,8 @@ if ( wp_is_block_theme() ) {
 
 unset( $appearance_capability );
 
-$count = '';
-if ( ! is_multisite() && current_user_can( 'update_plugins' ) ) {
-	if ( ! isset( $update_data ) ) {
-		$update_data = wp_get_update_data();
-	}
-	$count = sprintf(
-		'<span class="update-plugins count-%s"><span class="plugin-count">%s</span></span>',
-		$update_data['counts']['plugins'],
-		number_format_i18n( $update_data['counts']['plugins'] )
-	);
-}
-
 /* translators: %s: Number of available plugin updates. */
-$menu[65] = array( sprintf( __( 'Plugins %s' ), $count ), 'activate_plugins', 'plugins.php', '', 'menu-top menu-icon-plugins', 'menu-plugins', 'dashicons-admin-plugins' );
+$menu[65] = array( __( 'Plugins' ), 'activate_plugins', 'plugins.php', '', 'menu-top menu-icon-plugins', 'menu-plugins', 'dashicons-admin-plugins' );
 
 $submenu['plugins.php'][5] = array( __( 'Installed Plugins' ), 'activate_plugins', 'plugins.php' );
 

@@ -3560,9 +3560,6 @@ function wp_ajax_delete_plugin() {
 function wp_ajax_search_plugins() {
 	check_ajax_referer( 'updates' );
 
-	// Ensure after_plugin_row_{$plugin_file} gets hooked.
-	wp_plugin_update_rows();
-
 	WP_Plugin_Dependencies::initialize();
 
 	$pagenow = isset( $_POST['pagenow'] ) ? sanitize_key( $_POST['pagenow'] ) : '';

@@ -4222,3 +4222,65 @@ function plugins_api( $action, $args = array() ) {
 		$not_supported
 	);
 }
+
+/**
+ * Adds a callback to display update information for plugins with updates available.
+ *
+ * @since WP 2.9.0
+ * @deprecated 4.0.0 Retraceur fork.
+ */
+function wp_plugin_update_rows() {
+	_deprecated_function( __FUNCTION__, '4.0.0', '', true );
+}
+
+/**
+ * Displays update information for a plugin.
+ *
+ * @since WP 2.3.0
+ * @deprecated 4.0.0 Retraceur fork.
+ *
+ * @param string $file        Plugin basename.
+ * @param array  $plugin_data Plugin information.
+ * @return void|false Void on success, false if the plugin update is not available.
+ */
+function wp_plugin_update_row( $file, $plugin_data ) {
+	_deprecated_function( __FUNCTION__, '4.0.0', '', true );
+
+	/**
+	 * Fires at the end of the update message container in each
+	 * row of the plugins list table.
+	 *
+	 * The dynamic portion of the hook name, `$file`, refers to the path
+	 * of the plugin's primary file relative to the plugins directory.
+	 *
+	 * @since WP 2.8.0
+	 * @deprecated 4.0.0 Retraceur fork.
+	 *
+	 * @param array  $plugin_data An array of plugin metadata. See get_plugin_data()
+	 *                            and the {@see 'plugin_row_meta'} filter for the list
+	 *                            of possible values.
+	 * @param object $response {
+	 *     An object of metadata about the available plugin update.
+	 *
+	 *     @type string   $id           Plugin ID, e.g. `github.com/Retraceur/[plugin-name]`.
+	 *     @type string   $slug         Plugin slug.
+	 *     @type string   $plugin       Plugin basename.
+	 *     @type string   $new_version  New plugin version.
+	 *     @type string   $url          Plugin URL.
+	 *     @type string   $package      Plugin update package URL.
+	 *     @type string[] $icons        An array of plugin icon URLs.
+	 *     @type string[] $banners      An array of plugin banner URLs.
+	 *     @type string[] $banners_rtl  An array of plugin RTL banner URLs.
+	 *     @type string   $requires     The version of Retraceur which the plugin requires.
+	 *     @type string   $tested       The version of Retraceur the plugin is tested against.
+	 *     @type string   $requires_php The version of PHP which the plugin requires.
+	 * }
+	 */
+	do_action_deprecated(
+		"in_plugin_update_message-{$file}", // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
+		array( $plugin_data, $response ),
+		'4.0.0',
+		'',
+		__( 'Retraceur manage Plugin and other updates from a unique place: the `wp-admin/update-core.php` page.' )
+	);
+}

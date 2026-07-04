@@ -14,7 +14,6 @@ require_once __DIR__ . '/admin.php';
 wp_enqueue_style( 'plugin-install' );
 wp_enqueue_script( 'plugin-install' );
 wp_enqueue_script( 'updates' );
-add_thickbox();
 
 if ( is_multisite() && ! is_network_admin() ) {
 	wp_redirect( network_admin_url( 'update-core.php' ) );
@@ -295,19 +294,17 @@ function core_upgrade_preamble() {
  *
  * @since WP 2.9.0
  * @since 2.0.0 Retraceur fork disabled the Plugin updates.
+ * @since 4.0.0 Retraceur fork brought back the Plugin updates.
  */
 function list_plugin_updates() {
-	// Disable Plugin updates for now.
-	return '';
-
 	$retraceur_version = retraceur_get_version();
 	$cur_r_version     = preg_replace( '/-.*$/', '', $retraceur_version );
 
 	require_once ABSPATH . 'wp-admin/includes/plugin-install.php';
 	$plugins = get_plugin_updates();
 	if ( empty( $plugins ) ) {
-		echo '<h2>' . __( 'Plugins' ) . '</h2>';
-		echo '<p>' . __( 'Your plugins are all up to date.' ) . '</p>';
+		echo '<h2>' . esc_html__( 'Plugins & Blocks' ) . '</h2>';
+		echo '<p>' . esc_html__( 'Your plugins & blocks are all up to date.' ) . '</p>';
 		return;
 	}
 	$form_action = 'update-core.php?action=do-plugin-upgrade';
@@ -325,15 +322,15 @@ function list_plugin_updates() {
 	<?php
 	printf(
 		'%s <span class="count">(%d)</span>',
-		__( 'Plugins' ),
+		__( 'Plugins & Blocks' ),
 		number_format_i18n( $plugins_count )
 	);
 	?>
 </h2>
-<p><?php _e( 'The following plugins have new versions available. Check the ones you want to update and then click &#8220;Update Plugins&#8221;.' ); ?></p>
+<p><?php esc_html_e( 'The following plugins/blocks have new versions available. Check the ones you want to update and then click &#8220;Update Plugins/Blocks&#8221;.' ); ?></p>
 <form method="post" action="<?php echo esc_url( $form_action ); ?>" name="upgrade-plugins" class="upgrade">
 	<?php wp_nonce_field( 'upgrade-core' ); ?>
-<p><input id="upgrade-plugins" class="button" type="submit" value="<?php esc_attr_e( 'Update Plugins' ); ?>" name="upgrade" /></p>
+<p><input id="upgrade-plugins" class="button" type="submit" value="<?php esc_attr_e( 'Update Plugins/Blocks' ); ?>" name="upgrade" /></p>
 <table class="widefat updates-table" id="update-plugins-table">
 	<thead>
 	<tr>
@@ -344,13 +341,6 @@ function list_plugin_updates() {
 
 	<tbody class="plugins">
 	<?php
-
-	$auto_updates = array();
-	if ( wp_is_auto_update_enabled_for_type( 'plugin' ) ) {
-		$auto_updates       = (array) get_site_option( 'auto_update_plugins', array() );
-		$auto_update_notice = ' | ' . wp_get_auto_update_message();
-	}
-
 	foreach ( (array) $plugins as $plugin_file => $plugin_data ) {
 		$plugin_data = (object) _get_plugin_data_markup_translate( $plugin_file, (array) $plugin_data, false, true );
 
@@ -396,16 +386,6 @@ function list_plugin_updates() {
 			$upgrade_notice = '';
 		}
 
-		$details_url = self_admin_url( 'plugin-install.php?tab=plugin-information&plugin=' . $plugin_data->update->slug . '&section=changelog&TB_iframe=true&width=640&height=662' );
-		$details     = sprintf(
-			'<a href="%1$s" class="thickbox open-plugin-details-modal" aria-label="%2$s">%3$s</a>',
-			esc_url( $details_url ),
-			/* translators: 1: Plugin name, 2: Version number. */
-			esc_attr( sprintf( _x( 'View %1$s version %2$s details', 'plugin' ), $plugin_data->Name, $plugin_data->update->new_version ) ),
-			/* translators: %s: Plugin version. */
-			sprintf( __( 'View version %s details.' ), $plugin_data->update->new_version )
-		);
-
 		$checkbox_id = 'checkbox_' . md5( $plugin_file );
 		?>
 	<tr>
@@ -433,11 +413,7 @@ function list_plugin_updates() {
 				$plugin_data->update->new_version
 			);
 
-			echo ' ' . $details . $compat;
-
-			if ( in_array( $plugin_file, $auto_updates, true ) ) {
-				echo $auto_update_notice;
-			}
+			echo ' ' . $compat;
 
 			echo $upgrade_notice;
 			?>
@@ -455,7 +431,7 @@ function list_plugin_updates() {
 	</tr>
 	</tfoot>
 </table>
-<p><input id="upgrade-plugins-2" class="button" type="submit" value="<?php esc_attr_e( 'Update Plugins' ); ?>" name="upgrade" /></p>
+<p><input id="upgrade-plugins-2" class="button" type="submit" value="<?php esc_attr_e( 'Update Plugins/Blocks' ); ?>" name="upgrade" /></p>
 </form>
 	<?php
 }
@@ -853,16 +829,11 @@ if ( 'upgrade-core' === $action ) {
 	?>
 	<div class="wrap">
 	<h1><?php esc_html_e( 'Retraceur Updates' ); ?></h1>
-	<?php
-	/*
-	 * Disable this for now.
-	 * @todo Restore when the Retraceur Update API will be ready.
-	 *
-	<p><?php _e( 'Updates may take several minutes to complete. If there is no feedback after 5 minutes, or if there are errors please refer to the Help section above.' ); ?></p>
+	<p><?php esc_html_e( 'Updates may take several minutes to complete. If there is no feedback after 5 minutes, or if there are errors please refer to the Help section above.' ); ?></p>
 
 	<?php
 	if ( $upgrade_error ) {
-		if ( 'themes' === $upgrade_error ) {
+		/*if ( 'themes' === $upgrade_error ) {
 			$theme_updates = get_theme_updates();
 			if ( ! empty( $theme_updates ) ) {
 				wp_admin_notice(
@@ -872,11 +843,12 @@ if ( 'upgrade-core' === $action ) {
 					)
 				);
 			}
-		} else {
+		}*/
+		if ( 'plugins' === $upgrade_error ) {
 			$plugin_updates = get_plugin_updates();
 			if ( ! empty( $plugin_updates ) ) {
 				wp_admin_notice(
-					__( 'Please select one or more plugins to update.' ),
+					__( 'Please select one or more plugins/blocks to update.' ),
 					array(
 						'additional_classes' => array( 'error' ),
 					)
@@ -884,7 +856,6 @@ if ( 'upgrade-core' === $action ) {
 			}
 		}
 	}
-	*/
 
 	$last_update_check = false;
 	$current           = get_site_transient( 'update_coeur' );
@@ -915,13 +886,14 @@ if ( 'upgrade-core' === $action ) {
 		core_upgrade_preamble();
 	}
 
+	if ( current_user_can( 'update_plugins' ) ) {
+		list_plugin_updates();
+	}
+
 	/*
 	 * Disable this for now.
 	 * @todo Restore when the Retraceur Update API will be ready.
 	 *
-	if ( current_user_can( 'update_plugins' ) ) {
-		list_plugin_updates();
-	}
 	if ( current_user_can( 'update_themes' ) ) {
 		list_theme_updates();
 	}
@@ -985,12 +957,6 @@ if ( 'upgrade-core' === $action ) {
 	require_once ABSPATH . 'wp-admin/admin-footer.php';
 
 } elseif ( 'do-plugin-upgrade' === $action ) {
-	wp_die(
-		'<h1>' . __( 'Retraceur does not provide an API to update plugins yet.' ) . '</h1>' .
-		'<p>' . __( 'You can always go to the Plugin’s "Add new" screen to upload and replace outdated packages.' ) . '</p>',
-		500
-	);
-
 	if ( ! current_user_can( 'update_plugins' ) ) {
 		wp_die( __( 'Sorry, you are not allowed to update this site.' ) );
 	}
@@ -1015,7 +981,7 @@ if ( 'upgrade-core' === $action ) {
 	require_once ABSPATH . 'wp-admin/admin-header.php';
 	?>
 	<div class="wrap">
-		<h1><?php _e( 'Update Plugins' ); ?></h1>
+		<h1><?php esc_html_e( 'Update Plugins/Blocks' ); ?></h1>
 		<iframe src="<?php echo $url; ?>" style="width: 100%; height: 100%; min-height: 750px;" frameborder="0" title="<?php esc_attr_e( 'Update progress' ); ?>"></iframe>
 	</div>
 	<?php

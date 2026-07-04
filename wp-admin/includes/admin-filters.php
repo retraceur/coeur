@@ -116,7 +116,6 @@ add_action( 'profile_update', 'default_password_nag_edit_user', 10, 2 );
 add_action( 'personal_options_update', 'send_confirmation_on_profile_email' );
 
 // Update hooks.
-add_action( 'load-plugins.php', 'wp_plugin_update_rows', 20 ); // After wp_update_plugins() is called.
 add_action( 'load-themes.php', 'wp_theme_update_rows', 20 ); // After wp_update_themes() is called.
 
 add_action( 'admin_notices', 'update_nag', 3 );
@@ -130,20 +129,16 @@ add_filter( 'update_footer', 'core_update_footer' );
 // Upgrade hooks.
 
 /**
- * @todo Restore when Retraceur adpated its API to handle it.
+ * @todo Restore when Retraceur adapted its API to handle it.
  */
 // add_action( 'upgrader_process_complete', array( 'Language_Pack_Upgrader', 'async_upgrade' ), 20 );
 
 // Only keep Coeur upgrade checks.
 add_action( 'upgrader_process_complete', 'retraceur_version_check', 10, 0 );
+add_action( 'upgrader_process_complete', 'wp_update_plugins', 10, 0 );
 
 /**
- * @todo Restore when Retraceur adpated its API to handle it.
- */
-// add_action( 'upgrader_process_complete', 'wp_update_plugins', 10, 0 );
-
-/**
- * @todo Restore when Retraceur adpated its API to handle it.
+ * @todo Restore when Retraceur adapted its API to handle it.
  */
 // add_action( 'upgrader_process_complete', 'wp_update_themes', 10, 0 );
 
