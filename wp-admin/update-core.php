@@ -303,8 +303,8 @@ function list_plugin_updates() {
 	require_once ABSPATH . 'wp-admin/includes/plugin-install.php';
 	$plugins = get_plugin_updates();
 	if ( empty( $plugins ) ) {
-		echo '<h2>' . __( 'Plugins & Blocks' ) . '</h2>';
-		echo '<p>' . __( 'Your plugins & blocks are all up to date.' ) . '</p>';
+		echo '<h2>' . esc_html__( 'Plugins & Blocks' ) . '</h2>';
+		echo '<p>' . esc_html__( 'Your plugins & blocks are all up to date.' ) . '</p>';
 		return;
 	}
 	$form_action = 'update-core.php?action=do-plugin-upgrade';
@@ -327,7 +327,7 @@ function list_plugin_updates() {
 	);
 	?>
 </h2>
-<p><?php _e( 'The following plugins/blocks have new versions available. Check the ones you want to update and then click &#8220;Update Plugins/Blocks&#8221;.' ); ?></p>
+<p><?php esc_html_e( 'The following plugins/blocks have new versions available. Check the ones you want to update and then click &#8220;Update Plugins/Blocks&#8221;.' ); ?></p>
 <form method="post" action="<?php echo esc_url( $form_action ); ?>" name="upgrade-plugins" class="upgrade">
 	<?php wp_nonce_field( 'upgrade-core' ); ?>
 <p><input id="upgrade-plugins" class="button" type="submit" value="<?php esc_attr_e( 'Update Plugins/Blocks' ); ?>" name="upgrade" /></p>
@@ -829,7 +829,7 @@ if ( 'upgrade-core' === $action ) {
 	?>
 	<div class="wrap">
 	<h1><?php esc_html_e( 'Retraceur Updates' ); ?></h1>
-	<p><?php _e( 'Updates may take several minutes to complete. If there is no feedback after 5 minutes, or if there are errors please refer to the Help section above.' ); ?></p>
+	<p><?php esc_html_e( 'Updates may take several minutes to complete. If there is no feedback after 5 minutes, or if there are errors please refer to the Help section above.' ); ?></p>
 
 	<?php
 	if ( $upgrade_error ) {
@@ -981,7 +981,7 @@ if ( 'upgrade-core' === $action ) {
 	require_once ABSPATH . 'wp-admin/admin-header.php';
 	?>
 	<div class="wrap">
-		<h1><?php _e( 'Update Plugins/Blocks' ); ?></h1>
+		<h1><?php esc_html_e( 'Update Plugins/Blocks' ); ?></h1>
 		<iframe src="<?php echo $url; ?>" style="width: 100%; height: 100%; min-height: 750px;" frameborder="0" title="<?php esc_attr_e( 'Update progress' ); ?>"></iframe>
 	</div>
 	<?php
