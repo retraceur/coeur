@@ -7,10 +7,6 @@
  * @package Retraceur
  * @subpackage Administration
  */
-// TODO: Route this page via a specific iframe handler instead of the do_action below.
-if ( ! defined( 'IFRAME_REQUEST' ) && isset( $_GET['tab'] ) && ( 'plugin-information' === $_GET['tab'] ) ) {
-	define( 'IFRAME_REQUEST', true );
-}
 
 $plugin_type = 'plugin';
 
@@ -87,13 +83,9 @@ wp_add_inline_script(
 );
 
 wp_enqueue_style( 'retraceur-discovery' );
-if ( 'plugin-information' !== $tab ) {
-	add_thickbox();
-}
+wp_enqueue_script( 'updates' );
 
 $body_id = $tab;
-
-wp_enqueue_script( 'updates' );
 
 /**
  * Fires before each tab on the Install Plugins screen is loaded.

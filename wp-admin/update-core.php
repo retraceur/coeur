@@ -344,7 +344,11 @@ function list_plugin_updates() {
 	foreach ( (array) $plugins as $plugin_file => $plugin_data ) {
 		$plugin_data = (object) _get_plugin_data_markup_translate( $plugin_file, (array) $plugin_data, false, true );
 
-		$icon            = '<span class="dashicons dashicons-admin-plugins"></span>';
+		$icon = '<span class="dashicons dashicons-admin-plugins repo-icon"></span>';
+		if ( isset( $plugin_data->Type ) && 'block' === $plugin_data->Type ) {
+			$icon = '<span class="dashicons dashicons-block-default repo-icon"></span>';
+		}
+
 		$preferred_icons = array( 'svg', '2x', '1x', 'default' );
 		foreach ( $preferred_icons as $preferred_icon ) {
 			if ( ! empty( $plugin_data->update->icons[ $preferred_icon ] ) ) {
@@ -386,6 +390,25 @@ function list_plugin_updates() {
 			$upgrade_notice = '';
 		}
 
+		$details_url = '';
+		if ( ! empty( $plugin_data->GitHubPluginURI ) ) {
+			$details_url = trailingslashit( $plugin_data->GitHubPluginURI ) . 'releases/tag/' . $plugin_data->update->new_version;
+		} elseif ( ! empty( $plugin_data->update->url ) ) {
+			$details_url = $plugin_data->update->url;
+		}
+
+		$details = '';
+		if ( $details_url ) {
+			$details     = sprintf(
+				'<a href="%1$s" aria-label="%2$s">%3$s</a> <a href="%1$s" aria-label="%2$s" target="_blank" class="open-external"><span class="dashicons dashicons-external"></span></a>',
+				esc_url( $details_url ),
+				/* translators: 1: Plugin name, 2: Version number. */
+				esc_attr( sprintf( __( 'View %1$s version %2$s details' ), $plugin_data->Name, $plugin_data->update->new_version ) ),
+				/* translators: %s: Plugin version. */
+				sprintf( __( 'View version %s details.' ), $plugin_data->update->new_version )
+			);
+		}
+
 		$checkbox_id = 'checkbox_' . md5( $plugin_file );
 		?>
 	<tr>
@@ -413,7 +436,7 @@ function list_plugin_updates() {
 				$plugin_data->update->new_version
 			);
 
-			echo ' ' . $compat;
+			echo ' ' . $details . $compat;
 
 			echo $upgrade_notice;
 			?>

@@ -85,18 +85,8 @@ add_action( 'edit_form_after_editor', '_enable_content_editor_for_navigation_pos
 add_filter( 'allowed_options', 'option_update_filter' );
 
 // Plugin Install hooks.
-add_action( 'install_plugins_featured', 'display_plugins_table' );
-add_action( 'install_blocks_featured', 'display_plugins_table' );
 add_action( 'install_plugins_upload', 'install_plugins_upload' );
 add_action( 'install_blocks_upload', 'retraceur_block_upload' );
-add_action( 'install_plugins_search', 'display_plugins_table' );
-add_action( 'install_blocks_search', 'display_plugins_table' );
-add_action( 'install_plugins_all', 'display_plugins_table' );
-add_action( 'install_blocks_all', 'display_plugins_table' );
-add_action( 'install_plugins_new', 'display_plugins_table' );
-add_action( 'install_plugins_beta', 'display_plugins_table' );
-add_action( 'install_blocks_beta', 'display_plugins_table' );
-add_action( 'install_plugins_pre_plugin-information', 'install_plugin_information' );
 
 // Template hooks.
 add_action( 'admin_enqueue_scripts', array( 'WP_Internal_Pointers', 'enqueue_scripts' ) );

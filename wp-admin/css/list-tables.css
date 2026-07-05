@@ -1000,7 +1000,7 @@ ul.cat-checklist input[name="post_category[]"]:indeterminate::before {
 	white-space: nowrap;
 }
 
-.plugins .plugin-title .dashicons,
+.plugins .plugin-title .repo-icon,
 .plugins .plugin-title img.plugin-icon,
 .plugins .plugin-title img.updates-table-screenshot {
 	float: left;
@@ -1009,7 +1009,7 @@ ul.cat-checklist input[name="post_category[]"]:indeterminate::before {
 	height: 64px;
 }
 
-.plugins .plugin-title .dashicons:before {
+.plugins .plugin-title .repo-icon:before {
 	padding: 2px;
 	background-color: #f0f0f1;
 	box-shadow: inset 0 0 10px rgba(167, 170, 173, 0.15);
@@ -1019,8 +1019,13 @@ ul.cat-checklist input[name="post_category[]"]:indeterminate::before {
 
 #update-themes-table .plugin-title img,
 #update-themes-table .plugin-title img.updates-table-screenshot,
-#update-themes-table .plugin-title .dashicons {
+#update-themes-table .plugin-title .repo-icon {
 	width: 85px;
+}
+
+.plugins .plugin-title a.open-external {
+	border: 0;
+	text-decoration: none;
 }
 
 .plugins .column-auto-updates {

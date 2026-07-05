@@ -1243,27 +1243,13 @@ class WP_Plugins_List_Table extends WP_List_Table {
 						$plugin_meta[] = sprintf( _x( 'By %s', 'plugin' ), $author );
 					}
 
-					// Details link using API info, if available.
-					if ( isset( $plugin_data['slug'] ) && current_user_can( 'install_plugins' ) ) {
-						$plugin_meta[] = sprintf(
-							'<a href="%s" class="thickbox open-plugin-details-modal" aria-label="%s" data-title="%s">%s</a>',
-							esc_url(
-								network_admin_url(
-									'plugin-install.php?tab=plugin-information&plugin=' . $plugin_data['slug'] .
-									'&TB_iframe=true&width=600&height=550'
-								)
-							),
-							/* translators: %s: Plugin name. */
-							esc_attr( sprintf( __( 'More information about %s' ), $plugin_name ) ),
-							esc_attr( $plugin_name ),
-							__( 'View details' )
-						);
-					} elseif ( ! empty( $plugin_data['PluginURI'] ) ) {
+					// Add a plugin/block link, if available.
+					if ( ! empty( $plugin_data['PluginURI'] ) ) {
 						/* translators: %s: Plugin name. */
 						$aria_label = sprintf( __( 'Visit plugin site for %s' ), $plugin_name );
 
 						$plugin_meta[] = sprintf(
-							'<a href="%s" aria-label="%s">%s</a>',
+							'<a href="%1$s" aria-label="%2$s">%3$s</a> <a href="%1$s" aria-label="%2$s" target="_blank" class="open-external"><span class="dashicons dashicons-external"></span></a>',
 							esc_url( $plugin_data['PluginURI'] ),
 							esc_attr( $aria_label ),
 							__( 'Visit plugin site' )
