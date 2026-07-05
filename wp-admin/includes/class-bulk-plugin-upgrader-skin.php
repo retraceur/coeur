@@ -85,6 +85,14 @@ class Bulk_Plugin_Upgrader_Skin extends Bulk_Upgrader_Skin {
 			),
 		);
 
+		if ( ! empty( $this->plugin_info['Type'] ) && 'block' === $this->plugin_info['Type'] ) {
+			$update_actions['plugins_page'] = sprintf(
+				'<a href="%s" target="_parent">%s</a>',
+				self_admin_url( 'blocks.php' ),
+				__( 'Go to Blocks page' )
+			);
+		}
+
 		if ( ! current_user_can( 'activate_plugins' ) ) {
 			unset( $update_actions['plugins_page'] );
 		}
