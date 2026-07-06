@@ -1175,7 +1175,7 @@ function _unzip_file_pclzip( $file, $to, $needed_dirs = array() ) {
 		}
 
 		// Don't extract invalid files:
-		if ( 0 !== validate_file( $file['filename'] ) ) {
+		if ( 0 !== validate_file( $archive_file['filename'] ) ) {
 			continue;
 		}
 
