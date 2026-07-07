@@ -54,7 +54,7 @@ if ( ! empty( $_REQUEST['_wp_http_referer'] ) ) {
 }
 
 // Used in the HTML title tag.
-$title       = __( 'Add Plugins' );
+$title       = __( 'Discover Plugins' );
 $parent_file = 'plugins.php';
 
 /**
@@ -68,7 +68,7 @@ $tabs = array(
 );
 
 if ( 'block' === $plugin_type ) {
-	$title       = _x( 'Add Blocks', 'block install page title' );
+	$title       = _x( 'Discover Blocks', 'block install page title' );
 	$parent_file = 'blocks.php';
 }
 

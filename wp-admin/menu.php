@@ -202,7 +202,7 @@ $menu[65] = array( __( 'Plugins' ), 'activate_plugins', 'plugins.php', '', 'menu
 $submenu['plugins.php'][5] = array( __( 'Installed Plugins' ), 'activate_plugins', 'plugins.php' );
 
 if ( ! is_multisite() ) {
-	$submenu['plugins.php'][10] = array( __( 'Add Plugin' ), 'install_plugins', 'plugin-install.php' );
+	$submenu['plugins.php'][10] = array( __( 'Discover Plugins' ), 'install_plugins', 'plugin-install.php' );
 }
 
 unset( $update_data );
@@ -212,7 +212,7 @@ $menu[67] = array( __( 'Blocks' ), 'activate_plugins', 'blocks.php', '', 'menu-t
 $submenu['blocks.php'][5] = array( __( 'Installed Blocks' ), 'activate_plugins', 'blocks.php' );
 
 if ( ! is_multisite() ) {
-	$submenu['blocks.php'][10] = array( __( 'Add Block' ), 'install_plugins', 'block-install.php' );
+	$submenu['blocks.php'][10] = array( __( 'Discover Blocks' ), 'install_plugins', 'block-install.php' );
 }
 
 if ( current_user_can( 'list_users' ) ) {
