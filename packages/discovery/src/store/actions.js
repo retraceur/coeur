@@ -139,6 +139,21 @@ export function receiveChangelog( changelog, repository ) {
 }
 
 /**
+ * Returns an action object used to request the installation modal
+ * to be opened for a given repository.
+ *
+ * @param {Object|null} repository The repository to install, or null to close.
+ *
+ * @return {Object} Action object.
+ */
+export function requestInstallation( repository ) {
+	return {
+		type: 'REQUEST_INSTALLATION',
+		repository,
+	};
+}
+
+/**
  * Returns an action object used in signalling that the repository
  * has been installed.
  *

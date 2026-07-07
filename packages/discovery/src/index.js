@@ -56,7 +56,6 @@ const Discovery = ( { settings } ) => {
 
 	// Used to manage the modal to display.
 	const [ openRepository, SetOpenRepository ] = useState( null );
-	const [ openInstallation, setOpenInstallation ] = useState( null );
 
 	// Fires the `view-repository` action.
 	const onClickItem = useCallback( ( repository ) => {
@@ -71,6 +70,12 @@ const Discovery = ( { settings } ) => {
 	const installRepositoryAction = actions.find( ( a ) => a.id === 'install-repository' );
 	const RenderModal = viewRepositoryAction?.RenderModal;
 	const InstallRepositoryModal = installRepositoryAction?.RenderModal;
+
+	const installationRequest = useSelect( ( select ) => {
+		return select( discoveryStore ).getInstallationRequest();
+	}, [] );
+
+	const { requestInstallation } = useDispatch( discoveryStore );
 
 	return (
 		<>
@@ -96,23 +101,19 @@ const Discovery = ( { settings } ) => {
 					<RenderModal
 						items={ [ openRepository ] }
 						closeModal={ () => SetOpenRepository( null ) }
-						onInstall={ ( item ) => {
-							SetOpenRepository( null );
-							setOpenInstallation( item );
-						} }
 					/>
 				</Modal>
 			) }
-			{ openInstallation && InstallRepositoryModal && (
+			{ installationRequest && InstallRepositoryModal && (
 				<Modal
 					title={ installRepositoryAction.modalHeader }
 					size="medium"
-					onRequestClose={ () => setOpenInstallation( null ) }
+					onRequestClose={ () => requestInstallation( null ) }
 					className="dataviews-action-modal dataviews-action-modal__install-repository"
 				>
 					<InstallRepositoryModal
-						items={ [ openInstallation ] }
-						closeModal={ () => setOpenInstallation( null ) }
+						items={ [ installationRequest ] }
+						closeModal={ () => requestInstallation( null ) }
 					/>
 				</Modal>
 			) }

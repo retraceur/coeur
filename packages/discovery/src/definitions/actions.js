@@ -158,12 +158,13 @@ const actions = [
 	{
 		id: 'view-repository',
 		label: __( 'View details' ),
-		RenderModal: ( { items, closeModal, onInstall } ) => {
+		RenderModal: ( { items, closeModal } ) => {
 			const [ activeTab, setActiveTab ] = useState( 'details' );
 			const discoverySettings = useSelect( ( select ) => {
 				return select( discoveryStore ).getSettings();
 			}, [] );
 			const [ item ] = items;
+			const { requestInstallation } = useDispatch( discoveryStore );
 			const { repository, isRequesting, compatibility } = useSelect( ( select ) => {
 				return {
 					repository: select( discoveryStore ).getRepository( item.full_name ),
@@ -235,7 +236,10 @@ const actions = [
 									<>
 										<Button
 											variant="primary"
-											onClick={ () => onInstall( repository ) }
+											onClick={ () => {
+												closeModal();
+												requestInstallation( repository );
+											} }
 										>
 											{ sprintf(
 												/* Translators: %s is the version number. */

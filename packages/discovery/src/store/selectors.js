@@ -176,3 +176,14 @@ export function isRequestingChangelog( state, repository ) {
 export function getChangelog( state, repository ) {
 	return state?.changelogs?.[ repository ] ?? null;
 }
+
+/**
+ * Returns the repository for which installation has been requested.
+ *
+ * @param {Object} state Global application state.
+ *
+ * @return {Object|null} The repository to install, or null.
+ */
+export function getInstallationRequest( state ) {
+    return state?.installationRequest ?? null;
+}
