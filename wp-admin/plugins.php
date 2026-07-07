@@ -692,6 +692,24 @@ get_current_screen()->add_help_tab(
 );
 
 if ( current_user_can( 'install_plugins' ) ) {
+	if ( 'block' === $plugins_type ) {
+		$tab_title = esc_html__( 'Adding Blocks' );
+		$help      = '<p>' . esc_html__( 'If you want to install a block that you’ve downloaded elsewhere, click the "Upload Block" button above the blocks list. You will be prompted to upload the .zip package, and once uploaded, you can activate the new block.' ) . '</p>';
+	} else {
+		$tab_title = esc_html__( 'Adding Plugins' );
+		$help      = '<p>' . esc_html__( 'If you want to install a plugin that you’ve downloaded elsewhere, click the "Upload Plugin" button above the plugins list. You will be prompted to upload the .zip package, and once uploaded, you can activate the new plugin.' ) . '</p>';
+	}
+
+	get_current_screen()->add_help_tab(
+		array(
+			'id'      => 'adding-plugins',
+			'title'   => $tab_title,
+			'content' => $help,
+		)
+	);
+
+	unset( $tab_title );
+
 	$help  = '<p>' . esc_html__( 'Plugin or Block Dependencies aims to make the process of installing and activating add-ons (dependents) and the plugins or blocks they rely on (dependencies) consistent and easy.' ) . '</p>';
 
 	if ( 'block' === $plugins_type ) {
@@ -906,17 +924,56 @@ echo esc_html( $title );
 </h1>
 
 <?php
-if ( ( ! is_multisite() || is_network_admin() ) && current_user_can( 'install_plugins' ) ) {
+if ( current_user_can( 'upload_plugins' ) ) {
+	require_once ABSPATH . 'wp-admin/includes/plugin-install.php';
+
 	if ( 'block' === $plugins_type ) {
-		?>
-		<a href="<?php echo esc_url( self_admin_url( 'block-install.php' ) ); ?>" class="page-title-action"><?php echo esc_html__( 'Add Block' ); ?></a>
-		<?php
+		/**
+		 * Fires before the Block upload form is loaded.
+		 *
+		 * @since 4.0.0 Retraceur fork.
+		 */
+		do_action( 'install_blocks_pre_upload' );
 	} else {
-		?>
-		<a href="<?php echo esc_url( self_admin_url( 'plugin-install.php' ) ); ?>" class="page-title-action"><?php echo esc_html__( 'Add Plugin' ); ?></a>
-		<?php
+		/**
+		 * Fires before the Plugin upload form is loaded.
+		 *
+		 * @since WP 2.7.0
+		 * @since 4.0.0 Retraceur fork moved it inside Plugins screen.
+		 */
+		do_action( 'install_plugins_pre_upload' );
 	}
+
+	printf(
+		' <a href="%s" class="upload-view-toggle page-title-action" role="button" aria-expanded="false"><span class="upload">%s</span><span class="browse">%s</span></a>',
+		'block' === $plugins_type ? self_admin_url( 'blocks.php' ) : self_admin_url( 'plugins.php' ),
+		'block' === $plugins_type ? __( 'Upload Block' ) : __( 'Upload Plugin' ),
+		'block' === $plugins_type ? __( 'Browse Blocks' ) : __( 'Browse Plugins' )
+	);
 }
+?>
+<div class="upload-plugin-wrap">
+	<?php
+	if ( 'block' === $plugins_type ) {
+		/**
+		 * Fire the hook to display the Block upload form.
+		 *
+		 * @since 1.0.0 Retraceur fork.
+		 * @since 4.0.0 Retraceur fork moved it inside Plugins screen.
+		 */
+		do_action( 'install_blocks_upload' );
+	} else {
+		/**
+		 * Fire the hook to display the Plugin upload form.
+		 *
+		 * @since WP 2.7.0
+		 * @since 4.0.0 Retraceur fork moved it inside Plugins screen.
+		 */
+		do_action( 'install_plugins_upload' );
+	}
+	?>
+</div>
+<?php
 
 if ( strlen( $s ) ) {
 	echo '<span class="subtitle">';

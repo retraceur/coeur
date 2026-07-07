@@ -42,37 +42,15 @@ if ( is_multisite() && ! is_network_admin() ) {
 	exit;
 }
 
-if ( ! empty( $_REQUEST['_wp_http_referer'] ) ) {
-	$location = remove_query_arg( '_wp_http_referer', wp_unslash( $_SERVER['REQUEST_URI'] ) );
-
-	if ( ! empty( $_REQUEST['paged'] ) ) {
-		$location = add_query_arg( 'paged', (int) $_REQUEST['paged'], $location );
-	}
-
-	wp_redirect( $location );
-	exit;
-}
-
 // Used in the HTML title tag.
 $title       = __( 'Discover Plugins' );
 $parent_file = 'plugins.php';
-
-/**
- *
- * @todo remove once no more needed.
- *
- */
-$tab  = 'all';
-$tabs = array(
-	'all' => _x( 'All', 'Plugin Installer' ),
-);
 
 if ( 'block' === $plugin_type ) {
 	$title       = _x( 'Discover Blocks', 'block install page title' );
 	$parent_file = 'blocks.php';
 }
 
-wp_enqueue_script( 'plugin-install' );
 wp_enqueue_script( 'retraceur-discovery' );
 wp_add_inline_script(
 	'retraceur-discovery',
@@ -83,33 +61,43 @@ wp_add_inline_script(
 );
 
 wp_enqueue_style( 'retraceur-discovery' );
-wp_enqueue_script( 'updates' );
-
-$body_id = $tab;
 
 /**
- * Fires before each tab on the Install Plugins screen is loaded.
- *
- * The dynamic portion of the hook name, `$tab`, allows for targeting
- * individual tabs.
- *
- * Possible hook names include:
- *
- *  - `install_plugins_pre_all`
- *  - `install_plugins_pre_search`
- *  - `install_plugins_pre_upload`
+ * Fires before the Install Plugins screen is loaded.
  *
  * @since WP 2.7.0
  */
-do_action( "install_plugins_pre_{$tab}" );
-
-/*
- * Call the pre upload action on every non-upload plugin installation screen
- * because the form is always displayed on these screens.
- */
-if ( 'upload' !== $tab ) {
-	/** This action is documented in wp-admin/plugin-install.php */
-	do_action( 'install_plugins_pre_upload' );
+do_action( 'install_plugins_pre_all' );
+foreach ( array( 'beta', 'favorites', 'featured', 'plugin-information', 'popular', 'recommended', 'search' ) as $tab ) {
+	/**
+	 * Fires before each tab on the Install Plugins screen is loaded.
+	 *
+	 * The dynamic portion of the hook name, `$tab`, allows for targeting
+	 * individual tabs.
+	 *
+	 * Possible hook names include:
+	 *
+	 *  - `install_plugins_pre_beta`
+	 *  - `install_plugins_pre_favorites`
+	 *  - `install_plugins_pre_featured`
+	 *  - `install_plugins_pre_plugin-information`
+	 *  - `install_plugins_pre_popular`
+	 *  - `install_plugins_pre_recommended`
+	 *  - `install_plugins_pre_search`
+	 *
+	 * @since 2.7.0
+	 * @deprecated 4.0.0 Retraceur fork.
+	 */
+	do_action_deprecated(
+		"install_plugins_pre_{$tab}",
+		array(),
+		'4.0.0',
+		'',
+		sprintf(
+			__( 'Retraceur Discover API is not firing the `install_plugins_pre_%s` hook.' ),
+			"install_plugins_pre_{$tab}"
+		)
+	);
 }
 
 if ( 'block' === $plugin_type ) {
@@ -130,23 +118,7 @@ get_current_screen()->add_help_tab(
 	)
 );
 
-if ( 'block' === $plugin_type ) {
-	$tab_title = esc_html__( 'Adding Blocks' );
-	$help      = '<p>' . esc_html__( 'If you want to install a block that you’ve downloaded elsewhere, click the "Upload Block" button above the blocks list. You will be prompted to upload the .zip package, and once uploaded, you can activate the new block.' ) . '</p>';
-} else {
-	$tab_title = esc_html__( 'Adding Plugins' );
-	$help      = '<p>' . esc_html__( 'If you want to install a plugin that you’ve downloaded elsewhere, click the "Upload Plugin" button above the plugins list. You will be prompted to upload the .zip package, and once uploaded, you can activate the new plugin.' ) . '</p>';
-}
-
-get_current_screen()->add_help_tab(
-	array(
-		'id'      => 'adding-plugins',
-		'title'   => $tab_title,
-		'content' => $help,
-	)
-);
-
-unset( $tab_title, $help );
+unset( $help );
 
 if ( 'block' === $plugin_type ) {
 	$help_sidebar = array(
@@ -174,95 +146,23 @@ WP_Plugin_Dependencies::initialize();
 WP_Plugin_Dependencies::display_admin_notice_for_unmet_dependencies();
 WP_Plugin_Dependencies::display_admin_notice_for_circular_dependencies();
 ?>
-<div class="wrap <?php echo esc_attr( "plugin-install-tab-$tab" ); ?>">
+<div class="wrap plugin-install-tab-all">
 <h1 class="wp-heading-inline">
 <?php
 echo esc_html( $title );
 ?>
 </h1>
 
-<?php
-if ( current_user_can( 'upload_plugins' ) ) {
-	/**
-	 *
-	 * @todo Check why this is needed!
-	 */
-	require_once ABSPATH . 'wp-admin/includes/plugin-install.php';
-	printf(
-		' <a href="%s" class="upload-view-toggle page-title-action"><span class="upload">%s</span><span class="browse">%s</span></a>',
-		( 'upload' === $tab ) ? self_admin_url( 'plugin-install.php' ) : self_admin_url( 'plugin-install.php?tab=upload' ),
-		'block' === $plugin_type ? __( 'Upload Block' ) : __( 'Upload Plugin' ),
-		'block' === $plugin_type ? __( 'Browse Blocks' ) : __( 'Browse Plugins' )
-	);
-}
-?>
-
 <hr class="wp-header-end">
 
 <?php
-/*
- * Output the upload plugin form on every non-upload plugin installation screen, so it can be
- * displayed via JavaScript rather then opening up the devoted upload plugin page.
- */
-if ( 'upload' !== $tab ) {
-	?>
-	<div class="upload-plugin-wrap">
-		<?php
-		if ( 'block' === $plugin_type ) {
-			/**
-			 * Fire the hook to display the Block upload form.
-			 *
-			 * @since 1.0.0 Retraceur fork.
-			 */
-			do_action( 'install_blocks_upload' );
-		} else {
-			/** This action is documented in wp-admin/plugin-install.php */
-			do_action( 'install_plugins_upload' );
-		}
-		?>
-	</div>
-	<?php
-}
-
 $context_settings = array( 'name' => 'retraceur/discovery' );
 
-/**
- *
- * @todo The list table shouldn't be needed anymore.
- *
- */
 if ( 'block' === $plugin_type ) {
 	$context_settings['repositoryType'] = 'block';
 
-	/**
-	 * Fires after the blocks list table in each tab of the Install Blocks screen.
-	 *
-	 * The dynamic portion of the hook name, `$tab`, allows for targeting
-	 * individual tabs.
-	 *
-	 * @since 1.0.0 Retraceur fork.
-	 */
-	//do_action( "install_blocks_{$tab}", $paged );
 } else {
 	$context_settings['repositoryType'] = 'plugin';
-
-	/**
-	 * Fires after the plugins list table in each tab of the Install Plugins screen.
-	 *
-	 * The dynamic portion of the hook name, `$tab`, allows for targeting
-	 * individual tabs.
-	 *
-	 * Possible hook names include:
-	 *
-	 *  - `install_plugins_plugin-information`
-	 *  - `install_plugins_search`
-	 *  - `install_plugins_upload`
-	 *
-	 * @since WP 2.7.0
-	 *
-	 * @param int $paged The current page number of the plugins list table.
-	 */
-	//do_action( "install_plugins_{$tab}", $paged );
 }
 
 $discovery_context = new WP_Block_Editor_Context( $context_settings );
@@ -277,6 +177,50 @@ block_editor_rest_api_preload( $preload_paths, $discovery_context );
 </div>
 
 <?php
+if ( 'block' !== $plugin_type ) {
+	/**
+	 * Fires after the plugins list table of the Install Plugins screen.
+	 *
+	 * @since WP 2.7.0
+	 *
+	 * @param int $paged The current page number of the plugins list table.
+	 */
+	do_action( 'install_plugins_all', 1 );
+
+	foreach ( array( 'beta', 'favorites', 'featured', 'plugin-information', 'popular', 'recommended', 'search' ) as $tab ) {
+		/**
+		 * Fires after the plugins list table in each tab of the Install Plugins screen.
+		 *
+		 * The dynamic portion of the hook name, `$tab`, allows for targeting
+		 * individual tabs.
+		 *
+		 * Possible hook names include:
+		 *
+		 *  - `install_plugins_beta`
+		 *  - `install_plugins_favorites`
+		 *  - `install_plugins_featured`
+		 *  - `install_plugins_plugin-information`
+		 *  - `install_plugins_popular`
+		 *  - `install_plugins_recommended`
+		 *  - `install_plugins_search`
+		 *  - `install_plugins_upload`
+		 *
+		 * @since 2.7.0
+		 * @deprecated 4.0.0 Retraceur fork.
+		 */
+		do_action_deprecated(
+			"install_plugins_{$tab}",
+			array( 1 ),
+			'4.0.0',
+			'',
+			sprintf(
+				__( 'Retraceur Discover API is not firing the `install_plugins_%s` hook.' ),
+				"install_plugins_pre_{$tab}"
+			)
+		);
+	}
+}
+
 wp_print_request_filesystem_credentials_modal();
 wp_print_admin_notice_templates();
 

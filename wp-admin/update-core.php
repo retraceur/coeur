@@ -11,7 +11,6 @@
 /** Retraceur Administration Bootstrap */
 require_once __DIR__ . '/admin.php';
 
-wp_enqueue_style( 'plugin-install' );
 wp_enqueue_script( 'plugin-install' );
 wp_enqueue_script( 'updates' );
 

@@ -126,12 +126,12 @@ if ( isset( $_GET['action'] ) ) {
 		// Used in the HTML title tag.
 		$title        = __( 'Upload Plugin' );
 		$parent_file  = 'plugins.php';
-		$submenu_file = 'plugin-install.php';
+		$submenu_file = 'plugins.php';
 
 		if ( 'upload-block' === $action ) {
 			$title        = __( 'Upload Block' );
 			$parent_file  = 'blocks.php';
-			$submenu_file = 'block-install.php';
+			$submenu_file = 'blocks.php';
 		}
 
 		require_once ABSPATH . 'wp-admin/admin-header.php';
