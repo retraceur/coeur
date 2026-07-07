@@ -34,6 +34,7 @@ class WP_Debug_Data {
 	 *              and timezone information.
 	 * @since WP 5.5.0 Added pretty permalinks support information.
 	 * @since WP 6.7.0 Modularized into separate theme-oriented methods.
+	 * @since 4.0.0 Retraceur fork separated block infos from plugin ones.
 	 *
 	 * @throws ImagickException
 	 *
@@ -57,6 +58,8 @@ class WP_Debug_Data {
 			'wp-parent-theme'     => self::get_wp_parent_theme(),
 			'wp-themes-inactive'  => self::get_wp_themes_inactive(),
 			'wp-mu-plugins'       => self::get_wp_mu_plugins(),
+			'wp-blocks-active'    => self::get_retraceur_blocks_active(),
+			'wp-blocks-inactive'  => self::get_retraceur_blocks_inactive(),
 			'wp-plugins-active'   => self::get_wp_plugins_active(),
 			'wp-plugins-inactive' => self::get_wp_plugins_inactive(),
 			'wp-media'            => self::get_wp_media(),
@@ -954,6 +957,36 @@ class WP_Debug_Data {
 	}
 
 	/**
+	 * Gets the Retraceur active blocks section of the debug data.
+	 *
+	 * @since 4.0.0 Retraceur fork.
+	 *
+	 * @return array<string, string|bool|array> The active blocks debug data.
+	 */
+	private static function get_retraceur_blocks_active(): array {
+		return array(
+			'label'      => __( 'Active Blocks' ),
+			'show_count' => true,
+			'fields'     => self::get_wp_plugins_raw_data( 'block' )['wp-plugins-active'],
+		);
+	}
+
+	/**
+	 * Gets the Retraceur inactive blocks section of the debug data.
+	 *
+	 * @since 4.0.0 Retraceur fork.
+	 *
+	 * @return array<string, string|bool|array> The inactive blocks debug data.
+	 */
+	private static function get_retraceur_blocks_inactive(): array {
+		return array(
+			'label'      => __( 'Inactive Blocks' ),
+			'show_count' => true,
+			'fields'     => self::get_wp_plugins_raw_data( 'block' )['wp-plugins-inactive'],
+		);
+	}
+
+	/**
 	 * Gets the Retraceur active plugins section of the debug data.
 	 *
 	 * @since WP 6.7.0
@@ -987,12 +1020,15 @@ class WP_Debug_Data {
 	 * Gets the raw plugin data for the Retraceur active and inactive sections of the debug data.
 	 *
 	 * @since WP 6.7.0
+	 * @since 4.0.0 Retraceur fork added the `$plugin_type` parameter to separate blocks from regular plugins.
 	 *
+	 * @param string $plugin_type The type of plugin: `block` or `regular`. Default to `regular`.
 	 * @return array<string, array<string, array<string, string>>> The raw plugin debug data for active and inactive plugins.
 	 */
-	private static function get_wp_plugins_raw_data(): array {
+	private static function get_wp_plugins_raw_data( $plugin_type = 'regular' ): array {
 		// List all available plugins.
 		$plugins        = get_plugins();
+		$plugin_types   = wp_list_filter( $plugins, array( 'Type' => $plugin_type ) );
 		$plugin_updates = get_plugin_updates();
 		$transient      = get_site_transient( 'update_plugins' );
 
@@ -1008,7 +1044,7 @@ class WP_Debug_Data {
 			$auto_updates = (array) get_site_option( 'auto_update_plugins', array() );
 		}
 
-		foreach ( $plugins as $plugin_path => $plugin ) {
+		foreach ( $plugin_types as $plugin_path => $plugin ) {
 			$plugin_part = ( is_plugin_active( $plugin_path ) ) ? 'wp-plugins-active' : 'wp-plugins-inactive';
 
 			$plugin_version = $plugin['Version'];
