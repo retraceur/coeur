@@ -959,7 +959,7 @@ class WP_Debug_Data {
 	/**
 	 * Gets the Retraceur active blocks section of the debug data.
 	 *
-	 * @since 4.0.0 Retraceur fork
+	 * @since 4.0.0 Retraceur fork.
 	 *
 	 * @return array<string, string|bool|array> The active blocks debug data.
 	 */
@@ -974,7 +974,7 @@ class WP_Debug_Data {
 	/**
 	 * Gets the Retraceur inactive blocks section of the debug data.
 	 *
-	 * @since 4.0.0 Retraceur fork
+	 * @since 4.0.0 Retraceur fork.
 	 *
 	 * @return array<string, string|bool|array> The inactive blocks debug data.
 	 */
