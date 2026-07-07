@@ -334,12 +334,51 @@ class WP_Upgrader {
 			return new WP_Error( 'no_package', $this->strings['no_package'] );
 		}
 
+		$expected_digest = '';
+		if ( preg_match( '#^https://github\.com/([^/]+/[^/]+)/releases/download/([^/]+)/(.+\.zip)$#', $package, $m ) ) {
+			list( , $owner_repo, $tag, $asset_name ) = $m;
+
+			$digest_request = wp_remote_get(
+				"https://api.github.com/repos/{$owner_repo}/releases/tags/{$tag}",
+				array(
+					'headers' => array(
+						'Accept' => 'application/vnd.github+json'
+					)
+				)
+			);
+
+			if ( ! is_wp_error( $digest_request ) && 200 === wp_remote_retrieve_response_code( $digest_request ) ) {
+				$release = json_decode( wp_remote_retrieve_body( $digest_request ), true );
+
+				if ( ! empty( $release['assets'] ) ) {
+					foreach ( $release['assets'] as $asset ) {
+						if ( isset( $asset['name'] ) && $asset['name'] === $asset_name ) {
+							$expected_digest = $asset['digest'] ?? '';
+							break;
+						}
+					}
+				}
+			}
+		}
+
 		$this->skin->feedback( 'downloading_package', $package );
 
 		$download_file = download_url( $package, 300, $check_signatures );
 
 		if ( is_wp_error( $download_file ) && ! $download_file->get_error_data( 'softfail-filename' ) ) {
 			return new WP_Error( 'download_failed', $this->strings['download_failed'], $download_file->get_error_message() );
+		}
+
+		if ( $expected_digest
+			&& is_string( $download_file )
+			&& ! hash_equals( $expected_digest, 'sha256:' . hash_file( 'sha256', $download_file ) )
+		) {
+			wp_delete_file( $download_file );
+
+			return new WP_Error(
+				'retraceur_checksum_mismatch',
+				__( 'Checksum verification failed. Update cancelled.' )
+			);
 		}
 
 		return $download_file;
