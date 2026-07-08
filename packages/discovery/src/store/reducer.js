@@ -100,6 +100,12 @@ const reducer = ( state = {}, action ) => {
 				},
 			};
 
+		case 'REQUEST_INSTALLATION':
+			return {
+				...state,
+				installationRequest: action.repository,
+			};
+
 		case 'MARK_AS_INSTALLED':
 			return {
 				...state,
