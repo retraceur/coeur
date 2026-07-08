@@ -95,7 +95,7 @@ foreach ( array( 'beta', 'favorites', 'featured', 'plugin-information', 'popular
 		'',
 		sprintf(
 			__( 'Retraceur Discover API is not firing the `install_plugins_pre_%s` hook.' ),
-			"install_plugins_pre_{$tab}"
+			$tab
 		)
 	);
 }
@@ -215,7 +215,7 @@ if ( 'block' !== $plugin_type ) {
 			'',
 			sprintf(
 				__( 'Retraceur Discover API is not firing the `install_plugins_%s` hook.' ),
-				"install_plugins_pre_{$tab}"
+				$tab
 			)
 		);
 	}
