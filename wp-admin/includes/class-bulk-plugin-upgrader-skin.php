@@ -78,6 +78,11 @@ class Bulk_Plugin_Upgrader_Skin extends Bulk_Upgrader_Skin {
 				self_admin_url( 'plugins.php' ),
 				__( 'Go to Plugins page' )
 			),
+			'blocks_page' => sprintf(
+				'<a href="%s" target="_parent">%s</a>',
+				self_admin_url( 'blocks.php' ),
+				__( 'Go to Blocks page' )
+			),
 			'updates_page' => sprintf(
 				'<a href="%s" target="_parent">%s</a>',
 				self_admin_url( 'update-core.php' ),
@@ -85,16 +90,8 @@ class Bulk_Plugin_Upgrader_Skin extends Bulk_Upgrader_Skin {
 			),
 		);
 
-		if ( ! empty( $this->plugin_info['Type'] ) && 'block' === $this->plugin_info['Type'] ) {
-			$update_actions['plugins_page'] = sprintf(
-				'<a href="%s" target="_parent">%s</a>',
-				self_admin_url( 'blocks.php' ),
-				__( 'Go to Blocks page' )
-			);
-		}
-
 		if ( ! current_user_can( 'activate_plugins' ) ) {
-			unset( $update_actions['plugins_page'] );
+			unset( $update_actions['plugins_page'], $update_actions['blocks_page'] );
 		}
 
 		/**

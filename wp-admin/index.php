@@ -18,15 +18,6 @@ wp_dashboard_setup();
 
 wp_enqueue_script( 'dashboard' );
 
-if ( current_user_can( 'install_plugins' ) ) {
-	wp_enqueue_script( 'plugin-install' );
-	wp_enqueue_script( 'updates' );
-}
-if ( current_user_can( 'upload_files' ) ) {
-	wp_enqueue_script( 'media-upload' );
-}
-add_thickbox();
-
 if ( wp_is_mobile() ) {
 	wp_enqueue_script( 'jquery-touch-punch' );
 }
