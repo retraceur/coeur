@@ -38,9 +38,6 @@ require_once ABSPATH . 'wp-admin/includes/class-theme-installer-skin.php';
 /** Language_Pack_Upgrader_Skin class */
 require_once ABSPATH . 'wp-admin/includes/class-language-pack-upgrader-skin.php';
 
-/** Automatic_Upgrader_Skin class */
-require_once ABSPATH . 'wp-admin/includes/class-automatic-upgrader-skin.php';
-
 /** WP_Ajax_Upgrader_Skin class */
 require_once ABSPATH . 'wp-admin/includes/class-wp-ajax-upgrader-skin.php';
 
@@ -65,7 +62,7 @@ class WP_Upgrader {
 	 * The upgrader skin being used.
 	 *
 	 * @since WP 2.8.0
-	 * @var Automatic_Upgrader_Skin|WP_Upgrader_Skin $skin
+	 * @var WP_Upgrader_Skin $skin
 	 */
 	public $skin = null;
 
@@ -1349,6 +1346,3 @@ require_once ABSPATH . 'wp-admin/includes/class-core-upgrader.php';
 
 /** File_Upload_Upgrader class */
 require_once ABSPATH . 'wp-admin/includes/class-file-upload-upgrader.php';
-
-/** WP_Automatic_Updater class */
-require_once ABSPATH . 'wp-admin/includes/class-wp-automatic-updater.php';

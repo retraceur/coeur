@@ -1663,9 +1663,7 @@ div.error.notice-alt {
 .import-php .updating-message:before,
 .button.updating-message:before,
 .button.installing:before,
-.button.activating-message:before,
-.plugins .column-auto-updates .dashicons-update.spin,
-.theme-overlay .theme-autoupdate .dashicons-update.spin {
+.button.activating-message:before {
 	animation: rotation 2s infinite linear;
 }
 
@@ -1674,15 +1672,9 @@ div.error.notice-alt {
 	.import-php .updating-message:before,
 	.button.updating-message:before,
 	.button.installing:before,
-	.button.activating-message:before,
-	.plugins .column-auto-updates .dashicons-update.spin,
-	.theme-overlay .theme-autoupdate .dashicons-update.spin {
+	.button.activating-message:before {
 		animation: none;
 	}
-}
-
-.theme-overlay .theme-autoupdate .dashicons-update.spin {
-	margin-left: 3px;
 }
 
 /* Updated icon (check mark). */
@@ -1761,11 +1753,6 @@ h2.wp-current-version {
 
 p.update-last-checked {
 	margin-top: 0;
-}
-
-p.auto-update-status {
-	margin-top: 2em;
-	line-height: 1.8;
 }
 
 #ajax-loading,

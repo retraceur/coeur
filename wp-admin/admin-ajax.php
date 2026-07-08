@@ -118,7 +118,6 @@ $core_actions_post = array(
 	'health-check-is-in-debug-mode',
 	'health-check-loopback-requests',
 	'health-check-get-sizes',
-	'toggle-auto-updates',
 	'send-password-reset',
 );
 

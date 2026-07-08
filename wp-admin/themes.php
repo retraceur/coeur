@@ -83,44 +83,12 @@ if ( current_user_can( 'switch_themes' ) && isset( $_GET['action'] ) ) {
 			wp_redirect( admin_url( 'themes.php?deleted=true' ) );
 		}
 		exit;
-	} elseif ( 'enable-auto-update' === $_GET['action'] ) {
-		if ( ! ( current_user_can( 'update_themes' ) && wp_is_auto_update_enabled_for_type( 'theme' ) ) ) {
-			wp_die( __( 'Sorry, you are not allowed to enable themes automatic updates.' ) );
-		}
-
-		check_admin_referer( 'updates' );
-
-		$all_items    = wp_get_themes();
-		$auto_updates = (array) get_site_option( 'auto_update_themes', array() );
-
-		$auto_updates[] = $_GET['stylesheet'];
-		$auto_updates   = array_unique( $auto_updates );
-		// Remove themes that have been deleted since the site option was last updated.
-		$auto_updates = array_intersect( $auto_updates, array_keys( $all_items ) );
-
-		update_site_option( 'auto_update_themes', $auto_updates );
-
-		wp_redirect( admin_url( 'themes.php?enabled-auto-update=true' ) );
-
-		exit;
-	} elseif ( 'disable-auto-update' === $_GET['action'] ) {
-		if ( ! ( current_user_can( 'update_themes' ) && wp_is_auto_update_enabled_for_type( 'theme' ) ) ) {
-			wp_die( __( 'Sorry, you are not allowed to disable themes automatic updates.' ) );
-		}
-
-		check_admin_referer( 'updates' );
-
-		$all_items    = wp_get_themes();
-		$auto_updates = (array) get_site_option( 'auto_update_themes', array() );
-
-		$auto_updates = array_diff( $auto_updates, array( $_GET['stylesheet'] ) );
-		// Remove themes that have been deleted since the site option was last updated.
-		$auto_updates = array_intersect( $auto_updates, array_keys( $all_items ) );
-
-		update_site_option( 'auto_update_themes', $auto_updates );
-
-		wp_redirect( admin_url( 'themes.php?disabled-auto-update=true' ) );
-
+	} elseif ( 'enable-auto-update' === $_GET['action'] || 'disable-auto-update' === $_GET['action'] ) {
+		wp_die(
+			'<h1>' . __( 'The WP Automatic Updates feature is not supported by the Retraceur fork.' ) . '</h1>' .
+			'<p>' . __( 'Please use a plugin instead.' ) . '</p>',
+			500
+		);
 		exit;
 	}
 }
@@ -257,24 +225,6 @@ if ( ! validate_current_theme() || isset( $_GET['broken'] ) ) {
 		array(
 			'id'                 => 'message6',
 			'additional_classes' => array( 'error' ),
-		)
-	);
-} elseif ( isset( $_GET['enabled-auto-update'] ) ) {
-	wp_admin_notice(
-		__( 'Theme will be auto-updated.' ),
-		array(
-			'id'                 => 'message7',
-			'additional_classes' => array( 'updated' ),
-			'dismissible'        => true,
-		)
-	);
-} elseif ( isset( $_GET['disabled-auto-update'] ) ) {
-	wp_admin_notice(
-		__( 'Theme will no longer be auto-updated.' ),
-		array(
-			'id'                 => 'message8',
-			'additional_classes' => array( 'updated' ),
-			'dismissible'        => true,
 		)
 	);
 }
@@ -650,63 +600,6 @@ if ( ! is_multisite() && $broken_themes ) {
 </div><!-- .wrap -->
 
 <?php
-
-/**
- * Returns the JavaScript template used to display the auto-update setting for a theme.
- *
- * @since WP 5.5.0
- *
- * @return string The template for displaying the auto-update setting link.
- */
-function wp_theme_auto_update_setting_template() {
-	$notice   = wp_get_admin_notice(
-		'',
-		array(
-			'type'               => 'error',
-			'additional_classes' => array( 'notice-alt', 'inline', 'hidden' ),
-		)
-	);
-	$template = '
-		<div class="theme-autoupdate">
-			<# if ( data.autoupdate.supported ) { #>
-				<# if ( data.autoupdate.forced === false ) { #>
-					' . __( 'Auto-updates disabled' ) . '
-				<# } else if ( data.autoupdate.forced ) { #>
-					' . __( 'Auto-updates enabled' ) . '
-				<# } else if ( data.autoupdate.enabled ) { #>
-					<button type="button" class="toggle-auto-update button-link" data-slug="{{ data.id }}" data-wp-action="disable">
-						<span class="dashicons dashicons-update spin hidden" aria-hidden="true"></span><span class="label">' . __( 'Disable auto-updates' ) . '</span>
-					</button>
-				<# } else { #>
-					<button type="button" class="toggle-auto-update button-link" data-slug="{{ data.id }}" data-wp-action="enable">
-						<span class="dashicons dashicons-update spin hidden" aria-hidden="true"></span><span class="label">' . __( 'Enable auto-updates' ) . '</span>
-					</button>
-				<# } #>
-			<# } #>
-			<# if ( data.hasUpdate ) { #>
-				<# if ( data.autoupdate.supported && data.autoupdate.enabled ) { #>
-					<span class="auto-update-time">
-				<# } else { #>
-					<span class="auto-update-time hidden">
-				<# } #>
-				<br />' . wp_get_auto_update_message() . '</span>
-			<# } #>
-			' . $notice . '
-		</div>
-	';
-
-	/**
-	 * Filters the JavaScript template used to display the auto-update setting for a theme (in the overlay).
-	 *
-	 * See {@see wp_prepare_themes_for_js()} for the properties of the `data` object.
-	 *
-	 * @since WP 5.5.0
-	 *
-	 * @param string $template The template for displaying the auto-update setting link.
-	 */
-	return apply_filters( 'theme_auto_update_setting_template', $template );
-}
-
 /*
  * The tmpl-theme template is synchronized with PHP above!
  */
@@ -1034,10 +927,6 @@ function wp_theme_auto_update_setting_template() {
 							</p>
 						</div>
 					<# } #>
-				<# } #>
-
-				<# if ( data.actions.autoupdate ) { #>
-					<?php echo wp_theme_auto_update_setting_template(); ?>
 				<# } #>
 
 				<# if ( 'Point' === data.name ) { #>

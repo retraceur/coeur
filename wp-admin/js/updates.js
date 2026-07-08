@@ -20,14 +20,10 @@
  * @param {Array}   settings.plugins.inactive                Base names of inactive plugins.
  * @param {Array}   settings.plugins.upgrade                 Base names of plugins with updates available.
  * @param {Array}   settings.plugins.recently_activated      Base names of recently activated plugins.
- * @param {Array}   settings.plugins['auto-update-enabled']  Base names of plugins set to auto-update.
- * @param {Array}   settings.plugins['auto-update-disabled'] Base names of plugins set to not auto-update.
  * @param {object=} settings.themes                          Slugs of themes in their different states.
  * @param {Array}   settings.themes.all                      Slugs of all themes.
  * @param {Array}   settings.themes.upgrade                  Slugs of themes with updates available.
  * @param {Arrat}   settings.themes.disabled                 Slugs of disabled themes.
- * @param {Array}   settings.themes['auto-update-enabled']   Slugs of themes set to auto-update.
- * @param {Array}   settings.themes['auto-update-disabled']  Slugs of themes set to not auto-update.
  * @param {object=} settings.totals                          Combined information for available update counts.
  * @param {number}  settings.totals.count                    Holds the amount of available updates.
  */
@@ -576,9 +572,6 @@
 			// Update the version number in the row.
 			newText = $pluginRow.find( '.plugin-version-author-uri' ).html().replace( response.oldVersion, response.newVersion );
 			$pluginRow.find( '.plugin-version-author-uri' ).html( newText );
-
-			// Clear the "time to next auto-update" text.
-			$pluginRow.find( '.auto-update-time' ).empty();
 		} else if ( 'plugin-install' === pagenow || 'plugin-install-network' === pagenow ) {
 			$updateMessage = $( '.plugin-card-' + response.slug + ', #plugin-information-footer' ).find( '.update-now' )
 				.removeClass( 'updating-message' )
@@ -1248,24 +1241,6 @@
 				}
 			}
 
-			if ( -1 !== _.indexOf( plugins['auto-update-enabled'], response.plugin ) ) {
-				plugins['auto-update-enabled'] = _.without( plugins['auto-update-enabled'], response.plugin );
-				if ( plugins['auto-update-enabled'].length ) {
-					$views.find( '.auto-update-enabled .count' ).text( '(' + plugins['auto-update-enabled'].length + ')' );
-				} else {
-					$views.find( '.auto-update-enabled' ).remove();
-				}
-			}
-
-			if ( -1 !== _.indexOf( plugins['auto-update-disabled'], response.plugin ) ) {
-				plugins['auto-update-disabled'] = _.without( plugins['auto-update-disabled'], response.plugin );
-				if ( plugins['auto-update-disabled'].length ) {
-					$views.find( '.auto-update-disabled .count' ).text( '(' + plugins['auto-update-disabled'].length + ')' );
-				} else {
-					$views.find( '.auto-update-disabled' ).remove();
-				}
-			}
-
 			plugins.all = _.without( plugins.all, response.plugin );
 
 			if ( plugins.all.length ) {
@@ -1429,16 +1404,12 @@
 			// Update the version number in the row.
 			newText = $theme.find( '.theme-version-author-uri' ).html().replace( response.oldVersion, response.newVersion );
 			$theme.find( '.theme-version-author-uri' ).html( newText );
-
-			// Clear the "time to next auto-update" text.
-			$theme.find( '.auto-update-time' ).empty();
 		} else {
 			$notice = $( '.theme-info .notice' ).add( $theme.find( '.update-message' ) );
 
 			// Focus on Customize button after updating.
 			if ( isModalOpen ) {
 				$( '.load-customize:visible' ).trigger( 'focus' );
-				$( '.theme-info .theme-autoupdate' ).find( '.auto-update-time' ).empty();
 			} else {
 				$theme.find( '.load-customize' ).trigger( 'focus' );
 			}
@@ -1771,24 +1742,6 @@
 						$views.find( '.disabled .count' ).text( '(' + themes.disabled.length + ')' );
 					} else {
 						$views.find( '.disabled' ).remove();
-					}
-				}
-
-				if ( -1 !== _.indexOf( themes['auto-update-enabled'], response.slug ) ) {
-					themes['auto-update-enabled'] = _.without( themes['auto-update-enabled'], response.slug );
-					if ( themes['auto-update-enabled'].length ) {
-						$views.find( '.auto-update-enabled .count' ).text( '(' + themes['auto-update-enabled'].length + ')' );
-					} else {
-						$views.find( '.auto-update-enabled' ).remove();
-					}
-				}
-
-				if ( -1 !== _.indexOf( themes['auto-update-disabled'], response.slug ) ) {
-					themes['auto-update-disabled'] = _.without( themes['auto-update-disabled'], response.slug );
-					if ( themes['auto-update-disabled'].length ) {
-						$views.find( '.auto-update-disabled .count' ).text( '(' + themes['auto-update-disabled'].length + ')' );
-					} else {
-						$views.find( '.auto-update-disabled' ).remove();
 					}
 				}
 
@@ -3104,10 +3057,12 @@
 		 * Prevents the page form scrolling when activating auto-updates with the Spacebar key.
 		 *
 		 * @since WP 5.5.0
+		 * @deprecated 4.0.0 Retraceur fork.
 		 */
 		$document.on( 'keydown', '.column-auto-updates .toggle-auto-update, .theme-overlay .toggle-auto-update', function( event ) {
 			if ( 32 === event.which ) {
 				event.preventDefault();
+				console.log( 'The WP Automatic Updates feature is not supported by the Retraceur fork.' );
 			}
 		} );
 
@@ -3119,151 +3074,10 @@
 		 * the JavaScript that targets elements with the CSS class `aria-button-if-js`.
 		 *
 		 * @since WP 5.5.0
+		 * @deprecated 4.0.0 Retraceur fork.
 		 */
 		$document.on( 'click keyup', '.column-auto-updates .toggle-auto-update, .theme-overlay .toggle-auto-update', function( event ) {
-			var data, asset, type, $parent,
-				$toggler = $( this ),
-				action = $toggler.attr( 'data-wp-action' ),
-				$label = $toggler.find( '.label' );
-
-			if ( 'keyup' === event.type && 32 !== event.which ) {
-				return;
-			}
-
-			if ( 'themes' !== pagenow ) {
-				$parent = $toggler.closest( '.column-auto-updates' );
-			} else {
-				$parent = $toggler.closest( '.theme-autoupdate' );
-			}
-
-			event.preventDefault();
-
-			// Prevent multiple simultaneous requests.
-			if ( $toggler.attr( 'data-doing-ajax' ) === 'yes' ) {
-				return;
-			}
-
-			$toggler.attr( 'data-doing-ajax', 'yes' );
-
-			switch ( pagenow ) {
-				case 'plugins':
-				case 'plugins-network':
-					type = 'plugin';
-					asset = $toggler.closest( 'tr' ).attr( 'data-plugin' );
-					break;
-				case 'themes-network':
-					type = 'theme';
-					asset = $toggler.closest( 'tr' ).attr( 'data-slug' );
-					break;
-				case 'themes':
-					type = 'theme';
-					asset = $toggler.attr( 'data-slug' );
-					break;
-			}
-
-			// Clear any previous errors.
-			$parent.find( '.notice.notice-error' ).addClass( 'hidden' );
-
-			// Show loading status.
-			if ( 'enable' === action ) {
-				$label.text( __( 'Enabling...' ) );
-			} else {
-				$label.text( __( 'Disabling...' ) );
-			}
-
-			$toggler.find( '.dashicons-update' ).removeClass( 'hidden' );
-
-			data = {
-				action: 'toggle-auto-updates',
-				_ajax_nonce: settings.ajax_nonce,
-				state: action,
-				type: type,
-				asset: asset
-			};
-
-			$.post( window.ajaxurl, data )
-				.done( function( response ) {
-					var $enabled, $disabled, enabledNumber, disabledNumber, errorMessage,
-						href = $toggler.attr( 'href' );
-
-					if ( ! response.success ) {
-						// if WP returns 0 for response (which can happen in a few cases),
-						// output the general error message since we won't have response.data.error.
-						if ( response.data && response.data.error ) {
-							errorMessage = response.data.error;
-						} else {
-							errorMessage = __( 'The request could not be completed.' );
-						}
-
-						$parent.find( '.notice.notice-error' ).removeClass( 'hidden' ).find( 'p' ).text( errorMessage );
-						wp.a11y.speak( errorMessage, 'assertive' );
-						return;
-					}
-
-					// Update the counts in the enabled/disabled views if on a screen
-					// with a list table.
-					if ( 'themes' !== pagenow ) {
-						$enabled       = $( '.auto-update-enabled span' );
-						$disabled      = $( '.auto-update-disabled span' );
-						enabledNumber  = parseInt( $enabled.text().replace( /[^\d]+/g, '' ), 10 ) || 0;
-						disabledNumber = parseInt( $disabled.text().replace( /[^\d]+/g, '' ), 10 ) || 0;
-
-						switch ( action ) {
-							case 'enable':
-								++enabledNumber;
-								--disabledNumber;
-								break;
-							case 'disable':
-								--enabledNumber;
-								++disabledNumber;
-								break;
-						}
-
-						enabledNumber = Math.max( 0, enabledNumber );
-						disabledNumber = Math.max( 0, disabledNumber );
-
-						$enabled.text( '(' + enabledNumber + ')' );
-						$disabled.text( '(' + disabledNumber + ')' );
-					}
-
-					if ( 'enable' === action ) {
-						// The toggler control can be either a link or a button.
-						if ( $toggler[ 0 ].hasAttribute( 'href' ) ) {
-							href = href.replace( 'action=enable-auto-update', 'action=disable-auto-update' );
-							$toggler.attr( 'href', href );
-						}
-						$toggler.attr( 'data-wp-action', 'disable' );
-
-						$label.text( __( 'Disable auto-updates' ) );
-						$parent.find( '.auto-update-time' ).removeClass( 'hidden' );
-						wp.a11y.speak( __( 'Auto-updates enabled' ) );
-					} else {
-						// The toggler control can be either a link or a button.
-						if ( $toggler[ 0 ].hasAttribute( 'href' ) ) {
-							href = href.replace( 'action=disable-auto-update', 'action=enable-auto-update' );
-							$toggler.attr( 'href', href );
-						}
-						$toggler.attr( 'data-wp-action', 'enable' );
-
-						$label.text( __( 'Enable auto-updates' ) );
-						$parent.find( '.auto-update-time' ).addClass( 'hidden' );
-						wp.a11y.speak( __( 'Auto-updates disabled' ) );
-					}
-
-					$document.trigger( 'wp-auto-update-setting-changed', { state: action, type: type, asset: asset } );
-				} )
-				.fail( function() {
-					$parent.find( '.notice.notice-error' )
-						.removeClass( 'hidden' )
-						.find( 'p' )
-						.text( __( 'The request could not be completed.' ) );
-
-					wp.a11y.speak( __( 'The request could not be completed.' ), 'assertive' );
-				} )
-				.always( function() {
-					$toggler.removeAttr( 'data-doing-ajax' ).find( '.dashicons-update' ).addClass( 'hidden' );
-				} );
-			}
-		);
+			console.log( 'The WP Automatic Updates feature is not supported by the Retraceur fork.' );
+		} );
 	} );
 })( jQuery, window.wp, window._wpUpdatesSettings );

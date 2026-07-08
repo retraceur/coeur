@@ -421,7 +421,6 @@ function wp_update_plugins() {
 			 *     @type string    $package      Optional. The update ZIP for the plugin.
 			 *     @type string    $tested       Optional. The version of WP the plugin is tested against.
 			 *     @type string    $requires_php Optional. The version of PHP which the plugin requires.
-			 *     @type bool      $autoupdate   Optional. Whether the plugin should automatically update.
 			 *     @type string[]  $icons        Optional. Array of plugin icons.
 			 *     @type string[]  $banners      Optional. Array of plugin banners.
 			 *     @type string[]  $banners_rtl  Optional. Array of plugin RTL banners.
@@ -434,7 +433,6 @@ function wp_update_plugins() {
 			 *         @type string $updated    The update timestamp of the translation file.
 			 *                                  Should be a date in the `YYYY-MM-DD HH:MM:SS` format.
 			 *         @type string $package    The ZIP location containing the translation update.
-			 *         @type string $autoupdate Whether the translation should be automatically installed.
 			 *     }
 			 * }
 			 * @param array       $plugin_data      Plugin headers.
@@ -737,7 +735,6 @@ function wp_update_themes( $extra_stats = array() ) {
 		 *         @type string $updated    The update timestamp of the translation file.
 		 *                                  Should be a date in the `YYYY-MM-DD HH:MM:SS` format.
 		 *         @type string $package    The ZIP location containing the translation update.
-		 *         @type string $autoupdate Whether the translation should be automatically installed.
 		 *     }
 		 * }
 		 * @param array       $theme_data       Theme headers.
@@ -1060,7 +1057,7 @@ function wp_delete_all_temp_backups() {
 	 * in which case there is a chance an update is running.
 	 * Reschedule for an hour from now and exit early.
 	 */
-	if ( get_option( 'core_updater.lock' ) || get_option( 'auto_updater.lock' ) || wp_doing_ajax() ) {
+	if ( get_option( 'core_updater.lock' ) || wp_doing_ajax() ) {
 		wp_schedule_single_event( time() + HOUR_IN_SECONDS, 'wp_delete_temp_updater_backups' );
 		return;
 	}

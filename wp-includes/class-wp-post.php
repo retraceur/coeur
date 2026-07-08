@@ -261,7 +261,7 @@ final class WP_Post {
 	 */
 	public function __isset( $key ) {
 		if ( in_array( $key, self::$deprecated_properties, true ) ) {
-			_deprecated_argument( __METHOD__, '1.0.0', '', true );
+			_deprecated_property( __CLASS__ . '::$' . $key, '1.0.0', '', true );
 			return false;
 		}
 
@@ -294,7 +294,7 @@ final class WP_Post {
 	 */
 	public function __get( $key ) {
 		if ( in_array( $key, self::$deprecated_properties, true ) ) {
-			_deprecated_argument( __METHOD__, '1.0.0', '', true );
+			_deprecated_property( __CLASS__ . '::$' . $key, '1.0.0', '', true );
 			return null;
 		}
 
@@ -389,7 +389,7 @@ final class WP_Post {
 	 */
 	public function __set( $key, $value ) {
 		if ( in_array( $key, self::$deprecated_properties, true ) ) {
-			_deprecated_argument( __METHOD__, '1.0.0', wp_debug_backtrace_summary(), true );
+			_deprecated_property( __CLASS__ . '::$' . $key, '1.0.0', '', true );
 			$this->{$key} = null;
 		} else {
 			$this->{$key} = $value;

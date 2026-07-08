@@ -43,67 +43,34 @@ class Language_Pack_Upgrader extends WP_Upgrader {
 	 * Hooked to the {@see 'upgrader_process_complete'} action by default.
 	 *
 	 * @since WP 3.7.0
+	 * @deprecated 4.0.0 Retraceur fork.
 	 *
 	 * @param false|WP_Upgrader $upgrader Optional. WP_Upgrader instance or false. If `$upgrader` is
 	 *                                    a Language_Pack_Upgrader instance, the method will bail to
 	 *                                    avoid recursion. Otherwise unused. Default false.
 	 */
 	public static function async_upgrade( $upgrader = false ) {
-		// Avoid recursion.
-		if ( $upgrader && $upgrader instanceof Language_Pack_Upgrader ) {
-			return;
-		}
+		_deprecated_function( __FUNCTION__, '4.0.0', '', true );
 
-		// Nothing to do?
-		$language_updates = wp_get_translation_updates();
-		if ( ! $language_updates ) {
-			return;
-		}
+		// Set up the language pack update.
+		$language_update = new stdClass();
 
-		/*
-		 * Avoid messing with VCS installations, at least for now.
-		 * Noted: this is not the ideal way to accomplish this.
+		/**
+		 * Filters whether to asynchronously update translation for core, a plugin, or a theme.
+		 *
+		 * @since WP 4.0.0
+		 * @deprecated 4.0.0 Retraceur fork.
+		 *
+		 * @param bool   $update          Whether to update.
+		 * @param object $language_update The update offer.
 		 */
-		$check_vcs = new WP_Automatic_Updater();
-		if ( $check_vcs->is_vcs_checkout( WP_CONTENT_DIR ) ) {
-			return;
-		}
-
-		foreach ( $language_updates as $key => $language_update ) {
-			$update = ! empty( $language_update->autoupdate );
-
-			/**
-			 * Filters whether to asynchronously update translation for core, a plugin, or a theme.
-			 *
-			 * @since WP 4.0.0
-			 *
-			 * @param bool   $update          Whether to update.
-			 * @param object $language_update The update offer.
-			 */
-			$update = apply_filters( 'async_update_translation', $update, $language_update );
-
-			if ( ! $update ) {
-				unset( $language_updates[ $key ] );
-			}
-		}
-
-		if ( empty( $language_updates ) ) {
-			return;
-		}
-
-		// Re-use the automatic upgrader skin if the parent upgrader is using it.
-		if ( $upgrader && $upgrader->skin instanceof Automatic_Upgrader_Skin ) {
-			$skin = $upgrader->skin;
-		} else {
-			$skin = new Language_Pack_Upgrader_Skin(
-				array(
-					'skip_header_footer' => true,
-				)
-			);
-		}
-
-		$lp_upgrader = new Language_Pack_Upgrader( $skin );
-		$lp_upgrader->bulk_upgrade( $language_updates );
+		apply_filters_deprecated(
+			'async_update_translation',
+			array( false, $language_update ),
+			'4.0.0',
+			'',
+			__( 'The WP Automatic Updates feature is not supported by the Retraceur fork.' )
+		);
 	}
 
 	/**
@@ -273,7 +240,6 @@ class Language_Pack_Upgrader extends WP_Upgrader {
 		}
 
 		// Remove upgrade hooks which are not required for translation updates.
-		remove_action( 'upgrader_process_complete', array( 'Language_Pack_Upgrader', 'async_upgrade' ), 20 );
 		remove_action( 'upgrader_process_complete', 'retraceur_version_check' );
 		remove_action( 'upgrader_process_complete', 'wp_update_plugins' );
 		remove_action( 'upgrader_process_complete', 'wp_update_themes' );
@@ -291,7 +257,6 @@ class Language_Pack_Upgrader extends WP_Upgrader {
 		);
 
 		// Re-add upgrade hooks.
-		add_action( 'upgrader_process_complete', array( 'Language_Pack_Upgrader', 'async_upgrade' ), 20 );
 		add_action( 'upgrader_process_complete', 'retraceur_version_check', 10, 0 );
 		add_action( 'upgrader_process_complete', 'wp_update_plugins', 10, 0 );
 		add_action( 'upgrader_process_complete', 'wp_update_themes', 10, 0 );

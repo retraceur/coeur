@@ -3879,7 +3879,7 @@ class WP_Query {
 		}
 
 		if ( in_array( $name, $this->deprecated_properties, true ) ) {
-			_deprecated_argument( __METHOD__, '1.0.0', '', true );
+			_deprecated_property( __CLASS__ . '::$' . $name, '1.0.0', '', true );
 			return null;
 		}
 	}
@@ -3898,7 +3898,7 @@ class WP_Query {
 		}
 
 		if ( in_array( $name, $this->deprecated_properties, true ) ) {
-			_deprecated_argument( __METHOD__, '1.0.0', '', true );
+			_deprecated_property( __CLASS__ . '::$' . $name, '1.0.0', '', true );
 		}
 
 		return false;
@@ -3914,7 +3914,7 @@ class WP_Query {
 	 */
 	public function __set( $name, $value ) {
 		if ( in_array( $name, $this->deprecated_properties, true ) ) {
-			_deprecated_argument( __METHOD__, '1.0.0', '', true );
+			_deprecated_property( __CLASS__ . '::$' . $name, '1.0.0', '', true );
 			$this->{$name} = null;
 		} else {
 			$this->{$name} = $value;

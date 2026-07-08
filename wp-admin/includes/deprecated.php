@@ -4284,3 +4284,139 @@ function wp_plugin_update_row( $file, $plugin_data ) {
 		__( 'Retraceur manage Plugin and other updates from a unique place: the `wp-admin/update-core.php` page.' )
 	);
 }
+
+/**
+ * Checks whether auto-updates are enabled.
+ *
+ * @since WP 5.5.0
+ * @since 2.0.0 Retraceur fork excluded "background' updates.
+ * @deprecated 4.0.0 Retraceur fork.
+ *
+ * @param string $type The type of update being checked: Either 'theme' or 'plugin'.
+ * @return bool True if updates are enabled for `$type`, false otherwise.
+ */
+function wp_is_auto_update_enabled_for_type( $type ) {
+	_deprecated_function( __FUNCTION__, '4.0.0', '', true );
+
+	$not_supported = __( 'The WP Automatic Updates feature is not supported by the Retraceur fork.' );
+
+	switch ( $type ) {
+		case 'plugin':
+			/**
+			 * Filters whether plugins auto-update is enabled.
+			 *
+			 * @since WP 5.5.0
+			 * @deprecated 4.0.0 Retraceur fork.
+			 *
+			 * @param bool $enabled True if plugins auto-update is enabled, false otherwise.
+			 */
+			apply_filters_deprecated(
+				'plugins_auto_update_enabled',
+				array( false ),
+				'4.0.0',
+				'',
+				$not_supported
+			);
+			break;
+		case 'theme':
+			/**
+			 * Filters whether themes auto-update is enabled.
+			 *
+			 * @since WP 5.5.0
+			 * @deprecated 4.0.0 Retraceur fork.
+			 *
+			 * @param bool $enabled True if themes auto-update is enabled, false otherwise.
+			 */
+			apply_filters_deprecated(
+				'themes_auto_update_enabled',
+				array( false ),
+				'4.0.0',
+				'',
+				$not_supported
+			);
+			break;
+	}
+
+	return false;
+}
+
+/**
+ * Checks whether auto-updates are forced for an item.
+ *
+ * @since WP 5.6.0
+ * @deprecated 4.0.0 Retraceur fork.
+ *
+ * @param string    $type   The type of update being checked: Either 'theme' or 'plugin'.
+ * @param bool|null $update Whether to update. The value of null is internally used
+ *                          to detect whether nothing has hooked into this filter.
+ * @param object    $item   The update offer.
+ * @return bool True if auto-updates are forced for `$item`, false otherwise.
+ */
+function wp_is_auto_update_forced_for_item( $type, $update, $item ) {
+	_deprecated_function( __FUNCTION__, '4.0.0', '', true );
+
+	/** This filter is documented in wp-admin/includes/class-wp-automatic-updater.php */
+	return apply_filters_deprecated(
+		"auto_update_{$type}",
+		array( false, $item ),
+		'4.0.0',
+		'',
+		__( 'The WP Automatic Updates feature is not supported by the Retraceur fork.' )
+	);
+}
+
+/**
+ * Determines the appropriate auto-update message to be displayed.
+ *
+ * @since WP 5.5.0
+ * @deprecated 4.0.0 Retraceur fork.
+ *
+ * @return string The update message to be shown.
+ */
+function wp_get_auto_update_message() {
+	_deprecated_function( __FUNCTION__, '4.0.0', '', true );
+
+	return '';
+}
+
+/**
+ * Returns the JavaScript template used to display the auto-update setting for a theme.
+ *
+ * @since WP 5.5.0
+ * @deprecated 4.0.0 Retraceur fork.
+ *
+ * @return string The template for displaying the auto-update setting link.
+ */
+function wp_theme_auto_update_setting_template() {
+	_deprecated_function( __FUNCTION__, '4.0.0', '', true );
+
+	/**
+	 * Filters the JavaScript template used to display the auto-update setting for a theme (in the overlay).
+	 *
+	 * See {@see wp_prepare_themes_for_js()} for the properties of the `data` object.
+	 *
+	 * @since WP 5.5.0
+	 * @deprecated 4.0.0 Retraceur fork.
+	 *
+	 * @param string $template The template for displaying the auto-update setting link.
+	 */
+	return apply_filters_deprecated(
+		'theme_auto_update_setting_template',
+		array( '' ),
+		'4.0.0',
+		'',
+		__( 'The WP Automatic Updates feature is not supported by the Retraceur fork.' )
+	);
+}
+
+/**
+ * Handles enabling or disable plugin and theme auto-updates via AJAX.
+ *
+ * @since WP 5.5.0
+ * @deprecated 4.0.0 Retraceur fork.
+ */
+function wp_ajax_toggle_auto_updates() {
+	_deprecated_function( __FUNCTION__, '4.0.0', '', true );
+
+	wp_send_json_error( array( 'error' => __( 'The WP Automatic Updates feature is not supported by the Retraceur fork.' ) ) );
+}

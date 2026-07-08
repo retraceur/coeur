@@ -203,7 +203,7 @@ function dismissed_updates() {
 }
 
 /**
- * Display upgrade Retraceur for downloading latest or upgrading automatically form.
+ * Display upgrade Retraceur for downloading latest.
  *
  * @since WP 2.7.0
  */
@@ -503,12 +503,6 @@ function list_theme_updates() {
 
 	<tbody class="plugins">
 	<?php
-	$auto_updates = array();
-	if ( wp_is_auto_update_enabled_for_type( 'theme' ) ) {
-		$auto_updates       = (array) get_site_option( 'auto_update_themes', array() );
-		$auto_update_notice = ' | ' . wp_get_auto_update_message();
-	}
-
 	foreach ( $themes as $stylesheet => $theme ) {
 		$requires_wp  = $theme->update['requires'] ?? null;
 		$requires_r   = $theme->update['requires_r'] ?? null;
@@ -575,10 +569,6 @@ function list_theme_updates() {
 			);
 
 			echo ' ' . $compat;
-
-			if ( in_array( $stylesheet, $auto_updates, true ) ) {
-				echo $auto_update_notice;
-			}
 			?>
 		</p></td>
 	</tr>
