@@ -293,6 +293,7 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 		$version      = sanitize_text_field( $request['version'] );
 		$download_url = esc_url_raw( $request['download_url'] );
 		$digest       = sanitize_text_field( $request['digest'] ?? '' );
+		$admin_page   = ( 'block' === $request['type'] ) ? 'blocks.php' : 'plugins.php';
 
 		if ( ! $digest ) {
 			return new WP_Error(
@@ -354,9 +355,25 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 			);
 		}
 
+		// Get the block/regular plugin relative path.
+		$plugin_file = $upgrader->plugin_info();
+
+		$activate_url = '';
+		if ( $plugin_file ) {
+			$activate_url = add_query_arg(
+				array(
+					'action'   => 'activate',
+					'plugin'   => $plugin_file,
+					'_wpnonce' => wp_create_nonce( 'activate-plugin_' . $plugin_file ),
+				),
+				self_admin_url( $admin_page )
+			);
+		}
+
 		return rest_ensure_response( array(
-			'success' => true,
-			'message' => __( 'Installation successful.' ),
+			'success'      => true,
+			'message'      => __( 'Installation successful.' ),
+			'activate_url' => $activate_url,
 		) );
 	}
 
