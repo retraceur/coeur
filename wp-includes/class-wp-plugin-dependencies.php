@@ -121,11 +121,31 @@ class WP_Plugin_Dependencies {
 	 * @since WP 6.5.0
 	 */
 	public static function initialize() {
+		/*
+		 * Retraceur temporarily disabled the Plugin Dependencies feature in 4.0.0.
+		 *
+		 * This feature needs more work to be adapted to Retraceur's mindset:
+		 * - No dependency to WP dot org infrastructure.
+		 * - New mechanism to rely on GitHub.com.
+		 *
+		 * Skipping initialization leaves the internal state empty, so every public
+		 * "has_*"/"get_*" method returns an empty/false value, the admin notices
+		 * render nothing and validate_plugin_requirements() no longer blocks the
+		 * activation of a plugin declaring a "Requires Plugins" header.
+		 *
+		 * @todo Bring this back when ready by removing the early return and the
+		 *       `phpcs:disable`/`phpcs:enable` pragmas below.
+		 * @see  https://github.com/retraceur/coeur/issues/205
+		 */
+		return;
+
+		// phpcs:disable Squiz.PHP.NonExecutableCode.Unreachable -- Preserved to restore the feature, see #205.
 		if ( false === self::$initialized ) {
 			self::read_dependencies_from_plugin_headers();
 			self::get_dependency_api_data();
 			self::$initialized = true;
 		}
+		// phpcs:enable Squiz.PHP.NonExecutableCode.Unreachable
 	}
 
 	/**
