@@ -766,7 +766,7 @@ class wpdb {
 		}
 
 		if ( in_array( $name, $this->deprecated_properties, true ) ) {
-			_deprecated_argument( __METHOD__, '1.0.0', '', true );
+			_deprecated_property( __CLASS__ . '::$' . $name, '1.0.0', '', true );
 			return null;
 		}
 
@@ -794,7 +794,7 @@ class wpdb {
 		}
 
 		if ( in_array( $name, $this->deprecated_properties, true ) ) {
-			_deprecated_argument( __METHOD__, '1.0.0', '', true );
+			_deprecated_property( __CLASS__ . '::$' . $name, '1.0.0', '', true );
 			return;
 		}
 
@@ -811,7 +811,7 @@ class wpdb {
 	 */
 	public function __isset( $name ) {
 		if ( in_array( $name, $this->deprecated_properties, true ) ) {
-			_deprecated_argument( __METHOD__, '1.0.0', '', true );
+			_deprecated_property( __CLASS__ . '::$' . $name, '1.0.0', '', true );
 			return false;
 		}
 

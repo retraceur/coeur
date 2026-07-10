@@ -56,10 +56,6 @@ $query_args_to_remove = array(
 	'activate-multi',
 	'deactivate',
 	'deactivate-multi',
-	'enabled-auto-update',
-	'disabled-auto-update',
-	'enabled-auto-update-multi',
-	'disabled-auto-update-multi',
 	'_error_nonce',
 );
 
@@ -556,77 +552,11 @@ if ( $action ) {
 		case 'disable-auto-update':
 		case 'enable-auto-update-selected':
 		case 'disable-auto-update-selected':
-			if ( ! current_user_can( 'update_plugins' ) || ! wp_is_auto_update_enabled_for_type( 'plugin' ) ) {
-				if ( 'block' === $plugins_type ) {
-					wp_die( esc_html__( 'Sorry, you are not allowed to manage blocks automatic updates.' ) );
-				} else {
-					wp_die( esc_html__( 'Sorry, you are not allowed to manage plugins automatic updates.' ) );
-				}
-			}
-
-			if ( is_multisite() && ! is_network_admin() ) {
-				wp_die( __( 'Please connect to your network admin to manage plugins automatic updates.' ) );
-			}
-
-			$redirect = self_admin_url( "{$parent_file}?plugin_status={$status}&paged={$page}&s={$s}" );
-
-			if ( 'enable-auto-update' === $action || 'disable-auto-update' === $action ) {
-				if ( empty( $plugin ) ) {
-					wp_redirect( $redirect );
-					exit;
-				}
-
-				check_admin_referer( 'updates' );
-			} else {
-				if ( empty( $_POST['checked'] ) ) {
-					wp_redirect( $redirect );
-					exit;
-				}
-
-				check_admin_referer( 'bulk-' . $plugins_args['plural'] );
-			}
-
-			$auto_updates = (array) get_site_option( 'auto_update_plugins', array() );
-
-			if ( 'enable-auto-update' === $action ) {
-				$auto_updates[] = $plugin;
-				$auto_updates   = array_unique( $auto_updates );
-				$redirect       = add_query_arg( array( 'enabled-auto-update' => 'true' ), $redirect );
-			} elseif ( 'disable-auto-update' === $action ) {
-				$auto_updates = array_diff( $auto_updates, array( $plugin ) );
-				$redirect     = add_query_arg( array( 'disabled-auto-update' => 'true' ), $redirect );
-			} else {
-				$plugins = (array) wp_unslash( $_POST['checked'] );
-
-				if ( 'enable-auto-update-selected' === $action ) {
-					$new_auto_updates = array_merge( $auto_updates, $plugins );
-					$new_auto_updates = array_unique( $new_auto_updates );
-					$query_args       = array( 'enabled-auto-update-multi' => 'true' );
-				} else {
-					$new_auto_updates = array_diff( $auto_updates, $plugins );
-					$query_args       = array( 'disabled-auto-update-multi' => 'true' );
-				}
-
-				// Return early if all selected plugins already have auto-updates enabled or disabled.
-				// Must use non-strict comparison, so that array order is not treated as significant.
-				if ( $new_auto_updates == $auto_updates ) { // phpcs:ignore Universal.Operators.StrictComparisons.LooseEqual
-					wp_redirect( $redirect );
-					exit;
-				}
-
-				$auto_updates = $new_auto_updates;
-				$redirect     = add_query_arg( $query_args, $redirect );
-			}
-
-			/** This filter is documented in wp-admin/includes/class-wp-plugins-list-table.php */
-			$all_items = apply_filters( 'all_plugins', get_plugins() );
-
-			// Remove plugins that don't exist or have been deleted since the option was last updated.
-			$auto_updates = array_intersect( $auto_updates, array_keys( $all_items ) );
-
-			update_site_option( 'auto_update_plugins', $auto_updates );
-
-			wp_redirect( $redirect );
+			wp_die(
+				'<h1>' . __( 'The WP Automatic Updates feature is not supported by the Retraceur fork.' ) . '</h1>' .
+				'<p>' . __( 'Please use a plugin instead.' ) . '</p>',
+				500
+			);
 			exit;
 		default:
 			if ( isset( $_POST['checked'] ) ) {
@@ -903,14 +833,6 @@ if ( isset( $_GET['error'] ) ) {
 	wp_admin_notice( 'block' === $plugins_type ? __( 'All selected blocks are up to date.' ) : __( 'All selected plugins are up to date.' ), $updated_notice_args );
 } elseif ( isset( $_GET['resume'] ) ) {
 	wp_admin_notice( 'block' === $plugins_type ? __( 'Block resumed.' ) : __( 'Plugin resumed.' ), $updated_notice_args );
-} elseif ( isset( $_GET['enabled-auto-update'] ) ) {
-	wp_admin_notice( 'block' === $plugins_type ? __( 'Block will be auto-updated.' ) : __( 'Plugin will be auto-updated.' ), $updated_notice_args );
-} elseif ( isset( $_GET['disabled-auto-update'] ) ) {
-	wp_admin_notice( 'block' === $plugins_type ? __( 'Block will no longer be auto-updated.' ) : __( 'Plugin will no longer be auto-updated.' ), $updated_notice_args );
-} elseif ( isset( $_GET['enabled-auto-update-multi'] ) ) {
-	wp_admin_notice( 'block' === $plugins_type ? __( 'Selected blocks will be auto-updated.' ) : __( 'Selected plugins will be auto-updated.' ), $updated_notice_args );
-} elseif ( isset( $_GET['disabled-auto-update-multi'] ) ) {
-	wp_admin_notice( 'block' === $plugins_type ? __( 'Selected blocks will no longer be auto-updated.' ) : __( 'Selected blocks will no longer be auto-updated.' ), $updated_notice_args );
 }
 ?>
 

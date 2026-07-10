@@ -18,13 +18,84 @@
  */
 class WP_Plugins_List_Table extends WP_List_Table {
 	/**
-	 * Whether to show the auto-updates UI.
+	 * Deprecated properties.
 	 *
-	 * @since WP 5.5.0
-	 *
-	 * @var bool True if auto-updates UI is to be shown, false otherwise.
+	 * @since 4.0.0 Retraceur fork does not provide support for WP Auto-updates.
+	 * @var string[]
 	 */
-	protected $show_autoupdates = true;
+	private $deprecated_properties = array(
+		'show_autoupdates',
+	);
+
+	/**
+	 * Proxies getting values for deprecated properties.
+	 *
+	 * @since 4.0.0 Retraceur fork does not provide support for WP Auto-updates.
+	 *
+	 * @param string $name Deprecated property name.
+	 *
+	 * @return mixed|null Null if the property is deprecated, the property value otherwise.
+	 */
+	public function __get( $name ) {
+		if ( in_array( $name, $this->deprecated_properties, true ) ) {
+			_deprecated_property( __CLASS__ . '::$' . $name, '4.0.0', '', true );
+			return false;
+		}
+
+		return parent::__get( $name );
+	}
+
+	/**
+	 * Proxies setting values for deprecated properties.
+	 *
+	 * @since 4.0.0 Retraceur fork does not provide support for WP Auto-updates.
+	 *
+	 * @param string $name  Property name.
+	 * @param mixed  $value Property value.
+	 */
+	public function __set( $name, $value ) {
+		if ( in_array( $name, $this->deprecated_properties, true ) ) {
+			_deprecated_property( __CLASS__ . '::$' . $name, '4.0.0', '', true );
+			return;
+		}
+
+		parent::__set( $name, $value );
+	}
+
+	/**
+	 * Proxies checking for deprecated properties.
+	 *
+	 * @since 4.0.0 Retraceur fork does not provide support for WP Auto-updates.
+	 *
+	 * @param string $name Deprecated property name.
+	 *
+	 * @return bool Returns true for existing and valid properties, false otherwise.
+	 */
+	public function __isset( $name ) {
+		if ( in_array( $name, $this->deprecated_properties, true ) ) {
+			_deprecated_property( __CLASS__ . '::$' . $name, '4.0.0', '', true );
+			return false;
+		}
+
+		return parent::__isset( $name );
+	}
+
+	/**
+	 * Proxies unsetting values for deprecated properties.
+	 *
+	 * @since 4.0.0 Retraceur fork does not provide support for WP Auto-updates.
+	 *
+	 * @param string $name  Property name.
+	 * @param mixed  $value Property value.
+	 */
+	public function __unset( $name ) {
+		if ( in_array( $name, $this->deprecated_properties, true ) ) {
+			_deprecated_property( __CLASS__ . '::$' . $name, '4.0.0', '', true );
+			return;
+		}
+
+		parent::__unset( $name );
+	}
 
 	/**
 	 * Constructor.
@@ -59,10 +130,6 @@ class WP_Plugins_List_Table extends WP_List_Table {
 		}
 
 		$page = $this->get_pagenum();
-
-		$this->show_autoupdates = wp_is_auto_update_enabled_for_type( 'plugin' )
-			&& current_user_can( 'update_plugins' )
-			&& ( ! is_multisite() || $this->screen->in_admin( 'network' ) );
 	}
 
 	/**
@@ -122,12 +189,6 @@ class WP_Plugins_List_Table extends WP_List_Table {
 			'dropins'            => array(),
 			'paused'             => array(),
 		);
-		if ( $this->show_autoupdates ) {
-			$auto_updates = (array) get_site_option( 'auto_update_plugins', array() );
-
-			$plugins['auto-update-enabled']  = array();
-			$plugins['auto-update-disabled'] = array();
-		}
 
 		$screen = $this->screen;
 
@@ -216,34 +277,6 @@ class WP_Plugins_List_Table extends WP_List_Table {
 				$plugin_data['update-supported'] = false;
 			}
 
-			/*
-			 * Create the payload that's used for the auto_update_plugin filter.
-			 * This is the same data contained within $plugin_info->(response|no_update) however
-			 * not all plugins will be contained in those keys, this avoids unexpected warnings.
-			 */
-			$filter_payload = array(
-				'id'            => $plugin_file,
-				'slug'          => '',
-				'plugin'        => $plugin_file,
-				'new_version'   => '',
-				'url'           => '',
-				'package'       => '',
-				'icons'         => array(),
-				'banners'       => array(),
-				'banners_rtl'   => array(),
-				'tested'        => '',
-				'requires_php'  => '',
-				'compatibility' => new stdClass(),
-			);
-
-			$filter_payload = (object) wp_parse_args( $plugin_data, $filter_payload );
-
-			$auto_update_forced = wp_is_auto_update_forced_for_item( 'plugin', null, $filter_payload );
-
-			if ( ! is_null( $auto_update_forced ) ) {
-				$plugin_data['auto-update-forced'] = $auto_update_forced;
-			}
-
 			$plugins['all'][ $plugin_file ] = $plugin_data;
 			// Make sure that $plugins['upgrade'] also receives the extra info since it is used on ?plugin_status=upgrade.
 			if ( isset( $plugins['upgrade'][ $plugin_file ] ) ) {
@@ -285,19 +318,6 @@ class WP_Plugins_List_Table extends WP_List_Table {
 				}
 				// Populate the inactive list with plugins that aren't activated.
 				$plugins['inactive'][ $plugin_file ] = $plugin_data;
-			}
-
-			if ( $this->show_autoupdates ) {
-				$enabled = in_array( $plugin_file, $auto_updates, true ) && $plugin_data['update-supported'];
-				if ( isset( $plugin_data['auto-update-forced'] ) ) {
-					$enabled = (bool) $plugin_data['auto-update-forced'];
-				}
-
-				if ( $enabled ) {
-					$plugins['auto-update-enabled'][ $plugin_file ] = $plugin_data;
-				} else {
-					$plugins['auto-update-disabled'][ $plugin_file ] = $plugin_data;
-				}
 			}
 		}
 
@@ -498,10 +518,6 @@ class WP_Plugins_List_Table extends WP_List_Table {
 			'description' => __( 'Description' ),
 		);
 
-		if ( $this->show_autoupdates && ! in_array( $status, array( 'mustuse', 'dropins' ), true ) ) {
-			$columns['auto-updates'] = __( 'Automatic Updates' );
-		}
-
 		return $columns;
 	}
 
@@ -597,22 +613,6 @@ class WP_Plugins_List_Table extends WP_List_Table {
 						$count
 					);
 					break;
-				case 'auto-update-enabled':
-					/* translators: %s: Number of plugins. */
-					$text = _n(
-						'Auto-updates Enabled <span class="count">(%s)</span>',
-						'Auto-updates Enabled <span class="count">(%s)</span>',
-						$count
-					);
-					break;
-				case 'auto-update-disabled':
-					/* translators: %s: Number of plugins. */
-					$text = _n(
-						'Auto-updates Disabled <span class="count">(%s)</span>',
-						'Auto-updates Disabled <span class="count">(%s)</span>',
-						$count
-					);
-					break;
 				default:
 					/**
 					 * Filters the status text of default switch case in the plugins list table.
@@ -675,15 +675,6 @@ class WP_Plugins_List_Table extends WP_List_Table {
 
 			if ( current_user_can( 'delete_plugins' ) && ( 'active' !== $status ) ) {
 				$actions['delete-selected'] = __( 'Delete' );
-			}
-
-			if ( $this->show_autoupdates ) {
-				if ( 'auto-update-enabled' !== $status ) {
-					$actions['enable-auto-update-selected'] = __( 'Enable Auto-updates' );
-				}
-				if ( 'auto-update-disabled' !== $status ) {
-					$actions['disable-auto-update-selected'] = __( 'Disable Auto-updates' );
-				}
 			}
 		}
 
@@ -1201,8 +1192,6 @@ class WP_Plugins_List_Table extends WP_List_Table {
 
 		list( $columns, $hidden, $sortable, $primary ) = $this->get_column_info();
 
-		$auto_updates = (array) get_site_option( 'auto_update_plugins', array() );
-
 		foreach ( $columns as $column_name => $column_display_name ) {
 			$extra_classes = '';
 			if ( in_array( $column_name, $hidden, true ) ) {
@@ -1299,8 +1288,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 					 * }
 					 * @param string   $status      Status filter currently applied to the plugin list. Possible
 					 *                              values are: 'all', 'active', 'inactive', 'recently_activated',
-					 *                              'upgrade', 'mustuse', 'dropins', 'search', 'paused',
-					 *                              'auto-update-enabled', 'auto-update-disabled'.
+					 *                              'upgrade', 'mustuse', 'dropins', 'search', 'paused'.
 					 */
 					$plugin_meta = apply_filters( 'plugin_row_meta', $plugin_meta, $plugin_file, $plugin_data, $status );
 
@@ -1341,74 +1329,15 @@ class WP_Plugins_List_Table extends WP_List_Table {
 					echo '</td>';
 					break;
 				case 'auto-updates':
-					if ( ! $this->show_autoupdates || in_array( $status, array( 'mustuse', 'dropins' ), true ) ) {
+					if ( in_array( $status, array( 'mustuse', 'dropins' ), true ) ) {
 						break;
 					}
-
-					echo "<td class='column-auto-updates{$extra_classes}'>";
-
-					$html = array();
-
-					if ( isset( $plugin_data['auto-update-forced'] ) ) {
-						if ( $plugin_data['auto-update-forced'] ) {
-							// Forced on.
-							$text = __( 'Auto-updates enabled' );
-						} else {
-							$text = __( 'Auto-updates disabled' );
-						}
-						$action     = 'unavailable';
-						$time_class = ' hidden';
-					} elseif ( empty( $plugin_data['update-supported'] ) ) {
-						$text       = '';
-						$action     = 'unavailable';
-						$time_class = ' hidden';
-					} elseif ( in_array( $plugin_file, $auto_updates, true ) ) {
-						$text       = __( 'Disable auto-updates' );
-						$action     = 'disable';
-						$time_class = '';
-					} else {
-						$text       = __( 'Enable auto-updates' );
-						$action     = 'enable';
-						$time_class = ' hidden';
-					}
-
-					$query_args = array(
-						'action'        => "{$action}-auto-update",
-						'plugin'        => $plugin_file,
-						'paged'         => $page,
-						'plugin_status' => $status,
-					);
-
-					$url = add_query_arg( $query_args, $parent_file );
-
-					if ( 'unavailable' === $action ) {
-						$html[] = '<span class="label">' . $text . '</span>';
-					} else {
-						$html[] = sprintf(
-							'<a href="%s" class="toggle-auto-update aria-button-if-js" data-wp-action="%s">',
-							wp_nonce_url( $url, 'updates' ),
-							$action
-						);
-
-						$html[] = '<span class="dashicons dashicons-update spin hidden" aria-hidden="true"></span>';
-						$html[] = '<span class="label">' . $text . '</span>';
-						$html[] = '</a>';
-					}
-
-					if ( ! empty( $plugin_data['update'] ) ) {
-						$html[] = sprintf(
-							'<div class="auto-update-time%s">%s</div>',
-							$time_class,
-							wp_get_auto_update_message()
-						);
-					}
-
-					$html = implode( '', $html );
 
 					/**
 					 * Filters the HTML of the auto-updates setting for each plugin in the Plugins list table.
 					 *
 					 * @since WP 5.5.0
+					 * @deprecated 4.0.0 Retraceur fork.
 					 *
 					 * @param string $html        The HTML of the plugin's auto-update column content,
 					 *                            including toggle auto-update action links and
@@ -1418,17 +1347,13 @@ class WP_Plugins_List_Table extends WP_List_Table {
 					 *                            and the {@see 'plugin_row_meta'} filter for the list
 					 *                            of possible values.
 					 */
-					echo apply_filters( 'plugin_auto_update_setting_html', $html, $plugin_file, $plugin_data );
-
-					wp_admin_notice(
+					echo apply_filters_deprecated(
+						'plugin_auto_update_setting_html',
+						array( '', $plugin_file, $plugin_data ),
+						'4.0.0',
 						'',
-						array(
-							'type'               => 'error',
-							'additional_classes' => array( 'notice-alt', 'inline', 'hidden' ),
-						)
+						__( 'The WP Automatic Updates feature is not supported by the Retraceur fork.' )
 					);
-
-					echo '</td>';
 
 					break;
 				default:
@@ -1533,7 +1458,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 		 * @param string $status      Status filter currently applied to the plugin list.
 		 *                            Possible values are: 'all', 'active', 'inactive',
 		 *                            'recently_activated', 'upgrade', 'mustuse', 'dropins',
-		 *                            'search', 'paused', 'auto-update-enabled', 'auto-update-disabled'.
+		 *                            'search', 'paused'.
 		 */
 		do_action( 'after_plugin_row', $plugin_file, $plugin_data, $status );
 
@@ -1554,7 +1479,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 		 * @param string $status      Status filter currently applied to the plugin list.
 		 *                            Possible values are: 'all', 'active', 'inactive',
 		 *                            'recently_activated', 'upgrade', 'mustuse', 'dropins',
-		 *                            'search', 'paused', 'auto-update-enabled', 'auto-update-disabled'.
+		 *                            'search', 'paused'.
 		 */
 		do_action( "after_plugin_row_{$plugin_file}", $plugin_file, $plugin_data, $status );
 	}

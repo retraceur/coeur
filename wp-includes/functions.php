@@ -1061,7 +1061,6 @@ function wp_removable_query_args() {
 		'activated',
 		'admin_email_remind_later',
 		'approved',
-		'core-major-auto-updates-saved',
 		'deactivate',
 		'delete_count',
 		'deleted',
@@ -5486,6 +5485,72 @@ function _deprecated_class( $class_name, $version, $replacement = '', $is_retrac
 
 		wp_trigger_error( '', $message, E_USER_DEPRECATED );
 	}
+}
+
+/**
+ * Marks a class property as deprecated and informs when it has been used.
+ *
+ * @since Retraceur 4.0.0
+ *
+ * @param string $property_name The property that was accessed.
+ * @param string $version       The version of Retraceur that deprecated the property.
+ * @param string $replacement   Optional. The property or method that should have been used.
+ * @param bool   $is_retraceur       Optional. Whether this deprecation is specific to Retraceur fork.
+ */
+function _deprecated_property( $property_name, $version, $replacement = '', $is_retraceur = false ) {
+    /**
+     * Fires when a deprecated property is accessed.
+     *
+     * @since Retraceur 4.0.0
+	 *
+	 * @param string $property_name The property that was accessed.
+	 * @param string $replacement   Optional. The property or method that should have been used.
+	 * @param string $version       The version of Retraceur that deprecated the property.
+     */
+    do_action( 'deprecated_property_run', $property_name, $replacement, $version );
+
+    /** This filter is documented alongside the other deprecated_*_trigger_error filters. */
+    if ( WP_DEBUG && apply_filters( 'deprecated_property_trigger_error', true ) ) {
+		if ( function_exists( '__' ) ) {
+			if ( $replacement ) {
+				$message = sprintf(
+					/* translators: 1: property name, 2: version number, 3: alternative. */
+					__( 'Property %1$s is <strong>deprecated</strong> since %2$s version %3$s! Use %4$s instead.' ),
+					$property_name,
+					! $is_retraceur ? 'WP' : 'Retraceur',
+					$version,
+					$replacement
+				);
+			} else {
+				$message = sprintf(
+					/* translators: 1: property name, 2: version number. */
+					__( 'Property %1$s is <strong>deprecated</strong> since %2$s version %3$s with no alternative available.' ),
+					$property_name,
+					! $is_retraceur ? 'WP' : 'Retraceur',
+					$version
+				);
+			}
+		} else {
+			if ( $replacement ) {
+				$message = sprintf(
+					'Property %1$s is <strong>deprecated</strong> since %2$s version %3$s! Use %4$s instead.',
+					$property_name,
+					! $is_retraceur ? 'WP' : 'Retraceur',
+					$version,
+					$replacement
+				);
+			} else {
+				$message = sprintf(
+					'Property %1$s is <strong>deprecated</strong> since %2$s version %3$s with no alternative available.',
+					$property_name,
+					! $is_retraceur ? 'WP' : 'Retraceur',
+					$version
+				);
+			}
+		}
+
+        trigger_error( $message, E_USER_DEPRECATED );
+    }
 }
 
 /**

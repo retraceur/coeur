@@ -1028,10 +1028,6 @@ ul.cat-checklist input[name="post_category[]"]:indeterminate::before {
 	text-decoration: none;
 }
 
-.plugins .column-auto-updates {
-	width: 14.2em;
-}
-
 .plugins .inactive .plugin-title strong {
 	font-weight: 400;
 }

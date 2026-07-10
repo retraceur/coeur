@@ -4,16 +4,20 @@
  *
  * @since WP 4.6.0
  * @since 1.0.0 Retraceur fork.
+ * @deprecated 4.0.0 Retraceur fork.
  *
  * @package Retraceur
  * @subpackage Upgrader
  */
+
+_deprecated_file( basename( __FILE__ ), '4.0.0', '', '', true );
 
 /**
  * Core class used for handling automatic background updates.
  *
  * @since WP 3.7.0
  * @since WP 4.6.0 Moved to its own file from wp-admin/includes/class-wp-upgrader.php.
+ * @deprecated 4.0.0 Retraceur fork.
  */
 #[AllowDynamicProperties]
 class WP_Automatic_Updater {
@@ -24,6 +28,15 @@ class WP_Automatic_Updater {
 	 * @var array
 	 */
 	protected $update_results = array();
+
+	/**
+	 * Constructor.
+	 *
+	 * @since 4.0.0 Retraceur fork.
+	 */
+	public function __construct() {
+		_deprecated_class( 'WP_Automatic_Updater', '4.0.0', '', true );
+	}
 
 	/**
 	 * Determines whether the entire automatic updater is disabled.
@@ -69,42 +82,13 @@ class WP_Automatic_Updater {
 	 * directories it is not allowed to.
 	 *
 	 * @since WP 6.2.0
+	 * @deprecated 4.0.0 Retraceur fork.
 	 *
 	 * @param string $dir The directory to check.
 	 * @return bool True if access to the directory is allowed, false otherwise.
 	 */
 	public function is_allowed_dir( $dir ) {
-		if ( is_string( $dir ) ) {
-			$dir = trim( $dir );
-		}
-
-		if ( ! is_string( $dir ) || '' === $dir ) {
-			_doing_it_wrong(
-				__METHOD__,
-				sprintf(
-					/* translators: %s: The "$dir" argument. */
-					__( 'The "%s" argument must be a non-empty string.' ),
-					'$dir'
-				),
-				'6.2.0'
-			);
-
-			return false;
-		}
-
-		$open_basedir = ini_get( 'open_basedir' );
-
-		if ( empty( $open_basedir ) ) {
-			return true;
-		}
-
-		$open_basedir_list = explode( PATH_SEPARATOR, $open_basedir );
-
-		foreach ( $open_basedir_list as $basedir ) {
-			if ( '' !== trim( $basedir ) && str_starts_with( $dir, $basedir ) ) {
-				return true;
-			}
-		}
+		_deprecated_function( __METHOD__, '4.0.0', '', true );
 
 		return false;
 	}
@@ -122,63 +106,36 @@ class WP_Automatic_Updater {
 	 * how things get updated.
 	 *
 	 * @since WP 3.7.0
+	 * @deprecated 4.0.0 Retraceur fork.
 	 *
 	 * @param string $context The filesystem path to check, in addition to ABSPATH.
 	 * @return bool True if a VCS checkout was discovered at `$context` or ABSPATH,
 	 *              or anywhere higher. False otherwise.
 	 */
 	public function is_vcs_checkout( $context ) {
-		$context_dirs = array( untrailingslashit( $context ) );
-		if ( ABSPATH !== $context ) {
-			$context_dirs[] = untrailingslashit( ABSPATH );
-		}
-
-		$vcs_dirs   = array( '.svn', '.git', '.hg', '.bzr' );
-		$check_dirs = array();
-
-		foreach ( $context_dirs as $context_dir ) {
-			// Walk up from $context_dir to the root.
-			do {
-				$check_dirs[] = $context_dir;
-
-				// Once we've hit '/' or 'C:\', we need to stop. dirname will keep returning the input here.
-				if ( dirname( $context_dir ) === $context_dir ) {
-					break;
-				}
-
-				// Continue one level at a time.
-			} while ( $context_dir = dirname( $context_dir ) );
-		}
-
-		$check_dirs = array_unique( $check_dirs );
-		$checkout   = false;
-
-		// Search all directories we've found for evidence of version control.
-		foreach ( $vcs_dirs as $vcs_dir ) {
-			foreach ( $check_dirs as $check_dir ) {
-				if ( ! $this->is_allowed_dir( $check_dir ) ) {
-					continue;
-				}
-
-				$checkout = is_dir( rtrim( $check_dir, '\\/' ) . "/$vcs_dir" );
-				if ( $checkout ) {
-					break 2;
-				}
-			}
-		}
+		_deprecated_function( __METHOD__, '4.0.0', '', true );
 
 		/**
 		 * Filters whether the automatic updater should consider a filesystem
 		 * location to be potentially managed by a version control system.
 		 *
 		 * @since WP 3.7.0
+		 * @deprecated 4.0.0 Retraceur fork.
 		 *
 		 * @param bool $checkout  Whether a VCS checkout was discovered at `$context`
 		 *                        or ABSPATH, or anywhere higher.
 		 * @param string $context The filesystem context (a path) against which
 		 *                        filesystem status should be checked.
 		 */
-		return apply_filters( 'automatic_updates_is_vcs_checkout', $checkout, $context );
+		apply_filters_deprecated(
+			'automatic_updates_is_vcs_checkout',
+			array( false, $context ),
+			'4.0.0',
+			'',
+			__( 'The WP Automatic Updates feature is not supported by the Retraceur fork.' )
+		);
+
+		return false;
 	}
 
 	/**

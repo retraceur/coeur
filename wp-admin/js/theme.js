@@ -674,8 +674,7 @@ themes.view.Details = wp.Backbone.View.extend({
 		'click .delete-theme': 'deleteTheme',
 		'click .left': 'previousTheme',
 		'click .right': 'nextTheme',
-		'click #update-theme': 'updateTheme',
-		'click .toggle-auto-update': 'autoupdateState'
+		'click #update-theme': 'updateTheme'
 	},
 
 	// The HTML template for the theme overlay.
@@ -798,22 +797,7 @@ themes.view.Details = wp.Backbone.View.extend({
 
 	// Set state of the auto-update settings link after it has been changed and saved.
 	autoupdateState: function() {
-		var callback,
-			_this = this;
-
-		// Support concurrent clicks in different Theme Details overlays.
-		callback = function( event, data ) {
-			var autoupdate;
-			if ( _this.model.get( 'id' ) === data.asset ) {
-				autoupdate = _this.model.get( 'autoupdate' );
-				autoupdate.enabled = 'enable' === data.state;
-				_this.model.set( { autoupdate: autoupdate } );
-				$( document ).off( 'wp-auto-update-setting-changed', callback );
-			}
-		};
-
-		// Triggered in updates.js
-		$( document ).on( 'wp-auto-update-setting-changed', callback );
+		console.log( 'The WP Automatic Updates feature is not supported by the Retraceur fork.' );
 	},
 
 	updateTheme: function( event ) {

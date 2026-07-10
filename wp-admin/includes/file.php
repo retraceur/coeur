@@ -1923,10 +1923,7 @@ function request_filesystem_credentials( $form_post, $type = '', $error = false,
 		}
 	}
 
-	/*
-	 * Make sure the `submit_button()` function is available during the REST API call
-	 * from WP_Site_Health_Auto_Updates::test_check_wp_filesystem_method().
-	 */
+	// Make sure the `submit_button()` function is available during REST API calls.
 	if ( ! function_exists( 'submit_button' ) ) {
 		require_once ABSPATH . 'wp-admin/includes/template.php';
 	}

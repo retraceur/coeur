@@ -1631,75 +1631,14 @@ class WP_Site_Health {
 	 * Tests if Retraceur can run automated coeur updates.
 	 *
 	 * @since 2.0.0 Retraceur fork
+	 * @deprecated 4.0.0 Retraceur fork.
 	 *
 	 * @return array The test results.
 	 */
 	public function get_test_coeur_updates() {
-		$result = array(
-			'label'       => __( 'Coeur updates are working' ),
-			'status'      => 'good',
-			'badge'       => array(
-				'label' => __( 'Security' ),
-				'color' => 'blue',
-			),
-			'description' => sprintf(
-				'<p>%s</p>',
-				__( 'Retraceur Coeur update checks help you be aware when a security update is released for the version you are currently using.' )
-			),
-			'actions'     => '',
-			'test'        => 'coeur_updates',
-		);
+		_deprecated_function( __METHOD__, '4.0.0', '', true );
 
-		if ( ! class_exists( 'WP_Site_Health_Auto_Updates' ) ) {
-			require_once ABSPATH . 'wp-admin/includes/class-wp-site-health-auto-updates.php';
-		}
-
-		/*
-		 * Run the auto-update tests in a separate class,
-		 * as there are many considerations to be made.
-		 */
-		$automatic_updates = new WP_Site_Health_Auto_Updates();
-		$tests             = $automatic_updates->run_tests();
-
-		$output = '<ul>';
-
-		foreach ( $tests as $test ) {
-			/* translators: Hidden accessibility text. */
-			$severity_string = __( 'Passed' );
-
-			if ( 'fail' === $test->severity ) {
-				$result['label'] = __( 'Retraceur Coeur updates are not working as expected' );
-
-				$result['status'] = 'critical';
-
-				/* translators: Hidden accessibility text. */
-				$severity_string = __( 'Error' );
-			}
-
-			if ( 'warning' === $test->severity && 'good' === $result['status'] ) {
-				$result['label'] = __( 'Retraceur Coeur updates may not be working properly' );
-
-				$result['status'] = 'recommended';
-
-				/* translators: Hidden accessibility text. */
-				$severity_string = __( 'Warning' );
-			}
-
-			$output .= sprintf(
-				'<li><span class="dashicons %s"><span class="screen-reader-text">%s</span></span> %s</li>',
-				esc_attr( $test->severity ),
-				$severity_string,
-				$test->description
-			);
-		}
-
-		$output .= '</ul>';
-
-		if ( 'good' !== $result['status'] ) {
-			$result['description'] .= $output;
-		}
-
-		return $result;
+		return array();
 	}
 
 	/**
@@ -2724,10 +2663,6 @@ class WP_Site_Health {
 				'scheduled_events'             => array(
 					'label' => __( 'Scheduled events' ),
 					'test'  => 'scheduled_events',
-				),
-				'coeur_updates'                => array(
-					'label' => __( 'Retraceur Coeur updates' ),
-					'test'  => 'coeur_updates',
 				),
 				'http_requests'                => array(
 					'label' => __( 'HTTP Requests' ),
