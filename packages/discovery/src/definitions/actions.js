@@ -32,15 +32,17 @@ const actions = [
 		label: __( 'Install latest' ),
 		isEligible: ( item ) => ! item.is_installed,
 		RenderModal: ( { items, closeModal } ) => {
-			const [ item ]                      = items;
-			const { repository, isRequesting, compatibility } = useSelect( ( select ) => {
+			const [ item ] = items;
+			const { repository, isRequesting, compatibility, discoverySettings } = useSelect( ( select ) => {
 				return {
 					repository: select( discoveryStore ).getRepository( item.full_name ),
 					isRequesting: select( discoveryStore ).isRequestingRepository( item.full_name ),
 					compatibility: select( discoveryStore ).getRepositoryCompatibility( item.full_name ),
+					discoverySettings: select( discoveryStore ).getSettings(),
 				};
 			}, [] );
 			const [ isInstalling, setInstalling ] = useState( false );
+			const [ installResult, setInstallResult ] = useState( null );
 			const [ success, setSuccess ] = useState( null );
 			const [ error, setError ] = useState( null );
 			const { markAsInstalled } = useDispatch( discoveryStore );
@@ -50,7 +52,7 @@ const actions = [
 				setError( null );
 
 				try {
-					await apiFetch( {
+					const response = await apiFetch( {
 						path:   '/wp/v2/discover/install',
 						method: 'POST',
 						data:   {
@@ -58,9 +60,13 @@ const actions = [
 							version:      repository.version,
 							download_url: repository.download_url,
 							digest:       repository.digest ?? '',
+							type:         discoverySettings.pluginType,
 						},
 					} );
 					setSuccess( true );
+
+					// Use response data to get activation URL,
+					setInstallResult( response );
 
 					// Update installation status.
 					markAsInstalled( item.full_name );
@@ -110,46 +116,71 @@ const actions = [
 			}
 
 			if ( success ) {
+				const itemsListUrl = discoverySettings.pluginType === 'block' ? 'blocks.php' : 'plugins.php';
+
 				return (
 					<>
-						<p>
-							{ sprintf(
-								/* Translators: %s is the repository name. */
-								__( '%s was successfully installed.' ),
-								item.name
+						<Notice status="success" isDismissible={ false }>
+							<p>
+								{ sprintf(
+									/* Translators: %s is the repository name. */
+									__( '%s was successfully installed.' ),
+									item.name
+								) }
+							</p>
+						</Notice>
+						<div className="retraceur-installed-actions">
+							{ installResult?.activate_url && (
+								<Button
+									variant="primary"
+									href={ installResult.activate_url }
+								>
+									{ discoverySettings.pluginType === 'block'
+										? __( 'Activate Block' )
+										: __( 'Activate Plugin' ) }
+								</Button>
 							) }
-						</p>
-						<Button variant="primary" onClick={ closeModal }>
-							{ __( 'Close' ) }
-						</Button>
+							<Button
+								variant="secondary"
+								href={ itemsListUrl }
+							>
+								{ discoverySettings.pluginType === 'block'
+									? __( 'Go to Blocks' )
+									: __( 'Go to Plugins' ) }
+							</Button>
+						</div>
 					</>
 				);
 			}
 
 			return (
 				<>
-					<p>
-						{ sprintf(
-							/* Translators: %s is the repository name. */
-							__( 'Are you sure you want to install %1$s %2$s?' ),
-							item.name,
-							repository.version
-						) }
-					</p>
-					{ error && (
-						<p className="retraceur-install-error">
-							{ error }
+					<Notice status="info" isDismissible={ false }>
+						<p>
+							{ sprintf(
+								/* Translators: %s is the repository name. */
+								__( 'Are you sure you want to install %1$s %2$s?' ),
+								item.name,
+								repository.version
+							) }
 						</p>
+					</Notice>
+					{ error && (
+						<Notice status="error" isDismissible={ false }>
+							{ error }
+						</Notice>
 					) }
-					<Button
-						variant="primary"
-						onClick={ onInstall }
-					>
-						{ __( 'Install' ) }
-					</Button>
-					<Button variant="tertiary" onClick={ closeModal }>
-						{ __( 'Cancel' ) }
-					</Button>
+					<div className="retraceur-install-actions">
+						<Button
+							variant="primary"
+							onClick={ onInstall }
+						>
+							{ __( 'Install' ) }
+						</Button>
+						<Button variant="tertiary" onClick={ closeModal }>
+							{ __( 'Cancel' ) }
+						</Button>
+					</div>
 				</>
 			);
 		},
