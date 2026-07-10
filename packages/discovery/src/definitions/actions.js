@@ -120,14 +120,16 @@ const actions = [
 
 				return (
 					<>
-						<p>
-							{ sprintf(
-								/* Translators: %s is the repository name. */
-								__( '%s was successfully installed.' ),
-								item.name
-							) }
-						</p>
-						<div className="retraceur-install-actions">
+						<Notice status="success" isDismissible={ false }>
+							<p>
+								{ sprintf(
+									/* Translators: %s is the repository name. */
+									__( '%s was successfully installed.' ),
+									item.name
+								) }
+							</p>
+						</Notice>
+						<div className="retraceur-installed-actions">
 							{ installResult?.activate_url && (
 								<Button
 									variant="primary"
@@ -153,28 +155,32 @@ const actions = [
 
 			return (
 				<>
-					<p>
-						{ sprintf(
-							/* Translators: %s is the repository name. */
-							__( 'Are you sure you want to install %1$s %2$s?' ),
-							item.name,
-							repository.version
-						) }
-					</p>
-					{ error && (
-						<p className="retraceur-install-error">
-							{ error }
+					<Notice status="info" isDismissible={ false }>
+						<p>
+							{ sprintf(
+								/* Translators: %s is the repository name. */
+								__( 'Are you sure you want to install %1$s %2$s?' ),
+								item.name,
+								repository.version
+							) }
 						</p>
+					</Notice>
+					{ error && (
+						<Notice status="error" isDismissible={ false }>
+							{ error }
+						</Notice>
 					) }
-					<Button
-						variant="primary"
-						onClick={ onInstall }
-					>
-						{ __( 'Install' ) }
-					</Button>
-					<Button variant="tertiary" onClick={ closeModal }>
-						{ __( 'Cancel' ) }
-					</Button>
+					<div className="retraceur-install-actions">
+						<Button
+							variant="primary"
+							onClick={ onInstall }
+						>
+							{ __( 'Install' ) }
+						</Button>
+						<Button variant="tertiary" onClick={ closeModal }>
+							{ __( 'Cancel' ) }
+						</Button>
+					</div>
 				</>
 			);
 		},

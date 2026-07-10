@@ -217,6 +217,18 @@
 	}
 }
 
+.dataviews-action-modal__install-repository {
+
+	.retraceur-install-actions,
+	.retraceur-installed-actions {
+		margin: 1.5em 0;
+		display: flex;
+		flex-direction: row;
+		align-items: stretch;
+		column-gap: 1em;
+	}
+}
+
 .retraceur-repository-modal__changelog {
 	padding: 20px 24px;
 
