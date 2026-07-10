@@ -4067,28 +4067,10 @@ function install_plugin_information() {
  */
 function plugins_api( $action, $args = array() ) {
 	_deprecated_function( __FUNCTION__, '4.0.0', '', true );
-	$not_supported = __( 'The WP `plugins_api()` is not used by Retraceur fork.' );
+	$not_supported = __( 'The WP `plugins_api()` is not used by the Retraceur fork.' );
 
 	if ( is_array( $args ) ) {
 		$args = (object) $args;
-	}
-
-	if ( 'query_plugins' === $action || 'query_blocks' === $action ) {
-		if ( ! isset( $args->per_page ) ) {
-			$args->per_page = 24;
-		}
-	}
-
-	if ( ! isset( $args->locale ) ) {
-		$args->locale = get_user_locale();
-	}
-
-	if ( ! isset( $args->wp_version ) ) {
-		$args->wp_version = substr( wp_get_wp_version(), 0, 3 ); // x.y
-	}
-
-	if ( ! isset( $args->retraceur_version ) ) {
-		$args->retraceur_version = substr( retraceur_get_version(), 0, 5 ); // x.y
 	}
 
 	/**
@@ -4134,74 +4116,10 @@ function plugins_api( $action, $args = array() ) {
 	);
 
 	if ( false === $res ) {
-		return new WP_Error(
+		$res = new WP_Error(
 			'plugins_api_disabled',
-			sprintf(
-				/* Translators: %s: Plugin type. */
-				__( 'Retraceur does not provide a %s, yet! It will soon do so, the independant way.' ),
-				'query_blocks' === $action ? __( 'Block Install API' ) : __( 'Plugin Install API' )
-			)
+			__( 'Retraceur does not use the WP `plugins_api()`.' )
 		);
-
-		// @todo use GitHub instead
-		$url = '';
-		$url = add_query_arg(
-			array(
-				'action'  => $action,
-				'request' => $args,
-			),
-			$url
-		);
-
-		$http_url = $url;
-		$ssl      = wp_http_supports( array( 'ssl' ) );
-		if ( $ssl ) {
-			$url = set_url_scheme( $url, 'https' );
-		}
-
-		$http_args = array(
-			'timeout'    => 15,
-			'user-agent' => 'Retraceur/' . retraceur_get_version() . '; ' . home_url( '/' ),
-		);
-		$request   = wp_remote_get( $url, $http_args );
-
-		if ( $ssl && is_wp_error( $request ) ) {
-			if ( ! wp_is_json_request() ) {
-				wp_trigger_error(
-					__FUNCTION__,
-					__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ) . ' ' . __( '(Retraceur could not establish a secure connection to Plugin Installation API. Please contact your server administrator.)' ),
-					headers_sent() || WP_DEBUG ? E_USER_WARNING : E_USER_NOTICE
-				);
-			}
-
-			$request = wp_remote_get( $http_url, $http_args );
-		}
-
-		if ( is_wp_error( $request ) ) {
-			$res = new WP_Error(
-				'plugins_api_failed',
-				__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ),
-				$request->get_error_message()
-			);
-		} else {
-			$res = json_decode( wp_remote_retrieve_body( $request ), true );
-			if ( is_array( $res ) ) {
-				// Object casting is required in order to match the info/1.0 format.
-				$res = (object) $res;
-			} elseif ( null === $res ) {
-				$res = new WP_Error(
-					'plugins_api_failed',
-					__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ),
-					wp_remote_retrieve_body( $request )
-				);
-			}
-
-			if ( isset( $res->error ) ) {
-				$res = new WP_Error( 'plugins_api_failed', $res->error );
-			}
-		}
-	} elseif ( ! is_wp_error( $res ) ) {
-		$res->external = true;
 	}
 
 	/**
