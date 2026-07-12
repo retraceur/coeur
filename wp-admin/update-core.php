@@ -11,7 +11,6 @@
 /** Retraceur Administration Bootstrap */
 require_once __DIR__ . '/admin.php';
 
-wp_enqueue_script( 'plugin-install' );
 wp_enqueue_script( 'updates' );
 
 if ( is_multisite() && ! is_network_admin() ) {
@@ -303,7 +302,13 @@ function list_plugin_updates() {
 	$plugins = get_plugin_updates();
 	if ( empty( $plugins ) ) {
 		echo '<h2>' . esc_html__( 'Plugins & Blocks' ) . '</h2>';
-		echo '<p>' . esc_html__( 'Your plugins & blocks are all up to date.' ) . '</p>';
+		wp_admin_notice(
+			__( 'Your plugins & blocks are all up to date.' ),
+			array(
+				'type'               => 'info',
+				'additional_classes' => array( 'inline' ),
+			)
+		);
 		return;
 	}
 	$form_action = 'update-core.php?action=do-plugin-upgrade';
