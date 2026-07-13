@@ -33,9 +33,10 @@
 		.__opengraph-remove-image {
 			color: #b32d2e;
 			text-decoration: none;
-			border-color: transparent;
+			border: 1px solid #b32d2e;
 			box-shadow: none;
 			background: transparent;
+			min-height: 40px;
 
 			&:hover {
 				background: #b32d2e;
