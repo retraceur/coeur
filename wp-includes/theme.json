@@ -322,6 +322,11 @@
 					"allowEditing": true
 				}
 			},
+			"core/icon": {
+				"dimensions": {
+					"width": true
+				}
+			},
 			"core/pullquote": {
 				"border": {
 					"color": true,
@@ -355,6 +360,11 @@
 							}
 						}
 					}
+				}
+			},
+			"core/icon": {
+				"dimensions": {
+					"width": "24px"
 				}
 			},
 			"core/site-logo": {
