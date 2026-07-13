@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+## [Unreleased]
+
+### Changed
+
+- Temporarily disable the Plugin Dependencies feature, which relied on the WP.org Plugin Install API. The dependency checks are turned off (a plugin declaring a `Requires Plugins` header can be activated) until the distant dependency is replaced by a GitHub.com-based mechanism. See [#205](https://github.com/retraceur/coeur/issues/205).
+
+
 ## [3.1.0] - 2026-03-14
 
 ### Changed

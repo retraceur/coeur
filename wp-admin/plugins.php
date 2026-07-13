@@ -640,23 +640,38 @@ if ( current_user_can( 'install_plugins' ) ) {
 
 	unset( $tab_title );
 
-	$help  = '<p>' . esc_html__( 'Plugin or Block Dependencies aims to make the process of installing and activating add-ons (dependents) and the plugins or blocks they rely on (dependencies) consistent and easy.' ) . '</p>';
-
-	if ( 'block' === $plugins_type ) {
-		$help .= '<p>' . esc_html__( 'If a required block is deleted, a notice will be displayed on the Block administration screen informing the contributor that there is some missing dependencies to install and/or activate. Additionally, each block whose dependencies are not met will have an error notice on their block row.' ) . '</p>';
-		$help .= '<p>' . esc_html__( 'If a dependent block is missing some dependencies, its activation button will be disabled until the required dependencies are activated.' ) . '</p>';
-	} else {
-		$help .= '<p>' . esc_html__( 'If a required plugin is deleted, a notice will be displayed on the Plugin administration screen informing the contributor that there is some missing dependencies to install and/or activate. Additionally, each plugin whose dependencies are not met will have an error notice on their plugin row.' ) . '</p>';
-		$help .= '<p>' . esc_html__( 'If a dependent plugin is missing some dependencies, its activation button will be disabled until the required dependencies are activated.' ) . '</p>';
-	}
-
-	get_current_screen()->add_help_tab(
-		array(
-			'id'      => 'plugins-dependencies',
-			'title'   => __( 'Dependencies' ),
-			'content' => $help,
-		)
-	);
+	/*
+	 * Retraceur temporarily disabled the Plugin Dependencies feature in 4.0.0.
+	 *
+	 * This feature needs more work to be adapted to Retraceur's mindset:
+	 * - No dependency to WP dot org infrastructure.
+	 * - New mechanism to rely on GitHub.com.
+	 *
+	 * The related help tab is static content (not driven by dependency data), so
+	 * it would still be displayed even though the feature is disabled: it is
+	 * removed here until the feature is brought back.
+	 *
+	 * @todo Bring this back when ready:
+	 * $help  = '<p>' . esc_html__( 'Plugin or Block Dependencies aims to make the process of installing and activating add-ons (dependents) and the plugins or blocks they rely on (dependencies) consistent and easy.' ) . '</p>';
+	 *
+	 * 	if ( 'block' === $plugins_type ) {
+	 * 		$help .= '<p>' . esc_html__( 'If a required block is deleted, a notice will be displayed on the Block administration screen informing the contributor that there is some missing dependencies to install and/or activate. Additionally, each block whose dependencies are not met will have an error notice on their block row.' ) . '</p>';
+	 * 		$help .= '<p>' . esc_html__( 'If a dependent block is missing some dependencies, its activation button will be disabled until the required dependencies are activated.' ) . '</p>';
+	 * 	} else {
+	 * 		$help .= '<p>' . esc_html__( 'If a required plugin is deleted, a notice will be displayed on the Plugin administration screen informing the contributor that there is some missing dependencies to install and/or activate. Additionally, each plugin whose dependencies are not met will have an error notice on their plugin row.' ) . '</p>';
+	 * 		$help .= '<p>' . esc_html__( 'If a dependent plugin is missing some dependencies, its activation button will be disabled until the required dependencies are activated.' ) . '</p>';
+	 * 	}
+	 *
+	 * 	get_current_screen()->add_help_tab(
+	 * 		array(
+	 * 			'id'      => 'plugins-dependencies',
+	 * 			'title'   => __( 'Dependencies' ),
+	 * 			'content' => $help,
+	 * 		)
+	 * 	);
+	 *
+	 * @see https://github.com/retraceur/coeur/issues/205
+	 */
 }
 
 unset( $help );
