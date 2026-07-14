@@ -27,6 +27,7 @@ var wp;
 
   // packages/private-apis/build-module/implementation.mjs
   var CORE_MODULES_USING_PRIVATE_APIS = [
+    "@retraceur/discovery",
     "@wordpress/block-directory",
     "@wordpress/block-editor",
     "@wordpress/block-library",

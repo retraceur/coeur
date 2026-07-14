@@ -73,13 +73,6 @@ var wp;
     }
   });
 
-  // package-external:@wordpress/widgets
-  var require_widgets = __commonJS({
-    "package-external:@wordpress/widgets"(exports, module) {
-      module.exports = window.wp.widgets;
-    }
-  });
-
   // package-external:@wordpress/editor
   var require_editor = __commonJS({
     "package-external:@wordpress/editor"(exports, module) {
@@ -237,7 +230,6 @@ var wp;
   var import_element13 = __toESM(require_element(), 1);
   var import_data26 = __toESM(require_data(), 1);
   var import_preferences11 = __toESM(require_preferences(), 1);
-  var import_widgets = __toESM(require_widgets(), 1);
   var import_editor20 = __toESM(require_editor(), 1);
 
   // node_modules/clsx/dist/clsx.mjs
@@ -2917,8 +2909,6 @@ var wp;
     }
     (0, import_block_library2.registerCoreBlocks)();
     registerCoreBlockBindingsSources();
-    (0, import_widgets.registerLegacyWidgetBlock)({ inserter: false });
-    (0, import_widgets.registerWidgetGroupBlock)({ inserter: false });
     if (true) {
       (0, import_block_library2.__experimentalRegisterExperimentalCoreBlocks)({
         enableFSEBlocks: settings.__unstableEnableFullSiteEditingBlocks

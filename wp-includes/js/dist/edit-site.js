@@ -87,13 +87,6 @@ var wp;
     }
   });
 
-  // package-external:@wordpress/widgets
-  var require_widgets = __commonJS({
-    "package-external:@wordpress/widgets"(exports, module) {
-      module.exports = window.wp.widgets;
-    }
-  });
-
   // package-external:@wordpress/core-data
   var require_core_data = __commonJS({
     "package-external:@wordpress/core-data"(exports, module) {
@@ -453,7 +446,6 @@ var wp;
   var import_element95 = __toESM(require_element(), 1);
   var import_editor46 = __toESM(require_editor(), 1);
   var import_preferences13 = __toESM(require_preferences(), 1);
-  var import_widgets = __toESM(require_widgets(), 1);
 
   // packages/edit-site/build-module/store/index.mjs
   var import_data3 = __toESM(require_data(), 1);
@@ -29504,8 +29496,6 @@ var wp;
     (0, import_block_library3.registerCoreBlocks)(coreBlocks);
     registerCoreBlockBindingsSources();
     (0, import_data79.dispatch)(import_blocks15.store).setFreeformFallbackBlockName("core/html");
-    (0, import_widgets.registerLegacyWidgetBlock)({ inserter: false });
-    (0, import_widgets.registerWidgetGroupBlock)({ inserter: false });
     if (true) {
       (0, import_block_library3.__experimentalRegisterExperimentalCoreBlocks)({
         enableFSEBlocks: true
