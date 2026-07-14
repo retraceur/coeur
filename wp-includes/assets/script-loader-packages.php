@@ -359,8 +359,7 @@
 			'wp-private-apis',
 			'wp-style-engine',
 			'wp-theme',
-			'wp-url',
-			'wp-widgets'
+			'wp-url'
 		),
 		'module_dependencies' => array(
 			array(
@@ -407,8 +406,7 @@
 			'wp-style-engine',
 			'wp-theme',
 			'wp-url',
-			'wp-warning',
-			'wp-widgets'
+			'wp-warning'
 		),
 		'module_dependencies' => array(
 			array(
@@ -807,23 +805,6 @@
 
 		),
 		'version' => '36fdbdc984d93aee8a97'
-	),
-	'widgets.js' => array(
-		'dependencies' => array(
-			'react-jsx-runtime',
-			'wp-api-fetch',
-			'wp-block-editor',
-			'wp-blocks',
-			'wp-components',
-			'wp-compose',
-			'wp-core-data',
-			'wp-data',
-			'wp-element',
-			'wp-i18n',
-			'wp-notices',
-			'wp-primitives'
-		),
-		'version' => '02b8dd683bc610f979fa'
 	),
 	'wordcount.js' => array(
 		'dependencies' => array(

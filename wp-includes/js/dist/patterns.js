@@ -31,38 +31,59 @@ var wp;
   ));
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
-  // wordpress-external:@wordpress/data
+  // package-external:@wordpress/data
   var require_data = __commonJS({
-    "wordpress-external:@wordpress/data"(exports, module) {
+    "package-external:@wordpress/data"(exports, module) {
       module.exports = window.wp.data;
     }
   });
 
-  // wordpress-external:@wordpress/blocks
+  // package-external:@wordpress/blocks
   var require_blocks = __commonJS({
-    "wordpress-external:@wordpress/blocks"(exports, module) {
+    "package-external:@wordpress/blocks"(exports, module) {
       module.exports = window.wp.blocks;
     }
   });
 
-  // wordpress-external:@wordpress/core-data
+  // package-external:@wordpress/core-data
   var require_core_data = __commonJS({
-    "wordpress-external:@wordpress/core-data"(exports, module) {
+    "package-external:@wordpress/core-data"(exports, module) {
       module.exports = window.wp.coreData;
     }
   });
 
-  // wordpress-external:@wordpress/block-editor
+  // package-external:@wordpress/block-editor
   var require_block_editor = __commonJS({
-    "wordpress-external:@wordpress/block-editor"(exports, module) {
+    "package-external:@wordpress/block-editor"(exports, module) {
       module.exports = window.wp.blockEditor;
     }
   });
 
-  // wordpress-external:@wordpress/private-apis
+  // package-external:@wordpress/private-apis
   var require_private_apis = __commonJS({
-    "wordpress-external:@wordpress/private-apis"(exports, module) {
+    "package-external:@wordpress/private-apis"(exports, module) {
       module.exports = window.wp.privateApis;
+    }
+  });
+
+  // package-external:@wordpress/components
+  var require_components = __commonJS({
+    "package-external:@wordpress/components"(exports, module) {
+      module.exports = window.wp.components;
+    }
+  });
+
+  // package-external:@wordpress/element
+  var require_element = __commonJS({
+    "package-external:@wordpress/element"(exports, module) {
+      module.exports = window.wp.element;
+    }
+  });
+
+  // package-external:@wordpress/i18n
+  var require_i18n = __commonJS({
+    "package-external:@wordpress/i18n"(exports, module) {
+      module.exports = window.wp.i18n;
     }
   });
 
@@ -73,81 +94,60 @@ var wp;
     }
   });
 
-  // wordpress-external:@wordpress/components
-  var require_components = __commonJS({
-    "wordpress-external:@wordpress/components"(exports, module) {
-      module.exports = window.wp.components;
-    }
-  });
-
-  // wordpress-external:@wordpress/element
-  var require_element = __commonJS({
-    "wordpress-external:@wordpress/element"(exports, module) {
-      module.exports = window.wp.element;
-    }
-  });
-
-  // wordpress-external:@wordpress/i18n
-  var require_i18n = __commonJS({
-    "wordpress-external:@wordpress/i18n"(exports, module) {
-      module.exports = window.wp.i18n;
-    }
-  });
-
-  // wordpress-external:@wordpress/notices
+  // package-external:@wordpress/notices
   var require_notices = __commonJS({
-    "wordpress-external:@wordpress/notices"(exports, module) {
+    "package-external:@wordpress/notices"(exports, module) {
       module.exports = window.wp.notices;
     }
   });
 
-  // wordpress-external:@wordpress/compose
+  // package-external:@wordpress/compose
   var require_compose = __commonJS({
-    "wordpress-external:@wordpress/compose"(exports, module) {
+    "package-external:@wordpress/compose"(exports, module) {
       module.exports = window.wp.compose;
     }
   });
 
-  // wordpress-external:@wordpress/html-entities
+  // package-external:@wordpress/html-entities
   var require_html_entities = __commonJS({
-    "wordpress-external:@wordpress/html-entities"(exports, module) {
+    "package-external:@wordpress/html-entities"(exports, module) {
       module.exports = window.wp.htmlEntities;
     }
   });
 
-  // wordpress-external:@wordpress/primitives
+  // package-external:@wordpress/primitives
   var require_primitives = __commonJS({
-    "wordpress-external:@wordpress/primitives"(exports, module) {
+    "package-external:@wordpress/primitives"(exports, module) {
       module.exports = window.wp.primitives;
     }
   });
 
-  // wordpress-external:@wordpress/url
+  // package-external:@wordpress/url
   var require_url = __commonJS({
-    "wordpress-external:@wordpress/url"(exports, module) {
+    "package-external:@wordpress/url"(exports, module) {
       module.exports = window.wp.url;
     }
   });
 
-  // wordpress-external:@wordpress/a11y
+  // package-external:@wordpress/a11y
   var require_a11y = __commonJS({
-    "wordpress-external:@wordpress/a11y"(exports, module) {
+    "package-external:@wordpress/a11y"(exports, module) {
       module.exports = window.wp.a11y;
     }
   });
 
-  // packages/patterns/build-module/index.js
+  // packages/patterns/build-module/index.mjs
   var index_exports = {};
   __export(index_exports, {
     privateApis: () => privateApis,
     store: () => store
   });
 
-  // packages/patterns/build-module/store/index.js
-  var import_data2 = __toESM(require_data());
+  // packages/patterns/build-module/store/index.mjs
+  var import_data2 = __toESM(require_data(), 1);
 
-  // packages/patterns/build-module/store/reducer.js
-  var import_data = __toESM(require_data());
+  // packages/patterns/build-module/store/reducer.mjs
+  var import_data = __toESM(require_data(), 1);
   function isEditingPattern(state = {}, action) {
     if (action?.type === "SET_EDITING_PATTERN") {
       return {
@@ -161,7 +161,7 @@ var wp;
     isEditingPattern
   });
 
-  // packages/patterns/build-module/store/actions.js
+  // packages/patterns/build-module/store/actions.mjs
   var actions_exports = {};
   __export(actions_exports, {
     convertSyncedPatternToStatic: () => convertSyncedPatternToStatic,
@@ -169,11 +169,11 @@ var wp;
     createPatternFromFile: () => createPatternFromFile,
     setEditingPattern: () => setEditingPattern
   });
-  var import_blocks = __toESM(require_blocks());
-  var import_core_data = __toESM(require_core_data());
-  var import_block_editor = __toESM(require_block_editor());
+  var import_blocks = __toESM(require_blocks(), 1);
+  var import_core_data = __toESM(require_core_data(), 1);
+  var import_block_editor = __toESM(require_block_editor(), 1);
 
-  // packages/patterns/build-module/constants.js
+  // packages/patterns/build-module/constants.mjs
   var PATTERN_TYPES = {
     theme: "pattern",
     user: "wp_block"
@@ -189,15 +189,9 @@ var wp;
     full: "fully",
     unsynced: "unsynced"
   };
-  var PARTIAL_SYNCING_SUPPORTED_BLOCKS = {
-    "core/paragraph": ["content"],
-    "core/heading": ["content"],
-    "core/button": ["text", "url", "linkTarget", "rel"],
-    "core/image": ["id", "url", "title", "alt", "caption"]
-  };
   var PATTERN_OVERRIDES_BINDING_SOURCE = "core/pattern-overrides";
 
-  // packages/patterns/build-module/store/actions.js
+  // packages/patterns/build-module/store/actions.mjs
   var createPattern = (title, syncType, content, categories) => async ({ registry }) => {
     const meta = syncType === PATTERN_SYNC_TYPES.unsynced ? {
       wp_pattern_sync_status: syncType
@@ -275,10 +269,10 @@ var wp;
     };
   }
 
-  // packages/patterns/build-module/store/constants.js
+  // packages/patterns/build-module/store/constants.mjs
   var STORE_NAME = "core/patterns";
 
-  // packages/patterns/build-module/store/selectors.js
+  // packages/patterns/build-module/store/selectors.mjs
   var selectors_exports = {};
   __export(selectors_exports, {
     isEditingPattern: () => isEditingPattern2
@@ -287,14 +281,14 @@ var wp;
     return state.isEditingPattern[clientId];
   }
 
-  // packages/patterns/build-module/lock-unlock.js
-  var import_private_apis = __toESM(require_private_apis());
+  // packages/patterns/build-module/lock-unlock.mjs
+  var import_private_apis = __toESM(require_private_apis(), 1);
   var { lock, unlock } = (0, import_private_apis.__dangerousOptInToUnstableAPIsOnlyForCoreModules)(
     "I acknowledge private features are not for use in themes or plugins and doing so will break in the next version of Retraceur.",
     "@wordpress/patterns"
   );
 
-  // packages/patterns/build-module/store/index.js
+  // packages/patterns/build-module/store/index.mjs
   var storeConfig = {
     reducer: reducer_default
   };
@@ -305,68 +299,60 @@ var wp;
   unlock(store).registerPrivateActions(actions_exports);
   unlock(store).registerPrivateSelectors(selectors_exports);
 
-  // packages/patterns/build-module/components/overrides-panel.js
-  var import_jsx_runtime = __toESM(require_jsx_runtime());
-  var import_block_editor2 = __toESM(require_block_editor());
-  var import_components = __toESM(require_components());
-  var import_data3 = __toESM(require_data());
-  var import_element = __toESM(require_element());
-  var import_i18n = __toESM(require_i18n());
+  // packages/patterns/build-module/components/overrides-panel.mjs
+  var import_block_editor2 = __toESM(require_block_editor(), 1);
+  var import_components = __toESM(require_components(), 1);
+  var import_data3 = __toESM(require_data(), 1);
+  var import_element = __toESM(require_element(), 1);
+  var import_i18n = __toESM(require_i18n(), 1);
 
-  // packages/patterns/build-module/api/index.js
+  // packages/patterns/build-module/api/index.mjs
   function isOverridableBlock(block) {
-    return Object.keys(PARTIAL_SYNCING_SUPPORTED_BLOCKS).includes(
-      block.name
-    ) && !!block.attributes.metadata?.name && !!block.attributes.metadata?.bindings && Object.values(block.attributes.metadata.bindings).some(
+    return !!block.attributes.metadata?.name && !!block.attributes.metadata?.bindings && Object.values(block.attributes.metadata.bindings).some(
       (binding) => binding.source === "core/pattern-overrides"
     );
   }
-  function hasOverridableBlocks(blocks) {
-    return blocks.some((block) => {
-      if (isOverridableBlock(block)) {
-        return true;
-      }
-      return hasOverridableBlocks(block.innerBlocks);
-    });
-  }
 
-  // packages/patterns/build-module/components/overrides-panel.js
+  // packages/patterns/build-module/components/overrides-panel.mjs
+  var import_jsx_runtime = __toESM(require_jsx_runtime(), 1);
   var { BlockQuickNavigation } = unlock(import_block_editor2.privateApis);
   function OverridesPanel() {
-    const allClientIds = (0, import_data3.useSelect)(
-      (select) => select(import_block_editor2.store).getClientIdsWithDescendants(),
+    const { allClientIds, supportedBlockTypesRaw } = (0, import_data3.useSelect)(
+      (select) => ({
+        allClientIds: select(import_block_editor2.store).getClientIdsWithDescendants(),
+        supportedBlockTypesRaw: select(import_block_editor2.store).getSettings()?.__experimentalBlockBindingsSupportedAttributes
+      }),
       []
     );
     const { getBlock } = (0, import_data3.useSelect)(import_block_editor2.store);
-    const clientIdsWithOverrides = (0, import_element.useMemo)(
-      () => allClientIds.filter((clientId) => {
+    const clientIdsWithOverrides = (0, import_element.useMemo)(() => {
+      const supportedBlockTypes = Object.keys(supportedBlockTypesRaw ?? {});
+      return allClientIds.filter((clientId) => {
         const block = getBlock(clientId);
-        return isOverridableBlock(block);
-      }),
-      [allClientIds, getBlock]
-    );
+        return supportedBlockTypes.includes(block.name) && isOverridableBlock(block);
+      });
+    }, [allClientIds, getBlock, supportedBlockTypesRaw]);
     if (!clientIdsWithOverrides?.length) {
       return null;
     }
     return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_components.PanelBody, { title: (0, import_i18n.__)("Overrides"), children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(BlockQuickNavigation, { clientIds: clientIdsWithOverrides }) });
   }
 
-  // packages/patterns/build-module/components/create-pattern-modal.js
-  var import_jsx_runtime3 = __toESM(require_jsx_runtime());
-  var import_components3 = __toESM(require_components());
-  var import_i18n3 = __toESM(require_i18n());
-  var import_element4 = __toESM(require_element());
-  var import_data5 = __toESM(require_data());
-  var import_notices = __toESM(require_notices());
-  var import_core_data3 = __toESM(require_core_data());
+  // packages/patterns/build-module/components/create-pattern-modal.mjs
+  var import_components3 = __toESM(require_components(), 1);
+  var import_i18n3 = __toESM(require_i18n(), 1);
+  var import_element4 = __toESM(require_element(), 1);
+  var import_data5 = __toESM(require_data(), 1);
+  var import_notices = __toESM(require_notices(), 1);
+  var import_core_data3 = __toESM(require_core_data(), 1);
 
-  // packages/patterns/build-module/components/category-selector.js
-  var import_jsx_runtime2 = __toESM(require_jsx_runtime());
-  var import_i18n2 = __toESM(require_i18n());
-  var import_element2 = __toESM(require_element());
-  var import_components2 = __toESM(require_components());
-  var import_compose = __toESM(require_compose());
-  var import_html_entities = __toESM(require_html_entities());
+  // packages/patterns/build-module/components/category-selector.mjs
+  var import_i18n2 = __toESM(require_i18n(), 1);
+  var import_element2 = __toESM(require_element(), 1);
+  var import_components2 = __toESM(require_components(), 1);
+  var import_compose = __toESM(require_compose(), 1);
+  var import_html_entities = __toESM(require_html_entities(), 1);
+  var import_jsx_runtime2 = __toESM(require_jsx_runtime(), 1);
   var unescapeString = (arg) => {
     return (0, import_html_entities.decodeEntities)(arg);
   };
@@ -408,16 +394,15 @@ var wp;
         label: (0, import_i18n2.__)("Categories"),
         tokenizeOnBlur: true,
         __experimentalExpandOnFocus: true,
-        __next40pxDefaultSize: true,
-        __nextHasNoMarginBottom: true
+        __next40pxDefaultSize: true
       }
     );
   }
 
-  // packages/patterns/build-module/private-hooks.js
-  var import_data4 = __toESM(require_data());
-  var import_core_data2 = __toESM(require_core_data());
-  var import_element3 = __toESM(require_element());
+  // packages/patterns/build-module/private-hooks.mjs
+  var import_data4 = __toESM(require_data(), 1);
+  var import_core_data2 = __toESM(require_core_data(), 1);
+  var import_element3 = __toESM(require_element(), 1);
   function useAddPatternCategory() {
     const { saveEntityRecord, invalidateResolution } = (0, import_data4.useDispatch)(import_core_data2.store);
     const { corePatternCategories, userPatternCategories } = (0, import_data4.useSelect)(
@@ -476,7 +461,8 @@ var wp;
     return { categoryMap, findOrCreateTerm };
   }
 
-  // packages/patterns/build-module/components/create-pattern-modal.js
+  // packages/patterns/build-module/components/create-pattern-modal.mjs
+  var import_jsx_runtime3 = __toESM(require_jsx_runtime(), 1);
   function CreatePatternModal({
     className = "patterns-menu-items__convert-modal",
     modalTitle,
@@ -564,7 +550,6 @@ var wp;
               onChange: setTitle,
               placeholder: (0, import_i18n3.__)("My pattern"),
               className: "patterns-create-modal__name-input",
-              __nextHasNoMarginBottom: true,
               __next40pxDefaultSize: true
             }
           ),
@@ -579,7 +564,6 @@ var wp;
           /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
             import_components3.ToggleControl,
             {
-              __nextHasNoMarginBottom: true,
               label: (0, import_i18n3._x)("Synced", "pattern (singular)"),
               help: (0, import_i18n3.__)(
                 "Sync this pattern across multiple locations."
@@ -622,12 +606,12 @@ var wp;
     );
   }
 
-  // packages/patterns/build-module/components/duplicate-pattern-modal.js
-  var import_jsx_runtime4 = __toESM(require_jsx_runtime());
-  var import_core_data4 = __toESM(require_core_data());
-  var import_data6 = __toESM(require_data());
-  var import_i18n4 = __toESM(require_i18n());
-  var import_notices2 = __toESM(require_notices());
+  // packages/patterns/build-module/components/duplicate-pattern-modal.mjs
+  var import_core_data4 = __toESM(require_core_data(), 1);
+  var import_data6 = __toESM(require_data(), 1);
+  var import_i18n4 = __toESM(require_i18n(), 1);
+  var import_notices2 = __toESM(require_notices(), 1);
+  var import_jsx_runtime4 = __toESM(require_jsx_runtime(), 1);
   function getTermLabels(pattern, categories) {
     if (pattern.type !== PATTERN_TYPES.user) {
       return categories.core?.filter(
@@ -696,15 +680,15 @@ var wp;
     );
   }
 
-  // packages/patterns/build-module/components/rename-pattern-modal.js
-  var import_jsx_runtime5 = __toESM(require_jsx_runtime());
-  var import_components4 = __toESM(require_components());
-  var import_core_data5 = __toESM(require_core_data());
-  var import_data7 = __toESM(require_data());
-  var import_element5 = __toESM(require_element());
-  var import_html_entities2 = __toESM(require_html_entities());
-  var import_i18n5 = __toESM(require_i18n());
-  var import_notices3 = __toESM(require_notices());
+  // packages/patterns/build-module/components/rename-pattern-modal.mjs
+  var import_components4 = __toESM(require_components(), 1);
+  var import_core_data5 = __toESM(require_core_data(), 1);
+  var import_data7 = __toESM(require_data(), 1);
+  var import_element5 = __toESM(require_element(), 1);
+  var import_html_entities2 = __toESM(require_html_entities(), 1);
+  var import_i18n5 = __toESM(require_i18n(), 1);
+  var import_notices3 = __toESM(require_notices(), 1);
+  var import_jsx_runtime5 = __toESM(require_jsx_runtime(), 1);
   function RenamePatternModal({
     onClose,
     onError,
@@ -772,7 +756,6 @@ var wp;
           /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
             import_components4.TextControl,
             {
-              __nextHasNoMarginBottom: true,
               __next40pxDefaultSize: true,
               label: (0, import_i18n5.__)("Name"),
               value: name,
@@ -805,39 +788,26 @@ var wp;
     );
   }
 
-  // packages/patterns/build-module/components/index.js
-  var import_jsx_runtime10 = __toESM(require_jsx_runtime());
-  var import_block_editor5 = __toESM(require_block_editor());
+  // packages/patterns/build-module/components/index.mjs
+  var import_block_editor5 = __toESM(require_block_editor(), 1);
 
-  // packages/patterns/build-module/components/pattern-convert-button.js
-  var import_jsx_runtime8 = __toESM(require_jsx_runtime());
-  var import_blocks2 = __toESM(require_blocks());
-  var import_block_editor3 = __toESM(require_block_editor());
-  var import_element6 = __toESM(require_element());
-  var import_components5 = __toESM(require_components());
+  // packages/patterns/build-module/components/pattern-convert-button.mjs
+  var import_blocks2 = __toESM(require_blocks(), 1);
+  var import_block_editor3 = __toESM(require_block_editor(), 1);
+  var import_element6 = __toESM(require_element(), 1);
+  var import_components5 = __toESM(require_components(), 1);
 
-  // packages/icons/build-module/library/copy.js
-  var import_jsx_runtime6 = __toESM(require_jsx_runtime());
-  var import_primitives = __toESM(require_primitives());
-  var copy_default = /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_primitives.SVG, { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 24 24", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
-    import_primitives.Path,
-    {
-      fillRule: "evenodd",
-      clipRule: "evenodd",
-      d: "M5 4.5h11a.5.5 0 0 1 .5.5v11a.5.5 0 0 1-.5.5H5a.5.5 0 0 1-.5-.5V5a.5.5 0 0 1 .5-.5ZM3 5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5Zm17 3v10.75c0 .69-.56 1.25-1.25 1.25H6v1.5h12.75a2.75 2.75 0 0 0 2.75-2.75V8H20Z"
-    }
-  ) });
+  // packages/icons/build-module/library/symbol.mjs
+  var import_primitives = __toESM(require_primitives(), 1);
+  var import_jsx_runtime6 = __toESM(require_jsx_runtime(), 1);
+  var symbol_default = /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_primitives.SVG, { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 24 24", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_primitives.Path, { d: "M21.3 10.8l-5.6-5.6c-.7-.7-1.8-.7-2.5 0l-5.6 5.6c-.7.7-.7 1.8 0 2.5l5.6 5.6c.3.3.8.5 1.2.5s.9-.2 1.2-.5l5.6-5.6c.8-.7.8-1.9.1-2.5zm-1 1.4l-5.6 5.6c-.1.1-.3.1-.4 0l-5.6-5.6c-.1-.1-.1-.3 0-.4l5.6-5.6s.1-.1.2-.1.1 0 .2.1l5.6 5.6c.1.1.1.3 0 .4zm-16.6-.4L10 5.5l-1-1-6.3 6.3c-.7.7-.7 1.8 0 2.5L9 19.5l1.1-1.1-6.3-6.3c-.2 0-.2-.2-.1-.3z" }) });
 
-  // packages/icons/build-module/library/symbol.js
-  var import_jsx_runtime7 = __toESM(require_jsx_runtime());
-  var import_primitives2 = __toESM(require_primitives());
-  var symbol_default = /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_primitives2.SVG, { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 24 24", children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_primitives2.Path, { d: "M21.3 10.8l-5.6-5.6c-.7-.7-1.8-.7-2.5 0l-5.6 5.6c-.7.7-.7 1.8 0 2.5l5.6 5.6c.3.3.8.5 1.2.5s.9-.2 1.2-.5l5.6-5.6c.8-.7.8-1.9.1-2.5zm-1 1.4l-5.6 5.6c-.1.1-.3.1-.4 0l-5.6-5.6c-.1-.1-.1-.3 0-.4l5.6-5.6s.1-.1.2-.1.1 0 .2.1l5.6 5.6c.1.1.1.3 0 .4zm-16.6-.4L10 5.5l-1-1-6.3 6.3c-.7.7-.7 1.8 0 2.5L9 19.5l1.1-1.1-6.3-6.3c-.2 0-.2-.2-.1-.3z" }) });
-
-  // packages/patterns/build-module/components/pattern-convert-button.js
-  var import_data8 = __toESM(require_data());
-  var import_core_data6 = __toESM(require_core_data());
-  var import_i18n6 = __toESM(require_i18n());
-  var import_notices4 = __toESM(require_notices());
+  // packages/patterns/build-module/components/pattern-convert-button.mjs
+  var import_data8 = __toESM(require_data(), 1);
+  var import_core_data6 = __toESM(require_core_data(), 1);
+  var import_i18n6 = __toESM(require_i18n(), 1);
+  var import_notices4 = __toESM(require_notices(), 1);
+  var import_jsx_runtime7 = __toESM(require_jsx_runtime(), 1);
   function PatternConvertButton({
     clientIds,
     rootClientId,
@@ -868,7 +838,7 @@ var wp;
           "wp_block",
           blocks[0].attributes.ref
         );
-        const isUnsyncedPattern = window?.__experimentalContentOnlyPatternInsertion && blocks.length === 1 && blocks?.[0]?.attributes?.metadata?.patternName;
+        const isUnsyncedPattern = blocks.length === 1 && blocks?.[0]?.attributes?.metadata?.patternName;
         const _canConvert = (
           // Hide when this is already a pattern.
           !isUnsyncedPattern && !isSyncedPattern && // Hide when patterns are disabled.
@@ -916,7 +886,6 @@ var wp;
         });
         replaceBlocks(clientIds, newBlock);
         setEditingPattern2(newBlock.clientId, true);
-        closeBlockSettingsMenu();
       }
       createSuccessNotice(
         pattern.wp_pattern_sync_status === PATTERN_SYNC_TYPES.unsynced ? (0, import_i18n6.sprintf)(
@@ -934,9 +903,10 @@ var wp;
         }
       );
       setIsModalOpen(false);
+      closeBlockSettingsMenu();
     };
-    return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(import_jsx_runtime8.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(import_jsx_runtime7.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
         import_components5.MenuItem,
         {
           icon: symbol_default,
@@ -946,7 +916,7 @@ var wp;
           children: (0, import_i18n6.__)("Create pattern")
         }
       ),
-      isModalOpen && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+      isModalOpen && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
         CreatePatternModal,
         {
           content: getContent,
@@ -958,35 +928,39 @@ var wp;
           },
           onClose: () => {
             setIsModalOpen(false);
+            closeBlockSettingsMenu();
           }
         }
       )
     ] });
   }
 
-  // packages/patterns/build-module/components/patterns-manage-button.js
-  var import_jsx_runtime9 = __toESM(require_jsx_runtime());
-  var import_components6 = __toESM(require_components());
-  var import_i18n7 = __toESM(require_i18n());
-  var import_blocks3 = __toESM(require_blocks());
-  var import_data9 = __toESM(require_data());
-  var import_block_editor4 = __toESM(require_block_editor());
-  var import_url = __toESM(require_url());
-  var import_core_data7 = __toESM(require_core_data());
-  function PatternsManageButton({ clientId }) {
+  // packages/patterns/build-module/components/patterns-manage-button.mjs
+  var import_components6 = __toESM(require_components(), 1);
+  var import_i18n7 = __toESM(require_i18n(), 1);
+  var import_blocks3 = __toESM(require_blocks(), 1);
+  var import_data9 = __toESM(require_data(), 1);
+  var import_element7 = __toESM(require_element(), 1);
+  var import_block_editor4 = __toESM(require_block_editor(), 1);
+  var import_url = __toESM(require_url(), 1);
+  var import_core_data7 = __toESM(require_core_data(), 1);
+  var import_jsx_runtime8 = __toESM(require_jsx_runtime(), 1);
+  function PatternsManageButton({ clientId, onClose }) {
+    const [showConfirmDialog, setShowConfirmDialog] = (0, import_element7.useState)(false);
     const {
       attributes,
       canDetach,
       isVisible,
       managePatternsUrl,
       isSyncedPattern,
-      isUnsyncedPattern
+      isUnsyncedPattern,
+      canEdit
     } = (0, import_data9.useSelect)(
       (select) => {
-        const { canRemoveBlock, getBlock } = select(import_block_editor4.store);
+        const { canRemoveBlock, getBlock, canEditBlock } = select(import_block_editor4.store);
         const { canUser } = select(import_core_data7.store);
         const block = getBlock(clientId);
-        const _isUnsyncedPattern = window?.__experimentalContentOnlyPatternInsertion && !!block?.attributes?.metadata?.patternName;
+        const _isUnsyncedPattern = !!block?.attributes?.metadata?.patternName;
         const _isSyncedPattern = !!block && (0, import_blocks3.isReusableBlock)(block) && !!canUser("update", {
           kind: "postType",
           name: "wp_block",
@@ -994,6 +968,7 @@ var wp;
         });
         return {
           attributes: block.attributes,
+          canEdit: canEditBlock(clientId),
           // For unsynced patterns, detaching is simply removing the `patternName` attribute.
           // For synced patterns, the `core:block` block is replaced with its inner blocks,
           // so checking whether `canRemoveBlock` is possible is required.
@@ -1020,39 +995,53 @@ var wp;
     const { convertSyncedPatternToStatic: convertSyncedPatternToStatic2 } = unlock(
       (0, import_data9.useDispatch)(store)
     );
-    if (!isVisible) {
+    if (!isVisible || !canEdit) {
       return null;
     }
-    return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(import_jsx_runtime9.Fragment, { children: [
-      canDetach && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
-        import_components6.MenuItem,
-        {
-          onClick: () => {
-            if (isSyncedPattern) {
-              convertSyncedPatternToStatic2(clientId);
-            }
-            if (isUnsyncedPattern) {
-              const {
-                patternName,
-                ...attributesWithoutPatternName
-              } = attributes?.metadata ?? {};
-              updateBlockAttributes(clientId, {
-                metadata: attributesWithoutPatternName
-              });
-            }
-          },
-          children: (0, import_i18n7.__)("Detach")
-        }
-      ),
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_components6.MenuItem, { href: managePatternsUrl, children: (0, import_i18n7.__)("Manage patterns") })
+    const handleDetach = () => {
+      if (isSyncedPattern) {
+        convertSyncedPatternToStatic2(clientId);
+      }
+      if (isUnsyncedPattern) {
+        const { patternName, ...attributesWithoutPatternName } = attributes?.metadata ?? {};
+        updateBlockAttributes(clientId, {
+          metadata: attributesWithoutPatternName
+        });
+      }
+      onClose?.();
+      setShowConfirmDialog(false);
+    };
+    return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(import_jsx_runtime8.Fragment, { children: [
+      canDetach && /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(import_jsx_runtime8.Fragment, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_components6.MenuItem, { onClick: () => setShowConfirmDialog(true), children: (0, import_i18n7.__)("Detach") }),
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+          import_components6.__experimentalConfirmDialog,
+          {
+            isOpen: showConfirmDialog,
+            onConfirm: handleDetach,
+            onCancel: () => setShowConfirmDialog(false),
+            confirmButtonText: (0, import_i18n7.__)("Detach"),
+            size: "medium",
+            title: (0, import_i18n7.__)("Detach pattern?"),
+            __experimentalHideHeader: false,
+            children: isSyncedPattern ? (0, import_i18n7.__)(
+              "The blocks will be separated from the original pattern and will be fully editable. Future changes to the pattern will not apply here."
+            ) : (0, import_i18n7.__)(
+              "Blocks will no longer be associated with this pattern and will be fully editable."
+            )
+          }
+        )
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_components6.MenuItem, { href: managePatternsUrl, children: (0, import_i18n7.__)("Manage patterns") })
     ] });
   }
   var patterns_manage_button_default = PatternsManageButton;
 
-  // packages/patterns/build-module/components/index.js
+  // packages/patterns/build-module/components/index.mjs
+  var import_jsx_runtime9 = __toESM(require_jsx_runtime(), 1);
   function PatternsMenuItems({ rootClientId }) {
-    return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_block_editor5.BlockSettingsMenuControls, { children: ({ selectedClientIds, onClose }) => /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(import_jsx_runtime10.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_block_editor5.BlockSettingsMenuControls, { children: ({ selectedClientIds, onClose }) => /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(import_jsx_runtime9.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
         PatternConvertButton,
         {
           clientIds: selectedClientIds,
@@ -1060,25 +1049,26 @@ var wp;
           closeBlockSettingsMenu: onClose
         }
       ),
-      selectedClientIds.length === 1 && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+      selectedClientIds.length === 1 && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
         patterns_manage_button_default,
         {
-          clientId: selectedClientIds[0]
+          clientId: selectedClientIds[0],
+          onClose
         }
       )
     ] }) });
   }
 
-  // packages/patterns/build-module/components/rename-pattern-category-modal.js
-  var import_jsx_runtime11 = __toESM(require_jsx_runtime());
-  var import_components7 = __toESM(require_components());
-  var import_core_data8 = __toESM(require_core_data());
-  var import_data10 = __toESM(require_data());
-  var import_element7 = __toESM(require_element());
-  var import_html_entities3 = __toESM(require_html_entities());
-  var import_i18n8 = __toESM(require_i18n());
-  var import_notices5 = __toESM(require_notices());
-  var import_a11y = __toESM(require_a11y());
+  // packages/patterns/build-module/components/rename-pattern-category-modal.mjs
+  var import_components7 = __toESM(require_components(), 1);
+  var import_core_data8 = __toESM(require_core_data(), 1);
+  var import_data10 = __toESM(require_data(), 1);
+  var import_element8 = __toESM(require_element(), 1);
+  var import_html_entities3 = __toESM(require_html_entities(), 1);
+  var import_i18n8 = __toESM(require_i18n(), 1);
+  var import_notices5 = __toESM(require_notices(), 1);
+  var import_a11y = __toESM(require_a11y(), 1);
+  var import_jsx_runtime10 = __toESM(require_jsx_runtime(), 1);
   function RenamePatternCategoryModal({
     category,
     existingCategories,
@@ -1087,11 +1077,11 @@ var wp;
     onSuccess,
     ...props
   }) {
-    const id = (0, import_element7.useId)();
-    const textControlRef = (0, import_element7.useRef)();
-    const [name, setName] = (0, import_element7.useState)((0, import_html_entities3.decodeEntities)(category.name));
-    const [isSaving, setIsSaving] = (0, import_element7.useState)(false);
-    const [validationMessage, setValidationMessage] = (0, import_element7.useState)(false);
+    const id = (0, import_element8.useId)();
+    const textControlRef = (0, import_element8.useRef)();
+    const [name, setName] = (0, import_element8.useState)((0, import_html_entities3.decodeEntities)(category.name));
+    const [isSaving, setIsSaving] = (0, import_element8.useState)(false);
+    const [validationMessage, setValidationMessage] = (0, import_element8.useState)(false);
     const validationMessageId = validationMessage ? `patterns-rename-pattern-category-modal__validation-message-${id}` : void 0;
     const { saveEntityRecord, invalidateResolution } = (0, import_data10.useDispatch)(import_core_data8.store);
     const { createErrorNotice, createSuccessNotice } = (0, import_data10.useDispatch)(import_notices5.store);
@@ -1157,19 +1147,18 @@ var wp;
       onClose();
       setName("");
     };
-    return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
       import_components7.Modal,
       {
         title: (0, import_i18n8.__)("Rename"),
         onRequestClose,
         ...props,
-        children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("form", { onSubmit: onSave, children: /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(import_components7.__experimentalVStack, { spacing: "5", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(import_components7.__experimentalVStack, { spacing: "2", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+        children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("form", { onSubmit: onSave, children: /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(import_components7.__experimentalVStack, { spacing: "5", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(import_components7.__experimentalVStack, { spacing: "2", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
               import_components7.TextControl,
               {
                 ref: textControlRef,
-                __nextHasNoMarginBottom: true,
                 __next40pxDefaultSize: true,
                 label: (0, import_i18n8.__)("Name"),
                 value: name,
@@ -1178,7 +1167,7 @@ var wp;
                 required: true
               }
             ),
-            validationMessage && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+            validationMessage && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
               "span",
               {
                 className: "patterns-rename-pattern-category-modal__validation-message",
@@ -1187,8 +1176,8 @@ var wp;
               }
             )
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(import_components7.__experimentalHStack, { justify: "right", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(import_components7.__experimentalHStack, { justify: "right", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
               import_components7.Button,
               {
                 __next40pxDefaultSize: true,
@@ -1197,7 +1186,7 @@ var wp;
                 children: (0, import_i18n8.__)("Cancel")
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
               import_components7.Button,
               {
                 __next40pxDefaultSize: true,
@@ -1214,27 +1203,26 @@ var wp;
     );
   }
 
-  // packages/patterns/build-module/components/pattern-overrides-controls.js
-  var import_jsx_runtime13 = __toESM(require_jsx_runtime());
-  var import_element9 = __toESM(require_element());
-  var import_block_editor6 = __toESM(require_block_editor());
-  var import_components9 = __toESM(require_components());
-  var import_i18n10 = __toESM(require_i18n());
+  // packages/patterns/build-module/components/pattern-overrides-controls.mjs
+  var import_element10 = __toESM(require_element(), 1);
+  var import_block_editor6 = __toESM(require_block_editor(), 1);
+  var import_components9 = __toESM(require_components(), 1);
+  var import_i18n10 = __toESM(require_i18n(), 1);
 
-  // packages/patterns/build-module/components/allow-overrides-modal.js
-  var import_jsx_runtime12 = __toESM(require_jsx_runtime());
-  var import_components8 = __toESM(require_components());
-  var import_i18n9 = __toESM(require_i18n());
-  var import_element8 = __toESM(require_element());
-  var import_a11y2 = __toESM(require_a11y());
+  // packages/patterns/build-module/components/allow-overrides-modal.mjs
+  var import_components8 = __toESM(require_components(), 1);
+  var import_i18n9 = __toESM(require_i18n(), 1);
+  var import_element9 = __toESM(require_element(), 1);
+  var import_a11y2 = __toESM(require_a11y(), 1);
+  var import_jsx_runtime11 = __toESM(require_jsx_runtime(), 1);
   function AllowOverridesModal({
     placeholder,
     initialName = "",
     onClose,
     onSave
   }) {
-    const [editedBlockName, setEditedBlockName] = (0, import_element8.useState)(initialName);
-    const descriptionId = (0, import_element8.useId)();
+    const [editedBlockName, setEditedBlockName] = (0, import_element9.useState)(initialName);
+    const descriptionId = (0, import_element9.useId)();
     const isNameValid = !!editedBlockName.trim();
     const handleSubmit = () => {
       if (editedBlockName !== initialName) {
@@ -1248,7 +1236,7 @@ var wp;
       onSave(editedBlockName);
       onClose();
     };
-    return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
       import_components8.Modal,
       {
         title: (0, import_i18n9.__)("Enable overrides"),
@@ -1256,7 +1244,7 @@ var wp;
         focusOnMount: "firstContentElement",
         aria: { describedby: descriptionId },
         size: "small",
-        children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+        children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
           "form",
           {
             onSubmit: (event) => {
@@ -1266,14 +1254,13 @@ var wp;
               }
               handleSubmit();
             },
-            children: /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(import_components8.__experimentalVStack, { spacing: "6", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_components8.__experimentalText, { id: descriptionId, children: (0, import_i18n9.__)(
+            children: /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(import_components8.__experimentalVStack, { spacing: "6", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_components8.__experimentalText, { id: descriptionId, children: (0, import_i18n9.__)(
                 "Overrides are changes you make to a block within a synced pattern instance. Use overrides to customize a synced pattern instance to suit its new context. Name this block to specify an override."
               ) }),
-              /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
                 import_components8.TextControl,
                 {
-                  __nextHasNoMarginBottom: true,
                   __next40pxDefaultSize: true,
                   value: editedBlockName,
                   label: (0, import_i18n9.__)("Name"),
@@ -1284,8 +1271,8 @@ var wp;
                   onChange: setEditedBlockName
                 }
               ),
-              /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(import_components8.__experimentalHStack, { justify: "right", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(import_components8.__experimentalHStack, { justify: "right", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
                   import_components8.Button,
                   {
                     __next40pxDefaultSize: true,
@@ -1294,7 +1281,7 @@ var wp;
                     children: (0, import_i18n9.__)("Cancel")
                   }
                 ),
-                /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+                /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
                   import_components8.Button,
                   {
                     __next40pxDefaultSize: true,
@@ -1312,15 +1299,15 @@ var wp;
     );
   }
   function DisallowOverridesModal({ onClose, onSave }) {
-    const descriptionId = (0, import_element8.useId)();
-    return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+    const descriptionId = (0, import_element9.useId)();
+    return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
       import_components8.Modal,
       {
         title: (0, import_i18n9.__)("Disable overrides"),
         onRequestClose: onClose,
         aria: { describedby: descriptionId },
         size: "small",
-        children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+        children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
           "form",
           {
             onSubmit: (event) => {
@@ -1328,12 +1315,12 @@ var wp;
               onSave();
               onClose();
             },
-            children: /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(import_components8.__experimentalVStack, { spacing: "6", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_components8.__experimentalText, { id: descriptionId, children: (0, import_i18n9.__)(
+            children: /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(import_components8.__experimentalVStack, { spacing: "6", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_components8.__experimentalText, { id: descriptionId, children: (0, import_i18n9.__)(
                 "Are you sure you want to disable overrides? Disabling overrides will revert all applied overrides for this block throughout instances of this pattern."
               ) }),
-              /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(import_components8.__experimentalHStack, { justify: "right", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(import_components8.__experimentalHStack, { justify: "right", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
                   import_components8.Button,
                   {
                     __next40pxDefaultSize: true,
@@ -1342,7 +1329,7 @@ var wp;
                     children: (0, import_i18n9.__)("Cancel")
                   }
                 ),
-                /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+                /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
                   import_components8.Button,
                   {
                     __next40pxDefaultSize: true,
@@ -1359,15 +1346,16 @@ var wp;
     );
   }
 
-  // packages/patterns/build-module/components/pattern-overrides-controls.js
+  // packages/patterns/build-module/components/pattern-overrides-controls.mjs
+  var import_jsx_runtime12 = __toESM(require_jsx_runtime(), 1);
   function PatternOverridesControls({
     attributes,
     setAttributes,
     name: blockName
   }) {
-    const controlId = (0, import_element9.useId)();
-    const [showAllowOverridesModal, setShowAllowOverridesModal] = (0, import_element9.useState)(false);
-    const [showDisallowOverridesModal, setShowDisallowOverridesModal] = (0, import_element9.useState)(false);
+    const controlId = (0, import_element10.useId)();
+    const [showAllowOverridesModal, setShowAllowOverridesModal] = (0, import_element10.useState)(false);
+    const [showDisallowOverridesModal, setShowDisallowOverridesModal] = (0, import_element10.useState)(false);
     const hasName = !!attributes.metadata?.name;
     const defaultBindings = attributes.metadata?.bindings?.__default;
     const hasOverrides = hasName && defaultBindings?.source === PATTERN_OVERRIDES_BINDING_SOURCE;
@@ -1395,15 +1383,14 @@ var wp;
     ) : (0, import_i18n10.__)(
       "Allow changes to this block throughout instances of this pattern."
     );
-    return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(import_jsx_runtime13.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_block_editor6.InspectorControls, { group: "advanced", children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(import_jsx_runtime12.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_block_editor6.InspectorControls, { group: "advanced", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
         import_components9.BaseControl,
         {
-          __nextHasNoMarginBottom: true,
           id: controlId,
           label: (0, import_i18n10.__)("Overrides"),
           help: helpText,
-          children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
+          children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
             import_components9.Button,
             {
               __next40pxDefaultSize: true,
@@ -1424,7 +1411,7 @@ var wp;
           )
         }
       ) }),
-      showAllowOverridesModal && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
+      showAllowOverridesModal && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
         AllowOverridesModal,
         {
           initialName: attributes.metadata?.name,
@@ -1434,7 +1421,7 @@ var wp;
           }
         }
       ),
-      showDisallowOverridesModal && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
+      showDisallowOverridesModal && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
         DisallowOverridesModal,
         {
           onClose: () => setShowDisallowOverridesModal(false),
@@ -1445,12 +1432,12 @@ var wp;
   }
   var pattern_overrides_controls_default = PatternOverridesControls;
 
-  // packages/patterns/build-module/components/reset-overrides-control.js
-  var import_jsx_runtime14 = __toESM(require_jsx_runtime());
-  var import_block_editor7 = __toESM(require_block_editor());
-  var import_components10 = __toESM(require_components());
-  var import_data11 = __toESM(require_data());
-  var import_i18n11 = __toESM(require_i18n());
+  // packages/patterns/build-module/components/reset-overrides-control.mjs
+  var import_block_editor7 = __toESM(require_block_editor(), 1);
+  var import_components10 = __toESM(require_components(), 1);
+  var import_data11 = __toESM(require_data(), 1);
+  var import_i18n11 = __toESM(require_i18n(), 1);
+  var import_jsx_runtime13 = __toESM(require_jsx_runtime(), 1);
   var CONTENT = "content";
   function ResetOverridesControl(props) {
     const name = props.attributes.metadata?.name;
@@ -1502,116 +1489,10 @@ var wp;
         [CONTENT]: newOverrides
       });
     }
-    return /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(import_block_editor7.__unstableBlockToolbarLastItem, { children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(import_components10.ToolbarGroup, { children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(import_components10.ToolbarButton, { onClick, disabled: !isOverridden, children: (0, import_i18n11.__)("Reset") }) }) });
+    return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_block_editor7.__unstableBlockToolbarLastItem, { children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_components10.ToolbarGroup, { children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_components10.ToolbarButton, { onClick, disabled: !isOverridden, children: (0, import_i18n11.__)("Reset") }) }) });
   }
 
-  // packages/patterns/build-module/components/pattern-overrides-block-controls.js
-  var import_jsx_runtime15 = __toESM(require_jsx_runtime());
-  var import_element10 = __toESM(require_element());
-  var import_i18n12 = __toESM(require_i18n());
-  var import_components11 = __toESM(require_components());
-  var import_blocks4 = __toESM(require_blocks());
-  var import_data12 = __toESM(require_data());
-  var import_block_editor8 = __toESM(require_block_editor());
-  var { useBlockDisplayTitle } = unlock(import_block_editor8.privateApis);
-  function PatternOverridesToolbarIndicator({ clientIds }) {
-    const isSingleBlockSelected = clientIds.length === 1;
-    const { icon, firstBlockName } = (0, import_data12.useSelect)(
-      (select) => {
-        const { getBlockAttributes, getBlockNamesByClientId } = select(import_block_editor8.store);
-        const { getBlockType: getBlockType3, getActiveBlockVariation } = select(import_blocks4.store);
-        const blockTypeNames = getBlockNamesByClientId(clientIds);
-        const _firstBlockTypeName = blockTypeNames[0];
-        const firstBlockType = getBlockType3(_firstBlockTypeName);
-        let _icon;
-        if (isSingleBlockSelected) {
-          const match = getActiveBlockVariation(
-            _firstBlockTypeName,
-            getBlockAttributes(clientIds[0])
-          );
-          _icon = match?.icon || firstBlockType.icon;
-        } else {
-          const isSelectionOfSameType = new Set(blockTypeNames).size === 1;
-          _icon = isSelectionOfSameType ? firstBlockType.icon : copy_default;
-        }
-        return {
-          icon: _icon,
-          firstBlockName: getBlockAttributes(clientIds[0]).metadata.name
-        };
-      },
-      [clientIds, isSingleBlockSelected]
-    );
-    const firstBlockTitle = useBlockDisplayTitle({
-      clientId: clientIds[0],
-      maximumLength: 35
-    });
-    const blockDescription = isSingleBlockSelected ? (0, import_i18n12.sprintf)(
-      /* translators: 1: The block type's name. 2: The block's user-provided name (the same as the override name). */
-      (0, import_i18n12.__)('This %1$s is editable using the "%2$s" override.'),
-      firstBlockTitle.toLowerCase(),
-      firstBlockName
-    ) : (0, import_i18n12.__)("These blocks are editable using overrides.");
-    const descriptionId = (0, import_element10.useId)();
-    return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_components11.ToolbarItem, { children: (toggleProps) => /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
-      import_components11.DropdownMenu,
-      {
-        className: "patterns-pattern-overrides-toolbar-indicator",
-        label: firstBlockTitle,
-        popoverProps: {
-          placement: "bottom-start",
-          className: "patterns-pattern-overrides-toolbar-indicator__popover"
-        },
-        icon: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_jsx_runtime15.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
-          import_block_editor8.BlockIcon,
-          {
-            icon,
-            className: "patterns-pattern-overrides-toolbar-indicator-icon",
-            showColors: true
-          }
-        ) }),
-        toggleProps: {
-          description: blockDescription,
-          ...toggleProps
-        },
-        menuProps: {
-          orientation: "both",
-          "aria-describedby": descriptionId
-        },
-        children: () => /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_components11.__experimentalText, { id: descriptionId, children: blockDescription })
-      }
-    ) });
-  }
-  function PatternOverridesBlockControls() {
-    const { clientIds, hasPatternOverrides, hasParentPattern } = (0, import_data12.useSelect)(
-      (select) => {
-        const {
-          getBlockAttributes,
-          getSelectedBlockClientIds,
-          getBlockParentsByBlockName
-        } = select(import_block_editor8.store);
-        const selectedClientIds = getSelectedBlockClientIds();
-        const _hasPatternOverrides = selectedClientIds.every(
-          (clientId) => Object.values(
-            getBlockAttributes(clientId)?.metadata?.bindings ?? {}
-          ).some(
-            (binding) => binding?.source === PATTERN_OVERRIDES_BINDING_SOURCE
-          )
-        );
-        const _hasParentPattern = selectedClientIds.every(
-          (clientId) => getBlockParentsByBlockName(clientId, "core/block", true).length > 0
-        );
-        return {
-          clientIds: selectedClientIds,
-          hasPatternOverrides: _hasPatternOverrides,
-          hasParentPattern: _hasParentPattern
-        };
-      },
-      []
-    );
-    return hasPatternOverrides && hasParentPattern ? /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_block_editor8.BlockControls, { group: "parent", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(PatternOverridesToolbarIndicator, { clientIds }) }) : null;
-  }
-
-  // packages/patterns/build-module/private-apis.js
+  // packages/patterns/build-module/private-apis.mjs
   var privateApis = {};
   lock(privateApis, {
     OverridesPanel,
@@ -1619,21 +1500,18 @@ var wp;
     CreatePatternModalContents,
     DuplicatePatternModal,
     isOverridableBlock,
-    hasOverridableBlocks,
     useDuplicatePatternProps,
     RenamePatternModal,
     PatternsMenuItems,
     RenamePatternCategoryModal,
     PatternOverridesControls: pattern_overrides_controls_default,
     ResetOverridesControl,
-    PatternOverridesBlockControls,
     useAddPatternCategory,
     PATTERN_TYPES,
     PATTERN_DEFAULT_CATEGORY,
     PATTERN_USER_CATEGORY,
     EXCLUDED_PATTERN_SOURCES,
-    PATTERN_SYNC_TYPES,
-    PARTIAL_SYNCING_SUPPORTED_BLOCKS
+    PATTERN_SYNC_TYPES
   });
   return __toCommonJS(index_exports);
 })();

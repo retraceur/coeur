@@ -39,690 +39,37 @@ var wp;
     }
   });
 
-  // wordpress-external:@wordpress/is-shallow-equal
+  // package-external:@wordpress/is-shallow-equal
   var require_is_shallow_equal = __commonJS({
-    "wordpress-external:@wordpress/is-shallow-equal"(exports, module) {
+    "package-external:@wordpress/is-shallow-equal"(exports, module) {
       module.exports = window.wp.isShallowEqual;
     }
   });
 
-  // wordpress-external:@wordpress/element
+  // package-external:@wordpress/element
   var require_element = __commonJS({
-    "wordpress-external:@wordpress/element"(exports, module) {
+    "package-external:@wordpress/element"(exports, module) {
       module.exports = window.wp.element;
     }
   });
 
-  // wordpress-external:@wordpress/deprecated
+  // package-external:@wordpress/deprecated
   var require_deprecated = __commonJS({
-    "wordpress-external:@wordpress/deprecated"(exports, module) {
+    "package-external:@wordpress/deprecated"(exports, module) {
       module.exports = window.wp.deprecated;
     }
   });
 
-  // wordpress-external:@wordpress/dom
+  // package-external:@wordpress/dom
   var require_dom = __commonJS({
-    "wordpress-external:@wordpress/dom"(exports, module) {
+    "package-external:@wordpress/dom"(exports, module) {
       module.exports = window.wp.dom;
     }
   });
 
-  // packages/compose/node_modules/clipboard/dist/clipboard.js
-  var require_clipboard = __commonJS({
-    "packages/compose/node_modules/clipboard/dist/clipboard.js"(exports, module) {
-      (function webpackUniversalModuleDefinition(root, factory) {
-        if (typeof exports === "object" && typeof module === "object")
-          module.exports = factory();
-        else if (typeof define === "function" && define.amd)
-          define([], factory);
-        else if (typeof exports === "object")
-          exports["ClipboardJS"] = factory();
-        else
-          root["ClipboardJS"] = factory();
-      })(exports, function() {
-        return (
-          /******/
-          (function() {
-            var __webpack_modules__ = {
-              /***/
-              686: (
-                /***/
-                (function(__unused_webpack_module, __webpack_exports__, __webpack_require__2) {
-                  "use strict";
-                  __webpack_require__2.d(__webpack_exports__, {
-                    "default": function() {
-                      return (
-                        /* binding */
-                        clipboard
-                      );
-                    }
-                  });
-                  var tiny_emitter = __webpack_require__2(279);
-                  var tiny_emitter_default = /* @__PURE__ */ __webpack_require__2.n(tiny_emitter);
-                  var listen = __webpack_require__2(370);
-                  var listen_default = /* @__PURE__ */ __webpack_require__2.n(listen);
-                  var src_select = __webpack_require__2(817);
-                  var select_default = /* @__PURE__ */ __webpack_require__2.n(src_select);
-                  ;
-                  function command(type) {
-                    try {
-                      return document.execCommand(type);
-                    } catch (err) {
-                      return false;
-                    }
-                  }
-                  ;
-                  var ClipboardActionCut = function ClipboardActionCut2(target) {
-                    var selectedText = select_default()(target);
-                    command("cut");
-                    return selectedText;
-                  };
-                  var actions_cut = ClipboardActionCut;
-                  ;
-                  function createFakeElement(value) {
-                    var isRTL = document.documentElement.getAttribute("dir") === "rtl";
-                    var fakeElement = document.createElement("textarea");
-                    fakeElement.style.fontSize = "12pt";
-                    fakeElement.style.border = "0";
-                    fakeElement.style.padding = "0";
-                    fakeElement.style.margin = "0";
-                    fakeElement.style.position = "absolute";
-                    fakeElement.style[isRTL ? "right" : "left"] = "-9999px";
-                    var yPosition = window.pageYOffset || document.documentElement.scrollTop;
-                    fakeElement.style.top = "".concat(yPosition, "px");
-                    fakeElement.setAttribute("readonly", "");
-                    fakeElement.value = value;
-                    return fakeElement;
-                  }
-                  ;
-                  var fakeCopyAction = function fakeCopyAction2(value, options) {
-                    var fakeElement = createFakeElement(value);
-                    options.container.appendChild(fakeElement);
-                    var selectedText = select_default()(fakeElement);
-                    command("copy");
-                    fakeElement.remove();
-                    return selectedText;
-                  };
-                  var ClipboardActionCopy = function ClipboardActionCopy2(target) {
-                    var options = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {
-                      container: document.body
-                    };
-                    var selectedText = "";
-                    if (typeof target === "string") {
-                      selectedText = fakeCopyAction(target, options);
-                    } else if (target instanceof HTMLInputElement && !["text", "search", "url", "tel", "password"].includes(target === null || target === void 0 ? void 0 : target.type)) {
-                      selectedText = fakeCopyAction(target.value, options);
-                    } else {
-                      selectedText = select_default()(target);
-                      command("copy");
-                    }
-                    return selectedText;
-                  };
-                  var actions_copy = ClipboardActionCopy;
-                  ;
-                  function _typeof(obj) {
-                    "@babel/helpers - typeof";
-                    if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
-                      _typeof = function _typeof2(obj2) {
-                        return typeof obj2;
-                      };
-                    } else {
-                      _typeof = function _typeof2(obj2) {
-                        return obj2 && typeof Symbol === "function" && obj2.constructor === Symbol && obj2 !== Symbol.prototype ? "symbol" : typeof obj2;
-                      };
-                    }
-                    return _typeof(obj);
-                  }
-                  var ClipboardActionDefault = function ClipboardActionDefault2() {
-                    var options = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
-                    var _options$action = options.action, action = _options$action === void 0 ? "copy" : _options$action, container = options.container, target = options.target, text = options.text;
-                    if (action !== "copy" && action !== "cut") {
-                      throw new Error('Invalid "action" value, use either "copy" or "cut"');
-                    }
-                    if (target !== void 0) {
-                      if (target && _typeof(target) === "object" && target.nodeType === 1) {
-                        if (action === "copy" && target.hasAttribute("disabled")) {
-                          throw new Error('Invalid "target" attribute. Please use "readonly" instead of "disabled" attribute');
-                        }
-                        if (action === "cut" && (target.hasAttribute("readonly") || target.hasAttribute("disabled"))) {
-                          throw new Error(`Invalid "target" attribute. You can't cut text from elements with "readonly" or "disabled" attributes`);
-                        }
-                      } else {
-                        throw new Error('Invalid "target" value, use a valid Element');
-                      }
-                    }
-                    if (text) {
-                      return actions_copy(text, {
-                        container
-                      });
-                    }
-                    if (target) {
-                      return action === "cut" ? actions_cut(target) : actions_copy(target, {
-                        container
-                      });
-                    }
-                  };
-                  var actions_default = ClipboardActionDefault;
-                  ;
-                  function clipboard_typeof(obj) {
-                    "@babel/helpers - typeof";
-                    if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
-                      clipboard_typeof = function _typeof2(obj2) {
-                        return typeof obj2;
-                      };
-                    } else {
-                      clipboard_typeof = function _typeof2(obj2) {
-                        return obj2 && typeof Symbol === "function" && obj2.constructor === Symbol && obj2 !== Symbol.prototype ? "symbol" : typeof obj2;
-                      };
-                    }
-                    return clipboard_typeof(obj);
-                  }
-                  function _classCallCheck(instance, Constructor) {
-                    if (!(instance instanceof Constructor)) {
-                      throw new TypeError("Cannot call a class as a function");
-                    }
-                  }
-                  function _defineProperties(target, props) {
-                    for (var i = 0; i < props.length; i++) {
-                      var descriptor = props[i];
-                      descriptor.enumerable = descriptor.enumerable || false;
-                      descriptor.configurable = true;
-                      if ("value" in descriptor) descriptor.writable = true;
-                      Object.defineProperty(target, descriptor.key, descriptor);
-                    }
-                  }
-                  function _createClass(Constructor, protoProps, staticProps) {
-                    if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-                    if (staticProps) _defineProperties(Constructor, staticProps);
-                    return Constructor;
-                  }
-                  function _inherits(subClass, superClass) {
-                    if (typeof superClass !== "function" && superClass !== null) {
-                      throw new TypeError("Super expression must either be null or a function");
-                    }
-                    subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } });
-                    if (superClass) _setPrototypeOf(subClass, superClass);
-                  }
-                  function _setPrototypeOf(o, p) {
-                    _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf2(o2, p2) {
-                      o2.__proto__ = p2;
-                      return o2;
-                    };
-                    return _setPrototypeOf(o, p);
-                  }
-                  function _createSuper(Derived) {
-                    var hasNativeReflectConstruct = _isNativeReflectConstruct();
-                    return function _createSuperInternal() {
-                      var Super = _getPrototypeOf(Derived), result;
-                      if (hasNativeReflectConstruct) {
-                        var NewTarget = _getPrototypeOf(this).constructor;
-                        result = Reflect.construct(Super, arguments, NewTarget);
-                      } else {
-                        result = Super.apply(this, arguments);
-                      }
-                      return _possibleConstructorReturn(this, result);
-                    };
-                  }
-                  function _possibleConstructorReturn(self, call) {
-                    if (call && (clipboard_typeof(call) === "object" || typeof call === "function")) {
-                      return call;
-                    }
-                    return _assertThisInitialized(self);
-                  }
-                  function _assertThisInitialized(self) {
-                    if (self === void 0) {
-                      throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-                    }
-                    return self;
-                  }
-                  function _isNativeReflectConstruct() {
-                    if (typeof Reflect === "undefined" || !Reflect.construct) return false;
-                    if (Reflect.construct.sham) return false;
-                    if (typeof Proxy === "function") return true;
-                    try {
-                      Date.prototype.toString.call(Reflect.construct(Date, [], function() {
-                      }));
-                      return true;
-                    } catch (e) {
-                      return false;
-                    }
-                  }
-                  function _getPrototypeOf(o) {
-                    _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf2(o2) {
-                      return o2.__proto__ || Object.getPrototypeOf(o2);
-                    };
-                    return _getPrototypeOf(o);
-                  }
-                  function getAttributeValue(suffix, element) {
-                    var attribute = "data-clipboard-".concat(suffix);
-                    if (!element.hasAttribute(attribute)) {
-                      return;
-                    }
-                    return element.getAttribute(attribute);
-                  }
-                  var Clipboard3 = /* @__PURE__ */ (function(_Emitter) {
-                    _inherits(Clipboard4, _Emitter);
-                    var _super = _createSuper(Clipboard4);
-                    function Clipboard4(trigger, options) {
-                      var _this;
-                      _classCallCheck(this, Clipboard4);
-                      _this = _super.call(this);
-                      _this.resolveOptions(options);
-                      _this.listenClick(trigger);
-                      return _this;
-                    }
-                    _createClass(Clipboard4, [{
-                      key: "resolveOptions",
-                      value: function resolveOptions() {
-                        var options = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
-                        this.action = typeof options.action === "function" ? options.action : this.defaultAction;
-                        this.target = typeof options.target === "function" ? options.target : this.defaultTarget;
-                        this.text = typeof options.text === "function" ? options.text : this.defaultText;
-                        this.container = clipboard_typeof(options.container) === "object" ? options.container : document.body;
-                      }
-                      /**
-                       * Adds a click event listener to the passed trigger.
-                       * @param {String|HTMLElement|HTMLCollection|NodeList} trigger
-                       */
-                    }, {
-                      key: "listenClick",
-                      value: function listenClick(trigger) {
-                        var _this2 = this;
-                        this.listener = listen_default()(trigger, "click", function(e) {
-                          return _this2.onClick(e);
-                        });
-                      }
-                      /**
-                       * Defines a new `ClipboardAction` on each click event.
-                       * @param {Event} e
-                       */
-                    }, {
-                      key: "onClick",
-                      value: function onClick(e) {
-                        var trigger = e.delegateTarget || e.currentTarget;
-                        var action = this.action(trigger) || "copy";
-                        var text = actions_default({
-                          action,
-                          container: this.container,
-                          target: this.target(trigger),
-                          text: this.text(trigger)
-                        });
-                        this.emit(text ? "success" : "error", {
-                          action,
-                          text,
-                          trigger,
-                          clearSelection: function clearSelection() {
-                            if (trigger) {
-                              trigger.focus();
-                            }
-                            window.getSelection().removeAllRanges();
-                          }
-                        });
-                      }
-                      /**
-                       * Default `action` lookup function.
-                       * @param {Element} trigger
-                       */
-                    }, {
-                      key: "defaultAction",
-                      value: function defaultAction(trigger) {
-                        return getAttributeValue("action", trigger);
-                      }
-                      /**
-                       * Default `target` lookup function.
-                       * @param {Element} trigger
-                       */
-                    }, {
-                      key: "defaultTarget",
-                      value: function defaultTarget(trigger) {
-                        var selector = getAttributeValue("target", trigger);
-                        if (selector) {
-                          return document.querySelector(selector);
-                        }
-                      }
-                      /**
-                       * Allow fire programmatically a copy action
-                       * @param {String|HTMLElement} target
-                       * @param {Object} options
-                       * @returns Text copied.
-                       */
-                    }, {
-                      key: "defaultText",
-                      /**
-                       * Default `text` lookup function.
-                       * @param {Element} trigger
-                       */
-                      value: function defaultText(trigger) {
-                        return getAttributeValue("text", trigger);
-                      }
-                      /**
-                       * Destroy lifecycle.
-                       */
-                    }, {
-                      key: "destroy",
-                      value: function destroy() {
-                        this.listener.destroy();
-                      }
-                    }], [{
-                      key: "copy",
-                      value: function copy(target) {
-                        var options = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {
-                          container: document.body
-                        };
-                        return actions_copy(target, options);
-                      }
-                      /**
-                       * Allow fire programmatically a cut action
-                       * @param {String|HTMLElement} target
-                       * @returns Text cutted.
-                       */
-                    }, {
-                      key: "cut",
-                      value: function cut(target) {
-                        return actions_cut(target);
-                      }
-                      /**
-                       * Returns the support of the given action, or all actions if no action is
-                       * given.
-                       * @param {String} [action]
-                       */
-                    }, {
-                      key: "isSupported",
-                      value: function isSupported() {
-                        var action = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : ["copy", "cut"];
-                        var actions = typeof action === "string" ? [action] : action;
-                        var support = !!document.queryCommandSupported;
-                        actions.forEach(function(action2) {
-                          support = support && !!document.queryCommandSupported(action2);
-                        });
-                        return support;
-                      }
-                    }]);
-                    return Clipboard4;
-                  })(tiny_emitter_default());
-                  var clipboard = Clipboard3;
-                })
-              ),
-              /***/
-              828: (
-                /***/
-                (function(module2) {
-                  var DOCUMENT_NODE_TYPE = 9;
-                  if (typeof Element !== "undefined" && !Element.prototype.matches) {
-                    var proto = Element.prototype;
-                    proto.matches = proto.matchesSelector || proto.mozMatchesSelector || proto.msMatchesSelector || proto.oMatchesSelector || proto.webkitMatchesSelector;
-                  }
-                  function closest(element, selector) {
-                    while (element && element.nodeType !== DOCUMENT_NODE_TYPE) {
-                      if (typeof element.matches === "function" && element.matches(selector)) {
-                        return element;
-                      }
-                      element = element.parentNode;
-                    }
-                  }
-                  module2.exports = closest;
-                })
-              ),
-              /***/
-              438: (
-                /***/
-                (function(module2, __unused_webpack_exports, __webpack_require__2) {
-                  var closest = __webpack_require__2(828);
-                  function _delegate(element, selector, type, callback, useCapture) {
-                    var listenerFn = listener2.apply(this, arguments);
-                    element.addEventListener(type, listenerFn, useCapture);
-                    return {
-                      destroy: function() {
-                        element.removeEventListener(type, listenerFn, useCapture);
-                      }
-                    };
-                  }
-                  function delegate(elements, selector, type, callback, useCapture) {
-                    if (typeof elements.addEventListener === "function") {
-                      return _delegate.apply(null, arguments);
-                    }
-                    if (typeof type === "function") {
-                      return _delegate.bind(null, document).apply(null, arguments);
-                    }
-                    if (typeof elements === "string") {
-                      elements = document.querySelectorAll(elements);
-                    }
-                    return Array.prototype.map.call(elements, function(element) {
-                      return _delegate(element, selector, type, callback, useCapture);
-                    });
-                  }
-                  function listener2(element, selector, type, callback) {
-                    return function(e) {
-                      e.delegateTarget = closest(e.target, selector);
-                      if (e.delegateTarget) {
-                        callback.call(element, e);
-                      }
-                    };
-                  }
-                  module2.exports = delegate;
-                })
-              ),
-              /***/
-              879: (
-                /***/
-                (function(__unused_webpack_module, exports2) {
-                  exports2.node = function(value) {
-                    return value !== void 0 && value instanceof HTMLElement && value.nodeType === 1;
-                  };
-                  exports2.nodeList = function(value) {
-                    var type = Object.prototype.toString.call(value);
-                    return value !== void 0 && (type === "[object NodeList]" || type === "[object HTMLCollection]") && "length" in value && (value.length === 0 || exports2.node(value[0]));
-                  };
-                  exports2.string = function(value) {
-                    return typeof value === "string" || value instanceof String;
-                  };
-                  exports2.fn = function(value) {
-                    var type = Object.prototype.toString.call(value);
-                    return type === "[object Function]";
-                  };
-                })
-              ),
-              /***/
-              370: (
-                /***/
-                (function(module2, __unused_webpack_exports, __webpack_require__2) {
-                  var is = __webpack_require__2(879);
-                  var delegate = __webpack_require__2(438);
-                  function listen(target, type, callback) {
-                    if (!target && !type && !callback) {
-                      throw new Error("Missing required arguments");
-                    }
-                    if (!is.string(type)) {
-                      throw new TypeError("Second argument must be a String");
-                    }
-                    if (!is.fn(callback)) {
-                      throw new TypeError("Third argument must be a Function");
-                    }
-                    if (is.node(target)) {
-                      return listenNode(target, type, callback);
-                    } else if (is.nodeList(target)) {
-                      return listenNodeList(target, type, callback);
-                    } else if (is.string(target)) {
-                      return listenSelector(target, type, callback);
-                    } else {
-                      throw new TypeError("First argument must be a String, HTMLElement, HTMLCollection, or NodeList");
-                    }
-                  }
-                  function listenNode(node, type, callback) {
-                    node.addEventListener(type, callback);
-                    return {
-                      destroy: function() {
-                        node.removeEventListener(type, callback);
-                      }
-                    };
-                  }
-                  function listenNodeList(nodeList, type, callback) {
-                    Array.prototype.forEach.call(nodeList, function(node) {
-                      node.addEventListener(type, callback);
-                    });
-                    return {
-                      destroy: function() {
-                        Array.prototype.forEach.call(nodeList, function(node) {
-                          node.removeEventListener(type, callback);
-                        });
-                      }
-                    };
-                  }
-                  function listenSelector(selector, type, callback) {
-                    return delegate(document.body, selector, type, callback);
-                  }
-                  module2.exports = listen;
-                })
-              ),
-              /***/
-              817: (
-                /***/
-                (function(module2) {
-                  function select(element) {
-                    var selectedText;
-                    if (element.nodeName === "SELECT") {
-                      element.focus();
-                      selectedText = element.value;
-                    } else if (element.nodeName === "INPUT" || element.nodeName === "TEXTAREA") {
-                      var isReadOnly = element.hasAttribute("readonly");
-                      if (!isReadOnly) {
-                        element.setAttribute("readonly", "");
-                      }
-                      element.select();
-                      element.setSelectionRange(0, element.value.length);
-                      if (!isReadOnly) {
-                        element.removeAttribute("readonly");
-                      }
-                      selectedText = element.value;
-                    } else {
-                      if (element.hasAttribute("contenteditable")) {
-                        element.focus();
-                      }
-                      var selection = window.getSelection();
-                      var range = document.createRange();
-                      range.selectNodeContents(element);
-                      selection.removeAllRanges();
-                      selection.addRange(range);
-                      selectedText = selection.toString();
-                    }
-                    return selectedText;
-                  }
-                  module2.exports = select;
-                })
-              ),
-              /***/
-              279: (
-                /***/
-                (function(module2) {
-                  function E() {
-                  }
-                  E.prototype = {
-                    on: function(name, callback, ctx) {
-                      var e = this.e || (this.e = {});
-                      (e[name] || (e[name] = [])).push({
-                        fn: callback,
-                        ctx
-                      });
-                      return this;
-                    },
-                    once: function(name, callback, ctx) {
-                      var self = this;
-                      function listener2() {
-                        self.off(name, listener2);
-                        callback.apply(ctx, arguments);
-                      }
-                      ;
-                      listener2._ = callback;
-                      return this.on(name, listener2, ctx);
-                    },
-                    emit: function(name) {
-                      var data = [].slice.call(arguments, 1);
-                      var evtArr = ((this.e || (this.e = {}))[name] || []).slice();
-                      var i = 0;
-                      var len = evtArr.length;
-                      for (i; i < len; i++) {
-                        evtArr[i].fn.apply(evtArr[i].ctx, data);
-                      }
-                      return this;
-                    },
-                    off: function(name, callback) {
-                      var e = this.e || (this.e = {});
-                      var evts = e[name];
-                      var liveEvents = [];
-                      if (evts && callback) {
-                        for (var i = 0, len = evts.length; i < len; i++) {
-                          if (evts[i].fn !== callback && evts[i].fn._ !== callback)
-                            liveEvents.push(evts[i]);
-                        }
-                      }
-                      liveEvents.length ? e[name] = liveEvents : delete e[name];
-                      return this;
-                    }
-                  };
-                  module2.exports = E;
-                  module2.exports.TinyEmitter = E;
-                })
-              )
-              /******/
-            };
-            var __webpack_module_cache__ = {};
-            function __webpack_require__(moduleId) {
-              if (__webpack_module_cache__[moduleId]) {
-                return __webpack_module_cache__[moduleId].exports;
-              }
-              var module2 = __webpack_module_cache__[moduleId] = {
-                /******/
-                // no module.id needed
-                /******/
-                // no module.loaded needed
-                /******/
-                exports: {}
-                /******/
-              };
-              __webpack_modules__[moduleId](module2, module2.exports, __webpack_require__);
-              return module2.exports;
-            }
-            !(function() {
-              __webpack_require__.n = function(module2) {
-                var getter = module2 && module2.__esModule ? (
-                  /******/
-                  function() {
-                    return module2["default"];
-                  }
-                ) : (
-                  /******/
-                  function() {
-                    return module2;
-                  }
-                );
-                __webpack_require__.d(getter, { a: getter });
-                return getter;
-              };
-            })();
-            !(function() {
-              __webpack_require__.d = function(exports2, definition) {
-                for (var key in definition) {
-                  if (__webpack_require__.o(definition, key) && !__webpack_require__.o(exports2, key)) {
-                    Object.defineProperty(exports2, key, { enumerable: true, get: definition[key] });
-                  }
-                }
-              };
-            })();
-            !(function() {
-              __webpack_require__.o = function(obj, prop) {
-                return Object.prototype.hasOwnProperty.call(obj, prop);
-              };
-            })();
-            return __webpack_require__(686);
-          })().default
-        );
-      });
-    }
-  });
-
-  // wordpress-external:@wordpress/keycodes
+  // package-external:@wordpress/keycodes
   var require_keycodes = __commonJS({
-    "wordpress-external:@wordpress/keycodes"(exports, module) {
+    "package-external:@wordpress/keycodes"(exports, module) {
       module.exports = window.wp.keycodes;
     }
   });
@@ -1182,16 +529,16 @@ var wp;
     }
   });
 
-  // wordpress-external:@wordpress/undo-manager
+  // package-external:@wordpress/undo-manager
   var require_undo_manager = __commonJS({
-    "wordpress-external:@wordpress/undo-manager"(exports, module) {
+    "package-external:@wordpress/undo-manager"(exports, module) {
       module.exports = window.wp.undoManager;
     }
   });
 
-  // wordpress-external:@wordpress/priority-queue
+  // package-external:@wordpress/priority-queue
   var require_priority_queue = __commonJS({
-    "wordpress-external:@wordpress/priority-queue"(exports, module) {
+    "package-external:@wordpress/priority-queue"(exports, module) {
       module.exports = window.wp.priorityQueue;
     }
   });
@@ -1203,7 +550,7 @@ var wp;
     }
   });
 
-  // packages/compose/build-module/index.js
+  // packages/compose/build-module/index.mjs
   var index_exports = {};
   __export(index_exports, {
     __experimentalUseDialog: () => use_dialog_default,
@@ -1308,7 +655,7 @@ var wp;
     return noCase(input, __assign({ delimiter: "", transform: pascalCaseTransform }, options));
   }
 
-  // packages/compose/build-module/utils/create-higher-order-component/index.js
+  // packages/compose/build-module/utils/create-higher-order-component/index.mjs
   function createHigherOrderComponent(mapComponent, modifierName) {
     return (Inner) => {
       const Outer = mapComponent(Inner);
@@ -1322,7 +669,7 @@ var wp;
     return `${outer}(${inner})`;
   };
 
-  // packages/compose/build-module/utils/debounce/index.js
+  // packages/compose/build-module/utils/debounce/index.mjs
   var debounce = (func, wait, options) => {
     let lastArgs;
     let lastThis;
@@ -1435,7 +782,7 @@ var wp;
     return debounced;
   };
 
-  // packages/compose/build-module/utils/throttle/index.js
+  // packages/compose/build-module/utils/throttle/index.mjs
   var throttle = (func, wait, options) => {
     let leading = true;
     let trailing = true;
@@ -1450,7 +797,7 @@ var wp;
     });
   };
 
-  // packages/compose/build-module/utils/observable-map/index.js
+  // packages/compose/build-module/utils/observable-map/index.mjs
   function observableMap() {
     const map = /* @__PURE__ */ new Map();
     const listeners = /* @__PURE__ */ new Map();
@@ -1492,7 +839,7 @@ var wp;
     };
   }
 
-  // packages/compose/build-module/higher-order/pipe.js
+  // packages/compose/build-module/higher-order/pipe.mjs
   var basePipe = (reverse = false) => (...funcs) => (...args) => {
     const functions = funcs.flat();
     if (reverse) {
@@ -1506,12 +853,12 @@ var wp;
   var pipe = basePipe();
   var pipe_default = pipe;
 
-  // packages/compose/build-module/higher-order/compose.js
+  // packages/compose/build-module/higher-order/compose.mjs
   var compose = basePipe(true);
   var compose_default = compose;
 
-  // packages/compose/build-module/higher-order/if-condition/index.js
-  var import_jsx_runtime = __toESM(require_jsx_runtime());
+  // packages/compose/build-module/higher-order/if-condition/index.mjs
+  var import_jsx_runtime = __toESM(require_jsx_runtime(), 1);
   function ifCondition(predicate) {
     return createHigherOrderComponent(
       (WrappedComponent) => (props) => {
@@ -1525,21 +872,21 @@ var wp;
   }
   var if_condition_default = ifCondition;
 
-  // packages/compose/build-module/higher-order/pure/index.js
-  var import_jsx_runtime2 = __toESM(require_jsx_runtime());
-  var import_is_shallow_equal = __toESM(require_is_shallow_equal());
-  var import_element = __toESM(require_element());
+  // packages/compose/build-module/higher-order/pure/index.mjs
+  var import_is_shallow_equal = __toESM(require_is_shallow_equal(), 1);
+  var import_element = __toESM(require_element(), 1);
+  var import_jsx_runtime2 = __toESM(require_jsx_runtime(), 1);
   var pure = createHigherOrderComponent(function(WrappedComponent) {
     if (WrappedComponent.prototype instanceof import_element.Component) {
       return class extends WrappedComponent {
         shouldComponentUpdate(nextProps, nextState) {
-          return !(0, import_is_shallow_equal.default)(nextProps, this.props) || !(0, import_is_shallow_equal.default)(nextState, this.state);
+          return !(0, import_is_shallow_equal.isShallowEqual)(nextProps, this.props) || !(0, import_is_shallow_equal.isShallowEqual)(nextState, this.state);
         }
       };
     }
     return class extends import_element.Component {
       shouldComponentUpdate(nextProps) {
-        return !(0, import_is_shallow_equal.default)(nextProps, this.props);
+        return !(0, import_is_shallow_equal.isShallowEqual)(nextProps, this.props);
       }
       render() {
         return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(WrappedComponent, { ...this.props });
@@ -1548,12 +895,11 @@ var wp;
   }, "pure");
   var pure_default = pure;
 
-  // packages/compose/build-module/higher-order/with-global-events/index.js
-  var import_jsx_runtime3 = __toESM(require_jsx_runtime());
-  var import_element2 = __toESM(require_element());
-  var import_deprecated = __toESM(require_deprecated());
+  // packages/compose/build-module/higher-order/with-global-events/index.mjs
+  var import_element2 = __toESM(require_element(), 1);
+  var import_deprecated = __toESM(require_deprecated(), 1);
 
-  // packages/compose/build-module/higher-order/with-global-events/listener.js
+  // packages/compose/build-module/higher-order/with-global-events/listener.mjs
   var Listener = class {
     constructor() {
       this.listeners = {};
@@ -1588,7 +934,8 @@ var wp;
   };
   var listener_default = Listener;
 
-  // packages/compose/build-module/higher-order/with-global-events/index.js
+  // packages/compose/build-module/higher-order/with-global-events/index.mjs
+  var import_jsx_runtime3 = __toESM(require_jsx_runtime(), 1);
   var listener = new listener_default();
   function withGlobalEvents(eventTypesToHandlers) {
     (0, import_deprecated.default)("wp.compose.withGlobalEvents", {
@@ -1616,7 +963,6 @@ var wp;
           const handler = eventTypesToHandlers[
             /** @type {keyof GlobalEventHandlersEventMap} */
             event.type
-            /* eslint-enable jsdoc/no-undefined-types */
           ];
           if (typeof this.wrappedRef[handler] === "function") {
             this.wrappedRef[handler](event);
@@ -1644,11 +990,8 @@ var wp;
     }, "withGlobalEvents");
   }
 
-  // packages/compose/build-module/higher-order/with-instance-id/index.js
-  var import_jsx_runtime4 = __toESM(require_jsx_runtime());
-
-  // packages/compose/build-module/hooks/use-instance-id/index.js
-  var import_element3 = __toESM(require_element());
+  // packages/compose/build-module/hooks/use-instance-id/index.mjs
+  var import_element3 = __toESM(require_element(), 1);
   var instanceMap = /* @__PURE__ */ new WeakMap();
   function createId(object) {
     const instances = instanceMap.get(object) || 0;
@@ -1666,7 +1009,8 @@ var wp;
   }
   var use_instance_id_default = useInstanceId;
 
-  // packages/compose/build-module/higher-order/with-instance-id/index.js
+  // packages/compose/build-module/higher-order/with-instance-id/index.mjs
+  var import_jsx_runtime4 = __toESM(require_jsx_runtime(), 1);
   var withInstanceId = createHigherOrderComponent(
     (WrappedComponent) => {
       return (props) => {
@@ -1678,9 +1022,9 @@ var wp;
   );
   var with_instance_id_default = withInstanceId;
 
-  // packages/compose/build-module/higher-order/with-safe-timeout/index.js
-  var import_jsx_runtime5 = __toESM(require_jsx_runtime());
-  var import_element4 = __toESM(require_element());
+  // packages/compose/build-module/higher-order/with-safe-timeout/index.mjs
+  var import_element4 = __toESM(require_element(), 1);
+  var import_jsx_runtime5 = __toESM(require_jsx_runtime(), 1);
   var withSafeTimeout = createHigherOrderComponent(
     (OriginalComponent) => {
       return class WrappedComponent extends import_element4.Component {
@@ -1727,10 +1071,10 @@ var wp;
   );
   var with_safe_timeout_default = withSafeTimeout;
 
-  // packages/compose/build-module/higher-order/with-state/index.js
-  var import_jsx_runtime6 = __toESM(require_jsx_runtime());
-  var import_element5 = __toESM(require_element());
-  var import_deprecated2 = __toESM(require_deprecated());
+  // packages/compose/build-module/higher-order/with-state/index.mjs
+  var import_element5 = __toESM(require_element(), 1);
+  var import_deprecated2 = __toESM(require_deprecated(), 1);
+  var import_jsx_runtime6 = __toESM(require_jsx_runtime(), 1);
   function withState(initialState = {}) {
     (0, import_deprecated2.default)("wp.compose.withState", {
       since: "5.8",
@@ -1757,13 +1101,13 @@ var wp;
     }, "withState");
   }
 
-  // packages/compose/build-module/hooks/use-constrained-tabbing/index.js
-  var import_dom = __toESM(require_dom());
+  // packages/compose/build-module/hooks/use-constrained-tabbing/index.mjs
+  var import_dom = __toESM(require_dom(), 1);
 
-  // packages/compose/build-module/hooks/use-ref-effect/index.js
-  var import_element6 = __toESM(require_element());
+  // packages/compose/build-module/hooks/use-ref-effect/index.mjs
+  var import_element6 = __toESM(require_element(), 1);
   function useRefEffect(callback, dependencies) {
-    const cleanupRef = (0, import_element6.useRef)();
+    const cleanupRef = (0, import_element6.useRef)(void 0);
     return (0, import_element6.useCallback)((node) => {
       if (node) {
         cleanupRef.current = callback(node);
@@ -1773,7 +1117,7 @@ var wp;
     }, dependencies);
   }
 
-  // packages/compose/build-module/hooks/use-constrained-tabbing/index.js
+  // packages/compose/build-module/hooks/use-constrained-tabbing/index.mjs
   function useConstrainedTabbing() {
     return useRefEffect((node) => {
       function onKeyDown(event) {
@@ -1813,52 +1157,49 @@ var wp;
   }
   var use_constrained_tabbing_default = useConstrainedTabbing;
 
-  // packages/compose/build-module/hooks/use-copy-on-click/index.js
-  var import_clipboard = __toESM(require_clipboard());
-  var import_element7 = __toESM(require_element());
-  var import_deprecated3 = __toESM(require_deprecated());
-  function useCopyOnClick(ref, text, timeout = 4e3) {
-    (0, import_deprecated3.default)("wp.compose.useCopyOnClick", {
-      since: "5.8",
-      alternative: "wp.compose.useCopyToClipboard"
-    });
-    const clipboardRef = (0, import_element7.useRef)();
-    const [hasCopied, setHasCopied] = (0, import_element7.useState)(false);
-    (0, import_element7.useEffect)(() => {
-      let timeoutId;
-      if (!ref.current) {
-        return;
-      }
-      clipboardRef.current = new import_clipboard.default(ref.current, {
-        text: () => typeof text === "function" ? text() : text
-      });
-      clipboardRef.current.on("success", ({ clearSelection, trigger }) => {
-        clearSelection();
-        if (trigger) {
-          trigger.focus();
-        }
-        if (timeout) {
-          setHasCopied(true);
-          clearTimeout(timeoutId);
-          timeoutId = setTimeout(() => setHasCopied(false), timeout);
-        }
-      });
-      return () => {
-        if (clipboardRef.current) {
-          clipboardRef.current.destroy();
-        }
-        clearTimeout(timeoutId);
-      };
-    }, [text, timeout, setHasCopied]);
-    return hasCopied;
-  }
+  // packages/compose/build-module/hooks/use-copy-on-click/index.mjs
+  var import_element8 = __toESM(require_element(), 1);
+  var import_deprecated3 = __toESM(require_deprecated(), 1);
 
-  // packages/compose/build-module/hooks/use-copy-to-clipboard/index.js
-  var import_clipboard2 = __toESM(require_clipboard());
-  var import_element8 = __toESM(require_element());
+  // packages/compose/build-module/hooks/use-copy-to-clipboard/index.mjs
+  var import_element7 = __toESM(require_element(), 1);
+  async function copyToClipboard(text, trigger) {
+    if (!trigger) {
+      return false;
+    }
+    const { ownerDocument } = trigger;
+    if (!ownerDocument) {
+      return false;
+    }
+    const { defaultView } = ownerDocument;
+    try {
+      if (defaultView?.navigator?.clipboard?.writeText) {
+        await defaultView.navigator.clipboard.writeText(text);
+        return true;
+      }
+      const textarea = ownerDocument.createElement("textarea");
+      textarea.value = text;
+      textarea.setAttribute("readonly", "");
+      textarea.style.position = "fixed";
+      textarea.style.left = "-9999px";
+      textarea.style.top = "-9999px";
+      ownerDocument.body.appendChild(textarea);
+      textarea.select();
+      const success = ownerDocument.execCommand("copy");
+      textarea.remove();
+      return success;
+    } catch {
+      return false;
+    }
+  }
+  function restoreFocus(trigger) {
+    if ("focus" in trigger && typeof trigger.focus === "function") {
+      trigger.focus();
+    }
+  }
   function useUpdatedRef(value) {
-    const ref = (0, import_element8.useRef)(value);
-    (0, import_element8.useLayoutEffect)(() => {
+    const ref = (0, import_element7.useRef)(value);
+    (0, import_element7.useLayoutEffect)(() => {
       ref.current = value;
     }, [value]);
     return ref;
@@ -1867,30 +1208,96 @@ var wp;
     const textRef = useUpdatedRef(text);
     const onSuccessRef = useUpdatedRef(onSuccess);
     return useRefEffect((node) => {
-      const clipboard = new import_clipboard2.default(node, {
-        text() {
-          return typeof textRef.current === "function" ? textRef.current() : textRef.current || "";
+      let isActive = true;
+      const handleClick = async () => {
+        const textToCopy = typeof textRef.current === "function" ? textRef.current() : textRef.current || "";
+        const success = await copyToClipboard(textToCopy, node);
+        if (success) {
+          if (isActive) {
+            restoreFocus(node);
+          }
+          if (onSuccessRef.current) {
+            onSuccessRef.current();
+          }
         }
-      });
-      clipboard.on("success", ({ clearSelection }) => {
-        clearSelection();
-        if (onSuccessRef.current) {
-          onSuccessRef.current();
-        }
-      });
+      };
+      node.addEventListener("click", handleClick);
       return () => {
-        clipboard.destroy();
+        isActive = false;
+        node.removeEventListener("click", handleClick);
       };
     }, []);
   }
 
-  // packages/compose/build-module/hooks/use-dialog/index.js
-  var import_element13 = __toESM(require_element());
-  var import_keycodes = __toESM(require_keycodes());
+  // packages/compose/build-module/hooks/use-copy-on-click/index.mjs
+  function useCopyOnClick(ref, text, timeout = 4e3) {
+    (0, import_deprecated3.default)("wp.compose.useCopyOnClick", {
+      since: "5.8",
+      alternative: "wp.compose.useCopyToClipboard"
+    });
+    const [hasCopied, setHasCopied] = (0, import_element8.useState)(false);
+    (0, import_element8.useEffect)(() => {
+      let isActive = true;
+      let timeoutId;
+      if (!ref.current) {
+        return;
+      }
+      let targets;
+      if (typeof ref.current === "string") {
+        targets = typeof document !== "undefined" ? Array.from(document.querySelectorAll(ref.current)) : [];
+      } else if ("length" in ref.current && typeof ref.current.length === "number") {
+        targets = Array.from(ref.current);
+      } else {
+        targets = [ref.current];
+      }
+      if (targets.length === 0) {
+        return;
+      }
+      const handleClick = async (event) => {
+        const trigger = event.currentTarget;
+        if (!trigger) {
+          return;
+        }
+        const success = await copyToClipboard(
+          typeof text === "function" ? text() : text || "",
+          trigger
+        );
+        if (!isActive) {
+          return;
+        }
+        if (success) {
+          restoreFocus(trigger);
+          if (timeout) {
+            setHasCopied(true);
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(
+              () => setHasCopied(false),
+              timeout
+            );
+          }
+        }
+      };
+      for (const target of targets) {
+        target.addEventListener("click", handleClick);
+      }
+      return () => {
+        isActive = false;
+        for (const target of targets) {
+          target.removeEventListener("click", handleClick);
+        }
+        clearTimeout(timeoutId);
+      };
+    }, [ref, text, timeout]);
+    return hasCopied;
+  }
 
-  // packages/compose/build-module/hooks/use-focus-on-mount/index.js
-  var import_element9 = __toESM(require_element());
-  var import_dom2 = __toESM(require_dom());
+  // packages/compose/build-module/hooks/use-dialog/index.mjs
+  var import_element13 = __toESM(require_element(), 1);
+  var import_keycodes = __toESM(require_keycodes(), 1);
+
+  // packages/compose/build-module/hooks/use-focus-on-mount/index.mjs
+  var import_element9 = __toESM(require_element(), 1);
+  var import_dom2 = __toESM(require_dom(), 1);
   function useFocusOnMount(focusOnMount = "firstElement") {
     const focusOnMountRef = (0, import_element9.useRef)(focusOnMount);
     const setFocus = (target) => {
@@ -1901,7 +1308,7 @@ var wp;
         preventScroll: true
       });
     };
-    const timerIdRef = (0, import_element9.useRef)();
+    const timerIdRef = (0, import_element9.useRef)(void 0);
     (0, import_element9.useEffect)(() => {
       focusOnMountRef.current = focusOnMount;
     }, [focusOnMount]);
@@ -1912,11 +1319,23 @@ var wp;
       if (node.contains(node.ownerDocument?.activeElement ?? null)) {
         return;
       }
-      if (focusOnMountRef.current !== "firstElement") {
+      if (focusOnMountRef.current !== "firstElement" && focusOnMountRef.current !== "firstInputElement") {
         setFocus(node);
         return;
       }
       timerIdRef.current = setTimeout(() => {
+        if (focusOnMountRef.current === "firstInputElement") {
+          let formInput = null;
+          if (typeof window !== "undefined" && node instanceof window.Element) {
+            formInput = node.querySelector(
+              'input:not([type="hidden"]):not([disabled]), select:not([disabled]), textarea:not([disabled])'
+            );
+          }
+          if (formInput) {
+            setFocus(formInput);
+            return;
+          }
+        }
         const firstTabbable = import_dom2.focus.tabbable.find(node)[0];
         if (firstTabbable) {
           setFocus(firstTabbable);
@@ -1930,8 +1349,8 @@ var wp;
     }, []);
   }
 
-  // packages/compose/build-module/hooks/use-focus-return/index.js
-  var import_element10 = __toESM(require_element());
+  // packages/compose/build-module/hooks/use-focus-return/index.mjs
+  var import_element10 = __toESM(require_element(), 1);
   var origin = null;
   function useFocusReturn(onFocusReturn) {
     const ref = (0, import_element10.useRef)(null);
@@ -1967,8 +1386,8 @@ var wp;
   }
   var use_focus_return_default = useFocusReturn;
 
-  // packages/compose/build-module/hooks/use-focus-outside/index.js
-  var import_element11 = __toESM(require_element());
+  // packages/compose/build-module/hooks/use-focus-outside/index.mjs
+  var import_element11 = __toESM(require_element(), 1);
   var INPUT_BUTTON_TYPES = ["button", "submit"];
   function isFocusNormalizedButton(eventTarget) {
     if (!(eventTarget instanceof window.HTMLElement)) {
@@ -1991,7 +1410,7 @@ var wp;
       currentOnFocusOutsideRef.current = onFocusOutside;
     }, [onFocusOutside]);
     const preventBlurCheckRef = (0, import_element11.useRef)(false);
-    const blurCheckTimeoutIdRef = (0, import_element11.useRef)();
+    const blurCheckTimeoutIdRef = (0, import_element11.useRef)(void 0);
     const cancelBlurCheck = (0, import_element11.useCallback)(() => {
       clearTimeout(blurCheckTimeoutIdRef.current);
     }, []);
@@ -2040,8 +1459,8 @@ var wp;
     };
   }
 
-  // packages/compose/build-module/hooks/use-merge-refs/index.js
-  var import_element12 = __toESM(require_element());
+  // packages/compose/build-module/hooks/use-merge-refs/index.mjs
+  var import_element12 = __toESM(require_element(), 1);
   function assignRef(ref, value) {
     if (typeof ref === "function") {
       ref(value);
@@ -2050,7 +1469,7 @@ var wp;
     }
   }
   function useMergeRefs(refs) {
-    const element = (0, import_element12.useRef)();
+    const element = (0, import_element12.useRef)(null);
     const isAttachedRef = (0, import_element12.useRef)(false);
     const didElementChangeRef = (0, import_element12.useRef)(false);
     const previousRefsRef = (0, import_element12.useRef)([]);
@@ -2082,9 +1501,9 @@ var wp;
     }, []);
   }
 
-  // packages/compose/build-module/hooks/use-dialog/index.js
+  // packages/compose/build-module/hooks/use-dialog/index.mjs
   function useDialog(options) {
-    const currentOptions = (0, import_element13.useRef)();
+    const currentOptions = (0, import_element13.useRef)(void 0);
     const { constrainTabbing = options.focusOnMount !== false } = options;
     (0, import_element13.useEffect)(() => {
       currentOptions.current = options;
@@ -2125,7 +1544,7 @@ var wp;
   }
   var use_dialog_default = useDialog;
 
-  // packages/compose/build-module/hooks/use-disabled/index.js
+  // packages/compose/build-module/hooks/use-disabled/index.mjs
   function useDisabled({
     isDisabled: isDisabledProp = false
   } = {}) {
@@ -2172,8 +1591,8 @@ var wp;
     );
   }
 
-  // packages/compose/build-module/hooks/use-event/index.js
-  var import_element14 = __toESM(require_element());
+  // packages/compose/build-module/hooks/use-event/index.mjs
+  var import_element14 = __toESM(require_element(), 1);
   function useEvent(callback) {
     const ref = (0, import_element14.useRef)(() => {
       throw new Error(
@@ -2189,15 +1608,15 @@ var wp;
     );
   }
 
-  // packages/compose/build-module/hooks/use-dragging/index.js
-  var import_element16 = __toESM(require_element());
+  // packages/compose/build-module/hooks/use-dragging/index.mjs
+  var import_element16 = __toESM(require_element(), 1);
 
-  // packages/compose/build-module/hooks/use-isomorphic-layout-effect/index.js
-  var import_element15 = __toESM(require_element());
+  // packages/compose/build-module/hooks/use-isomorphic-layout-effect/index.mjs
+  var import_element15 = __toESM(require_element(), 1);
   var useIsomorphicLayoutEffect = typeof window !== "undefined" ? import_element15.useLayoutEffect : import_element15.useEffect;
   var use_isomorphic_layout_effect_default = useIsomorphicLayoutEffect;
 
-  // packages/compose/build-module/hooks/use-dragging/index.js
+  // packages/compose/build-module/hooks/use-dragging/index.mjs
   function useDragging({ onDragStart, onDragMove, onDragEnd }) {
     const [isDragging, setIsDragging] = (0, import_element16.useState)(false);
     const eventsRef = (0, import_element16.useRef)({
@@ -2245,8 +1664,8 @@ var wp;
     };
   }
 
-  // packages/compose/build-module/hooks/use-keyboard-shortcut/index.js
-  var import_mousetrap = __toESM(require_mousetrap());
+  // packages/compose/build-module/hooks/use-keyboard-shortcut/index.mjs
+  var import_mousetrap = __toESM(require_mousetrap(), 1);
 
   // node_modules/mousetrap/plugins/global-bind/mousetrap-global-bind.js
   (function(Mousetrap3) {
@@ -2279,9 +1698,9 @@ var wp;
     Mousetrap3.init();
   })(typeof Mousetrap !== "undefined" ? Mousetrap : void 0);
 
-  // packages/compose/build-module/hooks/use-keyboard-shortcut/index.js
-  var import_element17 = __toESM(require_element());
-  var import_keycodes2 = __toESM(require_keycodes());
+  // packages/compose/build-module/hooks/use-keyboard-shortcut/index.mjs
+  var import_element17 = __toESM(require_element(), 1);
+  var import_keycodes2 = __toESM(require_keycodes(), 1);
   function useKeyboardShortcut(shortcuts, callback, {
     bindGlobal = false,
     eventName = "keydown",
@@ -2323,10 +1742,7 @@ var wp;
         const bindFn = bindGlobal ? "bindGlobal" : "bind";
         mousetrap[bindFn](
           shortcut,
-          (...args) => (
-            /* eslint-enable jsdoc/valid-types */
-            currentCallbackRef.current(...args)
-          ),
+          (...args) => currentCallbackRef.current(...args),
           eventName
         );
       });
@@ -2337,29 +1753,32 @@ var wp;
   }
   var use_keyboard_shortcut_default = useKeyboardShortcut;
 
-  // packages/compose/build-module/hooks/use-media-query/index.js
-  var import_element18 = __toESM(require_element());
-  var matchMediaCache = /* @__PURE__ */ new Map();
-  function getMediaQueryList(query) {
+  // packages/compose/build-module/hooks/use-media-query/index.mjs
+  var import_element18 = __toESM(require_element(), 1);
+  var perWindowCache = /* @__PURE__ */ new WeakMap();
+  function getMediaQueryList(view, query) {
     if (!query) {
       return null;
+    }
+    const matchMediaCache = perWindowCache.get(view) ?? /* @__PURE__ */ new Map();
+    if (!perWindowCache.has(view)) {
+      perWindowCache.set(view, matchMediaCache);
     }
     let match = matchMediaCache.get(query);
     if (match) {
       return match;
     }
-    if (typeof window !== "undefined" && typeof window.matchMedia === "function") {
-      match = window.matchMedia(query);
+    if (typeof view?.matchMedia === "function") {
+      match = view.matchMedia(query);
       matchMediaCache.set(query, match);
       return match;
     }
     return null;
   }
-  function useMediaQuery(query) {
+  function useMediaQuery(query, view = window) {
     const source = (0, import_element18.useMemo)(() => {
-      const mediaQueryList = getMediaQueryList(query);
+      const mediaQueryList = getMediaQueryList(view, query);
       return {
-        /** @type {(onStoreChange: () => void) => () => void} */
         subscribe(onStoreChange) {
           if (!mediaQueryList) {
             return () => {
@@ -2377,7 +1796,7 @@ var wp;
           return mediaQueryList?.matches ?? false;
         }
       };
-    }, [query]);
+    }, [view, query]);
     return (0, import_element18.useSyncExternalStore)(
       source.subscribe,
       source.getValue,
@@ -2385,23 +1804,23 @@ var wp;
     );
   }
 
-  // packages/compose/build-module/hooks/use-previous/index.js
-  var import_element19 = __toESM(require_element());
+  // packages/compose/build-module/hooks/use-previous/index.mjs
+  var import_element19 = __toESM(require_element(), 1);
   function usePrevious(value) {
-    const ref = (0, import_element19.useRef)();
+    const ref = (0, import_element19.useRef)(void 0);
     (0, import_element19.useEffect)(() => {
       ref.current = value;
     }, [value]);
     return ref.current;
   }
 
-  // packages/compose/build-module/hooks/use-reduced-motion/index.js
+  // packages/compose/build-module/hooks/use-reduced-motion/index.mjs
   var useReducedMotion = () => useMediaQuery("(prefers-reduced-motion: reduce)");
   var use_reduced_motion_default = useReducedMotion;
 
-  // packages/compose/build-module/hooks/use-state-with-history/index.js
-  var import_undo_manager = __toESM(require_undo_manager());
-  var import_element20 = __toESM(require_element());
+  // packages/compose/build-module/hooks/use-state-with-history/index.mjs
+  var import_undo_manager = __toESM(require_undo_manager(), 1);
+  var import_element20 = __toESM(require_element(), 1);
   function undoRedoReducer(state, action) {
     switch (action.type) {
       case "UNDO": {
@@ -2476,8 +1895,8 @@ var wp;
     };
   }
 
-  // packages/compose/build-module/hooks/use-viewport-match/index.js
-  var import_element21 = __toESM(require_element());
+  // packages/compose/build-module/hooks/use-viewport-match/index.mjs
+  var import_element21 = __toESM(require_element(), 1);
   var BREAKPOINTS = {
     xhuge: 1920,
     huge: 1440,
@@ -2501,10 +1920,10 @@ var wp;
     null
   );
   ViewportMatchWidthContext.displayName = "ViewportMatchWidthContext";
-  var useViewportMatch = (breakpoint, operator = ">=") => {
+  var useViewportMatch = (breakpoint, operator = ">=", view = window) => {
     const simulatedWidth = (0, import_element21.useContext)(ViewportMatchWidthContext);
     const mediaQuery = !simulatedWidth && `(${CONDITIONS[operator]}: ${BREAKPOINTS[breakpoint]}px)`;
-    const mediaQueryResult = useMediaQuery(mediaQuery || void 0);
+    const mediaQueryResult = useMediaQuery(mediaQuery || void 0, view);
     if (simulatedWidth) {
       return OPERATOR_EVALUATORS[operator](
         BREAKPOINTS[breakpoint],
@@ -2516,12 +1935,12 @@ var wp;
   useViewportMatch.__experimentalWidthProvider = ViewportMatchWidthContext.Provider;
   var use_viewport_match_default = useViewportMatch;
 
-  // packages/compose/build-module/hooks/use-resize-observer/use-resize-observer.js
-  var import_element22 = __toESM(require_element());
+  // packages/compose/build-module/hooks/use-resize-observer/use-resize-observer.mjs
+  var import_element22 = __toESM(require_element(), 1);
   function useResizeObserver(callback, resizeObserverOptions = {}) {
     const callbackEvent = useEvent(callback);
-    const observedElementRef = (0, import_element22.useRef)();
-    const resizeObserverRef = (0, import_element22.useRef)();
+    const observedElementRef = (0, import_element22.useRef)(null);
+    const resizeObserverRef = (0, import_element22.useRef)(void 0);
     return useEvent((element) => {
       if (element === observedElementRef.current) {
         return;
@@ -2531,16 +1950,16 @@ var wp;
       if (observedElementRef.current) {
         resizeObserver.unobserve(observedElementRef.current);
       }
-      observedElementRef.current = element;
+      observedElementRef.current = element ?? null;
       if (element) {
         resizeObserver.observe(element, resizeObserverOptions);
       }
     });
   }
 
-  // packages/compose/build-module/hooks/use-resize-observer/legacy/index.js
-  var import_jsx_runtime7 = __toESM(require_jsx_runtime());
-  var import_element23 = __toESM(require_element());
+  // packages/compose/build-module/hooks/use-resize-observer/legacy/index.mjs
+  var import_element23 = __toESM(require_element(), 1);
+  var import_jsx_runtime7 = __toESM(require_jsx_runtime(), 1);
   var extractSize = (entry) => {
     let entrySize;
     if (!entry.contentBoxSize) {
@@ -2597,14 +2016,14 @@ var wp;
     return [resizeElement, size];
   }
 
-  // packages/compose/build-module/hooks/use-resize-observer/index.js
+  // packages/compose/build-module/hooks/use-resize-observer/index.mjs
   function useResizeObserver2(callback, options = {}) {
     return callback ? useResizeObserver(callback, options) : useLegacyResizeObserver();
   }
 
-  // packages/compose/build-module/hooks/use-async-list/index.js
-  var import_element24 = __toESM(require_element());
-  var import_priority_queue = __toESM(require_priority_queue());
+  // packages/compose/build-module/hooks/use-async-list/index.mjs
+  var import_element24 = __toESM(require_element(), 1);
+  var import_priority_queue = __toESM(require_priority_queue(), 1);
   function getFirstItemsPresentInState(list, state) {
     const firstItems = [];
     for (let i = 0; i < list.length; i++) {
@@ -2644,7 +2063,7 @@ var wp;
   }
   var use_async_list_default = useAsyncList;
 
-  // packages/compose/build-module/hooks/use-warn-on-change/index.js
+  // packages/compose/build-module/hooks/use-warn-on-change/index.mjs
   function useWarnOnChange(object, prefix = "Change detection") {
     const previousValues = usePrevious(object);
     Object.entries(previousValues ?? []).forEach(([key, value]) => {
@@ -2698,8 +2117,8 @@ var wp;
     return cache.result;
   }
 
-  // packages/compose/build-module/hooks/use-debounce/index.js
-  var import_element25 = __toESM(require_element());
+  // packages/compose/build-module/hooks/use-debounce/index.mjs
+  var import_element25 = __toESM(require_element(), 1);
   function useDebounce(fn, wait, options) {
     const debounced = useMemoOne(
       () => debounce(fn, wait ?? 0, options),
@@ -2709,8 +2128,8 @@ var wp;
     return debounced;
   }
 
-  // packages/compose/build-module/hooks/use-debounced-input/index.js
-  var import_element26 = __toESM(require_element());
+  // packages/compose/build-module/hooks/use-debounced-input/index.mjs
+  var import_element26 = __toESM(require_element(), 1);
   function useDebouncedInput(defaultValue = "") {
     const [input, setInput] = (0, import_element26.useState)(defaultValue);
     const [debouncedInput, setDebouncedState] = (0, import_element26.useState)(defaultValue);
@@ -2721,8 +2140,8 @@ var wp;
     return [input, setInput, debouncedInput];
   }
 
-  // packages/compose/build-module/hooks/use-throttle/index.js
-  var import_element27 = __toESM(require_element());
+  // packages/compose/build-module/hooks/use-throttle/index.mjs
+  var import_element27 = __toESM(require_element(), 1);
   function useThrottle(fn, wait, options) {
     const throttled = useMemoOne(
       () => throttle(fn, wait ?? 0, options),
@@ -2732,7 +2151,7 @@ var wp;
     return throttled;
   }
 
-  // packages/compose/build-module/hooks/use-drop-zone/index.js
+  // packages/compose/build-module/hooks/use-drop-zone/index.mjs
   function useDropZone({
     dropZoneElement,
     isDisabled,
@@ -2854,7 +2273,7 @@ var wp;
     );
   }
 
-  // packages/compose/build-module/hooks/use-focusable-iframe/index.js
+  // packages/compose/build-module/hooks/use-focusable-iframe/index.mjs
   function useFocusableIframe() {
     return useRefEffect((element) => {
       const { ownerDocument } = element;
@@ -2877,10 +2296,10 @@ var wp;
     }, []);
   }
 
-  // packages/compose/build-module/hooks/use-fixed-window-list/index.js
-  var import_element28 = __toESM(require_element());
-  var import_dom3 = __toESM(require_dom());
-  var import_keycodes3 = __toESM(require_keycodes());
+  // packages/compose/build-module/hooks/use-fixed-window-list/index.mjs
+  var import_element28 = __toESM(require_element(), 1);
+  var import_dom3 = __toESM(require_dom(), 1);
+  var import_keycodes3 = __toESM(require_keycodes(), 1);
   var DEFAULT_INIT_WINDOW_SIZE = 30;
   function useFixedWindowList(elementRef, itemHeight, totalItems, options) {
     const initWindowSize = options?.initWindowSize ?? DEFAULT_INIT_WINDOW_SIZE;
@@ -3008,8 +2427,8 @@ var wp;
     return [fixedListWindow, setFixedListWindow];
   }
 
-  // packages/compose/build-module/hooks/use-observable-value/index.js
-  var import_element29 = __toESM(require_element());
+  // packages/compose/build-module/hooks/use-observable-value/index.mjs
+  var import_element29 = __toESM(require_element(), 1);
   function useObservableValue(map, name) {
     const [subscribe, getValue] = (0, import_element29.useMemo)(
       () => [
@@ -3022,14 +2441,4 @@ var wp;
   }
   return __toCommonJS(index_exports);
 })();
-/*! Bundled license information:
-
-clipboard/dist/clipboard.js:
-  (*!
-   * clipboard.js v2.0.11
-   * https://clipboardjs.com/
-   *
-   * Licensed MIT © Zeno Rocha
-   *)
-*/
 //# sourceMappingURL=index.js.map

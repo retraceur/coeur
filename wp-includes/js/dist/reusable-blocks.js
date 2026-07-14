@@ -31,31 +31,52 @@ var wp;
   ));
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
-  // wordpress-external:@wordpress/data
+  // package-external:@wordpress/data
   var require_data = __commonJS({
-    "wordpress-external:@wordpress/data"(exports, module) {
+    "package-external:@wordpress/data"(exports, module) {
       module.exports = window.wp.data;
     }
   });
 
-  // wordpress-external:@wordpress/block-editor
+  // package-external:@wordpress/block-editor
   var require_block_editor = __commonJS({
-    "wordpress-external:@wordpress/block-editor"(exports, module) {
+    "package-external:@wordpress/block-editor"(exports, module) {
       module.exports = window.wp.blockEditor;
     }
   });
 
-  // wordpress-external:@wordpress/blocks
+  // package-external:@wordpress/blocks
   var require_blocks = __commonJS({
-    "wordpress-external:@wordpress/blocks"(exports, module) {
+    "package-external:@wordpress/blocks"(exports, module) {
       module.exports = window.wp.blocks;
     }
   });
 
-  // wordpress-external:@wordpress/i18n
+  // package-external:@wordpress/i18n
   var require_i18n = __commonJS({
-    "wordpress-external:@wordpress/i18n"(exports, module) {
+    "package-external:@wordpress/i18n"(exports, module) {
       module.exports = window.wp.i18n;
+    }
+  });
+
+  // package-external:@wordpress/element
+  var require_element = __commonJS({
+    "package-external:@wordpress/element"(exports, module) {
+      module.exports = window.wp.element;
+    }
+  });
+
+  // package-external:@wordpress/components
+  var require_components = __commonJS({
+    "package-external:@wordpress/components"(exports, module) {
+      module.exports = window.wp.components;
+    }
+  });
+
+  // package-external:@wordpress/primitives
+  var require_primitives = __commonJS({
+    "package-external:@wordpress/primitives"(exports, module) {
+      module.exports = window.wp.primitives;
     }
   });
 
@@ -66,59 +87,38 @@ var wp;
     }
   });
 
-  // wordpress-external:@wordpress/element
-  var require_element = __commonJS({
-    "wordpress-external:@wordpress/element"(exports, module) {
-      module.exports = window.wp.element;
-    }
-  });
-
-  // wordpress-external:@wordpress/components
-  var require_components = __commonJS({
-    "wordpress-external:@wordpress/components"(exports, module) {
-      module.exports = window.wp.components;
-    }
-  });
-
-  // wordpress-external:@wordpress/primitives
-  var require_primitives = __commonJS({
-    "wordpress-external:@wordpress/primitives"(exports, module) {
-      module.exports = window.wp.primitives;
-    }
-  });
-
-  // wordpress-external:@wordpress/notices
+  // package-external:@wordpress/notices
   var require_notices = __commonJS({
-    "wordpress-external:@wordpress/notices"(exports, module) {
+    "package-external:@wordpress/notices"(exports, module) {
       module.exports = window.wp.notices;
     }
   });
 
-  // wordpress-external:@wordpress/core-data
+  // package-external:@wordpress/core-data
   var require_core_data = __commonJS({
-    "wordpress-external:@wordpress/core-data"(exports, module) {
+    "package-external:@wordpress/core-data"(exports, module) {
       module.exports = window.wp.coreData;
     }
   });
 
-  // wordpress-external:@wordpress/url
+  // package-external:@wordpress/url
   var require_url = __commonJS({
-    "wordpress-external:@wordpress/url"(exports, module) {
+    "package-external:@wordpress/url"(exports, module) {
       module.exports = window.wp.url;
     }
   });
 
-  // packages/reusable-blocks/build-module/index.js
+  // packages/reusable-blocks/build-module/index.mjs
   var index_exports = {};
   __export(index_exports, {
     ReusableBlocksMenuItems: () => ReusableBlocksMenuItems,
     store: () => store
   });
 
-  // packages/reusable-blocks/build-module/store/index.js
-  var import_data2 = __toESM(require_data());
+  // packages/reusable-blocks/build-module/store/index.mjs
+  var import_data2 = __toESM(require_data(), 1);
 
-  // packages/reusable-blocks/build-module/store/actions.js
+  // packages/reusable-blocks/build-module/store/actions.mjs
   var actions_exports = {};
   __export(actions_exports, {
     __experimentalConvertBlockToStatic: () => __experimentalConvertBlockToStatic,
@@ -126,9 +126,9 @@ var wp;
     __experimentalDeleteReusableBlock: () => __experimentalDeleteReusableBlock,
     __experimentalSetEditingReusableBlock: () => __experimentalSetEditingReusableBlock
   });
-  var import_block_editor = __toESM(require_block_editor());
-  var import_blocks = __toESM(require_blocks());
-  var import_i18n = __toESM(require_i18n());
+  var import_block_editor = __toESM(require_block_editor(), 1);
+  var import_blocks = __toESM(require_blocks(), 1);
+  var import_i18n = __toESM(require_i18n(), 1);
   var __experimentalConvertBlockToStatic = (clientId) => ({ registry }) => {
     const oldBlock = registry.select(import_block_editor.store).getBlock(clientId);
     const reusableBlock = registry.select("core").getEditedEntityRecord(
@@ -191,8 +191,8 @@ var wp;
     };
   }
 
-  // packages/reusable-blocks/build-module/store/reducer.js
-  var import_data = __toESM(require_data());
+  // packages/reusable-blocks/build-module/store/reducer.mjs
+  var import_data = __toESM(require_data(), 1);
   function isEditingReusableBlock(state = {}, action) {
     if (action?.type === "SET_EDITING_REUSABLE_BLOCK") {
       return {
@@ -206,7 +206,7 @@ var wp;
     isEditingReusableBlock
   });
 
-  // packages/reusable-blocks/build-module/store/selectors.js
+  // packages/reusable-blocks/build-module/store/selectors.mjs
   var selectors_exports = {};
   __export(selectors_exports, {
     __experimentalIsEditingReusableBlock: () => __experimentalIsEditingReusableBlock
@@ -215,7 +215,7 @@ var wp;
     return state.isEditingReusableBlock[clientId];
   }
 
-  // packages/reusable-blocks/build-module/store/index.js
+  // packages/reusable-blocks/build-module/store/index.mjs
   var STORE_NAME = "core/reusable-blocks";
   var store = (0, import_data2.createReduxStore)(STORE_NAME, {
     actions: actions_exports,
@@ -224,27 +224,26 @@ var wp;
   });
   (0, import_data2.register)(store);
 
-  // packages/reusable-blocks/build-module/components/reusable-blocks-menu-items/index.js
-  var import_jsx_runtime4 = __toESM(require_jsx_runtime());
-  var import_block_editor4 = __toESM(require_block_editor());
+  // packages/reusable-blocks/build-module/components/reusable-blocks-menu-items/index.mjs
+  var import_block_editor4 = __toESM(require_block_editor(), 1);
 
-  // packages/reusable-blocks/build-module/components/reusable-blocks-menu-items/reusable-block-convert-button.js
-  var import_jsx_runtime2 = __toESM(require_jsx_runtime());
-  var import_blocks2 = __toESM(require_blocks());
-  var import_block_editor2 = __toESM(require_block_editor());
-  var import_element = __toESM(require_element());
-  var import_components = __toESM(require_components());
+  // packages/reusable-blocks/build-module/components/reusable-blocks-menu-items/reusable-block-convert-button.mjs
+  var import_blocks2 = __toESM(require_blocks(), 1);
+  var import_block_editor2 = __toESM(require_block_editor(), 1);
+  var import_element = __toESM(require_element(), 1);
+  var import_components = __toESM(require_components(), 1);
 
-  // packages/icons/build-module/library/symbol.js
-  var import_jsx_runtime = __toESM(require_jsx_runtime());
-  var import_primitives = __toESM(require_primitives());
+  // packages/icons/build-module/library/symbol.mjs
+  var import_primitives = __toESM(require_primitives(), 1);
+  var import_jsx_runtime = __toESM(require_jsx_runtime(), 1);
   var symbol_default = /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_primitives.SVG, { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 24 24", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_primitives.Path, { d: "M21.3 10.8l-5.6-5.6c-.7-.7-1.8-.7-2.5 0l-5.6 5.6c-.7.7-.7 1.8 0 2.5l5.6 5.6c.3.3.8.5 1.2.5s.9-.2 1.2-.5l5.6-5.6c.8-.7.8-1.9.1-2.5zm-1 1.4l-5.6 5.6c-.1.1-.3.1-.4 0l-5.6-5.6c-.1-.1-.1-.3 0-.4l5.6-5.6s.1-.1.2-.1.1 0 .2.1l5.6 5.6c.1.1.1.3 0 .4zm-16.6-.4L10 5.5l-1-1-6.3 6.3c-.7.7-.7 1.8 0 2.5L9 19.5l1.1-1.1-6.3-6.3c-.2 0-.2-.2-.1-.3z" }) });
 
-  // packages/reusable-blocks/build-module/components/reusable-blocks-menu-items/reusable-block-convert-button.js
-  var import_data3 = __toESM(require_data());
-  var import_i18n2 = __toESM(require_i18n());
-  var import_notices = __toESM(require_notices());
-  var import_core_data = __toESM(require_core_data());
+  // packages/reusable-blocks/build-module/components/reusable-blocks-menu-items/reusable-block-convert-button.mjs
+  var import_data3 = __toESM(require_data(), 1);
+  var import_i18n2 = __toESM(require_i18n(), 1);
+  var import_notices = __toESM(require_notices(), 1);
+  var import_core_data = __toESM(require_core_data(), 1);
+  var import_jsx_runtime2 = __toESM(require_jsx_runtime(), 1);
   function ReusableBlockConvertButton({
     clientIds,
     rootClientId,
@@ -358,7 +357,6 @@ var wp;
                   import_components.TextControl,
                   {
                     __next40pxDefaultSize: true,
-                    __nextHasNoMarginBottom: true,
                     label: (0, import_i18n2.__)("Name"),
                     value: title,
                     onChange: setTitle,
@@ -368,7 +366,6 @@ var wp;
                 /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
                   import_components.ToggleControl,
                   {
-                    __nextHasNoMarginBottom: true,
                     label: (0, import_i18n2._x)("Synced", "pattern (singular)"),
                     help: (0, import_i18n2.__)(
                       "Sync this pattern across multiple locations."
@@ -412,16 +409,18 @@ var wp;
     ] });
   }
 
-  // packages/reusable-blocks/build-module/components/reusable-blocks-menu-items/reusable-blocks-manage-button.js
-  var import_jsx_runtime3 = __toESM(require_jsx_runtime());
-  var import_components2 = __toESM(require_components());
-  var import_i18n3 = __toESM(require_i18n());
-  var import_blocks3 = __toESM(require_blocks());
-  var import_data4 = __toESM(require_data());
-  var import_block_editor3 = __toESM(require_block_editor());
-  var import_url = __toESM(require_url());
-  var import_core_data2 = __toESM(require_core_data());
+  // packages/reusable-blocks/build-module/components/reusable-blocks-menu-items/reusable-blocks-manage-button.mjs
+  var import_components2 = __toESM(require_components(), 1);
+  var import_i18n3 = __toESM(require_i18n(), 1);
+  var import_blocks3 = __toESM(require_blocks(), 1);
+  var import_data4 = __toESM(require_data(), 1);
+  var import_element2 = __toESM(require_element(), 1);
+  var import_block_editor3 = __toESM(require_block_editor(), 1);
+  var import_url = __toESM(require_url(), 1);
+  var import_core_data2 = __toESM(require_core_data(), 1);
+  var import_jsx_runtime3 = __toESM(require_jsx_runtime(), 1);
   function ReusableBlocksManageButton({ clientId }) {
+    const [showConfirmDialog, setShowConfirmDialog] = (0, import_element2.useState)(false);
     const { canRemove, isVisible, managePatternsUrl } = (0, import_data4.useSelect)(
       (select) => {
         const { getBlock, canRemoveBlock } = select(import_block_editor3.store);
@@ -453,14 +452,36 @@ var wp;
     if (!isVisible) {
       return null;
     }
+    const handleDetach = () => {
+      convertBlockToStatic(clientId);
+      setShowConfirmDialog(false);
+    };
     return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(import_jsx_runtime3.Fragment, { children: [
       /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_components2.MenuItem, { href: managePatternsUrl, children: (0, import_i18n3.__)("Manage patterns") }),
-      canRemove && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_components2.MenuItem, { onClick: () => convertBlockToStatic(clientId), children: (0, import_i18n3.__)("Detach") })
+      canRemove && /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(import_jsx_runtime3.Fragment, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_components2.MenuItem, { onClick: () => setShowConfirmDialog(true), children: (0, import_i18n3.__)("Disconnect pattern") }),
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+          import_components2.__experimentalConfirmDialog,
+          {
+            isOpen: showConfirmDialog,
+            onConfirm: handleDetach,
+            onCancel: () => setShowConfirmDialog(false),
+            confirmButtonText: (0, import_i18n3.__)("Disconnect"),
+            size: "medium",
+            title: (0, import_i18n3.__)("Disconnect pattern?"),
+            __experimentalHideHeader: false,
+            children: (0, import_i18n3.__)(
+              "Blocks will be separated from the original pattern and will be fully editable. Future changes to the pattern will not apply here."
+            )
+          }
+        )
+      ] })
     ] });
   }
   var reusable_blocks_manage_button_default = ReusableBlocksManageButton;
 
-  // packages/reusable-blocks/build-module/components/reusable-blocks-menu-items/index.js
+  // packages/reusable-blocks/build-module/components/reusable-blocks-menu-items/index.mjs
+  var import_jsx_runtime4 = __toESM(require_jsx_runtime(), 1);
   function ReusableBlocksMenuItems({ rootClientId }) {
     return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_block_editor4.BlockSettingsMenuControls, { children: ({ onClose, selectedClientIds }) => /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(import_jsx_runtime4.Fragment, { children: [
       /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(

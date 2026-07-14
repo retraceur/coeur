@@ -32,70 +32,84 @@ var wp;
   ));
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
-  // wordpress-external:@wordpress/data
+  // package-external:@wordpress/data
   var require_data = __commonJS({
-    "wordpress-external:@wordpress/data"(exports, module) {
+    "package-external:@wordpress/data"(exports, module) {
       module.exports = window.wp.data;
     }
   });
 
-  // wordpress-external:@wordpress/escape-html
+  // package-external:@wordpress/escape-html
   var require_escape_html = __commonJS({
-    "wordpress-external:@wordpress/escape-html"(exports, module) {
+    "package-external:@wordpress/escape-html"(exports, module) {
       module.exports = window.wp.escapeHtml;
     }
   });
 
-  // wordpress-external:@wordpress/a11y
+  // package-external:@wordpress/a11y
   var require_a11y = __commonJS({
-    "wordpress-external:@wordpress/a11y"(exports, module) {
+    "package-external:@wordpress/a11y"(exports, module) {
       module.exports = window.wp.a11y;
     }
   });
 
-  // wordpress-external:@wordpress/i18n
+  // package-external:@wordpress/i18n
   var require_i18n = __commonJS({
-    "wordpress-external:@wordpress/i18n"(exports, module) {
+    "package-external:@wordpress/i18n"(exports, module) {
       module.exports = window.wp.i18n;
     }
   });
 
-  // wordpress-external:@wordpress/element
+  // package-external:@wordpress/private-apis
+  var require_private_apis = __commonJS({
+    "package-external:@wordpress/private-apis"(exports, module) {
+      module.exports = window.wp.privateApis;
+    }
+  });
+
+  // package-external:@wordpress/element
   var require_element = __commonJS({
-    "wordpress-external:@wordpress/element"(exports, module) {
+    "package-external:@wordpress/element"(exports, module) {
       module.exports = window.wp.element;
     }
   });
 
-  // wordpress-external:@wordpress/deprecated
-  var require_deprecated = __commonJS({
-    "wordpress-external:@wordpress/deprecated"(exports, module) {
-      module.exports = window.wp.deprecated;
-    }
-  });
-
-  // wordpress-external:@wordpress/compose
+  // package-external:@wordpress/compose
   var require_compose = __commonJS({
-    "wordpress-external:@wordpress/compose"(exports, module) {
+    "package-external:@wordpress/compose"(exports, module) {
       module.exports = window.wp.compose;
     }
   });
 
-  // wordpress-external:@wordpress/keycodes
+  // package-external:@wordpress/deprecated
+  var require_deprecated = __commonJS({
+    "package-external:@wordpress/deprecated"(exports, module) {
+      module.exports = window.wp.deprecated;
+    }
+  });
+
+  // package-external:@wordpress/keycodes
   var require_keycodes = __commonJS({
-    "wordpress-external:@wordpress/keycodes"(exports, module) {
+    "package-external:@wordpress/keycodes"(exports, module) {
       module.exports = window.wp.keycodes;
     }
   });
 
-  // packages/rich-text/build-module/index.js
+  // package-external:@wordpress/dom
+  var require_dom = __commonJS({
+    "package-external:@wordpress/dom"(exports, module) {
+      module.exports = window.wp.dom;
+    }
+  });
+
+  // packages/rich-text/build-module/index.mjs
   var index_exports = {};
   __export(index_exports, {
     RichTextData: () => RichTextData,
     __experimentalRichText: () => __experimentalRichText,
     __unstableCreateElement: () => createElement,
     __unstableToDom: () => toDom,
-    __unstableUseRichText: () => useRichText,
+    __unstableUseRichText: () => __unstableUseRichText,
     applyFormat: () => applyFormat,
     concat: () => concat,
     create: () => create,
@@ -108,6 +122,7 @@ var wp;
     isCollapsed: () => isCollapsed,
     isEmpty: () => isEmpty,
     join: () => join,
+    privateApis: () => privateApis,
     registerFormatType: () => registerFormatType,
     remove: () => remove2,
     removeFormat: () => removeFormat,
@@ -122,11 +137,11 @@ var wp;
     useAnchorRef: () => useAnchorRef
   });
 
-  // packages/rich-text/build-module/store/index.js
-  var import_data3 = __toESM(require_data());
+  // packages/rich-text/build-module/store/index.mjs
+  var import_data3 = __toESM(require_data(), 1);
 
-  // packages/rich-text/build-module/store/reducer.js
-  var import_data = __toESM(require_data());
+  // packages/rich-text/build-module/store/reducer.mjs
+  var import_data = __toESM(require_data(), 1);
   function formatTypes(state = {}, action) {
     switch (action.type) {
       case "ADD_FORMAT_TYPES":
@@ -152,7 +167,7 @@ var wp;
   }
   var reducer_default = (0, import_data.combineReducers)({ formatTypes });
 
-  // packages/rich-text/build-module/store/selectors.js
+  // packages/rich-text/build-module/store/selectors.mjs
   var selectors_exports = {};
   __export(selectors_exports, {
     getFormatType: () => getFormatType,
@@ -160,7 +175,7 @@ var wp;
     getFormatTypeForClassName: () => getFormatTypeForClassName,
     getFormatTypes: () => getFormatTypes
   });
-  var import_data2 = __toESM(require_data());
+  var import_data2 = __toESM(require_data(), 1);
   var getFormatTypes = (0, import_data2.createSelector)(
     (state) => Object.values(state.formatTypes),
     (state) => [state.formatTypes]
@@ -185,7 +200,7 @@ var wp;
     });
   }
 
-  // packages/rich-text/build-module/store/actions.js
+  // packages/rich-text/build-module/store/actions.mjs
   var actions_exports = {};
   __export(actions_exports, {
     addFormatTypes: () => addFormatTypes,
@@ -204,7 +219,7 @@ var wp;
     };
   }
 
-  // packages/rich-text/build-module/store/index.js
+  // packages/rich-text/build-module/store/index.mjs
   var STORE_NAME = "core/rich-text";
   var store = (0, import_data3.createReduxStore)(STORE_NAME, {
     reducer: reducer_default,
@@ -213,7 +228,7 @@ var wp;
   });
   (0, import_data3.register)(store);
 
-  // packages/rich-text/build-module/is-format-equal.js
+  // packages/rich-text/build-module/is-format-equal.mjs
   function isFormatEqual(format1, format2) {
     if (format1 === format2) {
       return true;
@@ -247,7 +262,7 @@ var wp;
     return true;
   }
 
-  // packages/rich-text/build-module/normalise-formats.js
+  // packages/rich-text/build-module/normalise-formats.mjs
   function normaliseFormats(value) {
     const newFormats = value.formats.slice();
     newFormats.forEach((formatsAtIndex, index) => {
@@ -269,7 +284,7 @@ var wp;
     };
   }
 
-  // packages/rich-text/build-module/apply-format.js
+  // packages/rich-text/build-module/apply-format.mjs
   function replace(array, index, value) {
     array = array.slice();
     array[index] = value;
@@ -337,10 +352,10 @@ var wp;
     });
   }
 
-  // packages/rich-text/build-module/create.js
-  var import_data5 = __toESM(require_data());
+  // packages/rich-text/build-module/create.mjs
+  var import_data5 = __toESM(require_data(), 1);
 
-  // packages/rich-text/build-module/create-element.js
+  // packages/rich-text/build-module/create-element.mjs
   function createElement({ implementation }, html) {
     if (!createElement.body) {
       createElement.body = implementation.createHTMLDocument("").body;
@@ -349,14 +364,14 @@ var wp;
     return createElement.body;
   }
 
-  // packages/rich-text/build-module/special-characters.js
+  // packages/rich-text/build-module/special-characters.mjs
   var OBJECT_REPLACEMENT_CHARACTER = "\uFFFC";
   var ZWNBSP = "\uFEFF";
 
-  // packages/rich-text/build-module/to-html-string.js
-  var import_escape_html = __toESM(require_escape_html());
+  // packages/rich-text/build-module/to-html-string.mjs
+  var import_escape_html = __toESM(require_escape_html(), 1);
 
-  // packages/rich-text/build-module/get-active-formats.js
+  // packages/rich-text/build-module/get-active-formats.mjs
   function getActiveFormats(value, EMPTY_ACTIVE_FORMATS3 = []) {
     const { formats, start, end, activeFormats } = value;
     if (start === void 0) {
@@ -400,13 +415,13 @@ var wp;
     return _activeFormats || EMPTY_ACTIVE_FORMATS3;
   }
 
-  // packages/rich-text/build-module/get-format-type.js
-  var import_data4 = __toESM(require_data());
+  // packages/rich-text/build-module/get-format-type.mjs
+  var import_data4 = __toESM(require_data(), 1);
   function getFormatType2(name) {
     return (0, import_data4.select)(store).getFormatType(name);
   }
 
-  // packages/rich-text/build-module/to-tree.js
+  // packages/rich-text/build-module/to-tree.mjs
   function restoreOnAttributes(attributes, isEditableTree) {
     if (isEditableTree) {
       return attributes;
@@ -664,7 +679,7 @@ var wp;
     return tree;
   }
 
-  // packages/rich-text/build-module/to-html-string.js
+  // packages/rich-text/build-module/to-html-string.mjs
   function toHTMLString({ value, preserveWhiteSpace }) {
     const tree = toTree({
       value,
@@ -743,12 +758,12 @@ var wp;
     }).join("");
   }
 
-  // packages/rich-text/build-module/get-text-content.js
+  // packages/rich-text/build-module/get-text-content.mjs
   function getTextContent({ text }) {
     return text.replace(OBJECT_REPLACEMENT_CHARACTER, "");
   }
 
-  // packages/rich-text/build-module/create.js
+  // packages/rich-text/build-module/create.mjs
   function createEmptyValue() {
     return {
       formats: [],
@@ -959,7 +974,7 @@ var wp;
     }
     return { startContainer, startOffset, endContainer, endOffset };
   }
-  function collapseWhiteSpace(element, isRoot = true) {
+  function collapseWhiteSpace(element, isRoot = true, hasPrecedingSpace = false, hasTrailingSpace = false) {
     const clone = element.cloneNode(true);
     clone.normalize();
     Array.from(clone.childNodes).forEach((node, i2, nodes) => {
@@ -971,14 +986,25 @@ var wp;
         if (newNodeValue.indexOf("  ") !== -1) {
           newNodeValue = newNodeValue.replace(/ {2,}/g, " ");
         }
-        if (i2 === 0 && newNodeValue.startsWith(" ")) {
+        if (i2 === 0 && newNodeValue.startsWith(" ") && (isRoot || hasPrecedingSpace)) {
           newNodeValue = newNodeValue.slice(1);
-        } else if (isRoot && i2 === nodes.length - 1 && newNodeValue.endsWith(" ")) {
+        }
+        if (i2 === nodes.length - 1 && newNodeValue.endsWith(" ") && (isRoot || hasTrailingSpace)) {
           newNodeValue = newNodeValue.slice(0, -1);
         }
         node.nodeValue = newNodeValue;
       } else if (node.nodeType === node.ELEMENT_NODE) {
-        node.replaceWith(collapseWhiteSpace(node, false));
+        const { previousSibling, nextSibling } = node;
+        const prevHasSpace = previousSibling?.textContent.endsWith(" ");
+        const nextHasSpace = nextSibling?.textContent.startsWith(" ");
+        node.replaceWith(
+          collapseWhiteSpace(
+            node,
+            false,
+            previousSibling ? prevHasSpace : isRoot || hasPrecedingSpace,
+            nextSibling ? nextHasSpace : isRoot || hasTrailingSpace
+          )
+        );
       }
     });
     return clone;
@@ -1140,7 +1166,7 @@ var wp;
     return accumulator;
   }
 
-  // packages/rich-text/build-module/concat.js
+  // packages/rich-text/build-module/concat.mjs
   function mergePair(a2, b2) {
     a2.formats = a2.formats.concat(b2.formats);
     a2.replacements = a2.replacements.concat(b2.replacements);
@@ -1151,14 +1177,14 @@ var wp;
     return normaliseFormats(values.reduce(mergePair, create()));
   }
 
-  // packages/rich-text/build-module/get-active-format.js
+  // packages/rich-text/build-module/get-active-format.mjs
   function getActiveFormat(value, formatType) {
     return getActiveFormats(value).find(
       ({ type }) => type === formatType
     );
   }
 
-  // packages/rich-text/build-module/get-active-object.js
+  // packages/rich-text/build-module/get-active-object.mjs
   function getActiveObject({ start, end, replacements, text }) {
     if (start + 1 !== end || text[start] !== OBJECT_REPLACEMENT_CHARACTER) {
       return;
@@ -1166,7 +1192,7 @@ var wp;
     return replacements[start];
   }
 
-  // packages/rich-text/build-module/is-collapsed.js
+  // packages/rich-text/build-module/is-collapsed.mjs
   function isCollapsed({
     start,
     end
@@ -1177,12 +1203,12 @@ var wp;
     return start === end;
   }
 
-  // packages/rich-text/build-module/is-empty.js
+  // packages/rich-text/build-module/is-empty.mjs
   function isEmpty({ text }) {
     return text.length === 0;
   }
 
-  // packages/rich-text/build-module/join.js
+  // packages/rich-text/build-module/join.mjs
   function join(values, separator = "") {
     if (typeof separator === "string") {
       separator = create({ text: separator });
@@ -1199,8 +1225,8 @@ var wp;
     );
   }
 
-  // packages/rich-text/build-module/register-format-type.js
-  var import_data6 = __toESM(require_data());
+  // packages/rich-text/build-module/register-format-type.mjs
+  var import_data6 = __toESM(require_data(), 1);
   function registerFormatType(name, settings) {
     settings = {
       name,
@@ -1279,7 +1305,7 @@ var wp;
     return settings;
   }
 
-  // packages/rich-text/build-module/remove-format.js
+  // packages/rich-text/build-module/remove-format.mjs
   function removeFormat(value, formatType, startIndex = value.start, endIndex = value.end) {
     const { formats, activeFormats } = value;
     const newFormats = formats.slice();
@@ -1326,7 +1352,7 @@ var wp;
     }
   }
 
-  // packages/rich-text/build-module/insert.js
+  // packages/rich-text/build-module/insert.mjs
   function insert(value, valueToInsert, startIndex = value.start, endIndex = value.end) {
     const { formats, replacements, text } = value;
     if (typeof valueToInsert === "string") {
@@ -1345,12 +1371,12 @@ var wp;
     });
   }
 
-  // packages/rich-text/build-module/remove.js
+  // packages/rich-text/build-module/remove.mjs
   function remove2(value, startIndex, endIndex) {
     return insert(value, create(), startIndex, endIndex);
   }
 
-  // packages/rich-text/build-module/replace.js
+  // packages/rich-text/build-module/replace.mjs
   function replace2({ formats, replacements, text, start, end }, pattern, replacement) {
     text = text.replace(pattern, (match, ...rest) => {
       const offset = rest[rest.length - 2];
@@ -1384,7 +1410,7 @@ var wp;
     return normaliseFormats({ formats, replacements, text, start, end });
   }
 
-  // packages/rich-text/build-module/insert-object.js
+  // packages/rich-text/build-module/insert-object.mjs
   function insertObject(value, formatToInsert, startIndex, endIndex) {
     const valueToInsert = {
       formats: [,],
@@ -1394,7 +1420,7 @@ var wp;
     return insert(value, valueToInsert, startIndex, endIndex);
   }
 
-  // packages/rich-text/build-module/slice.js
+  // packages/rich-text/build-module/slice.mjs
   function slice(value, startIndex = value.start, endIndex = value.end) {
     const { formats, replacements, text } = value;
     if (startIndex === void 0 || endIndex === void 0) {
@@ -1407,7 +1433,7 @@ var wp;
     };
   }
 
-  // packages/rich-text/build-module/split.js
+  // packages/rich-text/build-module/split.mjs
   function split({ formats, replacements, text, start, end }, string) {
     if (typeof string !== "string") {
       return splitAtSelection(...arguments);
@@ -1458,12 +1484,12 @@ var wp;
     return [before, after];
   }
 
-  // packages/rich-text/build-module/is-range-equal.js
+  // packages/rich-text/build-module/is-range-equal.mjs
   function isRangeEqual(a2, b2) {
     return a2 === b2 || a2 && b2 && a2.startContainer === b2.startContainer && a2.startOffset === b2.startOffset && a2.endContainer === b2.endContainer && a2.endOffset === b2.endOffset;
   }
 
-  // packages/rich-text/build-module/to-dom.js
+  // packages/rich-text/build-module/to-dom.mjs
   var MATHML_NAMESPACE = "http://www.w3.org/1998/Math/MathML";
   function createPathToNode(node, rootNode, path) {
     const parentNode = node.parentNode;
@@ -1678,9 +1704,9 @@ var wp;
     }
   }
 
-  // packages/rich-text/build-module/toggle-format.js
-  var import_a11y = __toESM(require_a11y());
-  var import_i18n = __toESM(require_i18n());
+  // packages/rich-text/build-module/toggle-format.mjs
+  var import_a11y = __toESM(require_a11y(), 1);
+  var import_i18n = __toESM(require_i18n(), 1);
   function toggleFormat(value, format) {
     if (getActiveFormat(value, format.type)) {
       if (format.title) {
@@ -1708,8 +1734,8 @@ var wp;
     return applyFormat(value, format);
   }
 
-  // packages/rich-text/build-module/unregister-format-type.js
-  var import_data7 = __toESM(require_data());
+  // packages/rich-text/build-module/unregister-format-type.mjs
+  var import_data7 = __toESM(require_data(), 1);
   function unregisterFormatType(name) {
     const oldFormat = (0, import_data7.select)(store).getFormatType(name);
     if (!oldFormat) {
@@ -1720,168 +1746,28 @@ var wp;
     return oldFormat;
   }
 
-  // packages/rich-text/build-module/component/use-anchor-ref.js
-  var import_element = __toESM(require_element());
-  var import_deprecated = __toESM(require_deprecated());
-  function useAnchorRef({ ref, value, settings = {} }) {
-    (0, import_deprecated.default)("`useAnchorRef` hook", {
-      since: "6.1",
-      alternative: "`useAnchor` hook"
-    });
-    const { tagName, className, name } = settings;
-    const activeFormat = name ? getActiveFormat(value, name) : void 0;
-    return (0, import_element.useMemo)(() => {
-      if (!ref.current) {
-        return;
-      }
-      const {
-        ownerDocument: { defaultView }
-      } = ref.current;
-      const selection = defaultView.getSelection();
-      if (!selection.rangeCount) {
-        return;
-      }
-      const range = selection.getRangeAt(0);
-      if (!activeFormat) {
-        return range;
-      }
-      let element = range.startContainer;
-      element = element.nextElementSibling || element;
-      while (element.nodeType !== element.ELEMENT_NODE) {
-        element = element.parentNode;
-      }
-      return element.closest(
-        tagName + (className ? "." + className : "")
-      );
-    }, [activeFormat, value.start, value.end, tagName, className]);
-  }
+  // packages/rich-text/build-module/lock-unlock.mjs
+  var import_private_apis = __toESM(require_private_apis(), 1);
+  var { lock, unlock } = (0, import_private_apis.__dangerousOptInToUnstableAPIsOnlyForCoreModules)(
+    "I acknowledge private features are not for use in themes or plugins and doing so will break in the next version of Retraceur.",
+    "@wordpress/rich-text"
+  );
 
-  // packages/rich-text/build-module/component/use-anchor.js
-  var import_compose = __toESM(require_compose());
-  var import_element2 = __toESM(require_element());
-  function getFormatElement(range, editableContentElement, tagName, className) {
-    let element = range.startContainer;
-    if (element.nodeType === element.TEXT_NODE && range.startOffset === element.length && element.nextSibling) {
-      element = element.nextSibling;
-      while (element.firstChild) {
-        element = element.firstChild;
-      }
-    }
-    if (element.nodeType !== element.ELEMENT_NODE) {
-      element = element.parentElement;
-    }
-    if (!element) {
-      return;
-    }
-    if (element === editableContentElement) {
-      return;
-    }
-    if (!editableContentElement.contains(element)) {
-      return;
-    }
-    const selector = tagName + (className ? "." + className : "");
-    while (element !== editableContentElement) {
-      if (element.matches(selector)) {
-        return element;
-      }
-      element = element.parentElement;
-    }
-  }
-  function createVirtualAnchorElement(range, editableContentElement) {
-    return {
-      contextElement: editableContentElement,
-      getBoundingClientRect() {
-        return editableContentElement.contains(range.startContainer) ? range.getBoundingClientRect() : editableContentElement.getBoundingClientRect();
-      }
-    };
-  }
-  function getAnchor(editableContentElement, tagName, className) {
-    if (!editableContentElement) {
-      return;
-    }
-    const { ownerDocument } = editableContentElement;
-    const { defaultView } = ownerDocument;
-    const selection = defaultView.getSelection();
-    if (!selection) {
-      return;
-    }
-    if (!selection.rangeCount) {
-      return;
-    }
-    const range = selection.getRangeAt(0);
-    if (!range || !range.startContainer) {
-      return;
-    }
-    const formatElement = getFormatElement(
-      range,
-      editableContentElement,
-      tagName,
-      className
-    );
-    if (formatElement) {
-      return formatElement;
-    }
-    return createVirtualAnchorElement(range, editableContentElement);
-  }
-  function useAnchor({ editableContentElement, settings = {} }) {
-    const { tagName, className, isActive } = settings;
-    const [anchor, setAnchor] = (0, import_element2.useState)(
-      () => getAnchor(editableContentElement, tagName, className)
-    );
-    const wasActive = (0, import_compose.usePrevious)(isActive);
-    (0, import_element2.useLayoutEffect)(() => {
-      if (!editableContentElement) {
-        return;
-      }
-      function callback() {
-        setAnchor(
-          getAnchor(editableContentElement, tagName, className)
-        );
-      }
-      function attach() {
-        ownerDocument.addEventListener("selectionchange", callback);
-      }
-      function detach() {
-        ownerDocument.removeEventListener("selectionchange", callback);
-      }
-      const { ownerDocument } = editableContentElement;
-      if (editableContentElement === ownerDocument.activeElement || // When a link is created, we need to attach the popover to the newly created anchor.
-      !wasActive && isActive || // Sometimes we're _removing_ an active anchor, such as the inline color popover.
-      // When we add the color, it switches from a virtual anchor to a `<mark>` element.
-      // When we _remove_ the color, it switches from a `<mark>` element to a virtual anchor.
-      wasActive && !isActive) {
-        setAnchor(
-          getAnchor(editableContentElement, tagName, className)
-        );
-        attach();
-      }
-      editableContentElement.addEventListener("focusin", attach);
-      editableContentElement.addEventListener("focusout", detach);
-      return () => {
-        detach();
-        editableContentElement.removeEventListener("focusin", attach);
-        editableContentElement.removeEventListener("focusout", detach);
-      };
-    }, [editableContentElement, tagName, className, isActive, wasActive]);
-    return anchor;
-  }
+  // packages/rich-text/build-module/hook/index.mjs
+  var import_element5 = __toESM(require_element(), 1);
+  var import_compose2 = __toESM(require_compose(), 1);
+  var import_data9 = __toESM(require_data(), 1);
+  var import_deprecated = __toESM(require_deprecated(), 1);
 
-  // packages/rich-text/build-module/component/index.js
-  var import_element6 = __toESM(require_element());
-  var import_compose3 = __toESM(require_compose());
-  var import_data8 = __toESM(require_data());
-
-  // packages/rich-text/build-module/component/use-default-style.js
-  var import_element3 = __toESM(require_element());
+  // packages/rich-text/build-module/hook/use-default-style.mjs
+  var import_element = __toESM(require_element(), 1);
   var whiteSpace = "pre-wrap";
-  var minWidth = "1px";
   function useDefaultStyle() {
-    return (0, import_element3.useCallback)((element) => {
+    return (0, import_element.useCallback)((element) => {
       if (!element) {
         return;
       }
       element.style.whiteSpace = whiteSpace;
-      element.style.minWidth = minWidth;
     }, []);
   }
 
@@ -2043,13 +1929,13 @@ var wp;
     return r2 instanceof j ? r2 : new j(r2);
   };
 
-  // packages/rich-text/build-module/component/use-boundary-style.js
-  var import_element4 = __toESM(require_element());
+  // packages/rich-text/build-module/hook/use-boundary-style.mjs
+  var import_element2 = __toESM(require_element(), 1);
   function useBoundaryStyle({ record }) {
-    const ref = (0, import_element4.useRef)();
+    const ref = (0, import_element2.useRef)();
     const { activeFormats = [], replacements, start } = record.current;
     const activeReplacement = replacements[start];
-    (0, import_element4.useEffect)(() => {
+    (0, import_element2.useEffect)(() => {
       if ((!activeFormats || !activeFormats.length) && !activeReplacement) {
         return;
       }
@@ -2079,11 +1965,11 @@ var wp;
     return ref;
   }
 
-  // packages/rich-text/build-module/component/event-listeners/index.js
-  var import_element5 = __toESM(require_element());
-  var import_compose2 = __toESM(require_compose());
+  // packages/rich-text/build-module/hook/event-listeners/index.mjs
+  var import_element3 = __toESM(require_element(), 1);
+  var import_compose = __toESM(require_compose(), 1);
 
-  // packages/rich-text/build-module/component/event-listeners/copy-handler.js
+  // packages/rich-text/build-module/hook/event-listeners/copy-handler.mjs
   var copy_handler_default = (props) => (element) => {
     function onCopy(event) {
       const { record } = props.current;
@@ -2111,7 +1997,7 @@ var wp;
     };
   };
 
-  // packages/rich-text/build-module/component/event-listeners/select-object.js
+  // packages/rich-text/build-module/hook/event-listeners/select-object.mjs
   var select_object_default = () => (element) => {
     function onClick(event) {
       const { target } = event;
@@ -2144,8 +2030,8 @@ var wp;
     };
   };
 
-  // packages/rich-text/build-module/component/event-listeners/format-boundaries.js
-  var import_keycodes = __toESM(require_keycodes());
+  // packages/rich-text/build-module/hook/event-listeners/format-boundaries.mjs
+  var import_keycodes = __toESM(require_keycodes(), 1);
   var EMPTY_ACTIVE_FORMATS = [];
   var format_boundaries_default = (props) => (element) => {
     function onKeyDown(event) {
@@ -2215,8 +2101,8 @@ var wp;
     };
   };
 
-  // packages/rich-text/build-module/component/event-listeners/delete.js
-  var import_keycodes2 = __toESM(require_keycodes());
+  // packages/rich-text/build-module/hook/event-listeners/delete.mjs
+  var import_keycodes2 = __toESM(require_keycodes(), 1);
   var delete_default = (props) => (element) => {
     function onKeyDown(event) {
       const { keyCode } = event;
@@ -2240,7 +2126,7 @@ var wp;
     };
   };
 
-  // packages/rich-text/build-module/update-formats.js
+  // packages/rich-text/build-module/update-formats.mjs
   function updateFormats({ value, start, end, formats }) {
     const min = Math.min(start, end);
     const max = Math.max(start, end);
@@ -2268,7 +2154,7 @@ var wp;
     return value;
   }
 
-  // packages/rich-text/build-module/component/event-listeners/input-and-selection.js
+  // packages/rich-text/build-module/hook/event-listeners/input-and-selection.mjs
   var INSERTION_INPUT_TYPES_TO_IGNORE = /* @__PURE__ */ new Set([
     "insertParagraph",
     "insertOrderedList",
@@ -2309,11 +2195,12 @@ var wp;
       }
       const currentValue = createRecord();
       const { start, activeFormats: oldActiveFormats = [] } = record.current;
+      const clearFormats = !isCollapsed(record.current) && currentValue.start <= start;
       const change = updateFormats({
         value: currentValue,
         start,
         end: currentValue.start,
-        formats: oldActiveFormats
+        formats: clearFormats ? [] : oldActiveFormats
       });
       handleChange(change);
     }
@@ -2414,7 +2301,7 @@ var wp;
     };
   };
 
-  // packages/rich-text/build-module/component/event-listeners/selection-change-compat.js
+  // packages/rich-text/build-module/hook/event-listeners/selection-change-compat.mjs
   var selection_change_compat_default = () => (element) => {
     const { ownerDocument } = element;
     const { defaultView } = ownerDocument;
@@ -2450,7 +2337,7 @@ var wp;
     };
   };
 
-  // packages/rich-text/build-module/component/event-listeners/prevent-focus-capture.js
+  // packages/rich-text/build-module/hook/event-listeners/prevent-focus-capture.mjs
   function preventFocusCapture() {
     return (element) => {
       const { ownerDocument } = element;
@@ -2485,7 +2372,7 @@ var wp;
     };
   }
 
-  // packages/rich-text/build-module/component/event-listeners/index.js
+  // packages/rich-text/build-module/hook/event-listeners/index.mjs
   var allEventListeners = [
     copy_handler_default,
     select_object_default,
@@ -2496,15 +2383,15 @@ var wp;
     preventFocusCapture
   ];
   function useEventListeners(props) {
-    const propsRef = (0, import_element5.useRef)(props);
-    (0, import_element5.useInsertionEffect)(() => {
+    const propsRef = (0, import_element3.useRef)(props);
+    (0, import_element3.useInsertionEffect)(() => {
       propsRef.current = props;
     });
-    const refEffects = (0, import_element5.useMemo)(
+    const refEffects = (0, import_element3.useMemo)(
       () => allEventListeners.map((refEffect) => refEffect(propsRef)),
       [propsRef]
     );
-    return (0, import_compose2.useRefEffect)(
+    return (0, import_compose.useRefEffect)(
       (element) => {
         const cleanups = refEffects.map((effect) => effect(element));
         return () => {
@@ -2515,8 +2402,131 @@ var wp;
     );
   }
 
-  // packages/rich-text/build-module/component/index.js
-  function useRichText({
+  // packages/rich-text/build-module/hook/use-format-types.mjs
+  var import_element4 = __toESM(require_element(), 1);
+  var import_data8 = __toESM(require_data(), 1);
+  function formatTypesSelector(select5) {
+    return select5(store).getFormatTypes();
+  }
+  var interactiveContentTags = /* @__PURE__ */ new Set([
+    "a",
+    "audio",
+    "button",
+    "details",
+    "embed",
+    "iframe",
+    "input",
+    "label",
+    "select",
+    "textarea",
+    "video"
+  ]);
+  function prefixSelectKeys(selected, prefix) {
+    if (typeof selected !== "object") {
+      return { [prefix]: selected };
+    }
+    return Object.fromEntries(
+      Object.entries(selected).map(([key, value]) => [
+        `${prefix}.${key}`,
+        value
+      ])
+    );
+  }
+  function getPrefixedSelectKeys(selected, prefix) {
+    if (selected[prefix]) {
+      return selected[prefix];
+    }
+    return Object.keys(selected).filter((key) => key.startsWith(prefix + ".")).reduce((accumulator, key) => {
+      accumulator[key.slice(prefix.length + 1)] = selected[key];
+      return accumulator;
+    }, {});
+  }
+  function useFormatTypes({
+    allowedFormats,
+    withoutInteractiveFormatting,
+    __unstableFormatTypeHandlerContext
+  }) {
+    const allFormatTypes = (0, import_data8.useSelect)(formatTypesSelector, []);
+    const formatTypes2 = (0, import_element4.useMemo)(() => {
+      return allFormatTypes.filter(({ name, interactive, tagName }) => {
+        if (allowedFormats && !allowedFormats.includes(name)) {
+          return false;
+        }
+        if (withoutInteractiveFormatting && (interactive || interactiveContentTags.has(tagName))) {
+          return false;
+        }
+        return true;
+      });
+    }, [allFormatTypes, allowedFormats, withoutInteractiveFormatting]);
+    const keyedSelected = (0, import_data8.useSelect)(
+      (select5) => formatTypes2.reduce((accumulator, type) => {
+        if (!type.__experimentalGetPropsForEditableTreePreparation || !__unstableFormatTypeHandlerContext) {
+          return accumulator;
+        }
+        return {
+          ...accumulator,
+          ...prefixSelectKeys(
+            type.__experimentalGetPropsForEditableTreePreparation(
+              select5,
+              __unstableFormatTypeHandlerContext
+            ),
+            type.name
+          )
+        };
+      }, {}),
+      [formatTypes2, __unstableFormatTypeHandlerContext]
+    );
+    const dispatch3 = (0, import_data8.useDispatch)();
+    const prepareHandlers = [];
+    const valueHandlers = [];
+    const changeHandlers = [];
+    const dependencies = [];
+    for (const key in keyedSelected) {
+      dependencies.push(keyedSelected[key]);
+    }
+    formatTypes2.forEach((type) => {
+      if (type.__experimentalCreatePrepareEditableTree && __unstableFormatTypeHandlerContext) {
+        const handler = type.__experimentalCreatePrepareEditableTree(
+          getPrefixedSelectKeys(keyedSelected, type.name),
+          __unstableFormatTypeHandlerContext
+        );
+        if (type.__experimentalCreateOnChangeEditableValue) {
+          valueHandlers.push(handler);
+        } else {
+          prepareHandlers.push(handler);
+        }
+      }
+      if (type.__experimentalCreateOnChangeEditableValue && __unstableFormatTypeHandlerContext) {
+        let dispatchers = {};
+        if (type.__experimentalGetPropsForEditableTreeChangeHandler) {
+          dispatchers = type.__experimentalGetPropsForEditableTreeChangeHandler(
+            dispatch3,
+            __unstableFormatTypeHandlerContext
+          );
+        }
+        const selected = getPrefixedSelectKeys(keyedSelected, type.name);
+        changeHandlers.push(
+          type.__experimentalCreateOnChangeEditableValue(
+            {
+              ...typeof selected === "object" ? selected : {},
+              ...dispatchers
+            },
+            __unstableFormatTypeHandlerContext
+          )
+        );
+      }
+    });
+    return {
+      formatTypes: formatTypes2,
+      prepareHandlers,
+      valueHandlers,
+      changeHandlers,
+      dependencies
+    };
+  }
+
+  // packages/rich-text/build-module/hook/index.mjs
+  function useRichTextBase({
     value = "",
     selectionStart,
     selectionEnd,
@@ -2531,9 +2541,9 @@ var wp;
     __unstableBeforeSerialize,
     __unstableAddInvisibleFormats
   }) {
-    const registry = (0, import_data8.useRegistry)();
-    const [, forceRender] = (0, import_element6.useReducer)(() => ({}));
-    const ref = (0, import_element6.useRef)();
+    const registry = (0, import_data9.useRegistry)();
+    const [, forceRender] = (0, import_element5.useReducer)(() => ({}));
+    const ref = (0, import_element5.useRef)();
     function createRecord() {
       const {
         ownerDocument: { defaultView }
@@ -2555,9 +2565,10 @@ var wp;
         placeholder
       });
     }
-    const _valueRef = (0, import_element6.useRef)(value);
-    const recordRef = (0, import_element6.useRef)();
+    const _valueRef = (0, import_element5.useRef)(value);
+    const recordRef = (0, import_element5.useRef)();
     function setRecordFromProps() {
+      const activeFormats = recordRef.current?.activeFormats;
       _valueRef.current = value;
       recordRef.current = value;
       if (!(value instanceof RichTextData)) {
@@ -2566,7 +2577,8 @@ var wp;
       recordRef.current = {
         text: recordRef.current.text,
         formats: recordRef.current.formats,
-        replacements: recordRef.current.replacements
+        replacements: recordRef.current.replacements,
+        activeFormats
       };
       if (disableFormats) {
         recordRef.current.formats = Array(value.length);
@@ -2580,7 +2592,7 @@ var wp;
       recordRef.current.start = selectionStart;
       recordRef.current.end = selectionEnd;
     }
-    const hadSelectionUpdateRef = (0, import_element6.useRef)(false);
+    const hadSelectionUpdateRef = (0, import_element5.useRef)(false);
     if (!recordRef.current) {
       hadSelectionUpdateRef.current = isSelected;
       setRecordFromProps();
@@ -2630,14 +2642,14 @@ var wp;
       const skipSelection = contentLengthChanged && !hasFocus;
       applyRecord(recordRef.current, { domOnly: skipSelection });
     }
-    const didMountRef = (0, import_element6.useRef)(false);
-    (0, import_element6.useLayoutEffect)(() => {
+    const didMountRef = (0, import_element5.useRef)(false);
+    (0, import_element5.useLayoutEffect)(() => {
       if (didMountRef.current && value !== _valueRef.current) {
         applyFromProps();
         forceRender();
       }
     }, [value]);
-    (0, import_element6.useLayoutEffect)(() => {
+    (0, import_element5.useLayoutEffect)(() => {
       if (!hadSelectionUpdateRef.current) {
         return;
       }
@@ -2647,7 +2659,7 @@ var wp;
       applyRecord(recordRef.current);
       hadSelectionUpdateRef.current = false;
     }, [hadSelectionUpdateRef.current]);
-    const mergedRefs = (0, import_compose3.useMergeRefs)([
+    const mergedRefs = (0, import_compose2.useMergeRefs)([
       ref,
       useDefaultStyle(),
       useBoundaryStyle({ record: recordRef }),
@@ -2660,7 +2672,7 @@ var wp;
         onSelectionChange,
         forceRender
       }),
-      (0, import_compose3.useRefEffect)(() => {
+      (0, import_compose2.useRefEffect)(() => {
         applyFromProps();
         didMountRef.current = true;
       }, [placeholder, ...__unstableDependencies])
@@ -2677,6 +2689,229 @@ var wp;
       ref: mergedRefs
     };
   }
+  function useRichText({
+    allowedFormats,
+    withoutInteractiveFormatting,
+    onChange,
+    __unstableDependencies = [],
+    __unstableFormatTypeHandlerContext,
+    ...props
+  }) {
+    const {
+      formatTypes: formatTypes2,
+      prepareHandlers,
+      valueHandlers,
+      changeHandlers,
+      dependencies
+    } = useFormatTypes({
+      allowedFormats,
+      withoutInteractiveFormatting,
+      __unstableFormatTypeHandlerContext
+    });
+    function addEditorOnlyFormats(record) {
+      return valueHandlers.reduce(
+        (accumulator, fn) => fn(accumulator, record.text),
+        record.formats
+      );
+    }
+    function removeEditorOnlyFormats(record) {
+      formatTypes2.forEach((formatType) => {
+        if (formatType.__experimentalCreatePrepareEditableTree) {
+          record = removeFormat(
+            record,
+            formatType.name,
+            0,
+            record.text.length
+          );
+        }
+      });
+      return record.formats;
+    }
+    function addInvisibleFormats(record) {
+      return prepareHandlers.reduce(
+        (accumulator, fn) => fn(accumulator, record.text),
+        record.formats
+      );
+    }
+    const result = useRichTextBase({
+      ...props,
+      onChange(value, { __unstableFormats, __unstableText }) {
+        onChange(value, { __unstableFormats, __unstableText });
+        Object.values(changeHandlers).forEach((changeHandler) => {
+          changeHandler(__unstableFormats, __unstableText);
+        });
+      },
+      __unstableDependencies: [...dependencies, ...__unstableDependencies],
+      __unstableAfterParse: addEditorOnlyFormats,
+      __unstableBeforeSerialize: removeEditorOnlyFormats,
+      __unstableAddInvisibleFormats: addInvisibleFormats
+    });
+    return { ...result, formatTypes: formatTypes2 };
+  }
+  function __unstableUseRichText(props) {
+    (0, import_deprecated.default)("`__unstableUseRichText` hook", {
+      since: "7.0"
+    });
+    return useRichTextBase(props);
+  }
+
+  // packages/rich-text/build-module/private-apis.mjs
+  var privateApis = {};
+  lock(privateApis, {
+    useRichText
+  });
+
+  // packages/rich-text/build-module/hook/use-anchor-ref.mjs
+  var import_element6 = __toESM(require_element(), 1);
+  var import_deprecated2 = __toESM(require_deprecated(), 1);
+  function useAnchorRef({ ref, value, settings = {} }) {
+    (0, import_deprecated2.default)("`useAnchorRef` hook", {
+      since: "6.1",
+      alternative: "`useAnchor` hook"
+    });
+    const { tagName, className, name } = settings;
+    const activeFormat = name ? getActiveFormat(value, name) : void 0;
+    return (0, import_element6.useMemo)(() => {
+      if (!ref.current) {
+        return;
+      }
+      const {
+        ownerDocument: { defaultView }
+      } = ref.current;
+      const selection = defaultView.getSelection();
+      if (!selection.rangeCount) {
+        return;
+      }
+      const range = selection.getRangeAt(0);
+      if (!activeFormat) {
+        return range;
+      }
+      let element = range.startContainer;
+      element = element.nextElementSibling || element;
+      while (element.nodeType !== element.ELEMENT_NODE) {
+        element = element.parentNode;
+      }
+      return element.closest(
+        tagName + (className ? "." + className : "")
+      );
+    }, [activeFormat, value.start, value.end, tagName, className]);
+  }
+
+  // packages/rich-text/build-module/hook/use-anchor.mjs
+  var import_compose3 = __toESM(require_compose(), 1);
+  var import_element7 = __toESM(require_element(), 1);
+  var import_dom = __toESM(require_dom(), 1);
+  function getFormatElement(range, editableContentElement, tagName, className) {
+    let element = range.startContainer;
+    if (element.nodeType === element.TEXT_NODE && range.startOffset === element.length && element.nextSibling) {
+      element = element.nextSibling;
+      while (element.firstChild) {
+        element = element.firstChild;
+      }
+    }
+    if (element.nodeType !== element.ELEMENT_NODE) {
+      element = element.parentElement;
+    }
+    if (!element) {
+      return;
+    }
+    if (element === editableContentElement) {
+      return;
+    }
+    if (!editableContentElement.contains(element)) {
+      return;
+    }
+    const selector = tagName + (className ? "." + className : "");
+    while (element !== editableContentElement) {
+      if (element.matches(selector)) {
+        return element;
+      }
+      element = element.parentElement;
+    }
+  }
+  function createVirtualAnchorElement(range, editableContentElement) {
+    return {
+      contextElement: editableContentElement,
+      getBoundingClientRect() {
+        if (editableContentElement.contains(range.startContainer)) {
+          return (0, import_dom.getRectangleFromRange)(range) ?? range.getBoundingClientRect();
+        }
+        return editableContentElement.getBoundingClientRect();
+      }
+    };
+  }
+  function getAnchor(editableContentElement, tagName, className) {
+    if (!editableContentElement) {
+      return;
+    }
+    const { ownerDocument } = editableContentElement;
+    const { defaultView } = ownerDocument;
+    const selection = defaultView.getSelection();
+    if (!selection) {
+      return;
+    }
+    if (!selection.rangeCount) {
+      return;
+    }
+    const range = selection.getRangeAt(0);
+    if (!range || !range.startContainer) {
+      return;
+    }
+    const formatElement = getFormatElement(
+      range,
+      editableContentElement,
+      tagName,
+      className
+    );
+    if (formatElement) {
+      return formatElement;
+    }
+    return createVirtualAnchorElement(range, editableContentElement);
+  }
+  function useAnchor({ editableContentElement, settings = {} }) {
+    const { tagName, className, isActive } = settings;
+    const [anchor, setAnchor] = (0, import_element7.useState)(
+      () => getAnchor(editableContentElement, tagName, className)
+    );
+    const wasActive = (0, import_compose3.usePrevious)(isActive);
+    (0, import_element7.useLayoutEffect)(() => {
+      if (!editableContentElement) {
+        return;
+      }
+      function callback() {
+        setAnchor(
+          getAnchor(editableContentElement, tagName, className)
+        );
+      }
+      function attach() {
+        ownerDocument.addEventListener("selectionchange", callback);
+      }
+      function detach() {
+        ownerDocument.removeEventListener("selectionchange", callback);
+      }
+      const { ownerDocument } = editableContentElement;
+      if (editableContentElement === ownerDocument.activeElement || // When a link is created, we need to attach the popover to the newly created anchor.
+      !wasActive && isActive || // Sometimes we're _removing_ an active anchor, such as the inline color popover.
+      // When we add the color, it switches from a virtual anchor to a `<mark>` element.
+      // When we _remove_ the color, it switches from a `<mark>` element to a virtual anchor.
+      wasActive && !isActive) {
+        setAnchor(
+          getAnchor(editableContentElement, tagName, className)
+        );
+        attach();
+      }
+      editableContentElement.addEventListener("focusin", attach);
+      editableContentElement.addEventListener("focusout", detach);
+      return () => {
+        detach();
+        editableContentElement.removeEventListener("focusin", attach);
+        editableContentElement.removeEventListener("focusout", detach);
+      };
+    }, [editableContentElement, tagName, className, isActive, wasActive]);
+    return anchor;
+  }
+
+  // packages/rich-text/build-module/index.mjs
   function __experimentalRichText() {
   }
   return __toCommonJS(index_exports);

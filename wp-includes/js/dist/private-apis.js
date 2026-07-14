@@ -19,19 +19,22 @@ var wp;
   };
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
-  // packages/private-apis/build-module/index.js
+  // packages/private-apis/build-module/index.mjs
   var index_exports = {};
   __export(index_exports, {
     __dangerousOptInToUnstableAPIsOnlyForCoreModules: () => __dangerousOptInToUnstableAPIsOnlyForCoreModules
   });
 
-  // packages/private-apis/build-module/implementation.js
+  // packages/private-apis/build-module/implementation.mjs
   var CORE_MODULES_USING_PRIVATE_APIS = [
     "@wordpress/block-directory",
     "@wordpress/block-editor",
     "@wordpress/block-library",
     "@wordpress/blocks",
+    "@wordpress/boot",
     "@wordpress/commands",
+    "@wordpress/connectors",
+    "@wordpress/workflows",
     "@wordpress/components",
     "@wordpress/core-commands",
     "@wordpress/core-data",
@@ -41,30 +44,30 @@ var wp;
     "@wordpress/edit-site",
     "@wordpress/edit-widgets",
     "@wordpress/editor",
+    "@wordpress/font-list-route",
     "@wordpress/format-library",
     "@wordpress/patterns",
     "@wordpress/preferences",
     "@wordpress/reusable-blocks",
+    "@wordpress/rich-text",
+    "@wordpress/route",
     "@wordpress/router",
+    "@wordpress/routes",
     "@wordpress/sync",
+    "@wordpress/theme",
     "@wordpress/dataviews",
     "@wordpress/fields",
+    "@wordpress/lazy-editor",
     "@wordpress/media-utils",
     "@wordpress/upload-media",
-		"@retraceur/discovery"
+    "@wordpress/global-styles-ui",
+    "@wordpress/ui"
   ];
-  var registeredPrivateApis = [];
   var requiredConsent = "I acknowledge private features are not for use in themes or plugins and doing so will break in the next version of Retraceur.";
-  var allowReRegistration = false ? false : true;
   var __dangerousOptInToUnstableAPIsOnlyForCoreModules = (consent, moduleName) => {
     if (!CORE_MODULES_USING_PRIVATE_APIS.includes(moduleName)) {
       throw new Error(
         `You tried to opt-in to unstable APIs as module "${moduleName}". This feature is only for JavaScript modules shipped with Retraceur core. Please do not use it in plugins and themes as the unstable APIs will be removed without a warning. If you ignore this error and depend on unstable features, your product will inevitably break on one of the next Retraceur releases.`
-      );
-    }
-    if (!allowReRegistration && registeredPrivateApis.includes(moduleName)) {
-      throw new Error(
-        `You tried to opt-in to unstable APIs as module "${moduleName}" which is already registered. This feature is only for JavaScript modules shipped with Retraceur core. Please do not use it in plugins and themes as the unstable APIs will be removed without a warning. If you ignore this error and depend on unstable features, your product will inevitably break on one of the next Retraceur releases.`
       );
     }
     if (consent !== requiredConsent) {
@@ -72,7 +75,6 @@ var wp;
         `You tried to opt-in to unstable APIs without confirming you know the consequences. This feature is only for JavaScript modules shipped with Retraceur core. Please do not use it in plugins and themes as the unstable APIs will removed without a warning. If you ignore this error and depend on unstable features, your product will inevitably break on the next Retraceur release.`
       );
     }
-    registeredPrivateApis.push(moduleName);
     return {
       lock,
       unlock
@@ -101,7 +103,7 @@ var wp;
     return lockedData.get(_object[__private]);
   }
   var lockedData = /* @__PURE__ */ new WeakMap();
-  var __private = Symbol("Private API ID");
+  var __private = /* @__PURE__ */ Symbol("Private API ID");
   return __toCommonJS(index_exports);
 })();
 //# sourceMappingURL=index.js.map
