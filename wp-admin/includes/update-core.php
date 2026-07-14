@@ -368,51 +368,6 @@ function update_core( $from, $to ) {
 	$skip              = array( 'wp-content', 'wp-includes/version.php' );
 	$check_is_writable = array();
 
-	// Check to see which files don't really need updating - only available for 3.7 and higher.
-	if ( function_exists( 'get_core_checksums' ) ) {
-		// Find the local version of the working directory.
-		$working_dir_local = WP_CONTENT_DIR . '/upgrade/' . basename( $from ) . $distro;
-
-		$checksums = get_core_checksums( $retraceur_version, $wp_local_package ?? 'en_US' );
-
-		if ( is_array( $checksums ) && isset( $checksums[ $retraceur_version ] ) ) {
-			$checksums = $checksums[ $retraceur_version ]; // Compat code for 3.7-beta2.
-		}
-
-		if ( is_array( $checksums ) ) {
-			foreach ( $checksums as $file => $checksum ) {
-				/*
-				 * Note: str_starts_with() is not used here, as this file is included
-				 * when updating from older Retraceur versions, in which case
-				 * the polyfills from wp-includes/compat.php may not be available.
-				 */
-				if ( 'wp-content' === substr( $file, 0, 10 ) ) {
-					continue;
-				}
-
-				if ( ! file_exists( ABSPATH . $file ) ) {
-					continue;
-				}
-
-				if ( ! file_exists( $working_dir_local . $file ) ) {
-					continue;
-				}
-
-				if ( '.' === dirname( $file )
-					&& in_array( pathinfo( $file, PATHINFO_EXTENSION ), array( 'html', 'txt' ), true )
-				) {
-					continue;
-				}
-
-				if ( md5_file( ABSPATH . $file ) === $checksum ) {
-					$skip[] = $file;
-				} else {
-					$check_is_writable[ $file ] = ABSPATH . $file;
-				}
-			}
-		}
-	}
-
 	// If we're using the direct method, we can predict write failures that are due to permissions.
 	if ( $check_is_writable && 'direct' === $wp_filesystem->method ) {
 		$files_writable = array_filter( $check_is_writable, array( $wp_filesystem, 'is_writable' ) );
@@ -490,36 +445,6 @@ function update_core( $from, $to ) {
 	// Check to make sure everything copied correctly, ignoring the contents of wp-content.
 	$skip   = array( 'wp-content' );
 	$failed = array();
-
-	if ( isset( $checksums ) && is_array( $checksums ) ) {
-		foreach ( $checksums as $file => $checksum ) {
-			/*
-			 * Note: str_starts_with() is not used here, as this file is included
-			 * when updating from older Retraceur versions, in which case
-			 * the polyfills from wp-includes/compat.php may not be available.
-			 */
-			if ( 'wp-content' === substr( $file, 0, 10 ) ) {
-				continue;
-			}
-
-			if ( ! file_exists( $working_dir_local . $file ) ) {
-				continue;
-			}
-
-			if ( '.' === dirname( $file )
-				&& in_array( pathinfo( $file, PATHINFO_EXTENSION ), array( 'html', 'txt' ), true )
-			) {
-				$skip[] = $file;
-				continue;
-			}
-
-			if ( file_exists( ABSPATH . $file ) && md5_file( ABSPATH . $file ) === $checksum ) {
-				$skip[] = $file;
-			} else {
-				$failed[] = $file;
-			}
-		}
-	}
 
 	// Some files didn't copy properly.
 	if ( ! empty( $failed ) ) {

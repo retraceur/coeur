@@ -80,59 +80,6 @@ function retraceur_get_updates( $options = array() ) {
 }
 
 /**
- * Gets and caches the checksums for the given version of Retraceur.
- *
- * @since WP 3.7.0
- * @since 1.0.0 Disable Core auto update for now.
- *
- * @param string $version Version string to query.
- * @param string $locale  Locale to query.
- * @return array<string, string>|false An array of checksums on success, false on failure.
- */
-function get_core_checksums( $version, $locale ) {
-	return false;
-
-	// @todo See what's possible to achieve here.
-	$http_url = '';
-	$url      = $http_url;
-
-	$ssl = wp_http_supports( array( 'ssl' ) );
-
-	if ( $ssl ) {
-		$url = set_url_scheme( $url, 'https' );
-	}
-
-	$options = array(
-		'timeout' => wp_doing_cron() ? 30 : 3,
-	);
-
-	$response = wp_remote_get( $url, $options );
-
-	if ( $ssl && is_wp_error( $response ) ) {
-		wp_trigger_error(
-			__FUNCTION__,
-			__( 'An unexpected error occurred. Something may be wrong with this server&#8217;s configuration.' ) . ' ' . __( '(Retraceur could not establish a secure connection to Core Update API. Please contact your server administrator.)' ),
-			headers_sent() || WP_DEBUG ? E_USER_WARNING : E_USER_NOTICE
-		);
-
-		$response = wp_remote_get( $http_url, $options );
-	}
-
-	if ( is_wp_error( $response ) || 200 !== wp_remote_retrieve_response_code( $response ) ) {
-		return false;
-	}
-
-	$body = trim( wp_remote_retrieve_body( $response ) );
-	$body = json_decode( $body, true );
-
-	if ( ! is_array( $body ) || ! isset( $body['checksums'] ) || ! is_array( $body['checksums'] ) ) {
-		return false;
-	}
-
-	return $body['checksums'];
-}
-
-/**
  * Marks a Retraceur coeur update as dismissed.
  *
  * @since 2.0.0 Retraceur fork.

@@ -58,8 +58,6 @@ class Core_Upgrader extends WP_Upgrader {
 	 * @param array  $args {
 	 *     Optional. Arguments for upgrading Retraceur core. Default empty array.
 	 *
-	 *     @type bool $pre_check_md5    Whether to check the file checksums before
-	 *                                  attempting the upgrade. Default true.
 	 *     @type bool $attempt_rollback Whether to attempt to rollback the chances if
 	 *                                  there is a problem. Default false.
 	 *     @type bool $do_rollback      Whether to perform this "upgrade" as a rollback.
@@ -74,7 +72,6 @@ class Core_Upgrader extends WP_Upgrader {
 
 		$start_time  = time();
 		$defaults    = array(
-			'pre_check_md5'                => false,
 			'attempt_rollback'             => false,
 			'do_rollback'                  => false,
 			'allow_relaxed_file_ownership' => false,
@@ -279,6 +276,7 @@ class Core_Upgrader extends WP_Upgrader {
 	 * Compares the disk file checksums against the expected checksums.
 	 *
 	 * @since WP 3.7.0
+	 * @deprecated 4.0.0 Retraceur fork.
 	 *
 	 * @global string $retraceur_version The Retraceur version string.
 	 * @global string $wp_local_package  Locale code of the package.
@@ -288,22 +286,7 @@ class Core_Upgrader extends WP_Upgrader {
 	public function check_files() {
 		global $retraceur_version, $wp_local_package;
 
-		$checksums = get_core_checksums( $retraceur_version, $wp_local_package ?? 'en_US' );
-
-		if ( ! is_array( $checksums ) ) {
-			return false;
-		}
-
-		foreach ( $checksums as $file => $checksum ) {
-			// Skip files which get updated.
-			if ( str_starts_with( $file, 'wp-content' ) ) {
-				continue;
-			}
-			if ( ! file_exists( ABSPATH . $file ) || md5_file( ABSPATH . $file ) !== $checksum ) {
-				return false;
-			}
-		}
-
-		return true;
+		_deprecated_function( __METHOD__, '4.0.0', '', true );
+		return false;
 	}
 }
