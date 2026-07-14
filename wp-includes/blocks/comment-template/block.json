@@ -2,7 +2,7 @@
 	"$schema": "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
 	"apiVersion": 3,
 	"name": "core/comment-template",
-	"title": "Comment Template",
+	"title": "Comment Template (deprecated)",
 	"category": "design",
 	"parent": [ "core/comments" ],
 	"description": "Deprecated block.",

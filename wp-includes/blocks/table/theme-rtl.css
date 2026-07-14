@@ -1,18 +1,15 @@
 .wp-block-table {
-	margin: 0 0 1em
+  margin: 0 0 1em 0;
 }
-
 .wp-block-table td,
 .wp-block-table th {
-	word-break: normal
+  word-break: normal;
 }
-
 .wp-block-table :where(figcaption) {
-	color: #555;
-	font-size: 13px;
-	text-align: center
+  color: #555;
+  font-size: 13px;
+  text-align: center;
 }
-
 .is-dark-theme .wp-block-table :where(figcaption) {
-	color: #ffffffa6
+  color: rgba(255, 255, 255, 0.65);
 }

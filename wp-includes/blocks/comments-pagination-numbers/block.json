@@ -2,7 +2,7 @@
 	"$schema": "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
 	"apiVersion": 3,
 	"name": "core/comments-pagination-numbers",
-	"title": "Comments Page Numbers",
+	"title": "Comments Page Numbers (deprecated)",
 	"category": "theme",
 	"parent": [ "core/comments-pagination" ],
 	"description": "Deprecated block.",
