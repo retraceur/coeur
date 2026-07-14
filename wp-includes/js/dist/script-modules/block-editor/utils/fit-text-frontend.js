@@ -1,10 +1,10 @@
-// packages/block-editor/build-module/utils/fit-text-frontend.js
+// packages/block-editor/build-module/utils/fit-text-frontend.mjs
 import { store, getElement, getContext } from "@wordpress/interactivity";
 
-// packages/block-editor/build-module/utils/fit-text-utils.js
+// packages/block-editor/build-module/utils/fit-text-utils.mjs
 function findOptimalFontSize(textElement, applyFontSize) {
   const alreadyHasScrollableHeight = textElement.scrollHeight > textElement.clientHeight;
-  let minSize = 5;
+  let minSize = 0;
   let maxSize = 2400;
   let bestSize = minSize;
   const computedStyle = window.getComputedStyle(textElement);
@@ -53,7 +53,7 @@ function optimizeFitText(textElement, applyFontSize) {
   return optimalSize;
 }
 
-// packages/block-editor/build-module/utils/fit-text-frontend.js
+// packages/block-editor/build-module/utils/fit-text-frontend.mjs
 store("core/fit-text", {
   callbacks: {
     init() {

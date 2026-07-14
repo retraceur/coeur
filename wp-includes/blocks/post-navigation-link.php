@@ -1,7 +1,7 @@
 <?php
 /**
  * Server-side rendering of the `core/post-navigation-link` block.
- * 
+ *
  * @since 1.0.0 Retraceur fork.
  *
  * @package Retraceur
@@ -23,7 +23,7 @@ function render_block_core_post_navigation_link( $attributes, $content ) {
 	}
 
 	// Get the navigation type to show the proper link. Available options are `next|previous`.
-	$navigation_type = isset( $attributes['type'] ) ? $attributes['type'] : 'next';
+	$navigation_type = $attributes['type'] ?? 'next';
 	// Allow only `next` and `previous` in `$navigation_type`.
 	if ( ! in_array( $navigation_type, array( 'next', 'previous' ), true ) ) {
 		return '';
