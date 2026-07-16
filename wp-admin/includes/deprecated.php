@@ -4343,7 +4343,7 @@ function wp_ajax_toggle_auto_updates() {
  * Gets and caches the checksums for the given version of Retraceur.
  *
  * @since WP 3.7.0
- * @since 1.0.0 etraceur fork disabled the function.
+ * @since 1.0.0 Retraceur fork disabled the function.
  * @deprecated 4.0.0 Retraceur fork.
  *
  * @param string $version Version string to query.
