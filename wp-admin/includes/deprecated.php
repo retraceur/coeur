@@ -4338,3 +4338,19 @@ function wp_ajax_toggle_auto_updates() {
 
 	wp_send_json_error( array( 'error' => __( 'The WP Automatic Updates feature is not supported by the Retraceur fork.' ) ) );
 }
+
+/**
+ * Gets and caches the checksums for the given version of Retraceur.
+ *
+ * @since WP 3.7.0
+ * @since 1.0.0 Retraceur fork disabled the function.
+ * @deprecated 4.0.0 Retraceur fork.
+ *
+ * @param string $version Version string to query.
+ * @param string $locale  Locale to query.
+ * @return array<string, string>|false An array of checksums on success, false on failure.
+ */
+function get_core_checksums( $version, $locale ) {
+	_deprecated_function( __FUNCTION__, '4.0.0', '', true );
+	return false;
+}
