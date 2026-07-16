@@ -62,6 +62,7 @@ require_once ABSPATH . WPINC . '/blocks/site-logo.php';
 require_once ABSPATH . WPINC . '/blocks/site-tagline.php';
 require_once ABSPATH . WPINC . '/blocks/site-title.php';
 require_once ABSPATH . WPINC . '/blocks/social-link.php';
+require_once ABSPATH . WPINC . '/blocks/table-of-contents.php';
 require_once ABSPATH . WPINC . '/blocks/tag-cloud.php';
 require_once ABSPATH . WPINC . '/blocks/template-part.php';
 require_once ABSPATH . WPINC . '/blocks/term-count.php';

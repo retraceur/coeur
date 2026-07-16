@@ -6897,6 +6897,83 @@
 		'editorStyle' => 'wp-block-table-editor',
 		'style' => 'wp-block-table'
 	),
+	'table-of-contents' => array(
+		'$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
+		'apiVersion' => 3,
+		'name' => 'core/table-of-contents',
+		'title' => 'Table of Contents',
+		'category' => 'design',
+		'description' => 'Summarize your post with a list of headings. Add HTML anchors to Heading blocks to link them here.',
+		'keywords' => array(
+			'document outline',
+			'summary'
+		),
+		'textdomain' => 'default',
+		'attributes' => array(
+			'headings' => array(
+				'type' => 'array',
+				'items' => array(
+					'type' => 'object'
+				),
+				'default' => array()
+			),
+			'onlyIncludeCurrentPage' => array(
+				'type' => 'boolean',
+				'default' => false
+			),
+			'maxLevel' => array(
+				'type' => 'number'
+			),
+			'ordered' => array(
+				'type' => 'boolean',
+				'default' => true
+			)
+		),
+		'supports' => array(
+			'anchor' => true,
+			'ariaLabel' => true,
+			'html' => false,
+			'color' => array(
+				'text' => true,
+				'background' => true,
+				'gradients' => true,
+				'link' => true
+			),
+			'spacing' => array(
+				'margin' => true,
+				'padding' => true
+			),
+			'typography' => array(
+				'fontSize' => true,
+				'lineHeight' => true,
+				'__experimentalFontFamily' => true,
+				'__experimentalFontWeight' => true,
+				'__experimentalFontStyle' => true,
+				'__experimentalTextTransform' => true,
+				'__experimentalTextDecoration' => true,
+				'__experimentalLetterSpacing' => true,
+				'__experimentalDefaultControls' => array(
+					'fontSize' => true
+				)
+			),
+			'interactivity' => array(
+				'clientNavigation' => true
+			),
+			'__experimentalBorder' => array(
+				'radius' => true,
+				'color' => true,
+				'width' => true,
+				'style' => true,
+				'__experimentalDefaultControls' => array(
+					'radius' => true,
+					'color' => true,
+					'width' => true,
+					'style' => true
+				)
+			)
+		),
+		'style' => 'wp-block-table-of-contents'
+	),
 	'tag-cloud' => array(
 		'$schema' => 'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json',
 		'apiVersion' => 3,
