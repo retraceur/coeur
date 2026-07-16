@@ -1,0 +1,36 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Retraceur 4.0.0\n"
+"Report-Msgid-Bugs-To: https://github.com/retraceur/coeur/issues\n"
+"Last-Translator: imath <contact@imathi.eu>\n"
+"Language-Team: Retraceur <retraceur@proton.me>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-07-16T08:40:58+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+
+#. translators: %s: file name.
+#: wp-includes/js/dist/upload-media.js:704
+#, js-format
+msgid "%s: Sorry, this file type is not supported here."
+msgstr ""
+
+#. translators: %s: file name.
+#: wp-includes/js/dist/upload-media.js:748
+#, js-format
+msgid "%s: Sorry, you are not allowed to upload this file type."
+msgstr ""
+
+#. translators: %s: file name.
+#: wp-includes/js/dist/upload-media.js:766
+#, js-format
+msgid "%s: This file is empty."
+msgstr ""
+
+#. translators: %s: file name.
+#: wp-includes/js/dist/upload-media.js:777
+#, js-format
+msgid "%s: This file exceeds the maximum upload size for this site."
+msgstr ""

@@ -1,13 +1,13 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Retraceur 3.0.0\n"
+"Project-Id-Version: Retraceur 4.0.0\n"
 "Report-Msgid-Bugs-To: https://github.com/retraceur/coeur/issues\n"
 "Last-Translator: imath <contact@imathi.eu>\n"
 "Language-Team: Retraceur <retraceur@proton.me>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-03-01T12:54:00+00:00\n"
+"POT-Creation-Date: 2026-07-16T08:39:53+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 
@@ -16,7 +16,7 @@ msgid "Site information has been copied to your clipboard."
 msgstr ""
 
 #. Translators: %s. Amount of critical issues.
-#: wp-admin/js/site-health.js:149
+#: wp-admin/js/site-health.js:167
 #, js-format
 msgid "%s critical issue"
 msgid_plural "%s critical issues"
@@ -24,7 +24,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. Translators: %s. Amount of improvements.
-#: wp-admin/js/site-health.js:155
+#: wp-admin/js/site-health.js:173
 #, js-format
 msgid "%s recommended improvement"
 msgid_plural "%s recommended improvements"
@@ -32,42 +32,42 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. Translators: %s. Amount of items without issues.
-#: wp-admin/js/site-health.js:161
+#: wp-admin/js/site-health.js:179
 #, js-format
 msgid "%s item with no issues detected"
 msgid_plural "%s items with no issues detected"
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-admin/js/site-health.js:228
+#: wp-admin/js/site-health.js:246
 msgid "Good"
 msgstr ""
 
-#: wp-admin/js/site-health.js:233
+#: wp-admin/js/site-health.js:251
 msgid "Should be improved"
 msgstr ""
 
-#: wp-admin/js/site-health.js:292
-#: wp-admin/js/site-health.js:313
+#: wp-admin/js/site-health.js:310
+#: wp-admin/js/site-health.js:331
 msgid "No details available"
 msgstr ""
 
-#: wp-admin/js/site-health.js:341
+#: wp-admin/js/site-health.js:359
 msgid "A test is unavailable"
 msgstr ""
 
-#: wp-admin/js/site-health.js:344
+#: wp-admin/js/site-health.js:362
 msgid "Unavailable"
 msgstr ""
 
-#: wp-admin/js/site-health.js:473
+#: wp-admin/js/site-health.js:491
 msgid "All site health tests have finished running. Your site is looking good."
 msgstr ""
 
-#: wp-admin/js/site-health.js:476
+#: wp-admin/js/site-health.js:494
 msgid "All site health tests have finished running. There are items that should be addressed."
 msgstr ""
 
-#: wp-admin/js/site-health.js:479
+#: wp-admin/js/site-health.js:497
 msgid "Running additional tests... please wait."
 msgstr ""

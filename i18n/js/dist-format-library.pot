@@ -1,13 +1,13 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Retraceur 3.0.0\n"
+"Project-Id-Version: Retraceur 4.0.0\n"
 "Report-Msgid-Bugs-To: https://github.com/retraceur/coeur/issues\n"
 "Last-Translator: imath <contact@imathi.eu>\n"
 "Language-Team: Retraceur <retraceur@proton.me>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-03-01T12:54:48+00:00\n"
+"POT-Creation-Date: 2026-07-16T08:40:49+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 
@@ -31,140 +31,140 @@ msgstr ""
 msgid "media"
 msgstr ""
 
-#: wp-includes/js/dist/format-library.js:388
+#: wp-includes/js/dist/format-library.js:387
 msgid "Width"
 msgstr ""
 
-#: wp-includes/js/dist/format-library.js:399
+#: wp-includes/js/dist/format-library.js:398
 msgid "Alternative text"
 msgstr ""
 
 #. translators: Localized tutorial, if one exists. W3C Web Accessibility Initiative link has list of existing translations.
-#: wp-includes/js/dist/format-library.js:411
+#: wp-includes/js/dist/format-library.js:409
 msgid "https://www.w3.org/WAI/tutorials/images/decision-tree/"
 msgstr ""
 
-#: wp-includes/js/dist/format-library.js:415
+#: wp-includes/js/dist/format-library.js:413
 msgid "Describe the purpose of the image."
 msgstr ""
 
-#: wp-includes/js/dist/format-library.js:421
+#: wp-includes/js/dist/format-library.js:419
 msgid "Leave empty if decorative."
 msgstr ""
 
-#: wp-includes/js/dist/format-library.js:433
-#: wp-includes/js/dist/format-library.js:1779
+#: wp-includes/js/dist/format-library.js:431
+#: wp-includes/js/dist/format-library.js:1787
 msgid "Apply"
 msgstr ""
 
-#: wp-includes/js/dist/format-library.js:484
+#: wp-includes/js/dist/format-library.js:482
 msgid "Replace image"
 msgstr ""
 
-#: wp-includes/js/dist/format-library.js:509
+#: wp-includes/js/dist/format-library.js:507
 msgid "Italic"
 msgstr ""
 
-#: wp-includes/js/dist/format-library.js:755
+#: wp-includes/js/dist/format-library.js:750
 msgid "CSS classes"
 msgstr ""
 
-#: wp-includes/js/dist/format-library.js:758
+#: wp-includes/js/dist/format-library.js:753
 msgid "Separate multiple classes with spaces."
 msgstr ""
 
-#: wp-includes/js/dist/format-library.js:775
+#: wp-includes/js/dist/format-library.js:771
 msgid "Mark as nofollow"
 msgstr ""
 
-#: wp-includes/js/dist/format-library.js:779
+#: wp-includes/js/dist/format-library.js:775
 msgid "Additional CSS class(es)"
 msgstr ""
 
-#: wp-includes/js/dist/format-library.js:841
-#: wp-includes/js/dist/format-library.js:1081
+#: wp-includes/js/dist/format-library.js:837
+#: wp-includes/js/dist/format-library.js:1087
 msgid "Link removed."
 msgstr ""
 
-#: wp-includes/js/dist/format-library.js:899
+#: wp-includes/js/dist/format-library.js:903
 msgid "Warning: the link has been inserted but may have errors. Please test it."
 msgstr ""
 
-#: wp-includes/js/dist/format-library.js:905
+#: wp-includes/js/dist/format-library.js:909
 msgid "Link edited."
 msgstr ""
 
-#: wp-includes/js/dist/format-library.js:907
+#: wp-includes/js/dist/format-library.js:911
 msgid "Link inserted."
 msgstr ""
 
 #. translators: %s: search term.
-#: wp-includes/js/dist/format-library.js:934
+#: wp-includes/js/dist/format-library.js:938
 #, js-format
 msgid "Create page: <mark>%s</mark>"
 msgstr ""
 
-#: wp-includes/js/dist/format-library.js:994
-#: wp-includes/js/dist/format-library.js:1107
+#: wp-includes/js/dist/format-library.js:999
+#: wp-includes/js/dist/format-library.js:1113
 msgid "Link"
 msgstr ""
 
-#: wp-includes/js/dist/format-library.js:1181
+#: wp-includes/js/dist/format-library.js:1187
 msgid "Strikethrough"
 msgstr ""
 
-#: wp-includes/js/dist/format-library.js:1221
+#: wp-includes/js/dist/format-library.js:1227
 msgid "Underline"
 msgstr ""
 
-#: wp-includes/js/dist/format-library.js:1288
+#: wp-includes/js/dist/format-library.js:1293
 msgid "Text"
 msgstr ""
 
-#: wp-includes/js/dist/format-library.js:1289
+#: wp-includes/js/dist/format-library.js:1294
 msgid "Background"
 msgstr ""
 
-#: wp-includes/js/dist/format-library.js:1428
+#: wp-includes/js/dist/format-library.js:1434
 msgid "Highlight"
 msgstr ""
 
-#: wp-includes/js/dist/format-library.js:1522
+#: wp-includes/js/dist/format-library.js:1528
 msgid "Subscript"
 msgstr ""
 
-#: wp-includes/js/dist/format-library.js:1555
+#: wp-includes/js/dist/format-library.js:1561
 msgid "Superscript"
 msgstr ""
 
-#: wp-includes/js/dist/format-library.js:1588
+#: wp-includes/js/dist/format-library.js:1594
 msgid "Keyboard input"
 msgstr ""
 
-#: wp-includes/js/dist/format-library.js:1621
+#: wp-includes/js/dist/format-library.js:1627
 msgid "Clear Unknown Formatting"
 msgstr ""
 
-#: wp-includes/js/dist/format-library.js:1665
+#: wp-includes/js/dist/format-library.js:1671
 msgid "Language"
 msgstr ""
 
-#: wp-includes/js/dist/format-library.js:1748
+#: wp-includes/js/dist/format-library.js:1757
 msgid "A valid language attribute, like \"en\" or \"fr\"."
 msgstr ""
 
-#: wp-includes/js/dist/format-library.js:1758
+#: wp-includes/js/dist/format-library.js:1766
 msgid "Text direction"
 msgstr ""
 
-#: wp-includes/js/dist/format-library.js:1762
+#: wp-includes/js/dist/format-library.js:1770
 msgid "Left to right"
 msgstr ""
 
-#: wp-includes/js/dist/format-library.js:1766
+#: wp-includes/js/dist/format-library.js:1774
 msgid "Right to left"
 msgstr ""
 
-#: wp-includes/js/dist/format-library.js:1795
+#: wp-includes/js/dist/format-library.js:1803
 msgid "Non breaking space"
 msgstr ""

@@ -235,19 +235,9 @@ function block_core_breadcrumbs_is_paged() {
 function block_core_breadcrumbs_create_page_number_item( $query_var = 'paged' ) {
 	$paged = (int) get_query_var( $query_var );
 
-	if ( 'cpage' === $query_var ) {
-		return array(
-			'label' => sprintf(
-				/* translators: %s: comment page number */
-				__( 'Comments Page %s' ),
-				number_format_i18n( $paged )
-			),
-		);
-	}
-
 	return array(
 		'label' => sprintf(
-			/* translators: %s: page number */
+			/* translators: %s: Page number. */
 			__( 'Page %s' ),
 			number_format_i18n( $paged )
 		),

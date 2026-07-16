@@ -1,76 +1,76 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Retraceur 3.0.0\n"
+"Project-Id-Version: Retraceur 4.0.0\n"
 "Report-Msgid-Bugs-To: https://github.com/retraceur/coeur/issues\n"
 "Last-Translator: imath <contact@imathi.eu>\n"
 "Language-Team: Retraceur <retraceur@proton.me>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-03-01T12:54:25+00:00\n"
+"POT-Creation-Date: 2026-07-16T08:40:20+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 
 #. translators: accessibility text. 1: The block title. 2: The block row number. 3: The block label..
-#: wp-includes/js/dist/blocks.js:5567
+#: wp-includes/js/dist/blocks.js:5582
 #, js-format
 msgid "%1$s Block. Row %2$d. %3$s"
 msgstr ""
 
 #. translators: accessibility text. 1: The block title. 2: The block row number.
-#: wp-includes/js/dist/blocks.js:5575
+#: wp-includes/js/dist/blocks.js:5590
 #, js-format
 msgid "%1$s Block. Row %2$d"
 msgstr ""
 
 #. translators: accessibility text. 1: The block title. 2: The block column number. 3: The block label..
-#: wp-includes/js/dist/blocks.js:5583
+#: wp-includes/js/dist/blocks.js:5598
 #, js-format
 msgid "%1$s Block. Column %2$d. %3$s"
 msgstr ""
 
 #. translators: accessibility text. 1: The block title. 2: The block column number.
-#: wp-includes/js/dist/blocks.js:5591
+#: wp-includes/js/dist/blocks.js:5606
 #, js-format
 msgid "%1$s Block. Column %2$d"
 msgstr ""
 
 #. translators: accessibility text. 1: The block title. 2: The block label.
-#: wp-includes/js/dist/blocks.js:5599
+#: wp-includes/js/dist/blocks.js:5614
 #, js-format
 msgid "%1$s Block. %2$s"
 msgstr ""
 
 #. translators: accessibility text. %s: The block title.
-#: wp-includes/js/dist/blocks.js:5606
+#: wp-includes/js/dist/blocks.js:5621
 #, js-format
 msgid "%s Block"
 msgstr ""
 
-#: wp-includes/js/dist/blocks.js:5716
+#: wp-includes/js/dist/blocks.js:5731
 msgid "Text"
 msgstr ""
 
-#: wp-includes/js/dist/blocks.js:5717
+#: wp-includes/js/dist/blocks.js:5732
 msgid "Media"
 msgstr ""
 
-#: wp-includes/js/dist/blocks.js:5718
+#: wp-includes/js/dist/blocks.js:5733
 msgid "Design"
 msgstr ""
 
-#: wp-includes/js/dist/blocks.js:5719
+#: wp-includes/js/dist/blocks.js:5734
 msgid "Widgets"
 msgstr ""
 
-#: wp-includes/js/dist/blocks.js:5720
+#: wp-includes/js/dist/blocks.js:5735
 msgid "Theme"
 msgstr ""
 
-#: wp-includes/js/dist/blocks.js:5721
+#: wp-includes/js/dist/blocks.js:5736
 msgid "Embeds"
 msgstr ""
 
-#: wp-includes/js/dist/blocks.js:5722
+#: wp-includes/js/dist/blocks.js:5737
 msgid "Reusable blocks"
 msgstr ""

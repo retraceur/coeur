@@ -1,13 +1,13 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Retraceur 3.0.0\n"
+"Project-Id-Version: Retraceur 4.0.0\n"
 "Report-Msgid-Bugs-To: https://github.com/retraceur/coeur/issues\n"
 "Last-Translator: imath <contact@imathi.eu>\n"
 "Language-Team: Retraceur <retraceur@proton.me>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-03-01T12:53:57+00:00\n"
+"POT-Creation-Date: 2026-07-16T08:39:50+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 
@@ -23,87 +23,87 @@ msgstr ""
 msgid "The changes you made will be lost if you navigate away from this page."
 msgstr ""
 
-#: wp-admin/js/post.js:735
+#: wp-admin/js/post.js:754
 msgid "Schedule for:"
 msgstr ""
 
-#: wp-admin/js/post.js:736
+#: wp-admin/js/post.js:755
 msgctxt "post action/button label"
 msgid "Schedule"
 msgstr ""
 
-#: wp-admin/js/post.js:738
+#: wp-admin/js/post.js:757
 msgid "Publish on:"
 msgstr ""
 
-#: wp-admin/js/post.js:739
+#: wp-admin/js/post.js:758
 msgid "Publish"
 msgstr ""
 
-#: wp-admin/js/post.js:741
+#: wp-admin/js/post.js:760
 msgid "Published on:"
 msgstr ""
 
-#: wp-admin/js/post.js:742
-#: wp-admin/js/post.js:765
+#: wp-admin/js/post.js:761
+#: wp-admin/js/post.js:784
 msgid "Update"
 msgstr ""
 
 #. translators: 1: Month, 2: Day, 3: Year, 4: Hour, 5: Minute.
-#: wp-admin/js/post.js:753
+#: wp-admin/js/post.js:772
 #, js-format
 msgid "%1$s %2$s, %3$s at %4$s:%5$s"
 msgstr ""
 
-#: wp-admin/js/post.js:767
-#: wp-admin/js/post.js:769
+#: wp-admin/js/post.js:786
+#: wp-admin/js/post.js:788
 msgid "Privately Published"
 msgstr ""
 
-#: wp-admin/js/post.js:780
+#: wp-admin/js/post.js:799
 msgid "Published"
 msgstr ""
 
-#: wp-admin/js/post.js:801
+#: wp-admin/js/post.js:820
 msgid "Save as Pending"
 msgstr ""
 
-#: wp-admin/js/post.js:803
+#: wp-admin/js/post.js:822
 msgid "Save Draft"
 msgstr ""
 
-#: wp-admin/js/post.js:847
+#: wp-admin/js/post.js:866
 msgid "Public, Sticky"
 msgstr ""
 
-#: wp-admin/js/post.js:847
+#: wp-admin/js/post.js:866
 msgid "Public"
 msgstr ""
 
-#: wp-admin/js/post.js:850
+#: wp-admin/js/post.js:869
 msgid "Private"
 msgstr ""
 
-#: wp-admin/js/post.js:853
+#: wp-admin/js/post.js:872
 msgid "Password Protected"
 msgstr ""
 
-#: wp-admin/js/post.js:971
+#: wp-admin/js/post.js:990
 msgid "OK"
 msgstr ""
 
-#: wp-admin/js/post.js:972
+#: wp-admin/js/post.js:991
 msgid "Cancel"
 msgstr ""
 
-#: wp-admin/js/post.js:1006
+#: wp-admin/js/post.js:1025
 msgid "Permalink saved"
 msgstr ""
 
-#: wp-admin/js/post.js:1027
+#: wp-admin/js/post.js:1046
 msgid "URL Slug"
 msgstr ""
 
-#: wp-admin/js/post.js:1259
+#: wp-admin/js/post.js:1278
 msgid "The file URL has been copied to your clipboard"
 msgstr ""
