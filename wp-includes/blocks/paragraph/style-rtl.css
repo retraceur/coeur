@@ -1,47 +1,47 @@
 .is-small-text {
-	font-size: .875em
+  font-size: 0.875em;
 }
 
 .is-regular-text {
-	font-size: 1em
+  font-size: 1em;
 }
 
 .is-large-text {
-	font-size: 2.25em
+  font-size: 2.25em;
 }
 
 .is-larger-text {
-	font-size: 3em
+  font-size: 3em;
 }
 
-.has-drop-cap:not(:focus):first-letter {
-	float: right;
-	font-size: 8.4em;
-	font-style: normal;
-	font-weight: 100;
-	line-height: .68;
-	margin: .05em 0 0 .1em;
-	text-transform: uppercase
+.has-drop-cap:not(:focus)::first-letter {
+  float: right;
+  font-size: 8.4em;
+  line-height: 0.68;
+  font-weight: 100;
+  margin: 0.05em 0 0 0.1em;
+  text-transform: uppercase;
+  font-style: normal;
 }
 
-body.rtl .has-drop-cap:not(:focus):first-letter {
-	float: none;
-	margin-right: .1em
+body.rtl .has-drop-cap:not(:focus)::first-letter {
+  float: initial;
+  margin-right: 0.1em;
 }
 
 p.has-drop-cap.has-background {
-	overflow: hidden
+  overflow: hidden;
 }
 
 :root :where(p.has-background) {
-	padding: 1.25em 2.375em
+  padding: 1.25em 2.375em;
 }
 
 :where(p.has-text-color:not(.has-link-color)) a {
-	color: inherit
+  color: inherit;
 }
 
-p.has-text-align-left[style*="writing-mode:vertical-lr"],
-p.has-text-align-right[style*="writing-mode:vertical-rl"] {
-	rotate: 180deg
+p.has-text-align-right[style*="writing-mode:vertical-rl"],
+p.has-text-align-left[style*="writing-mode:vertical-lr"] {
+  rotate: 180deg;
 }

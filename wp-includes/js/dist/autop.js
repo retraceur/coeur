@@ -19,7 +19,7 @@ var wp;
   };
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
-  // packages/autop/build-module/index.js
+  // packages/autop/build-module/index.mjs
   var index_exports = {};
   __export(index_exports, {
     autop: () => autop,
@@ -174,7 +174,7 @@ var wp;
     text = text.replace(/\n<\/p>$/g, "</p>");
     preTags.forEach((preTag) => {
       const [name, original] = preTag;
-      text = text.replace(name, original);
+      text = text.replace(name, () => original);
     });
     if (-1 !== text.indexOf("<!-- wpnl -->")) {
       text = text.replace(/\s?<!-- wpnl -->\s?/g, "\n");

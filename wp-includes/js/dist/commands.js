@@ -31,17 +31,17 @@ var wp;
   ));
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
-  // vendor-external:react/jsx-runtime
-  var require_jsx_runtime = __commonJS({
-    "vendor-external:react/jsx-runtime"(exports, module) {
-      module.exports = window.ReactJSXRuntime;
-    }
-  });
-
   // vendor-external:react
   var require_react = __commonJS({
     "vendor-external:react"(exports, module) {
       module.exports = window.React;
+    }
+  });
+
+  // vendor-external:react/jsx-runtime
+  var require_jsx_runtime = __commonJS({
+    "vendor-external:react/jsx-runtime"(exports, module) {
+      module.exports = window.ReactJSXRuntime;
     }
   });
 
@@ -52,56 +52,56 @@ var wp;
     }
   });
 
-  // wordpress-external:@wordpress/data
+  // package-external:@wordpress/data
   var require_data = __commonJS({
-    "wordpress-external:@wordpress/data"(exports, module) {
+    "package-external:@wordpress/data"(exports, module) {
       module.exports = window.wp.data;
     }
   });
 
-  // wordpress-external:@wordpress/element
+  // package-external:@wordpress/element
   var require_element = __commonJS({
-    "wordpress-external:@wordpress/element"(exports, module) {
+    "package-external:@wordpress/element"(exports, module) {
       module.exports = window.wp.element;
     }
   });
 
-  // wordpress-external:@wordpress/i18n
+  // package-external:@wordpress/i18n
   var require_i18n = __commonJS({
-    "wordpress-external:@wordpress/i18n"(exports, module) {
+    "package-external:@wordpress/i18n"(exports, module) {
       module.exports = window.wp.i18n;
     }
   });
 
-  // wordpress-external:@wordpress/components
+  // package-external:@wordpress/components
   var require_components = __commonJS({
-    "wordpress-external:@wordpress/components"(exports, module) {
+    "package-external:@wordpress/components"(exports, module) {
       module.exports = window.wp.components;
     }
   });
 
-  // wordpress-external:@wordpress/keyboard-shortcuts
+  // package-external:@wordpress/keyboard-shortcuts
   var require_keyboard_shortcuts = __commonJS({
-    "wordpress-external:@wordpress/keyboard-shortcuts"(exports, module) {
+    "package-external:@wordpress/keyboard-shortcuts"(exports, module) {
       module.exports = window.wp.keyboardShortcuts;
     }
   });
 
-  // wordpress-external:@wordpress/primitives
+  // package-external:@wordpress/primitives
   var require_primitives = __commonJS({
-    "wordpress-external:@wordpress/primitives"(exports, module) {
+    "package-external:@wordpress/primitives"(exports, module) {
       module.exports = window.wp.primitives;
     }
   });
 
-  // wordpress-external:@wordpress/private-apis
+  // package-external:@wordpress/private-apis
   var require_private_apis = __commonJS({
-    "wordpress-external:@wordpress/private-apis"(exports, module) {
+    "package-external:@wordpress/private-apis"(exports, module) {
       module.exports = window.wp.privateApis;
     }
   });
 
-  // packages/commands/build-module/index.js
+  // packages/commands/build-module/index.mjs
   var index_exports = {};
   __export(index_exports, {
     CommandMenu: () => CommandMenu,
@@ -112,10 +112,7 @@ var wp;
     useCommands: () => useCommands
   });
 
-  // packages/commands/build-module/components/command-menu.js
-  var import_jsx_runtime2 = __toESM(require_jsx_runtime());
-
-  // packages/commands/node_modules/cmdk/dist/chunk-NZJY6EH4.mjs
+  // node_modules/cmdk/dist/chunk-NZJY6EH4.mjs
   var U = 1;
   var Y = 0.9;
   var H = 0.8;
@@ -128,11 +125,11 @@ var wp;
   var B = /[\\\/_+.#"@\[\(\{&]/g;
   var K = /[\s-]/;
   var X = /[\s-]/g;
-  function G(_, C, h, P, A, f, O) {
+  function G(_, C, h, P2, A, f, O) {
     if (f === C.length) return A === _.length ? U : k;
     var T2 = `${A},${f}`;
     if (O[T2] !== void 0) return O[T2];
-    for (var L = P.charAt(f), c = h.indexOf(L, A), S = 0, E, N2, R, M2; c >= 0; ) E = G(_, C, h, P, c + 1, f + 1, O), E > S && (c === A ? E *= U : m.test(_.charAt(c - 1)) ? (E *= H, R = _.slice(A, c - 1).match(B), R && A > 0 && (E *= Math.pow(u, R.length))) : K.test(_.charAt(c - 1)) ? (E *= Y, M2 = _.slice(A, c - 1).match(X), M2 && A > 0 && (E *= Math.pow(u, M2.length))) : (E *= J, A > 0 && (E *= Math.pow(u, c - A))), _.charAt(c) !== C.charAt(f) && (E *= $)), (E < p && h.charAt(c - 1) === P.charAt(f + 1) || P.charAt(f + 1) === P.charAt(f) && h.charAt(c - 1) !== P.charAt(f)) && (N2 = G(_, C, h, P, c + 1, f + 2, O), N2 * p > E && (E = N2 * p)), E > S && (S = E), c = h.indexOf(L, c + 1);
+    for (var L2 = P2.charAt(f), c = h.indexOf(L2, A), S = 0, E, N2, R, M; c >= 0; ) E = G(_, C, h, P2, c + 1, f + 1, O), E > S && (c === A ? E *= U : m.test(_.charAt(c - 1)) ? (E *= H, R = _.slice(A, c - 1).match(B), R && A > 0 && (E *= Math.pow(u, R.length))) : K.test(_.charAt(c - 1)) ? (E *= Y, M = _.slice(A, c - 1).match(X), M && A > 0 && (E *= Math.pow(u, M.length))) : (E *= J, A > 0 && (E *= Math.pow(u, c - A))), _.charAt(c) !== C.charAt(f) && (E *= $)), (E < p && h.charAt(c - 1) === P2.charAt(f + 1) || P2.charAt(f + 1) === P2.charAt(f) && h.charAt(c - 1) !== P2.charAt(f)) && (N2 = G(_, C, h, P2, c + 1, f + 2, O), N2 * p > E && (E = N2 * p)), E > S && (S = E), c = h.indexOf(L2, c + 1);
     return O[T2] = S, S;
   }
   function D(_) {
@@ -142,346 +139,367 @@ var wp;
     return _ = h && h.length > 0 ? `${_ + " " + h.join(" ")}` : _, G(_, C, D(_), D(C), 0, 0, {});
   }
 
-  // packages/commands/node_modules/@radix-ui/react-dialog/node_modules/@babel/runtime/helpers/esm/extends.js
-  function _extends() {
-    return _extends = Object.assign ? Object.assign.bind() : function(n) {
-      for (var e = 1; e < arguments.length; e++) {
-        var t2 = arguments[e];
-        for (var r2 in t2) ({}).hasOwnProperty.call(t2, r2) && (n[r2] = t2[r2]);
-      }
-      return n;
-    }, _extends.apply(null, arguments);
-  }
+  // node_modules/@radix-ui/react-dialog/dist/index.mjs
+  var React37 = __toESM(require_react(), 1);
 
-  // packages/commands/node_modules/@radix-ui/react-dialog/dist/index.mjs
-  var import_react15 = __toESM(require_react(), 1);
-
-  // node_modules/@radix-ui/primitive/dist/index.mjs
-  function $e42e1063c40fb3ef$export$b9ecd428b558ff10(originalEventHandler, ourEventHandler, { checkForDefaultPrevented = true } = {}) {
+  // node_modules/@radix-ui/react-dialog/node_modules/@radix-ui/primitive/dist/index.mjs
+  var canUseDOM = !!(typeof window !== "undefined" && window.document && window.document.createElement);
+  function composeEventHandlers(originalEventHandler, ourEventHandler, { checkForDefaultPrevented = true } = {}) {
     return function handleEvent(event) {
-      originalEventHandler === null || originalEventHandler === void 0 || originalEventHandler(event);
-      if (checkForDefaultPrevented === false || !event.defaultPrevented) return ourEventHandler === null || ourEventHandler === void 0 ? void 0 : ourEventHandler(event);
+      originalEventHandler?.(event);
+      if (checkForDefaultPrevented === false || !event.defaultPrevented) {
+        return ourEventHandler?.(event);
+      }
     };
   }
 
-  // node_modules/@radix-ui/react-compose-refs/dist/index.mjs
-  var import_react = __toESM(require_react(), 1);
-  function $6ed0406888f73fc4$var$setRef(ref, value) {
-    if (typeof ref === "function") ref(value);
-    else if (ref !== null && ref !== void 0) ref.current = value;
+  // node_modules/@radix-ui/react-dialog/node_modules/@radix-ui/react-compose-refs/dist/index.mjs
+  var React = __toESM(require_react(), 1);
+  function setRef(ref, value) {
+    if (typeof ref === "function") {
+      return ref(value);
+    } else if (ref !== null && ref !== void 0) {
+      ref.current = value;
+    }
   }
-  function $6ed0406888f73fc4$export$43e446d32b3d21af(...refs) {
-    return (node) => refs.forEach(
-      (ref) => $6ed0406888f73fc4$var$setRef(ref, node)
-    );
+  function composeRefs(...refs) {
+    return (node) => {
+      let hasCleanup = false;
+      const cleanups = refs.map((ref) => {
+        const cleanup = setRef(ref, node);
+        if (!hasCleanup && typeof cleanup == "function") {
+          hasCleanup = true;
+        }
+        return cleanup;
+      });
+      if (hasCleanup) {
+        return () => {
+          for (let i = 0; i < cleanups.length; i++) {
+            const cleanup = cleanups[i];
+            if (typeof cleanup == "function") {
+              cleanup();
+            } else {
+              setRef(refs[i], null);
+            }
+          }
+        };
+      }
+    };
   }
-  function $6ed0406888f73fc4$export$c7b2cbe3552a0d05(...refs) {
-    return (0, import_react.useCallback)($6ed0406888f73fc4$export$43e446d32b3d21af(...refs), refs);
+  function useComposedRefs(...refs) {
+    return React.useCallback(composeRefs(...refs), refs);
   }
 
-  // node_modules/@radix-ui/react-context/dist/index.mjs
-  var import_react2 = __toESM(require_react(), 1);
-  function $c512c27ab02ef895$export$fd42f52fd3ae1109(rootComponentName, defaultContext) {
-    const Context = /* @__PURE__ */ (0, import_react2.createContext)(defaultContext);
-    function Provider(props) {
+  // node_modules/@radix-ui/react-dialog/node_modules/@radix-ui/react-context/dist/index.mjs
+  var React2 = __toESM(require_react(), 1);
+  var import_jsx_runtime = __toESM(require_jsx_runtime(), 1);
+  function createContext2(rootComponentName, defaultContext) {
+    const Context = React2.createContext(defaultContext);
+    const Provider = (props) => {
       const { children, ...context2 } = props;
-      const value = (0, import_react2.useMemo)(
-        () => context2,
-        Object.values(context2)
-      );
-      return /* @__PURE__ */ (0, import_react2.createElement)(Context.Provider, {
-        value
-      }, children);
-    }
-    function useContext2(consumerName) {
-      const context2 = (0, import_react2.useContext)(Context);
+      const value = React2.useMemo(() => context2, Object.values(context2));
+      return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Context.Provider, { value, children });
+    };
+    Provider.displayName = rootComponentName + "Provider";
+    function useContext22(consumerName) {
+      const context2 = React2.useContext(Context);
       if (context2) return context2;
       if (defaultContext !== void 0) return defaultContext;
       throw new Error(`\`${consumerName}\` must be used within \`${rootComponentName}\``);
     }
-    Provider.displayName = rootComponentName + "Provider";
-    return [
-      Provider,
-      useContext2
-    ];
+    return [Provider, useContext22];
   }
-  function $c512c27ab02ef895$export$50c7b4e9d9f19c1(scopeName, createContextScopeDeps = []) {
+  function createContextScope(scopeName, createContextScopeDeps = []) {
     let defaultContexts = [];
-    function $c512c27ab02ef895$export$fd42f52fd3ae11092(rootComponentName, defaultContext) {
-      const BaseContext = /* @__PURE__ */ (0, import_react2.createContext)(defaultContext);
+    function createContext32(rootComponentName, defaultContext) {
+      const BaseContext = React2.createContext(defaultContext);
       const index = defaultContexts.length;
-      defaultContexts = [
-        ...defaultContexts,
-        defaultContext
-      ];
-      function Provider(props) {
+      defaultContexts = [...defaultContexts, defaultContext];
+      const Provider = (props) => {
         const { scope, children, ...context2 } = props;
-        const Context = (scope === null || scope === void 0 ? void 0 : scope[scopeName][index]) || BaseContext;
-        const value = (0, import_react2.useMemo)(
-          () => context2,
-          Object.values(context2)
-        );
-        return /* @__PURE__ */ (0, import_react2.createElement)(Context.Provider, {
-          value
-        }, children);
-      }
-      function useContext2(consumerName, scope) {
-        const Context = (scope === null || scope === void 0 ? void 0 : scope[scopeName][index]) || BaseContext;
-        const context2 = (0, import_react2.useContext)(Context);
+        const Context = scope?.[scopeName]?.[index] || BaseContext;
+        const value = React2.useMemo(() => context2, Object.values(context2));
+        return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Context.Provider, { value, children });
+      };
+      Provider.displayName = rootComponentName + "Provider";
+      function useContext22(consumerName, scope) {
+        const Context = scope?.[scopeName]?.[index] || BaseContext;
+        const context2 = React2.useContext(Context);
         if (context2) return context2;
         if (defaultContext !== void 0) return defaultContext;
         throw new Error(`\`${consumerName}\` must be used within \`${rootComponentName}\``);
       }
-      Provider.displayName = rootComponentName + "Provider";
-      return [
-        Provider,
-        useContext2
-      ];
+      return [Provider, useContext22];
     }
     const createScope = () => {
       const scopeContexts = defaultContexts.map((defaultContext) => {
-        return /* @__PURE__ */ (0, import_react2.createContext)(defaultContext);
+        return React2.createContext(defaultContext);
       });
       return function useScope(scope) {
-        const contexts = (scope === null || scope === void 0 ? void 0 : scope[scopeName]) || scopeContexts;
-        return (0, import_react2.useMemo)(
-          () => ({
-            [`__scope${scopeName}`]: {
-              ...scope,
-              [scopeName]: contexts
-            }
-          }),
-          [
-            scope,
-            contexts
-          ]
+        const contexts = scope?.[scopeName] || scopeContexts;
+        return React2.useMemo(
+          () => ({ [`__scope${scopeName}`]: { ...scope, [scopeName]: contexts } }),
+          [scope, contexts]
         );
       };
     };
     createScope.scopeName = scopeName;
-    return [
-      $c512c27ab02ef895$export$fd42f52fd3ae11092,
-      $c512c27ab02ef895$var$composeContextScopes(createScope, ...createContextScopeDeps)
-    ];
+    return [createContext32, composeContextScopes(createScope, ...createContextScopeDeps)];
   }
-  function $c512c27ab02ef895$var$composeContextScopes(...scopes) {
+  function composeContextScopes(...scopes) {
     const baseScope = scopes[0];
     if (scopes.length === 1) return baseScope;
-    const createScope1 = () => {
-      const scopeHooks = scopes.map(
-        (createScope) => ({
-          useScope: createScope(),
-          scopeName: createScope.scopeName
-        })
-      );
+    const createScope = () => {
+      const scopeHooks = scopes.map((createScope2) => ({
+        useScope: createScope2(),
+        scopeName: createScope2.scopeName
+      }));
       return function useComposedScopes(overrideScopes) {
-        const nextScopes1 = scopeHooks.reduce((nextScopes, { useScope, scopeName }) => {
+        const nextScopes = scopeHooks.reduce((nextScopes2, { useScope, scopeName }) => {
           const scopeProps = useScope(overrideScopes);
           const currentScope = scopeProps[`__scope${scopeName}`];
-          return {
-            ...nextScopes,
-            ...currentScope
-          };
+          return { ...nextScopes2, ...currentScope };
         }, {});
-        return (0, import_react2.useMemo)(
-          () => ({
-            [`__scope${baseScope.scopeName}`]: nextScopes1
-          }),
-          [
-            nextScopes1
-          ]
-        );
+        return React2.useMemo(() => ({ [`__scope${baseScope.scopeName}`]: nextScopes }), [nextScopes]);
       };
     };
-    createScope1.scopeName = baseScope.scopeName;
-    return createScope1;
+    createScope.scopeName = baseScope.scopeName;
+    return createScope;
   }
 
-  // node_modules/@radix-ui/react-id/dist/index.mjs
-  var $2AODx$react = __toESM(require_react(), 1);
+  // node_modules/@radix-ui/react-dialog/node_modules/@radix-ui/react-id/dist/index.mjs
+  var React4 = __toESM(require_react(), 1);
 
-  // node_modules/@radix-ui/react-use-layout-effect/dist/index.mjs
-  var import_react3 = __toESM(require_react(), 1);
-  var $9f79659886946c16$export$e5c5a5f917a5871c = Boolean(globalThis === null || globalThis === void 0 ? void 0 : globalThis.document) ? import_react3.useLayoutEffect : () => {
+  // node_modules/@radix-ui/react-dialog/node_modules/@radix-ui/react-use-layout-effect/dist/index.mjs
+  var React3 = __toESM(require_react(), 1);
+  var useLayoutEffect2 = globalThis?.document ? React3.useLayoutEffect : () => {
   };
 
-  // node_modules/@radix-ui/react-id/dist/index.mjs
-  var $1746a345f3d73bb7$var$useReactId = $2AODx$react["useId".toString()] || (() => void 0);
-  var $1746a345f3d73bb7$var$count = 0;
-  function $1746a345f3d73bb7$export$f680877a34711e37(deterministicId) {
-    const [id, setId] = $2AODx$react.useState($1746a345f3d73bb7$var$useReactId());
-    $9f79659886946c16$export$e5c5a5f917a5871c(() => {
-      if (!deterministicId) setId(
-        (reactId) => reactId !== null && reactId !== void 0 ? reactId : String($1746a345f3d73bb7$var$count++)
-      );
-    }, [
-      deterministicId
-    ]);
+  // node_modules/@radix-ui/react-dialog/node_modules/@radix-ui/react-id/dist/index.mjs
+  var useReactId = React4[" useId ".trim().toString()] || (() => void 0);
+  var count = 0;
+  function useId(deterministicId) {
+    const [id, setId] = React4.useState(useReactId());
+    useLayoutEffect2(() => {
+      if (!deterministicId) setId((reactId) => reactId ?? String(count++));
+    }, [deterministicId]);
     return deterministicId || (id ? `radix-${id}` : "");
   }
 
-  // node_modules/@radix-ui/react-use-controllable-state/dist/index.mjs
-  var import_react5 = __toESM(require_react(), 1);
-
-  // node_modules/@radix-ui/react-use-callback-ref/dist/index.mjs
-  var import_react4 = __toESM(require_react(), 1);
-  function $b1b2314f5f9a1d84$export$25bec8c6f54ee79a(callback) {
-    const callbackRef = (0, import_react4.useRef)(callback);
-    (0, import_react4.useEffect)(() => {
-      callbackRef.current = callback;
-    });
-    return (0, import_react4.useMemo)(
-      () => (...args) => {
-        var _callbackRef$current;
-        return (_callbackRef$current = callbackRef.current) === null || _callbackRef$current === void 0 ? void 0 : _callbackRef$current.call(callbackRef, ...args);
-      },
-      []
-    );
-  }
-
-  // node_modules/@radix-ui/react-use-controllable-state/dist/index.mjs
-  function $71cd76cc60e0454e$export$6f32135080cb4c3({ prop, defaultProp, onChange = () => {
-  } }) {
-    const [uncontrolledProp, setUncontrolledProp] = $71cd76cc60e0454e$var$useUncontrolledState({
+  // node_modules/@radix-ui/react-dialog/node_modules/@radix-ui/react-use-controllable-state/dist/index.mjs
+  var React5 = __toESM(require_react(), 1);
+  var React22 = __toESM(require_react(), 1);
+  var useInsertionEffect = React5[" useInsertionEffect ".trim().toString()] || useLayoutEffect2;
+  function useControllableState({
+    prop,
+    defaultProp,
+    onChange = () => {
+    },
+    caller
+  }) {
+    const [uncontrolledProp, setUncontrolledProp, onChangeRef] = useUncontrolledState({
       defaultProp,
       onChange
     });
     const isControlled = prop !== void 0;
-    const value1 = isControlled ? prop : uncontrolledProp;
-    const handleChange = $b1b2314f5f9a1d84$export$25bec8c6f54ee79a(onChange);
-    const setValue = (0, import_react5.useCallback)((nextValue) => {
-      if (isControlled) {
-        const setter = nextValue;
-        const value = typeof nextValue === "function" ? setter(prop) : nextValue;
-        if (value !== prop) handleChange(value);
-      } else setUncontrolledProp(nextValue);
-    }, [
-      isControlled,
-      prop,
-      setUncontrolledProp,
-      handleChange
-    ]);
-    return [
-      value1,
-      setValue
-    ];
+    const value = isControlled ? prop : uncontrolledProp;
+    if (true) {
+      const isControlledRef = React5.useRef(prop !== void 0);
+      React5.useEffect(() => {
+        const wasControlled = isControlledRef.current;
+        if (wasControlled !== isControlled) {
+          const from = wasControlled ? "controlled" : "uncontrolled";
+          const to = isControlled ? "controlled" : "uncontrolled";
+          console.warn(
+            `${caller} is changing from ${from} to ${to}. Components should not switch from controlled to uncontrolled (or vice versa). Decide between using a controlled or uncontrolled value for the lifetime of the component.`
+          );
+        }
+        isControlledRef.current = isControlled;
+      }, [isControlled, caller]);
+    }
+    const setValue = React5.useCallback(
+      (nextValue) => {
+        if (isControlled) {
+          const value2 = isFunction(nextValue) ? nextValue(prop) : nextValue;
+          if (value2 !== prop) {
+            onChangeRef.current?.(value2);
+          }
+        } else {
+          setUncontrolledProp(nextValue);
+        }
+      },
+      [isControlled, prop, setUncontrolledProp, onChangeRef]
+    );
+    return [value, setValue];
   }
-  function $71cd76cc60e0454e$var$useUncontrolledState({ defaultProp, onChange }) {
-    const uncontrolledState = (0, import_react5.useState)(defaultProp);
-    const [value] = uncontrolledState;
-    const prevValueRef = (0, import_react5.useRef)(value);
-    const handleChange = $b1b2314f5f9a1d84$export$25bec8c6f54ee79a(onChange);
-    (0, import_react5.useEffect)(() => {
+  function useUncontrolledState({
+    defaultProp,
+    onChange
+  }) {
+    const [value, setValue] = React5.useState(defaultProp);
+    const prevValueRef = React5.useRef(value);
+    const onChangeRef = React5.useRef(onChange);
+    useInsertionEffect(() => {
+      onChangeRef.current = onChange;
+    }, [onChange]);
+    React5.useEffect(() => {
       if (prevValueRef.current !== value) {
-        handleChange(value);
+        onChangeRef.current?.(value);
         prevValueRef.current = value;
       }
-    }, [
-      value,
-      prevValueRef,
-      handleChange
-    ]);
-    return uncontrolledState;
+    }, [value, prevValueRef]);
+    return [value, setValue, onChangeRef];
+  }
+  function isFunction(value) {
+    return typeof value === "function";
   }
 
-  // packages/commands/node_modules/@radix-ui/react-dismissable-layer/node_modules/@babel/runtime/helpers/esm/extends.js
-  function _extends2() {
-    return _extends2 = Object.assign ? Object.assign.bind() : function(n) {
-      for (var e = 1; e < arguments.length; e++) {
-        var t2 = arguments[e];
-        for (var r2 in t2) ({}).hasOwnProperty.call(t2, r2) && (n[r2] = t2[r2]);
+  // node_modules/@radix-ui/react-dismissable-layer/dist/index.mjs
+  var React11 = __toESM(require_react(), 1);
+
+  // node_modules/@radix-ui/react-dismissable-layer/node_modules/@radix-ui/primitive/dist/index.mjs
+  var canUseDOM2 = !!(typeof window !== "undefined" && window.document && window.document.createElement);
+  function composeEventHandlers2(originalEventHandler, ourEventHandler, { checkForDefaultPrevented = true } = {}) {
+    return function handleEvent(event) {
+      originalEventHandler?.(event);
+      if (checkForDefaultPrevented === false || !event.defaultPrevented) {
+        return ourEventHandler?.(event);
       }
-      return n;
-    }, _extends2.apply(null, arguments);
-  }
-
-  // packages/commands/node_modules/@radix-ui/react-dismissable-layer/dist/index.mjs
-  var import_react9 = __toESM(require_react(), 1);
-
-  // node_modules/@babel/runtime/helpers/esm/extends.js
-  function _extends3() {
-    return _extends3 = Object.assign ? Object.assign.bind() : function(n) {
-      for (var e = 1; e < arguments.length; e++) {
-        var t2 = arguments[e];
-        for (var r2 in t2) ({}).hasOwnProperty.call(t2, r2) && (n[r2] = t2[r2]);
-      }
-      return n;
-    }, _extends3.apply(null, arguments);
-  }
-
-  // node_modules/@radix-ui/react-primitive/dist/index.mjs
-  var import_react7 = __toESM(require_react(), 1);
-  var import_react_dom = __toESM(require_react_dom(), 1);
-
-  // node_modules/@radix-ui/react-slot/dist/index.mjs
-  var import_react6 = __toESM(require_react(), 1);
-  var $5e63c961fc1ce211$export$8c6ed5c666ac1360 = /* @__PURE__ */ (0, import_react6.forwardRef)((props, forwardedRef) => {
-    const { children, ...slotProps } = props;
-    const childrenArray = import_react6.Children.toArray(children);
-    const slottable = childrenArray.find($5e63c961fc1ce211$var$isSlottable);
-    if (slottable) {
-      const newElement = slottable.props.children;
-      const newChildren = childrenArray.map((child) => {
-        if (child === slottable) {
-          if (import_react6.Children.count(newElement) > 1) return import_react6.Children.only(null);
-          return /* @__PURE__ */ (0, import_react6.isValidElement)(newElement) ? newElement.props.children : null;
-        } else return child;
-      });
-      return /* @__PURE__ */ (0, import_react6.createElement)($5e63c961fc1ce211$var$SlotClone, _extends3({}, slotProps, {
-        ref: forwardedRef
-      }), /* @__PURE__ */ (0, import_react6.isValidElement)(newElement) ? /* @__PURE__ */ (0, import_react6.cloneElement)(newElement, void 0, newChildren) : null);
-    }
-    return /* @__PURE__ */ (0, import_react6.createElement)($5e63c961fc1ce211$var$SlotClone, _extends3({}, slotProps, {
-      ref: forwardedRef
-    }), children);
-  });
-  $5e63c961fc1ce211$export$8c6ed5c666ac1360.displayName = "Slot";
-  var $5e63c961fc1ce211$var$SlotClone = /* @__PURE__ */ (0, import_react6.forwardRef)((props, forwardedRef) => {
-    const { children, ...slotProps } = props;
-    if (/* @__PURE__ */ (0, import_react6.isValidElement)(children)) return /* @__PURE__ */ (0, import_react6.cloneElement)(children, {
-      ...$5e63c961fc1ce211$var$mergeProps(slotProps, children.props),
-      ref: forwardedRef ? $6ed0406888f73fc4$export$43e446d32b3d21af(forwardedRef, children.ref) : children.ref
-    });
-    return import_react6.Children.count(children) > 1 ? import_react6.Children.only(null) : null;
-  });
-  $5e63c961fc1ce211$var$SlotClone.displayName = "SlotClone";
-  var $5e63c961fc1ce211$export$d9f1ccf0bdb05d45 = ({ children }) => {
-    return /* @__PURE__ */ (0, import_react6.createElement)(import_react6.Fragment, null, children);
-  };
-  function $5e63c961fc1ce211$var$isSlottable(child) {
-    return /* @__PURE__ */ (0, import_react6.isValidElement)(child) && child.type === $5e63c961fc1ce211$export$d9f1ccf0bdb05d45;
-  }
-  function $5e63c961fc1ce211$var$mergeProps(slotProps, childProps) {
-    const overrideProps = {
-      ...childProps
     };
+  }
+
+  // node_modules/@radix-ui/react-dismissable-layer/node_modules/@radix-ui/react-primitive/dist/index.mjs
+  var React8 = __toESM(require_react(), 1);
+  var ReactDOM = __toESM(require_react_dom(), 1);
+
+  // node_modules/@radix-ui/react-dismissable-layer/node_modules/@radix-ui/react-slot/dist/index.mjs
+  var React7 = __toESM(require_react(), 1);
+
+  // node_modules/@radix-ui/react-dismissable-layer/node_modules/@radix-ui/react-compose-refs/dist/index.mjs
+  var React6 = __toESM(require_react(), 1);
+  function setRef2(ref, value) {
+    if (typeof ref === "function") {
+      return ref(value);
+    } else if (ref !== null && ref !== void 0) {
+      ref.current = value;
+    }
+  }
+  function composeRefs2(...refs) {
+    return (node) => {
+      let hasCleanup = false;
+      const cleanups = refs.map((ref) => {
+        const cleanup = setRef2(ref, node);
+        if (!hasCleanup && typeof cleanup == "function") {
+          hasCleanup = true;
+        }
+        return cleanup;
+      });
+      if (hasCleanup) {
+        return () => {
+          for (let i = 0; i < cleanups.length; i++) {
+            const cleanup = cleanups[i];
+            if (typeof cleanup == "function") {
+              cleanup();
+            } else {
+              setRef2(refs[i], null);
+            }
+          }
+        };
+      }
+    };
+  }
+  function useComposedRefs2(...refs) {
+    return React6.useCallback(composeRefs2(...refs), refs);
+  }
+
+  // node_modules/@radix-ui/react-dismissable-layer/node_modules/@radix-ui/react-slot/dist/index.mjs
+  var import_jsx_runtime2 = __toESM(require_jsx_runtime(), 1);
+  // @__NO_SIDE_EFFECTS__
+  function createSlot(ownerName) {
+    const SlotClone = /* @__PURE__ */ createSlotClone(ownerName);
+    const Slot2 = React7.forwardRef((props, forwardedRef) => {
+      const { children, ...slotProps } = props;
+      const childrenArray = React7.Children.toArray(children);
+      const slottable = childrenArray.find(isSlottable);
+      if (slottable) {
+        const newElement = slottable.props.children;
+        const newChildren = childrenArray.map((child) => {
+          if (child === slottable) {
+            if (React7.Children.count(newElement) > 1) return React7.Children.only(null);
+            return React7.isValidElement(newElement) ? newElement.props.children : null;
+          } else {
+            return child;
+          }
+        });
+        return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(SlotClone, { ...slotProps, ref: forwardedRef, children: React7.isValidElement(newElement) ? React7.cloneElement(newElement, void 0, newChildren) : null });
+      }
+      return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(SlotClone, { ...slotProps, ref: forwardedRef, children });
+    });
+    Slot2.displayName = `${ownerName}.Slot`;
+    return Slot2;
+  }
+  // @__NO_SIDE_EFFECTS__
+  function createSlotClone(ownerName) {
+    const SlotClone = React7.forwardRef((props, forwardedRef) => {
+      const { children, ...slotProps } = props;
+      if (React7.isValidElement(children)) {
+        const childrenRef = getElementRef(children);
+        const props2 = mergeProps(slotProps, children.props);
+        if (children.type !== React7.Fragment) {
+          props2.ref = forwardedRef ? composeRefs2(forwardedRef, childrenRef) : childrenRef;
+        }
+        return React7.cloneElement(children, props2);
+      }
+      return React7.Children.count(children) > 1 ? React7.Children.only(null) : null;
+    });
+    SlotClone.displayName = `${ownerName}.SlotClone`;
+    return SlotClone;
+  }
+  var SLOTTABLE_IDENTIFIER = /* @__PURE__ */ Symbol("radix.slottable");
+  function isSlottable(child) {
+    return React7.isValidElement(child) && typeof child.type === "function" && "__radixId" in child.type && child.type.__radixId === SLOTTABLE_IDENTIFIER;
+  }
+  function mergeProps(slotProps, childProps) {
+    const overrideProps = { ...childProps };
     for (const propName in childProps) {
       const slotPropValue = slotProps[propName];
       const childPropValue = childProps[propName];
       const isHandler = /^on[A-Z]/.test(propName);
       if (isHandler) {
-        if (slotPropValue && childPropValue) overrideProps[propName] = (...args) => {
-          childPropValue(...args);
-          slotPropValue(...args);
-        };
-        else if (slotPropValue) overrideProps[propName] = slotPropValue;
-      } else if (propName === "style") overrideProps[propName] = {
-        ...slotPropValue,
-        ...childPropValue
-      };
-      else if (propName === "className") overrideProps[propName] = [
-        slotPropValue,
-        childPropValue
-      ].filter(Boolean).join(" ");
+        if (slotPropValue && childPropValue) {
+          overrideProps[propName] = (...args) => {
+            const result = childPropValue(...args);
+            slotPropValue(...args);
+            return result;
+          };
+        } else if (slotPropValue) {
+          overrideProps[propName] = slotPropValue;
+        }
+      } else if (propName === "style") {
+        overrideProps[propName] = { ...slotPropValue, ...childPropValue };
+      } else if (propName === "className") {
+        overrideProps[propName] = [slotPropValue, childPropValue].filter(Boolean).join(" ");
+      }
     }
-    return {
-      ...slotProps,
-      ...overrideProps
-    };
+    return { ...slotProps, ...overrideProps };
+  }
+  function getElementRef(element) {
+    let getter = Object.getOwnPropertyDescriptor(element.props, "ref")?.get;
+    let mayWarn = getter && "isReactWarning" in getter && getter.isReactWarning;
+    if (mayWarn) {
+      return element.ref;
+    }
+    getter = Object.getOwnPropertyDescriptor(element, "ref")?.get;
+    mayWarn = getter && "isReactWarning" in getter && getter.isReactWarning;
+    if (mayWarn) {
+      return element.props.ref;
+    }
+    return element.props.ref || element.ref;
   }
 
-  // node_modules/@radix-ui/react-primitive/dist/index.mjs
-  var $8927f6f2acc4f386$var$NODES = [
+  // node_modules/@radix-ui/react-dismissable-layer/node_modules/@radix-ui/react-primitive/dist/index.mjs
+  var import_jsx_runtime3 = __toESM(require_jsx_runtime(), 1);
+  var NODES = [
     "a",
     "button",
     "div",
@@ -495,183 +513,207 @@ var wp;
     "nav",
     "ol",
     "p",
+    "select",
     "span",
     "svg",
     "ul"
   ];
-  var $8927f6f2acc4f386$export$250ffa63cdc0d034 = $8927f6f2acc4f386$var$NODES.reduce((primitive, node) => {
-    const Node = /* @__PURE__ */ (0, import_react7.forwardRef)((props, forwardedRef) => {
+  var Primitive = NODES.reduce((primitive, node) => {
+    const Slot2 = createSlot(`Primitive.${node}`);
+    const Node2 = React8.forwardRef((props, forwardedRef) => {
       const { asChild, ...primitiveProps } = props;
-      const Comp = asChild ? $5e63c961fc1ce211$export$8c6ed5c666ac1360 : node;
-      (0, import_react7.useEffect)(() => {
-        window[Symbol.for("radix-ui")] = true;
-      }, []);
-      return /* @__PURE__ */ (0, import_react7.createElement)(Comp, _extends3({}, primitiveProps, {
-        ref: forwardedRef
-      }));
+      const Comp = asChild ? Slot2 : node;
+      if (typeof window !== "undefined") {
+        window[/* @__PURE__ */ Symbol.for("radix-ui")] = true;
+      }
+      return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Comp, { ...primitiveProps, ref: forwardedRef });
     });
-    Node.displayName = `Primitive.${node}`;
-    return {
-      ...primitive,
-      [node]: Node
-    };
+    Node2.displayName = `Primitive.${node}`;
+    return { ...primitive, [node]: Node2 };
   }, {});
-  function $8927f6f2acc4f386$export$6d1a0317bde7de7f(target, event) {
-    if (target) (0, import_react_dom.flushSync)(
-      () => target.dispatchEvent(event)
-    );
+  function dispatchDiscreteCustomEvent(target, event) {
+    if (target) ReactDOM.flushSync(() => target.dispatchEvent(event));
   }
 
-  // node_modules/@radix-ui/react-use-escape-keydown/dist/index.mjs
-  var import_react8 = __toESM(require_react(), 1);
-  function $addc16e1bbe58fd0$export$3a72a57244d6e765(onEscapeKeyDownProp, ownerDocument = globalThis === null || globalThis === void 0 ? void 0 : globalThis.document) {
-    const onEscapeKeyDown = $b1b2314f5f9a1d84$export$25bec8c6f54ee79a(onEscapeKeyDownProp);
-    (0, import_react8.useEffect)(() => {
+  // node_modules/@radix-ui/react-dismissable-layer/node_modules/@radix-ui/react-use-callback-ref/dist/index.mjs
+  var React9 = __toESM(require_react(), 1);
+  function useCallbackRef(callback) {
+    const callbackRef = React9.useRef(callback);
+    React9.useEffect(() => {
+      callbackRef.current = callback;
+    });
+    return React9.useMemo(() => (...args) => callbackRef.current?.(...args), []);
+  }
+
+  // node_modules/@radix-ui/react-dismissable-layer/node_modules/@radix-ui/react-use-escape-keydown/dist/index.mjs
+  var React10 = __toESM(require_react(), 1);
+  function useEscapeKeydown(onEscapeKeyDownProp, ownerDocument = globalThis?.document) {
+    const onEscapeKeyDown = useCallbackRef(onEscapeKeyDownProp);
+    React10.useEffect(() => {
       const handleKeyDown = (event) => {
-        if (event.key === "Escape") onEscapeKeyDown(event);
+        if (event.key === "Escape") {
+          onEscapeKeyDown(event);
+        }
       };
-      ownerDocument.addEventListener("keydown", handleKeyDown);
-      return () => ownerDocument.removeEventListener("keydown", handleKeyDown);
-    }, [
-      onEscapeKeyDown,
-      ownerDocument
-    ]);
+      ownerDocument.addEventListener("keydown", handleKeyDown, { capture: true });
+      return () => ownerDocument.removeEventListener("keydown", handleKeyDown, { capture: true });
+    }, [onEscapeKeyDown, ownerDocument]);
   }
 
-  // packages/commands/node_modules/@radix-ui/react-dismissable-layer/dist/index.mjs
-  var $5cb92bef7577960e$var$CONTEXT_UPDATE = "dismissableLayer.update";
-  var $5cb92bef7577960e$var$POINTER_DOWN_OUTSIDE = "dismissableLayer.pointerDownOutside";
-  var $5cb92bef7577960e$var$FOCUS_OUTSIDE = "dismissableLayer.focusOutside";
-  var $5cb92bef7577960e$var$originalBodyPointerEvents;
-  var $5cb92bef7577960e$var$DismissableLayerContext = /* @__PURE__ */ (0, import_react9.createContext)({
+  // node_modules/@radix-ui/react-dismissable-layer/dist/index.mjs
+  var import_jsx_runtime4 = __toESM(require_jsx_runtime(), 1);
+  var DISMISSABLE_LAYER_NAME = "DismissableLayer";
+  var CONTEXT_UPDATE = "dismissableLayer.update";
+  var POINTER_DOWN_OUTSIDE = "dismissableLayer.pointerDownOutside";
+  var FOCUS_OUTSIDE = "dismissableLayer.focusOutside";
+  var originalBodyPointerEvents;
+  var DismissableLayerContext = React11.createContext({
     layers: /* @__PURE__ */ new Set(),
     layersWithOutsidePointerEventsDisabled: /* @__PURE__ */ new Set(),
     branches: /* @__PURE__ */ new Set()
   });
-  var $5cb92bef7577960e$export$177fb62ff3ec1f22 = /* @__PURE__ */ (0, import_react9.forwardRef)((props, forwardedRef) => {
-    var _node$ownerDocument;
-    const { disableOutsidePointerEvents = false, onEscapeKeyDown, onPointerDownOutside, onFocusOutside, onInteractOutside, onDismiss, ...layerProps } = props;
-    const context2 = (0, import_react9.useContext)($5cb92bef7577960e$var$DismissableLayerContext);
-    const [node1, setNode] = (0, import_react9.useState)(null);
-    const ownerDocument = (_node$ownerDocument = node1 === null || node1 === void 0 ? void 0 : node1.ownerDocument) !== null && _node$ownerDocument !== void 0 ? _node$ownerDocument : globalThis === null || globalThis === void 0 ? void 0 : globalThis.document;
-    const [, force] = (0, import_react9.useState)({});
-    const composedRefs = $6ed0406888f73fc4$export$c7b2cbe3552a0d05(
-      forwardedRef,
-      (node) => setNode(node)
-    );
-    const layers = Array.from(context2.layers);
-    const [highestLayerWithOutsidePointerEventsDisabled] = [
-      ...context2.layersWithOutsidePointerEventsDisabled
-    ].slice(-1);
-    const highestLayerWithOutsidePointerEventsDisabledIndex = layers.indexOf(highestLayerWithOutsidePointerEventsDisabled);
-    const index = node1 ? layers.indexOf(node1) : -1;
-    const isBodyPointerEventsDisabled = context2.layersWithOutsidePointerEventsDisabled.size > 0;
-    const isPointerEventsEnabled = index >= highestLayerWithOutsidePointerEventsDisabledIndex;
-    const pointerDownOutside = $5cb92bef7577960e$var$usePointerDownOutside((event) => {
-      const target = event.target;
-      const isPointerDownOnBranch = [
-        ...context2.branches
-      ].some(
-        (branch) => branch.contains(target)
-      );
-      if (!isPointerEventsEnabled || isPointerDownOnBranch) return;
-      onPointerDownOutside === null || onPointerDownOutside === void 0 || onPointerDownOutside(event);
-      onInteractOutside === null || onInteractOutside === void 0 || onInteractOutside(event);
-      if (!event.defaultPrevented) onDismiss === null || onDismiss === void 0 || onDismiss();
-    }, ownerDocument);
-    const focusOutside = $5cb92bef7577960e$var$useFocusOutside((event) => {
-      const target = event.target;
-      const isFocusInBranch = [
-        ...context2.branches
-      ].some(
-        (branch) => branch.contains(target)
-      );
-      if (isFocusInBranch) return;
-      onFocusOutside === null || onFocusOutside === void 0 || onFocusOutside(event);
-      onInteractOutside === null || onInteractOutside === void 0 || onInteractOutside(event);
-      if (!event.defaultPrevented) onDismiss === null || onDismiss === void 0 || onDismiss();
-    }, ownerDocument);
-    $addc16e1bbe58fd0$export$3a72a57244d6e765((event) => {
-      const isHighestLayer = index === context2.layers.size - 1;
-      if (!isHighestLayer) return;
-      onEscapeKeyDown === null || onEscapeKeyDown === void 0 || onEscapeKeyDown(event);
-      if (!event.defaultPrevented && onDismiss) {
-        event.preventDefault();
-        onDismiss();
-      }
-    }, ownerDocument);
-    (0, import_react9.useEffect)(() => {
-      if (!node1) return;
-      if (disableOutsidePointerEvents) {
-        if (context2.layersWithOutsidePointerEventsDisabled.size === 0) {
-          $5cb92bef7577960e$var$originalBodyPointerEvents = ownerDocument.body.style.pointerEvents;
-          ownerDocument.body.style.pointerEvents = "none";
+  var DismissableLayer = React11.forwardRef(
+    (props, forwardedRef) => {
+      const {
+        disableOutsidePointerEvents = false,
+        onEscapeKeyDown,
+        onPointerDownOutside,
+        onFocusOutside,
+        onInteractOutside,
+        onDismiss,
+        ...layerProps
+      } = props;
+      const context2 = React11.useContext(DismissableLayerContext);
+      const [node, setNode] = React11.useState(null);
+      const ownerDocument = node?.ownerDocument ?? globalThis?.document;
+      const [, force] = React11.useState({});
+      const composedRefs = useComposedRefs2(forwardedRef, (node2) => setNode(node2));
+      const layers = Array.from(context2.layers);
+      const [highestLayerWithOutsidePointerEventsDisabled] = [...context2.layersWithOutsidePointerEventsDisabled].slice(-1);
+      const highestLayerWithOutsidePointerEventsDisabledIndex = layers.indexOf(highestLayerWithOutsidePointerEventsDisabled);
+      const index = node ? layers.indexOf(node) : -1;
+      const isBodyPointerEventsDisabled = context2.layersWithOutsidePointerEventsDisabled.size > 0;
+      const isPointerEventsEnabled = index >= highestLayerWithOutsidePointerEventsDisabledIndex;
+      const pointerDownOutside = usePointerDownOutside((event) => {
+        const target = event.target;
+        const isPointerDownOnBranch = [...context2.branches].some((branch) => branch.contains(target));
+        if (!isPointerEventsEnabled || isPointerDownOnBranch) return;
+        onPointerDownOutside?.(event);
+        onInteractOutside?.(event);
+        if (!event.defaultPrevented) onDismiss?.();
+      }, ownerDocument);
+      const focusOutside = useFocusOutside((event) => {
+        const target = event.target;
+        const isFocusInBranch = [...context2.branches].some((branch) => branch.contains(target));
+        if (isFocusInBranch) return;
+        onFocusOutside?.(event);
+        onInteractOutside?.(event);
+        if (!event.defaultPrevented) onDismiss?.();
+      }, ownerDocument);
+      useEscapeKeydown((event) => {
+        const isHighestLayer = index === context2.layers.size - 1;
+        if (!isHighestLayer) return;
+        onEscapeKeyDown?.(event);
+        if (!event.defaultPrevented && onDismiss) {
+          event.preventDefault();
+          onDismiss();
         }
-        context2.layersWithOutsidePointerEventsDisabled.add(node1);
+      }, ownerDocument);
+      React11.useEffect(() => {
+        if (!node) return;
+        if (disableOutsidePointerEvents) {
+          if (context2.layersWithOutsidePointerEventsDisabled.size === 0) {
+            originalBodyPointerEvents = ownerDocument.body.style.pointerEvents;
+            ownerDocument.body.style.pointerEvents = "none";
+          }
+          context2.layersWithOutsidePointerEventsDisabled.add(node);
+        }
+        context2.layers.add(node);
+        dispatchUpdate();
+        return () => {
+          if (disableOutsidePointerEvents && context2.layersWithOutsidePointerEventsDisabled.size === 1) {
+            ownerDocument.body.style.pointerEvents = originalBodyPointerEvents;
+          }
+        };
+      }, [node, ownerDocument, disableOutsidePointerEvents, context2]);
+      React11.useEffect(() => {
+        return () => {
+          if (!node) return;
+          context2.layers.delete(node);
+          context2.layersWithOutsidePointerEventsDisabled.delete(node);
+          dispatchUpdate();
+        };
+      }, [node, context2]);
+      React11.useEffect(() => {
+        const handleUpdate = () => force({});
+        document.addEventListener(CONTEXT_UPDATE, handleUpdate);
+        return () => document.removeEventListener(CONTEXT_UPDATE, handleUpdate);
+      }, []);
+      return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+        Primitive.div,
+        {
+          ...layerProps,
+          ref: composedRefs,
+          style: {
+            pointerEvents: isBodyPointerEventsDisabled ? isPointerEventsEnabled ? "auto" : "none" : void 0,
+            ...props.style
+          },
+          onFocusCapture: composeEventHandlers2(props.onFocusCapture, focusOutside.onFocusCapture),
+          onBlurCapture: composeEventHandlers2(props.onBlurCapture, focusOutside.onBlurCapture),
+          onPointerDownCapture: composeEventHandlers2(
+            props.onPointerDownCapture,
+            pointerDownOutside.onPointerDownCapture
+          )
+        }
+      );
+    }
+  );
+  DismissableLayer.displayName = DISMISSABLE_LAYER_NAME;
+  var BRANCH_NAME = "DismissableLayerBranch";
+  var DismissableLayerBranch = React11.forwardRef((props, forwardedRef) => {
+    const context2 = React11.useContext(DismissableLayerContext);
+    const ref = React11.useRef(null);
+    const composedRefs = useComposedRefs2(forwardedRef, ref);
+    React11.useEffect(() => {
+      const node = ref.current;
+      if (node) {
+        context2.branches.add(node);
+        return () => {
+          context2.branches.delete(node);
+        };
       }
-      context2.layers.add(node1);
-      $5cb92bef7577960e$var$dispatchUpdate();
-      return () => {
-        if (disableOutsidePointerEvents && context2.layersWithOutsidePointerEventsDisabled.size === 1) ownerDocument.body.style.pointerEvents = $5cb92bef7577960e$var$originalBodyPointerEvents;
-      };
-    }, [
-      node1,
-      ownerDocument,
-      disableOutsidePointerEvents,
-      context2
-    ]);
-    (0, import_react9.useEffect)(() => {
-      return () => {
-        if (!node1) return;
-        context2.layers.delete(node1);
-        context2.layersWithOutsidePointerEventsDisabled.delete(node1);
-        $5cb92bef7577960e$var$dispatchUpdate();
-      };
-    }, [
-      node1,
-      context2
-    ]);
-    (0, import_react9.useEffect)(() => {
-      const handleUpdate = () => force({});
-      document.addEventListener($5cb92bef7577960e$var$CONTEXT_UPDATE, handleUpdate);
-      return () => document.removeEventListener($5cb92bef7577960e$var$CONTEXT_UPDATE, handleUpdate);
-    }, []);
-    return /* @__PURE__ */ (0, import_react9.createElement)($8927f6f2acc4f386$export$250ffa63cdc0d034.div, _extends2({}, layerProps, {
-      ref: composedRefs,
-      style: {
-        pointerEvents: isBodyPointerEventsDisabled ? isPointerEventsEnabled ? "auto" : "none" : void 0,
-        ...props.style
-      },
-      onFocusCapture: $e42e1063c40fb3ef$export$b9ecd428b558ff10(props.onFocusCapture, focusOutside.onFocusCapture),
-      onBlurCapture: $e42e1063c40fb3ef$export$b9ecd428b558ff10(props.onBlurCapture, focusOutside.onBlurCapture),
-      onPointerDownCapture: $e42e1063c40fb3ef$export$b9ecd428b558ff10(props.onPointerDownCapture, pointerDownOutside.onPointerDownCapture)
-    }));
+    }, [context2.branches]);
+    return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Primitive.div, { ...props, ref: composedRefs });
   });
-  function $5cb92bef7577960e$var$usePointerDownOutside(onPointerDownOutside, ownerDocument = globalThis === null || globalThis === void 0 ? void 0 : globalThis.document) {
-    const handlePointerDownOutside = $b1b2314f5f9a1d84$export$25bec8c6f54ee79a(onPointerDownOutside);
-    const isPointerInsideReactTreeRef = (0, import_react9.useRef)(false);
-    const handleClickRef = (0, import_react9.useRef)(() => {
+  DismissableLayerBranch.displayName = BRANCH_NAME;
+  function usePointerDownOutside(onPointerDownOutside, ownerDocument = globalThis?.document) {
+    const handlePointerDownOutside = useCallbackRef(onPointerDownOutside);
+    const isPointerInsideReactTreeRef = React11.useRef(false);
+    const handleClickRef = React11.useRef(() => {
     });
-    (0, import_react9.useEffect)(() => {
+    React11.useEffect(() => {
       const handlePointerDown = (event) => {
         if (event.target && !isPointerInsideReactTreeRef.current) {
-          let handleAndDispatchPointerDownOutsideEvent = function() {
-            $5cb92bef7577960e$var$handleAndDispatchCustomEvent($5cb92bef7577960e$var$POINTER_DOWN_OUTSIDE, handlePointerDownOutside, eventDetail, {
-              discrete: true
-            });
+          let handleAndDispatchPointerDownOutsideEvent2 = function() {
+            handleAndDispatchCustomEvent(
+              POINTER_DOWN_OUTSIDE,
+              handlePointerDownOutside,
+              eventDetail,
+              { discrete: true }
+            );
           };
-          const eventDetail = {
-            originalEvent: event
-          };
+          var handleAndDispatchPointerDownOutsideEvent = handleAndDispatchPointerDownOutsideEvent2;
+          const eventDetail = { originalEvent: event };
           if (event.pointerType === "touch") {
             ownerDocument.removeEventListener("click", handleClickRef.current);
-            handleClickRef.current = handleAndDispatchPointerDownOutsideEvent;
-            ownerDocument.addEventListener("click", handleClickRef.current, {
-              once: true
-            });
-          } else handleAndDispatchPointerDownOutsideEvent();
-        } else
+            handleClickRef.current = handleAndDispatchPointerDownOutsideEvent2;
+            ownerDocument.addEventListener("click", handleClickRef.current, { once: true });
+          } else {
+            handleAndDispatchPointerDownOutsideEvent2();
+          }
+        } else {
           ownerDocument.removeEventListener("click", handleClickRef.current);
+        }
         isPointerInsideReactTreeRef.current = false;
       };
       const timerId = window.setTimeout(() => {
@@ -682,88 +724,242 @@ var wp;
         ownerDocument.removeEventListener("pointerdown", handlePointerDown);
         ownerDocument.removeEventListener("click", handleClickRef.current);
       };
-    }, [
-      ownerDocument,
-      handlePointerDownOutside
-    ]);
+    }, [ownerDocument, handlePointerDownOutside]);
     return {
       // ensures we check React component tree (not just DOM tree)
       onPointerDownCapture: () => isPointerInsideReactTreeRef.current = true
     };
   }
-  function $5cb92bef7577960e$var$useFocusOutside(onFocusOutside, ownerDocument = globalThis === null || globalThis === void 0 ? void 0 : globalThis.document) {
-    const handleFocusOutside = $b1b2314f5f9a1d84$export$25bec8c6f54ee79a(onFocusOutside);
-    const isFocusInsideReactTreeRef = (0, import_react9.useRef)(false);
-    (0, import_react9.useEffect)(() => {
+  function useFocusOutside(onFocusOutside, ownerDocument = globalThis?.document) {
+    const handleFocusOutside = useCallbackRef(onFocusOutside);
+    const isFocusInsideReactTreeRef = React11.useRef(false);
+    React11.useEffect(() => {
       const handleFocus = (event) => {
         if (event.target && !isFocusInsideReactTreeRef.current) {
-          const eventDetail = {
-            originalEvent: event
-          };
-          $5cb92bef7577960e$var$handleAndDispatchCustomEvent($5cb92bef7577960e$var$FOCUS_OUTSIDE, handleFocusOutside, eventDetail, {
+          const eventDetail = { originalEvent: event };
+          handleAndDispatchCustomEvent(FOCUS_OUTSIDE, handleFocusOutside, eventDetail, {
             discrete: false
           });
         }
       };
       ownerDocument.addEventListener("focusin", handleFocus);
       return () => ownerDocument.removeEventListener("focusin", handleFocus);
-    }, [
-      ownerDocument,
-      handleFocusOutside
-    ]);
+    }, [ownerDocument, handleFocusOutside]);
     return {
       onFocusCapture: () => isFocusInsideReactTreeRef.current = true,
       onBlurCapture: () => isFocusInsideReactTreeRef.current = false
     };
   }
-  function $5cb92bef7577960e$var$dispatchUpdate() {
-    const event = new CustomEvent($5cb92bef7577960e$var$CONTEXT_UPDATE);
+  function dispatchUpdate() {
+    const event = new CustomEvent(CONTEXT_UPDATE);
     document.dispatchEvent(event);
   }
-  function $5cb92bef7577960e$var$handleAndDispatchCustomEvent(name, handler, detail, { discrete }) {
+  function handleAndDispatchCustomEvent(name, handler, detail, { discrete }) {
     const target = detail.originalEvent.target;
-    const event = new CustomEvent(name, {
-      bubbles: false,
-      cancelable: true,
-      detail
-    });
-    if (handler) target.addEventListener(name, handler, {
-      once: true
-    });
-    if (discrete) $8927f6f2acc4f386$export$6d1a0317bde7de7f(target, event);
-    else target.dispatchEvent(event);
+    const event = new CustomEvent(name, { bubbles: false, cancelable: true, detail });
+    if (handler) target.addEventListener(name, handler, { once: true });
+    if (discrete) {
+      dispatchDiscreteCustomEvent(target, event);
+    } else {
+      target.dispatchEvent(event);
+    }
   }
 
-  // packages/commands/node_modules/@radix-ui/react-focus-scope/node_modules/@babel/runtime/helpers/esm/extends.js
-  function _extends4() {
-    return _extends4 = Object.assign ? Object.assign.bind() : function(n) {
-      for (var e = 1; e < arguments.length; e++) {
-        var t2 = arguments[e];
-        for (var r2 in t2) ({}).hasOwnProperty.call(t2, r2) && (n[r2] = t2[r2]);
+  // node_modules/@radix-ui/react-focus-scope/dist/index.mjs
+  var React16 = __toESM(require_react(), 1);
+
+  // node_modules/@radix-ui/react-focus-scope/node_modules/@radix-ui/react-compose-refs/dist/index.mjs
+  var React12 = __toESM(require_react(), 1);
+  function setRef3(ref, value) {
+    if (typeof ref === "function") {
+      return ref(value);
+    } else if (ref !== null && ref !== void 0) {
+      ref.current = value;
+    }
+  }
+  function composeRefs3(...refs) {
+    return (node) => {
+      let hasCleanup = false;
+      const cleanups = refs.map((ref) => {
+        const cleanup = setRef3(ref, node);
+        if (!hasCleanup && typeof cleanup == "function") {
+          hasCleanup = true;
+        }
+        return cleanup;
+      });
+      if (hasCleanup) {
+        return () => {
+          for (let i = 0; i < cleanups.length; i++) {
+            const cleanup = cleanups[i];
+            if (typeof cleanup == "function") {
+              cleanup();
+            } else {
+              setRef3(refs[i], null);
+            }
+          }
+        };
       }
-      return n;
-    }, _extends4.apply(null, arguments);
+    };
+  }
+  function useComposedRefs3(...refs) {
+    return React12.useCallback(composeRefs3(...refs), refs);
   }
 
-  // packages/commands/node_modules/@radix-ui/react-focus-scope/dist/index.mjs
-  var import_react10 = __toESM(require_react(), 1);
-  var $d3863c46a17e8a28$var$AUTOFOCUS_ON_MOUNT = "focusScope.autoFocusOnMount";
-  var $d3863c46a17e8a28$var$AUTOFOCUS_ON_UNMOUNT = "focusScope.autoFocusOnUnmount";
-  var $d3863c46a17e8a28$var$EVENT_OPTIONS = {
-    bubbles: false,
-    cancelable: true
-  };
-  var $d3863c46a17e8a28$export$20e40289641fbbb6 = /* @__PURE__ */ (0, import_react10.forwardRef)((props, forwardedRef) => {
-    const { loop = false, trapped = false, onMountAutoFocus: onMountAutoFocusProp, onUnmountAutoFocus: onUnmountAutoFocusProp, ...scopeProps } = props;
-    const [container1, setContainer] = (0, import_react10.useState)(null);
-    const onMountAutoFocus = $b1b2314f5f9a1d84$export$25bec8c6f54ee79a(onMountAutoFocusProp);
-    const onUnmountAutoFocus = $b1b2314f5f9a1d84$export$25bec8c6f54ee79a(onUnmountAutoFocusProp);
-    const lastFocusedElementRef = (0, import_react10.useRef)(null);
-    const composedRefs = $6ed0406888f73fc4$export$c7b2cbe3552a0d05(
-      forwardedRef,
-      (node) => setContainer(node)
-    );
-    const focusScope = (0, import_react10.useRef)({
+  // node_modules/@radix-ui/react-focus-scope/node_modules/@radix-ui/react-primitive/dist/index.mjs
+  var React14 = __toESM(require_react(), 1);
+  var ReactDOM2 = __toESM(require_react_dom(), 1);
+
+  // node_modules/@radix-ui/react-focus-scope/node_modules/@radix-ui/react-slot/dist/index.mjs
+  var React13 = __toESM(require_react(), 1);
+  var import_jsx_runtime5 = __toESM(require_jsx_runtime(), 1);
+  // @__NO_SIDE_EFFECTS__
+  function createSlot2(ownerName) {
+    const SlotClone = /* @__PURE__ */ createSlotClone2(ownerName);
+    const Slot2 = React13.forwardRef((props, forwardedRef) => {
+      const { children, ...slotProps } = props;
+      const childrenArray = React13.Children.toArray(children);
+      const slottable = childrenArray.find(isSlottable2);
+      if (slottable) {
+        const newElement = slottable.props.children;
+        const newChildren = childrenArray.map((child) => {
+          if (child === slottable) {
+            if (React13.Children.count(newElement) > 1) return React13.Children.only(null);
+            return React13.isValidElement(newElement) ? newElement.props.children : null;
+          } else {
+            return child;
+          }
+        });
+        return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(SlotClone, { ...slotProps, ref: forwardedRef, children: React13.isValidElement(newElement) ? React13.cloneElement(newElement, void 0, newChildren) : null });
+      }
+      return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(SlotClone, { ...slotProps, ref: forwardedRef, children });
+    });
+    Slot2.displayName = `${ownerName}.Slot`;
+    return Slot2;
+  }
+  // @__NO_SIDE_EFFECTS__
+  function createSlotClone2(ownerName) {
+    const SlotClone = React13.forwardRef((props, forwardedRef) => {
+      const { children, ...slotProps } = props;
+      if (React13.isValidElement(children)) {
+        const childrenRef = getElementRef2(children);
+        const props2 = mergeProps2(slotProps, children.props);
+        if (children.type !== React13.Fragment) {
+          props2.ref = forwardedRef ? composeRefs3(forwardedRef, childrenRef) : childrenRef;
+        }
+        return React13.cloneElement(children, props2);
+      }
+      return React13.Children.count(children) > 1 ? React13.Children.only(null) : null;
+    });
+    SlotClone.displayName = `${ownerName}.SlotClone`;
+    return SlotClone;
+  }
+  var SLOTTABLE_IDENTIFIER2 = /* @__PURE__ */ Symbol("radix.slottable");
+  function isSlottable2(child) {
+    return React13.isValidElement(child) && typeof child.type === "function" && "__radixId" in child.type && child.type.__radixId === SLOTTABLE_IDENTIFIER2;
+  }
+  function mergeProps2(slotProps, childProps) {
+    const overrideProps = { ...childProps };
+    for (const propName in childProps) {
+      const slotPropValue = slotProps[propName];
+      const childPropValue = childProps[propName];
+      const isHandler = /^on[A-Z]/.test(propName);
+      if (isHandler) {
+        if (slotPropValue && childPropValue) {
+          overrideProps[propName] = (...args) => {
+            const result = childPropValue(...args);
+            slotPropValue(...args);
+            return result;
+          };
+        } else if (slotPropValue) {
+          overrideProps[propName] = slotPropValue;
+        }
+      } else if (propName === "style") {
+        overrideProps[propName] = { ...slotPropValue, ...childPropValue };
+      } else if (propName === "className") {
+        overrideProps[propName] = [slotPropValue, childPropValue].filter(Boolean).join(" ");
+      }
+    }
+    return { ...slotProps, ...overrideProps };
+  }
+  function getElementRef2(element) {
+    let getter = Object.getOwnPropertyDescriptor(element.props, "ref")?.get;
+    let mayWarn = getter && "isReactWarning" in getter && getter.isReactWarning;
+    if (mayWarn) {
+      return element.ref;
+    }
+    getter = Object.getOwnPropertyDescriptor(element, "ref")?.get;
+    mayWarn = getter && "isReactWarning" in getter && getter.isReactWarning;
+    if (mayWarn) {
+      return element.props.ref;
+    }
+    return element.props.ref || element.ref;
+  }
+
+  // node_modules/@radix-ui/react-focus-scope/node_modules/@radix-ui/react-primitive/dist/index.mjs
+  var import_jsx_runtime6 = __toESM(require_jsx_runtime(), 1);
+  var NODES2 = [
+    "a",
+    "button",
+    "div",
+    "form",
+    "h2",
+    "h3",
+    "img",
+    "input",
+    "label",
+    "li",
+    "nav",
+    "ol",
+    "p",
+    "select",
+    "span",
+    "svg",
+    "ul"
+  ];
+  var Primitive2 = NODES2.reduce((primitive, node) => {
+    const Slot2 = createSlot2(`Primitive.${node}`);
+    const Node2 = React14.forwardRef((props, forwardedRef) => {
+      const { asChild, ...primitiveProps } = props;
+      const Comp = asChild ? Slot2 : node;
+      if (typeof window !== "undefined") {
+        window[/* @__PURE__ */ Symbol.for("radix-ui")] = true;
+      }
+      return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Comp, { ...primitiveProps, ref: forwardedRef });
+    });
+    Node2.displayName = `Primitive.${node}`;
+    return { ...primitive, [node]: Node2 };
+  }, {});
+
+  // node_modules/@radix-ui/react-focus-scope/node_modules/@radix-ui/react-use-callback-ref/dist/index.mjs
+  var React15 = __toESM(require_react(), 1);
+  function useCallbackRef2(callback) {
+    const callbackRef = React15.useRef(callback);
+    React15.useEffect(() => {
+      callbackRef.current = callback;
+    });
+    return React15.useMemo(() => (...args) => callbackRef.current?.(...args), []);
+  }
+
+  // node_modules/@radix-ui/react-focus-scope/dist/index.mjs
+  var import_jsx_runtime7 = __toESM(require_jsx_runtime(), 1);
+  var AUTOFOCUS_ON_MOUNT = "focusScope.autoFocusOnMount";
+  var AUTOFOCUS_ON_UNMOUNT = "focusScope.autoFocusOnUnmount";
+  var EVENT_OPTIONS = { bubbles: false, cancelable: true };
+  var FOCUS_SCOPE_NAME = "FocusScope";
+  var FocusScope = React16.forwardRef((props, forwardedRef) => {
+    const {
+      loop = false,
+      trapped = false,
+      onMountAutoFocus: onMountAutoFocusProp,
+      onUnmountAutoFocus: onUnmountAutoFocusProp,
+      ...scopeProps
+    } = props;
+    const [container, setContainer] = React16.useState(null);
+    const onMountAutoFocus = useCallbackRef2(onMountAutoFocusProp);
+    const onUnmountAutoFocus = useCallbackRef2(onUnmountAutoFocusProp);
+    const lastFocusedElementRef = React16.useRef(null);
+    const composedRefs = useComposedRefs3(forwardedRef, (node) => setContainer(node));
+    const focusScope = React16.useRef({
       paused: false,
       pause() {
         this.paused = true;
@@ -772,137 +968,115 @@ var wp;
         this.paused = false;
       }
     }).current;
-    (0, import_react10.useEffect)(() => {
+    React16.useEffect(() => {
       if (trapped) {
-        let handleFocusIn = function(event) {
-          if (focusScope.paused || !container1) return;
+        let handleFocusIn2 = function(event) {
+          if (focusScope.paused || !container) return;
           const target = event.target;
-          if (container1.contains(target)) lastFocusedElementRef.current = target;
-          else $d3863c46a17e8a28$var$focus(lastFocusedElementRef.current, {
-            select: true
-          });
-        }, handleFocusOut = function(event) {
-          if (focusScope.paused || !container1) return;
+          if (container.contains(target)) {
+            lastFocusedElementRef.current = target;
+          } else {
+            focus(lastFocusedElementRef.current, { select: true });
+          }
+        }, handleFocusOut2 = function(event) {
+          if (focusScope.paused || !container) return;
           const relatedTarget = event.relatedTarget;
           if (relatedTarget === null) return;
-          if (!container1.contains(relatedTarget)) $d3863c46a17e8a28$var$focus(lastFocusedElementRef.current, {
-            select: true
-          });
-        }, handleMutations = function(mutations) {
+          if (!container.contains(relatedTarget)) {
+            focus(lastFocusedElementRef.current, { select: true });
+          }
+        }, handleMutations2 = function(mutations) {
           const focusedElement = document.activeElement;
           if (focusedElement !== document.body) return;
-          for (const mutation of mutations) if (mutation.removedNodes.length > 0) $d3863c46a17e8a28$var$focus(container1);
+          for (const mutation of mutations) {
+            if (mutation.removedNodes.length > 0) focus(container);
+          }
         };
-        document.addEventListener("focusin", handleFocusIn);
-        document.addEventListener("focusout", handleFocusOut);
-        const mutationObserver = new MutationObserver(handleMutations);
-        if (container1) mutationObserver.observe(container1, {
-          childList: true,
-          subtree: true
-        });
+        var handleFocusIn = handleFocusIn2, handleFocusOut = handleFocusOut2, handleMutations = handleMutations2;
+        document.addEventListener("focusin", handleFocusIn2);
+        document.addEventListener("focusout", handleFocusOut2);
+        const mutationObserver = new MutationObserver(handleMutations2);
+        if (container) mutationObserver.observe(container, { childList: true, subtree: true });
         return () => {
-          document.removeEventListener("focusin", handleFocusIn);
-          document.removeEventListener("focusout", handleFocusOut);
+          document.removeEventListener("focusin", handleFocusIn2);
+          document.removeEventListener("focusout", handleFocusOut2);
           mutationObserver.disconnect();
         };
       }
-    }, [
-      trapped,
-      container1,
-      focusScope.paused
-    ]);
-    (0, import_react10.useEffect)(() => {
-      if (container1) {
-        $d3863c46a17e8a28$var$focusScopesStack.add(focusScope);
+    }, [trapped, container, focusScope.paused]);
+    React16.useEffect(() => {
+      if (container) {
+        focusScopesStack.add(focusScope);
         const previouslyFocusedElement = document.activeElement;
-        const hasFocusedCandidate = container1.contains(previouslyFocusedElement);
+        const hasFocusedCandidate = container.contains(previouslyFocusedElement);
         if (!hasFocusedCandidate) {
-          const mountEvent = new CustomEvent($d3863c46a17e8a28$var$AUTOFOCUS_ON_MOUNT, $d3863c46a17e8a28$var$EVENT_OPTIONS);
-          container1.addEventListener($d3863c46a17e8a28$var$AUTOFOCUS_ON_MOUNT, onMountAutoFocus);
-          container1.dispatchEvent(mountEvent);
+          const mountEvent = new CustomEvent(AUTOFOCUS_ON_MOUNT, EVENT_OPTIONS);
+          container.addEventListener(AUTOFOCUS_ON_MOUNT, onMountAutoFocus);
+          container.dispatchEvent(mountEvent);
           if (!mountEvent.defaultPrevented) {
-            $d3863c46a17e8a28$var$focusFirst($d3863c46a17e8a28$var$removeLinks($d3863c46a17e8a28$var$getTabbableCandidates(container1)), {
-              select: true
-            });
-            if (document.activeElement === previouslyFocusedElement) $d3863c46a17e8a28$var$focus(container1);
+            focusFirst(removeLinks(getTabbableCandidates(container)), { select: true });
+            if (document.activeElement === previouslyFocusedElement) {
+              focus(container);
+            }
           }
         }
         return () => {
-          container1.removeEventListener($d3863c46a17e8a28$var$AUTOFOCUS_ON_MOUNT, onMountAutoFocus);
+          container.removeEventListener(AUTOFOCUS_ON_MOUNT, onMountAutoFocus);
           setTimeout(() => {
-            const unmountEvent = new CustomEvent($d3863c46a17e8a28$var$AUTOFOCUS_ON_UNMOUNT, $d3863c46a17e8a28$var$EVENT_OPTIONS);
-            container1.addEventListener($d3863c46a17e8a28$var$AUTOFOCUS_ON_UNMOUNT, onUnmountAutoFocus);
-            container1.dispatchEvent(unmountEvent);
-            if (!unmountEvent.defaultPrevented) $d3863c46a17e8a28$var$focus(previouslyFocusedElement !== null && previouslyFocusedElement !== void 0 ? previouslyFocusedElement : document.body, {
-              select: true
-            });
-            container1.removeEventListener($d3863c46a17e8a28$var$AUTOFOCUS_ON_UNMOUNT, onUnmountAutoFocus);
-            $d3863c46a17e8a28$var$focusScopesStack.remove(focusScope);
+            const unmountEvent = new CustomEvent(AUTOFOCUS_ON_UNMOUNT, EVENT_OPTIONS);
+            container.addEventListener(AUTOFOCUS_ON_UNMOUNT, onUnmountAutoFocus);
+            container.dispatchEvent(unmountEvent);
+            if (!unmountEvent.defaultPrevented) {
+              focus(previouslyFocusedElement ?? document.body, { select: true });
+            }
+            container.removeEventListener(AUTOFOCUS_ON_UNMOUNT, onUnmountAutoFocus);
+            focusScopesStack.remove(focusScope);
           }, 0);
         };
       }
-    }, [
-      container1,
-      onMountAutoFocus,
-      onUnmountAutoFocus,
-      focusScope
-    ]);
-    const handleKeyDown = (0, import_react10.useCallback)((event) => {
-      if (!loop && !trapped) return;
-      if (focusScope.paused) return;
-      const isTabKey = event.key === "Tab" && !event.altKey && !event.ctrlKey && !event.metaKey;
-      const focusedElement = document.activeElement;
-      if (isTabKey && focusedElement) {
-        const container = event.currentTarget;
-        const [first, last] = $d3863c46a17e8a28$var$getTabbableEdges(container);
-        const hasTabbableElementsInside = first && last;
-        if (!hasTabbableElementsInside) {
-          if (focusedElement === container) event.preventDefault();
-        } else {
-          if (!event.shiftKey && focusedElement === last) {
-            event.preventDefault();
-            if (loop) $d3863c46a17e8a28$var$focus(first, {
-              select: true
-            });
-          } else if (event.shiftKey && focusedElement === first) {
-            event.preventDefault();
-            if (loop) $d3863c46a17e8a28$var$focus(last, {
-              select: true
-            });
+    }, [container, onMountAutoFocus, onUnmountAutoFocus, focusScope]);
+    const handleKeyDown = React16.useCallback(
+      (event) => {
+        if (!loop && !trapped) return;
+        if (focusScope.paused) return;
+        const isTabKey = event.key === "Tab" && !event.altKey && !event.ctrlKey && !event.metaKey;
+        const focusedElement = document.activeElement;
+        if (isTabKey && focusedElement) {
+          const container2 = event.currentTarget;
+          const [first, last] = getTabbableEdges(container2);
+          const hasTabbableElementsInside = first && last;
+          if (!hasTabbableElementsInside) {
+            if (focusedElement === container2) event.preventDefault();
+          } else {
+            if (!event.shiftKey && focusedElement === last) {
+              event.preventDefault();
+              if (loop) focus(first, { select: true });
+            } else if (event.shiftKey && focusedElement === first) {
+              event.preventDefault();
+              if (loop) focus(last, { select: true });
+            }
           }
         }
-      }
-    }, [
-      loop,
-      trapped,
-      focusScope.paused
-    ]);
-    return /* @__PURE__ */ (0, import_react10.createElement)($8927f6f2acc4f386$export$250ffa63cdc0d034.div, _extends4({
-      tabIndex: -1
-    }, scopeProps, {
-      ref: composedRefs,
-      onKeyDown: handleKeyDown
-    }));
+      },
+      [loop, trapped, focusScope.paused]
+    );
+    return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(Primitive2.div, { tabIndex: -1, ...scopeProps, ref: composedRefs, onKeyDown: handleKeyDown });
   });
-  function $d3863c46a17e8a28$var$focusFirst(candidates, { select = false } = {}) {
+  FocusScope.displayName = FOCUS_SCOPE_NAME;
+  function focusFirst(candidates, { select = false } = {}) {
     const previouslyFocusedElement = document.activeElement;
     for (const candidate of candidates) {
-      $d3863c46a17e8a28$var$focus(candidate, {
-        select
-      });
+      focus(candidate, { select });
       if (document.activeElement !== previouslyFocusedElement) return;
     }
   }
-  function $d3863c46a17e8a28$var$getTabbableEdges(container) {
-    const candidates = $d3863c46a17e8a28$var$getTabbableCandidates(container);
-    const first = $d3863c46a17e8a28$var$findVisible(candidates, container);
-    const last = $d3863c46a17e8a28$var$findVisible(candidates.reverse(), container);
-    return [
-      first,
-      last
-    ];
+  function getTabbableEdges(container) {
+    const candidates = getTabbableCandidates(container);
+    const first = findVisible(candidates, container);
+    const last = findVisible(candidates.reverse(), container);
+    return [first, last];
   }
-  function $d3863c46a17e8a28$var$getTabbableCandidates(container) {
+  function getTabbableCandidates(container) {
     const nodes = [];
     const walker = document.createTreeWalker(container, NodeFilter.SHOW_ELEMENT, {
       acceptNode: (node) => {
@@ -914,14 +1088,12 @@ var wp;
     while (walker.nextNode()) nodes.push(walker.currentNode);
     return nodes;
   }
-  function $d3863c46a17e8a28$var$findVisible(elements, container) {
+  function findVisible(elements, container) {
     for (const element of elements) {
-      if (!$d3863c46a17e8a28$var$isHidden(element, {
-        upTo: container
-      })) return element;
+      if (!isHidden(element, { upTo: container })) return element;
     }
   }
-  function $d3863c46a17e8a28$var$isHidden(node, { upTo }) {
+  function isHidden(node, { upTo }) {
     if (getComputedStyle(node).visibility === "hidden") return true;
     while (node) {
       if (upTo !== void 0 && node === upTo) return false;
@@ -930,100 +1102,298 @@ var wp;
     }
     return false;
   }
-  function $d3863c46a17e8a28$var$isSelectableInput(element) {
+  function isSelectableInput(element) {
     return element instanceof HTMLInputElement && "select" in element;
   }
-  function $d3863c46a17e8a28$var$focus(element, { select = false } = {}) {
+  function focus(element, { select = false } = {}) {
     if (element && element.focus) {
       const previouslyFocusedElement = document.activeElement;
-      element.focus({
-        preventScroll: true
-      });
-      if (element !== previouslyFocusedElement && $d3863c46a17e8a28$var$isSelectableInput(element) && select) element.select();
+      element.focus({ preventScroll: true });
+      if (element !== previouslyFocusedElement && isSelectableInput(element) && select)
+        element.select();
     }
   }
-  var $d3863c46a17e8a28$var$focusScopesStack = $d3863c46a17e8a28$var$createFocusScopesStack();
-  function $d3863c46a17e8a28$var$createFocusScopesStack() {
+  var focusScopesStack = createFocusScopesStack();
+  function createFocusScopesStack() {
     let stack = [];
     return {
       add(focusScope) {
         const activeFocusScope = stack[0];
-        if (focusScope !== activeFocusScope) activeFocusScope === null || activeFocusScope === void 0 || activeFocusScope.pause();
-        stack = $d3863c46a17e8a28$var$arrayRemove(stack, focusScope);
+        if (focusScope !== activeFocusScope) {
+          activeFocusScope?.pause();
+        }
+        stack = arrayRemove(stack, focusScope);
         stack.unshift(focusScope);
       },
       remove(focusScope) {
-        var _stack$;
-        stack = $d3863c46a17e8a28$var$arrayRemove(stack, focusScope);
-        (_stack$ = stack[0]) === null || _stack$ === void 0 || _stack$.resume();
+        stack = arrayRemove(stack, focusScope);
+        stack[0]?.resume();
       }
     };
   }
-  function $d3863c46a17e8a28$var$arrayRemove(array, item) {
-    const updatedArray = [
-      ...array
-    ];
+  function arrayRemove(array, item) {
+    const updatedArray = [...array];
     const index = updatedArray.indexOf(item);
-    if (index !== -1) updatedArray.splice(index, 1);
+    if (index !== -1) {
+      updatedArray.splice(index, 1);
+    }
     return updatedArray;
   }
-  function $d3863c46a17e8a28$var$removeLinks(items) {
-    return items.filter(
-      (item) => item.tagName !== "A"
-    );
+  function removeLinks(items) {
+    return items.filter((item) => item.tagName !== "A");
   }
 
-  // packages/commands/node_modules/@radix-ui/react-portal/node_modules/@babel/runtime/helpers/esm/extends.js
-  function _extends5() {
-    return _extends5 = Object.assign ? Object.assign.bind() : function(n) {
-      for (var e = 1; e < arguments.length; e++) {
-        var t2 = arguments[e];
-        for (var r2 in t2) ({}).hasOwnProperty.call(t2, r2) && (n[r2] = t2[r2]);
+  // node_modules/@radix-ui/react-portal/dist/index.mjs
+  var React21 = __toESM(require_react(), 1);
+  var import_react_dom = __toESM(require_react_dom(), 1);
+
+  // node_modules/@radix-ui/react-portal/node_modules/@radix-ui/react-primitive/dist/index.mjs
+  var React19 = __toESM(require_react(), 1);
+  var ReactDOM3 = __toESM(require_react_dom(), 1);
+
+  // node_modules/@radix-ui/react-portal/node_modules/@radix-ui/react-slot/dist/index.mjs
+  var React18 = __toESM(require_react(), 1);
+
+  // node_modules/@radix-ui/react-portal/node_modules/@radix-ui/react-compose-refs/dist/index.mjs
+  var React17 = __toESM(require_react(), 1);
+  function setRef4(ref, value) {
+    if (typeof ref === "function") {
+      return ref(value);
+    } else if (ref !== null && ref !== void 0) {
+      ref.current = value;
+    }
+  }
+  function composeRefs4(...refs) {
+    return (node) => {
+      let hasCleanup = false;
+      const cleanups = refs.map((ref) => {
+        const cleanup = setRef4(ref, node);
+        if (!hasCleanup && typeof cleanup == "function") {
+          hasCleanup = true;
+        }
+        return cleanup;
+      });
+      if (hasCleanup) {
+        return () => {
+          for (let i = 0; i < cleanups.length; i++) {
+            const cleanup = cleanups[i];
+            if (typeof cleanup == "function") {
+              cleanup();
+            } else {
+              setRef4(refs[i], null);
+            }
+          }
+        };
       }
-      return n;
-    }, _extends5.apply(null, arguments);
+    };
   }
 
-  // packages/commands/node_modules/@radix-ui/react-portal/dist/index.mjs
-  var import_react11 = __toESM(require_react(), 1);
-  var import_react_dom2 = __toESM(require_react_dom(), 1);
-  var $f1701beae083dbae$export$602eac185826482c = /* @__PURE__ */ (0, import_react11.forwardRef)((props, forwardedRef) => {
-    var _globalThis$document;
-    const { container = globalThis === null || globalThis === void 0 ? void 0 : (_globalThis$document = globalThis.document) === null || _globalThis$document === void 0 ? void 0 : _globalThis$document.body, ...portalProps } = props;
-    return container ? /* @__PURE__ */ import_react_dom2.default.createPortal(/* @__PURE__ */ (0, import_react11.createElement)($8927f6f2acc4f386$export$250ffa63cdc0d034.div, _extends5({}, portalProps, {
-      ref: forwardedRef
-    })), container) : null;
-  });
+  // node_modules/@radix-ui/react-portal/node_modules/@radix-ui/react-slot/dist/index.mjs
+  var import_jsx_runtime8 = __toESM(require_jsx_runtime(), 1);
+  // @__NO_SIDE_EFFECTS__
+  function createSlot3(ownerName) {
+    const SlotClone = /* @__PURE__ */ createSlotClone3(ownerName);
+    const Slot2 = React18.forwardRef((props, forwardedRef) => {
+      const { children, ...slotProps } = props;
+      const childrenArray = React18.Children.toArray(children);
+      const slottable = childrenArray.find(isSlottable3);
+      if (slottable) {
+        const newElement = slottable.props.children;
+        const newChildren = childrenArray.map((child) => {
+          if (child === slottable) {
+            if (React18.Children.count(newElement) > 1) return React18.Children.only(null);
+            return React18.isValidElement(newElement) ? newElement.props.children : null;
+          } else {
+            return child;
+          }
+        });
+        return /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(SlotClone, { ...slotProps, ref: forwardedRef, children: React18.isValidElement(newElement) ? React18.cloneElement(newElement, void 0, newChildren) : null });
+      }
+      return /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(SlotClone, { ...slotProps, ref: forwardedRef, children });
+    });
+    Slot2.displayName = `${ownerName}.Slot`;
+    return Slot2;
+  }
+  // @__NO_SIDE_EFFECTS__
+  function createSlotClone3(ownerName) {
+    const SlotClone = React18.forwardRef((props, forwardedRef) => {
+      const { children, ...slotProps } = props;
+      if (React18.isValidElement(children)) {
+        const childrenRef = getElementRef3(children);
+        const props2 = mergeProps3(slotProps, children.props);
+        if (children.type !== React18.Fragment) {
+          props2.ref = forwardedRef ? composeRefs4(forwardedRef, childrenRef) : childrenRef;
+        }
+        return React18.cloneElement(children, props2);
+      }
+      return React18.Children.count(children) > 1 ? React18.Children.only(null) : null;
+    });
+    SlotClone.displayName = `${ownerName}.SlotClone`;
+    return SlotClone;
+  }
+  var SLOTTABLE_IDENTIFIER3 = /* @__PURE__ */ Symbol("radix.slottable");
+  function isSlottable3(child) {
+    return React18.isValidElement(child) && typeof child.type === "function" && "__radixId" in child.type && child.type.__radixId === SLOTTABLE_IDENTIFIER3;
+  }
+  function mergeProps3(slotProps, childProps) {
+    const overrideProps = { ...childProps };
+    for (const propName in childProps) {
+      const slotPropValue = slotProps[propName];
+      const childPropValue = childProps[propName];
+      const isHandler = /^on[A-Z]/.test(propName);
+      if (isHandler) {
+        if (slotPropValue && childPropValue) {
+          overrideProps[propName] = (...args) => {
+            const result = childPropValue(...args);
+            slotPropValue(...args);
+            return result;
+          };
+        } else if (slotPropValue) {
+          overrideProps[propName] = slotPropValue;
+        }
+      } else if (propName === "style") {
+        overrideProps[propName] = { ...slotPropValue, ...childPropValue };
+      } else if (propName === "className") {
+        overrideProps[propName] = [slotPropValue, childPropValue].filter(Boolean).join(" ");
+      }
+    }
+    return { ...slotProps, ...overrideProps };
+  }
+  function getElementRef3(element) {
+    let getter = Object.getOwnPropertyDescriptor(element.props, "ref")?.get;
+    let mayWarn = getter && "isReactWarning" in getter && getter.isReactWarning;
+    if (mayWarn) {
+      return element.ref;
+    }
+    getter = Object.getOwnPropertyDescriptor(element, "ref")?.get;
+    mayWarn = getter && "isReactWarning" in getter && getter.isReactWarning;
+    if (mayWarn) {
+      return element.props.ref;
+    }
+    return element.props.ref || element.ref;
+  }
 
-  // packages/commands/node_modules/@radix-ui/react-presence/dist/index.mjs
-  var import_react12 = __toESM(require_react(), 1);
-  var import_react_dom3 = __toESM(require_react_dom(), 1);
-  function $fe963b355347cc68$export$3e6543de14f8614f(initialState, machine) {
-    return (0, import_react12.useReducer)((state, event) => {
+  // node_modules/@radix-ui/react-portal/node_modules/@radix-ui/react-primitive/dist/index.mjs
+  var import_jsx_runtime9 = __toESM(require_jsx_runtime(), 1);
+  var NODES3 = [
+    "a",
+    "button",
+    "div",
+    "form",
+    "h2",
+    "h3",
+    "img",
+    "input",
+    "label",
+    "li",
+    "nav",
+    "ol",
+    "p",
+    "select",
+    "span",
+    "svg",
+    "ul"
+  ];
+  var Primitive3 = NODES3.reduce((primitive, node) => {
+    const Slot2 = createSlot3(`Primitive.${node}`);
+    const Node2 = React19.forwardRef((props, forwardedRef) => {
+      const { asChild, ...primitiveProps } = props;
+      const Comp = asChild ? Slot2 : node;
+      if (typeof window !== "undefined") {
+        window[/* @__PURE__ */ Symbol.for("radix-ui")] = true;
+      }
+      return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(Comp, { ...primitiveProps, ref: forwardedRef });
+    });
+    Node2.displayName = `Primitive.${node}`;
+    return { ...primitive, [node]: Node2 };
+  }, {});
+
+  // node_modules/@radix-ui/react-portal/node_modules/@radix-ui/react-use-layout-effect/dist/index.mjs
+  var React20 = __toESM(require_react(), 1);
+  var useLayoutEffect22 = globalThis?.document ? React20.useLayoutEffect : () => {
+  };
+
+  // node_modules/@radix-ui/react-portal/dist/index.mjs
+  var import_jsx_runtime10 = __toESM(require_jsx_runtime(), 1);
+  var PORTAL_NAME = "Portal";
+  var Portal = React21.forwardRef((props, forwardedRef) => {
+    const { container: containerProp, ...portalProps } = props;
+    const [mounted, setMounted] = React21.useState(false);
+    useLayoutEffect22(() => setMounted(true), []);
+    const container = containerProp || mounted && globalThis?.document?.body;
+    return container ? import_react_dom.default.createPortal(/* @__PURE__ */ (0, import_jsx_runtime10.jsx)(Primitive3.div, { ...portalProps, ref: forwardedRef }), container) : null;
+  });
+  Portal.displayName = PORTAL_NAME;
+
+  // node_modules/@radix-ui/react-presence/dist/index.mjs
+  var React25 = __toESM(require_react(), 1);
+
+  // node_modules/@radix-ui/react-presence/node_modules/@radix-ui/react-compose-refs/dist/index.mjs
+  var React23 = __toESM(require_react(), 1);
+  function setRef5(ref, value) {
+    if (typeof ref === "function") {
+      return ref(value);
+    } else if (ref !== null && ref !== void 0) {
+      ref.current = value;
+    }
+  }
+  function composeRefs5(...refs) {
+    return (node) => {
+      let hasCleanup = false;
+      const cleanups = refs.map((ref) => {
+        const cleanup = setRef5(ref, node);
+        if (!hasCleanup && typeof cleanup == "function") {
+          hasCleanup = true;
+        }
+        return cleanup;
+      });
+      if (hasCleanup) {
+        return () => {
+          for (let i = 0; i < cleanups.length; i++) {
+            const cleanup = cleanups[i];
+            if (typeof cleanup == "function") {
+              cleanup();
+            } else {
+              setRef5(refs[i], null);
+            }
+          }
+        };
+      }
+    };
+  }
+  function useComposedRefs4(...refs) {
+    return React23.useCallback(composeRefs5(...refs), refs);
+  }
+
+  // node_modules/@radix-ui/react-presence/node_modules/@radix-ui/react-use-layout-effect/dist/index.mjs
+  var React24 = __toESM(require_react(), 1);
+  var useLayoutEffect23 = globalThis?.document ? React24.useLayoutEffect : () => {
+  };
+
+  // node_modules/@radix-ui/react-presence/dist/index.mjs
+  var React26 = __toESM(require_react(), 1);
+  function useStateMachine(initialState, machine) {
+    return React26.useReducer((state, event) => {
       const nextState = machine[state][event];
-      return nextState !== null && nextState !== void 0 ? nextState : state;
+      return nextState ?? state;
     }, initialState);
   }
-  var $921a889cee6df7e8$export$99c2b779aa4e8b8b = (props) => {
+  var Presence = (props) => {
     const { present, children } = props;
-    const presence = $921a889cee6df7e8$var$usePresence(present);
-    const child = typeof children === "function" ? children({
-      present: presence.isPresent
-    }) : import_react12.Children.only(children);
-    const ref = $6ed0406888f73fc4$export$c7b2cbe3552a0d05(presence.ref, child.ref);
+    const presence = usePresence(present);
+    const child = typeof children === "function" ? children({ present: presence.isPresent }) : React25.Children.only(children);
+    const ref = useComposedRefs4(presence.ref, getElementRef4(child));
     const forceMount = typeof children === "function";
-    return forceMount || presence.isPresent ? /* @__PURE__ */ (0, import_react12.cloneElement)(child, {
-      ref
-    }) : null;
+    return forceMount || presence.isPresent ? React25.cloneElement(child, { ref }) : null;
   };
-  $921a889cee6df7e8$export$99c2b779aa4e8b8b.displayName = "Presence";
-  function $921a889cee6df7e8$var$usePresence(present) {
-    const [node1, setNode] = (0, import_react12.useState)();
-    const stylesRef = (0, import_react12.useRef)({});
-    const prevPresentRef = (0, import_react12.useRef)(present);
-    const prevAnimationNameRef = (0, import_react12.useRef)("none");
+  Presence.displayName = "Presence";
+  function usePresence(present) {
+    const [node, setNode] = React25.useState();
+    const stylesRef = React25.useRef(null);
+    const prevPresentRef = React25.useRef(present);
+    const prevAnimationNameRef = React25.useRef("none");
     const initialState = present ? "mounted" : "unmounted";
-    const [state, send] = $fe963b355347cc68$export$3e6543de14f8614f(initialState, {
+    const [state, send] = useStateMachine(initialState, {
       mounted: {
         UNMOUNT: "unmounted",
         ANIMATION_OUT: "unmountSuspended"
@@ -1036,99 +1406,245 @@ var wp;
         MOUNT: "mounted"
       }
     });
-    (0, import_react12.useEffect)(() => {
-      const currentAnimationName = $921a889cee6df7e8$var$getAnimationName(stylesRef.current);
+    React25.useEffect(() => {
+      const currentAnimationName = getAnimationName(stylesRef.current);
       prevAnimationNameRef.current = state === "mounted" ? currentAnimationName : "none";
-    }, [
-      state
-    ]);
-    $9f79659886946c16$export$e5c5a5f917a5871c(() => {
+    }, [state]);
+    useLayoutEffect23(() => {
       const styles = stylesRef.current;
       const wasPresent = prevPresentRef.current;
       const hasPresentChanged = wasPresent !== present;
       if (hasPresentChanged) {
         const prevAnimationName = prevAnimationNameRef.current;
-        const currentAnimationName = $921a889cee6df7e8$var$getAnimationName(styles);
-        if (present) send("MOUNT");
-        else if (currentAnimationName === "none" || (styles === null || styles === void 0 ? void 0 : styles.display) === "none")
+        const currentAnimationName = getAnimationName(styles);
+        if (present) {
+          send("MOUNT");
+        } else if (currentAnimationName === "none" || styles?.display === "none") {
           send("UNMOUNT");
-        else {
+        } else {
           const isAnimating = prevAnimationName !== currentAnimationName;
-          if (wasPresent && isAnimating) send("ANIMATION_OUT");
-          else send("UNMOUNT");
+          if (wasPresent && isAnimating) {
+            send("ANIMATION_OUT");
+          } else {
+            send("UNMOUNT");
+          }
         }
         prevPresentRef.current = present;
       }
-    }, [
-      present,
-      send
-    ]);
-    $9f79659886946c16$export$e5c5a5f917a5871c(() => {
-      if (node1) {
+    }, [present, send]);
+    useLayoutEffect23(() => {
+      if (node) {
+        let timeoutId;
+        const ownerWindow = node.ownerDocument.defaultView ?? window;
         const handleAnimationEnd = (event) => {
-          const currentAnimationName = $921a889cee6df7e8$var$getAnimationName(stylesRef.current);
-          const isCurrentAnimation = currentAnimationName.includes(event.animationName);
-          if (event.target === node1 && isCurrentAnimation)
-            (0, import_react_dom3.flushSync)(
-              () => send("ANIMATION_END")
-            );
+          const currentAnimationName = getAnimationName(stylesRef.current);
+          const isCurrentAnimation = currentAnimationName.includes(CSS.escape(event.animationName));
+          if (event.target === node && isCurrentAnimation) {
+            send("ANIMATION_END");
+            if (!prevPresentRef.current) {
+              const currentFillMode = node.style.animationFillMode;
+              node.style.animationFillMode = "forwards";
+              timeoutId = ownerWindow.setTimeout(() => {
+                if (node.style.animationFillMode === "forwards") {
+                  node.style.animationFillMode = currentFillMode;
+                }
+              });
+            }
+          }
         };
         const handleAnimationStart = (event) => {
-          if (event.target === node1)
-            prevAnimationNameRef.current = $921a889cee6df7e8$var$getAnimationName(stylesRef.current);
+          if (event.target === node) {
+            prevAnimationNameRef.current = getAnimationName(stylesRef.current);
+          }
         };
-        node1.addEventListener("animationstart", handleAnimationStart);
-        node1.addEventListener("animationcancel", handleAnimationEnd);
-        node1.addEventListener("animationend", handleAnimationEnd);
+        node.addEventListener("animationstart", handleAnimationStart);
+        node.addEventListener("animationcancel", handleAnimationEnd);
+        node.addEventListener("animationend", handleAnimationEnd);
         return () => {
-          node1.removeEventListener("animationstart", handleAnimationStart);
-          node1.removeEventListener("animationcancel", handleAnimationEnd);
-          node1.removeEventListener("animationend", handleAnimationEnd);
+          ownerWindow.clearTimeout(timeoutId);
+          node.removeEventListener("animationstart", handleAnimationStart);
+          node.removeEventListener("animationcancel", handleAnimationEnd);
+          node.removeEventListener("animationend", handleAnimationEnd);
         };
-      } else
+      } else {
         send("ANIMATION_END");
-    }, [
-      node1,
-      send
-    ]);
+      }
+    }, [node, send]);
     return {
-      isPresent: [
-        "mounted",
-        "unmountSuspended"
-      ].includes(state),
-      ref: (0, import_react12.useCallback)((node) => {
-        if (node) stylesRef.current = getComputedStyle(node);
-        setNode(node);
+      isPresent: ["mounted", "unmountSuspended"].includes(state),
+      ref: React25.useCallback((node2) => {
+        stylesRef.current = node2 ? getComputedStyle(node2) : null;
+        setNode(node2);
       }, [])
     };
   }
-  function $921a889cee6df7e8$var$getAnimationName(styles) {
-    return (styles === null || styles === void 0 ? void 0 : styles.animationName) || "none";
+  function getAnimationName(styles) {
+    return styles?.animationName || "none";
+  }
+  function getElementRef4(element) {
+    let getter = Object.getOwnPropertyDescriptor(element.props, "ref")?.get;
+    let mayWarn = getter && "isReactWarning" in getter && getter.isReactWarning;
+    if (mayWarn) {
+      return element.ref;
+    }
+    getter = Object.getOwnPropertyDescriptor(element, "ref")?.get;
+    mayWarn = getter && "isReactWarning" in getter && getter.isReactWarning;
+    if (mayWarn) {
+      return element.props.ref;
+    }
+    return element.props.ref || element.ref;
   }
 
-  // node_modules/@radix-ui/react-focus-guards/dist/index.mjs
-  var import_react13 = __toESM(require_react(), 1);
-  var $3db38b7d1fb3fe6a$var$count = 0;
-  function $3db38b7d1fb3fe6a$export$b7ece24a22aeda8c() {
-    (0, import_react13.useEffect)(() => {
-      var _edgeGuards$, _edgeGuards$2;
+  // node_modules/@radix-ui/react-dialog/node_modules/@radix-ui/react-primitive/dist/index.mjs
+  var React28 = __toESM(require_react(), 1);
+  var ReactDOM5 = __toESM(require_react_dom(), 1);
+
+  // node_modules/@radix-ui/react-dialog/node_modules/@radix-ui/react-slot/dist/index.mjs
+  var React27 = __toESM(require_react(), 1);
+  var import_jsx_runtime11 = __toESM(require_jsx_runtime(), 1);
+  // @__NO_SIDE_EFFECTS__
+  function createSlot4(ownerName) {
+    const SlotClone = /* @__PURE__ */ createSlotClone4(ownerName);
+    const Slot2 = React27.forwardRef((props, forwardedRef) => {
+      const { children, ...slotProps } = props;
+      const childrenArray = React27.Children.toArray(children);
+      const slottable = childrenArray.find(isSlottable4);
+      if (slottable) {
+        const newElement = slottable.props.children;
+        const newChildren = childrenArray.map((child) => {
+          if (child === slottable) {
+            if (React27.Children.count(newElement) > 1) return React27.Children.only(null);
+            return React27.isValidElement(newElement) ? newElement.props.children : null;
+          } else {
+            return child;
+          }
+        });
+        return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(SlotClone, { ...slotProps, ref: forwardedRef, children: React27.isValidElement(newElement) ? React27.cloneElement(newElement, void 0, newChildren) : null });
+      }
+      return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(SlotClone, { ...slotProps, ref: forwardedRef, children });
+    });
+    Slot2.displayName = `${ownerName}.Slot`;
+    return Slot2;
+  }
+  // @__NO_SIDE_EFFECTS__
+  function createSlotClone4(ownerName) {
+    const SlotClone = React27.forwardRef((props, forwardedRef) => {
+      const { children, ...slotProps } = props;
+      if (React27.isValidElement(children)) {
+        const childrenRef = getElementRef5(children);
+        const props2 = mergeProps4(slotProps, children.props);
+        if (children.type !== React27.Fragment) {
+          props2.ref = forwardedRef ? composeRefs(forwardedRef, childrenRef) : childrenRef;
+        }
+        return React27.cloneElement(children, props2);
+      }
+      return React27.Children.count(children) > 1 ? React27.Children.only(null) : null;
+    });
+    SlotClone.displayName = `${ownerName}.SlotClone`;
+    return SlotClone;
+  }
+  var SLOTTABLE_IDENTIFIER4 = /* @__PURE__ */ Symbol("radix.slottable");
+  function isSlottable4(child) {
+    return React27.isValidElement(child) && typeof child.type === "function" && "__radixId" in child.type && child.type.__radixId === SLOTTABLE_IDENTIFIER4;
+  }
+  function mergeProps4(slotProps, childProps) {
+    const overrideProps = { ...childProps };
+    for (const propName in childProps) {
+      const slotPropValue = slotProps[propName];
+      const childPropValue = childProps[propName];
+      const isHandler = /^on[A-Z]/.test(propName);
+      if (isHandler) {
+        if (slotPropValue && childPropValue) {
+          overrideProps[propName] = (...args) => {
+            const result = childPropValue(...args);
+            slotPropValue(...args);
+            return result;
+          };
+        } else if (slotPropValue) {
+          overrideProps[propName] = slotPropValue;
+        }
+      } else if (propName === "style") {
+        overrideProps[propName] = { ...slotPropValue, ...childPropValue };
+      } else if (propName === "className") {
+        overrideProps[propName] = [slotPropValue, childPropValue].filter(Boolean).join(" ");
+      }
+    }
+    return { ...slotProps, ...overrideProps };
+  }
+  function getElementRef5(element) {
+    let getter = Object.getOwnPropertyDescriptor(element.props, "ref")?.get;
+    let mayWarn = getter && "isReactWarning" in getter && getter.isReactWarning;
+    if (mayWarn) {
+      return element.ref;
+    }
+    getter = Object.getOwnPropertyDescriptor(element, "ref")?.get;
+    mayWarn = getter && "isReactWarning" in getter && getter.isReactWarning;
+    if (mayWarn) {
+      return element.props.ref;
+    }
+    return element.props.ref || element.ref;
+  }
+
+  // node_modules/@radix-ui/react-dialog/node_modules/@radix-ui/react-primitive/dist/index.mjs
+  var import_jsx_runtime12 = __toESM(require_jsx_runtime(), 1);
+  var NODES4 = [
+    "a",
+    "button",
+    "div",
+    "form",
+    "h2",
+    "h3",
+    "img",
+    "input",
+    "label",
+    "li",
+    "nav",
+    "ol",
+    "p",
+    "select",
+    "span",
+    "svg",
+    "ul"
+  ];
+  var Primitive4 = NODES4.reduce((primitive, node) => {
+    const Slot2 = createSlot4(`Primitive.${node}`);
+    const Node2 = React28.forwardRef((props, forwardedRef) => {
+      const { asChild, ...primitiveProps } = props;
+      const Comp = asChild ? Slot2 : node;
+      if (typeof window !== "undefined") {
+        window[/* @__PURE__ */ Symbol.for("radix-ui")] = true;
+      }
+      return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Comp, { ...primitiveProps, ref: forwardedRef });
+    });
+    Node2.displayName = `Primitive.${node}`;
+    return { ...primitive, [node]: Node2 };
+  }, {});
+
+  // node_modules/@radix-ui/react-dialog/node_modules/@radix-ui/react-focus-guards/dist/index.mjs
+  var React29 = __toESM(require_react(), 1);
+  var count2 = 0;
+  function useFocusGuards() {
+    React29.useEffect(() => {
       const edgeGuards = document.querySelectorAll("[data-radix-focus-guard]");
-      document.body.insertAdjacentElement("afterbegin", (_edgeGuards$ = edgeGuards[0]) !== null && _edgeGuards$ !== void 0 ? _edgeGuards$ : $3db38b7d1fb3fe6a$var$createFocusGuard());
-      document.body.insertAdjacentElement("beforeend", (_edgeGuards$2 = edgeGuards[1]) !== null && _edgeGuards$2 !== void 0 ? _edgeGuards$2 : $3db38b7d1fb3fe6a$var$createFocusGuard());
-      $3db38b7d1fb3fe6a$var$count++;
+      document.body.insertAdjacentElement("afterbegin", edgeGuards[0] ?? createFocusGuard());
+      document.body.insertAdjacentElement("beforeend", edgeGuards[1] ?? createFocusGuard());
+      count2++;
       return () => {
-        if ($3db38b7d1fb3fe6a$var$count === 1) document.querySelectorAll("[data-radix-focus-guard]").forEach(
-          (node) => node.remove()
-        );
-        $3db38b7d1fb3fe6a$var$count--;
+        if (count2 === 1) {
+          document.querySelectorAll("[data-radix-focus-guard]").forEach((node) => node.remove());
+        }
+        count2--;
       };
     }, []);
   }
-  function $3db38b7d1fb3fe6a$var$createFocusGuard() {
+  function createFocusGuard() {
     const element = document.createElement("span");
     element.setAttribute("data-radix-focus-guard", "");
     element.tabIndex = 0;
-    element.style.cssText = "outline: none; opacity: 0; position: fixed; pointer-events: none";
+    element.style.outline = "none";
+    element.style.opacity = "0";
+    element.style.position = "fixed";
+    element.style.pointerEvents = "none";
     return element;
   }
 
@@ -1164,11 +1680,11 @@ var wp;
     return to.concat(ar || Array.prototype.slice.call(from));
   }
 
-  // node_modules/react-remove-scroll/dist/es2015/Combination.js
-  var React6 = __toESM(require_react());
+  // node_modules/@radix-ui/react-dialog/node_modules/react-remove-scroll/dist/es2015/Combination.js
+  var React36 = __toESM(require_react());
 
-  // node_modules/react-remove-scroll/dist/es2015/UI.js
-  var React2 = __toESM(require_react());
+  // node_modules/@radix-ui/react-dialog/node_modules/react-remove-scroll/dist/es2015/UI.js
+  var React32 = __toESM(require_react());
 
   // node_modules/react-remove-scroll-bar/dist/es2015/constants.js
   var zeroRightClassName = "right-scroll-bar-position";
@@ -1187,9 +1703,9 @@ var wp;
   }
 
   // node_modules/use-callback-ref/dist/es2015/useRef.js
-  var import_react14 = __toESM(require_react());
-  function useCallbackRef(initialValue, callback) {
-    var ref = (0, import_react14.useState)(function() {
+  var import_react = __toESM(require_react());
+  function useCallbackRef3(initialValue, callback) {
+    var ref = (0, import_react.useState)(function() {
       return {
         // value
         value: initialValue,
@@ -1215,12 +1731,35 @@ var wp;
   }
 
   // node_modules/use-callback-ref/dist/es2015/useMergeRef.js
+  var React30 = __toESM(require_react());
+  var useIsomorphicLayoutEffect = typeof window !== "undefined" ? React30.useLayoutEffect : React30.useEffect;
+  var currentValues = /* @__PURE__ */ new WeakMap();
   function useMergeRefs(refs, defaultValue) {
-    return useCallbackRef(defaultValue || null, function(newValue) {
+    var callbackRef = useCallbackRef3(defaultValue || null, function(newValue) {
       return refs.forEach(function(ref) {
         return assignRef(ref, newValue);
       });
     });
+    useIsomorphicLayoutEffect(function() {
+      var oldValue = currentValues.get(callbackRef);
+      if (oldValue) {
+        var prevRefs_1 = new Set(oldValue);
+        var nextRefs_1 = new Set(refs);
+        var current_1 = callbackRef.current;
+        prevRefs_1.forEach(function(ref) {
+          if (!nextRefs_1.has(ref)) {
+            assignRef(ref, null);
+          }
+        });
+        nextRefs_1.forEach(function(ref) {
+          if (!prevRefs_1.has(ref)) {
+            assignRef(ref, current_1);
+          }
+        });
+      }
+      currentValues.set(callbackRef, refs);
+    }, [refs]);
+    return callbackRef;
   }
 
   // node_modules/use-sidecar/dist/es2015/medium.js
@@ -1310,7 +1849,7 @@ var wp;
   }
 
   // node_modules/use-sidecar/dist/es2015/exports.js
-  var React = __toESM(require_react());
+  var React31 = __toESM(require_react());
   var SideCar = function(_a) {
     var sideCar = _a.sideCar, rest = __rest(_a, ["sideCar"]);
     if (!sideCar) {
@@ -1320,7 +1859,7 @@ var wp;
     if (!Target) {
       throw new Error("Sidecar medium not found");
     }
-    return React.createElement(Target, __assign({}, rest));
+    return React31.createElement(Target, __assign({}, rest));
   };
   SideCar.isSideCarExport = true;
   function exportSidecar(medium, exported) {
@@ -1328,29 +1867,29 @@ var wp;
     return SideCar;
   }
 
-  // node_modules/react-remove-scroll/dist/es2015/medium.js
+  // node_modules/@radix-ui/react-dialog/node_modules/react-remove-scroll/dist/es2015/medium.js
   var effectCar = createSidecarMedium();
 
-  // node_modules/react-remove-scroll/dist/es2015/UI.js
+  // node_modules/@radix-ui/react-dialog/node_modules/react-remove-scroll/dist/es2015/UI.js
   var nothing = function() {
     return;
   };
-  var RemoveScroll = React2.forwardRef(function(props, parentRef) {
-    var ref = React2.useRef(null);
-    var _a = React2.useState({
+  var RemoveScroll = React32.forwardRef(function(props, parentRef) {
+    var ref = React32.useRef(null);
+    var _a = React32.useState({
       onScrollCapture: nothing,
       onWheelCapture: nothing,
       onTouchMoveCapture: nothing
     }), callbacks = _a[0], setCallbacks = _a[1];
-    var forwardProps = props.forwardProps, children = props.children, className = props.className, removeScrollBar = props.removeScrollBar, enabled = props.enabled, shards = props.shards, sideCar = props.sideCar, noIsolation = props.noIsolation, inert = props.inert, allowPinchZoom = props.allowPinchZoom, _b = props.as, Container = _b === void 0 ? "div" : _b, rest = __rest(props, ["forwardProps", "children", "className", "removeScrollBar", "enabled", "shards", "sideCar", "noIsolation", "inert", "allowPinchZoom", "as"]);
+    var forwardProps = props.forwardProps, children = props.children, className = props.className, removeScrollBar = props.removeScrollBar, enabled = props.enabled, shards = props.shards, sideCar = props.sideCar, noRelative = props.noRelative, noIsolation = props.noIsolation, inert = props.inert, allowPinchZoom = props.allowPinchZoom, _b = props.as, Container = _b === void 0 ? "div" : _b, gapMode = props.gapMode, rest = __rest(props, ["forwardProps", "children", "className", "removeScrollBar", "enabled", "shards", "sideCar", "noRelative", "noIsolation", "inert", "allowPinchZoom", "as", "gapMode"]);
     var SideCar2 = sideCar;
     var containerRef = useMergeRefs([ref, parentRef]);
     var containerProps = __assign(__assign({}, rest), callbacks);
-    return React2.createElement(
-      React2.Fragment,
+    return React32.createElement(
+      React32.Fragment,
       null,
-      enabled && React2.createElement(SideCar2, { sideCar: effectCar, removeScrollBar, shards, noIsolation, inert, setCallbacks, allowPinchZoom: !!allowPinchZoom, lockRef: ref }),
-      forwardProps ? React2.cloneElement(React2.Children.only(children), __assign(__assign({}, containerProps), { ref: containerRef })) : React2.createElement(Container, __assign({}, containerProps, { className, ref: containerRef }), children)
+      enabled && React32.createElement(SideCar2, { sideCar: effectCar, removeScrollBar, shards, noRelative, noIsolation, inert, setCallbacks, allowPinchZoom: !!allowPinchZoom, lockRef: ref, gapMode }),
+      forwardProps ? React32.cloneElement(React32.Children.only(children), __assign(__assign({}, containerProps), { ref: containerRef })) : React32.createElement(Container, __assign({}, containerProps, { className, ref: containerRef }), children)
     );
   });
   RemoveScroll.defaultProps = {
@@ -1363,14 +1902,14 @@ var wp;
     zeroRight: zeroRightClassName
   };
 
-  // node_modules/react-remove-scroll/dist/es2015/SideEffect.js
-  var React5 = __toESM(require_react());
+  // node_modules/@radix-ui/react-dialog/node_modules/react-remove-scroll/dist/es2015/SideEffect.js
+  var React35 = __toESM(require_react());
 
   // node_modules/react-remove-scroll-bar/dist/es2015/component.js
-  var React4 = __toESM(require_react());
+  var React34 = __toESM(require_react());
 
   // node_modules/react-style-singleton/dist/es2015/hook.js
-  var React3 = __toESM(require_react());
+  var React33 = __toESM(require_react());
 
   // node_modules/get-nonce/dist/es2015/index.js
   var currentNonce;
@@ -1434,7 +1973,7 @@ var wp;
   var styleHookSingleton = function() {
     var sheet = stylesheetSingleton();
     return function(styles, isDynamic) {
-      React3.useEffect(function() {
+      React33.useEffect(function() {
         sheet.add(styles);
         return function() {
           sheet.remove();
@@ -1508,7 +2047,7 @@ var wp;
     return isFinite(counter) ? counter : 0;
   };
   var useLockAttribute = function() {
-    React4.useEffect(function() {
+    React34.useEffect(function() {
       document.body.setAttribute(lockAttribute, (getCurrentUseCounter() + 1).toString());
       return function() {
         var newCounter = getCurrentUseCounter() - 1;
@@ -1523,13 +2062,13 @@ var wp;
   var RemoveScrollBar = function(_a) {
     var noRelative = _a.noRelative, noImportant = _a.noImportant, _b = _a.gapMode, gapMode = _b === void 0 ? "margin" : _b;
     useLockAttribute();
-    var gap = React4.useMemo(function() {
+    var gap = React34.useMemo(function() {
       return getGapWidth(gapMode);
     }, [gapMode]);
-    return React4.createElement(Style, { styles: getStyles(gap, !noRelative, gapMode, !noImportant ? "!important" : "") });
+    return React34.createElement(Style, { styles: getStyles(gap, !noRelative, gapMode, !noImportant ? "!important" : "") });
   };
 
-  // node_modules/react-remove-scroll/dist/es2015/aggresiveCapture.js
+  // node_modules/@radix-ui/react-dialog/node_modules/react-remove-scroll/dist/es2015/aggresiveCapture.js
   var passiveSupported = false;
   if (typeof window !== "undefined") {
     try {
@@ -1548,11 +2087,14 @@ var wp;
   var options;
   var nonPassive = passiveSupported ? { passive: false } : false;
 
-  // node_modules/react-remove-scroll/dist/es2015/handleScroll.js
+  // node_modules/@radix-ui/react-dialog/node_modules/react-remove-scroll/dist/es2015/handleScroll.js
   var alwaysContainsScroll = function(node) {
     return node.tagName === "TEXTAREA";
   };
   var elementCanBeScrolled = function(node, overflow) {
+    if (!(node instanceof Element)) {
+      return false;
+    }
     var styles = window.getComputedStyle(node);
     return (
       // not-not-scrollable
@@ -1567,6 +2109,7 @@ var wp;
     return elementCanBeScrolled(node, "overflowX");
   };
   var locationCouldBeScrolled = function(axis, node) {
+    var ownerDocument = node.ownerDocument;
     var current = node;
     do {
       if (typeof ShadowRoot !== "undefined" && current instanceof ShadowRoot) {
@@ -1574,13 +2117,13 @@ var wp;
       }
       var isScrollable = elementCouldBeScrolled(axis, current);
       if (isScrollable) {
-        var _a = getScrollVariables(axis, current), s = _a[1], d = _a[2];
-        if (s > d) {
+        var _a = getScrollVariables(axis, current), scrollHeight = _a[1], clientHeight = _a[2];
+        if (scrollHeight > clientHeight) {
           return true;
         }
       }
       current = current.parentNode;
-    } while (current && current !== document.body);
+    } while (current && current !== ownerDocument.body);
     return false;
   };
   var getVScrollVariables = function(_a) {
@@ -1618,6 +2161,9 @@ var wp;
     var availableScroll = 0;
     var availableScrollTop = 0;
     do {
+      if (!target) {
+        break;
+      }
       var _a = getScrollVariables(axis, target), position = _a[0], scroll_1 = _a[1], capacity = _a[2];
       var elementScroll = scroll_1 - capacity - directionFactor * position;
       if (position || elementScroll) {
@@ -1626,21 +2172,22 @@ var wp;
           availableScrollTop += position;
         }
       }
-      target = target.parentNode;
+      var parent_1 = target.parentNode;
+      target = parent_1 && parent_1.nodeType === Node.DOCUMENT_FRAGMENT_NODE ? parent_1.host : parent_1;
     } while (
       // portaled content
       !targetInLock && target !== document.body || // self content
       targetInLock && (endTarget.contains(target) || endTarget === target)
     );
-    if (isDeltaPositive && (noOverscroll && availableScroll === 0 || !noOverscroll && delta > availableScroll)) {
+    if (isDeltaPositive && (noOverscroll && Math.abs(availableScroll) < 1 || !noOverscroll && delta > availableScroll)) {
       shouldCancelScroll = true;
-    } else if (!isDeltaPositive && (noOverscroll && availableScrollTop === 0 || !noOverscroll && -delta > availableScrollTop)) {
+    } else if (!isDeltaPositive && (noOverscroll && Math.abs(availableScrollTop) < 1 || !noOverscroll && -delta > availableScrollTop)) {
       shouldCancelScroll = true;
     }
     return shouldCancelScroll;
   };
 
-  // node_modules/react-remove-scroll/dist/es2015/SideEffect.js
+  // node_modules/@radix-ui/react-dialog/node_modules/react-remove-scroll/dist/es2015/SideEffect.js
   var getTouchXY = function(event) {
     return "changedTouches" in event ? [event.changedTouches[0].clientX, event.changedTouches[0].clientY] : [0, 0];
   };
@@ -1659,18 +2206,16 @@ var wp;
   var idCounter = 0;
   var lockStack = [];
   function RemoveScrollSideCar(props) {
-    var shouldPreventQueue = React5.useRef([]);
-    var touchStartRef = React5.useRef([0, 0]);
-    var activeAxis = React5.useRef();
-    var id = React5.useState(idCounter++)[0];
-    var Style2 = React5.useState(function() {
-      return styleSingleton();
-    })[0];
-    var lastProps = React5.useRef(props);
-    React5.useEffect(function() {
+    var shouldPreventQueue = React35.useRef([]);
+    var touchStartRef = React35.useRef([0, 0]);
+    var activeAxis = React35.useRef();
+    var id = React35.useState(idCounter++)[0];
+    var Style2 = React35.useState(styleSingleton)[0];
+    var lastProps = React35.useRef(props);
+    React35.useEffect(function() {
       lastProps.current = props;
     }, [props]);
-    React5.useEffect(function() {
+    React35.useEffect(function() {
       if (props.inert) {
         document.body.classList.add("block-interactivity-".concat(id));
         var allow_1 = __spreadArray([props.lockRef.current], (props.shards || []).map(extractRef), true).filter(Boolean);
@@ -1686,8 +2231,8 @@ var wp;
       }
       return;
     }, [props.inert, props.lockRef.current, props.shards]);
-    var shouldCancelEvent = React5.useCallback(function(event, parent) {
-      if ("touches" in event && event.touches.length === 2) {
+    var shouldCancelEvent = React35.useCallback(function(event, parent) {
+      if ("touches" in event && event.touches.length === 2 || event.type === "wheel" && event.ctrlKey) {
         return !lastProps.current.allowPinchZoom;
       }
       var touch = getTouchXY(event);
@@ -1722,14 +2267,14 @@ var wp;
       var cancelingAxis = activeAxis.current || currentAxis;
       return handleScroll(cancelingAxis, parent, event, cancelingAxis === "h" ? deltaX : deltaY, true);
     }, []);
-    var shouldPrevent = React5.useCallback(function(_event) {
+    var shouldPrevent = React35.useCallback(function(_event) {
       var event = _event;
       if (!lockStack.length || lockStack[lockStack.length - 1] !== Style2) {
         return;
       }
       var delta = "deltaY" in event ? getDeltaXY(event) : getTouchXY(event);
       var sourceEvent = shouldPreventQueue.current.filter(function(e) {
-        return e.name === event.type && e.target === event.target && deltaCompare(e.delta, delta);
+        return e.name === event.type && (e.target === event.target || event.target === e.shadowParent) && deltaCompare(e.delta, delta);
       })[0];
       if (sourceEvent && sourceEvent.should) {
         if (event.cancelable) {
@@ -1749,8 +2294,8 @@ var wp;
         }
       }
     }, []);
-    var shouldCancel = React5.useCallback(function(name, delta, target, should) {
-      var event = { name, delta, target, should };
+    var shouldCancel = React35.useCallback(function(name, delta, target, should) {
+      var event = { name, delta, target, should, shadowParent: getOutermostShadowParent(target) };
       shouldPreventQueue.current.push(event);
       setTimeout(function() {
         shouldPreventQueue.current = shouldPreventQueue.current.filter(function(e) {
@@ -1758,17 +2303,17 @@ var wp;
         });
       }, 1);
     }, []);
-    var scrollTouchStart = React5.useCallback(function(event) {
+    var scrollTouchStart = React35.useCallback(function(event) {
       touchStartRef.current = getTouchXY(event);
       activeAxis.current = void 0;
     }, []);
-    var scrollWheel = React5.useCallback(function(event) {
+    var scrollWheel = React35.useCallback(function(event) {
       shouldCancel(event.type, getDeltaXY(event), event.target, shouldCancelEvent(event, props.lockRef.current));
     }, []);
-    var scrollTouchMove = React5.useCallback(function(event) {
+    var scrollTouchMove = React35.useCallback(function(event) {
       shouldCancel(event.type, getTouchXY(event), event.target, shouldCancelEvent(event, props.lockRef.current));
     }, []);
-    React5.useEffect(function() {
+    React35.useEffect(function() {
       lockStack.push(Style2);
       props.setCallbacks({
         onScrollCapture: scrollWheel,
@@ -1788,20 +2333,31 @@ var wp;
       };
     }, []);
     var removeScrollBar = props.removeScrollBar, inert = props.inert;
-    return React5.createElement(
-      React5.Fragment,
+    return React35.createElement(
+      React35.Fragment,
       null,
-      inert ? React5.createElement(Style2, { styles: generateStyle(id) }) : null,
-      removeScrollBar ? React5.createElement(RemoveScrollBar, { gapMode: "margin" }) : null
+      inert ? React35.createElement(Style2, { styles: generateStyle(id) }) : null,
+      removeScrollBar ? React35.createElement(RemoveScrollBar, { noRelative: props.noRelative, gapMode: props.gapMode }) : null
     );
   }
+  function getOutermostShadowParent(node) {
+    var shadowParent = null;
+    while (node !== null) {
+      if (node instanceof ShadowRoot) {
+        shadowParent = node.host;
+        node = node.host;
+      }
+      node = node.parentNode;
+    }
+    return shadowParent;
+  }
 
-  // node_modules/react-remove-scroll/dist/es2015/sidecar.js
+  // node_modules/@radix-ui/react-dialog/node_modules/react-remove-scroll/dist/es2015/sidecar.js
   var sidecar_default = exportSidecar(effectCar, RemoveScrollSideCar);
 
-  // node_modules/react-remove-scroll/dist/es2015/Combination.js
-  var ReactRemoveScroll = React6.forwardRef(function(props, ref) {
-    return React6.createElement(RemoveScroll, __assign({}, props, { ref, sideCar: sidecar_default }));
+  // node_modules/@radix-ui/react-dialog/node_modules/react-remove-scroll/dist/es2015/Combination.js
+  var ReactRemoveScroll = React36.forwardRef(function(props, ref) {
+    return React36.createElement(RemoveScroll, __assign({}, props, { ref, sideCar: sidecar_default }));
   });
   ReactRemoveScroll.classNames = RemoveScroll.classNames;
   var Combination_default = ReactRemoveScroll;
@@ -1861,21 +2417,25 @@ var wp;
         if (elementsToKeep.has(node)) {
           deep(node);
         } else {
-          var attr = node.getAttribute(controlAttribute);
-          var alreadyHidden = attr !== null && attr !== "false";
-          var counterValue = (counterMap.get(node) || 0) + 1;
-          var markerValue = (markerCounter.get(node) || 0) + 1;
-          counterMap.set(node, counterValue);
-          markerCounter.set(node, markerValue);
-          hiddenNodes.push(node);
-          if (counterValue === 1 && alreadyHidden) {
-            uncontrolledNodes.set(node, true);
-          }
-          if (markerValue === 1) {
-            node.setAttribute(markerName, "true");
-          }
-          if (!alreadyHidden) {
-            node.setAttribute(controlAttribute, "true");
+          try {
+            var attr = node.getAttribute(controlAttribute);
+            var alreadyHidden = attr !== null && attr !== "false";
+            var counterValue = (counterMap.get(node) || 0) + 1;
+            var markerValue = (markerCounter.get(node) || 0) + 1;
+            counterMap.set(node, counterValue);
+            markerCounter.set(node, markerValue);
+            hiddenNodes.push(node);
+            if (counterValue === 1 && alreadyHidden) {
+              uncontrolledNodes.set(node, true);
+            }
+            if (markerValue === 1) {
+              node.setAttribute(markerName, "true");
+            }
+            if (!alreadyHidden) {
+              node.setAttribute(controlAttribute, "true");
+            }
+          } catch (e) {
+            console.error("aria-hidden: cannot operate on ", node, e);
           }
         }
       });
@@ -1919,359 +2479,668 @@ var wp;
         return null;
       };
     }
-    targets.push.apply(targets, Array.from(activeParentNode.querySelectorAll("[aria-live]")));
+    targets.push.apply(targets, Array.from(activeParentNode.querySelectorAll("[aria-live], script")));
     return applyAttributeToOthers(targets, activeParentNode, markerName, "aria-hidden");
   };
 
-  // packages/commands/node_modules/@radix-ui/react-dialog/dist/index.mjs
-  var $5d3850c4d0b4e6c7$var$DIALOG_NAME = "Dialog";
-  var [$5d3850c4d0b4e6c7$var$createDialogContext, $5d3850c4d0b4e6c7$export$cc702773b8ea3e41] = $c512c27ab02ef895$export$50c7b4e9d9f19c1($5d3850c4d0b4e6c7$var$DIALOG_NAME);
-  var [$5d3850c4d0b4e6c7$var$DialogProvider, $5d3850c4d0b4e6c7$var$useDialogContext] = $5d3850c4d0b4e6c7$var$createDialogContext($5d3850c4d0b4e6c7$var$DIALOG_NAME);
-  var $5d3850c4d0b4e6c7$export$3ddf2d174ce01153 = (props) => {
-    const { __scopeDialog, children, open: openProp, defaultOpen, onOpenChange, modal = true } = props;
-    const triggerRef = (0, import_react15.useRef)(null);
-    const contentRef = (0, import_react15.useRef)(null);
-    const [open2 = false, setOpen] = $71cd76cc60e0454e$export$6f32135080cb4c3({
+  // node_modules/@radix-ui/react-dialog/dist/index.mjs
+  var import_jsx_runtime13 = __toESM(require_jsx_runtime(), 1);
+  var DIALOG_NAME = "Dialog";
+  var [createDialogContext, createDialogScope] = createContextScope(DIALOG_NAME);
+  var [DialogProvider, useDialogContext] = createDialogContext(DIALOG_NAME);
+  var Dialog = (props) => {
+    const {
+      __scopeDialog,
+      children,
+      open: openProp,
+      defaultOpen,
+      onOpenChange,
+      modal = true
+    } = props;
+    const triggerRef = React37.useRef(null);
+    const contentRef = React37.useRef(null);
+    const [open2, setOpen] = useControllableState({
       prop: openProp,
-      defaultProp: defaultOpen,
-      onChange: onOpenChange
+      defaultProp: defaultOpen ?? false,
+      onChange: onOpenChange,
+      caller: DIALOG_NAME
     });
-    return /* @__PURE__ */ (0, import_react15.createElement)($5d3850c4d0b4e6c7$var$DialogProvider, {
-      scope: __scopeDialog,
-      triggerRef,
-      contentRef,
-      contentId: $1746a345f3d73bb7$export$f680877a34711e37(),
-      titleId: $1746a345f3d73bb7$export$f680877a34711e37(),
-      descriptionId: $1746a345f3d73bb7$export$f680877a34711e37(),
-      open: open2,
-      onOpenChange: setOpen,
-      onOpenToggle: (0, import_react15.useCallback)(
-        () => setOpen(
-          (prevOpen) => !prevOpen
-        ),
-        [
-          setOpen
-        ]
-      ),
-      modal
-    }, children);
+    return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
+      DialogProvider,
+      {
+        scope: __scopeDialog,
+        triggerRef,
+        contentRef,
+        contentId: useId(),
+        titleId: useId(),
+        descriptionId: useId(),
+        open: open2,
+        onOpenChange: setOpen,
+        onOpenToggle: React37.useCallback(() => setOpen((prevOpen) => !prevOpen), [setOpen]),
+        modal,
+        children
+      }
+    );
   };
-  var $5d3850c4d0b4e6c7$var$PORTAL_NAME = "DialogPortal";
-  var [$5d3850c4d0b4e6c7$var$PortalProvider, $5d3850c4d0b4e6c7$var$usePortalContext] = $5d3850c4d0b4e6c7$var$createDialogContext($5d3850c4d0b4e6c7$var$PORTAL_NAME, {
+  Dialog.displayName = DIALOG_NAME;
+  var TRIGGER_NAME = "DialogTrigger";
+  var DialogTrigger = React37.forwardRef(
+    (props, forwardedRef) => {
+      const { __scopeDialog, ...triggerProps } = props;
+      const context2 = useDialogContext(TRIGGER_NAME, __scopeDialog);
+      const composedTriggerRef = useComposedRefs(forwardedRef, context2.triggerRef);
+      return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
+        Primitive4.button,
+        {
+          type: "button",
+          "aria-haspopup": "dialog",
+          "aria-expanded": context2.open,
+          "aria-controls": context2.contentId,
+          "data-state": getState(context2.open),
+          ...triggerProps,
+          ref: composedTriggerRef,
+          onClick: composeEventHandlers(props.onClick, context2.onOpenToggle)
+        }
+      );
+    }
+  );
+  DialogTrigger.displayName = TRIGGER_NAME;
+  var PORTAL_NAME2 = "DialogPortal";
+  var [PortalProvider, usePortalContext] = createDialogContext(PORTAL_NAME2, {
     forceMount: void 0
   });
-  var $5d3850c4d0b4e6c7$export$dad7c95542bacce0 = (props) => {
+  var DialogPortal = (props) => {
     const { __scopeDialog, forceMount, children, container } = props;
-    const context2 = $5d3850c4d0b4e6c7$var$useDialogContext($5d3850c4d0b4e6c7$var$PORTAL_NAME, __scopeDialog);
-    return /* @__PURE__ */ (0, import_react15.createElement)($5d3850c4d0b4e6c7$var$PortalProvider, {
-      scope: __scopeDialog,
-      forceMount
-    }, import_react15.Children.map(
-      children,
-      (child) => /* @__PURE__ */ (0, import_react15.createElement)($921a889cee6df7e8$export$99c2b779aa4e8b8b, {
-        present: forceMount || context2.open
-      }, /* @__PURE__ */ (0, import_react15.createElement)($f1701beae083dbae$export$602eac185826482c, {
-        asChild: true,
-        container
-      }, child))
-    ));
+    const context2 = useDialogContext(PORTAL_NAME2, __scopeDialog);
+    return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(PortalProvider, { scope: __scopeDialog, forceMount, children: React37.Children.map(children, (child) => /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Presence, { present: forceMount || context2.open, children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Portal, { asChild: true, container, children: child }) })) });
   };
-  var $5d3850c4d0b4e6c7$var$OVERLAY_NAME = "DialogOverlay";
-  var $5d3850c4d0b4e6c7$export$bd1d06c79be19e17 = /* @__PURE__ */ (0, import_react15.forwardRef)((props, forwardedRef) => {
-    const portalContext = $5d3850c4d0b4e6c7$var$usePortalContext($5d3850c4d0b4e6c7$var$OVERLAY_NAME, props.__scopeDialog);
-    const { forceMount = portalContext.forceMount, ...overlayProps } = props;
-    const context2 = $5d3850c4d0b4e6c7$var$useDialogContext($5d3850c4d0b4e6c7$var$OVERLAY_NAME, props.__scopeDialog);
-    return context2.modal ? /* @__PURE__ */ (0, import_react15.createElement)($921a889cee6df7e8$export$99c2b779aa4e8b8b, {
-      present: forceMount || context2.open
-    }, /* @__PURE__ */ (0, import_react15.createElement)($5d3850c4d0b4e6c7$var$DialogOverlayImpl, _extends({}, overlayProps, {
-      ref: forwardedRef
-    }))) : null;
-  });
-  var $5d3850c4d0b4e6c7$var$DialogOverlayImpl = /* @__PURE__ */ (0, import_react15.forwardRef)((props, forwardedRef) => {
-    const { __scopeDialog, ...overlayProps } = props;
-    const context2 = $5d3850c4d0b4e6c7$var$useDialogContext($5d3850c4d0b4e6c7$var$OVERLAY_NAME, __scopeDialog);
-    return (
-      // Make sure `Content` is scrollable even when it doesn't live inside `RemoveScroll`
-      // ie. when `Overlay` and `Content` are siblings
-      /* @__PURE__ */ (0, import_react15.createElement)(Combination_default, {
-        as: $5e63c961fc1ce211$export$8c6ed5c666ac1360,
-        allowPinchZoom: true,
-        shards: [
-          context2.contentRef
-        ]
-      }, /* @__PURE__ */ (0, import_react15.createElement)($8927f6f2acc4f386$export$250ffa63cdc0d034.div, _extends({
-        "data-state": $5d3850c4d0b4e6c7$var$getState(context2.open)
-      }, overlayProps, {
-        ref: forwardedRef,
-        style: {
-          pointerEvents: "auto",
-          ...overlayProps.style
+  DialogPortal.displayName = PORTAL_NAME2;
+  var OVERLAY_NAME = "DialogOverlay";
+  var DialogOverlay = React37.forwardRef(
+    (props, forwardedRef) => {
+      const portalContext = usePortalContext(OVERLAY_NAME, props.__scopeDialog);
+      const { forceMount = portalContext.forceMount, ...overlayProps } = props;
+      const context2 = useDialogContext(OVERLAY_NAME, props.__scopeDialog);
+      return context2.modal ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Presence, { present: forceMount || context2.open, children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(DialogOverlayImpl, { ...overlayProps, ref: forwardedRef }) }) : null;
+    }
+  );
+  DialogOverlay.displayName = OVERLAY_NAME;
+  var Slot = createSlot4("DialogOverlay.RemoveScroll");
+  var DialogOverlayImpl = React37.forwardRef(
+    (props, forwardedRef) => {
+      const { __scopeDialog, ...overlayProps } = props;
+      const context2 = useDialogContext(OVERLAY_NAME, __scopeDialog);
+      return (
+        // Make sure `Content` is scrollable even when it doesn't live inside `RemoveScroll`
+        // ie. when `Overlay` and `Content` are siblings
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Combination_default, { as: Slot, allowPinchZoom: true, shards: [context2.contentRef], children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
+          Primitive4.div,
+          {
+            "data-state": getState(context2.open),
+            ...overlayProps,
+            ref: forwardedRef,
+            style: { pointerEvents: "auto", ...overlayProps.style }
+          }
+        ) })
+      );
+    }
+  );
+  var CONTENT_NAME = "DialogContent";
+  var DialogContent = React37.forwardRef(
+    (props, forwardedRef) => {
+      const portalContext = usePortalContext(CONTENT_NAME, props.__scopeDialog);
+      const { forceMount = portalContext.forceMount, ...contentProps } = props;
+      const context2 = useDialogContext(CONTENT_NAME, props.__scopeDialog);
+      return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Presence, { present: forceMount || context2.open, children: context2.modal ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(DialogContentModal, { ...contentProps, ref: forwardedRef }) : /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(DialogContentNonModal, { ...contentProps, ref: forwardedRef }) });
+    }
+  );
+  DialogContent.displayName = CONTENT_NAME;
+  var DialogContentModal = React37.forwardRef(
+    (props, forwardedRef) => {
+      const context2 = useDialogContext(CONTENT_NAME, props.__scopeDialog);
+      const contentRef = React37.useRef(null);
+      const composedRefs = useComposedRefs(forwardedRef, context2.contentRef, contentRef);
+      React37.useEffect(() => {
+        const content = contentRef.current;
+        if (content) return hideOthers(content);
+      }, []);
+      return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
+        DialogContentImpl,
+        {
+          ...props,
+          ref: composedRefs,
+          trapFocus: context2.open,
+          disableOutsidePointerEvents: true,
+          onCloseAutoFocus: composeEventHandlers(props.onCloseAutoFocus, (event) => {
+            event.preventDefault();
+            context2.triggerRef.current?.focus();
+          }),
+          onPointerDownOutside: composeEventHandlers(props.onPointerDownOutside, (event) => {
+            const originalEvent = event.detail.originalEvent;
+            const ctrlLeftClick = originalEvent.button === 0 && originalEvent.ctrlKey === true;
+            const isRightClick = originalEvent.button === 2 || ctrlLeftClick;
+            if (isRightClick) event.preventDefault();
+          }),
+          onFocusOutside: composeEventHandlers(
+            props.onFocusOutside,
+            (event) => event.preventDefault()
+          )
         }
-      })))
-    );
-  });
-  var $5d3850c4d0b4e6c7$var$CONTENT_NAME = "DialogContent";
-  var $5d3850c4d0b4e6c7$export$b6d9565de1e068cf = /* @__PURE__ */ (0, import_react15.forwardRef)((props, forwardedRef) => {
-    const portalContext = $5d3850c4d0b4e6c7$var$usePortalContext($5d3850c4d0b4e6c7$var$CONTENT_NAME, props.__scopeDialog);
-    const { forceMount = portalContext.forceMount, ...contentProps } = props;
-    const context2 = $5d3850c4d0b4e6c7$var$useDialogContext($5d3850c4d0b4e6c7$var$CONTENT_NAME, props.__scopeDialog);
-    return /* @__PURE__ */ (0, import_react15.createElement)($921a889cee6df7e8$export$99c2b779aa4e8b8b, {
-      present: forceMount || context2.open
-    }, context2.modal ? /* @__PURE__ */ (0, import_react15.createElement)($5d3850c4d0b4e6c7$var$DialogContentModal, _extends({}, contentProps, {
-      ref: forwardedRef
-    })) : /* @__PURE__ */ (0, import_react15.createElement)($5d3850c4d0b4e6c7$var$DialogContentNonModal, _extends({}, contentProps, {
-      ref: forwardedRef
-    })));
-  });
-  var $5d3850c4d0b4e6c7$var$DialogContentModal = /* @__PURE__ */ (0, import_react15.forwardRef)((props, forwardedRef) => {
-    const context2 = $5d3850c4d0b4e6c7$var$useDialogContext($5d3850c4d0b4e6c7$var$CONTENT_NAME, props.__scopeDialog);
-    const contentRef = (0, import_react15.useRef)(null);
-    const composedRefs = $6ed0406888f73fc4$export$c7b2cbe3552a0d05(forwardedRef, context2.contentRef, contentRef);
-    (0, import_react15.useEffect)(() => {
-      const content = contentRef.current;
-      if (content) return hideOthers(content);
-    }, []);
-    return /* @__PURE__ */ (0, import_react15.createElement)($5d3850c4d0b4e6c7$var$DialogContentImpl, _extends({}, props, {
-      ref: composedRefs,
-      trapFocus: context2.open,
-      disableOutsidePointerEvents: true,
-      onCloseAutoFocus: $e42e1063c40fb3ef$export$b9ecd428b558ff10(props.onCloseAutoFocus, (event) => {
-        var _context$triggerRef$c;
-        event.preventDefault();
-        (_context$triggerRef$c = context2.triggerRef.current) === null || _context$triggerRef$c === void 0 || _context$triggerRef$c.focus();
-      }),
-      onPointerDownOutside: $e42e1063c40fb3ef$export$b9ecd428b558ff10(props.onPointerDownOutside, (event) => {
-        const originalEvent = event.detail.originalEvent;
-        const ctrlLeftClick = originalEvent.button === 0 && originalEvent.ctrlKey === true;
-        const isRightClick = originalEvent.button === 2 || ctrlLeftClick;
-        if (isRightClick) event.preventDefault();
-      }),
-      onFocusOutside: $e42e1063c40fb3ef$export$b9ecd428b558ff10(
-        props.onFocusOutside,
-        (event) => event.preventDefault()
-      )
-    }));
-  });
-  var $5d3850c4d0b4e6c7$var$DialogContentNonModal = /* @__PURE__ */ (0, import_react15.forwardRef)((props, forwardedRef) => {
-    const context2 = $5d3850c4d0b4e6c7$var$useDialogContext($5d3850c4d0b4e6c7$var$CONTENT_NAME, props.__scopeDialog);
-    const hasInteractedOutsideRef = (0, import_react15.useRef)(false);
-    const hasPointerDownOutsideRef = (0, import_react15.useRef)(false);
-    return /* @__PURE__ */ (0, import_react15.createElement)($5d3850c4d0b4e6c7$var$DialogContentImpl, _extends({}, props, {
-      ref: forwardedRef,
-      trapFocus: false,
-      disableOutsidePointerEvents: false,
-      onCloseAutoFocus: (event) => {
-        var _props$onCloseAutoFoc;
-        (_props$onCloseAutoFoc = props.onCloseAutoFocus) === null || _props$onCloseAutoFoc === void 0 || _props$onCloseAutoFoc.call(props, event);
-        if (!event.defaultPrevented) {
-          var _context$triggerRef$c2;
-          if (!hasInteractedOutsideRef.current) (_context$triggerRef$c2 = context2.triggerRef.current) === null || _context$triggerRef$c2 === void 0 || _context$triggerRef$c2.focus();
-          event.preventDefault();
+      );
+    }
+  );
+  var DialogContentNonModal = React37.forwardRef(
+    (props, forwardedRef) => {
+      const context2 = useDialogContext(CONTENT_NAME, props.__scopeDialog);
+      const hasInteractedOutsideRef = React37.useRef(false);
+      const hasPointerDownOutsideRef = React37.useRef(false);
+      return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
+        DialogContentImpl,
+        {
+          ...props,
+          ref: forwardedRef,
+          trapFocus: false,
+          disableOutsidePointerEvents: false,
+          onCloseAutoFocus: (event) => {
+            props.onCloseAutoFocus?.(event);
+            if (!event.defaultPrevented) {
+              if (!hasInteractedOutsideRef.current) context2.triggerRef.current?.focus();
+              event.preventDefault();
+            }
+            hasInteractedOutsideRef.current = false;
+            hasPointerDownOutsideRef.current = false;
+          },
+          onInteractOutside: (event) => {
+            props.onInteractOutside?.(event);
+            if (!event.defaultPrevented) {
+              hasInteractedOutsideRef.current = true;
+              if (event.detail.originalEvent.type === "pointerdown") {
+                hasPointerDownOutsideRef.current = true;
+              }
+            }
+            const target = event.target;
+            const targetIsTrigger = context2.triggerRef.current?.contains(target);
+            if (targetIsTrigger) event.preventDefault();
+            if (event.detail.originalEvent.type === "focusin" && hasPointerDownOutsideRef.current) {
+              event.preventDefault();
+            }
+          }
         }
-        hasInteractedOutsideRef.current = false;
-        hasPointerDownOutsideRef.current = false;
-      },
-      onInteractOutside: (event) => {
-        var _props$onInteractOuts, _context$triggerRef$c3;
-        (_props$onInteractOuts = props.onInteractOutside) === null || _props$onInteractOuts === void 0 || _props$onInteractOuts.call(props, event);
-        if (!event.defaultPrevented) {
-          hasInteractedOutsideRef.current = true;
-          if (event.detail.originalEvent.type === "pointerdown") hasPointerDownOutsideRef.current = true;
+      );
+    }
+  );
+  var DialogContentImpl = React37.forwardRef(
+    (props, forwardedRef) => {
+      const { __scopeDialog, trapFocus, onOpenAutoFocus, onCloseAutoFocus, ...contentProps } = props;
+      const context2 = useDialogContext(CONTENT_NAME, __scopeDialog);
+      const contentRef = React37.useRef(null);
+      const composedRefs = useComposedRefs(forwardedRef, contentRef);
+      useFocusGuards();
+      return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(import_jsx_runtime13.Fragment, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
+          FocusScope,
+          {
+            asChild: true,
+            loop: true,
+            trapped: trapFocus,
+            onMountAutoFocus: onOpenAutoFocus,
+            onUnmountAutoFocus: onCloseAutoFocus,
+            children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
+              DismissableLayer,
+              {
+                role: "dialog",
+                id: context2.contentId,
+                "aria-describedby": context2.descriptionId,
+                "aria-labelledby": context2.titleId,
+                "data-state": getState(context2.open),
+                ...contentProps,
+                ref: composedRefs,
+                onDismiss: () => context2.onOpenChange(false)
+              }
+            )
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(import_jsx_runtime13.Fragment, { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(TitleWarning, { titleId: context2.titleId }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(DescriptionWarning, { contentRef, descriptionId: context2.descriptionId })
+        ] })
+      ] });
+    }
+  );
+  var TITLE_NAME = "DialogTitle";
+  var DialogTitle = React37.forwardRef(
+    (props, forwardedRef) => {
+      const { __scopeDialog, ...titleProps } = props;
+      const context2 = useDialogContext(TITLE_NAME, __scopeDialog);
+      return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Primitive4.h2, { id: context2.titleId, ...titleProps, ref: forwardedRef });
+    }
+  );
+  DialogTitle.displayName = TITLE_NAME;
+  var DESCRIPTION_NAME = "DialogDescription";
+  var DialogDescription = React37.forwardRef(
+    (props, forwardedRef) => {
+      const { __scopeDialog, ...descriptionProps } = props;
+      const context2 = useDialogContext(DESCRIPTION_NAME, __scopeDialog);
+      return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Primitive4.p, { id: context2.descriptionId, ...descriptionProps, ref: forwardedRef });
+    }
+  );
+  DialogDescription.displayName = DESCRIPTION_NAME;
+  var CLOSE_NAME = "DialogClose";
+  var DialogClose = React37.forwardRef(
+    (props, forwardedRef) => {
+      const { __scopeDialog, ...closeProps } = props;
+      const context2 = useDialogContext(CLOSE_NAME, __scopeDialog);
+      return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
+        Primitive4.button,
+        {
+          type: "button",
+          ...closeProps,
+          ref: forwardedRef,
+          onClick: composeEventHandlers(props.onClick, () => context2.onOpenChange(false))
         }
-        const target = event.target;
-        const targetIsTrigger = (_context$triggerRef$c3 = context2.triggerRef.current) === null || _context$triggerRef$c3 === void 0 ? void 0 : _context$triggerRef$c3.contains(target);
-        if (targetIsTrigger) event.preventDefault();
-        if (event.detail.originalEvent.type === "focusin" && hasPointerDownOutsideRef.current) event.preventDefault();
-      }
-    }));
-  });
-  var $5d3850c4d0b4e6c7$var$DialogContentImpl = /* @__PURE__ */ (0, import_react15.forwardRef)((props, forwardedRef) => {
-    const { __scopeDialog, trapFocus, onOpenAutoFocus, onCloseAutoFocus, ...contentProps } = props;
-    const context2 = $5d3850c4d0b4e6c7$var$useDialogContext($5d3850c4d0b4e6c7$var$CONTENT_NAME, __scopeDialog);
-    const contentRef = (0, import_react15.useRef)(null);
-    const composedRefs = $6ed0406888f73fc4$export$c7b2cbe3552a0d05(forwardedRef, contentRef);
-    $3db38b7d1fb3fe6a$export$b7ece24a22aeda8c();
-    return /* @__PURE__ */ (0, import_react15.createElement)(import_react15.Fragment, null, /* @__PURE__ */ (0, import_react15.createElement)($d3863c46a17e8a28$export$20e40289641fbbb6, {
-      asChild: true,
-      loop: true,
-      trapped: trapFocus,
-      onMountAutoFocus: onOpenAutoFocus,
-      onUnmountAutoFocus: onCloseAutoFocus
-    }, /* @__PURE__ */ (0, import_react15.createElement)($5cb92bef7577960e$export$177fb62ff3ec1f22, _extends({
-      role: "dialog",
-      id: context2.contentId,
-      "aria-describedby": context2.descriptionId,
-      "aria-labelledby": context2.titleId,
-      "data-state": $5d3850c4d0b4e6c7$var$getState(context2.open)
-    }, contentProps, {
-      ref: composedRefs,
-      onDismiss: () => context2.onOpenChange(false)
-    }))), false);
-  });
-  var $5d3850c4d0b4e6c7$var$TITLE_NAME = "DialogTitle";
-  function $5d3850c4d0b4e6c7$var$getState(open2) {
+      );
+    }
+  );
+  DialogClose.displayName = CLOSE_NAME;
+  function getState(open2) {
     return open2 ? "open" : "closed";
   }
-  var $5d3850c4d0b4e6c7$var$TITLE_WARNING_NAME = "DialogTitleWarning";
-  var [$5d3850c4d0b4e6c7$export$69b62a49393917d6, $5d3850c4d0b4e6c7$var$useWarningContext] = $c512c27ab02ef895$export$fd42f52fd3ae1109($5d3850c4d0b4e6c7$var$TITLE_WARNING_NAME, {
-    contentName: $5d3850c4d0b4e6c7$var$CONTENT_NAME,
-    titleName: $5d3850c4d0b4e6c7$var$TITLE_NAME,
+  var TITLE_WARNING_NAME = "DialogTitleWarning";
+  var [WarningProvider, useWarningContext] = createContext2(TITLE_WARNING_NAME, {
+    contentName: CONTENT_NAME,
+    titleName: TITLE_NAME,
     docsSlug: "dialog"
   });
-  var $5d3850c4d0b4e6c7$export$be92b6f5f03c0fe9 = $5d3850c4d0b4e6c7$export$3ddf2d174ce01153;
-  var $5d3850c4d0b4e6c7$export$602eac185826482c = $5d3850c4d0b4e6c7$export$dad7c95542bacce0;
-  var $5d3850c4d0b4e6c7$export$c6fdb837b070b4ff = $5d3850c4d0b4e6c7$export$bd1d06c79be19e17;
-  var $5d3850c4d0b4e6c7$export$7c6e2c02157bb7d2 = $5d3850c4d0b4e6c7$export$b6d9565de1e068cf;
+  var TitleWarning = ({ titleId }) => {
+    const titleWarningContext = useWarningContext(TITLE_WARNING_NAME);
+    const MESSAGE = `\`${titleWarningContext.contentName}\` requires a \`${titleWarningContext.titleName}\` for the component to be accessible for screen reader users.
 
-  // packages/commands/node_modules/cmdk/dist/index.mjs
+If you want to hide the \`${titleWarningContext.titleName}\`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/${titleWarningContext.docsSlug}`;
+    React37.useEffect(() => {
+      if (titleId) {
+        const hasTitle = document.getElementById(titleId);
+        if (!hasTitle) console.error(MESSAGE);
+      }
+    }, [MESSAGE, titleId]);
+    return null;
+  };
+  var DESCRIPTION_WARNING_NAME = "DialogDescriptionWarning";
+  var DescriptionWarning = ({ contentRef, descriptionId }) => {
+    const descriptionWarningContext = useWarningContext(DESCRIPTION_WARNING_NAME);
+    const MESSAGE = `Warning: Missing \`Description\` or \`aria-describedby={undefined}\` for {${descriptionWarningContext.contentName}}.`;
+    React37.useEffect(() => {
+      const describedById = contentRef.current?.getAttribute("aria-describedby");
+      if (descriptionId && describedById) {
+        const hasDescription = document.getElementById(descriptionId);
+        if (!hasDescription) console.warn(MESSAGE);
+      }
+    }, [MESSAGE, contentRef, descriptionId]);
+    return null;
+  };
+  var Root = Dialog;
+  var Portal2 = DialogPortal;
+  var Overlay = DialogOverlay;
+  var Content = DialogContent;
+
+  // node_modules/cmdk/dist/index.mjs
   var t = __toESM(require_react(), 1);
-  var V = '[cmdk-group=""]';
-  var X2 = '[cmdk-group-items=""]';
-  var ge = '[cmdk-group-heading=""]';
-  var Y2 = '[cmdk-item=""]';
-  var le = `${Y2}:not([aria-disabled="true"])`;
-  var Q = "cmdk-item-select";
-  var M = "data-value";
+
+  // node_modules/cmdk/node_modules/@radix-ui/react-primitive/dist/index.mjs
+  var React40 = __toESM(require_react(), 1);
+  var ReactDOM6 = __toESM(require_react_dom(), 1);
+
+  // node_modules/cmdk/node_modules/@radix-ui/react-slot/dist/index.mjs
+  var React39 = __toESM(require_react(), 1);
+
+  // node_modules/cmdk/node_modules/@radix-ui/react-compose-refs/dist/index.mjs
+  var React38 = __toESM(require_react(), 1);
+  function setRef6(ref, value) {
+    if (typeof ref === "function") {
+      return ref(value);
+    } else if (ref !== null && ref !== void 0) {
+      ref.current = value;
+    }
+  }
+  function composeRefs6(...refs) {
+    return (node) => {
+      let hasCleanup = false;
+      const cleanups = refs.map((ref) => {
+        const cleanup = setRef6(ref, node);
+        if (!hasCleanup && typeof cleanup == "function") {
+          hasCleanup = true;
+        }
+        return cleanup;
+      });
+      if (hasCleanup) {
+        return () => {
+          for (let i = 0; i < cleanups.length; i++) {
+            const cleanup = cleanups[i];
+            if (typeof cleanup == "function") {
+              cleanup();
+            } else {
+              setRef6(refs[i], null);
+            }
+          }
+        };
+      }
+    };
+  }
+
+  // node_modules/cmdk/node_modules/@radix-ui/react-slot/dist/index.mjs
+  var import_jsx_runtime14 = __toESM(require_jsx_runtime(), 1);
+  var REACT_LAZY_TYPE = /* @__PURE__ */ Symbol.for("react.lazy");
+  var use = React39[" use ".trim().toString()];
+  function isPromiseLike(value) {
+    return typeof value === "object" && value !== null && "then" in value;
+  }
+  function isLazyComponent(element) {
+    return element != null && typeof element === "object" && "$$typeof" in element && element.$$typeof === REACT_LAZY_TYPE && "_payload" in element && isPromiseLike(element._payload);
+  }
+  // @__NO_SIDE_EFFECTS__
+  function createSlot5(ownerName) {
+    const SlotClone = /* @__PURE__ */ createSlotClone5(ownerName);
+    const Slot2 = React39.forwardRef((props, forwardedRef) => {
+      let { children, ...slotProps } = props;
+      if (isLazyComponent(children) && typeof use === "function") {
+        children = use(children._payload);
+      }
+      const childrenArray = React39.Children.toArray(children);
+      const slottable = childrenArray.find(isSlottable5);
+      if (slottable) {
+        const newElement = slottable.props.children;
+        const newChildren = childrenArray.map((child) => {
+          if (child === slottable) {
+            if (React39.Children.count(newElement) > 1) return React39.Children.only(null);
+            return React39.isValidElement(newElement) ? newElement.props.children : null;
+          } else {
+            return child;
+          }
+        });
+        return /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(SlotClone, { ...slotProps, ref: forwardedRef, children: React39.isValidElement(newElement) ? React39.cloneElement(newElement, void 0, newChildren) : null });
+      }
+      return /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(SlotClone, { ...slotProps, ref: forwardedRef, children });
+    });
+    Slot2.displayName = `${ownerName}.Slot`;
+    return Slot2;
+  }
+  // @__NO_SIDE_EFFECTS__
+  function createSlotClone5(ownerName) {
+    const SlotClone = React39.forwardRef((props, forwardedRef) => {
+      let { children, ...slotProps } = props;
+      if (isLazyComponent(children) && typeof use === "function") {
+        children = use(children._payload);
+      }
+      if (React39.isValidElement(children)) {
+        const childrenRef = getElementRef6(children);
+        const props2 = mergeProps5(slotProps, children.props);
+        if (children.type !== React39.Fragment) {
+          props2.ref = forwardedRef ? composeRefs6(forwardedRef, childrenRef) : childrenRef;
+        }
+        return React39.cloneElement(children, props2);
+      }
+      return React39.Children.count(children) > 1 ? React39.Children.only(null) : null;
+    });
+    SlotClone.displayName = `${ownerName}.SlotClone`;
+    return SlotClone;
+  }
+  var SLOTTABLE_IDENTIFIER5 = /* @__PURE__ */ Symbol("radix.slottable");
+  function isSlottable5(child) {
+    return React39.isValidElement(child) && typeof child.type === "function" && "__radixId" in child.type && child.type.__radixId === SLOTTABLE_IDENTIFIER5;
+  }
+  function mergeProps5(slotProps, childProps) {
+    const overrideProps = { ...childProps };
+    for (const propName in childProps) {
+      const slotPropValue = slotProps[propName];
+      const childPropValue = childProps[propName];
+      const isHandler = /^on[A-Z]/.test(propName);
+      if (isHandler) {
+        if (slotPropValue && childPropValue) {
+          overrideProps[propName] = (...args) => {
+            const result = childPropValue(...args);
+            slotPropValue(...args);
+            return result;
+          };
+        } else if (slotPropValue) {
+          overrideProps[propName] = slotPropValue;
+        }
+      } else if (propName === "style") {
+        overrideProps[propName] = { ...slotPropValue, ...childPropValue };
+      } else if (propName === "className") {
+        overrideProps[propName] = [slotPropValue, childPropValue].filter(Boolean).join(" ");
+      }
+    }
+    return { ...slotProps, ...overrideProps };
+  }
+  function getElementRef6(element) {
+    let getter = Object.getOwnPropertyDescriptor(element.props, "ref")?.get;
+    let mayWarn = getter && "isReactWarning" in getter && getter.isReactWarning;
+    if (mayWarn) {
+      return element.ref;
+    }
+    getter = Object.getOwnPropertyDescriptor(element, "ref")?.get;
+    mayWarn = getter && "isReactWarning" in getter && getter.isReactWarning;
+    if (mayWarn) {
+      return element.props.ref;
+    }
+    return element.props.ref || element.ref;
+  }
+
+  // node_modules/cmdk/node_modules/@radix-ui/react-primitive/dist/index.mjs
+  var import_jsx_runtime15 = __toESM(require_jsx_runtime(), 1);
+  var NODES5 = [
+    "a",
+    "button",
+    "div",
+    "form",
+    "h2",
+    "h3",
+    "img",
+    "input",
+    "label",
+    "li",
+    "nav",
+    "ol",
+    "p",
+    "select",
+    "span",
+    "svg",
+    "ul"
+  ];
+  var Primitive5 = NODES5.reduce((primitive, node) => {
+    const Slot2 = createSlot5(`Primitive.${node}`);
+    const Node2 = React40.forwardRef((props, forwardedRef) => {
+      const { asChild, ...primitiveProps } = props;
+      const Comp = asChild ? Slot2 : node;
+      if (typeof window !== "undefined") {
+        window[/* @__PURE__ */ Symbol.for("radix-ui")] = true;
+      }
+      return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(Comp, { ...primitiveProps, ref: forwardedRef });
+    });
+    Node2.displayName = `Primitive.${node}`;
+    return { ...primitive, [node]: Node2 };
+  }, {});
+
+  // node_modules/cmdk/node_modules/@radix-ui/react-id/dist/index.mjs
+  var React42 = __toESM(require_react(), 1);
+
+  // node_modules/cmdk/node_modules/@radix-ui/react-use-layout-effect/dist/index.mjs
+  var React41 = __toESM(require_react(), 1);
+  var useLayoutEffect24 = globalThis?.document ? React41.useLayoutEffect : () => {
+  };
+
+  // node_modules/cmdk/node_modules/@radix-ui/react-id/dist/index.mjs
+  var useReactId2 = React42[" useId ".trim().toString()] || (() => void 0);
+  var count3 = 0;
+  function useId2(deterministicId) {
+    const [id, setId] = React42.useState(useReactId2());
+    useLayoutEffect24(() => {
+      if (!deterministicId) setId((reactId) => reactId ?? String(count3++));
+    }, [deterministicId]);
+    return deterministicId || (id ? `radix-${id}` : "");
+  }
+
+  // node_modules/cmdk/dist/index.mjs
+  var N = '[cmdk-group=""]';
+  var Y2 = '[cmdk-group-items=""]';
+  var be = '[cmdk-group-heading=""]';
+  var le = '[cmdk-item=""]';
+  var ce = `${le}:not([aria-disabled="true"])`;
+  var Z = "cmdk-item-select";
+  var T = "data-value";
   var Re = (r2, o, n) => W(r2, o, n);
   var ue = t.createContext(void 0);
-  var G2 = () => t.useContext(ue);
+  var K2 = () => t.useContext(ue);
   var de = t.createContext(void 0);
-  var Z = () => t.useContext(de);
+  var ee = () => t.useContext(de);
   var fe = t.createContext(void 0);
   var me = t.forwardRef((r2, o) => {
-    let n = k2(() => {
-      var e, s;
-      return { search: "", value: (s = (e = r2.value) != null ? e : r2.defaultValue) != null ? s : "", filtered: { count: 0, items: /* @__PURE__ */ new Map(), groups: /* @__PURE__ */ new Set() } };
-    }), u2 = k2(() => /* @__PURE__ */ new Set()), c = k2(() => /* @__PURE__ */ new Map()), d = k2(() => /* @__PURE__ */ new Map()), f = k2(() => /* @__PURE__ */ new Set()), p2 = pe(r2), { label: v, children: b, value: l, onValueChange: y, filter: S, shouldFilter: C, loop: L, disablePointerSelection: ee = false, vimBindings: j = true, ...H2 } = r2, te = t.useId(), $2 = t.useId(), K2 = t.useId(), x = t.useRef(null), g = Me();
-    T(() => {
-      if (l !== void 0) {
-        let e = l.trim();
-        n.current.value = e, h.emit();
+    let n = L(() => {
+      var e, a;
+      return { search: "", value: (a = (e = r2.value) != null ? e : r2.defaultValue) != null ? a : "", selectedItemId: void 0, filtered: { count: 0, items: /* @__PURE__ */ new Map(), groups: /* @__PURE__ */ new Set() } };
+    }), u2 = L(() => /* @__PURE__ */ new Set()), c = L(() => /* @__PURE__ */ new Map()), d = L(() => /* @__PURE__ */ new Map()), f = L(() => /* @__PURE__ */ new Set()), p2 = pe(r2), { label: b, children: m2, value: R, onValueChange: x, filter: C, shouldFilter: S, loop: A, disablePointerSelection: ge = false, vimBindings: j = true, ...O } = r2, $2 = useId2(), q = useId2(), _ = useId2(), I = t.useRef(null), v = ke();
+    k2(() => {
+      if (R !== void 0) {
+        let e = R.trim();
+        n.current.value = e, E.emit();
       }
-    }, [l]), T(() => {
-      g(6, re);
+    }, [R]), k2(() => {
+      v(6, ne);
     }, []);
-    let h = t.useMemo(() => ({ subscribe: (e) => (f.current.add(e), () => f.current.delete(e)), snapshot: () => n.current, setState: (e, s, i) => {
-      var a, m2, R;
-      if (!Object.is(n.current[e], s)) {
-        if (n.current[e] = s, e === "search") z(), q(), g(1, U2);
-        else if (e === "value" && (i || g(5, re), ((a = p2.current) == null ? void 0 : a.value) !== void 0)) {
-          let E = s != null ? s : "";
-          (R = (m2 = p2.current).onValueChange) == null || R.call(m2, E);
-          return;
+    let E = t.useMemo(() => ({ subscribe: (e) => (f.current.add(e), () => f.current.delete(e)), snapshot: () => n.current, setState: (e, a, s) => {
+      var i, l, g, y;
+      if (!Object.is(n.current[e], a)) {
+        if (n.current[e] = a, e === "search") J2(), z(), v(1, W2);
+        else if (e === "value") {
+          if (document.activeElement.hasAttribute("cmdk-input") || document.activeElement.hasAttribute("cmdk-root")) {
+            let h = document.getElementById(_);
+            h ? h.focus() : (i = document.getElementById($2)) == null || i.focus();
+          }
+          if (v(7, () => {
+            var h;
+            n.current.selectedItemId = (h = M()) == null ? void 0 : h.id, E.emit();
+          }), s || v(5, ne), ((l = p2.current) == null ? void 0 : l.value) !== void 0) {
+            let h = a != null ? a : "";
+            (y = (g = p2.current).onValueChange) == null || y.call(g, h);
+            return;
+          }
         }
-        h.emit();
+        E.emit();
       }
     }, emit: () => {
       f.current.forEach((e) => e());
-    } }), []), B2 = t.useMemo(() => ({ value: (e, s, i) => {
-      var a;
-      s !== ((a = d.current.get(e)) == null ? void 0 : a.value) && (d.current.set(e, { value: s, keywords: i }), n.current.filtered.items.set(e, ne(s, i)), g(2, () => {
-        q(), h.emit();
+    } }), []), U2 = t.useMemo(() => ({ value: (e, a, s) => {
+      var i;
+      a !== ((i = d.current.get(e)) == null ? void 0 : i.value) && (d.current.set(e, { value: a, keywords: s }), n.current.filtered.items.set(e, te(a, s)), v(2, () => {
+        z(), E.emit();
       }));
-    }, item: (e, s) => (u2.current.add(e), s && (c.current.has(s) ? c.current.get(s).add(e) : c.current.set(s, /* @__PURE__ */ new Set([e]))), g(3, () => {
-      z(), q(), n.current.value || U2(), h.emit();
+    }, item: (e, a) => (u2.current.add(e), a && (c.current.has(a) ? c.current.get(a).add(e) : c.current.set(a, /* @__PURE__ */ new Set([e]))), v(3, () => {
+      J2(), z(), n.current.value || W2(), E.emit();
     }), () => {
       d.current.delete(e), u2.current.delete(e), n.current.filtered.items.delete(e);
-      let i = O();
-      g(4, () => {
-        z(), (i == null ? void 0 : i.getAttribute("id")) === e && U2(), h.emit();
+      let s = M();
+      v(4, () => {
+        J2(), (s == null ? void 0 : s.getAttribute("id")) === e && W2(), E.emit();
       });
     }), group: (e) => (c.current.has(e) || c.current.set(e, /* @__PURE__ */ new Set()), () => {
       d.current.delete(e), c.current.delete(e);
-    }), filter: () => p2.current.shouldFilter, label: v || r2["aria-label"], disablePointerSelection: ee, listId: te, inputId: K2, labelId: $2, listInnerRef: x }), []);
-    function ne(e, s) {
-      var a, m2;
-      let i = (m2 = (a = p2.current) == null ? void 0 : a.filter) != null ? m2 : Re;
-      return e ? i(e, n.current.search, s) : 0;
-    }
-    function q() {
-      if (!n.current.search || p2.current.shouldFilter === false) return;
-      let e = n.current.filtered.items, s = [];
-      n.current.filtered.groups.forEach((a) => {
-        let m2 = c.current.get(a), R = 0;
-        m2.forEach((E) => {
-          let P = e.get(E);
-          R = Math.max(P, R);
-        }), s.push([a, R]);
-      });
-      let i = x.current;
-      A().sort((a, m2) => {
-        var P, _;
-        let R = a.getAttribute("id"), E = m2.getAttribute("id");
-        return ((P = e.get(E)) != null ? P : 0) - ((_ = e.get(R)) != null ? _ : 0);
-      }).forEach((a) => {
-        let m2 = a.closest(X2);
-        m2 ? m2.appendChild(a.parentElement === m2 ? a : a.closest(`${X2} > *`)) : i.appendChild(a.parentElement === i ? a : a.closest(`${X2} > *`));
-      }), s.sort((a, m2) => m2[1] - a[1]).forEach((a) => {
-        let m2 = x.current.querySelector(`${V}[${M}="${encodeURIComponent(a[0])}"]`);
-        m2 == null || m2.parentElement.appendChild(m2);
-      });
-    }
-    function U2() {
-      let e = A().find((i) => i.getAttribute("aria-disabled") !== "true"), s = e == null ? void 0 : e.getAttribute(M);
-      h.setState("value", s || void 0);
+    }), filter: () => p2.current.shouldFilter, label: b || r2["aria-label"], getDisablePointerSelection: () => p2.current.disablePointerSelection, listId: $2, inputId: _, labelId: q, listInnerRef: I }), []);
+    function te(e, a) {
+      var i, l;
+      let s = (l = (i = p2.current) == null ? void 0 : i.filter) != null ? l : Re;
+      return e ? s(e, n.current.search, a) : 0;
     }
     function z() {
-      var s, i, a, m2;
+      if (!n.current.search || p2.current.shouldFilter === false) return;
+      let e = n.current.filtered.items, a = [];
+      n.current.filtered.groups.forEach((i) => {
+        let l = c.current.get(i), g = 0;
+        l.forEach((y) => {
+          let h = e.get(y);
+          g = Math.max(h, g);
+        }), a.push([i, g]);
+      });
+      let s = I.current;
+      V().sort((i, l) => {
+        var h, F;
+        let g = i.getAttribute("id"), y = l.getAttribute("id");
+        return ((h = e.get(y)) != null ? h : 0) - ((F = e.get(g)) != null ? F : 0);
+      }).forEach((i) => {
+        let l = i.closest(Y2);
+        l ? l.appendChild(i.parentElement === l ? i : i.closest(`${Y2} > *`)) : s.appendChild(i.parentElement === s ? i : i.closest(`${Y2} > *`));
+      }), a.sort((i, l) => l[1] - i[1]).forEach((i) => {
+        var g;
+        let l = (g = I.current) == null ? void 0 : g.querySelector(`${N}[${T}="${encodeURIComponent(i[0])}"]`);
+        l == null || l.parentElement.appendChild(l);
+      });
+    }
+    function W2() {
+      let e = V().find((s) => s.getAttribute("aria-disabled") !== "true"), a = e == null ? void 0 : e.getAttribute(T);
+      E.setState("value", a || void 0);
+    }
+    function J2() {
+      var a, s, i, l;
       if (!n.current.search || p2.current.shouldFilter === false) {
         n.current.filtered.count = u2.current.size;
         return;
       }
       n.current.filtered.groups = /* @__PURE__ */ new Set();
       let e = 0;
-      for (let R of u2.current) {
-        let E = (i = (s = d.current.get(R)) == null ? void 0 : s.value) != null ? i : "", P = (m2 = (a = d.current.get(R)) == null ? void 0 : a.keywords) != null ? m2 : [], _ = ne(E, P);
-        n.current.filtered.items.set(R, _), _ > 0 && e++;
+      for (let g of u2.current) {
+        let y = (s = (a = d.current.get(g)) == null ? void 0 : a.value) != null ? s : "", h = (l = (i = d.current.get(g)) == null ? void 0 : i.keywords) != null ? l : [], F = te(y, h);
+        n.current.filtered.items.set(g, F), F > 0 && e++;
       }
-      for (let [R, E] of c.current) for (let P of E) if (n.current.filtered.items.get(P) > 0) {
-        n.current.filtered.groups.add(R);
+      for (let [g, y] of c.current) for (let h of y) if (n.current.filtered.items.get(h) > 0) {
+        n.current.filtered.groups.add(g);
         break;
       }
       n.current.filtered.count = e;
     }
-    function re() {
-      var s, i, a;
-      let e = O();
-      e && (((s = e.parentElement) == null ? void 0 : s.firstChild) === e && ((a = (i = e.closest(V)) == null ? void 0 : i.querySelector(ge)) == null || a.scrollIntoView({ block: "nearest" })), e.scrollIntoView({ block: "nearest" }));
+    function ne() {
+      var a, s, i;
+      let e = M();
+      e && (((a = e.parentElement) == null ? void 0 : a.firstChild) === e && ((i = (s = e.closest(N)) == null ? void 0 : s.querySelector(be)) == null || i.scrollIntoView({ block: "nearest" })), e.scrollIntoView({ block: "nearest" }));
     }
-    function O() {
+    function M() {
       var e;
-      return (e = x.current) == null ? void 0 : e.querySelector(`${Y2}[aria-selected="true"]`);
+      return (e = I.current) == null ? void 0 : e.querySelector(`${le}[aria-selected="true"]`);
     }
-    function A() {
+    function V() {
       var e;
-      return Array.from((e = x.current) == null ? void 0 : e.querySelectorAll(le));
+      return Array.from(((e = I.current) == null ? void 0 : e.querySelectorAll(ce)) || []);
     }
-    function W2(e) {
-      let i = A()[e];
-      i && h.setState("value", i.getAttribute(M));
+    function X2(e) {
+      let s = V()[e];
+      s && E.setState("value", s.getAttribute(T));
     }
-    function J2(e) {
-      var R;
-      let s = O(), i = A(), a = i.findIndex((E) => E === s), m2 = i[a + e];
-      (R = p2.current) != null && R.loop && (m2 = a + e < 0 ? i[i.length - 1] : a + e === i.length ? i[0] : i[a + e]), m2 && h.setState("value", m2.getAttribute(M));
+    function Q(e) {
+      var g;
+      let a = M(), s = V(), i = s.findIndex((y) => y === a), l = s[i + e];
+      (g = p2.current) != null && g.loop && (l = i + e < 0 ? s[s.length - 1] : i + e === s.length ? s[0] : s[i + e]), l && E.setState("value", l.getAttribute(T));
     }
-    function oe(e) {
-      let s = O(), i = s == null ? void 0 : s.closest(V), a;
-      for (; i && !a; ) i = e > 0 ? we(i, V) : Ie(i, V), a = i == null ? void 0 : i.querySelector(le);
-      a ? h.setState("value", a.getAttribute(M)) : J2(e);
+    function re(e) {
+      let a = M(), s = a == null ? void 0 : a.closest(N), i;
+      for (; s && !i; ) s = e > 0 ? we(s, N) : De(s, N), i = s == null ? void 0 : s.querySelector(ce);
+      i ? E.setState("value", i.getAttribute(T)) : Q(e);
     }
-    let ie = () => W2(A().length - 1), ae = (e) => {
-      e.preventDefault(), e.metaKey ? ie() : e.altKey ? oe(1) : J2(1);
+    let oe = () => X2(V().length - 1), ie = (e) => {
+      e.preventDefault(), e.metaKey ? oe() : e.altKey ? re(1) : Q(1);
     }, se = (e) => {
-      e.preventDefault(), e.metaKey ? W2(0) : e.altKey ? oe(-1) : J2(-1);
+      e.preventDefault(), e.metaKey ? X2(0) : e.altKey ? re(-1) : Q(-1);
     };
-    return t.createElement($8927f6f2acc4f386$export$250ffa63cdc0d034.div, { ref: o, tabIndex: -1, ...H2, "cmdk-root": "", onKeyDown: (e) => {
+    return t.createElement(Primitive5.div, { ref: o, tabIndex: -1, ...O, "cmdk-root": "", onKeyDown: (e) => {
       var s;
-      if ((s = H2.onKeyDown) == null || s.call(H2, e), !e.defaultPrevented) switch (e.key) {
+      (s = O.onKeyDown) == null || s.call(O, e);
+      let a = e.nativeEvent.isComposing || e.keyCode === 229;
+      if (!(e.defaultPrevented || a)) switch (e.key) {
         case "n":
         case "j": {
-          j && e.ctrlKey && ae(e);
+          j && e.ctrlKey && ie(e);
           break;
         }
         case "ArrowDown": {
-          ae(e);
+          ie(e);
           break;
         }
         case "p":
@@ -2284,95 +3153,90 @@ var wp;
           break;
         }
         case "Home": {
-          e.preventDefault(), W2(0);
+          e.preventDefault(), X2(0);
           break;
         }
         case "End": {
-          e.preventDefault(), ie();
+          e.preventDefault(), oe();
           break;
         }
-        case "Enter":
-          if (!e.nativeEvent.isComposing && e.keyCode !== 229) {
-            e.preventDefault();
-            let i = O();
-            if (i) {
-              let a = new Event(Q);
-              i.dispatchEvent(a);
-            }
+        case "Enter": {
+          e.preventDefault();
+          let i = M();
+          if (i) {
+            let l = new Event(Z);
+            i.dispatchEvent(l);
           }
+        }
       }
-    } }, t.createElement("label", { "cmdk-label": "", htmlFor: B2.inputId, id: B2.labelId, style: De }, v), F(r2, (e) => t.createElement(de.Provider, { value: h }, t.createElement(ue.Provider, { value: B2 }, e))));
-  });
-  var be = t.forwardRef((r2, o) => {
-    var K2, x;
-    let n = t.useId(), u2 = t.useRef(null), c = t.useContext(fe), d = G2(), f = pe(r2), p2 = (x = (K2 = f.current) == null ? void 0 : K2.forceMount) != null ? x : c == null ? void 0 : c.forceMount;
-    T(() => {
-      if (!p2) return d.item(n, c == null ? void 0 : c.id);
-    }, [p2]);
-    let v = ve(n, u2, [r2.value, r2.children, u2], r2.keywords), b = Z(), l = D2((g) => g.value && g.value === v.current), y = D2((g) => p2 || d.filter() === false ? true : g.search ? g.filtered.items.get(n) > 0 : true);
-    t.useEffect(() => {
-      let g = u2.current;
-      if (!(!g || r2.disabled)) return g.addEventListener(Q, S), () => g.removeEventListener(Q, S);
-    }, [y, r2.onSelect, r2.disabled]);
-    function S() {
-      var g, h;
-      C(), (h = (g = f.current).onSelect) == null || h.call(g, v.current);
-    }
-    function C() {
-      b.setState("value", v.current, true);
-    }
-    if (!y) return null;
-    let { disabled: L, value: ee, onSelect: j, forceMount: H2, keywords: te, ...$2 } = r2;
-    return t.createElement($8927f6f2acc4f386$export$250ffa63cdc0d034.div, { ref: N([u2, o]), ...$2, id: n, "cmdk-item": "", role: "option", "aria-disabled": !!L, "aria-selected": !!l, "data-disabled": !!L, "data-selected": !!l, onPointerMove: L || d.disablePointerSelection ? void 0 : C, onClick: L ? void 0 : S }, r2.children);
+    } }, t.createElement("label", { "cmdk-label": "", htmlFor: U2.inputId, id: U2.labelId, style: Te }, b), B2(r2, (e) => t.createElement(de.Provider, { value: E }, t.createElement(ue.Provider, { value: U2 }, e))));
   });
   var he = t.forwardRef((r2, o) => {
-    let { heading: n, children: u2, forceMount: c, ...d } = r2, f = t.useId(), p2 = t.useRef(null), v = t.useRef(null), b = t.useId(), l = G2(), y = D2((C) => c || l.filter() === false ? true : C.search ? C.filtered.groups.has(f) : true);
-    T(() => l.group(f), []), ve(f, p2, [r2.value, r2.heading, v]);
-    let S = t.useMemo(() => ({ id: f, forceMount: c }), [c]);
-    return t.createElement($8927f6f2acc4f386$export$250ffa63cdc0d034.div, { ref: N([p2, o]), ...d, "cmdk-group": "", role: "presentation", hidden: y ? void 0 : true }, n && t.createElement("div", { ref: v, "cmdk-group-heading": "", "aria-hidden": true, id: b }, n), F(r2, (C) => t.createElement("div", { "cmdk-group-items": "", role: "group", "aria-labelledby": n ? b : void 0 }, t.createElement(fe.Provider, { value: S }, C))));
-  });
-  var ye = t.forwardRef((r2, o) => {
-    let { alwaysRender: n, ...u2 } = r2, c = t.useRef(null), d = D2((f) => !f.search);
-    return !n && !d ? null : t.createElement($8927f6f2acc4f386$export$250ffa63cdc0d034.div, { ref: N([c, o]), ...u2, "cmdk-separator": "", role: "separator" });
+    var _, I;
+    let n = useId2(), u2 = t.useRef(null), c = t.useContext(fe), d = K2(), f = pe(r2), p2 = (I = (_ = f.current) == null ? void 0 : _.forceMount) != null ? I : c == null ? void 0 : c.forceMount;
+    k2(() => {
+      if (!p2) return d.item(n, c == null ? void 0 : c.id);
+    }, [p2]);
+    let b = ve(n, u2, [r2.value, r2.children, u2], r2.keywords), m2 = ee(), R = P((v) => v.value && v.value === b.current), x = P((v) => p2 || d.filter() === false ? true : v.search ? v.filtered.items.get(n) > 0 : true);
+    t.useEffect(() => {
+      let v = u2.current;
+      if (!(!v || r2.disabled)) return v.addEventListener(Z, C), () => v.removeEventListener(Z, C);
+    }, [x, r2.onSelect, r2.disabled]);
+    function C() {
+      var v, E;
+      S(), (E = (v = f.current).onSelect) == null || E.call(v, b.current);
+    }
+    function S() {
+      m2.setState("value", b.current, true);
+    }
+    if (!x) return null;
+    let { disabled: A, value: ge, onSelect: j, forceMount: O, keywords: $2, ...q } = r2;
+    return t.createElement(Primitive5.div, { ref: composeRefs6(u2, o), ...q, id: n, "cmdk-item": "", role: "option", "aria-disabled": !!A, "aria-selected": !!R, "data-disabled": !!A, "data-selected": !!R, onPointerMove: A || d.getDisablePointerSelection() ? void 0 : S, onClick: A ? void 0 : C }, r2.children);
   });
   var Ee = t.forwardRef((r2, o) => {
-    let { onValueChange: n, ...u2 } = r2, c = r2.value != null, d = Z(), f = D2((l) => l.search), p2 = D2((l) => l.value), v = G2(), b = t.useMemo(() => {
-      var y;
-      let l = (y = v.listInnerRef.current) == null ? void 0 : y.querySelector(`${Y2}[${M}="${encodeURIComponent(p2)}"]`);
-      return l == null ? void 0 : l.getAttribute("id");
-    }, []);
-    return t.useEffect(() => {
-      r2.value != null && d.setState("search", r2.value);
-    }, [r2.value]), t.createElement($8927f6f2acc4f386$export$250ffa63cdc0d034.input, { ref: o, ...u2, "cmdk-input": "", autoComplete: "off", autoCorrect: "off", spellCheck: false, "aria-autocomplete": "list", role: "combobox", "aria-expanded": true, "aria-controls": v.listId, "aria-labelledby": v.labelId, "aria-activedescendant": b, id: v.inputId, type: "text", value: c ? r2.value : f, onChange: (l) => {
-      c || d.setState("search", l.target.value), n == null || n(l.target.value);
-    } });
+    let { heading: n, children: u2, forceMount: c, ...d } = r2, f = useId2(), p2 = t.useRef(null), b = t.useRef(null), m2 = useId2(), R = K2(), x = P((S) => c || R.filter() === false ? true : S.search ? S.filtered.groups.has(f) : true);
+    k2(() => R.group(f), []), ve(f, p2, [r2.value, r2.heading, b]);
+    let C = t.useMemo(() => ({ id: f, forceMount: c }), [c]);
+    return t.createElement(Primitive5.div, { ref: composeRefs6(p2, o), ...d, "cmdk-group": "", role: "presentation", hidden: x ? void 0 : true }, n && t.createElement("div", { ref: b, "cmdk-group-heading": "", "aria-hidden": true, id: m2 }, n), B2(r2, (S) => t.createElement("div", { "cmdk-group-items": "", role: "group", "aria-labelledby": n ? m2 : void 0 }, t.createElement(fe.Provider, { value: C }, S))));
+  });
+  var ye = t.forwardRef((r2, o) => {
+    let { alwaysRender: n, ...u2 } = r2, c = t.useRef(null), d = P((f) => !f.search);
+    return !n && !d ? null : t.createElement(Primitive5.div, { ref: composeRefs6(c, o), ...u2, "cmdk-separator": "", role: "separator" });
   });
   var Se = t.forwardRef((r2, o) => {
-    let { children: n, label: u2 = "Suggestions", ...c } = r2, d = t.useRef(null), f = t.useRef(null), p2 = G2();
+    let { onValueChange: n, ...u2 } = r2, c = r2.value != null, d = ee(), f = P((m2) => m2.search), p2 = P((m2) => m2.selectedItemId), b = K2();
     return t.useEffect(() => {
-      if (f.current && d.current) {
-        let v = f.current, b = d.current, l, y = new ResizeObserver(() => {
-          l = requestAnimationFrame(() => {
-            let S = v.offsetHeight;
-            b.style.setProperty("--cmdk-list-height", S.toFixed(1) + "px");
-          });
-        });
-        return y.observe(v), () => {
-          cancelAnimationFrame(l), y.unobserve(v);
-        };
-      }
-    }, []), t.createElement($8927f6f2acc4f386$export$250ffa63cdc0d034.div, { ref: N([d, o]), ...c, "cmdk-list": "", role: "listbox", "aria-label": u2, id: p2.listId }, F(r2, (v) => t.createElement("div", { ref: N([f, p2.listInnerRef]), "cmdk-list-sizer": "" }, v)));
+      r2.value != null && d.setState("search", r2.value);
+    }, [r2.value]), t.createElement(Primitive5.input, { ref: o, ...u2, "cmdk-input": "", autoComplete: "off", autoCorrect: "off", spellCheck: false, "aria-autocomplete": "list", role: "combobox", "aria-expanded": true, "aria-controls": b.listId, "aria-labelledby": b.labelId, "aria-activedescendant": p2, id: b.inputId, type: "text", value: c ? r2.value : f, onChange: (m2) => {
+      c || d.setState("search", m2.target.value), n == null || n(m2.target.value);
+    } });
   });
   var Ce = t.forwardRef((r2, o) => {
-    let { open: n, onOpenChange: u2, overlayClassName: c, contentClassName: d, container: f, ...p2 } = r2;
-    return t.createElement($5d3850c4d0b4e6c7$export$be92b6f5f03c0fe9, { open: n, onOpenChange: u2 }, t.createElement($5d3850c4d0b4e6c7$export$602eac185826482c, { container: f }, t.createElement($5d3850c4d0b4e6c7$export$c6fdb837b070b4ff, { "cmdk-overlay": "", className: c }), t.createElement($5d3850c4d0b4e6c7$export$7c6e2c02157bb7d2, { "aria-label": r2.label, "cmdk-dialog": "", className: d }, t.createElement(me, { ref: o, ...p2 }))));
+    let { children: n, label: u2 = "Suggestions", ...c } = r2, d = t.useRef(null), f = t.useRef(null), p2 = P((m2) => m2.selectedItemId), b = K2();
+    return t.useEffect(() => {
+      if (f.current && d.current) {
+        let m2 = f.current, R = d.current, x, C = new ResizeObserver(() => {
+          x = requestAnimationFrame(() => {
+            let S = m2.offsetHeight;
+            R.style.setProperty("--cmdk-list-height", S.toFixed(1) + "px");
+          });
+        });
+        return C.observe(m2), () => {
+          cancelAnimationFrame(x), C.unobserve(m2);
+        };
+      }
+    }, []), t.createElement(Primitive5.div, { ref: composeRefs6(d, o), ...c, "cmdk-list": "", role: "listbox", tabIndex: -1, "aria-activedescendant": p2, "aria-label": u2, id: b.listId }, B2(r2, (m2) => t.createElement("div", { ref: composeRefs6(f, b.listInnerRef), "cmdk-list-sizer": "" }, m2)));
   });
-  var xe = t.forwardRef((r2, o) => D2((u2) => u2.filtered.count === 0) ? t.createElement($8927f6f2acc4f386$export$250ffa63cdc0d034.div, { ref: o, ...r2, "cmdk-empty": "", role: "presentation" }) : null);
+  var xe = t.forwardRef((r2, o) => {
+    let { open: n, onOpenChange: u2, overlayClassName: c, contentClassName: d, container: f, ...p2 } = r2;
+    return t.createElement(Root, { open: n, onOpenChange: u2 }, t.createElement(Portal2, { container: f }, t.createElement(Overlay, { "cmdk-overlay": "", className: c }), t.createElement(Content, { "aria-label": r2.label, "cmdk-dialog": "", className: d }, t.createElement(me, { ref: o, ...p2 }))));
+  });
+  var Ie = t.forwardRef((r2, o) => P((u2) => u2.filtered.count === 0) ? t.createElement(Primitive5.div, { ref: o, ...r2, "cmdk-empty": "", role: "presentation" }) : null);
   var Pe = t.forwardRef((r2, o) => {
     let { progress: n, children: u2, label: c = "Loading...", ...d } = r2;
-    return t.createElement($8927f6f2acc4f386$export$250ffa63cdc0d034.div, { ref: o, ...d, "cmdk-loading": "", role: "progressbar", "aria-valuenow": n, "aria-valuemin": 0, "aria-valuemax": 100, "aria-label": c }, F(r2, (f) => t.createElement("div", { "aria-hidden": true }, f)));
+    return t.createElement(Primitive5.div, { ref: o, ...d, "cmdk-loading": "", role: "progressbar", "aria-valuenow": n, "aria-valuemin": 0, "aria-valuemax": 100, "aria-label": c }, B2(r2, (f) => t.createElement("div", { "aria-hidden": true }, f)));
   });
-  var He = Object.assign(me, { List: Se, Item: be, Input: Ee, Group: he, Separator: ye, Dialog: Ce, Empty: xe, Loading: Pe });
+  var _e = Object.assign(me, { List: Ce, Item: he, Input: Se, Group: Ee, Separator: ye, Dialog: xe, Empty: Ie, Loading: Pe });
   function we(r2, o) {
     let n = r2.nextElementSibling;
     for (; n; ) {
@@ -2380,7 +3244,7 @@ var wp;
       n = n.nextElementSibling;
     }
   }
-  function Ie(r2, o) {
+  function De(r2, o) {
     let n = r2.previousElementSibling;
     for (; n; ) {
       if (n.matches(o)) return n;
@@ -2389,56 +3253,49 @@ var wp;
   }
   function pe(r2) {
     let o = t.useRef(r2);
-    return T(() => {
+    return k2(() => {
       o.current = r2;
     }), o;
   }
-  var T = typeof window == "undefined" ? t.useEffect : t.useLayoutEffect;
-  function k2(r2) {
+  var k2 = typeof window == "undefined" ? t.useEffect : t.useLayoutEffect;
+  function L(r2) {
     let o = t.useRef();
     return o.current === void 0 && (o.current = r2()), o;
   }
-  function N(r2) {
-    return (o) => {
-      r2.forEach((n) => {
-        typeof n == "function" ? n(o) : n != null && (n.current = o);
-      });
-    };
-  }
-  function D2(r2) {
-    let o = Z(), n = () => r2(o.snapshot());
+  function P(r2) {
+    let o = ee(), n = () => r2(o.snapshot());
     return t.useSyncExternalStore(o.subscribe, n, n);
   }
   function ve(r2, o, n, u2 = []) {
-    let c = t.useRef(), d = G2();
-    return T(() => {
-      var v;
+    let c = t.useRef(), d = K2();
+    return k2(() => {
+      var b;
       let f = (() => {
-        var b;
-        for (let l of n) {
-          if (typeof l == "string") return l.trim();
-          if (typeof l == "object" && "current" in l) return l.current ? (b = l.current.textContent) == null ? void 0 : b.trim() : c.current;
+        var m2;
+        for (let R of n) {
+          if (typeof R == "string") return R.trim();
+          if (typeof R == "object" && "current" in R) return R.current ? (m2 = R.current.textContent) == null ? void 0 : m2.trim() : c.current;
         }
-      })(), p2 = u2.map((b) => b.trim());
-      d.value(r2, f, p2), (v = o.current) == null || v.setAttribute(M, f), c.current = f;
+      })(), p2 = u2.map((m2) => m2.trim());
+      d.value(r2, f, p2), (b = o.current) == null || b.setAttribute(T, f), c.current = f;
     }), c;
   }
-  var Me = () => {
-    let [r2, o] = t.useState(), n = k2(() => /* @__PURE__ */ new Map());
-    return T(() => {
+  var ke = () => {
+    let [r2, o] = t.useState(), n = L(() => /* @__PURE__ */ new Map());
+    return k2(() => {
       n.current.forEach((u2) => u2()), n.current = /* @__PURE__ */ new Map();
     }, [r2]), (u2, c) => {
       n.current.set(u2, c), o({});
     };
   };
-  function Te(r2) {
+  function Me(r2) {
     let o = r2.type;
     return typeof o == "function" ? o(r2.props) : "render" in o ? o.render(r2.props) : r2;
   }
-  function F({ asChild: r2, children: o }, n) {
-    return r2 && t.isValidElement(o) ? t.cloneElement(Te(o), { ref: o.ref }, n(o.props.children)) : n(o);
+  function B2({ asChild: r2, children: o }, n) {
+    return r2 && t.isValidElement(o) ? t.cloneElement(Me(o), { ref: o.ref }, n(o.props.children)) : n(o);
   }
-  var De = { position: "absolute", width: "1px", height: "1px", padding: "0", margin: "-1px", overflow: "hidden", clip: "rect(0, 0, 0, 0)", whiteSpace: "nowrap", borderWidth: "0" };
+  var Te = { position: "absolute", width: "1px", height: "1px", padding: "0", margin: "-1px", overflow: "hidden", clip: "rect(0, 0, 0, 0)", whiteSpace: "nowrap", borderWidth: "0" };
 
   // node_modules/clsx/dist/clsx.mjs
   function r(e) {
@@ -2456,15 +3313,15 @@ var wp;
   }
   var clsx_default = clsx;
 
-  // packages/commands/build-module/components/command-menu.js
-  var import_data4 = __toESM(require_data());
-  var import_element2 = __toESM(require_element());
-  var import_i18n = __toESM(require_i18n());
-  var import_components = __toESM(require_components());
-  var import_keyboard_shortcuts = __toESM(require_keyboard_shortcuts());
+  // packages/commands/build-module/components/command-menu.mjs
+  var import_data4 = __toESM(require_data(), 1);
+  var import_element2 = __toESM(require_element(), 1);
+  var import_i18n = __toESM(require_i18n(), 1);
+  var import_components = __toESM(require_components(), 1);
+  var import_keyboard_shortcuts = __toESM(require_keyboard_shortcuts(), 1);
 
-  // packages/icons/build-module/icon/index.js
-  var import_element = __toESM(require_element());
+  // packages/icons/build-module/icon/index.mjs
+  var import_element = __toESM(require_element(), 1);
   var icon_default = (0, import_element.forwardRef)(
     ({ icon, size = 24, ...props }, ref) => {
       return (0, import_element.cloneElement)(icon, {
@@ -2476,16 +3333,21 @@ var wp;
     }
   );
 
-  // packages/icons/build-module/library/search.js
-  var import_jsx_runtime = __toESM(require_jsx_runtime());
-  var import_primitives = __toESM(require_primitives());
-  var search_default = /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_primitives.SVG, { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 24 24", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_primitives.Path, { d: "M13 5c-3.3 0-6 2.7-6 6 0 1.4.5 2.7 1.3 3.7l-3.8 3.8 1.1 1.1 3.8-3.8c1 .8 2.3 1.3 3.7 1.3 3.3 0 6-2.7 6-6S16.3 5 13 5zm0 10.5c-2.5 0-4.5-2-4.5-4.5s2-4.5 4.5-4.5 4.5 2 4.5 4.5-2 4.5-4.5 4.5z" }) });
+  // packages/icons/build-module/library/arrow-right.mjs
+  var import_primitives = __toESM(require_primitives(), 1);
+  var import_jsx_runtime16 = __toESM(require_jsx_runtime(), 1);
+  var arrow_right_default = /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_primitives.SVG, { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 24 24", children: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_primitives.Path, { d: "m14.5 6.5-1 1 3.7 3.7H4v1.6h13.2l-3.7 3.7 1 1 5.6-5.5z" }) });
 
-  // packages/commands/build-module/store/index.js
-  var import_data3 = __toESM(require_data());
+  // packages/icons/build-module/library/search.mjs
+  var import_primitives2 = __toESM(require_primitives(), 1);
+  var import_jsx_runtime17 = __toESM(require_jsx_runtime(), 1);
+  var search_default = /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(import_primitives2.SVG, { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 24 24", children: /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(import_primitives2.Path, { d: "M13 5c-3.3 0-6 2.7-6 6 0 1.4.5 2.7 1.3 3.7l-3.8 3.8 1.1 1.1 3.8-3.8c1 .8 2.3 1.3 3.7 1.3 3.3 0 6-2.7 6-6S16.3 5 13 5zm0 10.5c-2.5 0-4.5-2-4.5-4.5s2-4.5 4.5-4.5 4.5 2 4.5 4.5-2 4.5-4.5 4.5z" }) });
 
-  // packages/commands/build-module/store/reducer.js
-  var import_data = __toESM(require_data());
+  // packages/commands/build-module/store/index.mjs
+  var import_data3 = __toESM(require_data(), 1);
+
+  // packages/commands/build-module/store/reducer.mjs
+  var import_data = __toESM(require_data(), 1);
   function commands(state = {}, action) {
     switch (action.type) {
       case "REGISTER_COMMAND":
@@ -2496,6 +3358,7 @@ var wp;
             label: action.label,
             searchLabel: action.searchLabel,
             context: action.context,
+            category: action.category,
             callback: action.callback,
             icon: action.icon,
             keywords: action.keywords
@@ -2516,6 +3379,7 @@ var wp;
           [action.name]: {
             name: action.name,
             context: action.context,
+            category: action.category,
             hook: action.hook
           }
         };
@@ -2550,7 +3414,7 @@ var wp;
   });
   var reducer_default = reducer;
 
-  // packages/commands/build-module/store/actions.js
+  // packages/commands/build-module/store/actions.mjs
   var actions_exports = {};
   __export(actions_exports, {
     close: () => close,
@@ -2560,10 +3424,21 @@ var wp;
     unregisterCommand: () => unregisterCommand,
     unregisterCommandLoader: () => unregisterCommandLoader
   });
+  var REGISTERABLE_CATEGORIES = /* @__PURE__ */ new Set([
+    "command",
+    "view",
+    "edit",
+    "action"
+  ]);
   function registerCommand(config) {
+    let { category } = config;
+    if (!category || !REGISTERABLE_CATEGORIES.has(category)) {
+      category = "action";
+    }
     return {
       type: "REGISTER_COMMAND",
-      ...config
+      ...config,
+      category
     };
   }
   function unregisterCommand(name) {
@@ -2573,9 +3448,14 @@ var wp;
     };
   }
   function registerCommandLoader(config) {
+    let { category } = config;
+    if (!category || !REGISTERABLE_CATEGORIES.has(category)) {
+      category = "action";
+    }
     return {
       type: "REGISTER_COMMAND_LOADER",
-      ...config
+      ...config,
+      category
     };
   }
   function unregisterCommandLoader(name) {
@@ -2595,7 +3475,7 @@ var wp;
     };
   }
 
-  // packages/commands/build-module/store/selectors.js
+  // packages/commands/build-module/store/selectors.mjs
   var selectors_exports = {};
   __export(selectors_exports, {
     getCommandLoaders: () => getCommandLoaders,
@@ -2603,7 +3483,7 @@ var wp;
     getContext: () => getContext,
     isOpen: () => isOpen2
   });
-  var import_data2 = __toESM(require_data());
+  var import_data2 = __toESM(require_data(), 1);
   var getCommands = (0, import_data2.createSelector)(
     (state, contextual = false) => Object.values(state.commands).filter((command) => {
       const isContextual = command.context && command.context === state.context;
@@ -2625,7 +3505,7 @@ var wp;
     return state.context;
   }
 
-  // packages/commands/build-module/store/private-actions.js
+  // packages/commands/build-module/store/private-actions.mjs
   var private_actions_exports = {};
   __export(private_actions_exports, {
     setContext: () => setContext
@@ -2637,14 +3517,14 @@ var wp;
     };
   }
 
-  // packages/commands/build-module/lock-unlock.js
-  var import_private_apis = __toESM(require_private_apis());
+  // packages/commands/build-module/lock-unlock.mjs
+  var import_private_apis = __toESM(require_private_apis(), 1);
   var { lock, unlock } = (0, import_private_apis.__dangerousOptInToUnstableAPIsOnlyForCoreModules)(
     "I acknowledge private features are not for use in themes or plugins and doing so will break in the next version of Retraceur.",
     "@wordpress/commands"
   );
 
-  // packages/commands/build-module/store/index.js
+  // packages/commands/build-module/store/index.mjs
   var STORE_NAME = "core/commands";
   var store = (0, import_data3.createReduxStore)(STORE_NAME, {
     reducer: reducer_default,
@@ -2654,9 +3534,31 @@ var wp;
   (0, import_data3.register)(store);
   unlock(store).registerPrivateActions(private_actions_exports);
 
-  // packages/commands/build-module/components/command-menu.js
+  // packages/commands/build-module/components/command-menu.mjs
+  var import_jsx_runtime18 = __toESM(require_jsx_runtime(), 1);
+  var { withIgnoreIMEEvents } = unlock(import_components.privateApis);
   var inputLabel = (0, import_i18n.__)("Search commands and settings");
-  function CommandMenuLoader({ name, search, hook, setLoader, close: close2 }) {
+  var CATEGORY_ICONS = {
+    view: arrow_right_default
+  };
+  var CATEGORY_LABELS = {
+    command: (0, import_i18n.__)("Command"),
+    view: (0, import_i18n.__)("View"),
+    edit: (0, import_i18n.__)("Edit"),
+    action: (0, import_i18n.__)("Action"),
+    workflow: (0, import_i18n.__)("Workflow")
+  };
+  function isValidIcon(icon) {
+    return !!icon && (typeof icon === "string" || (0, import_element2.isValidElement)(icon) || typeof icon === "function" || icon instanceof import_element2.Component);
+  }
+  function CommandMenuLoader({
+    name,
+    search,
+    hook,
+    setLoader,
+    close: close2,
+    category
+  }) {
     const { isLoading, commands: commands2 = [] } = hook({ search }) ?? {};
     (0, import_element2.useEffect)(() => {
       setLoader(name, isLoading);
@@ -2664,37 +3566,53 @@ var wp;
     if (!commands2.length) {
       return null;
     }
-    return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_jsx_runtime2.Fragment, { children: commands2.map((command) => /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
-      He.Item,
-      {
-        value: command.searchLabel ?? command.label,
-        keywords: command.keywords,
-        onSelect: () => command.callback({ close: close2 }),
-        id: command.name,
-        children: /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
-          import_components.__experimentalHStack,
-          {
-            alignment: "left",
-            className: clsx_default("commands-command-menu__item", {
-              "has-icon": command.icon
-            }),
-            children: [
-              command.icon && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(icon_default, { icon: command.icon }),
-              /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
-                import_components.TextHighlight,
-                {
-                  text: command.label,
-                  highlight: search
-                }
-              ) })
-            ]
-          }
-        )
-      },
-      command.name
-    )) });
+    return /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(import_jsx_runtime18.Fragment, { children: commands2.map((command) => {
+      const commandCategory = command.category ?? category;
+      return /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+        _e.Item,
+        {
+          value: command.searchLabel ?? command.label,
+          keywords: command.keywords,
+          onSelect: () => command.callback({ close: close2 }),
+          id: command.name,
+          children: /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)(
+            import_components.__experimentalHStack,
+            {
+              alignment: "left",
+              className: clsx_default("commands-command-menu__item", {
+                "has-icon": CATEGORY_ICONS[commandCategory] || command.icon
+              }),
+              children: [
+                CATEGORY_ICONS[commandCategory] && /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+                  icon_default,
+                  {
+                    icon: CATEGORY_ICONS[commandCategory]
+                  }
+                ),
+                !CATEGORY_ICONS[commandCategory] && isValidIcon(command.icon) && /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(icon_default, { icon: command.icon }),
+                /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("span", { className: "commands-command-menu__item-label", children: /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+                  import_components.TextHighlight,
+                  {
+                    text: command.label,
+                    highlight: search
+                  }
+                ) }),
+                CATEGORY_LABELS[commandCategory] && /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("span", { className: "commands-command-menu__item-category", children: CATEGORY_LABELS[commandCategory] })
+              ]
+            }
+          )
+        },
+        command.name
+      );
+    }) });
   }
-  function CommandMenuLoaderWrapper({ hook, search, setLoader, close: close2 }) {
+  function CommandMenuLoaderWrapper({
+    hook,
+    search,
+    setLoader,
+    close: close2,
+    category
+  }) {
     const currentLoaderRef = (0, import_element2.useRef)(hook);
     const [key, setKey] = (0, import_element2.useState)(0);
     (0, import_element2.useEffect)(() => {
@@ -2703,13 +3621,14 @@ var wp;
         setKey((prevKey) => prevKey + 1);
       }
     }, [hook]);
-    return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
       CommandMenuLoader,
       {
         hook: currentLoaderRef.current,
         search,
         setLoader,
-        close: close2
+        close: close2,
+        category
       },
       key
     );
@@ -2728,43 +3647,45 @@ var wp;
     if (!commands2.length && !loaders.length) {
       return null;
     }
-    return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(He.Group, { children: [
-      commands2.map((command) => /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
-        He.Item,
+    return /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)(_e.Group, { children: [
+      commands2.map((command) => /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+        _e.Item,
         {
           value: command.searchLabel ?? command.label,
           keywords: command.keywords,
           onSelect: () => command.callback({ close: close2 }),
           id: command.name,
-          children: /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
+          children: /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)(
             import_components.__experimentalHStack,
             {
               alignment: "left",
               className: clsx_default("commands-command-menu__item", {
-                "has-icon": command.icon
+                "has-icon": CATEGORY_ICONS[command.category] || command.icon
               }),
               children: [
-                command.icon && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(icon_default, { icon: command.icon }),
-                /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+                CATEGORY_ICONS[command.category] ? /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(icon_default, { icon: CATEGORY_ICONS[command.category] }) : command.icon && /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(icon_default, { icon: command.icon }),
+                /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("span", { children: /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
                   import_components.TextHighlight,
                   {
                     text: command.label,
                     highlight: search
                   }
-                ) })
+                ) }),
+                CATEGORY_LABELS[command.category] && /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("span", { className: "commands-command-menu__item-category", children: CATEGORY_LABELS[command.category] })
               ]
             }
           )
         },
         command.name
       )),
-      loaders.map((loader) => /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+      loaders.map((loader) => /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
         CommandMenuLoaderWrapper,
         {
           hook: loader.hook,
           search,
           setLoader,
-          close: close2
+          close: close2,
+          category: loader.category
         },
         loader.name
       ))
@@ -2772,7 +3693,7 @@ var wp;
   }
   function CommandInput({ isOpen: isOpen3, search, setSearch }) {
     const commandMenuInput = (0, import_element2.useRef)();
-    const _value = D2((state) => state.value);
+    const _value = P((state) => state.value);
     const selectedItemId = (0, import_element2.useMemo)(() => {
       const item = document.querySelector(
         `[cmdk-item=""][data-value="${_value}"]`
@@ -2784,15 +3705,14 @@ var wp;
         commandMenuInput.current.focus();
       }
     }, [isOpen3]);
-    return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
-      He.Input,
+    return /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+      _e.Input,
       {
         ref: commandMenuInput,
         value: search,
         onValueChange: setSearch,
         placeholder: inputLabel,
-        "aria-activedescendant": selectedItemId,
-        icon: search
+        "aria-activedescendant": selectedItemId
       }
     );
   }
@@ -2818,8 +3738,8 @@ var wp;
     }, [registerShortcut]);
     (0, import_keyboard_shortcuts.useShortcut)(
       "core/commands",
-      /** @type {import('react').KeyboardEventHandler} */
-      (event) => {
+      /** @type {React.KeyboardEventHandler} */
+      withIgnoreIMEEvents((event) => {
         if (event.defaultPrevented) {
           return;
         }
@@ -2829,7 +3749,7 @@ var wp;
         } else {
           open2();
         }
-      },
+      }),
       {
         bindGlobal: true
       }
@@ -2848,19 +3768,8 @@ var wp;
     if (!isOpen3) {
       return false;
     }
-    const onKeyDown = (event) => {
-      if (
-        // Ignore keydowns from IMEs
-        event.nativeEvent.isComposing || // Workaround for Mac Safari where the final Enter/Backspace of an IME composition
-        // is `isComposing=false`, even though it's technically still part of the composition.
-        // These can only be detected by keyCode.
-        event.keyCode === 229
-      ) {
-        event.preventDefault();
-      }
-    };
     const isLoading = Object.values(loaders).some(Boolean);
-    return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
       import_components.Modal,
       {
         className: "commands-command-menu",
@@ -2868,16 +3777,16 @@ var wp;
         onRequestClose: closeAndReset,
         __experimentalHideHeader: true,
         contentLabel: (0, import_i18n.__)("Command palette"),
-        children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "commands-command-menu__container", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(He, { label: inputLabel, onKeyDown, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "commands-command-menu__header", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+        children: /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("div", { className: "commands-command-menu__container", children: /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)(_e, { label: inputLabel, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: "commands-command-menu__header", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
               icon_default,
               {
                 className: "commands-command-menu__header-search-icon",
                 icon: search_default
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
               CommandInput,
               {
                 search,
@@ -2886,9 +3795,9 @@ var wp;
               }
             )
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(He.List, { label: (0, import_i18n.__)("Command suggestions"), children: [
-            search && !isLoading && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(He.Empty, { children: (0, import_i18n.__)("No results found.") }),
-            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)(_e.List, { label: (0, import_i18n.__)("Command suggestions"), children: [
+            search && !isLoading && /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(_e.Empty, { children: (0, import_i18n.__)("No results found.") }),
+            /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
               CommandMenuGroup,
               {
                 search,
@@ -2897,7 +3806,7 @@ var wp;
                 isContextual: true
               }
             ),
-            search && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+            search && /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
               CommandMenuGroup,
               {
                 search,
@@ -2911,9 +3820,9 @@ var wp;
     );
   }
 
-  // packages/commands/build-module/hooks/use-command-context.js
-  var import_element3 = __toESM(require_element());
-  var import_data5 = __toESM(require_data());
+  // packages/commands/build-module/hooks/use-command-context.mjs
+  var import_element3 = __toESM(require_element(), 1);
+  var import_data5 = __toESM(require_data(), 1);
   function useCommandContext(context2) {
     const { getContext: getContext2 } = (0, import_data5.useSelect)(store);
     const initialContext = (0, import_element3.useRef)(getContext2());
@@ -2927,15 +3836,15 @@ var wp;
     }, [setContext2]);
   }
 
-  // packages/commands/build-module/private-apis.js
+  // packages/commands/build-module/private-apis.mjs
   var privateApis = {};
   lock(privateApis, {
     useCommandContext
   });
 
-  // packages/commands/build-module/hooks/use-command.js
-  var import_element4 = __toESM(require_element());
-  var import_data6 = __toESM(require_data());
+  // packages/commands/build-module/hooks/use-command.mjs
+  var import_element4 = __toESM(require_element(), 1);
+  var import_data6 = __toESM(require_data(), 1);
   function useCommand(command) {
     const { registerCommand: registerCommand2, unregisterCommand: unregisterCommand2 } = (0, import_data6.useDispatch)(store);
     const currentCallbackRef = (0, import_element4.useRef)(command.callback);
@@ -2949,6 +3858,7 @@ var wp;
       registerCommand2({
         name: command.name,
         context: command.context,
+        category: command.category,
         label: command.label,
         searchLabel: command.searchLabel,
         icon: command.icon,
@@ -2964,6 +3874,7 @@ var wp;
       command.searchLabel,
       command.icon,
       command.context,
+      command.category,
       command.keywords,
       command.disabled,
       registerCommand2,
@@ -2994,6 +3905,7 @@ var wp;
         registerCommand2({
           name: command.name,
           context: command.context,
+          category: command.category,
           label: command.label,
           searchLabel: command.searchLabel,
           icon: command.icon,
@@ -3014,9 +3926,9 @@ var wp;
     }, [commands2, registerCommand2, unregisterCommand2]);
   }
 
-  // packages/commands/build-module/hooks/use-command-loader.js
-  var import_element5 = __toESM(require_element());
-  var import_data7 = __toESM(require_data());
+  // packages/commands/build-module/hooks/use-command-loader.mjs
+  var import_element5 = __toESM(require_element(), 1);
+  var import_data7 = __toESM(require_data(), 1);
   function useCommandLoader(loader) {
     const { registerCommandLoader: registerCommandLoader2, unregisterCommandLoader: unregisterCommandLoader2 } = (0, import_data7.useDispatch)(store);
     (0, import_element5.useEffect)(() => {
@@ -3026,7 +3938,8 @@ var wp;
       registerCommandLoader2({
         name: loader.name,
         hook: loader.hook,
-        context: loader.context
+        context: loader.context,
+        category: loader.category
       });
       return () => {
         unregisterCommandLoader2(loader.name);
@@ -3035,6 +3948,7 @@ var wp;
       loader.name,
       loader.hook,
       loader.context,
+      loader.category,
       loader.disabled,
       registerCommandLoader2,
       unregisterCommandLoader2

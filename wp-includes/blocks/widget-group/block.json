@@ -2,19 +2,8 @@
 	"$schema": "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
 	"apiVersion": 3,
 	"name": "core/widget-group",
-	"title": "Widget Group",
+	"title": "Widget Group (deprecated)",
 	"category": "widgets",
-	"attributes": {
-		"title": {
-			"type": "string"
-		}
-	},
-	"supports": {
-		"html": false,
-		"inserter": true,
-		"customClassName": true,
-		"reusable": false
-	},
-	"editorStyle": "wp-block-widget-group-editor",
-	"style": "wp-block-widget-group"
+	"description": "Deprecated block.",
+	"textdomain": "default"
 }

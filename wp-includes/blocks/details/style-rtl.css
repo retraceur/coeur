@@ -1,7 +1,7 @@
 .wp-block-details {
-	box-sizing: border-box
+  box-sizing: border-box;
 }
 
 .wp-block-details summary {
-	cursor: pointer
+  cursor: pointer;
 }

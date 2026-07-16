@@ -32,6 +32,41 @@ var wp;
   ));
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
+  // package-external:@wordpress/element
+  var require_element = __commonJS({
+    "package-external:@wordpress/element"(exports, module) {
+      module.exports = window.wp.element;
+    }
+  });
+
+  // package-external:@wordpress/hooks
+  var require_hooks = __commonJS({
+    "package-external:@wordpress/hooks"(exports, module) {
+      module.exports = window.wp.hooks;
+    }
+  });
+
+  // package-external:@wordpress/is-shallow-equal
+  var require_is_shallow_equal = __commonJS({
+    "package-external:@wordpress/is-shallow-equal"(exports, module) {
+      module.exports = window.wp.isShallowEqual;
+    }
+  });
+
+  // package-external:@wordpress/compose
+  var require_compose = __commonJS({
+    "package-external:@wordpress/compose"(exports, module) {
+      module.exports = window.wp.compose;
+    }
+  });
+
+  // package-external:@wordpress/deprecated
+  var require_deprecated = __commonJS({
+    "package-external:@wordpress/deprecated"(exports, module) {
+      module.exports = window.wp.deprecated;
+    }
+  });
+
   // vendor-external:react/jsx-runtime
   var require_jsx_runtime = __commonJS({
     "vendor-external:react/jsx-runtime"(exports, module) {
@@ -39,49 +74,14 @@ var wp;
     }
   });
 
-  // wordpress-external:@wordpress/element
-  var require_element = __commonJS({
-    "wordpress-external:@wordpress/element"(exports, module) {
-      module.exports = window.wp.element;
-    }
-  });
-
-  // wordpress-external:@wordpress/hooks
-  var require_hooks = __commonJS({
-    "wordpress-external:@wordpress/hooks"(exports, module) {
-      module.exports = window.wp.hooks;
-    }
-  });
-
-  // wordpress-external:@wordpress/is-shallow-equal
-  var require_is_shallow_equal = __commonJS({
-    "wordpress-external:@wordpress/is-shallow-equal"(exports, module) {
-      module.exports = window.wp.isShallowEqual;
-    }
-  });
-
-  // wordpress-external:@wordpress/compose
-  var require_compose = __commonJS({
-    "wordpress-external:@wordpress/compose"(exports, module) {
-      module.exports = window.wp.compose;
-    }
-  });
-
-  // wordpress-external:@wordpress/deprecated
-  var require_deprecated = __commonJS({
-    "wordpress-external:@wordpress/deprecated"(exports, module) {
-      module.exports = window.wp.deprecated;
-    }
-  });
-
-  // wordpress-external:@wordpress/primitives
+  // package-external:@wordpress/primitives
   var require_primitives = __commonJS({
-    "wordpress-external:@wordpress/primitives"(exports, module) {
+    "package-external:@wordpress/primitives"(exports, module) {
       module.exports = window.wp.primitives;
     }
   });
 
-  // packages/plugins/build-module/index.js
+  // packages/plugins/build-module/index.mjs
   var index_exports = {};
   __export(index_exports, {
     PluginArea: () => plugin_area_default,
@@ -92,9 +92,6 @@ var wp;
     usePluginContext: () => usePluginContext,
     withPluginContext: () => withPluginContext
   });
-
-  // packages/plugins/build-module/components/plugin-area/index.js
-  var import_jsx_runtime3 = __toESM(require_jsx_runtime());
 
   // node_modules/memize/dist/index.js
   function memize(fn, options) {
@@ -164,16 +161,16 @@ var wp;
     return memoized;
   }
 
-  // packages/plugins/build-module/components/plugin-area/index.js
-  var import_element3 = __toESM(require_element());
-  var import_hooks2 = __toESM(require_hooks());
-  var import_is_shallow_equal = __toESM(require_is_shallow_equal());
+  // packages/plugins/build-module/components/plugin-area/index.mjs
+  var import_element3 = __toESM(require_element(), 1);
+  var import_hooks2 = __toESM(require_hooks(), 1);
+  var import_is_shallow_equal = __toESM(require_is_shallow_equal(), 1);
 
-  // packages/plugins/build-module/components/plugin-context/index.js
-  var import_jsx_runtime = __toESM(require_jsx_runtime());
-  var import_element = __toESM(require_element());
-  var import_compose = __toESM(require_compose());
-  var import_deprecated = __toESM(require_deprecated());
+  // packages/plugins/build-module/components/plugin-context/index.mjs
+  var import_element = __toESM(require_element(), 1);
+  var import_compose = __toESM(require_compose(), 1);
+  var import_deprecated = __toESM(require_deprecated(), 1);
+  var import_jsx_runtime = __toESM(require_jsx_runtime(), 1);
   var Context = (0, import_element.createContext)({
     name: null,
     icon: null
@@ -197,8 +194,8 @@ var wp;
     ) });
   }, "withPluginContext");
 
-  // packages/plugins/build-module/components/plugin-error-boundary/index.js
-  var import_element2 = __toESM(require_element());
+  // packages/plugins/build-module/components/plugin-error-boundary/index.mjs
+  var import_element2 = __toESM(require_element(), 1);
   var PluginErrorBoundary = class extends import_element2.Component {
     constructor(props) {
       super(props);
@@ -223,15 +220,15 @@ var wp;
     }
   };
 
-  // packages/plugins/build-module/api/index.js
-  var import_hooks = __toESM(require_hooks());
+  // packages/plugins/build-module/api/index.mjs
+  var import_hooks = __toESM(require_hooks(), 1);
 
-  // packages/icons/build-module/library/plugins.js
-  var import_jsx_runtime2 = __toESM(require_jsx_runtime());
-  var import_primitives = __toESM(require_primitives());
+  // packages/icons/build-module/library/plugins.mjs
+  var import_primitives = __toESM(require_primitives(), 1);
+  var import_jsx_runtime2 = __toESM(require_jsx_runtime(), 1);
   var plugins_default = /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_primitives.SVG, { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 24 24", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_primitives.Path, { d: "M10.5 4v4h3V4H15v4h1.5a1 1 0 011 1v4l-3 4v2a1 1 0 01-1 1h-3a1 1 0 01-1-1v-2l-3-4V9a1 1 0 011-1H9V4h1.5zm.5 12.5v2h2v-2l3-4v-3H8v3l3 4z" }) });
 
-  // packages/plugins/build-module/api/index.js
+  // packages/plugins/build-module/api/index.mjs
   var plugins = {};
   function registerPlugin(name, settings) {
     if (typeof settings !== "object") {
@@ -302,7 +299,8 @@ var wp;
     );
   }
 
-  // packages/plugins/build-module/components/plugin-area/index.js
+  // packages/plugins/build-module/components/plugin-area/index.mjs
+  var import_jsx_runtime3 = __toESM(require_jsx_runtime(), 1);
   var getPluginContext = memize(
     (icon, name) => ({
       icon,
@@ -340,7 +338,7 @@ var wp;
         },
         getValue() {
           const nextValue = getPlugins(scope);
-          if (!(0, import_is_shallow_equal.default)(lastValue, nextValue)) {
+          if (!(0, import_is_shallow_equal.isShallowEqual)(lastValue, nextValue)) {
             lastValue = nextValue;
           }
           return lastValue;

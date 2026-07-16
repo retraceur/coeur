@@ -2,7 +2,7 @@
 	"$schema": "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
 	"apiVersion": 3,
 	"name": "core/post-comments-form",
-	"title": "Comments Form",
+	"title": "Comments Form (deprecated)",
 	"category": "theme",
 	"description": "Deprecated block.",
 	"textdomain": "default"

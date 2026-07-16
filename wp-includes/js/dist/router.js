@@ -32,6 +32,27 @@ var wp;
   ));
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
+  // package-external:@wordpress/element
+  var require_element = __commonJS({
+    "package-external:@wordpress/element"(exports, module) {
+      module.exports = window.wp.element;
+    }
+  });
+
+  // package-external:@wordpress/url
+  var require_url = __commonJS({
+    "package-external:@wordpress/url"(exports, module) {
+      module.exports = window.wp.url;
+    }
+  });
+
+  // package-external:@wordpress/compose
+  var require_compose = __commonJS({
+    "package-external:@wordpress/compose"(exports, module) {
+      module.exports = window.wp.compose;
+    }
+  });
+
   // vendor-external:react/jsx-runtime
   var require_jsx_runtime = __commonJS({
     "vendor-external:react/jsx-runtime"(exports, module) {
@@ -39,42 +60,18 @@ var wp;
     }
   });
 
-  // wordpress-external:@wordpress/element
-  var require_element = __commonJS({
-    "wordpress-external:@wordpress/element"(exports, module) {
-      module.exports = window.wp.element;
-    }
-  });
-
-  // wordpress-external:@wordpress/url
-  var require_url = __commonJS({
-    "wordpress-external:@wordpress/url"(exports, module) {
-      module.exports = window.wp.url;
-    }
-  });
-
-  // wordpress-external:@wordpress/compose
-  var require_compose = __commonJS({
-    "wordpress-external:@wordpress/compose"(exports, module) {
-      module.exports = window.wp.compose;
-    }
-  });
-
-  // wordpress-external:@wordpress/private-apis
+  // package-external:@wordpress/private-apis
   var require_private_apis = __commonJS({
-    "wordpress-external:@wordpress/private-apis"(exports, module) {
+    "package-external:@wordpress/private-apis"(exports, module) {
       module.exports = window.wp.privateApis;
     }
   });
 
-  // packages/router/build-module/index.js
+  // packages/router/build-module/index.mjs
   var index_exports = {};
   __export(index_exports, {
     privateApis: () => privateApis
   });
-
-  // packages/router/build-module/router.js
-  var import_jsx_runtime = __toESM(require_jsx_runtime());
 
   // node_modules/route-recognizer/dist/route-recognizer.es.js
   var createObject = Object.create;
@@ -966,10 +963,11 @@ var wp;
     return parsedPath;
   }
 
-  // packages/router/build-module/router.js
-  var import_element = __toESM(require_element());
-  var import_url = __toESM(require_url());
-  var import_compose = __toESM(require_compose());
+  // packages/router/build-module/router.mjs
+  var import_element = __toESM(require_element(), 1);
+  var import_url = __toESM(require_url(), 1);
+  var import_compose = __toESM(require_compose(), 1);
+  var import_jsx_runtime = __toESM(require_jsx_runtime(), 1);
   var history = createBrowserHistory();
   var RoutesContext = (0, import_element.createContext)(null);
   RoutesContext.displayName = "RoutesContext";
@@ -1133,10 +1131,10 @@ var wp;
     return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ConfigContext.Provider, { value: config, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RoutesContext.Provider, { value: renderedMatch, children }) });
   }
 
-  // packages/router/build-module/link.js
-  var import_jsx_runtime2 = __toESM(require_jsx_runtime());
-  var import_element2 = __toESM(require_element());
-  var import_url2 = __toESM(require_url());
+  // packages/router/build-module/link.mjs
+  var import_element2 = __toESM(require_element(), 1);
+  var import_url2 = __toESM(require_url(), 1);
+  var import_jsx_runtime2 = __toESM(require_jsx_runtime(), 1);
   function useLink(to2, options = {}) {
     const history2 = useHistory();
     const { pathArg, beforeNavigate } = (0, import_element2.useContext)(ConfigContext);
@@ -1168,14 +1166,14 @@ var wp;
     return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("a", { href, onClick, ...props, children });
   }
 
-  // packages/router/build-module/lock-unlock.js
-  var import_private_apis = __toESM(require_private_apis());
+  // packages/router/build-module/lock-unlock.mjs
+  var import_private_apis = __toESM(require_private_apis(), 1);
   var { lock, unlock } = (0, import_private_apis.__dangerousOptInToUnstableAPIsOnlyForCoreModules)(
     "I acknowledge private features are not for use in themes or plugins and doing so will break in the next version of Retraceur.",
     "@wordpress/router"
   );
 
-  // packages/router/build-module/private-apis.js
+  // packages/router/build-module/private-apis.mjs
   var privateApis = {};
   lock(privateApis, {
     useHistory,

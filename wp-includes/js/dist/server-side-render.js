@@ -31,6 +31,62 @@ var wp;
   ));
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
+  // package-external:@wordpress/element
+  var require_element = __commonJS({
+    "package-external:@wordpress/element"(exports, module) {
+      module.exports = window.wp.element;
+    }
+  });
+
+  // package-external:@wordpress/i18n
+  var require_i18n = __commonJS({
+    "package-external:@wordpress/i18n"(exports, module) {
+      module.exports = window.wp.i18n;
+    }
+  });
+
+  // package-external:@wordpress/components
+  var require_components = __commonJS({
+    "package-external:@wordpress/components"(exports, module) {
+      module.exports = window.wp.components;
+    }
+  });
+
+  // package-external:@wordpress/data
+  var require_data = __commonJS({
+    "package-external:@wordpress/data"(exports, module) {
+      module.exports = window.wp.data;
+    }
+  });
+
+  // package-external:@wordpress/compose
+  var require_compose = __commonJS({
+    "package-external:@wordpress/compose"(exports, module) {
+      module.exports = window.wp.compose;
+    }
+  });
+
+  // package-external:@wordpress/api-fetch
+  var require_api_fetch = __commonJS({
+    "package-external:@wordpress/api-fetch"(exports, module) {
+      module.exports = window.wp.apiFetch;
+    }
+  });
+
+  // package-external:@wordpress/url
+  var require_url = __commonJS({
+    "package-external:@wordpress/url"(exports, module) {
+      module.exports = window.wp.url;
+    }
+  });
+
+  // package-external:@wordpress/blocks
+  var require_blocks = __commonJS({
+    "package-external:@wordpress/blocks"(exports, module) {
+      module.exports = window.wp.blocks;
+    }
+  });
+
   // vendor-external:react/jsx-runtime
   var require_jsx_runtime = __commonJS({
     "vendor-external:react/jsx-runtime"(exports, module) {
@@ -38,63 +94,7 @@ var wp;
     }
   });
 
-  // wordpress-external:@wordpress/element
-  var require_element = __commonJS({
-    "wordpress-external:@wordpress/element"(exports, module) {
-      module.exports = window.wp.element;
-    }
-  });
-
-  // wordpress-external:@wordpress/i18n
-  var require_i18n = __commonJS({
-    "wordpress-external:@wordpress/i18n"(exports, module) {
-      module.exports = window.wp.i18n;
-    }
-  });
-
-  // wordpress-external:@wordpress/components
-  var require_components = __commonJS({
-    "wordpress-external:@wordpress/components"(exports, module) {
-      module.exports = window.wp.components;
-    }
-  });
-
-  // wordpress-external:@wordpress/data
-  var require_data = __commonJS({
-    "wordpress-external:@wordpress/data"(exports, module) {
-      module.exports = window.wp.data;
-    }
-  });
-
-  // wordpress-external:@wordpress/compose
-  var require_compose = __commonJS({
-    "wordpress-external:@wordpress/compose"(exports, module) {
-      module.exports = window.wp.compose;
-    }
-  });
-
-  // wordpress-external:@wordpress/api-fetch
-  var require_api_fetch = __commonJS({
-    "wordpress-external:@wordpress/api-fetch"(exports, module) {
-      module.exports = window.wp.apiFetch;
-    }
-  });
-
-  // wordpress-external:@wordpress/url
-  var require_url = __commonJS({
-    "wordpress-external:@wordpress/url"(exports, module) {
-      module.exports = window.wp.url;
-    }
-  });
-
-  // wordpress-external:@wordpress/blocks
-  var require_blocks = __commonJS({
-    "wordpress-external:@wordpress/blocks"(exports, module) {
-      module.exports = window.wp.blocks;
-    }
-  });
-
-  // packages/server-side-render/build-module/index.js
+  // packages/server-side-render/build-module/index.mjs
   var index_exports = {};
   __export(index_exports, {
     ServerSideRender: () => ServerSideRenderWithPostId,
@@ -102,19 +102,18 @@ var wp;
     useServerSideRender: () => useServerSideRender
   });
 
-  // packages/server-side-render/build-module/server-side-render.js
-  var import_jsx_runtime = __toESM(require_jsx_runtime());
-  var import_element2 = __toESM(require_element());
-  var import_i18n = __toESM(require_i18n());
-  var import_components = __toESM(require_components());
-  var import_data = __toESM(require_data());
+  // packages/server-side-render/build-module/server-side-render.mjs
+  var import_element2 = __toESM(require_element(), 1);
+  var import_i18n = __toESM(require_i18n(), 1);
+  var import_components = __toESM(require_components(), 1);
+  var import_data = __toESM(require_data(), 1);
 
-  // packages/server-side-render/build-module/hook.js
-  var import_compose = __toESM(require_compose());
-  var import_element = __toESM(require_element());
-  var import_api_fetch = __toESM(require_api_fetch());
-  var import_url = __toESM(require_url());
-  var import_blocks = __toESM(require_blocks());
+  // packages/server-side-render/build-module/hook.mjs
+  var import_compose = __toESM(require_compose(), 1);
+  var import_element = __toESM(require_element(), 1);
+  var import_api_fetch = __toESM(require_api_fetch(), 1);
+  var import_url = __toESM(require_url(), 1);
+  var import_blocks = __toESM(require_blocks(), 1);
   function rendererPath(block, attributes = null, urlQueryArgs = {}) {
     return (0, import_url.addQueryArgs)(`/wp/v2/block-renderer/${block}`, {
       context: "edit",
@@ -208,7 +207,8 @@ var wp;
     return response;
   }
 
-  // packages/server-side-render/build-module/server-side-render.js
+  // packages/server-side-render/build-module/server-side-render.mjs
+  var import_jsx_runtime = __toESM(require_jsx_runtime(), 1);
   var EMPTY_OBJECT = {};
   function DefaultEmptyResponsePlaceholder({ className }) {
     return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_components.Placeholder, { className, children: (0, import_i18n.__)("Block rendered as empty.") });
@@ -292,7 +292,7 @@ var wp;
     return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ServerSideRender, { urlQueryArgs: newUrlQueryArgs, ...props });
   }
 
-  // packages/server-side-render/build-module/index.js
+  // packages/server-side-render/build-module/index.mjs
   var ServerSideRenderCompat = ServerSideRenderWithPostId;
   ServerSideRenderCompat.ServerSideRender = ServerSideRenderWithPostId;
   ServerSideRenderCompat.useServerSideRender = useServerSideRender;

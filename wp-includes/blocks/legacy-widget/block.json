@@ -2,28 +2,8 @@
 	"$schema": "https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/schemas/block.json",
 	"apiVersion": 3,
 	"name": "core/legacy-widget",
-	"title": "Legacy Widget",
+	"title": "Legacy Widget (deprecated)",
 	"category": "widgets",
-	"description": "Display a legacy widget.",
-	"textdomain": "default",
-	"attributes": {
-		"id": {
-			"type": "string",
-			"default": null
-		},
-		"idBase": {
-			"type": "string",
-			"default": null
-		},
-		"instance": {
-			"type": "object",
-			"default": null
-		}
-	},
-	"supports": {
-		"html": false,
-		"customClassName": false,
-		"reusable": false
-	},
-	"editorStyle": "wp-block-legacy-widget-editor"
+	"description": "Deprecated block.",
+	"textdomain": "default"
 }

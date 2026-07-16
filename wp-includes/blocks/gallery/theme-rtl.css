@@ -1,9 +1,8 @@
 .blocks-gallery-caption {
-	color: #555;
-	font-size: 13px;
-	text-align: center
+  color: #555;
+  font-size: 13px;
+  text-align: center;
 }
-
 .is-dark-theme .blocks-gallery-caption {
-	color: #ffffffa6
+  color: rgba(255, 255, 255, 0.65);
 }

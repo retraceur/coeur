@@ -32,20 +32,20 @@ var wp;
   ));
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
-  // wordpress-external:@wordpress/hooks
+  // package-external:@wordpress/hooks
   var require_hooks = __commonJS({
-    "wordpress-external:@wordpress/hooks"(exports, module) {
+    "package-external:@wordpress/hooks"(exports, module) {
       module.exports = window.wp.hooks;
     }
   });
 
-  // packages/deprecated/build-module/index.js
+  // packages/deprecated/build-module/index.mjs
   var index_exports = {};
   __export(index_exports, {
     default: () => deprecated,
     logged: () => logged
   });
-  var import_hooks = __toESM(require_hooks());
+  var import_hooks = __toESM(require_hooks(), 1);
   var logged = /* @__PURE__ */ Object.create(null);
   function deprecated(feature, options = {}) {
     const { since, version, alternative, plugin, link, hint } = options;

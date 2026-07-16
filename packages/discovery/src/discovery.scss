@@ -1,5 +1,9 @@
 #retraceur-discovery {
 
+	.dataviews-wrapper {
+		background: none;
+	}
+
 	.retraceur-repository-thumbnail {
 		position: relative;
 		width: 100%;
@@ -14,7 +18,7 @@
 
 	.retraceur-repository-thumbnail__badge {
 		position: absolute;
-		top: 6px;
+		bottom: 6px;
 		right: 6px;
 		padding: 3px 8px;
 		border-radius: 10px;

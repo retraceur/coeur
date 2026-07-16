@@ -1,8 +1,11 @@
 pre.wp-block-verse {
-	overflow: auto;
-	white-space: pre-wrap
+  box-sizing: border-box;
+  overflow: auto;
+  white-space: pre-wrap;
+  min-width: 1em;
+  word-break: break-word;
 }
 
 :where(pre.wp-block-verse) {
-	font-family: inherit
+  font-family: inherit;
 }
