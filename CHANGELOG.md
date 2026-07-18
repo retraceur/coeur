@@ -6,6 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+## [3.2.0] - 2026-07-18
+
+### Changed
+
+- Backports WP 6.9.5 Security fixes about:
+  - a facilitated SQL injection vulnerability;
+  - a REST API batch-route confusion and SQL injection issue leading to Remote Code Execution.
+
+
 ## [3.1.0] - 2026-03-14
 
 ### Changed
