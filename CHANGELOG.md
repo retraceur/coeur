@@ -13,6 +13,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Temporarily disable the Plugin Dependencies feature, which relied on the WP.org Plugin Install API. The dependency checks are turned off (a plugin declaring a `Requires Plugins` header can be activated) until the distant dependency is replaced by a GitHub.com-based mechanism. See [#205](https://github.com/retraceur/coeur/issues/205).
 
 
+## [3.2.0] - 2026-07-18
+
+### Changed
+
+- Backports WP 6.9.5 Security fixes about:
+  - a facilitated SQL injection vulnerability;
+  - a REST API batch-route confusion and SQL injection issue leading to Remote Code Execution.
+
+
 ## [3.1.0] - 2026-03-14
 
 ### Changed
