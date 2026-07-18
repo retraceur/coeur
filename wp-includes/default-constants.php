@@ -433,10 +433,11 @@ function wp_templating_constants() {
 	 * It will be used as the fallback if the active theme doesn't exist.
 	 *
 	 * @since WP 3.0.0
+	 * @since 4.0.0 Retraceur fork sets the default theme to `point`.
 	 *
 	 * @see WP_Theme::get_core_default_theme()
 	 */
 	if ( ! defined( 'WP_DEFAULT_THEME' ) ) {
-		define( 'WP_DEFAULT_THEME', 'twentytwentyfive' );
+		define( 'WP_DEFAULT_THEME', 'point' );
 	}
 }
