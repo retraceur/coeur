@@ -194,6 +194,24 @@ $_new_bundled_files = array(
 );
 
 /**
+ * Bundled files that must be refreshed on every core update.
+ *
+ * Unlike `$_new_bundled_files`, entries here are overwritten each time, as
+ * Retraceur ships its default theme within the core package and has no
+ * external directory to update it from. No version to maintain.
+ *
+ * @since 4.0.0 Retraceur fork.
+ *
+ * @global array $_bundled_files_to_refresh
+ * @var array
+ */
+global $_bundled_files_to_refresh;
+
+$_bundled_files_to_refresh = array(
+	'themes/point/',
+);
+
+/**
  * Upgrades the core of Retraceur.
  *
  * This will create a .maintenance file at the base of the Retraceur directory
@@ -567,6 +585,49 @@ function update_core( $from, $to ) {
 				}
 			}
 		} // End foreach.
+	}
+
+	/*
+	 * Refresh bundled files that ship with core and have no external update source.
+	 * Unlike new bundled files, these are overwritten on every update.
+	 */
+	if ( ! is_wp_error( $result ) ) {
+		foreach ( (array) $_bundled_files_to_refresh as $file ) {
+			list( $type, $filename ) = explode( '/', untrailingslashit( $file ), 2 );
+
+			if ( 'plugins' === $type ) {
+				$dest = trailingslashit( $wp_filesystem->wp_plugins_dir() );
+			} elseif ( 'themes' === $type ) {
+				$dest = trailingslashit( $wp_filesystem->wp_themes_dir() );
+			} else {
+				continue;
+			}
+
+			$source = $from . $distro . 'wp-content/' . untrailingslashit( $file );
+
+			// Only refresh what ships with this package and is still installed.
+			if ( ! $wp_filesystem->is_dir( $source ) || ! $wp_filesystem->is_dir( $dest . $filename ) ) {
+				continue;
+			}
+
+			$_result = copy_dir( $source, $dest . $filename );
+
+			/*
+			 * If an error occurs partway through this final step,
+			 * keep the error flowing through, but keep the process going.
+			 */
+			if ( is_wp_error( $_result ) ) {
+				if ( ! is_wp_error( $result ) ) {
+					$result = new WP_Error();
+				}
+
+				$result->add(
+					$_result->get_error_code() . "_refreshed_$type",
+					$_result->get_error_message(),
+					substr( $_result->get_error_data(), strlen( $dest ) )
+				);
+			}
+		}
 	}
 
 	// Handle $result error from the above blocks.
