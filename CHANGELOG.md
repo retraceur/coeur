@@ -8,9 +8,102 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+
+## [4.0.0-beta1] - 2026-07-21
+
+### Added
+
+- Introduce the Discovery API: a minimalist, GitHub.com-based replacement for the WP.org Plugin Install API, see [#186](https://github.com/retraceur/coeur/pull/186) and [#30](https://github.com/retraceur/coeur/issues/30).
+  - Consume the GitHub REST API to list Retraceur blocks and plugins, with transient caching of the responses.
+  - Add the `retraceur_discovery_api()` and `retraceur_discovery_request()` helper functions.
+  - Add the `/discover` and `/discover/repository` REST routes, the latter returning a single repository's details and its releases.
+  - Make sure Discovery API transients/caches are cleaned when needed, see [#196](https://github.com/retraceur/coeur/issues/196).
+- Introduce the Discovery UI: a new React application, built on top of the DataViews package, to browse and install blocks & plugins hosted on GitHub.com.
+  - Add the repository installation feature, see [#187](https://github.com/retraceur/coeur/pull/187).
+  - Redesign the repository detail modal and move the releases list into the `view-repository` action.
+  - Add a Changelog tab to the repository detail modal, see [#189](https://github.com/retraceur/coeur/issues/189) and [#190](https://github.com/retraceur/coeur/pull/190).
+  - Check Retraceur and PHP version requirements before installing a repository and disable the ones needing a higher version, see [#188](https://github.com/retraceur/coeur/issues/188) and [#191](https://github.com/retraceur/coeur/pull/191).
+  - Hide the install action and highlight already installed repositories across the UI, see [#192](https://github.com/retraceur/coeur/issues/192).
+  - Build the pagination out of the GitHub REST API results and store releases/repositories independently, see [#193](https://github.com/retraceur/coeur/issues/193), [#194](https://github.com/retraceur/coeur/pull/194) and [#195](https://github.com/retraceur/coeur/pull/195).
+  - Reflect the installation state immediately after installing from the UI, see [#197](https://github.com/retraceur/coeur/pull/197).
+  - Add activation and list links to the install confirmation modal, see [#211](https://github.com/retraceur/coeur/pull/211).
+- Build the first iteration of the Retraceur Plugin/Block update API, based on GitHub releases instead of the WP.org update API, see [#201](https://github.com/retraceur/coeur/issues/201) and [#202](https://github.com/retraceur/coeur/pull/202).
+  - Custom updaters are checked first, Retraceur's one is only used as a fallback.
+  - Required Retraceur & PHP versions are included in `retraceur_get_plugin_update()`.
+- Verify GitHub release asset checksums (SHA-256 digests) during `WP_Upgrader::download_package()` before the package reaches the installer, see [#206](https://github.com/retraceur/coeur/pull/206).
+- Add an Icons API so that the `wp` icon can be replaced by the Retraceur one, see [#180](https://github.com/retraceur/coeur/pull/180).
+- Add the `GitHub Plugin URI` plugin main file header tag.
+- Include the `core/table-of-contents` block.
+- Cherry pick 374 commits from the WP 7.0-branch, see [#171](https://github.com/retraceur/coeur/issues/171).
+- Make sure Retraceur code is synchronized with WP 7.0.3-alpha-62793, including the WP 7.0.2 security & maintenance fixes.
+
 ### Changed
 
-- Temporarily disable the Plugin Dependencies feature, which relied on the WP.org Plugin Install API. The dependency checks are turned off (a plugin declaring a `Requires Plugins` header can be activated) until the distant dependency is replaced by a GitHub.com-based mechanism. See [#205](https://github.com/retraceur/coeur/issues/205).
+- Set the `WP_DEFAULT_THEME` constant to `point`, which has been Retraceur's default and only theme since 1.0.0, see [#220](https://github.com/retraceur/coeur/issues/220) and [#222](https://github.com/retraceur/coeur/pull/222).
+- Refresh the bundled files that ship with cœur and have no external update source, making sure the Point theme is updated during each Retraceur upgrade, see [#221](https://github.com/retraceur/coeur/issues/221) and [#224](https://github.com/retraceur/coeur/pull/224).
+- Update the `@wordpress` JavaScript packages according to the Gutenberg `wp/7.0` branch and apply the Retraceur customizations, see [#216](https://github.com/retraceur/coeur/pull/216).
+  - Remove the `registerLegacyWidgetBlock` & `registerWidgetGroupBlock` calls from `@wordpress/edit-post` and `@wordpress/edit-site` so that these scripts no longer depend on `widgets`.
+  - Add `@retraceur/discovery` to the `@wordpress/private-apis` consumers.
+  - Fix the `@wordpress/interactivity` loading issue and the Icon library file paths.
+- Update `@wordpress/scripts` dependency to v32.0.
+- Update the Twemoji library to version `17.0.3`.
+- Rename the "Add Plugins/Blocks" screens in favor of "Discover Plugins/Blocks".
+- Move the plugin/block manual upload inside the installed Plugins/Blocks Admin screens, see [#204](https://github.com/retraceur/coeur/issues/204) and [#208](https://github.com/retraceur/coeur/pull/208).
+- Simplify the `plugin-install` JavaScript, removing the jQuery and Thickbox dependencies, and stop loading it when it is not needed.
+- Display active and inactive blocks separately from plugins in the Site Health information screen, see [#199](https://github.com/retraceur/coeur/issues/199) and [#207](https://github.com/retraceur/coeur/pull/207).
+- Improve the Plugin/Block updates section of the `wp-admin/update-core.php` screen, see [#212](https://github.com/retraceur/coeur/pull/212).
+- Restrict plugin/block updates to the Admin Update screen and remove the Plugins Admin menu updates bubble.
+- Update the Retraceur Admin color scheme, see [#177](https://github.com/retraceur/coeur/pull/177).
+- Improve the upload UI style inside the `media-new` Admin screen, see [#184](https://github.com/retraceur/coeur/issues/184) and [#185](https://github.com/retraceur/coeur/pull/185).
+- Minify more `admin/css` & `includes/css` styles using the Webpack builder and refresh all minified assets for 4.0.0, see [#223](https://github.com/retraceur/coeur/pull/223).
+- Fix a fatal error in the PclZip extraction fallback of the upgrader.
+- Fix wrong right borders in the list table styles.
+- Use the right Admin screen once an upgrade succeeded.
+- Temporarily disable the Plugin Dependencies feature, which relied on the WP.org Plugin Install API. The dependency checks are turned off (a plugin declaring a `Requires Plugins` header can be activated) until the distant dependency is replaced by a GitHub.com-based mechanism. See [#205](https://github.com/retraceur/coeur/issues/205) and [#213](https://github.com/retraceur/coeur/pull/213).
+
+### Deprecated
+
+- The WP.org Plugin Install API, see [#198](https://github.com/retraceur/coeur/issues/198), [#200](https://github.com/retraceur/coeur/pull/200) and [#214](https://github.com/retraceur/coeur/pull/214):
+  - `plugins_api()`.
+  - `install_dashboard()`.
+  - `install_popular_tags()`.
+  - `install_search_form()`.
+  - `install_plugin_information()`.
+  - `install_plugin_install_status()`.
+  - `display_plugins_table()`.
+  - `wp_get_plugin_action_button()`.
+  - `wp_ajax_install_plugin()`.
+  - `wp_ajax_search_install_plugins()`.
+  - `WP_Plugin_Install_List_Table`.
+- The background/automatic updates feature, see [#203](https://github.com/retraceur/coeur/issues/203) and [#210](https://github.com/retraceur/coeur/pull/210):
+  - `WP_Automatic_Updater`.
+  - `Automatic_Upgrader_Skin`.
+  - `WP_Site_Health_Auto_Updates`.
+  - `wp_is_auto_update_enabled_for_type()`.
+  - `wp_is_auto_update_forced_for_item()`.
+  - `wp_get_auto_update_message()`.
+  - `wp_theme_auto_update_setting_template()`.
+  - `wp_ajax_toggle_auto_updates()`.
+  - `wp_plugin_update_rows()`.
+  - `wp_plugin_update_row()`.
+- The WP.org-backed core checksum verification, see [#215](https://github.com/retraceur/coeur/pull/215):
+  - `get_core_checksums()`.
+  - `Core_Upgrader::check_files()`, as well as the `pre_check_md5` upgrade argument it relied on.
+- The IXR API, only used by the XML-RPC API deprecated in Retraceur 1.0.0, see [#181](https://github.com/retraceur/coeur/pull/181):
+  - `class-IXR.php` and all the `IXR_*` classes.
+  - `WP_HTTP_IXR_Client`, which has been moved into the Reactions plugin, see [#182](https://github.com/retraceur/coeur/issues/182) and [#183](https://github.com/retraceur/coeur/pull/183).
+- The WP Code Editor functions, see [#175](https://github.com/retraceur/coeur/issues/175):
+  - `wp_enqueue_code_editor()`.
+  - `wp_get_code_editor_settings()`.
+  - `wp_custom_css_cb()`.
+- The `widgets` dist JS & dist CSS assets.
+
+### Removed
+
+- Fully remove the WP Code Editor (CodeMirror), which was only used by the Customizer, the Widgets screens and the Plugin/Theme file editors — all removed in previous Retraceur versions. The `codemirror` directory is deleted during the 4.0.0 upgrade, see [#175](https://github.com/retraceur/coeur/issues/175) and [#176](https://github.com/retraceur/coeur/pull/176).
+- Remove the `editor-buttons` styles, only used by the Classic Editor which is no more supported since Retraceur 1.0.0, see [#178](https://github.com/retraceur/coeur/issues/178) and [#179](https://github.com/retraceur/coeur/pull/179).
+- Remove the Thickbox usage from the Plugins/Blocks list tables.
+- Remove the plugin auto updates UI.
 
 
 ## [3.2.0] - 2026-07-18
