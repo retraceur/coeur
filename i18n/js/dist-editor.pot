@@ -1,624 +1,704 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Retraceur 3.0.0\n"
+"Project-Id-Version: Retraceur 4.0.0\n"
 "Report-Msgid-Bugs-To: https://github.com/retraceur/coeur/issues\n"
 "Last-Translator: imath <contact@imathi.eu>\n"
 "Language-Team: Retraceur <retraceur@proton.me>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-03-01T12:54:45+00:00\n"
+"POT-Creation-Date: 2026-07-16T08:40:42+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 
-#: wp-includes/js/dist/editor.js:4017
+#: wp-includes/js/dist/editor.js:4487
+msgid "Media updated."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:4490
 msgid "Draft saved."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:4034
+#: wp-includes/js/dist/editor.js:4507
 msgid "View Preview"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:4057
-#: wp-includes/js/dist/editor.js:4058
-msgid "Publishing failed because you were offline."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:4059
-msgid "Scheduling failed because you were offline."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:4060
-msgid "Updating failed because you were offline."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:4066
-#: wp-includes/js/dist/editor.js:4067
-msgid "Publishing failed."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:4068
-msgid "Scheduling failed."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:4069
-msgid "Updating failed."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:4084
-msgid "Trashing failed"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:4196
-msgid "An error occurred while updating."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:4464
-#: wp-includes/js/dist/editor.js:21422
-msgid "Distraction free mode deactivated."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:4464
-#: wp-includes/js/dist/editor.js:21419
-msgid "Distraction free mode activated."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:4470
-#: wp-includes/js/dist/editor.js:4501
-#: wp-includes/js/dist/editor.js:4520
-#: wp-includes/js/dist/editor.js:6437
-#: wp-includes/js/dist/editor.js:11913
-#: wp-includes/js/dist/editor.js:13062
-msgid "Undo"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:4495
-#: wp-includes/js/dist/editor.js:21437
-msgid "Spotlight mode activated."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:4495
-#: wp-includes/js/dist/editor.js:21440
-msgid "Spotlight mode deactivated."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:4514
-#: wp-includes/js/dist/editor.js:21400
-msgid "Top toolbar activated."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:4514
-#: wp-includes/js/dist/editor.js:21403
-msgid "Top toolbar deactivated."
+#: wp-includes/js/dist/editor.js:4530
+#: wp-includes/js/dist/editor.js:4533
+msgid "Publishing failed because you were offline. Please verify your connection and try again."
 msgstr ""
 
 #: wp-includes/js/dist/editor.js:4536
+msgid "Scheduling failed because you were offline. Please verify your connection and try again."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:4539
+msgid "Updating failed because you were offline. Please verify your connection and try again."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:4547
+#: wp-includes/js/dist/editor.js:4548
+msgid "Publishing failed."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:4549
+msgid "Scheduling failed."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:4550
+msgid "Updating failed."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:4565
+msgid "Trashing failed"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:4677
+msgid "An error occurred while updating."
+msgstr ""
+
+#. translators: %s: The name (or slug) of the type of template.
+#: wp-includes/js/dist/editor.js:4756
+#, js-format
+msgid "Do you want to activate this \"%s\" template?"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:4763
+msgid "Activate"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:4767
+msgid "Activating template…"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:4784
+msgid "Template activated."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:4789
+msgid "Template activation failed."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:5006
+#: wp-includes/js/dist/editor.js:49348
+msgid "Distraction free mode deactivated."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:5006
+#: wp-includes/js/dist/editor.js:49345
+msgid "Distraction free mode activated."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:5012
+#: wp-includes/js/dist/editor.js:5043
+#: wp-includes/js/dist/editor.js:5062
+#: wp-includes/js/dist/editor.js:11196
+#: wp-includes/js/dist/editor.js:37676
+#: wp-includes/js/dist/editor.js:40456
+#: wp-includes/js/dist/editor.js:48778
+msgid "Undo"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:5037
+#: wp-includes/js/dist/editor.js:49363
+msgid "Spotlight mode activated."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:5037
+#: wp-includes/js/dist/editor.js:49366
+msgid "Spotlight mode deactivated."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:5056
+#: wp-includes/js/dist/editor.js:49326
+msgid "Top toolbar activated."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:5056
+#: wp-includes/js/dist/editor.js:49329
+msgid "Top toolbar deactivated."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:5078
 msgid "Visual editor selected"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:4542
+#: wp-includes/js/dist/editor.js:5084
 msgid "Code editor selected"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:4679
-#: wp-includes/js/dist/editor.js:4872
-#: wp-includes/js/dist/editor.js:18792
+#: wp-includes/js/dist/editor.js:5765
+#: wp-includes/js/dist/editor.js:5957
+#: wp-includes/js/dist/editor.js:46268
 msgid "(no title)"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:4737
-#: wp-includes/js/dist/editor.js:20098
+#: wp-includes/js/dist/editor.js:5824
+#: wp-includes/js/dist/editor.js:47566
 msgid "Copied Permalink to clipboard."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:4745
-#: wp-includes/js/dist/editor.js:20118
+#: wp-includes/js/dist/editor.js:5832
+#: wp-includes/js/dist/editor.js:47586
 msgid "Customize the last part of the Permalink."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:4759
-#: wp-includes/js/dist/editor.js:18750
+#: wp-includes/js/dist/editor.js:5846
+#: wp-includes/js/dist/editor.js:46226
 msgid "Copy"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:4762
-#: wp-includes/js/dist/editor.js:16240
-#: wp-includes/js/dist/editor.js:20273
-#: wp-includes/js/dist/editor.js:25538
+#: wp-includes/js/dist/editor.js:5849
+#: wp-includes/js/dist/editor.js:14084
+#: wp-includes/js/dist/editor.js:43636
+#: wp-includes/js/dist/editor.js:47741
+#: wp-includes/js/dist/editor.js:55138
 msgid "Link"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:4781
-#: wp-includes/js/dist/editor.js:20170
+#: wp-includes/js/dist/editor.js:5868
+#: wp-includes/js/dist/editor.js:47638
 msgid "Permalink:"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:4827
-#: wp-includes/js/dist/editor.js:20108
-#: wp-includes/js/dist/editor.js:20137
-#: wp-includes/js/dist/editor.js:20273
-#: wp-includes/js/dist/editor.js:25533
+#: wp-includes/js/dist/editor.js:5914
+#: wp-includes/js/dist/editor.js:47576
+#: wp-includes/js/dist/editor.js:47605
+#: wp-includes/js/dist/editor.js:47741
+#: wp-includes/js/dist/editor.js:55133
 msgid "Slug"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:4886
-#: wp-includes/js/dist/editor.js:4934
-#: wp-includes/js/dist/editor.js:4983
-#: wp-includes/js/dist/editor.js:6190
-#: wp-includes/js/dist/editor.js:12825
+#: wp-includes/js/dist/editor.js:5971
+#: wp-includes/js/dist/editor.js:6019
+#: wp-includes/js/dist/editor.js:6068
+#: wp-includes/js/dist/editor.js:10947
+#: wp-includes/js/dist/editor.js:40210
 msgid "Title"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:4887
-#: wp-includes/js/dist/editor.js:4935
-#: wp-includes/js/dist/editor.js:4949
-#: wp-includes/js/dist/editor.js:4984
-#: wp-includes/js/dist/editor.js:6128
-#: wp-includes/js/dist/editor.js:6191
-#: wp-includes/js/dist/editor.js:6195
-#: wp-includes/js/dist/editor.js:12610
-#: wp-includes/js/dist/editor.js:23726
-#: wp-includes/js/dist/editor.js:24017
+#: wp-includes/js/dist/editor.js:5972
+#: wp-includes/js/dist/editor.js:6020
+#: wp-includes/js/dist/editor.js:6034
+#: wp-includes/js/dist/editor.js:6069
+#: wp-includes/js/dist/editor.js:10882
+#: wp-includes/js/dist/editor.js:10948
+#: wp-includes/js/dist/editor.js:10952
+#: wp-includes/js/dist/editor.js:39994
+#: wp-includes/js/dist/editor.js:52422
+#: wp-includes/js/dist/editor.js:53024
 msgid "No title"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:4927
-#: wp-includes/js/dist/editor.js:12483
+#: wp-includes/js/dist/editor.js:6012
+#: wp-includes/js/dist/editor.js:38165
 msgid "Homepage"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:4927
-#: wp-includes/js/dist/editor.js:12485
+#: wp-includes/js/dist/editor.js:6012
+#: wp-includes/js/dist/editor.js:38167
 msgid "Posts Page"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:4948
-#: wp-includes/js/dist/editor.js:5302
-#: wp-includes/js/dist/editor.js:14485
-#: wp-includes/js/dist/editor.js:14505
-#: wp-includes/js/dist/editor.js:14562
-#: wp-includes/js/dist/editor.js:15122
+#: wp-includes/js/dist/editor.js:6033
+#: wp-includes/js/dist/editor.js:9970
+#: wp-includes/js/dist/editor.js:10022
+#: wp-includes/js/dist/editor.js:41857
+#: wp-includes/js/dist/editor.js:41876
+#: wp-includes/js/dist/editor.js:41933
+#: wp-includes/js/dist/editor.js:42500
 msgid "Template"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:4973
+#: wp-includes/js/dist/editor.js:6058
 msgid "This pattern cannot be edited."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:5076
-msgid "Choose an image…"
+#: wp-includes/js/dist/editor.js:9170
+msgid "Move left"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:5129
+#: wp-includes/js/dist/editor.js:9170
+msgid "Move up"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:9186
+msgid "Move right"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:9186
+msgid "Move down"
+msgstr ""
+
+#. translators: %s: The title of the media item.
+#: wp-includes/js/dist/editor.js:9261
+#, js-format
+msgid "Replace %s"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:9263
+#: wp-includes/js/dist/editor.js:9381
+#: wp-includes/js/dist/editor.js:43487
+msgid "Replace"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:9309
+#: wp-includes/js/dist/editor.js:9426
+#: wp-includes/js/dist/editor.js:34666
+#: wp-includes/js/dist/editor.js:36177
+#: wp-includes/js/dist/editor.js:43501
+msgid "Remove"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:9623
+msgid "Choose files"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:9623
+msgid "Choose file"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:9659
+msgid "Invalid"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:9822
 msgid "Featured Image"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:5257
-#: wp-includes/js/dist/editor.js:14920
-msgid "Change template"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:5268
-#: wp-includes/js/dist/editor.js:15006
-msgid "Use default template"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:5277
-#: wp-includes/js/dist/editor.js:14926
-msgid "Choose a template"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:5284
-#: wp-includes/js/dist/editor.js:14971
-#: wp-includes/js/dist/editor.js:24272
-msgid "Templates"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:5328
-#: wp-includes/js/dist/editor.js:13951
+#: wp-includes/js/dist/editor.js:10048
+#: wp-includes/js/dist/editor.js:41320
 msgid "no title"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:5483
-#: wp-includes/js/dist/editor.js:5562
-#: wp-includes/js/dist/editor.js:14068
-#: wp-includes/js/dist/editor.js:14126
-#: wp-includes/js/dist/editor.js:14138
+#: wp-includes/js/dist/editor.js:10205
+#: wp-includes/js/dist/editor.js:10284
+#: wp-includes/js/dist/editor.js:41437
+#: wp-includes/js/dist/editor.js:41495
+#: wp-includes/js/dist/editor.js:41507
 msgid "Parent"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:5484
-#: wp-includes/js/dist/editor.js:14069
+#: wp-includes/js/dist/editor.js:10206
+#: wp-includes/js/dist/editor.js:41438
 msgid "Choose a parent page."
 msgstr ""
 
 #. translators: %1$s The home URL of the WP installation without the scheme.
-#: wp-includes/js/dist/editor.js:5515
+#: wp-includes/js/dist/editor.js:10237
 #, js-format
 msgid "Child pages inherit characteristics from their parent, such as URL structure. For instance, if \"Pricing\" is a child of \"Services\", its URL would be %1$s<wbr />/services<wbr />/pricing."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:5555
-#: wp-includes/js/dist/editor.js:14091
+#: wp-includes/js/dist/editor.js:10277
+#: wp-includes/js/dist/editor.js:41460
 msgid "None"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:5603
-#: wp-includes/js/dist/editor.js:17073
-#: wp-includes/js/dist/editor.js:19243
+#: wp-includes/js/dist/editor.js:10324
+#: wp-includes/js/dist/editor.js:44567
+#: wp-includes/js/dist/editor.js:46709
 msgid "Password protected"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:5604
+#: wp-includes/js/dist/editor.js:10325
 msgid "Only visible to those who know the password"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:5612
-#: wp-includes/js/dist/editor.js:5634
-#: wp-includes/js/dist/editor.js:17130
-#: wp-includes/js/dist/editor.js:19256
+#: wp-includes/js/dist/editor.js:10333
+#: wp-includes/js/dist/editor.js:10354
+#: wp-includes/js/dist/editor.js:44625
+#: wp-includes/js/dist/editor.js:46722
 msgid "Password"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:5617
-#: wp-includes/js/dist/editor.js:17133
-#: wp-includes/js/dist/editor.js:19263
+#: wp-includes/js/dist/editor.js:10338
+#: wp-includes/js/dist/editor.js:44628
+#: wp-includes/js/dist/editor.js:46729
 msgid "Use a secure password"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:5655
-#: wp-includes/js/dist/editor.js:19059
-#: wp-includes/js/dist/editor.js:19060
-#: wp-includes/js/dist/editor.js:19068
+#: wp-includes/js/dist/editor.js:10374
+#: wp-includes/js/dist/editor.js:46532
+#: wp-includes/js/dist/editor.js:46533
+#: wp-includes/js/dist/editor.js:46541
 msgid "Draft"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:5657
-#: wp-includes/js/dist/editor.js:19070
+#: wp-includes/js/dist/editor.js:10376
+#: wp-includes/js/dist/editor.js:46543
 msgid "Not ready to publish."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:5661
-#: wp-includes/js/dist/editor.js:19063
-#: wp-includes/js/dist/editor.js:19083
+#: wp-includes/js/dist/editor.js:10380
+#: wp-includes/js/dist/editor.js:46536
+#: wp-includes/js/dist/editor.js:46556
 msgid "Scheduled"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:5663
-#: wp-includes/js/dist/editor.js:19085
+#: wp-includes/js/dist/editor.js:10382
+#: wp-includes/js/dist/editor.js:46558
 msgid "Publish automatically on a chosen date."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:5667
+#: wp-includes/js/dist/editor.js:10386
 msgid "Pending Review"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:5669
-#: wp-includes/js/dist/editor.js:19075
+#: wp-includes/js/dist/editor.js:10388
+#: wp-includes/js/dist/editor.js:46548
 msgid "Waiting for review before publishing."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:5673
-#: wp-includes/js/dist/editor.js:17068
-#: wp-includes/js/dist/editor.js:19062
-#: wp-includes/js/dist/editor.js:19078
+#: wp-includes/js/dist/editor.js:10392
+#: wp-includes/js/dist/editor.js:44562
+#: wp-includes/js/dist/editor.js:46535
+#: wp-includes/js/dist/editor.js:46551
 msgid "Private"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:5675
-#: wp-includes/js/dist/editor.js:17070
-#: wp-includes/js/dist/editor.js:19080
+#: wp-includes/js/dist/editor.js:10394
+#: wp-includes/js/dist/editor.js:44564
+#: wp-includes/js/dist/editor.js:46553
 msgid "Only visible to site admins and editors."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:5679
-#: wp-includes/js/dist/editor.js:19064
-#: wp-includes/js/dist/editor.js:19088
+#: wp-includes/js/dist/editor.js:10398
+#: wp-includes/js/dist/editor.js:46537
+#: wp-includes/js/dist/editor.js:46561
 msgid "Published"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:5681
-#: wp-includes/js/dist/editor.js:17065
-#: wp-includes/js/dist/editor.js:19090
+#: wp-includes/js/dist/editor.js:10400
+#: wp-includes/js/dist/editor.js:44559
+#: wp-includes/js/dist/editor.js:46563
 msgid "Visible to everyone."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:5683
-#: wp-includes/js/dist/editor.js:7170
+#: wp-includes/js/dist/editor.js:10402
 msgid "Trash"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:5702
-#: wp-includes/js/dist/editor.js:16243
-#: wp-includes/js/dist/editor.js:19174
-#: wp-includes/js/dist/editor.js:19219
+#: wp-includes/js/dist/editor.js:10422
+#: wp-includes/js/dist/editor.js:43639
+#: wp-includes/js/dist/editor.js:46641
+#: wp-includes/js/dist/editor.js:46686
 msgid "Status"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:5719
+#: wp-includes/js/dist/editor.js:10439
+#: wp-includes/js/dist/editor.js:38272
 msgid "Comments"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:5728
-#: wp-includes/js/dist/editor.js:5804
+#: wp-includes/js/dist/editor.js:10448
+#: wp-includes/js/dist/editor.js:10523
 msgid "Open"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:5729
-#: wp-includes/js/dist/editor.js:15474
+#: wp-includes/js/dist/editor.js:10449
+#: wp-includes/js/dist/editor.js:42870
 msgid "Visitors can add new comments and replies."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:5733
-#: wp-includes/js/dist/editor.js:5812
-#: wp-includes/js/dist/editor.js:15477
-#: wp-includes/js/dist/editor.js:15587
+#: wp-includes/js/dist/editor.js:10453
+#: wp-includes/js/dist/editor.js:10531
+#: wp-includes/js/dist/editor.js:42873
+#: wp-includes/js/dist/editor.js:42982
 msgid "Closed"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:5734
+#: wp-includes/js/dist/editor.js:10454
 msgid "Visitors cannot add new comments or replies. Existing comments remain visible."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:5761
-#: wp-includes/js/dist/editor.js:15535
+#: wp-includes/js/dist/editor.js:10480
+#: wp-includes/js/dist/editor.js:42929
 msgid "Enable pingbacks & trackbacks"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:5769
+#: wp-includes/js/dist/editor.js:10488
 msgid "Trackbacks & Pingbacks"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:5778
+#: wp-includes/js/dist/editor.js:10497
 msgid "Allow"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:5779
+#: wp-includes/js/dist/editor.js:10498
 msgid "Allow link notifications from other blogs (pingbacks and trackbacks) on new articles."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:5785
+#: wp-includes/js/dist/editor.js:10504
 msgid "Don't allow"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:5786
+#: wp-includes/js/dist/editor.js:10505
 msgid "Don't allow link notifications from other blogs (pingbacks and trackbacks) on new articles."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:5798
-#: wp-includes/js/dist/editor.js:15550
-#: wp-includes/js/dist/editor.js:15624
-#: wp-includes/js/dist/editor.js:24974
+#: wp-includes/js/dist/editor.js:10517
+#: wp-includes/js/dist/editor.js:42945
+#: wp-includes/js/dist/editor.js:43019
+#: wp-includes/js/dist/editor.js:54597
 msgid "Discussion"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:5807
-#: wp-includes/js/dist/editor.js:15582
+#: wp-includes/js/dist/editor.js:10526
+#: wp-includes/js/dist/editor.js:42977
 msgid "Comments only"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:5810
-#: wp-includes/js/dist/editor.js:15585
+#: wp-includes/js/dist/editor.js:10529
+#: wp-includes/js/dist/editor.js:42980
 msgid "Pings only"
 msgstr ""
 
 #. translators: %s: page creation or modification date.
-#: wp-includes/js/dist/editor.js:5838
-#: wp-includes/js/dist/editor.js:5881
+#: wp-includes/js/dist/editor.js:10557
+#: wp-includes/js/dist/editor.js:10600
 #, js-format
 msgid "<span>Modified: <time>%s</time></span>"
 msgstr ""
 
 #. translators: %s: page creation date
-#: wp-includes/js/dist/editor.js:5852
+#: wp-includes/js/dist/editor.js:10571
 #, js-format
 msgid "<span>Scheduled: <time>%s</time></span>"
 msgstr ""
 
 #. translators: %s: page creation time
-#: wp-includes/js/dist/editor.js:5866
+#: wp-includes/js/dist/editor.js:10585
 #, js-format
 msgid "<span>Published: <time>%s</time></span>"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:5898
+#: wp-includes/js/dist/editor.js:10617
 msgid "Date"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:5929
+#: wp-includes/js/dist/editor.js:10667
+#: wp-includes/js/dist/editor.js:12884
 msgid "Author avatar"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:5943
-#: wp-includes/js/dist/editor.js:15321
-#: wp-includes/js/dist/editor.js:15351
-#: wp-includes/js/dist/editor.js:15437
-#: wp-includes/js/dist/editor.js:15454
+#: wp-includes/js/dist/editor.js:10681
+#: wp-includes/js/dist/editor.js:12897
+#: wp-includes/js/dist/editor.js:42717
+#: wp-includes/js/dist/editor.js:42746
+#: wp-includes/js/dist/editor.js:42833
+#: wp-includes/js/dist/editor.js:42850
+#: wp-includes/js/dist/editor.js:53149
 msgid "Author"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:5975
+#: wp-includes/js/dist/editor.js:10717
+msgid "Notes"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:10728
 msgctxt "verb"
 msgid "View"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:6024
+#: wp-includes/js/dist/editor.js:10777
 msgid "Order updated."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:6030
+#: wp-includes/js/dist/editor.js:10783
 msgid "An error occurred while updating the order"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:6037
+#: wp-includes/js/dist/editor.js:10790
 msgid "Determines the order of pages. Pages with the same order value are sorted alphabetically. Negative order values are supported."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:6044
-#: wp-includes/js/dist/editor.js:6084
-#: wp-includes/js/dist/editor.js:13847
+#: wp-includes/js/dist/editor.js:10797
+#: wp-includes/js/dist/editor.js:10837
+#: wp-includes/js/dist/editor.js:41217
 msgid "Order"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:6065
-#: wp-includes/js/dist/editor.js:6206
-#: wp-includes/js/dist/editor.js:6306
-#: wp-includes/js/dist/editor.js:6523
-#: wp-includes/js/dist/editor.js:6946
-#: wp-includes/js/dist/editor.js:7211
-#: wp-includes/js/dist/editor.js:7443
-#: wp-includes/js/dist/editor.js:7796
-#: wp-includes/js/dist/editor.js:10985
-#: wp-includes/js/dist/editor.js:13490
-#: wp-includes/js/dist/editor.js:14307
-#: wp-includes/js/dist/editor.js:18922
-#: wp-includes/js/dist/editor.js:23272
-#: wp-includes/js/dist/editor.js:23398
+#: wp-includes/js/dist/editor.js:10818
+#: wp-includes/js/dist/editor.js:10963
+#: wp-includes/js/dist/editor.js:11065
+#: wp-includes/js/dist/editor.js:11285
+#: wp-includes/js/dist/editor.js:11708
+#: wp-includes/js/dist/editor.js:11976
+#: wp-includes/js/dist/editor.js:12208
+#: wp-includes/js/dist/editor.js:12561
+#: wp-includes/js/dist/editor.js:19148
+#: wp-includes/js/dist/editor.js:22861
+#: wp-includes/js/dist/editor.js:34629
+#: wp-includes/js/dist/editor.js:35049
+#: wp-includes/js/dist/editor.js:36144
+#: wp-includes/js/dist/editor.js:36380
+#: wp-includes/js/dist/editor.js:36450
+#: wp-includes/js/dist/editor.js:40859
+#: wp-includes/js/dist/editor.js:41676
+#: wp-includes/js/dist/editor.js:46398
+#: wp-includes/js/dist/editor.js:51945
+#: wp-includes/js/dist/editor.js:52071
 msgid "Cancel"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:6076
-#: wp-includes/js/dist/editor.js:6315
-#: wp-includes/js/dist/editor.js:13436
-#: wp-includes/js/dist/editor.js:16861
-#: wp-includes/js/dist/editor.js:19353
+#: wp-includes/js/dist/editor.js:10829
+#: wp-includes/js/dist/editor.js:11074
+#: wp-includes/js/dist/editor.js:35058
+#: wp-includes/js/dist/editor.js:36459
+#: wp-includes/js/dist/editor.js:40804
+#: wp-includes/js/dist/editor.js:44352
+#: wp-includes/js/dist/editor.js:44357
+#: wp-includes/js/dist/editor.js:46824
 msgid "Save"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:6103
-#: wp-includes/js/dist/editor.js:6217
-#: wp-includes/js/dist/editor.js:6557
-#: wp-includes/js/dist/editor.js:6571
-#: wp-includes/js/dist/editor.js:7819
-#: wp-includes/js/dist/editor.js:7857
+#: wp-includes/js/dist/editor.js:10856
+#: wp-includes/js/dist/editor.js:10974
+#: wp-includes/js/dist/editor.js:11319
+#: wp-includes/js/dist/editor.js:11333
+#: wp-includes/js/dist/editor.js:12585
+#: wp-includes/js/dist/editor.js:12623
 msgctxt "action label"
 msgid "Duplicate"
 msgstr ""
 
 #. translators: %s: Existing post title
-#: wp-includes/js/dist/editor.js:6113
+#: wp-includes/js/dist/editor.js:10866
 #, js-format
 msgctxt "post"
 msgid "%s (Copy)"
 msgstr ""
 
 #. translators: %s: Title of the created post, e.g: "Hello world".
-#: wp-includes/js/dist/editor.js:6163
+#: wp-includes/js/dist/editor.js:10917
 #, js-format
 msgid "\"%s\" successfully created."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:6176
+#: wp-includes/js/dist/editor.js:10930
 msgid "An error occurred while duplicating the page."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:6238
+#: wp-includes/js/dist/editor.js:10940
+msgid "You are about to duplicate a bundled template. Changes will not be live until you activate the new template."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:10995
+#: wp-includes/js/dist/editor.js:34868
+#: wp-includes/js/dist/editor.js:35012
+#: wp-includes/js/dist/editor.js:36421
+#: wp-includes/js/dist/editor.js:36662
 msgid "Rename"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:6275
+#: wp-includes/js/dist/editor.js:11035
 msgid "Name updated"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:6281
+#: wp-includes/js/dist/editor.js:11041
 msgid "An error occurred while updating the name"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:6291
-#: wp-includes/js/dist/editor.js:7708
-#: wp-includes/js/dist/editor.js:14289
-#: wp-includes/js/dist/editor.js:25528
+#: wp-includes/js/dist/editor.js:11050
+#: wp-includes/js/dist/editor.js:12473
+#: wp-includes/js/dist/editor.js:35029
+#: wp-includes/js/dist/editor.js:36439
+#: wp-includes/js/dist/editor.js:41658
+#: wp-includes/js/dist/editor.js:55128
 msgid "Name"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:6346
-#: wp-includes/js/dist/editor.js:11834
+#: wp-includes/js/dist/editor.js:11105
+#: wp-includes/js/dist/editor.js:37597
 msgid "This template is not revertable."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:6360
-#: wp-includes/js/dist/editor.js:6376
-#: wp-includes/js/dist/editor.js:11843
-#: wp-includes/js/dist/editor.js:11857
+#: wp-includes/js/dist/editor.js:11119
+#: wp-includes/js/dist/editor.js:11135
+#: wp-includes/js/dist/editor.js:37606
+#: wp-includes/js/dist/editor.js:37620
 msgid "The editor has encountered an unexpected error. Please reload."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:6431
-#: wp-includes/js/dist/editor.js:11908
+#: wp-includes/js/dist/editor.js:11190
+#: wp-includes/js/dist/editor.js:37671
 msgid "Template reset."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:6445
-#: wp-includes/js/dist/editor.js:11920
+#: wp-includes/js/dist/editor.js:11204
+#: wp-includes/js/dist/editor.js:37683
 msgid "Template revert failed. Please reload."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:6453
-#: wp-includes/js/dist/editor.js:6541
-#: wp-includes/js/dist/editor.js:13120
-#: wp-includes/js/dist/editor.js:24825
+#: wp-includes/js/dist/editor.js:11212
+#: wp-includes/js/dist/editor.js:11303
+#: wp-includes/js/dist/editor.js:34878
+#: wp-includes/js/dist/editor.js:36177
+#: wp-includes/js/dist/editor.js:40512
+#: wp-includes/js/dist/editor.js:54416
 msgid "Reset"
 msgstr ""
 
 #. translators: %d: The number of items.
-#: wp-includes/js/dist/editor.js:6480
+#: wp-includes/js/dist/editor.js:11242
 #, js-format
 msgid "%d items reset."
 msgstr ""
 
 #. translators: %s: The template/part's name.
-#: wp-includes/js/dist/editor.js:6484
-#: wp-includes/js/dist/editor.js:7458
-#: wp-includes/js/dist/editor.js:11950
+#: wp-includes/js/dist/editor.js:11246
+#: wp-includes/js/dist/editor.js:12223
+#: wp-includes/js/dist/editor.js:37713
 #, js-format
 msgid "\"%s\" reset."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:6495
+#: wp-includes/js/dist/editor.js:11257
 msgid "An error occurred while reverting the template."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:6497
+#: wp-includes/js/dist/editor.js:11259
 msgid "An error occurred while reverting the templates."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:6501
+#: wp-includes/js/dist/editor.js:11263
 msgid "An error occurred while reverting the template part."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:6503
+#: wp-includes/js/dist/editor.js:11265
 msgid "An error occurred while reverting the template parts."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:6513
+#: wp-includes/js/dist/editor.js:11275
 msgid "Reset to default and clear all customizations?"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:6559
+#: wp-includes/js/dist/editor.js:11321
 msgctxt "action label"
 msgid "Duplicate pattern"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:6826
+#: wp-includes/js/dist/editor.js:11588
 msgid "Export as JSON"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:6851
+#: wp-includes/js/dist/editor.js:11613
 msgid "patterns-export"
 msgstr ""
 
 #. translators: %d: number of revisions.
-#: wp-includes/js/dist/editor.js:6869
+#: wp-includes/js/dist/editor.js:11631
 #, js-format
 msgid "View revisions (%d)"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:6905
+#: wp-includes/js/dist/editor.js:11667
 msgid "Permanently delete"
 msgstr ""
 
 #. translators: %d: number of items to delete.
-#: wp-includes/js/dist/editor.js:6924
+#: wp-includes/js/dist/editor.js:11686
 #, js-format
 msgid "Are you sure you want to permanently delete %d item?"
 msgid_plural "Are you sure you want to permanently delete %d items?"
@@ -626,96 +706,103 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %s: The post's title
-#: wp-includes/js/dist/editor.js:6932
+#: wp-includes/js/dist/editor.js:11694
 #, js-format
 msgid "Are you sure you want to permanently delete \"%s\"?"
 msgstr ""
 
 #. translators: %s: The posts's title.
-#: wp-includes/js/dist/editor.js:6973
+#: wp-includes/js/dist/editor.js:11735
 #, js-format
 msgid "\"%s\" permanently deleted."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:6977
+#: wp-includes/js/dist/editor.js:11739
 msgid "The items were permanently deleted."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:6993
+#: wp-includes/js/dist/editor.js:11755
 msgid "An error occurred while permanently deleting the item."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:7011
+#: wp-includes/js/dist/editor.js:11773
 msgid "An error occurred while permanently deleting the items."
 msgstr ""
 
 #. translators: %s: an error message
-#: wp-includes/js/dist/editor.js:7017
+#: wp-includes/js/dist/editor.js:11779
 #, js-format
 msgid "An error occurred while permanently deleting the items: %s"
 msgstr ""
 
 #. translators: %s: a list of comma separated error messages
-#: wp-includes/js/dist/editor.js:7025
+#: wp-includes/js/dist/editor.js:11787
 #, js-format
 msgid "Some errors occurred while permanently deleting the items: %s"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:7043
+#: wp-includes/js/dist/editor.js:11805
 msgid "Delete permanently"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:7058
+#: wp-includes/js/dist/editor.js:11820
+#: wp-includes/js/dist/editor.js:50323
 msgid "Restore"
 msgstr ""
 
 #. translators: %s: The number of posts.
-#: wp-includes/js/dist/editor.js:7087
+#: wp-includes/js/dist/editor.js:11849
 #, js-format
 msgid "\"%s\" has been restored."
 msgstr ""
 
 #. translators: %d: The number of posts.
-#: wp-includes/js/dist/editor.js:7093
+#: wp-includes/js/dist/editor.js:11855
 #, js-format
 msgid "%d pages have been restored."
 msgstr ""
 
 #. translators: %d: The number of posts.
-#: wp-includes/js/dist/editor.js:7099
+#: wp-includes/js/dist/editor.js:11861
 #, js-format
 msgid "%d posts have been restored."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:7117
+#: wp-includes/js/dist/editor.js:11879
 msgid "An error occurred while restoring the post."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:7133
+#: wp-includes/js/dist/editor.js:11895
 msgid "An error occurred while restoring the posts."
 msgstr ""
 
 #. translators: %s: an error message
-#: wp-includes/js/dist/editor.js:7139
+#: wp-includes/js/dist/editor.js:11901
 #, js-format
 msgid "An error occurred while restoring the posts: %s"
 msgstr ""
 
 #. translators: %s: a list of comma separated error messages
-#: wp-includes/js/dist/editor.js:7145
+#: wp-includes/js/dist/editor.js:11907
 #, js-format
 msgid "Some errors occurred while restoring the posts: %s"
 msgstr ""
 
+#: wp-includes/js/dist/editor.js:11932
+#: wp-includes/js/dist/editor.js:12081
+msgctxt "verb"
+msgid "Trash"
+msgstr ""
+
 #. translators: %s: The item's title.
-#: wp-includes/js/dist/editor.js:7189
-#: wp-includes/js/dist/editor.js:20047
+#: wp-includes/js/dist/editor.js:11954
+#: wp-includes/js/dist/editor.js:47515
 #, js-format
 msgid "Are you sure you want to move \"%s\" to the trash?"
 msgstr ""
 
 #. translators: %d: The number of items (2 or more).
-#: wp-includes/js/dist/editor.js:7195
+#: wp-includes/js/dist/editor.js:11960
 #, js-format
 msgid "Are you sure you want to move %d item to the trash ?"
 msgid_plural "Are you sure you want to move %d items to the trash ?"
@@ -723,51 +810,52 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %s: The item's title.
-#: wp-includes/js/dist/editor.js:7239
+#: wp-includes/js/dist/editor.js:12004
 #, js-format
 msgid "\"%s\" moved to the trash."
 msgstr ""
 
 #. translators: %d: The number of items.
-#: wp-includes/js/dist/editor.js:7245
+#: wp-includes/js/dist/editor.js:12010
 #, js-format
 msgid "%d item moved to the trash."
 msgid_plural "%d items moved to the trash."
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-includes/js/dist/editor.js:7264
+#: wp-includes/js/dist/editor.js:12029
 msgid "An error occurred while moving the item to the trash."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:7282
+#: wp-includes/js/dist/editor.js:12047
 msgid "An error occurred while moving the items to the trash."
 msgstr ""
 
 #. translators: %s: an error message
-#: wp-includes/js/dist/editor.js:7288
+#: wp-includes/js/dist/editor.js:12053
 #, js-format
 msgid "An error occurred while moving the item to the trash: %s"
 msgstr ""
 
 #. translators: %s: a list of comma separated error messages
-#: wp-includes/js/dist/editor.js:7296
+#: wp-includes/js/dist/editor.js:12061
 #, js-format
 msgid "Some errors occurred while moving the items to the trash: %s"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:7316
-msgctxt "verb"
-msgid "Trash"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:7403
-#: wp-includes/js/dist/editor.js:7544
+#: wp-includes/js/dist/editor.js:12168
+#: wp-includes/js/dist/editor.js:12309
+#: wp-includes/js/dist/editor.js:22809
+#: wp-includes/js/dist/editor.js:22862
+#: wp-includes/js/dist/editor.js:34872
+#: wp-includes/js/dist/editor.js:34998
+#: wp-includes/js/dist/editor.js:36381
+#: wp-includes/js/dist/editor.js:36669
 msgid "Delete"
 msgstr ""
 
 #. translators: %d: number of items to delete.
-#: wp-includes/js/dist/editor.js:7423
+#: wp-includes/js/dist/editor.js:12188
 #, js-format
 msgid "Delete %d item?"
 msgid_plural "Delete %d items?"
@@ -775,1737 +863,3120 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %s: The template or template part's title
-#: wp-includes/js/dist/editor.js:7431
+#: wp-includes/js/dist/editor.js:12196
 #, js-format
 msgctxt "template part"
 msgid "Delete \"%s\"?"
 msgstr ""
 
 #. translators: %s: The template/part's name.
-#: wp-includes/js/dist/editor.js:7464
-#: wp-includes/js/dist/editor.js:11954
+#: wp-includes/js/dist/editor.js:12229
+#: wp-includes/js/dist/editor.js:37717
 #, js-format
 msgctxt "template part"
 msgid "\"%s\" deleted."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:7474
-#: wp-includes/js/dist/editor.js:11958
+#: wp-includes/js/dist/editor.js:12239
+#: wp-includes/js/dist/editor.js:37721
 msgid "Items reset."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:7474
-#: wp-includes/js/dist/editor.js:11958
+#: wp-includes/js/dist/editor.js:12239
+#: wp-includes/js/dist/editor.js:37721
 msgid "Items deleted."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:7484
-#: wp-includes/js/dist/editor.js:11970
+#: wp-includes/js/dist/editor.js:12249
+#: wp-includes/js/dist/editor.js:37733
 msgid "An error occurred while reverting the item."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:7486
-#: wp-includes/js/dist/editor.js:11970
+#: wp-includes/js/dist/editor.js:12251
+#: wp-includes/js/dist/editor.js:37733
 msgid "An error occurred while deleting the item."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:7492
+#: wp-includes/js/dist/editor.js:12257
 msgid "An error occurred while reverting the items."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:7494
-#: wp-includes/js/dist/editor.js:11983
+#: wp-includes/js/dist/editor.js:12259
+#: wp-includes/js/dist/editor.js:37746
 msgid "An error occurred while deleting the items."
 msgstr ""
 
 #. translators: %s: an error message
-#: wp-includes/js/dist/editor.js:7501
-#: wp-includes/js/dist/editor.js:11989
+#: wp-includes/js/dist/editor.js:12266
+#: wp-includes/js/dist/editor.js:37752
 #, js-format
 msgid "An error occurred while reverting the items: %s"
 msgstr ""
 
 #. translators: %s: an error message
-#: wp-includes/js/dist/editor.js:7507
-#: wp-includes/js/dist/editor.js:11995
+#: wp-includes/js/dist/editor.js:12272
+#: wp-includes/js/dist/editor.js:37758
 #, js-format
 msgid "An error occurred while deleting the items: %s"
 msgstr ""
 
 #. translators: %s: a list of comma separated error messages
-#: wp-includes/js/dist/editor.js:7515
-#: wp-includes/js/dist/editor.js:12003
+#: wp-includes/js/dist/editor.js:12280
+#: wp-includes/js/dist/editor.js:37766
 #, js-format
 msgid "Some errors occurred while reverting the items: %s"
 msgstr ""
 
 #. translators: %s: a list of comma separated error messages
-#: wp-includes/js/dist/editor.js:7523
-#: wp-includes/js/dist/editor.js:12009
+#: wp-includes/js/dist/editor.js:12288
+#: wp-includes/js/dist/editor.js:37772
 #, js-format
 msgid "Some errors occurred while deleting the items: %s"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:7645
-#: wp-includes/js/dist/editor.js:21152
+#: wp-includes/js/dist/editor.js:12411
+#: wp-includes/js/dist/editor.js:49013
 msgid "Add"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:7686
+#: wp-includes/js/dist/editor.js:12452
 msgid "An error occurred while creating the template part."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:7715
+#: wp-includes/js/dist/editor.js:12480
 msgid "Area"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:7821
+#: wp-includes/js/dist/editor.js:12587
 msgctxt "action label"
 msgid "Duplicate template part"
 msgstr ""
 
 #. translators: %s: The new template part's title e.g. 'Call to action (copy)'.
-#: wp-includes/js/dist/editor.js:7838
+#: wp-includes/js/dist/editor.js:12604
 #, js-format
 msgctxt "template part"
 msgid "\"%s\" duplicated."
 msgstr ""
 
 #. translators: %s: Existing template part title
-#: wp-includes/js/dist/editor.js:7852
+#: wp-includes/js/dist/editor.js:12618
 #, js-format
 msgctxt "template part"
 msgid "%s (Copy)"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:7963
+#: wp-includes/js/dist/editor.js:12639
+msgid "Alt text"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:12695
+msgid "(Unattached)"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:12794
+msgid "Search for a post or page to attach this media to or <button>detach current</button>."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:12808
+msgid "Search for a post or page to attach this media to."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:12815
+#: wp-includes/js/dist/editor.js:12833
+msgid "Attached to"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:12952
+#: wp-includes/js/dist/editor.js:14083
+msgid "Caption"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:12977
+msgid "Date added"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:12995
+#: wp-includes/js/dist/editor.js:43146
+#: wp-includes/js/dist/editor.js:43199
+#: wp-includes/js/dist/editor.js:55143
+msgid "Description"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:13041
+msgid "File name"
+msgstr ""
+
+#. translators: 1: Actual bytes of a file. 2: The unit symbol (e.g. MB).
+#: wp-includes/js/dist/editor.js:13063
+#, js-format
+msgctxt "file size"
+msgid "%1$s %2$s"
+msgstr ""
+
+#. translators: Unit symbol for byte.
+#: wp-includes/js/dist/editor.js:13073
+#: wp-includes/js/dist/editor.js:13093
+msgctxt "unit symbol"
+msgid "B"
+msgstr ""
+
+#. translators: Unit symbol for yottabyte.
+#: wp-includes/js/dist/editor.js:13077
+msgctxt "unit symbol"
+msgid "YB"
+msgstr ""
+
+#. translators: Unit symbol for zettabyte.
+#: wp-includes/js/dist/editor.js:13079
+msgctxt "unit symbol"
+msgid "ZB"
+msgstr ""
+
+#. translators: Unit symbol for exabyte.
+#: wp-includes/js/dist/editor.js:13081
+msgctxt "unit symbol"
+msgid "EB"
+msgstr ""
+
+#. translators: Unit symbol for petabyte.
+#: wp-includes/js/dist/editor.js:13083
+msgctxt "unit symbol"
+msgid "PB"
+msgstr ""
+
+#. translators: Unit symbol for terabyte.
+#: wp-includes/js/dist/editor.js:13085
+msgctxt "unit symbol"
+msgid "TB"
+msgstr ""
+
+#. translators: Unit symbol for gigabyte.
+#: wp-includes/js/dist/editor.js:13087
+msgctxt "unit symbol"
+msgid "GB"
+msgstr ""
+
+#. translators: Unit symbol for megabyte.
+#: wp-includes/js/dist/editor.js:13089
+msgctxt "unit symbol"
+msgid "MB"
+msgstr ""
+
+#. translators: Unit symbol for kilobyte.
+#: wp-includes/js/dist/editor.js:13091
+msgctxt "unit symbol"
+msgid "KB"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:13105
+msgid "File size"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:13121
+msgid "Dimensions"
+msgstr ""
+
+#. translators: 1: Width. 2: Height.
+#: wp-includes/js/dist/editor.js:13124
+#, js-format
+msgctxt "image dimensions"
+msgid "%1$s × %2$s"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:13142
+msgid "File type"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:13247
 msgid "Images"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:7964
+#: wp-includes/js/dist/editor.js:13248
 msgid "Search images"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:7974
+#: wp-includes/js/dist/editor.js:13258
 msgid "Videos"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:7975
+#: wp-includes/js/dist/editor.js:13259
 msgid "Search videos"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:7985
-#: wp-includes/js/dist/editor.js:16236
+#: wp-includes/js/dist/editor.js:13269
+#: wp-includes/js/dist/editor.js:43632
 msgid "Audio"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:7986
+#: wp-includes/js/dist/editor.js:13270
 msgid "Search audio"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:8513
+#: wp-includes/js/dist/editor.js:14085
+msgid "Button"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:14086
+msgid "Heading"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:14087
+#: wp-includes/js/dist/editor.js:34027
+msgid "H1"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:14088
+#: wp-includes/js/dist/editor.js:34036
+msgid "H2"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:14089
+#: wp-includes/js/dist/editor.js:34045
+msgid "H3"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:14090
+#: wp-includes/js/dist/editor.js:34054
+msgid "H4"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:14091
+#: wp-includes/js/dist/editor.js:34063
+msgid "H5"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:14092
+#: wp-includes/js/dist/editor.js:34072
+msgid "H6"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:14093
+#: wp-includes/js/dist/editor.js:34538
+msgid "Color"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:14094
+#: wp-includes/js/dist/editor.js:14100
+#: wp-includes/js/dist/editor.js:20159
+#: wp-includes/js/dist/editor.js:33853
+#: wp-includes/js/dist/editor.js:35527
+#: wp-includes/js/dist/editor.js:38721
+msgid "Typography"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:14095
+msgid "Shadow"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:14096
+#: wp-includes/js/dist/editor.js:20173
+#: wp-includes/js/dist/editor.js:35412
+msgid "Layout"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:14097
+#: wp-includes/js/dist/editor.js:20162
+#: wp-includes/js/dist/editor.js:34198
+#: wp-includes/js/dist/editor.js:38306
+#: wp-includes/js/dist/editor.js:38365
+#: wp-includes/js/dist/editor.js:38660
+msgid "Colors"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:14098
+msgid "Spacing"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:14099
+#: wp-includes/js/dist/editor.js:20169
+#: wp-includes/js/dist/editor.js:34593
+msgid "Background"
+msgstr ""
+
+#. translators: Used between list items, there is a space after the comma.
+#: wp-includes/js/dist/editor.js:14217
+msgid ", "
+msgstr ""
+
+#. translators: %s: a list of block names separated by a comma.
+#: wp-includes/js/dist/editor.js:14224
+#, js-format
+msgid "%s block."
+msgid_plural "%s blocks."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %s: a list of element names separated by a comma.
+#: wp-includes/js/dist/editor.js:14231
+#, js-format
+msgid "%s element."
+msgid_plural "%s elements."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %s: a list of theme.json setting labels separated by a comma.
+#: wp-includes/js/dist/editor.js:14238
+#, js-format
+msgid "%s settings."
+msgstr ""
+
+#. translators: %s: a list of theme.json top-level styles labels separated by a comma.
+#: wp-includes/js/dist/editor.js:14245
+#, js-format
+msgid "%s styles."
+msgstr ""
+
+#. translators: %s: a list of global styles changes separated by a comma.
+#: wp-includes/js/dist/editor.js:14252
+#, js-format
+msgid "%s."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:16104
 msgid "You do not have permission to create Pages."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:9393
+#. translators: %d: number of formats added
+#: wp-includes/js/dist/editor.js:16679
+#: wp-includes/js/dist/editor.js:16699
+#, js-format
+msgid "%d format added"
+msgid_plural "%d formats added"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %d: number of formats removed
+#: wp-includes/js/dist/editor.js:16689
+#: wp-includes/js/dist/editor.js:16708
+#, js-format
+msgid "%d format removed"
+msgid_plural "%d formats removed"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %d: number of formats changed
+#: wp-includes/js/dist/editor.js:16717
+#, js-format
+msgid "%d format changed"
+msgid_plural "%d formats changed"
+msgstr[0] ""
+msgstr[1] ""
+
+#: wp-includes/js/dist/editor.js:16724
+msgid "Formatting changed"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:16745
+#: wp-includes/js/dist/editor.js:51190
+msgid "Removed"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:16762
+#: wp-includes/js/dist/editor.js:51196
+msgid "Added"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:17606
 msgid "Close plugin"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:9528
+#: wp-includes/js/dist/editor.js:17741
 msgid "Unpin from toolbar"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:9528
+#: wp-includes/js/dist/editor.js:17741
 msgid "Pin to toolbar"
 msgstr ""
 
 #. translators: accessibility text for the top bar landmark region.
-#: wp-includes/js/dist/editor.js:9678
+#: wp-includes/js/dist/editor.js:17889
 msgctxt "header landmark area"
 msgid "Header"
 msgstr ""
 
 #. translators: accessibility text for the content landmark region.
-#: wp-includes/js/dist/editor.js:9680
-#: wp-includes/js/dist/editor.js:24424
-#: wp-includes/js/dist/editor.js:24464
+#: wp-includes/js/dist/editor.js:17891
+#: wp-includes/js/dist/editor.js:53559
+#: wp-includes/js/dist/editor.js:53614
 msgid "Content"
 msgstr ""
 
 #. translators: accessibility text for the secondary sidebar landmark region.
-#: wp-includes/js/dist/editor.js:9682
-#: wp-includes/js/dist/editor.js:23051
+#: wp-includes/js/dist/editor.js:17893
+#: wp-includes/js/dist/editor.js:52636
 msgid "Block Library"
 msgstr ""
 
 #. translators: accessibility text for the settings landmark region.
-#: wp-includes/js/dist/editor.js:9684
+#: wp-includes/js/dist/editor.js:17895
 msgctxt "settings landmark area"
 msgid "Settings"
 msgstr ""
 
 #. translators: accessibility text for the publish landmark region.
-#: wp-includes/js/dist/editor.js:9686
-#: wp-includes/js/dist/editor.js:16858
-#: wp-includes/js/dist/editor.js:16866
-#: wp-includes/js/dist/editor.js:19442
+#: wp-includes/js/dist/editor.js:17897
+#: wp-includes/js/dist/editor.js:44354
+#: wp-includes/js/dist/editor.js:44362
+#: wp-includes/js/dist/editor.js:46907
 msgid "Publish"
 msgstr ""
 
 #. translators: accessibility text for the footer landmark region.
-#: wp-includes/js/dist/editor.js:9688
+#: wp-includes/js/dist/editor.js:17899
 msgid "Footer"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:9918
-#: wp-includes/js/dist/editor.js:10672
-#: wp-includes/js/dist/editor.js:21462
+#: wp-includes/js/dist/editor.js:18141
+#: wp-includes/js/dist/editor.js:18986
+#: wp-includes/js/dist/editor.js:49388
 msgid "Keyboard shortcuts"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:9927
+#: wp-includes/js/dist/editor.js:18151
 msgid "Exit Distraction free"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:9927
+#: wp-includes/js/dist/editor.js:18151
 msgid "Enter Distraction free"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:9935
+#: wp-includes/js/dist/editor.js:18160
 msgid "Editor preferences"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:9943
+#: wp-includes/js/dist/editor.js:18169
 msgid "Exit Spotlight mode"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:9943
+#: wp-includes/js/dist/editor.js:18169
 msgid "Enter Spotlight mode"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:9951
+#: wp-includes/js/dist/editor.js:18178
 msgid "Close List View"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:9951
+#: wp-includes/js/dist/editor.js:18178
 msgid "Open List View"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:9957
+#: wp-includes/js/dist/editor.js:18185
 msgid "List View off."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:9957
+#: wp-includes/js/dist/editor.js:18185
 msgid "List View on."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:9967
-#: wp-includes/js/dist/editor.js:21396
-#: wp-includes/js/dist/editor.js:25034
+#: wp-includes/js/dist/editor.js:18195
+#: wp-includes/js/dist/editor.js:49322
+#: wp-includes/js/dist/editor.js:54657
 msgid "Top toolbar"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:9976
+#: wp-includes/js/dist/editor.js:18205
 msgid "Open code editor"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:9976
-#: wp-includes/js/dist/editor.js:22310
+#: wp-includes/js/dist/editor.js:18205
+#: wp-includes/js/dist/editor.js:51591
 msgid "Exit code editor"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:9988
+#: wp-includes/js/dist/editor.js:18218
 msgid "Hide block breadcrumbs"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:9988
-#: wp-includes/js/dist/editor.js:24902
+#: wp-includes/js/dist/editor.js:18218
+#: wp-includes/js/dist/editor.js:54497
 msgid "Show block breadcrumbs"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:9993
+#: wp-includes/js/dist/editor.js:18224
 msgid "Breadcrumbs hidden."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:9993
+#: wp-includes/js/dist/editor.js:18224
 msgid "Breadcrumbs visible."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:10003
+#: wp-includes/js/dist/editor.js:18234
 msgid "Show or hide the Settings panel"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:10017
+#: wp-includes/js/dist/editor.js:18249
 msgid "Show or hide the Block settings panel"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:10031
+#: wp-includes/js/dist/editor.js:18264
 msgid "Disable pre-publish checks"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:10031
-#: wp-includes/js/dist/editor.js:25000
+#: wp-includes/js/dist/editor.js:18264
+#: wp-includes/js/dist/editor.js:54623
 msgid "Enable pre-publish checks"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:10037
+#: wp-includes/js/dist/editor.js:18271
 msgid "Pre-publish checks disabled."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:10037
+#: wp-includes/js/dist/editor.js:18271
 msgid "Pre-publish checks enabled."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:10048
+#: wp-includes/js/dist/editor.js:18282
 msgid "Preview in a new tab"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:10075
+#: wp-includes/js/dist/editor.js:18310
 msgid "Rename pattern"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:10084
+#: wp-includes/js/dist/editor.js:18320
 msgid "Duplicate pattern"
 msgstr ""
 
 #. translators: %s: template title
-#: wp-includes/js/dist/editor.js:10125
+#: wp-includes/js/dist/editor.js:18374
 #, js-format
 msgid "Edit template: %s"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:10141
-#: wp-includes/js/dist/editor.js:11737
-#: wp-includes/js/dist/editor.js:14530
-#: wp-includes/js/dist/editor.js:15108
+#: wp-includes/js/dist/editor.js:18391
+#: wp-includes/js/dist/editor.js:37491
+#: wp-includes/js/dist/editor.js:41901
+#: wp-includes/js/dist/editor.js:42486
 msgid "Go back"
 msgstr ""
 
 #. translators: %s: template title
-#: wp-includes/js/dist/editor.js:10174
+#: wp-includes/js/dist/editor.js:18425
 #, js-format
 msgid "Reset template: %s"
 msgstr ""
 
 #. translators: %s: template part title
-#: wp-includes/js/dist/editor.js:10178
+#: wp-includes/js/dist/editor.js:18429
 #, js-format
 msgid "Reset template part: %s"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:10239
+#: wp-includes/js/dist/editor.js:18539
+msgid "This block displays the content of posts and pages using this template."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:18542
+msgid "If you delete it, posts or pages using this template will not display any content."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:18545
+msgid "Visitors will see blank pages."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:18553
 msgid "Deleting this block will stop your post or page content from displaying on this template. It is not recommended."
 msgid_plural "Some of the deleted blocks will stop your post or page content from displaying on this template. It is not recommended."
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-includes/js/dist/editor.js:10258
+#: wp-includes/js/dist/editor.js:18572
 msgid "The deleted block allows instance overrides. Removing it may result in content not displaying where this pattern is used. Are you sure you want to proceed?"
 msgid_plural "Some of the deleted blocks allow instance overrides. Removing them may result in content not displaying where this pattern is used. Are you sure you want to proceed?"
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-includes/js/dist/editor.js:10361
-#: wp-includes/js/dist/editor.js:10984
+#: wp-includes/js/dist/editor.js:18675
+#: wp-includes/js/dist/editor.js:19147
 msgid "Choose a pattern"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:10383
+#: wp-includes/js/dist/editor.js:18696
 msgid "Always show starter patterns for new pages"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:10444
+#: wp-includes/js/dist/editor.js:18757
 msgid "Make the selected text bold."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:10448
+#: wp-includes/js/dist/editor.js:18761
 msgid "Make the selected text italic."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:10452
+#: wp-includes/js/dist/editor.js:18765
 msgid "Convert the selected text into a link."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:10456
+#: wp-includes/js/dist/editor.js:18769
 msgid "Remove a link."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:10460
+#: wp-includes/js/dist/editor.js:18773
 msgid "Insert a link to a post or page."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:10464
+#: wp-includes/js/dist/editor.js:18777
 msgid "Underline the selected text."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:10468
+#: wp-includes/js/dist/editor.js:18781
 msgid "Strikethrough the selected text."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:10472
+#: wp-includes/js/dist/editor.js:18785
 msgid "Make the selected text inline code."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:10485
+#: wp-includes/js/dist/editor.js:18798
 msgid "Convert the current heading to a paragraph."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:10489
+#: wp-includes/js/dist/editor.js:18802
 msgid "Convert the current paragraph or heading to a heading of level 1 to 6."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:10495
+#: wp-includes/js/dist/editor.js:18808
 msgid "Add non breaking space."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:10673
-#: wp-includes/js/dist/editor.js:21152
-#: wp-includes/js/dist/editor.js:22179
+#: wp-includes/js/dist/editor.js:18987
+#: wp-includes/js/dist/editor.js:39776
+#: wp-includes/js/dist/editor.js:49013
+#: wp-includes/js/dist/editor.js:50072
+#: wp-includes/js/dist/editor.js:52478
 msgid "Close"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:10686
+#: wp-includes/js/dist/editor.js:19000
 msgid "Global shortcuts"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:10693
+#: wp-includes/js/dist/editor.js:19007
 msgid "Selection shortcuts"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:10700
+#: wp-includes/js/dist/editor.js:19014
 msgid "Block shortcuts"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:10705
+#: wp-includes/js/dist/editor.js:19019
 msgid "Change the block type after adding a new paragraph."
 msgstr ""
 
 #. translators: The forward-slash character. e.g. '/'.
-#: wp-includes/js/dist/editor.js:10709
+#: wp-includes/js/dist/editor.js:19023
 msgid "Forward-slash"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:10717
+#: wp-includes/js/dist/editor.js:19031
 msgid "Text formatting"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:10724
+#: wp-includes/js/dist/editor.js:19038
 msgid "List View shortcuts"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:10798
-msgid "Edit the pattern to move, delete, or make further changes to this block."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:10800
-msgid "Edit the template to move, delete, or make further changes to this block."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:10804
-msgid "Only users with permissions to edit the template can move or delete this block"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:10819
-msgid "Edit pattern"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:10819
-#: wp-includes/js/dist/editor.js:14537
-#: wp-includes/js/dist/editor.js:15148
-#: wp-includes/js/dist/editor.js:22379
-msgid "Edit template"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:10859
-msgctxt "Unlock content locked blocks"
-msgid "Unlock"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:10868
-msgid "Temporarily unlock the parent block to edit, delete or make further changes to this block."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:10944
+#: wp-includes/js/dist/editor.js:19107
 msgid "Fallback content"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:11014
+#: wp-includes/js/dist/editor.js:19177
 msgid "Skip"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:11176
+#. translators: %s: template part title, e.g. "Header"
+#: wp-includes/js/dist/editor.js:19353
+#, js-format
+msgid "Detach %s?"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:19355
+msgid "Detach template part?"
+msgstr ""
+
+#. translators: %s: template part title, e.g. "Header"
+#: wp-includes/js/dist/editor.js:19358
+#, js-format
+msgid "The blocks will be separated from the original template part and will be fully editable. Future changes to the %s template part will not apply here."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:19362
+msgid "The blocks will be separated from the original template part and will be fully editable. Future changes to the template part will not apply here."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:19366
+#: wp-includes/js/dist/editor.js:19376
 msgid "Detach"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:11214
+#: wp-includes/js/dist/editor.js:19419
 msgid "Template part created."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:11228
+#: wp-includes/js/dist/editor.js:19433
 msgid "Create template part"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:11435
+#: wp-includes/js/dist/editor.js:19669
 msgid "There is an autosave of this post that is more recent than the version below."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:11442
+#: wp-includes/js/dist/editor.js:19676
 msgid "View the autosave"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:11546
-msgid "Empty content"
+#: wp-includes/js/dist/editor.js:20071
+#: wp-includes/js/dist/editor.js:20089
+#: wp-includes/js/dist/editor.js:34393
+#: wp-includes/js/dist/editor.js:34486
+#: wp-includes/js/dist/editor.js:34690
+#: wp-includes/js/dist/editor.js:35455
+#: wp-includes/js/dist/editor.js:36300
+msgid "Default"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:11586
-msgid "Content preview"
+#: wp-includes/js/dist/editor.js:20168
+msgid "Background styles"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:11732
-msgid "Custom template created. You're in template mode now."
+#: wp-includes/js/dist/editor.js:20172
+#: wp-includes/js/dist/editor.js:34675
+#: wp-includes/js/dist/editor.js:35108
+msgid "Shadows"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:11810
-#: wp-includes/js/dist/editor.js:11826
-msgid "Saving failed."
+#: wp-includes/js/dist/editor.js:20349
+msgctxt "Uppercase letter A"
+msgid "A"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:11812
-msgid "Site updated."
+#: wp-includes/js/dist/editor.js:20350
+msgctxt "Lowercase letter A"
+msgid "a"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:11817
-#: wp-includes/js/dist/editor.js:21692
-msgid "View site"
+#: wp-includes/js/dist/editor.js:20668
+#: wp-includes/js/dist/editor.js:35538
+msgid "Browse styles"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:12577
+#: wp-includes/js/dist/editor.js:20687
+msgid "Customize the appearance of specific blocks for the whole site."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:20693
+#: wp-includes/js/dist/editor.js:20889
+#: wp-includes/js/dist/editor.js:47935
+#: wp-includes/js/dist/editor.js:54743
+msgid "Blocks"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:20773
+#: wp-includes/js/dist/editor.js:22729
+#: wp-includes/js/dist/editor.js:23257
+#: wp-includes/js/dist/editor.js:39961
 msgid "Back"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:12587
-msgid "Document not found"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:12693
-msgid "(Empty heading)"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:12696
-msgid "(Incorrect heading level)"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:12700
-msgid "(Your theme may already use a H1 for the post title)"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:12704
-msgid "(Multiple H1 headings are not recommended)"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:12803
-msgid "Navigate the structure of your document and address issues like empty or incorrect heading levels."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:12893
-msgid "Switch between visual editor and code editor."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:12902
-msgid "Save your changes."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:12911
-msgid "Undo your last changes."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:12920
-msgid "Redo your last undo."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:12939
-msgid "Show or hide the List View."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:12948
-msgid "Enter or exit distraction free mode."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:12957
-msgid "Show or hide the Settings panel."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:12966
-msgid "Display these keyboard shortcuts."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:12975
-msgid "Navigate to the next part of the editor."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:12990
-msgid "Navigate to the previous part of the editor."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:13032
-msgid "Redo"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:13103
-msgid "Keep it as is"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:13107
-msgid "Reset the template"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:13111
-msgid "The content of your post doesn’t match the template assigned to your post type."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:13127
-msgid "Resetting the template may result in loss of content, do you want to continue?"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:13253
-msgid "Untitled"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:13259
-msgid "Post Meta."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:13270
-msgid "This change will affect your whole site."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:13270
-msgid "These changes will affect your whole site."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:13272
-msgid "This change will affect other parts of your site that use this template."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:13277
-msgid "The following has been modified."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:13322
-msgid "Template Part"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:13322
-msgid "Template Parts"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:13479
-msgid "Select the items you want to save."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:13533
-msgid "Are you ready to save?"
-msgstr ""
-
-#. translators: %d: number of site changes waiting to be saved.
-#: wp-includes/js/dist/editor.js:13541
-#, js-format
-msgid "There is <strong>%d site change</strong> waiting to be saved."
-msgid_plural "There are <strong>%d site changes</strong> waiting to be saved."
-msgstr[0] ""
-msgstr[1] ""
-
-#: wp-includes/js/dist/editor.js:13624
-msgid "The editor has encountered an unexpected error."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:13626
-msgid "Copy contents"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:13627
-msgid "Copy error"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:13697
-msgid "The backup of this post in your browser is different from the version below."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:13704
-msgid "Restore the backup"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:13848
-msgid "Set the page order."
-msgstr ""
-
-#. translators: %s: Current post parent.
-#: wp-includes/js/dist/editor.js:14103
-#, js-format
-msgid "Change parent: %s"
-msgstr ""
-
-#. translators: %s: The home URL of the Retraceur installation without the scheme.
-#: wp-includes/js/dist/editor.js:14145
-#, js-format
-msgid "Child pages inherit characteristics from their parent, such as URL structure. For instance, if \"Pricing\" is a child of \"Services\", its URL would be %s<wbr />/services<wbr />/pricing."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:14201
-msgid "Custom Template"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:14273
-msgid "Create custom template"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:14294
-msgid "Describe the template, e.g. \"Post with sidebar\". A custom template can be manually applied to any post or page."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:14318
-msgid "Create"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:14423
-#: wp-includes/js/dist/editor.js:15132
-msgid "Template options"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:14425
-msgid "Default template"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:14486
-msgid "Templates define the way content is displayed when viewing your site."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:14492
-msgid "Add template"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:14499
-msgid "The posts page template cannot be changed."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:14523
-#: wp-includes/js/dist/editor.js:15115
-msgid "Editing template. Changes made here affect all posts and pages that use the template."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:14963
-#: wp-includes/js/dist/editor.js:14964
-msgid "Search"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:15040
-msgid "Create new template"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:15166
-#: wp-includes/js/dist/editor.js:21713
-msgid "Show template"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:15296
-#: wp-includes/js/dist/editor.js:15407
-msgid "(No author)"
-msgstr ""
-
-#. translators: %s: Author name.
-#: wp-includes/js/dist/editor.js:15417
-#, js-format
-msgid "Change author: %s"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:15472
-#: wp-includes/js/dist/editor.js:15580
-#: wp-includes/js/dist/editor.js:15582
-msgctxt "Adjective: e.g. \"Comments are open\""
-msgid "Open"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:15480
-msgid "Visitors cannot add new comments or replies."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:15481
-msgid "Existing comments remain visible."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:15499
-msgid "Comment status"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:15585
-msgid "Pings enabled"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:15595
-msgid "Change discussion options"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:15682
-msgid "Write a description (optional)"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:15682
-msgid "Write an excerpt (optional)"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:15752
-#: wp-includes/js/dist/editor.js:15801
-#: wp-includes/js/dist/editor.js:25543
-msgid "Description"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:15752
-#: wp-includes/js/dist/editor.js:15801
-#: wp-includes/js/dist/editor.js:24963
-msgid "Excerpt"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:15822
-msgid "Add a description…"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:15822
-msgid "Add an excerpt…"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:15823
-msgid "Edit description"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:15823
-msgid "Edit excerpt"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:15913
-#: wp-includes/js/dist/editor.js:16203
-#: wp-includes/js/dist/editor.js:24956
-msgid "Featured image"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:15914
-msgid "Add a featured image"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:15915
-msgid "To edit the featured image, you need permission to upload media."
-msgstr ""
-
-#. Translators: %s: The selected image alt text.
-#: wp-includes/js/dist/editor.js:15994
-#, js-format
-msgid "Current image: %s"
-msgstr ""
-
-#. Translators: %s: The selected image filename.
-#: wp-includes/js/dist/editor.js:16000
-#, js-format
-msgid "The current image has no alternative text. The file name is: %s"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:16038
-msgid "Could not retrieve the featured image data."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:16049
-msgid "Edit or replace the featured image"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:16091
-msgid "Replace"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:16105
-msgid "Remove"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:16235
-msgid "Aside"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:16237
-msgid "Chat"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:16238
-msgid "Gallery"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:16239
-msgid "Image"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:16241
-msgid "Quote"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:16242
-msgid "Standard"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:16244
-msgid "Video"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:16285
-msgid "Post Format"
-msgstr ""
-
-#. translators: %s: post format
-#: wp-includes/js/dist/editor.js:16304
-#, js-format
-msgid "Apply suggested format: %s"
-msgstr ""
-
-#. translators: %s: number of revisions.
-#: wp-includes/js/dist/editor.js:16361
-#, js-format
-msgid "Revisions (%s)"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:16369
-msgid "Revisions"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:16511
-msgid "Exit editor"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:16515
-msgid "Someone else has taken over this post"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:16515
-msgid "This post is already being edited"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:16527
-msgid "Avatar"
-msgstr ""
-
-#. translators: %s: user's display name
-#: wp-includes/js/dist/editor.js:16537
-#, js-format
-msgid "<strong>%s</strong> now has editing control of this post (<PreviewLink />). Don’t worry, your changes up to this moment have been saved."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:16541
-msgid "Another user now has editing control of this post (<PreviewLink />). Don’t worry, your changes up to this moment have been saved."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:16546
-#: wp-includes/js/dist/editor.js:16562
-msgid "preview"
-msgstr ""
-
-#. translators: %s: user's display name
-#: wp-includes/js/dist/editor.js:16553
-#, js-format
-msgid "<strong>%s</strong> is currently working on this post (<PreviewLink />), which means you cannot make changes, unless you take over."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:16557
-msgid "Another user is currently working on this post (<PreviewLink />), which means you cannot make changes, unless you take over."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:16565
-msgid "If you take over, the other user will lose editing control to the post, but their changes will be saved."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:16581
-msgid "Take over"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:16641
-msgid "Pending review"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:16678
-#: wp-includes/js/dist/editor.js:16737
-msgid "Generating preview…"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:16793
-msgctxt "imperative verb"
-msgid "Preview"
-msgstr ""
-
-#. translators: accessibility text
-#: wp-includes/js/dist/editor.js:16797
-#: wp-includes/js/dist/editor.js:18832
-#: wp-includes/js/dist/editor.js:21696
-msgid "(opens in a new tab)"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:16853
-msgid "Publishing…"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:16855
-msgid "Saving…"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:16858
-msgid "Submit for Review"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:16864
-msgid "Schedule"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:17063
-msgid "Public"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:17075
-#: wp-includes/js/dist/editor.js:19246
-msgid "Only visible to those who know the password."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:17111
-#: wp-includes/js/dist/editor.js:17120
-msgid "Visibility"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:17112
-msgid "Control how this post is viewed."
-msgstr ""
-
-#. translators: Order of day, month, and year. Available formats are 'dmy', 'mdy', and 'ymd'.
-#: wp-includes/js/dist/editor.js:17448
-msgctxt "date order"
-msgid "dmy"
-msgstr ""
-
-#. translators: Use a non-breaking space between 'g:i' and 'a' if appropriate.
-#: wp-includes/js/dist/editor.js:17481
-#: wp-includes/js/dist/editor.js:17521
-msgctxt "post schedule full date format"
-msgid "F j, Y g:i a"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:17488
-msgid "Immediately"
-msgstr ""
-
-#. translators: %s: Time of day the post is scheduled for.
-#: wp-includes/js/dist/editor.js:17497
-#, js-format
-msgid "Today at %s"
-msgstr ""
-
-#. translators: If using a space between 'g:i' and 'a', use a non-breaking space.
-#: wp-includes/js/dist/editor.js:17499
-#: wp-includes/js/dist/editor.js:17509
-msgctxt "post schedule time format"
-msgid "g:i a"
-msgstr ""
-
-#. translators: %s: Time of day the post is scheduled for.
-#: wp-includes/js/dist/editor.js:17507
-#, js-format
-msgid "Tomorrow at %s"
-msgstr ""
-
-#. translators: If using a space between 'g:i' and 'a', use a non-breaking space.
-#: wp-includes/js/dist/editor.js:17515
-msgctxt "post schedule date format without year"
-msgid "F j g:i a"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:17782
-#: wp-includes/js/dist/editor.js:17792
-msgid "Tag"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:17782
-#: wp-includes/js/dist/editor.js:17792
-#: wp-includes/js/dist/editor.js:18137
-msgid "Term"
-msgstr ""
-
-#. translators: %s: term name.
-#: wp-includes/js/dist/editor.js:17785
-#: wp-includes/js/dist/editor.js:17795
-#: wp-includes/js/dist/editor.js:18140
-#, js-format
-msgctxt "term"
-msgid "%s added"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:17791
-msgid "Add Tag"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:17791
-#: wp-includes/js/dist/editor.js:18201
-#: wp-includes/js/dist/editor.js:18206
-msgid "Add Term"
-msgstr ""
-
-#. translators: %s: term name.
-#: wp-includes/js/dist/editor.js:17800
-#, js-format
-msgctxt "term"
-msgid "%s removed"
-msgstr ""
-
-#. translators: %s: term name.
-#: wp-includes/js/dist/editor.js:17805
-#, js-format
-msgctxt "term"
-msgid "Remove %s"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:17838
-msgid "Add tag"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:17839
-msgid "Tags"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:17841
-#: wp-includes/js/dist/editor.js:17933
-#: wp-includes/js/dist/editor.js:18345
-#: wp-includes/js/dist/editor.js:18488
-msgid "Suggestion:"
-msgstr ""
-
-#. translators: %s is the taxonomy name (e.g., "Tags").
-#: wp-includes/js/dist/editor.js:17847
-#, js-format
-msgid "%s help users and search engines navigate your site and find your content. Add a few keywords to describe your post."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:17934
-msgid "Use a post format"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:17940
-msgid "Your theme uses post formats to highlight different kinds of content, like images or videos. Apply a post format to see this special styling."
-msgstr ""
-
-#. translators: %1s: post format
-#: wp-includes/js/dist/editor.js:17950
-#, js-format
-msgid "Apply the \"%1$s\" format."
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:18137
-msgid "Category"
-msgstr ""
-
 #. translators: %d: number of results.
-#: wp-includes/js/dist/editor.js:18166
+#: wp-includes/js/dist/editor.js:20860
+#: wp-includes/js/dist/editor.js:45644
 #, js-format
 msgid "%d result found."
 msgid_plural "%d results found."
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-includes/js/dist/editor.js:18200
-#: wp-includes/js/dist/editor.js:18205
+#: wp-includes/js/dist/editor.js:20871
+msgid "No blocks found."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:20890
+msgid "Customize the appearance of specific blocks and for the whole site."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:20901
+#: wp-includes/js/dist/editor.js:20902
+#: wp-includes/js/dist/editor.js:23192
+#: wp-includes/js/dist/editor.js:42331
+#: wp-includes/js/dist/editor.js:42332
+msgid "Search"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:21199
+msgid "Style Variations"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:21268
+msgid "Advanced"
+msgstr ""
+
+#. translators: %s: is the name of a block e.g., 'Image' or 'Table'.
+#: wp-includes/js/dist/editor.js:21276
+#, js-format
+msgid "Add your own CSS to customize the appearance of the %s block. You do not need to include a CSS selector, just add the property and value."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:21342
+#: wp-includes/js/dist/editor.js:36353
+msgid "Aa"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:21351
+msgid "Elements"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:21358
+#: wp-includes/js/dist/editor.js:33966
+#: wp-includes/js/dist/editor.js:38297
+#: wp-includes/js/dist/editor.js:38356
+msgid "Text"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:21366
+#: wp-includes/js/dist/editor.js:33970
+msgid "Links"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:21374
+#: wp-includes/js/dist/editor.js:33974
+#: wp-includes/js/dist/editor.js:38785
+#: wp-includes/js/dist/editor.js:47927
+msgid "Headings"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:21382
+#: wp-includes/js/dist/editor.js:33978
+msgid "Captions"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:21390
+#: wp-includes/js/dist/editor.js:33982
+msgid "Buttons"
+msgstr ""
+
+#. translators: 1: variation title. 2: variation description.
+#: wp-includes/js/dist/editor.js:21486
+#, js-format
+msgctxt "variation label"
+msgid "%1$s (%2$s)"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:21623
+msgctxt "font weight"
+msgid "Thin"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:21624
+msgctxt "font weight"
+msgid "Extra-light"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:21625
+msgctxt "font weight"
+msgid "Light"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:21626
+msgctxt "font weight"
+msgid "Normal"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:21627
+msgctxt "font weight"
+msgid "Medium"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:21628
+msgctxt "font weight"
+msgid "Semi-bold"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:21629
+msgctxt "font weight"
+msgid "Bold"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:21630
+msgctxt "font weight"
+msgid "Extra-bold"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:21631
+msgctxt "font weight"
+msgid "Black"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:21634
+msgctxt "font style"
+msgid "Normal"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:21635
+msgctxt "font style"
+msgid "Italic"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:22111
+msgid "There was an error installing fonts."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:22121
+msgid "Font family to uninstall is not defined."
+msgstr ""
+
+#. translators: %d: Number of font variants.
+#: wp-includes/js/dist/editor.js:22386
+#: wp-includes/js/dist/editor.js:33751
+#, js-format
+msgid "%d variant"
+msgid_plural "%d variants"
+msgstr[0] ""
+msgstr[1] ""
+
+#: wp-includes/js/dist/editor.js:22533
+msgid "Font family updated successfully."
+msgstr ""
+
+#. translators: %s: error message
+#: wp-includes/js/dist/editor.js:22540
+#, js-format
+msgid "There was an error updating the font family. %s"
+msgstr ""
+
+#. translators: 1: Active font variants, 2: Total font variants.
+#: wp-includes/js/dist/editor.js:22569
+#, js-format
+msgid "%1$d/%2$d variants active"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:22629
+#: wp-includes/js/dist/editor.js:33807
+msgid "No fonts installed."
+msgstr ""
+
+#. translators: Heading for a list of fonts provided by the theme.
+#: wp-includes/js/dist/editor.js:22634
+msgctxt "font source"
+msgid "Theme"
+msgstr ""
+
+#. translators: Heading for a list of fonts installed by the user.
+#: wp-includes/js/dist/editor.js:22671
+msgctxt "font source"
+msgid "Custom"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:22755
+msgid "Choose font variants. Keep in mind that too many variants could make your site slower."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:22764
+#: wp-includes/js/dist/editor.js:23289
+msgid "Select all"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:22820
+msgid "Update"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:22845
+msgid "Font family uninstalled successfully."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:22850
+msgid "There was an error uninstalling the font family."
+msgstr ""
+
+#. translators: %s: Name of the font.
+#: wp-includes/js/dist/editor.js:22868
+#, js-format
+msgid "Are you sure you want to delete \"%s\" font and all its variants and assets?"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:22938
+msgid "Connect to Google Fonts"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:22940
+msgid "To install fonts from Google you must give permission to connect directly to Google servers. The fonts you install will be downloaded from Google and stored on your site. Your site will then use these locally-hosted fonts."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:22944
+msgid "You can alternatively upload files directly on the Upload tab."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:22954
+msgid "Allow access to Google Fonts"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:23005
+msgctxt "font categories"
+msgid "All"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:23109
+msgid "Error installing the fonts, could not be downloaded."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:23119
+#: wp-includes/js/dist/editor.js:33608
+msgid "Fonts were installed successfully."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:23155
+#: wp-includes/js/dist/editor.js:52288
+#: wp-includes/js/dist/editor.js:52460
+msgid "Actions"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:23161
+msgid "Revoke access to Google Fonts"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:23191
+msgid "Font name…"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:23201
+#: wp-includes/js/dist/editor.js:45615
+msgid "Category"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:23216
+msgid "No fonts found. Try with a different search term."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:23283
+msgid "Select font variants to install."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:23344
+msgid "Install"
+msgstr ""
+
+#. translators: 1: Current page number, 2: Total number of pages.
+#: wp-includes/js/dist/editor.js:23367
+#, js-format
+msgctxt "paging"
+msgid "<div>Page</div>%1$s<div>of %2$d</div>"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:23379
+msgid "Current page"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:23409
+#: wp-includes/js/dist/editor.js:35968
+msgid "Previous page"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:23422
+#: wp-includes/js/dist/editor.js:35988
+msgid "Next page"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:33538
+msgid "Sorry, you are not allowed to upload this file type."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:33538
+msgid "No fonts found to install."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:33650
+msgid "Upload font"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:33655
+msgid "Uploaded fonts appear in your library and can be used in your theme. Supported formats: .ttf, .otf, .woff, and .woff2."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:33668
+msgctxt "Font library"
+msgid "Library"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:33672
+msgctxt "noun"
+msgid "Upload"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:33676
+msgid "Install Fonts"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:33699
+#: wp-includes/js/dist/editor.js:33788
+msgid "Fonts"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:33793
+#: wp-includes/js/dist/editor.js:33819
+msgid "Manage fonts"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:33807
+msgid "No fonts activated."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:33819
+msgid "Add fonts"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:33836
+msgid "Font Sizes"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:33838
+#: wp-includes/js/dist/editor.js:36275
+msgid "Font size presets"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:33854
+msgid "Available fonts, typographic styles, and the application of those styles."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:33860
+msgid "Typesets"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:33965
+msgid "Manage the fonts used on the site."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:33969
+msgid "Manage the fonts and typography used on the links."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:33973
+msgid "Manage the fonts and typography used on headings."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:33977
+msgid "Manage the fonts and typography used on captions."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:33981
+msgid "Manage the fonts and typography used on buttons."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:34005
+msgid "Select heading level"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:34017
+msgid "All headings"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:34018
+msgctxt "heading levels"
+msgid "All"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:34026
+msgid "Heading 1"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:34035
+msgid "Heading 2"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:34044
+msgid "Heading 3"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:34053
+msgid "Heading 4"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:34062
+msgid "Heading 5"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:34071
+msgid "Heading 6"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:34151
+msgid "Palette"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:34166
+#: wp-includes/js/dist/editor.js:34530
+msgid "Edit palette"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:34167
+msgid "Add colors"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:34199
+msgid "Palette colors and the application of those colors on site elements."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:34370
+#: wp-includes/js/dist/editor.js:34474
+#: wp-includes/js/dist/editor.js:34698
+#: wp-includes/js/dist/editor.js:36285
+#: wp-includes/js/dist/editor.js:38311
+msgid "Theme"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:34382
+msgid "Randomize colors"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:34403
+#: wp-includes/js/dist/editor.js:34496
+#: wp-includes/js/dist/editor.js:34706
+#: wp-includes/js/dist/editor.js:36315
+msgid "Custom"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:34409
+msgid "Palettes"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:34503
+msgid "Duotone"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:34531
+msgid "The combination of colors used across the site and in color pickers."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:34539
+msgid "Gradient"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:34594
+msgid "Set styles for the site's background."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:34663
+msgid "Are you sure you want to remove all custom shadows?"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:34676
+msgid "Manage and create shadow styles for use across the site."
+msgstr ""
+
+#. translators: %d: is an index for a preset
+#: wp-includes/js/dist/editor.js:34732
+#, js-format
+msgid "Shadow %d"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:34748
+#: wp-includes/js/dist/editor.js:35114
+msgid "Add shadow"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:34763
+msgid "Shadow options"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:34768
+msgid "Remove all custom shadows"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:34961
+msgid "Menu"
+msgstr ""
+
+#. translators: %s: Name of the shadow preset.
+#: wp-includes/js/dist/editor.js:35002
+#, js-format
+msgid "Are you sure you want to delete \"%s\" shadow preset?"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:35030
+msgid "Shadow name"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:35178
+msgid "Remove shadow"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:35187
+msgid "Inner shadow"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:35187
+msgid "Drop shadow"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:35241
+msgid "Shadow Type"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:35252
+msgid "Outset"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:35259
+msgid "Inset"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:35269
+msgid "X Position"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:35277
+msgid "Y Position"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:35285
+msgid "Blur"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:35293
+msgid "Spread"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:35526
+msgid "Color Variations"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:35539
+msgid "Choose a variation to change the look of the site."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:35574
+#: wp-includes/js/dist/editor.js:53884
+msgid "Additional CSS"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:35575
+msgid "You can add custom CSS to further customize the appearance and layout of your site."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:35768
+msgid "Reset the styles to the theme defaults"
+msgstr ""
+
+#. translators: %s: author display name
+#: wp-includes/js/dist/editor.js:35773
+#, js-format
+msgid "Unsaved changes by %s"
+msgstr ""
+
+#. translators: 1: author display name. 2: revision creation date.
+#: wp-includes/js/dist/editor.js:35779
+#, js-format
+msgid "Changes saved by %1$s on %2$s. This revision matches current editor styles."
+msgstr ""
+
+#. translators: 1: author display name. 2: revision creation date.
+#: wp-includes/js/dist/editor.js:35786
+#, js-format
+msgid "Changes saved by %1$s on %2$s"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:35813
+msgid "Global styles revisions list"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:35819
+msgid "User"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:35858
+msgid "Default styles"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:35861
+msgid "(Unsaved)"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:35887
+msgid "These styles are already applied to your site."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:35896
+msgid "Apply the selected revision to your site."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:35899
+msgid "Reset to defaults"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:35899
+#: wp-includes/js/dist/editor.js:36104
+msgid "Apply"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:35924
+msgid "Pagination"
+msgstr ""
+
+#. translators: %d: Total number of patterns.
+#: wp-includes/js/dist/editor.js:35943
+#, js-format
+msgid "%d item"
+msgid_plural "%d items"
+msgstr[0] ""
+msgstr[1] ""
+
+#: wp-includes/js/dist/editor.js:35956
+msgid "First page"
+msgstr ""
+
+#. translators: 1: Current page number. 2: Total number of pages.
+#: wp-includes/js/dist/editor.js:35976
+#, js-format
+msgctxt "paging"
+msgid "%1$d of %2$d"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:36000
+msgid "Last page"
+msgstr ""
+
+#. translators: %d: number of revisions.
+#: wp-includes/js/dist/editor.js:36068
+#, js-format
+msgid "Revisions (%d)"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:36070
+#: wp-includes/js/dist/editor.js:43780
+#: wp-includes/js/dist/editor.js:54171
+msgid "Revisions"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:36071
+msgid "Click on previously saved styles to preview them. To restore a selected version to the editor, hit \"Apply.\" When you're ready, use the Save button to save your changes."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:36097
+msgid "Global Styles pagination"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:36108
+msgid "Are you sure you want to apply this revision? Any unsaved changes will be lost."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:36167
+msgid "Are you sure you want to remove all custom font size presets?"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:36169
+msgid "Are you sure you want to reset all font size presets to their default values?"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:36190
+msgid "Add font size"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:36205
+msgid "Font size presets options"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:36212
+msgid "Remove font size presets"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:36214
+msgid "Reset font size presets"
+msgstr ""
+
+#. translators: %d: font size index
+#: wp-includes/js/dist/editor.js:36264
+#, js-format
+msgid "New Font Size %d"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:36276
+msgid "Create and edit the presets used for font sizes across the site."
+msgstr ""
+
+#. translators: %s: Name of the font size preset.
+#: wp-includes/js/dist/editor.js:36387
+#, js-format
+msgid "Are you sure you want to delete \"%s\" font size preset?"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:36440
+msgid "Font size preset name"
+msgstr ""
+
+#. translators: %s: font size preset name.
+#: wp-includes/js/dist/editor.js:36630
+#, js-format
+msgid "Manage the font size %s."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:36650
+msgid "Font size options"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:36688
+msgid "Size"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:36697
+msgid "Fluid typography"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:36698
+msgid "Scale the font size dynamically to fit the screen or viewport."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:36708
+msgid "Custom fluid values"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:36709
+msgid "Set custom min and max values for the fluid font size."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:36720
+msgid "Minimum"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:36728
+msgid "Maximum"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:37263
+msgid "Empty content"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:37303
+msgid "Content preview"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:37486
+msgid "Custom template created. You're in template mode now."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:37570
+#: wp-includes/js/dist/editor.js:37589
+msgid "Saving failed."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:37573
+msgid "Site updated."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:37579
+#: wp-includes/js/dist/editor.js:49622
+msgid "View site"
+msgstr ""
+
+#. translators: %s: Date and time of the revision.
+#: wp-includes/js/dist/editor.js:37893
+#, js-format
+msgid "Restored to revision from %s."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:38198
+msgid "Theme Colors"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:38204
+msgid "Theme Gradients"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:38210
+msgid "Custom Colors"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:38216
+msgid "Custom Gradients"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:38223
+msgid "Duotones"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:38229
+msgid "Default Colors"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:38235
+msgid "Default Gradients"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:38243
+msgid "Site Identity"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:38248
+#: wp-includes/js/dist/editor.js:53459
+msgid "Design"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:38254
+#: wp-includes/js/dist/editor.js:50779
+msgid "Posts"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:38292
+#: wp-includes/js/dist/editor.js:38351
+msgid "Overview"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:38316
+#: wp-includes/js/dist/editor.js:38334
+#: wp-includes/js/dist/editor.js:54770
+msgid "Media"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:38321
+#: wp-includes/js/dist/editor.js:38339
+msgid "Widgets"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:38326
+#: wp-includes/js/dist/editor.js:38344
+msgid "Embeds"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:38370
+msgid "All Blocks"
+msgstr ""
+
+#. translators: Typography example. Your local alphabet, numbers and some common special characters.
+#: wp-includes/js/dist/editor.js:38678
+msgid "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789X{(…)},.-<>?!*&:/A@HELFO™©"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:38687
+msgid "A paragraph in a website refers to a distinct block of text that is used to present and organize information. It is a fundamental unit of content in web design and is typically composed of a group of related sentences or thoughts focused on a particular topic or idea. Paragraphs play a crucial role in improving the readability and user experience of a website. They break down the text into smaller, manageable chunks, allowing readers to scan the content more easily."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:38692
+msgid "Additionally, paragraphs help structure the flow of information and provide logical breaks between different concepts or pieces of information. In terms of formatting, paragraphs in websites are commonly denoted by a vertical gap or indentation between each block of text. This visual separation helps visually distinguish one paragraph from another, creating a clear and organized layout that guides the reader through the content smoothly."
+msgstr ""
+
+#. translators: %d: heading level e.g: "1", "2", "3"
+#: wp-includes/js/dist/editor.js:38791
+#, js-format
+msgid "Heading %d"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:38925
+msgctxt "Indicates these duotone filters come from the theme."
+msgid "Theme"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:38935
+msgctxt "Indicates these duotone filters come from Retraceur."
+msgid "Default"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:38945
+msgctxt "Indicates these doutone filters are created by the user."
+msgid "Custom"
+msgstr ""
+
+#. translators: %s: Category of blocks, e.g. Text.
+#: wp-includes/js/dist/editor.js:39306
+#, js-format
+msgid "Examples of blocks in the %s category"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:39308
+msgid "Examples of blocks"
+msgstr ""
+
+#. translators: %s: Title of a block, e.g. Heading.
+#: wp-includes/js/dist/editor.js:39413
+#, js-format
+msgid "Open %s styles in Styles panel"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:39604
+#: wp-includes/js/dist/editor.js:39608
+msgid "Drag to resize"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:39620
+msgid "Use left and right arrow keys to resize the canvas."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:39701
+#: wp-includes/js/dist/editor.js:54160
+msgid "Style Book"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:39704
+msgid "Style Revisions"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:39971
+msgid "Document not found"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:39995
+#: wp-includes/js/dist/editor.js:40689
+msgid "Template Part"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:39995
+msgid "Pattern"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:40078
+msgid "(Empty heading)"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:40081
+msgid "(Incorrect heading level)"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:40085
+msgid "(Your theme may already use a H1 for the post title)"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:40089
+msgid "(Multiple H1 headings are not recommended)"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:40188
+msgid "Navigate the structure of your document and address issues like empty or incorrect heading levels."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:40278
+msgid "Switch between visual editor and code editor."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:40287
+msgid "Save your changes."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:40296
+msgid "Undo your last changes."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:40305
+msgid "Redo your last undo."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:40324
+msgid "Show or hide the List View."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:40333
+msgid "Enter or exit distraction free mode."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:40342
+msgid "Show or hide the Settings panel."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:40351
+msgid "Display these keyboard shortcuts."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:40360
+msgid "Add a new note."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:40369
+msgid "Navigate to the next part of the editor."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:40384
+msgid "Navigate to the previous part of the editor."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:40426
+msgid "Redo"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:40495
+msgid "Keep it as is"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:40499
+msgid "Reset the template"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:40503
+msgid "The content of your post doesn’t match the template assigned to your post type."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:40519
+msgid "Resetting the template may result in loss of content, do you want to continue?"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:40613
+msgid "Untitled"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:40619
+msgid "Post Meta."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:40628
+msgid "This change will affect your whole site."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:40628
+msgid "These changes will affect your whole site."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:40630
+msgid "This change will affect other parts of your site that use this template."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:40635
+msgid "The following has been modified."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:40689
+msgid "Template Parts"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:40848
+msgid "Select the items you want to save."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:40903
+msgid "Are you ready to save?"
+msgstr ""
+
+#. translators: %d: number of site changes waiting to be saved.
+#: wp-includes/js/dist/editor.js:40911
+#, js-format
+msgid "There is <strong>%d site change</strong> waiting to be saved."
+msgid_plural "There are <strong>%d site changes</strong> waiting to be saved."
+msgstr[0] ""
+msgstr[1] ""
+
+#: wp-includes/js/dist/editor.js:40994
+msgid "The editor has encountered an unexpected error."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:40996
+msgid "Copy contents"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:40997
+msgid "Copy error"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:41067
+msgid "The backup of this post in your browser is different from the version below."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:41074
+msgid "Restore the backup"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:41218
+msgid "Set the page order."
+msgstr ""
+
+#. translators: %s: Current post parent.
+#: wp-includes/js/dist/editor.js:41472
+#, js-format
+msgid "Change parent: %s"
+msgstr ""
+
+#. translators: %s: The home URL of the WP installation without the scheme.
+#: wp-includes/js/dist/editor.js:41514
+#, js-format
+msgid "Child pages inherit characteristics from their parent, such as URL structure. For instance, if \"Pricing\" is a child of \"Services\", its URL would be %s<wbr />/services<wbr />/pricing."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:41570
+msgid "Custom Template"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:41643
+msgid "Create custom template"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:41663
+msgid "Describe the template, e.g. \"Post with sidebar\". A custom template can be manually applied to any post or page."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:41687
+msgid "Create"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:41795
+#: wp-includes/js/dist/editor.js:42510
+msgid "Template options"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:41797
+msgid "Default template"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:41858
+msgid "Templates define the way content is displayed when viewing your site."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:41864
+msgid "Add template"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:41871
+msgid "The posts page template cannot be changed."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:41894
+#: wp-includes/js/dist/editor.js:42493
+msgid "Editing template. Changes made here affect all posts and pages that use the template."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:41908
+#: wp-includes/js/dist/editor.js:42545
+#: wp-includes/js/dist/editor.js:50397
+msgid "Edit template"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:42289
+msgid "Change template"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:42295
+msgid "Choose a template"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:42339
+#: wp-includes/js/dist/editor.js:53423
+msgid "Templates"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:42374
+msgid "Use default template"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:42408
+msgid "Create new template"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:42563
+#: wp-includes/js/dist/editor.js:49643
+msgid "Show template"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:42692
+#: wp-includes/js/dist/editor.js:42803
+msgid "(No author)"
+msgstr ""
+
+#. translators: %s: Author name.
+#: wp-includes/js/dist/editor.js:42813
+#, js-format
+msgid "Change author: %s"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:42868
+#: wp-includes/js/dist/editor.js:42975
+#: wp-includes/js/dist/editor.js:42977
+msgctxt "Adjective: e.g. \"Comments are open\""
+msgid "Open"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:42876
+msgid "Visitors cannot add new comments or replies."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:42877
+msgid "Existing comments remain visible."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:42895
+msgid "Comment status"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:42980
+msgid "Pings enabled"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:42990
+msgid "Change discussion options"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:43077
+msgid "Write a description (optional)"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:43077
+msgid "Write an excerpt (optional)"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:43146
+#: wp-includes/js/dist/editor.js:43199
+#: wp-includes/js/dist/editor.js:54586
+msgid "Excerpt"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:43220
+msgid "Add a description…"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:43220
+msgid "Add an excerpt…"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:43221
+msgid "Edit description"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:43221
+msgid "Edit excerpt"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:43309
+#: wp-includes/js/dist/editor.js:43599
+#: wp-includes/js/dist/editor.js:54579
+msgid "Featured image"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:43310
+msgid "Add a featured image"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:43311
+msgid "To edit the featured image, you need permission to upload media."
+msgstr ""
+
+#. Translators: %s: The selected image alt text.
+#: wp-includes/js/dist/editor.js:43390
+#, js-format
+msgid "Current image: %s"
+msgstr ""
+
+#. Translators: %s: The selected image filename.
+#: wp-includes/js/dist/editor.js:43396
+#, js-format
+msgid "The current image has no alternative text. The file name is: %s"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:43434
+msgid "Could not retrieve the featured image data."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:43445
+msgid "Edit or replace the featured image"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:43631
+msgid "Aside"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:43633
+msgid "Chat"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:43634
+msgid "Gallery"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:43635
+msgid "Image"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:43637
+msgid "Quote"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:43638
+msgid "Standard"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:43640
+msgid "Video"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:43681
+msgid "Post Format"
+msgstr ""
+
+#. translators: %s: post format
+#: wp-includes/js/dist/editor.js:43700
+#, js-format
+msgid "Apply suggested format: %s"
+msgstr ""
+
+#. translators: %s: number of revisions.
+#: wp-includes/js/dist/editor.js:43766
+#, js-format
+msgid "Revisions (%s)"
+msgstr ""
+
+#. translators: %s: number of revisions.
+#: wp-includes/js/dist/editor.js:43788
+#, js-format
+msgid "Open revisions screen: %s revisions"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:43825
+msgid "Unable to connect"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:43826
+msgid "Real-time collaboration couldn't verify your permissions. Check that you have access to edit this post or contact your site administrator."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:43831
+msgid "Connection expired"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:43832
+msgid "Your connection to real-time collaboration has timed out. Editing is paused to prevent conflicts with other editors."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:43837
+msgid "Too many editors connected"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:43838
+msgid "Real-time collaboration has reached its connection limit. Try again later or contact your site administrator."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:43845
+msgid "Connection lost"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:43846
+msgid "The connection to real-time collaboration was interrupted. Editing is paused to prevent conflicts with other editors."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:43878
+msgid "Because this post is too large for real-time collaboration, only one person can edit at a time."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:43882
+msgid "Because this post uses plugins that aren’t compatible with real-time collaboration, only one person can edit at a time."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:44001
+msgid "Exit editor"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:44005
+msgid "Someone else has taken over this post"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:44005
+msgid "This post is already being edited"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:44017
+msgid "Avatar"
+msgstr ""
+
+#. translators: %s: user's display name
+#: wp-includes/js/dist/editor.js:44028
+#, js-format
+msgid "<strong>%s</strong> now has editing control of this post (<PreviewLink />). Don’t worry, your changes up to this moment have been saved."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:44032
+msgid "Another user now has editing control of this post (<PreviewLink />). Don’t worry, your changes up to this moment have been saved."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:44037
+#: wp-includes/js/dist/editor.js:44055
+msgid "preview"
+msgstr ""
+
+#. translators: %s: user's display name
+#: wp-includes/js/dist/editor.js:44046
+#, js-format
+msgid "<strong>%s</strong> is currently working on this post (<PreviewLink />), which means you cannot make changes, unless you take over."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:44050
+msgid "Another user is currently working on this post (<PreviewLink />), which means you cannot make changes, unless you take over."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:44059
+msgid "If you take over, the other user will lose editing control to the post, but their changes will be saved."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:44075
+msgid "Take over"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:44134
+msgid "Pending review"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:44171
+#: wp-includes/js/dist/editor.js:44230
+msgid "Generating preview…"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:44286
+msgctxt "imperative verb"
+msgid "Preview"
+msgstr ""
+
+#. translators: accessibility text
+#: wp-includes/js/dist/editor.js:44290
+#: wp-includes/js/dist/editor.js:46307
+#: wp-includes/js/dist/editor.js:49626
+msgid "(opens in a new tab)"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:44346
+msgid "Publishing…"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:44348
+msgid "Saving…"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:44354
+msgid "Submit for Review"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:44360
+msgid "Schedule"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:44557
+msgid "Public"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:44569
+#: wp-includes/js/dist/editor.js:46712
+msgid "Only visible to those who know the password."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:44606
+#: wp-includes/js/dist/editor.js:44615
+msgid "Visibility"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:44607
+msgid "Control how this post is viewed."
+msgstr ""
+
+#. translators: Order of day, month, and year. Available formats are 'dmy', 'mdy', and 'ymd'.
+#: wp-includes/js/dist/editor.js:44940
+msgctxt "date order"
+msgid "dmy"
+msgstr ""
+
+#. translators: Use a non-breaking space between 'g:i' and 'a' if appropriate.
+#: wp-includes/js/dist/editor.js:44973
+#: wp-includes/js/dist/editor.js:45013
+msgctxt "post schedule full date format"
+msgid "F j, Y g:i a"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:44980
+msgid "Immediately"
+msgstr ""
+
+#. translators: %s: Time of day the post is scheduled for.
+#: wp-includes/js/dist/editor.js:44989
+#, js-format
+msgid "Today at %s"
+msgstr ""
+
+#. translators: If using a space between 'g:i' and 'a', use a non-breaking space.
+#: wp-includes/js/dist/editor.js:44991
+#: wp-includes/js/dist/editor.js:45001
+msgctxt "post schedule time format"
+msgid "g:i a"
+msgstr ""
+
+#. translators: %s: Time of day the post is scheduled for.
+#: wp-includes/js/dist/editor.js:44999
+#, js-format
+msgid "Tomorrow at %s"
+msgstr ""
+
+#. translators: If using a space between 'g:i' and 'a', use a non-breaking space.
+#: wp-includes/js/dist/editor.js:45007
+msgctxt "post schedule date format without year"
+msgid "F j g:i a"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:45261
+#: wp-includes/js/dist/editor.js:45271
+msgid "Tag"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:45261
+#: wp-includes/js/dist/editor.js:45271
+#: wp-includes/js/dist/editor.js:45615
+msgid "Term"
+msgstr ""
+
+#. translators: %s: term name.
+#: wp-includes/js/dist/editor.js:45264
+#: wp-includes/js/dist/editor.js:45274
+#: wp-includes/js/dist/editor.js:45618
+#, js-format
+msgctxt "term"
+msgid "%s added"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:45270
+msgid "Add Tag"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:45270
+#: wp-includes/js/dist/editor.js:45678
+#: wp-includes/js/dist/editor.js:45683
+msgid "Add Term"
+msgstr ""
+
+#. translators: %s: term name.
+#: wp-includes/js/dist/editor.js:45279
+#, js-format
+msgctxt "term"
+msgid "%s removed"
+msgstr ""
+
+#. translators: %s: term name.
+#: wp-includes/js/dist/editor.js:45284
+#, js-format
+msgctxt "term"
+msgid "Remove %s"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:45317
+msgid "Add tag"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:45318
+msgid "Tags"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:45320
+#: wp-includes/js/dist/editor.js:45412
+#: wp-includes/js/dist/editor.js:45820
+#: wp-includes/js/dist/editor.js:45963
+msgid "Suggestion:"
+msgstr ""
+
+#. translators: %s is the taxonomy name (e.g., "Tags").
+#: wp-includes/js/dist/editor.js:45326
+#, js-format
+msgid "%s help users and search engines navigate your site and find your content. Add a few keywords to describe your post."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:45413
+msgid "Use a post format"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:45419
+msgid "Your theme uses post formats to highlight different kinds of content, like images or videos. Apply a post format to see this special styling."
+msgstr ""
+
+#. translators: %1s: post format
+#: wp-includes/js/dist/editor.js:45429
+#, js-format
+msgid "Apply the \"%1$s\" format."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:45677
+#: wp-includes/js/dist/editor.js:45682
 msgid "Add Category"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:18210
+#: wp-includes/js/dist/editor.js:45687
 msgid "Parent Category"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:18211
+#: wp-includes/js/dist/editor.js:45688
 msgid "Parent Term"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:18215
+#: wp-includes/js/dist/editor.js:45692
 msgid "Search Terms"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:18216
+#: wp-includes/js/dist/editor.js:45693
 msgid "Terms"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:18346
+#: wp-includes/js/dist/editor.js:45821
 msgid "Assign a category"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:18349
+#: wp-includes/js/dist/editor.js:45824
 msgid "Categories provide a helpful way to group related posts together and to quickly tell readers what a post is about."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:18443
+#: wp-includes/js/dist/editor.js:45918
 msgid "Select image block."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:18489
+#: wp-includes/js/dist/editor.js:45964
 msgid "External media"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:18549
+#: wp-includes/js/dist/editor.js:46024
 msgid "Upload external images to the Media Library. Images from different domains may load slowly, display incorrectly, or be removed unexpectedly."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:18585
+#: wp-includes/js/dist/editor.js:46060
 msgctxt "verb"
 msgid "Upload"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:18591
+#: wp-includes/js/dist/editor.js:46066
 msgid "Upload failed, try again."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:18626
+#: wp-includes/js/dist/editor.js:46102
 msgid "Site Icon"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:18637
+#: wp-includes/js/dist/editor.js:46113
 msgid "Are you ready to submit for review?"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:18638
+#: wp-includes/js/dist/editor.js:46114
 msgid "Your work will be reviewed and then approved."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:18642
+#: wp-includes/js/dist/editor.js:46118
 msgid "Are you ready to schedule?"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:18643
+#: wp-includes/js/dist/editor.js:46119
 msgid "Your work will be published at the specified date and time."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:18647
+#: wp-includes/js/dist/editor.js:46123
 msgid "Are you ready to publish?"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:18648
+#: wp-includes/js/dist/editor.js:46124
 msgid "Double-check your settings before publishing."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:18658
+#: wp-includes/js/dist/editor.js:46134
 msgid "(Untitled)"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:18669
+#: wp-includes/js/dist/editor.js:46145
 msgid "Visibility:"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:18687
+#: wp-includes/js/dist/editor.js:46163
 msgid "Publish:"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:18750
+#: wp-includes/js/dist/editor.js:46226
 msgid "Copied!"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:18785
+#: wp-includes/js/dist/editor.js:46261
 msgid "is now scheduled. It will go live on"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:18789
+#: wp-includes/js/dist/editor.js:46265
 msgid "is now live."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:18797
+#: wp-includes/js/dist/editor.js:46273
 msgid "What’s next?"
 msgstr ""
 
 #. translators: %s: post type singular name
-#: wp-includes/js/dist/editor.js:18808
+#: wp-includes/js/dist/editor.js:46283
 #, js-format
 msgid "%s address"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:18910
+#: wp-includes/js/dist/editor.js:46386
 msgid "Close panel"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:18942
+#: wp-includes/js/dist/editor.js:46417
 msgid "Always show pre-publish checks."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:19048
+#: wp-includes/js/dist/editor.js:46521
 msgid "Sticky"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:19049
+#: wp-includes/js/dist/editor.js:46522
 msgid "Pin this post to the top of the blog."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:19061
-#: wp-includes/js/dist/editor.js:19073
+#: wp-includes/js/dist/editor.js:46534
+#: wp-includes/js/dist/editor.js:46546
 msgid "Pending"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:19131
-#: wp-includes/js/dist/editor.js:19132
-#: wp-includes/js/dist/editor.js:19202
+#: wp-includes/js/dist/editor.js:46598
+#: wp-includes/js/dist/editor.js:46599
+#: wp-includes/js/dist/editor.js:46669
 msgid "Status & visibility"
 msgstr ""
 
 #. translators: %s: Current post status.
-#: wp-includes/js/dist/editor.js:19191
+#: wp-includes/js/dist/editor.js:46658
 #, js-format
 msgid "Change status: %s"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:19352
+#: wp-includes/js/dist/editor.js:46823
 msgid "Save as pending"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:19352
+#: wp-includes/js/dist/editor.js:46823
 msgid "Save draft"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:19359
+#: wp-includes/js/dist/editor.js:46830
 msgid "Autosaving"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:19359
+#: wp-includes/js/dist/editor.js:46830
 msgid "Saving"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:19361
+#: wp-includes/js/dist/editor.js:46832
 msgid "Saved"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:19430
+#: wp-includes/js/dist/editor.js:46895
 msgid "Change publish date"
 msgstr ""
 
 #. translators: %s: Current post date.
-#: wp-includes/js/dist/editor.js:19459
+#: wp-includes/js/dist/editor.js:46924
 #, js-format
 msgid "Change date: %s"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:19499
+#: wp-includes/js/dist/editor.js:46964
 msgid "Are you sure you want to unpublish this post?"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:19500
+#: wp-includes/js/dist/editor.js:46965
 msgid "Unpublish"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:19502
+#: wp-includes/js/dist/editor.js:46967
 msgid "Are you sure you want to unschedule this post?"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:19503
+#: wp-includes/js/dist/editor.js:46968
 msgid "Unschedule"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:19524
+#: wp-includes/js/dist/editor.js:46989
 msgid "Switch to draft"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:19557
+#: wp-includes/js/dist/editor.js:47022
 msgid "Sync status"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:19557
+#: wp-includes/js/dist/editor.js:47022
 msgctxt "pattern (singular)"
 msgid "Not synced"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:19557
+#: wp-includes/js/dist/editor.js:47022
 msgctxt "pattern (singular)"
 msgid "Synced"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:19705
+#: wp-includes/js/dist/editor.js:47166
 msgid "Type text or HTML"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:19723
+#: wp-includes/js/dist/editor.js:47184
 msgid "Start writing with text or HTML"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:19807
-#: wp-includes/js/dist/editor.js:19946
+#: wp-includes/js/dist/editor.js:47276
+#: wp-includes/js/dist/editor.js:47415
 msgid "Add title"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:20034
-#: wp-includes/js/dist/editor.js:20043
+#: wp-includes/js/dist/editor.js:47502
+#: wp-includes/js/dist/editor.js:47511
 msgid "Move to trash"
 msgstr ""
 
 #. translators: %s: Current post link.
-#: wp-includes/js/dist/editor.js:20311
+#: wp-includes/js/dist/editor.js:47779
 #, js-format
 msgid "Change link: %s"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:20369
-#: wp-includes/js/dist/editor.js:20385
-#: wp-includes/js/dist/editor.js:23806
+#: wp-includes/js/dist/editor.js:47835
+#: wp-includes/js/dist/editor.js:47851
+#: wp-includes/js/dist/editor.js:52801
 msgctxt "Word count type. Do not translate!"
 msgid "words"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:20389
+#: wp-includes/js/dist/editor.js:47855
 msgid "<span>< 1</span> minute"
 msgstr ""
 
 #. translators: %s: the number of minutes to read the post.
-#: wp-includes/js/dist/editor.js:20394
+#: wp-includes/js/dist/editor.js:47860
 #, js-format
 msgid "<span>%s</span> minute"
 msgid_plural "<span>%s</span> minutes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-includes/js/dist/editor.js:20444
+#: wp-includes/js/dist/editor.js:47911
 msgid "Document Statistics"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:20448
+#: wp-includes/js/dist/editor.js:47915
 msgid "Words"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:20452
+#: wp-includes/js/dist/editor.js:47919
 msgid "Characters"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:20456
+#: wp-includes/js/dist/editor.js:47923
 msgid "Time to read"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:20460
-msgid "Headings"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:20464
+#: wp-includes/js/dist/editor.js:47931
 msgid "Paragraphs"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:20468
-#: wp-includes/js/dist/editor.js:25120
-msgid "Blocks"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:20476
+#: wp-includes/js/dist/editor.js:47943
 msgid "Document Outline"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:20514
+#: wp-includes/js/dist/editor.js:47982
 msgid "Details"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:20542
+#: wp-includes/js/dist/editor.js:48010
 msgid "You have unsaved changes. If you proceed, they will be lost."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:20877
-#: wp-includes/js/dist/editor.js:20879
-#: wp-includes/js/dist/editor.js:21673
+#: wp-includes/js/dist/editor.js:48419
+#: wp-includes/js/dist/editor.js:48421
+#: wp-includes/js/dist/editor.js:49603
 msgid "View"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:20959
-#: wp-includes/js/dist/editor.js:20961
+#: wp-includes/js/dist/editor.js:48510
+#: wp-includes/js/dist/editor.js:48512
 msgid "Edit navigation"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:21084
+#. translators: %s: Title of the block e.g. 'Heading'.
+#: wp-includes/js/dist/editor.js:48771
+#, js-format
+msgid "%s styles applied."
+msgstr ""
+
+#. translators: %s: Title of the block e.g. 'Heading'.
+#: wp-includes/js/dist/editor.js:48807
+#, js-format
+msgid "Apply this block’s typography, spacing, dimensions, and color styles to all %s blocks."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:48813
+#: wp-includes/js/dist/editor.js:54138
+#: wp-includes/js/dist/editor.js:54148
+msgid "Styles"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:48822
+msgid "Apply globally"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:48945
 msgid "Show block tools"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:21084
+#: wp-includes/js/dist/editor.js:48945
 msgid "Hide block tools"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:21139
+#: wp-includes/js/dist/editor.js:49000
 msgid "Document tools"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:21148
+#: wp-includes/js/dist/editor.js:49009
 msgctxt "Generic label for block inserter button"
 msgid "Block Inserter"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:21211
-#: wp-includes/js/dist/editor.js:23051
+#: wp-includes/js/dist/editor.js:49072
+#: wp-includes/js/dist/editor.js:52636
 msgid "Document Overview"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:21267
+#: wp-includes/js/dist/editor.js:49191
 msgid "All content copied."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:21273
+#: wp-includes/js/dist/editor.js:49197
 msgid "Copy all blocks"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:21285
+#: wp-includes/js/dist/editor.js:49209
 msgid "Visual editor"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:21289
+#: wp-includes/js/dist/editor.js:49213
 msgid "Code editor"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:21323
+#: wp-includes/js/dist/editor.js:49247
 msgid "You can enable the visual editor in your profile settings."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:21333
+#: wp-includes/js/dist/editor.js:49257
 msgid "Editor"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:21377
+#: wp-includes/js/dist/editor.js:49302
 msgid "Options"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:21389
+#: wp-includes/js/dist/editor.js:49315
 msgctxt "noun"
 msgid "View"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:21397
+#: wp-includes/js/dist/editor.js:49323
 msgid "Access all block and document tools in a single place"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:21413
-#: wp-includes/js/dist/editor.js:25054
+#: wp-includes/js/dist/editor.js:49339
+#: wp-includes/js/dist/editor.js:54677
 msgid "Distraction free"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:21414
+#: wp-includes/js/dist/editor.js:49340
 msgid "Write with calmness"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:21435
-#: wp-includes/js/dist/editor.js:25065
+#: wp-includes/js/dist/editor.js:49361
+#: wp-includes/js/dist/editor.js:54688
 msgid "Spotlight mode"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:21436
+#: wp-includes/js/dist/editor.js:49362
 msgid "Focus on one block at a time"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:21452
+#: wp-includes/js/dist/editor.js:49378
 msgid "Panels"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:21456
+#: wp-includes/js/dist/editor.js:49382
 msgid "Tools"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:21477
+#: wp-includes/js/dist/editor.js:49403
 msgid "Preferences"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:21567
+#: wp-includes/js/dist/editor.js:49497
 msgid "View post"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:21638
+#: wp-includes/js/dist/editor.js:49568
 msgid "View options"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:21648
+#: wp-includes/js/dist/editor.js:49578
 msgid "Desktop"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:21653
+#: wp-includes/js/dist/editor.js:49583
 msgid "Tablet"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:21658
+#: wp-includes/js/dist/editor.js:49588
 msgid "Mobile"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:21722
-#: wp-includes/js/dist/editor.js:21724
+#: wp-includes/js/dist/editor.js:49652
+#: wp-includes/js/dist/editor.js:49654
 msgid "Preview in new tab"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:21776
+#: wp-includes/js/dist/editor.js:49706
 msgid "Enter or exit zoom out."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:21815
+#: wp-includes/js/dist/editor.js:49745
 msgid "Zoom Out"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:22077
+#: wp-includes/js/dist/editor.js:49969
 msgid "Characters:"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:22081
+#: wp-includes/js/dist/editor.js:49973
 msgid "Words:"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:22085
+#: wp-includes/js/dist/editor.js:49977
 msgid "Time to read:"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:22160
+#: wp-includes/js/dist/editor.js:50053
 msgctxt "Post overview"
 msgid "List View"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:22171
+#: wp-includes/js/dist/editor.js:50064
 msgctxt "Post overview"
 msgid "Outline"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:22245
-msgid "Open publish panel"
+#: wp-includes/js/dist/editor.js:50160
+msgid "No revisions found."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:22259
-msgid "Open save panel"
+#: wp-includes/js/dist/editor.js:50163
+msgid "Only one revision found."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:22302
-msgid "Editing code"
+#. translators: 1: first revision number, 2: last revision number
+#: wp-includes/js/dist/editor.js:50170
+#, js-format
+msgid "Revisions %1$s–%2$s"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:22389
+#: wp-includes/js/dist/editor.js:50183
+#: wp-includes/js/dist/editor.js:53509
+msgid "Revision"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:50201
+msgid "No older revisions"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:50224
+msgid "No newer revisions"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:50274
+msgctxt "revisions"
+msgid "Show changes"
+msgstr ""
+
+#. translators: button label text should, if possible, be under 16 characters.
+#: wp-includes/js/dist/editor.js:50287
+#: wp-includes/js/dist/editor.js:53739
+msgctxt "panel button label"
+msgid "Settings"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:50310
+msgid "Exit"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:50407
 msgid "You’ve tried to select a block that is part of a template that may be used elsewhere on your site. Would you like to edit the template?"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:22428
-#: wp-includes/js/dist/editor.js:22432
-msgid "Drag to resize"
+#. translators: %d: number of seconds until retry
+#: wp-includes/js/dist/editor.js:50739
+#, js-format
+msgid "Retrying connection in %d second…"
+msgid_plural "Retrying connection in %d seconds…"
+msgstr[0] ""
+msgstr[1] ""
+
+#: wp-includes/js/dist/editor.js:50748
+msgid "Retrying…"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:22444
-msgid "Use left and right arrow keys to resize the canvas."
+#. translators: %s: Post type name (e.g., "Posts", "Pages").
+#: wp-includes/js/dist/editor.js:50778
+#, js-format
+msgid "Back to %s"
 msgstr ""
 
-#. translators: accessibility text for the editor top bar landmark region.
-#: wp-includes/js/dist/editor.js:22993
-msgid "Editor top bar"
+#: wp-includes/js/dist/editor.js:50789
+msgid "Copy Post Content"
 msgstr ""
 
-#. translators: accessibility text for the editor content landmark region.
-#: wp-includes/js/dist/editor.js:22995
-msgid "Editor content"
+#: wp-includes/js/dist/editor.js:50802
+msgid "Retry"
 msgstr ""
 
-#. translators: accessibility text for the editor settings landmark region.
-#: wp-includes/js/dist/editor.js:22997
-msgid "Editor settings"
+#: wp-includes/js/dist/editor.js:51202
+msgid "Format added"
 msgstr ""
 
-#. translators: accessibility text for the editor publish landmark region.
-#: wp-includes/js/dist/editor.js:22999
-msgid "Editor publish"
+#: wp-includes/js/dist/editor.js:51208
+msgid "Format removed"
 msgstr ""
 
-#. translators: accessibility text for the editor footer landmark region.
-#: wp-includes/js/dist/editor.js:23001
-msgid "Editor footer"
+#: wp-includes/js/dist/editor.js:51214
+msgid "Format changed"
 msgstr ""
 
-#. translators: Default label for the Document in the Block Breadcrumb.
-#: wp-includes/js/dist/editor.js:23046
-msgctxt "noun, breadcrumb"
-msgid "Document"
+#: wp-includes/js/dist/editor.js:51259
+msgid "Go to added block"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:23230
+#: wp-includes/js/dist/editor.js:51260
+msgid "Go to removed block"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:51261
+msgid "Go to modified block"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:51337
+msgid "Document changes"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:51526
+msgid "Open publish panel"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:51540
+msgid "Open save panel"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:51583
+msgid "Editing code"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:51692
+msgid "View file"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:51709
+msgid "No media file available."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:51713
+msgid "Failed to load media file."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:51903
 msgid "Homepage updated."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:23234
+#: wp-includes/js/dist/editor.js:51907
 msgid "An error occurred while setting the homepage."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:23242
+#: wp-includes/js/dist/editor.js:51915
 msgid "This will replace the current homepage which is set to display latest posts."
 msgstr ""
 
 #. translators: %s: title of the current home page.
-#: wp-includes/js/dist/editor.js:23248
+#: wp-includes/js/dist/editor.js:51921
 #, js-format
 msgid "This will replace the current homepage: \"%s\""
 msgstr ""
 
 #. translators: %1$s: title of the page to be set as the homepage, %2$s: homepage replacement warning message.
-#: wp-includes/js/dist/editor.js:23254
+#: wp-includes/js/dist/editor.js:51927
 #, js-format
 msgid "Set \"%1$s\" as the site homepage? %2$s"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:23258
+#: wp-includes/js/dist/editor.js:51931
 msgid "Set homepage"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:23304
+#: wp-includes/js/dist/editor.js:51977
 msgid "Set as homepage"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:23363
+#: wp-includes/js/dist/editor.js:52036
 msgid "Posts page updated."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:23367
+#: wp-includes/js/dist/editor.js:52040
 msgid "An error occurred while setting the posts page."
 msgstr ""
 
 #. translators: %s: title of the current posts page.
-#: wp-includes/js/dist/editor.js:23375
+#: wp-includes/js/dist/editor.js:52048
 #, js-format
 msgid "This will replace the current posts page: \"%s\""
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:23377
+#: wp-includes/js/dist/editor.js:52050
 msgid "This page will show the latest posts."
 msgstr ""
 
 #. translators: %1$s: title of the page to be set as the posts page, %2$s: posts page replacement warning message.
-#: wp-includes/js/dist/editor.js:23380
+#: wp-includes/js/dist/editor.js:52053
 #, js-format
 msgid "Set \"%1$s\" as the posts page? %2$s"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:23384
+#: wp-includes/js/dist/editor.js:52057
 msgid "Set posts page"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:23430
+#: wp-includes/js/dist/editor.js:52103
 msgid "Set as posts page"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:23613
-msgid "Actions"
-msgstr ""
-
 #. translators: %1$d number of selected items %2$s: Name of the plural post type e.g: "Posts".
-#: wp-includes/js/dist/editor.js:23730
+#: wp-includes/js/dist/editor.js:52426
 #, js-format
 msgid "%1$d %2$s"
 msgstr ""
 
 #. translators: %s: Name of the plural post type e.g: "Posts".
-#: wp-includes/js/dist/editor.js:23772
+#: wp-includes/js/dist/editor.js:52487
 #, js-format
 msgid "Changes will be applied to all selected %s."
 msgstr ""
 
+#. translators: accessibility text for the editor top bar landmark region.
+#: wp-includes/js/dist/editor.js:52559
+msgid "Editor top bar"
+msgstr ""
+
+#. translators: accessibility text for the editor content landmark region.
+#: wp-includes/js/dist/editor.js:52561
+msgid "Editor content"
+msgstr ""
+
+#. translators: accessibility text for the editor settings landmark region.
+#: wp-includes/js/dist/editor.js:52563
+msgid "Editor settings"
+msgstr ""
+
+#. translators: accessibility text for the editor publish landmark region.
+#: wp-includes/js/dist/editor.js:52565
+msgid "Editor publish"
+msgstr ""
+
+#. translators: accessibility text for the editor footer landmark region.
+#: wp-includes/js/dist/editor.js:52567
+msgid "Editor footer"
+msgstr ""
+
 #. translators: %s: the number of words in the post.
-#: wp-includes/js/dist/editor.js:23817
+#: wp-includes/js/dist/editor.js:52812
 #, js-format
 msgid "%s word"
 msgid_plural "%s words"
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-includes/js/dist/editor.js:23820
+#: wp-includes/js/dist/editor.js:52815
 msgid "1 minute"
 msgstr ""
 
 #. translators: %s: the number of minutes to read the post.
-#: wp-includes/js/dist/editor.js:23822
+#: wp-includes/js/dist/editor.js:52817
 #, js-format
 msgid "%s minute"
 msgid_plural "%s minutes"
@@ -2513,265 +3984,336 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: 1: How many words a post has. 2: the number of minutes to read the post (e.g. 130 words, 2 minutes read time.)
-#: wp-includes/js/dist/editor.js:23827
+#: wp-includes/js/dist/editor.js:52822
 #, js-format
 msgid "%1$s, %2$s read time."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:23863
-#: wp-includes/js/dist/editor.js:23888
+#: wp-includes/js/dist/editor.js:52858
+#: wp-includes/js/dist/editor.js:52883
 msgid "Format"
 msgstr ""
 
 #. translators: %s: Current post format.
-#: wp-includes/js/dist/editor.js:23877
+#: wp-includes/js/dist/editor.js:52872
 #, js-format
 msgid "Change format: %s"
 msgstr ""
 
 #. translators: %s: Human-readable time difference, e.g. "2 days ago".
-#: wp-includes/js/dist/editor.js:23912
+#: wp-includes/js/dist/editor.js:52910
 #, js-format
 msgid "Last edited %s."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:23985
-#: wp-includes/js/dist/editor.js:24010
-#: wp-includes/js/dist/editor.js:24021
+#. translators: %s: Human-readable time difference, e.g. "2 days ago".
+#: wp-includes/js/dist/editor.js:52931
+#, js-format
+msgid "Created %s."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:52992
+#: wp-includes/js/dist/editor.js:53017
+#: wp-includes/js/dist/editor.js:53028
 msgid "Blog title"
 msgstr ""
 
 #. translators: %s: Current post link.
-#: wp-includes/js/dist/editor.js:23999
+#: wp-includes/js/dist/editor.js:53006
 #, js-format
 msgid "Change blog title: %s"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:24022
+#: wp-includes/js/dist/editor.js:53029
 msgid "Set the Posts Page title. Appears in search results, and when the page is shared on social media."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:24076
-#: wp-includes/js/dist/editor.js:24097
-#: wp-includes/js/dist/editor.js:24111
+#: wp-includes/js/dist/editor.js:53083
+#: wp-includes/js/dist/editor.js:53104
+#: wp-includes/js/dist/editor.js:53118
 msgid "Posts per page"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:24088
+#: wp-includes/js/dist/editor.js:53095
 msgid "Change posts per page"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:24112
+#: wp-includes/js/dist/editor.js:53119
 msgid "Set the default number of posts to display on blog pages, including categories and tags. Some templates may override this setting."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:24308
-msgid "Design"
+#: wp-includes/js/dist/editor.js:53199
+msgid "Open classic revisions screen"
 msgstr ""
 
-#. translators: Default label for the Document sidebar tab, not selected.
-#: wp-includes/js/dist/editor.js:24354
+#: wp-includes/js/dist/editor.js:53319
+msgid "Meta"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:53513
 msgctxt "noun, panel"
 msgid "Document"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:24372
+#: wp-includes/js/dist/editor.js:53529
 msgid "Block"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:24552
+#: wp-includes/js/dist/editor.js:53646
+msgid "Changed attributes"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:53734
 msgid "Close Settings"
 msgstr ""
 
-#. translators: button label text should, if possible, be under 16 characters.
-#: wp-includes/js/dist/editor.js:24557
-msgctxt "panel button label"
-msgid "Settings"
+#: wp-includes/js/dist/editor.js:53880
+msgid "More"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:24684
+#: wp-includes/js/dist/editor.js:53895
+msgid "Welcome Guide"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:53907
+msgid "Reset styles"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:53996
+msgid "Welcome to Styles"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:54002
+msgid "Get started"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:54015
+msgid "Tweak your site, or give it a whole new look! Get creative — how about a new color palette for your buttons, or choosing a new font? Take a look at what you can do here."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:54029
+msgid "Set the design"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:54030
+msgid "You can customize your site as much as you like with different colors, typography, and layouts. Or if you prefer, just leave it up to your theme to handle!"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:54044
+msgid "Personalize blocks"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:54045
+msgid "You can adjust your blocks to ensure a cohesive experience across your site — add your unique colors to a branded Button block, or adjust the Heading block to your preferred size."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:54059
+msgid "Learn more"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:54060
+msgid "A documentation will soon be available."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:54140
+msgid "Close Styles"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:54274
 msgid "You attempted to edit an item that doesn't exist. Perhaps it was deleted?"
 msgstr ""
 
 #. translators: %d: number of blocks.
-#: wp-includes/js/dist/editor.js:24812
+#: wp-includes/js/dist/editor.js:54403
 #, js-format
 msgid "%d block is hidden."
 msgid_plural "%d blocks are hidden."
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-includes/js/dist/editor.js:24876
-#: wp-includes/js/dist/editor.js:25151
+#: wp-includes/js/dist/editor.js:54471
+#: wp-includes/js/dist/editor.js:54774
 msgid "General"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:24881
-#: wp-includes/js/dist/editor.js:25102
+#: wp-includes/js/dist/editor.js:54476
+#: wp-includes/js/dist/editor.js:54725
 msgid "Interface"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:24888
+#: wp-includes/js/dist/editor.js:54483
 msgid "Opens the List View panel by default."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:24891
+#: wp-includes/js/dist/editor.js:54486
 msgid "Always open List View"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:24899
+#: wp-includes/js/dist/editor.js:54494
 msgid "Display the block hierarchy trail at the bottom of the editor."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:24910
+#: wp-includes/js/dist/editor.js:54505
 msgid "Allows contextual List View menus via right-click, overriding browser defaults."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:24913
+#: wp-includes/js/dist/editor.js:54508
 msgid "Allow right-click contextual menus"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:24923
+#: wp-includes/js/dist/editor.js:54518
 msgid "Pick from starter content when creating a new page."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:24926
+#: wp-includes/js/dist/editor.js:54521
 msgid "Show starter patterns"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:24935
+#: wp-includes/js/dist/editor.js:54530
+msgid "Show your own avatar inside blocks during collaborative editing sessions."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:54533
+msgid "Show avatar in blocks"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:54543
+msgid "Show notifications when collaborators join, leave, or save the post."
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:54546
+msgid "Show collaboration notifications"
+msgstr ""
+
+#: wp-includes/js/dist/editor.js:54558
 msgid "Document settings"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:24936
+#: wp-includes/js/dist/editor.js:54559
 msgid "Select what settings are shown in the document panel."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:24983
+#: wp-includes/js/dist/editor.js:54606
 msgid "Page attributes"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:24993
+#: wp-includes/js/dist/editor.js:54616
 msgid "Publishing"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:24997
+#: wp-includes/js/dist/editor.js:54620
 msgid "Review settings, such as visibility and tags."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:25012
-#: wp-includes/js/dist/editor.js:25016
+#: wp-includes/js/dist/editor.js:54635
+#: wp-includes/js/dist/editor.js:54639
 msgid "Appearance"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:25017
+#: wp-includes/js/dist/editor.js:54640
 msgid "Customize the editor interface to suit your needs."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:25031
+#: wp-includes/js/dist/editor.js:54654
 msgid "Access all block and document tools in a single place."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:25051
+#: wp-includes/js/dist/editor.js:54674
 msgid "Reduce visual distractions by hiding the toolbar and other elements to focus on writing."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:25062
+#: wp-includes/js/dist/editor.js:54685
 msgid "Highlights the current block and fades other content."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:25075
+#: wp-includes/js/dist/editor.js:54698
 msgid "Accessibility"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:25080
+#: wp-includes/js/dist/editor.js:54703
 msgid "Navigation"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:25081
+#: wp-includes/js/dist/editor.js:54704
 msgid "Optimize the editing experience for enhanced control."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:25089
+#: wp-includes/js/dist/editor.js:54712
 msgid "Keeps the text cursor within blocks while navigating with arrow keys, preventing it from moving to other blocks and enhancing accessibility for keyboard users."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:25092
+#: wp-includes/js/dist/editor.js:54715
 msgid "Contain text cursor inside block"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:25108
+#: wp-includes/js/dist/editor.js:54731
 msgid "Show button text labels"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:25109
+#: wp-includes/js/dist/editor.js:54732
 msgid "Show text instead of icons on buttons across the interface."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:25122
+#: wp-includes/js/dist/editor.js:54745
 msgid "Inserter"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:25127
+#: wp-includes/js/dist/editor.js:54750
 msgid "Adds a category with the most frequently used blocks in the inserter."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:25130
+#: wp-includes/js/dist/editor.js:54753
 msgid "Show most used blocks"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:25136
+#: wp-includes/js/dist/editor.js:54759
 msgid "Manage block visibility"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:25137
+#: wp-includes/js/dist/editor.js:54760
 msgid "Disable blocks that you don't want to appear in the inserter. They can always be toggled back on later."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:25147
-msgid "Media"
-msgstr ""
-
-#: wp-includes/js/dist/editor.js:25152
+#: wp-includes/js/dist/editor.js:54775
 msgid "Customize options related to the media upload flow."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:25161
+#: wp-includes/js/dist/editor.js:54784
 msgid "Compress media items before uploading to the server."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:25164
+#: wp-includes/js/dist/editor.js:54787
 msgid "Pre-upload compression"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:25172
+#: wp-includes/js/dist/editor.js:54795
 msgid "Require approval step when optimizing existing media."
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:25175
+#: wp-includes/js/dist/editor.js:54798
 msgid "Approval step"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:25306
+#: wp-includes/js/dist/editor.js:54907
 msgid "Post Date"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:25311
+#: wp-includes/js/dist/editor.js:54912
 msgid "Post Modified Date"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:25316
+#: wp-includes/js/dist/editor.js:54917
 msgid "Post Link"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:25523
+#: wp-includes/js/dist/editor.js:55123
 msgid "Term ID"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:25548
+#: wp-includes/js/dist/editor.js:55148
 msgid "Parent ID"
 msgstr ""
 
-#: wp-includes/js/dist/editor.js:25553
+#: wp-includes/js/dist/editor.js:55153
 msgid "Count"
 msgstr ""

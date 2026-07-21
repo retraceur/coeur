@@ -94,6 +94,7 @@ foreach ( array( 'beta', 'favorites', 'featured', 'plugin-information', 'popular
 		'4.0.0',
 		'',
 		sprintf(
+			/* translators: %s is the dynamic portion of the hook. */
 			__( 'Retraceur Discover API is not firing the `install_plugins_pre_%s` hook.' ),
 			$tab
 		)
@@ -214,6 +215,7 @@ if ( 'block' !== $plugin_type ) {
 			'4.0.0',
 			'',
 			sprintf(
+				/* translators: %s is the dynamic portion of the hook. */
 				__( 'Retraceur Discover API is not firing the `install_plugins_%s` hook.' ),
 				$tab
 			)

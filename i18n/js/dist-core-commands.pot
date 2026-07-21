@@ -1,51 +1,51 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Retraceur 3.0.0\n"
+"Project-Id-Version: Retraceur 4.0.0\n"
 "Report-Msgid-Bugs-To: https://github.com/retraceur/coeur/issues\n"
 "Last-Translator: imath <contact@imathi.eu>\n"
 "Language-Team: Retraceur <retraceur@proton.me>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-03-01T12:54:34+00:00\n"
+"POT-Creation-Date: 2026-07-16T08:40:31+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 
-#: wp-includes/js/dist/core-commands.js:206
+#: wp-includes/js/dist/core-commands.js:198
 msgid "View site"
 msgstr ""
 
 #. translators: %s: menu label
-#: wp-includes/js/dist/core-commands.js:225
+#: wp-includes/js/dist/core-commands.js:218
 #, js-format
 msgid "Go to: %s"
 msgstr ""
 
-#: wp-includes/js/dist/core-commands.js:355
-#: wp-includes/js/dist/core-commands.js:442
+#: wp-includes/js/dist/core-commands.js:374
+#: wp-includes/js/dist/core-commands.js:460
 msgid "(no title)"
 msgstr ""
 
-#: wp-includes/js/dist/core-commands.js:466
+#: wp-includes/js/dist/core-commands.js:485
 msgid "Go to: Template parts"
 msgstr ""
 
-#: wp-includes/js/dist/core-commands.js:517
+#: wp-includes/js/dist/core-commands.js:537
 msgid "Go to: Styles"
 msgstr ""
 
-#: wp-includes/js/dist/core-commands.js:535
+#: wp-includes/js/dist/core-commands.js:556
 msgid "Go to: Navigation"
 msgstr ""
 
-#: wp-includes/js/dist/core-commands.js:553
+#: wp-includes/js/dist/core-commands.js:575
 msgid "Go to: Templates"
 msgstr ""
 
-#: wp-includes/js/dist/core-commands.js:573
+#: wp-includes/js/dist/core-commands.js:596
 msgid "Go to: Patterns"
 msgstr ""
 
-#: wp-includes/js/dist/core-commands.js:627
+#: wp-includes/js/dist/core-commands.js:649
 msgid "Open custom CSS"
 msgstr ""

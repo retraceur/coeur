@@ -1,13 +1,13 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Retraceur 3.0.0\n"
+"Project-Id-Version: Retraceur 4.0.0\n"
 "Report-Msgid-Bugs-To: https://github.com/retraceur/coeur/issues\n"
 "Last-Translator: imath <contact@imathi.eu>\n"
 "Language-Team: Retraceur <retraceur@proton.me>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-03-01T12:54:54+00:00\n"
+"POT-Creation-Date: 2026-07-16T08:40:55+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 
@@ -16,51 +16,63 @@ msgid "Untitled pattern block"
 msgstr ""
 
 #. translators: %s: the name the user has given to the pattern.
-#: wp-includes/js/dist/reusable-blocks.js:305
+#: wp-includes/js/dist/reusable-blocks.js:304
 #, js-format
 msgid "Synced pattern created: %s"
 msgstr ""
 
 #. translators: %s: the name the user has given to the pattern.
-#: wp-includes/js/dist/reusable-blocks.js:309
+#: wp-includes/js/dist/reusable-blocks.js:308
 #, js-format
 msgid "Unsynced pattern created: %s"
 msgstr ""
 
-#: wp-includes/js/dist/reusable-blocks.js:336
-#: wp-includes/js/dist/reusable-blocks.js:340
+#: wp-includes/js/dist/reusable-blocks.js:335
+#: wp-includes/js/dist/reusable-blocks.js:339
 msgid "Create pattern"
 msgstr ""
 
-#: wp-includes/js/dist/reusable-blocks.js:362
+#: wp-includes/js/dist/reusable-blocks.js:360
 msgid "Name"
 msgstr ""
 
-#: wp-includes/js/dist/reusable-blocks.js:365
+#: wp-includes/js/dist/reusable-blocks.js:363
 msgid "My pattern"
 msgstr ""
 
-#: wp-includes/js/dist/reusable-blocks.js:372
+#: wp-includes/js/dist/reusable-blocks.js:369
 msgctxt "pattern (singular)"
 msgid "Synced"
 msgstr ""
 
-#: wp-includes/js/dist/reusable-blocks.js:373
+#: wp-includes/js/dist/reusable-blocks.js:370
 msgid "Sync this pattern across multiple locations."
 msgstr ""
 
-#: wp-includes/js/dist/reusable-blocks.js:394
+#: wp-includes/js/dist/reusable-blocks.js:391
 msgid "Cancel"
 msgstr ""
 
-#: wp-includes/js/dist/reusable-blocks.js:403
+#: wp-includes/js/dist/reusable-blocks.js:400
 msgid "Create"
 msgstr ""
 
-#: wp-includes/js/dist/reusable-blocks.js:457
+#: wp-includes/js/dist/reusable-blocks.js:460
 msgid "Manage patterns"
 msgstr ""
 
-#: wp-includes/js/dist/reusable-blocks.js:458
-msgid "Detach"
+#: wp-includes/js/dist/reusable-blocks.js:462
+msgid "Disconnect pattern"
+msgstr ""
+
+#: wp-includes/js/dist/reusable-blocks.js:469
+msgid "Disconnect"
+msgstr ""
+
+#: wp-includes/js/dist/reusable-blocks.js:471
+msgid "Disconnect pattern?"
+msgstr ""
+
+#: wp-includes/js/dist/reusable-blocks.js:473
+msgid "Blocks will be separated from the original pattern and will be fully editable. Future changes to the pattern will not apply here."
 msgstr ""

@@ -1,32 +1,32 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Retraceur 3.0.0\n"
+"Project-Id-Version: Retraceur 4.0.0\n"
 "Report-Msgid-Bugs-To: https://github.com/retraceur/coeur/issues\n"
 "Last-Translator: imath <contact@imathi.eu>\n"
 "Language-Team: Retraceur <retraceur@proton.me>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-03-01T12:54:49+00:00\n"
+"POT-Creation-Date: 2026-07-16T08:40:50+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 
 #. translators: comma as in the character ','
-#: wp-includes/js/dist/keycodes.js:183
+#: wp-includes/js/dist/keycodes.js:192
 msgid "Comma"
 msgstr ""
 
 #. translators: period as in the character '.'
-#: wp-includes/js/dist/keycodes.js:185
+#: wp-includes/js/dist/keycodes.js:194
 msgid "Period"
 msgstr ""
 
 #. translators: backtick as in the character '`'
-#: wp-includes/js/dist/keycodes.js:187
+#: wp-includes/js/dist/keycodes.js:196
 msgid "Backtick"
 msgstr ""
 
 #. translators: tilde as in the character '~'
-#: wp-includes/js/dist/keycodes.js:189
+#: wp-includes/js/dist/keycodes.js:198
 msgid "Tilde"
 msgstr ""
