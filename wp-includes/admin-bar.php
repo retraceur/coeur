@@ -386,7 +386,7 @@ function wp_admin_bar_site_menu( $wp_admin_bar ) {
 		// Add the appearance submenu items.
 		wp_admin_bar_appearance_menu( $wp_admin_bar );
 
-		// Add a Plugins link.
+		// Add a Plugins & Blocks links.
 		if ( current_user_can( 'activate_plugins' ) ) {
 			$wp_admin_bar->add_node(
 				array(
@@ -394,6 +394,15 @@ function wp_admin_bar_site_menu( $wp_admin_bar ) {
 					'id'     => 'plugins',
 					'title'  => __( 'Plugins' ),
 					'href'   => admin_url( 'plugins.php' ),
+				)
+			);
+
+			$wp_admin_bar->add_node(
+				array(
+					'parent' => 'site-name',
+					'id'     => 'blocks',
+					'title'  => __( 'Blocks' ),
+					'href'   => admin_url( 'blocks.php' ),
 				)
 			);
 		}
