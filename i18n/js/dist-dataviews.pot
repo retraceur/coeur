@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-07-16T08:40:34+00:00\n"
+"POT-Creation-Date: 2026-07-25T08:46:15+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 
@@ -287,7 +287,6 @@ msgid "Is"
 msgstr ""
 
 #. translators: 1: Filter name (e.g. "Author"). 2: Filter value (e.g. "Admin"): "Author is: Admin".
-#. translators: 1: Filter name (e.g. "Date"). 2: Filter value (e.g. "2024-01-01"): "Date is: 2024-01-01".
 #: wp-includes/js/dist/dataviews.js:12061
 #: wp-includes/js/dist/dataviews.js:12355
 #, js-format
@@ -299,7 +298,6 @@ msgstr ""
 msgid "Is not"
 msgstr ""
 
-#. translators: 1: Filter name (e.g. "Author"). 2: Filter value (e.g. "Admin"): "Author is not: Admin".
 #. translators: 1: Filter name (e.g. "Date"). 2: Filter value (e.g. "2024-01-01"): "Date is not: 2024-01-01".
 #: wp-includes/js/dist/dataviews.js:12079
 #: wp-includes/js/dist/dataviews.js:12378

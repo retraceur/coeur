@@ -22467,7 +22467,7 @@ var wp;
       } else {
         const viewportLabel = BLOCK_VISIBILITY_VIEWPORTS[currentViewport]?.label || currentViewport;
         label = (0, import_i18n29.sprintf)(
-          /* translators: %s: viewport name (Desktop, Tablet, Mobile) */
+          /* translators: %s: comma-separated list of viewport names (Desktop, Tablet, Mobile) */
           (0, import_i18n29.__)("Block is hidden on %s"),
           viewportLabel
         );
