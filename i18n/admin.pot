@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-07-16T08:36:08+00:00\n"
+"POT-Creation-Date: 2026-07-25T09:05:09+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 
@@ -2410,7 +2410,7 @@ msgstr ""
 
 #: wp-admin/includes/class-core-upgrader.php:132
 #: wp-admin/includes/class-wp-upgrader.php:205
-#: wp-admin/includes/update-core.php:306
+#: wp-admin/includes/update-core.php:324
 msgid "The update cannot be installed because some files could not be copied. This is usually due to inconsistent file permissions."
 msgstr ""
 
@@ -7240,12 +7240,12 @@ msgid "A directory could not be read."
 msgstr ""
 
 #: wp-admin/includes/class-wp-upgrader.php:208
-#: wp-admin/includes/update-core.php:417
+#: wp-admin/includes/update-core.php:435
 msgid "Enabling Maintenance mode&#8230;"
 msgstr ""
 
 #: wp-admin/includes/class-wp-upgrader.php:209
-#: wp-admin/includes/update-core.php:501
+#: wp-admin/includes/update-core.php:519
 msgid "Disabling Maintenance mode&#8230;"
 msgstr ""
 
@@ -7757,7 +7757,7 @@ msgstr ""
 
 #: wp-admin/includes/deprecated.php:3884
 #: wp-admin/includes/deprecated.php:3916
-msgid "Sorry, searching plugins to install via AJAX since Retraceur 4.0.0."
+msgid "Sorry, searching plugins to install via AJAX is no more supported since Retraceur 4.0.0."
 msgstr ""
 
 #: wp-admin/includes/deprecated.php:4070
@@ -8103,7 +8103,7 @@ msgstr ""
 #: wp-admin/includes/file.php:1104
 #: wp-admin/includes/file.php:1263
 #: wp-admin/includes/file.php:1321
-#: wp-admin/includes/update-core.php:542
+#: wp-admin/includes/update-core.php:560
 msgid "Could not copy file."
 msgstr ""
 
@@ -10379,51 +10379,51 @@ msgstr ""
 msgid "(Retraceur could not establish a secure connection to Translations API. Please contact your server administrator.)"
 msgstr ""
 
-#: wp-admin/includes/update-core.php:277
+#: wp-admin/includes/update-core.php:295
 msgid "Verifying the unpacked files&#8230;"
 msgstr ""
 
-#: wp-admin/includes/update-core.php:290
+#: wp-admin/includes/update-core.php:308
 msgid "The update could not be unpacked"
 msgstr ""
 
 #. translators: 1: Retraceur version number, 2: Minimum required PHP version number, 3: Minimum required MySQL version number, 4: Current PHP version number, 5: Current MySQL version number.
-#: wp-admin/includes/update-core.php:350
+#: wp-admin/includes/update-core.php:368
 #, php-format
 msgid "The update cannot be installed because Retraceur %1$s requires PHP version %2$s or higher and MySQL version %3$s or higher. You are running PHP version %4$s and MySQL version %5$s."
 msgstr ""
 
 #. translators: 1: Retraceur version number, 2: Minimum required PHP version number, 3: Current PHP version number.
-#: wp-admin/includes/update-core.php:363
+#: wp-admin/includes/update-core.php:381
 #, php-format
 msgid "The update cannot be installed because Retraceur %1$s requires PHP version %2$s or higher. You are running version %3$s."
 msgstr ""
 
 #. translators: 1: Retraceur version number, 2: Minimum required MySQL version number, 3: Current MySQL version number.
-#: wp-admin/includes/update-core.php:374
+#: wp-admin/includes/update-core.php:392
 #, php-format
 msgid "The update cannot be installed because Retraceur %1$s requires MySQL version %2$s or higher. You are running version %3$s."
 msgstr ""
 
 #. translators: 1: Retraceur version number, 2: The PHP extension name needed.
-#: wp-admin/includes/update-core.php:394
+#: wp-admin/includes/update-core.php:412
 #, php-format
 msgid "The update cannot be installed because Retraceur %1$s requires the %2$s PHP extension."
 msgstr ""
 
-#: wp-admin/includes/update-core.php:408
+#: wp-admin/includes/update-core.php:426
 msgid "Preparing to install the latest version&#8230;"
 msgstr ""
 
-#: wp-admin/includes/update-core.php:426
+#: wp-admin/includes/update-core.php:444
 msgid "Copying the required files&#8230;"
 msgstr ""
 
-#: wp-admin/includes/update-core.php:445
+#: wp-admin/includes/update-core.php:463
 msgid "The update cannot be installed because your site is unable to copy some files. This is usually due to inconsistent file permissions."
 msgstr ""
 
-#: wp-admin/includes/update-core.php:595
+#: wp-admin/includes/update-core.php:656
 msgid "Upgrading database&#8230;"
 msgstr ""
 

@@ -3881,7 +3881,7 @@ function wp_ajax_search_install_plugins() {
 	_deprecated_function( __FUNCTION__, '4.0.0', '', true );
 	wp_send_json_error(
 		array(
-			'errorMessage' => __( 'Sorry, searching plugins to install via AJAX since Retraceur 4.0.0.' ),
+			'errorMessage' => __( 'Sorry, searching plugins to install via AJAX is no more supported since Retraceur 4.0.0.' ),
 		)
 	);
 }
@@ -3913,7 +3913,7 @@ function wp_ajax_install_plugin() {
 	_deprecated_function( __FUNCTION__, '4.0.0', '', true );
 	wp_send_json_error(
 		array(
-			'errorMessage' => __( 'Sorry, searching plugins to install via AJAX since Retraceur 4.0.0.' ),
+			'errorMessage' => __( 'Sorry, searching plugins to install via AJAX is no more supported since Retraceur 4.0.0.' ),
 		)
 	);
 }

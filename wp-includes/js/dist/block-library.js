@@ -33570,12 +33570,12 @@ ${js}
     if (hasContent && !hasFreeformBlock && (!originalName || originalName === "core/freeform")) {
       if (hasHTMLBlock) {
         messageHTML = (0, import_i18n86.__)(
-          "It appears you are trying to use the deprecated Classic block. You can leave this block intact, convert its content to a Custom HTML block, or remove it entirely. Alternatively, if you have unsaved changes, you can save them and refresh to use the Classic block."
+          "It appears you are trying to use the deprecated Classic block. You can leave this block intact, convert its content to a Custom HTML block, or remove it entirely."
         );
         actions.push(convertToHtmlButton);
       } else {
         messageHTML = (0, import_i18n86.__)(
-          "It appears you are trying to use the deprecated Classic block. You can leave this block intact, or remove it entirely. Alternatively, if you have unsaved changes, you can save them and refresh to use the Classic block."
+          "It appears you are trying to use the deprecated Classic block. You can leave this block intact, or remove it entirely."
         );
       }
     } else if (hasContent && hasHTMLBlock) {
