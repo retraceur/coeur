@@ -254,18 +254,19 @@ $_bundled_files_to_refresh = array(
  *
  * @since WP 2.7.0
  *
- * @global WP_Filesystem_Base $wp_filesystem          WP filesystem subclass.
- * @global string[]           $_old_files
- * @global string[]           $_new_bundled_files
- * @global wpdb               $wpdb                   WP database abstraction object.
- * @global string             $retraceur_version      The Retraceur version string.
+ * @global WP_Filesystem_Base $wp_filesystem             WP filesystem subclass.
+ * @global string[]           $_old_files                Bundled files that must be deleted during the core update.
+ * @global string[]           $_new_bundled_files.       Bundled new files that must be added during the core update.
+ * @global string[]           $_bundled_files_to_refresh Bundled files that must be updated on every core update.
+ * @global wpdb               $wpdb                      WP database abstraction object.
+ * @global string             $retraceur_version         The Retraceur version string.
  *
  * @param string $from New release unzipped path.
  * @param string $to   Path to old Retraceur installation.
  * @return string|WP_Error New Retraceur version on success, WP_Error on failure.
  */
 function update_core( $from, $to ) {
-	global $wp_filesystem, $_old_files, $_new_bundled_files, $wpdb;
+	global $wp_filesystem, $_old_files, $_new_bundled_files, $_bundled_files_to_refresh, $wpdb;
 
 	/*
  	 * Give core update script an additional 300 seconds (5 minutes)
