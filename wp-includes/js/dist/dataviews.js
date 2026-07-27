@@ -12075,7 +12075,7 @@ If there's a particular need for this, please submit a feature request at https:
       label: (0, import_i18n23.__)("Is not"),
       filterText: (filter, activeElements) => (0, import_element27.createInterpolateElement)(
         (0, import_i18n23.sprintf)(
-          /* translators: 1: Filter name (e.g. "Author"). 2: Filter value (e.g. "Admin"): "Author is not: Admin". */
+          /* translators: 1: Filter name (e.g. "Date"). 2: Filter value (e.g. "2024-01-01"): "Date is not: 2024-01-01". */
           (0, import_i18n23.__)("<Name>%1$s is not: </Name><Value>%2$s</Value>"),
           filter.name,
           activeElements[0].label
@@ -12351,7 +12351,7 @@ If there's a particular need for this, please submit a feature request at https:
       label: (0, import_i18n23.__)("On"),
       filterText: (filter, activeElements) => (0, import_element27.createInterpolateElement)(
         (0, import_i18n23.sprintf)(
-          /* translators: 1: Filter name (e.g. "Date"). 2: Filter value (e.g. "2024-01-01"): "Date is: 2024-01-01". */
+          /* translators: 1: Filter name (e.g. "Author"). 2: Filter value (e.g. "Admin"): "Author is: Admin". */
           (0, import_i18n23.__)("<Name>%1$s is: </Name><Value>%2$s</Value>"),
           filter.name,
           activeElements[0].label

@@ -4580,7 +4580,7 @@ AttachmentsBrowser = View.extend(/** @lends wp.media.view.AttachmentsBrowser.pro
 				this.toolbar.set( 'filters', Filters.render() );
 			}
 		}
-		
+
 		/*
 		 * Feels odd to bring the global media library switcher into the Attachment browser view.
 		 * Is this a use case for doAction( 'add:toolbar-items:attachments-browser', this.toolbar );
@@ -4937,8 +4937,8 @@ AttachmentsBrowser = View.extend(/** @lends wp.media.view.AttachmentsBrowser.pro
 
 		if ( this.collection.length ) {
 			this.loadMoreCount.$el.text(
-				/* translators: 1: Number of displayed attachments, 2: Number of total attachments. */
 				sprintf(
+					/* translators: 1: Number of displayed attachments, 2: Number of total attachments. */
 					__( 'Showing %1$s of %2$s media items' ),
 					this.collection.length,
 					this.collection.getTotalAttachments()
@@ -10385,7 +10385,7 @@ module.exports = View;
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/ 	
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -10399,14 +10399,14 @@ module.exports = View;
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
-/******/ 	
+/******/
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/ 	
+/******/
 /************************************************************************/
 /**
  * @output wp-includes/js/media-views.js

@@ -100,7 +100,7 @@
 			'wp-url',
 			'wp-warning'
 		),
-		'version' => 'f3d941bcb2e86c269881'
+		'version' => '08ec63469ed8038349f8'
 	),
 	'block-library.js' => array(
 		'dependencies' => array(
@@ -299,7 +299,7 @@
 			'wp-private-apis',
 			'wp-warning'
 		),
-		'version' => '11766512661520'
+		'version' => '3e76e3877169e3cf08ff'
 	),
 	'date.js' => array(
 		'dependencies' => array(
