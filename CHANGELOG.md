@@ -9,6 +9,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 
+## [4.0.0-beta2] - 2026-07-27
+
+### Added
+
+- Site Admin menu of the Admin bar: include a link to reach Block administration. See [#227](https://github.com/retraceur/coeur/pull/227).
+
+### Changed
+
+- Avoid warnings about `/* translators: */` comments. See [#228](https://github.com/retraceur/coeur/pull/228).
+- Use more consistent text about some translatable strings. See [#229](https://github.com/retraceur/coeur/pull/229)
+- Make sure the `$_bundled_files_to_refresh` global is rightly referenced within the `update_core()` function. See [#230](https://github.com/retraceur/coeur/pull/230).
+- REST API: `WP_REST_URL_Details_Controller::get_description()` is now searching for `og:description` inside the `prorperty` meta attribute, instead of the `name` one.
+
+
 ## [4.0.0-beta1] - 2026-07-21
 
 ### Added
