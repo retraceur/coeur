@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-07-16T08:40:12+00:00\n"
+"POT-Creation-Date: 2026-07-25T09:05:19+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 
@@ -2303,11 +2303,11 @@ msgid "Keep as HTML"
 msgstr ""
 
 #: wp-includes/js/dist/block-library.js:33572
-msgid "It appears you are trying to use the deprecated Classic block. You can leave this block intact, convert its content to a Custom HTML block, or remove it entirely. Alternatively, if you have unsaved changes, you can save them and refresh to use the Classic block."
+msgid "It appears you are trying to use the deprecated Classic block. You can leave this block intact, convert its content to a Custom HTML block, or remove it entirely."
 msgstr ""
 
 #: wp-includes/js/dist/block-library.js:33577
-msgid "It appears you are trying to use the deprecated Classic block. You can leave this block intact, or remove it entirely. Alternatively, if you have unsaved changes, you can save them and refresh to use the Classic block."
+msgid "It appears you are trying to use the deprecated Classic block. You can leave this block intact, or remove it entirely."
 msgstr ""
 
 #. translators: %s: block name
