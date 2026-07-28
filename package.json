@@ -1,6 +1,6 @@
 {
 	"name": "retraceur",
-	"version": "4.0.0-beta1",
+	"version": "4.0.0-beta2",
 	"description": "Personal Online Publication Hub",
 	"scripts": {
 		"pot:admin": "wp i18n make-pot . i18n/admin.pot --include=\"wp-admin\" --exclude=\"wp-admin/includes/continents-cities.php\" --skip-js --ignore-domain --headers='{\"Project-Id-Version\": \"Retraceur 4.0.0\", \"Report-Msgid-Bugs-To\": \"https://github.com/retraceur/coeur/issues\", \"Last-Translator\": \"imath <contact@imathi.eu>\", \"Language-Team\": \"Retraceur <retraceur@proton.me>\"}'",
