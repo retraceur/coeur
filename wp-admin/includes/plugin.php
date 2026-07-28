@@ -1038,6 +1038,10 @@ function delete_plugins( $plugins, $deprecated = '' ) {
 	$errors = array();
 
 	foreach ( $plugins as $plugin_file ) {
+		// The Plugin full name needs to be set before Plugin deletion.
+		$plugin_data = get_plugin_data( WP_PLUGIN_DIR . '/' . $plugin_file, false, false );
+		$full_name   = retraceur_discovery_resolve_full_name( $plugin_data );
+
 		// Run Uninstall hook.
 		if ( is_uninstallable_plugin( $plugin_file ) ) {
 			uninstall_plugin( $plugin_file );
@@ -1096,6 +1100,9 @@ function delete_plugins( $plugins, $deprecated = '' ) {
 				}
 			}
 		}
+
+		// Remove Discovery API transients for the Plugin.
+		retraceur_discovery_clean_cache( $full_name );
 	}
 
 	// Remove deleted plugins from the plugin updates list.
@@ -1110,6 +1117,9 @@ function delete_plugins( $plugins, $deprecated = '' ) {
 
 		set_site_transient( 'update_plugins', $current );
 	}
+
+	// Flush Discovery API installed map.
+	retraceur_discovery_flush_installed_map();
 
 	if ( ! empty( $errors ) ) {
 		if ( 1 === count( $errors ) ) {
@@ -2690,6 +2700,40 @@ function deactivated_plugins_notice() {
 }
 
 /**
+ * Cleans the Plugin Releases and Discovery cache.
+ *
+ * @since 4.0.0 Retraceur fork.
+ *
+ * @param string $full_name The plugin full name (owner/repo).
+ */
+function retraceur_discovery_clean_cache( $full_name ) {
+	if ( ! $full_name ) {
+		return;
+	}
+
+	// Clean the repository and changelog Discovery caches.
+	$discovery_cache_suffix = md5( $full_name );
+
+	delete_transient( 'retraceur_discovery_repo_' . $discovery_cache_suffix );
+	delete_transient( 'retraceur_discovery_changelog_' . $discovery_cache_suffix );
+
+	/*
+	 * Clean the releases feed cache, letting SimplePie resolve its own
+	 * cache key rather than guessing its internal format, which may
+	 * vary across SimplePie/WordPress versions.
+	 */
+	require_once ABSPATH . WPINC . '/class-simplepie.php';
+	require_once ABSPATH . WPINC . '/class-wp-feed-cache-transient.php';
+
+	$releases_url   = 'https://github.com/' . $full_name . '/releases.atom';
+	$feed           = new SimplePie\SimplePie();
+	$cache_filename = $feed->get_cache_filename( $releases_url );
+
+	$cache = new WP_Feed_Cache_Transient( '', $cache_filename, SimplePie\Cache\Base::TYPE_FEED );
+	$cache->unlink();
+}
+
+/**
  * Invalidates the discovery installed map cache.
  *
  * @since 4.0.0 Retraceur fork.
@@ -2697,5 +2741,4 @@ function deactivated_plugins_notice() {
 function retraceur_discovery_flush_installed_map() {
 	delete_transient( 'retraceur_discovery_installed_map' );
 }
-add_action( 'deleted_plugin', 'retraceur_discovery_flush_installed_map' );
 add_action( 'upgrader_process_complete', 'retraceur_discovery_flush_installed_map' );
