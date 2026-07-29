@@ -58,30 +58,77 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 		<div class="about__section has-2-columns">
 			<div class="column is-vertically-aligned-center">
 				<div class="about__image svg">
-					<img src="https://wsrv.nl/?url=https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/images/opengraph.webp" alt="" />
+					<img src="https://wsrv.nl/?url=https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/images/discovery-ui.svg" alt="" />
 				</div>
 			</div>
 			<div class="column is-vertically-aligned-center">
-				<h3><?php esc_html_e( 'Open Graph is part of your identity' ); ?></h3>
+				<h3><?php esc_html_e( 'An open crossroads for evolving your site' ); ?></h3>
 				<p>
 					<strong>
-						<?php esc_html__( 'A website is no longer just a destination. It is a personal crossroads — a place where your ideas, your work, and your identity converge and radiate outward.' );
+						<?php esc_html_e( 'Retraceur was born from a simple goal: taking back control of our personal presence on the Web.' );
 						?>
-					</strong><br />
-					<?php esc_html_e( 'Every time a link to your site is shared, it becomes a representation of you. With built-in Open Graph support, Retraceur ensures that representation is intentional.' ); ?><br />
-					<br /><?php esc_html_e( 'Your pages and posts automatically expose structured metadata designed for modern sharing. Titles, descriptions, publication data, and images are generated natively by the core — consistently, predictably, without plugins or fragile theme logic.' ); ?><br />
-					<br /><?php esc_html_e( 'Because how your content appears outside your site matters as much as how it appears within it.' ); ?><br />
+					</strong>
+					<br /><?php esc_html_e( 'This new version takes an important step in that direction.' ); ?>
+					<br /><?php esc_html_e( 'Retraceur can now discover and update the extensions and blocks that enrich our sites, without creating a new dependency on a centralized platform.' ); ?>
+				</p>
+				<h4><?php esc_html_e( 'Discover, choose, contribute' ); ?></h4>
+				<p>
 					<?php
 					printf(
-						/* Translators: 1: The settings Admin menu name. 2: The Media Admin sub menu name. */
-						esc_html__( 'You can also define a global fallback image in %1$s → %2$s, guaranteeing a coherent visual presence whenever your content travels beyond your domain.' ),
-						'<strong>' . esc_html_x( 'Settings', 'about 3.0 page' ),
-						esc_html_x( 'Media', 'about 3.0 page' ) . '</strong>'
+						/* Translators: %s: The discovery API name in bold format. */
+						esc_html__( 'Retraceur now provides %s that allows extensions and blocks to make themselves available to sites that want to use them.' ),
+						'<strong>' . esc_html_x( 'a discovery API', 'about 4.0 page' ) . '</strong>'
 					);
 					?>
-					<br/>
-					<br /><?php esc_html_e( 'Retraceur treats social metadata not as decoration, but as part of your site’s identity. Open Graph is not an add-on. It is infrastructure.' ); ?>
+					<br /><?php esc_html_e( 'The goal is more ambitious than rebuilding another centralized directory: freeing developers to publish, and users to discover extensions and blocks.' ); ?>
+					<br /><?php
+					printf(
+						/* Translators: %s: The discovery API goal in blod format. */
+						esc_html__( 'The direction is clear: progressively build a “%s” mechanism that will ultimately depend on no particular infrastructure.' ),
+						'<strong>' . esc_html_x( 'forge-agnostic', 'about 4.0 page' ) . '</strong>'
+					);
+					?>
+					<br /><?php esc_html_e( 'For this first version, Retraceur relies on GitHub, a forge widely used by open-source projects and a natural starting point for Retraceur resources.' ); ?>
 				</p>
+			</div>
+		</div>
+
+		<div class="about__section has-1-column">
+			<div class="column">
+				<p class="is-subheading italic">
+					<?php esc_html_e( 'A crossroads rather than a destination.' ); ?><br />
+					<?php esc_html_e( 'Resources rather than a curated catalog.' ); ?><br />
+					<?php esc_html_e( 'A first forge, but not a forge imposed forever.' ); ?>
+				</p>
+			</div>
+		</div>
+
+		<div class="about__section has-2-columns">
+			<div class="column is-vertically-aligned-center">
+				<h4><?php esc_html_e( 'Update without giving up independence' ); ?></h4>
+				<p>
+					<?php
+					printf(
+						/* Translators: %s: The update API name in bold format. */
+						esc_html__( 'This same approach guided the design of %s.' ),
+						'<strong>' . esc_html_x( 'the update API', 'about 4.0 page' ) . '</strong>'
+					);
+					?>
+					<br /><?php esc_html_e( 'Retraceur can now check whether new versions of installed extensions and blocks are available, and offer to update them directly from the site administration, currently relying on GitHub.' ); ?>
+					<br /><?php
+					printf(
+						/* Translators: %s: The update API goal in blod format. */
+						esc_html__( 'Here too, the direction is the same: enable infrastructure %s so that no single one becomes essential to Retraceur\'s operation.' ),
+						'<strong>' . esc_html_x( 'to diversify', 'about 4.0 page' ) . '</strong>'
+					);
+					?>
+					<br /><?php esc_html_e( 'Version 4.0.0 lays the first foundations for a distributed system where responsibility for publishing, distributing, and updating resources progressively belongs to the people who create and use them.' ); ?>
+				</p>
+			</div>
+			<div class="column is-vertically-aligned-center">
+				<div class="about__image svg">
+					<img src="https://wsrv.nl/?url=https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/images/unified-update-management.svg" alt="" />
+				</div>
 			</div>
 		</div>
 
@@ -89,19 +136,25 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 
 		<div class="about__section has-2-columns">
 			<div class="column">
-				<h3><?php esc_html_e( 'Two other sweets!' ); ?></h3>
+				<h3><?php esc_html_e( 'A few extra treats!' ); ?></h3>
 				<p>
+					<strong><?php esc_html_e( 'Three new blocks' ); ?></strong><br />
 					<?php
 					printf(
-						/* Translators: %s: keyboard combination keys to launch the palette. */
-						esc_html__( 'Hit the %s keys to launch the command palette from any part of your site’s Administration.' ),
-						str_contains( $_SERVER['HTTP_USER_AGENT'], 'Mac' ) ? '<code>Cmd + k</code>' : '<code>Ctrl + k</code>'
+						/* Translators: 1: first block name. 2: second block name. 3: Third block name. */
+						esc_html__( 'Designing your website and writing your content in Retraceur gets three new native blocks: %1$s, %2$s and %3$s.' ),
+						'<strong>' . esc_html_x( 'Breadcrumbs', 'about 4.0 page' ) . '</strong>',
+						'<strong>' . esc_html_x( 'Table of Contents', 'about 4.0 page' ) . '</strong>',
+						'<strong>' . esc_html_x( 'Icons', 'about 4.0 page' ) . '</strong>'
 					);
 					?>
 				</p>
 			</div>
 			<div class="column is-vertically-aligned-bottom">
-				<p><?php esc_html_e( 'Use the new Accordion block for your FAQs, menus, or long content you want to keep easy to explore.' ); ?></p>
+				<p>
+					<strong><?php esc_html_e( 'Unified update management' ); ?></strong><br />
+					<?php esc_html_e( 'Extension and block updates are now managed from the same administration screen already used for Retraceur core updates.' ); ?>
+				</p>
 			</div>
 		</div>
 

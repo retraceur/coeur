@@ -431,6 +431,10 @@
 	line-height: 160%;
 }
 
+.about__container p.is-subheading.italic {
+	font-style: italic;
+}
+
 .about__section a {
 	color: var(--accent-1);
 	text-decoration: underline;
