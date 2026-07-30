@@ -217,16 +217,6 @@ class WP_Plugins_List_Table extends WP_List_Table {
 			if ( apply_filters( 'show_advanced_plugins', true, 'dropins' ) ) {
 				$plugins['dropins'] = get_dropins();
 			}
-
-			if ( current_user_can( 'update_plugins' ) ) {
-				$current = get_site_transient( 'update_plugins' );
-				foreach ( (array) $plugins['all'] as $plugin_file => $plugin_data ) {
-					if ( isset( $current->response[ $plugin_file ] ) ) {
-						$plugins['all'][ $plugin_file ]['update'] = true;
-						$plugins['upgrade'][ $plugin_file ]       = $plugins['all'][ $plugin_file ];
-					}
-				}
-			}
 		}
 
 		if ( ! $screen->in_admin( 'network' ) ) {
@@ -265,23 +255,8 @@ class WP_Plugins_List_Table extends WP_List_Table {
 			update_option( 'recently_activated', $recently_activated, false );
 		}
 
-		$plugin_info = get_site_transient( 'update_plugins' );
-
 		foreach ( (array) $plugins['all'] as $plugin_file => $plugin_data ) {
-			// Extra info if known. array_merge() ensures $plugin_data has precedence if keys collide.
-			if ( isset( $plugin_info->response[ $plugin_file ] ) ) {
-				$plugin_data = array_merge( (array) $plugin_info->response[ $plugin_file ], array( 'update-supported' => true ), $plugin_data );
-			} elseif ( isset( $plugin_info->no_update[ $plugin_file ] ) ) {
-				$plugin_data = array_merge( (array) $plugin_info->no_update[ $plugin_file ], array( 'update-supported' => true ), $plugin_data );
-			} elseif ( empty( $plugin_data['update-supported'] ) ) {
-				$plugin_data['update-supported'] = false;
-			}
-
 			$plugins['all'][ $plugin_file ] = $plugin_data;
-			// Make sure that $plugins['upgrade'] also receives the extra info since it is used on ?plugin_status=upgrade.
-			if ( isset( $plugins['upgrade'][ $plugin_file ] ) ) {
-				$plugins['upgrade'][ $plugin_file ] = $plugin_data;
-			}
 
 			// Filter into individual sections.
 			if ( is_multisite() && ! $screen->in_admin( 'network' ) && is_network_only_plugin( $plugin_file ) && ! is_plugin_active( $plugin_file ) ) {
@@ -357,6 +332,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 			$js_plugins[ $key ] = array_keys( $list );
 		}
 
+		// The updates.js script is not dedicated to Plugin updates.
 		wp_localize_script(
 			'updates',
 			'_wpUpdatesItemCounts',
@@ -669,10 +645,6 @@ class WP_Plugins_List_Table extends WP_List_Table {
 		}
 
 		if ( ! is_multisite() || $this->screen->in_admin( 'network' ) ) {
-			if ( current_user_can( 'update_plugins' ) ) {
-				$actions['update-selected'] = __( 'Update' );
-			}
-
 			if ( current_user_can( 'delete_plugins' ) && ( 'active' !== $status ) ) {
 				$actions['delete-selected'] = __( 'Delete' );
 			}
@@ -1164,8 +1136,6 @@ class WP_Plugins_List_Table extends WP_List_Table {
 		}
 
 		if (
-			! empty( $totals['upgrade'] ) &&
-			! empty( $plugin_data['update'] ) ||
 			! $compatible_php ||
 			! $is_compatible ||
 			! $requires_r
@@ -1249,6 +1219,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 					 * Filters the array of row meta for each plugin in the Plugins list table.
 					 *
 					 * @since WP 2.8.0
+					 * @since 4.0.0 Retraceur fork Data about plugin updates is no more available.
 					 *
 					 * @param string[] $plugin_meta An array of the plugin's metadata, including
 					 *                              the version, author, author URI, and plugin URI.
@@ -1256,22 +1227,10 @@ class WP_Plugins_List_Table extends WP_List_Table {
 					 * @param array    $plugin_data {
 					 *     An array of plugin data.
 					 *
-					 *     @type string   $id               Plugin ID, e.g. `github.com/Retraceur/[plugin-name]`.
-					 *     @type string   $slug             Plugin slug.
-					 *     @type string   $plugin           Plugin basename.
-					 *     @type string   $new_version      New plugin version.
-					 *     @type string   $url              Plugin URL.
-					 *     @type string   $package          Plugin update package URL.
-					 *     @type string[] $icons            An array of plugin icon URLs.
-					 *     @type string[] $banners          An array of plugin banner URLs.
-					 *     @type string[] $banners_rtl      An array of plugin RTL banner URLs.
-					 *     @type string   $requires         The version of Retraceur which the plugin requires.
-					 *     @type string   $tested           The version of Retraceur the plugin is tested against.
-					 *     @type string   $requires_php     The version of PHP which the plugin requires.
-					 *     @type string   $upgrade_notice   The upgrade notice for the new plugin version.
-					 *     @type bool     $update-supported Whether the plugin supports updates.
 					 *     @type string   $Name             The human-readable name of the plugin.
+					 *     @type string   $Type             The type of the plugin (e.g., 'regular', 'block').
 					 *     @type string   $PluginURI        Plugin URI.
+					 *     @type string   $GitHubPluginURI  GitHub Plugin URI.
 					 *     @type string   $Version          Plugin version.
 					 *     @type string   $Description      Plugin description.
 					 *     @type string   $Author           Plugin author.
@@ -1279,16 +1238,17 @@ class WP_Plugins_List_Table extends WP_List_Table {
 					 *     @type string   $TextDomain       Plugin textdomain.
 					 *     @type string   $DomainPath       Relative path to the plugin's .mo file(s).
 					 *     @type bool     $Network          Whether the plugin can only be activated network-wide.
+					 *     @type string   $RequiresWP       The WP version the plugin requires.
 					 *     @type string   $RequiresR        The version of Retraceur which the plugin requires.
 					 *     @type string   $RequiresPHP      The version of PHP which the plugin requires.
 					 *     @type string   $UpdateURI        ID of the plugin for update purposes, should be a URI.
+					 *     @type string   $RequiresPlugins  A list of plugin dependencies, separated by commas.
 					 *     @type string   $Title            The human-readable title of the plugin.
 					 *     @type string   $AuthorName       Plugin author's name.
-					 *     @type bool     $update           Whether there's an available update. Default null.
 					 * }
 					 * @param string   $status      Status filter currently applied to the plugin list. Possible
 					 *                              values are: 'all', 'active', 'inactive', 'recently_activated',
-					 *                              'upgrade', 'mustuse', 'dropins', 'search', 'paused'.
+					 *                              'mustuse', 'dropins', 'search', 'paused'.
 					 */
 					$plugin_meta = apply_filters( 'plugin_row_meta', $plugin_meta, $plugin_file, $plugin_data, $status );
 
@@ -1450,6 +1410,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 		 * @since WP 2.3.0
 		 * @since WP 5.5.0 Added 'auto-update-enabled' and 'auto-update-disabled'
 		 *              to possible values for `$status`.
+		 * @since 4.0.0 Retraceur fork `$status` about plugin updates is no more available.
 		 *
 		 * @param string $plugin_file Path to the plugin file relative to the plugins directory.
 		 * @param array  $plugin_data An array of plugin data. See get_plugin_data()
@@ -1471,6 +1432,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 		 * @since WP 2.7.0
 		 * @since WP 5.5.0 Added 'auto-update-enabled' and 'auto-update-disabled'
 		 *              to possible values for `$status`.
+		 * @since 4.0.0 Retraceur fork `$status` about plugin updates is no more available.
 		 *
 		 * @param string $plugin_file Path to the plugin file relative to the plugins directory.
 		 * @param array  $plugin_data An array of plugin data. See get_plugin_data()
