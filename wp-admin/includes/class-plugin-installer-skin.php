@@ -100,84 +100,92 @@ class Plugin_Installer_Skin extends WP_Upgrader_Skin {
 		}
 
 		$plugin_file = $this->upgrader->plugin_info();
-		$plugin_data = get_plugin_data( WP_PLUGIN_DIR . '/' . $plugin_file );
-		$plugin_type = 'regular';
-		if ( isset( $plugin_data['Type'] ) && 'block' === strtolower( $plugin_data['Type'] ) ) {
-			$plugin_type = 'block';
-		}
 
-		$install_actions = array();
-
-		$from = isset( $_GET['from'] ) ? wp_unslash( $_GET['from'] ) : 'plugins';
-
-		if ( 'import' === $from ) {
-			$install_actions['activate_plugin'] = sprintf(
-				'<a class="button button-primary" href="%s" target="_parent">%s</a>',
-				wp_nonce_url( 'plugins.php?action=activate&amp;from=import&amp;plugin=' . urlencode( $plugin_file ), 'activate-plugin_' . $plugin_file ),
-				__( 'Activate Plugin &amp; Run Importer' )
-			);
-		} elseif ( 'press-this' === $from ) {
-			$install_actions['activate_plugin'] = sprintf(
-				'<a class="button button-primary" href="%s" target="_parent">%s</a>',
-				wp_nonce_url( 'plugins.php?action=activate&amp;from=press-this&amp;plugin=' . urlencode( $plugin_file ), 'activate-plugin_' . $plugin_file ),
-				__( 'Activate Plugin &amp; Go to Press This' )
-			);
-		} elseif ( 'block' === $plugin_type ) {
-			$install_actions['activate_plugin'] = sprintf(
-				'<a class="button button-primary" href="%s" target="_parent">%s</a>',
-				wp_nonce_url( 'blocks.php?action=activate&amp;plugin=' . urlencode( $plugin_file ), 'activate-plugin_' . $plugin_file ),
-				__( 'Activate Block' )
-			);
-		} else {
-			$install_actions['activate_plugin'] = sprintf(
-				'<a class="button button-primary" href="%s" target="_parent">%s</a>',
-				wp_nonce_url( 'plugins.php?action=activate&amp;plugin=' . urlencode( $plugin_file ), 'activate-plugin_' . $plugin_file ),
-				__( 'Activate Plugin' )
-			);
-		}
-
-		if ( is_multisite() && current_user_can( 'manage_network_plugins' ) ) {
-			$install_actions['network_activate'] = sprintf(
-				'<a class="button button-primary" href="%s" target="_parent">%s</a>',
-				wp_nonce_url( 'plugins.php?action=activate&amp;networkwide=1&amp;plugin=' . urlencode( $plugin_file ), 'activate-plugin_' . $plugin_file ),
-				_x( 'Network Activate', 'plugin' )
-			);
-			unset( $install_actions['activate_plugin'] );
-		}
-
-		if ( 'web' === $this->type ) {
-			$install_actions['plugins_page'] = sprintf(
+		// Set the default action links for the plugin install process.
+		$install_actions = array(
+			'plugins_page' => sprintf(
 				'<a href="%s" target="_parent">%s</a>',
 				self_admin_url( 'plugins.php' ),
 				__( 'Go to Plugins page' )
-			);
-		} elseif ( 'upload' === $this->type && 'plugins' === $from ) {
-			if ( 'block' === $plugin_type ) {
-				$install_actions['plugins_page'] = sprintf(
-					'<a href="%s">%s</a>',
-					self_admin_url( 'blocks.php' ),
-					__( 'Go to Blocks page' )
+			),
+		);
+
+		// Set the block admin link for the install process.
+		$block_admin_link = sprintf(
+			'<a href="%s" target="_parent">%s</a>',
+			self_admin_url( 'blocks.php' ),
+			__( 'Go to Blocks page' )
+		);
+
+		if ( $plugin_file && file_exists( WP_PLUGIN_DIR . '/' . $plugin_file ) ) {
+			$plugin_data = get_plugin_data( WP_PLUGIN_DIR . '/' . $plugin_file );
+
+			$plugin_type = 'regular';
+			if ( isset( $plugin_data['Type'] ) && 'block' === strtolower( $plugin_data['Type'] ) ) {
+				$plugin_type = 'block';
+			}
+
+			$from = isset( $_GET['from'] ) ? wp_unslash( $_GET['from'] ) : 'plugins';
+
+			if ( 'import' === $from ) {
+				$install_actions['activate_plugin'] = sprintf(
+					'<a class="button button-primary" href="%s" target="_parent">%s</a>',
+					wp_nonce_url( 'plugins.php?action=activate&amp;from=import&amp;plugin=' . urlencode( $plugin_file ), 'activate-plugin_' . $plugin_file ),
+					__( 'Activate Plugin &amp; Run Importer' )
+				);
+			} elseif ( 'press-this' === $from ) {
+				$install_actions['activate_plugin'] = sprintf(
+					'<a class="button button-primary" href="%s" target="_parent">%s</a>',
+					wp_nonce_url( 'plugins.php?action=activate&amp;from=press-this&amp;plugin=' . urlencode( $plugin_file ), 'activate-plugin_' . $plugin_file ),
+					__( 'Activate Plugin &amp; Go to Press This' )
+				);
+			} elseif ( 'block' === $plugin_type ) {
+				$install_actions['activate_plugin'] = sprintf(
+					'<a class="button button-primary" href="%s" target="_parent">%s</a>',
+					wp_nonce_url( 'blocks.php?action=activate&amp;plugin=' . urlencode( $plugin_file ), 'activate-plugin_' . $plugin_file ),
+					__( 'Activate Block' )
 				);
 			} else {
-				$install_actions['plugins_page'] = sprintf(
-					'<a href="%s">%s</a>',
-					self_admin_url( 'plugins.php' ),
-					__( 'Go to Plugins page' )
+				$install_actions['activate_plugin'] = sprintf(
+					'<a class="button button-primary" href="%s" target="_parent">%s</a>',
+					wp_nonce_url( 'plugins.php?action=activate&amp;plugin=' . urlencode( $plugin_file ), 'activate-plugin_' . $plugin_file ),
+					__( 'Activate Plugin' )
 				);
 			}
-		} else {
-			$install_actions['plugins_page'] = sprintf(
-				'<a href="%s" target="_parent">%s</a>',
-				self_admin_url( 'plugins.php' ),
-				__( 'Go to Plugins page' )
-			);
+
+			if ( is_multisite() && current_user_can( 'manage_network_plugins' ) ) {
+				$install_actions['network_activate'] = sprintf(
+					'<a class="button button-primary" href="%s" target="_parent">%s</a>',
+					wp_nonce_url( 'plugins.php?action=activate&amp;networkwide=1&amp;plugin=' . urlencode( $plugin_file ), 'activate-plugin_' . $plugin_file ),
+					_x( 'Network Activate', 'plugin' )
+				);
+				unset( $install_actions['activate_plugin'] );
+			}
+
+			if ( 'block' === $plugin_type ) {
+				$install_actions['plugins_page'] = $block_admin_link;
+			}
 		}
 
-		if ( ! $this->result || is_wp_error( $this->result ) ) {
-			unset( $install_actions['activate_plugin'], $install_actions['network_activate'] );
+		$new_plugin_data = $this->upgrader->new_plugin_data;
+
+		/*
+		 * activate_plugin/network_activate are never set here since `$plugin_file`
+		 * didn't pass the `file_exists()` guard above.
+		 */
+		if (
+			is_array( $new_plugin_data )
+			&& isset( $new_plugin_data['Type'] )
+			&& 'block' === strtolower( $new_plugin_data['Type'] )
+			&& ( ! $this->result || is_wp_error( $this->result ) )
+		) {
+			$install_actions['plugins_page'] = $block_admin_link;
 		} elseif ( ! current_user_can( 'activate_plugin', $plugin_file ) || is_plugin_active( $plugin_file ) ) {
 			unset( $install_actions['activate_plugin'] );
 		}
+
+		// Restore the original actions order after the refactor above.
+		ksort( $install_actions );
 
 		/**
 		 * Filters the list of action links available following a single plugin installation.
