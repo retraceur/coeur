@@ -173,11 +173,11 @@ if ( isset( $_GET['action'] ) ) {
 
 	} elseif ( 'upload-plugin-cancel-overwrite' === $action || 'upload-block-cancel-overwrite' === $action ) {
 		$plugin_type = 'regular';
-		$redirect    = self_admin_url( 'plugin-install.php' );
+		$redirect    = self_admin_url( 'plugins.php' );
 
 		if ( 'upload-block-cancel-overwrite' === $action ) {
 			$plugin_type = 'block';
-			$redirect    = self_admin_url( 'block-install.php' );
+			$redirect    = self_admin_url( 'blocks.php' );
 		}
 
 		if ( ! current_user_can( 'upload_plugins' ) ) {
