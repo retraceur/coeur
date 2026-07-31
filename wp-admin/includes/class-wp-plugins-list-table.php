@@ -439,9 +439,9 @@ class WP_Plugins_List_Table extends WP_List_Table {
 			// We assume that somebody who can install plugins in multisite is experienced enough to not need this helper link.
 			if ( ! is_multisite() && current_user_can( 'install_plugins' ) ) {
 				if ( 'blocks' === $this->_args['plural'] ) {
-					echo ' <a href="' . esc_url( admin_url( 'block-install.php?tab=search&s=' . urlencode( $s ) ) ) . '">' . __( 'Search for blocks in the Retraceur Block Directory.' ) . '</a>';
+					echo ' <a href="' . esc_url( admin_url( 'block-install.php' ) ) . '">' . __( 'Discover new blocks.' ) . '</a>';
 				} else {
-					echo ' <a href="' . esc_url( admin_url( 'plugin-install.php?tab=search&s=' . urlencode( $s ) ) ) . '">' . __( 'Search for plugins in the Retraceur Plugin Directory.' ) . '</a>';
+					echo ' <a href="' . esc_url( admin_url( 'plugin-install.php' ) ) . '">' . __( 'Discover new plugins.' ) . '</a>';
 				}
 			}
 		} elseif ( ! empty( $plugins['all'] ) ) {
