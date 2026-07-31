@@ -173,35 +173,18 @@ if ( $action ) {
 			exit;
 
 		case 'update-selected':
-			check_admin_referer( 'bulk-' . $plugins_args['plural'] );
-
-			if ( isset( $_GET['plugins'] ) ) {
-				$plugins = explode( ',', wp_unslash( $_GET['plugins'] ) );
-			} elseif ( isset( $_POST['checked'] ) ) {
-				$plugins = (array) wp_unslash( $_POST['checked'] );
-			} else {
-				$plugins = array();
-			}
-
-			// Used in the HTML title tag.
-			$title = __( 'Update Plugins' );
-
-			if ( 'block' ===  $plugins_type ) {
-				$title = __( 'Update Blocks' );
-			}
-
-			wp_enqueue_script( 'updates' );
-			require_once ABSPATH . 'wp-admin/admin-header.php';
-
-			echo '<div class="wrap">';
-			echo '<h1>' . esc_html( $title ) . '</h1>';
-
-			$url = self_admin_url( 'update.php?action=update-selected&amp;plugins=' . urlencode( implode( ',', $plugins ) ) );
-			$url = wp_nonce_url( $url, 'bulk-update-plugins' );
-
-			echo "<iframe src='$url' style='width: 100%; height:100%; min-height:850px;'></iframe>";
-			echo '</div>';
-			require_once ABSPATH . 'wp-admin/admin-footer.php';
+			wp_die(
+				'<h1>' . esc_html__( 'Since Retraceur 4.0.0, updating Plugins or Blocks is not available from this screen.' ) . '</h1>' .
+				'<p>' . sprintf(
+					esc_html__( 'Upgrades are centralized into the main %s.' ),
+					sprintf(
+						'<a href="%1$s">%2$s</a>',
+						esc_url( self_admin_url( 'update-core.php' ) ),
+						__( 'Upgrade page' )
+					)
+				) . '</p>',
+				500
+			);
 			exit;
 
 		case 'error_scrape':
