@@ -20,6 +20,7 @@ import discoveryStore from './store';
 import fields from './definitions/fields';
 import defaultLayouts from './definitions/layouts';
 import actions from './definitions/actions';
+import RetraceurIcon from './assets/icon';
 
 /**
  * Style dependency
@@ -76,6 +77,32 @@ const Discovery = ( { settings } ) => {
 	}, [] );
 
 	const { requestInstallation } = useDispatch( discoveryStore );
+	const customEmptyResults = (
+		<div className="retraceur-discovery-empty">
+			<RetraceurIcon />
+			<h2 className="retraceur-discovery-empty__heading">
+				{ 'block' === pluginType
+					? __( 'No available Blocks yet' )
+					: __( 'No available Plugins yet' )
+				}
+			</h2>
+			<p className="retraceur-discovery-empty__description">
+				{ 'block' === pluginType
+					? __( 'Get started by building & publishing a Block.' )
+					: __( 'Get started by building & publishing a Plugin.' )
+				}
+			</p>
+			<ExternalLink
+				className="button button-primary"
+				href={
+					/* translators: use the documentation URL of your language. */
+					__( 'https://retraceur.github.io/plugins/publish/' )
+				}
+			>
+				{ __( 'Read more about it' ) }
+			</ExternalLink>
+		</div>
+    );
 
 	return (
 		<>
@@ -90,22 +117,7 @@ const Discovery = ( { settings } ) => {
 				onClickItem={ onClickItem }
 				isItemClickable={ isItemClickable }
 				search={ false }
-				empty={ {
-					heading: 'block' === pluginType ? 'No available Blocks yet' : 'No available Plugins yet',
-					description: 'block' === pluginType
-						? __( 'Get started by building & publishing a Block.' )
-						: __( 'Get started by building & publishing a Plugin.' ),
-					illustration:
-						'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/logos/r.svg',
-					actions: (
-						<ExternalLink
-							className="button button-primary"
-							href={ __( 'https://retraceur.github.io/plugins/publish/' ) }
-						>
-							{ __( 'Read more about it' ) }
-						</ExternalLink>
-					),
-				} }
+				empty={ customEmptyResults }
 			/>
 			{ openRepository && RenderModal && (
 				<Modal
