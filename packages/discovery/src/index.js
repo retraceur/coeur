@@ -1,7 +1,7 @@
 /**
  * WP dependencies
  */
-import { Modal } from '@wordpress/components';
+import { Modal, ExternalLink } from '@wordpress/components';
 import { useSelect, useDispatch } from '@wordpress/data';
 import { DataViews } from '@wordpress/dataviews';
 import domReady from '@wordpress/dom-ready';
@@ -20,6 +20,7 @@ import discoveryStore from './store';
 import fields from './definitions/fields';
 import defaultLayouts from './definitions/layouts';
 import actions from './definitions/actions';
+import RetraceurIcon from './assets/icon';
 
 /**
  * Style dependency
@@ -76,6 +77,32 @@ const Discovery = ( { settings } ) => {
 	}, [] );
 
 	const { requestInstallation } = useDispatch( discoveryStore );
+	const customEmptyResults = (
+		<div className="retraceur-discovery-empty">
+			<RetraceurIcon />
+			<h2 className="retraceur-discovery-empty__heading">
+				{ 'block' === pluginType
+					? __( 'No available Blocks yet' )
+					: __( 'No available Plugins yet' )
+				}
+			</h2>
+			<p className="retraceur-discovery-empty__description">
+				{ 'block' === pluginType
+					? __( 'Get started by building & publishing a Block.' )
+					: __( 'Get started by building & publishing a Plugin.' )
+				}
+			</p>
+			<ExternalLink
+				className="button button-primary"
+				href={
+					/* translators: use the documentation URL of your language. */
+					__( 'https://retraceur.github.io/plugins/publish/' )
+				}
+			>
+				{ __( 'Read more about it' ) }
+			</ExternalLink>
+		</div>
+	);
 
 	return (
 		<>
@@ -90,6 +117,7 @@ const Discovery = ( { settings } ) => {
 				onClickItem={ onClickItem }
 				isItemClickable={ isItemClickable }
 				search={ false }
+				empty={ customEmptyResults }
 			/>
 			{ openRepository && RenderModal && (
 				<Modal

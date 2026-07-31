@@ -72,6 +72,34 @@
 	}
 }
 
+.retraceur-discovery-empty {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	padding: 40px 20px;
+	gap: 8px;
+
+	> svg {
+		fill: var(--wp-admin-theme-color, #2243b6);
+		margin-bottom: 12px;
+	}
+
+	&__heading {
+		font-size: 1.1rem;
+		margin: 0;
+	}
+
+	&__description {
+		color: #757575;
+		margin: 0 0 12px;
+	}
+
+	.components-external-link__contents {
+		text-decoration: none;
+	}
+}
+
 .dataviews-action-modal__view-repository {
 
 	.components-modal__content img {

@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Add a richer "No results" found to Discovery UI. See [#245](https://github.com/retraceur/coeur/pull/245).
+
 
 ## [4.0.0-beta2] - 2026-07-28
 
