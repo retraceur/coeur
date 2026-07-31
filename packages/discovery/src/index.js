@@ -1,7 +1,7 @@
 /**
  * WP dependencies
  */
-import { Modal } from '@wordpress/components';
+import { Modal, ExternalLink } from '@wordpress/components';
 import { useSelect, useDispatch } from '@wordpress/data';
 import { DataViews } from '@wordpress/dataviews';
 import domReady from '@wordpress/dom-ready';
@@ -90,6 +90,22 @@ const Discovery = ( { settings } ) => {
 				onClickItem={ onClickItem }
 				isItemClickable={ isItemClickable }
 				search={ false }
+				empty={ {
+					heading: 'block' === pluginType ? 'No available Blocks yet' : 'No available Plugins yet',
+					description: 'block' === pluginType
+						? __( 'Get started by building & publishing a Block.' )
+						: __( 'Get started by building & publishing a Plugin.' ),
+					illustration:
+						'https://raw.githubusercontent.com/retraceur/ressources/refs/heads/main/logos/r.svg',
+					actions: (
+						<ExternalLink
+							className="button button-primary"
+							href={ __( 'https://retraceur.github.io/plugins/publish/' ) }
+						>
+							{ __( 'Read more about it' ) }
+						</ExternalLink>
+					),
+				} }
 			/>
 			{ openRepository && RenderModal && (
 				<Modal
