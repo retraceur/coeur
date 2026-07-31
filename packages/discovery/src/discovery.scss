@@ -80,7 +80,8 @@
 	padding: 40px 20px;
 	gap: 8px;
 
-	&__illustration {
+	> svg {
+		fill: var(--wp-admin-theme-color, #2243b6);
 		margin-bottom: 12px;
 	}
 

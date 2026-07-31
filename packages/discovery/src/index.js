@@ -102,7 +102,7 @@ const Discovery = ( { settings } ) => {
 				{ __( 'Read more about it' ) }
 			</ExternalLink>
 		</div>
-    );
+	);
 
 	return (
 		<>
