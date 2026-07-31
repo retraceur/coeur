@@ -123,6 +123,16 @@ class WP_Plugins_List_Table extends WP_List_Table {
 		$status = 'all';
 		if ( isset( $_REQUEST['plugin_status'] ) ) {
 			$status = sanitize_key( $_REQUEST['plugin_status'] );
+
+			if ( 'upgrade' === $status ) {
+				_doing_it_wrong(
+					__METHOD__,
+					__( 'The upgrade view is no more supported by Retraceur. All Upgrades are managed in `/wp-admin/update-core.php`.' ),
+					'4.0.0',
+					true
+				);
+				$status = 'all';
+			}
 		}
 
 		if ( isset( $_REQUEST['s'] ) ) {
@@ -184,7 +194,6 @@ class WP_Plugins_List_Table extends WP_List_Table {
 			'active'             => array(),
 			'inactive'           => array(),
 			'recently_activated' => array(),
-			'upgrade'            => array(),
 			'mustuse'            => array(),
 			'dropins'            => array(),
 			'paused'             => array(),
@@ -581,14 +590,6 @@ class WP_Plugins_List_Table extends WP_List_Table {
 						$count
 					);
 					break;
-				case 'upgrade':
-					/* translators: %s: Number of plugins. */
-					$text = _n(
-						'Update Available <span class="count">(%s)</span>',
-						'Update Available <span class="count">(%s)</span>',
-						$count
-					);
-					break;
 				default:
 					/**
 					 * Filters the status text of default switch case in the plugins list table.
@@ -610,7 +611,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 					break;
 			}
 
-			if ( 'search' !== $type ) {
+			if ( 'search' !== $type && 'upgrade' !== $type ) {
 				$status_links[ $type ] = array(
 					'url'     => add_query_arg( 'plugin_status', $type, $parent_file ),
 					'label'   => sprintf( $text, number_format_i18n( $count ) ),
