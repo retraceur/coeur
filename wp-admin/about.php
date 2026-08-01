@@ -69,7 +69,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 						?>
 					</strong>
 					<br /><?php esc_html_e( 'This new version takes an important step in that direction.' ); ?>
-					<br /><?php esc_html_e( 'Retraceur can now discover and update the extensions and blocks that enrich our sites, without creating a new dependency on a centralized platform.' ); ?>
+					<br /><?php esc_html_e( 'Retraceur can now discover and update the Plugins and Blocks that enrich our sites, without creating a new dependency on a centralized platform.' ); ?>
 				</p>
 				<h4><?php esc_html_e( 'Discover, choose, contribute' ); ?></h4>
 				<p>
