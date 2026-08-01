@@ -114,7 +114,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 						'<strong>' . esc_html_x( 'the update API', 'about 4.0 page' ) . '</strong>'
 					);
 					?>
-					<br /><?php esc_html_e( 'Retraceur can now check whether new versions of installed extensions and blocks are available, and offer to update them directly from the site administration, currently relying on GitHub.' ); ?>
+					<br /><?php esc_html_e( 'Retraceur can now check whether new versions of installed Plugins and Blocks are available, and offer to update them directly from the site administration, currently relying on GitHub.' ); ?>
 					<br /><?php
 					printf(
 						/* Translators: %s: The update API goal in blod format. */
