@@ -75,9 +75,15 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 				<p>
 					<?php
 					printf(
-						/* Translators: %s: The discovery API name in bold format. */
-						esc_html__( 'Retraceur now provides %s that allows Plugins and Blocks to make themselves available to sites that want to use them.' ),
-						'<strong>' . esc_html_x( 'a discovery API', 'about 4.0 page' ) . '</strong>'
+						/* Translators: 1: The discovery API name in bold format. 2. Link to the Blocks directory documentation page. */
+						esc_html__( 'Retraceur now provides %1$s that allows Plugins and %2$s to make themselves available to sites that want to use them.' ),
+						'<strong>' . esc_html_x( 'a discovery API', 'about 4.0 page' ) . '</strong>',
+						sprintf(
+							'<a href="%1$s" target="_blank">%2$s</a>',
+							/* translators: use the URL of the documentation for your language */
+							esc_url( __( 'https://retraceur.github.io/administration/discover-blocks/' ) ),
+							__( 'Blocks' ) . ' <span class="dashicons dashicons-external" style="text-decoration: none; vertical-align: text-bottom"></span>'
+						)
 					);
 					?>
 					<br /><?php esc_html_e( 'The goal is more ambitious than rebuilding another centralized directory: freeing developers to publish, and users to discover Plugins and Blocks.' ); ?>
@@ -153,7 +159,18 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 			<div class="column is-vertically-aligned-bottom">
 				<p>
 					<strong><?php esc_html_e( 'Unified update management' ); ?></strong><br />
-					<?php esc_html_e( 'Plugin and Block updates are now managed from the same administration screen already used for Retraceur core updates.' ); ?>
+					<?php
+					printf(
+						/* translators: %s is the link to the Plugin & Block updates. */
+						esc_html__( '%s are now managed from the same administration screen already used for Retraceur core updates.' ),
+						sprintf(
+							'<a href="%1$s" target="_blank">%2$s</a>',
+							/* translators: use the URL of the documentation for your language */
+							esc_url( __( 'https://retraceur.github.io/administration/manage-updates/#plugin--block-updates' ) ),
+							__( 'Plugin and Block updates' ) . ' <span class="dashicons dashicons-external" style="text-decoration: none; vertical-align: text-bottom"></span>'
+						)
+					);
+					?>
 				</p>
 			</div>
 		</div>
