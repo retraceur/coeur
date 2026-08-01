@@ -138,7 +138,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 			<div class="column">
 				<h3><?php esc_html_e( 'A few extra treats!' ); ?></h3>
 				<p>
-					<strong><?php esc_html_e( 'Three new blocks' ); ?></strong><br />
+					<strong><?php esc_html_e( 'Three new Blocks' ); ?></strong><br />
 					<?php
 					printf(
 						/* Translators: 1: first block name. 2: second block name. 3: Third block name. */
