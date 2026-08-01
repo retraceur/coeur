@@ -564,14 +564,14 @@ wp_enqueue_script( 'plugin-install' );
 add_screen_option( 'per_page', array( 'default' => 999 ) );
 
 if ( 'block' === $plugins_type ) {
-	$help  = '<p>' . esc_html__( 'Blocks are pieces of content of a post, page or template of your site. Once a block is installed, you may activate it or deactivate it here.' ) . '</p>';
+	$help  = '<p>' . esc_html__( 'Blocks are pieces of content of a post, page or template of your site. Once a block is installed, you may activate it, deactivate it or delete it here.' ) . '</p>';
 	$help .= '<p>' . esc_html__( 'The search for installed blocks will search for terms in their name, description, or author.' );
 } else {
-	$help  = '<p>' . esc_html__( 'Plugins extend and expand the functionality of Retraceur. Once a plugin is installed, you may activate it or deactivate it here.' );
+	$help  = '<p>' . esc_html__( 'Plugins extend and expand the functionality of Retraceur. Once a plugin is installed, you may activate it, deactivate it or delete it here.' );
 	$help .= '<p>' . esc_html__( 'The search for installed plugins will search for terms in their name, description, or author.' );
 }
 
-$help .= ' <span id="live-search-desc" class="hide-if-no-js">' . __( 'The search results will be updated as you type.' ) . '</span></p>';
+$help .= '</p>';
 
 get_current_screen()->add_help_tab(
 	array(
@@ -621,6 +621,18 @@ if ( current_user_can( 'install_plugins' ) ) {
 		)
 	);
 
+	if ( 'block' === $plugins_type ) {
+		$help_sidebar = array(
+			_x( 'https://retraceur.github.io/administration/manage-blocks/', 'Block installation docs link' ) => array(
+				'text'     => __( 'Documentation on Block management' ),
+				'external' => true,
+			),
+		);
+
+		get_current_screen()->set_help_sidebar( $help_sidebar );
+		unset( $help_sidebar );
+	}
+
 	unset( $tab_title );
 
 	/*
@@ -655,6 +667,27 @@ if ( current_user_can( 'install_plugins' ) ) {
 	 *
 	 * @see https://github.com/retraceur/coeur/issues/205
 	 */
+}
+
+if ( current_user_can( 'update_plugins' ) ) {
+	$help  = '<p>' . esc_html__( 'Retraceur regularly checks for Plugin & Block Updates to keep your Website as safe as possible. When one or more of your Plugins or Blocks need to be updated, the Admin Bar and the Updates Admin Menu will include a badge informing about the number of available updates.' ) . '</p>';
+	$help .= '<p>' . sprintf(
+		/* translators: %s is the link to the Updates Administration screen */
+		esc_html__( 'All Updates are available from %s of your Retraceur Administration.' ),
+		sprintf(
+			'<a href="%1$s">%2$s</a>',
+			esc_url( self_admin_url( 'update-core.php' ) ),
+			__( 'this central & unique screen' )
+		)
+	) . '</p>';
+
+	get_current_screen()->add_help_tab(
+		array(
+			'id'      => 'updating-plugins',
+			'title'   => esc_html__( 'Plugin & Block updates' ),
+			'content' => $help,
+		)
+	);
 }
 
 unset( $help );

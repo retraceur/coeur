@@ -2100,6 +2100,10 @@ p.update-last-checked {
 	overflow: auto;
 }
 
+.contextual-help-sidebar .dashicons {
+	text-decoration: none;
+}
+
 /*------------------------------------------------------------------------------
   8.0 - Layout Blocks
 ------------------------------------------------------------------------------*/

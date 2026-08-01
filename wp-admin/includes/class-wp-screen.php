@@ -692,19 +692,50 @@ final class WP_Screen {
 	 *
 	 * @since WP 3.3.0
 	 * @since 2.0.0 Retraceur fork is now using an array as parameter to have more control on the output.
+	 * @since 4.0.0 Retraceur fork now allows link to be opened in a new window.
 	 *
 	 * @param array|string $content The list of documentation link texts keyed by their URLs.
 	 *                              Or Sidebar content in plain text or HTML (deprecated in Retraceur fork).
 	 */
 	public function set_help_sidebar( $content ) {
 		if ( is_array( $content ) && 0 !== count( $content ) ) {
-			$this->_help_sidebar = sprintf( '<p><strong>%s</strong></p>', esc_html__( 'For more information:' ) );
+			$help = '';
 
-			foreach ( $content as $url => $link_text ) {
-				$this->_help_sidebar .= sprintf(
-					'<p><a href="%1$s">%2$s</a></p>',
+			foreach ( $content as $url => $link_data ) {
+				$target = '';
+				$icon   = '';
+
+				// Backwards compatibility.
+				if ( ! is_array( $link_data ) && $link_data ) {
+					$text      = $link_data;
+					$link_data = array(
+						'text' => $text,
+					);
+				}
+
+				if ( ! isset( $link_data['text'] ) || ! $link_data['text'] ) {
+					continue;
+				}
+
+				if ( isset( $link_data['external'] ) && true === $link_data['external'] ) {
+					$target = ' target="_blank"';
+					$icon   = ' <span class="dashicons dashicons-external"></span>';
+				}
+
+				$help .= sprintf(
+					'<p><a href="%1$s"%2$s>%3$s%4$s</a></p>',
 					esc_url( $url ),
-					esc_html( $link_text )
+					$target,
+					esc_html( $link_data['text'] ),
+					$icon
+				);
+			}
+
+			if ( $help ) {
+				$this->_help_sidebar = sprintf(
+					'<p><strong>%1$s</strong></p>%2$s',
+					esc_html__( 'For more information:' ),
+					"\n" . $help
 				);
 			}
 		} else {
