@@ -76,7 +76,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 					<?php
 					printf(
 						/* Translators: %s: The discovery API name in bold format. */
-						esc_html__( 'Retraceur now provides %s that allows extensions and blocks to make themselves available to sites that want to use them.' ),
+						esc_html__( 'Retraceur now provides %s that allows Plugins and Blocks to make themselves available to sites that want to use them.' ),
 						'<strong>' . esc_html_x( 'a discovery API', 'about 4.0 page' ) . '</strong>'
 					);
 					?>
