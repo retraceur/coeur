@@ -153,7 +153,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 			<div class="column is-vertically-aligned-bottom">
 				<p>
 					<strong><?php esc_html_e( 'Unified update management' ); ?></strong><br />
-					<?php esc_html_e( 'Extension and block updates are now managed from the same administration screen already used for Retraceur core updates.' ); ?>
+					<?php esc_html_e( 'Plugin and Block updates are now managed from the same administration screen already used for Retraceur core updates.' ); ?>
 				</p>
 			</div>
 		</div>
