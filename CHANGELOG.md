@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+
+## [4.0.0-beta3] - 2026-08-01
+
 ### Changed
 
 - Improve Plugin/Block and Updates administration pages' Help tabs & sidebars. See [#247](https://github.com/retraceur/coeur/pull/247).
