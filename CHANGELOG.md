@@ -10,6 +10,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Improve Plugin/Block and Updates administration pages' Help tabs & sidebars. See [#247](https://github.com/retraceur/coeur/pull/247).
+- Admin/About: inform Administrators about the latest Retraceur changes. See [#238](https://github.com/retraceur/coeur/pull/238).
 - Add a richer "No results" found to Discovery UI. See [#245](https://github.com/retraceur/coeur/pull/245).
 - Upgrade/Install: Fix notice and wrong admin link when a block install fails. See [#244](https://github.com/retraceur/coeur/pull/244).
 - Use the right bring back link after a Plugin/Block overwrite. See [#242](https://github.com/retraceur/coeur/pull/242).
