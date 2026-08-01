@@ -142,7 +142,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 					<?php
 					printf(
 						/* Translators: 1: first block name. 2: second block name. 3: Third block name. */
-						esc_html__( 'Designing your website and writing your content in Retraceur gets three new native blocks: %1$s, %2$s and %3$s.' ),
+						esc_html__( 'Designing your website and writing your content in Retraceur gets three new native Blocks: %1$s, %2$s and %3$s.' ),
 						'<strong>' . esc_html_x( 'Breadcrumbs', 'about 4.0 page' ) . '</strong>',
 						'<strong>' . esc_html_x( 'Table of Contents', 'about 4.0 page' ) . '</strong>',
 						'<strong>' . esc_html_x( 'Icons', 'about 4.0 page' ) . '</strong>'
