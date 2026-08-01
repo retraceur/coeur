@@ -80,7 +80,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 						'<strong>' . esc_html_x( 'a discovery API', 'about 4.0 page' ) . '</strong>'
 					);
 					?>
-					<br /><?php esc_html_e( 'The goal is more ambitious than rebuilding another centralized directory: freeing developers to publish, and users to discover extensions and blocks.' ); ?>
+					<br /><?php esc_html_e( 'The goal is more ambitious than rebuilding another centralized directory: freeing developers to publish, and users to discover Plugins and Blocks.' ); ?>
 					<br /><?php
 					printf(
 						/* Translators: %s: The discovery API goal in blod format. */
