@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-07-25T09:05:09+00:00\n"
+"POT-Creation-Date: 2026-07-29T12:49:21+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 
@@ -97,122 +97,201 @@ msgid "Thanks for making Retraceur your very own Personal Online Publication Hub
 msgstr ""
 
 #: wp-admin/about.php:65
-msgid "Open Graph is part of your identity"
+msgid "An open crossroads for evolving your site"
 msgstr ""
 
 #: wp-admin/about.php:68
-msgid "A website is no longer just a destination. It is a personal crossroads — a place where your ideas, your work, and your identity converge and radiate outward."
+msgid "Retraceur was born from a simple goal: taking back control of our personal presence on the Web."
 msgstr ""
 
 #: wp-admin/about.php:71
-msgid "Every time a link to your site is shared, it becomes a representation of you. With built-in Open Graph support, Retraceur ensures that representation is intentional."
+msgid "This new version takes an important step in that direction."
 msgstr ""
 
 #: wp-admin/about.php:72
-msgid "Your pages and posts automatically expose structured metadata designed for modern sharing. Titles, descriptions, publication data, and images are generated natively by the core — consistently, predictably, without plugins or fragile theme logic."
+msgid "Retraceur can now discover and update the extensions and blocks that enrich our sites, without creating a new dependency on a centralized platform."
 msgstr ""
 
-#: wp-admin/about.php:73
-msgid "Because how your content appears outside your site matters as much as how it appears within it."
+#: wp-admin/about.php:74
+msgid "Discover, choose, contribute"
 msgstr ""
 
-#. Translators: 1: The settings Admin menu name. 2: The Media Admin sub menu name.
-#: wp-admin/about.php:77
-#, php-format
-msgid "You can also define a global fallback image in %1$s → %2$s, guaranteeing a coherent visual presence whenever your content travels beyond your domain."
-msgstr ""
-
-#: wp-admin/about.php:78
-msgctxt "about 3.0 page"
-msgid "Settings"
-msgstr ""
-
+#. Translators: %s: The discovery API name in bold format.
 #: wp-admin/about.php:79
-msgctxt "about 3.0 page"
-msgid "Media"
+#, php-format
+msgid "Retraceur now provides %s that allows extensions and blocks to make themselves available to sites that want to use them."
+msgstr ""
+
+#: wp-admin/about.php:80
+msgctxt "about 4.0 page"
+msgid "a discovery API"
 msgstr ""
 
 #: wp-admin/about.php:83
-msgid "Retraceur treats social metadata not as decoration, but as part of your site’s identity. Open Graph is not an add-on. It is infrastructure."
+msgid "The goal is more ambitious than rebuilding another centralized directory: freeing developers to publish, and users to discover extensions and blocks."
 msgstr ""
 
-#: wp-admin/about.php:92
-msgid "Two other sweets!"
-msgstr ""
-
-#. Translators: %s: keyboard combination keys to launch the palette.
-#: wp-admin/about.php:97
+#. Translators: %s: The discovery API goal in blod format.
+#: wp-admin/about.php:87
 #, php-format
-msgid "Hit the %s keys to launch the command palette from any part of your site’s Administration."
+msgid "The direction is clear: progressively build a “%s” mechanism that will ultimately depend on no particular infrastructure."
 msgstr ""
 
-#: wp-admin/about.php:104
-msgid "Use the new Accordion block for your FAQs, menus, or long content you want to keep easy to explore."
+#: wp-admin/about.php:88
+msgctxt "about 4.0 page"
+msgid "forge-agnostic"
 msgstr ""
 
-#: wp-admin/about.php:116
+#: wp-admin/about.php:91
+msgid "For this first version, Retraceur relies on GitHub, a forge widely used by open-source projects and a natural starting point for Retraceur resources."
+msgstr ""
+
+#: wp-admin/about.php:99
+msgid "A crossroads rather than a destination."
+msgstr ""
+
+#: wp-admin/about.php:100
+msgid "Resources rather than a curated catalog."
+msgstr ""
+
+#: wp-admin/about.php:101
+msgid "A first forge, but not a forge imposed forever."
+msgstr ""
+
+#: wp-admin/about.php:108
+msgid "Update without giving up independence"
+msgstr ""
+
+#. Translators: %s: The update API name in bold format.
+#: wp-admin/about.php:113
+#, php-format
+msgid "This same approach guided the design of %s."
+msgstr ""
+
+#: wp-admin/about.php:114
+msgctxt "about 4.0 page"
+msgid "the update API"
+msgstr ""
+
+#: wp-admin/about.php:117
+msgid "Retraceur can now check whether new versions of installed extensions and blocks are available, and offer to update them directly from the site administration, currently relying on GitHub."
+msgstr ""
+
+#. Translators: %s: The update API goal in blod format.
+#: wp-admin/about.php:121
+#, php-format
+msgid "Here too, the direction is the same: enable infrastructure %s so that no single one becomes essential to Retraceur's operation."
+msgstr ""
+
+#: wp-admin/about.php:122
+msgctxt "about 4.0 page"
+msgid "to diversify"
+msgstr ""
+
+#: wp-admin/about.php:125
+msgid "Version 4.0.0 lays the first foundations for a distributed system where responsibility for publishing, distributing, and updating resources progressively belongs to the people who create and use them."
+msgstr ""
+
+#: wp-admin/about.php:139
+msgid "A few extra treats!"
+msgstr ""
+
+#: wp-admin/about.php:141
+msgid "Three new blocks"
+msgstr ""
+
+#. Translators: 1: first block name. 2: second block name. 3: Third block name.
+#: wp-admin/about.php:145
+#, php-format
+msgid "Designing your website and writing your content in Retraceur gets three new native blocks: %1$s, %2$s and %3$s."
+msgstr ""
+
+#: wp-admin/about.php:146
+msgctxt "about 4.0 page"
+msgid "Breadcrumbs"
+msgstr ""
+
+#: wp-admin/about.php:147
+msgctxt "about 4.0 page"
+msgid "Table of Contents"
+msgstr ""
+
+#: wp-admin/about.php:148
+msgctxt "about 4.0 page"
+msgid "Icons"
+msgstr ""
+
+#: wp-admin/about.php:155
+msgid "Unified update management"
+msgstr ""
+
+#: wp-admin/about.php:156
+msgid "Extension and block updates are now managed from the same administration screen already used for Retraceur core updates."
+msgstr ""
+
+#: wp-admin/about.php:169
 msgid "Go to Updates"
 msgstr ""
 
-#: wp-admin/about.php:116
+#: wp-admin/about.php:169
 msgid "Go to Dashboard &rarr; Updates"
 msgstr ""
 
-#: wp-admin/about.php:123
+#: wp-admin/about.php:176
 msgid "Go to Dashboard &rarr; Home"
 msgstr ""
 
-#: wp-admin/about.php:123
+#: wp-admin/about.php:176
 msgid "Go to Dashboard"
 msgstr ""
 
-#: wp-admin/about.php:131
+#: wp-admin/about.php:184
 msgctxt "Retraceur Documentation site"
 msgid "https://retraceur.github.io/"
 msgstr ""
 
-#: wp-admin/about.php:132
+#: wp-admin/about.php:185
 msgid "Documentation"
 msgstr ""
 
-#: wp-admin/about.php:144
+#: wp-admin/about.php:197
 msgid "Maintenance Release"
 msgstr ""
 
-#: wp-admin/about.php:145
+#: wp-admin/about.php:198
 msgid "Maintenance Releases"
 msgstr ""
 
-#: wp-admin/about.php:147
+#: wp-admin/about.php:200
 msgid "Security Release"
 msgstr ""
 
-#: wp-admin/about.php:148
+#: wp-admin/about.php:201
 msgid "Security Releases"
 msgstr ""
 
-#: wp-admin/about.php:150
+#: wp-admin/about.php:203
 msgid "Maintenance and Security Release"
 msgstr ""
 
-#: wp-admin/about.php:151
+#: wp-admin/about.php:204
 msgid "Maintenance and Security Releases"
 msgstr ""
 
 #. translators: %s: Retraceur version number.
-#: wp-admin/about.php:154
+#: wp-admin/about.php:207
 #, php-format
 msgid "<strong>Version %s</strong> addressed one security issue."
 msgstr ""
 
 #. translators: %s: Retraceur version number.
-#: wp-admin/about.php:156
+#: wp-admin/about.php:209
 #, php-format
 msgid "<strong>Version %s</strong> addressed some security issues."
 msgstr ""
 
 #. translators: 1: Retraceur version number, 2: Plural number of bugs.
-#: wp-admin/about.php:159
+#: wp-admin/about.php:212
 #, php-format
 msgid "<strong>Version %1$s</strong> addressed %2$s bug."
 msgid_plural "<strong>Version %1$s</strong> addressed %2$s bugs."
@@ -220,7 +299,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: 1: Retraceur version number, 2: Plural number of bugs. Singular security issue.
-#: wp-admin/about.php:165
+#: wp-admin/about.php:218
 #, php-format
 msgid "<strong>Version %1$s</strong> addressed a security issue and fixed %2$s bug."
 msgid_plural "<strong>Version %1$s</strong> addressed a security issue and fixed %2$s bugs."
@@ -228,7 +307,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: 1: Retraceur version number, 2: Plural number of bugs. More than one security issue.
-#: wp-admin/about.php:171
+#: wp-admin/about.php:224
 #, php-format
 msgid "<strong>Version %1$s</strong> addressed some security issues and fixed %2$s bug."
 msgid_plural "<strong>Version %1$s</strong> addressed some security issues and fixed %2$s bugs."
@@ -236,25 +315,25 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %s: Documentation URL.
-#: wp-admin/about.php:177
+#: wp-admin/about.php:230
 #, php-format
 msgid "For more information, see <a href=\"%s\">the release notes</a>."
 msgstr ""
 
 #. translators: 1: Retraceur version number, 2: Link to update Retraceur
-#: wp-admin/about.php:180
+#: wp-admin/about.php:233
 #, php-format
 msgid "Important! Your version of Retraceur (%1$s) is no longer supported, you will not receive any security updates for your website. To keep your site secure, please <a href=\"%2$s\">update to the latest version of Retraceur</a>."
 msgstr ""
 
 #. translators: 1: Retraceur version number, 2: Link to update Retraceur
-#: wp-admin/about.php:183
+#: wp-admin/about.php:236
 #, php-format
 msgid "Important! Your version of Retraceur (%1$s) will stop receiving security updates in the near future. To keep your site secure, please <a href=\"%2$s\">update to the latest version of Retraceur</a>."
 msgstr ""
 
 #. translators: %s: The major version of Retraceur for this branch.
-#: wp-admin/about.php:186
+#: wp-admin/about.php:239
 #, php-format
 msgid "This is the final release of Retraceur %s"
 msgstr ""
@@ -2410,7 +2489,7 @@ msgstr ""
 
 #: wp-admin/includes/class-core-upgrader.php:132
 #: wp-admin/includes/class-wp-upgrader.php:205
-#: wp-admin/includes/update-core.php:324
+#: wp-admin/includes/update-core.php:325
 msgid "The update cannot be installed because some files could not be copied. This is usually due to inconsistent file permissions."
 msgstr ""
 
@@ -3077,7 +3156,7 @@ msgstr ""
 #: wp-admin/includes/class-theme-installer-skin.php:304
 #: wp-admin/includes/class-theme-upgrader.php:442
 #: wp-admin/includes/class-theme-upgrader.php:636
-#: wp-admin/includes/plugin.php:1246
+#: wp-admin/includes/plugin.php:1256
 msgid "Unknown"
 msgstr ""
 
@@ -7240,12 +7319,12 @@ msgid "A directory could not be read."
 msgstr ""
 
 #: wp-admin/includes/class-wp-upgrader.php:208
-#: wp-admin/includes/update-core.php:435
+#: wp-admin/includes/update-core.php:436
 msgid "Enabling Maintenance mode&#8230;"
 msgstr ""
 
 #: wp-admin/includes/class-wp-upgrader.php:209
-#: wp-admin/includes/update-core.php:519
+#: wp-admin/includes/update-core.php:520
 msgid "Disabling Maintenance mode&#8230;"
 msgstr ""
 
@@ -8103,7 +8182,7 @@ msgstr ""
 #: wp-admin/includes/file.php:1104
 #: wp-admin/includes/file.php:1263
 #: wp-admin/includes/file.php:1321
-#: wp-admin/includes/update-core.php:560
+#: wp-admin/includes/update-core.php:561
 msgid "Could not copy file."
 msgstr ""
 
@@ -9342,52 +9421,52 @@ msgid "One of the plugins is invalid."
 msgstr ""
 
 #. translators: %s: Plugin filename.
-#: wp-admin/includes/plugin.php:1117
+#: wp-admin/includes/plugin.php:1127
 #, php-format
 msgid "Could not fully remove the plugin %s."
 msgstr ""
 
 #. translators: %s: Comma-separated list of plugin filenames.
-#: wp-admin/includes/plugin.php:1120
+#: wp-admin/includes/plugin.php:1130
 #, php-format
 msgid "Could not fully remove the plugins %s."
 msgstr ""
 
-#: wp-admin/includes/plugin.php:1180
+#: wp-admin/includes/plugin.php:1190
 msgid "Invalid plugin path."
 msgstr ""
 
-#: wp-admin/includes/plugin.php:1183
+#: wp-admin/includes/plugin.php:1193
 msgid "Plugin file does not exist."
 msgstr ""
 
-#: wp-admin/includes/plugin.php:1188
+#: wp-admin/includes/plugin.php:1198
 msgid "The plugin does not have a valid header."
 msgstr ""
 
 #. translators: 1: Current Retraceur version, 2: Current PHP version, 3: Plugin name, 4: Required Retraceur version, 5: Required PHP version.
-#: wp-admin/includes/plugin.php:1226
+#: wp-admin/includes/plugin.php:1236
 #, php-format
 msgctxt "plugin"
 msgid "<strong>Error:</strong> Current versions of Retraceur (%1$s) and PHP (%2$s) do not meet minimum requirements for %3$s. The plugin requires Retraceur %4$s and PHP %5$s."
 msgstr ""
 
 #. translators: 1: Current PHP version, 2: Plugin name, 3: Required PHP version.
-#: wp-admin/includes/plugin.php:1239
+#: wp-admin/includes/plugin.php:1249
 #, php-format
 msgctxt "plugin"
 msgid "<strong>Error:</strong> Current PHP version (%1$s) does not meet minimum requirements for %2$s. The plugin requires PHP %3$s."
 msgstr ""
 
 #. translators: 1: Current Retraceur version, 2: Plugin name, 3: Required Retraceur version.
-#: wp-admin/includes/plugin.php:1252
+#: wp-admin/includes/plugin.php:1262
 #, php-format
 msgctxt "plugin"
 msgid "<strong>Error:</strong> Current Retraceur version (%1$s) does not meet minimum requirements for %2$s. The plugin requires Retraceur %3$s."
 msgstr ""
 
 #. translators: 1: Plugin name, 2: Number of plugins, 3: A comma-separated list of plugin names.
-#: wp-admin/includes/plugin.php:1281
+#: wp-admin/includes/plugin.php:1291
 #, php-format
 msgid "<strong>Error:</strong> %1$s requires %2$d plugin to be installed and activated: %3$s."
 msgid_plural "<strong>Error:</strong> %1$s requires %2$d plugins to be installed and activated: %3$s."
@@ -9395,66 +9474,66 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %s: Link to the plugins page.
-#: wp-admin/includes/plugin.php:1295
-#: wp-admin/includes/plugin.php:1304
+#: wp-admin/includes/plugin.php:1305
+#: wp-admin/includes/plugin.php:1314
 #, php-format
 msgid "<a href=\"%s\">Manage plugins</a>."
 msgstr ""
 
-#: wp-admin/includes/plugin.php:1299
+#: wp-admin/includes/plugin.php:1309
 msgid "Please contact your network administrator."
 msgstr ""
 
 #. translators: %s: Function name.
-#: wp-admin/includes/plugin.php:1479
-#: wp-admin/includes/plugin.php:1583
+#: wp-admin/includes/plugin.php:1489
+#: wp-admin/includes/plugin.php:1593
 #, php-format
 msgid "The seventh parameter passed to %s should be numeric representing menu position."
 msgstr ""
 
 #. translators: %s: admin_init
-#: wp-admin/includes/plugin.php:2445
+#: wp-admin/includes/plugin.php:2455
 #, php-format
 msgid "The suggested privacy policy content should be added only in wp-admin by using the %s (or later) action."
 msgstr ""
 
 #. translators: %s: admin_init
-#: wp-admin/includes/plugin.php:2456
+#: wp-admin/includes/plugin.php:2466
 #, php-format
 msgid "The suggested privacy policy content should be added by using the %s (or later) action. Please see the inline documentation."
 msgstr ""
 
-#: wp-admin/includes/plugin.php:2565
+#: wp-admin/includes/plugin.php:2575
 msgid "Could not resume the plugin."
 msgstr ""
 
-#: wp-admin/includes/plugin.php:2595
+#: wp-admin/includes/plugin.php:2605
 msgid "One or more plugins failed to load properly."
 msgstr ""
 
-#: wp-admin/includes/plugin.php:2596
+#: wp-admin/includes/plugin.php:2606
 msgid "You can find more details and make changes on the Plugins screen."
 msgstr ""
 
-#: wp-admin/includes/plugin.php:2598
-#: wp-admin/includes/plugin.php:2680
+#: wp-admin/includes/plugin.php:2608
+#: wp-admin/includes/plugin.php:2690
 msgid "Go to the Plugins screen"
 msgstr ""
 
 #. translators: 1: Name of deactivated plugin, 2: Plugin version deactivated, 3: Current WP version, 4: Compatible plugin version.
-#: wp-admin/includes/plugin.php:2654
+#: wp-admin/includes/plugin.php:2664
 #, php-format
 msgid "%1$s %2$s was deactivated due to incompatibility with Retraceur %3$s, please upgrade to %1$s %4$s or later."
 msgstr ""
 
 #. translators: 1: Name of deactivated plugin, 2: Plugin version deactivated, 3: Current WP version.
-#: wp-admin/includes/plugin.php:2663
+#: wp-admin/includes/plugin.php:2673
 #, php-format
 msgid "%1$s %2$s was deactivated due to incompatibility with Retraceur %3$s."
 msgstr ""
 
 #. translators: %s: Name of deactivated plugin.
-#: wp-admin/includes/plugin.php:2675
+#: wp-admin/includes/plugin.php:2685
 #, php-format
 msgid "%s plugin deactivated during Retraceur upgrade."
 msgstr ""
@@ -10379,51 +10458,51 @@ msgstr ""
 msgid "(Retraceur could not establish a secure connection to Translations API. Please contact your server administrator.)"
 msgstr ""
 
-#: wp-admin/includes/update-core.php:295
+#: wp-admin/includes/update-core.php:296
 msgid "Verifying the unpacked files&#8230;"
 msgstr ""
 
-#: wp-admin/includes/update-core.php:308
+#: wp-admin/includes/update-core.php:309
 msgid "The update could not be unpacked"
 msgstr ""
 
 #. translators: 1: Retraceur version number, 2: Minimum required PHP version number, 3: Minimum required MySQL version number, 4: Current PHP version number, 5: Current MySQL version number.
-#: wp-admin/includes/update-core.php:368
+#: wp-admin/includes/update-core.php:369
 #, php-format
 msgid "The update cannot be installed because Retraceur %1$s requires PHP version %2$s or higher and MySQL version %3$s or higher. You are running PHP version %4$s and MySQL version %5$s."
 msgstr ""
 
 #. translators: 1: Retraceur version number, 2: Minimum required PHP version number, 3: Current PHP version number.
-#: wp-admin/includes/update-core.php:381
+#: wp-admin/includes/update-core.php:382
 #, php-format
 msgid "The update cannot be installed because Retraceur %1$s requires PHP version %2$s or higher. You are running version %3$s."
 msgstr ""
 
 #. translators: 1: Retraceur version number, 2: Minimum required MySQL version number, 3: Current MySQL version number.
-#: wp-admin/includes/update-core.php:392
+#: wp-admin/includes/update-core.php:393
 #, php-format
 msgid "The update cannot be installed because Retraceur %1$s requires MySQL version %2$s or higher. You are running version %3$s."
 msgstr ""
 
 #. translators: 1: Retraceur version number, 2: The PHP extension name needed.
-#: wp-admin/includes/update-core.php:412
+#: wp-admin/includes/update-core.php:413
 #, php-format
 msgid "The update cannot be installed because Retraceur %1$s requires the %2$s PHP extension."
 msgstr ""
 
-#: wp-admin/includes/update-core.php:426
+#: wp-admin/includes/update-core.php:427
 msgid "Preparing to install the latest version&#8230;"
 msgstr ""
 
-#: wp-admin/includes/update-core.php:444
+#: wp-admin/includes/update-core.php:445
 msgid "Copying the required files&#8230;"
 msgstr ""
 
-#: wp-admin/includes/update-core.php:463
+#: wp-admin/includes/update-core.php:464
 msgid "The update cannot be installed because your site is unable to copy some files. This is usually due to inconsistent file permissions."
 msgstr ""
 
-#: wp-admin/includes/update-core.php:656
+#: wp-admin/includes/update-core.php:657
 msgid "Upgrading database&#8230;"
 msgstr ""
 
