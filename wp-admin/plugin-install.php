@@ -102,14 +102,14 @@ foreach ( array( 'beta', 'favorites', 'featured', 'plugin-information', 'popular
 }
 
 if ( 'block' === $plugin_type ) {
-	$help  = '<p>' . esc_html__( 'Blocks are pieces of content of a post, page or template of your site. Blocks are developed independently from the Retraceur software by thousands of developers all over the world.' ) . '</p>';
-	$help .= '<p>' . esc_html__( 'You can find new blocks to install by searching or browsing the directory right here in your own blocks section.' );
+	$help  = '<p>' . esc_html__( 'Blocks are pieces of content of a post, page or template of your site. Blocks are developed independently from the Retraceur software by developers all over the world.' ) . '</p>';
+	$help .= '<p>' . esc_html__( 'You can find new blocks to install by browsing the list displayed into this screen.' );
 } else {
-	$help  = '<p>' . esc_html__( 'Plugins hook into Retraceur to extend its functionality with custom features. Plugins are developed independently from the Retraceur software by thousands of developers all over the world.' ) . '</p>';
-	$help .= '<p>' . esc_html__( 'You can find new plugins to install by searching or browsing the directory right here in your own plugins section.' );
+	$help  = '<p>' . esc_html__( 'Plugins hook into Retraceur to extend its functionality with custom features. Plugins are developed independently from the Retraceur software by developers all over the world.' ) . '</p>';
+	$help .= '<p>' . esc_html__( 'You can find new plugins to install by browsing the list displayed into this screen.' );
 }
 
-$help .= ' <span id="live-search-desc" class="hide-if-no-js">' . __( 'The search results will be updated as you type.' ) . '</span></p>';
+$help .= '</p>';
 
 get_current_screen()->add_help_tab(
 	array(
@@ -123,7 +123,10 @@ unset( $help );
 
 if ( 'block' === $plugin_type ) {
 	$help_sidebar = array(
-		_x( 'https://retraceur.github.io/administration/manage-blocks/', 'Block installation docs link' ) => __( 'Documentation on installing/updating a block' ),
+		_x( 'https://retraceur.github.io/administration/discover-blocks/', 'Block discovery docs link' ) => array(
+			'text'     => __( 'Documentation on block discovery' ),
+			'external' => true,
+		),
 	);
 
 	get_current_screen()->set_help_sidebar( $help_sidebar );

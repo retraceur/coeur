@@ -356,7 +356,10 @@ if ( 'category' === $taxonomy || 'post_tag' === $taxonomy ) {
 	unset( $actions_help );
 
 	$help_sidebar = array(
-		_x( 'https://retraceur.github.io/administration/manage-post-formats/', 'Post Formats documentation URL' ) => __( 'Documentation on managing Post Formats' ),
+		_x( 'https://retraceur.github.io/administration/manage-post-formats/', 'Post Formats documentation URL' ) => array(
+			'text'     => __( 'Documentation on managing Post Formats' ),
+			'external' => true,
+		),
 	);
 }
 

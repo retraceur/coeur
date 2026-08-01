@@ -817,9 +817,9 @@ get_current_screen()->add_help_tab(
 );
 
 $updates_howto  = '<p>' . __( '<strong>Retraceur</strong> &mdash; Updating your Retraceur installation is a simple one-click procedure: just <strong>click on the &#8220;Update to version X.Y.Z&#8221; button</strong> when you are notified that a new version is available.' ) . ' ' . __( 'Alternatively, you can perform a manual upgrade using the &#8220;Download & upgrade to version X.Y.Z&#8221; button.' ) . '</p>';
-/*$updates_howto .= '<p>' . __( '<strong>Themes and Plugins</strong> &mdash; To update individual themes or plugins from this screen, use the checkboxes to make your selection, then <strong>click on the appropriate &#8220;Update&#8221; button</strong>. To update all of your themes or plugins at once, you can check the box at the top of the section to select all before clicking the update button.' ) . '</p>';
+$updates_howto .= '<p>' . __( '<strong>Plugins & Blocks</strong> &mdash; To update individual Plugins or Blocks from this screen, use the checkboxes to make your selection, then <strong>click on the &#8220;Update Plugins/Blocks&#8221; button</strong>. To update all of your Plugins or Blocks at once, you can check the box at the top of the section to select all before clicking the update button.' ) . '</p>';
 
-if ( 'en_US' !== get_locale() ) {
+/*if ( 'en_US' !== get_locale() ) {
 	$updates_howto .= '<p>' . __( '<strong>Translations</strong> &mdash; The files translating Retraceur into your language are updated for you whenever any other updates occur. But if these files are out of date, you can <strong>click the &#8220;Update Translations&#8221;</strong> button.' ) . '</p>';
 }*/
 
@@ -832,7 +832,10 @@ get_current_screen()->add_help_tab(
 );
 
 $help_sidebar = array(
-	_x( 'https://retraceur.github.io/administration/manage-updates/', 'Documentation site URL' ) => __( 'Documentation on managing updates' ),
+	_x( 'https://retraceur.github.io/administration/manage-updates/', 'Documentation about Updates management' ) => array(
+		'text'     => __( 'Documentation on managing updates' ),
+		'external' => true,
+	),
 );
 
 get_current_screen()->set_help_sidebar( $help_sidebar );
