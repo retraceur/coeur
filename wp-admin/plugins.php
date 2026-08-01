@@ -670,7 +670,7 @@ if ( current_user_can( 'install_plugins' ) ) {
 }
 
 if ( current_user_can( 'update_plugins' ) ) {
-	$help  = '<p>' . esc_html__( 'Retraceur regularly checks for Plugin & Block Updates to keep your Website as safe as possible. When one of more of your Plugins or Blocks need to be updated, the Admin Bar and the Updates Admin Menu will include a badge informing about the number of available updates.' ) . '</p>';
+	$help  = '<p>' . esc_html__( 'Retraceur regularly checks for Plugin & Block Updates to keep your Website as safe as possible. When one or more of your Plugins or Blocks need to be updated, the Admin Bar and the Updates Admin Menu will include a badge informing about the number of available updates.' ) . '</p>';
 	$help .= '<p>' . sprintf(
 		/* translators: %s is the link to the Updates Administration screen */
 		esc_html__( 'All Updates are available from %s of your Retraceur Administration.' ),

@@ -103,10 +103,10 @@ foreach ( array( 'beta', 'favorites', 'featured', 'plugin-information', 'popular
 
 if ( 'block' === $plugin_type ) {
 	$help  = '<p>' . esc_html__( 'Blocks are pieces of content of a post, page or template of your site. Blocks are developed independently from the Retraceur software by developers all over the world.' ) . '</p>';
-	$help .= '<p>' . esc_html__( 'You can find new blocks to install by browsing the list displayed into this screen.' );
+	$help .= '<p>' . esc_html__( 'You can find new Blocks to install by browsing the list displayed into this screen.' );
 } else {
 	$help  = '<p>' . esc_html__( 'Plugins hook into Retraceur to extend its functionality with custom features. Plugins are developed independently from the Retraceur software by developers all over the world.' ) . '</p>';
-	$help .= '<p>' . esc_html__( 'You can find new plugins to install by browsing the list displayed into this screen.' );
+	$help .= '<p>' . esc_html__( 'You can find new Plugins to install by browsing the list displayed into this screen.' );
 }
 
 $help .= '</p>';
@@ -124,7 +124,7 @@ unset( $help );
 if ( 'block' === $plugin_type ) {
 	$help_sidebar = array(
 		_x( 'https://retraceur.github.io/administration/discover-blocks/', 'Block discovery docs link' ) => array(
-			'text'     => __( 'Documentation on block discovery' ),
+			'text'     => __( 'Documentation on Block discovery' ),
 			'external' => true,
 		),
 	);

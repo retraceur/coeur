@@ -833,7 +833,7 @@ get_current_screen()->add_help_tab(
 
 $help_sidebar = array(
 	_x( 'https://retraceur.github.io/administration/manage-updates/', 'Documentation about Updates management' ) => array(
-		'text'     => __( 'Documentation on managing updates' ),
+		'text'     => __( 'Documentation on Updates management' ),
 		'external' => true,
 	),
 );
