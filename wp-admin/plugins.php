@@ -176,6 +176,7 @@ if ( $action ) {
 			wp_die(
 				'<h1>' . esc_html__( 'Since Retraceur 4.0.0, updating Plugins or Blocks is not available from this screen.' ) . '</h1>' .
 				'<p>' . sprintf(
+					/* translators: %s is the link to the Updates Administration page. */
 					esc_html__( 'Upgrades are centralized into the main %s.' ),
 					sprintf(
 						'<a href="%1$s">%2$s</a>',
