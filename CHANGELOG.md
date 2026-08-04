@@ -9,40 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 
-## [4.0.0-RC1] - 2026-08-03
-
-
-## [4.0.0-beta3] - 2026-08-01
-
-### Changed
-
-- Improve Plugin/Block and Updates administration pages' Help tabs & sidebars. See [#247](https://github.com/retraceur/coeur/pull/247).
-- Admin/About: inform Administrators about the latest Retraceur changes. See [#238](https://github.com/retraceur/coeur/pull/238).
-- Add a richer "No results" found to Discovery UI. See [#245](https://github.com/retraceur/coeur/pull/245).
-- Upgrade/Install: Fix notice and wrong admin link when a block install fails. See [#244](https://github.com/retraceur/coeur/pull/244).
-- Use the right bring back link after a Plugin/Block overwrite. See [#242](https://github.com/retraceur/coeur/pull/242).
-- Remove the Update bulk action from Plugins list table. See [#240](https://github.com/retraceur/coeur/pull/240).
-
-
-## [4.0.0-beta2] - 2026-07-28
+## [4.0.0] - 2026-08-04
 
 ### Added
 
 - Site Admin menu of the Admin bar: include a link to reach Block administration. See [#227](https://github.com/retraceur/coeur/pull/227).
-
-### Changed
-
-- Avoid warnings about `/* translators: */` comments. See [#228](https://github.com/retraceur/coeur/pull/228).
-- Use more consistent text about some translatable strings. See [#229](https://github.com/retraceur/coeur/pull/229)
-- Make sure the `$_bundled_files_to_refresh` global is rightly referenced within the `update_core()` function. See [#230](https://github.com/retraceur/coeur/pull/230).
-- REST API: `WP_REST_URL_Details_Controller::get_description()` is now searching for `og:description` inside the `prorperty` meta attribute, instead of the `name` one.
-- Discovery/Update APIs: Delete Discovery & Releases caches once a plugin/block is deleted. See [#237](https://github.com/retraceur/coeur/pull/237)
-
-
-## [4.0.0-beta1] - 2026-07-21
-
-### Added
-
 - Introduce the Discovery API: a minimalist, GitHub.com-based replacement for the WP.org Plugin Install API, see [#186](https://github.com/retraceur/coeur/pull/186) and [#30](https://github.com/retraceur/coeur/issues/30).
   - Consume the GitHub REST API to list Retraceur blocks and plugins, with transient caching of the responses.
   - Add the `retraceur_discovery_api()` and `retraceur_discovery_request()` helper functions.
@@ -69,6 +40,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Improve Plugin/Block and Updates administration pages' Help tabs & sidebars. See [#247](https://github.com/retraceur/coeur/pull/247).
+- Admin/About: inform Administrators about the latest Retraceur changes. See [#238](https://github.com/retraceur/coeur/pull/238).
+- Add a richer "No results" found to Discovery UI. See [#245](https://github.com/retraceur/coeur/pull/245).
+- Upgrade/Install: Fix notice and wrong admin link when a block install fails. See [#244](https://github.com/retraceur/coeur/pull/244).
+- Use the right bring back link after a Plugin/Block overwrite. See [#242](https://github.com/retraceur/coeur/pull/242).
+- Remove the Update bulk action from Plugins list table. See [#240](https://github.com/retraceur/coeur/pull/240).
+- Avoid warnings about `/* translators: */` comments. See [#228](https://github.com/retraceur/coeur/pull/228).
+- Use more consistent text about some translatable strings. See [#229](https://github.com/retraceur/coeur/pull/229)
+- Make sure the `$_bundled_files_to_refresh` global is rightly referenced within the `update_core()` function. See [#230](https://github.com/retraceur/coeur/pull/230).
+- REST API: `WP_REST_URL_Details_Controller::get_description()` is now searching for `og:description` inside the `prorperty` meta attribute, instead of the `name` one.
+- Discovery/Update APIs: Delete Discovery & Releases caches once a plugin/block is deleted. See [#237](https://github.com/retraceur/coeur/pull/237)
 - Set the `WP_DEFAULT_THEME` constant to `point`, which has been Retraceur's default and only theme since 1.0.0, see [#220](https://github.com/retraceur/coeur/issues/220) and [#222](https://github.com/retraceur/coeur/pull/222).
 - Refresh the bundled files that ship with cœur and have no external update source, making sure the Point theme is updated during each Retraceur upgrade, see [#221](https://github.com/retraceur/coeur/issues/221) and [#224](https://github.com/retraceur/coeur/pull/224).
 - Update the `@wordpress` JavaScript packages according to the Gutenberg `wp/7.0` branch and apply the Retraceur customizations, see [#216](https://github.com/retraceur/coeur/pull/216).
@@ -134,6 +116,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Remove the `editor-buttons` styles, only used by the Classic Editor which is no more supported since Retraceur 1.0.0, see [#178](https://github.com/retraceur/coeur/issues/178) and [#179](https://github.com/retraceur/coeur/pull/179).
 - Remove the Thickbox usage from the Plugins/Blocks list tables.
 - Remove the plugin auto updates UI.
+
+
+## [4.0.0-RC1] - 2026-08-03
+
+
+## [4.0.0-beta3] - 2026-08-01
+
+
+## [4.0.0-beta2] - 2026-07-28
+
+
+## [4.0.0-beta1] - 2026-07-21
 
 
 ## [3.2.0] - 2026-07-18
