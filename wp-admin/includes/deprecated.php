@@ -4354,3 +4354,47 @@ function get_core_checksums( $version, $locale ) {
 	_deprecated_function( __FUNCTION__, '4.0.0', '', true );
 	return false;
 }
+
+/**
+ * Handles deleting a plugin via AJAX.
+ *
+ * @since WP 4.6.0
+ * @deprecated 5.0.0 Retraceur fork.
+ *
+ * @see delete_plugins()
+ *
+ * @global WP_Filesystem_Base $wp_filesystem Retraceur filesystem subclass.
+ */
+function wp_ajax_delete_plugin() {
+	_deprecated_function( __FUNCTION__, '5.0.0', '', true );
+
+	wp_send_json_error( array( 'error' => __( 'Deleting a plugin or a block via Ajax is not supported by the Retraceur fork.' ) ) );
+}
+
+/**
+ * Handles activating a plugin via AJAX.
+ *
+ * @since WP 6.5.0
+ * @deprecated 5.0.0 Retraceur fork.
+ */
+function wp_ajax_activate_plugin() {
+	_deprecated_function( __FUNCTION__, '5.0.0', '', true );
+
+	wp_send_json_error( array( 'error' => __( 'Activating a plugin or a block via Ajax is not supported by the Retraceur fork.' ) ) );
+}
+
+/**
+ * Handles updating a plugin via AJAX.
+ *
+ * @since WP 4.2.0
+ * @deprecated 5.0.0 Retraceur fork.
+ *
+ * @see Plugin_Upgrader
+ *
+ * @global WP_Filesystem_Base $wp_filesystem Retraceur filesystem subclass.
+ */
+function wp_ajax_update_plugin() {
+	_deprecated_function( __FUNCTION__, '5.0.0', '', true );
+
+	wp_send_json_error( array( 'error' => __( 'Updating a plugin or a block via Ajax is not supported by the Retraceur fork.' ) ) );
+}
