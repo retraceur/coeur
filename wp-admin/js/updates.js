@@ -469,6 +469,7 @@
 	 *
 	 * @since WP 4.2.0
 	 * @since WP 4.6.0 More accurately named `updatePlugin`.
+	 * @deprecated 5.0.0 Retraceur fork.
 	 *
 	 * @param {Object}               args         Arguments.
 	 * @param {string}               args.plugin  Plugin basename.
@@ -479,62 +480,7 @@
 	 *                     decorated with an abort() method.
 	 */
 	wp.updates.updatePlugin = function( args ) {
-		var $updateRow, $card, $message, message,
-			$adminBarUpdates = $( '#wp-admin-bar-updates' ),
-			buttonText = __( 'Updating...' ),
-			isPluginInstall = 'plugin-install' === pagenow || 'plugin-install-network' === pagenow;
-
-		args = _.extend( {
-			success: wp.updates.updatePluginSuccess,
-			error: wp.updates.updatePluginError
-		}, args );
-
-		if ( 'plugins' === pagenow || 'plugins-network' === pagenow ) {
-			$updateRow = $( 'tr[data-plugin="' + args.plugin + '"]' );
-			$message   = $updateRow.find( '.update-message' ).removeClass( 'notice-error' ).addClass( 'updating-message notice-warning' ).find( 'p' );
-			message    = sprintf(
-				/* translators: %s: Plugin name and version. */
- 				_x( 'Updating %s...', 'plugin' ),
-				$updateRow.find( '.plugin-title strong' ).text()
-			);
-		} else if ( isPluginInstall ) {
-			$card    = $( '.plugin-card-' + args.slug + ', #plugin-information-footer' );
-			$message = $card.find( '.update-now' ).addClass( 'updating-message' );
-			message    = sprintf(
-				/* translators: %s: Plugin name and version. */
- 				_x( 'Updating %s...', 'plugin' ),
-				$message.data( 'name' )
-			);
-
-			// Remove previous error messages, if any.
-			$card.removeClass( 'plugin-card-update-failed' ).find( '.notice.notice-error' ).remove();
-		}
-
-		$adminBarUpdates.addClass( 'spin' );
-
-		if ( $message.html() !== __( 'Updating...' ) ) {
-			$message.data( 'originaltext', $message.html() );
-		}
-
-		$message
-			.attr( 'aria-label', message )
-			.text( buttonText );
-
-		$document.trigger( 'wp-plugin-updating', args );
-
-		if ( isPluginInstall && 'plugin-information-footer' === $card.attr( 'id' ) ) {
-			wp.updates.setCardButtonStatus(
-				{
-					status: 'updating-plugin',
-					slug: args.slug,
-					addClasses: 'updating-message',
-					text: buttonText,
-					ariaLabel: message
-				}
-			);
-		}
-
-		return wp.updates.ajax( 'update-plugin', args );
+		console.warn( 'Updating Plugins using Ajax is deprecated since Retraceur 5.0.0.' );
 	};
 
 	/**
@@ -543,6 +489,7 @@
 	 * @since WP 4.2.0
 	 * @since WP 4.6.0 More accurately named `updatePluginSuccess`.
 	 * @since WP 5.5.0 Auto-update "time to next update" text cleared.
+	 * @deprecated 5.0.0 Retraceur fork.
 	 *
 	 * @param {Object} response            Response from the server.
 	 * @param {string} response.slug       Slug of the plugin to be updated.
@@ -552,56 +499,7 @@
 	 * @param {string} response.newVersion New version of the plugin.
 	 */
 	wp.updates.updatePluginSuccess = function( response ) {
-		var $pluginRow, $updateMessage, newText,
-			$adminBarUpdates = $( '#wp-admin-bar-updates' ),
-			buttonText = _x( 'Updated!', 'plugin' ),
-			ariaLabel = sprintf(
-				/* translators: %s: Plugin name and version. */
-				_x( '%s updated!', 'plugin' ),
-				response.pluginName
-			);
-
-		if ( 'plugins' === pagenow || 'plugins-network' === pagenow ) {
-			$pluginRow     = $( 'tr[data-plugin="' + response.plugin + '"]' )
-				.removeClass( 'update is-enqueued' )
-				.addClass( 'updated' );
-			$updateMessage = $pluginRow.find( '.update-message' )
-				.removeClass( 'updating-message notice-warning' )
-				.addClass( 'updated-message notice-success' ).find( 'p' );
-
-			// Update the version number in the row.
-			newText = $pluginRow.find( '.plugin-version-author-uri' ).html().replace( response.oldVersion, response.newVersion );
-			$pluginRow.find( '.plugin-version-author-uri' ).html( newText );
-		} else if ( 'plugin-install' === pagenow || 'plugin-install-network' === pagenow ) {
-			$updateMessage = $( '.plugin-card-' + response.slug + ', #plugin-information-footer' ).find( '.update-now' )
-				.removeClass( 'updating-message' )
-				.addClass( 'button-disabled updated-message' );
-		}
-
-		$adminBarUpdates.removeClass( 'spin' );
-
-		$updateMessage
-			.attr( 'aria-label', ariaLabel )
-			.text( buttonText );
-
-		wp.a11y.speak( __( 'Update completed successfully.' ) );
-
-		if ( 'plugin_install_from_iframe' !== $updateMessage.attr( 'id' ) ) {
-			wp.updates.decrementCount( 'plugin' );
-		} else {
-			wp.updates.setCardButtonStatus(
-				{
-					status: 'updated-plugin',
-					slug: response.slug,
-					removeClasses: 'updating-message',
-					addClasses: 'button-disabled updated-message',
-					text: buttonText,
-					ariaLabel: ariaLabel
-				}
-			);
-		}
-
-		$document.trigger( 'wp-plugin-update-success', response );
+		console.warn( 'Updating Plugins using Ajax is deprecated since Retraceur 5.0.0.' );
 	};
 
 	/**
@@ -609,6 +507,7 @@
 	 *
 	 * @since WP 4.2.0
 	 * @since WP 4.6.0 More accurately named `updatePluginError`.
+	 * @deprecated 5.0.0 Retraceur fork.
 	 *
 	 * @param {Object}  response              Response from the server.
 	 * @param {string}  response.slug         Slug of the plugin to be updated.
@@ -618,114 +517,14 @@
 	 * @param {string}  response.errorMessage The error that occurred.
 	 */
 	wp.updates.updatePluginError = function( response ) {
-		var $pluginRow, $card, $message, errorMessage, buttonText, ariaLabel,
-			$adminBarUpdates = $( '#wp-admin-bar-updates' );
-
-		if ( ! wp.updates.isValidResponse( response, 'update' ) ) {
-			return;
-		}
-
-		if ( wp.updates.maybeHandleCredentialError( response, 'update-plugin' ) ) {
-			return;
-		}
-
-		errorMessage = sprintf(
-			/* translators: %s: Error string for a failed update. */
-			__( 'Update failed: %s' ),
-			response.errorMessage
-		);
-
-		if ( 'plugins' === pagenow || 'plugins-network' === pagenow ) {
-			$pluginRow = $( 'tr[data-plugin="' + response.plugin + '"]' ).removeClass( 'is-enqueued' );
-
-			if ( response.plugin ) {
-				$message = $( 'tr[data-plugin="' + response.plugin + '"]' ).find( '.update-message' );
-			} else {
-				$message = $( 'tr[data-slug="' + response.slug + '"]' ).find( '.update-message' );
-			}
-			$message.removeClass( 'updating-message notice-warning' ).addClass( 'notice-error' ).find( 'p' ).html( errorMessage );
-
-			if ( response.pluginName ) {
-				$message.find( 'p' )
-					.attr(
-						'aria-label',
-						sprintf(
-							/* translators: %s: Plugin name and version. */
-							_x( '%s update failed.', 'plugin' ),
-							response.pluginName
-						)
-					);
-			} else {
-				$message.find( 'p' ).removeAttr( 'aria-label' );
-			}
-		} else if ( 'plugin-install' === pagenow || 'plugin-install-network' === pagenow ) {
-			buttonText = __( 'Update failed.' );
-
-			$card = $( '.plugin-card-' + response.slug + ', #plugin-information-footer' )
-				.append( wp.updates.adminNotice( {
-					className: 'update-message notice-error notice-alt is-dismissible',
-					message:   errorMessage
-				} ) );
-
-			if ( $card.hasClass( 'plugin-card-' + response.slug ) ) {
-				$card.addClass( 'plugin-card-update-failed' );
-			}
-
-			$card.find( '.update-now' )
-				.text( buttonText )
-				.removeClass( 'updating-message' );
-
-			if ( response.pluginName ) {
-				ariaLabel = sprintf(
-					/* translators: %s: Plugin name and version. */
-					_x( '%s update failed.', 'plugin' ),
-					response.pluginName
-				);
-
-				$card.find( '.update-now' ).attr( 'aria-label', ariaLabel );
-			} else {
-				ariaLabel = '';
-				$card.find( '.update-now' ).removeAttr( 'aria-label' );
-			}
-
-			$card.on( 'click', '.notice.is-dismissible .notice-dismiss', function() {
-
-				// Use same delay as the total duration of the notice fadeTo + slideUp animation.
-				setTimeout( function() {
-					$card
-						.removeClass( 'plugin-card-update-failed' )
-						.find( '.column-name a' ).trigger( 'focus' );
-
-					$card.find( '.update-now' )
-						.attr( 'aria-label', false )
-						.text( __( 'Update Now' ) );
-				}, 200 );
-			} );
-		}
-
-		$adminBarUpdates.removeClass( 'spin' );
-
-		wp.a11y.speak( errorMessage, 'assertive' );
-
-		if ( 'plugin-information-footer' === $card.attr('id' ) ) {
-			wp.updates.setCardButtonStatus(
-				{
-					status: 'plugin-update-failed',
-					slug: response.slug,
-					removeClasses: 'updating-message',
-					text: buttonText,
-					ariaLabel: ariaLabel
-				}
-			);
-		}
-
-		$document.trigger( 'wp-plugin-update-error', response );
+		console.warn( 'Updating Plugins using Ajax is deprecated since Retraceur 5.0.0.' );
 	};
 
 	/**
 	 * Sends an Ajax request to the server to install a plugin.
 	 *
 	 * @since WP 4.6.0
+	 * @deprecated 4.0.0 Retraceur fork.
 	 *
 	 * @param {Object}                args         Arguments.
 	 * @param {string}                args.slug    Plugin identifier.
@@ -735,13 +534,14 @@
 	 *                     decorated with an abort() method.
 	 */
 	wp.updates.installPlugin = function( args ) {
-		console.log( 'Installing Plugins using Ajax is deprecated since Retraceur 4.0.0.');
+		console.warn( 'Installing Plugins using Ajax is deprecated since Retraceur 4.0.0.' );
 	};
 
 	/**
 	 * Updates the UI appropriately after a successful plugin install.
 	 *
 	 * @since WP 4.6.0
+	 * @deprecated 4.0.0 Retraceur fork.
 	 *
 	 * @param {Object} response             Response from the server.
 	 * @param {string} response.slug        Slug of the installed plugin.
@@ -749,13 +549,14 @@
 	 * @param {string} response.activateUrl URL to activate the just installed plugin.
 	 */
 	wp.updates.installPluginSuccess = function( response ) {
-		console.log( 'Installing Plugins using Ajax is deprecated since Retraceur 4.0.0.');
+		console.warn( 'Installing Plugins using Ajax is deprecated since Retraceur 4.0.0.' );
 	};
 
 	/**
 	 * Updates the UI appropriately after a failed plugin install.
 	 *
 	 * @since WP 4.6.0
+	 * @deprecated 4.0.0 Retraceur fork.
 	 *
 	 * @param {Object}  response              Response from the server.
 	 * @param {string}  response.slug         Slug of the plugin to be installed.
@@ -764,7 +565,7 @@
 	 * @param {string}  response.errorMessage The error that occurred.
 	 */
 	wp.updates.installPluginError = function( response ) {
-		console.log( 'Installing Plugins using Ajax is deprecated since Retraceur 4.0.0.');
+		console.warn( 'Installing Plugins using Ajax is deprecated since Retraceur 4.0.0.' );
 	};
 
 	/**
@@ -918,6 +719,7 @@
 	 * Sends an Ajax request to the server to activate a plugin.
 	 *
 	 * @since WP 6.5.0
+	 * @deprecated 5.0.0 Retraceur fork.
 	 *
 	 * @param {Object}                 args         Arguments.
 	 * @param {string}                 args.name    The name of the plugin.
@@ -929,40 +731,14 @@
 	 *                     decorated with an abort() method.
 	 */
 	wp.updates.activatePlugin = function( args ) {
-		var $message = $( '.plugin-card-' + args.slug + ', #plugin-information-footer' ).find( '.activate-now, .activating-message' );
-
-		args = _.extend( {
-			success: wp.updates.activatePluginSuccess,
-			error: wp.updates.activatePluginError
-		}, args );
-
-		wp.a11y.speak( __( 'Activating... please wait.' ) );
-		$document.trigger( 'wp-activating-plugin', args );
-
-		if ( 'plugin-information-footer' === $message.parent().attr( 'id' ) ) {
-			wp.updates.setCardButtonStatus(
-				{
-					status: 'activating-plugin',
-					slug: args.slug,
-					removeClasses: 'installed updated-message button-primary',
-					addClasses: 'activating-message',
-					text: __( 'Activating...' ),
-					ariaLabel: sprintf(
-						/* translators: %s: Plugin name. */
-						_x( 'Activating %s', 'plugin' ),
-						args.name
-					)
-				}
-			);
-		}
-
-		return wp.updates.ajax( 'activate-plugin', args );
+		console.warn( 'Activating Plugins using Ajax is deprecated since Retraceur 5.0.0.' );
 	};
 
 	/**
 	 * Updates the UI appropriately after a successful plugin activation.
 	 *
 	 * @since WP 6.5.0
+	 * @deprecated 5.0.0 Retraceur fork.
 	 *
 	 * @param {Object} response             Response from the server.
 	 * @param {string} response.slug        Slug of the activated plugin.
@@ -970,62 +746,14 @@
 	 * @param {string} response.plugin      The plugin file, relative to the plugins directory.
 	 */
 	wp.updates.activatePluginSuccess = function( response ) {
-		var $message = $( '.plugin-card-' + response.slug + ', #plugin-information-footer' ).find( '.activating-message' ),
-			buttonText = _x( 'Activated!', 'plugin' ),
-			ariaLabel = sprintf(
-				/* translators: %s: The plugin name. */
-				'%s activated successfully.',
-				response.pluginName
-			);
-
-		wp.a11y.speak( __( 'Activation completed successfully.' ) );
-		$document.trigger( 'wp-plugin-activate-success', response );
-
-		$message
-			.removeClass( 'activating-message' )
-			.addClass( 'activated-message button-disabled' )
-			.attr( 'aria-label', ariaLabel )
-			.text( buttonText );
-
-		if ( 'plugin-information-footer' === $message.parent().attr( 'id' ) ) {
-			wp.updates.setCardButtonStatus(
-				{
-					status: 'activated-plugin',
-					slug: response.slug,
-					removeClasses: 'activating-message',
-					addClasses: 'activated-message button-disabled',
-					text: buttonText,
-					ariaLabel: ariaLabel
-				}
-			);
-		}
-
-		setTimeout( function() {
-			$message.removeClass( 'activated-message' )
-			.text( _x( 'Active', 'plugin' ) );
-
-			if ( 'plugin-information-footer' === $message.parent().attr( 'id' ) ) {
-				wp.updates.setCardButtonStatus(
-					{
-						status: 'plugin-active',
-						slug: response.slug,
-						removeClasses: 'activated-message',
-						text: _x( 'Active', 'plugin' ),
-						ariaLabel: sprintf(
-							/* translators: %s: The plugin name. */
-							'%s is active.',
-							response.pluginName
-						)
-					}
-				);
-			}
-		}, 1000 );
+		console.warn( 'Activating Plugins using Ajax is deprecated since Retraceur 5.0.0.' );
 	};
 
 	/**
 	 * Updates the UI appropriately after a failed plugin activation.
 	 *
 	 * @since WP 6.5.0
+	 * @deprecated 5.0.0 Retraceur fork.
 	 *
 	 * @param {Object}  response              Response from the server.
 	 * @param {string}  response.slug         Slug of the plugin to be activated.
@@ -1034,52 +762,14 @@
 	 * @param {string}  response.errorMessage The error that occurred.
 	 */
 	wp.updates.activatePluginError = function( response ) {
-		var $message = $( '.plugin-card-' + response.slug + ', #plugin-information-footer' ).find( '.activating-message' ),
-			buttonText = __( 'Activation failed.' ),
-			ariaLabel = sprintf(
-				/* translators: %s: Plugin name. */
-				_x( '%s activation failed', 'plugin' ),
-				response.pluginName
-			),
-			errorMessage;
-
-		if ( ! wp.updates.isValidResponse( response, 'activate' ) ) {
-			return;
-		}
-
-		errorMessage = sprintf(
-			/* translators: %s: Error string for a failed activation. */
-			__( 'Activation failed: %s' ),
-			response.errorMessage
-		);
-
-		wp.a11y.speak( errorMessage, 'assertive' );
-		$document.trigger( 'wp-plugin-activate-error', response );
-
-		$message
-			.removeClass( 'install-now installed activating-message' )
-			.addClass( 'button-disabled' )
-			.attr( 'aria-label', ariaLabel )
-			.text( buttonText );
-
-		if ( 'plugin-information-footer' === $message.parent().attr( 'id' ) ) {
-			wp.updates.setCardButtonStatus(
-				{
-					status: 'plugin-activation-failed',
-					slug: response.slug,
-					removeClasses: 'install-now installed activating-message',
-					addClasses: 'button-disabled',
-					text: buttonText,
-					ariaLabel: ariaLabel
-				}
-			);
-		}
+		console.warn( 'Activating Plugins using Ajax is deprecated since Retraceur 5.0.0.' );
 	};
 
 	/**
 	 * Updates the UI appropriately after a successful importer install.
 	 *
 	 * @since WP 4.6.0
+	 * @deprecated 4.0.0 Retraceur fork.
 	 *
 	 * @param {Object} response             Response from the server.
 	 * @param {string} response.slug        Slug of the installed plugin.
@@ -1087,38 +777,14 @@
 	 * @param {string} response.activateUrl URL to activate the just installed plugin.
 	 */
 	wp.updates.installImporterSuccess = function( response ) {
-		wp.updates.addAdminNotice( {
-			id:        'install-success',
-			className: 'notice-success is-dismissible',
-			message:   sprintf(
-				/* translators: %s: Activation URL. */
-				__( 'Importer installed successfully. <a href="%s">Run importer</a>' ),
-				response.activateUrl + '&from=import'
-			)
-		} );
-
-		$( '[data-slug="' + response.slug + '"]' )
-			.removeClass( 'install-now updating-message' )
-			.addClass( 'activate-now' )
-			.attr({
-				'href': response.activateUrl + '&from=import',
-				'aria-label':sprintf(
-					/* translators: %s: Importer name. */
-					__( 'Run %s' ),
-					response.pluginName
-				)
-			})
-			.text( __( 'Run Importer' ) );
-
-		wp.a11y.speak( __( 'Installation completed successfully.' ) );
-
-		$document.trigger( 'wp-importer-install-success', response );
+		console.warn( 'Installing Plugins using Ajax is deprecated since Retraceur 4.0.0.' );
 	};
 
 	/**
 	 * Updates the UI appropriately after a failed importer install.
 	 *
 	 * @since WP 4.6.0
+	 * @deprecated 4.0.0 Retraceur fork.
 	 *
 	 * @param {Object}  response              Response from the server.
 	 * @param {string}  response.slug         Slug of the plugin to be installed.
@@ -1134,6 +800,7 @@
 	 * Sends an Ajax request to the server to delete a plugin.
 	 *
 	 * @since WP 4.6.0
+	 * @deprecated 5.0.0 Retraceur fork.
 	 *
 	 * @param {Object}               args         Arguments.
 	 * @param {string}               args.plugin  Basename of the plugin to be deleted.
@@ -1144,30 +811,14 @@
 	 *                     decorated with an abort() method.
 	 */
 	wp.updates.deletePlugin = function( args ) {
-		var $link = $( '[data-plugin="' + args.plugin + '"]' ).find( '.row-actions a.delete' );
-
-		args = _.extend( {
-			success: wp.updates.deletePluginSuccess,
-			error: wp.updates.deletePluginError
-		}, args );
-
-		if ( $link.html() !== __( 'Deleting...' ) ) {
-			$link
-				.data( 'originaltext', $link.html() )
-				.text( __( 'Deleting...' ) );
-		}
-
-		wp.a11y.speak( __( 'Deleting...' ) );
-
-		$document.trigger( 'wp-plugin-deleting', args );
-
-		return wp.updates.ajax( 'delete-plugin', args );
+		console.warn( 'Deleting Plugins via Ajax is deprecated since Retraceur 5.0.0.' );
 	};
 
 	/**
 	 * Updates the UI appropriately after a successful plugin deletion.
 	 *
 	 * @since WP 4.6.0
+	 * @deprecated 5.0.0 Retraceur fork.
 	 *
 	 * @param {Object} response            Response from the server.
 	 * @param {string} response.slug       Slug of the plugin that was deleted.
@@ -1175,111 +826,14 @@
 	 * @param {string} response.pluginName Name of the plugin that was deleted.
 	 */
 	wp.updates.deletePluginSuccess = function( response ) {
-
-		// Removes the plugin and updates rows.
-		$( '[data-plugin="' + response.plugin + '"]' ).css( { backgroundColor: '#faafaa' } ).fadeOut( 350, function() {
-			var $form            = $( '#bulk-action-form' ),
-				$views           = $( '.subsubsub' ),
-				$pluginRow       = $( this ),
-				$currentView     = $views.find( '[aria-current="page"]' ),
-				$itemsCount      = $( '.displaying-num' ),
-				columnCount      = $form.find( 'thead th:not(.hidden), thead td' ).length,
-				pluginDeletedRow = wp.template( 'item-deleted-row' ),
-				/**
-				 * Plugins Base names of plugins in their different states.
-				 *
-				 * @type {Object}
-				 */
-				plugins          = settings.plugins,
-				remainingCount;
-
-			// Add a success message after deleting a plugin.
-			if ( ! $pluginRow.hasClass( 'plugin-update-tr' ) ) {
-				$pluginRow.after(
-					pluginDeletedRow( {
-						slug:    response.slug,
-						plugin:  response.plugin,
-						colspan: columnCount,
-						name:    response.pluginName
-					} )
-				);
-			}
-
-			$pluginRow.remove();
-
-			// Remove plugin from update count.
-			if ( -1 !== _.indexOf( plugins.upgrade, response.plugin ) ) {
-				plugins.upgrade = _.without( plugins.upgrade, response.plugin );
-				wp.updates.decrementCount( 'plugin' );
-			}
-
-			// Remove from views.
-			if ( -1 !== _.indexOf( plugins.inactive, response.plugin ) ) {
-				plugins.inactive = _.without( plugins.inactive, response.plugin );
-				if ( plugins.inactive.length ) {
-					$views.find( '.inactive .count' ).text( '(' + plugins.inactive.length + ')' );
-				} else {
-					$views.find( '.inactive' ).remove();
-				}
-			}
-
-			if ( -1 !== _.indexOf( plugins.active, response.plugin ) ) {
-				plugins.active = _.without( plugins.active, response.plugin );
-				if ( plugins.active.length ) {
-					$views.find( '.active .count' ).text( '(' + plugins.active.length + ')' );
-				} else {
-					$views.find( '.active' ).remove();
-				}
-			}
-
-			if ( -1 !== _.indexOf( plugins.recently_activated, response.plugin ) ) {
-				plugins.recently_activated = _.without( plugins.recently_activated, response.plugin );
-				if ( plugins.recently_activated.length ) {
-					$views.find( '.recently_activated .count' ).text( '(' + plugins.recently_activated.length + ')' );
-				} else {
-					$views.find( '.recently_activated' ).remove();
-				}
-			}
-
-			plugins.all = _.without( plugins.all, response.plugin );
-
-			if ( plugins.all.length ) {
-				$views.find( '.all .count' ).text( '(' + plugins.all.length + ')' );
-			} else {
-				$form.find( '.tablenav' ).css( { visibility: 'hidden' } );
-				$views.find( '.all' ).remove();
-
-				if ( ! $form.find( 'tr.no-items' ).length ) {
-					var $noPluginItems = __( 'No plugins are currently available.' );
-					if ( 'blocks' === pagenow ) {
-						$noPluginItems = __( 'No blocks are currently available.' );
-					}
-
-					$form.find( '#the-list' ).append( '<tr class="no-items"><td class="colspanchange" colspan="' + columnCount + '">' + $noPluginItems + '</td></tr>' );
-				}
-			}
-
-			if ( $itemsCount.length && $currentView.length ) {
-				remainingCount = plugins[ $currentView.parent( 'li' ).attr('class') ].length;
-				$itemsCount.text(
-					sprintf(
-						/* translators: %s: The remaining number of plugins. */
-						_nx( '%s item', '%s items', remainingCount, 'plugin/plugins'  ),
-						remainingCount
-					)
-				);
-			}
-		} );
-
-		wp.a11y.speak( _x( 'Deleted!', 'plugin' ) );
-
-		$document.trigger( 'wp-plugin-delete-success', response );
+		console.warn( 'Deleting Plugins via Ajax is deprecated since Retraceur 5.0.0.' );
 	};
 
 	/**
 	 * Updates the UI appropriately after a failed plugin deletion.
 	 *
 	 * @since WP 4.6.0
+	 * @deprecated 5.0.0 Retraceur fork.
 	 *
 	 * @param {Object}  response              Response from the server.
 	 * @param {string}  response.slug         Slug of the plugin to be deleted.
@@ -1289,48 +843,7 @@
 	 * @param {string}  response.errorMessage The error that occurred.
 	 */
 	wp.updates.deletePluginError = function( response ) {
-		var $plugin, $pluginUpdateRow,
-			pluginUpdateRow  = wp.template( 'item-update-row' ),
-			noticeContent    = wp.updates.adminNotice( {
-				className: 'update-message notice-error notice-alt',
-				message:   response.errorMessage
-			} );
-
-		if ( response.plugin ) {
-			$plugin          = $( 'tr.inactive[data-plugin="' + response.plugin + '"]' );
-			$pluginUpdateRow = $plugin.siblings( '[data-plugin="' + response.plugin + '"]' );
-		} else {
-			$plugin          = $( 'tr.inactive[data-slug="' + response.slug + '"]' );
-			$pluginUpdateRow = $plugin.siblings( '[data-slug="' + response.slug + '"]' );
-		}
-
-		if ( ! wp.updates.isValidResponse( response, 'delete' ) ) {
-			return;
-		}
-
-		if ( wp.updates.maybeHandleCredentialError( response, 'delete-plugin' ) ) {
-			return;
-		}
-
-		// Add a plugin update row if it doesn't exist yet.
-		if ( ! $pluginUpdateRow.length ) {
-			$plugin.addClass( 'update' ).after(
-				pluginUpdateRow( {
-					slug:    response.slug,
-					plugin:  response.plugin || response.slug,
-					colspan: $( '#bulk-action-form' ).find( 'thead th:not(.hidden), thead td' ).length,
-					content: noticeContent
-				} )
-			);
-		} else {
-
-			// Remove previous error messages, if any.
-			$pluginUpdateRow.find( '.notice-error' ).remove();
-
-			$pluginUpdateRow.find( '.plugin-update' ).append( noticeContent );
-		}
-
-		$document.trigger( 'wp-plugin-delete-error', response );
+		console.warn( 'Deleting Plugins via Ajax is deprecated since Retraceur 5.0.0.' );
 	};
 
 	/**
@@ -1831,7 +1344,7 @@
 	 */
 	wp.updates._addCallbacks = function( data, action ) {
 		if ( 'import' === pagenow && 'install-plugin' === action ) {
-			console.log( 'Installing Plugins using Ajax is deprecated since Retraceur 4.0.0.');
+			console.warn( 'Installing Plugins using Ajax is deprecated since Retraceur 4.0.0.' );
 		}
 
 		return data;
@@ -1854,14 +1367,6 @@
 
 		// Handle a queue job.
 		switch ( job.action ) {
-			case 'update-plugin':
-				wp.updates.updatePlugin( job.data );
-				break;
-
-			case 'delete-plugin':
-				wp.updates.deletePlugin( job.data );
-				break;
-
 			case 'install-theme':
 				wp.updates.installTheme( job.data );
 				break;
@@ -2290,189 +1795,6 @@
 		} );
 
 		/**
-		 * Click handler for plugin updates in List Table view.
-		 *
-		 * @since WP 4.2.0
-		 *
-		 * @param {Event} event Event interface.
-		 */
-		$bulkActionForm.on( 'click', '[data-plugin] .update-link', function( event ) {
-			var $message   = $( event.target ),
-				$pluginRow = $message.parents( 'tr' );
-
-			event.preventDefault();
-
-			if ( $message.hasClass( 'updating-message' ) || $message.hasClass( 'button-disabled' ) ) {
-				return;
-			}
-
-			wp.updates.maybeRequestFilesystemCredentials( event );
-
-			// Return the user to the input box of the plugin's table row after closing the modal.
-			wp.updates.$elToReturnFocusToFromCredentialsModal = $pluginRow.find( '.check-column input' );
-			wp.updates.updatePlugin( {
-				plugin: $pluginRow.data( 'plugin' ),
-				slug:   $pluginRow.data( 'slug' )
-			} );
-		} );
-
-		/**
-		 * Click handler for plugin updates in plugin install view.
-		 *
-		 * @since WP 4.2.0
-		 *
-		 * @param {Event} event Event interface.
-		 */
-		$pluginFilter.on( 'click', '.update-now', function( event ) {
-			var $button = $( event.target );
-			event.preventDefault();
-
-			if ( $button.hasClass( 'updating-message' ) || $button.hasClass( 'button-disabled' ) ) {
-				return;
-			}
-
-			wp.updates.maybeRequestFilesystemCredentials( event );
-
-			wp.updates.updatePlugin( {
-				plugin: $button.data( 'plugin' ),
-				slug:   $button.data( 'slug' )
-			} );
-		} );
-
-		/**
-		 * Click handler for plugin installs in plugin install view.
-		 *
-		 * @since WP 4.6.0
-		 *
-		 * @param {Event} event Event interface.
-		 */
-		$pluginFilter.on( 'click', '.install-now', function( event ) {
-			var $button = $( event.target );
-			event.preventDefault();
-
-			if ( $button.hasClass( 'updating-message' ) || $button.hasClass( 'button-disabled' ) ) {
-				return;
-			}
-
-			if ( wp.updates.shouldRequestFilesystemCredentials && ! wp.updates.ajaxLocked ) {
-				wp.updates.requestFilesystemCredentials( event );
-
-				$document.on( 'credential-modal-cancel', function() {
-					var $message = $( '.install-now.updating-message' );
-
-					$message
-						.removeClass( 'updating-message' )
-						.text( _x( 'Install Now', 'plugin' ) );
-
-					wp.a11y.speak( __( 'Update canceled.' ) );
-				} );
-			}
-
-			wp.updates.installPlugin( {
-				slug: $button.data( 'slug' )
-			} );
-		} );
-
-		/**
-		 * Click handler for plugin activations in plugin activation modal view.
-		 *
-		 * @since WP 6.5.0
-		 * @since WP 6.5.4 Redirect the parent window to the activation URL.
-		 *
-		 * @param {Event} event Event interface.
-		 */
-		$document.on( 'click', '#plugin-information-footer .activate-now', function( event ) {
-			event.preventDefault();
-			window.parent.location.href = $( event.target ).attr( 'href' );
-		});
-
-		/**
-		 * Click handler for importer plugins installs in the Import screen.
-		 *
-		 * @since WP 4.6.0
-		 *
-		 * @param {Event} event Event interface.
-		 */
-		$document.on( 'click', '.importer-item .install-now', function( event ) {
-			var $button = $( event.target ),
-				pluginName = $( this ).data( 'name' );
-
-			event.preventDefault();
-
-			if ( $button.hasClass( 'updating-message' ) ) {
-				return;
-			}
-
-			if ( wp.updates.shouldRequestFilesystemCredentials && ! wp.updates.ajaxLocked ) {
-				wp.updates.requestFilesystemCredentials( event );
-
-				$document.on( 'credential-modal-cancel', function() {
-
-					$button
-						.removeClass( 'updating-message' )
-						.attr(
-							'aria-label',
-							sprintf(
-								/* translators: %s: Plugin name. */
-								_x( 'Install %s now', 'plugin' ),
-								pluginName
-							)
-						)
-						.text( _x( 'Install Now', 'plugin' ) );
-
-					wp.a11y.speak( __( 'Update canceled.' ) );
-				} );
-			}
-
-			wp.updates.installPlugin( {
-				slug:    $button.data( 'slug' ),
-				pagenow: pagenow,
-				success: wp.updates.installImporterSuccess,
-				error:   wp.updates.installImporterError
-			} );
-		} );
-
-		/**
-		 * Click handler for plugin deletions.
-		 *
-		 * @since WP 4.6.0
-		 *
-		 * @param {Event} event Event interface.
-		 */
-		$bulkActionForm.on( 'click', '[data-plugin] a.delete', function( event ) {
-			var $pluginRow = $( event.target ).parents( 'tr' ),
-				confirmMessage;
-
-			if ( $pluginRow.hasClass( 'is-uninstallable' ) ) {
-				confirmMessage = sprintf(
-					/* translators: %s: Plugin/Theme name. */
-					__( 'Are you sure you want to delete %s and its data?' ),
-					$pluginRow.find( '.plugin-title strong' ).text()
-				);
-			} else {
-				confirmMessage = sprintf(
-					/* translators: %s: Plugin/Theme name. */
-					__( 'Are you sure you want to delete %s?' ),
-					$pluginRow.find( '.plugin-title strong' ).text()
-				);
-			}
-
-			event.preventDefault();
-
-			if ( ! window.confirm( confirmMessage ) ) {
-				return;
-			}
-
-			wp.updates.maybeRequestFilesystemCredentials( event );
-
-			wp.updates.deletePlugin( {
-				plugin: $pluginRow.data( 'plugin' ),
-				slug:   $pluginRow.data( 'slug' )
-			} );
-
-		} );
-
-		/**
 		 * Click handler for theme updates.
 		 *
 		 * @since WP 4.6.0
@@ -2524,183 +1846,6 @@
 			wp.updates.deleteTheme( {
 				slug: $themeRow.data( 'slug' )
 			} );
-		} );
-
-		/**
-		 * Bulk action handler for plugins and themes.
-		 *
-		 * Handles both deletions and updates.
-		 *
-		 * @since WP 4.6.0
-		 *
-		 * @param {Event} event Event interface.
-		 */
-		$bulkActionForm.on( 'click', '[type="submit"]:not([name="clear-recent-list"])', function( event ) {
-			var bulkAction    = $( event.target ).siblings( 'select' ).val(),
-				itemsSelected = $bulkActionForm.find( 'input[name="checked[]"]:checked' ),
-				success       = 0,
-				error         = 0,
-				errorMessages = [],
-				type, action;
-
-			// Determine which type of item we're dealing with.
-			switch ( pagenow ) {
-				case 'plugins':
-				case 'plugins-network':
-					type = 'plugin';
-					break;
-
-				case 'themes-network':
-					type = 'theme';
-					break;
-
-				default:
-					return;
-			}
-
-			// Bail if there were no items selected.
-			if ( ! itemsSelected.length ) {
-				bulkAction = false;
-			}
-
-			// Determine the type of request we're dealing with.
-			switch ( bulkAction ) {
-				case 'update-selected':
-					action = bulkAction.replace( 'selected', type );
-					break;
-
-				case 'delete-selected':
-					var confirmMessage = 'plugin' === type ?
-						__( 'Are you sure you want to delete the selected plugins and their data?' ) :
-						__( 'Caution: These themes may be active on other sites in the network. Are you sure you want to proceed?' );
-
-					if ( ! window.confirm( confirmMessage ) ) {
-						event.preventDefault();
-						return;
-					}
-
-					action = bulkAction.replace( 'selected', type );
-					break;
-
-				default:
-					return;
-			}
-
-			wp.updates.maybeRequestFilesystemCredentials( event );
-
-			event.preventDefault();
-
-			// Un-check the bulk checkboxes.
-			$bulkActionForm.find( '.manage-column [type="checkbox"]' ).prop( 'checked', false );
-
-			$document.trigger( 'wp-' + type + '-bulk-' + bulkAction, itemsSelected );
-
-			// Find all the checkboxes which have been checked.
-			itemsSelected.each( function( index, element ) {
-				var $checkbox = $( element ),
-					$itemRow = $checkbox.parents( 'tr' );
-
-				// Only add update-able items to the update queue.
-				if ( 'update-selected' === bulkAction && ( ! $itemRow.hasClass( 'update' ) || $itemRow.find( 'notice-error' ).length ) ) {
-
-					// Un-check the box.
-					$checkbox.prop( 'checked', false );
-					return;
-				}
-
-				// Don't add items to the update queue again, even if the user clicks the update button several times.
-				if ( 'update-selected' === bulkAction && $itemRow.hasClass( 'is-enqueued' ) ) {
-					return;
-				}
-
-				$itemRow.addClass( 'is-enqueued' );
-
-				// Add it to the queue.
-				wp.updates.queue.push( {
-					action: action,
-					data:   {
-						plugin: $itemRow.data( 'plugin' ),
-						slug:   $itemRow.data( 'slug' )
-					}
-				} );
-			} );
-
-			// Display bulk notification for updates of any kind.
-			$document.on( 'wp-plugin-update-success wp-plugin-update-error wp-theme-update-success wp-theme-update-error', function( event, response ) {
-				var $itemRow = $( '[data-slug="' + response.slug + '"]' ),
-					$bulkActionNotice, itemName;
-
-				if ( 'wp-' + response.update + '-update-success' === event.type ) {
-					success++;
-				} else {
-					itemName = response.pluginName ? response.pluginName : $itemRow.find( '.column-primary strong' ).text();
-
-					error++;
-					errorMessages.push( itemName + ': ' + response.errorMessage );
-				}
-
-				$itemRow.find( 'input[name="checked[]"]:checked' ).prop( 'checked', false );
-
-				wp.updates.adminNotice = wp.template( 'wp-bulk-updates-admin-notice' );
-
-				var successMessage = null;
-
-				if ( success ) {
-					if ( 'plugin' === response.update ) {
-						successMessage = sprintf(
-							/* translators: %s: Number of plugins. */
-							_n( '%s plugin successfully updated.', '%s plugins successfully updated.', success ),
-							success
-						);
-					} else {
-						successMessage = sprintf(
-							/* translators: %s: Number of themes. */
-							_n( '%s theme successfully updated.', '%s themes successfully updated.', success ),
-							success
-						);
-					}
-				}
-
-				var errorMessage = null;
-
-				if ( error ) {
-					errorMessage = sprintf(
-						/* translators: %s: Number of failed updates. */
-						_n( '%s update failed.', '%s updates failed.', error ),
-						error
-					);
-				}
-
-				wp.updates.addAdminNotice( {
-					id:            'bulk-action-notice',
-					className:     'bulk-action-notice',
-					successMessage: successMessage,
-					errorMessage:   errorMessage,
-					errorMessages:  errorMessages,
-					type:           response.update
-				} );
-
-				$bulkActionNotice = $( '#bulk-action-notice' ).on( 'click', 'button', function() {
-					// $( this ) is the clicked button, no need to get it again.
-					$( this )
-						.toggleClass( 'bulk-action-errors-collapsed' )
-						.attr( 'aria-expanded', ! $( this ).hasClass( 'bulk-action-errors-collapsed' ) );
-					// Show the errors list.
-					$bulkActionNotice.find( '.bulk-action-errors' ).toggleClass( 'hidden' );
-				} );
-
-				if ( error > 0 && ! wp.updates.queue.length ) {
-					$( 'html, body' ).animate( { scrollTop: 0 } );
-				}
-			} );
-
-			// Reset admin notice template after #bulk-action-notice was added.
-			$document.on( 'wp-updates-notice-added', function() {
-				wp.updates.adminNotice = wp.template( 'wp-updates-admin-notice' );
-			} );
-
-			// Check the queue, now that the event handlers have been added.
-			wp.updates.queueChecker();
 		} );
 
 		if ( $pluginInstallSearch.length ) {
@@ -2931,36 +2076,6 @@
 		} );
 
 		/**
-		 * Click handler for updating a plugin from the details modal on `plugin-install.php`.
-		 *
-		 * @since WP 4.2.0
-		 *
-		 * @param {Event} event Event interface.
-		 */
-		$( '#plugin_update_from_iframe' ).on( 'click', function( event ) {
-			var target = window.parent === window ? null : window.parent,
-				update;
-
-			$.support.postMessage = !! window.postMessage;
-
-			if ( false === $.support.postMessage || null === target || -1 !== window.parent.location.pathname.indexOf( 'update-core.php' ) ) {
-				return;
-			}
-
-			event.preventDefault();
-
-			update = {
-				action: 'update-plugin',
-				data:   {
-					plugin: $( this ).data( 'plugin' ),
-					slug:   $( this ).data( 'slug' )
-				}
-			};
-
-			target.postMessage( JSON.stringify( update ), window.location.origin );
-		} );
-
-		/**
 		 * Handles postMessage events.
 		 *
 		 * @since WP 4.2.0
@@ -3032,17 +2147,6 @@
 					/** @property {string} message.upgradeType */
 					wp.updates.decrementCount( message.upgradeType );
 					break;
-
-				case 'update-plugin':
-					if ( 'undefined' === typeof message.data || 'undefined' === typeof message.data.slug ) {
-						return;
-					}
-
-					message.data = wp.updates._addCallbacks( message.data, message.action );
-
-					wp.updates.queue.push( message );
-					wp.updates.queueChecker();
-					break;
 			}
 		} );
 
@@ -3062,7 +2166,7 @@
 		$document.on( 'keydown', '.column-auto-updates .toggle-auto-update, .theme-overlay .toggle-auto-update', function( event ) {
 			if ( 32 === event.which ) {
 				event.preventDefault();
-				console.log( 'The WP Automatic Updates feature is not supported by the Retraceur fork.' );
+				console.warn( 'The WP Automatic Updates feature is not supported by the Retraceur fork.' );
 			}
 		} );
 
@@ -3077,7 +2181,7 @@
 		 * @deprecated 4.0.0 Retraceur fork.
 		 */
 		$document.on( 'click keyup', '.column-auto-updates .toggle-auto-update, .theme-overlay .toggle-auto-update', function( event ) {
-			console.log( 'The WP Automatic Updates feature is not supported by the Retraceur fork.' );
+			console.warn( 'The WP Automatic Updates feature is not supported by the Retraceur fork.' );
 		} );
 	} );
 })( jQuery, window.wp, window._wpUpdatesSettings );
