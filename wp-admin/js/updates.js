@@ -811,7 +811,7 @@
 	 *                     decorated with an abort() method.
 	 */
 	wp.updates.deletePlugin = function( args ) {
-		console.warn( 'Deleting Plugins via Ajax is deprecated since Retraceur 5.0.0.');
+		console.warn( 'Deleting Plugins via Ajax is deprecated since Retraceur 5.0.0.' );
 	};
 
 	/**
@@ -826,7 +826,7 @@
 	 * @param {string} response.pluginName Name of the plugin that was deleted.
 	 */
 	wp.updates.deletePluginSuccess = function( response ) {
-		console.warn( 'Deleting Plugins via Ajax is deprecated since Retraceur 5.0.0.');
+		console.warn( 'Deleting Plugins via Ajax is deprecated since Retraceur 5.0.0.' );
 	};
 
 	/**
@@ -843,7 +843,7 @@
 	 * @param {string}  response.errorMessage The error that occurred.
 	 */
 	wp.updates.deletePluginError = function( response ) {
-		console.warn( 'Deleting Plugins via Ajax is deprecated since Retraceur 5.0.0.');
+		console.warn( 'Deleting Plugins via Ajax is deprecated since Retraceur 5.0.0.' );
 	};
 
 	/**
@@ -1344,7 +1344,7 @@
 	 */
 	wp.updates._addCallbacks = function( data, action ) {
 		if ( 'import' === pagenow && 'install-plugin' === action ) {
-			console.warn( 'Installing Plugins using Ajax is deprecated since Retraceur 4.0.0.');
+			console.warn( 'Installing Plugins using Ajax is deprecated since Retraceur 4.0.0.' );
 		}
 
 		return data;
