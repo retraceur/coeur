@@ -437,7 +437,7 @@ abstract class WP_Privacy_Requests_Table extends WP_List_Table {
 	 * @since WP 4.9.6
 	 *
 	 * @param WP_User_Request $item Item being shown.
-	 * @return string|void Status column markup. Returns a string if no status is found,
+	 * @return string|null Status column markup. Returns a string if no status is found,
 	 *                     otherwise it displays the markup.
 	 */
 	public function column_status( $item ) {
@@ -467,6 +467,7 @@ abstract class WP_Privacy_Requests_Table extends WP_List_Table {
 		}
 
 		echo '</span>';
+		return null;
 	}
 
 	/**

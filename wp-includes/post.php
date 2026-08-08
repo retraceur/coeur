@@ -2710,19 +2710,20 @@ function get_post_custom( $post_id = 0 ) {
  * @since WP 1.2.0
  *
  * @param int $post_id Optional. Post ID. Default is the ID of the global `$post`.
- * @return array|void Array of the keys, if retrieved.
+ * @return array|null Array of the keys, if retrieved.
  */
 function get_post_custom_keys( $post_id = 0 ) {
 	$custom = get_post_custom( $post_id );
 
 	if ( ! is_array( $custom ) ) {
-		return;
+		return null;
 	}
 
 	$keys = array_keys( $custom );
 	if ( $keys ) {
 		return $keys;
 	}
+	return null;
 }
 
 /**

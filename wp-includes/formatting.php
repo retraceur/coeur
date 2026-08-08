@@ -6114,7 +6114,7 @@ function url_shorten( $url, $length = 35 ) {
  * @since WP 3.4.0
  *
  * @param string $color
- * @return string|void
+ * @return string|null The sanitized hex color, or null if invalid.
  */
 function sanitize_hex_color( $color ) {
 	if ( '' === $color ) {
@@ -6125,6 +6125,7 @@ function sanitize_hex_color( $color ) {
 	if ( preg_match( '|^#([A-Fa-f0-9]{3}){1,2}$|', $color ) ) {
 		return $color;
 	}
+	return null;
 }
 
 /**

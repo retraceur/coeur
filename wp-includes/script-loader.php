@@ -1997,13 +1997,13 @@ function print_admin_styles() {
  * @global WP_Styles $wp_styles
  * @global bool      $concatenate_scripts
  *
- * @return string[]|void
+ * @return string[]|null
  */
 function print_late_styles() {
 	global $wp_styles, $concatenate_scripts;
 
 	if ( ! ( $wp_styles instanceof WP_Styles ) ) {
-		return;
+		return null;
 	}
 
 	script_concat_settings();

@@ -360,8 +360,8 @@ class WP_Block_Type {
 	 *
 	 * @param string $name Deprecated property name.
 	 *
-	 * @return string|string[]|null|void The value read from the new property if the first item in the array provided,
-	 *                                   null when value not found, or void when unknown property name provided.
+	 * @return string|string[]|null The value read from the new property if the first item in the array provided,
+	 *                              null when value not found or when unknown property name provided.
 	 */
 	public function __get( $name ) {
 		if ( 'variations' === $name ) {
@@ -373,7 +373,7 @@ class WP_Block_Type {
 		}
 
 		if ( ! in_array( $name, $this->deprecated_properties, true ) ) {
-			return;
+			return null;
 		}
 
 		$new_name = $name . '_handles';
