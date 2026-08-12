@@ -166,7 +166,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 					<?php
 						printf(
 							/* translators: 1: pixel value for icon size. 2: pixel value for icon size. */
-							__( 'The Site Icon is what you see in browser tabs, and within the bookmark bars. It should be square and at least <code>%1$s by %2$s</code> pixels.' ),
+							__( 'The Site Icon is what you see in browser tabs, bookmark bars, and within the WordPress mobile apps. It should be square and at least <strong>%1$s by %2$s</strong> pixels.' ),
 							512,
 							512
 						);
@@ -197,9 +197,9 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 					<p class="description">
 						<?php
 							printf(
-								/* translators: %s: html `<code>` markup containing recommended size. */
+								/* translators: %s: html `<strong>` markup containing recommended size. */
 								esc_html__( 'For optimal display on most platforms, it is recommended to use a landscape image around %s pixels.' ),
-								'<code>1200 × 630</code>'
+								'<strong>1200 × 630</strong>'
 							);
 						?>
 					</p>

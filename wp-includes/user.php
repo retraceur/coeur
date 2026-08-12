@@ -1204,9 +1204,24 @@ function is_user_member_of_blog( $user_id = 0, $blog_id = 0 ) {
 	} else {
 		$capabilities_key = $wpdb->base_prefix . $blog_id . '_capabilities';
 	}
-	$has_cap = get_user_meta( $user_id, $capabilities_key, true );
 
-	return is_array( $has_cap );
+	$has_cap   = get_user_meta( $user_id, $capabilities_key, true );
+	$is_member = is_array( $has_cap );
+
+	/**
+	 * Filters whether the user is a member of a given blog.
+	 *
+	 * This filter only runs when the user and blog have both been resolved
+	 * to valid records on a multisite installation; it is not invoked for
+	 * logged-out requests, unknown users, or archived/spammed/deleted sites.
+	 *
+	 * @since WP 7.1.0
+	 *
+	 * @param bool $is_member Whether the user is a member of the blog.
+	 * @param int  $user_id   The user ID being checked.
+	 * @param int  $blog_id   The blog ID being checked.
+	 */
+	return (bool) apply_filters( 'is_user_member_of_blog', $is_member, $user_id, $blog_id );
 }
 
 /**
