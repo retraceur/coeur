@@ -110,7 +110,7 @@ final class WP_Ability_Category {
 	 *
 	 * @since WP 6.9.0
 	 *
-	 * @param array<string, mixed> $args $args {
+	 * @param array<string, mixed> $args {
 	 *     An associative array of arguments used to instantiate the ability category class.
 	 *
 	 *     @type string               $label       The human-readable label for the ability category.
