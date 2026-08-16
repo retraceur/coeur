@@ -1,5 +1,4 @@
 <?php
-
 /**
  * REST API: WP_REST_Icons_Controller class
  *
@@ -24,6 +23,8 @@ class WP_REST_Icons_Controller extends WP_REST_Controller {
 
 	/**
 	 * Constructs the controller.
+	 *
+	 * @since WP 7.0.0
 	 */
 	public function __construct() {
 		$this->namespace = 'wp/v2';
@@ -32,6 +33,8 @@ class WP_REST_Icons_Controller extends WP_REST_Controller {
 
 	/**
 	 * Registers the routes for the objects of the controller.
+	 *
+	 * @since WP 7.0.0
 	 */
 	public function register_routes() {
 		register_rest_route(
@@ -74,6 +77,8 @@ class WP_REST_Icons_Controller extends WP_REST_Controller {
 	/**
 	 * Checks whether a given request has permission to read icons.
 	 *
+	 * @since WP 7.0.0
+	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has read access, WP_Error object otherwise.
 	 */
@@ -101,6 +106,8 @@ class WP_REST_Icons_Controller extends WP_REST_Controller {
 	/**
 	 * Checks if a given request has access to read a specific icon.
 	 *
+	 * @since WP 7.0.0
+	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has read access for the item, WP_Error object otherwise.
 	 */
@@ -115,6 +122,8 @@ class WP_REST_Icons_Controller extends WP_REST_Controller {
 
 	/**
 	 * Retrieves all icons.
+	 *
+	 * @since WP 7.0.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
@@ -133,6 +142,8 @@ class WP_REST_Icons_Controller extends WP_REST_Controller {
 	/**
 	 * Retrieves a specific icon.
 	 *
+	 * @since WP 7.0.0
+	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
 	 */
@@ -148,6 +159,8 @@ class WP_REST_Icons_Controller extends WP_REST_Controller {
 
 	/**
 	 * Retrieves a specific icon from the registry.
+	 *
+	 * @since WP 7.0.0
 	 *
 	 * @param string $name Icon name.
 	 * @return array|WP_Error Icon data on success, or WP_Error object on failure.
@@ -173,6 +186,8 @@ class WP_REST_Icons_Controller extends WP_REST_Controller {
 
 	/**
 	 * Prepare a raw icon before it gets output in a REST API response.
+	 *
+	 * @since WP 7.0.0
 	 *
 	 * @param array           $item    Raw icon as registered, before any changes.
 	 * @param WP_REST_Request $request Request object.
@@ -200,6 +215,8 @@ class WP_REST_Icons_Controller extends WP_REST_Controller {
 
 	/**
 	 * Retrieves the icon schema, conforming to JSON Schema.
+	 *
+	 * @since WP 7.0.0
 	 *
 	 * @return array Item schema data.
 	 */
@@ -241,6 +258,8 @@ class WP_REST_Icons_Controller extends WP_REST_Controller {
 
 	/**
 	 * Retrieves the query params for the icons collection.
+	 *
+	 * @since WP 7.0.0
 	 *
 	 * @return array Collection parameters.
 	 */
