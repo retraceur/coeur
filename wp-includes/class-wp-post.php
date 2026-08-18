@@ -38,6 +38,7 @@ final class WP_Post {
 	 *
 	 * @since WP 3.5.0
 	 * @var string
+	 * @phpstan-var numeric-string
 	 */
 	public $post_author = '0';
 
@@ -176,6 +177,7 @@ final class WP_Post {
 	 *
 	 * @since WP 3.5.0
 	 * @var string
+	 * @phpstan-var numeric-string
 	 */
 	public $filter;
 
