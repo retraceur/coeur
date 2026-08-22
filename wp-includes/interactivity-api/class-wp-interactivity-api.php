@@ -140,8 +140,8 @@ final class WP_Interactivity_API {
 	 * @since WP 6.5.0
 	 * @since WP 6.6.0 The `$store_namespace` param is optional.
 	 *
-	 * @param string $store_namespace Optional. The unique store namespace identifier.
-	 * @param array  $state           Optional. The array that will be merged with the existing state for the specified
+	 * @param string|null $store_namespace Optional. The unique store namespace identifier.
+	 * @param array|null  $state           Optional. The array that will be merged with the existing state for the specified
 	 *                                store namespace.
 	 * @return array The current state for the specified store namespace. This will be the updated state if a $state
 	 *               argument was provided.
@@ -313,7 +313,7 @@ final class WP_Interactivity_API {
 	 *
 	 * @since WP 6.6.0
 	 *
-	 * @param string $store_namespace Optional. The unique store namespace identifier.
+	 * @param string|null $store_namespace Optional. The unique store namespace identifier.
 	 */
 	public function get_context( ?string $store_namespace = null ): array {
 		if ( null === $this->context_stack ) {
