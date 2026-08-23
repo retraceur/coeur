@@ -1789,9 +1789,9 @@ class WP_Block_Processor {
 	 *
 	 * Example:
 	 *
-	 *     'core/paragraph' === WP_Block_Processor::normalize_block_byte( 'paragraph' );
-	 *     'core/paragraph' === WP_Block_Processor::normalize_block_byte( 'core/paragraph' );
-	 *     'my/paragraph'   === WP_Block_Processor::normalize_block_byte( 'my/paragraph' );
+	 *     'core/paragraph' === WP_Block_Processor::normalize_block_type( 'paragraph' );
+	 *     'core/paragraph' === WP_Block_Processor::normalize_block_type( 'core/paragraph' );
+	 *     'my/paragraph'   === WP_Block_Processor::normalize_block_type( 'my/paragraph' );
 	 *
 	 * @since WP 6.9.0
 	 *
@@ -1799,9 +1799,9 @@ class WP_Block_Processor {
 	 * @return string Fully-qualified block type including namespace.
 	 */
 	public static function normalize_block_type( string $block_type ): string {
-		return false === strpos( $block_type, '/' )
-			? "core/{$block_type}"
-			: $block_type;
+		return str_contains( $block_type, '/' )
+			? $block_type
+			: "core/{$block_type}";
 	}
 
 	/**
