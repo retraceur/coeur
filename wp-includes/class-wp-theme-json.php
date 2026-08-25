@@ -2862,6 +2862,7 @@ class WP_Theme_JSON {
 	 * @since WP 6.3.0 Refactored and stabilized selectors API.
 	 * @since WP 6.6.0 Added optional selectors and options for generating block nodes.
 	 * @since WP 6.7.0 Added $include_node_paths_only option.
+	 * @since WP 7.1.0 Added responsive block nodes for breakpoint-based styles.
 	 *
 	 * @param array $theme_json The theme.json converted to an array.
 	 * @param array $selectors  Optional list of selectors per block.
@@ -5241,7 +5242,7 @@ class WP_Theme_JSON {
 	/**
 	 * Extracts the block name from the block metadata path.
 	 *
-	 * @since WP 7.1
+	 * @since WP 7.1.0
 	 *
 	 * @param array $block_metadata Block metadata.
 	 * @return string|null The block name or null if not found.

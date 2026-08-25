@@ -45,7 +45,7 @@ class WP_Theme_JSON_Data {
 	}
 
 	/**
-	 * Updates the theme.json with the the given data.
+	 * Updates the theme.json with the given data.
 	 *
 	 * @since WP 6.1.0
 	 *
