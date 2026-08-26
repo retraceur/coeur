@@ -373,6 +373,156 @@ class WP_Site_Health {
 	}
 
 	/**
+	 * Populates data for the requested plugin type.
+	 *
+	 * @since 5.0.0 Retraceur fork
+	 *
+	 * @param string $plugin_type The type of plugin: `block` or `regular`. Default to `regular`.
+	 * @return array Amount of active, all, needing an update items.
+	 */
+	public function populate_plugin_type_version( $plugin_type = 'regular' ) {
+		$plugins        = get_plugins();
+		$plugin_types   = wp_list_filter( $plugins, array( 'Type' => $plugin_type ) );
+		$plugin_updates = get_plugin_updates();
+
+		$plugins_data = array(
+			'active'      => 0,
+			'total'       => 0,
+			'need_update' => 0,
+		);
+
+		// Loop over the available plugins and check their versions and active state.
+		foreach ( $plugin_types as $plugin_path => $plugin ) {
+			++$plugins_data['total'];
+
+			if ( is_plugin_active( $plugin_path ) ) {
+				++$plugins_data['active'];
+			}
+
+			if ( array_key_exists( $plugin_path, $plugin_updates ) ) {
+				++$plugins_data['need_update'];
+			}
+		}
+
+		return $plugins_data;
+	}
+
+	/**
+	 * Tests if blocks are outdated, or unnecessary.
+	 *
+	 * The test checks if your blocks are up to date, and encourages you to remove any
+	 * that are not in use.
+	 *
+	 * @since 5.0.0 Retraceur fork
+	 *
+	 * @return array The test result.
+	 */
+	public function get_test_block_version() {
+		$result = array(
+			'label'       => __( 'Your blocks are all up to date' ),
+			'status'      => 'good',
+			'badge'       => array(
+				'label' => __( 'Security' ),
+				'color' => 'blue',
+			),
+			'description' => sprintf(
+				'<p>%s</p>',
+				__( 'Blocks are pieces of content of a post, page or template of your site. Keeping them up to date is recommanded.' )
+			),
+			'actions'     => sprintf(
+				'<p><a href="%s">%s</a></p>',
+				esc_url( admin_url( 'blocks.php' ) ),
+				__( 'Manage your blocks' )
+			),
+			'test'        => 'block_version',
+		);
+
+		$blocks_data = $this->populate_plugin_type_version( 'block' );
+
+		// Add a notice if there are outdated blocks.
+		if ( $blocks_data['need_update'] > 0 ) {
+			$result['status'] = 'critical';
+
+			$result['label'] = __( 'You have blocks waiting to be updated' );
+
+			$result['description'] .= sprintf(
+				'<p>%s</p>',
+				sprintf(
+					/* translators: %d: The number of outdated blocks. */
+					_n(
+						'Your site has %d block waiting to be updated.',
+						'Your site has %d blocks waiting to be updated.',
+						$blocks_data['need_update']
+					),
+					$blocks_data['need_update']
+				)
+			);
+
+			$result['actions'] .= sprintf(
+				'<p><a href="%s">%s</a></p>',
+				esc_url( admin_url( 'update-core.php' ) ),
+				__( 'Update your blocks' )
+			);
+		} else {
+			if ( 1 === $blocks_data['active'] ) {
+				$result['description'] .= sprintf(
+					'<p>%s</p>',
+					__( 'Your site has 1 active block, and it is up to date.' )
+				);
+			} elseif ( $blocks_data['active'] > 0 ) {
+				$result['description'] .= sprintf(
+					'<p>%s</p>',
+					sprintf(
+						/* translators: %d: The number of active blocks. */
+						_n(
+							'Your site has %d active block, and it is up to date.',
+							'Your site has %d active blocks, and they are all up to date.',
+							$blocks_data['active']
+						),
+						$blocks_data['active']
+					)
+				);
+			} else {
+				$result['description'] .= sprintf(
+					'<p>%s</p>',
+					__( 'Your site does not have any active blocks.' )
+				);
+			}
+		}
+
+		// Check if there are inactive blocks.
+		if ( $blocks_data['total'] > $blocks_data['active'] ) {
+			$unused_blocks = $blocks_data['total'] - $blocks_data['active'];
+
+			$result['status'] = 'recommended';
+
+			$result['label'] = __( 'You should remove inactive blocks' );
+
+			$result['description'] .= sprintf(
+				'<p>%s %s</p>',
+				sprintf(
+					/* translators: %d: The number of inactive blocks. */
+					_n(
+						'Your site has %d inactive block.',
+						'Your site has %d inactive blocks.',
+						$unused_blocks
+					),
+					$unused_blocks
+				),
+				__( 'Inactive blocks are tempting targets for attackers. If you are not going to use a block, you should consider removing it.' )
+			);
+
+			$result['actions'] .= sprintf(
+				'<p><a href="%s">%s</a></p>',
+				esc_url( admin_url( 'blocks.php?plugin_status=inactive' ) ),
+				__( 'Manage inactive blocks' )
+			);
+		}
+
+		return $result;
+	}
+
+	/**
 	 * Tests if plugins are outdated, or unnecessary.
 	 *
 	 * The test checks if your plugins are up to date, and encourages you to remove any
@@ -402,28 +552,10 @@ class WP_Site_Health {
 			'test'        => 'plugin_version',
 		);
 
-		$plugins        = get_plugins();
-		$plugin_updates = get_plugin_updates();
-
-		$plugins_active      = 0;
-		$plugins_total       = 0;
-		$plugins_need_update = 0;
-
-		// Loop over the available plugins and check their versions and active state.
-		foreach ( $plugins as $plugin_path => $plugin ) {
-			++$plugins_total;
-
-			if ( is_plugin_active( $plugin_path ) ) {
-				++$plugins_active;
-			}
-
-			if ( array_key_exists( $plugin_path, $plugin_updates ) ) {
-				++$plugins_need_update;
-			}
-		}
+		$plugins_data = $this->populate_plugin_type_version();
 
 		// Add a notice if there are outdated plugins.
-		if ( $plugins_need_update > 0 ) {
+		if ( $plugins_data['need_update'] > 0 ) {
 			$result['status'] = 'critical';
 
 			$result['label'] = __( 'You have plugins waiting to be updated' );
@@ -435,24 +567,24 @@ class WP_Site_Health {
 					_n(
 						'Your site has %d plugin waiting to be updated.',
 						'Your site has %d plugins waiting to be updated.',
-						$plugins_need_update
+						$plugins_data['need_update']
 					),
-					$plugins_need_update
+					$plugins_data['need_update']
 				)
 			);
 
 			$result['actions'] .= sprintf(
 				'<p><a href="%s">%s</a></p>',
-				esc_url( network_admin_url( 'plugins.php?plugin_status=upgrade' ) ),
+				esc_url( admin_url( 'update-core.php' ) ),
 				__( 'Update your plugins' )
 			);
 		} else {
-			if ( 1 === $plugins_active ) {
+			if ( 1 === $plugins_data['active'] ) {
 				$result['description'] .= sprintf(
 					'<p>%s</p>',
 					__( 'Your site has 1 active plugin, and it is up to date.' )
 				);
-			} elseif ( $plugins_active > 0 ) {
+			} elseif ( $plugins_data['active'] > 0 ) {
 				$result['description'] .= sprintf(
 					'<p>%s</p>',
 					sprintf(
@@ -460,9 +592,9 @@ class WP_Site_Health {
 						_n(
 							'Your site has %d active plugin, and it is up to date.',
 							'Your site has %d active plugins, and they are all up to date.',
-							$plugins_active
+							$plugins_data['active']
 						),
-						$plugins_active
+						$plugins_data['active']
 					)
 				);
 			} else {
@@ -474,8 +606,8 @@ class WP_Site_Health {
 		}
 
 		// Check if there are inactive plugins.
-		if ( $plugins_total > $plugins_active && ! is_multisite() ) {
-			$unused_plugins = $plugins_total - $plugins_active;
+		if ( $plugins_data['total'] > $plugins_data['active'] ) {
+			$unused_plugins = $plugins_data['total'] - $plugins_data['active'];
 
 			$result['status'] = 'recommended';
 
@@ -2628,6 +2760,7 @@ class WP_Site_Health {
 	 *
 	 * @since WP 5.2.0
 	 * @since WP 5.6.0 Added support for `has_rest` and `permissions`.
+	 * @since 5.0.0 Retraceur fork Added a test for Block versions.
 	 *
 	 * @return array The list of tests to run.
 	 */
@@ -2641,6 +2774,10 @@ class WP_Site_Health {
 				'plugin_version'               => array(
 					'label' => __( 'Plugin Versions' ),
 					'test'  => 'plugin_version',
+				),
+				'block_version'               => array(
+					'label' => __( 'Block Versions' ),
+					'test'  => 'block_version',
 				),
 				'theme_version'                => array(
 					'label' => __( 'Theme Versions' ),
