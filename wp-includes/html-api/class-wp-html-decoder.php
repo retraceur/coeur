@@ -85,7 +85,7 @@ class WP_HTML_Decoder {
 	 *
 	 * Example:
 	 *
-	 *     '“😄”' === WP_HTML_Decode::decode_text_node( '&#x93;&#x1f604;&#x94' );
+	 *     '“😄”' === WP_HTML_Decoder::decode_text_node( '&#x93;&#x1f604;&#x94' );
 	 *
 	 * @since WP 6.6.0
 	 *
@@ -105,7 +105,7 @@ class WP_HTML_Decoder {
 	 *
 	 * Example:
 	 *
-	 *     '“😄”' === WP_HTML_Decode::decode_attribute( '&#x93;&#x1f604;&#x94' );
+	 *     '“😄”' === WP_HTML_Decoder::decode_attribute( '&#x93;&#x1f604;&#x94' );
 	 *
 	 * @since WP 6.6.0
 	 *

@@ -215,7 +215,7 @@
  *
  * ### Bookmarks
  *
- * While scanning through the input HTMl document it's possible to set
+ * While scanning through the input HTML document it's possible to set
  * a named bookmark when a particular tag is found. Later on, after
  * continuing to scan other tags, it's possible to `seek` to one of
  * the set bookmarks and then proceed again from that point forward.
@@ -288,7 +288,7 @@
  *
  * For these elements the Tag Processor treats the entire sequence as one,
  * from the opening tag, including its contents, through its closing tag.
- * This means that the it's not possible to match the closing tag for a
+ * This means that it's not possible to match the closing tag for a
  * SCRIPT element unless it's unexpected; the Tag Processor already matched
  * it when it found the opening tag.
  *
@@ -300,7 +300,7 @@
  *    closing the SCRIPT from inside a JavaScript string. E.g. `console.log( '</script>' )`.
  *  - `TITLE` and `TEXTAREA` whose contents are treated as plaintext and then any
  *    character references are decoded. E.g. `1 &lt; 2 < 3` becomes `1 < 2 < 3`.
- *  - `IFRAME`, `NOSCRIPT`, `NOEMBED`, `NOFRAME`, `STYLE` whose contents are treated as
+ *  - `IFRAME`, `NOEMBED`, `NOFRAMES`, `STYLE` whose contents are treated as
  *    raw plaintext and left as-is. E.g. `1 &lt; 2 < 3` remains `1 &lt; 2 < 3`.
  *
  * #### Other tokens with modifiable text.
@@ -331,7 +331,7 @@
  *      and disallows "xml" as a name, since it's special. The Tag Processor only recognizes
  *      target names with an ASCII-representable subset of characters. It also exhibits the
  *      same constraint as with CDATA sections, in that `>` cannot exist within the token
- *      since Processing Instructions do no exist within HTML and their syntax transforms
+ *      since Processing Instructions do not exist within HTML and their syntax transforms
  *      into a bogus comment in the DOM.
  *
  * ## Design and limitations
@@ -523,7 +523,7 @@ class WP_HTML_Tag_Processor {
 	 *       - A TABLE start tag `<table>` implicitly closes any open `P` element.
 	 *
 	 *   - In `QUIRKS_MODE`:
-	 *       - CSS class and ID selectors match match in an ASCII case-insensitive manner.
+	 *       - CSS class and ID selectors match in an ASCII case-insensitive manner.
 	 *       - A TABLE start tag `<table>` opens a `TABLE` element as a child of a `P`
 	 *         element if one is open.
 	 *
@@ -616,12 +616,12 @@ class WP_HTML_Tag_Processor {
 	 * Example:
 	 *
 	 *     <div id="test">...
-	 *     012345678901234
-	 *     - token length is 14 - 0 = 14
+	 *     0123456789012345
+	 *     - token length is 15 - 0 = 15
 	 *
 	 *     a <!-- comment --> is a token.
 	 *     0123456789 123456789 123456789
-	 *     - token length is 17 - 2 = 15
+	 *     - token length is 18 - 2 = 16
 	 *
 	 * @since WP 6.5.0
 	 *
@@ -928,8 +928,6 @@ class WP_HTML_Tag_Processor {
 	 *  - a DOCTYPE declaration.
 	 *  - a processing instruction, e.g. `<?xml version="1.0" ?>`.
 	 *
-	 * The Tag Processor currently only supports the tag token.
-	 *
 	 * @since WP 6.5.0
 	 * @since WP 6.7.0 Recognizes CDATA sections within foreign content.
 	 *
@@ -1075,7 +1073,7 @@ class WP_HTML_Tag_Processor {
 		 *
 		 * Preserve the opening tag pointers, as these will be overwritten
 		 * when finding the closing tag. They will be reset after finding
-		 * the closing to tag to point to the opening of the special atomic
+		 * the closing tag to point to the opening of the special atomic
 		 * tag sequence.
 		 */
 		$tag_name_starts_at   = $this->tag_name_starts_at;
@@ -1151,7 +1149,7 @@ class WP_HTML_Tag_Processor {
 	 * Example:
 	 *
 	 *     $processor = new WP_HTML_Tag_Processor( '<input type="text" value="Th' );
-	 *     false      === $processor->get_next_tag();
+	 *     false      === $processor->next_tag();
 	 *     true       === $processor->paused_at_incomplete_token();
 	 *
 	 * @since WP 6.5.0
@@ -1623,7 +1621,6 @@ class WP_HTML_Tag_Processor {
 				( 'p' === $html[ $at + 4 ] || 'P' === $html[ $at + 4 ] ) &&
 				( 't' === $html[ $at + 5 ] || 'T' === $html[ $at + 5 ] )
 			) ) {
-				++$at;
 				continue;
 			}
 
@@ -2527,7 +2524,7 @@ class WP_HTML_Tag_Processor {
 		 * replacement must be made before all others which follow it
 		 * at later string indices in the input document.
 		 *
-		 * Sorting avoid making out-of-order replacements which
+		 * Sorting avoids making out-of-order replacements which
 		 * can lead to mangled output, partially-duplicated
 		 * attributes, and overwritten attributes.
 		 */
@@ -3563,9 +3560,9 @@ class WP_HTML_Tag_Processor {
 	 *     true  === $processor->next_token();                   // Text is "Apples & Oranges".
 	 *     false === $processor->subdivide_text_appropriately();
 	 *
-	 *     $processor = new WP_HTML_Tag_Processor( "&#x13; \r\n\tMore" );
-	 *     true  === $processor->next_token();                   // Text is "␤ ␤␉More".
-	 *     true  === $processor->subdivide_text_appropriately(); // Text is "␤ ␤␉".
+	 *     $processor = new WP_HTML_Tag_Processor( "&#xD; \r\n\tMore" );
+	 *     true  === $processor->next_token();                   // Text is "␍ ␊␉More".
+	 *     true  === $processor->subdivide_text_appropriately(); // Text is "␍ ␊␉".
 	 *     true  === $processor->next_token();                   // Text is "More".
 	 *     false === $processor->subdivide_text_appropriately();
 	 *
@@ -4943,7 +4940,7 @@ class WP_HTML_Tag_Processor {
 	 *     </2>
 	 *
 	 * Funky comments are tag closers with invalid tag names. Note
-	 * that in HTML these are turn into bogus comments. Nonetheless,
+	 * that in HTML these are turned into bogus comments. Nonetheless,
 	 * the Tag Processor recognizes them in a stream of HTML and
 	 * exposes them for inspection and modification.
 	 *
