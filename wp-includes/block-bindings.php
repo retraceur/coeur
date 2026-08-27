@@ -136,6 +136,7 @@ function get_block_bindings_source( string $source_name ) {
  * Retrieves the list of block attributes supported by block bindings.
  *
  * @since WP 6.9.0
+ * @since WP 7.1.0 Added support for the List Item block.
  *
  * @param string $block_type The block type whose supported attributes are being retrieved.
  * @return array The list of block attributes that are supported by block bindings.
@@ -144,6 +145,7 @@ function get_block_bindings_supported_attributes( $block_type ) {
 	$block_bindings_supported_attributes = array(
 		'core/paragraph'          => array( 'content' ),
 		'core/heading'            => array( 'content' ),
+		'core/list-item'          => array( 'content' ),
 		'core/image'              => array( 'id', 'url', 'title', 'alt', 'caption' ),
 		'core/button'             => array( 'url', 'text', 'linkTarget', 'rel' ),
 		'core/post-date'          => array( 'datetime' ),
