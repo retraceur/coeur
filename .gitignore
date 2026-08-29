@@ -1,31 +1,32 @@
-# macOS
+# macOS.
 .DS_Store
 
-# Node modules
+# Node modules.
 node_modules
 
-# Minified JS
+# Minified JS.
 built
 
-# Logs
+# Logs.
 *.log
+/wp-content/bacasable-emails.json
 
-# htaccess
+# htaccess.
 .htaccess
 
-# Config file
+# Config file.
 wp-config.php
 
 # Sqlite dropin & database folder.
 /wp-content/db.php
 /wp-content/database/
 
-# Uploads
+# Uploads.
 /wp-content/uploads/
 
-# My plugins
+# My plugins.
 /wp-content/plugins/
 /wp-content/mu-plugins/
 
-# Languages
+# Languages.
 /wp-content/languages
