@@ -678,4 +678,14 @@ add_filter( 'rest_pre_insert_wp_template_part', 'inject_ignored_hooked_blocks_me
 // Honour Post content's "read-more" mechanism in Site Editor's edited archive templates.
 add_filter( 'rest_prepare_post', 'truncate_raw_content_into_rest_response', 9, 3 );
 
-unset( $filter, $action );
+// View Config API.
+foreach ( array( 'page', 'post', 'wp_block', 'wp_template_part', 'wp_template' ) as $post_type ) {
+	add_filter(
+		"get_entity_view_config_postType_{$post_type}",
+		"_wp_get_entity_view_config_post_type_{$post_type}",
+		10,
+		1
+	);
+}
+
+unset( $filter, $action, $post_type );
