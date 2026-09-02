@@ -4,7 +4,7 @@
  *
  * Generates scoped CSS for per-instance state styles declared in block attributes,
  * including pseudo-states (e.g., `style[':hover']`) and responsive states
- * (e.g., `style['mobile']` and `style['mobile'][':hover']`).
+ * (e.g., `style['@mobile']` and `style['@mobile'][':hover']`).
  *
  * @package Retraceur
  * @since WP 7.1.0
