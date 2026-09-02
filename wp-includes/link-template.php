@@ -1990,7 +1990,7 @@ function previous_post_link( $format = '&laquo; %link', $link = '%title', $in_sa
  *
  * @since WP 3.7.0
  *
- * @param string       $format         Optional. Link anchor format. Default '&laquo; %link'.
+ * @param string       $format         Optional. Link anchor format. Default '%link &raquo;'.
  * @param string       $link           Optional. Link permalink format. Default '%title'.
  * @param bool         $in_same_term   Optional. Whether link should be in the same taxonomy term.
  *                                     Default false.
@@ -2010,7 +2010,7 @@ function get_next_post_link( $format = '%link &raquo;', $link = '%title', $in_sa
  *
  * @see get_next_post_link()
  *
- * @param string       $format         Optional. Link anchor format. Default '&laquo; %link'.
+ * @param string       $format         Optional. Link anchor format. Default '%link &raquo;'.
  * @param string       $link           Optional. Link permalink format. Default '%title'.
  * @param bool         $in_same_term   Optional. Whether link should be in the same taxonomy term.
  *                                     Default false.
