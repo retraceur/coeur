@@ -807,8 +807,10 @@ class WP_Plugins_List_Table extends WP_List_Table {
 		static $plugin_id_attrs = array();
 
 		$parent_file = 'plugins.php';
+		$plugin_type = 'regular';
 		if ( 'block' === $this->_args['singular'] ) {
 			$parent_file = 'blocks.php';
+			$plugin_type = 'block';
 		}
 
 		list( $plugin_file, $plugin_data ) = $item;
@@ -1271,13 +1273,15 @@ class WP_Plugins_List_Table extends WP_List_Table {
 					// Add a plugin/block link, if available.
 					if ( ! empty( $plugin_data['PluginURI'] ) ) {
 						/* translators: %s: Plugin name. */
-						$aria_label = sprintf( __( 'Visit plugin site for %s' ), $plugin_name );
+						$aria_label = 'block' === $plugin_type
+							? sprintf( __( 'Visit block site for %s' ), $plugin_name )
+							: sprintf( __( 'Visit plugin site for %s' ), $plugin_name );
 
 						$plugin_meta[] = sprintf(
 							'<a href="%1$s" aria-label="%2$s">%3$s</a> <a href="%1$s" aria-label="%2$s" target="_blank" class="open-external"><span class="dashicons dashicons-external"></span></a>',
 							esc_url( $plugin_data['PluginURI'] ),
 							esc_attr( $aria_label ),
-							__( 'Visit plugin site' )
+							'block' === $plugin_type ? __( 'Visit block site' ) : __( 'Visit plugin site' )
 						);
 					}
 
@@ -1341,7 +1345,9 @@ class WP_Plugins_List_Table extends WP_List_Table {
 					do_action( 'after_plugin_row_meta', $plugin_file, $plugin_data );
 
 					if ( $paused ) {
-						$notice_text = __( 'This plugin failed to load properly and is paused during recovery mode.' );
+						$notice_text = 'block' === $plugin_type 
+							? __( 'This block failed to load properly and is paused during recovery mode.' )
+							: __( 'This plugin failed to load properly and is paused during recovery mode.' );
 
 						printf( '<p><span class="dashicons dashicons-warning"></span> <strong>%s</strong></p>', $notice_text );
 
@@ -1414,7 +1420,10 @@ class WP_Plugins_List_Table extends WP_List_Table {
 
 			$incompatible_message = '';
 			if ( ! $compatible_php && ! $is_compatible ) {
-				$incompatible_message .= __( 'This plugin does not work with your versions of Retraceur and PHP.' );
+				$incompatible_message .= 'block' === $plugin_type
+					? __( 'This block does not work with your versions of Retraceur and PHP.' )
+					: __( 'This plugin does not work with your versions of Retraceur and PHP.' );
+
 				if ( current_user_can( 'update_core' ) && current_user_can( 'update_php' ) ) {
 					$incompatible_message .= sprintf(
 						/* translators: %s: URL to Retraceur Updates screen. */
@@ -1429,7 +1438,10 @@ class WP_Plugins_List_Table extends WP_List_Table {
 					);
 				}
 			} elseif ( ! $is_compatible ) {
-				$incompatible_message .= __( 'This plugin does not work with your version of Retraceur.' );
+				$incompatible_message .= 'block' === $plugin_type
+					? __( 'This block does not work with your version of Retraceur.' )
+					: __( 'This plugin does not work with your version of Retraceur.' );
+
 				if ( current_user_can( 'update_core' ) ) {
 					$incompatible_message .= sprintf(
 						/* translators: %s: URL to Retraceur Updates screen. */
@@ -1438,7 +1450,9 @@ class WP_Plugins_List_Table extends WP_List_Table {
 					);
 				}
 			} elseif ( ! $compatible_php ) {
-				$incompatible_message .= __( 'This plugin does not work with your version of PHP.' );
+				$incompatible_message .= 'block' === $plugin_type
+					? __( 'This block does not work with your version of PHP.' )
+					: __( 'This plugin does not work with your version of PHP.' );
 			}
 
 			wp_admin_notice(
@@ -1459,8 +1473,12 @@ class WP_Plugins_List_Table extends WP_List_Table {
 				esc_attr( $this->get_column_count() )
 			);
 
+			$admin_notice_message = 'block' === $plugin_type
+				? __( 'The block’s author has not declared any compatibility with Retraceur. Activating it may generate issues.' )
+				: __( 'The plugin’s author has not declared any compatibility with Retraceur. Activating it may generate issues.' );
+
 			wp_admin_notice(
-				__( 'The plugin’s author has not declared any compatibility with Retraceur. Activating it may generate issues.' ),
+				$admin_notice_message,
 				array(
 					'type'               => 'warning',
 					'additional_classes' => array( 'notice-alt', 'inline', 'update-message' ),
