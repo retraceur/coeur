@@ -1273,7 +1273,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 					// Add a plugin/block link, if available.
 					if ( ! empty( $plugin_data['PluginURI'] ) ) {
 						/* translators: %s: Plugin name. */
-						$aria_label = $plugin_type === 'block'
+						$aria_label = 'block' === $plugin_type
 							? sprintf( __( 'Visit block site for %s' ), $plugin_name )
 							: sprintf( __( 'Visit plugin site for %s' ), $plugin_name );
 
@@ -1281,7 +1281,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 							'<a href="%1$s" aria-label="%2$s">%3$s</a> <a href="%1$s" aria-label="%2$s" target="_blank" class="open-external"><span class="dashicons dashicons-external"></span></a>',
 							esc_url( $plugin_data['PluginURI'] ),
 							esc_attr( $aria_label ),
-							$plugin_type === 'block' ? __( 'Visit block site' ) : __( 'Visit plugin site' )
+							'block' === $plugin_type ? __( 'Visit block site' ) : __( 'Visit plugin site' )
 						);
 					}
 
@@ -1345,7 +1345,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 					do_action( 'after_plugin_row_meta', $plugin_file, $plugin_data );
 
 					if ( $paused ) {
-						$notice_text = $plugin_type === 'block'
+						$notice_text = 'block' === $plugin_type 
 							? __( 'This block failed to load properly and is paused during recovery mode.' )
 							: __( 'This plugin failed to load properly and is paused during recovery mode.' );
 
@@ -1420,7 +1420,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 
 			$incompatible_message = '';
 			if ( ! $compatible_php && ! $is_compatible ) {
-				$incompatible_message .= $plugin_type === 'block'
+				$incompatible_message .= 'block' === $plugin_type
 					? __( 'This block does not work with your versions of Retraceur and PHP.' )
 					: __( 'This plugin does not work with your versions of Retraceur and PHP.' );
 
@@ -1438,7 +1438,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 					);
 				}
 			} elseif ( ! $is_compatible ) {
-				$incompatible_message .= $plugin_type === 'block'
+				$incompatible_message .= 'block' === $plugin_type
 					? __( 'This block does not work with your version of Retraceur.' )
 					: __( 'This plugin does not work with your version of Retraceur.' );
 
@@ -1450,7 +1450,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 					);
 				}
 			} elseif ( ! $compatible_php ) {
-				$incompatible_message .= $plugin_type === 'block'
+				$incompatible_message .= 'block' === $plugin_type
 					? __( 'This block does not work with your version of PHP.' )
 					: __( 'This plugin does not work with your version of PHP.' );
 			}
@@ -1473,7 +1473,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 				esc_attr( $this->get_column_count() )
 			);
 
-			$admin_notice_message = $plugin_type === 'block'
+			$admin_notice_message = 'block' === $plugin_type
 				? __( 'The block’s author has not declared any compatibility with Retraceur. Activating it may generate issues.' )
 				: __( 'The plugin’s author has not declared any compatibility with Retraceur. Activating it may generate issues.' );
 
