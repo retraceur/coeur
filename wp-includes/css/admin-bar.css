@@ -591,7 +591,22 @@ html:lang(he-il) .rtl #wpadminbar * {
 	content: "\f102" / '';
 }
 
+#wpadminbar #wp-admin-bar-site-name.has-site-icon > .ab-item {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
 
+#wpadminbar #wp-admin-bar-site-name.has-site-icon > .ab-item:before {
+	content: none;
+}
+
+#wpadminbar #wp-admin-bar-site-name > .ab-item .site-icon {
+	width: 20px;
+	height: 20px;
+	background: #f0f0f1; /* matching my-account (user avatar) node's background */
+	border-radius: 2px;
+}
 
 /**
  * Comments
@@ -901,7 +916,7 @@ html:lang(he-il) .rtl #wpadminbar * {
 
 	#wpadminbar #wp-admin-bar-edit > .ab-item:before,
 	#wpadminbar #wp-admin-bar-my-sites > .ab-item:before,
-	#wpadminbar #wp-admin-bar-site-name > .ab-item:before,
+	#wpadminbar #wp-admin-bar-site-name:not(.has-site-icon) > .ab-item:before,
 	#wpadminbar #wp-admin-bar-site-editor > .ab-item:before,
 	#wpadminbar #wp-admin-bar-customize > .ab-item:before,
 	#wpadminbar #wp-admin-bar-my-account > .ab-item:before,
@@ -914,6 +929,16 @@ html:lang(he-il) .rtl #wpadminbar * {
 		text-align: center;
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
+	}
+
+	#wpadminbar #wp-admin-bar-site-name > .ab-item .site-icon {
+		position: absolute;
+		top: 9px;
+		left: 12px;
+		width: 28px;
+		height: 28px;
+		margin: 0;
+		border-radius: 4px;
 	}
 
 	#wpadminbar #wp-admin-bar-appearance {

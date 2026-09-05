@@ -2365,6 +2365,13 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 	 * @since WP 4.7.0
 	 *
 	 * @return array Item schema data.
+	 *
+	 * @phpstan-return array{
+	 *     title: non-empty-string,
+	 *     type: non-empty-string,
+	 *     properties: array<string, array<string, mixed>>,
+	 *     ...
+	 * }
 	 */
 	public function get_item_schema() {
 		if ( $this->schema ) {
