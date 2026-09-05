@@ -454,6 +454,7 @@ html:lang(he-il) .rtl #wpadminbar * {
 	top: 4px;
 	width: 64px;
 	height: 64px;
+	border-radius: 50%;
 }
 
 #wpadminbar #wp-admin-bar-user-info a {
@@ -480,10 +481,11 @@ html:lang(he-il) .rtl #wpadminbar * {
 #wpadminbar #wp-admin-bar-my-account.with-avatar > .ab-empty-item img,
 #wpadminbar #wp-admin-bar-my-account.with-avatar > a img {
 	width: auto;
-	height: 16px;
+	height: 20px;
 	padding: 0;
-	border: 1px solid rgb(47.85, 47.85, 47.85);
-	background: rgb(47.85, 47.85, 47.85);
+	border: 1px solid #2c353b;
+	border-radius: 50%;
+	background: #f0f0f1;
 	line-height: 1.84615384;
 	vertical-align: middle;
 	margin: -4px 0 0 6px;
@@ -538,6 +540,10 @@ html:lang(he-il) .rtl #wpadminbar * {
 	height: 16px;
 	width: 16px;
 	margin: 0 8px 2px -2px;
+}
+
+#wpadminbar .quicklinks li img.blavatar {
+	border-radius: 2px;
 }
 
 #wpadminbar .quicklinks li div.blavatar:before {
@@ -973,10 +979,11 @@ html:lang(he-il) .rtl #wpadminbar * {
 
 	#wpadminbar .quicklinks li#wp-admin-bar-my-account.with-avatar > a img {
 		position: absolute;
-		top: 13px;
+		top: 12px;
 		right: 10px;
-		width: 26px;
-		height: 26px;
+		width: 28px;
+		height: 28px;
+		border-radius: 50%;
 	}
 
 	#wpadminbar #wp-admin-bar-user-actions.ab-submenu {
