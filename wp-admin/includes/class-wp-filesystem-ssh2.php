@@ -33,18 +33,29 @@
  *
  * @package Retraceur
  * @subpackage Filesystem
+ *
+ * @phpstan-type Options array{
+ *     hostname: string,
+ *     username: string,
+ *     password: string|null,
+ *     port: non-negative-int,
+ *     public_key?: non-empty-string,
+ *     private_key?: non-empty-string,
+ *     hostkey?: array{ hostkey: non-empty-string },
+ * }
+ * @phpstan-import-type FileListing from WP_Filesystem_Base
  */
 class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 
 	/**
 	 * @since WP 2.7.0
-	 * @var resource
+	 * @var resource|false
 	 */
 	public $link = false;
 
 	/**
 	 * @since WP 2.7.0
-	 * @var resource
+	 * @var resource|false
 	 */
 	public $sftp_link;
 
@@ -55,15 +66,45 @@ class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 	public $keys = false;
 
 	/**
+	 * @since WP 7.1.0
+	 * @var array
+	 * @phpstan-var Options
+	 */
+	public $options;
+
+	/**
 	 * Constructor.
 	 *
 	 * @since WP 2.7.0
 	 *
-	 * @param array $opt
+	 * @param array $opt {
+	 *     Array of connection options.
+	 *
+	 *     @type string $hostname    Required. SSH server hostname.
+	 *     @type string $username    Required. SSH username.
+	 *     @type int    $port        Optional. SSH server port. Default 22.
+	 *     @type string $password    Optional. SSH password. May be empty when using keys.
+	 *     @type string $public_key  Optional. Path to public key file for publickey authentication.
+	 *     @type string $private_key Optional. Path to private key file for publickey authentication.
+	 * }
+	 * @phpstan-param array{
+	 *     hostname: non-empty-string,
+	 *     username: non-empty-string,
+	 *     port?: non-negative-int,
+	 *     password?: string,
+	 *     public_key?: non-empty-string,
+	 *     private_key?: non-empty-string,
+	 * }|null $opt
 	 */
-	public function __construct( $opt = '' ) {
-		$this->method = 'ssh2';
-		$this->errors = new WP_Error();
+	public function __construct( $opt = null ) {
+		$this->method  = 'ssh2';
+		$this->errors  = new WP_Error();
+		$this->options = array(
+			'port'     => 22,
+			'hostname' => '',
+			'username' => '',
+			'password' => null,
+		);
 
 		// Check if possible to use ssh2 functions.
 		if ( ! extension_loaded( 'ssh2' ) ) {
@@ -71,10 +112,12 @@ class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 			return;
 		}
 
+		if ( ! is_array( $opt ) ) {
+			$opt = array();
+		}
+
 		// Set defaults:
-		if ( empty( $opt['port'] ) ) {
-			$this->options['port'] = 22;
-		} else {
+		if ( ! empty( $opt['port'] ) ) {
 			$this->options['port'] = $opt['port'];
 		}
 
@@ -92,23 +135,20 @@ class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 			$this->options['hostkey'] = array( 'hostkey' => 'ssh-rsa,ssh-ed25519' );
 
 			$this->keys = true;
-		} elseif ( empty( $opt['username'] ) ) {
-			$this->errors->add( 'empty_username', __( 'SSH2 username is required' ) );
 		}
 
-		if ( ! empty( $opt['username'] ) ) {
+		// A username is always required, whether authenticating with a password or with keys.
+		if ( empty( $opt['username'] ) ) {
+			$this->errors->add( 'empty_username', __( 'SSH2 username is required' ) );
+		} else {
 			$this->options['username'] = $opt['username'];
 		}
 
-		if ( empty( $opt['password'] ) ) {
-			// Password can be blank if we are using keys.
-			if ( ! $this->keys ) {
-				$this->errors->add( 'empty_password', __( 'SSH2 password is required' ) );
-			} else {
-				$this->options['password'] = null;
-			}
-		} else {
+		if ( ! empty( $opt['password'] ) ) {
 			$this->options['password'] = $opt['password'];
+		} elseif ( ! $this->keys ) {
+			// Password can be blank if we are using keys.
+			$this->errors->add( 'empty_password', __( 'SSH2 password is required' ) );
 		}
 	}
 
@@ -120,7 +160,16 @@ class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 	 * @return bool True on success, false on failure.
 	 */
 	public function connect() {
-		if ( ! $this->keys ) {
+		/*
+		 * Bail if the constructor recorded a configuration error. Connection and
+		 * authentication errors are excluded so that a failed connection attempt
+		 * can be retried on the same instance.
+		 */
+		if ( $this->errors->has_errors() && ! array_intersect( array( 'connect', 'auth' ), $this->errors->get_error_codes() ) ) {
+			return false;
+		}
+
+		if ( ! isset( $this->options['hostkey'] ) ) {
 			$this->link = @ssh2_connect( $this->options['hostname'], $this->options['port'] );
 		} else {
 			$this->link = @ssh2_connect( $this->options['hostname'], $this->options['port'], $this->options['hostkey'] );
@@ -140,7 +189,7 @@ class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 		}
 
 		if ( ! $this->keys ) {
-			if ( ! @ssh2_auth_password( $this->link, $this->options['username'], $this->options['password'] ) ) {
+			if ( ! @ssh2_auth_password( $this->link, $this->options['username'], $this->options['password'] ?? '' ) ) {
 				$this->errors->add(
 					'auth',
 					sprintf(
@@ -153,7 +202,7 @@ class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 				return false;
 			}
 		} else {
-			if ( ! @ssh2_auth_pubkey_file( $this->link, $this->options['username'], $this->options['public_key'], $this->options['private_key'], $this->options['password'] ) ) {
+			if ( ! @ssh2_auth_pubkey_file( $this->link, $this->options['username'], $this->options['public_key'] ?? '', $this->options['private_key'] ?? '', $this->options['password'] ?? '' ) ) {
 				$this->errors->add(
 					'auth',
 					sprintf(
@@ -213,6 +262,8 @@ class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 	 * @param bool   $returnbool
 	 * @return bool|string True on success, false on failure. String if the command was executed, `$returnbool`
 	 *                     is false (default), and data from the resulting stream was retrieved.
+	 *
+	 * @phpstan-return ( $returnbool is true ? bool : string )
 	 */
 	public function run_command( $command, $returnbool = false ) {
 		if ( ! $this->link ) {
@@ -265,7 +316,7 @@ class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 	 * @since WP 2.7.0
 	 *
 	 * @param string $file Path to the file.
-	 * @return array|false File contents in an array on success, false on failure.
+	 * @return string[]|false File contents in an array on success, false on failure.
 	 */
 	public function get_contents_array( $file ) {
 		return file( $this->sftp_path( $file ) );
@@ -302,13 +353,17 @@ class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 	 * @return string|false The current working directory on success, false on failure.
 	 */
 	public function cwd() {
-		$cwd = ssh2_sftp_realpath( $this->sftp_link, '.' );
-
-		if ( $cwd ) {
-			$cwd = trailingslashit( trim( $cwd ) );
+		if ( ! $this->sftp_link ) {
+			return false;
 		}
 
-		return $cwd;
+		$cwd = ssh2_sftp_realpath( $this->sftp_link, '.' );
+
+		if ( ! is_string( $cwd ) ) {
+			return false;
+		}
+
+		return trailingslashit( trim( $cwd ) );
 	}
 
 	/**
@@ -340,10 +395,10 @@ class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 		}
 
 		if ( ! $recursive || ! $this->is_dir( $file ) ) {
-			return $this->run_command( sprintf( 'chgrp %s %s', escapeshellarg( $group ), escapeshellarg( $file ) ), true );
+			return $this->run_command( sprintf( 'chgrp %s %s', escapeshellarg( (string) $group ), escapeshellarg( $file ) ), true );
 		}
 
-		return $this->run_command( sprintf( 'chgrp -R %s %s', escapeshellarg( $group ), escapeshellarg( $file ) ), true );
+		return $this->run_command( sprintf( 'chgrp -R %s %s', escapeshellarg( (string) $group ), escapeshellarg( $file ) ), true );
 	}
 
 	/**
@@ -397,10 +452,10 @@ class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 		}
 
 		if ( ! $recursive || ! $this->is_dir( $file ) ) {
-			return $this->run_command( sprintf( 'chown %s %s', escapeshellarg( $owner ), escapeshellarg( $file ) ), true );
+			return $this->run_command( sprintf( 'chown %s %s', escapeshellarg( (string) $owner ), escapeshellarg( $file ) ), true );
 		}
 
-		return $this->run_command( sprintf( 'chown -R %s %s', escapeshellarg( $owner ), escapeshellarg( $file ) ), true );
+		return $this->run_command( sprintf( 'chown -R %s %s', escapeshellarg( (string) $owner ), escapeshellarg( $file ) ), true );
 	}
 
 	/**
@@ -409,7 +464,7 @@ class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 	 * @since WP 2.7.0
 	 *
 	 * @param string $file Path to the file.
-	 * @return string|false Username of the owner on success, false on failure.
+	 * @return string|int<1, max>|false Username of the owner on success, or UID of file owner if not available; false on failure.
 	 */
 	public function owner( $file ) {
 		$owneruid = @fileowner( $this->sftp_path( $file ) );
@@ -437,10 +492,14 @@ class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 	 * @since WP 2.7.0
 	 *
 	 * @param string $file Path to the file.
-	 * @return string Mode of the file (the last 3 digits).
+	 * @return string Mode of the file (the last 3 digits). Empty string on failure.
 	 */
 	public function getchmod( $file ) {
-		return substr( decoct( @fileperms( $this->sftp_path( $file ) ) ), -3 );
+		$file_perms = @fileperms( $this->sftp_path( $file ) );
+		if ( ! is_int( $file_perms ) ) {
+			return '';
+		}
+		return substr( decoct( $file_perms ), -3 );
 	}
 
 	/**
@@ -449,7 +508,7 @@ class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 	 * @since WP 2.7.0
 	 *
 	 * @param string $file Path to the file.
-	 * @return string|false The group on success, false on failure.
+	 * @return string|int<1, max>|false Group name on success, or GID of the file's group if not available; false on failure.
 	 */
 	public function group( $file ) {
 		$gid = @filegroup( $this->sftp_path( $file ) );
@@ -527,6 +586,9 @@ class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 			}
 		}
 
+		if ( ! $this->sftp_link ) {
+			return false;
+		}
 		return ssh2_sftp_rename( $this->sftp_link, $source, $destination );
 	}
 
@@ -543,6 +605,9 @@ class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 	 * @return bool True on success, false on failure.
 	 */
 	public function delete( $file, $recursive = false, $type = false ) {
+		if ( ! $this->sftp_link ) {
+			return false;
+		}
 		if ( 'f' === $type || $this->is_file( $file ) ) {
 			return ssh2_sftp_unlink( $this->sftp_link, $file );
 		}
@@ -693,6 +758,9 @@ class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 	 * @return bool True on success, false on failure.
 	 */
 	public function mkdir( $path, $chmod = false, $chown = false, $chgrp = false ) {
+		if ( ! $this->sftp_link ) {
+			return false;
+		}
 		$path = untrailingslashit( $path );
 
 		if ( empty( $path ) ) {
@@ -769,6 +837,7 @@ class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 	 *                                             files. False if unable to list directory contents.
 	 *     }
 	 * }
+	 * @phpstan-return array<string, FileListing>|false
 	 */
 	public function dirlist( $path, $include_hidden = true, $recursive = false ) {
 		if ( $this->is_file( $path ) ) {
@@ -814,8 +883,8 @@ class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 			$struc['group']       = $this->group( $path . $entry );
 			$struc['size']        = $this->size( $path . $entry );
 			$struc['lastmodunix'] = $this->mtime( $path . $entry );
-			$struc['lastmod']     = gmdate( 'M j', $struc['lastmodunix'] );
-			$struc['time']        = gmdate( 'h:i:s', $struc['lastmodunix'] );
+			$struc['lastmod']     = is_int( $struc['lastmodunix'] ) ? gmdate( 'M j', $struc['lastmodunix'] ) : false;
+			$struc['time']        = is_int( $struc['lastmodunix'] ) ? gmdate( 'h:i:s', $struc['lastmodunix'] ) : false;
 			$struc['type']        = $this->is_dir( $path . $entry ) ? 'd' : 'f';
 
 			if ( 'd' === $struc['type'] ) {
