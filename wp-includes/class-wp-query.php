@@ -3733,6 +3733,10 @@ class WP_Query {
 	 *
 	 * @param string|array $query URL query string or array of query arguments.
 	 * @return WP_Post[]|int[] Array of post objects or post IDs.
+	 *
+	 * @phpstan-return (
+	 *     $query is array{ fields: 'ids', ... } ? int[] : WP_Post[]
+	 * )
 	 */
 	public function query( $query ) {
 		$this->init();
