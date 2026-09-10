@@ -1,0 +1,242 @@
+[
+	{
+		"potName": "admin-application-passwords.pot",
+		"jsName": "wp-admin/js/application-passwords.js"
+	},
+	{
+		"potName": "admin-auth-app.pot",
+		"jsName": "wp-admin/js/auth-app.js"
+	},
+	{
+		"potName": "admin-color-picker.pot",
+		"jsName": "wp-admin/js/color-picker.js"
+	},
+	{
+		"potName": "admin-common.pot",
+		"jsName": "wp-admin/js/common.js"
+	},
+	{
+		"potName": "admin-dashboard.pot",
+		"jsName": "wp-admin/js/dashboard.js"
+	},
+	{
+		"potName": "admin-discovery.pot",
+		"jsName": "wp-admin/js/discovery.js"
+	},
+	{
+		"potName": "admin-global-media.pot",
+		"jsName": "wp-admin/js/global-media.js"
+	},
+	{
+		"potName": "admin-image-edit.pot",
+		"jsName": "wp-admin/js/image-edit.js"
+	},
+	{
+		"potName": "admin-inline-edit-post.pot",
+		"jsName": "wp-admin/js/inline-edit-post.js"
+	},
+	{
+		"potName": "admin-inline-edit-tax.pot",
+		"jsName": "wp-admin/js/inline-edit-tax.js"
+	},
+	{
+		"potName": "admin-media.pot",
+		"jsName": "wp-admin/js/media.js"
+	},
+	{
+		"potName": "admin-password-strength-meter.pot",
+		"jsName": "wp-admin/js/password-strength-meter.js"
+	},
+	{
+		"potName": "admin-password-toggle.pot",
+		"jsName": "wp-admin/js/password-toggle.js"
+	},
+	{
+		"potName": "admin-plugin-install.pot",
+		"jsName": "wp-admin/js/plugin-install.js"
+	},
+	{
+		"potName": "admin-post.pot",
+		"jsName": "wp-admin/js/post.js"
+	},
+	{
+		"potName": "admin-postbox.pot",
+		"jsName": "wp-admin/js/postbox.js"
+	},
+	{
+		"potName": "admin-privacy-tools.pot",
+		"jsName": "wp-admin/js/privacy-tools.js"
+	},
+	{
+		"potName": "admin-set-post-thumbnail.pot",
+		"jsName": "wp-admin/js/set-post-thumbnail.js"
+	},
+	{
+		"potName": "admin-site-health.pot",
+		"jsName": "wp-admin/js/site-health.js"
+	},
+	{
+		"potName": "admin-site-icon.pot",
+		"jsName": "wp-admin/js/site-icon.js"
+	},
+	{
+		"potName": "admin-tags-box.pot",
+		"jsName": "wp-admin/js/tags-box.js"
+	},
+	{
+		"potName": "admin-tags-suggest.pot",
+		"jsName": "wp-admin/js/tags-suggest.js"
+	},
+	{
+		"potName": "admin-tags.pot",
+		"jsName": "wp-admin/js/tags.js"
+	},
+	{
+		"potName": "admin-updates.pot",
+		"jsName": "wp-admin/js/updates.js"
+	},
+	{
+		"potName": "admin-user-profile.pot",
+		"jsName": "wp-admin/js/user-profile.js"
+	},
+	{
+		"potName": "includes-media-editor.pot",
+		"jsName": "wp-includes/js/media-editor.js"
+	},
+	{
+		"potName": "includes-media-views.pot",
+		"jsName": "wp-includes/js/media-views.js"
+	},
+	{
+		"potName": "includes-auth-check.pot",
+		"jsName": "wp-includes/js/wp-auth-check.js"
+	},
+	{
+		"potName": "includes-wp-pointer.pot",
+		"jsName": "wp-includes/js/wp-pointer.js"
+	},
+	{
+		"potName": "dist-a11y.pot",
+		"jsName": "wp-includes/js/dist/a11y.js"
+	},
+	{
+		"potName": "dist-annotations.pot",
+		"jsName": "wp-includes/js/dist/annotations.js"
+	},
+	{
+		"potName": "dist-api-fetch.pot",
+		"jsName": "wp-includes/js/dist/api-fetch.js"
+	},
+	{
+		"potName": "dist-block-directory.pot",
+		"jsName": "wp-includes/js/dist/block-directory.js"
+	},
+	{
+		"potName": "dist-block-editor.pot",
+		"jsName": "wp-includes/js/dist/block-editor.js"
+	},
+	{
+		"potName": "dist-block-library.pot",
+		"jsName": "wp-includes/js/dist/block-library.js"
+	},
+	{
+		"potName": "dist-blocks.pot",
+		"jsName": "wp-includes/js/dist/blocks.js"
+	},
+	{
+		"potName": "dist-commands.pot",
+		"jsName": "wp-includes/js/dist/commands.js"
+	},
+	{
+		"potName": "dist-components.pot",
+		"jsName": "wp-includes/js/dist/components.js"
+	},
+	{
+		"potName": "dist-core-commands.pot",
+		"jsName": "wp-includes/js/dist/core-commands.js"
+	},
+	{
+		"potName": "dist-core-data.pot",
+		"jsName": "wp-includes/js/dist/core-data.js"
+	},
+	{
+		"potName": "dist-dataviews.pot",
+		"jsName": "wp-includes/js/dist/dataviews.js"
+	},
+	{
+		"potName": "dist-edit-site.pot",
+		"jsName": "wp-includes/js/dist/edit-site.js"
+	},
+	{
+		"potName": "dist-edit-post.pot",
+		"jsName": "wp-includes/js/dist/edit-post.js"
+	},
+	{
+		"potName": "dist-editor.pot",
+		"jsName": "wp-includes/js/dist/editor.js"
+	},
+	{
+		"potName": "dist-format-library.pot",
+		"jsName": "wp-includes/js/dist/format-library.js"
+	},
+	{
+		"potName": "dist-keycodes.pot",
+		"jsName": "wp-includes/js/dist/keycodes.js"
+	},
+	{
+		"potName": "dist-list-reusable-blocks.pot",
+		"jsName": "wp-includes/js/dist/list-reusable-blocks.js"
+	},
+	{
+		"potName": "dist-media-utils.pot",
+		"jsName": "wp-includes/js/dist/media-utils.js"
+	},
+	{
+		"potName": "dist-nux.pot",
+		"jsName": "wp-includes/js/dist/nux.js"
+	},
+	{
+		"potName": "dist-patterns.pot",
+		"jsName": "wp-includes/js/dist/patterns.js"
+	},
+	{
+		"potName": "dist-preferences.pot",
+		"jsName": "wp-includes/js/dist/preferences.js"
+	},
+	{
+		"potName": "dist-react-i18n.pot",
+		"jsName": "wp-includes/js/dist/react-i18n.js"
+	},
+	{
+		"potName": "dist-reusable-blocks.pot",
+		"jsName": "wp-includes/js/dist/reusable-blocks.js"
+	},
+	{
+		"potName": "dist-rich-text.pot",
+		"jsName": "wp-includes/js/dist/rich-text.js"
+	},
+	{
+		"potName": "dist-server-side-render.pot",
+		"jsName": "wp-includes/js/dist/server-side-render.js"
+	},
+	{
+		"potName": "dist-upload-media.pot",
+		"jsName": "wp-includes/js/dist/upload-media.js"
+	},
+	{
+		"potName": "dist-script-module-abilities.pot",
+		"jsName": "wp-includes/js/dist/script-modules/abilities/index.js"
+	},
+	{
+		"potName": "dist-script-module-lazy-editor.pot",
+		"jsName": "wp-includes/js/dist/script-modules/lazy-editor/index.js"
+	},
+	{
+		"potName": "dist-script-module-workflow.pot",
+		"jsName": "wp-includes/js/dist/script-modules/workflow/index.js"
+	},
+	{
+		"potName": "tinymce-wplink.pot",
+		"jsName": "wp-includes/js/tinymce/plugins/wplink/plugin.js"
+	}
+]
