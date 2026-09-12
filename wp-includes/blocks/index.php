@@ -9,7 +9,7 @@
 
 // Don't load directly.
 if ( ! defined( 'ABSPATH' ) ) {
-	die( '-1' );
+	exit;
 }
 
 define( 'BLOCKS_PATH', ABSPATH . WPINC . '/blocks/' );

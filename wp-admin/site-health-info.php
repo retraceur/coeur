@@ -8,8 +8,9 @@
  * @subpackage Administration
  */
 
+// Don't load directly.
 if ( ! defined( 'ABSPATH' ) ) {
-	die();
+	exit;
 }
 
 if ( ! class_exists( 'WP_Debug_Data' ) ) {

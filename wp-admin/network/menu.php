@@ -11,7 +11,7 @@
 
 // Don't load directly.
 if ( ! defined( 'ABSPATH' ) ) {
-	die( '-1' );
+	exit;
 }
 
 if ( ! has_action( 'retraceur_network_admin_menu', 'retraceur_reseau_network_admin_menu' ) ) {

@@ -11,7 +11,7 @@
 
 // Don't load directly.
 if ( ! defined( 'ABSPATH' ) ) {
-	die( '-1' );
+	exit;
 }
 
 if ( ! class_exists( 'WpOrg\Requests\Autoload' ) ) {

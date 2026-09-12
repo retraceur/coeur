@@ -5552,7 +5552,7 @@ function wp_validate_user_request_key(
 /**
  * Returns the user request object for the specified request ID.
  *
- * @since WP 4.9.6
+ * @since WP 5.4.0
  *
  * @param int $request_id The ID of the user request.
  * @return WP_User_Request|false
