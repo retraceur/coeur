@@ -682,11 +682,13 @@ add_filter( 'rest_prepare_post', 'truncate_raw_content_into_rest_response', 9, 3
 
 // View Config API.
 foreach ( array( 'page', 'wp_block', 'wp_template_part', 'wp_template' ) as $post_type ) {
+	// Base definitions run before the default priority, so third-party
+	// callbacks registered at the default compose on top of them
+	// regardless of registration order.
 	add_filter(
 		"get_entity_view_config_postType_{$post_type}",
 		"_wp_get_entity_view_config_post_type_{$post_type}",
-		10,
-		1
+		5
 	);
 }
 

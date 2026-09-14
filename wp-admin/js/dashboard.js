@@ -3,7 +3,7 @@
  */
 
 /* global pagenow, ajaxurl, postboxes, wpActiveEditor:true, ajaxWidgets */
-/* global ajaxPopulateWidgets, quickPressLoad,  */
+/* global ajaxPopulateWidgets, quickPressLoad  */
 window.wp = window.wp || {};
 window.communityEventsData = window.communityEventsData || {};
 
@@ -131,62 +131,15 @@ jQuery( function($) {
 	 * Control the Quick Press (Quick Draft) widget.
 	 *
 	 * @since WP 2.7.0
+	 * @deprecated 5.0.0 Retraceur fork.
 	 *
 	 * @global
 	 *
 	 * @return {void}
 	 */
 	window.quickPressLoad = function() {
-		var act = $('#quickpost-action'), t;
-
-		// Enable the submit buttons.
-		$( '#quick-press .submit input[type="submit"], #quick-press .submit input[type="reset"]' ).prop( 'disabled' , false );
-
-		t = $('#quick-press').on( 'submit', function( e ) {
-			e.preventDefault();
-
-			// Show a spinner.
-			$('#dashboard_quick_press #publishing-action .spinner').show();
-
-			// Disable the submit button to prevent duplicate submissions.
-			$('#quick-press .submit input[type="submit"], #quick-press .submit input[type="reset"]').prop('disabled', true);
-
-			// Post the entered data to save it.
-			$.post( t.attr( 'action' ), t.serializeArray(), function( data ) {
-				// Replace the form, and prepend the published post.
-				$('#dashboard_quick_press .inside').html( data );
-				$('#quick-press').removeClass('initial-form');
-				quickPressLoad();
-				highlightLatestPost();
-
-				// Focus the title to allow for quickly drafting another post.
-				$('#title').trigger( 'focus' );
-			});
-
-			/**
-			 * Highlights the latest post for one second.
-			 *
-			 * @return {void}
- 			 */
-			function highlightLatestPost () {
-				var latestPost = $('.drafts ul li').first();
-				latestPost.css('background', '#fffbe5');
-				setTimeout(function () {
-					latestPost.css('background', 'none');
-				}, 1000);
-			}
-		} );
-
-		// Change the QuickPost action to the publish value.
-		$('#publish').on( 'click', function() { act.val( 'post-quickpress-publish' ); } );
-
-		$('#quick-press').on( 'click focusin', function() {
-			wpActiveEditor = 'content';
-		});
-
-		autoResizeTextarea();
+		console.warn( 'The Quick Press (Quick Draft) widget is not supported by Retraceur.' );
 	};
-	window.quickPressLoad();
 
 	// Enable the dragging functionality of the widgets.
 	$( '.meta-box-sortables' ).sortable( 'option', 'containment', '#wpwrap' );

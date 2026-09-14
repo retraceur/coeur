@@ -573,40 +573,6 @@ body #dashboard-widgets .postbox form .submit {
 	color: #d63638;
 }
 
-/* Dashboard Quick Draft */
-
-#dashboard_quick_press .inside {
-	margin: 0;
-	padding: 0;
-}
-
-#dashboard_quick_press div.updated {
-	margin-bottom: 10px;
-	border: 1px solid #f0f0f1;
-	border-width: 1px 0 1px 1px;
-}
-
-#dashboard_quick_press form {
-	margin: 12px;
-}
-
-#dashboard_quick_press .drafts {
-	padding: 10px 0 0;
-}
-
-/* Dashboard Quick Draft - Form styling */
-
-#dashboard_quick_press label {
-	display: inline-block;
-	margin-bottom: 4px;
-}
-
-#dashboard_quick_press input,
-#dashboard_quick_press textarea {
-	box-sizing: border-box;
-	margin: 0;
-}
-
 #dashboard-widgets .postbox form .submit {
 	margin: -39px 0;
 	float: left;
@@ -624,64 +590,15 @@ body #dashboard-widgets .postbox form .submit {
 	resize: none;
 }
 
-/* Dashboard Quick Draft - Drafts list */
-
-.js #dashboard_quick_press .drafts {
-	border-top: 1px solid #f0f0f1;
-}
-
-#dashboard_quick_press .drafts abbr {
-	border: none;
-}
-
-#dashboard_quick_press .drafts .view-all {
-	float: left;
-	margin: 0 0 0 12px;
-}
-
-#dashboard_primary a.rsswidget {
-	font-weight: 400;
-}
-
-#dashboard_quick_press .drafts ul {
-	margin: 0 12px;
-}
-
-#dashboard_quick_press .drafts li {
-	margin-bottom: 1em;
-}
-#dashboard_quick_press .drafts li time {
-	color: #646970;
-}
-
-#dashboard_quick_press .drafts p {
-	margin: 0;
-	word-wrap: break-word;
-}
-
-#dashboard_quick_press .draft-title {
-	word-wrap: break-word;
-}
-
-#dashboard_quick_press .draft-title a,
-#dashboard_quick_press .draft-title time {
-	margin: 0 0 0 5px;
-}
-
 /* Dashboard common styles */
 
 #dashboard-widgets h4, /* Back-compat for pre-4.4 */
-#dashboard-widgets h3,
-#dashboard_quick_press .drafts h2 {
+#dashboard-widgets h3 {
 	margin: 0 12px 8px;
 	padding: 0;
 	font-size: 14px;
 	font-weight: 400;
 	color: #1d2327;
-}
-
-#dashboard_quick_press .drafts h2 {
-	line-height: inherit;
 }
 
 #dashboard-widgets .inside h4, /* Back-compat for pre-4.4 */
