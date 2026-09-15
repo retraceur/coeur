@@ -48,7 +48,7 @@ const generatePot = ( file ) => {
 async function loop() {
 	console.log( '\n🌍 Pot files generation started, please wait...' );
 
-	for( const file of files ) {
+	for ( const file of files ) {
 		await generatePot( file );
 	};
 
