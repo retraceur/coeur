@@ -1591,6 +1591,17 @@ function image_attachment_fields_to_save( $post, $attachment ) {
 }
 
 /**
+ * Was used to add JavaScript to the delete users form.
+ *
+ * @since WP 3.5.0
+ * @deprecated WP 7.1.0
+ * @access private
+ */
+function delete_users_add_js() {
+	_deprecated_function( __FUNCTION__, '7.1.0' );
+}
+
+/**
  * 'Retraceur Events and News' dashboard widget.
  *
  * @since 2.7.0

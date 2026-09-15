@@ -16,6 +16,8 @@
 		$appIconPreview = $( '#app-icon-preview' ),
 		$hiddenDataField = $( '#site_icon_hidden_field' ),
 		$removeButton = $( '#js-remove-site-icon' ),
+		$adminBarSiteName = $( '#wp-admin-bar-site-name' ),
+		$adminBarSiteNameLink = $adminBarSiteName.children( 'a' ).first(),
 		frame;
 
 	/**
@@ -196,6 +198,19 @@
 			'url(' + attributes.url + ')'
 		);
 
+		// Replace the site icon in the admin bar.
+		$adminBarSiteNameLink.children( 'img.site-icon' ).remove();
+		$( '<img />' )
+			.attr( {
+				class: 'site-icon',
+				src: attributes.url,
+				alt: '',
+				width: 20,
+				height: 20,
+			} )
+			.prependTo( $adminBarSiteNameLink );
+		$adminBarSiteName.addClass( 'has-site-icon' );
+
 		// If the choose button is not in the update state, swap the classes.
 		if ( $chooseButton.attr( 'data-state' ) !== '1' ) {
 			$chooseButton.attr( {
@@ -226,6 +241,10 @@
 			src: '',
 			alt: '',
 		} );
+
+		// Remove the site icon from the admin bar.
+		$adminBarSiteNameLink.children( 'img.site-icon' ).remove();
+		$adminBarSiteName.removeClass( 'has-site-icon' );
 
 		/**
 		 * Resets state to the button, for correct visual style and state.
