@@ -381,9 +381,11 @@ final class WP_Post {
 	 * @since WP 3.5.0
 	 *
 	 * @return array<string, mixed> Object as array.
+	 *
+	 * @phpstan-return non-empty-array<string, mixed>
 	 */
 	public function to_array() {
-		/** @var array<string, mixed> $post */
+		/** @var non-empty-array<string, mixed> $post */
 		$post = get_object_vars( $this );
 
 		foreach ( array( 'ancestors', 'page_template', 'post_category', 'tags_input' ) as $key ) {
