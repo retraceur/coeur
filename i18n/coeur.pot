@@ -1,13 +1,13 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Retraceur 4.2.0\n"
+"Project-Id-Version: Retraceur 4.3.0\n"
 "Report-Msgid-Bugs-To: https://github.com/retraceur/coeur/issues\n"
 "Last-Translator: imath <contact@imathi.eu>\n"
 "Language-Team: Retraceur <retraceur@proton.me>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-13T03:15:28+00:00\n"
+"POT-Creation-Date: 2026-09-18T20:04:26+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 
@@ -2828,57 +2828,57 @@ msgid "\"%1$s\" is not a supported wp_template_part area value and has been adde
 msgstr ""
 
 #. translators: 1: Object singular name, 2: Object slug.
-#: wp-includes/block-template-utils.php:722
-#: wp-includes/block-template-utils.php:799
+#: wp-includes/block-template-utils.php:733
+#: wp-includes/block-template-utils.php:810
 #, php-format
 msgid "Not found: %1$s (%2$s)"
 msgstr ""
 
 #. translators: 1: Object singular name, 2: Object title.
-#: wp-includes/block-template-utils.php:734
-#: wp-includes/block-template-utils.php:810
+#: wp-includes/block-template-utils.php:745
+#: wp-includes/block-template-utils.php:821
 #, php-format
 msgid "%1$s: %2$s"
 msgstr ""
 
 #. translators: %s: Object title or name.
-#: wp-includes/block-template-utils.php:741
-#: wp-includes/block-template-utils.php:817
-#: wp-includes/block-template-utils.php:991
+#: wp-includes/block-template-utils.php:752
+#: wp-includes/block-template-utils.php:828
+#: wp-includes/block-template-utils.php:1002
 #, php-format
 msgid "Template for %s"
 msgstr ""
 
 #. translators: 1: Template title, 2: Template slug.
-#: wp-includes/block-template-utils.php:755
-#: wp-includes/block-template-utils.php:834
-#: wp-includes/block-template-utils.php:1007
+#: wp-includes/block-template-utils.php:766
+#: wp-includes/block-template-utils.php:845
+#: wp-includes/block-template-utils.php:1018
 #, php-format
 msgid "%1$s (%2$s)"
 msgstr ""
 
-#: wp-includes/block-template-utils.php:860
-#: wp-includes/block-template-utils.php:928
+#: wp-includes/block-template-utils.php:871
+#: wp-includes/block-template-utils.php:939
 msgid "No theme is defined for this template."
 msgstr ""
 
 #. translators: Custom template title in the Site Editor, referencing a deleted author. %s: Author nicename.
-#: wp-includes/block-template-utils.php:977
+#: wp-includes/block-template-utils.php:988
 #, php-format
 msgid "Deleted author: %s"
 msgstr ""
 
 #. translators: Custom template title in the Site Editor. %s: Author name.
-#: wp-includes/block-template-utils.php:985
+#: wp-includes/block-template-utils.php:996
 #, php-format
 msgid "Author: %s"
 msgstr ""
 
-#: wp-includes/block-template-utils.php:1503
+#: wp-includes/block-template-utils.php:1514
 msgid "Zip Export not supported."
 msgstr ""
 
-#: wp-includes/block-template-utils.php:1512
+#: wp-includes/block-template-utils.php:1523
 msgid "Unable to open export file (archive) for writing."
 msgstr ""
 
@@ -13730,12 +13730,12 @@ msgid "Fullscreen"
 msgstr ""
 
 #: wp-includes/script-loader.php:942
-#: wp-includes/theme.php:1682
+#: wp-includes/theme.php:1690
 msgid "Play"
 msgstr ""
 
 #: wp-includes/script-loader.php:943
-#: wp-includes/theme.php:1681
+#: wp-includes/theme.php:1689
 msgid "Pause"
 msgstr ""
 
@@ -14555,201 +14555,201 @@ msgctxt "theme"
 msgid "<strong>Error:</strong> Current Retraceur version does not meet minimum requirements for %s."
 msgstr ""
 
-#: wp-includes/theme.php:1683
+#: wp-includes/theme.php:1691
 msgid "Video is paused."
 msgstr ""
 
-#: wp-includes/theme.php:1684
+#: wp-includes/theme.php:1692
 msgid "Video is playing."
-msgstr ""
-
-#: wp-includes/theme.php:2236
-msgctxt "Theme starter content"
-msgid "Home"
-msgstr ""
-
-#: wp-includes/theme.php:2239
-msgctxt "Theme starter content"
-msgid "Welcome to your site! This is your homepage, which is what most visitors will see when they come to your site for the first time."
 msgstr ""
 
 #: wp-includes/theme.php:2244
 msgctxt "Theme starter content"
-msgid "About"
+msgid "Home"
 msgstr ""
 
 #: wp-includes/theme.php:2247
 msgctxt "Theme starter content"
-msgid "You might be an artist who would like to introduce yourself and your work here or maybe you are a business with a mission to describe."
+msgid "Welcome to your site! This is your homepage, which is what most visitors will see when they come to your site for the first time."
 msgstr ""
 
 #: wp-includes/theme.php:2252
 msgctxt "Theme starter content"
-msgid "Contact"
+msgid "About"
 msgstr ""
 
 #: wp-includes/theme.php:2255
 msgctxt "Theme starter content"
-msgid "This is a page with some basic contact information, such as an address and phone number. You might also try a plugin to add a contact form."
+msgid "You might be an artist who would like to introduce yourself and your work here or maybe you are a business with a mission to describe."
 msgstr ""
 
 #: wp-includes/theme.php:2260
 msgctxt "Theme starter content"
+msgid "Contact"
+msgstr ""
+
+#: wp-includes/theme.php:2263
+msgctxt "Theme starter content"
+msgid "This is a page with some basic contact information, such as an address and phone number. You might also try a plugin to add a contact form."
+msgstr ""
+
+#: wp-includes/theme.php:2268
+msgctxt "Theme starter content"
 msgid "Blog"
-msgstr ""
-
-#: wp-includes/theme.php:2264
-msgctxt "Theme starter content"
-msgid "News"
-msgstr ""
-
-#: wp-includes/theme.php:2269
-msgctxt "Theme starter content"
-msgid "A homepage section"
 msgstr ""
 
 #: wp-includes/theme.php:2272
 msgctxt "Theme starter content"
+msgid "News"
+msgstr ""
+
+#: wp-includes/theme.php:2277
+msgctxt "Theme starter content"
+msgid "A homepage section"
+msgstr ""
+
+#: wp-includes/theme.php:2280
+msgctxt "Theme starter content"
 msgid "This is an example of a homepage section. Homepage sections can be any page other than the homepage itself, including the page that shows your latest blog posts."
 msgstr ""
 
-#: wp-includes/theme.php:2293
+#: wp-includes/theme.php:2301
 msgid "The \"nav_menus\" argument has been removed. Retraceur does not support WP Nav Menus."
 msgstr ""
 
-#: wp-includes/theme.php:2475
+#: wp-includes/theme.php:2483
 msgid "You need to pass an array of post formats."
 msgstr ""
 
-#: wp-includes/theme.php:2487
+#: wp-includes/theme.php:2495
 msgid "You need to pass an array of types."
 msgstr ""
 
 #. translators: 1: title-tag, 2: wp_loaded
-#: wp-includes/theme.php:2680
+#: wp-includes/theme.php:2688
 #, php-format
 msgid "Theme support for %1$s should be registered before the %2$s hook."
 msgstr ""
 
-#: wp-includes/theme.php:3063
+#: wp-includes/theme.php:3071
 msgid "The feature \"type\" is not valid JSON Schema type."
 msgstr ""
 
-#: wp-includes/theme.php:3070
+#: wp-includes/theme.php:3078
 msgid "When registering a \"variadic\" theme feature, the \"type\" must be an \"array\"."
 msgstr ""
 
-#: wp-includes/theme.php:3078
+#: wp-includes/theme.php:3086
 msgid "When registering an \"array\" or \"object\" feature to show in the REST API, the feature's schema must also be defined."
 msgstr ""
 
-#: wp-includes/theme.php:3085
+#: wp-includes/theme.php:3093
 msgid "When registering an \"array\" feature, the feature's schema must include the \"items\" keyword."
 msgstr ""
 
-#: wp-includes/theme.php:3092
+#: wp-includes/theme.php:3100
 msgid "When registering an \"object\" feature, the feature's schema must include the \"properties\" keyword."
 msgstr ""
 
 #. translators: %s: prepare_callback
-#: wp-includes/theme.php:3105
+#: wp-includes/theme.php:3113
 #, php-format
 msgid "The \"%s\" must be a callable function."
 msgstr ""
 
-#: wp-includes/theme.php:3268
+#: wp-includes/theme.php:3276
 msgid "Whether theme opts in to wide alignment CSS class."
 msgstr ""
 
-#: wp-includes/theme.php:3275
+#: wp-includes/theme.php:3283
 msgid "Whether posts RSS feed links are added to head."
 msgstr ""
 
-#: wp-includes/theme.php:3282
+#: wp-includes/theme.php:3290
 msgid "Whether a theme uses block-based templates."
 msgstr ""
 
-#: wp-includes/theme.php:3289
+#: wp-includes/theme.php:3297
 msgid "Whether a theme uses block-based template parts."
 msgstr ""
 
-#: wp-includes/theme.php:3296
+#: wp-includes/theme.php:3304
 msgid "Custom background if defined by the theme."
 msgstr ""
 
-#: wp-includes/theme.php:3366
+#: wp-includes/theme.php:3374
 msgid "Custom header if defined by the theme."
 msgstr ""
 
-#: wp-includes/theme.php:3411
+#: wp-includes/theme.php:3419
 msgid "Custom logo if defined by the theme."
 msgstr ""
 
-#: wp-includes/theme.php:3444
+#: wp-includes/theme.php:3452
 msgid "Whether theme opts in to the dark editor style UI."
 msgstr ""
 
-#: wp-includes/theme.php:3451
+#: wp-includes/theme.php:3459
 msgid "Whether the theme disables custom colors."
 msgstr ""
 
-#: wp-includes/theme.php:3458
+#: wp-includes/theme.php:3466
 msgid "Whether the theme disables custom font sizes."
 msgstr ""
 
-#: wp-includes/theme.php:3465
+#: wp-includes/theme.php:3473
 msgid "Whether the theme disables custom gradients."
 msgstr ""
 
-#: wp-includes/theme.php:3472
+#: wp-includes/theme.php:3480
 msgid "Whether the theme disables generated layout styles."
 msgstr ""
 
-#: wp-includes/theme.php:3480
+#: wp-includes/theme.php:3488
 msgid "Custom color palette if defined by the theme."
 msgstr ""
 
-#: wp-includes/theme.php:3505
+#: wp-includes/theme.php:3513
 msgid "Custom font sizes if defined by the theme."
 msgstr ""
 
-#: wp-includes/theme.php:3530
+#: wp-includes/theme.php:3538
 msgid "Custom gradient presets if defined by the theme."
 msgstr ""
 
-#: wp-includes/theme.php:3555
+#: wp-includes/theme.php:3563
 msgid "Custom spacing sizes if defined by the theme."
 msgstr ""
 
-#: wp-includes/theme.php:3579
+#: wp-includes/theme.php:3587
 msgid "Whether theme opts in to the editor styles CSS wrapper."
 msgstr ""
 
-#: wp-includes/theme.php:3587
+#: wp-includes/theme.php:3595
 msgid "Allows use of HTML5 markup for search forms, gallery, and caption."
 msgstr ""
 
-#: wp-includes/theme.php:3608
+#: wp-includes/theme.php:3616
 msgid "Post formats supported."
 msgstr ""
 
-#: wp-includes/theme.php:3631
+#: wp-includes/theme.php:3639
 msgid "The post types that support thumbnails or true if all post types are supported."
 msgstr ""
 
-#: wp-includes/theme.php:3645
+#: wp-includes/theme.php:3653
 msgid "Whether the theme supports responsive embedded content."
 msgstr ""
 
-#: wp-includes/theme.php:3652
+#: wp-includes/theme.php:3660
 msgid "Whether the theme can manage the document title tag."
 msgstr ""
 
-#: wp-includes/theme.php:3659
+#: wp-includes/theme.php:3667
 msgid "Whether theme opts in to default Retraceur block styles for viewing."
 msgstr ""
 
-#: wp-includes/theme.php:3676
+#: wp-includes/theme.php:3684
 msgid "This function should not be called before the theme directory is registered."
 msgstr ""
 
