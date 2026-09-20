@@ -16,7 +16,7 @@ const imageReplacements = images.map( ( image ) => {
 const files = fs.readdirSync( builtDir );
 
 const fileType = process.argv[2] || 'css';
-const destinationDir = process.argv[3] || path.resolve( './wp-admin/css' );
+const destinationDir = path.resolve( process.argv[3] ) || path.resolve( './wp-admin/css' );
 
 let replaceErrors = [];
 let replaceSuccess = 0;
@@ -68,7 +68,7 @@ const loop = async () => {
 		const isDirectory = fs.lstatSync( filePath ).isDirectory();
 
 		// Replace image references in CSS files if there are any images to replace.
-		if ( file.endsWith( '.css' ) && images.length ) {
+		if ( file.endsWith( '.min.css' ) && images.length ) {
 			for ( const image of images ) {
 				const imagePath = path.join( imagesDir, image );
 
@@ -84,7 +84,7 @@ const loop = async () => {
 
 		// Move minified files to the destination directory.
 		if ( ! isDirectory ) {
-			if ( file.endsWith( `.${ fileType }` ) ) {
+			if ( file.endsWith( `.min.${ fileType }` ) ) {
 				try {
 					await moveFile( file, filePath );
 				} catch ( err ) {
