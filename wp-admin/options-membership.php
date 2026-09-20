@@ -84,7 +84,7 @@ if ( ! is_multisite() ) {
 }
 ?>
 
-<h2 class="title"><?php esc_html_e( 'Avatars' ); ?></h2>
+<h2 id="wp-settings-section-avatars" class="title"><?php esc_html_e( 'Avatars' ); ?></h2>
 
 <p><?php esc_html_e( 'An avatar is an image that can be associated with a contributor across multiple websites. In this area, you can choose to display avatars of contributors who interact with the site.' ); ?></p>
 

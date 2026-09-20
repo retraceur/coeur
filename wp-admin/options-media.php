@@ -49,7 +49,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 <?php settings_fields( 'media' ); ?>
 
 <?php if ( current_user_can( 'upload_files' ) ) : ?>
-	<h2 class="title"><?php esc_html_e( 'Global Media' ); ?></h2>
+	<h2 id="wp-settings-section-global-media" class="title"><?php esc_html_e( 'Global Media' ); ?></h2>
 	<p><?php esc_html_e( 'These Media are used to define the site’s identity.' ); ?></p>
 	<table class="form-table" role="presentation">
 		<tr class="hide-if-no-js site-icon-section">
@@ -211,7 +211,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 	</table>
 <?php endif; ?>
 
-<h2 class="title"><?php _e( 'Image sizes' ); ?></h2>
+<h2 id="wp-settings-section-image-sizes" class="title"><?php _e( 'Image sizes' ); ?></h2>
 <p><?php _e( 'The sizes listed below determine the maximum dimensions in pixels to use when adding an image to the Media Library.' ); ?></p>
 
 <table class="form-table" role="presentation">
@@ -263,14 +263,14 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
  */
 if ( isset( $GLOBALS['wp_settings']['media']['embeds'] ) ) :
 	?>
-<h2 class="title"><?php _e( 'Embeds' ); ?></h2>
+<h2 id="wp-settings-section-embeds" class="title"><?php _e( 'Embeds' ); ?></h2>
 <table class="form-table" role="presentation">
 	<?php do_settings_fields( 'media', 'embeds' ); ?>
 </table>
 <?php endif; ?>
 
 <?php if ( ! is_multisite() ) : ?>
-<h2 class="title"><?php _e( 'Uploading Files' ); ?></h2>
+<h2 id="wp-settings-section-uploading-files" class="title"><?php _e( 'Uploading Files' ); ?></h2>
 <table class="form-table" role="presentation">
 	<?php
 	/*
