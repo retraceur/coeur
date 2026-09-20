@@ -550,6 +550,8 @@ class Custom_Background {
 	 * Media Manager.
 	 *
 	 * @since WP 4.1.0
+	 *
+	 * @return never
 	 */
 	public function ajax_background_add() {
 		check_ajax_referer( 'background-add', 'nonce' );
@@ -593,6 +595,8 @@ class Custom_Background {
 	/**
 	 * @since WP 3.4.0
 	 * @deprecated WP 3.5.0
+	 *
+	 * @return never
 	 */
 	public function wp_set_background_image() {
 		check_ajax_referer( 'custom-background' );

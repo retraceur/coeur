@@ -1363,6 +1363,8 @@ endif;
 	 * new object. Returns JSON-encoded object details.
 	 *
 	 * @since WP 3.9.0
+	 *
+	 * @return never
 	 */
 	public function ajax_header_crop() {
 		check_ajax_referer( 'image_editor-' . $_POST['id'], 'nonce' );
@@ -1432,6 +1434,8 @@ endif;
 	 * Media Manager, even if s/he doesn't save that change.
 	 *
 	 * @since WP 3.9.0
+	 *
+	 * @return never
 	 */
 	public function ajax_header_add() {
 		check_ajax_referer( 'header-add', 'nonce' );
@@ -1460,6 +1464,8 @@ endif;
 	 * choice in the Customizer's Header tool.
 	 *
 	 * @since WP 3.9.0
+	 *
+	 * @return never
 	 */
 	public function ajax_header_remove() {
 		check_ajax_referer( 'header-remove', 'nonce' );

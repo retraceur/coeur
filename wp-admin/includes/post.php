@@ -2178,6 +2178,7 @@ function wp_autosave( $post_data ) {
  * @since WP 2.7.0
  *
  * @param int $post_id Optional. Post ID.
+ * @return never
  */
 function redirect_post( $post_id = 0 ) {
 	if ( isset( $_POST['save'] ) || isset( $_POST['publish'] ) ) {
