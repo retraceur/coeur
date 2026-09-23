@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 
+## [4.4.0] - 2026-09-23
+
+### Changed
+
+- Backports WP 7.0.6 Security fix: No functional changes have been introduced in Retraceur itself. This maintenance release focuses exclusively on keeping the project aligned with the latest upstream security updates while preserving its own direction. Props to the WP security team and all contributors involved in identifying, reporting, and fixing this vulnerability. **Upgrade is strongly recommended**.
+
+
 ## [4.3.0] - 2026-09-18
 
 ### Changed
