@@ -5841,10 +5841,10 @@ function wp_enqueue_emoji_styles() {
 		display: inline !important;
 		border: none !important;
 		box-shadow: none !important;
-		height: 1em !important;
-		width: 1em !important;
+		height: 1.2em !important;
+		width: 1.2em !important;
 		margin: 0 0.07em !important;
-		vertical-align: -0.1em !important;
+		vertical-align: -0.2em !important;
 		background: none !important;
 		padding: 0 !important;
 	}';
