@@ -30,3 +30,6 @@ wp-config.php
 
 # Languages.
 /wp-content/languages
+
+# Fonts.
+/wp-content/fonts/
