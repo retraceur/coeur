@@ -1163,7 +1163,7 @@ function wp_default_scripts( $scripts ) {
 		$scripts->add( 'admin-tags', "/wp-admin/js/tags$suffix.js", array( 'jquery', 'wp-ajax-response' ), false, 1 );
 		$scripts->set_translations( 'admin-tags' );
 
-		$scripts->add( 'postbox', "/wp-admin/js/postbox$suffix.js", array( 'jquery-ui-sortable', 'wp-a11y' ), false, 1 );
+		$scripts->add( 'postbox', "/wp-admin/js/postbox$suffix.js", array( 'jquery-ui-sortable', 'wp-a11y', 'wp-tooltip' ), false, 1 );
 		$scripts->set_translations( 'postbox' );
 
 		$scripts->add( 'tags-box', "/wp-admin/js/tags-box$suffix.js", array( 'jquery', 'tags-suggest' ), false, 1 );
@@ -1335,7 +1335,7 @@ function wp_default_styles( $styles ) {
 	$styles->add( 'retraceur-global-media', '/wp-admin/css/global-media.css' );
 	$styles->add( 'retraceur-discovery', '/wp-admin/css/discovery.css', array( 'wp-dataviews' ) );
 
-	$styles->add( 'wp-admin', false, array( 'dashicons', 'common', 'forms', 'admin-menu', 'dashboard', 'list-tables', 'edit', 'revisions', 'media', 'themes', 'about', 'site-icon', 'l10n', 'wp-base-styles' ) );
+	$styles->add( 'wp-admin', false, array( 'dashicons', 'common', 'forms', 'admin-menu', 'dashboard', 'list-tables', 'edit', 'revisions', 'media', 'themes', 'about', 'site-icon', 'l10n', 'wp-base-styles', 'wp-tooltip' ) );
 
 	$styles->add( 'login', "/wp-admin/css/login$suffix.css", array( 'dashicons', 'buttons', 'forms', 'l10n', 'wp-base-styles', 'wp-tooltip' ) );
 	$styles->add( 'install', "/wp-admin/css/install$suffix.css", array( 'dashicons', 'buttons', 'forms', 'l10n', 'wp-base-styles' ) );

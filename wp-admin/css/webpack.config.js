@@ -42,6 +42,8 @@ module.exports = {
 			'site-icon-rtl.min': './wp-admin/css/site-icon-rtl.js',
 			'themes.min': './wp-admin/css/themes.js',
 			'themes-rtl.min': './wp-admin/css/themes-rtl.js',
+			'wp-tooltip.min': './wp-admin/css/wp-tooltip.js',
+			'wp-tooltip-rtl.min': './wp-admin/css/wp-tooltip-rtl.js',
         },
 		output: {
 			filename: '[name].js',
