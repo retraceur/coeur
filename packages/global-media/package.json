@@ -19,6 +19,6 @@
 		"url": "https://github.com/retraceur/coeur/issues"
 	},
 	"scripts": {
-		"build": "wp-scripts build --config webpack.config.js && ./../../tools/update-admin-assets.sh"
+		"build": "wp-scripts build --config webpack.config.js && node ./../../tools/move-pkg-assets.mjs"
 	}
 }
