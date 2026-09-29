@@ -2188,6 +2188,7 @@ function sanitize_user( $username, $strict = false ) {
  *
  * @param string $key String key.
  * @return string Sanitized key.
+ * @phpstan-return lowercase-string
  */
 function sanitize_key( $key ) {
 	$sanitized_key = '';

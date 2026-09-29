@@ -91,7 +91,7 @@ final class WP_Screen {
 	 * have a `$parent_base` of 'edit'.
 	 *
 	 * @since WP 3.3.0
-	 * @var string|null
+	 * @var ?string
 	 */
 	public $parent_base;
 
@@ -101,7 +101,7 @@ final class WP_Screen {
 	 * Some `$parent_file` values are 'edit.php?post_type=page', 'edit.php', and 'options-general.php'.
 	 *
 	 * @since WP 3.3.0
-	 * @var string|null
+	 * @var ?string
 	 */
 	public $parent_file;
 
@@ -188,7 +188,7 @@ final class WP_Screen {
 	 * Stores the 'screen_settings' section of screen options.
 	 *
 	 * @since WP 3.3.0
-	 * @var string
+	 * @var ?string
 	 */
 	private $_screen_settings;
 
