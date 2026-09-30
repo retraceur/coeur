@@ -48,12 +48,15 @@ if ( ! empty( $action ) ) {
 	check_admin_referer( $action );
 
 	if ( 'set-privacy-page' === $action ) {
-		$privacy_policy_page_id = isset( $_POST['page_for_privacy_policy'] ) ? (int) $_POST['page_for_privacy_policy'] : 0;
+		$previous_privacy_policy_page_id = (int) get_option( 'wp_page_for_privacy_policy' );
+		$privacy_policy_page_id          = isset( $_POST['page_for_privacy_policy'] ) ? (int) $_POST['page_for_privacy_policy'] : 0;
 		update_option( 'wp_page_for_privacy_policy', $privacy_policy_page_id );
 
-		$privacy_page_updated_message = __( 'Privacy Policy page updated successfully.' );
+		$privacy_page_message_type = 'success';
 
 		if ( $privacy_policy_page_id ) {
+			$privacy_page_updated_message = __( 'Privacy Policy page updated successfully.' );
+
 			if (
 				'publish' === get_post_status( $privacy_policy_page_id )
 				&& current_user_can( 'edit_theme_options' )
@@ -61,9 +64,16 @@ if ( ! empty( $action ) ) {
 			) {
 				$privacy_page_updated_message = __( 'Privacy Policy page setting updated successfully. Remember to update your menus!' );
 			}
+		} elseif ( $previous_privacy_policy_page_id ) {
+			// A previously set Privacy Policy page was cleared.
+			$privacy_page_updated_message = __( 'Privacy Policy page removed.' );
+		} else {
+			// No Privacy Policy page was set before, and none is set now.
+			$privacy_page_updated_message = __( 'No Privacy Policy page is currently set.' );
+			$privacy_page_message_type    = 'info';
 		}
 
-		add_settings_error( 'page_for_privacy_policy', 'page_for_privacy_policy', $privacy_page_updated_message, 'success' );
+		add_settings_error( 'page_for_privacy_policy', 'page_for_privacy_policy', $privacy_page_updated_message, $privacy_page_message_type );
 	} elseif ( 'create-privacy-page' === $action ) {
 
 		if ( ! class_exists( 'WP_Privacy_Policy_Content' ) ) {
