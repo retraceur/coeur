@@ -456,6 +456,7 @@ ul#adminmenu > li.current > a.current:after {
 #collapse-button:hover,
 #collapse-button:focus {
   color: #5d76cb;
+	background: var(--wp-admin-theme-color, #2243b6);
 }
 
 /* Admin Bar */
