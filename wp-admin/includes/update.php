@@ -264,21 +264,6 @@ function update_right_now_message() {
 		$theme_name = sprintf( '<a href="themes.php">%1$s</a>', $theme_name );
 	}
 
-	$msg = '';
-
-	if ( current_user_can( 'update_core' ) ) {
-		$cur = get_preferred_from_update_core();
-
-		if ( isset( $cur->response ) && 'upgrade' === $cur->response ) {
-			$msg .= sprintf(
-				'<a href="%s" class="button" aria-describedby="wp-version">%s</a> ',
-				network_admin_url( 'update-core.php' ),
-				/* translators: %s: Retraceur version number, or 'Latest' string. */
-				sprintf( __( 'Update to %s' ), $cur->current ? $cur->current : __( 'Latest' ) )
-			);
-		}
-	}
-
 	/* translators: 1: Version number, 2: Theme name. */
 	$content = __( 'Retraceur %1$s running %2$s theme.' );
 
@@ -293,9 +278,22 @@ function update_right_now_message() {
 	 */
 	$content = apply_filters( 'update_right_now_text', $content );
 
-	$msg .= sprintf( '<span id="wp-version">' . $content . '</span>', get_bloginfo( 'version', 'display' ), $theme_name );
+	$msg = sprintf( '<span id="retraceur-version">' . $content . '</span>', get_bloginfo( 'version', 'display' ), $theme_name );
 
-	echo "<p id='wp-version-message'>$msg</p>";
+	if ( current_user_can( 'update_core' ) ) {
+		$cur = get_preferred_from_update_core();
+
+		if ( isset( $cur->response ) && 'upgrade' === $cur->response ) {
+			$msg .= sprintf(
+				'<a href="%s" class="button" aria-describedby="retraceur-version">%s</a>',
+				network_admin_url( 'update-core.php' ),
+				/* translators: %s: Retraceur version number, or 'Latest' string. */
+				sprintf( __( 'Update to %s' ), $cur->current ? $cur->current : __( 'Latest' ) )
+			);
+		}
+	}
+
+	echo "<p id='retraceur-version-message'>$msg</p>";
 }
 
 /**
