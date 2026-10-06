@@ -503,6 +503,7 @@ code {
 }
 
 .widefat th,
+.widefat tbody th,
 .widefat td {
 	vertical-align: top;
 }
@@ -521,6 +522,12 @@ code {
 .widefat tfoot td {
 	text-align: right;
 	line-height: 1.3em;
+}
+
+.widefat th:not(tbody th),
+.widefat tbody td.check-column,
+.widefat thead td,
+.widefat tfoot td {
 	font-size: 14px;
 }
 

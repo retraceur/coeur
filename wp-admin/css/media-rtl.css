@@ -561,6 +561,7 @@
 .media-frame.mode-grid .media-toolbar {
 	margin-bottom: 15px;
 	height: auto;
+	min-height: 80px;
 }
 
 .media-frame.mode-grid .media-toolbar label:not(.media-search-input-label) {
