@@ -9,6 +9,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 
+## [4.5.0] - 2026-10-06
+
+### Changed
+
+- Backports WP 7.0.7 Security fixes. Props to the WP security team and all contributors involved in identifying, reporting, and fixing this vulnerability. **Upgrade is strongly recommended**.
+- Backports WP 7.1.3 bug fixes:
+	- Test for DOMDocument before checking embedded alt text.
+	- Update the ReverbNation oEmbed endpoint
+	- Remove someecards.com as an oEmbed provider
+
+
 ## [4.4.0] - 2026-09-23
 
 ### Changed
