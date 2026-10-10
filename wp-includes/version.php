@@ -18,7 +18,7 @@
  *
  * @global string $wp_version
  */
-$wp_version = '7.1-beta4-62975';
+$wp_version = '7.1-beta4-63009';
 
 /**
  * The Retraceur version string.
