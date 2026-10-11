@@ -614,19 +614,6 @@ html:lang(he-il) .rtl #wpadminbar * {
 }
 
 /**
- * Comments
- */
-#wpadminbar #wp-admin-bar-comments .ab-icon {
-	margin-right: 6px;
-}
-
-#wpadminbar #wp-admin-bar-comments .ab-icon:before {
-	content: "\f101";
-	content: "\f101" / '';
-	top: 3px;
-}
-
-/**
  * New Content
  */
 #wpadminbar #wp-admin-bar-new-content .ab-icon:before {
@@ -977,8 +964,7 @@ html:lang(he-il) .rtl #wpadminbar * {
 		top: 3px;
 	}
 
-	/* Comments and Command Palette */
-	#wpadminbar #wp-admin-bar-comments .ab-icon,
+	/* Command Palette */
 	#wpadminbar #wp-admin-bar-command-palette .ab-icon {
 		margin: 0;
 	}
