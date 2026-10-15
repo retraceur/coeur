@@ -1450,7 +1450,7 @@ function is_multisite() {
  * @return int A non-negative integer.
  * @phpstan-return non-negative-int
  */
-function absint( $maybeint ): int {
+function absint( $maybeint ) {
 	return abs( (int) $maybeint );
 }
 
