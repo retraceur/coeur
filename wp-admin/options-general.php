@@ -110,7 +110,7 @@ $tagline_description = sprintf(
 <td><input name="home" type="url" id="home" aria-describedby="home-description" value="<?php form_option( 'home' ); ?>"<?php disabled( defined( 'WP_HOME' ) ); ?> class="regular-text code<?php echo $wp_home_class; ?>" />
 	<?php if ( ! defined( 'WP_HOME' ) ) : ?>
 <p class="description" id="home-description">
-	<?php esc_html__( 'Enter the same address here unless you want your site home page to be different from your Retraceur installation directory.' ); ?>
+	<?php echo esc_html__( 'Enter the same address here unless you want your site home page to be different from your Retraceur installation directory.' ); ?>
 </p>
 <?php endif; ?>
 </td>
