@@ -1549,7 +1549,14 @@ function get_custom_header() {
 		'height'        => get_theme_support( 'custom-header', 'height' ),
 		'video'         => get_theme_support( 'custom-header', 'video' ),
 	);
-	return (object) wp_parse_args( $data, $default );
+
+	if ( ! is_array( $data ) && ! is_object( $data ) ) {
+		$data = array();
+	}
+	$header         = (object) wp_parse_args( $data, $default );
+	$header->width  = absint( $header->width );
+	$header->height = absint( $header->height );
+	return $header;
 }
 
 /**
