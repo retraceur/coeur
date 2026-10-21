@@ -204,9 +204,9 @@ class WP_oEmbed {
 		 * | Meetup.com   | meetu.ps             | 3.9.0     | 6.0.1     |
 		 * | SlideShare   | slideshare.net       | 3.5.0     | 6.6.0     |
 		 * | Screencast   | screencast.com       | 4.8.0     | 6.8.2     |
+		 * | Imgur        | imgur.com            | 3.9.0     | 7.0.7     |
 		 * | Someecards   | someecards.com       | 4.9.0     | 7.1.3     |
 		 * | Someecards   | some.ly              | 4.9.0     | 7.1.3     |
-		 * | Imgur        | imgur.com            | 3.9.0     | 7.0.7     |
 		 *
 		 * @see wp_oembed_add_provider()
 		 *
