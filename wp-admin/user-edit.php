@@ -307,9 +307,9 @@ switch ( $action ) {
 
 			<?php if ( ! IS_PROFILE_PAGE ) : ?>
 				<?php if ( current_user_can( 'create_users' ) ) : ?>
-					<a href="user-new.php" class="page-title-action"><?php echo esc_html__( 'Add Contributor' ); ?></a>
+					<a href="user-new.php" class="page-title-action"><?php esc_html_e( 'Add Contributor' ); ?></a>
 				<?php elseif ( is_multisite() && current_user_can( 'promote_users' ) ) : ?>
-					<a href="user-new.php" class="page-title-action"><?php echo esc_html__( 'Add Existing Contributor' ); ?></a>
+					<a href="user-new.php" class="page-title-action"><?php esc_html_e( 'Add Existing Contributor' ); ?></a>
 				<?php endif; ?>
 			<?php endif; ?>
 

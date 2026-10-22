@@ -162,7 +162,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 		<span class="title-count theme-count"><?php echo ! empty( $_GET['search'] ) ? __( '&hellip;' ) : count( $themes ); ?></span>
 	</h1>
 	<?php if ( ! is_multisite() && current_user_can( 'install_themes' ) ) : ?>
-		<a href="<?php echo esc_url( admin_url( 'theme-install.php' ) ); ?>" class="hide-if-no-js page-title-action"><?php echo esc_html__( 'Add Theme' ); ?></a>
+		<a href="<?php echo esc_url( admin_url( 'theme-install.php' ) ); ?>" class="hide-if-no-js page-title-action"><?php esc_html_e( 'Add Theme' ); ?></a>
 	<?php endif; ?>
 	<hr class="wp-header-end">
 	<form class="search-form search-themes"><p class="search-box"></p></form>
