@@ -88,18 +88,25 @@ function retraceur_discovery_request( $endpoint, $args = array() ) {
 		);
 	}
 
-	$code = (int) wp_remote_retrieve_response_code( $request );
-	if ( $code !== 200 ) {
+	$code     = (int) wp_remote_retrieve_response_code( $request );
+	$raw_body = wp_remote_retrieve_body( $request );
+
+	if ( 200 !== $code ) {
+		// GitHub errors are JSON, even when another format was requested.
+		$error_body = json_decode( $raw_body, true );
+
 		return new WP_Error(
 			'retraceur_discovery_api_error',
-			$body['message'] ?? __( 'An error occurred. Please try again later.' ),
+			is_array( $error_body ) && ! empty( $error_body['message'] ) ? $error_body['message'] : __( 'An error occurred. Please try again later.' ),
 			array( 'status' => $code )
 		);
 	}
 
-	$body = wp_remote_retrieve_body( $request );
+	$body = $raw_body;
+
+	// Only JSON decode when the raw argument is false.
 	if ( ! $get_raw ) {
-		$body = json_decode( wp_remote_retrieve_body( $request ), true );
+		$body = json_decode( $raw_body, true );
 	}
 
 	return $body;
