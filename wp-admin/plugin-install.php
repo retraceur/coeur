@@ -207,7 +207,6 @@ if ( 'block' !== $plugin_type ) {
 		 *  - `install_plugins_popular`
 		 *  - `install_plugins_recommended`
 		 *  - `install_plugins_search`
-		 *  - `install_plugins_upload`
 		 *
 		 * @since 2.7.0
 		 * @deprecated 4.0.0 Retraceur fork.

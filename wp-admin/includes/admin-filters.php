@@ -84,10 +84,6 @@ add_action( 'edit_form_after_editor', '_enable_content_editor_for_navigation_pos
 // Plugin hooks.
 add_filter( 'allowed_options', 'option_update_filter' );
 
-// Plugin Install hooks.
-add_action( 'install_plugins_upload', 'install_plugins_upload' );
-add_action( 'install_blocks_upload', 'retraceur_block_upload' );
-
 // Template hooks.
 add_action( 'admin_enqueue_scripts', array( 'WP_Internal_Pointers', 'enqueue_scripts' ) );
 add_action( 'user_register', array( 'WP_Internal_Pointers', 'dismiss_pointers_for_new_users' ) );

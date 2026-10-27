@@ -298,7 +298,6 @@ function list_plugin_updates() {
 	$retraceur_version = retraceur_get_version();
 	$cur_r_version     = preg_replace( '/-.*$/', '', $retraceur_version );
 
-	require_once ABSPATH . 'wp-admin/includes/plugin-install.php';
 	$plugins = get_plugin_updates();
 	if ( empty( $plugins ) ) {
 		echo '<h2>' . esc_html__( 'Plugins & Blocks' ) . '</h2>';

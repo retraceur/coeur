@@ -195,7 +195,7 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
 	 */
 	public function get_repositories( $request ) {
-		require_once ABSPATH . 'wp-admin/includes/plugin-install.php';
+		require_once ABSPATH . 'wp-admin/includes/discovery.php';
 		require_once ABSPATH . 'wp-admin/includes/plugin.php';
 
 		$repositories_tag = sprintf( 'retraceur-%s', $request['type'] );
@@ -244,7 +244,7 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
 	 */
 	public function get_repository( $request ) {
-		require_once ABSPATH . 'wp-admin/includes/plugin-install.php';
+		require_once ABSPATH . 'wp-admin/includes/discovery.php';
 		require_once ABSPATH . 'wp-admin/includes/plugin.php';
 
 		$full_name = sanitize_text_field( $request['name'] );
@@ -285,7 +285,7 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 	 */
 	public function install_repository( $request ) {
 		require_once ABSPATH . 'wp-admin/includes/file.php';
-		require_once ABSPATH . 'wp-admin/includes/plugin-install.php';
+		require_once ABSPATH . 'wp-admin/includes/discovery.php';
 		require_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
 		require_once ABSPATH . 'wp-admin/includes/plugin.php';
 
@@ -441,7 +441,7 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
 	 */
 	public function get_changelog( $request ) {
-		require_once ABSPATH . 'wp-admin/includes/plugin-install.php';
+		require_once ABSPATH . 'wp-admin/includes/discovery.php';
 		require_once ABSPATH . 'wp-admin/includes/plugin.php';
 
 		$repository = sanitize_text_field( $request['repository'] );
