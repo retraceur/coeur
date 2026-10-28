@@ -28,6 +28,15 @@ wp-config.php
 /wp-content/plugins/
 /wp-content/mu-plugins/
 
+# Ignore all other themes in wp-content/themes/
+wp-content/themes/*
+
+# Keep theme's index.php file
+!wp-content/themes/index.php
+
+# Keep point's theme
+!wp-content/themes/point/**/*
+
 # Languages.
 /wp-content/languages
 
