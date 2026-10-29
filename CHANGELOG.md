@@ -9,6 +9,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 
+## [4.6.0] - 2026-10-29
+
+### Changed
+
+- Security (backport of WP 7.0.8)
+  - Users: escape the user login and display name in the admin screens (users list, profile editing, bulk deletion, Add User response) and in the admin bar
+  - Privacy: harden email output escaping in the data export and erasure request list tables
+  - Editor: only accept HTML whitespace in block delimiters, keeping the PHP and JavaScript block parsers consistent
+  - Upgrade/Install: unpredictable working directory name, protective index.php in wp-content/upgrade, and wp-config.php is never copied during a core update
+  - Interactivity API: limit bindings on object elements to global attributes, and harden directive processing and client-side navigation
+  - KSES: strip Interactivity API bindings that target attributes whose values KSES restricts, in content saved by users who cannot post unfiltered HTML
+  - Categories block: the dropdown label no longer goes through sprintf()
+  - Image block: the lightbox button is now inserted with the HTML API
+  - Post Navigation Link block: custom labels are now sanitized
+- Bug fixes
+  - General Settings: the site address description is displayed again (missing echo). Props @DAnn2012. See [#273](https://github.com/retraceur/coeur/pull/273).
+  - Discovery API: the provider’s error message (e.g. rate limit) is displayed again, as $body was read before being defined. See [#278](https://github.com/retraceur/coeur/issues/278).
+
+
 ## [4.5.0] - 2026-10-06
 
 ### Changed
