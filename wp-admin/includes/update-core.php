@@ -673,8 +673,9 @@ function update_core( $from, $to ) {
 	/*
 	 * Don't copy wp-content, we'll deal with that below.
 	 * We also copy version.php last so failed updates report their old version.
+	 * Never copy a wp-config.php, which could have been written to the working directory.
 	 */
-	$skip = array( 'wp-content', 'wp-includes/version.php' );
+	$skip = array( 'wp-content', 'wp-includes/version.php', 'wp-config.php' );
 
 	/** This filter is documented in wp-admin/includes/update-core.php */
 	apply_filters( 'update_feedback', __( 'Enabling Maintenance mode&#8230;' ) );
