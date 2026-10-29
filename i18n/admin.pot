@@ -1,13 +1,13 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Retraceur 4.5.0\n"
+"Project-Id-Version: Retraceur 4.6.0\n"
 "Report-Msgid-Bugs-To: https://github.com/retraceur/coeur/issues\n"
 "Last-Translator: imath <contact@imathi.eu>\n"
 "Language-Team: Retraceur <retraceur@proton.me>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-06T19:24:52+00:00\n"
+"POT-Creation-Date: 2026-10-29T22:21:50+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 
@@ -5859,10 +5859,10 @@ msgid_plural "%d requests deleted successfully."
 msgstr[0] ""
 msgstr[1] ""
 
-#. translators: %s: Email address.
+#. translators: %s: User login.
 #: wp-admin/includes/class-wp-privacy-requests-table.php:430
+#: wp-admin/includes/class-wp-users-list-table.php:534
 #, php-format
-msgctxt "user email"
 msgid "Select %s"
 msgstr ""
 
@@ -7267,7 +7267,7 @@ msgid "Invalid data provided."
 msgstr ""
 
 #: wp-admin/includes/class-wp-upgrader.php:188
-#: wp-admin/includes/class-wp-upgrader.php:1050
+#: wp-admin/includes/class-wp-upgrader.php:1081
 #: wp-admin/includes/file.php:886
 #: wp-admin/includes/plugin.php:1027
 #: wp-admin/includes/theme.php:64
@@ -7339,12 +7339,12 @@ msgid "A directory could not be read."
 msgstr ""
 
 #: wp-admin/includes/class-wp-upgrader.php:208
-#: wp-admin/includes/update-core.php:436
+#: wp-admin/includes/update-core.php:437
 msgid "Enabling Maintenance mode&#8230;"
 msgstr ""
 
 #: wp-admin/includes/class-wp-upgrader.php:209
-#: wp-admin/includes/update-core.php:520
+#: wp-admin/includes/update-core.php:521
 msgid "Disabling Maintenance mode&#8230;"
 msgstr ""
 
@@ -7471,13 +7471,6 @@ msgstr ""
 #: wp-admin/includes/class-wp-users-list-table.php:499
 #, php-format
 msgid "View posts by %s"
-msgstr ""
-
-#. translators: %s: User login.
-#: wp-admin/includes/class-wp-users-list-table.php:534
-#, php-format
-msgctxt "user login"
-msgid "Select %s"
 msgstr ""
 
 #. translators: 1: User's first name, 2: Last name.
@@ -8202,7 +8195,7 @@ msgstr ""
 #: wp-admin/includes/file.php:1104
 #: wp-admin/includes/file.php:1263
 #: wp-admin/includes/file.php:1321
-#: wp-admin/includes/update-core.php:561
+#: wp-admin/includes/update-core.php:562
 msgid "Could not copy file."
 msgstr ""
 
@@ -9334,41 +9327,41 @@ msgstr ""
 msgid "(Retraceur could not establish a secure connection to the GitHub API. Please contact your server administrator.)"
 msgstr ""
 
-#: wp-admin/includes/plugin-install.php:95
+#: wp-admin/includes/plugin-install.php:100
 msgid "An error occurred. Please try again later."
 msgstr ""
 
-#: wp-admin/includes/plugin-install.php:193
-#: wp-admin/includes/plugin-install.php:237
+#: wp-admin/includes/plugin-install.php:200
+#: wp-admin/includes/plugin-install.php:244
 msgid "Please provide the repository full name."
 msgstr ""
 
-#: wp-admin/includes/plugin-install.php:262
+#: wp-admin/includes/plugin-install.php:269
 msgid "The repository changelog is not available or empty."
 msgstr ""
 
-#: wp-admin/includes/plugin-install.php:353
+#: wp-admin/includes/plugin-install.php:360
 msgid "If you have a plugin in a .zip format, you may install or update it by uploading it here."
 msgstr ""
 
 #. translators: Hidden accessibility text.
-#: wp-admin/includes/plugin-install.php:359
+#: wp-admin/includes/plugin-install.php:366
 msgid "Plugin zip file"
 msgstr ""
 
-#: wp-admin/includes/plugin-install.php:363
-#: wp-admin/includes/plugin-install.php:387
+#: wp-admin/includes/plugin-install.php:370
+#: wp-admin/includes/plugin-install.php:394
 #: wp-admin/press-this.php:65
 msgctxt "plugin"
 msgid "Install Now"
 msgstr ""
 
-#: wp-admin/includes/plugin-install.php:377
+#: wp-admin/includes/plugin-install.php:384
 msgid "If you have a block in a .zip format, you may install or update it by uploading it here."
 msgstr ""
 
 #. translators: Hidden accessibility text.
-#: wp-admin/includes/plugin-install.php:383
+#: wp-admin/includes/plugin-install.php:390
 msgid "Block zip file"
 msgstr ""
 
@@ -10516,15 +10509,15 @@ msgstr ""
 msgid "Preparing to install the latest version&#8230;"
 msgstr ""
 
-#: wp-admin/includes/update-core.php:445
+#: wp-admin/includes/update-core.php:446
 msgid "Copying the required files&#8230;"
 msgstr ""
 
-#: wp-admin/includes/update-core.php:464
+#: wp-admin/includes/update-core.php:465
 msgid "The update cannot be installed because your site is unable to copy some files. This is usually due to inconsistent file permissions."
 msgstr ""
 
-#: wp-admin/includes/update-core.php:657
+#: wp-admin/includes/update-core.php:658
 msgid "Upgrading database&#8230;"
 msgstr ""
 
