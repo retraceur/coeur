@@ -148,6 +148,7 @@ function retraceur_discovery_request( $endpoint, $args = array() ) {
  * | `$page`       | Yes              | Yes             | Yes             |
  *
  * @since 4.0.0 Retraceur fork.
+ * @since 5.0.0 Retraceur fork. Moved from wp-admin/includes/plugin-install.php.
  *
  * @param string $action The type of information being requested from the
  *                       Discovery API. Accepts 'retraceur-plugin',
