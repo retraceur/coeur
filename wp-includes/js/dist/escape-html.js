@@ -1,3 +1,4 @@
+(function() {
 "use strict";
 var wp;
 (wp ||= {}).escapeHtml = (() => {
@@ -62,5 +63,7 @@ var wp;
     return !REGEXP_INVALID_ATTRIBUTE_NAME.test(name);
   }
   return __toCommonJS(index_exports);
+})();
+(window.wp ||= {}).escapeHtml = wp.escapeHtml;
 })();
 //# sourceMappingURL=index.js.map

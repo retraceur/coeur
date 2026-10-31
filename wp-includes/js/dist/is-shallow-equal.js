@@ -1,3 +1,4 @@
+(function() {
 "use strict";
 var wp;
 (wp ||= {}).isShallowEqual = (() => {
@@ -85,5 +86,7 @@ var wp;
     return a === b;
   }
   return __toCommonJS(index_exports);
+})();
+(window.wp ||= {}).isShallowEqual = wp.isShallowEqual;
 })();
 //# sourceMappingURL=index.js.map
