@@ -879,55 +879,83 @@ echo esc_html( $title );
 
 <?php
 if ( current_user_can( 'upload_plugins' ) ) {
-	require_once ABSPATH . 'wp-admin/includes/plugin-install.php';
-
-	if ( 'block' === $plugins_type ) {
-		/**
-		 * Fires before the Block upload form is loaded.
-		 *
-		 * @since 4.0.0 Retraceur fork.
-		 */
-		do_action( 'install_blocks_pre_upload' );
-	} else {
-		/**
-		 * Fires before the Plugin upload form is loaded.
-		 *
-		 * @since WP 2.7.0
-		 * @since 4.0.0 Retraceur fork moved it inside Plugins screen.
-		 */
-		do_action( 'install_plugins_pre_upload' );
-	}
-
 	printf(
 		' <a href="%s" class="upload-view-toggle page-title-action" role="button" aria-expanded="false"><span class="upload">%s</span><span class="browse">%s</span></a>',
 		'block' === $plugins_type ? self_admin_url( 'blocks.php' ) : self_admin_url( 'plugins.php' ),
 		'block' === $plugins_type ? __( 'Upload Block' ) : __( 'Upload Plugin' ),
 		'block' === $plugins_type ? __( 'Browse Blocks' ) : __( 'Browse Plugins' )
 	);
-}
 ?>
-<div class="upload-plugin-wrap">
-	<?php
-	if ( 'block' === $plugins_type ) {
-		/**
-		 * Fire the hook to display the Block upload form.
-		 *
-		 * @since 1.0.0 Retraceur fork.
-		 * @since 4.0.0 Retraceur fork moved it inside Plugins screen.
-		 */
-		do_action( 'install_blocks_upload' );
-	} else {
-		/**
-		 * Fire the hook to display the Plugin upload form.
-		 *
-		 * @since WP 2.7.0
-		 * @since 4.0.0 Retraceur fork moved it inside Plugins screen.
-		 */
-		do_action( 'install_plugins_upload' );
-	}
-	?>
-</div>
+	<div class="upload-plugin-wrap">
+		<?php
+		if ( 'block' === $plugins_type ) {
+			/**
+			 * Fires before the Block upload form is loaded.
+			 *
+			 * @since 4.0.0 Retraceur fork.
+			 */
+			do_action( 'install_blocks_pre_upload' );
+			?>
+			<div class="upload-plugin">
+				<p class="install-help"><?php esc_html_e( 'If you have a block in a .zip format, you may install or update it by uploading it here.' ); ?></p>
+				<form method="post" enctype="multipart/form-data" class="wp-upload-form" action="<?php echo esc_url( self_admin_url( 'update.php?action=upload-block' ) ); ?>">
+					<?php wp_nonce_field( 'plugin-upload' ); ?>
+					<label class="screen-reader-text" for="pluginzip">
+						<?php
+						/* translators: Hidden accessibility text. */
+						esc_html_e( 'Block zip file' );
+						?>
+					</label>
+					<input type="file" id="pluginzip" name="pluginzip" accept=".zip" />
+					<?php submit_button( _x( 'Install Now', 'plugin' ), '', 'install-plugin-submit', false ); ?>
+				</form>
+			</div>
+
+			<?php
+			/**
+			 * Fire the hook to display the Block upload form.
+			 *
+			 * @since 1.0.0 Retraceur fork.
+			 * @since 4.0.0 Retraceur fork moved it inside Plugins screen.
+			 */
+			do_action( 'install_blocks_upload' );
+		} else {
+			/**
+			 * Fires before the Plugin upload form is loaded.
+			 *
+			 * @since WP 2.7.0
+			 * @since 4.0.0 Retraceur fork moved it inside Plugins screen.
+			 */
+			do_action( 'install_plugins_pre_upload' );
+			?>
+			<div class="upload-plugin">
+				<p class="install-help"><?php _e( 'If you have a plugin in a .zip format, you may install or update it by uploading it here.' ); ?></p>
+				<form method="post" enctype="multipart/form-data" class="wp-upload-form" action="<?php echo esc_url( self_admin_url( 'update.php?action=upload-plugin' ) ); ?>">
+					<?php wp_nonce_field( 'plugin-upload' ); ?>
+					<label class="screen-reader-text" for="pluginzip">
+						<?php
+						/* translators: Hidden accessibility text. */
+						_e( 'Plugin zip file' );
+						?>
+					</label>
+					<input type="file" id="pluginzip" name="pluginzip" accept=".zip" />
+					<?php submit_button( _x( 'Install Now', 'plugin' ), '', 'install-plugin-submit', false ); ?>
+				</form>
+			</div>
+
+			<?php
+			/**
+			 * Fire the hook to display the Plugin upload form.
+			 *
+			 * @since WP 2.7.0
+			 * @since 4.0.0 Retraceur fork moved it inside Plugins screen.
+			 */
+			do_action( 'install_plugins_upload' );
+		}
+		?>
+	</div>
 <?php
+}
 
 if ( strlen( $s ) ) {
 	echo '<span class="subtitle">';

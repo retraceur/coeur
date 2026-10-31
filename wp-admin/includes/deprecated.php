@@ -4409,3 +4409,23 @@ function wp_ajax_update_plugin() {
 
 	wp_send_json_error( array( 'error' => __( 'Updating a plugin or a block via Ajax is not supported by the Retraceur fork.' ) ) );
 }
+
+/**
+ * Displays a form to upload plugins from zip files.
+ *
+ * @since WP 2.8.0
+ * @deprecated 5.0.0 Retraceur fork.
+ */
+function install_plugins_upload() {
+	_deprecated_function( __FUNCTION__, '5.0.0', '', true );
+}
+
+/**
+ * Displays a form to upload blocks from zip files.
+ *
+ * @since 4.0.0 Retraceur fork.
+ * @deprecated 5.0.0 Retraceur fork.
+ */
+function retraceur_block_upload() {
+	_deprecated_function( __FUNCTION__, '5.0.0', '', true );
+}
