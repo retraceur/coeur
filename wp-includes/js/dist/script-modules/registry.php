@@ -35,6 +35,11 @@ return array(
 		'asset' => 'block-library/file/view.min.asset.php',
 	),
 	array(
+		'id' => '@wordpress/block-library/form/view',
+		'path' => 'block-library/form/view',
+		'asset' => 'block-library/form/view.min.asset.php',
+	),
+	array(
 		'id' => '@wordpress/block-library/image/view',
 		'path' => 'block-library/image/view',
 		'asset' => 'block-library/image/view.min.asset.php',
@@ -43,6 +48,11 @@ return array(
 		'id' => '@wordpress/block-library/navigation/view',
 		'path' => 'block-library/navigation/view',
 		'asset' => 'block-library/navigation/view.min.asset.php',
+	),
+	array(
+		'id' => '@wordpress/block-library/playlist/view',
+		'path' => 'block-library/playlist/view',
+		'asset' => 'block-library/playlist/view.min.asset.php',
 	),
 	array(
 		'id' => '@wordpress/block-library/query/view',
@@ -55,9 +65,24 @@ return array(
 		'asset' => 'block-library/search/view.min.asset.php',
 	),
 	array(
+		'id' => '@wordpress/block-library/tabs/view',
+		'path' => 'block-library/tabs/view',
+		'asset' => 'block-library/tabs/view.min.asset.php',
+	),
+	array(
+		'id' => '@wordpress/content-types',
+		'path' => 'content-types/index',
+		'asset' => 'content-types/index.min.asset.php',
+	),
+	array(
 		'id' => '@wordpress/core-abilities',
 		'path' => 'core-abilities/index',
 		'asset' => 'core-abilities/index.min.asset.php',
+	),
+	array(
+		'id' => '@wordpress/dashboard-init',
+		'path' => 'dashboard-init/index',
+		'asset' => 'dashboard-init/index.min.asset.php',
 	),
 	array(
 		'id' => '@wordpress/edit-site-init',
