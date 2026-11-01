@@ -16,7 +16,6 @@
  */
 /**
  * Grid System.
- * https://make.wordpress.org/design/2019/10/31/proposal-a-consistent-spacing-system-for-wordpress/
  */
 /**
  * Radius scale.
@@ -116,7 +115,9 @@ html :where(.editor-styles-wrapper) {
 }
 :where(.editor-styles-wrapper) select {
   font-family: system-ui;
-  appearance: revert;
+  -webkit-appearance: revert;
+     -moz-appearance: revert;
+          appearance: revert;
   color: revert;
   border: revert;
   border-radius: revert;

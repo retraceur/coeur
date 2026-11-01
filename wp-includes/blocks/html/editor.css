@@ -6,6 +6,13 @@
   left: 0;
 }
 
+.block-library-html__edit-code {
+  margin: 16px;
+}
+.block-library-html__edit-code .block-library-html__edit-code-button {
+  justify-content: center;
+}
+
 @media (min-width: 600px) {
   .block-library-html__modal:not(.is-full-screen) {
     height: 9999rem;
