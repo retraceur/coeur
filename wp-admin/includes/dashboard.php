@@ -1095,7 +1095,7 @@ function wp_welcome_panel() {
 			<p>
 				<a href="<?php echo esc_url( admin_url( 'about.php' ) ); ?>">
 				<?php
-					/* translators: %s: Current WordPress version. */
+					/* translators: %s: Current Retraceur version. */
 					printf( __( 'Learn more about the %s version.' ), esc_html( $display_version ) );
 				?>
 				</a>

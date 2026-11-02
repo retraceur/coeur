@@ -630,7 +630,7 @@ function list_translation_updates() {
  *
  * @global WP_Filesystem_Base $wp_filesystem Retraceur filesystem subclass.
  *
- * @param bool $reinstall Optional. Whether to reinstall WordPress. Default false.
+ * @param bool $reinstall Optional. Whether to reinstall Retraceur. Default false.
  */
 function do_core_upgrade( $reinstall = false ) {
 	global $wp_filesystem;
