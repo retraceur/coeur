@@ -173,13 +173,13 @@ function block_core_image_get_lightbox_settings( $block ) {
  *
  * @since WP 6.4.0
  *
- * @param string $block_content  Rendered block content.
- * @param array  $block          Block object.
- * @param array  $block_instance Block instance.
+ * @param string   $block_content  Rendered block content.
+ * @param array    $block          Block object.
+ * @param WP_Block $block_instance Block instance.
  *
  * @return string Filtered block content.
  */
-function block_core_image_render_lightbox( $block_content, $block, $block_instance ) {
+function block_core_image_render_lightbox( $block_content, array $block, WP_Block $block_instance ) {
 	/*
 	 * If there's no IMG tag in the block then return the given block content
 	 * as-is. There's nothing that this code can knowingly modify to add the
@@ -292,12 +292,8 @@ function block_core_image_render_lightbox( $block_content, $block, $block_instan
 	$body_content = $processor->get_updated_html();
 
 	// Adds a button alongside image in the body content.
-	$img = null;
-	preg_match( '/<img[^>]+>/', $body_content, $img );
-
 	$button =
-		$img[0]
-		. '<button
+		'<button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -312,7 +308,26 @@ function block_core_image_render_lightbox( $block_content, $block, $block_instan
 			</svg>
 		</button>';
 
-	$body_content = preg_replace( '/<img[^>]+>/', $button, $body_content );
+	$button_processor = new class( $body_content ) extends WP_HTML_Tag_Processor {
+		/**
+		 * Inserts HTML immediately after the current token.
+		 *
+		 * @since WP 7.1.4
+		 *
+		 * @param string $html HTML to insert.
+		 */
+		public function block_core_image_insert_after( string $html ) {
+			$this->set_bookmark( 'here' );
+			$span = $this->bookmarks['here'];
+
+			$this->lexical_updates[] = new WP_HTML_Text_Replacement( $span->start + $span->length, 0, $html );
+		}
+	};
+
+	if ( $button_processor->next_tag( 'img' ) ) {
+		$button_processor->block_core_image_insert_after( $button );
+	}
+	$body_content = $button_processor->get_updated_html();
 
 	add_action( 'wp_footer', 'block_core_image_print_lightbox_overlay' );
 
@@ -391,7 +406,6 @@ function block_core_image_print_lightbox_overlay() {
 							data-wp-bind--class="state.selectedImage.imgClassNames"
 							data-wp-bind--style="state.imgStyles"
 							data-wp-bind--src="state.enlargedSrc"
-							data-wp-bind--srcset="state.enlargedSrcset"
 							data-wp-bind--srcset="state.enlargedSrcset"
 							sizes="100vw"
 						>
