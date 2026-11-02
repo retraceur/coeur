@@ -16,7 +16,7 @@
  * will always have a value even for legacy blocks. We check the legacy openSubmenusOnClick
  * attribute first to preserve original behavior for blocks saved before the migration.
  *
- * @since WP 6.9.0
+ * @since WP 7.0.0
  *
  * @param array $attributes Block attributes containing submenuVisibility and/or openSubmenusOnClick.
  * @return string The visibility mode: 'hover', 'click', or 'always'.
