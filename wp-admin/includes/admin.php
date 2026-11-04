@@ -44,6 +44,9 @@ require_once ABSPATH . 'wp-admin/includes/class-wp-privacy-policy-content.php';
 /** Retraceur Options Administration API */
 require_once ABSPATH . 'wp-admin/includes/options.php';
 
+/** Retraceur Discovery API */
+require_once ABSPATH . 'wp-admin/includes/discovery.php';
+
 /** Retraceur Plugin Administration API */
 require_once ABSPATH . 'wp-admin/includes/plugin.php';
 

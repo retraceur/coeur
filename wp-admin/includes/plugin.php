@@ -229,80 +229,6 @@ function _get_plugin_data_markup_translate( $plugin_file, $plugin_data, $markup 
 }
 
 /**
- * Attempts to resolve a plugin's GitHub full name (owner/repo) from
- * its main file headers.
- *
- * Headers are checked in this order of reliability:
- * 1. `GitHub Plugin URI` — explicit, authoritative.
- * 2. `Plugin URI` — used if it points to github.com.
- * 3. `Author` + `Text Domain` — fallback assuming a naming convention.
- *
- * @since 4.0.0 Retraceur fork.
- *
- * @param array $plugin_data Plugin data as returned by get_plugin_data().
- * @return string The GitHub full name (owner/repo), or empty string if unresolved.
- */
-function retraceur_discovery_resolve_full_name( $plugin_data ) {
-	$parse_github_url = function( $url ) {
-		if ( ! $url || ! str_contains( $url, 'github.com' ) ) {
-			return '';
-		}
-
-		$path  = trim( wp_parse_url( $url, PHP_URL_PATH ) ?? '', '/' );
-		$parts = explode( '/', $path );
-
-		return count( $parts ) >= 2 ? $parts[0] . '/' . $parts[1] : '';
-	};
-
-	if ( ! empty( $plugin_data['GitHubPluginURI'] ) ) {
-		$full_name = $parse_github_url( $plugin_data['GitHubPluginURI'] );
-		if ( $full_name ) {
-			return $full_name;
-		}
-	}
-
-	if ( ! empty( $plugin_data['PluginURI'] ) ) {
-		$full_name = $parse_github_url( $plugin_data['PluginURI'] );
-		if ( $full_name ) {
-			return $full_name;
-		}
-	}
-
-	return '';
-}
-
-/**
- * Builds a map of GitHub full names to installed plugin files,
- * based on resolved headers from all installed plugins.
- *
- * @since 4.0.0 Retraceur fork.
- *
- * @return array Map of full_name => plugin_file.
- */
-function retraceur_discovery_get_installed_map() {
-    $cache_key = 'retraceur_discovery_installed_map';
-    $cached    = get_transient( $cache_key );
-
-    if ( false !== $cached ) {
-        return $cached;
-    }
-
-    $map = array();
-
-    foreach ( get_plugins() as $plugin_file => $plugin_data ) {
-        $full_name = retraceur_discovery_resolve_full_name( $plugin_data );
-
-        if ( $full_name ) {
-            $map[ strtolower( $full_name ) ] = $plugin_file;
-        }
-    }
-
-    set_transient( $cache_key, $map, 5 * MINUTE_IN_SECONDS );
-
-    return $map;
-}
-
-/**
  * Gets a list of a plugin's files.
  *
  * @since WP 2.8.0
@@ -1036,6 +962,11 @@ function delete_plugins( $plugins, $deprecated = '' ) {
 	$plugin_translations = wp_get_installed_translations( 'plugins' );
 
 	$errors = array();
+
+	// Make sure the discovery functions are available.
+	if ( ! function_exists( 'retraceur_discovery_resolve_full_name' ) ) {
+		require_once ABSPATH . 'wp-admin/includes/discovery.php';
+	}
 
 	foreach ( $plugins as $plugin_file ) {
 		// The Plugin full name needs to be set before Plugin deletion.
@@ -2699,47 +2630,3 @@ function deactivated_plugins_notice() {
 		update_site_option( 'wp_force_deactivated_plugins', array() );
 	}
 }
-
-/**
- * Cleans the Plugin Releases and Discovery cache.
- *
- * @since 4.0.0 Retraceur fork.
- *
- * @param string $full_name The plugin full name (owner/repo).
- */
-function retraceur_discovery_clean_cache( $full_name ) {
-	if ( ! $full_name ) {
-		return;
-	}
-
-	// Clean the repository and changelog Discovery caches.
-	$discovery_cache_suffix = md5( $full_name );
-
-	delete_transient( 'retraceur_discovery_repo_' . $discovery_cache_suffix );
-	delete_transient( 'retraceur_discovery_changelog_' . $discovery_cache_suffix );
-
-	/*
-	 * Clean the releases feed cache, letting SimplePie resolve its own
-	 * cache key rather than guessing its internal format, which may
-	 * vary across SimplePie/WordPress versions.
-	 */
-	require_once ABSPATH . WPINC . '/class-simplepie.php';
-	require_once ABSPATH . WPINC . '/class-wp-feed-cache-transient.php';
-
-	$releases_url   = 'https://github.com/' . $full_name . '/releases.atom';
-	$feed           = new SimplePie\SimplePie();
-	$cache_filename = $feed->get_cache_filename( $releases_url );
-
-	$cache = new WP_Feed_Cache_Transient( '', $cache_filename, SimplePie\Cache\Base::TYPE_FEED );
-	$cache->unlink();
-}
-
-/**
- * Invalidates the discovery installed map cache.
- *
- * @since 4.0.0 Retraceur fork.
- */
-function retraceur_discovery_flush_installed_map() {
-	delete_transient( 'retraceur_discovery_installed_map' );
-}
-add_action( 'upgrader_process_complete', 'retraceur_discovery_flush_installed_map' );

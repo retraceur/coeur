@@ -391,7 +391,12 @@ function wp_update_plugins() {
 		$updates->checked[ $file ] = $p['Version'];
 	}
 
-	$installed_map = array_flip( retraceur_discovery_get_installed_map() );
+	// Make sure the discovery functions are available.
+	if ( ! function_exists( 'retraceur_discovery_get_installed_map' ) ) {
+		require_once ABSPATH . 'wp-admin/includes/discovery.php';
+	}
+
+	$installed_map = array_flip( retraceur_discovery_get_installed_map( $plugins, 'plugins' ) );
 
 	// Support updates for any plugins using the `Update URI` header field.
 	foreach ( $plugins as $plugin_file => $plugin_data ) {
