@@ -1273,9 +1273,11 @@ class WP_Plugins_List_Table extends WP_List_Table {
 					// Add a plugin/block link, if available.
 					if ( ! empty( $plugin_data['PluginURI'] ) ) {
 						/* translators: %s: Plugin name. */
-						$aria_label = 'block' === $plugin_type
-							? sprintf( __( 'Visit block site for %s' ), $plugin_name )
-							: sprintf( __( 'Visit plugin site for %s' ), $plugin_name );
+						$aria_label = sprintf( __( 'Visit plugin site for %s' ), $plugin_name );
+						if ( 'block' === $plugin_type ) {
+							/* translators: %s: Block name. */
+							$aria_label = sprintf( __( 'Visit block site for %s' ), $plugin_name );
+						}
 
 						$plugin_meta[] = sprintf(
 							'<a href="%1$s" aria-label="%2$s">%3$s</a> <a href="%1$s" aria-label="%2$s" target="_blank" class="open-external"><span class="dashicons dashicons-external"></span></a>',
@@ -1345,7 +1347,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 					do_action( 'after_plugin_row_meta', $plugin_file, $plugin_data );
 
 					if ( $paused ) {
-						$notice_text = 'block' === $plugin_type 
+						$notice_text = 'block' === $plugin_type
 							? __( 'This block failed to load properly and is paused during recovery mode.' )
 							: __( 'This plugin failed to load properly and is paused during recovery mode.' );
 
