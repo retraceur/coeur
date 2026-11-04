@@ -15,7 +15,7 @@
  * @since WP 5.8.0
  *
  * @param array  $attributes Block attributes.
- * @param array  $_content   Block content.
+ * @param array  $content    Block content.
  * @param object $block      Block instance.
  *
  * @return string Returns the query title based on the queried object.

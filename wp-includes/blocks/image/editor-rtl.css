@@ -9,7 +9,12 @@ figure.wp-block-image:not(.wp-block) {
 .wp-block-image {
   position: relative;
 }
-.wp-block-image .is-applying img, .wp-block-image.is-transient img {
+.wp-block-image.is-transient:not(.alignwide):not(.alignfull), .wp-block-image:has(img.is-swapping-media):not(.alignwide):not(.alignfull) {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.wp-block-image .is-applying img, .wp-block-image.is-transient img,
+.wp-block-image img.is-swapping-media {
   opacity: 0.3;
 }
 .wp-block-image figcaption img {
@@ -32,6 +37,10 @@ figure.wp-block-image:not(.wp-block) {
 }
 .wp-block-image__placeholder .components-placeholder__illustration {
   opacity: 0.1;
+}
+
+.wp-block-image.is-selected .block-editor-media-placeholder {
+  filter: none !important;
 }
 
 .block-editor-block-list__block[data-type="core/image"] .block-editor-block-toolbar .block-editor-url-input__button-modal {

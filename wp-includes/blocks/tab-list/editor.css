@@ -1,0 +1,6 @@
+@media (min-width: 600px) {
+  .wp-block-tab-list__mover-button {
+    width: 24px;
+    min-width: 0 !important;
+  }
+}

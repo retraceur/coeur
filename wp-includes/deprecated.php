@@ -16688,3 +16688,76 @@ function wp_get_code_editor_settings( $args ) {
 		__( 'The code editor feature is not supported in Retraceur.' )
 	);
 }
+
+/**
+ * Build an array with CSS classes and inline styles defining the font sizes
+ * which will be applied to the navigation markup in the front-end.
+ *
+ * This function is no longer used internally and is kept only for backward
+ * compatibility with third-party code that may call it directly.
+ *
+ * @since WP 5.9.0
+ * @deprecated WP 7.0.0
+ *
+ * @param  array $context Navigation block context.
+ * @return array Font size CSS classes and inline styles.
+ */
+function block_core_navigation_link_build_css_font_sizes( $context ) {
+	_deprecated_function( __FUNCTION__, '7.0.0' );
+
+	// CSS classes.
+	$font_sizes = array(
+		'css_classes'   => array(),
+		'inline_styles' => '',
+	);
+
+	$has_named_font_size  = array_key_exists( 'fontSize', $context );
+	$has_custom_font_size = isset( $context['style']['typography']['fontSize'] );
+
+	if ( $has_named_font_size ) {
+		// Add the font size class.
+		$font_sizes['css_classes'][] = sprintf( 'has-%s-font-size', $context['fontSize'] );
+	} elseif ( $has_custom_font_size ) {
+		// Add the custom font size inline style.
+		$font_sizes['inline_styles'] = sprintf(
+			'font-size: %s;',
+			wp_get_typography_font_size_value(
+				array(
+					'size' => $context['style']['typography']['fontSize'],
+				)
+			)
+		);
+	}
+
+	return $font_sizes;
+}
+
+/**
+ * Returns the top-level submenu SVG chevron icon.
+ *
+ * @since WP 5.9.0
+ * @deprecated WP 7.0.0 Use block_core_shared_navigation_render_submenu_icon() instead.
+ *
+ * @return string
+ */
+function block_core_navigation_link_render_submenu_icon() {
+	_deprecated_function(
+		__FUNCTION__,
+		'7.0.0',
+		'block_core_shared_navigation_render_submenu_icon()'
+	);
+	return block_core_shared_navigation_render_submenu_icon();
+}
+
+/**
+ * Renders the submenu icon SVG for the Navigation Submenu block.
+ *
+ * @since WP 5.9.0
+ * @deprecated WP 7.0.0 Use block_core_shared_navigation_render_submenu_icon() instead.
+ *
+ * @return string SVG markup for the submenu icon.
+ */
+function block_core_navigation_submenu_render_submenu_icon() {
+	_deprecated_function( __FUNCTION__, '7.0.0', 'block_core_shared_navigation_render_submenu_icon()' );
+	return block_core_shared_navigation_render_submenu_icon();
+}

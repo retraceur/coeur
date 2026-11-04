@@ -1,3 +1,4 @@
+(function() {
 "use strict";
 var wp;
 (wp ||= {}).i18n = (() => {
@@ -554,5 +555,7 @@ var wp;
   var isRTL = i18n.isRTL.bind(i18n);
   var hasTranslation = i18n.hasTranslation.bind(i18n);
   return __toCommonJS(index_exports);
+})();
+(window.wp ||= {}).i18n = wp.i18n;
 })();
 //# sourceMappingURL=index.js.map

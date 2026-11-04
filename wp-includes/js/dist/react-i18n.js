@@ -1,3 +1,4 @@
+(function() {
 "use strict";
 var wp;
 (wp ||= {}).reactI18n = (() => {
@@ -93,5 +94,7 @@ var wp;
     return EnhancedComponent;
   }
   return __toCommonJS(index_exports);
+})();
+(window.wp ||= {}).reactI18n = wp.reactI18n;
 })();
 //# sourceMappingURL=index.js.map
