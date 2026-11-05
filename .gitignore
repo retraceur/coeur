@@ -24,6 +24,10 @@ wp-config.php
 # Uploads.
 /wp-content/uploads/
 
+# Upgrade.
+/wp-content/upgrade/
+/wp-content/upgrade-temp-backup
+
 # My plugins.
 /wp-content/plugins/
 /wp-content/mu-plugins/
