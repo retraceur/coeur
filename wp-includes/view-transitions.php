@@ -2,9 +2,11 @@
 /**
  * View Transitions API.
  *
- * @package WordPress
- * @subpackage View Transitions
  * @since WP 7.0.0
+ * @since 4.0.0 Retraceur fork.
+ *
+ * @package Retraceur
+ * @subpackage View Transitions
  */
 
 /**

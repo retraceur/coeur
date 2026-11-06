@@ -244,7 +244,7 @@ function retraceur_version_check( $force_check = false ) {
  *     @type string $url          URL of the release details on GitHub.
  *     @type string $requires_php Minimum PHP version required, from the `Requires PHP` header.
  *     @type string $requires_r   Minimum Retraceur version required, from the `Requires Retraceur` header.
- *     @type string $requires     Minimum WordPress version required, from the `Requires at least` header.
+ *     @type string $requires     Minimum WP version required, from the `Requires at least` header.
  * }
  */
 function retraceur_get_plugin_update( $owner_repo, $plugin_data, $plugin_file, $locales ) {

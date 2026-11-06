@@ -597,7 +597,7 @@ function is_favicon() {
  *
  * @since WP 7.1.0
  *
- * @global WP_Query $wp_query WordPress Query object.
+ * @global WP_Query $wp_query WP Query object.
  *
  * @return bool Whether the query is for a sitemap.
  */

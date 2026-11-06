@@ -166,7 +166,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 					<?php
 						printf(
 							/* translators: 1: pixel value for icon size. 2: pixel value for icon size. */
-							__( 'The Site Icon is what you see in browser tabs, bookmark bars, and within the WordPress mobile apps. It should be square and at least <strong>%1$s by %2$s</strong> pixels.' ),
+							__( 'The Site Icon is what you see in browser tabs and bookmark bars. It should be square and at least <strong>%1$s by %2$s</strong> pixels.' ),
 							512,
 							512
 						);
