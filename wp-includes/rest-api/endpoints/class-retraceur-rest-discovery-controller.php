@@ -28,6 +28,37 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 	}
 
 	/**
+	 * Repository types: the GitHub topic and the capability needed to browse each of them.
+	 *
+	 * @since 5.0.0 Retraceur fork.
+	 *
+	 * @return array
+	 */
+	protected function get_repository_types() {
+		$repository_types = array(
+			'plugin' => array(
+				'topic'      => 'retraceur-plugin',
+				'capability' => 'install_plugins',
+				'item_type'  => 'plugins',
+			),
+			'block'  => array(
+				'topic'      => 'retraceur-block',
+				'capability' => 'install_plugins',
+				'item_type'  => 'plugins',
+			),
+		);
+
+		/**
+		 * Filters the repository types supported by the Discovery API.
+		 *
+		 * @since 5.0.0 Retraceur fork.
+		 *
+		 * @param array $repository_types Types keyed by slug, each with a `topic`, `capability` and a `item_type`.
+		 */
+		return apply_filters( 'retraceur_discovery_repository_types', $repository_types );
+	}
+
+	/**
 	 * Registers the necessary REST API routes.
 	 *
 	 * @since 4.0.0 Retraceur fork.
@@ -67,6 +98,12 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 							'required'    => true,
 							'minLength'   => 1,
 							'pattern'     => '^[a-zA-Z0-9_.-]+/[a-zA-Z0-9_.-]+$',
+						),
+						'type' => array(
+							'default'     => 'plugin',
+							'description' => __( 'The type of Retraceur repositories to fetch.' ),
+							'type'        => 'string',
+							'enum'        => array_keys( $this->get_repository_types() ),
 						),
 					),
 				),
@@ -473,6 +510,14 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 		$full_name      = wp_strip_all_tags( $item['full_name'] );
 		$default_branch = wp_strip_all_tags( $item['default_branch'] );
 
+		$types                 = $this->get_repository_types();
+		$third_party_items     = array();
+		$third_party_item_type = isset( $types[ $request['type'] ]['item_type'] ) ? $types[ $request['type'] ]['item_type'] : 'plugins';
+
+		if ( 'plugins' === $third_party_item_type ) {
+			$third_party_items = get_plugins();
+		}
+
 		// A data array containing the properties we'll return.
 		$repository = array(
 			'id'                  => (int) $item['id'],
@@ -491,7 +536,7 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 		);
 
 		// Check already installed repositories.
-		$installed_map              = retraceur_discovery_get_installed_map();
+		$installed_map              = retraceur_discovery_get_installed_map( $third_party_items, $third_party_item_type );
 		$repository['is_installed'] = isset( $installed_map[ strtolower( $full_name ) ] );
 
 		$response = new WP_REST_Response( $repository );
@@ -744,7 +789,7 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 			'default'     => 'plugin',
 			'description' => __( 'The type of Retraceur repositories to fetch.' ),
 			'type'        => 'string',
-			'enum'        => array( 'plugin', 'block' ),
+			'enum'        => array_keys( $this->get_repository_types() ),
 		);
 
 		$query_params['sort'] = array(

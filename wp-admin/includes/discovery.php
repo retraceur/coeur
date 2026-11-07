@@ -2,9 +2,10 @@
 /**
  * Retraceur Discovery Administration API.
  *
- * Functions moved from `wp-admin/includes/plugin-install.php` to
- * generalize the discovery of plugins and themes, and to allow for
- * discovery of other types of packages in the future.
+ * Functions moved from `wp-admin/includes/plugin-install.php` and
+ * `wp-admin/includes/plugin.php`to generalize the discovery of plugins
+ * and themes, and to allow for discovery of other types of packages
+ * in the future.
  *
  * @since 5.0.0 Retraceur fork.
  *
@@ -354,3 +355,136 @@ function retraceur_discovery_api( $action, $args = array() ) {
 	 */
 	return apply_filters( 'retraceur_discovery_api_result', $res, $action, $args );
 }
+
+/**
+ * Attempts to resolve a plugin's GitHub full name (owner/repo) from
+ * its main file headers.
+ *
+ * Headers are checked in this order of reliability:
+ * 1. `GitHub Plugin URI` — explicit, authoritative.
+ * 2. `Plugin URI` — used if it points to github.com.
+ * 3. `Author` + `Text Domain` — fallback assuming a naming convention.
+ *
+ * @since 4.0.0 Retraceur fork.
+ * @since 5.0.0 Retraceur fork. Moved from wp-admin/includes/plugin.php.
+ *
+ * @param array $plugin_data Plugin data as returned by get_plugin_data().
+ * @return string The GitHub full name (owner/repo), or empty string if unresolved.
+ */
+function retraceur_discovery_resolve_full_name( $plugin_data ) {
+	$parse_github_url = function( $url ) {
+		if ( ! $url || ! str_contains( $url, 'github.com' ) ) {
+			return '';
+		}
+
+		$path  = trim( wp_parse_url( $url, PHP_URL_PATH ) ?? '', '/' );
+		$parts = explode( '/', $path );
+
+		return count( $parts ) >= 2 ? $parts[0] . '/' . $parts[1] : '';
+	};
+
+	if ( ! empty( $plugin_data['GitHubPluginURI'] ) ) {
+		$full_name = $parse_github_url( $plugin_data['GitHubPluginURI'] );
+		if ( $full_name ) {
+			return $full_name;
+		}
+	}
+
+	if ( ! empty( $plugin_data['PluginURI'] ) ) {
+		$full_name = $parse_github_url( $plugin_data['PluginURI'] );
+		if ( $full_name ) {
+			return $full_name;
+		}
+	}
+
+	return '';
+}
+
+/**
+ * Builds a map of GitHub full names to installed plugin files,
+ * based on resolved headers from all installed plugins.
+ *
+ * @since 4.0.0 Retraceur fork.
+ * @since 5.0.0 Retraceur fork. Moved from wp-admin/includes/plugin.php.
+ *                              Added `$installed_third_parties` parameter to allow for
+ *                              looping inside installed plugins or themes.
+ *                              Added `$item_type` parameter to specify the type of items to loop through.
+ *
+ * @param array[] $installed_third_parties The list of installed third-party plugins or themes to loop through.
+ * @param string  $item_type               Optional. The type of items to loop through. Default 'plugins'.
+ * @return array Map of full_name => plugin file (plugins) or stylesheet (themes).
+ */
+function retraceur_discovery_get_installed_map( $installed_third_parties, $item_type = 'plugins' ) {
+	$cache_key = 'retraceur_discovery_installed_map';
+	$cached    = get_transient( $cache_key );
+
+	if ( ! is_array( $cached ) ) {
+		$cached = array();
+	}
+
+	// isset() is true for an empty map, so an empty result is cached too.
+	if ( isset( $cached[ $item_type ] ) ) {
+		return $cached[ $item_type ];
+	}
+
+	$map = array();
+
+	foreach ( $installed_third_parties as $item_file => $item_data ) {
+		$full_name = retraceur_discovery_resolve_full_name( $item_data );
+
+		if ( $full_name ) {
+			$map[ strtolower( $full_name ) ] = $item_file;
+		}
+	}
+
+	$cached[ $item_type ] = $map;
+	set_transient( $cache_key, $cached, 5 * MINUTE_IN_SECONDS );
+
+	return $map;
+}
+
+/**
+ * Cleans the Plugin Releases and Discovery cache.
+ *
+ * @since 4.0.0 Retraceur fork.
+ * @since 5.0.0 Retraceur fork. Moved from wp-admin/includes/plugin.php.
+ *
+ * @param string $full_name The plugin full name (owner/repo).
+ */
+function retraceur_discovery_clean_cache( $full_name ) {
+	if ( ! $full_name ) {
+		return;
+	}
+
+	// Clean the repository and changelog Discovery caches.
+	$discovery_cache_suffix = md5( $full_name );
+
+	delete_transient( 'retraceur_discovery_repo_' . $discovery_cache_suffix );
+	delete_transient( 'retraceur_discovery_changelog_' . $discovery_cache_suffix );
+
+	/*
+	 * Clean the releases feed cache, letting SimplePie resolve its own
+	 * cache key rather than guessing its internal format, which may
+	 * vary across SimplePie/WordPress versions.
+	 */
+	require_once ABSPATH . WPINC . '/class-simplepie.php';
+	require_once ABSPATH . WPINC . '/class-wp-feed-cache-transient.php';
+
+	$releases_url   = 'https://github.com/' . $full_name . '/releases.atom';
+	$feed           = new SimplePie\SimplePie();
+	$cache_filename = $feed->get_cache_filename( $releases_url );
+
+	$cache = new WP_Feed_Cache_Transient( '', $cache_filename, SimplePie\Cache\Base::TYPE_FEED );
+	$cache->unlink();
+}
+
+/**
+ * Invalidates the discovery installed map cache.
+ *
+ * @since 4.0.0 Retraceur fork.
+ * @since 5.0.0 Retraceur fork. Moved from wp-admin/includes/plugin.php.
+ */
+function retraceur_discovery_flush_installed_map() {
+	delete_transient( 'retraceur_discovery_installed_map' );
+}
+add_action( 'upgrader_process_complete', 'retraceur_discovery_flush_installed_map' );
