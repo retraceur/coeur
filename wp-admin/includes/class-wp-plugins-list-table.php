@@ -899,7 +899,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 
 							$actions['delete'] = sprintf(
 								'<a href="%s" id="delete-%s" class="delete" aria-label="%s">%s</a>',
-								wp_nonce_url( $delete_url, 'bulk-plugins' ),
+								wp_nonce_url( $delete_url, 'bulk-' . $this->_args['plural'] ),
 								esc_attr( $plugin_id_attr ),
 								/* translators: %s: Plugin name. */
 								esc_attr( sprintf( _x( 'Delete %s', 'plugin' ), $plugin_data['Name'] ) ),
@@ -1005,7 +1005,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 
 							$actions['delete'] = sprintf(
 								'<a href="%s" id="delete-%s" class="delete" aria-label="%s">%s</a>',
-								wp_nonce_url( $delete_url, 'bulk-plugins' ),
+								wp_nonce_url( $delete_url, 'bulk-' . $this->_args['plural'] ),
 								esc_attr( $plugin_id_attr ),
 								/* translators: %s: Plugin name. */
 								esc_attr( sprintf( _x( 'Delete %s', 'plugin' ), $plugin_data['Name'] ) ),
