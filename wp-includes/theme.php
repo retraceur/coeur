@@ -103,6 +103,23 @@ function wp_get_themes( $args = array() ) {
 }
 
 /**
+ * Get all themes data.
+ *
+ * @since 5.0.0 Retraceur fork.
+ *
+ * @return array[] The list of themes data keyed by their stylesheet names.
+ */
+function retraceur_get_themes_data() {
+	$themes = array();
+
+	foreach ( wp_get_themes() as $stylesheet => $theme ) {
+		$themes[ $stylesheet ] = $theme->get_data();
+	}
+
+	return $themes;
+}
+
+/**
  * Gets a WP_Theme object for a theme.
  *
  * @since WP 3.4.0
