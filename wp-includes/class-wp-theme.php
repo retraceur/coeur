@@ -31,21 +31,22 @@ final class WP_Theme implements ArrayAccess {
 	 * @var string[]
 	 */
 	private static $file_headers = array(
-		'Name'        => 'Theme Name',
-		'ThemeURI'    => 'Theme URI',
-		'Description' => 'Description',
-		'Author'      => 'Author',
-		'AuthorURI'   => 'Author URI',
-		'Version'     => 'Version',
-		'Template'    => 'Template',
-		'Status'      => 'Status',
-		'Tags'        => 'Tags',
-		'TextDomain'  => 'Text Domain',
-		'DomainPath'  => 'Domain Path',
-		'RequiresWP'  => 'Requires at least',
-		'RequiresR'   => 'Requires Retraceur',
-		'RequiresPHP' => 'Requires PHP',
-		'UpdateURI'   => 'Update URI',
+		'Name'           => 'Theme Name',
+		'ThemeURI'       => 'Theme URI',
+		'Description'    => 'Description',
+		'Author'         => 'Author',
+		'AuthorURI'      => 'Author URI',
+		'Version'        => 'Version',
+		'Template'       => 'Template',
+		'Status'         => 'Status',
+		'Tags'           => 'Tags',
+		'TextDomain'     => 'Text Domain',
+		'DomainPath'     => 'Domain Path',
+		'RequiresWP'     => 'Requires at least',
+		'RequiresR'      => 'Requires Retraceur',
+		'RequiresPHP'    => 'Requires PHP',
+		'UpdateURI'      => 'Update URI',
+		'GitHubThemeURI' => 'GitHub Theme URI',
 	);
 
 	/**
@@ -976,6 +977,7 @@ final class WP_Theme implements ArrayAccess {
 				break;
 			case 'ThemeURI':
 			case 'AuthorURI':
+			case 'GitHubThemeURI':
 				$value = sanitize_url( $value );
 				break;
 			case 'Tags':

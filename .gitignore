@@ -39,7 +39,7 @@ wp-content/themes/*
 !wp-content/themes/index.php
 
 # Keep point's theme
-!wp-content/themes/point/**/*
+!wp-content/themes/point/
 
 # Languages.
 /wp-content/languages
