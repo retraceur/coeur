@@ -2164,4 +2164,23 @@ final class WP_Theme implements ArrayAccess {
 	private static function _name_sort_i18n( $a, $b ) {
 		return strnatcasecmp( $a->name_translated, $b->name_translated );
 	}
+
+	/**
+	 * Get all useful Theme data.
+	 *
+	 * @since 5.0.0 Retraceur fork.
+	 *
+	 * @return array An array combining theme headers and whether it is a block theme.
+	 */
+	public function get_data() {
+		$data = array();
+
+		foreach ( array_keys( $this->headers ) as $header ) {
+			$data[ $header ] = $this->get( $header );
+		}
+
+		$data['isBlockTheme'] = $this->is_block_theme();
+
+		return $data;
+	}
 }

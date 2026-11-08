@@ -357,21 +357,22 @@ function retraceur_discovery_api( $action, $args = array() ) {
 }
 
 /**
- * Attempts to resolve a plugin's GitHub full name (owner/repo) from
+ * Attempts to resolve a Plugin or Theme item's GitHub full name (owner/repo) from
  * its main file headers.
  *
  * Headers are checked in this order of reliability:
- * 1. `GitHub Plugin URI` — explicit, authoritative.
- * 2. `Plugin URI` — used if it points to github.com.
- * 3. `Author` + `Text Domain` — fallback assuming a naming convention.
+ * 1. `GitHub Plugin URI`|`GitHub Theme URI` — explicit, authoritative.
+ * 2. `Plugin URI`|`Theme URI` — used if it points to github.com.
  *
  * @since 4.0.0 Retraceur fork.
  * @since 5.0.0 Retraceur fork. Moved from wp-admin/includes/plugin.php.
  *
- * @param array $plugin_data Plugin data as returned by get_plugin_data().
+ * @param array $item_data Plugin or Theme data.
  * @return string The GitHub full name (owner/repo), or empty string if unresolved.
  */
-function retraceur_discovery_resolve_full_name( $plugin_data ) {
+function retraceur_discovery_resolve_full_name( $item_data ) {
+	$full_name = '';
+
 	$parse_github_url = function( $url ) {
 		if ( ! $url || ! str_contains( $url, 'github.com' ) ) {
 			return '';
@@ -383,21 +384,19 @@ function retraceur_discovery_resolve_full_name( $plugin_data ) {
 		return count( $parts ) >= 2 ? $parts[0] . '/' . $parts[1] : '';
 	};
 
-	if ( ! empty( $plugin_data['GitHubPluginURI'] ) ) {
-		$full_name = $parse_github_url( $plugin_data['GitHubPluginURI'] );
+	foreach ( array( 'GitHubPluginURI', 'PluginURI', 'GitHubThemeURI', 'ThemeURI' ) as $header ) {
+		if ( empty( $item_data[ $header ] ) ) {
+			continue;
+		}
+
+		$full_name = $parse_github_url( $item_data[ $header ] );
+
 		if ( $full_name ) {
-			return $full_name;
+			break;
 		}
 	}
 
-	if ( ! empty( $plugin_data['PluginURI'] ) ) {
-		$full_name = $parse_github_url( $plugin_data['PluginURI'] );
-		if ( $full_name ) {
-			return $full_name;
-		}
-	}
-
-	return '';
+	return $full_name;
 }
 
 /**
