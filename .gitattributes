@@ -1,3 +1,4 @@
+/bin export-ignore
 /i18n export-ignore
 /packages export-ignore
 /tools export-ignore
@@ -19,5 +20,7 @@
 /CONTRIBUTING.md export-ignore
 /package-lock.json export-ignore
 /package.json export-ignore
+/phpcs-deps.json
+/phpcs.xml.dist
 /PULL_REQUEST_TEMPLATE.md export-ignore
 /SECURITY.md export-ignore

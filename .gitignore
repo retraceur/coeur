@@ -14,6 +14,10 @@ built
 # htaccess.
 .htaccess
 
+# PHPCS.
+/.phpcs/
+/.cache/
+
 # Config file.
 wp-config.php
 
