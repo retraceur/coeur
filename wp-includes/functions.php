@@ -183,7 +183,7 @@ function date_i18n( $format, $timestamp_with_offset = false, $gmt = false ) {
 
 	// If timestamp is omitted it should be current time (summed with offset, unless `$gmt` is true).
 	if ( ! is_numeric( $timestamp ) ) {
-		// phpcs:ignore WordPress.DateTime.CurrentTimeTimestamp.Requested
+		// phpcs:ignore Retraceur.DateTime.CurrentTimeTimestamp.Requested
 		$timestamp = current_time( 'timestamp', $gmt );
 	}
 
@@ -5062,7 +5062,7 @@ function _wp_array_set( &$input_array, $path, $value = null ) {
  */
 function _wp_to_kebab_case( $input_string ) {
 	// Ignore the camelCase names for variables so the names are the same as lodash so comparing and porting new changes is easier.
-	// phpcs:disable WordPress.NamingConventions.ValidVariableName.VariableNotSnakeCase
+	// phpcs:disable Retraceur.NamingConventions.ValidVariableName.VariableNotSnakeCase
 
 	/*
 	 * Some notable things we've removed compared to the lodash version are:
@@ -5108,7 +5108,7 @@ function _wp_to_kebab_case( $input_string ) {
 
 	preg_match_all( $regexp, str_replace( "'", '', $input_string ), $matches );
 	return strtolower( implode( '-', $matches[0] ) );
-	// phpcs:enable WordPress.NamingConventions.ValidVariableName.VariableNotSnakeCase
+	// phpcs:enable Retraceur.NamingConventions.ValidVariableName.VariableNotSnakeCase
 }
 
 /**
@@ -5122,7 +5122,7 @@ function _wp_to_kebab_case( $input_string ) {
  * Example:
  *
  *     true  === wp_is_numeric_array( array( 1, 2, 3, 4 ) );
- *     false === wp_is_numeric_array( array( 'name' => 'WordPress' ) );
+ *     false === wp_is_numeric_array( array( 'name' => 'Retraceur' ) );
  *
  *     // All-numeric keys vs. list.
  *     $above_two   = array_filter( array( 1, 2, 8, 9 ), fn ( $v ) => $v > 2 );
@@ -6595,7 +6595,7 @@ function wp_timezone_choice( $selected_zone, $locale = null ) {
 		$exists[4] = ( $exists[1] && $exists[3] );
 		$exists[5] = ( $exists[2] && $exists[3] );
 
-		// phpcs:disable WordPress.WP.I18n.LowLevelTranslationFunction,WordPress.WP.I18n.NonSingularStringLiteralText
+		// phpcs:disable Retraceur.WP.I18n.LowLevelTranslationFunction,Retraceur.WP.I18n.NonSingularStringLiteralText
 		$zonen[] = array(
 			'continent'   => ( $exists[0] ? $zone[0] : '' ),
 			'city'        => ( $exists[1] ? $zone[1] : '' ),
@@ -6868,7 +6868,7 @@ function get_file_data( $file, $default_headers, $context = '' ) {
  *
  * @return true True.
  */
-function __return_true() { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionDoubleUnderscore,PHPCompatibility.FunctionNameRestrictions.ReservedFunctionNames.FunctionDoubleUnderscore
+function __return_true() { // phpcs:ignore Retraceur.NamingConventions.ValidFunctionName.FunctionDoubleUnderscore,PHPCompatibility.FunctionNameRestrictions.ReservedFunctionNames.FunctionDoubleUnderscore
 	return true;
 }
 
@@ -6883,7 +6883,7 @@ function __return_true() { // phpcs:ignore WordPress.NamingConventions.ValidFunc
  *
  * @return false False.
  */
-function __return_false() { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionDoubleUnderscore,PHPCompatibility.FunctionNameRestrictions.ReservedFunctionNames.FunctionDoubleUnderscore
+function __return_false() { // phpcs:ignore Retraceur.NamingConventions.ValidFunctionName.FunctionDoubleUnderscore,PHPCompatibility.FunctionNameRestrictions.ReservedFunctionNames.FunctionDoubleUnderscore
 	return false;
 }
 
@@ -6896,7 +6896,7 @@ function __return_false() { // phpcs:ignore WordPress.NamingConventions.ValidFun
  *
  * @return int 0.
  */
-function __return_zero() { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionDoubleUnderscore,PHPCompatibility.FunctionNameRestrictions.ReservedFunctionNames.FunctionDoubleUnderscore
+function __return_zero() { // phpcs:ignore Retraceur.NamingConventions.ValidFunctionName.FunctionDoubleUnderscore,PHPCompatibility.FunctionNameRestrictions.ReservedFunctionNames.FunctionDoubleUnderscore
 	return 0;
 }
 
@@ -6909,7 +6909,7 @@ function __return_zero() { // phpcs:ignore WordPress.NamingConventions.ValidFunc
  *
  * @return array Empty array.
  */
-function __return_empty_array() { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionDoubleUnderscore,PHPCompatibility.FunctionNameRestrictions.ReservedFunctionNames.FunctionDoubleUnderscore
+function __return_empty_array() { // phpcs:ignore Retraceur.NamingConventions.ValidFunctionName.FunctionDoubleUnderscore,PHPCompatibility.FunctionNameRestrictions.ReservedFunctionNames.FunctionDoubleUnderscore
 	return array();
 }
 
@@ -6922,7 +6922,7 @@ function __return_empty_array() { // phpcs:ignore WordPress.NamingConventions.Va
  *
  * @return null Null value.
  */
-function __return_null() { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionDoubleUnderscore,PHPCompatibility.FunctionNameRestrictions.ReservedFunctionNames.FunctionDoubleUnderscore
+function __return_null() { // phpcs:ignore Retraceur.NamingConventions.ValidFunctionName.FunctionDoubleUnderscore,PHPCompatibility.FunctionNameRestrictions.ReservedFunctionNames.FunctionDoubleUnderscore
 	return null;
 }
 
@@ -6937,7 +6937,7 @@ function __return_null() { // phpcs:ignore WordPress.NamingConventions.ValidFunc
  *
  * @return string Empty string.
  */
-function __return_empty_string() { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionDoubleUnderscore,PHPCompatibility.FunctionNameRestrictions.ReservedFunctionNames.FunctionDoubleUnderscore
+function __return_empty_string() { // phpcs:ignore Retraceur.NamingConventions.ValidFunctionName.FunctionDoubleUnderscore,PHPCompatibility.FunctionNameRestrictions.ReservedFunctionNames.FunctionDoubleUnderscore
 	return '';
 }
 

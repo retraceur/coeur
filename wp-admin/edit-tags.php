@@ -231,7 +231,7 @@ switch ( $wp_list_table->current_action() ) {
 		$tags   = (array) $_REQUEST['delete_tags'];
 
 		/** This action is documented in wp-admin/edit.php */
-		$location = apply_filters( "handle_bulk_actions-{$screen}", $location, $wp_list_table->current_action(), $tags ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
+		$location = apply_filters( "handle_bulk_actions-{$screen}", $location, $wp_list_table->current_action(), $tags ); // phpcs:ignore Retraceur.NamingConventions.ValidHookName.UseUnderscores
 		break;
 }
 
@@ -677,7 +677,7 @@ if ( $can_edit_terms ) {
  *
  * @param string $taxonomy The taxonomy name.
  */
-do_action( "after-{$taxonomy}-table", $taxonomy );  // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
+do_action( "after-{$taxonomy}-table", $taxonomy );  // phpcs:ignore Retraceur.NamingConventions.ValidHookName.UseUnderscores
 }
 
 if ( $can_create_terms ) {

@@ -212,7 +212,7 @@ if ( $doaction ) {
 			 * @param array  $items    The items to take the action on. Accepts an array of IDs of posts,
 			 *                         terms, links, plugins, attachments, or users.
 			 */
-			$sendback = apply_filters( "handle_bulk_actions-{$screen}", $sendback, $doaction, $post_ids ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
+			$sendback = apply_filters( "handle_bulk_actions-{$screen}", $sendback, $doaction, $post_ids ); // phpcs:ignore Retraceur.NamingConventions.ValidHookName.UseUnderscores
 			break;
 	}
 

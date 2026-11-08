@@ -1,4 +1,4 @@
-<?php // phpcs:ignore WordPress.Files.FileName.InvalidClassFileName // Needed for WP_Block_Cloner helper class.
+<?php // phpcs:ignore Retraceur.Files.FileName.InvalidClassFileName // Needed for WP_Block_Cloner helper class.
 /**
  * Server-side rendering of the `core/block` block.
  *

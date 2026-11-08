@@ -2563,7 +2563,7 @@ function convert_invalid_entities( $content ) {
  * @param bool   $force If true, forces balancing, ignoring the value of the option. Default false.
  * @return string Balanced text.
  */
-function balanceTags( $text, $force = false ) {  // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid
+function balanceTags( $text, $force = false ) {  // phpcs:ignore Retraceur.NamingConventions.ValidFunctionName.FunctionNameInvalid
 	if ( $force || 1 === (int) get_option( 'use_balanceTags' ) ) {
 		return force_balance_tags( $text );
 	} else {

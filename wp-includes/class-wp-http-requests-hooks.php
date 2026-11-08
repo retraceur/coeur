@@ -74,7 +74,7 @@ class WP_HTTP_Requests_Hooks extends WpOrg\Requests\Hooks {
 		 * @param array $request Request data in WP_Http format.
 		 * @param string $url URL to request.
 		 */
-		do_action_ref_array( "requests-{$hook}", $parameters, $this->request, $this->url ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
+		do_action_ref_array( "requests-{$hook}", $parameters, $this->request, $this->url ); // phpcs:ignore Retraceur.NamingConventions.ValidHookName.UseUnderscores
 
 		return $result;
 	}

@@ -574,7 +574,7 @@ function set_screen_options() {
 				 * @param string $option        The option name.
 				 * @param int    $value         The option value.
 				 */
-				$screen_option = apply_filters( 'set-screen-option', $screen_option, $option, $value ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
+				$screen_option = apply_filters( 'set-screen-option', $screen_option, $option, $value ); // phpcs:ignore Retraceur.NamingConventions.ValidHookName.UseUnderscores
 			}
 
 			/**
@@ -782,7 +782,7 @@ function iis7_add_rewrite_rule( $filename, $rewrite_rule ) {
  * @param DOMDocument $doc      The DOMDocument object to save.
  * @param string      $filename The file path to save the XML document to.
  */
-function saveDomDocument( $doc, $filename ) { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid
+function saveDomDocument( $doc, $filename ) { // phpcs:ignore Retraceur.NamingConventions.ValidFunctionName.FunctionNameInvalid
 	$config = $doc->saveXML();
 	$config = preg_replace( "/([^\r])\n/", "$1\r\n", $config );
 

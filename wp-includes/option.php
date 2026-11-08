@@ -419,7 +419,7 @@ function wp_set_option_autoload_values( array $options ) {
 	 * Determine the relevant options that do not already use the given autoload value.
 	 * If no options are returned, no need to update.
 	 */
-	// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared,WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare
+	// phpcs:ignore Retraceur.DB.PreparedSQL.InterpolatedNotPrepared,Retraceur.DB.PreparedSQLPlaceholders.UnfinishedPrepare
 	$options_to_update = $wpdb->get_col( $wpdb->prepare( "SELECT option_name FROM $wpdb->options $where", $where_args ) );
 	if ( ! $options_to_update ) {
 		return $results;

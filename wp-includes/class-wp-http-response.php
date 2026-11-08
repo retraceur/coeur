@@ -150,7 +150,7 @@ class WP_HTTP_Response {
 	 *
 	 * @return mixed Any JSON-serializable value.
 	 */
-	public function jsonSerialize() { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.MethodNameInvalid
+	public function jsonSerialize() { // phpcs:ignore Retraceur.NamingConventions.ValidFunctionName.MethodNameInvalid
 		return $this->get_data();
 	}
 }

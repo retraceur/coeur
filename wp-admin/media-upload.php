@@ -31,11 +31,11 @@ wp_enqueue_script( 'media-gallery' );
 header( 'Content-Type: ' . get_option( 'html_type' ) . '; charset=' . get_option( 'blog_charset' ) );
 
 // IDs should be integers.
-$ID      = isset( $ID ) ? (int) $ID : 0; // phpcs:ignore WordPress.NamingConventions.ValidVariableName
+$ID      = isset( $ID ) ? (int) $ID : 0; // phpcs:ignore Retraceur.NamingConventions.ValidVariableName
 $post_id = isset( $post_id ) ? (int) $post_id : 0;
 
 // Require an ID for the edit screen.
-if ( isset( $action ) && 'edit' === $action && ! $ID ) { // phpcs:ignore WordPress.NamingConventions.ValidVariableName
+if ( isset( $action ) && 'edit' === $action && ! $ID ) { // phpcs:ignore Retraceur.NamingConventions.ValidVariableName
 	wp_die(
 		'<h1>' . __( 'An error occurred during the upload process.' ) . '</h1>' .
 		'<p>' . __( 'Invalid item ID. You can view all media items in the <a href="upload.php">Media Library</a>.' ) . '</p>',
