@@ -367,7 +367,7 @@ function retraceur_discovery_api( $action, $args = array() ) {
  * @since 4.0.0 Retraceur fork.
  * @since 5.0.0 Retraceur fork. Moved from wp-admin/includes/plugin.php.
  *
- * @param array $item_data Plugin data as returned by get_plugin_data().
+ * @param array $item_data Plugin or Theme data.
  * @return string The GitHub full name (owner/repo), or empty string if unresolved.
  */
 function retraceur_discovery_resolve_full_name( $item_data ) {

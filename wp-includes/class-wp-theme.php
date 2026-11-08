@@ -2173,7 +2173,14 @@ final class WP_Theme implements ArrayAccess {
 	 * @return array An array combining theme headers and whether it is a block theme.
 	 */
 	public function get_data() {
-		$theme_data = $this->cache_get( 'theme');
-		return array_merge( $theme_data['headers'], array( 'isBlockTheme' => $theme_data['block_theme'] ) );
+		$data = array();
+
+		foreach ( array_keys( $this->headers ) as $header ) {
+			$data[ $header ] = $this->get( $header );
+		}
+
+		$data['isBlockTheme'] = $this->is_block_theme();
+
+		return $data;
 	}
 }
