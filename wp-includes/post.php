@@ -1425,7 +1425,7 @@ function register_post_status( $post_status, $args = array() ) {
 	}
 
 	if ( false === $args->label_count ) {
-		// phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralSingular,WordPress.WP.I18n.NonSingularStringLiteralPlural
+		// phpcs:ignore Retraceur.WP.I18n.NonSingularStringLiteralSingular,Retraceur.WP.I18n.NonSingularStringLiteralPlural
 		$args->label_count = _n_noop( $args->label, $args->label );
 	}
 
@@ -3380,7 +3380,7 @@ function wp_count_posts( $type = 'post', $perm = '' ) {
 	$query .= ' GROUP BY post_status';
 
 	$results = (array) $wpdb->get_results(
-		$wpdb->prepare( $query, ...$args ), // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Placeholders are used in the string contained in the variable.
+		$wpdb->prepare( $query, ...$args ), // phpcs:ignore Retraceur.DB.PreparedSQL.NotPrepared -- Placeholders are used in the string contained in the variable.
 		ARRAY_A
 	);
 	$counts  = array_fill_keys( get_post_stati(), 0 );
@@ -5835,7 +5835,7 @@ function get_page_by_path( $page_path, $output = OBJECT, $post_type = 'page' ) {
 	";
 
 	/** @var array<object{ ID: string, post_name: string, post_parent: string, post_type: string }> $pages */
-	$pages = $wpdb->get_results( $sql, OBJECT_K ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- The escaping has been applied above via esc_sql().
+	$pages = $wpdb->get_results( $sql, OBJECT_K ); // phpcs:ignore Retraceur.DB.PreparedSQL.NotPrepared -- The escaping has been applied above via esc_sql().
 
 	$revparts = array_reverse( $parts );
 

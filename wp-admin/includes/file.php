@@ -548,7 +548,7 @@ function _wp_handle_upload( &$file, $overrides, $time, $action ) {
 			$move_new_file = @move_uploaded_file( $file['tmp_name'], $new_file );
 		} else {
 			// Use copy and unlink because rename breaks streams.
-			// phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged
+			// phpcs:ignore Retraceur.PHP.NoSilencedErrors.Discouraged
 			$move_new_file = @copy( $file['tmp_name'], $new_file );
 			unlink( $file['tmp_name'] );
 		}
@@ -1455,7 +1455,7 @@ function move_dir( $from, $to, $overwrite = false ) {
  * @return bool|null True on success, false on failure,
  *                   null if the filesystem method class file does not exist.
  */
-function WP_Filesystem( $args = false, $context = false, $allow_relaxed_file_ownership = false ) { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid
+function WP_Filesystem( $args = false, $context = false, $allow_relaxed_file_ownership = false ) { // phpcs:ignore Retraceur.NamingConventions.ValidFunctionName.FunctionNameInvalid
 	global $wp_filesystem;
 
 	require_once ABSPATH . 'wp-admin/includes/class-wp-filesystem-base.php';

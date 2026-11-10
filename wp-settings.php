@@ -71,7 +71,7 @@ wp_initial_constants();
 wp_register_fatal_error_handler();
 
 // Retraceur calculates offsets from UTC.
-// phpcs:ignore WordPress.DateTime.RestrictedFunctions.timezone_change_date_default_timezone_set
+// phpcs:ignore Retraceur.DateTime.RestrictedFunctions.timezone_change_date_default_timezone_set
 date_default_timezone_set( 'UTC' );
 
 // Standardize $_SERVER variables across setups.

@@ -522,7 +522,7 @@ function wp_theme_update_row( $theme_key, $theme ) {
 	 *     @type string $package     Theme update package URL.
 	 * }
 	 */
-	do_action( "in_theme_update_message-{$theme_key}", $theme, $response ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
+	do_action( "in_theme_update_message-{$theme_key}", $theme, $response ); // phpcs:ignore Retraceur.NamingConventions.ValidHookName.UseUnderscores
 
 	echo '</p></div></td></tr>';
 }

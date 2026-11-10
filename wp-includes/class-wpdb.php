@@ -1982,7 +1982,7 @@ class wpdb {
 		if ( WP_DEBUG ) {
 			mysqli_real_connect( $this->dbh, $host, $this->dbuser, $this->dbpassword, null, $port, $socket, $client_flags );
 		} else {
-			// phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged
+			// phpcs:ignore Retraceur.PHP.NoSilencedErrors.Discouraged
 			@mysqli_real_connect( $this->dbh, $host, $this->dbuser, $this->dbpassword, null, $port, $socket, $client_flags );
 		}
 

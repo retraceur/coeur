@@ -30,7 +30,7 @@ apply_filters_deprecated(
  * @deprecated 1.0.0 Retraceur removed the "Post by email" feature.
  */
 do_action_deprecated(
-	'wp-mail.php', // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
+	'wp-mail.php', // phpcs:ignore Retraceur.NamingConventions.ValidHookName.UseUnderscores
 	array(),
 	'1.0.0',
 	'',

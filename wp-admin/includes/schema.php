@@ -418,7 +418,7 @@ function populate_options( array $options = array() ) {
 	);
 
 	$keys             = "'" . implode( "', '", array_keys( $options ) ) . "'";
-	$existing_options = $wpdb->get_col( "SELECT option_name FROM $wpdb->options WHERE option_name in ( $keys )" ); // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+	$existing_options = $wpdb->get_col( "SELECT option_name FROM $wpdb->options WHERE option_name in ( $keys )" ); // phpcs:ignore Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 
 	$insert = '';
 
@@ -443,7 +443,7 @@ function populate_options( array $options = array() ) {
 	}
 
 	if ( ! empty( $insert ) ) {
-		$wpdb->query( "INSERT INTO $wpdb->options (option_name, option_value, autoload) VALUES " . $insert ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
+		$wpdb->query( "INSERT INTO $wpdb->options (option_name, option_value, autoload) VALUES " . $insert ); // phpcs:ignore Retraceur.DB.PreparedSQL.NotPrepared
 	}
 
 	// In case it is set, but blank, update "home".

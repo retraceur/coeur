@@ -896,7 +896,7 @@ function maybe_convert_table_to_utf8mb4( $table ) {
  * @param string $setting Option name.
  * @return mixed Option value.
  */
-function __get_option( $setting ) { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionDoubleUnderscore,PHPCompatibility.FunctionNameRestrictions.ReservedFunctionNames.FunctionDoubleUnderscore
+function __get_option( $setting ) { // phpcs:ignore Retraceur.NamingConventions.ValidFunctionName.FunctionDoubleUnderscore,PHPCompatibility.FunctionNameRestrictions.ReservedFunctionNames.FunctionDoubleUnderscore
 	global $wpdb;
 
 	if ( 'home' === $setting && defined( 'WP_HOME' ) ) {
@@ -967,7 +967,7 @@ function deslash( $content ) {
  *                                 Default true.
  * @return string[] Strings containing the results of the various update queries.
  */
-function dbDelta( $queries = '', $execute = true ) { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid
+function dbDelta( $queries = '', $execute = true ) { // phpcs:ignore Retraceur.NamingConventions.ValidFunctionName.FunctionNameInvalid
 	global $wpdb;
 
 	if ( in_array( $queries, array( '', 'all', 'blog', 'global', 'ms_global' ), true ) ) {

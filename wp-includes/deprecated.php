@@ -13959,7 +13959,7 @@ function comment_author_link( $comment_id = 0 ) {
  *                                   Default current comment.
  * @return string Comment author's IP address, or an empty string if it's not available.
  */
-function get_comment_author_IP( $comment_id = 0 ) { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid
+function get_comment_author_IP( $comment_id = 0 ) { // phpcs:ignore Retraceur.NamingConventions.ValidFunctionName.FunctionNameInvalid
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 
 	/**
@@ -13974,7 +13974,7 @@ function get_comment_author_IP( $comment_id = 0 ) { // phpcs:ignore WordPress.Na
 	 * @param WP_Comment $comment           The comment object.
 	 */
 	apply_filters_deprecated(
-		'get_comment_author_IP', // phpcs:ignore WordPress.NamingConventions.ValidHookName.NotLowercase
+		'get_comment_author_IP', // phpcs:ignore Retraceur.NamingConventions.ValidHookName.NotLowercase
 		array( '', '', null ),
 		'1.0.0',
 		'',
@@ -13992,7 +13992,7 @@ function get_comment_author_IP( $comment_id = 0 ) { // phpcs:ignore WordPress.Na
  * @param int|WP_Comment $comment_id Optional. WP_Comment or the ID of the comment for which to print the author's IP address.
  *                                   Default current comment.
  */
-function comment_author_IP( $comment_id = 0 ) { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid
+function comment_author_IP( $comment_id = 0 ) { // phpcs:ignore Retraceur.NamingConventions.ValidFunctionName.FunctionNameInvalid
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 }
 
@@ -14337,7 +14337,7 @@ function comment_excerpt( $comment_id = 0 ) {
  *
  * @return string The comment ID as a numeric string.
  */
-function get_comment_ID() { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid
+function get_comment_ID() { // phpcs:ignore Retraceur.NamingConventions.ValidFunctionName.FunctionNameInvalid
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 
 	/**
@@ -14351,7 +14351,7 @@ function get_comment_ID() { // phpcs:ignore WordPress.NamingConventions.ValidFun
 	 * @param WP_Comment $comment    The comment object.
 	 */
 	apply_filters_deprecated(
-		'get_comment_ID', // phpcs:ignore WordPress.NamingConventions.ValidHookName.NotLowercase
+		'get_comment_ID', // phpcs:ignore Retraceur.NamingConventions.ValidHookName.NotLowercase
 		array( '', null ),
 		'1.0.0',
 		'',
@@ -14367,7 +14367,7 @@ function get_comment_ID() { // phpcs:ignore WordPress.NamingConventions.ValidFun
  * @since WP 0.71
  * @deprecated 1.0.0 Retraceur fork.
  */
-function comment_ID() { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid
+function comment_ID() { // phpcs:ignore Retraceur.NamingConventions.ValidFunctionName.FunctionNameInvalid
 	_deprecated_function( __FUNCTION__, '1.0.0', '', true );
 }
 

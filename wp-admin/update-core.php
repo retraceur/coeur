@@ -1101,5 +1101,5 @@ if ( 'upgrade-core' === $action ) {
 	 *
 	 * @since WP 3.2.0
 	 */
-	do_action( "update-core-custom_{$action}" );  // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
+	do_action( "update-core-custom_{$action}" );  // phpcs:ignore Retraceur.NamingConventions.ValidHookName.UseUnderscores
 }

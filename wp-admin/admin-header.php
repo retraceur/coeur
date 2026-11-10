@@ -134,7 +134,7 @@ do_action( 'admin_enqueue_scripts', $hook_suffix );
  *
  * @since WP 2.6.0
  */
-do_action( "admin_print_styles-{$hook_suffix}" ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
+do_action( "admin_print_styles-{$hook_suffix}" ); // phpcs:ignore Retraceur.NamingConventions.ValidHookName.UseUnderscores
 
 /**
  * Fires when styles are printed for all admin pages.
@@ -148,7 +148,7 @@ do_action( 'admin_print_styles' );
  *
  * @since WP 2.1.0
  */
-do_action( "admin_print_scripts-{$hook_suffix}" ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
+do_action( "admin_print_scripts-{$hook_suffix}" ); // phpcs:ignore Retraceur.NamingConventions.ValidHookName.UseUnderscores
 
 /**
  * Fires when scripts are printed for all admin pages.
@@ -165,7 +165,7 @@ do_action( 'admin_print_scripts' );
  *
  * @since WP 2.1.0
  */
-do_action( "admin_head-{$hook_suffix}" ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
+do_action( "admin_head-{$hook_suffix}" ); // phpcs:ignore Retraceur.NamingConventions.ValidHookName.UseUnderscores
 
 /**
  * Fires in head section for all admin pages.

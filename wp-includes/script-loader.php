@@ -173,7 +173,7 @@ function wp_default_packages_vendor( $scripts ) {
  * These scripts enable hot module replacement (HMR) for block development
  * when using `wp-scripts start --hot`.
  *
- * @see https://github.com/WordPress/gutenberg/tree/trunk/packages/scripts#start
+ * @see https://github.com/wordpress/gutenberg/tree/trunk/packages/scripts#start
  *
  * @since WP 6.0.0
  *

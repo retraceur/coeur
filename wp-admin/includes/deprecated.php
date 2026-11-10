@@ -3287,7 +3287,7 @@ function post_comment_status_meta_box( $post ) {
 	 * @param WP_Post $post WP_Post object for the current post.
 	 */
 	do_action_deprecated(
-		'post_comment_status_meta_box-options', // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
+		'post_comment_status_meta_box-options', // phpcs:ignore Retraceur.NamingConventions.ValidHookName.UseUnderscores
 		array( null ),
 		'1.0.0',
 		'',
@@ -4206,7 +4206,7 @@ function wp_plugin_update_row( $file, $plugin_data ) {
 	 * }
 	 */
 	do_action_deprecated(
-		"in_plugin_update_message-{$file}", // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
+		"in_plugin_update_message-{$file}", // phpcs:ignore Retraceur.NamingConventions.ValidHookName.UseUnderscores
 		array( $plugin_data, $response ),
 		'4.0.0',
 		'',

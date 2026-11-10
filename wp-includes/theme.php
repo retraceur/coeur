@@ -2943,7 +2943,7 @@ function current_theme_supports( $feature, ...$args ) {
 	// If no args passed then no extra checks need to be performed.
 	if ( ! $args ) {
 		/** This filter is documented in wp-includes/theme.php */
-		return apply_filters( "current_theme_supports-{$feature}", true, $args, $_wp_theme_features[ $feature ] ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
+		return apply_filters( "current_theme_supports-{$feature}", true, $args, $_wp_theme_features[ $feature ] ); // phpcs:ignore Retraceur.NamingConventions.ValidHookName.UseUnderscores
 	}
 
 	switch ( $feature ) {
@@ -2989,7 +2989,7 @@ function current_theme_supports( $feature, ...$args ) {
 	 * @param array  $args     Array of arguments for the feature.
 	 * @param string $feature  The theme feature.
 	 */
-	return apply_filters( "current_theme_supports-{$feature}", true, $args, $_wp_theme_features[ $feature ] ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
+	return apply_filters( "current_theme_supports-{$feature}", true, $args, $_wp_theme_features[ $feature ] ); // phpcs:ignore Retraceur.NamingConventions.ValidHookName.UseUnderscores
 }
 
 /**

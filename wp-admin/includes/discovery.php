@@ -464,7 +464,7 @@ function retraceur_discovery_clean_cache( $full_name ) {
 	/*
 	 * Clean the releases feed cache, letting SimplePie resolve its own
 	 * cache key rather than guessing its internal format, which may
-	 * vary across SimplePie/WordPress versions.
+	 * vary across SimplePie/WP versions.
 	 */
 	require_once ABSPATH . WPINC . '/class-simplepie.php';
 	require_once ABSPATH . WPINC . '/class-wp-feed-cache-transient.php';

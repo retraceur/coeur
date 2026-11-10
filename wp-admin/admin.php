@@ -241,7 +241,7 @@ if ( isset( $plugin_page ) ) {
 		 *
 		 * @since WP 2.1.0
 		 */
-		do_action( "load-{$page_hook}" ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
+		do_action( "load-{$page_hook}" ); // phpcs:ignore Retraceur.NamingConventions.ValidHookName.UseUnderscores
 		if ( ! isset( $_GET['noheader'] ) ) {
 			require_once ABSPATH . 'wp-admin/admin-header.php';
 		}
@@ -288,7 +288,7 @@ if ( isset( $plugin_page ) ) {
 		 *
 		 * @since WP 1.5.0
 		 */
-		do_action( "load-{$plugin_page}" ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
+		do_action( "load-{$plugin_page}" ); // phpcs:ignore Retraceur.NamingConventions.ValidHookName.UseUnderscores
 
 		if ( ! isset( $_GET['noheader'] ) ) {
 			require_once ABSPATH . 'wp-admin/admin-header.php';
@@ -317,7 +317,7 @@ if ( isset( $plugin_page ) ) {
 	 *
 	 * @since WP 2.1.0
 	 */
-	do_action( "load-{$pagenow}" ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
+	do_action( "load-{$pagenow}" ); // phpcs:ignore Retraceur.NamingConventions.ValidHookName.UseUnderscores
 
 	/*
 	 * The following hooks are fired to ensure backward compatibility.
@@ -326,17 +326,17 @@ if ( isset( $plugin_page ) ) {
 	if ( 'page' === $typenow ) {
 		if ( 'post-new.php' === $pagenow ) {
 			/** This action is documented in wp-admin/admin.php */
-			do_action( 'load-page-new.php' ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
+			do_action( 'load-page-new.php' ); // phpcs:ignore Retraceur.NamingConventions.ValidHookName.UseUnderscores
 		} elseif ( 'post.php' === $pagenow ) {
 			/** This action is documented in wp-admin/admin.php */
-			do_action( 'load-page.php' ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
+			do_action( 'load-page.php' ); // phpcs:ignore Retraceur.NamingConventions.ValidHookName.UseUnderscores
 		}
 	} elseif ( 'edit-tags.php' === $pagenow  && 'category' === $taxnow ) {
 		/** This action is documented in wp-admin/admin.php */
-		do_action( 'load-categories.php' ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
+		do_action( 'load-categories.php' ); // phpcs:ignore Retraceur.NamingConventions.ValidHookName.UseUnderscores
 	} elseif ( 'term.php' === $pagenow ) {
 		/** This action is documented in wp-admin/admin.php */
-		do_action( 'load-edit-tags.php' ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
+		do_action( 'load-edit-tags.php' ); // phpcs:ignore Retraceur.NamingConventions.ValidHookName.UseUnderscores
 	}
 }
 

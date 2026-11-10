@@ -804,14 +804,14 @@ class WP_Term_Query {
 		}
 
 		if ( 'count' === $_fields ) {
-			$count = $wpdb->get_var( $this->request ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
+			$count = $wpdb->get_var( $this->request ); // phpcs:ignore Retraceur.DB.PreparedSQL.NotPrepared
 			if ( $args['cache_results'] ) {
 				wp_cache_set_salted( $cache_key, $count, 'term-queries', $last_changed );
 			}
 			return $count;
 		}
 
-		$terms = $wpdb->get_results( $this->request ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
+		$terms = $wpdb->get_results( $this->request ); // phpcs:ignore Retraceur.DB.PreparedSQL.NotPrepared
 
 		if ( empty( $terms ) ) {
 			$this->terms = array();
