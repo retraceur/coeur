@@ -1,8 +1,10 @@
-// Télécharge PHPCS et les standards de code dans .phpcs/ (idempotent, checksums vérifiés).
-// Lancé automatiquement par `npm install` (script postinstall).
+// Downloads PHPCS & code standards in `.phpcs/`.
+// Fires on `npm install` command as a postinstall script.
 //
-// Développement de php-coding-standards en parallèle : définissez RETRACEUR_CS_PATH vers votre clone local,
-// RetraceurCS n'est alors pas téléchargé.
+// If you need to use a local clone of Retraceur php-coding-standards:
+// => use the `RETRACEUR_CS_PATH` environment variable to set the path
+// to your local clone.
+// In this case, RetraceurCS is not downloaded.
 import { mkdirSync, existsSync, writeFileSync, readFileSync, rmSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
@@ -19,7 +21,7 @@ mkdirSync(dir, { recursive: true });
 
 for (const [name, dep] of Object.entries(deps)) {
   if (name === 'RetraceurCS' && process.env.RETRACEUR_CS_PATH) {
-    console.log(`[phpcs] RetraceurCS : utilisation de ${process.env.RETRACEUR_CS_PATH}`);
+    console.log(`[phpcs] RetraceurCS: using ${process.env.RETRACEUR_CS_PATH}`);
     continue;
   }
 
@@ -31,21 +33,21 @@ for (const [name, dep] of Object.entries(deps)) {
   if (!res.ok) {
     const hint =
       name === 'RetraceurCS'
-        ? '\n  Le dépôt ou le tag n\'est peut-être pas encore publié : définissez RETRACEUR_CS_PATH vers un clone local de php-coding-standards.'
+        ? '\n  The repository or tag does not seem to be published: define the path to your php-coding-standards local clone in RETRACEUR_CS_PATH.'
         : '';
-    throw new Error(`${name}: HTTP ${res.status} sur ${dep.url}${hint}`);
+    throw new Error(`${name}: HTTP ${res.status} on ${dep.url}${hint}`);
   }
   const buf = Buffer.from(await res.arrayBuffer());
   const actual = createHash('sha256').update(buf).digest('hex');
 
   if (!dep.sha256) {
     throw new Error(
-      `${name}: aucun checksum épinglé dans phpcs-deps.json.\n` +
-        `  Vérifiez l'archive, puis ajoutez : "sha256": "${actual}"`
+      `${name}: no checksum specified in phpcs-deps.json.\n` +
+        `  Check the archive, than add : "sha256": "${actual}"`
     );
   }
   if (actual !== dep.sha256) {
-    throw new Error(`${name}: checksum invalide\n  attendu: ${dep.sha256}\n  obtenu : ${actual}`);
+    throw new Error(`${name}: invalid checksum\n  expected: ${dep.sha256}\n  current: ${actual}`);
   }
 
   if (name === 'phpcs') {
@@ -62,4 +64,4 @@ for (const [name, dep] of Object.entries(deps)) {
 }
 
 writeFileSync(stampFile, JSON.stringify(stamp, null, 2));
-console.log('[phpcs] prêt.');
+console.log('[phpcs] ready.');

@@ -1,5 +1,5 @@
-// Lance PHPCS avec les standards installés par bin/setup-phpcs.mjs.
-// Usage : node bin/phpcs.mjs [options phpcs…]      (par défaut : la configuration de phpcs.xml.dist)
+// Run PHPCS using installed standards by bin/setup-phpcs.mjs.
+// Way to use it: `node bin/phpcs.mjs [options phpcs…]` (uses phpcs.xml.dist config by default).
 import { existsSync, mkdirSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { dirname, join, resolve } from 'node:path';
@@ -14,7 +14,8 @@ if (php.error || php.status !== 0) {
   process.exit(1);
 }
 
-// phpcs.xml.dist écrit son cache dans .cache/ : PHPCS refuse de démarrer si le dossier n'existe pas.
+// phpcs.xml.dist needs a `.cache/` directory to write cached tests.
+// This folder is required by PHPCS.
 mkdirSync(join(root, '.cache'), { recursive: true });
 
 if (!existsSync(phar)) {
