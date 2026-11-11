@@ -31,7 +31,7 @@ get_current_screen()->add_help_tab(
 				__( 'You can choose what&#8217;s displayed on the homepage of your site. It can be posts in reverse chronological order (classic blog), or a fixed/static page. To set a static homepage, you first need to create two <a href="%s">Pages</a>. One will become the homepage, and the other will be where your posts are displayed.' ),
 				'post-new.php?post_type=page'
 			) . '</p>' .
-			'<p>' . __( 'You can also control the display of your content in RSS feeds, including the maximum number of posts to display and whether to show full text or an excerpt.' ). '</p>' .
+			'<p>' . __( 'You can also control the display of your content in RSS feeds, including the maximum number of posts to display and whether to show full text or an excerpt.' ) . '</p>' .
 			'<p>' . __( 'You must click the Save Changes button at the bottom of the screen for new settings to take effect.' ) . '</p>',
 	)
 );
@@ -187,7 +187,7 @@ else :
 		<label><input name="rss_use_excerpt" type="radio" value="1" <?php checked( 1, get_option( 'rss_use_excerpt' ) ); ?> /> <?php _e( 'Excerpt' ); ?></label>
 	</p>
 	<p class="description">
-		<?php esc_html_e( 'Your theme determines how content is displayed in browsers.' ) ;?>
+		<?php esc_html_e( 'Your theme determines how content is displayed in browsers.' ); ?>
 	</p>
 </fieldset></td>
 </tr>

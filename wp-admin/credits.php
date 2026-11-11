@@ -53,14 +53,14 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 
 	<div class="about__section">
 		<div class="column">
-			<h2><?php esc_html_e( 'Contributor' ) ;?></h2>
+			<h2><?php esc_html_e( 'Contributor' ); ?></h2>
 			<p><a href="https://github.com/imath">imath</a></p>
 		</div>
 	</div>
 
 	<div class="about__section">
 		<div class="column">
-			<h2><?php esc_html_e( 'Eternal thanks' ) ;?></h2>
+			<h2><?php esc_html_e( 'Eternal thanks' ); ?></h2>
 			<p>
 				<?php
 				printf(
@@ -103,7 +103,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 			</h2>
 			<ul>
 				<li><a href="https://www.libravatar.org/">Libravatar</a></li>
-				<li><a href="https://openmoji.org/">OpenMoji</a> <?php echo wp_staticize_emoji( '🚀' ) ;?></li>
+				<li><a href="https://openmoji.org/">OpenMoji</a> <?php echo wp_staticize_emoji( '🚀' ); ?></li>
 				<li><a href="https://wsrv.nl/">wsrv.nl</a></li>
 				<li><a href="https://undraw.co/">unDraw</a></li>
 			</ul>

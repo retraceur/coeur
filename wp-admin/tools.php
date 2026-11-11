@@ -88,7 +88,8 @@ $tool_infos = array(
 ?>
 
 <div class="flex-row">
-	<?php foreach ( $tool_infos as $page => $tool ) {
+	<?php
+	foreach ( $tool_infos as $page => $tool ) {
 		if ( ! current_user_can( $tool['capacity'] ) ) {
 			continue;
 		}

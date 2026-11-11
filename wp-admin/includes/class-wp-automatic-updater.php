@@ -154,7 +154,7 @@ class WP_Automatic_Updater {
 	public function should_update( $type, $item, $context ) {
 		_deprecated_function( __METHOD__, '2.0.0', '', true );
 		$update = false;
-		$item   =  new stdClass();
+		$item   = new stdClass();
 
 		/**
 		 * Filters whether to automatically update core, a plugin, a theme, or a language.
@@ -210,7 +210,6 @@ class WP_Automatic_Updater {
 	protected function send_core_update_notification_email( $item ) {
 		_deprecated_function( __METHOD__, '2.0.0', '', true );
 
-
 		// Don't notify if we've already notified the same email address of the same version.
 		if ( $notified
 			&& get_site_option( 'admin_email' ) === $notified['email']
@@ -264,7 +263,7 @@ class WP_Automatic_Updater {
 	 */
 	public function update( $type, $item ) {
 		_deprecated_function( __METHOD__, '2.0.0', '', true );
-		$item =  new stdClass();
+		$item = new stdClass();
 
 		/**
 		 * Fires immediately prior to an auto-update.

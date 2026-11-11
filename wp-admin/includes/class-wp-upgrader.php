@@ -339,8 +339,8 @@ class WP_Upgrader {
 				"https://api.github.com/repos/{$owner_repo}/releases/tags/{$tag}",
 				array(
 					'headers' => array(
-						'Accept' => 'application/vnd.github+json'
-					)
+						'Accept' => 'application/vnd.github+json',
+					),
 				)
 			);
 
@@ -595,10 +595,10 @@ class WP_Upgrader {
 		$clear_destination = $args['clear_destination'];
 
 		/*
- 		 * Give the upgrade an additional 300 seconds (5 minutes) to ensure the install
- 		 * doesn't prematurely timeout having used up the maximum script execution time
- 		 * downloading and unpacking in WP_Upgrader->run().
- 		 */
+		 * Give the upgrade an additional 300 seconds (5 minutes) to ensure the install
+		 * doesn't prematurely timeout having used up the maximum script execution time
+		 * downloading and unpacking in WP_Upgrader->run().
+		 */
 		if ( function_exists( 'set_time_limit' ) ) {
 			set_time_limit( 300 );
 		}

@@ -326,12 +326,12 @@ if ( ! function_exists( 'wp_install_defaults' ) ) :
 
 		$first_page = "<!-- wp:paragraph -->\n<p>";
 		/* translators: First page content. */
-		$first_page .= __( "This is a page, unlike posts, which appear chronologically in your news feed, pages are hierarchical content that can be used to introduce yourself or share lasting information about you. As most people start with an About page, here is an example of what you might say to your visitors:" );
+		$first_page .= __( 'This is a page, unlike posts, which appear chronologically in your news feed, pages are hierarchical content that can be used to introduce yourself or share lasting information about you. As most people start with an About page, here is an example of what you might say to your visitors:' );
 		$first_page .= "</p>\n<!-- /wp:paragraph -->\n\n";
 
 		$first_page .= "<!-- wp:quote -->\n<blockquote class=\"wp-block-quote\">\n<!-- wp:paragraph -->\n<p>";
 		/* translators: First page content. */
-		$first_page .= __( "Hi there! This is my personal website. I use it to retrace great stories and share my thoughts." );
+		$first_page .= __( 'Hi there! This is my personal website. I use it to retrace great stories and share my thoughts.' );
 		$first_page .= "</p>\n<!-- /wp:paragraph -->\n</blockquote>\n<!-- /wp:quote -->\n\n";
 
 		$first_page .= "<!-- wp:paragraph -->\n<p>";

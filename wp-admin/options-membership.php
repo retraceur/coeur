@@ -80,7 +80,7 @@ if ( ! is_multisite() ) {
 	</tr>
 	<?php do_settings_fields( 'membership', 'default' ); ?>
 	</table>
-<?php
+	<?php
 }
 ?>
 

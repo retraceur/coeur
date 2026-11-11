@@ -394,8 +394,10 @@ function list_plugin_updates() {
 		}
 
 		$details_url = '';
+		// phpcs:disable Retraceur.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
 		if ( ! empty( $plugin_data->GitHubPluginURI ) ) {
 			$details_url = trailingslashit( $plugin_data->GitHubPluginURI ) . 'releases/tag/' . $plugin_data->update->new_version;
+			// phpcs:enable Retraceur.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
 		} elseif ( ! empty( $plugin_data->update->url ) ) {
 			$details_url = $plugin_data->update->url;
 		}
@@ -406,7 +408,7 @@ function list_plugin_updates() {
 				'<a href="%1$s" aria-label="%2$s">%3$s</a> <a href="%1$s" aria-label="%2$s" target="_blank" class="open-external"><span class="dashicons dashicons-external"></span></a>',
 				esc_url( $details_url ),
 				/* translators: 1: Plugin name, 2: Version number. */
-				esc_attr( sprintf( __( 'View %1$s version %2$s details' ), $plugin_data->Name, $plugin_data->update->new_version ) ),
+				esc_attr( sprintf( __( 'View %1$s version %2$s details' ), $plugin_data->Name, $plugin_data->update->new_version ) ), // phpcs:ignore Retraceur.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
 				/* translators: %s: Plugin version. */
 				sprintf( __( 'View version %s details.' ), $plugin_data->update->new_version )
 			);
@@ -493,7 +495,7 @@ function list_theme_updates() {
 	?>
 </h2>
 <p><?php _e( 'The following themes have new versions available. Check the ones you want to update and then click &#8220;Update Themes&#8221;.' ); ?></p>
-<p><?php esc_html_e( 'Please Note: Any customizations you have made to theme files will be lost. Please consider using child themes for modifications.' ) ;?></p>
+<p><?php esc_html_e( 'Please Note: Any customizations you have made to theme files will be lost. Please consider using child themes for modifications.' ); ?></p>
 <form method="post" action="<?php echo esc_url( $form_action ); ?>" name="upgrade-themes" class="upgrade">
 	<?php wp_nonce_field( 'upgrade-core' ); ?>
 <p><input id="upgrade-themes" class="button" type="submit" value="<?php esc_attr_e( 'Update Themes' ); ?>" name="upgrade" /></p>

@@ -672,9 +672,8 @@ function export_wp( $args = array() ) {
 		<wp:meta_value><?php echo wxr_cdata( $meta->meta_value ); ?></wp:meta_value>
 		</wp:postmeta>
 					<?php
-	endforeach; ?>
-
-
+				endforeach;
+				?>
 		</item>
 				<?php
 			}

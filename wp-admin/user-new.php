@@ -89,7 +89,7 @@ get_current_screen()->add_help_tab(
 		'id'      => 'overview',
 		'title'   => __( 'Overview' ),
 		'content' => '<p>' . __( 'To add a contributor to your site, fill in the form on this screen and click the Add Contributor button at the bottom.' ) . '</p>' .
-		             '<p>' . __( 'New contributors are automatically assigned a password, which they can change after logging in. You can view or edit the assigned password by clicking the Show Password button. The username cannot be changed once the contributor has been added.' ) . '</p>' .
+					 '<p>' . __( 'New contributors are automatically assigned a password, which they can change after logging in. You can view or edit the assigned password by clicking the Show Password button. The username cannot be changed once the contributor has been added.' ) . '</p>' .
 					 '<p>' . __( 'By default, new contributors will receive an email letting them know they&#8217;ve been added as a contributor for your site. This email will also contain a password reset link. Uncheck the box if you do not want to send the new contributor a welcome email.' ) . '</p>' .
 					 '<p>' . __( 'Remember to click the Add Contributor button at the bottom of this screen when you are finished.' ) . '</p>',
 	)
@@ -189,7 +189,8 @@ endif;
 ?>
 <div id="ajax-response"></div>
 
-<?php if ( current_user_can( 'create_users' ) ) {
+<?php
+if ( current_user_can( 'create_users' ) ) {
 	?>
 <p><?php _e( 'Create a brand new contributor and add them to this site.' ); ?></p>
 <form method="post" name="createuser" id="createuser" class="validate" novalidate="novalidate"

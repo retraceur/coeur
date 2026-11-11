@@ -89,7 +89,8 @@ $tagline_description = sprintf(
 <p class="description" id="tagline-description"><?php echo $tagline_description; ?></p></td>
 </tr>
 
-<?php if ( ! is_multisite() ) {
+<?php
+if ( ! is_multisite() ) {
 	$wp_site_url_class = '';
 	$wp_home_class     = '';
 	if ( defined( 'WP_SITEURL' ) ) {
@@ -109,10 +110,10 @@ $tagline_description = sprintf(
 <th scope="row"><label for="home"><?php _e( 'Site Address (URL)' ); ?></label></th>
 <td><input name="home" type="url" id="home" aria-describedby="home-description" value="<?php form_option( 'home' ); ?>"<?php disabled( defined( 'WP_HOME' ) ); ?> class="regular-text code<?php echo $wp_home_class; ?>" />
 	<?php if ( ! defined( 'WP_HOME' ) ) : ?>
-<p class="description" id="home-description">
-	<?php esc_html_e( 'Enter the same address here unless you want your site home page to be different from your Retraceur installation directory.' ); ?>
-</p>
-<?php endif; ?>
+	<p class="description" id="home-description">
+		<?php esc_html_e( 'Enter the same address here unless you want your site home page to be different from your Retraceur installation directory.' ); ?>
+	</p>
+	<?php endif; ?>
 </td>
 </tr>
 
@@ -362,21 +363,21 @@ foreach ( $date_formats as $format ) {
 				/* translators: time format, see https://www.php.net/manual/datetime.format.php */
 				__( 'g:i a' ),
 				'g:i A',
-				'H:i'
+				'H:i',
 			)
 		)
 	);
 
 	$custom = true;
 
-foreach ( $time_formats as $format ) {
-	echo "\t<label><input type='radio' name='time_format' value='" . esc_attr( $format ) . "'";
-	if ( get_option( 'time_format' ) === $format ) { // checked() uses "==" rather than "===".
-		echo " checked='checked'";
-		$custom = false;
+	foreach ( $time_formats as $format ) {
+		echo "\t<label><input type='radio' name='time_format' value='" . esc_attr( $format ) . "'";
+		if ( get_option( 'time_format' ) === $format ) { // checked() uses "==" rather than "===".
+			echo " checked='checked'";
+			$custom = false;
+		}
+		echo ' /> <span class="date-time-text format-i18n">' . date_i18n( $format ) . '</span><code>' . esc_html( $format ) . "</code></label><br />\n";
 	}
-	echo ' /> <span class="date-time-text format-i18n">' . date_i18n( $format ) . '</span><code>' . esc_html( $format ) . "</code></label><br />\n";
-}
 
 	echo '<label><input type="radio" name="time_format" id="time_format_custom_radio" value="\c\u\s\t\o\m"';
 	checked( $custom );
@@ -392,7 +393,7 @@ foreach ( $time_formats as $format ) {
 		'<br />' .
 		'<p><strong>' . __( 'Preview:' ) . '</strong> <span class="example">' . date_i18n( get_option( 'time_format' ) ) . '</span>' .
 		"<span class='spinner'></span>\n" . '</p>';
-?>
+	?>
 	</fieldset>
 </td>
 </tr>
