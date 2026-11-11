@@ -34,7 +34,8 @@ $last_role_names = array_pop( $role_names );
 
 $role_list = sprintf(
 	/* Translators: 1: a comma separated list of first role names. 2: the last role names. */
-	__( '%1$s or %2$s' ), implode( ', ', $role_names ),
+	__( '%1$s or %2$s' ),
+	implode( ', ', $role_names ),
 	$last_role_names
 );
 

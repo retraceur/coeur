@@ -1,7 +1,7 @@
 <?php
 /**
  * Upgrader API: Plugin_Upgrader_Skin class.
- * 
+ *
  * @since WP 4.6.0
  * @since 1.0.0 Retraceur fork.
  *

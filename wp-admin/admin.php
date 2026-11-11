@@ -331,7 +331,7 @@ if ( isset( $plugin_page ) ) {
 			/** This action is documented in wp-admin/admin.php */
 			do_action( 'load-page.php' ); // phpcs:ignore Retraceur.NamingConventions.ValidHookName.UseUnderscores
 		}
-	} elseif ( 'edit-tags.php' === $pagenow  && 'category' === $taxnow ) {
+	} elseif ( 'edit-tags.php' === $pagenow && 'category' === $taxnow ) {
 		/** This action is documented in wp-admin/admin.php */
 		do_action( 'load-categories.php' ); // phpcs:ignore Retraceur.NamingConventions.ValidHookName.UseUnderscores
 	} elseif ( 'term.php' === $pagenow ) {

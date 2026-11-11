@@ -513,9 +513,9 @@ function update_core( $from, $to ) {
 	global $wp_filesystem, $_old_files, $_new_bundled_files, $_bundled_files_to_refresh, $wpdb;
 
 	/*
- 	 * Give core update script an additional 300 seconds (5 minutes)
- 	 * to finish updating large files when running on slower servers.
- 	 */
+	 * Give core update script an additional 300 seconds (5 minutes)
+	 * to finish updating large files when running on slower servers.
+	 */
 	if ( function_exists( 'set_time_limit' ) ) {
 		set_time_limit( 300 );
 	}

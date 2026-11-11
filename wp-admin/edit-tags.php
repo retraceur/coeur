@@ -634,7 +634,8 @@ if ( $can_create_terms ) {
 
 <div id="col-right">
 <div class="col-wrap">
-<?php }
+	<?php
+}
 
 if ( $can_edit_terms ) {
 	$wp_list_table->views();
@@ -644,40 +645,40 @@ if ( $can_edit_terms ) {
 <input type="hidden" name="taxonomy" value="<?php echo esc_attr( $taxonomy ); ?>" />
 <input type="hidden" name="post_type" value="<?php echo esc_attr( $post_type ); ?>" />
 
-<?php $wp_list_table->display(); ?>
+	<?php $wp_list_table->display(); ?>
 
 </form>
 
-<?php if ( 'category' === $taxonomy ) : ?>
+	<?php if ( 'category' === $taxonomy ) : ?>
 <div class="form-wrap edit-term-notes">
-<p>
-	<?php
-	printf(
-		/* translators: %s: Default category. */
-		__( 'Deleting a category does not delete the posts in that category. Instead, posts that were only assigned to the deleted category are set to the default category %s. The default category cannot be deleted.' ),
-		/** This filter is documented in wp-includes/category-template.php */
-		'<strong>' . apply_filters( 'the_category', get_cat_name( get_option( 'default_category' ) ), '', '' ) . '</strong>'
-	);
-	?>
-</p>
+	<p>
+		<?php
+		printf(
+			/* translators: %s: Default category. */
+			__( 'Deleting a category does not delete the posts in that category. Instead, posts that were only assigned to the deleted category are set to the default category %s. The default category cannot be deleted.' ),
+			/** This filter is documented in wp-includes/category-template.php */
+			'<strong>' . apply_filters( 'the_category', get_cat_name( get_option( 'default_category' ) ), '', '' ) . '</strong>'
+		);
+		?>
+	</p>
 </div>
-<?php endif;
-
-/**
- * Fires after the taxonomy list table.
- *
- * The dynamic portion of the hook name, `$taxonomy`, refers to the taxonomy slug.
- *
- * Possible hook names include:
- *
- *  - `after-category-table`
- *  - `after-post_tag-table`
- *
- * @since WP 3.0.0
- *
- * @param string $taxonomy The taxonomy name.
- */
-do_action( "after-{$taxonomy}-table", $taxonomy );  // phpcs:ignore Retraceur.NamingConventions.ValidHookName.UseUnderscores
+	<?php endif; ?>
+	<?php
+	/**
+	 * Fires after the taxonomy list table.
+	 *
+	 * The dynamic portion of the hook name, `$taxonomy`, refers to the taxonomy slug.
+	 *
+	 * Possible hook names include:
+	 *
+	 *  - `after-category-table`
+	 *  - `after-post_tag-table`
+	 *
+	 * @since WP 3.0.0
+	 *
+	 * @param string $taxonomy The taxonomy name.
+	 */
+	do_action( "after-{$taxonomy}-table", $taxonomy );  // phpcs:ignore Retraceur.NamingConventions.ValidHookName.UseUnderscores
 }
 
 if ( $can_create_terms ) {

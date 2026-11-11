@@ -165,7 +165,13 @@ function wp_get_available_translations() {
 		}
 	}
 
-	$api = translations_api( 'core', array( 'version' => wp_get_wp_version(), 'retraceur_version' => retraceur_get_version() ) );
+	$api = translations_api(
+		'core',
+		array(
+			'version'           => wp_get_wp_version(),
+			'retraceur_version' => retraceur_get_version(),
+		)
+	);
 
 	if ( is_wp_error( $api ) || empty( $api['translations'] ) ) {
 		return array();

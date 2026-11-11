@@ -148,6 +148,7 @@ switch ( $action ) {
 			wp_die( __( 'Sorry, something went wrong. Please contact the administrator.' ) );
 		}
 
+		// Intentional fall-through.
 	case 'account-deletion':
 		if ( ! IS_PROFILE_PAGE || current_user_can( 'edit_published_posts' ) ) {
 			wp_die( __( 'Sorry, you are not allowed to delete this account.' ) );
@@ -909,7 +910,7 @@ switch ( $action ) {
 								</div>
 							<?php elseif ( ! wp_is_application_passwords_supported() ) : ?>
 								<p><?php _e( 'The application password feature requires HTTPS, which is not enabled on this site.' ); ?></p>
-								<p><?php esc_html_e( 'If this is a development website, you can set the environment type accordingly to enable application passwords.' ) ;?></p>
+								<p><?php esc_html_e( 'If this is a development website, you can set the environment type accordingly to enable application passwords.' ); ?></p>
 							<?php endif; ?>
 						</div>
 					<?php endif; // End Application Passwords. ?>
@@ -986,7 +987,7 @@ switch ( $action ) {
 					</table>
 				<?php endif; // End Display Additional Capabilities. ?>
 
-				<?php if ( IS_PROFILE_PAGE && ! current_user_can( 'edit_published_posts' ) ): ?>
+				<?php if ( IS_PROFILE_PAGE && ! current_user_can( 'edit_published_posts' ) ) : ?>
 					<h2 class="attention"><?php esc_html_e( 'Danger zone' ); ?></h2>
 
 					<table class="form-table" role="presentation">

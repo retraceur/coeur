@@ -1221,7 +1221,8 @@ class WP_Posts_List_Table extends WP_List_Table {
 		if ( has_post_format( get_supported_post_format_slugs(), $post ) ) {
 			$title = sprintf(
 				/* Translators: %s is the Post ID */
-				esc_html__( '#%s' ), $post->ID
+				esc_html__( '#%s' ),
+				$post->ID
 			);
 		} else {
 			$title = _draft_or_post_title();

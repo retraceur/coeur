@@ -440,8 +440,8 @@ foreach ( $themes as $theme ) :
 	$details_aria_label = sprintf( _x( 'View Theme Details for %s', 'theme' ), $theme['name'] );
 	?>
 	<button type="button" class="more-details" id="<?php echo esc_attr( $aria_action ); ?>"
- 		aria-label="<?php echo esc_attr( $details_aria_label ); ?>"
- 	><?php _e( 'Theme Details' ); ?></button>
+		aria-label="<?php echo esc_attr( $details_aria_label ); ?>"
+	><?php _e( 'Theme Details' ); ?></button>
 	<div class="theme-author">
 		<?php
 		/* translators: %s: Theme author name. */
@@ -466,9 +466,9 @@ foreach ( $themes as $theme ) :
 				$customize_aria_label = sprintf( _x( 'Customize %s', 'theme' ), $theme['name'] );
 				?>
 				<a class="button button-compact button-primary customize load-customize hide-if-no-customize"
- 					href="<?php echo esc_url( $theme['actions']['customize'] ); ?>"
- 					aria-label="<?php echo esc_attr( $customize_aria_label ); ?>"
- 				><?php _e( 'Customize' ); ?></a>
+					href="<?php echo esc_url( $theme['actions']['customize'] ); ?>"
+					aria-label="<?php echo esc_attr( $customize_aria_label ); ?>"
+				><?php _e( 'Customize' ); ?></a>
 			<?php } ?>
 		<?php } elseif ( $theme['compatibleWP'] && $theme['compatiblePHP'] ) { ?>
 			<?php
@@ -476,9 +476,9 @@ foreach ( $themes as $theme ) :
 			$aria_label = sprintf( _x( 'Activate %s', 'theme' ), '{{ data.name }}' );
 			?>
 			<a class="button button-compact activate"
- 				href="<?php echo esc_url( $theme['actions']['activate'] ); ?>"
- 				aria-label="<?php echo esc_attr( $aria_label ); ?>"
- 			><?php _e( 'Activate' ); ?></a>
+				href="<?php echo esc_url( $theme['actions']['activate'] ); ?>"
+				aria-label="<?php echo esc_attr( $aria_label ); ?>"
+			><?php _e( 'Activate' ); ?></a>
 
 		<?php } else { ?>
 			<?php
@@ -486,8 +486,8 @@ foreach ( $themes as $theme ) :
 			$aria_label = sprintf( _x( 'Cannot Activate %s', 'theme' ), '{{ data.name }}' );
 			?>
 			<a class="button button-compact disabled"
- 				aria-label="<?php echo esc_attr( $aria_label ); ?>"
- 			><?php _ex( 'Cannot Activate', 'theme' ); ?></a>
+				aria-label="<?php echo esc_attr( $aria_label ); ?>"
+			><?php _ex( 'Cannot Activate', 'theme' ); ?></a>
 		<?php } ?>
 
 		</div>
@@ -726,8 +726,8 @@ if ( ! is_multisite() && $broken_themes ) {
 	$details_aria_label = sprintf( _x( 'View Theme Details for %s', 'theme' ), '{{ data.name }}' );
 	?>
 	<button type="button" class="more-details" id="{{ data.id }}-action"
- 		aria-label="<?php echo esc_attr( $details_aria_label ); ?>"
- 	><?php _e( 'Theme Details' ); ?></button>
+		aria-label="<?php echo esc_attr( $details_aria_label ); ?>"
+	><?php _e( 'Theme Details' ); ?></button>
 	<div class="theme-author">
 		<?php
 		/* translators: %s: Theme author name. */
@@ -752,9 +752,9 @@ if ( ! is_multisite() && $broken_themes ) {
 					$customize_aria_label = sprintf( _x( 'Customize %s', 'theme' ), '{{ data.name }}' );
 					?>
 					<a class="button button-compact button-primary customize load-customize hide-if-no-customize"
- 						href="{{{ data.actions.customize }}}"
- 						aria-label="<?php echo esc_attr( $customize_aria_label ); ?>"
- 					><?php _e( 'Customize' ); ?></a>
+						href="{{{ data.actions.customize }}}"
+						aria-label="<?php echo esc_attr( $customize_aria_label ); ?>"
+					><?php _e( 'Customize' ); ?></a>
 				<# } #>
 			<# } else { #>
 				<# if ( data.compatibleWP && data.compatiblePHP ) { #>
@@ -763,17 +763,17 @@ if ( ! is_multisite() && $broken_themes ) {
 					$aria_label = sprintf( _x( 'Activate %s', 'theme' ), '{{ data.name }}' );
 					?>
 					<a class="button button-compact activate"
- 						href="{{{ data.actions.activate }}}"
- 						aria-label="<?php echo esc_attr( $aria_label ); ?>"
- 					><?php _e( 'Activate' ); ?></a>
+						href="{{{ data.actions.activate }}}"
+						aria-label="<?php echo esc_attr( $aria_label ); ?>"
+					><?php _e( 'Activate' ); ?></a>
 				<# } else { #>
 					<?php
 					/* translators: %s: Theme name. */
 					$aria_label = sprintf( _x( 'Cannot Activate %s', 'theme' ), '{{ data.name }}' );
 					?>
 					<a class="button button-compact disabled"
- 						aria-label="<?php echo esc_attr( $aria_label ); ?>"
- 					><?php _ex( 'Cannot Activate', 'theme' ); ?></a>
+						aria-label="<?php echo esc_attr( $aria_label ); ?>"
+					><?php _ex( 'Cannot Activate', 'theme' ); ?></a>
 				<# } #>
 			<# } #>
 		</div>
@@ -967,23 +967,23 @@ if ( ! is_multisite() && $broken_themes ) {
 				<# if ( data.compatibleWP && data.compatiblePHP ) { #>
 					<# if ( data.actions.activate ) { #>
 						<?php
- 						/* translators: %s: Theme name. */
- 						$aria_label = sprintf( _x( 'Activate %s', 'theme' ), '{{ data.name }}' );
- 						?>
- 						<a class="button button-compact activate"
- 							href="{{{ data.actions.activate }}}"
- 							aria-label="<?php echo esc_attr( $aria_label ); ?>"
- 						><?php _e( 'Activate' ); ?></a>
+						/* translators: %s: Theme name. */
+						$aria_label = sprintf( _x( 'Activate %s', 'theme' ), '{{ data.name }}' );
+						?>
+						<a class="button button-compact activate"
+							href="{{{ data.actions.activate }}}"
+							aria-label="<?php echo esc_attr( $aria_label ); ?>"
+						><?php _e( 'Activate' ); ?></a>
 					<# } #>
 				<# } else { #>
 					<# if ( data.actions.activate ) { #>
 						<?php
- 						/* translators: %s: Theme name. */
- 						$aria_label = sprintf( _x( 'Cannot Activate %s', 'theme' ), '{{ data.name }}' );
- 						?>
- 						<a class="button button-compact disabled"
- 							aria-label="<?php echo esc_attr( $aria_label ); ?>"
- 						><?php _ex( 'Cannot Activate', 'theme' ); ?></a>
+						/* translators: %s: Theme name. */
+						$aria_label = sprintf( _x( 'Cannot Activate %s', 'theme' ), '{{ data.name }}' );
+						?>
+						<a class="button button-compact disabled"
+							aria-label="<?php echo esc_attr( $aria_label ); ?>"
+						><?php _ex( 'Cannot Activate', 'theme' ); ?></a>
 					<# } #>
 				<# } #>
 			</div>
@@ -994,9 +994,9 @@ if ( ! is_multisite() && $broken_themes ) {
 				$aria_label = sprintf( _x( 'Delete %s', 'theme' ), '{{ data.name }}' );
 				?>
 				<a class="button button-compact delete-theme"
- 					href="{{{ data.actions['delete'] }}}"
- 					aria-label="<?php echo esc_attr( $aria_label ); ?>"
- 				><?php _e( 'Delete' ); ?></a>
+					href="{{{ data.actions['delete'] }}}"
+					aria-label="<?php echo esc_attr( $aria_label ); ?>"
+				><?php _e( 'Delete' ); ?></a>
 			<# } #>
 		</div>
 	</div>

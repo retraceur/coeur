@@ -100,7 +100,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 
 	<div class="about__section">
 		<div class="column">
-			<h2><?php esc_html_e( 'Code of conduct' ) ;?></h2>
+			<h2><?php esc_html_e( 'Code of conduct' ); ?></h2>
 			<p>
 				<?php
 				printf(
@@ -115,14 +115,14 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 
 	<div class="about__section">
 		<div class="column">
-			<h2><?php esc_html_e( 'Legal Notice' ) ;?></h2>
+			<h2><?php esc_html_e( 'Legal Notice' ); ?></h2>
 			<p><?php esc_html_e( 'When contributing to this project, you must agree that you have authored 100% of the content, that you have the necessary rights to the content and that the content you contribute may be provided under the GPL.' ); ?></p>
 		</div>
 	</div>
 
 	<div class="about__section">
 		<div class="column">
-			<h2><?php esc_html_e( 'Reporting security issues' ) ;?></h2>
+			<h2><?php esc_html_e( 'Reporting security issues' ); ?></h2>
 			<p>
 				<?php
 				printf(

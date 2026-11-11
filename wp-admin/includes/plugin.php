@@ -1184,7 +1184,7 @@ function validate_plugin_requirements( $plugin ) {
 			) . '</p>'
 		);
 	} elseif ( ! $is_compatible ) {
-		$req = ! empty( $requirements['requires_r'] ) ? $requirements['requires_r']  : __( 'Unknown' );
+		$req = ! empty( $requirements['requires_r'] ) ? $requirements['requires_r'] : __( 'Unknown' );
 
 		return new WP_Error(
 			'plugin_wp_incompatible',

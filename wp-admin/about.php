@@ -65,8 +65,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 				<h3><?php esc_html_e( 'An open crossroads for evolving your site' ); ?></h3>
 				<p>
 					<strong>
-						<?php esc_html_e( 'Retraceur was born from a simple goal: taking back control of our personal presence on the Web.' );
-						?>
+						<?php esc_html_e( 'Retraceur was born from a simple goal: taking back control of our personal presence on the Web.' ); ?>
 					</strong>
 					<br /><?php esc_html_e( 'This new version takes an important step in that direction.' ); ?>
 					<br /><?php esc_html_e( 'Retraceur can now discover and update the Plugins and Blocks that enrich our sites, without creating a new dependency on a centralized platform.' ); ?>
@@ -87,7 +86,8 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 					);
 					?>
 					<br /><?php esc_html_e( 'The goal is more ambitious than rebuilding another centralized directory: freeing developers to publish, and users to discover Plugins and Blocks.' ); ?>
-					<br /><?php
+					<br />
+					<?php
 					printf(
 						/* Translators: %s: The discovery API goal in blod format. */
 						esc_html__( 'The direction is clear: progressively build a “%s” mechanism that will ultimately depend on no particular infrastructure.' ),
@@ -121,7 +121,8 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 					);
 					?>
 					<br /><?php esc_html_e( 'Retraceur can now check whether new versions of installed Plugins and Blocks are available, and offer to update them directly from the site administration, currently relying on GitHub.' ); ?>
-					<br /><?php
+					<br />
+					<?php
 					printf(
 						/* Translators: %s: The update API goal in blod format. */
 						esc_html__( 'Here too, the direction is the same: enable infrastructure %s so that no single one becomes essential to Retraceur\'s operation.' ),

@@ -129,7 +129,13 @@ function undismiss_coeur_update( $version ) {
  * @return array|false The core update offering on success, false on failure.
  */
 function retraceur_find_coeur_update( $version, $locale, $options = array() ) {
-	$updates = wp_list_filter( retraceur_get_updates( $options ), array( 'version' => $version, 'locale' => $locale ) );
+	$updates = wp_list_filter(
+		retraceur_get_updates( $options ),
+		array(
+			'version' => $version,
+			'locale'  => $locale,
+		)
+	);
 	$update  = reset( $updates );
 
 	if ( ! $update ) {

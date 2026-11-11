@@ -373,7 +373,7 @@ function retraceur_discovery_api( $action, $args = array() ) {
 function retraceur_discovery_resolve_full_name( $item_data ) {
 	$full_name = '';
 
-	$parse_github_url = function( $url ) {
+	$parse_github_url = function ( $url ) {
 		if ( ! $url || ! str_contains( $url, 'github.com' ) ) {
 			return '';
 		}
