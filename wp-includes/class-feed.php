@@ -1,7 +1,7 @@
 <?php
 /**
  * Feed API.
- * 
+ *
  * @deprecated WP 4.7.0
  *
  * @package Retraceur

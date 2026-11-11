@@ -4,7 +4,7 @@
  *
  * This file contains a variety of public functions developers can use to interact with
  * the Style Engine API.
- * 
+ *
  * @since WP 6.1.0
  * @since 1.0.0 Retraceur fork.
  *

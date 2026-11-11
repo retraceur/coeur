@@ -94,7 +94,7 @@ class Retraceur_Opengraph_Renderer {
 	 * @return string The article's Retraceur Opengraph meta tags.
 	 */
 	private function render_article_properties( Retraceur_Opengraph_Context $context ) {
-		if ( $context->type !== 'article' ) {
+		if ( 'article' !== $context->type ) {
 			return '';
 		}
 

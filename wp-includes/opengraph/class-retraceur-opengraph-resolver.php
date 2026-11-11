@@ -158,13 +158,12 @@ class Retraceur_Opengraph_Resolver {
 						get_bloginfo( 'name', 'display' )
 					);
 				}
-
 			} elseif ( $queried_object instanceof WP_Term ) {
 				$description = term_description();
 			}
 		}
 
-		if ( empty( $description) ) {
+		if ( empty( $description ) ) {
 			$description = sprintf(
 				/* Translators: %s is the Website name. */
 				_x( 'A %s website’s page.', 'Default Opengraph description' ),

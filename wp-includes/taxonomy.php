@@ -171,8 +171,8 @@ function create_initial_taxonomies() {
 				'schema' => array(
 					'type'    => 'string',
 					'default' => '',
-				)
-			)
+				),
+			),
 		)
 	);
 
@@ -193,8 +193,8 @@ function create_initial_taxonomies() {
 				'schema' => array(
 					'type'    => 'string',
 					'default' => '',
-				)
-			)
+				),
+			),
 		)
 	);
 
@@ -211,8 +211,8 @@ function create_initial_taxonomies() {
 				'schema' => array(
 					'type'    => 'string',
 					'default' => '',
-				)
-			)
+				),
+			),
 		)
 	);
 

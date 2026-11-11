@@ -24,7 +24,7 @@ function render_block_core_post_format_part( $attributes, $content, $block ) {
 		return '';
 	}
 
-	$post_id             =  (int) $block->context['postId'];
+	$post_id             = (int) $block->context['postId'];
 	$current_post_format = get_post_format( $post_id );
 
 	if ( ! $current_post_format ) {

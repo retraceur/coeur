@@ -299,14 +299,14 @@ class WP_REST_Terms_Controller extends WP_REST_Controller {
 		}
 
 		/*
- 		 * When a taxonomy is registered with an 'args' array,
- 		 * those params override the `$args` passed to this function.
- 		 *
- 		 * We only need to do this if no `post` argument is provided.
- 		 * Otherwise, terms will be fetched using `wp_get_object_terms()`,
- 		 * which respects the default query arguments set for the taxonomy.
- 		 */
-		  if (
+		 * When a taxonomy is registered with an 'args' array,
+		 * those params override the `$args` passed to this function.
+		 *
+		 * We only need to do this if no `post` argument is provided.
+		 * Otherwise, terms will be fetched using `wp_get_object_terms()`,
+		 * which respects the default query arguments set for the taxonomy.
+		 */
+		if (
 			empty( $prepared_args['post'] ) &&
 			isset( $taxonomy_obj->args ) &&
 			is_array( $taxonomy_obj->args )

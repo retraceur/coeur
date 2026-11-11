@@ -287,8 +287,8 @@ function wp_default_packages_scripts( $scripts ) {
 	$assets      = file_exists( $assets_file ) ? include $assets_file : array();
 
 	$retraceur_assets = array(
-		'retraceur-discovery'    => include ABSPATH . WPINC . "/assets/discovery.asset.php",
-		'retraceur-global-media' => include ABSPATH . WPINC . "/assets/global-media.asset.php",
+		'retraceur-discovery'    => include ABSPATH . WPINC . '/assets/discovery.asset.php',
+		'retraceur-global-media' => include ABSPATH . WPINC . '/assets/global-media.asset.php',
 	);
 
 	// Merge WP and Retraceur specific assets.

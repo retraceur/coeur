@@ -126,7 +126,7 @@ function login_header( $title = null, $message = '', $wp_error = null ) {
 	 */
 	do_action( 'login_head' );
 
-	$login_header_url = get_bloginfo( 'url', 'display' );;
+	$login_header_url = get_bloginfo( 'url', 'display' );
 
 	/**
 	 * Filters link URL of the header logo above login form.

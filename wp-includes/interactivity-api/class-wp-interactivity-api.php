@@ -693,7 +693,7 @@ final class WP_Interactivity_API {
 			 * @since WP 6.8.0
 			 * @since 2.0.0 Retraceur fork.
 			 */
-			  if ( 'length' === $path_segment ) {
+			if ( 'length' === $path_segment ) {
 				if ( is_array( $current ) && array_is_list( $current ) ) {
 					$current = count( $current );
 					break;

@@ -94,7 +94,7 @@ class WP_Http_Encoding {
 	 * takes place. For a simple pragmatic way to determine the magic offset in use.
 	 *
 	 * @since WP 2.8.1
-	 * 
+	 *
 	 * @link https://www.php.net/manual/en/function.gzinflate.php#70875
 	 * @link https://www.php.net/manual/en/function.gzinflate.php#77336
 	 *

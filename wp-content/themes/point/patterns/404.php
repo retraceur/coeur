@@ -12,7 +12,7 @@
 ?>
 <!-- wp:image {"align":"center","sizeSlug":"large"} -->
 <figure class="wp-block-image aligncenter size-large">
-	<img src="<?php echo esc_url( get_template_directory_uri() );?>/assets/images/404.svg" alt=""/>
+	<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/404.svg" alt=""/>
 </figure>
 <!-- /wp:image -->
 

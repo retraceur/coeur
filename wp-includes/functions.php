@@ -5588,19 +5588,19 @@ function _deprecated_class( $class_name, $version, $replacement = '', $is_retrac
  * @param bool   $is_retraceur       Optional. Whether this deprecation is specific to Retraceur fork.
  */
 function _deprecated_property( $property_name, $version, $replacement = '', $is_retraceur = false ) {
-    /**
-     * Fires when a deprecated property is accessed.
-     *
-     * @since Retraceur 4.0.0
+	/**
+	 * Fires when a deprecated property is accessed.
+	 *
+	 * @since Retraceur 4.0.0
 	 *
 	 * @param string $property_name The property that was accessed.
 	 * @param string $replacement   Optional. The property or method that should have been used.
 	 * @param string $version       The version of Retraceur that deprecated the property.
-     */
-    do_action( 'deprecated_property_run', $property_name, $replacement, $version );
+	 */
+	do_action( 'deprecated_property_run', $property_name, $replacement, $version );
 
-    /** This filter is documented alongside the other deprecated_*_trigger_error filters. */
-    if ( WP_DEBUG && apply_filters( 'deprecated_property_trigger_error', true ) ) {
+	/** This filter is documented alongside the other deprecated_*_trigger_error filters. */
+	if ( WP_DEBUG && apply_filters( 'deprecated_property_trigger_error', true ) ) {
 		if ( function_exists( '__' ) ) {
 			if ( $replacement ) {
 				$message = sprintf(
@@ -5639,8 +5639,8 @@ function _deprecated_property( $property_name, $version, $replacement = '', $is_
 			}
 		}
 
-        trigger_error( $message, E_USER_DEPRECATED );
-    }
+		trigger_error( $message, E_USER_DEPRECATED );
+	}
 }
 
 /**
