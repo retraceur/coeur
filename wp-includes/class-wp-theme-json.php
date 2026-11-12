@@ -1096,7 +1096,7 @@ class WP_Theme_JSON {
 
 		$this->theme_json    = WP_Theme_JSON_Schema::migrate( $theme_json, $origin );
 		$blocks_metadata     = static::get_blocks_metadata();
- 		$valid_block_names   = array_keys( $blocks_metadata );
+		$valid_block_names   = array_keys( $blocks_metadata );
 		$valid_element_names = array_keys( static::ELEMENTS );
 		$valid_variations    = static::get_valid_block_style_variations( $blocks_metadata );
 		$this->theme_json    = static::unwrap_shared_block_style_variations( $this->theme_json, $valid_variations );
@@ -3537,20 +3537,20 @@ class WP_Theme_JSON {
 			$node_path = array( 'styles', 'blocks', $name );
 			if ( $include_node_paths_only ) {
 				$variation_paths = array();
- 				if ( $include_variations && isset( $node['variations'] ) ) {
- 					foreach ( $node['variations'] as $variation => $variation_node ) {
- 						$variation_paths[] = array(
- 							'path' => array( 'styles', 'blocks', $name, 'variations', $variation ),
- 						);
- 					}
- 				}
- 				$node = array(
- 					'path' => $node_path,
- 				);
- 				if ( ! empty( $variation_paths ) ) {
- 					$node['variations'] = $variation_paths;
- 				}
- 				$nodes[] = $node;
+				if ( $include_variations && isset( $node['variations'] ) ) {
+					foreach ( $node['variations'] as $variation => $variation_node ) {
+						$variation_paths[] = array(
+							'path' => array( 'styles', 'blocks', $name, 'variations', $variation ),
+						);
+					}
+				}
+				$node = array(
+					'path' => $node_path,
+				);
+				if ( ! empty( $variation_paths ) ) {
+					$node['variations'] = $variation_paths;
+				}
+				$nodes[] = $node;
 			} else {
 				$selector = null;
 				if ( isset( $selectors[ $name ]['selector'] ) ) {
@@ -4664,7 +4664,7 @@ class WP_Theme_JSON {
 		$theme_json = WP_Theme_JSON_Schema::migrate( $theme_json, $origin );
 
 		$blocks_metadata     = static::get_blocks_metadata();
- 		$valid_block_names   = array_keys( $blocks_metadata );
+		$valid_block_names   = array_keys( $blocks_metadata );
 		$valid_element_names = array_keys( static::ELEMENTS );
 		$valid_variations    = static::get_valid_block_style_variations( $blocks_metadata );
 
@@ -5957,7 +5957,7 @@ class WP_Theme_JSON {
 	protected static function get_valid_block_style_variations( $blocks_metadata = array() ) {
 		$valid_variations = array();
 		$blocks_metadata  = empty( $blocks_metadata ) ? static::get_blocks_metadata() : $blocks_metadata;
- 		foreach ( $blocks_metadata as $block_name => $block_meta ) {
+		foreach ( $blocks_metadata as $block_name => $block_meta ) {
 			if ( ! isset( $block_meta['styleVariations'] ) ) {
 				continue;
 			}

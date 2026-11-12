@@ -25,7 +25,9 @@ class WP_Feed_Cache_Version_Check implements SimplePie\Cache\Base {
 	 * @param Base::TYPE_FEED|Base::TYPE_IMAGE $type     Either `TYPE_FEED` ('spc') for SimplePie data,
 	 *                                                   or `TYPE_IMAGE` ('spi') for image data.
 	 */
-	public function __construct( $location, $name, $type ) { /* Do nothing. */ }
+	public function __construct( $location, $name, $type ) {
+		// Do nothing.
+	}
 
 	/**
 	 * Saves data to the transient.

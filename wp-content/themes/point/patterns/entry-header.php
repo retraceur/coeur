@@ -25,7 +25,7 @@
 				<p><?php echo esc_html_x( 'by', '"by" Author separator' ); ?></p>
 				<!-- /wp:paragraph -->
 				<!-- wp:post-author {"showAvatar":false} /-->
-			<?php endif ; ?>
+			<?php endif; ?>
 		</div>
 		<!-- /wp:group -->
 		<!-- wp:post-featured-image {"isLink":true} /-->

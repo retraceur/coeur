@@ -1591,7 +1591,7 @@ function insert_hooked_blocks_into_rest_response( $response, $post ) {
  */
 function truncate_raw_content_into_rest_response( $response, $post, $request ) {
 	if ( $request instanceof WP_REST_Request ) {
-		$referer_path = wp_parse_url( $request->get_header( 'referer'), PHP_URL_PATH );
+		$referer_path = wp_parse_url( $request->get_header( 'referer' ), PHP_URL_PATH );
 
 		if ( '/wp-admin/site-editor.php' === $referer_path && ! empty( $response->data['content']['raw'] ) && has_block( 'more', $response->data['content']['raw'] ) ) {
 			$more_block = get_comment_delimited_block_content(

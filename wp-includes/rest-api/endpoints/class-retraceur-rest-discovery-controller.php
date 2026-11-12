@@ -407,11 +407,13 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 			);
 		}
 
-		return rest_ensure_response( array(
-			'success'      => true,
-			'message'      => __( 'Installation successful.' ),
-			'activate_url' => $activate_url,
-		) );
+		return rest_ensure_response(
+			array(
+				'success'      => true,
+				'message'      => __( 'Installation successful.' ),
+				'activate_url' => $activate_url,
+			)
+		);
 	}
 
 	/**
@@ -606,7 +608,7 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 
 		$data['dependencies'] = array();
 		if ( isset( $manifest['requires']['dependencies'] ) && is_array( $manifest['requires']['dependencies'] ) && $manifest['requires']['dependencies'] ) {
-			$data['dependencies'] = array_map( 'sanitize_text_field',  $manifest['requires']['dependencies'] );
+			$data['dependencies'] = array_map( 'sanitize_text_field', $manifest['requires']['dependencies'] );
 		}
 
 		// Enrich the response with latest release data.
@@ -614,16 +616,18 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 		$release_data = array();
 		if ( $release ) {
 			$slug  = explode( '/', $data['full_name'] )[1];
-			$asset = array_values( array_filter(
-				$release['assets'] ?? array(),
-				fn( $a ) => $a['name'] === $slug . '.zip'
-			) )[0] ?? null;
+			$asset = array_values(
+				array_filter(
+					$release['assets'] ?? array(),
+					fn( $a ) => $a['name'] === $slug . '.zip'
+				)
+			)[0] ?? null;
 
 			$release_data = $this->prepare_release_for_response(
 				array(
-					'title'        => $release['name']     ?? '',
+					'title'        => $release['name'] ?? '',
 					'version'      => $release['tag_name'] ?? '',
-					'note'         => $release['body']     ?? '',
+					'note'         => $release['body'] ?? '',
 					'release_url'  => $release['html_url'] ?? '',
 					'download_url' => isset( $asset['browser_download_url'] ) ? esc_url_raw( $asset['browser_download_url'] ) : '',
 					'digest'       => isset( $asset['digest'] ) ? sanitize_text_field( $asset['digest'] ) : '',

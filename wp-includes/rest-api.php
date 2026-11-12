@@ -403,7 +403,6 @@ function create_initial_rest_routes() {
 	$font_collections_controller = new WP_REST_Font_Collections_Controller();
 	$font_collections_controller->register_routes();
 
-
 	// Abilities.
 	$abilities_categories_controller = new WP_REST_Abilities_V1_Categories_Controller();
 	$abilities_categories_controller->register_routes();

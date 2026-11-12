@@ -482,11 +482,11 @@ function wp_update_plugins() {
 		}
 
 		// These should remain constant.
-		if ( ! isset( $update->id )  ) {
+		if ( ! isset( $update->id ) ) {
 			$update->id = $plugin_data['UpdateURI'];
 		}
 
-		if ( ! isset( $update->plugin )  ) {
+		if ( ! isset( $update->plugin ) ) {
 			$update->plugin = $plugin_file;
 		}
 

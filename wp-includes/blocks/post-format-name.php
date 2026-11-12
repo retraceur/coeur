@@ -30,7 +30,7 @@ function render_block_core_post_format_name( $attributes, $content, $block ) {
 		return '';
 	}
 
-	$post_id     =  (int) $block->context['postId'];
+	$post_id     = (int) $block->context['postId'];
 	$post_format = get_post_format( $post_id );
 
 	if ( ! $post_format ) {
