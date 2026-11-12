@@ -372,11 +372,11 @@ class Theme_Upgrader extends WP_Upgrader {
 	 * @return array[]|false An array of results, or false if unable to connect to the filesystem.
 	 */
 	public function bulk_upgrade( $themes, $args = array() ) {
-		$retraceur_version  = retraceur_get_version();
-		$defaults           = array(
+		$retraceur_version = retraceur_get_version();
+		$defaults          = array(
 			'clear_update_cache' => true,
 		);
-		$parsed_args = wp_parse_args( $args, $defaults );
+		$parsed_args       = wp_parse_args( $args, $defaults );
 
 		$this->init();
 		$this->bulk = true;

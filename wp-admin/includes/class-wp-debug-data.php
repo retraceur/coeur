@@ -155,14 +155,14 @@ class WP_Debug_Data {
 	 */
 	private static function get_wp_core(): array {
 		// Save few function calls.
-		$permalink_structure    = get_option( 'permalink_structure' );
-		$is_ssl                 = is_ssl();
-		$users_can_register     = get_option( 'users_can_register' );
-		$blog_public            = get_option( 'blog_public' );
-		$environment_type       = wp_get_environment_type();
-		$core_version           = retraceur_get_version();
-		$core_updates           = retraceur_get_updates();
-		$core_update_needed     = '';
+		$permalink_structure = get_option( 'permalink_structure' );
+		$is_ssl              = is_ssl();
+		$users_can_register  = get_option( 'users_can_register' );
+		$blog_public         = get_option( 'blog_public' );
+		$environment_type    = wp_get_environment_type();
+		$core_version        = retraceur_get_version();
+		$core_updates        = retraceur_get_updates();
+		$core_update_needed  = '';
 
 		if ( is_array( $core_updates ) ) {
 			foreach ( $core_updates as $core => $update ) {
@@ -176,59 +176,59 @@ class WP_Debug_Data {
 		}
 
 		$fields = array(
-			'version'                => array(
+			'version'           => array(
 				'label' => __( 'Version' ),
 				'value' => $core_version . $core_update_needed,
 				'debug' => $core_version,
 			),
-			'site_language'          => array(
+			'site_language'     => array(
 				'label' => __( 'Site Language' ),
 				'value' => get_locale(),
 			),
-			'user_language'          => array(
+			'user_language'     => array(
 				'label' => __( 'Contributor Language' ),
 				'value' => get_user_locale(),
 			),
-			'timezone'               => array(
+			'timezone'          => array(
 				'label' => __( 'Timezone' ),
 				'value' => wp_timezone_string(),
 			),
-			'home_url'               => array(
+			'home_url'          => array(
 				'label'   => __( 'Home URL' ),
 				'value'   => get_bloginfo( 'url' ),
 				'private' => true,
 			),
-			'site_url'               => array(
+			'site_url'          => array(
 				'label'   => __( 'Site URL' ),
 				'value'   => get_bloginfo( 'wpurl' ),
 				'private' => true,
 			),
-			'permalink'              => array(
+			'permalink'         => array(
 				'label' => __( 'Permalink structure' ),
 				'value' => $permalink_structure ? $permalink_structure : __( 'No permalink structure set' ),
 				'debug' => $permalink_structure,
 			),
-			'https_status'           => array(
+			'https_status'      => array(
 				'label' => __( 'Is this site using HTTPS?' ),
 				'value' => $is_ssl ? __( 'Yes' ) : __( 'No' ),
 				'debug' => $is_ssl,
 			),
-			'multisite'              => array(
+			'multisite'         => array(
 				'label' => __( 'Is this a multisite?' ),
 				'value' => is_multisite() ? __( 'Yes' ) : __( 'No' ),
 				'debug' => is_multisite(),
 			),
-			'user_registration'      => array(
+			'user_registration' => array(
 				'label' => __( 'Can anyone register on this site?' ),
 				'value' => $users_can_register ? __( 'Yes' ) : __( 'No' ),
 				'debug' => $users_can_register,
 			),
-			'blog_public'            => array(
+			'blog_public'       => array(
 				'label' => __( 'Is this site discouraging search engines?' ),
 				'value' => $blog_public ? __( 'No' ) : __( 'Yes' ),
 				'debug' => $blog_public,
 			),
-			'environment_type'       => array(
+			'environment_type'  => array(
 				'label' => __( 'Environment type' ),
 				'value' => $environment_type,
 				'debug' => $environment_type,

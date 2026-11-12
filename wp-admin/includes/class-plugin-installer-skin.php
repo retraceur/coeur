@@ -257,12 +257,12 @@ class Plugin_Installer_Skin extends WP_Upgrader_Skin {
 			'RequiresPHP' => __( 'Required PHP version' ),
 		);
 
-		$table  = '<table class="update-from-upload-comparison"><tbody>';
+		$table = '<table class="update-from-upload-comparison"><tbody>';
 
 		if ( 'block' === $plugin_type ) {
 			$rows['Name'] = __( 'Block name' );
-			$table .= '<tr><th></th><th>' . esc_html_x( 'Current', 'block' ) . '</th>';
-			$table .= '<th>' . esc_html_x( 'Uploaded', 'block' ) . '</th></tr>';
+			$table       .= '<tr><th></th><th>' . esc_html_x( 'Current', 'block' ) . '</th>';
+			$table       .= '<th>' . esc_html_x( 'Uploaded', 'block' ) . '</th></tr>';
 		} else {
 			$table .= '<tr><th></th><th>' . esc_html_x( 'Current', 'plugin' ) . '</th>';
 			$table .= '<th>' . esc_html_x( 'Uploaded', 'plugin' ) . '</th></tr>';
@@ -300,10 +300,10 @@ class Plugin_Installer_Skin extends WP_Upgrader_Skin {
 		$install_actions = array();
 		$can_update      = true;
 
-		$blocked_message  = '<p>' . esc_html__( 'The plugin cannot be updated due to the following:' ) . '</p>';
+		$blocked_message = '<p>' . esc_html__( 'The plugin cannot be updated due to the following:' ) . '</p>';
 
 		if ( 'block' === $plugin_type ) {
-			$blocked_message  = '<p>' . esc_html__( 'The block cannot be updated due to the following:' ) . '</p>';
+			$blocked_message = '<p>' . esc_html__( 'The block cannot be updated due to the following:' ) . '</p>';
 		}
 
 		$blocked_message .= '<ul class="ul-disc">';

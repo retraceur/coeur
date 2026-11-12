@@ -2765,7 +2765,7 @@ class WP_Site_Health {
 					'label' => __( 'Plugin Versions' ),
 					'test'  => 'plugin_version',
 				),
-				'block_version'               => array(
+				'block_version'                => array(
 					'label' => __( 'Block Versions' ),
 					'test'  => 'block_version',
 				),
@@ -2844,13 +2844,13 @@ class WP_Site_Health {
 				),
 			),
 			'async'  => array(
-				'loopback_requests'    => array(
+				'loopback_requests' => array(
 					'label'             => __( 'Loopback request' ),
 					'test'              => rest_url( 'wp-site-health/v1/tests/loopback-requests' ),
 					'has_rest'          => true,
 					'async_direct_test' => array( WP_Site_Health::get_instance(), 'get_test_loopback_requests' ),
 				),
-				'https_status'         => array(
+				'https_status'      => array(
 					'label'             => __( 'HTTPS status' ),
 					'test'              => rest_url( 'wp-site-health/v1/tests/https-status' ),
 					'has_rest'          => true,
@@ -3622,10 +3622,10 @@ class WP_Site_Health {
 		);
 
 		$threshold_map = array(
-			'options_count'  => $wpdb->options,
-			'posts_count'    => $wpdb->posts,
-			'terms_count'    => $wpdb->terms,
-			'users_count'    => $wpdb->users,
+			'options_count' => $wpdb->options,
+			'posts_count'   => $wpdb->posts,
+			'terms_count'   => $wpdb->terms,
+			'users_count'   => $wpdb->users,
 		);
 
 		return array_any( $threshold_map, fn( $table, $threshold ) => $thresholds[ $threshold ] <= $results[ $table ]->rows );

@@ -1114,8 +1114,8 @@ final class WP_Screen {
 
 		$wrapper_start = '';
 		$wrapper_end   = '';
-		$form_start = "\n<form id='adv-settings' method='post'>\n";
-		$form_end   = "\n" . wp_nonce_field( 'screen-options-nonce', 'screenoptionnonce', false, false ) . "\n</form>\n";
+		$form_start    = "\n<form id='adv-settings' method='post'>\n";
+		$form_end      = "\n" . wp_nonce_field( 'screen-options-nonce', 'screenoptionnonce', false, false ) . "\n</form>\n";
 
 		// Output optional wrapper.
 		if ( $options['wrap'] ) {

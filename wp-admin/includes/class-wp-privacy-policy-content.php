@@ -109,7 +109,7 @@ final class WP_Privacy_Policy_Content {
 		 * The == operator (equal, not identical) was used intentionally.
 		 * See https://www.php.net/manual/en/language.operators.array.php
 		 */
-		if ( $new != $old ) {
+		if ( $new != $old ) { // phpcs:ignore Universal.Operators.StrictComparisons.LooseNotEqual
 			/*
 			 * A plugin was activated or deactivated, or some policy text has changed.
 			 * Show a notice on the relevant screens to inform the admin.
