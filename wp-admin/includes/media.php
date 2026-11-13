@@ -827,7 +827,11 @@ function media_upload_form_handler() {
 				unset( $post['errors'] );
 			}
 
-			if ( array_diff( $post, $_post ) ) {
+			// Reorder arrays before strict comparison.
+			ksort( $post );
+			ksort( $_post );
+
+			if ( $post !== $_post ) {
 				wp_update_post( $post );
 			}
 
