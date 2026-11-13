@@ -1385,8 +1385,8 @@ function wp_check_php_version() {
 	);
 
 	if ( version_compare( $version, '7.4', '>=' ) ) {
-		$response['is_supported']  = true;
-		$response['is_secure']     = true;
+		$response['is_supported'] = true;
+		$response['is_secure']    = true;
 
 		/**
 		 * Filters whether the active PHP version is considered acceptable by Retraceur.

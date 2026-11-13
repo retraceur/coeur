@@ -785,20 +785,20 @@ function get_default_post_to_edit( $post_type = 'post', $create_in_db = false ) 
 			wp_schedule_event( time(), 'daily', 'wp_scheduled_auto_draft_delete' );
 		}
 	} else {
-		$post                 = new stdClass();
-		$post->ID             = 0;
-		$post->post_author    = '';
-		$post->post_date      = '';
-		$post->post_date_gmt  = '';
-		$post->post_password  = '';
-		$post->post_name      = '';
-		$post->post_type      = $post_type;
-		$post->post_status    = 'draft';
-		$post->post_category  = get_option( 'default_category' );
-		$post->page_template  = 'default';
-		$post->post_parent    = 0;
-		$post->menu_order     = 0;
-		$post                 = new WP_Post( $post );
+		$post                = new stdClass();
+		$post->ID            = 0;
+		$post->post_author   = '';
+		$post->post_date     = '';
+		$post->post_date_gmt = '';
+		$post->post_password = '';
+		$post->post_name     = '';
+		$post->post_type     = $post_type;
+		$post->post_status   = 'draft';
+		$post->post_category = get_option( 'default_category' );
+		$post->page_template = 'default';
+		$post->post_parent   = 0;
+		$post->menu_order    = 0;
+		$post                = new WP_Post( $post );
 	}
 
 	/**
@@ -888,7 +888,7 @@ function post_exists( $title, $content = '', $date = '', $type = '', $status = '
 	}
 
 	if ( ! empty( $args ) ) {
-		return (int) $wpdb->get_var( $wpdb->prepare( $query, $args ) );
+		return (int) $wpdb->get_var( $wpdb->prepare( $query, $args ) ); // phpcs:ignore Retraceur.DB.PreparedSQL.NotPrepared
 	}
 
 	return 0;

@@ -151,13 +151,13 @@ endforeach;
 
 <?php
 $avatar_defaults = array(
-	'mystery'          => __( 'Mystery Person' ),
-	'pagan'            => __( 'Pagan (Generated)' ),
-	'identicon'        => __( 'Identicon (Generated)' ),
-	'wavatar'          => __( 'Wavatar (Generated)' ),
-	'monsterid'        => __( 'MonsterID (Generated)' ),
-	'retro'            => __( 'Retro (Generated)' ),
-	'robohash'         => __( 'RoboHash (Generated)' ),
+	'mystery'   => __( 'Mystery Person' ),
+	'pagan'     => __( 'Pagan (Generated)' ),
+	'identicon' => __( 'Identicon (Generated)' ),
+	'wavatar'   => __( 'Wavatar (Generated)' ),
+	'monsterid' => __( 'MonsterID (Generated)' ),
+	'retro'     => __( 'Retro (Generated)' ),
+	'robohash'  => __( 'RoboHash (Generated)' ),
 );
 /**
  * Filters the default avatars.

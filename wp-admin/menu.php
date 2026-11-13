@@ -268,22 +268,29 @@ if ( ! is_multisite() && current_user_can( 'view_site_health_checks' ) ) {
 	);
 }
 
-$menu[75]                     = array( __( 'Tools' ), $tools_cap, 'tools.php', '', 'menu-top menu-icon-tools', 'menu-tools', 'dashicons-admin-tools' );
-	$submenu['tools.php'][5]  = array( __( 'Available Tools' ), $tools_cap, 'tools.php' );
-	/* translators: %s: Number of critical Site Health checks. */
-	$submenu['tools.php'][10] = array( sprintf( __( 'Site Health %s' ), $site_health_count ), 'view_site_health_checks', 'site-health.php' );
-	$submenu['tools.php'][15] = array( __( 'Export' ), 'export', 'export.php' );
-	$submenu['tools.php'][25] = array( __( 'Export Personal Data' ), 'export_others_personal_data', 'export-personal-data.php' );
-	$submenu['tools.php'][30] = array( __( 'Erase Personal Data' ), 'erase_others_personal_data', 'erase-personal-data.php' );
+$menu[75]                 = array( __( 'Tools' ), $tools_cap, 'tools.php', '', 'menu-top menu-icon-tools', 'menu-tools', 'dashicons-admin-tools' );
+$submenu['tools.php'][5]  = array( __( 'Available Tools' ), $tools_cap, 'tools.php' );
+$submenu['tools.php'][10] = array(
+	sprintf(
+		/* translators: %s: Number of critical Site Health checks. */
+		__( 'Site Health %s' ),
+		$site_health_count
+	),
+	'view_site_health_checks',
+	'site-health.php',
+);
+$submenu['tools.php'][15] = array( __( 'Export' ), 'export', 'export.php' );
+$submenu['tools.php'][25] = array( __( 'Export Personal Data' ), 'export_others_personal_data', 'export-personal-data.php' );
+$submenu['tools.php'][30] = array( __( 'Erase Personal Data' ), 'erase_others_personal_data', 'erase-personal-data.php' );
 
-$menu[80]                               = array( __( 'Settings' ), 'manage_options', 'options-general.php', '', 'menu-top menu-icon-settings', 'menu-settings', 'dashicons-admin-settings' );
-	$submenu['options-general.php'][10] = array( _x( 'General', 'settings screen' ), 'manage_options', 'options-general.php' );
-	$submenu['options-general.php'][15] = array( __( 'Writing' ), 'manage_options', 'options-writing.php' );
-	$submenu['options-general.php'][20] = array( __( 'Reading' ), 'manage_options', 'options-reading.php' );
-	$submenu['options-general.php'][25] = array( __( 'Membership' ), 'manage_options', 'options-membership.php' );
-	$submenu['options-general.php'][30] = array( __( 'Media' ), 'manage_options', 'options-media.php' );
-	$submenu['options-general.php'][40] = array( __( 'Permalinks' ), 'manage_options', 'options-permalink.php' );
-	$submenu['options-general.php'][45] = array( __( 'Privacy' ), 'manage_privacy_options', 'options-privacy.php' );
+$menu[80]                           = array( __( 'Settings' ), 'manage_options', 'options-general.php', '', 'menu-top menu-icon-settings', 'menu-settings', 'dashicons-admin-settings' );
+$submenu['options-general.php'][10] = array( _x( 'General', 'settings screen' ), 'manage_options', 'options-general.php' );
+$submenu['options-general.php'][15] = array( __( 'Writing' ), 'manage_options', 'options-writing.php' );
+$submenu['options-general.php'][20] = array( __( 'Reading' ), 'manage_options', 'options-reading.php' );
+$submenu['options-general.php'][25] = array( __( 'Membership' ), 'manage_options', 'options-membership.php' );
+$submenu['options-general.php'][30] = array( __( 'Media' ), 'manage_options', 'options-media.php' );
+$submenu['options-general.php'][40] = array( __( 'Permalinks' ), 'manage_options', 'options-permalink.php' );
+$submenu['options-general.php'][45] = array( __( 'Privacy' ), 'manage_privacy_options', 'options-privacy.php' );
 
 $_wp_last_utility_menu = 80; // The index of the last top-level menu in the utility menu group.
 

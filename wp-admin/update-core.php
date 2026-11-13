@@ -35,9 +35,9 @@ function retraceur_list_update( $update ) {
 	global $wpdb;
 	static $first_pass = true;
 
-	$retraceur_version  = retraceur_get_version();
-	$version_string     = $update['version'];
-	$current            = $retraceur_version === $update['version'];
+	$retraceur_version = retraceur_get_version();
+	$version_string    = $update['version'];
+	$current           = $retraceur_version === $update['version'];
 
 	$message       = '';
 	$form_action   = 'update-core.php?action=do-core-upgrade';
@@ -49,7 +49,8 @@ function retraceur_list_update( $update ) {
 		__( 'Update to version %s' ),
 		$version_string
 	);
-	$link_text     = sprintf(
+
+	$link_text = sprintf(
 		/* translators: %s: Version number. */
 		__( 'Download & upgrade to version %s' ),
 		$version_string
@@ -404,7 +405,7 @@ function list_plugin_updates() {
 
 		$details = '';
 		if ( $details_url ) {
-			$details     = sprintf(
+			$details = sprintf(
 				'<a href="%1$s" aria-label="%2$s">%3$s</a> <a href="%1$s" aria-label="%2$s" target="_blank" class="open-external"><span class="dashicons dashicons-external"></span></a>',
 				esc_url( $details_url ),
 				/* translators: 1: Plugin name, 2: Version number. */

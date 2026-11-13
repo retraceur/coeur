@@ -11,7 +11,7 @@
 $plugin_type = 'plugin';
 
 if ( defined( 'IS_BLOCKS_ADMIN' ) && IS_BLOCKS_ADMIN ) {
-	$plugin_type  = 'block';
+	$plugin_type = 'block';
 }
 
 /**

@@ -180,7 +180,7 @@ function create_post_formats() {
 
 	$post_formats = get_post_format_default_labels();
 	$in_clause    = "'" . implode( "', '", esc_sql( get_post_format_default_slugs() ) ) . "'";
-	$existing     = $wpdb->get_col( "SELECT slug FROM {$wpdb->terms} WHERE slug IN ({$in_clause})" );
+	$existing     = $wpdb->get_col( "SELECT slug FROM {$wpdb->terms} WHERE slug IN ({$in_clause})" ); // phpcs:ignore Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 
 	foreach ( $post_formats as $slug => $labels ) {
 		if ( in_array( $slug, $existing, true ) ) {
@@ -742,17 +742,17 @@ function upgrade_network() {
 function maybe_create_table( $table_name, $create_ddl ) {
 	global $wpdb;
 
-	$query = $wpdb->prepare( 'SHOW TABLES LIKE %s', $wpdb->esc_like( $table_name ) );
+	$query = $wpdb->prepare( 'SHOW TABLES LIKE %s', $wpdb->esc_like( $table_name ) ); // phpcs:ignore Retraceur.DB.PreparedSQL.NotPrepared
 
-	if ( $wpdb->get_var( $query ) === $table_name ) {
+	if ( $wpdb->get_var( $query ) === $table_name ) { // phpcs:ignore Retraceur.DB.PreparedSQL.NotPrepared
 		return true;
 	}
 
 	// Didn't find it, so try to create it.
-	$wpdb->query( $create_ddl );
+	$wpdb->query( $create_ddl ); // phpcs:ignore Retraceur.DB.PreparedSQL.NotPrepared
 
 	// We cannot directly tell that whether this succeeded!
-	if ( $wpdb->get_var( $query ) === $table_name ) {
+	if ( $wpdb->get_var( $query ) === $table_name ) { // phpcs:ignore Retraceur.DB.PreparedSQL.NotPrepared
 		return true;
 	}
 
@@ -775,11 +775,11 @@ function drop_index( $table, $index ) {
 
 	$wpdb->hide_errors();
 
-	$wpdb->query( "ALTER TABLE `$table` DROP INDEX `$index`" );
+	$wpdb->query( "ALTER TABLE `$table` DROP INDEX `$index`" ); // phpcs:ignore Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 
 	// Now we need to take out all the extra ones we may have created.
 	for ( $i = 0; $i < 25; $i++ ) {
-		$wpdb->query( "ALTER TABLE `$table` DROP INDEX `{$index}_$i`" );
+		$wpdb->query( "ALTER TABLE `$table` DROP INDEX `{$index}_$i`" ); // phpcs:ignore Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 	}
 
 	$wpdb->show_errors();
@@ -802,7 +802,7 @@ function add_clean_index( $table, $index ) {
 	global $wpdb;
 
 	drop_index( $table, $index );
-	$wpdb->query( "ALTER TABLE `$table` ADD INDEX ( `$index` )" );
+	$wpdb->query( "ALTER TABLE `$table` ADD INDEX ( `$index` )" ); // phpcs:ignore Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 
 	return true;
 }
@@ -822,17 +822,17 @@ function add_clean_index( $table, $index ) {
 function maybe_add_column( $table_name, $column_name, $create_ddl ) {
 	global $wpdb;
 
-	foreach ( $wpdb->get_col( "DESC $table_name", 0 ) as $column ) {
+	foreach ( $wpdb->get_col( "DESC $table_name", 0 ) as $column ) { // phpcs:ignore Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 		if ( $column === $column_name ) {
 			return true;
 		}
 	}
 
 	// Didn't find it, so try to create it.
-	$wpdb->query( $create_ddl );
+	$wpdb->query( $create_ddl ); // phpcs:ignore Retraceur.DB.PreparedSQL.NotPrepared
 
 	// We cannot directly tell that whether this succeeded!
-	foreach ( $wpdb->get_col( "DESC $table_name", 0 ) as $column ) {
+	foreach ( $wpdb->get_col( "DESC $table_name", 0 ) as $column ) { // phpcs:ignore Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 		if ( $column === $column_name ) {
 			return true;
 		}
@@ -854,7 +854,7 @@ function maybe_add_column( $table_name, $column_name, $create_ddl ) {
 function maybe_convert_table_to_utf8mb4( $table ) {
 	global $wpdb;
 
-	$results = $wpdb->get_results( "SHOW FULL COLUMNS FROM `$table`" );
+	$results = $wpdb->get_results( "SHOW FULL COLUMNS FROM `$table`" ); // phpcs:ignore Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 	if ( ! $results ) {
 		return false;
 	}
@@ -870,7 +870,7 @@ function maybe_convert_table_to_utf8mb4( $table ) {
 		}
 	}
 
-	$table_details = $wpdb->get_row( "SHOW TABLE STATUS LIKE '$table'" );
+	$table_details = $wpdb->get_row( "SHOW TABLE STATUS LIKE '$table'" ); // phpcs:ignore Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 	if ( ! $table_details ) {
 		return false;
 	}
@@ -881,7 +881,7 @@ function maybe_convert_table_to_utf8mb4( $table ) {
 		return true;
 	}
 
-	return $wpdb->query( "ALTER TABLE $table CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci" );
+	return $wpdb->query( "ALTER TABLE $table CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci" ); // phpcs:ignore Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 }
 
 /**
@@ -1058,7 +1058,7 @@ function dbDelta( $queries = '', $execute = true ) { // phpcs:ignore Retraceur.N
 
 		// Fetch the table column structure from the database.
 		$suppress    = $wpdb->suppress_errors();
-		$tablefields = $wpdb->get_results( "DESCRIBE {$table};" );
+		$tablefields = $wpdb->get_results( "DESCRIBE {$table};" ); // phpcs:ignore Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 		$wpdb->suppress_errors( $suppress );
 
 		if ( ! $tablefields ) {
@@ -1301,7 +1301,7 @@ function dbDelta( $queries = '', $execute = true ) { // phpcs:ignore Retraceur.N
 		}
 
 		// Index stuff goes here. Fetch the table index structure from the database.
-		$tableindices = $wpdb->get_results( "SHOW INDEX FROM {$table};" );
+		$tableindices = $wpdb->get_results( "SHOW INDEX FROM {$table};" ); // phpcs:ignore Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 
 		if ( $tableindices ) {
 			// Clear the index array.
@@ -1384,7 +1384,7 @@ function dbDelta( $queries = '', $execute = true ) { // phpcs:ignore Retraceur.N
 	$allqueries = array_merge( $cqueries, $iqueries );
 	if ( $execute ) {
 		foreach ( $allqueries as $query ) {
-			$wpdb->query( $query );
+			$wpdb->query( $query ); // phpcs:ignore Retraceur.DB.PreparedSQL.NotPrepared
 		}
 	}
 

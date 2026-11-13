@@ -827,7 +827,7 @@ function media_upload_form_handler() {
 				unset( $post['errors'] );
 			}
 
-			if ( $post != $_post ) {
+			if ( array_diff( $post, $_post ) ) {
 				wp_update_post( $post );
 			}
 
@@ -3849,9 +3849,11 @@ function wp_media_attach_action( $parent_id, $action = 'attach' ) {
 		$ids_string = implode( ',', $ids );
 
 		if ( 'attach' === $action ) {
+			// phpcs:disable Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 			$result = $wpdb->query( $wpdb->prepare( "UPDATE $wpdb->posts SET post_parent = %d WHERE post_type = 'attachment' AND ID IN ( $ids_string )", $parent_id ) );
 		} else {
 			$result = $wpdb->query( "UPDATE $wpdb->posts SET post_parent = 0 WHERE post_type = 'attachment' AND ID IN ( $ids_string )" );
+			// phpcs:enable Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 		}
 	}
 

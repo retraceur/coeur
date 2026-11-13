@@ -475,7 +475,7 @@ function populate_roles() {
 	$wp_roles->use_db = false;
 
 	// Retraceur capabilities.
-	$caps  = array(
+	$caps = array(
 		'administrator' => array(
 			'update_core',
 			'export',
@@ -537,7 +537,7 @@ function populate_roles() {
 			'level_1',
 			'level_0',
 		),
-		'contributor' => array(
+		'contributor'   => array(
 			'edit_posts',
 			'delete_posts',
 			'read',
@@ -555,7 +555,7 @@ function populate_roles() {
 	// Default WP Roles.
 	if ( defined( 'USE_DEFAULT_WP_ROLES' ) && USE_DEFAULT_WP_ROLES ) {
 		// Other WP capabilities.
-		$caps  = array(
+		$caps = array(
 			'editor'      => array(
 				'manage_categories',
 				'upload_files',
