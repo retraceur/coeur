@@ -229,6 +229,21 @@ function create_post_formats() {
 	}
 }
 
+/**
+ * Perform 5.0.0 upgrades.
+ *
+ * @since 5.0.0 Retraceur fork.
+ */
+function retraceur_update_500() {
+	$og_image_id = (int) get_option( 'default_ogengraph_image', 0 );
+
+	if ( $og_image_id ) {
+		update_option( 'default_opengraph_image', $og_image_id );
+	}
+
+	delete_option( 'default_ogengraph_image' );
+}
+
 if ( ! function_exists( 'wp_install_defaults' ) ) :
 	/**
 	 * Creates the initial content for a newly-installed site.
@@ -699,6 +714,10 @@ function upgrade_all() {
 
 	if ( 20251023 > $wp_current_db_version ) {
 		$wpdb->query( "ALTER TABLE $wpdb->posts ADD INDEX type_status_author (post_type,post_status,post_author)" );
+	}
+
+	if ( 20261114 > $wp_current_db_version ) {
+		retraceur_update_500();
 	}
 
 	update_option( 'db_version', $wp_db_version );

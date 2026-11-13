@@ -395,7 +395,7 @@ function populate_options( array $options = array() ) {
 		'wp_attachment_pages_enabled'     => 0,
 
 		// Retraceur 3.0.0
-		'default_ogengraph_image'         => 0,
+		'default_opengraph_image'         => 0,
 	);
 
 	// 3.3.0
