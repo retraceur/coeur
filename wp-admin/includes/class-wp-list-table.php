@@ -743,6 +743,7 @@ class WP_List_Table {
 				$extra_checks = $wpdb->prepare( ' AND post_status = %s', $_GET['post_status'] );
 			}
 
+			// phpcs:disable Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 			$months = $wpdb->get_results(
 				$wpdb->prepare(
 					"SELECT DISTINCT YEAR( post_date ) AS year, MONTH( post_date ) AS month
@@ -753,6 +754,7 @@ class WP_List_Table {
 					$post_type
 				)
 			);
+			// phpcs:enable Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 		}
 
 		/**

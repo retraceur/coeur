@@ -110,8 +110,7 @@ function export_wp( $args = array() ) {
 		$post_types = get_post_types( array( 'can_export' => true ) );
 		$esses      = array_fill( 0, count( $post_types ), '%s' );
 
-		// phpcs:ignore Retraceur.DB.PreparedSQLPlaceholders.UnfinishedPrepare
-		$where = $wpdb->prepare( "{$wpdb->posts}.post_type IN (" . implode( ',', $esses ) . ')', $post_types );
+		$where = $wpdb->prepare( "{$wpdb->posts}.post_type IN (" . implode( ',', $esses ) . ')', $post_types ); // phpcs:ignore Retraceur.DB.PreparedSQL.NotPrepared, Retraceur.DB.PreparedSQLPlaceholders.UnfinishedPrepare
 	}
 
 	if ( $args['status'] && ( 'post' === $args['content'] || 'page' === $args['content'] ) ) {
@@ -144,7 +143,7 @@ function export_wp( $args = array() ) {
 	}
 
 	// Grab a snapshot of post IDs, just in case it changes during the export.
-	$post_ids = $wpdb->get_col( "SELECT ID FROM {$wpdb->posts} $join WHERE $where" );
+	$post_ids = $wpdb->get_col( "SELECT ID FROM {$wpdb->posts} $join WHERE $where" ); // phpcs:ignore Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 
 	// Get IDs for the attachments of each post, unless all content is already being exported.
 	if ( ! in_array( $args['content'], array( 'all', 'attachment' ), true ) ) {
@@ -162,6 +161,7 @@ function export_wp( $args = array() ) {
 			$in_placeholder = implode( ',', $placeholders );
 
 			// Prepare the SQL statement for attachment ids.
+			// phpcs:disable Retraceur.DB.PreparedSQL.InterpolatedNotPrepared, Retraceur.DB.PreparedSQLPlaceholders.UnfinishedPrepare
 			$attachment_ids = $wpdb->get_col(
 				$wpdb->prepare(
 					"
@@ -184,6 +184,7 @@ function export_wp( $args = array() ) {
 					$posts_in
 				)
 			);
+			// phpcs:enable Retraceur.DB.PreparedSQL.InterpolatedNotPrepared, Retraceur.DB.PreparedSQLPlaceholders.UnfinishedPrepare
 
 			// Cast thumbnail IDs to integers to prevent second-order SQL injection via user-controlled meta values.
 			$thumbnails_ids = array_filter( array_map( 'absint', $thumbnails_ids ) );
@@ -424,7 +425,7 @@ function export_wp( $args = array() ) {
 		foreach ( $post_id_chunks as $next_posts ) {
 			$and = ! empty( $next_posts ) ? 'AND ID IN (' . implode( ', ', $next_posts ) . ')' : '';
 
-			$results = $wpdb->get_results( "SELECT DISTINCT post_author FROM $wpdb->posts WHERE post_status != 'auto-draft' $and" );
+			$results = $wpdb->get_results( "SELECT DISTINCT post_author FROM $wpdb->posts WHERE post_status != 'auto-draft' $and" ); // phpcs:ignore Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 
 			foreach ( (array) $results as $result ) {
 				$authors[] = get_userdata( $result->post_author );
@@ -588,7 +589,7 @@ function export_wp( $args = array() ) {
 			// Re-sanitize immediately before use, as defense-in-depth against the IDs being interpolated directly into SQL below.
 			$next_posts = array_map( 'absint', $next_posts );
 			$where      = 'WHERE ID IN (' . implode( ',', $next_posts ) . ')';
-			$posts      = $wpdb->get_results( "SELECT * FROM {$wpdb->posts} $where" );
+			$posts      = $wpdb->get_results( "SELECT * FROM {$wpdb->posts} $where" ); // phpcs:ignore Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 
 			// Begin Loop.
 			foreach ( $posts as $post ) {

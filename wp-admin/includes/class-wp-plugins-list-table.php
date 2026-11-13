@@ -116,7 +116,7 @@ class WP_Plugins_List_Table extends WP_List_Table {
 			array(
 				'singular' => $args['singular'] ?? 'plugin',
 				'plural'   => $args['plural'] ?? 'plugins',
-				'screen' => $args['screen'] ?? null,
+				'screen'   => $args['screen'] ?? null,
 			)
 		);
 

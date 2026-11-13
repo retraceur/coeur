@@ -335,9 +335,9 @@ class Plugin_Upgrader extends WP_Upgrader {
 			$r = $current->response[ $plugin ];
 
 			$this->skin->plugin_active = is_plugin_active( $plugin );
-			$requires_wp   = $r->requires ?? null;
-			$requires_r    = $r->requires_r ?? null;
-			$is_compatible = is_wp_version_compatible( $requires_wp ) && is_retraceur_version_compatible( $requires_r );
+			$requires_wp               = $r->requires ?? null;
+			$requires_r                = $r->requires_r ?? null;
+			$is_compatible             = is_wp_version_compatible( $requires_wp ) && is_retraceur_version_compatible( $requires_r );
 
 			if ( ! $is_compatible ) {
 				$req    = ! empty( $requires_r ) ? $requires_r : __( 'Unknown' );

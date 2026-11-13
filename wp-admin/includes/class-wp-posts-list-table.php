@@ -93,6 +93,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 			)
 		);
 
+		// phpcs:disable Retraceur.DB.PreparedSQL.NotPrepared
 		$this->user_posts_count = (int) $wpdb->get_var(
 			$wpdb->prepare(
 				"SELECT COUNT( 1 )
@@ -104,6 +105,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 				get_current_user_id()
 			)
 		);
+		// phpcs:enable Retraceur.DB.PreparedSQL.NotPrepared
 
 		if ( $this->user_posts_count
 			&& ! current_user_can( $post_type_object->cap->edit_others_posts )
@@ -118,6 +120,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 		if ( 'post' === $post_type && $sticky_posts ) {
 			$sticky_posts = implode( ', ', array_map( 'absint', (array) $sticky_posts ) );
 
+			// phpcs:disable Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 			$this->sticky_posts_count = (int) $wpdb->get_var(
 				$wpdb->prepare(
 					"SELECT COUNT( 1 )
@@ -128,6 +131,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 					$post_type
 				)
 			);
+			// phpcs:enable Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 		}
 	}
 
@@ -767,15 +771,15 @@ class WP_Posts_List_Table extends WP_List_Table {
 			}
 
 			$sortables = array(
-				'title'    => array( 'title', false, __( 'Title' ), $title_orderby_text, 'asc' ),
-				'parent'   => array( 'parent', false ),
-				'date'     => array( 'date', true, __( 'Date' ), __( 'Table ordered by Date.' ) ),
+				'title'  => array( 'title', false, __( 'Title' ), $title_orderby_text, 'asc' ),
+				'parent' => array( 'parent', false ),
+				'date'   => array( 'date', true, __( 'Date' ), __( 'Table ordered by Date.' ) ),
 			);
 		} else {
 			$sortables = array(
-				'title'    => array( 'title', false, __( 'Title' ), __( 'Table ordered by Title.' ) ),
-				'parent'   => array( 'parent', false ),
-				'date'     => array( 'date', true, __( 'Date' ), __( 'Table ordered by Date.' ), 'desc' ),
+				'title'  => array( 'title', false, __( 'Title' ), __( 'Table ordered by Title.' ) ),
+				'parent' => array( 'parent', false ),
+				'date'   => array( 'date', true, __( 'Date' ), __( 'Table ordered by Date.' ), 'desc' ),
 			);
 		}
 		// Custom Post Types: there's a filter for that, see get_column_info().

@@ -329,7 +329,7 @@ switch ( $step ) {
 		}
 
 		$errors = $wpdb->suppress_errors();
-		$wpdb->query( "SELECT $prefix" );
+		$wpdb->query( "SELECT $prefix" ); // phpcs:ignore Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 		$wpdb->suppress_errors( $errors );
 
 		if ( ! $wpdb->last_error ) {

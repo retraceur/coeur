@@ -428,10 +428,10 @@ class WP_Media_List_Table extends WP_List_Table {
 	 */
 	protected function get_sortable_columns() {
 		return array(
-			'title'    => array( 'title', false, _x( 'File', 'column name' ), __( 'Table ordered by File Name.' ) ),
-			'author'   => array( 'author', false, __( 'Author' ), __( 'Table ordered by Author.' ) ),
-			'parent'   => array( 'parent', false, _x( 'Uploaded to', 'column name' ), __( 'Table ordered by Uploaded To.' ) ),
-			'date'     => array( 'date', true, __( 'Date' ), __( 'Table ordered by Date.' ), 'desc' ),
+			'title'  => array( 'title', false, _x( 'File', 'column name' ), __( 'Table ordered by File Name.' ) ),
+			'author' => array( 'author', false, __( 'Author' ), __( 'Table ordered by Author.' ) ),
+			'parent' => array( 'parent', false, _x( 'Uploaded to', 'column name' ), __( 'Table ordered by Uploaded To.' ) ),
+			'date'   => array( 'date', true, __( 'Date' ), __( 'Table ordered by Date.' ), 'desc' ),
 		);
 	}
 
