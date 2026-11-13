@@ -1639,7 +1639,7 @@ function is_blog_installed() {
 			continue;
 		}
 
-		$described_table = $wpdb->get_results( "DESCRIBE $table;" );
+		$described_table = $wpdb->get_results( "DESCRIBE $table;" ); // phpcs:ignore Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 		if (
 			( ! $described_table && empty( $wpdb->last_error ) ) ||
 			( is_array( $described_table ) && 0 === count( $described_table ) )

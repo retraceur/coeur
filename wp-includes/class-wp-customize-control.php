@@ -9,7 +9,7 @@
  * @subpackage Customize
  */
 
- // Don't load directly.
+// Don't load directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }

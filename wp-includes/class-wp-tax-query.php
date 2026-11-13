@@ -466,6 +466,7 @@ class WP_Tax_Query {
 
 		} elseif ( 'NOT EXISTS' === $operator || 'EXISTS' === $operator ) {
 
+			// phpcs:disable Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 			$where = $wpdb->prepare(
 				"$operator (
 					SELECT 1
@@ -477,7 +478,7 @@ class WP_Tax_Query {
 				)",
 				$clause['taxonomy']
 			);
-
+			// phpcs:enable Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 		}
 
 		$sql['join'][]  = $join;

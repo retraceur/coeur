@@ -869,8 +869,8 @@ class WP_Rewrite {
 		$feedregex = $this->feed_base . '/' . $feedregex2;
 
 		// Build a regex to match the page/xx parts of URLs.
-		$pageregex      = $this->pagination_base . '/?([0-9]{1,})/?$';
-		$embedregex     = 'embed/?$';
+		$pageregex  = $this->pagination_base . '/?([0-9]{1,})/?$';
+		$embedregex = 'embed/?$';
 
 		// Build up an array of endpoint regexes to append => queries to append.
 		if ( $endpoints ) {
@@ -893,9 +893,9 @@ class WP_Rewrite {
 
 		$num_tokens = count( $tokens[0] );
 
-		$index          = $this->index; // Probably 'index.php'.
-		$feedindex      = $index;
-		$embedindex     = $index;
+		$index      = $this->index; // Probably 'index.php'.
+		$feedindex  = $index;
+		$embedindex = $index;
 
 		/*
 		 * Build a list from the rewritecode and queryreplace arrays, that will look something
@@ -1086,10 +1086,10 @@ class WP_Rewrite {
 					$sub2embed = $sub2 . $embedregex;
 
 					// Create queries for these extra tag-ons we've just dealt with.
-					$subquery        = $index . '?attachment=' . $this->preg_index( 1 );
-					$subtbquery      = $subquery . '&tb=1';
-					$subfeedquery    = $subquery . '&feed=' . $this->preg_index( 2 );
-					$subembedquery   = $subquery . '&embed=true';
+					$subquery      = $index . '?attachment=' . $this->preg_index( 1 );
+					$subtbquery    = $subquery . '&tb=1';
+					$subfeedquery  = $subquery . '&feed=' . $this->preg_index( 2 );
+					$subembedquery = $subquery . '&embed=true';
 
 					// Do endpoints for attachments.
 					if ( ! empty( $endpoints ) ) {
@@ -1142,20 +1142,20 @@ class WP_Rewrite {
 						$rewrite = array_merge(
 							$rewrite,
 							array(
-								$sub1        => $subquery,
-								$sub1feed    => $subfeedquery,
-								$sub1feed2   => $subfeedquery,
-								$sub1embed   => $subembedquery,
+								$sub1      => $subquery,
+								$sub1feed  => $subfeedquery,
+								$sub1feed2 => $subfeedquery,
+								$sub1embed => $subembedquery,
 							)
 						);
 					}
 
 					$rewrite = array_merge(
 						array(
-							$sub2        => $subquery,
-							$sub2feed    => $subfeedquery,
-							$sub2feed2   => $subfeedquery,
-							$sub2embed   => $subembedquery,
+							$sub2      => $subquery,
+							$sub2feed  => $subfeedquery,
+							$sub2feed2 => $subfeedquery,
+							$sub2embed => $subembedquery,
 						),
 						$rewrite
 					);
@@ -1761,12 +1761,12 @@ class WP_Rewrite {
 		}
 
 		$defaults = array(
-			'with_front'  => true,
-			'ep_mask'     => EP_NONE,
-			'paged'       => true,
-			'feed'        => true,
-			'walk_dirs'   => true,
-			'endpoints'   => true,
+			'with_front' => true,
+			'ep_mask'    => EP_NONE,
+			'paged'      => true,
+			'feed'       => true,
+			'walk_dirs'  => true,
+			'endpoints'  => true,
 		);
 
 		if ( isset( $args['forcomments'] ) ) {

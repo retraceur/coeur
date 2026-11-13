@@ -360,10 +360,11 @@
 	<rule ref="Retraceur.Files.FileName.InvalidClassFileName">
 		<exclude-pattern>/wp-admin/includes/class-wp-list-table-compat\.php</exclude-pattern>
 		<exclude-pattern>/wp-includes/class-wp-dependency\.php</exclude-pattern>
-		<exclude-pattern>/wp-includes/class-wp-editor\.php</exclude-pattern>
-		<exclude-pattern>/wp-content/themes/twentyeleven/inc/widgets\.php</exclude-pattern>
-		<exclude-pattern>/wp-content/themes/twentyfourteen/inc/widgets\.php</exclude-pattern>
-		<exclude-pattern>/wp-content/themes/twentyfourteen/inc/featured-content\.php</exclude-pattern>
+		<exclude-pattern>/wp-includes/class-wp-editor.php</exclude-pattern>
+		<exclude-pattern>/wp-includes/class-walker-category-dropdown.php</exclude-pattern>
+		<exclude-pattern>/wp-includes/class-walker-page-dropdown.php</exclude-pattern>
+		<exclude-pattern>/wp-includes/class-wp-walker.php</exclude-pattern>
+		<exclude-pattern>/wp-includes/blocks/navigation.php</exclude-pattern>
 	</rule>
 
 	<!-- WPCS1621: These files are expected to use _ instead of -. -->

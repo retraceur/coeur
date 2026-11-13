@@ -495,13 +495,16 @@ function wp_list_authors( $args = '' ) {
 	$post_counts = apply_filters( 'pre_wp_list_authors_post_counts_query', false, $parsed_args );
 
 	if ( ! is_array( $post_counts ) ) {
-		$post_counts       = array();
+		$post_counts = array();
+
+		// phpcs:disable Retraceur.DB.PreparedSQL.NotPrepared
 		$post_counts_query = $wpdb->get_results(
 			"SELECT DISTINCT post_author, COUNT(ID) AS count
 			FROM $wpdb->posts
 			WHERE " . get_private_posts_cap_sql( 'post' ) . '
 			GROUP BY post_author'
 		);
+		// phpcs:enable Retraceur.DB.PreparedSQL.NotPrepared
 
 		foreach ( (array) $post_counts_query as $row ) {
 			$post_counts[ $row->post_author ] = $row->count;

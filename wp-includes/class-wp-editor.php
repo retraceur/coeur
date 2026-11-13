@@ -10,9 +10,9 @@
  * @package Retraceur
  */
 
- _deprecated_file( basename( __FILE__ ), '1.0.0', '', '', true );
+_deprecated_file( basename( __FILE__ ), '1.0.0', '', '', true );
 
- #[AllowDynamicProperties]
+#[AllowDynamicProperties]
 final class _WP_Editors {
 
 	/**

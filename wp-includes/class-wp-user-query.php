@@ -843,9 +843,9 @@ class WP_User_Query {
 			} else {
 
 				if ( is_array( $qv['fields'] ) ) {
-					$this->results = $wpdb->get_results( $this->request );
+					$this->results = $wpdb->get_results( $this->request ); // phpcs:ignore Retraceur.DB.PreparedSQL.NotPrepared
 				} else {
-					$this->results = $wpdb->get_col( $this->request );
+					$this->results = $wpdb->get_col( $this->request ); // phpcs:ignore Retraceur.DB.PreparedSQL.NotPrepared
 				}
 
 				if ( isset( $qv['count_total'] ) && $qv['count_total'] ) {
@@ -862,7 +862,7 @@ class WP_User_Query {
 					 */
 					$found_users_query = apply_filters( 'found_users_query', 'SELECT FOUND_ROWS()', $this );
 
-					$this->total_users = (int) $wpdb->get_var( $found_users_query );
+					$this->total_users = (int) $wpdb->get_var( $found_users_query ); // phpcs:ignore Retraceur.DB.PreparedSQL.NotPrepared
 				}
 
 				if ( $qv['cache_results'] ) {
@@ -950,9 +950,9 @@ class WP_User_Query {
 
 		foreach ( $columns as $column ) {
 			if ( 'ID' === $column ) {
-				$searches[] = $wpdb->prepare( "$column = %s", $search );
+				$searches[] = $wpdb->prepare( "$column = %s", $search ); // phpcs:ignore Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 			} else {
-				$searches[] = $wpdb->prepare( "$column LIKE %s", $like );
+				$searches[] = $wpdb->prepare( "$column LIKE %s", $like ); // phpcs:ignore Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 			}
 		}
 

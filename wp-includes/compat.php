@@ -191,12 +191,12 @@ if ( ! function_exists( 'mb_ord' ) ) :
 	 *
 	 * @see _mb_ord()
 	 *
-	 * @param string       $string   Return the code point at the start of this string.
+	 * @param string       $str      Return the code point at the start of this string.
 	 * @param "UTF-8"|null $encoding Must be 'UTF-8' or null.
 	 * @return int|false The Unicode code point for the first character of string or false on failure.
 	 */
-	function mb_ord( $string, $encoding = null ) {
-		return _mb_ord( $string, $encoding );
+	function mb_ord( $str, $encoding = null ) {
+		return _mb_ord( $str, $encoding );
 	}
 endif;
 
@@ -206,25 +206,25 @@ endif;
  * @ignore
  * @since WP 7.1.0
  *
- * @param string       $string   Return the code point at the start of this string.
+ * @param string       $str      Return the code point at the start of this string.
  * @param "UTF-8"|null $encoding Must be 'UTF-8' or null.
  * @return int|false The Unicode code point for the first character of string or false on failure.
  */
-function _mb_ord( $string, $encoding = null ) {
-	if ( ! is_string( $string ) || '' === $string || ( isset( $encoding ) && 'UTF-8' !== $encoding ) ) {
+function _mb_ord( $str, $encoding = null ) {
+	if ( ! is_string( $str ) || '' === $str || ( isset( $encoding ) && 'UTF-8' !== $encoding ) ) {
 		return false;
 	}
 
 	$byte_length    = 0;
 	$invalid_length = 0;
-	$found_count    = _wp_scan_utf8( $string, $byte_length, $invalid_length, null, 1 );
+	$found_count    = _wp_scan_utf8( $str, $byte_length, $invalid_length, null, 1 );
 
 	if ( 1 !== $found_count ) {
 		return false;
 	}
 
 	// These are valid code points, so no further validation is required.
-	$b0 = ord( $string[0] );
+	$b0 = ord( $str[0] );
 
 	switch ( $byte_length ) {
 		case 1:
@@ -233,22 +233,22 @@ function _mb_ord( $string, $encoding = null ) {
 		case 2:
 			return (
 				( ( $b0 & 0x1F ) << 6 ) |
-				( ( ord( $string[1] ) & 0x3F ) )
+				( ( ord( $str[1] ) & 0x3F ) )
 			);
 
 		case 3:
 			return (
 				( ( $b0 & 0x0F ) << 12 ) |
-				( ( ord( $string[1] ) & 0x3F ) << 6 ) |
-				( ( ord( $string[2] ) & 0x3F ) )
+				( ( ord( $str[1] ) & 0x3F ) << 6 ) |
+				( ( ord( $str[2] ) & 0x3F ) )
 			);
 
 		case 4:
 			return (
 				( ( $b0 & 0x07 ) << 18 ) |
-				( ( ord( $string[1] ) & 0x3F ) << 12 ) |
-				( ( ord( $string[2] ) & 0x3F ) << 6 ) |
-				( ( ord( $string[3] ) & 0x3F ) )
+				( ( ord( $str[1] ) & 0x3F ) << 12 ) |
+				( ( ord( $str[2] ) & 0x3F ) << 6 ) |
+				( ( ord( $str[3] ) & 0x3F ) )
 			);
 	}
 
@@ -264,15 +264,15 @@ if ( ! function_exists( 'mb_substr' ) ) :
 	 *
 	 * @see _mb_substr()
 	 *
-	 * @param string      $string   The string to extract the substring from.
-	 * @param int         $start    Position to being extraction from in `$string`.
-	 * @param int|null    $length   Optional. Maximum number of characters to extract from `$string`.
+	 * @param string      $str      The string to extract the substring from.
+	 * @param int         $start    Position to being extraction from in `$str`.
+	 * @param int|null    $length   Optional. Maximum number of characters to extract from `$str`.
 	 *                              Default null.
 	 * @param string|null $encoding Optional. Character encoding to use. Default null.
 	 * @return string Extracted substring.
 	 */
-	function mb_substr( $string, $start, $length = null, $encoding = null ) { // phpcs:ignore Universal.NamingConventions.NoReservedKeywordParameterNames.stringFound
-		return _mb_substr( $string, $start, $length, $encoding );
+	function mb_substr( $str, $start, $length = null, $encoding = null ) { // phpcs:ignore Universal.NamingConventions.NoReservedKeywordParameterNames.stringFound
+		return _mb_substr( $str, $start, $length, $encoding );
 	}
 endif;
 
@@ -349,12 +349,12 @@ if ( ! function_exists( 'mb_strlen' ) ) :
 	 *
 	 * @see _mb_strlen()
 	 *
-	 * @param string      $string   The string to retrieve the character length from.
+	 * @param string      $str      The string to retrieve the character length from.
 	 * @param string|null $encoding Optional. Character encoding to use. Default null.
-	 * @return int String length of `$string`.
+	 * @return int String length of `$str`.
 	 */
-	function mb_strlen( $string, $encoding = null ) { // phpcs:ignore Universal.NamingConventions.NoReservedKeywordParameterNames.stringFound
-		return _mb_strlen( $string, $encoding );
+	function mb_strlen( $str, $encoding = null ) { // phpcs:ignore Universal.NamingConventions.NoReservedKeywordParameterNames.stringFound
+		return _mb_strlen( $str, $encoding );
 	}
 endif;
 
