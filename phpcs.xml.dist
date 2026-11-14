@@ -156,8 +156,9 @@
 	<!-- These rules are being set as warnings instead of errors, so we can error check the entire codebase. -->
 	<rule ref="Generic.Files.OneObjectStructurePerFile.MultipleFound">
 		<type>warning</type>
-		<!-- Exclude the unit tests as no warnings are allowed there. Note: these issues should be fixed and the exclude removed! -->
 		<exclude-pattern>/tests/phpunit/*</exclude-pattern>
+		<exclude-pattern>/wp-includes/pomo/streams.php</exclude-pattern>
+		<exclude-pattern>/wp-includes/pomo/translations.php</exclude-pattern>
 	</rule>
 	<rule ref="Retraceur.DB.PreparedSQL.InterpolatedNotPrepared">
 		<type>warning</type>
@@ -365,6 +366,12 @@
 		<exclude-pattern>/wp-includes/class-walker-page-dropdown.php</exclude-pattern>
 		<exclude-pattern>/wp-includes/class-wp-walker.php</exclude-pattern>
 		<exclude-pattern>/wp-includes/blocks/navigation.php</exclude-pattern>
+		<exclude-pattern>/wp-includes/pomo/entry.php</exclude-pattern>
+		<exclude-pattern>/wp-includes/pomo/mo.php</exclude-pattern>
+		<exclude-pattern>/wp-includes/pomo/plural-forms.php</exclude-pattern>
+		<exclude-pattern>/wp-includes/pomo/po.php</exclude-pattern>
+		<exclude-pattern>/wp-includes/pomo/streams.php</exclude-pattern>
+		<exclude-pattern>/wp-includes/pomo/translations.php</exclude-pattern>
 	</rule>
 
 	<!-- WPCS1621: These files are expected to use _ instead of -. -->

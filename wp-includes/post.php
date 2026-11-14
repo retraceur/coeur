@@ -3434,13 +3434,13 @@ function wp_count_attachments( $mime_type = '' ) {
 
 	if ( false === $counts ) {
 		$and   = wp_post_mime_type_where( $mime_type );
-		$count = $wpdb->get_results( "SELECT post_mime_type, COUNT( * ) AS num_posts FROM $wpdb->posts WHERE post_type = 'attachment' AND post_status != 'trash' $and GROUP BY post_mime_type", ARRAY_A );
+		$count = $wpdb->get_results( "SELECT post_mime_type, COUNT( * ) AS num_posts FROM $wpdb->posts WHERE post_type = 'attachment' AND post_status != 'trash' $and GROUP BY post_mime_type", ARRAY_A ); // phpcs:ignore Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 
 		$counts = array();
 		foreach ( (array) $count as $row ) {
 			$counts[ $row['post_mime_type'] ] = $row['num_posts'];
 		}
-		$counts['trash'] = $wpdb->get_var( "SELECT COUNT( * ) FROM $wpdb->posts WHERE post_type = 'attachment' AND post_status = 'trash' $and" );
+		$counts['trash'] = $wpdb->get_var( "SELECT COUNT( * ) FROM $wpdb->posts WHERE post_type = 'attachment' AND post_status = 'trash' $and" ); // phpcs:ignore Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 
 		wp_cache_set( $cache_key, (object) $counts, 'counts' );
 	}
@@ -3768,7 +3768,7 @@ function wp_delete_post( $post_id = 0, $force_delete = false ) {
 			$post->post_type
 		);
 
-		$children = $wpdb->get_results( $children_query );
+		$children = $wpdb->get_results( $children_query ); // phpcs:ignore Retraceur.DB.PreparedSQL.NotPrepared
 
 		if ( $children ) {
 			$wpdb->update( $wpdb->posts, $parent_data, $parent_where + array( 'post_type' => $post->post_type ) );
@@ -5288,7 +5288,7 @@ function wp_unique_post_slug( $slug, $post_id, $post_status, $post_type, $post_p
 	if ( 'attachment' === $post_type ) {
 		// Attachment slugs must be unique across all types.
 		$check_sql       = "SELECT post_name FROM $wpdb->posts WHERE post_name = %s AND ID != %d LIMIT 1";
-		$post_name_check = $wpdb->get_var( $wpdb->prepare( $check_sql, $slug, $post_id ) );
+		$post_name_check = $wpdb->get_var( $wpdb->prepare( $check_sql, $slug, $post_id ) ); // phpcs:ignore Retraceur.DB.PreparedSQL.NotPrepared
 
 		/**
 		 * Filters whether the post slug would make a bad attachment slug.
@@ -5307,7 +5307,7 @@ function wp_unique_post_slug( $slug, $post_id, $post_status, $post_type, $post_p
 			$suffix = 2;
 			do {
 				$alt_post_name   = _truncate_post_slug( $slug, 200 - ( strlen( $suffix ) + 1 ) ) . "-$suffix";
-				$post_name_check = $wpdb->get_var( $wpdb->prepare( $check_sql, $alt_post_name, $post_id ) );
+				$post_name_check = $wpdb->get_var( $wpdb->prepare( $check_sql, $alt_post_name, $post_id ) ); // phpcs:ignore Retraceur.DB.PreparedSQL.NotPrepared
 				++$suffix;
 			} while ( $post_name_check );
 			$slug = $alt_post_name;
@@ -5322,7 +5322,7 @@ function wp_unique_post_slug( $slug, $post_id, $post_status, $post_type, $post_p
 		 * namespace than posts so page slugs are allowed to overlap post slugs.
 		 */
 		$check_sql       = "SELECT post_name FROM $wpdb->posts WHERE post_name = %s AND post_type IN ( %s, 'attachment' ) AND ID != %d AND post_parent = %d LIMIT 1";
-		$post_name_check = $wpdb->get_var( $wpdb->prepare( $check_sql, $slug, $post_type, $post_id, $post_parent ) );
+		$post_name_check = $wpdb->get_var( $wpdb->prepare( $check_sql, $slug, $post_type, $post_id, $post_parent ) ); // phpcs:ignore Retraceur.DB.PreparedSQL.NotPrepared
 
 		/**
 		 * Filters whether the post slug would make a bad hierarchical post slug.
@@ -5344,7 +5344,7 @@ function wp_unique_post_slug( $slug, $post_id, $post_status, $post_type, $post_p
 			$suffix = 2;
 			do {
 				$alt_post_name   = _truncate_post_slug( $slug, 200 - ( strlen( $suffix ) + 1 ) ) . "-$suffix";
-				$post_name_check = $wpdb->get_var( $wpdb->prepare( $check_sql, $alt_post_name, $post_type, $post_id, $post_parent ) );
+				$post_name_check = $wpdb->get_var( $wpdb->prepare( $check_sql, $alt_post_name, $post_type, $post_id, $post_parent ) ); // phpcs:ignore Retraceur.DB.PreparedSQL.NotPrepared
 				++$suffix;
 			} while ( $post_name_check );
 			$slug = $alt_post_name;
@@ -5352,7 +5352,7 @@ function wp_unique_post_slug( $slug, $post_id, $post_status, $post_type, $post_p
 	} else {
 		// Post slugs must be unique across all posts.
 		$check_sql       = "SELECT post_name FROM $wpdb->posts WHERE post_name = %s AND post_type = %s AND ID != %d LIMIT 1";
-		$post_name_check = $wpdb->get_var( $wpdb->prepare( $check_sql, $slug, $post_type, $post_id ) );
+		$post_name_check = $wpdb->get_var( $wpdb->prepare( $check_sql, $slug, $post_type, $post_id ) ); // phpcs:ignore Retraceur.DB.PreparedSQL.NotPrepared
 
 		$post = get_post( $post_id );
 
@@ -5400,7 +5400,7 @@ function wp_unique_post_slug( $slug, $post_id, $post_status, $post_type, $post_p
 			$suffix = 2;
 			do {
 				$alt_post_name   = _truncate_post_slug( $slug, 200 - ( strlen( $suffix ) + 1 ) ) . "-$suffix";
-				$post_name_check = $wpdb->get_var( $wpdb->prepare( $check_sql, $alt_post_name, $post_type, $post_id ) );
+				$post_name_check = $wpdb->get_var( $wpdb->prepare( $check_sql, $alt_post_name, $post_type, $post_id ) ); // phpcs:ignore Retraceur.DB.PreparedSQL.NotPrepared
 				++$suffix;
 			} while ( $post_name_check );
 			$slug = $alt_post_name;
@@ -7332,14 +7332,14 @@ function _get_last_post_time( $timezone, $field, $post_type = 'any' ) {
 
 	switch ( $timezone ) {
 		case 'gmt':
-			$date = $wpdb->get_var( "SELECT post_{$field}_gmt FROM $wpdb->posts WHERE post_status = 'publish' AND post_type IN ({$post_types}) ORDER BY post_{$field}_gmt DESC LIMIT 1" );
+			$date = $wpdb->get_var( "SELECT post_{$field}_gmt FROM $wpdb->posts WHERE post_status = 'publish' AND post_type IN ({$post_types}) ORDER BY post_{$field}_gmt DESC LIMIT 1" ); // phpcs:ignore Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 			break;
 		case 'blog':
-			$date = $wpdb->get_var( "SELECT post_{$field} FROM $wpdb->posts WHERE post_status = 'publish' AND post_type IN ({$post_types}) ORDER BY post_{$field}_gmt DESC LIMIT 1" );
+			$date = $wpdb->get_var( "SELECT post_{$field} FROM $wpdb->posts WHERE post_status = 'publish' AND post_type IN ({$post_types}) ORDER BY post_{$field}_gmt DESC LIMIT 1" ); // phpcs:ignore Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 			break;
 		case 'server':
 			$add_seconds_server = gmdate( 'Z' );
-			$date               = $wpdb->get_var( "SELECT DATE_ADD(post_{$field}_gmt, INTERVAL '$add_seconds_server' SECOND) FROM $wpdb->posts WHERE post_status = 'publish' AND post_type IN ({$post_types}) ORDER BY post_{$field}_gmt DESC LIMIT 1" );
+			$date               = $wpdb->get_var( "SELECT DATE_ADD(post_{$field}_gmt, INTERVAL '$add_seconds_server' SECOND) FROM $wpdb->posts WHERE post_status = 'publish' AND post_type IN ({$post_types}) ORDER BY post_{$field}_gmt DESC LIMIT 1" ); // phpcs:ignore Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 			break;
 	}
 
@@ -7929,7 +7929,7 @@ function _prime_post_caches( $ids, $update_term_cache = true, $update_meta_cache
 
 	$non_cached_ids = _get_non_cached_ids( $ids, 'posts' );
 	if ( ! empty( $non_cached_ids ) ) {
-		$fresh_posts = $wpdb->get_results( sprintf( "SELECT $wpdb->posts.* FROM $wpdb->posts WHERE ID IN (%s)", implode( ',', $non_cached_ids ) ) );
+		$fresh_posts = $wpdb->get_results( sprintf( "SELECT $wpdb->posts.* FROM $wpdb->posts WHERE ID IN (%s)", implode( ',', $non_cached_ids ) ) ); // phpcs:ignore Retraceur.DB.PreparedSQL.NotPrepared
 
 		if ( $fresh_posts ) {
 			$fresh_posts = array_map( 'retraceur_clean_deprecated_post_properties', $fresh_posts );
@@ -7984,7 +7984,7 @@ function _prime_post_parent_id_caches( array $ids ) {
 	}
 
 	if ( ! empty( $non_cached_ids ) ) {
-		$fresh_posts = $wpdb->get_results( sprintf( "SELECT $wpdb->posts.ID, $wpdb->posts.post_parent FROM $wpdb->posts WHERE ID IN (%s)", implode( ',', $non_cached_ids ) ) );
+		$fresh_posts = $wpdb->get_results( sprintf( "SELECT $wpdb->posts.ID, $wpdb->posts.post_parent FROM $wpdb->posts WHERE ID IN (%s)", implode( ',', $non_cached_ids ) ) ); // phpcs:ignore Retraceur.DB.PreparedSQL.NotPrepared
 
 		if ( $fresh_posts ) {
 			$post_parent_data = array();

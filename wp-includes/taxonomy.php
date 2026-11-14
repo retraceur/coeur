@@ -922,7 +922,7 @@ function get_objects_in_term( $term_ids, $taxonomies, $args = array() ) {
 	$cache_key    = 'get_objects_in_term:' . md5( $sql );
 	$cache        = wp_cache_get_salted( $cache_key, 'term-queries', $last_changed );
 	if ( false === $cache ) {
-		$object_ids = $wpdb->get_col( $sql );
+		$object_ids = $wpdb->get_col( $sql ); // phpcs:ignore Retraceur.DB.PreparedSQL.NotPrepared
 		wp_cache_set_salted( $cache_key, $object_ids, 'term-queries', $last_changed );
 	} else {
 		$object_ids = (array) $cache;
@@ -2137,7 +2137,7 @@ function wp_delete_term( $term, $taxonomy, $args = array() ) {
 		}
 		$parent = $term_obj->parent;
 
-		$edit_ids    = $wpdb->get_results( "SELECT term_id, term_taxonomy_id FROM $wpdb->term_taxonomy WHERE `parent` = " . (int) $term_obj->term_id );
+		$edit_ids    = $wpdb->get_results( "SELECT term_id, term_taxonomy_id FROM $wpdb->term_taxonomy WHERE `parent` = " . (int) $term_obj->term_id ); // phpcs:ignore Retraceur.DB.PreparedSQL.NotPrepared
 		$edit_tt_ids = wp_list_pluck( $edit_ids, 'term_taxonomy_id' );
 
 		/**
@@ -2356,7 +2356,7 @@ function wp_get_object_terms( $object_ids, $taxonomies, $args = array() ) {
 	if ( count( $taxonomies ) > 1 ) {
 		foreach ( $taxonomies as $index => $taxonomy ) {
 			$t = get_taxonomy( $taxonomy );
-			if ( isset( $t->args ) && is_array( $t->args ) && array_merge( $args, $t->args ) != $args ) {
+			if ( isset( $t->args ) && is_array( $t->args ) && array_merge( $args, $t->args ) != $args ) { // phpcs:ignore Universal.Operators.StrictComparisons.LooseNotEqual
 				unset( $taxonomies[ $index ] );
 				$terms = array_merge( $terms, wp_get_object_terms( $object_ids, $taxonomy, array_merge( $args, $t->args ) ) );
 			}
@@ -2970,7 +2970,7 @@ function wp_set_object_terms( $object_id, $terms, $taxonomy, $append = false ) {
 
 		if ( $delete_tt_ids ) {
 			$in_delete_tt_ids = "'" . implode( "', '", $delete_tt_ids ) . "'";
-			$delete_term_ids  = $wpdb->get_col( $wpdb->prepare( "SELECT tt.term_id FROM $wpdb->term_taxonomy AS tt WHERE tt.taxonomy = %s AND tt.term_taxonomy_id IN ($in_delete_tt_ids)", $taxonomy ) );
+			$delete_term_ids  = $wpdb->get_col( $wpdb->prepare( "SELECT tt.term_id FROM $wpdb->term_taxonomy AS tt WHERE tt.taxonomy = %s AND tt.term_taxonomy_id IN ($in_delete_tt_ids)", $taxonomy ) ); // phpcs:ignore Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 			$delete_term_ids  = array_map( 'intval', $delete_term_ids );
 
 			$remove = wp_remove_object_terms( $object_id, $delete_term_ids, $taxonomy );
@@ -3002,7 +3002,7 @@ function wp_set_object_terms( $object_id, $terms, $taxonomy, $append = false ) {
 		}
 
 		if ( $values ) {
-			if ( false === $wpdb->query( "INSERT INTO $wpdb->term_relationships (object_id, term_taxonomy_id, term_order) VALUES " . implode( ',', $values ) . ' ON DUPLICATE KEY UPDATE term_order = VALUES(term_order)' ) ) {
+			if ( false === $wpdb->query( "INSERT INTO $wpdb->term_relationships (object_id, term_taxonomy_id, term_order) VALUES " . implode( ',', $values ) . ' ON DUPLICATE KEY UPDATE term_order = VALUES(term_order)' ) ) { // phpcs:ignore Retraceur.DB.PreparedSQL.NotPrepared
 				return new WP_Error( 'db_insert_error', __( 'Could not insert term relationship into the database.' ), $wpdb->last_error );
 			}
 		}
@@ -3104,7 +3104,7 @@ function wp_remove_object_terms( $object_id, $terms, $taxonomy ) {
 		 */
 		do_action( 'delete_term_relationships', $object_id, $tt_ids, $taxonomy );
 
-		$deleted = $wpdb->query( $wpdb->prepare( "DELETE FROM $wpdb->term_relationships WHERE object_id = %d AND term_taxonomy_id IN ($in_tt_ids)", $object_id ) );
+		$deleted = $wpdb->query( $wpdb->prepare( "DELETE FROM $wpdb->term_relationships WHERE object_id = %d AND term_taxonomy_id IN ($in_tt_ids)", $object_id ) ); // phpcs:ignore Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 
 		wp_cache_delete( $object_id, $taxonomy . '_relationships' );
 		wp_cache_set_terms_last_changed();
@@ -3655,7 +3655,7 @@ function wp_update_term_count_now( $terms, $taxonomy ) {
 			}
 		}
 
-		if ( array_filter( $object_types, 'post_type_exists' ) == $object_types ) {
+		if ( array_filter( $object_types, 'post_type_exists' ) == $object_types ) { // phpcs:ignore Universal.Operators.StrictComparisons.LooseEqual
 			// Only post types are attached to this taxonomy.
 			_update_post_term_count( $terms, $taxonomy );
 		} else {
@@ -3749,7 +3749,7 @@ function clean_term_cache( $ids, $taxonomy = '', $clean_taxonomy = true ) {
 	if ( empty( $taxonomy ) ) {
 		$tt_ids = array_map( 'intval', $ids );
 		$tt_ids = implode( ', ', $tt_ids );
-		$terms  = $wpdb->get_results( "SELECT term_id, taxonomy FROM $wpdb->term_taxonomy WHERE term_taxonomy_id IN ($tt_ids)" );
+		$terms  = $wpdb->get_results( "SELECT term_id, taxonomy FROM $wpdb->term_taxonomy WHERE term_taxonomy_id IN ($tt_ids)" ); // phpcs:ignore Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 		$ids    = array();
 
 		foreach ( (array) $terms as $term ) {
@@ -4127,7 +4127,7 @@ function _pad_term_counts( &$terms, $taxonomy ) {
 	// Get the object and term IDs and stick them in a lookup table.
 	$tax_obj      = get_taxonomy( $taxonomy );
 	$object_types = esc_sql( $tax_obj->object_type );
-	$results      = $wpdb->get_results( "SELECT object_id, term_taxonomy_id FROM $wpdb->term_relationships INNER JOIN $wpdb->posts ON object_id = ID WHERE term_taxonomy_id IN (" . implode( ',', array_keys( $term_ids ) ) . ") AND post_type IN ('" . implode( "', '", $object_types ) . "') AND post_status = 'publish'" );
+	$results      = $wpdb->get_results( "SELECT object_id, term_taxonomy_id FROM $wpdb->term_relationships INNER JOIN $wpdb->posts ON object_id = ID WHERE term_taxonomy_id IN (" . implode( ',', array_keys( $term_ids ) ) . ") AND post_type IN ('" . implode( "', '", $object_types ) . "') AND post_status = 'publish'" ); // phpcs:ignore Retraceur.DB.PreparedSQL.NotPrepared
 
 	foreach ( $results as $row ) {
 		$id = $term_ids[ $row->term_taxonomy_id ];
@@ -4181,7 +4181,7 @@ function _prime_term_caches( $term_ids, $update_meta_cache = true ) {
 
 	$non_cached_ids = _get_non_cached_ids( $term_ids, 'terms' );
 	if ( ! empty( $non_cached_ids ) ) {
-		$fresh_terms = $wpdb->get_results( sprintf( "SELECT t.*, tt.* FROM $wpdb->terms AS t INNER JOIN $wpdb->term_taxonomy AS tt ON t.term_id = tt.term_id WHERE t.term_id IN (%s)", implode( ',', array_map( 'intval', $non_cached_ids ) ) ) );
+		$fresh_terms = $wpdb->get_results( sprintf( "SELECT t.*, tt.* FROM $wpdb->terms AS t INNER JOIN $wpdb->term_taxonomy AS tt ON t.term_id = tt.term_id WHERE t.term_id IN (%s)", implode( ',', array_map( 'intval', $non_cached_ids ) ) ) ); // phpcs:ignore Retraceur.DB.PreparedSQL.NotPrepared
 
 		update_term_cache( $fresh_terms );
 	}
@@ -4248,12 +4248,12 @@ function _update_post_term_count( $terms, $taxonomy ) {
 		// Attachments can be 'inherit' status, we need to base count off the parent's status if so.
 		if ( $check_attachments ) {
 			// phpcs:ignore Retraceur.DB.PreparedSQLPlaceholders.QuotedDynamicPlaceholderGeneration
-			$count += (int) $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM $wpdb->term_relationships, $wpdb->posts p1 WHERE p1.ID = $wpdb->term_relationships.object_id AND ( post_status IN ('" . implode( "', '", $post_statuses ) . "') OR ( post_status = 'inherit' AND post_parent > 0 AND ( SELECT post_status FROM $wpdb->posts WHERE ID = p1.post_parent ) IN ('" . implode( "', '", $post_statuses ) . "') ) ) AND post_type = 'attachment' AND term_taxonomy_id = %d", $tt_id ) );
+			$count += (int) $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM $wpdb->term_relationships, $wpdb->posts p1 WHERE p1.ID = $wpdb->term_relationships.object_id AND ( post_status IN ('" . implode( "', '", $post_statuses ) . "') OR ( post_status = 'inherit' AND post_parent > 0 AND ( SELECT post_status FROM $wpdb->posts WHERE ID = p1.post_parent ) IN ('" . implode( "', '", $post_statuses ) . "') ) ) AND post_type = 'attachment' AND term_taxonomy_id = %d", $tt_id ) ); // phpcs:ignore Retraceur.DB.PreparedSQL.NotPrepared, Retraceur.DB.PreparedSQLPlaceholders.QuotedDynamicPlaceholderGeneration
 		}
 
 		if ( $object_types ) {
 			// phpcs:ignore Retraceur.DB.PreparedSQLPlaceholders.QuotedDynamicPlaceholderGeneration
-			$count += (int) $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM $wpdb->term_relationships, $wpdb->posts WHERE $wpdb->posts.ID = $wpdb->term_relationships.object_id AND post_status IN ('" . implode( "', '", $post_statuses ) . "') AND post_type IN ('" . implode( "', '", $object_types ) . "') AND term_taxonomy_id = %d", $tt_id ) );
+			$count += (int) $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM $wpdb->term_relationships, $wpdb->posts WHERE $wpdb->posts.ID = $wpdb->term_relationships.object_id AND post_status IN ('" . implode( "', '", $post_statuses ) . "') AND post_type IN ('" . implode( "', '", $object_types ) . "') AND term_taxonomy_id = %d", $tt_id ) ); // phpcs:ignore Retraceur.DB.PreparedSQL.NotPrepared, Retraceur.DB.PreparedSQLPlaceholders.QuotedDynamicPlaceholderGeneration
 		}
 
 		/**
@@ -4511,7 +4511,7 @@ function _wp_batch_split_terms() {
 
 	// Get term taxonomy data for all shared terms.
 	$shared_term_ids = implode( ',', array_keys( $shared_terms ) );
-	$shared_tts      = $wpdb->get_results( "SELECT * FROM {$wpdb->term_taxonomy} WHERE `term_id` IN ({$shared_term_ids})" );
+	$shared_tts      = $wpdb->get_results( "SELECT * FROM {$wpdb->term_taxonomy} WHERE `term_id` IN ({$shared_term_ids})" ); // phpcs:ignore Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 
 	// Split term data recording is slow, so we do it just once, outside the loop.
 	$split_term_data    = get_option( '_split_terms', array() );

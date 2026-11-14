@@ -313,7 +313,7 @@ class WP_REST_Taxonomies_Controller extends WP_REST_Controller {
 	 */
 	protected function prepare_links( $taxonomy ) {
 		return array(
-			'collection'              => array(
+			'collection'                            => array(
 				'href' => rest_url( sprintf( '%s/%s', $this->namespace, $this->rest_base ) ),
 			),
 			'https://retraceur.github.io/api/items' => array(

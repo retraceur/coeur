@@ -303,8 +303,8 @@ function wp_default_packages_scripts( $scripts ) {
 			$filename = str_replace( 'retraceur-', '', $basename );
 			$path     = "/wp-admin/js/{$filename}.js";
 		} else {
-			$handle   = 'wp-' . $basename;
-			$path     = "/wp-includes/js/dist/{$basename}{$suffix}.js";
+			$handle = 'wp-' . $basename;
+			$path   = "/wp-includes/js/dist/{$basename}{$suffix}.js";
 		}
 
 		if ( ! empty( $package_data['dependencies'] ) ) {

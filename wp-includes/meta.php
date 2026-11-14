@@ -93,6 +93,7 @@ function add_metadata( $meta_type, $object_id, $meta_key, $meta_value, $unique =
 		return $check;
 	}
 
+	// phpcs:disable Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 	if ( $unique && $wpdb->get_var(
 		$wpdb->prepare(
 			"SELECT COUNT(*) FROM $table WHERE meta_key = %s AND $column = %d",
@@ -100,6 +101,7 @@ function add_metadata( $meta_type, $object_id, $meta_key, $meta_value, $unique =
 			$object_id
 		)
 	) ) {
+		// phpcs:enable Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 		return false;
 	}
 
@@ -260,7 +262,7 @@ function update_metadata( $meta_type, $object_id, $meta_key, $meta_value, $prev_
 		}
 	}
 
-	$meta_ids = $wpdb->get_col( $wpdb->prepare( "SELECT $id_column FROM $table WHERE meta_key = %s AND $column = %d", $meta_key, $object_id ) );
+	$meta_ids = $wpdb->get_col( $wpdb->prepare( "SELECT $id_column FROM $table WHERE meta_key = %s AND $column = %d", $meta_key, $object_id ) ); // phpcs:ignore Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 	if ( empty( $meta_ids ) ) {
 		return add_metadata( $meta_type, $object_id, $raw_meta_key, $passed_value );
 	}
@@ -449,26 +451,26 @@ function delete_metadata( $meta_type, $object_id, $meta_key, $meta_value = '', $
 	$_meta_value = $meta_value;
 	$meta_value  = maybe_serialize( $meta_value );
 
-	$query = $wpdb->prepare( "SELECT $id_column FROM $table WHERE meta_key = %s", $meta_key );
+	$query = $wpdb->prepare( "SELECT $id_column FROM $table WHERE meta_key = %s", $meta_key ); // phpcs:ignore Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 
 	if ( ! $delete_all ) {
-		$query .= $wpdb->prepare( " AND $type_column = %d", $object_id );
+		$query .= $wpdb->prepare( " AND $type_column = %d", $object_id ); // phpcs:ignore Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 	}
 
 	if ( '' !== $meta_value && null !== $meta_value && false !== $meta_value ) {
-		$query .= $wpdb->prepare( ' AND meta_value = %s', $meta_value );
+		$query .= $wpdb->prepare( ' AND meta_value = %s', $meta_value ); // phpcs:ignore Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 	}
 
-	$meta_ids = $wpdb->get_col( $query );
+	$meta_ids = $wpdb->get_col( $query ); // phpcs:ignore Retraceur.DB.PreparedSQL.NotPrepared
 	if ( ! count( $meta_ids ) ) {
 		return false;
 	}
 
 	if ( $delete_all ) {
 		if ( '' !== $meta_value && null !== $meta_value && false !== $meta_value ) {
-			$object_ids = $wpdb->get_col( $wpdb->prepare( "SELECT $type_column FROM $table WHERE meta_key = %s AND meta_value = %s", $meta_key, $meta_value ) );
+			$object_ids = $wpdb->get_col( $wpdb->prepare( "SELECT $type_column FROM $table WHERE meta_key = %s AND meta_value = %s", $meta_key, $meta_value ) ); // phpcs:ignore Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 		} else {
-			$object_ids = $wpdb->get_col( $wpdb->prepare( "SELECT $type_column FROM $table WHERE meta_key = %s", $meta_key ) );
+			$object_ids = $wpdb->get_col( $wpdb->prepare( "SELECT $type_column FROM $table WHERE meta_key = %s", $meta_key ) ); // phpcs:ignore Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 		}
 	}
 
@@ -508,7 +510,7 @@ function delete_metadata( $meta_type, $object_id, $meta_key, $meta_value = '', $
 
 	$query = "DELETE FROM $table WHERE $id_column IN( " . implode( ',', $meta_ids ) . ' )';
 
-	$count = $wpdb->query( $query );
+	$count = $wpdb->query( $query ); // phpcs:ignore Retraceur.DB.PreparedSQL.NotPrepared
 
 	if ( ! $count ) {
 		return false;
@@ -808,7 +810,7 @@ function metadata_exists( $meta_type, $object_id, $meta_key ) {
 function get_metadata_by_mid( $meta_type, $meta_id ) {
 	global $wpdb;
 
-	if ( ! $meta_type || ! is_numeric( $meta_id ) || floor( $meta_id ) != $meta_id ) {
+	if ( ! $meta_type || ! is_numeric( $meta_id ) || floor( $meta_id ) != $meta_id ) { // phpcs:ignore Universal.Operators.StrictComparisons.LooseNotEqual
 		return false;
 	}
 
@@ -848,7 +850,7 @@ function get_metadata_by_mid( $meta_type, $meta_id ) {
 
 	$id_column = ( 'user' === $meta_type ) ? 'umeta_id' : 'meta_id';
 
-	$meta = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM $table WHERE $id_column = %d", $meta_id ) );
+	$meta = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM $table WHERE $id_column = %d", $meta_id ) ); // phpcs:ignore Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 
 	if ( empty( $meta ) ) {
 		return false;
@@ -879,7 +881,7 @@ function update_metadata_by_mid( $meta_type, $meta_id, $meta_value, $meta_key = 
 	global $wpdb;
 
 	// Make sure everything is valid.
-	if ( ! $meta_type || ! is_numeric( $meta_id ) || floor( $meta_id ) != $meta_id ) {
+	if ( ! $meta_type || ! is_numeric( $meta_id ) || floor( $meta_id ) != $meta_id ) { // phpcs:ignore Universal.Operators.StrictComparisons.LooseNotEqual
 		return false;
 	}
 
@@ -1003,7 +1005,7 @@ function delete_metadata_by_mid( $meta_type, $meta_id ) {
 	global $wpdb;
 
 	// Make sure everything is valid.
-	if ( ! $meta_type || ! is_numeric( $meta_id ) || floor( $meta_id ) != $meta_id ) {
+	if ( ! $meta_type || ! is_numeric( $meta_id ) || floor( $meta_id ) != $meta_id ) { // phpcs:ignore Universal.Operators.StrictComparisons.LooseNotEqual
 		return false;
 	}
 
@@ -1186,7 +1188,7 @@ function update_meta_cache( $meta_type, $object_ids ) {
 	$id_list   = implode( ',', $non_cached_ids );
 	$id_column = ( 'user' === $meta_type ) ? 'umeta_id' : 'meta_id';
 
-	$meta_list = $wpdb->get_results( "SELECT $column, meta_key, meta_value FROM $table WHERE $column IN ($id_list) ORDER BY $id_column ASC", ARRAY_A );
+	$meta_list = $wpdb->get_results( "SELECT $column, meta_key, meta_value FROM $table WHERE $column IN ($id_list) ORDER BY $id_column ASC", ARRAY_A ); // phpcs:ignore Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 
 	if ( ! empty( $meta_list ) ) {
 		foreach ( $meta_list as $metarow ) {
