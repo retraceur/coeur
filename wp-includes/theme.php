@@ -2255,7 +2255,7 @@ function get_theme_starter_content() {
 	}
 
 	$core_content = array(
-		'posts'     => array(
+		'posts' => array(
 			'home'             => array(
 				'post_type'    => 'page',
 				'post_title'   => _x( 'Home', 'Theme starter content' ),

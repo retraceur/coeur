@@ -48,8 +48,8 @@ else :
 	 *
 	 * @since WP 6.9.0
 	 */
-	function wp_is_valid_utf8( string $string ): bool {
-		return _wp_is_valid_utf8_fallback( $string );
+	function wp_is_valid_utf8( string $str ): bool {
+		return _wp_is_valid_utf8_fallback( $str );
 	}
 endif;
 

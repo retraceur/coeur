@@ -2306,7 +2306,7 @@ function wp_get_archives( $args = '' ) {
 		$key     = "wp_get_archives:$key";
 		$results = wp_cache_get_salted( $key, 'post-queries', $last_changed );
 		if ( ! $results ) {
-			$results = $wpdb->get_results( $query );
+			$results = $wpdb->get_results( $query ); // phpcs:ignore Retraceur.DB.PreparedSQL.NotPrepared
 			wp_cache_set_salted( $key, $results, 'post-queries', $last_changed );
 		}
 		if ( $results ) {
@@ -2331,7 +2331,7 @@ function wp_get_archives( $args = '' ) {
 		$key     = "wp_get_archives:$key";
 		$results = wp_cache_get_salted( $key, 'post-queries', $last_changed );
 		if ( ! $results ) {
-			$results = $wpdb->get_results( $query );
+			$results = $wpdb->get_results( $query ); // phpcs:ignore Retraceur.DB.PreparedSQL.NotPrepared
 			wp_cache_set_salted( $key, $results, 'post-queries', $last_changed );
 		}
 		if ( $results ) {
@@ -2355,7 +2355,7 @@ function wp_get_archives( $args = '' ) {
 		$key     = "wp_get_archives:$key";
 		$results = wp_cache_get_salted( $key, 'post-queries', $last_changed );
 		if ( ! $results ) {
-			$results = $wpdb->get_results( $query );
+			$results = $wpdb->get_results( $query ); // phpcs:ignore Retraceur.DB.PreparedSQL.NotPrepared
 			wp_cache_set_salted( $key, $results, 'post-queries', $last_changed );
 		}
 		if ( $results ) {
@@ -2381,7 +2381,7 @@ function wp_get_archives( $args = '' ) {
 		$key     = "wp_get_archives:$key";
 		$results = wp_cache_get_salted( $key, 'post-queries', $last_changed );
 		if ( ! $results ) {
-			$results = $wpdb->get_results( $query );
+			$results = $wpdb->get_results( $query ); // phpcs:ignore Retraceur.DB.PreparedSQL.NotPrepared
 			wp_cache_set_salted( $key, $results, 'post-queries', $last_changed );
 		}
 		$arc_w_last = '';
@@ -2420,7 +2420,7 @@ function wp_get_archives( $args = '' ) {
 		$key     = "wp_get_archives:$key";
 		$results = wp_cache_get_salted( $key, 'post-queries', $last_changed );
 		if ( ! $results ) {
-			$results = $wpdb->get_results( $query );
+			$results = $wpdb->get_results( $query ); // phpcs:ignore Retraceur.DB.PreparedSQL.NotPrepared
 			wp_cache_set_salted( $key, $results, 'post-queries', $last_changed );
 		}
 		if ( $results ) {

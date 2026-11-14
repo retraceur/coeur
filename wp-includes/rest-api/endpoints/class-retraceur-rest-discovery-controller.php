@@ -87,19 +87,19 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 					'callback'            => array( $this, 'get_repository' ),
 					'permission_callback' => array( $this, 'get_items_permissions_check' ),
 					'args'                => array(
-						'context'    => array(
+						'context' => array(
 							'description' => __( 'Scope under which the request is made.' ),
 							'type'        => 'string',
 							'default'     => 'view',
 						),
-						'name'       => array(
+						'name'    => array(
 							'description' => __( 'The repository full name (owner/repo).' ),
 							'type'        => 'string',
 							'required'    => true,
 							'minLength'   => 1,
 							'pattern'     => '^[a-zA-Z0-9_.-]+/[a-zA-Z0-9_.-]+$',
 						),
-						'type' => array(
+						'type'    => array(
 							'default'     => 'plugin',
 							'description' => __( 'The type of Retraceur repositories to fetch.' ),
 							'type'        => 'string',
@@ -522,19 +522,19 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 
 		// A data array containing the properties we'll return.
 		$repository = array(
-			'id'                  => (int) $item['id'],
-			'name'                => wp_strip_all_tags( $item['name'] ),
-			'full_name'           => $full_name,
-			'html_url'            => esc_url_raw( $item['html_url'] ),
-			'description'         => wp_strip_all_tags( $item['description'] ),
-			'author'              => ! empty( $item['owner']['login'] ) ? wp_strip_all_tags( $item['owner']['login'] ) : __( 'Unknown author.' ),
-			'author_avatar'       => ! empty( $item['owner']['avatar_url'] ) ? esc_url_raw( $item['owner']['avatar_url'] ) : '',
-			'author_url'          => ! empty( $item['owner']['html_url'] ) ? esc_url_raw( $item['owner']['html_url'] ) : '',
-			'image'               => 'https://raw.githubusercontent.com/' . $full_name . '/refs/heads/' . $default_branch . '/retraceur/og-image.png',
-			'last_updated'        => gmdate( 'Y-m-d\TH:i:s', strtotime( $item['updated_at'] ) ),
-			'stargazers_count'    => (int) $item['stargazers_count'],
-			'open_issues_count'   => (int) $item['open_issues_count'],
-			'default_branch'      => $default_branch,
+			'id'                => (int) $item['id'],
+			'name'              => wp_strip_all_tags( $item['name'] ),
+			'full_name'         => $full_name,
+			'html_url'          => esc_url_raw( $item['html_url'] ),
+			'description'       => wp_strip_all_tags( $item['description'] ),
+			'author'            => ! empty( $item['owner']['login'] ) ? wp_strip_all_tags( $item['owner']['login'] ) : __( 'Unknown author.' ),
+			'author_avatar'     => ! empty( $item['owner']['avatar_url'] ) ? esc_url_raw( $item['owner']['avatar_url'] ) : '',
+			'author_url'        => ! empty( $item['owner']['html_url'] ) ? esc_url_raw( $item['owner']['html_url'] ) : '',
+			'image'             => 'https://raw.githubusercontent.com/' . $full_name . '/refs/heads/' . $default_branch . '/retraceur/og-image.png',
+			'last_updated'      => gmdate( 'Y-m-d\TH:i:s', strtotime( $item['updated_at'] ) ),
+			'stargazers_count'  => (int) $item['stargazers_count'],
+			'open_issues_count' => (int) $item['open_issues_count'],
+			'default_branch'    => $default_branch,
 		);
 
 		// Check already installed repositories.
@@ -671,7 +671,7 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 					'type'        => 'string',
 					'context'     => array( 'view' ),
 				),
-				'html_url'         => array(
+				'html_url'          => array(
 					'description' => __( 'The repository GitHub URL.' ),
 					'type'        => 'string',
 					'format'      => 'uri',
@@ -695,7 +695,7 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 					'context'     => array( 'view' ),
 					'readonly'    => true,
 				),
-				'author_url'     => array(
+				'author_url'        => array(
 					'description' => __( 'The repository owner’s GitHub URL.' ),
 					'type'        => 'string',
 					'format'      => 'uri',
@@ -725,12 +725,12 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 					'type'        => 'integer',
 					'context'     => array( 'view' ),
 				),
-				'default_branch' => array(
+				'default_branch'    => array(
 					'description' => __( 'The default branch name.' ),
 					'type'        => 'string',
 					'context'     => array( 'view' ),
 				),
-				'is_installed' => array(
+				'is_installed'      => array(
 					'description' => __( 'Whether the repository is already installed.' ),
 					'type'        => 'boolean',
 					'context'     => array( 'view' ),
@@ -838,17 +838,17 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 					'type'        => 'string',
 					'context'     => array( 'view' ),
 				),
-				'version'     => array(
+				'version'      => array(
 					'description' => __( 'The repository release version number.' ),
 					'type'        => 'string',
 					'context'     => array( 'view' ),
 				),
-				'note'        => array(
+				'note'         => array(
 					'description' => __( 'The repository release note.' ),
 					'type'        => 'string',
 					'context'     => array( 'view' ),
 				),
-				'release_url' => array(
+				'release_url'  => array(
 					'description' => __( 'The URL to the release page.' ),
 					'type'        => 'string',
 					'format'      => 'uri',
@@ -899,7 +899,7 @@ class Retraceur_REST_Discovery_Controller extends WP_REST_Controller {
 				'type'        => 'string',
 				'context'     => array( 'view' ),
 			),
-			'dependencies'        => array(
+			'dependencies'       => array(
 				'description' => __( 'The list of repository dependencies.' ),
 				'type'        => 'array',
 				'items'       => array(

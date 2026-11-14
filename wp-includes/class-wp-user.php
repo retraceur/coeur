@@ -258,7 +258,7 @@ class WP_User {
 
 		$user = $wpdb->get_row(
 			$wpdb->prepare(
-				"SELECT * FROM $wpdb->users WHERE $db_field = %s LIMIT 1",
+				"SELECT * FROM $wpdb->users WHERE $db_field = %s LIMIT 1", // phpcs:ignore Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 				$value
 			)
 		);

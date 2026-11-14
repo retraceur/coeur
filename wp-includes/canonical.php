@@ -448,11 +448,11 @@ function redirect_canonical( $requested_url = null, $do_redirect = true ) {
 				$redirect['query'] = remove_query_arg( 'feed', $redirect['query'] );
 			} elseif ( is_feed() && 'old' === $feed ) {
 				$old_feed_files = array(
-					'wp-atom.php'         => 'atom',
-					'wp-feed.php'         => $default_feed,
-					'wp-rdf.php'          => 'rdf',
-					'wp-rss.php'          => 'rss2',
-					'wp-rss2.php'         => 'rss2',
+					'wp-atom.php' => 'atom',
+					'wp-feed.php' => $default_feed,
+					'wp-rdf.php'  => 'rdf',
+					'wp-rss.php'  => 'rss2',
+					'wp-rss2.php' => 'rss2',
 				);
 
 				if ( isset( $old_feed_files[ basename( $redirect['path'] ) ] ) ) {

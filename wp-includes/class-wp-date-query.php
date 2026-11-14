@@ -504,13 +504,13 @@ class WP_Date_Query {
 			}
 
 			$known_columns = array(
-				$wpdb->posts    => array(
+				$wpdb->posts => array(
 					'post_date',
 					'post_date_gmt',
 					'post_modified',
 					'post_modified_gmt',
 				),
-				$wpdb->users    => array(
+				$wpdb->users => array(
 					'user_registered',
 				),
 			);
@@ -728,10 +728,10 @@ class WP_Date_Query {
 
 		// Range queries.
 		if ( ! empty( $query['after'] ) ) {
-			$where_parts[] = $wpdb->prepare( "$column $gt %s", $this->build_mysql_datetime( $query['after'], ! $inclusive ) );
+			$where_parts[] = $wpdb->prepare( "$column $gt %s", $this->build_mysql_datetime( $query['after'], ! $inclusive ) ); // phpcs:ignore Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 		}
 		if ( ! empty( $query['before'] ) ) {
-			$where_parts[] = $wpdb->prepare( "$column $lt %s", $this->build_mysql_datetime( $query['before'], $inclusive ) );
+			$where_parts[] = $wpdb->prepare( "$column $lt %s", $this->build_mysql_datetime( $query['before'], $inclusive ) ); // phpcs:ignore Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 		}
 		// Specific value queries.
 
@@ -1039,7 +1039,7 @@ class WP_Date_Query {
 			$time   .= sprintf( '%02d', $second );
 		}
 
-		return $wpdb->prepare( "DATE_FORMAT( $column, %s ) $compare %f", $format, $time );
+		return $wpdb->prepare( "DATE_FORMAT( $column, %s ) $compare %f", $format, $time ); // phpcs:ignore Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 	}
 
 	/**

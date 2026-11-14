@@ -5709,7 +5709,7 @@ function attachment_url_to_postid( $url ) {
 		$path
 	);
 
-	$results = $wpdb->get_results( $sql );
+	$results = $wpdb->get_results( $sql ); // phpcs:ignore Retraceur.DB.PreparedSQL.NotPrepared
 	$post_id = null;
 
 	if ( $results ) {

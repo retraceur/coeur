@@ -123,7 +123,7 @@ class Retraceur_Opengraph_Context {
 	 *
 	 * @var integer
 	 */
-	public ?int $image_width  = null;
+	public ?int $image_width = null;
 
 	/**
 	 * The size in pixels to use in the `og:image_height` property.

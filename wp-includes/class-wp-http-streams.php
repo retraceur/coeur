@@ -517,18 +517,3 @@ class WP_Http_Streams {
 		return apply_filters( 'use_streams_transport', true, $args );
 	}
 }
-
-/**
- * Deprecated HTTP Transport method which used fsockopen.
- *
- * This class is not used, and is included for backward compatibility only.
- * All code should make use of WP_Http directly through its API.
- *
- * @see WP_HTTP::request
- *
- * @since WP 2.7.0
- * @deprecated WP 3.7.0 Please use WP_HTTP::request() directly
- */
-class WP_HTTP_Fsockopen extends WP_Http_Streams {
-	// For backward compatibility for users who are using the class directly.
-}

@@ -236,6 +236,7 @@ function get_default_block_template_types() {
 				$post_format_name
 			),
 		);
+
 		$default_template_types[ 'taxonomy-post_format-post-format-' . $post_format_slug ] = array(
 			'title'       => sprintf(
 				/* translators: %s: Post format name. */

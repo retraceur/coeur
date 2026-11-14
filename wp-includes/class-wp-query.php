@@ -507,8 +507,8 @@ class WP_Query {
 		$this->before_loop  = true;
 		unset( $this->request );
 		unset( $this->post );
-		$this->found_posts           = 0;
-		$this->max_num_pages         = 0;
+		$this->found_posts   = 0;
+		$this->max_num_pages = 0;
 
 		$this->init_query_flags();
 	}
@@ -835,10 +835,10 @@ class WP_Query {
 		}
 
 		// Compat. Map subpost to attachment.
-		if ( is_scalar( $query_vars['subpost'] ) && '' != $query_vars['subpost'] ) {
+		if ( is_scalar( $query_vars['subpost'] ) && '' != $query_vars['subpost'] ) { // phpcs:ignore Universal.Operators.StrictComparisons.LooseNotEqual
 			$query_vars['attachment'] = $query_vars['subpost'];
 		}
-		if ( is_scalar( $query_vars['subpost_id'] ) && '' != $query_vars['subpost_id'] ) {
+		if ( is_scalar( $query_vars['subpost_id'] ) && '' != $query_vars['subpost_id'] ) { // phpcs:ignore Universal.Operators.StrictComparisons.LooseNotEqual
 			$query_vars['attachment_id'] = $query_vars['subpost_id'];
 		}
 
@@ -950,7 +950,7 @@ class WP_Query {
 			}
 			unset( $tax_query );
 
-			if ( empty( $query_vars['author'] ) || ( '0' == $query_vars['author'] ) ) {
+			if ( empty( $query_vars['author'] ) || ( '0' == $query_vars['author'] ) ) { // phpcs:ignore Universal.Operators.StrictComparisons.LooseEqual
 				$this->is_author = false;
 			} else {
 				$this->is_author = true;
@@ -972,20 +972,20 @@ class WP_Query {
 			}
 		}
 
-		if ( '' != $query_vars['feed'] ) {
+		if ( '' != $query_vars['feed'] ) { // phpcs:ignore Universal.Operators.StrictComparisons.LooseNotEqual
 			$this->is_feed = true;
 		}
 
-		if ( '' != $query_vars['embed'] ) {
+		if ( '' != $query_vars['embed'] ) { // phpcs:ignore Universal.Operators.StrictComparisons.LooseNotEqual
 			$this->is_embed = true;
 		}
 
-		if ( '' != $query_vars['paged'] && ( (int) $query_vars['paged'] > 1 ) ) {
+		if ( '' != $query_vars['paged'] && ( (int) $query_vars['paged'] > 1 ) ) { // phpcs:ignore Universal.Operators.StrictComparisons.LooseNotEqual
 			$this->is_paged = true;
 		}
 
 		// If we're previewing inside the write screen.
-		if ( '' != $query_vars['preview'] ) {
+		if ( '' != $query_vars['preview'] ) { // phpcs:ignore Universal.Operators.StrictComparisons.LooseNotEqual
 			$this->is_preview = true;
 		}
 
@@ -1044,25 +1044,25 @@ class WP_Query {
 				unset( $this->queried_object );
 			}
 
-			if ( 'page' === get_option( 'show_on_front' ) && isset( $this->queried_object_id ) && get_option( 'page_for_posts' ) == $this->queried_object_id ) {
+			if ( 'page' === get_option( 'show_on_front' ) && isset( $this->queried_object_id ) && get_option( 'page_for_posts' ) == $this->queried_object_id ) { // phpcs:ignore Universal.Operators.StrictComparisons.LooseEqual
 				$this->is_page       = false;
 				$this->is_home       = true;
 				$this->is_posts_page = true;
 			}
 
-			if ( isset( $this->queried_object_id ) && get_option( 'wp_page_for_privacy_policy' ) == $this->queried_object_id ) {
+			if ( isset( $this->queried_object_id ) && get_option( 'wp_page_for_privacy_policy' ) == $this->queried_object_id ) { // phpcs:ignore Universal.Operators.StrictComparisons.LooseEqual
 				$this->is_privacy_policy = true;
 			}
 		}
 
 		if ( $query_vars['page_id'] ) {
-			if ( 'page' === get_option( 'show_on_front' ) && get_option( 'page_for_posts' ) == $query_vars['page_id'] ) {
+			if ( 'page' === get_option( 'show_on_front' ) && get_option( 'page_for_posts' ) == $query_vars['page_id'] ) { // phpcs:ignore Universal.Operators.StrictComparisons.LooseEqual
 				$this->is_page       = false;
 				$this->is_home       = true;
 				$this->is_posts_page = true;
 			}
 
-			if ( get_option( 'wp_page_for_privacy_policy' ) == $query_vars['page_id'] ) {
+			if ( get_option( 'wp_page_for_privacy_policy' ) == $query_vars['page_id'] ) { // phpcs:ignore Universal.Operators.StrictComparisons.LooseEqual
 				$this->is_privacy_policy = true;
 			}
 		}
@@ -1088,7 +1088,7 @@ class WP_Query {
 		$this->is_singular = $this->is_single || $this->is_page || $this->is_attachment;
 		// Done correcting `is_*` for 'page_on_front' and 'page_for_posts'.
 
-		if ( '404' == $query_vars['error'] ) {
+		if ( '404' == $query_vars['error'] ) { // phpcs:ignore Universal.Operators.StrictComparisons.LooseEqual
 			$this->set_404();
 		}
 
@@ -1497,11 +1497,11 @@ class WP_Query {
 
 			$search_columns_parts = array();
 			foreach ( $search_columns as $search_column ) {
-				$search_columns_parts[ $search_column ] = $wpdb->prepare( "({$wpdb->posts}.$search_column $like_op %s)", $like );
+				$search_columns_parts[ $search_column ] = $wpdb->prepare( "({$wpdb->posts}.$search_column $like_op %s)", $like ); // phpcs:ignore Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 			}
 
 			if ( ! empty( $this->allow_query_attachment_by_filename ) ) {
-				$search_columns_parts['attachment'] = $wpdb->prepare( "(sq1.meta_value $like_op %s)", $like );
+				$search_columns_parts['attachment'] = $wpdb->prepare( "(sq1.meta_value $like_op %s)", $like ); // phpcs:ignore Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 			}
 
 			$search .= "$searchand(" . implode( " $andor_op ", $search_columns_parts ) . ')';
@@ -1989,11 +1989,11 @@ class WP_Query {
 			$query_vars['showposts']      = (int) $query_vars['showposts'];
 			$query_vars['posts_per_page'] = $query_vars['showposts'];
 		}
-		if ( ( isset( $query_vars['posts_per_archive_page'] ) && 0 != $query_vars['posts_per_archive_page'] ) && ( $this->is_archive || $this->is_search ) ) {
+		if ( ( isset( $query_vars['posts_per_archive_page'] ) && 0 != $query_vars['posts_per_archive_page'] ) && ( $this->is_archive || $this->is_search ) ) { // phpcs:ignore Universal.Operators.StrictComparisons.LooseNotEqual
 			$query_vars['posts_per_page'] = $query_vars['posts_per_archive_page'];
 		}
 		if ( ! isset( $query_vars['nopaging'] ) ) {
-			if ( -1 == $query_vars['posts_per_page'] ) {
+			if ( -1 == $query_vars['posts_per_page'] ) { // phpcs:ignore Universal.Operators.StrictComparisons.LooseEqual
 				$query_vars['nopaging'] = true;
 			} else {
 				$query_vars['nopaging'] = false;
@@ -2179,7 +2179,7 @@ class WP_Query {
 			}
 
 			$page_for_posts = get_option( 'page_for_posts' );
-			if ( ( 'page' !== get_option( 'show_on_front' ) ) || empty( $page_for_posts ) || ( $reqpage != $page_for_posts ) ) {
+			if ( ( 'page' !== get_option( 'show_on_front' ) ) || empty( $page_for_posts ) || ( $reqpage != $page_for_posts ) ) { // phpcs:ignore Universal.Operators.StrictComparisons.LooseNotEqual
 				$query_vars['pagename'] = sanitize_title_for_query( wp_basename( $query_vars['pagename'] ) );
 				$query_vars['name']     = $query_vars['pagename'];
 				$where                 .= " AND ({$wpdb->posts}.ID = '$reqpage')";
@@ -2242,7 +2242,7 @@ class WP_Query {
 		}
 
 		if ( $query_vars['page_id'] ) {
-			if ( ( 'page' !== get_option( 'show_on_front' ) ) || ( get_option( 'page_for_posts' ) != $query_vars['page_id'] ) ) {
+			if ( ( 'page' !== get_option( 'show_on_front' ) ) || ( get_option( 'page_for_posts' ) != $query_vars['page_id'] ) ) { // phpcs:ignore Universal.Operators.StrictComparisons.LooseNotEqual
 				$query_vars['p'] = $query_vars['page_id'];
 				$where           = " AND {$wpdb->posts}.ID = " . $query_vars['page_id'];
 			}
@@ -2363,7 +2363,7 @@ class WP_Query {
 
 		// Author/user stuff.
 
-		if ( ! empty( $query_vars['author'] ) && '0' != $query_vars['author'] ) {
+		if ( ! empty( $query_vars['author'] ) && '0' != $query_vars['author'] ) { // phpcs:ignore Universal.Operators.StrictComparisons.LooseNotEqual
 			$query_vars['author'] = wp_slash( '' . urldecode( $query_vars['author'] ) );
 			$authors              = array_unique( array_map( 'intval', preg_split( '/[,\s]+/', $query_vars['author'] ) ) );
 			sort( $authors );
@@ -3146,7 +3146,7 @@ class WP_Query {
 
 		if ( 'ids' === $query_vars['fields'] ) {
 			if ( null === $this->posts ) {
-				$this->posts = $wpdb->get_col( $this->request );
+				$this->posts = $wpdb->get_col( $this->request ); // phpcs:ignore Retraceur.DB.PreparedSQL.NotPrepared
 			}
 
 			/** @var int[] */
@@ -3169,7 +3169,7 @@ class WP_Query {
 
 		if ( 'id=>parent' === $query_vars['fields'] ) {
 			if ( null === $this->posts ) {
-				$this->posts = $wpdb->get_results( $this->request );
+				$this->posts = $wpdb->get_results( $this->request ); // phpcs:ignore Retraceur.DB.PreparedSQL.NotPrepared
 				$this->posts = array_map( 'retraceur_clean_deprecated_post_properties', $this->posts );
 			}
 
@@ -3266,7 +3266,7 @@ class WP_Query {
 				 */
 				$this->request = apply_filters( 'posts_request_ids', $this->request, $this );
 
-				$post_ids = $wpdb->get_col( $this->request );
+				$post_ids = $wpdb->get_col( $this->request ); // phpcs:ignore Retraceur.DB.PreparedSQL.NotPrepared
 
 				if ( $post_ids ) {
 					$this->posts = $post_ids;
@@ -3276,7 +3276,7 @@ class WP_Query {
 					$this->posts = array();
 				}
 			} else {
-				$this->posts = $wpdb->get_results( $this->request );
+				$this->posts = $wpdb->get_results( $this->request ); // phpcs:ignore Retraceur.DB.PreparedSQL.NotPrepared
 				$this->posts = array_map( 'retraceur_clean_deprecated_post_properties', $this->posts );
 				$this->set_found_posts( $query_vars, $limits );
 			}
@@ -3500,7 +3500,7 @@ class WP_Query {
 			 */
 			$found_posts_query = apply_filters_ref_array( 'found_posts_query', array( 'SELECT FOUND_ROWS()', &$this ) );
 
-			$this->found_posts = (int) $wpdb->get_var( $found_posts_query );
+			$this->found_posts = (int) $wpdb->get_var( $found_posts_query ); // phpcs:ignore Retraceur.DB.PreparedSQL.NotPrepared
 		} else {
 			if ( is_array( $this->posts ) ) {
 				$this->found_posts = count( $this->posts );

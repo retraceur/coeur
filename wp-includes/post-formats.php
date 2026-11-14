@@ -551,8 +551,8 @@ function get_post_format_singular_name( $format ) {
  * @return string An empty string if no terms match required Format. The Post Format plural name otherwise.
  */
 function get_post_format_plural_name( $format ) {
-	$post_format   = get_post_format_object( $format );
-	$plural_name   = '';
+	$post_format = get_post_format_object( $format );
+	$plural_name = '';
 
 	if ( isset( $post_format->plural_name ) ) {
 		$plural_name = $post_format->plural_name;

@@ -104,7 +104,7 @@ function retraceur_get_requirement( $html, $type = 'PHP' ) {
 			$version = '';
 		}
 
-		$i--;
+		$i--; // phpcs:ignore Universal.Operators.DisallowStandalonePostIncrementDecrement.PostDecrementFound
 	}
 
 	return $version;
@@ -154,9 +154,9 @@ function retraceur_version_check( $force_check = false ) {
 		return $releases;
 	}
 
-	$offers   = array();
-	$locale   = get_option( 'WPLANG' );
-	$package  = 'retraceur.zip';
+	$offers  = array();
+	$locale  = get_option( 'WPLANG' );
+	$package = 'retraceur.zip';
 
 	if ( ! $locale ) {
 		$locale = 'en_US';

@@ -1726,7 +1726,7 @@ function get_adjacent_post( $in_same_term = false, $excluded_terms = '', $previo
 		return $result;
 	}
 
-	$result = $wpdb->get_var( $query );
+	$result = $wpdb->get_var( $query ); // phpcs:ignore Retraceur.DB.PreparedSQL.NotPrepared
 	if ( null === $result ) {
 		$result = '';
 	}

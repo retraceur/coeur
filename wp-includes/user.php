@@ -628,7 +628,7 @@ function count_user_posts( $userid, $post_type = 'post', $public_only = false ) 
 	$cache_key    = 'count_user_posts:' . md5( $query );
 	$count        = wp_cache_get_salted( $cache_key, 'post-queries', $last_changed );
 	if ( false === $count ) {
-		$count = $wpdb->get_var( $query );
+		$count = $wpdb->get_var( $query ); // phpcs:ignore Retraceur.DB.PreparedSQL.NotPrepared
 		wp_cache_set_salted( $cache_key, $count, 'post-queries', $last_changed );
 	}
 
@@ -702,7 +702,7 @@ function count_many_users_posts( $users, $post_type = 'post', $public_only = fal
 	$count       = wp_cache_get_salted( $cache_key, 'post-queries', $cache_salts );
 
 	if ( false === $count ) {
-		$result = $wpdb->get_results( $query, ARRAY_N );
+		$result = $wpdb->get_results( $query, ARRAY_N ); // phpcs:ignore Retraceur.DB.PreparedSQL.NotPrepared
 
 		$count = array_fill_keys( $users, 0 );
 		foreach ( $result as $row ) {
@@ -1393,6 +1393,7 @@ function count_users( $strategy = 'time', $site_id = null ) {
 		$select_count   = implode( ', ', $select_count );
 
 		// Add the meta_value index to the selection list, then run the query.
+		// phpcs:disable Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 		$row = $wpdb->get_row(
 			"
 			SELECT {$select_count}, COUNT(*)
@@ -1402,6 +1403,7 @@ function count_users( $strategy = 'time', $site_id = null ) {
 		",
 			ARRAY_N
 		);
+		// phpcs:enable Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 
 		// Run the previous loop again to associate results with role names.
 		$col         = 0;
@@ -1425,6 +1427,7 @@ function count_users( $strategy = 'time', $site_id = null ) {
 			'none' => 0,
 		);
 
+		// phpcs:disable Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 		$users_of_blog = $wpdb->get_col(
 			"
 			SELECT meta_value
@@ -1433,6 +1436,7 @@ function count_users( $strategy = 'time', $site_id = null ) {
 			WHERE meta_key = '{$blog_prefix}capabilities'
 		"
 		);
+		// phpcs:enable Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 
 		foreach ( $users_of_blog as $caps_meta ) {
 			$b_roles = maybe_unserialize( $caps_meta );
@@ -1545,7 +1549,7 @@ function wp_update_user_counts( $network_id = null ) {
 		$query .= " WHERE spam = '0' AND deleted = '0'";
 	}
 
-	$count = $wpdb->get_var( $query );
+	$count = $wpdb->get_var( $query ); // phpcs:ignore Retraceur.DB.PreparedSQL.NotPrepared
 
 	return update_network_option( $network_id, 'user_count', $count );
 }
@@ -4210,6 +4214,8 @@ function wp_get_users_with_no_role( $site_id = null ) {
 
 	$regex = implode( '|', array_keys( $role_names ) );
 	$regex = preg_replace( '/[^a-zA-Z_\|-]/', '', $regex );
+
+	// phpcs:disable Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 	$users = $wpdb->get_col(
 		$wpdb->prepare(
 			"SELECT user_id
@@ -4219,6 +4225,7 @@ function wp_get_users_with_no_role( $site_id = null ) {
 			$regex
 		)
 	);
+	// phpcs:enable Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 
 	return $users;
 }

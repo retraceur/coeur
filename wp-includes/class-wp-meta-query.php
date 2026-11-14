@@ -600,11 +600,13 @@ class WP_Meta_Query {
 				$join .= " LEFT JOIN $this->meta_table";
 				$join .= $i ? " AS $alias" : '';
 
+				// phpcs:disable Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 				if ( 'LIKE' === $meta_compare_key ) {
 					$join .= $wpdb->prepare( " ON ( $this->primary_table.$this->primary_id_column = $alias.$this->meta_id_column AND $alias.meta_key LIKE %s )", '%' . $wpdb->esc_like( $clause['key'] ) . '%' );
 				} else {
 					$join .= $wpdb->prepare( " ON ( $this->primary_table.$this->primary_id_column = $alias.$this->meta_id_column AND $alias.meta_key = %s )", $clause['key'] );
 				}
+				// phpcs:enable Retraceur.DB.PreparedSQL.InterpolatedNotPrepared
 
 				// All other JOIN clauses.
 			} else {
@@ -744,7 +746,7 @@ class WP_Meta_Query {
 				case 'IN':
 				case 'NOT IN':
 					$meta_compare_string = '(' . substr( str_repeat( ',%s', count( $meta_value ) ), 1 ) . ')';
-					$where               = $wpdb->prepare( $meta_compare_string, $meta_value );
+					$where               = $wpdb->prepare( $meta_compare_string, $meta_value ); // phpcs:ignore Retraceur.DB.PreparedSQL.NotPrepared
 					break;
 
 				case 'BETWEEN':
