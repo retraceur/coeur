@@ -34,7 +34,7 @@ $retraceur_version = '4.6.0';
  *
  * @global int $wp_db_version
  */
-$wp_db_version = 20250910;
+$wp_db_version = 20251023;
 
 /**
  * Holds the TinyMCE version.
