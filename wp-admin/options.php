@@ -110,7 +110,7 @@ $allowed_options            = array(
 		'image_default_align',
 		'image_default_link_type',
 		'site_icon',
-		'default_ogengraph_image',
+		'default_opengraph_image',
 	),
 	'reading'    => array(
 		'posts_per_page',

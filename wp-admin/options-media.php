@@ -184,7 +184,7 @@ require_once ABSPATH . 'wp-admin/admin-header.php';
 					wp_enqueue_script( 'retraceur-global-media' );
 
 					$opengraph_settings = array(
-						'id'              => (int) get_option( 'default_ogengraph_image' ),
+						'id'              => (int) get_option( 'default_opengraph_image' ),
 						'url'             => esc_url_raw( retraceur_get_opengraph_url() ),
 						'siteName'        => esc_html( get_bloginfo( 'name', 'display' ) ),
 						'siteDescription' => wp_strip_all_tags( get_bloginfo( 'description', 'display' ) ),

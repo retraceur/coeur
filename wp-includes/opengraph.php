@@ -71,7 +71,7 @@ function retraceur_get_opengraph_url( $blog_id = 0 ) {
 	}
 
 	$url         = '';
-	$og_image_id = (int) get_option( 'default_ogengraph_image' );
+	$og_image_id = (int) get_option( 'default_opengraph_image' );
 
 	if ( $og_image_id ) {
 		$url = wp_get_attachment_image_url( $og_image_id, 'opengraph' );

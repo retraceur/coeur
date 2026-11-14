@@ -50,7 +50,7 @@ const GlobalMedia = ( { settings } ) => {
 			</div>
 			<input
 				type="hidden"
-				name="default_ogengraph_image" id="default_ogengraph_image_hidden_field"
+				name="default_opengraph_image" id="default_opengraph_image_hidden_field"
 				value={ image.id }
 				readOnly
 			/>
