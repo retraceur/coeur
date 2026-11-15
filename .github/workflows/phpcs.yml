@@ -1,0 +1,58 @@
+name: PHP Coding Standards
+
+on:
+  pull_request:
+    paths:
+      - '**.php'
+      - 'phpcs.xml.dist'
+      - 'phpcs-deps.json'
+      - 'bin/phpcs.mjs'
+      - 'bin/setup-phpcs.mjs'
+      - '.github/workflows/phpcs.yml'
+  workflow_dispatch:
+
+# A new push on the same PR cancels the ongoing analysis.
+concurrency:
+  group: phpcs-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  phpcs:
+    name: PHPCS
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          coverage: none
+          tools: none
+
+      # No need to install composer dependencies, PHPCS is installed via npm.
+      - name: PHPCS dependencies cache
+        uses: actions/cache@v4
+        with:
+          path: .phpcs
+          key: phpcs-${{ hashFiles('phpcs-deps.json') }}
+
+      - name: Install PHPCS & code standards
+        run: node bin/setup-phpcs.mjs
+
+      # -n : only errors cause the analysis to fail (existing warnings are displayed below).
+      - name: Testing PHP Coding Standards (errors only)
+        run: node bin/phpcs.mjs -n
+
+      - name: Summary of warnings
+        if: always()
+        run: node bin/phpcs.mjs --report=summary
+        continue-on-error: true
