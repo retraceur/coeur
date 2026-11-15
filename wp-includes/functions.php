@@ -1011,7 +1011,7 @@ function add_query_arg( ...$args ) {
 		foreach ( $args[0] as $k => $v ) {
 			$qs[ $k ] = $v;
 		}
-	} else {
+	} elseif ( array_filter( $args ) ) {
 		$qs[ $args[0] ] = $args[1];
 	}
 
