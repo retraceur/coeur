@@ -76,7 +76,7 @@ class WP_REST_Block_Directory_Controller extends WP_REST_Controller {
 	public function get_items( $request ) {
 		return new WP_Error(
 			'plugins_api_disabled',
-			__( 'Retraceur does not use the WP Plugin Install API.' ),
+			__( 'Retraceur has not implemented the block directory functionality using the REST API, please use the Discovery API instead.' ),
 			array( 'status' => 500 )
 		);
 	}

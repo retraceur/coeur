@@ -275,11 +275,23 @@ class WP_REST_Plugins_Controller extends WP_REST_Controller {
 	public function create_item( $request ) {
 		global $wp_filesystem;
 
+		return new WP_Error(
+			'plugins_api_disabled',
+			__( 'Retraceur has not implemented the plugin upload functionality using the REST API, yet.' ),
+			array( 'status' => 500 )
+		);
+
+		/*
+		 * The following code is commented out because Retraceur does not use the WP Plugin Install API.
+		 * The code needs to be updated to handle real file uploads instead of using the WP Plugin Install API.
+		 */
+
 		require_once ABSPATH . 'wp-admin/includes/file.php';
 		require_once ABSPATH . 'wp-admin/includes/plugin.php';
 		require_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
 
-		$slug = $request['slug'];
+		$slug          = $request['slug'];
+		$download_link = $request['download_link'] ?? '';
 
 		// Verify filesystem is accessible first.
 		$filesystem_available = $this->is_filesystem_available();
@@ -287,16 +299,10 @@ class WP_REST_Plugins_Controller extends WP_REST_Controller {
 			return $filesystem_available;
 		}
 
-		return new WP_Error(
-			'plugins_api_disabled',
-			__( 'Retraceur does not use the WP Plugin Install API.' ),
-			array( 'status' => 500 )
-		);
-
 		$skin     = new WP_Ajax_Upgrader_Skin();
 		$upgrader = new Plugin_Upgrader( $skin );
 
-		$result = $upgrader->install( $api->download_link );
+		$result = $upgrader->install( $download_link );
 
 		if ( is_wp_error( $result ) ) {
 			$result->add_data( array( 'status' => 500 ) );
@@ -437,7 +443,7 @@ class WP_REST_Plugins_Controller extends WP_REST_Controller {
 	}
 
 	/**
-	 * Updates one plugin.
+	 * Updates the plugin status.
 	 *
 	 * @since WP 5.5.0
 	 *
