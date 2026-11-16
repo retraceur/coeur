@@ -1012,7 +1012,8 @@ function add_query_arg( ...$args ) {
 			$qs[ $k ] = $v;
 		}
 	} else {
-		$qs[ $args[0] ] = $args[1];
+		$qs_key        = (string) $args[0];
+		$qs[ $qs_key ] = $args[1];
 	}
 
 	foreach ( $qs as $k => $v ) {
