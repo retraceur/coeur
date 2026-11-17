@@ -69,7 +69,7 @@ function render_block_core_site_logo( $attributes ) {
  */
 function register_block_core_site_logo_setting() {
 	register_setting(
-		'general',
+		'media',
 		'site_logo',
 		array(
 			'show_in_rest' => array(
@@ -81,7 +81,6 @@ function register_block_core_site_logo_setting() {
 		)
 	);
 }
-
 add_action( 'rest_api_init', 'register_block_core_site_logo_setting', 10 );
 
 /**
@@ -91,7 +90,7 @@ add_action( 'rest_api_init', 'register_block_core_site_logo_setting', 10 );
  */
 function register_block_core_site_icon_setting() {
 	register_setting(
-		'general',
+		'media',
 		'site_icon',
 		array(
 			'show_in_rest' => true,
@@ -101,7 +100,6 @@ function register_block_core_site_icon_setting() {
 		)
 	);
 }
-
 add_action( 'rest_api_init', 'register_block_core_site_icon_setting', 10 );
 
 /**

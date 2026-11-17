@@ -2861,6 +2861,18 @@ function register_initial_settings() {
 			'description'  => __( 'The ID of the page that should display the latest posts' ),
 		)
 	);
+
+	register_setting(
+		'media',
+		'default_opengraph_image',
+		array(
+			'show_in_rest' => true,
+			'type'         => 'integer',
+			'label'        => __( 'Open Graph Image' ),
+			'description'  => __( 'Site’s default Open Graph image.' ),
+			'default'      => 0,
+		)
+	);
 }
 
 /**
