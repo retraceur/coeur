@@ -82,14 +82,18 @@ class Retraceur_Opengraph_Resolver {
 	 */
 	private function resolve_url() {
 		if ( is_singular() ) {
-			return get_permalink();
+			return (string) get_permalink();
 		}
 
 		if ( is_front_page() ) {
 			return home_url( '/' );
 		}
 
-		return home_url( add_query_arg( null, null ) );
+		/*
+		 * All other URLs are about content listings - potentially paginated.
+		 * Eg: posts by category, posts by tag, posts archive, author posts archive, etc.
+		 */
+		return get_pagenum_link( max( 1, (int) get_query_var( 'paged' ) ), false );
 	}
 
 	/**
