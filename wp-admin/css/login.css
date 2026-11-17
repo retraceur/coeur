@@ -203,7 +203,12 @@ p {
 .login form .forgetmenot {
 	font-weight: 400;
 	float: left;
-	margin-bottom: 0;
+	margin-bottom: 10px!important;
+}
+
+.login form .forgetmenot .wp-tooltip.wp-is-toggletip {
+	vertical-align: middle;
+	margin-bottom: 3px;
 }
 
 .login .button-primary {
