@@ -9,6 +9,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 
+## [4.7.0] - 2026-11-18
+
+### Changed
+
+- Security (backport of WP 7.0.9). Props to the WP security team and all contributors involved in identifying, reporting, and fixing these vulnerabilities. **Upgrade is strongly recommended**.
+  * Database: `WP_Query` now prepares the `menu_order`, `m`, `p`, `page_id`, `pagename` and post status conditions, as well as the feed `LIMIT` clause, instead of concatenating raw values into the SQL.
+  * Database: `WP_Meta_Query` now sanitizes every `relation` value (including nested and first-order clauses) through the new `WP_Meta_Query::sanitize_relation()` method, preventing SQL injection through nested relation values.
+  * Options: the `show_on_front` option is now sanitized, any value other than `page` being treated as `posts`.
+  * Interactivity API: `wp_interactivity_data_wp_context()` now escapes the store namespace.
+  * Shortcodes: `shortcode_parse_atts()` no longer lets hex or octal escapes decode to `<`, `>`, `"` or `'`, which are now output as character references.
+  * oEmbed: `scripts` are removed from `/oembed/1.0/proxy` responses, including cached ones, as only embed handlers are meant to return them.
+  * REST API: the Search endpoint no longer exposes private taxonomy terms when no taxonomy can be queried.
+  * REST API: assigning an `author` to a post or a template now requires the user to be a member of the site (unless it is the current user or the existing author), preventing information disclosure.
+  * REST API: `rest_api_loaded()` now ignores requests made from admin screens, which are never REST entry points.
+  * Hardening: fix the malformed character range of the regular expression used by `wp_is_json_media_type()`, which broadened JSON media type matching.
+  * Editor: remove the Imgur embed variation, whose server-side provider is already gone.
+  * Editor: escape the file name when transforming a media block (Audio, Video, Image) into a File block.
+  * Editor: `@wordpress/core-data` now rejects unsafe entity record keys (URL delimiters, control characters, dot segments, in their raw and percent-encoded forms) before building REST paths, in the save, delete, edit, fetch, autosave, revision and permission resolvers.
+- Bug fixes
+  * Blocks Admin: single row Delete links now use the list table's own nonce suffix instead of the hard-coded `bulk-plugins` one. See [#286](https://github.com/retraceur/coeur/issues/286) and [0108798](https://github.com/retraceur/coeur/commit/01087983fcf55a3a855ddb5a19140861690942fd).
+  * Database: bump `$wp_db_version` to `20251023`, which was missed when 4.0.0 was released. It caused errors when updating from 4.0.0 to 5.0.0, as the routine altering some database indexes ran although it had already been applied. See [f5d6365](https://github.com/retraceur/coeur/commit/f5d63659b8b2443d9f37f0073c1e34f2d532268e).
+- Rebuild the `block-library` and `core-data` JavaScript packages with the above changes.
+
+
 ## [4.6.0] - 2026-10-29
 
 ### Changed

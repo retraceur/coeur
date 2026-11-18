@@ -1,13 +1,13 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Retraceur 4.6.0\n"
+"Project-Id-Version: Retraceur 4.7.0\n"
 "Report-Msgid-Bugs-To: https://github.com/retraceur/coeur/issues\n"
 "Last-Translator: imath <contact@imathi.eu>\n"
 "Language-Team: Retraceur <retraceur@proton.me>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-29T22:13:16+00:00\n"
+"POT-Creation-Date: 2026-11-18T22:30:10+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 
@@ -4603,7 +4603,7 @@ msgstr ""
 msgid "Sorry, you are not allowed to make proxied oEmbed requests."
 msgstr ""
 
-#: wp-includes/class-wp-oembed-controller.php:218
+#: wp-includes/class-wp-oembed-controller.php:222
 msgid "Embed Handler"
 msgstr ""
 
@@ -5087,7 +5087,7 @@ msgstr ""
 msgid "%1$s is deprecated. Use %2$s instead."
 msgstr ""
 
-#: wp-includes/class-wp-query.php:3698
+#: wp-includes/class-wp-query.php:3705
 #: wp-includes/class-wp-rewrite.php:1298
 #: wp-includes/deprecated.php:10033
 #: wp-includes/deprecated.php:10054
@@ -6625,52 +6625,52 @@ msgstr ""
 msgid "&hellip;"
 msgstr ""
 
-#: wp-includes/formatting.php:4862
+#: wp-includes/formatting.php:4863
 msgid "The email address entered did not appear to be a valid email address. Please enter a valid email address."
 msgstr ""
 
-#: wp-includes/formatting.php:4958
+#: wp-includes/formatting.php:4959
 msgid "The website address you entered did not appear to be a valid URL. Please enter a valid URL."
 msgstr ""
 
-#: wp-includes/formatting.php:4971
+#: wp-includes/formatting.php:4972
 msgid "The Site address you entered did not appear to be a valid URL. Please enter a valid URL."
 msgstr ""
 
-#: wp-includes/formatting.php:5006
+#: wp-includes/formatting.php:5007
 msgid "The timezone you have entered is not valid. Please select a valid timezone."
 msgstr ""
 
-#: wp-includes/formatting.php:5024
+#: wp-includes/formatting.php:5025
 msgid "A structure tag is required when using custom permalinks."
 msgstr ""
 
 #. translators: 1: Option name, 2: Error code.
-#: wp-includes/formatting.php:5039
+#: wp-includes/formatting.php:5047
 #, php-format
 msgid "Could not sanitize the %1$s option. Error code: %2$s"
 msgstr ""
 
 #. translators: Used to join items in a list with more than 2 items.
-#: wp-includes/formatting.php:5282
+#: wp-includes/formatting.php:5290
 #, php-format
 msgid "%1$s, %2$s"
 msgstr ""
 
 #. translators: Used to join last two items in a list with more than 2 times.
-#: wp-includes/formatting.php:5284
+#: wp-includes/formatting.php:5292
 #, php-format
 msgid "%1$s, and %2$s"
 msgstr ""
 
 #. translators: Used to join items in a list with only 2 items.
-#: wp-includes/formatting.php:5286
+#: wp-includes/formatting.php:5294
 #, php-format
 msgid "%1$s and %2$s"
 msgstr ""
 
 #. translators: 1: The function name, 2: The argument number, 3: The argument name, 4: The expected type, 5: The provided type.
-#: wp-includes/formatting.php:5472
+#: wp-includes/formatting.php:5480
 #, php-format
 msgid "Warning: %1$s expects parameter %2$s (%3$s) to be a %4$s, %5$s given."
 msgstr ""
@@ -9818,7 +9818,7 @@ msgid "Content, title, and excerpt are empty."
 msgstr ""
 
 #: wp-includes/post.php:4391
-#: wp-includes/rest-api.php:2281
+#: wp-includes/rest-api.php:2285
 msgid "Invalid date."
 msgstr ""
 
@@ -9930,169 +9930,169 @@ msgstr ""
 msgid "REST API %1$s should be an array of arrays. Non-array value detected for %2$s."
 msgstr ""
 
-#: wp-includes/rest-api.php:445
+#: wp-includes/rest-api.php:449
 msgid "The REST route parameter must be a string."
 msgstr ""
 
 #. translators: 1: Function name, 2: WP version number, 3: New function name.
-#: wp-includes/rest-api.php:716
+#: wp-includes/rest-api.php:720
 #, php-format
 msgid "%1$s (since %2$s; use %3$s instead)"
 msgstr ""
 
 #. translators: 1: Function name, 2: WP version number.
-#: wp-includes/rest-api.php:719
-#: wp-includes/rest-api.php:743
+#: wp-includes/rest-api.php:723
+#: wp-includes/rest-api.php:747
 #, php-format
 msgid "%1$s (since %2$s; no alternative available)"
 msgstr ""
 
 #. translators: 1: Function name, 2: Version number, 3: Error message.
-#: wp-includes/rest-api.php:740
-#: wp-includes/rest-api.php:765
+#: wp-includes/rest-api.php:744
+#: wp-includes/rest-api.php:769
 #, php-format
 msgid "%1$s (since %2$s; %3$s)"
 msgstr ""
 
 #. translators: Developer debugging message. 1: PHP function name, 2: Explanatory message.
-#: wp-includes/rest-api.php:769
+#: wp-includes/rest-api.php:773
 #, php-format
 msgctxt "rest-api"
 msgid "%1$s (%2$s)"
 msgstr ""
 
-#: wp-includes/rest-api.php:1056
-#: wp-includes/rest-api.php:1087
+#: wp-includes/rest-api.php:1060
+#: wp-includes/rest-api.php:1091
 msgctxt "REST API resource link name"
 msgid "JSON"
 msgstr ""
 
-#: wp-includes/rest-api.php:1145
+#: wp-includes/rest-api.php:1149
 msgid "Cookie check failed"
 msgstr ""
 
 #. translators: 1: Parameter, 2: List of allowed types.
-#: wp-includes/rest-api.php:1719
+#: wp-includes/rest-api.php:1723
 #, php-format
 msgid "The \"type\" schema keyword for %1$s can only contain the built-in types: %2$l."
 msgstr ""
 
-#: wp-includes/rest-api.php:1781
+#: wp-includes/rest-api.php:1785
 msgid "Cannot stabilize objects. Convert the object to an array first."
 msgstr ""
 
 #. translators: 1: Parameter, 2: Schema title, 3: Reason.
-#: wp-includes/rest-api.php:1850
+#: wp-includes/rest-api.php:1854
 #, php-format
 msgid "%1$s is not a valid %2$s. Reason: %3$s"
 msgstr ""
 
 #. translators: 1: Parameter, 2: Reason.
-#: wp-includes/rest-api.php:1858
+#: wp-includes/rest-api.php:1862
 #, php-format
 msgid "%1$s does not match the expected format. Reason: %2$s"
 msgstr ""
 
 #. translators: 1: Parameter, 2: Schema titles.
-#: wp-includes/rest-api.php:1925
+#: wp-includes/rest-api.php:1929
 #, php-format
 msgid "%1$s is not a valid %2$l."
 msgstr ""
 
 #. translators: %s: Parameter.
-#: wp-includes/rest-api.php:1929
+#: wp-includes/rest-api.php:1933
 #, php-format
 msgid "%s does not match any of the expected formats."
 msgstr ""
 
 #. translators: 1: Parameter, 2: Schema titles.
-#: wp-includes/rest-api.php:2025
+#: wp-includes/rest-api.php:2029
 #, php-format
 msgid "%1$s matches %2$l, but should match only one."
 msgstr ""
 
 #. translators: %s: Parameter.
-#: wp-includes/rest-api.php:2033
+#: wp-includes/rest-api.php:2037
 #, php-format
 msgid "%s matches more than one of the expected formats."
 msgstr ""
 
 #. translators: 1: Parameter, 2: Valid values.
-#: wp-includes/rest-api.php:2107
+#: wp-includes/rest-api.php:2111
 #, php-format
 msgid "%1$s is not %2$s."
 msgstr ""
 
 #. translators: 1: Parameter, 2: List of valid values.
-#: wp-includes/rest-api.php:2111
+#: wp-includes/rest-api.php:2115
 #, php-format
 msgid "%1$s is not one of %2$l."
 msgstr ""
 
 #. translators: %s: Parameter.
-#: wp-includes/rest-api.php:2200
-#: wp-includes/rest-api.php:2802
+#: wp-includes/rest-api.php:2204
+#: wp-includes/rest-api.php:2806
 #, php-format
 msgid "The \"type\" schema keyword for %s is required."
 msgstr ""
 
 #. translators: 1: Parameter, 2: Type name or list of type names.
-#: wp-includes/rest-api.php:2210
-#: wp-includes/rest-api.php:2322
-#: wp-includes/rest-api.php:2344
-#: wp-includes/rest-api.php:2367
-#: wp-includes/rest-api.php:2482
-#: wp-includes/rest-api.php:2553
-#: wp-includes/rest-api.php:2682
-#: wp-includes/rest-api.php:2750
+#: wp-includes/rest-api.php:2214
+#: wp-includes/rest-api.php:2326
+#: wp-includes/rest-api.php:2348
+#: wp-includes/rest-api.php:2371
+#: wp-includes/rest-api.php:2486
+#: wp-includes/rest-api.php:2557
+#: wp-includes/rest-api.php:2686
+#: wp-includes/rest-api.php:2754
 #, php-format
 msgid "%1$s is not of type %2$s."
 msgstr ""
 
 #. translators: 1: Parameter, 2: The list of allowed types.
-#: wp-includes/rest-api.php:2222
-#: wp-includes/rest-api.php:2819
+#: wp-includes/rest-api.php:2226
+#: wp-includes/rest-api.php:2823
 #, php-format
 msgid "The \"type\" schema keyword for %1$s can only be one of the built-in types: %2$l."
 msgstr ""
 
-#: wp-includes/rest-api.php:2275
+#: wp-includes/rest-api.php:2279
 msgid "Invalid hex color."
 msgstr ""
 
-#: wp-includes/rest-api.php:2287
+#: wp-includes/rest-api.php:2291
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:780
 #: wp-includes/user.php:5218
 msgid "Invalid email address."
 msgstr ""
 
 #. translators: %s: IP address.
-#: wp-includes/rest-api.php:2293
+#: wp-includes/rest-api.php:2297
 #, php-format
 msgid "%s is not a valid IP address."
 msgstr ""
 
 #. translators: %s: The name of a JSON field expecting a valid UUID.
-#: wp-includes/rest-api.php:2299
+#: wp-includes/rest-api.php:2303
 #, php-format
 msgid "%s is not a valid UUID."
 msgstr ""
 
 #. translators: 1: Property of an object, 2: Parameter.
-#: wp-includes/rest-api.php:2380
-#: wp-includes/rest-api.php:2390
+#: wp-includes/rest-api.php:2384
+#: wp-includes/rest-api.php:2394
 #, php-format
 msgid "%1$s is a required property of %2$s."
 msgstr ""
 
 #. translators: %s: Property of an object.
-#: wp-includes/rest-api.php:2419
+#: wp-includes/rest-api.php:2423
 #, php-format
 msgid "%1$s is not a valid property of Object."
 msgstr ""
 
 #. translators: 1: Parameter, 2: Number.
-#: wp-includes/rest-api.php:2437
+#: wp-includes/rest-api.php:2441
 #, php-format
 msgid "%1$s must contain at least %2$s property."
 msgid_plural "%1$s must contain at least %2$s properties."
@@ -10100,7 +10100,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: 1: Parameter, 2: Number.
-#: wp-includes/rest-api.php:2453
+#: wp-includes/rest-api.php:2457
 #, php-format
 msgid "%1$s must contain at most %2$s property."
 msgid_plural "%1$s must contain at most %2$s properties."
@@ -10108,7 +10108,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: 1: Parameter, 2: Number.
-#: wp-includes/rest-api.php:2503
+#: wp-includes/rest-api.php:2507
 #, php-format
 msgid "%1$s must contain at least %2$s item."
 msgid_plural "%1$s must contain at least %2$s items."
@@ -10116,7 +10116,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: 1: Parameter, 2: Number.
-#: wp-includes/rest-api.php:2519
+#: wp-includes/rest-api.php:2523
 #, php-format
 msgid "%1$s must contain at most %2$s item."
 msgid_plural "%1$s must contain at most %2$s items."
@@ -10124,68 +10124,68 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %s: Parameter.
-#: wp-includes/rest-api.php:2532
-#: wp-includes/rest-api.php:2835
+#: wp-includes/rest-api.php:2536
+#: wp-includes/rest-api.php:2839
 #, php-format
 msgid "%s has duplicate items."
 msgstr ""
 
 #. translators: 1: Parameter, 2: Multiplier.
-#: wp-includes/rest-api.php:2562
+#: wp-includes/rest-api.php:2566
 #, php-format
 msgid "%1$s must be a multiple of %2$s."
 msgstr ""
 
 #. translators: 1: Parameter, 2: Minimum number.
-#: wp-includes/rest-api.php:2571
+#: wp-includes/rest-api.php:2575
 #, php-format
 msgid "%1$s must be greater than %2$d"
 msgstr ""
 
 #. translators: 1: Parameter, 2: Minimum number.
-#: wp-includes/rest-api.php:2579
+#: wp-includes/rest-api.php:2583
 #, php-format
 msgid "%1$s must be greater than or equal to %2$d"
 msgstr ""
 
 #. translators: 1: Parameter, 2: Maximum number.
-#: wp-includes/rest-api.php:2589
+#: wp-includes/rest-api.php:2593
 #, php-format
 msgid "%1$s must be less than %2$d"
 msgstr ""
 
 #. translators: 1: Parameter, 2: Maximum number.
-#: wp-includes/rest-api.php:2597
+#: wp-includes/rest-api.php:2601
 #, php-format
 msgid "%1$s must be less than or equal to %2$d"
 msgstr ""
 
 #. translators: 1: Parameter, 2: Minimum number, 3: Maximum number.
-#: wp-includes/rest-api.php:2609
+#: wp-includes/rest-api.php:2613
 #, php-format
 msgid "%1$s must be between %2$d (exclusive) and %3$d (exclusive)"
 msgstr ""
 
 #. translators: 1: Parameter, 2: Minimum number, 3: Maximum number.
-#: wp-includes/rest-api.php:2624
+#: wp-includes/rest-api.php:2628
 #, php-format
 msgid "%1$s must be between %2$d (exclusive) and %3$d (inclusive)"
 msgstr ""
 
 #. translators: 1: Parameter, 2: Minimum number, 3: Maximum number.
-#: wp-includes/rest-api.php:2639
+#: wp-includes/rest-api.php:2643
 #, php-format
 msgid "%1$s must be between %2$d (inclusive) and %3$d (exclusive)"
 msgstr ""
 
 #. translators: 1: Parameter, 2: Minimum number, 3: Maximum number.
-#: wp-includes/rest-api.php:2654
+#: wp-includes/rest-api.php:2658
 #, php-format
 msgid "%1$s must be between %2$d (inclusive) and %3$d (inclusive)"
 msgstr ""
 
 #. translators: 1: Parameter, 2: Number of characters.
-#: wp-includes/rest-api.php:2692
+#: wp-includes/rest-api.php:2696
 #, php-format
 msgid "%1$s must be at least %2$s character long."
 msgid_plural "%1$s must be at least %2$s characters long."
@@ -10193,7 +10193,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: 1: Parameter, 2: Number of characters.
-#: wp-includes/rest-api.php:2708
+#: wp-includes/rest-api.php:2712
 #, php-format
 msgid "%1$s must be at most %2$s character long."
 msgid_plural "%1$s must be at most %2$s characters long."
@@ -10201,7 +10201,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: 1: Parameter, 2: Pattern.
-#: wp-includes/rest-api.php:2723
+#: wp-includes/rest-api.php:2727
 #, php-format
 msgid "%1$s does not match pattern %2$s."
 msgstr ""
@@ -10944,7 +10944,7 @@ msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-autosaves-controller.php:275
 #: wp-includes/rest-api/endpoints/class-wp-rest-font-faces-controller.php:776
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1456
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1455
 #: wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php:155
 msgid "Invalid post parent ID."
 msgstr ""
@@ -11465,7 +11465,7 @@ msgstr ""
 #: wp-includes/rest-api/endpoints/class-wp-rest-font-faces-controller.php:515
 #: wp-includes/rest-api/endpoints/class-wp-rest-font-families-controller.php:303
 #: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:120
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2424
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2423
 msgid "Unique identifier for the post."
 msgstr ""
 
@@ -11633,7 +11633,7 @@ msgid "Title for the global styles variation, as it exists in the database."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-global-styles-controller.php:501
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2582
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2581
 msgid "HTML title for the post, transformed for display."
 msgstr ""
 
@@ -11767,7 +11767,7 @@ msgid "Limit results to those matching a pattern (slug)."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-pattern-directory-controller.php:289
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3011
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3010
 #: wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php:875
 #: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:1156
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1591
@@ -11775,7 +11775,7 @@ msgid "Offset the result set by a specific number of items."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-pattern-directory-controller.php:294
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3016
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3015
 #: wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php:880
 #: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:1162
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1597
@@ -11783,7 +11783,7 @@ msgid "Order sort attribute ascending or descending."
 msgstr ""
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-pattern-directory-controller.php:301
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3023
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3022
 msgid "Sort collection by post attribute."
 msgstr ""
 
@@ -12112,244 +12112,244 @@ msgstr ""
 msgid "The post cannot be deleted."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1404
-#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:652
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1403
+#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:651
 msgid "Invalid author ID."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1421
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1420
 msgid "A post can not be sticky and have a password."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1429
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1428
 msgid "A sticky post can not be password protected."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1440
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1439
 msgid "A password protected post can not be set to sticky."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1569
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1568
 msgid "Sorry, you are not allowed to create private posts in this post type."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1579
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1578
 msgid "Sorry, you are not allowed to publish posts in this post type."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1613
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1612
 msgid "Invalid featured media ID."
 msgstr ""
 
 #. translators: 1: Parameter, 2: List of valid values.
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1660
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1659
 #, php-format
 msgid "%1$s is not one of %2$s."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2392
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2391
 msgid "The date the post was published, in the site's timezone."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2398
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2397
 msgid "The date the post was published, as GMT."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2404
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2403
 msgid "The globally unique identifier for the post."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2410
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2409
 msgid "GUID for the post, as it exists in the database."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2416
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2415
 msgid "GUID for the post, transformed for display."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2430
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2429
 msgid "URL to the post."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2437
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2436
 msgid "The date the post was last modified, in the site's timezone."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2444
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2443
 msgid "The date the post was last modified, as GMT."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2451
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2450
 msgid "An alphanumeric identifier for the post unique to its type."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2459
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2458
 msgid "A named status for the post."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2468
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2467
 msgid "Type of post."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2474
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2473
 msgid "A password to protect access to the content and excerpt."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2484
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2483
 msgid "Permalink template for the post."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2491
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2490
 msgid "Slug automatically generated from the post title."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2498
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2497
 msgid "An array of the class names for the post container element."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2510
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2509
 msgid "The ID for the parent of the post."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2568
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2567
 msgid "The title for the post."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2577
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2576
 msgid "Title for the post, as it exists in the database."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2593
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2592
 msgid "The content for the post."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2602
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2601
 msgid "Content for the post, as it exists in the database."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2607
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2606
 msgid "HTML content for the post, transformed for display."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2613
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2612
 msgid "Version of the content block format used by the post."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2619
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2618
 msgid "Whether the content is protected with a password."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2630
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2629
 msgid "The ID for the author of the post."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2638
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2637
 msgid "The excerpt for the post."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2647
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2646
 msgid "Excerpt for the post, as it exists in the database."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2652
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2651
 msgid "HTML excerpt for the post, transformed for display."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2658
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2657
 msgid "Whether the excerpt is protected with a password."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2669
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2668
 msgid "The ID of the featured media for the post."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2677
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2676
 msgid "The order of the post in relation to other posts."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2688
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2687
 msgid "The format for the post."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2704
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2703
 msgid "Whether or not the post should be treated as sticky."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2711
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2710
 msgid "The theme file to use to display the post."
 msgstr ""
 
 #. translators: 1: The taxonomy name, 2: The property name, either 'rest_base' or 'name', 3: The conflicting value.
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2730
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2729
 #, php-format
 msgid "The \"%1$s\" taxonomy \"%2$s\" property (%3$s) conflicts with an existing property on the REST API Posts Controller. Specify a custom \"rest_base\" when registering the taxonomy to avoid this error."
 msgstr ""
 
 #. translators: %s: Taxonomy name.
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2741
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2740
 #, php-format
 msgid "The terms assigned to the post in the %s taxonomy."
 msgstr ""
 
 #. translators: %s: register_rest_field
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2784
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2783
 #, php-format
 msgid "Please use %s to add new schema properties."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2812
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2811
 msgid "The current contributor can publish this post."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2828
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2827
 msgid "The current contributor can post unfiltered HTML markup and JavaScript."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2845
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2844
 msgid "The current contributor can sticky this post."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2861
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2860
 msgid "The current contributor can change the author on this post."
 msgstr ""
 
 #. translators: %s: Taxonomy name.
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2880
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2879
 #, php-format
 msgid "The current contributor can assign terms in the %s taxonomy."
 msgstr ""
 
 #. translators: %s: Taxonomy name.
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2882
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2881
 #, php-format
 msgid "The current contributor can create terms in the %s taxonomy."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2937
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2936
 msgid "Limit response to posts published after a given ISO8601 compliant date."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2943
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2942
 msgid "Limit response to posts modified after a given ISO8601 compliant date."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2950
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2949
 msgid "Limit result set to posts assigned to specific authors."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2958
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2957
 msgid "Ensure result set excludes posts assigned to specific authors."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2968
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2967
 msgid "Limit response to posts published before a given ISO8601 compliant date."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2974
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2973
 msgid "Limit response to posts modified before a given ISO8601 compliant date."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2980
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2979
 #: wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php:857
 #: wp-includes/rest-api/endpoints/class-wp-rest-search-controller.php:341
 #: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:1137
@@ -12357,7 +12357,7 @@ msgstr ""
 msgid "Ensure result set excludes specific IDs."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2989
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2988
 #: wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php:866
 #: wp-includes/rest-api/endpoints/class-wp-rest-search-controller.php:350
 #: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:1146
@@ -12365,91 +12365,91 @@ msgstr ""
 msgid "Limit result set to specific IDs."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2999
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2998
 msgid "Limit result set to posts with a specific menu_order value."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3005
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3004
 msgid "How to interpret the search input."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3048
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3047
 msgid "Limit result set to items with particular parent IDs."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3056
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3055
 msgid "Limit result set to all items except those of a particular parent ID."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3067
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3066
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1661
 msgid "Array of column names to be searched."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3076
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3075
 msgid "Limit result set to posts with one or more specific slugs."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3085
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3084
 msgid "Limit result set to posts assigned one or more statuses."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3098
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3097
 msgid "Limit result set to items that are sticky."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3103
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3102
 msgid "Whether to ignore sticky posts or not."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3111
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3110
 msgid "Limit result set to items assigned one or more given formats."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3172
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3171
 msgid "Status is forbidden."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3277
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3276
 msgid "Limit result set based on relationship between multiple taxonomies."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3286
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3285
 msgid "Term ID List"
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3287
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3286
 msgid "Match terms with the listed IDs."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3294
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3293
 msgid "Term ID Taxonomy Query"
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3295
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3294
 msgid "Perform an advanced term query."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3299
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3298
 msgid "Term IDs."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3307
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3306
 msgid "Whether to include child terms in the terms limiting the result set."
 msgstr ""
 
 #. translators: %s: Taxonomy name.
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3320
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3319
 #, php-format
 msgid "Limit result set to items with specific terms assigned in the %s taxonomy."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3326
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3325
 msgid "Whether items must be assigned all or any of the specified terms."
 msgstr ""
 
 #. translators: %s: Taxonomy name.
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3335
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3334
 #, php-format
 msgid "Limit result set to items except those with specific terms assigned in the %s taxonomy."
 msgstr ""
@@ -12740,111 +12740,111 @@ msgstr ""
 msgid "The template cannot be deleted."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:925
+#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:924
 msgid "Unknown author"
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1015
+#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1014
 msgid "Limit to the specified post id."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1019
+#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1018
 msgid "Limit to the specified template part area."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1023
+#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1022
 msgid "Post type to get the templates for."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1048
+#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1047
 msgid "ID of template."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1054
+#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1053
 msgid "Unique slug identifying the template."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1062
+#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1061
 msgid "Theme identifier for the template."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1067
+#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1066
 msgid "Type of template."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1072
+#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1071
 msgid "Source of template"
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1078
+#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1077
 msgid "Source of a customized template"
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1084
+#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1083
 msgid "Content of template."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1090
+#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1089
 msgid "Content for the template, as it exists in the database."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1095
+#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1094
 msgid "Version of the content block format used by the template."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1103
+#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1102
 msgid "Title of template."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1109
+#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1108
 msgid "Title for the template, as it exists in the database."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1114
+#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1113
 msgid "HTML title for the template, transformed for display."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1122
+#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1121
 msgid "Description of template."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1128
+#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1127
 msgid "Status of template."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1135
+#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1134
 msgid "Post ID."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1141
+#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1140
 msgid "Theme file exists."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1147
+#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1146
 msgid "The ID for the author of the template."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1152
+#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1151
 msgid "The date the template was last modified, in the site's timezone."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1160
+#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1159
 msgid "Human readable text for the author."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1165
+#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1164
 msgid "Where the template originally comes from e.g. 'theme'"
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1181
+#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1180
 msgid "Whether a template is a custom template."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1188
+#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1187
 msgid "Plugin that registered the template."
 msgstr ""
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1196
+#: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:1195
 msgid "Where the template part is intended for use (header, footer, etc.)"
 msgstr ""
 

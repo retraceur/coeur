@@ -2045,25 +2045,26 @@ class WP_Query {
 		}
 
 		if ( '' !== $query_vars['menu_order'] ) {
-			$where .= " AND {$wpdb->posts}.menu_order = " . $query_vars['menu_order'];
+			// The value is wrapped in an array so that an array value is queried as 0 instead of dropping the condition.
+			$where .= $wpdb->prepare( " AND {$wpdb->posts}.menu_order = %d", array( $query_vars['menu_order'] ) );
 		}
 		// The "m" parameter is meant for months but accepts datetimes of varying specificity.
 		if ( $query_vars['m'] ) {
-			$where .= " AND YEAR({$wpdb->posts}.post_date)=" . substr( $query_vars['m'], 0, 4 );
+			$where .= $wpdb->prepare( " AND YEAR({$wpdb->posts}.post_date)=%d", substr( $query_vars['m'], 0, 4 ) );
 			if ( strlen( $query_vars['m'] ) > 5 ) {
-				$where .= " AND MONTH({$wpdb->posts}.post_date)=" . substr( $query_vars['m'], 4, 2 );
+				$where .= $wpdb->prepare( " AND MONTH({$wpdb->posts}.post_date)=%02d", substr( $query_vars['m'], 4, 2 ) );
 			}
 			if ( strlen( $query_vars['m'] ) > 7 ) {
-				$where .= " AND DAYOFMONTH({$wpdb->posts}.post_date)=" . substr( $query_vars['m'], 6, 2 );
+				$where .= $wpdb->prepare( " AND DAYOFMONTH({$wpdb->posts}.post_date)=%02d", substr( $query_vars['m'], 6, 2 ) );
 			}
 			if ( strlen( $query_vars['m'] ) > 9 ) {
-				$where .= " AND HOUR({$wpdb->posts}.post_date)=" . substr( $query_vars['m'], 8, 2 );
+				$where .= $wpdb->prepare( " AND HOUR({$wpdb->posts}.post_date)=%02d", substr( $query_vars['m'], 8, 2 ) );
 			}
 			if ( strlen( $query_vars['m'] ) > 11 ) {
-				$where .= " AND MINUTE({$wpdb->posts}.post_date)=" . substr( $query_vars['m'], 10, 2 );
+				$where .= $wpdb->prepare( " AND MINUTE({$wpdb->posts}.post_date)=%02d", substr( $query_vars['m'], 10, 2 ) );
 			}
 			if ( strlen( $query_vars['m'] ) > 13 ) {
-				$where .= " AND SECOND({$wpdb->posts}.post_date)=" . substr( $query_vars['m'], 12, 2 );
+				$where .= $wpdb->prepare( " AND SECOND({$wpdb->posts}.post_date)=%02d", substr( $query_vars['m'], 12, 2 ) );
 			}
 		}
 
@@ -2172,8 +2173,9 @@ class WP_Query {
 			if ( ( 'page' !== get_option( 'show_on_front' ) ) || empty( $page_for_posts ) || ( $reqpage != $page_for_posts ) ) {
 				$query_vars['pagename'] = sanitize_title_for_query( wp_basename( $query_vars['pagename'] ) );
 				$query_vars['name']     = $query_vars['pagename'];
-				$where                 .= " AND ({$wpdb->posts}.ID = '$reqpage')";
-				$reqpage_obj            = get_post( $reqpage );
+				// The value is wrapped in an array so that an array value is queried as 0 instead of dropping the condition.
+				$where      .= $wpdb->prepare( " AND ({$wpdb->posts}.ID = '%d')", array( $reqpage ) ); // phpcs:ignore WordPress.DB.PreparedSQLPlaceholders.QuotedSimplePlaceholder -- Quoted to keep the SQL unchanged for filters.
+				$reqpage_obj = get_post( $reqpage );
 				if ( is_object( $reqpage_obj ) && 'attachment' === $reqpage_obj->post_type ) {
 					$this->is_attachment         = true;
 					$post_type                   = 'attachment';
@@ -2202,7 +2204,8 @@ class WP_Query {
 
 		// If a post number is specified, load that post.
 		if ( $query_vars['p'] ) {
-			$where .= " AND {$wpdb->posts}.ID = " . $query_vars['p'];
+			// The value is wrapped in an array so that an array value is queried as 0 instead of dropping the condition.
+			$where .= $wpdb->prepare( " AND {$wpdb->posts}.ID = %d", array( $query_vars['p'] ) );
 		} elseif ( $query_vars['post__in'] ) {
 			// Duplicate array before sorting to allow for the orderby clause.
 			$post__in_for_where = $query_vars['post__in'];
@@ -2234,7 +2237,8 @@ class WP_Query {
 		if ( $query_vars['page_id'] ) {
 			if ( ( 'page' !== get_option( 'show_on_front' ) ) || ( get_option( 'page_for_posts' ) != $query_vars['page_id'] ) ) {
 				$query_vars['p'] = $query_vars['page_id'];
-				$where           = " AND {$wpdb->posts}.ID = " . $query_vars['page_id'];
+				// The value is wrapped in an array so that an array value is queried as 0 instead of dropping the condition.
+				$where = $wpdb->prepare( " AND {$wpdb->posts}.ID = %d", array( $query_vars['page_id'] ) );
 			}
 		}
 
@@ -2588,16 +2592,16 @@ class WP_Query {
 			if ( in_array( 'any', $q_status, true ) ) {
 				foreach ( get_post_stati( array( 'exclude_from_search' => true ) ) as $status ) {
 					if ( ! in_array( $status, $q_status, true ) ) {
-						$e_status[] = "{$wpdb->posts}.post_status <> '$status'";
+						$e_status[] = $wpdb->prepare( "{$wpdb->posts}.post_status <> %s", $status );
 					}
 				}
 			} else {
 				foreach ( get_post_stati() as $status ) {
 					if ( in_array( $status, $q_status, true ) ) {
 						if ( 'private' === $status ) {
-							$p_status[] = "{$wpdb->posts}.post_status = '$status'";
+							$p_status[] = $wpdb->prepare( "{$wpdb->posts}.post_status = %s", $status );
 						} else {
-							$r_status[] = "{$wpdb->posts}.post_status = '$status'";
+							$r_status[] = $wpdb->prepare( "{$wpdb->posts}.post_status = %s", $status );
 						}
 					}
 				}
@@ -2613,14 +2617,14 @@ class WP_Query {
 			}
 			if ( ! empty( $r_status ) ) {
 				if ( ! empty( $query_vars['perm'] ) && 'editable' === $query_vars['perm'] && ! current_user_can( $edit_others_cap ) ) {
-					$statuswheres[] = "({$wpdb->posts}.post_author = $user_id " . 'AND (' . implode( ' OR ', $r_status ) . '))';
+					$statuswheres[] = $wpdb->prepare( "({$wpdb->posts}.post_author = %d ", $user_id ) . 'AND (' . implode( ' OR ', $r_status ) . '))';
 				} else {
 					$statuswheres[] = '(' . implode( ' OR ', $r_status ) . ')';
 				}
 			}
 			if ( ! empty( $p_status ) ) {
 				if ( ! empty( $query_vars['perm'] ) && 'readable' === $query_vars['perm'] && ! current_user_can( $read_private_cap ) ) {
-					$statuswheres[] = "({$wpdb->posts}.post_author = $user_id " . 'AND (' . implode( ' OR ', $p_status ) . '))';
+					$statuswheres[] = $wpdb->prepare( "({$wpdb->posts}.post_author = %d ", $user_id ) . 'AND (' . implode( ' OR ', $p_status ) . '))';
 				} else {
 					$statuswheres[] = '(' . implode( ' OR ', $p_status ) . ')';
 				}
@@ -2660,7 +2664,7 @@ class WP_Query {
 					$public_statuses = get_post_stati( array( 'public' => true ) );
 					$status_clauses  = array();
 					foreach ( $public_statuses as $public_status ) {
-						$status_clauses[] = "{$wpdb->posts}.post_status = '$public_status'";
+						$status_clauses[] = $wpdb->prepare( "{$wpdb->posts}.post_status = %s", $public_status );
 					}
 					$type_where .= implode( ' OR ', $status_clauses );
 
@@ -2673,7 +2677,7 @@ class WP_Query {
 							)
 						);
 						foreach ( $admin_all_statuses as $admin_all_status ) {
-							$type_where .= " OR {$wpdb->posts}.post_status = '$admin_all_status'";
+							$type_where .= $wpdb->prepare( " OR {$wpdb->posts}.post_status = %s", $admin_all_status );
 						}
 					}
 
@@ -2682,7 +2686,7 @@ class WP_Query {
 						$read_private_cap = $queried_post_type_object->cap->read_private_posts;
 						$private_statuses = get_post_stati( array( 'private' => true ) );
 						foreach ( $private_statuses as $private_status ) {
-							$type_where .= current_user_can( $read_private_cap ) ? " \nOR {$wpdb->posts}.post_status = '$private_status'" : " \nOR ({$wpdb->posts}.post_author = $user_id AND {$wpdb->posts}.post_status = '$private_status')";
+							$type_where .= current_user_can( $read_private_cap ) ? $wpdb->prepare( " \nOR {$wpdb->posts}.post_status = %s", $private_status ) : $wpdb->prepare( " \nOR ({$wpdb->posts}.post_author = %d AND {$wpdb->posts}.post_status = %s)", $user_id, $private_status );
 						}
 					}
 
@@ -3243,6 +3247,9 @@ class WP_Query {
 					 $groupby
 					 $orderby
 					 $limits";
+
+				// The value is wrapped in an array so that an array value is queried as 0 instead of dropping the condition.
+				$climits = $wpdb->prepare( 'LIMIT %d', array( get_option( 'posts_per_rss' ) ) );
 
 				/**
 				 * Filters the Post IDs SQL request before sending.
