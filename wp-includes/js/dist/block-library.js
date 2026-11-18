@@ -3168,6 +3168,13 @@ var wp;
     }
   });
 
+  // package-external:@wordpress/escape-html
+  var require_escape_html = __commonJS({
+    "package-external:@wordpress/escape-html"(exports, module) {
+      module.exports = window.wp.escapeHtml;
+    }
+  });
+
   // node_modules/remove-accents/index.js
   var require_remove_accents = __commonJS({
     "node_modules/remove-accents/index.js"(exports, module) {
@@ -3668,13 +3675,6 @@ var wp;
   var require_a11y = __commonJS({
     "package-external:@wordpress/a11y"(exports, module) {
       module.exports = window.wp.a11y;
-    }
-  });
-
-  // package-external:@wordpress/escape-html
-  var require_escape_html = __commonJS({
-    "package-external:@wordpress/escape-html"(exports, module) {
-      module.exports = window.wp.escapeHtml;
     }
   });
 
@@ -18106,14 +18106,6 @@ ${url}
       attributes: { providerNameSlug: "dailymotion", responsive: true }
     },
     {
-      name: "imgur",
-      title: getTitle("Imgur"),
-      icon: embedPhotoIcon,
-      description: (0, import_i18n40.__)("Embed Imgur content."),
-      patterns: [/^https?:\/\/(.+\.)?imgur\.com\/.+/i],
-      attributes: { providerNameSlug: "imgur", responsive: true }
-    },
-    {
       name: "issuu",
       title: getTitle("Issuu"),
       icon: embedContentIcon,
@@ -19284,6 +19276,7 @@ ${url}
   var import_blocks26 = __toESM(require_blocks(), 1);
   var import_data23 = __toESM(require_data(), 1);
   var import_core_data11 = __toESM(require_core_data(), 1);
+  var import_escape_html = __toESM(require_escape_html(), 1);
   var import_url6 = __toESM(require_url(), 1);
   var transforms8 = {
     from: [
@@ -19361,7 +19354,9 @@ ${url}
         transform: (attributes2) => {
           return (0, import_blocks26.createBlock)("core/file", {
             href: attributes2.url,
-            fileName: attributes2.caption || (0, import_url6.getFilename)(attributes2.url),
+            fileName: attributes2.caption || (0, import_escape_html.escapeEditableHTML)(
+              (0, import_url6.getFilename)(attributes2.url) ?? ""
+            ),
             textLinkHref: attributes2.url,
             id: attributes2.id,
             anchor: attributes2.anchor
@@ -36570,10 +36565,10 @@ ${js}
   var import_data65 = __toESM(require_data(), 1);
   var import_block_editor120 = __toESM(require_block_editor(), 1);
   var import_dom5 = __toESM(require_dom(), 1);
-  var import_escape_html2 = __toESM(require_escape_html(), 1);
+  var import_escape_html3 = __toESM(require_escape_html(), 1);
 
   // packages/block-library/build-module/navigation-link/shared/update-attributes.mjs
-  var import_escape_html = __toESM(require_escape_html(), 1);
+  var import_escape_html2 = __toESM(require_escape_html(), 1);
   var import_url10 = __toESM(require_url(), 1);
   var shouldSeverEntityLink = (originalUrl, newUrl) => {
     if (!originalUrl || !newUrl) {
@@ -36650,7 +36645,7 @@ ${js}
     // live in the LinkControl and not here. It's a great
     // candidate for future refactoring.
     newLabelWithoutHttp !== newUrlWithoutHttp;
-    const label = useNewLabel ? (0, import_escape_html.escapeHTML)(finalNewLabel) : originalLabel || (0, import_escape_html.escapeHTML)(newUrlWithoutHttp);
+    const label = useNewLabel ? (0, import_escape_html2.escapeHTML)(finalNewLabel) : originalLabel || (0, import_escape_html2.escapeHTML)(newUrlWithoutHttp);
     const type = newType === "post_tag" ? "tag" : newType.replace("-", "_");
     const isBuiltInType = ["post", "page", "tag", "category"].indexOf(type) > -1;
     const isCustomLink = !newKind && !isBuiltInType || newKind === "custom";
@@ -36715,7 +36710,7 @@ ${js}
         const currentText = attributes2.label ? (0, import_dom5.__unstableStripHTML)(attributes2.label) : "";
         const updatedText = updatedLink.title ?? "";
         const hasTextUpdate = allowTextUpdate && updatedLink.title !== void 0 && updatedText !== currentText;
-        const textUpdateAttributes = hasTextUpdate ? { label: (0, import_escape_html2.escapeHTML)(updatedText) } : {};
+        const textUpdateAttributes = hasTextUpdate ? { label: (0, import_escape_html3.escapeHTML)(updatedText) } : {};
         if (!attributes2.label || attributes2.label === "" || hasTextUpdate) {
           attrs.title = updatedLink.title;
         }

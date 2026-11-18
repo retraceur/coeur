@@ -136,7 +136,7 @@
 			'wp-url',
 			'wp-wordcount'
 		),
-		'version' => '753b96cea65da7ee82eb'
+		'version' => '4589383c9033ac234e49'
 	),
 	'block-serialization-default-parser.js' => array(
 		'dependencies' => array(
@@ -260,7 +260,7 @@
 			'wp-url',
 			'wp-warning'
 		),
-		'version' => '89931f90e4df5eb5f8a3'
+		'version' => '1828550d31cb36ac171c'
 	),
 	'data.js' => array(
 		'dependencies' => array(
