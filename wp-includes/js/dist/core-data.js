@@ -575,6 +575,28 @@ var wp;
     return /^\s*\d+\s*$/.test(id2);
   }
 
+  // packages/core-data/build-module/utils/is-safe-entity-key.mjs
+  var UNSAFE_CHARACTERS = /[?#&\\\x00-\x1f\x7f]/;
+  function isSafeEntityKey(key) {
+    if (key === null || key === void 0 || typeof key === "number") {
+      return true;
+    }
+    if (typeof key !== "string") {
+      return false;
+    }
+    if (/%2f/i.test(key)) {
+      return false;
+    }
+    const decoded = key.replace(
+      /%([0-7][0-9a-f])/gi,
+      (match2, hex) => String.fromCharCode(parseInt(hex, 16))
+    );
+    if (UNSAFE_CHARACTERS.test(decoded)) {
+      return false;
+    }
+    return decoded.split("/").every((segment) => segment !== "." && segment !== "..");
+  }
+
   // packages/core-data/build-module/utils/user-permissions.mjs
   var ALLOWED_RESOURCE_ACTIONS = [
     "create",
@@ -15816,6 +15838,7 @@ ${err.toString()}`);
           "site_icon",
           "site_icon_url",
           "site_logo",
+          "default_opengraph_image",
           "timezone_string",
           "url",
           "page_for_posts",
@@ -18024,6 +18047,9 @@ ${err.toString()}`);
         baseURL = baseURL.slice(0, baseURL.lastIndexOf("/")) + "/templates";
       }
       try {
+        if (!isSafeEntityKey(recordId)) {
+          throw new Error("Invalid entity record key.");
+        }
         let path = `${baseURL}/${recordId}`;
         if (query) {
           path = (0, import_url3.addQueryArgs)(path, query);
@@ -18229,6 +18255,9 @@ ${err.toString()}`);
         baseURL = baseURL.slice(0, baseURL.lastIndexOf("/")) + "/templates";
       }
       try {
+        if (!isSafeEntityKey(recordId)) {
+          throw new Error("Invalid entity record key.");
+        }
         const path = `${baseURL}${recordId ? "/" + recordId : ""}`;
         const persistedRecord = !isNewRecord ? select4.getRawEntityRecord(kind, name, recordId) : {};
         if (isAutosave) {
@@ -18547,6 +18576,9 @@ ${err.toString()}`);
         recordId
       });
       try {
+        if (!isSafeEntityKey(recordId)) {
+          throw new Error("Invalid entity record key.");
+        }
         const path = `${entityConfig.baseURL}/${recordId}/edit`;
         const newRecord = await __unstableFetch({
           path,
@@ -18904,6 +18936,9 @@ ${err.toString()}`);
       (config) => config.name === name && config.kind === kind
     );
     if (!entityConfig) {
+      return;
+    }
+    if (!isSafeEntityKey(key)) {
       return;
     }
     const lock3 = await dispatch3.__unstableAcquireStoreLock(
@@ -19324,6 +19359,9 @@ ${err.toString()}`);
       if (!resource.kind || !resource.name) {
         throw new Error("The entity resource object is not valid.");
       }
+      if (!isSafeEntityKey(resource.id)) {
+        return;
+      }
       const configs = await resolveSelect2.getEntitiesConfig(
         resource.kind
       );
@@ -19335,6 +19373,9 @@ ${err.toString()}`);
       }
       resourcePath = entityConfig.baseURL + (resource.id ? "/" + resource.id : "");
     } else {
+      if (!isSafeEntityKey(resource) || !isSafeEntityKey(id2)) {
+        return;
+      }
       resourcePath = `/wp/v2/${resource}` + (id2 ? "/" + id2 : "");
     }
     let response;
@@ -19367,6 +19408,9 @@ ${err.toString()}`);
     await dispatch3(canUser2("update", { kind, name, id: recordId }));
   };
   var getAutosaves2 = (postType, postId) => async ({ dispatch: dispatch3, resolveSelect: resolveSelect2 }) => {
+    if (!isSafeEntityKey(postId)) {
+      return;
+    }
     const {
       rest_base: restBase,
       rest_namespace: restNamespace = "wp/v2",
@@ -19543,7 +19587,7 @@ ${err.toString()}`);
     const entityConfig = configs.find(
       (config) => config.name === name && config.kind === kind
     );
-    if (!entityConfig) {
+    if (!entityConfig || !isSafeEntityKey(recordKey)) {
       return;
     }
     const rawQuery = { ...query };
@@ -19625,7 +19669,7 @@ ${err.toString()}`);
     const entityConfig = configs.find(
       (config) => config.name === name && config.kind === kind
     );
-    if (!entityConfig) {
+    if (!entityConfig || !isSafeEntityKey(recordKey) || !isSafeEntityKey(revisionKey)) {
       return;
     }
     if (query !== void 0 && query._fields) {
