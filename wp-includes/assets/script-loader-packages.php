@@ -429,7 +429,7 @@
 				'import' => 'static'
 			)
 		),
-		'version' => '58521ec67dfab0a7b987'
+		'version' => '439b8d9370f497527683'
 	),
 	'editor.js' => array(
 		'dependencies' => array(

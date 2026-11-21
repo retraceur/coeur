@@ -20541,6 +20541,19 @@ var wp;
       setValue: ({ value }) => ({
         site_icon: value ?? 0
       })
+    },
+    {
+      id: "default_opengraph_image",
+      type: "media",
+      label: (0, import_i18n25.__)("Open Graph Image"),
+      description: (0, import_i18n25.__)(
+        "Shown in social networks. It should be a landscape image and at least 1200 by 630 pixels."
+      ),
+      placeholder: (0, import_i18n25.__)("Choose image"),
+      Edit: MediaEdit,
+      setValue: ({ value }) => ({
+        default_opengraph_image: value ?? 0
+      })
     }
   ];
   var form = {
@@ -20548,7 +20561,13 @@ var wp;
       type: "regular",
       labelPosition: "top"
     },
-    fields: ["title", "description", "site_logo", "site_icon"]
+    fields: [
+      "title",
+      "description",
+      "site_logo",
+      "site_icon",
+      "default_opengraph_image"
+    ]
   };
   function SidebarIdentity() {
     const data = (0, import_data37.useSelect)(
