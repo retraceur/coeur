@@ -3,7 +3,11 @@
 	"version": "5.0.0-alpha",
 	"description": "Personal Online Publication Hub",
 	"scripts": {
-		"postinstall": "node bin/setup-phpcs.mjs",
+		"postinstall": "node bin/setup-phpcs.mjs && node bin/phpunit.mjs setup",
+		"phpunit": "node bin/phpunit.mjs test",
+		"phpunit:install-db": "node bin/phpunit.mjs install-db",
+		"phpunit:update": "node bin/phpunit.mjs update",
+		"phpunit:pin": "node bin/phpunit.mjs pin",
 		"lint:php": "node bin/phpcs.mjs",
 		"lint:php:errors": "node bin/phpcs.mjs -n",
 		"lint:php:codes": "node bin/phpcs.mjs --report=source",
