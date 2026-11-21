@@ -48,6 +48,19 @@ class Retraceur_Opengraph_Resolver {
 	}
 
 	/**
+	 * Checks whether the post content can be exposed.
+	 *
+	 * @since 5.0.0 Retraceur fork.
+	 *
+	 * @return boolean True when the post content can be exposed. False otherwise.
+	 */
+	private function can_expose_post_content() {
+		$post = get_post();
+
+		return $post && ! post_password_required( $post ) && is_post_publicly_viewable( $post );
+	}
+
+	/**
 	 * Resolves the `type` property of the Retraceur Opengraph context.
 	 *
 	 * @since 3.0.0 Retraceur fork.
@@ -140,11 +153,12 @@ class Retraceur_Opengraph_Resolver {
 		if ( is_singular() ) {
 			$post = get_post();
 
-			if ( ! empty( $post->post_excerpt ) ) {
+			if ( ! $this->can_expose_post_content() ) {
+				$description = '';
+			} elseif ( ! empty( $post->post_excerpt ) ) {
 				$description = $post->post_excerpt;
 			} else {
-				/** This filter is documented in wp-includes/post-template.php */
-				$description = apply_filters( 'the_content', $post->post_content );
+				$description = do_blocks( $post->post_content );
 			}
 		} else {
 			// Defaults to site's tagline.
@@ -200,7 +214,7 @@ class Retraceur_Opengraph_Resolver {
 	public function resolve_image() {
 		$image = '';
 
-		if ( is_singular() && has_post_thumbnail() ) {
+		if ( is_singular() && $this->can_expose_post_content() && has_post_thumbnail() ) {
 			$image = get_the_post_thumbnail_url( null, 'opengraph' );
 		}
 
