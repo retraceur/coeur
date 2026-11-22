@@ -5,7 +5,7 @@
 node_modules
 
 # Minified JS.
-built
+/built
 
 # Logs.
 *.log
@@ -18,8 +18,12 @@ built
 /.phpcs/
 /.cache/
 
+# PHPUnit
+/.phpunit
+/phpunit-testcases
+
 # Config file.
-wp-config.php
+/wp-config.php
 
 # Sqlite dropin & database folder.
 /wp-content/db.php
@@ -37,13 +41,13 @@ wp-config.php
 /wp-content/mu-plugins/
 
 # Ignore all other themes in wp-content/themes/
-wp-content/themes/*
+/wp-content/themes/*
 
 # Keep theme's index.php file
-!wp-content/themes/index.php
+!/wp-content/themes/index.php
 
 # Keep point's theme
-!wp-content/themes/point/
+!/wp-content/themes/point/
 
 # Languages.
 /wp-content/languages
