@@ -257,7 +257,7 @@
 				"css": "&.post-format-status { align-items: center; }"
 			},
 			"core/post-content": {
-				"css": "&.post-format-status { background-color: #f2f4fc; padding: 12px; }"
+				"css": "&.post-format-status { background-color: #f2f4fc; padding: 12px; & .post-password-form input[type='password'] { font-size: 1.2rem; line-height: inherit; padding: calc(.667em + 2px) 1em; border-color: var(--wp--preset--color--retraceur-blue); background: var(--wp--preset--color--tertiary); } & .post-password-form input[type='password']:focus-visible { outline-color: var(--wp--preset--color--retraceur-blue-hover); }"
 			},
 			"core/post-group": {
 				"css": "&.post-format-status { position: relative; margin: -12px; }"
