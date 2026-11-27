@@ -25,6 +25,7 @@ import discoveryStore from './../store';
 import { unlock } from '../lock-unlock';
 
 const { Tabs } = unlock( componentsPrivateApis );
+const EMPTY_ARRAY = [];
 
 const actions = [
 	{
@@ -75,7 +76,7 @@ const actions = [
 				} finally {
 					setInstalling( false );
 				}
-			}, [ repository ] );
+			}, [ repository, discoverySettings, item.full_name, markAsInstalled ] );
 
 			if ( isInstalling || isRequesting ) {
 				return (
@@ -207,7 +208,7 @@ const actions = [
 			// Releases are only fetched if the corresponding tab is active.
 			const { releases, isRequestingReleases } = useSelect( ( select ) => {
 				if ( activeTab !== 'releases' ) {
-					return { releases: [], isRequestingReleases: false };
+					return { releases: EMPTY_ARRAY, isRequestingReleases: false };
 				}
 				return {
 					releases: select( discoveryStore ).getReleases( item.full_name ),

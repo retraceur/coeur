@@ -2,11 +2,14 @@
  * WP dependencies.
  */
 import { __, sprintf } from '@wordpress/i18n';
+import { createSelector } from '@wordpress/data'
 
 /**
  * Internal dependencies.
  */
 import { isVersionSatisfied } from './utils/version';
+
+const EMPTY_ARRAY = [];
 
 /**
  * Returns the discovery settings.
@@ -27,42 +30,48 @@ export const getSettings = ( state ) => {
  *
  * @return {{ compatible: boolean, reasons: string[] }} Compatibility result.
  */
-export function getRepositoryCompatibility( state, repository ) {
-	const details  = state?.details?.[ repository ] ?? {};
-	const versions = state?.settings?.versions ?? {};
-	const reasons  = [];
+export const getRepositoryCompatibility = createSelector(
+	( state, repository ) => {
+		const details  = state?.details?.[ repository ] ?? {};
+		const versions = state?.settings?.versions ?? {};
+		const reasons  = [];
 
-	if ( details.requires_retraceur && versions.retraceur ) {
-		if ( ! isVersionSatisfied( versions.retraceur, details.requires_retraceur ) ) {
-			reasons.push(
-				sprintf(
-					/* Translators: 1: required version, 2: installed version. */
-					__( 'Requires Retraceur %1$s or higher. You are running %2$s.' ),
-					details.requires_retraceur,
-					versions.retraceur
-				)
-			);
+		if ( details.requires_retraceur && versions.retraceur ) {
+			if ( ! isVersionSatisfied( versions.retraceur, details.requires_retraceur ) ) {
+				reasons.push(
+					sprintf(
+						/* Translators: 1: required version, 2: installed version. */
+						__( 'Requires Retraceur %1$s or higher. You are running %2$s.' ),
+						details.requires_retraceur,
+						versions.retraceur
+					)
+				);
+			}
 		}
-	}
 
-	if ( details.requires_php && versions.php ) {
-		if ( ! isVersionSatisfied( versions.php, details.requires_php ) ) {
-			reasons.push(
-				sprintf(
-					/* Translators: 1: required version, 2: installed version. */
-					__( 'Requires PHP %1$s or higher. You are running %2$s.' ),
-					details.requires_php,
-					versions.php
-				)
-			);
+		if ( details.requires_php && versions.php ) {
+			if ( ! isVersionSatisfied( versions.php, details.requires_php ) ) {
+				reasons.push(
+					sprintf(
+						/* Translators: 1: required version, 2: installed version. */
+						__( 'Requires PHP %1$s or higher. You are running %2$s.' ),
+						details.requires_php,
+						versions.php
+					)
+				);
+			}
 		}
-	}
 
-	return {
-		compatible: reasons.length === 0,
-		reasons,
-	};
-}
+		return {
+			compatible: reasons.length === 0,
+			reasons,
+		};
+	},
+	( state, repository ) => [
+		state?.details?.[ repository ],
+		state?.settings?.versions,
+	]
+);
 
 /**
  * Returns whether the repositories are being requested.
@@ -86,7 +95,7 @@ export function isRequestingRepositories( state ) {
  * @return {Array} Repositories.
  */
 export function getRepositories( state, pluginType, page = 1, perPage = 10 ) {
-	return state?.resultsByPage?.[ page ] ?? [];
+	return state?.resultsByPage?.[ page ] ?? EMPTY_ARRAY;
 }
 
 /**
@@ -96,12 +105,13 @@ export function getRepositories( state, pluginType, page = 1, perPage = 10 ) {
  *
  * @return {Object} The amount of repositories and remaining pages.
  */
-export function getRepositoriesPaginationInfo( state ) {
-	return {
+export const getRepositoriesPaginationInfo = createSelector(
+	( state ) => ( {
 		totalItems: state?.totalItems ?? 0,
 		totalPages: state?.totalPages ?? 0,
-	};
-}
+	} ),
+	( state ) => [ state?.totalItems, state?.totalPages ]
+);
 
 /**
  * Returns whether the releases for a given repository are being requested.
@@ -124,7 +134,7 @@ export function isRequestingReleases( state, repository ) {
  * @return {Array} Releases.
  */
 export function getReleases( state, repository ) {
-	return state?.releases?.[ repository ] ?? [];
+	return state?.releases?.[ repository ] ?? EMPTY_ARRAY;
 }
 
 /**
@@ -147,11 +157,17 @@ export function isRequestingRepository( state, repository ) {
  *
  * @return {Object} Repository with details.
  */
-export function getRepository( state, repository ) {
-	const base    = state?.repositoriesByFullName?.[ repository ] ?? {};
-	const details = state?.details?.[ repository ] ?? {};
-	return { ...base, ...details };
-}
+export const getRepository = createSelector(
+	( state, repository ) => {
+		const base    = state?.repositoriesByFullName?.[ repository ] ?? {};
+		const details = state?.details?.[ repository ] ?? {};
+		return { ...base, ...details };
+	},
+	( state, repository ) => [
+		state?.repositoriesByFullName?.[ repository ],
+		state?.details?.[ repository ],
+	]
+);
 
 /**
  * Returns whether the changelog for a given repository is being requested.
